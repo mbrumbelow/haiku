@@ -387,7 +387,7 @@ Inode::Inode(Volume* volume, Transaction& transaction, ino_t id, mode_t mode,
 	recursive_lock_init(&fSmallDataLock, "bfs inode small data");
 
 	NodeGetter node(volume);
-	status_t status = node.SetToWritable(transaction, this, true);
+	status_t status = node.SetToWritableNode(transaction, this, true);
 	if (status != B_OK) {
 		FATAL(("Could not read inode block %" B_PRId64 ": %s!\n", BlockNumber(),
 			strerror(status)));
@@ -495,7 +495,7 @@ status_t
 Inode::WriteBack(Transaction& transaction)
 {
 	NodeGetter node(fVolume);
-	status_t status = node.SetToWritable(transaction, this);
+	status_t status = node.SetToWritableNode(transaction, this);
 	if (status != B_OK)
 		return status;
 
@@ -973,7 +973,7 @@ Inode::SetName(Transaction& transaction, const char* name)
 		return B_BAD_VALUE;
 
 	NodeGetter node(fVolume);
-	status_t status = node.SetToWritable(transaction, this);
+	status_t status = node.SetToWritableNode(transaction, this);
 	if (status != B_OK)
 		return status;
 
@@ -1121,7 +1121,7 @@ Inode::WriteAttribute(Transaction& transaction, const char* name, int32 type,
 
 		// save the old attribute data
 		NodeGetter node(fVolume);
-		status = node.SetToWritable(transaction, this);
+		status = node.SetToWritableNode(transaction, this);
 		if (status != B_OK)
 			return status;
 
@@ -1194,7 +1194,7 @@ Inode::WriteAttribute(Transaction& transaction, const char* name, int32 type,
 
 		// check if the data fits into the small_data section again
 		NodeGetter node(fVolume);
-		status = node.SetToWritable(transaction, this);
+		status = node.SetToWritableNode(transaction, this);
 		if (status != B_OK)
 			return status;
 
@@ -2834,6 +2834,32 @@ Inode::Create(Transaction& transaction, Inode* parent, const char* name,
 	// if either _id or _inode is passed, we will keep the inode locked
 	if (_id == NULL && _inode == NULL)
 		put_vnode(volume->FSVolume(), inode->ID());
+
+	return B_OK;
+}
+
+
+status_t
+Inode::Copy(Transaction& transaction, off_t targetBlock)
+{
+	NodeGetter target(fVolume);
+	status_t status = target.SetToWritable(transaction, targetBlock, true);
+	if (status != B_OK)
+		RETURN_ERROR(status);
+
+	uint8* targetData = (uint8*)target.WritableBlock();
+
+	CachedBlock source(fVolume);
+	status = source.SetTo(fID);
+	if (status != B_OK)
+		return status;
+
+	const uint8* sourceData = source.Block();
+
+	memcpy(targetData, sourceData, fVolume->BlockSize());
+
+	// update inode ID in target block
+	target.WritableNode()->inode_num = fVolume->ToBlockRun(targetBlock);
 
 	return B_OK;
 }

@@ -173,6 +173,8 @@ public:
 									ino_t* _id = NULL, Inode** _inode = NULL,
 									fs_vnode_ops* vnodeOps = NULL,
 									uint32 publishFlags = 0);
+			status_t			Copy(Transaction& transaction,
+									off_t targetBlock);
 
 			// index maintaining helper
 			void				UpdateOldSize() { fOldSize = Size(); }
@@ -352,7 +354,7 @@ public:
 		return CachedBlock::SetTo(fVolume->VnodeToBlock(inode->ID()));
 	}
 
-	status_t SetToWritable(Transaction& transaction, const Inode* inode,
+	status_t SetToWritableNode(Transaction& transaction, const Inode* inode,
 		bool empty = false)
 	{
 		return CachedBlock::SetToWritable(transaction,
