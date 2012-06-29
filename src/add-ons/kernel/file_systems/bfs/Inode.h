@@ -255,6 +255,10 @@ private:
 									off_t size);
 			status_t			_ShrinkStream(Transaction& transaction,
 									off_t size);
+			status_t			_AddBlockRun(Transaction& transaction,
+									data_stream* data, block_run run,
+									off_t targetSize, int32* rest = NULL,
+									off_t beginBlock = 0, off_t endBlock = 0);
 
 private:
 			rw_lock				fLock;
@@ -360,6 +364,8 @@ public:
 		return CachedBlock::SetToWritable(transaction,
 			fVolume->VnodeToBlock(inode->ID()), empty);
 	}
+
+	using CachedBlock::SetToWritable;
 
 	const bfs_inode* Node() const { return (const bfs_inode*)Block(); }
 	bfs_inode* WritableNode() const { return (bfs_inode*)Block();  }
