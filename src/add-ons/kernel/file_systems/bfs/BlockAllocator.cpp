@@ -1774,7 +1774,8 @@ BlockAllocator::CheckBlocks(off_t start, off_t length, bool allocated)
 
 	AllocationBlock cached(fVolume);
 
-	while (groupBlock < fGroups[group].NumBlocks() && length > 0) {
+	while (group < fNumGroups && groupBlock < fGroups[group].NumBlocks()
+		&& length > 0) {
 		if (cached.SetTo(fGroups[group], groupBlock) != B_OK)
 			RETURN_ERROR(B_IO_ERROR);
 
