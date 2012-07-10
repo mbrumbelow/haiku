@@ -506,8 +506,6 @@ BlockAllocator::BlockAllocator(Volume* volume)
 	:
 	fVolume(volume),
 	fGroups(NULL)
-	//fCheckBitmap(NULL),
-	//fCheckCookie(NULL)
 {
 	recursive_lock_init(&fLock, "bfs allocator");
 }
@@ -525,8 +523,6 @@ BlockAllocator::Initialize(bool full)
 {
 	fNumGroups = fVolume->AllocationGroups();
 	fBlocksPerGroup = fVolume->SuperBlock().BlocksPerAllocationGroup();
-	//fNumBlocks = (fVolume->NumBlocks() + fVolume->BlockSize() * 8 - 1)
-		/// (fVolume->BlockSize() * 8);
 	fNumBlocks = fVolume->NumBitmapBlocks();
 
 	fGroups = new(std::nothrow) AllocationGroup[fNumGroups];
@@ -607,6 +603,22 @@ BlockAllocator::InitializeAndClearBitmap(Transaction& transaction)
 		= HOST_ENDIAN_TO_BFS_INT64(reservedBlocks);
 
 	return B_OK;
+}
+
+
+status_t
+BlockAllocator::Reinitialize()
+{
+	RecursiveLocker locker(fLock);
+
+	// need to write back any pending changes to the block bitmap
+	// TODO: shall we read through the cache in _Initialize instead?
+	status_t status = fVolume->GetJournal(0)->FlushLogAndBlocks();
+	if (status != B_OK)
+		return status;
+
+	delete[] fGroups;
+	return Initialize();
 }
 
 
