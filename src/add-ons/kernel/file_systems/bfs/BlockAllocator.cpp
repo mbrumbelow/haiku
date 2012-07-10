@@ -505,8 +505,6 @@ BlockAllocator::BlockAllocator(Volume* volume)
 	:
 	fVolume(volume),
 	fGroups(NULL)
-	//fCheckBitmap(NULL),
-	//fCheckCookie(NULL)
 {
 	recursive_lock_init(&fLock, "bfs allocator");
 }
@@ -524,8 +522,6 @@ BlockAllocator::Initialize(bool full)
 {
 	fNumGroups = fVolume->AllocationGroups();
 	fBlocksPerGroup = fVolume->SuperBlock().BlocksPerAllocationGroup();
-	//fNumBlocks = (fVolume->NumBlocks() + fVolume->BlockSize() * 8 - 1)
-		/// (fVolume->BlockSize() * 8);
 	fNumBlocks = fVolume->NumBitmapBlocks();
 
 	fGroups = new(std::nothrow) AllocationGroup[fNumGroups];
@@ -606,6 +602,28 @@ BlockAllocator::InitializeAndClearBitmap(Transaction& transaction)
 		= HOST_ENDIAN_TO_BFS_INT64(reservedBlocks);
 
 	return B_OK;
+}
+
+
+status_t
+BlockAllocator::Reinitialize()
+{
+	// need to write back any pending changes to the block bitmap
+	// TODO: shall we read through the cache in _Initialize instead?
+	status_t status = fVolume->GetJournal(0)->FlushLogAndLockJournal();
+	if (status != B_OK)
+		return status;
+
+	recursive_lock_lock(&fLock);
+		// the lock will be unlocked in the call to Initialize()
+
+	fVolume->GetJournal(0)->Unlock(NULL, true);
+		// unlock the journal here: we only need to make sure that no one
+		// starts a transaction before we get the allocator lock, as that
+		// would cause a deadlock
+
+	delete[] fGroups;
+	return Initialize();
 }
 
 
