@@ -23,6 +23,7 @@ class Transaction;
 class ResizeVisitor : public FileSystemVisitor {
 public:
 								ResizeVisitor(Volume* volume);
+	virtual						~ResizeVisitor();
 
 			status_t			Resize(off_t size, disk_job_id job);
 
