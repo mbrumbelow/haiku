@@ -4011,13 +4011,23 @@ mark_vnode_busy(fs_volume* volume, ino_t vnodeID, bool busy)
 
 
 extern "C" status_t
-change_vnode_id(fs_volume* volume, ino_t vnodeID, ino_t newID)
+change_vnode_id(fs_volume* volume, ino_t vnodeID, ino_t newID, ino_t dirID,
+	const char* name)
 {
 	WriteLocker locker(sVnodeLock);
 
 	struct vnode* vnode = lookup_vnode(volume->id, vnodeID);
 	if (vnode == NULL)
 		return B_ENTRY_NOT_FOUND;
+
+	if (name != NULL) {
+		status_t status = vnode->mount->entry_cache.Remove(dirID, name);
+		if (status == B_OK)
+			status = vnode->mount->entry_cache.Add(dirID, name, newID, false);
+
+		if (status != B_OK && status != B_ENTRY_NOT_FOUND)
+			return status;
+	}
 
 	sVnodeTable->Remove(vnode);
 	vnode->id = newID;
