@@ -1066,7 +1066,7 @@ bfs_create_symlink(fs_volume* _volume, fs_vnode* _directory, const char* name,
 		RETURN_ERROR(B_BAD_TYPE);
 
 	status_t status = directory->CheckPermissions(W_OK);
-	if (status < B_OK)
+	if (status != B_OK)
 		RETURN_ERROR(status);
 
 	Transaction transaction(volume, directory->BlockNumber());
@@ -1075,7 +1075,7 @@ bfs_create_symlink(fs_volume* _volume, fs_vnode* _directory, const char* name,
 	off_t id;
 	status = Inode::Create(transaction, directory, name, S_SYMLINK | 0777,
 		0, 0, NULL, &id, &link);
-	if (status < B_OK)
+	if (status != B_OK)
 		RETURN_ERROR(status);
 
 	size_t length = strlen(path);
@@ -1138,7 +1138,7 @@ bfs_unlink(fs_volume* _volume, fs_vnode* _directory, const char* name)
 	Inode* directory = (Inode*)_directory->private_node;
 
 	status_t status = directory->CheckPermissions(W_OK);
-	if (status < B_OK)
+	if (status != B_OK)
 		return status;
 
 	Transaction transaction(volume, directory->BlockNumber());
@@ -1245,14 +1245,14 @@ bfs_rename(fs_volume* _volume, fs_vnode* _oldDir, const char* oldName,
 		// it, as long it's not a directory with files in it
 		off_t clobber;
 		if (newTree->Find((const uint8*)newName, strlen(newName), &clobber)
-				< B_OK)
+				!= B_OK)
 			return B_NAME_IN_USE;
 		if (clobber == id)
 			return B_BAD_VALUE;
 
 		Vnode vnode(volume, clobber);
 		Inode* other;
-		if (vnode.Get(&other) < B_OK)
+		if (vnode.Get(&other) != B_OK)
 			return B_NAME_IN_USE;
 
 		// only allowed, if either both nodes are directories or neither is
@@ -1261,7 +1261,7 @@ bfs_rename(fs_volume* _volume, fs_vnode* _oldDir, const char* oldName,
 
 		status = newDirectory->Remove(transaction, newName, NULL,
 			other->IsDirectory());
-		if (status < B_OK)
+		if (status != B_OK)
 			return status;
 
 		entry_cache_remove(volume->ID(), newDirectory->ID(), newName);
@@ -1516,7 +1516,7 @@ bfs_free_cookie(fs_volume* _volume, fs_vnode* _node, void* _cookie)
 
 		if (needsTrimming) {
 			status = inode->TrimPreallocation(transaction);
-			if (status < B_OK) {
+			if (status != B_OK) {
 				FATAL(("Could not trim preallocated blocks: inode %" B_PRIdINO
 					", transaction %d: %s!\n", inode->ID(),
 					(int)transaction.ID(), strerror(status)));
@@ -1575,7 +1575,7 @@ bfs_access(fs_volume* _volume, fs_vnode* _node, int accessMode)
 
 	Inode* inode = (Inode*)_node->private_node;
 	status_t status = inode->CheckPermissions(accessMode);
-	if (status < B_OK)
+	if (status != B_OK)
 		RETURN_ERROR(status);
 
 	return B_OK;
@@ -1595,7 +1595,7 @@ bfs_read_link(fs_volume* _volume, fs_vnode* _node, char* buffer,
 
 	if ((inode->Flags() & INODE_LONG_SYMLINK) != 0) {
 		status_t status = inode->ReadAt(0, (uint8*)buffer, _bufferSize);
-		if (status < B_OK)
+		if (status != B_OK)
 			RETURN_ERROR(status);
 
 		*_bufferSize = inode->Size();
@@ -1632,7 +1632,7 @@ bfs_create_dir(fs_volume* _volume, fs_vnode* _directory, const char* name,
 		RETURN_ERROR(B_BAD_TYPE);
 
 	status_t status = directory->CheckPermissions(W_OK);
-	if (status < B_OK)
+	if (status != B_OK)
 		RETURN_ERROR(status);
 
 	Transaction transaction(volume, directory->BlockNumber());
@@ -1699,7 +1699,7 @@ bfs_open_dir(fs_volume* _volume, fs_vnode* _node, void** _cookie)
 
 	Inode* inode = (Inode*)_node->private_node;
 	status_t status = inode->CheckPermissions(R_OK);
-	if (status < B_OK)
+	if (status != B_OK)
 		RETURN_ERROR(status);
 
 	// we don't ask here for directories only, because the bfs_open_index_dir()
@@ -2052,7 +2052,7 @@ bfs_create_special_node(fs_volume* _volume, fs_vnode* _directory,
 		RETURN_ERROR(B_BAD_TYPE);
 
 	status_t status = directory->CheckPermissions(W_OK);
-	if (status < B_OK)
+	if (status != B_OK)
 		RETURN_ERROR(status);
 
 	Transaction transaction(volume, directory->BlockNumber());
@@ -2228,7 +2228,7 @@ bfs_stat_index(fs_volume* _volume, const char* name, struct stat* stat)
 
 	Index index(volume);
 	status_t status = index.SetTo(name);
-	if (status < B_OK)
+	if (status != B_OK)
 		RETURN_ERROR(status);
 
 	bfs_inode& node = index.Node()->Node();
@@ -2267,7 +2267,7 @@ bfs_open_query(fs_volume* _volume, const char* queryString, uint32 flags,
 	if (expression == NULL)
 		RETURN_ERROR(B_NO_MEMORY);
 
-	if (expression->InitCheck() < B_OK) {
+	if (expression->InitCheck() != B_OK) {
 		INFORM(("Could not parse query \"%s\", stopped at: \"%s\"\n",
 			queryString, expression->Position()));
 
@@ -2409,7 +2409,7 @@ bfs_initialize(int fd, partition_id partitionID, const char* name,
 	Volume volume(NULL);
 	status = volume.Initialize(fd, name, parameters.blockSize,
 		parameters.flags);
-	if (status < B_OK) {
+	if (status != B_OK) {
 		INFORM(("Initializing volume failed: %s\n", strerror(status)));
 		return status;
 	}
