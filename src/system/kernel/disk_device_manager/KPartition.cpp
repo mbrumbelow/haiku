@@ -307,14 +307,14 @@ KPartition::ResizeDevice(off_t size)
 	status_t error = GetPath(&path);
 	if (error != B_OK) {
 		dprintf("KPartition::ResizeDevice(): Failed to get path for "
-			"partition %ld: %s\n", ID(), strerror(error));
+			"partition %" B_PRId32 ": %s\n", ID(), strerror(error));
 		return error;
 	}
 
 	error = devfs_resize_partition(path.Path(), size);
 	if (error != B_OK) {
 		dprintf("KPartition::ResizeDevice(): Failed to resize partition "
-			"%ld: %s\n", ID(), strerror(error));
+			"%" B_PRId32 ": %s\n", ID(), strerror(error));
 		return error;
 	}
 
