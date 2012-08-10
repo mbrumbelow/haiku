@@ -147,7 +147,7 @@ CheckVisitor::WriteBackCheckBitmap()
 
 			status_t status = transaction.WriteBlocks(1 + i,
 				(uint8*)fCheckBitmap + i * blockSize, blocksToWrite);
-			if (status < B_OK) {
+			if (status != B_OK) {
 				FATAL(("error writing bitmap: %s\n", strerror(status)));
 				return status;
 			}
@@ -279,7 +279,7 @@ CheckVisitor::VisitInode(Inode* inode, const char* treeName)
 
 	// set name
 	if (treeName == NULL) {
-		if (inode->GetName(Control().name) < B_OK) {
+		if (inode->GetName(Control().name) != B_OK) {
 			if (inode->IsContainer())
 				strcpy(Control().name, "(dir has no name)");
 			else
@@ -489,7 +489,7 @@ CheckVisitor::_CheckInodeBlocks(Inode* inode, const char* name)
 				break;
 
 			status = _CheckAllocated(data->direct[i], "direct");
-			if (status < B_OK)
+			if (status != B_OK)
 				return status;
 
 			Control().stats.direct_block_runs++;
@@ -522,7 +522,7 @@ CheckVisitor::_CheckInodeBlocks(Inode* inode, const char* name)
 					break;
 
 				status = _CheckAllocated(runs[index], "indirect->run");
-				if (status < B_OK)
+				if (status != B_OK)
 					return status;
 
 				Control().stats.indirect_block_runs++;
