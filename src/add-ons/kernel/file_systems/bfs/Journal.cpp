@@ -489,7 +489,7 @@ Journal::_ReplayRunArray(int32* _start)
 		return status;
 
 	const run_array* array = (const run_array*)cachedArray.Block();
-	if (_CheckRunArray(array) < B_OK)
+	if (_CheckRunArray(array) != B_OK)
 		return B_BAD_DATA;
 
 	// First pass: check integrity of the blocks in the run array
@@ -766,7 +766,7 @@ Journal::_WriteTransactionToLog()
 			fTransactionID, detached, &cookie, &blockNumber, NULL,
 			NULL) == B_OK) {
 		status = runArrays.Insert(blockNumber);
-		if (status < B_OK) {
+		if (status != B_OK) {
 			FATAL(("filling log entry failed!"));
 			return status;
 		}
@@ -946,7 +946,7 @@ Journal::_FlushLog(bool canWait, bool flushBlocks, bool alreadyLocked)
 
 	if (fUnwrittenTransactions != 0) {
 		status = _WriteTransactionToLog();
-		if (status < B_OK)
+		if (status != B_OK)
 			FATAL(("writing current log entry failed: %s\n", strerror(status)));
 	}
 
