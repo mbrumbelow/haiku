@@ -152,11 +152,11 @@ status_t
 Attribute::Open(const char* name, int openMode, attr_cookie** _cookie)
 {
 	status_t status = CheckAccess(name, openMode);
-	if (status < B_OK)
+	if (status != B_OK)
 		return status;
 
 	status = Get(name);
-	if (status < B_OK)
+	if (status != B_OK)
 		return status;
 
 	attr_cookie* cookie = new(std::nothrow) attr_cookie;
@@ -241,7 +241,7 @@ Attribute::_Truncate()
 		if (status >= B_OK)
 			status = fAttribute->WriteBack(transaction);
 
-		if (status < B_OK)
+		if (status != B_OK)
 			return status;
 
 		transaction.Done();
