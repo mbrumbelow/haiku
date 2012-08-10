@@ -240,7 +240,7 @@ InodeAllocator::New(block_run* parentRun, mode_t mode, uint32 publishFlags,
 
 	status_t status = volume->AllocateForInode(*fTransaction, parentRun, mode,
 		fRun);
-	if (status < B_OK) {
+	if (status != B_OK) {
 		// don't free the space in the destructor, because
 		// the allocation failed
 		fTransaction = NULL;
@@ -257,7 +257,7 @@ InodeAllocator::New(block_run* parentRun, mode_t mode, uint32 publishFlags,
 		&& (publishFlags & BFS_DO_NOT_PUBLISH_VNODE) == 0) {
 		status = new_vnode(volume->FSVolume(), fInode->ID(), fInode,
 			vnodeOps != NULL ? vnodeOps : &gBFSVnodeOps);
-		if (status < B_OK) {
+		if (status != B_OK) {
 			delete fInode;
 			fInode = NULL;
 			RETURN_ERROR(status);
@@ -292,9 +292,9 @@ InodeAllocator::CreateTree()
 	fInode->fTree = tree;
 
 	if (fInode->IsRegularNode()) {
-		if (tree->Insert(*fTransaction, ".", fInode->ID()) < B_OK
+		if (tree->Insert(*fTransaction, ".", fInode->ID()) != B_OK
 			|| tree->Insert(*fTransaction, "..",
-					volume->ToVnode(fInode->Parent())) < B_OK)
+					volume->ToVnode(fInode->Parent())) != B_OK)
 			return B_ERROR;
 	}
 	return B_OK;
@@ -308,7 +308,7 @@ InodeAllocator::Keep(fs_vnode_ops* vnodeOps, uint32 publishFlags)
 	Volume* volume = fTransaction->GetVolume();
 
 	status_t status = fInode->WriteBack(*fTransaction);
-	if (status < B_OK) {
+	if (status != B_OK) {
 		FATAL(("writing new inode %" B_PRIdINO " failed!\n", fInode->ID()));
 		return status;
 	}
@@ -768,8 +768,8 @@ Inode::_MakeSpaceForSmallData(Transaction& transaction, bfs_inode* node,
 		if (status != B_OK) {
 			Vnode vnode(fVolume, Attributes());
 			Inode* attributes;
-			if (vnode.Get(&attributes) < B_OK
-				|| attributes->Remove(transaction, name) < B_OK) {
+			if (vnode.Get(&attributes) != B_OK
+				|| attributes->Remove(transaction, name) != B_OK) {
 				FATAL(("Could not remove newly created attribute!\n"));
 			}
 
@@ -986,8 +986,10 @@ Inode::_AddSmallData(Transaction& transaction, NodeGetter& nodeGetter,
 			return B_DEVICE_FULL;
 
 		// make room for the new attribute
-		if (_MakeSpaceForSmallData(transaction, node, name, spaceNeeded) < B_OK)
+		if (_MakeSpaceForSmallData(transaction, node, name, spaceNeeded)
+			!= B_OK) {
 			return B_ERROR;
+		}
 
 		// get new last item!
 		item = node->SmallDataStart();
@@ -1149,7 +1151,7 @@ Inode::_RemoveAttribute(Transaction& transaction, const char* name,
 	Vnode vnode(fVolume, Attributes());
 	Inode* attributes;
 	status_t status = vnode.Get(&attributes);
-	if (status < B_OK)
+	if (status != B_OK)
 		return status;
 
 	// update index
@@ -1168,7 +1170,8 @@ Inode::_RemoveAttribute(Transaction& transaction, const char* name,
 		}
 	}
 
-	if ((status = attributes->Remove(transaction, name)) < B_OK)
+	status = attributes->Remove(transaction, name);
+	if (status != B_OK)
 		return status;
 
 	if (attributes->IsEmpty()) {
@@ -1467,7 +1470,7 @@ Inode::GetAttribute(const char* name, Inode** _attribute)
 
 	Vnode vnode(fVolume, Attributes());
 	Inode* attributes;
-	if (vnode.Get(&attributes) < B_OK) {
+	if (vnode.Get(&attributes) != B_OK) {
 		FATAL(("get_vnode() failed in Inode::GetAttribute(name = \"%s\")\n",
 			name));
 		return B_ERROR;
@@ -1515,12 +1518,12 @@ Inode::CreateAttribute(Transaction& transaction, const char* name, uint32 type,
 	if (Attributes().IsZero()) {
 		status_t status = Inode::Create(transaction, this, NULL,
 			S_ATTR_DIR | S_DIRECTORY | 0666, 0, 0, NULL);
-		if (status < B_OK)
+		if (status != B_OK)
 			RETURN_ERROR(status);
 	}
 	Vnode vnode(fVolume, Attributes());
 	Inode* attributes;
-	if (vnode.Get(&attributes) < B_OK)
+	if (vnode.Get(&attributes) != B_OK)
 		return B_ERROR;
 
 	// Inode::Create() locks the inode for us
@@ -1842,7 +1845,7 @@ Inode::FillGapWithZeros(off_t pos, off_t newSize)
 			size = newSize - pos;
 
 		status_t status = file_cache_write(FileCache(), NULL, pos, NULL, &size);
-		if (status < B_OK)
+		if (status != B_OK)
 			return status;
 
 		pos += size;
@@ -2336,7 +2339,7 @@ Inode::_FreeStaticStreamArray(Transaction& transaction, int32 level,
 			else
 				max = HOST_ENDIAN_TO_BFS_INT64(offset + indirectSize);
 
-			if (status < B_OK)
+			if (status != B_OK)
 				RETURN_ERROR(status);
 
 			if (offset >= size)
@@ -2402,7 +2405,7 @@ Inode::_FreeStreamArray(Transaction& transaction, block_run* array,
 				max = HOST_ENDIAN_TO_BFS_INT64(offset);
 		}
 
-		if (fVolume->Free(transaction, run) < B_OK)
+		if (fVolume->Free(transaction, run) != B_OK)
 			return B_IO_ERROR;
 	}
 	return B_OK;
@@ -2463,7 +2466,7 @@ Inode::_ShrinkStream(Transaction& transaction, off_t size)
 			// 'data->data_stream::max_direct_range' to 'off_t&'"
 		status = _FreeStreamArray(transaction, data->direct, NUM_DIRECT_BLOCKS,
 			size, offset, *maxDirect);
-		if (status < B_OK)
+		if (status != B_OK)
 			return status;
 	}
 
@@ -2489,7 +2492,7 @@ Inode::SetFileSize(Transaction& transaction, off_t size)
 	status_t status;
 	if (size > oldSize) {
 		status = _GrowStream(transaction, size);
-		if (status < B_OK) {
+		if (status != B_OK) {
 			// if the growing of the stream fails, the whole operation
 			// fails, so we should shrink the stream to its former size
 			_ShrinkStream(transaction, oldSize);
@@ -2497,7 +2500,7 @@ Inode::SetFileSize(Transaction& transaction, off_t size)
 	} else
 		status = _ShrinkStream(transaction, size);
 
-	if (status < B_OK)
+	if (status != B_OK)
 		return status;
 
 	file_cache_set_size(FileCache(), size);
@@ -2544,7 +2547,7 @@ Inode::TrimPreallocation(Transaction& transaction)
 		Node().data.MaxIndirectRange()), Size(), true));
 
 	status_t status = _ShrinkStream(transaction, Size());
-	if (status < B_OK)
+	if (status != B_OK)
 		return status;
 
 	return WriteBack(transaction);
@@ -2562,7 +2565,7 @@ Inode::Free(Transaction& transaction)
 	// freed anyway) - that would make an undelete command possible
 	if (!IsSymLink() || (Flags() & INODE_LONG_SYMLINK) != 0) {
 		status_t status = SetFileSize(transaction, 0);
-		if (status < B_OK)
+		if (status != B_OK)
 			return status;
 	}
 
@@ -2581,7 +2584,7 @@ Inode::Free(Transaction& transaction)
 		}
 	}
 
-	if (WriteBack(transaction) < B_OK)
+	if (WriteBack(transaction) != B_OK)
 		return B_IO_ERROR;
 
 	return fVolume->Free(transaction, BlockRun());
@@ -3094,7 +3097,7 @@ Inode::Remove(Transaction& transaction, const char* name, ino_t* _id,
 
 	// does the file even exist?
 	off_t id;
-	if (fTree->Find((uint8*)name, (uint16)strlen(name), &id) < B_OK)
+	if (fTree->Find((uint8*)name, (uint16)strlen(name), &id) != B_OK)
 		return B_ENTRY_NOT_FOUND;
 
 	if (_id)
@@ -3103,7 +3106,7 @@ Inode::Remove(Transaction& transaction, const char* name, ino_t* _id,
 	Vnode vnode(fVolume, id);
 	Inode* inode;
 	status_t status = vnode.Get(&inode);
-	if (status < B_OK) {
+	if (status != B_OK) {
 		REPORT_ERROR(status);
 		return B_ENTRY_NOT_FOUND;
 	}
@@ -3284,7 +3287,7 @@ Inode::Create(Transaction& transaction, Inode* parent, const char* name,
 	Inode* inode;
 	status = allocator.New(&parentRun, mode, publishFlags, run, vnodeOps,
 		&inode);
-	if (status < B_OK)
+	if (status != B_OK)
 		return status;
 
 	T(Create(inode, parent, name, mode, openMode, type));
