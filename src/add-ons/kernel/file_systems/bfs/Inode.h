@@ -34,17 +34,19 @@ class Inode : public TransactionListener {
 	typedef DoublyLinkedListLink<Inode> Link;
 
 public:
-								Inode(Volume* volume, ino_t id);
+								Inode(Volume* volume, off_t blockNumber);
 								Inode(Volume* volume, Transaction& transaction,
-									ino_t id, mode_t mode, block_run& run);
+									off_t blockNumber, mode_t mode,
+									block_run& run);
 								~Inode();
 
 			status_t			InitCheck(bool checkNode = true) const;
 
-			ino_t				ID() const { return fID; }
-			off_t				BlockNumber() const
-									{ return fVolume->VnodeToBlock(fID); }
-			void				SetID(ino_t ID);
+			//ino_t				ID() const { return fID; }
+			ino_t				ID() const
+									{ return fVolume->ToVnode(fBlockNumber); }
+			off_t				BlockNumber() const { return fBlockNumber; }
+			void				SetID(ino_t ID); // TODO rename me
 
 			rw_lock&			Lock() { return fLock; }
 			ReadLocker			ReadLock() { return ReadLocker(fLock); }
@@ -280,7 +282,7 @@ private:
 private:
 			rw_lock				fLock;
 			Volume*				fVolume;
-			ino_t				fID;
+			off_t				fBlockNumber;
 			BPlusTree*			fTree;
 			Inode*				fAttributes;
 			void*				fCache;
@@ -368,14 +370,14 @@ public:
 	NodeGetter(Volume* volume, const Inode* inode)
 		: CachedBlock(volume)
 	{
-		SetTo(volume->VnodeToBlock(inode->ID()));
+		SetTo(inode->BlockNumber());
 	}
 
 	NodeGetter(Volume* volume, Transaction& transaction,
 			const Inode* inode, bool empty = false)
 		: CachedBlock(volume)
 	{
-		SetToWritable(transaction, volume->VnodeToBlock(inode->ID()), empty);
+		SetToWritable(transaction, inode->BlockNumber(), empty);
 	}
 
 	~NodeGetter()
@@ -384,7 +386,7 @@ public:
 
 	const bfs_inode* SetToNode(const Inode* inode)
 	{
-		return (const bfs_inode*)SetTo(fVolume->VnodeToBlock(inode->ID()));
+		return (const bfs_inode*)SetTo(inode->BlockNumber());
 	}
 
 	const bfs_inode* Node() const { return (const bfs_inode*)Block(); }
@@ -398,11 +400,11 @@ public:
 
 class Vnode {
 public:
-	Vnode(Volume* volume, ino_t id)
+	Vnode(Volume* volume, off_t blockNumber)
 		:
 		fInode(NULL)
 	{
-		SetTo(volume, id);
+		SetTo(volume, blockNumber);
 	}
 
 	Vnode(Volume* volume, block_run run)
@@ -438,16 +440,17 @@ public:
 		}
 	}
 
-	status_t SetTo(Volume* volume, ino_t id)
+	status_t SetTo(Volume* volume, off_t blockNumber)
 	{
 		Unset();
 
-		return fStatus = get_vnode(volume->FSVolume(), id, (void**)&fInode);
+		return fStatus = get_vnode(volume->FSVolume(),
+			volume->ToVnode(blockNumber), (void**)&fInode);
 	}
 
 	status_t SetTo(Volume* volume, block_run run)
 	{
-		return SetTo(volume, volume->ToVnode(run));
+		return SetTo(volume, volume->ToBlock(run));
 	}
 
 	status_t Get(Inode** _inode)
