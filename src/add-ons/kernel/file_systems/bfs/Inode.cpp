@@ -249,7 +249,7 @@ InodeAllocator::New(block_run* parentRun, mode_t mode, uint32 publishFlags,
 
 	run = fRun;
 	fInode = new(std::nothrow) Inode(volume, *fTransaction,
-		volume->ToVnode(run), mode, run);
+		volume->ToBlock(run), mode, run);
 	if (fInode == NULL)
 		RETURN_ERROR(B_NO_MEMORY);
 
@@ -292,9 +292,9 @@ InodeAllocator::CreateTree()
 	fInode->fTree = tree;
 
 	if (fInode->IsRegularNode()) {
-		if (tree->Insert(*fTransaction, ".", fInode->ID()) != B_OK
+		if (tree->Insert(*fTransaction, ".", fInode->BlockNumber()) != B_OK
 			|| tree->Insert(*fTransaction, "..",
-					volume->ToVnode(fInode->Parent())) != B_OK)
+					volume->ToBlock(fInode->Parent())) != B_OK)
 			return B_ERROR;
 	}
 	return B_OK;
@@ -495,10 +495,10 @@ bfs_inode::InitCheck(Volume* volume) const
 //	#pragma mark - Inode
 
 
-Inode::Inode(Volume* volume, ino_t id)
+Inode::Inode(Volume* volume, off_t blockNumber)
 	:
 	fVolume(volume),
-	fID(id),
+	fBlockNumber(blockNumber),
 	fTree(NULL),
 	fAttributes(NULL),
 	fCache(NULL),
@@ -528,11 +528,11 @@ Inode::Inode(Volume* volume, ino_t id)
 }
 
 
-Inode::Inode(Volume* volume, Transaction& transaction, ino_t id, mode_t mode,
-		block_run& run)
+Inode::Inode(Volume* volume, Transaction& transaction, off_t blockNumber,
+		mode_t mode, block_run& run)
 	:
 	fVolume(volume),
-	fID(id),
+	fBlockNumber(blockNumber),
 	fTree(NULL),
 	fAttributes(NULL),
 	fCache(NULL),
@@ -629,7 +629,7 @@ Inode::SetID(ino_t ID)
 	if (Parent() == BlockRun())
 		fNode.parent = fVolume->ToBlockRun(ID);
 
-	fID = ID;
+	fBlockNumber = ID;
 	fNode.inode_num = fVolume->ToBlockRun(ID);
 }
 
@@ -3120,14 +3120,16 @@ Inode::Remove(Transaction& transaction, const char* name, ino_t* _id,
 	WriteLockInTransaction(transaction);
 
 	// does the file even exist?
-	off_t id;
-	if (fTree->Find((uint8*)name, (uint16)strlen(name), &id) != B_OK)
+	off_t blockNumber;
+	if (fTree->Find((uint8*)name, (uint16)strlen(name), &blockNumber) != B_OK)
 		return B_ENTRY_NOT_FOUND;
+
+	ino_t id = fVolume->ToVnode(blockNumber);
 
 	if (_id)
 		*_id = id;
 
-	Vnode vnode(fVolume, id);
+	Vnode vnode(fVolume, blockNumber);
 	Inode* inode;
 	status_t status = vnode.Get(&inode);
 	if (status != B_OK) {
@@ -3157,13 +3159,13 @@ Inode::Remove(Transaction& transaction, const char* name, ino_t* _id,
 	if (status != B_OK)
 		return status;
 
-	if (fTree->Remove(transaction, name, id) != B_OK && !force) {
+	if (fTree->Remove(transaction, name, blockNumber) != B_OK && !force) {
 		unremove_vnode(fVolume->FSVolume(), id);
 		RETURN_ERROR(B_ERROR);
 	}
 
 #ifdef DEBUG
-	if (fTree->Find((uint8*)name, (uint16)strlen(name), &id) == B_OK) {
+	if (fTree->Find((uint8*)name, (uint16)strlen(name), &blockNumber) == B_OK) {
 		DIE(("deleted entry still there"));
 	}
 #endif
@@ -3281,7 +3283,7 @@ Inode::Create(Transaction& transaction, Inode* parent, const char* name,
 			if (_created)
 				*_created = false;
 			if (_id)
-				*_id = inode->ID();
+				*_id = inode->ID(); // TODO this should be create id
 			if (_inode)
 				*_inode = inode;
 
@@ -3356,7 +3358,7 @@ Inode::Create(Transaction& transaction, Inode* parent, const char* name,
 	// (the vnode is not published yet, so it is safe to make the inode
 	// accessable to the file system here)
 	if (tree != NULL) {
-		status = tree->Insert(transaction, name, inode->ID());
+		status = tree->Insert(transaction, name, inode->BlockNumber());
 	} else if (parent != NULL && (mode & S_ATTR_DIR) != 0) {
 		parent->Attributes() = run;
 		status = parent->WriteBack(transaction);
@@ -3382,7 +3384,7 @@ Inode::Create(Transaction& transaction, Inode* parent, const char* name,
 			// because the InodeAllocator destructor can't handle this
 			// case (and if it fails, we can't do anything about it...)
 			if (tree)
-				tree->Remove(transaction, name, inode->ID());
+				tree->Remove(transaction, name, inode->BlockNumber());
 			else if (parent != NULL && (mode & S_ATTR_DIR) != 0)
 				parent->Node().attributes.SetTo(0, 0, 0);
 
@@ -3420,7 +3422,7 @@ Inode::Create(Transaction& transaction, Inode* parent, const char* name,
 	if (_created)
 		*_created = true;
 	if (_id != NULL)
-		*_id = inode->ID();
+		*_id = inode->ID(); // TODO this should be create id
 	if (_inode != NULL)
 		*_inode = inode;
 
@@ -3443,7 +3445,7 @@ Inode::Copy(Transaction& transaction, off_t targetBlock)
 	uint8* targetData = (uint8*)target.WritableBlock();
 
 	CachedBlock source(fVolume);
-	status = source.SetTo(fID);
+	status = source.SetTo(fBlockNumber);
 	if (status != B_OK)
 		return status;
 
