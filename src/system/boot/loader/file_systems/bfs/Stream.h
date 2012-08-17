@@ -31,6 +31,7 @@ class Stream : public bfs_inode {
 		status_t GetName(char *name, size_t size) const;
 		off_t Size() const { return data.Size(); }
 		off_t ID() const { return fVolume.ToVnode(inode_num); }
+		off_t BlockNumber() const { return fVolume.ToVnode(inode_num); }
 		status_t ReadLink(char *buffer, size_t bufferSize);
 
 		bool IsContainer() const { return Mode() & (S_IFDIR | S_INDEX_DIR | S_ATTR_DIR); }
