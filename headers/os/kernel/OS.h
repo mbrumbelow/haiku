@@ -247,6 +247,10 @@ typedef struct {
 	char			args[64];
 	uid_t			uid;
 	gid_t			gid;
+	int64			read_syscall;
+	int64			write_syscall;
+	int64			read_bytes;
+	int64			write_bytes;
 } team_info;
 
 #define B_CURRENT_TEAM	0
