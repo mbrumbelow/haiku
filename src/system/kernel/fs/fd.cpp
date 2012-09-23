@@ -769,15 +769,36 @@ common_user_io(int fd, off_t pos, void* buffer, size_t length, bool write)
 	else
 		status = descriptor->ops->fd_read(descriptor, pos, buffer, &length);
 
+	Thread *thread = thread_get_current_thread();
+	Team* team = thread->team;
+	TeamLocker teamLocker(team);
+	struct BKernel::io_accounting *acc;
+
+	acc = &team->io_acc;
+
+	/* account of for system call */
+	if (write)
+		acc->write_syscall();
+	else
+		acc->read_syscall();
+
 	if (status != B_OK)
 		return status;
+
+	ssize_t rc = length <= SSIZE_MAX ? (ssize_t)length : SSIZE_MAX;
+
+	/* account for IO bytes */
+	if (write)
+		acc->write_bytes(rc);
+	else
+		acc->read_bytes(rc);
 
 	if (movePosition) {
 		descriptor->pos = write && (descriptor->open_mode & O_APPEND) != 0
 			? descriptor->ops->fd_seek(descriptor, 0, SEEK_END) : pos + length;
 	}
 
-	return length <= SSIZE_MAX ? (ssize_t)length : SSIZE_MAX;
+	return rc;
 }
 
 
@@ -848,7 +869,7 @@ common_user_vector_io(int fd, off_t pos, const iovec* userVecs, size_t count,
 
 		if (status != B_OK) {
 			if (bytesTransferred == 0)
-				return status;
+				goto error;
 			status = B_OK;
 			break;
 		}
@@ -868,6 +889,29 @@ common_user_vector_io(int fd, off_t pos, const iovec* userVecs, size_t count,
 		descriptor->pos = write && (descriptor->open_mode & O_APPEND) != 0
 			? descriptor->ops->fd_seek(descriptor, 0, SEEK_END) : pos;
 	}
+
+error:
+	Thread *thread = thread_get_current_thread();
+	Team* team = thread->team;
+	TeamLocker teamLocker(team);
+	struct BKernel::io_accounting *acc;
+
+	acc = &team->io_acc;
+
+	/* account of for system call */
+	if (write)
+		acc->write_syscall();
+	else
+		acc->read_syscall();
+
+	if (status != B_OK)
+		return status;
+
+	/* account for IO bytes */
+	if (write)
+		acc->write_bytes(bytesTransferred);
+	else
+		acc->read_bytes(bytesTransferred);
 
 	return bytesTransferred;
 }
