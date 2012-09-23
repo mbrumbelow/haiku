@@ -247,6 +247,12 @@ typedef struct {
 	char			args[64];
 	uid_t			uid;
 	gid_t			gid;
+<<<<<<< PATCH SET (9a9835 iotop: Add an iotop utility)
+	int64			read_syscall;
+	int64			write_syscall;
+	int64			read_bytes;
+	int64			write_bytes;
+=======
 
 	/* Haiku R1 extensions */
 	uid_t			real_uid;
@@ -256,6 +262,7 @@ typedef struct {
 	team_id			parent;
 	char			name[B_OS_NAME_LENGTH];
 	bigtime_t		start_time;
+>>>>>>> BASE      (251a84 kernel: add IO statistics support)
 } team_info;
 
 #define B_CURRENT_TEAM	0

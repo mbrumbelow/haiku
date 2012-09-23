@@ -508,6 +508,9 @@ Team::Team(team_id id, bool kernel)
 	fUserDefinedTimerCount = 0;
 
 	fCoreDumpCondition = NULL;
+
+	// initialize all io statistics counters to 0
+	memset(&io_stats, 0, sizeof(io_stats));
 }
 
 
@@ -2698,6 +2701,13 @@ fill_team_info(Team* team, team_info* info, size_t size)
 	info->debugger_nub_port = team->debug_info.nub_port;
 	info->uid = team->effective_uid;
 	info->gid = team->effective_gid;
+
+	struct BKernel::io_statistics *stats = &team->io_stats;
+
+	info->read_syscalls = stats->get_read_syscalls();
+	info->write_syscalls = stats->get_write_syscalls();
+	info->read_bytes = stats->get_bytes_read();
+	info->write_bytes = stats->get_bytes_written();
 
 	strlcpy(info->args, team->Args(), sizeof(info->args));
 	info->argc = 1;

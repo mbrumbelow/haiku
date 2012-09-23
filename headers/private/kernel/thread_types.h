@@ -197,6 +197,30 @@ typedef int32 (*thread_entry_func)(thread_func, void *);
 
 namespace BKernel {
 
+struct io_accounting {
+	uint64			read_sys_calls;
+	uint64			write_sys_calls;
+
+	uint64			write;
+	uint64			read;
+
+public:
+	uint64 get_read_syscalls(void)	{ return atomic_get64((int64*)&read_sys_calls);  }
+
+	uint64 get_write_syscalls(void)	{ return atomic_get64((int64*)&write_sys_calls); }
+
+	uint64 get_wrote_bytes(void)	{ return atomic_get64((int64*)&write);     }
+
+	uint64 get_read_bytes(void)	{ return atomic_get64((int64*)&read);      }
+
+	void read_syscall(void)		{ atomic_add64((int64*)&read_sys_calls, 1);  }
+
+	void write_syscall(void)	{ atomic_add64((int64*)&write_sys_calls, 1); }
+
+	void read_bytes(ssize_t bytes)	{ atomic_add64((int64*)&read, bytes); }
+
+	void write_bytes(ssize_t bytes)	{ atomic_add64((int64*)&write, bytes); }
+};
 
 struct GroupsArray : KernelReferenceable {
 	int		count;
@@ -291,6 +315,8 @@ struct Team : TeamThreadIteratorEntry<team_id>, KernelReferenceable,
 	gid_t			real_gid;
 	gid_t			effective_gid;
 	BReference<GroupsArray> supplementary_groups;
+
+	struct io_accounting	io_acc;
 
 	// Exit status information. Set when the first terminal event occurs,
 	// immutable afterwards. Protected by fLock.

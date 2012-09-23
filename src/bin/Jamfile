@@ -73,6 +73,7 @@ ObjectSysHdrs watch.c : [ FDirName $(HAIKU_TOP) headers compatibility bsd ] ;
 
 StdBinCommands
 	watch.c
+	iotop.c
 	: [ BuildFeatureAttribute ncurses : library ] : $(haiku-utils_rsrc) ;
 
 # standard commands that need libbe.so
