@@ -43,6 +43,7 @@
 #include "TextControlFloater.h"
 
 #include <Button.h>
+#include <Catalog.h>
 #include <Debug.h>
 #include <Font.h>
 #include <Invoker.h>
@@ -52,14 +53,20 @@
 #include <MenuItem.h>
 #include <PopUpMenu.h>
 #include <String.h>
+#include <StringFormat.h>
 #include <TextControl.h>
 
 #include <algorithm>
 #include <functional>
 
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "TransportView"
+
 using namespace std;
 
 __USE_CORTEX_NAMESPACE
+
+static BCatalog sCatalog("application/x-vnd.Cortex.TransportView");
 
 // -------------------------------------------------------- //
 // _GroupInfoView
@@ -136,7 +143,7 @@ public:												// BView
 		// background +++++
 
 		// name
-		BString name = g ? g->name() : "(no group)";
+		BString name = g ? g->name() : sCatalog.GetString(B_TRANSLATE_MARK("(no group)"));
 		// +++++ constrain width
 		SetFont(&m_boldFont);
 		DrawString(name.String(), m_namePosition);
@@ -144,17 +151,22 @@ public:												// BView
 		SetFont(&m_plainFont);
 
 		// node count
-		BString nodeCount;
-		if(g)
-			nodeCount << g->countNodes();
+		uint32 count;
+		if (g != NULL)
+			count = g->countNodes();
 		else
-			nodeCount << '0';
-		nodeCount << ((nodeCount == "1") ? " node." : " nodes.");
+			count = 0;
+
+		BString nodeCount = "";
+		static BStringFormat format(sCatalog.GetString(
+			B_TRANSLATE_MARK("{0, plural, one{# node} other{# nodes}}")));
+		format.Format(nodeCount, count);
+
 		// +++++ constrain width
 		DrawString(nodeCount.String(), m_nodeCountPosition);
 
 		// status
-		BString status = "No errors.";
+		BString status = sCatalog.GetString(B_TRANSLATE_MARK("No errors."));
 		// +++++ constrain width
 		DrawString(status.String(), m_statusPosition);
 	}
@@ -569,8 +581,8 @@ const int _run_modes = 5;
 //};
 //const int _time_sources = 2;
 
-const char* _region_start_label = "From:";
-const char* _region_end_label = "To:";
+const char* _region_start_label = sCatalog.GetString(B_TRANSLATE_MARK("From:"));
+const char* _region_end_label = sCatalog.GetString(B_TRANSLATE_MARK("To:"));
 
 void TransportView::_constructControls() {
 
@@ -595,7 +607,7 @@ void TransportView::_constructControls() {
 	m_runModeView = new BMenuField(
 		BRect(),
 		"runModeView",
-		"Run mode:",
+		sCatalog.GetString(B_TRANSLATE_MARK("Run mode:")),
 		new BPopUpMenu("runModeMenu"));
 	_populateRunModeMenu(
 		m_runModeView->Menu());
@@ -604,14 +616,14 @@ void TransportView::_constructControls() {
 	m_timeSourceView = new BMenuField(
 		BRect(),
 		"timeSourceView",
-		"Time source:",
+		sCatalog.GetString(B_TRANSLATE_MARK("Time source:")),
 		new BPopUpMenu("timeSourceMenu"));
 	_populateTimeSourceMenu(
 		m_timeSourceView->Menu());
 	AddChild(m_timeSourceView);
 
 
-	m_fromLabel = new BStringView(BRect(), 0, "Roll from");
+	m_fromLabel = new BStringView(BRect(), 0, sCatalog.GetString(B_TRANSLATE_MARK("Roll from")));
 	AddChild(m_fromLabel);
 
 
@@ -628,7 +640,7 @@ void TransportView::_constructControls() {
 	_addLocalTarget(m_regionStartView);
 	AddChild(m_regionStartView);
 
-	m_toLabel = new BStringView(BRect(), 0, "to");
+	m_toLabel = new BStringView(BRect(), 0, sCatalog.GetString(B_TRANSLATE_MARK("to")));
 	AddChild(m_toLabel);
 
 	m = new BMessage(NodeGroup::M_SET_END_POSITION);
@@ -673,7 +685,7 @@ void TransportView::_constructControls() {
 	m_startButton = new BButton(
 		BRect(),
 		"startButton",
-		"Start",
+		sCatalog.GetString(B_TRANSLATE_MARK("Start")),
 		m);
 	_addGroupTarget(m_startButton);
 	AddChild(m_startButton);
@@ -682,7 +694,7 @@ void TransportView::_constructControls() {
 	m_stopButton = new BButton(
 		BRect(),
 		"stopButton",
-		"Stop",
+		sCatalog.GetString(B_TRANSLATE_MARK("Stop")),
 		m);
 	_addGroupTarget(m_stopButton);
 	AddChild(m_stopButton);
@@ -691,7 +703,7 @@ void TransportView::_constructControls() {
 	m_prerollButton = new BButton(
 		BRect(),
 		"prerollButton",
-		"Preroll",
+		sCatalog.GetString(B_TRANSLATE_MARK("Preroll")),
 		m);
 	_addGroupTarget(m_prerollButton);
 	AddChild(m_prerollButton);
@@ -737,7 +749,7 @@ void TransportView::_populateTimeSourceMenu(
 			&dacTimeSource,
 			sizeof(media_node));
 		i = new BMenuItem(
-			"DAC time source",
+			sCatalog.GetString(B_TRANSLATE_MARK("DAC time source")),
 			m);
 		menu->AddItem(i);
 		_addGroupTarget(i);
@@ -752,7 +764,7 @@ void TransportView::_populateTimeSourceMenu(
 			&systemTimeSource,
 			sizeof(media_node));
 		i = new BMenuItem(
-			"System clock",
+			sCatalog.GetString(B_TRANSLATE_MARK("System clock")),
 			m);
 		menu->AddItem(i);
 		_addGroupTarget(i);
@@ -851,10 +863,10 @@ void TransportView::_disableControls() {
 	m_infoView->Invalidate();
 
 	m_runModeView->SetEnabled(false);
-	m_runModeView->Menu()->Superitem()->SetLabel("(none)");
+	m_runModeView->Menu()->Superitem()->SetLabel(sCatalog.GetString(B_TRANSLATE_MARK("(none)")));
 
 	m_timeSourceView->SetEnabled(false);
-	m_timeSourceView->Menu()->Superitem()->SetLabel("(none)");
+	m_timeSourceView->Menu()->Superitem()->SetLabel(sCatalog.GetString(B_TRANSLATE_MARK("(none)")));
 
 	m_regionStartView->SetEnabled(false);
 	m_regionStartView->setValue(0);
@@ -980,11 +992,11 @@ void TransportView::_updateTransportButtons() {
 		(runMode == BMediaNode::B_OFFLINE ||
 			!m_group->canCycle())) {
 
-		m_startButton->SetLabel("Roll");
+		m_startButton->SetLabel(sCatalog.GetString(B_TRANSLATE_MARK("Roll")));
 		m_startButton->Message()->what = NodeGroup::M_ROLL;
 
 	} else {
-		m_startButton->SetLabel("Start");
+		m_startButton->SetLabel(sCatalog.GetString(B_TRANSLATE_MARK("Start")));
 		m_startButton->Message()->what = NodeGroup::M_START;
 	}
 }
@@ -1005,7 +1017,7 @@ void TransportView::_updateTimeSource() {
 	BMenu* menu = m_timeSourceView->Menu();
 	ASSERT(menu);
 	if(tsNode == media_node::null) {
-		menu->Superitem()->SetLabel("(none)");
+		menu->Superitem()->SetLabel(sCatalog.GetString(B_TRANSLATE_MARK("(none)")));
 		return;
 	}
 
@@ -1049,7 +1061,7 @@ void TransportView::_updateTimeSource() {
 //		}
 //	}
 	if(n < 0)
-		menu->Superitem()->SetLabel("(???)");
+		menu->Superitem()->SetLabel(sCatalog.GetString(B_TRANSLATE_MARK("(???)")));
 
 }
 void TransportView::_updateRunMode() {

@@ -38,14 +38,21 @@
 #include "MediaIcon.h"
 #include "MediaString.h"
 
+// Locale Kit
+#include <Catalog.h>
 // Media Kit
 #include <MediaAddOn.h>
 #include <MediaRoster.h>
+
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "DormantNodeInfoView"
 
 __USE_CORTEX_NAMESPACE
 
 #include <Debug.h>
 #define D_METHOD(x) //PRINT (x)
+
+static BCatalog sCatalog("application/x-vnd.Cortex.InfoView");
 
 // -------------------------------------------------------- //
 // *** ctor/dtor (public)
@@ -53,7 +60,7 @@ __USE_CORTEX_NAMESPACE
 
 DormantNodeInfoView::DormantNodeInfoView(
 	const dormant_node_info &info)
-	: InfoView(info.name, "Dormant media node",
+	: InfoView(info.name, sCatalog.GetString(B_TRANSLATE_MARK("Dormant media node")),
 			   new MediaIcon(info, B_LARGE_ICON)),
 	  m_addOnID(info.addon),
 	  m_flavorID(info.flavor_id)
@@ -61,19 +68,19 @@ DormantNodeInfoView::DormantNodeInfoView(
 	D_METHOD(("DormantNodeInfoView::DormantNodeInfoView()\n"));
 
 	// adjust view properties
-	setSideBarWidth(be_plain_font->StringWidth(" Output Formats ") + 2 * InfoView::M_H_MARGIN);
+	setSideBarWidth(be_plain_font->StringWidth(sCatalog.GetString(B_TRANSLATE_MARK("Output formats"))) + 2 * InfoView::M_H_MARGIN);
 
 	BString s;
 
 	// add the "AddOn ID" field
 	s = "";
 	s << info.addon;
-	addField("AddOn ID", s);
+	addField(sCatalog.GetString(B_TRANSLATE_MARK("AddOn ID")), s);
 
 	// add the "Flavor ID" field
 	s = "";
 	s << info.flavor_id;
-	addField("Flavor ID", s);
+	addField(sCatalog.GetString(B_TRANSLATE_MARK("Flavor ID")), s);
 	
 	// add separator field
 	addField("", "");
@@ -84,13 +91,13 @@ DormantNodeInfoView::DormantNodeInfoView(
 	{
 		// add the "Description" field
 		s = flavorInfo.info;
-		addField("Description", s);
+		addField(sCatalog.GetString(B_TRANSLATE_MARK("Description")), s);
 
 		// add "Kinds" field
-		addField("Kinds", MediaString::getStringFor(static_cast<node_kind>(flavorInfo.kinds)));
+		addField(sCatalog.GetString(B_TRANSLATE_MARK("Kinds")), MediaString::getStringFor(static_cast<node_kind>(flavorInfo.kinds)));
 
 		// add "Flavor Flags" field
-		addField("Flavor flags", "?");
+		addField(sCatalog.GetString(B_TRANSLATE_MARK("Flavor flags")), "?");
 
 		// add "Max. instances" field
 		if (flavorInfo.possible_count > 0)
@@ -100,20 +107,20 @@ DormantNodeInfoView::DormantNodeInfoView(
 		}
 		else
 		{
-			s = "Any number";
+			s = sCatalog.GetString(B_TRANSLATE_MARK_COMMENT("Any number", "For 'Max. instances' field"));
 		}
-		addField("Max. instances", s);
+		addField(sCatalog.GetString(B_TRANSLATE_MARK("Max. instances")), s);
 
 		// add "Input Formats" field
 		if (flavorInfo.in_format_count > 0)
 		{
 			if (flavorInfo.in_format_count == 1)
 			{
-				addField("Input format", MediaString::getStringFor(flavorInfo.in_formats[0], false));
+				addField(sCatalog.GetString(B_TRANSLATE_MARK("Input format")), MediaString::getStringFor(flavorInfo.in_formats[0], false));
 			}
 			else
 			{
-				addField("Input formats", "");
+				addField(sCatalog.GetString(B_TRANSLATE_MARK("Input formats")), "");
 				for (int32 i = 0; i < flavorInfo.in_format_count; i++)
 				{
 					s = "";
@@ -128,11 +135,11 @@ DormantNodeInfoView::DormantNodeInfoView(
 		{
 			if (flavorInfo.out_format_count == 1)
 			{
-				addField("Output format", MediaString::getStringFor(flavorInfo.out_formats[0], false));
+				addField(sCatalog.GetString(B_TRANSLATE_MARK("Output format")), MediaString::getStringFor(flavorInfo.out_formats[0], false));
 			}
 			else
 			{
-				addField("Output formats", "");
+				addField(sCatalog.GetString(B_TRANSLATE("Output formats")), "");
 				for (int32 i = 0; i < flavorInfo.out_format_count; i++)
 				{
 					s = "";

@@ -36,16 +36,22 @@
 #include "MediaString.h"
 #include "NodeRef.h"
 
+#include <Catalog.h>
 #include <MediaFile.h>
 #include <MediaNode.h>
 #include <MediaRoster.h>
 #include <MediaTrack.h>
 #include <TimeCode.h>
 
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "FileNodeInfoView"
+
 __USE_CORTEX_NAMESPACE
 
 #include <Debug.h>
 #define D_METHOD(x) //PRINT (x)
+
+static BCatalog sCatalog("application/x-vnd.Cortex.InfoView");
 
 // -------------------------------------------------------- //
 // *** ctor/dtor (public)
@@ -58,8 +64,8 @@ FileNodeInfoView::FileNodeInfoView(
 	D_METHOD(("FileNodeInfoView::FileNodeInfoView()\n"));
 
 	// adjust view properties
-	setSideBarWidth(be_plain_font->StringWidth(" File Format ") + 2 * InfoView::M_H_MARGIN);
-	setSubTitle("Live File-Interface Node");
+	setSideBarWidth(be_plain_font->StringWidth(sCatalog.GetString(B_TRANSLATE_MARK("File format"))) + 2 * InfoView::M_H_MARGIN);
+	setSubTitle(sCatalog.GetString(B_TRANSLATE_MARK("Live file-interface node")));
 
 	// if a ref is set for this file-interface display some info
 	// thru MediaFile and set the title appropriatly
@@ -82,7 +88,7 @@ FileNodeInfoView::FileNodeInfoView(
 			{
 				s = "";
 				s << format.pretty_name << " (" << format.mime_type << ")";
-				addField("File Format", s);
+				addField(sCatalog.GetString(B_TRANSLATE_MARK("File format")), s);
 			}
 			
 			// add "Copyright" field
@@ -90,13 +96,13 @@ FileNodeInfoView::FileNodeInfoView(
 			if (copyRight)
 			{
 				s = copyRight;
-				addField("Copyright", s);
+				addField(sCatalog.GetString(B_TRANSLATE_MARK("Copyright")), s);
 			}
 	
 			// add "Tracks" list
 			if (file.CountTracks() > 0)
 			{
-				addField("Tracks", "");
+				addField(sCatalog.GetString(B_TRANSLATE_MARK("Tracks")), "");
 				for (int32 i = 0; i < file.CountTracks(); i++)
 				{
 					BString label;
@@ -117,10 +123,10 @@ FileNodeInfoView::FileNodeInfoView(
 						media_codec_info codec;
 						if (track->GetCodecInfo(&codec) == B_OK)
 						{
-							s << "\n- Codec: " << codec.pretty_name;
+							s << sCatalog.GetString(B_TRANSLATE_MARK("\n- Codec:")) << " " << codec.pretty_name;
 							if (codec.id > 0)
 							{
-								s << " (ID: " << codec.id << ")";
+								s << " (" << sCatalog.GetString(B_TRANSLATE_MARK("ID:")) << " " << codec.id << ")";
 							}
 						}
 					}
@@ -131,13 +137,13 @@ FileNodeInfoView::FileNodeInfoView(
 					us_to_timecode(duration, &hours, &minutes, &seconds, &frames);
 					char buffer[64];
 					sprintf(buffer, "%02d:%02d:%02d:%02d", hours, minutes, seconds, frames);
-					s << "\n- Duration: " << buffer;
+					s << sCatalog.GetString(B_TRANSLATE_MARK("\n- Duration:")) << " " << buffer;
 					
 					// add quality
 					float quality;
 					if (track->GetQuality(&quality) == B_OK)
 					{
-						s << "\n- Quality: " << quality;
+						s << sCatalog.GetString(B_TRANSLATE_MARK("\n- Quality:")) << " " << quality;
 					}
 					addField(label, s);
 				}
@@ -153,7 +159,8 @@ FileNodeInfoView::FileNodeInfoView(
 	{
 		// set title
 		title = ref->name();
-		title += " (no file)";
+		title += " ";
+		title += sCatalog.GetString(B_TRANSLATE_MARK("(no file)"));
 	}
 	setTitle(title);
 }

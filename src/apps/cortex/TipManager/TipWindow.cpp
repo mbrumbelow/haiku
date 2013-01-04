@@ -35,8 +35,15 @@
 #include "TipView.h"
 
 #include <Debug.h>
+// Locale Kit
+#include <Catalog.h>
+
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "TipWindow"
 
 __USE_CORTEX_NAMESPACE
+
+static BCatalog sCatalog("application/x-vnd.Cortex.TipManager");
 
 // -------------------------------------------------------- //
 // *** dtor/ctors
@@ -145,7 +152,7 @@ void TipWindow::_createTipView() {
 	if(m_text.Length())
 		m_tipView->setText(m_text.String());
 	else
-		m_tipView->setText("(no info)");
+		m_tipView->setText(sCatalog.GetString(B_TRANSLATE_MARK("(no info)")));
 }
 
 void TipWindow::_destroyTipView() {
