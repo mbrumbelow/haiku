@@ -62,6 +62,8 @@
 #include <MenuItem.h>
 #include <PopUpMenu.h>
 #include <Window.h>
+// Locale Kit
+#include <Catalog.h>
 // Media Kit
 #include <MediaRoster.h>
 // Storage Kit
@@ -71,6 +73,9 @@
 // Translation Kit
 #include <BitmapStream.h>
 #include <TranslatorRoster.h>
+
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "CortexMediaRoutingView"
 
 __USE_CORTEX_NAMESPACE
 
@@ -202,7 +207,7 @@ DiagramWire *MediaRoutingView::createWire(
 			error = manager->connect(output, input, &connection);
 			if (error)
 			{
-				showErrorMessage("Could not connect", error);
+				showErrorMessage(B_TRANSLATE("Could not connect"), error);
 			}
 		}
 	}
@@ -271,8 +276,8 @@ MediaRoutingView::MessageDropped(BPoint point, BMessage *message)
 							dropPoint = message->DropPoint(&dropOffset);
 							m_lastDropPoint = Align(ConvertFromScreen(dropPoint - dropOffset));
 						} else {
-							BString s;
-							s << "Could not instantiate '" << info.name << "'";
+							BString s = B_TRANSLATE("Could not instantiate '%infoname%'");
+							s.ReplaceFirst("%infoname%", info.name);
 							showErrorMessage(s, error);
 						}
 					}
@@ -944,14 +949,14 @@ void MediaRoutingView::showContextMenu(
 	BMenuItem *item;
 	BMessage *message = new BMessage(M_LAYOUT_CHANGED);
 	message->AddInt32("layout", M_ICON_VIEW);
-	menu->AddItem(item = new BMenuItem("Icon view", message));
+	menu->AddItem(item = new BMenuItem(B_TRANSLATE("Icon view"), message));
 	if (m_layout == M_ICON_VIEW)
 	{
 		item->SetMarked(true);
 	}
 	message = new BMessage(M_LAYOUT_CHANGED);
 	message->AddInt32("layout", M_MINI_ICON_VIEW);
-	menu->AddItem(item = new BMenuItem("Mini icon view", message));
+	menu->AddItem(item = new BMenuItem(B_TRANSLATE("Mini icon view"), message));
 	if (m_layout == M_MINI_ICON_VIEW)
 	{
 		item->SetMarked(true);
@@ -959,10 +964,10 @@ void MediaRoutingView::showContextMenu(
 	menu->AddSeparatorItem();
 
 	// add 'CleanUp' command
-	menu->AddItem(new BMenuItem("Clean up", new BMessage(M_CLEANUP_REQUESTED), 'K'));
+	menu->AddItem(new BMenuItem(B_TRANSLATE("Clean up"), new BMessage(M_CLEANUP_REQUESTED), 'K'));
 
 	// add 'Select All' command
-	menu->AddItem(new BMenuItem("Select all", new BMessage(M_SELECT_ALL), 'A'));
+	menu->AddItem(new BMenuItem(B_TRANSLATE("Select all"), new BMessage(M_SELECT_ALL), 'A'));
 
 	menu->SetTargetForItems(this);
 	ConvertToScreen(&point);
@@ -988,7 +993,7 @@ void MediaRoutingView::showErrorMessage(
 	BMessenger messenger(0, Window());
 	if (!messenger.IsValid()
 	 || (messenger.SendMessage(&message) != B_OK)) {
-		BAlert *alert = new BAlert("Error", text.String(), "OK", 0, 0,
+		BAlert *alert = new BAlert(B_TRANSLATE("Error"), text.String(), B_TRANSLATE("OK"), 0, 0,
 								   B_WIDTH_AS_USUAL, B_WARNING_ALERT);
 		alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
 		alert->Go();
@@ -1446,6 +1451,9 @@ void MediaRoutingView::_initLayout()
 {
 	D_METHOD(("MediaRoutingView::_initLayout()\n"));
 
+	BString measure;
+	measure << " " << B_TRANSLATE("Be Audio Mixer") << " ";
+
 	switch (m_layout)
 	{
 		case M_ICON_VIEW:
@@ -1467,7 +1475,7 @@ void MediaRoutingView::_initLayout()
 			font_height fh;
 			be_plain_font->GetHeight(&fh);
 			labelWidth = 4 * MediaNodePanel::M_LABEL_H_MARGIN
-						 + be_plain_font->StringWidth(" Be Audio Mixer ");
+						 + be_plain_font->StringWidth(measure.String());
 			bodyWidth = 2 * MediaNodePanel::M_BODY_H_MARGIN + B_LARGE_ICON
 						+ 2 * MediaJack::M_DEFAULT_WIDTH;
 			labelHeight = 2 * MediaNodePanel::M_LABEL_V_MARGIN
@@ -1490,7 +1498,7 @@ void MediaRoutingView::_initLayout()
 			font_height fh;
 			be_plain_font->GetHeight(&fh);
 			labelWidth = 4 * MediaNodePanel::M_LABEL_H_MARGIN
-						 + be_plain_font->StringWidth(" Be Audio Mixer ");
+						 + be_plain_font->StringWidth(measure.String());
 			bodyWidth = 2 * MediaNodePanel::M_BODY_H_MARGIN + B_MINI_ICON;
 			labelHeight = 3 * MediaNodePanel::M_LABEL_V_MARGIN
 						  + fh.ascent + fh.descent + fh.leading
@@ -1534,21 +1542,21 @@ void MediaRoutingView::_initContent()
 	NodeRef* videoIn = manager->videoInputNode();
 	if (videoIn)
 	{
-		group = manager->createGroup("Video input");
+		group = manager->createGroup(B_TRANSLATE("Video input"));
 		group->setRunMode(BMediaNode::B_RECORDING);
 		group->addNode(videoIn);
 	}
 	NodeRef* audioIn = manager->audioInputNode();
 	if (audioIn)
 	{
-		group = manager->createGroup("Audio input");
+		group = manager->createGroup(B_TRANSLATE("Audio input"));
 		group->setRunMode(BMediaNode::B_RECORDING);
 		group->addNode(audioIn);
 	}
 	NodeRef* videoOut = manager->videoOutputNode();
 	if (videoOut)
 	{
-		group = manager->createGroup("Video output");
+		group = manager->createGroup(B_TRANSLATE("Video output"));
 		group->addNode(videoOut);
 	}
 }
@@ -1674,8 +1682,8 @@ void MediaRoutingView::_deleteSelection()
 				status_t error = panel->ref->releaseNode();
 				if (error)
 				{
-					BString s;
-					s << "Could not release '" << panel->ref->name() << "'";
+					BString s = B_TRANSLATE("Could not release '%refname%'");
+					s.ReplaceFirst("%rename%", panel->ref->name());
 					showErrorMessage(s, error);
 				}
 			}
@@ -1691,7 +1699,7 @@ void MediaRoutingView::_deleteSelection()
 				status_t error = manager->disconnect(wire->connection);
 				if (error)
 				{
-					showErrorMessage("Could not disconnect", error);
+					showErrorMessage(B_TRANSLATE("Could not disconnect"), error);
 				}
 			}
 		}
@@ -1754,8 +1762,8 @@ void MediaRoutingView::_checkDroppedFile(
 							char fileName[B_FILE_NAME_LENGTH];
 							BEntry entry(ref);
 							entry.GetName(fileName);
-							BString s;
-							s << "Could not load '" << fileName << "'";
+							BString s = B_TRANSLATE("Could not load '%filename%'");
+							s.ReplaceFirst("%filenme%", fileName);
 							showErrorMessage(s, error);
 						}
 					}

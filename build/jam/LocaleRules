@@ -118,6 +118,31 @@ actions LinkApplicationCatalog1
 		-s $(HAIKU_CATALOG_SIGNATURE) -o "$(1)"
 }
 
+rule SetStaticLibraryCatkeys target : sources : subdir
+{
+	if $(subdir) {
+		for source in $(sources) {
+			HAIKU_CATKEYS_SOURCES on $(target) += 
+				[ FDirName $(subdir) $(source) ] ;
+		}
+	} else {
+		HAIKU_CATKEYS_SOURCES on $(target) = $(sources) ;
+	}
+}
+
+rule StaticLibraryCatkeys target : rootsubdir
+{
+	if $(rootsubdir) {
+		local sources ;
+		for catkeysSource in [ on $(target) return $(HAIKU_CATKEYS_SOURCES) ] {
+			sources += [ FDirName $(rootsubdir) $(catkeysSource) ] ;
+		}
+		return $(sources) ;
+	} else {
+		return [ on $(target) return $(HAIKU_CATKEYS_SOURCES) ] ;
+	}
+}
+
 rule DoCatalogs target : signature : sources : sourceLanguage : regexp
 {
 	# DoCatalogs <target> : <signature> : <sources> [ : <sourceLanguage> ]

@@ -35,6 +35,11 @@
 #include "TipView.h"
 
 #include <Debug.h>
+// Locale Kit
+#include <Catalog.h>
+
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "CortexTipManager"
 
 __USE_CORTEX_NAMESPACE
 
@@ -145,7 +150,7 @@ void TipWindow::_createTipView() {
 	if(m_text.Length())
 		m_tipView->setText(m_text.String());
 	else
-		m_tipView->setText("(no info)");
+		m_tipView->setText(B_TRANSLATE("(no info)"));
 }
 
 void TipWindow::_destroyTipView() {
