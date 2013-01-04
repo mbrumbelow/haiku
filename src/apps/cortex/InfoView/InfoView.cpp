@@ -36,6 +36,8 @@
 
 #include "array_delete.h"
 
+// Locale Kit
+#include <Catalog.h>
 // Interface Kit
 #include <Bitmap.h>
 #include <Region.h>
@@ -47,6 +49,9 @@
 #include <Mime.h>
 // Support Kit
 #include <List.h>
+
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "CortexInfoView"
 
 __USE_CORTEX_NAMESPACE
 
@@ -176,7 +181,7 @@ void InfoView::AttachedToWindow() {
 
 	// adjust the windows title
 	BString title = m_title;
-	title << " info";
+	title << B_TRANSLATE(" info");
 	Window()->SetTitle(title.String());
 	
 	// calculate the area occupied by title, subtitle and icon

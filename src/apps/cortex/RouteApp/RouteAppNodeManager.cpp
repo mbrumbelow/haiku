@@ -62,6 +62,12 @@
 
 #include "set_tools.h"
 
+// Locale Kit
+#include <Catalog.h>
+
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "CortexRouteApp"
+
 using namespace std;
 
 __USE_CORTEX_NAMESPACE
@@ -170,8 +176,8 @@ void RouteAppNodeManager::nodeCreated(
 
 	// prepare the log message
 	BMessage logMsg(M_LOG);
-	BString title = "Node '";
-	title << ref->name() << "' created";
+	BString title = B_TRANSLATE("Node '");
+	title << ref->name() << B_TRANSLATE("' created");
 	logMsg.AddString("title", title);
 
 	// create a default group for the node
@@ -212,8 +218,8 @@ void RouteAppNodeManager::nodeDeleted(
 
 	// prepare the log message
 	BMessage logMsg(M_LOG);
-	BString title = "Node '";
-	title << ref->name() << "' released";
+	BString title = B_TRANSLATE("Node '");
+	title << ref->name() << B_TRANSLATE("' released");
 	logMsg.AddString("title", title);
 
 	if(ref->kind() & B_TIME_SOURCE) {
@@ -236,11 +242,11 @@ void RouteAppNodeManager::connectionMade(
 
 	// prepare the log message
 	BMessage logMsg(M_LOG);
-	BString title = "Connection ";
+	BString title = B_TRANSLATE("Connection ");
 	if (strcmp(connection->outputName(), connection->inputName()) == 0) {
 		title << "'" << connection->outputName() << "' ";
 	}
-	title << "made";
+	title << B_TRANSLATE("made");
 	logMsg.AddString("title", title);
 
 	if(!(connection->flags() & Connection::INTERNAL))
@@ -267,22 +273,22 @@ void RouteAppNodeManager::connectionMade(
 	}
 
 	// add node names to log messages
-	BString line = "Between:";
+	BString line = B_TRANSLATE("Between:");
 	logMsg.AddString("line", line);
 	line = "    ";
-	line << producer->name() << " and ";
+	line << producer->name() << B_TRANSLATE(" and ");
 	line << consumer->name();
 	logMsg.AddString("line", line);
 
 	// add format to log message
-	line = "Negotiated format:";
+	line = B_TRANSLATE("Negotiated format:");
 	logMsg.AddString("line", line);
 	line = "    ";
 	line << MediaString::getStringFor(connection->format(), false);
 	logMsg.AddString("line", line);
 
 	NodeGroup *group = 0;
-	BString groupName = "Untitled group ";
+	BString groupName = B_TRANSLATE("Untitled group ");
 	if(_canGroup(producer) && _canGroup(consumer))
 	{
 		if (producer->group() && consumer->group() &&
@@ -337,11 +343,11 @@ void RouteAppNodeManager::connectionBroken(
 		
 	// prepare the log message
 	BMessage logMsg(M_LOG);
-	BString title = "Connection ";
+	BString title = B_TRANSLATE("Connection ");
 	if (strcmp(connection->outputName(), connection->inputName()) == 0) {
 		title << "'" << connection->outputName() << "' ";
 	}
-	title << "broken";
+	title << B_TRANSLATE("broken");
 	logMsg.AddString("title", title);
 
 	if(!(connection->flags() & Connection::INTERNAL))
@@ -373,10 +379,10 @@ void RouteAppNodeManager::connectionBroken(
 	}
 
 	// add node names to log messages
-	BString line = "Between:";
+	BString line = B_TRANSLATE("Between:");
 	logMsg.AddString("line", line);
 	line = "    ";
-	line << producer->name() << " and ";
+	line << producer->name() << B_TRANSLATE(" and ");
 	line << consumer->name();
 	logMsg.AddString("line", line);
 	
@@ -404,7 +410,7 @@ void RouteAppNodeManager::connectionFailed(
 		
 	// prepare the log message
 	BMessage logMsg(M_LOG);
-	BString title = "Connection failed";
+	BString title = B_TRANSLATE("Connection failed");
 	logMsg.AddString("title", title);
 	logMsg.AddInt32("error", error);
 
@@ -419,14 +425,14 @@ void RouteAppNodeManager::connectionFailed(
 	}
 
 	// add node names to log messages
-	BString line = "Between:";
+	BString line = B_TRANSLATE("Between:");
 	logMsg.AddString("line", line);
 	line = "    ";
 	line << producer->name() << " and " << consumer->name();
 	logMsg.AddString("line", line);
 
 	// add format to log message
-	line = "Tried format:";
+	line = B_TRANSLATE("Tried format:");
 	logMsg.AddString("line", line);
 	line = "    ";
 	line << MediaString::getStringFor(format, true);

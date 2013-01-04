@@ -13,3 +13,9 @@ StaticLibrary cortex_transport_view.a :
 	TransportView.cpp
 	TransportWindow.cpp
 ;
+
+SetStaticLibraryCatkeys cortex_transport_view.a
+	:
+	TransportView.cpp
+	: TransportView
+;

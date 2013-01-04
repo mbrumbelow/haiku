@@ -41,12 +41,17 @@
 
 // Application Kit
 #include <Application.h>
+// Locale Kit
+#include <Catalog.h>
 // Interface Kit
 #include <PopUpMenu.h>
 #include <MenuItem.h>
 // Media Kit
 #include <MediaRoster.h>
 #include <MediaAddOn.h>
+
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "CortexDormantNodeView"
 
 __USE_CORTEX_NAMESPACE
 
@@ -267,7 +272,7 @@ void DormantNodeListItem::showContextMenu(
 	
 	// Add the "Get Info" item
 	BMessage *message = new BMessage(InfoWindowManager::M_INFO_WINDOW_REQUESTED);
-	menu->AddItem(new BMenuItem("Get info", message));
+	menu->AddItem(new BMenuItem(B_TRANSLATE("Get info"), message));
 
 	menu->SetTargetForItems(owner);
 	owner->ConvertToScreen(&point);
