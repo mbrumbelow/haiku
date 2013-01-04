@@ -14,3 +14,10 @@ StaticLibrary cortex_dormant_node_view.a :
 	DormantNodeView.cpp
 	DormantNodeWindow.cpp
 ;
+
+SetStaticLibraryCatkeys cortex_dormant_node_view.a
+	:
+	DormantNodeListItem.cpp
+	DormantNodeWindow.cpp
+	: DormantNodeView
+;

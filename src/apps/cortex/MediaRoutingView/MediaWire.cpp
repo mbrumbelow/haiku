@@ -51,6 +51,11 @@
 #include <PopUpMenu.h>
 // Media Kit
 #include <MediaDefs.h>
+// Locale Kit
+#include <Catalog.h>
+
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "CortexMediaRoutingView"
 
 __USE_CORTEX_NAMESPACE
 
@@ -322,10 +327,10 @@ void MediaWire::showContextMenu(
 	BMessage *message = new BMessage(InfoWindowManager::M_INFO_WINDOW_REQUESTED);
 	message->AddData("connection", B_RAW_TYPE, 
 					 reinterpret_cast<const void *>(&output), sizeof(output));
-	menu->AddItem(item = new BMenuItem("Get info", message, 'I'));
+	menu->AddItem(item = new BMenuItem(B_TRANSLATE("Get info"), message, 'I'));
 
 	// add the "Disconnect" item
-	menu->AddItem(item = new BMenuItem("Disconnect", new BMessage(MediaRoutingView::M_DELETE_SELECTION), 'T'));
+	menu->AddItem(item = new BMenuItem(B_TRANSLATE("Disconnect"), new BMessage(MediaRoutingView::M_DELETE_SELECTION), 'T'));
 	if (connection.flags() & Connection::LOCKED)
 	{
 		item->SetEnabled(false);

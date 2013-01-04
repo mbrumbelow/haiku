@@ -14,3 +14,9 @@ StaticLibrary cortex_node_manager.a :
 	NodeRef.cpp
 	NodeSyncThread.cpp
 ;
+
+SetStaticLibraryCatkeys cortex_node_manager.a
+	:
+	NodeManager.cpp
+	: NodeManager
+;
