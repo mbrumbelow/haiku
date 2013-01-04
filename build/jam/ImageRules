@@ -271,15 +271,34 @@ rule AddFilesToContainer container : directoryTokens : targets : destName
 		$(installTargetsVar) on $(target) += $(destTarget) ;
 		TARGETS_TO_INSTALL on $(directory) += $(destTarget) ;
 
-		# If the target is associated with catalog files, add those, too.
-		local catalogs = [ on $(target) return $(HAIKU_CATALOG_FILES) ] ;
-		if $(catalogs) {
-			local signature
-				= [ on $(target) return $(HAIKU_CATALOG_SIGNATURE) ] ;
-			AddFilesToContainer $(container)
-				: $(systemDirTokens) data locale catalogs $(signature)
-				: $(catalogs) ;
+		# If the target and its static libraries are associated with catalog
+		# files, add those, too.
+		local catalogTargets = $(target) + [ on $(target) return $(NEEDLIBS) ] ;
+		for catalogTarget in $(catalogTargets) {
+			local catalogs
+				= [ on $(catalogTarget) return $(HAIKU_CATALOG_FILES) ] ;
+			if $(catalogs) {
+				local signature
+					= [ on $(catalogTarget)
+						return $(HAIKU_CATALOG_SIGNATURE) ] ;
+				AddFilesToContainer $(container)
+					: $(systemDirTokens) data locale catalogs $(signature)
+					: $(catalogs) ;
+			}
 		}
+
+		# If the target has static libs with associated catalog files, add them.
+		#local staticLibs = [ on $(target) return $(NEEDLIBS) ] ;
+		#for staticLib in $(staticLibs) {
+		#	local catalogs = [ on $(staticLib) return $(HAIKU_CATALOG_FILES) ] ;
+		#	if $(catalogs) {
+		#		local signature
+		#			= [ on $(staticLib) return $(HAIKU_CATALOG_SIGNATURE) ] ;
+		#		AddFilesToContainer $(container)
+		#			: $(systemDirTokens) data locale catalogs $(signature)
+		#			: $(catalogs) ;
+		#	}
+		#}
 
 		# If the target is associated with MIME DB entries, add those, too.
 		local mimeDBEntries = [ on $(target) return $(HAIKU_MIME_DB_ENTRIES) ] ;

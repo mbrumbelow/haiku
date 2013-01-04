@@ -37,15 +37,19 @@
 #include <MediaFormats.h>
 // Support Kit
 #include <String.h>
-
+#include <StringFormat.h>
+// Locale Kit
 #include <Catalog.h>
+
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "MediaString"
 
 __USE_CORTEX_NAMESPACE
 
 #include <Debug.h>
 #define D_METHOD(x) //PRINT (x)
 
-static BCatalog sCatalog("application/Haiku-cortex-support");
+static BCatalog sCatalog("application/x-vnd.Cortex.support");
 
 // -------------------------------------------------------- //
 // *** media_node strings (public)
@@ -228,7 +232,7 @@ BString	MediaString::getStringFor(
 			}
 		}
 	}
-	return "Unknown Media Type";
+	return sCatalog.GetString(B_TRANSLATE_MARK("Unknown media type"));
 }
 
 BString	MediaString::getStringFor(
@@ -524,8 +528,10 @@ BString MediaString::getStringFor(
 	BString s;
 	if ((source.port != media_source::null.port)
 	 && (source.id != media_source::null.id)) {
-		s << sCatalog.GetString(B_TRANSLATE_MARK("Port ")) << source.port
-			<< sCatalog.GetString(B_TRANSLATE_MARK(", ID ")) << source.id;
+		s << sCatalog.GetString(B_TRANSLATE_MARK("Port")) << " "
+			<< source.port << ", "
+			<< sCatalog.GetString(B_TRANSLATE_MARK("ID")) << " "
+			<< source.id;
 	}
 	else {
 		s = sCatalog.GetString(B_TRANSLATE_MARK("(none)"));
@@ -541,8 +547,10 @@ BString MediaString::getStringFor(
 	BString s;
 	if ((destination.port != media_destination::null.port)
 	 && (destination.id != media_destination::null.id)) {
-		s << sCatalog.GetString(B_TRANSLATE_MARK("Port ")) << destination.port
-			<< sCatalog.GetString(B_TRANSLATE_MARK(", ID ")) << destination.id;
+		s << sCatalog.GetString(B_TRANSLATE_MARK("Port")) << " "
+			<< destination.port << ", "
+			<< sCatalog.GetString(B_TRANSLATE_MARK("ID")) << " "
+			<< destination.id;
 	}
 	else {
 		s = sCatalog.GetString(B_TRANSLATE_MARK("(none)"));
@@ -576,11 +584,12 @@ BString MediaString::forAudioFormat(
 		}
 		case media_raw_audio_format::B_AUDIO_INT: {
 			BString s = "";
-			if (validBits != media_multi_audio_format::wildcard.valid_bits)
-				s << validBits << sCatalog.GetString(B_TRANSLATE_MARK(" bit "));
-			else
-				s << sCatalog.GetString(B_TRANSLATE_MARK("32 bit "));
-			s << sCatalog.GetString(B_TRANSLATE_MARK("integer"));
+			if (validBits != media_multi_audio_format::wildcard.valid_bits) {
+				static BStringFormat format(sCatalog.GetString(
+					B_TRANSLATE_MARK("{0, plural, other{# bit integer}}")));
+				format.Format(s, validBits);
+			} else
+				s = sCatalog.GetString(B_TRANSLATE_MARK("32 bit integer"));
 			return s;
 		}
 		default: {
@@ -611,7 +620,7 @@ BString MediaString::forAudioChannelCount(
 	if (channelCount == media_raw_audio_format::wildcard.channel_count) {
 		return "*";
 	}
-	
+
 	switch (channelCount) {
 		case 1: {
 			return sCatalog.GetString(B_TRANSLATE_MARK("Mono"));
@@ -621,10 +630,12 @@ BString MediaString::forAudioChannelCount(
 		}
 		default: {
 			BString s = "";
-			s << channelCount
-				<< sCatalog.GetString(B_TRANSLATE_MARK(" Channels"));
+			static BStringFormat format(sCatalog.GetString(
+				B_TRANSLATE_MARK("{0, plural, one{# channel}"
+					"other{# channels}}")));
+			format.Format(s, channelCount);
 			return s;
-		}	
+		}
 	}
 }
 
@@ -660,7 +671,9 @@ BString MediaString::forAudioBufferSize(
 	}
 
 	BString s = "";
-	s << bufferSize << sCatalog.GetString(B_TRANSLATE_MARK(" bytes per buffer"));
+	static BStringFormat format(sCatalog.GetString(B_TRANSLATE_MARK(
+		"{0, plural, one{# byte per buffer} other{# bytes per buffer}}")));
+	format.Format(s, bufferSize);
 	return s;
 }
 
@@ -919,7 +932,11 @@ BString MediaString::forAudioFrameSize(
 	}
 
 	BString s = "";
-	s << frameSize << sCatalog.GetString(B_TRANSLATE_MARK(" bytes per frame"));
+	static BStringFormat format(sCatalog.GetString(
+		B_TRANSLATE_MARK("{0, plural,"
+			"one{# byte per frame}"
+			"other{# bytes per frame}}")));
+	format.Format(s, frameSize);
 	return s;
 }
 
@@ -1124,9 +1141,10 @@ BString MediaString::forVideoActiveLines(
 	 	return "*";
 	}
 
-	BString s = sCatalog.GetString(B_TRANSLATE_MARK("Video data between"));
-	s << sCatalog.GetString(B_TRANSLATE_MARK(" line ")) << firstActive;
-	s << sCatalog.GetString(B_TRANSLATE_MARK(" and ")) << lastActive;
+	BString s = "";
+	s.SetToFormat(sCatalog.GetString(
+		B_TRANSLATE_MARK("Video data between line " B_PRIu32 " and " B_PRIu32)),
+		firstActive, lastActive);
 	return s;
 }
 
@@ -1140,7 +1158,10 @@ BString MediaString::forVideoBytesPerRow(
 	}
 
 	BString s = "";
-	s << bytesPerRow << sCatalog.GetString(B_TRANSLATE_MARK(" bytes per row"));
+	static BStringFormat format(sCatalog.GetString(
+		B_TRANSLATE_MARK("{0, plural, one{# byte per row}"
+			"other{# bytes per row}}")));
+	format.Format(s, bytesPerRow);
 	return s;
 }
 
@@ -1152,13 +1173,19 @@ BString MediaString::forVideoOffset(
 
 	BString s = "";
 	if (pixelOffset != media_video_display_info::wildcard.pixel_offset) {
-		s << pixelOffset << sCatalog.GetString(B_TRANSLATE_MARK(" pixels"));
+		static BStringFormat format(sCatalog.GetString(
+			B_TRANSLATE_MARK("{0, plural, one{# pixel} other{# pixels}}")));
+		format.Format(s, pixelOffset);
 	}
 	if (lineOffset != media_video_display_info::wildcard.line_offset) {
 		if (s != "") {
 			s << ", ";
 		}
-		s << pixelOffset << sCatalog.GetString(B_TRANSLATE_MARK(" lines"));
+		BString t = "";
+		static BStringFormat format(sCatalog.GetString(
+			B_TRANSLATE_MARK("{0, plural, one{# line} other{# lines}}")));
+		format.Format(t, lineOffset);
+		s += t;
 	}
 	if (s == "") {
 		s = "*";
@@ -1203,7 +1230,11 @@ BString MediaString::forVideoFrameSize(
 	}
 
 	BString s = "";
-	s << frameSize << sCatalog.GetString(B_TRANSLATE_MARK(" bytes per frame"));
+	static BStringFormat format(sCatalog.GetString(
+		B_TRANSLATE_MARK("{0, plural,"
+			"one{# byte per frame}"
+			"other{# bytes per frame}}")));
+	format.Format(s, frameSize);
 	return s;
 }
 
@@ -1215,15 +1246,23 @@ BString MediaString::forVideoHistory(
 
 	BString s = "";
 	if (forwardHistory != media_encoded_video_format::wildcard.forward_history) {
-		s << static_cast<int32>(forwardHistory)
-			<< sCatalog.GetString(B_TRANSLATE_MARK(" frames forward"));
+		static BStringFormat format(sCatalog.GetString(
+			B_TRANSLATE_MARK("{0, plural,"
+				"one{# frame forward}"
+				"other{# frames forward}}")));
+		format.Format(s, static_cast<int32>(forwardHistory));
 	}
 	if (backwardHistory != media_encoded_video_format::wildcard.backward_history) {
 		if (s != "") {
 			s << ", ";
 		}
-		s << static_cast<int32>(backwardHistory)
-			<< sCatalog.GetString(B_TRANSLATE_MARK(" frames backward"));
+		BString t = "";
+		static BStringFormat format(sCatalog.GetString(
+			B_TRANSLATE_MARK("{0, plural,"
+				"one{# frame backward}"
+				"other{# frames backward}}")));
+		format.Format(t, static_cast<int32>(backwardHistory));
+		s += t;
 	}
 	if (s == "") {
 		s = "*";
@@ -1291,13 +1330,21 @@ BString MediaString::forMultistreamChunkSize(
 
 	BString s = "";
 	if (avgChunkSize != media_multistream_format::wildcard.avg_chunk_size) {
-		s << avgChunkSize << sCatalog.GetString(B_TRANSLATE_MARK(" bytes (avg)"));
+		static BStringFormat format(sCatalog.GetString(
+			B_TRANSLATE_MARK("{0, plural,"
+				"one{# byte (avg)}"
+				"other{# bytes (avg)}}")));
+		format.Format(s, avgChunkSize);
 	}
 	if (maxChunkSize != media_multistream_format::wildcard.max_chunk_size) {
 		if (s != "") {
 			s << ", ";
 		}
-		s << maxChunkSize << sCatalog.GetString(B_TRANSLATE_MARK(" bytes (max)"));
+		static BStringFormat format(sCatalog.GetString(
+			B_TRANSLATE_MARK("{0, plural,"
+				"one{# byte (max)}"
+				"other{# bytes (max)}}")));
+		format.Format(s, maxChunkSize);
 	}
 	if (s == "") {
 		s = "*";

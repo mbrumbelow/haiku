@@ -54,6 +54,11 @@
 #include <Path.h>
 // Support Kit
 #include <String.h>
+// Locale Kit
+#include <Catalog.h>
+
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "ParameterWindow"
 
 __USE_CORTEX_NAMESPACE
 
@@ -62,6 +67,8 @@ __USE_CORTEX_NAMESPACE
 #define D_HOOK(x) //PRINT (x)
 #define D_INTERNAL(x) //PRINT (x)
 #define D_MESSAGE(x) //PRINT (x)
+
+static BCatalog sCatalog("application/x-vnd.Cortex.ParameterView");
 
 // -------------------------------------------------------- //
 // ctor/dtor
@@ -83,26 +90,25 @@ ParameterWindow::ParameterWindow(
 
 	// add the nodes name to the title
 	{
-		char* title = new char[strlen(nodeInfo.name) + strlen(" parameters") + 1];
-		sprintf(title, "%s parameters", nodeInfo.name);
+		BString title = sCatalog.GetString(B_TRANSLATE_MARK("%nodeinfo% parameters"));
+		title.ReplaceFirst("%nodeinfo%", nodeInfo.name);
 		SetTitle(title);
-		delete [] title;
 	}
 	// add the menu bar
 	BMenuBar *menuBar = new BMenuBar(Bounds(), "ParameterWindow MenuBar");
 
-	BMenu *menu = new BMenu("Window");
-	menu->AddItem(new BMenuItem("Start control panel",
+	BMenu *menu = new BMenu(sCatalog.GetString(B_TRANSLATE_MARK("Window")));
+	menu->AddItem(new BMenuItem(sCatalog.GetString(B_TRANSLATE_MARK("Start control panel")),
 								new BMessage(M_START_CONTROL_PANEL),
 								'P', B_COMMAND_KEY | B_SHIFT_KEY));
 	menu->AddSeparatorItem();
-	menu->AddItem(new BMenuItem("Close",
+	menu->AddItem(new BMenuItem(sCatalog.GetString(B_TRANSLATE_MARK("Close")),
 								new BMessage(B_QUIT_REQUESTED),
 								'W', B_COMMAND_KEY));
 	menuBar->AddItem(menu);
 
 	// future Media Theme selection capabilities go here
-	menu = new BMenu("Themes");
+	menu = new BMenu(sCatalog.GetString(B_TRANSLATE_MARK("Themes")));
 	BMessage *message = new BMessage(M_THEME_SELECTED);
 	BMediaTheme *theme = BMediaTheme::PreferredTheme();
 	message->AddInt32("themeID", theme->ID());
@@ -158,9 +164,9 @@ void ParameterWindow::MessageReceived(
 			D_MESSAGE((" -> M_START_CONTROL_PANEL\n"));
 			status_t error = _startControlPanel();
 			if (error) {
-				BString s = "Could not start control panel";
-				s << " (" << strerror(error) << ")";
-				BAlert *alert = new BAlert("", s.String(), "OK", 0, 0,
+				BString s = sCatalog.GetString(B_TRANSLATE_MARK("Could not start control panel (%error%)"));
+				s.ReplaceFirst("%error%", strerror(error));
+				BAlert *alert = new BAlert("", s.String(), sCatalog.GetString(B_TRANSLATE_MARK("OK")), 0, 0,
 										   B_WIDTH_AS_USUAL, B_WARNING_ALERT);
 				alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
 				alert->Go(0);
