@@ -90,12 +90,15 @@ PrefsWindow::PrefsWindow(BRect frame, const char *name,
 	fTabView->SetResizingMode(B_FOLLOW_NONE);
 	ResizeTo(fTabView->Frame().Width(), fTabView->Frame().bottom + 16.0f
 		+ okButton->Bounds().Height());
+
+	fTabView->Select(fPrefs->prefs_focused_tab);
 }
 
 
 PrefsWindow::~PrefsWindow()
 {
 	fPrefs->prefs_window_rect = Frame();
+	fPrefs->prefs_focused_tab = fTabView->Selection();
 	fPrefs->Save();
 }
 

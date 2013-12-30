@@ -23,8 +23,9 @@ class Prefs {
 		int window_mode, deskbar_icon_width;
 		BRect normal_window_rect, mini_window_rect, prefs_window_rect;
 		int normal_bar_color, mini_active_color, mini_idle_color, mini_frame_color,
-			deskbar_active_color, deskbar_idle_color, deskbar_frame_color;
-		bool normal_fade_colors;
+			deskbar_active_color, deskbar_idle_color, deskbar_frame_color,
+			prefs_focused_tab;
+		bool normal_fade_colors, open_prefwindow;
 
 	private:
 		BFile *fFile;

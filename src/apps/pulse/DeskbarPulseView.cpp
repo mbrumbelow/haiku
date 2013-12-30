@@ -84,6 +84,9 @@ void DeskbarPulseView::AttachedToWindow() {
 	// the current pulse rate and affecting other replicants
 	messagerunner = new BMessageRunner(messenger, new BMessage(PV_REPLICANT_PULSE),
 		200000, -1);
+	if (prefs->open_prefwindow) {
+		BMessenger(this).SendMessage(PV_PREFERENCES);
+	}
 }
 
 void DeskbarPulseView::MouseDown(BPoint point) {
@@ -190,6 +193,11 @@ void DeskbarPulseView::Remove() {
 void DeskbarPulseView::SetMode(bool normal) {
 	if (normal) prefs->window_mode = NORMAL_WINDOW_MODE;
 	else prefs->window_mode = MINI_WINDOW_MODE;
+	if (prefswindow == NULL || prefswindow->IsHidden()
+		|| prefswindow->IsMinimized())
+		prefs->open_prefwindow = false;
+	else
+		prefs->open_prefwindow = true;
 	prefs->Save();
 	be_roster->Launch(APP_SIGNATURE);
 }

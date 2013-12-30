@@ -109,8 +109,20 @@ Prefs::Prefs()
 		return;
 	}
 
+	i = DEFAULT_PREFS_FOCUSED_TAB;
+	if (!GetInt("prefs_focused_tab", &prefs_focused_tab, &i)) {
+		fFatalError = true;
+		return;
+	}
+
 	bool b = DEFAULT_NORMAL_FADE_COLORS;
 	if (!GetBool("normal_fade_colors", &normal_fade_colors, &b)) {
+		fFatalError = true;
+		return;
+	}
+
+	b = DEFAULT_OPEN_PREFWINDOW;
+	if (!GetBool("open_prefwindow", &open_prefwindow, &b)) {
 		fFatalError = true;
 		return;
 	}
@@ -293,7 +305,9 @@ Prefs::Save()
 		|| !PutInt("deskbar_idle_color", &deskbar_idle_color)
 		|| !PutInt("deskbar_frame_color", &deskbar_frame_color)
 		|| !PutBool("normal_fade_colors", &normal_fade_colors)
-		|| !PutInt("deskbar_icon_width", &deskbar_icon_width))
+		|| !PutInt("prefs_focused_tab", &prefs_focused_tab)
+		|| !PutInt("deskbar_icon_width", &deskbar_icon_width)
+		|| !PutBool("open_prefwindow", &open_prefwindow))
 		return false;
 
 	return true;

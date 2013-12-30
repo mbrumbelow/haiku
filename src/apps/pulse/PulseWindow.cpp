@@ -55,6 +55,9 @@ PulseWindow::PulseWindow(BRect rect)
 		fMiniPulseView->Hide();
 
 	fPrefsWindow = NULL;
+	if (pulseapp->prefs->open_prefwindow) {
+		BMessenger(this).SendMessage(PV_PREFERENCES);
+	}
 }
 
 
@@ -181,6 +184,12 @@ PulseWindow::SetMode(int newmode)
 bool
 PulseWindow::QuitRequested()
 {
+	PulseApp* app = (PulseApp*)be_app;
+	if (fPrefsWindow == NULL || fPrefsWindow->IsHidden()
+		|| fPrefsWindow->IsMinimized())
+		app->prefs->open_prefwindow = false;
+	else
+		app->prefs->open_prefwindow = true;
 	be_app->PostMessage(B_QUIT_REQUESTED);
 	return true;
 }
