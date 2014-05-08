@@ -35,6 +35,7 @@ struct scheduling_analysis;
 struct _sem_t;
 struct sembuf;
 union semun;
+struct shmid_ds;
 struct sigaction;
 struct signal_frame_data;
 struct stat;
@@ -130,6 +131,14 @@ extern ssize_t		_kern_xsi_msgrcv(int messageQueueID, void *messagePointer,
 extern int			_kern_xsi_msgsnd(int messageQueueID,
 						const void *messagePointer, size_t messageSize,
 						int messageFlags);
+
+/* POSIX XSI shared memory syscalls */
+extern status_t     _kern_xsi_shmat(int id, const void* address, int flags,
+						void** _returnAddress);
+extern int			_kern_xsi_shmctl(int id, int command,
+						struct shmid_ds* buffer);
+extern int			_kern_xsi_shmdt(const void* address);
+extern int			_kern_xsi_shmget(key_t key, size_t size, int flags);
 
 /* team & thread syscalls */
 extern thread_id	_kern_load_image(const char* const* flatArgs,

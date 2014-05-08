@@ -44,6 +44,7 @@ SimpleTest posix_spawn_test : posix_spawn_test.cpp ;
 # XSI tests
 SimpleTest xsi_msg_queue_test1 : xsi_msg_queue_test1.cpp ;
 SimpleTest xsi_sem_test1 : xsi_sem_test1.cpp ;
+SimpleTest xsi_shm_test1 : xsi_shm_test1.cpp ;
 
 # wide character tests
 SimpleTest fwide_test : fwide_test.c ;
