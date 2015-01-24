@@ -422,6 +422,7 @@ public:
 									BRect rect, const BRect& updateRect,
 									const rgb_color& base, uint32 flags,
 									orientation orientation) = 0;
+
 private:
 	// FBC padding
 	virtual	void				_ReservedControlLook5();
