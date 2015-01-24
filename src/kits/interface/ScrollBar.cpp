@@ -1,5 +1,5 @@
 /*
- * Copyright 2001-2014 Haiku, Inc. All rights reserved.
+ * Copyright 2001-2015 Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT license.
  *
  * Authors:
@@ -43,6 +43,12 @@ typedef enum {
 	ARROW_DOWN,
 	ARROW_NONE
 } arrow_direction;
+
+typedef enum {
+	KNOB_NONE = 0,
+	KNOB_DOTS,
+	KNOB_LINES
+} knob_style;
 
 
 #define SBC_SCROLLBYVALUE	0
@@ -524,20 +530,19 @@ BScrollBar::Draw(BRect updateRect)
 	}
 
 	rgb_color thumbColor = ui_color(B_SCROLL_BAR_THUMB_COLOR);
+	const float bgTint = 1.06;
 
 	// Draw scroll thumb
 	if (enabled) {
 		// fill the clickable surface of the thumb
 		be_control_look->DrawButtonBackground(this, rect, updateRect,
 			thumbColor, 0, BControlLook::B_ALL_BORDERS, fOrientation);
-		// TODO: Add the other thumb styles - dots and lines
 	} else {
 		if (fMin >= fMax || fProportion >= 1.0f || fProportion < 0.0f) {
 			// we cannot scroll at all
 			_DrawDisabledBackground(thumbBG, light, dark, dark1);
 		} else {
 			// we could scroll, but we're simply disabled
-			float bgTint = 1.06;
 			rgb_color bgLight = tint_color(light, bgTint * 3);
 			rgb_color bgShadow = tint_color(dark, bgTint);
 			rgb_color bgFill = tint_color(dark1, bgTint);
@@ -545,20 +550,24 @@ BScrollBar::Draw(BRect updateRect)
 				// left of thumb
 				BRect besidesThumb(thumbBG);
 				besidesThumb.right = rect.left - 1;
-				_DrawDisabledBackground(besidesThumb, bgLight, bgShadow, bgFill);
+				_DrawDisabledBackground(besidesThumb, bgLight, bgShadow,
+					bgFill);
 				// right of thumb
 				besidesThumb.left = rect.right + 1;
 				besidesThumb.right = thumbBG.right;
-				_DrawDisabledBackground(besidesThumb, bgLight, bgShadow, bgFill);
+				_DrawDisabledBackground(besidesThumb, bgLight, bgShadow,
+					bgFill);
 			} else {
 				// above thumb
 				BRect besidesThumb(thumbBG);
 				besidesThumb.bottom = rect.top - 1;
-				_DrawDisabledBackground(besidesThumb, bgLight, bgShadow, bgFill);
+				_DrawDisabledBackground(besidesThumb, bgLight, bgShadow,
+					bgFill);
 				// below thumb
 				besidesThumb.top = rect.bottom + 1;
 				besidesThumb.bottom = thumbBG.bottom;
-				_DrawDisabledBackground(besidesThumb, bgLight, bgShadow, bgFill);
+				_DrawDisabledBackground(besidesThumb, bgLight, bgShadow,
+					bgFill);
 			}
 			// thumb bevel
 			BeginLineArray(4);
@@ -575,6 +584,109 @@ BScrollBar::Draw(BRect updateRect)
 			rect.InsetBy(1.0, 1.0);
 			SetHighColor(dark1);
 			FillRect(rect);
+		}
+	}
+
+	if (fPrivateData->fScrollBarInfo.knob == KNOB_NONE)
+		return;
+
+	rgb_color knobLight = enabled
+		? tint_color(thumbColor, B_LIGHTEN_MAX_TINT)
+		: tint_color(dark1, bgTint);
+	rgb_color knobDark = enabled
+		? tint_color(thumbColor, 1.22)
+		: tint_color(knobLight, B_DARKEN_1_TINT);
+
+	if (fPrivateData->fScrollBarInfo.knob == KNOB_DOTS) {
+		// draw dots on the scroll bar thumb
+		float hcenter = rect.left + rect.Width() / 2;
+		float vmiddle = rect.top + rect.Height() / 2;
+		BRect knob(hcenter, vmiddle, hcenter, vmiddle);
+
+		if (fOrientation == B_HORIZONTAL) {
+			SetHighColor(knobDark);
+			FillRect(knob);
+			SetHighColor(knobLight);
+			FillRect(knob.OffsetByCopy(1, 1));
+
+			float spacer = rect.Height();
+
+			if (rect.left + 3 < hcenter - spacer) {
+				SetHighColor(knobDark);
+				FillRect(knob.OffsetByCopy(-spacer, 0));
+				SetHighColor(knobLight);
+				FillRect(knob.OffsetByCopy(-spacer + 1, 1));
+			}
+
+			if (rect.right - 3 > hcenter + spacer) {
+				SetHighColor(knobDark);
+				FillRect(knob.OffsetByCopy(spacer, 0));
+				SetHighColor(knobLight);
+				FillRect(knob.OffsetByCopy(spacer + 1, 1));
+			}
+		} else {
+			// B_VERTICAL
+			SetHighColor(knobDark);
+			FillRect(knob);
+			SetHighColor(knobLight);
+			FillRect(knob.OffsetByCopy(1, 1));
+
+			float spacer = rect.Width();
+
+			if (rect.top + 3 < vmiddle - spacer) {
+				SetHighColor(knobDark);
+				FillRect(knob.OffsetByCopy(0, -spacer));
+				SetHighColor(knobLight);
+				FillRect(knob.OffsetByCopy(1, -spacer + 1));
+			}
+
+			if (rect.bottom - 3 > vmiddle + spacer) {
+				SetHighColor(knobDark);
+				FillRect(knob.OffsetByCopy(0, spacer));
+				SetHighColor(knobLight);
+				FillRect(knob.OffsetByCopy(1, spacer + 1));
+			}
+		}
+	} else if (fPrivateData->fScrollBarInfo.knob == KNOB_LINES) {
+		// draw lines on the scroll bar thumb
+		if (fOrientation == B_HORIZONTAL) {
+			float middle = rect.Width() / 2;
+
+			SetHighColor(knobDark);
+			StrokeLine(BPoint(rect.left + middle - 3, rect.top + 2),
+				BPoint(rect.left + middle - 3, rect.bottom - 2));
+			StrokeLine(BPoint(rect.left + middle, rect.top + 2),
+				BPoint(rect.left + middle, rect.bottom - 2));
+			StrokeLine(BPoint(rect.left + middle + 3, rect.top + 2),
+				BPoint(rect.left + middle + 3, rect.bottom - 2));
+
+			SetHighColor(knobLight);
+			StrokeLine(BPoint(rect.left + middle - 2, rect.top + 2),
+				BPoint(rect.left + middle - 2, rect.bottom - 2));
+			StrokeLine(BPoint(rect.left + middle + 1, rect.top + 2),
+				BPoint(rect.left + middle + 1, rect.bottom - 2));
+			StrokeLine(BPoint(rect.left + middle + 4, rect.top + 2),
+				BPoint(rect.left + middle + 4, rect.bottom - 2));
+		} else {
+			// B_VERTICAL
+			float middle = rect.Height() / 2;
+
+			SetHighColor(knobDark);
+			StrokeLine(BPoint(rect.left + 2, rect.top + middle - 3),
+				BPoint(rect.right - 2, rect.top + middle - 3));
+			StrokeLine(BPoint(rect.left + 2, rect.top + middle),
+				BPoint(rect.right - 2, rect.top + middle));
+			StrokeLine(BPoint(rect.left + 2, rect.top + middle + 3),
+				BPoint(rect.right - 2, rect.top + middle + 3));
+
+			SetPenSize(1);
+			SetHighColor(knobLight);
+			StrokeLine(BPoint(rect.left + 2, rect.top + middle - 2),
+				BPoint(rect.right - 2, rect.top + middle - 2));
+			StrokeLine(BPoint(rect.left + 2, rect.top + middle + 1),
+				BPoint(rect.right - 2, rect.top + middle + 1));
+			StrokeLine(BPoint(rect.left + 2, rect.top + middle + 4),
+				BPoint(rect.right - 2, rect.top + middle + 4));
 		}
 	}
 }
