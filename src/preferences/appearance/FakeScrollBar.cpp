@@ -1,10 +1,10 @@
 /*
- *  Copyright 2010-2012 Haiku, Inc. All rights reserved.
+ *  Copyright 2010-2015 Haiku, Inc. All rights reserved.
  *  Distributed under the terms of the MIT license.
  *
  *	Authors:
- *		DarkWyrm <bpmagic@columbus.rr.com>
- *		John Scipione <jscipione@gmail.com>
+ *		DarkWyrm, bpmagic@columbus.rr.com
+ *		John Scipione, jscipione@gmail.com
  */
 
 
@@ -27,15 +27,25 @@ typedef enum {
 	ARROW_NONE
 } arrow_direction;
 
+typedef enum {
+	KNOB_NONE = 0,
+	KNOB_DOTS,
+	KNOB_LINES
+} knob_style;
+
+
+//	#pragma mark - FakeScrollBar
+
 
 FakeScrollBar::FakeScrollBar(bool drawArrows, bool doubleArrows,
-	BMessage* message)
+	uint32 knobStyle, BMessage* message)
 	:
 	BControl("FakeScrollBar", NULL, message, B_WILL_DRAW | B_NAVIGABLE),
 	fDrawArrows(drawArrows),
-	fDoubleArrows(doubleArrows)
+	fDoubleArrows(doubleArrows),
+	fKnobStyle(knobStyle)
 {
-	SetExplicitMinSize(BSize(160, 20));
+	SetExplicitMinSize(BSize(200, 20));
 	SetExplicitMaxSize(BSize(B_SIZE_UNLIMITED, 20));
 }
 
@@ -139,35 +149,90 @@ FakeScrollBar::Draw(BRect updateRect)
 	// Draw scroll thumb
 
 	// fill the clickable surface of the thumb
+	rgb_color thumbColor = ui_color(B_SCROLL_BAR_THUMB_COLOR);
 	be_control_look->DrawButtonBackground(this, bgRect, updateRect,
-		normal, 0, BControlLook::B_ALL_BORDERS, B_HORIZONTAL);
+		thumbColor, 0, BControlLook::B_ALL_BORDERS, B_HORIZONTAL);
+
+	if (fKnobStyle == KNOB_NONE)
+		return;
+
+	rgb_color knobLight = tint_color(thumbColor, B_LIGHTEN_MAX_TINT);
+	rgb_color knobDark = tint_color(thumbColor, 1.22);
+	BRect rect(bgRect);
+
+	if (fKnobStyle == KNOB_DOTS) {
+		// draw dots on the scroll bar thumb
+		float hcenter = rect.left + rect.Width() / 2;
+		float vmiddle = rect.top + rect.Height() / 2;
+		BRect knob(hcenter, vmiddle, hcenter, vmiddle);
+
+		SetHighColor(knobDark);
+		FillRect(knob);
+		SetHighColor(knobLight);
+		FillRect(knob.OffsetByCopy(1, 1));
+
+		float spacer = rect.Height();
+
+		if (rect.left + 3 < hcenter - spacer) {
+			SetHighColor(knobDark);
+			FillRect(knob.OffsetByCopy(-spacer, 0));
+			SetHighColor(knobLight);
+			FillRect(knob.OffsetByCopy(-spacer + 1, 1));
+		}
+
+		if (rect.right - 3 > hcenter + spacer) {
+			SetHighColor(knobDark);
+			FillRect(knob.OffsetByCopy(spacer, 0));
+			SetHighColor(knobLight);
+			FillRect(knob.OffsetByCopy(spacer + 1, 1));
+		}
+	} else if (fKnobStyle == KNOB_LINES) {
+		// draw lines on the scroll bar thumb
+		float middle = rect.Width() / 2;
+
+		SetHighColor(knobDark);
+		StrokeLine(BPoint(rect.left + middle - 3, rect.top + 2),
+			BPoint(rect.left + middle - 3, rect.bottom - 2));
+		StrokeLine(BPoint(rect.left + middle, rect.top + 2),
+			BPoint(rect.left + middle, rect.bottom - 2));
+		StrokeLine(BPoint(rect.left + middle + 3, rect.top + 2),
+			BPoint(rect.left + middle + 3, rect.bottom - 2));
+
+		SetHighColor(knobLight);
+		StrokeLine(BPoint(rect.left + middle - 2, rect.top + 2),
+			BPoint(rect.left + middle - 2, rect.bottom - 2));
+		StrokeLine(BPoint(rect.left + middle + 1, rect.top + 2),
+			BPoint(rect.left + middle + 1, rect.bottom - 2));
+		StrokeLine(BPoint(rect.left + middle + 4, rect.top + 2),
+			BPoint(rect.left + middle + 4, rect.bottom - 2));
+	}
 }
 
 
 void
-FakeScrollBar::MouseDown(BPoint point)
+FakeScrollBar::MouseDown(BPoint where)
 {
-	BControl::MouseDown(point);
+	BControl::MouseDown(where);
 }
 
 
 void
-FakeScrollBar::MouseMoved(BPoint point, uint32 transit,
-	const BMessage* message)
+FakeScrollBar::MouseMoved(BPoint where, uint32 transit,
+	const BMessage* dragMessage)
 {
-	BControl::MouseMoved(point, transit, message);
+	BControl::MouseMoved(where, transit, dragMessage);
 }
 
 
 void
-FakeScrollBar::MouseUp(BPoint point)
+FakeScrollBar::MouseUp(BPoint where)
 {
 	SetValue(B_CONTROL_ON);
 	Invoke();
 
 	Invalidate();
 
-	BControl::MouseUp(point);
+	BControl::MouseUp(where);
 }
 
 
@@ -179,7 +244,7 @@ FakeScrollBar::SetValue(int32 value)
 		Invalidate();
 	}
 
-	if (!value)
+	if (value == 0)
 		return;
 
 	BView* parent = Parent();
@@ -202,10 +267,10 @@ FakeScrollBar::SetValue(int32 value)
 				child = parent->ChildAt(0);
 		} else
 			child = Window()->ChildAt(0);
-	} else if (Window())
+	} else if (Window() != NULL)
 		child = Window()->ChildAt(0);
 
-	while (child) {
+	while (child != NULL) {
 		FakeScrollBar* scrollbar = dynamic_cast<FakeScrollBar*>(child);
 
 		if (scrollbar != NULL && (scrollbar != this))
@@ -229,12 +294,12 @@ FakeScrollBar::SetValue(int32 value)
 }
 
 
-//	#pragma mark -
-
-
 void
 FakeScrollBar::SetDoubleArrows(bool doubleArrows)
 {
+	if (fDoubleArrows == doubleArrows)
+		return;
+
 	fDoubleArrows = doubleArrows;
 	Invalidate();
 }
@@ -243,6 +308,9 @@ FakeScrollBar::SetDoubleArrows(bool doubleArrows)
 void
 FakeScrollBar::SetKnobStyle(uint32 knobStyle)
 {
+	if (fKnobStyle == knobStyle)
+		return;
+
 	fKnobStyle = knobStyle;
 	Invalidate();
 }
@@ -257,7 +325,7 @@ FakeScrollBar::SetFromScrollBarInfo(const scroll_bar_info &info)
 }
 
 
-//	#pragma mark -
+//	#pragma mark - Private methods
 
 
 void
