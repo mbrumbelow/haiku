@@ -18,7 +18,6 @@
 
 
 class BButton;
-class BCheckBox;
 class BMenuField;
 class BPopUpMenu;
 class FakeScrollBar;
@@ -50,6 +49,9 @@ private:
 			bool				_DoubleScrollBarArrows();
 			void				_SetDoubleScrollBarArrows(bool doubleArrows);
 
+			int32				_ScrollBarKnobStyle();
+			void				_SetScrollBarKnobStyle(int32 knobStyle);
+
 private:
 			DecorInfoUtility	fDecorUtility;
 
@@ -70,6 +72,11 @@ private:
 			BString				fSavedControlLook;
 			BString				fCurrentControlLook;
 
+			FakeScrollBar*		fKnobStyleNone;
+			FakeScrollBar*		fKnobStyleDots;
+			FakeScrollBar*		fKnobStyleLines;
+
+			int32				fSavedKnobStyleValue;
 			bool				fSavedDoubleArrowsValue : 1;
 };
 
