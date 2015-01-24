@@ -1,10 +1,10 @@
 /*
- *  Copyright 2010-2012 Haiku, Inc. All rights reserved.
+ *  Copyright 2010-2020 Haiku, Inc. All rights reserved.
  *  Distributed under the terms of the MIT license.
  *
  *	Authors:
- *		DarkWyrm <bpmagic@columbus.rr.com>
- *		John Scipione <jscipione@gmail.com>
+ *		DarkWyrm, bpmagic@columbus.rr.com
+ *		John Scipione, jscipione@gmail.com
  */
 
 
@@ -14,29 +14,23 @@
 #include <ControlLook.h>
 #include <Message.h>
 #include <ScrollBar.h>
-#include <Shape.h>
-#include <Size.h>
 #include <Window.h>
 
 
-typedef enum {
-	ARROW_LEFT = 0,
-	ARROW_RIGHT,
-	ARROW_UP,
-	ARROW_DOWN,
-	ARROW_NONE
-} arrow_direction;
+//	#pragma mark - FakeScrollBar
 
 
 FakeScrollBar::FakeScrollBar(bool drawArrows, bool doubleArrows,
-	BMessage* message)
+	uint32 knobStyle, BMessage* message)
 	:
 	BControl("FakeScrollBar", NULL, message, B_WILL_DRAW | B_NAVIGABLE),
 	fDrawArrows(drawArrows),
-	fDoubleArrows(doubleArrows)
+	fDoubleArrows(doubleArrows),
+	fKnobStyle(knobStyle)
 {
-	SetExplicitMinSize(BSize(160, 20));
-	SetExplicitMaxSize(BSize(B_SIZE_UNLIMITED, 20));
+	float height = B_H_SCROLL_BAR_HEIGHT + 8;
+		// add some height to draw the ring around the scroll bar
+	SetExplicitSize(BSize(B_SIZE_UNSET, height));
 }
 
 
@@ -124,41 +118,21 @@ FakeScrollBar::Draw(BRect updateRect)
 
 
 void
-FakeScrollBar::MouseDown(BPoint point)
+FakeScrollBar::MouseDown(BPoint where)
 {
-	BControl::MouseDown(point);
-}
-
-
-void
-FakeScrollBar::MouseMoved(BPoint point, uint32 transit,
-	const BMessage* message)
-{
-	BControl::MouseMoved(point, transit, message);
-}
-
-
-void
-FakeScrollBar::MouseUp(BPoint point)
-{
-	SetValue(B_CONTROL_ON);
 	Invoke();
 
-	Invalidate();
-
-	BControl::MouseUp(point);
+	BControl::MouseDown(where);
 }
 
 
 void
 FakeScrollBar::SetValue(int32 value)
 {
-	if (value != Value()) {
-		BControl::SetValueNoUpdate(value);
-		Invalidate();
-	}
+	if (value != Value())
+		BControl::SetValue(value);
 
-	if (!value)
+	if (value == B_CONTROL_OFF)
 		return;
 
 	BView* parent = Parent();
@@ -168,52 +142,50 @@ FakeScrollBar::SetValue(int32 value)
 		// If the parent is a BBox, the group parent is the parent of the BBox
 		BBox* box = dynamic_cast<BBox*>(parent);
 
-		if (box && box->LabelView() == this)
+		if (box != NULL && box->LabelView() == this)
 			parent = box->Parent();
 
 		if (parent != NULL) {
-			BBox* box = dynamic_cast<BBox*>(parent);
+			box = dynamic_cast<BBox*>(parent);
 
 			// If the parent is a BBox, skip the label if there is one
-			if (box && box->LabelView())
+			if (box != NULL && box->LabelView() != NULL)
 				child = parent->ChildAt(1);
 			else
 				child = parent->ChildAt(0);
-		} else
+		} else if (Window() != NULL)
 			child = Window()->ChildAt(0);
-	} else if (Window())
+	} else if (Window() != NULL)
 		child = Window()->ChildAt(0);
 
-	while (child) {
+	while (child != NULL) {
 		FakeScrollBar* scrollbar = dynamic_cast<FakeScrollBar*>(child);
 
-		if (scrollbar != NULL && (scrollbar != this))
+		if (scrollbar != NULL && scrollbar != this)
 			scrollbar->SetValue(B_CONTROL_OFF);
 		else {
 			// If the child is a BBox, check if the label is a scrollbarbutton
 			BBox* box = dynamic_cast<BBox*>(child);
 
-			if (box && box->LabelView()) {
+			if (box != NULL && box->LabelView() != NULL) {
 				scrollbar = dynamic_cast<FakeScrollBar*>(box->LabelView());
 
-				if (scrollbar != NULL && (scrollbar != this))
+				if (scrollbar != NULL && scrollbar != this)
 					scrollbar->SetValue(B_CONTROL_OFF);
 			}
 		}
 
 		child = child->NextSibling();
 	}
-
-	//ASSERT(Value() == B_CONTROL_ON);
 }
-
-
-//	#pragma mark -
 
 
 void
 FakeScrollBar::SetDoubleArrows(bool doubleArrows)
 {
+	if (fDoubleArrows == doubleArrows)
+		return;
+
 	fDoubleArrows = doubleArrows;
 	Invalidate();
 }
@@ -222,6 +194,9 @@ FakeScrollBar::SetDoubleArrows(bool doubleArrows)
 void
 FakeScrollBar::SetKnobStyle(uint32 knobStyle)
 {
+	if (fKnobStyle == knobStyle)
+		return;
+
 	fKnobStyle = knobStyle;
 	Invalidate();
 }
@@ -230,31 +205,10 @@ FakeScrollBar::SetKnobStyle(uint32 knobStyle)
 void
 FakeScrollBar::SetFromScrollBarInfo(const scroll_bar_info &info)
 {
+	if (fDoubleArrows == info.double_arrows && (int32)fKnobStyle == info.knob)
+		return;
+
 	fDoubleArrows = info.double_arrows;
 	fKnobStyle = info.knob;
 	Invalidate();
-}
-
-
-//	#pragma mark -
-
-
-void
-FakeScrollBar::_DrawArrowButton(int32 direction, BRect rect,
-	const BRect& updateRect)
-{
-	if (!updateRect.Intersects(rect))
-		return;
-
-	uint32 flags = 0;
-
-	rgb_color baseColor = tint_color(ui_color(B_PANEL_BACKGROUND_COLOR),
-		B_LIGHTEN_1_TINT);
-
-	be_control_look->DrawButtonBackground(this, rect, updateRect, baseColor,
-		flags, BControlLook::B_ALL_BORDERS, B_HORIZONTAL);
-
-	rect.InsetBy(-1, -1);
-	be_control_look->DrawArrowShape(this, rect, updateRect,
-		baseColor, direction, flags, B_DARKEN_MAX_TINT);
 }

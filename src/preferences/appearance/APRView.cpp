@@ -88,10 +88,9 @@ APRView::APRView(const char* name)
 		fAttrList->AddItem(new ColorWhichItem(text, which, ui_color(which)));
 	}
 
-	BRect wellrect(0, 0, 50, 50);
-	fColorPreview = new ColorPreview(wellrect, new BMessage(COLOR_DROPPED), 0);
+	fColorPreview = new ColorPreview(new BMessage(COLOR_DROPPED), 0);
 	fColorPreview->SetExplicitAlignment(BAlignment(B_ALIGN_HORIZONTAL_CENTER,
-		B_ALIGN_BOTTOM));
+		B_ALIGN_VERTICAL_CENTER));
 
 	fPicker = new BColorControl(B_ORIGIN, B_CELLS_32x8, 8.0,
 		"picker", new BMessage(UPDATE_COLOR));
