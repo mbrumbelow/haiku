@@ -93,6 +93,10 @@ AVCodecEncoder::_Init()
 	fEncodeParameters.avg_field_size = 0;
 	fEncodeParameters.max_field_size = 0;
 	fEncodeParameters.quality = 1.0f;
+
+	system_info info;
+	get_system_info(&info);
+	fContext->thread_count = info.cpu_count;
 }
 
 
