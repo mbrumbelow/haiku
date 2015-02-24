@@ -496,6 +496,26 @@ IconCache::GetIconFromFileTypes(ModelNodeLazyOpener* modelOpener,
 			source = kUnknownSource;
 	}
 
+	// try getting a thumbnail
+	if (GetThumbnailIcon(model->Node(), lazyBitmap->Get(), size) == B_OK) {
+		// we got thumbnail from the node, use it
+		BBitmap* bitmap = lazyBitmap->Adopt();
+		PRINT_ADD_ITEM(("File %s; Line %d # adding entry for model %s\n",
+			__FILE__, __LINE__, model->Name()));
+		entry = fNodeCache.AddItem(model->NodeRef(), true);
+		ASSERT(entry != NULL);
+		entry->SetIcon(bitmap, kNormalIcon, size);
+		if (mode != kNormalIcon) {
+			entry->ConstructBitmap(mode, size, lazyBitmap);
+			entry->SetIcon(lazyBitmap->Adopt(), mode, size);
+		}
+		source = kNode;
+		ASSERT(entry->HaveIconBitmap(mode, size));
+
+		return entry;
+	}
+
+	// try getting icon from meta mime
 	entry = GetIconFromMetaMime(fileType, mode, size, lazyBitmap, entry);
 	if (entry == NULL) {
 		// Try getting a supertype handler icon

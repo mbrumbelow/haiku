@@ -97,6 +97,15 @@ CheckNodeIconHint(BNode* node)
 		return true;
 	}
 
+	// look for image thumbnails
+	char attrName[B_ATTR_NAME_LENGTH];
+	while (node->GetNextAttrName(attrName) == B_OK) {
+		if (BString(attrName).StartsWith(kAttrThumb)) {
+			// image with a thumbnail
+			return true;
+		}
+	}
+
 	return false;
 }
 

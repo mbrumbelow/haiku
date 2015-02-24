@@ -128,13 +128,13 @@ public:
 
 	bool fInvisible;
 	ino_t fInitedDirectory;
+	BPoint fLocation;
 		// For a location to be valid, fInitedDirectory has to contain
 		// the inode of the items parent directory. This makes it
 		// impossible to for instance zip up files and extract them in
 		// the same location. This should probably be reworked.
 		// Tracker could strip the file location attributes when dropping
 		// files into a closed folder.
-	BPoint fLocation;
 };
 
 
@@ -482,6 +482,10 @@ void _ThrowOnAssert(bool, const char*, int32);
 status_t GetAppSignatureFromAttr(BFile*, char*);
 status_t GetAppIconFromAttr(BFile* file, BBitmap* icon, icon_size which);
 status_t GetFileIconFromAttr(BNode* node, BBitmap* icon, icon_size which);
+
+// get thumbnail icon
+status_t
+GetThumbnailIcon(BNode* node, BBitmap* icon, icon_size which);
 
 // debugging
 void HexDump(const void* buffer, int32 length);
