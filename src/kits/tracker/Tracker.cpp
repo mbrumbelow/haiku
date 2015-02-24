@@ -617,6 +617,48 @@ TTracker::MessageReceived(BMessage* message)
 			break;
 		}
 
+		case kUpdateThumbnail:
+		{
+			// message passed from generator thread
+			// update icon on passed-in node_ref
+			dev_t device;
+			ino_t inode;
+				// call this inode so we can call the node_ref node
+			if (message->FindInt32("device", (int32*)&device) == B_OK
+				&& message->FindUInt64("node", (uint64*)&inode) == B_OK) {
+				const node_ref* node = new node_ref(device, inode);
+				if (node == NULL)
+					break;
+
+				// cycle through open windows to find the node's pose
+				// TODO find a faster way
+				AutoLock<WindowList> lock(&fWindowList);
+				int32 count = fWindowList.CountItems();
+				for (int32 index = 0; index < count; index++) {
+					BContainerWindow* window = dynamic_cast<BContainerWindow*>(
+						fWindowList.ItemAt(index));
+					if (window == NULL)
+						continue;
+
+					AutoLock<BWindow> windowLock(window);
+					if (!windowLock.IsLocked())
+						continue;
+
+					BPoseView* poseView = window->PoseView();
+					if (poseView == NULL)
+						continue;
+
+					BPose* pose = poseView->FindPose(node);
+					if (pose != NULL) {
+						poseView->UpdateIcon(pose);
+						break; // updated pose icon, exit loop
+					}
+				}
+				delete node;
+			}
+			break;
+		}
+
 		default:
 			_inherited::MessageReceived(message);
 			break;
