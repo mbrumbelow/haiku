@@ -19,6 +19,8 @@
 
 #include <Bitmap.h>
 #include <Node.h>
+#include <NodeInfo.h>
+#include <String.h>
 #include <TypeConstants.h>
 
 #include "AutoDeleter.h"
@@ -35,7 +37,6 @@
 
 
 _USING_ICON_NAMESPACE;
-using std::nothrow;
 
 
 //	#pragma mark - Scaling functions
@@ -150,15 +151,15 @@ scale_down(const uint8* srcBits, uint8* dstBits, int32 srcWidth, int32 srcHeight
 			// nearby pixels
 			p1 = *((rgb_color*)srcBits + (l * srcWidth) + c);
 			p2 = *((rgb_color*)srcBits + (l * srcWidth) + c + 1);
-			p3 = *((rgb_color*)srcBits + ((l + 1)* srcWidth) + c + 1);
-			p4 = *((rgb_color*)srcBits + ((l + 1)* srcWidth) + c);
+			p3 = *((rgb_color*)srcBits + ((l + 1) * srcWidth) + c + 1);
+			p4 = *((rgb_color*)srcBits + ((l + 1) * srcWidth) + c);
 
 			// color components
-			out.blue = (uint8)(p1.blue * d1 + p2.blue * d2 + p3.blue * d3 
+			out.blue = (uint8)(p1.blue * d1 + p2.blue * d2 + p3.blue * d3
 				+ p4.blue * d4);
-			out.green = (uint8)(p1.green * d1 + p2.green * d2 + p3.green * d3 
+			out.green = (uint8)(p1.green * d1 + p2.green * d2 + p3.green * d3
 				+ p4.green * d4);
-			out.red = (uint8)(p1.red * d1 + p2.red * d2 + p3.red * d3 
+			out.red = (uint8)(p1.red * d1 + p2.red * d2 + p3.red * d3
 				+ p4.red * d4);
 			out.alpha = (uint8)(p1.alpha * d1 + p2.alpha * d2 + p3.alpha * d3
 				+ p4.alpha * d4);
@@ -285,8 +286,12 @@ scale4x(const uint8* srcBits, uint8* dstBits, int32 srcWidth, int32 srcHeight,
 	int32 srcBPR, int32 dstBPR)
 {
 	// scale4x is just scale2x twice
-	BBitmap* tmp = new BBitmap(BRect(0, 0, srcWidth * 2 - 1,
-		srcHeight * 2 - 1), B_RGBA32);
+	BRect rect = BRect(0, 0, srcWidth * 2 - 1, srcHeight * 2 - 1);
+#ifdef HAIKU_TARGET_PLATFORM_HAIKU
+	BBitmap* tmp = new BBitmap(rect, B_BITMAP_NO_SERVER_LINK, B_RGBA32);
+#else
+	BBitmap* tmp = new BBitmap(rect, B_RGBA32);
+#endif
 	uint8* tmpBits = (uint8*)tmp->Bits();
 	int32 tmpBPR = tmp->BytesPerRow();
 
@@ -326,7 +331,7 @@ BIconUtils::GetIcon(BNode* node, const char* vectorIconAttrName,
 				// (converting to B_RGBA32 is handled)
 
 				// override size
-				if (icon->Bounds().IntegerWidth() + 1 >= 32)
+				if (icon->Bounds().IntegerWidth() + 1 >= B_LARGE_ICON)
 					which = B_LARGE_ICON;
 				else
 					which = B_MINI_ICON;
@@ -453,8 +458,12 @@ BIconUtils::GetVectorIcon(const uint8* buffer, size_t size, BBitmap* icon)
 	ObjectDeleter<BBitmap> deleter;
 
 	if (icon->ColorSpace() != B_RGBA32 && icon->ColorSpace() != B_RGB32) {
-		temp = new (nothrow) BBitmap(icon->Bounds(),
+#ifdef HAIKU_TARGET_PLATFORM_HAIKU
+		temp = new(std::nothrow) BBitmap(icon->Bounds(),
 			B_BITMAP_NO_SERVER_LINK, B_RGBA32);
+#else
+		temp = new(std::nothrow) BBitmap(icon->Bounds(), B_RGBA32);
+#endif
 		deleter.SetTo(temp);
 		if (temp == NULL || temp->InitCheck() != B_OK)
 			return B_NO_MEMORY;
@@ -544,16 +553,16 @@ BIconUtils::GetCMAP8Icon(BNode* node, const char* smallIconAttrName,
 	switch (which) {
 		case B_MINI_ICON:
 			attribute = smallIconAttrName;
-			bounds.Set(0, 0, 15, 15);
+			bounds.Set(0, 0, B_MINI_ICON - 1, B_MINI_ICON - 1);
 			attrType = B_MINI_ICON_TYPE;
-			attrSize = 16 * 16;
+			attrSize = B_MINI_ICON * B_MINI_ICON;
 			break;
 
 		case B_LARGE_ICON:
 			attribute = largeIconAttrName;
-			bounds.Set(0, 0, 31, 31);
+			bounds.Set(0, 0, B_LARGE_ICON - 1, B_LARGE_ICON - 1);
 			attrType = B_LARGE_ICON_TYPE;
-			attrSize = 32 * 32;
+			attrSize = B_LARGE_ICON * B_LARGE_ICON;
 			break;
 
 		default:
@@ -586,11 +595,13 @@ BIconUtils::GetCMAP8Icon(BNode* node, const char* smallIconAttrName,
 		ssize_t bytesRead;
 		if (useBuffer) {
 			// other color space or bitmap size than stored in attribute
-			buffer = new(nothrow) uint8[attrSize];
+			buffer = new(std::nothrow) uint8[attrSize];
 			if (buffer == NULL)
-				result = B_NO_MEMORY;
-			else
-				bytesRead = node->ReadAttr(attribute, attrType, 0, buffer, attrSize);
+				bytesRead = result = B_NO_MEMORY;
+			else {
+				bytesRead = node->ReadAttr(attribute, attrType, 0, buffer,
+					attrSize);
+			}
 		} else {
 			bytesRead = node->ReadAttr(attribute, attrType, 0, icon->Bits(),
 				attrSize);
@@ -695,8 +706,17 @@ BIconUtils::ConvertFromCMAP8(const uint8* src, uint32 width, uint32 height,
 		|| (dstWidth == 2 * width && dstHeight == 2 * height)
 		|| (dstWidth == 3 * width && dstHeight == 3 * height)
 		|| (dstWidth == 4 * width && dstHeight == 4 * height)) {
-		BBitmap* converted = new BBitmap(BRect(0, 0, width - 1, height - 1),
+		BRect rect = BRect(0, 0, width - 1, height - 1);
+#ifdef HAIKU_TARGET_PLATFORM_HAIKU
+		BBitmap* converted = new(std::nothrow) BBitmap(rect,
+			B_BITMAP_NO_SERVER_LINK, icon->ColorSpace());
+#else
+		BBitmap* converted = new(std::nothrow) BBitmap(rect,
 			icon->ColorSpace());
+#endif
+		if (converted == NULL)
+			return B_NO_MEMORY;
+
 		converted->ImportBits(src, height * srcBPR, srcBPR, 0, B_CMAP8);
 		uint8* convertedBits = (uint8*)converted->Bits();
 		int32 convertedBPR = converted->BytesPerRow();
@@ -746,8 +766,17 @@ BIconUtils::ConvertFromCMAP8(const uint8* src, uint32 width, uint32 height,
 	if (dstWidth > width && dstHeight > height
 		&& dstWidth < 2 * width && dstHeight < 2 * height) {
 		// scale2x then downscale
-		BBitmap* temp = new BBitmap(BRect(0, 0, width * 2 - 1, height * 2 - 1),
+		BRect rect = BRect(0, 0, width * 2 - 1, height * 2 - 1);
+#ifdef HAIKU_TARGET_PLATFORM_HAIKU
+		BBitmap* temp = new(std::nothrow) BBitmap(rect,
+			B_BITMAP_NO_SERVER_LINK, icon->ColorSpace());
+#else
+		BBitmap* temp = new(std::nothrow) BBitmap(rect,
 			icon->ColorSpace());
+#endif
+		if (temp == NULL)
+			return B_NO_MEMORY;
+
 		uint8* tempBits = (uint8*)temp->Bits();
 		uint32 tempBPR = temp->BytesPerRow();
 		scale2x(dst, tempBits, width, height, dstBPR, tempBPR);
@@ -756,8 +785,16 @@ BIconUtils::ConvertFromCMAP8(const uint8* src, uint32 width, uint32 height,
 	} else if (dstWidth > 2 * width && dstHeight > 2 * height
 		&& dstWidth < 3 * width && dstHeight < 3 * height) {
 		// scale3x then downscale
-		BBitmap* temp = new BBitmap(BRect(0, 0, width * 3 - 1, height * 3 - 1),
+		BRect rect = BRect(0, 0, width * 3 - 1, height * 3 - 1);
+#ifdef HAIKU_TARGET_PLATFORM_HAIKU
+		BBitmap* temp = new BBitmap(rect, B_BITMAP_NO_SERVER_LINK,
 			icon->ColorSpace());
+#else
+		BBitmap* temp = new BBitmap(rect, icon->ColorSpace());
+#endif
+		if (temp == NULL)
+			return B_NO_MEMORY;
+
 		uint8* tempBits = (uint8*)temp->Bits();
 		uint32 tempBPR = temp->BytesPerRow();
 		scale3x(dst, tempBits, width, height, dstBPR, tempBPR);
@@ -766,8 +803,16 @@ BIconUtils::ConvertFromCMAP8(const uint8* src, uint32 width, uint32 height,
 	} else if (dstWidth > 3 * width && dstHeight > 3 * height
 		&& dstWidth < 4 * width && dstHeight < 4 * height) {
 		// scale4x then downscale
-		BBitmap* temp = new BBitmap(BRect(0, 0, width * 4 - 1, height * 4 - 1),
+		BRect rect = BRect(0, 0, width * 4 - 1, height * 4 - 1);
+#ifdef HAIKU_TARGET_PLATFORM_HAIKU
+		BBitmap* temp = new BBitmap(rect, B_BITMAP_NO_SERVER_LINK,
 			icon->ColorSpace());
+#else
+		BBitmap* temp = new BBitmap(rect, icon->ColorSpace());
+#endif
+		if (temp == NULL)
+			return B_NO_MEMORY;
+
 		uint8* tempBits = (uint8*)temp->Bits();
 		uint32 tempBPR = temp->BytesPerRow();
 		scale4x(dst, tempBits, width, height, dstBPR, tempBPR);
@@ -775,8 +820,16 @@ BIconUtils::ConvertFromCMAP8(const uint8* src, uint32 width, uint32 height,
 		delete temp;
 	} else if (dstWidth > 4 * width && dstHeight > 4 * height) {
 		// scale4x then bilinear
-		BBitmap* temp = new BBitmap(BRect(0, 0, width * 4 - 1, height * 4 - 1),
+		BRect rect = BRect(0, 0, width * 4 - 1, height * 4 - 1);
+#ifdef HAIKU_TARGET_PLATFORM_HAIKU
+		BBitmap* temp = new BBitmap(rect, B_BITMAP_NO_SERVER_LINK,
 			icon->ColorSpace());
+#else
+		BBitmap* temp = new BBitmap(rect, icon->ColorSpace());
+#endif
+		if (temp == NULL)
+			return B_NO_MEMORY;
+
 		uint8* tempBits = (uint8*)temp->Bits();
 		uint32 tempBPR = temp->BytesPerRow();
 		scale4x(dst, tempBits, width, height, dstBPR, tempBPR);

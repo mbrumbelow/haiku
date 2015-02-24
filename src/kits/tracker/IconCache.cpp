@@ -773,20 +773,18 @@ IconCache::GetNodeIcon(ModelNodeLazyOpener* modelOpener,
 	if (entry == NULL || !entry->HaveIconBitmap(NORMAL_ICON_ONLY, size)) {
 		modelOpener->OpenNode();
 
-		BFile* file = NULL;
+		PRINT_DISK_HITS(("File %s; Line %d # hitting disk for node %s\n",
+			__FILE__, __LINE__, model->Name()));
 
 		// if we are dealing with an application, use the BAppFileInfo
 		// superset of node; this makes GetIcon grab the proper icon for
 		// an app
-		if (model->IsExecutable())
-			file = dynamic_cast<BFile*>(model->Node());
 
-		PRINT_DISK_HITS(("File %s; Line %d # hitting disk for node %s\n",
-			__FILE__, __LINE__, model->Name()));
-
-		status_t result = file != NULL
+		BFile* file = NULL;
+		status_t result = (model->IsExecutable() && (file
+				= dynamic_cast<BFile*>(model->Node())) != NULL
 			? GetAppIconFromAttr(file, lazyBitmap->Get(), size)
-			: GetFileIconFromAttr(model->Node(), lazyBitmap->Get(), size);
+			: GetFileIconFromAttr(model, lazyBitmap->Get(), size));
 
 		if (result == B_OK) {
 			// node has its own icon, use it
@@ -800,6 +798,10 @@ IconCache::GetNodeIcon(ModelNodeLazyOpener* modelOpener,
 				entry->ConstructBitmap(mode, size, lazyBitmap);
 				entry->SetIcon(lazyBitmap->Adopt(), mode, size);
 			}
+			source = kNode;
+		} else if (result == B_BUSY) {
+			// still waiting for thumbnail icon to be generated,
+			// provide a hint to come back here for it
 			source = kNode;
 		}
 	}
