@@ -801,6 +801,10 @@ IconCache::GetNodeIcon(ModelNodeLazyOpener* modelOpener,
 				entry->SetIcon(lazyBitmap->Adopt(), mode, size);
 			}
 			source = kNode;
+		} else if (result == B_BUSY) {
+			// waiting for icon to generate,
+			// provide a hint to come back here for it
+			source = kNode;
 		}
 	}
 
