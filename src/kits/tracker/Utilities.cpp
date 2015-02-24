@@ -49,17 +49,24 @@ All rights reserved.
 #include <Font.h>
 #include <IconUtils.h>
 #include <MenuItem.h>
+#include <Mime.h>
+#include <Node.h>
+#include <NodeInfo.h>
 #include <OS.h>
 #include <PopUpMenu.h>
 #include <Region.h>
 #include <StorageDefs.h>
 #include <TextView.h>
+#include <TranslatorRoster.h>
+#include <TypeConstants.h>
+#include <View.h>
 #include <Volume.h>
 #include <VolumeRoster.h>
 #include <Window.h>
 
 #include "Attributes.h"
 #include "ContainerWindow.h"
+#include "FSUtils.h"
 #include "MimeTypes.h"
 #include "Model.h"
 #include "PoseView.h"
@@ -171,7 +178,7 @@ PeriodicUpdatePoses::PeriodicUpdatePoses()
 	:
 	fPoseList(20, true)
 {
-	fLock = new Benaphore("PeriodicUpdatePoses");
+	fLock = new(std::nothrow) Benaphore("PeriodicUpdatePoses");
 }
 
 
@@ -187,7 +194,7 @@ void
 PeriodicUpdatePoses::AddPose(BPose* pose, BPoseView* poseView,
 	PeriodicUpdateCallback callback, void* cookie)
 {
-	periodic_pose* periodic = new periodic_pose;
+	periodic_pose* periodic = new(std::nothrow) periodic_pose;
 	periodic->pose = pose;
 	periodic->pose_view = poseView;
 	periodic->callback = callback;
@@ -562,7 +569,7 @@ DraggableIcon::DraggableIcon(BRect rect, const char* name,
 	fMessage(*message),
 	fTarget(target)
 {
-	fBitmap = new BBitmap(Bounds(), kDefaultIconDepth);
+	fBitmap = new(std::nothrow) BBitmap(Bounds(), kDefaultIconDepth);
 	BMimeType mime(mimeType);
 	status_t result = mime.GetIcon(fBitmap, which);
 	ASSERT(mime.IsValid());
@@ -611,7 +618,7 @@ DraggableIcon::MouseDown(BPoint point)
 		return;
 
 	BRect rect(Bounds());
-	BBitmap* dragBitmap = new BBitmap(rect, B_RGBA32, true);
+	BBitmap* dragBitmap = new(std::nothrow) BBitmap(rect, B_RGBA32, true);
 	dragBitmap->Lock();
 	BView* view = new BView(dragBitmap->Bounds(), "", B_FOLLOW_NONE, 0);
 	dragBitmap->AddChild(view);
@@ -689,7 +696,7 @@ FlickerFreeStringView::Draw(BRect)
 {
 	BRect bounds(Bounds());
 	if (fBitmap == NULL)
-		fBitmap = new OffscreenBitmap(Bounds());
+		fBitmap = new(std::nothrow) OffscreenBitmap(Bounds());
 
 	BView* offscreen = fBitmap->BeginUsing(bounds);
 
@@ -1487,8 +1494,238 @@ GetAppIconFromAttr(BFile* file, BBitmap* icon, icon_size which)
 status_t
 GetFileIconFromAttr(BNode* node, BBitmap* icon, icon_size which)
 {
-	BNodeInfo fileInfo(node);
-	return fileInfo.GetIcon(icon, which);
+	// bad value
+	if (node == NULL || icon == NULL)
+		return B_BAD_VALUE;
+
+	// bad node
+	status_t result;
+	result = node->InitCheck();
+	if (result != B_OK)
+		return result;
+
+	// bad icon
+	result = icon->InitCheck();
+	if (result != B_OK)
+		return result;
+
+	// check Tracker setting
+	BNodeInfo nodeInfo(node);
+	if (!TrackerSettings().GenerateImageThumbnails())
+		return nodeInfo.GetIcon(icon, which);
+
+	// node must have a modification time
+	time_t mtime;
+	if (node->GetModificationTime(&mtime) != B_OK)
+		return nodeInfo.GetIcon(icon, which);
+
+	// look for existing thumbnail
+	const char* thumbCreateTimeAttr = sizeof(time_t) == 8
+		? kAttrThumbCreateTime64  // 64-bit time_t
+		: kAttrThumbCreateTime32; // 32-bit time_t
+	time_t created;
+	if (node->ReadAttr(thumbCreateTimeAttr, B_TIME_TYPE, 0, &created,
+			sizeof(time_t)) == B_OK) {
+		if (mtime <= created) {
+			// file has not changed, try to return an existing thumbnail
+			BString thumbnailAttrNameString(kAttrThumb);
+			thumbnailAttrNameString << which;
+			const char* thumbnailAttrName = thumbnailAttrNameString.String();
+			if (node->ReadAttr(thumbnailAttrName, B_RGB_32_BIT_TYPE, 0,
+					icon->Bits(), icon->BitsLength()) == icon->BitsLength()) {
+				// we found a thumbnail
+				return B_OK;
+			}
+			// else we didn't find a thumbnail
+		} else {
+			// file has changed, remove all thumb attrs including create time
+			char attrName[B_ATTR_NAME_LENGTH];
+			while (node->GetNextAttrName(attrName) == B_OK) {
+				if (BString(attrName).StartsWith(kAttrThumb))
+					node->RemoveAttr(attrName);
+			}
+		}
+	}
+
+	// try to fetch a new thumbnail icon
+	if (GetThumbnailIcon(node, icon, which) != B_OK)
+		return nodeInfo.GetIcon(icon, which);
+	else
+		return B_OK;
+}
+
+
+status_t
+GetThumbnailIcon(BNode* node, BBitmap* icon, icon_size which)
+{
+	// bad value
+	if (node == NULL || icon == NULL)
+		return B_BAD_VALUE;
+
+	status_t result;
+
+	// bad node
+	result = node->InitCheck();
+	if (result != B_OK)
+		return result;
+
+	// bad icon
+	result = icon->InitCheck();
+	if (result != B_OK)
+		return result;
+
+	// check Tracker setting
+	if (!TrackerSettings().GenerateImageThumbnails())
+		return B_NOT_ALLOWED;
+
+	BNodeInfo nodeInfo(node);
+
+	// must have a mime type
+	char type[B_MIME_TYPE_LENGTH];
+	result = nodeInfo.GetType(type);
+	if (result != B_OK)
+		return result;
+
+	// mime type must be one of the following supported image types
+	if (strcasecmp(type, "image/bmp") != 0
+		&& strcasecmp(type, "image/icns") != 0
+		&& strcasecmp(type, "image/ico") != 0
+		&& strcasecmp(type, "image/gif") != 0
+		&& strcasecmp(type, "image/jp2") != 0
+		&& strcasecmp(type, "image/jpeg") != 0
+		&& strcasecmp(type, "image/png") != 0
+		&& strcasecmp(type, "image/tiff") != 0) {
+		return B_NOT_SUPPORTED;
+	}
+
+	// node must be a file
+	BFile* file = dynamic_cast<BFile*>(node);
+	if (file == NULL)
+		return B_BAD_TYPE;
+
+	BString thumbnailAttrNameString(kAttrThumb);
+	thumbnailAttrNameString << which;
+	const char* thumbnailAttrName = thumbnailAttrNameString.String();
+	attr_info attrInfo;
+	result = file->GetAttrInfo(thumbnailAttrName, &attrInfo);
+	if (result == B_ENTRY_NOT_FOUND) {
+		// create a thumbnail
+		// check to see if we have a translator that works
+		BBitmapStream imageStream;
+		BBitmap* imageBitmap;
+		if (BTranslatorRoster::Default()->Translate(file, NULL, NULL,
+				&imageStream, B_TRANSLATOR_BITMAP, 0, type) == B_OK
+			&& imageStream.DetachBitmap(&imageBitmap) == B_OK) {
+			// we have translated the image into a BBitmap
+			// get the node_ref for device
+			node_ref* ref = new(std::nothrow) node_ref();
+			if (ref == NULL) {
+				delete imageBitmap;
+				return B_NO_MEMORY;
+			}
+			result = node->GetNodeRef(ref);
+			if (result != B_OK) {
+				delete imageBitmap;
+				return result;
+			}
+
+			// check if we can write attrs
+			bool volumeReadOnly = true;
+			BVolume volume(ref->device);
+			if (volume.InitCheck() == B_OK) {
+				volumeReadOnly = volume.IsReadOnly()
+					|| !volume.KnowsAttr() || !volume.KnowsMime();
+			}
+			delete ref; // we no longer need node_ref once we have the volume
+
+			if (!volumeReadOnly) {
+				// write image width to an attribute
+				int32 width = imageBitmap->Bounds().IntegerWidth() + 1;
+				file->WriteAttr("Media:Width", B_INT32_TYPE, 0, &width,
+					sizeof(int32));
+				// write image height to an attribute
+				int32 height = imageBitmap->Bounds().IntegerHeight() + 1;
+				file->WriteAttr("Media:Height", B_INT32_TYPE, 0, &height,
+					sizeof(int32));
+			}
+
+			// we may not be able to write the attribute to disk but we can
+			// still fetch a thumbnail
+
+			float aspectRatio = imageBitmap->Bounds().Width()
+				/ imageBitmap->Bounds().Height();
+			BRect thumbnailBounds;
+			if (aspectRatio > 1) {
+				// wide
+				thumbnailBounds = BRect(0, 0, icon->Bounds().Width(),
+					roundf(icon->Bounds().Height() / aspectRatio));
+				thumbnailBounds.OffsetBySelf(0,
+					roundf(icon->Bounds().Height() / 2
+						- thumbnailBounds.Height() / 2));
+			} else if (aspectRatio < 1) {
+				// tall
+				thumbnailBounds = BRect(0, 0,
+					roundf(icon->Bounds().Width() * aspectRatio),
+					icon->Bounds().Height());
+				thumbnailBounds.OffsetBySelf(
+					roundf(icon->Bounds().Width() / 2
+						- thumbnailBounds.Width() / 2), 0);
+			} else {
+				// square
+				thumbnailBounds = icon->Bounds();
+			}
+
+			// copy the image into a view bitmap, scaled and centered
+			BBitmap viewBitmap(icon->Bounds(), icon->ColorSpace(), true, true);
+			BView view(icon->Bounds(), "", B_FOLLOW_NONE,
+				B_WILL_DRAW | B_SUBPIXEL_PRECISE);
+			viewBitmap.AddChild(&view);
+			if (view.LockLooper()) {
+				// fill with transparent
+				view.SetViewColor(B_TRANSPARENT_COLOR);
+				view.SetLowColor(B_TRANSPARENT_COLOR);
+				view.FillRect(view.Bounds(), B_SOLID_LOW);
+				// draw bitmap
+				view.DrawBitmap(imageBitmap, imageBitmap->Bounds(),
+					thumbnailBounds, strcmp(type, "image/gif") == 0
+						? 0 : B_FILTER_BITMAP_BILINEAR);
+				view.UnlockLooper();
+			}
+			viewBitmap.RemoveChild(&view);
+			result = icon->ImportBits(&viewBitmap);
+			// thumbnail created, we can delete the image bitmap now
+			delete imageBitmap;
+			if (result != B_OK)
+				return result;
+
+			if (!volumeReadOnly) {
+				// write thumbnail data into an attribute
+				file->WriteAttr(thumbnailAttrName, B_RGB_32_BIT_TYPE,
+					0, icon->Bits(), icon->BitsLength());
+
+				const char* thumbCreateTimeAttr = sizeof(time_t) == 8
+					? kAttrThumbCreateTime64  // 64-bit time_t
+					: kAttrThumbCreateTime32; // 32-bit time_t
+				time_t created = system_time();
+
+				// write thumbnail creation into an attribute
+				file->WriteAttr(thumbCreateTimeAttr, B_TIME_TYPE, 0,
+					&created, sizeof(time_t));
+			}
+
+			return B_OK;
+		}
+	} else if (result == B_OK) {
+		if (node->ReadAttr(thumbnailAttrName, B_RGB_32_BIT_TYPE, 0,
+				icon->Bits(), icon->BitsLength()) == icon->BitsLength()) {
+			// we found a thumbnail
+			return B_OK;
+		}
+		// else we didn't find a thumbnail
+	} else
+		return result;
+
+	return B_FILE_NOT_FOUND;
 }
 
 
