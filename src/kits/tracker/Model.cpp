@@ -97,6 +97,11 @@ CheckNodeIconHint(BNode* node)
 		return true;
 	}
 
+	if (node->GetAttrInfo(kAttrThumbCreateTime, &info) == B_OK) {
+		// has a thumbnail creation time attribute
+		return true;
+	}
+
 	return false;
 }
 
@@ -611,7 +616,7 @@ Model::CacheLocalizedName()
 void
 Model::FinishSettingUpType()
 {
-	char mimeString[B_MIME_TYPE_LENGTH];
+	char type[B_MIME_TYPE_LENGTH];
 	BEntry entry;
 
 	// While we are reading the node, do a little snooping to see if it even
@@ -628,22 +633,22 @@ Model::FinishSettingUpType()
 		BNodeInfo info(fNode);
 
 		// check if a specific mime type is set
-		if (info.GetType(mimeString) == B_OK) {
+		if (info.GetType(type) == B_OK) {
 			// node has a specific mime type
-			fMimeType = mimeString;
-			if (strcmp(mimeString, B_QUERY_MIMETYPE) == 0)
+			fMimeType = type;
+			if (strcmp(type, B_QUERY_MIMETYPE) == 0)
 				fBaseType = kQueryNode;
-			else if (strcmp(mimeString, B_QUERY_TEMPLATE_MIMETYPE) == 0)
+			else if (strcmp(type, B_QUERY_TEMPLATE_MIMETYPE) == 0)
 				fBaseType = kQueryTemplateNode;
-			else if (strcmp(mimeString, kVirtualDirectoryMimeType) == 0)
+			else if (strcmp(type, kVirtualDirectoryMimeType) == 0)
 				fBaseType = kVirtualDirectoryNode;
 
-			if (info.GetPreferredApp(mimeString) == B_OK) {
+			if (info.GetPreferredApp(type) == B_OK) {
 				if (fPreferredAppName)
 					DeletePreferredAppVolumeNameLinkTo();
 
-				if (mimeString[0])
-					fPreferredAppName = strdup(mimeString);
+				if (*type != '0')
+					fPreferredAppName = strdup(type);
 			}
 		}
 	}
@@ -662,8 +667,8 @@ Model::FinishSettingUpType()
 				// should use a shared string here
 			if (IsNodeOpen()) {
 				BNodeInfo info(fNode);
-				if (info.GetType(mimeString) == B_OK)
-					fMimeType = mimeString;
+				if (info.GetType(type) == B_OK)
+					fMimeType = type;
 
 				if (fIconFrom == kUnknownNotFromNode
 					&& WellKnowEntryList::Match(NodeRef())
@@ -888,16 +893,16 @@ Model::AttrChanged(const char* attrName)
 	if (attrName == NULL
 		|| strcmp(attrName, kAttrMIMEType) == 0
 		|| strcmp(attrName, kAttrPreferredApp) == 0) {
-		char mimeString[B_MIME_TYPE_LENGTH];
+		char type[B_MIME_TYPE_LENGTH];
 		BNodeInfo info(fNode);
-		if (info.GetType(mimeString) != B_OK)
+		if (info.GetType(type) != B_OK)
 			fMimeType = "";
 		else {
 			// node has a specific mime type
-			fMimeType = mimeString;
+			fMimeType = type;
 			if (!IsVolume() && !IsSymLink()
-				&& info.GetPreferredApp(mimeString) == B_OK) {
-				SetPreferredAppSignature(mimeString);
+				&& info.GetPreferredApp(type) == B_OK) {
+				SetPreferredAppSignature(type);
 			}
 		}
 
