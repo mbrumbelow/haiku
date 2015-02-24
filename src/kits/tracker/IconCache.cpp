@@ -496,6 +496,7 @@ IconCache::GetIconFromFileTypes(ModelNodeLazyOpener* modelOpener,
 			source = kUnknownSource;
 	}
 
+	// try getting icon from meta mime
 	entry = GetIconFromMetaMime(fileType, mode, size, lazyBitmap, entry);
 	if (entry == NULL) {
 		// Try getting a supertype handler icon
