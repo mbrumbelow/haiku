@@ -483,6 +483,9 @@ status_t GetAppSignatureFromAttr(BFile*, char*);
 status_t GetAppIconFromAttr(BFile* file, BBitmap* icon, icon_size which);
 status_t GetFileIconFromAttr(BNode* node, BBitmap* icon, icon_size which);
 
+// get thumbnail icon
+status_t GetThumbnailIcon(BNode* node, BBitmap* icon, icon_size which);
+
 // debugging
 void HexDump(const void* buffer, int32 length);
 

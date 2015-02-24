@@ -97,6 +97,18 @@ CheckNodeIconHint(BNode* node)
 		return true;
 	}
 
+	// look for thumbnail creation time attribute
+	const char* thumbCreateTimeAttr = sizeof(time_t) == 8
+		? kAttrThumbCreateTime64  // 64-bit time_t
+		: kAttrThumbCreateTime32; // 32-bit time_t
+	char attrName[B_ATTR_NAME_LENGTH];
+	while (node->GetNextAttrName(attrName) == B_OK) {
+		if (strcmp(attrName, thumbCreateTimeAttr) == 0) {
+			// has a thumbnail creation time attribute
+			return true;
+		}
+	}
+
 	return false;
 }
 
