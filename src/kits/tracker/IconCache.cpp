@@ -786,7 +786,7 @@ IconCache::GetNodeIcon(ModelNodeLazyOpener* modelOpener,
 
 		status_t result = file != NULL
 			? GetAppIconFromAttr(file, lazyBitmap->Get(), size)
-			: GetFileIconFromAttr(model->Node(), lazyBitmap->Get(), size);
+			: GetFileIconFromAttr(model, lazyBitmap->Get(), size);
 
 		if (result == B_OK) {
 			// node has its own icon, use it
@@ -800,6 +800,10 @@ IconCache::GetNodeIcon(ModelNodeLazyOpener* modelOpener,
 				entry->ConstructBitmap(mode, size, lazyBitmap);
 				entry->SetIcon(lazyBitmap->Adopt(), mode, size);
 			}
+			source = kNode;
+		} else if (result == B_BUSY) {
+			// still waiting for icon to be generated,
+			// provide a hint to come back here for it
 			source = kNode;
 		}
 	}

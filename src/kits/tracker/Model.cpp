@@ -97,6 +97,11 @@ CheckNodeIconHint(BNode* node)
 		return true;
 	}
 
+	if (node->GetAttrInfo(kAttrThumbCreateTime, &info) == B_OK) {
+		// has a thumbnail creation time attribute
+		return true;
+	}
+
 	return false;
 }
 
