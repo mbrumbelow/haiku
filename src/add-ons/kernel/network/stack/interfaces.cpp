@@ -1578,6 +1578,20 @@ get_interface_address_for_link(net_domain* domain, const sockaddr* address,
 
 			return interface->FirstForFamily(domain->family);
 		}
+
+		// Multicast frame has different MAC address
+		// Just compare the index and name
+		if (linkAddress.sdl_index == interface->device->index
+			&& memcmp(linkAddress.sdl_data, interface->device->name,
+				IF_NAMESIZE > linkAddress.sdl_nlen
+				? linkAddress.sdl_nlen : IF_NAMESIZE) == 0) {
+			TRACE("  %s matches\n", interface->device->name);
+			// link address matches
+			if (unconfiguredOnly)
+				return interface->FirstUnconfiguredForFamily(domain->family);
+
+			return interface->FirstForFamily(domain->family);
+		}
 	}
 
 	return NULL;

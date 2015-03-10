@@ -689,9 +689,12 @@ deliver_multicast(net_protocol_module_info* module, net_buffer* buffer,
 	if (module->deliver_data == NULL)
 		return false;
 
-	// TODO: fix multicast!
-	return false;
 	MutexLocker _(sMulticastGroupsLock);
+
+	if (buffer->interface_address == NULL) {
+		dprintf("%s: buffer->interface_address is NULL\n", __FUNCTION__);
+		return false;
+	}
 
 	sockaddr_in* multicastAddr = (sockaddr_in*)buffer->destination;
 
@@ -714,7 +717,7 @@ deliver_multicast(net_protocol_module_info* module, net_buffer* buffer,
 				// as multicast filters are installed with an IPv4 protocol
 				// reference, we need to go and find the appropriate instance
 				// related to the 'receiving protocol' with module 'module'.
-				net_protocol* protocol = ipProtocol->socket->first_protocol;
+				protocol = ipProtocol->socket->first_protocol;
 
 				while (protocol != NULL && protocol->module != module)
 					protocol = protocol->next;
@@ -1612,6 +1615,13 @@ ipv4_receive_data(net_buffer* buffer)
 			notForUs = !wasMulticast;
 	} else if (IN_MULTICAST(ntohl(header.destination))) {
 		buffer->flags |= MSG_MCAST;
+
+		// Multicast MAC address is different from normal MAC
+		// Use sdl_index of Link level sockaddr structure to accquire
+		// reference
+		if (!sDatalinkModule->is_local_link_address(sDomain, false,
+				buffer->destination, &buffer->interface_address))
+			notForUs = true;
 	} else {
 		uint32 matchedAddressType = 0;
 
