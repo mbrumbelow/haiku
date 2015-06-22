@@ -1544,7 +1544,7 @@ devfs_set_flags(fs_volume* _volume, fs_vnode* _vnode, void* _cookie,
 
 static status_t
 devfs_select(fs_volume* _volume, fs_vnode* _vnode, void* _cookie,
-	uint8 event, selectsync* sync)
+	int32 events, selectsync* sync)
 {
 	struct devfs_vnode* vnode = (struct devfs_vnode*)_vnode->private_node;
 	struct devfs_cookie* cookie = (struct devfs_cookie*)_cookie;
@@ -1554,14 +1554,14 @@ devfs_select(fs_volume* _volume, fs_vnode* _vnode, void* _cookie,
 
 	// If the device has no select() hook, notify select() now.
 	if (!vnode->stream.u.dev.device->HasSelect()) {
-		if (!SELECT_TYPE_IS_OUTPUT_ONLY(event))
-			return notify_select_event((selectsync*)sync, event);
+		if (!SELECT_TYPE_IS_OUTPUT_ONLY(events))
+			return events;
 		else
 			return B_OK;
 	}
 
-	return vnode->stream.u.dev.device->Select(cookie->device_cookie, event,
-		(selectsync*)sync);
+	return vnode->stream.u.dev.device->Select(cookie->device_cookie, events,
+		sync);
 }
 
 

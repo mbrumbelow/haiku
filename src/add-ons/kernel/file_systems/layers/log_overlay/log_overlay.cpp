@@ -231,12 +231,12 @@ overlay_set_flags(fs_volume *volume, fs_vnode *vnode, void *cookie,
 
 
 static status_t
-overlay_select(fs_volume *volume, fs_vnode *vnode, void *cookie, uint8 event,
-	selectsync *sync)
+overlay_select(fs_volume *volume, fs_vnode *vnode, void *cookie, int32 events,
+ 	selectsync *sync)
 {
-	DO_LOG("select cookie: %p; event: %" B_PRIu8 "; selectsync: %p\n", cookie,
-		event, sync);
-	OVERLAY_CALL(select, cookie, event, sync)
+	DO_LOG("select cookie: %p; event: %" B_PRId32 "; selectsync: %p\n", cookie,
+		events, sync);
+	OVERLAY_CALL(select, cookie, events, sync)
 	DO_LOG("select result: %#" B_PRIx32 "\n", result);
 	return result;
 }

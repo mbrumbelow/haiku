@@ -6,23 +6,28 @@
 #ifndef _KERNEL_WAIT_FOR_OBJECTS_H
 #define _KERNEL_WAIT_FOR_OBJECTS_H
 
+#include <Drivers.h>
 #include <OS.h>
 
+#include <fs/select_sync_pool.h>
 #include <lock.h>
 
 
 struct select_sync;
+struct select_info;
 
 
 typedef struct select_info {
-	struct select_info*	next;				// next in the object's list
 	struct select_sync*	sync;
 	int32				events;
 	uint16				selected_events;
+
+	select_sync_pool*			pool;
+	struct select_info*			pool_next;
+	struct select_info*			object_next;
 } select_info;
 
 typedef struct select_sync {
-	int32				ref_count;
 	sem_id				sem;
 	uint32				count;
 	struct select_info*	set;
@@ -39,10 +44,13 @@ typedef struct select_sync {
 
 #ifdef __cplusplus
 extern "C" {
-#endif 
+#endif
 
+extern int32	select_sync_legacy_select(void* cookie,
+					device_select_hook hook, int32 events, selectsync* sync);
 
-extern void		put_select_sync(select_sync* sync);
+extern void		select_sync_remove_from_pool(select_info* info);
+
 extern status_t	notify_select_events(select_info* info, uint16 events);
 extern void		notify_select_events_list(select_info* list, uint16 events);
 
@@ -52,6 +60,6 @@ extern ssize_t	_user_wait_for_objects(object_wait_info* userInfos,
 
 #ifdef __cplusplus
 }
-#endif 
+#endif
 
 #endif	// _KERNEL_WAIT_FOR_OBJECTS_H
