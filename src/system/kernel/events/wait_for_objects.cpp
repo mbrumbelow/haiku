@@ -21,6 +21,7 @@
 #include <AutoDeleter.h>
 #include <StackOrHeapArray.h>
 
+#include <event_queue.h>
 #include <fs/fd.h>
 #include <port.h>
 #include <sem.h>
@@ -31,6 +32,8 @@
 #include <util/AutoLock.h>
 #include <util/DoublyLinkedList.h>
 #include <vfs.h>
+
+#include "select_ops.h"
 
 
 //#define TRACE_WAIT_FOR_OBJECTS
@@ -46,6 +49,7 @@
 using std::nothrow;
 
 
+
 struct select_sync_pool_entry
 	: DoublyLinkedListLinkImpl<select_sync_pool_entry> {
 	selectsync			*sync;
@@ -59,40 +63,11 @@ struct select_sync_pool {
 };
 
 
-struct select_ops {
-	status_t (*select)(int32 object, struct select_info* info, bool kernel);
-	status_t (*deselect)(int32 object, struct select_info* info, bool kernel);
-};
-
-
-static const select_ops kSelectOps[] = {
-	// B_OBJECT_TYPE_FD
-	{
-		select_fd,
-		deselect_fd
-	},
-
-	// B_OBJECT_TYPE_SEMAPHORE
-	{
-		select_sem,
-		deselect_sem
-	},
-
-	// B_OBJECT_TYPE_PORT
-	{
-		select_port,
-		deselect_port
-	},
-
-	// B_OBJECT_TYPE_THREAD
-	{
-		select_thread,
-		deselect_thread
-	}
-};
-
-static const uint32 kSelectOpsCount = sizeof(kSelectOps) / sizeof(select_ops);
-
+typedef struct select_sync : public select_sync_base {
+	sem_id				sem;
+	uint32				count;
+	struct select_info*	set;
+} select_sync;
 
 
 #if WAIT_FOR_OBJECTS_TRACING
@@ -386,6 +361,8 @@ create_select_sync(int numFDs, select_sync*& _sync)
 		return B_NO_MEMORY;
 	ObjectDeleter<select_sync> syncDeleter(sync);
 
+	sync->type = SYNC_TYPE_SYNC;
+
 	// create info set
 	sync->set = new(nothrow) select_info[numFDs];
 	if (sync->set == NULL)
@@ -414,15 +391,22 @@ create_select_sync(int numFDs, select_sync*& _sync)
 
 
 void
-put_select_sync(select_sync* sync)
+put_select_sync(select_sync_base* base)
 {
-	FUNCTION(("put_select_sync(%p): -> %ld\n", sync, sync->ref_count - 1));
+	FUNCTION(("put_select_sync(%p): -> %ld\n", base, base->ref_count - 1));
 
-	if (atomic_add(&sync->ref_count, -1) == 1) {
-		delete_sem(sync->sem);
-		delete[] sync->set;
-		delete sync;
+	if (atomic_add(&base->ref_count, -1) != 1)
+		return;
+
+	if (base->type == SYNC_TYPE_QUEUE) {
+		delete_event_queue(base);
+		return;
 	}
+
+	select_sync* sync = static_cast<select_sync*>(base);
+	delete_sem(sync->sem);
+	delete[] sync->set;
+	delete sync;
 }
 
 
@@ -725,9 +709,17 @@ notify_select_events(select_info* info, uint16 events)
 	FUNCTION(("notify_select_events(%p (%p), 0x%x)\n", info, info->sync,
 		events));
 
-	if (info == NULL
-		|| info->sync == NULL
-		|| info->sync->sem < B_OK)
+	if (info == NULL || info->sync == NULL)
+		return B_BAD_VALUE;
+
+	if (info->sync->type == SYNC_TYPE_QUEUE) {
+		notify_event_queue(info, events);
+		return B_OK;
+	}
+
+	select_sync* sync = static_cast<select_sync*>(info->sync);
+
+	if (sync->sem < B_OK)
 		return B_BAD_VALUE;
 
 	atomic_or(&info->events, events);
@@ -735,7 +727,7 @@ notify_select_events(select_info* info, uint16 events)
 	// only wake up the waiting select()/poll() call if the events
 	// match one of the selected ones
 	if (info->selected_events & events)
-		return release_sem_etc(info->sync->sem, 1, B_DO_NOT_RESCHEDULE);
+		return release_sem_etc(sync->sem, 1, B_DO_NOT_RESCHEDULE);
 
 	return B_OK;
 }
