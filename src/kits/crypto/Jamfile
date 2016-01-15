@@ -9,6 +9,9 @@ local architectureObject ;
 for architectureObject in [ MultiArchSubDirSetup ] {
 	on $(architectureObject) {
 		SEARCH_SOURCE += [ FDirName $(SUBDIR) hash blake2 ] ;
+		SEARCH_SOURCE += [ FDirName $(SUBDIR) hash md4 ] ;
+		SEARCH_SOURCE += [ FDirName $(SUBDIR) hash md5 ] ;
+		SEARCH_SOURCE += [ FDirName $(SUBDIR) hash sha256 ] ;
 
 		SharedLibrary [ MultiArchDefaultGristFiles libbcrypto.so ] :
 			CryptoHash.cpp
@@ -16,6 +19,18 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 			# BLAKE2 Hash Functions
 			Blake2.cpp
 			blake2b-ref.c
+
+			# MD4 Hash Functions
+			MD4.cpp
+			md4.c
+
+			# MD5 Hash Functions
+			MD5.cpp
+			md5.c
+
+			# SHA256 Hash Functions
+			SHA256.cpp
+			sha256.c
 
 			: be [ TargetLibsupc++ ]
 			;

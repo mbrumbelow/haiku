@@ -26,6 +26,7 @@ namespace BPrivate {
 
 enum algorithm_type {
 	B_HASH_BLAKE2 = 0,
+	B_HASH_MD4,
 	B_HASH_MD5,
 	B_HASH_SHA1,
 	B_HASH_SHA256,
@@ -47,7 +48,7 @@ public:
 
 			status_t		Result(BString* hash);
 
-			status_t		Reset();
+			status_t		Flush();
 			size_t			Position();
 
 private:
