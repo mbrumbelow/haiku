@@ -5,8 +5,8 @@
  * Authors:
  *      Alexander von Gluck IV <kallisti5@unixzen.com>
  */
-#ifndef _BLAKE_ALGORITHM_H
-#define _BLAKE_ALGORITHM_H
+#ifndef _MD5_ALGORITHM_H
+#define _MD5_ALGORITHM_H
 
 
 #include <String.h>
@@ -14,30 +14,30 @@
 
 #include "HashAlgorithm.h"
 
-#include "blake2.h"
+#include "md5.h"
 
 
 using namespace BPrivate;
 
 
-class BlakeAlgorithm : public HashAlgorithm {
+class MD5Algorithm : public HashAlgorithm {
 public:
-							BlakeAlgorithm();
-							~BlakeAlgorithm();
+							MD5Algorithm();
+							~MD5Algorithm();
 
 			status_t		Update(const void* input, size_t size);
 			status_t		Finish(uint8* digest);
 
-			BString			Name() { return "blake2b"; }
+			BString			Name() { return "MD5"; }
 			size_t			MaxBuffer() { return 32768; }
-			size_t			DigestLength() { return BLAKE2B_OUTBYTES; }
+			size_t			DigestLength() { return 16; }
 
 			void			Flush();
 
 private:
-			blake2b_state	fState[1];
+			MD5_CTX			fState;
 };
 
 
-#endif /* _BLAKE_ALGORITHM_H */
+#endif /* _MD5_ALGORITHM_H */
 

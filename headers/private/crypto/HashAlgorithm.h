@@ -26,6 +26,8 @@ public:
 	virtual BString			Name() { return NULL; }
 	virtual size_t			MaxBuffer() { return 0; }
 	virtual size_t			DigestLength() { return 0; }
+
+	virtual void			Flush() { }
 };
 
 } /* BPrivate */

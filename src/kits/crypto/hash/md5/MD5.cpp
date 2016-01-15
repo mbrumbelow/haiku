@@ -12,26 +12,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "Blake2.h"
+#include "MD5.h"
 
 // Theirs
-#include "blake2.h"
+#include "md5.h"
 
 
-BlakeAlgorithm::BlakeAlgorithm()
+MD5Algorithm::MD5Algorithm()
 	: HashAlgorithm()
 {
-	blake2b_init(fState, BLAKE2B_OUTBYTES);
+	MD5_Init(&fState);
 }
 
 
-BlakeAlgorithm::~BlakeAlgorithm()
+MD5Algorithm::~MD5Algorithm()
 {
 }
 
 
 status_t
-BlakeAlgorithm::Update(const void* input, size_t size)
+MD5Algorithm::Update(const void* input, size_t size)
 {
 	if (size > MaxBuffer())
 		return B_BAD_VALUE;
@@ -39,26 +39,26 @@ BlakeAlgorithm::Update(const void* input, size_t size)
 	if (input == NULL)
 		return B_BAD_VALUE;
 
-	blake2b_update(fState, (uint8_t*)input, size);
+	MD5_Update(&fState, input, size);
 
 	return B_OK;
 }
 
 
 status_t
-BlakeAlgorithm::Finish(uint8* digest)
+MD5Algorithm::Finish(uint8* digest)
 {
 	if (digest == NULL)
 		return B_BAD_VALUE;
 
-	blake2b_final(fState, digest, DigestLength());
+	MD5_Final(digest, &fState);
 	return B_OK;
 }
 
 
 void
-BlakeAlgorithm::Flush()
+MD5Algorithm::Flush()
 {
-	memset(fState, 0, sizeof(fState));
-	blake2b_init(fState, BLAKE2B_OUTBYTES);
+	memset(&fState, 0, sizeof(fState));
+	MD5_Init(&fState);
 }

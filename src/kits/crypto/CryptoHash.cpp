@@ -15,11 +15,14 @@
 
 // Our supported algorithms
 #include "Blake2.h"
+#include "MD4.h"
+#include "MD5.h"
+#include "SHA256.h"
 
 
 #undef TRACE
 
-#define TRACE_CRYPTO
+// #define TRACE_CRYPTO
 #ifdef TRACE_CRYPTO
 #   define TRACE(x...) _sPrintf("BCryptoHash: " x)
 #else
@@ -37,9 +40,16 @@ BCryptoHash::BCryptoHash(algorithm_type algorithm)
 	switch (algorithm) {
 		case B_HASH_BLAKE2:
 			fAlgorithm = new BlakeAlgorithm();
+			break;
+		case B_HASH_MD4:
+			fAlgorithm = new MD4Algorithm();
+			break;
 		case B_HASH_MD5:
-		case B_HASH_SHA1:
+			fAlgorithm = new MD5Algorithm();
+			break;
 		case B_HASH_SHA256:
+			fAlgorithm = new SHA256Algorithm();
+			break;
 		case B_HASH_SHA512:
 		default:
 			ERROR("algorithm not yet implemented!\n");
@@ -51,6 +61,16 @@ BCryptoHash::~BCryptoHash()
 {
 	if (fAlgorithm != NULL)
 		delete fAlgorithm;
+}
+
+
+BString
+BCryptoHash::Name()
+{
+	if (fAlgorithm != NULL)
+		return fAlgorithm->Name();
+
+	return "UNAVAILABLE";
 }
 
 
@@ -112,13 +132,12 @@ BCryptoHash::AddData(BFile* file)
 
 
 status_t
-BCryptoHash::Reset()
+BCryptoHash::Flush()
 {
 	fPosition = 0;
 
-	// Finish normally clears out the current hash progress
 	if (fAlgorithm != NULL)
-		fAlgorithm->Finish(NULL);
+		fAlgorithm->Flush();
 
 	return B_OK;
 }

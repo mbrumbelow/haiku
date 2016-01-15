@@ -12,26 +12,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "Blake2.h"
+#include "SHA256.h"
 
 // Theirs
-#include "blake2.h"
+#include "sha256.h"
 
 
-BlakeAlgorithm::BlakeAlgorithm()
+SHA256Algorithm::SHA256Algorithm()
 	: HashAlgorithm()
 {
-	blake2b_init(fState, BLAKE2B_OUTBYTES);
+	sha256_init(&fState);
 }
 
 
-BlakeAlgorithm::~BlakeAlgorithm()
+SHA256Algorithm::~SHA256Algorithm()
 {
 }
 
 
 status_t
-BlakeAlgorithm::Update(const void* input, size_t size)
+SHA256Algorithm::Update(const void* input, size_t size)
 {
 	if (size > MaxBuffer())
 		return B_BAD_VALUE;
@@ -39,26 +39,26 @@ BlakeAlgorithm::Update(const void* input, size_t size)
 	if (input == NULL)
 		return B_BAD_VALUE;
 
-	blake2b_update(fState, (uint8_t*)input, size);
+	sha256_update(&fState, (unsigned char*)input, size);
 
 	return B_OK;
 }
 
 
 status_t
-BlakeAlgorithm::Finish(uint8* digest)
+SHA256Algorithm::Finish(uint8* digest)
 {
 	if (digest == NULL)
 		return B_BAD_VALUE;
 
-	blake2b_final(fState, digest, DigestLength());
+	sha256_final(&fState, digest);
 	return B_OK;
 }
 
 
 void
-BlakeAlgorithm::Flush()
+SHA256Algorithm::Flush()
 {
-	memset(fState, 0, sizeof(fState));
-	blake2b_init(fState, BLAKE2B_OUTBYTES);
+	memset(&fState, 0, sizeof(fState));
+	sha256_init(&fState);
 }

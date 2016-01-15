@@ -12,26 +12,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "Blake2.h"
+#include "MD4.h"
 
 // Theirs
-#include "blake2.h"
+#include "md4.h"
 
 
-BlakeAlgorithm::BlakeAlgorithm()
+MD4Algorithm::MD4Algorithm()
 	: HashAlgorithm()
 {
-	blake2b_init(fState, BLAKE2B_OUTBYTES);
+	MD4_Init(&fState);
 }
 
 
-BlakeAlgorithm::~BlakeAlgorithm()
+MD4Algorithm::~MD4Algorithm()
 {
 }
 
 
 status_t
-BlakeAlgorithm::Update(const void* input, size_t size)
+MD4Algorithm::Update(const void* input, size_t size)
 {
 	if (size > MaxBuffer())
 		return B_BAD_VALUE;
@@ -39,26 +39,26 @@ BlakeAlgorithm::Update(const void* input, size_t size)
 	if (input == NULL)
 		return B_BAD_VALUE;
 
-	blake2b_update(fState, (uint8_t*)input, size);
+	MD4_Update(&fState, input, size);
 
 	return B_OK;
 }
 
 
 status_t
-BlakeAlgorithm::Finish(uint8* digest)
+MD4Algorithm::Finish(uint8* digest)
 {
 	if (digest == NULL)
 		return B_BAD_VALUE;
 
-	blake2b_final(fState, digest, DigestLength());
+	MD4_Final(digest, &fState);
 	return B_OK;
 }
 
 
 void
-BlakeAlgorithm::Flush()
+MD4Algorithm::Flush()
 {
-	memset(fState, 0, sizeof(fState));
-	blake2b_init(fState, BLAKE2B_OUTBYTES);
+	memset(&fState, 0, sizeof(fState));
+	MD4_Init(&fState);
 }
