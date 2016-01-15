@@ -5,8 +5,8 @@
  * Authors:
  *      Alexander von Gluck IV <kallisti5@unixzen.com>
  */
-#ifndef _BLAKE_ALGORITHM_H
-#define _BLAKE_ALGORITHM_H
+#ifndef _SHA256_ALGORITHM_H
+#define _SHA256_ALGORITHM_H
 
 
 #include <String.h>
@@ -14,30 +14,29 @@
 
 #include "HashAlgorithm.h"
 
-#include "blake2.h"
+#include "sha256.h"
 
 
 using namespace BPrivate;
 
 
-class BlakeAlgorithm : public HashAlgorithm {
+class SHA256Algorithm : public HashAlgorithm {
 public:
-							BlakeAlgorithm();
-							~BlakeAlgorithm();
+							SHA256Algorithm();
+							~SHA256Algorithm();
 
 			status_t		Update(const void* input, size_t size);
 			status_t		Finish(uint8* digest);
 
-			BString			Name() { return "blake2b"; }
+			BString			Name() { return "SHA256"; }
 			size_t			MaxBuffer() { return 32768; }
-			size_t			DigestLength() { return BLAKE2B_OUTBYTES; }
+			size_t			DigestLength() { return SHA256_BLOCK_SIZE; }
 
 			void			Flush();
-
 private:
-			blake2b_state	fState[1];
+			SHA256_CTX		fState;
 };
 
 
-#endif /* _BLAKE_ALGORITHM_H */
+#endif /* _MD5_ALGORITHM_H */
 
