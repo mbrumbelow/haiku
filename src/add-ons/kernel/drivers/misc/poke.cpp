@@ -10,8 +10,16 @@
 #include <ISA.h>
 #include <PCI.h>
 
+#ifdef __INTEL__
+#include <thread.h>
+#endif
+
 #include "poke.h"
 
+/*
+ TODO: maintain a list of mapped areas in the cookie
+ and only allow unmapping them, and clean them up on free.
+ */
 
 static status_t poke_open(const char*, uint32, void**);
 static status_t poke_close(void*);
@@ -101,6 +109,15 @@ poke_open(const char* name, uint32 flags, void** cookie)
 	if (getuid() != 0 && geteuid() != 0)
 		return EPERM;
 
+#ifdef __INTEL__
+	/* on x86, raise the IOPL so that outb/inb will work */
+	iframe* frame = x86_get_user_iframe();
+	int iopl = 3;
+	frame->flags &= ~X86_EFLAGS_IO_PRIVILEG_LEVEL;
+	frame->flags |= (iopl << X86_EFLAGS_IO_PRIVILEG_LEVEL_SHIFT)
+		& X86_EFLAGS_IO_PRIVILEG_LEVEL;
+#endif
+
 	return B_OK;
 }
 
@@ -115,6 +132,14 @@ poke_close(void* cookie)
 status_t
 poke_free(void* cookie)
 {
+#ifdef __INTEL__
+	iframe* frame = x86_get_user_iframe();
+	int iopl = 0;
+	frame->flags &= ~X86_EFLAGS_IO_PRIVILEG_LEVEL;
+	frame->flags |= (iopl << X86_EFLAGS_IO_PRIVILEG_LEVEL_SHIFT)
+		& X86_EFLAGS_IO_PRIVILEG_LEVEL;
+#endif
+
 	return B_OK;
 }
 
