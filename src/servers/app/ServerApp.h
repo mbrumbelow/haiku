@@ -1,5 +1,5 @@
 /*
- * Copyright 2001-2013, Haiku.
+ * Copyright 2001-2022 Haiku, Inc. All Rights Reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -113,6 +113,8 @@ private:
 			ServerBitmap*		_FindBitmap(int32 token) const;
 
 			ServerPicture*		_FindPicture(int32 token) const;
+
+			void				_SetDefaultFonts();
 
 private:
 	typedef std::map<int32, BReference<ServerBitmap> > BitmapMap;
