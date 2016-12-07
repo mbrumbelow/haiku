@@ -1,10 +1,11 @@
 /*
- * Copyright 2001-2009, Haiku.
+ * Copyright 2001-2022 Haiku, Inc. All Rights Reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
  *		DarkWyrm <bpmagic@columbus.rr.com>
  *		Axel Dörfler, axeld@pinc-software.de
+ *		John Scipione, jscipione@gmail.com
  */
 #ifndef FONT_MANAGER_H
 #define FONT_MANAGER_H
@@ -18,6 +19,7 @@
 
 #include <ft2build.h>
 #include FT_FREETYPE_H
+
 
 class BEntry;
 class BPath;
@@ -70,6 +72,10 @@ public:
 			const ServerFont*	DefaultPlainFont() const;
 			const ServerFont*	DefaultBoldFont() const;
 			const ServerFont*	DefaultFixedFont() const;
+
+			const ServerFont*	BeOSPlainFont() const;
+			const ServerFont*	BeOSBoldFont() const;
+			const ServerFont*	BeOSFixedFont() const;
 
 			void				AttachUser(uid_t userID);
 			void				DetachUser(uid_t userID);
@@ -150,6 +156,10 @@ private:
 								fDefaultBoldFont;
 			ObjectDeleter<ServerFont>
 								fDefaultFixedFont;
+
+			ServerFont*			fBeOSPlainFont;
+			ServerFont*			fBeOSBoldFont;
+			ServerFont*			fBeOSFixedFont;
 
 			bool				fScanned;
 			int32				fNextID;
