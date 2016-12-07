@@ -1,5 +1,5 @@
 /*
- * Copyright 2001-2016, Haiku.
+ * Copyright 2001-2022 Haiku, Inc. All Rights Reserved
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -13,6 +13,7 @@
  *		Philippe Saint-Pierre, stpere@gmail.com
  *		Wim van der Meer, <WPJvanderMeer@gmail.com>
  *		Joseph Groover <looncraz@looncraz.net>
+ *		John Scipione, jscipione@gmail.com
  */
 
 
@@ -28,8 +29,11 @@
 #include <string.h>
 #include <syslog.h>
 
+#include <image.h>
+
 #include <AppDefs.h>
 #include <Autolock.h>
+#include <BeBuild.h>
 #include <Debug.h>
 #include <List.h>
 #include <ScrollBar.h>
@@ -107,11 +111,11 @@ ServerApp::ServerApp(Desktop* desktop, port_id clientReplyPort,
 	fIsActive(false),
 	fMemoryAllocator(new (std::nothrow) ClientMemoryAllocator(this), true)
 {
-	if (fSignature == "")
+	if (fSignature.Length() == 0)
 		fSignature = "application/no-signature";
 
 	char name[B_OS_NAME_LENGTH];
-	snprintf(name, sizeof(name), "a<%" B_PRId32 ":%s", clientTeam,
+	snprintf(name, sizeof(name), "a<%" B_PRId32 ":%s", fClientTeam,
 		SignatureLeaf());
 
 	fMessagePort = create_port(DEFAULT_MONITOR_PORT_SIZE, name);
@@ -120,10 +124,10 @@ ServerApp::ServerApp(Desktop* desktop, port_id clientReplyPort,
 
 	fLink.SetSenderPort(fClientReplyPort);
 	fLink.SetReceiverPort(fMessagePort);
-	fLink.SetTargetTeam(clientTeam);
+	fLink.SetTargetTeam(fClientTeam);
 
 	// we let the application own the port, so that we get aware when it's gone
-	if (set_port_owner(fMessagePort, clientTeam) < B_OK) {
+	if (set_port_owner(fMessagePort, fClientTeam) < B_OK) {
 		delete_port(fMessagePort);
 		fMessagePort = -1;
 		return;
@@ -132,16 +136,13 @@ ServerApp::ServerApp(Desktop* desktop, port_id clientReplyPort,
 	BMessenger::Private(fHandlerMessenger).SetTo(fClientTeam,
 		clientLooperPort, clientToken);
 
-	fInitialWorkspace = desktop->CurrentWorkspace();
+	fInitialWorkspace = fDesktop->CurrentWorkspace();
 		// TODO: this should probably be retrieved when the app is loaded!
 
 	// record the current system wide fonts..
-	desktop->LockSingleWindow();
-	DesktopSettings settings(desktop);
-	settings.GetDefaultPlainFont(fPlainFont);
-	settings.GetDefaultBoldFont(fBoldFont);
-	settings.GetDefaultFixedFont(fFixedFont);
-	desktop->UnlockSingleWindow();
+	fDesktop->LockSingleWindow();
+	_SetDefaultFonts();
+	fDesktop->UnlockSingleWindow();
 
 	STRACE(("ServerApp %s:\n", Signature()));
 	STRACE(("\tBApp port: %" B_PRId32 "\n", fClientReplyPort));
@@ -1598,11 +1599,11 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 					LockedDesktopSettings settings(fDesktop);
 
 					// TODO: Should we also update our internal copies now?
-					if (strcmp(type, "plain") == 0)
+					if (strncmp(type, "plain", 5) == 0)
 						settings.SetDefaultPlainFont(font);
-					else if (strcmp(type, "bold") == 0)
+					else if (strncmp(type, "bold", 4) == 0)
 						settings.SetDefaultBoldFont(font);
-					else if (strcmp(type, "fixed") == 0)
+					else if (strncmp(type, "fixed", 5) == 0)
 						settings.SetDefaultFixedFont(font);
 				} else
 					gFontManager->Unlock();
@@ -1620,13 +1621,13 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 			char type[B_OS_NAME_LENGTH];
 			status_t status = link.ReadString(type, sizeof(type));
 			if (status == B_OK) {
-				if (!strcmp(type, "plain")) {
+				if (strncmp(type, "plain", 5) == 0)
 					font = *gFontManager->DefaultPlainFont();
-				} else if (!strcmp(type, "bold")) {
+				else if (strncmp(type, "bold", 4) == 0)
 					font = *gFontManager->DefaultBoldFont();
-				} else if (!strcmp(type, "fixed")) {
+				else if (strncmp(type, "fixed", 5) == 0)
 					font = *gFontManager->DefaultFixedFont();
-				} else
+				else
 					status = B_BAD_VALUE;
 			}
 
@@ -1664,15 +1665,11 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 			}
 
 			// The client is requesting the system fonts, this
-			// could happend either at application start up, or
-			// because the client is resyncing with the global
+			// could have happened either at application start up,
+			// or because the client is resyncing with the global
 			// fonts. So we record the current system wide fonts
 			// into our own copies at this point.
-			DesktopSettings settings(fDesktop);
-
-			settings.GetDefaultPlainFont(fPlainFont);
-			settings.GetDefaultBoldFont(fBoldFont);
-			settings.GetDefaultFixedFont(fFixedFont);
+			_SetDefaultFonts();
 
 			fLink.StartMessage(B_OK);
 
@@ -3574,4 +3571,28 @@ ServerApp::_FindPicture(int32 token) const
 		return NULL;
 
 	return iterator->second;
+}
+
+
+void
+ServerApp::_SetDefaultFonts()
+{
+	DesktopSettings settings(fDesktop);
+
+#ifdef _BEOS_R5_COMPATIBLE_
+	// TODO Implement BeOS app signature exceptions list
+	int32 cookie = 0;
+	image_info info;
+	if (get_next_image_info(fClientTeam, (int32*)&cookie, &info) == B_OK
+		&& info.type == B_APP_IMAGE && info.abi <= B_HAIKU_ABI_GCC_2_BEOS) {
+		settings.GetBeOSPlainFont(fPlainFont);
+		settings.GetBeOSBoldFont(fBoldFont);
+		settings.GetBeOSFixedFont(fFixedFont);
+		return;
+	}
+#endif
+
+	settings.GetDefaultPlainFont(fPlainFont);
+	settings.GetDefaultBoldFont(fBoldFont);
+	settings.GetDefaultFixedFont(fFixedFont);
 }

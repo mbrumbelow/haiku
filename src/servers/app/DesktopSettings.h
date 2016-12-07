@@ -45,6 +45,10 @@ public:
 			void				GetDefaultBoldFont(ServerFont& font) const;
 			void				GetDefaultFixedFont(ServerFont& font) const;
 
+			void				GetBeOSPlainFont(ServerFont& font) const;
+			void				GetBeOSBoldFont(ServerFont& font) const;
+			void				GetBeOSFixedFont(ServerFont& font) const;
+
 			void				GetScrollBarInfo(scroll_bar_info& info) const;
 			void				GetMenuInfo(menu_info& info) const;
 
