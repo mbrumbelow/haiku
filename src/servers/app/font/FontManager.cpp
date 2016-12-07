@@ -111,6 +111,10 @@ FontManager::FontManager()
 	fDefaultBoldFont(NULL),
 	fDefaultFixedFont(NULL),
 
+	fBeOSPlainFont(NULL),
+	fBeOSBoldFont(NULL),
+	fBeOSFixedFont(NULL),
+
 	fScanned(false),
 	fNextID(0)
 {
@@ -138,11 +142,14 @@ FontManager::~FontManager()
 	delete fDefaultBoldFont;
 	delete fDefaultFixedFont;
 
+	delete fBeOSPlainFont;
+	delete fBeOSBoldFont;
+	delete fBeOSFixedFont;
+
 	// free families before we're done with FreeType
 
-	for (int32 i = fFamilies.CountItems(); i-- > 0;) {
+	for (int32 i = fFamilies.CountItems(); i-- > 0;)
 		delete fFamilies.ItemAt(i);
-	}
 
 	FT_Done_FreeType(gFreeTypeLibrary);
 }
@@ -459,11 +466,12 @@ FontManager::_GetDefaultStyle(const char *familyName, const char *styleName,
 status_t
 FontManager::_SetDefaultFonts()
 {
+	FontStyle* style = NULL;
+
 	// plain font
-	FontStyle* style = _GetDefaultStyle(DEFAULT_PLAIN_FONT_FAMILY,
-		DEFAULT_PLAIN_FONT_STYLE, FALLBACK_PLAIN_FONT_FAMILY,
-		DEFAULT_PLAIN_FONT_STYLE,
-		B_REGULAR_FACE);
+	style = _GetDefaultStyle(
+		DEFAULT_PLAIN_FONT_FAMILY, DEFAULT_PLAIN_FONT_STYLE,
+		FALLBACK_PLAIN_FONT_FAMILY, FALLBACK_PLAIN_FONT_STYLE, B_REGULAR_FACE);
 	if (style == NULL)
 		return B_ERROR;
 
@@ -474,7 +482,7 @@ FontManager::_SetDefaultFonts()
 
 	// bold font
 	style = _GetDefaultStyle(DEFAULT_BOLD_FONT_FAMILY, DEFAULT_BOLD_FONT_STYLE,
-		FALLBACK_BOLD_FONT_FAMILY, DEFAULT_BOLD_FONT_STYLE, B_BOLD_FACE);
+		FALLBACK_BOLD_FONT_FAMILY, FALLBACK_BOLD_FONT_STYLE, B_BOLD_FACE);
 
 	fDefaultBoldFont = new (std::nothrow) ServerFont(*style,
 		DEFAULT_BOLD_FONT_SIZE);
@@ -482,7 +490,8 @@ FontManager::_SetDefaultFonts()
 		return B_NO_MEMORY;
 
 	// fixed font
-	style = _GetDefaultStyle(DEFAULT_FIXED_FONT_FAMILY, DEFAULT_FIXED_FONT_STYLE,
+	style = _GetDefaultStyle(
+		DEFAULT_FIXED_FONT_FAMILY, DEFAULT_FIXED_FONT_STYLE,
 		FALLBACK_FIXED_FONT_FAMILY, DEFAULT_FIXED_FONT_STYLE, B_REGULAR_FACE);
 
 	fDefaultFixedFont = new (std::nothrow) ServerFont(*style,
@@ -491,6 +500,39 @@ FontManager::_SetDefaultFonts()
 		return B_NO_MEMORY;
 
 	fDefaultFixedFont->SetSpacing(B_FIXED_SPACING);
+
+	// BeOS plain font
+	style = _GetDefaultStyle(BEOS_PLAIN_FONT_FAMILY, BEOS_PLAIN_FONT_STYLE,
+		FALLBACK_BEOS_PLAIN_FONT_FAMILY, FALLBACK_BEOS_PLAIN_FONT_STYLE,
+		B_REGULAR_FACE);
+	if (style == NULL)
+		return B_ERROR;
+
+	fBeOSPlainFont = new (std::nothrow) ServerFont(*style,
+		BEOS_PLAIN_FONT_SIZE);
+	if (fBeOSPlainFont == NULL)
+		return B_NO_MEMORY;
+
+	// BeOS bold font
+	style = _GetDefaultStyle(BEOS_BOLD_FONT_FAMILY, BEOS_BOLD_FONT_STYLE,
+		FALLBACK_BEOS_BOLD_FONT_FAMILY, FALLBACK_BEOS_BOLD_FONT_STYLE,
+		B_BOLD_FACE);
+
+	fBeOSBoldFont = new (std::nothrow) ServerFont(*style,
+		BEOS_BOLD_FONT_SIZE);
+	if (fBeOSBoldFont == NULL)
+		return B_NO_MEMORY;
+
+	// BeOS fixed font
+	style = _GetDefaultStyle(BEOS_FIXED_FONT_FAMILY, BEOS_FIXED_FONT_STYLE,
+		FALLBACK_BEOS_FIXED_FONT_FAMILY, FALLBACK_BEOS_FIXED_FONT_STYLE,
+		B_REGULAR_FACE);
+	fBeOSFixedFont = new (std::nothrow) ServerFont(*style,
+		BEOS_FIXED_FONT_SIZE);
+	if (fBeOSFixedFont == NULL)
+		return B_NO_MEMORY;
+
+	fBeOSFixedFont->SetSpacing(B_FIXED_SPACING);
 
 	return B_OK;
 }
@@ -1136,6 +1178,27 @@ const ServerFont*
 FontManager::DefaultFixedFont() const
 {
 	return fDefaultFixedFont;
+}
+
+
+const ServerFont*
+FontManager::BeOSPlainFont() const
+{
+	return fBeOSPlainFont;
+}
+
+
+const ServerFont*
+FontManager::BeOSBoldFont() const
+{
+	return fBeOSBoldFont;
+}
+
+
+const ServerFont*
+FontManager::BeOSFixedFont() const
+{
+	return fBeOSFixedFont;
 }
 
 

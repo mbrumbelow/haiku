@@ -1,5 +1,5 @@
 /*
- * Copyright 2005-2015, Haiku.
+ * Copyright 2005-2020 Haiku, Inc. All Rights Reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -7,6 +7,7 @@
  *		Axel Dörfler, axeld@pinc-software.de
  *		Andrej Spielmann, <andrej.spielmann@seh.ox.ac.uk>
  *		Joseph Groover <looncraz@looncraz.net>
+ *		John Scipione <jscipione@gmail.com>
  */
 
 
@@ -51,6 +52,10 @@ DesktopSettingsPrivate::_SetDefaults()
 	fPlainFont = *gFontManager->DefaultPlainFont();
 	fBoldFont = *gFontManager->DefaultBoldFont();
 	fFixedFont = *gFontManager->DefaultFixedFont();
+
+	fBeOSPlainFont = *gFontManager->BeOSPlainFont();
+	fBeOSBoldFont = *gFontManager->BeOSBoldFont();
+	fBeOSFixedFont = *gFontManager->BeOSFixedFont();
 
 	fMouseMode = B_NORMAL_MOUSE;
 	fFocusFollowsMouseMode = B_NORMAL_FOCUS_FOLLOWS_MOUSE;
@@ -513,6 +518,26 @@ DesktopSettingsPrivate::DefaultFixedFont() const
 	return fFixedFont;
 }
 
+const ServerFont &
+DesktopSettingsPrivate::BeOSPlainFont() const
+{
+	return fBeOSPlainFont;
+}
+
+
+const ServerFont &
+DesktopSettingsPrivate::BeOSBoldFont() const
+{
+	return fBeOSBoldFont;
+}
+
+
+const ServerFont &
+DesktopSettingsPrivate::BeOSFixedFont() const
+{
+	return fBeOSFixedFont;
+}
+
 
 void
 DesktopSettingsPrivate::SetScrollBarInfo(const scroll_bar_info& info)
@@ -853,6 +878,27 @@ void
 DesktopSettings::GetDefaultFixedFont(ServerFont &font) const
 {
 	font = fSettings->DefaultFixedFont();
+}
+
+
+void
+DesktopSettings::GetBeOSPlainFont(ServerFont &font) const
+{
+	font = fSettings->BeOSPlainFont();
+}
+
+
+void
+DesktopSettings::GetBeOSBoldFont(ServerFont &font) const
+{
+	font = fSettings->BeOSBoldFont();
+}
+
+
+void
+DesktopSettings::GetBeOSFixedFont(ServerFont &font) const
+{
+	font = fSettings->BeOSFixedFont();
 }
 
 
