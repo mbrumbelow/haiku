@@ -38,6 +38,10 @@ public:
 			void				SetDefaultFixedFont(const ServerFont& font);
 			const ServerFont&	DefaultFixedFont() const;
 
+			const ServerFont&	BeOSPlainFont() const;
+			const ServerFont&	BeOSBoldFont() const;
+			const ServerFont&	BeOSFixedFont() const;
+
 			void				SetScrollBarInfo(const scroll_bar_info &info);
 			const scroll_bar_info& ScrollBarInfo() const;
 
@@ -105,6 +109,10 @@ private:
 			ServerFont			fPlainFont;
 			ServerFont			fBoldFont;
 			ServerFont			fFixedFont;
+
+			ServerFont			fBeOSPlainFont;
+			ServerFont			fBeOSBoldFont;
+			ServerFont			fBeOSFixedFont;
 
 			scroll_bar_info		fScrollBarInfo;
 			menu_info			fMenuInfo;

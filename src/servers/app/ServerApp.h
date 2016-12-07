@@ -114,6 +114,8 @@ private:
 
 			ServerPicture*		_FindPicture(int32 token) const;
 
+			void				_SetDefaultFonts();
+
 private:
 	typedef std::map<int32, ServerBitmap*> BitmapMap;
 	typedef std::map<int32, ServerPicture*> PictureMap;
