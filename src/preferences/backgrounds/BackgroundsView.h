@@ -142,6 +142,7 @@ protected:
 
 			BColorControl*		fPicker;
 			BButton*			fApply;
+			BButton*			fDefaults;
 			BButton*			fRevert;
 			BCheckBox*			fIconLabelOutline;
 			BMenu*				fPlacementMenu;

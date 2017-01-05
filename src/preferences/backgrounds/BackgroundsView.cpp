@@ -45,6 +45,7 @@
 
 
 static const uint32 kMsgApplySettings = 'aply';
+static const uint32 kMsgDefaultSettings = 'dflt';
 static const uint32 kMsgRevertSettings = 'rvrt';
 
 static const uint32 kMsgUpdateColor = 'upcl';
@@ -65,6 +66,8 @@ static const uint32 kMsgIconLabelOutline = 'ilol';
 
 static const uint32 kMsgImagePlacement = 'xypl';
 static const uint32 kMsgUpdatePreviewPlacement = 'pvpl';
+
+static const rgb_color kDefaultColor = {51, 102, 152, 255};
 
 
 BackgroundsView::BackgroundsView()
@@ -215,11 +218,15 @@ BackgroundsView::BackgroundsView()
 		.SetInsets(B_USE_DEFAULT_SPACING)
 		.View());
 
+	fDefaults = new BButton(B_TRANSLATE("Defaults"),
+		new BMessage(kMsgDefaultSettings));
 	fRevert = new BButton(B_TRANSLATE("Revert"),
 		new BMessage(kMsgRevertSettings));
 	fApply = new BButton(B_TRANSLATE("Apply"),
 		new BMessage(kMsgApplySettings));
 
+	fDefaults->SetExplicitAlignment(BAlignment(B_ALIGN_LEFT,
+		B_ALIGN_NO_VERTICAL));
 	fRevert->SetExplicitAlignment(BAlignment(B_ALIGN_LEFT,
 		B_ALIGN_NO_VERTICAL));
 	fApply->SetExplicitAlignment(BAlignment(B_ALIGN_RIGHT,
@@ -237,7 +244,10 @@ BackgroundsView::BackgroundsView()
 			.Add(rightbox)
 			.End()
 		.AddGroup(B_HORIZONTAL, 0)
+			.Add(fDefaults)
+			.AddStrut(B_USE_DEFAULT_SPACING)
 			.Add(fRevert)
+			.AddGlue()
 			.Add(fApply)
 			.SetInsets(0, B_USE_DEFAULT_SPACING, 0,	0)
 			.End();
@@ -265,6 +275,7 @@ BackgroundsView::AllAttached()
 	fIconLabelOutline->SetTarget(this);
 	fPicker->SetTarget(this);
 	fApply->SetTarget(this);
+	fDefaults->SetTarget(this);
 	fRevert->SetTarget(this);
 
 	BPath path;
@@ -293,6 +304,7 @@ BackgroundsView::AllAttached()
 	}
 
 	fApply->SetEnabled(false);
+	fDefaults->SetEnabled(true);
 	fRevert->SetEnabled(false);
 }
 
@@ -426,6 +438,16 @@ BackgroundsView::MessageReceived(BMessage* message)
 			_UpdateButtons();
 			break;
 		}
+
+		case kMsgDefaultSettings:
+		{
+			fPicker->SetValue(kDefaultColor);
+
+			_UpdatePreview();
+			_UpdateButtons();
+			break;
+		}
+
 		case kMsgRevertSettings:
 			_UpdateWithCurrent();
 			break;
@@ -983,6 +1005,7 @@ BackgroundsView::_UpdateButtons()
 	}
 
 	fApply->SetEnabled(hasChanged);
+	fDefaults->SetEnabled(true);
 	fRevert->SetEnabled(hasChanged);
 }
 
