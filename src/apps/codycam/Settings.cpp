@@ -257,3 +257,85 @@ BooleanValueSetting::SaveSettingValue(Settings* settings)
 {
 	settings->Write(fValue ? "on" : "off");
 }
+
+
+
+StringListSetting::StringListSetting(const char* name,
+									BStringList* defaultPathList)
+	:
+	SettingsArgvDispatcher(name),
+	fDefaultStringList(defaultPathList),
+	fStringList(defaultPathList)
+{
+}
+
+
+StringListSetting::~StringListSetting()
+{
+	delete fDefaultStringList;
+	delete fStringList;
+}
+
+
+void
+StringListSetting::ValueChanged(BStringList *newList)
+{
+	fStringList=newList;
+}
+
+
+BStringList*
+StringListSetting::Value() const
+{
+	return fStringList;
+}
+
+
+void
+StringListSetting::SaveSettingValue(Settings* settings)
+{
+	if (fStringList->CountStrings()>0){
+		//write the first one with only one tab
+		settings->Write("\t %s ", fStringList->StringAt(0).String());	
+		for (int32 i=1; i<fStringList->CountStrings();i++) {
+			//first add a backslach
+			settings->Write("\\\n");
+			settings->Write("\t\t %s", fStringList->StringAt(i).String());
+		}
+		settings->Write("\n");
+	}
+}
+
+
+bool
+StringListSetting::NeedsSaving() const
+{
+	// needs saving if different than default
+	int32 i = 0;
+	if (fStringList->CountStrings() != fDefaultStringList->CountStrings())
+		return true;
+	for (i=0;i<fStringList->CountStrings();i++)
+	{
+		if (fDefaultStringList->HasString(fStringList->StringAt(i))!= true)
+			return true;
+	}
+	return false;
+}
+
+
+const char*
+StringListSetting::Handle(const char *const *argv)
+{
+	if (!*++argv) {
+		return "String expected";
+	}
+	fStringList->MakeEmpty();
+	int32 i=0;
+	while (argv[i]!=NULL)
+	{
+		fStringList->Add(argv[i]);
+		i++;
+	}
+	return 0;
+}
+

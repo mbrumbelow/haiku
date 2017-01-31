@@ -2,6 +2,7 @@
 #define SETTINGS_H
 
 #include "SettingsHandler.h"
+#include <StringList.h>
 
 void SetUpSettings(char* filename);
 void QuitSettings();
@@ -95,4 +96,29 @@ protected:
 	virtual	void				SaveSettingValue(Settings *);
 };
 
+
+//value of a string
+class StringListSetting : public SettingsArgvDispatcher {
+public:
+								StringListSetting(const char* name,
+									BStringList* defaultStringList);
+
+	virtual						~StringListSetting();
+
+			void				ValueChanged(BStringList *newList);
+			BStringList*		Value() const;
+	virtual const char*			Handle(const char *const *argv);
+
+protected:
+	virtual	void				SaveSettingValue(Settings*);
+	virtual	bool				NeedsSaving() const;
+	
+			BStringList*		fDefaultStringList;
+			BStringList*		fStringList;
+			
+};
+
+
 #endif	// SETTINGS_H
+
+
