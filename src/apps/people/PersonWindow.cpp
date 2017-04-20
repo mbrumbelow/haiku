@@ -29,6 +29,7 @@
 #include <NodeInfo.h>
 #include <NodeMonitor.h>
 #include <Path.h>
+#include <ScrollView.h>
 #include <String.h>
 #include <TextView.h>
 #include <Volume.h>
@@ -45,8 +46,7 @@ PersonWindow::PersonWindow(BRect frame, const char* title,
 		const char* nameAttribute, const char* categoryAttribute,
 		const entry_ref* ref)
 	:
-	BWindow(frame, title, B_TITLED_WINDOW, B_NOT_ZOOMABLE
-		| B_AUTO_UPDATE_SIZE_LIMITS),
+	BWindow(frame, title, B_TITLED_WINDOW, B_NOT_ZOOMABLE),
 	fRef(NULL),
 	fPanel(NULL),
 	fNameAttribute(nameAttribute)
@@ -107,9 +107,13 @@ PersonWindow::PersonWindow(BRect frame, const char* title,
 
 	fView = new PersonView("PeopleView", categoryAttribute, fRef);
 
+	BScrollView* scrollView = new BScrollView("PeopleScrollView", fView, 0,
+		false, true, B_NO_BORDER);
+	scrollView->SetExplicitMinSize(BSize(scrollView->MinSize().width, 0));
+
 	BLayoutBuilder::Group<>(this, B_VERTICAL, 0)
 		.Add(menuBar)
-		.Add(fView);
+		.Add(scrollView);
 
 	fRevert->SetTarget(fView);
 	selectAllItem->SetTarget(fView);
