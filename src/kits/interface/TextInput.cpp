@@ -116,7 +116,10 @@ _BTextInput_::KeyDown(const char* bytes, int32 numBytes)
 
 		default:
 			BTextView::KeyDown(bytes, numBytes);
-			AlignTextRect();
+			if (Alignment() == B_ALIGN_LEFT)
+				break;
+			if (Alignment() == B_ALIGN_RIGHT || TextRect().Width() <= Bounds().Width())
+				AlignTextRect();
 			break;
 	}
 }
