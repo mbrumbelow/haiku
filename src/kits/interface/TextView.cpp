@@ -2066,13 +2066,10 @@ BTextView::ScrollToOffset(int32 offset)
 	BPoint point = PointAt(offset, &lineHeight);
 
 	// horizontal
-	float extraSpace = fAlignment == B_ALIGN_LEFT ?
-		ceilf(bounds.IntegerWidth() / 2) : 0.0;
-
 	if (point.x < bounds.left)
-		xDiff = point.x - bounds.left - extraSpace;
+		xDiff = point.x - bounds.right;
 	else if (point.x > bounds.right)
-		xDiff = point.x - bounds.right + extraSpace;
+		xDiff = point.x - bounds.left;
 
 	// vertical
 	if (point.y < bounds.top)
