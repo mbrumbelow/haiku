@@ -6,7 +6,7 @@ SetSubDirSupportedPlatformsBeOSCompatible ;
 
 AddSubDirSupportedPlatforms libbe_test ;
 
-UsePrivateHeaders app interface shared storage support tracker usb ;
+UsePrivateHeaders app interface locale shared storage support tracker usb ;
 UsePrivateSystemHeaders ;
 SubDirHdrs $(HAIKU_TOP) src add-ons kernel file_cache ;
 UseBuildFeatureHeaders ncurses ;
@@ -99,6 +99,7 @@ StdBinCommands
 	query.cpp
 	quit.cpp
 	roster.cpp
+	setlocale.cpp
 	setversion.cpp
 	trash.cpp
 	version.cpp

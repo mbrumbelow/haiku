@@ -4,13 +4,14 @@
 include [ FDirName $(HAIKU_BUILD_RULES_DIR) images definitions minimum ] ;
 
 SYSTEM_BIN += [ FFilterByBuildFeatures
-	cddb_lookup
-	clipboard CortexAddOnHost
+	cddb_lookup clipboard CortexAddOnHost
 	dpms
 	FirstBootPrompt	fwcontrol@x86
 	installsound
 	mail mail2mbox mbox2mail media_client mkdos mount_nfs
-	play recover screenshot setdecor spamdbm
+	play
+	recover
+	screenshot setdecor setlocale spamdbm
 	translate
 	WindowShade
 ] ;
