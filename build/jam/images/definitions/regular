@@ -11,6 +11,7 @@ SYSTEM_BIN += [ FFilterByBuildFeatures
 	installsound
 	mail mail2mbox mbox2mail media_client mkdos mount_nfs
 	play screenshot setdecor spamdbm
+	setlocale
 	translate
 	WindowShade
 ] ;
