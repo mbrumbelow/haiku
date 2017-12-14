@@ -15,12 +15,14 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 			err.c
 			explicit_bzero.c
 			fgetln.c
+			getentropy.c
 			getpass.c
 			issetugid.c
 			lutimes.c
 			progname.c
 			pty.cpp
 			readpassphrase.c
+			sha512c.c
 			signal.c
 			string.cpp
 			stringlist.c
