@@ -11,6 +11,7 @@
 
 #ifdef _BSD_SOURCE
 
+#include <stdint.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -19,6 +20,9 @@ extern "C" {
 int			daemon(int noChangeDir, int noClose);
 const char	*getprogname(void);
 void		setprogname(const char *programName);
+uint32_t arc4random(void);
+void arc4random_buf(void *buf, size_t nbytes);
+uint32_t arc4random_uniform(uint32_t upper_bound);
 
 #ifdef __cplusplus
 }

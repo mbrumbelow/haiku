@@ -3,6 +3,7 @@ SubDir HAIKU_TOP src libs bsd ;
 SetSubDirSupportedPlatforms $(HAIKU_BONE_COMPATIBLE_PLATFORMS) ;
 
 UseHeaders [ FDirName $(HAIKU_TOP) headers compatibility bsd ] : true ;
+UsePrivateHeaders libbsd ;
 
 SubDirCcFlags [ FDefines _BSD_SOURCE=1 ] ;
 SubDirC++Flags [ FDefines _BSD_SOURCE=1 ] ;
@@ -11,6 +12,8 @@ local architectureObject ;
 for architectureObject in [ MultiArchSubDirSetup ] {
 	on $(architectureObject) {
 		SharedLibrary [ MultiArchDefaultGristFiles libbsd.so ] :
+			arc4random.c
+			arc4random_uniform.c
 			daemon.c
 			err.c
 			explicit_bzero.c
