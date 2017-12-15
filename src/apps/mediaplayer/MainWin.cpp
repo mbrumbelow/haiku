@@ -178,6 +178,11 @@ static property_info sPropertyInfo[] = {
 		"Gets the title of the nth track in Playlist.", 0,
 		{ B_STRING_TYPE }
 	},
+	{ "CurrentTrack", { B_GET_PROPERTY, 0 },
+		{ B_DIRECT_SPECIFIER, 0 },
+		"Gets the pointer to the current track.", 0,
+		{ B_POINTER_TYPE }
+	},
 
 	{ 0 }
 };
@@ -610,16 +615,25 @@ MainWin::MessageReceived(BMessage* msg)
 
 				case 14:
 				{
-					int32 i = specifier.GetInt32("index", 0);
-					if (i >= fPlaylist->CountItems()) {
+					int32 index = specifier.GetInt32("index", 0);
+					if (index >= fPlaylist->CountItems()) {
 						result = B_NO_INIT;
 						break;
 					}
 
 					BAutolock _(fPlaylist);
-					const PlaylistItem* item = fPlaylist->ItemAt(i);
+					const PlaylistItem* item = fPlaylist->ItemAt(index);
 					result = item == NULL ? B_NO_INIT
 						: reply.AddString("result", item->Title());
+					break;
+				}
+
+				case 15:
+				{
+					BAutolock _(fPlaylist);
+					const PlaylistItem* item = fController->Item();
+					result = item == NULL ? B_NO_INIT
+						: reply.AddPointer("result", item);
 					break;
 				}
 
