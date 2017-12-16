@@ -94,6 +94,7 @@ private:
 			void				_OpenLoginWindow(
 									const BMessage& onSuccessMessage);
 			void				_UpdateAuthorization();
+			void				_UpdateAvailableRepositories();
 			void				_RatePackage();
 			void				_ShowScreenshot();
 
@@ -109,10 +110,10 @@ private:
 			ScreenshotWindow*	fScreenshotWindow;
 
 			BMenu*				fUserMenu;
+			BMenu*				fRepositoryMenu;
 			BMenuItem*			fLogInItem;
 			BMenuItem*			fLogOutItem;
 
-			BMenuItem*			fShowFeaturedPackagesItem;
 			BMenuItem*			fShowAvailablePackagesItem;
 			BMenuItem*			fShowInstalledPackagesItem;
 			BMenuItem*			fShowDevelopPackagesItem;
