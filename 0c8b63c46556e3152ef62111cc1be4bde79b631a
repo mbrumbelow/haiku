@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "abcbee7b_cbe5a211",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-01-10T19:06:59Z",
+      "side": 1,
+      "message": "I don\u0027t think locking the playlist brings something here. Any ideas?",
+      "revId": "0c8b63c46556e3152ef62111cc1be4bde79b631a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
