@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "144f608f_b03a967c",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 619,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-01-10T19:08:08Z",
+      "side": 1,
+      "message": "The lock should happen before CountItems(), otherwise the list count could change.",
+      "revId": "fda977bc33e02c73fb6a75a26caad5a436f90955",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10325bc6_98461598",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1321,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-01-10T19:08:08Z",
+      "side": 1,
+      "message": "This is obviously wrong. According to https://www.haiku-os.org/legacy-docs/bebook/BPropertyInfo.html#BPropertyInfo_FindMatch  FindMatch() returns B_ERROR on failure.",
+      "revId": "fda977bc33e02c73fb6a75a26caad5a436f90955",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
