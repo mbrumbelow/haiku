@@ -6,6 +6,15 @@
 
 #include "IconEditorApp.h"
 
+#include "Document.h"
+#include "FlatIconExporter.h"
+#include "Icon.h"
+#include "MessageImporter.h"
+#include "RDefExporter.h"
+#include "SimpleFileSaver.h"
+#include "SourceExporter.h"
+#include "SVGExporter.h"
+
 #include <new>
 #include <stdio.h>
 #include <string.h>
@@ -32,26 +41,38 @@
 #define B_TRANSLATION_CONTEXT "Icon-O-Matic-Main"
 
 
+extern int exitCode;
+
+
 using std::nothrow;
 
 static const char* kAppSig = "application/x-vnd.haiku-icon_o_matic";
 
 static const float kWindowOffset = 20;
 
+static bool isCLI;
+
 
 IconEditorApp::IconEditorApp()
 	:
-	BApplication(kAppSig),
-	fWindowCount(0),
-	fLastWindowFrame(50, 50, 900, 750),
-
-	fOpenPanel(NULL),
-	fSavePanel(NULL),
-
-	fLastOpenPath(""),
-	fLastSavePath(""),
-	fLastExportPath("")
+	BApplication(kAppSig)
 {
+}
+
+
+void
+IconEditorApp::_Init()
+{
+	fWindowCount = 0;
+	fLastWindowFrame.Set(50, 50, 900, 750);
+
+	fOpenPanel = NULL;
+	fSavePanel = NULL;
+
+	fLastOpenPath = "";
+	fLastSavePath = "";
+	fLastExportPath = "";
+
 	// create file panels
 	BMessenger messenger(this, this);
 	BMessage message(B_REFS_RECEIVED);
@@ -79,6 +100,9 @@ IconEditorApp::~IconEditorApp()
 bool
 IconEditorApp::QuitRequested()
 {
+	if (isCLI)
+		return true;
+
 	// Run the QuitRequested() hook in each window's own thread. Otherwise
 	// the BAlert which a window shows when an icon is not saved will not
 	// repaint the window. (BAlerts check which thread is running Go() and
@@ -202,6 +226,11 @@ IconEditorApp::MessageReceived(BMessage* message)
 void
 IconEditorApp::ReadyToRun()
 {
+	if (isCLI)
+		return;
+
+	_Init();
+
 	// create main window
 	if (fWindowCount == 0)
 		_NewWindow()->Show();
@@ -248,11 +277,116 @@ IconEditorApp::RefsReceived(BMessage* message)
 }
 
 
+static void
+Help()
+{
+	puts("Usage: Icon-O-Matic OPTION -o OUTPUT_FILE IOM_FILE");
+	puts("  -H  convert to HVIF");
+	puts("  -R  convert to RDef");
+	puts("  -S  convert to SVG");
+	puts("  -s  convert to source");
+	puts("  -h, --help");
+	puts("      display this help");
+}
+
+
+static status_t
+ConvertIcon(const char* from, const char* to, const char* format)
+{
+	uint32 exportMode;
+	if (strcmp(format, "-H") == 0)
+		exportMode = EXPORT_MODE_FLAT_ICON;
+	else if (strcmp(format, "-R") == 0)
+		exportMode = EXPORT_MODE_ICON_RDEF;
+	else if (strcmp(format, "-S") == 0)
+		exportMode = EXPORT_MODE_SVG;
+	else if (strcmp(format, "-s") == 0)
+		exportMode = EXPORT_MODE_ICON_SOURCE;
+	else {
+		Help();
+		return B_ERROR;
+	}
+
+	entry_ref ref;
+	status_t ret = get_ref_for_path(from, &ref);
+	if (ret != B_OK)
+		return ret;
+
+	BFile file(&ref, B_READ_ONLY);
+	ret = file.InitCheck();
+	if (ret < B_OK)
+		return ret;
+
+	ret = get_ref_for_path(to, &ref);
+	if (ret != B_OK)
+		return ret;
+
+	Icon* icon = new (nothrow) Icon();
+	if (icon == NULL)
+		return B_ERROR;
+
+	MessageImporter msgImporter;
+	ret = msgImporter.Import(icon, &file);
+	if (ret < B_OK) {
+		delete icon;
+		return ret;
+	}
+
+	DocumentSaver* saver = NULL;
+	switch (exportMode) {
+		case EXPORT_MODE_FLAT_ICON:
+			saver = new SimpleFileSaver(new FlatIconExporter(), ref);
+			break;
+		case EXPORT_MODE_ICON_RDEF:
+			saver = new SimpleFileSaver(new RDefExporter(), ref);
+			break;
+		case EXPORT_MODE_ICON_SOURCE:
+			saver = new SimpleFileSaver(new SourceExporter(), ref);
+			break;
+		case EXPORT_MODE_SVG:
+			saver = new SimpleFileSaver(new SVGExporter(), ref);
+			break;
+	}
+
+	if (saver == NULL) {
+		delete icon;
+		return B_ERROR;
+	}
+
+	Document* document = new Document(to);
+	if (document == NULL) {
+		delete icon;
+		return B_ERROR;
+	}
+
+	document->SetIcon(icon);
+	document->SetExportSaver(saver);
+	saver->Save(document);
+
+	return B_OK;
+}
+
+
 void
 IconEditorApp::ArgvReceived(int32 argc, char** argv)
 {
 	if (argc < 2)
 		return;
+
+	if (*argv[1] == '-') {
+		if ((strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "--help") == 0))
+			Help();
+		else if (argc == 5 && strcmp(argv[2], "-o") == 0)
+			exitCode = ConvertIcon(argv[4], argv[3], argv[1]);
+		else {
+			Help();
+			exitCode = B_ERROR;
+		}
+
+		isCLI = true;
+		PostMessage(B_QUIT_REQUESTED);
+		return;
+	}
 
 	entry_ref ref;
 

@@ -8,6 +8,8 @@
 
 #include "IconEditorApp.h"
 
+int exitCode;
+
 int
 main(int argc, char** argv)
 {
@@ -16,5 +18,5 @@ main(int argc, char** argv)
 
 	delete app;
 
-	return 0;
+	return exitCode;
 }

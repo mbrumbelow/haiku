@@ -60,6 +60,8 @@ public:
 	// IconEditorApp
 
 private:
+			void				_Init();
+
 			MainWindow*			_NewWindow();
 
 			void				_SyncPanels(BFilePanel* from,
