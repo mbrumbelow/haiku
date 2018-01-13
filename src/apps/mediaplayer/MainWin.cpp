@@ -178,6 +178,11 @@ static property_info sPropertyInfo[] = {
 		"Gets the title of the nth track in Playlist.", 0,
 		{ B_STRING_TYPE }
 	},
+	{ "CurrentTrack", { 0 },
+		{ B_DIRECT_SPECIFIER, 0 },
+		NULL, 0,
+		{ 0 }
+	},
 
 	{ 0 }
 };
@@ -200,6 +205,7 @@ MainWin::MainWin(bool isFirstWindow, BMessage* message)
 	fHasFile(false),
 	fHasVideo(false),
 	fHasAudio(false),
+	fCurrentItem(NULL),
 	fPlaylist(new Playlist),
 	fPlaylistObserver(new PlaylistObserver(this)),
 	fController(new Controller),
@@ -610,14 +616,14 @@ MainWin::MessageReceived(BMessage* msg)
 
 				case 14:
 				{
-					int32 i = specifier.GetInt32("index", 0);
-					if (i >= fPlaylist->CountItems()) {
+					int32 index = specifier.GetInt32("index", 0);
+					if (index >= fPlaylist->CountItems()) {
 						result = B_NO_INIT;
 						break;
 					}
 
 					BAutolock _(fPlaylist);
-					const PlaylistItem* item = fPlaylist->ItemAt(i);
+					const PlaylistItem* item = fPlaylist->ItemAt(index);
 					result = item == NULL ? B_NO_INIT
 						: reply.AddString("result", item->Title());
 					break;
@@ -762,6 +768,11 @@ MainWin::MessageReceived(BMessage* msg)
 				itemRef.SetTo(fPlaylist->ItemAt(
 					fPlaylist->CurrentItemIndex()));
 			}
+
+			if (fCurrentItem != NULL)
+				RemoveHandler(fCurrentItem);
+
+			fCurrentItem = item;
 			_PlaylistItemOpened(itemRef, result);
 			break;
 		}
@@ -1108,6 +1119,9 @@ MainWin::WindowActivated(bool active)
 bool
 MainWin::QuitRequested()
 {
+	if (fCurrentItem != NULL)
+		RemoveHandler(fCurrentItem);
+
 	BMessage message(M_PLAYER_QUIT);
 	GetQuitMessage(&message);
 	be_app->PostMessage(&message);
@@ -1313,15 +1327,30 @@ MainWin::GetQuitMessage(BMessage* message)
 
 
 BHandler*
-MainWin::ResolveSpecifier(BMessage* message, int32 index, BMessage* specifier,
+MainWin::ResolveSpecifier(BMessage* msg, int32 index, BMessage* specifier,
 	int32 what, const char* property)
 {
 	BPropertyInfo propertyInfo(sPropertyInfo);
-	if (propertyInfo.FindMatch(message, index, specifier, what, property)
-			!= B_ERROR)
-		return this;
 
-	return BWindow::ResolveSpecifier(message, index, specifier, what, property);
+	if (propertyInfo.FindMatch(msg, index, specifier, what, property) >= 0) {
+		if (strcmp(property, "CurrentTrack") == 0) {
+			if (fCurrentItem != NULL) {
+				AddHandler(fCurrentItem);
+				msg->PopSpecifier();
+				return fCurrentItem;
+			}
+
+			BMessage replyMsg(B_MESSAGE_NOT_UNDERSTOOD);
+			replyMsg.AddInt32("error", B_NAME_NOT_FOUND);
+			replyMsg.AddString("message", "There is no current track.");
+			msg->SendReply(&replyMsg);
+			return NULL;
+		}
+
+		return this;
+	}
+
+	return BWindow::ResolveSpecifier(msg, index, specifier, what, property);
 }
 
 
