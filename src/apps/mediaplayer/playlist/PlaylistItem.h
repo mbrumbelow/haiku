@@ -7,6 +7,7 @@
 
 
 #include <Archivable.h>
+#include <Handler.h>
 #include <List.h>
 #include <NodeInfo.h>
 #include <Referenceable.h>
@@ -18,7 +19,7 @@ class BMessage;
 class TrackSupplier;
 
 
-class PlaylistItem : public BArchivable, public BReferenceable {
+class PlaylistItem : public BHandler, public BReferenceable {
 public:
 	class Listener {
 	public:
@@ -37,6 +38,13 @@ public:
 	// archiving
 	virtual	status_t			Archive(BMessage* into,
 									bool deep = true) const = 0;
+
+			BHandler*			ResolveSpecifier(BMessage* msg, int32 index,
+									BMessage* specifier, int32 what,
+									const char* property);
+			status_t			GetSupportedSuites(BMessage* msg);
+
+			void				MessageReceived(BMessage* msg);
 
 	// attributes
 	typedef enum {

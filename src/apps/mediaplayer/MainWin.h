@@ -152,6 +152,8 @@ private:
 			bool				fHasVideo;
 			bool				fHasAudio;
 
+			PlaylistItem*		fCurrentItem;
+
 			Playlist*			fPlaylist;
 			PlaylistObserver*	fPlaylistObserver;
 			Controller*			fController;
