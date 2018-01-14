@@ -13,7 +13,8 @@
 
 #include <Window.h>
 #include <FilePanel.h>
-#include <FileGameSound.h>
+#include <Sound.h>
+#include <SoundPlayer.h>
 
 
 class HEventList;
@@ -35,25 +36,27 @@ enum{
 
 class HWindow : public BWindow {
 public:
-								HWindow(BRect rect, const char* name);
-	virtual						~HWindow();
+									HWindow(BRect rect, const char* name);
+	virtual							~HWindow();
 
-	virtual	void				DispatchMessage(BMessage* message,
-									BHandler* handler);
-	virtual	void				MessageReceived(BMessage* message);
-	virtual	bool				QuitRequested();
-
-private:
-			void				_InitGUI();
-			void				_Pulse();
-			void				_SetupMenuField();
-			void				_UpdateZoomLimits();
+	virtual	void					DispatchMessage(BMessage* message,
+										BHandler* handler);
+	virtual	void					MessageReceived(BMessage* message);
+	virtual	bool					QuitRequested();
 
 private:
-			HEventList*			fEventList;
-			BFilePanel*			fFilePanel;
-			BFileGameSound*		fPlayer;
-			BRect				fFrame;
+			void					_InitGUI();
+			void					_Pulse();
+			void					_SetupMenuField();
+			void					_UpdateZoomLimits();
+
+private:
+			HEventList*				fEventList;
+			BFilePanel*				fFilePanel;
+			BSoundPlayer*			fPlayer;
+			BSound*					fSound;
+			BSoundPlayer::play_id	fID;
+			BRect					fFrame;
 };
 
 

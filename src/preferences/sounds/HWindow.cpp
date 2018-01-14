@@ -35,7 +35,6 @@
 #include <Roster.h>
 #include <ScrollView.h>
 #include <StringView.h>
-#include <Sound.h>
 
 
 #undef B_TRANSLATION_CONTEXT
@@ -48,7 +47,8 @@ HWindow::HWindow(BRect rect, const char* name)
 	:
 	BWindow(rect, name, B_TITLED_WINDOW, B_AUTO_UPDATE_SIZE_LIMITS),
 	fFilePanel(NULL),
-	fPlayer(NULL)
+	fPlayer(NULL),
+	fSound(NULL)
 {
 	_InitGUI();
 
@@ -186,8 +186,10 @@ HWindow::MessageReceived(BMessage* message)
 					entry_ref ref;
 					::get_ref_for_path(path, &ref);
 					delete fPlayer;
-					fPlayer = new BFileGameSound(&ref, false);
-					fPlayer->StartPlaying();
+					fPlayer = new BSoundPlayer("Sound Prefs", NULL, NULL, NULL);
+					fSound = new BSound(&ref, true);
+					fID = fPlayer->StartPlaying(fSound);
+					fPlayer->Start();
 				}
 			}
 			break;
@@ -197,8 +199,8 @@ HWindow::MessageReceived(BMessage* message)
 		{
 			if (fPlayer == NULL)
 				break;
-			if (fPlayer->IsPlaying()) {
-				fPlayer->StopPlaying();
+			if (fPlayer->IsPlaying(fID)) {
+				fPlayer->StopPlaying(fID);
 				delete fPlayer;
 				fPlayer = NULL;
 			}
@@ -343,7 +345,7 @@ HWindow::_Pulse()
 		return;
 
 	if (fPlayer != NULL) {
-		if (fPlayer->IsPlaying())
+		if (fPlayer->IsPlaying(fID))
 			stop->SetEnabled(true);
 		else
 			stop->SetEnabled(false);

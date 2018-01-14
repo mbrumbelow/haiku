@@ -300,14 +300,7 @@ BMediaFiles::_ClearItems()
 // #pragma mark - FBC padding
 
 
-status_t
-BMediaFiles::_Reserved_MediaFiles_0(void*,...)
-{
-	// TODO: Someone didn't understand FBC
-	return B_ERROR;
-}
-
-
+status_t BMediaFiles::_Reserved_MediaFiles_0(void*,...) { return B_ERROR; }
 status_t BMediaFiles::_Reserved_MediaFiles_1(void*,...) { return B_ERROR; }
 status_t BMediaFiles::_Reserved_MediaFiles_2(void*,...) { return B_ERROR; }
 status_t BMediaFiles::_Reserved_MediaFiles_3(void*,...) { return B_ERROR; }
@@ -315,4 +308,3 @@ status_t BMediaFiles::_Reserved_MediaFiles_4(void*,...) { return B_ERROR; }
 status_t BMediaFiles::_Reserved_MediaFiles_5(void*,...) { return B_ERROR; }
 status_t BMediaFiles::_Reserved_MediaFiles_6(void*,...) { return B_ERROR; }
 status_t BMediaFiles::_Reserved_MediaFiles_7(void*,...) { return B_ERROR; }
-
