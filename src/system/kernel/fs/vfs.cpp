@@ -174,6 +174,7 @@ struct advisory_lock : public DoublyLinkedListLinkImpl<advisory_lock> {
 	list_link		link;
 	team_id			team;
 	pid_t			session;
+	struct file_descriptor*	fd;
 	off_t			start;
 	off_t			end;
 	bool			shared;
@@ -1628,7 +1629,8 @@ test_advisory_lock(struct vnode* vnode, struct flock* flock)
 	if \a flock is NULL.
 */
 static status_t
-release_advisory_lock(struct vnode* vnode, struct flock* flock)
+release_advisory_lock(struct vnode* vnode, struct file_descriptor* fd,
+	struct flock* flock)
 {
 	FUNCTION(("release_advisory_lock(vnode = %p, flock = %p)\n", vnode, flock));
 
@@ -1647,9 +1649,10 @@ release_advisory_lock(struct vnode* vnode, struct flock* flock)
 		struct advisory_lock* lock = iterator.Next();
 		bool removeLock = false;
 
-		if (lock->session == session)
+		if (lock->session == session && lock->fd == fd)
 			removeLock = true;
-		else if (lock->team == team && advisory_lock_intersects(lock, flock)) {
+		else if (lock->team == team && lock->fd == fd
+				&& advisory_lock_intersects(lock, flock)) {
 			bool endsBeyond = false;
 			bool startsBefore = false;
 			if (flock != NULL) {
@@ -1680,6 +1683,7 @@ release_advisory_lock(struct vnode* vnode, struct flock* flock)
 
 				secondLock->team = lock->team;
 				secondLock->session = lock->session;
+				secondLock->fd = lock->fd;
 				// values must already be normalized when getting here
 				secondLock->start = flock->l_start + flock->l_len;
 				secondLock->end = lock->end;
@@ -1735,13 +1739,13 @@ release_advisory_lock(struct vnode* vnode, struct flock* flock)
 	will wait for the lock to become available, if there are any collisions
 	(it will return B_PERMISSION_DENIED in this case if \a wait is \c false).
 
-	If \a session is -1, POSIX semantics are used for this lock. Otherwise,
+	If \a fd is NULL, POSIX semantics are used for this lock. Otherwise,
 	BSD flock() semantics are used, that is, all children can unlock the file
 	in question (we even allow parents to remove the lock, though, but that
 	seems to be in line to what the BSD's are doing).
 */
 static status_t
-acquire_advisory_lock(struct vnode* vnode, pid_t session, struct flock* flock,
+acquire_advisory_lock(struct vnode* vnode, struct file_descriptor* fd, struct flock* flock,
 	bool wait)
 {
 	FUNCTION(("acquire_advisory_lock(vnode = %p, flock = %p, wait = %s)\n",
@@ -1770,8 +1774,8 @@ acquire_advisory_lock(struct vnode* vnode, pid_t session, struct flock* flock,
 		while (iterator.HasNext()) {
 			struct advisory_lock* lock = iterator.Next();
 
-			// TODO: locks from the same team might be joinable!
-			if (lock->team != team && advisory_lock_intersects(lock, flock)) {
+			if ((lock->team != team || lock->fd != fd)
+					&& advisory_lock_intersects(lock, flock)) {
 				// locks do overlap
 				if (!shared || !lock->shared) {
 					// we need to wait
@@ -1788,7 +1792,7 @@ acquire_advisory_lock(struct vnode* vnode, pid_t session, struct flock* flock,
 
 		if (!wait) {
 			put_advisory_locking(locking);
-			return session != -1 ? B_WOULD_BLOCK : B_PERMISSION_DENIED;
+			return fd != NULL ? B_WOULD_BLOCK : B_PERMISSION_DENIED;
 		}
 
 		status = switch_sem_etc(locking->lock, waitForLock, 1,
@@ -1810,7 +1814,8 @@ acquire_advisory_lock(struct vnode* vnode, pid_t session, struct flock* flock,
 	}
 
 	lock->team = team_get_current_team_id();
-	lock->session = session;
+	lock->session = thread_get_current_thread()->team->session_id;
+	lock->fd = fd;
 	// values must already be normalized when getting here
 	lock->start = flock->l_start;
 	lock->end = flock->l_start - 1 + flock->l_len;
@@ -5633,8 +5638,15 @@ file_close(struct file_descriptor* descriptor)
 		// remove all outstanding locks for this team
 		if (HAS_FS_CALL(vnode, release_lock))
 			status = FS_CALL(vnode, release_lock, descriptor->cookie, NULL);
-		else
-			status = release_advisory_lock(vnode, NULL);
+		else {
+			status = release_advisory_lock(vnode, descriptor, NULL);
+			status_t status2 = release_advisory_lock(vnode, NULL, NULL);
+
+			/* Report as many errors as possible (failure to release flocks shadows failure to
+			 * release POSIX ones */
+			if (status == B_OK)
+				status = status2;
+		}
 	}
 	return status;
 }
@@ -6221,7 +6233,7 @@ common_fcntl(int fd, int op, size_t argument, bool kernel)
 					status = FS_CALL(vnode, release_lock, descriptor->cookie,
 						&flock);
 				} else
-					status = release_advisory_lock(vnode, &flock);
+					status = release_advisory_lock(vnode, NULL, &flock);
 			} else {
 				// the open mode must match the lock type
 				if (((descriptor->open_mode & O_RWMASK) == O_RDONLY
@@ -6234,7 +6246,7 @@ common_fcntl(int fd, int op, size_t argument, bool kernel)
 						status = FS_CALL(vnode, acquire_lock,
 							descriptor->cookie, &flock, op == F_SETLKW);
 					} else {
-						status = acquire_advisory_lock(vnode, -1,
+						status = acquire_advisory_lock(vnode, NULL,
 							&flock, op == F_SETLKW);
 					}
 				}
@@ -9131,14 +9143,13 @@ _user_flock(int fd, int operation)
 		if (HAS_FS_CALL(vnode, release_lock))
 			status = FS_CALL(vnode, release_lock, descriptor->cookie, &flock);
 		else
-			status = release_advisory_lock(vnode, &flock);
+			status = release_advisory_lock(vnode, descriptor, &flock);
 	} else {
 		if (HAS_FS_CALL(vnode, acquire_lock)) {
 			status = FS_CALL(vnode, acquire_lock, descriptor->cookie, &flock,
 				(operation & LOCK_NB) == 0);
 		} else {
-			status = acquire_advisory_lock(vnode,
-				thread_get_current_thread()->team->session_id, &flock,
+			status = acquire_advisory_lock(vnode, descriptor, &flock,
 				(operation & LOCK_NB) == 0);
 		}
 	}
