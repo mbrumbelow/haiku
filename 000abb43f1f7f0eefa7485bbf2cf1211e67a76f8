@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c19b1a4_74db3fdd",
+        "filename": "src/kits/interface/OutlineListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 724,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-01-14T11:51:30Z",
+      "side": 1,
+      "message": "This looks incorrect: i is an index in the visible list, but then it is used to access the FullList below. Probably FullListIndexOf should be used here.",
+      "revId": "000abb43f1f7f0eefa7485bbf2cf1211e67a76f8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a47cfd4_cc37ab29",
+        "filename": "src/kits/interface/OutlineListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-01-14T11:51:30Z",
+      "side": 1,
+      "message": "Was it intentional to include it? How does BeOS behave?",
+      "revId": "000abb43f1f7f0eefa7485bbf2cf1211e67a76f8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
