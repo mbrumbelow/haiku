@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "271d7452_8c878e4c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-01-14T10:47:30Z",
+      "side": 1,
+      "message": "usage*s*",
+      "revId": "087449c8971ce892f940caca3281da620482268d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f833a46_355bf86a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-01-14T10:47:30Z",
+      "side": 1,
+      "message": "You can list them all on a single line:\n\nCIDs: 608930, 743872, ...",
+      "revId": "087449c8971ce892f940caca3281da620482268d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79a6eba8_5c480995",
+        "filename": "src/add-ons/kernel/file_systems/ntfs/attributes.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-01-14T10:47:30Z",
+      "side": 1,
+      "message": "Wouldn\u0027t it be better to use strlcpy here? We know the string is empty (likewise for the two other changes in this file)",
+      "revId": "087449c8971ce892f940caca3281da620482268d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e76ae062_f98b87f9",
+        "filename": "src/add-ons/kernel/file_systems/ntfs/fs_func.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-01-14T10:47:30Z",
+      "side": 1,
+      "message": "This does not fix the bug, right?",
+      "revId": "087449c8971ce892f940caca3281da620482268d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63abc1f3_5a03289b",
+        "filename": "src/bin/uptime.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-01-14T10:47:30Z",
+      "side": 1,
+      "message": "Is this still needed? strlcpy already makes sure the output is null-terminated",
+      "revId": "087449c8971ce892f940caca3281da620482268d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
