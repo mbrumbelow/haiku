@@ -75,8 +75,11 @@ int main( int argc, char* argv[] )
 
    if( !print_uptime_only )
    {
-      strcpy( buf, ctime( &current_time ) );
+      ctime_r( &current_time, buf );
 
+      // ctime_r returns the date string with a trailing \n
+      // https://linux.die.net/man/3/ctime_r
+      // but we don't need that, so we clear it
       buf[strlen( buf ) - 1] = '\0';
    }
 
