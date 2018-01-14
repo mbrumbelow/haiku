@@ -125,6 +125,24 @@
     },
     {
       "key": {
+        "uuid": "2b077159_95acc3e3",
+        "filename": "src/add-ons/kernel/file_systems/ntfs/attributes.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1000034
+      },
+      "writtenOn": "2018-01-14T14:50:31Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "27e35b22_ac8caa46",
+      "revId": "087449c8971ce892f940caca3281da620482268d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e76ae062_f98b87f9",
         "filename": "src/add-ons/kernel/file_systems/ntfs/fs_func.c",
         "patchSetId": 1
@@ -178,6 +196,24 @@
     },
     {
       "key": {
+        "uuid": "405e7ae4_a46d8c38",
+        "filename": "src/add-ons/kernel/file_systems/ntfs/fs_func.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1000034
+      },
+      "writtenOn": "2018-01-14T14:50:31Z",
+      "side": 1,
+      "message": "Oh I understand your intention now, sorry",
+      "parentUuid": "7c1a4067_83a58755",
+      "revId": "087449c8971ce892f940caca3281da620482268d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63abc1f3_5a03289b",
         "filename": "src/bin/uptime.cpp",
         "patchSetId": 1
@@ -225,6 +261,24 @@
       "side": 1,
       "message": "Right. In that case a comment to explain that would be nice:\n// Remove \\n from end of string\n\nMoreover, if the string fills the buffer exactly, the \\n could be already skipped by strlcpy, and this would remove one extra character. Also, it may be worth considering use of ctime_r (if we implement that), because it does not need an extra copy, and guarantees that it will not use more than 26 characters.",
       "parentUuid": "afd9b08d_3ac3ae52",
+      "revId": "087449c8971ce892f940caca3281da620482268d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44313158_30f3e9d5",
+        "filename": "src/bin/uptime.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000034
+      },
+      "writtenOn": "2018-01-14T14:50:31Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "d9d322fc_56812b01",
       "revId": "087449c8971ce892f940caca3281da620482268d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
