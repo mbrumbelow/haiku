@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d40a29e_1ff43627",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-01-14T14:59:48Z",
+      "side": 1,
+      "message": "I played a bit with the new UI and actually I find that a bit annoying.\n\nI liked the original idea of HaikuDepot: on startup, show a list of featured packages (\"pick of the day\" or whatever), maybe a dozen of these. And when the user starts a search, move him to a new view with the search results.\n\nNow this does not work anymore. At startup, I get the features packages and I can only search that list (I see no use case for searching just the featured packages because I don\u0027t know who decides what\u0027s featured and what\u0027s not). So I need to uncheck the checkbox before or after typing in my search, to get useful results.\n\nOr, if the checkbox is disabled, when running the app I\u0027m greated with a long, boring, list of packages I have no idea what they are. Also this is going to be unmanageable as the list grows larger (Debian or Gentoo have tens of thousands of packages, for example). So this has no use, either.\n\nAs a result I would propose to go a different way. At start, we would show only the featured package. But above that, there would be a big, prominent \"search\" box. Let\u0027s see, something like this:\nhttp://i1-news.softpedia-static.com/images/news2/Google-Play-Store-5-0-Released-with-Material-Design-and-New-Icons-Screenshot-Tour-461649-2.jpg\n\nWith a larger search box and a few labels in the GUI, it is very clear there that the search will not search in the list below it, but in the whole repo. I think this is a nice thing to do: great the user with a nice welcome page (it should even have screenshots, maybe) and only show the small-icon list when someone has searched something.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 62
+      },
+      "revId": "992c7036a3cb7e82e2ac3becb68715ea338cd257",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
