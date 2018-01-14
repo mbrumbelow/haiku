@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1684b20b_c1986c4d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000034
+      },
+      "writtenOn": "2018-01-14T11:51:24Z",
+      "side": 1,
+      "message": "Will fix.",
+      "parentUuid": "271d7452_8c878e4c",
+      "revId": "087449c8971ce892f940caca3281da620482268d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f833a46_355bf86a",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2018-01-14T10:47:30Z",
       "side": 1,
       "message": "You can list them all on a single line:\n\nCIDs: 608930, 743872, ...",
+      "revId": "087449c8971ce892f940caca3281da620482268d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02012bb7_f878b918",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000034
+      },
+      "writtenOn": "2018-01-14T11:51:24Z",
+      "side": 1,
+      "message": "Will fix.",
+      "parentUuid": "1f833a46_355bf86a",
       "revId": "087449c8971ce892f940caca3281da620482268d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "cb4fb773_e70ffbe3",
+        "filename": "src/add-ons/kernel/file_systems/ntfs/attributes.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1000034
+      },
+      "writtenOn": "2018-01-14T11:51:24Z",
+      "side": 1,
+      "message": "It\u0027s fine either way I think, there\u0027s no harm using either strlcat or strlcpy",
+      "parentUuid": "79a6eba8_5c480995",
+      "revId": "087449c8971ce892f940caca3281da620482268d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e76ae062_f98b87f9",
         "filename": "src/add-ons/kernel/file_systems/ntfs/fs_func.c",
         "patchSetId": 1
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "bad85dce_4df29389",
+        "filename": "src/add-ons/kernel/file_systems/ntfs/fs_func.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1000034
+      },
+      "writtenOn": "2018-01-14T11:51:24Z",
+      "side": 1,
+      "message": "I will left it out then",
+      "parentUuid": "e76ae062_f98b87f9",
+      "revId": "087449c8971ce892f940caca3281da620482268d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63abc1f3_5a03289b",
         "filename": "src/bin/uptime.cpp",
         "patchSetId": 1
@@ -81,6 +153,24 @@
       "writtenOn": "2018-01-14T10:47:30Z",
       "side": 1,
       "message": "Is this still needed? strlcpy already makes sure the output is null-terminated",
+      "revId": "087449c8971ce892f940caca3281da620482268d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afd9b08d_3ac3ae52",
+        "filename": "src/bin/uptime.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000034
+      },
+      "writtenOn": "2018-01-14T11:51:24Z",
+      "side": 1,
+      "message": "I though it was unnecessary at first so I did strip it out, but then the aftermath output contained a stray \\n so I read up on the ctime function (http://en.cppreference.com/w/cpp/chrono/c/ctime), and turns out ctime calls asctime (http://en.cppreference.com/w/cpp/chrono/c/asctime), and asctime returns the date string with a \\n at the end, but we don\u0027t want that so we just replace the \\n with \\0.",
+      "parentUuid": "63abc1f3_5a03289b",
       "revId": "087449c8971ce892f940caca3281da620482268d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
