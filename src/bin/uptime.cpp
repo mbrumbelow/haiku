@@ -75,8 +75,7 @@ int main( int argc, char* argv[] )
 
    if( !print_uptime_only )
    {
-      strcpy( buf, ctime( &current_time ) );
-
+      strlcpy( buf, ctime( &current_time ), sizeof(buf) );
       buf[strlen( buf ) - 1] = '\0';
    }
 
