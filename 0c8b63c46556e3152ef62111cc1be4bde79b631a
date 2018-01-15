@@ -34,6 +34,24 @@
       "revId": "0c8b63c46556e3152ef62111cc1be4bde79b631a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc4006b7_683fa666",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-01-15T11:03:58Z",
+      "side": 1,
+      "message": "Indeed. A better idea would be to have a Playlist property, and move the playlist scripting in playlist/Playlist.cpp",
+      "parentUuid": "0dd57d63_bba2ac16",
+      "revId": "0c8b63c46556e3152ef62111cc1be4bde79b631a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
