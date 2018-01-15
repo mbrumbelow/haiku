@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b06f1d2_7aa1a30d",
+        "filename": "headers/compatibility/bsd/unistd.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-01-15T11:14:04Z",
+      "side": 1,
+      "message": "Please add a tab to align with other functions.",
+      "revId": "962892a4e934d4a11ed67330daac36e6a86fc6c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4796b2ec_e6e17c56",
+        "filename": "src/libs/bsd/getentropy.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-01-15T11:14:04Z",
+      "side": 1,
+      "message": "Please add a #ifdef __HAIKU__ for portions of code you added for Haiku. It\u0027s easier to distinguish them then.",
+      "revId": "962892a4e934d4a11ed67330daac36e6a86fc6c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
