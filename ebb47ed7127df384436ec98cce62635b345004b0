@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3212a013_c92b493c",
+        "filename": "src/add-ons/kernel/bus_managers/ata/ATAChannel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-01-15T06:31:20Z",
+      "side": 1,
+      "message": "Should be tabbed to the left.",
+      "revId": "ebb47ed7127df384436ec98cce62635b345004b0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
