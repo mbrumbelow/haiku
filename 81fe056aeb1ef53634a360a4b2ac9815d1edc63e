@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9cc95c86_6ea737bf",
+        "filename": "docs/user/interface/ListItem.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2018-01-15T19:46:02Z",
+      "side": 1,
+      "message": "I find it counter intuitive to reference a certain hrev here. When this documentation change is merged, it will be long past that hrev.",
+      "revId": "81fe056aeb1ef53634a360a4b2ac9815d1edc63e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
