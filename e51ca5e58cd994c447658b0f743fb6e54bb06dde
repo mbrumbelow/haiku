@@ -34,6 +34,24 @@
       "revId": "e51ca5e58cd994c447658b0f743fb6e54bb06dde",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6575bd7_f48acdb2",
+        "filename": "src/bin/uptime.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-01-15T13:48:57Z",
+      "side": 1,
+      "message": "According to the specification (http://pubs.opengroup.org/onlinepubs/009695399/functions/ctime.html):\n\"Upon successful completion, ctime_r() shall return a pointer to the string pointed to by buf. When an error is encountered, a null pointer shall be returned.\"\n\nIf it returns NULL, then buf is left un-initialized. So at a minimum, we should make sure buf starts with a NULL char in that case, otherwise the strlen below may crash.",
+      "parentUuid": "237bbd4a_321ee804",
+      "revId": "e51ca5e58cd994c447658b0f743fb6e54bb06dde",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
