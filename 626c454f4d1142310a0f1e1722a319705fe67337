@@ -1,0 +1,242 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b499c861_e57c8aa6",
+        "filename": "src/apps/icon-o-matic/IconEditorApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2018-01-15T19:23:26Z",
+      "side": 1,
+      "message": "Using an extern here isn\u0027t very nice. I\u0027d prefer to add an fExitCode and an ExitCode() getter to the IconEditorApp and then retrieving the exit code this way before deleting the app object in main.",
+      "revId": "626c454f4d1142310a0f1e1722a319705fe67337",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd68b8ed_069093f5",
+        "filename": "src/apps/icon-o-matic/IconEditorApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2018-01-15T19:23:26Z",
+      "side": 1,
+      "message": "This should use the \"s\" prefix for static non-const variables: sIsCLI. But since this is only used within the IconEditorApp class, why not just make it a member instead, i.e. fRunningFromCommandLine?",
+      "revId": "626c454f4d1142310a0f1e1722a319705fe67337",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00a69e7e_1000211c",
+        "filename": "src/apps/icon-o-matic/IconEditorApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2018-01-15T19:23:26Z",
+      "side": 1,
+      "message": "Since all of these are BStrings, they will default initialize to the empty string, so these can be removed.",
+      "revId": "626c454f4d1142310a0f1e1722a319705fe67337",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "883bd4f9_1112377d",
+        "filename": "src/apps/icon-o-matic/IconEditorApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2018-01-15T19:23:26Z",
+      "side": 1,
+      "message": "It would be nicer to use argv[0] instead of hardcoding the application name.",
+      "revId": "626c454f4d1142310a0f1e1722a319705fe67337",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51bf0898_dd053723",
+        "filename": "src/apps/icon-o-matic/IconEditorApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2018-01-15T19:23:26Z",
+      "side": 1,
+      "message": "The variable should be named \"result\" or \"status\" instead of the abbreviated \"ret\".",
+      "revId": "626c454f4d1142310a0f1e1722a319705fe67337",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db30e5d4_d3ef3c3b",
+        "filename": "src/apps/icon-o-matic/IconEditorApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2018-01-15T19:23:26Z",
+      "side": 1,
+      "message": "We usually prefer using \"!\u003d B_OK\" instead (as used below).",
+      "revId": "626c454f4d1142310a0f1e1722a319705fe67337",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a880c51_3ef1cda5",
+        "filename": "src/apps/icon-o-matic/IconEditorApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2018-01-15T19:23:26Z",
+      "side": 1,
+      "message": "There shouldn\u0027t be a space between the \"new\" and the \"(nothrow)\".",
+      "revId": "626c454f4d1142310a0f1e1722a319705fe67337",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29aa6f24_2951338e",
+        "filename": "src/apps/icon-o-matic/IconEditorApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2018-01-15T19:23:26Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "626c454f4d1142310a0f1e1722a319705fe67337",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08989278_b58ba1da",
+        "filename": "src/apps/icon-o-matic/IconEditorApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2018-01-15T19:23:26Z",
+      "side": 1,
+      "message": "All of these should use \"new(nothrow)\".",
+      "revId": "626c454f4d1142310a0f1e1722a319705fe67337",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e618ffb_7828e0df",
+        "filename": "src/apps/icon-o-matic/IconEditorApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2018-01-15T19:23:26Z",
+      "side": 1,
+      "message": "Since this shouldn\u0027t happen, an ASSERT would make more sense, as it wouldn\u0027t hide the problem if new export modes are added and forgotten here. And in either case I\u0027d put it in a \"default\" of the above switch.",
+      "revId": "626c454f4d1142310a0f1e1722a319705fe67337",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8416a11d_104011ba",
+        "filename": "src/apps/icon-o-matic/IconEditorApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2018-01-15T19:23:26Z",
+      "side": 1,
+      "message": "This should use \"new(nothrow)\" otherwise the NULL check below isn\u0027t useful.",
+      "revId": "626c454f4d1142310a0f1e1722a319705fe67337",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a7c2a23_c7eee3f1",
+        "filename": "src/apps/icon-o-matic/IconEditorApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2018-01-15T19:23:26Z",
+      "side": 1,
+      "message": "The saver is leaked.",
+      "revId": "626c454f4d1142310a0f1e1722a319705fe67337",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c342df1a_345a9d65",
+        "filename": "src/apps/icon-o-matic/IconEditorApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2018-01-15T19:23:26Z",
+      "side": 1,
+      "message": "The icon, document and saver are leaked here.",
+      "revId": "626c454f4d1142310a0f1e1722a319705fe67337",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2013ec88_cf130b2e",
+        "filename": "src/apps/icon-o-matic/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2018-01-15T19:23:26Z",
+      "side": 1,
+      "message": "See my comment in IconAppEditor.cpp regarding a better method to retrieve the exit code. Also exitCode is used uninitialized in a lot of code paths right now.",
+      "revId": "626c454f4d1142310a0f1e1722a319705fe67337",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
