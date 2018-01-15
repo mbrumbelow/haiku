@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ab0616bb_5f5c524d",
+        "filename": "src/servers/app/font/FontStyle.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2018-01-15T08:58:32Z",
+      "side": 1,
+      "message": "So if the font is already known to be \"not fixed width\" by the current means of detection, the code continues...",
+      "revId": "c50158fee0cb6b838bea58e7e4434c0015296663",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d37ea91_d59bd4d9",
+        "filename": "src/servers/app/font/FontStyle.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2018-01-15T08:58:32Z",
+      "side": 1,
+      "message": "... and then it gets to this part of the code only, if all of the chars in the tested range have the *same* width. Why would this be a robust method of detecting a full-and-half-width font? The code didn\u0027t even encounter any chars which have the half width.",
+      "revId": "c50158fee0cb6b838bea58e7e4434c0015296663",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
