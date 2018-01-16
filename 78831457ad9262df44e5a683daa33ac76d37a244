@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9960c21d_91bb6753",
+        "filename": "headers/compatibility/gnu/string.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-01-16T16:04:23Z",
+      "side": 1,
+      "message": "We\u0027d prefer that you assign header copyright to Haiku, Inc.",
+      "revId": "78831457ad9262df44e5a683daa33ac76d37a244",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
