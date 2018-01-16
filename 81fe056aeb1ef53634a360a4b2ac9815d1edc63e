@@ -16,6 +16,24 @@
       "revId": "81fe056aeb1ef53634a360a4b2ac9815d1edc63e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f5de40c_383e211b",
+        "filename": "docs/user/interface/ListItem.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-01-16T16:21:03Z",
+      "side": 1,
+      "message": "Indeed, and there is no point in documenting past behavior of unreleased/unfinished versions.\nAlso, both ways to update the list seem to be a bit brittle and only work by side-effects. Shouldn\u0027t we try to make this work properly instead?",
+      "parentUuid": "9cc95c86_6ea737bf",
+      "revId": "81fe056aeb1ef53634a360a4b2ac9815d1edc63e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
