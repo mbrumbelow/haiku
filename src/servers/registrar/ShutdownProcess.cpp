@@ -1275,8 +1275,6 @@ ShutdownProcess::_WorkerDoShutdown()
 			throw_error(B_SHUTDOWN_CANCELLED);
 	}
 
-	// tell TRoster not to accept new applications anymore
-	fRoster->SetShuttingDown(true);
 
 	fWorkerLock.Lock();
 
@@ -1286,7 +1284,6 @@ ShutdownProcess::_WorkerDoShutdown()
 	if (status  != B_OK) {
 		fWorkerLock.Unlock();
 		fRoster->RemoveWatcher(this);
-		fRoster->SetShuttingDown(false);
 		return;
 	}
 
@@ -1310,6 +1307,9 @@ ShutdownProcess::_WorkerDoShutdown()
 	_SetPhase(USER_APP_TERMINATION_PHASE);
 	_QuitApps(fUserApps, false);
 	_WaitForDebuggedTeams();
+
+	// tell TRoster not to accept new applications anymore
+	fRoster->SetShuttingDown(true);
 
 	// phase 2: terminate the system apps
 	_SetPhase(SYSTEM_APP_TERMINATION_PHASE);
