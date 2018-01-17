@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97b53a21_c2ac0d18",
+        "filename": "headers/compatibility/gnu/string.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-01-17T10:14:45Z",
+      "side": 1,
+      "message": "Thanks, a const is missing on the search parameter.",
+      "revId": "b0d7aff37b72bc1ae0a59a0bbe056344a34ad90d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
