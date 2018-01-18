@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f055cc81_0a647b06",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1330,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-01-18T11:11:43Z",
+      "side": 1,
+      "message": "\"message\" was correct here.",
+      "revId": "cda2272c05c8ca031cec92d97ebe6f8a87b95cbb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdb9fa25_ace3b9b2",
+        "filename": "src/apps/mediaplayer/playlist/PlaylistItem.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-01-18T11:11:43Z",
+      "side": 1,
+      "message": "How is the ownership of this object handled?\n\nNormally, a BHandler is owned by its BLooper and will be destroyed when the looper is quitted. A BReferenceable is owned (shared) by multiple BReferences, and will be destroyed when no references to it exist anymore.\n\nIt is not possible to mix both, or you risk the object being deleted twice. How do you handle this to make sure only one of the two destruction paths are used?",
+      "revId": "cda2272c05c8ca031cec92d97ebe6f8a87b95cbb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
