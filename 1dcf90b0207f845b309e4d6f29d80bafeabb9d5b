@@ -34,6 +34,24 @@
       "revId": "1dcf90b0207f845b309e4d6f29d80bafeabb9d5b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4f588cdb_e2eb6b11",
+        "filename": "src/servers/registrar/ShutdownProcess.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1312,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-01-18T08:14:09Z",
+      "side": 1,
+      "message": "The idea is that _QuitApps quits all user apps listed in fUserApps. This list is built at line 1282. However, _QuitApps can take some time. For example, if you have an unsaved document in StyledEdit, it will wait for you to save it before quitting the app.\n\nIf, at this moment, you start a new application, open a document and make some changes, that new application will not be in the list _QuitApps is processing, so it will not be asked to quit. If it has unsaved changes, they will then be lost.\n\nThis is why we enter shutdown mode before starting to quit apps: this way, we are sure that no new applications are started and that the list used by _QuitApps stays valid.",
+      "parentUuid": "f1f68823_34d4ec50",
+      "revId": "1dcf90b0207f845b309e4d6f29d80bafeabb9d5b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
