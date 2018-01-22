@@ -12,6 +12,7 @@
 #include <KernelExport.h>
 
 #include <kernel.h>
+#include <vm_defs.h>
 
 
 
@@ -29,16 +30,24 @@ extern altcodepatch altcodepatch_end;
 void
 arch_altcodepatch_replace(uint16 tag, void* newcodepatch, size_t length)
 {
-	uint32	count = 0;
+	uint32 count = 0;
+	uint32 kernelProtection =  B_KERNEL_READ_AREA | B_KERNEL_EXECUTE_AREA;
 
 	for (altcodepatch *patch = &altcodepatch_begin; patch < &altcodepatch_end;
 		patch++) {
 		if (patch->tag != tag)
 			continue;
-		addr_t address = KERNEL_LOAD_BASE + patch->kernel_offset;
+		void* address = (void*)(KERNEL_LOAD_BASE + patch->kernel_offset);
 		if (patch->length < length)
 			panic("can't copy patch: new code is too long\n");
-		memcpy((void*)address, newcodepatch, length);
+		area_id area = area_for(address);
+		if (area < 0)
+			continue;
+		// we need to write to the text area
+		set_area_protection(area, kernelProtection | B_KERNEL_WRITE_AREA);
+		memcpy(address, newcodepatch, length);
+		// disable write after patch
+		set_area_protection(area, kernelProtection);
 		count++;
 	}
 	dprintf("arch_altcodepatch_replace found %d altcodepatches\n", count);
