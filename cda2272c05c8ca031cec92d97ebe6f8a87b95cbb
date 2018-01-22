@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "ea87abfa_9988a9f9",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-01-22T21:31:17Z",
+      "side": 1,
+      "message": "CurrentTrack could directly be scriptable in MainWin.cpp. See for instance what does the Deskbar for its shelf replicants: https://github.com/haiku/haiku/blob/master/src/kits/interface/Shelf.cpp#L121",
+      "revId": "cda2272c05c8ca031cec92d97ebe6f8a87b95cbb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f055cc81_0a647b06",
         "filename": "src/apps/mediaplayer/MainWin.cpp",
         "patchSetId": 2
