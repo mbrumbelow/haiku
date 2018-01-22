@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3bc8fd71_f4f763e0",
+        "filename": "src/preferences/screensaver/ScreenSaverWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 973,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-01-22T19:29:22Z",
+      "side": 1,
+      "message": "Brace to previous line.",
+      "revId": "d948f53065b09fb148f051cf4470e57a48b40801",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5561df1d_b6e36677",
+        "filename": "src/preferences/screensaver/ScreenSaverWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 982,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-01-22T19:29:22Z",
+      "side": 1,
+      "message": "Same here.",
+      "revId": "d948f53065b09fb148f051cf4470e57a48b40801",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
