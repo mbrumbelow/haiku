@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "62a4e060_16301d77",
+        "filename": "src/tests/system/kernel/null_poll_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-01-23T09:28:12Z",
+      "side": 1,
+      "message": "Please add a copyright header",
+      "revId": "38716e6088989e1c92e222e31565241cbf5f3f69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8efa041_66dd85e0",
+        "filename": "src/tests/system/kernel/null_poll_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-01-23T09:28:12Z",
+      "side": 1,
+      "message": "Two blank lines here.",
+      "revId": "38716e6088989e1c92e222e31565241cbf5f3f69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb1ad99c_90116f87",
+        "filename": "src/tests/system/kernel/null_poll_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-01-23T09:28:12Z",
+      "side": 1,
+      "message": "opening brace for functions goes to the next line.",
+      "revId": "38716e6088989e1c92e222e31565241cbf5f3f69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3825dcaf_167f8177",
+        "filename": "src/tests/system/kernel/null_poll_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-01-23T09:28:12Z",
+      "side": 1,
+      "message": "Usually we use cppunit in our tests, that would be nicer and allow to automate running them",
+      "revId": "38716e6088989e1c92e222e31565241cbf5f3f69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
