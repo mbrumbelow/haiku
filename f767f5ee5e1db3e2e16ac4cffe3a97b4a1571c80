@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb8d8bea_7e2bf9f3",
+        "filename": "src/preferences/screensaver/ScreenSaverWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 947,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-01-23T09:21:53Z",
+      "side": 1,
+      "message": "I would find it more readable to break after the \"-\u003eItemAt(\" here (and at other places below).",
+      "revId": "f767f5ee5e1db3e2e16ac4cffe3a97b4a1571c80",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
