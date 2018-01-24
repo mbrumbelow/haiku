@@ -16,6 +16,41 @@
       "revId": "17dd86be49433b87c52b32095c18797e6f1b6b33",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50d8e462_ed412d42",
+        "filename": "src/system/kernel/arch/x86/arch_int.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-01-24T13:56:23Z",
+      "side": 1,
+      "message": "No, it was actually a copy paste of the SMAP comment, where 1. didn\u0027t apply. Forgot to renumber the following items.\n3. should be \"is a instruction fetch\"",
+      "parentUuid": "cd70f892_921be36e",
+      "revId": "17dd86be49433b87c52b32095c18797e6f1b6b33",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4eee5ef3_bf5c648c",
+        "filename": "src/system/kernel/arch/x86/arch_int.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-01-24T13:56:23Z",
+      "side": 1,
+      "message": "3. should be \"is a page-protection violation\"",
+      "revId": "17dd86be49433b87c52b32095c18797e6f1b6b33",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
