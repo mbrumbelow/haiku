@@ -1305,8 +1305,29 @@ ShutdownProcess::_WorkerDoShutdown()
 
 	// phase 1: terminate the user apps
 	_SetPhase(USER_APP_TERMINATION_PHASE);
-	_QuitApps(fUserApps, false);
-	_WaitForDebuggedTeams();
+	// Since, new apps can still be launched,
+	// loop until all are gone
+	while(!fUserApps.IsEmpty())
+	{
+		_QuitApps(fUserApps, false);
+		_WaitForDebuggedTeams();
+
+		fWorkerLock.Lock();
+
+		// Get list of apps again to get the new launched apps if any.
+		status_t status = fRoster->GetShutdownApps(fUserApps, fSystemApps,
+			fBackgroundApps, fVitalSystemApps);
+		if (status  != B_OK) {
+			fWorkerLock.Unlock();
+			fRoster->RemoveWatcher(this);
+			return;
+		}
+
+		fUserApps.Sort(&inverse_compare_by_registration_time);
+		fSystemApps.Sort(&inverse_compare_by_registration_time);
+
+		fWorkerLock.Unlock();
+	}
 
 	// tell TRoster not to accept new applications anymore
 	fRoster->SetShuttingDown(true);
