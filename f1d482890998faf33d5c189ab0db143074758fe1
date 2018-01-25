@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b712a7af_2b3ab063",
+        "filename": "src/preferences/screensaver/ScreenSaverWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2018-01-25T18:17:34Z",
+      "side": 1,
+      "message": "This should only be indented by one tab.",
+      "revId": "f1d482890998faf33d5c189ab0db143074758fe1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5bb4977_cdd24b5f",
+        "filename": "src/preferences/screensaver/ScreenSaverWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 704,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2018-01-25T18:17:34Z",
+      "side": 1,
+      "message": "The brace of the swtich, unlike the one on the case, does not go to its own line. The case ones are fine.",
+      "revId": "f1d482890998faf33d5c189ab0db143074758fe1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32e1e946_43fa4d1e",
+        "filename": "src/preferences/screensaver/ScreenSaverWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2018-01-25T18:17:34Z",
+      "side": 1,
+      "message": "Unabrreviated variable names are preferred. The node_ref should be called \"nodeRef\" and the status \"error\" or maybe \"status\". I think \"dir\" is so common that we usually keep it as \"dir\". It is also preferred to move the variable declarations to where they are used, so \"dir\" should be moved down and a constructor used instead of \"SetTo\". The whole thing could be rewritten as:\n\nBDirectory dir(\u0026nodeRef);\nif (dir.InitCheck() \u003d\u003d B_OK) {\n...",
+      "revId": "f1d482890998faf33d5c189ab0db143074758fe1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0dd82e3e_8cfdb849",
+        "filename": "src/preferences/screensaver/ScreenSaverWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 810,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2018-01-25T18:17:34Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "f1d482890998faf33d5c189ab0db143074758fe1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8a08e2f_3b234a8c",
+        "filename": "src/preferences/screensaver/ScreenSaverWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 946,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2018-01-25T18:17:34Z",
+      "side": 1,
+      "message": "The declaration should be moved into this line.",
+      "revId": "f1d482890998faf33d5c189ab0db143074758fe1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88607c27_35bc6513",
+        "filename": "src/preferences/screensaver/ScreenSaverWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2018-01-25T18:17:34Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "f1d482890998faf33d5c189ab0db143074758fe1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63bb6016_988253e3",
+        "filename": "src/preferences/screensaver/ScreenSaverWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 981,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2018-01-25T18:17:34Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "f1d482890998faf33d5c189ab0db143074758fe1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
