@@ -8,7 +8,7 @@
  *
  * 1. Copyright Notice
  *
- * Some or all of this work - Copyright (c) 1999 - 2017, Intel Corp.
+ * Some or all of this work - Copyright (c) 1999 - 2018, Intel Corp.
  * All rights reserved.
  *
  * 2. License
@@ -165,6 +165,7 @@ struct mutex;
 #define ACPI_MUTEX_TYPE             ACPI_OSL_MUTEX
 #define ACPI_MUTEX                  struct mutex *
 
+#define ACPI_USE_NATIVE_MATH64
 #define ACPI_USE_NATIVE_DIVIDE
 
 /* #define ACPI_THREAD_ID               thread_id */
@@ -181,11 +182,12 @@ struct mutex;
 #define ACPI_MACHINE_WIDTH          64
 #else
 #define ACPI_MACHINE_WIDTH          32
-/* TODO: Temporary fix for #12377
-    DO NOT REMOVE as otherwise we get address overflows
-    Use 32 bit addresses to match addr_t for now.
+/* Note: Previously we used to force 32 bit addressing:
+   #define ACPI_32BIT_PHYSICAL_ADDRESS
+   Currently causes ACPI to fail and may not be needed
+   anymore.
+   See #13929 and #12377
 */
-#define ACPI_32BIT_PHYSICAL_ADDRESS
 #endif
 
 

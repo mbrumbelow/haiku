@@ -8,7 +8,7 @@
  *
  * 1. Copyright Notice
  *
- * Some or all of this work - Copyright (c) 1999 - 2017, Intel Corp.
+ * Some or all of this work - Copyright (c) 1999 - 2018, Intel Corp.
  * All rights reserved.
  *
  * 2. License
@@ -237,11 +237,11 @@ AcpiExDoDebugObject (
             Timer = ((UINT32) AcpiOsGetTimer () / 10);
             Timer &= 0x03FFFFFF;
 
-            AcpiOsPrintf ("[ACPI Debug T=0x%8.8X] %*s", Timer, Level, " ");
+            AcpiOsPrintf ("ACPI Debug: T=0x%8.8X %*s", Timer, Level, " ");
         }
         else
         {
-            AcpiOsPrintf ("[ACPI Debug] %*s", Level, " ");
+            AcpiOsPrintf ("ACPI Debug: %*s", Level, " ");
         }
     }
 

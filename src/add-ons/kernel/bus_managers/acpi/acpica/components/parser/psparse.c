@@ -8,7 +8,7 @@
  *
  * 1. Copyright Notice
  *
- * Some or all of this work - Copyright (c) 1999 - 2017, Intel Corp.
+ * Some or all of this work - Copyright (c) 1999 - 2018, Intel Corp.
  * All rights reserved.
  *
  * 2. License
@@ -164,6 +164,7 @@
 #include "acdispat.h"
 #include "amlcode.h"
 #include "acinterp.h"
+#include "acnamesp.h"
 
 #define _COMPONENT          ACPI_PARSER
         ACPI_MODULE_NAME    ("psparse")
@@ -664,8 +665,17 @@ AcpiPsParseAml (
             /* Either the method parse or actual execution failed */
 
             AcpiExExitInterpreter ();
-            ACPI_ERROR_METHOD ("Method parse/execution failed",
-                WalkState->MethodNode, NULL, Status);
+            if (Status == AE_ABORT_METHOD)
+            {
+                AcpiNsPrintNodePathname (
+                    WalkState->MethodNode, "Method aborted:");
+                AcpiOsPrintf ("\n");
+            }
+            else
+            {
+                ACPI_ERROR_METHOD ("Method parse/execution failed",
+                    WalkState->MethodNode, NULL, Status);
+            }
             AcpiExEnterInterpreter ();
 
             /* Check for possible multi-thread reentrancy problem */

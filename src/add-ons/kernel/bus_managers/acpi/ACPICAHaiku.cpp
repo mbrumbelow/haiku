@@ -1347,8 +1347,8 @@ AcpiOsReleaseMutex(ACPI_MUTEX handle)
 void
 AcpiOsWaitEventsComplete()
 {
-	//TODO: FreeBSD See description.
-	return;
+    //TODO: FreeBSD See description.
+    return;
 }
 
 

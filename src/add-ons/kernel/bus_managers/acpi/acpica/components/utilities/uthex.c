@@ -8,7 +8,7 @@
  *
  * 1. Copyright Notice
  *
- * Some or all of this work - Copyright (c) 1999 - 2017, Intel Corp.
+ * Some or all of this work - Copyright (c) 1999 - 2018, Intel Corp.
  * All rights reserved.
  *
  * 2. License
@@ -183,8 +183,10 @@ AcpiUtHexToAsciiChar (
     UINT64                  Integer,
     UINT32                  Position)
 {
+    UINT64                  Index;
 
-    return (AcpiGbl_HexToAscii[(Integer >> Position) & 0xF]);
+    AcpiUtShortShiftRight (Integer, Position, &Index);
+    return (AcpiGbl_HexToAscii[Index & 0xF]);
 }
 
 

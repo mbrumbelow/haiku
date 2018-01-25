@@ -8,7 +8,7 @@
  *
  * 1. Copyright Notice
  *
- * Some or all of this work - Copyright (c) 1999 - 2017, Intel Corp.
+ * Some or all of this work - Copyright (c) 1999 - 2018, Intel Corp.
  * All rights reserved.
  *
  * 2. License
@@ -396,6 +396,11 @@
 
 #ifndef ACPI_INLINE
 #define ACPI_INLINE
+#endif
+
+/* Use ordered initialization if compiler doesn't support designated. */
+#ifndef ACPI_STRUCT_INIT
+#define ACPI_STRUCT_INIT(field, value)  value
 #endif
 
 /*

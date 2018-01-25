@@ -8,7 +8,7 @@
  *
  * 1. Copyright Notice
  *
- * Some or all of this work - Copyright (c) 1999 - 2017, Intel Corp.
+ * Some or all of this work - Copyright (c) 1999 - 2018, Intel Corp.
  * All rights reserved.
  *
  * 2. License
@@ -535,6 +535,20 @@ AcpiNsInitOneObject (
 
         Info->PackageInit++;
         Status = AcpiDsGetPackageArguments (ObjDesc);
+        if (ACPI_FAILURE (Status))
+        {
+            break;
+        }
+
+        /*
+         * Resolve all named references in package objects (and all
+         * sub-packages). This action has been deferred until the entire
+         * namespace has been loaded, in order to support external and
+         * forward references from individual package elements (05/2017).
+         */
+        Status = AcpiUtWalkPackageTree (ObjDesc, NULL,
+            AcpiDsInitPackageElement, NULL);
+        ObjDesc->Package.Flags |= AOPOBJ_DATA_VALID;
         break;
 
     default:

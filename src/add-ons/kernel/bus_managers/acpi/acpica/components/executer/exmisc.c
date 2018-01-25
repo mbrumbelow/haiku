@@ -8,7 +8,7 @@
  *
  * 1. Copyright Notice
  *
- * Some or all of this work - Copyright (c) 1999 - 2017, Intel Corp.
+ * Some or all of this work - Copyright (c) 1999 - 2018, Intel Corp.
  * All rights reserved.
  *
  * 2. License
@@ -401,6 +401,8 @@ AcpiExDoLogicalNumericOp (
 
     default:
 
+        ACPI_ERROR ((AE_INFO,
+            "Invalid numeric logical opcode: %X", Opcode));
         Status = AE_AML_INTERNAL;
         break;
     }
@@ -470,7 +472,7 @@ AcpiExDoLogicalOp (
     case ACPI_TYPE_INTEGER:
 
         Status = AcpiExConvertToInteger (Operand1, &LocalOperand1,
-            ACPI_STRTOUL_BASE16);
+            ACPI_IMPLICIT_CONVERSION);
         break;
 
     case ACPI_TYPE_STRING:
@@ -486,6 +488,9 @@ AcpiExDoLogicalOp (
 
     default:
 
+        ACPI_ERROR ((AE_INFO,
+            "Invalid object type for logical operator: %X",
+            Operand0->Common.Type));
         Status = AE_AML_INTERNAL;
         break;
     }
@@ -535,6 +540,8 @@ AcpiExDoLogicalOp (
 
         default:
 
+            ACPI_ERROR ((AE_INFO,
+                "Invalid comparison opcode: %X", Opcode));
             Status = AE_AML_INTERNAL;
             break;
         }
@@ -613,6 +620,8 @@ AcpiExDoLogicalOp (
 
         default:
 
+            ACPI_ERROR ((AE_INFO,
+                "Invalid comparison opcode: %X", Opcode));
             Status = AE_AML_INTERNAL;
             break;
         }

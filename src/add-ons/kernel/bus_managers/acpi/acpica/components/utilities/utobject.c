@@ -8,7 +8,7 @@
  *
  * 1. Copyright Notice
  *
- * Some or all of this work - Copyright (c) 1999 - 2017, Intel Corp.
+ * Some or all of this work - Copyright (c) 1999 - 2018, Intel Corp.
  * All rights reserved.
  *
  * 2. License
@@ -651,6 +651,10 @@ AcpiUtGetSimpleObjectSize (
     {
         /* A namespace node should never get here */
 
+        ACPI_ERROR ((AE_INFO,
+            "Received a namespace node [%4.4s] "
+            "where an operand object is required",
+            ACPI_CAST_PTR (ACPI_NAMESPACE_NODE, InternalObject)->Name.Ascii));
         return_ACPI_STATUS (AE_AML_INTERNAL);
     }
 

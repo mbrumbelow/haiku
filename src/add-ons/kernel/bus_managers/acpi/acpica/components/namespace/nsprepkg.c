@@ -8,7 +8,7 @@
  *
  * 1. Copyright Notice
  *
- * Some or all of this work - Copyright (c) 1999 - 2017, Intel Corp.
+ * Some or all of this work - Copyright (c) 1999 - 2018, Intel Corp.
  * All rights reserved.
  *
  * 2. License
@@ -722,6 +722,8 @@ AcpiNsCheckPackageList (
 
         default: /* Should not get here, type was validated by caller */
 
+            ACPI_ERROR ((AE_INFO, "Invalid Package type: %X",
+                Package->RetInfo.Type));
             return (AE_AML_INTERNAL);
         }
 
