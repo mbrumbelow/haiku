@@ -1232,6 +1232,19 @@ ShutdownProcess::_Worker()
 }
 
 
+status_t
+ShutdownProcess::_GetUserAndSystemAppList()
+{
+	fWorkerLock.Lock();
+	// Get a list of all applications to shut down and sort them
+	status_t status = fRoster->GetShutdownApps(fUserApps, fSystemApps,
+		fBackgroundApps, fVitalSystemApps);
+	fWorkerLock.Unlock();
+
+	return status;
+}
+
+
 void
 ShutdownProcess::_WorkerDoShutdown()
 {
@@ -1275,26 +1288,6 @@ ShutdownProcess::_WorkerDoShutdown()
 			throw_error(B_SHUTDOWN_CANCELLED);
 	}
 
-	// tell TRoster not to accept new applications anymore
-	fRoster->SetShuttingDown(true);
-
-	fWorkerLock.Lock();
-
-	// get a list of all applications to shut down and sort them
-	status_t status = fRoster->GetShutdownApps(fUserApps, fSystemApps,
-		fBackgroundApps, fVitalSystemApps);
-	if (status  != B_OK) {
-		fWorkerLock.Unlock();
-		fRoster->RemoveWatcher(this);
-		fRoster->SetShuttingDown(false);
-		return;
-	}
-
-	fUserApps.Sort(&inverse_compare_by_registration_time);
-	fSystemApps.Sort(&inverse_compare_by_registration_time);
-
-	fWorkerLock.Unlock();
-
 	// make the shutdown window ready and show it
 	_InitShutdownWindow();
 	_SetShutdownWindowCurrentApp(-1);
@@ -1308,8 +1301,25 @@ ShutdownProcess::_WorkerDoShutdown()
 
 	// phase 1: terminate the user apps
 	_SetPhase(USER_APP_TERMINATION_PHASE);
-	_QuitApps(fUserApps, false);
-	_WaitForDebuggedTeams();
+	status_t status;
+	// Since, new apps can still be launched,
+	// loop until all are gone
+	while ((status = _GetUserAndSystemAppList()) == B_OK
+			&& !fUserApps.IsEmpty()) {
+		fUserApps.Sort(&inverse_compare_by_registration_time);
+		_QuitApps(fUserApps, false);
+		_WaitForDebuggedTeams();
+	}
+
+	if (status != B_OK) {
+		fRoster->RemoveWatcher(this);
+		return;
+	}
+
+	// tell TRoster not to accept new applications anymore
+	fRoster->SetShuttingDown(true);
+
+	fSystemApps.Sort(&inverse_compare_by_registration_time);
 
 	// phase 2: terminate the system apps
 	_SetPhase(SYSTEM_APP_TERMINATION_PHASE);
