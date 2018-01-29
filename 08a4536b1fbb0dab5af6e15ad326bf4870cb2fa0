@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "56496068_ba33f6e3",
+        "filename": "src/kits/app/Message.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-01-29T20:54:06Z",
+      "side": 1,
+      "message": "2018?",
+      "revId": "08a4536b1fbb0dab5af6e15ad326bf4870cb2fa0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bce3c2d7_86b45fa2",
+        "filename": "src/kits/app/Message.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2595,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-01-29T20:54:06Z",
+      "side": 1,
+      "message": "Is there a reason for not using the DEFINE_* macros to generate these?",
+      "revId": "08a4536b1fbb0dab5af6e15ad326bf4870cb2fa0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
