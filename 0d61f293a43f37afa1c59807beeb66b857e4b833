@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9bb3efe8_10daf52d",
+        "filename": "src/preferences/screensaver/ScreenSaverWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-01-30T06:42:31Z",
+      "side": 1,
+      "message": "Should be 2018 now",
+      "revId": "0d61f293a43f37afa1c59807beeb66b857e4b833",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4afadcea_6e1ec179",
+        "filename": "src/preferences/screensaver/ScreenSaverWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 963,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-01-30T06:42:31Z",
+      "side": 1,
+      "message": "is strcasecmp the right thing here? Our filesystems are case sensitive.",
+      "revId": "0d61f293a43f37afa1c59807beeb66b857e4b833",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
