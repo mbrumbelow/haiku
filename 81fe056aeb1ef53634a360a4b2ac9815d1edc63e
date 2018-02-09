@@ -34,6 +34,24 @@
       "revId": "81fe056aeb1ef53634a360a4b2ac9815d1edc63e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "543bd1b4_b484f0b3",
+        "filename": "docs/user/interface/ListItem.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000038
+      },
+      "writtenOn": "2018-02-09T16:34:10Z",
+      "side": 1,
+      "message": "Well, you don\u0027t have to support older versions for radio station installations out in the field, for customers that don\u0027t want to upgrade.  That hrev is when the code was changed to allow a second less inefficient way of forcing an update.\n\nCould leave out the later work-around and just describe the basic add/remove work-around which works in all versions.\n\nFixing it would mean a public function to recalculate all the positions.",
+      "parentUuid": "9f5de40c_383e211b",
+      "revId": "81fe056aeb1ef53634a360a4b2ac9815d1edc63e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
