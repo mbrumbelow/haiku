@@ -116,7 +116,6 @@ _BTextInput_::KeyDown(const char* bytes, int32 numBytes)
 
 		default:
 			BTextView::KeyDown(bytes, numBytes);
-			AlignTextRect();
 			break;
 	}
 }
