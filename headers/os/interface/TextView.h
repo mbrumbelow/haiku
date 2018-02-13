@@ -168,7 +168,7 @@ public:
 			void				GetTextRegion(int32 startOffset,
 									int32 endOffset, BRegion* outRegion) const;
 
-	virtual	void				ScrollToOffset(int32 offset);
+	virtual	void				ScrollToOffset(int32 offset, float xDiff = 0.0);
 			void				ScrollToSelection();
 
 			void				Highlight(int32 startOffset, int32 endOffset);

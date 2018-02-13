@@ -1282,7 +1282,11 @@ BTextView::Cut(BClipboard* clipboard)
 		fUndo = new CutUndoBuffer(this);
 	}
 	Copy(clipboard);
+
+	float oldWidth = fTextRect.Width();
 	Delete();
+
+	ScrollToOffset(fCaretOffset, fTextRect.Width() - oldWidth);
 }
 
 
@@ -1355,8 +1359,10 @@ BTextView::Paste(BClipboard* clipboard)
 			if (fSelStart != fSelEnd)
 				Delete();
 
+			float oldWidth = fTextRect.Width();
 			Insert(text, length, runArray);
-			ScrollToOffset(fSelEnd);
+
+			ScrollToOffset(fSelEnd, fTextRect.Width() - oldWidth);
 		}
 	}
 
@@ -2051,7 +2057,7 @@ BTextView::GetTextRegion(int32 startOffset, int32 endOffset,
 
 
 void
-BTextView::ScrollToOffset(int32 offset)
+BTextView::ScrollToOffset(int32 offset, float xDiff)
 {
 	// pin offset at reasonable values
 	if (offset < 0)
@@ -2061,18 +2067,41 @@ BTextView::ScrollToOffset(int32 offset)
 
 	BRect bounds = Bounds();
 	float lineHeight = 0.0;
-	float xDiff = 0.0;
 	float yDiff = 0.0;
 	BPoint point = PointAt(offset, &lineHeight);
 
 	// horizontal
-	float extraSpace = fAlignment == B_ALIGN_LEFT ?
-		ceilf(bounds.IntegerWidth() / 2) : 0.0;
+	float center = ceilf(bounds.IntegerWidth() / 2);
 
 	if (point.x < bounds.left)
-		xDiff = point.x - bounds.left - extraSpace;
-	else if (point.x > bounds.right)
-		xDiff = point.x - bounds.right + extraSpace;
+		xDiff = point.x - bounds.left - center;
+	else if (point.x > bounds.right) {
+		switch(fAlignment) {
+		case B_ALIGN_LEFT:
+			xDiff = point.x - bounds.right + center;
+			break;
+
+		case B_ALIGN_CENTER:
+			xDiff = point.x - bounds.right;
+			break;
+
+		default:
+			break;
+		}
+	} else {
+		switch(fAlignment) {
+		case B_ALIGN_LEFT:
+			xDiff = 0.0;
+			break;
+
+		case B_ALIGN_CENTER:
+			xDiff /= 2.0;
+			break;
+
+		default:
+			break;
+		}
+	}
 
 	// vertical
 	if (point.y < bounds.top)
@@ -2083,12 +2112,17 @@ BTextView::ScrollToOffset(int32 offset)
 	}
 
 	// prevent negative scroll offset
-	if (bounds.left + xDiff < 0.0)
-		xDiff = -bounds.left;
-	if (bounds.top + yDiff < 0.0)
-		yDiff = -bounds.top;
+	if (bounds.left + xDiff >= 0.0 && bounds.top + yDiff >= 0.0) {
+		ScrollBy(xDiff, yDiff);
+		return;
+	}
 
-	ScrollBy(xDiff, yDiff);
+	BRect textRect(fTextRect);
+	if (bounds.left + xDiff < 0.0)
+		textRect.OffsetBy(-xDiff, 0.0);
+	if (bounds.top + yDiff < 0.0)
+		textRect.OffsetBy(0.0, -yDiff);
+	SetTextRect(textRect);
 }
 
 
@@ -3142,10 +3176,13 @@ BTextView::_HandleBackspace()
 	} else
 		Highlight(fSelStart, fSelEnd);
 
+	float oldWidth = fTextRect.Width();
 	DeleteText(fSelStart, fSelEnd);
 	fCaretOffset = fSelEnd = fSelStart;
 
-	_Refresh(fSelStart, fSelEnd, true);
+	_Refresh(fSelStart, fSelEnd, false);
+
+	ScrollToOffset(fCaretOffset, fTextRect.Width() - oldWidth);
 }
 
 
@@ -3347,10 +3384,13 @@ BTextView::_HandleDelete()
 	} else
 		Highlight(fSelStart, fSelEnd);
 
+	float oldWidth = fTextRect.Width();
 	DeleteText(fSelStart, fSelEnd);
 	fCaretOffset = fSelEnd = fSelStart;
 
-	_Refresh(fSelStart, fSelEnd, true);
+	_Refresh(fSelStart, fSelEnd, false);
+
+	ScrollToOffset(fCaretOffset, fTextRect.Width() - oldWidth);
 }
 
 
@@ -3549,6 +3589,7 @@ BTextView::_HandleAlphaKey(const char* bytes, int32 numBytes)
 		undoBuffer->InputCharacter(numBytes);
 	}
 
+	float oldWidth = fTextRect.Width();
 	if (fSelStart != fSelEnd) {
 		Highlight(fSelStart, fSelEnd);
 		DeleteText(fSelStart, fSelEnd);
@@ -3571,7 +3612,7 @@ BTextView::_HandleAlphaKey(const char* bytes, int32 numBytes)
 
 	fCaretOffset = fSelEnd;
 
-	ScrollToOffset(fCaretOffset);
+	ScrollToOffset(fCaretOffset, fTextRect.Width() - oldWidth);
 }
 
 
