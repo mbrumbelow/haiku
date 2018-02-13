@@ -2059,12 +2059,6 @@ BTextView::GetTextRegion(int32 startOffset, int32 endOffset,
 void
 BTextView::ScrollToOffset(int32 offset, float xDiff)
 {
-	// pin offset at reasonable values
-	if (offset < 0)
-		offset = 0;
-	else if (offset > fText->Length())
-		offset = fText->Length();
-
 	BRect bounds = Bounds();
 	float lineHeight = 0.0;
 	float yDiff = 0.0;
