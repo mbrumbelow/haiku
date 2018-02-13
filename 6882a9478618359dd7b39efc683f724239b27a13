@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "56ff7209_7c49ee2e",
+        "filename": "src/servers/registrar/ShutdownProcess.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1326,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-02-13T09:01:59Z",
+      "side": 1,
+      "message": "Sorting fSystemApps is only needed one time after the user phase is ended.\n\nGenerally speaking, the content of the while loop looks like the block before phase 1. The block before phase 1 could be removed, then the \"while\" loop could be changed in a \"do while\" loop.\n\nPlease add a blank after \"while\" and before the brace.",
+      "range": {
+        "startLine": 1326,
+        "startChar": 2,
+        "endLine": 1326,
+        "endChar": 58
+      },
+      "revId": "6882a9478618359dd7b39efc683f724239b27a13",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
