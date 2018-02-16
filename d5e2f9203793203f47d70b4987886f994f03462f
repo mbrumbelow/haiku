@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c6b7e058_718efd0e",
+        "filename": "src/bin/pkgman/command_install.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-02-16T11:19:27Z",
+      "side": 1,
+      "message": "\"throw\" should be enough to forward the catched exception.",
+      "revId": "d5e2f9203793203f47d70b4987886f994f03462f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
