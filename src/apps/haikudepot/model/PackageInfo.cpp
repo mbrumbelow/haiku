@@ -475,7 +475,10 @@ PackageInfo::PackageInfo()
 	fArchitecture(),
 	fLocalFilePath(),
 	fFileName(),
-	fSize(0)
+	fSize(0),
+	fDepotName(""),
+	fAmCollatingChanges(false),
+	fCollatedChanges(0)
 {
 }
 
@@ -502,7 +505,11 @@ PackageInfo::PackageInfo(const BPackageInfo& info)
 	fArchitecture(info.ArchitectureName()),
 	fLocalFilePath(),
 	fFileName(info.FileName()),
-	fSize(0) // TODO: Retrieve local file size
+	fSize(0), // TODO: Retrieve local file size
+	fDepotName(""),
+	fAmCollatingChanges(false),
+	fCollatedChanges(0)
+
 {
 	BString publisherURL;
 	if (info.URLList().CountStrings() > 0)
@@ -545,7 +552,10 @@ PackageInfo::PackageInfo(const BString& name,
 	fArchitecture(architecture),
 	fLocalFilePath(),
 	fFileName(),
-	fSize(0)
+	fSize(0),
+	fDepotName(""),
+	fAmCollatingChanges(false),
+	fCollatedChanges(0)
 {
 }
 
@@ -574,7 +584,10 @@ PackageInfo::PackageInfo(const PackageInfo& other)
 	fArchitecture(other.fArchitecture),
 	fLocalFilePath(other.fLocalFilePath),
 	fFileName(other.fFileName),
-	fSize(other.fSize)
+	fSize(other.fSize),
+	fDepotName(other.fDepotName),
+	fAmCollatingChanges(false),
+	fCollatedChanges(0)
 {
 }
 
@@ -964,7 +977,35 @@ PackageInfo::CleanupDefaultIcon()
 
 
 void
+PackageInfo::StartCollatingChanges()
+{
+	fAmCollatingChanges = true;
+	fCollatedChanges = 0;
+}
+
+
+void
+PackageInfo::EndCollatingChanges()
+{
+	if (fAmCollatingChanges && fCollatedChanges != 0)
+		_NotifyListenersImmediate(fCollatedChanges);
+	fAmCollatingChanges = false;
+	fCollatedChanges = 0;
+}
+
+
+void
 PackageInfo::_NotifyListeners(uint32 changes)
+{
+	if (fAmCollatingChanges)
+		fCollatedChanges |= changes;
+	else
+		_NotifyListenersImmediate(changes);
+}
+
+
+void
+PackageInfo::_NotifyListenersImmediate(uint32 changes)
 {
 	int count = fListeners.CountItems();
 	if (count == 0)
