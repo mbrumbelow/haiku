@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2aa372f9_e11277ee",
+        "filename": "headers/os/interface/TextView.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-02-18T17:22:02Z",
+      "side": 1,
+      "message": "You can\u0027t do this. ScrollToOffset is a virtual method, so it is part of the ABI. If you make the change this way, applications which try to override the method with the old prototype will be broken.\n\nSo you need to implement this in a way that preserves the old prototype for this function. Introducing another (non-virtual) ScrollToOffset version, but beware of what happens when some application overrides the original method.",
+      "revId": "63ab328e32d58b22a28e8ed774e659a292db5727",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
