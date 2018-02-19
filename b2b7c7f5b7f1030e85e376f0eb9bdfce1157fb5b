@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1d880093_06ed93de",
+        "filename": "src/apps/haikudepot/model/PackageInfo.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-02-19T10:09:31Z",
+      "side": 1,
+      "message": "Coding style: we use 3rd person, so that would rather be be fIsCollatingChanges.",
+      "revId": "b2b7c7f5b7f1030e85e376f0eb9bdfce1157fb5b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
