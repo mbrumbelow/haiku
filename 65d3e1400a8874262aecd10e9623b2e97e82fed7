@@ -16,6 +16,24 @@
       "revId": "65d3e1400a8874262aecd10e9623b2e97e82fed7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c6e34e6e_9c89fba4",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Inode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2018-02-24T14:48:13Z",
+      "side": 0,
+      "message": "InsertEntries copy the pointed data.\nFix it, I wonder can I used unique_ptr here to prevent further problem like this ?, If yes why I don\u0027t see it is used anywhere :\\ .",
+      "parentUuid": "de9162cb_17f2c9f4",
+      "revId": "65d3e1400a8874262aecd10e9623b2e97e82fed7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
