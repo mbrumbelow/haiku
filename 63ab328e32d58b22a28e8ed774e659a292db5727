@@ -16,6 +16,24 @@
       "revId": "63ab328e32d58b22a28e8ed774e659a292db5727",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2cbc3762_b78d8424",
+        "filename": "headers/os/interface/TextView.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2018-02-24T15:27:06Z",
+      "side": 1,
+      "message": "It is not a good idea to implement new function, i think. If do that way, almost all the old ScrollToOffset must be replaced by new methods, and some applications (that overrides the original methods) wouldn\u0027t behave like it would because the virtual methods gone away.\nI\u0027m thinking about how to get the width before changing text without adding new parameter, so that we preserve the old prototype. My best solution right now is creating new attribute, however it seems not a good idea either...",
+      "parentUuid": "2aa372f9_e11277ee",
+      "revId": "63ab328e32d58b22a28e8ed774e659a292db5727",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
