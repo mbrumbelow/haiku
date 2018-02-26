@@ -34,6 +34,24 @@
       "revId": "65d3e1400a8874262aecd10e9623b2e97e82fed7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12c8c119_7d88dfec",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Inode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-02-26T09:12:21Z",
+      "side": 0,
+      "message": "unique_ptr is a C++11 feature, so it may not work with GCC2. However, you may use similar classes: the old C++ auto_ptr (deprecated now, because it is confusing), or our own BReferenceable (which is more like a shared_ptr).\nIt should also be possible to implement std::unique_ptr for gcc2, if you really want to use it.",
+      "parentUuid": "c6e34e6e_9c89fba4",
+      "revId": "65d3e1400a8874262aecd10e9623b2e97e82fed7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
