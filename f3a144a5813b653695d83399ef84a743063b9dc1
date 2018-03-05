@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9576d1bd_b5ebe55c",
+        "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1027,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-03-05T06:56:47Z",
+      "side": 1,
+      "message": "Why not using \"repository\" instead of \"package-\u003eRepository()\"?",
+      "revId": "f3a144a5813b653695d83399ef84a743063b9dc1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
