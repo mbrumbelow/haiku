@@ -223,6 +223,17 @@ DrawState::ReadFromLink(BPrivate::LinkReceiver& link)
 
 	link.Read<ViewSetStateInfo>(&info);
 
+	// BAffineTransform is transmitted as a double array
+	// TODO use BAffineTransform::Unflatten() instead
+	double transform[6];
+	link.Read<double[6]>(&transform);
+	fTransform.sx = transform[0];
+	fTransform.shx = transform[1];
+	fTransform.shy = transform[2];
+	fTransform.sy = transform[3];
+	fTransform.tx = transform[4];
+	fTransform.ty = transform[5];
+
 	fPenLocation = info.penLocation;
 	fPenSize = info.penSize;
 	fHighColor = info.highColor;
@@ -235,7 +246,6 @@ DrawState::ReadFromLink(BPrivate::LinkReceiver& link)
 	fDrawingMode = info.drawingMode;
 	fOrigin = info.origin;
 	fScale = info.scale;
-	fTransform = info.transform;
 	fLineJoinMode = info.lineJoin;
 	fLineCapMode = info.lineCap;
 	fMiterLimit = info.miterLimit;
@@ -304,7 +314,6 @@ DrawState::WriteToLink(BPrivate::LinkSender& link) const
 	info.viewStateInfo.drawingMode = fDrawingMode;
 	info.viewStateInfo.origin = fOrigin;
 	info.viewStateInfo.scale = fScale;
-	info.viewStateInfo.transform = fTransform;
 	info.viewStateInfo.lineJoin = fLineJoinMode;
 	info.viewStateInfo.lineCap = fLineCapMode;
 	info.viewStateInfo.miterLimit = fMiterLimit;
@@ -316,6 +325,16 @@ DrawState::WriteToLink(BPrivate::LinkSender& link) const
 
 	link.Attach<ViewGetStateInfo>(info);
 
+	// BAffineTransform is transmitted as a double array
+	// TODO use BAffineTransform::Flatten() instead
+	double transform[6];
+	transform[0] = fTransform.sx;
+	transform[1] = fTransform.shx;
+	transform[2] = fTransform.shy;
+	transform[3] = fTransform.sy;
+	transform[4] = fTransform.tx;
+	transform[5] = fTransform.ty;
+	link.Attach<double[6]>(transform);
 
 	// TODO: Could be optimized, but is low prio, since most views do not
 	// use a custom clipping region...
