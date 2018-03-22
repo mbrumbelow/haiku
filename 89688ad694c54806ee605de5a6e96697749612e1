@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1df89c74_f4a94973",
+        "filename": "src/apps/haikudepot/server/WebAppInterface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-03-22T10:07:08Z",
+      "side": 1,
+      "message": "I would use \"size_t requestDataSize\" instead of \"const ssize_t requestDataSize\".\nOr is -1 used somewhere?\nI don\u0027t think adding \"const\" for a parameter passed per value makes much sense anyway.",
+      "revId": "89688ad694c54806ee605de5a6e96697749612e1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
