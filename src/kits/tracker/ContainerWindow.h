@@ -189,7 +189,7 @@ public:
 
 	// add-on iteration
 	void EachAddon(bool (*)(const Model*, const char*, uint32 shortcut,
-		uint32 modifiers, bool primary, void*), void*, BStringList&);
+		uint32 modifiers, bool primary, void*, BContainerWindow*), void*, BStringList&);
 
 	BPopUpMenu* ContextMenu();
 

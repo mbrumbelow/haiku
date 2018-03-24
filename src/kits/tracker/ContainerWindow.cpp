@@ -178,9 +178,54 @@ CompareLabels(const BMenuItem* item1, const BMenuItem* item2)
 }	// namespace BPrivate
 
 
+static int32
+AddOnMenuGenerate(BMessage* refsMessage, entry_ref addonRef, entry_ref directoryRef, BMenuItem *item)
+{
+	std::auto_ptr<BMessage> refsMessagePtr(refsMessage);
+
+	BEntry entry(&addonRef);
+	BPath path;
+	status_t result = entry.InitCheck();
+	if (result == B_OK)
+		result = entry.GetPath(&path);
+
+	if (result == B_OK) {
+		image_id addonImage = load_add_on(path.Path());
+		if (addonImage >= 0) {
+			void (*populateMenu)(entry_ref, BMessage*, BMenuItem*);
+			result = get_image_symbol(addonImage, "populateMenu", 2,
+				(void**)&populateMenu);
+
+			if (result >= 0) {
+				// call add-on code
+				(*populateMenu)(directoryRef, refsMessagePtr.get(), item);
+
+				unload_add_on(addonImage);
+				return B_OK;
+			} else
+				PRINT(("hrishi: couldn't find process_refs\n"));
+
+			unload_add_on(addonImage);
+		} else
+			result = addonImage;
+	}
+
+	BString buffer(B_TRANSLATE("hrishi: Error %error loading Add-On %name."));
+	buffer.ReplaceFirst("%error", strerror(result));
+	buffer.ReplaceFirst("%name", addonRef.name);
+
+	BAlert* alert = new BAlert("", buffer.String(), B_TRANSLATE("Cancel"),
+		0, 0, B_WIDTH_AS_USUAL, B_WARNING_ALERT);
+	alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
+	alert->Go();
+
+	return result;
+}
+
+
 static bool
 AddOneAddon(const Model* model, const char* name, uint32 shortcut,
-	uint32 modifiers, bool primary, void* context)
+	uint32 modifiers, bool primary, void* context, BContainerWindow* window)
 {
 	AddOneAddonParams* params = (AddOneAddonParams*)context;
 
@@ -189,6 +234,35 @@ AddOneAddon(const Model* model, const char* name, uint32 shortcut,
 
 	ModelMenuItem* item = new ModelMenuItem(model, name, message,
 		(char)shortcut, modifiers);
+
+	// hrishi: here
+	entry_ref addonRef;
+	status_t result = message->FindRef("refs", &addonRef);
+	addonRef = *model->EntryRef();
+	if (result != B_OK) {
+		BString buffer(B_TRANSLATE("hrishi: Error %error loading add-On %name."));
+		buffer.ReplaceFirst("%error", strerror(result));
+		buffer.ReplaceFirst("%name", addonRef.name);
+
+		BAlert* alert = new BAlert("", buffer.String(),	B_TRANSLATE("Cancel"),
+			0, 0, B_WIDTH_AS_USUAL, B_WARNING_ALERT);
+		alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
+		alert->Go();
+	} else {
+		// add selected refs to message
+		BMessage* refs = new BMessage(B_REFS_RECEIVED);
+		// BObjectList<BPose>* selectionList = PoseView()->SelectionList();
+
+		// int32 index = 0;
+		// BPose* pose;
+		// while ((pose = selectionList->ItemAt(index++)) != NULL)
+		// 	refs->AddRef("refs", pose->TargetModel()->EntryRef());
+
+		// refs->AddMessenger("TrackerViewToken", BMessenger(PoseView()));
+
+		// AddOnMenuGenerate(refs, addonRef, *TargetModel()->EntryRef(), item);
+		AddOnMenuGenerate(refs, addonRef, addonRef, item);
+	}
 
 	if (primary)
 		params->primaryList->AddItem(item);
@@ -2981,7 +3055,7 @@ BContainerWindow::AddTrashContextMenus(BMenu* menu)
 
 void
 BContainerWindow::EachAddon(bool (*eachAddon)(const Model*, const char*,
-	uint32 shortcut, uint32 modifiers, bool primary, void* context),
+	uint32 shortcut, uint32 modifiers, bool primary, void* context, BContainerWindow* window),
 	void* passThru, BStringList& mimeTypes)
 {
 	AutoLock<LockingList<AddonShortcut> > lock(fAddonsList);
@@ -3029,7 +3103,7 @@ BContainerWindow::EachAddon(bool (*eachAddon)(const Model*, const char*,
 				}
 			}
 			((eachAddon)(item->model, item->model->Name(), item->key,
-				item->modifiers, primary, passThru));
+				item->modifiers, primary, passThru, this));
 		}
 	}
 }
