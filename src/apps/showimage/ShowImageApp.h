@@ -43,6 +43,7 @@ private:
 			void				_Open(const entry_ref& ref,
 									const BMessenger& trackerMessenger);
 			void				_BroadcastToWindows(BMessage* message);
+			void				_CreateFromClipboard();
 			void				_CheckClipboard();
 			void				_UpdateLastWindowFrame();
 

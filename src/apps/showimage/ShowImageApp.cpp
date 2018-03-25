@@ -120,6 +120,10 @@ ShowImageApp::MessageReceived(BMessage* message)
 			_StartPulse();
 			break;
 
+		case B_PASTE:
+			_CreateFromClipboard();
+			break;
+
 		case B_CLIPBOARD_CHANGED:
 			_CheckClipboard();
 			break;
@@ -213,6 +217,19 @@ ShowImageApp::_BroadcastToWindows(BMessage* message)
 		BMessenger messenger(WindowAt(i));
 		messenger.SendMessage(message);
 	}
+}
+
+
+void
+ShowImageApp::_CreateFromClipboard()
+{
+	fLastWindowFrame.OffsetBy(20, 20);
+	if (!BScreen(B_MAIN_SCREEN_ID).Frame().Contains(fLastWindowFrame))
+		fLastWindowFrame.OffsetTo(50, 50);
+	
+	entry_ref ref;
+	BMessenger messenger;
+	new ShowImageWindow(fLastWindowFrame, ref, messenger, true);
 }
 
 

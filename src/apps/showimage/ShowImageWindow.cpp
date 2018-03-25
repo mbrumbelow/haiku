@@ -130,7 +130,7 @@ bs_printf(BString* string, const char* format, ...)
 
 
 ShowImageWindow::ShowImageWindow(BRect frame, const entry_ref& ref,
-	const BMessenger& trackerMessenger)
+	const BMessenger& trackerMessenger, bool fromClipboard)
 	:
 	BWindow(frame, "", B_DOCUMENT_WINDOW, B_AUTO_UPDATE_SIZE_LIMITS),
 	fNavigator(ref, trackerMessenger),
@@ -241,12 +241,41 @@ ShowImageWindow::ShowImageWindow(BRect frame, const entry_ref& ref,
 	SetSizeLimits(std::max(menuBarMinWidth, toolBarMinWidth), 100000, 100,
 		100000);
 
-	// finish creating the window
-	if (_LoadImage() != B_OK) {
+	if (fromClipboard) {
+printf("fromClipboard\n");
+		status_t status = B_ERROR;
+		//XXX: needs cleanup
+		BBitmap *bitmap = NULL;
+		if (be_clipboard->Lock()) {
+			BMessage *clip = be_clipboard->Data();
+			BMessage archivedBitmap;
+			if (clip->FindMessage("image/bitmap", &archivedBitmap) == B_OK
+				|| clip->FindMessage("image/bitmap", &archivedBitmap) == B_OK) {
+				bitmap = new(std::nothrow) BBitmap(&archivedBitmap);
+printf("bitmap %p\n", bitmap);
+			}
+			be_clipboard->Unlock();
+		}
+		if (bitmap)
+			status = fImageView->SetImage(NULL, bitmap);
+printf("error 0x%08lx\n", status);
+		if (status != B_OK) {
+			//XXX
+			entry_ref ref;
+			_LoadError(ref);
+			Quit();
+			return;
+		}
+		fImageView->FitToBounds();
+		fImageView->MakeFocus(true);
+		SetTitle("Untitled");
+		Show();
+	} else if (_LoadImage() != B_OK) { // finish creating the window
 		_LoadError(ref);
 		Quit();
 		return;
 	}
+printf("done\n");
 
 	// add View menu here so it can access ShowImageView methods
 	BMenu* menu = new BMenu(B_TRANSLATE_CONTEXT("View", "Menus"));
@@ -265,6 +294,7 @@ ShowImageWindow::ShowImageWindow(BRect frame, const entry_ref& ref,
 	// and tell this window if it contains interesting data or not
 	be_app_messenger.SendMessage(B_CLIPBOARD_CHANGED);
 
+printf("Run()\n");
 	// The window will be shown on screen automatically
 	Run();
 }
@@ -376,6 +406,7 @@ ShowImageWindow::_AddMenus(BMenuBar* bar)
 {
 	BMenu* menu = new BMenu(B_TRANSLATE("File"));
 
+	_AddItemMenu(menu, B_TRANSLATE("New from clipboard"), B_PASTE, 'N', 0, this);
 	// Add recent files to "Open File" entry as sub-menu.
 	BMenuItem* item = new BMenuItem(BRecentFilesList::NewFileListMenu(
 		B_TRANSLATE("Open" B_UTF8_ELLIPSIS), NULL, NULL, be_app, 10, true,
@@ -765,6 +796,10 @@ ShowImageWindow::MessageReceived(BMessage* message)
 
 		case B_COPY:
 			fImageView->CopySelectionToClipboard();
+			break;
+
+		case B_PASTE:
+			be_app->PostMessage(message);
 			break;
 
 		case MSG_SELECTION_MODE:

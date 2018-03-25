@@ -53,7 +53,8 @@ class ShowImageWindow : public BWindow {
 public:
 								ShowImageWindow(BRect frame,
 									const entry_ref& ref,
-									const BMessenger& trackerMessenger);
+									const BMessenger& trackerMessenger,
+									bool fromClipboard=false);
 	virtual						~ShowImageWindow();
 
 			void				BuildContextMenu(BMenu* menu);
