@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "__locale": "cpp",
+        "*.ipp": "cpp",
+        "typeinfo": "cpp",
+        "system_error": "cpp"
+    }
+}

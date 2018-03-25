@@ -193,7 +193,7 @@ AddOnMenuGenerate(BMessage* refsMessage, entry_ref addonRef, entry_ref directory
 		image_id addonImage = load_add_on(path.Path());
 		if (addonImage >= 0) {
 			void (*populateMenu)(entry_ref, BMessage*, BMenuItem*);
-			result = get_image_symbol(addonImage, "populateMenu", 2,
+			result = get_image_symbol(addonImage, "populate_menu", 2,
 				(void**)&populateMenu);
 
 			if (result >= 0) {
@@ -210,7 +210,7 @@ AddOnMenuGenerate(BMessage* refsMessage, entry_ref addonRef, entry_ref directory
 			result = addonImage;
 	}
 
-	BString buffer(B_TRANSLATE("hrishi: Error %error loading Add-On %name."));
+	BString buffer(B_TRANSLATE("hrishi: Error %error Loading Add-On %name."));
 	buffer.ReplaceFirst("%error", strerror(result));
 	buffer.ReplaceFirst("%name", addonRef.name);
 
