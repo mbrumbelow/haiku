@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c2737ad_a8671fea",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2018-03-27T20:42:27Z",
+      "side": 1,
+      "message": "The extra commit message doesn\u0027t make sense..\nI think you can do this only if the old patch (missing NULL check) is already merged, and then you make a new patch to fix it with new commit message.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 93
+      },
+      "revId": "987df9401e0ef21cb13c6ee89d7ad52cb8239584",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c415072d_3574ea9e",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Inode.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2018-03-27T20:42:27Z",
+      "side": 1,
+      "message": "btrfs_inode_ref is a type name, you can\u0027t compare like this. It is also same as btrfs_dir_entry below.",
+      "range": {
+        "startLine": 447,
+        "startChar": 5,
+        "endLine": 447,
+        "endChar": 20
+      },
+      "revId": "987df9401e0ef21cb13c6ee89d7ad52cb8239584",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
