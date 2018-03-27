@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c20901d4_40b07d52",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Inode.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-03-27T10:43:30Z",
+      "side": 1,
+      "message": "Missing NULL check.",
+      "revId": "82ed13d9f46f2d68a99c26630a706382ee0dbb74",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44c01b3d_e1eac3ab",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Inode.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-03-27T10:43:30Z",
+      "side": 1,
+      "message": "Missing NULL check",
+      "revId": "82ed13d9f46f2d68a99c26630a706382ee0dbb74",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
