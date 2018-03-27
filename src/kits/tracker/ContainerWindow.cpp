@@ -179,9 +179,11 @@ CompareLabels(const BMenuItem* item1, const BMenuItem* item2)
 
 
 static int32
-AddOnMenuGenerate(BMessage* refsMessage, entry_ref addonRef, entry_ref directoryRef, BMenuItem *item)
+AddOnMenuGenerate(BMessage* refsMessage, entry_ref addonRef, entry_ref directoryRef, BMenu* menu)
 {
 	std::auto_ptr<BMessage> refsMessagePtr(refsMessage);
+
+	BString buffer(B_TRANSLATE("hrishi: Error %error Loading Add-On %name."));
 
 	BEntry entry(&addonRef);
 	BPath path;
@@ -191,33 +193,41 @@ AddOnMenuGenerate(BMessage* refsMessage, entry_ref addonRef, entry_ref directory
 
 	if (result == B_OK) {
 		image_id addonImage = load_add_on(path.Path());
+		buffer.Append(" 1.");
 		if (addonImage >= 0) {
-			void (*populateMenu)(entry_ref, BMessage*, BMenuItem*);
+			void (*populateMenu)(entry_ref, BMessage*, BMenu*);
 			result = get_image_symbol(addonImage, "populate_menu", 2,
 				(void**)&populateMenu);
+			buffer.Append(" 2.");
 
 			if (result >= 0) {
 				// call add-on code
-				(*populateMenu)(directoryRef, refsMessagePtr.get(), item);
+				(*populateMenu)(directoryRef, refsMessagePtr.get(), menu);
+				
+				buffer.Append(" 3.");
+				BAlert* alert = new BAlert("", buffer.String(), B_TRANSLATE("Cancel"),
+					0, 0, B_WIDTH_AS_USUAL, B_WARNING_ALERT);
+				alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
+				alert->Go();
 
 				unload_add_on(addonImage);
 				return B_OK;
 			} else
-				PRINT(("hrishi: couldn't find process_refs\n"));
+				PRINT(("hrishi: couldn't find populate_menu\n"));
 
+			buffer.Append(" 4.");
 			unload_add_on(addonImage);
 		} else
 			result = addonImage;
 	}
 
-	BString buffer(B_TRANSLATE("hrishi: Error %error Loading Add-On %name."));
 	buffer.ReplaceFirst("%error", strerror(result));
 	buffer.ReplaceFirst("%name", addonRef.name);
 
 	BAlert* alert = new BAlert("", buffer.String(), B_TRANSLATE("Cancel"),
 		0, 0, B_WIDTH_AS_USUAL, B_WARNING_ALERT);
 	alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
-	alert->Go();
+	// alert->Go();
 
 	return result;
 }
@@ -225,7 +235,8 @@ AddOnMenuGenerate(BMessage* refsMessage, entry_ref addonRef, entry_ref directory
 
 static bool
 AddOneAddon(const Model* model, const char* name, uint32 shortcut,
-	uint32 modifiers, bool primary, void* context, BContainerWindow* window)
+	uint32 modifiers, bool primary, void* context,
+	BContainerWindow* window, BMenu* menu)
 {
 	AddOneAddonParams* params = (AddOneAddonParams*)context;
 
@@ -236,33 +247,21 @@ AddOneAddon(const Model* model, const char* name, uint32 shortcut,
 		(char)shortcut, modifiers);
 
 	// hrishi: here
-	entry_ref addonRef;
-	status_t result = message->FindRef("refs", &addonRef);
-	addonRef = *model->EntryRef();
-	if (result != B_OK) {
-		BString buffer(B_TRANSLATE("hrishi: Error %error loading add-On %name."));
-		buffer.ReplaceFirst("%error", strerror(result));
-		buffer.ReplaceFirst("%name", addonRef.name);
+	entry_ref addonRef = *model->EntryRef();
+	
+	// add selected refs to message
+	BMessage* refs = new BMessage(B_REFS_RECEIVED);
+	// BObjectList<BPose>* selectionList = PoseView()->SelectionList();
 
-		BAlert* alert = new BAlert("", buffer.String(),	B_TRANSLATE("Cancel"),
-			0, 0, B_WIDTH_AS_USUAL, B_WARNING_ALERT);
-		alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
-		alert->Go();
-	} else {
-		// add selected refs to message
-		BMessage* refs = new BMessage(B_REFS_RECEIVED);
-		// BObjectList<BPose>* selectionList = PoseView()->SelectionList();
+	// int32 index = 0;
+	// BPose* pose;
+	// while ((pose = selectionList->ItemAt(index++)) != NULL)
+	// 	refs->AddRef("refs", pose->TargetModel()->EntryRef());
 
-		// int32 index = 0;
-		// BPose* pose;
-		// while ((pose = selectionList->ItemAt(index++)) != NULL)
-		// 	refs->AddRef("refs", pose->TargetModel()->EntryRef());
+	// refs->AddMessenger("TrackerViewToken", BMessenger(PoseView()));
 
-		// refs->AddMessenger("TrackerViewToken", BMessenger(PoseView()));
-
-		// AddOnMenuGenerate(refs, addonRef, *TargetModel()->EntryRef(), item);
-		AddOnMenuGenerate(refs, addonRef, addonRef, item);
-	}
+	// AddOnMenuGenerate(refs, addonRef, *TargetModel()->EntryRef(), item);
+	AddOnMenuGenerate(refs, addonRef, addonRef, menu);
 
 	if (primary)
 		params->primaryList->AddItem(item);
@@ -3055,8 +3054,9 @@ BContainerWindow::AddTrashContextMenus(BMenu* menu)
 
 void
 BContainerWindow::EachAddon(bool (*eachAddon)(const Model*, const char*,
-	uint32 shortcut, uint32 modifiers, bool primary, void* context, BContainerWindow* window),
-	void* passThru, BStringList& mimeTypes)
+		uint32 shortcut, uint32 modifiers, bool primary, void* context, 
+		BContainerWindow* window, BMenu* menu),
+	void* passThru, BStringList& mimeTypes, BMenu* menu)
 {
 	AutoLock<LockingList<AddonShortcut> > lock(fAddonsList);
 	if (lock.IsLocked()) {
@@ -3103,7 +3103,7 @@ BContainerWindow::EachAddon(bool (*eachAddon)(const Model*, const char*,
 				}
 			}
 			((eachAddon)(item->model, item->model->Name(), item->key,
-				item->modifiers, primary, passThru, this));
+				item->modifiers, primary, passThru, this, menu));
 		}
 	}
 }
@@ -3136,22 +3136,22 @@ BContainerWindow::BuildMimeTypeList(BStringList& mimeTypes)
 
 
 void
-BContainerWindow::BuildAddOnMenu(BMenu* menu)
+BContainerWindow::BuildAddOnMenu(BMenu* main_menu)
 {
-	BMenuItem* item = menu->FindItem(B_TRANSLATE("Add-ons"));
-	if (menu->IndexOf(item) == 0) {
+	BMenuItem* item = main_menu->FindItem(B_TRANSLATE("Add-ons"));
+	if (main_menu->IndexOf(item) == 0) {
 		// the folder of the context menu seems to be named "Add-Ons"
 		// so we just take the last menu item, which is correct if not
 		// build with debug option
-		item = menu->ItemAt(menu->CountItems() - 1);
+		item = main_menu->ItemAt(main_menu->CountItems() - 1);
 	}
 	if (item == NULL)
 		return;
 
 	BFont font;
-	menu->GetFont(&font);
+	main_menu->GetFont(&font);
 
-	menu = item->Submenu();
+	BMenu* menu = item->Submenu();
 	if (menu == NULL)
 		return;
 
@@ -3176,7 +3176,7 @@ BContainerWindow::BuildAddOnMenu(BMenu* menu)
 
 	// build a list of the MIME types of the selected items
 
-	EachAddon(AddOneAddon, &params, mimeTypes);
+	EachAddon(AddOneAddon, &params, mimeTypes, main_menu);
 
 	primaryList.SortItems(CompareLabels);
 	secondaryList.SortItems(CompareLabels);
