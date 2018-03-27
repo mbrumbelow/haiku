@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "34512e4c_581b80b5",
+        "filename": "src/tests/kits/support/bstring/StringSplitTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-03-27T13:34:19Z",
+      "side": 1,
+      "message": "Why a space here?",
+      "revId": "6d4b8e6db64f6de57686f50dfc7e6f5313d29a1e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fda462ca_885d2d92",
+        "filename": "src/tests/kits/support/bstring/StringSplitTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-03-27T13:34:19Z",
+      "side": 1,
+      "message": "Why this formatting change?",
+      "revId": "6d4b8e6db64f6de57686f50dfc7e6f5313d29a1e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "256c9415_7fbb6a51",
+        "filename": "src/tests/kits/support/bstring/StringSplitTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-03-27T13:34:19Z",
+      "side": 1,
+      "message": "Why the extra parentheses? Please read our coding style guidelines, we don\u0027t do anything like this.",
+      "revId": "6d4b8e6db64f6de57686f50dfc7e6f5313d29a1e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
