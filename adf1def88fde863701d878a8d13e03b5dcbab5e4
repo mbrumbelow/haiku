@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b8043047_d5cb2fb2",
+        "filename": "src/apps/installer/WorkerThread.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2018-03-29T21:04:03Z",
+      "side": 1,
+      "message": "What about syslog.old?",
+      "revId": "adf1def88fde863701d878a8d13e03b5dcbab5e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
