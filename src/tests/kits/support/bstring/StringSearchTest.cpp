@@ -3,11 +3,11 @@
 #include <String.h>
 #include <stdio.h>
 
+
 StringSearchTest::StringSearchTest(std::string name) :
 		BTestCase(name)
 {
 }
-
 
 
 StringSearchTest::~StringSearchTest()
@@ -417,7 +417,7 @@ StringSearchTest::PerformTest(void)
 	string1 = new BString("last but not least");
 	string2 = new BString("lAsT");
 	i = (int32)string1->StartsWith(*string2);
-	CPPUNIT_ASSERT(i != 0);
+	CPPUNIT_ASSERT(i == 0);
 	delete string1;
 	delete string2;
 
@@ -425,14 +425,14 @@ StringSearchTest::PerformTest(void)
 	NextSubTest();
 	string1 = new BString("last but not least");
 	i = (int32)string1->StartsWith("lAsT");
-	CPPUNIT_ASSERT(i != 0);
+	CPPUNIT_ASSERT(i == 0);
 	delete string1;
 
 	//IStartsWith(const char*, int32)
 	NextSubTest();
 	string1 = new BString("last but not least");
 	i = (int32)string1->StartsWith("lAsT", 4);
-	CPPUNIT_ASSERT(i != 0);
+	CPPUNIT_ASSERT(i == 0);
 	delete string1;
 
 	//IFindLast(BString&)
@@ -486,7 +486,7 @@ StringSearchTest::PerformTest(void)
 	NextSubTest();
 	string1 = new BString("last but not least");
 	i = (int32)string1->EndsWith("sT", 2);
-	CPPUNIT_ASSERT(i != 0);
+	CPPUNIT_ASSERT(i == 0);
 	delete string1;
 
 	NextSubTest();
@@ -636,5 +636,6 @@ CppUnit::Test *StringSearchTest::suite(void)
 	typedef CppUnit::TestCaller<StringSearchTest>
 		StringSearchTestCaller;
 
-	return(new StringSearchTestCaller("BString::Search Test", &StringSearchTest::PerformTest));
+	return(new StringSearchTestCaller("BString::Search Test",
+		&StringSearchTest::PerformTest));
 }
