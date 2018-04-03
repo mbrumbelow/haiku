@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a592d6aa_639e6dd5",
+        "filename": "src/tests/kits/support/bstring/StringSearchTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-04-03T19:13:36Z",
+      "side": 1,
+      "message": "This should test another method, see the comment two lines before.",
+      "revId": "8c7341671d404935f7dfecbd2767f5e5a239221a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0936848c_e30f660f",
+        "filename": "src/tests/kits/support/bstring/StringSearchTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-04-03T19:13:36Z",
+      "side": 1,
+      "message": "Same here.",
+      "revId": "8c7341671d404935f7dfecbd2767f5e5a239221a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbc7f062_8c38a0bc",
+        "filename": "src/tests/kits/support/bstring/StringSearchTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-04-03T19:13:36Z",
+      "side": 1,
+      "message": "Same here.",
+      "revId": "8c7341671d404935f7dfecbd2767f5e5a239221a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7472d45f_2f8e322b",
+        "filename": "src/tests/kits/support/bstring/StringSearchTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-04-03T19:13:36Z",
+      "side": 1,
+      "message": "The check is meant to check that the method can return true. So the assert was correct before, and the searched string is to be fixed.",
+      "revId": "8c7341671d404935f7dfecbd2767f5e5a239221a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
