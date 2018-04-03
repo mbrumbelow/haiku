@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cae4f327_9a0fefcd",
+        "filename": "src/tests/kits/support/bstring/StringSplitTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-04-03T05:02:15Z",
+      "side": 1,
+      "message": "Two blank lines after the include block.",
+      "revId": "0f13a118279762584126db79c4dd33b127b86233",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce3b43c1_e2bab3e9",
+        "filename": "src/tests/kits/support/bstring/StringSplitTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-04-03T05:02:15Z",
+      "side": 1,
+      "message": "The style isn\u0027t correct: a blank after a semicolumn.",
+      "revId": "0f13a118279762584126db79c4dd33b127b86233",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
