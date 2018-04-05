@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dcd24d4a_f5140ef4",
+        "filename": "src/tests/kits/support/bstring/StringSearchTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-04-05T17:07:05Z",
+      "side": 1,
+      "message": "\"The \u0027:\u0027 always comes on its own line, initializers following\"",
+      "revId": "8e379e39189e6e931441e5894d8ab3021d7e6cd4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e3a80aa_9a60b395",
+        "filename": "src/tests/kits/support/bstring/StringSubCopyTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-04-05T17:07:05Z",
+      "side": 1,
+      "message": ": goes to the next line, before BTestCase(name).",
+      "revId": "8e379e39189e6e931441e5894d8ab3021d7e6cd4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
