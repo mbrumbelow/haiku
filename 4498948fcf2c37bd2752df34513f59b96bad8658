@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "65fad3ee_0ff90845",
+        "filename": "src/add-ons/translators/png/PNGView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-04-06T09:58:50Z",
+      "side": 0,
+      "message": "Why remove the call to SetExplicitPreferredSize() when it\u0027s not related to #4217?",
+      "revId": "4498948fcf2c37bd2752df34513f59b96bad8658",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
