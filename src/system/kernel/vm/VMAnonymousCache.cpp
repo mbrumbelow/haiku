@@ -27,6 +27,7 @@
 #include <FindDirectory.h>
 #include <KernelExport.h>
 #include <NodeMonitor.h>
+#include <StackOrHeapArray.h>
 
 #include <arch_config.h>
 #include <boot_device.h>
@@ -1238,7 +1239,7 @@ public:
 
 private:
 	int32		fBestScore;
-	VolumeInfo	fVolumeInfo;
+	VolumeInfo&	fVolumeInfo;
 };
 
 
@@ -1248,14 +1249,18 @@ get_mount_point(KPartition* partition, KPath* mountPoint)
 	if (!mountPoint || !partition->ContainsFileSystem())
 		return B_BAD_VALUE;
 
+	int nameLength;
 	const char* volumeName = partition->ContentName();
-	if (!volumeName || strlen(volumeName) == 0)
+	if (volumeName == NULL || (nameLength = strlen(volumeName)) == 0) {
 		volumeName = partition->Name();
-	if (!volumeName || strlen(volumeName) == 0)
-		volumeName = "unnamed volume";
+		if (volumeName == NULL || (nameLength = strlen(volumeName)) == 0) {
+			volumeName = "unnamed volume";
+			nameLength = strlen(volumeName);
+		}
+	}
 
-	char basePath[B_PATH_NAME_LENGTH];
-	int32 len = snprintf(basePath, sizeof(basePath), "/%s", volumeName);
+	BStackOrHeapArray<char, 128> basePath(nameLength + 1);
+	int32 len = snprintf(basePath, nameLength + 1, "/%s", volumeName);
 	for (int32 i = 1; i < len; i++)
 		if (basePath[i] == '/')
 		basePath[i] = '-';
@@ -1267,7 +1272,7 @@ get_mount_point(KPartition* partition, KPath* mountPoint)
 	for (int i = 1; ; i++) {
 		if (stat(path, &dummy) != 0)
 			break;
-		snprintf(path, pathLen, "%s%d", basePath, i);
+		snprintf(path, pathLen, "%s%d", (char*)basePath, i);
 	}
 
 	mountPoint->UnlockBuffer();
