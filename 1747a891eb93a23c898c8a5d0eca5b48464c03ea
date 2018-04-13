@@ -91,6 +91,47 @@
       "revId": "1747a891eb93a23c898c8a5d0eca5b48464c03ea",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4fbd0feb_ef0ad916",
+        "filename": "build/jam/images/AnybootImage",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2018-04-13T10:17:23Z",
+      "side": 1,
+      "message": "Default to HAIKU_ANYBOOT_UEFI  but better to keep MBR-only support until we get enough feedback it\u0027s not necessary anymore.",
+      "parentUuid": "e1e9aa8a_b8d68f1e",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 30
+      },
+      "revId": "1747a891eb93a23c898c8a5d0eca5b48464c03ea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "621c52b8_0b4e25ea",
+        "filename": "build/jam/images/AnybootImage",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2018-04-13T10:17:23Z",
+      "side": 1,
+      "message": "\"esp\" stands for what?\nMaybe making the name more explicit, like \"efi_partition.image\" ?",
+      "revId": "1747a891eb93a23c898c8a5d0eca5b48464c03ea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
