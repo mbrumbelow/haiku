@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "53616997_2a871d17",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-04-13T08:11:53Z",
+      "side": 1,
+      "message": "We have a port of dosfstools to Haiku already, wouldn\u0027t that work?",
+      "range": {
+        "startLine": 9,
+        "startChar": 2,
+        "endLine": 9,
+        "endChar": 46
+      },
+      "revId": "1747a891eb93a23c898c8a5d0eca5b48464c03ea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "09dd8834_1a1ae0db",
+        "filename": "build/jam/ImageRules",
+        "patchSetId": 1
+      },
+      "lineNbr": 1654,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-04-13T08:11:53Z",
+      "side": 1,
+      "message": "bs\u003d1M would be more readable?",
+      "range": {
+        "startLine": 1654,
+        "startChar": 28,
+        "endLine": 1654,
+        "endChar": 35
+      },
+      "revId": "1747a891eb93a23c898c8a5d0eca5b48464c03ea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4cfae5e_0b0a4c94",
+        "filename": "build/jam/ImageRules",
+        "patchSetId": 1
+      },
+      "lineNbr": 1655,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-04-13T08:11:53Z",
+      "side": 1,
+      "message": "Since the dosfstools are needed, couldn\u0027t we use mformat here?",
+      "range": {
+        "startLine": 1655,
+        "startChar": 1,
+        "endLine": 1655,
+        "endChar": 11
+      },
+      "revId": "1747a891eb93a23c898c8a5d0eca5b48464c03ea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1e9aa8a_b8d68f1e",
+        "filename": "build/jam/images/AnybootImage",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-04-13T08:11:53Z",
+      "side": 1,
+      "message": "I would not allow for MBR-only images anymore. But ok, I guess let\u0027s give this some testing first.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 30
+      },
+      "revId": "1747a891eb93a23c898c8a5d0eca5b48464c03ea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
