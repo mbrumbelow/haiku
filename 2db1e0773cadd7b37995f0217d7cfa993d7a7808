@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2dd7a58b_be9c97ed",
+        "filename": "build/jam/BootRules",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-04-13T08:08:24Z",
+      "side": 1,
+      "message": "It would be a good idea to add some comments to each rule about what they do, what the inputs and outputs are, etc.",
+      "revId": "2db1e0773cadd7b37995f0217d7cfa993d7a7808",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8fb249c4_135c52c6",
+        "filename": "build/jam/BootRules",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-04-13T08:08:24Z",
+      "side": 1,
+      "message": "Referencing how things worked before forces people trying to understand things to know the whole history.",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 70
+      },
+      "revId": "2db1e0773cadd7b37995f0217d7cfa993d7a7808",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8e3b3df_814dcbb3",
+        "filename": "src/add-ons/kernel/bluetooth/btCoreData/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-04-13T08:08:24Z",
+      "side": 1,
+      "message": "Remove completely if not needed (also in other files).",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 80
+      },
+      "revId": "2db1e0773cadd7b37995f0217d7cfa993d7a7808",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a30b25e0_d9f5728e",
+        "filename": "src/system/boot/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-04-13T08:08:24Z",
+      "side": 1,
+      "message": "I would use $(TARGET_ARCH) here. Maybe we can remove the $(TARGET_ARCH) from the condition because $(TARGET_BOOT_PLATFORM) will contain \"efi\" only when it is applicable?\n\nIt seems I\u0027m missing something here, so maybe a comment to clarify why there is need for a special case.",
+      "range": {
+        "startLine": 17,
+        "startChar": 8,
+        "endLine": 17,
+        "endChar": 14
+      },
+      "revId": "2db1e0773cadd7b37995f0217d7cfa993d7a7808",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
