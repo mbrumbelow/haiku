@@ -85,6 +85,125 @@
       "revId": "2db1e0773cadd7b37995f0217d7cfa993d7a7808",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8bee639a_e7cc7877",
+        "filename": "src/system/boot/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-04-15T08:07:35Z",
+      "side": 1,
+      "message": "I see one time $(TARGET_BOOT_PLATFORM), one time $(platform:G\u003d). I would prefer $(TARGET_BOOT_PLATFORM).",
+      "revId": "2db1e0773cadd7b37995f0217d7cfa993d7a7808",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33b59457_1843a5e1",
+        "filename": "src/system/boot/platform/bios_ia32/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-04-15T08:07:35Z",
+      "side": 1,
+      "message": "$(TARGET_BOOT_PLATFORM) should be used instead of hardcoding bios_ia32.",
+      "revId": "2db1e0773cadd7b37995f0217d7cfa993d7a7808",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5030e8b8_405fb8b0",
+        "filename": "src/system/boot/platform/bios_ia32/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-04-15T08:07:35Z",
+      "side": 1,
+      "message": "Ditto",
+      "revId": "2db1e0773cadd7b37995f0217d7cfa993d7a7808",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23a50b0e_0bf3d5fa",
+        "filename": "src/system/boot/platform/efi/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-04-15T08:07:35Z",
+      "side": 1,
+      "message": "$(TARGET_BOOT_PLATFORM) should be used instead of hardcoding efi.",
+      "revId": "2db1e0773cadd7b37995f0217d7cfa993d7a7808",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fea20cca_ae093a47",
+        "filename": "src/system/boot/platform/generic/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-04-15T08:07:35Z",
+      "side": 1,
+      "message": "I would prefer $(TARGET_BOOT_PLATFORM) when possible.",
+      "revId": "2db1e0773cadd7b37995f0217d7cfa993d7a7808",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8880dac9_2785b3b0",
+        "filename": "src/system/boot/platform/pxe_ia32/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-04-15T08:07:35Z",
+      "side": 1,
+      "message": "$(TARGET_BOOT_PLATFORM) should be used instead of hardcoding pxe_ia32.",
+      "revId": "2db1e0773cadd7b37995f0217d7cfa993d7a7808",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d792cfa5_218ee5cc",
+        "filename": "src/system/boot/platform/pxe_ia32/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-04-15T08:07:35Z",
+      "side": 1,
+      "message": "Ditto",
+      "revId": "2db1e0773cadd7b37995f0217d7cfa993d7a7808",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
