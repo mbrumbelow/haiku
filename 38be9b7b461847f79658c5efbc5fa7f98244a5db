@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a0924803_7343252b",
+        "filename": "src/build/libroot/function_remapper.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-04-15T07:48:40Z",
+      "side": 1,
+      "message": "fs_rewind_attr_dir() should return void.",
+      "revId": "38be9b7b461847f79658c5efbc5fa7f98244a5db",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aad98235_c18d6299",
+        "filename": "src/build/libroot/remapped_functions.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-04-15T07:48:40Z",
+      "side": 1,
+      "message": "_haiku_build_fs_close_attr_dir and _haiku_build_fs_read_attr_dir aren\u0027t correctly aligned it seems. \nAlso the style in this file seems to be void* instead of void *.",
+      "revId": "38be9b7b461847f79658c5efbc5fa7f98244a5db",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
