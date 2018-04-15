@@ -71,6 +71,40 @@
     },
     {
       "key": {
+        "uuid": "bf8b8519_58e5556a",
+        "filename": "build/jam/images/AnybootImage",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-04-15T08:13:40Z",
+      "side": 1,
+      "message": "The five Depends can be factorized: Depends $(anybootImage) : $(anyboot) $(isoPart) $(mbrPart) $(efiPart) $(imageFile) ;",
+      "revId": "1747a891eb93a23c898c8a5d0eca5b48464c03ea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7041bc4a_45d0e49d",
+        "filename": "build/jam/images/AnybootImage",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-04-15T08:13:40Z",
+      "side": 1,
+      "message": "The line with BuildAnybootImageEfi1 seems to be too long.",
+      "revId": "1747a891eb93a23c898c8a5d0eca5b48464c03ea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1e9aa8a_b8d68f1e",
         "filename": "build/jam/images/AnybootImage",
         "patchSetId": 1
