@@ -107,21 +107,25 @@ typedef struct {
 	status_t (*setup_interrupt)(virtio_device cookie,
 		virtio_intr_func config_handler, void* driverCookie);
 
+	status_t (*queue_setup_interrupt)(virtio_queue queue,
+		virtio_callback_func handler, void* cookie);
+
 	status_t (*queue_request)(virtio_queue queue,
 		const physical_entry *readEntry,
-		const physical_entry *writtenEntry, virtio_callback_func callback,
-		void *callbackCookie);
+		const physical_entry *writtenEntry, void *cookie);
 
 	status_t (*queue_request_v)(virtio_queue queue,
 		const physical_entry* vector,
 		size_t readVectorCount, size_t writtenVectorCount,
-		virtio_callback_func callback, void *callbackCookie);
+		void *cookie);
 
 	bool (*queue_is_full)(virtio_queue queue);
 
 	bool (*queue_is_empty)(virtio_queue queue);
 
 	uint16 (*queue_size)(virtio_queue queue);
+
+	void* (*queue_dequeue)(virtio_queue queue, uint16* _size);
 
 } virtio_device_interface;
 
