@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c44220fd_f32effdd",
+        "filename": "src/build/libroot/remapped_functions.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-04-16T04:54:17Z",
+      "side": 1,
+      "message": "There is still a space before _haiku_build_fs_close_attr_dir",
+      "revId": "6fd9164e3f249af48038d8ae9bdf601ff3837531",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b436c773_473f7273",
+        "filename": "src/build/libroot/remapped_functions.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-04-16T04:54:17Z",
+      "side": 1,
+      "message": "Same before _haiku_build_fs_rewind_attr_dir",
+      "revId": "6fd9164e3f249af48038d8ae9bdf601ff3837531",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
