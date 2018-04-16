@@ -61,6 +61,13 @@ VirtioRNGDevice::VirtioRNGDevice(device_node *node)
 		ERROR("interrupt setup failed (%s)\n", strerror(fStatus));
 		return;
 	}
+
+	fStatus = fVirtio->queue_setup_interrupt(fVirtioQueue, _RequestCallback,
+		this);
+	if (fStatus != B_OK) {
+		ERROR("queue interrupt setup failed (%s)\n", strerror(fStatus));
+		return;
+	}
 }
 
 
@@ -88,7 +95,7 @@ VirtioRNGDevice::Read(void* _buffer, size_t* _numBytes)
 			fInterruptCondition.Add(&fInterruptConditionEntry);
 		}
 		status_t result = fVirtio->queue_request(fVirtioQueue, NULL, &fEntry,
-			_RequestCallback, this);
+			this);
 		if (result != B_OK) {
 			ERROR("queueing failed (%s)\n", strerror(result));
 			return result;
@@ -123,6 +130,10 @@ void
 VirtioRNGDevice::_RequestCallback(void* driverCookie, void* cookie)
 {
 	VirtioRNGDevice* device = (VirtioRNGDevice*)driverCookie;
+
+	while (device->fVirtio->queue_dequeue(device->fVirtioQueue, NULL) != NULL)
+		;
+
 	device->_RequestInterrupt();
 }
 
