@@ -11,6 +11,15 @@
 
 #include <TabView.h>
 
+#include <String.h>
+
+
+struct _BTabData_
+{
+	BTabView*	fTabView;
+	BString		fLabel;
+};
+
 
 class BTab::Private {
 public:
@@ -21,7 +30,7 @@ public:
 								}
 
 			void				SetTabView(BTabView* tabView)
-									{ fTab->fTabView = tabView; }
+									{ fTab->fData->fTabView = tabView; }
 
 private:
 			BTab* fTab;

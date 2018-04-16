@@ -9,6 +9,7 @@
 #include <View.h>
 
 
+struct _BTabData_;
 class BTabView;
 
 
@@ -78,7 +79,7 @@ private:
 			bool				fSelected;
 			bool				fFocus;
 			BView*				fView;
-			BTabView*			fTabView;
+			_BTabData_*			fData;
 
 			uint32				_reserved[11];
 };

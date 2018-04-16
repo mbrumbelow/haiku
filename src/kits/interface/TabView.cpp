@@ -51,9 +51,12 @@ BTab::BTab(BView* contentsView)
 	fEnabled(true),
 	fSelected(false),
 	fFocus(false),
-	fView(contentsView),
-	fTabView(NULL)
+	fView(contentsView)
 {
+	fData = new _BTabData_;
+	fData->fTabView = NULL;
+	if (fView != NULL)
+		fData->fLabel = fView->Name();
 }
 
 
@@ -62,9 +65,11 @@ BTab::BTab(BMessage* archive)
 	BArchivable(archive),
 	fSelected(false),
 	fFocus(false),
-	fView(NULL),
-	fTabView(NULL)
+	fView(NULL)
 {
+	fData = new _BTabData_;
+	fData->fTabView = NULL;
+
 	bool disable;
 
 	if (archive->FindBool("_disable", &disable) != B_OK)
@@ -76,6 +81,8 @@ BTab::BTab(BMessage* archive)
 
 BTab::~BTab()
 {
+	delete fData;
+
 	if (fView == NULL)
 		return;
 
@@ -121,7 +128,7 @@ const char*
 BTab::Label() const
 {
 	if (fView != NULL)
-		return fView->Name();
+		return fData->fLabel;
 	else
 		return NULL;
 }
@@ -133,10 +140,10 @@ BTab::SetLabel(const char* label)
 	if (label == NULL || fView == NULL)
 		return;
 
-	fView->SetName(label);
+	fData->fLabel = label;
 
-	if (fTabView != NULL)
-		fTabView->Invalidate();
+	if (fData->fTabView != NULL)
+		fData->fTabView->Invalidate();
 }
 
 
@@ -220,10 +227,11 @@ BTab::SetView(BView* view)
 		delete fView;
 	}
 	fView = view;
+	fData->fLabel = fView->Name();
 
-	if (fTabView != NULL && fSelected) {
-		Select(fTabView->ContainerView());
-		fTabView->Invalidate();
+	if (fData->fTabView != NULL && fSelected) {
+		Select(fData->fTabView->ContainerView());
+		fData->fTabView->Invalidate();
 	}
 }
 
@@ -243,7 +251,7 @@ BTab::DrawFocusMark(BView* owner, BRect frame)
 	owner->SetHighColor(ui_color(B_KEYBOARD_NAVIGATION_COLOR));
 
 	float offset = IsSelected() ? 3 : 2;
-	switch (fTabView->TabSide()) {
+	switch (fData->fTabView->TabSide()) {
 		case BTabView::kTopSide:
 			owner->StrokeLine(BPoint((frame.left + frame.right - width) / 2.0,
 					frame.bottom - offset),
@@ -278,7 +286,7 @@ BTab::DrawLabel(BView* owner, BRect frame)
 	float rotation = 0.0f;
 	BPoint center(frame.left + frame.Width() / 2,
 		frame.top + frame.Height() / 2);
-	switch (fTabView->TabSide()) {
+	switch (fData->fTabView->TabSide()) {
 		case BTabView::kTopSide:
 		case BTabView::kBottomSide:
 			rotation = 0.0f;
@@ -319,8 +327,8 @@ BTab::DrawTab(BView* owner, BRect frame, tab_position position, bool full)
 {
 	rgb_color no_tint = ui_color(B_PANEL_BACKGROUND_COLOR);
 	uint32 borders = 0;
-	if (fTabView->TabSide() == BTabView::kTopSide
-		|| fTabView->TabSide() == BTabView::kBottomSide) {
+	if (fData->fTabView->TabSide() == BTabView::kTopSide
+		|| fData->fTabView->TabSide() == BTabView::kBottomSide) {
 		borders = BControlLook::B_TOP_BORDER | BControlLook::B_BOTTOM_BORDER;
 
 		if (frame.left == owner->Bounds().left)
@@ -328,8 +336,8 @@ BTab::DrawTab(BView* owner, BRect frame, tab_position position, bool full)
 
 		if (frame.right == owner->Bounds().right)
 			borders |= BControlLook::B_RIGHT_BORDER;
-	} else if (fTabView->TabSide() == BTabView::kLeftSide
-		|| fTabView->TabSide() == BTabView::kRightSide) {
+	} else if (fData->fTabView->TabSide() == BTabView::kLeftSide
+		|| fData->fTabView->TabSide() == BTabView::kRightSide) {
 		borders = BControlLook::B_LEFT_BORDER | BControlLook::B_RIGHT_BORDER;
 
 		if (frame.top == owner->Bounds().top)
@@ -341,10 +349,10 @@ BTab::DrawTab(BView* owner, BRect frame, tab_position position, bool full)
 
 	if (position == B_TAB_FRONT) {
 		be_control_look->DrawActiveTab(owner, frame, frame, no_tint, 0,
-			borders, fTabView->TabSide());
+			borders, fData->fTabView->TabSide());
 	} else {
 		be_control_look->DrawInactiveTab(owner, frame, frame, no_tint, 0,
-			borders, fTabView->TabSide());
+			borders, fData->fTabView->TabSide());
 	}
 
 	DrawLabel(owner, frame);
