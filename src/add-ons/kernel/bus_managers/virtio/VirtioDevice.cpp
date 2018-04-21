@@ -1,5 +1,5 @@
 /*
- * Copyright 2013, Jérôme Duval, korli@users.berlios.de.
+ * Copyright 2013, 2018, Jérôme Duval, jerome.duval@gmail.com.
  * Distributed under the terms of the MIT License.
  */
 
@@ -63,6 +63,7 @@ VirtioDevice::VirtioDevice(device_node *node)
 	fConfigHandler(NULL),
 	fDriverCookie(NULL)
 {
+	CALLED();
 	device_node *parent = gDeviceManager->get_parent_node(node);
 	fStatus = gDeviceManager->get_driver(parent,
 		(driver_module_info **)&fController, &fCookie);
@@ -86,10 +87,12 @@ VirtioDevice::VirtioDevice(device_node *node)
 
 VirtioDevice::~VirtioDevice()
 {
-	for (size_t index = 0; index < fQueueCount; index++) {
-		delete fQueues[index];
+	if (fQueues != NULL) {
+		for (size_t index = 0; index < fQueueCount; index++)
+			delete fQueues[index];
+		delete fQueues;
 	}
-	delete fQueues;
+	fController->set_status(fCookie, VIRTIO_CONFIG_STATUS_RESET);
 }
 
 
@@ -150,10 +153,8 @@ VirtioDevice::AllocateQueues(size_t count, virtio_queue *queues)
 
 	status_t status = B_OK;
 	fQueues = new(std::nothrow) VirtioQueue*[count];
-	if (fQueues == NULL) {
-		status = B_NO_MEMORY;
-		goto err;
-	}
+	if (fQueues == NULL)
+		return B_NO_MEMORY;
 
 	fQueueCount = count;
 	for (size_t index = 0; index < count; index++) {
@@ -170,7 +171,26 @@ VirtioDevice::AllocateQueues(size_t count, virtio_queue *queues)
 	return B_OK;
 
 err:
+	for (size_t index = 0; index < count; index++)
+		delete fQueues[index];
+	delete fQueues;
+	fQueues = NULL;
 	return status;
+}
+
+
+void
+VirtioDevice::FreeQueues()
+{
+	if (fQueues != NULL) {
+		for (size_t index = 0; index < fQueueCount; index++)
+			delete fQueues[index];
+		delete fQueues;
+		fQueues = NULL;
+	}
+
+	fController->set_status(fCookie, VIRTIO_CONFIG_STATUS_RESET);
+	fController->set_status(fCookie, VIRTIO_CONFIG_STATUS_DRIVER);
 }
 
 
@@ -188,6 +208,22 @@ VirtioDevice::SetupInterrupt(virtio_intr_func configHandler, void *driverCookie)
 
 	for (size_t index = 0; index < fQueueCount; index++)
 		fQueues[index]->EnableInterrupt();
+	return B_OK;
+}
+
+
+status_t
+VirtioDevice::FreeInterrupts()
+{
+	for (size_t index = 0; index < fQueueCount; index++)
+		fQueues[index]->DisableInterrupt();
+
+	fController->set_status(fCookie, VIRTIO_CONFIG_STATUS_DRIVER);
+
+	status_t status = fController->free_interrupt(fCookie);
+	if (status != B_OK)
+		return status;
+
 	return B_OK;
 }
 
