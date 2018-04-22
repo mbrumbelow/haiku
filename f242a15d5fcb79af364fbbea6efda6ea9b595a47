@@ -104,6 +104,23 @@
     },
     {
       "key": {
+        "uuid": "b3fc79f6_7212ba5d",
+        "filename": "src/bin/setlocale.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2018-04-22T20:33:56Z",
+      "side": 1,
+      "message": "In the print case, the language is deleted after use.",
+      "revId": "f242a15d5fcb79af364fbbea6efda6ea9b595a47",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7f778ca0_18012250",
         "filename": "src/bin/setlocale.cpp",
         "patchSetId": 2
