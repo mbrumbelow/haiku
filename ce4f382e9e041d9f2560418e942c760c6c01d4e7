@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9fb5e15c_7d73733b",
+        "filename": "src/kits/interface/TabView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2018-04-22T13:07:26Z",
+      "side": 1,
+      "message": "Coding style: IsLayouted() would go to the next line.",
+      "revId": "ce4f382e9e041d9f2560418e942c760c6c01d4e7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
