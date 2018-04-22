@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3e93c0ec_a0b82490",
+        "filename": "src/bin/setlocale.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2018-04-22T20:32:14Z",
+      "side": 1,
+      "message": "Some coding style issues like this one all over the place.",
+      "revId": "f242a15d5fcb79af364fbbea6efda6ea9b595a47",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0fba8ee6_06324bc0",
+        "filename": "src/bin/setlocale.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2018-04-22T20:32:14Z",
+      "side": 1,
+      "message": "Superfluous variables make the code longer and harder to read. \"language-\u003e...\" should be on a new line.",
+      "revId": "f242a15d5fcb79af364fbbea6efda6ea9b595a47",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8da2f0ec_69d9b34d",
+        "filename": "src/bin/setlocale.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2018-04-22T20:32:14Z",
+      "side": 1,
+      "message": "Superfluous block.",
+      "revId": "f242a15d5fcb79af364fbbea6efda6ea9b595a47",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1dd28a9_f7065fb0",
+        "filename": "src/bin/setlocale.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2018-04-22T20:32:14Z",
+      "side": 1,
+      "message": "Superfluous block.",
+      "revId": "f242a15d5fcb79af364fbbea6efda6ea9b595a47",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d65dfea_3ce40867",
+        "filename": "src/bin/setlocale.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2018-04-22T20:32:14Z",
+      "side": 1,
+      "message": "And again.",
+      "revId": "f242a15d5fcb79af364fbbea6efda6ea9b595a47",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a86d47ce_50557ab9",
+        "filename": "src/bin/setlocale.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2018-04-22T20:32:14Z",
+      "side": 1,
+      "message": "This looks quite complicated for what it does. Even\n    targetCode.Append(\"_\").Append(queryCountry)\nwould be nicer, otherwise it could be done in two steps:\n    targetCode +\u003d \u0027_\u0027;\n    targetCode +\u003d queryCountry;",
+      "revId": "f242a15d5fcb79af364fbbea6efda6ea9b595a47",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f778ca0_18012250",
+        "filename": "src/bin/setlocale.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2018-04-22T20:32:14Z",
+      "side": 1,
+      "message": "Operator goes to the next line.",
+      "revId": "f242a15d5fcb79af364fbbea6efda6ea9b595a47",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
