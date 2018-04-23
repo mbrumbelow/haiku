@@ -2,6 +2,57 @@
   "comments": [
     {
       "key": {
+        "uuid": "13cdbdb8_17a7b32b",
+        "filename": "headers/private/virtio/virtio.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2018-04-23T16:33:57Z",
+      "side": 1,
+      "message": "What about passing the request\u0027s queue to the callback, to share a common handler between several queues?\n\nvoid (*virtio_callback_func)(void* driverCookie, virtio_queue queue, void* cookie)",
+      "revId": "f03b1699b6944c0bae130f34fefd9292269b62bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef03a133_5ddf4500",
+        "filename": "headers/private/virtio/virtio.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2018-04-23T16:33:57Z",
+      "side": 1,
+      "message": "const physical_entry* writtenEntry, void* cookie (type* name, not type *name)",
+      "revId": "f03b1699b6944c0bae130f34fefd9292269b62bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e1c8fa9_7ac661c9",
+        "filename": "headers/private/virtio/virtio.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2018-04-23T16:33:57Z",
+      "side": 1,
+      "message": "void* cookie",
+      "revId": "f03b1699b6944c0bae130f34fefd9292269b62bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "52370522_f55dd321",
         "filename": "src/add-ons/kernel/bus_managers/virtio/VirtioModule.cpp",
         "patchSetId": 2
