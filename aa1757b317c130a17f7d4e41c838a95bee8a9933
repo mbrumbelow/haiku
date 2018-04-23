@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "14c6f37b_0d0291ac",
+        "filename": "src/add-ons/kernel/bus_managers/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2018-04-23T16:09:30Z",
+      "side": 1,
+      "message": "Calling FreeQueues() here instead ?",
+      "revId": "aa1757b317c130a17f7d4e41c838a95bee8a9933",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "baa82867_43eaad5c",
         "filename": "src/add-ons/kernel/bus_managers/virtio/VirtioDevice.cpp",
         "patchSetId": 1
@@ -13,6 +30,23 @@
       "writtenOn": "2018-04-22T20:14:49Z",
       "side": 1,
       "message": "Could be moved after the return, ie. line 158.",
+      "revId": "aa1757b317c130a17f7d4e41c838a95bee8a9933",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3ada0d3_85d9e57d",
+        "filename": "src/add-ons/kernel/bus_managers/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2018-04-23T16:09:30Z",
+      "side": 1,
+      "message": "Set fQueueCount \u003d index + 1; in the for loop and call FreeQueues() on error instead?",
       "revId": "aa1757b317c130a17f7d4e41c838a95bee8a9933",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
