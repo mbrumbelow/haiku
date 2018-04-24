@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b7b99233_63f7a4b3",
+        "filename": "src/add-ons/kernel/bus_managers/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-04-24T08:46:09Z",
+      "side": 1,
+      "message": "That was the idea first, but it also changes the status. Will need another function.",
+      "parentUuid": "14c6f37b_0d0291ac",
+      "revId": "aa1757b317c130a17f7d4e41c838a95bee8a9933",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "baa82867_43eaad5c",
         "filename": "src/add-ons/kernel/bus_managers/virtio/VirtioDevice.cpp",
         "patchSetId": 1
