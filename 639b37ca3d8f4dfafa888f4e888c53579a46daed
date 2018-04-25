@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "02833aca_266972dc",
+        "filename": "src/add-ons/kernel/drivers/network/virtio/virtio_net.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2018-04-25T14:42:03Z",
+      "side": 1,
+      "message": "virtio_net_ prefix lost?",
+      "revId": "639b37ca3d8f4dfafa888f4e888c53579a46daed",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96e6fd12_96eec604",
+        "filename": "src/add-ons/kernel/drivers/network/virtio/virtio_net.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2018-04-25T14:42:03Z",
+      "side": 1,
+      "message": "info-\u003erxDone \u003e 0\n\nOr even the more explicit (device closing/closed):\n\ninfo-\u003erxDone !\u003d -1",
+      "revId": "639b37ca3d8f4dfafa888f4e888c53579a46daed",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
