@@ -183,8 +183,6 @@ AddOnMenuGenerate(BMessage* refsMessage, entry_ref addonRef, entry_ref directory
 {
 	std::auto_ptr<BMessage> refsMessagePtr(refsMessage);
 
-	BString buffer(B_TRANSLATE("hrishi: Error %error Loading Add-On %name."));
-
 	BEntry entry(&addonRef);
 	BPath path;
 	status_t result = entry.InitCheck();
@@ -193,41 +191,24 @@ AddOnMenuGenerate(BMessage* refsMessage, entry_ref addonRef, entry_ref directory
 
 	if (result == B_OK) {
 		image_id addonImage = load_add_on(path.Path());
-		buffer.Append(" 1.");
 		if (addonImage >= 0) {
 			void (*populateMenu)(entry_ref, BMessage*, BMenu*);
 			result = get_image_symbol(addonImage, "populate_menu", 2,
 				(void**)&populateMenu);
-			buffer.Append(" 2.");
 
 			if (result >= 0) {
 				// call add-on code
 				(*populateMenu)(directoryRef, refsMessagePtr.get(), menu);
-				
-				buffer.Append(" 3.");
-				BAlert* alert = new BAlert("", buffer.String(), B_TRANSLATE("Cancel"),
-					0, 0, B_WIDTH_AS_USUAL, B_WARNING_ALERT);
-				alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
-				alert->Go();
 
-				unload_add_on(addonImage);
+				// unload_add_on(addonImage);
 				return B_OK;
 			} else
 				PRINT(("hrishi: couldn't find populate_menu\n"));
 
-			buffer.Append(" 4.");
 			unload_add_on(addonImage);
 		} else
 			result = addonImage;
 	}
-
-	buffer.ReplaceFirst("%error", strerror(result));
-	buffer.ReplaceFirst("%name", addonRef.name);
-
-	BAlert* alert = new BAlert("", buffer.String(), B_TRANSLATE("Cancel"),
-		0, 0, B_WIDTH_AS_USUAL, B_WARNING_ALERT);
-	alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
-	// alert->Go();
 
 	return result;
 }
@@ -251,17 +232,17 @@ AddOneAddon(const Model* model, const char* name, uint32 shortcut,
 	
 	// add selected refs to message
 	BMessage* refs = new BMessage(B_REFS_RECEIVED);
-	// BObjectList<BPose>* selectionList = PoseView()->SelectionList();
+	BObjectList<BPose>* selectionList = window->PoseView()->SelectionList();
 
-	// int32 index = 0;
-	// BPose* pose;
-	// while ((pose = selectionList->ItemAt(index++)) != NULL)
-	// 	refs->AddRef("refs", pose->TargetModel()->EntryRef());
+	int32 index = 0;
+	BPose* pose;
+	while ((pose = selectionList->ItemAt(index++)) != NULL)
+		refs->AddRef("refs", pose->TargetModel()->EntryRef());
 
-	// refs->AddMessenger("TrackerViewToken", BMessenger(PoseView()));
+	refs->AddMessenger("TrackerViewToken", BMessenger(window->PoseView()));
 
-	// AddOnMenuGenerate(refs, addonRef, *TargetModel()->EntryRef(), item);
-	AddOnMenuGenerate(refs, addonRef, addonRef, menu);
+	AddOnMenuGenerate(refs, addonRef, *window->TargetModel()->EntryRef(), menu);
+	// AddOnMenuGenerate(refs, addonRef, addonRef, menu);
 
 	if (primary)
 		params->primaryList->AddItem(item);
