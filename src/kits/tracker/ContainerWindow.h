@@ -340,8 +340,9 @@ private:
 	friend int32 show_context_menu(void*);
 	friend class BackgroundView;
 
-	void _UpdateSelectionMIMEInfo();
-	void _AddFolderIcon();
+	void  _UpdateSelectionMIMEInfo();
+	void  _AddFolderIcon();
+	int32 _PassMessageToAddOn(BMessage*);
 };
 
 
