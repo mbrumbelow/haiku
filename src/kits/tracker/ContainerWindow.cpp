@@ -179,10 +179,8 @@ CompareLabels(const BMenuItem* item1, const BMenuItem* item2)
 
 
 static int32
-AddOnMenuGenerate(BMessage* refsMessage, entry_ref addonRef, entry_ref directoryRef, BMenu* menu)
+AddOnMenuGenerate(entry_ref addonRef, BMenu* menu)
 {
-	std::auto_ptr<BMessage> refsMessagePtr(refsMessage);
-
 	BEntry entry(&addonRef);
 	BPath path;
 	status_t result = entry.InitCheck();
@@ -192,15 +190,18 @@ AddOnMenuGenerate(BMessage* refsMessage, entry_ref addonRef, entry_ref directory
 	if (result == B_OK) {
 		image_id addonImage = load_add_on(path.Path());
 		if (addonImage >= 0) {
-			void (*populateMenu)(entry_ref, BMessage*, BMenu*);
+			void (*populateMenu)(BMessage*, BMenu*);
 			result = get_image_symbol(addonImage, "populate_menu", 2,
 				(void**)&populateMenu);
 
 			if (result >= 0) {
-				// call add-on code
-				(*populateMenu)(directoryRef, refsMessagePtr.get(), menu);
+				BMessage* message = new BMessage(B_TRACKER_ADDON_MESSAGE);
+				message->AddRef("addon_ref", &addonRef);
 
-				// unload_add_on(addonImage);
+				// call add-on code
+				(*populateMenu)(message, menu);
+
+				unload_add_on(addonImage);
 				return B_OK;
 			} else
 				PRINT(("hrishi: couldn't find populate_menu\n"));
@@ -229,20 +230,7 @@ AddOneAddon(const Model* model, const char* name, uint32 shortcut,
 
 	// hrishi: here
 	entry_ref addonRef = *model->EntryRef();
-	
-	// add selected refs to message
-	BMessage* refs = new BMessage(B_REFS_RECEIVED);
-	BObjectList<BPose>* selectionList = window->PoseView()->SelectionList();
-
-	int32 index = 0;
-	BPose* pose;
-	while ((pose = selectionList->ItemAt(index++)) != NULL)
-		refs->AddRef("refs", pose->TargetModel()->EntryRef());
-
-	refs->AddMessenger("TrackerViewToken", BMessenger(window->PoseView()));
-
-	AddOnMenuGenerate(refs, addonRef, *window->TargetModel()->EntryRef(), menu);
-	// AddOnMenuGenerate(refs, addonRef, addonRef, menu);
+	AddOnMenuGenerate(addonRef, menu);
 
 	if (primary)
 		params->primaryList->AddItem(item);
@@ -1665,6 +1653,10 @@ BContainerWindow::MessageReceived(BMessage* message)
 				}
 				DragStop();
 			}
+			break;
+
+		case B_TRACKER_ADDON_MESSAGE:
+			_PassMessageToAddOn(message);
 			break;
 
 		case B_OBSERVER_NOTICE_CHANGE:
@@ -3394,6 +3386,74 @@ BContainerWindow::_AddFolderIcon()
 		fMenuBar->SetBorders(
 			BControlLook::B_ALL_BORDERS & ~BControlLook::B_RIGHT_BORDER);
 	}
+}
+
+
+int32
+BContainerWindow::_PassMessageToAddOn(BMessage* message)
+{
+	entry_ref addonRef;
+	status_t result = message->FindRef("addon_ref", &addonRef);
+	if (result != B_OK) {
+		BString buffer(B_TRANSLATE("Error %error loading add-On %name."));
+		buffer.ReplaceFirst("%error", strerror(result));
+		buffer.ReplaceFirst("%name", addonRef.name);
+
+		BAlert* alert = new BAlert("", buffer.String(),	B_TRANSLATE("Cancel"),
+			0, 0, B_WIDTH_AS_USUAL, B_WARNING_ALERT);
+		alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
+		alert->Go();
+		return result;
+	}
+	
+	BEntry entry(&addonRef);
+	BPath path;
+	result = entry.InitCheck();
+	if (result == B_OK)
+		result = entry.GetPath(&path);
+
+	if (result == B_OK) {
+		image_id addonImage = load_add_on(path.Path());
+		if (addonImage >= 0) {
+			void (*messageReceived)(entry_ref, BMessage*);
+			result = get_image_symbol(addonImage, "message_received", 2,
+				(void**)&messageReceived);
+
+			if (result >= 0) {
+				// add selected refs to message
+				BObjectList<BPose>* selectionList = PoseView()->SelectionList();
+
+				int32 index = 0;
+				BPose* pose;
+				while ((pose = selectionList->ItemAt(index++)) != NULL)
+					message->AddRef("refs", pose->TargetModel()->EntryRef());
+
+				message->AddMessenger("TrackerViewToken", BMessenger(PoseView()));
+
+				// call add-on code
+				(*messageReceived)(*TargetModel()->EntryRef(), message);
+
+				unload_add_on(addonImage);
+				return B_OK;
+			} else
+				PRINT(("hrishi: couldn't find populate_menu\n"));
+
+			unload_add_on(addonImage);
+		} else
+			result = addonImage;
+	}
+
+	BString buffer(B_TRANSLATE("Error %error loading add-On %name."));
+	buffer.ReplaceFirst("%error", strerror(result));
+	buffer.ReplaceFirst("%name", addonRef.name);
+
+	BAlert* alert = new BAlert("", buffer.String(),	B_TRANSLATE("Cancel"),
+		0, 0, B_WIDTH_AS_USUAL, B_WARNING_ALERT);
+	alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
+	alert->Go();
+
+	return result;
+
 }
 
 
