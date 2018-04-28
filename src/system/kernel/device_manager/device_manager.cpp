@@ -42,7 +42,6 @@
 #	define TRACE(a) ;
 #endif
 
-
 #define DEVICE_MANAGER_ROOT_NAME "system/devices_root/driver_v1"
 #define DEVICE_MANAGER_GENERIC_NAME "system/devices_generic/driver_v1"
 
@@ -1538,7 +1537,9 @@ device_node::_GetNextDriverPath(void*& cookie, KPath& _path)
 		if (get_attr_uint16(this, B_DEVICE_TYPE, &type, false) != B_OK
 			|| get_attr_uint16(this, B_DEVICE_SUB_TYPE, &subType, false)
 					!= B_OK)
+		{
 			generic = true;
+		}
 
 		get_attr_uint16(this, B_DEVICE_INTERFACE, &interface, false);
 
@@ -1599,6 +1600,16 @@ device_node::_GetNextDriverPath(void*& cookie, KPath& _path)
 						break;
 				}
 				break;
+			case PCI_base_peripheral:
+				switch (subType) {
+					case PCI_sd_host:
+						_AddPath(*stack, "busses", "mmc");
+						break;
+					default:
+						_AddPath(*stack, "drivers");
+						break;
+				}
+				break;
 			default:
 				if (sRootNode == this) {
 					_AddPath(*stack, "busses/pci");
@@ -1608,7 +1619,7 @@ device_node::_GetNextDriverPath(void*& cookie, KPath& _path)
 					_AddPath(*stack, "drivers");
 				} else {
 					// For generic drivers, we only allow busses when the
-					// request is more specified
+					// request is more specified	
 					if (sGenericContextPath != NULL
 						&& (!strcmp(sGenericContextPath, "disk")
 							|| !strcmp(sGenericContextPath, "ports")
@@ -1885,7 +1896,8 @@ device_node::Probe(const char* devicePath, uint32 updateCycle)
 			// Check if this node matches the device path
 			// TODO: maybe make this extendible via settings file?
 			if (!strcmp(devicePath, "disk")) {
-				matches = type == PCI_mass_storage;
+				matches = type == PCI_mass_storage
+					&& (type == PCI_base_peripheral || subType == PCI_sd_host);
 			} else if (!strcmp(devicePath, "audio")) {
 				matches = type == PCI_multimedia
 					&& (subType == PCI_audio || subType == PCI_hd_audio);
