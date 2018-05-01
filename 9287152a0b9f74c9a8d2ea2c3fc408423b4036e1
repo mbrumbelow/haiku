@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7caed8f4_bfc1693e",
+        "filename": "src/system/kernel/fs/vfs.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2018-05-01T19:51:48Z",
+      "side": 1,
+      "message": "Based on your patch I have replaced this with a reference to struct file_descriptor* (and updated all the other functions in here). With the rust test suite more tests pass.",
+      "revId": "9287152a0b9f74c9a8d2ea2c3fc408423b4036e1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f6808a8_c02f1ede",
+        "filename": "src/system/kernel/fs/vfs.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1651,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2018-05-01T19:51:48Z",
+      "side": 1,
+      "message": "I run into an issue here. If the team is killed, then the file_close() is called as session 1. This means that existing locks (created with the pid of the application) do not get freed. \n\nDo we need to check the session? Are file_descriptors on a per process, or are they shared between processes? In case they are only shared between forked processes, then it is okay that either one of those processes releases the locks, as described in the document I linked to earlier. The check could then go entirely. \n\n[Addition: in my build I changed this check to lock-\u003efd !\u003d NULL \u0026\u0026 lock-\u003efd \u003d\u003d fd; this disqualifies the posix locks]\n\nIf the check for staying close to one process needs to stay, then we need to find another unique identifier that persists even when the kernel cleans up.",
+      "range": {
+        "startLine": 1651,
+        "startChar": 6,
+        "endLine": 1651,
+        "endChar": 30
+      },
+      "revId": "9287152a0b9f74c9a8d2ea2c3fc408423b4036e1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18f10dc6_4d26266f",
+        "filename": "src/system/kernel/fs/vfs.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 5642,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2018-05-01T19:51:48Z",
+      "side": 1,
+      "message": "When I change the fd to the file_descriptor, I indeed run this line uncommented and it seems to work. \n\nI did not test whether the flock semantics remained intact.",
+      "range": {
+        "startLine": 5642,
+        "startChar": 3,
+        "endLine": 5642,
+        "endChar": 54
+      },
+      "revId": "9287152a0b9f74c9a8d2ea2c3fc408423b4036e1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
