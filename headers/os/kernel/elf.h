@@ -182,7 +182,14 @@ typedef struct {
 #define EM_OPENRISC		92 /* OpenRISC 32-bit embedded processor */
 #define EM_ARC_A5		93 /* ARC Cores Tangent-A5 */
 #define EM_XTENSA		94 /* Tensilica Xtensa Architecture */
-#define EM_NUM			95
+#define EM_VIDCORE		95 /* VideoCore */
+#define EM_AARCH64		183 /* ARM 64 bit */
+#define EM_AVR32		185 /* AVR-32 */
+#define EM_STM8			186 /* ST STM8S */
+#define EM_CUDA			190 /* Nvidia CUDA */
+#define EM_VIDCORE5		198 /* VideoCore 5 */
+#define EM_AMDGPU		224 /* AMD GPU */
+#define EM_RISCV		243 /* RISC-V */
 
 /* architecture class (EI_CLASS) */
 #define ELFCLASSNONE	0
