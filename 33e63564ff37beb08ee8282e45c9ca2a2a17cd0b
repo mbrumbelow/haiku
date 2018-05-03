@@ -16,6 +16,24 @@
       "revId": "33e63564ff37beb08ee8282e45c9ca2a2a17cd0b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7ccdca0_3ff5ba2f",
+        "filename": "src/kits/app/Roster.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-05-03T18:43:06Z",
+      "side": 1,
+      "message": "Right, I missed this one.",
+      "parentUuid": "6a86d8ae_90841a6f",
+      "revId": "33e63564ff37beb08ee8282e45c9ca2a2a17cd0b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
