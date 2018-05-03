@@ -837,6 +837,8 @@ using BKernel::ProcessGroupList;
 #define	THREAD_FLAGS_TRAP_FOR_CORE_DUMP		0x1000
 	// core dump in progress; the thread shall not exit the kernel to userland,
 	// but shall invoke core_dump_trap_thread() instead.
+#define	THREAD_FLAGS_COMPAT_MODE			0x2000
+	// the thread runs a compatibility mode (for instance IA32 on x86_64).
 
 
 #endif	/* _KERNEL_THREAD_TYPES_H */
