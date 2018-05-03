@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5b7709cf_1911d401",
+        "filename": "src/kits/interface/View.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2018-05-03T17:00:43Z",
+      "side": 1,
+      "message": "should be transform.sy",
+      "revId": "93e9f74bc743576c454004dec0653c5bc1f002f8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6b14803_6f345444",
+        "filename": "src/kits/interface/View.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2018-05-03T17:00:43Z",
+      "side": 1,
+      "message": "should be transform.sy \u003d ...",
+      "revId": "93e9f74bc743576c454004dec0653c5bc1f002f8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15bfef8f_9cc0fd4b",
+        "filename": "src/servers/app/DrawState.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2018-05-03T17:00:43Z",
+      "side": 1,
+      "message": "should be fTransform.sy \u003d",
+      "revId": "93e9f74bc743576c454004dec0653c5bc1f002f8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69bed8a6_a78631e1",
+        "filename": "src/servers/app/DrawState.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2018-05-03T17:00:43Z",
+      "side": 1,
+      "message": "should be \u003d fTransform.sy",
+      "revId": "93e9f74bc743576c454004dec0653c5bc1f002f8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
