@@ -33,6 +33,24 @@
       "revId": "c50158fee0cb6b838bea58e7e4434c0015296663",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10c64937_9eb7094d",
+        "filename": "src/servers/app/font/FontStyle.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2018-05-03T17:27:22Z",
+      "side": 1,
+      "message": "\u003e The code didn\u0027t even encounter any chars which have the half width.\n\n... have the full (aka double half) width, you mean?\nIf yes, I kninda agree with you on the lack of robustness.\n\nTo check it\u0027s a Half *and*  Full fixed font, it should check if it has \"half\" width for expected ASCII range glyphs (which the code above does) *and* that others glyphs are either half width too ordouble the half width, nothing else, no ?\nAnd that check part is not present. Because it\u0027s too costly ?\n\nWhat the current code does is detecting IsHalfFixed() only ^^",
+      "parentUuid": "0d37ea91_d59bd4d9",
+      "revId": "c50158fee0cb6b838bea58e7e4434c0015296663",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
