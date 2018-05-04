@@ -63,6 +63,7 @@ All rights reserved.
 #include <fs_attr.h>
 #include <image.h>
 #include <strings.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 #include <algorithm>
@@ -179,6 +180,7 @@ CompareLabels(const BMenuItem* item1, const BMenuItem* item2)
 
 
 static int32
+<<<<<<< HEAD   (6a4ea2 Dynamic Addon Menu: Added code to handle message)
 AddOnMenuGenerate(entry_ref addonRef, BMenu* menu)
 {
 	BEntry entry(&addonRef);
@@ -200,6 +202,29 @@ AddOnMenuGenerate(entry_ref addonRef, BMenu* menu)
 
 				// call add-on code
 				(*populateMenu)(message, menu);
+=======
+AddOnMenuGenerate(entry_ref addonRef, BMenu* menu, BContainerWindow* window)
+{
+	BEntry entry(&addonRef);
+	BPath path;
+	status_t result = entry.InitCheck();
+	if (result == B_OK)
+		result = entry.GetPath(&path);
+
+	if (result == B_OK) {
+		image_id addonImage = load_add_on(path.Path());
+		if (addonImage >= 0) {
+			void (*populateMenu)(BMessage*, BMenu*, BHandler*);
+			result = get_image_symbol(addonImage, "populate_menu", 2,
+				(void**)&populateMenu);
+
+			if (result >= 0) {
+				BMessage* message = window->AddOnMessage(B_TRACKER_ADDON_MESSAGE);
+				message->AddRef("addon_ref", &addonRef);
+
+				// call add-on code
+				(*populateMenu)(message, menu, window->PoseView());
+>>>>>>> BRANCH (74dff2 Dynamic Tracker Menu: refs and dir_ref added to message)
 
 				unload_add_on(addonImage);
 				return B_OK;
@@ -230,7 +255,11 @@ AddOneAddon(const Model* model, const char* name, uint32 shortcut,
 
 	// hrishi: here
 	entry_ref addonRef = *model->EntryRef();
+<<<<<<< HEAD   (6a4ea2 Dynamic Addon Menu: Added code to handle message)
 	AddOnMenuGenerate(addonRef, menu);
+=======
+	AddOnMenuGenerate(addonRef, menu, window);
+>>>>>>> BRANCH (74dff2 Dynamic Tracker Menu: refs and dir_ref added to message)
 
 	if (primary)
 		params->primaryList->AddItem(item);
@@ -1656,8 +1685,15 @@ BContainerWindow::MessageReceived(BMessage* message)
 			break;
 
 		case B_TRACKER_ADDON_MESSAGE:
+<<<<<<< HEAD   (6a4ea2 Dynamic Addon Menu: Added code to handle message)
 			_PassMessageToAddOn(message);
 			break;
+=======
+		{
+			_PassMessageToAddOn(message);
+			break;
+		}
+>>>>>>> BRANCH (74dff2 Dynamic Tracker Menu: refs and dir_ref added to message)
 
 		case B_OBSERVER_NOTICE_CHANGE:
 		{
@@ -3303,6 +3339,27 @@ BContainerWindow::UpdateMenu(BMenu* menu, UpdateMenuContext context)
 }
 
 
+BMessage*
+BContainerWindow::AddOnMessage(int32 what)
+{
+	BMessage* message = new BMessage(what);
+
+	// add selected refs to message
+	BObjectList<BPose>* selectionList = PoseView()->SelectionList();
+
+	int32 index = 0;
+	BPose* pose;
+	while ((pose = selectionList->ItemAt(index++)) != NULL)
+		message->AddRef("refs", pose->TargetModel()->EntryRef());
+
+	message->AddRef("dir_ref", TargetModel()->EntryRef());
+
+	message->AddMessenger("TrackerViewToken", BMessenger(PoseView()));
+
+	return message;
+}
+
+
 void
 BContainerWindow::LoadAddOn(BMessage* message)
 {
@@ -3323,15 +3380,7 @@ BContainerWindow::LoadAddOn(BMessage* message)
 	}
 
 	// add selected refs to message
-	BMessage* refs = new BMessage(B_REFS_RECEIVED);
-	BObjectList<BPose>* selectionList = PoseView()->SelectionList();
-
-	int32 index = 0;
-	BPose* pose;
-	while ((pose = selectionList->ItemAt(index++)) != NULL)
-		refs->AddRef("refs", pose->TargetModel()->EntryRef());
-
-	refs->AddMessenger("TrackerViewToken", BMessenger(PoseView()));
+	BMessage* refs = AddOnMessage(B_REFS_RECEIVED);
 
 	LaunchInNewThread("Add-on", B_NORMAL_PRIORITY, &AddOnThread, refs,
 		addonRef, *TargetModel()->EntryRef());
@@ -3415,6 +3464,7 @@ BContainerWindow::_PassMessageToAddOn(BMessage* message)
 	if (result == B_OK) {
 		image_id addonImage = load_add_on(path.Path());
 		if (addonImage >= 0) {
+<<<<<<< HEAD   (6a4ea2 Dynamic Addon Menu: Added code to handle message)
 			void (*messageReceived)(entry_ref, BMessage*);
 			result = get_image_symbol(addonImage, "message_received", 2,
 				(void**)&messageReceived);
@@ -3432,6 +3482,15 @@ BContainerWindow::_PassMessageToAddOn(BMessage* message)
 
 				// call add-on code
 				(*messageReceived)(*TargetModel()->EntryRef(), message);
+=======
+			void (*messageReceived)(BMessage*);
+			result = get_image_symbol(addonImage, "message_received", 2,
+				(void**)&messageReceived);
+
+			if (result >= 0) {
+				// call add-on code
+				(*messageReceived)(message);
+>>>>>>> BRANCH (74dff2 Dynamic Tracker Menu: refs and dir_ref added to message)
 
 				unload_add_on(addonImage);
 				return B_OK;
