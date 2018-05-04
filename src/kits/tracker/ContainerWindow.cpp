@@ -229,13 +229,16 @@ AddOneAddon(const Model* model, const char* name, uint32 shortcut,
 	ModelMenuItem* item = new ModelMenuItem(model, name, message,
 		(char)shortcut, modifiers);
 
-	// hrishi: here
 	entry_ref addonRef = *model->EntryRef();
+<<<<<<< HEAD   (1a6c10 Merge origin with github)
 <<<<<<< HEAD
 	AddOnMenuGenerate(addonRef, menu);
 =======
 	AddOnMenuGenerate(addonRef, menu, window);
 >>>>>>> 74dff231575e0aacfe95f4d31ef1ae6d1242233c
+=======
+	AddOnMenuGenerate(addonRef, menu, window);
+>>>>>>> BRANCH (671206 Merge branch 'master' of https://github.com/Hrily/haiku)
 
 	if (primary)
 		params->primaryList->AddItem(item);

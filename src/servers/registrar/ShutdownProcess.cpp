@@ -1252,20 +1252,6 @@ ShutdownProcess::_Worker()
 }
 
 
-status_t
-ShutdownProcess::_GetUserAndSystemAppList()
-{
-	fWorkerLock.Lock();
-	// Get a list of all applications to shut down
-	status_t status = fRoster->GetShutdownApps(fUserApps, fSystemApps,
-		fBackgroundApps, fVitalSystemApps);
-	fUserApps.Sort(&inverse_compare_by_registration_time);
-	fWorkerLock.Unlock();
-
-	return status;
-}
-
-
 void
 ShutdownProcess::_WorkerDoShutdown()
 {
@@ -1309,6 +1295,24 @@ ShutdownProcess::_WorkerDoShutdown()
 			throw_error(B_SHUTDOWN_CANCELLED);
 	}
 
+<<<<<<< HEAD   (1a6c10 Merge origin with github)
+=======
+	fWorkerLock.Lock();
+	// get a list of all applications to shut down and sort them
+	status_t status = fRoster->GetShutdownApps(fUserApps, fSystemApps,
+		fBackgroundApps, fVitalSystemApps);
+	if (status  != B_OK) {
+		fWorkerLock.Unlock();
+		fRoster->RemoveWatcher(this);
+		return;
+	}
+
+	fUserApps.Sort(&inverse_compare_by_registration_time);
+	fSystemApps.Sort(&inverse_compare_by_registration_time);
+
+	fWorkerLock.Unlock();
+
+>>>>>>> BRANCH (671206 Merge branch 'master' of https://github.com/Hrily/haiku)
 	// make the shutdown window ready and show it
 	_InitShutdownWindow();
 	_SetShutdownWindowCurrentApp(-1);
@@ -1322,6 +1326,7 @@ ShutdownProcess::_WorkerDoShutdown()
 
 	// phase 1: terminate the user apps
 	_SetPhase(USER_APP_TERMINATION_PHASE);
+<<<<<<< HEAD   (1a6c10 Merge origin with github)
 	status_t status;
 	// Since, new apps can still be launched,
 	// loop until all are gone
@@ -1351,6 +1356,17 @@ ShutdownProcess::_WorkerDoShutdown()
 	fWorkerLock.Lock();
 	fSystemApps.Sort(&inverse_compare_by_registration_time);
 	fWorkerLock.Unlock();
+=======
+
+	// since, new apps can still be launched, loop until all are gone
+	if (!fUserApps.IsEmpty()) {
+		_QuitApps(fUserApps, false);
+		_WaitForDebuggedTeams();
+	}
+
+	// tell TRoster not to accept new applications anymore
+	fRoster->SetShuttingDown(true);
+>>>>>>> BRANCH (671206 Merge branch 'master' of https://github.com/Hrily/haiku)
 
 	// phase 2: terminate the system apps
 	_SetPhase(SYSTEM_APP_TERMINATION_PHASE);
