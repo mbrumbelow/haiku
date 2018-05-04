@@ -189,7 +189,10 @@ public:
 
 	// add-on iteration
 	void EachAddon(bool (*)(const Model*, const char*, uint32 shortcut,
-		uint32 modifiers, bool primary, void*), void*, BStringList&);
+		uint32 modifiers, bool primary, void*, BContainerWindow*, BMenu*), void*, BStringList&, BMenu*);
+
+	BMessage* AddOnMessage(int32);
+	entry_ref GetCurrentDirRef();
 
 	BPopUpMenu* ContextMenu();
 
@@ -340,8 +343,9 @@ private:
 	friend int32 show_context_menu(void*);
 	friend class BackgroundView;
 
-	void _UpdateSelectionMIMEInfo();
-	void _AddFolderIcon();
+	void  _UpdateSelectionMIMEInfo();
+	void  _AddFolderIcon();
+	int32 _PassMessageToAddOn(BMessage*);
 };
 
 
