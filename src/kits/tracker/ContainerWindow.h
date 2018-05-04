@@ -190,6 +190,12 @@ public:
 	// add-on iteration
 	void EachAddon(bool (*)(const Model*, const char*, uint32 shortcut,
 		uint32 modifiers, bool primary, void*, BContainerWindow*, BMenu*), void*, BStringList&, BMenu*);
+<<<<<<< HEAD   (6a4ea2 Dynamic Addon Menu: Added code to handle message)
+=======
+
+	BMessage* AddOnMessage(int32);
+	entry_ref GetCurrentDirRef();
+>>>>>>> BRANCH (74dff2 Dynamic Tracker Menu: refs and dir_ref added to message)
 
 	BPopUpMenu* ContextMenu();
 
