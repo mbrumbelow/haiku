@@ -81,7 +81,7 @@ extern "C" {
 
 extern status_t elf_resolve_symbol(struct elf_image_info* image,
 	elf_sym* symbol, struct elf_image_info* sharedImage,
-	addr_t* _symbolAddress);
+	elf_addr* _symbolAddress);
 
 #ifdef __cplusplus
 }
