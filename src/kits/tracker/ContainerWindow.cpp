@@ -63,6 +63,7 @@ All rights reserved.
 #include <fs_attr.h>
 #include <image.h>
 #include <strings.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 #include <algorithm>
@@ -179,7 +180,7 @@ CompareLabels(const BMenuItem* item1, const BMenuItem* item2)
 
 
 static int32
-AddOnMenuGenerate(entry_ref addonRef, BMenu* menu)
+AddOnMenuGenerate(entry_ref addonRef, BMenu* menu, BHandler* handler)
 {
 	BEntry entry(&addonRef);
 	BPath path;
@@ -190,7 +191,7 @@ AddOnMenuGenerate(entry_ref addonRef, BMenu* menu)
 	if (result == B_OK) {
 		image_id addonImage = load_add_on(path.Path());
 		if (addonImage >= 0) {
-			void (*populateMenu)(BMessage*, BMenu*);
+			void (*populateMenu)(BMessage*, BMenu*, BHandler*);
 			result = get_image_symbol(addonImage, "populate_menu", 2,
 				(void**)&populateMenu);
 
@@ -199,7 +200,8 @@ AddOnMenuGenerate(entry_ref addonRef, BMenu* menu)
 				message->AddRef("addon_ref", &addonRef);
 
 				// call add-on code
-				(*populateMenu)(message, menu);
+				printf("handler %d\n", (int)handler);
+				(*populateMenu)(message, menu, handler);
 
 				unload_add_on(addonImage);
 				return B_OK;
@@ -230,7 +232,8 @@ AddOneAddon(const Model* model, const char* name, uint32 shortcut,
 
 	// hrishi: here
 	entry_ref addonRef = *model->EntryRef();
-	AddOnMenuGenerate(addonRef, menu);
+	AddOnMenuGenerate(addonRef, menu, window->PoseView());
+	// menu->SetTargetForItems(window->PoseView());
 
 	if (primary)
 		params->primaryList->AddItem(item);
@@ -1656,8 +1659,10 @@ BContainerWindow::MessageReceived(BMessage* message)
 			break;
 
 		case B_TRACKER_ADDON_MESSAGE:
+		{
 			_PassMessageToAddOn(message);
 			break;
+		}
 
 		case B_OBSERVER_NOTICE_CHANGE:
 		{
