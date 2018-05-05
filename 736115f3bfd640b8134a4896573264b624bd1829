@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "7b39d1c9_d9bd0449",
+        "filename": "headers/os/add-ons/tracker/TrackerAddOn.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-05-05T10:02:05Z",
+      "side": 1,
+      "message": "Forward declarations for BMenu and BHandler should be added to be self contained.",
+      "revId": "736115f3bfd640b8134a4896573264b624bd1829",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b1154431_b86f3da9",
         "filename": "headers/os/add-ons/tracker/TrackerAddOn.h",
         "patchSetId": 1
@@ -53,6 +70,40 @@
     },
     {
       "key": {
+        "uuid": "1fbfa809_1d7ff5c0",
+        "filename": "headers/os/app/AppDefs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-05-05T10:02:05Z",
+      "side": 1,
+      "message": "When in doubt where to add, better at the end or at least after B_FONTS_UPDATED.",
+      "revId": "736115f3bfd640b8134a4896573264b624bd1829",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc47e501_63876512",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-05-05T10:02:05Z",
+      "side": 1,
+      "message": "addonRef should be a reference or pointer.",
+      "revId": "736115f3bfd640b8134a4896573264b624bd1829",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43bfbbbe_05bc080a",
         "filename": "src/kits/tracker/ContainerWindow.cpp",
         "patchSetId": 1
@@ -64,6 +115,23 @@
       "writtenOn": "2018-05-05T07:39:31Z",
       "side": 1,
       "message": "At least \"hrishi: \" should be removed here.",
+      "revId": "736115f3bfd640b8134a4896573264b624bd1829",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c2f9513_4ab9d93a",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-05-05T10:02:05Z",
+      "side": 1,
+      "message": "No need to dereference here.",
       "revId": "736115f3bfd640b8134a4896573264b624bd1829",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
