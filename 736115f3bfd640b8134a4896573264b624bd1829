@@ -1,0 +1,208 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "816a7f6c_b7997c83",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-05-05T07:39:31Z",
+      "side": 1,
+      "message": "Please include a more descriptive commit message.\nSomething like this:\n\"\nTracker: allow add-ons to dynamically extend popup menu\n\nAn add-on may now add custom entries to the popup menu, in order to provide more than one action.\n\"",
+      "revId": "736115f3bfd640b8134a4896573264b624bd1829",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1154431_b86f3da9",
+        "filename": "headers/os/add-ons/tracker/TrackerAddOn.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-05-05T07:39:31Z",
+      "side": 1,
+      "message": "This fits in the previous line now (the limit is 80 columns)",
+      "revId": "736115f3bfd640b8134a4896573264b624bd1829",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68e204bc_0300b2cf",
+        "filename": "headers/os/add-ons/tracker/TrackerAddOn.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-05-05T07:39:31Z",
+      "side": 1,
+      "message": "trailing whitespace",
+      "revId": "736115f3bfd640b8134a4896573264b624bd1829",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43bfbbbe_05bc080a",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-05-05T07:39:31Z",
+      "side": 1,
+      "message": "At least \"hrishi: \" should be removed here.",
+      "revId": "736115f3bfd640b8134a4896573264b624bd1829",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06bfe260_74baf401",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3031,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-05-05T07:39:31Z",
+      "side": 1,
+      "message": "trailing whitespace",
+      "revId": "736115f3bfd640b8134a4896573264b624bd1829",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "454117ad_41ea0e61",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3113,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-05-05T07:39:31Z",
+      "side": 1,
+      "message": "this should be named mainMenu",
+      "revId": "736115f3bfd640b8134a4896573264b624bd1829",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "29c11041_72b26666",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3321,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-05-05T07:39:31Z",
+      "side": 1,
+      "message": "This empty line is not needed.",
+      "revId": "736115f3bfd640b8134a4896573264b624bd1829",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dbbc91a7_ca7611ce",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3416,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-05-05T07:39:31Z",
+      "side": 1,
+      "message": "There is a tab instead of a space before B_TRANSLATE",
+      "revId": "736115f3bfd640b8134a4896573264b624bd1829",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85c8d146_80750e40",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3422,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-05-05T07:39:31Z",
+      "side": 1,
+      "message": "extra tab",
+      "revId": "736115f3bfd640b8134a4896573264b624bd1829",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52826876_dbc861f2",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3450,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-05-05T07:39:31Z",
+      "side": 1,
+      "message": "Try to write this method so that the code to generate the alert is present only once, no matter if it\u0027s FindRef or load_add_on which failed.",
+      "revId": "736115f3bfd640b8134a4896573264b624bd1829",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63efabd3_b90f074c",
+        "filename": "src/kits/tracker/ContainerWindow.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-05-05T07:39:31Z",
+      "side": 1,
+      "message": "This line is too wide (80 columns max)",
+      "revId": "736115f3bfd640b8134a4896573264b624bd1829",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55f65318_63dd2947",
+        "filename": "src/kits/tracker/ContainerWindow.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-05-05T07:39:31Z",
+      "side": 1,
+      "message": "Unneeded extra space",
+      "revId": "736115f3bfd640b8134a4896573264b624bd1829",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
