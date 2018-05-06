@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "080537ab_a1ea3db9",
+        "filename": "src/system/kernel/arch/x86/asm_offsets.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-05-06T18:48:46Z",
+      "side": 1,
+      "message": "Lines \u003e 80 chars",
+      "revId": "9b3c11586b236267a95a801ce6d52da4c4570cb4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
