@@ -70,6 +70,23 @@
     },
     {
       "key": {
+        "uuid": "c934bba8_9e8b346f",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 3444,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2018-05-07T09:44:08Z",
+      "side": 1,
+      "message": "If I\u0027m not mistaken, addonRef may not be initialized at this point (when jumping from the first goto).",
+      "revId": "b0d3ddb67d34990da2e8658a15827cc2b89bd41d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5111291d_55159131",
         "filename": "src/kits/tracker/ContainerWindow.cpp",
         "patchSetId": 4
