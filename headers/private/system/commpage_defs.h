@@ -19,6 +19,10 @@
 #define COMMPAGE_SIGNATURE 'COMM'
 #define COMMPAGE_VERSION 1
 
+#ifdef COMMPAGE_COMPAT
+#include <arch/x86/arch_commpage_defs.h>
+#else
 #include <arch_commpage_defs.h>
+#endif
 
 #endif	/* _SYSTEM_COMMPAGE_DEFS_H */
