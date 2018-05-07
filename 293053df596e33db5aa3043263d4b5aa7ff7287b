@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "890b674d_17e8dc28",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-05-07T07:48:18Z",
+      "side": 1,
+      "message": "Remove this line. The first line should be the one below (\"Tracker: ...\") followed by an empty line and the rest as the extended description.",
+      "revId": "293053df596e33db5aa3043263d4b5aa7ff7287b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
