@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "fbd486ad_8a5da1a5",
+        "filename": "build/jam/ImageRules",
+        "patchSetId": 1
+      },
+      "lineNbr": 1654,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2018-05-07T01:31:55Z",
+      "side": 1,
+      "message": "That\u0027s unfortunately not portable",
+      "parentUuid": "09dd8834_1a1ae0db",
+      "range": {
+        "startLine": 1654,
+        "startChar": 28,
+        "endLine": 1654,
+        "endChar": 35
+      },
+      "revId": "1747a891eb93a23c898c8a5d0eca5b48464c03ea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4cfae5e_0b0a4c94",
         "filename": "build/jam/ImageRules",
         "patchSetId": 1
@@ -59,6 +83,30 @@
       "writtenOn": "2018-04-13T08:11:53Z",
       "side": 1,
       "message": "Since the dosfstools are needed, couldn\u0027t we use mformat here?",
+      "range": {
+        "startLine": 1655,
+        "startChar": 1,
+        "endLine": 1655,
+        "endChar": 11
+      },
+      "revId": "1747a891eb93a23c898c8a5d0eca5b48464c03ea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c87894fe_25763e7e",
+        "filename": "build/jam/ImageRules",
+        "patchSetId": 1
+      },
+      "lineNbr": 1655,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2018-05-07T01:31:55Z",
+      "side": 1,
+      "message": "Ah, yes, I didn\u0027t think of that",
+      "parentUuid": "c4cfae5e_0b0a4c94",
       "range": {
         "startLine": 1655,
         "startChar": 1,
@@ -140,6 +188,30 @@
       "side": 1,
       "message": "Default to HAIKU_ANYBOOT_UEFI  but better to keep MBR-only support until we get enough feedback it\u0027s not necessary anymore.",
       "parentUuid": "e1e9aa8a_b8d68f1e",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 30
+      },
+      "revId": "1747a891eb93a23c898c8a5d0eca5b48464c03ea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7a1ada1_ad2eea0b",
+        "filename": "build/jam/images/AnybootImage",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2018-05-07T01:31:55Z",
+      "side": 1,
+      "message": "I have done this way, as the builders will need mtools installed, to avoid breaking all builds. Otherwise, I can just drop the MBR only image, if that is preferred, and just require our builders be updated.",
+      "parentUuid": "4fbd0feb_ef0ad916",
       "range": {
         "startLine": 44,
         "startChar": 0,
