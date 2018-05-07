@@ -53,6 +53,23 @@
     },
     {
       "key": {
+        "uuid": "00892b86_1b6c459e",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 3406,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2018-05-07T09:53:20Z",
+      "side": 1,
+      "message": "It may be a good idea to call _PassMessageToAddOn in a newly created thread. If the add-on takes it\u0027s time for whatever reason, the Tracker window will hang for that amount of time. Or if this is called from the application looper, it will hang instead, which isn\u0027t good either.\n\nI would probably restructure the code a bit: Make a static _RunAddOnMessageThread(pass a copy of the BMessage, deleted in the method when done); In _PassMessageToAddOn() spawn a new thread and have it run the _RunAddOnMessageThread() and pass a copy of the BMessage as the cookie parameter. It\u0027s important to pass a copy of the message, since the original one is disposed in the first thread before (or while) the new thread can extract information from the message.",
+      "revId": "b0d3ddb67d34990da2e8658a15827cc2b89bd41d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a337666a_a03546a6",
         "filename": "src/kits/tracker/ContainerWindow.cpp",
         "patchSetId": 4
