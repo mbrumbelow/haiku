@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cca2fd5c_342e0f5e",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-05-07T07:48:18Z",
+      "side": 1,
+      "message": "80 columns limit",
+      "revId": "b0d3ddb67d34990da2e8658a15827cc2b89bd41d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "409f4142_38ad275f",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-05-07T07:48:18Z",
+      "side": 1,
+      "message": "80 columns limit (can you set your editor to show it? for example in vim use the colorcolumn option)",
+      "revId": "b0d3ddb67d34990da2e8658a15827cc2b89bd41d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3d240ce8_ec578d61",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 3113,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-05-07T07:48:18Z",
+      "side": 1,
+      "message": "I would call it parentMenu, rather than mainMenu?\n(the \"main\" menu in a Window is the one from the menu bar)",
+      "revId": "b0d3ddb67d34990da2e8658a15827cc2b89bd41d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a337666a_a03546a6",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 3434,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-05-07T07:48:18Z",
+      "side": 1,
+      "message": "I would remove the \"hrishsi:\" here. Don\u0027t worrry, your name will be in the git logs ;)",
+      "revId": "b0d3ddb67d34990da2e8658a15827cc2b89bd41d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5111291d_55159131",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 3452,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-05-07T07:48:18Z",
+      "side": 1,
+      "message": "extra empty line",
+      "revId": "b0d3ddb67d34990da2e8658a15827cc2b89bd41d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a9f8246_ca539fa5",
+        "filename": "src/kits/tracker/ContainerWindow.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-05-07T07:48:18Z",
+      "side": 1,
+      "message": "This line should be indented one tab further, because it is inside the parameter of the passed function pointer.",
+      "revId": "b0d3ddb67d34990da2e8658a15827cc2b89bd41d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
