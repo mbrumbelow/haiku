@@ -108,6 +108,24 @@
       "revId": "2119ba788c5d9dae277520627c2d3746633d299c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5045ebf_0b568c49",
+        "filename": "src/system/kernel/fs/vfs.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 5647,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2018-05-08T20:21:37Z",
+      "side": 1,
+      "message": "Ouch, because the outer block begins with \"status \u003d\u003d B_OK\" -- I missed that there are two calls to release_advisory_lock() now, I assumed somehow that one would replace the other.\n\nThis is a bit messy, though, IMO, I\u0027d prefer if there is either one solution to both of them, or I\u0027d rather see them divided into two methods, if required.",
+      "parentUuid": "36c5b686_ce41fce2",
+      "revId": "2119ba788c5d9dae277520627c2d3746633d299c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
