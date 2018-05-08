@@ -36,6 +36,29 @@
     },
     {
       "key": {
+        "uuid": "c7d36c70_7e640778",
+        "filename": "src/system/kernel/fs/vfs.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1652,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2018-05-08T17:07:48Z",
+      "side": 1,
+      "message": "Re: your question about my comment on this line. I have done tests with debug output, and the case is that if a process is killed (for example by CTRL-C-ing it), the session that is retrieved at line #1643 is session 1. This essentially causes permanent locks, as the lock remains on this vnode. Any future locking calls will block, until the system is restarted.\n\nI would argue that since the lock is related on the file_descriptor, and the lock is removed when the file_descriptor closes, it is not relevant which session clears the lock. The only relevance is that the locks are bound to this file_descriptor.",
+      "range": {
+        "startLine": 1652,
+        "startChar": 6,
+        "endLine": 1652,
+        "endChar": 31
+      },
+      "revId": "2119ba788c5d9dae277520627c2d3746633d299c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "31488045_48e5f9ff",
         "filename": "src/system/kernel/fs/vfs.cpp",
         "patchSetId": 6
