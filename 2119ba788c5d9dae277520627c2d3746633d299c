@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5d16e24f_6ee3d554",
+        "filename": "src/system/kernel/fs/vfs.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2018-05-08T11:05:27Z",
+      "side": 1,
+      "message": "Usually, and in the rest of the kernel (AFAICT) \"fd\" is used for the integer slot in the file table, while \"descriptor\" is used for file_descriptor pointers. I\u0027d prefer to see that used here as well.",
+      "revId": "2119ba788c5d9dae277520627c2d3746633d299c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "798f7de3_2ba5bfcc",
+        "filename": "src/system/kernel/fs/vfs.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1632,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2018-05-08T11:05:27Z",
+      "side": 1,
+      "message": "Same here (fd vs. descriptor)",
+      "revId": "2119ba788c5d9dae277520627c2d3746633d299c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31488045_48e5f9ff",
+        "filename": "src/system/kernel/fs/vfs.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1748,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2018-05-08T11:05:27Z",
+      "side": 1,
+      "message": "And here (and in the comment)",
+      "revId": "2119ba788c5d9dae277520627c2d3746633d299c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2c6cf8b_ca75bad4",
+        "filename": "src/system/kernel/fs/vfs.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 5647,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2018-05-08T11:05:27Z",
+      "side": 1,
+      "message": "When you\u0027ll get there, \"status\" is guaranteed to be B_OK, so this is completely superfluous.\nPlease use C++ style comments, btw.",
+      "revId": "2119ba788c5d9dae277520627c2d3746633d299c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
