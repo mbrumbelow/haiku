@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b3f7902f_5fe3acc5",
+        "filename": "src/system/kernel/fs/vfs.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 5643,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-05-08T08:19:17Z",
+      "side": 1,
+      "message": "Shouldn\u0027t it be  release_advisory_lock(vnode, NULL, NULL); ?",
+      "revId": "87ca352ffd64fb345946139512b6616abd17f15e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
