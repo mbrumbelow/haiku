@@ -67,6 +67,24 @@
       "revId": "2119ba788c5d9dae277520627c2d3746633d299c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36c5b686_ce41fce2",
+        "filename": "src/system/kernel/fs/vfs.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 5647,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-05-08T12:15:32Z",
+      "side": 1,
+      "message": "\u003e When you\u0027ll get there, \"status\" is guaranteed to be B_OK, so this\n \u003e is completely superfluous.\n Why would \"status\" be guaranteed to be B_OK?",
+      "parentUuid": "e2c6cf8b_ca75bad4",
+      "revId": "2119ba788c5d9dae277520627c2d3746633d299c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
