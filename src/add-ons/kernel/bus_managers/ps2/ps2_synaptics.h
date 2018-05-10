@@ -51,6 +51,7 @@ typedef struct {
 	bool capPassThrough;
 
 	uint8 nExtendedButtons;
+	uint8 firstExtendedButton;
 } touchpad_info;
 
 
