@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2f514854_a2bf6d60",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_common.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000003
+      },
+      "writtenOn": "2018-05-10T14:51:02Z",
+      "side": 1,
+      "message": "Should it be enabled by default?",
+      "revId": "54131e03f511f463cca1cf44dd00fa79cab4d3be",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
