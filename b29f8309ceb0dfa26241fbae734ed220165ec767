@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5333c5bb_b2b2652f",
+        "filename": "src/preferences/mouse/MouseSettings.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2018-05-10T19:48:22Z",
+      "side": 1,
+      "message": "Looks like the perfect candidate for a \"for\" loop, if you ever want to commit this, that is :-)\n\nAs defaults, I would find that pretty much okay already.",
+      "revId": "b29f8309ceb0dfa26241fbae734ed220165ec767",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
