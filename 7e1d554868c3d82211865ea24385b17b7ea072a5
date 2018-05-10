@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "33853125_4f4e69e8",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_elantech.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-05-10T13:32:58Z",
+      "side": 1,
+      "message": "80 columns limit",
+      "revId": "7e1d554868c3d82211865ea24385b17b7ea072a5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "32d8da63_1531a686",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_elantech.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-05-10T13:32:58Z",
+      "side": 1,
+      "message": "80 columns limit",
+      "revId": "7e1d554868c3d82211865ea24385b17b7ea072a5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ea66597_86661278",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_elantech.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-05-10T13:32:58Z",
+      "side": 1,
+      "message": "80 columns limit",
+      "revId": "7e1d554868c3d82211865ea24385b17b7ea072a5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3584daa_edf23a9f",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_elantech.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-05-10T13:32:58Z",
+      "side": 1,
+      "message": "80 columns limit",
+      "revId": "7e1d554868c3d82211865ea24385b17b7ea072a5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a6013ab_b38d4d6f",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_standard_mouse.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-05-10T13:32:58Z",
+      "side": 1,
+      "message": "Should be B_PRIdBIGTIME",
+      "revId": "7e1d554868c3d82211865ea24385b17b7ea072a5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82d15063_f9dfab85",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_synaptics.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-05-10T13:32:58Z",
+      "side": 1,
+      "message": "should be B_PRIx32 (or ideally B_PRIxSTATUS but that doesn\u0027t exist yet).",
+      "revId": "7e1d554868c3d82211865ea24385b17b7ea072a5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
