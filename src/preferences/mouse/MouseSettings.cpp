@@ -333,6 +333,21 @@ void
 MouseSettings::SetMapping(int32 index, uint32 button)
 {
 	fSettings.map.button[index] = button;
+
+	fSettings.map.button[3] = fSettings.map.button[0];
+	fSettings.map.button[4] = fSettings.map.button[1];
+	fSettings.map.button[5] = fSettings.map.button[2];
+	fSettings.map.button[6] = fSettings.map.button[0];
+	fSettings.map.button[7] = fSettings.map.button[1];
+	fSettings.map.button[8] = fSettings.map.button[2];
+	fSettings.map.button[9] = fSettings.map.button[0];
+	fSettings.map.button[10] = fSettings.map.button[1];
+	fSettings.map.button[11] = fSettings.map.button[2];
+	fSettings.map.button[12] = fSettings.map.button[0];
+	fSettings.map.button[13] = fSettings.map.button[1];
+	fSettings.map.button[14] = fSettings.map.button[2];
+	fSettings.map.button[15] = fSettings.map.button[0];
+
 	if (set_mouse_map(&fSettings.map) != B_OK)
 		fprintf(stderr, "error when set_mouse_map\n");
 }
