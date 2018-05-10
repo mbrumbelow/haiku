@@ -30,7 +30,7 @@
 #endif
 #define ERROR(x...) dprintf(x)
 
-//#define TRACE_PS2
+#define TRACE_PS2
 #ifdef TRACE_PS2
 #	define TRACE(x...) dprintf(x)
 #else
