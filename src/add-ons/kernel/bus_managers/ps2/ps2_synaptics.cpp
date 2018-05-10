@@ -267,7 +267,7 @@ finalize:
 	status_t statusOfEnable = ps2_dev_command(dev->parent_dev, PS2_CMD_ENABLE,
 			NULL, 0, NULL, 0);
 	if (statusOfEnable != B_OK)
-		TRACE("SYNAPTICS: enabling of parent failed: 0x%lx.\n", statusOfEnable);
+		TRACE("SYNAPTICS: enabling of parent failed: 0x%" PRIx32 ".\n", statusOfEnable);
 
 	return status != B_OK ? status : statusOfEnable;
 }
@@ -522,7 +522,7 @@ synaptics_ioctl(void *_cookie, uint32 op, void *buffer, size_t length)
 				sizeof(bigtime_t));
 
 		default:
-			TRACE("SYNAPTICS: unknown opcode: %ld\n", op);
+			TRACE("SYNAPTICS: unknown opcode: %" B_PRIu32 "\n", op);
 			return B_DEV_INVALID_IOCTL;
 	}
 }
