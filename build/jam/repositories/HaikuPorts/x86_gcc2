@@ -197,8 +197,8 @@ RemotePackageRepository HaikuPorts
 	jasper_x86_devel-2.0.14-1
 	jpeg_x86-9c-2
 	jpeg_x86_devel-9c-2
-	libedit_x86-2015_03_21_3.1-8
-	libedit_x86_devel-2015_03_21_3.1-8
+	libedit_x86-20170329_3.1-1
+	libedit_x86_devel-20170329_3.1-1
 	libexecinfo_x86-1.1-4
 	libgcrypt_x86-1.8.2-2
 	libgpg_error_x86-1.31-1
