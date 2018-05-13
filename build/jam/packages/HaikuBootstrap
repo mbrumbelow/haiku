@@ -33,6 +33,7 @@ AddFilesToPackage add-ons kernel busses agp_gart : <agp_gart>intel@x86,x86_64 ;
 AddFilesToPackage add-ons kernel busses ata
 	: generic_ide_pci it8211 legacy_sata silicon_image_3112 highpoint_ide_pci ide_isa@x86 ;
 
+AddFilesToPackage add-ons kernel busses random : virtio_rng ;
 AddFilesToPackage add-ons kernel busses scsi : ahci virtio_scsi ;
 AddFilesToPackage add-ons kernel busses usb : <usb>uhci <usb>ohci <usb>ehci ;
 AddFilesToPackage add-ons kernel busses virtio : virtio_pci ;
@@ -57,8 +58,9 @@ if $(TARGET_ARCH) = x86 || $(TARGET_ARCH) = x86_64 {
 
 # drivers
 AddNewDriversToPackage disk scsi	: scsi_cd scsi_disk ;
-AddNewDriversToPackage disk virtual : virtio_block ;
+AddNewDriversToPackage disk virtual : virtio_block ram_disk ;
 AddNewDriversToPackage power		: acpi_battery@x86 ;
+AddNewDriversToPackage network		: virtio_net ;
 #AddNewDriversToPackage display		: display_adapter@x86 ;
 
 # legacy drivers
