@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c9e81e9c_e0c30187",
+        "filename": "build/jam/packages/HaikuBootstrap",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-05-14T05:35:34Z",
+      "side": 1,
+      "message": "ram_disk comes before virtio_block",
+      "revId": "9c1ac383c3201ea67e5ef8bbaa0b5c3420656da4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
