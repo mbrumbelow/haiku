@@ -16,6 +16,24 @@
       "revId": "4549ffa5224ee8a1ed72e67082eb1094c815b2ea",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e12b7c4_88e9a478",
+        "filename": "src/system/kernel/signal.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1323,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-05-16T15:49:16Z",
+      "side": 1,
+      "message": "I agree that it is a bit annoying. I don\u0027t really understand your proposal though.\nWe could use a macro, as this code could come very often with syscalls.",
+      "parentUuid": "e6b9de6d_67e9d183",
+      "revId": "4549ffa5224ee8a1ed72e67082eb1094c815b2ea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
