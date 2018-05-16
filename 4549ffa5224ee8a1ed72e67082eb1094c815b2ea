@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e6b9de6d_67e9d183",
+        "filename": "src/system/kernel/signal.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1323,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-05-16T13:58:19Z",
+      "side": 1,
+      "message": "I find this style a bit annoying to read.\nWould it be possible to write\n\nif (_COMPAT_MODE \u0026\u0026 (thread-\u003eflags \u0026 THREAD_FLAGS_COMPAT_MODE) !\u003d 0)\n\ninstead?",
+      "revId": "4549ffa5224ee8a1ed72e67082eb1094c815b2ea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
