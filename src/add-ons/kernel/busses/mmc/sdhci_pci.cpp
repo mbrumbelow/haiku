@@ -67,7 +67,7 @@ init_device(device_node* node, void** device_cookie)
 static status_t
 register_child_devices(void* cookie)
 {
-	CALLED();
+	/*CALLED();
 	device_node* node = (device_node*)cookie;
 	device_node* parent = gDeviceManager-> get_parent_node(node);
 	pci_device_module_info *pci;
@@ -90,6 +90,7 @@ register_child_devices(void* cookie)
 	};
 
 	return gDeviceManager->register_node(node, SDHCI_PCI_MMC_BUS_MODULE_NAME, attrs, NULL, &node);
+	*/
 }
 
 static status_t
