@@ -29,6 +29,12 @@
 #include <OS.h>
 #include <StorageDefs.h>
 
+#ifdef _COMPAT_MODE
+#	include <fcntl_compat.h>
+#	include <stat_compat.h>
+#	include <fs_attr_compat.h>
+#endif
+
 #include <AutoDeleter.h>
 #include <block_cache.h>
 #include <boot/kernel_args.h>
@@ -6095,10 +6101,29 @@ common_fcntl(int fd, int op, size_t argument, bool kernel)
 	if (op == F_SETLK || op == F_SETLKW || op == F_GETLK) {
 		if (descriptor->type != FDTYPE_FILE)
 			status = B_BAD_VALUE;
-		else if (user_memcpy(&flock, (struct flock*)argument,
-				sizeof(struct flock)) != B_OK)
-			status = B_BAD_ADDRESS;
-
+		else {
+#ifdef _COMPAT_MODE
+			Thread* thread = thread_get_current_thread();
+			bool compatMode = (thread->flags & THREAD_FLAGS_COMPAT_MODE) != 0;
+			if (compatMode) {
+				struct compat_flock compat_flock;
+				ASSERT(sizeof(struct compat_flock) == 24);
+				if (user_memcpy(&compat_flock, (struct compat_flock*)argument,
+					sizeof(compat_flock)) < B_OK) {
+					return B_BAD_ADDRESS;
+				}
+				flock.l_type = compat_flock.l_type;
+				flock.l_whence = compat_flock.l_whence;
+				flock.l_start = compat_flock.l_start;
+				flock.l_len = compat_flock.l_len;
+				flock.l_pid = compat_flock.l_pid;
+			} else
+#endif
+			if (user_memcpy(&flock, (struct flock*)argument,
+				sizeof(struct flock)) != B_OK) {
+				status = B_BAD_ADDRESS;
+			}
+		}
 		if (status != B_OK) {
 			put_fd(descriptor);
 			return status;
@@ -9510,7 +9535,37 @@ _user_read_stat(int fd, const char* userPath, bool traverseLink,
 	if (status != B_OK)
 		return status;
 
-	return user_memcpy(userStat, &stat, statSize);
+#ifdef _COMPAT_MODE
+	Thread* thread = thread_get_current_thread();
+	bool compatMode = (thread->flags & THREAD_FLAGS_COMPAT_MODE) != 0;
+	if (compatMode) {
+		ASSERT(sizeof(struct compat_stat) == 88);
+		struct compat_stat compat_stat;
+		compat_stat.st_dev = stat.st_dev;
+		compat_stat.st_ino = stat.st_ino;
+		compat_stat.st_mode = stat.st_mode;
+		compat_stat.st_nlink = stat.st_nlink;
+		compat_stat.st_uid = stat.st_gid;
+		compat_stat.st_size = stat.st_size;
+		compat_stat.st_rdev = stat.st_rdev;
+		compat_stat.st_blksize = stat.st_blksize;
+		compat_stat.st_atim.tv_sec = stat.st_atim.tv_sec;
+		compat_stat.st_atim.tv_nsec = stat.st_atim.tv_nsec;
+		compat_stat.st_mtim.tv_sec = stat.st_mtim.tv_sec;
+		compat_stat.st_mtim.tv_nsec = stat.st_mtim.tv_nsec;
+		compat_stat.st_ctim.tv_sec = stat.st_ctim.tv_sec;
+		compat_stat.st_ctim.tv_nsec = stat.st_ctim.tv_nsec;
+		compat_stat.st_crtim.tv_sec = stat.st_crtim.tv_sec;
+		compat_stat.st_crtim.tv_nsec = stat.st_crtim.tv_nsec;
+		compat_stat.st_type = stat.st_type;
+		compat_stat.st_blocks = stat.st_blocks;
+		if (user_memcpy(userStat, &compat_stat, statSize) < B_OK)
+			return B_BAD_ADDRESS;
+	} else
+#endif
+	if (user_memcpy(userStat, &stat, statSize) < B_OK)
+		return B_BAD_ADDRESS;
+	return B_OK;
 }
 
 
@@ -9676,6 +9731,18 @@ _user_stat_attr(int fd, const char* userAttribute,
 	put_fd(descriptor);
 	_user_close(attr);
 
+#ifdef _COMPAT_MODE
+	Thread* thread = thread_get_current_thread();
+	bool compatMode = (thread->flags & THREAD_FLAGS_COMPAT_MODE) != 0;
+	if (compatMode && status == B_OK) {
+		ASSERT(sizeof(struct compat_attr_info) == 12);
+		compat_attr_info info;
+		info.type = stat.st_type;
+		info.size = stat.st_size;
+		if (user_memcpy(userAttrInfo, &info, sizeof(struct compat_attr_info)) < B_OK)
+			return B_BAD_ADDRESS;
+	} else
+#endif
 	if (status == B_OK) {
 		attr_info info;
 		info.type = stat.st_type;
@@ -9792,6 +9859,34 @@ _user_read_index_stat(dev_t device, const char* userName, struct stat* userStat)
 
 	status = index_name_read_stat(device, name, &stat, false);
 	if (status == B_OK) {
+#ifdef _COMPAT_MODE
+		Thread* thread = thread_get_current_thread();
+		bool compatMode = (thread->flags & THREAD_FLAGS_COMPAT_MODE) != 0;
+		if (compatMode) {
+			ASSERT(sizeof(struct compat_stat) == 88);
+			struct compat_stat compat_stat;
+			compat_stat.st_dev = stat.st_dev;
+			compat_stat.st_ino = stat.st_ino;
+			compat_stat.st_mode = stat.st_mode;
+			compat_stat.st_nlink = stat.st_nlink;
+			compat_stat.st_uid = stat.st_gid;
+			compat_stat.st_size = stat.st_size;
+			compat_stat.st_rdev = stat.st_rdev;
+			compat_stat.st_blksize = stat.st_blksize;
+			compat_stat.st_atim.tv_sec = stat.st_atim.tv_sec;
+			compat_stat.st_atim.tv_nsec = stat.st_atim.tv_nsec;
+			compat_stat.st_mtim.tv_sec = stat.st_mtim.tv_sec;
+			compat_stat.st_mtim.tv_nsec = stat.st_mtim.tv_nsec;
+			compat_stat.st_ctim.tv_sec = stat.st_ctim.tv_sec;
+			compat_stat.st_ctim.tv_nsec = stat.st_ctim.tv_nsec;
+			compat_stat.st_crtim.tv_sec = stat.st_crtim.tv_sec;
+			compat_stat.st_crtim.tv_nsec = stat.st_crtim.tv_nsec;
+			compat_stat.st_type = stat.st_type;
+			compat_stat.st_blocks = stat.st_blocks;
+			if (user_memcpy(userStat, &compat_stat, sizeof(compat_stat)) < B_OK)
+				return B_BAD_ADDRESS;
+	} else
+#endif
 		if (user_memcpy(userStat, &stat, sizeof(stat)) != B_OK)
 			return B_BAD_ADDRESS;
 	}
