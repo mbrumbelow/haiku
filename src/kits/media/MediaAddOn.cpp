@@ -442,7 +442,8 @@ dormant_flavor_info::Unflatten(type_code c, const void *buffer, ssize_t size)
 			if (!in_formats)
 				return B_NO_MEMORY;
 			// TODO: we should not!!! make flat copies of media_format
-			memcpy(const_cast<media_format *>(in_formats), buf,
+			memcpy(static_cast<void*>(
+				const_cast<media_format*>(in_formats)), buf,
 				count * sizeof(media_format));
 			in_format_count = count;
 		}
@@ -458,7 +459,8 @@ dormant_flavor_info::Unflatten(type_code c, const void *buffer, ssize_t size)
 			if (!out_formats)
 				return B_NO_MEMORY;
 			// TODO: we should not!!! make flat copies of media_format
-			memcpy(const_cast<media_format *>(out_formats), buf,
+			memcpy(static_cast<void*>(
+				const_cast<media_format*>(out_formats)), buf,
 				count * sizeof(media_format));
 			out_format_count = count;
 		}
