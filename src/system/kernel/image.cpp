@@ -19,6 +19,10 @@
 #include <user_debugger.h>
 #include <util/AutoLock.h>
 
+#ifdef _COMPAT_MODE
+#	include <image_compat.h>
+#endif
+
 #include <stdlib.h>
 #include <string.h>
 
@@ -464,13 +468,42 @@ _user_register_image(extended_image_info *userInfo, size_t size)
 {
 	extended_image_info info;
 
-	if (size != sizeof(info))
-		return B_BAD_VALUE;
+#ifdef _COMPAT_MODE
+	Thread* thread = thread_get_current_thread();
+	bool compatMode = (thread->flags & THREAD_FLAGS_COMPAT_MODE) != 0;
+	if (compatMode) {
+		compat_extended_image_info compat_info;
+		if (size != sizeof(compat_info))
+			return B_BAD_VALUE;
+		if (user_memcpy(&compat_info, userInfo, size) < B_OK)
+			return B_BAD_ADDRESS;
+		info.basic_info.id = compat_info.basic_info.id;
+		info.basic_info.type = compat_info.basic_info.type;
+		info.basic_info.sequence = compat_info.basic_info.sequence;
+		info.basic_info.init_order = compat_info.basic_info.init_order;
+		info.basic_info.init_routine = (void(*)())(addr_t)compat_info.basic_info.init_routine;
+		info.basic_info.term_routine = (void(*)())(addr_t)compat_info.basic_info.term_routine;
+		info.basic_info.device = compat_info.basic_info.device;
+		info.basic_info.node = compat_info.basic_info.node;
+		strlcpy(info.basic_info.name, compat_info.basic_info.name, MAXPATHLEN);
+		info.basic_info.text = (void*)(addr_t)compat_info.basic_info.text;
+		info.basic_info.data = (void*)(addr_t)compat_info.basic_info.data;
+		info.basic_info.text_size = compat_info.basic_info.text_size;
+		info.basic_info.data_size = compat_info.basic_info.data_size;
+		info.text_delta = compat_info.text_delta;
+		info.symbol_table = (void*)(addr_t)compat_info.symbol_table;
+		info.symbol_hash = (void*)(addr_t)compat_info.symbol_hash;
+		info.string_table = (void*)(addr_t)compat_info.string_table;
+	} else
+#endif
+	{
+		if (size != sizeof(info))
+			return B_BAD_VALUE;
 
-	if (!IS_USER_ADDRESS(userInfo)
-		|| user_memcpy(&info, userInfo, size) < B_OK)
-		return B_BAD_ADDRESS;
-
+		if (!IS_USER_ADDRESS(userInfo)
+			|| user_memcpy(&info, userInfo, size) < B_OK)
+			return B_BAD_ADDRESS;
+	}
 	return register_image(thread_get_current_thread()->team, &info, size);
 }
 
@@ -517,6 +550,14 @@ _user_get_image_info(image_id id, image_info *userInfo, size_t size)
 	image_info info;
 	status_t status;
 
+#ifdef _COMPAT_MODE
+	Thread* thread = thread_get_current_thread();
+	bool compatMode = (thread->flags & THREAD_FLAGS_COMPAT_MODE) != 0;
+	if (compatMode) {
+		if (size > sizeof(compat_image_info))
+			return B_BAD_VALUE;
+	} else
+#endif
 	if (size > sizeof(image_info))
 		return B_BAD_VALUE;
 
@@ -525,6 +566,26 @@ _user_get_image_info(image_id id, image_info *userInfo, size_t size)
 
 	status = _get_image_info(id, &info, sizeof(image_info));
 
+#ifdef _COMPAT_MODE
+	if (compatMode) {
+		compat_image_info compat_info;
+		compat_info.id = info.id;
+		compat_info.type = info.type;
+		compat_info.sequence = info.sequence;
+		compat_info.init_order = info.init_order;
+		compat_info.init_routine = (uint32)(addr_t)info.init_routine;
+		compat_info.term_routine = (uint32)(addr_t)info.term_routine;
+		compat_info.device = info.device;
+		compat_info.node = info.node;
+		strlcpy(compat_info.name, info.name, MAXPATHLEN);
+		compat_info.text = (uint32)(addr_t)info.text;
+		compat_info.data = (uint32)(addr_t)info.data;
+		compat_info.text_size = info.text_size;
+		compat_info.data_size = info.data_size;
+		if (user_memcpy(userInfo, &compat_info, size) < B_OK)
+			return B_BAD_ADDRESS;
+	} else
+#endif
 	if (user_memcpy(userInfo, &info, size) < B_OK)
 		return B_BAD_ADDRESS;
 
@@ -540,6 +601,14 @@ _user_get_next_image_info(team_id team, int32 *_cookie, image_info *userInfo,
 	status_t status;
 	int32 cookie;
 
+#ifdef _COMPAT_MODE
+	Thread* thread = thread_get_current_thread();
+	bool compatMode = (thread->flags & THREAD_FLAGS_COMPAT_MODE) != 0;
+	if (compatMode) {
+		if (size > sizeof(compat_image_info))
+			return B_BAD_VALUE;
+	} else
+#endif
 	if (size > sizeof(image_info))
 		return B_BAD_VALUE;
 
@@ -550,6 +619,28 @@ _user_get_next_image_info(team_id team, int32 *_cookie, image_info *userInfo,
 
 	status = _get_next_image_info(team, &cookie, &info, sizeof(image_info));
 
+#ifdef _COMPAT_MODE
+	if (compatMode) {
+		compat_image_info compat_info;
+		compat_info.id = info.id;
+		compat_info.type = info.type;
+		compat_info.sequence = info.sequence;
+		compat_info.init_order = info.init_order;
+		compat_info.init_routine = (uint32)(addr_t)info.init_routine;
+		compat_info.term_routine = (uint32)(addr_t)info.term_routine;
+		compat_info.device = info.device;
+		compat_info.node = info.node;
+		strlcpy(compat_info.name, info.name, MAXPATHLEN);
+		compat_info.text = (uint32)(addr_t)info.text;
+		compat_info.data = (uint32)(addr_t)info.data;
+		compat_info.text_size = info.text_size;
+		compat_info.data_size = info.data_size;
+		if (user_memcpy(userInfo, &compat_info, size) < B_OK
+			|| user_memcpy(_cookie, &cookie, sizeof(int32)) < B_OK) {
+			return B_BAD_ADDRESS;
+		}
+	} else
+#endif
 	if (user_memcpy(userInfo, &info, size) < B_OK
 		|| user_memcpy(_cookie, &cookie, sizeof(int32)) < B_OK) {
 		return B_BAD_ADDRESS;
