@@ -13,8 +13,9 @@
 
 
 #include <ksignal.h>
+
 #ifdef _COMPAT_MODE
-#	include <compat/ksignal.h>
+#	include <compat/ksignal_compat.h>
 #endif
 
 #include <errno.h>
@@ -2298,11 +2299,22 @@ _user_send_signal(int32 id, uint32 signalNumber,
 	// Copy the user value from userland. If not given, use a dummy value.
 	union sigval userValue;
 	if (userUserValue != NULL) {
-		if (!IS_USER_ADDRESS(userUserValue)
-			|| user_memcpy(&userValue, userUserValue, sizeof(userValue))
-				!= B_OK) {
+		if (!IS_USER_ADDRESS(userUserValue))
 			return B_BAD_ADDRESS;
-		}
+#ifdef _COMPAT_MODE
+		Thread* thread = thread_get_current_thread();
+		bool compatMode = (thread->flags & THREAD_FLAGS_COMPAT_MODE) != 0;
+		if (compatMode) {
+			union compat_sigval compatUserValue;
+			if (user_memcpy(&compatUserValue, userUserValue,
+				sizeof(compatUserValue)) != B_OK) {
+				return B_BAD_ADDRESS;
+			}
+			userValue.sival_ptr = (void*)(addr_t)compatUserValue.sival_ptr;
+		} else
+#endif
+		if (user_memcpy(&userValue, userUserValue, sizeof(userValue)) != B_OK)
+			return B_BAD_ADDRESS;
 	} else
 		userValue.sival_ptr = NULL;
 
@@ -2366,13 +2378,57 @@ _user_sigaction(int signal, const struct sigaction *userAction,
 				< B_OK)))
 		return B_BAD_ADDRESS;
 
+#ifdef _COMPAT_MODE
+	Thread* thread = thread_get_current_thread();
+	bool compatMode = (thread->flags & THREAD_FLAGS_COMPAT_MODE) != 0;
+	if (compatMode) {
+		struct compat_sigaction compat_act, compat_oact;
+		if ((userAction != NULL && (!IS_USER_ADDRESS(userAction)
+				|| user_memcpy(&compat_act, userAction, sizeof(compat_act)) < B_OK))
+			|| (userOldAction != NULL && (!IS_USER_ADDRESS(userOldAction)
+				|| user_memcpy(&compat_oact, userOldAction, sizeof(compat_oact))
+					< B_OK)))
+			return B_BAD_ADDRESS;
+		if (userAction != NULL) {
+			act.sa_handler = (__sighandler_t)(addr_t)compat_act.sa_handler;
+			act.sa_mask = compat_act.sa_mask;
+			act.sa_flags = compat_act.sa_flags;
+			act.sa_userdata = (void*)(addr_t)compat_act.sa_userdata;
+		}
+		if (userOldAction != NULL) {
+			oact.sa_handler = (__sighandler_t)(addr_t)compat_oact.sa_handler;
+			oact.sa_mask = compat_oact.sa_mask;
+			oact.sa_flags = compat_oact.sa_flags;
+			oact.sa_userdata = (void*)(addr_t)compat_oact.sa_userdata;
+		}
+	} else
+#endif
+	if ((userAction != NULL && (!IS_USER_ADDRESS(userAction)
+			|| user_memcpy(&act, userAction, sizeof(struct sigaction)) < B_OK))
+		|| (userOldAction != NULL && (!IS_USER_ADDRESS(userOldAction)
+			|| user_memcpy(&oact, userOldAction, sizeof(struct sigaction))
+				< B_OK)))
+		return B_BAD_ADDRESS;
+
 	status = sigaction_internal(signal, userAction ? &act : NULL,
 		userOldAction ? &oact : NULL);
 
 	// only copy the old action if a pointer has been given
-	if (status >= B_OK && userOldAction != NULL
-		&& user_memcpy(userOldAction, &oact, sizeof(struct sigaction)) < B_OK)
-		return B_BAD_ADDRESS;
+	if (status >= B_OK && userOldAction != NULL) {
+#ifdef _COMPAT_MODE
+		if (compatMode) {
+			struct compat_sigaction compat_oact;
+			compat_oact.sa_handler = (addr_t)oact.sa_handler;
+			compat_oact.sa_mask = oact.sa_mask;
+			compat_oact.sa_flags = oact.sa_flags;
+			compat_oact.sa_userdata = (addr_t)oact.sa_userdata;
+			if (user_memcpy(userOldAction, &compat_oact, sizeof(compat_oact)) < B_OK)
+				return B_BAD_ADDRESS;
+		} else
+#endif
+		if (user_memcpy(userOldAction, &oact, sizeof(struct sigaction)) < B_OK)
+			return B_BAD_ADDRESS;
+	}
 
 	return status;
 }
@@ -2401,8 +2457,28 @@ _user_sigwait(const sigset_t *userSet, siginfo_t *userInfo, uint32 flags,
 	status_t status = sigwait_internal(&set, &info, flags, timeout);
 	if (status == B_OK) {
 		// copy the info back to userland, if userSet is non-NULL
-		if (userInfo != NULL)
+		if (userInfo != NULL) {
+#ifdef _COMPAT_MODE
+			Thread* thread = thread_get_current_thread();
+			bool compatMode = (thread->flags & THREAD_FLAGS_COMPAT_MODE) != 0;
+			if (compatMode) {
+				compat_siginfo_t compat_info;
+				compat_info.si_signo = info.si_signo;
+				compat_info.si_code = info.si_code;
+				compat_info.si_errno = info.si_errno;
+				compat_info.si_pid = info.si_pid;
+				compat_info.si_uid = info.si_uid;
+				compat_info.si_addr = (addr_t)info.si_addr;
+				compat_info.si_status = info.si_status;
+				compat_info.si_band = info.si_band;
+				compat_info.si_value.sival_ptr = (addr_t)
+					info.si_value.sival_ptr;
+				status = user_memcpy(userInfo, &compat_info,
+					sizeof(compat_info));
+			} else
+#endif
 			status = user_memcpy(userInfo, &info, sizeof(info));
+		}
 	} else if (status == B_INTERRUPTED) {
 		// make sure we'll be restarted
 		Thread* thread = thread_get_current_thread();
@@ -2456,6 +2532,30 @@ _user_set_signal_stack(const stack_t* newUserStack, stack_t* oldUserStack)
 	struct stack_t newStack, oldStack;
 	bool onStack = false;
 
+#ifdef _COMPAT_MODE
+	bool compatMode = (thread->flags & THREAD_FLAGS_COMPAT_MODE) != 0;
+	if (compatMode) {
+		compat_stack_t compatNewStack, compatOldStack;
+		if (newUserStack != NULL) {
+			if (!IS_USER_ADDRESS(newUserStack) || user_memcpy(&compatNewStack,
+				newUserStack, sizeof(compat_stack_t)) < B_OK) {
+				return B_BAD_ADDRESS;
+			}
+			newStack.ss_sp = (void*)(addr_t)compatNewStack.ss_sp;
+			newStack.ss_size = compatNewStack.ss_size;
+			newStack.ss_flags = compatNewStack.ss_flags;
+		}
+		if (oldUserStack != NULL) {
+			if (!IS_USER_ADDRESS(oldUserStack) || user_memcpy(&compatOldStack,
+				oldUserStack, sizeof(compat_stack_t)) < B_OK) {
+				return B_BAD_ADDRESS;
+			}
+			oldStack.ss_sp = (void*)(addr_t)compatOldStack.ss_sp;
+			oldStack.ss_size = compatOldStack.ss_size;
+			oldStack.ss_flags = compatOldStack.ss_flags;
+		}
+	} else
+#endif
 	if ((newUserStack != NULL && (!IS_USER_ADDRESS(newUserStack)
 			|| user_memcpy(&newStack, newUserStack, sizeof(stack_t)) < B_OK))
 		|| (oldUserStack != NULL && (!IS_USER_ADDRESS(oldUserStack)
@@ -2497,10 +2597,22 @@ _user_set_signal_stack(const stack_t* newUserStack, stack_t* oldUserStack)
 	}
 
 	// only copy the old stack info if a pointer has been given
-	if (oldUserStack != NULL
-		&& user_memcpy(oldUserStack, &oldStack, sizeof(stack_t)) < B_OK)
-		return B_BAD_ADDRESS;
-
+	if (oldUserStack != NULL) {
+#ifdef _COMPAT_MODE
+		if (compatMode) {
+			compat_stack_t compatOldStack;
+			compatOldStack.ss_sp = (addr_t)oldStack.ss_sp;
+			compatOldStack.ss_size = oldStack.ss_size;
+			compatOldStack.ss_flags = oldStack.ss_flags;
+			if (user_memcpy(oldUserStack, &compatOldStack,
+					sizeof(compat_stack_t)) < B_OK) {
+				return B_BAD_ADDRESS;
+			}
+		} else
+#endif
+		if (user_memcpy(oldUserStack, &oldStack, sizeof(stack_t)) < B_OK)
+			return B_BAD_ADDRESS;
+	}
 	return B_OK;
 }
 
@@ -2532,6 +2644,54 @@ _user_restore_signal_frame(struct signal_frame_data* userSignalFrameData)
 	syscall_64_bit_return_value();
 
 	Thread *thread = thread_get_current_thread();
+
+#ifdef _COMPAT_MODE
+	if ((thread->flags & THREAD_FLAGS_COMPAT_MODE) != 0) {
+		// copy the signal frame data from userland
+		compat_signal_frame_data signalFrameData;
+		if (userSignalFrameData == NULL || !IS_USER_ADDRESS(userSignalFrameData)
+			|| user_memcpy(&signalFrameData, userSignalFrameData,
+				sizeof(signalFrameData)) != B_OK) {
+			// We failed to copy the signal frame data from userland. This is a
+			// serious problem. Kill the thread.
+			dprintf("_user_restore_signal_frame(): thread %" B_PRId32 ": Failed to "
+				"copy signal frame data (%p) from userland. Killing thread...\n",
+				thread->id, userSignalFrameData);
+			kill_thread(thread->id);
+			return B_BAD_ADDRESS;
+		}
+
+		// restore the signal block mask
+		InterruptsSpinLocker locker(thread->team->signal_lock);
+
+		thread->sig_block_mask
+			= signalFrameData.context.uc_sigmask & BLOCKABLE_SIGNALS;
+		update_current_thread_signals_flag();
+
+		locker.Unlock();
+
+		// restore the syscall restart related thread flags and the syscall restart
+		// parameters
+		atomic_and(&thread->flags,
+			~(THREAD_FLAGS_RESTART_SYSCALL | THREAD_FLAGS_64_BIT_SYSCALL_RETURN));
+		atomic_or(&thread->flags, signalFrameData.thread_flags
+			& (THREAD_FLAGS_RESTART_SYSCALL | THREAD_FLAGS_64_BIT_SYSCALL_RETURN));
+
+		memcpy(thread->syscall_restart.parameters,
+			signalFrameData.syscall_restart_parameters,
+			sizeof(thread->syscall_restart.parameters));
+
+		// restore the previously stored Thread::user_signal_context
+		thread->user_signal_context = (ucontext_t*)(addr_t)signalFrameData.context.uc_link;
+		if (thread->user_signal_context != NULL
+			&& !IS_USER_ADDRESS(thread->user_signal_context)) {
+			thread->user_signal_context = NULL;
+		}
+
+		// let the architecture specific code restore the registers
+		return arch_restore_compat_signal_frame(&signalFrameData);
+	}
+#endif
 
 	// copy the signal frame data from userland
 	signal_frame_data signalFrameData;
