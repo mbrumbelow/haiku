@@ -265,7 +265,9 @@ Screen::_FindBestMode(const display_mode* modes, uint32 count,
 		// TODO: check if these scores make sense
 		int32 diff = 1000 * abs(mode.timing.v_display - height)
 			+ int32(fabs(get_mode_frequency(mode) - frequency) * 10)
-			+ 100 * abs(mode.space - colorSpace);
+			+ 100 * ((mode.space >= colorSpace)
+				? (mode.space - colorSpace)
+				: (colorSpace - mode.space));
 
 		if (bestIndex == -1 || diff < bestDiff) {
 			bestDiff = diff;
