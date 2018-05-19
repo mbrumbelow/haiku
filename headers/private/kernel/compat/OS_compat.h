@@ -51,4 +51,25 @@ typedef struct {
 } _PACKED compat_system_info;
 
 
+#define compat_size_t uint32
+#define compat_ptr_t uint32
+typedef struct compat_area_info {
+	area_id		area;
+	char		name[B_OS_NAME_LENGTH];
+	compat_size_t	size;
+	uint32		lock;
+	uint32		protection;
+	team_id		team;
+	uint32		ram_size;
+	uint32		copy_count;
+	uint32		in_count;
+	uint32		out_count;
+	compat_ptr_t	address;
+} _PACKED compat_area_info;
+
+
+// TODO: move to compat.cpp
+// STATIC_ASSERT(sizeof(compat_area_info) == 0x48);
+
+
 #endif // _KERNEL_COMPAT_OS_H
