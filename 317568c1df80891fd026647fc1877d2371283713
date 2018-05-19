@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "edc1b73b_6c08f14f",
+        "filename": "src/servers/app/drawing/interface/local/AccelerantHWInterface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-05-19T17:45:41Z",
+      "side": 1,
+      "message": "Why this abs(uint16 - uint16) isn\u0027t affected as well?",
+      "revId": "317568c1df80891fd026647fc1877d2371283713",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5bf7c146_5b7635fc",
+        "filename": "src/servers/app/drawing/interface/local/AccelerantHWInterface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-05-19T17:45:41Z",
+      "side": 1,
+      "message": "I would define a macro or inline function local to this file, instead of repeating the logic in several places.",
+      "revId": "317568c1df80891fd026647fc1877d2371283713",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
