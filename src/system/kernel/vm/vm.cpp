@@ -19,6 +19,9 @@
 #include <algorithm>
 
 #include <OS.h>
+#ifdef _COMPAT_MODE
+#	include <OS_compat.h>
+#endif
 #include <KernelExport.h>
 
 #include <AutoDeleter.h>
@@ -6003,6 +6006,44 @@ _get_next_area_info(team_id team, ssize_t* cookie, area_info* info, size_t size)
 }
 
 
+#ifdef _COMPAT_MODE
+status_t
+_compat_get_next_area_info(team_id team, ssize_t* cookie, area_info* info, size_t size)
+{
+	area_id nextID = *(area_id*)cookie;
+
+	// we're already through the list
+	if (nextID == (area_id)-1)
+		return B_ENTRY_NOT_FOUND;
+
+	if (team == B_CURRENT_TEAM)
+		team = team_get_current_team_id();
+
+	AddressSpaceReadLocker locker(team);
+	if (!locker.IsLocked())
+		return B_BAD_TEAM_ID;
+
+	VMArea* area;
+	for (VMAddressSpace::AreaIterator it
+				= locker.AddressSpace()->GetAreaIterator();
+			(area = it.Next()) != NULL;) {
+		if (area->id > nextID)
+			break;
+	}
+
+	if (area == NULL) {
+		nextID = (area_id)-1;
+		return B_ENTRY_NOT_FOUND;
+	}
+
+	fill_area_info(area, info, size);
+	*cookie = (ssize_t)(area->id);
+
+	return B_OK;
+}
+#endif
+
+
 status_t
 set_area_protection(area_id area, uint32 newProtection)
 {
@@ -6132,6 +6173,16 @@ _user_reserve_address_range(addr_t* userAddress, uint32 addressSpec,
 
 	addr_t address;
 
+#ifdef _COMPAT_MODE
+	Thread* thread = thread_get_current_thread();
+	bool compatMode = (thread->flags & THREAD_FLAGS_COMPAT_MODE) != 0;
+	if (compatMode) {
+		uint32 compatAddress;
+		if (user_memcpy(&compatAddress, userAddress, sizeof(compatAddress)) < B_OK)
+			return B_BAD_ADDRESS;
+		address = (addr_t)compatAddress;
+	} else
+#endif
 	if (!IS_USER_ADDRESS(userAddress)
 		|| user_memcpy(&address, userAddress, sizeof(address)) != B_OK)
 		return B_BAD_ADDRESS;
@@ -6142,6 +6193,16 @@ _user_reserve_address_range(addr_t* userAddress, uint32 addressSpec,
 	if (status != B_OK)
 		return status;
 
+#ifdef _COMPAT_MODE
+	if (compatMode) {
+		uint32 compatAddress = (uint32)address;
+		if (user_memcpy(userAddress, &compatAddress, sizeof(compatAddress)) < B_OK) {
+			vm_unreserve_address_range(VMAddressSpace::CurrentID(),
+				(void*)address, size);
+			return B_BAD_ADDRESS;
+		}
+	} else
+#endif
 	if (user_memcpy(userAddress, &address, sizeof(address)) != B_OK) {
 		vm_unreserve_address_range(VMAddressSpace::CurrentID(),
 			(void*)address, size);
@@ -6194,6 +6255,26 @@ _user_get_area_info(area_id area, area_info* userInfo)
 	// TODO: do we want to prevent userland from seeing kernel protections?
 	//info.protection &= B_USER_PROTECTION;
 
+#ifdef _COMPAT_MODE
+	Thread* thread = thread_get_current_thread();
+	bool compatMode = (thread->flags & THREAD_FLAGS_COMPAT_MODE) != 0;
+	if (compatMode) {
+		compat_area_info compatInfo;
+		compatInfo.area = info.area;
+		strlcpy(compatInfo.name, info.name, B_OS_NAME_LENGTH);
+		compatInfo.size = info.size;
+		compatInfo.lock = info.lock;
+		compatInfo.protection = info.protection;
+		compatInfo.team = info.team;
+		compatInfo.ram_size = info.ram_size;
+		compatInfo.copy_count = info.copy_count;
+		compatInfo.in_count = info.in_count;
+		compatInfo.out_count = info.out_count;
+		compatInfo.address = (compat_ptr_t)(addr_t)info.address;
+		if (user_memcpy(userInfo, &compatInfo, sizeof(compatInfo)) < B_OK)
+			return B_BAD_ADDRESS;
+	} else
+#endif
 	if (user_memcpy(userInfo, &info, sizeof(area_info)) < B_OK)
 		return B_BAD_ADDRESS;
 
@@ -6207,18 +6288,54 @@ _user_get_next_area_info(team_id team, ssize_t* userCookie, area_info* userInfo)
 	ssize_t cookie;
 
 	if (!IS_USER_ADDRESS(userCookie)
-		|| !IS_USER_ADDRESS(userInfo)
-		|| user_memcpy(&cookie, userCookie, sizeof(ssize_t)) < B_OK)
+		|| !IS_USER_ADDRESS(userInfo))
+		return B_BAD_ADDRESS;
+
+#ifdef _COMPAT_MODE
+	Thread* thread = thread_get_current_thread();
+	bool compatMode = (thread->flags & THREAD_FLAGS_COMPAT_MODE) != 0;
+	if (compatMode) {
+		int32 compatCookie;
+		if (user_memcpy(&compatCookie, userCookie, sizeof(int32)) < B_OK)
+			return B_BAD_ADDRESS;
+		cookie = compatCookie;
+	} else
+#endif
+	if (user_memcpy(&cookie, userCookie, sizeof(ssize_t)) < B_OK)
 		return B_BAD_ADDRESS;
 
 	area_info info;
+#ifdef _COMPAT_MODE
+	status_t status = _compat_get_next_area_info(team, &cookie, &info,
+#else
 	status_t status = _get_next_area_info(team, &cookie, &info,
+#endif
 		sizeof(area_info));
 	if (status != B_OK)
 		return status;
 
 	//info.protection &= B_USER_PROTECTION;
 
+#ifdef _COMPAT_MODE
+	if (compatMode) {
+		compat_area_info compatInfo;
+		compatInfo.area = info.area;
+		strlcpy(compatInfo.name, info.name, B_OS_NAME_LENGTH);
+		compatInfo.size = info.size;
+		compatInfo.lock = info.lock;
+		compatInfo.protection = info.protection;
+		compatInfo.team = info.team;
+		compatInfo.ram_size = info.ram_size;
+		compatInfo.copy_count = info.copy_count;
+		compatInfo.in_count = info.in_count;
+		compatInfo.out_count = info.out_count;
+		compatInfo.address = (compat_ptr_t)(addr_t)info.address;
+		uint32 compatCookie = cookie;
+		if (user_memcpy(userCookie, &compatCookie, sizeof(uint32)) < B_OK
+			|| user_memcpy(userInfo, &compatInfo, sizeof(compatInfo)) < B_OK)
+			return B_BAD_ADDRESS;
+	} else
+#endif
 	if (user_memcpy(userCookie, &cookie, sizeof(ssize_t)) < B_OK
 		|| user_memcpy(userInfo, &info, sizeof(area_info)) < B_OK)
 		return B_BAD_ADDRESS;
@@ -6259,14 +6376,35 @@ _user_transfer_area(area_id area, void** userAddress, uint32 addressSpec,
 	}
 
 	void* address;
-	if (!IS_USER_ADDRESS(userAddress)
-		|| user_memcpy(&address, userAddress, sizeof(address)) < B_OK)
+	if (!IS_USER_ADDRESS(userAddress))
+		return B_BAD_ADDRESS;
+#ifdef _COMPAT_MODE
+	Thread* thread = thread_get_current_thread();
+	bool compatMode = (thread->flags & THREAD_FLAGS_COMPAT_MODE) != 0;
+	if (compatMode) {
+		uint32 compatAddress;
+		if (user_memcpy(&compatAddress, userAddress, sizeof(compatAddress))
+				< B_OK) {
+			return B_BAD_ADDRESS;
+		}
+		address = (void*)(addr_t)compatAddress;
+	} else
+#endif
+	if (user_memcpy(&address, userAddress, sizeof(address)) < B_OK)
 		return B_BAD_ADDRESS;
 
 	area_id newArea = transfer_area(area, &address, addressSpec, target, false);
 	if (newArea < B_OK)
 		return newArea;
 
+#ifdef _COMPAT_MODE
+	if (compatMode) {
+		uint32 compatAddress = (uint32)(addr_t)address;
+		if (user_memcpy(userAddress, &compatAddress, sizeof(compatAddress)) < B_OK) {
+			return B_BAD_ADDRESS;
+		}
+	} else
+#endif
 	if (user_memcpy(userAddress, &address, sizeof(address)) < B_OK)
 		return B_BAD_ADDRESS;
 
@@ -6291,8 +6429,20 @@ _user_clone_area(const char* userName, void** userAddress, uint32 addressSpec,
 		return B_BAD_VALUE;
 
 	if (!IS_USER_ADDRESS(userName)
-		|| !IS_USER_ADDRESS(userAddress)
-		|| user_strlcpy(name, userName, sizeof(name)) < B_OK
+		|| user_strlcpy(name, userName, sizeof(name)) < B_OK)
+		return B_BAD_ADDRESS;
+
+#ifdef _COMPAT_MODE
+	Thread* thread = thread_get_current_thread();
+	bool compatMode = (thread->flags & THREAD_FLAGS_COMPAT_MODE) != 0;
+	if (compatMode) {
+		uint32 compatAddress;
+		if (user_memcpy(&compatAddress, userAddress, sizeof(compatAddress)) < B_OK)
+			return B_BAD_ADDRESS;
+		address = (void*)(addr_t)compatAddress;
+	} else
+#endif
+	if (!IS_USER_ADDRESS(userAddress)
 		|| user_memcpy(&address, userAddress, sizeof(address)) < B_OK)
 		return B_BAD_ADDRESS;
 
@@ -6304,6 +6454,15 @@ _user_clone_area(const char* userName, void** userAddress, uint32 addressSpec,
 	if (clonedArea < B_OK)
 		return clonedArea;
 
+#ifdef _COMPAT_MODE
+	if (compatMode) {
+		uint32 compatAddress = (uint32)(addr_t)address;
+		if (user_memcpy(userAddress, &compatAddress, sizeof(compatAddress)) < B_OK) {
+			delete_area(clonedArea);
+			return B_BAD_ADDRESS;
+		}
+	} else
+#endif
 	if (user_memcpy(userAddress, &address, sizeof(address)) < B_OK) {
 		delete_area(clonedArea);
 		return B_BAD_ADDRESS;
@@ -6331,8 +6490,20 @@ _user_create_area(const char* userName, void** userAddress, uint32 addressSpec,
 
 	if (!IS_USER_ADDRESS(userName)
 		|| !IS_USER_ADDRESS(userAddress)
-		|| user_strlcpy(name, userName, sizeof(name)) < B_OK
-		|| user_memcpy(&address, userAddress, sizeof(address)) < B_OK)
+		|| user_strlcpy(name, userName, sizeof(name)) < B_OK)
+		return B_BAD_ADDRESS;
+
+#ifdef _COMPAT_MODE
+	Thread* thread = thread_get_current_thread();
+	bool compatMode = (thread->flags & THREAD_FLAGS_COMPAT_MODE) != 0;
+	if (compatMode) {
+		uint32 compatAddress;
+		if (user_memcpy(&compatAddress, userAddress, sizeof(compatAddress)) < B_OK)
+			return B_BAD_ADDRESS;
+		address = (void*)(addr_t)compatAddress;
+	} else
+#endif
+	if (user_memcpy(&address, userAddress, sizeof(address)) < B_OK)
 		return B_BAD_ADDRESS;
 
 	if (addressSpec == B_EXACT_ADDRESS
@@ -6354,10 +6525,20 @@ _user_create_area(const char* userName, void** userAddress, uint32 addressSpec,
 		size, lock, protection, 0, 0, &virtualRestrictions,
 		&physicalRestrictions, false, &address);
 
-	if (area >= B_OK
-		&& user_memcpy(userAddress, &address, sizeof(address)) < B_OK) {
-		delete_area(area);
-		return B_BAD_ADDRESS;
+	if (area >= B_OK) {
+#ifdef _COMPAT_MODE
+		if (compatMode) {
+			uint32 compatAddress = (uint32)(addr_t)address;
+			if (user_memcpy(userAddress, &compatAddress, sizeof(compatAddress)) < B_OK) {
+				delete_area(area);
+				return B_BAD_ADDRESS;
+			}
+		} else
+#endif
+		if (user_memcpy(userAddress, &address, sizeof(address)) < B_OK) {
+				delete_area(area);
+				return B_BAD_ADDRESS;
+		}
 	}
 
 	return area;
@@ -6391,8 +6572,20 @@ _user_map_file(const char* userName, void** userAddress, uint32 addressSpec,
 
 	fix_protection(&protection);
 
-	if (!IS_USER_ADDRESS(userName) || !IS_USER_ADDRESS(userAddress)
-		|| user_strlcpy(name, userName, B_OS_NAME_LENGTH) < B_OK
+	if (!IS_USER_ADDRESS(userName)
+		|| user_strlcpy(name, userName, B_OS_NAME_LENGTH) < B_OK)
+		return B_BAD_ADDRESS;
+#ifdef _COMPAT_MODE
+	Thread* thread = thread_get_current_thread();
+	bool compatMode = (thread->flags & THREAD_FLAGS_COMPAT_MODE) != 0;
+	if (compatMode) {
+		uint32 compatAddress;
+		if (user_memcpy(&compatAddress, userAddress, sizeof(compatAddress)) < B_OK)
+			return B_BAD_ADDRESS;
+		address = (void*)(addr_t)compatAddress;
+	} else
+#endif
+	if (!IS_USER_ADDRESS(userAddress)
 		|| user_memcpy(&address, userAddress, sizeof(address)) < B_OK)
 		return B_BAD_ADDRESS;
 
@@ -6413,6 +6606,15 @@ _user_map_file(const char* userName, void** userAddress, uint32 addressSpec,
 	if (area < B_OK)
 		return area;
 
+#ifdef _COMPAT_MODE
+	if (compatMode) {
+		uint32 compatAddress = (uint32)(addr_t)address;
+		if (user_memcpy(userAddress, &compatAddress, sizeof(compatAddress)) < B_OK) {
+			delete_area(area);
+			return B_BAD_ADDRESS;
+		}
+	} else
+#endif
 	if (user_memcpy(userAddress, &address, sizeof(address)) < B_OK)
 		return B_BAD_ADDRESS;
 
