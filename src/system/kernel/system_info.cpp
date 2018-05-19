@@ -20,6 +20,9 @@
 #include <algorithm>
 
 #include <OS.h>
+#ifdef _COMPAT_MODE
+#	include <OS_compat.h>
+#endif
 #include <KernelExport.h>
 
 #include <AutoDeleter.h>
@@ -546,6 +549,41 @@ _user_get_system_info(system_info* userInfo)
 	system_info info;
 	status_t status = get_system_info(&info);
 	if (status == B_OK) {
+#ifdef _COMPAT_MODE
+		Thread* thread = thread_get_current_thread();
+		bool compatMode = (thread->flags & THREAD_FLAGS_COMPAT_MODE) != 0;
+		if (compatMode) {
+			compat_system_info compat_info;
+			ASSERT(sizeof(compat_info) == 0x1c4);
+			compat_info.boot_time = info.boot_time;
+			compat_info.cpu_count = info.cpu_count;
+			compat_info.max_pages = info.max_pages;
+			compat_info.used_pages = info.used_pages;
+			compat_info.cached_pages = info.cached_pages;
+			compat_info.block_cache_pages = info.block_cache_pages;
+			compat_info.ignored_pages = info.ignored_pages;
+			compat_info.needed_memory = info.needed_memory;
+			compat_info.free_memory = info.free_memory;
+			compat_info.needed_memory = info.needed_memory;
+			compat_info.max_swap_pages = info.max_swap_pages;
+			compat_info.free_swap_pages = info.free_swap_pages;
+			compat_info.max_sems = info.max_sems;
+			compat_info.used_sems = info.used_sems;
+			compat_info.max_ports = info.max_ports;
+			compat_info.used_ports = info.used_ports;
+			compat_info.max_threads = info.max_threads;
+			compat_info.used_threads = info.used_threads;
+			compat_info.max_teams = info.max_teams;
+			compat_info.used_teams = info.used_teams;
+			strlcpy(compat_info.kernel_name, info.kernel_name, B_FILE_NAME_LENGTH);
+			strlcpy(compat_info.kernel_build_date, info.kernel_build_date, B_OS_NAME_LENGTH);
+			strlcpy(compat_info.kernel_build_time, info.kernel_build_time, B_OS_NAME_LENGTH);
+			compat_info.kernel_version = info.kernel_version;
+			compat_info.abi = info.abi;
+			if (user_memcpy(userInfo, &compat_info, sizeof(compat_info)) < B_OK)
+				return B_BAD_ADDRESS;
+		} else
+#endif
 		if (user_memcpy(userInfo, &info, sizeof(system_info)) < B_OK)
 			return B_BAD_ADDRESS;
 
