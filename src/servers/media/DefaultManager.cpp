@@ -462,7 +462,7 @@ DefaultManager::_FindPhysical(volatile media_node_id *id, uint32 default_type,
 		}
 	}
 
-	memset(&format, 0, sizeof(format));
+	format.Clear();
 	format.type = type;
 	count = MAX_NODE_INFOS;
 	rv = fRoster->GetLiveNodes(&info[0], &count,
@@ -563,7 +563,7 @@ DefaultManager::_FindTimeSource()
 
 	/* Now try to find another physical audio out node
 	 */
-	memset(&input, 0, sizeof(input));
+	input.Clear();
 	input.type = B_MEDIA_RAW_AUDIO;
 	count = MAX_NODE_INFOS;
 	rv = fRoster->GetLiveNodes(&info[0], &count, &input, NULL, NULL,
@@ -694,7 +694,7 @@ DefaultManager::_ConnectMixerToOutput()
 
 			case 1:
 				TRACE("DefaultManager: Trying connect in format 1\n");
-				memset(&format, 0, sizeof(format));
+				format.Clear();
 				format.type = B_MEDIA_RAW_AUDIO;
 				format.u.raw_audio.frame_rate = 44100;
 				format.u.raw_audio.channel_count = 2;
@@ -703,7 +703,7 @@ DefaultManager::_ConnectMixerToOutput()
 
 			case 2:
 				TRACE("DefaultManager: Trying connect in format 2\n");
-				memset(&format, 0, sizeof(format));
+				format.Clear();
 				format.type = B_MEDIA_RAW_AUDIO;
 				format.u.raw_audio.frame_rate = 48000;
 				format.u.raw_audio.channel_count = 2;
@@ -712,7 +712,7 @@ DefaultManager::_ConnectMixerToOutput()
 
 			case 3:
 				TRACE("DefaultManager: Trying connect in format 3\n");
-				memset(&format, 0, sizeof(format));
+				format.Clear();
 				format.type = B_MEDIA_RAW_AUDIO;
 				break;
 
@@ -727,7 +727,7 @@ DefaultManager::_ConnectMixerToOutput()
 
 			case 5:
 				TRACE("DefaultManager: Trying connect in format 4\n");
-				memset(&format, 0, sizeof(format));
+				format.Clear();
 				break;
 
 		}
