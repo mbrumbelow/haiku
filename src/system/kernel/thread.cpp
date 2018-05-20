@@ -24,6 +24,9 @@
 #include <algorithm>
 
 #include <OS.h>
+#ifdef _COMPAT_MODE
+#	include <OS_compat.h>
+#endif
 
 #include <util/AutoLock.h>
 
@@ -37,11 +40,17 @@
 #include <ksignal.h>
 #include <Notifications.h>
 #include <real_time_clock.h>
+#ifdef _COMPAT_MODE
+#	include <resource_compat.h>
+#endif
 #include <slab/Slab.h>
 #include <smp.h>
 #include <syscalls.h>
 #include <syscall_restart.h>
 #include <team.h>
+#ifdef _COMPAT_MODE
+#	include <thread_defs_compat.h>
+#endif
 #include <tls.h>
 #include <user_runtime.h>
 #include <user_thread.h>
@@ -815,6 +824,10 @@ create_thread_user_stack(Team* team, Thread* thread, void* _stackBase,
 			thread->name, thread->id);
 
 		stackBase = (uint8*)USER_STACK_REGION;
+#ifdef _COMPAT_MODE
+		if ((thread->flags & THREAD_FLAGS_COMPAT_MODE) != 0)
+			stackBase = (uint8*)USER32_STACK_REGION;
+#endif
 
 		virtual_address_restrictions virtualRestrictions = {};
 		virtualRestrictions.address_specification = B_RANDOMIZED_BASE_ADDRESS;
@@ -899,6 +912,12 @@ thread_create_thread(const ThreadCreationAttributes& attributes, bool kernel)
 	thread->priority = std::min(thread->priority,
 			(int32)THREAD_MAX_SET_PRIORITY);
 	thread->state = B_THREAD_SUSPENDED;
+
+#ifdef _COMPAT_MODE
+	Thread* currentThread = thread_get_current_thread();
+	if ((currentThread->flags & THREAD_FLAGS_COMPAT_MODE) != 0)
+		thread->flags |= THREAD_FLAGS_COMPAT_MODE;
+#endif
 
 	thread->sig_block_mask = attributes.signal_mask;
 
@@ -3395,10 +3414,65 @@ _user_spawn_thread(thread_creation_attributes* userAttributes)
 	// copy the userland structure to the kernel
 	char nameBuffer[B_OS_NAME_LENGTH];
 	ThreadCreationAttributes attributes;
-	status_t error = attributes.InitFromUserAttributes(userAttributes,
-		nameBuffer);
-	if (error != B_OK)
-		return error;
+
+#ifdef _COMPAT_MODE
+	Thread* thread = thread_get_current_thread();
+	bool compatMode = (thread->flags & THREAD_FLAGS_COMPAT_MODE) != 0;
+	if (compatMode) {
+		struct compat_thread_creation_attributes compatAttrs;
+		if (userAttributes == NULL || !IS_USER_ADDRESS(userAttributes)
+			|| user_memcpy(&compatAttrs, userAttributes,
+					sizeof(compatAttrs)) != B_OK) {
+			return B_BAD_ADDRESS;
+		}
+
+		if (compatAttrs.stack_size != 0
+			&& (compatAttrs.stack_size < MIN_USER_STACK_SIZE
+				|| compatAttrs.stack_size > MAX_USER_STACK_SIZE)) {
+			return B_BAD_VALUE;
+		}
+
+		attributes.entry = (int32 (*)(void*, void*))(addr_t)compatAttrs.entry;
+		attributes.name = (const char*)(addr_t)compatAttrs.name;
+		attributes.priority = compatAttrs.priority;
+		attributes.args1 = (void*)(addr_t)compatAttrs.args1;
+		attributes.args2 = (void*)(addr_t)compatAttrs.args2;
+		attributes.stack_address = (void*)(addr_t)compatAttrs.stack_address;
+		attributes.stack_size = compatAttrs.stack_size;
+		attributes.guard_size = compatAttrs.guard_size;
+		attributes.pthread = (pthread_t)(addr_t)compatAttrs.pthread;
+		attributes.flags = compatAttrs.flags;
+
+		if (attributes.entry == NULL || !IS_USER_ADDRESS(attributes.entry)
+			|| (attributes.stack_address != NULL
+				&& !IS_USER_ADDRESS(attributes.stack_address))
+			|| (attributes.name != NULL && (!IS_USER_ADDRESS(attributes.name)
+				|| user_strlcpy(nameBuffer, attributes.name,
+					B_OS_NAME_LENGTH) < 0))) {
+			return B_BAD_ADDRESS;
+		}
+
+		attributes.name = attributes.name != NULL ? nameBuffer : "user thread";
+
+		// kernel only attributes (not in thread_creation_attributes):
+		Thread* currentThread = thread_get_current_thread();
+		attributes.team = currentThread->team->id;
+		attributes.thread = NULL;
+		attributes.signal_mask = currentThread->sig_block_mask;
+			// inherit the current thread's signal mask
+		attributes.additional_stack_size = 0;
+		attributes.kernelEntry = NULL;
+		attributes.kernelArgument = NULL;
+		attributes.forkArgs = NULL;
+
+	} else
+#endif
+	{
+		status_t error = attributes.InitFromUserAttributes(userAttributes,
+			nameBuffer);
+		if (error != B_OK)
+			return error;
+	}
 
 	// create the thread
 	thread_id threadID = thread_create_thread(attributes, false);
@@ -3510,10 +3584,29 @@ _user_get_thread_info(thread_id id, thread_info *userInfo)
 
 	status = _get_thread_info(id, &info, sizeof(thread_info));
 
-	if (status >= B_OK
-		&& user_memcpy(userInfo, &info, sizeof(thread_info)) < B_OK)
-		return B_BAD_ADDRESS;
-
+	if (status >= B_OK) {
+#ifdef _COMPAT_MODE
+		Thread* thread = thread_get_current_thread();
+		bool compatMode = (thread->flags & THREAD_FLAGS_COMPAT_MODE) != 0;
+		if (compatMode) {
+			compat_thread_info compatInfo;
+			compatInfo.thread = info.thread;
+			compatInfo.team = info.team;
+			strlcpy(compatInfo.name, info.name, sizeof(compatInfo.name));
+			compatInfo.state = info.state;
+			compatInfo.priority = info.priority;
+			compatInfo.sem = info.sem;
+			compatInfo.user_time = info.user_time;
+			compatInfo.kernel_time = info.kernel_time;
+			compatInfo.stack_base = (uint32)(addr_t)info.stack_base;
+			compatInfo.stack_end = (uint32)(addr_t)info.stack_end;
+			if (user_memcpy(userInfo, &compatInfo, sizeof(compatInfo)) < B_OK)
+				return B_BAD_ADDRESS;
+		} else
+#endif
+			if (user_memcpy(userInfo, &info, sizeof(thread_info)) < B_OK)
+			return B_BAD_ADDRESS;
+	}
 	return status;
 }
 
@@ -3534,6 +3627,26 @@ _user_get_next_thread_info(team_id team, int32 *userCookie,
 	if (status < B_OK)
 		return status;
 
+#ifdef _COMPAT_MODE
+		Thread* thread = thread_get_current_thread();
+		bool compatMode = (thread->flags & THREAD_FLAGS_COMPAT_MODE) != 0;
+		if (compatMode) {
+			compat_thread_info compatInfo;
+			compatInfo.thread = info.thread;
+			compatInfo.team = info.team;
+			strlcpy(compatInfo.name, info.name, sizeof(compatInfo.name));
+			compatInfo.state = info.state;
+			compatInfo.priority = info.priority;
+			compatInfo.sem = info.sem;
+			compatInfo.user_time = info.user_time;
+			compatInfo.kernel_time = info.kernel_time;
+			compatInfo.stack_base = (uint32)(addr_t)info.stack_base;
+			compatInfo.stack_end = (uint32)(addr_t)info.stack_end;
+			if (user_memcpy(userCookie, &cookie, sizeof(int32)) < B_OK
+				|| user_memcpy(userInfo, &compatInfo, sizeof(compatInfo)) < B_OK)
+				return B_BAD_ADDRESS;
+		} else
+#endif
 	if (user_memcpy(userCookie, &cookie, sizeof(int32)) < B_OK
 		|| user_memcpy(userInfo, &info, sizeof(thread_info)) < B_OK)
 		return B_BAD_ADDRESS;
@@ -3720,9 +3833,19 @@ _user_getrlimit(int resource, struct rlimit *urlp)
 	ret = common_getrlimit(resource, &rl);
 
 	if (ret == 0) {
-		ret = user_memcpy(urlp, &rl, sizeof(struct rlimit));
-		if (ret < 0)
-			return ret;
+#ifdef _COMPAT_MODE
+		Thread* thread = thread_get_current_thread();
+		bool compatMode = (thread->flags & THREAD_FLAGS_COMPAT_MODE) != 0;
+		if (compatMode) {
+			struct compat_rlimit compat_rl;
+			compat_rl.rlim_cur = rl.rlim_cur;
+			compat_rl.rlim_max = rl.rlim_max;
+			if (user_memcpy(urlp, &compat_rl, sizeof(compat_rlimit)) < B_OK)
+				return B_BAD_ADDRESS;
+		} else
+#endif
+		if (user_memcpy(urlp, &rl, sizeof(struct rlimit)) < 0)
+			return B_BAD_ADDRESS;
 
 		return 0;
 	}
@@ -3739,8 +3862,22 @@ _user_setrlimit(int resource, const struct rlimit *userResourceLimit)
 	if (userResourceLimit == NULL)
 		return EINVAL;
 
-	if (!IS_USER_ADDRESS(userResourceLimit)
-		|| user_memcpy(&resourceLimit, userResourceLimit,
+	if (!IS_USER_ADDRESS(userResourceLimit))
+		return B_BAD_ADDRESS;
+
+#ifdef _COMPAT_MODE
+	Thread* thread = thread_get_current_thread();
+	bool compatMode = (thread->flags & THREAD_FLAGS_COMPAT_MODE) != 0;
+	if (compatMode) {
+		struct compat_rlimit compat_rl;
+		if (user_memcpy(&compat_rl, userResourceLimit,
+			sizeof(compat_rlimit)) < B_OK)
+			return B_BAD_ADDRESS;
+		resourceLimit.rlim_cur = compat_rl.rlim_cur;
+		resourceLimit.rlim_max = compat_rl.rlim_max;
+	} else
+#endif
+	if (user_memcpy(&resourceLimit, userResourceLimit,
 			sizeof(struct rlimit)) < B_OK)
 		return B_BAD_ADDRESS;
 
