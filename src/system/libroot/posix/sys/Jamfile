@@ -25,6 +25,7 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 			select.c
 			stat.c
 			statvfs.c
+			sysmacros.c
 			times.cpp
 			uio.c
 			umask.c
