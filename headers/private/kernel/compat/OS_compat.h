@@ -72,4 +72,22 @@ typedef struct compat_area_info {
 // STATIC_ASSERT(sizeof(compat_area_info) == 0x48);
 
 
+typedef struct {
+	thread_id		thread;
+	team_id			team;
+	char			name[B_OS_NAME_LENGTH];
+	thread_state	state;
+	int32			priority;
+	sem_id			sem;
+	bigtime_t		user_time;
+	bigtime_t		kernel_time;
+	uint32			stack_base;
+	uint32			stack_end;
+} _PACKED compat_thread_info;
+
+
+// TODO: move to compat.cpp
+// STATIC_ASSERT(sizeof(compatInfo) == 76);
+
+
 #endif // _KERNEL_COMPAT_OS_H
