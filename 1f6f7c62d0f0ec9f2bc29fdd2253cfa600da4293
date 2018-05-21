@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c817bed8_c3ca4c13",
+        "filename": "headers/private/kernel/compat/fnctl_compat.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-05-21T07:11:00Z",
+      "side": 1,
+      "message": "\"compat\" isn\u0027t a very descriptive name, and it may be a problem when we have to handle both 32/64 bit compatibility and BeOS/R2 compatibility (or whatever other compatibility we need to maintain at the system level).\n\nShould we call them \"compat32\" or something similar?",
+      "revId": "1f6f7c62d0f0ec9f2bc29fdd2253cfa600da4293",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
