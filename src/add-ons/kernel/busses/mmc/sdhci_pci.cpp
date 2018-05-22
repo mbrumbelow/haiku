@@ -18,7 +18,7 @@
 #define ERROR(x...)			dprintf("\33[33msdhci_pci:\33[0m " x)
 #define CALLED(x...)		TRACE("CALLED %s\n", __PRETTY_FUNCTION__)
 
-#define SDHCI_PCI_DEVICE_MODULE_NAME "busses/mmc/sdhci_pci/device/v1"
+#define SDHCI_PCI_DEVICE_MODULE_NAME "busses/mmc/sdhci_pci/driver_v1"
 
 /*typedef struct {
 	sdhci_mmc_bus mmc_bus;
