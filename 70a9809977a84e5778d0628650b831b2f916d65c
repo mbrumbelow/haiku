@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c252c29c_cc00954c",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-05-23T11:56:11Z",
+      "side": 1,
+      "message": "There is a space after \"BMenu* menu,\"",
+      "revId": "70a9809977a84e5778d0628650b831b2f916d65c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "111ec305_edd8e6f9",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-05-23T11:56:11Z",
+      "side": 1,
+      "message": "The last unused parameter should be removed.",
+      "revId": "70a9809977a84e5778d0628650b831b2f916d65c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "520f23b8_caa6e27d",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 3460,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-05-23T11:56:11Z",
+      "side": 1,
+      "message": "There is a space after \"B_NORMAL_PRIORITY,\".",
+      "revId": "70a9809977a84e5778d0628650b831b2f916d65c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1613e303_b46d2751",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 3461,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-05-23T11:56:11Z",
+      "side": 1,
+      "message": "The last unused parameter should be removed.",
+      "revId": "70a9809977a84e5778d0628650b831b2f916d65c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
