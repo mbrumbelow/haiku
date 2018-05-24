@@ -36,6 +36,7 @@ void arch_cpu_global_TLB_invalidate(void);
 
 void arch_cpu_sync_icache(void *address, size_t length);
 
+status_t arch_cpu_load_microcode();
 
 #ifdef __cplusplus
 }

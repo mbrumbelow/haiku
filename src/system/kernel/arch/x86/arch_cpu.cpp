@@ -1120,6 +1120,8 @@ detect_amdc1e_noarat()
 status_t
 arch_cpu_init_percpu(kernel_args* args, int cpu)
 {
+
+
 	detect_cpu(cpu);
 
 	if (!gCpuIdleFunc) {
@@ -1128,6 +1130,12 @@ arch_cpu_init_percpu(kernel_args* args, int cpu)
 		else
 			gCpuIdleFunc = halt_idle;
 	}
+
+	status_t mc_status = arch_cpu_load_microcode();
+	if (mc_status != B_OK)
+		return mc_status;
+
+	detect_cpu(cpu);
 
 	return B_OK;
 }
