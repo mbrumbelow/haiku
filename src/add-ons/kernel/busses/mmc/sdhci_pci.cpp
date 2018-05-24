@@ -116,12 +116,18 @@ supports_device(device_node* parent)
 
 	TRACE("Supports device started, first function has been loaded ");
 
-	if (gDeviceManager->get_attr_string(parent, B_DEVICE_BUS, &bus, false) != B_OK
-		|| gDeviceManager->get_attr_uint16(parent, B_DEVICE_VENDOR_ID,
-				&vendorID, false) < B_OK
-		|| gDeviceManager->get_attr_uint16(parent, B_DEVICE_ID, &deviceID,
-				false) < B_OK) {
-		return -1.0f;
+	if (gDeviceManager->get_attr_string(parent, B_DEVICE_BUS, &bus, false) == B_OK)
+	{
+		TRACE("bus found, bus value: %s\n",bus);
+	}
+	if(gDeviceManager->get_attr_uint16(parent, B_DEVICE_VENDOR_ID, &vendorID, false) < B_OK)
+	{
+		TRACE("Vendor ID not found");
+	}
+	if(gDeviceManager->get_attr_uint16(parent, B_DEVICE_ID, &deviceID, false) < B_OK)
+	{
+		TRACE("Device ID not found");
+		
 	}
 
 	if (strcmp(bus, "pci") != 0) 
