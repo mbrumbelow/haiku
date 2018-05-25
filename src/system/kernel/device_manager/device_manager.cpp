@@ -1600,13 +1600,13 @@ device_node::_GetNextDriverPath(void*& cookie, KPath& _path)
 				}
 				break;
 			case PCI_base_peripheral:
-				switch(subType){
+				switch (subType){
 					case PCI_sd_host:
-					_AddPath(*stack,"busses","mmc");
+						_AddPath(*stack, "busses", "mmc");
 					break;
 					default:
-					_AddPath(*stack,"busses");
-					break;
+						_AddPath(*stack, "busses");
+						break;
 				}
 				break;
 			default:
