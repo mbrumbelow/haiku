@@ -38,6 +38,7 @@ AddFilesToPackage add-ons kernel busses scsi : ahci virtio_scsi ;
 AddFilesToPackage add-ons kernel busses usb : <usb>uhci <usb>ohci <usb>ehci
 	<usb>xhci ;
 AddFilesToPackage add-ons kernel busses virtio : virtio_pci ;
+AddFilesToPackage add-ons kernel busses mmc : sdhci_pci ;
 AddFilesToPackage add-ons kernel console : vga_text ;
 AddFilesToPackage add-ons kernel debugger
 	: <kdebug>demangle <kdebug>disasm@x86,x86_64 <kdebug>hangman
@@ -201,6 +202,7 @@ AddBootModuleSymlinksToPackage
 	scsi scsi_cd scsi_disk scsi_periph silicon_image_3112 highpoint_ide_pci
 	usb usb_disk <usb>ehci <usb>ohci <usb>uhci <usb>xhci
 	virtio virtio_block virtio_pci virtio_scsi
+	sdhci_pci
 ;
 
 # add-ons
