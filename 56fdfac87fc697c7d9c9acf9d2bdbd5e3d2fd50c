@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97579ee0_26ebe8a0",
+        "filename": "src/system/kernel/device_manager/IORequest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1290,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-05-29T07:17:50Z",
+      "side": 1,
+      "message": "I would rather write:\n\nif (status \u003c B_OK)\n    return status;\nelse\n    return B_OK;",
+      "revId": "56fdfac87fc697c7d9c9acf9d2bdbd5e3d2fd50c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
