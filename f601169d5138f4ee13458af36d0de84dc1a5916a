@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c5a54349_ac4b4c0c",
+        "filename": "src/libs/compat/freebsd_wlan/net80211/ieee80211_haiku.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-05-29T07:16:42Z",
+      "side": 1,
+      "message": "Is it ok that access to ni_refcnt is not atomic now?",
+      "revId": "f601169d5138f4ee13458af36d0de84dc1a5916a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
