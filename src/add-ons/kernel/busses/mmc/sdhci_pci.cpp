@@ -114,20 +114,13 @@ supports_device(device_node* parent)
 	const char* bus;
 	uint16 vendorID, deviceID;
 
-	TRACE("Supports device started, first function has been loaded ");
+	TRACE("Supports device started , success!");
 
-	if (gDeviceManager->get_attr_string(parent, B_DEVICE_BUS, &bus, false) == B_OK)
+	if (gDeviceManager->get_attr_string(parent, B_DEVICE_BUS, &bus, false) != B_OK
+	||	gDeviceManager->get_attr_uint16(parent, B_DEVICE_VENDOR_ID, &vendorID, false) < B_OK
+	|| gDeviceManager->get_attr_uint16(parent, B_DEVICE_ID, &deviceID, false) < B_OK)
 	{
-		TRACE("bus found, bus value: %s\n",bus);
-	}
-	if(gDeviceManager->get_attr_uint16(parent, B_DEVICE_VENDOR_ID, &vendorID, false) < B_OK)
-	{
-		TRACE("Vendor ID not found");
-	}
-	if(gDeviceManager->get_attr_uint16(parent, B_DEVICE_ID, &deviceID, false) < B_OK)
-	{
-		TRACE("Device ID not found");
-		
+		return -1;
 	}
 
 	if (strcmp(bus, "pci") != 0) 
@@ -137,8 +130,8 @@ supports_device(device_node* parent)
 		return 0; */// At the moment not needed, it won't be able to detect the specific fake vendor
 
 	if (vendorID == SDHCI_PCI_VENDORID) { // check for vendor ID
-		if (deviceID < SDHCI_PCI_MAX_DEVICEID 
-			|| deviceID > SDHCI_PCI_MIN_DEVICEID) { // check for device ID
+		if (deviceID > SDHCI_PCI_MAX_DEVICEID 
+			||deviceID < SDHCI_PCI_MIN_DEVICEID) { // check for device ID
 			return 0.0f;
 		}
 
@@ -150,9 +143,10 @@ supports_device(device_node* parent)
 			1);
 		uint8 pciSlotsInfo = pci->read_pci_config(device, SHDCI_PCI_SLOT_INFO, 1); // second parameter is for offset and third is of reading no of bytes
 		// debug message 
-		TRACE("SDHCI Device found! vendor 0x%04x, device 0x%04x", vendorID, deviceID);
+		TRACE("SDHCI Device found! vendor: 0x%04x, device: 0x%04x\n", vendorID, deviceID);
+		TRACE("Number of slots: %d \n",pciSlotsInfo);
 
-		kernel_debugger("please stop here\n");
+	//	kernel_debugger("please stop here\n");
 
 		
 		return 1.0f;
