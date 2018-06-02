@@ -70,13 +70,14 @@ init_bus(device_node* node, void** bus_cookie)
 		gDeviceManager->put_node(parent);
 	}
 
-	if(get_module(B_PCI_X86_MODULE_NAME, (module_info**)&sPCIx86Module) != B_OK)		sPCIx86Module = NULL;
+	if(get_module(B_PCI_X86_MODULE_NAME, (module_info**)&sPCIx86Module) != B_OK)		
+		sPCIx86Module = NULL;
 
 	bus->node = node;
 	bus->pci = pci;
 	bus->device = device;
 
-	pci->info *pciInfo = &bus->info;
+	pci_info *pciInfo = &bus->info;
 	pci->get_pci_info(device, pciInfo);
 
 	bus->base_addr = pciInfo->u.h0.base_registers[0];
@@ -160,12 +161,9 @@ supports_device(device_node* parent)
 	
 	if (strcmp(bus, "pci") != 0) 
 		return 0.0f;
-
-	if( type != PCI_base_peripheral || subType != PCI_sd_host)
-		return 0;
 	
-	if (vendorID == SDHCI_PCI_VENDORID) { // check for vendor ID
-		if (deviceID < SDHCI_PCI_MIN_DEVICEID || deviceID > SDHCI_PCI_MAX_DEVICEID) { // check for device ID
+	if (type == PCI_base_peripheral) { // check for vendor ID
+		if (subType != PCI_sd_host) { // check for device ID
 			return 0.0f;
 		}
 
@@ -186,9 +184,46 @@ supports_device(device_node* parent)
 	return 0;
 }
 
-static driver_module_info gSDHCIPCIDeviceModule = {
+void
+set_mmc_bus(void* cookie, sdhci_mmc_bus mmc_bus) {}
+
+status_t
+read_host_features(void* cookie, uint32* features) {}
+
+status_t
+write_guest_features(void* cookie, uint32 features) {}
+
+uint8
+get_status(void* cookie) {}
+
+void
+set_status(void* cookie, uint8 status) {}
+
+status_t
+read_device_config(void* cookie, uint8 offset, void* buffer, size_t bufferSize) {}
+
+status_t
+write_device_config(void* cookie, uint8 offset, const void* buffer, size_t bufferSize) {}
+
+uint16
+get_queue_ring_size(void* cookie, uint16 queue) {}
+
+status_t
+setup_queue(void* cookie, uint16 queue, phys_addr_t phy) {}
+
+status_t
+setup_interrupt(void* cookie, uint16 queueCount) {}
+
+status_t
+free_interrupt(void* cookie) {}
+
+void
+notify_queue(void* cookie, uint16 queue) {}
+
+static sdhci_mmc_bus_interface gSDHCIPCIDeviceModule = {
+	{
 		{
-			SDHCI_PCI_DEVICE_MODULE_NAME,
+			SDHCI_PCI_MMC_BUS_MODULE_NAME,
 			0,
 			NULL
 		},
@@ -199,6 +234,20 @@ static driver_module_info gSDHCIPCIDeviceModule = {
 		NULL, // register child devices
 		NULL, // rescan
 		bus_removed
+	},
+
+	set_mmc_bus,
+	read_host_features,
+	write_guest_features,
+	get_status,
+	set_status,
+	read_device_config,
+	write_device_config,
+	get_queue_ring_size,
+	setup_queue,
+	setup_interrupt,
+	free_interrupt,
+	notify_queue
 };
 
 module_dependency module_dependencies[] = {
