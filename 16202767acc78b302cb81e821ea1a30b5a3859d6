@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "21fcc2da_6d024169",
+        "filename": "headers/libs/print/libprint/GraphicsDriver.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-06-03T20:12:13Z",
+      "side": 1,
+      "message": "ReadSpoolData() isn\u0027t aligned correctly, should be one tab instead of two.",
+      "revId": "16202767acc78b302cb81e821ea1a30b5a3859d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cc1add17_9a7ede4b",
+        "filename": "src/add-ons/print/transports/serial_port/SerialTransport.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-06-03T20:12:13Z",
+      "side": 1,
+      "message": "{ goes on the previous line.",
+      "revId": "16202767acc78b302cb81e821ea1a30b5a3859d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "60f927f5_8387fb30",
+        "filename": "src/libs/print/libprint/GraphicsDriver.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 802,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-06-03T20:12:13Z",
+      "side": 1,
+      "message": "\"return\" isn\u0027t needed.",
+      "revId": "16202767acc78b302cb81e821ea1a30b5a3859d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
