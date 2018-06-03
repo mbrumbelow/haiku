@@ -113,29 +113,33 @@ void
 driver_printf(const char *format, ...)
 {
 	va_list vl;
+	int ret;
 	va_start(vl, format);
 	driver_vprintf(format, vl);
 	va_end(vl);
 }
 
 
-static void
+static int
 driver_vprintf_etc(const char *extra, const char *format, va_list vl)
 {
 	char buf[256];
-	vsnprintf(buf, sizeof(buf), format, vl);
+	int ret;
+	ret = vsnprintf(buf, sizeof(buf), format, vl);
 
 	if (extra)
 		dprintf("[%s] (%s) %s", gDriverName, extra, buf);
 	else
 		dprintf("[%s] %s", gDriverName, buf);
+
+	return ret;
 }
 
 
-void
+int
 driver_vprintf(const char *format, va_list vl)
 {
-	driver_vprintf_etc(NULL, format, vl);
+	return driver_vprintf_etc(NULL, format, vl);
 }
 
 
@@ -199,7 +203,7 @@ device_get_children(device_t dev, device_t **devlistp, int *devcountp)
 	while ((child = list_get_next_item(&dev->children, child)) != NULL) {
 		count++;
 	}
-	
+
 	list = malloc(count * sizeof(device_t));
 	if (!list)
 		return (ENOMEM);
