@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eacc5185_062f303f",
+        "filename": "src/libs/compat/freebsd11_network/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-06-04T05:24:51Z",
+      "side": 1,
+      "message": "AFAIK files directly copied from FreeBSD are usually prefixed with fbsd_.",
+      "revId": "82b83e7f6d41c00c2864c9e1f079373731345150",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7d562647_afa0c573",
+        "filename": "src/libs/compat/freebsd11_network/compat.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-06-04T05:24:51Z",
+      "side": 1,
+      "message": "This is a useless change.",
+      "revId": "82b83e7f6d41c00c2864c9e1f079373731345150",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0949efdc_5118b3e7",
+        "filename": "src/libs/compat/freebsd11_network/compat.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-06-04T05:24:51Z",
+      "side": 1,
+      "message": "Why not merging with the previous line?",
+      "revId": "82b83e7f6d41c00c2864c9e1f079373731345150",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "633424fb_6ab5823a",
+        "filename": "src/libs/compat/freebsd11_network/compat/sys/mbuf.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-06-04T05:24:51Z",
+      "side": 1,
+      "message": "The new line is to be removed.",
+      "revId": "82b83e7f6d41c00c2864c9e1f079373731345150",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a99ee4a3_aeae05c8",
+        "filename": "src/libs/compat/freebsd11_network/compat/sys/mbuf.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-06-04T05:24:51Z",
+      "side": 1,
+      "message": "The new line is to be removed.",
+      "revId": "82b83e7f6d41c00c2864c9e1f079373731345150",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "326e145b_6ba1351c",
+        "filename": "src/libs/compat/freebsd11_network/compat/sys/mbuf.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-06-04T05:24:51Z",
+      "side": 1,
+      "message": "The new line is to be removed.",
+      "revId": "82b83e7f6d41c00c2864c9e1f079373731345150",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb2dc077_65e7cdb3",
+        "filename": "src/libs/compat/freebsd11_network/compat/sys/mbuf.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-06-04T05:24:51Z",
+      "side": 1,
+      "message": "The new line is to be removed.",
+      "revId": "82b83e7f6d41c00c2864c9e1f079373731345150",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc3679da_9be3dae2",
+        "filename": "src/libs/compat/freebsd11_network/compat/sys/mbuf.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-06-04T05:24:51Z",
+      "side": 1,
+      "message": "The new line is to be removed.",
+      "revId": "82b83e7f6d41c00c2864c9e1f079373731345150",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68fc09c0_10d11c5d",
+        "filename": "src/libs/compat/freebsd11_network/compat/sys/mbuf.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-06-04T05:24:51Z",
+      "side": 1,
+      "message": "I would move these functions to mbuf-bsd.h, if they are copied from FreeBSD.",
+      "revId": "82b83e7f6d41c00c2864c9e1f079373731345150",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
