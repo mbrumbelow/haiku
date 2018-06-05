@@ -1,7 +1,9 @@
 SubDir HAIKU_TOP src preferences backgrounds ;
 
-UsePrivateHeaders preferences shared ;
-
+UsePrivateHeaders preferences shared tracker ;
+SubDirHdrs $(HAIKU_TOP) src kits tracker ;
+UseHeaders [ FDirName $(HAIKU_TOP) src kits tracker ] : false ;
+    
 Preference Backgrounds :
 	BackgroundImage.cpp
 	Backgrounds.cpp
@@ -10,7 +12,7 @@ Preference Backgrounds :
 	: be tracker translation [ TargetLibsupc++ ] localestub
 	: Backgrounds.rdef
 	;
-
+ 
 DoCatalogs Backgrounds :
 	x-vnd.Haiku-Backgrounds
 	:

@@ -31,7 +31,6 @@
 
 #include "BackgroundImage.h"
 
-
 #define SETTINGS_FILE		"Backgrounds_settings"
 
 
@@ -130,7 +129,7 @@ protected:
 			void				_UpdatePreview();
 			void				_UpdateButtons();
 			void				_SetDesktop(bool isDesktop);
-			int32				_AddPath(BPath path);
+			void				_AddPath(BPath path);
 
 	static	int32				_NotifyThread(void* data);
 
@@ -159,7 +158,7 @@ protected:
 
 			entry_ref			fCurrentRef;
 			int32				fLastImageIndex;
-			int32				fLastWorkspaceIndex;
+			int32				fRecentFoldersLimit;
 			BMessage			fSettings;
 
 			BObjectList<BPath>	fPathList;
@@ -176,5 +175,7 @@ protected:
 
 			bool				fFoundPositionSetting;
 };
+
+using namespace BPrivate;
 
 #endif	// BACKGROUNDS_VIEW_H
