@@ -38,6 +38,7 @@
 #include <ScreenDefs.h>
 
 #include "ImageFilePanel.h"
+#include "Utilities.h"
 
 
 #undef B_TRANSLATION_CONTEXT
@@ -73,6 +74,7 @@ BackgroundsView::BackgroundsView()
 	fCurrent(NULL),
 	fCurrentInfo(NULL),
 	fLastImageIndex(-1),
+	fRecentFoldersLimit(10),
 	fPathList(1, true),
 	fImageList(1, true),
 	fFoundPositionSetting(false)
@@ -147,8 +149,6 @@ BackgroundsView::BackgroundsView()
 		B_TRANSLATE("Current workspace"),
 		new BMessage(kMsgCurrentWorkspace)));
 	menuItem->SetMarked(true);
-	fLastWorkspaceIndex =
-		fWorkspaceMenu->IndexOf(fWorkspaceMenu->FindMarked());
 	fWorkspaceMenu->AddSeparatorItem();
 	fWorkspaceMenu->AddItem(new BMenuItem(B_TRANSLATE("Default folder"),
 		new BMessage(kMsgDefaultFolder)));
@@ -352,8 +352,6 @@ BackgroundsView::MessageReceived(BMessage* message)
 		case kMsgCurrentWorkspace:
 		case kMsgAllWorkspaces:
 			fImageMenu->FindItem(kMsgNoImage)->SetLabel(B_TRANSLATE("None"));
-			fLastWorkspaceIndex = fWorkspaceMenu->IndexOf(
-				fWorkspaceMenu->FindMarked());
 			if (fCurrent && fCurrent->IsDesktop()) {
 				_UpdateButtons();
 			} else {
@@ -364,8 +362,6 @@ BackgroundsView::MessageReceived(BMessage* message)
 
 		case kMsgDefaultFolder:
 			fImageMenu->FindItem(kMsgNoImage)->SetLabel(B_TRANSLATE("None"));
-			fLastWorkspaceIndex = fWorkspaceMenu->IndexOf(
-				fWorkspaceMenu->FindMarked());
 			_SetDesktop(false);
 			_LoadDefaultFolder();
 			break;
@@ -389,9 +385,7 @@ BackgroundsView::MessageReceived(BMessage* message)
 				else
 					fImageMenu->ItemAt(0)->SetMarked(true);
 			} else if (pointer == fFolderPanel) {
-				if (fLastWorkspaceIndex >= 0)
-					fWorkspaceMenu->ItemAt(fLastWorkspaceIndex)
-						->SetMarked(true);
+				fWorkspaceMenu->ItemAt(1)->SetMarked(true);
 			}
 			break;
 		}
@@ -406,12 +400,8 @@ BackgroundsView::MessageReceived(BMessage* message)
 
 		case kMsgFolderSelected:
 			fImageMenu->FindItem(kMsgNoImage)->SetLabel(B_TRANSLATE("Default"));
-			fLastWorkspaceIndex = fWorkspaceMenu->IndexOf(
-				fWorkspaceMenu->FindMarked());
 			_SetDesktop(false);
-
-			_LoadRecentFolder(*fPathList.ItemAt(fWorkspaceMenu->IndexOf(
-				fWorkspaceMenu->FindMarked()) - 6));
+			_LoadRecentFolder(*fPathList.LastItem());
 			break;
 
 		case kMsgApplySettings:
@@ -837,20 +827,27 @@ BackgroundsView::_LoadSettings()
 	if (fSettings.FindString("folderpaneldir", &string) == B_OK)
 		fFolderPanel->SetPanelDirectory(string.String());
 
-	int32 index = 0;
-	while (fSettings.FindString("recentfolder", index, &string) == B_OK) {
-		if (index == 0)
-			fWorkspaceMenu->AddSeparatorItem();
-
-		path.SetTo(string.String());
-		int32 i = _AddPath(path);
-		BString s;
-		s << B_TRANSLATE("Folder: ") << path.Leaf();
-		BMenuItem* item = new BMenuItem(s.String(),
-			new BMessage(kMsgFolderSelected));
-		fWorkspaceMenu->AddItem(item, -i - 1 + 6);
-		index++;
+	int32 cntRecentFolders = 0;
+	if (fSettings.GetInfo("recentfolder", NULL, &cntRecentFolders) == B_OK) {
+		TitledSeparatorItem* recentFoldersTitle = 
+			new TitledSeparatorItem(B_TRANSLATE("Recent folders"));
+		fWorkspaceMenu->AddItem(recentFoldersTitle);
+		int32 index = cntRecentFolders >= fRecentFoldersLimit ? 
+        	cntRecentFolders - fRecentFoldersLimit : 0;
+		for (; index < cntRecentFolders &&
+				fSettings.FindString("recentfolder", index, &string) == B_OK;
+				index++) {
+        		
+			path.SetTo(string.String());
+			_AddPath(path);
+			BString s;
+			s << B_TRANSLATE("Folder: ") << path.Leaf();
+			BMenuItem* item = new BMenuItem(s.String(),
+				new BMessage(kMsgFolderSelected));
+			fWorkspaceMenu->AddItem(item);
+		}
 	}
+
 	fWorkspaceMenu->SetTargetForItems(this);
 
 	PRINT(("Settings Loaded\n"));
@@ -1043,46 +1040,36 @@ BackgroundsView::RefsReceived(BMessage* message)
 				BMessenger(this).SendMessage(kMsgCurrentWorkspace);
 				break;
 			}
+			
 			BMenuItem* item;
-			int32 index = _AddPath(path);
-			if (index >= 0) {
-				item = fWorkspaceMenu->ItemAt(index + 6);
-				fLastWorkspaceIndex = index + 6;
-			} else {
-				if (fWorkspaceMenu->CountItems() <= 5)
-					fWorkspaceMenu->AddSeparatorItem();
-				BString s;
-				s << B_TRANSLATE("Folder: ") << path.Leaf();
-				item = new BMenuItem(s.String(),
-					new BMessage(kMsgFolderSelected));
-				fWorkspaceMenu->AddItem(item, -index - 1 + 6);
-				item->SetTarget(this);
-				fLastWorkspaceIndex = -index - 1 + 6;
+			if (fWorkspaceMenu->CountItems() <= 5) {
+				TitledSeparatorItem* recentFoldersTitle = 
+					new TitledSeparatorItem(B_TRANSLATE("Recent folders"));
+				fWorkspaceMenu->AddItem(recentFoldersTitle);
 			}
-
+			if (fPathList.CountItems() == fRecentFoldersLimit) {
+				fPathList.RemoveItemAt(0);
+				fWorkspaceMenu->RemoveItem(6);
+			}
+			BString s;
+			s << B_TRANSLATE("Folder: ") << path.Leaf();
+			item = new BMenuItem(s.String(),
+				new BMessage(kMsgFolderSelected));
+			fWorkspaceMenu->AddItem(item);
+			_AddPath(path);
+			item->SetTarget(this);
 			item->SetMarked(true);
+			
 			BMessenger(this).SendMessage(kMsgFolderSelected);
 		}
 	}
 }
 
 
-int32
+void
 BackgroundsView::_AddPath(BPath path)
 {
-	int32 count = fPathList.CountItems();
-	int32 index = 0;
-	for (; index < count; index++) {
-		BPath* p = fPathList.ItemAt(index);
-		int c = BString(p->Path()).ICompare(path.Path());
-		if (c == 0)
-			return index;
-
-		if (c > 0)
-			break;
-	}
-	fPathList.AddItem(new BPath(path), index);
-	return -index - 1;
+	fPathList.AddItem(new BPath(path));
 }
 
 
