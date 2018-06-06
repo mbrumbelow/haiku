@@ -246,10 +246,6 @@ public:
 	virtual	BSize				MaxSize();
 	virtual	BSize				PreferredSize();
 
-	virtual	bool				HasHeightForWidth();
-	virtual	void				GetHeightForWidth(float width, float* min,
-									float* max, float* preferred);
-
 private:
 	// FBC padding and forbidden methods
 	virtual	void				_ReservedTextView3();
