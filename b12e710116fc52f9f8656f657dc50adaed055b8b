@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "79144d04_5e26de55",
+        "filename": "src/libs/compat/freebsd11_network/compat/sys/haiku-module.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-06-06T15:46:13Z",
+      "side": 1,
+      "message": "Something like this:\n\nFBSD_WLAN_FEATURE \u003d (1 \u003c\u003c 4),\nFBSD_WLAN\t\u003d FBSD_WLAN_FEATURE | FBSD_TASKQUEUES | FBSD_THREAD_TASKQUEUE,\n\nAny code that uses FBSD_WLAN for bit checking should use FBSD_WLAN_FEATURE instead.",
+      "parentUuid": "9035543b_80d5c210",
+      "revId": "b12e710116fc52f9f8656f657dc50adaed055b8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28591ecb_1af2120d",
         "filename": "src/libs/compat/freebsd11_network/compat/sys/kernel.h",
         "patchSetId": 1
