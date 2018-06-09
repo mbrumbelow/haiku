@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6042df81_9e79f350",
+        "filename": "src/apps/haikudepot/model/Model.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-06-09T03:40:21Z",
+      "side": 1,
+      "message": "2 blank lines between // # pragma and then a function/function comment.",
+      "revId": "050b5d51816655f8ee998c647444d32b3c474d76",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5fce366a_33c77583",
+        "filename": "src/apps/haikudepot/model/Model.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-06-09T03:40:21Z",
+      "side": 1,
+      "message": "Needless blank line.",
+      "revId": "050b5d51816655f8ee998c647444d32b3c474d76",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a99f4364_694840ec",
+        "filename": "src/apps/haikudepot/server/ServerHelper.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-06-09T03:40:21Z",
+      "side": 1,
+      "message": "Sentence casing",
+      "revId": "050b5d51816655f8ee998c647444d32b3c474d76",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "505422de_d31dd259",
+        "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1513,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-06-09T03:40:21Z",
+      "side": 1,
+      "message": "Sentence casing",
+      "revId": "050b5d51816655f8ee998c647444d32b3c474d76",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "662d8596_b0ed30b5",
+        "filename": "src/apps/haikudepot/ui/RatePackageWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-06-09T03:40:21Z",
+      "side": 1,
+      "message": "Sentence casing",
+      "revId": "050b5d51816655f8ee998c647444d32b3c474d76",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d13b8f9c_1b6ff252",
+        "filename": "src/apps/haikudepot/ui/RatePackageWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-06-09T03:40:21Z",
+      "side": 1,
+      "message": "Sentence casing",
+      "revId": "050b5d51816655f8ee998c647444d32b3c474d76",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
