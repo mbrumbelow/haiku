@@ -10,6 +10,8 @@ typedef struct {
 
 	device_node*			node;
 
+	status_t media_status;
+
 } mmc_disk_driver_info;
 
 #endif

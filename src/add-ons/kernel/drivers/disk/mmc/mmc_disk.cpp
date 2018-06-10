@@ -29,29 +29,67 @@ static float
 mmc_disk_supports_device(device_node *parent)
 {
 	CALLED();
+	TRACE("mmc_disk supports device has started\n");
 	const char *bus;
 	uint16 deviceType;
 
-	if(sDeviceManager->get_attr_string(parent, B_DEVICE_BUS, &bus, false))
+	if(sDeviceManager->get_attr_string(parent, B_DEVICE_BUS, &bus, false) != B_OK)
 		return -1;
 
-	if(strcmp(bus, "pci"))
+	if(strcmp(bus, "pci") != 0)
 		return 0.0;
+
 	if(sDeviceManager->get_attr_uint16(parent, SDHCI_DEVICE_TYPE_ITEM,
-		&deviceType, true) != B_OK)
+		&deviceType, false) < B_OK)
+	{
+		TRACE("device type in mmc_disk ! = B_OK, bus found: %s\n",bus);
+
 		return 0.0;
+	}
 	
-	TRACE("sdhci device found");
+	TRACE("sdhci device found\n");
 
 	return 0.8;
 
 }
 
-// static status_t mmc_disk_register_device(device_node *node){}
+static status_t
+mmc_disk_register_device(device_node *node)
+{
+	CALLED();
 
-// static status_t mmc_disk_init_driver(device_node*, void **cookie){}
+	device_attr attrs[] = {
+		{ NULL }
+	};
 
-// static void mmc_disk_uninit_driver(void *_cookie){}
+	return sDeviceManager->register_node(node, MMC_DISK_DRIVER_MODULE_NAME, attrs, NULL, NULL);
+}
+
+static status_t
+mmc_disk_init_driver(device_node* node, void **cookie)
+{
+	CALLED();
+	mmc_disk_driver_info* info = (mmc_disk_driver_info*)malloc(
+		sizeof(mmc_disk_driver_info));
+
+	if (info == NULL)
+		return B_NO_MEMORY;
+
+	memset(info, 0, sizeof(*info));
+
+	info->node = node;
+
+	*cookie = info;
+	return B_OK;
+}
+
+static void
+mmc_disk_uninit_driver(void *_cookie)
+{
+	CALLED();
+	mmc_disk_driver_info* info = (mmc_disk_driver_info*)_cookie;
+	free(info);
+}
 
 // static status_t mmc_disk_register_child_devices(void *_cookie){}
 
@@ -68,9 +106,9 @@ struct driver_module_info sMMCDiskDriver = {
 		NULL
 	},
 	mmc_disk_supports_device,
-	NULL, //mmc_disk_register_device,
-	NULL, // mmc_disk_init_driver,
-	NULL, //mmc_disk_uninit_driver,
+	mmc_disk_register_device,
+	mmc_disk_init_driver,
+	mmc_disk_uninit_driver,
 	NULL, //mmc_disk_register_child_devices,
 	NULL, //mmc_disk_rescan_child_devices,
 	NULL,	
