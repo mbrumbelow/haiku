@@ -40,7 +40,7 @@ mmc_disk_supports_device(device_node *parent)
 		return 0.0;
 
 	if(sDeviceManager->get_attr_uint16(parent, SDHCI_DEVICE_TYPE_ITEM,
-		&deviceType, false) < B_OK)
+		&deviceType, true) != B_OK)
 	{
 		TRACE("device type in mmc_disk ! = B_OK, bus found: %s\n",bus);
 

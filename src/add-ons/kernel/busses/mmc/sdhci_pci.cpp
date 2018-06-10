@@ -126,14 +126,14 @@ register_child_devices(void* cookie)
 	device_attr attrs[] = {
 
 		{B_DEVICE_PRETTY_NAME, B_STRING_TYPE,{string: prettyName}},
-		{B_DEVICE_FIXED_CHILD, B_STRING_TYPE,{string: SDHCI_FOR_CONTROLLER_MODULE_NAME}},
-		
+//		{B_DEVICE_FIXED_CHILD, B_STRING_TYPE,{string: SDHCI_FOR_CONTROLLER_MODULE_NAME}},		
 		{SDHCI_DEVICE_TYPE_ITEM, B_UINT16_TYPE,{ ui16: pciSubDeviceId}},
+		
 	//	{SDHCI_VRING_ALLIGNMENT_ITEM, B_UINT16_TYPE, {ui16: SDHCI_PCI_VRING_ALIGN}},
 		{NULL}
 		
 	};
-
+	TRACE("setted up device type, %s\n",SDHCI_DEVICE_TYPE_ITEM);
 	return gDeviceManager->register_node(node, SDHCI_PCI_MMC_BUS_MODULE_NAME, attrs, NULL, &node);
 	
 }
