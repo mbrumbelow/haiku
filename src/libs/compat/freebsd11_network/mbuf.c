@@ -155,6 +155,15 @@ m_get(int how, short type)
 
 
 struct mbuf *
+m_get2(int size, int how, short type, int flags)
+{
+	struct mbuf* ret = _m_get(how, type, flags);
+	ret = m_pullup(ret, size);
+	return ret;
+}
+
+
+struct mbuf *
 m_gethdr(int how, short type)
 {
 	return _m_get(how, type, M_PKTHDR);
