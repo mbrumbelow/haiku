@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a60a08e6_a0d82896",
+        "filename": "src/preferences/backgrounds/BackgroundsView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2018-06-11T05:44:03Z",
+      "side": 1,
+      "message": "No need for curly brackets around a single line of code.",
+      "revId": "dff9c599782b209ac8040b47691af9646772306a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "649499eb_41a58b80",
+        "filename": "src/preferences/backgrounds/BackgroundsView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 832,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2018-06-11T05:44:03Z",
+      "side": 1,
+      "message": "\u003d operator on the beginning of the next line, indented by a tab",
+      "revId": "dff9c599782b209ac8040b47691af9646772306a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "156421b5_718074b1",
+        "filename": "src/preferences/backgrounds/BackgroundsView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 835,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2018-06-11T05:44:03Z",
+      "side": 1,
+      "message": "? operator on the beginning of the next line, indented by a tab",
+      "revId": "dff9c599782b209ac8040b47691af9646772306a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a554ccee_d934fc56",
+        "filename": "src/preferences/backgrounds/BackgroundsView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2018-06-11T05:44:03Z",
+      "side": 1,
+      "message": "\u0026\u0026 operator on the beginning of the next line, indented by a tab",
+      "revId": "dff9c599782b209ac8040b47691af9646772306a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dcf0c274_c08fb06b",
+        "filename": "src/preferences/backgrounds/BackgroundsView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 844,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2018-06-11T05:44:03Z",
+      "side": 1,
+      "message": "These kind of things are better done by replacing a variable, as we don\u0027t know how some language prefers to order things. A space at the end of the translated string can be problematic as well, if the translator overlooks it.\nSomething like this:\n\nBString text(B_TRANSLATE(\"Folder: %path%\");\ntext.ReplaceFirst(\"%path%\", path.Leaf());",
+      "revId": "dff9c599782b209ac8040b47691af9646772306a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d84c9a69_27ed0450",
+        "filename": "src/preferences/backgrounds/BackgroundsView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1046,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2018-06-11T05:44:03Z",
+      "side": 1,
+      "message": "\u003d operator on the beginning of the next line, indented by a tab",
+      "revId": "dff9c599782b209ac8040b47691af9646772306a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20b859b5_02a39748",
+        "filename": "src/preferences/backgrounds/BackgroundsView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1055,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2018-06-11T05:44:03Z",
+      "side": 1,
+      "message": "Same use of ReplaceFirst() as above.",
+      "revId": "dff9c599782b209ac8040b47691af9646772306a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
