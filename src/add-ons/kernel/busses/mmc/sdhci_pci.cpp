@@ -57,8 +57,8 @@ init_bus(device_node* node, void** bus_cookie)
 	status_t status = B_OK;
 	uint16 block_size, block_count, transfer_mode_register;
 
-	sdhci_pci_mmc_bus_info* mmc = new(std::nothrow) sdhci_pci_mmc_bus_info;
-	if(mmc == NULL)
+	sdhci_pci_mmc_bus_info* bus = new(std::nothrow) sdhci_pci_mmc_bus_info;
+	if(bus == NULL)
 		return B_NO_MEMORY;
 
 	pci_device_module_info* pci;
@@ -74,30 +74,30 @@ init_bus(device_node* node, void** bus_cookie)
 	if(get_module(B_PCI_X86_MODULE_NAME, (module_info**)&sPCIx86Module) != B_OK)		
 		sPCIx86Module = NULL;
 
-	mmc->node = node;
-	mmc->pci = pci;
-	mmc->device = device;
+	bus->node = node;
+	bus->pci = pci;
+	bus->device = device;
 
-	pci_info *pciInfo = &mmc->info;
+	pci_info *pciInfo = &bus->info;
 	pci->get_pci_info(device, pciInfo);
 
-	mmc->base_addr = pciInfo->u.h0.base_registers[0];
+	bus->base_addr = pciInfo->u.h0.base_registers[0];
 
 	uint16 pcicmd = pci->read_pci_config(device, PCI_command, 2);
 	pcicmd &= ~(PCI_command_memory | PCI_command_int_disable);
 	pci->write_pci_config(device, PCI_command, 2, pcicmd);
 
-	block_size = mmc->pci->read_io_16(mmc->device, mmc->base_addr + SDHCI_BLOCK_SIZE);
-	block_count = mmc->pci->read_io_16(mmc->device, mmc->base_addr + SDHCI_BLOCK_COUNT);
+	block_size = bus->pci->read_io_16(bus->device, bus->base_addr + SDHCI_BLOCK_SIZE);
+	block_count = bus->pci->read_io_16(bus->device, bus->base_addr + SDHCI_BLOCK_COUNT);
 
-	transfer_mode_register = mmc->pci->read_io_16(mmc->device, mmc->base_addr + SDHCI_TRANSFER_MODE_REGISTER);
+	transfer_mode_register = bus->pci->read_io_16(bus->device, bus->base_addr + SDHCI_TRANSFER_MODE_REGISTER);
 	int length =  sizeof(pciInfo->u.h0.base_registers);
 	//transfer_mode_register |= (1UL<<1);
 
 	//map_registers(pci_info *pciInfo);
 	TRACE("init_bus() %p node %p pci %p device %p base_addr %p block_size %d block_count %d length %d\n", 
-		mmc, node, mmc->pci, mmc->device, mmc->base_addr, block_size, (block_count>>6)&2, length);
-	*bus_cookie = mmc;
+		bus, node, bus->pci, bus->device, bus->base_addr, block_size, (block_count>>6)&2, length);
+	*bus_cookie = bus;
 	return status;
 }
 
@@ -121,19 +121,20 @@ register_child_devices(void* cookie)
 	uint16 pciSubDeviceId = pci->read_pci_config(device, PCI_subsystem_id, 2);
 
 	char prettyName[25];
-	sprintf(prettyName, "SDHCI Device %" B_PRIu16, pciSubDeviceId);
+	sprintf(prettyName, "SDHC bus %" B_PRIu16, pciSubDeviceId);
 
 	device_attr attrs[] = {
 
 		{B_DEVICE_PRETTY_NAME, B_STRING_TYPE,{string: prettyName}},
 //		{B_DEVICE_FIXED_CHILD, B_STRING_TYPE,{string: SDHCI_FOR_CONTROLLER_MODULE_NAME}},		
 		{SDHCI_DEVICE_TYPE_ITEM, B_UINT16_TYPE,{ ui16: pciSubDeviceId}},
+		{B_DEVICE_BUS, B_STRING_TYPE,{string: "mmc"}},		
 		
 	//	{SDHCI_VRING_ALLIGNMENT_ITEM, B_UINT16_TYPE, {ui16: SDHCI_PCI_VRING_ALIGN}},
 		{NULL}
 		
 	};
-	TRACE("setted up device type, %s\n",SDHCI_DEVICE_TYPE_ITEM);
+	TRACE("setted up device type, %s, value %d\n",SDHCI_DEVICE_TYPE_ITEM,pciSubDeviceId);
 	return gDeviceManager->register_node(node, SDHCI_PCI_MMC_BUS_MODULE_NAME, attrs, NULL, &node);
 	
 }
@@ -142,7 +143,7 @@ static status_t
 register_device(device_node* parent)
 {
 	device_attr attrs[] = {
-		{B_DEVICE_PRETTY_NAME, B_STRING_TYPE, {string: "SDHCI PCI"}},
+		{B_DEVICE_PRETTY_NAME, B_STRING_TYPE, {string: "SDHC PCI controller"}},
 		{}
 	};
 
