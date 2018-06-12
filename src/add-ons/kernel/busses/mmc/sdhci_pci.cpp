@@ -58,6 +58,8 @@ init_bus(device_node* node, void** bus_cookie)
 	uint16 block_size, block_count, transfer_mode_register;
 	uint32 buffer;
 	int32 sample = 2;
+	area_id	regs_area;
+	vuint8*	regs;
 	
 
 	sdhci_pci_mmc_bus_info* bus = new(std::nothrow) sdhci_pci_mmc_bus_info;
@@ -93,22 +95,26 @@ init_bus(device_node* node, void** bus_cookie)
 	block_size = bus->pci->read_io_16(bus->device, bus->base_addr + SDHCI_BLOCK_SIZE);
 	block_count = bus->pci->read_io_16(bus->device, bus->base_addr + SDHCI_BLOCK_COUNT);
 
-	transfer_mode_register = bus->pci->read_io_16(bus->device, bus->base_addr + SDHCI_TRANSFER_MODE_REGISTER);
-	uint32 present_state_register = bus->pci->read_io_32(bus->device, bus->base_addr + SDHCI_PRESENT_STATE_REGISTER);
+	transfer_mode_register = bus->pci->read_io_16(bus->device, bus->base_addr + 
+		SDHCI_TRANSFER_MODE_REGISTER);
+	uint32 present_state_register = bus->pci->read_io_32(bus->device, bus->base_addr + 
+		SDHCI_PRESENT_STATE_REGISTER);
 	int length =  sizeof(pciInfo->u.h0.base_registers);
 
-	//transfer_mode_register |= (1UL<<1);
-
-	//map_registers(pci_info *pciInfo);
-	TRACE("init_bus() %p node %p pci %p device %p base_addr %p block_size %d block_count %d length %d buf_read: %d buf_write: %d\n", 
-		bus, node, bus->pci, bus->device, bus->base_addr, block_size, (block_count>>6)&2, length, ((present_state_register>>11)&1), ((present_state_register>>10)&1));
-	buffer = bus->pci->read_io_32(bus->device, bus->base_addr + SDHCI_BUFFER_DATA_PORT_REGISTER);
-	TRACE("buffer before writing : %d\n",buffer);
-	TRACE("sample value: %d\n",sample);
-	bus->pci->write_io_32(bus->device, bus->base_addr + SDHCI_BUFFER_DATA_PORT_REGISTER, sample);
-	buffer = bus->pci->read_io_32(bus->device, bus->base_addr + SDHCI_BUFFER_DATA_PORT_REGISTER);
-	TRACE("buffer after writing : %d\n",buffer);
-	*bus_cookie = bus;
+	TRACE("init_bus() %p node %p pci %p device %p base_addr %p block_size %d block_count %d
+		length %d buf_read: %d buf_write: %d\n", bus, node, bus->pci, bus->device, 
+		bus->base_addr, block_size,(block_count>>6)&2, length, ((present_state_register>>11)&1),
+		((present_state_register>>10)&1));
+	
+	regs_area = map_physical_memory("sdhc_regs_map",
+	pciInfo->u.h0.base_registers[0],
+	pciInfo->u.h0.base_register_sizes[0], B_ANY_KERNEL_ADDRESS,
+		0, (void**)&regs);	
+	if(regs_area < B_OK)
+	{
+		TRACE("mapping failed");
+		return 0.1f;
+	}
 	return status;
 }
 
@@ -169,12 +175,10 @@ supports_device(device_node* parent)
 {
 	CALLED();
 	const char* bus;
-	uint16 type, subType, deviceID , vendorID;
+	uint16 type, subType;
+	uint8 bar, pciSlotsInfo, pciSubDeviceId;
 
 	TRACE("Supports device started , success!");
-
-	if(gDeviceManager->get_attr_uint16(parent, B_DEVICE_VENDOR_ID , &vendorID, false) < B_OK || gDeviceManager->get_attr_uint16(parent, B_DEVICE_ID, &deviceID, false) < B_OK)
-		return 0;
 	
 	if (gDeviceManager->get_attr_string(parent, B_DEVICE_BUS, &bus, false) != B_OK
 	||	gDeviceManager->get_attr_uint16(parent, B_DEVICE_TYPE, &type, false) < B_OK
@@ -193,13 +197,18 @@ supports_device(device_node* parent)
 		pci_device* device;
 		gDeviceManager->get_driver(parent, (driver_module_info**)&pci,
 			(void**)&device);
-		uint8 pciSubDeviceId = pci->read_pci_config(device, PCI_revision,
+		pciSubDeviceId = pci->read_pci_config(device, PCI_revision,
 			1);
-		uint8 pciSlotsInfo = pci->read_pci_config(device, SHDCI_PCI_SLOT_INFO, 1); // second parameter is for offset and third is of reading no of bytes
-		// debug message 
+		pciSlotsInfo = pci->read_pci_config(device, SDHCI_PCI_SLOT_INFO, 1); // second parameter is for offset and third is of reading no of bytes
+		bar = SDHCI_PCI_SLOT_INFO_FIRST_BASE_ADDRESS(pciSlotsInfo);
+		pciSlotsInfo = SDHCI_PCI_SLOTS(pciSlotsInfo);
+		if(pciSlotsInfo > 6 || bar > 5)
+		{
+			TRACE("Error: slots information");
+			return 0.6f;
+		}
 		TRACE("SDHCI Device found! Subtype: 0x%04x, type: 0x%04x\n", subType, type);
-		TRACE("vendor: 0x%04x device: 0x%04x\n",vendorID,deviceID);
-		TRACE("Number of slots: %d \n",((pciSlotsInfo>>4)&7)+1);//zero-based numbering 
+		TRACE("Number of slots: %d first base address: 0%04x\n", pciSlotsInfo, bar);//zero-based numbering 
 		return 1.0f;
 	}
 

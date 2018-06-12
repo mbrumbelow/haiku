@@ -5,20 +5,19 @@
 #include <device_manager.h>
 #include <KernelExport.h>
 
-#define SDHCI_PCI_VENDORID 0x1b36
-#define SDHCI_PCI_MIN_DEVICEID 0x0000
-#define SDHCI_PCI_MAX_DEVICEID 0x00ff
+#define SDHCI_PCI_SLOT_INFO 							0x40
+#define SDHCI_PCI_SLOTS(x) 								(((x>>4)&7)+1)
+#define SDHCI_PCI_SLOT_INFO_FIRST_BASE_ADDRESS(x)		((x) & 7)
 
-#define SHDCI_PCI_SLOT_INFO 0x40
-#define SDHCI_BLOCK_SIZE 4
-#define SDHCI_BLOCK_COUNT 6
-#define SDHCI_TRANSFER_MODE_REGISTER 48
+#define SDHCI_BLOCK_SIZE 								4
+#define SDHCI_BLOCK_COUNT 								6
+#define SDHCI_TRANSFER_MODE_REGISTER 					48
 
-#define SDHCI_DEVICE_TYPE_ITEM "sdhci/type"
-#define SDHCI_BUS_TYPE_NAME "bus/sdhci/v1"
+#define SDHCI_DEVICE_TYPE_ITEM 							"sdhci/type"
+#define SDHCI_BUS_TYPE_NAME 							"bus/sdhci/v1"
 
-#define SDHCI_PRESENT_STATE_REGISTER 36
-#define SDHCI_BUFFER_DATA_PORT_REGISTER 32
+#define SDHCI_PRESENT_STATE_REGISTER 					36
+#define SDHCI_BUFFER_DATA_PORT_REGISTER 				32
 
 
 
@@ -28,8 +27,9 @@ typedef void* sdhci_mmc_bus;
 
 typedef struct {
 	driver_module_info info;
-	void (*map_registers)(pci_info *pciInfo);
 
 } sdhci_mmc_bus_interface;
+
+
 
 #endif
