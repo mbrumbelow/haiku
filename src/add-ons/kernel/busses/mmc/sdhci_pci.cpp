@@ -56,6 +56,9 @@ init_bus(device_node* node, void** bus_cookie)
 	CALLED();
 	status_t status = B_OK;
 	uint16 block_size, block_count, transfer_mode_register;
+	uint32 buffer;
+	int32 sample = 2;
+	
 
 	sdhci_pci_mmc_bus_info* bus = new(std::nothrow) sdhci_pci_mmc_bus_info;
 	if(bus == NULL)
@@ -91,12 +94,20 @@ init_bus(device_node* node, void** bus_cookie)
 	block_count = bus->pci->read_io_16(bus->device, bus->base_addr + SDHCI_BLOCK_COUNT);
 
 	transfer_mode_register = bus->pci->read_io_16(bus->device, bus->base_addr + SDHCI_TRANSFER_MODE_REGISTER);
+	uint32 present_state_register = bus->pci->read_io_32(bus->device, bus->base_addr + SDHCI_PRESENT_STATE_REGISTER);
 	int length =  sizeof(pciInfo->u.h0.base_registers);
+
 	//transfer_mode_register |= (1UL<<1);
 
 	//map_registers(pci_info *pciInfo);
-	TRACE("init_bus() %p node %p pci %p device %p base_addr %p block_size %d block_count %d length %d\n", 
-		bus, node, bus->pci, bus->device, bus->base_addr, block_size, (block_count>>6)&2, length);
+	TRACE("init_bus() %p node %p pci %p device %p base_addr %p block_size %d block_count %d length %d buf_read: %d buf_write: %d\n", 
+		bus, node, bus->pci, bus->device, bus->base_addr, block_size, (block_count>>6)&2, length, ((present_state_register>>11)&1), ((present_state_register>>10)&1));
+	buffer = bus->pci->read_io_32(bus->device, bus->base_addr + SDHCI_BUFFER_DATA_PORT_REGISTER);
+	TRACE("buffer before writing : %d\n",buffer);
+	TRACE("sample value: %d\n",sample);
+	bus->pci->write_io_32(bus->device, bus->base_addr + SDHCI_BUFFER_DATA_PORT_REGISTER, sample);
+	buffer = bus->pci->read_io_32(bus->device, bus->base_addr + SDHCI_BUFFER_DATA_PORT_REGISTER);
+	TRACE("buffer after writing : %d\n",buffer);
 	*bus_cookie = bus;
 	return status;
 }
