@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "db9186cf_021cec14",
+        "filename": "src/preferences/backgrounds/BackgroundsView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 836,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-06-12T06:32:53Z",
+      "side": 1,
+      "message": "Why not manage the limit in _AddRecentFolder?",
+      "revId": "38656d500c62e743c5a5eceaa0d5ea549e3428aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
