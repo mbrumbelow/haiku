@@ -16,6 +16,108 @@
       "revId": "38656d500c62e743c5a5eceaa0d5ea549e3428aa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d1dce9b9_e9e75a67",
+        "filename": "src/preferences/backgrounds/BackgroundsView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2018-06-12T15:20:50Z",
+      "side": 1,
+      "message": "There are spaces instead of a tab at the start. Also, if I\u0027m not mistaken, the line has to be indented one more level.",
+      "revId": "38656d500c62e743c5a5eceaa0d5ea549e3428aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7518e0d_d9e99fe0",
+        "filename": "src/preferences/backgrounds/BackgroundsView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 842,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2018-06-12T15:20:50Z",
+      "side": 1,
+      "message": "Remove spaces and tabs",
+      "revId": "38656d500c62e743c5a5eceaa0d5ea549e3428aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d652db77_be1f3eee",
+        "filename": "src/preferences/backgrounds/BackgroundsView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1040,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2018-06-12T15:20:50Z",
+      "side": 1,
+      "message": "Remove tabs.",
+      "revId": "38656d500c62e743c5a5eceaa0d5ea549e3428aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1769e72_bbb41ee4",
+        "filename": "src/preferences/backgrounds/BackgroundsView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2018-06-12T15:20:50Z",
+      "side": 1,
+      "message": "No need for curlies for a single line of code.",
+      "revId": "38656d500c62e743c5a5eceaa0d5ea549e3428aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "944ab056_6d564686",
+        "filename": "src/preferences/backgrounds/BackgroundsView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1057,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2018-06-12T15:20:50Z",
+      "side": 1,
+      "message": "Two blank lines beween functions.",
+      "revId": "38656d500c62e743c5a5eceaa0d5ea549e3428aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce4016c1_0b1dccdf",
+        "filename": "src/preferences/backgrounds/BackgroundsView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1071,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2018-06-12T15:20:50Z",
+      "side": 1,
+      "message": "Remove tab.",
+      "revId": "38656d500c62e743c5a5eceaa0d5ea549e3428aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
