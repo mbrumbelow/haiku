@@ -104,6 +104,24 @@
     },
     {
       "key": {
+        "uuid": "f19275ff_a34e2697",
+        "filename": "src/preferences/backgrounds/BackgroundsView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1046,
+      "author": {
+        "id": 1000059
+      },
+      "writtenOn": "2018-06-12T05:13:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d84c9a69_27ed0450",
+      "revId": "dff9c599782b209ac8040b47691af9646772306a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "20b859b5_02a39748",
         "filename": "src/preferences/backgrounds/BackgroundsView.cpp",
         "patchSetId": 2
