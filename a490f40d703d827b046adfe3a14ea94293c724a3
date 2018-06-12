@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "be522dcd_cadfb45e",
+        "filename": "src/system/kernel/team.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1578,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-06-12T06:38:18Z",
+      "side": 1,
+      "message": "As pointed in the mailing list email, userArgs is difficult to handle, it has to be converted from compat to non-compat, or from non-compat to compat. the TODO means the compat userArgs is not handled. this code needs a rework.",
+      "parentUuid": "fa863043_fff84146",
+      "revId": "a490f40d703d827b046adfe3a14ea94293c724a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e82defa_297a24ff",
         "filename": "src/system/kernel/team.cpp",
         "patchSetId": 6
