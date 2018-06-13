@@ -55,7 +55,7 @@ init_bus(device_node* node, void** bus_cookie)
 {
 	CALLED();
 	status_t status = B_OK;
-	uint16 block_size, block_count, transfer_mode_register;
+	uint16 block_size, block_count, transfer_mode_register, host_control;
 	uint32 buffer;
 	int32 sample = 2;
 	area_id	regs_area;
@@ -101,10 +101,8 @@ init_bus(device_node* node, void** bus_cookie)
 		SDHCI_PRESENT_STATE_REGISTER);
 	int length =  sizeof(pciInfo->u.h0.base_registers);
 
-	TRACE("init_bus() %p node %p pci %p device %p base_addr %p block_size %d block_count %d
-		length %d buf_read: %d buf_write: %d\n", bus, node, bus->pci, bus->device, 
-		bus->base_addr, block_size,(block_count>>6)&2, length, ((present_state_register>>11)&1),
-		((present_state_register>>10)&1));
+	TRACE("init_bus() %p node %p pci %p device %p base_addr %p \n"
+		, bus, node, bus->pci, bus->device, bus->base_addr);
 	
 	regs_area = map_physical_memory("sdhc_regs_map",
 	pciInfo->u.h0.base_registers[0],
@@ -115,6 +113,22 @@ init_bus(device_node* node, void** bus_cookie)
 		TRACE("mapping failed");
 		return 0.1f;
 	}
+
+	transfer_mode_register = *(regs+0);
+
+
+	host_control = *(regs + 0x3E);
+
+	
+	block_count = *(regs + 0x06);
+
+	present_state_register = *(regs + 0x24);
+
+	TRACE("block count enable: %d, data direction select: %d, block_count: %d, multiple block: %d, buf_read: %d,buf_write: %d \n",
+		(transfer_mode_register>>1)&1, (transfer_mode_register>>4)&1, block_count, (transfer_mode_register>>5)&1,
+		(present_state_register>>11)&1,(present_state_register>>10)&1);
+
+
 	return status;
 }
 
