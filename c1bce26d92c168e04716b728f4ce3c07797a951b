@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "207456b3_7b86f2d4",
+        "filename": "src/preferences/backgrounds/BackgroundsView.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 833,
+      "author": {
+        "id": 1000059
+      },
+      "writtenOn": "2018-06-14T13:27:46Z",
+      "side": 1,
+      "message": "I think I had this whitespace in an earlier patchset, but I fixed it previously. Not seeing any spaces between while and (",
+      "parentUuid": "f5d29a49_872256e8",
+      "revId": "c1bce26d92c168e04716b728f4ce3c07797a951b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a52e800_a6916dd5",
         "filename": "src/preferences/backgrounds/BackgroundsView.cpp",
         "patchSetId": 9
@@ -30,6 +48,24 @@
       "writtenOn": "2018-06-14T07:44:48Z",
       "side": 1,
       "message": "trailing whitespace",
+      "revId": "c1bce26d92c168e04716b728f4ce3c07797a951b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f822cf2_21357a4a",
+        "filename": "src/preferences/backgrounds/BackgroundsView.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 1033,
+      "author": {
+        "id": 1000059
+      },
+      "writtenOn": "2018-06-14T13:27:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a52e800_a6916dd5",
       "revId": "c1bce26d92c168e04716b728f4ce3c07797a951b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "94bc8c5c_5af38399",
+        "filename": "src/preferences/backgrounds/BackgroundsView.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 1061,
+      "author": {
+        "id": 1000059
+      },
+      "writtenOn": "2018-06-14T13:27:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c200794_5e12659e",
+      "revId": "c1bce26d92c168e04716b728f4ce3c07797a951b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4613c4ec_b60beafa",
         "filename": "src/preferences/backgrounds/BackgroundsView.h",
         "patchSetId": 9
@@ -64,6 +118,24 @@
       "writtenOn": "2018-06-14T07:44:48Z",
       "side": 1,
       "message": "Keep two blank lines here (between the #include and the #define block)",
+      "revId": "c1bce26d92c168e04716b728f4ce3c07797a951b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6aa492d7_6df43e6a",
+        "filename": "src/preferences/backgrounds/BackgroundsView.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000059
+      },
+      "writtenOn": "2018-06-14T13:27:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4613c4ec_b60beafa",
       "revId": "c1bce26d92c168e04716b728f4ce3c07797a951b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
