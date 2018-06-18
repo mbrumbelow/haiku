@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9cef6377_c6038a46",
+        "filename": "src/kits/media/MediaAddOn.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-06-18T14:59:05Z",
+      "side": 1,
+      "message": "You already increased the \"buf\" pointer in the loop, so it should not be done here anymore?",
+      "revId": "c79936aad7a13530999dfc6347307583ef73ba18",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb98ccd5_20ec6e58",
+        "filename": "src/kits/media/MediaAddOn.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-06-18T14:59:05Z",
+      "side": 1,
+      "message": "Same here.",
+      "revId": "c79936aad7a13530999dfc6347307583ef73ba18",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
