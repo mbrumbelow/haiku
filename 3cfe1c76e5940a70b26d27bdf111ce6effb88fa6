@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e74bd3a_b926da30",
+        "filename": "src/preferences/backgrounds/BackgroundsView.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1034,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-06-20T19:51:46Z",
+      "side": 1,
+      "message": "Use // style comments.",
+      "range": {
+        "startLine": 1033,
+        "startChar": 3,
+        "endLine": 1034,
+        "endChar": 42
+      },
+      "revId": "3cfe1c76e5940a70b26d27bdf111ce6effb88fa6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55d86817_34054e65",
+        "filename": "src/preferences/backgrounds/BackgroundsView.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1041,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-06-20T19:51:46Z",
+      "side": 1,
+      "message": "Make it static since it\u0027s used only in this file.",
+      "range": {
+        "startLine": 1041,
+        "startChar": 0,
+        "endLine": 1041,
+        "endChar": 8
+      },
+      "revId": "3cfe1c76e5940a70b26d27bdf111ce6effb88fa6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69264849_8a8e0011",
+        "filename": "src/preferences/backgrounds/BackgroundsView.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1043,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-06-20T19:51:46Z",
+      "side": 1,
+      "message": "C++ style casts are preferred.",
+      "range": {
+        "startLine": 1043,
+        "startChar": 22,
+        "endLine": 1043,
+        "endChar": 30
+      },
+      "revId": "3cfe1c76e5940a70b26d27bdf111ce6effb88fa6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1bb9e9d_aaa78566",
+        "filename": "src/preferences/backgrounds/BackgroundsView.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1044,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-06-20T19:51:46Z",
+      "side": 1,
+      "message": "Why do you create a new string explicitly?",
+      "range": {
+        "startLine": 1044,
+        "startChar": 15,
+        "endLine": 1044,
+        "endChar": 22
+      },
+      "revId": "3cfe1c76e5940a70b26d27bdf111ce6effb88fa6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a498cf2_631670d0",
+        "filename": "src/preferences/backgrounds/BackgroundsView.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1048,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-06-20T19:51:46Z",
+      "side": 1,
+      "message": "Why not ternary operator (a ? b : c)?",
+      "range": {
+        "startLine": 1045,
+        "startChar": 1,
+        "endLine": 1048,
+        "endChar": 14
+      },
+      "revId": "3cfe1c76e5940a70b26d27bdf111ce6effb88fa6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5547a7a4_d6d30034",
+        "filename": "src/preferences/backgrounds/BackgroundsView.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1062,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-06-20T19:51:46Z",
+      "side": 1,
+      "message": "Use // style comments.",
+      "range": {
+        "startLine": 1060,
+        "startChar": 2,
+        "endLine": 1062,
+        "endChar": 66
+      },
+      "revId": "3cfe1c76e5940a70b26d27bdf111ce6effb88fa6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
