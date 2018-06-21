@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8adcd127_e751053b",
+        "filename": "src/preferences/backgrounds/BackgroundsView.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1034,
+      "author": {
+        "id": 1000059
+      },
+      "writtenOn": "2018-06-21T03:37:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e74bd3a_b926da30",
+      "range": {
+        "startLine": 1033,
+        "startChar": 3,
+        "endLine": 1034,
+        "endChar": 42
+      },
+      "revId": "3cfe1c76e5940a70b26d27bdf111ce6effb88fa6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55d86817_34054e65",
         "filename": "src/preferences/backgrounds/BackgroundsView.cpp",
         "patchSetId": 12
@@ -45,6 +69,30 @@
       "revId": "3cfe1c76e5940a70b26d27bdf111ce6effb88fa6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21620a38_d5da2752",
+        "filename": "src/preferences/backgrounds/BackgroundsView.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1041,
+      "author": {
+        "id": 1000059
+      },
+      "writtenOn": "2018-06-21T03:37:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55d86817_34054e65",
+      "range": {
+        "startLine": 1041,
+        "startChar": 0,
+        "endLine": 1041,
+        "endChar": 8
+      },
+      "revId": "3cfe1c76e5940a70b26d27bdf111ce6effb88fa6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "cc602096_484dfe9c",
+        "filename": "src/preferences/backgrounds/BackgroundsView.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1043,
+      "author": {
+        "id": 1000059
+      },
+      "writtenOn": "2018-06-21T03:37:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69264849_8a8e0011",
+      "range": {
+        "startLine": 1043,
+        "startChar": 22,
+        "endLine": 1043,
+        "endChar": 30
+      },
+      "revId": "3cfe1c76e5940a70b26d27bdf111ce6effb88fa6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d1bb9e9d_aaa78566",
         "filename": "src/preferences/backgrounds/BackgroundsView.cpp",
         "patchSetId": 12
@@ -91,6 +163,30 @@
       "revId": "3cfe1c76e5940a70b26d27bdf111ce6effb88fa6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff7e3066_59b8bfb5",
+        "filename": "src/preferences/backgrounds/BackgroundsView.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1044,
+      "author": {
+        "id": 1000059
+      },
+      "writtenOn": "2018-06-21T03:37:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1bb9e9d_aaa78566",
+      "range": {
+        "startLine": 1044,
+        "startChar": 15,
+        "endLine": 1044,
+        "endChar": 22
+      },
+      "revId": "3cfe1c76e5940a70b26d27bdf111ce6effb88fa6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "e115d3a8_38e67006",
+        "filename": "src/preferences/backgrounds/BackgroundsView.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1048,
+      "author": {
+        "id": 1000059
+      },
+      "writtenOn": "2018-06-21T03:37:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a498cf2_631670d0",
+      "range": {
+        "startLine": 1045,
+        "startChar": 1,
+        "endLine": 1048,
+        "endChar": 14
+      },
+      "revId": "3cfe1c76e5940a70b26d27bdf111ce6effb88fa6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5547a7a4_d6d30034",
         "filename": "src/preferences/backgrounds/BackgroundsView.cpp",
         "patchSetId": 12
@@ -137,6 +257,30 @@
       "revId": "3cfe1c76e5940a70b26d27bdf111ce6effb88fa6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81212ab3_d5875219",
+        "filename": "src/preferences/backgrounds/BackgroundsView.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1062,
+      "author": {
+        "id": 1000059
+      },
+      "writtenOn": "2018-06-21T03:37:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5547a7a4_d6d30034",
+      "range": {
+        "startLine": 1060,
+        "startChar": 2,
+        "endLine": 1062,
+        "endChar": 66
+      },
+      "revId": "3cfe1c76e5940a70b26d27bdf111ce6effb88fa6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
