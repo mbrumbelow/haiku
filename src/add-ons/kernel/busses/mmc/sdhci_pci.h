@@ -6,8 +6,8 @@
 #include <KernelExport.h>
 
 #define SDHCI_PCI_SLOT_INFO 							0x40
-#define SDHCI_PCI_SLOTS(x) 								(((x>>4)&7)+1)
-#define SDHCI_PCI_SLOT_INFO_FIRST_BASE_ADDRESS(x)		((x) & 7)
+#define SDHCI_PCI_SLOTS(x) 								((( x >> 4) & 7) + 1)
+#define SDHCI_PCI_SLOT_INFO_FIRST_BASE_ADDRESS(x)		(( x ) & 7)
 
 #define SDHCI_BLOCK_SIZE 								4
 

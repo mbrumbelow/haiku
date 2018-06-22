@@ -57,6 +57,7 @@ init_bus(device_node* node, void** bus_cookie)
 	area_id	regs_area;
 	volatile uint8_t* regs;
 	int var;
+	uint8 bar, slots;
 
 	sdhci_pci_mmc_bus_info* bus = new(std::nothrow) sdhci_pci_mmc_bus_info;
 	if (bus == NULL) {
@@ -103,13 +104,18 @@ init_bus(device_node* node, void** bus_cookie)
 	pciInfo->u.h0.base_register_sizes[0], B_ANY_KERNEL_ADDRESS,
 		B_KERNEL_READ_AREA | B_KERNEL_WRITE_AREA, (void**)&regs);	
 
+	gDeviceManager->get_attr_uint8(node, B_DEVICE_SLOTS, &slots,false);
+	gDeviceManager->get_attr_uint8(node, B_DEVICE_BAR, &bar,false);
+
+	TRACE("slots: %d bar: %d\n",slots,bar);
+
 	if(regs_area < B_OK)
 	{
 		TRACE("mapping failed");
 		return 0.1f;
 	}
 
-	for(int i = 0x00; i <= 0xff; i=i+0x02)
+	for(int i = 0x00; i <= 0xff; i=i+0x01)
 	{
 		var = *(regs + i);
 		TRACE("for %04x: %d\n",i,var);
@@ -145,11 +151,23 @@ register_child_devices(void* cookie)
 	device_node* parent = gDeviceManager->get_parent_node(node);
 	pci_device_module_info* pci;
 	pci_device* device;
+	uint8 pciSlotsInfo, bar;
+
 	gDeviceManager->get_driver(parent, (driver_module_info**)&pci,
 		(void**)&device);
 
 	uint16 pciSubDeviceId = pci->read_pci_config(device, PCI_subsystem_id,
 		2);
+
+	pciSlotsInfo = pci->read_pci_config(device, SDHCI_PCI_SLOT_INFO, 1);
+
+
+	bar = SDHCI_PCI_SLOT_INFO_FIRST_BASE_ADDRESS(pciSlotsInfo);
+
+	pciSlotsInfo = SDHCI_PCI_SLOTS(pciSlotsInfo);
+
+
+	TRACE("bar in registeration: %d\n",bar);
 
 	char prettyName[25];
 	sprintf(prettyName, "SDHC bus %" B_PRIu16, pciSubDeviceId);
@@ -162,8 +180,12 @@ register_child_devices(void* cookie)
 			{ ui16: pciSubDeviceId}},
 		{B_DEVICE_BUS, B_STRING_TYPE,{string: "mmc"}},		
 		
-		//{ B_DEVICE_FIXED_CHILD, B_STRING_TYPE,
-		//	{ string: SDHCI_FOR_CONTROLLER_MODULE_NAME }},
+		{B_DEVICE_SLOTS, B_UINT8_TYPE,
+			{ ui8: pciSlotsInfo}},
+
+		{B_DEVICE_BAR, B_UINT8_TYPE,
+			{ ui8: bar}},
+
 
 		{ NULL }
 	};
@@ -227,9 +249,9 @@ supports_device(device_node* parent)
 
 		pciSubDeviceId = pci->read_pci_config(device, PCI_revision,
 			1);
-		pciSlotsInfo = pci->read_pci_config(device, SDHCI_PCI_SLOT_INFO, 1); // second parameter is for offset and third is of reading no of bytes
-		bar = SDHCI_PCI_SLOT_INFO_FIRST_BASE_ADDRESS(pciSlotsInfo);
-		pciSlotsInfo = SDHCI_PCI_SLOTS(pciSlotsInfo);
+		//pciSlotsInfo = pci->read_pci_config(device, SDHCI_PCI_SLOT_INFO, 1); // second parameter is for offset and third is of reading no of bytes
+		//bar = SDHCI_PCI_SLOT_INFO_FIRST_BASE_ADDRESS(pciSlotsInfo);
+		//pciSlotsInfo = SDHCI_PCI_SLOTS(pciSlotsInfo);
 		if(pciSlotsInfo > 6 || bar > 5)
 		{
 			TRACE("Error: slots information");
@@ -237,8 +259,8 @@ supports_device(device_node* parent)
 		}
 		TRACE("SDHCI Device found! Subtype: 0x%04x, type: 0x%04x\n",
 			subType, type);
-		TRACE("Number of slots: %d first base address: 0%04x\n",
-			pciSlotsInfo, bar);
+//		TRACE("Number of slots: %d first base address: 0%04x\n",
+//			pciSlotsInfo, bar);
 		return 0.8f;
 	}
 
