@@ -1614,15 +1614,12 @@ device_node::_GetNextDriverPath(void*& cookie, KPath& _path)
 				}
 				break;
 			case PCI_base_peripheral:
-				TRACE("device manager detected PCI_base_peripheral\n");
 				switch (subType) {
-					case PCI_sd_host: 
-						TRACE("device manager detected PCI_sd_host\n");
+					case PCI_sd_host:
 						_AddPath(*stack, "busses", "mmc");
 						break;
 					default:
-						TRACE("device manager detected PCI_base_peripheral defaut condition\n");
-						_AddPath(*stack, "busses");
+						_AddPath(*stack, "drivers");
 						break;
 				}
 				break;
@@ -1914,7 +1911,8 @@ device_node::Probe(const char* devicePath, uint32 updateCycle)
 			// Check if this node matches the device path
 			// TODO: maybe make this extendible via settings file?
 			if (!strcmp(devicePath, "disk")) {
-				matches = type == PCI_mass_storage || type == PCI_base_peripheral && subType == PCI_sd_host;
+				matches = type == PCI_mass_storage
+					&& (type == PCI_base_peripheral || subType == PCI_sd_host);
 			} else if (!strcmp(devicePath, "audio")) {
 				matches = type == PCI_multimedia
 					&& (subType == PCI_audio || subType == PCI_hd_audio);
