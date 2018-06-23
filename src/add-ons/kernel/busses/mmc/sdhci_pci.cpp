@@ -31,6 +31,10 @@
 
 #define SDHCI_PCI_CONTROLLER_TYPE_NAME "sdhci pci controller"
 
+#define SLOTS_COUNT				"device/slots_count"	
+#define SLOT_NUMBER				"device/slot"				
+#define BAR_INDEX				"device/bar"				
+
 typedef struct {
 	pci_device_module_info* pci;
 	pci_device* device;
@@ -39,6 +43,8 @@ typedef struct {
 
 	device_node* node;
 	pci_info info;
+
+	volatile uint8_t* regs;
 
 } sdhci_pci_mmc_bus_info;
 
@@ -57,7 +63,7 @@ init_bus(device_node* node, void** bus_cookie)
 	area_id	regs_area;
 	volatile uint8_t* regs;
 	int var;
-	uint8 bar, slots;
+	uint8 bar, slot, slots_count;
 
 	sdhci_pci_mmc_bus_info* bus = new(std::nothrow) sdhci_pci_mmc_bus_info;
 	if (bus == NULL) {
@@ -77,6 +83,20 @@ init_bus(device_node* node, void** bus_cookie)
 	if (get_module(B_PCI_X86_MODULE_NAME, (module_info**)&sPCIx86Module)
 			!= B_OK) {
 		sPCIx86Module = NULL;
+		TRACE("PCIx86Module not loaded\n");
+	}
+	
+	if(gDeviceManager->get_attr_uint8(node, SLOTS_COUNT, &slots_count,false) < B_OK
+		|| gDeviceManager->get_attr_uint8(node, SLOT_NUMBER, &slot,false) < B_OK
+		|| gDeviceManager->get_attr_uint8(node, BAR_INDEX, &bar,false) < B_OK)
+	{
+		return -1;
+	}
+
+	if(slots_count > 6 || bar > 5)	
+	{
+		TRACE("Error: slots information");
+		return 0.0f;
 	}
 
 	bus->node = node;
@@ -87,7 +107,7 @@ init_bus(device_node* node, void** bus_cookie)
 	pci->get_pci_info(device, pciInfo);
 
 	// legacy interrupt
-	bus->base_addr = pciInfo->u.h0.base_registers[0];
+	bus->base_addr = pciInfo->u.h0.base_registers[bar];
 
 	// enable bus master and io
 	uint16 pcicmd = pci->read_pci_config(device, PCI_command, 2);
@@ -100,14 +120,14 @@ init_bus(device_node* node, void** bus_cookie)
 
 	// mapping the registers by MMUIO method 
 	regs_area = map_physical_memory("sdhc_regs_map",
-	pciInfo->u.h0.base_registers[0],
-	pciInfo->u.h0.base_register_sizes[0], B_ANY_KERNEL_ADDRESS,
+		pciInfo->u.h0.base_registers[bar],
+		pciInfo->u.h0.base_register_sizes[bar], B_ANY_KERNEL_ADDRESS,
 		B_KERNEL_READ_AREA | B_KERNEL_WRITE_AREA, (void**)&regs);	
 
-	gDeviceManager->get_attr_uint8(node, B_DEVICE_SLOTS, &slots,false);
-	gDeviceManager->get_attr_uint8(node, B_DEVICE_BAR, &bar,false);
+	bus->regs = regs;
 
-	TRACE("slots: %d bar: %d\n",slots,bar);
+
+	TRACE("slots: %d bar: %d\n",slot,bar);
 
 	if(regs_area < B_OK)
 	{
@@ -115,7 +135,7 @@ init_bus(device_node* node, void** bus_cookie)
 		return 0.1f;
 	}
 
-	for(int i = 0x00; i <= 0xff; i=i+0x01)
+	for(int i = 0x00; i <= 0xff; i=i+4)
 	{
 		var = *(regs + i);
 		TRACE("for %04x: %d\n",i,var);
@@ -151,7 +171,7 @@ register_child_devices(void* cookie)
 	device_node* parent = gDeviceManager->get_parent_node(node);
 	pci_device_module_info* pci;
 	pci_device* device;
-	uint8 pciSlotsInfo, bar;
+	uint8 slots_count, bar;
 
 	gDeviceManager->get_driver(parent, (driver_module_info**)&pci,
 		(void**)&device);
@@ -159,39 +179,54 @@ register_child_devices(void* cookie)
 	uint16 pciSubDeviceId = pci->read_pci_config(device, PCI_subsystem_id,
 		2);
 
-	pciSlotsInfo = pci->read_pci_config(device, SDHCI_PCI_SLOT_INFO, 1);
+	slots_count = pci->read_pci_config(device, SDHCI_PCI_SLOT_COUNT, 1);
 
+	bar = SDHCI_PCI_SLOT_INFO_FIRST_BASE_INDEX(slots_count);
 
-	bar = SDHCI_PCI_SLOT_INFO_FIRST_BASE_ADDRESS(pciSlotsInfo);
-
-	pciSlotsInfo = SDHCI_PCI_SLOTS(pciSlotsInfo);
-
-
-	TRACE("bar in registeration: %d\n",bar);
+	slots_count = SDHCI_PCI_SLOTS(slots_count);
 
 	char prettyName[25];
-	sprintf(prettyName, "SDHC bus %" B_PRIu16, pciSubDeviceId);
 
-	device_attr attrs[] = {
+	for(uint8_t slot = 0; slot <= slots_count; slot++)
+	{
+
+		bar = bar + slot;
+
+		sprintf(prettyName, "SDHC bus %" B_PRIu16 " slot %" B_PRIu8, pciSubDeviceId, slot);
+	
+		device_attr attrs[] = {
 		// properties of this controller for sdhci bus manager
-		{ B_DEVICE_PRETTY_NAME, B_STRING_TYPE,
-			{ string: prettyName }},
-		{SDHCI_DEVICE_TYPE_ITEM, B_UINT16_TYPE,
-			{ ui16: pciSubDeviceId}},
-		{B_DEVICE_BUS, B_STRING_TYPE,{string: "mmc"}},		
+
+			{ B_DEVICE_PRETTY_NAME, B_STRING_TYPE,
+				{ string: prettyName }},
+			
+			{SDHCI_DEVICE_TYPE_ITEM, B_UINT16_TYPE,
+				{ ui16: pciSubDeviceId}},
+			
+			{B_DEVICE_BUS, B_STRING_TYPE,{string: "mmc"}},		
 		
-		{B_DEVICE_SLOTS, B_UINT8_TYPE,
-			{ ui8: pciSlotsInfo}},
+			{SLOTS_COUNT, B_UINT8_TYPE,
+				{ ui8: slots_count}},
 
-		{B_DEVICE_BAR, B_UINT8_TYPE,
-			{ ui8: bar}},
+			{SLOT_NUMBER, B_UINT8_TYPE,
+				{ ui8: slot}},
+
+			{BAR_INDEX, B_UINT8_TYPE,
+				{ ui8: bar}},
+
+			{ NULL }
+		};	
+		if(gDeviceManager->register_node(node, SDHCI_PCI_MMC_BUS_MODULE_NAME,
+			attrs, NULL, &node) != B_OK)
+		{
+			return B_BAD_VALUE;
+		}
+	}
 
 
-		{ NULL }
-	};
 
-	return gDeviceManager->register_node(node, SDHCI_PCI_MMC_BUS_MODULE_NAME,
-		attrs, NULL, &node);
+	return B_OK;
+
 }
 
 
@@ -223,7 +258,7 @@ supports_device(device_node* parent)
 	CALLED();
 	const char* bus;
 	uint16 type, subType;
-	uint8 bar, pciSlotsInfo, pciSubDeviceId;
+	uint8 pciSubDeviceId;
 
 	// make sure parent is a PCI SDHCI device node
 	if (gDeviceManager->get_attr_string(parent, B_DEVICE_BUS, &bus, false) != B_OK
@@ -252,11 +287,7 @@ supports_device(device_node* parent)
 		//pciSlotsInfo = pci->read_pci_config(device, SDHCI_PCI_SLOT_INFO, 1); // second parameter is for offset and third is of reading no of bytes
 		//bar = SDHCI_PCI_SLOT_INFO_FIRST_BASE_ADDRESS(pciSlotsInfo);
 		//pciSlotsInfo = SDHCI_PCI_SLOTS(pciSlotsInfo);
-		if(pciSlotsInfo > 6 || bar > 5)
-		{
-			TRACE("Error: slots information");
-			return 0.6f;
-		}
+
 		TRACE("SDHCI Device found! Subtype: 0x%04x, type: 0x%04x\n",
 			subType, type);
 //		TRACE("Number of slots: %d first base address: 0%04x\n",

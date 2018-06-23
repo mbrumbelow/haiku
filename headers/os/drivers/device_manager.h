@@ -134,9 +134,6 @@ struct driver_module_info {
 #define B_DEVICE_FIXED_CHILD		"device/fixed child"		/* string */
 #define B_DEVICE_FLAGS				"device/flags"				/* uint32 */
 
-#define B_DEVICE_SLOTS				"device/slots"				/* uint8  */
-#define B_DEVICE_BAR				"device/bar"				/* uint8  */
-
 #define B_DEVICE_VENDOR_ID			"device/vendor"				/* uint16 */
 #define B_DEVICE_ID					"device/id"					/* uint16 */
 #define B_DEVICE_TYPE				"device/type"

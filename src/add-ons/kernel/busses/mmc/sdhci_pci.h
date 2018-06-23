@@ -5,14 +5,11 @@
 #include <device_manager.h>
 #include <KernelExport.h>
 
-#define SDHCI_PCI_SLOT_INFO 							0x40
-#define SDHCI_PCI_SLOTS(x) 								((( x >> 4) & 7) + 1)
-#define SDHCI_PCI_SLOT_INFO_FIRST_BASE_ADDRESS(x)		(( x ) & 7)
-
-#define SDHCI_BLOCK_SIZE 								4
+#define SDHCI_PCI_SLOT_COUNT 							0x40
+#define SDHCI_PCI_SLOTS(x) 								((( x >> 4) & 7))
+#define SDHCI_PCI_SLOT_INFO_FIRST_BASE_INDEX(x)			(( x ) & 7)
 
 #define SDHCI_BLOCK_COUNT 								0x06
-#define SDHCI_TRANSFER_MODE_REGISTER 					48
 
 #define SDHCI_CLOCK_CONTROL_REGISTER					0x2C
 
@@ -30,7 +27,6 @@
 
 #define SDHCI_PRESENT_STATE_REGISTER 					0x24
 
-#define SDHCI_BUFFER_DATA_PORT_REGISTER 				32
 
 
 
@@ -42,7 +38,6 @@ typedef struct {
 	driver_module_info info;
 
 } sdhci_mmc_bus_interface;
-
 
 
 #endif
