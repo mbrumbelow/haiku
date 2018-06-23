@@ -712,7 +712,7 @@ struct pci_module_info {
 #define PCI_cap_id_pm		0x01      /* Power management */
 #define PCI_cap_id_agp		0x02      /* AGP */
 #define PCI_cap_id_vpd		0x03      /* Vital product data */
-#define PCI_cap_id_sloitd	0x04      /* Slot ID */
+#define PCI_cap_id_slotid	0x04      /* Slot ID */
 #define PCI_cap_id_msi		0x05      /* Message signalled interrupt */
 #define PCI_cap_id_chswp	0x06      /* Compact PCI HotSwap */
 #define PCI_cap_id_pcix		0x07      /* PCI-X */
