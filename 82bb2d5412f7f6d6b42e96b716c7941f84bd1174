@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2943a855_0fc6ea9c",
+        "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1512,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-06-25T13:43:44Z",
+      "side": 1,
+      "message": "This one is actually user visible (in Deskbar and Twitcher, as BAlerts are listed there). It is the window title and could become visible if we change the Alert look to include a window title in the future.",
+      "revId": "82bb2d5412f7f6d6b42e96b716c7941f84bd1174",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
