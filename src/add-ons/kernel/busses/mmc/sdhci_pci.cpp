@@ -44,13 +44,12 @@ typedef struct {
 	device_node* node;
 	pci_info info;
 
-	volatile uint8_t* regs;
+	volatile uint32_t* regs;
 
 } sdhci_pci_mmc_bus_info;
 
 device_manager_info* gDeviceManager;
 static pci_x86_module_info* sPCIx86Module;
-
 
 //	#pragma mark -
 
@@ -59,9 +58,8 @@ init_bus(device_node* node, void** bus_cookie)
 {
 	CALLED();
 	status_t status = B_OK;
-
 	area_id	regs_area;
-	volatile uint8_t* regs;
+	volatile uint32_t* regs;
 	int var;
 	uint8 bar, slot, slots_count;
 
@@ -69,6 +67,9 @@ init_bus(device_node* node, void** bus_cookie)
 	if (bus == NULL) {
 		return B_NO_MEMORY;
 	}
+
+	pci_info *pciInfo = &bus->info;
+
 
 	pci_device_module_info* pci;
 	pci_device* device;
@@ -85,7 +86,12 @@ init_bus(device_node* node, void** bus_cookie)
 		sPCIx86Module = NULL;
 		TRACE("PCIx86Module not loaded\n");
 	}
-	
+
+	uint8 msixCount = sPCIx86Module->get_msi_count(
+			pciInfo->bus, pciInfo->device, pciInfo->function);
+
+	TRACE("interrupts count: %d\n",msixCount);
+
 	if(gDeviceManager->get_attr_uint8(node, SLOTS_COUNT, &slots_count,false) < B_OK
 		|| gDeviceManager->get_attr_uint8(node, SLOT_NUMBER, &slot,false) < B_OK
 		|| gDeviceManager->get_attr_uint8(node, BAR_INDEX, &bar,false) < B_OK)
@@ -103,7 +109,6 @@ init_bus(device_node* node, void** bus_cookie)
 	bus->pci = pci;
 	bus->device = device;
 
-	pci_info *pciInfo = &bus->info;
 	pci->get_pci_info(device, pciInfo);
 
 	// legacy interrupt
@@ -119,6 +124,8 @@ init_bus(device_node* node, void** bus_cookie)
 		bus->pci, bus->device);
 
 	// mapping the registers by MMUIO method 
+	int bar_size = pciInfo->u.h0.base_registers[bar];
+
 	regs_area = map_physical_memory("sdhc_regs_map",
 		pciInfo->u.h0.base_registers[bar],
 		pciInfo->u.h0.base_register_sizes[bar], B_ANY_KERNEL_ADDRESS,
@@ -126,8 +133,11 @@ init_bus(device_node* node, void** bus_cookie)
 
 	bus->regs = regs;
 
+//	*(regs + 0x34) |= 1 << 8;
 
-	TRACE("slots: %d bar: %d\n",slot,bar);
+	int size = sizeof(regs);
+
+	TRACE("slots: %d bar: %d size: %d bar_size: %d\n",slot,bar,size, bar_size);
 
 	if(regs_area < B_OK)
 	{
@@ -135,7 +145,7 @@ init_bus(device_node* node, void** bus_cookie)
 		return 0.1f;
 	}
 
-	for(int i = 0x00; i <= 0xff; i=i+4)
+	for(int i = 0x00; i <= 0xff; i=i+2)
 	{
 		var = *(regs + i);
 		TRACE("for %04x: %d\n",i,var);
@@ -223,8 +233,6 @@ register_child_devices(void* cookie)
 		}
 	}
 
-
-
 	return B_OK;
 
 }
@@ -307,21 +315,23 @@ module_dependency module_dependencies[] = {
 };
 
 
-static driver_module_info gSDHCIPCIDeviceModule = {
+static sdhci_mmc_bus_interface gSDHCIPCIDeviceModule = {
 	{
-		SDHCI_PCI_MMC_BUS_MODULE_NAME,
-		0,
-		NULL
-	},
+		{
+			SDHCI_PCI_MMC_BUS_MODULE_NAME,
+			0,
+			NULL
+		},
 
-	NULL,	// supports device
-	NULL,	// register device
-	init_bus,
-	uninit_bus,
-	NULL,	// register child devices
-	NULL,	// rescan
-	bus_removed,
+		NULL,	// supports device
+		NULL,	// register device
+		init_bus,
+		uninit_bus,
+		NULL,	// register child devices
+		NULL,	// rescan
+		bus_removed,
 
+	}
 };
 
 
