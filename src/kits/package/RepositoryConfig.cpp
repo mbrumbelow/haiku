@@ -1,15 +1,17 @@
 /*
- * Copyright 2011-2013, Haiku, Inc. All Rights Reserved.
+ * Copyright 2011-2018, Haiku, Inc. All Rights Reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
  *		Oliver Tappe <zooey@hirschkaefer.de>
+ *      Andrew Lindesay <apl@lindesay.co.nz>
  */
 
 
 #include <package/RepositoryConfig.h>
 
 #include <stdlib.h>
+#include <stdio.h>
 
 #include <new>
 
