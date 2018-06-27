@@ -431,6 +431,10 @@ public:
 			const BString&		BaseURL() const
 									{ return fBaseURL; }
 
+			void				SetURL(const BString& URL);
+			const BString&		URL() const
+									{ return fURL; }
+
 			void				SetWebAppRepositoryCode(const BString& code);
 			const BString&		WebAppRepositoryCode() const
 									{ return fWebAppRepositoryCode; }
@@ -445,7 +449,11 @@ private:
 			PackageList			fPackages;
 			BString				fWebAppRepositoryCode;
 			BString				fWebAppRepositorySourceCode;
+				// this is the URL at which the configured repository will be
+				// accessed to get data.
 			BString				fBaseURL;
+				// this is actually a unique identifier for the repository.
+			BString				fURL;
 };
 
 

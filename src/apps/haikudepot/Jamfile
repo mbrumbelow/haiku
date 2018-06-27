@@ -117,6 +117,7 @@ Application HaikuDepot :
 	#util
 	ToFileUrlProtocolListener.cpp
 	StorageUtils.cpp
+	RepositoryUrlUtils.cpp
 
 	# package_daemon
 	ProblemWindow.cpp

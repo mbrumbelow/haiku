@@ -1,5 +1,5 @@
 /*
- * Copyright 2011, Haiku, Inc.
+ * Copyright 2011-2018, Haiku, Inc.
  * Distributed under the terms of the MIT License.
  */
 #ifndef _PACKAGE__REPOSITORY_CONFIG_H_
