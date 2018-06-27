@@ -5,7 +5,7 @@
 #include <device_manager.h>
 #include <KernelExport.h>
 
-#define SDHCI_PCI_SLOT_COUNT 							0x40
+#define SDHCI_PCI_SLOT_INFO 							0x40
 #define SDHCI_PCI_SLOTS(x) 								((( x >> 4) & 7))
 #define SDHCI_PCI_SLOT_INFO_FIRST_BASE_INDEX(x)			(( x ) & 7)
 
@@ -26,8 +26,6 @@
 #define SDHCI_BUS_TYPE_NAME 							"bus/sdhci/v1"
 
 #define SDHCI_PRESENT_STATE_REGISTER 					0x24
-
-
 
 
 typedef void* sdhci_mmc_bus;

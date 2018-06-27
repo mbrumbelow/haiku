@@ -85,24 +85,17 @@ init_bus(device_node* node, void** bus_cookie)
 			!= B_OK) {
 		sPCIx86Module = NULL;
 		TRACE("PCIx86Module not loaded\n");
-	}
+	}	
 
-	uint8 msixCount = sPCIx86Module->get_msi_count(
+	int msiCount = sPCIx86Module->get_msi_count(
 			pciInfo->bus, pciInfo->device, pciInfo->function);
 
-	TRACE("interrupts count: %d\n",msixCount);
+	TRACE("interrupts count: %d\n",msiCount);
 
-	if(gDeviceManager->get_attr_uint8(node, SLOTS_COUNT, &slots_count,false) < B_OK
-		|| gDeviceManager->get_attr_uint8(node, SLOT_NUMBER, &slot,false) < B_OK
+	if(gDeviceManager->get_attr_uint8(node, SLOT_NUMBER, &slot,false) < B_OK
 		|| gDeviceManager->get_attr_uint8(node, BAR_INDEX, &bar,false) < B_OK)
 	{
 		return -1;
-	}
-
-	if(slots_count > 6 || bar > 5)	
-	{
-		TRACE("Error: slots information");
-		return 0.0f;
 	}
 
 	bus->node = node;
@@ -124,20 +117,25 @@ init_bus(device_node* node, void** bus_cookie)
 		bus->pci, bus->device);
 
 	// mapping the registers by MMUIO method 
-	int bar_size = pciInfo->u.h0.base_registers[bar];
+	int bar_size = pciInfo->u.h0.base_register_sizes[bar];
 
 	regs_area = map_physical_memory("sdhc_regs_map",
 		pciInfo->u.h0.base_registers[bar],
-		pciInfo->u.h0.base_register_sizes[bar], B_ANY_KERNEL_ADDRESS,
+		pciInfo->u.h0.base_register_sizes[bar], B_ANY_KERNEL_BLOCK_ADDRESS,
 		B_KERNEL_READ_AREA | B_KERNEL_WRITE_AREA, (void**)&regs);	
+
+	if(regs_area < B_OK)
+	{
+		return B_BAD_VALUE;
+	}
 
 	bus->regs = regs;
 
 //	*(regs + 0x34) |= 1 << 8;
 
-	int size = sizeof(regs);
+//	int size = sizeof(regs);
 
-	TRACE("slots: %d bar: %d size: %d bar_size: %d\n",slot,bar,size, bar_size);
+	TRACE("slots: %d bar: %d  bar_size: %d\n",slot,bar, bar_size);
 
 	if(regs_area < B_OK)
 	{
@@ -145,10 +143,10 @@ init_bus(device_node* node, void** bus_cookie)
 		return 0.1f;
 	}
 
-	for(int i = 0x00; i <= 0xff; i=i+2)
+	for(int i = 0x00; i <= 0xff; i=i+4)
 	{
 		var = *(regs + i);
-		TRACE("for %04x: %d\n",i,var);
+		TRACE("for %08x: %d\n",i,var);
 	}
 
 	*bus_cookie = bus;
@@ -181,7 +179,7 @@ register_child_devices(void* cookie)
 	device_node* parent = gDeviceManager->get_parent_node(node);
 	pci_device_module_info* pci;
 	pci_device* device;
-	uint8 slots_count, bar;
+	uint8 slots_count, bar, slotsInfo;
 
 	gDeviceManager->get_driver(parent, (driver_module_info**)&pci,
 		(void**)&device);
@@ -189,13 +187,19 @@ register_child_devices(void* cookie)
 	uint16 pciSubDeviceId = pci->read_pci_config(device, PCI_subsystem_id,
 		2);
 
-	slots_count = pci->read_pci_config(device, SDHCI_PCI_SLOT_COUNT, 1);
+	slotsInfo = pci->read_pci_config(device, SDHCI_PCI_SLOT_INFO, 1);
 
-	bar = SDHCI_PCI_SLOT_INFO_FIRST_BASE_INDEX(slots_count);
+	bar = SDHCI_PCI_SLOT_INFO_FIRST_BASE_INDEX(slotsInfo);
 
-	slots_count = SDHCI_PCI_SLOTS(slots_count);
+	slots_count = SDHCI_PCI_SLOTS(slotsInfo);
 
 	char prettyName[25];
+
+	if(slots_count > 6 || bar > 5)	
+	{
+		TRACE("Error: slots information");
+		return B_BAD_VALUE;
+	}
 
 	for(uint8_t slot = 0; slot <= slots_count; slot++)
 	{
@@ -209,21 +213,13 @@ register_child_devices(void* cookie)
 
 			{ B_DEVICE_PRETTY_NAME, B_STRING_TYPE,
 				{ string: prettyName }},
-			
 			{SDHCI_DEVICE_TYPE_ITEM, B_UINT16_TYPE,
-				{ ui16: pciSubDeviceId}},
-			
+				{ ui16: pciSubDeviceId}},			
 			{B_DEVICE_BUS, B_STRING_TYPE,{string: "mmc"}},		
-		
-			{SLOTS_COUNT, B_UINT8_TYPE,
-				{ ui8: slots_count}},
-
 			{SLOT_NUMBER, B_UINT8_TYPE,
 				{ ui8: slot}},
-
 			{BAR_INDEX, B_UINT8_TYPE,
 				{ ui8: bar}},
-
 			{ NULL }
 		};	
 		if(gDeviceManager->register_node(node, SDHCI_PCI_MMC_BUS_MODULE_NAME,
@@ -292,14 +288,8 @@ supports_device(device_node* parent)
 
 		pciSubDeviceId = pci->read_pci_config(device, PCI_revision,
 			1);
-		//pciSlotsInfo = pci->read_pci_config(device, SDHCI_PCI_SLOT_INFO, 1); // second parameter is for offset and third is of reading no of bytes
-		//bar = SDHCI_PCI_SLOT_INFO_FIRST_BASE_ADDRESS(pciSlotsInfo);
-		//pciSlotsInfo = SDHCI_PCI_SLOTS(pciSlotsInfo);
-
 		TRACE("SDHCI Device found! Subtype: 0x%04x, type: 0x%04x\n",
 			subType, type);
-//		TRACE("Number of slots: %d first base address: 0%04x\n",
-//			pciSlotsInfo, bar);
 		return 0.8f;
 	}
 
