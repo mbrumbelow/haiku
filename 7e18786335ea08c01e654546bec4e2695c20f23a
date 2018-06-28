@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8df3549b_681fa946",
+        "filename": "headers/os/package/RepositoryInfo.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-06-28T22:25:42Z",
+      "side": 1,
+      "message": "This should not be indented or go below commented line",
+      "range": {
+        "startLine": 80,
+        "startChar": 4,
+        "endLine": 80,
+        "endChar": 67
+      },
+      "revId": "7e18786335ea08c01e654546bec4e2695c20f23a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c47a6587_1b3b1021",
+        "filename": "headers/os/package/RepositoryInfo.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-06-28T22:25:42Z",
+      "side": 1,
+      "message": "This should not be indented or go below commented line",
+      "range": {
+        "startLine": 82,
+        "startChar": 4,
+        "endLine": 83,
+        "endChar": 22
+      },
+      "revId": "7e18786335ea08c01e654546bec4e2695c20f23a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c67ae075_5eca077f",
+        "filename": "src/apps/haikudepot/model/Model.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1085,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-06-28T22:25:42Z",
+      "side": 1,
+      "message": "This should not be indented or go below commented line",
+      "range": {
+        "startLine": 1085,
+        "startChar": 2,
+        "endLine": 1085,
+        "endChar": 15
+      },
+      "revId": "7e18786335ea08c01e654546bec4e2695c20f23a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4b7f218_f3a41c96",
+        "filename": "src/apps/haikudepot/model/PackageInfo.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-06-28T22:25:42Z",
+      "side": 1,
+      "message": "This should not be indented or go below commented line",
+      "range": {
+        "startLine": 452,
+        "startChar": 4,
+        "endLine": 453,
+        "endChar": 28
+      },
+      "revId": "7e18786335ea08c01e654546bec4e2695c20f23a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6238863_6a99da2d",
+        "filename": "src/apps/haikudepot/model/PackageInfo.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-06-28T22:25:42Z",
+      "side": 1,
+      "message": "This should not be indented or go below commented line",
+      "range": {
+        "startLine": 455,
+        "startChar": 4,
+        "endLine": 455,
+        "endChar": 63
+      },
+      "revId": "7e18786335ea08c01e654546bec4e2695c20f23a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3fba674_7e6feb09",
+        "filename": "src/kits/package/ActivateRepositoryConfigJob.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-06-28T22:25:42Z",
+      "side": 1,
+      "message": "Use tabs instead of spaces",
+      "range": {
+        "startLine": 7,
+        "startChar": 2,
+        "endLine": 7,
+        "endChar": 8
+      },
+      "revId": "7e18786335ea08c01e654546bec4e2695c20f23a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85306b6a_79cefb2e",
+        "filename": "src/kits/package/RepositoryInfo.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-06-28T22:25:42Z",
+      "side": 1,
+      "message": "Use tabs instead of spaces",
+      "range": {
+        "startLine": 7,
+        "startChar": 2,
+        "endLine": 7,
+        "endChar": 8
+      },
+      "revId": "7e18786335ea08c01e654546bec4e2695c20f23a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb316f2d_65d1f520",
+        "filename": "src/kits/package/RepositoryInfo.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-06-28T22:25:42Z",
+      "side": 1,
+      "message": "Use tabs instead of spaces",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 4
+      },
+      "revId": "7e18786335ea08c01e654546bec4e2695c20f23a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "707de29e_ec952b2a",
+        "filename": "src/tools/create_repository_config/create_repository_config.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-06-28T22:25:42Z",
+      "side": 1,
+      "message": "Use tabs instead of spaces",
+      "range": {
+        "startLine": 7,
+        "startChar": 2,
+        "endLine": 7,
+        "endChar": 8
+      },
+      "revId": "7e18786335ea08c01e654546bec4e2695c20f23a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12f6954d_0b33f20b",
+        "filename": "src/tools/get_package_dependencies/get_package_dependencies.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-06-28T22:25:42Z",
+      "side": 1,
+      "message": "Use tabs instead of spaces",
+      "range": {
+        "startLine": 7,
+        "startChar": 2,
+        "endLine": 7,
+        "endChar": 8
+      },
+      "revId": "7e18786335ea08c01e654546bec4e2695c20f23a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
