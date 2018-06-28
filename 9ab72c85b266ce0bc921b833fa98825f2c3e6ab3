@@ -19,6 +19,29 @@
     },
     {
       "key": {
+        "uuid": "dc48020c_76814fea",
+        "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 946,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-06-28T15:36:49Z",
+      "side": 1,
+      "message": "Don\u0027t use std::list in C++ unless you know you want to. It\u0027s a performance nightmare.\n\nHere it\u0027s not justified. std::vector with preallocated size of \"repositoryNames.CountStrings() + 1\" would be better.",
+      "range": {
+        "startLine": 946,
+        "startChar": 1,
+        "endLine": 946,
+        "endChar": 10
+      },
+      "revId": "9ab72c85b266ce0bc921b833fa98825f2c3e6ab3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "61f3d5f7_88e01631",
         "filename": "src/apps/haikudepot/util/RepositoryUrlUtils.cpp",
         "patchSetId": 1
