@@ -2,6 +2,91 @@
   "comments": [
     {
       "key": {
+        "uuid": "7629e857_4f993678",
+        "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-06-28T08:37:10Z",
+      "side": 1,
+      "message": "list comes before map",
+      "revId": "9ab72c85b266ce0bc921b833fa98825f2c3e6ab3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "61f3d5f7_88e01631",
+        "filename": "src/apps/haikudepot/util/RepositoryUrlUtils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-06-28T08:37:10Z",
+      "side": 1,
+      "message": "Two blank lines after the copyright header. Two blank lines after the include block",
+      "revId": "9ab72c85b266ce0bc921b833fa98825f2c3e6ab3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f3519743_d7ae0807",
+        "filename": "src/apps/haikudepot/util/RepositoryUrlUtils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-06-28T08:37:10Z",
+      "side": 1,
+      "message": "No blank line between the copyright header and the #ifndef",
+      "revId": "9ab72c85b266ce0bc921b833fa98825f2c3e6ab3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "404f0384_86e493fc",
+        "filename": "src/apps/haikudepot/util/RepositoryUrlUtils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-06-28T08:37:10Z",
+      "side": 1,
+      "message": "Two blank lines before and after the include block.",
+      "revId": "9ab72c85b266ce0bc921b833fa98825f2c3e6ab3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a2dda0c_80109f4c",
+        "filename": "src/apps/haikudepot/util/RepositoryUrlUtils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-06-28T08:37:10Z",
+      "side": 1,
+      "message": "Two blank lines before the #endif.",
+      "revId": "9ab72c85b266ce0bc921b833fa98825f2c3e6ab3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "726ec9c0_cb6741c6",
         "filename": "src/data/repository_infos/haikuports",
         "patchSetId": 1
@@ -16,6 +101,40 @@
       "revId": "9ab72c85b266ce0bc921b833fa98825f2c3e6ab3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd5b93b6_fb4ef30d",
+        "filename": "src/kits/package/RepositoryConfig.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-06-28T08:37:10Z",
+      "side": 1,
+      "message": "Please use tabs",
+      "revId": "9ab72c85b266ce0bc921b833fa98825f2c3e6ab3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4816429e_e9be1eea",
+        "filename": "src/kits/package/RepositoryConfig.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-06-28T08:37:10Z",
+      "side": 1,
+      "message": "stdio.h comes before stdlib.h. Why would you now need stdio.h?",
+      "revId": "9ab72c85b266ce0bc921b833fa98825f2c3e6ab3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
