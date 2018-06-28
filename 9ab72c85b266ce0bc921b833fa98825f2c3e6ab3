@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "9e6db4e5_0473583c",
+        "filename": "src/apps/haikudepot/server/RepositoryDataUpdateProcess.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-06-28T20:01:44Z",
+      "side": 1,
+      "message": "Use tabs instead of spaces",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 8
+      },
+      "revId": "9ab72c85b266ce0bc921b833fa98825f2c3e6ab3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7629e857_4f993678",
         "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
         "patchSetId": 1
@@ -56,6 +79,52 @@
       "revId": "9ab72c85b266ce0bc921b833fa98825f2c3e6ab3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ec4db83_b5128af8",
+        "filename": "src/apps/haikudepot/util/RepositoryUrlUtils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-06-28T20:01:44Z",
+      "side": 1,
+      "message": "path.RemoveLast(\"/\") would be more readable",
+      "range": {
+        "startLine": 17,
+        "startChar": 14,
+        "endLine": 17,
+        "endChar": 46
+      },
+      "revId": "9ab72c85b266ce0bc921b833fa98825f2c3e6ab3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7174bb5_f6d97579",
+        "filename": "src/apps/haikudepot/util/RepositoryUrlUtils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-06-28T20:01:44Z",
+      "side": 1,
+      "message": "Single line ifs shouldn\u0027t have {}",
+      "range": {
+        "startLine": 24,
+        "startChar": 21,
+        "endLine": 26,
+        "endChar": 2
+      },
+      "revId": "9ab72c85b266ce0bc921b833fa98825f2c3e6ab3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     },
     {
       "key": {
@@ -158,6 +227,29 @@
       "revId": "9ab72c85b266ce0bc921b833fa98825f2c3e6ab3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23224907_42f8a5b9",
+        "filename": "src/kits/package/RepositoryInfo.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-06-28T20:01:44Z",
+      "side": 1,
+      "message": "Move this comment below (it is about the FindString, right?)",
+      "range": {
+        "startLine": 278,
+        "startChar": 0,
+        "endLine": 278,
+        "endChar": 2
+      },
+      "revId": "9ab72c85b266ce0bc921b833fa98825f2c3e6ab3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
