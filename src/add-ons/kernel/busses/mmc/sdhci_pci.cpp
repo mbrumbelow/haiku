@@ -206,6 +206,23 @@ init_bus(device_node* node, void** bus_cookie)
 
 	TRACE("slots: %d bar: %d  bar_size: %d\n",slot,bar, bar_size);
 
+
+	TRACE("val: %d\n",_regs->power_control);
+
+	_regs->power_control |= 1;
+
+	TRACE("val: %d\n",_regs->power_control);
+
+	_regs->software_reset |= 1;
+
+	while(_regs->software_reset != 0)
+	{
+		if(_regs->software_reset == 0)
+			break;
+	}
+
+	TRACE("val after reset: %d",_regs->power_control);
+
 	bus->_regs = _regs;
 
 	if(regs_area < B_OK)
