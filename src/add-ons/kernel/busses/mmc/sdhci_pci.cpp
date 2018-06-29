@@ -98,7 +98,8 @@ init_bus(device_node* node, void** bus_cookie)
 	area_id	regs_area;
 	volatile uint32_t* regs;
 	uint8 bar, slot;
-
+	int var;
+	
 	sdhci_pci_mmc_bus_info* bus = new(std::nothrow) sdhci_pci_mmc_bus_info;
 	if (bus == NULL) {
 		return B_NO_MEMORY;
@@ -165,9 +166,9 @@ init_bus(device_node* node, void** bus_cookie)
 		return B_BAD_VALUE;
 	}
 
-//	bus->regs = regs;
+//	bus->regs = regs;	
 
-	struct registers* _regs = (struct registers*) regs_area;
+	struct registers* _regs = (struct registers*)regs;
 	TRACE("value beofre: %hu\n",*(_regs->normal_interrupt_signal_enable));
 
 	*(_regs->normal_interrupt_signal_enable) |= 1UL << 8;
@@ -184,8 +185,8 @@ init_bus(device_node* node, void** bus_cookie)
 
 	for(int i = 0x00; i <= 0xff; i=i+2)
 	{
-	//	var = *(_regs + i);
-		TRACE("for: %d\n",bus->pci->read_io_16(bus->device, bus->base_addr + i));
+		var = *(_regs + i);
+		TRACE("for: %d\n",var);
 	}
 	TRACE("finish");
 	*bus_cookie = bus;
