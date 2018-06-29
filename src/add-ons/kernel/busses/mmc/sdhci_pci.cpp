@@ -36,25 +36,18 @@
 #define BAR_INDEX				"device/bar"
 
 struct registers {
-	volatile uint16_t system_address_low;
-	volatile uint16_t system_address_high;
+	volatile uint32_t system_address;
 	volatile uint16_t block_size;
 	volatile uint16_t block_count;
-	volatile uint16_t argument0;
-	volatile uint16_t argument1;
+	volatile uint32_t argument;
 	volatile uint16_t transfer_mode;
 	volatile uint16_t command;
-	volatile uint16_t response1;
-	volatile uint16_t response2;
-	volatile uint16_t response3;
-	volatile uint16_t response4;
-	volatile uint16_t response5;
-	volatile uint16_t response6;
-	volatile uint16_t response7;
-	volatile uint16_t buffer_data_port0;
-	volatile uint16_t buffer_data_port1;
-	volatile uint16_t present_state0;
-	volatile uint16_t present_state1;
+	volatile uint32_t response0;
+	volatile uint32_t response2;
+	volatile uint32_t response4;
+	volatile uint32_t response6;
+	volatile uint32_t buffer_data_port;
+	volatile uint32_t present_state;
 	volatile uint8_t power_control;
 	volatile uint8_t host_control;
 	volatile uint8_t wakeup_control;
@@ -68,6 +61,17 @@ struct registers {
 	volatile uint16_t error_interrupt_status_enable;
 	volatile uint16_t normal_interrupt_signal_enable;
 	volatile uint16_t error_interrupt_signal_enable;
+	volatile uint16_t auto_cmd12_error_status;
+	volatile uint32_t : 32;
+	volatile uint32_t capabilities;
+	volatile uint32_t capabilities_rsvd;
+	volatile uint32_t max_current_capabilities;
+	volatile uint32_t max_current_capabilities_rsvd;
+	volatile uint32_t : 32;
+	volatile uint32_t : 32;
+	volatile uint32_t : 32;
+	volatile uint16_t slot_interrupt_status;
+	volatile uint16_t host_control_version;
 } __attribute__((packed));
 
 
@@ -80,7 +84,7 @@ typedef struct {
 	device_node* node;
 	pci_info info;
 
-	volatile uint32_t* regs;
+	struct registers* _regs;
 
 } sdhci_pci_mmc_bus_info;
 
@@ -96,10 +100,9 @@ init_bus(device_node* node, void** bus_cookie)
 	CALLED();
 	status_t status = B_OK;
 	area_id	regs_area;
-	volatile uint32_t* regs;
+	volatile uint16_t* regs;
 	uint8 bar, slot;
-	int var;
-	
+
 	sdhci_pci_mmc_bus_info* bus = new(std::nothrow) sdhci_pci_mmc_bus_info;
 	if (bus == NULL) {
 		return B_NO_MEMORY;
@@ -166,16 +169,44 @@ init_bus(device_node* node, void** bus_cookie)
 		return B_BAD_VALUE;
 	}
 
-//	bus->regs = regs;	
-
 	struct registers* _regs = (struct registers*)regs;
-	TRACE("value beofre: %hu\n",*(_regs->normal_interrupt_signal_enable));
 
-	*(_regs->normal_interrupt_signal_enable) |= 1UL << 8;
-
-	TRACE("val: %hu\n",*((_regs->normal_interrupt_signal_enable>>8)&1));
+	TRACE("system_address: %d\n",_regs->system_address);
+	TRACE("block_size: %d\n",_regs->block_size);
+	TRACE("block_count: %d\n",_regs->block_count);
+	TRACE("argument: %d\n",_regs->argument);
+	TRACE("transfer_mode: %d\n",_regs->transfer_mode);
+	TRACE("command: %d\n",_regs->command);
+	TRACE("response0: %d\n",_regs->response0);
+	TRACE("response2: %d\n",_regs->response2);
+	TRACE("response4: %d\n",_regs->response4);
+	TRACE("response6: %d\n",_regs->response6);
+	TRACE("buffer_data_port: %d\n",_regs->buffer_data_port);
+	TRACE("present_state: %d\n",_regs->present_state);
+	TRACE("power_control: %d\n",_regs->power_control);
+	TRACE("host_control: %d\n",_regs->host_control);
+	TRACE("wakeup_control: %d\n",_regs->wakeup_control);
+	TRACE("block_gap_control: %d\n",_regs->block_gap_control);
+	TRACE("clock_control: %d\n",_regs->clock_control);
+	TRACE("software_reset: %d\n",_regs->software_reset);
+	TRACE("timeout_control: %d\n",_regs->timeout_control);
+	TRACE("normal_interrupt_status: %d\n",_regs->normal_interrupt_status);
+	TRACE("error_interrupt_status: %d\n",_regs->error_interrupt_status);
+	TRACE("normal_interrupt_status_enable: %d\n",_regs->normal_interrupt_status_enable);
+	TRACE("error_interrupt_status_enable: %d\n",_regs->error_interrupt_status_enable);
+	TRACE("normal_interrupt_signal_enable: %d\n",_regs->normal_interrupt_signal_enable);
+	TRACE("error_interrupt_signal_enable: %d\n",_regs->error_interrupt_signal_enable);
+	TRACE("auto_cmd12_error_status: %d\n",_regs->auto_cmd12_error_status);
+	TRACE("capabilities: %d\n",_regs->capabilities);
+	TRACE("capabilities_rsvd: %d\n",_regs->capabilities_rsvd);
+	TRACE("max_current_capabilities: %d\n",_regs->max_current_capabilities);
+	TRACE("max_current_capabilities_rsvd: %d\n",_regs->max_current_capabilities_rsvd);
+	TRACE("slot_interrupt_status: %d\n",_regs->slot_interrupt_status);
+	TRACE("host_control_version %d\n",_regs->host_control_version);
 
 	TRACE("slots: %d bar: %d  bar_size: %d\n",slot,bar, bar_size);
+
+	bus->_regs = _regs;
 
 	if(regs_area < B_OK)
 	{
@@ -183,12 +214,6 @@ init_bus(device_node* node, void** bus_cookie)
 		return 0.1f;
 	}
 
-	for(int i = 0x00; i <= 0xff; i=i+2)
-	{
-		var = *(_regs + i);
-		TRACE("for: %d\n",var);
-	}
-	TRACE("finish");
 	*bus_cookie = bus;
 	return status;
 }
