@@ -28,12 +28,48 @@
 
 #define SDHCI_PCI_DEVICE_MODULE_NAME "busses/mmc/sdhci_pci/driver_v1"
 #define SDHCI_PCI_MMC_BUS_MODULE_NAME "busses/mmc/sdhci_pci/device/v1"
-
+	
 #define SDHCI_PCI_CONTROLLER_TYPE_NAME "sdhci pci controller"
 
 #define SLOTS_COUNT				"device/slots_count"	
 #define SLOT_NUMBER				"device/slot"				
-#define BAR_INDEX				"device/bar"				
+#define BAR_INDEX				"device/bar"
+
+struct registers {
+	volatile uint16_t system_address_low;
+	volatile uint16_t system_address_high;
+	volatile uint16_t block_size;
+	volatile uint16_t block_count;
+	volatile uint16_t argument0;
+	volatile uint16_t argument1;
+	volatile uint16_t transfer_mode;
+	volatile uint16_t command;
+	volatile uint16_t response1;
+	volatile uint16_t response2;
+	volatile uint16_t response3;
+	volatile uint16_t response4;
+	volatile uint16_t response5;
+	volatile uint16_t response6;
+	volatile uint16_t response7;
+	volatile uint16_t buffer_data_port0;
+	volatile uint16_t buffer_data_port1;
+	volatile uint16_t present_state0;
+	volatile uint16_t present_state1;
+	volatile uint8_t power_control;
+	volatile uint8_t host_control;
+	volatile uint8_t wakeup_control;
+	volatile uint8_t block_gap_control;
+	volatile uint16_t clock_control;
+	volatile uint8_t software_reset;
+	volatile uint8_t timeout_control;
+	volatile uint16_t normal_interrupt_status;
+	volatile uint16_t error_interrupt_status;
+	volatile uint16_t normal_interrupt_status_enable;
+	volatile uint16_t error_interrupt_status_enable;
+	volatile uint16_t normal_interrupt_signal_enable;
+	volatile uint16_t error_interrupt_signal_enable;
+} __attribute__((packed));
+
 
 typedef struct {
 	pci_device_module_info* pci;
@@ -48,6 +84,7 @@ typedef struct {
 
 } sdhci_pci_mmc_bus_info;
 
+
 device_manager_info* gDeviceManager;
 static pci_x86_module_info* sPCIx86Module;
 
@@ -60,8 +97,7 @@ init_bus(device_node* node, void** bus_cookie)
 	status_t status = B_OK;
 	area_id	regs_area;
 	volatile uint32_t* regs;
-	int var;
-	uint8 bar, slot, slots_count;
+	uint8 bar, slot;
 
 	sdhci_pci_mmc_bus_info* bus = new(std::nothrow) sdhci_pci_mmc_bus_info;
 	if (bus == NULL) {
@@ -109,7 +145,7 @@ init_bus(device_node* node, void** bus_cookie)
 
 	// enable bus master and io
 	uint16 pcicmd = pci->read_pci_config(device, PCI_command, 2);
-	pcicmd &= ~(PCI_command_memory | PCI_command_int_disable);
+	//pcicmd &= ~(PCI_command_memory | PCI_command_int_disable);
 	// pcicmd |= PCI_command_master | PCI_command_io;
 	// pci->write_pci_config(device, PCI_command, 2, pcicmd);
 
@@ -129,11 +165,14 @@ init_bus(device_node* node, void** bus_cookie)
 		return B_BAD_VALUE;
 	}
 
-	bus->regs = regs;
+//	bus->regs = regs;
 
-//	*(regs + 0x34) |= 1 << 8;
+	struct registers* _regs = (struct registers*) regs_area;
+	TRACE("value beofre: %hu\n",*(_regs->normal_interrupt_signal_enable));
 
-//	int size = sizeof(regs);
+	*(_regs->normal_interrupt_signal_enable) |= 1UL << 8;
+
+	TRACE("val: %hu\n",*((_regs->normal_interrupt_signal_enable>>8)&1));
 
 	TRACE("slots: %d bar: %d  bar_size: %d\n",slot,bar, bar_size);
 
@@ -143,12 +182,12 @@ init_bus(device_node* node, void** bus_cookie)
 		return 0.1f;
 	}
 
-	for(int i = 0x00; i <= 0xff; i=i+4)
+	for(int i = 0x00; i <= 0xff; i=i+2)
 	{
-		var = *(regs + i);
-		TRACE("for %08x: %d\n",i,var);
+	//	var = *(_regs + i);
+		TRACE("for: %d\n",bus->pci->read_io_16(bus->device, bus->base_addr + i));
 	}
-
+	TRACE("finish");
 	*bus_cookie = bus;
 	return status;
 }
