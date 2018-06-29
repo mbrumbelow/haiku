@@ -48,13 +48,13 @@ struct registers {
 	volatile uint32_t response6;
 	volatile uint32_t buffer_data_port;
 	volatile uint32_t present_state;
-	volatile uint8_t power_control;
 	volatile uint8_t host_control;
+	volatile uint8_t power_control;
+	volatile uint8_t block_gap_control;	
 	volatile uint8_t wakeup_control;
-	volatile uint8_t block_gap_control;
 	volatile uint16_t clock_control;
-	volatile uint8_t software_reset;
 	volatile uint8_t timeout_control;
+	volatile uint8_t software_reset;
 	volatile uint16_t normal_interrupt_status;
 	volatile uint16_t error_interrupt_status;
 	volatile uint16_t normal_interrupt_status_enable;
@@ -207,21 +207,21 @@ init_bus(device_node* node, void** bus_cookie)
 	TRACE("slots: %d bar: %d  bar_size: %d\n",slot,bar, bar_size);
 
 
-	TRACE("val: %d\n",_regs->power_control);
+	TRACE("block_gap_control: %d\n",_regs->block_gap_control);
 
-	_regs->power_control |= 1;
+	_regs->block_gap_control |= 1;
 
-	TRACE("val: %d\n",_regs->power_control);
+	TRACE("block_gap_control: %d\n",_regs->block_gap_control);
 
 	_regs->software_reset |= 1;
 
 	while(_regs->software_reset != 0)
 	{
-		if(_regs->software_reset == 0)
+		if(_regs->software_reset == 0 )
 			break;
 	}
 
-	TRACE("val after reset: %d",_regs->power_control);
+	TRACE("val after reset: %d\n",_regs->block_gap_control);
 
 	bus->_regs = _regs;
 
