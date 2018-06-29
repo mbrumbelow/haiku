@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e88f44b6_2848badd",
+        "filename": "src/kits/interface/ListView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-06-29T05:41:04Z",
+      "side": 1,
+      "message": "Why not \"buttons\"?",
+      "revId": "bdf2830bbe33640f4e36a0b32e647c032e8c2996",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
