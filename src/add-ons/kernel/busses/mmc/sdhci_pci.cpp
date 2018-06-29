@@ -100,7 +100,7 @@ init_bus(device_node* node, void** bus_cookie)
 	CALLED();
 	status_t status = B_OK;
 	area_id	regs_area;
-	volatile uint16_t* regs;
+	volatile uint32_t* regs;
 	uint8 bar, slot;
 
 	sdhci_pci_mmc_bus_info* bus = new(std::nothrow) sdhci_pci_mmc_bus_info;
