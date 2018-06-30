@@ -16,6 +16,24 @@
       "revId": "bdf2830bbe33640f4e36a0b32e647c032e8c2996",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1f99794_00bfd158",
+        "filename": "src/kits/interface/ListView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000059
+      },
+      "writtenOn": "2018-06-30T01:48:17Z",
+      "side": 1,
+      "message": "Since I removed the \u0027primary mouse button\u0027 code per discussion on Trac, this was removed as well.",
+      "parentUuid": "e88f44b6_2848badd",
+      "revId": "bdf2830bbe33640f4e36a0b32e647c032e8c2996",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
