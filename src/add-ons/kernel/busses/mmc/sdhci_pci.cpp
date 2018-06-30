@@ -35,46 +35,6 @@
 #define SLOT_NUMBER				"device/slot"				
 #define BAR_INDEX				"device/bar"
 
-struct registers {
-	volatile uint32_t system_address;
-	volatile uint16_t block_size;
-	volatile uint16_t block_count;
-	volatile uint32_t argument;
-	volatile uint16_t transfer_mode;
-	volatile uint16_t command;
-	volatile uint32_t response0;
-	volatile uint32_t response2;
-	volatile uint32_t response4;
-	volatile uint32_t response6;
-	volatile uint32_t buffer_data_port;
-	volatile uint32_t present_state;
-	volatile uint8_t host_control;
-	volatile uint8_t power_control;
-	volatile uint8_t block_gap_control;	
-	volatile uint8_t wakeup_control;
-	volatile uint16_t clock_control;
-	volatile uint8_t timeout_control;
-	volatile uint8_t software_reset;
-	volatile uint16_t normal_interrupt_status;
-	volatile uint16_t error_interrupt_status;
-	volatile uint16_t normal_interrupt_status_enable;
-	volatile uint16_t error_interrupt_status_enable;
-	volatile uint16_t normal_interrupt_signal_enable;
-	volatile uint16_t error_interrupt_signal_enable;
-	volatile uint16_t auto_cmd12_error_status;
-	volatile uint32_t : 32;
-	volatile uint32_t capabilities;
-	volatile uint32_t capabilities_rsvd;
-	volatile uint32_t max_current_capabilities;
-	volatile uint32_t max_current_capabilities_rsvd;
-	volatile uint32_t : 32;
-	volatile uint32_t : 32;
-	volatile uint32_t : 32;
-	volatile uint16_t slot_interrupt_status;
-	volatile uint16_t host_control_version;
-} __attribute__((packed));
-
-
 typedef struct {
 	pci_device_module_info* pci;
 	pci_device* device;
@@ -101,7 +61,7 @@ init_bus(device_node* node, void** bus_cookie)
 	status_t status = B_OK;
 	area_id	regs_area;
 	volatile uint32_t* regs;
-	uint8 bar, slot;
+	uint8_t bar, slot;
 
 	sdhci_pci_mmc_bus_info* bus = new(std::nothrow) sdhci_pci_mmc_bus_info;
 	if (bus == NULL) {
@@ -171,6 +131,32 @@ init_bus(device_node* node, void** bus_cookie)
 
 	struct registers* _regs = (struct registers*)regs;
 
+	TRACE("slots: %d bar: %d  bar_size: %d\n",slot,bar, bar_size);
+
+	sdhci_register_dump(slot, _regs);
+
+	sdhci_reset(slot, _regs);
+
+	bus->_regs = _regs;
+
+	if(regs_area < B_OK)
+	{
+		TRACE("mapping failed");
+		return 0.1f;
+	}
+
+	//sdhci_reset(slot);
+
+	*bus_cookie = bus;
+	return status;
+}
+
+
+static void
+sdhci_register_dump(uint8_t slot, struct registers* _regs)
+{
+
+	TRACE("Register values for slot: %d\n", slot);
 	TRACE("system_address: %d\n",_regs->system_address);
 	TRACE("block_size: %d\n",_regs->block_size);
 	TRACE("block_count: %d\n",_regs->block_count);
@@ -203,36 +189,16 @@ init_bus(device_node* node, void** bus_cookie)
 	TRACE("max_current_capabilities_rsvd: %d\n",_regs->max_current_capabilities_rsvd);
 	TRACE("slot_interrupt_status: %d\n",_regs->slot_interrupt_status);
 	TRACE("host_control_version %d\n",_regs->host_control_version);
+}
 
-	TRACE("slots: %d bar: %d  bar_size: %d\n",slot,bar, bar_size);
 
+static void
+sdhci_reset(uint8_t slot, struct registers* _regs)
+{
+	int timeout;
 
-	TRACE("block_gap_control: %d\n",_regs->block_gap_control);
-
-	_regs->block_gap_control |= 1;
-
-	TRACE("block_gap_control: %d\n",_regs->block_gap_control);
-
-	_regs->software_reset |= 1;
-
-	while(_regs->software_reset != 0)
-	{
-		if(_regs->software_reset == 0 )
-			break;
-	}
-
-	TRACE("val after reset: %d\n",_regs->block_gap_control);
-
-	bus->_regs = _regs;
-
-	if(regs_area < B_OK)
-	{
-		TRACE("mapping failed");
-		return 0.1f;
-	}
-
-	*bus_cookie = bus;
-	return status;
+	if(((_regs->present_state<<16)&1) == 0)
+		return;
 }
 
 
