@@ -790,10 +790,32 @@ BeDecorator::_GetBitmapForButton(Decorator::Tab* tab, Component item,
 	static BLocker sBitmapListLock("decorator lock", true);
 	static decorator_bitmap* sBitmapList = NULL;
 
+	// BeOS R5 colors
+	// button:  active: 255, 203, 0  inactive: 232, 232, 232
+	// light1:  active: 255, 238, 0  inactive: 255, 255, 255
+	// light2:  active: 255, 255, 26 inactive: 255, 255, 255
+	// shadow1: active: 235, 183, 0  inactive: 211, 211, 211
+	// shadow2 is a bit lighter on zoom than on close button
+
 	ComponentColors colors;
 	_GetComponentColors(item, colors, tab);
 
 	const rgb_color buttonColor(colors[COLOR_BUTTON]);
+
+	rgb_color buttonColorLight1(buttonColor);
+	buttonColorLight1.red = std::min(255, buttonColor.red + 35),
+	buttonColorLight1.green = std::min(255, buttonColor.green + 35),
+	buttonColorLight1.blue = std::min(255, buttonColor.blue + 0);
+
+	rgb_color buttonColorLight2(buttonColor);
+	buttonColorLight2.red = std::min(255, buttonColor.red + 52),
+	buttonColorLight2.green = std::min(255, buttonColor.green + 52),
+	buttonColorLight2.blue = std::min(255, buttonColor.blue + 26);
+
+	rgb_color buttonColorShadow1(buttonColor);
+	buttonColorShadow1.red = std::max(0, buttonColor.red - 21),
+	buttonColorShadow1.green = std::max(0, buttonColor.green - 21),
+	buttonColorShadow1.blue = std::max(0, buttonColor.blue - 21);
 
 	BAutolock locker(sBitmapListLock);
 
@@ -828,92 +850,389 @@ BeDecorator::_GetBitmapForButton(Decorator::Tab* tab, Component item,
 	switch (item) {
 		case COMPONENT_CLOSE_BUTTON:
 		{
-			rgb_color buttonColorLight1(buttonColor);
-			buttonColorLight1.red = std::min(255, buttonColor.red + 32),
-			buttonColorLight1.green = std::min(255, buttonColor.green + 32),
-			buttonColorLight1.blue = std::min(255, buttonColor.blue + 32);
-
-			rgb_color buttonColorLight2(buttonColor);
-			buttonColorLight2.red = std::min(255, buttonColor.red + 64),
-			buttonColorLight2.green = std::min(255, buttonColor.green + 64),
-			buttonColorLight2.blue = std::min(255, buttonColor.blue + 64);
-
-			rgb_color buttonColorShadow1(buttonColor);
-			buttonColorShadow1.red = std::max(0, buttonColor.red - 36),
-			buttonColorShadow1.green = std::max(0, buttonColor.green - 36),
-			buttonColorShadow1.blue = std::max(0, buttonColor.blue - 36);
-
+			// BeOS R5 shadow2: active: 183, 131, 0 inactive: 160, 160, 160
 			rgb_color buttonColorShadow2(buttonColor);
 			buttonColorShadow2.red = std::max(0, buttonColor.red - 72),
 			buttonColorShadow2.green = std::max(0, buttonColor.green - 72),
 			buttonColorShadow2.blue = std::max(0, buttonColor.blue - 72);
 
-			_DrawBlendedRect(sBitmapDrawingEngine, rect, tab->closePressed,
-				buttonColorLight2, buttonColorLight1, buttonColor,
-				buttonColorShadow1);
-
+			// draw outer bevel
 			_DrawBevelRect(sBitmapDrawingEngine, rect, tab->closePressed,
 				buttonColorLight2, buttonColorShadow2);
+
+			// inset by bevel
+			rect.InsetBy(2, 2);
+
+			// fill bg
+			sBitmapDrawingEngine->FillRect(rect, buttonColorLight1);
+
+			// set low color to bg color
+			sBitmapDrawingEngine->SetLowColor(buttonColorLight1);
+
+			// define inner shadow region
+			BRegion inner = BRegion();
+			if (tab->closePressed) {
+				// include main square
+				inner.Include(BRect(rect.left + 0, rect.top + 0,
+					rect.left + 6, rect.top + 6));
+				// exclude left top corner of main square
+				inner.Exclude(BRect(rect.left + 6, rect.top + 6,
+					rect.left + 6, rect.top + 6));
+				// exclude checkerboard pattern
+				inner.Exclude(BRect(rect.left + 6, rect.top + 4,
+					rect.left + 6, rect.top + 4));
+				inner.Exclude(BRect(rect.left + 5, rect.top + 5,
+					rect.left + 5, rect.top + 5));
+				inner.Exclude(BRect(rect.left + 4, rect.top + 6,
+					rect.left + 4, rect.top + 6));
+				// include top left checkboard pattern
+				inner.Include(BRect(rect.left + 7, rect.top + 4,
+					rect.left + 7, rect.top + 4));
+				inner.Include(BRect(rect.left + 7, rect.top + 2,
+					rect.left + 7, rect.top + 2));
+				inner.Include(BRect(rect.left + 7, rect.top + 0,
+					rect.left + 7, rect.top + 0));
+				inner.Include(BRect(rect.left + 8, rect.top + 3,
+					rect.left + 8, rect.top + 3));
+				inner.Include(BRect(rect.left + 8, rect.top + 1,
+					rect.left + 8, rect.top + 1));
+				inner.Include(BRect(rect.left + 9, rect.top + 0,
+					rect.left + 9, rect.top + 0));
+				// include top left checkboard pattern
+				inner.Include(BRect(rect.left + 4, rect.top + 7,
+					rect.left + 4, rect.top + 7));
+				inner.Include(BRect(rect.left + 2, rect.top + 7,
+					rect.left + 2, rect.top + 7));
+				inner.Include(BRect(rect.left + 0, rect.top + 7,
+					rect.left + 0, rect.top + 7));
+				inner.Include(BRect(rect.left + 3, rect.top + 8,
+					rect.left + 3, rect.top + 8));
+				inner.Include(BRect(rect.left + 1, rect.top + 8,
+					rect.left + 1, rect.top + 8));
+				inner.Include(BRect(rect.left + 0, rect.top + 9,
+					rect.left + 0, rect.top + 9));
+			} else {
+				// include main square
+				inner.Include(BRect(rect.right - 6, rect.bottom - 6,
+					rect.right - 0, rect.bottom - 0));
+				// exclude top left corner of main square
+				inner.Exclude(BRect(rect.right - 6, rect.bottom - 6,
+					rect.right - 6, rect.bottom - 6));
+				// exclude checkerboard pattern
+				inner.Exclude(BRect(rect.right - 6, rect.bottom - 4,
+					rect.right - 6, rect.bottom - 4));
+				inner.Exclude(BRect(rect.right - 5, rect.bottom - 5,
+					rect.right - 5, rect.bottom - 5));
+				inner.Exclude(BRect(rect.right - 4, rect.bottom - 6,
+					rect.right - 4, rect.bottom - 6));
+				// include bottom left checkboard pattern
+				inner.Include(BRect(rect.right - 7, rect.bottom - 4,
+					rect.right - 7, rect.bottom - 4));
+				inner.Include(BRect(rect.right - 7, rect.bottom - 2,
+					rect.right - 7, rect.bottom - 2));
+				inner.Include(BRect(rect.right - 7, rect.bottom - 0,
+					rect.right - 7, rect.bottom - 0));
+				inner.Include(BRect(rect.right - 8, rect.bottom - 3,
+					rect.right - 8, rect.bottom - 3));
+				inner.Include(BRect(rect.right - 8, rect.bottom - 1,
+					rect.right - 8, rect.bottom - 1));
+				inner.Include(BRect(rect.right - 9, rect.bottom - 0,
+					rect.right - 9, rect.bottom - 0));
+				// include top right checkboard pattern
+				inner.Include(BRect(rect.right - 4, rect.bottom - 7,
+					rect.right - 4, rect.bottom - 7));
+				inner.Include(BRect(rect.right - 2, rect.bottom - 7,
+					rect.right - 2, rect.bottom - 7));
+				inner.Include(BRect(rect.right - 0, rect.bottom - 7,
+					rect.right - 0, rect.bottom - 7));
+				inner.Include(BRect(rect.right - 3, rect.bottom - 8,
+					rect.right - 3, rect.bottom - 8));
+				inner.Include(BRect(rect.right - 1, rect.bottom - 8,
+					rect.right - 1, rect.bottom - 8));
+				inner.Include(BRect(rect.right - 0, rect.bottom - 9,
+					rect.right - 0, rect.bottom - 9));
+			}
+
+			// draw inner shadow region
+			sBitmapDrawingEngine->SetHighColor(buttonColor);
+			sBitmapDrawingEngine->FillRegion(inner);
+
+			// define outer shadow region
+			BRegion outer = BRegion();
+			if (tab->closePressed) {
+				// include main square
+				outer.Include(BRect(rect.left + 0, rect.top + 0,
+					rect.left + 4, rect.top + 4));
+				// include protruding square horns
+				outer.Include(BRect(rect.left + 0, rect.top + 5,
+					rect.left + 0, rect.top + 5));
+				outer.Include(BRect(rect.left + 5, rect.top + 0,
+					rect.left + 5, rect.top + 0));
+				// exclude smaller square
+				outer.Exclude(BRect(rect.left + 3, rect.top + 3,
+					rect.left + 4, rect.top + 4));
+				// include top left corner of smaller square
+				outer.Include(BRect(rect.left + 3, rect.top + 3,
+					rect.left + 3, rect.top + 3));
+				// exclude two dots
+				outer.Exclude(BRect(rect.left + 2, rect.top + 3,
+					rect.left + 2, rect.top + 3));
+				outer.Exclude(BRect(rect.left + 3, rect.top + 2,
+					rect.left + 3, rect.top + 2));
+			} else {
+				// include main square
+				outer.Include(BRect(rect.right - 4, rect.bottom - 4,
+					rect.right - 0, rect.bottom - 0));
+				// include protruding square horns
+				outer.Include(BRect(rect.right - 0, rect.bottom - 5,
+					rect.right - 0, rect.bottom - 5));
+				outer.Include(BRect(rect.right - 5, rect.bottom - 0,
+					rect.right - 5, rect.bottom - 0));
+				// exclude smaller square
+				outer.Exclude(BRect(rect.right - 4, rect.bottom - 4,
+					rect.right - 3, rect.bottom - 3));
+				// include bottom right corner of smaller square
+				outer.Include(BRect(rect.right - 3, rect.bottom - 3,
+					rect.right - 3, rect.bottom - 3));
+				// exclude two dots
+				outer.Exclude(BRect(rect.right - 2, rect.bottom - 3,
+					rect.right - 2, rect.bottom - 3));
+				outer.Exclude(BRect(rect.right - 3, rect.bottom - 2,
+					rect.right - 3, rect.bottom - 2));
+			}
+
+			// draw outer shadow region
+			sBitmapDrawingEngine->SetHighColor(buttonColorShadow1);
+			sBitmapDrawingEngine->FillRegion(outer);
+
+			// define glint region
+			BRegion glint = BRegion();
+			if (tab->closePressed) {
+				glint.Include(BRect(rect.right - 0, rect.bottom - 0,
+					rect.right - 0, rect.bottom - 0));
+				glint.Include(BRect(rect.right - 2, rect.bottom - 0,
+					rect.right - 2, rect.bottom - 0));
+				glint.Include(BRect(rect.right - 1, rect.bottom - 1,
+					rect.right - 1, rect.bottom - 1));
+				glint.Include(BRect(rect.right - 0, rect.bottom - 2,
+					rect.right - 0, rect.bottom - 2));
+			} else {
+				glint.Include(BRect(rect.left + 0, rect.top + 0,
+					rect.left + 0, rect.top + 0));
+				glint.Include(BRect(rect.left + 2, rect.top + 0,
+					rect.left + 2, rect.top + 0));
+				glint.Include(BRect(rect.left + 1, rect.top + 1,
+					rect.left + 1, rect.top + 1));
+				glint.Include(BRect(rect.left + 0, rect.top + 2,
+					rect.left + 0, rect.top + 2));
+			}
+
+			// draw glint region (last)
+			sBitmapDrawingEngine->SetHighColor(buttonColorLight2);
+			sBitmapDrawingEngine->FillRegion(glint);
+
+			// put rect back
+			rect.InsetBy(-2, -2);
 
 			break;
 		}
 
 		case COMPONENT_ZOOM_BUTTON:
 		{
+			// BeOS R5 shadow2: active: 210, 158, 0 inactive: 187, 187, 187
+			rgb_color buttonColorShadow2(buttonColor);
+			buttonColorShadow2.red = std::max(0, buttonColor.red - 45),
+			buttonColorShadow2.green = std::max(0, buttonColor.green - 45),
+			buttonColorShadow2.blue = std::max(0, buttonColor.blue - 45);
+
 			sBitmapDrawingEngine->FillRect(rect, B_TRANSPARENT_COLOR);
 				// init the background
 
-			rgb_color buttonColorLight1(buttonColor);
-			buttonColorLight1.red = std::min(255, buttonColor.red + 32),
-			buttonColorLight1.green = std::min(255, buttonColor.green + 32),
-			buttonColorLight1.blue = std::min(255, buttonColor.blue + 32);
-
-			rgb_color buttonColorLight2(buttonColor);
-			buttonColorLight2.red = std::min(255, buttonColor.red + 64),
-			buttonColorLight2.green = std::min(255, buttonColor.green + 64),
-			buttonColorLight2.blue = std::min(255, buttonColor.blue + 64);
-
-			rgb_color buttonColorShadow1(buttonColor);
-			buttonColorShadow1.red = std::max(0, buttonColor.red - 22),
-			buttonColorShadow1.green = std::max(0, buttonColor.green - 23),
-			buttonColorShadow1.blue = std::max(0, buttonColor.blue - 5);
-
-			rgb_color buttonColorShadow2(buttonColor);
-			buttonColorShadow2.red = std::max(0, buttonColor.red - 45),
-			buttonColorShadow2.green = std::max(0, buttonColor.green - 47),
-			buttonColorShadow2.blue = std::max(0, buttonColor.blue - 10);
-
 			// big rect
 
-			BRect zoomRect = rect;
-			zoomRect.left += floorf(width * 3.0f / 14.0f);
-			zoomRect.top += floorf(height * 3.0f / 14.0f);
+			BRect bigRect(rect);
+			bigRect.left += floorf(width * 3.0f / 14.0f);
+			bigRect.top += floorf(height * 3.0f / 14.0f);
 
-			_DrawBlendedRect(sBitmapDrawingEngine, zoomRect, tab->zoomPressed,
-				buttonColorLight2, buttonColorLight1, buttonColor,
-				buttonColorShadow1);
-
-			_DrawBevelRect(sBitmapDrawingEngine, zoomRect, tab->zoomPressed,
+			// draw big rect bevel
+			_DrawBevelRect(sBitmapDrawingEngine, bigRect, tab->zoomPressed,
 				buttonColorLight2, buttonColorShadow2);
+
+			// inset past big rect bevel
+			bigRect.InsetBy(2, 2);
+
+			// fill big bg
+			sBitmapDrawingEngine->FillRect(bigRect, buttonColorLight1);
+
+			// set low color to bg color
+			sBitmapDrawingEngine->SetLowColor(buttonColorLight1);
+
+			// some elements are covered by the small rect
+			// so only draw the parts that get shown
+			if (tab->zoomPressed) {
+				// defint big glint region
+				BRegion bigGlint = BRegion();
+				bigGlint.Include(BRect(bigRect.right - 1, bigRect.bottom,
+					bigRect.right, bigRect.bottom));
+				bigGlint.Include(BRect(bigRect.right, bigRect.bottom - 1,
+					bigRect.right, bigRect.bottom));
+
+				// draw big glint region
+				sBitmapDrawingEngine->SetHighColor(buttonColorLight2);
+				sBitmapDrawingEngine->FillRegion(bigGlint);
+			} else {
+				// define big inner region
+				BRegion bigInner;
+				bigInner.Include(BRect(bigRect.right - 4, bigRect.bottom - 1,
+					bigRect.right - 4, bigRect.bottom - 1));
+				bigInner.Include(BRect(bigRect.right - 3, bigRect.bottom - 2,
+					bigRect.right - 3, bigRect.bottom - 2));
+				bigInner.Include(BRect(bigRect.right - 2, bigRect.bottom - 3,
+					bigRect.right - 2, bigRect.bottom - 3));
+				bigInner.Include(BRect(bigRect.right - 1, bigRect.bottom - 4,
+					bigRect.right - 1, bigRect.bottom - 4));
+				bigInner.Include(BRect(bigRect.right - 2, bigRect.bottom - 1,
+					bigRect.right - 1, bigRect.bottom - 1));
+				bigInner.Include(BRect(bigRect.right - 1, bigRect.bottom - 2,
+					bigRect.right - 1, bigRect.bottom - 2));
+
+				// draw big inner region
+				sBitmapDrawingEngine->SetHighColor(buttonColor);
+				sBitmapDrawingEngine->FillRegion(bigInner);
+
+				// define big shadow region
+				BRegion bigShadow = BRegion();
+				bigShadow.Include(BRect(bigRect.right - 0, bigRect.bottom - 5,
+					bigRect.right - 0, bigRect.bottom - 0));
+				bigShadow.Include(BRect(bigRect.right - 5, bigRect.bottom - 0,
+					bigRect.right - 0, bigRect.bottom - 0));
+
+				// draw big shadow region
+				sBitmapDrawingEngine->SetHighColor(buttonColorShadow1);
+				sBitmapDrawingEngine->FillRegion(bigShadow);
+			}
 
 			// small rect
 
-			zoomRect = rect;
-			zoomRect.right -= floorf(width * 5.0f / 14.0f);
-			zoomRect.bottom -= floorf(height * 5.0f / 14.0f);
+			BRect smallRect(rect);
+			smallRect.right -= floorf(width * 5.0f / 14.0f);
+			smallRect.bottom -= floorf(height * 5.0f / 14.0f);
 
-			_DrawBlendedRect(sBitmapDrawingEngine, zoomRect, tab->zoomPressed,
-				buttonColorLight2, buttonColorLight1, buttonColor,
-				buttonColorShadow1);
-
-			_DrawBevelRect(sBitmapDrawingEngine, zoomRect, tab->zoomPressed,
+			// draw small rect bevel
+			_DrawBevelRect(sBitmapDrawingEngine, smallRect, tab->zoomPressed,
 				buttonColorLight2, buttonColorShadow2);
 
-			// Fill in the right top and bottom right corners with buttonColor
-			sBitmapDrawingEngine->StrokeLine(zoomRect.RightTop(),
-				zoomRect.RightTop(), buttonColor);
-			sBitmapDrawingEngine->StrokeLine(zoomRect.LeftBottom(),
-				zoomRect.LeftBottom(), buttonColor);
+			if (!tab->zoomPressed) {
+				// undraw bottom left and top right corners
+				sBitmapDrawingEngine->StrokePoint(smallRect.LeftBottom(),
+					buttonColor);
+				sBitmapDrawingEngine->StrokePoint(smallRect.RightTop(),
+					buttonColor);
+			}
+
+			// inset past small rect bevel
+			smallRect.InsetBy(2, 2);
+
+			// fill bg
+			sBitmapDrawingEngine->FillRect(smallRect, buttonColorLight1);
+
+			// set low color to bg color
+			sBitmapDrawingEngine->SetLowColor(buttonColorLight1);
+
+			// define small inner region
+			BRegion smallInner;
+			if (tab->zoomPressed) {
+				// include main square
+				smallInner.Include(BRect(
+					smallRect.left + 0, smallRect.top + 0,
+					smallRect.left + 2, smallRect.top + 2));
+				// exclude bottom right corner of main square
+				smallInner.Exclude(BRect(
+					smallRect.left + 2, smallRect.top + 2,
+					smallRect.left + 2, smallRect.top + 2));
+				// include bottom right corner
+				smallInner.Include(BRect(
+					smallRect.left + 4, smallRect.top + 0,
+					smallRect.left + 4, smallRect.top + 1));
+				smallInner.Include(BRect(
+					smallRect.left + 3, smallRect.top + 0,
+					smallRect.left + 3, smallRect.top + 0));
+				// include bottom right corner
+				smallInner.Include(BRect(
+					smallRect.left + 0, smallRect.top + 4,
+					smallRect.left + 1, smallRect.top + 4));
+				smallInner.Include(BRect(
+					smallRect.left + 0, smallRect.top + 3,
+					smallRect.left + 0, smallRect.top + 3));
+				// include two dots
+				smallInner.Include(BRect(
+					smallRect.left + 3, smallRect.top + 2,
+					smallRect.left + 3, smallRect.top + 2));
+				smallInner.Include(BRect(
+					smallRect.left + 2, smallRect.top + 3,
+					smallRect.left + 2, smallRect.top + 3));
+			} else {
+				// include main square
+				smallInner.Include(BRect(
+					smallRect.right - 2, smallRect.bottom - 2,
+					smallRect.right - 0, smallRect.bottom - 0));
+				// exclude top left corner of main square
+				smallInner.Exclude(BRect(
+					smallRect.right - 2, smallRect.bottom - 2,
+					smallRect.right - 2, smallRect.bottom - 2));
+				// include bottom left corner
+				smallInner.Include(BRect(
+					smallRect.right - 4, smallRect.bottom - 1,
+					smallRect.right - 4, smallRect.bottom - 0));
+				smallInner.Include(BRect(
+					smallRect.right - 3, smallRect.bottom - 0,
+					smallRect.right - 3, smallRect.bottom - 0));
+				// include top right corner
+				smallInner.Include(BRect(
+					smallRect.right - 1, smallRect.bottom - 4,
+					smallRect.right - 0, smallRect.bottom - 4));
+				smallInner.Include(BRect(
+					smallRect.right - 0, smallRect.bottom - 3,
+					smallRect.right - 0, smallRect.bottom - 3));
+				// include two dots
+				smallInner.Include(BRect(
+					smallRect.right - 3, smallRect.bottom - 2,
+					smallRect.right - 3, smallRect.bottom - 2));
+				smallInner.Include(BRect(
+					smallRect.right - 2, smallRect.bottom - 3,
+					smallRect.right - 2, smallRect.bottom - 3));
+			}
+
+			// draw small inner region
+			sBitmapDrawingEngine->SetHighColor(buttonColor);
+			sBitmapDrawingEngine->FillRegion(smallInner);
+
+			// define shadow
+			BRegion smallShadow = BRegion();
+			if (tab->zoomPressed) {
+				smallShadow.Include(BRect(
+					smallRect.left + 0, smallRect.top + 0,
+					smallRect.left + 2, smallRect.top + 0));
+				smallShadow.Include(BRect(
+					smallRect.left + 0, smallRect.top + 0,
+					smallRect.left + 0, smallRect.top + 1));
+			} else {
+				smallShadow.Include(BRect(
+					smallRect.right - 2, smallRect.bottom - 0,
+					smallRect.right - 0, smallRect.bottom - 0));
+				smallShadow.Include(BRect(
+					smallRect.right - 0, smallRect.bottom - 1,
+					smallRect.right - 0, smallRect.bottom - 0));
+			}
+
+			// draw shadow
+			sBitmapDrawingEngine->SetHighColor(buttonColorShadow1);
+			sBitmapDrawingEngine->FillRegion(smallShadow);
+
+			// draw glint region last (single pixel)
+			sBitmapDrawingEngine->StrokePoint(tab->zoomPressed
+					? smallRect.RightBottom() : smallRect.LeftTop(),
+				buttonColorLight2);
 
 			break;
 		}
