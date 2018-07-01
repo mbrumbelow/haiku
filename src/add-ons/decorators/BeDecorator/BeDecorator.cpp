@@ -52,6 +52,77 @@ static const float kBorderResizeLength = 22.0;
 static const float kResizeKnobSize = 18.0;
 
 
+static const unsigned char f = 0xff; // way to write 0xff shorter
+
+static const unsigned char kInnerShadowBits[] = {
+	f, f, f, f, f, f, f, f, f, 0,
+	f, f, f, f, f, f, 0, f, 0, f,
+	f, f, f, f, f, 0, f, 0, f, 0,
+	f, f, f, f, 0, f, 0, 0, 0, 0,
+	f, f, f, 0, f, 0, 0, 0, 0, 0,
+	f, f, 0, f, 0, 0, 0, 0, 0, 0,
+	f, 0, f, 0, 0, 0, 0, 0, 0, 0,
+	f, f, 0, 0, 0, 0, 0, 0, 0, 0,
+	f, 0, f, 0, 0, 0, 0, 0, 0, 0,
+	0, f, 0, 0, 0, 0, 0, 0, 0, 0
+};
+
+static const unsigned char kOuterShadowBits[] = {
+	f, f, f, f, f, f, f, f, f, f,
+	f, f, f, f, f, f, f, f, f, f,
+	f, f, f, f, f, f, f, f, f, f,
+	f, f, f, f, f, f, f, f, f, f,
+	f, f, f, f, f, f, f, f, f, 0,
+	f, f, f, f, f, f, f, 0, 0, 0,
+	f, f, f, f, f, f, 0, f, 0, 0,
+	f, f, f, f, f, 0, f, 0, 0, 0,
+	f, f, f, f, f, 0, 0, 0, 0, 0,
+	f, f, f, f, 0, 0, 0, 0, 0, 0
+};
+
+static const unsigned char kBigInnerShadowBits[] = {
+	f, f, f, f, f, f, f,
+	f, f, f, f, f, f, 0,
+	f, f, f, f, f, 0, 0,
+	f, f, f, f, 0, f, 0,
+	f, f, f, 0, f, 0, 0,
+	f, f, 0, f, 0, 0, 0,
+	f, 0, 0, 0, 0, 0, 0
+};
+
+static const unsigned char kBigOuterShadowBits[] = {
+	f, f, f, f, f, f, f,
+	f, f, f, f, f, f, 0,
+	f, f, f, f, f, f, 0,
+	f, f, f, f, f, f, 0,
+	f, f, f, f, f, f, 0,
+	f, f, f, f, f, f, 0,
+	f, 0, 0, 0, 0, 0, 0
+};
+
+static const unsigned char kSmallInnerShadowBits[] = {
+	f, f, f, 0, 0,
+	f, f, 0, f, 0,
+	f, 0, f, 0, 0,
+	0, f, 0, 0, 0,
+	0, 0, 0, 0, 0
+};
+
+static const unsigned char kSmallOuterShadowBits[] = {
+	f, f, f, f, f,
+	f, f, f, f, f,
+	f, f, f, f, f,
+	f, f, f, f, 0,
+	f, f, 0, 0, 0
+};
+
+static const unsigned char kGlintBits[] = {
+	0, f, 0,
+	f, 0, f,
+	0, f, f
+};
+
+
 //     #pragma mark - BeDecorAddOn
 
 
@@ -150,8 +221,10 @@ BeDecorator::GetComponentColors(Component component, uint8 highlight,
 		case COMPONENT_CLOSE_BUTTON:
 		case COMPONENT_ZOOM_BUTTON:
 			if (highlight == HIGHLIGHT_STACK_AND_TILE) {
-				_colors[COLOR_BUTTON] = tint_color(fFocusTabColor, B_DARKEN_1_TINT);
-				_colors[COLOR_BUTTON_LIGHT] = tint_color(fFocusTabColorLight, B_DARKEN_1_TINT);
+				_colors[COLOR_BUTTON] = tint_color(fFocusTabColor,
+					B_DARKEN_1_TINT);
+				_colors[COLOR_BUTTON_LIGHT] = tint_color(fFocusTabColorLight,
+					B_DARKEN_1_TINT);
 			} else if (tab && tab->buttonFocus) {
 				_colors[COLOR_BUTTON] = fFocusTabColor;
 				_colors[COLOR_BUTTON_LIGHT] = fFocusTabColorLight;
@@ -294,7 +367,8 @@ BeDecorator::_DrawFrame(BRect invalid)
 				}
 			}
 			// right
-			if (invalid.Intersects(fRightBorder.InsetByCopy(0, -fBorderWidth))) {
+			if (invalid.Intersects(
+					fRightBorder.InsetByCopy(0, -fBorderWidth))) {
 				ComponentColors colors;
 				_GetComponentColors(COMPONENT_RIGHT_BORDER, colors, fTopTab);
 
@@ -319,7 +393,8 @@ BeDecorator::_DrawFrame(BRect invalid)
 					fDrawingEngine->StrokeLine(BPoint(r.left + i, r.top + i),
 						BPoint(r.right - i, r.top + i), colors[i * 2]);
 				}
-				if (fTitleBarRect.IsValid() && fTopTab->look != kLeftTitledWindowLook) {
+				if (fTitleBarRect.IsValid()
+					&& fTopTab->look != kLeftTitledWindowLook) {
 					// grey along the bottom of the tab
 					// (overwrites "white" from frame)
 					fDrawingEngine->StrokeLine(
@@ -445,18 +520,23 @@ BeDecorator::_DrawFrame(BRect invalid)
 			case B_MODAL_WINDOW_LOOK:
 			case kLeftTitledWindowLook:
 			{
-				if (!invalid.Intersects(BRect(fRightBorder.right - kBorderResizeLength,
-					fBottomBorder.bottom - kBorderResizeLength, fRightBorder.right - 1,
-					fBottomBorder.bottom - 1)))
+				if (!invalid.Intersects(BRect(fRightBorder.right
+						- kBorderResizeLength,
+					fBottomBorder.bottom - kBorderResizeLength,
+					fRightBorder.right - 1, fBottomBorder.bottom - 1))) {
 					break;
+				}
 
-				fDrawingEngine->StrokeLine(
-					BPoint(fRightBorder.left, fBottomBorder.bottom - kBorderResizeLength),
-					BPoint(fRightBorder.right - 1, fBottomBorder.bottom - kBorderResizeLength),
+				fDrawingEngine->StrokeLine(BPoint(fRightBorder.left,
+					fBottomBorder.bottom - kBorderResizeLength),
+					BPoint(fRightBorder.right - 1,
+						fBottomBorder.bottom - kBorderResizeLength),
 					colors[0]);
 				fDrawingEngine->StrokeLine(
-					BPoint(fRightBorder.right - kBorderResizeLength, fBottomBorder.top),
-					BPoint(fRightBorder.right - kBorderResizeLength, fBottomBorder.bottom - 1),
+					BPoint(fRightBorder.right - kBorderResizeLength,
+						fBottomBorder.top),
+					BPoint(fRightBorder.right - kBorderResizeLength,
+						fBottomBorder.bottom - 1),
 					colors[0]);
 				break;
 			}
@@ -594,8 +674,8 @@ BeDecorator::_DrawTitle(Decorator::Tab* _tab, BRect r)
 
 	fDrawingEngine->SetFont(fDrawState.Font());
 
-	fDrawingEngine->DrawString(tab->truncatedTitle.String(), tab->truncatedTitleLength,
-		titlePos);
+	fDrawingEngine->DrawString(tab->truncatedTitle.String(),
+		tab->truncatedTitleLength, titlePos);
 
 	fDrawingEngine->SetDrawingMode(B_OP_COPY);
 }
@@ -775,6 +855,10 @@ ServerBitmap*
 BeDecorator::_GetBitmapForButton(Decorator::Tab* tab, Component item,
 	bool down, int32 width, int32 height)
 {
+	uint8* data;
+	size_t size;
+	size_t offset;
+
 	// TODO: the list of shared bitmaps is never freed
 	struct decorator_bitmap {
 		Component			item;
@@ -790,10 +874,37 @@ BeDecorator::_GetBitmapForButton(Decorator::Tab* tab, Component item,
 	static BLocker sBitmapListLock("decorator lock", true);
 	static decorator_bitmap* sBitmapList = NULL;
 
+	// BeOS R5 colors
+	// button:  active: 255, 203, 0  inactive: 232, 232, 232
+	// light1:  active: 255, 238, 0  inactive: 255, 255, 255
+	// light2:  active: 255, 255, 26 inactive: 255, 255, 255
+	// shadow1: active: 235, 183, 0  inactive: 211, 211, 211
+	// shadow2 is a bit lighter on zoom than on close button
+
 	ComponentColors colors;
 	_GetComponentColors(item, colors, tab);
 
 	const rgb_color buttonColor(colors[COLOR_BUTTON]);
+
+	bool isGrayscale = buttonColor.red == buttonColor.green
+		&& buttonColor.green == buttonColor.blue;
+
+	rgb_color buttonColorLight1(buttonColor);
+	buttonColorLight1.red = std::min(255, buttonColor.red + 35),
+	buttonColorLight1.green = std::min(255, buttonColor.green + 35),
+	buttonColorLight1.blue = std::min(255, buttonColor.blue
+		+ (isGrayscale ? 35 : 0));
+		// inactive color stays grayscale, active color doesn't
+
+	rgb_color buttonColorLight2(buttonColor);
+	buttonColorLight2.red = std::min(255, buttonColor.red + 52),
+	buttonColorLight2.green = std::min(255, buttonColor.green + 52),
+	buttonColorLight2.blue = std::min(255, buttonColor.blue + 26);
+
+	rgb_color buttonColorShadow1(buttonColor);
+	buttonColorShadow1.red = std::max(0, buttonColor.red - 21),
+	buttonColorShadow1.green = std::max(0, buttonColor.green - 21),
+	buttonColorShadow1.blue = std::max(0, buttonColor.blue - 21);
 
 	BAutolock locker(sBitmapListLock);
 
@@ -817,10 +928,14 @@ BeDecorator::_GetBitmapForButton(Decorator::Tab* tab, Component item,
 	if (sBitmapDrawingEngine == NULL)
 		sBitmapDrawingEngine = new(std::nothrow) BitmapDrawingEngine();
 	if (sBitmapDrawingEngine == NULL
-		|| sBitmapDrawingEngine->SetSize(width, height) != B_OK)
+		|| sBitmapDrawingEngine->SetSize(width, height) != B_OK) {
 		return NULL;
+	}
 
 	BRect rect(0, 0, width - 1, height - 1);
+
+	// glint is used by close and zoom buttons
+	ServerBitmap* glintBitmap = _CreateTemporaryBitmap(BRect(0, 0, 2, 2));
 
 	STRACE(("BeDecorator creating bitmap for %s %s at size %ldx%ld\n",
 		item == COMPONENT_CLOSE_BUTTON ? "close" : "zoom",
@@ -828,92 +943,343 @@ BeDecorator::_GetBitmapForButton(Decorator::Tab* tab, Component item,
 	switch (item) {
 		case COMPONENT_CLOSE_BUTTON:
 		{
-			rgb_color buttonColorLight1(buttonColor);
-			buttonColorLight1.red = std::min(255, buttonColor.red + 32),
-			buttonColorLight1.green = std::min(255, buttonColor.green + 32),
-			buttonColorLight1.blue = std::min(255, buttonColor.blue + 32);
-
-			rgb_color buttonColorLight2(buttonColor);
-			buttonColorLight2.red = std::min(255, buttonColor.red + 64),
-			buttonColorLight2.green = std::min(255, buttonColor.green + 64),
-			buttonColorLight2.blue = std::min(255, buttonColor.blue + 64);
-
-			rgb_color buttonColorShadow1(buttonColor);
-			buttonColorShadow1.red = std::max(0, buttonColor.red - 36),
-			buttonColorShadow1.green = std::max(0, buttonColor.green - 36),
-			buttonColorShadow1.blue = std::max(0, buttonColor.blue - 36);
-
+			// BeOS R5 shadow2: active: 183, 131, 0 inactive: 160, 160, 160
 			rgb_color buttonColorShadow2(buttonColor);
 			buttonColorShadow2.red = std::max(0, buttonColor.red - 72),
 			buttonColorShadow2.green = std::max(0, buttonColor.green - 72),
 			buttonColorShadow2.blue = std::max(0, buttonColor.blue - 72);
 
-			_DrawBlendedRect(sBitmapDrawingEngine, rect, tab->closePressed,
-				buttonColorLight2, buttonColorLight1, buttonColor,
-				buttonColorShadow1);
+			ServerBitmap* shadowBitmap
+				= _CreateTemporaryBitmap(BRect(0, 0, 9, 9));
 
+			// fill the background
+			sBitmapDrawingEngine->FillRect(rect, buttonColor);
+
+			// draw outer bevel
 			_DrawBevelRect(sBitmapDrawingEngine, rect, tab->closePressed,
 				buttonColorLight2, buttonColorShadow2);
+
+			if (!tab->closePressed) {
+				// undraw bottom left and top right corners
+				sBitmapDrawingEngine->StrokePoint(rect.LeftBottom(),
+					buttonColor);
+				sBitmapDrawingEngine->StrokePoint(rect.RightTop(),
+					buttonColor);
+			}
+
+			// inset by bevel
+			rect.InsetBy(2, 2);
+
+			// fill bg
+			sBitmapDrawingEngine->FillRect(rect, buttonColorLight1);
+
+			// treat background color as transparent
+			sBitmapDrawingEngine->SetDrawingMode(B_OP_OVER);
+			sBitmapDrawingEngine->SetLowColor(buttonColorLight1);
+
+			if (tab->closePressed) {
+				// Draw glint in bottom right, then combined inner and outer
+				// shadow in top left.
+				// Read the source bitmap in forward while writing the
+				// destination in reverse to rotate the bitmap by 180°.
+
+				data = glintBitmap->Bits();
+				size = sizeof(kGlintBits);
+				for(size_t i = 0; i < size; i++) {
+					offset = (size - 1 - i) * 4;
+					if (kGlintBits[i] == 0) {
+						// draw glint color
+						data[offset + 0] = buttonColorLight2.blue;
+						data[offset + 1] = buttonColorLight2.green;
+						data[offset + 2] = buttonColorLight2.red;
+					} else {
+						// draw background color
+						data[offset + 0] = buttonColorLight1.blue;
+						data[offset + 1] = buttonColorLight1.green;
+						data[offset + 2] = buttonColorLight1.red;
+					}
+				}
+				// glint is 3x3
+				const BRect rightBottom(BRect(rect.right - 3, rect.bottom - 3,
+					rect.right, rect.bottom));
+				sBitmapDrawingEngine->DrawBitmap(glintBitmap,
+					glintBitmap->Bounds(), rightBottom);
+
+				data = shadowBitmap->Bits();
+				size = sizeof(kOuterShadowBits);
+				for(size_t i = 0; i < size; i++) {
+					offset = (size - 1 - i) * 4;
+					if (kOuterShadowBits[i] == 0) {
+						// draw outer shadow
+						data[offset + 0] = buttonColorShadow1.blue;
+						data[offset + 1] = buttonColorShadow1.green;
+						data[offset + 2] = buttonColorShadow1.red;
+					} else if (kInnerShadowBits[i] == 0) {
+						// draw inner shadow
+						data[offset + 0] = buttonColor.blue;
+						data[offset + 1] = buttonColor.green;
+						data[offset + 2] = buttonColor.red;
+					} else {
+						// draw background color
+						data[offset + 0] = buttonColorLight1.blue;
+						data[offset + 1] = buttonColorLight1.green;
+						data[offset + 2] = buttonColorLight1.red;
+					}
+				}
+				// shadow is 10x10
+				const BRect leftTop(rect.left, rect.top,
+					rect.left + 10, rect.top + 10);
+				sBitmapDrawingEngine->DrawBitmap(shadowBitmap,
+					shadowBitmap->Bounds(), leftTop);
+			} else {
+				// draw glint, then draw combined outer and inner shadows
+
+				data = glintBitmap->Bits();
+				size = sizeof(kGlintBits);
+				for(size_t i = 0; i < size; i++) {
+					offset = i * 4 + 0;
+					if (kGlintBits[i] == 0) {
+						// draw glint color
+						data[offset + 0] = buttonColorLight2.blue;
+						data[offset + 1] = buttonColorLight2.green;
+						data[offset + 2] = buttonColorLight2.red;
+					} else {
+						// draw background color
+						data[offset + 0] = buttonColorLight1.blue;
+						data[offset + 1] = buttonColorLight1.green;
+						data[offset + 2] = buttonColorLight1.red;
+					}
+				}
+				// glint is 3x3
+				const BRect leftTop(rect.left, rect.top,
+					rect.left + 3, rect.top + 3);
+				sBitmapDrawingEngine->DrawBitmap(glintBitmap,
+					glintBitmap->Bounds(), leftTop);
+
+				data = shadowBitmap->Bits();
+				size = sizeof(kOuterShadowBits);
+				for(size_t i = 0; i < size; i++) {
+					offset = i * 4 + 0;
+					if (kOuterShadowBits[i] == 0) {
+						// draw outer shadow
+						data[offset + 0] = buttonColorShadow1.blue;
+						data[offset + 1] = buttonColorShadow1.green;
+						data[offset + 2] = buttonColorShadow1.red;
+					} else if (kInnerShadowBits[i] == 0) {
+						// draw inner shadow
+						data[offset + 0] = buttonColor.blue;
+						data[offset + 1] = buttonColor.green;
+						data[offset + 2] = buttonColor.red;
+					} else {
+						// draw background color
+						data[offset + 0] = buttonColorLight1.blue;
+						data[offset + 1] = buttonColorLight1.green;
+						data[offset + 2] = buttonColorLight1.red;
+					}
+				}
+				// shadow is 10x10
+				const BRect rightBottom(BRect(rect.right - 10, rect.bottom - 10,
+					rect.right, rect.bottom));
+				sBitmapDrawingEngine->DrawBitmap(shadowBitmap,
+					shadowBitmap->Bounds(), rightBottom);
+			}
+
+			sBitmapDrawingEngine->SetDrawingMode(B_OP_COPY);
+
+			// put rect back
+			rect.InsetBy(-2, -2);
 
 			break;
 		}
 
 		case COMPONENT_ZOOM_BUTTON:
 		{
-			sBitmapDrawingEngine->FillRect(rect, B_TRANSPARENT_COLOR);
-				// init the background
-
-			rgb_color buttonColorLight1(buttonColor);
-			buttonColorLight1.red = std::min(255, buttonColor.red + 32),
-			buttonColorLight1.green = std::min(255, buttonColor.green + 32),
-			buttonColorLight1.blue = std::min(255, buttonColor.blue + 32);
-
-			rgb_color buttonColorLight2(buttonColor);
-			buttonColorLight2.red = std::min(255, buttonColor.red + 64),
-			buttonColorLight2.green = std::min(255, buttonColor.green + 64),
-			buttonColorLight2.blue = std::min(255, buttonColor.blue + 64);
-
-			rgb_color buttonColorShadow1(buttonColor);
-			buttonColorShadow1.red = std::max(0, buttonColor.red - 22),
-			buttonColorShadow1.green = std::max(0, buttonColor.green - 23),
-			buttonColorShadow1.blue = std::max(0, buttonColor.blue - 5);
-
+			// BeOS R5 shadow2: active: 210, 158, 0 inactive: 187, 187, 187
 			rgb_color buttonColorShadow2(buttonColor);
 			buttonColorShadow2.red = std::max(0, buttonColor.red - 45),
-			buttonColorShadow2.green = std::max(0, buttonColor.green - 47),
-			buttonColorShadow2.blue = std::max(0, buttonColor.blue - 10);
+			buttonColorShadow2.green = std::max(0, buttonColor.green - 45),
+			buttonColorShadow2.blue = std::max(0, buttonColor.blue - 45);
+
+			ServerBitmap* bigBitmap
+				= _CreateTemporaryBitmap(BRect(0, 0, 6, 6));
+			ServerBitmap* smallBitmap
+				= _CreateTemporaryBitmap(BRect(0, 0, 4, 4));
+
+			// fill the background
+			sBitmapDrawingEngine->FillRect(rect, buttonColor);
 
 			// big rect
+			BRect bigRect(rect);
+			bigRect.left += floorf(width * 3.0f / 14.0f);
+			bigRect.top += floorf(height * 3.0f / 14.0f);
 
-			BRect zoomRect = rect;
-			zoomRect.left += floorf(width * 3.0f / 14.0f);
-			zoomRect.top += floorf(height * 3.0f / 14.0f);
-
-			_DrawBlendedRect(sBitmapDrawingEngine, zoomRect, tab->zoomPressed,
-				buttonColorLight2, buttonColorLight1, buttonColor,
-				buttonColorShadow1);
-
-			_DrawBevelRect(sBitmapDrawingEngine, zoomRect, tab->zoomPressed,
+			// draw big rect bevel
+			_DrawBevelRect(sBitmapDrawingEngine, bigRect, tab->zoomPressed,
 				buttonColorLight2, buttonColorShadow2);
+
+			if (!tab->zoomPressed) {
+				// undraw bottom left and top right corners
+				sBitmapDrawingEngine->StrokePoint(bigRect.LeftBottom(),
+					buttonColor);
+				sBitmapDrawingEngine->StrokePoint(bigRect.RightTop(),
+					buttonColor);
+			}
+
+			// inset past bevel
+			bigRect.InsetBy(2, 2);
+
+			// fill big rect bg
+			sBitmapDrawingEngine->FillRect(bigRect, buttonColorLight1);
+
+			// some elements are covered by the small rect
+			// so only draw the parts that get shown
+			if (tab->zoomPressed) {
+				// draw glint
+				// Read the source bitmap in forward while writing the
+				// destination in reverse to rotate the bitmap by 180°.
+				data = glintBitmap->Bits();
+				size = sizeof(kGlintBits);
+				for(size_t i = 0; i < sizeof(kGlintBits); i++) {
+					offset = (size - 1 - i) * 4;
+					if (kGlintBits[i] == 0) {
+						// draw glint
+						data[offset + 0] = buttonColorLight2.blue;
+						data[offset + 1] = buttonColorLight2.green;
+						data[offset + 2] = buttonColorLight2.red;
+					} else {
+						// draw background color
+						data[offset + 0] = buttonColorLight1.blue;
+						data[offset + 1] = buttonColorLight1.green;
+						data[offset + 2] = buttonColorLight1.red;
+					}
+				}
+				// glint is 3x3
+				const BRect rightBottom(BRect(bigRect.right - 3,
+					bigRect.bottom - 3, bigRect.right, bigRect.bottom));
+				sBitmapDrawingEngine->DrawBitmap(glintBitmap,
+					glintBitmap->Bounds(), rightBottom);
+			} else {
+				// draw combined inner and outer shadow
+				data = bigBitmap->Bits();
+				size = sizeof(kBigOuterShadowBits);
+				for(size_t i = 0; i < sizeof(kBigOuterShadowBits); i++) {
+					offset = i * 4;
+					if (kBigOuterShadowBits[i] == 0) {
+						// draw outer shadow
+						data[offset + 0] = buttonColorShadow1.blue;
+						data[offset + 1] = buttonColorShadow1.green;
+						data[offset + 2] = buttonColorShadow1.red;
+					} else if (kBigInnerShadowBits[i] == 0) {
+						// draw inner shadow
+						data[offset + 0] = buttonColor.blue;
+						data[offset + 1] = buttonColor.green;
+						data[offset + 2] = buttonColor.red;
+					} else {
+						// draw background color
+						data[offset + 0] = buttonColorLight1.blue;
+						data[offset + 1] = buttonColorLight1.green;
+						data[offset + 2] = buttonColorLight1.red;
+					}
+				}
+				// shadow is 7x7
+				const BRect rightBottom(BRect(bigRect.right - 7,
+					bigRect.bottom - 7, bigRect.right, bigRect.bottom));
+				sBitmapDrawingEngine->DrawBitmap(bigBitmap,
+					bigBitmap->Bounds(), rightBottom);
+			}
 
 			// small rect
+			BRect smallRect(rect);
+			smallRect.right -= floorf(width * 5.0f / 14.0f);
+			smallRect.bottom -= floorf(height * 5.0f / 14.0f);
 
-			zoomRect = rect;
-			zoomRect.right -= floorf(width * 5.0f / 14.0f);
-			zoomRect.bottom -= floorf(height * 5.0f / 14.0f);
+			sBitmapDrawingEngine->SetDrawingMode(B_OP_COPY);
 
-			_DrawBlendedRect(sBitmapDrawingEngine, zoomRect, tab->zoomPressed,
-				buttonColorLight2, buttonColorLight1, buttonColor,
-				buttonColorShadow1);
-
-			_DrawBevelRect(sBitmapDrawingEngine, zoomRect, tab->zoomPressed,
+			// draw small rect bevel
+			_DrawBevelRect(sBitmapDrawingEngine, smallRect, tab->zoomPressed,
 				buttonColorLight2, buttonColorShadow2);
 
-			// Fill in the right top and bottom right corners with buttonColor
-			sBitmapDrawingEngine->StrokeLine(zoomRect.RightTop(),
-				zoomRect.RightTop(), buttonColor);
-			sBitmapDrawingEngine->StrokeLine(zoomRect.LeftBottom(),
-				zoomRect.LeftBottom(), buttonColor);
+			if (!tab->zoomPressed) {
+				// undraw bottom left and top right corners
+				sBitmapDrawingEngine->StrokePoint(smallRect.LeftBottom(),
+					buttonColor);
+				sBitmapDrawingEngine->StrokePoint(smallRect.RightTop(),
+					buttonColor);
+			}
+
+			// inset past bevel
+			smallRect.InsetBy(2, 2);
+
+			// fill small rect bg
+			sBitmapDrawingEngine->FillRect(smallRect, buttonColorLight1);
+
+			// treat background color as transparent
+			sBitmapDrawingEngine->SetDrawingMode(B_OP_OVER);
+			sBitmapDrawingEngine->SetLowColor(buttonColorLight1);
+
+			// draw small bitmap
+			data = smallBitmap->Bits();
+			size = sizeof(kSmallOuterShadowBits);
+			if (tab->zoomPressed) {
+				// draw combined inner and outer shadow
+				// Read the source bitmap in forward while writing the
+				// destination in reverse to rotate the bitmap by 180°.
+				for(size_t i = 0; i < size; i++) {
+					offset = (size - 1 - i) * 4;
+					if (kSmallOuterShadowBits[i] == 0) {
+						// draw outer shadow
+						data[offset + 0] = buttonColorShadow1.blue;
+						data[offset + 1] = buttonColorShadow1.green;
+						data[offset + 2] = buttonColorShadow1.red;
+					} else if (kSmallInnerShadowBits[i] == 0) {
+						// draw inner shadow
+						data[offset + 0] = buttonColor.blue;
+						data[offset + 1] = buttonColor.green;
+						data[offset + 2] = buttonColor.red;
+					} else {
+						// draw background color
+						data[offset + 0] = buttonColorLight1.blue;
+						data[offset + 1] = buttonColorLight1.green;
+						data[offset + 2] = buttonColorLight1.red;
+					}
+				}
+				// shadow is 5x5
+				const BRect smallLeftTop(BRect(smallRect.left,
+					smallRect.top, smallRect.left + 5, smallRect.top + 5));
+				sBitmapDrawingEngine->DrawBitmap(smallBitmap,
+					smallBitmap->Bounds(), smallLeftTop);
+			} else {
+				// draw combined inner and outer shadow
+				for(size_t i = 0; i < size; i++) {
+					offset = i * 4;
+					if (kSmallOuterShadowBits[i] == 0) {
+						// draw outer shadow
+						data[offset + 0] = buttonColorShadow1.blue;
+						data[offset + 1] = buttonColorShadow1.green;
+						data[offset + 2] = buttonColorShadow1.red;
+					} else if (kSmallInnerShadowBits[i] == 0) {
+						// draw inner shadow
+						data[offset + 0] = buttonColor.blue;
+						data[offset + 1] = buttonColor.green;
+						data[offset + 2] = buttonColor.red;
+					} else {
+						// draw background color
+						data[offset + 0] = buttonColorLight1.blue;
+						data[offset + 1] = buttonColorLight1.green;
+						data[offset + 2] = buttonColorLight1.red;
+					}
+				}
+				// shadow is 5x5
+				const BRect smallRightBottom(BRect(smallRect.right - 5,
+					smallRect.bottom - 5, smallRect.right, smallRect.bottom));
+				sBitmapDrawingEngine->DrawBitmap(smallBitmap,
+					smallBitmap->Bounds(), smallRightBottom);
+			}
+
+			// draw glint last (single pixel)
+			sBitmapDrawingEngine->StrokePoint(tab->zoomPressed
+					? smallRect.RightBottom() : smallRect.LeftTop(),
+				buttonColorLight2);
 
 			break;
 		}
@@ -943,6 +1309,26 @@ BeDecorator::_GetBitmapForButton(Decorator::Tab* tab, Component item,
 	entry->lightColor = colors[COLOR_BUTTON_LIGHT];
 	entry->next = sBitmapList;
 	sBitmapList = entry;
+	return bitmap;
+}
+
+
+ServerBitmap*
+BeDecorator::_CreateTemporaryBitmap(BRect bounds) const
+{
+	UtilityBitmap* bitmap = new(std::nothrow) UtilityBitmap(bounds,
+		B_RGB32, 0);
+	if (bitmap == NULL)
+		return NULL;
+
+	if (!bitmap->IsValid()) {
+		delete bitmap;
+		return NULL;
+	}
+
+	memset(bitmap->Bits(), 0, bitmap->BitsLength());
+		// background opacity is 0
+
 	return bitmap;
 }
 
