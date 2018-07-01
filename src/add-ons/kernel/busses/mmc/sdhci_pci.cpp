@@ -131,10 +131,9 @@ init_bus(device_node* node, void** bus_cookie)
 
 	struct registers* _regs = (struct registers*)regs;
 
-	TRACE("slots: %d bar: %d  bar_size: %d\n",slot,bar, bar_size);
-
-	sdhci_reset(slot, _regs);
-
+	sdhci_reset(_regs);
+	sdhci_register_dump(slot, _regs);
+	sdhci_set_clock(_regs);
 	sdhci_register_dump(slot, _regs);
 
 	bus->_regs = _regs;
@@ -145,12 +144,11 @@ init_bus(device_node* node, void** bus_cookie)
 		return 0.1f;
 	}
 
-	//sdhci_reset(slot);
-
 	*bus_cookie = bus;
 	return status;
 }
 
+// # pragma mark -
 
 static void
 sdhci_register_dump(uint8_t slot, struct registers* _regs)
@@ -193,21 +191,37 @@ sdhci_register_dump(uint8_t slot, struct registers* _regs)
 
 
 static void
-sdhci_reset(uint8_t slot, struct registers* _regs)
+sdhci_reset(struct registers* _regs)
 {
-	if(((_regs->present_state >> 17) & 1) == 0)
+	if(((_regs->present_state >> 16) & 1) == 0)
 	{
-		TRACE("present_state: %d\n",(_regs->present_state<<16)&1);	
-		return;
+		return; // if card is not present then no point of reseting the registers
 	}
 
-	_regs->software_reset |= 1;
+	_regs->software_reset |= 1; // enabling software reset all 
 
-	while(_regs->clock_control != 0 &&  _regs->power_control != 0)
+	while(_regs->clock_control != 0 &&  _regs->power_control != 0) // waiting for clock and power to get off
 	{
-		if(_regs->clock_control == 0 &&  _regs->power_control == 0)
+		if(_regs->clock_control == 0 &&  _regs->power_control == 0) // checking if clock and power is off
 			break;
 	}
+}
+
+
+static void
+sdhci_set_clock(struct registers* _regs)
+{
+	int base_clock = ((_regs->capabilities >> 8) & 63); 
+	TRACE("SDCLK frequency: %d\n", base_clock); // assuming target fequency as 2.5 MHZ
+	_regs->clock_control |= 1 << 8; // base clock divided by 2
+	_regs->clock_control |= 1; // enabling internal clock
+
+	while((_regs->clock_control>>1)&1 == 0) // waiting till internal clock gets stable
+	{
+		if((_regs->clock_control>>1)&1 != 0) // checking for internal clock to get error_interrupt_status_enable
+			break;
+	}
+	_regs->clock_control |= 1 << 2; // enabling the SD clock
 }
 
 
@@ -240,14 +254,10 @@ register_child_devices(void* cookie)
 
 	gDeviceManager->get_driver(parent, (driver_module_info**)&pci,
 		(void**)&device);
-
 	uint16 pciSubDeviceId = pci->read_pci_config(device, PCI_subsystem_id,
 		2);
-
 	slotsInfo = pci->read_pci_config(device, SDHCI_PCI_SLOT_INFO, 1);
-
 	bar = SDHCI_PCI_SLOT_INFO_FIRST_BASE_INDEX(slotsInfo);
-
 	slots_count = SDHCI_PCI_SLOTS(slotsInfo);
 
 	char prettyName[25];
@@ -285,9 +295,7 @@ register_child_devices(void* cookie)
 			return B_BAD_VALUE;
 		}
 	}
-
 	return B_OK;
-
 }
 
 

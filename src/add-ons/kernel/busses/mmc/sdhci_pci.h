@@ -69,8 +69,9 @@ struct registers {
 typedef void* sdhci_mmc_bus;
 
 static void sdhci_register_dump(uint8_t, struct registers*);
-
-static void sdhci_reset(uint8_t,struct registers*);
+static void sdhci_reset(struct registers*);
+static void sdhci_set_clock(struct registers*);
+static void sdhci_set_power(uint8_t);
 
 typedef struct {
 	driver_module_info info;
