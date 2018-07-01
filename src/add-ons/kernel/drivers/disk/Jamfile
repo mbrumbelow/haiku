@@ -6,4 +6,3 @@ SubInclude HAIKU_TOP src add-ons kernel drivers disk mmc ;
 SubInclude HAIKU_TOP src add-ons kernel drivers disk scsi ;
 SubInclude HAIKU_TOP src add-ons kernel drivers disk usb ;
 SubInclude HAIKU_TOP src add-ons kernel drivers disk virtual ;
-SubInclude HAIKU_TOP src add-ons kernel drivers disk mmc ;

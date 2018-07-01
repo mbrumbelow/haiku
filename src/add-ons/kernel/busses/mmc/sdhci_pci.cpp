@@ -133,9 +133,9 @@ init_bus(device_node* node, void** bus_cookie)
 
 	TRACE("slots: %d bar: %d  bar_size: %d\n",slot,bar, bar_size);
 
-	sdhci_register_dump(slot, _regs);
-
 	sdhci_reset(slot, _regs);
+
+	sdhci_register_dump(slot, _regs);
 
 	bus->_regs = _regs;
 
@@ -195,10 +195,19 @@ sdhci_register_dump(uint8_t slot, struct registers* _regs)
 static void
 sdhci_reset(uint8_t slot, struct registers* _regs)
 {
-	int timeout;
-
-	if(((_regs->present_state<<16)&1) == 0)
+	if(((_regs->present_state >> 17) & 1) == 0)
+	{
+		TRACE("present_state: %d\n",(_regs->present_state<<16)&1);	
 		return;
+	}
+
+	_regs->software_reset |= 1;
+
+	while(_regs->clock_control != 0 &&  _regs->power_control != 0)
+	{
+		if(_regs->clock_control == 0 &&  _regs->power_control == 0)
+			break;
+	}
 }
 
 
