@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "04d8941e_ec1d873e",
+        "filename": "src/servers/app/decorator/DefaultWindowBehaviour.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-07-02T06:47:08Z",
+      "side": 1,
+      "message": "\"\u0026\u0026 numButtons \u003c 3\" is not necessary. The switch handles this already.",
+      "revId": "e2ca525410294cdcfc8cfe38699ec34b0d8ed34c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "87284f7a_28aff973",
+        "filename": "src/servers/app/decorator/DefaultWindowBehaviour.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 717,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-07-02T06:47:08Z",
+      "side": 1,
+      "message": "maybe use ReplaceInt32()",
+      "revId": "e2ca525410294cdcfc8cfe38699ec34b0d8ed34c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aad82e1e_22af665a",
+        "filename": "src/servers/app/decorator/DefaultWindowBehaviour.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 722,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-07-02T06:47:08Z",
+      "side": 1,
+      "message": "\"simultaneously\"",
+      "revId": "e2ca525410294cdcfc8cfe38699ec34b0d8ed34c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
