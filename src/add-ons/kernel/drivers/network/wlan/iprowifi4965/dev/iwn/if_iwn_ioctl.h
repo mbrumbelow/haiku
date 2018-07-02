@@ -1,7 +1,5 @@
-
 /*-
- * Copyright (c) 2009-2010 Alexander Egorenkov <egorenar@gmail.com>
- * Copyright (c) 2009 Damien Bergamini <damien.bergamini@free.fr>
+ * Copyright (c) 2014 Adrian Chadd <adrian@FreeBSD.org>
  *
  * Permission to use, copy, modify, and distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
@@ -14,20 +12,19 @@
  * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
  * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+ *
+ * $FreeBSD$
  */
+#ifndef	__IF_IWN_IOCTL_H__
+#define	__IF_IWN_IOCTL_H__
 
-#ifndef _RT2860_LED_H_
-#define _RT2860_LED_H_
+struct iwn_ioctl_data {
+	void *dst_addr;
+	int dst_len;
+};
 
-#include <dev/rt2860/rt2860_softc.h>
+/* XXX how should I pick appropriate ioctl numbers? */
+#define	SIOCGIWNSTATS		_IOWR('f', 145, struct iwn_ioctl_data)
+#define	SIOCZIWNSTATS		_IOWR('f', 146, struct iwn_ioctl_data)
 
-#define RT2860_LED_CMD_RADIO_OFF				0
-#define RT2860_LED_CMD_RADIO_ON					(1 << 5)
-#define RT2860_LED_CMD_LINK_2GHZ				(1 << 6)
-#define RT2860_LED_CMD_LINK_5GHZ				(1 << 7)
-
-void rt2860_led_brightness(struct rt2860_softc *sc, uint8_t brightness);
-
-void rt2860_led_cmd(struct rt2860_softc *sc, uint8_t cmd);
-
-#endif /* #ifndef _RT2860_LED_H_ */
+#endif	/* __IF_IWN_IOCTL_H__ */
