@@ -17,12 +17,12 @@
 
 
 /* The version this compatibility layer is based on */
-#define __FreeBSD_version 800107
+#define __FreeBSD_version 1101000
 
 #define MAXBSIZE	0x10000
 
 #define PAGE_SHIFT	12
-#define PAGE_MASK	(PAGE_SIZE - 1)
+#define PAGE_MASK	(B_PAGE_SIZE - 1)
 
 #define trunc_page(x)	((x) & ~PAGE_MASK)
 
@@ -42,12 +42,20 @@
 
 #define MCLBYTES		(1 << MCLSHIFT)
 
-#define	MJUMPAGESIZE	PAGE_SIZE
+#define	MJUMPAGESIZE	B_PAGE_SIZE
 #define	MJUM9BYTES		(9 * 1024)
 #define	MJUM16BYTES		(16 * 1024)
 
 #define ALIGN_BYTES		(sizeof(unsigned long) - 1)
 #define ALIGN(x)		((((unsigned long)x) + ALIGN_BYTES) & ~ALIGN_BYTES)
+
+#ifdef __x86_64__
+#define	ALIGNED_POINTER(p, t)	1
+#elif defined(__i386__)
+#define	ALIGNED_POINTER(p, t)	1
+#else
+#error Need definition of ALIGNED_POINTER for this arch!
+#endif
 
 /* Macros for counting and rounding. */
 #ifndef howmany

@@ -28,7 +28,15 @@ int printf(const char *format, ...) __printflike(1, 2);
 
 #define ovbcopy(f, t, l) bcopy((f), (t), (l))
 
+#if KDEBUG_LEVEL_2
+#define INVARIANTS
+#endif
+
+#if KDEBUG_LEVEL_1
 #define bootverbose 1
+#else
+#define bootverbose 0
+#endif
 
 #ifdef INVARIANTS
 #define KASSERT(cond,msg) do {	\
@@ -90,6 +98,7 @@ int _pause(const char *, int);
 #define pause(waitMessage, timeout) _pause((waitMessage), (timeout))
 #define tsleep(channel, priority, waitMessage, timeout) \
 	msleep((channel), NULL, (priority), (waitMessage), (timeout))
+#define mtx_sleep msleep
 
 struct unrhdr;
 struct unrhdr *new_unrhdr(int low, int high, struct mtx *mutex);
