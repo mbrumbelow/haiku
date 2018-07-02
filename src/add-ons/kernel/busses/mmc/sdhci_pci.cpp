@@ -135,10 +135,26 @@ sdhci_stop_clock(volatile uint16_t* clock_control)
 
 
 static void
-sdhci_set_power(volatile uint32_t* capabilities, volatile uint8_t* power_control)
+sdhci_set_power(volatile uint32_t* capabilities, volatile uint32_t* present_state, volatile uint8_t* power_control)
 {
 	int voltage_support = (*(capabilities) >> 24) & 7;
 	TRACE("voltage supported %d\n", voltage_support);
+	if(voltage_support != 0)
+		if(voltage_support == 1 || voltage_support == 5 || voltage_support == 3)
+			*(power_control) |= 7 << 1; // setting up the voltage with supported max voltage
+		else if(voltage_support == 6 || voltage_support == 2)
+			*(power_control) |= 6 << 1;
+		else
+			*(power_control) |= 5 << 1;
+	else if(voltage_support == 0)
+		*(power_control) |= 7 << 1; // if voltage shows nothing then select 3.3 V
+
+	if(((*(present_state) >> 16) & 1) == 0)
+		return;
+	*(power_control) |= 1; // power on
+
+
+
 }
 //	#pragma mark -
 
@@ -214,6 +230,7 @@ init_bus(device_node* node, void** bus_cookie)
 
 	if(regs_area < B_OK)
 	{
+		TRACE("mapping failed");
 		return B_BAD_VALUE;
 	}
 
@@ -223,18 +240,10 @@ init_bus(device_node* node, void** bus_cookie)
 	sdhci_reset(&(_regs->present_state), &(_regs->clock_control), &(_regs->power_control), &(_regs->software_reset));
 	sdhci_set_clock(&(_regs->capabilities), &(_regs->clock_control));
 	sdhci_register_dump(slot, _regs);
-	sdhci_set_power(&(_regs->capabilities), &(_regs->power_control));
+	//sdhci_set_power(&(_regs->capabilities), &(_regs->power_control));
 	//sdhci_stop_clock(&(_regs->clock_control));
-	
 
 	bus->_regs = _regs;
-
-	if(regs_area < B_OK)
-	{
-		TRACE("mapping failed");
-		return 0.1f;
-	}
-
 	*bus_cookie = bus;
 	return status;
 }
