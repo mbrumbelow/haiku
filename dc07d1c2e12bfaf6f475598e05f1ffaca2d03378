@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c0f4804_30e922ca",
+        "filename": "src/kits/interface/ScrollBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-07-02T06:38:28Z",
+      "side": 1,
+      "message": "const float bgTint",
+      "revId": "dc07d1c2e12bfaf6f475598e05f1ffaca2d03378",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ada33cd_6d203539",
+        "filename": "src/kits/interface/ScrollBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-07-02T06:38:28Z",
+      "side": 1,
+      "message": "bgTint?",
+      "revId": "dc07d1c2e12bfaf6f475598e05f1ffaca2d03378",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
