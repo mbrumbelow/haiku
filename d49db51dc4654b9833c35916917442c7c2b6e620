@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1247e001_98f0f314",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-07-02T09:26:56Z",
+      "side": 1,
+      "message": "Suggestion: \n\napp_server: change the default scrollbar knob to none.",
+      "revId": "d49db51dc4654b9833c35916917442c7c2b6e620",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
