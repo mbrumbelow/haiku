@@ -52,6 +52,94 @@ typedef struct {
 device_manager_info* gDeviceManager;
 static pci_x86_module_info* sPCIx86Module;
 
+// # pragma mark -
+
+static void
+sdhci_register_dump(uint8_t slot, struct registers* _regs)
+{
+
+	TRACE("Register values for slot: %d\n", slot);
+	TRACE("system_address: %d\n",_regs->system_address);
+	TRACE("block_size: %d\n",_regs->block_size);
+	TRACE("block_count: %d\n",_regs->block_count);
+	TRACE("argument: %d\n",_regs->argument);
+	TRACE("transfer_mode: %d\n",_regs->transfer_mode);
+	TRACE("command: %d\n",_regs->command);
+	TRACE("response0: %d\n",_regs->response0);
+	TRACE("response2: %d\n",_regs->response2);
+	TRACE("response4: %d\n",_regs->response4);
+	TRACE("response6: %d\n",_regs->response6);
+	TRACE("buffer_data_port: %d\n",_regs->buffer_data_port);
+	TRACE("present_state: %d\n",_regs->present_state);
+	TRACE("power_control: %d\n",_regs->power_control);
+	TRACE("host_control: %d\n",_regs->host_control);
+	TRACE("wakeup_control: %d\n",_regs->wakeup_control);
+	TRACE("block_gap_control: %d\n",_regs->block_gap_control);
+	TRACE("clock_control: %d\n",_regs->clock_control);
+	TRACE("software_reset: %d\n",_regs->software_reset);
+	TRACE("timeout_control: %d\n",_regs->timeout_control);
+	TRACE("normal_interrupt_status: %d\n",_regs->normal_interrupt_status);
+	TRACE("error_interrupt_status: %d\n",_regs->error_interrupt_status);
+	TRACE("normal_interrupt_status_enable: %d\n",_regs->normal_interrupt_status_enable);
+	TRACE("error_interrupt_status_enable: %d\n",_regs->error_interrupt_status_enable);
+	TRACE("normal_interrupt_signal_enable: %d\n",_regs->normal_interrupt_signal_enable);
+	TRACE("error_interrupt_signal_enable: %d\n",_regs->error_interrupt_signal_enable);
+	TRACE("auto_cmd12_error_status: %d\n",_regs->auto_cmd12_error_status);
+	TRACE("capabilities: %d\n",_regs->capabilities);
+	TRACE("capabilities_rsvd: %d\n",_regs->capabilities_rsvd);
+	TRACE("max_current_capabilities: %d\n",_regs->max_current_capabilities);
+	TRACE("max_current_capabilities_rsvd: %d\n",_regs->max_current_capabilities_rsvd);
+	TRACE("slot_interrupt_status: %d\n",_regs->slot_interrupt_status);
+	TRACE("host_control_version %d\n",_regs->host_control_version);
+}
+
+
+static void
+sdhci_reset(volatile  uint32_t* present_state, volatile uint16_t* clock_control, volatile uint8_t* power_control, volatile uint8_t* software_reset)
+{
+	if(((*(present_state) >> 16) & 1) == 0)
+	{
+		return; // if card is not present then no point of reseting the registers
+	}
+
+	*(software_reset) |= 1; // enabling software reset all 
+
+	while(*(clock_control) != 0 && *(power_control) != 0); // waiting for clock and power to get off
+
+}
+
+
+static void
+sdhci_set_clock(volatile uint32_t* capabilities, volatile uint16_t* clock_control)
+{
+	int base_clock = ((*(capabilities) >> 8) & 63); 
+	TRACE("SDCLK frequency: %dMHz\n", base_clock); // assuming target fequency as 2.5 MHZ
+	*(clock_control) |= 1 << 8; // base clock divided by 2
+	*(clock_control) |= 1; // enabling internal clock
+
+	while(((*(clock_control)>>1)&1) == 0); // waiting till internal clock gets stable
+
+	*(clock_control) |= 1 << 2; // enabling the SD clock
+}
+
+
+static void
+sdhci_stop_clock(volatile uint16_t* clock_control)
+{
+	if(((*(clock_control)>>1)&2) == 0) // checking if clock is already off
+		return;
+
+	*(clock_control) &= ~(1<<2);
+
+}
+
+
+static void
+sdhci_set_power(volatile uint32_t* capabilities, volatile uint8_t* power_control)
+{
+	int voltage_support = (*(capabilities) >> 24) & 7;
+	TRACE("voltage supported %d\n", voltage_support);
+}
 //	#pragma mark -
 
 static status_t
@@ -131,10 +219,13 @@ init_bus(device_node* node, void** bus_cookie)
 
 	struct registers* _regs = (struct registers*)regs;
 
-	sdhci_reset(_regs);
+	TRACE("capabilities voltage: %d power voltage: %d\n", (_regs->capabilities>>24)&7, (_regs->power_control>>1)&7);
+	sdhci_reset(&(_regs->present_state), &(_regs->clock_control), &(_regs->power_control), &(_regs->software_reset));
+	sdhci_set_clock(&(_regs->capabilities), &(_regs->clock_control));
 	sdhci_register_dump(slot, _regs);
-	sdhci_set_clock(_regs);
-	sdhci_register_dump(slot, _regs);
+	sdhci_set_power(&(_regs->capabilities), &(_regs->power_control));
+	//sdhci_stop_clock(&(_regs->clock_control));
+	
 
 	bus->_regs = _regs;
 
@@ -146,82 +237,6 @@ init_bus(device_node* node, void** bus_cookie)
 
 	*bus_cookie = bus;
 	return status;
-}
-
-// # pragma mark -
-
-static void
-sdhci_register_dump(uint8_t slot, struct registers* _regs)
-{
-
-	TRACE("Register values for slot: %d\n", slot);
-	TRACE("system_address: %d\n",_regs->system_address);
-	TRACE("block_size: %d\n",_regs->block_size);
-	TRACE("block_count: %d\n",_regs->block_count);
-	TRACE("argument: %d\n",_regs->argument);
-	TRACE("transfer_mode: %d\n",_regs->transfer_mode);
-	TRACE("command: %d\n",_regs->command);
-	TRACE("response0: %d\n",_regs->response0);
-	TRACE("response2: %d\n",_regs->response2);
-	TRACE("response4: %d\n",_regs->response4);
-	TRACE("response6: %d\n",_regs->response6);
-	TRACE("buffer_data_port: %d\n",_regs->buffer_data_port);
-	TRACE("present_state: %d\n",_regs->present_state);
-	TRACE("power_control: %d\n",_regs->power_control);
-	TRACE("host_control: %d\n",_regs->host_control);
-	TRACE("wakeup_control: %d\n",_regs->wakeup_control);
-	TRACE("block_gap_control: %d\n",_regs->block_gap_control);
-	TRACE("clock_control: %d\n",_regs->clock_control);
-	TRACE("software_reset: %d\n",_regs->software_reset);
-	TRACE("timeout_control: %d\n",_regs->timeout_control);
-	TRACE("normal_interrupt_status: %d\n",_regs->normal_interrupt_status);
-	TRACE("error_interrupt_status: %d\n",_regs->error_interrupt_status);
-	TRACE("normal_interrupt_status_enable: %d\n",_regs->normal_interrupt_status_enable);
-	TRACE("error_interrupt_status_enable: %d\n",_regs->error_interrupt_status_enable);
-	TRACE("normal_interrupt_signal_enable: %d\n",_regs->normal_interrupt_signal_enable);
-	TRACE("error_interrupt_signal_enable: %d\n",_regs->error_interrupt_signal_enable);
-	TRACE("auto_cmd12_error_status: %d\n",_regs->auto_cmd12_error_status);
-	TRACE("capabilities: %d\n",_regs->capabilities);
-	TRACE("capabilities_rsvd: %d\n",_regs->capabilities_rsvd);
-	TRACE("max_current_capabilities: %d\n",_regs->max_current_capabilities);
-	TRACE("max_current_capabilities_rsvd: %d\n",_regs->max_current_capabilities_rsvd);
-	TRACE("slot_interrupt_status: %d\n",_regs->slot_interrupt_status);
-	TRACE("host_control_version %d\n",_regs->host_control_version);
-}
-
-
-static void
-sdhci_reset(struct registers* _regs)
-{
-	if(((_regs->present_state >> 16) & 1) == 0)
-	{
-		return; // if card is not present then no point of reseting the registers
-	}
-
-	_regs->software_reset |= 1; // enabling software reset all 
-
-	while(_regs->clock_control != 0 &&  _regs->power_control != 0) // waiting for clock and power to get off
-	{
-		if(_regs->clock_control == 0 &&  _regs->power_control == 0) // checking if clock and power is off
-			break;
-	}
-}
-
-
-static void
-sdhci_set_clock(struct registers* _regs)
-{
-	int base_clock = ((_regs->capabilities >> 8) & 63); 
-	TRACE("SDCLK frequency: %d\n", base_clock); // assuming target fequency as 2.5 MHZ
-	_regs->clock_control |= 1 << 8; // base clock divided by 2
-	_regs->clock_control |= 1; // enabling internal clock
-
-	while((_regs->clock_control>>1)&1 == 0) // waiting till internal clock gets stable
-	{
-		if((_regs->clock_control>>1)&1 != 0) // checking for internal clock to get error_interrupt_status_enable
-			break;
-	}
-	_regs->clock_control |= 1 << 2; // enabling the SD clock
 }
 
 
