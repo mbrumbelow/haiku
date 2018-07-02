@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "16b294fb_01e40fc0",
+        "filename": "src/apps/haikudepot/server/WebAppInterface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-07-02T05:42:11Z",
+      "side": 1,
+      "message": "should static\u003ctab\u003evoid",
+      "revId": "3213360e25cd6eb2277d928815f9037e9fe879b8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8fe9e7f_a9b145f0",
+        "filename": "src/apps/haikudepot/util/DataIOUtils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-07-02T05:42:11Z",
+      "side": 1,
+      "message": "should be: while\u003cspace\u003e(",
+      "revId": "3213360e25cd6eb2277d928815f9037e9fe879b8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab1cca28_d27f34e7",
+        "filename": "src/apps/haikudepot/util/DataIOUtils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-07-02T05:42:11Z",
+      "side": 1,
+      "message": "should be static\u003ctab\u003estatus_t",
+      "revId": "3213360e25cd6eb2277d928815f9037e9fe879b8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
