@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "033934e8_c745e52c",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-03T08:42:31Z",
+      "side": 1,
+      "message": "Comment removed by: Adrien Destugues",
+      "revId": "6918f07982883c08280b7a74230b0cf409399634",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07aa982a_f4eacecc",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-03T08:42:31Z",
+      "side": 1,
+      "message": "This line and various other are above the 80 column limit.\n\nWhy not pass the struct with all the registers instead of passing each of the needed registers individually?",
+      "revId": "6918f07982883c08280b7a74230b0cf409399634",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11c5c734_4971aa21",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-03T08:42:31Z",
+      "side": 1,
+      "message": "{ goes on the same line as if",
+      "revId": "6918f07982883c08280b7a74230b0cf409399634",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcc8f387_a9b36fef",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-03T08:42:31Z",
+      "side": 1,
+      "message": "2 blank lines before and after the pragma mark",
+      "revId": "6918f07982883c08280b7a74230b0cf409399634",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a4edb03_2ac67555",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-03T08:42:31Z",
+      "side": 1,
+      "message": "Single blank line here",
+      "revId": "6918f07982883c08280b7a74230b0cf409399634",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "281138bd_4fddc43b",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-03T08:42:31Z",
+      "side": 1,
+      "message": "All files should have a copyright header.",
+      "revId": "6918f07982883c08280b7a74230b0cf409399634",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e251e9f1_9e829334",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-03T08:42:31Z",
+      "side": 1,
+      "message": "2 blank lines here",
+      "revId": "6918f07982883c08280b7a74230b0cf409399634",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95395e52_3091b60e",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-03T08:42:31Z",
+      "side": 1,
+      "message": "2 blank lines here.",
+      "revId": "6918f07982883c08280b7a74230b0cf409399634",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "be34cca5_eb2b0753",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-03T08:42:31Z",
+      "side": 1,
+      "message": "Do not leave commented out code like this. If there is a reason to keep it, use #if 0 and add a comment to explain why it is currently disabled.",
+      "revId": "6918f07982883c08280b7a74230b0cf409399634",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79cf8840_f21dd75d",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-03T08:42:31Z",
+      "side": 1,
+      "message": "2 blank lines between functions",
+      "revId": "6918f07982883c08280b7a74230b0cf409399634",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
