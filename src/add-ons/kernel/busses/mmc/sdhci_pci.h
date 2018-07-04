@@ -1,9 +1,11 @@
 
 #ifndef _SDHCI_PCI_H
-#define _SDHCI_PCI_H 
+#define _SDHCI_PCI_H
+
 
 #include <device_manager.h>
 #include <KernelExport.h>
+
 
 #define SDHCI_PCI_SLOT_INFO 							0x40
 #define SDHCI_PCI_SLOTS(x) 								((( x >> 4) & 7))
@@ -25,7 +27,26 @@
 #define SDHCI_DEVICE_TYPE_ITEM 							"sdhci/type"
 #define SDHCI_BUS_TYPE_NAME 							"bus/sdhci/v1"
 
-#define SDHCI_PRESENT_STATE_REGISTER 					0x24
+#define SDHCI_CARD_DETECT							1 << 16
+
+#define SDHCI_SOFTWARE_RESET_ALL					1 << 0
+
+#define SDHCI_BASE_CLOCK_FREQ(x)					((x >> 8) & 63)
+#define SDHCI_BASE_CLOCK_DIV_1						0 << 8
+#define SDHCI_BASE_CLOCK_DIV_2						1 << 8
+#define SDHCI_BASE_CLOCK_DIV_4						2 << 8
+#define SDHCI_BASE_CLOCK_DIV_8						4 << 8
+#define SDHCI_BASE_CLOCK_DIV_16						8 << 8
+#define SDHCI_BASE_CLOCK_DIV_32						10 << 8
+#define SDHCI_BASE_CLOCK_DIV_64						20 << 8
+#define SDHCI_BASE_CLOCK_DIV_128					40 << 8
+#define SDHCI_BASE_CLOCK_DIV_256					80 << 8
+#define SDHCI_INTERNAL_CLOCK_ENABLE					1 << 0
+#define SDHCI_INTERNAL_CLOCK_STABLE					1 << 1
+#define SDHCI_SD_CLOCK_ENABLE						1 << 2
+#define SDHCI_SD_CLOCK_DISABLE						~(1 << 2)
+
+
 
 struct registers {
 	volatile uint32_t system_address;
@@ -42,7 +63,7 @@ struct registers {
 	volatile uint32_t present_state;
 	volatile uint8_t host_control;
 	volatile uint8_t power_control;
-	volatile uint8_t block_gap_control;	
+	volatile uint8_t block_gap_control;
 	volatile uint8_t wakeup_control;
 	volatile uint16_t clock_control;
 	volatile uint8_t timeout_control;
@@ -69,15 +90,14 @@ struct registers {
 typedef void* sdhci_mmc_bus;
 
 static void sdhci_register_dump(uint8_t, struct registers*);
-static void sdhci_reset(volatile uint32_t*, volatile uint16_t*, volatile uint8_t*, volatile uint8_t*);
-static void sdhci_set_clock(volatile uint32_t*, volatile uint16_t*);
-static void sdhci_set_power(volatile uint32_t*, volatile uint32_t*, volatile uint8_t*);
-static void sdhci_stop_clock(volatile uint16_t*);
+static void sdhci_reset(struct registers*);
+static void sdhci_set_clock(struct registers*);
+static void sdhci_set_power(struct registers*);
+static void sdhci_stop_clock(struct registers*);
 
 typedef struct {
 	driver_module_info info;
-
-
+	
 //		static void sdhci_register_dump(struct registers* regs);
 
 } sdhci_mmc_bus_interface;

@@ -28,11 +28,11 @@
 
 #define SDHCI_PCI_DEVICE_MODULE_NAME "busses/mmc/sdhci_pci/driver_v1"
 #define SDHCI_PCI_MMC_BUS_MODULE_NAME "busses/mmc/sdhci_pci/device/v1"
-	
+
 #define SDHCI_PCI_CONTROLLER_TYPE_NAME "sdhci pci controller"
 
-#define SLOTS_COUNT				"device/slots_count"	
-#define SLOT_NUMBER				"device/slot"				
+#define SLOTS_COUNT				"device/slots_count"
+#define SLOT_NUMBER				"device/slot"		
 #define BAR_INDEX				"device/bar"
 
 typedef struct {
@@ -55,87 +55,88 @@ static pci_x86_module_info* sPCIx86Module;
 // # pragma mark -
 
 static void
-sdhci_register_dump(uint8_t slot, struct registers* _regs)
+sdhci_register_dump(uint8_t slot, struct registers* regs)
 {
 
 	TRACE("Register values for slot: %d\n", slot);
-	TRACE("system_address: %d\n",_regs->system_address);
-	TRACE("block_size: %d\n",_regs->block_size);
-	TRACE("block_count: %d\n",_regs->block_count);
-	TRACE("argument: %d\n",_regs->argument);
-	TRACE("transfer_mode: %d\n",_regs->transfer_mode);
-	TRACE("command: %d\n",_regs->command);
-	TRACE("response0: %d\n",_regs->response0);
-	TRACE("response2: %d\n",_regs->response2);
-	TRACE("response4: %d\n",_regs->response4);
-	TRACE("response6: %d\n",_regs->response6);
-	TRACE("buffer_data_port: %d\n",_regs->buffer_data_port);
-	TRACE("present_state: %d\n",_regs->present_state);
-	TRACE("power_control: %d\n",_regs->power_control);
-	TRACE("host_control: %d\n",_regs->host_control);
-	TRACE("wakeup_control: %d\n",_regs->wakeup_control);
-	TRACE("block_gap_control: %d\n",_regs->block_gap_control);
-	TRACE("clock_control: %d\n",_regs->clock_control);
-	TRACE("software_reset: %d\n",_regs->software_reset);
-	TRACE("timeout_control: %d\n",_regs->timeout_control);
-	TRACE("normal_interrupt_status: %d\n",_regs->normal_interrupt_status);
-	TRACE("error_interrupt_status: %d\n",_regs->error_interrupt_status);
-	TRACE("normal_interrupt_status_enable: %d\n",_regs->normal_interrupt_status_enable);
-	TRACE("error_interrupt_status_enable: %d\n",_regs->error_interrupt_status_enable);
-	TRACE("normal_interrupt_signal_enable: %d\n",_regs->normal_interrupt_signal_enable);
-	TRACE("error_interrupt_signal_enable: %d\n",_regs->error_interrupt_signal_enable);
-	TRACE("auto_cmd12_error_status: %d\n",_regs->auto_cmd12_error_status);
-	TRACE("capabilities: %d\n",_regs->capabilities);
-	TRACE("capabilities_rsvd: %d\n",_regs->capabilities_rsvd);
-	TRACE("max_current_capabilities: %d\n",_regs->max_current_capabilities);
-	TRACE("max_current_capabilities_rsvd: %d\n",_regs->max_current_capabilities_rsvd);
-	TRACE("slot_interrupt_status: %d\n",_regs->slot_interrupt_status);
-	TRACE("host_control_version %d\n",_regs->host_control_version);
+	TRACE("system_address: %d\n",regs->system_address);
+	TRACE("block_size: %d\n",regs->block_size);
+	TRACE("block_count: %d\n",regs->block_count);
+	TRACE("argument: %d\n",regs->argument);
+	TRACE("transfer_mode: %d\n",regs->transfer_mode);
+	TRACE("command: %d\n",regs->command);
+	TRACE("response0: %d\n",regs->response0);
+	TRACE("response2: %d\n",regs->response2);
+	TRACE("response4: %d\n",regs->response4);
+	TRACE("response6: %d\n",regs->response6);
+	TRACE("buffer_data_port: %d\n",regs->buffer_data_port);
+	TRACE("present_state: %d\n",regs->present_state);
+	TRACE("power_control: %d\n",regs->power_control);
+	TRACE("host_control: %d\n",regs->host_control);
+	TRACE("wakeup_control: %d\n",regs->wakeup_control);
+	TRACE("block_gap_control: %d\n",regs->block_gap_control);
+	TRACE("clock_control: %d\n",regs->clock_control);
+	TRACE("software_reset: %d\n",regs->software_reset);
+	TRACE("timeout_control: %d\n",regs->timeout_control);
+	TRACE("normal_interrupt_status: %d\n",regs->normal_interrupt_status);
+	TRACE("error_interrupt_status: %d\n",regs->error_interrupt_status);
+	TRACE("normal_interrupt_status_enable: %d\n",regs->normal_interrupt_status_enable);
+	TRACE("error_interrupt_status_enable: %d\n",regs->error_interrupt_status_enable);
+	TRACE("normal_interrupt_signal_enable: %d\n",regs->normal_interrupt_signal_enable);
+	TRACE("error_interrupt_signal_enable: %d\n",regs->error_interrupt_signal_enable);
+	TRACE("auto_cmd12_error_status: %d\n",regs->auto_cmd12_error_status);
+	TRACE("capabilities: %d\n",regs->capabilities);
+	TRACE("capabilities_rsvd: %d\n",regs->capabilities_rsvd);
+	TRACE("max_current_capabilities: %d\n",regs->max_current_capabilities);
+	TRACE("max_current_capabilities_rsvd: %d\n",regs->max_current_capabilities_rsvd);
+	TRACE("slot_interrupt_status: %d\n",regs->slot_interrupt_status);
+	TRACE("host_control_version %d\n",regs->host_control_version);
 }
 
 
 static void
-sdhci_reset(volatile  uint32_t* present_state, volatile uint16_t* clock_control, volatile uint8_t* power_control, volatile uint8_t* software_reset)
+sdhci_reset(struct registers* regs)
 {
-	if(((*(present_state) >> 16) & 1) == 0)
-	{
-		return; // if card is not present then no point of reseting the registers
-	}
-
-	*(software_reset) |= 1; // enabling software reset all 
-
-	while(*(clock_control) != 0 && *(power_control) != 0); // waiting for clock and power to get off
-
-}
-
-
-static void
-sdhci_set_clock(volatile uint32_t* capabilities, volatile uint16_t* clock_control)
-{
-	int base_clock = ((*(capabilities) >> 8) & 63); 
-	TRACE("SDCLK frequency: %dMHz\n", base_clock); // assuming target fequency as 2.5 MHZ
-	*(clock_control) |= 1 << 8; // base clock divided by 2
-	*(clock_control) |= 1; // enabling internal clock
-
-	while(((*(clock_control)>>1)&1) == 0); // waiting till internal clock gets stable
-
-	*(clock_control) |= 1 << 2; // enabling the SD clock
-}
-
-
-static void
-sdhci_stop_clock(volatile uint16_t* clock_control)
-{
-	if(((*(clock_control)>>1)&2) == 0) // checking if clock is already off
+	if(!(regs->present_state & SDHCI_CARD_DETECT)) // if card is not present then no point of reseting the registers
 		return;
 
-	*(clock_control) &= ~(1<<2);
+	regs->software_reset |= SDHCI_SOFTWARE_RESET_ALL; // enabling software reset all
+
+	while(regs->clock_control != 0 && regs->power_control != 0); // waiting for clock and power to get off
 
 }
 
 
 static void
-sdhci_set_power(volatile uint32_t* capabilities, volatile uint32_t* present_state, volatile uint8_t* power_control)
+sdhci_set_clock(struct registers* regs)
+{
+	int base_clock = SDHCI_BASE_CLOCK_FREQ(regs->capabilities);
+	TRACE("SDCLK frequency: %dMHz\n", base_clock); // assuming target fequency as 2.5 MHZ
+
+	regs->clock_control |= SDHCI_BASE_CLOCK_DIV_2; // base clock divided by 2
+
+	regs->clock_control |= SDHCI_INTERNAL_CLOCK_ENABLE; // enabling internal clock
+
+	while(!(regs->clock_control & SDHCI_INTERNAL_CLOCK_STABLE)); // waiting till internal clock gets stable
+
+	regs->clock_control |= SDHCI_SD_CLOCK_ENABLE; // enabling the SD clock*/
+	
+}
+
+
+static void
+sdhci_stop_clock(struct registers* regs)
+{
+	if(!(regs->clock_control & SDHCI_SD_CLOCK_ENABLE)) // checking if clock is already off
+		return;
+
+	regs->clock_control &= SDHCI_SD_CLOCK_DISABLE;
+
+}
+
+
+/*static void
+sdhci_set_power(struct registers* regs)
 {
 	int voltage_support = (*(capabilities) >> 24) & 7;
 	TRACE("voltage supported %d\n", voltage_support);
@@ -151,11 +152,10 @@ sdhci_set_power(volatile uint32_t* capabilities, volatile uint32_t* present_stat
 
 	if(((*(present_state) >> 16) & 1) == 0)
 		return;
-	*(power_control) |= 1; // power on
-
-
-
+	*(power_control) |= 1; // power o
 }
+*/
+
 //	#pragma mark -
 
 static status_t
@@ -173,8 +173,6 @@ init_bus(device_node* node, void** bus_cookie)
 	}
 
 	pci_info *pciInfo = &bus->info;
-
-
 	pci_device_module_info* pci;
 	pci_device* device;
 	{
@@ -189,7 +187,7 @@ init_bus(device_node* node, void** bus_cookie)
 			!= B_OK) {
 		sPCIx86Module = NULL;
 		TRACE("PCIx86Module not loaded\n");
-	}	
+	}
 
 	int msiCount = sPCIx86Module->get_msi_count(
 			pciInfo->bus, pciInfo->device, pciInfo->function);
@@ -220,13 +218,13 @@ init_bus(device_node* node, void** bus_cookie)
 	TRACE("init_bus() %p node %p pci %p device %p\n", bus, node,
 		bus->pci, bus->device);
 
-	// mapping the registers by MMUIO method 
+	// mapping the registers by MMUIO method
 	int bar_size = pciInfo->u.h0.base_register_sizes[bar];
 
 	regs_area = map_physical_memory("sdhc_regs_map",
 		pciInfo->u.h0.base_registers[bar],
 		pciInfo->u.h0.base_register_sizes[bar], B_ANY_KERNEL_BLOCK_ADDRESS,
-		B_KERNEL_READ_AREA | B_KERNEL_WRITE_AREA, (void**)&regs);	
+		B_KERNEL_READ_AREA | B_KERNEL_WRITE_AREA, (void**)&regs);
 
 	if(regs_area < B_OK)
 	{
@@ -237,11 +235,59 @@ init_bus(device_node* node, void** bus_cookie)
 	struct registers* _regs = (struct registers*)regs;
 
 	TRACE("capabilities voltage: %d power voltage: %d\n", (_regs->capabilities>>24)&7, (_regs->power_control>>1)&7);
-	sdhci_reset(&(_regs->present_state), &(_regs->clock_control), &(_regs->power_control), &(_regs->software_reset));
-	sdhci_set_clock(&(_regs->capabilities), &(_regs->clock_control));
 	sdhci_register_dump(slot, _regs);
+
+
+	sdhci_reset(_regs);
+	sdhci_set_clock(_regs);
+	sdhci_register_dump(slot, _regs);
+
 	//sdhci_set_power(&(_regs->capabilities), &(_regs->power_control));
 	//sdhci_stop_clock(&(_regs->clock_control));
+	TRACE("cmd: %d\n",_regs->command);
+	_regs->command |= 27;
+
+	TRACE("cmd: %d\n",_regs->command);
+
+
+	_regs->power_control |= 7 << 1;
+	_regs->power_control |= 1 << 0;
+
+	TRACE("cmd: %d\n",_regs->command);
+	_regs->command |= 27;
+
+	TRACE("cmd: %d\n",_regs->command);
+
+
+	while(!(_regs->command&1));
+
+	int res0 = _regs->response0;
+	int res2 = _regs->response2;
+	int res4 = _regs->response4;
+	int res6 = _regs->response6;
+
+	//TRACE("command after: %d cmd reg: %d\n", vals, _regs->command);
+
+	TRACE("resp: %d %d %d %d\n", res0, res2, res4, res6);
+
+	_regs->command &= ~(27);
+	TRACE("cmd: %d\n",_regs->command);
+
+	_regs->command |= 1 << 1;
+	TRACE("cmd: %d\n",_regs->command);
+
+	_regs->command |= (58 << 8);
+
+	TRACE("cmmd: %d\n",_regs->command);
+
+	res0 = _regs->response0;
+	res2 = _regs->response2;
+	res4 = _regs->response4;
+	res6 = _regs->response6;
+
+	TRACE("cmd reg: %d\n", _regs->command);
+
+	TRACE("resp: %d %d %d %d\n", res0, res2, res4, res6);
 
 	bus->_regs = _regs;
 	*bus_cookie = bus;
@@ -286,7 +332,7 @@ register_child_devices(void* cookie)
 
 	char prettyName[25];
 
-	if(slots_count > 6 || bar > 5)	
+	if(slots_count > 6 || bar > 5)
 	{
 		TRACE("Error: slots information");
 		return B_BAD_VALUE;
@@ -298,21 +344,21 @@ register_child_devices(void* cookie)
 		bar = bar + slot;
 
 		sprintf(prettyName, "SDHC bus %" B_PRIu16 " slot %" B_PRIu8, pciSubDeviceId, slot);
-	
+
 		device_attr attrs[] = {
 		// properties of this controller for sdhci bus manager
 
 			{ B_DEVICE_PRETTY_NAME, B_STRING_TYPE,
 				{ string: prettyName }},
 			{SDHCI_DEVICE_TYPE_ITEM, B_UINT16_TYPE,
-				{ ui16: pciSubDeviceId}},			
-			{B_DEVICE_BUS, B_STRING_TYPE,{string: "mmc"}},		
+				{ ui16: pciSubDeviceId}},
+			{B_DEVICE_BUS, B_STRING_TYPE,{string: "mmc"}},
 			{SLOT_NUMBER, B_UINT8_TYPE,
 				{ ui8: slot}},
 			{BAR_INDEX, B_UINT8_TYPE,
 				{ ui8: bar}},
 			{ NULL }
-		};	
+		};
 		if(gDeviceManager->register_node(node, SDHCI_PCI_MMC_BUS_MODULE_NAME,
 			attrs, NULL, &node) != B_OK)
 		{
