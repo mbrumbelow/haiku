@@ -16,6 +16,23 @@
       "revId": "ae81cb168086c2ea8a68776f933ec6567abc8285",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08817a1c_9b48e0df",
+        "filename": "src/kits/interface/ScrollBar.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-04T11:41:46Z",
+      "side": 1,
+      "message": "Why is this code not in BControlLook? Some applications (WebPositive) do not use native scrollbars, but use BControlLook code to draw the scrollbar knob (and other parts). It would be nice to let them benefit from the same code (and this would also avoid duplicating it in FakeScrollbar in your next commit).",
+      "revId": "ae81cb168086c2ea8a68776f933ec6567abc8285",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
