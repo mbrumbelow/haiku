@@ -153,6 +153,30 @@
     },
     {
       "key": {
+        "uuid": "192eda2a_a5ab130d",
+        "filename": "src/apps/haikudepot/util/RepositoryUrlUtils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-07-04T12:35:02Z",
+      "side": 1,
+      "message": "That would be a bug (/ suffix is last character).\nHowever, the way it is now gives better performance, so it can stay as is.",
+      "parentUuid": "1d61b2a5_f1a794bb",
+      "range": {
+        "startLine": 17,
+        "startChar": 14,
+        "endLine": 17,
+        "endChar": 46
+      },
+      "revId": "9ab72c85b266ce0bc921b833fa98825f2c3e6ab3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f7174bb5_f6d97579",
         "filename": "src/apps/haikudepot/util/RepositoryUrlUtils.cpp",
         "patchSetId": 1
