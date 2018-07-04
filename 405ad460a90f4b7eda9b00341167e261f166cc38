@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "019cf39f_2df76cdd",
+        "filename": "src/servers/app/decorator/DefaultWindowBehaviour.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 712,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-04T11:38:02Z",
+      "side": 1,
+      "message": "This makes it impossible for applications to specify a different action for ctrl+click. I wonder if we should have ctrl+click always behave as a right click then, so that people with a 3 button mouse notice that their app is not usable with an 1 button one.\n\nAlso, Tracker additionally implements a \"long click\" to pop up menus. Should we replicate this?",
+      "revId": "405ad460a90f4b7eda9b00341167e261f166cc38",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
