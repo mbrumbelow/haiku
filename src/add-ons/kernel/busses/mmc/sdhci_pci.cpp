@@ -235,48 +235,30 @@ init_bus(device_node* node, void** bus_cookie)
 	struct registers* _regs = (struct registers*)regs;
 
 	TRACE("capabilities voltage: %d power voltage: %d\n", (_regs->capabilities>>24)&7, (_regs->power_control>>1)&7);
-	sdhci_register_dump(slot, _regs);
-
 
 	sdhci_reset(_regs);
 	sdhci_set_clock(_regs);
 	sdhci_register_dump(slot, _regs);
 
-	//sdhci_set_power(&(_regs->capabilities), &(_regs->power_control));
-	//sdhci_stop_clock(&(_regs->clock_control));
-	TRACE("cmd: %d\n",_regs->command);
-	_regs->command |= 27;
+	TRACE("cmd: %d\n",_regs->command); // exec CMD0 and R1 for response
+	_regs->command |= 26;
 
-	TRACE("cmd: %d\n",_regs->command);
+	TRACE("cmd: %d rsp: %d\n",_regs->command, _regs->response0);
 
-
-	_regs->power_control |= 7 << 1;
+	_regs->power_control |= 7 << 1; // switching on the power
 	_regs->power_control |= 1 << 0;
 
-	TRACE("cmd: %d\n",_regs->command);
-	_regs->command |= 27;
-
-	TRACE("cmd: %d\n",_regs->command);
-
-
-	while(!(_regs->command&1));
-
-	int res0 = _regs->response0;
+	int res0 = _regs->response0; 
 	int res2 = _regs->response2;
 	int res4 = _regs->response4;
 	int res6 = _regs->response6;
 
-	//TRACE("command after: %d cmd reg: %d\n", vals, _regs->command);
+	TRACE("resp: %d %d\n", res0, res2); // readibg response
 
-	TRACE("resp: %d %d %d %d\n", res0, res2, res4, res6);
+	_regs->command &= ~(24);
+	TRACE("cmd: %d\n",_regs->command); // clearing command bits for getting response from R3
 
-	_regs->command &= ~(27);
-	TRACE("cmd: %d\n",_regs->command);
-
-	_regs->command |= 1 << 1;
-	TRACE("cmd: %d\n",_regs->command);
-
-	_regs->command |= (58 << 8);
+	_regs->command |= (58 << 8); // writing CMD58 to command index
 
 	TRACE("cmmd: %d\n",_regs->command);
 
@@ -287,7 +269,7 @@ init_bus(device_node* node, void** bus_cookie)
 
 	TRACE("cmd reg: %d\n", _regs->command);
 
-	TRACE("resp: %d %d %d %d\n", res0, res2, res4, res6);
+	TRACE("resp: %d %d\n", res0, res2); // reading responses
 
 	bus->_regs = _regs;
 	*bus_cookie = bus;
