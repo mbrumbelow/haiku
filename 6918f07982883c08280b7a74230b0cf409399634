@@ -53,6 +53,57 @@
     },
     {
       "key": {
+        "uuid": "7000fbb5_68e352e9",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2018-07-05T18:26:07Z",
+      "side": 1,
+      "message": "Potentially forever loop with buggy hardware. Should have another condition based on time to bail out.",
+      "revId": "6918f07982883c08280b7a74230b0cf409399634",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2097fb1_3bcb892a",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2018-07-05T18:26:07Z",
+      "side": 1,
+      "message": "General coding-standard advice: all statements for conditions and loops should be wrapped in curly braces. Infamous Heartbleed has been caused by allowing code statements as this.",
+      "revId": "6918f07982883c08280b7a74230b0cf409399634",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6163e06b_e29b59f4",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2018-07-05T18:26:07Z",
+      "side": 1,
+      "message": "Blank line between conditional block and the rest of the function body.",
+      "revId": "6918f07982883c08280b7a74230b0cf409399634",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fcc8f387_a9b36fef",
         "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
         "patchSetId": 6
