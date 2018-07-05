@@ -23,6 +23,8 @@
 #define TRY_SETTINGS 'trys'
 
 #define ATTRIBUTE_CHOSEN 'atch'
+#define SET_COLOR 'sclr'
+#define SET_CURRENT_COLOR 'sccl'
 #define UPDATE_COLOR 'upcl'
 #define DECORATOR_CHOSEN 'dcch'
 #define UPDATE_DECORATOR 'updc'

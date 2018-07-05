@@ -18,6 +18,7 @@
 #include <String.h>
 
 #include "ColorWhichItem.h"
+#include "defs.h"
 
 
 // golden ratio
@@ -57,7 +58,8 @@ ColorWhichListView::InitiateDrag(BPoint where, int32 index, bool wasSelected)
 	hexStr.SetToFormat("#%.2X%.2X%.2X", color.red, color.green, color.blue);
 
 	BMessage message(B_PASTE);
-	message.AddData("text/plain", B_MIME_TYPE, hexStr.String(), hexStr.Length());
+	message.AddData("text/plain", B_MIME_TYPE, hexStr.String(),
+		hexStr.Length());
 	message.AddData("RGBColor", B_RGB_COLOR_TYPE, &color, sizeof(color));
 
 	float itemHeight = colorWhichItem->Height() - 5;
@@ -104,4 +106,49 @@ ColorWhichListView::InitiateDrag(BPoint where, int32 index, bool wasSelected)
 	DragMessage(&message, bitmap, B_OP_ALPHA, BPoint(14.0f, 14.0f));
 
 	return true;
+}
+
+
+void
+ColorWhichListView::MessageReceived(BMessage* message)
+{
+	// if we received a dropped message, see if it contains color data
+	if (message->WasDropped()) {
+		BPoint dropPoint;
+		if (message->FindPoint("_drop_point_", &dropPoint) == B_OK) {
+			ConvertFromScreen(&dropPoint);
+
+			rgb_color* color;
+			ssize_t size;
+			if (message->FindData("RGBColor", B_RGB_COLOR_TYPE,
+				(const void**)&color, &size) == B_OK) {
+				int32 index = IndexOf(dropPoint);
+				ColorWhichItem* item
+					= dynamic_cast<ColorWhichItem*>(ItemAt(index));
+				if (item != NULL) {
+					// build message to send to APRView
+					int32 command = (index == CurrentSelection()
+						? SET_CURRENT_COLOR : SET_COLOR);
+					BMessage setColor = BMessage(command);
+					setColor.AddData("RGBColor", B_RGB_COLOR_TYPE, color, size);
+					if (command == SET_COLOR)
+						setColor.AddUInt32("which", (uint32)item->ColorWhich());
+
+					// build messenger and send message
+					BMessenger messenger = BMessenger(Parent());
+					if (messenger.IsValid()) {
+						messenger.SendMessage(&setColor);
+						if (command == SET_COLOR) {
+							// redraw list item color rectangle
+							// SET_CURRENT_COLOR already does this
+							item->SetColor(*color);
+							InvalidateItem(index);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	BListView::MessageReceived(message);
 }
