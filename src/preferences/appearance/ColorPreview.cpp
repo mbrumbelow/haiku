@@ -21,6 +21,8 @@
 #include <View.h>
 #include <Window.h>
 
+#include "defs.h"
+
 
 
 static const int32 kMsgMessageRunner = 'MsgR';
@@ -116,13 +118,14 @@ ColorPreview::MessageReceived(BMessage* message)
 {
 	// If we received a dropped message, see if it contains color data
 	if (message->WasDropped()) {
-		rgb_color* col;
-		uint8* ptr;
+		rgb_color* color;
 		ssize_t size;
-		if (message->FindData("RGBColor", (type_code)'RGBC',
-				(const void**)&ptr,&size) == B_OK) {
-			col = (rgb_color*)ptr;
-			SetHighColor(*col);
+		if (message->FindData("RGBColor", B_RGB_COLOR_TYPE,
+				(const void**)&color, &size) == B_OK) {
+			BMessage setColor(SET_CURRENT_COLOR);
+			setColor.AddData("RGBColor", B_RGB_COLOR_TYPE, color,
+				sizeof(color));
+			Invoke(&setColor);
 		}
 	} else if ((int32)message->what == kMsgMessageRunner) {
 		BPoint where;
@@ -232,7 +235,8 @@ ColorPreview::_DragColor(BPoint where)
 	hexStr.SetToFormat("#%.2X%.2X%.2X", fColor.red, fColor.green, fColor.blue);
 
 	BMessage message(B_PASTE);
-	message.AddData("text/plain", B_MIME_TYPE, hexStr.String(), hexStr.Length());
+	message.AddData("text/plain", B_MIME_TYPE, hexStr.String(),
+		hexStr.Length());
 	message.AddData("RGBColor", B_RGB_COLOR_TYPE, &fColor, sizeof(fColor));
 
 	BRect rect(0.0f, 0.0f, 20.0f, 20.0f);
