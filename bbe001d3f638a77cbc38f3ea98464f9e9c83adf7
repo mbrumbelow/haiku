@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2db9c5d4_dfe130e8",
+        "filename": "src/preferences/appearance/ColorPreview.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-07-06T05:52:08Z",
+      "side": 1,
+      "message": "setColorMessage?",
+      "revId": "bbe001d3f638a77cbc38f3ea98464f9e9c83adf7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aad096d9_65db7213",
+        "filename": "src/preferences/appearance/ColorWhichListView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-07-06T05:52:08Z",
+      "side": 1,
+      "message": "\"RGBColor\" should probably goes to defs.h (three times in this file).",
+      "revId": "bbe001d3f638a77cbc38f3ea98464f9e9c83adf7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1488b6b4_08b918ee",
+        "filename": "src/preferences/appearance/ColorWhichListView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-07-06T05:52:08Z",
+      "side": 1,
+      "message": "The braces before index and at the end aren\u0027t needed.",
+      "revId": "bbe001d3f638a77cbc38f3ea98464f9e9c83adf7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
