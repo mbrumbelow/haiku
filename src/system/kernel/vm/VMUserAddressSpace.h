@@ -17,6 +17,10 @@ public:
 									size_t size);
 	virtual						~VMUserAddressSpace();
 
+	virtual	void				SetSize(size_t size) {
+									VMAddressSpace::SetSize(size);
+									_SetMaxRandomize(); }
+
 	virtual	VMArea*				FirstArea() const;
 	virtual	VMArea*				NextArea(VMArea* area) const;
 
@@ -54,8 +58,9 @@ public:
 
 private:
 	inline	bool				_IsRandomized(uint32 addressSpec) const;
-	static	addr_t				_RandomizeAddress(addr_t start, addr_t end,
+			addr_t				_RandomizeAddress(addr_t start, addr_t end,
 									size_t alignment, bool initial = false);
+	inline	void				_SetMaxRandomize();
 
 			status_t			_InsertAreaIntoReservedRegion(addr_t start,
 									size_t size, VMUserArea* area,
@@ -66,8 +71,8 @@ private:
 									uint32 allocationFlags);
 
 private:
-	static	const addr_t		kMaxRandomize;
-	static	const addr_t		kMaxInitialRandomize;
+			addr_t				fMaxRandomize;
+			addr_t				fMaxInitialRandomize;
 
 			VMUserAreaList		fAreas;
 	mutable	VMUserArea*			fAreaHint;

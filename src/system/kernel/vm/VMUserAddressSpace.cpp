@@ -32,15 +32,6 @@
 #endif
 
 
-#ifdef B_HAIKU_64_BIT
-const addr_t VMUserAddressSpace::kMaxRandomize			=  0x8000000000ul;
-const addr_t VMUserAddressSpace::kMaxInitialRandomize	= 0x20000000000ul;
-#else
-const addr_t VMUserAddressSpace::kMaxRandomize			=  0x800000ul;
-const addr_t VMUserAddressSpace::kMaxInitialRandomize	= 0x2000000ul;
-#endif
-
-
 /*!	Verifies that an area with the given aligned base and size fits into
 	the spot defined by base and limit and checks for overflows.
 */
@@ -85,6 +76,7 @@ VMUserAddressSpace::VMUserAddressSpace(team_id id, addr_t base, size_t size)
 	VMAddressSpace(id, base, size, "address space"),
 	fAreaHint(NULL)
 {
+	_SetMaxRandomize();
 }
 
 
@@ -430,15 +422,30 @@ VMUserAddressSpace::_RandomizeAddress(addr_t start, addr_t end,
 
 	addr_t range = end - start + 1;
 	if (initial)
-		range = std::min(range, kMaxInitialRandomize);
+		range = std::min(range, fMaxInitialRandomize);
 	else
-		range = std::min(range, kMaxRandomize);
+		range = std::min(range, fMaxRandomize);
 
 	addr_t random = secure_get_random<addr_t>();
 	random %= range;
 	random &= ~addr_t(alignment - 1);
 
 	return start + random;
+}
+
+
+inline void
+VMUserAddressSpace::_SetMaxRandomize()
+{
+#ifdef B_HAIKU_64_BIT
+	if (fEndAddress > UINT32_MAX) {
+		fMaxRandomize = 0x8000000000ul;
+		fMaxInitialRandomize = 0x20000000000ul;
+		return;
+	}
+#endif
+	fMaxRandomize = 0x800000ul;
+	fMaxInitialRandomize = 0x2000000ul;
 }
 
 
@@ -535,7 +542,6 @@ VMUserAddressSpace::_InsertAreaSlot(addr_t start, addr_t size, addr_t end,
 	TRACE(("VMUserAddressSpace::_InsertAreaSlot: address space %p, start "
 		"0x%lx, size %ld, end 0x%lx, addressSpec %" B_PRIu32 ", area %p\n",
 		this, start, size, end, addressSpec, area));
-
 	// do some sanity checking
 	if (start < fBase || size == 0 || end > fEndAddress
 		|| start + (size - 1) > end)
@@ -729,7 +735,7 @@ second_chance:
 								alignment);
 
 							addr_t startRange = next->Base() + next->Size();
-							startRange -= size + kMaxRandomize;
+							startRange -= size + fMaxRandomize;
 							startRange = ROUNDDOWN(startRange, alignment);
 							startRange = std::max(startRange, alignedNextBase);
 

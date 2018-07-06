@@ -52,10 +52,20 @@
 #include <util/atomic.h>
 #include <util/AutoLock.h>
 #include <util/DoublyLinkedList.h>
+#include <util/syscall_args.h>
 #include <vfs.h>
 #include <vm/vm.h>
 #include <vm/VMCache.h>
 #include <wait_for_objects.h>
+
+#ifdef _COMPAT_MODE
+#	include <fcntl_compat.h>
+#	include <stat_compat.h>
+#	include <fs_attr_compat.h>
+#	include <fs_info_compat.h>
+#	include <OS_compat.h>
+#	include <vfs_defs_compat.h>
+#endif
 
 #include "EntryCache.h"
 #include "fifo.h"
@@ -6205,9 +6215,8 @@ common_fcntl(int fd, int op, size_t argument, bool kernel)
 			status = B_BAD_VALUE;
 		else if (kernel)
 			memcpy(&flock, (struct flock*)argument, sizeof(struct flock));
-		else if (user_memcpy(&flock, (struct flock*)argument,
-				sizeof(struct flock)) != B_OK)
-			status = B_BAD_ADDRESS;
+		else
+			status = copy_ref_var_from_user((struct flock*)argument, flock);
 		if (status != B_OK) {
 			put_fd(descriptor);
 			return status;
@@ -6300,8 +6309,8 @@ common_fcntl(int fd, int op, size_t argument, bool kernel)
 							memcpy((struct flock*)argument, &flock,
 								sizeof(struct flock));
 						} else {
-							status = user_memcpy((struct flock*)argument,
-								&flock, sizeof(struct flock));
+							status = copy_ref_var_to_user(flock,
+								(struct flock*)argument);
 						}
 					} else {
 						// a conflicting lock was found, copy back its range and
@@ -6313,8 +6322,8 @@ common_fcntl(int fd, int op, size_t argument, bool kernel)
 							memcpy((struct flock*)argument,
 								&normalizedLock, sizeof(struct flock));
 						} else {
-							status = user_memcpy((struct flock*)argument,
-								&normalizedLock, sizeof(struct flock));
+							status = copy_ref_var_to_user(normalizedLock,
+								(struct flock*)argument);
 						}
 					}
 				}
@@ -8928,10 +8937,7 @@ _user_read_fs_info(dev_t device, struct fs_info* userInfo)
 	if (status != B_OK)
 		return status;
 
-	if (user_memcpy(userInfo, &info, sizeof(struct fs_info)) != B_OK)
-		return B_BAD_ADDRESS;
-
-	return B_OK;
+	return copy_ref_var_to_user(info, userInfo);
 }
 
 
@@ -8943,9 +8949,9 @@ _user_write_fs_info(dev_t device, const struct fs_info* userInfo, int mask)
 	if (userInfo == NULL)
 		return B_BAD_VALUE;
 
-	if (!IS_USER_ADDRESS(userInfo)
-		|| user_memcpy(&info, userInfo, sizeof(struct fs_info)) != B_OK)
-		return B_BAD_ADDRESS;
+	status_t status = copy_ref_var_from_user((struct fs_info*)userInfo, info);
+	if (status != B_OK)
+		return status;
 
 	return fs_write_info(device, &info, mask);
 }
@@ -8991,9 +8997,6 @@ _user_get_next_fd_info(team_id team, uint32* userCookie, fd_info* userInfo,
 	if (geteuid() != 0)
 		return B_NOT_ALLOWED;
 
-	if (infoSize != sizeof(fd_info))
-		return B_BAD_VALUE;
-
 	if (!IS_USER_ADDRESS(userCookie) || !IS_USER_ADDRESS(userInfo)
 		|| user_memcpy(&cookie, userCookie, sizeof(uint32)) != B_OK)
 		return B_BAD_ADDRESS;
@@ -9002,11 +9005,9 @@ _user_get_next_fd_info(team_id team, uint32* userCookie, fd_info* userInfo,
 	if (status != B_OK)
 		return status;
 
-	if (user_memcpy(userCookie, &cookie, sizeof(uint32)) != B_OK
-		|| user_memcpy(userInfo, &info, infoSize) != B_OK)
+	if (user_memcpy(userCookie, &cookie, sizeof(uint32)) != B_OK)
 		return B_BAD_ADDRESS;
-
-	return status;
+	return copy_ref_var_to_user(info, userInfo);
 }
 
 
@@ -9384,11 +9385,13 @@ _user_read_link(int fd, const char* userPath, char* userBuffer,
 	if (pathBuffer.InitCheck() != B_OK || linkBuffer.InitCheck() != B_OK)
 		return B_NO_MEMORY;
 
-	size_t bufferSize;
-
-	if (!IS_USER_ADDRESS(userBuffer) || !IS_USER_ADDRESS(userBufferSize)
-		|| user_memcpy(&bufferSize, userBufferSize, sizeof(size_t)) != B_OK)
+	if (!IS_USER_ADDRESS(userBuffer))
 		return B_BAD_ADDRESS;
+
+	size_t bufferSize;
+	status_t copyStatus = copy_ref_var_from_user(userBufferSize, bufferSize);
+	if (copyStatus != B_OK)
+		return copyStatus;
 
 	char* path = pathBuffer.LockBuffer();
 	char* buffer = linkBuffer.LockBuffer();
@@ -9409,8 +9412,9 @@ _user_read_link(int fd, const char* userPath, char* userBuffer,
 
 	// we also update the bufferSize in case of errors
 	// (the real length will be returned in case of B_BUFFER_OVERFLOW)
-	if (user_memcpy(userBufferSize, &bufferSize, sizeof(size_t)) != B_OK)
-		return B_BAD_ADDRESS;
+	copyStatus = copy_ref_var_to_user(bufferSize, userBufferSize);
+	if (copyStatus != B_OK)
+		return copyStatus;
 
 	if (status != B_OK)
 		return status;
@@ -9683,7 +9687,7 @@ _user_read_stat(int fd, const char* userPath, bool traverseLink,
 	if (status != B_OK)
 		return status;
 
-	return user_memcpy(userStat, &stat, statSize);
+	return copy_ref_var_to_user(stat, userStat, statSize);
 }
 
 
@@ -9696,15 +9700,14 @@ _user_write_stat(int fd, const char* userPath, bool traverseLeafLink,
 
 	struct stat stat;
 
-	if (!IS_USER_ADDRESS(userStat)
-		|| user_memcpy(&stat, userStat, statSize) < B_OK)
-		return B_BAD_ADDRESS;
+	status_t status = copy_ref_var_from_user((struct stat*)userStat, stat,
+		statSize);
+	if (status != B_OK)
+		return status;
 
 	// clear additional stat fields
 	if (statSize < sizeof(struct stat))
 		memset((uint8*)&stat + statSize, 0, sizeof(struct stat) - statSize);
-
-	status_t status;
 
 	if (userPath != NULL) {
 		// path given: write the stat of the node referred to by (fd, path)
@@ -9857,8 +9860,7 @@ _user_stat_attr(int fd, const char* userAttribute,
 		info.type = stat.st_type;
 		info.size = stat.st_size;
 
-		if (user_memcpy(userAttrInfo, &info, sizeof(struct attr_info)) != B_OK)
-			return B_BAD_ADDRESS;
+		status = copy_ref_var_to_user(info, userAttrInfo);
 	}
 
 	return status;
@@ -9979,10 +9981,8 @@ _user_read_index_stat(dev_t device, const char* userName, struct stat* userStat)
 		return status;
 
 	status = index_name_read_stat(device, name, &stat, false);
-	if (status == B_OK) {
-		if (user_memcpy(userStat, &stat, sizeof(stat)) != B_OK)
-			return B_BAD_ADDRESS;
-	}
+	if (status == B_OK)
+		status = copy_ref_var_to_user(stat, userStat);
 
 	return status;
 }

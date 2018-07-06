@@ -25,6 +25,10 @@
 #include <KFileDiskDevice.h>
 #include <syscall_args.h>
 
+#ifdef _COMPAT_MODE
+#	include <OS_compat.h>
+#endif
+
 #include "UserDataWriter.h"
 
 using namespace BPrivate::DiskDevice;
