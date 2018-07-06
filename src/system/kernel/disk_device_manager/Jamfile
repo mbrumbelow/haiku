@@ -12,6 +12,10 @@ UsePrivateSystemHeaders ;
 UsePrivateHeaders shared ;
 UsePrivateHeaders storage ;
 
+if $(HAIKU_KERNEL_COMPAT_MODE) = 1 {
+	UsePrivateHeaders [ FDirName kernel compat ] ;
+}
+
 KernelMergeObject kernel_disk_device_manager.o :
 	ddm_userland_interface.cpp
 	disk_device_manager.cpp
