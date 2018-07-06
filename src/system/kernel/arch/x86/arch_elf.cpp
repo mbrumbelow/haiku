@@ -78,7 +78,7 @@ arch_elf_relocate_rel(struct elf_image_info *image,
 	S = A = P = 0;
 
 	for (i = 0; i * (int)sizeof(Elf32_Rel) < relLength; i++) {
-		TRACE(("looking at rel type %s, offset 0x%lx\n",
+		TRACE(("looking at rel type %s, offset 0x%" B_PRIx32 "\n",
 			kRelocations[ELF32_R_TYPE(rel[i].r_info)], rel[i].r_offset));
 
 		// calc S
@@ -159,7 +159,7 @@ arch_elf_relocate_rel(struct elf_image_info *image,
 		resolveAddress = (uint32 *)(image->text_region.delta + rel[i].r_offset);
 #ifndef _BOOT_MODE
 		if (!is_in_image(image, (addr_t)resolveAddress)) {
-			dprintf("arch_elf_relocate_rel: invalid offset %#lx\n",
+			dprintf("arch_elf_relocate_rel: invalid offset 0x%" B_PRIx32 "\n",
 				rel[i].r_offset);
 			return B_BAD_ADDRESS;
 		}
@@ -167,7 +167,7 @@ arch_elf_relocate_rel(struct elf_image_info *image,
 #else
 		boot_elf32_set_relocation((Elf32_Addr)resolveAddress, finalAddress);
 #endif
-		TRACE(("-> offset %#lx (%#lx) = %#lx\n",
+		TRACE(("-> offset %" B_PRIx32 " (%" B_PRIx32 ") = %" B_PRIx32 "\n",
 			(image->text_region.delta + rel[i].r_offset), rel[i].r_offset, finalAddress));
 	}
 
@@ -272,7 +272,7 @@ arch_elf_relocate_rela(struct elf_image_info *image,
 		boot_elf64_set_relocation(relocAddr, relocValue);
 #else
 		if (!is_in_image(image, relocAddr)) {
-			dprintf("arch_elf_relocate_rela: invalid offset %#lx\n",
+			dprintf("arch_elf_relocate_rela: invalid offset %" B_PRIx32 "\n",
 				rel[i].r_offset);
 			return B_BAD_ADDRESS;
 		}

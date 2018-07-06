@@ -132,3 +132,23 @@ FUNCTION(_xrstor):
 	xrstor64	(%rdi)
 FUNCTION_END(_xrstor)
 
+
+#ifdef _COMPAT_MODE
+
+
+/* void x86_fnsave(void *fpu_state); */
+FUNCTION(x86_fnsave):
+	movq	%rdi, %rax
+	fnsave	(%rax)
+	ret
+FUNCTION_END(x86_fnsave)
+
+/* void x86_frstor(const void *fpu_state); */
+FUNCTION(x86_frstor):
+	movq	%rdi, %rax
+	frstor	(%rax)
+	ret
+FUNCTION_END(x86_frstor)
+
+
+#endif // _COMPAT_MODE

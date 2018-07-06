@@ -18,6 +18,12 @@
 #include <thread_types.h>
 #include <UserEvent.h>
 #include <util/AutoLock.h>
+#include <util/syscall_args.h>
+
+#ifdef _COMPAT_MODE
+#	include <signal_compat.h>
+#	include <user_timer_defs_compat.h>
+#endif
 
 
 // Minimum interval length in microseconds for a periodic timer. This is not a
@@ -1694,10 +1700,10 @@ _user_create_timer(clockid_t clockID, thread_id threadID, uint32 flags,
 	// copy the sigevent structure from userland
 	struct sigevent event = {0};
 	if (userEvent != NULL) {
-		if (!IS_USER_ADDRESS(userEvent)
-			|| user_memcpy(&event, userEvent, sizeof(event)) != B_OK) {
-			return B_BAD_ADDRESS;
-		}
+		status_t status = copy_ref_var_from_user((struct sigevent*)userEvent,
+			event);
+		if (status != B_OK)
+			return status;
 	} else {
 		// none given -- use defaults
 		event.sigev_notify = SIGEV_SIGNAL;
@@ -1784,11 +1790,8 @@ _user_get_timer(int32 timerID, thread_id threadID,
 	timerLocker.Unlock();
 
 	// copy it back to userland
-	if (userInfo != NULL
-		&& (!IS_USER_ADDRESS(userInfo)
-			|| user_memcpy(userInfo, &info, sizeof(info)) != B_OK)) {
-		return B_BAD_ADDRESS;
-	}
+	if (userInfo != NULL)
+		return copy_ref_var_to_user(info, userInfo);
 
 	return B_OK;
 }
@@ -1822,11 +1825,8 @@ _user_set_timer(int32 timerID, thread_id threadID, bigtime_t startTime,
 	timerLocker.Unlock();
 
 	// copy back the old info
-	if (userOldInfo != NULL
-		&& (!IS_USER_ADDRESS(userOldInfo)
-			|| user_memcpy(userOldInfo, &oldInfo, sizeof(oldInfo)) != B_OK)) {
-		return B_BAD_ADDRESS;
-	}
+	if (userOldInfo != NULL)
+		return copy_ref_var_to_user(oldInfo, userOldInfo);
 
 	return B_OK;
 }

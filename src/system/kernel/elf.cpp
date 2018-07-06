@@ -317,6 +317,8 @@ elf_hash(const char *name)
 }
 
 
+#ifndef ELF32_COMPAT
+
 static const char *
 get_symbol_type_string(elf_sym *symbol)
 {
@@ -347,9 +349,6 @@ get_symbol_bind_string(elf_sym *symbol)
 			return "----";
 	}
 }
-
-
-#ifndef ELF32_COMPAT
 
 
 /*!	Searches a symbol (pattern) in all kernel images */
