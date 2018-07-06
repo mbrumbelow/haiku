@@ -17,6 +17,10 @@ public:
 									size_t size);
 	virtual						~VMUserAddressSpace();
 
+	virtual	void				SetSize(size_t size) {
+									VMAddressSpace::SetSize(size);
+									_SetMaxRandomize(); }
+
 	virtual	VMArea*				FirstArea() const;
 	virtual	VMArea*				NextArea(VMArea* area) const;
 
@@ -56,8 +60,9 @@ public:
 
 private:
 	inline	bool				_IsRandomized(uint32 addressSpec) const;
-	static	addr_t				_RandomizeAddress(addr_t start, addr_t end,
+			addr_t				_RandomizeAddress(addr_t start, addr_t end,
 									size_t alignment, bool initial = false);
+	inline	void				_SetMaxRandomize();
 
 			status_t			_InsertAreaIntoReservedRegion(addr_t start,
 									size_t size, VMUserArea* area,
@@ -68,12 +73,27 @@ private:
 									uint32 allocationFlags);
 
 private:
-	static	const addr_t		kMaxRandomize;
-	static	const addr_t		kMaxInitialRandomize;
+			addr_t				fMaxRandomize;
+			addr_t				fMaxInitialRandomize;
 
 			VMUserAreaTree		fAreas;
 			addr_t				fNextInsertHint;
 };
+
+
+inline void
+VMUserAddressSpace::_SetMaxRandomize()
+{
+#ifdef B_HAIKU_64_BIT
+	if (fEndAddress > UINT32_MAX) {
+		fMaxRandomize = 0x8000000000ul;
+		fMaxInitialRandomize = 0x20000000000ul;
+		return;
+	}
+#endif
+	fMaxRandomize = 0x800000ul;
+	fMaxInitialRandomize = 0x2000000ul;
+}
 
 
 #endif	/* VM_USER_ADDRESS_SPACE_H */

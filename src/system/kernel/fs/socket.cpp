@@ -22,7 +22,12 @@
 #include <lock.h>
 #include <syscall_restart.h>
 #include <util/AutoLock.h>
+#include <util/syscall_args.h>
 #include <vfs.h>
+
+#ifdef _COMPAT_MODE
+#	include <socket_compat.h>
+#endif
 
 #include <net_stack_interface.h>
 #include <net_stat.h>
@@ -149,10 +154,9 @@ prepare_userland_msghdr(const msghdr* userMessage, msghdr& message,
 		return B_BAD_VALUE;
 
 	// copy message from userland
-	if (!IS_USER_ADDRESS(userMessage)
-			|| user_memcpy(&message, userMessage, sizeof(msghdr)) != B_OK) {
-		return B_BAD_ADDRESS;
-	}
+	status_t status = copy_ref_var_from_user((msghdr*)userMessage, message);
+	if (status != B_OK)
+		return status;
 
 	userVecs = message.msg_iov;
 	userAddress = message.msg_name;
