@@ -50,6 +50,7 @@ typedef struct {
 
 
 device_manager_info* gDeviceManager;
+device_module_info* gSDHCIDeviceController;
 static pci_x86_module_info* sPCIx86Module;
 
 // # pragma mark -
@@ -332,6 +333,8 @@ register_child_devices(void* cookie)
 
 			{ B_DEVICE_PRETTY_NAME, B_STRING_TYPE,
 				{ string: prettyName }},
+			{ B_DEVICE_FIXED_CHILD, B_STRING_TYPE,
+				{string: SDHCI_BUS_CONTROLLER_MODULE_NAME}},
 			{SDHCI_DEVICE_TYPE_ITEM, B_UINT16_TYPE,
 				{ ui16: pciSubDeviceId}},
 			{B_DEVICE_BUS, B_STRING_TYPE,{string: "mmc"}},
@@ -410,6 +413,7 @@ supports_device(device_node* parent)
 		return 0.8f;
 	}
 
+//	gSDHCIDeviceController->hey();
 	return 0.0f;
 }
 
@@ -417,9 +421,16 @@ supports_device(device_node* parent)
 //	#pragma mark -
 
 module_dependency module_dependencies[] = {
+	{ SDHCI_BUS_CONTROLLER_MODULE_NAME, (module_info**)&gSDHCIDeviceController },
 	{ B_DEVICE_MANAGER_MODULE_NAME, (module_info**)&gDeviceManager },
 	{}
 };
+
+void
+hey()
+{
+	TRACE("hey, its me bus is working\n");
+}
 
 
 static sdhci_mmc_bus_interface gSDHCIPCIDeviceModule = {
@@ -438,7 +449,8 @@ static sdhci_mmc_bus_interface gSDHCIPCIDeviceModule = {
 		NULL,	// rescan
 		bus_removed,
 
-	}
+	},
+	hey
 };
 
 

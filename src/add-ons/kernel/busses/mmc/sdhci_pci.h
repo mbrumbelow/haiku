@@ -11,40 +11,27 @@
 #define SDHCI_PCI_SLOTS(x) 								((( x >> 4) & 7))
 #define SDHCI_PCI_SLOT_INFO_FIRST_BASE_INDEX(x)			(( x ) & 7)
 
-#define SDHCI_BLOCK_COUNT 								0x06
-
-#define SDHCI_CLOCK_CONTROL_REGISTER					0x2C
-
-#define SDHCI_NORMAL_INTERRUPT_STATUS_REGISTER 			0x30
-
-#define SDHCI_HOST_CONTROLLER_VERSION					0xFC
-
-#define SDHCI_NORMAL_INTERRUPT_ENABLE_STATUS_REGISTER			0x34
-#define SDHCI_NORMAL_INTERRUPT_ENABLE_SIGNAL_REGISTER			0x38
-
-#define SDHCI_HOST_CONTROL_REGISTER_1					0x28
-
 #define SDHCI_DEVICE_TYPE_ITEM 							"sdhci/type"
 #define SDHCI_BUS_TYPE_NAME 							"bus/sdhci/v1"
 
-#define SDHCI_CARD_DETECT							1 << 16
+#define SDHCI_CARD_DETECT								1 << 16
 
-#define SDHCI_SOFTWARE_RESET_ALL					1 << 0
+#define SDHCI_SOFTWARE_RESET_ALL						1 << 0
 
-#define SDHCI_BASE_CLOCK_FREQ(x)					((x >> 8) & 63)
-#define SDHCI_BASE_CLOCK_DIV_1						0 << 8
-#define SDHCI_BASE_CLOCK_DIV_2						1 << 8
-#define SDHCI_BASE_CLOCK_DIV_4						2 << 8
-#define SDHCI_BASE_CLOCK_DIV_8						4 << 8
-#define SDHCI_BASE_CLOCK_DIV_16						8 << 8
-#define SDHCI_BASE_CLOCK_DIV_32						10 << 8
-#define SDHCI_BASE_CLOCK_DIV_64						20 << 8
-#define SDHCI_BASE_CLOCK_DIV_128					40 << 8
-#define SDHCI_BASE_CLOCK_DIV_256					80 << 8
-#define SDHCI_INTERNAL_CLOCK_ENABLE					1 << 0
-#define SDHCI_INTERNAL_CLOCK_STABLE					1 << 1
-#define SDHCI_SD_CLOCK_ENABLE						1 << 2
-#define SDHCI_SD_CLOCK_DISABLE						~(1 << 2)
+#define SDHCI_BASE_CLOCK_FREQ(x)						((x >> 8) & 63)
+#define SDHCI_BASE_CLOCK_DIV_1							0 << 8
+#define SDHCI_BASE_CLOCK_DIV_2							1 << 8
+#define SDHCI_BASE_CLOCK_DIV_4							2 << 8
+#define SDHCI_BASE_CLOCK_DIV_8							4 << 8
+#define SDHCI_BASE_CLOCK_DIV_16							8 << 8
+#define SDHCI_BASE_CLOCK_DIV_32							10 << 8
+#define SDHCI_BASE_CLOCK_DIV_64							20 << 8
+#define SDHCI_BASE_CLOCK_DIV_128						40 << 8
+#define SDHCI_BASE_CLOCK_DIV_256						80 << 8
+#define SDHCI_INTERNAL_CLOCK_ENABLE						1 << 0
+#define SDHCI_INTERNAL_CLOCK_STABLE						1 << 1
+#define SDHCI_SD_CLOCK_ENABLE							1 << 2
+#define SDHCI_SD_CLOCK_DISABLE							~(1 << 2)
 
 
 
@@ -89,6 +76,10 @@ struct registers {
 
 typedef void* sdhci_mmc_bus;
 
+#define SDHCI_BUS_CONTROLLER_MODULE_NAME "bus_managers/mmc_bus/driver_v1"
+
+#define	MMC_BUS_MODULE_NAME "bus_managers/mmc_bus/device/v1"
+
 static void sdhci_register_dump(uint8_t, struct registers*);
 static void sdhci_reset(struct registers*);
 static void sdhci_set_clock(struct registers*);
@@ -98,6 +89,8 @@ static void sdhci_stop_clock(struct registers*);
 typedef struct {
 	driver_module_info info;
 	
+	void (*hey)();
+
 //		static void sdhci_register_dump(struct registers* regs);
 
 } sdhci_mmc_bus_interface;
