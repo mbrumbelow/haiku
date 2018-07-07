@@ -227,7 +227,7 @@ TBarWindow::Minimize(bool minimize)
 void
 TBarWindow::FrameResized(float width, float height)
 {
-	if (!fBarView->Vertical())
+	if (fBarView->MiniState() || !fBarView->Vertical())
 		return BWindow::FrameResized(width, height);
 
 	bool setToHiddenSize = static_cast<TBarApp*>(be_app)->Settings()->autoHide
@@ -666,8 +666,15 @@ TBarWindow::SetSizeLimits()
 		}
 	} else {
 		if (fBarView->Vertical()) {
-			BWindow::SetSizeLimits(gMinimumWindowWidth, gMaximumWindowWidth,
-				kMenuBarHeight - 1, screenFrame.Height());
+			float minWidth = gMinimumWindowWidth;
+			float minHeight = fBarView->TabHeight() - 1;
+			if (fBarView->State() == kMiniState) {
+				BWindow::SetSizeLimits(minWidth, screenFrame.Width(),
+					minHeight, minHeight);
+			} else {
+				BWindow::SetSizeLimits(minWidth, gMaximumWindowWidth,
+					minHeight, screenFrame.Height());
+			}
 		} else {
 			BWindow::SetSizeLimits(screenFrame.Width(), screenFrame.Width(),
 				kMenuBarHeight - 1, kMaximumIconSize + 4);
