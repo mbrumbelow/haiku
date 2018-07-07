@@ -19,6 +19,29 @@
     },
     {
       "key": {
+        "uuid": "6e212217_b259273f",
+        "filename": "src/preferences/appearance/ColorWhichListView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2018-07-07T17:59:02Z",
+      "side": 1,
+      "message": "Should replace FindPoint() call with DropPoint() method.",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 63
+      },
+      "revId": "bbe001d3f638a77cbc38f3ea98464f9e9c83adf7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aad096d9_65db7213",
         "filename": "src/preferences/appearance/ColorWhichListView.cpp",
         "patchSetId": 3
