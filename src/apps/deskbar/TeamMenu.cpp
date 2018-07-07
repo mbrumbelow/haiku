@@ -36,6 +36,7 @@ All rights reserved.
 
 #include "TeamMenu.h"
 
+#include <algorithm>
 #include <strings.h>
 
 #include <Application.h>
@@ -51,12 +52,16 @@ All rights reserved.
 #include "TeamMenuItem.h"
 
 
+const float kIconPadding = 8.0f;
+
+
 //	#pragma mark - TTeamMenuItem
 
 
-TTeamMenu::TTeamMenu()
+TTeamMenu::TTeamMenu(TBarView* barView)
 	:
-	BMenu("Team Menu")
+	BMenu("Team Menu"),
+	fBarView(barView)
 {
 	SetItemMargins(0.0f, 0.0f, 0.0f, 0.0f);
 	SetFont(be_plain_font);
@@ -85,12 +90,24 @@ TTeamMenu::AttachedToWindow()
 	BList teamList;
 	TBarApp::Subscribe(self, &teamList);
 
-	TBarView* barview = (dynamic_cast<TBarApp*>(be_app))->BarView();
-	bool dragging = barview && barview->Dragging();
+	bool dragging = fBarView != NULL && fBarView->Dragging();
+	desk_settings* settings = static_cast<TBarApp*>(be_app)->Settings();
 	int32 iconSize = static_cast<TBarApp*>(be_app)->IconSize();
-	desk_settings* settings = ((TBarApp*)be_app)->Settings();
+	float iconOnlyWidth = kIconPadding + iconSize + kIconPadding;
 
-	float width = gMinimumWindowWidth - iconSize - 4;
+	float itemWidth = 0;
+	if (settings->hideLabels) {
+		itemWidth = std::max(floorf(gMinimumWindowWidth / 2),
+			iconOnlyWidth);
+	} else {
+		float labelWidth = gMinimumWindowWidth - iconOnlyWidth
+			+ (be_plain_font->Size() - 12) * 4;
+		if (iconSize <= 32) // icon wrap after 32x32
+			labelWidth += iconSize - kMinimumIconSize;
+		itemWidth = iconOnlyWidth + labelWidth;
+	}
+
+	SetMaxContentWidth(itemWidth);
 
 	if (settings->sortRunningApps)
 		teamList.SortItems(TTeamMenu::CompareByName);
@@ -100,7 +117,7 @@ TTeamMenu::AttachedToWindow()
 		// add items back
 		BarTeamInfo* barInfo = (BarTeamInfo*)teamList.ItemAt(i);
 		TTeamMenuItem* item = new TTeamMenuItem(barInfo->teams,
-			barInfo->icon, barInfo->name, barInfo->sig, width, -1);
+			barInfo->icon, barInfo->name, barInfo->sig, itemWidth);
 
 		if (settings->trackerAlwaysFirst
 			&& strcasecmp(barInfo->sig, kTrackerSignature) == 0) {
@@ -109,15 +126,14 @@ TTeamMenu::AttachedToWindow()
 			AddItem(item);
 
 		if (dragging && item != NULL) {
-			bool canhandle = (dynamic_cast<TBarApp*>(be_app))->BarView()->
-				AppCanHandleTypes(item->Signature());
+			bool canhandle = fBarView->AppCanHandleTypes(item->Signature());
 			if (item->IsEnabled() != canhandle)
 				item->SetEnabled(canhandle);
 
 			BMenu* menu = item->Submenu();
 			if (menu != NULL) {
-				menu->SetTrackingHook(barview->MenuTrackingHook,
-					barview->GetTrackingHookData());
+				menu->SetTrackingHook(fBarView->MenuTrackingHook,
+					fBarView->GetTrackingHookData());
 			}
 		}
 	}
@@ -128,11 +144,11 @@ TTeamMenu::AttachedToWindow()
 		AddItem(item);
 	}
 
-	if (dragging && barview->LockLooper()) {
-		SetTrackingHook(barview->MenuTrackingHook,
-			barview->GetTrackingHookData());
-		barview->DragStart();
-		barview->UnlockLooper();
+	if (dragging && fBarView->LockLooper()) {
+		SetTrackingHook(fBarView->MenuTrackingHook,
+			fBarView->GetTrackingHookData());
+		fBarView->DragStart();
+		fBarView->UnlockLooper();
 	}
 
 	BMenu::AttachedToWindow();
@@ -142,11 +158,10 @@ TTeamMenu::AttachedToWindow()
 void
 TTeamMenu::DetachedFromWindow()
 {
-	TBarView* barView = (dynamic_cast<TBarApp*>(be_app))->BarView();
-	if (barView != NULL) {
-		BLooper* looper = barView->Looper();
+	if (fBarView != NULL) {
+		BLooper* looper = fBarView->Looper();
 		if (looper != NULL && looper->Lock()) {
-			barView->DragStop();
+			fBarView->DragStop();
 			looper->Unlock();
 		}
 	}
