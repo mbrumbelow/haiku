@@ -86,6 +86,8 @@ static const uint32 kMsgIsAutoRaise = 'grse';
 static const uint32 kMsgAutoRaise = 'srse';
 static const uint32 kMsgIsAutoHide = 'ghid';
 static const uint32 kMsgAutoHide = 'shid';
+static const uint32 kMsgGetRecentCounts = 'grct';
+static const uint32 kMsgSetRecentCounts = 'srct';
 
 static const uint32 kMsgAddView = 'icon';
 static const uint32 kMsgAddAddOn = 'adon';
