@@ -1,3 +1,12 @@
+/*
+ * Copyright 2018 Haiku, Inc. All rights reserved.
+ * Distributed under the terms of the MIT License.
+ *
+ * Authors:
+ *		B Krishnan Iyer, krishnaniyer97@gmail.com
+ */
+
+
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -26,6 +35,7 @@
 #define MMC_DEVICE_ID_GENERATOR "mmc/device_id"
 
 static device_manager_info *sDeviceManager;
+
 
 static float
 mmc_disk_supports_device(device_node *parent)
@@ -58,6 +68,7 @@ mmc_disk_supports_device(device_node *parent)
 	return 0.8;
 }
 
+
 static status_t
 mmc_disk_register_device(device_node *node)
 {
@@ -69,6 +80,7 @@ mmc_disk_register_device(device_node *node)
 
 	return sDeviceManager->register_node(node, MMC_DISK_DRIVER_MODULE_NAME, attrs, NULL, NULL);
 }
+
 
 static status_t
 mmc_disk_init_driver(device_node* node, void **cookie)
@@ -88,6 +100,7 @@ mmc_disk_init_driver(device_node* node, void **cookie)
 	return B_OK;
 }
 
+
 static void
 mmc_disk_uninit_driver(void *_cookie)
 {
@@ -95,6 +108,7 @@ mmc_disk_uninit_driver(void *_cookie)
 	mmc_disk_driver_info* info = (mmc_disk_driver_info*)_cookie;
 	free(info);
 }
+
 
 static status_t 
 mmc_disk_register_child_devices(void *_cookie)

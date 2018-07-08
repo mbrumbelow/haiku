@@ -1,6 +1,9 @@
 /*
- * Copyright 2018, Jérôme Duval, jerome.duval@gmail.com.
+ * Copyright 2018 Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
+ *
+ * Authors:
+ *		B Krishnan Iyer, krishnaniyer97@gmail.com
  */
 
 
@@ -413,7 +416,6 @@ supports_device(device_node* parent)
 		return 0.8f;
 	}
 
-//	gSDHCIDeviceController->hey();
 	return 0.0f;
 }
 

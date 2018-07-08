@@ -1,6 +1,16 @@
+/*
+ * Copyright 2018 Haiku, Inc. All rights reserved.
+ * Distributed under the terms of the MIT License.
+ *
+ * Authors:
+ *		B Krishnan Iyer, krishnaniyer97@gmail.com
+ */
+
+
 #include "mmc_bus.h"
 
 device_manager_info* gDeviceManager = NULL;
+
 
 static status_t
 mmc_bus_init(device_node *node, void **_device)
@@ -98,7 +108,6 @@ driver_module_info mmc_bus_device_module = {
 		NULL // resume
 };
 
-
 driver_module_info mmc_bus_controller_module = {
 
 		{
@@ -114,7 +123,6 @@ driver_module_info mmc_bus_controller_module = {
 		NULL
 	
 };
-
 
 module_dependency module_dependencies[] = {
 	{ B_DEVICE_MANAGER_MODULE_NAME, (module_info **)&gDeviceManager },

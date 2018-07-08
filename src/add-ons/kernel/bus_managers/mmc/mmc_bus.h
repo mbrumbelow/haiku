@@ -1,3 +1,12 @@
+/*
+ * Copyright 2018 Haiku, Inc. All rights reserved.
+ * Distributed under the terms of the MIT License.
+ *
+ * Authors:
+ *		B Krishnan Iyer, krishnaniyer97@gmail.com
+ */
+
+
 #ifndef MMC_BUS_H
 #define MMC_BUS_H
 
@@ -20,6 +29,7 @@
 #define CALLED() 			TRACE("CALLED %s\n", __PRETTY_FUNCTION__)
 
 extern device_manager_info *gDeviceManager;
+
 
 class MMCBus;
 

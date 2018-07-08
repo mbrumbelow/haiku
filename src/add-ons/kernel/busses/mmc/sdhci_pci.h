@@ -1,3 +1,11 @@
+/*
+ * Copyright 2018 Haiku, Inc. All rights reserved.
+ * Distributed under the terms of the MIT License.
+ *
+ * Authors:
+ *		B Krishnan Iyer, krishnaniyer97@gmail.com
+ */
+
 
 #ifndef _SDHCI_PCI_H
 #define _SDHCI_PCI_H

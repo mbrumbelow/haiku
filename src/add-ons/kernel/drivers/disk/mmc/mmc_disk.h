@@ -1,3 +1,12 @@
+/*
+ * Copyright 2018 Haiku, Inc. All rights reserved.
+ * Distributed under the terms of the MIT License.
+ *
+ * Authors:
+ *		B Krishnan Iyer, krishnaniyer97@gmail.com
+ */
+
+
 #ifndef _MMC_DISK_H
 #define _MMC_DISK_H 
 

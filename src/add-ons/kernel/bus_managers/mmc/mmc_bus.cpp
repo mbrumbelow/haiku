@@ -1,4 +1,14 @@
+/*
+ * Copyright 2018 Haiku, Inc. All rights reserved.
+ * Distributed under the terms of the MIT License.
+ *
+ * Authors:
+ *		B Krishnan Iyer, krishnaniyer97@gmail.com
+ */
+
+
 #include "mmc_bus.h"
+
 
 MMCBus::MMCBus(device_node *node)
 	:
@@ -27,6 +37,7 @@ MMCBus::~MMCBus()
 {
 	CALLED();
 }
+
 
 status_t
 MMCBus::InitCheck()
