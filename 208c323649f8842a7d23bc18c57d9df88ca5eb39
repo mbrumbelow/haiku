@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e9fd82b7_4ad3a3eb",
+        "filename": "src/kits/interface/Menu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-07-08T19:27:21Z",
+      "side": 0,
+      "message": "I am a little confused. Is the SetStickyMode indeed not a fixme?",
+      "range": {
+        "startLine": 520,
+        "startChar": 5,
+        "endLine": 522,
+        "endChar": 44
+      },
+      "revId": "208c323649f8842a7d23bc18c57d9df88ca5eb39",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f69c686a_786ad7d8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-07-08T19:27:21Z",
+      "side": 1,
+      "message": "Multiline comments in commit messages should use the style\n * Comment 1 blah blah ....\n   continuation line from Comment 1\n * Comment 2\netc.",
+      "revId": "584bd9ee76c3bde2d4a8c0f1319164aacd46955b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07f15ea1_f372ebb2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-07-08T19:27:21Z",
+      "side": 1,
+      "message": "Change-Id should go at the very end of the message on its own line",
+      "revId": "584bd9ee76c3bde2d4a8c0f1319164aacd46955b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bd89d07_3344590a",
+        "filename": "src/kits/interface/Menu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-07-08T19:27:21Z",
+      "side": 1,
+      "message": "Seeing as the ticket doesn\u0027t really contain much discussion at all, referencing it in this comment doesn\u0027t make much sense. The rest of the comment is good; but perhaps can be formatted better. Maybe something like:\n\n// The menu is only added to the menu hierarchy and made visible if:\n//  * the mouse is over the menu\n//  * the user has requested the menu via the keyboard.\n// So if we don\u0027t pass in keydown, keyboard navigation will break\n// for certain kinds of submenus\n\nInstead of saying \"by Tracker related private classes\", the exact reason for why these menus\nand others like them are different would make sense.",
+      "range": {
+        "startLine": 391,
+        "startChar": 1,
+        "endLine": 396,
+        "endChar": 2
+      },
+      "revId": "584bd9ee76c3bde2d4a8c0f1319164aacd46955b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15aac962_ebca0a5d",
+        "filename": "src/kits/interface/Menu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-07-08T19:27:21Z",
+      "side": 1,
+      "message": "Same comment about not needing ticket reference as above.",
+      "range": {
+        "startLine": 528,
+        "startChar": 9,
+        "endLine": 528,
+        "endChar": 13
+      },
+      "revId": "584bd9ee76c3bde2d4a8c0f1319164aacd46955b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "191f9b1f_a58a95b2",
+        "filename": "src/kits/interface/Menu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1673,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-07-08T19:27:21Z",
+      "side": 1,
+      "message": "Same comment about ticket number. Also, instead of \"segment violation\", say what type of violation it actually is (NULL access, use-after-free, etc.)",
+      "range": {
+        "startLine": 1673,
+        "startChar": 7,
+        "endLine": 1673,
+        "endChar": 11
+      },
+      "revId": "584bd9ee76c3bde2d4a8c0f1319164aacd46955b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
