@@ -50,6 +50,17 @@ public:
 			bool				IsAutoHide() const;
 			status_t			SetAutoHide(bool autoHide);
 
+	// Recent count methods
+			status_t			GetRecentCounts(int argsCount, ...);
+			int32				RecentApplicationsCount();
+			int32				RecentFoldersCount();
+			int32				RecentDocumentsCount();
+
+			status_t			SetRecentCounts(int argsCount, ...);
+			status_t			SetRecentApplicationsCount(int32 count);
+			status_t			SetRecentFoldersCount(int32 count);
+			status_t			SetRecentDocumentsCount(int32 count);
+
 	// Item querying methods
 			status_t			GetItemInfo(int32 id, const char** _name) const;
 			status_t			GetItemInfo(const char* name, int32* _id) const;

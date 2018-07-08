@@ -11,14 +11,16 @@
 
 
 #include <Deskbar.h>
+
+#include <stdarg.h>
+#include <string.h>
+
+#include <InterfaceDefs.h>
 #include <Messenger.h>
 #include <Message.h>
-#include <View.h>
-#include <Rect.h>
-#include <InterfaceDefs.h>
 #include <Node.h>
-
-#include <string.h>
+#include <Rect.h>
+#include <View.h>
 
 
 // ToDo: in case the BDeskbar methods are called from a Deskbar add-on,
@@ -39,6 +41,8 @@ static const uint32 kMsgIsAutoRaise = 'grse';
 static const uint32 kMsgAutoRaise = 'srse';
 static const uint32 kMsgIsAutoHide = 'ghid';
 static const uint32 kMsgAutoHide = 'shid';
+static const uint32 kMsgGetRecentCounts = 'grct';
+static const uint32 kMsgSetRecentCounts = 'srct';
 
 static const uint32 kMsgAddView = 'icon';
 static const uint32 kMsgAddAddOn = 'adon';
@@ -244,6 +248,112 @@ BDeskbar::SetAutoHide(bool autoHide)
 	request.AddBool("auto hide", autoHide);
 
 	return fMessenger->SendMessage(&request);
+}
+
+
+//	#pragma mark - Recent count methods
+
+
+status_t
+BDeskbar::GetRecentCounts(int argsCount, ...)
+{
+	BMessage request(kMsgGetRecentCounts);
+	BMessage reply;
+
+	status_t result = fMessenger->SendMessage(&request, &reply);
+	if (result != B_OK)
+		return result;
+
+	va_list args;
+	va_start(args, argsCount);
+	for(int i = 0; result == B_OK && i <= argsCount; i++) {
+		int32* value = va_arg(args, int32*);
+		if (i == 0 && value != NULL)
+			result = reply.FindInt32("applications", value);
+		else if (i == 1 && value != NULL)
+			result = reply.FindInt32("folders", value);
+		else if (i == 2 && value != NULL)
+			result = reply.FindInt32("documents", value);
+	}
+	va_end(args);
+
+	return result;
+}
+
+
+int32
+BDeskbar::RecentApplicationsCount()
+{
+	int32 recentApplicationsCount = 10;
+	if (GetRecentCounts(1, &recentApplicationsCount) == B_OK)
+		return recentApplicationsCount;
+
+	return -1;
+}
+
+
+int32
+BDeskbar::RecentFoldersCount()
+{
+	int32 recentFoldersCount = 10;
+	if (GetRecentCounts(2, NULL, &recentFoldersCount) == B_OK)
+		return recentFoldersCount;
+
+	return -1;
+}
+
+
+int32
+BDeskbar::RecentDocumentsCount()
+{
+	int32 recentDocumentsCount = 10;
+	if (GetRecentCounts(3, NULL, NULL, &recentDocumentsCount) == B_OK)
+		return recentDocumentsCount;
+
+	return -1;
+}
+
+
+status_t
+BDeskbar::SetRecentCounts(int argsCount, ...)
+{
+	BMessage request(kMsgSetRecentCounts);
+
+	va_list args;
+	va_start(args, argsCount);
+	for(int i = 0; i <= argsCount; i++) {
+		int32 value = va_arg(args, int32);
+		if (i == 0 && value >= 0)
+			request.AddInt32("applications", value);
+		else if (i == 1 && value >= 0)
+			request.AddInt32("folders", value);
+		else if (i == 2 && value >= 0)
+			request.AddInt32("documents", value);
+	}
+	va_end(args);
+
+	return fMessenger->SendMessage(&request);
+}
+
+
+status_t
+BDeskbar::SetRecentApplicationsCount(int32 count)
+{
+	return SetRecentCounts(1, count);
+}
+
+
+status_t
+BDeskbar::SetRecentFoldersCount(int32 count)
+{
+	return SetRecentCounts(2, -1, count);
+}
+
+
+status_t
+BDeskbar::SetRecentDocumentsCount(int32 count)
+{
+	return SetRecentCounts(3, -1, -1, count);
 }
 
 
