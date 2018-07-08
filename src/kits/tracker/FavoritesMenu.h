@@ -131,7 +131,7 @@ class RecentsMenu : public BNavMenu {
 		int32			fRecentsCount;
 
 		int32 			fItemIndex;
-		BMessage		fRecentList;
+		BMessage		fRecentCountsList;
 };
 
 } // namespace BPrivate

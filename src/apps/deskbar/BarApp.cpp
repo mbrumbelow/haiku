@@ -388,6 +388,15 @@ TBarApp::MessageReceived(BMessage* message)
 			message->SendReply(&reply);
 			break;
 		}
+		case kMsgGetRecentCounts:
+		{
+			BMessage reply('rply');
+			reply.AddInt32("applications", fSettings.recentAppsCount);
+			reply.AddInt32("folders", fSettings.recentFoldersCount);
+			reply.AddInt32("documents", fSettings.recentDocsCount);
+			message->SendReply(&reply);
+			break;
+		}
 
 		// pass rest of BDeskbar originating messages onto the window
 		// (except for setters handled below)
@@ -431,6 +440,7 @@ TBarApp::MessageReceived(BMessage* message)
 			}
 			break;
 
+		case kMsgSetRecentCounts: // from BDeskbar
 		case kUpdateRecentCounts:
 			int32 count;
 			bool enabled;

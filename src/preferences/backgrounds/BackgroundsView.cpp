@@ -24,6 +24,7 @@
 #include <ControlLook.h>
 #include <Cursor.h>
 #include <Debug.h>
+#include <Deskbar.h>
 #include <File.h>
 #include <FindDirectory.h>
 #include <LayoutBuilder.h>
@@ -79,6 +80,9 @@ BackgroundsView::BackgroundsView()
 	fFoundPositionSetting(false)
 {
 	SetBorder(B_NO_BORDER);
+
+	BDeskbar deskbar;
+	fRecentFoldersLimit = deskbar.RecentFoldersCount();
 
 	BBox* previewBox = new BBox("preview");
 	previewBox->SetLabel(B_TRANSLATE("Preview"));

@@ -190,12 +190,12 @@ TFilePanel::TFilePanel(file_panel_mode mode, BMessenger* target,
 
 	fNodeFlavors = (nodeFlavors == 0) ? B_FILE_NODE : nodeFlavors;
 
-	if (target)
+	if (target != NULL)
 		fTarget = *target;
 	else
 		fTarget = BMessenger(be_app);
 
-	if (message)
+	if (message != NULL)
 		SetMessage(message);
 	else if (fIsSavePanel)
 		fMessage = new BMessage(B_SAVE_REQUESTED);
@@ -1292,22 +1292,19 @@ TFilePanel::MessageReceived(BMessage* message)
 		case kAddCurrentDir:
 		{
 			BPath path;
-			if (find_directory(B_USER_SETTINGS_DIRECTORY, &path, true)
-					!= B_OK) {
+			if (find_directory(B_USER_SETTINGS_DIRECTORY, &path, true) != B_OK)
 				break;
-			}
 
-			path.Append(kGoDirectory);
-			BDirectory goDirectory(path.Path());
+			if (path.Append(kGoDirectory) != B_OK)
+				break;
 
-			if (goDirectory.InitCheck() == B_OK) {
-				BEntry entry(TargetModel()->EntryRef());
-				entry.GetPath(&path);
+			BDirectory goDir(path.Path());
+			if (goDir.InitCheck() != B_OK)
+				break;
 
-				BSymLink link;
-				goDirectory.CreateSymLink(TargetModel()->Name(), path.Path(),
-					&link);
-			}
+			BSymLink link;
+			goDir.CreateSymLink(TargetModel()->Name(), path.Path(), &link);
+
 			break;
 		}
 
@@ -1595,7 +1592,7 @@ TFilePanel::HandleSaveButton()
 	message.AddRef("directory", TargetModel()->EntryRef());
 	message.AddString("name", fTextControl->Text());
 
-	if (fClientObject)
+	if (fClientObject != NULL)
 		fClientObject->SendMessage(&fTarget, &message);
 	else
 		fTarget.SendMessage(&message);
@@ -1628,7 +1625,7 @@ TFilePanel::OpenSelectionCommon(BMessage* openMessage)
 
 	BRoster().AddToRecentFolders(TargetModel()->EntryRef());
 
-	if (fClientObject)
+	if (fClientObject != NULL)
 		fClientObject->SendMessage(&fTarget, openMessage);
 	else
 		fTarget.SendMessage(openMessage);

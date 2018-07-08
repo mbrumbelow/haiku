@@ -36,6 +36,7 @@ All rights reserved.
 #include "TrackerSettings.h"
 
 #include <Debug.h>
+#include <Deskbar.h>
 
 #include "Tracker.h"
 #include "WidgetAttributeText.h"
@@ -72,10 +73,6 @@ private:
 	BooleanValueSetting* fSortFolderNamesFirst;
 	BooleanValueSetting* fHideDotFiles;
 	BooleanValueSetting* fTypeAheadFiltering;
-
-	ScalarValueSetting* fRecentApplicationsCount;
-	ScalarValueSetting* fRecentDocumentsCount;
-	ScalarValueSetting* fRecentFoldersCount;
 
 	BooleanValueSetting* fShowVolumeSpaceBar;
 	HexScalarValueSetting* fUsedSpaceColor;
@@ -136,9 +133,6 @@ TTrackerState::TTrackerState()
 	fSortFolderNamesFirst(NULL),
 	fHideDotFiles(NULL),
 	fTypeAheadFiltering(NULL),
-	fRecentApplicationsCount(NULL),
-	fRecentDocumentsCount(NULL),
-	fRecentFoldersCount(NULL),
 	fShowVolumeSpaceBar(NULL),
 	fUsedSpaceColor(NULL),
 	fFreeSpaceColor(NULL),
@@ -167,9 +161,6 @@ TTrackerState::TTrackerState(const TTrackerState&)
 	fSortFolderNamesFirst(NULL),
 	fHideDotFiles(NULL),
 	fTypeAheadFiltering(NULL),
-	fRecentApplicationsCount(NULL),
-	fRecentDocumentsCount(NULL),
-	fRecentFoldersCount(NULL),
 	fShowVolumeSpaceBar(NULL),
 	fUsedSpaceColor(NULL),
 	fFreeSpaceColor(NULL),
@@ -231,13 +222,6 @@ TTrackerState::LoadSettingsIfNeeded()
 	Add(fSingleWindowBrowse
 		= new BooleanValueSetting("SingleWindowBrowse", false));
 	Add(fShowNavigator = new BooleanValueSetting("ShowNavigator", false));
-
-	Add(fRecentApplicationsCount
-		= new ScalarValueSetting("RecentApplications", 10, "", ""));
-	Add(fRecentDocumentsCount
-		= new ScalarValueSetting("RecentDocuments", 10, "", ""));
-	Add(fRecentFoldersCount
-		= new ScalarValueSetting("RecentFolders", 10, "", ""));
 
 	Add(fShowVolumeSpaceBar
 		= new BooleanValueSetting("ShowVolumeSpaceBar", true));
@@ -518,42 +502,6 @@ void
 TrackerSettings::SetShowNavigator(bool enabled)
 {
 	gTrackerState.fShowNavigator->SetValue(enabled);
-}
-
-
-void
-TrackerSettings::RecentCounts(int32* applications, int32* documents,
-	int32* folders)
-{
-	if (applications != NULL)
-		*applications = gTrackerState.fRecentApplicationsCount->Value();
-
-	if (documents != NULL)
-		*documents = gTrackerState.fRecentDocumentsCount->Value();
-
-	if (folders != NULL)
-		*folders = gTrackerState.fRecentFoldersCount->Value();
-}
-
-
-void
-TrackerSettings::SetRecentApplicationsCount(int32 count)
-{
-	gTrackerState.fRecentApplicationsCount->ValueChanged(count);
-}
-
-
-void
-TrackerSettings::SetRecentDocumentsCount(int32 count)
-{
-	gTrackerState.fRecentDocumentsCount->ValueChanged(count);
-}
-
-
-void
-TrackerSettings::SetRecentFoldersCount(int32 count)
-{
-	gTrackerState.fRecentFoldersCount->ValueChanged(count);
 }
 
 

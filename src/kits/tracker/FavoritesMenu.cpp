@@ -39,6 +39,7 @@ All rights reserved.
 
 #include <Application.h>
 #include <Catalog.h>
+#include <Deskbar.h>
 #include <FindDirectory.h>
 #include <FilePanel.h>
 #include <Locale.h>
@@ -206,10 +207,11 @@ FavoritesMenu::AddNextItem()
 		be_app->GetAppInfo(&info);
 		fItems.MakeEmpty();
 
-		int32 apps, docs, folders;
-		TrackerSettings().RecentCounts(&apps, &docs, &folders);
+		BDeskbar deskbar;
+		int32 documents = deskbar.RecentDocumentsCount();
 
-		BRoster().GetRecentDocuments(&fItems, docs, NULL, info.signature);
+		BRoster().GetRecentDocuments(&fItems, documents, NULL, info.signature);
+
 		fIndex = 0;
 		fSectionItemCount = 0;
 	}
@@ -254,8 +256,8 @@ FavoritesMenu::AddNextItem()
 		be_app->GetAppInfo(&info);
 		fItems.MakeEmpty();
 
-		int32 apps, docs, folders;
-		TrackerSettings().RecentCounts(&apps, &docs, &folders);
+		BDeskbar deskbar;
+		int32 folders = deskbar.RecentFoldersCount();
 
 		BRoster().GetRecentFolders(&fItems, folders, info.signature);
 		fIndex = 0;
@@ -350,10 +352,9 @@ RecentsMenu::RecentsMenu(const char* name, int32 which, uint32 what,
 	fRecentsCount(0),
 	fItemIndex(0)
 {
-	int32 applications;
-	int32 documents;
-	int32 folders;
-	TrackerSettings().RecentCounts(&applications,&documents,&folders);
+	BDeskbar deskbar;
+	int32 documents, applications, folders;
+	deskbar.GetRecentCounts(&documents, &applications, &folders);
 
 	if (fWhich == 0)
 		fRecentsCount = documents;
@@ -411,18 +412,18 @@ bool
 RecentsMenu::AddRecents(int32 count)
 {
 	if (fItemIndex == 0) {
-		fRecentList.MakeEmpty();
+		fRecentCountsList.MakeEmpty();
 		BRoster roster;
 
 		switch(fWhich) {
 			case 0:
-				roster.GetRecentDocuments(&fRecentList, count);
+				roster.GetRecentDocuments(&fRecentCountsList, count);
 				break;
 			case 1:
-				roster.GetRecentApps(&fRecentList, count);
+				roster.GetRecentApps(&fRecentCountsList, count);
 				break;
 			case 2:
-				roster.GetRecentFolders(&fRecentList, count);
+				roster.GetRecentFolders(&fRecentCountsList, count);
 				break;
 			default:
 				return false;
@@ -431,7 +432,7 @@ RecentsMenu::AddRecents(int32 count)
 	}
 	for (;;) {
 		entry_ref ref;
-		if (fRecentList.FindRef("refs", fItemIndex++, &ref) != B_OK)
+		if (fRecentCountsList.FindRef("refs", fItemIndex++, &ref) != B_OK)
 			break;
 
 		if (ref.name != NULL && strlen(ref.name) > 0) {
@@ -451,9 +452,7 @@ RecentsMenu::AddRecents(int32 count)
 		}
 	}
 
-	//
-	//	return false if we are done with this list
-	//
+	// return false when we are done with this list
 	return false;
 }
 

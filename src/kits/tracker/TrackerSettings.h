@@ -105,12 +105,6 @@ public:
 	bool ShowNavigator();
 	void SetShowNavigator(bool);
 
-	void RecentCounts(int32* applications, int32* documents,
-		int32* folders);
-	void SetRecentApplicationsCount(int32);
-	void SetRecentDocumentsCount(int32);
-	void SetRecentFoldersCount(int32);
-
 	FormatSeparator TimeFormatSeparator();
 	void SetTimeFormatSeparator(FormatSeparator);
 	DateOrder DateOrderFormat();
