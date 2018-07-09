@@ -18,8 +18,7 @@
 #include <drivers/Drivers.h>
 #include <kernel/OS.h>
 
-#include <fs/devfs.h>
-
+//#include <fs/devfs.h>
 
 #define TRACE_MMC_DISK
 #ifdef TRACE_MMC_DISK
