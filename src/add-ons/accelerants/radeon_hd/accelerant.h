@@ -22,7 +22,7 @@
 #include "ringqueue.h"
 
 
-#define MAX_DISPLAY 2
+#define MAX_DISPLAY 4
 	// Maximum displays (more then two requires AtomBIOS)
 #define MAX_GPIO_PINS   64
 	// Maximum possible GPIO pins in gGPIOInfo

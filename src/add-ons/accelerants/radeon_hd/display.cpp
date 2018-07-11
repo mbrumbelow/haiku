@@ -827,7 +827,7 @@ display_crtc_fb_set(uint8 crtcID, display_mode* mode)
 	Write32(OUT, regs->grphSecondarySurfaceAddr, (fbAddress & 0xFFFFFFFF));
 
 	if (info.chipsetID >= RADEON_R600) {
-		Write32(CRT, regs->grphControl, fbFormat);
+		Write32(CRT, regs->grphControl, fbFormat | (((4) & 0x1f) << 24));
 		Write32(CRT, regs->grphSwapControl, fbSwap);
 	}
 
