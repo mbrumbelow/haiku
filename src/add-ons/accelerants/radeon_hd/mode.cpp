@@ -192,7 +192,7 @@ radeon_set_display_mode(display_mode* mode)
 	// Determine DP lanes if DP
 	if (connector_is_dp(connectorIndex)) {
 		dp_info *dpInfo = &gConnector[connectorIndex]->dpInfo;
-		dpInfo->laneCount = dp_get_lane_count(connectorIndex, mode);
+		dpInfo->laneCount = dp_get_lane_count_max(dpInfo);
 		dpInfo->linkRate = dp_get_link_rate(connectorIndex, mode);
 	}
 
