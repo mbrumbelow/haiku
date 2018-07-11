@@ -32,10 +32,10 @@
 #define SDHCI_BASE_CLOCK_DIV_4							2 << 8
 #define SDHCI_BASE_CLOCK_DIV_8							4 << 8
 #define SDHCI_BASE_CLOCK_DIV_16							8 << 8
-#define SDHCI_BASE_CLOCK_DIV_32							10 << 8
-#define SDHCI_BASE_CLOCK_DIV_64							20 << 8
-#define SDHCI_BASE_CLOCK_DIV_128						40 << 8
-#define SDHCI_BASE_CLOCK_DIV_256						80 << 8
+#define SDHCI_BASE_CLOCK_DIV_32							16 << 8
+#define SDHCI_BASE_CLOCK_DIV_64							32 << 8
+#define SDHCI_BASE_CLOCK_DIV_128						64 << 8
+#define SDHCI_BASE_CLOCK_DIV_256						128 << 8
 #define SDHCI_INTERNAL_CLOCK_ENABLE						1 << 0
 #define SDHCI_INTERNAL_CLOCK_STABLE						1 << 1
 #define SDHCI_SD_CLOCK_ENABLE							1 << 2
