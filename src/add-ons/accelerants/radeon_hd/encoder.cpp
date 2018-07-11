@@ -41,16 +41,25 @@ encoder_init()
 	TRACE("%s: called\n", __func__);
 	radeon_shared_info &info = *gInfo->shared_info;
 
-	for (uint32 id = 0; id < ATOM_MAX_SUPPORTED_DEVICE; id++) {
-		if (gConnector[id]->valid == false)
+	// For each attached display...
+	uint32 crtcID;
+	uint32 initCount = 0;
+	for (crtcID = 0; crtcID < MAX_DISPLAY; crtcID++) {
+		if (gDisplay[crtcID]->attached != true)
 			continue;
+		uint16 connectorID = gDisplay[crtcID]->connectorIndex;
 
-		switch (gConnector[id]->encoder.objectID) {
+		if (gConnector[connectorID]->valid == false)
+			 continue;
+
+		initCount++;
+
+		switch (gConnector[connectorID]->encoder.objectID) {
 			case ENCODER_OBJECT_ID_INTERNAL_UNIPHY:
 			case ENCODER_OBJECT_ID_INTERNAL_UNIPHY1:
 			case ENCODER_OBJECT_ID_INTERNAL_UNIPHY2:
 			case ENCODER_OBJECT_ID_INTERNAL_KLDSCP_LVTMA:
-				transmitter_dig_setup(id, 0, 0, 0,
+				transmitter_dig_setup(connectorID, 0, 0, 0,
 					ATOM_TRANSMITTER_ACTION_INIT);
 				break;
 			default:
@@ -58,11 +67,15 @@ encoder_init()
 		}
 
 		if ((info.chipsetFlags & CHIP_APU) != 0) {
-			if (gConnector[id]->encoderExternal.valid == true) {
-				encoder_external_setup(id,
+			if (gConnector[connectorID]->encoderExternal.valid == true) {
+				encoder_external_setup(connectorID,
 					EXTERNAL_ENCODER_ACTION_V3_ENCODER_INIT);
 			}
 		}
+	}
+	if (initCount == 0) {
+		ERROR("%s: WARNING: Didn't find any attached displays to init!",
+			__func__);
 	}
 }
 
@@ -70,7 +83,7 @@ encoder_init()
 void
 encoder_assign_crtc(uint8 crtcID)
 {
-	TRACE("%s\n", __func__);
+	TRACE("%s: display %" B_PRIu8 "\n", __func__, crtcID);
 
 	int index = GetIndexIntoMasterTable(COMMAND, SelectCRTC_Source);
 

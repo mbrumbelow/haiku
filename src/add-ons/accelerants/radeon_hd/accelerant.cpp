@@ -280,9 +280,6 @@ radeon_init_accelerant(int device)
 	// print found connectors
 	debug_connectors();
 
-	// setup encoders on each connector if needed
-	encoder_init();
-
 	// program external pll clock
 	pll_external_init();
 
@@ -296,6 +293,9 @@ radeon_init_accelerant(int device)
 
 	// print found displays
 	debug_displays();
+
+	// setup encoders on each connector if needed
+	encoder_init();
 
 	// create initial list of video modes
 	status = create_mode_list();
