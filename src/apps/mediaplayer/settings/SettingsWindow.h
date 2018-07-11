@@ -47,6 +47,7 @@ private:
 		BCheckBox*				fScaleBilinearCB;
 		BCheckBox*				fScaleFullscreenControlsCB;
 
+		BOptionPopUp*			fResumeOP;
 		BOptionPopUp*			fSubtitleSizeOP;
 		BOptionPopUp*			fSubtitlePlacementOP;
 
