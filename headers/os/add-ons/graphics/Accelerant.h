@@ -16,7 +16,7 @@
 
 
 #define B_ACCELERANT_ENTRY_POINT	"get_accelerant_hook"
-#define B_ACCELERANT_VERSION		1
+#define B_ACCELERANT_VERSION 		2
 
 
 typedef void* (*GetAccelerantHook)(uint32, void*);
@@ -33,6 +33,7 @@ enum {
 	B_UNINIT_ACCELERANT,				/* required */
 	B_GET_ACCELERANT_DEVICE_INFO,		/* required */
 	B_ACCELERANT_RETRACE_SEMAPHORE,		/* optional */
+	B_ACCELERANT_GET_HEAD_COUNT,		/* optional */
 
 	/* mode configuration */
 	B_ACCELERANT_MODE_COUNT = 0x100,	/* required */
@@ -131,6 +132,8 @@ typedef struct {
 										/* virtual_width line */
 										/* not neccesarily the same as */
 										/* virtual_width * byte_per_pixel */
+	int32	x_display_position;			/* coordinate of x position */
+	int32	y_display_position;			/* coordinate of y position */
 } frame_buffer_config;
 
 
@@ -173,11 +176,19 @@ typedef struct {
 	}		produced;
 	float	width;
 	float	height;
-	uint32	min_horizontal_frequency;	/* in kHz */
-	uint32	max_horizontal_frequency;
-	uint32	min_vertical_frequency;		/* in Hz */
-	uint32	max_vertical_frequency;
-	uint32	max_pixel_clock;			/* in kHz */
+	struct {
+		uint32	min_horizontal_frequency;	/* in kHz */
+		uint32	max_horizontal_frequency;
+		uint32	min_vertical_frequency;		/* in Hz */
+		uint32	max_vertical_frequency;
+		uint32	max_pixel_clock;			/* in kHz */
+	} constraints;
+	struct {
+		uint8	crtc;
+		uint32	encoder_type;
+		uint32	connector_type;
+		uint32	dpcm;					/* dots per cm */
+	} hardware;
 } monitor_info;
 
 
@@ -286,29 +297,35 @@ typedef void (*get_accelerant_clone_info)(void* data);
 typedef status_t (*clone_accelerant)(void* data);
 typedef void (*uninit_accelerant)(void);
 typedef status_t (*get_accelerant_device_info)(accelerant_device_info* adi);
+typedef uint8 (*get_head_count)(void);
 
-typedef uint32 (*accelerant_mode_count)(void);
-typedef status_t (*get_mode_list)(display_mode*);
-typedef status_t (*propose_display_mode)(display_mode* target,
+typedef uint32 (*accelerant_mode_count)(uint8 displayID);
+typedef status_t (*get_mode_list)(uint8 displayID, display_mode*);
+typedef status_t (*propose_display_mode)(uint8 displayID, display_mode* target,
 	display_mode* low, display_mode* high);
-typedef status_t (*set_display_mode)(display_mode* modeToSet);
-typedef status_t (*get_display_mode)(display_mode* currentMode);
-typedef status_t (*get_frame_buffer_config)(frame_buffer_config* frameBuffer);
-typedef status_t (*get_pixel_clock_limits)(display_mode* dm, uint32* low,
-	uint32* high);
-typedef status_t (*move_display_area)(uint16 hDisplayStart,
+typedef status_t (*set_display_mode)(uint8 displayID, display_mode* modeToSet);
+typedef status_t (*get_display_mode)(uint8 displayID,
+	display_mode* currentMode);
+typedef status_t (*get_frame_buffer_config)(uint8 displayID,
+	frame_buffer_config* frameBuffer);
+typedef status_t (*get_pixel_clock_limits)(uint8 displayID, display_mode* dm,
+	uint32* low, uint32* high);
+typedef status_t (*move_display_area)(uint8 displayID, uint16 hDisplayStart,
 	uint16 vDisplayStart);
-typedef status_t (*get_timing_constraints)(display_timing_constraints* dtc);
-typedef void (*set_indexed_colors)(uint count, uint8 first,
+typedef status_t (*get_timing_constraints)(uint8 displayID,
+	display_timing_constraints* dtc);
+typedef void (*set_indexed_colors)(uint8 displayID, uint count, uint8 first,
 	const uint8* colorData, uint32 flags);
-typedef uint32 (*dpms_capabilities)(void);
-typedef uint32 (*dpms_mode)(void);
-typedef status_t (*set_dpms_mode)(uint32 dpms_flags);
-typedef status_t (*get_preferred_display_mode)(display_mode* preferredMode);
-typedef status_t (*get_monitor_info)(monitor_info* info);
-typedef status_t (*get_edid_info)(void* info, uint32 size, uint32* _version);
-typedef status_t (*set_brightness)(float brightness);
-typedef status_t (*get_brightness)(float* brightness);
+typedef uint32 (*dpms_capabilities)(uint8 displayID);
+typedef uint32 (*dpms_mode)(uint8 displayID);
+typedef status_t (*set_dpms_mode)(uint8 displayID, uint32 dpms_flags);
+typedef status_t (*get_preferred_display_mode)(uint8 displayID,
+	display_mode* preferredMode);
+typedef status_t (*get_monitor_info)(uint8 displayID, monitor_info* info);
+typedef status_t (*get_edid_info)(uint8 displayID, void* info, uint32 size,
+	uint32* _version);
+typedef status_t (*set_brightness)(uint8 displayID, float brightness);
+typedef status_t (*get_brightness)(uint8 displayID, float* brightness);
 
 typedef sem_id (*accelerant_retrace_semaphore)(void);
 
