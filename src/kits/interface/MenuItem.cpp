@@ -753,8 +753,8 @@ BMenuItem::_DrawShortcutSymbol()
 	BPoint where = ContentLocation();
 	where.x = fBounds.right - font.Size();
 
-	if (fSubmenu != NULL)
-		where.x -= fBounds.Height() / 2;
+	// Always remove the width of the submenu arrow
+	where.x -= fBounds.Height() / 2;
 
 	const float ascent = MenuPrivate(fSuper).Ascent();
 	if (fShortcutChar < B_SPACE && kUTF8ControlMap[(int)fShortcutChar])
