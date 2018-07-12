@@ -184,7 +184,7 @@ _next_dirent_(struct diri *iter, struct _dirent_info_ *oinfo, char *filename,
 	if (start_index == 0xffff) {
 		start_index = iter->current_index;
 		// korli : seen on FreeBSD /src/sys/fs/msdosfs/direntry.h
-		msdos_to_utf8(buffer, (uchar *)filename, len, buffer[0xc] & 0x18);
+		msdos_to_utf8(buffer, (uchar *)filename, len, buffer[0xc]);
 	}
 
 	if (oinfo) {
