@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "439a23d9_5e09ce59",
+        "filename": "src/kits/interface/ColumnTypes.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-07-15T17:07:12Z",
+      "side": 1,
+      "message": "Per our coding style, both of these `return`s should go on the line after the `if`.",
+      "revId": "022211b2adaedf8760cf7a8bd0ce459aa73f2e46",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
