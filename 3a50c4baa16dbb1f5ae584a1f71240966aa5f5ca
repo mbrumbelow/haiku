@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2efec25a_989aeec9",
+        "filename": "src/kits/interface/Menu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2443,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-16T06:07:55Z",
+      "side": 1,
+      "message": "Only frameShiftedLeft is ever used. What\u0027s the point in keeping track of the 3 other booleans?",
+      "revId": "3a50c4baa16dbb1f5ae584a1f71240966aa5f5ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
