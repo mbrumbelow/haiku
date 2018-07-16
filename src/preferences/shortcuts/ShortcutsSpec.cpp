@@ -177,7 +177,7 @@ ShortcutsSpec::ShortcutsSpec(BMessage* from)
 		temp = "";
 	}
 
-	SetCommand(temp);
+	SetCommand(_TranslateCommandFromEnToLocale(temp));
 
 	if (from->FindInt32("key", (int32*) &fKey) != B_NO_ERROR) {
 		printf(CLASS);
@@ -225,8 +225,10 @@ ShortcutsSpec::Archive(BMessage* into, bool deep) const
 
 	into->AddString("class", "ShortcutsSpec");
 
+	BString translatedCommand = _TranslateCommandFromLocaleToEn(fCommand);
+
 	// These fields are for our prefs panel's benefit only
-	into->AddString("command", fCommand);
+	into->AddString("command", translatedCommand);
 	into->AddInt32("key", fKey);
 
 	// Assemble a BitFieldTester for the input_server add-on to use...
@@ -245,7 +247,7 @@ ShortcutsSpec::Archive(BMessage* into, bool deep) const
 	into->AddMessage("modtester", &testerMsg);
 
 	// And also create a CommandActuator for the input_server add-on to execute
-	CommandActuator* act = CreateCommandActuator(fCommand);
+	CommandActuator* act = CreateCommandActuator(translatedCommand);
 	BMessage actMsg;
 	ret = act->Archive(&actMsg);
 	if (ret != B_NO_ERROR)
@@ -630,4 +632,44 @@ ShortcutsSpec::_InitModifierNames()
 	sCommandName = B_TRANSLATE_COMMENT("Command",
 		"Name for modifier on keyboard");
 #endif
+}
+
+
+BString
+ShortcutsSpec::_TranslateCommandFromLocaleToEn(char* command) const
+{
+	BString translateCommand(command);
+
+	translateCommand.ReplaceAll(B_TRANSLATE("*InsertString"), "*InsertString");
+	translateCommand.ReplaceAll(B_TRANSLATE("*MoveMouse"), "*MoveMouse");
+	translateCommand.ReplaceAll(B_TRANSLATE("*MoveMouseTo"), "*MoveMouseTo");
+	translateCommand.ReplaceAll(B_TRANSLATE("*MouseButton"), "*MouseButton");
+	translateCommand.ReplaceAll(B_TRANSLATE("*LaunchHandler"), "*LaunchHandler");
+	translateCommand.ReplaceAll(B_TRANSLATE("*Multi"), "*Multi");
+	translateCommand.ReplaceAll(B_TRANSLATE("*MouseDown"), "*MouseDown");
+	translateCommand.ReplaceAll(B_TRANSLATE("*MouseUp"), "*MouseUp");
+	translateCommand.ReplaceAll(B_TRANSLATE("*SendMessage"), "*SendMessage");
+	translateCommand.ReplaceAll(B_TRANSLATE("*Beep"), "*Beep");
+
+	return translateCommand;
+}
+
+
+BString
+ShortcutsSpec::_TranslateCommandFromEnToLocale(char* command) const
+{
+	BString translateCommand(command);
+
+	translateCommand.ReplaceAll("*InsertString", B_TRANSLATE("*InsertString"));
+	translateCommand.ReplaceAll("*MoveMouse", B_TRANSLATE("*MoveMouse"));
+	translateCommand.ReplaceAll("*MoveMouseTo", B_TRANSLATE("*MoveMouseTo"));
+	translateCommand.ReplaceAll("*MouseButton", B_TRANSLATE("*MouseButton"));
+	translateCommand.ReplaceAll("*LaunchHandler", B_TRANSLATE("*LaunchHandler"));
+	translateCommand.ReplaceAll("*Multi", B_TRANSLATE("*Multi"));
+	translateCommand.ReplaceAll("*MouseDown", B_TRANSLATE("*MouseDown"));
+	translateCommand.ReplaceAll("*MouseUp", B_TRANSLATE("*MouseUp"));
+	translateCommand.ReplaceAll("*SendMessage", B_TRANSLATE("*SendMessage"));
+	translateCommand.ReplaceAll("*Beep", B_TRANSLATE("*Beep"));
+
+	return translateCommand;
 }

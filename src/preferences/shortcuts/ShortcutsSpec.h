@@ -74,6 +74,8 @@ public:
 private:
 			void 			_CacheViewFont(BView* owner);
 			bool 			_AttemptTabCompletion();
+			BString			_TranslateCommandFromLocaleToEn(const char* command) const;
+			BString			_TranslateCommandFromEnToLocale(const char* command) const;
 
 			char*			fCommand;
 			uint32			fCommandLen;	// number of bytes in fCommand buffer
