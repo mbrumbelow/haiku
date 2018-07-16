@@ -43,6 +43,7 @@ typedef struct {
 	pci_device* device;
 	addr_t base_addr;
 	uint8 irq;
+	sdhci_mmc_bus mmc_bus;
 
 	device_node* node;
 	pci_info info;
@@ -117,7 +118,7 @@ sdhci_set_clock(struct registers* regs)
 	int base_clock = SDHCI_BASE_CLOCK_FREQ(regs->capabilities);
 	TRACE("SDCLK frequency: %dMHz\n", base_clock); // assuming target fequency as 2.5 MHZ
 
-	regs->clock_control |= SDHCI_BASE_CLOCK_DIV_2; // base clock divided by 2
+	regs->clock_control |= SDHCI_BASE_CLOCK_DIV_4; // base clock divided by 2
 
 	regs->clock_control |= SDHCI_INTERNAL_CLOCK_ENABLE; // enabling internal clock
 
@@ -241,43 +242,43 @@ init_bus(device_node* node, void** bus_cookie)
 	TRACE("capabilities voltage: %d power voltage: %d\n", (_regs->capabilities>>24)&7, (_regs->power_control>>1)&7);
 
 	sdhci_reset(_regs);
-	sdhci_set_clock(_regs);
-	sdhci_register_dump(slot, _regs);
 
-	TRACE("cmd: %d\n",_regs->command); // exec CMD0 and R1 for response
-	_regs->command |= 26;
+	_regs->normal_interrupt_status_enable = SDHCI_INT_CMD_CMP |
+		SDHCI_INT_TRANS_CMP | SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM;
 
-	TRACE("cmd: %d rsp: %d\n",_regs->command, _regs->response0);
+	_regs->normal_interrupt_signal_enable =  SDHCI_INT_CMD_CMP |
+		SDHCI_INT_TRANS_CMP | SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM;
 
-	_regs->power_control |= 7 << 1; // switching on the power
-	_regs->power_control |= 1 << 0;
+	_regs->error_interrupt_status_enable = SDHCI_INT_TIMEOUT |
+		SDHCI_INT_CRC | SDHCI_INT_INDEX | SDHCI_INT_BUS_POWER |
+		SDHCI_INT_END_BIT;
 
-	int res0 = _regs->response0; 
-	int res2 = _regs->response2;
-	int res4 = _regs->response4;
-	int res6 = _regs->response6;
+	_regs->error_interrupt_signal_enable = SDHCI_INT_TIMEOUT |
+		SDHCI_INT_CRC | SDHCI_INT_INDEX | SDHCI_INT_BUS_POWER |
+		SDHCI_INT_END_BIT;
 
-	TRACE("resp: %d %d\n", res0, res2); // readibg response
+	status = install_io_interrupt_handler(bus->irq,
+		sdhci_pci_config_interrupt, bus, 0);
 
-	_regs->command &= ~(24);
-	TRACE("cmd: %d\n",_regs->command); // clearing command bits for getting response from R3
-
-	_regs->command |= (58 << 8); // writing CMD58 to command index
-
-	TRACE("cmmd: %d\n",_regs->command);
-
-	res0 = _regs->response0;
-	res2 = _regs->response2;
-	res4 = _regs->response4;
-	res6 = _regs->response6;
-
-	TRACE("cmd reg: %d\n", _regs->command);
-
-	TRACE("resp: %d %d\n", res0, res2); // reading responses
+	if(status != B_OK)
+	{
+		TRACE("can't install interrupt handler\n");
+		return status;
+	}
+	TRACE("interrupt handler installed\n");
 
 	bus->_regs = _regs;
 	*bus_cookie = bus;
 	return status;
+}
+
+
+int32
+sdhci_pci_config_interrupt(void* data)
+{
+	sdhci_pci_mmc_bus_info* bus = (sdhci_pci_mmc_bus_info*)data;
+
+	return B_HANDLED_INTERRUPT;
 }
 
 
@@ -423,7 +424,7 @@ supports_device(device_node* parent)
 //	#pragma mark -
 
 module_dependency module_dependencies[] = {
-	{ SDHCI_BUS_CONTROLLER_MODULE_NAME, (module_info**)&gSDHCIDeviceController },
+	{ SDHCI_BUS_CONTROLLER_MODULE_NAME, (module_info**)&gSDHCIDeviceController},
 	{ B_DEVICE_MANAGER_MODULE_NAME, (module_info**)&gDeviceManager },
 	{}
 };

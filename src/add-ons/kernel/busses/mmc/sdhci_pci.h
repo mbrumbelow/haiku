@@ -41,6 +41,16 @@
 #define SDHCI_SD_CLOCK_ENABLE							1 << 2
 #define SDHCI_SD_CLOCK_DISABLE							~(1 << 2)
 
+/* Interrupt registers */
+#define SDHCI_INT_CMD_CMP		1 		// command complete signal enable
+#define SDHCI_INT_TRANS_CMP		2 		// transfer complete signal enable
+#define SDHCI_INT_CARD_INS 		64 		// card insertion signal enable
+#define SDHCI_INT_CARD_REM 		128 	// card removal signal enable
+#define SDHCI_INT_TIMEOUT		1 		// timeout error 
+#define SDHCI_INT_CRC			2 		// CRC error
+#define SDHCI_INT_END_BIT		4 		// end bit error
+#define SDHCI_INT_INDEX 		8 		// index error
+#define SDHCI_INT_BUS_POWER		256 	// power fail
 
 
 struct registers {
@@ -93,6 +103,8 @@ static void sdhci_reset(struct registers*);
 static void sdhci_set_clock(struct registers*);
 static void sdhci_set_power(struct registers*);
 static void sdhci_stop_clock(struct registers*);
+
+int32 sdhci_pci_config_interrupt(void*);
 
 typedef struct {
 	driver_module_info info;
