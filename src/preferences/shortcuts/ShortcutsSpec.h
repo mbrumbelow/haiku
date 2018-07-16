@@ -1,6 +1,6 @@
 /*
  * Copyright 1999-2009 Jeremy Friesner
- * Copyright 2009-2010 Haiku, Inc. All rights reserved.
+ * Copyright 2009-2018 Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -52,12 +52,13 @@ public:
 
 			// Same as ProcessColumnKeyStroke, but for a mouse click instead.
 			bool			ProcessColumnMouseClick(int whichColumn);
-	
+
 			// Same as ProcessColumnKeyStroke, but for a text string instead.
 			bool			ProcessColumnTextString(int whichColumn,
 								const char* string);
 
-			int32 			GetSelectedColumn() const { return fSelectedColumn; }
+			int32 			GetSelectedColumn() const
+								{ return fSelectedColumn; }
 			void 			SetSelectedColumn(int32 i) { fSelectedColumn = i; }
 
 	// default layout of columns is set in here.
@@ -74,9 +75,14 @@ public:
 private:
 			void 			_CacheViewFont(BView* owner);
 			bool 			_AttemptTabCompletion();
+			BString			_TranslateCommandFromLocaleToEn(const char* command)
+								const;
+			BString			_TranslateCommandFromEnToLocale(const char* command)
+								const;
 
 			char*			fCommand;
-			uint32			fCommandLen;	// number of bytes in fCommand buffer
+			uint32			fCommandLen;	// number of bytes in fCommand
+											// buffer
 			uint32			fCommandNul;	// index of the NUL byte in fCommand
 
 			// icon for associated program. Invalid if none available.
