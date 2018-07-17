@@ -16,6 +16,24 @@
       "revId": "b10e07cba4b81ae5a5ec22427789df8d80cabab8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "29a4d46d_d3567252",
+        "filename": "src/preferences/shortcuts/ShortcutsSpec.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 1000030
+      },
+      "writtenOn": "2018-07-17T22:58:32Z",
+      "side": 1,
+      "message": "The user can insert a command in his locale with different parameters (remember the popUp commands are examples that the user can modify).\nFor example in Italian: \"*TastoMouse 2\" or \"*MuoviMouseA 20 20\"\nAfter this method  \"*MouseButton 1\" and \"*MoveMouseTo 20 20\"",
+      "parentUuid": "7666f93c_3ee42e42",
+      "revId": "b10e07cba4b81ae5a5ec22427789df8d80cabab8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
