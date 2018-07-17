@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "552eaa16_0b5d550f",
+        "filename": "src/kits/interface/Menu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-07-17T01:59:14Z",
+      "side": 1,
+      "message": "Put a newline above this comment.",
+      "revId": "3a50c4baa16dbb1f5ae584a1f71240966aa5f5ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f61dc59a_098b8bc4",
+        "filename": "src/kits/interface/Menu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-07-17T01:59:14Z",
+      "side": 1,
+      "message": "Since these 2 are always NULL in the constructor now, there\u0027s no reason to even make them arguments to the constructor.",
+      "revId": "3a50c4baa16dbb1f5ae584a1f71240966aa5f5ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2efec25a_989aeec9",
         "filename": "src/kits/interface/Menu.cpp",
         "patchSetId": 1
