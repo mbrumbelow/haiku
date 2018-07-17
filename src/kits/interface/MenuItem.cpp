@@ -27,6 +27,7 @@
 #include "utf8_functions.h"
 
 
+const float kArrowWidth = 12.0f;
 const float kLightBGTint
 	= (B_LIGHTEN_1_TINT + B_LIGHTEN_1_TINT + B_NO_TINT) / 3.0;
 
@@ -781,30 +782,12 @@ BMenuItem::_DrawSubmenuSymbol()
 	r.left = r.right - rightMargin + 3;
 	r.right -= 1;
 
-	BPoint center(floorf((r.left + r.right) / 2.0),
-		floorf((r.top + r.bottom) / 2.0));
+	BRect rect(0.0f, 0.0f, kArrowWidth, kArrowWidth);
+	rect.OffsetTo(BPoint(r.left,
+			fBounds.top + (fBounds.Height() - rect.Height()) / 2));
 
-	float size = min_c(r.Height() - 2, r.Width());
-	r.top = floorf(center.y - size / 2 + 0.5);
-	r.bottom = floorf(center.y + size / 2 + 0.5);
-	r.left = floorf(center.x - size / 2 + 0.5);
-	r.right = floorf(center.x + size / 2 + 0.5);
-
-	BShape arrowShape;
-	center.x += 0.5;
-	center.y += 0.5;
-	size *= 0.25;
-	float hSize = size * 0.7;
-	arrowShape.MoveTo(BPoint(center.x - hSize, center.y - size));
-	arrowShape.LineTo(BPoint(center.x + hSize, center.y));
-	arrowShape.LineTo(BPoint(center.x - hSize, center.y + size));
-
-	fSuper->SetDrawingMode(B_OP_OVER);
-	fSuper->SetPenSize(ceilf(size * 0.4));
-	// NOTE: StrokeShape() offsets the shape by the current pen position,
-	// it is not documented in the BeBook, but it is true!
-	fSuper->MovePenTo(B_ORIGIN);
-	fSuper->StrokeShape(&arrowShape);
+	be_control_look->DrawArrowShape(Menu(), rect, rect,
+		ui_color(B_MENU_BACKGROUND_COLOR), BControlLook::B_RIGHT_ARROW, 0);
 
 	fSuper->PopState();
 }
