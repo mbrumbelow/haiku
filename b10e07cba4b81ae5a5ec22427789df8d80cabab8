@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7666f93c_3ee42e42",
+        "filename": "src/preferences/shortcuts/ShortcutsSpec.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-17T18:28:27Z",
+      "side": 1,
+      "message": "I would be more comfortable if we never had to perform the translation in that direction.\nSo we should always keep the command in english, and translate only when displaying to the user.",
+      "revId": "b10e07cba4b81ae5a5ec22427789df8d80cabab8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
