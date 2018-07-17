@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c4fe3f8d_758df9f7",
+        "filename": "src/kits/interface/Menu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000059
+      },
+      "writtenOn": "2018-07-17T03:40:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "552eaa16_0b5d550f",
+      "revId": "3a50c4baa16dbb1f5ae584a1f71240966aa5f5ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f61dc59a_098b8bc4",
         "filename": "src/kits/interface/Menu.cpp",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "9ebab06e_b45150d6",
+        "filename": "src/kits/interface/Menu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000059
+      },
+      "writtenOn": "2018-07-17T03:40:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f61dc59a_098b8bc4",
+      "revId": "3a50c4baa16dbb1f5ae584a1f71240966aa5f5ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2efec25a_989aeec9",
         "filename": "src/kits/interface/Menu.cpp",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2018-07-16T06:07:55Z",
       "side": 1,
       "message": "Only frameShiftedLeft is ever used. What\u0027s the point in keeping track of the 3 other booleans?",
+      "revId": "3a50c4baa16dbb1f5ae584a1f71240966aa5f5ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e39c231_0b9bbadc",
+        "filename": "src/kits/interface/Menu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2443,
+      "author": {
+        "id": 1000059
+      },
+      "writtenOn": "2018-07-17T03:40:40Z",
+      "side": 1,
+      "message": "No particular reason, other than when I first started working on it, I thought it might be valuable to track each shift, but in the end it\u0027s definitely superfluous. I\u0027ve removed the unused variables now.",
+      "parentUuid": "2efec25a_989aeec9",
       "revId": "3a50c4baa16dbb1f5ae584a1f71240966aa5f5ca",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
