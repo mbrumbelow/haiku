@@ -59,10 +59,10 @@ All rights reserved.
 #include "WindowMenuItem.h"
 
 
-const float kHPad = 8.0f;
-const float kVPad = 2.0f;
-const float kLabelOffset = 8.0f;
-const float kSwitchWidth = 12.0f;
+static const float kHPad = 8.0f;
+static const float kVPad = 2.0f;
+static const float kLabelOffset = 8.0f;
+static const float kSwitchWidth = 12.0f;
 
 
 //	#pragma mark - TTeamMenuItem
