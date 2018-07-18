@@ -44,7 +44,7 @@ typedef struct {
 	addr_t base_addr;
 	uint8 irq;
 	sdhci_mmc_bus mmc_bus;
-
+	area_id regs_area;
 	device_node* node;
 	pci_info info;
 
@@ -237,14 +237,18 @@ init_bus(device_node* node, void** bus_cookie)
 		return B_BAD_VALUE;
 	}
 
+	bus->regs_area = regs_area;
+
 	struct registers* _regs = (struct registers*)regs;
+
+	bus->_regs = _regs;
 
 	TRACE("capabilities voltage: %d power voltage: %d\n", (_regs->capabilities>>24)&7, (_regs->power_control>>1)&7);
 
 	sdhci_reset(_regs);
 
 	status = install_io_interrupt_handler(bus->irq,
-		sdhci_pci_config_interrupt, bus, 0);
+		sdhci_generic_interrupt, bus, 0);
 
 	if(status != B_OK)
 	{
@@ -267,60 +271,68 @@ init_bus(device_node* node, void** bus_cookie)
 		SDHCI_INT_CRC | SDHCI_INT_INDEX | SDHCI_INT_BUS_POWER |
 		SDHCI_INT_END_BIT;
 
-	bus->_regs = _regs;
+	sdhci_set_clock(_regs);
+
+	sdhci_register_dump(slot, _regs);
+
 	*bus_cookie = bus;
 	return status;
 }
 
 
-void
-sdhci_generic_interrupt(struct registers* _regs)
+status_t
+sdhci_generic_interrupt(void* data)
 {
+	sdhci_pci_mmc_bus_info* bus = (sdhci_pci_mmc_bus_info*)data;
+	
 	uint16_t intmask, card_present;
 
-	intmask = _regs->slot_interrupt_status;
+	intmask = bus->_regs->slot_interrupt_status;
 
-	if(intmask != 0)
-		return;
+	if(intmask == 0 || intmask == 0xffffffff)
+		return B_UNHANDLED_INTERRUPT;
 
 	/* handling card presence interrupt */
 	if(intmask & (SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM))
 	{
 		card_present = ((intmask & SDHCI_INT_CARD_INS) != 0);
-		_regs->normal_interrupt_status_enable &= ~(SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM);
-		_regs->normal_interrupt_signal_enable &= ~(SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM);
+		bus->_regs->normal_interrupt_status_enable &= ~(SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM);
+		bus->_regs->normal_interrupt_signal_enable &= ~(SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM);
 
-		_regs->normal_interrupt_status_enable |= card_present ? SDHCI_INT_CARD_REM :
+		bus->_regs->normal_interrupt_status_enable |= card_present ? SDHCI_INT_CARD_REM :
 			SDHCI_INT_CARD_INS;
-		_regs->normal_interrupt_signal_enable |= card_present ? SDHCI_INT_CARD_REM :
+		bus->_regs->normal_interrupt_signal_enable |= card_present ? SDHCI_INT_CARD_REM :
 			SDHCI_INT_CARD_INS;
 	
-		_regs->normal_interrupt_status |= (intmask & (SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM));
+		bus->_regs->normal_interrupt_status |= (intmask & (SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM));
+		TRACE("Card presence interrupt handled\n");
 	}
 
 	/* handling command interrupt */
 	if(intmask & SDHCI_INT_CMD_MASK)
-		_regs->normal_interrupt_status |= (intmask & SDHCI_INT_CMD_MASK);
+	{
+		bus->_regs->normal_interrupt_status |= (intmask & SDHCI_INT_CMD_MASK);
+		TRACE("Command interrupt handled\n");
+	}
 
 	/* handling bus power interrupt */
 	if(intmask & SDHCI_INT_BUS_POWER)
-		_regs->normal_interrupt_status |= SDHCI_INT_BUS_POWER;
+	{
+		bus->_regs->normal_interrupt_status |= SDHCI_INT_BUS_POWER;
+		TRACE("card is consuming too much power\n");
+	}
 
 	intmask &= ~(SDHCI_INT_BUS_POWER | SDHCI_INT_CARD_INS |SDHCI_INT_CARD_REM | SDHCI_INT_CMD_MASK);
 
-	/* uknown interrupt*/
+	/* unknown interrupt*/
 	if(intmask)
+	{
 		TRACE("unexpected interrupt\n");
+		return B_UNHANDLED_INTERRUPT;
+	}
+
+	return B_HANDLED_INTERRUPT; 
 }	
-
-
-int32
-sdhci_pci_config_interrupt(void* data)
-{
-	sdhci_pci_mmc_bus_info* bus = (sdhci_pci_mmc_bus_info*)data;
-
-	return B_HANDLED_INTERRUPT;
-}
 
 
 static void

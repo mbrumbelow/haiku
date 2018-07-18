@@ -109,7 +109,7 @@ static void sdhci_set_clock(struct registers*);
 static void sdhci_set_power(struct registers*);
 static void sdhci_stop_clock(struct registers*);
 
-int32 sdhci_pci_config_interrupt(void*);
+status_t sdhci_generic_interrupt(void*);
 
 typedef struct {
 	driver_module_info info;
