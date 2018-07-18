@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "661b68bb_b85913d5",
+        "filename": "src/add-ons/decorators/BeDecorator/BeDecorator.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-18T11:16:30Z",
+      "side": 1,
+      "message": "You check for them being NULL here, but nowhere in the drawing code.\nUnfortunately there is not much we can do to handle allocation failure,\nexcept maybe not drawing the bitmaps at all (we would end up with flat buttons then I guess).",
+      "revId": "17946b09666bfa9ac08066614f43eaa73c442c65",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
