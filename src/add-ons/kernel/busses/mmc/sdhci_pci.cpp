@@ -243,6 +243,16 @@ init_bus(device_node* node, void** bus_cookie)
 
 	sdhci_reset(_regs);
 
+	status = install_io_interrupt_handler(bus->irq,
+		sdhci_pci_config_interrupt, bus, 0);
+
+	if(status != B_OK)
+	{
+		TRACE("can't install interrupt handler\n");
+		return status;
+	}
+	TRACE("interrupt handler installed\n");
+
 	_regs->normal_interrupt_status_enable = SDHCI_INT_CMD_CMP |
 		SDHCI_INT_TRANS_CMP | SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM;
 
@@ -257,20 +267,51 @@ init_bus(device_node* node, void** bus_cookie)
 		SDHCI_INT_CRC | SDHCI_INT_INDEX | SDHCI_INT_BUS_POWER |
 		SDHCI_INT_END_BIT;
 
-	status = install_io_interrupt_handler(bus->irq,
-		sdhci_pci_config_interrupt, bus, 0);
-
-	if(status != B_OK)
-	{
-		TRACE("can't install interrupt handler\n");
-		return status;
-	}
-	TRACE("interrupt handler installed\n");
-
 	bus->_regs = _regs;
 	*bus_cookie = bus;
 	return status;
 }
+
+
+void
+sdhci_generic_interrupt(struct registers* _regs)
+{
+	uint16_t intmask, card_present;
+
+	intmask = _regs->slot_interrupt_status;
+
+	if(intmask != 0)
+		return;
+
+	/* handling card presence interrupt */
+	if(intmask & (SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM))
+	{
+		card_present = ((intmask & SDHCI_INT_CARD_INS) != 0);
+		_regs->normal_interrupt_status_enable &= ~(SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM);
+		_regs->normal_interrupt_signal_enable &= ~(SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM);
+
+		_regs->normal_interrupt_status_enable |= card_present ? SDHCI_INT_CARD_REM :
+			SDHCI_INT_CARD_INS;
+		_regs->normal_interrupt_signal_enable |= card_present ? SDHCI_INT_CARD_REM :
+			SDHCI_INT_CARD_INS;
+	
+		_regs->normal_interrupt_status |= (intmask & (SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM));
+	}
+
+	/* handling command interrupt */
+	if(intmask & SDHCI_INT_CMD_MASK)
+		_regs->normal_interrupt_status |= (intmask & SDHCI_INT_CMD_MASK);
+
+	/* handling bus power interrupt */
+	if(intmask & SDHCI_INT_BUS_POWER)
+		_regs->normal_interrupt_status |= SDHCI_INT_BUS_POWER;
+
+	intmask &= ~(SDHCI_INT_BUS_POWER | SDHCI_INT_CARD_INS |SDHCI_INT_CARD_REM | SDHCI_INT_CMD_MASK);
+
+	/* uknown interrupt*/
+	if(intmask)
+		TRACE("unexpected interrupt\n");
+}	
 
 
 int32

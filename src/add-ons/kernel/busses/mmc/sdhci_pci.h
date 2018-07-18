@@ -52,6 +52,11 @@
 #define SDHCI_INT_INDEX 		8 		// index error
 #define SDHCI_INT_BUS_POWER		256 	// power fail
 
+#define	 SDHCI_INT_CMD_ERROR_MASK	(SDHCI_INT_TIMEOUT | \
+		SDHCI_INT_CRC | SDHCI_INT_END_BIT | SDHCI_INT_INDEX)
+
+#define SDHCI_INT_CMD_MASK 	(SDHCI_INT_CMD_CMP | SDHCI_INT_CMD_ERROR_MASK)
+
 
 struct registers {
 	volatile uint32_t system_address;
