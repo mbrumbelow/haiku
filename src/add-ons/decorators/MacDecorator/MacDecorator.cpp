@@ -184,7 +184,7 @@ MacDecorator::_DoLayout()
 			case B_MODAL_WINDOW_LOOK:
 				fBorderWidth = kDefaultBorderWidth;
 				break;
-	
+
 			case B_TITLED_WINDOW_LOOK:
 			case B_DOCUMENT_WINDOW_LOOK:
 				hasTab = true;
@@ -194,11 +194,11 @@ MacDecorator::_DoLayout()
 				hasTab = true;
 				fBorderWidth = 3;
 				break;
-	
+
 			case B_BORDERED_WINDOW_LOOK:
 				fBorderWidth = 1;
 				break;
-	
+
 			default:
 				fBorderWidth = 0;
 		}
@@ -352,7 +352,7 @@ MacDecorator::_DrawFrame(BRect invalid)
 				if (fTopTab->look == B_MODAL_WINDOW_LOOK) {
 					offset = r.LeftTop();
 					pt2 = r.RightTop();
-					
+
 					fDrawingEngine->StrokeLine(offset, pt2, fFrameLowerColor);
 					offset.x++;
 					offset.y++;
@@ -364,38 +364,38 @@ MacDecorator::_DrawFrame(BRect invalid)
 					offset.y++;
 					pt2.x--;
 					pt2.y++;
-					
+
 					fDrawingEngine->StrokeLine(offset, pt2, fFrameMidColor);
 					offset.x++;
 					offset.y++;
 					pt2.x--;
 					pt2.y++;
-					
+
 					fDrawingEngine->StrokeLine(offset, pt2, fFrameMidColor);
 					offset.x++;
 					offset.y++;
 					pt2.x--;
 					pt2.y++;
-					
+
 					fDrawingEngine->StrokeLine(offset, pt2, fFrameLowColor);
 					offset.x++;
 					offset.y++;
 					pt2.x--;
 					pt2.y++;
-					
+
 					fDrawingEngine->StrokeLine(offset, pt2, fFrameLowerColor);
 				} else {
 					// Some odd stuff here where the title bar is melded into the
 					// window border so that the sides are drawn into the title
-					// so we draw this bottom up 
+					// so we draw this bottom up
 					offset = topleftpt;
 					pt2 = toprightpt;
-					
+
 					fDrawingEngine->StrokeLine(offset, pt2, fFrameLowerColor);
 					offset.y--;
 					offset.x++;
 					pt2.y--;
-					
+
 					fDrawingEngine->StrokeLine(offset, pt2, fFrameLowColor);
 				}
 
