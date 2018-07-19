@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ecddd9c_7607ee59",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-19T12:34:57Z",
+      "side": 1,
+      "message": "if (addonImage \u003c 0) return addonImage;",
+      "range": {
+        "startLine": 196,
+        "startChar": 1,
+        "endLine": 196,
+        "endChar": 23
+      },
+      "revId": "46df3c911b9b9d432c1037c185d0e9785f6f655e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b9f7195_64bbf3cc",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-19T12:34:57Z",
+      "side": 1,
+      "message": "incorrect indentation (and the comment made above about using if (result !\u003d B_OK) return result; applies here too)",
+      "revId": "46df3c911b9b9d432c1037c185d0e9785f6f655e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e279f58d_fe1b2e63",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-19T12:34:57Z",
+      "side": 1,
+      "message": "incorrect indentation",
+      "range": {
+        "startLine": 206,
+        "startChar": 3,
+        "endLine": 206,
+        "endChar": 4
+      },
+      "revId": "46df3c911b9b9d432c1037c185d0e9785f6f655e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9de999de_4d926065",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-19T12:34:57Z",
+      "side": 1,
+      "message": "same pattern here, use if (result !\u003d B_OK) goto end; consistently.",
+      "range": {
+        "startLine": 233,
+        "startChar": 1,
+        "endLine": 233,
+        "endChar": 22
+      },
+      "revId": "46df3c911b9b9d432c1037c185d0e9785f6f655e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
