@@ -103,7 +103,11 @@ TabDecorator::Draw(BRect updateRect)
 
 	fDrawingEngine->SetDrawState(&fDrawState);
 
-	_DrawFrame(updateRect & fBorderRect);
+	if (IsOutlineResizing())
+		_DrawOutlineFrame(updateRect & fBorderRect);
+	else
+		_DrawFrame(updateRect & fBorderRect);
+
 	_DrawTabs(updateRect & fTitleBarRect);
 }
 
@@ -116,7 +120,11 @@ TabDecorator::Draw()
 
 	fDrawingEngine->SetDrawState(&fDrawState);
 
-	_DrawFrame(fBorderRect);
+	if (IsOutlineResizing())
+		_DrawOutlineFrame(fBorderRect);
+	else
+		_DrawFrame(fBorderRect);
+
 	_DrawTabs(fTitleBarRect);
 }
 

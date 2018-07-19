@@ -80,6 +80,7 @@ protected:
 			void				_DistributeTabSize(float delta);
 
 	virtual	void				_DrawFrame(BRect rect) = 0;
+	virtual void				_DrawOutlineFrame(BRect rect) = 0;
 	virtual	void				_DrawTab(Decorator::Tab* tab, BRect r) = 0;
 
 	virtual	void				_DrawButtons(Decorator::Tab* tab,

@@ -175,6 +175,9 @@ public:
 			void				MoveBy(BPoint offset);
 			void				ResizeBy(float x, float y, BRegion* dirty);
 			void				ResizeBy(BPoint offset, BRegion* dirty);
+			void				SetOutlinesDelta(BPoint delta, BRegion* dirty);
+			bool				IsOutlineResizing() const
+									{ return fOutlinesDelta != BPoint(0, 0); }
 
 	virtual	bool				SetRegionHighlight(Region region,
 									uint8 highlight, BRegion* dirty,
@@ -212,6 +215,7 @@ protected:
 		//! method for calculating layout for the decorator
 
 	virtual	void				_DrawFrame(BRect rect) = 0;
+	virtual void				_DrawOutlineFrame(BRect rect) = 0;
 	virtual	void				_DrawTabs(BRect rect);
 
 	virtual	void				_DrawTab(Decorator::Tab* tab, BRect rect) = 0;
@@ -253,6 +257,7 @@ protected:
 
 	virtual void				_MoveBy(BPoint offset);
 	virtual	void				_ResizeBy(BPoint offset, BRegion* dirty) = 0;
+	virtual void				_SetOutlinesDelta(BPoint offset, BRegion* dirty);
 
 	virtual bool				_SetSettings(const BMessage& settings,
 									BRegion* updateRegion = NULL);
@@ -275,6 +280,8 @@ protected:
 
 			DrawingEngine*		fDrawingEngine;
 			DrawState			fDrawState;
+
+			BPoint				fOutlinesDelta;
 
 			// Individual rects for handling window frame
 			// rendering the proper way
