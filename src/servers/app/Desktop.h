@@ -183,6 +183,8 @@ public:
 									int32 workspace = -1);
 			void				ResizeWindowBy(Window* window, float x,
 									float y);
+			void				SetWindowOutlinesDelta(Window* window,
+									BPoint delta);
 			bool				SetWindowTabLocation(Window* window,
 									float location, bool isShifting);
 			bool				SetWindowDecoratorSettings(Window* window,

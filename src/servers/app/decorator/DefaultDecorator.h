@@ -46,8 +46,11 @@ protected:
 									BRect rect);
 	virtual	void				_DrawMinimize(Decorator::Tab* tab, bool direct,
 									BRect rect);
+	virtual	void				_DrawResizeKnob(BRect r, bool full,
+									const ComponentColors& color);
 
 private:
+	virtual	void				_SetOutlinesDelta(BPoint delta, BRegion* dirty);
  			void				_DrawButtonBitmap(ServerBitmap* bitmap,
  									bool direct, BRect rect);
 			void				_DrawBlendedRect(DrawingEngine *engine,

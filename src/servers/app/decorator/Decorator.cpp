@@ -633,6 +633,14 @@ Decorator::ResizeBy(BPoint offset, BRegion* dirty)
 
 
 void
+Decorator::SetOutlinesDelta(BPoint delta, BRegion* dirty)
+{
+	_SetOutlinesDelta(delta, dirty);
+	_InvalidateFootprint();
+}
+
+
+void
 Decorator::ExtendDirtyRegion(Region region, BRegion& dirty)
 {
 	switch (region) {
@@ -1002,6 +1010,13 @@ Decorator::_MoveBy(BPoint offset)
 	fFrame.OffsetBy(offset);
 	fResizeRect.OffsetBy(offset);
 	fBorderRect.OffsetBy(offset);
+}
+
+
+void
+Decorator::_SetOutlinesDelta(BPoint offset, BRegion* dirty)
+{
+	// Implemented by subclasses.
 }
 
 

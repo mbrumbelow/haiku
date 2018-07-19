@@ -129,6 +129,8 @@ public:
 			void				ResizeBy(int32 x, int32 y,
 									BRegion* dirtyRegion,
 									bool resizeStack = true);
+			void				SetOutlinesDelta(BPoint delta,
+									BRegion* dirtyRegion);
 
 			void				ScrollViewBy(View* view, int32 dx, int32 dy);
 

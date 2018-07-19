@@ -17,8 +17,10 @@
 
 #include <math.h>
 
+#include <PortLink.h>
 #include <WindowPrivate.h>
 
+#include "AppServer.h"
 #include "ClickTarget.h"
 #include "Desktop.h"
 #include "DefaultDecorator.h"
@@ -250,12 +252,28 @@ struct DefaultWindowBehaviour::DragState : MouseTrackingState {
 
 
 struct DefaultWindowBehaviour::ResizeState : MouseTrackingState {
+	BPoint fDelta;
+
 	ResizeState(DefaultWindowBehaviour& behavior, BPoint where,
 		bool activateOnMouseUp)
 		:
-		MouseTrackingState(behavior, where, activateOnMouseUp, false)
+		MouseTrackingState(behavior, where, activateOnMouseUp, true)
 	{
+		fDelta = BPoint(0, 0);
 	}
+
+	virtual void EnterState(State* prevState)
+	{
+
+	}
+
+	virtual void ExitState(State* nextState)
+ 	{
+		if (fWindow->Flags() & B_OUTLINE_RESIZE) {
+			fDesktop->SetWindowOutlinesDelta(fWindow, BPoint(0, 0));
+			fDesktop->ResizeWindowBy(fWindow, fDelta.x, fDelta.y);
+		}
+ 	}
 
 	virtual void MouseMovedAction(BPoint& delta, bigtime_t now)
 	{
@@ -267,7 +285,11 @@ struct DefaultWindowBehaviour::ResizeState : MouseTrackingState {
 
 			BPoint oldRightBottom = fWindow->Frame().RightBottom();
 
-			fDesktop->ResizeWindowBy(fWindow, delta.x, delta.y);
+			if (fWindow->Flags() & B_OUTLINE_RESIZE) {
+				fDelta = delta;
+				fDesktop->SetWindowOutlinesDelta(fWindow, delta);
+			} else
+				fDesktop->ResizeWindowBy(fWindow, delta.x, delta.y);
 
 			// constrain delta to true change in size
 			delta = fWindow->Frame().RightBottom() - oldRightBottom;

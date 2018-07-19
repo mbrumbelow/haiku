@@ -174,6 +174,7 @@ public:
 			void				MoveBy(BPoint offset);
 			void				ResizeBy(float x, float y, BRegion* dirty);
 			void				ResizeBy(BPoint offset, BRegion* dirty);
+			void				SetOutlinesDelta(BPoint delta, BRegion* dirty);
 
 	virtual	bool				SetRegionHighlight(Region region,
 									uint8 highlight, BRegion* dirty,
@@ -252,6 +253,7 @@ protected:
 
 	virtual void				_MoveBy(BPoint offset);
 	virtual	void				_ResizeBy(BPoint offset, BRegion* dirty) = 0;
+	virtual void				_SetOutlinesDelta(BPoint offset, BRegion* dirty);
 
 	virtual bool				_SetSettings(const BMessage& settings,
 									BRegion* updateRegion = NULL);
@@ -271,6 +273,8 @@ protected:
 
 			DrawingEngine*		fDrawingEngine;
 			DrawState			fDrawState;
+
+			BPoint				fOutlinesDelta;
 
 			// Individual rects for handling window frame
 			// rendering the proper way
