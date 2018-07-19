@@ -1,5 +1,5 @@
 /*
- * Copyright 2001-2015 Haiku, Inc.
+ * Copyright 2001-2020 Haiku, Inc.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -10,7 +10,9 @@
  *		John Scipione, jscipione@gmail.com
  *		Ingo Weinhold, ingo_weinhold@gmx.de
  *		Clemens Zeidler, haiku@clemens-zeidler.de
- *		Joseph Groover <looncraz@looncraz.net>
+ *		Joseph Groover, looncraz@looncraz.net
+ *		Tri-Edge AI
+ *		Jacob Secunda, secundja@gmail.com
  */
 
 
@@ -353,52 +355,25 @@ DefaultDecorator::_DrawFrame(BRect rect)
 
 	// Draw the resize knob if we're supposed to
 	if (!(fTopTab->flags & B_NOT_RESIZABLE)) {
-		r = fResizeRect;
-
 		ComponentColors colors;
 		_GetComponentColors(COMPONENT_RESIZE_CORNER, colors, fTopTab);
 
 		switch ((int)fTopTab->look) {
 			case B_DOCUMENT_WINDOW_LOOK:
 			{
-				if (!rect.Intersects(r))
-					break;
+				if (fOutlinesDelta.x != 0 || fOutlinesDelta.y != 0) {
+					r.Set(fFrame.right - 13, fFrame.bottom - 13,
+						fFrame.right + 3, fFrame.bottom + 3);
 
-				float x = r.right - 3;
-				float y = r.bottom - 3;
-
-				BRect bg(x - 13, y - 13, x, y);
-
-				BGradientLinear gradient;
-				gradient.SetStart(bg.LeftTop());
-				gradient.SetEnd(bg.RightBottom());
-				gradient.AddColor(colors[1], 0);
-				gradient.AddColor(colors[2], 255);
-
-				fDrawingEngine->FillRect(bg, gradient);
-
-				fDrawingEngine->StrokeLine(BPoint(x - 15, y - 15),
-					BPoint(x - 15, y - 2), colors[0]);
-				fDrawingEngine->StrokeLine(BPoint(x - 14, y - 14),
-					BPoint(x - 14, y - 1), colors[1]);
-				fDrawingEngine->StrokeLine(BPoint(x - 15, y - 15),
-					BPoint(x - 2, y - 15), colors[0]);
-				fDrawingEngine->StrokeLine(BPoint(x - 14, y - 14),
-					BPoint(x - 1, y - 14), colors[1]);
-
-				if (fTopTab && !IsFocus(fTopTab))
-					break;
-
-				static const rgb_color kWhite
-					= (rgb_color){ 255, 255, 255, 255 };
-				for (int8 i = 1; i <= 4; i++) {
-					for (int8 j = 1; j <= i; j++) {
-						BPoint pt1(x - (3 * j) + 1, y - (3 * (5 - i)) + 1);
-						BPoint pt2(x - (3 * j) + 2, y - (3 * (5 - i)) + 2);
-						fDrawingEngine->StrokePoint(pt1, colors[0]);
-						fDrawingEngine->StrokePoint(pt2, kWhite);
-					}
+					if (rect.Intersects(r))
+						_DrawResizeKnob(r, false, colors);
 				}
+
+				if (rect.Intersects(fResizeRect)) {
+					_DrawResizeKnob(fResizeRect, fTopTab && IsFocus(fTopTab),
+						colors);
+				}
+
 				break;
 			}
 
@@ -426,6 +401,45 @@ DefaultDecorator::_DrawFrame(BRect rect)
 			default:
 				// don't draw resize corner
 				break;
+		}
+	}
+}
+
+
+void
+DefaultDecorator::_DrawResizeKnob(BRect r, bool full, const ComponentColors& colors)
+{
+	float x = r.right -= 3;
+	float y = r.bottom -= 3;
+
+	BGradientLinear gradient;
+	gradient.SetStart(r.LeftTop());
+	gradient.SetEnd(r.RightBottom());
+	gradient.AddColor(colors[1], 0);
+	gradient.AddColor(colors[2], 255);
+
+	fDrawingEngine->FillRect(r, gradient);
+
+	fDrawingEngine->StrokeLine(BPoint(x - 15, y - 15),
+		BPoint(x - 15, y - 2), colors[0]);
+	fDrawingEngine->StrokeLine(BPoint(x - 14, y - 14),
+		BPoint(x - 14, y - 1), colors[1]);
+	fDrawingEngine->StrokeLine(BPoint(x - 15, y - 15),
+		BPoint(x - 2, y - 15), colors[0]);
+	fDrawingEngine->StrokeLine(BPoint(x - 14, y - 14),
+		BPoint(x - 1, y - 14), colors[1]);
+
+	if (!full)
+		return;
+
+	static const rgb_color kWhite
+		= (rgb_color){ 255, 255, 255, 255 };
+	for (int8 i = 1; i <= 4; i++) {
+		for (int8 j = 1; j <= i; j++) {
+			BPoint pt1(x - (3 * j) + 1, y - (3 * (5 - i)) + 1);
+			BPoint pt2(x - (3 * j) + 2, y - (3 * (5 - i)) + 2);
+			fDrawingEngine->StrokePoint(pt1, colors[0]);
+			fDrawingEngine->StrokePoint(pt2, kWhite);
 		}
 	}
 }

@@ -1,15 +1,17 @@
 /*
- * Copyright 2001-2010, Haiku, Inc.
+ * Copyright 2001-2020, Haiku, Inc.
  * Distributed under the terms of the MIT license.
  *
  * Authors:
- *		DarkWyrm <bpmagic@columbus.rr.com>
- *		Adi Oanca <adioanca@gmail.com>
- *		Stephan Aßmus <superstippi@gmx.de>
- *		Axel Dörfler <axeld@pinc-software.de>
- *		Brecht Machiels <brecht@mos6581.org>
- *		Clemens Zeidler <haiku@clemens-zeidler.de>
- *		Ingo Weinhold <ingo_weinhold@gmx.de>
+ *		DarkWyrm, bpmagic@columbus.rr.com
+ *		Adi Oanca, adioanca@gmail.com
+ *		Stephan Aßmus, superstippi@gmx.de
+ *		Axel Dörfler, axeld@pinc-software.de
+ *		Brecht Machiels, brecht@mos6581.org
+ *		Clemens Zeidler, haiku@clemens-zeidler.de
+ *		Ingo Weinhold, ingo_weinhold@gmx.de
+ *		Tri-Edge AI
+ *		Jacob Secunda, secundja@gmail.com
  */
 
 
@@ -17,8 +19,10 @@
 
 #include <math.h>
 
+#include <PortLink.h>
 #include <WindowPrivate.h>
 
+#include "AppServer.h"
 #include "ClickTarget.h"
 #include "Desktop.h"
 #include "DefaultDecorator.h"
@@ -250,11 +254,27 @@ struct DefaultWindowBehaviour::DragState : MouseTrackingState {
 
 
 struct DefaultWindowBehaviour::ResizeState : MouseTrackingState {
+	BPoint fDelta;
+
 	ResizeState(DefaultWindowBehaviour& behavior, BPoint where,
 		bool activateOnMouseUp)
 		:
-		MouseTrackingState(behavior, where, activateOnMouseUp, false)
+		MouseTrackingState(behavior, where, activateOnMouseUp, true)
 	{
+		fDelta = BPoint(0, 0);
+	}
+
+	virtual void EnterState(State* prevState)
+	{
+
+	}
+
+	virtual void ExitState(State* nextState)
+	{
+		if (fWindow->Flags() & B_OUTLINE_RESIZE) {
+			fDesktop->SetWindowOutlinesDelta(fWindow, BPoint(0, 0));
+			fDesktop->ResizeWindowBy(fWindow, fDelta.x, fDelta.y);
+		}
 	}
 
 	virtual void MouseMovedAction(BPoint& delta, bigtime_t now)
@@ -267,7 +287,11 @@ struct DefaultWindowBehaviour::ResizeState : MouseTrackingState {
 
 			BPoint oldRightBottom = fWindow->Frame().RightBottom();
 
-			fDesktop->ResizeWindowBy(fWindow, delta.x, delta.y);
+			if (fWindow->Flags() & B_OUTLINE_RESIZE) {
+				fDelta = delta;
+				fDesktop->SetWindowOutlinesDelta(fWindow, delta);
+			} else
+				fDesktop->ResizeWindowBy(fWindow, delta.x, delta.y);
 
 			// constrain delta to true change in size
 			delta = fWindow->Frame().RightBottom() - oldRightBottom;
@@ -348,6 +372,8 @@ struct DefaultWindowBehaviour::SlideTabState : MouseTrackingState {
 
 
 struct DefaultWindowBehaviour::ResizeBorderState : MouseTrackingState {
+	BPoint fDelta;
+
 	ResizeBorderState(DefaultWindowBehaviour& behavior, BPoint where,
 		Decorator::Region region)
 		:
@@ -391,6 +417,8 @@ struct DefaultWindowBehaviour::ResizeBorderState : MouseTrackingState {
 			default:
 				break;
 		}
+
+		fDelta = BPoint(0, 0);
 	}
 
 	ResizeBorderState(DefaultWindowBehaviour& behavior, BPoint where,
@@ -401,6 +429,7 @@ struct DefaultWindowBehaviour::ResizeBorderState : MouseTrackingState {
 		fHorizontal(horizontal),
 		fVertical(vertical)
 	{
+		fDelta = BPoint(0, 0);
 	}
 
 	virtual void EnterState(State* previousState)
@@ -420,6 +449,11 @@ struct DefaultWindowBehaviour::ResizeBorderState : MouseTrackingState {
 	virtual void ExitState(State* nextState)
 	{
 		fBehavior._ResetResizeCursor();
+
+		if (fWindow->Flags() & B_OUTLINE_RESIZE) {
+			fDesktop->SetWindowOutlinesDelta(fWindow, BPoint(0, 0));
+			fDesktop->ResizeWindowBy(fWindow, fDelta.x, fDelta.y);
+		}
 	}
 
 	virtual void MouseMovedAction(BPoint& delta, bigtime_t now)
@@ -436,8 +470,14 @@ struct DefaultWindowBehaviour::ResizeBorderState : MouseTrackingState {
 		// to turn out differently from what we request.
 		BPoint oldRightBottom = fWindow->Frame().RightBottom();
 
-		fDesktop->ResizeWindowBy(fWindow, delta.x * fHorizontal,
-			delta.y * fVertical);
+		if (fWindow->Flags() & B_OUTLINE_RESIZE) {
+			fDelta = delta;
+			fDesktop->SetWindowOutlinesDelta(fWindow, BPoint(
+				delta.x * fHorizontal, delta.y * fVertical));
+		} else {
+			fDesktop->ResizeWindowBy(fWindow, delta.x * fHorizontal,
+				delta.y * fVertical);
+		}
 
 		// constrain delta to true change in size
 		delta = fWindow->Frame().RightBottom() - oldRightBottom;
