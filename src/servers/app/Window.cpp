@@ -400,6 +400,40 @@ Window::ResizeBy(int32 x, int32 y, BRegion* dirtyRegion, bool resizeStack)
 
 
 void
+Window::SetOutlinesDelta(BPoint delta, BRegion* dirtyRegion)
+{
+	float wantWidth = fFrame.IntegerWidth() + delta.x;
+	float wantHeight = fFrame.IntegerHeight() + delta.y;
+
+	// enforce size limits
+	WindowStack* stack = GetWindowStack();
+	if (stack) {
+		for (int32 i = 0; i < stack->CountWindows(); i++) {
+			Window* window = stack->WindowList().ItemAt(i);
+
+			if (wantWidth < window->fMinWidth)
+				wantWidth = window->fMinWidth;
+			if (wantWidth > window->fMaxWidth)
+				wantWidth = window->fMaxWidth;
+
+			if (wantHeight < window->fMinHeight)
+				wantHeight = window->fMinHeight;
+			if (wantHeight > window->fMaxHeight)
+				wantHeight = window->fMaxHeight;
+		}
+
+		delta.x = wantWidth - fFrame.IntegerWidth();
+		delta.y = wantHeight - fFrame.IntegerHeight();
+	}
+
+	::Decorator* decorator = Decorator();
+
+	if (decorator)
+		decorator->SetOutlinesDelta(delta, dirtyRegion);
+}
+
+
+void
 Window::ScrollViewBy(View* view, int32 dx, int32 dy)
 {
 	// this is executed in ServerWindow with the Readlock
