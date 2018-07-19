@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "56cc008a_56655d7b",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-19T12:00:10Z",
+      "side": 1,
+      "message": "trailing whitespace",
+      "revId": "1b0fd68ee60f9c6cc9e89ee1ebe712dd550fa9c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6116ed07_0a3e1819",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-19T12:00:10Z",
+      "side": 1,
+      "message": "usually we do \"if (result !\u003d B_OK) return result;\"\nThis avoids indenting more and more at each error check.",
+      "revId": "1b0fd68ee60f9c6cc9e89ee1ebe712dd550fa9c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05b51182_26a22953",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-19T12:00:10Z",
+      "side": 1,
+      "message": "this line is indented one tab too much",
+      "revId": "1b0fd68ee60f9c6cc9e89ee1ebe712dd550fa9c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59a2a5e1_6a1da19d",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1730,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-19T12:00:10Z",
+      "side": 1,
+      "message": "why?",
+      "revId": "1b0fd68ee60f9c6cc9e89ee1ebe712dd550fa9c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ed0deca_63416992",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 3460,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-19T12:00:10Z",
+      "side": 1,
+      "message": "trailing whitespace",
+      "revId": "1b0fd68ee60f9c6cc9e89ee1ebe712dd550fa9c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ced76fe_8489114a",
+        "filename": "src/kits/tracker/ContainerWindow.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-19T12:00:10Z",
+      "side": 1,
+      "message": "This line should be indented one tab less (the previous one is indented 2 levels because it is inside the parameters of the passed function pointer)",
+      "revId": "1b0fd68ee60f9c6cc9e89ee1ebe712dd550fa9c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
