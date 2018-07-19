@@ -687,6 +687,14 @@ Decorator::ResizeBy(BPoint offset, BRegion* dirty)
 
 
 void
+Decorator::SetOutlinesDelta(BPoint delta, BRegion* dirty)
+{
+	_SetOutlinesDelta(delta, dirty);
+	_InvalidateFootprint();
+}
+
+
+void
 Decorator::ExtendDirtyRegion(Region region, BRegion& dirty)
 {
 	AutoReadLocker _(fLocker);
@@ -969,6 +977,19 @@ Decorator::_AllocateNewTab()
 
 
 void
+Decorator::_DrawOutlineFrame(BRect rect)
+{
+	drawing_mode oldMode;
+
+	fDrawingEngine->SetDrawingMode(B_OP_COPY, oldMode);
+	fDrawingEngine->SetPattern(B_MIXED_COLORS);
+	fDrawingEngine->StrokeRect(rect);
+
+	fDrawingEngine->SetDrawingMode(oldMode);
+}
+
+
+void
 Decorator::_DrawTabs(BRect rect)
 {
 	Decorator::Tab* focusTab = NULL;
@@ -1080,6 +1101,42 @@ Decorator::_MoveBy(BPoint offset)
 	fFrame.OffsetBy(offset);
 	fResizeRect.OffsetBy(offset);
 	fBorderRect.OffsetBy(offset);
+}
+
+
+void
+Decorator::_SetOutlinesDelta(BPoint delta, BRegion* dirty)
+{
+	BPoint offset = delta - fOutlinesDelta;
+	fOutlinesDelta = delta;
+
+	dirty->Include(fLeftBorder);
+	dirty->Include(fRightBorder);
+	dirty->Include(fTopBorder);
+	dirty->Include(fBottomBorder);
+
+	fBorderRect.right += offset.x;
+	fBorderRect.bottom += offset.y;
+
+	fLeftBorder.bottom += offset.y;
+	fTopBorder.right += offset.x;
+
+	fRightBorder.OffsetBy(offset.x, 0.0);
+	fRightBorder.bottom	+= offset.y;
+
+	fBottomBorder.OffsetBy(0.0, offset.y);
+	fBottomBorder.right	+= offset.x;
+
+	dirty->Include(fLeftBorder);
+	dirty->Include(fRightBorder);
+	dirty->Include(fTopBorder);
+	dirty->Include(fBottomBorder);
+
+	dirty->Include(fFrame);
+
+	dirty->Include(fResizeRect);
+	fResizeRect.OffsetBy(offset);
+	dirty->Include(fResizeRect);
 }
 
 
