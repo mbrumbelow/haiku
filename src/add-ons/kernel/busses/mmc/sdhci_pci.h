@@ -99,13 +99,15 @@ struct registers {
 
 typedef void* sdhci_mmc_bus;
 
+#define DELAY(n)	snooze(n)
+
 #define SDHCI_BUS_CONTROLLER_MODULE_NAME "bus_managers/mmc_bus/driver_v1"
 
 #define	MMC_BUS_MODULE_NAME "bus_managers/mmc_bus/device/v1"
 
 static void sdhci_register_dump(uint8_t, struct registers*);
 static void sdhci_reset(struct registers*);
-static void sdhci_set_clock(struct registers*);
+static void sdhci_set_clock(struct registers*, uint16_t);
 static void sdhci_set_power(struct registers*);
 static void sdhci_stop_clock(struct registers*);
 

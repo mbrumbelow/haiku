@@ -113,19 +113,19 @@ sdhci_reset(struct registers* regs)
 
 
 static void
-sdhci_set_clock(struct registers* regs)
+sdhci_set_clock(struct registers* regs, uint16_t base_clock_div)
 {
 	int base_clock = SDHCI_BASE_CLOCK_FREQ(regs->capabilities);
 	TRACE("SDCLK frequency: %dMHz\n", base_clock); // assuming target fequency as 2.5 MHZ
 
-	regs->clock_control |= SDHCI_BASE_CLOCK_DIV_4; // base clock divided by 2
+	regs->clock_control |= base_clock_div; // base clock divided by 4
 
 	regs->clock_control |= SDHCI_INTERNAL_CLOCK_ENABLE; // enabling internal clock
 
 	while(!(regs->clock_control & SDHCI_INTERNAL_CLOCK_STABLE)); // waiting till internal clock gets stable
 
 	regs->clock_control |= SDHCI_SD_CLOCK_ENABLE; // enabling the SD clock*/
-	
+
 }
 
 
@@ -271,10 +271,31 @@ init_bus(device_node* node, void** bus_cookie)
 		SDHCI_INT_CRC | SDHCI_INT_INDEX | SDHCI_INT_BUS_POWER |
 		SDHCI_INT_END_BIT;
 
-	sdhci_set_clock(_regs);
+// SD 4 bit mode initialization
+
+	sdhci_set_clock(_regs, SDHCI_BASE_CLOCK_DIV_4);
 
 	sdhci_register_dump(slot, _regs);
 
+	_regs->power_control |= 7 << 1;
+
+	_regs->power_control |= 1;
+
+	sdhci_stop_clock(_regs);
+
+	sdhci_set_clock(_regs, SDHCI_BASE_CLOCK_DIV_2);
+
+	sdhci_register_dump(slot, _regs);
+
+	DELAY(5*74); // if clock frequency is 5MHz
+
+	sdhci_register_dump(slot, _regs);
+
+	_regs->command |= 26;
+
+	DELAY(1000);
+
+	sdhci_register_dump(slot, _regs);
 	*bus_cookie = bus;
 	return status;
 }
