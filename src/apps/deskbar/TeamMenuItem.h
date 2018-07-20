@@ -96,6 +96,9 @@ private:
 
 			bool				_IsSelected() const;
 
+			BRect				_IconBounds() const;
+			float				_ItemHeight() const;
+
 private:
 			BList*				fTeam;
 			BBitmap*			fIcon;

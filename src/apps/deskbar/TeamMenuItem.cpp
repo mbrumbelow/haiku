@@ -40,10 +40,13 @@ All rights reserved.
 #include <stdio.h>
 #include <stdlib.h>
 
+#include <algorithm>
+
 #include <Bitmap.h>
 #include <ControlLook.h>
 #include <Debug.h>
 #include <Font.h>
+#include <Mime.h>
 #include <Region.h>
 #include <Roster.h>
 #include <Resources.h>
@@ -63,7 +66,7 @@ const float kHPad = 8.0f;
 const float kVPad = 2.0f;
 const float kLabelOffset = 8.0f;
 const float kSwitchWidth = 12.0f;
-
+const int32 kLargeIconSeparator = 6;
 
 //	#pragma mark - TTeamMenuItem
 
@@ -136,14 +139,9 @@ TTeamMenuItem::SetIcon(BBitmap* icon) {
 void
 TTeamMenuItem::GetContentSize(float* width, float* height)
 {
-	BRect iconBounds;
-
-	if (fIcon != NULL)
-		iconBounds = fIcon->Bounds();
-	else
-		iconBounds = BRect(0, 0, kMinimumIconSize - 1, kMinimumIconSize - 1);
-
 	BMenuItem::GetContentSize(width, height);
+
+	BRect iconBounds(_IconBounds());
 
 	if (fOverrideWidth != -1.0f)
 		*width = fOverrideWidth;
@@ -158,14 +156,12 @@ TTeamMenuItem::GetContentSize(float* width, float* height)
 	if (fOverrideHeight != -1.0f)
 		*height = fOverrideHeight;
 	else {
+		*height = _ItemHeight();
 		if (fBarView->Vertical()) {
-			*height = iconBounds.Height() + kVPad * 2;
 			if (!static_cast<TBarApp*>(be_app)->Settings()->hideLabels
 				&& iconBounds.Width() > 32) {
 				*height += fLabelAscent + fLabelDescent;
 			}
-		} else {
-			*height = iconBounds.Height() + kVPad * 2;
 		}
 	}
 	*height += 2;
@@ -451,4 +447,24 @@ bool
 TTeamMenuItem::_IsSelected() const
 {
 	return IsSelected() || fOverriddenSelected;
+}
+
+
+BRect
+TTeamMenuItem::_IconBounds() const
+{
+	return fIcon != NULL ? fIcon->Bounds()
+		: BRect(0, 0, kMinimumIconSize - 1, kMinimumIconSize - 1);
+}
+
+
+float
+TTeamMenuItem::_ItemHeight() const
+{
+	float iconSize = _IconBounds().Height();
+	float extra = iconSize > B_MINI_ICON ? kLargeIconSeparator : 0;
+
+	float fontHeight = fLabelAscent + fLabelDescent;
+	return std::max(iconSize + extra, ceilf(fontHeight) < 20 ? 20
+		: ceilf(fontHeight * 1.1f));
 }
