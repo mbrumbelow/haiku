@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "32b592db_f784c30e",
+        "filename": "src/add-ons/kernel/file_systems/fat/dir.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-07-20T06:04:56Z",
+      "side": 0,
+      "message": "This change is not needed.",
+      "revId": "3142fb6996948dd5e539ddcb56b0b81fe223cd26",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
