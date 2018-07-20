@@ -82,11 +82,11 @@ TWindowMenuItem::GetContentSize(float* width, float* height)
 {
 	if (width != NULL) {
 		if (!fExpanded) {
-			*width = kHPad + fLabelWidth + kHPad;
+			*width = kHPad + 2 + fLabelWidth + kHPad + 2;
 			if (fID >= 0)
 				*width += fBitmap->Bounds().Width() + kLabelOffset;
 		} else
-			*width = Frame().Width()/* - kHPad*/;
+			*width = Frame().Width();
 	}
 
 	// Note: when the item is in "expanded mode", ie embedded into
@@ -126,7 +126,7 @@ TWindowMenuItem::Draw()
 
 		rgb_color shadow = tint_color(menuColor, 1.09);
 		menu->SetHighColor(shadow);
-		frame.right = frame.left + kHPad / 2;
+		frame.right = frame.left + (kHPad + 2) / 2;
 		menu->FillRect(frame);
 
 		menu->SetHighColor(menuColor);
@@ -157,7 +157,7 @@ void
 TWindowMenuItem::DrawContent()
 {
 	BMenu* menu = Menu();
-	BPoint contentLocation = ContentLocation() + BPoint(kHPad, 0);
+	BPoint contentLocation = ContentLocation() + BPoint(kHPad + 2, kVPad);
 
 	if (fID >= 0) {
 		menu->SetDrawingMode(B_OP_OVER);
