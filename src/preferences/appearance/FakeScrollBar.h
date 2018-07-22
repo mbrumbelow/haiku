@@ -34,9 +34,12 @@ public:
 			void			SetFromScrollBarInfo(const scroll_bar_info &info);
 
 private:
-			void			_DrawArrowButton(int32 direction, BRect r,
-								const BRect& updateRect);
+			void			_DrawArrowButton(BRect rect,
+								const BRect& updateRect, const rgb_color& base,
+								uint32 flags, int32 direction);
+			BRect			_ButtonRectFor(BRect rect, int32 button) const;
 
+private:
 			bool			fDrawArrows;
 			bool			fDoubleArrows;
 			int32			fKnobStyle;
