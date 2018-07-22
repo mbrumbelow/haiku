@@ -225,13 +225,11 @@ public:
 									const rgb_color& base,
 									uint32 flags = 0) = 0;
 
-	virtual	void				DrawScrollBar(BView* view, BRect& rect,
-									const BRect& updateRect,
+	virtual	void				DrawScrollBarBackground(BView* view,
+									BRect& rect, const BRect& updateRect,
 									const rgb_color& base, uint32 flags,
-									orientation orientation,
-									bool doubleArrows = false,
-									int32 buttonDown = -1) = 0;
-	virtual	void				DrawScrollBarThumb(BView* view, BRect& rect,
+									orientation orientation) = 0;
+	virtual	void				DrawScrollBarThumb(BView* view,
 									BRect& thumbRect, const BRect& updateRect,
 									const rgb_color& base, uint32 flags,
 									orientation orientation,

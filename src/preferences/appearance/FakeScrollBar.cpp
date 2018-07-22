@@ -14,24 +14,10 @@
 #include <ControlLook.h>
 #include <Message.h>
 #include <ScrollBar.h>
+#include <ScrollBarPrivate.h>
 #include <Shape.h>
 #include <Size.h>
 #include <Window.h>
-
-
-typedef enum {
-	ARROW_LEFT = 0,
-	ARROW_RIGHT,
-	ARROW_UP,
-	ARROW_DOWN,
-	ARROW_NONE
-} arrow_direction;
-
-typedef enum {
-	KNOB_NONE = 0,
-	KNOB_DOTS,
-	KNOB_LINES
-} knob_style;
 
 
 //	#pragma mark - FakeScrollBar
@@ -84,25 +70,63 @@ FakeScrollBar::Draw(BRect updateRect)
 	StrokeRect(rect);
 	rect.InsetBy(1, 1);
 
-	// draw a 1px border around control
-	SetHighColor(tint_color(base, B_DARKEN_1_TINT));
+	// border color
+	rgb_color borderColor = tint_color(base, B_DARKEN_2_TINT);
+	rgb_color navigation = ui_color(B_KEYBOARD_NAVIGATION_COLOR);
+
+	// Stroke a dark frame around the scroll bar background independent of
+	// enabled state, also handle focus highlighting.
+	SetHighColor(IsFocus() ? navigation : borderColor);
 	StrokeRect(rect);
+
+	// inset past border
 	rect.InsetBy(1, 1);
 
+	// clipping region of button rects
+	BRect buttonFrame1(_ButtonRectFor(rect, SCROLL_ARROW_1));
+	BRect buttonFrame2(_ButtonRectFor(rect, SCROLL_ARROW_2));
+	BRect buttonFrame3(_ButtonRectFor(rect, SCROLL_ARROW_3));
+	BRect buttonFrame4(_ButtonRectFor(rect, SCROLL_ARROW_4));
+
 	if (fDrawArrows) {
-		be_control_look->DrawScrollBar(this, rect, updateRect, base,
-			flags, B_HORIZONTAL, fDoubleArrows);
-	} else {
-		// do not draw scroll bar arrows, fake the border
-		rgb_color borderColor = tint_color(base, B_DARKEN_2_TINT);
-		rgb_color navigation = ui_color(B_KEYBOARD_NAVIGATION_COLOR);
-		SetHighColor(IsFocus() ? navigation : borderColor);
-		StrokeRect(rect);
-		rect.InsetBy(1, 1);
+		// clear BControlLook::B_ACTIVATED flag if set
+		flags &= ~BControlLook::B_ACTIVATED;
+
+		_DrawArrowButton(buttonFrame1, updateRect, base, flags,
+			BControlLook::B_LEFT_ARROW);
+		if (fDoubleArrows) {
+			_DrawArrowButton(buttonFrame2, updateRect, base, flags,
+				BControlLook::B_RIGHT_ARROW);
+			_DrawArrowButton(buttonFrame3, updateRect, base, flags,
+				BControlLook::B_LEFT_ARROW);
+		}
+		_DrawArrowButton(buttonFrame4, updateRect, base, flags,
+			BControlLook::B_RIGHT_ARROW);
 	}
+
 	float less = floorf(rect.Width() / 4); // thumb takes up 3/4 width
 	BRect thumbRect(rect.left + less, rect.top, rect.right - less, rect.bottom);
-	be_control_look->DrawScrollBarThumb(this, rect, thumbRect, updateRect, base,
+
+	float start = fDrawArrows
+		? (fDoubleArrows ? buttonFrame2.right + 1 : buttonFrame1.right + 1)
+		: rect.left;
+	float finish = fDrawArrows
+		? (fDoubleArrows ? buttonFrame3.left - 1 : buttonFrame4.left - 1)
+		: rect.right;
+
+	BRect beforeThumb = BRect(start, rect.top,
+		thumbRect.right + 1, rect.bottom);
+	BRect afterThumb = BRect(thumbRect.right + 1, rect.top,
+		finish, rect.bottom);
+
+	// draw background besides thumb
+	be_control_look->DrawScrollBarBackground(this, beforeThumb,
+		updateRect, base, flags, B_HORIZONTAL);
+	be_control_look->DrawScrollBarBackground(this, afterThumb,
+		updateRect, base, flags, B_HORIZONTAL);
+
+	// draw thumb
+	be_control_look->DrawScrollBarThumb(this, thumbRect, updateRect, base,
 		flags, B_HORIZONTAL, fKnobStyle);
 }
 
@@ -230,21 +254,47 @@ FakeScrollBar::SetFromScrollBarInfo(const scroll_bar_info &info)
 
 
 void
-FakeScrollBar::_DrawArrowButton(int32 direction, BRect rect,
-	const BRect& updateRect)
+FakeScrollBar::_DrawArrowButton(BRect rect, const BRect& updateRect,
+	const rgb_color& base, uint32 flags, int32 direction)
 {
-	if (!updateRect.Intersects(rect))
-		return;
+	// TODO: why do we need this for the scroll bar to draw right?
+	rgb_color arrowColor = tint_color(base, B_LIGHTEN_1_TINT);
+	// TODO: Why do we need this negative inset for the arrow to look right?
+	BRect arrowRect(rect.InsetByCopy(-1, -1));
 
-	uint32 flags = 0;
-
-	rgb_color baseColor = tint_color(ui_color(B_PANEL_BACKGROUND_COLOR),
-		B_LIGHTEN_1_TINT);
-
-	be_control_look->DrawButtonBackground(this, rect, updateRect, baseColor,
+	// draw button and arrow
+	be_control_look->DrawButtonBackground(this, rect, updateRect, arrowColor,
 		flags, BControlLook::B_ALL_BORDERS, B_HORIZONTAL);
+	be_control_look->DrawArrowShape(this, arrowRect, arrowRect, base, direction,
+		flags, B_DARKEN_4_TINT);
+}
 
-	rect.InsetBy(-1, -1);
-	be_control_look->DrawArrowShape(this, rect, updateRect,
-		baseColor, direction, flags, B_DARKEN_MAX_TINT);
+
+BRect
+FakeScrollBar::_ButtonRectFor(BRect bounds, int32 button) const
+{
+	float buttonSize = bounds.Height() + 1;
+
+	BRect rect(bounds.left, bounds.top,
+		bounds.left + buttonSize - 1, bounds.top + buttonSize - 1);
+
+	switch (button) {
+		case SCROLL_ARROW_1:
+		default:
+			break;
+
+		case SCROLL_ARROW_2:
+			rect.OffsetBy(buttonSize, 0);
+			break;
+
+		case SCROLL_ARROW_3:
+			rect.OffsetTo(bounds.right - 2 * buttonSize + 1, bounds.top);
+			break;
+
+		case SCROLL_ARROW_4:
+			rect.OffsetTo(bounds.right - buttonSize + 1, bounds.top);
+			break;
+	}
+
+	return rect;
 }

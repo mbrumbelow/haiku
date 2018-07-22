@@ -157,13 +157,11 @@ public:
 									const rgb_color& base,
 									uint32 flags = 0);
 
-	virtual	void				DrawScrollBar(BView* view, BRect& rect,
-									const BRect& updateRect,
+	virtual	void				DrawScrollBarBackground(BView* view,
+									BRect& rect, const BRect& updateRect,
 									const rgb_color& base, uint32 flags,
-									orientation orientation,
-									bool doubleArrows = false,
-									int32 buttonDown = -1);
-	virtual	void				DrawScrollBarThumb(BView* view, BRect& rect,
+									orientation orientation);
+	virtual	void				DrawScrollBarThumb(BView* view,
 									BRect& thumbRect, const BRect& updateRect,
 									const rgb_color& base, uint32 flags,
 									orientation orientation,
@@ -562,11 +560,6 @@ protected:
 									uint32 flags) const;
 
 			void				_DrawScrollBarBackground(BView* view,
-									BRect& rect1, BRect& rect2,
-									const BRect& updateRect,
-									const rgb_color& base, uint32 flags,
-									orientation orientation);
-			void				_DrawScrollBarBackground(BView* view,
 									BRect& rect, const BRect& updateRect,
 									const rgb_color& base, uint32 flags,
 									orientation orientation);
@@ -575,11 +568,6 @@ protected:
 									const rgb_color& light,
 									const rgb_color& dark,
 									const rgb_color& fill);
-			void				_DrawScrollBarArrowButton(BView* view,
-									BRect rect, const BRect& updateRect,
-									const rgb_color& base, uint32 flags,
-									int32 direction, orientation orientation,
-									bool doubleArrows, bool down);
 
 private:
 			bool				fCachedOutline;

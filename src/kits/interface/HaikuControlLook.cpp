@@ -563,9 +563,9 @@ HaikuControlLook::DrawRadioButton(BView* view, BRect& rect, const BRect& updateR
 
 
 void
-HaikuControlLook::DrawScrollBar(BView* view, BRect& rect,
+HaikuControlLook::DrawScrollBarBackground(BView* view, BRect& rect,
 	const BRect& updateRect, const rgb_color& base, uint32 flags,
-	orientation orientation, bool doubleArrows, int32 buttonDown)
+	orientation orientation)
 {
 	if (!rect.IsValid() || !rect.Intersects(updateRect))
 		return;
@@ -577,107 +577,8 @@ HaikuControlLook::DrawScrollBar(BView* view, BRect& rect,
 	BRegion clipping(updateRect);
 	view->ConstrainClippingRegion(&clipping);
 
-	// flags
-	bool isEnabled = (flags & B_DISABLED) == 0;
-	bool isFocused = (flags & B_FOCUSED) != 0;
-
-	// colors
-	rgb_color borderColor = tint_color(base, B_DARKEN_2_TINT);
-	rgb_color navigation = ui_color(B_KEYBOARD_NAVIGATION_COLOR);
-
-	rgb_color light, dark, dark1, dark2;
-	if (isEnabled) {
-		light = tint_color(base, B_LIGHTEN_MAX_TINT);
-		dark = tint_color(base, B_DARKEN_3_TINT);
-		dark1 = tint_color(base, B_DARKEN_1_TINT);
-		dark2 = tint_color(base, B_DARKEN_2_TINT);
-	} else {
-		light = tint_color(base, B_LIGHTEN_MAX_TINT);
-		dark = tint_color(base, B_DARKEN_2_TINT);
-		dark1 = tint_color(base, B_LIGHTEN_2_TINT);
-		dark2 = tint_color(base, B_LIGHTEN_1_TINT);
-	}
-
-	// Stroke a dark frame around the scroll bar background independent of
-	// enabled state, also handle focus highlighting.
-	view->SetHighColor(isEnabled && isFocused ? navigation : borderColor);
-	view->StrokeRect(rect);
-
-	// inset past border
-	rect.InsetBy(1, 1);
-
-	// clipping region of button rects
-	BRegion buttonRegion = BRegion();
-	BRect buttonFrame1(rect);
-	BRect buttonFrame2(rect);
-	BRect buttonFrame3(rect);
-	BRect buttonFrame4(rect);
-
-	// define arrow rects
-	if (orientation == B_HORIZONTAL) {
-		buttonFrame1.Set(rect.left, rect.top,
-			rect.left + rect.Height(), rect.bottom);
-		if (doubleArrows) {
-			buttonFrame2 = buttonFrame1.OffsetByCopy(rect.Height() + 1, 0);
-			buttonFrame3 = buttonFrame2.OffsetToCopy(
-				rect.right - (rect.Height() * 2 + 1), rect.top);
-		}
-		buttonFrame4 = buttonFrame1.OffsetToCopy(rect.right - rect.Height(),
-			rect.top);
-	} else {
-		buttonFrame1.Set(rect.left, rect.top, rect.right,
-			rect.top + rect.Width());
-		if (doubleArrows) {
-			buttonFrame2 = buttonFrame1.OffsetByCopy(0, rect.Width() + 1);
-			buttonFrame3 = buttonFrame2.OffsetToCopy(rect.left, rect.bottom
-				- ((rect.Width() * 2) + 1));
-		}
-		buttonFrame4 = buttonFrame1.OffsetToCopy(rect.left,
-			rect.bottom - rect.Width());
-	}
-
-	// add to clipping region
-	buttonRegion.Include(buttonFrame1);
-	if (doubleArrows) {
-		buttonRegion.Include(buttonFrame2);
-		buttonRegion.Include(buttonFrame3);
-	}
-	buttonRegion.Include(buttonFrame4);
-
-	// clip to button region
-	view->ConstrainClippingRegion(&buttonRegion);
-
-	// clear B_ACTIVATED flag if set, we set it on down button ourselves
-	flags &= ~B_ACTIVATED;
-
-	// draw arrow 1
-	buttonRegion.Include(buttonFrame1);
-	_DrawScrollBarArrowButton(view, buttonFrame1, updateRect, base,
-		buttonDown == SCROLL_ARROW_1 ? (flags | B_ACTIVATED) : flags,
-		orientation == B_HORIZONTAL ? B_LEFT_ARROW : B_UP_ARROW, orientation,
-		doubleArrows, buttonDown == SCROLL_ARROW_1);
-	if (doubleArrows) {
-		// draw arrow 2
-		_DrawScrollBarArrowButton(view, buttonFrame2, updateRect, base,
-			buttonDown == SCROLL_ARROW_2 ? (flags | B_ACTIVATED) : flags,
-			orientation == B_HORIZONTAL ? B_RIGHT_ARROW : B_DOWN_ARROW,
-			orientation, doubleArrows, buttonDown == SCROLL_ARROW_2);
-		// draw arrow 3
-		_DrawScrollBarArrowButton(view, buttonFrame3, updateRect, base,
-			buttonDown == SCROLL_ARROW_3 ? (flags | B_ACTIVATED) : flags,
-			orientation == B_HORIZONTAL ? B_LEFT_ARROW : B_UP_ARROW,
-			orientation, doubleArrows, buttonDown == SCROLL_ARROW_3);
-	}
-	// draw arrow 4
-	_DrawScrollBarArrowButton(view, buttonFrame4, updateRect, base,
-		buttonDown == SCROLL_ARROW_4 ? (flags | B_ACTIVATED) : flags,
-		orientation == B_HORIZONTAL ? B_RIGHT_ARROW : B_DOWN_ARROW,
-		orientation, doubleArrows, buttonDown == SCROLL_ARROW_4);
-
-	// set rect to background excluding arrows for thumb to draw on
-	BRegion background = BRegion(rect);
-	background.Exclude(&buttonRegion);
-	rect = background.Frame();
+	// draw scroll bar background
+	_DrawScrollBarBackground(view, rect, updateRect, base, flags, orientation);
 
 	// restore the clipping constraints of the view
 	view->PopState();
@@ -685,18 +586,18 @@ HaikuControlLook::DrawScrollBar(BView* view, BRect& rect,
 
 
 void
-HaikuControlLook::DrawScrollBarThumb(BView* view, BRect& rect, BRect& thumbRect,
+HaikuControlLook::DrawScrollBarThumb(BView* view, BRect& thumbRect,
 	const BRect& updateRect, const rgb_color& base, uint32 flags,
 	orientation orientation, uint32 knobStyle)
 {
-	if (!rect.IsValid() || !rect.Intersects(updateRect))
+	if (!thumbRect.IsValid() || !thumbRect.Intersects(updateRect))
 		return;
 
 	// save the clipping constraints of the view
 	view->PushState();
 
 	// set clipping constraints to the thumb and background region
-	BRegion clipping(rect);
+	BRegion clipping(thumbRect);
 	view->ConstrainClippingRegion(&clipping);
 
 	// flags
@@ -719,38 +620,6 @@ HaikuControlLook::DrawScrollBarThumb(BView* view, BRect& rect, BRect& thumbRect,
 		dark2 = tint_color(base, B_LIGHTEN_1_TINT);
 	}
 
-	BRect beforeThumb = BRect();
-	BRect afterThumb = BRect();
-	if (orientation == B_HORIZONTAL) {
-		// I'm only interested in the horizontal coordinates of thumbRect
-		thumbRect.top = rect.top;
-		thumbRect.bottom = rect.bottom;
-		beforeThumb.Set(rect.left, rect.top, thumbRect.left - 1, rect.bottom);
-		afterThumb.Set(thumbRect.right + 1, rect.top, rect.right, rect.bottom);
-	} else {
-		// I'm only interested in the vertical coordinates of thumbRect
-		thumbRect.left = rect.left;
-		thumbRect.right = rect.right;
-		beforeThumb.Set(rect.left, rect.top, rect.right, thumbRect.top - 1);
-		afterThumb.Set(rect.left, thumbRect.bottom + 1, rect.right,
-			rect.bottom);
-	}
-
-	if (beforeThumb.IsValid() && afterThumb.IsValid()) {
-		// clip to background region
-		BRegion besidesThumb = BRegion();
-		besidesThumb.Include(beforeThumb);
-		besidesThumb.Include(afterThumb);
-		view->ConstrainClippingRegion(&besidesThumb);
-
-		// draw background besides thumb
-		_DrawScrollBarBackground(view, beforeThumb, afterThumb, updateRect,
-			base, flags, orientation);
-	} else {
-		// before/after rects are invalid, draw thumb on whole rect
-		thumbRect = rect;
-	}
-
 	// clip to thumb
 	BRegion thumbRegion(thumbRect);
 	view->ConstrainClippingRegion(&thumbRegion);
@@ -762,9 +631,9 @@ HaikuControlLook::DrawScrollBarThumb(BView* view, BRect& rect, BRect& thumbRect,
 			B_ALL_BORDERS, orientation);
 	} else {
 		if (!isScrollable) {
-			// we cannot scroll at all, use rect here not thumbRect
-			_DrawDisabledScrollBarBackground(view, rect, orientation,
-				light, dark, dark1);
+			// we cannot scroll at all
+			_DrawDisabledScrollBarBackground(view,
+				thumbRect.InsetByCopy(-1, -1), orientation, light, dark, dark1);
 		} else {
 			// we could scroll, but we're disabled
 
@@ -911,7 +780,7 @@ HaikuControlLook::DrawScrollBarThumb(BView* view, BRect& rect, BRect& thumbRect,
 		}
 	}
 
-	// set back to original rect clipping
+	// set back to original clipping
 	view->ConstrainClippingRegion(&clipping);
 
 	// restore the clipping constraints of the view
@@ -3871,16 +3740,6 @@ HaikuControlLook::_RadioButtonAndCheckBoxMarkColor(const rgb_color& base,
 
 
 void
-HaikuControlLook::_DrawScrollBarBackground(BView* view, BRect& rect1,
-	BRect& rect2, const BRect& updateRect, const rgb_color& base, uint32 flags,
-	orientation orientation)
-{
-	_DrawScrollBarBackground(view, rect1, updateRect, base, flags, orientation);
-	_DrawScrollBarBackground(view, rect2, updateRect, base, flags, orientation);
-}
-
-
-void
 HaikuControlLook::_DrawScrollBarBackground(BView* view, BRect& rect,
 	const BRect& updateRect, const rgb_color& base, uint32 flags,
 	orientation orientation)
@@ -4036,35 +3895,5 @@ HaikuControlLook::_DrawDisabledScrollBarBackground(BView* view, BRect rect,
 		}
 	}
 }
-
-
-void
-HaikuControlLook::_DrawScrollBarArrowButton(BView* view, BRect rect,
-	const BRect& updateRect, const rgb_color& base, uint32 flags,
-	int32 direction, orientation orientation, bool doubleArrows, bool down)
-{
-	if (!updateRect.Intersects(rect))
-		return;
-
-	// clip to button
-	BRegion buttonRegion(rect);
-	view->ConstrainClippingRegion(&buttonRegion);
-
-	// TODO: why do we need this for the scroll bar to draw right?
-	rgb_color arrowColor = tint_color(base, B_LIGHTEN_1_TINT);
-	// TODO: Why do we need this negative inset for the arrow to look right?
-	BRect arrowRect(rect.InsetByCopy(-1, -1));
-
-	// draw button and arrow
-	DrawButtonBackground(view, rect, updateRect, arrowColor, flags,
-		BControlLook::B_ALL_BORDERS, orientation);
-	DrawArrowShape(view, arrowRect, arrowRect, base, direction,
-		flags, B_DARKEN_4_TINT);
-
-	// revert clipping constratings back to updateRect for next guy
-	BRegion clipping(updateRect);
-	view->ConstrainClippingRegion(&clipping);
-}
-
 
 } // namespace BPrivate

@@ -125,6 +125,11 @@ private:
 
 			BSize				_MinSize() const;
 
+			void				_DrawArrowButton(BRect rect,
+									const BRect& updateRect,
+									const rgb_color& base, uint32 flags,
+									orientation orientation, int32 direction);
+
 private:
 			float				fMin;
 			float				fMax;

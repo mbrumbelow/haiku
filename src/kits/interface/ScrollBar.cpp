@@ -386,9 +386,86 @@ BScrollBar::Draw(BRect updateRect)
 	BRect rect(Bounds());
 	BRect thumbRect(fPrivateData->fThumbFrame);
 
-	be_control_look->DrawScrollBar(this, rect, updateRect, base,
-		flags, fOrientation, _DoubleArrows(), fPrivateData->fButtonDown);
-	be_control_look->DrawScrollBarThumb(this, rect, thumbRect, updateRect, base,
+	// border color
+	rgb_color borderColor = tint_color(base, B_DARKEN_2_TINT);
+	rgb_color navigation = ui_color(B_KEYBOARD_NAVIGATION_COLOR);
+
+	// Stroke a dark frame around the scroll bar background independent of
+	// enabled state, also handle focus highlighting.
+	SetHighColor(isEnabled && isFocused ? navigation : borderColor);
+	StrokeRect(rect);
+
+	// inset past border
+	rect.InsetBy(1, 1);
+
+	// button rects
+	BRect buttonFrame1(_ButtonRectFor(SCROLL_ARROW_1));
+	BRect buttonFrame2(_ButtonRectFor(SCROLL_ARROW_2));
+	BRect buttonFrame3(_ButtonRectFor(SCROLL_ARROW_3));
+	BRect buttonFrame4(_ButtonRectFor(SCROLL_ARROW_4));
+
+	// clear BControlLook::B_ACTIVATED flag if set, we set it on the down button
+	flags &= ~BControlLook::B_ACTIVATED;
+
+	_DrawArrowButton(buttonFrame1, updateRect, base,
+		fPrivateData->fButtonDown == SCROLL_ARROW_1
+			? (flags | BControlLook::B_ACTIVATED) : flags, fOrientation,
+		fOrientation == B_VERTICAL ? BControlLook::B_UP_ARROW
+			: BControlLook::B_LEFT_ARROW);
+	if (_DoubleArrows()) {
+		_DrawArrowButton(buttonFrame2, updateRect, base,
+		fPrivateData->fButtonDown == SCROLL_ARROW_2
+				? (flags | BControlLook::B_ACTIVATED) : flags, fOrientation,
+			fOrientation == B_VERTICAL ? BControlLook::B_DOWN_ARROW
+				: BControlLook::B_RIGHT_ARROW);
+		_DrawArrowButton(buttonFrame3, updateRect, base,
+			fPrivateData->fButtonDown == SCROLL_ARROW_3
+				? (flags | BControlLook::B_ACTIVATED) : flags, fOrientation,
+			fOrientation == B_VERTICAL ? BControlLook::B_UP_ARROW
+				: BControlLook::B_LEFT_ARROW);
+	}
+	_DrawArrowButton(buttonFrame4, updateRect, base,
+		fPrivateData->fButtonDown == SCROLL_ARROW_4
+			? (flags | BControlLook::B_ACTIVATED) : flags, fOrientation,
+		fOrientation == B_VERTICAL ? BControlLook::B_DOWN_ARROW
+			: BControlLook::B_RIGHT_ARROW);
+
+	BRect beforeThumb = BRect();
+	BRect afterThumb = BRect();
+	if (fOrientation == B_HORIZONTAL) {
+		// I'm only interested in the horizontal coordinates of thumbRect
+		thumbRect.top = rect.top;
+		thumbRect.bottom = rect.bottom;
+		float start = _DoubleArrows() ? buttonFrame2.right + 1
+			: buttonFrame1.right + 1;
+		float finish = _DoubleArrows() ? buttonFrame3.left - 1
+			: buttonFrame4.left - 1;
+		beforeThumb.Set(start, rect.top, thumbRect.left - 1, rect.bottom);
+		afterThumb.Set(thumbRect.right + 1, rect.top, finish, rect.bottom);
+	} else {
+		// I'm only interested in the vertical coordinates of thumbRect
+		thumbRect.left = rect.left;
+		thumbRect.right = rect.right;
+		float start = _DoubleArrows() ? buttonFrame2.bottom + 1
+			: buttonFrame1.bottom + 1;
+		float finish = _DoubleArrows() ? buttonFrame3.top - 1
+			: buttonFrame4.top - 1;
+		beforeThumb.Set(rect.left, start, rect.right, thumbRect.top - 1);
+		afterThumb.Set(rect.left, thumbRect.bottom + 1, rect.right, finish);
+	}
+	
+	if (beforeThumb.IsValid() && afterThumb.IsValid()) {
+		// draw background besides thumb
+		be_control_look->DrawScrollBarBackground(this, beforeThumb,
+			updateRect, base, flags, fOrientation);
+		be_control_look->DrawScrollBarBackground(this, afterThumb,
+			updateRect, base, flags, fOrientation);
+	} else {
+		// before/after rects are invalid, draw thumb on whole rect
+		thumbRect = rect;
+	}
+
+	be_control_look->DrawScrollBarThumb(this, thumbRect, updateRect, base,
 		flags, fOrientation, fPrivateData->fScrollBarInfo.knob);
 }
 
@@ -1247,23 +1324,23 @@ BScrollBar::_ButtonFor(BPoint where) const
 BRect
 BScrollBar::_ButtonRectFor(int32 button) const
 {
-	BRect bounds = Bounds();
-	bounds.InsetBy(1.0f, 1.0f);
+	BRect bounds(Bounds());
+	bounds.InsetBy(1, 1);
 
-	float buttonSize = fOrientation == B_VERTICAL
-		? bounds.Width() + 1.0f
-		: bounds.Height() + 1.0f;
+	float buttonSize = fOrientation == B_VERTICAL ? bounds.Width() + 1
+		: bounds.Height() + 1;
 
 	BRect rect(bounds.left, bounds.top,
-		bounds.left + buttonSize - 1.0f, bounds.top + buttonSize - 1.0f);
+		bounds.left + buttonSize - 1, bounds.top + buttonSize - 1);
 
 	if (fOrientation == B_VERTICAL) {
 		switch (button) {
 			case SCROLL_ARROW_1:
+			default:
 				break;
 
 			case SCROLL_ARROW_2:
-				rect.OffsetBy(0.0, buttonSize);
+				rect.OffsetBy(0, buttonSize);
 				break;
 
 			case SCROLL_ARROW_3:
@@ -1277,6 +1354,7 @@ BScrollBar::_ButtonRectFor(int32 button) const
 	} else {
 		switch (button) {
 			case SCROLL_ARROW_1:
+			default:
 				break;
 
 			case SCROLL_ARROW_2:
@@ -1388,4 +1466,22 @@ BScrollBar::_MinSize() const
 	}
 
 	return minSize;
+}
+
+
+void
+BScrollBar::_DrawArrowButton(BRect rect, const BRect& updateRect,
+	const rgb_color& base, uint32 flags, orientation orientation,
+	int32 direction)
+{
+	// TODO: why do we need this for the scroll bar to draw right?
+	rgb_color arrowColor = tint_color(base, B_LIGHTEN_1_TINT);
+	// TODO: Why do we need this negative inset for the arrow to look right?
+	BRect arrowRect(rect.InsetByCopy(-1, -1));
+
+	// draw button and arrow
+	be_control_look->DrawButtonBackground(this, rect, updateRect, arrowColor,
+		flags, BControlLook::B_ALL_BORDERS, orientation);
+	be_control_look->DrawArrowShape(this, arrowRect, arrowRect, base, direction,
+		flags, B_DARKEN_4_TINT);
 }
