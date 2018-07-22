@@ -1,10 +1,10 @@
 /*
- *  Copyright 2010-2012 Haiku, Inc. All rights reserved.
+ *  Copyright 2010-2015 Haiku, Inc. All rights reserved.
  *  Distributed under the terms of the MIT license.
  *
  *	Authors:
- *		DarkWyrm <bpmagic@columbus.rr.com>
- *		John Scipione <jscipione@gmail.com>
+ *		DarkWyrm, bpmagic@columbus.rr.com
+ *		John Scipione, jscipione@gmail.com
  */
 
 
@@ -24,11 +24,12 @@
 
 
 FakeScrollBar::FakeScrollBar(bool drawArrows, bool doubleArrows,
-	BMessage* message)
+	uint32 knobStyle, BMessage* message)
 	:
 	BControl("FakeScrollBar", NULL, message, B_WILL_DRAW | B_NAVIGABLE),
 	fDrawArrows(drawArrows),
-	fDoubleArrows(doubleArrows)
+	fDoubleArrows(doubleArrows),
+	fKnobStyle(knobStyle)
 {
 	// add some height to draw the ring around the scroll bar
 	float height = B_H_SCROLL_BAR_HEIGHT + 8;
@@ -80,7 +81,6 @@ FakeScrollBar::Draw(BRect updateRect)
 
 	// inset past border
 	rect.InsetBy(1, 1);
-	SetHighColor(base);
 
 	// clipping region of button rects
 	BRect buttonFrame1(_ButtonRectFor(rect, SCROLL_ARROW_1));
@@ -132,29 +132,29 @@ FakeScrollBar::Draw(BRect updateRect)
 
 
 void
-FakeScrollBar::MouseDown(BPoint point)
+FakeScrollBar::MouseDown(BPoint where)
 {
-	BControl::MouseDown(point);
+	BControl::MouseDown(where);
 }
 
 
 void
-FakeScrollBar::MouseMoved(BPoint point, uint32 transit,
-	const BMessage* message)
+FakeScrollBar::MouseMoved(BPoint where, uint32 transit,
+	const BMessage* dragMessage)
 {
-	BControl::MouseMoved(point, transit, message);
+	BControl::MouseMoved(where, transit, dragMessage);
 }
 
 
 void
-FakeScrollBar::MouseUp(BPoint point)
+FakeScrollBar::MouseUp(BPoint where)
 {
 	SetValue(B_CONTROL_ON);
 	Invoke();
 
 	Invalidate();
 
-	BControl::MouseUp(point);
+	BControl::MouseUp(where);
 }
 
 
@@ -166,7 +166,7 @@ FakeScrollBar::SetValue(int32 value)
 		Invalidate();
 	}
 
-	if (!value)
+	if (value == 0)
 		return;
 
 	BView* parent = Parent();
@@ -189,10 +189,10 @@ FakeScrollBar::SetValue(int32 value)
 				child = parent->ChildAt(0);
 		} else
 			child = Window()->ChildAt(0);
-	} else if (Window())
+	} else if (Window() != NULL)
 		child = Window()->ChildAt(0);
 
-	while (child) {
+	while (child != NULL) {
 		FakeScrollBar* scrollbar = dynamic_cast<FakeScrollBar*>(child);
 
 		if (scrollbar != NULL && (scrollbar != this))
@@ -216,12 +216,12 @@ FakeScrollBar::SetValue(int32 value)
 }
 
 
-//	#pragma mark -
-
-
 void
 FakeScrollBar::SetDoubleArrows(bool doubleArrows)
 {
+	if (fDoubleArrows == doubleArrows)
+		return;
+
 	fDoubleArrows = doubleArrows;
 	Invalidate();
 }
@@ -230,6 +230,9 @@ FakeScrollBar::SetDoubleArrows(bool doubleArrows)
 void
 FakeScrollBar::SetKnobStyle(uint32 knobStyle)
 {
+	if (fKnobStyle == knobStyle)
+		return;
+
 	fKnobStyle = knobStyle;
 	Invalidate();
 }
@@ -238,13 +241,16 @@ FakeScrollBar::SetKnobStyle(uint32 knobStyle)
 void
 FakeScrollBar::SetFromScrollBarInfo(const scroll_bar_info &info)
 {
+	if (fDoubleArrows == info.double_arrows && (int32)fKnobStyle == info.knob)
+		return;
+
 	fDoubleArrows = info.double_arrows;
 	fKnobStyle = info.knob;
 	Invalidate();
 }
 
 
-//	#pragma mark -
+//	#pragma mark - Private methods
 
 
 void
