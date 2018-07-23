@@ -39,9 +39,10 @@ LocalIconStore::_HasIconStoragePath() const
  */
 
 status_t
-LocalIconStore::TryFindIconPath(const BString& pkgName, BPath& path) const
+LocalIconStore::TryFindIconPath(const BString& pkgName, BPath& path,
+	SharedBitmap::Size size) const
 {
-	BPath bestIconPath;
+	BPath iconPath;
 	BPath iconPkgPath(fIconStoragePath);
 	bool exists;
 	bool isDir;
@@ -52,10 +53,10 @@ LocalIconStore::TryFindIconPath(const BString& pkgName, BPath& path) const
 			== B_OK)
 		&& exists
 		&& isDir
-		&& (_IdentifyBestIconFileAtDirectory(iconPkgPath, bestIconPath)
+		&& (_IdentifyIconFileAtDirectory(iconPkgPath, iconPath, size)
 			== B_OK)
 	) {
-		path = bestIconPath;
+		path = iconPath;
 		return B_OK;
 	}
 
@@ -65,32 +66,40 @@ LocalIconStore::TryFindIconPath(const BString& pkgName, BPath& path) const
 
 
 status_t
-LocalIconStore::_IdentifyBestIconFileAtDirectory(const BPath& directory,
-	BPath& bestIconPath) const
+LocalIconStore::_IdentifyIconFileAtDirectory(const BPath& directory,
+	BPath& iconPath, SharedBitmap::Size size) const
 {
-	StringList iconLeafnames;
+	BString iconLeafname;
 
-	iconLeafnames.Add("icon.hvif");
-	iconLeafnames.Add("64.png");
-	iconLeafnames.Add("32.png");
-	iconLeafnames.Add("16.png");
+	switch (size) {
+		default:
+		case SharedBitmap::SIZE_VECTOR:
+			iconLeafname = "icon.hvif";
+			break;
+		case SharedBitmap::SIZE_64:
+			iconLeafname = "64.png";
+			break;
+		case SharedBitmap::SIZE_32:
+			iconLeafname = "32.png";
+			break;
+		case SharedBitmap::SIZE_16:
+			iconLeafname = "16.png";
+			break;
+	}
 
-	bestIconPath.Unset();
+	iconPath.Unset();
 
-	for (int32 i = 0; i < iconLeafnames.CountItems(); i++) {
-		BString iconLeafname = iconLeafnames.ItemAt(i);
-		BPath workingPath(directory);
-		bool exists;
-		bool isDir;
+	BPath workingPath(directory);
+	bool exists;
+	bool isDir;
 
-		if ( (workingPath.Append(iconLeafname) == B_OK
-			&& StorageUtils::ExistsObject(
-				workingPath, &exists, &isDir, NULL) == B_OK)
-			&& exists
-			&& !isDir) {
-			bestIconPath.SetTo(workingPath.Path());
-			return B_OK;
-		}
+	if ( (workingPath.Append(iconLeafname) == B_OK
+		&& StorageUtils::ExistsObject(
+			workingPath, &exists, &isDir, NULL) == B_OK)
+		&& exists
+		&& !isDir) {
+		iconPath.SetTo(workingPath.Path());
+		return B_OK;
 	}
 
 	return B_FILE_NOT_FOUND;

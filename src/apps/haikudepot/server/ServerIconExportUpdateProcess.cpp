@@ -86,20 +86,37 @@ ServerIconExportUpdateProcess::RunInternal()
 status_t
 ServerIconExportUpdateProcess::PopulateForPkg(const PackageInfoRef& package)
 {
-	BPath bestIconPath;
+	status_t resultVector, result64, result32, result16;
+	resultVector = PopulatePkgIcon(package, SharedBitmap::SIZE_VECTOR);
+	result64 = PopulatePkgIcon(package, SharedBitmap::SIZE_64);
+	result32 = PopulatePkgIcon(package, SharedBitmap::SIZE_32);
+	result16 = PopulatePkgIcon(package, SharedBitmap::SIZE_16);
 
-	if ( fLocalIconStore.TryFindIconPath(
-		package->Name(), bestIconPath) == B_OK) {
+	if (resultVector == B_OK || result64 == B_OK || result32 == B_OK
+			|| result16 == B_OK)
+		return B_OK;
+	else
+		return B_FILE_NOT_FOUND;
+}
 
-		BFile bestIconFile(bestIconPath.Path(), O_RDONLY);
-		BitmapRef bitmapRef(new(std::nothrow)SharedBitmap(bestIconFile), true);
+status_t
+ServerIconExportUpdateProcess::PopulatePkgIcon(const PackageInfoRef& package,
+	SharedBitmap::Size size)
+{
+	BPath iconPath;
+
+	if (fLocalIconStore.TryFindIconPath(package->Name(),
+			iconPath, size) == B_OK) {
+
+		BFile iconFile(iconPath.Path(), O_RDONLY);
+		BitmapRef bitmapRef(new(std::nothrow)SharedBitmap(iconFile), true);
 		// TODO; somehow handle the locking!
 		//BAutolock locker(&fLock);
-		package->SetIcon(bitmapRef);
+		package->SetIcon(bitmapRef, size);
 
 		if (Logger::IsDebugEnabled()) {
 			fprintf(stdout, "have set the package icon for [%s] from [%s]\n",
-				package->Name().String(), bestIconPath.Path());
+				package->Name().String(), iconPath.Path());
 		}
 
 		fCountIconsSet++;
@@ -225,6 +242,7 @@ ServerIconExportUpdateProcess::Download(BPath& tarGzFilePath)
 	return DownloadToLocalFileAtomically(tarGzFilePath,
 		ServerSettings::CreateFullUrl("/__pkgicon/all.tar.gz"));
 }
+
 
 
 

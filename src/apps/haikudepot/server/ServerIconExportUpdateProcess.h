@@ -10,6 +10,7 @@
 #include "AbstractServerProcess.h"
 #include "LocalIconStore.h"
 #include "Model.h"
+#include "SharedBitmap.h"
 
 #include <File.h>
 #include <Path.h>
@@ -35,6 +36,8 @@ public:
 									void *context);
 protected:
 			status_t			PopulateForPkg(const PackageInfoRef& package);
+			status_t			PopulatePkgIcon(const PackageInfoRef& package,
+									SharedBitmap::Size size);
 			status_t			Populate();
 			status_t			DownloadAndUnpack();
 			status_t			HasLocalData(bool* result) const;

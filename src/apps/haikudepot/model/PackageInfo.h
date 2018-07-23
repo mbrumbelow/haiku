@@ -275,9 +275,19 @@ public:
 			const PublisherInfo& Publisher() const
 									{ return fPublisher; }
 
-			void				SetIcon(const BitmapRef& icon);
-			const BitmapRef&	Icon() const
-									{ return fIcon; }
+			void				SetIcon(const BitmapRef& icon,
+									SharedBitmap::Size size);
+			const BitmapRef&	Icon() const;
+			const BitmapRef&	Icon(SharedBitmap::Size size) const;
+			const BitmapRef&	IconVector() const
+									{ return fIconVector; }
+			const BitmapRef&	Icon64() const
+									{ return fIcon64; }
+			const BitmapRef&	Icon32() const
+									{ return fIcon32; }
+			const BitmapRef&	Icon16() const
+									{ return fIcon16; }
+
 			void				SetChangelog(const BString& changelog);
 			const BString&		Changelog() const
 									{ return fChangelog; }
@@ -365,7 +375,10 @@ private:
 			void				_NotifyListenersImmediate(uint32 changes);
 
 private:
-			BitmapRef			fIcon;
+			BitmapRef			fIconVector;
+			BitmapRef			fIcon64;
+			BitmapRef			fIcon32;
+			BitmapRef			fIcon16;
 			BString				fName;
 			BString				fTitle;
 			BPackageVersion		fVersion;

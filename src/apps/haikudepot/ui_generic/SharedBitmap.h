@@ -23,7 +23,8 @@ public:
 			SIZE_16 = 0,
 			SIZE_22 = 1,
 			SIZE_32 = 2,
-			SIZE_64 = 3
+			SIZE_64 = 3,
+			SIZE_VECTOR = 4
 		};
 
 								SharedBitmap(BBitmap* bitmap);
