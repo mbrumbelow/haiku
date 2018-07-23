@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "424b49b2_b900b8d7",
+        "filename": "src/apps/haikudepot/model/LocalIconStore.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-07-23T06:57:27Z",
+      "side": 1,
+      "message": "This list of if should be a switch/case.",
+      "revId": "783158d9983dc97a3d54ea095e67d8e6155e50f1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3005e8d2_15e4819d",
+        "filename": "src/apps/haikudepot/model/LocalIconStore.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-07-23T06:57:27Z",
+      "side": 1,
+      "message": "SharedBitmap comes after PackageInfo",
+      "revId": "783158d9983dc97a3d54ea095e67d8e6155e50f1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6c8ef1d2_2d3b5918",
+        "filename": "src/apps/haikudepot/model/PackageInfo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 726,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-07-23T06:57:27Z",
+      "side": 1,
+      "message": "Icon*() return references. Better check the fields fIcon* directly for NULL.",
+      "revId": "783158d9983dc97a3d54ea095e67d8e6155e50f1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aee41d50_493ac19a",
+        "filename": "src/apps/haikudepot/model/PackageInfo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-07-23T06:57:27Z",
+      "side": 1,
+      "message": "Should be a switch.",
+      "revId": "783158d9983dc97a3d54ea095e67d8e6155e50f1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37a2ee17_b2b943d9",
+        "filename": "src/apps/haikudepot/model/PackageInfo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 762,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-07-23T06:57:27Z",
+      "side": 1,
+      "message": "Should be a switch.",
+      "revId": "783158d9983dc97a3d54ea095e67d8e6155e50f1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "53d3b03b_1abccfb7",
+        "filename": "src/apps/haikudepot/model/PackageInfo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 776,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-07-23T06:57:27Z",
+      "side": 1,
+      "message": "The curly brace isn\u0027t needed.",
+      "revId": "783158d9983dc97a3d54ea095e67d8e6155e50f1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "007acd92_dfb6031b",
+        "filename": "src/apps/haikudepot/model/PackageInfo.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-07-23T06:57:27Z",
+      "side": 1,
+      "message": "const on a value parameter isn\u0027t needed.",
+      "revId": "783158d9983dc97a3d54ea095e67d8e6155e50f1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea800771_a3720364",
+        "filename": "src/apps/haikudepot/model/PackageInfo.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-07-23T06:57:27Z",
+      "side": 1,
+      "message": "const on a value parameter isn\u0027t needed.",
+      "revId": "783158d9983dc97a3d54ea095e67d8e6155e50f1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf9fc440_a3f0f5a5",
+        "filename": "src/apps/haikudepot/ui/PackageInfoView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-07-23T06:57:27Z",
+      "side": 1,
+      "message": "A curly brace is needed (code style).",
+      "revId": "783158d9983dc97a3d54ea095e67d8e6155e50f1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
