@@ -83,17 +83,12 @@ sdhci_register_dump(uint8_t slot, struct registers* regs)
 	TRACE("clock_control: %d\n",regs->clock_control);
 	TRACE("software_reset: %d\n",regs->software_reset);
 	TRACE("timeout_control: %d\n",regs->timeout_control);
-	TRACE("normal_interrupt_status: %d\n",regs->normal_interrupt_status);
-	TRACE("error_interrupt_status: %d\n",regs->error_interrupt_status);
-	TRACE("normal_interrupt_status_enable: %d\n",regs->normal_interrupt_status_enable);
-	TRACE("error_interrupt_status_enable: %d\n",regs->error_interrupt_status_enable);
-	TRACE("normal_interrupt_signal_enable: %d\n",regs->normal_interrupt_signal_enable);
-	TRACE("error_interrupt_signal_enable: %d\n",regs->error_interrupt_signal_enable);
+	TRACE("interrupt_status: %d\n",regs->interrupt_status);
+	TRACE("interrupt_status_enable: %d\n",regs->interrupt_status_enable);
+	TRACE("interrupt_signal_enable: %d\n",regs->interrupt_signal_enable);
 	TRACE("auto_cmd12_error_status: %d\n",regs->auto_cmd12_error_status);
-	TRACE("capabilities: %d\n",regs->capabilities);
-	TRACE("capabilities_rsvd: %d\n",regs->capabilities_rsvd);
-	TRACE("max_current_capabilities: %d\n",regs->max_current_capabilities);
-	TRACE("max_current_capabilities_rsvd: %d\n",regs->max_current_capabilities_rsvd);
+	TRACE("capabilities: %zu\n",regs->capabilities);
+	TRACE("max_current_capabilities: %zu\n",regs->max_current_capabilities);
 	TRACE("slot_interrupt_status: %d\n",regs->slot_interrupt_status);
 	TRACE("host_control_version %d\n",regs->host_control_version);
 }
@@ -117,6 +112,8 @@ sdhci_set_clock(struct registers* regs, uint16_t base_clock_div)
 {
 	int base_clock = SDHCI_BASE_CLOCK_FREQ(regs->capabilities);
 	TRACE("SDCLK frequency: %dMHz\n", base_clock); // assuming target fequency as 2.5 MHZ
+
+	regs->clock_control &= SDHCI_CLR_FREQ_SEL; // clearing previous frequency
 
 	regs->clock_control |= base_clock_div; // base clock divided by 4
 
@@ -243,9 +240,21 @@ init_bus(device_node* node, void** bus_cookie)
 
 	bus->_regs = _regs;
 
-	TRACE("capabilities voltage: %d power voltage: %d\n", (_regs->capabilities>>24)&7, (_regs->power_control>>1)&7);
-
 	sdhci_reset(_regs);
+
+	bus->irq = pciInfo->u.h0.interrupt_line;
+
+	TRACE("irq interrupt line: %d\n",bus->irq);
+
+	if (bus->irq == 0 || bus->irq == 0xff) {
+		TRACE("PCI IRQ not assigned\n");
+		if (sPCIx86Module != NULL) {
+			put_module(B_PCI_X86_MODULE_NAME);
+			sPCIx86Module = NULL;
+		}
+		delete bus;
+		return B_ERROR;
+	}
 
 	status = install_io_interrupt_handler(bus->irq,
 		sdhci_generic_interrupt, bus, 0);
@@ -257,23 +266,19 @@ init_bus(device_node* node, void** bus_cookie)
 	}
 	TRACE("interrupt handler installed\n");
 
-	_regs->normal_interrupt_status_enable = SDHCI_INT_CMD_CMP |
-		SDHCI_INT_TRANS_CMP | SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM;
+	_regs->interrupt_status_enable = SDHCI_INT_CMD_CMP |
+		SDHCI_INT_TRANS_CMP | SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM | 
+		SDHCI_INT_TIMEOUT | SDHCI_INT_CRC | SDHCI_INT_INDEX |
+		SDHCI_INT_BUS_POWER | SDHCI_INT_END_BIT;
 
-	_regs->normal_interrupt_signal_enable =  SDHCI_INT_CMD_CMP |
-		SDHCI_INT_TRANS_CMP | SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM;
-
-	_regs->error_interrupt_status_enable = SDHCI_INT_TIMEOUT |
-		SDHCI_INT_CRC | SDHCI_INT_INDEX | SDHCI_INT_BUS_POWER |
-		SDHCI_INT_END_BIT;
-
-	_regs->error_interrupt_signal_enable = SDHCI_INT_TIMEOUT |
-		SDHCI_INT_CRC | SDHCI_INT_INDEX | SDHCI_INT_BUS_POWER |
-		SDHCI_INT_END_BIT;
+	_regs->interrupt_signal_enable =  SDHCI_INT_CMD_CMP |
+		SDHCI_INT_TRANS_CMP | SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM |
+		SDHCI_INT_TIMEOUT | SDHCI_INT_CRC | SDHCI_INT_INDEX |
+		SDHCI_INT_BUS_POWER | SDHCI_INT_END_BIT;
 
 // SD 4 bit mode initialization
 
-	sdhci_set_clock(_regs, SDHCI_BASE_CLOCK_DIV_4);
+	sdhci_set_clock(_regs, SDHCI_BASE_CLOCK_DIV_128);
 
 	sdhci_register_dump(slot, _regs);
 
@@ -283,7 +288,7 @@ init_bus(device_node* node, void** bus_cookie)
 
 	sdhci_stop_clock(_regs);
 
-	sdhci_set_clock(_regs, SDHCI_BASE_CLOCK_DIV_2);
+	sdhci_set_clock(_regs, SDHCI_BASE_CLOCK_DIV_256);
 
 	sdhci_register_dump(slot, _regs);
 
@@ -291,19 +296,38 @@ init_bus(device_node* node, void** bus_cookie)
 
 	sdhci_register_dump(slot, _regs);
 
-	_regs->command |= 26;
+	DELAY(5*74);	
+	_regs->command |= 14;
 
 	DELAY(1000);
 
 	sdhci_register_dump(slot, _regs);
+	
 	*bus_cookie = bus;
 	return status;
 }
 
 
-status_t
+void
+sdhci_error_interrupt_recovery(struct registers* _regs)
+{
+	_regs->interrupt_signal_enable &= ~( SDHCI_INT_CMD_CMP |
+		SDHCI_INT_TRANS_CMP | SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM);
+	if(_regs->interrupt_status & 7)
+	{
+		_regs->software_reset |= 1 << 1;
+		while(_regs->command);
+	}
+
+	int16_t erorr_status = _regs->interrupt_status;
+
+	_regs->interrupt_status &= ~(erorr_status);
+}
+
+int32
 sdhci_generic_interrupt(void* data)
 {
+	TRACE("interrupt function called\n");
 	sdhci_pci_mmc_bus_info* bus = (sdhci_pci_mmc_bus_info*)data;
 	
 	uint16_t intmask, card_present;
@@ -311,35 +335,39 @@ sdhci_generic_interrupt(void* data)
 	intmask = bus->_regs->slot_interrupt_status;
 
 	if(intmask == 0 || intmask == 0xffffffff)
+	{
+	//	TRACE("invalid slot interrupt status\n");
 		return B_UNHANDLED_INTERRUPT;
+	}	
 
 	/* handling card presence interrupt */
 	if(intmask & (SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM))
 	{
 		card_present = ((intmask & SDHCI_INT_CARD_INS) != 0);
-		bus->_regs->normal_interrupt_status_enable &= ~(SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM);
-		bus->_regs->normal_interrupt_signal_enable &= ~(SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM);
+		bus->_regs->interrupt_status_enable &= ~(SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM);
+		bus->_regs->interrupt_signal_enable &= ~(SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM);
 
-		bus->_regs->normal_interrupt_status_enable |= card_present ? SDHCI_INT_CARD_REM :
+		bus->_regs->interrupt_status_enable |= card_present ? SDHCI_INT_CARD_REM :
 			SDHCI_INT_CARD_INS;
-		bus->_regs->normal_interrupt_signal_enable |= card_present ? SDHCI_INT_CARD_REM :
+		bus->_regs->interrupt_signal_enable |= card_present ? SDHCI_INT_CARD_REM :
 			SDHCI_INT_CARD_INS;
 	
-		bus->_regs->normal_interrupt_status |= (intmask & (SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM));
+		bus->_regs->interrupt_status |= (intmask & (SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM));
 		TRACE("Card presence interrupt handled\n");
 	}
 
 	/* handling command interrupt */
 	if(intmask & SDHCI_INT_CMD_MASK)
 	{
-		bus->_regs->normal_interrupt_status |= (intmask & SDHCI_INT_CMD_MASK);
+		TRACE("interrupt status error: %d\n",bus->_regs->interrupt_status);
+		bus->_regs->interrupt_status |= (intmask & SDHCI_INT_CMD_MASK);
 		TRACE("Command interrupt handled\n");
 	}
 
 	/* handling bus power interrupt */
 	if(intmask & SDHCI_INT_BUS_POWER)
 	{
-		bus->_regs->normal_interrupt_status |= SDHCI_INT_BUS_POWER;
+		bus->_regs->interrupt_status |= SDHCI_INT_BUS_POWER;
 		TRACE("card is consuming too much power\n");
 	}
 
