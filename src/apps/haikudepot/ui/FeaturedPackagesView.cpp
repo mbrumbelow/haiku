@@ -208,7 +208,7 @@ public:
 		if ((changeMask & PKG_CHANGED_STATE) != 0)
 			_SetInstalled(package->State() == ACTIVATED);
 		if ((changeMask & PKG_CHANGED_ICON) != 0)
-			_SetIcon(package->Icon());
+			_SetIcon(package->Icon(SharedBitmap::SIZE_ANY));
 	}
 
 	void Clear()

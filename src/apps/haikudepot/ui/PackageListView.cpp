@@ -589,7 +589,7 @@ PackageRow::UpdateTitle()
 	if (fPackage.Get() == NULL)
 		return;
 
-	SetField(new SharedBitmapStringField(fPackage->Icon(),
+	SetField(new SharedBitmapStringField(fPackage->Icon(SharedBitmap::SIZE_16),
 			SharedBitmap::SIZE_16, fPackage->Title()), kTitleColumn);
 }
 

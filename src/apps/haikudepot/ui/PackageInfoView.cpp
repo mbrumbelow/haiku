@@ -388,7 +388,7 @@ public:
 	void SetPackage(const PackageInfo& package)
 	{
 		if (package.Icon().Get() != NULL)
-			fIconView->SetBitmap(package.Icon(), SharedBitmap::SIZE_32);
+			fIconView->SetBitmap(package.Icon(SharedBitmap::SIZE_32), SharedBitmap::SIZE_32);
 		else
 			fIconView->UnsetBitmap();
 

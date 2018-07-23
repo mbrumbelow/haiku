@@ -463,7 +463,10 @@ PackageInfo::sDefaultIcon(new(std::nothrow) SharedBitmap(
 
 PackageInfo::PackageInfo()
 	:
-	fIcon(sDefaultIcon),
+	fIconVector(NULL),
+	fIcon64(NULL),
+	fIcon32(NULL),
+	fIcon16(NULL),
 	fName(),
 	fTitle(),
 	fVersion(),
@@ -493,7 +496,10 @@ PackageInfo::PackageInfo()
 
 PackageInfo::PackageInfo(const BPackageInfo& info)
 	:
-	fIcon(sDefaultIcon),
+	fIconVector(NULL),
+	fIcon64(NULL),
+	fIcon32(NULL),
+	fIcon16(NULL),
 	fName(info.Name()),
 	fTitle(),
 	fVersion(info.Version()),
@@ -539,7 +545,10 @@ PackageInfo::PackageInfo(const BString& name,
 		const BString& shortDescription, const BString& fullDescription,
 		int32 flags, const char* architecture)
 	:
-	fIcon(sDefaultIcon),
+	fIconVector(NULL),
+	fIcon64(NULL),
+	fIcon32(NULL),
+	fIcon16(NULL),
 	fName(name),
 	fTitle(),
 	fVersion(version),
@@ -570,7 +579,10 @@ PackageInfo::PackageInfo(const BString& name,
 
 PackageInfo::PackageInfo(const PackageInfo& other)
 	:
-	fIcon(other.fIcon),
+	fIconVector(other.fIconVector),
+	fIcon64(other.fIcon64),
+	fIcon32(other.fIcon32),
+	fIcon16(other.fIcon16),
 	fName(other.fName),
 	fTitle(other.fTitle),
 	fVersion(other.fVersion),
@@ -603,7 +615,10 @@ PackageInfo::PackageInfo(const PackageInfo& other)
 PackageInfo&
 PackageInfo::operator=(const PackageInfo& other)
 {
-	fIcon = other.fIcon;
+	fIconVector = other.fIconVector;
+	fIcon64 = other.fIcon64;
+	fIcon32 = other.fIcon32;
+	fIcon16 = other.fIcon16;
 	fName = other.fName;
 	fTitle = other.fTitle;
 	fVersion = other.fVersion;
@@ -634,7 +649,10 @@ PackageInfo::operator=(const PackageInfo& other)
 bool
 PackageInfo::operator==(const PackageInfo& other) const
 {
-	return fIcon == other.fIcon
+	return fIconVector == other.fIconVector
+		&& fIcon64 == other.fIcon64
+		&& fIcon32 == other.fIcon32
+		&& fIcon16 == other.fIcon16
 		&& fName == other.fName
 		&& fTitle == other.fTitle
 		&& fVersion == other.fVersion
@@ -702,12 +720,60 @@ PackageInfo::SetFullDescription(const BString& description)
 	}
 }
 
+const BitmapRef&
+PackageInfo::Icon() const
+{
+	if (IconVector())
+		return IconVector();
+	else if (Icon64())
+		return Icon64();
+	else if (Icon32())
+		return Icon32();
+	else if (Icon16())
+		return Icon16();
+	else
+		return sDefaultIcon;
+}
+
+
+const BitmapRef&
+PackageInfo::Icon(const SharedBitmap::Size size) const
+{
+	// Return the preferred bitmap size if possible
+	if (size == SharedBitmap::SIZE_VECTOR && fIconVector != NULL) {
+		return IconVector();
+	} else if (size == SharedBitmap::SIZE_64 && fIcon64 != NULL) {
+		return Icon64();
+	} else if (size == SharedBitmap::SIZE_32 && fIcon32 != NULL) {
+		return Icon32();
+	} else if (size == SharedBitmap::SIZE_16 && fIcon16 != NULL) {
+		return Icon16();
+	}
+
+	// Return the best resolution bitmap size if preferred size not available
+	return Icon();
+}
+
 
 void
-PackageInfo::SetIcon(const BitmapRef& icon)
+PackageInfo::SetIcon(const BitmapRef& icon, const SharedBitmap::Size size)
 {
-	if (fIcon != icon) {
-		fIcon = icon;
+	bool iconChanged = false;
+	if (size == SharedBitmap::SIZE_VECTOR && fIconVector != icon) {
+		fIconVector = icon;
+		iconChanged = true;
+	} else if (size == SharedBitmap::SIZE_64 && fIcon64 != icon) {
+		fIcon64 = icon;
+		iconChanged = true;
+	} else if (size == SharedBitmap::SIZE_32 && fIcon32 != icon) {
+		fIcon32 = icon;
+		iconChanged = true;
+	} else if (size == SharedBitmap::SIZE_16 && fIcon16 != icon) {
+		fIcon16 = icon;
+		iconChanged = true;
+	}
+
+	if (iconChanged) {
 		_NotifyListeners(PKG_CHANGED_ICON);
 	}
 }
