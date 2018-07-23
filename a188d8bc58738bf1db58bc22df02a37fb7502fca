@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6eda406c_fea5d9d8",
+        "filename": "headers/os/interface/ControlLook.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-23T16:17:45Z",
+      "side": 1,
+      "message": "Since this is a bitfield and we could end up running out of value, maybe we should consider reusing a non-conflicting value.\nFor example, a scrollbar cannot be B_PARTIALLY_ACTIVATED, so maybe share that value and use B_SCROLLBABLE \u003d 1 \u003c\u003c 7 ?",
+      "revId": "a188d8bc58738bf1db58bc22df02a37fb7502fca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a9e1bc6_36f102de",
+        "filename": "headers/os/interface/ControlLook.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-23T16:17:45Z",
+      "side": 1,
+      "message": "If we put this one before DrawScrollBarBackground, we would preserve the vtable offset for the former, making this change slightly less ABI breaking.",
+      "revId": "a188d8bc58738bf1db58bc22df02a37fb7502fca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a838d4b_8cc3f160",
+        "filename": "headers/private/interface/ScrollBarPrivate.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-23T16:17:45Z",
+      "side": 1,
+      "message": "These names are not very nice...\nMaybe ARROW_START / ARROW_END for the outer pair and ARROW_ALT_START / ARROW_ALT_END for the inner pair?\n\nThe combination of having two arrows with the same meaning, and two different names depending on if the scrollbar is horizontal or vertical, does not make this easy.",
+      "revId": "a188d8bc58738bf1db58bc22df02a37fb7502fca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a98d27d0_85ff7b9f",
+        "filename": "src/kits/interface/ScrollBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-23T16:17:45Z",
+      "side": 1,
+      "message": "Can we avoid duplicating this enum?",
+      "revId": "a188d8bc58738bf1db58bc22df02a37fb7502fca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dd35cdca_8b5dc7cb",
+        "filename": "src/kits/interface/ScrollBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-23T16:17:45Z",
+      "side": 1,
+      "message": "It may be worthwile to keep a single call for this (I think that\u0027s what was done before).\nThe reason is that the top and bottom of the scrollbar track may not look like the edge of the thumb (think OSX Aqua, with rounded thumb, for example).\n\nWith the way it\u0027s written now, the control look has no way to know which side of the background it is drawing anymore.\n\nLikewise, if we make a Windows 98 look, the scrollbar background has a pattern on it, and if you move the thumb 1px down, the pattern for the afterthumb part would be offset by 1px. So the drawing needs to know the full rectangle to do the right thing",
+      "revId": "a188d8bc58738bf1db58bc22df02a37fb7502fca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "825d5f17_47d40ebf",
+        "filename": "src/kits/interface/ScrollBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1479,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-23T16:17:45Z",
+      "side": 1,
+      "message": "It sounds fine to me that there is some margin between the arrow and the button edge?",
+      "revId": "a188d8bc58738bf1db58bc22df02a37fb7502fca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef55cc3e_85aacef2",
+        "filename": "src/preferences/appearance/FakeScrollBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-23T16:17:45Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this method be in ControlLook too? What if we don\u0027t want an arrow in the buttons, for example?",
+      "revId": "a188d8bc58738bf1db58bc22df02a37fb7502fca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
