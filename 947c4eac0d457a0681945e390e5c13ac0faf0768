@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "94a18d6a_fa44a572",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-07-24T05:53:58Z",
+      "side": 1,
+      "message": "ignorning \u003d\u003e ignoring",
+      "revId": "947c4eac0d457a0681945e390e5c13ac0faf0768",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a8d6c6e_f1c64ef6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-07-24T05:53:58Z",
+      "side": 1,
+      "message": "Zoom here isn\u0027t clear to me: \"the method Zoom\", or \"Zoom()\", or \"BWindow::Zoom\" would make it clearer.",
+      "revId": "947c4eac0d457a0681945e390e5c13ac0faf0768",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bb81f314_b612273c",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1711,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-07-24T05:53:58Z",
+      "side": 1,
+      "message": "The two line comments should be merged. Please also prefer c++ comments.",
+      "revId": "947c4eac0d457a0681945e390e5c13ac0faf0768",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
