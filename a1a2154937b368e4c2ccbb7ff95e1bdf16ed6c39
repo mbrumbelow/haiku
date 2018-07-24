@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "52b48297_cd4d9e8a",
+        "filename": "src/apps/haikudepot/server/ServerIconExportUpdateProcess.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2018-07-24T19:09:30Z",
+      "side": 1,
+      "message": "Hello David; I am a bit worried that loading all of the bitmaps of app of the packages into the application\u0027s memory may cause startup delays and also consume quite a bit of memory as the repositories continue to grow.  I think that in general there are HVIF icons available; maybe it is best to not load the PNGs if the HVIF is provided?  Ideally the icons would be loaded into memory as required, but that\u0027s probably a bigger story.  What do you think?",
+      "revId": "a1a2154937b368e4c2ccbb7ff95e1bdf16ed6c39",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
