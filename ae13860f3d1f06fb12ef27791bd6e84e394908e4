@@ -1,0 +1,327 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9eb0ef7e_8a356997",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2018-07-24T13:09:08Z",
+      "side": 1,
+      "message": "What\u0027s going on here?\n\nSeems like these changes are reducing the quality of the tracing from the device_manager.\n\n#define TRACE(a) ; should be a no-op and not add any performance impact",
+      "revId": "ae13860f3d1f06fb12ef27791bd6e84e394908e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c49105ca_4b726660",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2018-07-24T13:09:08Z",
+      "side": 1,
+      "message": "More",
+      "revId": "ae13860f3d1f06fb12ef27791bd6e84e394908e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ae8c09d_57abd855",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2018-07-24T13:09:08Z",
+      "side": 1,
+      "message": "More",
+      "revId": "ae13860f3d1f06fb12ef27791bd6e84e394908e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0edf1f0a_3a6d9323",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1156,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2018-07-24T13:09:08Z",
+      "side": 1,
+      "message": "More",
+      "revId": "ae13860f3d1f06fb12ef27791bd6e84e394908e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "983c14d7_b89135dc",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1220,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2018-07-24T13:09:08Z",
+      "side": 1,
+      "message": "More",
+      "revId": "ae13860f3d1f06fb12ef27791bd6e84e394908e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67f01d78_089d07f9",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1344,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2018-07-24T13:09:08Z",
+      "side": 1,
+      "message": "More",
+      "revId": "ae13860f3d1f06fb12ef27791bd6e84e394908e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e5907b2_a08b11a5",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1483,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2018-07-24T13:09:08Z",
+      "side": 1,
+      "message": "More",
+      "revId": "ae13860f3d1f06fb12ef27791bd6e84e394908e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b1e61e6_0228b790",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1518,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2018-07-24T13:09:08Z",
+      "side": 1,
+      "message": "More",
+      "revId": "ae13860f3d1f06fb12ef27791bd6e84e394908e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ec4ac863_6cd5c15f",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1531,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2018-07-24T13:09:08Z",
+      "side": 1,
+      "message": "More",
+      "revId": "ae13860f3d1f06fb12ef27791bd6e84e394908e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f79b9bbd_8659a7ce",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1558,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2018-07-24T13:09:08Z",
+      "side": 1,
+      "message": "More",
+      "revId": "ae13860f3d1f06fb12ef27791bd6e84e394908e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96e00cf9_be0164b0",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1561,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2018-07-24T13:09:08Z",
+      "side": 1,
+      "message": "More",
+      "revId": "ae13860f3d1f06fb12ef27791bd6e84e394908e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b358fc3_0878f923",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1566,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2018-07-24T13:09:08Z",
+      "side": 1,
+      "message": "More",
+      "revId": "ae13860f3d1f06fb12ef27791bd6e84e394908e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82393431_c513051e",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1595,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2018-07-24T13:09:08Z",
+      "side": 1,
+      "message": "More",
+      "revId": "ae13860f3d1f06fb12ef27791bd6e84e394908e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "21b59e75_a285d0b3",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1631,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2018-07-24T13:09:08Z",
+      "side": 1,
+      "message": "More",
+      "revId": "ae13860f3d1f06fb12ef27791bd6e84e394908e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffa48313_b135f3b1",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1643,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2018-07-24T13:09:08Z",
+      "side": 1,
+      "message": "More",
+      "revId": "ae13860f3d1f06fb12ef27791bd6e84e394908e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1af6b5ab_d91dc021",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1741,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2018-07-24T13:09:08Z",
+      "side": 1,
+      "message": "More",
+      "revId": "ae13860f3d1f06fb12ef27791bd6e84e394908e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "72b49d80_f6f17e7a",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1794,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2018-07-24T13:09:08Z",
+      "side": 1,
+      "message": "More",
+      "revId": "ae13860f3d1f06fb12ef27791bd6e84e394908e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "789ca736_89f56aca",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2285,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2018-07-24T13:09:08Z",
+      "side": 1,
+      "message": "More",
+      "revId": "ae13860f3d1f06fb12ef27791bd6e84e394908e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cc6ccec_4e714691",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2298,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2018-07-24T13:09:08Z",
+      "side": 1,
+      "message": "More",
+      "revId": "ae13860f3d1f06fb12ef27791bd6e84e394908e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
