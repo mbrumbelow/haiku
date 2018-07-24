@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b23470bf_1358409d",
+        "filename": "src/apps/deskbar/TeamMenuItem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-07-24T06:42:41Z",
+      "side": 1,
+      "message": "Why not keep the original \"if (fIcon !\u003d NULL)\" ? It\u0027s now more cryptic.",
+      "revId": "0f622bc48b1782a2bb83a6ed632173f3c01809b1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "866960f6_f6537a60",
+        "filename": "src/apps/deskbar/TeamMenuItem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-07-24T06:42:41Z",
+      "side": 1,
+      "message": "Why not kMinimumIconSize instead of B_MINI_ICON?",
+      "revId": "0f622bc48b1782a2bb83a6ed632173f3c01809b1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d41f156_8e97225a",
+        "filename": "src/apps/deskbar/TeamMenuItem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-07-24T06:42:41Z",
+      "side": 1,
+      "message": "I find weird that the height is now independent of kVPad. What\u0027s the trick?",
+      "revId": "0f622bc48b1782a2bb83a6ed632173f3c01809b1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
