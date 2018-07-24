@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eaee2f1e_61b0a766",
+        "filename": "src/apps/drivesetup/PartitionList.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2018-07-24T15:10:02Z",
+      "side": 1,
+      "message": "C++ ../../../generated/objects/haiku/x86_64/release/apps/drivesetup/PartitionList.o \nPartitionList.cpp: In constructor \u0027PartitionListRow::PartitionListRow(BPartition*)\u0027:\nPartitionList.cpp:207:1: error: \u0027sprintf\u0027 writing a terminating nul past the end of the destination [-Werror\u003dformat-overflow\u003d]\n PartitionListRow::PartitionListRow(BPartition* partition)\n ^~~~~~~~~~~~~~~~\nPartitionList.cpp:353:9: note: \u0027sprintf\u0027 output between 2 and 11 bytes into a destination of size 1\n  sprintf(\u0026blocksize, \"%\" B_PRIu32, partition-\u003eBlockSize());\n  ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\ncc1plus: all warnings being treated as errors\n\n\n\n\n* use snprintf(blocksize, 15....) here\n* change \"char blocksize;\" to \"char blocksize[16];\"\n* fix references to \u0026blocksize to blocksize;",
+      "revId": "8e03a39a63d49411e00682d8fff07f1e39363c08",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
