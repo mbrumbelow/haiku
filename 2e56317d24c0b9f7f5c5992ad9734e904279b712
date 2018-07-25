@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "23190d87_3d9f6d3a",
+        "filename": "src/apps/haikudepot/ui/PackageListView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-07-25T02:28:51Z",
+      "side": 1,
+      "message": "Shouldn\u0027t these be +15 instead of +16, same as above?",
+      "range": {
+        "startLine": 368,
+        "startChar": 3,
+        "endLine": 368,
+        "endChar": 10
+      },
+      "revId": "2e56317d24c0b9f7f5c5992ad9734e904279b712",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
