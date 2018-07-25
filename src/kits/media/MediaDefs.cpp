@@ -842,24 +842,15 @@ media_format::Unflatten(const char *flatBuffer)
 }
 
 
-void
-media_format::Clear()
-{
-	memset(this, 0x00, sizeof(*this));
-	meta_data = NULL;
-	meta_data_area = B_BAD_VALUE;
-}
-
-
 media_format::media_format()
 {
-	this->Clear();
+	this->_Clear();
 }
 
 
 media_format::media_format(const media_format& other)
 {
-	this->Clear();
+	this->_Clear();
 	*this = other;
 }
 
@@ -908,6 +899,15 @@ media_format::operator=(const media_format& clone)
 		}
 	}
 	return *this;
+}
+
+
+void
+media_format::_Clear()
+{
+	memset(this, 0x00, sizeof(*this));
+	meta_data = NULL;
+	meta_data_area = B_BAD_VALUE;
 }
 
 

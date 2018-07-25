@@ -605,13 +605,15 @@ public:
 	int32			MetaDataSize() const;
 
 	void			Unflatten(const char *flatBuffer);
-	void			Clear();
 
 					media_format();
 					media_format(const media_format& other);
 					~media_format();
 
 	media_format&	operator=(const media_format& other);
+
+private:
+	void			_Clear();
 };
 
 

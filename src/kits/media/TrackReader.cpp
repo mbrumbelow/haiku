@@ -135,7 +135,6 @@ void
 BTrackReader::SetToTrack(BMediaTrack *track)
 {	
 	media_format fmt;
-	fmt.Clear(); //wildcard
 	memcpy(&fmt.u.raw_audio, &fFormat, sizeof(fFormat));
 	fmt.type = B_MEDIA_RAW_AUDIO;
 	//try to find a output format

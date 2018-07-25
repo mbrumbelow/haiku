@@ -96,7 +96,7 @@ MediaExtractor::_Init(BDataIO* source, int32 flags)
 		fStreamInfo[i].chunkCache
 			= new ChunkCache(fExtractorWaitSem, kMaxCacheBytes);
 		fStreamInfo[i].lastChunk = NULL;
-		fStreamInfo[i].encodedFormat.Clear();
+		fStreamInfo[i].encodedFormat = media_format();
 
 		if (fStreamInfo[i].chunkCache->InitCheck() != B_OK) {
 			fInitStatus = B_NO_MEMORY;

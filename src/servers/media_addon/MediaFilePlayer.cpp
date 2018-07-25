@@ -72,7 +72,7 @@ MediaFilePlayer::MediaFilePlayer(const char* media_type,
 	if (fInitCheck != B_OK)
 		return;
 
-	fPlayFormat.Clear();
+	fPlayFormat = media_format();
 
 	for (int i=0; i < fPlayFile->CountTracks(); i++) {
 		BMediaTrack* track = fPlayFile->TrackAt(i);
