@@ -5,6 +5,7 @@
  * Authors:
  *		Axel Dörfler, axeld@pinc-software.de
  *		Alexander von Gluck IV, kallisti5@unixzen.com
+ *		Adrien Destugues, pulkomandy@pulkomandy.tk
  *
  * PLL TEST MODE
  *  pll's on Intel can be extremely difficult. After
@@ -59,41 +60,45 @@
 struct accelerant_info* gInfo;
 #endif
 
-// Static pll limits taken from Linux kernel KMS
+
+// Static pll limits taken from intel documents,
+// "2.3 Display Clock Control Registers"
 
 static pll_limits kLimitsIlkDac = {
 	// p, p1, p2, n,   m, m1, m2
-	{  5,  2, 14, 1,  79, 12,  5}, // min
-	{ 80,  8, 14, 3, 118, 22,  9}, // max
-	225000, 1760000, 3510000
+	{  5,  2, 14, 3,  79, 12,  5}, // min
+	{ 80,  8, 14, 8, 118, 22,  9}, // max
+	225000,  /* dot limit */
+	1760000, /* min. VCO */
+	3510000  /* max. VCO */
 };
 
 static pll_limits kLimitsIlkLvdsSingle = {
 	// p, p1, p2, n,   m, m1, m2
-	{ 28,  2, 14, 1,  79, 12,  5}, // min
-	{112,  8, 14, 3, 118, 22,  9}, // max
+	{ 28,  2, 14, 3,  79, 12,  5}, // min
+	{112,  8, 14, 8, 118, 22,  9}, // max
 	225000, 1760000, 3510000
 };
 
 static pll_limits kLimitsIlkLvdsDual = {
 	// p, p1, p2, n,   m, m1, m2
-	{ 14,  2,  7, 1,  79, 12,  5}, // min
-	{ 56,  8,  7, 3, 127, 22,  9}, // max
+	{ 14,  2,  7, 3,  79, 12,  5}, // min
+	{ 56,  8,  7, 8, 127, 22,  9}, // max
 	225000, 1760000, 3510000
 };
 
 // 100Mhz RefClock
 static pll_limits kLimitsIlkLvdsSingle100 = {
 	// p, p1, p2, n,   m, m1, m2
-	{ 28,  2, 14, 1,  79, 12,  5}, // min
-	{112,  8, 14, 2, 126, 22,  9}, // max
+	{ 28,  2, 14, 3,  79, 12,  5}, // min
+	{112,  8, 14, 8, 126, 22,  9}, // max
 	225000, 1760000, 3510000
 };
 
 static pll_limits kLimitsIlkLvdsDual100 = {
 	// p, p1, p2, n,   m, m1, m2
-	{ 14,  2,  7, 1,  79, 12,  5}, // min
-	{ 42,  6,  7, 3, 126, 22,  9}, // max
+	{ 14,  2,  7, 3,  79, 12,  5}, // min
+	{ 42,  6,  7, 8, 126, 22,  9}, // max
 	225000, 1760000, 3510000
 };
 
