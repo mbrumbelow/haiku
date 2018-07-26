@@ -41,7 +41,7 @@
 #define SDHCI_SD_CLOCK_ENABLE							1 << 2
 #define SDHCI_SD_CLOCK_DISABLE							~(1 << 2)
 #define SDHCI_CLR_FREQ_SEL 								~(255 << 8)
-
+#define SDHCI_BUS_POWER_ON									1
 /* Interrupt registers */
 #define SDHCI_INT_CMD_CMP		65536 			// command complete signal enable
 #define SDHCI_INT_TRANS_CMP		131072			// transfer complete signal enable
@@ -84,29 +84,11 @@ struct registers {
 	volatile uint32_t interrupt_signal_enable;
 	volatile uint16_t auto_cmd12_error_status;
 	volatile uint16_t : 16;
-	volatile uint64_t capabilities;
-	volatile uint64_t max_current_capabilities;
-	volatile uint64_t : 64;
-	volatile uint64_t : 64;
-	volatile uint64_t : 64;
-	volatile uint64_t : 64;
-	volatile uint64_t : 64;
-	volatile uint64_t : 64;
-	volatile uint64_t : 64;
-	volatile uint64_t : 64;
-	volatile uint64_t : 64;
-	volatile uint64_t : 64;
-	volatile uint64_t : 64;
-	volatile uint64_t : 64;
-	volatile uint64_t : 64;
-	volatile uint64_t : 64;
-	volatile uint64_t : 64;
-	volatile uint64_t : 64;
-	volatile uint64_t : 64;
-	volatile uint64_t : 64;
-	volatile uint64_t : 64;
-	volatile uint64_t : 64;	
-	volatile uint64_t : 64;	
+	volatile uint32_t capabilities;
+	volatile uint32_t capabilities_rsvd;
+	volatile uint32_t max_current_capabilities;
+	volatile uint32_t max_current_capabilities_rsvd;
+	volatile uint64_t pad[21];
 	volatile uint32_t : 32;
 	volatile uint16_t slot_interrupt_status;
 	volatile uint16_t host_control_version;

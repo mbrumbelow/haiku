@@ -57,7 +57,6 @@ device_manager_info* gDeviceManager;
 device_module_info* gSDHCIDeviceController;
 static pci_x86_module_info* sPCIx86Module;
 
-// # pragma mark -
 
 static void
 sdhci_register_dump(uint8_t slot, struct registers* regs)
@@ -87,8 +86,10 @@ sdhci_register_dump(uint8_t slot, struct registers* regs)
 	TRACE("interrupt_status_enable: %d\n",regs->interrupt_status_enable);
 	TRACE("interrupt_signal_enable: %d\n",regs->interrupt_signal_enable);
 	TRACE("auto_cmd12_error_status: %d\n",regs->auto_cmd12_error_status);
-	TRACE("capabilities: %zu\n",regs->capabilities);
-	TRACE("max_current_capabilities: %zu\n",regs->max_current_capabilities);
+	TRACE("capabilities: %d\n",regs->capabilities);
+	TRACE("capabilities_rsvd: %d\n",regs->capabilities_rsvd);
+	TRACE("max_current_capabilities: %d\n",regs->max_current_capabilities);
+	TRACE("max_current_capabilities_rsvd: %d\n",regs->max_current_capabilities_rsvd);
 	TRACE("slot_interrupt_status: %d\n",regs->slot_interrupt_status);
 	TRACE("host_control_version %d\n",regs->host_control_version);
 }
@@ -103,7 +104,6 @@ sdhci_reset(struct registers* regs)
 	regs->software_reset |= SDHCI_SOFTWARE_RESET_ALL; // enabling software reset all
 
 	while(regs->clock_control != 0 && regs->power_control != 0); // waiting for clock and power to get off
-
 }
 
 
@@ -111,12 +111,10 @@ static void
 sdhci_set_clock(struct registers* regs, uint16_t base_clock_div)
 {
 	int base_clock = SDHCI_BASE_CLOCK_FREQ(regs->capabilities);
-	TRACE("SDCLK frequency: %dMHz\n", base_clock); // assuming target fequency as 2.5 MHZ
+	TRACE("SDCLK frequency: %dMHz\n", base_clock); 
 
-	regs->clock_control &= SDHCI_CLR_FREQ_SEL; // clearing previous frequency
-
-	regs->clock_control |= base_clock_div; // base clock divided by 4
-
+	regs->clock_control &= SDHCI_CLR_FREQ_SEL; // clearing previous frequenc
+	regs->clock_control |= base_clock_div; 
 	regs->clock_control |= SDHCI_INTERNAL_CLOCK_ENABLE; // enabling internal clock
 
 	while(!(regs->clock_control & SDHCI_INTERNAL_CLOCK_STABLE)); // waiting till internal clock gets stable
@@ -133,32 +131,39 @@ sdhci_stop_clock(struct registers* regs)
 		return;
 
 	regs->clock_control &= SDHCI_SD_CLOCK_DISABLE;
-
 }
 
 
-/*static void
-sdhci_set_power(struct registers* regs)
+static void
+sdhci_set_power(struct registers* _regs)
 {
-	int voltage_support = (*(capabilities) >> 24) & 7;
+	int voltage_support = (_regs->capabilities >> 24) & 7;
+	
 	TRACE("voltage supported %d\n", voltage_support);
+	
 	if(voltage_support != 0)
 		if(voltage_support == 1 || voltage_support == 5 || voltage_support == 3)
-			*(power_control) |= 7 << 1; // setting up the voltage with supported max voltage
+			_regs->power_control |= 7 << 1; // setting up the voltage with supported max voltage
 		else if(voltage_support == 6 || voltage_support == 2)
-			*(power_control) |= 6 << 1;
+			_regs->power_control |= 6 << 1;
 		else
-			*(power_control) |= 5 << 1;
-	else if(voltage_support == 0)
-		*(power_control) |= 7 << 1; // if voltage shows nothing then select 3.3 V
+			_regs->power_control |= 5 << 1;
+	else
+		TRACE("No voltage is supported\n");
 
-	if(((*(present_state) >> 16) & 1) == 0)
+	if(((_regs->present_state >> 16) & 1) == 0)
+	{
+		TRACE("Card not inserted\n");
 		return;
-	*(power_control) |= 1; // power o
-}
-*/
+	}
+	
+	_regs->power_control |= SDHCI_BUS_POWER_ON;
+	TRACE("Executed CMD0\n");
+	_regs->command |= 26;
 
-//	#pragma mark -
+	DELAY(1000);
+}
+
 
 static status_t
 init_bus(device_node* node, void** bus_cookie)
@@ -213,9 +218,9 @@ init_bus(device_node* node, void** bus_cookie)
 
 	// enable bus master and io
 	uint16 pcicmd = pci->read_pci_config(device, PCI_command, 2);
-	//pcicmd &= ~(PCI_command_memory | PCI_command_int_disable);
-	// pcicmd |= PCI_command_master | PCI_command_io;
-	// pci->write_pci_config(device, PCI_command, 2, pcicmd);
+	pcicmd &= ~(PCI_command_int_disable | PCI_command_io);
+	pcicmd |= PCI_command_master | PCI_command_memory;
+	pci->write_pci_config(device, PCI_command, 2, pcicmd);
 
 	TRACE("init_bus() %p node %p pci %p device %p\n", bus, node,
 		bus->pci, bus->device);
@@ -235,13 +240,9 @@ init_bus(device_node* node, void** bus_cookie)
 	}
 
 	bus->regs_area = regs_area;
-
 	struct registers* _regs = (struct registers*)regs;
-
 	bus->_regs = _regs;
-
 	sdhci_reset(_regs);
-
 	bus->irq = pciInfo->u.h0.interrupt_line;
 
 	TRACE("irq interrupt line: %d\n",bus->irq);
@@ -265,44 +266,21 @@ init_bus(device_node* node, void** bus_cookie)
 		return status;
 	}
 	TRACE("interrupt handler installed\n");
-
+	
 	_regs->interrupt_status_enable = SDHCI_INT_CMD_CMP |
 		SDHCI_INT_TRANS_CMP | SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM | 
 		SDHCI_INT_TIMEOUT | SDHCI_INT_CRC | SDHCI_INT_INDEX |
 		SDHCI_INT_BUS_POWER | SDHCI_INT_END_BIT;
-
 	_regs->interrupt_signal_enable =  SDHCI_INT_CMD_CMP |
 		SDHCI_INT_TRANS_CMP | SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM |
 		SDHCI_INT_TIMEOUT | SDHCI_INT_CRC | SDHCI_INT_INDEX |
 		SDHCI_INT_BUS_POWER | SDHCI_INT_END_BIT;
 
-// SD 4 bit mode initialization
-
+	sdhci_register_dump(slot, _regs);
 	sdhci_set_clock(_regs, SDHCI_BASE_CLOCK_DIV_128);
-
+	sdhci_set_power(_regs);	
 	sdhci_register_dump(slot, _regs);
 
-	_regs->power_control |= 7 << 1;
-
-	_regs->power_control |= 1;
-
-	sdhci_stop_clock(_regs);
-
-	sdhci_set_clock(_regs, SDHCI_BASE_CLOCK_DIV_256);
-
-	sdhci_register_dump(slot, _regs);
-
-	DELAY(5*74); // if clock frequency is 5MHz
-
-	sdhci_register_dump(slot, _regs);
-
-	DELAY(5*74);	
-	_regs->command |= 14;
-
-	DELAY(1000);
-
-	sdhci_register_dump(slot, _regs);
-	
 	*bus_cookie = bus;
 	return status;
 }
@@ -320,9 +298,9 @@ sdhci_error_interrupt_recovery(struct registers* _regs)
 	}
 
 	int16_t erorr_status = _regs->interrupt_status;
-
 	_regs->interrupt_status &= ~(erorr_status);
 }
+
 
 int32
 sdhci_generic_interrupt(void* data)
@@ -336,11 +314,11 @@ sdhci_generic_interrupt(void* data)
 
 	if(intmask == 0 || intmask == 0xffffffff)
 	{
-	//	TRACE("invalid slot interrupt status\n");
+		TRACE("invalid command interrupt\n");
 		return B_UNHANDLED_INTERRUPT;
 	}	
 
-	/* handling card presence interrupt */
+	// handling card presence interrupt 
 	if(intmask & (SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM))
 	{
 		card_present = ((intmask & SDHCI_INT_CARD_INS) != 0);
@@ -356,7 +334,7 @@ sdhci_generic_interrupt(void* data)
 		TRACE("Card presence interrupt handled\n");
 	}
 
-	/* handling command interrupt */
+	// handling command interrupt 
 	if(intmask & SDHCI_INT_CMD_MASK)
 	{
 		TRACE("interrupt status error: %d\n",bus->_regs->interrupt_status);
@@ -364,7 +342,7 @@ sdhci_generic_interrupt(void* data)
 		TRACE("Command interrupt handled\n");
 	}
 
-	/* handling bus power interrupt */
+	// handling bus power interrupt
 	if(intmask & SDHCI_INT_BUS_POWER)
 	{
 		bus->_regs->interrupt_status |= SDHCI_INT_BUS_POWER;
@@ -373,7 +351,7 @@ sdhci_generic_interrupt(void* data)
 
 	intmask &= ~(SDHCI_INT_BUS_POWER | SDHCI_INT_CARD_INS |SDHCI_INT_CARD_REM | SDHCI_INT_CMD_MASK);
 
-	/* unknown interrupt*/
+	// unknown interrupt 
 	if(intmask)
 	{
 		TRACE("unexpected interrupt\n");
@@ -398,8 +376,6 @@ bus_removed(void* bus_cookie)
 	return;
 }
 
-
-//	#pragma mark -
 
 static status_t
 register_child_devices(void* cookie)
@@ -523,13 +499,12 @@ supports_device(device_node* parent)
 }
 
 
-//	#pragma mark -
-
 module_dependency module_dependencies[] = {
 	{ SDHCI_BUS_CONTROLLER_MODULE_NAME, (module_info**)&gSDHCIDeviceController},
 	{ B_DEVICE_MANAGER_MODULE_NAME, (module_info**)&gDeviceManager },
 	{}
 };
+
 
 void
 hey()
@@ -545,7 +520,6 @@ static sdhci_mmc_bus_interface gSDHCIPCIDeviceModule = {
 			0,
 			NULL
 		},
-
 		NULL,	// supports device
 		NULL,	// register device
 		init_bus,
@@ -557,7 +531,6 @@ static sdhci_mmc_bus_interface gSDHCIPCIDeviceModule = {
 	},
 	hey
 };
-
 
 static driver_module_info sSDHCIDevice = {
 	{
