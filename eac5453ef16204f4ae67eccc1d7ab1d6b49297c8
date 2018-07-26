@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c3c5198c_503a095a",
+        "filename": "src/kits/media/MediaDefs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 908,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-26T06:17:28Z",
+      "side": 1,
+      "message": "Can we please fix the actual problem? The compiler complains that memset() on a class is not appropriate, and it\u0027s right. There is no point in adding levels of abstractions above it to confuse the compiler and accidentally silence the warning.\n\nLet\u0027s do the initialization without using memset.\n\nI suggest a constructor that takes the type (B_MEDIA_AUDIO_FORMAT or B_MEDIA_VIDEO_FORMAT) as an argument so it can initialize the fields in a sane way (as a \"wildcard\" format of the requested type). This makes the API simpler to use in many cases.",
+      "revId": "eac5453ef16204f4ae67eccc1d7ab1d6b49297c8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
