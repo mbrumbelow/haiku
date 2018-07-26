@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3bbfec44_926b28cc",
+        "filename": "src/kits/media/experimental/AdapterIO.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-07-26T13:06:43Z",
+      "side": 1,
+      "message": "The definition of B_MEDIA_SEEKABLE is B_MEDIA_SEEK_BACKWARD | B_MEDIA_SEEK_FORWARD.\nNow what means IsSeekable()? I would think both directions.\nI would then suggest the following:\nreturn (flags \u0026 B_MEDIA_SEEKABLE) \u003d\u003d B_MEDIA_SEEKABLE;",
+      "revId": "6d4b39ac6f656b1e6ec9c33d18c86b2b27e123f6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
