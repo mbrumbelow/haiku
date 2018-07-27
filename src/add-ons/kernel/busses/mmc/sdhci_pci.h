@@ -60,6 +60,7 @@
 
 
 struct registers {
+
 	volatile uint32_t system_address;
 	volatile uint16_t block_size;
 	volatile uint16_t block_count;
@@ -113,9 +114,8 @@ status_t sdhci_generic_interrupt(void*);
 
 typedef struct {
 	driver_module_info info;
-	
 	void (*hey)();
-	
+
 } sdhci_mmc_bus_interface;
 
 
