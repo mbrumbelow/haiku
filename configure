@@ -704,16 +704,13 @@ while [ $# -gt 0 ] ; do
 			case "$targetArch" in
 				x86)		targetMachine=i586-pc-haiku;;
 				x86_64)		targetMachine=x86_64-unknown-haiku;;
+				arm)		targetMachine=arm-unknown-haiku;;
 				*)
 					echo "Unsupported target architecture: $2" >&2
 					exit 1
 					;;
 			esac
 			get_build_tool_path clang clang
-			if [ -z `get_variable "crossToolsPrefix_$targetArch"` ] \
-					&& [ -z `get_variable buildCrossToolsMachine_$targetArch` ]; then
-				set_variable crossToolsPrefix_$targetArch llvm-
-			fi
 			targetArchs="$targetArchs $targetArch"
 			shift 2
 			;;
@@ -828,9 +825,23 @@ else
 		set_default_value HAIKU_ELFEDIT_$targetArch		elfedit
 		set_default_value HAIKU_STRIP_$targetArch		strip
 
+		if [ $useClang = 1 ]; then
+			set_default_value HAIKU_AR_$targetArch			llvm-ar
+			set_default_value HAIKU_CC_$targetArch			clang
+			set_default_value HAIKU_LD_$targetArch			lld.ld
+			set_default_value HAIKU_OBJCOPY_$targetArch		llvm-objcopy
+			set_default_value HAIKU_RANLIB_$targetArch		llvm-ranlib
+			#set_default_value HAIKU_ELFEDIT_$targetArch		elfedit
+			set_default_value HAIKU_STRIP_$targetArch		llvm-objcopy
+		fi
+
 		# determine secondary architectures
 		for targetArch in $supportedTargetArchs; do
 			if [ -e /system/packages/haiku_$targetArch-*.hpkg ]; then
+				if [ $useClang = 1]; then
+					echo "TODO: Secondary architecture $targetArch unsupported under clang!"
+					continue
+				fi
 				targetArchs="$targetArchs $targetArch"
 				set_default_value HAIKU_AR_$targetArch		ar-$targetArch
 				set_default_value HAIKU_CC_$targetArch		gcc-$targetArch
@@ -856,6 +867,7 @@ else
 		fi
 	fi
 
+	# For cross-compiled builds, setup toolchains
 	isPrimaryArch=1
 	for targetArch in $targetArchs; do
 		# Note: targetArch is "unknown<n>" at this point if a cross-tools
@@ -936,13 +948,21 @@ else
 
 		# Override the cross tools variables, if the tools were built or a
 		# prefix was specified.
-		if [ -n "$crossToolsPrefix" ]; then
+		if [ $useClang = 1 ]; then
+			# crossToolsPrefix on clang is the path to the bins since
+			# we don't need a compiler compiled *for* the target architecture
+			get_build_tool_path AR_$targetArch ${crossToolsPrefix}llvm-ar
+			get_build_tool_path LD_$targetArch ${crossToolsPrefix}ld.lld
+			get_build_tool_path OBJCOPY_$targetArch ${crossToolsPrefix}llvm-objcopy
+			get_build_tool_path RANLIB_$targetArch ${crossToolsPrefix}llvm-ranlib
+			get_build_tool_path STRIP_$targetArch ${crossToolsPrefix}llvm-objcopy
+		elif [ -n "$crossToolsPrefix" ]; then
+			# crossToolsPrefix on gcc uses blah/gcc-
 			get_build_tool_path AR_$targetArch ${crossToolsPrefix}ar
 			get_build_tool_path LD_$targetArch ${crossToolsPrefix}ld
 			get_build_tool_path OBJCOPY_$targetArch ${crossToolsPrefix}objcopy
 			get_build_tool_path RANLIB_$targetArch ${crossToolsPrefix}ranlib
 			get_build_tool_path STRIP_$targetArch ${crossToolsPrefix}strip
-
 			case `get_variable HAIKU_GCC_RAW_VERSION_$targetArch` in
 				4.*|5.*|6.*|7.*|8.*)
 					get_build_tool_path ELFEDIT_$targetArch \
