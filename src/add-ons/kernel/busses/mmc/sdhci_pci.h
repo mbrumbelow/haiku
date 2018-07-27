@@ -41,17 +41,17 @@
 #define SDHCI_SD_CLOCK_ENABLE							1 << 2
 #define SDHCI_SD_CLOCK_DISABLE							~(1 << 2)
 #define SDHCI_CLR_FREQ_SEL 								~(255 << 8)
-#define SDHCI_BUS_POWER_ON									1
+#define SDHCI_BUS_POWER_ON								1
 /* Interrupt registers */
-#define SDHCI_INT_CMD_CMP		65536 			// command complete signal enable
-#define SDHCI_INT_TRANS_CMP		131072			// transfer complete signal enable
-#define SDHCI_INT_CARD_INS 		2097152 		// card insertion signal enable
-#define SDHCI_INT_CARD_REM 		4194304 		// card removal signal enable
-#define SDHCI_INT_TIMEOUT		1 				// timeout error 
-#define SDHCI_INT_CRC			2 				// CRC error
-#define SDHCI_INT_END_BIT		4 				// end bit error
-#define SDHCI_INT_INDEX 		8 				// index error
-#define SDHCI_INT_BUS_POWER		256 			// power fail
+#define SDHCI_INT_CMD_CMP		1 				// command complete signal enable
+#define SDHCI_INT_TRANS_CMP		2				// transfer complete signal enable
+#define SDHCI_INT_CARD_INS 		64 				// card insertion signal enable
+#define SDHCI_INT_CARD_REM 		128 			// card removal signal enable
+#define SDHCI_INT_TIMEOUT		65536 			// Timeout error 
+#define SDHCI_INT_CRC			131072 			// CRC error
+#define SDHCI_INT_END_BIT		262144 			// end bit error
+#define SDHCI_INT_INDEX 		524288			// index error
+#define SDHCI_INT_BUS_POWER		8388608 		// power fail
 
 #define	 SDHCI_INT_CMD_ERROR_MASK	(SDHCI_INT_TIMEOUT | \
 		SDHCI_INT_CRC | SDHCI_INT_END_BIT | SDHCI_INT_INDEX)
@@ -115,9 +115,7 @@ typedef struct {
 	driver_module_info info;
 	
 	void (*hey)();
-
-//		static void sdhci_register_dump(struct registers* regs);
-
+	
 } sdhci_mmc_bus_interface;
 
 

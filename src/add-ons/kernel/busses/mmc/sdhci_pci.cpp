@@ -159,6 +159,7 @@ sdhci_set_power(struct registers* _regs)
 	
 	_regs->power_control |= SDHCI_BUS_POWER_ON;
 	TRACE("Executed CMD0\n");
+	_regs->transfer_mode |= 4;
 	_regs->command |= 26;
 
 	DELAY(1000);
