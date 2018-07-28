@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7fd6299_7711f71c",
+        "filename": "src/preferences/screen/ScreenSettings.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-28T06:29:21Z",
+      "side": 1,
+      "message": "Reading the old format should be preserved, otherwise everyone will lose their settings on update.",
+      "revId": "827bdf98011ee844acf60884d45eabf974343e74",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9672d224_cea7cd4c",
+        "filename": "src/preferences/screen/ScreenSettings.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-28T06:29:21Z",
+      "side": 1,
+      "message": "Trailing whitespace",
+      "revId": "827bdf98011ee844acf60884d45eabf974343e74",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ccf05c2b_93bd453c",
+        "filename": "src/servers/app/Desktop.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3843,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-28T06:29:21Z",
+      "side": 1,
+      "message": "We have find_directory, and we have headers/private where we can share a .h file between various components (for example, a driver and the matching accelerant)",
+      "revId": "827bdf98011ee844acf60884d45eabf974343e74",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
