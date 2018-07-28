@@ -12,4 +12,9 @@
 // Message sent to Screen from Backgrounds when updating the background color
 static const uint32 UPDATE_DESKTOP_COLOR_MSG = 'udsc';
 
+// Constants used in loading/saving Screen preferences
+static const char* const kScreenSettingsFileName = "Screen_data";
+static const char* const kScreenSettingWindowFrame = "windowFrame";
+static const char* const kScreenSettingBrightness = "brightness";
+
 #endif	// _SCREEN_DEFS_H

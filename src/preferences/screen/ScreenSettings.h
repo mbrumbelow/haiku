@@ -1,5 +1,5 @@
 /*
- * Copyright 2001-2006, Haiku.
+ * Copyright 2001-2018, Haiku.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -20,10 +20,13 @@ class ScreenSettings {
 		virtual ~ScreenSettings();
 
 		BRect WindowFrame() const { return fWindowFrame; };
+		float Brightness() const { return fBrightness; };
 		void SetWindowFrame(BRect);
+		void SetBrightness(float);
 
 	private:
 		BRect fWindowFrame;
+		float fBrightness;
 };
 
 #endif	// SCREEN_SETTINGS_H
