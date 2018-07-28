@@ -526,7 +526,7 @@ PackageInfo::PackageInfo(const BPackageInfo& info)
 	BString publisherName = info.Vendor();
 	const BStringList& rightsList = info.CopyrightList();
 	if (rightsList.CountStrings() > 0)
-		publisherName = rightsList.StringAt(0);
+		publisherName = rightsList.Last();
 	if (!publisherName.IsEmpty())
 		publisherName.Prepend("© ");
 
@@ -1064,7 +1064,8 @@ DepotInfo::DepotInfo(const DepotInfo& other)
 	fPackages(other.fPackages),
 	fWebAppRepositoryCode(other.fWebAppRepositoryCode),
 	fWebAppRepositorySourceCode(other.fWebAppRepositorySourceCode),
-	fBaseURL(other.fBaseURL)
+	fBaseURL(other.fBaseURL),
+	fURL(other.fURL)
 {
 }
 
@@ -1075,6 +1076,7 @@ DepotInfo::operator=(const DepotInfo& other)
 	fName = other.fName;
 	fPackages = other.fPackages;
 	fBaseURL = other.fBaseURL;
+	fURL = other.fURL;
 	fWebAppRepositoryCode = other.fWebAppRepositoryCode;
 	fWebAppRepositorySourceCode = other.fWebAppRepositorySourceCode;
 	return *this;
@@ -1171,6 +1173,13 @@ void
 DepotInfo::SetBaseURL(const BString& baseURL)
 {
 	fBaseURL = baseURL;
+}
+
+
+void
+DepotInfo::SetURL(const BString& URL)
+{
+	fURL = URL;
 }
 
 

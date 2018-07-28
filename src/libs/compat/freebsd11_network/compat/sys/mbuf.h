@@ -70,6 +70,8 @@
 #define MGET(m, how, type)		((m) = m_get((how), (type)))
 #define MGETHDR(m, how, type)	((m) = m_gethdr((how), (type)))
 #define MCLGET(m, how)			m_clget((m), (how))
+#define m_getm(m, len, how, type)					\
+    m_getm2((m), (len), (how), (type), M_PKTHDR)
 
 #define mtod(m, type)	((type)((m)->m_data))
 
@@ -81,10 +83,22 @@
 
 #define MTAG_PERSISTENT	0x800
 
+#define	M_COPYALL	1000000000
+	// Length to m_copy to copy all.
+
 #define EXT_CLUSTER		1		// 2048 bytes
 #define EXT_JUMBOP		4		// Page size
 #define EXT_JUMBO9		5		// 9 * 1024 bytes
 #define EXT_NET_DRV		100		// custom ext_buf provided by net driver
+
+#define EXT_EXTREF		255		// has externally maintained ext_cnt ptr
+
+/*
+ * Flags for external mbuf buffer types.
+ * NB: limited to the lower 24 bits.
+ */
+#define EXT_FLAG_EMBREF		0x000001	/* embedded ext_count */
+#define EXT_FLAG_EXTREF		0x000002	/* external ext_cnt, notyet */
 
 #define CSUM_IP			0x0001
 #define CSUM_TCP		0x0002
@@ -106,15 +120,6 @@ extern int max_hdr;
 extern int max_datalen;		// MHLEN - max_hdr
 
 
-struct m_hdr {
-	struct mbuf*	mh_next;
-	struct mbuf*	mh_nextpkt;
-	caddr_t			mh_data;
-	int				mh_len;
-	int				mh_flags;
-	short			mh_type;
-};
-
 struct pkthdr {
 	struct ifnet*					rcvif;
 	int								len;
@@ -134,9 +139,14 @@ struct m_tag {
 };
 
 struct m_ext {
-	caddr_t			ext_buf;
-	unsigned int	ext_size;
-	int				ext_type;
+	union {
+		volatile u_int	 ext_count;	/* value of ref count info */
+		volatile u_int	*ext_cnt;	/* pointer to ref count info */
+	};
+	caddr_t		 ext_buf;	 /* start of buffer */
+	uint32_t	 ext_size;	 /* size of buffer, for ext_free */
+	uint32_t	 ext_type:8, /* type of external storage */
+			 ext_flags:24;	 /* external storage mbuf flags */
 };
 
 struct mbuf {
@@ -150,8 +160,14 @@ struct mbuf {
 		SLIST_ENTRY(mbuf)	m_slistpkt;
 		STAILQ_ENTRY(mbuf)	m_stailqpkt;
 	};
+	caddr_t		 m_data;	/* location of data */
+	int32_t		 m_len;		/* amount of data in this mbuf */
+	uint32_t	 m_type:8,	/* type of data in this mbuf */
+			 m_flags:24;
+#if !defined(__LP64__)
+	uint32_t	 m_pad;		/* pad for 64bit alignment */
+#endif
 
-	struct m_hdr m_hdr;
 	union {
 		struct {
 			struct pkthdr	MH_pkthdr;
@@ -164,37 +180,32 @@ struct mbuf {
 	} M_dat;
 };
 
-
-#define m_next		m_hdr.mh_next
-#define m_len		m_hdr.mh_len
-#define m_data		m_hdr.mh_data
-#define m_type		m_hdr.mh_type
-#define m_flags		m_hdr.mh_flags
-#define m_nextpkt	m_hdr.mh_nextpkt
-#define m_act		m_nextpkt
+/* The reason we use these really nasty macros, instead of naming the
+ * structs and unions properly like FreeBSD does ... is because of a
+ * GCC2 compiler bug. Specifically a parser bug: adding -O0 has no
+ * effect on this problem. */
 #define m_pkthdr	M_dat.MH.MH_pkthdr
 #define m_ext		M_dat.MH.MH_dat.MH_ext
 #define m_pktdat	M_dat.MH.MH_dat.MH_databuf
 #define m_dat		M_dat.M_databuf
 
-
 void			m_catpkt(struct mbuf *m, struct mbuf *n);
 void			m_adj(struct mbuf*, int);
-void			m_align(struct mbuf*, int);
 int				m_append(struct mbuf*, int, c_caddr_t);
 void			m_cat(struct mbuf*, struct mbuf*);
 int				m_clget(struct mbuf*, int);
 void*			m_cljget(struct mbuf*, int, int);
 struct mbuf*	m_collapse(struct mbuf*, int, int);
-void			m_copyback(struct mbuf*, int, int, caddr_t);
+void			m_copyback(struct mbuf *m0, int off, int len, c_caddr_t cp);
 void			m_copydata(const struct mbuf*, int, int, caddr_t);
 struct mbuf*	m_copypacket(struct mbuf*, int);
+struct mbuf *	m_copym(struct mbuf *m, int off0, int len, int wait);
 struct mbuf*	m_defrag(struct mbuf*, int);
 struct mbuf*	m_devget(char*, int, int, struct ifnet*,
 	void(*) (char*, caddr_t, u_int));
 
-struct mbuf*	m_dup(struct mbuf*, int);
-int				m_dup_pkthdr(struct mbuf*, struct mbuf*, int);
+struct mbuf*	m_dup(const struct mbuf *m, int how);
+int				m_dup_pkthdr(struct mbuf *to, const struct mbuf *from, int how);
 
 void			m_demote_pkthdr(struct mbuf *m);
 void			m_demote(struct mbuf *m0, int all, int flags);
@@ -207,6 +218,7 @@ struct mbuf*	m_free(struct mbuf*);
 void			m_freem(struct mbuf*);
 struct mbuf*	m_get(int, short);
 struct mbuf*	m_get2(int size, int how, short type, int flags);
+struct mbuf *	m_getm2(struct mbuf *m, int len, int how, short type, int flags);
 struct mbuf*	m_gethdr(int, short);
 struct mbuf*	m_getjcl(int, short, int, int);
 u_int			m_length(struct mbuf*, struct mbuf**);
@@ -224,7 +236,7 @@ void			m_tag_delete_chain(struct mbuf*, struct m_tag*);
 void			m_tag_free_default(struct m_tag*);
 struct m_tag*	m_tag_locate(struct mbuf*, u_int32_t, int, struct m_tag*);
 struct m_tag*	m_tag_copy(struct m_tag*, int);
-int				m_tag_copy_chain(struct mbuf*, struct mbuf*, int);
+int				m_tag_copy_chain(struct mbuf *to, const struct mbuf *from, int how);
 void			m_tag_delete_nonpersistent(struct mbuf*);
 
 

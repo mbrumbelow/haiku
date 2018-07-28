@@ -124,7 +124,7 @@ bus_alloc_mem_resource(device_t dev, struct resource *res, int regid)
 	if (res->r_mapped_area < B_OK)
 		return -1;
 
-	res->r_bustag = I386_BUS_SPACE_MEM;
+	res->r_bustag = X86_BUS_SPACE_MEM;
 	res->r_bushandle = (bus_space_handle_t)virtualAddr;
 	return 0;
 }
@@ -133,7 +133,7 @@ bus_alloc_mem_resource(device_t dev, struct resource *res, int regid)
 static int
 bus_alloc_ioport_resource(device_t dev, struct resource *res, int regid)
 {
-	res->r_bustag = I386_BUS_SPACE_IO;
+	res->r_bustag = X86_BUS_SPACE_IO;
 	res->r_bushandle = pci_read_config(dev, regid, 4) & PCI_address_io_mask;
 	return 0;
 }
@@ -279,18 +279,6 @@ intr_wrapper(void *data)
 
 
 static int32
-intr_fast_wrapper(void *data)
-{
-	struct internal_intr *intr = (struct internal_intr *)data;
-
-	intr->handler(intr->arg);
-
-	// We don't know if the interrupt has been handled.
-	return B_UNHANDLED_INTERRUPT;
-}
-
-
-static int32
 intr_handler(void *data)
 {
 	struct internal_intr *intr = (struct internal_intr *)data;
@@ -352,9 +340,6 @@ bus_setup_intr(device_t dev, struct resource *res, int flags,
 	if (filter != NULL) {
 		status = install_io_interrupt_handler(intr->irq,
 			(interrupt_handler)intr->filter, intr->arg, 0);
-	} else if ((flags & INTR_FAST) != 0) {
-		status = install_io_interrupt_handler(intr->irq,
-			intr_fast_wrapper, intr, B_NO_HANDLED_INFO);
 	} else {
 		snprintf(semName, sizeof(semName), "%s intr", dev->device_name);
 
@@ -415,6 +400,9 @@ int
 bus_teardown_intr(device_t dev, struct resource *res, void *arg)
 {
 	struct internal_intr *intr = (struct internal_intr *)arg;
+	if (intr == NULL)
+		return -1;
+
 	struct root_device_softc *root = (struct root_device_softc *)dev->root->softc;
 
 	if ((root->is_msi || root->is_msix) && gPCIx86 != NULL) {
@@ -426,8 +414,6 @@ bus_teardown_intr(device_t dev, struct resource *res, void *arg)
 	if (intr->filter != NULL) {
 		remove_io_interrupt_handler(intr->irq, (interrupt_handler)intr->filter,
 			intr->arg);
-	} else if (intr->flags & INTR_FAST) {
-		remove_io_interrupt_handler(intr->irq, intr_fast_wrapper, intr);
 	} else {
 		remove_io_interrupt_handler(intr->irq, intr_wrapper, intr);
 	}
@@ -451,8 +437,11 @@ bus_bind_intr(device_t dev, struct resource *res, int cpu)
 int bus_describe_intr(device_t dev, struct resource *irq, void *cookie,
 	const char* fmt, ...)
 {
-	UNIMPLEMENTED();
-	return B_ERROR;
+	if (dev->parent == NULL)
+		return EINVAL;
+
+	// we don't really support names for interrupts
+	return 0;
 }
 
 
