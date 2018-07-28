@@ -514,12 +514,14 @@ ScreenWindow::ScreenWindow(ScreenSettings* settings)
 		fBrightnessSlider->SetModificationMessage(
 			new BMessage(SLIDER_BRIGHTNESS_MSG));
 		fBrightnessSlider->SetValue(fOriginalBrightness * 255);
+		fUpdatedBrightness = fOriginalBrightness;
 	} else {
 		// The driver does not support changing the brightness,
 		// so hide the slider
 		fBrightnessSlider->Hide();
 
 		fOriginalBrightness = -1;
+		fUpdatedBrightness = -1;
 	}
 
 	// TODO: we don't support getting the screen's preferred settings
@@ -573,6 +575,8 @@ bool
 ScreenWindow::QuitRequested()
 {
 	fSettings->SetWindowFrame(Frame());
+	if (!fBrightnessSlider->IsHidden())
+		fSettings->SetBrightness(fUpdatedBrightness);
 
 	// Write mode of workspace 0 (the boot workspace) to the vesa settings file
 	screen_mode vesaMode;
@@ -1161,7 +1165,9 @@ ScreenWindow::MessageReceived(BMessage* message)
 		case SLIDER_BRIGHTNESS_MSG:
 		{
 			BScreen screen(this);
-			screen.SetBrightness(message->FindInt32("be:value") / 255.f);
+			fUpdatedBrightness = message->FindInt32("be:value") / 255.f;
+			fBootWorkspaceApplied = true;
+			screen.SetBrightness(fUpdatedBrightness);
 			_CheckApplyEnabled();
 			break;
 		}

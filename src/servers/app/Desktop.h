@@ -316,6 +316,7 @@ private:
 			void				_SetCurrentWorkspaceConfiguration();
 			void				_SetWorkspace(int32 index,
 									bool moveFocusWindow = false);
+			void				_SetBrightnessFromSettings();
 
 private:
 	friend class DesktopSettings;

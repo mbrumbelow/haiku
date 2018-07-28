@@ -27,6 +27,7 @@
 #include <debugger.h>
 #include <DirectWindow.h>
 #include <Entry.h>
+#include <File.h>
 #include <FindDirectory.h>
 #include <Message.h>
 #include <MessageFilter.h>
@@ -553,6 +554,9 @@ Desktop::Init()
 		// this will set the default cursor
 
 	fVirtualScreen.HWInterface()->SetCursorVisible(true);
+
+	// Set brightness from ScreenSettings if supported.
+	_SetBrightnessFromSettings();
 
 	return B_OK;
 }
@@ -3827,4 +3831,31 @@ Desktop::_SetWorkspace(int32 index, bool moveFocusWindow)
 
 	if (previousColor != fWorkspaces[fCurrentWorkspace].Color())
 		RedrawBackground();
+}
+
+
+void
+Desktop::_SetBrightnessFromSettings()
+{
+	// TODO: Identify a way for preference settings paths, filenames, and
+	// values to be stored centrally in an OS or library header/API so that we
+	// can stop duplicating references to settings without reverting to awkward
+	// jamfiles that cross component boundaries
+	BPath path;
+	if (find_directory(B_USER_SETTINGS_DIRECTORY, &path) == B_OK) {
+		// This is the Screen preferences setting file, written when Screen is
+		// closed by the user.
+		path.Append("Screen_data");
+
+		BMessage settings;
+		float brightness = -1;
+		BFile file(path.Path(), B_READ_ONLY);
+		if (file.InitCheck() == B_OK)
+			if (settings.Unflatten(&file) == B_OK)
+				if (settings.FindFloat("brightness", &brightness) == B_OK
+						&& brightness > 0) {
+					syslog(LOG_ALERT, "Set brightness: %f\n", brightness);
+					fVirtualScreen.HWInterface()->SetBrightness(brightness);
+				}
+	}
 }

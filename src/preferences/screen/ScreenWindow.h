@@ -114,6 +114,7 @@ private:
 			uint32			fOriginalWorkspacesColumns;
 			uint32			fOriginalWorkspacesRows;
 			float			fOriginalBrightness;
+			float			fUpdatedBrightness;
 			bool			fModified;
 };
 
