@@ -220,6 +220,11 @@ taskqueue_start_threads(struct taskqueue **taskQueue, int count, int priority,
 void
 taskqueue_free(struct taskqueue *taskQueue)
 {
+	if (taskQueue == NULL) {
+		printf("taskqueue_free called with NULL taskqueue\n");
+		return;
+	}
+
 	/* lock and  drain list? */
 	taskQueue->tq_flags &= ~TQ_FLAGS_ACTIVE;
 	if (!taskQueue->tq_fast)
@@ -246,6 +251,11 @@ void
 taskqueue_drain(struct taskqueue *taskQueue, struct task *task)
 {
 	cpu_status status;
+
+	if (taskQueue == NULL) {
+		printf("taskqueue_drain called with NULL taskqueue\n");
+		return;
+	}
 
 	tq_lock(taskQueue, &status);
 	while (task->ta_pending != 0) {
@@ -283,11 +293,10 @@ taskqueue_drain_timeout(struct taskqueue *queue,
 }
 
 
-int
-taskqueue_enqueue(struct taskqueue *taskQueue, struct task *task)
+static void
+taskqueue_enqueue_locked(struct taskqueue *taskQueue, struct task *task,
+	cpu_status status)
 {
-	cpu_status status;
-	tq_lock(taskQueue, &status);
 	/* we don't really support priorities */
 	if (task->ta_pending) {
 		task->ta_pending++;
@@ -300,6 +309,18 @@ taskqueue_enqueue(struct taskqueue *taskQueue, struct task *task)
 			taskQueue->tq_flags |= TQ_FLAGS_PENDING;
 	}
 	tq_unlock(taskQueue, status);
+}
+
+
+int
+taskqueue_enqueue(struct taskqueue *taskQueue, struct task *task)
+{
+	cpu_status status;
+
+	tq_lock(taskQueue, &status);
+	taskqueue_enqueue_locked(taskQueue, task, status);
+	/* The lock is released inside. */
+
 	return 0;
 }
 
@@ -309,13 +330,16 @@ taskqueue_timeout_func(void *arg)
 {
 	struct taskqueue *queue;
 	struct timeout_task *timeout_task;
+	cpu_status status;
+		// dummy, as we should never get here on a spin taskqueue
 
 	timeout_task = arg;
 	queue = timeout_task->q;
 	KASSERT((timeout_task->f & DT_CALLOUT_ARMED) != 0, ("Stray timeout"));
 	timeout_task->f &= ~DT_CALLOUT_ARMED;
 	queue->tq_callouts--;
-	taskqueue_enqueue(timeout_task->q, &timeout_task->t);
+	taskqueue_enqueue_locked(timeout_task->q, &timeout_task->t, status);
+	/* The lock is released inside. */
 }
 
 

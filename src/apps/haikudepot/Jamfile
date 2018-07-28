@@ -115,8 +115,10 @@ Application HaikuDepot :
 	TarArchiveService.cpp
 
 	#util
-	ToFileUrlProtocolListener.cpp
+	DataIOUtils.cpp
+	RepositoryUrlUtils.cpp
 	StorageUtils.cpp
+	ToFileUrlProtocolListener.cpp
 
 	# package_daemon
 	ProblemWindow.cpp

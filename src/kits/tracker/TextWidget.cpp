@@ -134,7 +134,8 @@ BTextWidget::ColumnRect(BPoint poseLoc, const BColumn* column,
 	BRect result;
 	result.left = column->Offset() + poseLoc.x;
 	result.right = result.left + column->Width();
-	result.bottom = poseLoc.y + view->ListElemHeight() - 1;
+	result.bottom = poseLoc.y
+		+ roundf((view->ListElemHeight() + view->FontHeight()) / 2);
 	result.top = result.bottom - view->FontHeight();
 	return result;
 }

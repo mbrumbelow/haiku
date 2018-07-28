@@ -69,7 +69,6 @@ struct resource_spec {
 
 enum intr_type {
 	INTR_TYPE_NET	= 4,
-	INTR_FAST		= 128,
 	INTR_MPSAFE		= 512,
 };
 
@@ -101,6 +100,13 @@ static inline struct resource *
 bus_alloc_resource_any(device_t dev, int type, int *rid, uint32 flags)
 {
 	return bus_alloc_resource(dev, type, rid, 0, ~0, 1, flags);
+}
+
+static inline struct resource *
+bus_alloc_resource_anywhere(device_t dev, int type, int *rid,
+    unsigned long count, uint32 flags)
+{
+	return (bus_alloc_resource(dev, type, rid, 0, ~0, count, flags));
 }
 
 bus_dma_tag_t bus_get_dma_tag(device_t dev);
