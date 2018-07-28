@@ -27,6 +27,7 @@
 #include <debugger.h>
 #include <DirectWindow.h>
 #include <Entry.h>
+#include <File.h>
 #include <FindDirectory.h>
 #include <Message.h>
 #include <MessageFilter.h>
@@ -35,6 +36,7 @@
 #include <Roster.h>
 
 #include <PrivateScreen.h>
+#include <ScreenDefs.h>
 #include <ServerProtocol.h>
 #include <ViewPrivate.h>
 #include <WindowInfo.h>
@@ -48,6 +50,7 @@
 #include "HWInterface.h"
 #include "InputManager.h"
 #include "Screen.h"
+#include "ScreenDefs.h"
 #include "ServerApp.h"
 #include "ServerConfig.h"
 #include "ServerCursor.h"
@@ -553,6 +556,9 @@ Desktop::Init()
 		// this will set the default cursor
 
 	fVirtualScreen.HWInterface()->SetCursorVisible(true);
+
+	// Set brightness from ScreenSettings if supported.
+	_SetBrightnessFromScreenSettings();
 
 	return B_OK;
 }
@@ -3827,4 +3833,32 @@ Desktop::_SetWorkspace(int32 index, bool moveFocusWindow)
 
 	if (previousColor != fWorkspaces[fCurrentWorkspace].Color())
 		RedrawBackground();
+}
+
+
+void
+Desktop::_SetBrightnessFromScreenSettings()
+{
+	float brightness;
+	status_t brightnessSupported
+		= fVirtualScreen.HWInterface()->GetBrightness(&brightness);
+
+	BPath path;
+	if (brightnessSupported == B_OK
+			&& find_directory(B_USER_SETTINGS_DIRECTORY, &path) == B_OK) {
+		// This is the Screen preferences setting file, written when Screen is
+		// closed by the user.
+		path.Append(kScreenSettingsFileName);
+
+		BMessage settings;
+		BFile file(path.Path(), B_READ_ONLY);
+		if (file.InitCheck() == B_OK) {
+			if (settings.Unflatten(&file) == B_OK) {
+				if (settings.FindFloat(kScreenSettingBrightness, &brightness)
+						== B_OK	&& brightness > 0) {
+					fVirtualScreen.HWInterface()->SetBrightness(brightness);
+				}
+			}
+		}
+	}
 }
