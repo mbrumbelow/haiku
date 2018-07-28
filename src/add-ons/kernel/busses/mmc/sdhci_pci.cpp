@@ -35,7 +35,7 @@
 #define SDHCI_PCI_CONTROLLER_TYPE_NAME "sdhci pci controller"
 
 #define SLOTS_COUNT				"device/slots_count"
-#define SLOT_NUMBER				"device/slot"		
+#define SLOT_NUMBER				"device/slot"
 #define BAR_INDEX				"device/bar"
 
 typedef struct {
@@ -100,7 +100,7 @@ static void
 sdhci_reset(struct registers* regs) {
 
 	// if card is not present then no point of reseting the registers
-	if (!(regs->present_state & SDHCI_CARD_DETECT)) 
+	if (!(regs->present_state & SDHCI_CARD_DETECT))
 		return;
 
 	// enabling software reset all
@@ -115,10 +115,10 @@ static void
 sdhci_set_clock(struct registers* regs, uint16_t base_clock_div) {
 
 	int base_clock = SDHCI_BASE_CLOCK_FREQ(regs->capabilities);
-	TRACE("SDCLK frequency: %dMHz\n", base_clock); 
+	TRACE("SDCLK frequency: %dMHz\n", base_clock);
 
 	regs->clock_control &= SDHCI_CLR_FREQ_SEL; // clearing previous frequency
-	regs->clock_control |= base_clock_div; 
+	regs->clock_control |= base_clock_div;
 	regs->clock_control |= SDHCI_INTERNAL_CLOCK_ENABLE; // enabling internal clock
 
 	// waiting till internal clock gets stable
@@ -332,7 +332,7 @@ sdhci_generic_interrupt(void* data)
 		bus->_regs->interrupt_signal_enable |= card_present ? SDHCI_INT_CARD_REM :
 			SDHCI_INT_CARD_INS;
 	
-		bus->_regs->interrupt_status |= (intmask & 
+		bus->_regs->interrupt_status |= (intmask &
 			(SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM));
 		TRACE("Card presence interrupt handled\n");
 	}
@@ -362,7 +362,7 @@ sdhci_generic_interrupt(void* data)
 		return B_UNHANDLED_INTERRUPT;
 	}
 
-	return B_HANDLED_INTERRUPT; 
+	return B_HANDLED_INTERRUPT;
 }	
 
 
@@ -409,7 +409,7 @@ register_child_devices(void* cookie)
 	for (uint8_t slot = 0; slot <= slots_count; slot++) {
 
 		bar = bar + slot;
-		sprintf(prettyName, "SDHC bus %" B_PRIu16 " slot %" 
+		sprintf(prettyName, "SDHC bus %" B_PRIu16 " slot %"
 			B_PRIu8, pciSubDeviceId, slot);
 		device_attr attrs[] = {
 		// properties of this controller for sdhci bus manager

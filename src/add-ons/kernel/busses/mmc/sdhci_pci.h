@@ -47,7 +47,7 @@
 #define SDHCI_INT_TRANS_CMP		2				// transfer complete signal enable
 #define SDHCI_INT_CARD_INS 		64 				// card insertion signal enable
 #define SDHCI_INT_CARD_REM 		128 			// card removal signal enable
-#define SDHCI_INT_TIMEOUT		65536 			// Timeout error 
+#define SDHCI_INT_TIMEOUT		65536 			// Timeout error
 #define SDHCI_INT_CRC			131072 			// CRC error
 #define SDHCI_INT_END_BIT		262144 			// end bit error
 #define SDHCI_INT_INDEX 		524288			// index error
@@ -89,7 +89,7 @@ struct registers {
 	volatile uint32_t capabilities_rsvd;
 	volatile uint32_t max_current_capabilities;
 	volatile uint32_t max_current_capabilities_rsvd;
-	volatile uint64_t pad[21];
+	volatile uint64_t padding[21];
 	volatile uint32_t : 32;
 	volatile uint16_t slot_interrupt_status;
 	volatile uint16_t host_control_version;
@@ -117,6 +117,5 @@ typedef struct {
 	void (*hey)();
 
 } sdhci_mmc_bus_interface;
-
 
 #endif

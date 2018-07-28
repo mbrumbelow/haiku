@@ -10,7 +10,7 @@
 #include "mmc_bus.h"
 
 
-MMCBus::MMCBus(device_node *node)
+MMCBus::MMCBus(device_node* node)
 	:
 	fNode(node),
 	fController(NULL),
@@ -19,12 +19,12 @@ MMCBus::MMCBus(device_node *node)
 	fDriverCookie(NULL)
 {
 	CALLED();
-	device_node *parent = gDeviceManager->get_parent_node(node);
+	device_node* parent = gDeviceManager->get_parent_node(node);
 	fStatus = gDeviceManager->get_driver(parent,
-		(driver_module_info **)&fController, &fCookie);
+		(driver_module_info**)&fController, &fCookie);
 	gDeviceManager->put_node(parent);
 
-	if(fStatus != B_OK)
+	if (fStatus != B_OK)
 		return;
 
 	TRACE("constructor is working\n");
@@ -33,14 +33,12 @@ MMCBus::MMCBus(device_node *node)
 }
 
 
-MMCBus::~MMCBus()
-{
+MMCBus::~MMCBus() {
 	CALLED();
 }
 
 
 status_t
-MMCBus::InitCheck()
-{
+MMCBus::InitCheck() {
 	return fStatus;
 }

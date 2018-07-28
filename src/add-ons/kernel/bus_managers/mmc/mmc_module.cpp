@@ -13,11 +13,11 @@ device_manager_info* gDeviceManager = NULL;
 
 
 static status_t
-mmc_bus_init(device_node *node, void **_device)
-{
+mmc_bus_init(device_node* node, void** _device) {
+	
 	CALLED();
-	MMCBus *device = new(std::nothrow) MMCBus(node);
-	if(device == NULL)
+	MMCBus* device = new(std::nothrow) MMCBus(node);
+	if (device == NULL)
 		return B_NO_MEMORY;
 
 	status_t result = device->InitCheck();
@@ -33,28 +33,28 @@ mmc_bus_init(device_node *node, void **_device)
 
 
 static void
-mmc_bus_uninit(void* _device)
-{
+mmc_bus_uninit(void* _device) {
+	
 	CALLED();
-	MMCBus *device = (MMCBus *)_device;
+	MMCBus* device = (MMCBus*)_device;
 	delete device;
 }
 
 
 static void
-mmc_bus_removed(void* _device)
-{
+mmc_bus_removed(void* _device) {
+	
 	CALLED();
 }
 
 
 status_t
-mmc_bus_added_device(device_node* parent)
-{
+mmc_bus_added_device(device_node* parent) {
+
 	CALLED();
 
 	uint16 deviceType;
-	if(gDeviceManager->get_attr_uint16(parent,
+	if (gDeviceManager->get_attr_uint16(parent,
 		SDHCI_DEVICE_TYPE_ITEM, &deviceType, true) != B_OK) {
 		TRACE("devide is missing\n");
 		return B_ERROR;
@@ -75,8 +75,8 @@ mmc_bus_added_device(device_node* parent)
 
 
 static status_t
-std_ops(int32 op, ...)
-{
+std_ops(int32 op, ...) {
+	
 	switch (op) {
 		case B_MODULE_INIT:
 		case B_MODULE_UNINIT:
