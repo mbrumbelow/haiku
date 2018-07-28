@@ -51,6 +51,24 @@
       "revId": "c50158fee0cb6b838bea58e7e4434c0015296663",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "69b3d31b_594f393c",
+        "filename": "src/servers/app/font/FontStyle.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2018-07-28T16:03:56Z",
+      "side": 1,
+      "message": "There are three kind of fonts: Variable width, Fixed Width, and Full-And-Half-Fixed (CKJ fonts, usually).\nThe code assumes that, if these chars have the same width, but this is NOT a Fixed Width font (because the fixed font flag is not set), it has to be a Full-And-Half-Fixed width font.\nAnd yeah, checking all the chars would be too costly.",
+      "parentUuid": "10c64937_9eb7094d",
+      "revId": "c50158fee0cb6b838bea58e7e4434c0015296663",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
