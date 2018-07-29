@@ -1,0 +1,667 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c02c6413_9508570b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "The commit message should be:\n\n- 1 short line summarizing the changes\n- 1 blank line\n- More lines with the details\n\nThis is because in some tools (for example cgit log), only the first line will be visible.",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ec803f22_e2e218f5",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_bus.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "An error log before returning would be a good idea here",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0375e33_a9ee2336",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_bus.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "Now that it is working, maybe we can remove this trace?",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54a651b5_1b3d06d1",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_bus.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "\"hey\" is not a very good method name. What does this do?",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa14575a_0127dc7a",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "Log an error here.\n\nIn general, you may not want to use TRACE for errors, but a separate macro that always logs, even when TRACE is disabled. Look at other drivers, they often have something like that.",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1bd8a185_06ecaab4",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "typo",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96542ff2_a07f0921",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this call the init and uninit functions? Or what is the point?\n\nIf I understand correctly there are two initialization steps:\n- Init the whole module\n- Init each bus (done in mmc_bus init)\n\nIf we have nothing to do to initialize the module, a comment \"// Nothing to do\" here would be nice.",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbae29e4_50c69e32",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "whitespace, and extra identation level for all lines below.",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "049bb8d2_a23bd230",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "Same here.",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a7ce948_aaa0b072",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "trailing whitespace",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cc73ade9_d5193529",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "extra empty line",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fc1744b_91c01d14",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "lines \u003e 80 columns",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "217b97bb_a5629639",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "line \u003e 80 column",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2342f01_e45d8711",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "And here again",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f754dd2_6b3c2fdd",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "More \u003e 80 columns lines",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "138d6fdd_7cb461ab",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "Use #if 0 and explain why this is disabled",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e54598a8_0adfb45a",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "extra indentation level",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bee39702_a7d01ddf",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "\u003e 80 columns",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b312368_815e5e3b",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "Missing space after comma",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d8b5be4_2cd34d1f",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "trailing whitespace",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6dd4e749_a26d9a4f",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "\u003e 80 column",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c075be9_ebdf9af5",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "This fits on the previous line",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ed5959d_976030ff",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "\u003e 80 columns",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86aa2f97_023f7ea0",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "\u003e 80 columns",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0abf6eaf_33394aad",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "No { needed because there is a single line in the if",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "003128e0_74d6ed17",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "This fits on the previous line",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcb59642_146283b2",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "whitespace",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf6dbdc6_4fe7d67d",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "Don\u0027t leave commented out code. If it is needed, use a #if 0 and add a comment to explain why it is disabled",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3189e4a1_46bceb04",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "\u003e 80 columns",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65f20c7f_51ad41fa",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "whitespace",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b926aa8c_46eeaa96",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "\u003e 80 columns + commented out code",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84f468c8_72207a90",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "whitespace",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "69938908_fc77ac2f",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "\u003e 80 columns",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c397fc1_aca46ff7",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "whitespace",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6cfff78_39c7b040",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "trailing whitespace",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e70d00a_4411ea87",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "trailing whitespace",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83c72014_02657317",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "extra blank line",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2ce1d59_06d94ee3",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "You can remove this duplicated version",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ed41986_fabfd929",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T08:00:26Z",
+      "side": 1,
+      "message": "Don\u0027t comment these out.\nTo remove traces, we just need to toggle the #define at the top of the file",
+      "revId": "44d8662b2df4d4177f80c853f01d4e18f2129e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
