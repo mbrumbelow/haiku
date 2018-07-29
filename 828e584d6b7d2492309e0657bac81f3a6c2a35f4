@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3dfe3d3c_05e1be66",
+        "filename": "src/preferences/screen/ScreenSettings.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T07:31:34Z",
+      "side": 1,
+      "message": "It would be easy enough to add an \"else file.Read(\u0026offset, sizeof(BPoint));\" here, and compatibility with the old format would be preserved. I think it is worth it.",
+      "revId": "828e584d6b7d2492309e0657bac81f3a6c2a35f4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9559b644_076acb70",
+        "filename": "src/servers/app/Desktop.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3843,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T07:31:34Z",
+      "side": 1,
+      "message": "\u003e 80 columns",
+      "revId": "828e584d6b7d2492309e0657bac81f3a6c2a35f4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612ffc69_8e88e33d",
+        "filename": "src/servers/app/Desktop.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3844,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T07:31:34Z",
+      "side": 1,
+      "message": "whitespace",
+      "revId": "828e584d6b7d2492309e0657bac81f3a6c2a35f4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e6eeafe5_157f2edd",
+        "filename": "src/servers/app/Desktop.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3853,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T07:31:34Z",
+      "side": 1,
+      "message": "whitespace",
+      "revId": "828e584d6b7d2492309e0657bac81f3a6c2a35f4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "781c100b_79db5fd8",
+        "filename": "src/servers/app/Desktop.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3857,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T07:31:34Z",
+      "side": 1,
+      "message": "\u003e 80 columns",
+      "revId": "828e584d6b7d2492309e0657bac81f3a6c2a35f4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9cc5c250_d9255101",
+        "filename": "src/servers/app/Desktop.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3859,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-07-29T07:31:34Z",
+      "side": 1,
+      "message": "There is enoguh chat in the syslog already, don\u0027t you think?",
+      "revId": "828e584d6b7d2492309e0657bac81f3a6c2a35f4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
