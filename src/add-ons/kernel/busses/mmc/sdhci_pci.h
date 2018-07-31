@@ -60,7 +60,6 @@
 
 
 struct registers {
-
 	volatile uint32_t system_address;
 	volatile uint16_t block_size;
 	volatile uint16_t block_count;

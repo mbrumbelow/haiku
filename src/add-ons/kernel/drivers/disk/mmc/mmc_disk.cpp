@@ -51,17 +51,19 @@ mmc_disk_supports_device(device_node* parent) {
 
 		TRACE("bus value %s, parent: %p\n",bus, parent);
 		return 0.0;
-	}	
-
-	/*if (sDeviceManager->get_attr_uint16(parent, SDHCI_DEVICE_TYPE_ITEM,
+	}
+	// Used to check the device type but later we have attached an attribute(mmc) 
+	// to the bus. Not a compulsion to use this condition
+	#if 0
+	if (sDeviceManager->get_attr_uint16(parent, SDHCI_DEVICE_TYPE_ITEM,
 		&deviceType, true) != B_OK)
 	{
 		TRACE("device type in mmc_disk ! = B_OK, bus found: %s and attr val %d\n"
 		,bus,deviceType);
 
 		return 0.0;
-	}*/
-	
+	}
+	#endif
 	TRACE("sdhci device found, parent: %p\n", parent);
 
 	return 0.8;
