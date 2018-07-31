@@ -39,7 +39,6 @@
 #define BAR_INDEX				"device/bar"
 
 typedef struct {
-	
 	pci_device_module_info* pci;
 	pci_device* device;
 	addr_t base_addr;
@@ -60,7 +59,6 @@ static pci_x86_module_info* sPCIx86Module;
 
 static void
 sdhci_register_dump(uint8_t slot, struct registers* regs) {
-
 	TRACE("Register values for slot: %d\n", slot);
 	TRACE("system_address: %d\n", regs->system_address);
 	TRACE("block_size: %d\n", regs->block_size);
@@ -131,7 +129,7 @@ sdhci_set_clock(struct registers* regs, uint16_t base_clock_div) {
 
 static void
 sdhci_stop_clock(struct registers* regs) {
-	
+
 	// checking if clock is already off
 	if (!(regs->clock_control & SDHCI_SD_CLOCK_ENABLE))
 		return;
@@ -142,11 +140,11 @@ sdhci_stop_clock(struct registers* regs) {
 
 static void
 sdhci_set_power(struct registers* _regs) {
-	
+
 	int voltage_support = (_regs->capabilities >> 24) & 7;
-	
+
 	TRACE("voltage supported %d\n", voltage_support);
-	
+
 	if (voltage_support != 0)
 		if (voltage_support == 1 || voltage_support == 5 || voltage_support == 3)
 			_regs->power_control |= 7 << 1;
@@ -161,7 +159,7 @@ sdhci_set_power(struct registers* _regs) {
 		TRACE("Card not inserted\n");
 		return;
 	}
-	
+
 	_regs->power_control |= SDHCI_BUS_POWER_ON;
 	TRACE("Executed CMD0\n");
 	_regs->transfer_mode |= 4;
@@ -173,7 +171,7 @@ sdhci_set_power(struct registers* _regs) {
 
 static status_t
 init_bus(device_node* node, void** bus_cookie) {
-	
+
 	CALLED();
 	status_t status = B_OK;
 	area_id	regs_area;
@@ -202,7 +200,7 @@ init_bus(device_node* node, void** bus_cookie) {
 	}
 
 	int msiCount = sPCIx86Module->get_msi_count(
-			pciInfo->bus, pciInfo->device, pciInfo->function);
+		pciInfo->bus, pciInfo->device, pciInfo->function);
 
 	TRACE("interrupts count: %d\n",msiCount);
 
@@ -267,7 +265,7 @@ init_bus(device_node* node, void** bus_cookie) {
 		return status;
 	}
 	TRACE("interrupt handler installed\n");
-	
+
 	_regs->interrupt_status_enable = SDHCI_INT_CMD_CMP
 		| SDHCI_INT_TRANS_CMP | SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM 
 		| SDHCI_INT_TIMEOUT | SDHCI_INT_CRC | SDHCI_INT_INDEX
@@ -292,7 +290,7 @@ sdhci_error_interrupt_recovery(struct registers* _regs)
 {
 	_regs->interrupt_signal_enable &= ~( SDHCI_INT_CMD_CMP
 		| SDHCI_INT_TRANS_CMP | SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM);
-	
+
 	if (_regs->interrupt_status & 7) {
 		_regs->software_reset |= 1 << 1;
 		while (_regs->command);
@@ -308,7 +306,7 @@ sdhci_generic_interrupt(void* data)
 {
 	TRACE("interrupt function called\n");
 	sdhci_pci_mmc_bus_info* bus = (sdhci_pci_mmc_bus_info*)data;
-	
+
 	uint16_t intmask, card_present;
 
 	intmask = bus->_regs->slot_interrupt_status;
@@ -316,11 +314,11 @@ sdhci_generic_interrupt(void* data)
 	if (intmask == 0 || intmask == 0xffffffff) {
 		TRACE("invalid command interrupt\n");
 		return B_UNHANDLED_INTERRUPT;
-	}	
+	}
 
-	// handling card presence interrupt 
+	// handling card presence interrupt
 	if (intmask & (SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM)) {
-		
+
 		card_present = ((intmask & SDHCI_INT_CARD_INS) != 0);
 		bus->_regs->interrupt_status_enable &= ~(SDHCI_INT_CARD_INS
 			| SDHCI_INT_CARD_REM);
@@ -331,15 +329,15 @@ sdhci_generic_interrupt(void* data)
 			SDHCI_INT_CARD_INS;
 		bus->_regs->interrupt_signal_enable |= card_present ? SDHCI_INT_CARD_REM :
 			SDHCI_INT_CARD_INS;
-	
+
 		bus->_regs->interrupt_status |= (intmask &
 			(SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM));
 		TRACE("Card presence interrupt handled\n");
 	}
 
-	// handling command interrupt 
+	// handling command interrupt
 	if (intmask & SDHCI_INT_CMD_MASK) {
-		
+
 		TRACE("interrupt status error: %d\n",bus->_regs->interrupt_status);
 		bus->_regs->interrupt_status |= (intmask & SDHCI_INT_CMD_MASK);
 		TRACE("Command interrupt handled\n");
@@ -355,7 +353,7 @@ sdhci_generic_interrupt(void* data)
 	intmask &= ~(SDHCI_INT_BUS_POWER
 		| SDHCI_INT_CARD_INS |SDHCI_INT_CARD_REM | SDHCI_INT_CMD_MASK);
 
-	// unknown interrupt 
+	// unknown interrupt
 	if (intmask) {
 
 		TRACE("unexpected interrupt\n");
@@ -363,7 +361,7 @@ sdhci_generic_interrupt(void* data)
 	}
 
 	return B_HANDLED_INTERRUPT;
-}	
+}
 
 
 static void
@@ -484,7 +482,6 @@ supports_device(device_node* parent)
 		pci_device* device;
 		gDeviceManager->get_driver(parent, (driver_module_info**)&pci,
 			(void**)&device);
-
 		pciSubDeviceId = pci->read_pci_config(device, PCI_revision,
 			1);
 		TRACE("SDHCI Device found! Subtype: 0x%04x, type: 0x%04x\n",

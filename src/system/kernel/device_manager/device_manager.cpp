@@ -394,7 +394,7 @@ publish_directories(const char* subPath)
 			return;
 
 		size_t length = strlen(path.Path()) + 1;
-			// account for the separating '/'
+		// account for the separating '/'
 
 		void* list = open_module_list_etc(path.Path(), "driver_v1");
 		char name[B_FILE_NAME_LENGTH];
