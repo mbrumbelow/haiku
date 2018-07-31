@@ -24,10 +24,11 @@ MMCBus::MMCBus(device_node* node)
 		(driver_module_info**)&fController, &fCookie);
 	gDeviceManager->put_node(parent);
 
-	if (fStatus != B_OK)
+	if (fStatus != B_OK){
+		ERROR("Not able to establish the bus\n");
 		return;
+	}
 
-	TRACE("constructor is working\n");
 	fController->hey();
 
 }
