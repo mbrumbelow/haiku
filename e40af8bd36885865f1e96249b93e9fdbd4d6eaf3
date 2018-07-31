@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "66a18530_e961115c",
+        "filename": "src/tests/add-ons/accelerants/intel_extreme/PllTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-07-31T09:29:34Z",
+      "side": 1,
+      "message": "Please check for NULL here (and free gInfo before returning).",
+      "revId": "e40af8bd36885865f1e96249b93e9fdbd4d6eaf3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
