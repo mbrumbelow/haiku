@@ -1,0 +1,69 @@
+
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>Style violations</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <style type="text/css">
+    .highlight {
+        background: #ffff00;
+        color: #000000;
+    }
+
+    .linehead {
+        background: #ddd;
+        font-size: 1px;
+    }
+
+    .highlight .linehead {
+        background: #ffff00;;
+        color: #999;
+        text-align: right;
+        font-size: 8px;
+    }
+
+    .linenumber {
+        background: #eee;
+        color: #999;
+        text-align: right;
+    }
+
+    td {
+        border-spacing: 0px;
+        border-width: 0px;
+        padding: 0px
+    }
+
+    div.code pre {
+        font-family: monospace;
+    }
+
+    .tooltip em {
+        display:none;
+    }
+
+    .tooltip:hover {
+        border: 0;
+        position: relative;
+        z-index: 500;
+        text-decoration:none;
+    }
+
+    .tooltip:hover em {
+        font-style: normal;
+        display: block;
+        position: absolute;
+        top: 20px;
+        left: -10px;
+        padding: 5px;
+        color: #000;
+        border: 1px solid #bbb;
+        background: #ffc;
+        width: auto;
+    }</style>
+    </head>
+    <body>
+        <p><b>File list:</b><br/>src/add-ons/kernel/bus_managers/mmc/mmc_module.cpp<br/></p><hr/><p><b>src/add-ons/kernel/bus_managers/mmc/mmc_module.cpp</b></p><table><tr><td><pre class="code"><span class="linenumber">   1<br/>   2<br/>   3<br/>   4<br/>   5<br/>   6<br/>   7<br/>   8<br/>   9<br/>  10<br/>  11<br/>  12<br/>  13<br/>  14<br/>  15<br/>  16<br/>  17<br/>  18<br/>  19<br/>  20<br/>  21<br/>  22<br/>  23<br/>  24<br/>  25<br/>  26<br/>  27<br/>  28<br/>  29<br/>  30<br/>  31<br/>  32<br/>  33<br/>  34<br/>  35<br/>  36<br/>  37<br/>  38<br/>  39<br/>  40<br/>  41<br/>  42<br/>  43<br/>  44<br/>  45<br/>  46<br/>  47<br/>  48<br/>  49<br/>  50<br/>  51<br/>  52<br/>  53<br/>  54<br/>  55<br/>  56<br/>  57<br/>  58<br/>  59<br/>  60<br/>  61<br/>  62<br/>  63<br/>  64<br/>  65<br/>  66<br/>  67<br/>  68<br/>  69<br/>  70<br/>  71<br/>  72<br/>  73<br/>  74<br/>  75<br/>  76<br/>  77<br/>  78<br/>  79<br/>  80<br/>  81<br/>  82<br/>  83<br/>  84<br/>  85<br/>  86<br/>  87<br/>  88<br/>  89<br/>  90<br/>  91<br/>  92<br/>  93<br/>  94<br/>  95<br/>  96<br/>  97<br/>  98<br/>  99<br/> 100<br/> 101<br/> 102<br/> 103<br/> 104<br/> 105<br/> 106<br/> 107<br/> 108<br/> 109<br/> 110<br/> 111<br/> 112<br/> 113<br/> 114<br/> 115<br/> 116<br/> 117<br/> 118<br/> 119<br/> 120<br/> 121<br/> 122<br/> 123<br/> 124<br/> 125<br/> 126<br/> 127<br/> 128<br/> 129<br/> 130<br/> 131<br/> 132<br/> 133<br/> 134<br/> 135<br/> 136<br/> 137<br/></span></pre></td><td><pre class="code"><span class="linehead"> </span>/<span class="highlight tooltip">*<em>Operator at line end</em></span><br/><span class="linehead"> </span> * Copyright 2018 Haiku, Inc. All rights reserved.<br/><span class="linehead"> </span> * Distributed under the terms of the MIT License.<br/><span class="linehead"> </span> <span class="highlight tooltip">*<em>Operator at line end</em></span><br/><span class="linehead"> </span> * Authors:<br/><span class="linehead"> </span> *		B Krishnan Iyer, krishnaniyer97@gmail.com<br/><span class="linehead"> </span> *<span class="highlight tooltip">/<em>Operator at line end</em></span><br/><span class="linehead"> </span><br/><span class="linehead"> </span><br/><span class="linehead"> </span>#include "mmc_bus.h"<br/><span class="linehead"> </span><br/><span class="linehead"> </span>device_manager_info* gDeviceManager = NULL;<br/><span class="linehead"> </span><br/><span class="linehead"> </span><br/><span class="linehead"> </span>static status_t<br/><span class="linehead"> </span>mmc_bus_init(device_node* node, void** _device) {<br/><span class="linehead"> </span><br/><span class="linehead"> </span>	CALLED();<br/><span class="linehead"> </span>	MMCBus* device = new(std::nothrow) MMCBus(node);<br/><span class="linehead"> </span>	if (device == NULL) {<br/><span class="linehead"> </span>		ERROR("Not able to setup MMC bus\n");<br/><span class="linehead"> </span>		return B_NO_MEMORY;<br/><span class="linehead"> </span>	}<br/><span class="linehead"> </span><br/><span class="linehead"> </span>	status_t result = device-&gt;InitCheck();<br/><span class="linehead"> </span>	if (result != B_OK) {<br/><span class="linehead"> </span>		TRACE("failed to set up mmc bus device object\n");<br/><span class="linehead"> </span>		return result;<br/><span class="linehead"> </span>	}<br/><span class="linehead"> </span>	TRACE("mmc bus object success\n");<br/><span class="linehead"> </span><br/><span class="linehead"> </span>	*_device = device;<br/><span class="linehead"> </span>	return B_OK;<br/><span class="linehead"> </span>}<br/><span class="linehead"> </span><br/><span class="linehead"> </span><br/><span class="linehead"> </span>static void<br/><span class="linehead"> </span>mmc_bus_uninit(void* _device) {<br/><span class="linehead"> </span><br/><span class="linehead"> </span>	CALLED();<br/><span class="linehead"> </span>	MMCBus* device = (MMCBus*)_device;<br/><span class="linehead"> </span>	delete device;<br/><span class="linehead"> </span>}<br/><span class="linehead"> </span><br/><span class="linehead"> </span><br/><span class="linehead"> </span>static void<br/><span class="linehead"> </span>mmc_bus_removed(void* _device) {<br/><span class="linehead"> </span><br/><span class="linehead"> </span>	CALLED();<br/><span class="linehead"> </span>}<br/><span class="linehead"> </span><br/><span class="linehead"> </span><br/><span class="linehead"> </span>status_t<br/><span class="linehead"> </span>mmc_bus_added_device(device_node* parent) {<br/><span class="linehead"> </span><br/><span class="linehead"> </span>	CALLED();<br/><span class="linehead"> </span><br/><span class="linehead"> </span>	uint16 deviceType;<br/><span class="linehead"> </span>	if (gDeviceManager-&gt;get_attr_uint16(parent,<br/><span class="linehead"> </span>		SDHCI_DEVICE_TYPE_ITEM, &amp;deviceType, true) != B_OK) {<br/><span class="linehead"> </span>		TRACE("devide is missing\n");<br/><span class="linehead"> </span>		return B_ERROR;<br/><span class="linehead"> </span>	}<br/><span class="linehead"> </span><br/><span class="linehead"> </span>	TRACE("MMC bus device added :)\n");<br/><span class="linehead"> </span><br/><span class="linehead"> </span>	device_attr attributes[] = {<br/><span class="linehead"> </span>		{ B_DEVICE_BUS, B_STRING_TYPE, { string: "mmc bus"}},<br/><span class="linehead"> </span>		{ SDHCI_DEVICE_TYPE_ITEM, B_UINT16_TYPE,<br/><span class="linehead"> </span>			{ ui16: deviceType }},<br/><span class="linehead"> </span>		{ NULL }<br/><span class="linehead"> </span>	};<br/><span class="linehead"> </span><br/><span class="linehead"> </span>	return gDeviceManager-&gt;register_node(parent, MMC_BUS_MODULE_NAME,<br/><span class="linehead"> </span>		attributes, NULL, NULL);<br/><span class="linehead"> </span>}<br/><span class="linehead"> </span><br/><span class="linehead"> </span><br/><span class="linehead"> </span>static status_t<br/><span class="linehead"> </span>std_ops(int32 op, ...) {<br/><span class="linehead"> </span><br/><span class="linehead"> </span>	switch (op) {<br/><span class="linehead"> </span>		case B_MODULE_INIT:<br/><span class="linehead"> </span>			// Nothing to do<br/><span class="linehead"> </span>		case B_MODULE_UNINIT:<br/><span class="linehead"> </span>			return B_OK;<br/><span class="linehead"> </span><br/><span class="linehead"> </span>		default:<br/><span class="linehead"> </span>			break;<br/><span class="linehead"> </span>	}<br/><span class="linehead"> </span><br/><span class="linehead"> </span>	return B_ERROR;<br/><span class="linehead"> </span>}<br/><span class="linehead"> </span><br/><span class="linehead"> </span><br/><span class="linehead"> </span>driver_module_info mmc_bus_device_module = {<br/><span class="linehead"> </span>	{<br/><span class="linehead"> </span>		MMC_BUS_MODULE_NAME,<br/><span class="linehead"> </span>		0,<br/><span class="linehead"> </span>		std_ops<br/><span class="linehead"> </span>	},<br/><span class="linehead"> </span>	NULL, // supported devices<br/><span class="linehead"> </span>	NULL, // register node<br/><span class="linehead"> </span>	mmc_bus_init,<br/><span class="linehead"> </span>	mmc_bus_uninit,<br/><span class="linehead"> </span>	NULL, // register child devices<br/><span class="linehead"> </span>	NULL, // rescan<br/><span class="linehead"> </span>	mmc_bus_removed,<br/><span class="linehead"> </span>	NULL, // suspend<br/><span class="linehead"> </span>	NULL // resume<br/><span class="linehead"> </span>}<span class="highlight tooltip"><em>Lines between functions &lt; 2</em></span>;<br/><span class="linehead"> </span><br/><span class="linehead"> </span>driver_module_info mmc_bus_controller_module = {<br/><span class="linehead"> </span>	{<br/><span class="linehead"> </span>		SDHCI_BUS_CONTROLLER_MODULE_NAME,<br/><span class="linehead"> </span>		0,<br/><span class="linehead"> </span>		&amp;std_ops<br/><span class="linehead"> </span>	},<br/><span class="linehead"> </span><br/><span class="linehead"> </span>	NULL, // supported devices<br/><span class="linehead"> </span>	mmc_bus_added_device,<br/><span class="linehead"> </span>	NULL,<br/><span class="linehead"> </span>	NULL,<br/><span class="linehead"> </span>	NULL<br/><span class="linehead"> </span>}<span class="highlight tooltip"><em>Lines between functions &lt; 2</em></span>;<br/><span class="linehead"> </span><br/><span class="linehead"> </span>module_dependency module_dependencies[] = {<br/><span class="linehead"> </span>	{ B_DEVICE_MANAGER_MODULE_NAME, (module_info **)&amp;gDeviceManager },<br/><span class="linehead"> </span>	{}<br/><span class="linehead"> </span>}<span class="highlight tooltip"><em>Lines between functions &lt; 2</em></span>;<br/><span class="linehead"> </span><br/><span class="linehead"> </span>module_info<span class="highlight tooltip"> *<em>Bad pointer/reference style</em></span>modules[] = {<br/><span class="linehead"> </span>	(module_info<span class="highlight tooltip"> *<em>Bad pointer/reference style</em></span>)&amp;mmc_bus_controller_module,<br/><span class="linehead"> </span>	(module_info<span class="highlight tooltip"> *<em>Bad pointer/reference style</em></span>)&amp;mmc_bus_device_module,<br/><span class="linehead"> </span>	NULL<br/><span class="linehead"> </span>}<span class="highlight tooltip"><em>Lines between functions &lt; 2</em></span>;<br/><span class="linehead"> </span><span class="highlight tooltip"></span><br/></pre></td></tr></table>
+    </body>
+    </html>
