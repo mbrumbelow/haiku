@@ -38,7 +38,7 @@ static device_manager_info* sDeviceManager;
 
 static float
 mmc_disk_supports_device(device_node* parent) {
-	
+
 	CALLED();
 	TRACE("mmc_disk supports device has started\n");
 	const char* bus;
@@ -51,17 +51,19 @@ mmc_disk_supports_device(device_node* parent) {
 
 		TRACE("bus value %s, parent: %p\n",bus, parent);
 		return 0.0;
-	}	
-
-	/*if (sDeviceManager->get_attr_uint16(parent, SDHCI_DEVICE_TYPE_ITEM,
+	}
+	// Used to check the device type but later we have attached an attribute(mmc)
+	// to the bus. Not a compulsion to use this condition
+	#if 0
+	if (sDeviceManager->get_attr_uint16(parent, SDHCI_DEVICE_TYPE_ITEM,
 		&deviceType, true) != B_OK)
 	{
 		TRACE("device type in mmc_disk ! = B_OK, bus found: %s and attr val %d\n"
 		,bus,deviceType);
 
 		return 0.0;
-	}*/
-	
+	}
+	#endif
 	TRACE("sdhci device found, parent: %p\n", parent);
 
 	return 0.8;
@@ -70,7 +72,7 @@ mmc_disk_supports_device(device_node* parent) {
 
 static status_t
 mmc_disk_register_device(device_node* node) {
-	
+
 	CALLED();
 
 	device_attr attrs[] = {
@@ -84,7 +86,7 @@ mmc_disk_register_device(device_node* node) {
 
 static status_t
 mmc_disk_init_driver(device_node* node, void** cookie) {
-	
+
 	CALLED();
 	mmc_disk_driver_info* info = (mmc_disk_driver_info*)malloc(
 		sizeof(mmc_disk_driver_info));
@@ -103,14 +105,14 @@ mmc_disk_init_driver(device_node* node, void** cookie) {
 
 static void
 mmc_disk_uninit_driver(void* _cookie) {
-	
+
 	CALLED();
 	mmc_disk_driver_info* info = (mmc_disk_driver_info*)_cookie;
 	free(info);
 }
 
 
-static status_t 
+static status_t
 mmc_disk_register_child_devices(void* _cookie) {
 
 	CALLED();
@@ -148,7 +150,7 @@ struct driver_module_info sMMCDiskDriver = {
 	mmc_disk_uninit_driver,
 	mmc_disk_register_child_devices,
 	NULL, // mmc_disk_rescan_child_devices,
-	NULL,	
+	NULL,
 };
 
 module_info* modules[] = {
