@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "663d5225_68720d38",
+        "filename": "build/jam/images/definitions/minimum",
+        "patchSetId": 7
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-01T19:37:59Z",
+      "side": 0,
+      "message": "This patch is still based on all previous abandoned ones, it can\u0027t be merged as is (I would still need to review all changes you did).\n\nYou need to \"rebase -i\" your work and squash most commits together, there should be only a few commits left (or even a single large commit if there is no way to split the work up). Check the git log and make sure it is as needed. Then push your changes again.",
+      "revId": "79ae6ccb134ad5d1472528f428cefc029ed668cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}

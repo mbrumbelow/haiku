@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9d6ea656_a9aff5ba",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-01T19:37:59Z",
+      "side": 1,
+      "message": "This commit message is not correct. We want a description of all the changes you did, not just the last iteration.",
+      "revId": "ffb3981e5c0fc976b881dd38242c1c5b8d254b85",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
