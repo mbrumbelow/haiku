@@ -952,6 +952,9 @@ PackageListView::SelectPackage(const PackageInfoRef& package)
 		AddToSelection(row);
 		SetFocusRow(row, false);
 		ScrollTo(row);
+
+		// The view must be the focus to enable keyboard navigation
+		MakeFocus();
 	}
 }
 
