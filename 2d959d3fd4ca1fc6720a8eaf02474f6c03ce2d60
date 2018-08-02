@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d75a410f_60191734",
+        "filename": "src/servers/app/Desktop.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 3858,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-02T06:51:35Z",
+      "side": 1,
+      "message": "There is a stray tab here? (between B_OK and \u0026\u0026)",
+      "revId": "2d959d3fd4ca1fc6720a8eaf02474f6c03ce2d60",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d4936342_4f94415a",
+        "filename": "src/servers/app/Jamfile",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-02T06:51:35Z",
+      "side": 1,
+      "message": "The 80 columns limit also apply on jamfiles.",
+      "revId": "2d959d3fd4ca1fc6720a8eaf02474f6c03ce2d60",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
