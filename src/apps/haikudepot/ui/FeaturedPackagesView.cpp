@@ -40,11 +40,12 @@ static BitmapRef sInstalledIcon(new(std::nothrow)
 
 class PackageView : public BGroupView {
 public:
-	PackageView()
+	PackageView(FeaturedPackagesView* owner)
 		:
 		BGroupView("package view", B_HORIZONTAL),
 		fPackageListener(
 			new(std::nothrow) OnePackageMessagePackageListener(this)),
+		fFeaturedPackagesView(owner),
 		fSelected(false)
 	{
 		SetViewUIColor(B_LIST_BACKGROUND_COLOR);
@@ -176,6 +177,47 @@ public:
 		}
 	}
 
+	virtual void KeyDown(const char* bytes, int32 numBytes)
+	{
+		BGroupView::KeyDown(bytes, numBytes);
+
+		bool selectNext = false;
+		bool selectPrevious = false;
+
+		char key = bytes[0];
+		switch (key) {
+			case B_RIGHT_ARROW:
+			case B_DOWN_ARROW:
+				selectNext = true;
+				break;
+			case B_LEFT_ARROW:
+			case B_UP_ARROW:
+				selectPrevious = true;
+				break;
+			default:
+				break;
+		}
+
+		BMessage message(MSG_PACKAGE_SELECTED);
+		BString packageToSelect("");
+		if (selectPrevious) {
+			PackageView* prevPackage = fFeaturedPackagesView->PreviousPackage(this);
+			if (prevPackage != NULL) {
+				packageToSelect = prevPackage->PackageName();
+			}
+		} else if (selectNext) {
+			PackageView* nextPackage = fFeaturedPackagesView->NextPackage(this);
+			if (nextPackage != NULL) {
+				packageToSelect = nextPackage->PackageName();
+			}
+		}
+
+		if (packageToSelect != "") {
+			message.AddString("name", packageToSelect);
+			Window()->PostMessage(&message);
+		}
+	}
+
 	void SetPackage(const PackageInfoRef& package)
 	{
 		fPackageListener->SetPackage(package);
@@ -245,6 +287,10 @@ public:
 		fSelected = selected;
 
 		_UpdateColors();
+		// Make the PackageView the focus so that the next KeyDown event can be
+		// registered by the view and enable keyboard navigation
+		if (selected)
+			MakeFocus();
 	}
 
 	void _UpdateColors()
@@ -324,6 +370,7 @@ public:
 
 private:
 	OnePackageMessagePackageListener* fPackageListener;
+	FeaturedPackagesView*			fFeaturedPackagesView;
 
 	BitmapView*						fIconView;
 	BitmapView*						fInstalledIconView;
@@ -397,7 +444,7 @@ FeaturedPackagesView::AddPackage(const PackageInfoRef& package)
 			index++;
 	}
 
-	PackageView* view = new PackageView();
+	PackageView* view = new PackageView(this);
 	view->SetPackage(package);
 
 	fPackageListLayout->AddView(index, view);
@@ -437,6 +484,46 @@ FeaturedPackagesView::Clear()
 }
 
 
+PackageView*
+FeaturedPackagesView::PreviousPackage(PackageView* currentView)
+{
+	PackageView* previous;
+	for (int32 i = 0; BLayoutItem* item = fPackageListLayout->ItemAt(i); i++) {
+		PackageView* view = dynamic_cast<PackageView*>(item->View());
+		if (view == NULL)
+			break;
+		BString name = view->PackageName();
+		bool match = (name == currentView->PackageName());
+		if (match && i > 0)
+			break;
+		else
+			previous = view;
+	}
+
+	return previous;
+}
+
+
+PackageView*
+FeaturedPackagesView::NextPackage(PackageView* currentView)
+{
+	PackageView* next;
+	for (int32 i = 0; BLayoutItem* item = fPackageListLayout->ItemAt(i); i++) {
+		PackageView* view = dynamic_cast<PackageView*>(item->View());
+		if (view == NULL)
+			break;
+		BString name = view->PackageName();
+		bool match = (name == currentView->PackageName());
+		BLayoutItem* nextItem = fPackageListLayout->ItemAt(i + 1);
+		if (match && nextItem) {
+			next = dynamic_cast<PackageView*>(nextItem->View());
+			break;
+		}
+	}
+
+	return next;
+}
+
 void
 FeaturedPackagesView::SelectPackage(const PackageInfoRef& package,
 	bool scrollToEntry)
@@ -452,15 +539,18 @@ FeaturedPackagesView::SelectPackage(const PackageInfoRef& package,
 
 		BString name = view->PackageName();
 		bool match = (name == selectedName);
-		view->SetSelected(match);
 
 		if (match && scrollToEntry) {
-			// Scroll the view so that the package entry shows up in the middle
+			// Scroll the view so that the package entry shows up at the bottom
+			// in the same way that the "all packages" list view behaves.
 			fContainerView->ScrollTo(0,
 				view->Frame().top
-				- fContainerView->Bounds().Height() / 2
-				+ view->Bounds().Height() / 2);
+				- fContainerView->Bounds().Height()
+				+ view->Bounds().Height());
 		}
+		// Moving the selection after the scroll seems to help marginally with
+		// minimizing flickering during the autoscroll
+		view->SetSelected(match);
 	}
 }
 
