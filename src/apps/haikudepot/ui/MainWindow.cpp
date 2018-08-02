@@ -599,8 +599,10 @@ MainWindow::MessageReceived(BMessage* message)
 		case MSG_UPDATE_SELECTED_PACKAGE:
 		{
 			const PackageInfoRef& selectedPackage = fPackageInfoView->Package();
-			fFeaturedPackagesView->SelectPackage(selectedPackage, true);
-			fPackageListView->SelectPackage(selectedPackage);
+			if (fModel.ShowFeaturedPackages())
+				fFeaturedPackagesView->SelectPackage(selectedPackage, true);
+			else
+				fPackageListView->SelectPackage(selectedPackage);
 
 			AutoLocker<BLocker> modelLocker(fModel.Lock());
 			if (!fVisiblePackages.Contains(fPackageInfoView->Package()))
@@ -864,9 +866,11 @@ MainWindow::_AdoptPackage(const PackageInfoRef& package)
 		BAutolock locker(fModel.Lock());
 		fPackageInfoView->SetPackage(package);
 
-		if (fFeaturedPackagesView != NULL)
-			fFeaturedPackagesView->SelectPackage(package);
-		if (fPackageListView != NULL)
+		// Only select package on the view that should be active, by keeping
+		// focus on the correct view, keyboad navigation behaves as expected
+		if (fFeaturedPackagesView != NULL && fModel.ShowFeaturedPackages())
+			fFeaturedPackagesView->SelectPackage(package, true);
+		else if (fPackageListView != NULL && !(fModel.ShowFeaturedPackages()))
 			fPackageListView->SelectPackage(package);
 	}
 
