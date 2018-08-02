@@ -1,0 +1,412 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5da3f45a_988b460f",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_bus.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-02T16:37:37Z",
+      "side": 1,
+      "message": "It would be nice to log the error code (with strerror(fStatus)) so we get a more precise idea what happened.",
+      "revId": "70a2cec9a6ed40c20571e52d45d078956ad436fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7334d006_3cf7fe38",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_bus.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-02T16:37:37Z",
+      "side": 1,
+      "message": "\"hey\" still isn\u0027t a good method name. What does this do? Is it needed now?",
+      "revId": "70a2cec9a6ed40c20571e52d45d078956ad436fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a7a33d06_75888ab3",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_bus.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-02T16:37:37Z",
+      "side": 1,
+      "message": "Indentation is not correct here. MMCBus, ~MMCBus and InitCheck should be aligned on the same tab column",
+      "revId": "70a2cec9a6ed40c20571e52d45d078956ad436fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20c4cf43_be1135d1",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_module.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-02T16:37:37Z",
+      "side": 1,
+      "message": "\"Unable to allocate MMC bus\\n\" is more precise",
+      "revId": "70a2cec9a6ed40c20571e52d45d078956ad436fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "69a85b6c_d21af2d1",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_module.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-02T16:37:37Z",
+      "side": 1,
+      "message": "This line should be one tab further because it is inside the parameters of get_attr_uint16",
+      "revId": "70a2cec9a6ed40c20571e52d45d078956ad436fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b3996dd_d13d6e5a",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_module.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-02T16:37:37Z",
+      "side": 1,
+      "message": "devide? or device?",
+      "revId": "70a2cec9a6ed40c20571e52d45d078956ad436fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "40fae6b9_761c7222",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_module.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-02T16:37:37Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "70a2cec9a6ed40c20571e52d45d078956ad436fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63c2d7bf_924400a0",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_module.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-02T16:37:37Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "70a2cec9a6ed40c20571e52d45d078956ad436fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3678b9b5_60673045",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_module.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-02T16:37:37Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "70a2cec9a6ed40c20571e52d45d078956ad436fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d4af420e_bbedf6ec",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-02T16:37:37Z",
+      "side": 1,
+      "message": "Be careful here, as regs is volatile, each of these operations will result in a write to the register.\nMost often you want something like this:\n\nuint32_t clock_control \u003d regs-\u003eclock_control;\nclock_control \u0026\u003d ...\nclock_control |\u003d ...\nregs-\u003eclock_control \u003d clock_control;\n\nThis way all the computations are done in CPU registers and there is a single write to the register when done.",
+      "revId": "70a2cec9a6ed40c20571e52d45d078956ad436fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83024ac0_d489d2de",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-02T16:37:37Z",
+      "side": 1,
+      "message": "\u003e 80 columns",
+      "revId": "70a2cec9a6ed40c20571e52d45d078956ad436fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59cb8407_3d12d3df",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-02T16:37:37Z",
+      "side": 1,
+      "message": "This is a waste of time. It is fine to disable it again.",
+      "revId": "70a2cec9a6ed40c20571e52d45d078956ad436fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a559dd8_541056b6",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-02T16:37:37Z",
+      "side": 1,
+      "message": "This function has a lot of magic numbers. Are there no constants to use instead?",
+      "revId": "70a2cec9a6ed40c20571e52d45d078956ad436fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8d89462_99648a02",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-02T16:37:37Z",
+      "side": 1,
+      "message": "Why does this happen here?",
+      "revId": "70a2cec9a6ed40c20571e52d45d078956ad436fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0a96500_c095e3cc",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-02T16:37:37Z",
+      "side": 1,
+      "message": "Leftover braces?",
+      "revId": "70a2cec9a6ed40c20571e52d45d078956ad436fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b39b322f_63604430",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-02T16:37:37Z",
+      "side": 1,
+      "message": "You should log the intmask here, so from the syslog we can see which interrupt happened.",
+      "revId": "70a2cec9a6ed40c20571e52d45d078956ad436fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a379ed8_878b213d",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-02T16:37:37Z",
+      "side": 1,
+      "message": "I think the logic is reversed here:\nif the intmask was 0, it means there was no interrupt from our device, and we should return B_UNHANDLED_INTERRUPT (meaning \u0027the interrupt does not come from this device\u0027).\nIf the intmask was not 0, even if we don\u0027t do anything, the interrupt was from this device and we can consider that it is handled.",
+      "revId": "70a2cec9a6ed40c20571e52d45d078956ad436fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9e33970_4fcd907e",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-02T16:37:37Z",
+      "side": 1,
+      "message": "This is useless, CALLED() does it already.",
+      "revId": "70a2cec9a6ed40c20571e52d45d078956ad436fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88ae7c66_d24ac7d9",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-02T16:37:37Z",
+      "side": 1,
+      "message": "\u003e 80 column",
+      "revId": "70a2cec9a6ed40c20571e52d45d078956ad436fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c662a57d_4aec1398",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-02T16:37:37Z",
+      "side": 1,
+      "message": "\u003e 80 column",
+      "revId": "70a2cec9a6ed40c20571e52d45d078956ad436fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57e707a1_0a5da076",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-02T16:37:37Z",
+      "side": 1,
+      "message": "\u003e 80 column",
+      "revId": "70a2cec9a6ed40c20571e52d45d078956ad436fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "416411bf_0e724d07",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-02T16:37:37Z",
+      "side": 1,
+      "message": "media_status and node should be aligned vertically.",
+      "revId": "70a2cec9a6ed40c20571e52d45d078956ad436fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a2ad19c_e1ef2ace",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 1622,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-02T16:37:37Z",
+      "side": 1,
+      "message": "trailing whitespace",
+      "revId": "70a2cec9a6ed40c20571e52d45d078956ad436fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "91ac68cb_08794083",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 1900,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-02T16:37:37Z",
+      "side": 1,
+      "message": "Are you sure about this? The SD host is not itself a mass storage device, the MMC module would be but it is not directly exposed on the PCI bus.",
+      "revId": "70a2cec9a6ed40c20571e52d45d078956ad436fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
