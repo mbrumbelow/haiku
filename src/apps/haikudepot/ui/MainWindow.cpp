@@ -865,7 +865,7 @@ MainWindow::_AdoptPackage(const PackageInfoRef& package)
 		fPackageInfoView->SetPackage(package);
 
 		if (fFeaturedPackagesView != NULL)
-			fFeaturedPackagesView->SelectPackage(package);
+			fFeaturedPackagesView->SelectPackage(package, true);
 		if (fPackageListView != NULL)
 			fPackageListView->SelectPackage(package);
 	}
