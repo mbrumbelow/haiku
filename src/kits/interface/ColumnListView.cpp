@@ -4561,13 +4561,14 @@ OutlineView::FindVisibleRect(BRow* row, BRect* _rect)
 		float line = 0.0;
 		for (RecursiveOutlineIterator iterator(&fRows); iterator.CurrentRow();
 			iterator.GoToNext()) {
-			if (line > fVisibleRect.bottom)
-				break;
 
 			if (iterator.CurrentRow() == row) {
 				_rect->Set(fVisibleRect.left, line, fVisibleRect.right,
 					line + row->Height());
-				return true;
+				if (line > fVisibleRect.bottom)
+					return false;
+				else
+					return true;
 			}
 
 			line += iterator.CurrentRow()->Height() + 1;

@@ -13,6 +13,7 @@
 
 
 class BGroupLayout;
+class PackageView;
 class ScrollableGroupView;
 
 
@@ -25,6 +26,8 @@ public:
 			void				RemovePackage(const PackageInfoRef& package);
 			void				Clear();
 
+			PackageView*		PreviousPackage(PackageView* currentView);
+			PackageView*		NextPackage(PackageView* currentView);
 			void				SelectPackage(const PackageInfoRef& package,
 									bool scrollToEntry = false);
 
