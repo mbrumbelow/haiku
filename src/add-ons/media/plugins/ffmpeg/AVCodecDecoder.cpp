@@ -103,8 +103,6 @@ AVCodecDecoder::AVCodecDecoder()
 	fRawDecodedPicture(av_frame_alloc()),
 	fRawDecodedAudio(av_frame_alloc()),
 
-	fCodecInitDone(false),
-
 #if USE_SWS_FOR_COLOR_SPACE_CONVERSION
 	fSwsContext(NULL),
 #else
@@ -159,7 +157,7 @@ AVCodecDecoder::~AVCodecDecoder()
 	}
 #endif
 
-	if (fCodecInitDone)
+	if (fCodecInitStatus == CODEC_INIT_DONE)
 		avcodec_close(fContext);
 
 	swr_free(&fResampleContext);
@@ -284,7 +282,7 @@ AVCodecDecoder::SeekedTo(int64 frame, bigtime_t time)
 {
 	status_t ret = B_OK;
 	// Reset the FFmpeg codec to flush buffers, so we keep the sync
-	if (fCodecInitDone) {
+	if (fCodecInitStatus == CODEC_INIT_DONE) {
 		avcodec_flush_buffers(fContext);
 		_ResetTempPacket();
 	}
@@ -326,7 +324,7 @@ status_t
 AVCodecDecoder::Decode(void* outBuffer, int64* outFrameCount,
 	media_header* mediaHeader, media_decode_info* info)
 {
-	if (!fCodecInitDone)
+	if (fCodecInitStatus != CODEC_INIT_DONE)
 		return B_NO_INIT;
 
 	status_t ret;
@@ -365,15 +363,16 @@ AVCodecDecoder::_NegotiateAudioOutputFormat(media_format* inOutFormat)
 		// format properties accordingly regardless of the settings here.
 
 	// close any previous instance
-	if (fCodecInitDone) {
-		fCodecInitDone = false;
+	if (fCodecInitStatus == CODEC_INIT_DONE) {
+		fCodecInitStatus = CODEC_INIT_NEEDED;
 		avcodec_close(fContext);
 	}
 
 	if (avcodec_open2(fContext, fCodec, NULL) >= 0)
-		fCodecInitDone = true;
+		fCodecInitStatus = CODEC_INIT_DONE;
 	else {
 		TRACE("avcodec_open() failed to init codec!\n");
+		fCodecInitStatus = CODEC_INIT_FAILED;
 		return B_ERROR;
 	}
 
@@ -476,15 +475,16 @@ AVCodecDecoder::_NegotiateVideoOutputFormat(media_format* inOutFormat)
 	}
 
 	// close any previous instance
-	if (fCodecInitDone) {
-		fCodecInitDone = false;
+	if (fCodecInitStatus == CODEC_INIT_DONE) {
+		fCodecInitStatus == CODEC_INIT_NEEDED;
 		avcodec_close(fContext);
 	}
 
 	if (avcodec_open2(fContext, fCodec, NULL) >= 0)
-		fCodecInitDone = true;
+		fCodecInitStatus = CODEC_INIT_DONE;
 	else {
 		TRACE("avcodec_open() failed to init codec!\n");
+		fCodecInitStatus = CODEC_INIT_FAILED;
 		return B_ERROR;
 	}
 

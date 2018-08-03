@@ -8,6 +8,7 @@ UsePrivateHeaders [ FDirName media experimental ] ;
 SubDirC++Flags -D__STDC_CONSTANT_MACROS -Wno-deprecated-declarations ;
 
 local sources =
+	AVCodecBase.cpp
 	AVCodecDecoder.cpp
 	AVCodecEncoder.cpp
 	AVFormatReader.cpp

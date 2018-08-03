@@ -56,7 +56,6 @@ AVCodecEncoder::AVCodecEncoder(uint32 codecID, int bitRateScale)
 	fCodec(NULL),
 	fOwnContext(avcodec_alloc_context3(NULL)),
 	fContext(fOwnContext),
-	fCodecInitStatus(CODEC_INIT_NEEDED),
 	fFrame(av_frame_alloc()),
 	fSwsContext(NULL),
 	fFramesWritten(0)

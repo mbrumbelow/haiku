@@ -6,6 +6,8 @@
 #define AVCODEC_ENCODER_H
 
 
+#include "AVCodecBase.h"
+
 #include <MediaFormats.h>
 
 extern "C" {
@@ -22,7 +24,7 @@ typedef AVCodecID CodecID;
 #endif
 
 
-class AVCodecEncoder : public Encoder {
+class AVCodecEncoder : public Encoder, public AVCodecBase {
 public:
 								AVCodecEncoder(uint32 codecID,
 									int bitRateScale);
@@ -76,13 +78,6 @@ private:
 			AVCodec*			fCodec;
 			AVCodecContext*		fOwnContext;
 			AVCodecContext*		fContext;
-
-			enum {
-				CODEC_INIT_NEEDED = 0,
-				CODEC_INIT_DONE,
-				CODEC_INIT_FAILED
-			};
-			uint32				fCodecInitStatus;
 
 			// For video (color space conversion):
 			AVPicture			fSrcFrame;

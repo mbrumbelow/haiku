@@ -14,6 +14,8 @@
 //! libavcodec based decoder for Haiku
 
 
+#include "AVCodecBase.h"
+
 #include <MediaFormats.h>
 
 
@@ -46,7 +48,7 @@ extern "C" {
 #endif
 
 
-class AVCodecDecoder : public Decoder {
+class AVCodecDecoder : public Decoder, public AVCodecBase {
 public:
 						AVCodecDecoder();
 
@@ -127,8 +129,6 @@ private:
 			AVFrame*			fPostProcessedDecodedPicture;
 			AVFrame*			fRawDecodedPicture;
 			AVFrame*			fRawDecodedAudio;
-
-			bool 				fCodecInitDone;
 
 			gfx_convert_func	fFormatConversionFunc;
 #if USE_SWS_FOR_COLOR_SPACE_CONVERSION
