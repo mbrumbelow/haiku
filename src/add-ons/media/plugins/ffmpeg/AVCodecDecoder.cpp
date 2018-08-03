@@ -90,12 +90,12 @@ static long profileCounter = 0;
 
 AVCodecDecoder::AVCodecDecoder()
 	:
+	Decoder(),
+	AVCodecBase(),
 	fHeader(),
 	fInputFormat(),
 	fFrame(0),
 	fIsAudio(false),
-	fCodec(NULL),
-	fContext(avcodec_alloc_context3(NULL)),
 	fResampleContext(NULL),
 	fDecodedData(NULL),
 	fDecodedDataSizeInBytes(0),
@@ -135,6 +135,8 @@ AVCodecDecoder::AVCodecDecoder()
 #endif
 {
 	TRACE("AVCodecDecoder::AVCodecDecoder()\n");
+
+	fContext = avcodec_alloc_context3(NULL);
 
 	system_info info;
 	get_system_info(&info);

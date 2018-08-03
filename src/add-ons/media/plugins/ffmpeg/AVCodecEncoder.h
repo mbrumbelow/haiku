@@ -75,9 +75,7 @@ private:
 			// FFmpeg related members
 			// TODO: Refactor common base class from AVCodec[De|En]Coder!
 			CodecID				fCodecID;
-			AVCodec*			fCodec;
 			AVCodecContext*		fOwnContext;
-			AVCodecContext*		fContext;
 
 			// For video (color space conversion):
 			AVPicture			fSrcFrame;
