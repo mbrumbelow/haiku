@@ -1,0 +1,259 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "08fd1ca7_c7452629",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-04T06:51:21Z",
+      "side": 1,
+      "message": "For functions, the { goes on the next line (everywhere)",
+      "revId": "c3188fd93c04491a69d2d87e2775e02f6963d73d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5112a3ec_22122665",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-04T06:51:21Z",
+      "side": 1,
+      "message": "Magic numbers here",
+      "revId": "c3188fd93c04491a69d2d87e2775e02f6963d73d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5247fd2f_0e989cd9",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-04T06:51:21Z",
+      "side": 1,
+      "message": "This line should be indented one level less",
+      "revId": "c3188fd93c04491a69d2d87e2775e02f6963d73d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b63504ba_2dd028d1",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-04T06:51:21Z",
+      "side": 1,
+      "message": "This line should be indented one level less",
+      "revId": "c3188fd93c04491a69d2d87e2775e02f6963d73d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "49d182f0_f7b132f3",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-04T06:51:21Z",
+      "side": 1,
+      "message": "Part of this fits on the previous line",
+      "revId": "c3188fd93c04491a69d2d87e2775e02f6963d73d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b21aa6ad_3239b0d6",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-04T06:51:21Z",
+      "side": 1,
+      "message": "No space after (",
+      "revId": "c3188fd93c04491a69d2d87e2775e02f6963d73d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cc5b7cde_81472d9e",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-04T06:51:21Z",
+      "side": 1,
+      "message": "No blank line needed here (also other ifs below)",
+      "revId": "c3188fd93c04491a69d2d87e2775e02f6963d73d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1de5eecc_d8e52516",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-04T06:51:21Z",
+      "side": 1,
+      "message": "This is still incorrect. You should return B_UNHANDLED_INTERRUPT only if intmask \u003d\u003d 0\nbefore masking the interrupts you handled. It is already tested at the start of the function, so if we get here it means there was some interrupt from our device, and we must reply B_HANDLED_INTERRUPT in all cases.",
+      "revId": "c3188fd93c04491a69d2d87e2775e02f6963d73d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90fc800f_6cf17912",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-04T06:51:21Z",
+      "side": 1,
+      "message": "Useless line break, this fits on the previous line",
+      "revId": "c3188fd93c04491a69d2d87e2775e02f6963d73d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e6b6dde_a89e75cf",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-04T06:51:21Z",
+      "side": 1,
+      "message": "This error message is not very informative. Why is this an error? It would be a good idea to log the values, too, to ease debugging.\n\nRemember that when an user reports a bug, the syslog is the only clue we\u0027ll have about what may be wrong, so it must include as much information as possible.",
+      "revId": "c3188fd93c04491a69d2d87e2775e02f6963d73d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "992be8d6_ac7242cc",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-04T06:51:21Z",
+      "side": 1,
+      "message": "This line must be indented 1 more, also there is an unneeded empty line below",
+      "revId": "c3188fd93c04491a69d2d87e2775e02f6963d73d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66b7dc24_30c9fbf3",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-04T06:51:21Z",
+      "side": 1,
+      "message": "\u003e 80 chars",
+      "revId": "c3188fd93c04491a69d2d87e2775e02f6963d73d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f714516_512b868b",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-04T06:51:21Z",
+      "side": 1,
+      "message": "unneeded empty line",
+      "revId": "c3188fd93c04491a69d2d87e2775e02f6963d73d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3e829a5_a74f49e4",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-04T06:51:21Z",
+      "side": 1,
+      "message": "Line \u003e 80 chars",
+      "revId": "c3188fd93c04491a69d2d87e2775e02f6963d73d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "879887c4_cc51d57a",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-04T06:51:21Z",
+      "side": 1,
+      "message": "extra empty line",
+      "revId": "c3188fd93c04491a69d2d87e2775e02f6963d73d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
