@@ -15,7 +15,11 @@ struct fs_init_info {
 	FSCapabilities	capabilities;
 	client_fs_type	clientFSType;
 	int32			portInfoCount;
+#if __GNUC__ < 8
 	Port::Info		portInfos[0];
+#else
+	Port::Info		portInfos[];
+#endif
 };
 
 }	// namespace UserlandFSUtil
