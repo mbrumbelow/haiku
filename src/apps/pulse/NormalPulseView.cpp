@@ -80,7 +80,9 @@ NormalPulseView::NormalPulseView(BRect rect)
 			CPUBUTTON_MLEFT + CPUBUTTON_WIDTH + 7,
 			CPUBUTTON_MTOP + ITEM_OFFSET * x + CPUBUTTON_HEIGHT + 7);
 		char temp[4];
-		sprintf(temp, "%d", x + 1);
+
+		// Cast to char since SMP_MAX_CPUS is 64 max.
+		sprintf(temp, "%hhd", char(x + 1));
 		fCpuButtons[x] = new CPUButton(r, B_TRANSLATE("Pulse"), temp, NULL);
 		AddChild(fCpuButtons[x]);
 	}
