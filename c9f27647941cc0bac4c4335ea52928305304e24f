@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ef1f501_e9f5233e",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_bus.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2018-08-05T19:01:21Z",
+      "side": 1,
+      "message": "nit-picky:  generally these are all caps :-)",
+      "revId": "c9f27647941cc0bac4c4335ea52928305304e24f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "868e7148_6966dd69",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_module.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2018-08-05T19:01:21Z",
+      "side": 1,
+      "message": "add a new line under include for 2 total",
+      "revId": "c9f27647941cc0bac4c4335ea52928305304e24f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a818a521_c7306351",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2018-08-05T19:01:21Z",
+      "side": 1,
+      "message": "add newline",
+      "revId": "c9f27647941cc0bac4c4335ea52928305304e24f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eaaa1281_c5853aca",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2018-08-05T19:01:21Z",
+      "side": 1,
+      "message": "delete these newlines.  header guards right after header comments",
+      "revId": "c9f27647941cc0bac4c4335ea52928305304e24f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a57336b_28d7042a",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2018-08-05T19:01:21Z",
+      "side": 1,
+      "message": "add this inline after #endif:\n/* _SDHCI_PCI_H */\n\naka:\n#endif /* _SDHCI_PCI_H */",
+      "revId": "c9f27647941cc0bac4c4335ea52928305304e24f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4da46e83_6218e7ec",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2018-08-05T19:01:21Z",
+      "side": 1,
+      "message": "remove newlines after header comments before headerguard.",
+      "revId": "c9f27647941cc0bac4c4335ea52928305304e24f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f426e27_6ad97c05",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2018-08-05T19:01:21Z",
+      "side": 1,
+      "message": "add newline before header guard #endif",
+      "revId": "c9f27647941cc0bac4c4335ea52928305304e24f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc5b8ddd_ebc7bc9f",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2018-08-05T19:01:21Z",
+      "side": 1,
+      "message": "add /* _MMC_DISK_H */ after endif.\n\n#endif */ _MMC_DISK_H */",
+      "revId": "c9f27647941cc0bac4c4335ea52928305304e24f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
