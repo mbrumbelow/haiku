@@ -436,7 +436,7 @@ rule FStandardOSHeaders
 	local osIncludes = add-ons add-ons/file_system add-ons/graphics
 					   add-ons/input_server add-ons/registrar
 					   add-ons/screen_saver
-					   add-ons/tracker app codec device drivers game
+					   add-ons/tracker app codec crypto device drivers game
 					   interface kernel locale media mail midi midi2
 					   net storage support translation ;
 
@@ -450,7 +450,7 @@ rule FStandardHeaders architecture
 	local osIncludes = add-ons add-ons/file_system add-ons/graphics
 					   add-ons/input_server add-ons/registrar
 					   add-ons/screen_saver
-					   add-ons/tracker app device drivers game codec
+					   add-ons/tracker app codec crypto device drivers game
 					   interface kernel locale media mail midi midi2
 					   net storage support translation ;
 

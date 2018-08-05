@@ -70,12 +70,9 @@ rule HaikuImageGetSystemLibs
 		# libs with standard grist
 		[ MultiArchDefaultGristFiles [ FFilterByBuildFeatures
 			libalm.so
-			libbe.so libbsd.so libbnetapi.so
-			libbluetooth.so
-			libcodec.so
-			libdebug.so
-			libdebugger.so@primary
-			libdevice.so
+			libbe.so libbsd.so libbnetapi.so libbluetooth.so
+			libcodec.so libcrypto.so
+			libdebug.so libdebugger.so@primary libdevice.so
 			libgame.so libglut.so@mesa libgnu.so
 			libmail.so libmedia.so libmidi.so libmidi2.so
 			libnetwork.so
