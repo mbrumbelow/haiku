@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "877b7045_97e04177",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_module.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-05T08:23:12Z",
+      "side": 1,
+      "message": "The empty line can be removed now (also in other places at start of functions)",
+      "revId": "d9237a85bf48164d169651f601147039aa7ab8a5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "81c49693_161af4ab",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_module.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-05T08:23:12Z",
+      "side": 1,
+      "message": "{ for function goes on the next line.",
+      "revId": "d9237a85bf48164d169651f601147039aa7ab8a5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c772d99b_45f8079b",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_module.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-05T08:23:12Z",
+      "side": 1,
+      "message": "{ for functions goes on the next line (and no empty line needed below it)",
+      "revId": "d9237a85bf48164d169651f601147039aa7ab8a5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bddab794_a1672c3e",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-05T08:23:12Z",
+      "side": 1,
+      "message": "\u003e 80 chars",
+      "revId": "d9237a85bf48164d169651f601147039aa7ab8a5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
