@@ -169,7 +169,6 @@ public:
 		BRect parentBounds = Parent()->Bounds();
 		ConvertFromParent(&parentBounds);
 		bounds = bounds & parentBounds;
-		MakeFocus();
 
 		if (bounds.Contains(where) && Window()->IsActive()) {
 			BMessage message(MSG_PACKAGE_SELECTED);

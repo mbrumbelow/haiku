@@ -4561,9 +4561,8 @@ OutlineView::FindVisibleRect(BRow* row, BRect* _rect)
 		float line = 0.0;
 		for (RecursiveOutlineIterator iterator(&fRows); iterator.CurrentRow();
 			iterator.GoToNext()) {
-			if (line > fVisibleRect.bottom)
-				break;
-
+				// Don't short-circuit this loop - the fFocusRow and
+				// fFocusRowRect will get out of sync
 			if (iterator.CurrentRow() == row) {
 				_rect->Set(fVisibleRect.left, line, fVisibleRect.right,
 					line + row->Height());
