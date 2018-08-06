@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "440920d9_237dfa0f",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2018-08-06T07:59:19Z",
+      "side": 0,
+      "message": "This seems wrong. Why would the view not automatically receive keyboard focus when clicked?",
+      "revId": "d4fd2af8ec6bda9c8d77b0e991394eedc6346151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d92e2e7_b285735e",
+        "filename": "src/kits/interface/ColumnListView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 4564,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2018-08-06T07:59:19Z",
+      "side": 0,
+      "message": "I don\u0027t understand this change without a lot more explaining in the commit message. This changes the behavior of a central method in OutlineView. Have all callers of this method been checked if they still work correctly? Maybe some or all relied on the previous behavior? The old behavior was to return false if the row in question is currently not visible (scrolled out of view). Perhaps that was intentional.",
+      "revId": "d4fd2af8ec6bda9c8d77b0e991394eedc6346151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}

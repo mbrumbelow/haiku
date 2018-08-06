@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "00905cbd_c6bb85f9",
+        "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2018-08-06T07:59:19Z",
+      "side": 1,
+      "message": "When the user toggles between list and featured view, is the selection correctly synchronized? I am almost sure it was intentional to update both views here.",
+      "revId": "4f89bdfc473693f4515b359178bc50cc8f693923",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "41c43265_aa7bcf44",
+        "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 874,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2018-08-06T07:59:19Z",
+      "side": 1,
+      "message": "This seems strange to me. What does selection have to do with keyboard focus? More precisely: Why does selecting in an inactive view influence keyboard navigation in the active view?",
+      "revId": "4f89bdfc473693f4515b359178bc50cc8f693923",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "991079ce_1f20f6fc",
+        "filename": "src/apps/haikudepot/ui/PackageListView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2018-08-06T07:59:19Z",
+      "side": 1,
+      "message": "This change seems wrong to me. I am pretty sure that the search field shall have the initial keyboard navigation. I understand that up and down arrow keys should scroll the list, but I would rather have that implemented by forwarding up/down to the list from /any/ view that does not handle it itself. However, up/down *is* handled in text views to position the cursor at the beginning/end of the input. To me, it makes more sense to make the search field have initial focus when opening the app, than to be able to scroll the list using the arrow keys. It is more likely the user finds what he came for by searching, than by scrolling throw the list.",
+      "revId": "4f89bdfc473693f4515b359178bc50cc8f693923",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
