@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8128a99a_4a7df6af",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1898,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-07T18:27:17Z",
+      "side": 1,
+      "message": "This should be (type \u003d\u003d PCI_base_peripheral \u0026\u0026 subType \u003d\u003d PCI_sd_host)\nAnd watch out for incorrect indentation (use tabs)",
+      "revId": "d3a6bed30c2e70ee0cfe1de514da073f0ed70d06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
