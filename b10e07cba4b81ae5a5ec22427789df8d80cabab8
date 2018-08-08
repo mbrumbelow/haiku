@@ -34,6 +34,57 @@
       "revId": "b10e07cba4b81ae5a5ec22427789df8d80cabab8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "603cd9e1_828407f9",
+        "filename": "src/preferences/shortcuts/ShortcutsSpec.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 647,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-08T19:33:57Z",
+      "side": 1,
+      "message": "watch out for 80 columns limit",
+      "revId": "b10e07cba4b81ae5a5ec22427789df8d80cabab8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "522e9011_f64107c4",
+        "filename": "src/preferences/shortcuts/ShortcutsSpec.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-08T19:33:57Z",
+      "side": 1,
+      "message": "watch out for 80 columns limit",
+      "revId": "b10e07cba4b81ae5a5ec22427789df8d80cabab8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "efa9f9ab_de2faa8a",
+        "filename": "src/preferences/shortcuts/ShortcutsSpec.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-08T19:33:57Z",
+      "side": 1,
+      "message": "Watch out for 80 columns limit",
+      "revId": "b10e07cba4b81ae5a5ec22427789df8d80cabab8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
