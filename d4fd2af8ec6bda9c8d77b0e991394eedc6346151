@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "76d6c87c_745a8e09",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000059
+      },
+      "writtenOn": "2018-08-09T02:28:57Z",
+      "side": 0,
+      "message": "UPDATE: Tested adding the MakeFocus() back in and it has no effect on the solution. So I will be putting this back. (My comments about MouseDown being called over and over still stand, but it appears I was incorrect that removing the MakeFocus here was critical to the solution)",
+      "parentUuid": "0ee74a93_16d7ce1b",
+      "revId": "d4fd2af8ec6bda9c8d77b0e991394eedc6346151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9d92e2e7_b285735e",
         "filename": "src/kits/interface/ColumnListView.cpp",
         "patchSetId": 2
