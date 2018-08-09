@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0ee74a93_16d7ce1b",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000059
+      },
+      "writtenOn": "2018-08-09T02:17:03Z",
+      "side": 0,
+      "message": "I removed this because there seems to be a bug either in the layout manager or somewhere else in the interface kit. Basically, if you add a \"printf\" to this method and run HaikuDepot from the command line, what you\u0027ll see is that this MouseDown is called for every single PackageView object in the featured packages view regardless of where you click in HaikuDepot. This causes the focus to rapidly move between the various package views and breaks any attempt to establish keyboard navigation (which relies on a consistent focus on the view the user cares about). \nI have spent a number of hours trying to figure out why this MouseDown gets called over and over even when you are not clicking in the featured packages view, but haven\u0027t come up with an explanation.  Removing the MakeFocus has no negative impact that I\u0027ve observed, but has a positive impact of allowing us to maintain focus on the correct view",
+      "parentUuid": "440920d9_237dfa0f",
+      "revId": "d4fd2af8ec6bda9c8d77b0e991394eedc6346151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9d92e2e7_b285735e",
         "filename": "src/kits/interface/ColumnListView.cpp",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "d4fd2af8ec6bda9c8d77b0e991394eedc6346151",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5156b40a_79d4ae41",
+        "filename": "src/kits/interface/ColumnListView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 4564,
+      "author": {
+        "id": 1000059
+      },
+      "writtenOn": "2018-08-09T02:17:03Z",
+      "side": 0,
+      "message": "This method is being abused to either find the visible rect, OR in our case here to simply get the on-screen rectangle where the row would be visible if it were visible.\nI will do some more checking to see if this has other downstream effects, but I don\u0027t think that it does.  At least in my testing of HaikuDepot I could not observe any problems.  The main issue here is that fFocus is set by SetFocusRow, but the fFocusRect is NOT updated there - this leads to a synchronization issue which causes keyboard navigation to jump unexpected places in the package list view of HaikuDepot",
+      "parentUuid": "9d92e2e7_b285735e",
+      "revId": "d4fd2af8ec6bda9c8d77b0e991394eedc6346151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
