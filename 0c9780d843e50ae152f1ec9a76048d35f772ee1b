@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bfd50daf_904644e1",
+        "filename": "headers/private/libbsd/chacha_private.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-11T23:12:55Z",
+      "side": 1,
+      "message": "As this file appears to not even have include guards, it looks to be so private that I don\u0027t think we should even put it in headers/private, but in the libbsd source directory.",
+      "revId": "0c9780d843e50ae152f1ec9a76048d35f772ee1b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
