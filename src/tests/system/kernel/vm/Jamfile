@@ -1,0 +1,22 @@
+SubDir HAIKU_TOP src tests system kernel vm ;
+
+SEARCH_SOURCE += [ FDirName $(HAIKU_TOP) src system kernel vm ] ;
+SEARCH_SOURCE += [ FDirName $(HAIKU_TOP) src system kernel fs ] ;
+
+SetSubDirSupportedPlatformsBeOSCompatible ;
+AddSubDirSupportedPlatforms libbe_test ;
+
+UsePrivateHeaders [ FDirName kernel fs ] ;
+
+UnitTestLib libkernelvmtest.so
+	: KernelVMTestAddon.cpp
+	  VMGetMountPointTest.cpp
+
+	  # vm
+	  VMUtils.cpp
+
+	  # fs
+	  KPath.cpp
+	: [ TargetLibstdc++ ]
+;
+
