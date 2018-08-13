@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5cec1963_fb2b5f46",
+        "filename": "src/tests/system/kernel/vm/KernelVMTestAddon.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-13T15:14:46Z",
+      "side": 1,
+      "message": "Coding style: { to next line, BTestSuite* to its own line.",
+      "revId": "58bb4a95018b15a7d753b8ed93290ec4d15b0819",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
