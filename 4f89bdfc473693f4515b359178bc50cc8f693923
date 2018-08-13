@@ -104,6 +104,24 @@
       "revId": "4f89bdfc473693f4515b359178bc50cc8f693923",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "989a69c4_d81e89ed",
+        "filename": "src/apps/haikudepot/ui/PackageListView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2018-08-13T10:59:30Z",
+      "side": 1,
+      "message": "This still looks wrong to me. This method is supposed to highlight the package in the list and scroll it into view. It should not automatically also grab keyboard focus. If there is a situation from where this is called which should also make the list receive focus, then MakeFocus() should be called there instead. I guess my question is: Why is it correct to /always/ give focus to the list view when SelectPackage() is called?",
+      "parentUuid": "2de58a12_5ce1149d",
+      "revId": "4f89bdfc473693f4515b359178bc50cc8f693923",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }

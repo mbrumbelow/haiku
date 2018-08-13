@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "7b4f1e2c_4b05e00e",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2018-08-13T10:59:30Z",
+      "side": 0,
+      "message": "Hi David,\n\nthanks for making a comment in the ticket, I receive no notification from Gerrit, so I\u0027m sorry I have not replied earlier.\n\nAbout MouseDown() being called for all packages: I suggest the following: Run a debug-build of HaikuDepot in the Debugger. Place a break-point in MouseDown(), then see where from this is being called. The problem should reveal itself. From the looks of it, this is supposed to be called only for actual clicks and only once.\n\nYou can make a debug build of HaikuDepot like this: If you are in a Terminal, just enter this command:\n\nDEBUG\u003d1 jam HaikuDepot\n\nIt will compile everything that HaikuDepot depends on with debugging enabled, and place the resulting object files and the executable into a completely separate output folder hierarchy. Then you launch it in the Debugger, by specifying the path to the executable:\n\nDebugger generated/objects...debug/path/to/HaikuDepot",
+      "parentUuid": "0ee74a93_16d7ce1b",
+      "revId": "d4fd2af8ec6bda9c8d77b0e991394eedc6346151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9d92e2e7_b285735e",
         "filename": "src/kits/interface/ColumnListView.cpp",
         "patchSetId": 2
@@ -84,6 +102,24 @@
       "side": 0,
       "message": "This method is being abused to either find the visible rect, OR in our case here to simply get the on-screen rectangle where the row would be visible if it were visible.\nI will do some more checking to see if this has other downstream effects, but I don\u0027t think that it does.  At least in my testing of HaikuDepot I could not observe any problems.  The main issue here is that fFocus is set by SetFocusRow, but the fFocusRect is NOT updated there - this leads to a synchronization issue which causes keyboard navigation to jump unexpected places in the package list view of HaikuDepot",
       "parentUuid": "9d92e2e7_b285735e",
+      "revId": "d4fd2af8ec6bda9c8d77b0e991394eedc6346151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72ae2a58_08f818a0",
+        "filename": "src/kits/interface/ColumnListView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 4564,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2018-08-13T10:59:30Z",
+      "side": 0,
+      "message": "HaikuDepot is by far not the only user of ColumnListView. If you cannot spot any regressions in HaikuDepot it doesn\u0027t mean anything. If you think there is a bug that fFocusRow and fFocusRowRect can get out of sync, and they are not supposed to, then this should get fixed instead. Clearly, the intention of the method had been to return /false/ when the row is not visible, that\u0027s why it is OK to break out of the loop when the row is not visible. There might be callers which expect the previous behavior. These might even be apps outside the Haiku source tree. At least this needs to be investigated more deeply.",
+      "parentUuid": "5156b40a_79d4ae41",
       "revId": "d4fd2af8ec6bda9c8d77b0e991394eedc6346151",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
