@@ -1,5 +1,5 @@
 /*
- * Copyright 2009-2017, Haiku, Inc. All rights reserved.
+ * Copyright 2009-2018, Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  */
 #ifndef _CONTROL_LOOK_H
@@ -16,13 +16,6 @@ class BBitmap;
 class BControl;
 class BGradientLinear;
 class BView;
-
-
-// WARNING! This is experimental API and may change! Be prepared to
-// recompile your software in a next version of haiku.
-
-
-namespace BPrivate {
 
 
 class BControlLook {
@@ -396,6 +389,19 @@ public:
 			void				SetBackgroundInfo(
 									const BMessage& backgroundInfo);
 
+private:
+	// FBC padding
+	virtual	void				_ReservedControlLook1();
+	virtual	void				_ReservedControlLook2();
+	virtual	void				_ReservedControlLook3();
+	virtual	void				_ReservedControlLook4();
+	virtual	void				_ReservedControlLook5();
+	virtual	void				_ReservedControlLook6();
+	virtual	void				_ReservedControlLook7();
+	virtual	void				_ReservedControlLook8();
+	virtual	void				_ReservedControlLook9();
+	virtual	void				_ReservedControlLook10();
+
 protected:
 			int32				fCachedWorkspace;
 			BMessage			fBackgroundInfo;
@@ -404,12 +410,6 @@ protected:
 };
 
 extern BControlLook* be_control_look;
-
-
-} // namespace BPrivate
-
-using BPrivate::BControlLook;
-using BPrivate::be_control_look;
 
 
 #endif // _CONTROL_LOOK_H
