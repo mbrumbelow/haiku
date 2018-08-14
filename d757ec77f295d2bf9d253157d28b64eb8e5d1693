@@ -16,6 +16,24 @@
       "revId": "d757ec77f295d2bf9d253157d28b64eb8e5d1693",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2784cf4_eb6c2f4d",
+        "filename": "src/tests/kits/media/MediaKitTestAddon.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-08-14T22:58:09Z",
+      "side": 1,
+      "message": "Yes; I kept getting crashes in BApplication test suite in Hoard (usually when allocating memory). However, these crashes were not happening when I ran ONLY BApplication suite. After disabling this test everything runs fine.\n\nI tried adding delete_area and freeing the point at the end, but that didn\u0027t help.",
+      "parentUuid": "edff2e2c_3fec6e71",
+      "revId": "d757ec77f295d2bf9d253157d28b64eb8e5d1693",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
