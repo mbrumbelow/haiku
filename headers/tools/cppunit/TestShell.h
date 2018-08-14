@@ -122,7 +122,7 @@ protected:
 	static const char indent[];
 	bool fListTestsAndExit;
 	BPath *fTestDir;
-	int32 fTLSDebuggerCall;
+	addr_t fTLSDebuggerCall;
 
 	BLocker *fPatchGroupLocker;
 	ElfSymbolPatchGroup *fPatchGroup;
