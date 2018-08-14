@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d328f861_f5340a00",
+        "filename": "src/tests/kits/interface/bdeskbar/DeskbarAddItemTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-08-14T16:33:57Z",
+      "side": 1,
+      "message": "Yes, Pulse doesn\u0027t have instantiate_deskbar_item anywhere in the code -\u003e symbol lookup fails -\u003e assert fails.\n\nNo idea how it works without it.",
+      "parentUuid": "6d107297_638746c4",
+      "revId": "61fdf34095eb5e434739bab8f9747d6aabc7ced0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea0222a2_8996d5b5",
         "filename": "src/tests/kits/media/MediaKitTestAddon.cpp",
         "patchSetId": 1
