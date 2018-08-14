@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "25b0976c_5b6819c9",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2018-08-14T14:58:43Z",
+      "side": 1,
+      "message": "You could also just \"return;\" here instead of \"break;\". It would be a little more efficient, since you create a BMessage and a BString on the stack for every other key press otherwise.\n\nAnother nice code design would be this: Write a small private helper method in this class:\n\nvoid\nFeaturedPackageView::_SendPackageSelectionMessage(const PackageView* view)\n{\n    if (view \u003d\u003d NULL)\n        return;\n    BMessage message(MSG_PACKAGE_SELECTED);\n    message.AddString(\"name\", view-\u003ePackageName());\n    Window()-\u003ePostMessage(\u0026message);\n}\n\nThen you can change the switch above like this:\n\ncase B_RIGHT_ARROW:\ncase B_DOWN_ARROW:\n    _SendPackageSelectionMessage(\n        fFeaturedPackagesView-\u003eNextPackage(this));\n    break;\ncase B_LEFT_ARROW:\ncase B_UP_ARROW:\n    _SendPackageSelectionMessage(\n        fFeaturedPackagesView-\u003ePreviousPackage(this));\n    break;\n\n... and save a whole bunch of lines of code and stack variables to keep track of what to do.",
+      "revId": "456a529278eb47fa9e5de00356c66cdde85eccb7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c27b20cd_b63d0df3",
+        "filename": "src/apps/haikudepot/ui/PackageListView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2018-08-14T14:58:43Z",
+      "side": 1,
+      "message": "Again, this still needs to happen elsewhere, whereever it is established that besides selecting the package in the list, the list should /also/ receive keyboard focus. This is not correct here, since this method is /only/ concerned about selecting the given package.",
+      "revId": "456a529278eb47fa9e5de00356c66cdde85eccb7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42b538b0_6cffa868",
+        "filename": "src/kits/interface/ColumnListView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 4571,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2018-08-14T14:58:43Z",
+      "side": 1,
+      "message": "This is a very nice solution that keeps the behavior of the method intact. Just one suggested change, you can simply write ...\n\nreturn line \u003c\u003d fVisibleRect.bottom;\n\n... instead of the whole if-block.",
+      "revId": "456a529278eb47fa9e5de00356c66cdde85eccb7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
