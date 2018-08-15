@@ -30,8 +30,7 @@ rule AddSharedObjectGlueCode
 
 			NEEDLIBS on $(1) = [ on $(1) return $(NEEDLIBS) ] $(stdLibs) ;
 			Depends $(1) : $(stdLibs) $(beginGlue) $(endGlue) ;
-			LINKFLAGS on $(1) = [ on $(1) return $(LINKFLAGS) ] -nostdlib
-				-Xlinker --no-undefined ;
+			LINKFLAGS on $(1) = [ on $(1) return $(LINKFLAGS) ] -nostdlib ;
 		}
 	}
 
@@ -53,7 +52,7 @@ rule Executable
 	Main $(1) : $(2) ;
 	LinkAgainst $(1) : $(3) ;
 	LINKFLAGS on $(1) = [ on $(1) return $(LINKFLAGS) ]
-		-Xlinker -soname=_APP_ ;
+		-soname=_APP_ ;
 
 	# we link with -nostdlib and add the required libs manually, when building
 	# for Haiku
@@ -113,7 +112,7 @@ rule Addon target : sources : libraries : isExecutable
 
 	Main $(target) : $(sources) ;
 
-	local linkFlags = -Xlinker -soname=\"$(target:G=)\" ;
+	local linkFlags = -soname=\"$(target:G=)\" ;
 	if $(isExecutable) != true {
 		linkFlags = -shared $(linkFlags) ;
 	}
@@ -456,7 +455,7 @@ rule SharedLibraryFromObjects
 
 	MainFromObjects $(_lib) : $(2) ;
 	LINKFLAGS on $(_lib) = [ on $(_lib) return $(LINKFLAGS) ]
-		-shared -Xlinker -soname=\"$(soname)\" ;
+		-shared -soname=\"$(soname)\" ;
 	LinkAgainst $(_lib) : $(3) ;
 
 	AddSharedObjectGlueCode $(_lib) : false ;

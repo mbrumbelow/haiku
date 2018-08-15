@@ -20,11 +20,17 @@ rule Link
 
 	if [ on $(1) return $(PLATFORM) ] = host {
 		LINK on $(1) = $(HOST_LINK) ;
-	 	LINKFLAGS on $(1) = $(HOST_LINKFLAGS) [ on $(1) return $(LINKFLAGS) ] ;
+		LINKFLAGS on $(1) = $(HOST_LINKFLAGS) [ on $(1) return $(LINKFLAGS) ] ;
+		if [ on $(1) return $(VERSION_SCRIPT) ] {
+			VERSION_SCRIPT_LINKFLAGS on $(1) = -Xlinker --version-script -Xlinker ;
+		}
 	} else {
 		LINK on $(1) = $(TARGET_LINK_$(TARGET_PACKAGING_ARCH)) ;
 	 	LINKFLAGS on $(1) = $(TARGET_LINKFLAGS_$(TARGET_PACKAGING_ARCH))
 			[ on $(1) return $(LINKFLAGS) ] ;
+		if [ on $(1) return $(VERSION_SCRIPT) ] {
+			VERSION_SCRIPT_LINKFLAGS on $(1) = --version-script ;
+		}
 	}
 
 	HAIKU_TARGET_IS_EXECUTABLE on $(1) = 1 ;
@@ -62,17 +68,17 @@ rule Link
 if $(HAIKU_HOST_USE_XATTR) = 1 {
 	actions Link bind NEEDLIBS LINK_BEGIN_GLUE LINK_END_GLUE VERSION_SCRIPT
 	{
-		$(LINK) $(LINKFLAGS) -o "$(1)" $(UNDEFS) "$(LINK_BEGIN_GLUE)" "$(2)" \
-			"$(NEEDLIBS)" $(LINKLIBS) "$(LINK_END_GLUE)" \
-			-Wl,--version-script,$(VERSION_SCRIPT)
+		$(LINK) $(LINKFLAGS) -o "$(1)" $(UNDEFS) "$(LINK_BEGIN_GLUE)" \
+			"$(2)" "$(NEEDLIBS)" $(LINKLIBS) "$(LINK_END_GLUE)" \
+			$(VERSION_SCRIPT_LINKFLAGS) "$(VERSION_SCRIPT)"
 	}
 } else {
 	actions Link bind NEEDLIBS LINK_BEGIN_GLUE LINK_END_GLUE VERSION_SCRIPT
 	{
 		$(RM) "$(1)"
-		$(LINK) $(LINKFLAGS) -o "$(1)" $(UNDEFS) "$(LINK_BEGIN_GLUE)" "$(2)" \
-			"$(NEEDLIBS)" $(LINKLIBS) "$(LINK_END_GLUE)" \
-			-Wl,--version-script,$(VERSION_SCRIPT)
+		$(LINK) $(LINKFLAGS) -o "$(1)" $(UNDEFS) "$(LINK_BEGIN_GLUE)" \
+			"$(2)" "$(NEEDLIBS)" $(LINKLIBS) "$(LINK_END_GLUE)" \
+			$(VERSION_SCRIPT_LINKFLAGS) "$(VERSION_SCRIPT)"
 	}
 }
 

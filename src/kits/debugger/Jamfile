@@ -32,7 +32,7 @@ UsePrivateHeaders [ FDirName debugger value values ] ;
 UsePrivateHeaders app debug interface kernel package shared libroot ;
 UsePrivateSystemHeaders ;
 
-LINKFLAGS += -Wl,--exclude-libs,ALL ;
+LINKFLAGS += --exclude-libs ALL ;
 
 SubDirC++Flags [ FDefines _BSD_SOURCE=1 ] ;
 

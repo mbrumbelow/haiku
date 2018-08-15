@@ -30,7 +30,7 @@ UsePrivateSystemHeaders ;
 
 UseBuildFeatureHeaders libedit ;
 
-LINKFLAGS += -Wl,--exclude-libs,ALL ;
+LINKFLAGS += --exclude-libs ALL ;
 
 SubDirC++Flags [ FDefines _BSD_SOURCE=1 ] ;
 

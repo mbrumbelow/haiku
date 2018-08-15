@@ -69,8 +69,8 @@ rule ArchitectureSetup architecture
 
 	# initial state for flags etc.
 	HAIKU_C++_$(architecture) ?= $(HAIKU_CC_$(architecture)) ;
-	HAIKU_LINK_$(architecture) = $(HAIKU_CC_$(architecture)) ;
-	HAIKU_LINKFLAGS_$(architecture) = $(ccBaseFlags) ;
+	HAIKU_LINK_$(architecture) = $(HAIKU_LD_$(architecture)) ;
+	HAIKU_LINKFLAGS_$(architecture) = ;
 
 	HAIKU_CCFLAGS_$(architecture) += $(ccBaseFlags) -nostdinc ;
 	HAIKU_C++FLAGS_$(architecture) += $(ccBaseFlags) -nostdinc ;
@@ -151,11 +151,11 @@ rule ArchitectureSetup architecture
 		HAIKU_DEBUG_$(level)_C++FLAGS_$(architecture) = $(flags) ;
 	}
 
-	# TODO: Temporary work-around. Should be defined in the compiler specs
-	HAIKU_LINKFLAGS_$(architecture) += -Xlinker --no-undefined ;
+	HAIKU_LINKFLAGS_$(architecture) += --no-undefined ;
 
 	if $(gccVersion[1]) < 3 {
 		HAIKU_DEFINES_$(architecture) += _BEOS_R5_COMPATIBLE_ ;
+		HAIKU_LINKFLAGS_$(architecture) += --allow-shlib-undefined ;
 	}
 
 	# private shared kernel/libroot headers
@@ -355,8 +355,8 @@ rule KernelArchitectureSetup architecture
 			# Workaround for ld using 32k for alignment despite forcing it in the config...
 			# should definitely not be needed!
 			HAIKU_KERNEL_LINKFLAGS +=
-				-Wl,-z -Wl,max-page-size=0x1000
-				-Wl,-z -Wl,common-page-size=0x1000 ;
+				-z max-page-size=0x1000
+				-z common-page-size=0x1000 ;
 
 		case ppc :
 			# Build a position independent PPC kernel. We need to be able to
