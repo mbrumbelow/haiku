@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d31b45cb_1bafe3c6",
+        "filename": "headers/tools/cppunit/TestShell.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-08-16T13:17:06Z",
+      "side": 1,
+      "message": "Right, I got confused. In TestShell.cpp compiler was complaining about (void*)((int) x) cast, but that has nothing to do with this member. Will fix.",
+      "parentUuid": "03ec9f6a_55e37f73",
+      "revId": "d757ec77f295d2bf9d253157d28b64eb8e5d1693",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "edff2e2c_3fec6e71",
         "filename": "src/tests/kits/media/MediaKitTestAddon.cpp",
         "patchSetId": 2
