@@ -36,7 +36,6 @@
 #undef B_TRANSLATION_CONTEXT
 #define B_TRANSLATION_CONTEXT "PackageManagerKit"
 
-
 using BPackageKit::BPrivate::FetchFileJob;
 using BPackageKit::BPrivate::ValidateChecksumJob;
 

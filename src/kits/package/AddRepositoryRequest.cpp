@@ -51,6 +51,7 @@ AddRepositoryRequest::CreateInitialJobs()
 	result = fContext.GetNewTempfile("repoinfo-", &tempEntry);
 	if (result != B_OK)
 		return result;
+
 	BString repoInfoURL = BString(fRepositoryBaseURL) << "/" << "repo.info";
 	FetchFileJob* fetchJob = new (std::nothrow) FetchFileJob(fContext,
 		BString("Fetching repository info from ") << fRepositoryBaseURL,
