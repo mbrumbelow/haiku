@@ -17,7 +17,9 @@
 #include <package/ActivateRepositoryCacheJob.h>
 #include <package/ChecksumAccessors.h>
 #include <package/ValidateChecksumJob.h>
+#if defined(__HAIKU__) && !defined(HAIKU_HOST_PLATFORM_HAIKU)
 #include <package/FetchFileJob.h>
+#endif
 #include <package/RepositoryCache.h>
 #include <package/RepositoryConfig.h>
 #include <package/PackageRoster.h>
@@ -58,6 +60,7 @@ BRefreshRepositoryRequest::CreateInitialJobs()
 	result = fContext.GetNewTempfile("repochecksum-", &fFetchedChecksumFile);
 	if (result != B_OK)
 		return result;
+#if defined(__HAIKU__) && !defined(HAIKU_HOST_PLATFORM_HAIKU)
 	BString repoChecksumURL
 		= BString(fRepoConfig.BaseURL()) << "/" << "repo.sha256";
 	FetchFileJob* fetchChecksumJob = new (std::nothrow) FetchFileJob(
@@ -70,6 +73,7 @@ BRefreshRepositoryRequest::CreateInitialJobs()
 		delete fetchChecksumJob;
 		return result;
 	}
+#endif
 
 	BRepositoryCache repoCache;
 	BPackageRoster roster;
@@ -85,7 +89,9 @@ BRefreshRepositoryRequest::CreateInitialJobs()
 			false);
 	if (validateChecksumJob == NULL)
 		return B_NO_MEMORY;
+#if defined(__HAIKU__) && !defined(HAIKU_HOST_PLATFORM_HAIKU)
 	validateChecksumJob->AddDependency(fetchChecksumJob);
+#endif
 	if ((result = QueueJob(validateChecksumJob)) != B_OK) {
 		delete validateChecksumJob;
 		return result;
@@ -120,6 +126,7 @@ BRefreshRepositoryRequest::_FetchRepositoryCache()
 	status_t result = fContext.GetNewTempfile("repocache-", &tempRepoCache);
 	if (result != B_OK)
 		return result;
+#if defined(__HAIKU__) && !defined(HAIKU_HOST_PLATFORM_HAIKU)
 	BString repoCacheURL = BString(fRepoConfig.BaseURL()) << "/" << "repo";
 	FetchFileJob* fetchCacheJob = new (std::nothrow) FetchFileJob(fContext,
 		BString("Fetching repository-cache from ") << fRepoConfig.BaseURL(),
@@ -130,6 +137,7 @@ BRefreshRepositoryRequest::_FetchRepositoryCache()
 		delete fetchCacheJob;
 		return result;
 	}
+#endif
 
 	// job validating the cache's checksum
 	ValidateChecksumJob* validateChecksumJob
@@ -140,7 +148,9 @@ BRefreshRepositoryRequest::_FetchRepositoryCache()
 			new (std::nothrow) GeneralFileChecksumAccessor(tempRepoCache));
 	if (validateChecksumJob == NULL)
 		return B_NO_MEMORY;
+#if defined(__HAIKU__) && !defined(HAIKU_HOST_PLATFORM_HAIKU)
 	validateChecksumJob->AddDependency(fetchCacheJob);
+#endif
 	if ((result = QueueJob(validateChecksumJob)) != B_OK) {
 		delete validateChecksumJob;
 		return result;

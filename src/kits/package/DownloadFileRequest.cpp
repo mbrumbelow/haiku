@@ -9,7 +9,9 @@
 
 #include <package/DownloadFileRequest.h>
 
+#if defined(__HAIKU__) && !defined(HAIKU_HOST_PLATFORM_HAIKU)
 #include <package/FetchFileJob.h>
+#endif
 #include <package/ValidateChecksumJob.h>
 
 
@@ -48,6 +50,7 @@ DownloadFileRequest::CreateInitialJobs()
 	if (error != B_OK)
 		return B_NO_INIT;
 
+#if defined(__HAIKU__) && !defined(HAIKU_HOST_PLATFORM_HAIKU)
 	// create the download job
 	FetchFileJob* fetchJob = new (std::nothrow) FetchFileJob(fContext,
 		BString("Downloading ") << fFileURL, fFileURL, fTargetEntry);
@@ -75,6 +78,7 @@ DownloadFileRequest::CreateInitialJobs()
 		delete validateJob;
 		return error;
 	}
+#endif
 
 	return B_OK;
 }

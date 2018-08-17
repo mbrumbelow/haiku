@@ -11,6 +11,7 @@
 #include <Entry.h>
 #include <File.h>
 #include <String.h>
+#include <UrlProtocolListener.h>
 
 #include <package/Job.h>
 
@@ -20,7 +21,7 @@ namespace BPackageKit {
 namespace BPrivate {
 
 
-class FetchFileJob : public BJob {
+class FetchFileJob : public BJob, public BUrlProtocolListener {
 	typedef	BJob				inherited;
 
 public:
@@ -33,26 +34,24 @@ public:
 			float				DownloadProgress() const;
 			const char*			DownloadURL() const;
 			const char*			DownloadFileName() const;
-			off_t				DownloadBytes() const;
-			off_t				DownloadTotalBytes() const;
+			ssize_t				DownloadBytes() const;
+			ssize_t				DownloadTotalBytes() const;
+			
+	virtual void	DataReceived(BUrlRequest*, const char* data, 
+						off_t position, ssize_t size);
+	virtual void	DownloadProgress(BUrlRequest*, ssize_t bytesReceived,
+						ssize_t bytesTotal);
+	virtual void 	RequestCompleted(BUrlRequest*, bool success);
 
 protected:
 	virtual	status_t			Execute();
 	virtual	void				Cleanup(status_t jobResult);
 
 private:
-	// libcurl callbacks
-	static	int 				_TransferCallback(void* _job,
-									off_t downloadTotal, off_t downloaded,
-									off_t uploadTotal,	off_t uploaded);
-
-	static	size_t				_WriteCallback(void* buffer, size_t size,
-									size_t nmemb, void* userp);
-
-private:
 			BString				fFileURL;
 			BEntry				fTargetEntry;
 			BFile				fTargetFile;
+			bool				fSuccess;
 			float				fDownloadProgress;
 			off_t				fBytes;
 			off_t				fTotalBytes;

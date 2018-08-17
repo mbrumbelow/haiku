@@ -14,7 +14,9 @@
 #include <Path.h>
 
 #include <package/ActivateRepositoryConfigJob.h>
+#if defined(__HAIKU__) && !defined(HAIKU_HOST_PLATFORM_HAIKU)
 #include <package/FetchFileJob.h>
+#endif
 #include <package/PackageRoster.h>
 
 
@@ -51,6 +53,8 @@ AddRepositoryRequest::CreateInitialJobs()
 	result = fContext.GetNewTempfile("repoinfo-", &tempEntry);
 	if (result != B_OK)
 		return result;
+
+#if defined(__HAIKU__) && !defined(HAIKU_HOST_PLATFORM_HAIKU)
 	BString repoInfoURL = BString(fRepositoryBaseURL) << "/" << "repo.info";
 	FetchFileJob* fetchJob = new (std::nothrow) FetchFileJob(fContext,
 		BString("Fetching repository info from ") << fRepositoryBaseURL,
@@ -61,6 +65,7 @@ AddRepositoryRequest::CreateInitialJobs()
 		delete fetchJob;
 		return result;
 	}
+#endif
 
 	BPackageRoster roster;
 	BPath targetRepoConfigPath;
@@ -76,7 +81,11 @@ AddRepositoryRequest::CreateInitialJobs()
 			tempEntry, fRepositoryBaseURL, targetDirectory);
 	if (activateJob == NULL)
 		return B_NO_MEMORY;
+
+#if defined(__HAIKU__) && !defined(HAIKU_HOST_PLATFORM_HAIKU)
 	activateJob->AddDependency(fetchJob);
+#endif
+
 	if ((result = QueueJob(activateJob)) != B_OK) {
 		delete activateJob;
 		return result;

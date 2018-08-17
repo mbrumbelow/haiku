@@ -27,7 +27,9 @@
 #include <CopyEngine.h>
 #include <package/ActivationTransaction.h>
 #include <package/DaemonClient.h>
+#if defined(__HAIKU__) && !defined(HAIKU_HOST_PLATFORM_HAIKU)
 #include <package/FetchFileJob.h>
+#endif
 #include <package/manager/RepositoryBuilder.h>
 #include <package/ValidateChecksumJob.h>
 
@@ -36,8 +38,9 @@
 #undef B_TRANSLATION_CONTEXT
 #define B_TRANSLATION_CONTEXT "PackageManagerKit"
 
-
+#if defined(__HAIKU__) && !defined(HAIKU_HOST_PLATFORM_HAIKU)
 using BPackageKit::BPrivate::FetchFileJob;
+#endif
 using BPackageKit::BPrivate::ValidateChecksumJob;
 
 
@@ -375,6 +378,7 @@ BPackageManager::InstallationRepository()
 void
 BPackageManager::JobStarted(BSupportKit::BJob* job)
 {
+#if defined(__HAIKU__) && !defined(HAIKU_HOST_PLATFORM_HAIKU)
 	if (dynamic_cast<FetchFileJob*>(job) != NULL) {
 		FetchFileJob* fetchJob = (FetchFileJob*)job;
 		fUserInteractionHandler->ProgressPackageDownloadStarted(
@@ -383,24 +387,33 @@ BPackageManager::JobStarted(BSupportKit::BJob* job)
 		fUserInteractionHandler->ProgressPackageChecksumStarted(
 			job->Title().String());
 	}
+#elif
+	if (dynamic_cast<ValidateChecksumJob*>(job) != NULL) {
+		fUserInteractionHandler->ProgressPackageChecksumStarted(
+			job->Title().String());
+	}
+#endif
 }
 
 
 void
 BPackageManager::JobProgress(BSupportKit::BJob* job)
 {
+#if defined(__HAIKU__) && !defined(HAIKU_HOST_PLATFORM_HAIKU)
 	if (dynamic_cast<FetchFileJob*>(job) != NULL) {
 		FetchFileJob* fetchJob = (FetchFileJob*)job;
 		fUserInteractionHandler->ProgressPackageDownloadActive(
 			fetchJob->DownloadFileName(), fetchJob->DownloadProgress(),
 			fetchJob->DownloadBytes(), fetchJob->DownloadTotalBytes());
 	}
+#endif
 }
 
 
 void
 BPackageManager::JobSucceeded(BSupportKit::BJob* job)
 {
+#if defined(__HAIKU__) && !defined(HAIKU_HOST_PLATFORM_HAIKU)
 	if (dynamic_cast<FetchFileJob*>(job) != NULL) {
 		FetchFileJob* fetchJob = (FetchFileJob*)job;
 		fUserInteractionHandler->ProgressPackageDownloadComplete(
@@ -409,6 +422,12 @@ BPackageManager::JobSucceeded(BSupportKit::BJob* job)
 		fUserInteractionHandler->ProgressPackageChecksumComplete(
 			job->Title().String());
 	}
+#elif
+	if (dynamic_cast<ValidateChecksumJob*>(job) != NULL) {
+		fUserInteractionHandler->ProgressPackageChecksumComplete(
+			job->Title().String());
+	}
+#endif
 }
 
 
