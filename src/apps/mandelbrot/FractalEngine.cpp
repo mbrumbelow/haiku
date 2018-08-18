@@ -17,28 +17,41 @@
 #include "Colorsets.h"
 
 
+#define TRACE_MANDELBROT_ENGINE 0
+#if TRACE_MANDELBROT_ENGINE
+	#include <cstdio>
+	#define TRACE(x...) printf(x)
+#else
+	#define TRACE(x...)
+#endif
+
 FractalEngine::FractalEngine(BHandler* parent, BLooper* looper)
 	:
 	BLooper("FractalEngine"),
-	fMessenger(parent, looper),
-	fBitmapStandby(NULL),
-	fBitmapDisplay(NULL),
-	fIterations(1024),
 	fWidth(0), fHeight(0),
 	fRenderBuffer(NULL),
 	fRenderBufferLen(0),
+	fMessenger(parent, looper),
+	fThreadsRendering(0),
+	fIterations(1024),
+	fBitmapBPP(3),
 	fColorset(Colorset_Royal)
 {
 	fDoSet = &FractalEngine::DoSet_Mandelbrot;
 
 	fRenderSem = create_sem(0, "RenderSem");
-	fRenderFinishedSem = create_sem(0, "RenderFinishedSem");
+
 	system_info info;
 	get_system_info(&info);
 	fThreadCount = info.cpu_count;
-	if (fThreadCount >= 4)
-		fThreadCount = 4;
+
+	if (fThreadCount > MAX_RENDER_THREADS) {
+		fThreadCount = MAX_RENDER_THREADS;
+	}
+
 	for (uint8 i = 0; i < fThreadCount; i++) {
+		fRestartRenderThread[i] = false;
+		fRenderThreadRunning[i] = false;
 		fRenderThreads[i] = spawn_thread(&FractalEngine::RenderThread,
 			BString().SetToFormat("RenderThread%d", i).String(),
 			B_NORMAL_PRIORITY, this);
@@ -83,27 +96,47 @@ void FractalEngine::MessageReceived(BMessage* msg)
 		break;
 
 	case MSG_RESIZE: {
-		delete fBitmapStandby;
-		// We don't delete the "display" bitmap; the viewer now owns it
 		delete fRenderBuffer;
+		fRenderBuffer = NULL;
 
 		fWidth = msg->GetUInt16("width", 320);
 		fHeight = msg->GetUInt16("height", 240);
-		BRect rect(0, 0, fWidth - 1, fHeight - 1);
-		fBitmapStandby = new BBitmap(rect, B_RGB24);
-		fBitmapDisplay = new BBitmap(rect, B_RGB24);
-		fRenderBufferLen = fWidth * fHeight * 3;
+
+
+		TRACE("Creating new buffer. width %u height %u\n",fWidth,fHeight);
+
+		fRenderBufferLen = fWidth*fHeight*fBitmapBPP;
+
 		fRenderBuffer = new uint8[fRenderBufferLen];
+
+		memset(fRenderBuffer,0,fRenderBufferLen);
+
+		BMessage message(MSG_BUFFER_CREATED);
+		fMessenger.SendMessage(&message);
 		break;
 	}
 	case MSG_RENDER: {
-		// Render to "standby" bitmap
+		TRACE("Got MSG_RENDER \n");
+		if (fThreadsRendering) {
+			TRACE("Already rendering\n");
+		}
+
+		TRACE("Calling Render()\n");
 		Render(msg->GetDouble("locationX", 0), msg->GetDouble("locationY", 0),
 			msg->GetDouble("size", 0.005));
-		BMessage message(MSG_RENDER_COMPLETE);
-		message.AddPointer("bitmap", (const void*)fBitmapStandby);
-		fMessenger.SendMessage(&message);
-		std::swap(fBitmapStandby, fBitmapDisplay);
+
+		break;
+	}
+	case MSG_THREAD_RENDER_COMPLETE: {
+		TRACE("Got MSG_THREAD_RENDER_COMPLETE for thread %d\n", msg->GetUInt8("thread",0));
+
+		fThreadsRendering--;
+		TRACE("Setting fRendering = %d\n",fThreadsRendering);
+		if (!fThreadsRendering) {
+			TRACE("Done rendering!\n");
+			BMessage message(MSG_RENDER_COMPLETE);
+			fMessenger.SendMessage(&message);
+		}
 		break;
 	}
 
@@ -119,13 +152,21 @@ void FractalEngine::Render(double locationX, double locationY, double size)
 	fLocationX = locationX;
 	fLocationY = locationY;
 	fSize = size;
-	for (uint8 i = 0; i < fThreadCount; i++)
-		release_sem(fRenderSem);
-	for (uint8 i = 0; i < fThreadCount; i++)
-		acquire_sem(fRenderFinishedSem);
 
-	fBitmapStandby->ImportBits(fRenderBuffer, fRenderBufferLen, fWidth * 3,
-		0, B_RGB24_BIG);
+	TRACE("Location: %g;%g;%g\n",fLocationX,fLocationY,fSize);
+
+	for (uint8 i = 0; i < fThreadCount; i++) {
+		if (fRenderThreadRunning[i]) {
+			fRestartRenderThread[i] = true;
+		} else {
+			release_sem(fRenderSem);
+		}
+		fRenderThreadRunning[i] = true;
+	}
+
+
+	fThreadsRendering = fThreadCount;
+	TRACE("Setting fRendering = %d\n",fThreadsRendering);
 }
 
 
@@ -141,30 +182,60 @@ status_t FractalEngine::RenderThread(void* data)
 		}
 	}
 
+	bool restarting = false;
 	while (true) {
-		acquire_sem(engine->fRenderSem);
+		TRACE("Thread %d starting another render pass\n",threadNum);
 
-		uint16 halfWidth = engine->fWidth / 2;
-		uint16 halfHeight = engine->fHeight / 2;
-		const uint32 startY = (engine->fHeight / engine->fThreadCount) * threadNum,
-			endY = (engine->fHeight / engine->fThreadCount) * (threadNum + 1);
-		for (uint32 x = 0; x < engine->fWidth; x++) {
-			for (uint32 y = startY; y < endY; y++) {
-				engine->RenderPixel(x, y,
-					(x * engine->fSize + engine->fLocationX) - (halfWidth * engine->fSize),
-					(y * -(engine->fSize) + engine->fLocationY) - (halfHeight * -(engine->fSize)));
+		if (!restarting) {
+			TRACE("Thread %d awaiting semaphore...\n",threadNum);
+			acquire_sem(engine->fRenderSem);
+			TRACE("Thread %d got semaphore!\n",threadNum);
+		} else {
+			TRACE("Thread %d setting restart = false\n",threadNum);
+
+			restarting = false;
+		}
+
+
+		uint16 width = engine->fWidth;
+		uint16 height = engine->fHeight;
+		uint16 halfHeight = height / 2;
+		uint16 threadWidth = width/engine->fThreadCount;
+
+		uint16 startX = threadWidth*threadNum;
+		uint16 endX = threadWidth*(threadNum+1);
+
+		for (uint16 y = 0; y<halfHeight; y++) {
+			for (uint16 x = startX; x<endX; x++) {
+				engine->RenderPixel(x, halfHeight+y); //max will be floor(height/2)*2 = height-height%2.
+					//Thus there will be a line of blank pixels if height is not even. Is this a problem?
+				engine->RenderPixel(x, halfHeight-y-1); //min will be halfHeight-(halfHeight-1)-1 = 0
+			}
+
+			if (engine->fRestartRenderThread[threadNum]) {
+				TRACE("Thread %d Got restart message\n",threadNum);
+
+				engine->fRestartRenderThread[threadNum] = false;
+				restarting = true;
+				break; //Restart the loop to update width, height, etc.
 			}
 		}
 
-		release_sem(engine->fRenderFinishedSem);
+		if (!restarting) {
+			engine->fRenderThreadRunning[threadNum] = false;
+			BMessage message(FractalEngine::MSG_THREAD_RENDER_COMPLETE);
+			message.AddUInt8("thread", threadNum);
+			engine->PostMessage(&message);
+		}
 	}
 	return B_OK;
 }
 
 
-void FractalEngine::RenderPixel(uint32 x, uint32 y, double real,
-	double imaginary)
-{
+void FractalEngine::RenderPixel(uint32 x, uint32 y) {
+	double real = (x * fSize + fLocationX) - (fWidth/2 * fSize);
+	double imaginary = (y * -(fSize) + fLocationY) - (fHeight/2 * -(fSize));
+
 	int32 iterToEscape = (this->*fDoSet)(real, imaginary);
 	uint16 loc = 0;
 	if (iterToEscape == -1) {
@@ -174,11 +245,11 @@ void FractalEngine::RenderPixel(uint32 x, uint32 y, double real,
 		loc = 998 - (iterToEscape % 999);
 	}
 
-	uint32 offsetBase = fWidth * y * 3 + x * 3;
+	uint32 offsetBase = fWidth * y * fBitmapBPP + x * fBitmapBPP;
 	loc *= 3;
-	fRenderBuffer[offsetBase + 0] = fColorset[loc + 0];
+	fRenderBuffer[offsetBase + 2] = fColorset[loc + 0]; //fRenderBuffer is BGR
 	fRenderBuffer[offsetBase + 1] = fColorset[loc + 1];
-	fRenderBuffer[offsetBase + 2] = fColorset[loc + 2];
+	fRenderBuffer[offsetBase + 0] = fColorset[loc + 2];
 }
 
 

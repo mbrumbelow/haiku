@@ -22,10 +22,17 @@
 
 #undef B_TRANSLATION_CONTEXT
 #define B_TRANSLATION_CONTEXT "MandelbrotWindow"
-
+#define MANDELBROT_VIEW_REFRESH_FPS 10 //how often to update the view with newly calculated data
 
 // #pragma mark - FractalView
 
+#define TRACE_MANDELBROT_VIEW 0
+#if TRACE_MANDELBROT_VIEW
+	#include <cstdio>
+	#define TRACE(x...) printf(x)
+#else
+	#define TRACE(x...)
+#endif
 
 class FractalView : public BView {
 public:
@@ -44,14 +51,17 @@ public:
 	virtual void Draw(BRect updateRect);
 
 			void ResetPosition();
+			void SetLocationFromFrame(double,double);
+			void Zoom(double, double, double);
+			void ZoomFromFrame(double,double,double);
+			void ImportBitsAndInvalidate();
 			void RedrawFractal();
+			void UpdateSize();
+			void CreateDisplayBitmap(uint16,uint16);
 			FractalEngine* fFractalEngine;
 
 private:
 			BRect GetDragFrame();
-
-	bool fSizeChanged;
-	bool fOwnBitmap;
 
 	BPoint fSelectStart;
 	BPoint fSelectEnd;
@@ -70,8 +80,6 @@ FractalView::FractalView()
 	:
 	BView(NULL, B_WILL_DRAW | B_FRAME_EVENTS | B_PULSE_NEEDED),
 	fFractalEngine(NULL),
-	fSizeChanged(false),
-	fOwnBitmap(false),
 	fSelecting(false),
 	fDisplayBitmap(NULL),
 	fLocationX(0),
@@ -84,8 +92,7 @@ FractalView::FractalView()
 
 FractalView::~FractalView()
 {
-	if (fOwnBitmap)
-		delete fDisplayBitmap;
+	delete fDisplayBitmap;
 }
 
 
@@ -101,34 +108,39 @@ void FractalView::AttachedToWindow()
 {
 	fFractalEngine = new FractalEngine(this, Window());
 	fFractalEngine->Run();
-	BMessage msg(FractalEngine::MSG_RESIZE);
-	msg.AddUInt16("width", 641);
-	msg.AddUInt16("height", 462);
-	fFractalEngine->PostMessage(&msg);
-	RedrawFractal();
+	TRACE("Attached to window\n");
 }
 
+void FractalView::FrameResized(float, float) {
+	TRACE("Frame Resize\n");
+	UpdateSize();
+}
 
-void FractalView::FrameResized(float, float)
+void FractalView::UpdateSize()
 {
-	fSizeChanged = true;
-}
-
-
-void FractalView::Pulse()
-{
-	if (!fSizeChanged)
-		return;
+	TRACE("Update Size\n");
 	BMessage msg(FractalEngine::MSG_RESIZE);
-	msg.AddUInt16("width", (uint16)Frame().Width() + 1);
-	msg.AddUInt16("height", (uint16)Frame().Height() + 1);
-	fFractalEngine->PostMessage(&msg);
-	// The renderer will create new bitmaps, so we own the bitmap now
-	fOwnBitmap = true;
-	fSizeChanged = false;
-	RedrawFractal();
+
+	uint16 width = (uint16)Frame().Width()+1;
+	uint16 height = (uint16)Frame().Height()+1;
+
+	msg.AddUInt16("width", width);
+	msg.AddUInt16("height", height);
+
+	CreateDisplayBitmap(width,height);
+
+	msg.AddPointer("bitmap",fDisplayBitmap);
+
+	fFractalEngine->PostMessage(&msg); //Create the new buffer	
 }
 
+void FractalView::CreateDisplayBitmap(uint16 width,uint16 height) {
+	delete fDisplayBitmap;
+	fDisplayBitmap = NULL;
+	TRACE("width %u height %u\n",width,height);
+	BRect rect(0, 0, width, height);
+	fDisplayBitmap = new BBitmap(rect, B_RGB24);
+}
 
 BRect FractalView::GetDragFrame()
 {
@@ -170,6 +182,36 @@ void FractalView::MouseMoved(BPoint where, uint32 mode, const BMessage*)
 	}
 }
 
+void FractalView::SetLocationFromFrame(double frameX,double frameY) {
+	BRect frame = Frame();
+
+	fLocationX = ((frameX - frame.Width() / 2) * fSize + fLocationX);
+	fLocationY = ((frameY - frame.Height() / 2) * -fSize + fLocationY); //-fSize because is in raster coordinates (y swapped)
+}
+
+void FractalView::ZoomFromFrame(double frameX,double frameY,double zoomFactor) {
+	BRect frame = Frame();
+
+	Zoom((frameX - frame.Width() / 2) * fSize + fLocationX,
+		 (frameY - frame.Height() / 2) * -fSize + fLocationY,
+		 zoomFactor);
+}
+
+void FractalView::Zoom(double originX, double originY, double zoomFactor) {
+	double deltaX = originX-fLocationX;
+	double deltaY = originY-fLocationY;
+
+	TRACE("oX %g oY %g zoom %g\n",originX,originY,zoomFactor);
+
+	deltaX /= zoomFactor;
+	deltaY /= zoomFactor;
+
+	fLocationX = originX-deltaX;
+	fLocationY = originY-deltaY;
+	fSize /= zoomFactor;
+}
+
+
 
 void FractalView::MouseUp(BPoint where)
 {
@@ -181,21 +223,21 @@ void FractalView::MouseUp(BPoint where)
 		BPoint lt = dragFrame.LeftTop();
 		float centerX = lt.x + dragFrame.Width() / 2,
 			centerY = lt.y + dragFrame.Height() / 2;
-		fLocationX = ((centerX - frame.Width() / 2) * fSize + fLocationX);
-		fLocationY = ((centerY - frame.Height() / 2) * -fSize + fLocationY);
+
+		SetLocationFromFrame(centerX,centerY);
 
 		fSize = (dragFrame.Width() * fSize) / frame.Width();
 	} else {
-		fLocationX = ((where.x - frame.Width() / 2) * fSize + fLocationX);
-		fLocationY = ((where.y - frame.Height() / 2) * -fSize + fLocationY);
-		if (fMouseButtons & B_PRIMARY_MOUSE_BUTTON)
-			fSize /= 2;
-		else
-			fSize *= 2;
+		if (fMouseButtons & B_PRIMARY_MOUSE_BUTTON) {
+			SetLocationFromFrame(where.x,where.y);
+
+			Zoom(fLocationX,fLocationY,2);
+		} else {
+			Zoom(fLocationX,fLocationY,0.5);
+		}
 	}
 	RedrawFractal();
 }
-
 
 void FractalView::MessageReceived(BMessage* msg)
 {
@@ -204,25 +246,29 @@ void FractalView::MessageReceived(BMessage* msg)
 		float change = msg->FindFloat("be:wheel_delta_y");
 		BPoint where;
 		GetMouse(&where, NULL);
-		BRect frame = Frame();
-		fLocationX = ((where.x - frame.Width() / 2) * fSize + fLocationX);
-		fLocationY = ((where.y - frame.Height() / 2) * -fSize + fLocationY);
+		double zoomFactor;
 		if (change < 0)
-			fSize /= 1.5;
+			zoomFactor = 3.0/2.0;
 		else
-			fSize *= 1.5;
+			zoomFactor = 2.0/3.0;
+		ZoomFromFrame(where.x,where.y,zoomFactor);
+
 		RedrawFractal();
 		break;
 	}
 
+	case FractalEngine::MSG_BUFFER_CREATED:
+		TRACE("Got buffer created msg.\n");
+		ImportBitsAndInvalidate();
+
+		RedrawFractal();
+		break;
+
 	case FractalEngine::MSG_RENDER_COMPLETE:
-		if (fOwnBitmap) {
-			fOwnBitmap = false;
-			delete fDisplayBitmap;
-		}
-		fDisplayBitmap = NULL; // In case the following line fails
-		msg->FindPointer("bitmap", (void**)&fDisplayBitmap);
-		Invalidate();
+		TRACE("Got render complete msg.\n");
+		Window()->SetPulseRate(0);
+
+		ImportBitsAndInvalidate();
 		break;
 
 	default:
@@ -231,9 +277,21 @@ void FractalView::MessageReceived(BMessage* msg)
 	}
 }
 
+void FractalView::Pulse() {
+	ImportBitsAndInvalidate();
+}
+
+void FractalView::ImportBitsAndInvalidate() {
+	TRACE("Importing bits...");
+
+	fDisplayBitmap->ImportBits(fFractalEngine->fRenderBuffer, fFractalEngine->fRenderBufferLen, fFractalEngine->fWidth * 3,
+			0, B_RGB24);
+	Invalidate();
+}
 
 void FractalView::RedrawFractal()
 {
+	Window()->SetPulseRate(1000000/MANDELBROT_VIEW_REFRESH_FPS);
 	BMessage message(FractalEngine::MSG_RENDER);
 	message.AddDouble("locationX", fLocationX);
 	message.AddDouble("locationY", fLocationY);
@@ -301,7 +359,6 @@ MandelbrotWindow::MandelbrotWindow(BRect frame)
 		B_NORMAL_WINDOW_FEEL, 0L),
 	fFractalView(new FractalView)
 {
-	SetPulseRate(250000); // pulse twice per second
 
 	BMenuBar* menuBar = new BMenuBar("MenuBar");
 	BMenu* setMenu;
