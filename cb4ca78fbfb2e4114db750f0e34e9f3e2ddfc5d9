@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cf3c16eb_a79c1ce6",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-19T20:53:42Z",
+      "side": 0,
+      "message": "Keep one newline between the translation context definitions and the FPS one",
+      "revId": "cb4ca78fbfb2e4114db750f0e34e9f3e2ddfc5d9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d354baba_0663c7c0",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-19T20:53:42Z",
+      "side": 0,
+      "message": "Two lines between definitions and other content.",
+      "revId": "cb4ca78fbfb2e4114db750f0e34e9f3e2ddfc5d9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "191403e7_15a4fef5",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-19T20:53:42Z",
+      "side": 0,
+      "message": "Remove extra newline.",
+      "revId": "cb4ca78fbfb2e4114db750f0e34e9f3e2ddfc5d9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}

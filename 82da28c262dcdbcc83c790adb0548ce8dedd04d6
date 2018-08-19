@@ -1,0 +1,594 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a4203e8a_b568321f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-19T20:53:42Z",
+      "side": 1,
+      "message": "Mention the application in the commit message, and no need to mention that there is more in the details. So:\n\nMandelbrot: Implement incremental rendering and other improvements.",
+      "revId": "82da28c262dcdbcc83c790adb0548ce8dedd04d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f47c8637_982f96de",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-19T20:53:42Z",
+      "side": 1,
+      "message": "One space before *. And some more details of the new algorithms here would be nice.",
+      "revId": "82da28c262dcdbcc83c790adb0548ce8dedd04d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05b60b59_639bbf31",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-19T20:53:42Z",
+      "side": 1,
+      "message": "Can you make this just a define, rather than a define-to-constant, and update the #if s appropriately?",
+      "revId": "82da28c262dcdbcc83c790adb0548ce8dedd04d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f05cb37_85864ced",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-19T20:53:42Z",
+      "side": 1,
+      "message": "I don\u0027t think GCC2 has \u003ccstdio\u003e, only \u003cstdio.h\u003e. Could you check?",
+      "range": {
+        "startLine": 22,
+        "startChar": 2,
+        "endLine": 22,
+        "endChar": 10
+      },
+      "revId": "82da28c262dcdbcc83c790adb0548ce8dedd04d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95a48732_4ededd82",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-19T20:53:42Z",
+      "side": 1,
+      "message": "#s go at the beginning of the line with the tab after the # and before the \"define\", just as in other files.",
+      "revId": "82da28c262dcdbcc83c790adb0548ce8dedd04d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d15ecc3_6453e032",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-19T20:53:42Z",
+      "side": 1,
+      "message": "Two lines after, not just one.",
+      "revId": "82da28c262dcdbcc83c790adb0548ce8dedd04d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e39e744_970424c4",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-19T20:53:42Z",
+      "side": 1,
+      "message": "Braces unnecessary, extra linebreak below unnecessary.",
+      "revId": "82da28c262dcdbcc83c790adb0548ce8dedd04d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85f0882f_1edeeaf0",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-19T20:53:42Z",
+      "side": 1,
+      "message": "Spaces around *s, and remove fBitmapBPP as suggested.",
+      "range": {
+        "startLine": 108,
+        "startChar": 36,
+        "endLine": 108,
+        "endChar": 46
+      },
+      "revId": "82da28c262dcdbcc83c790adb0548ce8dedd04d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf60c8fb_44a1f47e",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-19T20:53:42Z",
+      "side": 1,
+      "message": "Please clean up all this whitespace.",
+      "revId": "82da28c262dcdbcc83c790adb0548ce8dedd04d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a121f4d2_3b0f2e6d",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-19T20:53:42Z",
+      "side": 1,
+      "message": "Spaces after commas.",
+      "revId": "82da28c262dcdbcc83c790adb0548ce8dedd04d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6bf2c36_f2d89f8d",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-19T20:53:42Z",
+      "side": 1,
+      "message": "Needless braces. Also, you can fold this into the previous TRACE, e.g. TRACE(\"Got MSG_RENDER, %s\", fThreadsRendering ? \"already rendering\" : \"not rendering\");",
+      "revId": "82da28c262dcdbcc83c790adb0548ce8dedd04d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4614fb95_2c2e5ada",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-19T20:53:42Z",
+      "side": 1,
+      "message": "And can fold this into the previous TRACE.",
+      "revId": "82da28c262dcdbcc83c790adb0548ce8dedd04d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32abf594_2b2cdf62",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-19T20:53:42Z",
+      "side": 1,
+      "message": "Needless newline.",
+      "revId": "82da28c262dcdbcc83c790adb0548ce8dedd04d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0208931_91a4f019",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-19T20:53:42Z",
+      "side": 1,
+      "message": "Space after comma",
+      "revId": "82da28c262dcdbcc83c790adb0548ce8dedd04d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "247ca199_ad7d2e8e",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-19T20:53:42Z",
+      "side": 1,
+      "message": "Fold trace into previous",
+      "revId": "82da28c262dcdbcc83c790adb0548ce8dedd04d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d220d071_ea1afaff",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-19T20:53:42Z",
+      "side": 1,
+      "message": "spaces after comma",
+      "revId": "82da28c262dcdbcc83c790adb0548ce8dedd04d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e36a1cc_60b8831a",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-19T20:53:42Z",
+      "side": 1,
+      "message": "Remove extra newline",
+      "revId": "82da28c262dcdbcc83c790adb0548ce8dedd04d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6f58fe7_74e5fefe",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-19T20:53:42Z",
+      "side": 1,
+      "message": "Setting -\u003e Set; missing space after comma",
+      "revId": "82da28c262dcdbcc83c790adb0548ce8dedd04d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3d48dc2_00af1c79",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-19T20:53:42Z",
+      "side": 1,
+      "message": "Remove extra newline.",
+      "revId": "82da28c262dcdbcc83c790adb0548ce8dedd04d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "438cb231_6ef194d8",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-19T20:53:42Z",
+      "side": 1,
+      "message": "Spaces around all operators...",
+      "revId": "82da28c262dcdbcc83c790adb0548ce8dedd04d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab144afe_e9336579",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-19T20:53:42Z",
+      "side": 1,
+      "message": "80 column limit, so these comments need to go to the previous line, or to the next line (indent by one tab if the comment is about the prior line.)\n\nalso, one space after // ; please do this everywhere.",
+      "revId": "82da28c262dcdbcc83c790adb0548ce8dedd04d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dcc2a0bc_dec70565",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-19T20:53:42Z",
+      "side": 1,
+      "message": "All function-opening braces go on the next line.",
+      "revId": "82da28c262dcdbcc83c790adb0548ce8dedd04d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ceb75e7_2b0f44ce",
+        "filename": "src/apps/mandelbrot/FractalEngine.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-19T20:53:42Z",
+      "side": 1,
+      "message": "Two lines after, not just one.",
+      "revId": "82da28c262dcdbcc83c790adb0548ce8dedd04d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4a59aea_0db0852a",
+        "filename": "src/apps/mandelbrot/FractalEngine.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-19T20:53:42Z",
+      "side": 1,
+      "message": "Comma at the end of the line",
+      "revId": "82da28c262dcdbcc83c790adb0548ce8dedd04d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0de66320_1d2022eb",
+        "filename": "src/apps/mandelbrot/FractalEngine.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-19T20:53:42Z",
+      "side": 1,
+      "message": "These should be private and only accessible via getters, e.g. .Width() -- or actually, .Size() returning a BSize would be best.",
+      "revId": "82da28c262dcdbcc83c790adb0548ce8dedd04d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c35998d3_2cf74956",
+        "filename": "src/apps/mandelbrot/FractalEngine.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-19T20:53:42Z",
+      "side": 1,
+      "message": "These should also be private and only accessible via getters.",
+      "revId": "82da28c262dcdbcc83c790adb0548ce8dedd04d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76ac71ca_b86a3e76",
+        "filename": "src/apps/mandelbrot/FractalEngine.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-19T20:53:42Z",
+      "side": 1,
+      "message": "This appears to be a constant that\u0027s used only once, so for now, probably best to just fold it in as such.",
+      "revId": "82da28c262dcdbcc83c790adb0548ce8dedd04d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab8d40ce_b2db0a2e",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-19T20:53:42Z",
+      "side": 1,
+      "message": "This is pretty obvious, no comment needed.",
+      "revId": "82da28c262dcdbcc83c790adb0548ce8dedd04d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9835d97b_131fd3f2",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-19T20:53:42Z",
+      "side": 1,
+      "message": "Same comments about this block as the previous one. And, two lines around different blocks rule as before.",
+      "revId": "82da28c262dcdbcc83c790adb0548ce8dedd04d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f4bba85_a4229890",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-19T20:53:42Z",
+      "side": 1,
+      "message": "Spaces after commas and variable names in definitons on all these please.",
+      "revId": "82da28c262dcdbcc83c790adb0548ce8dedd04d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2dda538a_3f5e9cc8",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-19T20:53:42Z",
+      "side": 1,
+      "message": "Trailing space.",
+      "revId": "82da28c262dcdbcc83c790adb0548ce8dedd04d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d54c8b39_c623c05e",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-19T20:53:42Z",
+      "side": 1,
+      "message": "Braces, and a lot of other places in this file.",
+      "revId": "82da28c262dcdbcc83c790adb0548ce8dedd04d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4bc633f5_1783662a",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-19T20:53:42Z",
+      "side": 1,
+      "message": "80 columns.",
+      "revId": "82da28c262dcdbcc83c790adb0548ce8dedd04d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b98e949c_33f762bc",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-19T20:53:42Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "82da28c262dcdbcc83c790adb0548ce8dedd04d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
