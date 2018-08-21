@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "92d25d80_5b6cabff",
+        "filename": "src/build/libpackage/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-21T20:03:51Z",
+      "side": 1,
+      "message": "HOST_LIBNET does not exist, so don\u0027t bother adding it.",
+      "revId": "7189a1c1542c15d9dfc66b4fa04fd2786de2994a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1ef270e_3667e1f9",
+        "filename": "src/kits/package/AddRepositoryRequest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-21T20:03:51Z",
+      "side": 1,
+      "message": "Instead of adding all these ifs around usages of FetchFileJob in the rest of PackageKit, please add a no-op implementation of it, the same way we do for BSecureSocket when building without OpenSSL. And use HAIKU_TARGET_PLATFORM_HAIKU in doing so, not this combination of __HAIKU__ and HAIKU_HOST_PLATFORM_HAIKU.",
+      "revId": "7189a1c1542c15d9dfc66b4fa04fd2786de2994a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32b44a1a_b6cb0b65",
+        "filename": "src/kits/package/FetchFileJob.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-21T20:03:51Z",
+      "side": 1,
+      "message": "Use #if 0, not comments, to add dead code.",
+      "revId": "7189a1c1542c15d9dfc66b4fa04fd2786de2994a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
