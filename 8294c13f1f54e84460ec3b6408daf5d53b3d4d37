@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b9ad17b_1898c146",
+        "filename": "src/kits/support/Url.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1361,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-08-22T23:50:23Z",
+      "side": 1,
+      "message": "isxdigit",
+      "range": {
+        "startLine": 1359,
+        "startChar": 5,
+        "endLine": 1361,
+        "endChar": 28
+      },
+      "revId": "8294c13f1f54e84460ec3b6408daf5d53b3d4d37",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fea1e4ba_3aed314e",
+        "filename": "src/kits/support/Url.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1392,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-08-22T23:50:23Z",
+      "side": 1,
+      "message": "!isalnum",
+      "range": {
+        "startLine": 1392,
+        "startChar": 17,
+        "endLine": 1392,
+        "endChar": 43
+      },
+      "revId": "8294c13f1f54e84460ec3b6408daf5d53b3d4d37",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9af50c3f_2fd0441c",
+        "filename": "src/tests/kits/net/libnetapi/NetworkUrlTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-08-22T23:50:23Z",
+      "side": 1,
+      "message": "These two are the same?",
+      "range": {
+        "startLine": 414,
+        "startChar": 1,
+        "endLine": 417,
+        "endChar": 49
+      },
+      "revId": "8294c13f1f54e84460ec3b6408daf5d53b3d4d37",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
