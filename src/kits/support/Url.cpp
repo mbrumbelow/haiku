@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2016 Haiku Inc. All rights reserved.
+ * Copyright 2010-2018 Haiku Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -497,11 +497,19 @@ BUrl::IsValid() const
 	if (!fHasProtocol)
 		return false;
 
+	if (!_IsProtocolValid())
+		return false;
+
+	// it is possible that there can be an authority but no host.
+	// wierd://tea:tree@/x
+	if (HasHost() && !(fHost.IsEmpty() && HasAuthority()) && !_IsHostValid())
+		return false;
+
 	if (fProtocol == "http" || fProtocol == "https" || fProtocol == "ftp"
 		|| fProtocol == "ipp" || fProtocol == "afp" || fProtocol == "telnet"
 		|| fProtocol == "gopher" || fProtocol == "nntp" || fProtocol == "sftp"
 		|| fProtocol == "finger" || fProtocol == "pop" || fProtocol == "imap") {
-		return fHasHost && !fHost.IsEmpty();
+		return HasHost() && !fHost.IsEmpty();
 	}
 
 	if (fProtocol == "file")
@@ -1345,7 +1353,80 @@ BUrl::_DoUrlDecodeChunk(const BString& chunk, bool strict)
 
 
 bool
-BUrl::_IsProtocolValid()
+BUrl::_IsIPV6Char(char c)
+{
+	return c == ':'
+		|| isdigit(c)
+		|| (c >= 'a' && c <= 'f')
+		|| (c >= 'A' && c <= 'F');
+}
+
+
+bool
+BUrl::_IsHostIPV6Valid(size_t offset, int32 length) const
+{
+	for (int32 i = 0; i < length; i++) {
+		char c = fHost[offset + i];
+		if (!_IsIPV6Char(c))
+			return false;
+	}
+
+	return length > 0;
+}
+
+
+bool
+BUrl::_IsHostFragmentValid(size_t offset, int32 length) const
+{
+	if (length <= 0)
+		return false;
+
+	if (fHost[offset] == '-')
+		return false;
+
+	if (fHost[offset + length  - 1] == '-')
+		return false;
+
+	for (int32 i = 0; i < length; i++) {
+		char c = fHost[offset + i];
+		if (c < 127 && !isalpha(c) && !isdigit(c) && c != '-')
+			return false;
+	}
+
+	return true;
+}
+
+
+bool
+BUrl::_IsHostValid() const
+{
+	if (fHost.StartsWith("[") && fHost.EndsWith("]"))
+		return _IsHostIPV6Valid(1, fHost.Length() - 2);
+
+	int32 start = 0;
+	int32 upto = 0;
+
+	while (upto < fHost.Length()) {
+		char c = fHost[upto];
+
+		if (c == '.') {
+			if (!_IsHostFragmentValid(start, upto - start))
+				return false;
+			start = upto + 1;
+		}
+
+		upto++;
+	}
+
+	if (!_IsHostFragmentValid(start, upto - start))
+		return false;
+
+	return true;
+}
+
+
+bool
+BUrl::_IsProtocolValid() const
 {
 	for (int8 index = 0; index < fProtocol.Length(); index++) {
 		char c = fProtocol[index];
@@ -1356,7 +1437,7 @@ BUrl::_IsProtocolValid()
 			return false;
 	}
 
-	return fProtocol.Length() > 0;
+	return !fProtocol.IsEmpty();
 }
 
 
