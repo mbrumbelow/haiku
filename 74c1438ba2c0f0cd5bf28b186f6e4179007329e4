@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "feaaf420_bfe74f8b",
+        "filename": "src/kits/support/Url.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1345,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-23T06:35:43Z",
+      "side": 1,
+      "message": "There are domain names out there using _ as well. We already had to patch our DNS resolver to have them working. I\u0027d rather not be too restrictive here.\n\nI know they are not supposed to happen in URLs, but they do.\nhttps://stackoverflow.com/questions/2180465/can-domain-name-subdomains-have-an-underscore-in-it\n\nAlso what about URLs using utf-8? Are we sure we are already punycode-encoded when we get here?",
+      "revId": "74c1438ba2c0f0cd5bf28b186f6e4179007329e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9cea3b68_1d10c8fe",
+        "filename": "src/tests/kits/net/libnetapi/NetworkUrlTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-23T06:35:43Z",
+      "side": 1,
+      "message": "This is legal in DNS. Is there a reason to disallow it?\nhttp://www.dns-sd.org/trailingdotsindomainnames.html",
+      "revId": "74c1438ba2c0f0cd5bf28b186f6e4179007329e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7981f434_1a7253cd",
+        "filename": "src/tests/kits/net/libnetapi/NetworkUrlTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-23T06:35:43Z",
+      "side": 1,
+      "message": "These constraints about hyphens should rather be left to be evaluated at the lower level (ie DNS resolution). The reason for this is that URLs may specify an hostname to be resolved in other ways than DNS (for example tor onion URLs: https://fr.wikipedia.org/wiki/.onion )",
+      "revId": "74c1438ba2c0f0cd5bf28b186f6e4179007329e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
