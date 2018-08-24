@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4d69ab24_462b89d2",
+        "filename": "src/kits/support/Url.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1345,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2018-08-24T19:25:15Z",
+      "side": 1,
+      "message": "I have changed the logic a bit to relax the checks around this.  AFAIKS the class is host-name encoding agnostic.  I\u0027ve had a look at the older unit tests and from that have also allowed \u0027%\u0027 as this seems to be employed there.  top-bit-set characters are allowed which should cater for UTF-8 text in domains.",
+      "parentUuid": "feaaf420_bfe74f8b",
+      "revId": "74c1438ba2c0f0cd5bf28b186f6e4179007329e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9cea3b68_1d10c8fe",
         "filename": "src/tests/kits/net/libnetapi/NetworkUrlTest.cpp",
         "patchSetId": 2
@@ -47,6 +65,24 @@
       "writtenOn": "2018-08-23T06:35:43Z",
       "side": 1,
       "message": "These constraints about hyphens should rather be left to be evaluated at the lower level (ie DNS resolution). The reason for this is that URLs may specify an hostname to be resolved in other ways than DNS (for example tor onion URLs: https://fr.wikipedia.org/wiki/.onion )",
+      "revId": "74c1438ba2c0f0cd5bf28b186f6e4179007329e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "411a2343_b9a938ab",
+        "filename": "src/tests/kits/net/libnetapi/NetworkUrlTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2018-08-24T19:25:15Z",
+      "side": 1,
+      "message": "Changed so that hyphens are generally allowed in the host.",
+      "parentUuid": "7981f434_1a7253cd",
       "revId": "74c1438ba2c0f0cd5bf28b186f6e4179007329e4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
