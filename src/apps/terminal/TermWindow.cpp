@@ -840,6 +840,7 @@ TermWindow::MessageReceived(BMessage *message)
 
 		case MSG_HALF_FONT_CHANGED:
 		case MSG_FULL_FONT_CHANGED:
+		case MSG_BLINK_CURSOR_CHANGED:
 		case MSG_ALLOW_BOLD_CHANGED:
 		{
 			BFont font;

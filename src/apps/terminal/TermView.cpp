@@ -775,6 +775,7 @@ TermView::SetTermFont(const BFont *font)
 	fCursorStyle = PrefHandler::Default() == NULL ? BLOCK_CURSOR
 		: PrefHandler::Default()->getCursor(PREF_CURSOR_STYLE);
 	fCursorBlinking = PrefHandler::Default()->getBool(PREF_BLINK_CURSOR);
+	_SwitchCursorBlinking(fCursorBlinking);
 
 	fEmulateBold = PrefHandler::Default() == NULL ? false
 		: PrefHandler::Default()->getBool(PREF_EMULATE_BOLD);
