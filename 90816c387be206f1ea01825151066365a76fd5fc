@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2f9713ed_3b6590b1",
+        "filename": "src/apps/terminal/TermWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 843,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-24T14:38:09Z",
+      "side": 1,
+      "message": "This does not look right. When this setting changes, there is no need to reset the font and resize all the tabs. We should have a separate case here and do just what\u0027s needed (start or stop blinking the cursor).",
+      "revId": "90816c387be206f1ea01825151066365a76fd5fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
