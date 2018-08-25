@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4d4572d_968e71e8",
+        "filename": "src/kits/package/FetchFileJob.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-25T06:44:55Z",
+      "side": 1,
+      "message": "Line \u003e 80 columns",
+      "revId": "37f0007a51ccdfdf16490bf0adb889e822a611db",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ebdc7314_a4a42abe",
+        "filename": "src/kits/package/FetchFileJob.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-25T06:44:55Z",
+      "side": 1,
+      "message": "Line \u003e 80 columns",
+      "revId": "37f0007a51ccdfdf16490bf0adb889e822a611db",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2dcaac0e_16a82c58",
+        "filename": "src/kits/package/FetchFileJob.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-25T06:44:55Z",
+      "side": 1,
+      "message": "Line \u003e 80 columns",
+      "revId": "37f0007a51ccdfdf16490bf0adb889e822a611db",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "154c6f60_5db53715",
+        "filename": "src/kits/package/FetchFileJob.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-25T06:44:55Z",
+      "side": 1,
+      "message": "Line \u003e 80 columns",
+      "revId": "37f0007a51ccdfdf16490bf0adb889e822a611db",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c6bcefd2_dae1f0be",
+        "filename": "src/kits/package/FetchFileJob.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-25T06:44:55Z",
+      "side": 1,
+      "message": "off_t was correct here. Otherwise, we get wrong results on 32bit system for a file larger than 2GB.",
+      "revId": "37f0007a51ccdfdf16490bf0adb889e822a611db",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c17abc55_34b8483c",
+        "filename": "src/kits/package/FetchFileJob.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-25T06:44:55Z",
+      "side": 1,
+      "message": "Same here.",
+      "revId": "37f0007a51ccdfdf16490bf0adb889e822a611db",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
