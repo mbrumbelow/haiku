@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e72e701_e9b803a8",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-25T19:09:04Z",
+      "side": 1,
+      "message": "Zoom() means something at the window level in BeOS/Haiku (see the Haiku Book). So you should try to find different names for these... ScaleFactor? idk.\n\nAlso, please add the parameter names here (and for CreateDisplayBitmap also.)",
+      "revId": "c52ef74c340a47b51696831d8661bc5365fb97ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0abfcacd_6e4ee510",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-25T19:09:04Z",
+      "side": 1,
+      "message": "Two blank lines.",
+      "revId": "c52ef74c340a47b51696831d8661bc5365fb97ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f561fb78_c607f287",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-25T19:09:04Z",
+      "side": 1,
+      "message": "Two blank lines.",
+      "revId": "c52ef74c340a47b51696831d8661bc5365fb97ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90621c16_4bff4dd4",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-25T19:09:04Z",
+      "side": 1,
+      "message": "Two blank lines.",
+      "revId": "c52ef74c340a47b51696831d8661bc5365fb97ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ecb4348_45b404c5",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-25T19:09:04Z",
+      "side": 1,
+      "message": "Space after //, and put this comment below the fLocationY line indented by one tab.",
+      "revId": "c52ef74c340a47b51696831d8661bc5365fb97ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c33ba68c_7ee59d3e",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-25T19:09:04Z",
+      "side": 1,
+      "message": "Spaces around /",
+      "revId": "c52ef74c340a47b51696831d8661bc5365fb97ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}

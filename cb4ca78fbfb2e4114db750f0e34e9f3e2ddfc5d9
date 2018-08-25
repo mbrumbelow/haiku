@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "f92aa109_9e941172",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-25T19:09:04Z",
+      "side": 0,
+      "message": "Two blank lines needed.",
+      "revId": "cb4ca78fbfb2e4114db750f0e34e9f3e2ddfc5d9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cf3c16eb_a79c1ce6",
         "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
         "patchSetId": 1
@@ -47,6 +64,23 @@
       "writtenOn": "2018-08-19T20:53:42Z",
       "side": 0,
       "message": "Remove extra newline.",
+      "revId": "cb4ca78fbfb2e4114db750f0e34e9f3e2ddfc5d9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3deaeab_59f28490",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-08-25T19:09:04Z",
+      "side": 0,
+      "message": "Two blank lines (and after following functions)",
       "revId": "cb4ca78fbfb2e4114db750f0e34e9f3e2ddfc5d9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
