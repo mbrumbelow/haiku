@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ebee0d3d_a9d04a05",
+        "filename": "src/tests/kits/net/libnetapi/NetworkUrlTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-25T06:47:41Z",
+      "side": 1,
+      "message": "A better wording would be \"host validation\" (we test both valid and invalid cases)\n\nAnd also it would be better to use a #pragma mark rather than -------- for our friends still using Pe (and we should support something similar in other editors).\n\nMaybe this comment is not really useful since the test name should already be clear enough, anyways?",
+      "revId": "d415be0443e7ce7ce80990d90ddbe816bfd8205e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
