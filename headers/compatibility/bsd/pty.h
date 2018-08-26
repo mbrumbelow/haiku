@@ -9,20 +9,22 @@
 #ifdef _BSD_SOURCE
 
 
-#include <sys/cdefs.h>
 #include <termios.h>
 
 
-__BEGIN_DECLS
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-extern int		openpty(int* master, int* slave, char* name,
+int		openpty(int* master, int* slave, char* name,
 					struct termios* termAttrs, struct winsize* windowSize);
-extern int		login_pty(int fd);
-extern pid_t	forkpty(int* master, char* name,
+int		login_tty(int fd);
+pid_t	forkpty(int* master, char* name,
 					struct termios* termAttrs, struct winsize* windowSize);
 
-__END_DECLS
-
+#ifdef __cplusplus
+}
+#endif
 
 #endif
 
