@@ -89,23 +89,6 @@ function InstallAllFirmwares()
 }
 
 
-function UnlinkDriver()
-{
-	# remove the driver's symlink
-	#rm -f "${driversDir}/dev/net/${driver}"
-	echo "TODO: UnlinkDriver"
-}
-
-
-function SymlinkDriver()
-{
-	# restore the driver's symlink
-	#cd "${driversDir}/dev/net/"
-	#ln -sf "../../bin/${driver}" "${driver}"
-	echo "TODO: SymlinkDriver"
-}
-
-
 function DownloadFileIfNotCached()
 {
 	# DownloadFileIfNotCached <url> <filename> <destination dir>
@@ -149,14 +132,12 @@ function PreFirmwareInstallation()
 {
 	echo "Acquiring firmware for ${driver} ..."
 	mkdir -p "${tempFirmwareDir}/${driver}"
-	UnlinkDriver
 }
 
 
 function PostFirmwareInstallation()
 {
 	SetFirmwarePermissions
-	SymlinkDriver
 	CleanTemporaryFiles
 	echo "... firmware for ${driver} will be installed."
 }
