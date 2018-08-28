@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8307dbc0_89528d17",
+        "filename": "src/kits/package/FetchFileJob.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-28T05:53:37Z",
+      "side": 1,
+      "message": "This should be indented just 2 tabs",
+      "revId": "bff259535a91cf47f48cb064d58bcd7d3d233113",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83d658e4_2540b97f",
+        "filename": "src/kits/package/FetchFileJob.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-28T05:53:37Z",
+      "side": 1,
+      "message": "{ goes on the same line as if()",
+      "revId": "bff259535a91cf47f48cb064d58bcd7d3d233113",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd963181_7d77ea26",
+        "filename": "src/kits/package/FetchFileJob.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-28T05:53:37Z",
+      "side": 1,
+      "message": "This should be indented just 2 tabs",
+      "revId": "bff259535a91cf47f48cb064d58bcd7d3d233113",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ae40a8f_e74235e4",
+        "filename": "src/kits/package/FetchFileJob.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-28T05:53:37Z",
+      "side": 1,
+      "message": "{ goes on the same line as switch()",
+      "revId": "bff259535a91cf47f48cb064d58bcd7d3d233113",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56142ab5_b7d05b84",
+        "filename": "src/kits/package/FetchFileJob.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-28T05:53:37Z",
+      "side": 1,
+      "message": "{ goes on the same line as if()",
+      "revId": "bff259535a91cf47f48cb064d58bcd7d3d233113",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
