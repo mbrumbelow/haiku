@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "924da85c_ecd2ece7",
+        "filename": "src/kits/package/FetchFileJob.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-29T06:00:33Z",
+      "side": 1,
+      "message": "The braces are not needed here (single line body)",
+      "revId": "a24f0575c7b328f532713095b034c92916827c85",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa09a006_4e3a4e71",
+        "filename": "src/kits/package/FetchFileJob.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-29T06:00:33Z",
+      "side": 1,
+      "message": "This should be indented one single tab",
+      "revId": "a24f0575c7b328f532713095b034c92916827c85",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0684223_79ac7b26",
+        "filename": "src/kits/package/FetchFileJob.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-29T06:00:33Z",
+      "side": 1,
+      "message": "This should be indented one single tab",
+      "revId": "a24f0575c7b328f532713095b034c92916827c85",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
