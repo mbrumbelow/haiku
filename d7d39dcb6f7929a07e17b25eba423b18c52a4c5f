@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3be92e5_2dca461c",
+        "filename": "src/apps/installer/EULAWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-30T16:44:39Z",
+      "side": 0,
+      "message": "Do we really need these instructions about GRUB here? What do we expect the user to do? Write them down on paper so he can reboot to Linux and sort it all out?",
+      "revId": "d7d39dcb6f7929a07e17b25eba423b18c52a4c5f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b120aa4c_da2bbfb3",
+        "filename": "src/apps/installer/EULAWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-30T16:44:39Z",
+      "side": 0,
+      "message": "Maybe \"Have a lot of fun and thanks for trying out Haiku!\" ?",
+      "revId": "d7d39dcb6f7929a07e17b25eba423b18c52a4c5f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
