@@ -47,7 +47,7 @@ public:
 			void				EnterStateChange();
 			void				ExitStateChange();
 
-			void				SyncState(View* view);
+			void				SyncState(Canvas* canvas);
 			void				SetFontFromLink(BPrivate::LinkReceiver& link);
 
 			void				Play(Canvas* target);
