@@ -69,6 +69,24 @@
       "revId": "d7d39dcb6f7929a07e17b25eba423b18c52a4c5f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6d8b1a2_af6bafe9",
+        "filename": "src/apps/installer/EULAWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-08-31T06:05:48Z",
+      "side": 0,
+      "message": "Allright. I know in French \"Amusez-vous bien\" will sound better than just \"Amusez vous\". But I don\u0027t know if it works the same in English.",
+      "parentUuid": "6906c360_9d847624",
+      "revId": "d7d39dcb6f7929a07e17b25eba423b18c52a4c5f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
