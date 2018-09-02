@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c5c9457d_a41f7198",
+        "filename": "src/apps/installer/EULAWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2018-09-02T12:51:57Z",
+      "side": 1,
+      "message": "It\u0027s because I\u0027m not. :)\nOn the one hand, DriveSetup has been used by many people in various configurations for many years. OTOH, you say there is a chance people wipe out their other partitions and should keep backups.\nThe \"quite\" gives us wriggle room in case desaster strikes. :)",
+      "parentUuid": "f7bf9de5_df326f2e",
+      "range": {
+        "startLine": 50,
+        "startChar": 33,
+        "endLine": 50,
+        "endChar": 49
+      },
+      "revId": "5dc6c7ec29d1f2b59727b498b6bb5a2ba713d010",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e9f393c2_e2d9d5b5",
         "filename": "src/apps/installer/EULAWindow.cpp",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2018-09-02T11:04:16Z",
       "side": 1,
       "message": "Is that a word in english now?  or should we write up-to-date?",
+      "range": {
+        "startLine": 51,
+        "startChar": 35,
+        "endLine": 51,
+        "endChar": 43
+      },
+      "revId": "5dc6c7ec29d1f2b59727b498b6bb5a2ba713d010",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4430a97_ddcb0330",
+        "filename": "src/apps/installer/EULAWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2018-09-02T12:51:57Z",
+      "side": 1,
+      "message": "You\u0027re correct. BTW, according to http://grammarist.com/usage/up-to-date/ there are situations when to use \"up to date\".",
+      "parentUuid": "e9f393c2_e2d9d5b5",
       "range": {
         "startLine": 51,
         "startChar": 35,
@@ -82,6 +130,30 @@
       "writtenOn": "2018-09-02T11:04:16Z",
       "side": 1,
       "message": "Maybe this deserves a mention of BootManager?",
+      "range": {
+        "startLine": 56,
+        "startChar": 3,
+        "endLine": 56,
+        "endChar": 37
+      },
+      "revId": "5dc6c7ec29d1f2b59727b498b6bb5a2ba713d010",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5abb33d4_a4b062e6",
+        "filename": "src/apps/installer/EULAWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2018-09-02T12:51:57Z",
+      "side": 1,
+      "message": "I\u0027ll mention BootManager and refer to the Userguide page.",
+      "parentUuid": "3bdba8cf_8484b4a6",
       "range": {
         "startLine": 56,
         "startChar": 3,
