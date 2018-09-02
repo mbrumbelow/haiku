@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "d3b43e6a_97df5003",
+        "filename": "src/apps/installer/EULAWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2018-09-02T07:56:26Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "9a6946fa_e6b5f110",
+      "revId": "d7d39dcb6f7929a07e17b25eba423b18c52a4c5f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b120aa4c_da2bbfb3",
         "filename": "src/apps/installer/EULAWindow.cpp",
         "patchSetId": 1
@@ -84,6 +102,24 @@
       "side": 0,
       "message": "Allright. I know in French \"Amusez-vous bien\" will sound better than just \"Amusez vous\". But I don\u0027t know if it works the same in English.",
       "parentUuid": "6906c360_9d847624",
+      "revId": "d7d39dcb6f7929a07e17b25eba423b18c52a4c5f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "116d56ab_eb18181f",
+        "filename": "src/apps/installer/EULAWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2018-09-02T07:56:26Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "f6d8b1a2_af6bafe9",
       "revId": "d7d39dcb6f7929a07e17b25eba423b18c52a4c5f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
