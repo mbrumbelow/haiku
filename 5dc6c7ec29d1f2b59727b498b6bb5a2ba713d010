@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f7bf9de5_df326f2e",
+        "filename": "src/apps/installer/EULAWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-09-02T11:04:16Z",
+      "side": 1,
+      "message": "This sounds a bit undecided. Has it been thoroughly tested or not?",
+      "range": {
+        "startLine": 50,
+        "startChar": 33,
+        "endLine": 50,
+        "endChar": 49
+      },
+      "revId": "5dc6c7ec29d1f2b59727b498b6bb5a2ba713d010",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e9f393c2_e2d9d5b5",
+        "filename": "src/apps/installer/EULAWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-09-02T11:04:16Z",
+      "side": 1,
+      "message": "Is that a word in english now?  or should we write up-to-date?",
+      "range": {
+        "startLine": 51,
+        "startChar": 35,
+        "endLine": 51,
+        "endChar": 43
+      },
+      "revId": "5dc6c7ec29d1f2b59727b498b6bb5a2ba713d010",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e14cfe7_0b4ba077",
+        "filename": "src/apps/installer/EULAWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-09-02T11:04:16Z",
+      "side": 1,
+      "message": "Use B_UTF8_ELLIPSIS to get proper typography.",
+      "range": {
+        "startLine": 52,
+        "startChar": 42,
+        "endLine": 52,
+        "endChar": 45
+      },
+      "revId": "5dc6c7ec29d1f2b59727b498b6bb5a2ba713d010",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3bdba8cf_8484b4a6",
+        "filename": "src/apps/installer/EULAWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-09-02T11:04:16Z",
+      "side": 1,
+      "message": "Maybe this deserves a mention of BootManager?",
+      "range": {
+        "startLine": 56,
+        "startChar": 3,
+        "endLine": 56,
+        "endChar": 37
+      },
+      "revId": "5dc6c7ec29d1f2b59727b498b6bb5a2ba713d010",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
