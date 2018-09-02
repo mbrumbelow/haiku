@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a85cf589_d042c19c",
+        "filename": "src/apps/installer/EULAWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2018-09-02T16:30:32Z",
+      "side": 1,
+      "message": "I\u0027m not a native speaker, but wouldn\u0027t you rather write \"up-to-date\" (with dashes) instead?",
+      "revId": "f187c4d0fd3d8093086cb3fef7f8bfd50243e792",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
