@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "09a3f092_c71a9573",
+        "filename": "build/scripts/build_cross_tools_gcc4",
+        "patchSetId": 1
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1000068
+      },
+      "writtenOn": "2018-09-06T07:27:23Z",
+      "side": 1,
+      "message": "NOTE: I wrote this patch before --disable-maintainer-mode was passed to configure.\nAnd I still do need this patch to be able to cross-compile Haiku from CentOS 7 vanilla.\n\nSome files in buildtools/ refers to aclocal-1.15 explicitly, whereas my system only provides aclocal-1.13. The only way to fix this, is to properly regenerate the auto* files using autoreconf.",
+      "revId": "912a75cf06209c9e56cc38fc9419f8ef3593068f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
