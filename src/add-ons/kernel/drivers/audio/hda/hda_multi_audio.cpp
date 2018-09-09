@@ -8,6 +8,8 @@
  */
 
 
+#include <driver_settings.h>
+
 #include "hmulti_audio.h"
 #include "driver.h"
 
@@ -68,6 +70,99 @@ format2size(uint32 format)
 		default:
 			return -1;
 	}
+}
+
+
+#define HDA_SETTINGS "hda.settings"
+
+static struct {
+	int32 play_buffer_frames;
+	int32 play_buffer_count;
+	int32 record_buffer_frames;
+	int32 record_buffer_count;
+} requested_settings;
+
+
+static uint32
+fps_to_ratecode(uint32 fps)
+{
+	switch (fps) {
+		case 8000:
+			return B_SR_8000;
+		case 11025:
+			return B_SR_11025;
+		case 16000:
+			return B_SR_16000;
+		case 22050:
+			return B_SR_22050;
+		case 32000:
+			return B_SR_32000;
+		case 44100:
+			return B_SR_44100;
+		case 48000:
+			return B_SR_48000;
+		case 88200:
+			return B_SR_88200;
+		case 96000:
+			return B_SR_96000;
+		case 176400:
+			return B_SR_176400;
+		case 192000:
+			return B_SR_192000;
+		case 384000:
+			return B_SR_384000;
+	}
+	return 0;
+}
+
+
+void
+get_settings_from_file()
+{
+	const char *item;
+	char       *end;
+	uint32      value;
+
+	memset(&requested_settings, 0, sizeof(requested_settings));
+	dprintf("looking for settings file\n");
+
+	void *settings_handle = load_driver_settings(HDA_SETTINGS);
+	if (settings_handle == NULL)
+		return;
+
+	item = get_driver_parameter (settings_handle, "play_buffer_frames", NULL,
+		NULL);
+	if (item) {
+		value = strtoul (item, &end, 0);
+		if (*end == '\0')
+			requested_settings.play_buffer_frames = value;
+		}
+
+	item = get_driver_parameter (settings_handle, "play_buffer_count", NULL,
+		NULL);
+	if (item) {
+		value = strtoul (item, &end, 0);
+		if (*end == '\0')
+			requested_settings.play_buffer_count = value;
+	}
+
+	item = get_driver_parameter (settings_handle, "record_buffer_frames", NULL,
+		NULL);
+	if (item) {
+		value = strtoul (item, &end, 0);
+		if (*end == '\0')
+			requested_settings.record_buffer_frames = value;
+	}
+
+	item = get_driver_parameter (settings_handle, "record_buffer_count", NULL,
+		NULL);
+	if (item) {
+		value = strtoul (item, &end, 0);
+		if (*end == '\0')
+			requested_settings.record_buffer_count = value;
+	}
+
+	unload_driver_settings(settings_handle);
 }
 
 
@@ -890,6 +985,18 @@ default_buffer_length_for_rate(uint32 rate)
 static status_t
 get_buffers(hda_audio_group* audioGroup, multi_buffer_list* data)
 {
+	if (requested_settings.play_buffer_frames != 0)
+		data->request_playback_buffer_size = requested_settings.play_buffer_frames;
+
+	if (requested_settings.play_buffer_count != 0)
+		data->request_playback_buffers = requested_settings.play_buffer_count;
+
+	if (requested_settings.record_buffer_frames != 0)
+		data->request_record_buffer_size = requested_settings.record_buffer_frames;
+
+	if (requested_settings.record_buffer_count != 0)
+		data->request_record_buffers = requested_settings.record_buffer_count;
+
 	TRACE("playback: %" B_PRId32 " buffers, %" B_PRId32 " channels, %" B_PRIu32
 		" samples\n", data->request_playback_buffers,
 		data->request_playback_channels, data->request_playback_buffer_size);
