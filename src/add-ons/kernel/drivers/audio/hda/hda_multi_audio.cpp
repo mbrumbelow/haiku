@@ -890,6 +890,18 @@ default_buffer_length_for_rate(uint32 rate)
 static status_t
 get_buffers(hda_audio_group* audioGroup, multi_buffer_list* data)
 {
+	if (requested_settings.play_buffer_frames != 0)
+		data->request_playback_buffer_size = requested_settings.play_buffer_frames;
+
+	if (requested_settings.play_buffer_count != 0)
+		data->request_playback_buffers = requested_settings.play_buffer_count;
+
+	if (requested_settings.record_buffer_frames != 0)
+		data->request_record_buffer_size = requested_settings.record_buffer_frames;
+
+	if (requested_settings.record_buffer_count != 0)
+		data->request_record_buffers = requested_settings.record_buffer_count;
+
 	TRACE("playback: %" B_PRId32 " buffers, %" B_PRId32 " channels, %" B_PRIu32
 		" samples\n", data->request_playback_buffers,
 		data->request_playback_channels, data->request_playback_buffer_size);
