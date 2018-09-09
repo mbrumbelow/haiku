@@ -15,6 +15,7 @@
 #include <Locale.h>
 #include <MimeType.h>
 #include <Roster.h>
+#include <StringFormat.h>
 #include <Window.h>
 
 #include "pr_server.h"
@@ -201,15 +202,17 @@ JobItem::Update()
 
 	fPages = "";
 	int32 pages;
+	static BStringFormat format(B_TRANSLATE("{0, plural, "
+		"=-1{??? pages}"
+		"=1{# page}"
+		"other{# pages}}"));
+
 	if (node.ReadAttr(PSRV_SPOOL_ATTR_PAGECOUNT,
 		B_INT32_TYPE, 0, &pages, sizeof(pages)) == sizeof(pages)) {
-		fPages << pages;
-		if (pages > 1)
-			fPages << " " << B_TRANSLATE("pages") << ".";
-		else
-			fPages << " " << B_TRANSLATE("page") << ".";
+		format.Format(fPages, pages);
 	} else {
-		fPages << "??? " << B_TRANSLATE("pages") << ".";
+		// in what cases would this be true?
+		format.Format(fPages, -1);
 	}
 
 	fSize = "";
