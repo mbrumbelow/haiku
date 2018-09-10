@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "60bf677d_3bc74243",
+        "filename": "src/add-ons/kernel/drivers/audio/hda/hda_multi_audio.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-09-10T04:55:47Z",
+      "side": 1,
+      "message": "\"0\" and \"192000\" aren\u0027t right here. NULL should be OK.",
+      "revId": "420df5d29781917026bea1b1c6ff5c3237f45251",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce495ca2_f89004a1",
+        "filename": "src/add-ons/kernel/drivers/audio/hda/hda_multi_audio.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-09-10T04:55:47Z",
+      "side": 1,
+      "message": "\"0\" and \"10240\" aren\u0027t right here. NULL should be OK.",
+      "revId": "420df5d29781917026bea1b1c6ff5c3237f45251",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94c51984_1e305f1a",
+        "filename": "src/add-ons/kernel/drivers/audio/hda/hda_multi_audio.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-09-10T04:55:47Z",
+      "side": 1,
+      "message": "\"0\" and \"4\" aren\u0027t right here. NULL should be OK. Like with play_sample_rate and play_buffer_frames, item should be checked for NULL.",
+      "revId": "420df5d29781917026bea1b1c6ff5c3237f45251",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f93f97ab_4e3dfaae",
+        "filename": "src/add-ons/kernel/drivers/audio/hda/hda_multi_audio.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-09-10T04:55:47Z",
+      "side": 1,
+      "message": "\"0\" and \"192000\" aren\u0027t right here. NULL should be OK. Like with play_sample_rate and play_buffer_frames, item should be checked for NULL.",
+      "revId": "420df5d29781917026bea1b1c6ff5c3237f45251",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eab33803_7cb6a6b3",
+        "filename": "src/add-ons/kernel/drivers/audio/hda/hda_multi_audio.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-09-10T04:55:47Z",
+      "side": 1,
+      "message": "\"0\" and \"10240\" aren\u0027t right here. NULL should be OK. Like with play_sample_rate and play_buffer_frames, item should be checked for NULL.",
+      "revId": "420df5d29781917026bea1b1c6ff5c3237f45251",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8647416_f911349b",
+        "filename": "src/add-ons/kernel/drivers/audio/hda/hda_multi_audio.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-09-10T04:55:47Z",
+      "side": 1,
+      "message": "\"0\" and \"4\" aren\u0027t right here. NULL should be OK. Like with play_sample_rate and play_buffer_frames, item should be checked for NULL.",
+      "revId": "420df5d29781917026bea1b1c6ff5c3237f45251",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
