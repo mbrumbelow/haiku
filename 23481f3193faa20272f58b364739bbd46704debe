@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "04533f49_30b6782d",
+        "filename": "src/preferences/printers/JobListView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-09-10T08:22:49Z",
+      "side": 1,
+      "message": "Indent with tabs, not spaces",
+      "revId": "23481f3193faa20272f58b364739bbd46704debe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ece52404_9c779a26",
+        "filename": "src/preferences/printers/JobListView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-09-10T08:22:49Z",
+      "side": 1,
+      "message": "I would prefer to keep the previous format (??? pages), it seems more readable to me.",
+      "revId": "23481f3193faa20272f58b364739bbd46704debe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b7b3b02_5751e65c",
+        "filename": "src/preferences/printers/TestPageView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-09-10T08:22:49Z",
+      "side": 1,
+      "message": "This will not work if the strings are not \"collected\"\nYou need to use B_TRANSLATE_NOCOLLECT here and declare the string for translation where they are declared.",
+      "revId": "23481f3193faa20272f58b364739bbd46704debe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
