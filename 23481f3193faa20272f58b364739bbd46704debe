@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6d3ce1dc_630b27fd",
+        "filename": "src/preferences/printers/JobListView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1000058
+      },
+      "writtenOn": "2018-09-10T16:10:34Z",
+      "side": 1,
+      "message": "ups, my editor is set to spaces",
+      "parentUuid": "04533f49_30b6782d",
+      "revId": "23481f3193faa20272f58b364739bbd46704debe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ece52404_9c779a26",
         "filename": "src/preferences/printers/JobListView.cpp",
         "patchSetId": 2
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "6005b487_5fd7ffc0",
+        "filename": "src/preferences/printers/JobListView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1000058
+      },
+      "writtenOn": "2018-09-10T16:10:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ece52404_9c779a26",
+      "revId": "23481f3193faa20272f58b364739bbd46704debe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b7b3b02_5751e65c",
         "filename": "src/preferences/printers/TestPageView.cpp",
         "patchSetId": 2
@@ -47,6 +83,24 @@
       "writtenOn": "2018-09-10T08:22:49Z",
       "side": 1,
       "message": "This will not work if the strings are not \"collected\"\nYou need to use B_TRANSLATE_NOCOLLECT here and declare the string for translation where they are declared.",
+      "revId": "23481f3193faa20272f58b364739bbd46704debe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "53c7b106_66514615",
+        "filename": "src/preferences/printers/TestPageView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1000058
+      },
+      "writtenOn": "2018-09-10T16:10:34Z",
+      "side": 1,
+      "message": "They are declared on line 188 and it works with the current catalogs. Also where is the documentation about B_TRANSLATE variants?",
+      "parentUuid": "4b7b3b02_5751e65c",
       "revId": "23481f3193faa20272f58b364739bbd46704debe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
