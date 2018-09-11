@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "44de2d81_6138b8e7",
+        "filename": "src/add-ons/kernel/drivers/audio/hda/device.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2018-09-11T17:29:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a53de2c_d38d464b",
+      "revId": "32bd7921d2326e0f95523ebbaf596dda44cb8c91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "133f19ae_c01d5f4a",
         "filename": "src/add-ons/kernel/drivers/audio/hda/hda_multi_audio.cpp",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2018-09-11T10:46:23Z",
       "side": 1,
       "message": "fps_to_ratecode can be removed.",
+      "revId": "32bd7921d2326e0f95523ebbaf596dda44cb8c91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "89965b80_e77212d7",
+        "filename": "src/add-ons/kernel/drivers/audio/hda/hda_multi_audio.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2018-09-11T17:29:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "133f19ae_c01d5f4a",
       "revId": "32bd7921d2326e0f95523ebbaf596dda44cb8c91",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
