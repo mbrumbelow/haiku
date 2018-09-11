@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9790cf98_c67d93b3",
+        "filename": "headers/private/package/FetchFileJob.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-09-11T20:47:20Z",
+      "side": 1,
+      "message": "These definitions are internal to the Haiku build system, so if you are adding them here, please move this file from `headers/private/package` to `src/kits`package`.",
+      "revId": "e07b3ad058969923f033e644b4f84eec0f61d28e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}

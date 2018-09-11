@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "e3c3190b_0439bc3c",
+        "filename": "headers/private/package/FetchFileJob.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-09-11T20:47:20Z",
+      "side": 0,
+      "message": "Don\u0027t remove this newline",
+      "revId": "8d721650cecad11fd6468804c9bd8ecb043aad09",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1435c08d_5d5995b6",
         "filename": "src/kits/package/InitTerminateLibPackage.cpp",
         "patchSetId": 1
