@@ -84,6 +84,8 @@ public:
 			status_t			WriteDrawString(const BPoint& where,
 									const char* string, const int32& length,
 									const escapement_delta& delta);
+			status_t			WriteDrawStringWithOffsets(const char* string, const int32& length,
+									BPoint* locations, const int32& numLocations);
 			status_t			WriteDrawShape(const int32& opCount,
 									const void* opList, const int32& ptCount,
 									const void* ptList, const bool& fill);

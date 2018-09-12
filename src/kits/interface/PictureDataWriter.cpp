@@ -18,6 +18,7 @@
 #include <Region.h>
 
 #include <PictureProtocol.h>
+#include <utf8_functions.h>
 
 #define THROW_ERROR(error) throw (status_t)(error)
 
@@ -470,6 +471,34 @@ PictureDataWriter::WriteDrawString(const BPoint& where, const char* string,
 		WriteData(string, length);
 		Write<uint8>(0);
 		EndOp();
+	} catch (status_t& status) {
+		return status;
+	}
+
+	return B_OK;
+}
+
+
+status_t
+PictureDataWriter::WriteDrawStringWithOffsets(const char* string, const int32& length,
+		BPoint* locations, const int32& numLocations)
+{
+	try {
+		char* currentChar = (char*)string;
+		for (int32 i = 0; i < numLocations; i++) {
+			BeginOp(B_PIC_SET_PEN_LOCATION);
+			Write<BPoint>(locations[i]);
+			EndOp();
+			int32 charLen = UTF8NextCharLen(currentChar);
+
+			BeginOp(B_PIC_DRAW_STRING);
+			Write<float>(0);
+			Write<float>(0);
+			WriteData(currentChar, charLen);
+			Write<uint8>(0);
+			EndOp();
+			currentChar += charLen;
+		}
 	} catch (status_t& status) {
 		return status;
 	}

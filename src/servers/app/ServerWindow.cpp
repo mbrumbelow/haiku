@@ -3588,7 +3588,52 @@ ServerWindow::_DispatchPictureMessage(int32 code, BPrivate::LinkReceiver& link)
 			free(string);
 			break;
 		}
+		case AS_DRAW_STRING_WITH_OFFSETS:
+		{
+			int32 stringLength;
+			if (link.Read<int32>(&stringLength) != B_OK || stringLength <= 0)
+				break;
 
+			int32 glyphCount;
+			if (link.Read<int32>(&glyphCount) != B_OK || glyphCount <= 0)
+				break;
+
+			const ssize_t kMaxStackStringSize = 512;
+			char stackString[kMaxStackStringSize];
+			char* string = stackString;
+			BPoint stackLocations[kMaxStackStringSize];
+			BPoint* locations = stackLocations;
+			MemoryDeleter stringDeleter;
+			MemoryDeleter locationsDeleter;
+			if (stringLength >= kMaxStackStringSize) {
+				// NOTE: Careful, the + 1 is for termination!
+				string = (char*)malloc((stringLength + 1 + 63) / 64 * 64);
+				if (string == NULL)
+					break;
+				stringDeleter.SetTo(string);
+			}
+			if (glyphCount > kMaxStackStringSize) {
+				locations = (BPoint*)malloc(
+					((glyphCount * sizeof(BPoint)) + 63) / 64 * 64);
+				if (locations == NULL)
+					break;
+				locationsDeleter.SetTo(locations);
+			}
+
+			if (link.Read(string, stringLength) != B_OK)
+				break;
+			// Count UTF8 glyphs and make sure we have enough locations
+			if ((int32)UTF8CountChars(string, stringLength) > glyphCount)
+				break;
+			if (link.Read(locations, glyphCount * sizeof(BPoint)) != B_OK)
+				break;
+			// Terminate the string
+			string[stringLength] = '\0';
+
+			picture->WriteDrawStringWithOffsets(string, stringLength, locations, glyphCount);
+
+			break;
+		}
 		case AS_STROKE_SHAPE:
 		case AS_FILL_SHAPE:
 		{
