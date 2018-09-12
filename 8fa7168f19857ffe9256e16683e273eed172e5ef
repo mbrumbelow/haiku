@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "59764570_b8e4a30c",
+        "filename": "src/kits/interface/PictureDataWriter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2018-09-12T14:15:37Z",
+      "side": 1,
+      "message": "What is the meaning of these two floats here?",
+      "revId": "8fa7168f19857ffe9256e16683e273eed172e5ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
