@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "23a9e509_24fff72c",
+        "filename": "src/kits/network/libnetapi/NetworkDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 744,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2018-09-13T11:44:07Z",
+      "side": 1,
+      "message": "Any particular reason you are using FindFirst() here, and not \u003d\u003d ?",
+      "revId": "4e5aaaa700f4f6911514e7f469ba14201a66581c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
