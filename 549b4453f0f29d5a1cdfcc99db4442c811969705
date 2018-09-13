@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d5a91a38_eedcf9c3",
+        "filename": "src/kits/network/libnetapi/NetworkDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-09-13T07:34:24Z",
+      "side": 1,
+      "message": "#include \u003cLooper.h\u003e comes before #include \u003cMessenger.h\u003e",
+      "revId": "549b4453f0f29d5a1cdfcc99db4442c811969705",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c94fd520_ec29307d",
+        "filename": "src/kits/network/libnetapi/NetworkDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 746,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-09-13T07:34:24Z",
+      "side": 1,
+      "message": "Recommended would be: (message-\u003eFindInt32(\"opcode\", \u0026opcode) !\u003d B_OK || opcode !\u003d B_NETWORK_WLAN_SCANNED)",
+      "revId": "549b4453f0f29d5a1cdfcc99db4442c811969705",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
