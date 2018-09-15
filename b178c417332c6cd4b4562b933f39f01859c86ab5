@@ -16,6 +16,24 @@
       "revId": "b178c417332c6cd4b4562b933f39f01859c86ab5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d9c6e72_80bafbbc",
+        "filename": "src/add-ons/kernel/network/protocols/tcp/TCPEndpoint.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2035,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-09-15T11:04:40Z",
+      "side": 1,
+      "message": "No, it\u0027s fine: https://tools.ietf.org/html/rfc2018#page-4 (second to last paragraph)\n\nCould be more readable though.",
+      "parentUuid": "945f0c6f_0186de52",
+      "revId": "b178c417332c6cd4b4562b933f39f01859c86ab5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
