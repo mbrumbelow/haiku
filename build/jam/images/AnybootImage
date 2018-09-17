@@ -12,11 +12,14 @@ rule BuildAnybootImage anybootImage : mbrPart : isoPart : imageFile {
 	Depends $(anybootImage) : $(mbrPart) ;
 	Depends $(anybootImage) : $(imageFile) ;
 
-	BuildAnybootImage1 $(anybootImage) : $(anyboot) $(mbrPart) $(isoPart) $(imageFile) ;
+	# WE HAX THE BEST HAX FOR R1BETA1
+	local efiPart = "efi.img" ;
+
+	BuildAnybootImage1 $(anybootImage) : $(anyboot) $(mbrPart) $(efiPart) $(isoPart) $(imageFile) ;
 }
 
 actions BuildAnybootImage1 {
-	$(2[1]) -b $(2[2]) $(2[3]) $(2[4]) $(1)
+	$(2[1]) -b $(2[2]) -e $(2[3]) $(2[4]) $(2[5]) $(1)
 }
 
 local baseMBR = base_mbr.bin ;
