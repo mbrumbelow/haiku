@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "95d9a292_42c2d4f9",
+        "filename": "src/apps/haikudepot/ui/PackageListView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2018-09-19T08:09:37Z",
+      "side": 1,
+      "message": "Could this be the problem down here? The viewRect needs to match the bitmap rect. Who added this code?",
+      "revId": "2ba2d603518c6d00c8de4ab00b7f39726ba5f02c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
