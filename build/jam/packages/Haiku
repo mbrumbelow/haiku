@@ -155,6 +155,15 @@ local logoArtwork =
 SEARCH on $(logoArtwork) = [ FDirName $(HAIKU_TOP) data artwork ] ;
 AddFilesToPackage data artwork : $(logoArtwork) ;
 
+# wallpapers
+local wallpaperArtwork =
+	"CapeDisappoint-unsplash.jpg"
+	"GoldenGate-unsplash.jpg"
+	"MysticalForest-unsplash.jpg"
+	"PumpkinLife-unsplash.jpg"
+SEARCH on $(logoArtwork) = [ FDirName $(HAIKU_TOP) data artwork wallpapers ] ;
+AddFilesToPackage data artwork : $(wallpaperArtwork) ;
+
 # Mail spell check dictionaries
 local spellFiles = words geekspeak ;
 spellFiles = $(spellFiles:G=spell) ;
