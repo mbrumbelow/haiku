@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1935fa7b_3b897c99",
+        "filename": "src/apps/haikudepot/ui/PackageListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2018-09-20T17:53:43Z",
+      "side": 1,
+      "message": "I would prefer this form:\n\nBRect viewRect \u003d r.OffsetToCopy(x, y);\n\nThat way you have only one place where the size is written, the original bug would not have happened.",
+      "revId": "4a5a5b235b71b40157e64ecacaa2ff1ea0882a59",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
