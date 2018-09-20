@@ -113,10 +113,10 @@ private:
 									BJsonWriter& writer,
 									const char* methodName);
 			status_t			_SendJsonRequest(const char* domain,
-									BString jsonString, uint32 flags,
+									BString& jsonString, uint32 flags,
 									BMessage& reply) const;
 			status_t			_SendJsonRequest(const char* domain,
-									BDataIO* requestData,
+									BPositionIO* requestData,
 									size_t requestDataSize, uint32 flags,
 									BMessage& reply) const;
 	static	void				_LogPayload(const char* data, ssize_t size);

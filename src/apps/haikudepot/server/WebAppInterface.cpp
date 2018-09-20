@@ -706,7 +706,7 @@ WebAppInterface::_WriteStandardJsonRpcEnvelopeValues(BJsonWriter& writer,
 
 
 status_t
-WebAppInterface::_SendJsonRequest(const char* domain, BDataIO* requestData,
+WebAppInterface::_SendJsonRequest(const char* domain, BPositionIO* requestData,
 	size_t requestDataSize, uint32 flags, BMessage& reply) const
 {
 	if (!ServerHelper::IsNetworkAvailable()) {
@@ -742,12 +742,16 @@ WebAppInterface::_SendJsonRequest(const char* domain, BDataIO* requestData,
 	if (Logger::IsTraceEnabled()) {
 		BMallocIO *loggedRequestData = new BMallocIO();
 		loggedRequestData->SetSize(requestDataSize);
+		requestData->Seek(0, SEEK_SET);
+
 		status_t dataCopyResult = DataIOUtils::Copy(loggedRequestData,
 			requestData, requestDataSize);
 		delete requestData;
 		requestData = loggedRequestData;
 
 		if (dataCopyResult != B_OK) {
+			printf("jrpc; failure [%s] when assembling payload of length [%"
+				B_PRId32 "]\n", strerror(dataCopyResult), requestDataSize);
 			delete requestData;
 			return dataCopyResult;
 		}
@@ -779,6 +783,8 @@ WebAppInterface::_SendJsonRequest(const char* domain, BDataIO* requestData,
 		context.AddAuthentication(url, authentication);
 	}
 
+
+	requestData->Seek(0, SEEK_SET);
 	request.AdoptInputData(requestData, requestDataSize);
 
 	BMallocIO replyData;
@@ -831,7 +837,7 @@ WebAppInterface::_SendJsonRequest(const char* domain, BDataIO* requestData,
 
 
 status_t
-WebAppInterface::_SendJsonRequest(const char* domain, BString jsonString,
+WebAppInterface::_SendJsonRequest(const char* domain, BString& jsonString,
 	uint32 flags, BMessage& reply) const
 {
 	// gets 'adopted' by the subsequent http request.
