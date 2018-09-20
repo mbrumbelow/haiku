@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9e13f34e_3dbff399",
+        "filename": "src/apps/haikudepot/server/WebAppInterface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2018-09-20T07:27:19Z",
+      "side": 1,
+      "message": "I think instead of seeking to 0, the method should remember the initial position of the requestData, and seek back to that position.",
+      "revId": "a306d74795a7e31a1a32c07598e154b229539f24",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
