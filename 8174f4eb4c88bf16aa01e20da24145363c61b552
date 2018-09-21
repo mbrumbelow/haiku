@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8dca0a30_ed12803e",
+        "filename": "src/apps/haikudepot/server/WebAppInterface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2018-09-21T07:14:23Z",
+      "side": 1,
+      "message": "This looks wrong still. In the next line, requestEnvelopeData-\u003ePosition() is used to tell _SendJsonRequest() the /size/ of the request. So it looks like _SendJsonRequest() is where the seek back to zero happens or happened. It is wrong now either way.",
+      "revId": "8174f4eb4c88bf16aa01e20da24145363c61b552",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
