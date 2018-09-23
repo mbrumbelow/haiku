@@ -16,6 +16,24 @@
       "revId": "4a5a5b235b71b40157e64ecacaa2ff1ea0882a59",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22d92253_4e74a0e1",
+        "filename": "src/apps/haikudepot/ui/PackageListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-09-23T21:06:20Z",
+      "side": 1,
+      "message": "This doesn\u0027t work. By the time the bitmap is rendered r is changed.\nPlacing this before switch doesn\u0027t work as well.\nI\u0027ve tried both OffsetToCopy and OffsetByCopy (which is more appropriate here, since it doesn\u0027t change the size).",
+      "parentUuid": "1935fa7b_3b897c99",
+      "revId": "4a5a5b235b71b40157e64ecacaa2ff1ea0882a59",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
