@@ -34,6 +34,24 @@
       "revId": "4a5a5b235b71b40157e64ecacaa2ff1ea0882a59",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3bdf771_f7fee33a",
+        "filename": "src/apps/haikudepot/ui/PackageListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2018-09-24T07:04:08Z",
+      "side": 1,
+      "message": "Someone introduced \"viewRect\" and it wasn\u0027t me, since it had the wrong size (17 by 17 pixels). In the code above where \"r\" is being changed, the intention is to implement alignment modes. I think the alignment calculation is wrong and that is why the bitmap got rendered in the wrong place and then someone introduced viewRect. But essentially, the modifications of \"r\" to implement different alignments have no effect. I think those should be fixed instead and then \"r\" should be used instead of \"viewRect\". Do you agree?",
+      "parentUuid": "22d92253_4e74a0e1",
+      "revId": "4a5a5b235b71b40157e64ecacaa2ff1ea0882a59",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
