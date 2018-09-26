@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "fa027e5f_4e97b47b",
+        "filename": "src/add-ons/kernel/network/stack/net_socket.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1070,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2018-09-26T12:14:18Z",
+      "side": 1,
+      "message": "There shouldn\u0027t be a space between the cast and the term.",
+      "revId": "2258fa91563e12afd7c56ebf76c6a99347d38c4d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fdbfd344_7ff450e4",
         "filename": "src/add-ons/kernel/network/stack/net_socket.cpp",
         "patchSetId": 1
@@ -13,6 +30,24 @@
       "writtenOn": "2018-09-26T08:25:10Z",
       "side": 1,
       "message": "Better would be to use a struct sockaddr on the stack, set the sa_family and memcpy maximal *_addressLength. Theoretically it could be that the provided address buffer isn\u0027t big enough to have a sa_family member.",
+      "revId": "2258fa91563e12afd7c56ebf76c6a99347d38c4d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82af8e3a_49a13b9b",
+        "filename": "src/add-ons/kernel/network/stack/net_socket.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1071,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2018-09-26T12:14:18Z",
+      "side": 1,
+      "message": "Or simply check if _addressLength is large enough for this beforehand.",
+      "parentUuid": "fdbfd344_7ff450e4",
       "revId": "2258fa91563e12afd7c56ebf76c6a99347d38c4d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
