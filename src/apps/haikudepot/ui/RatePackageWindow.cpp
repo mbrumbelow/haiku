@@ -202,7 +202,8 @@ RatePackageWindow::RatePackageWindow(BWindow* parent, BRect frame,
 	fModel(model),
 	fRatingText(),
 	fTextEditor(new TextEditor(), true),
-	fRating(-1.0f),
+	fRating(RATING_NONE),
+	fRatingDeterminate(false),
 	fCommentLanguage(fModel.PreferredLanguage()),
 	fWorkerThread(-1)
 {
@@ -337,6 +338,7 @@ RatePackageWindow::MessageReceived(BMessage* message)
 	switch (message->what) {
 		case MSG_PACKAGE_RATED:
 			message->FindFloat("rating", &fRating);
+			fRatingDeterminate = true;
 			fSetRatingView->SetRatingDeterminate(true);
 			fRatingDeterminateCheckBox->SetValue(B_CONTROL_ON);
 			break;
@@ -350,8 +352,9 @@ RatePackageWindow::MessageReceived(BMessage* message)
 			break;
 
 		case MSG_RATING_DETERMINATE_CHANGED:
-			fSetRatingView->SetRatingDeterminate(
-				fRatingDeterminateCheckBox->Value() == B_CONTROL_ON);
+			fRatingDeterminate = fRatingDeterminateCheckBox->Value()
+				== B_CONTROL_ON;
+			fSetRatingView->SetRatingDeterminate(fRatingDeterminate);
 			break;
 
 		case MSG_RATING_ACTIVE_CHANGED:
@@ -520,10 +523,16 @@ RatePackageWindow::_RelayServerDataToUI(BMessage& response)
 		double rating;
 		if (response.FindDouble("rating", &rating) == B_OK) {
 			fRating = (float)rating;
+			fRatingDeterminate = fRating >= 0.0f;
 			fSetRatingView->SetPermanentRating(fRating);
-			fSetRatingView->SetRatingDeterminate(true);
-			fRatingDeterminateCheckBox->SetValue(B_CONTROL_ON);
+			fSetRatingView->SetRatingDeterminate(fRatingDeterminate);
+
+			if (fRatingDeterminate)
+				fRatingDeterminateCheckBox->SetValue(B_CONTROL_ON);
+			else
+				fRatingDeterminateCheckBox->SetValue(B_CONTROL_OFF);
 		} else {
+			fRatingDeterminate = false;
 			fSetRatingView->SetRatingDeterminate(false);
 			fRatingDeterminateCheckBox->SetValue(B_CONTROL_OFF);
 		}
@@ -648,6 +657,9 @@ RatePackageWindow::_SendRatingThread()
 	BString languageCode = fCommentLanguage;
 	BString ratingID = fRatingID;
 	bool active = fRatingActive;
+
+	if (!fRatingDeterminate)
+		rating = RATING_NONE;
 
 	const DepotInfo* depot = fModel.DepotForName(fPackage->DepotName());
 
