@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30e364a8_77a92947",
+        "filename": "src/apps/haikudepot/ui/RatePackageWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-09-28T14:27:50Z",
+      "side": 1,
+      "message": "you can avoid duplicating \"fRatingDeterminateCheckBox-\u003eSetValue()\" so:\nfRatingDeterminateCheckBox-\u003eSetValue(fRatingDeterminate ? B_CONTROL_ON :  B_CONTROL_OFF);",
+      "revId": "87544b3819f47ab2c882f7bfc7a71125f3b38be0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "32c63205_8c4186a1",
+        "filename": "src/apps/haikudepot/ui/RatePackageWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-09-28T14:27:50Z",
+      "side": 1,
+      "message": "It looks like you could move these lines down after the if:\nfSetRatingView-\u003eSetRatingDeterminate(fRatingDeterminate);\nfRatingDeterminateCheckBox-\u003eSetValue(fRatingDeterminate ? B_CONTROL_ON :  B_CONTROL_OFF);",
+      "revId": "87544b3819f47ab2c882f7bfc7a71125f3b38be0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
