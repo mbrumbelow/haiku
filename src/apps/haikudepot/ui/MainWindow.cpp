@@ -1040,9 +1040,18 @@ MainWindow::_RefreshPackageList(bool force)
 			if (modelInfo.Get() == NULL)
 				return;
 
-			modelInfo->SetDepotName(repositoryName);
-
 			foundPackages[repoPackageInfo.Name()] = modelInfo;
+		}
+
+		// The package list here considers those packages that are installed
+		// in the system as well as those that exist in remote repositories.
+		// It is better if the 'depot name' is from the remote repository
+		// because then it will be possible to perform a rating on it later.
+
+		if (modelInfo->DepotName().IsEmpty()
+			|| modelInfo->DepotName() == REPOSITORY_NAME_SYSTEM
+			|| modelInfo->DepotName() == REPOSITORY_NAME_INSTALLED) {
+			modelInfo->SetDepotName(repositoryName);
 		}
 
 		modelInfo->AddListener(this);
@@ -1162,7 +1171,7 @@ MainWindow::_RefreshPackageList(bool force)
 		BSolverRepository installedRepository;
 		{
 			BRepositoryBuilder installedRepositoryBuilder(installedRepository,
-				"installed");
+				REPOSITORY_NAME_INSTALLED);
 			for (int32 i = 0; i < systemFlaggedPackages.CountStrings(); i++) {
 				BPath packagePath(systemPath);
 				packagePath.Append(systemFlaggedPackages.StringAt(i));
@@ -1175,7 +1184,7 @@ MainWindow::_RefreshPackageList(bool force)
 		BSolverRepository systemRepository;
 		{
 			BRepositoryBuilder systemRepositoryBuilder(systemRepository,
-				"system");
+				REPOSITORY_NAME_SYSTEM);
 			for (PackageInfoMap::iterator it = systemInstalledPackages.begin();
 					it != systemInstalledPackages.end(); it++) {
 				BPath packagePath(systemPath);
@@ -1525,14 +1534,32 @@ bool
 MainWindow::_SelectedPackageHasWebAppRepositoryCode()
 {
 	const PackageInfoRef& package = fPackageInfoView->Package();
-	const DepotInfo* depot = fModel.DepotForName(package->DepotName());
+	const BString depotName = package->DepotName();
 
-	BString repositoryCode;
+	if (depotName.IsEmpty()) {
+		if (Logger::IsDebugEnabled()) {
+			printf("the package [%s] has no depot name\n",
+				package->Name().String());
+		}
+	} else {
+		const DepotInfo* depot = fModel.DepotForName(depotName);
 
-	if (depot != NULL)
-		repositoryCode = depot->WebAppRepositoryCode();
+		if (depot == NULL) {
+			printf("the depot [%s] was not able to be found\n",
+				depotName.String());
+		} else {
+			BString repositoryCode = depot->WebAppRepositoryCode();
 
-	return !repositoryCode.IsEmpty();
+			if (repositoryCode.IsEmpty()) {
+				printf("the depot [%s] has no web app repository code\n",
+					depotName.String());
+			} else {
+				return true;
+			}
+		}
+	}
+
+	return false;
 }
 
 
