@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57cc7f01_a19243eb",
+        "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1054,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-10-03T11:35:14Z",
+      "side": 1,
+      "message": "Please use tabs.",
+      "revId": "fb34b5b154e648f0e9848c897cad9a9bd1000c2e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afcbed67_3096f371",
+        "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1548,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-10-03T11:35:14Z",
+      "side": 1,
+      "message": "is it correct english \"to be able to be found\"?",
+      "revId": "fb34b5b154e648f0e9848c897cad9a9bd1000c2e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
