@@ -17,11 +17,11 @@ ATADevice::ATADevice(ATAChannel *channel, uint8 index)
 	fUseDMA(channel->UseDMA()),
 	fDMAMode(0),
 	fDMAFailures(0),
+	fIndex(index),
 	fTotalSectors(0),
 	fBlockSize(512),
 	fPhysicalBlockSize(512),
 	fBlockOffset(0),
-	fIndex(index),
 	fUse48Bits(false)
 {
 	memset(&fInfoBlock, 0, sizeof(fInfoBlock));

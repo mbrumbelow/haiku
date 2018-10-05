@@ -218,6 +218,7 @@ public:
 			bool				fUseDMA;
 			uint8				fDMAMode;
 			uint8				fDMAFailures;
+			uint8				fIndex;
 
 	private:
 			status_t			_FillTaskFile(ATARequest *request,
@@ -227,7 +228,6 @@ public:
 			size_t				fBlockSize;
 			size_t				fPhysicalBlockSize;
 			size_t				fBlockOffset;
-			uint8				fIndex;
 			bool				fUse48Bits;
 
 			char				fDebugContext[16];

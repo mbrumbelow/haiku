@@ -231,11 +231,21 @@ status_t
 ATAPIDevice::_FillTaskFilePacket(ATARequest *request)
 {
 	scsi_ccb *ccb = request->CCB();
-	fRegisterMask = ATA_MASK_FEATURES | ATA_MASK_BYTE_COUNT;
-	fTaskFile.packet.dma = request->UseDMA() ? 1 : 0;
+	fRegisterMask = ATA_MASK_FEATURES | ATA_MASK_BYTE_COUNT | ATA_MASK_DEVICE_HEAD;
+	if (request->UseDMA()) {
+		fTaskFile.packet.dma = 1;
+		fTaskFile.packet.byte_count_0_7 = 0;
+		fTaskFile.packet.byte_count_8_15 = 0;
+	} else {
+		fTaskFile.packet.dma = 0;
+		fTaskFile.packet.byte_count_0_7 = ccb->data_length & 0xff;
+		fTaskFile.packet.byte_count_8_15 = ccb->data_length >> 8;
+	}
+	fTaskFile.packet.device = fIndex > 0 ? 1 : 0;
+	fTaskFile.packet._5_one5 = 1;
+	fTaskFile.packet._5_res6 = 1;
+	fTaskFile.packet._5_one7 = 1;
 	fTaskFile.packet.ovl = 0;
-	fTaskFile.packet.byte_count_0_7 = ccb->data_length & 0xff;
-	fTaskFile.packet.byte_count_8_15 = ccb->data_length >> 8;
 	fTaskFile.packet.command = ATA_COMMAND_PACKET;
 	return B_OK;
 }
