@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "169eee77_0a087231",
+        "filename": "src/apps/haikudepot/model/Model.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2018-10-06T08:12:11Z",
+      "side": 1,
+      "message": "Can you add \"sk\" as well? I think there are already translations to Slovak.\nAnd while you\u0027re at it: this list could be alphabetically sorted.",
+      "revId": "5a0615412d2a547aaef9b524299f79cf2b42c0f9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
