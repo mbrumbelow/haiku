@@ -394,6 +394,7 @@ Model::Model()
 	fSupportedLanguages.Add("en");
 	fSupportedLanguages.Add("de");
 	fSupportedLanguages.Add("fr");
+	fSupportedLanguages.Add("it");
 	fSupportedLanguages.Add("ja");
 	fSupportedLanguages.Add("es");
 	fSupportedLanguages.Add("zh");
