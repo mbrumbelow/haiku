@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "485f9122_8c905d2f",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-10-07T15:12:14Z",
+      "side": 0,
+      "message": "2 blank lines not 1",
+      "revId": "6ab878c0e5bb98c97b20db9157cee752dd5a69c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
