@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bd7d312b_dc165f1d",
+        "filename": "src/preferences/printers/JobListView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-10-07T15:19:45Z",
+      "side": 1,
+      "message": "Is there a reason to use \u003d1 ra her than \"one\" here?",
+      "revId": "18d682bf3f1bc5974175818494dea9d04633e03d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9d6c70d_bb7dcf96",
+        "filename": "src/preferences/printers/TestPageView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-10-07T15:19:45Z",
+      "side": 1,
+      "message": "The control name (for use in hey and for archiving/unarchiving) should not be localized, only the label (second parameter) should.",
+      "revId": "18d682bf3f1bc5974175818494dea9d04633e03d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
