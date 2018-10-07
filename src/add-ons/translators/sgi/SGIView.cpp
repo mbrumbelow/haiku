@@ -114,16 +114,16 @@ SGIView::SGIView(const char* name, uint32 flags, TranslatorSettings* settings)
 	BStringView* detailView = new BStringView("details", detail);
 	detailView->SetExplicitAlignment(labelAlignment);
 
-	BTextView* infoView = new BTextView("info");
-	infoView->SetText(BString(B_TRANSLATE("written by:\n"))
+	fInfoView = new BTextView("info");
+	fInfoView->SetText(BString(B_TRANSLATE("written by:\n"))
 			.Append(author)
 			.Append(B_TRANSLATE("\nbased on GIMP SGI plugin v1.5:\n"))
 			.Append(kSGICopyright).String());
-	infoView->SetExplicitAlignment(labelAlignment);
-	infoView->SetWordWrap(false);
-	infoView->MakeEditable(false);
-	infoView->MakeResizable(true);
-	infoView->SetViewUIColor(B_PANEL_BACKGROUND_COLOR);
+	fInfoView->SetExplicitAlignment(labelAlignment);
+	fInfoView->SetWordWrap(false);
+	fInfoView->MakeEditable(false);
+	fInfoView->MakeResizable(true);
+	fInfoView->SetViewUIColor(B_PANEL_BACKGROUND_COLOR);
 
 	BLayoutBuilder::Group<>(this, B_VERTICAL, 0)
 		.SetInsets(B_USE_DEFAULT_SPACING)
@@ -135,18 +135,7 @@ SGIView::SGIView(const char* name, uint32 flags, TranslatorSettings* settings)
 			.AddGlue()
 			.End()
 		.AddGlue()
-		.Add(infoView);
-
-	BFont font;
-	GetFont(&font);
-	SetExplicitPreferredSize(BSize((font.Size() * 390) / 12,
-		(font.Size() * 180) / 12));
-
-	// TODO: remove this workaround for ticket #4217
-	infoView->SetExplicitPreferredSize(
-		BSize(infoView->LineWidth(3), infoView->TextHeight(0, 80)));
-	infoView->SetExplicitMaxSize(infoView->ExplicitPreferredSize());
-	infoView->SetExplicitMinSize(infoView->ExplicitPreferredSize());
+		.Add(fInfoView);
 }
 
 
@@ -160,6 +149,14 @@ void
 SGIView::AllAttached()
 {
 	fCompressionMF->Menu()->SetTargetForItems(this);
+}
+
+
+void
+SGIView::FrameResized(float width, float height)
+{
+	// This works around a flaw of BTextView
+	fInfoView->SetTextRect(fInfoView->Bounds());
 }
 
 
