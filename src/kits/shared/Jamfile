@@ -48,6 +48,7 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 			Keymap.cpp
 			LongAndDragTrackingFilter.cpp
 			MessageBuilder.cpp
+			MultilineStringView.cpp
 			NaturalCompare.cpp
 			PromptWindow.cpp
 			QueryFile.cpp

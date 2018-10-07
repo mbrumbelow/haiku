@@ -33,7 +33,6 @@ class PNGView : public BView {
 		~PNGView();
 
 		virtual void AttachedToWindow();
-		virtual void FrameResized(float width, float height);
 		virtual void MessageReceived(BMessage *message);
 
 	private:

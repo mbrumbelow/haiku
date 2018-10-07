@@ -3,6 +3,7 @@ SubDir HAIKU_TOP src add-ons translators png ;
 SetSubDirSupportedPlatformsBeOSCompatible ;
 
 SubDirHdrs [ FDirName $(SUBDIR) $(DOTDOT) shared ] ;
+UsePrivateHeaders shared ;
 
 AddResources PNGTranslator : PNGTranslator.rdef ;
 
@@ -24,7 +25,7 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 			PNGTranslator.cpp
 			PNGView.cpp
 
-		: be translation
+		: be translation shared
 			[ BuildFeatureAttribute libpng : library ]
 			[ BuildFeatureAttribute zlib : library ]
 			[ TargetLibsupc++ ]

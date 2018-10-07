@@ -16,6 +16,7 @@
 #include <LayoutBuilder.h>
 #include <MenuField.h>
 #include <MenuItem.h>
+#include <MultilineStringView.h>
 #include <PopUpMenu.h>
 #include <StringView.h>
 #include <TextView.h>
@@ -69,13 +70,11 @@ PNGView::PNGView(const BRect &frame, const char *name, uint32 resizeMode,
 	menuField->SetDivider(menuField->StringWidth(menuField->Label()) + 7.0f);
 	menuField->ResizeToPreferred();
 
-	fCopyrightView = new BTextView("PNG copyright");
-	fCopyrightView->SetViewUIColor(B_PANEL_BACKGROUND_COLOR);
-	fCopyrightView->SetLowColor(fCopyrightView->ViewColor());
-	fCopyrightView->MakeEditable(false);
-	fCopyrightView->SetWordWrap(false);
-	fCopyrightView->MakeResizable(true);
-	fCopyrightView->SetText(png_get_copyright(NULL));
+	BString pngCopyright = png_get_copyright(NULL);
+	pngCopyright.ReplaceLast("\n", "");
+	BPrivate::BMultilineStringView* pngCopyrightView =
+		new BPrivate::BMultilineStringView("PNG copyright",
+			pngCopyright.String());
 
 	BLayoutBuilder::Group<>(this, B_VERTICAL, 0)
 		.SetInsets(B_USE_DEFAULT_SPACING)
@@ -88,7 +87,7 @@ PNGView::PNGView(const BRect &frame, const char *name, uint32 resizeMode,
 			.AddGlue()
 			.End()
 		.AddGlue()
-		.Add(fCopyrightView);
+		.Add(pngCopyrightView);
 }
 
 
@@ -115,14 +114,6 @@ PNGView::AttachedToWindow()
 
 	// set target for interlace options menu items
 	fInterlaceMenu->SetTargetForItems(this);
-}
-
-
-void
-PNGView::FrameResized(float width, float height)
-{
-	// This works around a flaw of BTextView
-	fCopyrightView->SetTextRect(fCopyrightView->Bounds());
 }
 
 
