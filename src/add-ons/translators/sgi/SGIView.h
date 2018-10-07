@@ -38,6 +38,7 @@
 
 
 class BMenuField;
+class BTextView;
 
 
 class SGIView : public BView {
@@ -49,6 +50,7 @@ public:
 									// releases the SGITranslator settings
 
 	virtual	void				AllAttached();
+	virtual void				FrameResized(float width, float height);
 	virtual	void				MessageReceived(BMessage* message);
 
 	enum {
@@ -57,6 +59,7 @@ public:
 
 private:
 			BMenuField*			fCompressionMF;
+			BTextView*			fInfoView;
 
 			TranslatorSettings*	fSettings;
 				// the actual settings for the translator, shared with the translator
