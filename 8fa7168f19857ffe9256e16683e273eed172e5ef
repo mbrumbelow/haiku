@@ -16,6 +16,24 @@
       "revId": "8fa7168f19857ffe9256e16683e273eed172e5ef",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14613d74_c3aa4080",
+        "filename": "src/kits/interface/PictureDataWriter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2018-10-08T07:10:36Z",
+      "side": 1,
+      "message": "Those are the escapement values. You\u0027ll see that the bpicture \" B_PIC_DRAW_STRING\" op contains those, too (have a look at the other draw string version).",
+      "parentUuid": "59764570_b8e4a30c",
+      "revId": "8fa7168f19857ffe9256e16683e273eed172e5ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
