@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "42d823e6_d5ec42dc",
+        "filename": "src/add-ons/kernel/bus_managers/usb/Hub.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-10-10T09:29:16Z",
+      "side": 1,
+      "message": "(1 \u003c\u003c PORT_LINK_STATE) is not correct too, should be 0x40.",
+      "revId": "dea27f23f6f81941fdfd049d399d242740830b59",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "327555b1_88927fc8",
+        "filename": "src/add-ons/kernel/bus_managers/usb/Hub.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-10-10T09:29:16Z",
+      "side": 1,
+      "message": "(1 \u003c\u003c PORT_BH_PORT_RESET) is not correct, should be 0x20.",
+      "revId": "dea27f23f6f81941fdfd049d399d242740830b59",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d5e3988_1a828b76",
+        "filename": "src/add-ons/kernel/busses/usb/xhci.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1794,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-10-10T09:29:16Z",
+      "side": 1,
+      "message": "I checked and these values are not correct. For PS_WRC it should be 0x20 (1 \u003c\u003c 5), for PS_PLC, it should be  0x40 (1 \u003c\u003c 6).\nThese values should actually be added in usbspec_private.h under \"USB 3.0 spec table 10-11\".",
+      "revId": "dea27f23f6f81941fdfd049d399d242740830b59",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
