@@ -21,6 +21,7 @@ using IMAP::MessageUIDList;
 
 static const uint32 kMaxFetchEntries = 500;
 static const uint32 kMaxDirectDownloadSize = 4096;
+static const uint32 kMaxUIDsPerFetch = 32;
 
 
 class WorkerPrivate {
@@ -236,7 +237,7 @@ private:
 class FetchHeadersCommand : public SyncCommand, public IMAP::FetchListener {
 public:
 	FetchHeadersCommand(IMAPFolder& folder, IMAPMailbox& mailbox,
-		MessageUIDList& uids, int32 bodyFetchLimit)
+		const MessageUIDList& uids, int32 bodyFetchLimit)
 		:
 		fFolder(folder),
 		fMailbox(mailbox),
@@ -402,16 +403,28 @@ public:
 			if (from == 1) {
 				fFolder->MessageEntriesFetched();
 
-				if (fUIDsToFetch.size() > 0) {
-					// Add pending command to fetch the message headers
-					WorkerCommand* command = new FetchHeadersCommand(*fFolder,
-						*fMailbox, fUIDsToFetch,
-						WorkerPrivate(worker).BodyFetchLimit());
-					if (!fFetchCommands.AddItem(command))
-						delete command;
+				IMAP::MessageUIDList UIDsForSubFetch;
 
-					fUIDsToFetch.clear();
+				IMAP::MessageUIDList::iterator messageIterator =
+					fUIDsToFetch.begin();
+				while (messageIterator != fUIDsToFetch.end()) {
+					UIDsForSubFetch.emplace_back(*messageIterator);
+					messageIterator++;
+
+					size_t UIDsQueued = UIDsForSubFetch.size();
+					if (UIDsQueued >= kMaxUIDsPerFetch
+							|| (messageIterator == fUIDsToFetch.end()
+								&& UIDsQueued > 0)) {
+						status_t fetchResult = QueueFetch(worker,
+							UIDsForSubFetch);
+						if (fetchResult != B_OK) {
+							printf("IMAP: Error occured queueing UID FETCH\n");
+							return fetchResult;
+						}
+						UIDsForSubFetch.clear();
+					}
 				}
+				fUIDsToFetch.clear();
 				fState = SELECT;
 			}
 		}
@@ -443,6 +456,20 @@ private:
 	uint64					fTotalBytes;
 	WorkerCommandList		fFetchCommands;
 	MessageUIDList			fUIDsToFetch;
+
+	status_t	QueueFetch(IMAPConnectionWorker& worker,
+					const IMAP::MessageUIDList& uids)
+	{
+		// Add pending command to fetch the message headers
+		WorkerCommand* command = new FetchHeadersCommand(*fFolder,
+			*fMailbox, uids,
+			WorkerPrivate(worker).BodyFetchLimit());
+		if (!fFetchCommands.AddItem(command)) {
+			delete command;
+			return B_ERROR;
+		}
+		return B_OK;
+	}
 };
 
 
