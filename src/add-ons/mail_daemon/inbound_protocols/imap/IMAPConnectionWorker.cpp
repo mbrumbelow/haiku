@@ -21,6 +21,7 @@ using IMAP::MessageUIDList;
 
 static const uint32 kMaxFetchEntries = 500;
 static const uint32 kMaxDirectDownloadSize = 4096;
+static const uint32 kMaxUIDsPerFetch = 32;
 
 
 class WorkerPrivate {
@@ -236,7 +237,7 @@ private:
 class FetchHeadersCommand : public SyncCommand, public IMAP::FetchListener {
 public:
 	FetchHeadersCommand(IMAPFolder& folder, IMAPMailbox& mailbox,
-		MessageUIDList& uids, int32 bodyFetchLimit)
+		const MessageUIDList& uids, int32 bodyFetchLimit)
 		:
 		fFolder(folder),
 		fMailbox(mailbox),
@@ -402,16 +403,31 @@ public:
 			if (from == 1) {
 				fFolder->MessageEntriesFetched();
 
-				if (fUIDsToFetch.size() > 0) {
+				IMAP::MessageUIDList thisFetch;
+
+				IMAP::MessageUIDList::iterator msgIter = fUIDsToFetch.begin();
+				while (msgIter != fUIDsToFetch.end()) {
+					thisFetch.emplace_back(*msgIter);
+					msgIter++;
+					if (thisFetch.size() >= kMaxUIDsPerFetch) {
+						// Add pending command to fetch the message headers
+						WorkerCommand* command = new FetchHeadersCommand(*fFolder,
+							*fMailbox, thisFetch,
+							WorkerPrivate(worker).BodyFetchLimit());
+						if (!fFetchCommands.AddItem(command))
+							delete command;
+						thisFetch.clear();
+					}
+				}
+				if (thisFetch.size() > 0) {
 					// Add pending command to fetch the message headers
 					WorkerCommand* command = new FetchHeadersCommand(*fFolder,
-						*fMailbox, fUIDsToFetch,
+						*fMailbox, thisFetch,
 						WorkerPrivate(worker).BodyFetchLimit());
 					if (!fFetchCommands.AddItem(command))
 						delete command;
-
-					fUIDsToFetch.clear();
 				}
+				fUIDsToFetch.clear();
 				fState = SELECT;
 			}
 		}
