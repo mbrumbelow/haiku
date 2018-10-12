@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "653608a2_fb561a55",
+        "filename": "src/preferences/printers/JobListView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-10-12T00:16:23Z",
+      "side": 1,
+      "message": "This code will execute if the print job has no page count set.\nI could imagine this happening if the job is offloaded to the printer to paginate (for example if we send text directly to an old printer and let it use its internal fonts, then we have no idea what the printer will do)",
+      "revId": "ad3992b424217140cb3e64ea4afab9241f17fa4b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
