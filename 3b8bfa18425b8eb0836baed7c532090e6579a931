@@ -16,6 +16,24 @@
       "revId": "3b8bfa18425b8eb0836baed7c532090e6579a931",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71757817_3dba352c",
+        "filename": "src/add-ons/mail_daemon/inbound_filters/notifier/NotifierFilter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2018-10-16T17:30:04Z",
+      "side": 1,
+      "message": "Yes. But if we hard-code the English \"New E-mail\", it won\u0027t find the sound that was added under another locale, e.g. \"Neue E-mail\" under a German locale.\n\nQuestion is: Will there be a new localized sound event every time you change to a new locale? So that there\u0027ll be e.g. \"New E-mail\" and \"Neue E-Mail\"...",
+      "parentUuid": "7a481346_f0b5c586",
+      "revId": "3b8bfa18425b8eb0836baed7c532090e6579a931",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
