@@ -47,14 +47,27 @@ SettingsView::SettingsView()
 	fInputMenu(NULL),
 	fOutputMenu(NULL)
 {
-	// input menu
-	fInputMenu = new BPopUpMenu(B_TRANSLATE("<none>"));
-	fInputMenu->SetLabelFromMarked(true);
+
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "Media video input menu"
 
 	// input menu
-	fOutputMenu = new BPopUpMenu(B_TRANSLATE("<none>"));
+	fInputMenu = new BPopUpMenu(B_TRANSLATE_COMMENT(
+		"<none>", "Used when no video input is available"));
+	fInputMenu->SetLabelFromMarked(true);
+
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "Media video output menu"
+
+	// output menu
+	fOutputMenu = new BPopUpMenu(B_TRANSLATE_COMMENT(
+		"<none>", "Used when no video output is available"));
 	fOutputMenu->SetLabelFromMarked(true);
 }
+
+
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "Media views"
 
 
 BButton*
