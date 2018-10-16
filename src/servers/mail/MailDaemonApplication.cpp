@@ -314,7 +314,8 @@ MailDaemonApplication::MessageReceived(BMessage* msg)
 			}
 
 			if (fCentralBeep) {
-				system_beep("New E-mail");
+				system_beep(B_TRANSLATE_COMMENT("New E-mail",
+					"Event name in Sounds preference panel");
 				fCentralBeep = false;
 			}
 			break;

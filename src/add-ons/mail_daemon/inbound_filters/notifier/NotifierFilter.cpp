@@ -74,7 +74,8 @@ NotifyFilter::MailboxSynchronized(status_t status)
 		return;
 
 	if ((fStrategy & NOTIFY_BEEP) != 0)
-		system_beep("New E-mail");
+		system_beep(B_TRANSLATE_COMMENT("New E-mail",
+			"Event name in Sounds preference panel");
 
 	if ((fStrategy & NOTIFY_ALERT) != 0) {
 		BStringFormat format(B_TRANSLATE(

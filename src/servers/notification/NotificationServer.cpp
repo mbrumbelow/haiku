@@ -13,6 +13,7 @@
 
 #include <Alert.h>
 #include <Beep.h>
+#include <Catalog.h>
 #include <Notifications.h>
 #include <PropertyInfo.h>
 #include <Roster.h>
@@ -20,11 +21,14 @@
 #include "NotificationWindow.h"
 
 
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "NotificationServer"
+
 const char* kSoundNames[] = {
-	"Information notification",
-	"Important notification",
-	"Error notification",
-	"Progress notification",
+	B_TRANSLATE_MARK("Information notification"),
+	B_TRANSLATE_MARK("Important notification"),
+	B_TRANSLATE_MARK("Error notification"),
+	B_TRANSLATE_MARK("Progress notification"),
 	NULL
 };
 
