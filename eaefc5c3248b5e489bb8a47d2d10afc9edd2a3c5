@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "92f62e01_f8e57ed7",
+        "filename": "src/apps/haikudepot/ui/UserLoginWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 681,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-10-18T11:57:53Z",
+      "side": 1,
+      "message": "Why is there a space here?",
+      "revId": "eaefc5c3248b5e489bb8a47d2d10afc9edd2a3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25b82d8a_3a999d74",
+        "filename": "src/apps/haikudepot/ui/UserLoginWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 682,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-10-18T11:57:53Z",
+      "side": 1,
+      "message": "Use \"It responded with: %message%\" and then a ReplaceAll.",
+      "revId": "eaefc5c3248b5e489bb8a47d2d10afc9edd2a3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "feabbfcb_d1b73ec4",
+        "filename": "src/apps/haikudepot/ui/WorkStatusView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-10-18T11:57:53Z",
+      "side": 1,
+      "message": "no need to add \u0027\u0027 around the name?",
+      "revId": "eaefc5c3248b5e489bb8a47d2d10afc9edd2a3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c829bd49_6e78d972",
+        "filename": "src/apps/haikudepot/ui/WorkStatusView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-10-18T11:57:53Z",
+      "side": 1,
+      "message": "I wonder if some languages may need a BStringFormat here.",
+      "revId": "eaefc5c3248b5e489bb8a47d2d10afc9edd2a3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55ee2dfb_89b69c4b",
+        "filename": "src/preferences/media/MediaViews.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-10-18T11:57:53Z",
+      "side": 1,
+      "message": "This would be an appropriate use for B_TRANSLATE_CONTEXT. The context is meant to explain where the string is used in the UI. We usually just set it to the filename but it\u0027s possible to override it as needed.\n\nI don\u0027t know if Pootle makes it visible however... in that case using the comment is fine.",
+      "revId": "eaefc5c3248b5e489bb8a47d2d10afc9edd2a3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d52ecbf1_9c58eaa8",
+        "filename": "src/servers/bluetooth/DeskbarReplicant.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-10-18T11:57:53Z",
+      "side": 1,
+      "message": "The \\n\\n should be kept out of the translatable string, but the space and strerror should be in (use a ReplaceAll)",
+      "revId": "eaefc5c3248b5e489bb8a47d2d10afc9edd2a3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
