@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c11ef8e8_353b61ed",
+        "filename": "src/apps/haikudepot/ui/UserLoginWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 681,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2018-10-18T15:18:05Z",
+      "side": 1,
+      "message": "In line 665 the error string gets initialized with \"There was a puzzling response from the web service.\" Here this second sentence gets added to it.",
+      "parentUuid": "92f62e01_f8e57ed7",
+      "revId": "eaefc5c3248b5e489bb8a47d2d10afc9edd2a3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25b82d8a_3a999d74",
         "filename": "src/apps/haikudepot/ui/UserLoginWindow.cpp",
         "patchSetId": 2
@@ -53,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "aded3065_f8032fc6",
+        "filename": "src/apps/haikudepot/ui/WorkStatusView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2018-10-18T15:18:05Z",
+      "side": 1,
+      "message": "As written in the commit message, it looks nicer if you have package names with spaces, IMO. Compare:\nDownloading package Adamant Armor Affection Adventure\nto\nDownloading package \u0027Adamant Armor Affection Adventure\u0027",
+      "parentUuid": "feabbfcb_d1b73ec4",
+      "revId": "eaefc5c3248b5e489bb8a47d2d10afc9edd2a3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c829bd49_6e78d972",
         "filename": "src/apps/haikudepot/ui/WorkStatusView.cpp",
         "patchSetId": 2
@@ -64,6 +100,24 @@
       "writtenOn": "2018-10-18T11:57:53Z",
       "side": 1,
       "message": "I wonder if some languages may need a BStringFormat here.",
+      "revId": "eaefc5c3248b5e489bb8a47d2d10afc9edd2a3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9509d75f_4d214cc3",
+        "filename": "src/apps/haikudepot/ui/WorkStatusView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2018-10-18T15:18:05Z",
+      "side": 1,
+      "message": "It wouldn\u0027t surprise me if there was some language with such an outlandish grammar rule, but I\u0027d say without the object of the potential plural, chances are there isn\u0027t. It\u0027d be different if it were: \"(%count% packages more to download)\".\nLet\u0027s keep it and see if somebod raises an issue?",
+      "parentUuid": "c829bd49_6e78d972",
       "revId": "eaefc5c3248b5e489bb8a47d2d10afc9edd2a3c5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
@@ -87,6 +141,24 @@
     },
     {
       "key": {
+        "uuid": "0a1bc7e8_cfd6c7c3",
+        "filename": "src/preferences/media/MediaViews.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2018-10-18T15:18:05Z",
+      "side": 1,
+      "message": "Right. I\u0027ve added two B_TRANSLATE_CONTEXT (hope I did that right) and kept the comments, because without the context of \u003cnone\u003e would still be unclear.",
+      "parentUuid": "55ee2dfb_89b69c4b",
+      "revId": "eaefc5c3248b5e489bb8a47d2d10afc9edd2a3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d52ecbf1_9c58eaa8",
         "filename": "src/servers/bluetooth/DeskbarReplicant.cpp",
         "patchSetId": 2
@@ -98,6 +170,24 @@
       "writtenOn": "2018-10-18T11:57:53Z",
       "side": 1,
       "message": "The \\n\\n should be kept out of the translatable string, but the space and strerror should be in (use a ReplaceAll)",
+      "revId": "eaefc5c3248b5e489bb8a47d2d10afc9edd2a3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85438d73_c29ab4d3",
+        "filename": "src/servers/bluetooth/DeskbarReplicant.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2018-10-18T15:18:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d52ecbf1_9c58eaa8",
       "revId": "eaefc5c3248b5e489bb8a47d2d10afc9edd2a3c5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
