@@ -16,6 +16,24 @@
       "revId": "ad3992b424217140cb3e64ea4afab9241f17fa4b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33cc2357_e5f57c9d",
+        "filename": "src/preferences/printers/JobListView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000058
+      },
+      "writtenOn": "2018-10-19T18:36:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "653608a2_fb561a55",
+      "revId": "ad3992b424217140cb3e64ea4afab9241f17fa4b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
