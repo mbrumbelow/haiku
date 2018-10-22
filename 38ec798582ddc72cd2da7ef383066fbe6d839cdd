@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "485db4ba_830ae065",
+        "filename": "src/preferences/repositories/RepoRow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-10-22T17:53:50Z",
+      "side": 1,
+      "message": "One more newline is needed.",
+      "revId": "38ec798582ddc72cd2da7ef383066fbe6d839cdd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
