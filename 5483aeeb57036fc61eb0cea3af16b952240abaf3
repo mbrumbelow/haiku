@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "48c97136_9895e8f1",
+        "filename": "src/apps/terminal/TerminalBuffer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-10-22T17:35:37Z",
+      "side": 0,
+      "message": "the min_c() is also not needed.",
+      "revId": "5483aeeb57036fc61eb0cea3af16b952240abaf3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
