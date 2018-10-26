@@ -1,16 +1,18 @@
-SubDir HAIKU_TOP src add-ons kernel file_systems bfs ;
+SubDir HAIKU_TOP src add-ons kernel file_systems bfs_big ;
 
-# We also build a big-endian version of BFS in ../bfs_big/.
-# We reuse the sources, so this Jamfile must be kept in sync
-# with the big-endian version there.
+# This empty folder is used to build a big-endian version of BFS.
+# We reuse the ../bfs/ sources, so this Jamfile must be kept in sync
+# with the little-endian version.
 #
 # TODO: factor them out.
+
+SubDirHdrs $(HAIKU_TOP) src add-ons kernel file_systems bfs ;
 
 # set some additional defines
 {
 	local defines =
 		BFS_DEBUGGER_COMMANDS
-		#BFS_BIG_ENDIAN_ONLY
+		BFS_BIG_ENDIAN_ONLY
 		;
 
 	if $(DEBUG) = 0 {
@@ -27,7 +29,7 @@ UsePrivateKernelHeaders ;
 UsePrivateHeaders [ FDirName kernel disk_device_manager ] ;
 UsePrivateHeaders shared storage ;
 
-KernelAddon bfs :
+local bfsSources =
 	bfs_disk_system.cpp
 	BlockAllocator.cpp
 	BPlusTree.cpp
@@ -45,6 +47,13 @@ KernelAddon bfs :
 
 	kernel_interface.cpp
 	;
+
+KernelAddon bfs_big :
+	$(bfsSources)
+	;
+
+SEARCH on [ FGristFiles $(bfsSources) ]
+	= [ FDirName $(HAIKU_TOP) src add-ons kernel file_systems bfs ] ;
 
 SEARCH on [ FGristFiles kernel_cpp.cpp ]
 	= [ FDirName $(HAIKU_TOP) src system kernel util ] ;
