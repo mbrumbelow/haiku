@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6448f2c_dc50db61",
+        "filename": "src/system/runtime_loader/elf_haiku_version.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-11-01T14:59:57Z",
+      "side": 1,
+      "message": "Unless I\u0027m mistaken the ABI changes were in libstdc++ only, and so runtime loader will not need to care about it even when we move to the new ABI, yes? So this comment is actually slightly incorrect.",
+      "revId": "614f517906e2b2331fd0bac2e88b06cd5f8a1ae7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
