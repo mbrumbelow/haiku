@@ -517,6 +517,77 @@ out:
 
 
 status_t
+vesa_get_brightness_info(vesa_info& info, uint8* current, uint8* max)
+{
+	// Prepare BIOS environment
+	bios_state* state;
+	status_t status = vbe_call_prepare(&state);
+	if (status != B_OK)
+		return status;
+
+	bios_regs regs = {};
+	regs.eax = 0x4f11;
+	regs.ebx = 0x0005;
+
+	status = sBIOSModule->interrupt(state, 0x10, &regs);
+	if (status != B_OK) {
+		dprintf(DEVICE_NAME ": vbe_get_brightness_info(%p, %p): "
+			"BIOS failed: %s\n", current, max, strerror(status));
+		goto out;
+	}
+
+	if ((regs.eax & 0xffff) != 0x4f) {
+		dprintf(DEVICE_NAME ": vbe_get_brightness_info(%p, %p): BIOS returned "
+			"0x%04" B_PRIx32 "\n", current, max, regs.eax & 0xffff);
+		status = B_ENTRY_NOT_FOUND;
+		goto out;
+	}
+
+	*current = regs.ecx & 0xFF;
+	*max = (regs.ecx >> 8) & 0xFF;
+
+out:
+	vbe_call_finish(state);
+	return status;
+}
+
+
+status_t
+vesa_set_brightness(vesa_info& info, uint8 brightness)
+{
+	// Prepare BIOS environment
+	bios_state* state;
+	status_t status = vbe_call_prepare(&state);
+	if (status != B_OK)
+		return status;
+
+	bios_regs regs = {};
+	regs.eax = 0x4f11;
+	regs.ebx = 0x0105;
+	regs.ecx = brightness;
+
+	status = sBIOSModule->interrupt(state, 0x10, &regs);
+	if (status != B_OK) {
+		dprintf(DEVICE_NAME ": vbe_set_brightness(%u): BIOS failed: %s\n",
+			brightness, strerror(status));
+		goto out;
+	}
+
+	if ((regs.eax & 0xffff) != 0x4f) {
+		dprintf(DEVICE_NAME ": vbe_set_brightness(%u): BIOS returned 0x%04"
+			B_PRIx32 "\n", brightness, regs.eax & 0xffff);
+		status = B_ERROR;
+		goto out;
+	}
+
+
+out:
+	vbe_call_finish(state);
+	return status;
+}
+
+
+status_t
 vesa_set_dpms_mode(vesa_info& info, uint32 mode)
 {
 	if (info.modes == NULL)
