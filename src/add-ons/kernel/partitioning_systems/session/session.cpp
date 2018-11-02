@@ -40,14 +40,14 @@ static float
 identify_partition(int fd, partition_data *partition, void **cookie)
 {
 	DEBUG_INIT_ETC(NULL, ("fd: %d, id: %" B_PRId32 ", offset: %" B_PRIdOFF ", "
-		"size: %" B_PRIdOFF ", block_size: %" B_PRId32 ", flags: 0x%" B_PRIx32,
+		"size: %" B_PRIdOFF ", sector_size: %" B_PRId32 ", flags: 0x%" B_PRIx32,
 		fd, partition->id, partition->offset, partition->size,
-		partition->block_size, partition->flags));
+		partition->sector_size, partition->flags));
 
 	device_geometry geometry;
 	float result = -1;
 	if ((partition->flags & B_PARTITION_IS_DEVICE) != 0
-		&& partition->block_size == 2048
+		&& partition->sector_size == 2048
 		&& ioctl(fd, B_GET_GEOMETRY, &geometry) == 0
 		&& geometry.device_type == B_CD) {
 		Disc *disc = new(std::nothrow) Disc(fd);
@@ -71,9 +71,9 @@ static status_t
 scan_partition(int fd, partition_data *partition, void *cookie)
 {
 	DEBUG_INIT_ETC(NULL, ("fd: %d, id: %" B_PRId32 ", offset: %" B_PRId64 ", "
-		"size: %" B_PRIdOFF ", block_size: %" B_PRId32 ", cookie: %p", fd,
+		"size: %" B_PRIdOFF ", sector_size: %" B_PRId32 ", cookie: %p", fd,
 		partition->id, partition->offset, partition->size,
-		partition->block_size, cookie));
+		partition->sector_size, cookie));
 
 	Disc *disc = static_cast<Disc*>(cookie);
 	partition->status = B_PARTITION_VALID;
@@ -93,6 +93,7 @@ scan_partition(int fd, partition_data *partition, void *cookie)
 			break;
 		}
 		child->block_size = session->BlockSize();
+		child->sector_size = partition->sector_size;
 		child->flags |= session->Flags();
 		child->type = strdup(session->Type());
 		if (!child->type) {

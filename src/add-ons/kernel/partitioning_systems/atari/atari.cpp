@@ -195,6 +195,7 @@ atari_scan_partition(int fd, partition_data *partition, void *_cookie)
 		memcpy(type, p->id, 3);
 		child->type = strdup(type);
 		child->block_size = SECTSZ;
+		child->sector_size = partition->sector_size;
 		status = B_OK;
 	}
 
