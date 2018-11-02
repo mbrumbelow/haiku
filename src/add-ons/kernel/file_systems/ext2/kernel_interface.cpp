@@ -78,7 +78,7 @@ ext2_scan_partition(int fd, partition_data *partition, void *_cookie)
 		(cookie->super_block.CompatibleFeatures()
 			& EXT2_INCOMPATIBLE_FEATURE_64BIT) != 0)
 			<< cookie->super_block.BlockShift();
-	partition->block_size = 1UL << cookie->super_block.BlockShift();
+	partition->content_block_size = 1UL << cookie->super_block.BlockShift();
 	partition->content_name = strdup(cookie->super_block.name);
 	if (partition->content_name == NULL)
 		return B_NO_MEMORY;

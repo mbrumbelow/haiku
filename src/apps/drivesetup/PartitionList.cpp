@@ -339,7 +339,7 @@ PartitionListRow::PartitionListRow(BPartition* partition)
 
 	char blocksize[16];
 	snprintf(blocksize, sizeof(blocksize), "%" B_PRIu32,
-		partition->BlockSize());
+		partition->ContentBlockSize());
 	SetField(new BStringField(blocksize), kBlockSizeColumn);
 
 	// Additional parameters

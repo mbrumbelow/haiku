@@ -19,7 +19,7 @@ public:
 	virtual void OffsetChanged(KPartition *partition, off_t offset);
 	virtual void SizeChanged(KPartition *partition, off_t size);
 	virtual void ContentSizeChanged(KPartition *partition, off_t size);
-	virtual void BlockSizeChanged(KPartition *partition, uint32 blockSize);
+	virtual void ContentBlockSizeChanged(KPartition *partition, uint32 blockSize);
 	virtual void IndexChanged(KPartition *partition, int32 index);
 	virtual void StatusChanged(KPartition *partition, uint32 status);
 	virtual void FlagsChanged(KPartition *partition, uint32 flags);

@@ -34,7 +34,7 @@ KPartitionListener::ContentSizeChanged(KPartition *partition, off_t size)
 
 // BlockSizeChanged
 void
-KPartitionListener::BlockSizeChanged(KPartition *partition, uint32 blockSize)
+KPartitionListener::ContentBlockSizeChanged(KPartition *partition, uint32 blockSize)
 {
 }
 

@@ -131,13 +131,20 @@ BPartition::ContentSize() const
 }
 
 
-/*!	\brief Returns the block size of the device.
-	\return The block size of the device in bytes.
+uint32
+BPartition::SectorSize() const
+{
+	return _PartitionData()->sector_size;
+}
+
+
+/*!	\brief Returns the block size of the partition.
+	\return The partition size of the device in bytes.
 */
 uint32
-BPartition::BlockSize() const
+BPartition::ContentBlockSize() const
 {
-	return _PartitionData()->block_size;
+	return _PartitionData()->content_block_size;
 }
 
 
@@ -1129,7 +1136,7 @@ BPartition::BPartition::IsSubSystem(const char* diskSystem) const
 bool
 BPartition::CanInitialize(const char* diskSystem) const
 {
-	if (Size() == 0 || BlockSize() == 0 || fDelegate == NULL)
+	if (Size() == 0 || ContentBlockSize() == 0 || fDelegate == NULL)
 		return false;
 
 	return fDelegate->CanInitialize(diskSystem);
@@ -1333,7 +1340,8 @@ BPartition::_Update(user_partition_data* data, bool* updated)
 	// check for changes
 	if (data->offset != oldData->offset
 		|| data->size != oldData->size
-		|| data->block_size != oldData->block_size
+		|| data->sector_size != oldData->sector_size
+		|| data->content_block_size != oldData->content_block_size
 		|| data->status != oldData->status
 		|| data->flags != oldData->flags
 		|| data->volume != oldData->volume

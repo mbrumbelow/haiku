@@ -90,7 +90,7 @@ fs_scan_partition(int fd, partition_data* partition, void* _cookie)
 	partition->flags |= B_PARTITION_FILE_SYSTEM;
 	partition->content_size = sle64_to_cpu(cookie->boot.number_of_sectors)
 		* le16_to_cpu(cookie->boot.bpb.bytes_per_sector);
-	partition->block_size = le16_to_cpu(cookie->boot.bpb.bytes_per_sector);
+	partition->content_block_size = le16_to_cpu(cookie->boot.bpb.bytes_per_sector);
 
 	// get volume name
 	ntfs_volume* ntVolume;

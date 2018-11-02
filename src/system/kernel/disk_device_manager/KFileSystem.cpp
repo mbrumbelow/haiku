@@ -250,7 +250,7 @@ KFileSystem::Uninitialize(KPartition* partition, disk_job_id job)
 
 	// let the module do its job
 	result = fModule->uninitialize(fd, partition->ID(), partition->Size(),
-		partition->BlockSize(), job);
+		partition->ContentBlockSize(), job);
 
 	// cleanup and return
 	close(fd);

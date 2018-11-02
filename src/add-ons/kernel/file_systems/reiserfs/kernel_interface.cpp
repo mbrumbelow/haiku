@@ -86,7 +86,7 @@ reiserfs_scan_partition(int fd, partition_data *partition, void *_cookie)
 	partition->flags |= B_PARTITION_FILE_SYSTEM;
 	partition->content_size = volume->CountBlocks()
 		* volume->GetBlockSize();
-	partition->block_size = volume->GetBlockSize();
+	partition->content_block_size = volume->GetBlockSize();
 
 	volume->UpdateName(partition->id);
 		// must be done after setting the content size

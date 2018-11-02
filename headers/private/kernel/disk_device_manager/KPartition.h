@@ -67,8 +67,10 @@ public:
 	void SetContentSize(off_t size);
 	off_t ContentSize() const;
 
-	void SetBlockSize(uint32 blockSize);
-	uint32 BlockSize() const;
+	uint32 SectorSize() const;
+
+	void SetContentBlockSize(uint32 blockSize);
+	uint32 ContentBlockSize() const;
 
 	void SetIndex(int32 index);
 	int32 Index() const;		// 0 for devices
@@ -191,7 +193,7 @@ protected:
 	void FireOffsetChanged(off_t offset);
 	void FireSizeChanged(off_t size);
 	void FireContentSizeChanged(off_t size);
-	void FireBlockSizeChanged(uint32 blockSize);
+	void FireContentBlockSizeChanged(uint32 blockSize);
 	void FireIndexChanged(int32 index);
 	void FireStatusChanged(uint32 status);
 	void FireFlagsChanged(uint32 flags);

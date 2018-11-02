@@ -115,7 +115,7 @@ FATAddOn::Initialize(BMutablePartition* partition, const char* name,
 	partition->SetContentName(name);
 	partition->SetContentParameters(parameterString);
 	uint32 blockSize = 4096;
-	partition->SetBlockSize(blockSize);
+	partition->SetContentBlockSize(blockSize);
 	partition->SetContentSize(partition->Size() / blockSize * blockSize);
 	partition->Changed(B_PARTITION_CHANGED_INITIALIZATION);
 

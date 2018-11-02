@@ -390,9 +390,10 @@ void
 KDiskDevice::_InitPartitionData()
 {
 	fDeviceData.id = fPartitionData.id;
-	fPartitionData.block_size = fDeviceData.geometry.bytes_per_sector;
+	fPartitionData.sector_size = fDeviceData.geometry.bytes_per_sector;
+	fPartitionData.content_block_size = fDeviceData.geometry.bytes_per_sector;
 	fPartitionData.offset = 0;
-	fPartitionData.size = (off_t)fPartitionData.block_size
+	fPartitionData.size = (off_t)fPartitionData.sector_size
 		* fDeviceData.geometry.sectors_per_track
 		* fDeviceData.geometry.cylinder_count
 		* fDeviceData.geometry.head_count;

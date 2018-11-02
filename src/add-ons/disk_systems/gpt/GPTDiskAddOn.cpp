@@ -93,9 +93,9 @@ bool
 GPTDiskAddOn::CanInitialize(const BMutablePartition* partition)
 {
 	// If it's big enough, we can initialize it.
-	return partition->Size() >= round_up(partition->BlockSize()
+	return partition->Size() >= round_up(partition->SectorSize()
 			+ EFI_PARTITION_ENTRY_COUNT * EFI_PARTITION_ENTRY_SIZE,
-		partition->BlockSize());
+		partition->SectorSize());
 }
 
 
@@ -138,7 +138,7 @@ GPTDiskAddOn::Initialize(BMutablePartition* partition, const char* name,
 	partition->SetContentName(NULL);
 	partition->SetContentParameters(NULL);
 	partition->SetContentSize(
-		round_down(partition->Size(), partition->BlockSize()));
+		round_down(partition->Size(), partition->SectorSize()));
 	partition->Changed(B_PARTITION_CHANGED_INITIALIZATION);
 
 	*_handle = handle;

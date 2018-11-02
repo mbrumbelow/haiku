@@ -128,9 +128,9 @@ GPTPartitionHandle::GetPartitioningInfo(BPartitioningInfo* info)
 	// init to the full size (minus the GPT table header and entries)
 	off_t size = Partition()->ContentSize();
 	// TODO: use fHeader
-	size_t headerSize = Partition()->BlockSize() + 16384;
-	status_t status = info->SetTo(Partition()->BlockSize() + headerSize,
-		size - Partition()->BlockSize() - 2 * headerSize);
+	size_t headerSize = Partition()->SectorSize() + 16384;
+	status_t status = info->SetTo(Partition()->SectorSize() + headerSize,
+		size - Partition()->SectorSize() - 2 * headerSize);
 	if (status != B_OK)
 		return status;
 
@@ -219,7 +219,7 @@ GPTPartitionHandle::CreateChild(off_t offset, off_t size,
 	// init the child
 	child->SetOffset(offset);
 	child->SetSize(size);
-	child->SetBlockSize(partition->BlockSize());
+	child->SetContentBlockSize(partition->ContentBlockSize());
 
 	*_child = child;
 	return B_OK;

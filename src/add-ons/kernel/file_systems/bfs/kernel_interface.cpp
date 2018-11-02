@@ -148,7 +148,7 @@ bfs_scan_partition(int fd, partition_data* partition, void* _cookie)
 	partition->flags |= B_PARTITION_FILE_SYSTEM;
 	partition->content_size = cookie->super_block.NumBlocks()
 		* cookie->super_block.BlockSize();
-	partition->block_size = cookie->super_block.BlockSize();
+	partition->content_block_size = cookie->super_block.BlockSize();
 	partition->content_name = strdup(cookie->super_block.name);
 	if (partition->content_name == NULL)
 		return B_NO_MEMORY;
