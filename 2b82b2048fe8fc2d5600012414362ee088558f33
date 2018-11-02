@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e5cbf69_227d1bed",
+        "filename": "src/bin/screenmode/screenmode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-11-02T21:22:06Z",
+      "side": 1,
+      "message": "Having one argument with two syntaxes on two lines is confusing. Maybe you could explain these some way other than listing the argument itself twice (perhaps use 3 lines with 2 intended by another tab with the two syntaxes?)",
+      "revId": "2b82b2048fe8fc2d5600012414362ee088558f33",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
