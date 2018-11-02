@@ -641,8 +641,8 @@ TReplicantTray::LoadAddOn(BEntry* entry, int32* id, bool addToSettings)
 	//    we first look for a symbol that takes an image_id
 	//    and entry_ref pointer, if not found, go with normal
 	//    instantiate function
-	BView* (*entryFunction)(image_id, const entry_ref*);
-	BView* (*itemFunction)(void);
+	BView* (*entryFunction)(image_id, const entry_ref*, float, float);
+	BView* (*itemFunction)(float, float);
 	BView* view = NULL;
 
 	entry_ref ref;
@@ -650,10 +650,10 @@ TReplicantTray::LoadAddOn(BEntry* entry, int32* id, bool addToSettings)
 
 	if (get_image_symbol(image, kInstantiateEntryCFunctionName,
 			B_SYMBOL_TYPE_TEXT, (void**)&entryFunction) >= B_OK) {
-		view = (*entryFunction)(image, &ref);
+		view = (*entryFunction)(image, &ref, kMaxReplicantWidth, kMaxReplicantHeight);
 	} else if (get_image_symbol(image, kInstantiateItemCFunctionName,
 			B_SYMBOL_TYPE_TEXT, (void**)&itemFunction) >= B_OK) {
-		view = (*itemFunction)();
+		view = (*itemFunction)(kMaxReplicantWidth, kMaxReplicantHeight);
 	} else {
 		unload_add_on(image);
 		return B_ERROR;

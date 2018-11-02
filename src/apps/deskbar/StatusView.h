@@ -47,8 +47,8 @@ All rights reserved.
 
 
 const float kDragWidth = 4.0f;
-const float kMaxReplicantHeight = 16.0f;
-const float kMaxReplicantWidth = 16.0f;
+const float kMaxReplicantHeight = 32.0f;
+const float kMaxReplicantWidth = 32.0f;
 const int32 kMinimumReplicantCount = 6;
 const int32 kIconGap = 2;
 const int32 kGutter = 1;
