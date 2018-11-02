@@ -73,6 +73,7 @@ KPartition::KPartition(partition_id id)
 	fPartitionData.size = 0;
 	fPartitionData.content_size = 0;
 	fPartitionData.block_size = 0;
+	fPartitionData.sector_size = 0;
 	fPartitionData.child_count = 0;
 	fPartitionData.index = -1;
 	fPartitionData.status = B_PARTITION_UNRECOGNIZED;
@@ -1214,6 +1215,12 @@ KPartition::UninitializeContents(bool logChanges)
 		// block size
 		if (Parent() && Parent()->BlockSize() != BlockSize()) {
 			SetBlockSize(Parent()->BlockSize());
+			flags |= B_PARTITION_CHANGED_BLOCK_SIZE;
+		}
+
+		if (Parent() && Parent()->fPartitionData.sector_size
+				!= fPartitionData.sector_size) {
+			fPartitionData.sector_size = Parent()->fPartitionData.sector_size;
 			flags |= B_PARTITION_CHANGED_BLOCK_SIZE;
 		}
 

@@ -105,7 +105,7 @@ pm_identify_partition(int fd, partition_data* partition, void** cookie)
 
 	TRACE(("intel: pm_identify_partition(%d, %" B_PRId32 ": %" B_PRId64 ", "
 		"%" B_PRId64 ", %" B_PRId32 ")\n", fd, partition->id, partition->offset,
-		partition->size, partition->block_size));
+		partition->size, partition->sector_size));
 	// reject extended partitions
 	if (partition->type
 		&& !strcmp(partition->type, kPartitionTypeIntelExtended)) {
@@ -118,7 +118,7 @@ pm_identify_partition(int fd, partition_data* partition, void** cookie)
 		return -1;
 
 	// read the partition structure
-	PartitionMapParser parser(fd, 0, partition->size, partition->block_size);
+	PartitionMapParser parser(fd, 0, partition->size, partition->sector_size);
 	status_t error = parser.Parse(NULL, map);
 	if (error != B_OK) {
 		// cleanup, if not detected
@@ -170,7 +170,7 @@ pm_scan_partition(int fd, partition_data* partition, void* cookie)
 
 	TRACE(("intel: pm_scan_partition(%d, %" B_PRId32 ": %" B_PRId64 ", "
 		"%" B_PRId64 ", %" B_PRId32 ")\n", fd, partition->id, partition->offset,
-		partition->size, partition->block_size));
+		partition->size, partition->sector_size));
 
 	PartitionMapCookie* map = (PartitionMapCookie*)cookie;
 	// fill in the partition_data structure
@@ -197,7 +197,8 @@ pm_scan_partition(int fd, partition_data* partition, void* cookie)
 				break;
 			}
 
-			child->block_size = partition->block_size;
+			child->block_size = partition->sector_size;
+			child->sector_size = partition->sector_size;
 
 			// (no name)
 			char type[B_FILE_NAME_LENGTH];
@@ -322,7 +323,7 @@ ep_scan_partition(int fd, partition_data* partition, void* cookie)
 
 	TRACE(("intel: ep_scan_partition(%d, %" B_PRId64 ", %" B_PRId64 ", "
 		"%" B_PRId32 ")\n", fd, partition->offset, partition->size,
-		partition->block_size));
+		partition->sector_size));
 
 	partition_data* parent = get_parent_partition(partition->id);
 	if (!parent)
@@ -353,6 +354,7 @@ ep_scan_partition(int fd, partition_data* partition, void* cookie)
 			break;
 		}
 		child->block_size = partition->block_size;
+		child->sector_size = partition->sector_size;
 
 		// (no name)
 		char type[B_FILE_NAME_LENGTH];
