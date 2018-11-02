@@ -43,5 +43,8 @@ extern status_t vesa_get_dpms_mode(vesa_info& info, uint32& mode);
 extern status_t vesa_set_dpms_mode(vesa_info& info, uint32 mode);
 extern status_t vesa_set_indexed_colors(vesa_info& info, uint8 first,
 	uint8* colors, uint16 count);
+extern status_t vesa_get_brightness_info(vesa_info& info, uint8_t* current,
+	uint8_t* max);
+extern status_t vesa_set_brightness(vesa_info& info, uint8_t brightness);
 
 #endif	/* VESA_PRIVATE_H */

@@ -247,6 +247,47 @@ vesa_get_edid_info(void* info, size_t size, uint32* _version)
 
 
 status_t
+vesa_set_brightness(float brightness)
+{
+	TRACE(("vesa_set_brightness()\n"));
+
+	if (brightness < 0 || brightness > 1)
+		return B_BAD_VALUE;
+
+	uint8_t rawValues[2];
+	status_t result = ioctl(gInfo->device, VESA_GET_BRIGHTNESS, &rawValues,
+		sizeof(rawValues));
+
+	if (result != B_OK)
+		return result;
+
+	uint8_t newValue = (uint8_t)(brightness * rawValues[1]);
+
+	return ioctl(gInfo->device, VESA_SET_BRIGHTNESS, &newValue,
+		sizeof(newValue));
+}
+
+
+status_t
+vesa_get_brightness(float* brightness)
+{
+	TRACE(("vesa_get_brightness()\n"));
+
+	if (brightness == NULL)
+		return B_BAD_VALUE;
+
+	uint8_t rawValues[2];
+	status_t result = ioctl(gInfo->device, VESA_GET_BRIGHTNESS, &rawValues,
+		sizeof(rawValues));
+
+	if (result == B_OK)
+		*brightness = (float)rawValues[0] / rawValues[1];
+
+	return result;
+}
+
+
+status_t
 vesa_get_frame_buffer_config(frame_buffer_config* config)
 {
 	TRACE(("vesa_get_frame_buffer_config()\n"));
