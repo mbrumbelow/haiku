@@ -49,7 +49,7 @@ block_align(partition_data* partition, off_t offset, bool upwards)
 {
 	// Take HDs into account that hide the fact they are using a
 	// block size of 4096 bytes, and round to that.
-	uint32 blockSize = max_c(partition->block_size, 4096);
+	uint32 blockSize = max_c(partition->sector_size, 4096);
 	if (upwards)
 		return ((offset + blockSize - 1) / blockSize) * blockSize;
 
@@ -78,7 +78,7 @@ static float
 efi_gpt_identify_partition(int fd, partition_data* partition, void** _cookie)
 {
 	EFI::Header* header = new (std::nothrow) EFI::Header(fd,
-		(partition->size - 1) / partition->block_size, partition->block_size);
+		(partition->size - 1) / partition->sector_size, partition->sector_size);
 	status_t status = header->InitCheck();
 	if (status != B_OK) {
 		delete header;
@@ -120,21 +120,21 @@ efi_gpt_scan_partition(int fd, partition_data* partition, void* _cookie)
 		if (entry.partition_type == kEmptyGUID)
 			continue;
 
-		if (entry.EndBlock() * partition->block_size
+		if (entry.EndBlock() * partition->sector_size
 				> (uint64)partition->size) {
 			TRACE(("efi_gpt: child partition exceeds existing space (ends at "
 				"block %" B_PRIu64 ")\n", entry.EndBlock()));
 			continue;
 		}
 
-		if (entry.StartBlock() * partition->block_size == 0) {
+		if (entry.StartBlock() * partition->sector_size == 0) {
 			TRACE(("efi_gpt: child partition starts at 0 (recursive entry)\n"));
 			continue;
 		}
 
 		partition_data* child = create_child_partition(partition->id, index++,
-			partition->offset + entry.StartBlock() * partition->block_size,
-			entry.BlockCount() * partition->block_size, -1);
+			partition->offset + entry.StartBlock() * partition->sector_size,
+			entry.BlockCount() * partition->sector_size, -1);
 		if (child == NULL) {
 			TRACE(("efi_gpt: Creating child at index %" B_PRIu32 " failed\n",
 				index - 1));
@@ -391,11 +391,11 @@ efi_gpt_validate_create_child(partition_data* partition, off_t* start,
 	*index = entryIndex;
 
 	// ensure that child lies between first and last usable block
-	off_t firstUsable = header->FirstUsableBlock() * partition->block_size;
+	off_t firstUsable = header->FirstUsableBlock() * partition->sector_size;
 	if (*start < firstUsable)
 		*start = firstUsable;
 
-	off_t lastUsable = header->LastUsableBlock() * partition->block_size;
+	off_t lastUsable = header->LastUsableBlock() * partition->sector_size;
 	if (*start + *size > lastUsable) {
 		if (*start > lastUsable)
 			return false;
@@ -525,11 +525,11 @@ efi_gpt_resize_child(int fd, partition_id partitionID, off_t size,
 	update_disk_device_job_progress(job, 0.0);
 
 	efi_partition_entry& entry = header->EntryAt(entryIndex);
-	entry.SetBlockCount(validatedSize / partition->block_size);
+	entry.SetBlockCount(validatedSize / partition->sector_size);
 
 	status_t result = header->WriteEntry(fd, entryIndex);
 	if (result != B_OK) {
-		entry.SetBlockCount(child->size / partition->block_size);
+		entry.SetBlockCount(child->size / partition->sector_size);
 		return result;
 	}
 
@@ -592,7 +592,7 @@ efi_gpt_move_child(int fd, partition_id partitionID, partition_id childID,
 	efi_partition_entry& entry = header->EntryAt(entryIndex);
 	uint64 blockCount = entry.BlockCount();
 	entry.SetStartBlock((validatedOffset - partition->offset)
-		/ partition->block_size);
+		/ partition->sector_size);
 	entry.SetBlockCount(blockCount);
 
 	status_t result = header->WriteEntry(fd, entryIndex);
@@ -717,8 +717,8 @@ efi_gpt_initialize(int fd, partition_id partitionID, const char* name,
 
 	update_disk_device_job_progress(job, 0.0);
 
-	EFI::Header header((partitionSize - 1) / partition->block_size,
-		partition->block_size);
+	EFI::Header header((partitionSize - 1) / partition->sector_size,
+		partition->sector_size);
 	status_t result = header.InitCheck();
 	if (result != B_OK)
 		return result;
@@ -750,7 +750,7 @@ efi_gpt_uninitialize(int fd, partition_id partitionID, off_t partitionSize,
 
 	update_disk_device_job_progress(job, 0.0);
 
-	const int headerSize = partition->block_size * 3;
+	const int headerSize = partition->sector_size * 3;
 	// The first block is the protective MBR
 	// The second block is the GPT header
 	// The third block is the start of the partition list (it can span more
@@ -765,8 +765,8 @@ efi_gpt_uninitialize(int fd, partition_id partitionID, off_t partitionSize,
 
 	// Erase the last blocks
 	// Only 2 blocks, as there is no protective MBR
-	if (write_pos(fd, partitionSize - 2 * partition->block_size,
-			&buffer, 2 * partition->block_size) < 0) {
+	if (write_pos(fd, partitionSize - 2 * partition->sector_size, &buffer,
+		2 * partition->sector_size) < 0) {
 		return errno;
 	}
 
@@ -822,8 +822,8 @@ efi_gpt_create_child(int fd, partition_id partitionID, off_t offset,
 	memcpy((uint8*)&entry.unique_guid, uuid, sizeof(guid_t));
 	to_ucs2(name, strlen(name), entry.name, EFI_PARTITION_NAME_LENGTH);
 	entry.SetStartBlock((validatedOffset - partition->offset)
-		/ partition->block_size);
-	entry.SetBlockCount(validatedSize / partition->block_size);
+		/ partition->sector_size);
+	entry.SetBlockCount(validatedSize / partition->sector_size);
 	entry.SetAttributes(0); // TODO
 
 	status_t result = header->WriteEntry(fd, entryIndex);
@@ -833,7 +833,9 @@ efi_gpt_create_child(int fd, partition_id partitionID, off_t offset,
 	}
 
 	*childID = child->id;
-	child->block_size = partition->block_size;
+	child->sector_size = partition->sector_size;
+	// pre-set the block size, it can be adjusted by filesystems
+	child->block_size = partition->sector_size;
 	child->name = strdup(name);
 	child->type = strdup(type);
 	child->parameters = strdup(parameters);

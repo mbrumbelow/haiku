@@ -73,6 +73,7 @@ KPartition::KPartition(partition_id id)
 	fPartitionData.size = 0;
 	fPartitionData.content_size = 0;
 	fPartitionData.block_size = 0;
+	fPartitionData.sector_size = 0;
 	fPartitionData.child_count = 0;
 	fPartitionData.index = -1;
 	fPartitionData.status = B_PARTITION_UNRECOGNIZED;

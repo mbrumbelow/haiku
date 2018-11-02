@@ -155,7 +155,7 @@ validate_resize(partition_data* partition, off_t* size)
 	if (newSize < 0)
 		newSize = 0;
 	else
-		newSize = sector_align(newSize, partition->block_size);
+		newSize = sector_align(newSize, partition->sector_size);
 
 	// grow partition?
 	if (newSize > partition->size) {
@@ -175,7 +175,7 @@ validate_resize(partition_data* partition, off_t* size)
 	}
 	newSize = currentEnd - partition->offset;
 	// make the size a multiple of the block size (greater one)
-	newSize = sector_align_up(newSize, partition->block_size);
+	newSize = sector_align_up(newSize, partition->sector_size);
 	*size = newSize;
 	return true;
 }
@@ -285,12 +285,13 @@ validate_resize_child(partition_data* partition, partition_data* child,
 	// size remains the same?
 	if (*size == childSize)
 		return true;
+
 	// shrink partition?
 	if (*size < childSize) {
 		if (*size < 0)
 			*size = 0;
 		// make the size a multiple of the block size
-		*size = sector_align(*size, partition->block_size);
+		*size = sector_align(*size, partition->sector_size);
 		return true;
 	}
 	// grow partition
@@ -309,7 +310,7 @@ validate_resize_child(partition_data* partition, partition_data* child,
 
 	if (nextSibling && (nextOffset < childOffset + *size))
 		*size = nextOffset - childOffset;
-	*size = sector_align(*size, partition->block_size);
+	*size = sector_align(*size, partition->sector_size);
 	return true;
 }
 
@@ -355,7 +356,7 @@ validate_move_child(partition_data* partition, partition_data* child,
 	else if (start + childSize > partition->size)
 		start = partition->size - childSize;
 
-	start = sector_align(start, partition->block_size);
+	start = sector_align(start, partition->sector_size);
 
 	// finding out sibling partitions
 	partition_data* previousSibling = NULL;
@@ -370,13 +371,13 @@ validate_move_child(partition_data* partition, partition_data* child,
 		// moving left
 		if (previousSibling && previousOffset + previousSize > start) {
 			start = previousOffset + previousSize;
-			start = sector_align_up(start, partition->block_size);
+			start = sector_align_up(start, partition->sector_size);
 		}
 	} else {
 		// moving right
 		if (nextSibling && nextOffset < start + childSize) {
 			start = nextOffset - childSize;
-			start = sector_align(start, partition->block_size);
+			start = sector_align(start, partition->sector_size);
 		}
 	}
 	*_start = start;
@@ -479,11 +480,11 @@ validate_create_child_partition(partition_data* partition, off_t* start,
 	off_t* size, fc_get_sibling_partitions getSiblingPartitions)
 {
 	// make the start and size a multiple of the block size
-	*start = sector_align(*start, partition->block_size);
+	*start = sector_align(*start, partition->sector_size);
 	if (*size < 0)
 		*size = 0;
 	else
-		*size = sector_align(*size, partition->block_size);
+		*size = sector_align(*size, partition->sector_size);
 
 	// child must completely lie within the parent partition
 	if (*start >= partition->offset + partition->size)
@@ -503,12 +504,12 @@ validate_create_child_partition(partition_data* partition, off_t* start,
 	// position check of the new partition
 	if (previousSibling && (previousOffset + previousSize > *start)) {
 		*start = previousOffset + previousSize;
-		*start = sector_align_up(*start, partition->block_size);
+		*start = sector_align_up(*start, partition->sector_size);
 	}
 
 	if (nextSibling && (nextOffset < *start + *size))
 		*size = nextOffset - *start;
-	*size = sector_align(*size, partition->block_size);
+	*size = sector_align(*size, partition->sector_size);
 	if (*size == 0)
 		return false;
 
@@ -556,9 +557,9 @@ pm_validate_create_child(partition_data* partition, off_t* start, off_t* size,
 		return false;
 	*index = newIndex;
 
-	if (*start < partition->offset + MBR_OFFSET * partition->block_size) {
-		*start = partition->offset + MBR_OFFSET * partition->block_size;
-		*start = sector_align_up(*start, partition->block_size);
+	if (*start < partition->offset + MBR_OFFSET * partition->sector_size) {
+		*start = partition->offset + MBR_OFFSET * partition->sector_size;
+		*start = sector_align_up(*start, partition->sector_size);
 	}
 
 	return validate_create_child_partition(partition, start, size,
@@ -649,11 +650,11 @@ get_partitionable_spaces(partition_data* partition,
 	int32 actualCount = 0;
 
 	// offset alignment (to upper bound)
-	offset = sector_align_up(offset, partition->block_size);
+	offset = sector_align_up(offset, partition->sector_size);
 	// finding out all partitionable spaces
 	for (int32 i = 0; i < partition_count; i++) {
 		size = positions[i].offset - offset;
-		size = sector_align(size, partition->block_size);
+		size = sector_align(size, partition->sector_size);
 		if (size >= limitSize) {
 			if (actualCount < count) {
 				buffer[actualCount].offset = offset;
@@ -662,11 +663,11 @@ get_partitionable_spaces(partition_data* partition,
 			actualCount++;
 		}
 		offset = positions[i].offset + positions[i].size + headerSize;
-		offset = sector_align_up(offset, partition->block_size);
+		offset = sector_align_up(offset, partition->sector_size);
 	}
 	// space in the end of partition
 	size = partition->offset + partition->size - offset;
-	size = sector_align(size, partition->block_size);
+	size = sector_align(size, partition->sector_size);
 	if (size > 0) {
 		if (actualCount < count) {
 			buffer[actualCount].offset = offset;
@@ -706,8 +707,8 @@ pm_get_partitionable_spaces(partition_data* partition,
 		return B_BAD_VALUE;
 
 	return get_partitionable_spaces(partition, buffer, count, actualCount,
-		fill_partitionable_spaces_buffer_pm, MBR_OFFSET * partition->block_size,
-		0, 0);
+		fill_partitionable_spaces_buffer_pm,
+		MBR_OFFSET * partition->sector_size, 0, 0);
 }
 
 
@@ -1149,7 +1150,7 @@ pm_move_child(int fd, partition_id partitionID, partition_id childID,
 
 	// buffer allocation
 	int32 allocated;
-	uint8* buffer = allocate_buffer(partition->block_size, MAX_MOVE_BUFFER,
+	uint8* buffer = allocate_buffer(partition->sector_size, MAX_MOVE_BUFFER,
 		&allocated);
 	if (!buffer)
 		return B_NO_MEMORY;
@@ -1159,7 +1160,7 @@ pm_move_child(int fd, partition_id partitionID, partition_id childID,
 	update_disk_device_job_progress(job, 0.0);
 	status_t error = B_OK;
 	error = move_partition(fd, child->offset, validatedOffset, child->size,
-		buffer, allocated * partition->block_size, job);
+		buffer, allocated * partition->sector_size, job);
 	delete[] buffer;
 	if (error != B_OK)
 		return error;
@@ -1169,7 +1170,7 @@ pm_move_child(int fd, partition_id partitionID, partition_id childID,
 	child->offset = validatedOffset;
 	primary->SetOffset(validatedOffset);
 
-	PartitionMapWriter writer(fd, partition->block_size);
+	PartitionMapWriter writer(fd, partition->sector_size);
 		// TODO: disk size?
 	error = writer.WriteMBR(map, false);
 	if (error != B_OK)
@@ -1273,7 +1274,7 @@ pm_initialize(int fd, partition_id partitionID, const char* name,
 	PartitionMap map;
 
 	// write the sector to disk
-	PartitionMapWriter writer(fd, partition->block_size);
+	PartitionMapWriter writer(fd, partition->sector_size);
 		// TODO: disk size or 2 * SECTOR_SIZE?
 	status_t error = writer.WriteMBR(&map, true);
 	if (error != B_OK)
@@ -1529,7 +1530,7 @@ ep_is_sub_system_for(partition_data* partition)
 
 	TRACE(("intel: ep_is_sub_system_for(%" B_PRId32 ": %" B_PRId64 ", "
 		"%" B_PRId64 ", %" B_PRId32 ", %s)\n", partition->id, partition->offset,
-		partition->size, partition->block_size, partition->content_type));
+		partition->size, partition->sector_size, partition->content_type));
 
 	// Intel Extended Partition can live in child partition of Intel Partition
 	// Map
@@ -1679,9 +1680,9 @@ ep_get_partitionable_spaces(partition_data* partition,
 
 	return get_partitionable_spaces(partition, buffer, count, actualCount,
 		fill_partitionable_spaces_buffer_ep,
-		partition->offset + PTS_OFFSET * partition->block_size,
-		PTS_OFFSET * partition->block_size,
-		PTS_OFFSET * partition->block_size);
+		partition->offset + PTS_OFFSET * partition->sector_size,
+		PTS_OFFSET * partition->sector_size,
+		PTS_OFFSET * partition->sector_size);
 }
 
 
@@ -1749,7 +1750,7 @@ check_partition_location_ep(partition_data* partition, off_t offset,
 		return false;
 
 	// make sure we are sector aligned
-	off_t alignedOffset = sector_align(offset, partition->block_size);
+	off_t alignedOffset = sector_align(offset, partition->sector_size);
 	if (alignedOffset != offset)
 		return false;
 
@@ -1856,7 +1857,7 @@ ep_resize_child(int fd, partition_id partitionID, off_t size, disk_job_id job)
 	update_disk_device_job_progress(job, 0.0);
 	logical->SetSize(validatedSize);
 
-	PartitionMapWriter writer(fd, partition->block_size);
+	PartitionMapWriter writer(fd, partition->sector_size);
 	// TODO: The partition is not supposed to be locked here!
 	status_t error = writer.WriteLogical(logical, primary, false);
 	if (error != B_OK) {
@@ -1945,7 +1946,7 @@ ep_move_child(int fd, partition_id partitionID, partition_id childID,
 
 	// buffer allocation
 	int32 allocated;
-	uint8* buffer = allocate_buffer(partition->block_size, MAX_MOVE_BUFFER,
+	uint8* buffer = allocate_buffer(partition->sector_size, MAX_MOVE_BUFFER,
 		&allocated);
 	if (!buffer)
 		return B_NO_MEMORY;
@@ -1957,7 +1958,7 @@ ep_move_child(int fd, partition_id partitionID, partition_id childID,
 	off_t pts_offset = logical->Offset() - logical->PartitionTableOffset();
 	error = move_partition(fd, child->offset - pts_offset,
 		validatedOffset - pts_offset, child->size + pts_offset, buffer,
-		allocated * partition->block_size, job);
+		allocated * partition->sector_size, job);
 	delete[] buffer;
 	if (error != B_OK)
 		return error;
@@ -1968,7 +1969,7 @@ ep_move_child(int fd, partition_id partitionID, partition_id childID,
 	logical->SetOffset(logical->Offset() + diffOffset);
 	logical->SetPartitionTableOffset(logical->PartitionTableOffset() + diffOffset);
 
-	PartitionMapWriter writer(fd, partition->block_size);
+	PartitionMapWriter writer(fd, partition->sector_size);
 		// TODO: If partition->offset is > prev->offset, then writing
 		// the previous logical partition table will fail!
 	// TODO: The partition is not supposed to be locked here!
@@ -2033,7 +2034,7 @@ ep_set_type(int fd, partition_id partitionID, const char* type, disk_job_id job)
 	uint8 oldType = logical->Type();
 	logical->SetType(ptype.Type());
 
-	PartitionMapWriter writer(fd, partition->block_size);
+	PartitionMapWriter writer(fd, partition->sector_size);
 	// TODO: The partition is not supposed to be locked here!
 	status_t error = writer.WriteLogical(logical, primary, false);
 	if (error != B_OK) {
@@ -2096,7 +2097,7 @@ ep_initialize(int fd, partition_id partitionID, const char* name,
 	partition_table table;
 	table.clear_code_area();
 
-	PartitionMapWriter writer(fd, partition->block_size);
+	PartitionMapWriter writer(fd, partition->sector_size);
 	// TODO: The partition is not supposed to be locked here!
 	status_t error = writer.ClearExtendedHead(primary);
 	if (error != B_OK)
@@ -2181,7 +2182,7 @@ ep_create_child(int fd, partition_id partitionID, off_t offset, off_t size,
 	logical->SetType(ptype.Type());
 	logical->SetActive(active);
 	logical->SetPrimaryPartition(primary);
-	logical->SetBlockSize(partition->block_size);
+	logical->SetBlockSize(partition->sector_size);
 	primary->AddLogicalPartition(logical);
 
 	int parentFD = open_partition(parent->id, O_RDWR);
