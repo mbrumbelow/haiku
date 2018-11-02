@@ -112,7 +112,7 @@ fs_scan_partition(int fd, partition_data* partition, void* _cookie)
 
 	partition->status = B_PARTITION_VALID;
 	partition->flags |= B_PARTITION_FILE_SYSTEM | B_PARTITION_READ_ONLY ;
-	partition->block_size = ISO_PVD_SIZE;
+	partition->content_block_size = ISO_PVD_SIZE;
 	partition->content_size = ISO_PVD_SIZE * info->max_blocks;
 	partition->content_name = strdup(info->PreferredName());
 

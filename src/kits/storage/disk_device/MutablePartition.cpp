@@ -30,7 +30,7 @@ BMutablePartition::UninitializeContents()
 	SetContentName(NULL);
 	SetContentParameters(NULL);
 	SetContentSize(0);
-	SetBlockSize(Parent()->BlockSize());
+	SetContentBlockSize(Parent()->ContentBlockSize());
 	SetContentType(NULL);
 	SetStatus(B_PARTITION_UNINITIALIZED);
 	ClearFlags(B_PARTITION_FILE_SYSTEM | B_PARTITION_PARTITIONING_SYSTEM);
@@ -96,21 +96,29 @@ BMutablePartition::SetContentSize(off_t size)
 }
 
 
-// BlockSize
+// SectorSize
 off_t
-BMutablePartition::BlockSize() const
+BMutablePartition::SectorSize() const
 {
-	return fData->block_size;
+	return fData->sector_size;
 }
 
 
-// SetBlockSize
-void
-BMutablePartition::SetBlockSize(off_t blockSize)
+// ContentBlockSize
+off_t
+BMutablePartition::ContentBlockSize() const
 {
-	if (fData->block_size != blockSize) {
-		fData->block_size = blockSize;
-		Changed(B_PARTITION_CHANGED_BLOCK_SIZE);
+	return fData->content_block_size;
+}
+
+
+// SetContentBlockSize
+void
+BMutablePartition::SetContentBlockSize(off_t blockSize)
+{
+	if (fData->content_block_size != blockSize) {
+		fData->content_block_size = blockSize;
+		Changed(B_PARTITION_CHANGED_CONTENT_BLOCK_SIZE);
 	}
 }
 
@@ -374,6 +382,7 @@ BMutablePartition::CreateChild(int32 index, BMutablePartition** _child)
 	child->fData->volume = -1;
 	child->fData->index = -1;
 	child->fData->disk_system = -1;
+	child->fData->sector_size = fData->sector_size;
 
 	*_child = child;
 
@@ -563,7 +572,8 @@ BMutablePartition::Init(const user_partition_data* partitionData,
 	fData->offset = partitionData->offset;
 	fData->size = partitionData->size;
 	fData->content_size = partitionData->content_size;
-	fData->block_size = partitionData->block_size;
+	fData->sector_size = partitionData->sector_size;
+	fData->content_block_size = partitionData->content_block_size;
 	fData->status = partitionData->status;
 	fData->flags = partitionData->flags;
 	fData->volume = partitionData->volume;

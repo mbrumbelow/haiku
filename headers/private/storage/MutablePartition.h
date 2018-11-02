@@ -25,8 +25,10 @@ public:
 			off_t				ContentSize() const;
 			void				SetContentSize(off_t size);
 
-			off_t				BlockSize() const;
-			void				SetBlockSize(off_t blockSize);
+			off_t				SectorSize() const;
+
+			off_t				ContentBlockSize() const;
+			void				SetContentBlockSize(off_t blockSize);
 
 			uint32				Status() const;
 			void				SetStatus(uint32 status);

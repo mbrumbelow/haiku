@@ -37,7 +37,8 @@ public:
 			off_t				Offset() const;		// 0 for devices
 			off_t				Size() const;
 			off_t				ContentSize() const;	// 0 if uninitialized
-			uint32				BlockSize() const;
+			uint32				SectorSize() const;
+			uint32				ContentBlockSize() const;
 			int32				Index() const;		// 0 for devices
 			uint32				Status() const;
 

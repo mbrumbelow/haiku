@@ -1379,7 +1379,7 @@ KDiskDeviceManager::_ScanPartition(KPartition* partition,
 
 	// This happens with some copy protected CDs or eventually other issues.
 	// Just ignore the partition...
-	if (partition->Offset() < 0 || partition->BlockSize() == 0
+	if (partition->Offset() < 0 || partition->ContentBlockSize() == 0
 		|| partition->Size() <= 0) {
 		OUT("Partition %s has invalid parameters, ignoring it.\n",
 			partitionPath.Path());

@@ -45,7 +45,7 @@ Volume::Volume(boot::Partition *partition)
 	if (buf == NULL)
 		return;*/
 
-	fBlockSize = partition->block_size;
+	fBlockSize = partition->content_block_size;
 	switch (fBlockSize) {
 	case 0x200:
 		fBlockShift = 9;

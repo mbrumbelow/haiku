@@ -22,7 +22,8 @@ typedef struct fssh_partition_data {
 	fssh_off_t			offset;
 	fssh_off_t			size;
 	fssh_off_t			content_size;
-	uint32_t			block_size;
+	uint32_t			sector_size;
+	uint32_t			content_block_size;
 	int32_t				child_count;
 	int32_t				index;			// [sys]
 	uint32_t			status;

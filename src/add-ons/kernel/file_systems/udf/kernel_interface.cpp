@@ -87,7 +87,7 @@ udf_identify_partition(int fd, partition_data *partition, void **_cookie)
 	uint8 descriptorCount = kMaxPartitionDescriptors;
 	uint32 blockShift;
 	status_t error = udf_recognize(fd, partition->offset, partition->size,
-		partition->block_size, blockShift, primaryVolumeDescriptor,
+		partition->sector_size, blockShift, primaryVolumeDescriptor,
 		logicalVolumeDescriptor, partitionDescriptors, descriptorCount);
 	if (error != B_OK)
 		return -1;
@@ -114,7 +114,7 @@ udf_scan_partition(int fd, partition_data *partition, void *_cookie)
 	partition->flags |= B_PARTITION_FILE_SYSTEM;
 	partition->content_size = partition->size;
 		// TODO: not actually correct
-	partition->block_size = volumeDescriptor.logical_block_size();
+	partition->content_block_size = volumeDescriptor.logical_block_size();
 
 	UdfString name(volumeDescriptor.logical_volume_identifier());
 	partition->content_name = strdup(name.Utf8());

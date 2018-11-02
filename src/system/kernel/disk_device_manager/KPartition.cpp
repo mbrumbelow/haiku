@@ -72,7 +72,8 @@ KPartition::KPartition(partition_id id)
 	fPartitionData.offset = 0;
 	fPartitionData.size = 0;
 	fPartitionData.content_size = 0;
-	fPartitionData.block_size = 0;
+	fPartitionData.sector_size = 0;
+	fPartitionData.content_block_size = 0;
 	fPartitionData.child_count = 0;
 	fPartitionData.index = -1;
 	fPartitionData.status = B_PARTITION_UNRECOGNIZED;
@@ -201,7 +202,7 @@ KPartition::PublishDevice()
 	partition_info info;
 	info.offset = Offset();
 	info.size = Size();
-	info.logical_block_size = BlockSize();
+	info.logical_block_size = ContentBlockSize();
 	info.session = 0;
 	info.partition = ID();
 	if (strlcpy(info.device, Device()->Path(), sizeof(info.device))
@@ -436,20 +437,27 @@ KPartition::ContentSize() const
 }
 
 
-void
-KPartition::SetBlockSize(uint32 blockSize)
+uint32
+KPartition::SectorSize() const
 {
-	if (fPartitionData.block_size != blockSize) {
-		fPartitionData.block_size = blockSize;
-		FireBlockSizeChanged(blockSize);
+	return fPartitionData.sector_size;
+}
+
+
+void
+KPartition::SetContentBlockSize(uint32 blockSize)
+{
+	if (fPartitionData.content_block_size != blockSize) {
+		fPartitionData.content_block_size = blockSize;
+		FireContentBlockSizeChanged(blockSize);
 	}
 }
 
 
 uint32
-KPartition::BlockSize() const
+KPartition::ContentBlockSize() const
 {
-	return fPartitionData.block_size;
+	return fPartitionData.content_block_size;
 }
 
 
@@ -1211,10 +1219,10 @@ KPartition::UninitializeContents(bool logChanges)
 			flags |= B_PARTITION_CHANGED_CONTENT_SIZE;
 		}
 
-		// block size
-		if (Parent() && Parent()->BlockSize() != BlockSize()) {
-			SetBlockSize(Parent()->BlockSize());
-			flags |= B_PARTITION_CHANGED_BLOCK_SIZE;
+		// content block size
+		if (Parent() && Parent()->ContentBlockSize() != ContentBlockSize()) {
+			SetContentBlockSize(Parent()->ContentBlockSize());
+			flags |= B_PARTITION_CHANGED_CONTENT_BLOCK_SIZE;
 		}
 
 		// disk system
@@ -1270,7 +1278,8 @@ KPartition::WriteUserData(UserDataWriter& writer, user_partition_data* data)
 		data->offset = Offset();
 		data->size = Size();
 		data->content_size = ContentSize();
-		data->block_size = BlockSize();
+		data->sector_size = SectorSize();
+		data->content_block_size = ContentBlockSize();
 		data->status = Status();
 		data->flags = Flags();
 		data->volume = VolumeID();
@@ -1321,7 +1330,8 @@ KPartition::Dump(bool deep, int32 level)
 	OUT("%s  size:              %" B_PRIdOFF " (%.2f MB)\n", prefix, Size(),
 		Size() / (1024.0*1024));
 	OUT("%s  content size:      %" B_PRIdOFF "\n", prefix, ContentSize());
-	OUT("%s  block size:        %" B_PRIu32 "\n", prefix, BlockSize());
+	OUT("%s  block size:        %" B_PRIu32 "\n", prefix, fPartitionData.sector_size);
+	OUT("%s  content block size:%" B_PRIu32 "\n", prefix, ContentBlockSize());
 	OUT("%s  child count:       %" B_PRId32 "\n", prefix, CountChildren());
 	OUT("%s  index:             %" B_PRId32 "\n", prefix, Index());
 	OUT("%s  status:            %" B_PRIu32 "\n", prefix, Status());
@@ -1379,12 +1389,12 @@ KPartition::FireContentSizeChanged(off_t size)
 
 
 void
-KPartition::FireBlockSizeChanged(uint32 blockSize)
+KPartition::FireContentBlockSizeChanged(uint32 blockSize)
 {
 	if (fListeners) {
 		for (ListenerSet::Iterator it = fListeners->Begin();
 			 it != fListeners->End(); ++it) {
-			(*it)->BlockSizeChanged(this, blockSize);
+			(*it)->ContentBlockSizeChanged(this, blockSize);
 		}
 	}
 }

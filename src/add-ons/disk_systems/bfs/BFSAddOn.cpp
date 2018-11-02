@@ -161,7 +161,7 @@ BFSAddOn::Initialize(BMutablePartition* partition, const char* name,
 	partition->SetContentName(name);
 	partition->SetContentParameters(parameterString);
 	uint32 blockSize = parameters.blockSize;
-	partition->SetBlockSize(blockSize);
+	partition->SetContentBlockSize(blockSize);
 	partition->SetContentSize(partition->Size() / blockSize * blockSize);
 	partition->Changed(B_PARTITION_CHANGED_INITIALIZATION);
 

@@ -26,7 +26,7 @@
 #	define TRACE(x...) do {} while (false)
 #endif
 
-#define PTS_OFFSET (63 * Partition()->BlockSize())
+#define PTS_OFFSET (63 * Partition()->SectorSize())
 
 
 using std::nothrow;
@@ -140,7 +140,7 @@ ExtendedPartitionAddOn::Initialize(BMutablePartition* partition,
 	partition->SetContentName(NULL);
 	partition->SetContentParameters(NULL);
 	partition->SetContentSize(
-		sector_align(partition->Size(), partition->BlockSize()));
+		sector_align(partition->Size(), partition->SectorSize()));
 	partition->Changed(B_PARTITION_CHANGED_INITIALIZATION);
 
 	*_handle = handleDeleter.Detach();
@@ -289,7 +289,7 @@ ExtendedPartitionHandle::GetPartitioningInfo(BPartitioningInfo* info)
 	for (int32 i = 0; i < count; i++) {
 		BMutablePartition* child = partition->ChildAt(i);
 		error = info->ExcludeOccupiedSpace(child->Offset(),
-			child->Size() + PTS_OFFSET + Partition()->BlockSize());
+			child->Size() + PTS_OFFSET + Partition()->SectorSize());
 		if (error != B_OK)
 			return error;
 
@@ -298,7 +298,7 @@ ExtendedPartitionHandle::GetPartitioningInfo(BPartitioningInfo* info)
 			return B_BAD_VALUE;
 		error = info->ExcludeOccupiedSpace(
 			logical->PartitionTableOffset(),
-				PTS_OFFSET + Partition()->BlockSize());
+				PTS_OFFSET + Partition()->SectorSize());
 		if (error != B_OK)
 			return error;
 	}
@@ -340,8 +340,8 @@ ExtendedPartitionHandle::ValidateCreateChild(off_t* _offset, off_t* _size,
 		return B_BAD_VALUE;
 
 	// check offset and size
-	off_t offset = sector_align(*_offset, Partition()->BlockSize());
-	off_t size = sector_align(*_size, Partition()->BlockSize());
+	off_t offset = sector_align(*_offset, Partition()->SectorSize());
+	off_t size = sector_align(*_size, Partition()->SectorSize());
 		// TODO: Rather round size up?
 	off_t end = offset + size;
 
@@ -431,8 +431,8 @@ ExtendedPartitionHandle::CreateChild(off_t offset, off_t size,
 		return B_BAD_VALUE;
 
 	// offset properly aligned?
-	if (offset != sector_align(offset, Partition()->BlockSize())
-		|| size != sector_align(size, Partition()->BlockSize()))
+	if (offset != sector_align(offset, Partition()->SectorSize())
+		|| size != sector_align(size, Partition()->SectorSize()))
 		return B_BAD_VALUE;
 
 	// check the free space situation
@@ -470,7 +470,7 @@ ExtendedPartitionHandle::CreateChild(off_t offset, off_t size,
 	// init the child
 	child->SetOffset(offset);
 	child->SetSize(size);
-	child->SetBlockSize(Partition()->BlockSize());
+	child->SetContentBlockSize(Partition()->ContentBlockSize());
 	//child->SetFlags(0);
 	child->SetChildCookie(Partition());
 

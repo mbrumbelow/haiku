@@ -92,8 +92,8 @@ PartitionMapAddOn::CanInitialize(const BMutablePartition* partition)
 {
 	// If it's big enough, but not too big (ie. larger than 2^32 blocks) we can
 	// initialize it.
-	return partition->Size() >= 2 * partition->BlockSize()
-		&& partition->Size() / partition->BlockSize() < UINT32_MAX;
+	return partition->Size() >= 2 * partition->ContentBlockSize()
+		&& partition->Size() / partition->ContentBlockSize() < UINT32_MAX;
 }
 
 
@@ -139,7 +139,7 @@ PartitionMapAddOn::Initialize(BMutablePartition* partition, const char* name,
 	partition->SetContentName(NULL);
 	partition->SetContentParameters(NULL);
 	partition->SetContentSize(
-		sector_align(partition->Size(), partition->BlockSize()));
+		sector_align(partition->Size(), partition->ContentBlockSize()));
 	partition->Changed(B_PARTITION_CHANGED_INITIALIZATION);
 
 	*_handle = handleDeleter.Detach();
@@ -194,7 +194,7 @@ PartitionMapHandle::Init()
 
 		PrimaryPartition* primary = fPartitionMap.PrimaryPartitionAt(index);
 		primary->SetTo(child->Offset(), child->Size(), type.Type(), active,
-			partition->BlockSize());
+			partition->SectorSize());
 
 		child->SetChildCookie(primary);
 	}
@@ -274,8 +274,8 @@ PartitionMapHandle::GetPartitioningInfo(BPartitioningInfo* info)
 {
 	// init to the full size (minus the first sector)
 	off_t size = Partition()->ContentSize();
-	status_t error = info->SetTo(Partition()->BlockSize(),
-		size - Partition()->BlockSize());
+	status_t error = info->SetTo(Partition()->SectorSize(),
+		size - Partition()->SectorSize());
 	if (error != B_OK)
 		return error;
 
@@ -391,8 +391,8 @@ PartitionMapHandle::ValidateCreateChild(off_t* _offset, off_t* _size,
 		return B_DEVICE_FULL;
 
 	// check offset and size
-	off_t offset = sector_align(*_offset, Partition()->BlockSize());
-	off_t size = sector_align(*_size, Partition()->BlockSize());
+	off_t offset = sector_align(*_offset, Partition()->SectorSize());
+	off_t size = sector_align(*_size, Partition()->SectorSize());
 		// TODO: Rather round size up?
 	off_t end = offset + size;
 
@@ -503,8 +503,8 @@ PartitionMapHandle::CreateChild(off_t offset, off_t size,
 		return B_BAD_VALUE;
 
 	// offset properly aligned?
-	if (offset != sector_align(offset, Partition()->BlockSize())
-		|| size != sector_align(size, Partition()->BlockSize()))
+	if (offset != sector_align(offset, Partition()->SectorSize())
+		|| size != sector_align(size, Partition()->SectorSize()))
 		return B_BAD_VALUE;
 
 	// check the free space situation
@@ -543,12 +543,12 @@ PartitionMapHandle::CreateChild(off_t offset, off_t size,
 	// init the child
 	child->SetOffset(offset);
 	child->SetSize(size);
-	child->SetBlockSize(partition->BlockSize());
+	child->SetContentBlockSize(partition->ContentBlockSize());
 	//child->SetFlags(0);
 	child->SetChildCookie(primary);
 
 	// init the primary partition
-	primary->SetTo(offset, size, type.Type(), active, partition->BlockSize());
+	primary->SetTo(offset, size, type.Type(), active, partition->ContentBlockSize());
 
 	*_child = child;
 	return B_OK;
