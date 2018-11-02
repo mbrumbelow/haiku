@@ -58,7 +58,8 @@ static const uint32 kMsgToggleLiveInDeskbar = 'tgDb';
 static const uint32 kMsgToggleSwitchOnWheel = 'tgWh';
 
 
-extern "C" _EXPORT BView* instantiate_deskbar_item();
+extern "C" _EXPORT BView* instantiate_deskbar_item(float maxWidth,
+	float maxHeight);
 
 
 static status_t
@@ -1092,7 +1093,18 @@ WorkspacesApp::ArgvReceived(int32 argc, char **argv)
 }
 
 
-BView* instantiate_deskbar_item()
+void
+WorkspacesApp::ReadyToRun()
+{
+	fWindow->Show();
+}
+
+
+//	#pragma mark -
+
+
+BView*
+instantiate_deskbar_item(float maxWidth, float maxHeight)
 {
 	// Calculate the correct size of the Deskbar replicant first
 
@@ -1111,7 +1123,7 @@ BView* instantiate_deskbar_item()
 	// When calculating workspace width, we must ensure that the assumed
 	// actual workspace height is not negative. Zero is OK.
 
-	float height = 16;
+	float height = maxHeight;
 	float rowHeight = floor((height - 1) / rows);
 	if (rowHeight < 1)
 		rowHeight = 1;
@@ -1119,17 +1131,10 @@ BView* instantiate_deskbar_item()
 	float columnWidth = floor((rowHeight - 1) * aspectRatio) + 1;
 
 	float width = columnWidth * columns + 1;
-	if (width > 129)
-		width = 129;
+	if (width > maxWidth)
+		width = maxWidth;
 
 	return new WorkspacesView(BRect (0, 0, width - 1, height - 1), false);
-}
-
-
-void
-WorkspacesApp::ReadyToRun()
-{
-	fWindow->Show();
 }
 
 
