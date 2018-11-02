@@ -176,7 +176,8 @@ apple_scan_partition(int fd, partition_data *partition, void *_cookie)
 			return B_ERROR;
 		}
 
-		child->block_size = partition->block_size;
+		child->sector_size = partition->sector_size;
+		child->content_block_size = partition->content_block_size;
 	}
 
 	if (status == B_ENTRY_NOT_FOUND)

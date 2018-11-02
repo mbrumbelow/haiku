@@ -69,7 +69,7 @@ KPartitioningSystem::Identify(KPartition *partition, void **cookie)
 	int fd = -1;
 	if (partition->Open(O_RDONLY, &fd) != B_OK)
 		return -1;
-	if (partition->BlockSize() == 0) {
+	if (partition->ContentBlockSize() == 0) {
 		close(fd);
 		return -1;
 	}
@@ -435,7 +435,7 @@ KPartitioningSystem::Uninitialize(KPartition* partition, disk_job_id job)
 
 	// let the module do its job
 	result = fModule->uninitialize(fd, partition->ID(), partition->Size(),
-		partition->BlockSize(), job);
+		partition->ContentBlockSize(), job);
 
 	// cleanup and return
 	close(fd);

@@ -294,7 +294,7 @@ MountArchivedVisitor::_Score(BPartition* partition)
 		score += 1;
 
 	uint32 blockSize = fArchived.GetUInt32("blockSize", 0);
-	if (blockSize == partition->BlockSize())
+	if (blockSize == partition->ContentBlockSize())
 		score += 1;
 
 	return score;
@@ -334,7 +334,7 @@ ArchiveVisitor::Visit(BPartition* partition, int32 level)
 		return false;
 
 	BMessage info;
-	info.AddUInt32("blockSize", partition->BlockSize());
+	info.AddUInt32("blockSize", partition->ContentBlockSize());
 	info.AddInt64("capacity", partition->ContentSize());
 	info.AddString("deviceName", path.Path());
 	info.AddString("volumeName", partition->ContentName());

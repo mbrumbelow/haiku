@@ -52,7 +52,7 @@ Volume::Volume(boot::Partition *partition)
 	if (buffer == NULL)
 		return;
 
-	int32 blockSize = partition->block_size;
+	int32 blockSize = partition->content_block_size;
 	if (get_root_block(fDevice, buffer, blockSize, partition->size) != B_OK) {
 		// try to get the root block at different sizes, if the
 		// block size was incorrectly passed from the partitioning

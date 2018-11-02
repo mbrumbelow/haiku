@@ -198,7 +198,9 @@ amiga_rdb_scan_partition(int fd, partition_data *partition, void *_cookie)
 			return B_ERROR;
 		}
 
-		child->block_size = environment.BlockSize();
+		child->sector_size = partition->sector_size;
+		child->content_block_size = environment.BlockSize();
+
 	}
 
 	if (status == B_ENTRY_NOT_FOUND)

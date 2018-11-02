@@ -135,7 +135,7 @@ exfat_scan_partition(int fd, partition_data* partition, void* _cookie)
 	partition->flags |= B_PARTITION_FILE_SYSTEM;
 	partition->content_size = cookie->super_block.NumBlocks()
 		<< cookie->super_block.BlockShift();
-	partition->block_size = 1 << cookie->super_block.BlockShift();
+	partition->content_block_size = 1 << cookie->super_block.BlockShift();
 	partition->content_name = strdup(cookie->name);
 
 	return partition->content_name != NULL ? B_OK : B_NO_MEMORY;

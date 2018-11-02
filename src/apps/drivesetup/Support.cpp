@@ -38,7 +38,8 @@ dump_partition_info(const BPartition* partition)
 		sizeof(size)));
 	printf("\tContentSize(): %s\n", string_for_size(partition->ContentSize(),
 		size, sizeof(size)));
-	printf("\tBlockSize(): %" B_PRId32 "\n", partition->BlockSize());
+	printf("\tSectorSize(): %" B_PRId32 "\n", partition->SectorSize());
+	printf("\tContentBlockSize(): %" B_PRId32 "\n", partition->ContentBlockSize());
 	printf("\tIndex(): %" B_PRId32 "\n", partition->Index());
 	printf("\tStatus(): %" B_PRId32 "\n\n", partition->Status());
 	printf("\tContainsFileSystem(): %s\n",

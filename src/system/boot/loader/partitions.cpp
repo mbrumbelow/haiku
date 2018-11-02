@@ -451,7 +451,8 @@ add_partitions_for(int fd, bool mountFileSystems, bool isBootDevice)
 	Partition *partition = new(nothrow) Partition(fd);
 
 	// set some magic/default values
-	partition->block_size = 512;
+	partition->sector_size = 512;
+	partition->content_block_size = 512;
 	partition->size = partition->Size();
 
 	// add this partition to the list of partitions
