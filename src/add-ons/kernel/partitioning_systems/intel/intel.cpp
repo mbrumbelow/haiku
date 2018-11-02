@@ -103,9 +103,16 @@ pm_identify_partition(int fd, partition_data* partition, void** cookie)
 	if (fd < 0 || !partition || !cookie)
 		return -1;
 
+#ifdef _BOOT_MODE
+	uint32 block_size = partition->block_size;
+#else
+	disk_device_data* diskDevice = get_disk_device(partition->id);
+	uint32 block_size = diskDevice->geometry.bytes_per_sector;
+#endif
+
 	TRACE(("intel: pm_identify_partition(%d, %" B_PRId32 ": %" B_PRId64 ", "
 		"%" B_PRId64 ", %" B_PRId32 ")\n", fd, partition->id, partition->offset,
-		partition->size, partition->block_size));
+		partition->size, block_size));
 	// reject extended partitions
 	if (partition->type
 		&& !strcmp(partition->type, kPartitionTypeIntelExtended)) {
@@ -118,7 +125,7 @@ pm_identify_partition(int fd, partition_data* partition, void** cookie)
 		return -1;
 
 	// read the partition structure
-	PartitionMapParser parser(fd, 0, partition->size, partition->block_size);
+	PartitionMapParser parser(fd, 0, partition->size, block_size);
 	status_t error = parser.Parse(NULL, map);
 	if (error != B_OK) {
 		// cleanup, if not detected
@@ -168,9 +175,16 @@ pm_scan_partition(int fd, partition_data* partition, void* cookie)
 	if (fd < 0 || !partition || !cookie)
 		return B_ERROR;
 
+#ifdef _BOOT_MODE
+	uint32 block_size = partition->block_size;
+#else
+	disk_device_data* diskDevice = get_disk_device(partition->id);
+	uint32 block_size = diskDevice->geometry.bytes_per_sector;
+#endif
+
 	TRACE(("intel: pm_scan_partition(%d, %" B_PRId32 ": %" B_PRId64 ", "
 		"%" B_PRId64 ", %" B_PRId32 ")\n", fd, partition->id, partition->offset,
-		partition->size, partition->block_size));
+		partition->size, block_size));
 
 	PartitionMapCookie* map = (PartitionMapCookie*)cookie;
 	// fill in the partition_data structure
@@ -197,7 +211,7 @@ pm_scan_partition(int fd, partition_data* partition, void* cookie)
 				break;
 			}
 
-			child->block_size = partition->block_size;
+			child->block_size = block_size;
 
 			// (no name)
 			char type[B_FILE_NAME_LENGTH];
@@ -320,9 +334,16 @@ ep_scan_partition(int fd, partition_data* partition, void* cookie)
 	if (fd < 0 || !partition || !partition->cookie)
 		return B_ERROR;
 
+#ifdef _BOOT_MODE
+	uint32 block_size = partition->block_size;
+#else
+	disk_device_data* diskDevice = get_disk_device(partition->id);
+	uint32 block_size = diskDevice->geometry.bytes_per_sector;
+#endif
+
 	TRACE(("intel: ep_scan_partition(%d, %" B_PRId64 ", %" B_PRId64 ", "
 		"%" B_PRId32 ")\n", fd, partition->offset, partition->size,
-		partition->block_size));
+		block_size));
 
 	partition_data* parent = get_parent_partition(partition->id);
 	if (!parent)
@@ -352,7 +373,7 @@ ep_scan_partition(int fd, partition_data* partition, void* cookie)
 			error = B_ERROR;
 			break;
 		}
-		child->block_size = partition->block_size;
+		child->block_size = block_size;
 
 		// (no name)
 		char type[B_FILE_NAME_LENGTH];
