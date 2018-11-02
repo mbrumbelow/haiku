@@ -189,6 +189,36 @@ device_ioctl(void* cookie, uint32 msg, void* buffer, size_t bufferLength)
 			return status;
 		}
 
+		case VESA_GET_BRIGHTNESS:
+		{
+			uint8_t current;
+			uint8_t max;
+
+			if (bufferLength != 2)
+				return B_BAD_DATA;
+
+			status_t status = vesa_get_brightness_info(*info, &current, &max);
+
+			if (status == B_OK) {
+				user_memcpy((uint8_t*)buffer, &current, 1);
+				user_memcpy((uint8_t*)buffer + 1, &max, 1);
+			}
+
+			return status;
+		}
+
+		case VESA_SET_BRIGHTNESS:
+		{
+			uint8_t brightness;
+
+			if (bufferLength != 1)
+				return B_BAD_DATA;
+
+			user_memcpy(&brightness, buffer, 1);
+
+			return vesa_set_brightness(*info, brightness);
+		}
+
 		case VGA_PLANAR_BLIT:
 		{
 			if (info->shared_info->current_mode.space != B_GRAY8
