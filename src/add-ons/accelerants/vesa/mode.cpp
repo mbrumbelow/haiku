@@ -258,8 +258,21 @@ vesa_set_brightness(float brightness)
 	status_t result = ioctl(gInfo->device, VESA_GET_BRIGHTNESS, &rawValues,
 		sizeof(rawValues));
 
-	if (result != B_OK)
+	if (result != B_OK) {
+		// No VBE/FP support. Try with DPMS.
+		if ((vesa_dpms_capabilities() & B_DPMS_REDUCED_ON) == 0)
+			return result;
+
+		uint32 mode = vesa_dpms_mode();
+		uint32 newMode = mode & ~B_DPMS_REDUCED_ON;
+		if (brightness <= 0.5)
+			newMode |= B_DPMS_REDUCED_ON;
+
+		if (newMode != mode)
+			vesa_set_dpms_mode(newMode);
+
 		return result;
+	}
 
 	uint8_t newValue = (uint8_t)(brightness * rawValues[1]);
 
@@ -282,6 +295,20 @@ vesa_get_brightness(float* brightness)
 
 	if (result == B_OK)
 		*brightness = (float)rawValues[0] / rawValues[1];
+	else {
+		// No VBE/FP support. Try DPMS, which offers a single level brightness
+		// setting (better than nothing, right?)
+		if ((vesa_dpms_capabilities() & B_DPMS_REDUCED_ON) == 0)
+			return result;
+
+		if (vesa_dpms_mode() & B_DPMS_REDUCED_ON) {
+			*brightness = 0.5;
+			return B_OK;
+		} else {
+			*brightness = 1;
+			return B_OK;
+		}
+	}
 
 	return result;
 }

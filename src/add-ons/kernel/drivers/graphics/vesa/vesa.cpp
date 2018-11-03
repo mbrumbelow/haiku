@@ -179,12 +179,14 @@ static uint32
 vbe_to_system_dpms(uint8 vbeMode)
 {
 	uint32 mode = 0;
-	if ((vbeMode & (DPMS_OFF | DPMS_REDUCED_ON)) != 0)
+	if ((vbeMode & DPMS_OFF) != 0)
 		mode |= B_DPMS_OFF;
 	if ((vbeMode & DPMS_STANDBY) != 0)
 		mode |= B_DPMS_STAND_BY;
 	if ((vbeMode & DPMS_SUSPEND) != 0)
 		mode |= B_DPMS_SUSPEND;
+	if ((vbeMode & DPMS_REDUCED_ON) != 0)
+		mode |= B_DPMS_REDUCED_ON;
 
 	return mode;
 }
@@ -603,6 +605,8 @@ vesa_set_dpms_mode(vesa_info& info, uint32 mode)
 		vbeMode |= DPMS_STANDBY;
 	if ((mode & B_DPMS_SUSPEND) != 0)
 		vbeMode |= DPMS_SUSPEND;
+	if ((mode & B_DPMS_REDUCED_ON) != 0)
+		vbeMode |= DPMS_REDUCED_ON;
 
 	vbeMode &= info.vbe_dpms_capabilities;
 
