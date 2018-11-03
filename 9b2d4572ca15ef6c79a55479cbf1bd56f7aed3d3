@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "9efe3cc5_9d699766",
+        "filename": "headers/os/add-ons/graphics/Accelerant.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-11-03T09:04:15Z",
+      "side": 1,
+      "message": "Indentation",
+      "range": {
+        "startLine": 201,
+        "startChar": 18,
+        "endLine": 201,
+        "endChar": 21
+      },
+      "revId": "9b2d4572ca15ef6c79a55479cbf1bd56f7aed3d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1575cd2d_58654b58",
         "filename": "src/add-ons/accelerants/vesa/mode.cpp",
         "patchSetId": 1
