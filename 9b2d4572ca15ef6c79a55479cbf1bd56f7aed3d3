@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1575cd2d_58654b58",
+        "filename": "src/add-ons/accelerants/vesa/mode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-11-03T09:03:11Z",
+      "side": 1,
+      "message": "Indentation",
+      "range": {
+        "startLine": 266,
+        "startChar": 1,
+        "endLine": 266,
+        "endChar": 5
+      },
+      "revId": "9b2d4572ca15ef6c79a55479cbf1bd56f7aed3d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
