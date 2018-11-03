@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3e553ee1_7c76ced4",
+        "filename": "src/bin/screenmode/screenmode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-11-03T09:08:40Z",
+      "side": 1,
+      "message": "?",
+      "revId": "2402232f0c16d335286d7aef3120a80d37293753",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
