@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "399fd436_9255d412",
+        "filename": "src/apps/workspaces/Workspaces.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1118,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-11-04T08:12:48Z",
+      "side": 1,
+      "message": "This comment is now outdated.",
+      "revId": "59a7131cafb737277d5ff29ff5235a3e14757052",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
