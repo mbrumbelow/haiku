@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "39164cb2_3bbdbfa1",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2250,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-11-04T17:01:47Z",
+      "side": 1,
+      "message": "GCC7 will probably warn about this fallthrough due to the scope change, and since we can\u0027t add the [[fallthrough]] attribute without confusing GCC2, perhaps just leave it the way it was before for now?",
+      "revId": "11fe068b9483dc2c63be47e2910473170465d5f3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
