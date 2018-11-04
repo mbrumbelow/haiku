@@ -1558,7 +1558,7 @@ AVCodecDecoder::_UpdateMediaHeaderForVideoFrame()
 	fHeader.type = B_MEDIA_RAW_VIDEO;
 	fHeader.file_pos = 0;
 	fHeader.orig_size = 0;
-	fHeader.start_time = fRawDecodedPicture->pkt_dts;
+	fHeader.start_time = fRawDecodedPicture->best_effort_timestamp;
 		// The pkt_dts is already in microseconds, even if ffmpeg docs says
 		// 'in codec time_base units'
 	fHeader.size_used = av_image_get_buffer_size(
