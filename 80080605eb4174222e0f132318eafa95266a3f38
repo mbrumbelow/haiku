@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "18245e16_890e3802",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-11-04T20:51:51Z",
+      "side": 1,
+      "message": "Well ... we should probably fix that before merging.",
+      "revId": "80080605eb4174222e0f132318eafa95266a3f38",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5177cf0_3c6edb07",
+        "filename": "src/apps/deskbar/ExpandoMenuBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-11-04T20:51:51Z",
+      "side": 1,
+      "message": "This should probably be fixed before merging?",
+      "revId": "80080605eb4174222e0f132318eafa95266a3f38",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9572770_0c57ccb7",
+        "filename": "src/apps/deskbar/icons.rdef",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-11-04T20:51:51Z",
+      "side": 1,
+      "message": "Is the source for this already in the repo?",
+      "revId": "80080605eb4174222e0f132318eafa95266a3f38",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
