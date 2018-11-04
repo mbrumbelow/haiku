@@ -1405,13 +1405,7 @@ AVCodecDecoder::_LoadNextChunkIfNeededAndAssignStartTime()
 		// stamps (ake pts / dts fields) that can be evaluated by FFMPEG. But
 		// as long as I don't have such video data to test it, it makes no
 		// sense trying to implement it.
-		//
-		// FIXME: Implement tracking start_time of video frames originating in
-		// data chunks that encode more than one video frame at a time. In that
-		// case on would increment the start_time for each consecutive frame of
-		// such a data chunk (like it is done for audio frame decoding). But as
-		// long as I don't have such video data to test it, it makes no sense
-		// to implement it.
+	av_packet_copy_props(&fTempPacket, (AVPacket*)&chunkMediaHeader.user_data);
 
 #ifdef LOG_STREAM_TO_FILE
 	BFile* logFile = fIsAudio ? &sAudioStreamLogFile : &sVideoStreamLogFile;

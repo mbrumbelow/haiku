@@ -694,6 +694,7 @@ StreamBase::GetNextChunk(const void** chunkBuffer,
 		mediaHeader->destination = -1;
 		mediaHeader->time_source = -1;
 		mediaHeader->size_used = fPacket.size;
+		*(AVPacket*)&mediaHeader->user_data = fPacket;
 
 		// FFmpeg recommends to use the decoding time stamps as primary source
 		// for presentation time stamps, especially for video formats that are
