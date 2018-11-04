@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b76673bf_56cada8f",
+        "filename": "src/add-ons/mail_daemon/outbound_protocols/smtp/SMTP.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-11-04T18:57:22Z",
+      "side": 1,
+      "message": "|| goes to next line.",
+      "revId": "469419891a2eeb1673ab8c77a2e29bce0f43a7cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
