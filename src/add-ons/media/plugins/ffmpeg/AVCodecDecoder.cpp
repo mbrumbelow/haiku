@@ -1559,10 +1559,14 @@ AVCodecDecoder::_FlushOneVideoFrameFromDecoderBuffer()
 void
 AVCodecDecoder::_UpdateMediaHeaderForVideoFrame()
 {
+	AVRational rationalTimestamp = av_make_q(
+		fRawDecodedPicture->best_effort_timestamp, 1);
+	AVRational seconds = av_mul_q(rationalTimestamp, fCodecContext->time_base);
+
 	fHeader.type = B_MEDIA_RAW_VIDEO;
 	fHeader.file_pos = 0;
 	fHeader.orig_size = 0;
-	fHeader.start_time = fRawDecodedPicture->pkt_dts;
+	fHeader.start_time = av_q2d(seconds) * 1000000;
 	fHeader.size_used = av_image_get_buffer_size(
 		colorspace_to_pixfmt(fOutputColorSpace), fRawDecodedPicture->width,
 		fRawDecodedPicture->height, 1);
