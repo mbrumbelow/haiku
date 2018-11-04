@@ -425,7 +425,10 @@ SMTPProtocol::Open(const char *address, int port, bool esmtp)
 	if (esmtp) {
 		const char *res = fLog.String();
 		char *p;
-		if ((p = ::strstr(res, "250-AUTH")) != NULL) {
+		// RFC 2554 (250-AUTH)
+		// RFC 4954 (250 AUTH)
+		if ((p = ::strstr(res, "250-AUTH")) != NULL ||
+			(p = ::strstr(res, "250 AUTH")) != NULL) {
 			if(::strstr(p, "LOGIN"))
 				fAuthType |= LOGIN;
 			if(::strstr(p, "PLAIN"))
