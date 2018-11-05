@@ -50,6 +50,8 @@ public:
 
 	virtual void				MessageReceived(BMessage* message);
 
+	Settings				fSettings;
+
 protected:
 	virtual status_t			HandleFetchBody(const entry_ref& ref,
 									const BMessenger& replyTo);
@@ -66,7 +68,6 @@ protected:
 	typedef std::map<IMAPFolder*, IMAPConnectionWorker*> WorkerMap;
 	typedef std::map<ino_t, IMAPFolder*> FolderNodeMap;
 
-			Settings			fSettings;
 			mutex				fWorkerLock;
 			BObjectList<IMAPConnectionWorker> fWorkers;
 			WorkerMap			fWorkerMap;
