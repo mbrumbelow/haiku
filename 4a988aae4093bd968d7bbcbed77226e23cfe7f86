@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84d28b33_e4607a43",
+        "filename": "src/add-ons/mail_daemon/inbound_protocols/imap/IMAPProtocol.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2018-11-05T14:40:07Z",
+      "side": 1,
+      "message": "Please don\u0027t just move member variables into the public: area so you can access them. You could add an accessor:\n\n const ::Settings*  Settings() const { return fSettings; }\n\nDoing it this way makes sure that the Settings instance or its pointer cannot be modified unintendedly.",
+      "revId": "4a988aae4093bd968d7bbcbed77226e23cfe7f86",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
