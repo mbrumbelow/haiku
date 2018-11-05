@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c51d5f01_e074b939",
+        "filename": "src/add-ons/mail_daemon/inbound_protocols/imap/imap_lib/Commands.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-11-05T15:48:51Z",
+      "side": 1,
+      "message": "The PutFlag method is supposed to add the space already. So we should remove it from the strings above, instead of doing this.",
+      "revId": "7e746c551c905adb27e89005514c51af5fa4e2d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
