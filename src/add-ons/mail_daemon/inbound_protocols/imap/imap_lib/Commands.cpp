@@ -53,6 +53,7 @@ GenerateFlagString(uint32 flags)
 	if ((flags & IMAP::kDraft) != 0)
 		PutFlag(string, "\\Draft ");
 
+	string.RemoveLast(" ");
 	return string;
 }
 
