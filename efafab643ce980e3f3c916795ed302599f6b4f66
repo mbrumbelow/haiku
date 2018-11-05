@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "551ad60e_ef31baa0",
+        "filename": "src/servers/mail/DeskbarView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-11-05T06:11:28Z",
+      "side": 1,
+      "message": "Was the use of maxHeight instead of maxWidth intended?",
+      "revId": "efafab643ce980e3f3c916795ed302599f6b4f66",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
