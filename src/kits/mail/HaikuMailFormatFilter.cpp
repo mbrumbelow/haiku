@@ -195,8 +195,11 @@ HaikuMailFormatFilter::HeaderFetched(entry_ref& ref, BFile& file,
 	_RemoveLeadingDots(name);
 		// Avoid files starting with a dot.
 
-	if (!attributes.HasString(B_MAIL_ATTR_STATUS))
+	if (!attributes.HasString(B_MAIL_ATTR_STATUS)) { // no IMAP flags mapped
 		attributes.AddString(B_MAIL_ATTR_STATUS, "New");
+		if (!attributes.HasInt32(B_MAIL_ATTR_READ))
+			attributes.AddInt32(B_MAIL_ATTR_READ, B_UNREAD);
+	}
 
 	_SetType(attributes, B_PARTIAL_MAIL_TYPE);
 
