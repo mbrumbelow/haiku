@@ -174,7 +174,7 @@ write_read_attr(BNode& node, read_flags flag)
 	const char* statusString = flag == B_READ ? "Read"
 		: flag  == B_SEEN ? "Seen" : "New";
 	if (node.WriteAttr(B_MAIL_ATTR_STATUS, B_STRING_TYPE, 0, statusString,
-			strlen(statusString)) < 0)
+			strlen(statusString) + 1) < 0)
 		return B_ERROR;
 
 	return B_OK;
