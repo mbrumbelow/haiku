@@ -19,6 +19,7 @@ class BBox;
 class BMenuField;
 class BPopUpMenu;
 class BStringView;
+class BSpinner;
 
 static const int32 kMsgSetFamily = 'fmly';
 static const int32 kMsgSetStyle = 'styl';
@@ -31,7 +32,7 @@ public:
 									const char* label,
 									const BFont* font = NULL);
 	virtual						~FontSelectionView();
-
+	
 	virtual void				MessageReceived(BMessage* message);
 
 			void				SetTarget(BHandler* messageTarget);
@@ -43,17 +44,15 @@ public:
 
 			void				UpdateFontsMenu();
 
-			BLayoutItem*	 	CreateSizesLabelLayoutItem();
-			BLayoutItem*		CreateSizesMenuBarLayoutItem();
-
-			BLayoutItem* 		CreateFontsLabelLayoutItem();
-			BLayoutItem*		CreateFontsMenuBarLayoutItem();
-
-			BView*				GetPreviewBox();
+			BLayoutItem* 		CreateFontsLabelLayoutItem() const;
+			BLayoutItem*		CreateFontsMenuBarLayoutItem() const;
+			
+			BView*				GetFontSizeSpinner() const;			
+			BView*				GetPreviewBox() const;
 			
 private:
 			void				_SelectCurrentFont(bool select);
-			void				_SelectCurrentSize(bool select);
+			void				_SelectCurrentSize();
 			void				_UpdateFontPreview();
 			void				_UpdateSystemFont();
 			void				_BuildSizesMenu();
@@ -62,10 +61,10 @@ protected:
 			BHandler*			fMessageTarget;
 
 			BMenuField*			fFontsMenuField;
-			BMenuField*			fSizesMenuField;
 			BPopUpMenu*			fFontsMenu;
-			BPopUpMenu*			fSizesMenu;
-
+			BSpinner*			fFontSizeSpinner;
+			BMessage*			fFontSizeMessage;
+						
 			BBox*				fPreviewBox;
 			BStringView*		fPreviewText;
 
