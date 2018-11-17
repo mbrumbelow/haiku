@@ -23,6 +23,7 @@
 #include <PopUpMenu.h>
 #include <String.h>
 #include <StringView.h>
+#include <Spinner.h>
 
 #include <FontPrivate.h>
 
@@ -38,7 +39,7 @@
 	// only on exit
 
 static const float kMinSize = 8.0;
-static const float kMaxSize = 24.0;
+static const float kMaxSize = 72.0;
 
 
 // private font API
@@ -77,7 +78,8 @@ FontSelectionView::FontSelectionView(const char* name,
 	const char* label, const BFont* currentFont)
 	:
 	BView(name, B_WILL_DRAW),
-	fMessageTarget(this)
+	fMessageTarget(this),
+	fFontSizeMessage(NULL)
 {
 	if (currentFont == NULL) {
 		if (!strcmp(Name(), "plain"))
@@ -97,19 +99,20 @@ FontSelectionView::FontSelectionView(const char* name,
 		fCurrentFont = *currentFont;
 
 	fSavedFont = fCurrentFont;
-
-	fSizesMenu = new BPopUpMenu("size menu");
-	_BuildSizesMenu();
-
+	
 	fFontsMenu = new BPopUpMenu("font menu");
 
 	// font menu
 	fFontsMenuField = new BMenuField("fonts", label, fFontsMenu);
 	fFontsMenuField->SetAlignment(B_ALIGN_RIGHT);
 
-	// size menu
-	fSizesMenuField = new BMenuField("size", B_TRANSLATE("Size:"), fSizesMenu);
-	fSizesMenuField->SetAlignment(B_ALIGN_RIGHT);
+	// font size
+	fFontSizeMessage = new BMessage(kMsgSetSize);
+	fFontSizeMessage->AddString("name", Name());
+
+	fFontSizeSpinner = new BSpinner("font size",  B_TRANSLATE("Size:"), fFontSizeMessage);
+	fFontSizeSpinner->SetRange(kMinSize, kMaxSize);
+	fFontSizeSpinner->SetExplicitMaxSize(BSize(B_SIZE_UNLIMITED, B_SIZE_UNSET));
 
 	// preview
 	fPreviewText = new BStringView("preview text",
@@ -128,6 +131,8 @@ FontSelectionView::FontSelectionView(const char* name,
 			B_USE_SMALL_SPACING, B_USE_SMALL_SPACING)
 		.TopView()
 	);
+
+	_SelectCurrentSize();
 }
 
 
@@ -136,6 +141,7 @@ FontSelectionView::~FontSelectionView()
 #ifndef INSTANT_UPDATE
 	_UpdateSystemFont();
 #endif
+	delete fFontSizeMessage;
 }
 
 
@@ -143,14 +149,7 @@ void
 FontSelectionView::SetTarget(BHandler* messageTarget)
 {
 	fMessageTarget = messageTarget;
-	fSizesMenu->SetTargetForItems(fMessageTarget);
-}
-
-
-BView*
-FontSelectionView::GetPreviewBox()
-{
-	return fPreviewBox;
+	fFontSizeSpinner->SetTarget(messageTarget);
 }
 
 
@@ -159,10 +158,9 @@ FontSelectionView::MessageReceived(BMessage *msg)
 {
 	switch (msg->what) {
 		case kMsgSetSize:
-		{
-			int32 size;
-			if (msg->FindInt32("size", &size) != B_OK
-				|| size == fCurrentFont.Size())
+		{	
+			int32 size = fFontSizeSpinner->Value();
+			if (size == fCurrentFont.Size())
 				break;
 
 			fCurrentFont.SetSize(size);
@@ -221,60 +219,31 @@ FontSelectionView::MessageReceived(BMessage *msg)
 	}
 }
 
-
-BLayoutItem*
-FontSelectionView::CreateSizesLabelLayoutItem()
+BView*
+FontSelectionView::GetPreviewBox() const
 {
-	return fSizesMenuField->CreateLabelLayoutItem();
+	return fPreviewBox;
+}
+
+
+BView*
+FontSelectionView::GetFontSizeSpinner() const
+{
+	return fFontSizeSpinner;
 }
 
 
 BLayoutItem*
-FontSelectionView::CreateSizesMenuBarLayoutItem()
-{
-	return fSizesMenuField->CreateMenuBarLayoutItem();
-}
-
-
-BLayoutItem*
-FontSelectionView::CreateFontsLabelLayoutItem()
+FontSelectionView::CreateFontsLabelLayoutItem() const
 {
 	return fFontsMenuField->CreateLabelLayoutItem();
 }
 
 
 BLayoutItem*
-FontSelectionView::CreateFontsMenuBarLayoutItem()
+FontSelectionView::CreateFontsMenuBarLayoutItem() const
 {
 	return fFontsMenuField->CreateMenuBarLayoutItem();
-}
-
-
-void
-FontSelectionView::_BuildSizesMenu()
-{
-	const int32 sizes[] = {7, 8, 9, 10, 11, 12, 13, 14, 16, 18, 19, 20,
-		21, 24, 0};
-
-	// build size menu
-	for (int32 i = 0; sizes[i]; i++) {
-		int32 size = sizes[i];
-		if (size < kMinSize || size > kMaxSize)
-			continue;
-
-		char label[32];
-		snprintf(label, sizeof(label), "%" B_PRId32, size);
-
-		BMessage* message = new BMessage(kMsgSetSize);
-		message->AddInt32("size", size);
-		message->AddString("name", Name());
-
-		BMenuItem* item = new BMenuItem(label, message);
-		if (size == fCurrentFont.Size())
-			item->SetMarked(true);
-
-		fSizesMenu->AddItem(item);
-	}
 }
 
 
@@ -299,16 +268,10 @@ FontSelectionView::_SelectCurrentFont(bool select)
 
 
 void
-FontSelectionView::_SelectCurrentSize(bool select)
+FontSelectionView::_SelectCurrentSize()
 {
-	char label[16];
-	snprintf(label, sizeof(label), "%" B_PRId32, (int32)fCurrentFont.Size());
-
-	BMenuItem* item = fSizesMenu->FindItem(label);
-	if (item != NULL)
-		item->SetMarked(select);
+	fFontSizeSpinner->SetValue((int32)fCurrentFont.Size());
 }
-
 
 void
 FontSelectionView::_UpdateFontPreview()
@@ -374,7 +337,7 @@ FontSelectionView::SetDefaults()
 	_UpdateFontPreview();
 
 	_SelectCurrentFont(true);
-	_SelectCurrentSize(true);
+	_SelectCurrentSize();
 }
 
 
@@ -390,7 +353,7 @@ FontSelectionView::Revert()
 	_UpdateFontPreview();
 
 	_SelectCurrentFont(true);
-	_SelectCurrentSize(true);
+	_SelectCurrentSize();
 }
 
 
