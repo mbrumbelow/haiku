@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "94d58f6b_d8bb5e7d",
+        "filename": "src/preferences/printers/PrinterListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2018-11-18T15:35:45Z",
+      "side": 1,
+      "message": "Trailing whitespace",
+      "revId": "570611f8d9816f29b2f92353a96ee8b7edc9c018",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f665bd00_e5322af0",
+        "filename": "src/preferences/printers/PrinterListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2018-11-18T15:35:45Z",
+      "side": 1,
+      "message": "No curly brackets.",
+      "revId": "570611f8d9816f29b2f92353a96ee8b7edc9c018",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f79b53a8_7bff4851",
+        "filename": "src/preferences/printers/PrinterListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2018-11-18T15:35:45Z",
+      "side": 1,
+      "message": "Stray tab.",
+      "revId": "570611f8d9816f29b2f92353a96ee8b7edc9c018",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
