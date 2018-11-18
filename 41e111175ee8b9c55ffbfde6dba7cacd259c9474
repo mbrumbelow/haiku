@@ -68,6 +68,52 @@
       "revId": "41e111175ee8b9c55ffbfde6dba7cacd259c9474",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c00e858c_5288e73d",
+        "filename": "src/preferences/appearance/FontSelectionView.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-11-18T11:44:47Z",
+      "side": 1,
+      "message": "Whitespace",
+      "range": {
+        "startLine": 47,
+        "startChar": 15,
+        "endLine": 47,
+        "endChar": 16
+      },
+      "revId": "41e111175ee8b9c55ffbfde6dba7cacd259c9474",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93d119c1_1d9776cc",
+        "filename": "src/preferences/appearance/FontSelectionView.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-11-18T11:44:47Z",
+      "side": 1,
+      "message": "Spinner message should not be a class member.",
+      "range": {
+        "startLine": 66,
+        "startChar": 3,
+        "endLine": 66,
+        "endChar": 32
+      },
+      "revId": "41e111175ee8b9c55ffbfde6dba7cacd259c9474",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
