@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b414940a_33dd1375",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000081
+      },
+      "writtenOn": "2018-11-18T14:17:40Z",
+      "side": 1,
+      "message": "I didnt know. Still learning here. Ill remove it. Thanks.",
+      "parentUuid": "9ebad8a1_67bc0502",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 39
+      },
+      "revId": "9b4d26852d2b02f310e4e3bf783d14834dbeb55d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6de8b07d_bbaf9a94",
         "filename": "src/preferences/appearance/FontSelectionView.cpp",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2018-11-18T13:52:59Z",
       "side": 1,
       "message": "Is this used anywhere?",
+      "range": {
+        "startLine": 110,
+        "startChar": 1,
+        "endLine": 110,
+        "endChar": 44
+      },
+      "revId": "9b4d26852d2b02f310e4e3bf783d14834dbeb55d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ec01250_160130e0",
+        "filename": "src/preferences/appearance/FontSelectionView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000081
+      },
+      "writtenOn": "2018-11-18T14:17:40Z",
+      "side": 1,
+      "message": "Yes its needed for FontView.cpp:125 switch case.",
+      "parentUuid": "6de8b07d_bbaf9a94",
       "range": {
         "startLine": 110,
         "startChar": 1,
