@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "71eb32ea_718831df",
+        "filename": "src/preferences/appearance/FontSelectionView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-11-18T11:35:06Z",
+      "side": 1,
+      "message": "whitespace",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 1
+      },
+      "revId": "41e111175ee8b9c55ffbfde6dba7cacd259c9474",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b51245fa_393fdbaf",
+        "filename": "src/preferences/appearance/FontSelectionView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-11-18T11:35:06Z",
+      "side": 1,
+      "message": "You mustn\u0027t delete the message because BControl takes ownership of it:\nhttps://www.haiku-os.org/legacy-docs/bebook/BControl.html#BControl_ConstructorDestructor",
+      "range": {
+        "startLine": 144,
+        "startChar": 1,
+        "endLine": 144,
+        "endChar": 25
+      },
+      "revId": "41e111175ee8b9c55ffbfde6dba7cacd259c9474",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36664667_1e64d081",
+        "filename": "src/preferences/appearance/FontSelectionView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-11-18T11:35:06Z",
+      "side": 1,
+      "message": "whitespace",
+      "range": {
+        "startLine": 161,
+        "startChar": 3,
+        "endLine": 161,
+        "endChar": 4
+      },
+      "revId": "41e111175ee8b9c55ffbfde6dba7cacd259c9474",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
