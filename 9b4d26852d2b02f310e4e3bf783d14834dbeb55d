@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ebad8a1_67bc0502",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-11-18T13:52:59Z",
+      "side": 1,
+      "message": "Don\u0027t add stuff like this to commit message. Gerrit will add a link to this review and a list of reviewers when the change is merged.",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 39
+      },
+      "revId": "9b4d26852d2b02f310e4e3bf783d14834dbeb55d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6de8b07d_bbaf9a94",
+        "filename": "src/preferences/appearance/FontSelectionView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-11-18T13:52:59Z",
+      "side": 1,
+      "message": "Is this used anywhere?",
+      "range": {
+        "startLine": 110,
+        "startChar": 1,
+        "endLine": 110,
+        "endChar": 44
+      },
+      "revId": "9b4d26852d2b02f310e4e3bf783d14834dbeb55d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
