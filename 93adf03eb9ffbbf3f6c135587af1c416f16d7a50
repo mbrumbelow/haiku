@@ -22,6 +22,29 @@
       "revId": "93adf03eb9ffbbf3f6c135587af1c416f16d7a50",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce477eca_3ba4a230",
+        "filename": "src/preferences/appearance/FontSelectionView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-11-19T21:00:38Z",
+      "side": 1,
+      "message": "I don\u0027t think this condition is necessary.",
+      "range": {
+        "startLine": 281,
+        "startChar": 1,
+        "endLine": 281,
+        "endChar": 29
+      },
+      "revId": "93adf03eb9ffbbf3f6c135587af1c416f16d7a50",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
