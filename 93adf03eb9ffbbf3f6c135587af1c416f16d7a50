@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a6ae00e9_47ae2ce5",
+        "filename": "src/preferences/appearance/FontSelectionView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-11-19T19:48:33Z",
+      "side": 1,
+      "message": "That doesn\u0027t work, the phrase changes to English on size update.\nI suggest adding static const char* \u003d B_TRANSLATE_COMMENT in this file instead of a class member.",
+      "range": {
+        "startLine": 120,
+        "startChar": 2,
+        "endLine": 120,
+        "endChar": 35
+      },
+      "revId": "93adf03eb9ffbbf3f6c135587af1c416f16d7a50",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
