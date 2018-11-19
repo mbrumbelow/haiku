@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "61151538_23e1ecf4",
+        "filename": "src/bin/modifiers.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-11-19T13:10:31Z",
+      "side": 0,
+      "message": "use if (i !\u003d 0) here and gotone can be removed completely?",
+      "revId": "63757dbb24a3a936f9adacb20f18b3f932445a21",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
