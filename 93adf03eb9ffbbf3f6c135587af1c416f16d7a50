@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "131e21b2_ee4bab24",
+        "filename": "src/preferences/appearance/FontSelectionView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2018-11-20T18:33:55Z",
+      "side": 1,
+      "message": "Yes, except one indent for text. Empty line too.",
+      "parentUuid": "9aaf5101_5b347c06",
+      "revId": "93adf03eb9ffbbf3f6c135587af1c416f16d7a50",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a6ae00e9_47ae2ce5",
         "filename": "src/preferences/appearance/FontSelectionView.cpp",
         "patchSetId": 5
