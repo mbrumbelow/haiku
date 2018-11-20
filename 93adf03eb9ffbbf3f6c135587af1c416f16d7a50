@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "9aaf5101_5b347c06",
+        "filename": "src/preferences/appearance/FontSelectionView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000081
+      },
+      "writtenOn": "2018-11-20T18:00:54Z",
+      "side": 1,
+      "message": "Is it like this you mean? I am not 100% sure about the line breaking here. Should there be an empty line between kMaxSize?\n\nstatic const char *kPreviewText \u003d B_TRANSLATE_COMMENT(\n\t\t\"The quick brown fox jumps over the lazy dog.\",\n\t\t\"Don\u0027t translate this literally ! Use a phrase showing all chars \"\n\t\t\"from A to Z.\");",
+      "revId": "93adf03eb9ffbbf3f6c135587af1c416f16d7a50",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a6ae00e9_47ae2ce5",
         "filename": "src/preferences/appearance/FontSelectionView.cpp",
         "patchSetId": 5
@@ -36,6 +53,30 @@
       "writtenOn": "2018-11-19T21:00:38Z",
       "side": 1,
       "message": "I don\u0027t think this condition is necessary.",
+      "range": {
+        "startLine": 281,
+        "startChar": 1,
+        "endLine": 281,
+        "endChar": 29
+      },
+      "revId": "93adf03eb9ffbbf3f6c135587af1c416f16d7a50",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0034298_2884099c",
+        "filename": "src/preferences/appearance/FontSelectionView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1000081
+      },
+      "writtenOn": "2018-11-20T18:00:54Z",
+      "side": 1,
+      "message": "Ill fix that in the next commit.",
+      "parentUuid": "ce477eca_3ba4a230",
       "range": {
         "startLine": 281,
         "startChar": 1,
