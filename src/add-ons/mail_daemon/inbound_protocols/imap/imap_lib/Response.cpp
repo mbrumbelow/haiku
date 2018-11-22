@@ -450,7 +450,7 @@ Response::~Response()
 
 
 void
-Response::Parse(BDataIO& stream, LiteralHandler* handler) throw(ParseException)
+Response::Parse(BDataIO& stream, LiteralHandler* handler) throw(ParseException, StreamException)
 {
 	MakeEmpty();
 	fLiteralHandler = handler;
@@ -604,7 +604,7 @@ Response::ParseLiteral(ArgumentList& arguments, BDataIO& stream)
 			ssize_t bytesRead = stream.Read(buffer + totalRead,
 				size - totalRead);
 			if (bytesRead == 0)
-				throw ParseException("Unexpected end of literal");
+				throw StreamException(B_IO_ERROR);
 			if (bytesRead < 0)
 				throw StreamException(bytesRead);
 
@@ -706,7 +706,7 @@ Response::Read(BDataIO& stream)
 	}
 
 	if (bytesRead == 0)
-		throw ParseException("Unexpected end of stream");
+		throw StreamException(B_IO_ERROR);
 
 	throw StreamException(bytesRead);
 }
@@ -721,7 +721,7 @@ Response::_SkipLiteral(BDataIO& stream, size_t size)
 		size_t toRead = std::min(sizeof(buffer), size - totalRead);
 		ssize_t bytesRead = stream.Read(buffer, toRead);
 		if (bytesRead == 0)
-			throw ParseException("Unexpected end of literal");
+			throw StreamException(B_IO_ERROR);
 		if (bytesRead < 0)
 			throw StreamException(bytesRead);
 
@@ -762,7 +762,7 @@ ResponseParser::SetLiteralHandler(LiteralHandler* handler)
 
 status_t
 ResponseParser::NextResponse(Response& response, bigtime_t timeout)
-	throw(ParseException)
+	throw(ParseException, StreamException)
 {
 	response.Parse(*fStream, fLiteralHandler);
 	return B_OK;
