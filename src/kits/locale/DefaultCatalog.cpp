@@ -8,7 +8,7 @@
  */
 
 
-#include <memory>
+#include <algorithm>
 #include <new>
 
 #include <AppFileInfo.h>
@@ -27,10 +27,11 @@
 #include <DefaultCatalog.h>
 #include <MutableLocaleRoster.h>
 
+#include <AutoDeleter.h>
+
 #include <cstdio>
 
 
-using std::auto_ptr;
 using std::min;
 using std::max;
 using std::pair;
@@ -205,15 +206,16 @@ DefaultCatalog::ReadFromFile(const char *path)
 		return res;
 	}
 
-	auto_ptr<char> buf(new(std::nothrow) char [sz]);
-	if (buf.get() == NULL)
+	char* buf = new(std::nothrow) char [sz];
+	ArrayDeleter<char> bufDeleter(buf);
+	if (bufDeleter.Get() == NULL)
 		return B_NO_MEMORY;
-	res = catalogFile.Read(buf.get(), sz);
+	res = catalogFile.Read(bufDeleter.Get(), sz);
 	if (res < B_OK)
 		return res;
 	if (res < sz)
 		return res;
-	BMemoryIO memIO(buf.get(), sz);
+	BMemoryIO memIO(bufDeleter.Get(), sz);
 	res = Unflatten(&memIO);
 
 	if (res == B_OK) {
@@ -246,15 +248,16 @@ DefaultCatalog::ReadFromAttribute(const entry_ref &appOrAddOnRef)
 		return B_BAD_TYPE;
 
 	size_t size = attrInfo.size;
-	auto_ptr<char> buf(new(std::nothrow) char [size]);
-	if (buf.get() == NULL)
+	char* buf = new(std::nothrow) char [size];
+	ArrayDeleter<char> bufDeleter(buf);
+	if (bufDeleter.Get() == NULL)
 		return B_NO_MEMORY;
 	res = node.ReadAttr(BLocaleRoster::kEmbeddedCatAttr, B_MESSAGE_TYPE, 0,
-		buf.get(), size);
+		bufDeleter.Get(), size);
 	if (res < (ssize_t)size)
 		return res < B_OK ? res : B_BAD_DATA;
 
-	BMemoryIO memIO(buf.get(), size);
+	BMemoryIO memIO(bufDeleter.Get(), size);
 	res = Unflatten(&memIO);
 
 	return res;
