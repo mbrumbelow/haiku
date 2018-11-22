@@ -12,8 +12,8 @@
 #include <Message.h>
 #include <Node.h>
 #include <Path.h>
+#include <StackOrHeapArray.h>
 #include <String.h>
-#include <memory> // for auto_ptr
 
 #include "AboutBox.h"
 #include "AddPrinterDlg.h"
@@ -175,14 +175,14 @@ bool
 PrinterDriver::_ReadSettings(const char* attrName, BMessage* settings)
 {
 	attr_info info;
-	char*  data;
 	ssize_t size;
 
 	settings->MakeEmpty();
 	
 	if (fSpoolFolder->GetAttrInfo(attrName, &info) == B_OK && info.size > 0) {
-		data = new char[info.size];
-		auto_ptr<char> _data(data);
+		BStackOrHeapArray<char, 0> data(info.size);
+		if (!data.IsValid())
+			return false;
 		size = fSpoolFolder->ReadAttr(attrName, B_MESSAGE_TYPE, 0, data, info.size);
 		if (size == info.size && settings->Unflatten(data) == B_OK) {
 			return true;
@@ -198,13 +198,11 @@ PrinterDriver::_WriteSettings(const char* attrName, BMessage* settings)
 	if (settings == NULL || settings->what != 'okok') return;
 	
 	size_t size;
-	char* data;
 	
 	size = settings->FlattenedSize();
-	data = new char[size];
-	auto_ptr<char> _data(data);
+	BStackOrHeapArray<char, 0> data(size);
 	
-	if (data != NULL && settings->Flatten(data, size) == B_OK) {
+	if (data.IsValid() && settings->Flatten(data, size) == B_OK) {
 		fSpoolFolder->WriteAttr(attrName, B_MESSAGE_TYPE, 0, data, size);
 	}
 }
