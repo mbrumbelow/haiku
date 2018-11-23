@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a238339c_6e0cfeba",
+        "filename": "src/kits/locale/DefaultCatalog.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-11-23T08:08:09Z",
+      "side": 1,
+      "message": "ArrayDeleter\u003cchar\u003e bufDeleter(new(std::nothrow) char [sz]); ?\n\nOr, couldn\u0027t we use BStackOrHeapArray here?",
+      "revId": "ab2409eeb153cd214241ac87050017ea14c3a464",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
