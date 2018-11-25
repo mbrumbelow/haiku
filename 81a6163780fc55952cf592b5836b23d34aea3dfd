@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a0b2f67_421ec76c",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-11-25T20:36:17Z",
+      "side": 1,
+      "message": "... so is 1 or 0 \"disable subsampling\"? Because you\u0027ve set \"0\" as the default value here, and that doesn\u0027t seem to make sense.\n\nI see now that fSubsampling is a loop iterator limit. You might want to add a comment to that effect in the header.",
+      "revId": "81a6163780fc55952cf592b5836b23d34aea3dfd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e05a9f6_959a41a6",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-11-25T20:36:17Z",
+      "side": 1,
+      "message": "Spaces around / and *. Same below for sampleReal and sampleImaginary, and around \u003c in subX and subY.",
+      "revId": "81a6163780fc55952cf592b5836b23d34aea3dfd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41b517ff_0389a671",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-11-25T20:36:17Z",
+      "side": 1,
+      "message": "Same comment about math operators here.",
+      "revId": "81a6163780fc55952cf592b5836b23d34aea3dfd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0adf3ef7_20b27362",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-11-25T20:36:17Z",
+      "side": 1,
+      "message": "Perhaps make the text \"None\" instead of this long string.",
+      "revId": "81a6163780fc55952cf592b5836b23d34aea3dfd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42ee9283_1b5a13bd",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-11-25T20:36:17Z",
+      "side": 1,
+      "message": "\"2\" actually means 9 subsamples, which is incredibly confusing. Perhaps make these numbers the actual number of subsamples taken?",
+      "revId": "81a6163780fc55952cf592b5836b23d34aea3dfd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
