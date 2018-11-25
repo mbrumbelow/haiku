@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e6d0e773_e7262148",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-11-25T16:38:55Z",
+      "side": 1,
+      "message": "Comment goes either above `if` or inside it, and one space after //.",
+      "revId": "58bd4b1da39bf7682a2d660ad0e962599e5c63f6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c6d0ca2_54588f0f",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-11-25T16:38:55Z",
+      "side": 1,
+      "message": "Spaces after //, and 80 column limit. Same elsewhere.",
+      "revId": "58bd4b1da39bf7682a2d660ad0e962599e5c63f6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ee11dd1_ffaefba7",
+        "filename": "src/apps/mandelbrot/FractalEngine.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-11-25T16:38:55Z",
+      "side": 1,
+      "message": "Extraneous blank line.",
+      "revId": "58bd4b1da39bf7682a2d660ad0e962599e5c63f6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
