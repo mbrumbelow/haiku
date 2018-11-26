@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0d1fa810_4ff26446",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-11-26T06:01:20Z",
+      "side": 1,
+      "message": "\"subX\u003cfSubsampling\" \u003d\u003e \"subX \u003c fSubsampling\"",
+      "revId": "79b41f9d2fd37a82030d8bb4c8f87391915ed237",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0c704145_137fa122",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-11-26T06:01:20Z",
+      "side": 1,
+      "message": "\"subY\u003cfSubsampling\" \u003d\u003e \"subY \u003c fSubsampling\"",
+      "revId": "79b41f9d2fd37a82030d8bb4c8f87391915ed237",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8225b696_18d10f7f",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-11-26T06:01:20Z",
+      "side": 1,
+      "message": "\"real+subX*subsampleDelta\" \u003d\u003e \"real + subX * subsampleDelta\"",
+      "revId": "79b41f9d2fd37a82030d8bb4c8f87391915ed237",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3e204ba_1bc45c7e",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-11-26T06:01:20Z",
+      "side": 1,
+      "message": "Ditto",
+      "revId": "79b41f9d2fd37a82030d8bb4c8f87391915ed237",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
