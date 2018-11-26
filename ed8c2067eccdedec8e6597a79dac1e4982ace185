@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e81909e3_3e7ad02d",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-11-26T05:56:50Z",
+      "side": 1,
+      "message": "Please add a space before \"RenderStopped\".",
+      "revId": "ed8c2067eccdedec8e6597a79dac1e4982ace185",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7bb5560c_3d1a65e4",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-11-26T05:56:50Z",
+      "side": 1,
+      "message": "Two blank lines before \"void FractalEngine::StopRender()\"",
+      "revId": "ed8c2067eccdedec8e6597a79dac1e4982ace185",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "385e6e15_08474e4f",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-11-26T05:56:50Z",
+      "side": 1,
+      "message": "\"i\u003cfThreadCount\" \u003d\u003e \"i \u003c fThreadCount\"",
+      "revId": "ed8c2067eccdedec8e6597a79dac1e4982ace185",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
