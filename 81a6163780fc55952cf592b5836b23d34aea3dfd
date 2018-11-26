@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "22200d48_a1e76310",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000066
+      },
+      "writtenOn": "2018-11-26T01:03:44Z",
+      "side": 1,
+      "message": "oops I thought 0 was just magic that shouldn\u0027t be modified. I guess that should be 1 then?",
+      "parentUuid": "4a0b2f67_421ec76c",
+      "revId": "81a6163780fc55952cf592b5836b23d34aea3dfd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2e05a9f6_959a41a6",
         "filename": "src/apps/mandelbrot/FractalEngine.cpp",
         "patchSetId": 2
@@ -81,6 +99,24 @@
       "writtenOn": "2018-11-25T20:36:17Z",
       "side": 1,
       "message": "\"2\" actually means 9 subsamples, which is incredibly confusing. Perhaps make these numbers the actual number of subsamples taken?",
+      "revId": "81a6163780fc55952cf592b5836b23d34aea3dfd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d44668b_e71e3ab2",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1000066
+      },
+      "writtenOn": "2018-11-26T01:03:44Z",
+      "side": 1,
+      "message": "2 \u003d 4 subsamples, not 9, but yes I could do that",
+      "parentUuid": "42ee9283_1b5a13bd",
       "revId": "81a6163780fc55952cf592b5836b23d34aea3dfd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
