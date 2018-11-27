@@ -4,7 +4,7 @@
  *  DESCR: 
  ***********************************************************************/
 #include <MediaDecoder.h>
-#include <DecoderPlugin.h>
+#include <Decoder.h>
 #include <new>
 #include "PluginManager.h"
 #include "MediaDebug.h"
@@ -199,7 +199,7 @@ BMediaDecoder::BMediaDecoder & operator=(const BMediaDecoder &);
 status_t
 BMediaDecoder::AttachToDecoder()
 {
-	class MediaDecoderChunkProvider : public ChunkProvider {
+	class MediaDecoderChunkProvider : public BChunkProvider {
 	private:
 		BMediaDecoder * fDecoder;
 	public:

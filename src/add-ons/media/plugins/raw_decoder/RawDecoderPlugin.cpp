@@ -27,7 +27,7 @@
 #include <DataIO.h>
 #include <OS.h>
 #include <MediaRoster.h>
-#include <ReaderPlugin.h>
+#include <Reader.h>
 
 #include "RawFormats.h"
 #include "RawDecoderPlugin.h"
@@ -520,7 +520,7 @@ RawDecoder::Decode(void *buffer, int64 *frameCount,
 }
 
 
-Decoder *
+BDecoder *
 RawDecoderPlugin::NewDecoder(uint index)
 {
 	return new RawDecoder;
@@ -565,7 +565,7 @@ RawDecoderPlugin::GetSupportedFormats(media_format ** formats, size_t * count)
 	return B_OK;
 }
 
-MediaPlugin *instantiate_plugin()
+BMediaPlugin *instantiate_plugin()
 {
 	return new RawDecoderPlugin;
 }

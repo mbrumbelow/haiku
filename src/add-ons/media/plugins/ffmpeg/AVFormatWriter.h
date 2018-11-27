@@ -6,16 +6,16 @@
 #define AV_FORMAT_WRITER_H
 
 
+#include <Writer.h>
 #include <Locker.h>
 
-#include "WriterPlugin.h"
 
 extern "C" {
 	#include "avformat.h"
 }
 
 
-class AVFormatWriter : public Writer {
+class AVFormatWriter : public BWriter {
 public:
 								AVFormatWriter();
 								~AVFormatWriter();

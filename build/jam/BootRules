@@ -96,6 +96,10 @@ rule SetupBoot
 		ObjectDefines $(object) : $(TARGET_KERNEL_DEFINES) ;
 		ASFLAGS on $(object) = $(HAIKU_BOOT_CCFLAGS) $(HAIKU_BOOT_$(platform)_CCFLAGS) ;
 
+		# override regular CCFLAGS/C++FLAGS, as we don't want them
+		TARGET_CCFLAGS_$(TARGET_PACKAGING_ARCH) on $(object) = ;
+		TARGET_C++FLAGS_$(TARGET_PACKAGING_ARCH) on $(object) = ;
+
 		# override warning flags
 		TARGET_WARNING_CCFLAGS_$(TARGET_PACKAGING_ARCH) on $(object)
 			= $(TARGET_KERNEL_WARNING_CCFLAGS) ;
@@ -217,6 +221,6 @@ actions BuildMBR
 {
 	$(RM) $(1)
 	$(HAIKU_CC_$(HAIKU_PACKAGING_ARCH)) $(HAIKU_LINKFLAGS_$(HAIKU_PACKAGING_ARCH)) \
-		$(2) -o $(1) $(MBRFLAGS) -nostdlib -Xlinker --oformat=binary \
+		$(2) -o $(1) $(MBRFLAGS) -nostdlib -m32 -Wl,--oformat,binary -Wl,-z,notext \
 		-Xlinker -S -Xlinker -N -Xlinker --entry=start -Xlinker -Ttext=0x600
 }
