@@ -1,14 +1,15 @@
 /*
- * Copyright 2008-2014 Haiku, Inc. All rights reserved.
+ * Copyright 2008-2018 Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
  *		Niels Sascha Reedijk, niels.reedijk@gmail.com
  *		John Scipione, jscipione@gmail.com
+ *		Adrien Destugues, pulkomandy@pulkomandy.tk
  *
  * Corresponds to:
- *		headers/os/app/Looper.h	hrev47355
- *		src/kits/app/Looper.cpp	hrev47355
+ *		headers/os/app/Looper.h	hrev52501
+ *		src/kits/app/Looper.cpp	hrev52501
  */
 
 
@@ -600,6 +601,20 @@
 	        error code.
 
 	\since BeOS R3
+*/
+
+
+/*!
+	\fn thread_id BLooper::Loop()
+	\brief Run the event loop in the current thread.
+
+	This method runs the event loop in an already existing thread. It blocks
+	until the looper is quitted. This can be used to turn an existing thread
+	into a BLooper.
+
+	Make sure the looper is not yet running before you call this method.
+
+	\since Haiku R1
 */
 
 
