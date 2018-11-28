@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "830ea69a_b92430f8",
+        "filename": "docs/user/app/Looper.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 612,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2018-11-28T20:23:45Z",
+      "side": 1,
+      "message": "\"It blocks until the looper has quit.\"? Sounds somewhat nicer to my non-native ears.",
+      "revId": "43c5be1b97a4799e3c9b831e78f6453d86ccf8c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
