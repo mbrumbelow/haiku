@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a9579f87_e9290bd3",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-12-02T21:34:05Z",
+      "side": 1,
+      "message": "Missing space.",
+      "revId": "3b31a80b5ad2a69c856ed101ece4ede28c38968e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59961e02_4cc4baa1",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-12-02T21:34:05Z",
+      "side": 1,
+      "message": "This string has a word in it, so it should have B_TRANSLATE around it.",
+      "revId": "3b31a80b5ad2a69c856ed101ece4ede28c38968e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
