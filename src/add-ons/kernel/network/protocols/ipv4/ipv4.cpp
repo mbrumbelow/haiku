@@ -511,10 +511,10 @@ dump_ipv4_multicast(int argc, char** argv)
 				? "Exclude" : "Include");
 
 		int count = 0;
-		IPv4GroupInterface::AddressSet::Iterator it
+		IPv4GroupInterface::AddressSet::Iterator it2
 			= state->Sources().GetIterator();
-		while (it.HasNext()) {
-			kprintf("%s%s", count > 0 ? ", " : "", print_address(&it.Next(),
+		while (it2.HasNext()) {
+			kprintf("%s%s", count > 0 ? ", " : "", print_address(&it2.Next(),
 				addressBuffer, sizeof(addressBuffer)));
 			count++;
 		}
