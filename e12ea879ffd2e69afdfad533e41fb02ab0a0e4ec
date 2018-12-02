@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d8366b5c_b67a13dd",
+        "filename": "src/add-ons/kernel/drivers/disk/usb/usb_disk/usb_disk.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1920,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-12-02T21:28:18Z",
+      "side": 1,
+      "message": "This comment doesn\u0027t seem to make sense; the code checks if the device \"is_ufi\" (\"is USB Floppy Interface\", I guess) and then the comment says \"use interrupt mode\" ... and then sets the icon? Copy-paste error?",
+      "revId": "e12ea879ffd2e69afdfad533e41fb02ab0a0e4ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
