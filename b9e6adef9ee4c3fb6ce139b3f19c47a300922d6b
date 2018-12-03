@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ea262362_2c82c187",
+        "filename": "src/add-ons/kernel/drivers/disk/usb/usb_disk/usb_disk.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-12-03T14:14:18Z",
+      "side": 1,
+      "message": "dev should be called device.",
+      "revId": "b9e6adef9ee4c3fb6ce139b3f19c47a300922d6b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94d3f4b4_6ca97f4b",
+        "filename": "src/add-ons/kernel/drivers/disk/usb/usb_disk/usb_disk.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 900,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-12-03T14:14:18Z",
+      "side": 1,
+      "message": "There is a tab before size_t instead of space.",
+      "revId": "b9e6adef9ee4c3fb6ce139b3f19c47a300922d6b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "58c8848a_6d347675",
+        "filename": "src/add-ons/kernel/drivers/disk/usb/usb_disk/usb_disk.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 958,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-12-03T14:14:18Z",
+      "side": 1,
+      "message": "This is over 80 characters wide.",
+      "revId": "b9e6adef9ee4c3fb6ce139b3f19c47a300922d6b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50ba2453_a9868008",
+        "filename": "src/add-ons/kernel/drivers/disk/usb/usb_disk/usb_disk.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1095,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-12-03T14:14:18Z",
+      "side": 1,
+      "message": "This is over 80 characters wide.",
+      "revId": "b9e6adef9ee4c3fb6ce139b3f19c47a300922d6b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4f19470a_0315cd6f",
+        "filename": "src/add-ons/kernel/drivers/disk/usb/usb_disk/usb_disk.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1168,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-12-03T14:14:18Z",
+      "side": 1,
+      "message": "This is over 80 characters wide.",
+      "revId": "b9e6adef9ee4c3fb6ce139b3f19c47a300922d6b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51f58889_6cc9a03e",
+        "filename": "src/add-ons/kernel/drivers/disk/usb/usb_disk/usb_disk.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1791,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-12-03T14:14:18Z",
+      "side": 1,
+      "message": "Remove this trailing tab.",
+      "revId": "b9e6adef9ee4c3fb6ce139b3f19c47a300922d6b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e3817ce_bf3b3c87",
+        "filename": "src/add-ons/kernel/drivers/disk/usb/usb_disk/usb_disk.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1935,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-12-03T14:14:18Z",
+      "side": 1,
+      "message": "This is over 80 characters wide.",
+      "revId": "b9e6adef9ee4c3fb6ce139b3f19c47a300922d6b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "21d04dca_29c382fe",
+        "filename": "src/add-ons/kernel/drivers/disk/usb/usb_disk/usb_disk.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1938,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-12-03T14:14:18Z",
+      "side": 1,
+      "message": "This is over 80 characters wide.",
+      "revId": "b9e6adef9ee4c3fb6ce139b3f19c47a300922d6b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
