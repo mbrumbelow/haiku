@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ac70a7f_ebde660d",
+        "filename": "src/add-ons/kernel/network/protocols/ipv4/ipv4.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-04T11:47:34Z",
+      "side": 1,
+      "message": "it and it2 are not wisely chosen variable names.\nUsing clear names (groupIterator and addressIterator?) would be better.",
+      "revId": "b77e96cd311d1df7454cbe2844e8cb663da10921",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
