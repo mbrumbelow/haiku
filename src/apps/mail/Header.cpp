@@ -402,9 +402,11 @@ THeaderView::THeaderView(bool incoming, bool resending, int32 defaultAccount)
 
 	BGridLayout* layout = GridLayout();
 
-	if (fIncoming)
+	if (fIncoming) {
 		layout->SetHorizontalSpacing(0);
-	layout->SetVerticalSpacing(B_USE_HALF_ITEM_SPACING);
+		layout->SetVerticalSpacing(0);
+	} else
+		layout->SetVerticalSpacing(B_USE_HALF_ITEM_SPACING);
 
 	int32 row = 0;
 	if (fromField != NULL) {
@@ -416,10 +418,12 @@ THeaderView::THeaderView(bool incoming, bool resending, int32 defaultAccount)
 			3, 1);
 	}
 
-	layout->AddView(fToLabel, 0, row);
-	layout->AddView(fToControl, 1, row++, 3, 1);
-	layout->AddView(fCcLabel, 0, row);
-	layout->AddView(fCcControl, 1, row, fIncoming ? 3 : 1, 1);
+	if (!fIncoming) {
+		layout->AddView(fToLabel, 0, row);
+		layout->AddView(fToControl, 1, row++, 3, 1);
+		layout->AddView(fCcLabel, 0, row);
+		layout->AddView(fCcControl, 1, row, fIncoming ? 3 : 1, 1);
+	}
 	if (fBccControl != NULL) {
 		layout->AddView(new LabelView(B_TRANSLATE("Bcc:")), 2, row);
 		layout->AddView(fBccControl, 3, row++);
