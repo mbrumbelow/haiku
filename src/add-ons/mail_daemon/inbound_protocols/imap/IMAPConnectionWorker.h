@@ -44,6 +44,7 @@ public:
 			thread_id			Thread() const { return fThread; };
 			bool 				IsSyncPending() const;
 			void				Quit();
+
 			status_t			EnqueueCheckSubscribedFolders();
 			status_t			EnqueueCheckMailboxes();
 			status_t			EnqueueFetchBody(IMAPFolder& folder,
@@ -72,6 +73,7 @@ private:
 			void				_Disconnect();
 
 	static	status_t			_Worker(void* self);
+
 private:
 	typedef std::map<IMAPFolder*, IMAPMailbox*> MailboxMap;
 	friend class WorkerPrivate;
