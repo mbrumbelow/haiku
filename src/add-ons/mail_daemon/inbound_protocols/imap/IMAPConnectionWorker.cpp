@@ -614,6 +614,20 @@ IMAPConnectionWorker::Run()
 }
 
 
+bool
+IMAPConnectionWorker::IsRunning() const
+{
+	return !fStopped && !fOwner.IsStopped();
+}
+
+
+bool
+IMAPConnectionWorker::IsSyncPending() const
+{
+	return fSyncPending != 0;
+}
+
+
 void
 IMAPConnectionWorker::Quit()
 {
@@ -621,7 +635,6 @@ IMAPConnectionWorker::Quit()
 	BAutolock locker(fLocker);
 	while (!fPendingCommands.IsEmpty())
 		delete(fPendingCommands.RemoveItemAt(0));
-	locker.Unlock();
 	_EnqueueCommand(new QuitCommand());
 }
 
@@ -713,13 +726,12 @@ IMAPConnectionWorker::MessageExpungeReceived(uint32 index)
 
 // #pragma mark - private
 
-
 status_t
 IMAPConnectionWorker::_Worker()
 {
 	status_t status = B_OK;
 
-	while (!fStopped) {
+	while (IsRunning()) {
 		BAutolock locker(fLocker);
 
 		if (fPendingCommands.IsEmpty()) {
@@ -748,7 +760,7 @@ IMAPConnectionWorker::_Worker()
 		if (status != B_OK)
 			break;
 
-		if (!command->IsDone()) {
+		if (!command->IsDone() && IsRunning()) {
 			deleter.Detach();
 			command->SetContinuation();
 			_EnqueueCommand(command);
@@ -791,8 +803,8 @@ IMAPConnectionWorker::_WaitForCommands()
 	if (count < 1)
 		count = 1;
 
-	while (acquire_sem_etc(fPendingCommandsSemaphore, count, 0,
-			B_INFINITE_TIMEOUT) == B_INTERRUPTED);
+	while (acquire_sem_etc(fPendingCommandsSemaphore, count,
+			B_RELATIVE_TIMEOUT, 1000000) != B_OK && IsRunning());
 }
 
 
@@ -846,16 +858,16 @@ IMAPConnectionWorker::_Connect()
 	if (fProtocol.IsConnected())
 		return B_OK;
 
-	status_t status;
-	int tries = 6;
-	while (tries-- > 0) {
+	status_t status = B_INTERRUPTED;
+	int tries = 10;
+	while (tries-- > 0 && IsRunning()) {
 		status = fProtocol.Connect(fSettings.ServerAddress(),
 			fSettings.Username(), fSettings.Password(), fSettings.UseSSL());
 		if (status == B_OK)
 			break;
 
-		// Wait for 10 seconds, and try again
-		snooze(10000000);
+		// Wait for 1 second, and try again
+		snooze(1000000);
 	}
 	// TODO: if other workers are connected, but it fails for us, we need to
 	// remove this worker, and reduce the number of concurrent connections
