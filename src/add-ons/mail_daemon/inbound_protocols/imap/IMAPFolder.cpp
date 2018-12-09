@@ -104,8 +104,10 @@ IMAPFolder::IMAPFolder(IMAPProtocol& protocol, const BString& mailboxName,
 
 IMAPFolder::~IMAPFolder()
 {
-	if (!fFolderStateInitialized) {
+	MutexLocker locker(fLock);
+	if (!fFolderStateInitialized && fListener) {
 		fQuitFolderState = true;
+		locker.Unlock();
 		wait_for_thread(fReadFolderStateThread, NULL);
 	}
 }
