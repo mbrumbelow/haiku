@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0427b4f8_21f1d1b2",
+        "filename": "src/add-ons/mail_daemon/inbound_protocols/imap/IMAPConnectionWorker.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 716,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-12-09T19:32:02Z",
+      "side": 0,
+      "message": "Same here",
+      "revId": "b6c5bdbd390fd8b73ec01bed8ec35b25766a5acf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d95e811_a94b33de",
+        "filename": "src/add-ons/mail_daemon/inbound_protocols/imap/IMAPConnectionWorker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-12-09T19:32:02Z",
+      "side": 0,
+      "message": "Please leave this blank line intact.",
+      "revId": "b6c5bdbd390fd8b73ec01bed8ec35b25766a5acf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c07ed383_16e9db8d",
+        "filename": "src/add-ons/mail_daemon/inbound_protocols/imap/IMAPConnectionWorker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-12-09T19:32:02Z",
+      "side": 0,
+      "message": "Same here",
+      "revId": "b6c5bdbd390fd8b73ec01bed8ec35b25766a5acf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}

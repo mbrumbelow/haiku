@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "81570742_3e2c2439",
+        "filename": "src/add-ons/mail_daemon/inbound_protocols/imap/IMAPProtocol.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-12-09T19:32:02Z",
+      "side": 1,
+      "message": "Add a blank line below this",
+      "revId": "4d1e515b12da31d60f03929532d1157d4fafadc7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
