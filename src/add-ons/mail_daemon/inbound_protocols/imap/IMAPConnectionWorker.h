@@ -40,6 +40,9 @@ public:
 			bool				UsesIdle() const { return fIdle; }
 
 			status_t			Run();
+			bool				IsRunning() const;
+			thread_id			Thread() const { return fThread; };
+			bool 				IsSyncPending() const;
 			void				Quit();
 
 			status_t			EnqueueCheckSubscribedFolders();
