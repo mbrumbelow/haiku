@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50fb2559_ed25c5a7",
+        "filename": "src/add-ons/mail_daemon/inbound_protocols/imap/IMAPConnectionWorker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-09T10:51:13Z",
+      "side": 0,
+      "message": "This line should not be removed.",
+      "revId": "b6c5bdbd390fd8b73ec01bed8ec35b25766a5acf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d5ad486_8678de13",
+        "filename": "src/add-ons/mail_daemon/inbound_protocols/imap/IMAPConnectionWorker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-09T10:51:13Z",
+      "side": 0,
+      "message": "This line should not be removed",
+      "revId": "b6c5bdbd390fd8b73ec01bed8ec35b25766a5acf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
