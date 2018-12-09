@@ -31,15 +31,30 @@ IMAPProtocol::IMAPProtocol(const BMailAccountSettings& settings)
 	}
 
 	mutex_init(&fWorkerLock, "imap worker lock");
-
+	fStopped = false;
 	PostMessage(B_READY_TO_RUN);
 }
 
 
 IMAPProtocol::~IMAPProtocol()
 {
-}
+	MutexLocker locker(fWorkerLock);
+	std::vector<thread_id> threads;
+	for (int32 i = 0; i < fWorkers.CountItems(); i++)
+		threads.push_back(fWorkers.ItemAt(i)->Thread());
+	locker.Unlock();
 
+	fStopped = true; // safe to use w/o lock
+
+	for (uint32 i = 0; i < threads.size(); i++)
+		wait_for_thread(threads[i], NULL);
+
+	FolderMap::iterator iterator = fFolders.begin();
+	for (; iterator != fFolders.end(); iterator++) {
+		IMAPFolder* folder = iterator->second;
+		delete folder; // to stop thread
+	}
+}
 
 status_t
 IMAPProtocol::CheckSubscribedFolders(IMAP::Protocol& protocol, bool idle)
@@ -70,7 +85,7 @@ IMAPProtocol::CheckSubscribedFolders(IMAP::Protocol& protocol, bool idle)
 
 	if (newFolders.IsEmpty() && fWorkers.CountItems() == workersWanted) {
 		// Nothing to do - we've already distributed everything
-		return B_OK;
+		return _EnqueueCheckMailboxes();
 	}
 
 	// Remove mailboxes from workers
@@ -175,20 +190,19 @@ IMAPProtocol::SyncMessages()
 	puts("IMAP: sync");
 
 	MutexLocker locker(fWorkerLock);
-	if (fWorkers.IsEmpty()) {
-		// Create main (and possibly initial) connection worker
-		IMAPConnectionWorker* worker = new IMAPConnectionWorker(*this,
-			fSettings, true);
-		if (!fWorkers.AddItem(worker)) {
-			delete worker;
-			return B_NO_MEMORY;
-		}
-
-		worker->EnqueueCheckSubscribedFolders();
-		return worker->Run();
+	for (int32 i = 0; i < fWorkers.CountItems(); i++) {
+		if (fWorkers.ItemAt(i)->IsSyncPending())
+			return B_OK;
 	}
-
-	return _EnqueueCheckMailboxes();
+	// Always create new connection worker (to avoid deadlocks)
+	IMAPConnectionWorker* worker = new IMAPConnectionWorker(*this,
+			fSettings, true);
+	if (!fWorkers.AddItem(worker)) {
+		delete worker;
+		return B_NO_MEMORY;
+	}
+	worker->EnqueueCheckSubscribedFolders();
+	return worker->Run();
 }
 
 

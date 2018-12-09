@@ -50,7 +50,7 @@ public:
 
 	virtual void				MessageReceived(BMessage* message);
 	const ::Settings*			Settings() const { return &fSettings; };
-
+			bool				IsStopped() const { return fStopped; };
 protected:
 	virtual status_t			HandleFetchBody(const entry_ref& ref,
 									const BMessenger& replyTo);
@@ -73,6 +73,7 @@ protected:
 			WorkerMap			fWorkerMap;
 			FolderMap			fFolders;
 			FolderNodeMap		fFolderNodeMap;
+			bool				fStopped;
 };
 
 
