@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3eb462d3_a0ec8377",
+        "filename": "src/add-ons/mail_daemon/inbound_protocols/imap/IMAPConnectionWorker.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 807,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2018-12-10T08:38:37Z",
+      "side": 1,
+      "message": "I find it strange that this is needed. The usual design is that the controller thread deletes the semaphore, so acquire_sem_etc() should fail with an error other than B_INTERRUPTED. You changed it so the thread wakes up every second. But deleting the semaphore should wake up the thread immediately, but only when it needs to.",
+      "revId": "8c833c0c084681697a70b01822af633641e25456",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2ef600a_966a9e8c",
+        "filename": "src/add-ons/mail_daemon/inbound_protocols/imap/IMAPProtocol.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2018-12-10T08:38:37Z",
+      "side": 1,
+      "message": "This seems to be the place where the semaphores should be deleted that the worker threads are blocking on.",
+      "revId": "8c833c0c084681697a70b01822af633641e25456",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
