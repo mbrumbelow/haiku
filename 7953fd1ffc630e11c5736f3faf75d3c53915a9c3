@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7b9da1bc_d22df1b6",
+        "filename": "src/add-ons/mail_daemon/inbound_protocols/imap/IMAPConnectionWorker.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-12-10T08:35:16Z",
+      "side": 1,
+      "message": "Please drop the semicolon after the brace.",
+      "revId": "7953fd1ffc630e11c5736f3faf75d3c53915a9c3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66a3de21_cdc9886d",
+        "filename": "src/add-ons/mail_daemon/inbound_protocols/imap/IMAPProtocol.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-12-10T08:35:16Z",
+      "side": 1,
+      "message": "Please drop the semicolon after the brace.",
+      "revId": "7953fd1ffc630e11c5736f3faf75d3c53915a9c3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
