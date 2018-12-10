@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "db4bc3a3_75aa1beb",
+        "filename": "src/add-ons/mail_daemon/inbound_protocols/imap/IMAPProtocol.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2018-12-10T08:40:39Z",
+      "side": 1,
+      "message": "I didn\u0027t notice another change got created for a newer set of patches. Please have a look at my other code review in 752.",
+      "revId": "7953fd1ffc630e11c5736f3faf75d3c53915a9c3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "66a3de21_cdc9886d",
         "filename": "src/add-ons/mail_daemon/inbound_protocols/imap/IMAPProtocol.h",
         "patchSetId": 2
