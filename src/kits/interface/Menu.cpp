@@ -1,5 +1,5 @@
 /*
- * Copyright 2001-2015 Haiku, Inc. All rights reserved.
+ * Copyright 2001-2018 Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT license.
  *
  * Authors:
@@ -8,6 +8,7 @@
  *		Marc Flerackers, mflerackers@androme.be
  *		Rene Gollent, anevilyak@gmail.com
  *		John Scipione, jscipione@gmail.com
+ *		Adrien Destugues, pulkomandy@pulkomandy.tk
  */
 
 
@@ -15,6 +16,7 @@
 
 #include <algorithm>
 #include <new>
+#include <set>
 
 #include <ctype.h>
 #include <string.h>
@@ -35,6 +37,7 @@
 #include <Screen.h>
 #include <ScrollBar.h>
 #include <SystemCatalog.h>
+#include <UnicodeChar.h>
 #include <Window.h>
 
 #include <AppServerLink.h>
@@ -72,12 +75,15 @@ public:
 	// TODO: make this work with Unicode characters!
 
 	bool HasTrigger(uint32 c)
-		{ return fList.HasItem((void*)(addr_t)tolower(c)); }
+		{ return fList.find(tolower(c)) != fList.end(); }
 	bool AddTrigger(uint32 c)
-		{ return fList.AddItem((void*)(addr_t)tolower(c)); }
+	{
+		fList.insert(tolower(c));
+		return true;
+	}
 
 private:
-	BList	fList;
+	std::set<uint32> fList;
 };
 
 
@@ -583,7 +589,7 @@ BMenu::KeyDown(const char* bytes, int32 numBytes)
 
 		default:
 		{
-			uint32 trigger = UTF8ToCharCode(&bytes);
+			uint32 trigger = BUnicodeChar::FromUTF8(&bytes);
 
 			for (uint32 i = CountItems(); i-- > 0;) {
 				BMenuItem* item = ItemAt(i);
@@ -2884,9 +2890,9 @@ BMenu::_ChooseTrigger(const char* title, int32& index, uint32& trigger,
 
 	// then, if we still haven't found anything, we accept them all
 	index = 0;
-	while ((c = UTF8ToCharCode(&title)) != 0) {
-		if (!isspace(c) && !triggers.HasTrigger(c)) {
-			trigger = tolower(c);
+	while ((c = BUnicodeChar::FromUTF8(&title)) != 0) {
+		if (!BUnicodeChar::IsSpace(c) && !triggers.HasTrigger(c)) {
+			trigger = BUnicodeChar::ToLower(c);
 			return triggers.AddTrigger(c);
 		}
 
