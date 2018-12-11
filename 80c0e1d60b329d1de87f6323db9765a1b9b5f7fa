@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2faecec0_1258d554",
+        "filename": "src/add-ons/kernel/network/protocols/ipv4/ipv4.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-11T08:24:45Z",
+      "side": 1,
+      "message": "it should be groupIterator (lowercase g)",
+      "revId": "80c0e1d60b329d1de87f6323db9765a1b9b5f7fa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
