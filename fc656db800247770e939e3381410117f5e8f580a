@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a742b439_ea6b92dc",
+        "filename": "src/kits/interface/Menu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2882,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-12-12T12:10:42Z",
+      "side": 1,
+      "message": "c could be declared as uchar in the loop (instead of uint32). Makes the use tolower later logical.",
+      "revId": "fc656db800247770e939e3381410117f5e8f580a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "77dfc520_09872523",
+        "filename": "src/kits/interface/Menu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2892,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-12-12T12:10:42Z",
+      "side": 1,
+      "message": "c could be declared in the loop as uint32 (could be changed to a for loop like the one before).",
+      "revId": "fc656db800247770e939e3381410117f5e8f580a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
