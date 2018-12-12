@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ea8ba1bb_c288956e",
+        "filename": "src/add-ons/mail_daemon/inbound_protocols/imap/IMAPConnectionWorker.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 808,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2018-12-12T07:39:06Z",
+      "side": 1,
+      "message": "I just realize, this is the wrong way around. The first condition in the while() needs to be IsRunning(). Otherwise you could block on the semaphore while IsRunning() would already return false.",
+      "revId": "e1ce19dff43a717ff02325076f3a5975405f4719",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d6ccf3e_f872dee5",
+        "filename": "src/add-ons/mail_daemon/inbound_protocols/imap/IMAPFolder.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2018-12-12T07:39:06Z",
+      "side": 1,
+      "message": "Please make this \"fListener !\u003d NULL\".",
+      "revId": "e1ce19dff43a717ff02325076f3a5975405f4719",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c6a1843_05912090",
+        "filename": "src/add-ons/mail_daemon/inbound_protocols/imap/IMAPProtocol.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2018-12-12T07:39:06Z",
+      "side": 1,
+      "message": "I don\u0027t understand how this actually solves a deadlock. The lock seems to be held in just the same way when the respective part of the code is executed.",
+      "revId": "e1ce19dff43a717ff02325076f3a5975405f4719",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
