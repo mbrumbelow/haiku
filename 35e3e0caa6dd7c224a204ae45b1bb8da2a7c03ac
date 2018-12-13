@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f01a7e35_035618d4",
+        "filename": "src/add-ons/mail_daemon/inbound_protocols/imap/IMAPConnectionWorker.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 858,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2018-12-13T08:07:35Z",
+      "side": 1,
+      "message": "The patch looks good. May I suggest an improvement: The mechanism seems to be that there are either pending commands, or just a single quit-command in the queue. (Adding the QuitCommand first removes all other commands.) I would suggest adding a private method:\n\nbool\nIMAPConnectionWorker::_IsQuitPending()\n{\n    BAutolock locker(fQueueLocker);\n    if (fPendingCommands.IsEmpty())  // These two lines are optional,\n        return false;                // since ItemAt() returns NULL if empty.\n    WorkerCommand* nextCommand \u003d fPendingCommands.ItemAt(0);\n    return dynamic_cast\u003cQuitCommand*\u003e(nextCommand) !\u003d NULL;\n}\n\n... And then use that both from within _EnqueueCommand(), since I believe no more commands are supposed to be enqueued when a quit command is already pending. And also here. You can pull the call to _IsQuitPending() into the while condition. It will make the code much cleaner to follow and avoid the multi-line-if.",
+      "revId": "35e3e0caa6dd7c224a204ae45b1bb8da2a7c03ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
