@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "20952554_94044950",
+        "filename": "src/kits/interface/Menu.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2890,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-12-14T23:02:26Z",
+      "side": 1,
+      "message": "Previously, index was a byte index. Now it is a character index. It seems this will break BMenuItem: http://xref.plausible.coop/source/xref/haiku/src/kits/interface/MenuItem.cpp#429",
+      "revId": "812c5cff03f89b3000757438979dfa47e0e59659",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
