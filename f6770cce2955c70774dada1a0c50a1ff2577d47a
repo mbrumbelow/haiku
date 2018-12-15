@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24a4f4a7_e732f132",
+        "filename": "src/apps/mail/MailWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3234,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-12-15T18:59:30Z",
+      "side": 1,
+      "message": "Isn\u0027t there an API function to do something like this in BFile?",
+      "revId": "f6770cce2955c70774dada1a0c50a1ff2577d47a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
