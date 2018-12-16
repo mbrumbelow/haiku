@@ -16,6 +16,24 @@
       "revId": "f6770cce2955c70774dada1a0c50a1ff2577d47a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79fe9870_97b68400",
+        "filename": "src/apps/mail/MailWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3234,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2018-12-16T06:51:11Z",
+      "side": 1,
+      "message": "I haven\u0027t found anything. If I understand it right, it\u0027d belong to BNode.\nA CopyAttr() and CopyAllAttr() would indeed be nice. :)",
+      "parentUuid": "24a4f4a7_e732f132",
+      "revId": "f6770cce2955c70774dada1a0c50a1ff2577d47a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
