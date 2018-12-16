@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3575854_5b224cd0",
+        "filename": "src/apps/text_search/GrepWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1525,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-12-16T13:37:26Z",
+      "side": 0,
+      "message": "Since PE_SIGNATURE isn\u0027t used anymore, you can delete it from GlobalDefs.",
+      "revId": "414b21c497186194ed77b14edcc76c8aac66ecc4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7cc84c18_1293b2b9",
+        "filename": "src/apps/text_search/Model.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-12-16T13:37:26Z",
+      "side": 0,
+      "message": "You can delete this blank line now.",
+      "revId": "414b21c497186194ed77b14edcc76c8aac66ecc4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
