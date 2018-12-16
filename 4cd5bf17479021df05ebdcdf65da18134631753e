@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "badddaed_908376f4",
+        "filename": "docs/apps/haikudepot/images/process-interplay.odg",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-12-16T21:51:23Z",
+      "side": 1,
+      "message": "Is this the same as the .svg? If so, it can be deleted.\n\nIf not, then please save it in `fodg` format so that it appears as plain text in the repository for easy diffing. Same for the other svg/odg pair.",
+      "revId": "4cd5bf17479021df05ebdcdf65da18134631753e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5221d753_72c9e815",
+        "filename": "docs/apps/haikudepot/server.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2018-12-16T21:51:23Z",
+      "side": 1,
+      "message": "This whole directory is development documentation, not end-user documentation, so it should go in `docs/develop/apps/` instead of `docs/apps/`.",
+      "revId": "4cd5bf17479021df05ebdcdf65da18134631753e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
