@@ -204,6 +204,11 @@ TermApp::ArgvReceived(int32 argc, char **argv)
 	if (fArgs->Title() != NULL)
 		fWindowTitle = fArgs->Title();
 
+	if (fArgs->WorkingDir() != NULL) {
+		fWorkingDirectory = fArgs->WorkingDirectory();
+		chdir(fWorkingDirectory);
+	}
+
 	fStartFullscreen = fArgs->FullScreen();
 }
 
@@ -299,7 +304,7 @@ TermApp::_ChildCleanupThreadEntry(void* data)
 	return ((TermApp*)data)->_ChildCleanupThread();
 }
 
-	
+
 status_t
 TermApp::_ChildCleanupThread()
 {
@@ -307,7 +312,7 @@ TermApp::_ChildCleanupThread()
 	sigemptyset(&waitForSignals);
 	sigaddset(&waitForSignals, SIGCHLD);
 	sigaddset(&waitForSignals, SIGUSR1);
-	
+
 	for (;;) {
 		int signal;
 		int error = sigwait(&waitForSignals, &signal);
@@ -332,13 +337,19 @@ TermApp::_Usage(char *name)
 		"\n"
 		"Usage: %s [OPTION] [SHELL]\n"), name);
 
+
 	fprintf(stderr,
+		// use spaces not tabs to position text within this B_TRANSLATE
 		B_TRANSLATE("  -h,     --help               print this help\n"
-		//"  -p,     --preference         load preference file\n"
-		"  -t,     --title              set window title\n"
-		"  -f,     --fullscreen         start fullscreen\n")
-		//"  -geom,  --geometry           set window geometry\n"
-		//"                               An example of geometry is \"80x25+100+100\"\n"
+					//"  -p,     --preference         load preference file\n"
+					"  -t,     --title              set window title\n"
+					"  -f,     --fullscreen         start fullscreen\n"
+					"  -w,     --working-directory  set initial working directory\n"
+					"                               An example of a working directory is \"/boot/home\"\n"
+					"                               This will tell Terminal to start in the chosen\n"
+					"                               directory.\n")
+					//"  -geom,  --geometry           set window geometry\n"
+					//"                               An example of geometry is \"80x25+100+100\"\n"
 		);
 }
 

@@ -25,7 +25,8 @@ Arguments::Arguments(int defaultArgsNum, const char* const* defaultArgs)
 	  fFullScreen(false),
 	  fShellArgumentCount(0),
 	  fShellArguments(NULL),
-	  fTitle(NULL)
+	  fTitle(NULL),
+	  fWorkingDirectory(NULL)
 {
 	_SetShellArguments(defaultArgsNum, defaultArgs);
 }
@@ -54,7 +55,15 @@ Arguments::Parse(int argc, const char* const* argv)
 				else
 					fTitle = argv[++argi];
 
-			} else if (strcmp(arg, "-f") == 0 || strcmp(arg, "--fullscreen")
+			} 
+			else if (strcmp(arg, "-w") == 0 || strcmp(arg, "--working-directory")
+					== 0) {
+				if (argi >= argc)
+					fUsageRequested = true;
+				else
+					fWorkingDirectory = argv[++argi];
+			}
+			else if (strcmp(arg, "-f") == 0 || strcmp(arg, "--fullscreen")
 					== 0)
 				fFullScreen = true;
 			else {
