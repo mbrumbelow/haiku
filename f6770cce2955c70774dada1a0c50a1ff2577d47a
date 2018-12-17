@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5407d2ae_ce930355",
+        "filename": "src/apps/mail/MailWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3071,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2018-12-17T07:34:17Z",
+      "side": 1,
+      "message": "Accident. :)",
+      "parentUuid": "805a64c7_673d0d2d",
+      "revId": "f6770cce2955c70774dada1a0c50a1ff2577d47a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24a4f4a7_e732f132",
         "filename": "src/apps/mail/MailWindow.cpp",
         "patchSetId": 1
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "There is a \"status_t CopyAttributes(BNode\u0026 source, BNode\u0026 destination)\" in libshared:\nhttps://github.com/haiku/haiku/blob/master/src/kits/shared/AttributeUtilities.cpp#L23",
       "parentUuid": "79fe9870_97b68400",
+      "revId": "f6770cce2955c70774dada1a0c50a1ff2577d47a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2f52db7_66a88eb2",
+        "filename": "src/apps/mail/MailWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3234,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2018-12-17T07:34:17Z",
+      "side": 1,
+      "message": "Now why didn\u0027t I find that! Would have saved me some time... :)\nI\u0027ve removed the whole _CopyQueryLayout().\nThanks!",
+      "parentUuid": "2b6aed9c_8105eee4",
       "revId": "f6770cce2955c70774dada1a0c50a1ff2577d47a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
