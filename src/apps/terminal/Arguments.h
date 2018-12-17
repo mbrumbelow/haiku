@@ -15,11 +15,12 @@ public:
 
 	void Parse(int argc, const char* const* argv);
 
-	BRect Bounds() const		{ return fBounds; }
-	const char* Title() const	{ return fTitle; }
-	bool StandardShell() const	{ return fStandardShell; }
-	bool FullScreen() const		{ return fFullScreen; }
-	bool UsageRequested() const	{ return fUsageRequested; }
+	BRect Bounds() const			{ return fBounds; }
+	const char* Title() const		{ return fTitle; }
+	const char* WorkingDir() const	{ return fWorkingDirectory; }
+	bool StandardShell() const		{ return fStandardShell; }
+	bool FullScreen() const			{ return fFullScreen; }
+	bool UsageRequested() const		{ return fUsageRequested; }
 	void GetShellArguments(int& argc, const char* const*& argv) const;
 
 private:
@@ -32,6 +33,7 @@ private:
 	int				fShellArgumentCount;
 	const char**	fShellArguments;
 	const char*		fTitle;
+	const char*		fWorkingDirectory;
 };
 
 

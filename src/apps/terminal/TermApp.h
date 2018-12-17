@@ -54,6 +54,7 @@ private:
 			bool				fTerminating;
 			bool				fStartFullscreen;
 			BString				fWindowTitle;
+			BString				fWorkingDirectory;
 
 			BWindow*			fTermWindow;
 			Arguments*			fArgs;
