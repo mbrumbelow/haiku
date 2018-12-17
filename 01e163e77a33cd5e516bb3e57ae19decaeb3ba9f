@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fff5269c_ccce23c3",
+        "filename": "src/apps/mail/MailWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3270,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-12-17T08:21:01Z",
+      "side": 1,
+      "message": "templateNode.InitCheck() should be checked for failure.",
+      "revId": "01e163e77a33cd5e516bb3e57ae19decaeb3ba9f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "699fe0ca_eb8efbea",
+        "filename": "src/apps/mail/MailWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3272,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-12-17T08:21:01Z",
+      "side": 1,
+      "message": "Return value should be checked.",
+      "revId": "01e163e77a33cd5e516bb3e57ae19decaeb3ba9f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b34859b_820df234",
+        "filename": "src/apps/mail/MailWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3281,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-12-17T08:21:01Z",
+      "side": 1,
+      "message": "Return value should be checked.",
+      "revId": "01e163e77a33cd5e516bb3e57ae19decaeb3ba9f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
