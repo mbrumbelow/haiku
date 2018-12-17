@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "805a64c7_673d0d2d",
+        "filename": "src/apps/mail/MailWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3071,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-12-17T06:01:26Z",
+      "side": 1,
+      "message": "The padding changed here. Why?",
+      "revId": "f6770cce2955c70774dada1a0c50a1ff2577d47a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24a4f4a7_e732f132",
         "filename": "src/apps/mail/MailWindow.cpp",
         "patchSetId": 1
@@ -31,6 +48,24 @@
       "side": 1,
       "message": "I haven\u0027t found anything. If I understand it right, it\u0027d belong to BNode.\nA CopyAttr() and CopyAllAttr() would indeed be nice. :)",
       "parentUuid": "24a4f4a7_e732f132",
+      "revId": "f6770cce2955c70774dada1a0c50a1ff2577d47a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b6aed9c_8105eee4",
+        "filename": "src/apps/mail/MailWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3234,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2018-12-17T06:01:26Z",
+      "side": 1,
+      "message": "There is a \"status_t CopyAttributes(BNode\u0026 source, BNode\u0026 destination)\" in libshared:\nhttps://github.com/haiku/haiku/blob/master/src/kits/shared/AttributeUtilities.cpp#L23",
+      "parentUuid": "79fe9870_97b68400",
       "revId": "f6770cce2955c70774dada1a0c50a1ff2577d47a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
