@@ -15,6 +15,7 @@
 #include <Locale.h>
 #include <MenuItem.h>
 #include <MenuField.h>
+#include <FilePanel.h>
 #include <Message.h>
 #include <PopUpMenu.h>
 #include <ScrollView.h>
@@ -24,6 +25,8 @@
 #include <TabView.h>
 #include <TextControl.h>
 #include <debugger.h>
+#include <Autolock.h>
+#include <Path.h>
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -70,6 +73,9 @@ enum {
 	MSG_USE_PROXY_AUTH_CHANGED					= 'upsa',
 	MSG_PROXY_USERNAME_CHANGED					= 'psuc',
 	MSG_PROXY_PASSWORD_CHANGED					= 'pswc',
+
+	M_SHOW_OPEN_PANEL							= 'swop',
+	M_CHOOSE_DOWNLOAD_FOLDER							= 'oprs',
 };
 
 static const int32 kDefaultFontSize = 14;
@@ -87,6 +93,8 @@ SettingsWindow::SettingsWindow(BRect frame, SettingsMessage* settings)
 		new BMessage(MSG_CANCEL));
 	fRevertButton = new BButton(B_TRANSLATE("Revert"),
 		new BMessage(MSG_REVERT));
+
+	fOpenFilePanel=NULL;
 
 	float spacing = be_control_look->DefaultItemSpacing();
 
@@ -144,6 +152,7 @@ SettingsWindow::~SettingsWindow()
 	delete fSansSerifFontView;
 	RemoveHandler(fFixedFontView);
 	delete fFixedFontView;
+	delete fOpenFilePanel;
 }
 
 
@@ -161,7 +170,12 @@ SettingsWindow::MessageReceived(BMessage* message)
 		case MSG_REVERT:
 			_RevertSettings();
 			break;
-
+		case M_SHOW_OPEN_PANEL:
+			_ChooseDownloadFolder(message);
+			break;
+		case M_CHOOSE_DOWNLOAD_FOLDER:
+			 _HandleDownloadPanelResult(fOpenFilePanel,message);
+			break;
 		case MSG_STANDARD_FONT_SIZE_SELECTED:
 		{
 			int32 size = _SizesMenuValue(fStandardSizesMenu->Menu());
@@ -178,7 +192,6 @@ SettingsWindow::MessageReceived(BMessage* message)
 			_ValidateControlsEnabledStatus();
 			break;
 		}
-
 		case MSG_START_PAGE_CHANGED:
 		case MSG_SEARCH_PAGE_CHANGED:
 		case MSG_DOWNLOAD_FOLDER_CHANGED:
@@ -286,6 +299,8 @@ SettingsWindow::_CreateGeneralPage(float spacing)
 	fNewTabBehaviorOpenBlankItem = new BMenuItem(
 		B_TRANSLATE("Open blank page"),
 		new BMessage(MSG_NEW_TABS_BEHAVIOR_CHANGED));
+	fChooseButton = new BButton(B_TRANSLATE("Default location"),
+		new BMessage(M_SHOW_OPEN_PANEL));
 
 	fNewWindowBehaviorOpenHomeItem->SetMarked(true);
 	fNewTabBehaviorOpenBlankItem->SetMarked(true);
@@ -339,15 +354,16 @@ SettingsWindow::_CreateGeneralPage(float spacing)
 
 			.Add(fSearchPageControl->CreateLabelLayoutItem(), 0, 1)
 			.Add(fSearchPageControl->CreateTextViewLayoutItem(), 1, 1)
+			
+			.Add(fNewWindowBehaviorMenu->CreateLabelLayoutItem(), 0, 2)
+			.Add(fNewWindowBehaviorMenu->CreateMenuBarLayoutItem(), 1, 2)
 
-			.Add(fDownloadFolderControl->CreateLabelLayoutItem(), 0, 2)
-			.Add(fDownloadFolderControl->CreateTextViewLayoutItem(), 1, 2)
-
-			.Add(fNewWindowBehaviorMenu->CreateLabelLayoutItem(), 0, 3)
-			.Add(fNewWindowBehaviorMenu->CreateMenuBarLayoutItem(), 1, 3)
+			.Add(fDownloadFolderControl->CreateLabelLayoutItem(), 0, 3)
+			.Add(fDownloadFolderControl->CreateTextViewLayoutItem(), 1, 3)
+			.Add(fChooseButton, 2, 3)
 
 			.Add(fNewTabBehaviorMenu->CreateLabelLayoutItem(), 0, 4)
-			.Add(fNewTabBehaviorMenu->CreateMenuBarLayoutItem(), 1, 4)
+			.Add(fNewTabBehaviorMenu->CreateMenuBarLayoutItem(), 1, 5)
 		)
 		.Add(BSpaceLayoutItem::CreateVerticalStrut(spacing))
 		.Add(new BSeparatorView(B_HORIZONTAL, B_PLAIN_BORDER))
@@ -795,6 +811,31 @@ SettingsWindow::_RevertSettings()
 
 
 void
+SettingsWindow::_ChooseDownloadFolder(const BMessage* message)
+{
+	if (fOpenFilePanel == NULL) {
+		BMessenger target(this);
+		fOpenFilePanel = new (std::nothrow) BFilePanel(B_OPEN_PANEL, &target, NULL, B_DIRECTORY_NODE);
+	}
+	BMessage panelMessage(M_CHOOSE_DOWNLOAD_FOLDER);
+	fOpenFilePanel->SetMessage(&panelMessage);
+	fOpenFilePanel->Show();
+}
+
+
+void
+SettingsWindow:: _HandleDownloadPanelResult(BFilePanel* panel, const BMessage* message)
+{
+	entry_ref ref;
+	if ( message->FindRef("refs", 0, &ref) == B_OK )
+	{
+		BPath path(&ref);
+		fDownloadFolderControl->SetText(path.Path());
+	}
+}
+
+
+void
 SettingsWindow::_ValidateControlsEnabledStatus()
 {
 	bool canApply = _CanApplySettings();
@@ -803,7 +844,6 @@ SettingsWindow::_ValidateControlsEnabledStatus()
 	// Let the Cancel button be enabled always, as another way to close the
 	// window...
 	fCancelButton->SetEnabled(true);
-
 	bool useProxy = fUseProxyCheckBox->Value() == B_CONTROL_ON;
 	fProxyAddressControl->SetEnabled(useProxy);
 	fProxyPortControl->SetEnabled(useProxy);
