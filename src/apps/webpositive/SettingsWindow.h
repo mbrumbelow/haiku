@@ -5,8 +5,10 @@
  */
 #ifndef SETTINGS_WINDOW_H
 #define SETTINGS_WINDOW_H
-
+#include <FilePanel.h>
 #include <Window.h>
+#include <fstream>
+
 
 class BButton;
 class BCheckBox;
@@ -43,6 +45,15 @@ private:
 			bool				_CanApplySettings() const;
 			void				_ApplySettings();
 			void				_RevertSettings();
+			void 				_ChooseFolder(const BMessage* message);
+			void				_ShowFilePanel(BFilePanel* panel,
+									uint32 command, const BMessage* message,
+									const char* defaultTitle,
+									const char* defaultLabel);
+			void				_HandleOpenPanelResult(
+									const BMessage* message);
+			void				_HandleFilePanelResult(BFilePanel* panel,
+									const BMessage* message);
 			void				_ValidateControlsEnabledStatus();
 
 			uint32				_NewWindowPolicy() const;
@@ -94,9 +105,12 @@ private:
 			BButton*			fApplyButton;
 			BButton*			fCancelButton;
 			BButton*			fRevertButton;
+			BButton*			fChooseButton;
 
 			BMenuField*			fStandardSizesMenu;
 			BMenuField*			fFixedSizesMenu;
+
+			BFilePanel*			fOpenFilePanel;
 };
 
 

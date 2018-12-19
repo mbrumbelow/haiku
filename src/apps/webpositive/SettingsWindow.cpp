@@ -15,6 +15,7 @@
 #include <Locale.h>
 #include <MenuItem.h>
 #include <MenuField.h>
+#include <FilePanel.h>
 #include <Message.h>
 #include <PopUpMenu.h>
 #include <ScrollView.h>
@@ -24,6 +25,8 @@
 #include <TabView.h>
 #include <TextControl.h>
 #include <debugger.h>
+#include <Autolock.h>
+#include <Path.h>
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -44,6 +47,7 @@ enum {
 	MSG_APPLY									= 'aply',
 	MSG_CANCEL									= 'cncl',
 	MSG_REVERT									= 'rvrt',
+	MSG_CHOOSE									= 'chos',
 
 	MSG_START_PAGE_CHANGED						= 'hpch',
 	MSG_SEARCH_PAGE_CHANGED						= 'spch',
@@ -70,6 +74,10 @@ enum {
 	MSG_USE_PROXY_AUTH_CHANGED					= 'upsa',
 	MSG_PROXY_USERNAME_CHANGED					= 'psuc',
 	MSG_PROXY_PASSWORD_CHANGED					= 'pswc',
+
+	M_SHOW_OPEN_PANEL							= 'swop',
+	M_OPEN_PANEL_RESULT							= 'oprs',
+	M_SAVE_PANEL_RESULT							= 'sprs',
 };
 
 static const int32 kDefaultFontSize = 14;
@@ -144,6 +152,7 @@ SettingsWindow::~SettingsWindow()
 	delete fSansSerifFontView;
 	RemoveHandler(fFixedFontView);
 	delete fFixedFontView;
+	delete fOpenFilePanel;
 }
 
 
@@ -161,7 +170,12 @@ SettingsWindow::MessageReceived(BMessage* message)
 		case MSG_REVERT:
 			_RevertSettings();
 			break;
-
+		case M_SHOW_OPEN_PANEL:
+			_ChooseFolder(message);
+			break;
+		case M_OPEN_PANEL_RESULT:
+			_HandleOpenPanelResult(message);
+			break;
 		case MSG_STANDARD_FONT_SIZE_SELECTED:
 		{
 			int32 size = _SizesMenuValue(fStandardSizesMenu->Menu());
@@ -178,7 +192,6 @@ SettingsWindow::MessageReceived(BMessage* message)
 			_ValidateControlsEnabledStatus();
 			break;
 		}
-
 		case MSG_START_PAGE_CHANGED:
 		case MSG_SEARCH_PAGE_CHANGED:
 		case MSG_DOWNLOAD_FOLDER_CHANGED:
@@ -286,6 +299,8 @@ SettingsWindow::_CreateGeneralPage(float spacing)
 	fNewTabBehaviorOpenBlankItem = new BMenuItem(
 		B_TRANSLATE("Open blank page"),
 		new BMessage(MSG_NEW_TABS_BEHAVIOR_CHANGED));
+	fChooseButton = new BButton(B_TRANSLATE("Default location"),
+		new BMessage(M_SHOW_OPEN_PANEL));
 
 	fNewWindowBehaviorOpenHomeItem->SetMarked(true);
 	fNewTabBehaviorOpenBlankItem->SetMarked(true);
@@ -333,21 +348,22 @@ SettingsWindow::_CreateGeneralPage(float spacing)
 	fShowHomeButton->SetValue(B_CONTROL_ON);
 
 	BView* view = BGroupLayoutBuilder(B_VERTICAL, 0)
+		.Add(BGroupLayoutBuilder(B_HORIZONTAL, 0)
+		.Add(fDownloadFolderControl)
+		.Add(fChooseButton)
+		)
 		.Add(BGridLayoutBuilder(spacing / 2, spacing / 2)
 			.Add(fStartPageControl->CreateLabelLayoutItem(), 0, 0)
 			.Add(fStartPageControl->CreateTextViewLayoutItem(), 1, 0)
-
+			
 			.Add(fSearchPageControl->CreateLabelLayoutItem(), 0, 1)
 			.Add(fSearchPageControl->CreateTextViewLayoutItem(), 1, 1)
+			
+			.Add(fNewWindowBehaviorMenu->CreateLabelLayoutItem(), 0, 2)
+			.Add(fNewWindowBehaviorMenu->CreateMenuBarLayoutItem(), 1, 2)
 
-			.Add(fDownloadFolderControl->CreateLabelLayoutItem(), 0, 2)
-			.Add(fDownloadFolderControl->CreateTextViewLayoutItem(), 1, 2)
-
-			.Add(fNewWindowBehaviorMenu->CreateLabelLayoutItem(), 0, 3)
-			.Add(fNewWindowBehaviorMenu->CreateMenuBarLayoutItem(), 1, 3)
-
-			.Add(fNewTabBehaviorMenu->CreateLabelLayoutItem(), 0, 4)
-			.Add(fNewTabBehaviorMenu->CreateMenuBarLayoutItem(), 1, 4)
+			.Add(fNewTabBehaviorMenu->CreateLabelLayoutItem(), 0, 3)
+			.Add(fNewTabBehaviorMenu->CreateMenuBarLayoutItem(), 1, 3)
 		)
 		.Add(BSpaceLayoutItem::CreateVerticalStrut(spacing))
 		.Add(new BSeparatorView(B_HORIZONTAL, B_PLAIN_BORDER))
@@ -793,6 +809,72 @@ SettingsWindow::_RevertSettings()
 	_ValidateControlsEnabledStatus();
 }
 
+void
+SettingsWindow::_ChooseFolder(const BMessage* message)
+{
+	if (fOpenFilePanel == NULL) {
+		BMessenger target(this);
+		fOpenFilePanel = new BFilePanel(B_OPEN_PANEL, &target,NULL,B_DIRECTORY_NODE);
+	}
+	_ShowFilePanel(fOpenFilePanel, M_OPEN_PANEL_RESULT, message,
+		B_TRANSLATE("Open"), B_TRANSLATE("Open"));
+}
+void
+SettingsWindow::_ShowFilePanel(BFilePanel* panel, uint32 command,
+	const BMessage* message, const char* defaultTitle,
+	const char* defaultLabel)
+{
+	BMessage panelMessage(command);
+
+	if (message != NULL) {
+		BMessage targetMessage;
+		if (message->FindMessage("message", &targetMessage) == B_OK)
+			panelMessage.AddMessage("message", &targetMessage);
+
+		BMessenger target;
+		if (message->FindMessenger("target", &target) == B_OK)
+			panelMessage.AddMessenger("target", target);
+
+		const char* panelTitle;
+		if (message->FindString("title", &panelTitle) != B_OK)
+			panelTitle = defaultTitle;
+		{
+			BString finalPanelTitle = "Default Folder: ";
+			finalPanelTitle << panelTitle;
+			BAutolock lock(panel->Window());
+			panel->Window()->SetTitle(finalPanelTitle.String());
+		}
+		const char* buttonLabel;
+		if (message->FindString("label", &buttonLabel) != B_OK)
+			buttonLabel = defaultLabel;
+		panel->SetButtonLabel(B_DEFAULT_BUTTON, buttonLabel);
+	}
+	panel->SetMessage(&panelMessage);
+
+	if (fLastFilePanelFolder != entry_ref()) {
+		panel->SetPanelDirectory(&fLastFilePanelFolder);
+	}
+
+	panel->Show();
+}
+void
+SettingsWindow::_HandleOpenPanelResult(const BMessage* message)
+{
+	_HandleFilePanelResult(fOpenFilePanel, message);
+}
+void
+SettingsWindow::_HandleFilePanelResult(BFilePanel* panel, const BMessage* message)
+{
+
+	entry_ref ref;
+	for (int32 i = 0; message->FindRef("refs", i, &ref) == B_OK; i++)
+	{
+			BPath path(&ref);
+			fDownloadFolderControl->SetText(path.Path());
+	}
+}
+
+
 
 void
 SettingsWindow::_ValidateControlsEnabledStatus()
@@ -803,7 +885,7 @@ SettingsWindow::_ValidateControlsEnabledStatus()
 	// Let the Cancel button be enabled always, as another way to close the
 	// window...
 	fCancelButton->SetEnabled(true);
-
+	fChooseButton->SetEnabled(true);
 	bool useProxy = fUseProxyCheckBox->Value() == B_CONTROL_ON;
 	fProxyAddressControl->SetEnabled(useProxy);
 	fProxyPortControl->SetEnabled(useProxy);
