@@ -1,0 +1,276 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "347d4b47_f8809f68",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-19T12:46:36Z",
+      "side": 1,
+      "message": "This constant is never used",
+      "revId": "d63f5bbccfab5ca3b6716c77e5e944e26a472327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92a02791_cddaa0f5",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-19T12:46:36Z",
+      "side": 1,
+      "message": "These constants have generic names which is not very nice. It is not obvious they are used for the download location, try to find better names for them.",
+      "revId": "d63f5bbccfab5ca3b6716c77e5e944e26a472327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a181284_b30678bd",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-19T12:46:36Z",
+      "side": 1,
+      "message": "There is no \"save\" panel here, so this constant is useless.",
+      "revId": "d63f5bbccfab5ca3b6716c77e5e944e26a472327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a7a8fcd3_b0ea18e9",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-19T12:46:36Z",
+      "side": 1,
+      "message": "Make sure to set fOpenFilePanel to NULL in the constructor, otherwise this could crash",
+      "revId": "d63f5bbccfab5ca3b6716c77e5e944e26a472327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "571ae696_10357374",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-19T12:46:36Z",
+      "side": 1,
+      "message": "All other constants here use MSG_ as a prefix, maybe use that here too?",
+      "revId": "d63f5bbccfab5ca3b6716c77e5e944e26a472327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d517623c_25306339",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-19T12:46:36Z",
+      "side": 1,
+      "message": "It is not so nice to have this independant of the grid below, the textbox should still align with the other elements in the window.\n\nI think we can make all items occupy 2 columns, and the text box and button use 1 column each, by using extra arguments to .Add on the BGridLayoutBuilder below for column and row counts.",
+      "revId": "d63f5bbccfab5ca3b6716c77e5e944e26a472327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c744334a_288d001d",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-19T12:46:36Z",
+      "side": 1,
+      "message": "This line and the next should be indented one extra level",
+      "revId": "d63f5bbccfab5ca3b6716c77e5e944e26a472327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f460e25_f703cc95",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 812,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-19T12:46:36Z",
+      "side": 1,
+      "message": "2 blank lines between functions",
+      "revId": "d63f5bbccfab5ca3b6716c77e5e944e26a472327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85be236d_5dc42740",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 817,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-19T12:46:36Z",
+      "side": 1,
+      "message": "space after commas.\n\nAlso use new\u003cstd::nothrow\u003e and check for NULL (out of memory).",
+      "revId": "d63f5bbccfab5ca3b6716c77e5e944e26a472327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c18a1d49_5084a856",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 822,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-19T12:46:36Z",
+      "side": 1,
+      "message": "2 blank lines between function",
+      "revId": "d63f5bbccfab5ca3b6716c77e5e944e26a472327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "789aef82_b6fb9e7f",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 830,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-19T12:46:36Z",
+      "side": 1,
+      "message": "What\u0027s the point of all this? The function will be called only from _ChoseFolder with a message using none of these fields.\n\nI think this whole function can be deleted and fOpenFilePanel-\u003eShow() can be used instead in _ChooseFolder. Am I missing something?",
+      "revId": "d63f5bbccfab5ca3b6716c77e5e944e26a472327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "40b1264e_12a0a0d8",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 841,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-19T12:46:36Z",
+      "side": 1,
+      "message": "Why these braces? Is this supposed to be part of the if() above?",
+      "revId": "d63f5bbccfab5ca3b6716c77e5e944e26a472327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e6587f09_5601db29",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 860,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-19T12:46:36Z",
+      "side": 1,
+      "message": "2 blank lines between functions",
+      "revId": "d63f5bbccfab5ca3b6716c77e5e944e26a472327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08bcbe1e_bf3b4c4a",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 866,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-19T12:46:36Z",
+      "side": 1,
+      "message": "This line is longer than 80 columns.\n\nAlso the parameter \"panel\" is not used, so this function can be deleted and the implementation done directly in _HandleOpenPanelResult.",
+      "revId": "d63f5bbccfab5ca3b6716c77e5e944e26a472327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f3979fa_1e697689",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 870,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-19T12:46:36Z",
+      "side": 1,
+      "message": "This loop is useless. The file panel should not allow to have multiple refs.",
+      "revId": "d63f5bbccfab5ca3b6716c77e5e944e26a472327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "423de2a4_7103c71a",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 888,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-19T12:46:36Z",
+      "side": 1,
+      "message": "This is useless because this button is never disabled.",
+      "revId": "d63f5bbccfab5ca3b6716c77e5e944e26a472327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
