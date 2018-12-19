@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a057d2d2_bcdb1f71",
+        "filename": "src/apps/terminal/Arguments.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-19T12:32:11Z",
+      "side": 1,
+      "message": "No newline here, better cut before ||",
+      "revId": "c48bc2cd447a25729c1da0a5f72d5f0b2216ff28",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8de36af4_166c204d",
+        "filename": "src/apps/terminal/Arguments.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-19T12:32:11Z",
+      "side": 1,
+      "message": "No newline here",
+      "revId": "c48bc2cd447a25729c1da0a5f72d5f0b2216ff28",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6dfe4bf6_540850f4",
+        "filename": "src/apps/terminal/Arguments.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-19T12:32:11Z",
+      "side": 1,
+      "message": "It\u0027s better to cut the line before the || (more readable)",
+      "revId": "c48bc2cd447a25729c1da0a5f72d5f0b2216ff28",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "546dc023_268be3a1",
+        "filename": "src/apps/terminal/TermApp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-19T12:32:11Z",
+      "side": 1,
+      "message": "Why? B_TRANSLATE has no problem with tabs",
+      "revId": "c48bc2cd447a25729c1da0a5f72d5f0b2216ff28",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "400933a7_b2d4514e",
+        "filename": "src/apps/terminal/TermApp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-19T12:32:11Z",
+      "side": 1,
+      "message": "I think \"set initial working directory\" is clear enough, no need for this extra explanation",
+      "revId": "c48bc2cd447a25729c1da0a5f72d5f0b2216ff28",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
