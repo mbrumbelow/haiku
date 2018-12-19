@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "32d5c71d_8ef598dd",
+        "filename": "src/add-ons/media/media-add-ons/multi_audio/MultiAudioNode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-19T12:21:15Z",
+      "side": 1,
+      "message": "This comment was referring to the line you deleted. It should be deleted now.",
+      "revId": "d5aacb5df255a935afa61971d8d3c89150ce9669",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
