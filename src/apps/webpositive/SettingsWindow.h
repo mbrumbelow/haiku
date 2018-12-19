@@ -8,6 +8,8 @@
 
 #include <Window.h>
 
+
+
 class BButton;
 class BCheckBox;
 class BMenu;
@@ -17,6 +19,7 @@ class BSpinner;
 class BTextControl;
 class FontSelectionView;
 class SettingsMessage;
+class BFilePanel;
 
 
 class SettingsWindow : public BWindow {
@@ -43,6 +46,10 @@ private:
 			bool				_CanApplySettings() const;
 			void				_ApplySettings();
 			void				_RevertSettings();
+			void 				_ChooseDownloadFolder(const BMessage* message);
+
+			void				_HandleDownloadPanelResult(BFilePanel* panel,
+									const BMessage* message);
 			void				_ValidateControlsEnabledStatus();
 
 			uint32				_NewWindowPolicy() const;
@@ -94,9 +101,12 @@ private:
 			BButton*			fApplyButton;
 			BButton*			fCancelButton;
 			BButton*			fRevertButton;
+			BButton*			fChooseButton;
 
 			BMenuField*			fStandardSizesMenu;
 			BMenuField*			fFixedSizesMenu;
+
+			BFilePanel*			fOpenFilePanel;
 };
 
 
