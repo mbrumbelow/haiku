@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a055181d_715a5b00",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-20T08:11:11Z",
+      "side": 1,
+      "message": "I think this is not right, the menu and label should stay on the same line?",
+      "revId": "7640be281d16e4228a4f71eb46da4573e0877023",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71c3b607_32c43eea",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 818,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-20T08:11:11Z",
+      "side": 1,
+      "message": "This line is larger than 80 columns",
+      "revId": "7640be281d16e4228a4f71eb46da4573e0877023",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8030104f_7fd750a3",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 830,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-20T08:11:11Z",
+      "side": 1,
+      "message": "no space after ( and before )",
+      "revId": "7640be281d16e4228a4f71eb46da4573e0877023",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4868158_e7cc1447",
+        "filename": "src/apps/webpositive/SettingsWindow.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-20T08:11:11Z",
+      "side": 1,
+      "message": "This is not needed here, you can have just \"class BFilePanel;\" in the forward declarations below.",
+      "revId": "7640be281d16e4228a4f71eb46da4573e0877023",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "41754dc2_a7459201",
+        "filename": "src/apps/webpositive/SettingsWindow.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-20T08:11:11Z",
+      "side": 1,
+      "message": "This include is not needed here.",
+      "revId": "7640be281d16e4228a4f71eb46da4573e0877023",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
