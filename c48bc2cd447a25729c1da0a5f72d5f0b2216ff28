@@ -70,6 +70,24 @@
     },
     {
       "key": {
+        "uuid": "0382f413_f49a8ab7",
+        "filename": "src/apps/terminal/TermApp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2018-12-20T03:51:29Z",
+      "side": 1,
+      "message": "It was already done in spaces before I got to it. I had trouble getting the final program output to display in a predictable manner when I tried switching to tabs.",
+      "parentUuid": "546dc023_268be3a1",
+      "revId": "c48bc2cd447a25729c1da0a5f72d5f0b2216ff28",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "400933a7_b2d4514e",
         "filename": "src/apps/terminal/TermApp.cpp",
         "patchSetId": 2
@@ -81,6 +99,24 @@
       "writtenOn": "2018-12-19T12:32:11Z",
       "side": 1,
       "message": "I think \"set initial working directory\" is clear enough, no need for this extra explanation",
+      "revId": "c48bc2cd447a25729c1da0a5f72d5f0b2216ff28",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c06369bb_6ec70587",
+        "filename": "src/apps/terminal/TermApp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2018-12-20T03:51:29Z",
+      "side": 1,
+      "message": "I can\u0027t say that I disagree.",
+      "parentUuid": "400933a7_b2d4514e",
       "revId": "c48bc2cd447a25729c1da0a5f72d5f0b2216ff28",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
