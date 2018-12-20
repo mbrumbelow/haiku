@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9387e5a7_6068a4ce",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000038
+      },
+      "writtenOn": "2018-12-20T14:23:59Z",
+      "side": 1,
+      "message": "Remove two extra tab stops here, \u0027oprs\u0027 doesn\u0027t line up with the ones above.  Remember to use 4 spaces per tab (can set Gerrit to use that too).  Or is it just my Gerrit preview?",
+      "revId": "7591cb5b5ad7495fa7742a5b543aa5fe7cecddf7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "458fc36a_e0336b87",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1000038
+      },
+      "writtenOn": "2018-12-20T14:23:59Z",
+      "side": 1,
+      "message": "\"Default Location\" is a bit unspecific, default what?  Maybe use \"Save Downloads Location\" or \"Save To\" or \"Save Downloads To\".  See what other web browsers (Firefox etc) use as their wording.",
+      "revId": "7591cb5b5ad7495fa7742a5b543aa5fe7cecddf7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
