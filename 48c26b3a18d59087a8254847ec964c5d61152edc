@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "896611ef_f8cbae1b",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-20T15:05:54Z",
+      "side": 1,
+      "message": "It\u0027s a bit strange that M_CHOOSE_DOWNLOAD_FOLDER does not call _ChooseDownloadFolder\nMaybe rename either the constants or the functions to have consistent naming (a message and the function it calls should have similar names).\n\nAlso, your messages still use the M_ prefix instead of MSG_ for everything else in this part of the code.",
+      "revId": "48c26b3a18d59087a8254847ec964c5d61152edc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "21314544_524b3eff",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-20T15:05:54Z",
+      "side": 1,
+      "message": "It should be \u0027\"Browse\" B_UTF8_ELLIPSIS\u0027, because this button requires further action from the user (see the Haiku Interface Guidelines)",
+      "revId": "48c26b3a18d59087a8254847ec964c5d61152edc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3b54d67_a3c37f93",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-20T15:05:54Z",
+      "side": 1,
+      "message": "Trailing tabs, remove them",
+      "revId": "48c26b3a18d59087a8254847ec964c5d61152edc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2afefcbc_33327715",
+        "filename": "src/apps/webpositive/SettingsWindow.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-20T15:05:54Z",
+      "side": 1,
+      "message": "2 empty lines here (not 3)",
+      "revId": "48c26b3a18d59087a8254847ec964c5d61152edc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
