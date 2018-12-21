@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a27ad57a_55eeae2d",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-21T13:26:53Z",
+      "side": 1,
+      "message": "Keep include files in alphabetical order.",
+      "revId": "819d3390bc878a6c4c4dcd739032f938aa17f523",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b85d9ff6_5510aef2",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-21T13:26:53Z",
+      "side": 1,
+      "message": "spaces before and after \u003d",
+      "revId": "819d3390bc878a6c4c4dcd739032f938aa17f523",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83804853_e9cd3686",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 820,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-21T13:26:53Z",
+      "side": 1,
+      "message": "I think B_OPEN_PANEL fits on the previous line and you can break after ,",
+      "revId": "819d3390bc878a6c4c4dcd739032f938aa17f523",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "be44e1ac_19586cd7",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 829,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-21T13:26:53Z",
+      "side": 1,
+      "message": "this line is wider than 80 chars",
+      "revId": "819d3390bc878a6c4c4dcd739032f938aa17f523",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
