@@ -50,6 +50,23 @@
       "revId": "bc6fcc8aae6d6ce890a0e66fc06c7a1d689bdbac",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "099944b9_2aff022e",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 806,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2018-12-21T08:29:25Z",
+      "side": 0,
+      "message": "Why remove this blank line?",
+      "revId": "bc6fcc8aae6d6ce890a0e66fc06c7a1d689bdbac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
