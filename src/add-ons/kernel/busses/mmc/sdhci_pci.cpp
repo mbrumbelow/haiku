@@ -458,20 +458,38 @@ supports_device(device_node* parent)
 	const char* bus;
 	uint16 type, subType;
 	uint8 pciSubDeviceId;
+	uint16 vendorId, deviceId;
 
 	// make sure parent is a PCI SDHCI device node
 	if (gDeviceManager->get_attr_string(parent, B_DEVICE_BUS, &bus, false)
 		!= B_OK || gDeviceManager->get_attr_uint16(parent, B_DEVICE_SUB_TYPE,
 		&subType, false) < B_OK || gDeviceManager->get_attr_uint16(parent,
-		B_DEVICE_TYPE, &type, false) < B_OK)
+		B_DEVICE_TYPE, &type, false) < B_OK) {
+		TRACE("Could not find required attributes");
 		return -1;
+	}
 
-	if (strcmp(bus, "pci") != 0)
+	if (strcmp(bus, "pci") != 0) {
+		TRACE("Not a PCI device");
 		return 0.0f;
+	}
 
 	if (type == PCI_base_peripheral) {
-		if (subType != PCI_sd_host)
-			return 0.0f;
+		if (subType != PCI_sd_host) {
+			// Also accept some compiant devices that do not advertise
+			// themselves as such.
+			if (gDeviceManager->get_attr_uint16(parent, B_DEVICE_VENDOR_ID,
+				&vendorId, false) != B_OK || gDeviceManager->get_attr_uint16(
+					parent, B_DEVICE_ID, &deviceId, false) != B_OK) {
+				TRACE("No vendor or device id");
+				return 0.0f;
+			}
+
+			if (vendorId != 0x1180 && deviceId != 0xe823) {
+				TRACE("Not the right subclass, and not a Ricoh device");
+				return 0.0f;
+			}
+		}
 
 		pci_device_module_info* pci;
 		pci_device* device;
@@ -482,6 +500,8 @@ supports_device(device_node* parent)
 			subType, type);
 		return 0.8f;
 	}
+
+	TRACE("Not the right device class");
 
 	return 0.0f;
 }
