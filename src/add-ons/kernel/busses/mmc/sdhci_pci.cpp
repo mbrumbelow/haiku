@@ -228,8 +228,6 @@ init_bus(device_node* node, void** bus_cookie)
 		bus->pci, bus->device);
 
 	// mapping the registers by MMUIO method
-	int bar_size = pciInfo->u.h0.base_register_sizes[bar];
-
 	regs_area = map_physical_memory("sdhc_regs_map",
 		pciInfo->u.h0.base_registers[bar],
 		pciInfo->u.h0.base_register_sizes[bar], B_ANY_KERNEL_BLOCK_ADDRESS,
@@ -458,20 +456,46 @@ supports_device(device_node* parent)
 	const char* bus;
 	uint16 type, subType;
 	uint8 pciSubDeviceId;
+	uint16 vendorId, deviceId;
 
 	// make sure parent is a PCI SDHCI device node
 	if (gDeviceManager->get_attr_string(parent, B_DEVICE_BUS, &bus, false)
-		!= B_OK || gDeviceManager->get_attr_uint16(parent, B_DEVICE_SUB_TYPE,
-		&subType, false) < B_OK || gDeviceManager->get_attr_uint16(parent,
-		B_DEVICE_TYPE, &type, false) < B_OK)
+		!= B_OK) {
+		TRACE("Could not find required attribute device/bus\n");
 		return -1;
+	}
 
-	if (strcmp(bus, "pci") != 0)
+	if (strcmp(bus, "pci") != 0) {
 		return 0.0f;
+	}
+
+	if (gDeviceManager->get_attr_uint16(parent, B_DEVICE_VENDOR_ID, &vendorId,
+			false) != B_OK
+		|| gDeviceManager->get_attr_uint16(parent, B_DEVICE_ID, &deviceId,
+			false) != B_OK) {
+		TRACE("No vendor or device id attribute\n");
+		return 0.0f;
+	}
+
+	TRACE("Probe device %p (%04x:%04x)\n", parent, vendorId, deviceId);
+
+	if (gDeviceManager->get_attr_uint16(parent, B_DEVICE_SUB_TYPE, &subType,
+			false) < B_OK
+		|| gDeviceManager->get_attr_uint16(parent, B_DEVICE_TYPE, &type,
+			false) < B_OK) {
+		TRACE("Could not find type/subtype attributes\n");
+		return -1;
+	}
 
 	if (type == PCI_base_peripheral) {
-		if (subType != PCI_sd_host)
-			return 0.0f;
+		if (subType != PCI_sd_host) {
+			// Also accept some compliant devices that do not advertise
+			// themselves as such.
+			if (vendorId != 0x1180 && deviceId != 0xe823) {
+				TRACE("Not the right subclass, and not a Ricoh device\n");
+				return 0.0f;
+			}
+		}
 
 		pci_device_module_info* pci;
 		pci_device* device;
