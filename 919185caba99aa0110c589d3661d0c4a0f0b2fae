@@ -16,6 +16,24 @@
       "revId": "919185caba99aa0110c589d3661d0c4a0f0b2fae",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a076830_deb456b4",
+        "filename": "src/system/kernel/team.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1718,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2018-12-26T23:48:13Z",
+      "side": 1,
+      "message": "In case B_WAIT_TILL_LOADED isn\u0027t set, the team-\u003eloading_info is never set and noone will know about the condition at all.",
+      "parentUuid": "23b6d9cd_91fce45c",
+      "revId": "919185caba99aa0110c589d3661d0c4a0f0b2fae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
