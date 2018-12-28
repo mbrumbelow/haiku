@@ -1,8 +1,7 @@
 /*
- * Copyright 2004-2017, Haiku, Inc. All rights reserved.
- * Copyright 2003-2004, Ingo Weinhold, bonefish@cs.tu-berlin.de. All rights reserved.
- *
- * Distributed under the terms of the MIT License.
+ * Copyright 2004-2018, Haiku, Inc.
+ * Copyright 2003-2004, Ingo Weinhold, bonefish@cs.tu-berlin.de.
+ * All rights reserved. Distributed under the terms of the MIT License.
  */
 
 
@@ -1373,9 +1372,14 @@ KDiskDeviceManager::_ScanPartition(KPartition* partition,
 		return B_OK;
 	}
 
-	// This happens with some copy protected CDs. Just ignore the partition...
-	if (partition->Offset() < 0)
+	// This happens with some copy protected CDs or eventually other issues.
+	// Just ignore the partition...
+	if (partition->Offset() < 0 || partition->BlockSize() == 0
+		|| partition->Size() <= 0) {
+		OUT("Partition %s has invalid parameters, ignoring it.\n",
+			partitionPath.Path());
 		return B_BAD_DATA;
+	}
 
 	DBG(
 		KPath partitionPath;
@@ -1414,7 +1418,7 @@ KDiskDeviceManager::_ScanPartition(KPartition* partition,
 
 		if (priority >= 0 && priority > bestPriority) {
 			// new best disk system
-			if (bestDiskSystem) {
+			if (bestDiskSystem != NULL) {
 				bestDiskSystem->FreeIdentifyCookie(partition, bestCookie);
 				bestDiskSystem->Unload();
 			}
@@ -1431,7 +1435,7 @@ KDiskDeviceManager::_ScanPartition(KPartition* partition,
 	}
 
 	// now, if we have found a disk system, let it scan the partition
-	if (bestDiskSystem) {
+	if (bestDiskSystem != NULL) {
 		DBG(OUT("  scanning with: %s\n", bestDiskSystem->Name()));
 		error = bestDiskSystem->Scan(partition, bestCookie);
 		bestDiskSystem->FreeIdentifyCookie(partition, bestCookie);
