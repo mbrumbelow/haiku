@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4b67a671_22252f61",
+        "filename": "src/servers/app/DrawState.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-02T19:28:24Z",
+      "side": 1,
+      "message": "Trailing tab.",
+      "revId": "77ae2021d51524798c71111982a01f28bc088f6b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
