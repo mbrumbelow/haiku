@@ -1,5 +1,5 @@
 /*
- * Copyright 2001-2015, Haiku, Inc.
+ * Copyright 2001-2018, Haiku, Inc.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -1409,7 +1409,7 @@ DrawingEngine::DrawString(const char* string, int32 length,
 {
 	ASSERT_PARALLEL_LOCKED();
 
-	// use a FontCacheRefernece to speed up the second pass of
+	// use a FontCacheReference to speed up the second pass of
 	// drawing the string
 	FontCacheReference cacheReference;
 
@@ -1447,6 +1447,50 @@ DrawingEngine::StringWidth(const char* string, int32 length,
 	const ServerFont& font, escapement_delta* delta)
 {
 	return font.StringWidth(string, length, delta);
+}
+
+
+BPoint
+DrawingEngine::DrawStringDry(const char* string, int32 length,
+	const BPoint& pt, escapement_delta* delta)
+{
+	ASSERT_PARALLEL_LOCKED();
+
+	BPoint penLocation = pt;
+
+	// try a fast clipping path
+	if (fPainter->Font().Rotation() == 0.0f
+		&& fPainter->IsIdentityTransform()) {
+		penLocation.x += StringWidth(string, length, delta);
+		return penLocation;
+	}
+
+	// use a FontCacheRefernece to speed up the second pass of
+	// drawing the string
+	FontCacheReference cacheReference;
+
+	fPainter->BoundingBox(string, length, pt, &penLocation, delta,
+		&cacheReference);
+
+	return penLocation;
+}
+
+
+BPoint
+DrawingEngine::DrawStringDry(const char* string, int32 length,
+	const BPoint* offsets)
+{
+	ASSERT_PARALLEL_LOCKED();
+
+	// use a FontCacheReference to speed up the second pass of
+	// drawing the string
+	FontCacheReference cacheReference;
+
+	BPoint penLocation;
+	fPainter->BoundingBox(string, length, offsets, &penLocation,
+		&cacheReference);
+
+	return penLocation;
 }
 
 
