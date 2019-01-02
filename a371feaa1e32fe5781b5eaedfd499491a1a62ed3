@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "be707073_712e82df",
+        "filename": "src/servers/app/drawing/DrawingEngine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1470,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2019-01-02T19:40:13Z",
+      "side": 1,
+      "message": "Is this a copy/paste from another function? I don\u0027t see a second pass happening here, unless the cache reference causes some other internal bookkeeping to change, since the reference is discarded when the function returns.",
+      "revId": "a371feaa1e32fe5781b5eaedfd499491a1a62ed3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9f59197_23fe5a91",
+        "filename": "src/servers/app/drawing/DrawingEngine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1487,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2019-01-02T19:40:13Z",
+      "side": 1,
+      "message": "Same here.",
+      "revId": "a371feaa1e32fe5781b5eaedfd499491a1a62ed3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
