@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a4dbadd7_e6e292f9",
+        "filename": "headers/private/interface/PicturePlayer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-02T19:31:22Z",
+      "side": 1,
+      "message": "80 characters per line.",
+      "revId": "db23c4707d7b98bbcf617961eb305b9c9b4103df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "013a1afe_a1b209ca",
+        "filename": "src/kits/interface/PicturePlayer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-02T19:31:22Z",
+      "side": 1,
+      "message": "Trailing tab.",
+      "revId": "db23c4707d7b98bbcf617961eb305b9c9b4103df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c8fa219_9e93b866",
+        "filename": "src/kits/interface/PicturePlayer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 979,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-02T19:31:22Z",
+      "side": 1,
+      "message": "80 characters per line.",
+      "revId": "db23c4707d7b98bbcf617961eb305b9c9b4103df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb77a821_9ece94d9",
+        "filename": "src/servers/app/ServerWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3403,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-02T19:31:22Z",
+      "side": 1,
+      "message": "Tabs to clean up",
+      "revId": "db23c4707d7b98bbcf617961eb305b9c9b4103df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "40cb96c7_be7d9e0b",
+        "filename": "src/servers/app/ServerWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3622,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-02T19:31:22Z",
+      "side": 1,
+      "message": "80 characters per line.",
+      "revId": "db23c4707d7b98bbcf617961eb305b9c9b4103df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62a6b7d3_e8b206a0",
+        "filename": "src/servers/app/ServerWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3682,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-02T19:31:22Z",
+      "side": 1,
+      "message": "80 characters per line.",
+      "revId": "db23c4707d7b98bbcf617961eb305b9c9b4103df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
