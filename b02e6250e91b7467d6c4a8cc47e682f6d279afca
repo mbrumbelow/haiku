@@ -34,6 +34,24 @@
       "revId": "b02e6250e91b7467d6c4a8cc47e682f6d279afca",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e37fc93_ea0d08da",
+        "filename": "docs/develop/kits/interface/usecases/BDeskbarUseCases.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-03T13:27:55Z",
+      "side": 0,
+      "message": "Well let\u0027s keep the link to the release notes for now, and revisit this once the Haiku Book is up to date (that should not be too hard to write, right?)",
+      "parentUuid": "2c25c170_d492b6e8",
+      "revId": "b02e6250e91b7467d6c4a8cc47e682f6d279afca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }

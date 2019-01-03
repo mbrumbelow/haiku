@@ -128,6 +128,24 @@
       "revId": "84b4919e5fb341e2ccc390abe04e4d0b5385aece",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6ddf9a4_f244aab0",
+        "filename": "docs/develop/kits/app/usecases/BPropertyInfoUseCases.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-03T13:27:55Z",
+      "side": 1,
+      "message": "Yes, the R5 Be Book is not perfect!\n\nWe should add this to api.haiku-os.org as a definitive solution, but for now, the R4 release notes is the only thing we have.",
+      "parentUuid": "9a86f8b3_669ad075",
+      "revId": "84b4919e5fb341e2ccc390abe04e4d0b5385aece",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
