@@ -16,6 +16,24 @@
       "revId": "b02e6250e91b7467d6c4a8cc47e682f6d279afca",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c25c170_d492b6e8",
+        "filename": "docs/develop/kits/interface/usecases/BDeskbarUseCases.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2019-01-03T09:02:28Z",
+      "side": 0,
+      "message": "So leave out that sentence + link to the old release notes for now? The old release notes don\u0027t help much, because the API has changed. And our HaikuBook is currently devoid of anything BDeskbar...",
+      "parentUuid": "1e07d790_7c8f6aeb",
+      "revId": "b02e6250e91b7467d6c4a8cc47e682f6d279afca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
