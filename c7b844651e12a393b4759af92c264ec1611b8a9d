@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "aaf1eaf5_8350e451",
+        "filename": "docs/develop/befs/resources.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2019-01-03T08:18:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09d32c62_260ba2a2",
+      "revId": "c7b844651e12a393b4759af92c264ec1611b8a9d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f846e3eb_24c384f1",
         "filename": "docs/develop/kits/app/usecases/BCursorUseCases.html",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2019-01-02T11:09:20Z",
       "side": 1,
       "message": "Append #BCursor_Overview_CursorDataFormat to the URL to link to the exact section (ok, not really needed as the page has no other contents)",
+      "revId": "c7b844651e12a393b4759af92c264ec1611b8a9d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e82d5890_23f7d1ab",
+        "filename": "docs/develop/kits/app/usecases/BCursorUseCases.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2019-01-03T08:18:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f846e3eb_24c384f1",
       "revId": "c7b844651e12a393b4759af92c264ec1611b8a9d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "91f8a8c7_34e09cf5",
+        "filename": "docs/develop/kits/app/usecases/BPropertyInfoUseCases.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2019-01-03T08:18:37Z",
+      "side": 1,
+      "message": "I didn\u0027t know the release notes were still anywhere on the net before you mentioned the tycomsystems server in another comment. I now changed the URL to http://www.tycomsystems.com/beos/BeBook/Release%20Notes/AppKit.html which would be the BeOS R5 release notes. Even better, I\u0027d say.",
+      "parentUuid": "50b59ca4_de69ade4",
+      "revId": "c7b844651e12a393b4759af92c264ec1611b8a9d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f6bc764_ac290193",
         "filename": "docs/develop/kits/interface/usecases/BDeskbarUseCases.html",
         "patchSetId": 1
@@ -64,6 +118,24 @@
       "writtenOn": "2019-01-02T11:09:20Z",
       "side": 1,
       "message": "The line number isn\u0027t a stable reference, if you don\u0027t link to a specific commit of the file (if we add or remove stuff in the file it will not link to the right method anymore)",
+      "revId": "c7b844651e12a393b4759af92c264ec1611b8a9d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45ff8209_a7b69d4c",
+        "filename": "docs/develop/kits/interface/usecases/BDeskbarUseCases.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2019-01-03T08:18:37Z",
+      "side": 1,
+      "message": "I now use the current HEAD as id: https://git.haiku-os.org/haiku/tree/src/apps/deskbar/StatusView.cpp?id\u003df10faf61aca9496c0c2cfa04deb1acf47164b650#n625\n\nDid the same for the other links to a specific line in the code below.\nOr did you mean I should leave out the line number altogether?",
+      "parentUuid": "2f6bc764_ac290193",
       "revId": "c7b844651e12a393b4759af92c264ec1611b8a9d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "372a2f16_5df3e381",
+        "filename": "docs/develop/kits/interface/usecases/BDeskbarUseCases.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2019-01-03T08:18:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "871926da_c8f798d1",
+      "revId": "c7b844651e12a393b4759af92c264ec1611b8a9d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76459308_b8b63b95",
         "filename": "docs/develop/kits/interface/usecases/BDeskbarUseCases.html",
         "patchSetId": 1
@@ -98,6 +188,24 @@
       "writtenOn": "2019-01-02T11:09:20Z",
       "side": 1,
       "message": "This is very verbose for no need.\n\n\"Internally, the BDeskbar uses a BMessenger to communicate with the deskbar itself.\n\u003ca href\u003d\"...\"\u003eThe code which handles communicating with the BDeskbar\u003c/a\u003e is described below.\"",
+      "revId": "c7b844651e12a393b4759af92c264ec1611b8a9d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65f2e85a_1b431dec",
+        "filename": "docs/develop/kits/interface/usecases/BDeskbarUseCases.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2019-01-03T08:18:37Z",
+      "side": 1,
+      "message": "Done. Hope I got that right...",
+      "parentUuid": "76459308_b8b63b95",
       "revId": "c7b844651e12a393b4759af92c264ec1611b8a9d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "ca0ed083_23cea6fb",
+        "filename": "docs/develop/kits/interface/usecases/BPolygonUseCases.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2019-01-03T08:18:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28fbb588_ce6a6f5e",
+      "revId": "c7b844651e12a393b4759af92c264ec1611b8a9d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dbdc8e16_ea1f8b1f",
         "filename": "docs/develop/kits/storage/RegistrarNotes.html",
         "patchSetId": 1
@@ -132,6 +258,24 @@
       "writtenOn": "2019-01-02T11:09:20Z",
       "side": 1,
       "message": "http://testou.free.fr/www.beatjapan.org/mirror/www.be.com/users/iconworld/icon5.html",
+      "revId": "c7b844651e12a393b4759af92c264ec1611b8a9d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d0ff8d7_6fc9d2c1",
+        "filename": "docs/develop/kits/storage/RegistrarNotes.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2019-01-03T08:18:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbdc8e16_ea1f8b1f",
       "revId": "c7b844651e12a393b4759af92c264ec1611b8a9d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "d8d3063a_45436010",
+        "filename": "docs/develop/kits/storage/RegistrarNotes.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2019-01-03T08:18:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7924456_68d245ad",
+      "revId": "c7b844651e12a393b4759af92c264ec1611b8a9d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7a84e8fc_3ca09b3c",
         "filename": "docs/develop/kits/support/usecases/BAutolockUseCases.html",
         "patchSetId": 1
@@ -166,6 +328,24 @@
       "writtenOn": "2019-01-02T11:09:20Z",
       "side": 1,
       "message": "is \u003ca href\u003d\"...\"\u003ethe Be Book documentation\u003c/a\u003e",
+      "revId": "c7b844651e12a393b4759af92c264ec1611b8a9d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54c27f55_47d0331a",
+        "filename": "docs/develop/kits/support/usecases/BAutolockUseCases.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2019-01-03T08:18:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a84e8fc_3ca09b3c",
       "revId": "c7b844651e12a393b4759af92c264ec1611b8a9d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
