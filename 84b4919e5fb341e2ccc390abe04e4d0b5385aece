@@ -146,6 +146,24 @@
       "revId": "84b4919e5fb341e2ccc390abe04e4d0b5385aece",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03691547_95a8720a",
+        "filename": "docs/develop/kits/app/usecases/BPropertyInfoUseCases.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2019-01-03T17:54:15Z",
+      "side": 1,
+      "message": "R4 Release Notes back in.",
+      "parentUuid": "f6ddf9a4_f244aab0",
+      "revId": "84b4919e5fb341e2ccc390abe04e4d0b5385aece",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
