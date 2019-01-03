@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b782e4f0_da54ab65",
+        "filename": "docs/develop/kits/support/usecases/BLockerUseCases.html",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2019-01-03T18:14:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c902983_bf967c1d",
+      "revId": "f6eefc6362a2bc9741aeddbc1ce30f4feef6299a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01265235_110c60bc",
         "filename": "docs/develop/net/Network Stack Overview.html",
         "patchSetId": 4
