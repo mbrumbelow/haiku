@@ -10,8 +10,6 @@ local sourceDirs =
 	ui
 	ui_generic
 	server
-	server/dumpexportrepository
-	server/dumpexportpkg
 	tar
 	util
 ;
@@ -89,11 +87,14 @@ Application HaikuDepot :
 	# network + server - model
 	DumpExportPkg.cpp
 	DumpExportPkgCategory.cpp
-	DumpExportPkgJsonListener.cpp
 	DumpExportPkgScreenshot.cpp
 	DumpExportPkgVersion.cpp
 	DumpExportRepository.cpp
 	DumpExportRepositorySource.cpp
+	DumpExportRepositorySourceMirror.cpp
+
+	# network + server - parser
+	DumpExportPkgJsonListener.cpp
 	DumpExportRepositoryJsonListener.cpp
 
 	# network + server / local processes
@@ -161,3 +162,122 @@ Application TextDocumentTest :
 
 	: be translation shared [ TargetLibsupc++ ]
 ;
+
+# The following rules will produce model- and parse-classes that are generated
+# from JSON schema files that are copied from the HaikuDepotServer (HDS)
+# application server that HaikuDepot communicates with.  By generating the
+# classes in this way, the client can be relatively sure that the structure of
+# the data that is being processed correlates with the data that the server is
+# sending.  This is because the server is also generating its models from the
+# same JSON schema files.  In the following rules, the following positional
+# parameters apply;
+#
+# $(1) => the target .cpp or .h file
+# $(2) => the schema that will generate the .cpp / .h files
+# $(3) => the python script that will generate the source
+
+# This rule will generate the C++ model objects based on a schema.  This may
+# produce a number of header (.h) and implementation (.cpp) files.
+
+rule HdsSchemaModelGen
+{
+	SEARCH on $(2) = [ FDirName $(SUBDIR) server schema ] ;
+	SEARCH on $(3) = [ FDirName $(SUBDIR) server tools ] ;
+
+	Depends $(1) : $(2) $(3) ;
+	MakeLocateArch $(<) ;
+	HdsSchemaModelGen1 $(1) : $(2) $(3) ;
+	LocalClean clean : $(<) ;
+}
+
+actions HdsSchemaModelGen1
+{
+	python $(2[2]) -i $(2[1]) --outputdirectory $(1:D)
+}
+
+HdsSchemaModelGen [ FGristFiles DumpExportPkg.cpp ]
+	: dumpexportpkg.json : jsonschema2cppmodel.py ;
+
+HdsSchemaModelGen [ FGristFiles DumpExportRepository.cpp ]
+	: dumpexportrepository.json : jsonschema2cppmodel.py ;
+
+# This rule will generate a 'parser listener' that works with the Haiku JSON
+# parsing classes.  The listener is intended to be used on bulk data.
+
+rule HdsSchemaBulkParserGen
+{
+	SEARCH on $(2) = [ FDirName $(SUBDIR) server schema ] ;
+	SEARCH on $(3) = [ FDirName $(SUBDIR) server tools ] ;
+
+	Depends $(1) : $(2) $(3) ;
+	MakeLocateArch $(<) ;
+	HdsSchemaBulkParserGen1 $(1) : $(2) $(3) ;
+	LocalClean clean : $(<) ;
+}
+
+actions HdsSchemaBulkParserGen1
+{
+	python $(2[2]) -i $(2[1]) --outputdirectory $(1:D) --supportbulkcontainer
+}
+
+HdsSchemaBulkParserGen [ FGristFiles DumpExportRepositoryJsonListener.cpp ]
+	: dumpexportrepository.json : jsonschema2cppparser.py ;
+HdsSchemaBulkParserGen [ FGristFiles DumpExportPkgJsonListener.cpp ]
+	: dumpexportpkg.json : jsonschema2cppparser.py ;
+
+# Because a number of .cpp and .h files will be generated from a single python
+# script's run, it is necessary to introduce an additional dependency here so
+# that one file triggers the python script run and the other consequent output
+# files can then depend on that one 'trigger file'.
+
+rule HdsSchemaDummy
+{
+	Depends $(1) : $(2) ;
+	MakeLocateArch $(<) ;
+	HdsSchemaDummy1 $(1) : $(2) ;
+	LocalClean clean : $(<) ;
+}
+
+actions HdsSchemaDummy1
+{
+}
+
+HdsSchemaDummy [ FGristFiles DumpExportPkgJsonListener.h ]
+	: [ FGristFiles DumpExportPkgJsonListener.cpp ] ;
+HdsSchemaDummy [ FGristFiles DumpExportRepositoryJsonListener.h ]
+	: [ FGristFiles DumpExportRepositoryJsonListener.cpp ] ;
+
+local genDependency ;
+local genDependencies ;
+
+genDependencies =
+	DumpExportRepository.h
+	DumpExportRepositorySource.cpp
+	DumpExportRepositorySource.h
+	DumpExportRepositorySourceMirror.cpp
+	DumpExportRepositorySourceMirror.h
+;
+
+for genDependency in $(genDependencies) {
+	HdsSchemaDummy [ FGristFiles $(genDependency) ] : [ FGristFiles DumpExportRepository.cpp ] ;
+}
+
+genDependencies =
+	DumpExportPkg.h
+	DumpExportPkgCategory.cpp
+	DumpExportPkgCategory.h
+	DumpExportPkgScreenshot.cpp
+	DumpExportPkgScreenshot.h
+	DumpExportPkgVersion.cpp
+	DumpExportPkgVersion.h
+	DumpExportRepository.cpp
+	DumpExportRepository.h
+	DumpExportRepositorySource.cpp
+	DumpExportRepositorySource.h
+	DumpExportRepositorySourceMirror.cpp
+	DumpExportRepositorySourceMirror.h
+;
+
+for genDependency in $(genDependencies) {
+	HdsSchemaDummy [ FGristFiles $(genDependency) ] : [ FGristFiles DumpExportPkg.cpp ] ;
+}
