@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1e07d790_7c8f6aeb",
+        "filename": "docs/develop/kits/interface/usecases/BDeskbarUseCases.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-03T08:30:03Z",
+      "side": 0,
+      "message": "http://www.tycomsystems.com/beos/BeBook/Release%20Notes/Deskbar.html\n\n(but this API was changed for font sensitivity, we should probably add the new API to api.haiku-os.org and refer to that instead)",
+      "revId": "b02e6250e91b7467d6c4a8cc47e682f6d279afca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
