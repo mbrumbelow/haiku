@@ -286,8 +286,7 @@
 #define IA32_FEATURE_STIBP			(1 << 27)	// STIBP Speculation Control
 #define IA32_FEATURE_L1D_FLUSH		(1 << 28)	// L1D_FLUSH supported
 #define IA32_FEATURE_ARCH_CAPABILITIES	(1 << 29)	// IA32_ARCH_CAPABILITIES MSR
-#define IA32_FEATURE_SSBD		(1 << 30)	// Speculative Store Bypass
-Disable
+#define IA32_FEATURE_SSBD		(1 << 30)	// Speculative Store Bypass Disable
 
 // x86 defined features from cpuid eax 0x80000007, edx register
 #define IA32_FEATURE_INVARIANT_TSC		(1 << 8)
