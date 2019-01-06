@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9bf87213_6c3af008",
+        "filename": "src/kits/interface/PicturePlayer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-06T10:08:42Z",
+      "side": 1,
+      "message": "The from-strndup-returned string should be checked for NULL.",
+      "revId": "954a0a0c338351a388926ff2e1534a1a1fbebc95",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
