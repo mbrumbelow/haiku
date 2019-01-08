@@ -1,0 +1,327 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca2235fb_b4021403",
+        "filename": "src/apps/haikudepot/build/scripts/jsonschema2cppmodel.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-08T12:28:49Z",
+      "side": 1,
+      "message": "Trailing whitespace.",
+      "revId": "1b3236729f34849a7e6acd025936960234f9c2fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b786d902_10d7ba30",
+        "filename": "src/apps/haikudepot/build/scripts/jsonschema2cppmodel.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-08T12:28:49Z",
+      "side": 1,
+      "message": "Trailing whitespace.",
+      "revId": "1b3236729f34849a7e6acd025936960234f9c2fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eaaa693a_82c800a7",
+        "filename": "src/apps/haikudepot/build/scripts/jsonschema2cppmodel.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-08T12:28:49Z",
+      "side": 1,
+      "message": "Trailing whitespaces.",
+      "revId": "1b3236729f34849a7e6acd025936960234f9c2fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36c460bc_4a761f1f",
+        "filename": "src/apps/haikudepot/build/scripts/jsonschema2cppparser.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-08T12:28:49Z",
+      "side": 1,
+      "message": "Trailing whitespaces.",
+      "revId": "1b3236729f34849a7e6acd025936960234f9c2fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1355cf2_d3353da8",
+        "filename": "src/apps/haikudepot/build/scripts/jsonschema2cppparser.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-08T12:28:49Z",
+      "side": 1,
+      "message": "Trailing whitespaces.",
+      "revId": "1b3236729f34849a7e6acd025936960234f9c2fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dffd17c3_27bb4c00",
+        "filename": "src/apps/haikudepot/build/scripts/jsonschema2cppparser.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-08T12:28:49Z",
+      "side": 1,
+      "message": "Trailing whitespaces.",
+      "revId": "1b3236729f34849a7e6acd025936960234f9c2fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9bb736a4_bef77afb",
+        "filename": "src/apps/haikudepot/build/scripts/jsonschema2cppparser.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-08T12:28:49Z",
+      "side": 1,
+      "message": "Trailing whitespaces.",
+      "revId": "1b3236729f34849a7e6acd025936960234f9c2fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "866a4507_bd21d036",
+        "filename": "src/apps/haikudepot/build/scripts/jsonschema2cppparser.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-08T12:28:49Z",
+      "side": 1,
+      "message": "Trailing whitespaces.",
+      "revId": "1b3236729f34849a7e6acd025936960234f9c2fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed2cfa7b_3a0ca7ff",
+        "filename": "src/apps/haikudepot/build/scripts/jsonschema2cppparser.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-08T12:28:49Z",
+      "side": 1,
+      "message": "Trailing whitespaces.",
+      "revId": "1b3236729f34849a7e6acd025936960234f9c2fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "819f17f6_e8601658",
+        "filename": "src/apps/haikudepot/build/scripts/jsonschema2cppparser.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-08T12:28:49Z",
+      "side": 1,
+      "message": "Trailing whitespaces.",
+      "revId": "1b3236729f34849a7e6acd025936960234f9c2fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee484ac9_3d90a3a2",
+        "filename": "src/apps/haikudepot/build/scripts/jsonschema2cppparser.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-08T12:28:49Z",
+      "side": 1,
+      "message": "Trailing whitespaces.",
+      "revId": "1b3236729f34849a7e6acd025936960234f9c2fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c50654a8_aba44736",
+        "filename": "src/apps/haikudepot/build/scripts/jsonschema2cppparser.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-08T12:28:49Z",
+      "side": 1,
+      "message": "Trailing whitespaces.",
+      "revId": "1b3236729f34849a7e6acd025936960234f9c2fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "008eb3d7_14ebeb84",
+        "filename": "src/apps/haikudepot/build/scripts/jsonschema2cppparser.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-08T12:28:49Z",
+      "side": 1,
+      "message": "Trailing whitespaces.",
+      "revId": "1b3236729f34849a7e6acd025936960234f9c2fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2c398493_d14b3ce0",
+        "filename": "src/apps/haikudepot/build/scripts/jsonschema2cppparser.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-08T12:28:49Z",
+      "side": 1,
+      "message": "Trailing whitespaces.",
+      "revId": "1b3236729f34849a7e6acd025936960234f9c2fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed55b117_277e90f1",
+        "filename": "src/apps/haikudepot/build/scripts/jsonschema2cppparser.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-08T12:28:49Z",
+      "side": 1,
+      "message": "Trailing whitespaces.",
+      "revId": "1b3236729f34849a7e6acd025936960234f9c2fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9ce4b7a_fdfd537e",
+        "filename": "src/apps/haikudepot/build/scripts/jsonschema2cppparser.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-08T12:28:49Z",
+      "side": 1,
+      "message": "Trailing whitespaces.",
+      "revId": "1b3236729f34849a7e6acd025936960234f9c2fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "452b6cb7_e8798bfa",
+        "filename": "src/apps/haikudepot/build/scripts/jsonschema2cppparser.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-08T12:28:49Z",
+      "side": 1,
+      "message": "Trailing whitespaces.",
+      "revId": "1b3236729f34849a7e6acd025936960234f9c2fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "759a42e1_78f06291",
+        "filename": "src/apps/haikudepot/build/scripts/jsonschema2cppparser.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-08T12:28:49Z",
+      "side": 1,
+      "message": "Trailing whitespaces.",
+      "revId": "1b3236729f34849a7e6acd025936960234f9c2fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22ab3990_3fa1feeb",
+        "filename": "src/apps/haikudepot/build/scripts/jsonschema2cppparser.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-08T12:28:49Z",
+      "side": 1,
+      "message": "Trailing whitespaces.",
+      "revId": "1b3236729f34849a7e6acd025936960234f9c2fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
