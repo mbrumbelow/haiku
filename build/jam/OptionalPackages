@@ -5,7 +5,7 @@
 # Available Optional Packages:
 #	BeOSCompatibility		- creates links within the system to support old apps
 #	Development				- more complete dev environment (including autotools)
-#	DevelopmentBase			- basic development environment (gcc, headers, libs,...)
+#	DevelopmentBase			- basic development environment (compiler, headers, libs,...)
 #	DevelopmentMin			- development headers, libs, tools, from sources only
 #	Git						- the distributed version control system
 #	WebPositive				- native, WebKit-based web browser
@@ -86,12 +86,23 @@ if [ IsOptionalHaikuImagePackageAdded Development ] {
 
 # DevelopmentBase
 if [ IsOptionalHaikuImagePackageAdded DevelopmentBase ] {
-	# gcc and binutils (for all target architectures)
-	local architectureObject ;
-	for architectureObject in [ MultiArchSubDirSetup ] {
-		on $(architectureObject) {
-			AddHaikuImagePackages binutils gcc ;
-			AddHaikuImageSourcePackages binutils gcc ;
+	if $(HAIKU_CC_IS_CLANG_$(TARGET_ARCH)) = 1 {
+		# llvm and clang (for all target architectures)
+		local architectureObject ;
+		for architectureObject in [ MultiArchSubDirSetup ] {
+			on $(architectureObject) {
+				AddHaikuImagePackages llvm llvm_clang ;
+				AddHaikuImageSourcePackages llvm llvm_clang ;
+			}
+		}
+	} else {
+		# gcc and binutils (for all target architectures)
+		local architectureObject ;
+		for architectureObject in [ MultiArchSubDirSetup ] {
+			on $(architectureObject) {
+				AddHaikuImagePackages binutils gcc ;
+				AddHaikuImageSourcePackages binutils gcc ;
+			}
 		}
 	}
 
