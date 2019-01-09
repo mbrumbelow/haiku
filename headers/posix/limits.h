@@ -81,6 +81,7 @@
  */
 #ifdef _XOPEN_SOURCE
 #define PAGE_SIZE				PAGESIZE
+#define NZERO					20
 #endif
 
 /* _GCC_LIMITS_H_ is defined by GCC's internal limits.h to avoid
