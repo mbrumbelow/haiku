@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f0011b7_cada9d3b",
+        "filename": "src/system/libroot/posix/unistd/nice.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-10T10:22:12Z",
+      "side": 1,
+      "message": "Two blank lines after the copyright header.",
+      "revId": "8f6e6c67540030fa2a225784bf3fc40792f88fe4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "163fe0ab_381f3777",
+        "filename": "src/system/libroot/posix/unistd/nice.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-10T10:22:12Z",
+      "side": 1,
+      "message": "Two blank lines after the include macros",
+      "revId": "8f6e6c67540030fa2a225784bf3fc40792f88fe4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
