@@ -50,12 +50,66 @@ copy_address(const sockaddr& address)
 }
 
 
-/*! Returns a chained list of all interfaces.
+static int
+_getifaddrs(int domain, char* buffer, size_t len, struct ifaddrs** previous)
+{
+	int socket = ::socket(domain, SOCK_DGRAM, 0);
+	if (socket < 0)
+		return -1;
+	FileDescriptorCloser closer(socket);
 
-	We follow BSD semantics, and only return one entry per interface,
-	not per address; since this is mainly used by NetBSD's netresolv, it's
-	probably what it expects.
-*/
+	// Get interfaces configuration
+	ifconf config;
+	config.ifc_buf = buffer;
+	config.ifc_len = len;
+	if (ioctl(socket, SIOCGIFCONF, &config, sizeof(struct ifconf)) < 0)
+		return -1;
+
+	ifreq* interfaces = (ifreq*)buffer;
+	ifreq* end = (ifreq*)(buffer + config.ifc_len);
+
+	while (interfaces < end) {
+		struct ifaddrs* current = new(std::nothrow) ifaddrs();
+		if (current == NULL) {
+			freeifaddrs(*previous);
+			errno = B_NO_MEMORY;
+			return -1;
+		}
+
+		// Chain this interface with the next one
+		current->ifa_next = *previous;
+		*previous = current;
+
+		current->ifa_name = strdup(interfaces[0].ifr_name);
+		current->ifa_addr = copy_address(interfaces[0].ifr_addr);
+		current->ifa_netmask = NULL;
+		current->ifa_dstaddr = NULL;
+		current->ifa_data = NULL;
+
+		ifreq request;
+		strlcpy(request.ifr_name, interfaces[0].ifr_name, IF_NAMESIZE);
+
+		if (ioctl(socket, SIOCGIFFLAGS, &request, sizeof(struct ifreq)) == 0)
+			current->ifa_flags = request.ifr_flags;
+		if (ioctl(socket, SIOCGIFNETMASK, &request, sizeof(struct ifreq))
+				== 0) {
+			current->ifa_netmask = copy_address(request.ifr_mask);
+		}
+		if (ioctl(socket, SIOCGIFDSTADDR, &request, sizeof(struct ifreq))
+				== 0) {
+			current->ifa_dstaddr = copy_address(request.ifr_dstaddr);
+		}
+
+		// Move on to next interface
+		interfaces = (ifreq*)((uint8_t*)interfaces
+			+ _SIZEOF_ADDR_IFREQ(interfaces[0]));
+	}
+
+	return 0;
+}
+
+
+/*! Returns a chained list of all interfaces. */
 int
 getifaddrs(struct ifaddrs** _ifaddrs)
 {
@@ -84,7 +138,8 @@ getifaddrs(struct ifaddrs** _ifaddrs)
 	}
 
 	// Allocate a buffer for ifreqs for all interfaces
-	char* buffer = (char*)malloc(count * sizeof(struct ifreq));
+	size_t buflen = count * sizeof(struct ifreq);
+	char* buffer = (char*)malloc(buflen);
 	if (buffer == NULL) {
 		errno = B_NO_MEMORY;
 		return -1;
@@ -92,52 +147,13 @@ getifaddrs(struct ifaddrs** _ifaddrs)
 
 	MemoryDeleter deleter(buffer);
 
-	// Get interfaces configuration
-	config.ifc_len = count * sizeof(struct ifreq);
-	config.ifc_buf = buffer;
-	if (ioctl(socket, SIOCGIFCONF, &config, sizeof(struct ifconf)) < 0)
-		return -1;
-
-	ifreq* interfaces = (ifreq*)buffer;
-	ifreq* end = (ifreq*)(buffer + config.ifc_len);
 	struct ifaddrs* previous = NULL;
-
-	for (uint32_t i = 0; interfaces < end; i++) {
-		struct ifaddrs* current = new(std::nothrow) ifaddrs();
-		if (current == NULL) {
-			freeifaddrs(previous);
-			errno = B_NO_MEMORY;
-			return -1;
-		}
-
-		// Chain this interface with the next one
-		current->ifa_next = previous;
-		previous = current;
-
-		current->ifa_name = strdup(interfaces[0].ifr_name);
-		current->ifa_addr = copy_address(interfaces[0].ifr_addr);
-		current->ifa_netmask = NULL;
-		current->ifa_dstaddr = NULL;
-		current->ifa_data = NULL;
-
-		ifreq request;
-		strlcpy(request.ifr_name, interfaces[0].ifr_name, IF_NAMESIZE);
-
-		if (ioctl(socket, SIOCGIFFLAGS, &request, sizeof(struct ifreq)) == 0)
-			current->ifa_flags = request.ifr_flags;
-		if (ioctl(socket, SIOCGIFNETMASK, &request, sizeof(struct ifreq))
-				== 0) {
-			current->ifa_netmask = copy_address(request.ifr_mask);
-		}
-		if (ioctl(socket, SIOCGIFDSTADDR, &request, sizeof(struct ifreq))
-				== 0) {
-			current->ifa_dstaddr = copy_address(request.ifr_dstaddr);
-		}
-
-		// Move on to next interface
-		interfaces = (ifreq*)((uint8_t*)interfaces
-			+ _SIZEOF_ADDR_IFREQ(interfaces[0]));
-	}
+	if (_getifaddrs(AF_INET, buffer, buflen, &previous) < 0)
+		return -1;
+	if (_getifaddrs(AF_INET6, buffer, buflen, &previous) < 0)
+		return -1;
+	if (_getifaddrs(AF_LINK, buffer, buflen, &previous) < 0)
+		return -1;
 
 	*_ifaddrs = previous;
 	return 0;
