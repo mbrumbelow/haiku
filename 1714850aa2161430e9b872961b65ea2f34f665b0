@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d56d47f_7e5a0c9d",
+        "filename": "src/tests/servers/app/text_rendering/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-11T16:50:28Z",
+      "side": 1,
+      "message": "Can we drop this? Unless you are actually comparing with BeOS R5?",
+      "revId": "1714850aa2161430e9b872961b65ea2f34f665b0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
