@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e5325a87_64d3d0fb",
+        "filename": "src/add-ons/network_settings/hostname/HostnameAddOn.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-11T08:15:42Z",
+      "side": 1,
+      "message": "Always a tab after virtual, you used spaces here, for View and for IsRevertable.",
+      "revId": "bbb9d92495ef5942b7f0aeda5a7c64ca54ebb83d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c252eac_60de927f",
+        "filename": "src/add-ons/network_settings/hostname/HostnameAddOn.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-11T08:15:42Z",
+      "side": 1,
+      "message": "fView may be NULL here, so calling -\u003eParent() on it may crash.\nuse if (fView \u0026\u0026 fView-\u003eParent() \u003d\u003d NULL)",
+      "revId": "bbb9d92495ef5942b7f0aeda5a7c64ca54ebb83d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f198553_a9dda9d9",
+        "filename": "src/add-ons/network_settings/hostname/HostnameAddOn.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-11T08:15:42Z",
+      "side": 1,
+      "message": "This should be implemented.",
+      "revId": "bbb9d92495ef5942b7f0aeda5a7c64ca54ebb83d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "457b5b5b_e2630ca0",
+        "filename": "src/add-ons/network_settings/hostname/HostnameView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-11T08:15:42Z",
+      "side": 1,
+      "message": "Ideally, preferences would not have an apply button, and changes would apply live (when the text control loses focus)",
+      "revId": "bbb9d92495ef5942b7f0aeda5a7c64ca54ebb83d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bcbb98c2_7e6e1c56",
+        "filename": "src/add-ons/network_settings/hostname/HostnameView.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-11T08:15:42Z",
+      "side": 1,
+      "message": "2014-2019",
+      "revId": "bbb9d92495ef5942b7f0aeda5a7c64ca54ebb83d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a5f121d_f38e8540",
+        "filename": "src/add-ons/network_settings/hostname/HostnameView.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-11T08:15:42Z",
+      "side": 1,
+      "message": "This does not compile! Hostaame instead of Hostname",
+      "revId": "bbb9d92495ef5942b7f0aeda5a7c64ca54ebb83d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
