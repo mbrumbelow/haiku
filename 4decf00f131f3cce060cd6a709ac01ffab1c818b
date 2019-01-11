@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f310f48_ce53b7e6",
+        "filename": "src/add-ons/network_settings/hostname/HostName.rdef",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-01-11T02:31:46Z",
+      "side": 1,
+      "message": "App signature needs to be changed, looks like you just didn\u0027t change it from the DNSClient.",
+      "revId": "4decf00f131f3cce060cd6a709ac01ffab1c818b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7e70348_f94b28a5",
+        "filename": "src/add-ons/network_settings/hostname/HostName.rdef",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-01-11T02:31:46Z",
+      "side": 1,
+      "message": "It seems we already use \"Hostname\" or \"hostname\" throughout the documentation, so please use the one-word version, instead of two words.\n\nAnd also rename all the files/classes: \"HostnameAddOn\", etc.",
+      "revId": "4decf00f131f3cce060cd6a709ac01ffab1c818b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f618092a_859803f4",
+        "filename": "src/add-ons/network_settings/hostname/HostNameView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-01-11T02:31:46Z",
+      "side": 1,
+      "message": "Trailing spaces.",
+      "revId": "4decf00f131f3cce060cd6a709ac01ffab1c818b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
