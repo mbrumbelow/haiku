@@ -1,10 +1,11 @@
 /*
- * Copyright 2005-2018, Haiku, Inc.
+ * Copyright 2005-2019, Haiku, Inc.
  * Distributed under the terms of the MIT license.
  *
  * Authors:
  *		Augustin Cavalier <waddlesplash>
  *		DarkWyrm <bpmagic@columbus.rr.com>
+ *		Rob Gill
  *		René Gollent
  *		Wim van der Meer <WPJvanderMeer@gmail.com>
  */
@@ -562,6 +563,20 @@ AboutView::AboutView()
 	kernelView->SetExplicitAlignment(BAlignment(B_ALIGN_LEFT,
 		B_ALIGN_VERTICAL_UNSET));
 
+	// Hostname
+	BString	fHostName;
+	char hostName[MAXHOSTNAMELEN];
+	if (gethostname(hostName, MAXHOSTNAMELEN) == 0)
+		fHostName.SetTo(hostName, MAXHOSTNAMELEN);
+	else
+		fHostName.Truncate(0);
+
+	BStringView* hostnameView = new BStringView("hostnametext", 
+		fHostName);
+	fSubTextViews.AddItem(hostnameView);
+	hostnameView->SetExplicitAlignment(BAlignment(B_ALIGN_LEFT,
+		B_ALIGN_VERTICAL_UNSET));
+
 	// Uptime
 	fUptimeView = new BStringView("uptimetext", "...");
 	fSubTextViews.AddItem(fUptimeView);
@@ -590,6 +605,9 @@ AboutView::AboutView()
 				.AddStrut(offset)
 				.Add(_CreateLabel("kernellabel", B_TRANSLATE("Kernel:")))
 				.Add(kernelView)
+				.AddStrut(offset)
+				.Add(_CreateLabel("hostlabel", B_TRANSLATE("Hostname:")))
+				.Add(hostnameView)
 				.AddStrut(offset)
 				.Add(_CreateLabel("uptimelabel",
 					B_TRANSLATE("Time running:")))
