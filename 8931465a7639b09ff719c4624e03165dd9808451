@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af4e47aa_d88c1ccf",
+        "filename": "src/add-ons/network_settings/hostname/HostnameView.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2019-01-12T11:03:14Z",
+      "side": 1,
+      "message": "Small coding style issue: We use camel case! Also, I\u0027d argue that \u0027host name\u0027 are two words, so that should be HostNameView, hostNameLength, fHostName, hostNameString, etc.",
+      "revId": "8931465a7639b09ff719c4624e03165dd9808451",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
