@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "53dffad6_f3347d08",
+        "filename": "src/servers/registrar/Registrar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-01-12T20:23:15Z",
+      "side": 0,
+      "message": "You can remove this message definition now, as it is unused an implemented.",
+      "revId": "ddd56c013dc4c4c65e5c8eb4a156d461bf21d7a5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}

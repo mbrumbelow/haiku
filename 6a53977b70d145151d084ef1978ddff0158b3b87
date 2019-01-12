@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "509193a8_44ac50a7",
+        "filename": "src/servers/registrar/Registrar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-01-12T20:23:15Z",
+      "side": 1,
+      "message": "This isn\u0027t strictly needed, we already know the team has exited. launch_daemon only does this in order to determine what the exit status was.\n\nBut you can do the same thing here: If exitStatus \u003d\u003d B_OK, then we can quick-return out of this function without checking sanity, because that means the team exited successfully and already de-registered itself.",
+      "revId": "6a53977b70d145151d084ef1978ddff0158b3b87",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
