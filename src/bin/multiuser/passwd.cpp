@@ -169,11 +169,11 @@ main(int argc, const char* const* argv)
 			exit(1);
 		}
 
-		memset(repeatedPassword, 0, sizeof(repeatedPassword));
+		clear_password(repeatedPassword, sizeof(repeatedPassword));
 
 		// crypt it
 		encryptedPassword = crypt(password, NULL);
-		memset(password, 0, sizeof(password));
+		clear_password(password, sizeof(password));
 	}
 
 	// prepare request for the registrar

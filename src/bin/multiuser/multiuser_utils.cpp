@@ -18,6 +18,21 @@
 
 
 status_t
+clear_password(char* password, size_t bufferSize)
+{
+// TODO: Replace this with more secure function.
+	if (password == NULL)
+		return B_ERROR;
+
+	volatile char *p = password;
+	for (size_t i = 0; i < bufferSize; i++)
+		p[0] = 0;
+
+	return B_OK;
+}
+
+
+status_t
 read_password(const char* prompt, char* password, size_t bufferSize,
 	bool useStdio)
 {

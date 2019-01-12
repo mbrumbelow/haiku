@@ -12,6 +12,8 @@
 #include <SupportDefs.h>
 
 
+status_t clear_password(char* password, size_t bufferSize);
+
 status_t read_password(const char* prompt, char* password, size_t bufferSize,
 			bool useStdio);
 
