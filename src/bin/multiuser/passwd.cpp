@@ -23,6 +23,8 @@
 
 #include <AutoDeleter.h>
 
+#include "compatibility/bsd/string.h"
+
 #include "multiuser_utils.h"
 
 
@@ -169,11 +171,11 @@ main(int argc, const char* const* argv)
 			exit(1);
 		}
 
-		memset(repeatedPassword, 0, sizeof(repeatedPassword));
+		explicit_bzero(repeatedPassword, sizeof(repeatedPassword));
 
 		// crypt it
 		encryptedPassword = crypt(password, NULL);
-		memset(password, 0, sizeof(password));
+		explicit_bzero(password, sizeof(password));
 	}
 
 	// prepare request for the registrar

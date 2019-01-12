@@ -11,6 +11,7 @@
 #include <string.h>
 #include <termios.h>
 #include <unistd.h>
+#include "compatibility/bsd/string.h"
 
 #include <AutoDeleter.h>
 
@@ -140,7 +141,7 @@ authenticate_user(const char* prompt, passwd* passwd, spwd* spwd, int maxTries,
 
 		// check it
 		bool ok = verify_password(passwd, spwd, plainPassword);
-		memset(plainPassword, 0, sizeof(plainPassword));
+		explicit_bzero(plainPassword, sizeof(plainPassword));
 		if (ok)
 			return B_OK;
 
