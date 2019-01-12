@@ -16,6 +16,24 @@
       "revId": "8931465a7639b09ff719c4624e03165dd9808451",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30d7ad9c_1e05d9b4",
+        "filename": "src/add-ons/network_settings/hostname/HostnameView.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000091
+      },
+      "writtenOn": "2019-01-12T11:51:25Z",
+      "side": 1,
+      "message": "It was initially camel case HostName throughout, but I changed it in response to an earlier review in light of the use of hostname and Hostname in the documentation.",
+      "parentUuid": "af4e47aa_d88c1ccf",
+      "revId": "8931465a7639b09ff719c4624e03165dd9808451",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
