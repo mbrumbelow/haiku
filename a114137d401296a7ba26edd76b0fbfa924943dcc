@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fe479df7_c3795904",
+        "filename": "src/system/libnetwork/getifaddrs.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-12T13:24:08Z",
+      "side": 1,
+      "message": "Now the code is clearer and I see another problem here :)\n\nIf _getifaddrs fails for one of the families, but succeeds for the two others, should getifaddrs return an error? Or should it return all the interfaces and addresses it still managed to enumerate?\n\nI would say this depends on the exact error encountered. A B_NO_MEMORY deserves stopping, but failing to open a socket for AF_INET6 or AF_LINK, maybe not? The user may just have removed the IPv6 add-on from the system, for example.",
+      "revId": "a114137d401296a7ba26edd76b0fbfa924943dcc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50429ea1_4a89371e",
+        "filename": "src/tests/system/network/posixnet/GetAddrInfo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-12T13:24:08Z",
+      "side": 1,
+      "message": "For completeness it would be great to check that without the flag set, we do get an IPv6 address in the results. But that\u0027s getting out of scope for this change, maybe.",
+      "revId": "a114137d401296a7ba26edd76b0fbfa924943dcc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
