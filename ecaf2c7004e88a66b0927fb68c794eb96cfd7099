@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c9954eb_25063d03",
+        "filename": "src/system/libnetwork/getifaddrs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-12T06:24:02Z",
+      "side": 1,
+      "message": "the previous socket is never closed?\n\nIt would make more sense to pass the address family (AF_LINK) to _getifaddrs and open the socket there, I think.",
+      "revId": "ecaf2c7004e88a66b0927fb68c794eb96cfd7099",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
