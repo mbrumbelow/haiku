@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0c3dfe45_fb9301a5",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2019-01-13T08:20:07Z",
+      "side": 1,
+      "message": "The \"Save image\" should be left under \"File\", I\u0027d say. Maybe with a separator between it and About, Quit.",
+      "revId": "138c8b76300713d0ea143c0d5e917ea07eb9bd99",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b379aee_cae38536",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2019-01-13T08:20:07Z",
+      "side": 1,
+      "message": "ShowImage, MediaPlayer and WebPositive call this option simply \"Full screen\".",
+      "revId": "138c8b76300713d0ea143c0d5e917ea07eb9bd99",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
