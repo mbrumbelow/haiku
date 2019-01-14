@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "946208e3_0d278d40",
+        "filename": "src/servers/registrar/Registrar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-01-14T16:12:39Z",
+      "side": 1,
+      "message": "Do you mean here \"Clean up any teams that are already gone before we managed to watch them\"?",
+      "revId": "e151c5bd0ddf6806836f6b4a3009923aec6afd21",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
