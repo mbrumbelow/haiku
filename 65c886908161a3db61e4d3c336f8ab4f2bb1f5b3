@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ab8fa926_824801e1",
+        "filename": "src/system/libroot/posix/sys/priority.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-14T18:11:10Z",
+      "side": 1,
+      "message": "Two blank lines after the copyright header.",
+      "revId": "65c886908161a3db61e4d3c336f8ab4f2bb1f5b3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
