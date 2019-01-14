@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a3fa1dc_0157af4b",
+        "filename": "src/system/libroot/posix/sys/priority.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-14T18:11:10Z",
+      "side": 1,
+      "message": "The while loop needs braces.",
+      "revId": "d55d353ea306a206d6fd6987fdfc6ea354ffffc1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da617452_b1d1b461",
+        "filename": "src/system/libroot/posix/sys/priority.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-14T18:11:10Z",
+      "side": 1,
+      "message": "The while loop needs braces.",
+      "revId": "d55d353ea306a206d6fd6987fdfc6ea354ffffc1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
