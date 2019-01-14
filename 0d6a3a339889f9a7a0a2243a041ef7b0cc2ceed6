@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f59cf6b_5569e4fe",
+        "filename": "src/bin/multiuser/multiuser_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-14T12:06:55Z",
+      "side": 1,
+      "message": "I think there isn\u0027t much more to do, however I would move this to libroot and implement memset_s there.\n\nSee the FreeBSD implementation which isn\u0027t very different from this (but has extra error checks):\nhttps://github.com/FreeBSDDesktop/freebsd-base/blob/master/lib/libc/string/memset_s.c",
+      "revId": "0d6a3a339889f9a7a0a2243a041ef7b0cc2ceed6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
