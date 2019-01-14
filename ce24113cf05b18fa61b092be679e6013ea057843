@@ -16,6 +16,24 @@
       "revId": "ce24113cf05b18fa61b092be679e6013ea057843",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b987059_f84f4d00",
+        "filename": "src/system/libroot/posix/rpmalloc/rpmalloc.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1619,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2019-01-14T21:46:32Z",
+      "side": 1,
+      "message": "The tls_allocate call allocates a TLS slot. There is no corresponding deallocation function at all. In this case it doesn\u0027t really matter as the heap going away means the team quitting and nothing would be using such a TLS slot later on. The whole finalizer is indeed never called for that reason.",
+      "parentUuid": "135a632c_01efae97",
+      "revId": "ce24113cf05b18fa61b092be679e6013ea057843",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
