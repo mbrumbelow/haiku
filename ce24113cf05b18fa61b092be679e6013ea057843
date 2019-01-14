@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "135a632c_01efae97",
+        "filename": "src/system/libroot/posix/rpmalloc/rpmalloc.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1619,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-01-14T16:38:06Z",
+      "side": 1,
+      "message": "I guess there is no requirement to free what tls_allocate() has allocated into _memory_thread_heap?",
+      "revId": "ce24113cf05b18fa61b092be679e6013ea057843",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
