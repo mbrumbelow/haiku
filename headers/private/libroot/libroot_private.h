@@ -54,6 +54,7 @@ int32 __arch_get_stack_trace(addr_t* returnAddresses, int32 maxCount,
 
 void __set_stack_protection(void);
 
+void __throw_constraint_handler_s(const char * __restrict msg, int error);
 
 #ifdef __cplusplus
 }

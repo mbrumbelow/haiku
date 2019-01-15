@@ -29,6 +29,7 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 			rand.c
 			random.c
 			realpath.cpp
+			set_constraint_handler_s.c
 			strfmon.c
 			strtol.c
 			strtoll.c

@@ -163,5 +163,9 @@ typedef uint16_t u_int16_t;
 typedef uint32_t u_int32_t;
 typedef uint64_t u_int64_t;
 
+/* ISO/IEC 9899:2011 K.3.4.4 */
+#ifndef RSIZE_MAX
+#define RSIZE_MAX (SIZE_MAX >> 1)
+#endif
 
 #endif	/* _STDINT_H_ */

@@ -186,6 +186,24 @@ extern int		unlockpt(int masterFD);
 /* internal accessor to value for MB_CUR_MAX */
 extern unsigned short __ctype_get_mb_cur_max(void);
 
+#ifndef _ERRNO_T_DEFINED
+#define _ERRNO_T_DEFINED
+typedef int errno_t;
+#endif
+
+/* K.3.6 */
+typedef void (*constraint_handler_t)(const char* __restrict,
+	void* __restrict, errno_t);
+/* K.3.6.1.1 */
+extern constraint_handler_t		set_constraint_handler_s(
+	constraint_handler_t handler);
+/* K.3.6.1.2 */
+extern /*_Noreturn*/ void		abort_handler_s(const char* __restrict,
+	void* __restrict, errno_t);
+/* K3.6.1.3 */
+extern void					ignore_handler_s(const char* __restrict,
+	void* __restrict, errno_t);
+
 #ifdef __cplusplus
 } /* extern "C" */
 #endif

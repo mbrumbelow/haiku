@@ -25,6 +25,7 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 			memchr.c
 			memcmp.c
 			memmove.c
+			memset_s.c
 			stpcpy.c
 			strcasecmp.c
 			strcasestr.c
