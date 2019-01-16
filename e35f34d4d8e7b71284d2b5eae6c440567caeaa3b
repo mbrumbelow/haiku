@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "56649010_f9452ad0",
+        "filename": "src/apps/terminal/Arguments.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-16T11:21:54Z",
+      "side": 1,
+      "message": "else goes on the same line as closing brace",
+      "revId": "e35f34d4d8e7b71284d2b5eae6c440567caeaa3b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3294b4cf_00f7bf64",
+        "filename": "src/apps/terminal/Arguments.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-16T11:21:54Z",
+      "side": 1,
+      "message": "else goes on the same line as closing brace",
+      "revId": "e35f34d4d8e7b71284d2b5eae6c440567caeaa3b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b890a51b_4d6542ef",
+        "filename": "src/apps/terminal/Arguments.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-16T11:21:54Z",
+      "side": 1,
+      "message": "else goes on the same line as closing brace",
+      "revId": "e35f34d4d8e7b71284d2b5eae6c440567caeaa3b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
