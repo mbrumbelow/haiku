@@ -42,6 +42,8 @@ class ProcessController : public BView {
 		virtual	void	MouseDown(BPoint where);
 		virtual	void	Draw(BRect updateRect);
 				void	DoDraw (bool force);
+				void	DoDrawBar(bool force);
+				void	DoDrawGrid(bool force);
 		static	ProcessController* Instantiate(BMessage* data);
 		virtual	status_t Archive(BMessage *data, bool deep = true) const;
 

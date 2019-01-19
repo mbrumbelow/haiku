@@ -601,6 +601,18 @@ ProcessController::Draw(BRect)
 void
 ProcessController::DoDraw(bool force)
 {
+	// If we have more cores than pixels wide
+	// (minus 1 for memory), Switch to a grid display
+	if (gCPUcount - 1 >= Bounds().Width())
+		DoDrawGrid(force);
+	else
+		DoDrawBar(force);
+}
+
+
+void
+ProcessController::DoDrawBar(bool force)
+{
 	BRect bounds(Bounds());
 
 	float h = floorf(bounds.Height ()) - 2;
@@ -673,6 +685,81 @@ ProcessController::DoDraw(bool force)
 		left += barWidth + barGap;
 		fLastBarHeight[x] = barHeight;
 	}
+
+	float rightMem = bounds.Width() - 1;
+	float rem = fMemoryUsage * (h + 1);
+	float barHeight = floorf(rem);
+	rem -= barHeight;
+
+	rgb_color used_memory_color;
+	float sq = fMemoryUsage * fMemoryUsage;
+	sq *= sq;
+	sq *= sq;
+	mix_colors(used_memory_color, memory_color, swap_color, sq);
+
+	float limit = bottom - barHeight;	// horizontal line
+	float previousLimit = bottom - fLastMemoryHeight;
+	float free_top = top;
+	if (!force && previousLimit > top)
+		free_top = previousLimit - 1;
+	if (limit > free_top) {
+		SetHighColor (idle_color);
+		FillRect(BRect(leftMem, free_top, rightMem, limit - 1));
+	}
+	if (barHeight <= h) {
+		rgb_color fraction_color;
+		mix_colors(fraction_color, idle_color, used_memory_color, rem);
+		SetHighColor(fraction_color);
+		StrokeLine(BPoint(leftMem, bottom - barHeight), BPoint(rightMem,
+			bottom - barHeight));
+	}
+	float usedBottom = bottom;
+//	if (!force && previousLimit < bottom)
+//		usedBottom = previousLimit + 1;
+	if (limit < usedBottom) {
+		SetHighColor(used_memory_color);
+		FillRect(BRect(leftMem, limit + 1, rightMem, usedBottom));
+	}
+	fLastMemoryHeight = barHeight;
+}
+
+
+void
+ProcessController::DoDrawGrid(bool force)
+{
+	BRect bounds(Bounds());
+
+	int cpuPixel = 2;
+	int cpuPerLine = (bounds.Width() - cpuPixel) / cpuPixel;
+	//printf("cpuPerLine: %d\n", cpuPerLine);
+
+	float h = floorf(bounds.Height ()) - 2;
+	float top = 0;
+	//float left = 0;
+	float bottom = top + h;
+
+	// interspace
+	if (force && Parent()) {
+		SetHighColor(Parent()->ViewColor());
+		FillRect(bounds);
+	}
+
+	for (unsigned int id = 0; id < gCPUcount; id++) {
+		int x = (id % cpuPerLine) * cpuPixel;
+		int y = (id / cpuPerLine) * cpuPixel;
+		BRect pixelPosition(x, y, x + cpuPixel, y + cpuPixel);
+		SetHighColor(idle_color);
+		StrokeRect(pixelPosition);
+		SetHighColor(active_color);
+		if (fCPUTimes[id] > 0.25) {
+			FillRect(pixelPosition);
+		}
+		//printf("cpu %d: %dx%d: %f\n", id, x, y, fCPUTimes[id]);
+	}
+
+	float leftMem = bounds.Width() - cpuPixel;
+	if (force)
+		StrokeRect(BRect(leftMem - 1, top - 1, leftMem + cpuPixel, bottom + 1));
 
 	float rightMem = bounds.Width() - 1;
 	float rem = fMemoryUsage * (h + 1);
