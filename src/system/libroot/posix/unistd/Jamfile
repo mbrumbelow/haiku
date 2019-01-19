@@ -24,6 +24,7 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 			fork.c
 			getlogin.c
 			getpagesize.c
+			hostid.cpp
 			hostname.cpp
 			ioctl.c
 			link.c
