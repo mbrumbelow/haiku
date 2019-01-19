@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1842784a_f0e728d0",
+        "filename": "src/apps/processcontroller/ProcessController.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 754,
+      "author": {
+        "id": 1000038
+      },
+      "writtenOn": "2019-01-19T14:46:37Z",
+      "side": 1,
+      "message": "Could show different brightness of colour to reflect the CPU activity.  tint_color() can be used to generate the different brightnesses.  Maybe limit it to a few colours, which you kind of do right now (to two colours).  Perhaps 4 is better: black, dark gray, light gray, white.  Or make it a constant in the code, N colours.  Or maybe what you have is enough detail.  Hmmm, could you also show CPU core temperatures the same way?",
+      "revId": "2b168418dc1c608b447b5b339e720eda1a4cfcff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
