@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a7ab938a_32a36ba6",
+        "filename": "src/add-ons/kernel/partitioning_systems/gpt/gpt_known_guids.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-01-19T11:24:05Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 82,
+        "startChar": 29,
+        "endLine": 82,
+        "endChar": 30
+      },
+      "revId": "fddd1063dcc30c46f0913b57758be98f9e17ecc7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
