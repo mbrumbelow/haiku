@@ -104,7 +104,12 @@ bool
 BFSAddOn::CanInitialize(const BMutablePartition* partition)
 {
 	// TODO: Check partition size.
-	return true;
+	BString partTypeBfs = "Be File System";
+	if ((partition->Type() == partTypeBfs)
+		|| (partition->Type() == NULL))
+		return true;
+	else
+		return false;
 }
 
 
