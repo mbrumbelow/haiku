@@ -76,7 +76,12 @@ FATAddOn::CreatePartitionHandle(BMutablePartition* partition,
 bool
 FATAddOn::CanInitialize(const BMutablePartition* partition)
 {
-	return true;
+	BString partTypeFat = "FAT 32-bit, LBA-mapped";
+	if (partition->Type() == partTypeFat
+		|| partition->Type() == NULL)
+		return true;
+	else
+		return false;
 }
 
 

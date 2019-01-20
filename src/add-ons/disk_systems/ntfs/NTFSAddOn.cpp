@@ -77,7 +77,12 @@ NTFSAddOn::CreatePartitionHandle(BMutablePartition* partition,
 bool
 NTFSAddOn::CanInitialize(const BMutablePartition* partition)
 {
-	return true;
+	BString partTypeNtfs = "NTFS volume set";
+	if (partition->Type() == partTypeNtfs
+		|| partition->Type() == NULL)
+		return true;
+	else
+		return false;
 }
 
 
