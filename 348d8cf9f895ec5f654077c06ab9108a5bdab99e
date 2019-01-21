@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cdee39f0_8129e4f7",
+        "filename": "src/bin/multiuser/login.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-21T11:57:42Z",
+      "side": 1,
+      "message": "#include \u003cstring.h\u003e should be enough. The one in compatibility/bsd is normally included first, and it takes care of including the standard one.",
+      "revId": "348d8cf9f895ec5f654077c06ab9108a5bdab99e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
