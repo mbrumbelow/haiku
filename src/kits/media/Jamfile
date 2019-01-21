@@ -8,6 +8,7 @@ UsePrivateHeaders [ FDirName media experimental ] ;
 if $(CHECK_MALLOC) {
 	SubDirC++Flags -D_NO_INLINE_ASM -fcheck-memory-usage ;
 }
+SubDirC++Flags -O0 -g ;
 
 local architectureObject ;
 for architectureObject in [ MultiArchSubDirSetup ] {
