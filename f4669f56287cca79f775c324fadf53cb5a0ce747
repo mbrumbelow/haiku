@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "3079b51e_eda0cfd1",
+        "filename": "src/kits/interface/ScrollView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-01-22T19:10:15Z",
+      "side": 1,
+      "message": "1 font height sounds perfect to me. Will do.",
+      "parentUuid": "879b75d1_6c7fa88c",
+      "revId": "f4669f56287cca79f775c324fadf53cb5a0ce747",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e3fee108_edbaf67c",
         "filename": "src/kits/interface/ScrollView.cpp",
         "patchSetId": 1
@@ -47,6 +65,24 @@
       "writtenOn": "2019-01-22T19:05:55Z",
       "side": 1,
       "message": "You could pass Flags() | B_SUPPORTS_LAYOUT where needed and avoid the extra parameter?",
+      "revId": "f4669f56287cca79f775c324fadf53cb5a0ce747",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b54c042a_a20c15b1",
+        "filename": "src/kits/interface/ScrollView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 954,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-01-22T19:10:15Z",
+      "side": 1,
+      "message": "Nope, we can\u0027t, because this function is called before BView::BView() is, so flags would be 0 then. But jscipione asked about that too, so perhaps I need a comment.",
+      "parentUuid": "e3fee108_edbaf67c",
       "revId": "f4669f56287cca79f775c324fadf53cb5a0ce747",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
