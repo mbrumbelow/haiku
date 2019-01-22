@@ -34,6 +34,24 @@
       "revId": "cb0d3bd34190c1a23890827d07e5080a6971fb1b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a08fef90_7ac0a11c",
+        "filename": "src/system/kernel/fs/vfs.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 8112,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-22T17:58:46Z",
+      "side": 1,
+      "message": "No, it also returns B_BAD_VALUE.",
+      "parentUuid": "1518d86f_64ca5a4b",
+      "revId": "cb0d3bd34190c1a23890827d07e5080a6971fb1b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
