@@ -52,6 +52,24 @@
       "revId": "cb0d3bd34190c1a23890827d07e5080a6971fb1b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb4920a0_214c111d",
+        "filename": "src/system/kernel/fs/vfs.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 8112,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-01-22T18:30:50Z",
+      "side": 1,
+      "message": "Please reread the function. It only returns B_BAD_VALUE for \"to\" being NULL; as all usages of \"user_copy_name\" have a stack pointer or a kernel buffer as the \"to\" parameter, this is never the case. So it\u0027s fine as-is.",
+      "parentUuid": "a08fef90_7ac0a11c",
+      "revId": "cb0d3bd34190c1a23890827d07e5080a6971fb1b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
