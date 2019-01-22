@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2de81dfc_7686cdee",
+        "filename": "src/system/kernel/fs/vfs.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 8112,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-22T17:13:12Z",
+      "side": 1,
+      "message": "This is a functional change, it previously would return B_BAD_ADDRESS, for NULL to values, for instance.",
+      "revId": "cb0d3bd34190c1a23890827d07e5080a6971fb1b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
