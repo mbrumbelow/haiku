@@ -16,6 +16,24 @@
       "revId": "cb0d3bd34190c1a23890827d07e5080a6971fb1b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1518d86f_64ca5a4b",
+        "filename": "src/system/kernel/fs/vfs.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 8112,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-01-22T17:52:24Z",
+      "side": 1,
+      "message": "user_strlcpy returns B_BAD_ADDRESS for NULL values already: http://xref.plausible.coop/source/xref/haiku/src/system/kernel/vm/vm.cpp#5258\n\nWhat is the problem here?",
+      "parentUuid": "2de81dfc_7686cdee",
+      "revId": "cb0d3bd34190c1a23890827d07e5080a6971fb1b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
