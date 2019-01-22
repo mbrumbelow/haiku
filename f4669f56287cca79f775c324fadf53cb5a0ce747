@@ -19,6 +19,40 @@
     },
     {
       "key": {
+        "uuid": "879b75d1_6c7fa88c",
+        "filename": "src/kits/interface/ScrollView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-22T19:05:55Z",
+      "side": 1,
+      "message": "scrolling by 1px may be the default behavior, but I find it quite irritating. It makes the scrollbar mostly unusable with the scroll wheel. Could we consider a better default? 12px? 1 font height? I don\u0027t know what feels right here.",
+      "revId": "f4669f56287cca79f775c324fadf53cb5a0ce747",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3fee108_edbaf67c",
+        "filename": "src/kits/interface/ScrollView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 954,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-22T19:05:55Z",
+      "side": 1,
+      "message": "You could pass Flags() | B_SUPPORTS_LAYOUT where needed and avoid the extra parameter?",
+      "revId": "f4669f56287cca79f775c324fadf53cb5a0ce747",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b9fb3fdc_ec701555",
         "filename": "src/kits/interface/ScrollView.cpp",
         "patchSetId": 1
