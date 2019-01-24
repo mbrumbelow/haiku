@@ -89,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "31eae83b_38ed45cc",
+        "filename": "src/kits/interface/ScrollView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 954,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-24T07:09:42Z",
+      "side": 1,
+      "message": "Yes, I saw that. My suggestion is to use _ModifyFlags(flags | B_SUPPORTS_LAYOUT, border_style); instead of _ModifyFlags(flags, border_style, true);\n\nThis way there is no need to add an extra arg, and all the other places can be kept as they were before.",
+      "parentUuid": "b54c042a_a20c15b1",
+      "revId": "f4669f56287cca79f775c324fadf53cb5a0ce747",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b9fb3fdc_ec701555",
         "filename": "src/kits/interface/ScrollView.cpp",
         "patchSetId": 1
