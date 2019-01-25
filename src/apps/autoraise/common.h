@@ -9,11 +9,6 @@
 #include <StorageKit.h>
 
 
-// R5.1 has a very helpful API...
-#if (B_BEOS_VERSION == 0x0510)
-#define USE_DANO_HACK
-#endif
-
 /***************************************************
 	common.h
 	Constants used by app
