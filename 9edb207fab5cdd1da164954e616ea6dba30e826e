@@ -33,6 +33,24 @@
       "revId": "9edb207fab5cdd1da164954e616ea6dba30e826e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "490f6ab8_c2446e7e",
+        "filename": "src/apps/autoraise/AutoRaiseIcon.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1000091
+      },
+      "writtenOn": "2019-01-25T01:51:01Z",
+      "side": 0,
+      "message": "That\u0027s a little more than some code formatting, so I\u0027ll put that through as a separate commit.",
+      "parentUuid": "d43de511_6c6f6ea5",
+      "revId": "9edb207fab5cdd1da164954e616ea6dba30e826e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
