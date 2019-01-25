@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "05e85d61_06516cc2",
+        "filename": "headers/os/drivers/device_manager.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "another mask that should be uint32",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a4bd9330_594c9fa6",
         "filename": "headers/os/drivers/fs_interface.h",
         "patchSetId": 1
@@ -13,6 +30,670 @@
       "writtenOn": "2019-01-25T10:02:19Z",
       "side": 1,
       "message": "In a public API, I would use uint32 for event masks.",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79691eb5_062a5771",
+        "filename": "headers/os/drivers/fs_interface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "+1   using signed integers seems unnecessary here, and actually could be a potential source of bugs (lots of \u003c 0 checking) unless \u003c 0 \u003d\u003d a failure?\n\nEDIT: no, these are defintely masks.. uint32.",
+      "parentUuid": "a4bd9330_594c9fa6",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10fbe6d4_da6fcf5e",
+        "filename": "headers/private/kernel/fs/fd.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "another mask that should be uint32",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b52de07d_b25bda5a",
+        "filename": "headers/private/kernel/wait_for_objects.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "another mask that should be uint32",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "382082b8_106402c9",
+        "filename": "headers/private/net/net_socket.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "another mask that should be uint32",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbfb034b_3f9630e2",
+        "filename": "headers/private/net/net_stack_interface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "another mask that should be uint32",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2701ea01_4bb1bde1",
+        "filename": "src/add-ons/kernel/bus_managers/random/driver.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "Oh yeah, these are masks.\n\nuint32? :-)",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d146bc56_8b65c010",
+        "filename": "src/add-ons/kernel/drivers/power/acpi_lid/acpi_lid.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "another mask that should be uint32",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7fa07d07_9c0b118c",
+        "filename": "src/add-ons/kernel/file_systems/bindfs/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "another mask that should be uint32",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f11e28fa_9fe1cdd0",
+        "filename": "src/add-ons/kernel/file_systems/layers/attribute_overlay/attribute_overlay.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1249,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "another mask that should be uint32",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "918fbafc_05c67f02",
+        "filename": "src/add-ons/kernel/file_systems/layers/log_overlay/log_overlay.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "another mask that should be uint32",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42e50dc6_558da0cc",
+        "filename": "src/add-ons/kernel/file_systems/layers/write_overlay/write_overlay.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1755,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "another mask that should be uint32",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3541bd0d_6deb83c2",
+        "filename": "src/add-ons/kernel/file_systems/userlandfs/kernel_add_on/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "another mask that should be uint32",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c4b4cd5_21d17c57",
+        "filename": "src/add-ons/kernel/network/stack/net_socket.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 876,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "another mask which needs to be uint32",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e65f374f_77fdcd0c",
+        "filename": "src/add-ons/kernel/network/stack/net_socket.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 885,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "another mask which needs to be uint32",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a986e160_e00fd6ff",
+        "filename": "src/add-ons/kernel/network/stack/net_socket.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 921,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "another mask that should be uint32",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9d55352_2613f51e",
+        "filename": "src/add-ons/kernel/network/stack/stack_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "another mask that should be uint32",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf2fc866_dbafb07f",
+        "filename": "src/system/kernel/device_manager/AbstractModuleDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "another mask that should be uint32",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7fafb922_a2e50872",
+        "filename": "src/system/kernel/device_manager/AbstractModuleDevice.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "another mask that should be uint32",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb95c080_73796f67",
+        "filename": "src/system/kernel/device_manager/BaseDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "another mask that should be uint32",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7abb8e4_ef71dcf8",
+        "filename": "src/system/kernel/device_manager/BaseDevice.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "another mask that should be uint32",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8469ee81_3c153302",
+        "filename": "src/system/kernel/device_manager/FileDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "another mask that should be uint32",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91aff746_2ccc4bd9",
+        "filename": "src/system/kernel/device_manager/FileDevice.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "another mask that should be uint32",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7163ad74_be78bef9",
+        "filename": "src/system/kernel/device_manager/devfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1547,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "another mask that should be uint32",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d8f6f8d_d534fe93",
+        "filename": "src/system/kernel/device_manager/legacy_drivers.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "Another mask that should be uint32",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3e7b019_044a3307",
+        "filename": "src/system/kernel/device_manager/legacy_drivers.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1350,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "another mask that should be uint32",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30285fda_e0d3b27d",
+        "filename": "src/system/kernel/device_manager/legacy_drivers.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1365,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "another mask that should be uint32",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00bef5db_17c96764",
+        "filename": "src/system/kernel/fs/fd.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "another mask that should be uint32",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f194491a_88e8edcf",
+        "filename": "src/system/kernel/fs/fifo.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "another mask that should be uint32",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "206a81f6_890e8cc0",
+        "filename": "src/system/kernel/fs/fifo.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "another mask that should be uint32",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "863487fc_69504ec9",
+        "filename": "src/system/kernel/fs/fifo.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1126,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "another mask that should be uint32",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4535ffc_e8040383",
+        "filename": "src/system/kernel/fs/fifo.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1128,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "another mask that should be uint32",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31139d99_ecc41288",
+        "filename": "src/system/kernel/fs/socket.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "another mask that should be uint32",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c488835_fc4574dd",
+        "filename": "src/system/kernel/fs/vfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "another mask that should be uint32",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "220ae6b4_f0c388dd",
+        "filename": "src/system/kernel/fs/vfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 5793,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "another mask that should be uint32",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce97b4f6_361f90ec",
+        "filename": "src/system/kernel/wait_for_objects.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "another mask that should be uint32",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65d85767_267e63a1",
+        "filename": "src/system/kernel/wait_for_objects.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "another mask that should be uint32",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a37a7e27_26c510ba",
+        "filename": "src/system/kernel/wait_for_objects.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "another mask that should be uint32",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6739cd0c_208d92d3",
+        "filename": "src/system/kernel/wait_for_objects.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 831,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "another mask that should be uint32",
+      "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a9e7d97_016a0dee",
+        "filename": "src/system/kernel/wait_for_objects.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 835,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-01-25T13:37:55Z",
+      "side": 1,
+      "message": "another mask that should be uint32",
       "revId": "83f4d42e5daea4a34b3ac72289b0c6fc3949181e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
