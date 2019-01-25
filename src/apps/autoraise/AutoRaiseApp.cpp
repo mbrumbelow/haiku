@@ -32,17 +32,17 @@ void AutoRaiseApp::ArgvReceived(int32 argc, char ** argv)
 		option = argv[i];
 		if (option.IFindFirst("deskbar") != B_ERROR)
 			inDeskbar = true;
-			
+
 		if (option.IFindFirst("persist") != B_ERROR)
 			persist = true;
 	}
-	
+
 	if (inDeskbar && !persist)
 	{
 		printf(APP_NAME" being put into Tray (one shot)...\n");
-		
+
 		PutInTray(false);
-		
+
 		_directToDeskbar = true;
 
 	}
@@ -51,14 +51,14 @@ void AutoRaiseApp::ArgvReceived(int32 argc, char ** argv)
 		printf(APP_NAME" being put into Tray (persistant)...\n");
 
 		PutInTray(true);
-		
+
 		_directToDeskbar = true;
 	}
 	else
 	{
 		printf("\nUsage: "APP_NAME" [options]\n\t--deskbar\twill not open window, will just put "APP_NAME" into tray\n\t--persist will put "APP_NAME" into tray such that it remains between bootings\n");
 	}
-	
+
 	be_app_messenger.SendMessage(B_QUIT_REQUESTED);
 }
 
@@ -68,10 +68,10 @@ void AutoRaiseApp::ReadyToRun()
 	{
 		printf("\nUsage: " APP_NAME " [options]\n\t--deskbar\twill not open window, will just put " APP_NAME " into tray\n\t--persist will put " APP_NAME " into tray such that it remains between bootings\n");
 		BAlert *alert = new BAlert("usage box", APP_NAME ", (c) 2002, mmu_man\nUsage: " APP_NAME " [options]\n\t--deskbar\twill not open window, will just put " APP_NAME " into tray\n\t--persist will put "APP_NAME" into tray such that it remains between bootings\n", "OK", NULL, NULL,
-            B_WIDTH_AS_USUAL, B_OFFSET_SPACING, B_INFO_ALERT);
-        alert->SetShortcut(0, B_ENTER);
-        alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
-   	    alert->Go();
+			B_WIDTH_AS_USUAL, B_OFFSET_SPACING, B_INFO_ALERT);
+		alert->SetShortcut(0, B_ENTER);
+		alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
+		alert->Go();
 		be_app_messenger.SendMessage(B_QUIT_REQUESTED);
 	}
 }
@@ -79,7 +79,7 @@ void AutoRaiseApp::ReadyToRun()
 void AutoRaiseApp::PutInTray(bool persist)
 {
 	BDeskbar db;
-	
+
 	if (!persist)
 		db.AddItem(new TrayView);
 	else {
@@ -95,5 +95,4 @@ int main()
 {
 	AutoRaiseApp *app = new AutoRaiseApp();
 	app->Run();
-	
 }
