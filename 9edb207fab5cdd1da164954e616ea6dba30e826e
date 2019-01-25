@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "47fe1114_3c584138",
+        "filename": "src/apps/autoraise/AutoRaiseApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-01-25T00:52:28Z",
+      "side": 0,
+      "message": "You can set your editor to trim trailing spaces too and then just re-save these files for extra cleanup. :)",
+      "revId": "9edb207fab5cdd1da164954e616ea6dba30e826e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d43de511_6c6f6ea5",
+        "filename": "src/apps/autoraise/AutoRaiseIcon.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-01-25T00:52:28Z",
+      "side": 0,
+      "message": "We don\u0027t care about Dano anymore, you can probably remove this while you\u0027re at it.",
+      "revId": "9edb207fab5cdd1da164954e616ea6dba30e826e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}

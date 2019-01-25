@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "92163641_ab7707fe",
+        "filename": "src/apps/mail/MailApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-01-25T00:52:28Z",
+      "side": 1,
+      "message": "This should be intented by another tab, as it refers to the previous line.",
+      "revId": "20a308d0483615a44b4977e894391d4590b7efed",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
