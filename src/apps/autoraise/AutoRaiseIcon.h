@@ -18,7 +18,7 @@ extern "C" _EXPORT BView* instantiate_deskbar_item();
 //since we can't remove the view from the deskbar from within the same thread
 //as tray view, a thread will be spawned and this function called. It removed TrayView
 //from the Deskbar
-long removeFromDeskbar(void *);
+int32 removeFromDeskbar(void *);
 
 class _EXPORT TrayView;
 
@@ -49,7 +49,7 @@ class TrayView:public BView{
 		volatile thread_id last_raiser_thread;
 		team_id fDeskbarTeam;
 		
-		bigtime_t polling_delay; // for !DANO
+		bigtime_t polling_delay;
 		sem_id fPollerSem;
 		thread_id poller_thread;
 		

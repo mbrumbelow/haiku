@@ -9,11 +9,6 @@
 #include <StorageKit.h>
 
 
-// R5.1 has a very helpful API...
-#if (B_BEOS_VERSION == 0x0510)
-#define USE_DANO_HACK
-#endif
-
 /***************************************************
 	common.h
 	Constants used by app
@@ -21,7 +16,7 @@
 
 // used to check the image to use to get the resources
 #define APP_NAME "AutoRaise"
-#define APP_SIG "application/x-vnd.mmu.AutoRaise" 
+#define APP_SIG "application/x-vnd.mmu.AutoRaise"
 #define SETTINGS_FILE "x-vnd.mmu.AutoRaise_settings"
 
 //names of data segments in settings file
@@ -66,41 +61,42 @@ enum {
 
 /* from OpenTracker deskbar/WindowMenuItem.h */
 
-// from interface_defs.h 
-struct window_info { 
-        team_id         team; 
-    int32       id;                       /* window's token */ 
+// from interface_defs.h
+struct window_info {
+        team_id			team;
+		int32			id;				/* window's token */
 
-        int32           thread; 
-        int32           client_token; 
-        int32           client_port; 
-        uint32          workspaces; 
+        int32			thread;
+        int32			client_token;
+        int32			client_port;
+        uint32			workspaces;
 
-        int32           layer; 
-    uint32              w_type;           /* B_TITLED_WINDOW, etc. */ 
-    uint32      flags;            /* B_WILL_FLOAT, etc. */ 
-        int32           window_left; 
-        int32           window_top; 
-        int32           window_right; 
-        int32           window_bottom; 
-        int32           show_hide_level; 
-        bool            is_mini; 
-        char                name[1]; 
-}; 
+        int32			layer;
+		uint32			w_type;			/* B_TITLED_WINDOW, etc. */
+		uint32			flags;			/* B_WILL_FLOAT, etc. */
+        int32			window_left;
+        int32			window_top;
+        int32			window_right;
+        int32			window_bottom;
+        int32			show_hide_level;
+        bool			is_mini;
+        char			name[1];
+};
 
-// from interface_misc.h 
-enum window_action { 
-        B_MINIMIZE_WINDOW, 
-        B_BRING_TO_FRONT 
-}; 
+// from interface_misc.h
+enum window_action {
+        B_MINIMIZE_WINDOW,
+        B_BRING_TO_FRONT
+};
 
-// from interface_misc.h 
-void                do_window_action(int32 window_id, int32 action, 
-                                                         BRect zoomRect, bool zoom); 
-window_info     *get_window_info(int32 a_token); 
-int32           *get_token_list(team_id app, int32 *count); 
-void do_minimize_team(BRect zoomRect, team_id team, bool zoom); 
-void do_bring_to_front_team(BRect zoomRect, team_id app, bool zoom); 
-
+// from interface_misc.h
+		void			do_window_action(int32 window_id, int32 action,
+							BRect zoomRect, bool zoom);
+		window_info     *get_window_info(int32 a_token);
+		int32           *get_token_list(team_id app, int32 *count);
+		void 			do_minimize_team(BRect zoomRect, team_id team,
+							bool zoom);
+		void 			do_bring_to_front_team(BRect zoomRect, team_id app,
+							bool zoom);
 
 #endif
