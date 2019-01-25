@@ -16,6 +16,24 @@
       "revId": "9edb207fab5cdd1da164954e616ea6dba30e826e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a526cc7f_f0c49b04",
+        "filename": "src/apps/autoraise/AutoRaiseIcon.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1000091
+      },
+      "writtenOn": "2019-01-25T08:53:11Z",
+      "side": 0,
+      "message": "The answer to this question is way beyond my level of Haiku-fu.",
+      "parentUuid": "3adeea16_1d21bf74",
+      "revId": "9edb207fab5cdd1da164954e616ea6dba30e826e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
