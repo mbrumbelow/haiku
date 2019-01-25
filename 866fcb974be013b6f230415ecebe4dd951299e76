@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "43a1f0fa_f081fe94",
+        "filename": "src/apps/autoraise/AutoRaiseApp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-25T07:55:49Z",
+      "side": 1,
+      "message": "Lines \u003e 80 columns (while we are at it...)",
+      "revId": "866fcb974be013b6f230415ecebe4dd951299e76",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "729f6a3e_8071c678",
+        "filename": "src/apps/autoraise/AutoRaiseApp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-25T07:55:49Z",
+      "side": 1,
+      "message": "First space not needed here (before APP_NAME)",
+      "revId": "866fcb974be013b6f230415ecebe4dd951299e76",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a225979c_85c7c819",
+        "filename": "src/apps/autoraise/AutoRaiseApp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-25T07:55:49Z",
+      "side": 1,
+      "message": "This help message is repeated from the function above, please extract it as a string constant or as a function",
+      "revId": "866fcb974be013b6f230415ecebe4dd951299e76",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f3abe63_608e452b",
+        "filename": "src/apps/autoraise/AutoRaiseApp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-25T07:55:49Z",
+      "side": 1,
+      "message": "This line should be removed completely",
+      "revId": "866fcb974be013b6f230415ecebe4dd951299e76",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c90d2a2a_1fe63eb3",
+        "filename": "src/apps/autoraise/AutoRaiseIcon.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-25T07:55:49Z",
+      "side": 1,
+      "message": "should be a status_t, not int32",
+      "revId": "866fcb974be013b6f230415ecebe4dd951299e76",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b7623eb_eff6283f",
+        "filename": "src/apps/autoraise/AutoRaiseIcon.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-25T07:55:49Z",
+      "side": 1,
+      "message": "spaces around APP_NAME not needed here",
+      "revId": "866fcb974be013b6f230415ecebe4dd951299e76",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e91bc50_c91e449e",
+        "filename": "src/apps/autoraise/AutoRaiseIcon.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-25T07:55:49Z",
+      "side": 1,
+      "message": "\u003e 80 chars",
+      "revId": "866fcb974be013b6f230415ecebe4dd951299e76",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9054c475_20e9fd85",
+        "filename": "src/apps/autoraise/AutoRaiseIcon.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-25T07:55:49Z",
+      "side": 1,
+      "message": "leftover trailing whitespace",
+      "revId": "866fcb974be013b6f230415ecebe4dd951299e76",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c024a83_8788eb1c",
+        "filename": "src/apps/autoraise/common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-25T07:55:49Z",
+      "side": 1,
+      "message": "These are not in a class so there shouldn\u0027t be two levels of identation?\nAlso don\u0027t we have this interface_misc.h somewhere in Haiku? Couldn\u0027t we use it directly instead of copying the prototypes here?",
+      "revId": "866fcb974be013b6f230415ecebe4dd951299e76",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
