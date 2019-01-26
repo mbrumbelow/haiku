@@ -170,6 +170,24 @@
       "revId": "866fcb974be013b6f230415ecebe4dd951299e76",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4d46a46_fa2b6de2",
+        "filename": "src/apps/autoraise/common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-26T19:53:14Z",
+      "side": 1,
+      "message": "Indeed, these functions currently live in headers/private/interface/WindowInfo.h so you can include that (may require tweak to the Jamfile)",
+      "parentUuid": "c1f0eec9_2626067d",
+      "revId": "866fcb974be013b6f230415ecebe4dd951299e76",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
