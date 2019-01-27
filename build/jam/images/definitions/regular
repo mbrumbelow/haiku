@@ -162,6 +162,7 @@ SYSTEM_ADD_ONS_MEDIA_PLUGINS += [ FFilterByBuildFeatures
 SYSTEM_ADD_ONS_PRINT += [ FFilterByBuildFeatures
 	Canon\ LIPS3\ Compatible
 	Canon\ LIPS4\ Compatible
+	Lpstyl
 	Gutenprint@gutenprint
 	PCL5\ Compatible
 	PCL6\ Compatible

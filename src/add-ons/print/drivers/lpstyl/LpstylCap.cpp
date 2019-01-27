@@ -110,16 +110,16 @@ bool
 LpstylCap::Supports(CapID capid) const
 {
 	switch (capid) {
-		case kPaper:
-		case kResolution:
 		case kColor:
+		case kHalftone:
+		case kPaper:
 		case kProtocolClass:
+		case kResolution:
 			return true;
 		case kPaperSource:
 		case kPrintStyle:
 		case kBindingLocation:
 		case kCopyCommand:
-		case kHalftone:
 		default:
 			return false;
 	}
