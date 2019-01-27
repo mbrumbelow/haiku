@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "10f994b4_624d13d5",
+        "filename": "src/system/glue/init_term_dyn.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-01-27T20:23:21Z",
+      "side": 1,
+      "message": "No. This file is put into the haiku_devel package and then picked up by GCC and injected into every dyn object. We might want to add stuff back to it in the future besides this file.",
+      "parentUuid": "9fb6d375_743db03e",
+      "revId": "1797f7d6e3200aaabdfdb49f181d90d0243d203f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3fb90506_84ed97c2",
         "filename": "src/system/runtime_loader/elf.cpp",
         "patchSetId": 1
@@ -83,6 +101,24 @@
       "side": 1,
       "message": "in init_term_dyn.c, each function is tested for existence. This check now always fails to find the function.\nFor BeOS software, no idea.",
       "parentUuid": "3fb90506_84ed97c2",
+      "revId": "1797f7d6e3200aaabdfdb49f181d90d0243d203f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60900228_0a6172cc",
+        "filename": "src/system/runtime_loader/elf.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 846,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-01-27T20:23:21Z",
+      "side": 1,
+      "message": "Yes, the effect on Haiku software is as korli described.\n\nI just tested a lot of BeOS R5 applications with this change and they all seem to still work fine. So, it seems it\u0027s OK there too.",
+      "parentUuid": "713407db_4d48b1e1",
       "revId": "1797f7d6e3200aaabdfdb49f181d90d0243d203f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
