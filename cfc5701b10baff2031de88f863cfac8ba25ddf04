@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a26b6f8b_3fda1f85",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2019-01-27T10:34:27Z",
+      "side": 1,
+      "message": "Should be prefixed with \"bfs: \".",
+      "revId": "cfc5701b10baff2031de88f863cfac8ba25ddf04",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
