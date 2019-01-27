@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bbb21f69_3acc0d64",
+        "filename": "src/apps/launchbox/LaunchButton.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-27T17:17:58Z",
+      "side": 1,
+      "message": "Innapropriate parameter name",
+      "revId": "77ec7bbe817cd67480bc84746343553a5a739f61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e7a3bda_beaf4e77",
+        "filename": "src/apps/launchbox/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-27T17:17:58Z",
+      "side": 1,
+      "message": "extra tab",
+      "revId": "77ec7bbe817cd67480bc84746343553a5a739f61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2114c885_41d1b50f",
+        "filename": "src/apps/launchbox/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-27T17:17:58Z",
+      "side": 1,
+      "message": "This is not the right way to handle this.\nHave a look at the code in LnLauncher. There can be a fixed launch file, which will read from a setting in LaunchBox preferences to decide if LaunchBox must be launched.",
+      "revId": "77ec7bbe817cd67480bc84746343553a5a739f61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab0b0f00_3da6595e",
+        "filename": "src/apps/launchbox/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-27T17:17:58Z",
+      "side": 1,
+      "message": "Why copy the whole system launch procedure? You will erase it in the next line anyway.",
+      "revId": "77ec7bbe817cd67480bc84746343553a5a739f61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46e1efa8_7c7a6afb",
+        "filename": "src/apps/launchbox/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-27T17:17:58Z",
+      "side": 1,
+      "message": "Why not store the setting with the others in the BMessage?",
+      "revId": "77ec7bbe817cd67480bc84746343553a5a739f61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15786667_11f4f100",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-27T17:17:58Z",
+      "side": 1,
+      "message": "\"Boot Method\" is not an appropriate mode. SetAutostart would be better (also in other places where Boot Method is used)",
+      "revId": "77ec7bbe817cd67480bc84746343553a5a739f61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
