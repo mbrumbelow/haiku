@@ -306,6 +306,33 @@ parse_dynamic_segment(image_t* image)
 				image->term_routine
 					= (d[i].d_un.d_ptr + image->regions[0].delta);
 				break;
+			case DT_INIT_ARRAY:
+				// array of pointers to initialization functions
+				image->init_array = (addr_t*)
+					(d[i].d_un.d_ptr + image->regions[0].delta);
+				break;
+			case DT_INIT_ARRAYSZ:
+				// size in bytes of the array of initialization functions
+				image->init_array_len = d[i].d_un.d_val;
+				break;
+			case DT_PREINIT_ARRAY:
+				// array of pointers to pre-initialization functions
+				image->preinit_array = (addr_t*)
+					(d[i].d_un.d_ptr + image->regions[0].delta);
+				break;
+			case DT_PREINIT_ARRAYSZ:
+				// size in bytes of the array of pre-initialization functions
+				image->preinit_array_len = d[i].d_un.d_val;
+				break;
+			case DT_FINI_ARRAY:
+				// array of pointers to termination functions
+				image->term_array = (addr_t*)
+					(d[i].d_un.d_ptr + image->regions[0].delta);
+				break;
+			case DT_FINI_ARRAYSZ:
+				// size in bytes of the array of termination functions
+				image->term_array_len = d[i].d_un.d_val;
+				break;
 			case DT_SONAME:
 				sonameOffset = d[i].d_un.d_val;
 				break;
@@ -341,33 +368,6 @@ parse_dynamic_segment(image_t* image)
 				}
 				break;
 			}
-			case DT_INIT_ARRAY:
-				// array of pointers to initialization functions
-				image->init_array = (addr_t*)
-					(d[i].d_un.d_ptr + image->regions[0].delta);
-				break;
-			case DT_INIT_ARRAYSZ:
-				// size in bytes of the array of initialization functions
-				image->init_array_len = d[i].d_un.d_val;
-				break;
-			case DT_PREINIT_ARRAY:
-				// array of pointers to pre-initialization functions
-				image->preinit_array = (addr_t*)
-					(d[i].d_un.d_ptr + image->regions[0].delta);
-				break;
-			case DT_PREINIT_ARRAYSZ:
-				// size in bytes of the array of pre-initialization functions
-				image->preinit_array_len = d[i].d_un.d_val;
-				break;
-			case DT_FINI_ARRAY:
-				// array of pointers to termination functions
-				image->term_array = (addr_t*)
-					(d[i].d_un.d_ptr + image->regions[0].delta);
-				break;
-			case DT_FINI_ARRAYSZ:
-				// size in bytes of the array of termination functions
-				image->term_array_len = d[i].d_un.d_val;
-				break;
 			default:
 				continue;
 
