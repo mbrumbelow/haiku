@@ -35,7 +35,8 @@ class LpstylPrinterDriver : public PrinterDriver
 
 		const char* GetCopyright() const
 		{
-			return "Copyright 1996-2000 Monroe Williams, 2017 Adrien Destugues.\n";
+			return "Copyright 1996-2000 Monroe Williams, "
+				"2017 Adrien Destugues.\n";
 		}
 
 		PrinterData* InstantiatePrinterData(BNode* node)

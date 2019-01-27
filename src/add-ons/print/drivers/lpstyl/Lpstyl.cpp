@@ -1,5 +1,5 @@
 /*
-* Copyright 2017, Haiku. All rights reserved.
+* Copyright 2017-2018, Haiku. All rights reserved.
 * Distributed under the terms of the MIT License.
 *
 * Authors:
@@ -7,20 +7,73 @@
 */
 #include "Lpstyl.h"
 
+#include <GroupView.h>
+#include <ListView.h>
+#include <Window.h>
+
+
+class DebugWindow: public BWindow
+{
+	public:
+		DebugWindow()
+			: BWindow(BRect(100, 100, 400, 400), "StyleWriter debug",
+				B_DOCUMENT_WINDOW, 0)
+		{
+			BGroupLayout* group = new BGroupLayout(B_VERTICAL);
+			SetLayout(group);
+			fListView = new BListView("messages");
+			AddChild(fListView);
+		}
+
+		void MessageReceived(BMessage* message)
+		{
+			if (message->what == 'DBGI')
+			{
+				BString text = message->FindString("text");
+				fListView->AddItem(new BStringItem(text));
+			}
+
+			BWindow::MessageReceived(message);
+		}
+
+		void Log(BString description, const unsigned char* data = NULL,
+			size_t length = 0)
+		{
+			for (size_t i = 0; i < length; i++) {
+				description << " ";
+				description << data[i];
+			}
+
+			BMessage message('DBGI');
+			message.AddString("text", description);
+
+			PostMessage(&message);
+		}
+
+	private:
+		BListView* fListView;
+};
+
 
 LpstylDriver::LpstylDriver(BMessage* message, PrinterData* printerData,
 	const PrinterCap* printerCap)
 	: GraphicsDriver(message, printerData, printerCap)
 {
+	fDebugWindow = NULL;
 }
 
 
 bool
 LpstylDriver::StartDocument()
 {
+	if (fDebugWindow == NULL)
+		fDebugWindow = new DebugWindow();
+	fDebugWindow->Show();
+	fDebugWindow->Log("-- Start of document --");
+
 	_EjectAndReset();
 	_IdentifyPrinter();
-	_ColorCartridge();
+	fCanPrintColors = _ColorCartridge();
 	return true;
 }
 
@@ -29,9 +82,9 @@ bool
 LpstylDriver::StartPage()
 {
 	if (fPrinterType < kStyleWriter2400)
-		WriteSpoolData("nuA", 3);
+		_Write("nuA", 3);
 	else
-		WriteSpoolChar('L');
+		_Write('L');
 	return true;
 }
 
@@ -39,9 +92,13 @@ LpstylDriver::StartPage()
 bool
 LpstylDriver::NextBand(BBitmap* bitmap, BPoint* offset)
 {
-	fprintf(stderr, "Next band at %f %f\n", offset->x, offset->y);
+	BString blah;
+	blah.SetToFormat("Next band at %f %f", offset->x, offset->y);
+	fDebugWindow->Log(blah);
 
 	int page_height = GetPageHeight();
+
+	// The printer expects buffers in CMYK (or just K, if printing greyscale)
 
 	// Advance the cursor
 	offset->y += bitmap->Bounds().Height();
@@ -60,7 +117,9 @@ LpstylDriver::NextBand(BBitmap* bitmap, BPoint* offset)
 bool
 LpstylDriver::EndPage(int page)
 {
-	fprintf(stderr, "end page %d\n", page);
+	BString blah;
+	blah.SetToFormat("end of page %d", page);
+	fDebugWindow->Log(blah);
 	return true;
 }
 
@@ -68,6 +127,7 @@ LpstylDriver::EndPage(int page)
 bool
 LpstylDriver::EndDocument(bool success)
 {
+	//fDebugWindow->Quit();
 	return true;
 }
 
@@ -77,9 +137,11 @@ LpstylDriver::EndDocument(bool success)
 void
 LpstylDriver::_EjectAndReset(void)
 {
+	fDebugWindow->Log("Eject and Reset");
 	_WriteFFFx('I');
+	sleep(2);
 
-	int s1;
+	int s1 = 1;
 
 	do {
 		for (;;) {
@@ -92,7 +154,7 @@ LpstylDriver::_EjectAndReset(void)
 		}
 
 		if (s1 == 1) {
-			// Check for stylewriter1, where status 1 doesn't g to 0 on init.
+			// Check for stylewriter1, where status 1 doesn't go to 0 on init.
 			if (_GetStatus('2') == 0 && _GetStatus('B') == 0xa0)
 				break;
 		}
@@ -103,12 +165,13 @@ LpstylDriver::_EjectAndReset(void)
 void
 LpstylDriver::_IdentifyPrinter(void)
 {
-	WriteSpoolChar('?');
+	fDebugWindow->Log("Identify printer");
+	_Write('?');
 
 	char smallBuf[32];
 	int i = 0;
 	for (i = 0; i < 31; i++) {
-		smallBuf[i] = ReadSpoolChar();
+		smallBuf[i] = _Read();
 		if (smallBuf[i] == 0x0D)
 			break;
 	}
@@ -144,9 +207,37 @@ LpstylDriver::_IdentifyPrinter(void)
 bool
 LpstylDriver::_ColorCartridge()
 {
-	WriteSpoolChar('D');
+	fDebugWindow->Log("Detect color cartridge");
+	_Write('D');
 	unsigned char i = _GetStatus('H');
 	return i & 0x80;
+}
+
+
+void
+LpstylDriver::_Write(char data)
+{
+	fDebugWindow->Log("--> ", (unsigned char*)&data, 1);
+	WriteSpoolChar(data);
+}
+
+
+void
+LpstylDriver::_Write(const char* data, size_t length)
+{
+	fDebugWindow->Log("--> ", (unsigned char*)data, length);
+	WriteSpoolData(data, length);
+}
+
+
+char
+LpstylDriver::_Read()
+{
+	char read = ReadSpoolChar();
+
+	fDebugWindow->Log("<-- ", (unsigned char*)&read, 1);
+
+	return read;
 }
 
 
@@ -158,10 +249,10 @@ LpstylDriver::_ColorCartridge()
 void
 LpstylDriver::_WriteFFFx(char x)
 {
-	unsigned char str[4];
+	char str[4];
 	str[0] = str[1] = str[2] = 0xFF;
 	str[3] = x;
-	WriteSpoolData(str, 4);
+	_Write(str, 4);
 }
 
 
@@ -173,6 +264,7 @@ LpstylDriver::_WriteFFFx(char x)
 int
 LpstylDriver::_GetStatus(char reg)
 {
+	fDebugWindow->Log("Read status register", (unsigned char*)&reg, 1);
 	_WriteFFFx(reg);
-	return ReadSpoolChar();
+	return _Read();
 }

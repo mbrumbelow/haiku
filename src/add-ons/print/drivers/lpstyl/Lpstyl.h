@@ -1,5 +1,5 @@
 /*
-* Copyright 2017, Haiku. All rights reserved.
+* Copyright 2017-2018, Haiku. All rights reserved.
 * Distributed under the terms of the MIT License.
 *
 * Authors:
@@ -23,6 +23,9 @@ enum PrinterType {
 };
 
 
+class DebugWindow;
+
+
 class LpstylDriver: public GraphicsDriver {
 	public:
 						LpstylDriver(BMessage* message, PrinterData* printerData,
@@ -40,11 +43,18 @@ class LpstylDriver: public GraphicsDriver {
 		void			_IdentifyPrinter(void);
 		bool			_ColorCartridge(void);
 
+		void			_Write(const char* data, size_t length);
+		void			_Write(char data);
+		char			_Read();
+
 		void			_WriteFFFx(char x);
 		int				_GetStatus(char reg);
 
 	private:
 		PrinterType		fPrinterType;
+		bool			fCanPrintColors;
+
+		DebugWindow*	fDebugWindow;
 };
 
 
