@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9fb6d375_743db03e",
+        "filename": "src/system/glue/init_term_dyn.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-27T16:44:11Z",
+      "side": 1,
+      "message": "If that\u0027s all what remains, this file can be deleted?",
+      "revId": "1797f7d6e3200aaabdfdb49f181d90d0243d203f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fb90506_84ed97c2",
+        "filename": "src/system/runtime_loader/elf.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 846,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-27T16:44:11Z",
+      "side": 1,
+      "message": "What\u0027s the impact on:\n- existing compiled software that uses the old _crtI sources?\n- BeOS software that uses whatever it was linked with?",
+      "revId": "1797f7d6e3200aaabdfdb49f181d90d0243d203f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
