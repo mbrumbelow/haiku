@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f1165abc_d5c86609",
+        "filename": "src/system/boot/loader/stdio.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-01-27T16:25:31Z",
+      "side": 1,
+      "message": "Is this past the 80-cha/line-limit? It breaks onto the next line in Gerrit.",
+      "revId": "6b4e2211c17799c89f1d25b4b76c23875f6ef83f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
