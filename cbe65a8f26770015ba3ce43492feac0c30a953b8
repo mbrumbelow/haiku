@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7e6f1ad4_f7863a67",
+        "filename": "src/add-ons/kernel/partitioning_systems/gpt/efi_gpt.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-01-27T10:23:53Z",
+      "side": 1,
+      "message": "Why are members such as EndBlock(), StartBlock(), BlockCount(), FirstUsableBlock(), LastUsableBlock() etc. not renamed so that \"Block\" is replaced with \"Sector\"? Does the meaning depend on context? Or is it always acutally Sector? The code \"looked\" clear before, now it \"looks\" buggy, as if taking the wrong size for blocks.",
+      "revId": "cbe65a8f26770015ba3ce43492feac0c30a953b8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e75da039_a3aef3e2",
+        "filename": "src/add-ons/kernel/partitioning_systems/intel/write_support.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2185,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-01-27T10:23:53Z",
+      "side": 1,
+      "message": "The code here looks generally much more sane now, since the functions are already named to take sector size, not block size. This one place however should become SetSectorSize().",
+      "revId": "cbe65a8f26770015ba3ce43492feac0c30a953b8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4eda6f0_add10751",
+        "filename": "src/system/kernel/disk_device_manager/KPartition.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1224,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-01-27T10:23:53Z",
+      "side": 1,
+      "message": "There should either be two flags here (which I\u0027d prefer), or the flag needs to become \"B_PARTITION_CHANGED_BLOCK_OR_SECTOR_SIZE\".\n\nAlso, I think there should be new members SectorSize() and SetSectorSize(). It looks wrong and asymmetrical that methods are used above, and then \"private\" member access to do something very similar in the next code block.",
+      "revId": "cbe65a8f26770015ba3ce43492feac0c30a953b8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
