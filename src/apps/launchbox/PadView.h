@@ -43,6 +43,9 @@ public:
 			void				SetIgnoreDoubleClick(bool refuse);
 			bool				IgnoreDoubleClick() const;
 
+			void				SetBootMethod(bool refuse);
+			bool				BootMethod() const;
+
 private:
 			void				_NotifySettingsChanged();
 

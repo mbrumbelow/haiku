@@ -7,6 +7,8 @@
 
 #include <stdio.h>
 
+#include <Directory.h>
+#include <File.h>
 #include <Alert.h>
 #include <Application.h>
 #include <Catalog.h>
@@ -38,7 +40,8 @@ MainWindow::MainWindow(const char* name, BRect frame, bool addDefaultButtons)
 	fSettings(new BMessage('sett')),
 	fPadView(new PadView("pad view")),
 	fAutoRaise(false),
-	fShowOnAllWorkspaces(true)
+	fShowOnAllWorkspaces(true),
+	fAutoStart(false)
 {
 	bool buttonsAdded = false;
 	if (load_settings(fSettings, "main_settings", "LaunchBox") >= B_OK)
@@ -49,7 +52,7 @@ MainWindow::MainWindow(const char* name, BRect frame, bool addDefaultButtons)
 		else
 			_AddEmptyButtons();
 	}
-
+	
 	SetLayout(new BGroupLayout(B_HORIZONTAL));
 	AddChild(fPadView);
 }
@@ -282,6 +285,9 @@ MainWindow::MessageReceived(BMessage* message)
 		case MSG_TOGGLE_AUTORAISE:
 			ToggleAutoRaise();
 			break;
+		case MSG_TOGGLE_AUTOSTART:
+			ToggleAutoStart();
+			break;
 		case MSG_SHOW_ON_ALL_WORKSPACES:
 			fShowOnAllWorkspaces = !fShowOnAllWorkspaces;
 			if (fShowOnAllWorkspaces)
@@ -377,6 +383,33 @@ MainWindow::ToggleAutoRaise()
 }
 
 
+void
+MainWindow::ToggleAutoStart()
+{
+	fAutoStart = !fAutoStart;
+	if (fAutoStart)
+	{
+		BDirectory dir("/boot/system/settings/launch");
+		if(dir.InitCheck()!=B_OK)
+			system("mkdir /boot/system/settings/launch");
+		const char* path;
+		system("cp /boot/system/data/launch/system /boot/system/settings/launch/LaunchBox");
+		path = "/boot/system/settings/launch/LaunchBox";
+		BFile file(path, B_READ_WRITE | B_ERASE_FILE | B_CREATE_FILE);
+		if( file.InitCheck() == B_OK )
+		{
+			char strng[] = "job LaunchBox {\n launch /system/apps/LaunchBox \n }";
+			file.Write(strng,strlen(strng));
+		}
+	}
+	else
+	{
+		system(" rm /boot/system/settings/launch/LaunchBox ");
+	}
+	_NotifySettingsChanged();
+}
+
+
 bool
 MainWindow::LoadSettings(const BMessage* message)
 {
@@ -422,6 +455,18 @@ MainWindow::LoadSettings(const BMessage* message)
 	bool ignoreDoubleClick;
 	if (message->FindBool("ignore double click", &ignoreDoubleClick) == B_OK)
 		fPadView->SetIgnoreDoubleClick(ignoreDoubleClick);
+
+	// restore start on boot
+	BFile file("/boot/system/settings/launch/LaunchBox", B_READ_ONLY);
+	if (file.InitCheck() == B_OK)
+	{
+		if(!AutoStart())
+			ToggleAutoStart();
+	}	
+	else
+		if(AutoStart())
+			ToggleAutoStart();
+	
 
 	// restore buttons
 	const char* path;
@@ -501,6 +546,11 @@ MainWindow::SaveSettings(BMessage* message)
 	if (message->ReplaceBool("ignore double click",
 			fPadView->IgnoreDoubleClick()) != B_OK) {
 		message->AddBool("ignore double click", fPadView->IgnoreDoubleClick());
+	}
+
+	// store start on boot
+	if (message->ReplaceBool("start on boot", fPadView->BootMethod()) != B_OK) {
+		message->AddBool("start on boot", fPadView->BootMethod());
 	}
 
 	// store buttons

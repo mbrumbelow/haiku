@@ -37,6 +37,7 @@ static const char* kEmptyHelpString = B_TRANSLATE("You can drag an icon here.");
 
 bigtime_t LaunchButton::sClickSpeed = 0;
 bool LaunchButton::sIgnoreDoubleClick = true;
+bool LaunchButton::sStartOnBoot = false;
 
 
 LaunchButton::LaunchButton(const char* name, const char* label,
@@ -376,6 +377,11 @@ LaunchButton::SetIgnoreDoubleClick(bool refuse)
 	sIgnoreDoubleClick = refuse;
 }
 
+void
+LaunchButton::SetBootMethod(bool refuse)
+{
+	LaunchButton::sStartOnBoot = refuse;
+}
 
 // #pragma mark -
 
