@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7388b480_5758624b",
+        "filename": "src/system/glue/arch/x86_64/crti.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-01-27T19:43:36Z",
+      "side": 1,
+      "message": "Well, it is preserved by default in all other architectures due to differences in ABI vs x86; so it seems to make sense to keep the preservation in case we need it in the future.",
+      "parentUuid": "0c37ce98_b58f21a3",
+      "revId": "1797f7d6e3200aaabdfdb49f181d90d0243d203f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9fb6d375_743db03e",
         "filename": "src/system/glue/init_term_dyn.c",
         "patchSetId": 1
