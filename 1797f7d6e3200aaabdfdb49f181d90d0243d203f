@@ -50,6 +50,24 @@
       "revId": "1797f7d6e3200aaabdfdb49f181d90d0243d203f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "713407db_4d48b1e1",
+        "filename": "src/system/runtime_loader/elf.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 846,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-27T17:25:31Z",
+      "side": 1,
+      "message": "in init_term_dyn.c, each function is tested for existence. This check now always fails to find the function.\nFor BeOS software, no idea.",
+      "parentUuid": "3fb90506_84ed97c2",
+      "revId": "1797f7d6e3200aaabdfdb49f181d90d0243d203f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
