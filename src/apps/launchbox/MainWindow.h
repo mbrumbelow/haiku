@@ -21,6 +21,7 @@ enum {
 
 	MSG_ADD_WINDOW				= 'addw',
 	MSG_SETTINGS_CHANGED		= 'stch',
+	MSG_TOGGLE_AUTOSTART		= 'tast'
 };
 
 
@@ -44,8 +45,11 @@ public:
 
 	// MainWindow
 			void				ToggleAutoRaise();
+			void				ToggleAutoStart();
 			bool				AutoRaise() const
 									{ return fAutoRaise; }
+			bool 				AutoStart() const
+									{ return fAutoStart; }
 			bool				ShowOnAllWorkspaces() const
 									{ return fShowOnAllWorkspaces; }
 
@@ -75,6 +79,7 @@ private:
 
 			bool				fAutoRaise;
 			bool				fShowOnAllWorkspaces;
+			bool 				fAutoStart;
 };
 
 #endif // MAIN_WINDOW_H

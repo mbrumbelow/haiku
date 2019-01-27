@@ -60,6 +60,10 @@ public:
 	static	void				SetIgnoreDoubleClick(bool refuse);
 	static	bool				IgnoreDoubleClick()
 									{ return sIgnoreDoubleClick; }
+	
+	static	void				SetAutoStart(bool option);
+	static 	bool 				AutoStart()
+									{ return sAutoStart; }
 
 private:
 			void				_UpdateToolTip();
@@ -84,6 +88,7 @@ private:
 
 	static	bigtime_t			sClickSpeed;
 	static	bool				sIgnoreDoubleClick;
+	static 	bool 				sAutoStart;
 };
 
 #endif // LAUNCH_BUTTON_H
