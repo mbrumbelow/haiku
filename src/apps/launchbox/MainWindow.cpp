@@ -7,6 +7,8 @@
 
 #include <stdio.h>
 
+#include <Directory.h>
+#include <File.h>
 #include <Alert.h>
 #include <Application.h>
 #include <Catalog.h>
@@ -38,7 +40,8 @@ MainWindow::MainWindow(const char* name, BRect frame, bool addDefaultButtons)
 	fSettings(new BMessage('sett')),
 	fPadView(new PadView("pad view")),
 	fAutoRaise(false),
-	fShowOnAllWorkspaces(true)
+	fShowOnAllWorkspaces(true),
+	fAutoStart(false)
 {
 	bool buttonsAdded = false;
 	if (load_settings(fSettings, "main_settings", "LaunchBox") >= B_OK)
@@ -49,7 +52,6 @@ MainWindow::MainWindow(const char* name, BRect frame, bool addDefaultButtons)
 		else
 			_AddEmptyButtons();
 	}
-
 	SetLayout(new BGroupLayout(B_HORIZONTAL));
 	AddChild(fPadView);
 }
@@ -282,6 +284,13 @@ MainWindow::MessageReceived(BMessage* message)
 		case MSG_TOGGLE_AUTORAISE:
 			ToggleAutoRaise();
 			break;
+		case MSG_TOGGLE_AUTOSTART:
+		{
+			ToggleAutoStart();
+			_NotifySettingsChanged();
+			be_app->PostMessage(MSG_TOGGLE_AUTOSTART);
+		}
+			break;
 		case MSG_SHOW_ON_ALL_WORKSPACES:
 			fShowOnAllWorkspaces = !fShowOnAllWorkspaces;
 			if (fShowOnAllWorkspaces)
@@ -377,6 +386,14 @@ MainWindow::ToggleAutoRaise()
 }
 
 
+void
+MainWindow::ToggleAutoStart()
+{
+	fAutoStart = !fAutoStart;
+	_NotifySettingsChanged();
+}
+
+
 bool
 MainWindow::LoadSettings(const BMessage* message)
 {
@@ -422,6 +439,12 @@ MainWindow::LoadSettings(const BMessage* message)
 	bool ignoreDoubleClick;
 	if (message->FindBool("ignore double click", &ignoreDoubleClick) == B_OK)
 		fPadView->SetIgnoreDoubleClick(ignoreDoubleClick);
+
+	// restore start on boot
+	bool auto_start;
+	if(message->FindBool("autostart", &auto_start) == B_OK)
+		if(auto_start != AutoStart())
+			ToggleAutoStart();
 
 	// restore buttons
 	const char* path;
@@ -501,6 +524,11 @@ MainWindow::SaveSettings(BMessage* message)
 	if (message->ReplaceBool("ignore double click",
 			fPadView->IgnoreDoubleClick()) != B_OK) {
 		message->AddBool("ignore double click", fPadView->IgnoreDoubleClick());
+	}
+
+	// store start on boot
+	if (message->ReplaceBool("autostart", AutoStart()) != B_OK) {
+		message->AddBool("autostart", AutoStart());
 	}
 
 	// store buttons

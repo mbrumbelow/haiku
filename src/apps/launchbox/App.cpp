@@ -11,6 +11,8 @@
 #include <Entry.h>
 #include <Message.h>
 #include <String.h>
+#include <Directory.h>
+#include <File.h>
 
 #include "support.h"
 
@@ -25,6 +27,7 @@ App::App()
 	fSettingsChanged(false),
 	fNamePanelSize(200, 50)
 {
+	StartDaemonFileCheck();
 	SetPulseRate(3000000);
 }
 
@@ -41,6 +44,21 @@ App::QuitRequested()
 	return true;
 }
 
+void 
+App::StartDaemonFileCheck()
+{
+	BDirectory dir("/boot/system/settings/launch");
+	if(dir.InitCheck()!=B_OK)
+		system("mkdir /boot/system/settings/launch");
+	const char* path;
+	path = "/boot/system/settings/launch/LaunchBox";
+	BFile file(path, B_READ_WRITE | B_ERASE_FILE | B_CREATE_FILE);
+	if( file.InitCheck() == B_OK )
+	{
+		char strng[] = "job LaunchBox {\n launch /system/apps/LaunchBox \n if setting ~/config/settings/LaunchBox/main_settings autostart \n}";
+		file.Write(strng,strlen(strng));
+	}
+}
 
 void
 App::ReadyToRun()
@@ -69,6 +87,9 @@ App::ReadyToRun()
 		BSize size;
 		if (settings.FindSize("name panel size", &size) == B_OK)
 			fNamePanelSize = size;
+		bool auto_start;
+		if (settings.FindBool("autostart", &auto_start) == B_OK)
+			fAutoStart = auto_start;
 	}
 
 	if (!windowAdded) {
@@ -97,6 +118,9 @@ App::MessageReceived(BMessage* message)
 			fSettingsChanged = true;
 			break;
 		}
+		case MSG_TOGGLE_AUTOSTART:
+			ToggleAutoStart();
+			break;
 		case MSG_SETTINGS_CHANGED:
 			fSettingsChanged = true;
 			break;
@@ -121,6 +145,13 @@ App::SetNamePanelSize(const BSize& size)
 		fNamePanelSize = size;
 		Unlock();
 	}
+}
+
+void
+App::ToggleAutoStart()
+{
+	fSettingsChanged = true;
+	fAutoStart = !AutoStart();
 }
 
 
@@ -156,6 +187,7 @@ App::_StoreSettingsIfNeeded()
 		}
 	}
 	settings.AddSize("name panel size", fNamePanelSize);
+	settings.AddBool("autostart", AutoStart());
 
 	save_settings(&settings, "main_settings", "LaunchBox");
 

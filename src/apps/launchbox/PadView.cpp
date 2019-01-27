@@ -7,6 +7,8 @@
 
 #include <stdio.h>
 
+#include <Directory.h>
+#include <File.h> 
 #include <Application.h>
 #include <Catalog.h>
 #include <GroupLayout.h>
@@ -399,6 +401,11 @@ PadView::DisplayMenu(BPoint where, LaunchButton* button) const
 	item->SetMarked(what == MSG_HIDE_BORDER);
 	settingsM->AddItem(item);
 
+	item = new BMenuItem(B_TRANSLATE("Autostart"), new BMessage(MSG_TOGGLE_AUTOSTART));
+	item->SetTarget(window);
+	item->SetMarked(window->AutoStart());
+	settingsM->AddItem(item);
+
 	item = new BMenuItem(B_TRANSLATE("Auto-raise"), new BMessage(MSG_TOGGLE_AUTORAISE));
 	item->SetTarget(window);
 	item->SetMarked(window->AutoRaise());
@@ -504,6 +511,20 @@ bool
 PadView::IgnoreDoubleClick() const
 {
 	return LaunchButton::IgnoreDoubleClick();
+}
+
+void
+PadView::SetAutoStart(bool refuse)
+{
+	LaunchButton::SetAutoStart(refuse);
+
+	_NotifySettingsChanged();
+}
+
+bool
+PadView::AutoStart() const
+{
+	return LaunchButton::AutoStart();
 }
 
 
