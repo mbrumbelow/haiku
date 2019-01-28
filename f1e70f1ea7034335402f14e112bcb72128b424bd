@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a86331ee_63aa5536",
+        "filename": "src/system/kernel/device_manager/devfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2115,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-28T08:05:17Z",
+      "side": 1,
+      "message": "Isn\u0027t the modification time also changed when resizing?",
+      "revId": "f1e70f1ea7034335402f14e112bcb72128b424bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
