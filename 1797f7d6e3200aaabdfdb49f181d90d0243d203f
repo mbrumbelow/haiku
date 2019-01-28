@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "cd231747_55004cc8",
+        "filename": "src/system/glue/arch/x86_64/crti.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-28T08:15:02Z",
+      "side": 1,
+      "message": "Not clear to me. In any case, please amend the comment with what you have in mind.",
+      "parentUuid": "7388b480_5758624b",
+      "revId": "1797f7d6e3200aaabdfdb49f181d90d0243d203f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9fb6d375_743db03e",
         "filename": "src/system/glue/init_term_dyn.c",
         "patchSetId": 1
