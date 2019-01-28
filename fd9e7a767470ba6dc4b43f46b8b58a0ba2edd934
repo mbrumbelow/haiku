@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "88a115e2_d4b637d1",
+        "filename": "src/add-ons/kernel/file_systems/bfs/ResizeVisitor.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-28T08:17:27Z",
+      "side": 1,
+      "message": "Trailing space.",
+      "revId": "fd9e7a767470ba6dc4b43f46b8b58a0ba2edd934",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
