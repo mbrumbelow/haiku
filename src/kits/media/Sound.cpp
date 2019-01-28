@@ -8,13 +8,14 @@
  */
 
 #include <Sound.h>
-#include <File.h>
 
-#include "TrackReader.h"
-
-#include <MediaDebug.h>
 #include <new>
 #include <string.h>
+
+#include <File.h>
+#include <MediaDebug.h>
+
+#include "TrackReader.h"
 
 
 BSound::BSound(void* data, size_t size, const media_raw_audio_format& format,
@@ -132,8 +133,10 @@ BSound::RefCount() const
 bigtime_t
 BSound::Duration() const
 {
-	UNIMPLEMENTED();
-	return 0;
+	uint32 bps = fFormat.format & media_raw_audio_format::B_AUDIO_SIZE_MASK;
+	int64 frameCount = Size() / (fFormat.channel_count * bps);
+
+	return (1000000LL * frameCount) / fFormat.frame_rate;
 }
 
 
