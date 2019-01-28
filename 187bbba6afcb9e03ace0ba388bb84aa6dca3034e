@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "de472acd_c2caa310",
+        "filename": "src/kits/interface/ColumnListView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-28T14:30:33Z",
+      "side": 0,
+      "message": "Not sure why you removed the two newlines instead of one.",
+      "revId": "187bbba6afcb9e03ace0ba388bb84aa6dca3034e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
