@@ -103,7 +103,6 @@ complete_ambiguous(char *word, int list, StringList *words)
 	}
 
 	if (!list) {
-		matchlen = 0;
 		lastmatch = words->sl_str[0];
 		matchlen = strlen(lastmatch);
 		for (i = 1 ; i < words->sl_cur ; i++) {
