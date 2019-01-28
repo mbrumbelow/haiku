@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f42154be_04a0053c",
+        "filename": "src/system/kernel/disk_device_manager/KFileSystem.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-28T07:54:21Z",
+      "side": 1,
+      "message": "Should be \"partition \u003d\u003d NULL || fModule \u003d\u003d NULL\".",
+      "revId": "b284daee022f85516f942d294652aed3238a5ffb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b92085d_10459e59",
+        "filename": "src/system/kernel/disk_device_manager/KFileSystem.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-28T07:54:21Z",
+      "side": 1,
+      "message": "Should be \"fModule-\u003eresize \u003d\u003d NULL\"",
+      "revId": "b284daee022f85516f942d294652aed3238a5ffb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
