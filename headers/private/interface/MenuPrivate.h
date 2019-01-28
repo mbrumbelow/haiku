@@ -71,6 +71,7 @@ private:
 
 	static	BBitmap*			sMenuItemShift;
 	static	BBitmap*			sMenuItemControl;
+	static	BBitmap*			sMenuItemCommand;
 	static	BBitmap*			sMenuItemOption;
 	static	BBitmap*			sMenuItemAlt;
 	static	BBitmap*			sMenuItemMenu;
