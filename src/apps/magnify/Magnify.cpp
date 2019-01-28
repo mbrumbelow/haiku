@@ -1706,7 +1706,7 @@ TMagnify::CopyImage()
 
 	BMessage *message = be_clipboard->Data();
 	if (!message) {
-		printf(B_TRANSLATE_CONTEXT("no clip msg\n",
+		printf("%s", B_TRANSLATE_CONTEXT("no clip msg\n",
 			"In console, when clipboard is empty after clicking Copy image"));
 		return;
 	}
@@ -1991,7 +1991,7 @@ TOSMagnify::CreateImage(BPoint mouseLoc, bool force)
 		}
 		Window()->Unlock();
 	} else
-		printf("window problem\n");
+		printf("%s", "window problem\n");
 
 	return created;
 }
@@ -2156,7 +2156,7 @@ main(int argc, char* argv[])
 	int32 pixelCount = -1;
 
 	if (argc > 2) {
-		printf(B_TRANSLATE_CONTEXT(
+		printf("%s", B_TRANSLATE_CONTEXT(
 			"usage: magnify [size] (magnify size * size pixels)\n",
 			"Console"));
 		exit(1);
@@ -2165,17 +2165,17 @@ main(int argc, char* argv[])
 			pixelCount = abs(atoi(argv[1]));
 
 			if ((pixelCount > 100) || (pixelCount < 4)) {
-				printf(B_TRANSLATE_CONTEXT(
+				printf("%s", B_TRANSLATE_CONTEXT(
 					"usage: magnify [size] (magnify size * size pixels)\n",
 					"Console"));
-				printf(B_TRANSLATE_CONTEXT(
+				printf("%s", B_TRANSLATE_CONTEXT(
 					"  size must be > 4 and a multiple of 4\n",
 					"Console"));
 				exit(1);
 			}
 
 			if (pixelCount % 4) {
-				printf(B_TRANSLATE_CONTEXT(
+				printf("%s", B_TRANSLATE_CONTEXT(
 					"magnify: size must be a multiple of 4\n",
 					"Console"));
 				exit(1);
