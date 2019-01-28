@@ -19,6 +19,40 @@
     },
     {
       "key": {
+        "uuid": "1409ff0b_20204739",
+        "filename": "src/apps/launchbox/LaunchButton.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-01-28T07:56:58Z",
+      "side": 1,
+      "message": "This method\u0027s name is not ideal. It suggests that there are multiple methods to boot, and the method can be used to select which method takes affect. The method should be named \"SetStartOnBoot(bool startOnBoot)\".",
+      "revId": "77ec7bbe817cd67480bc84746343553a5a739f61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "327f6f58_3e1c4d0e",
+        "filename": "src/apps/launchbox/LaunchButton.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-01-28T07:56:58Z",
+      "side": 1,
+      "message": "This method similarily should be named \"StartOnBoot()\".",
+      "revId": "77ec7bbe817cd67480bc84746343553a5a739f61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5e7a3bda_beaf4e77",
         "filename": "src/apps/launchbox/MainWindow.cpp",
         "patchSetId": 1
@@ -87,6 +121,57 @@
     },
     {
       "key": {
+        "uuid": "c7664c8d_4858581e",
+        "filename": "src/apps/launchbox/MainWindow.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-01-28T07:56:58Z",
+      "side": 1,
+      "message": "Here you use another name. Decide on a name for the feature, such that another developer reading this code in 5 years from now can immediately tell what code is related across multiple files. Either \"StartOnBoot\" or \"AutoStart\". \"StartOnBoot\" may be more to the point, while \"AutoStart\" /could/ mean a number of things, I guess.",
+      "revId": "77ec7bbe817cd67480bc84746343553a5a739f61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c98cd3b_7c28a771",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-01-28T07:56:58Z",
+      "side": 1,
+      "message": "trailing white space",
+      "revId": "77ec7bbe817cd67480bc84746343553a5a739f61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4901217_f1616711",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-01-28T07:56:58Z",
+      "side": 1,
+      "message": "I would be fine with having the menu item display a label which is slightly different (more verbose) than what the feature is called throughout the code. So this is fine here.\nPlease wrap the line, though, it is longer than the 80 chars per line limit.",
+      "revId": "77ec7bbe817cd67480bc84746343553a5a739f61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "15786667_11f4f100",
         "filename": "src/apps/launchbox/PadView.cpp",
         "patchSetId": 1
@@ -98,6 +183,57 @@
       "writtenOn": "2019-01-27T17:17:58Z",
       "side": 1,
       "message": "\"Boot Method\" is not an appropriate mode. SetAutostart would be better (also in other places where Boot Method is used)",
+      "revId": "77ec7bbe817cd67480bc84746343553a5a739f61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75832fa1_c553f897",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-01-28T07:56:58Z",
+      "side": 1,
+      "message": "As Adrien said. Maybe \"autostart\" is indeed better than \"start on boot\", since when LaunchDaemon controls this, LaunchPad will automatically restart when it is closed or crashes, too, I guess.",
+      "revId": "77ec7bbe817cd67480bc84746343553a5a739f61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4ca58c3_53c1f4bb",
+        "filename": "src/apps/launchbox/PadView.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-01-28T07:56:58Z",
+      "side": 1,
+      "message": "Rename method and parameter. SetStartOnBoot(bool startOnBoot);",
+      "revId": "77ec7bbe817cd67480bc84746343553a5a739f61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9b98789_45af5979",
+        "filename": "src/apps/launchbox/PadView.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-01-28T07:56:58Z",
+      "side": 1,
+      "message": "Rename method to \"StartOnBoot() const\".",
       "revId": "77ec7bbe817cd67480bc84746343553a5a739f61",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
