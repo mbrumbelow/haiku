@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "92616227_78a0da7f",
+        "filename": "src/system/kernel/fs/vfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4018,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-28T07:55:27Z",
+      "side": 1,
+      "message": "Should be \"vnode-\u003ecache !\u003d NULL\"",
+      "revId": "29ecf2cead6642a6bba09a64129d55773d90113b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
