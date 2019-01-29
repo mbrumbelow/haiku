@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d81abbbd_552add09",
+        "filename": "src/kits/media/Sound.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-01-29T07:25:00Z",
+      "side": 1,
+      "message": "I would prefer „bytesPerSample“ here.",
+      "revId": "e9a63a77f6b3a94258a9de8bc5027ac0670ea64e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
