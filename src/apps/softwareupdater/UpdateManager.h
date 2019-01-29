@@ -1,11 +1,12 @@
 /*
- * Copyright 2013-2017, Haiku, Inc. All Rights Reserved.
+ * Copyright 2013-2019, Haiku, Inc. All Rights Reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
  *		Ingo Weinhold <ingo_weinhold@gmx.de>
  *		Rene Gollent <rene@gollent.com>
  *		Brian Hill <supernova@tycho.email>
+ *		Jacob Secunda
  */
 #ifndef UPDATE_MANAGER_H
 #define UPDATE_MANAGER_H
@@ -81,11 +82,12 @@ private:
 			void				_FinalUpdate(const char* header,
 									const char* text);
 			void				_SetCurrentStep(int32 step);
+			void				_CheckForSystemPackages();
 
 private:
 			BPackageManager::ClientInstallationInterface
 									fClientInstallationInterface;
-			
+
 			SoftwareUpdaterWindow*	fStatusWindow;
 			ProblemWindow*			fProblemWindow;
 			uint32					fCurrentStep;
@@ -94,7 +96,8 @@ private:
 			int32					fPackageDownloadsTotal;
 			int32					fPackageDownloadsCount;
 			bool					fVerbose;
+			bool					fSystemUpdated;
 };
 
 
-#endif	// UPDATE_MANAGER_H 
+#endif	// UPDATE_MANAGER_H
