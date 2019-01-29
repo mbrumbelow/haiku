@@ -1,10 +1,11 @@
 /*
- * Copyright 2016-2017 Haiku, Inc. All rights reserved.
+ * Copyright 2016-2019 Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT license
  *
  * Authors:
  *		Alexander von Gluck IV <kallisti5@unixzen.com>
  *		Brian Hill <supernova@tycho.email>
+ *		Jacob Secunda
  */
 #ifndef _SOFTWARE_UPDATER_WINDOW_H
 #define _SOFTWARE_UPDATER_WINDOW_H
@@ -179,6 +180,7 @@ private:
 			BStringView*		fDetailView;
 			BButton*			fUpdateButton;
 			BButton*			fCancelButton;
+			BButton*			fRebootButton;
 			BStatusBar*			fStatusBar;
 			PackageListView*	fListView;
 			BScrollView*		fScrollView;
@@ -188,6 +190,7 @@ private:
 			BLayoutItem*		fProgressLayoutItem;
 			BLayoutItem*		fCancelButtonLayoutItem;
 			BLayoutItem*		fUpdateButtonLayoutItem;
+			BLayoutItem*		fRebootButtonLayoutItem;
 			BLayoutItem*		fDetailsCheckboxLayoutItem;
 			
 			uint32				fCurrentState;
