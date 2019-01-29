@@ -1,14 +1,29 @@
 # SDHCI MMC Driver
-This driver project is a part of GSoC'18 and is aimed at providing support for PCI devices with class 8 and subclass 5 over x86 architecture. This document will make you familiar with the [code produced during GSoC](https://review.haiku-os.org/#/c/haiku/+/318/), loading and testing the driver(including hardware emulation), insight into the code and future tasks.
 
-For detailed explanations about the project, you can refer the [weekly reports](https://www.haiku-os.org/blog/krish_iyer) and comment issues if any. For this project we have referred [SD Host Controller Spec Version 1.00](https://www.sdcard.org/downloads/pls/pdf/index.php?p=PartA2_SD_Host_Controller_Simplified_Specification_Ver1.00.jpg&f=PartA2_SD_Host_Controller_Simplified_Specification_Ver1.00.pdf&e=EN_A2100) and [Physical Layer Spec Version 1.10](https://www.sdcard.org/downloads/pls/pdf/index.php?p=Part1_Physical_Layer_Simplified_Specification_Ver1.10.jpg&f=Part1_Physical_Layer_Simplified_Specification_Ver1.10.pdf&e=EN_P1110).
+This driver project is a part of GSoC'18 and is aimed at providing support for
+PCI devices with class 8 and subclass 5 over x86 architecture. This document
+will make you familiar with the [code produced during GSoC](https://review.haiku-os.org/#/c/haiku/+/318/),
+loading and testing the driver(including hardware emulation), insight into the
+code and future tasks.
+
+For detailed explanations about the project, you can refer the
+[weekly reports](https://www.haiku-os.org/blog/krish_iyer) and comment issues
+if any. For this project we have referred [SD Host Controller Spec Version 1.00](https://www.sdcard.org/downloads/pls/pdf/index.php?p=PartA2_SD_Host_Controller_Simplified_Specification_Ver1.00.jpg&f=PartA2_SD_Host_Controller_Simplified_Specification_Ver1.00.pdf&e=EN_A2100)
+and [Physical Layer Spec Version 1.10](https://www.sdcard.org/downloads/pls/pdf/index.php?p=Part1_Physical_Layer_Simplified_Specification_Ver1.10.jpg&f=Part1_Physical_Layer_Simplified_Specification_Ver1.10.pdf&e=EN_P1110).
 
 ## Loading and testing the  driver
 ### Emulating the hardware
 
-We will emulate a SDHC device using qemu as all system may not have the device. These days systems provide transfer to SD/ MMC card over USB. The document will not instruct you on how to build haiku but you can refer the link to [compile and build the haiku images](https://www.haiku-os.org/guides/building/) or the [week #1 and #2](https://www.haiku-os.org/blog/krish_iyer/2018-05-06_gsoc_2018_sdhci_mmc_driver_week_1_and_2/) project report will also work. You can also cherry pick changes from another [ticket](https://review.haiku-os.org/#/c/haiku/+/448/)
+We will emulate a SDHC device using qemu as all system may not have the device.
+These days systems provide transfer to SD/ MMC card over USB. The document will
+not instruct you on how to build haiku but you can refer the link to
+[compile and build the haiku images](https://www.haiku-os.org/guides/building/)
+or the [week #1 and #2](https://www.haiku-os.org/blog/krish_iyer/2018-05-06_gsoc_2018_sdhci_mmc_driver_week_1_and_2/)
+project report will also work. You can also cherry pick changes from another
+[ticket](https://review.haiku-os.org/#/c/haiku/+/448/)
 
 After building the image, we will emulate the hardware and host haiku on top of that.
+
 #### Installing Qemu
     apt-get install qemu
 #### Creating Virtual Harddrive
@@ -77,7 +92,20 @@ If you are able to see some output of above-mentioned command then it means that
     * device_manager.cpp
 ### Insight into the code
 #### MMC Bus
-So there's some called PCI bus and it something which was developed in order to manage the load on the CPU and easy for the CPU to manage the devices. Now our controller, SDHC will be plugged to the PCI bus, also which has the control over card. Now the first job will be finding the controller form PCI bus from all the devices connected. Every device is a node which has certain info about the device. So we need to get the PCI bus node(parent node) and get the device and register another node which will be called a child node or MMC bus. So if suppose I have another driver which get data from MMC bus and register another node then in that case MMC bus will be a parent node and the node I will be registering with the information will be the child node. 
+
+The device tree for MMC support looks like this:
+
+* PCI bus manager
+  * (other PCI devices)
+  * SDHCI bus
+    * MMC bus manager
+      * mmc\_disk driver
+      * (other SDIO devices)
+
+The SDHCI bus handles a PCI device implementing the SDHCI specification.
+It is managed by the MMC bus manager, which in turn publishes device nodes
+for mmc\_disk, which is the driver for MMC/SD cards. Later on, other drivers
+can plug to this bus to handle other types of SDIO cards.
 
 So **supports_device()** will do that job of finding the device of particular class and subclass. Now with **register_child_devices()** we will register the bus node and attach certain info like slot info etc. Now that we have a bus, we can read number of slots and map the register set for each one of them, these register will help us to operate the controller and drive the card. We mapped the register using MMUIO method where we take register address form physical memory and assign to virtual one. In order to do that we have declared structure(*struct registers*) with no zero padding so that mapping will be precise.
 
@@ -99,8 +127,18 @@ It is not linked for time being but will be useful at the time of data transfer 
 #### Disk Driver
 So it's main job is to publish slots somewhere like /dev/mmc/.. So after disk gets published, we can mount the device and do transfer function on the memory device(SD/ MMC).
 
-#### Hardcoding the driver
-In order to make the driver loadable and to tell the kernel that we really has built the support for a particular device, we need to mention the class and location of the driver module to the device_manager.
+#### Getting everything loaded
+
+The device manager is not completely implemented yet. As a result, some
+decisions about which drivers to load are hardcoded in device\_manager.cpp.
+
+It has been adjusted to handover SDHCI devices to the MMC bus.
+
+The loading should in principle work by first asking mmc\_disk for supported
+devices when scanning for disks, the mmc\_disk driver should then ask for all
+SDIO (mmc) busses in the system, at which point the SDHCI driver will be loaded,
+and probe them for devices.
+
 ### Tasks to be completed
 We have to get the response from the card of commands which controller issues. We have tried a lot and looked into more deeper aspect but nothing worked, I am sure we have really missed something. The detailed report on responses and testing will found in last few weeks report.
 
