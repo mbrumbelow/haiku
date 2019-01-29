@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "56808f9e_18c6c952",
+        "filename": "src/apps/autoraise/AutoRaiseIcon.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2019-01-29T11:00:56Z",
+      "side": 1,
+      "message": "It\u0027s later used with status_t as return type…",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 5
+      },
+      "revId": "c48327cebda6c56944459e2ed366b74aa2afec37",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
