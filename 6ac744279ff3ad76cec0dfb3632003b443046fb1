@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1166816a_cfbafd03",
+        "filename": "src/apps/softwareupdater/SoftwareUpdaterWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-30T06:31:38Z",
+      "side": 1,
+      "message": "The brace comes on the previous line.",
+      "revId": "6ac744279ff3ad76cec0dfb3632003b443046fb1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4533bc2_2d2f6eaa",
+        "filename": "src/apps/softwareupdater/SoftwareUpdaterWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 683,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-30T06:31:38Z",
+      "side": 1,
+      "message": "This is redundant. \"if (fUpdateConfirmed)\" is correct.",
+      "revId": "6ac744279ff3ad76cec0dfb3632003b443046fb1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d27985b2_7097f58a",
+        "filename": "src/apps/softwareupdater/SoftwareUpdaterWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-01-30T06:31:38Z",
+      "side": 1,
+      "message": "The brace comes on the previous line.",
+      "revId": "6ac744279ff3ad76cec0dfb3632003b443046fb1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
