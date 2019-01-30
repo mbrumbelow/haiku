@@ -67,6 +67,24 @@
       "revId": "bdee6ea696a742ae9257dc9020b86bfa8a2ebe51",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4b963c9_31fd4577",
+        "filename": "docs/develop/kernel/sdhci_mmc_driver.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-30T07:59:26Z",
+      "side": 1,
+      "message": "The new driver model docs are incomplete and out of date, it does not help me understanding how this is supposed to work.\n\nWhat is the expected process then?",
+      "parentUuid": "2a418a55_a70138cc",
+      "revId": "bdee6ea696a742ae9257dc9020b86bfa8a2ebe51",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
