@@ -51,6 +51,24 @@
       "revId": "4837e5382f1c21bb47bc75fe1e8f17a6eb8f7d11",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39d0d45e_fef7f412",
+        "filename": "src/kits/media/Sound.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-01-31T17:12:41Z",
+      "side": 1,
+      "message": "It makes sure you don\u0027t accidentaly cut the sound before it ends. Adding silence at the end of the sound to match the duration is always possible, removing anything is never safe.\n\nIt does not matter much anyways, we hava a microsecond resolution here and the framerate will be at best a tenth of that? (ok, I have one app that generates 125kHz output, but that\u0027s already very uncommon)",
+      "parentUuid": "2e830912_bb6b5427",
+      "revId": "4837e5382f1c21bb47bc75fe1e8f17a6eb8f7d11",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
