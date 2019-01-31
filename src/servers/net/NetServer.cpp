@@ -608,20 +608,52 @@ NetServer::_ConfigureResolver(BMessage& resolverConfiguration)
 		|| path.Append("network/resolv.conf") != B_OK)
 		return B_ERROR;
 
-	FILE* file = fopen(path.Path(), "w");
-	if (file != NULL) {
-		const char* nameserver;
-		for (int32 i = 0; resolverConfiguration.FindString("nameserver", i,
-				&nameserver) == B_OK; i++) {
-			fprintf(file, "nameserver %s\n", nameserver);
+	FILE* file = fopen(path.Path(), "r+");
+	if (file == NULL) {
+		// no existing resolv.conf, create a new one
+		file = fopen(path.Path(), "w");
+		if (file == NULL) {
+			return B_ERROR;
+		}
+	} else {
+		const char* staticDNS = "# Static DNS Only";
+		const char* dynamicDNS = "# Dynamic DNS entries";
+		char resolveConfBuffer[80];
+		while (fgets(resolveConfBuffer, 80, file)) {
+			if (strncmp(resolveConfBuffer, staticDNS, 17) == 0) {
+				// If DNS is set to static only, don't modify
+				fclose(file);
+				return B_OK;
+			} else if (strncmp(resolveConfBuffer, dynamicDNS, 19) == 0) {
+				// Overwrite existing dynamic entries
+				break;
+			}
 		}
 
-		const char* domain;
-		if (resolverConfiguration.FindString("domain", &domain) == B_OK)
-			fprintf(file, "domain %s\n", domain);
-
-		fclose(file);
+		if (feof(file) != 0) {
+			// No static entries found, close and re-open as new file
+			fclose(file);
+			file = fopen(path.Path(), "w");
+			if (file == NULL) {
+				return B_ERROR;
+			}
+		}
 	}
+
+	fprintf(file, "# Added automatically by DHCP\n");
+
+	const char* nameserver;
+	for (int32 i = 0; resolverConfiguration.FindString("nameserver", i,
+			&nameserver) == B_OK; i++) {
+		fprintf(file, "nameserver %s\n", nameserver);
+	}
+
+	const char* domain;
+	if (resolverConfiguration.FindString("domain", &domain) == B_OK)
+		fprintf(file, "domain %s\n", domain);
+
+	fclose(file);
+
 	return B_OK;
 }
 
