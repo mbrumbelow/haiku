@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "80071804_1393e5dc",
+        "filename": "src/servers/net/NetServer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 604,
+      "author": {
+        "id": 1000091
+      },
+      "writtenOn": "2019-01-31T13:58:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "202f5df3_191e1563",
+      "revId": "740e75df5f6c7180df51af679eb0a0f2476ba3e2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cf7c79a6_ffc0c784",
         "filename": "src/servers/net/NetServer.cpp",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "740e75df5f6c7180df51af679eb0a0f2476ba3e2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c44e86c_00c85f51",
+        "filename": "src/servers/net/NetServer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1000091
+      },
+      "writtenOn": "2019-01-31T13:58:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf7c79a6_ffc0c784",
+      "revId": "740e75df5f6c7180df51af679eb0a0f2476ba3e2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "8320ab9c_16661718",
+        "filename": "src/servers/net/NetServer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 1000091
+      },
+      "writtenOn": "2019-01-31T13:58:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0375874_f57fc6b8",
+      "revId": "740e75df5f6c7180df51af679eb0a0f2476ba3e2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90d65932_9f147a82",
         "filename": "src/servers/net/NetServer.cpp",
         "patchSetId": 1
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "6ea95d3b_8b1dd930",
+        "filename": "src/servers/net/NetServer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1000091
+      },
+      "writtenOn": "2019-01-31T13:58:22Z",
+      "side": 1,
+      "message": "Hardcoded lengths all swapped out for strlen(string).\n\nOut of curiosity, I tried encoding the resolv.conf in utf-16 on a current nightly. The DNS server stops resolving until reboot or replacement of the damaged file. Also the network DNS Settings preflet gives nonsensical results. \n\n(This was on a current nightly, so the net result is the same, with or without these changes : in the event of a badly mangled resolv.conf file it will be erased and a new one created with DCHP provided values at reboot or the next DHCP event, whichever comes first).",
+      "parentUuid": "90d65932_9f147a82",
+      "revId": "740e75df5f6c7180df51af679eb0a0f2476ba3e2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bd3086c4_49b080fc",
         "filename": "src/servers/net/NetServer.cpp",
         "patchSetId": 1
@@ -84,6 +156,24 @@
       "revId": "740e75df5f6c7180df51af679eb0a0f2476ba3e2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f929f69_5f52b474",
+        "filename": "src/servers/net/NetServer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 1000091
+      },
+      "writtenOn": "2019-01-31T13:58:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd3086c4_49b080fc",
+      "revId": "740e75df5f6c7180df51af679eb0a0f2476ba3e2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
