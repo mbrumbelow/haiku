@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "70217192_bb8f2a7e",
+        "filename": "src/servers/net/NetServer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 607,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-01-31T15:48:40Z",
+      "side": 1,
+      "message": "Ups, this one was actually correct before. errno is not set by these Be functions (at least I think).",
+      "revId": "9f6f5d3909ca052c97eb942df29d713df982db7c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46f2568b_2815bf87",
+        "filename": "src/servers/net/NetServer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-01-31T15:48:40Z",
+      "side": 1,
+      "message": "80 chars/line",
+      "revId": "9f6f5d3909ca052c97eb942df29d713df982db7c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
