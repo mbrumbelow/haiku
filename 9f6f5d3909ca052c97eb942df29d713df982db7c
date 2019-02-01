@@ -55,6 +55,23 @@
     },
     {
       "key": {
+        "uuid": "95f37c1c_7c4b48b5",
+        "filename": "src/servers/net/NetServer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2019-02-01T07:52:14Z",
+      "side": 1,
+      "message": "I\u0027m a bit late to suggest this, but I\u0027d use a BString here. No reason to change this again, though :-)",
+      "revId": "9f6f5d3909ca052c97eb942df29d713df982db7c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "46f2568b_2815bf87",
         "filename": "src/servers/net/NetServer.cpp",
         "patchSetId": 2
