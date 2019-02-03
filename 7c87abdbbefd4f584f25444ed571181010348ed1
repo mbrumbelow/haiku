@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df5325fc_89eedb63",
+        "filename": "src/apps/webpositive/BrowserApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-02-03T20:53:47Z",
+      "side": 1,
+      "message": "Please enclose this in #ifdef __INTEL__. On x86_64, SSE2 is always available, and on other architectures, SSE2 does not exist. :)",
+      "revId": "7c87abdbbefd4f584f25444ed571181010348ed1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
