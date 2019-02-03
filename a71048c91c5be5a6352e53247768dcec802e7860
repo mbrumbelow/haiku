@@ -50,6 +50,24 @@
       "revId": "a71048c91c5be5a6352e53247768dcec802e7860",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d24d9b7e_3738127f",
+        "filename": "src/apps/launchbox/MainWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-02-03T20:18:15Z",
+      "side": 1,
+      "message": "Yes both of them are needed. fAutoStart is required to be written in the settings file without being nested inside any other message (which makes it unrecognisable by the launch daemon file), while sAutoStart is required by PadView to set the value of Autostart as either marked or unmarked.",
+      "parentUuid": "2097de59_6b2818bc",
+      "revId": "a71048c91c5be5a6352e53247768dcec802e7860",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
