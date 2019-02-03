@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ede793d7_bddfb3a8",
+        "filename": "src/apps/launchbox/App.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-03T13:34:01Z",
+      "side": 1,
+      "message": "This should not be done by the application itself.\nYou can modify the existing file in haiku git (data/launch) or add a new file there and adjust Jamfiles so it is copied on install.",
+      "revId": "a71048c91c5be5a6352e53247768dcec802e7860",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9756d91f_99b27b3b",
+        "filename": "src/apps/launchbox/LaunchButton.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-03T13:34:01Z",
+      "side": 1,
+      "message": "trailing tab",
+      "revId": "a71048c91c5be5a6352e53247768dcec802e7860",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2097de59_6b2818bc",
+        "filename": "src/apps/launchbox/MainWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-03T13:34:01Z",
+      "side": 1,
+      "message": "you have both this fAutoStart and a static sAutoStart. How are they related? Is it really needed to have both or can a single one do?",
+      "revId": "a71048c91c5be5a6352e53247768dcec802e7860",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
