@@ -43,6 +43,9 @@ public:
 			void				SetIgnoreDoubleClick(bool refuse);
 			bool				IgnoreDoubleClick() const;
 
+			void				SetAutoStart(bool refuse);
+			bool				AutoStart() const;
+
 private:
 			void				_NotifySettingsChanged();
 
