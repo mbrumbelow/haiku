@@ -33,6 +33,23 @@
       "revId": "7c87abdbbefd4f584f25444ed571181010348ed1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6abf1133_adc4da4c",
+        "filename": "src/apps/webpositive/BrowserApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-02-04T15:58:58Z",
+      "side": 1,
+      "message": "\"... set, without which WebPositive cannot run.\" would be more neutral.",
+      "revId": "7c87abdbbefd4f584f25444ed571181010348ed1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
