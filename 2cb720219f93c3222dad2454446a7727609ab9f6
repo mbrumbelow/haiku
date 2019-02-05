@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5bbc28a1_c0159989",
+        "filename": "src/system/libroot/posix/spawn.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2019-02-05T20:18:36Z",
+      "side": 1,
+      "message": "Correct me if I\u0027m wrong, but don\u0027t we omit braces for single line conditions in our style?",
+      "revId": "2cb720219f93c3222dad2454446a7727609ab9f6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
