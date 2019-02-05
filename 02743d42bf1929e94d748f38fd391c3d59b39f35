@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce17bc9d_90a7724b",
+        "filename": "src/add-ons/kernel/file_systems/bfs/CheckVisitor.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-02-05T11:58:33Z",
+      "side": 1,
+      "message": "BlockAllocator::CheckNextNode() doesn\u0027t exist after this commit!",
+      "revId": "02743d42bf1929e94d748f38fd391c3d59b39f35",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e145fa0_e440f7f6",
+        "filename": "src/add-ons/kernel/file_systems/bfs/CheckVisitor.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 749,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-02-05T11:58:33Z",
+      "side": 1,
+      "message": "This seems inconsistent with https://git.haiku-os.org/haiku/commit/src/add-ons/kernel/file_systems/bfs/BlockAllocator.cpp?id\u003d4069e1f3023f62d9a26cd6e82cded189df49021d",
+      "revId": "02743d42bf1929e94d748f38fd391c3d59b39f35",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83e3d2b8_02ddee6d",
+        "filename": "src/add-ons/kernel/file_systems/bfs/FileSystemVisitor.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-02-05T11:58:33Z",
+      "side": 1,
+      "message": "Trailing tab.",
+      "revId": "02743d42bf1929e94d748f38fd391c3d59b39f35",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69ccad74_09667120",
+        "filename": "src/add-ons/kernel/file_systems/bfs/FileSystemVisitor.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-02-05T11:58:33Z",
+      "side": 1,
+      "message": "Trailing tab.",
+      "revId": "02743d42bf1929e94d748f38fd391c3d59b39f35",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b5d35ef_2989a3ba",
+        "filename": "src/add-ons/kernel/file_systems/bfs/FileSystemVisitor.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-02-05T11:58:33Z",
+      "side": 1,
+      "message": "Trailing tab.",
+      "revId": "02743d42bf1929e94d748f38fd391c3d59b39f35",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "938ee89d_52c16b85",
+        "filename": "src/add-ons/kernel/file_systems/bfs/FileSystemVisitor.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-02-05T11:58:33Z",
+      "side": 1,
+      "message": "Trailing tab.",
+      "revId": "02743d42bf1929e94d748f38fd391c3d59b39f35",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
