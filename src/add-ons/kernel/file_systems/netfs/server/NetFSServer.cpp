@@ -964,7 +964,6 @@ NetFSServer::_LoadSettings()
 	ObjectDeleter<SecurityContext> securityContextDeleter(securityContext);
 	error = securityContext->InitCheck();
 	if (error != B_OK) {
-		delete securityContext;
 		RETURN_ERROR(error);
 	}
 
