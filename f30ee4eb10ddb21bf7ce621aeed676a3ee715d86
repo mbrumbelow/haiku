@@ -1,0 +1,191 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0bb80c72_1d5fcf7a",
+        "filename": "data/launch/user",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-05T15:02:29Z",
+      "side": 1,
+      "message": "trailing space",
+      "revId": "f30ee4eb10ddb21bf7ce621aeed676a3ee715d86",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f30547d_872e1102",
+        "filename": "src/apps/launchbox/App.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-05T15:02:29Z",
+      "side": 1,
+      "message": "there should be two blank lines here",
+      "revId": "f30ee4eb10ddb21bf7ce621aeed676a3ee715d86",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "800d9b28_c0ab0598",
+        "filename": "src/apps/launchbox/LaunchButton.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-05T15:02:29Z",
+      "side": 1,
+      "message": "This variable isn\u0027t needed. Instead of storing it here, a message should be sent to the BApplication to change the setting",
+      "revId": "f30ee4eb10ddb21bf7ce621aeed676a3ee715d86",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e3e3212_b19a7c9c",
+        "filename": "src/apps/launchbox/MainWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-05T15:02:29Z",
+      "side": 1,
+      "message": "This is not needed",
+      "revId": "f30ee4eb10ddb21bf7ce621aeed676a3ee715d86",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32f8209a_1eb39673",
+        "filename": "src/apps/launchbox/MainWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-05T15:02:29Z",
+      "side": 1,
+      "message": "Here you forward the message to the application, which is the right thing to do and all we need here.",
+      "revId": "f30ee4eb10ddb21bf7ce621aeed676a3ee715d86",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2a09946_8590e968",
+        "filename": "src/apps/launchbox/MainWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-05T15:02:29Z",
+      "side": 1,
+      "message": "Not needed - do this in the BApplication instead",
+      "revId": "f30ee4eb10ddb21bf7ce621aeed676a3ee715d86",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c05bff20_6b4b3a8e",
+        "filename": "src/apps/launchbox/MainWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-05T15:02:29Z",
+      "side": 1,
+      "message": "Not needed",
+      "revId": "f30ee4eb10ddb21bf7ce621aeed676a3ee715d86",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1b7cabe_a3a3a7ce",
+        "filename": "src/apps/launchbox/MainWindow.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-05T15:02:29Z",
+      "side": 1,
+      "message": "This is not needed, autostart is a setting of the whole application, not a specific window",
+      "revId": "f30ee4eb10ddb21bf7ce621aeed676a3ee715d86",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28a0a139_713c6393",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-05T15:02:29Z",
+      "side": 1,
+      "message": "trailing whitespace",
+      "revId": "f30ee4eb10ddb21bf7ce621aeed676a3ee715d86",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e52b5407_3a6d826e",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-05T15:02:29Z",
+      "side": 1,
+      "message": "if you set the target to be_app instead of the window, the autostart setting will be forwarded there",
+      "revId": "f30ee4eb10ddb21bf7ce621aeed676a3ee715d86",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "341213d0_2ab4862c",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-05T15:02:29Z",
+      "side": 1,
+      "message": "Does this work if you have multiple launchbox pads? When you change the setting in one, are the others kept in sync?\n\nI think you need to refresh this whenever the setting changes, or maybe it is simpler to do it everytime the menu is opened (see MenusBeginning())",
+      "revId": "f30ee4eb10ddb21bf7ce621aeed676a3ee715d86",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
