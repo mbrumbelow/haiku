@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a4a3135d_ac0550da",
+        "filename": "src/apps/softwareupdater/SoftwareUpdaterWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-06T07:29:22Z",
+      "side": 1,
+      "message": "80 column limit",
+      "revId": "f490174f761dd7f2306f9ddbd4475cf54efb2569",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d18c285_1eb1f29a",
+        "filename": "src/apps/softwareupdater/SoftwareUpdaterWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-06T07:29:22Z",
+      "side": 1,
+      "message": "80 column limit",
+      "revId": "f490174f761dd7f2306f9ddbd4475cf54efb2569",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0cf5cc5a_667ddd19",
+        "filename": "src/preferences/bluetooth/BluetoothSettingsView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-06T07:29:22Z",
+      "side": 1,
+      "message": "80 columns limit",
+      "revId": "f490174f761dd7f2306f9ddbd4475cf54efb2569",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49e3b389_9a64598b",
+        "filename": "src/preferences/bluetooth/InquiryPanel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-06T07:29:22Z",
+      "side": 1,
+      "message": "80 columns limit",
+      "revId": "f490174f761dd7f2306f9ddbd4475cf54efb2569",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c74e5ccd_c30417fd",
+        "filename": "src/preferences/bluetooth/InquiryPanel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-06T07:29:22Z",
+      "side": 1,
+      "message": "80 columns limit",
+      "revId": "f490174f761dd7f2306f9ddbd4475cf54efb2569",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
