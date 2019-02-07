@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e10c3d95_cd41fe24",
+        "filename": "src/kits/shared/StringForSize.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-02-07T20:31:10Z",
+      "side": 1,
+      "message": "Obviously the copyright from ramdisk.cpp should be copied here.",
+      "revId": "bb20223e09d8a9067d8dd1090cc445f4782609fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
