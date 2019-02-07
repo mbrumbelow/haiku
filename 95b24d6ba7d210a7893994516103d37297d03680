@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f3f23aed_de0f1a87",
+        "filename": "src/kits/shared/StringForSize.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2019-02-07T22:18:50Z",
+      "side": 1,
+      "message": "New line between return type and function name is missing.",
+      "revId": "95b24d6ba7d210a7893994516103d37297d03680",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
