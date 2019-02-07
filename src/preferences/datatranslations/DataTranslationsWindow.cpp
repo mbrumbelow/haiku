@@ -219,6 +219,11 @@ DataTranslationsWindow::_ShowInfoView()
 	group->GroupLayout()->SetInsets(spacing, spacing, spacing, spacing);
 	fRightBox->AddChild(group);
 	fConfigView = group;
+
+	fConfigView->SetExplicitMinSize(
+		BSize(ceilf(be_control_look->DefaultItemSpacing() * be_plain_font->Size() * 0.7)
+			- fTranslatorListView->Frame().Width(),
+			ceilf(be_control_look->DefaultItemSpacing() * be_plain_font->Size() * 0.4)));
 }
 
 
