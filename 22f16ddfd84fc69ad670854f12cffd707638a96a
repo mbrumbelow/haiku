@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8eac962b_22745b1c",
+        "filename": "src/bin/resizefs.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-02-08T07:08:38Z",
+      "side": 1,
+      "message": "I would extend the usage, see for instance https://git.haiku-os.org/haiku/tree/src/bin/ramdisk.cpp#n47",
+      "revId": "22f16ddfd84fc69ad670854f12cffd707638a96a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
