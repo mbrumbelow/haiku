@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e257def1_c507e598",
+        "filename": "src/preferences/printers/AddPrinterDialog.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-08T17:11:37Z",
+      "side": 1,
+      "message": "| operator goes at start of new line instead",
+      "revId": "81c5879ed5d32e8b7ba958d8dda10d7009289d10",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
