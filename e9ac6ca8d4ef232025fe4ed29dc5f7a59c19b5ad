@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ab24d9fa_da9a2fd5",
+        "filename": "headers/os/drivers/usb/USB_video.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-09T10:38:57Z",
+      "side": 1,
+      "message": "This should come before the subclass definitions.\nThe #define at line 19 should be removed because it is the same thing.",
+      "revId": "e9ac6ca8d4ef232025fe4ed29dc5f7a59c19b5ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70a35810_ebbbe059",
+        "filename": "headers/os/drivers/usb/USB_video.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-09T10:38:57Z",
+      "side": 1,
+      "message": "Always 2 blank lines between blocks (end of an enum/struct and start of the next)",
+      "revId": "e9ac6ca8d4ef232025fe4ed29dc5f7a59c19b5ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "adbfe033_b75189fa",
+        "filename": "headers/os/drivers/usb/USB_video.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-09T10:38:57Z",
+      "side": 1,
+      "message": "All of these should have a name starting with USB_VIDEO_RC_",
+      "revId": "e9ac6ca8d4ef232025fe4ed29dc5f7a59c19b5ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3ea1cdb_04cfa3c2",
+        "filename": "headers/os/drivers/usb/USB_video.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-09T10:38:57Z",
+      "side": 1,
+      "message": "The structs don\u0027t need a name here. Just typedef struct { ...",
+      "revId": "e9ac6ca8d4ef232025fe4ed29dc5f7a59c19b5ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd7b37e7_853065b1",
+        "filename": "headers/os/drivers/usb/USB_video.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-09T10:38:57Z",
+      "side": 1,
+      "message": "and here no leading _ is needed. Just status_type (same below)",
+      "revId": "e9ac6ca8d4ef232025fe4ed29dc5f7a59c19b5ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e14a14fd_474d7e04",
+        "filename": "headers/os/drivers/usb/USB_video.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-09T10:38:57Z",
+      "side": 1,
+      "message": "It would be better to put this below the field it refers to, and indent one extra tab (same above)",
+      "revId": "e9ac6ca8d4ef232025fe4ed29dc5f7a59c19b5ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "190f21be_110b562f",
+        "filename": "headers/os/drivers/usb/USB_video.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-09T10:38:57Z",
+      "side": 1,
+      "message": "beware of trailing whitespace",
+      "revId": "e9ac6ca8d4ef232025fe4ed29dc5f7a59c19b5ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb3367b3_8e48c035",
+        "filename": "headers/os/drivers/usb/USB_video.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-09T10:38:57Z",
+      "side": 1,
+      "message": "I think some fields here need to be removed, because you now have them as bitfield instead.",
+      "revId": "e9ac6ca8d4ef232025fe4ed29dc5f7a59c19b5ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
