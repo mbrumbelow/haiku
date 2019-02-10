@@ -25,10 +25,15 @@ class Command {
 	public:
 		uint16_t Bits() { return fBits; }
 
-		void SendCommand(uint8_t command, bool data)
+		void SendCommand(uint8_t command, uint8_t type)
 		{
-			fBits = (command << 8) | (data << 5);
+			fBits = (command << 8) | type;
 		}
+
+		static const uint8_t kNoReplyType = 0;
+		static const uint8_t kR1Type = 0x1C;
+		static const uint8_t kR3Type = 0x02;
+		static const uint8_t kR7Type = 0x3C;
 
 	private:
 		volatile uint16_t fBits;

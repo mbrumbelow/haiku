@@ -38,6 +38,7 @@
 typedef struct {
 	struct registers* fRegisters;
 	uint8_t fIrq;
+	sem_id fSemaphore;
 } sdhci_pci_mmc_bus_info;
 
 
@@ -166,9 +167,7 @@ sdhci_set_power(struct registers* _regs)
 	}
 
 	TRACE("Execute CMD0\n");
-	_regs->command.SendCommand(0, false);
-
-	DELAY(1000);
+	_regs->command.SendCommand(0, Command::kNoReplyType);
 }
 
 
@@ -273,6 +272,8 @@ init_bus(device_node* node, void** bus_cookie)
 	}
 	TRACE("interrupt handler installed\n");
 
+	bus->fSemaphore = create_sem(0, "SDHCI command");
+
 	_regs->interrupt_status_enable = SDHCI_INT_CMD_CMP
 		| SDHCI_INT_TRANS_CMP | SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM
 		| SDHCI_INT_TIMEOUT | SDHCI_INT_CRC | SDHCI_INT_INDEX
@@ -282,11 +283,50 @@ init_bus(device_node* node, void** bus_cookie)
 		| SDHCI_INT_TIMEOUT | SDHCI_INT_CRC | SDHCI_INT_INDEX
 		| SDHCI_INT_BUS_POWER | SDHCI_INT_END_BIT;
 
+	*bus_cookie = bus;
+
 	sdhci_register_dump(slot, _regs);
+
+	// Card initialization procedure. FIXME To do only if a card is inserted.
+	// Otherwise, wait for a card insertion interrupt!
 	sdhci_set_clock(_regs);
 	sdhci_set_power(_regs);
 
-	*bus_cookie = bus;
+	acquire_sem(bus->fSemaphore);
+
+	bus->fRegisters->argument = (1 << 8) | 0x55;
+	bus->fRegisters->command.SendCommand(8, Command::kR7Type);
+
+	acquire_sem(bus->fSemaphore);
+
+	if (bus->fRegisters->response[0] != ((1 << 8) | 0x55)) {
+		ERROR("card does not support voltage\n");
+		return status;
+	}
+
+	TRACE("Send ACMD55\n");
+	bus->fRegisters->command.SendCommand(55, Command::kR1Type);
+	acquire_sem(bus->fSemaphore);
+
+	// TODO check R1 reply
+	sdhci_register_dump(slot, _regs);
+
+	TRACE("Send CMD41\n");
+	bus->fRegisters->argument = (1 << 30) | 0xF10;
+	bus->fRegisters->command.SendCommand(41, Command::kR3Type);
+	acquire_sem(bus->fSemaphore);
+
+	// TODO check R3 reply
+	// - Wait for card to be unbusy (bit 31)
+	// - Check if SDHC (bit 30)
+	// - Check if UHS-II (bit 29)
+	// - Check voltage range (bits 23-15)
+	sdhci_register_dump(slot, _regs);
+
+	// Next step: use CMD2/CMD3 to read card identifier and assign a short id.
+	// Then we are done, the card is set to data mode and we can hand it over
+	// to the mmc_disk driver!
+
 	return status;
 }
 
@@ -359,7 +399,8 @@ sdhci_generic_interrupt(void* data)
 	// handling command interrupt
 	if (intmask & SDHCI_INT_CMD_MASK) {
 		bus->fRegisters->interrupt_status |= (intmask & SDHCI_INT_CMD_MASK);
-		// TODO do something with the interrupt
+		// Notify the thread
+		release_sem_etc(bus->fSemaphore, 1, B_DO_NOT_RESCHEDULE);
 		TRACE("Command interrupt handled\n");
 
 		return B_HANDLED_INTERRUPT;
