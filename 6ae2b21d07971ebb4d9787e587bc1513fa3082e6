@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f872f159_a29b1791",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1899,
+      "author": {
+        "id": 1000091
+      },
+      "writtenOn": "2019-02-10T04:15:08Z",
+      "side": 1,
+      "message": "This gives an error-warning during compilation\n\ndevice_manager.cpp:1899:37: error: suggest parentheses around \u0027\u0026\u0026\u0027 within \u0027||\u0027 [-Werror\u003dparentheses]",
+      "revId": "6ae2b21d07971ebb4d9787e587bc1513fa3082e6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
