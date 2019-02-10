@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0623db10_4119f3b3",
+        "filename": "headers/os/drivers/usb/USB_video.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-10T10:20:01Z",
+      "side": 1,
+      "message": "The alignment was correct before. Make sure your editor is set to 4 spaces per tab?",
+      "revId": "934a5a36716db2938077d85208cc17dc42d89545",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f0d9dac_a444483f",
+        "filename": "headers/os/drivers/usb/USB_video.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-10T10:20:01Z",
+      "side": 1,
+      "message": "Why were these converted to lowercase?",
+      "revId": "934a5a36716db2938077d85208cc17dc42d89545",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f920481d_2ea2b37f",
+        "filename": "headers/os/drivers/usb/USB_video.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-10T10:20:01Z",
+      "side": 1,
+      "message": "tab instead of space after \"for\"",
+      "revId": "934a5a36716db2938077d85208cc17dc42d89545",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a89c1ae_8e0a125e",
+        "filename": "headers/os/drivers/usb/USB_video.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-10T10:20:01Z",
+      "side": 1,
+      "message": "I find this comment very long and difficult to match with the struct declaration below. I think it would be better to redispatch this information inside the structure below, putting the relevant part next to the fields they refer to.",
+      "revId": "934a5a36716db2938077d85208cc17dc42d89545",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b94f7fb2_692e9479",
+        "filename": "headers/os/drivers/usb/USB_video.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-10T10:20:01Z",
+      "side": 1,
+      "message": "you can remove the name after typedef struct, and keep only the one after the }. This applies to all structures here.",
+      "revId": "934a5a36716db2938077d85208cc17dc42d89545",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b12fa38_0d7ef496",
+        "filename": "headers/os/drivers/usb/USB_video.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-10T10:20:01Z",
+      "side": 1,
+      "message": "This should be indented one extra level, to make it clear it refers to the field above it",
+      "revId": "934a5a36716db2938077d85208cc17dc42d89545",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0dff30c4_baec5e89",
+        "filename": "headers/os/drivers/usb/USB_video.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-10T10:20:01Z",
+      "side": 1,
+      "message": "same here",
+      "revId": "934a5a36716db2938077d85208cc17dc42d89545",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0296529_0edc1cb9",
+        "filename": "headers/os/drivers/usb/USB_video.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-10T10:20:01Z",
+      "side": 1,
+      "message": "It is strange to have pointers in these structures. They come from the USB hardware, which will not know where the data is loaded in memory. So, what\u0027s supposed to be stored here?",
+      "revId": "934a5a36716db2938077d85208cc17dc42d89545",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
