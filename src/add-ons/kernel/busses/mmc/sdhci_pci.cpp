@@ -35,10 +35,30 @@
 #define SLOT_NUMBER				"device/slot"
 #define BAR_INDEX				"device/bar"
 
-typedef struct {
-	struct registers* fRegisters;
-	uint8_t fIrq;
-} sdhci_pci_mmc_bus_info;
+
+class SdhciBus {
+	public:
+							SdhciBus(struct registers* registers, uint8_t irq);
+							~SdhciBus();
+
+		void				CardInserted();
+		void				DumpRegisters(uint8_t slot);
+		void				EnableInterrupts(uint32_t mask);
+		int32				HandleInterrupt();
+		status_t			InitCheck();
+		bool				PowerOn();
+		void				RecoverError();
+		void				Reset();
+		void				SetClock(int kilohertz);
+		static status_t		WorkerThread(void*);
+
+	private:
+		struct registers*	fRegisters;
+		uint8_t				fIrq;
+		sem_id				fSemaphore;
+		status_t			fStatus;
+		thread_id			fWorkerThread;
+};
 
 
 device_manager_info* gDeviceManager;
@@ -46,64 +66,244 @@ device_module_info* gSDHCIDeviceController;
 static pci_x86_module_info* sPCIx86Module;
 
 
-static void
-sdhci_register_dump(uint8_t slot, struct registers* regs)
+static int32
+sdhci_generic_interrupt(void* data)
+{
+	SdhciBus* bus = (SdhciBus*)data;
+	return bus->HandleInterrupt();
+}
+
+
+status_t
+SdhciBus::WorkerThread(void* cookie)
+{
+	SdhciBus* bus = (SdhciBus*)cookie;
+	TRACE("worker thread spawned.\n");
+
+	// Wait for a card insertion
+	acquire_sem(bus->fSemaphore);
+
+	TRACE("Card detected! Initializing\n");
+
+	// FIXME all this procedure should have timeouts to make sure we are not
+	// staying locked here.
+	bus->SetClock(400);
+
+	if (!bus->PowerOn()) {
+		ERROR("Failed to power up card\n");
+		// TODO what now?
+	}
+
+	// Now we need to read the OCR from the card to make sure the voltage we
+	// selected is acceptable for it
+	
+	// Reset the card
+	TRACE("Execute CMD0\n");
+	bus->fRegisters->command.SendCommand(0, Command::kNoReplyType);
+	acquire_sem(bus->fSemaphore);
+
+	// Set the voltage range
+	// FIXME MMC cards will not reply to this! They expect CMD1 instead
+	// SD v1 cards will also not reply, but we can proceed to ACMD41
+	// If ACMD41 also does not work, it may be an SDIO card, too
+	bus->fRegisters->argument = (1 << 8) | 0x55;
+	bus->fRegisters->command.SendCommand(8, Command::kR7Type);
+	acquire_sem(bus->fSemaphore);
+
+	if (bus->fRegisters->response[0] != ((1 << 8) | 0x55)) {
+		ERROR("card does not support voltage range\n");
+		// TODO what now?
+	}
+
+	uint32_t ocr;
+	do {
+		while(bus->fRegisters->present_state.CommandInhibit()) {
+			TRACE("Command inhibit!\n");
+			snooze(1000000);
+		}
+		bus->fRegisters->argument = 0;
+		bus->fRegisters->command.SendCommand(55, Command::kR1Type);
+		acquire_sem(bus->fSemaphore);
+
+		// check R1 reply
+		uint32_t cardStatus = bus->fRegisters->response[0];
+		if ((cardStatus & 0xFFFF8000) != 0)
+			ERROR("SD card reports error\n");
+
+		// Check APP_CMD bit is set (bit 5)
+		if ((cardStatus & (1 << 5)) == 0)
+			ERROR("Card did not enter ACMD mode");
+
+		TRACE("Send ACMD41\n");
+		bus->fRegisters->argument = (1 << 30) | 0xFF8000;
+			// TODO set HCS to 1 only if card replied to CMD8
+		bus->fRegisters->command.SendCommand(41, Command::kR3Type);
+		acquire_sem(bus->fSemaphore);
+
+		// check R3 reply
+		ocr = bus->fRegisters->response[0];
+
+		if ((ocr & (1 << 31)) == 0) {
+			ERROR("Card is busy\n");
+			snooze(100000);
+		}
+	} while (((ocr & (1 << 31)) == 0));
+
+	if (ocr & (1 << 30))
+		TRACE("Card is SDHC");
+	if (ocr & (1 << 29))
+		TRACE("Card supports UHS-II");
+	if (ocr & (1 << 24))
+		TRACE("Card supports 1.8v");
+	TRACE("Voltage range: %x\n", ocr & 0xFFFFFF);
+
+	// Next step: use CMD2/CMD3 to read card identifier and assign a short id.
+	// Then we are done, the card is set to data mode and we can hand it over
+	// to the mmc_disk driver!
+	
+	// TODO publish child device for the card
+
+	TRACE("worker thread entering main loop\n");
+	while (bus->fStatus == B_OK) {
+		acquire_sem(bus->fSemaphore);
+		TRACE("worker thread awakens!\n");
+		// TODO handle events: command requests, command completion, card
+		// removal, card insertion, ...
+	}
+
+	return B_OK;
+}
+
+
+SdhciBus::SdhciBus(struct registers* registers, uint8_t irq)
+	:
+	fRegisters(registers),
+	fIrq(irq),
+	fWorkerThread(0),
+	fSemaphore(0)
+{
+	if (irq == 0 || irq == 0xff) {
+		ERROR("PCI IRQ not assigned\n");
+		fStatus = B_BAD_DATA;
+		return;
+	}
+
+	fStatus = install_io_interrupt_handler(fIrq,
+		sdhci_generic_interrupt, this, 0);
+
+	if (fStatus != B_OK) {
+		ERROR("can't install interrupt handler\n");
+		return;
+	}
+
+	fSemaphore = create_sem(0, "SDHCI command");
+	fWorkerThread = spawn_kernel_thread(WorkerThread, "SD host controller",
+		B_NORMAL_PRIORITY, this);
+	resume_thread(fWorkerThread);
+}
+
+
+SdhciBus::~SdhciBus()
+{
+	// stop worker thread
+	fStatus = B_SHUTTING_DOWN;
+
+	if (fSemaphore != 0)
+		delete_sem(fSemaphore);
+	status_t result;
+	if (fWorkerThread != 0)
+		wait_for_thread(fWorkerThread, &result);
+	// TODO power off cards, stop clock, etc if needed.
+
+	EnableInterrupts(0);
+	if (fIrq != 0)
+		remove_io_interrupt_handler(fIrq, sdhci_generic_interrupt, this);
+
+	area_id regs_area = area_for(fRegisters);
+	delete_area(regs_area);
+}
+
+
+void
+SdhciBus::CardInserted()
+{
+	release_sem(fSemaphore);
+}
+
+
+void
+SdhciBus::DumpRegisters(uint8_t slot)
 {
 #ifdef TRACE_SDHCI
 	TRACE("Register values for slot %d:\n", slot);
-	TRACE("system_address: %d\n", regs->system_address);
-	TRACE("%d blocks of size %d\n", regs->block_count, regs->block_size);
-	TRACE("argument: %d\n", regs->argument);
-	TRACE("transfer_mode: %d\n", regs->transfer_mode);
-	TRACE("command: %d\n", regs->command.Bits());
+	TRACE("system_address: %d\n", fRegisters->system_address);
+	TRACE("%d blocks of size %d\n", fRegisters->block_count,
+		fRegisters->block_size);
+	TRACE("argument: %x\n", fRegisters->argument);
+	TRACE("transfer_mode: %d\n", fRegisters->transfer_mode);
+	TRACE("command: %x\n", fRegisters->command.Bits());
 	TRACE("response:");
-	for (int i = 0; i < 8; i++)
-		dprintf(" %d", regs->response[i]);
+	for (int i = 0; i < 4; i++)
+		dprintf(" %d", fRegisters->response[i]);
 	dprintf("\n");
-	TRACE("buffer_data_port: %d\n", regs->buffer_data_port);
-	TRACE("present_state: %x\n", regs->present_state.Bits());
-	TRACE("power_control: %d\n", regs->power_control.Bits());
-	TRACE("host_control: %d\n", regs->host_control);
-	TRACE("wakeup_control: %d\n", regs->wakeup_control);
-	TRACE("block_gap_control: %d\n", regs->block_gap_control);
-	TRACE("clock_control: %x\n", regs->clock_control.Bits());
-	TRACE("software_reset: %d\n", regs->software_reset.Bits());
-	TRACE("timeout_control: %d\n", regs->timeout_control);
+	TRACE("buffer_data_port: %d\n", fRegisters->buffer_data_port);
+	TRACE("present_state: %x\n", fRegisters->present_state.Bits());
+	TRACE("power_control: %d\n", fRegisters->power_control.Bits());
+	TRACE("host_control: %d\n", fRegisters->host_control);
+	TRACE("wakeup_control: %d\n", fRegisters->wakeup_control);
+	TRACE("block_gap_control: %d\n", fRegisters->block_gap_control);
+	TRACE("clock_control: %x\n", fRegisters->clock_control.Bits());
+	TRACE("software_reset: %d\n", fRegisters->software_reset.Bits());
+	TRACE("timeout_control: %d\n", fRegisters->timeout_control);
 	TRACE("interrupt_status: %x enable: %x signal: %x\n",
-		regs->interrupt_status, regs->interrupt_status_enable,
-		regs->interrupt_signal_enable);
-	TRACE("auto_cmd12_error_status: %d\n", regs->auto_cmd12_error_status);
-	TRACE("capabilities: %lld\n", regs->capabilities.Bits());
+		fRegisters->interrupt_status, fRegisters->interrupt_status_enable,
+		fRegisters->interrupt_signal_enable);
+	TRACE("auto_cmd12_error_status: %d\n", fRegisters->auto_cmd12_error_status);
+	TRACE("capabilities: %lld\n", fRegisters->capabilities.Bits());
 	TRACE("max_current_capabilities: %lld\n",
-		regs->max_current_capabilities);
-	TRACE("slot_interrupt_status: %d\n", regs->slot_interrupt_status);
+		fRegisters->max_current_capabilities);
+	TRACE("slot_interrupt_status: %d\n", fRegisters->slot_interrupt_status);
 	TRACE("host_controller_version spec %x vendor %x\n",
-		regs->host_controller_version.specVersion,
-		regs->host_controller_version.vendorVersion);
+		fRegisters->host_controller_version.specVersion,
+		fRegisters->host_controller_version.vendorVersion);
 #endif
 }
 
 
-static void
-sdhci_reset(struct registers* regs)
+void
+SdhciBus::EnableInterrupts(uint32_t mask)
 {
-	// if card is not present then no point of reseting the registers
-	if (!regs->present_state.IsCardInserted())
-		return;
-
-	// enabling software reset all
-	regs->software_reset.ResetAll();
+	fRegisters->interrupt_status_enable = mask;
+	fRegisters->interrupt_signal_enable = mask;
 }
 
 
-static void
-sdhci_set_clock(struct registers* regs)
+status_t
+SdhciBus::InitCheck()
 {
-	int base_clock = regs->capabilities.BaseClockFrequency();
-	// Try to get as close to 400kHz as possible, but not faster
-	int divider = base_clock * 1000 / 400;
+	return fStatus;
+}
 
-	if (regs->host_controller_version.specVersion <= 1) {
+
+void
+SdhciBus::Reset()
+{
+	// if card is not present then no point of reseting the registers
+	if (!fRegisters->present_state.IsCardInserted())
+		return;
+
+	fRegisters->software_reset.ResetAll();
+}
+
+
+void
+SdhciBus::SetClock(int kilohertz)
+{
+	int base_clock = fRegisters->capabilities.BaseClockFrequency();
+	// Try to get as close to 400kHz as possible, but not faster
+	int divider = base_clock * 1000 / kilohertz;
+
+	if (fRegisters->host_controller_version.specVersion <= 1) {
 		// Old controller only support power of two dividers up to 256,
 		// round to next power of two up to 256
 		if (divider > 256)
@@ -116,7 +316,7 @@ sdhci_set_clock(struct registers* regs)
 		divider++;
 	}
 
-	divider = regs->clock_control.SetDivider(divider);
+	divider = fRegisters->clock_control.SetDivider(divider);
 
 	// Log the value after possible rounding by SetDivider (only even values
 	// are allowed).
@@ -124,16 +324,16 @@ sdhci_set_clock(struct registers* regs)
 		base_clock * 1000 / divider);
 
 	// We have set the divider, now we can enable the internal clock.
-	regs->clock_control.EnableInternal();
+	fRegisters->clock_control.EnableInternal();
 
 	// wait until internal clock is stabilized
-	while (!(regs->clock_control.InternalStable()));
+	while (!(fRegisters->clock_control.InternalStable()));
 
-	regs->clock_control.EnablePLL();
-	while (!(regs->clock_control.InternalStable()));
+	fRegisters->clock_control.EnablePLL();
+	while (!(fRegisters->clock_control.InternalStable()));
 
 	// Finally, route the clock to the SD card
-	regs->clock_control.EnableSD();
+	fRegisters->clock_control.EnableSD();
 }
 
 
@@ -144,31 +344,28 @@ sdhci_stop_clock(struct registers* regs)
 }
 
 
-static void
-sdhci_set_power(struct registers* _regs)
+bool
+SdhciBus::PowerOn()
 {
-	uint8_t supportedVoltages = _regs->capabilities.SupportedVoltages();
-	if ((supportedVoltages & Capabilities::k3v3) != 0)
-		_regs->power_control.SetVoltage(PowerControl::k3v3);
-	else if ((supportedVoltages & Capabilities::k3v0) != 0)
-		_regs->power_control.SetVoltage(PowerControl::k3v0);
-	else if ((supportedVoltages & Capabilities::k1v8) != 0)
-		_regs->power_control.SetVoltage(PowerControl::k1v8);
-	else {
-		_regs->power_control.PowerOff();
-		ERROR("No voltage is supported\n");
-		return;
-	}
-
-	if (!_regs->present_state.IsCardInserted()) {
+	if (!fRegisters->present_state.IsCardInserted()) {
 		TRACE("Card not inserted\n");
-		return;
+		return false;
 	}
 
-	TRACE("Execute CMD0\n");
-	_regs->command.SendCommand(0, false);
+	uint8_t supportedVoltages = fRegisters->capabilities.SupportedVoltages();
+	if ((supportedVoltages & Capabilities::k3v3) != 0)
+		fRegisters->power_control.SetVoltage(PowerControl::k3v3);
+	else if ((supportedVoltages & Capabilities::k3v0) != 0)
+		fRegisters->power_control.SetVoltage(PowerControl::k3v0);
+	else if ((supportedVoltages & Capabilities::k1v8) != 0)
+		fRegisters->power_control.SetVoltage(PowerControl::k1v8);
+	else {
+		fRegisters->power_control.PowerOff();
+		ERROR("No voltage is supported\n");
+		return false;
+	}
 
-	DELAY(1000);
+	return true;
 }
 
 
@@ -176,15 +373,8 @@ static status_t
 init_bus(device_node* node, void** bus_cookie)
 {
 	CALLED();
-	status_t status = B_OK;
-	area_id	regs_area;
-	volatile uint32_t* regs;
-	uint8_t bar, slot;
 
-	sdhci_pci_mmc_bus_info* bus = new(std::nothrow) sdhci_pci_mmc_bus_info;
-	if (bus == NULL)
-		return B_NO_MEMORY;
-
+	// Get the PCI driver and device
 	pci_device_module_info* pci;
 	pci_device* device;
 
@@ -201,6 +391,7 @@ init_bus(device_node* node, void** bus_cookie)
 		TRACE("PCIx86Module not loaded\n");
 	}
 
+	uint8_t bar, slot;
 	if (gDeviceManager->get_attr_uint8(node, SLOT_NUMBER, &slot, false) < B_OK
 		|| gDeviceManager->get_attr_uint8(node, BAR_INDEX, &bar, false) < B_OK)
 		return -1;
@@ -219,74 +410,63 @@ init_bus(device_node* node, void** bus_cookie)
 	pcicmd |= PCI_command_master | PCI_command_memory;
 	pci->write_pci_config(device, PCI_command, 2, pcicmd);
 
-	TRACE("init_bus() %p node %p pci %p device %p\n", bus, node,
-		pci, device);
+	TRACE("init_bus() node %p pci %p device %p\n", node, pci, device);
 
-	// mapping the registers by MMUIO method
-	int bar_size = pciInfo->u.h0.base_register_sizes[bar];
-
+	// map the slot registers
+	area_id	regs_area;
+	struct registers* _regs;
 	regs_area = map_physical_memory("sdhc_regs_map",
 		pciInfo.u.h0.base_registers[bar],
 		pciInfo.u.h0.base_register_sizes[bar], B_ANY_KERNEL_BLOCK_ADDRESS,
-		B_KERNEL_READ_AREA | B_KERNEL_WRITE_AREA, (void**)&regs);
+		B_KERNEL_READ_AREA | B_KERNEL_WRITE_AREA, (void**)&_regs);
 
 	if (regs_area < B_OK) {
 		TRACE("mapping failed");
 		return B_BAD_VALUE;
 	}
 
-	struct registers* _regs = (struct registers*)regs;
-	bus->fRegisters = _regs;
-	sdhci_reset(_regs);
-
 	// the interrupt is shared between all busses in an SDHC controller, but
 	// they each register an handler. Not a problem, we will just test the
 	// interrupt registers for all busses one after the other and find no
 	// interrupts on the idle busses.
-	bus->fIrq = pciInfo.u.h0.interrupt_line;
+	uint8_t irq = pciInfo.u.h0.interrupt_line;
+	TRACE("irq interrupt line: %d\n", irq);
 
-	TRACE("irq interrupt line: %d\n", bus->fIrq);
+	SdhciBus* bus = new(std::nothrow) SdhciBus(_regs, irq);
 
-	if (bus->fIrq == 0 || bus->fIrq == 0xff) {
-		TRACE("PCI IRQ not assigned\n");
-		if (sPCIx86Module != NULL) {
-			put_module(B_PCI_X86_MODULE_NAME);
-			sPCIx86Module = NULL;
-		}
-		delete_area(regs_area);
-		delete bus;
-		return B_ERROR;
-	}
-
-	status = install_io_interrupt_handler(bus->fIrq,
-		sdhci_generic_interrupt, bus, 0);
+	status_t status = B_NO_MEMORY;
+	if (bus != NULL)
+		status = bus->InitCheck();
 
 	if (status != B_OK) {
-		TRACE("can't install interrupt handler\n");
 		if (sPCIx86Module != NULL) {
 			put_module(B_PCI_X86_MODULE_NAME);
 			sPCIx86Module = NULL;
 		}
-		delete_area(regs_area);
-		delete bus;
+
+		if (bus != NULL)
+			delete bus;
+		else
+			delete_area(regs_area);
 		return status;
 	}
-	TRACE("interrupt handler installed\n");
-
-	_regs->interrupt_status_enable = SDHCI_INT_CMD_CMP
-		| SDHCI_INT_TRANS_CMP | SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM
-		| SDHCI_INT_TIMEOUT | SDHCI_INT_CRC | SDHCI_INT_INDEX
-		| SDHCI_INT_BUS_POWER | SDHCI_INT_END_BIT;
-	_regs->interrupt_signal_enable =  SDHCI_INT_CMD_CMP
-		| SDHCI_INT_TRANS_CMP | SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM
-		| SDHCI_INT_TIMEOUT | SDHCI_INT_CRC | SDHCI_INT_INDEX
-		| SDHCI_INT_BUS_POWER | SDHCI_INT_END_BIT;
-
-	sdhci_register_dump(slot, _regs);
-	sdhci_set_clock(_regs);
-	sdhci_set_power(_regs);
 
 	*bus_cookie = bus;
+
+	// FIXME this will block until the controller is done resetting, is it wise
+	// to do it here?
+	bus->Reset();
+
+	// FIXME do we need all these? Wouldn't card insertion/removal and command
+	// completion be enough?
+	bus->EnableInterrupts(SDHCI_INT_CMD_CMP
+		| SDHCI_INT_TRANS_CMP | SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM
+		| SDHCI_INT_TIMEOUT | SDHCI_INT_CRC | SDHCI_INT_INDEX
+		| SDHCI_INT_BUS_POWER | SDHCI_INT_END_BIT);
+
+	// FIXME only if a card is inserted
+	bus->CardInserted();
+
 	return status;
 }
 
@@ -294,41 +474,31 @@ init_bus(device_node* node, void** bus_cookie)
 static void
 uninit_bus(void* bus_cookie)
 {
-	sdhci_pci_mmc_bus_info* bus = (sdhci_pci_mmc_bus_info*)bus_cookie;
-
-	bus->fRegisters->interrupt_signal_enable = 0;
-	bus->fRegisters->interrupt_status_enable = 0;
-
-	remove_io_interrupt_handler(bus->fIrq, sdhci_generic_interrupt, bus);
-
-	area_id regs_area = area_for(bus->fRegisters);
-	delete_area(regs_area);
+	SdhciBus* bus = (SdhciBus*)bus_cookie;
+	delete bus;
 
 	// FIXME do we need to put() the PCI module here?
-
-	delete bus;
 }
 
 
 void
-sdhci_error_interrupt_recovery(struct registers* _regs)
+SdhciBus::RecoverError()
 {
-	_regs->interrupt_signal_enable &= ~(SDHCI_INT_CMD_CMP
+	fRegisters->interrupt_signal_enable &= ~(SDHCI_INT_CMD_CMP
 		| SDHCI_INT_TRANS_CMP | SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM);
 
-	if (_regs->interrupt_status & 7)
-		_regs->software_reset.ResetTransaction();
+	if (fRegisters->interrupt_status & 7)
+		fRegisters->software_reset.ResetTransaction();
 
-	int16_t erorr_status = _regs->interrupt_status;
-	_regs->interrupt_status &= ~(erorr_status);
+	int16_t error_status = fRegisters->interrupt_status;
+	fRegisters->interrupt_status &= ~(error_status);
 }
 
 
 int32
-sdhci_generic_interrupt(void* data)
+SdhciBus::HandleInterrupt()
 {
-	sdhci_pci_mmc_bus_info* bus = (sdhci_pci_mmc_bus_info*)data;
-	uint32_t intmask = bus->fRegisters->slot_interrupt_status;
+	uint32_t intmask = fRegisters->slot_interrupt_status;
 
 	if ((intmask == 0) || (intmask == 0xffffffff)) {
 		return B_UNHANDLED_INTERRUPT;
@@ -339,17 +509,17 @@ sdhci_generic_interrupt(void* data)
 	// handling card presence interrupt
 	if (intmask & (SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM)) {
 		uint32_t card_present = ((intmask & SDHCI_INT_CARD_INS) != 0);
-		bus->fRegisters->interrupt_status_enable &= ~(SDHCI_INT_CARD_INS
+		fRegisters->interrupt_status_enable &= ~(SDHCI_INT_CARD_INS
 			| SDHCI_INT_CARD_REM);
-		bus->fRegisters->interrupt_signal_enable &= ~(SDHCI_INT_CARD_INS
+		fRegisters->interrupt_signal_enable &= ~(SDHCI_INT_CARD_INS
 			| SDHCI_INT_CARD_REM);
 
-		bus->fRegisters->interrupt_status_enable |= card_present
+		fRegisters->interrupt_status_enable |= card_present
 		 	? SDHCI_INT_CARD_REM : SDHCI_INT_CARD_INS;
-		bus->fRegisters->interrupt_signal_enable |= card_present
+		fRegisters->interrupt_signal_enable |= card_present
 			? SDHCI_INT_CARD_REM : SDHCI_INT_CARD_INS;
 
-		bus->fRegisters->interrupt_status |= (intmask &
+		fRegisters->interrupt_status |= (intmask &
 			(SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM));
 		TRACE("Card presence interrupt handled\n");
 
@@ -358,8 +528,9 @@ sdhci_generic_interrupt(void* data)
 
 	// handling command interrupt
 	if (intmask & SDHCI_INT_CMD_MASK) {
-		bus->fRegisters->interrupt_status |= (intmask & SDHCI_INT_CMD_MASK);
-		// TODO do something with the interrupt
+		fRegisters->interrupt_status |= (intmask & SDHCI_INT_CMD_MASK);
+		// Notify the thread
+		release_sem_etc(fSemaphore, 1, B_DO_NOT_RESCHEDULE);
 		TRACE("Command interrupt handled\n");
 
 		return B_HANDLED_INTERRUPT;
@@ -367,17 +538,15 @@ sdhci_generic_interrupt(void* data)
 
 	// handling bus power interrupt
 	if (intmask & SDHCI_INT_BUS_POWER) {
-		bus->fRegisters->interrupt_status |= SDHCI_INT_BUS_POWER;
+		fRegisters->interrupt_status |= SDHCI_INT_BUS_POWER;
 		TRACE("card is consuming too much power\n");
 
 		return B_HANDLED_INTERRUPT;
 	}
 
-	intmask = bus->fRegisters->slot_interrupt_status;
+	intmask = fRegisters->slot_interrupt_status;
 	if (intmask != 0) {
 		ERROR("Remaining interrupts at end of handler: %x\n", intmask);
-		intmask &= ~(SDHCI_INT_BUS_POWER | SDHCI_INT_CARD_INS
-			| SDHCI_INT_CARD_REM | SDHCI_INT_CMD_MASK);
 	}
 
 	return B_UNHANDLED_INTERRUPT;
