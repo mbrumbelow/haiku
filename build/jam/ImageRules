@@ -1565,14 +1565,17 @@ rule BuildCDBootImage image : bootfloppy : bootefi : extrafiles
 actions BuildCDBootImageMBR
 {
 	$(RM) $(<)
-	xorriso -as mkisofs -b $(BOOTIMG) -r -J -V bootimg -o $(<) $(>[1]) $(>[2-])
+	xorriso -as mkisofs -b $(BOOTIMG) \
+		-r -J -V haiku-$(HAIKU_DISTRO_COMPATIBILITY)-$(HAIKU_VERSION)-$(TARGET_ARCH) \
+		-o $(<) $(>[1]) $(>[2-])
 }
 
 actions BuildCDBootImageEFI
 {
 	$(RM) $(<)
 	xorriso -as mkisofs -b $(BOOTIMG) -eltorito-alt-boot -no-emul-boot -e $(BOOTEFI) \
-		-r -J -V bootimg -o $(<) $(>[1]) $(>[2]) $(>[3-])
+		-r -J -V haiku-$(HAIKU_DISTRO_COMPATIBILITY)-$(HAIKU_VERSION)-$(TARGET_ARCH) \
+		-o $(<) $(>[1]) $(>[2]) $(>[3-])
 }
 
 
@@ -1607,8 +1610,9 @@ actions BuildCDBootPPCImage1 bind MAPS
 	cp $(>[4]) $(HAIKU_OUTPUT_DIR)/cd/
 
 	xorriso -as mkisofs -v -hfs -part -map $(MAPS) -no-desktop -hfs-volid bootimg \
-		-V bootimg -hfs-bless $(HAIKU_OUTPUT_DIR)/cd/boot -prep-boot \
-		boot/haikuloader.xcf -r -o $(<) $(HAIKU_OUTPUT_DIR)/cd
+		-V haiku-$(HAIKU_DISTRO_COMPATIBILITY)-$(HAIKU_VERSION)-$(TARGET_ARCH) \
+		-hfs-bless $(HAIKU_OUTPUT_DIR)/cd/boot -prep-boot boot/haikuloader.xcf -r \
+		-o $(<) $(HAIKU_OUTPUT_DIR)/cd
 	$(RM) -r $(HAIKU_OUTPUT_DIR)/cd
 }
 
