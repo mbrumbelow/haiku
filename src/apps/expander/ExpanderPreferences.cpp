@@ -45,8 +45,8 @@ ExpanderPreferences::ExpanderPreferences(BMessage* settings)
 	:
 	BWindow(BRect(0, 0, 325, 305), B_TRANSLATE("Expander settings"),
 		B_FLOATING_WINDOW_LOOK, B_FLOATING_APP_WINDOW_FEEL,
-		B_NOT_RESIZABLE | B_NOT_CLOSABLE | B_NOT_ZOOMABLE
-			| B_AUTO_UPDATE_SIZE_LIMITS),
+		B_NOT_RESIZABLE | B_NOT_ZOOMABLE | B_QUIT_ON_WINDOW_CLOSE
+		| B_AUTO_UPDATE_SIZE_LIMITS),
 	fSettings(settings),
 	fUsePanel(NULL)
 {
@@ -93,7 +93,7 @@ ExpanderPreferences::ExpanderPreferences(BMessage* settings)
 		new BMessage(MSG_OK));
 	okbutton->MakeDefault(true);
 	BButton* cancel = new BButton("CancelButton", B_TRANSLATE("Cancel"),
-		new BMessage(MSG_CANCEL));
+		new BMessage(B_QUIT_REQUESTED));
 
 	// Build the layout
 	BLayoutBuilder::Group<>(this, B_VERTICAL, 0)
@@ -156,6 +156,15 @@ ExpanderPreferences::~ExpanderPreferences()
 		delete fUsePanel->RefFilter();
 
 	delete fUsePanel;
+}
+
+
+bool
+ExpanderPreferences::QuitRequested()
+{
+	_ReadSettings();
+	Hide();
+	return B_OK;
 }
 
 
@@ -298,13 +307,7 @@ ExpanderPreferences::MessageReceived(BMessage* message)
 			if (message->FindInt32("key", &index) == B_OK && index != 1)
 				break;
 		}
-		// fall-through on ESC
-		case MSG_CANCEL:
-		{
-			_ReadSettings();
-			Hide();
-			break;
-		}
+
 
 		case MSG_OK:
 		{

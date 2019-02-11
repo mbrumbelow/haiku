@@ -25,6 +25,7 @@ class ExpanderPreferences : public BWindow {
 public:
 								ExpanderPreferences(BMessage* settings);
 	virtual						~ExpanderPreferences();
+	virtual	bool				QuitRequested();
 
 	virtual	void 				MessageReceived(BMessage* message);
 
