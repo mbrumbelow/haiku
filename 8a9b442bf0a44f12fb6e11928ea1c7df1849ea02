@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f410638a_c3ca7cce",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-02-11T13:57:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "921a1bbd_0fbde7d3",
+      "revId": "8a9b442bf0a44f12fb6e11928ea1c7df1849ea02",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e7cc6d33_7dd9c6e8",
         "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
         "patchSetId": 3
@@ -33,6 +51,24 @@
       "revId": "8a9b442bf0a44f12fb6e11928ea1c7df1849ea02",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "337476d9_55d0a498",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-02-11T13:57:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7cc6d33_7dd9c6e8",
+      "revId": "8a9b442bf0a44f12fb6e11928ea1c7df1849ea02",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
