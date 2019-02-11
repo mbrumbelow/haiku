@@ -45,8 +45,8 @@ ExpanderPreferences::ExpanderPreferences(BMessage* settings)
 	:
 	BWindow(BRect(0, 0, 325, 305), B_TRANSLATE("Expander settings"),
 		B_FLOATING_WINDOW_LOOK, B_FLOATING_APP_WINDOW_FEEL,
-		B_NOT_RESIZABLE | B_NOT_CLOSABLE | B_NOT_ZOOMABLE
-			| B_AUTO_UPDATE_SIZE_LIMITS),
+		B_NOT_RESIZABLE | B_NOT_ZOOMABLE | B_QUIT_ON_WINDOW_CLOSE
+		| B_AUTO_UPDATE_SIZE_LIMITS),
 	fSettings(settings),
 	fUsePanel(NULL)
 {
@@ -156,6 +156,15 @@ ExpanderPreferences::~ExpanderPreferences()
 		delete fUsePanel->RefFilter();
 
 	delete fUsePanel;
+}
+
+
+bool
+ExpanderPreferences::QuitRequested()
+{
+	_ReadSettings();
+	Hide();
+	return(B_OK);
 }
 
 
