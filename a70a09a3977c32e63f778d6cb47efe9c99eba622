@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "21cad78b_1e7ca720",
+        "filename": "src/apps/expander/ExpanderPreferences.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2019-02-11T15:00:07Z",
+      "side": 1,
+      "message": "Why should the application quit on window close? Is that really the desired behavior?",
+      "revId": "a70a09a3977c32e63f778d6cb47efe9c99eba622",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b05e9055_d3a61d72",
         "filename": "src/apps/expander/ExpanderPreferences.cpp",
         "patchSetId": 1
@@ -64,6 +81,23 @@
       "writtenOn": "2019-02-11T14:59:44Z",
       "side": 1,
       "message": "This should return true. Also, no parentheses.",
+      "revId": "a70a09a3977c32e63f778d6cb47efe9c99eba622",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afe467b3_cf32dc72",
+        "filename": "src/apps/expander/ExpanderPreferences.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2019-02-11T15:00:07Z",
+      "side": 1,
+      "message": "Extraneous parenthesis:\nreturn B_OK;",
       "revId": "a70a09a3977c32e63f778d6cb47efe9c99eba622",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
