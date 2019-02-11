@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "245c1816_2c1e988a",
+        "filename": "src/apps/expander/ExpanderPreferences.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-11T14:59:44Z",
+      "side": 1,
+      "message": "Why a B_QUIT_ON_WINDOW_CLOSE here?",
+      "revId": "a70a09a3977c32e63f778d6cb47efe9c99eba622",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b05e9055_d3a61d72",
+        "filename": "src/apps/expander/ExpanderPreferences.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-11T14:59:44Z",
+      "side": 1,
+      "message": "The Cancel button should be rewired to use the B_QUIT_REQUESTED message so it runs this code",
+      "revId": "a70a09a3977c32e63f778d6cb47efe9c99eba622",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53839192_9bea968d",
+        "filename": "src/apps/expander/ExpanderPreferences.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-11T14:59:44Z",
+      "side": 1,
+      "message": "This hints that the window was not supposed to be deleted before. As a result, I think the app will now crash if you:\n- Open settings\n- Close settings using close button\n- Open settings again (it will try to reuse the deleted window)",
+      "revId": "a70a09a3977c32e63f778d6cb47efe9c99eba622",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e21bdab4_d0fefb8a",
+        "filename": "src/apps/expander/ExpanderPreferences.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-11T14:59:44Z",
+      "side": 1,
+      "message": "This should return true. Also, no parentheses.",
+      "revId": "a70a09a3977c32e63f778d6cb47efe9c99eba622",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
