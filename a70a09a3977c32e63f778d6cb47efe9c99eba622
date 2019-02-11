@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "575b6f89_cd8fe012",
+        "filename": "src/apps/expander/ExpanderPreferences.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000091
+      },
+      "writtenOn": "2019-02-11T22:53:59Z",
+      "side": 1,
+      "message": "This is to allow this window to catch the quit message, so that the close button does not \"close\" the window, but rather hides the window in the same manner as clicking \"cancel\", to prevent the problem you described in line 166.\n\nCommit message has been expanded to better explain what it was doing.",
+      "parentUuid": "245c1816_2c1e988a",
+      "revId": "a70a09a3977c32e63f778d6cb47efe9c99eba622",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b05e9055_d3a61d72",
         "filename": "src/apps/expander/ExpanderPreferences.cpp",
         "patchSetId": 1
@@ -50,6 +68,24 @@
       "revId": "a70a09a3977c32e63f778d6cb47efe9c99eba622",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86687ae4_de23afe7",
+        "filename": "src/apps/expander/ExpanderPreferences.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000091
+      },
+      "writtenOn": "2019-02-11T22:53:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b05e9055_d3a61d72",
+      "revId": "a70a09a3977c32e63f778d6cb47efe9c99eba622",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -101,6 +137,42 @@
       "revId": "a70a09a3977c32e63f778d6cb47efe9c99eba622",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4461fffa_afae75ab",
+        "filename": "src/apps/expander/ExpanderPreferences.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1000091
+      },
+      "writtenOn": "2019-02-11T22:53:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afe467b3_cf32dc72",
+      "revId": "a70a09a3977c32e63f778d6cb47efe9c99eba622",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12bb3fc5_6ca4f6a5",
+        "filename": "src/apps/expander/ExpanderPreferences.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1000091
+      },
+      "writtenOn": "2019-02-11T22:53:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e21bdab4_d0fefb8a",
+      "revId": "a70a09a3977c32e63f778d6cb47efe9c99eba622",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
