@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ed08929_772f994b",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Inode.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-02-13T15:44:46Z",
+      "side": 1,
+      "message": "The code looks good now, except I am not sure this is the right kind of deleter. Will this use the \"delete\" operator now? Before extent_data was deallocated with free(). How is it allocated exactly? (It may also be the case that it\u0027s wrong everywhere else in the code.) IIRC, one always has to use the matching method to deallocate something, delete, delete[] or free().",
+      "revId": "7053d9c803aa71212edda3b88434717a76b5999e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
