@@ -728,6 +728,7 @@ int checkdir(__G__ pathcomp, flag)
             char *tmproot;
 
             if ((tmproot = (char *)malloc(rootlen+2)) == (char *)NULL) {
+				free(tmproot);
                 rootlen = 0;
                 return MPN_NOMEM;
             }

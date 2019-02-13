@@ -4,6 +4,7 @@
  */
 
 
+#include <AutoDeleter.h>
 #include <string.h>
 
 #include <boot/partitions.h>
@@ -289,30 +290,38 @@ add_boot_device_for_image(NodeList *devicesList)
 
 	UINTN length = device_path_length(devicePath);
 	EFI_DEVICE_PATH *savedDevicePath = (EFI_DEVICE_PATH*)malloc(length);
+	ObjectDeleter<EFI_DEVICE_PATH> deleter(savedDevicePath);
 	memcpy(savedDevicePath, devicePath, length);
 
 	EFI_HANDLE handle;
 	if (kBootServices->LocateDevicePath(&BlockIoGUID, &devicePath, &handle)
-			!= EFI_SUCCESS)
+			!= EFI_SUCCESS) {
 		return B_ERROR;
+	}
 
-	if (!IsDevicePathEnd(devicePath))
+	if (!IsDevicePathEnd(devicePath)) {
 		return B_ERROR;
+	}
 
 	EFI_BLOCK_IO *blockIo;
 	if (kBootServices->HandleProtocol(handle, &BlockIoGUID, (void**)&blockIo)
-			!= EFI_SUCCESS)
+			!= EFI_SUCCESS) {
 		return B_ERROR;
+	}
 
-	if (!blockIo->Media->MediaPresent)
+	if (!blockIo->Media->MediaPresent) {
 		return B_ERROR;
+	}
 
 	EfiDevice *device = new(std::nothrow)EfiDevice(blockIo, savedDevicePath);
-	if (device == NULL)
+	if (device == NULL) {
 		return B_ERROR;
+	}
 
 	add_device_path(&sMessagingDevices, savedDevicePath, handle);
 	devicesList->Insert(device);
+
+	deleter.Detach();
 
 	return B_OK;
 }
