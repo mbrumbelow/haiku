@@ -253,14 +253,17 @@ Inode::ReadAt(off_t pos, uint8* buffer, size_t* _length)
 			panic("zlib isn't unsupported for regular extent\n");
 		else
 			panic("unknown extent compression; %d\n", compression);
+		return B_BAD_DATA;
 	}
 
 	TRACE("Inode::ReadAt(%" B_PRIdINO ") key.Offset() %" B_PRId64 "\n", ID(),
 		search_key.Offset());
 
 	off_t diff = pos - search_key.Offset();
-	if (extent_data->Type() != BTRFS_EXTENT_DATA_INLINE)
+	if (extent_data->Type() != BTRFS_EXTENT_DATA_INLINE) {
 		panic("unknown extent type; %d\n", extent_data->Type());
+		return B_BAD_DATA;
+	}
 
 	*_length = min_c(extent_data->Size() - diff, *_length);
 	if (compression == BTRFS_EXTENT_COMPRESS_NONE)
@@ -341,9 +344,11 @@ Inode::ReadAt(off_t pos, uint8* buffer, size_t* _length)
 
 		*_length = zStream.total_out;
 
-	} else
+	} else {
 		panic("unknown extent compression; %d\n", compression);
-	free(extent_data);
+		free(extent_data);
+		return B_BAD_DATA;
+	}
 	return B_OK;
 
 }
