@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d9bc765f_70303ba9",
+        "filename": "src/add-ons/kernel/file_systems/ext2/Journal.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1000091
+      },
+      "writtenOn": "2019-02-13T06:09:28Z",
+      "side": 1,
+      "message": "Will submit separately.",
+      "parentUuid": "24da5430_e7fd7a71",
+      "revId": "e2749840fc06231616afbe89e6bb8776dcfa756c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "581e0f19_3b527f0c",
         "filename": "src/system/boot/platform/efi/devices.cpp",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "e2749840fc06231616afbe89e6bb8776dcfa756c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12f0f8b5_fa3a964b",
+        "filename": "src/system/boot/platform/efi/devices.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1000091
+      },
+      "writtenOn": "2019-02-13T06:09:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "581e0f19_3b527f0c",
+      "revId": "e2749840fc06231616afbe89e6bb8776dcfa756c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
