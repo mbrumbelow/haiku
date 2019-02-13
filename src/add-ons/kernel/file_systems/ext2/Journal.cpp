@@ -533,6 +533,7 @@ Journal::_WriteTransactionToLog()
 	if (descriptorBlock == NULL) {
 		TRACE("Journal::_WriteTransactionToLog(): Failed to allocate a buffer "
 			"for the commit block\n");
+		delete[] commitBlock;
 		return B_NO_MEMORY;
 	}
 	ArrayDeleter<uint8> commitBlockDeleter((uint8*)commitBlock);

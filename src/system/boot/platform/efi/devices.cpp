@@ -293,23 +293,33 @@ add_boot_device_for_image(NodeList *devicesList)
 
 	EFI_HANDLE handle;
 	if (kBootServices->LocateDevicePath(&BlockIoGUID, &devicePath, &handle)
-			!= EFI_SUCCESS)
+			!= EFI_SUCCESS) {
+		free(savedDevicePath);
 		return B_ERROR;
+	}
 
-	if (!IsDevicePathEnd(devicePath))
+	if (!IsDevicePathEnd(devicePath)) {
+		free(savedDevicePath);
 		return B_ERROR;
+	}
 
 	EFI_BLOCK_IO *blockIo;
 	if (kBootServices->HandleProtocol(handle, &BlockIoGUID, (void**)&blockIo)
-			!= EFI_SUCCESS)
+			!= EFI_SUCCESS) {
+		free(savedDevicePath);
 		return B_ERROR;
+	}
 
-	if (!blockIo->Media->MediaPresent)
+	if (!blockIo->Media->MediaPresent) {
+		free(savedDevicePath);
 		return B_ERROR;
+	}
 
 	EfiDevice *device = new(std::nothrow)EfiDevice(blockIo, savedDevicePath);
-	if (device == NULL)
+	if (device == NULL) {
+		free(savedDevicePath);
 		return B_ERROR;
+	}
 
 	add_device_path(&sMessagingDevices, savedDevicePath, handle);
 	devicesList->Insert(device);
