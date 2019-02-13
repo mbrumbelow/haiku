@@ -159,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "c25b7401_27a609bd",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Inode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-02-13T12:33:08Z",
+      "side": 0,
+      "message": "Ah yes, that explains why the tool showed a double-free. The original programmer probably considered the panics() like calls to \"exit()\" or similar, but of course the code could in theory continue, so there was indeed a double-free without the returns.",
+      "parentUuid": "df38e3fd_c0aaa2d7",
+      "revId": "41ddfe2a44cfd077483c9bf8fa80912431f772a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6e8906e_c55ccded",
         "filename": "src/kits/tracker/NavMenu.cpp",
         "patchSetId": 1
