@@ -4,6 +4,7 @@
  */
 
 
+#include <AutoDeleter.h>
 #include <string.h>
 
 #include <boot/partitions.h>
@@ -289,6 +290,7 @@ add_boot_device_for_image(NodeList *devicesList)
 
 	UINTN length = device_path_length(devicePath);
 	EFI_DEVICE_PATH *savedDevicePath = (EFI_DEVICE_PATH*)malloc(length);
+	ObjectDeleter<EFI_DEVICE_PATH> deleter(savedDevicePath);
 	memcpy(savedDevicePath, devicePath, length);
 
 	EFI_HANDLE handle;
@@ -312,6 +314,7 @@ add_boot_device_for_image(NodeList *devicesList)
 		return B_ERROR;
 
 	add_device_path(&sMessagingDevices, savedDevicePath, handle);
+	deleter.Detach();
 	devicesList->Insert(device);
 
 	return B_OK;
