@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d63fdf26_41c0e98f",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Inode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-13T08:09:49Z",
+      "side": 0,
+      "message": "This function is quite messy, it is not clear if this may also introduce new memory leaks. We need to review the code carefully and probably see if using an AutoDeleter or similar would make more sense.",
+      "revId": "41ddfe2a44cfd077483c9bf8fa80912431f772a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6e8906e_c55ccded",
+        "filename": "src/kits/tracker/NavMenu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 608,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-13T08:09:49Z",
+      "side": 0,
+      "message": "I would like an explanation of where this is freed now. newResolvedModel goes out of scope and the pointer isn\u0027t stored anywhere else",
+      "revId": "41ddfe2a44cfd077483c9bf8fa80912431f772a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
