@@ -16,6 +16,24 @@
       "revId": "7053d9c803aa71212edda3b88434717a76b5999e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e353a43_ce2a1e77",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Inode.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-02-13T16:01:32Z",
+      "side": 1,
+      "message": "The allocation happens here with a malloc(): https://github.com/haiku/haiku/blob/master/src/add-ons/kernel/file_systems/btrfs/BTree.cpp#L405",
+      "parentUuid": "5ed08929_772f994b",
+      "revId": "7053d9c803aa71212edda3b88434717a76b5999e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
