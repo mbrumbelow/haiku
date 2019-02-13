@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b599120_bf81ff5e",
+        "filename": "headers/private/shared/HashMap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-02-13T10:39:24Z",
+      "side": 1,
+      "message": "This seems wrong.",
+      "revId": "647975fed559e32252c42e3a5f4e636626ec53c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eed65496_c94bd562",
+        "filename": "headers/private/shared/HashMap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-02-13T10:39:24Z",
+      "side": 1,
+      "message": "Did HashKeyPointer exist before?",
+      "revId": "647975fed559e32252c42e3a5f4e636626ec53c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
