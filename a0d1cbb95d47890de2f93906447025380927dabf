@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1b3df6c2_b1b96221",
+        "filename": "src/apps/launchbox/LaunchButton.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-13T20:47:10Z",
+      "side": 0,
+      "message": "this line should not be removed",
+      "revId": "a0d1cbb95d47890de2f93906447025380927dabf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "863f65e0_3afcb1c7",
+        "filename": "src/apps/launchbox/App.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-13T20:47:10Z",
+      "side": 1,
+      "message": "space before { and I think the return fits on the same line",
+      "revId": "047c7a9a4288750764fcd1e020affe554c6bde0f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a3514c4_53a33712",
+        "filename": "src/apps/launchbox/App.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-13T20:47:10Z",
+      "side": 1,
+      "message": "what\u0027s the point of making these static? There can be only one instance of the application anyway, so they were fine as instance variables",
+      "revId": "047c7a9a4288750764fcd1e020affe554c6bde0f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd3a768d_82da5a37",
+        "filename": "src/apps/launchbox/MainWindow.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-13T20:47:10Z",
+      "side": 1,
+      "message": "Is it really needed to send two messages to the application here? If you toggle autostart, the application will know that the settings changed, so a single message would be ok.\n\nThis allows a further simplification: instead of relaying the message here, you could use SetTarget to set the menu item to message the app directly, without going through the window first.",
+      "revId": "047c7a9a4288750764fcd1e020affe554c6bde0f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
