@@ -16,6 +16,41 @@
       "revId": "e3dbdfd30d1df215d8fea970d74ad3129f171008",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b93c307f_117a3c0e",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-13T08:20:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2d790f09_9bbb084a",
+      "revId": "e3dbdfd30d1df215d8fea970d74ad3129f171008",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d24a689_d1c06555",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-13T08:20:35Z",
+      "side": 1,
+      "message": "the area is taken care of by the SdhciBus destructor, so this should be removed",
+      "revId": "e3dbdfd30d1df215d8fea970d74ad3129f171008",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
