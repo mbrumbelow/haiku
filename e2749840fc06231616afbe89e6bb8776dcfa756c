@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24da5430_e7fd7a71",
+        "filename": "src/add-ons/kernel/file_systems/ext2/Journal.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-02-13T05:26:35Z",
+      "side": 1,
+      "message": "Actually this one is a copy/paste error: descriptorBlock was already checked above, so we should be checking commitBlock for NULL here. Then of course we wouldn\u0027t need to delete it.",
+      "revId": "e2749840fc06231616afbe89e6bb8776dcfa756c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "581e0f19_3b527f0c",
+        "filename": "src/system/boot/platform/efi/devices.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-02-13T05:26:35Z",
+      "side": 1,
+      "message": "I think we have access to the ObjectDeleter here, so you can use one of those after the malloc instead of adding a free in every return path manually.",
+      "revId": "e2749840fc06231616afbe89e6bb8776dcfa756c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
