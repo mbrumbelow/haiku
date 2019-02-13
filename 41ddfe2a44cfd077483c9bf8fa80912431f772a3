@@ -2,6 +2,57 @@
   "comments": [
     {
       "key": {
+        "uuid": "eb54da7b_27fa2e94",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Inode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-02-13T10:25:37Z",
+      "side": 0,
+      "message": "A return should be added here, otherwise one cannot \"continue\" the panic in KDL.",
+      "revId": "41ddfe2a44cfd077483c9bf8fa80912431f772a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e7e4ce5_a5a7a9fe",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Inode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-02-13T10:25:37Z",
+      "side": 0,
+      "message": "A \"return\" should be added inside the if block, see above.",
+      "revId": "41ddfe2a44cfd077483c9bf8fa80912431f772a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "228670bd_e5ff64e3",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Inode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-02-13T10:25:37Z",
+      "side": 0,
+      "message": "Here it should probably not return B_OK when continuing after the panic() in KDL, no?",
+      "revId": "41ddfe2a44cfd077483c9bf8fa80912431f772a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d63fdf26_41c0e98f",
         "filename": "src/add-ons/kernel/file_systems/btrfs/Inode.cpp",
         "patchSetId": 1
@@ -19,6 +70,23 @@
     },
     {
       "key": {
+        "uuid": "40dbc644_667c5cca",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Inode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-02-13T10:25:37Z",
+      "side": 0,
+      "message": "It looks wrong to remove the free(). It seems all other code-paths free the extent_data before returning. So why not here?",
+      "revId": "41ddfe2a44cfd077483c9bf8fa80912431f772a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f6e8906e_c55ccded",
         "filename": "src/kits/tracker/NavMenu.cpp",
         "patchSetId": 1
@@ -30,6 +98,24 @@
       "writtenOn": "2019-02-13T08:09:49Z",
       "side": 0,
       "message": "I would like an explanation of where this is freed now. newResolvedModel goes out of scope and the pointer isn\u0027t stored anywhere else",
+      "revId": "41ddfe2a44cfd077483c9bf8fa80912431f772a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5169f731_65beff53",
+        "filename": "src/kits/tracker/NavMenu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 608,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-02-13T10:25:37Z",
+      "side": 0,
+      "message": "Same here.",
+      "parentUuid": "f6e8906e_c55ccded",
       "revId": "41ddfe2a44cfd077483c9bf8fa80912431f772a3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
