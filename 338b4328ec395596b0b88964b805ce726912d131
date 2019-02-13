@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4190bb36_b9402b4e",
+        "filename": "src/add-ons/accelerants/neomagic/engine/nm_crtc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000091
+      },
+      "writtenOn": "2019-02-13T15:00:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b96f596_05018dc3",
+      "revId": "338b4328ec395596b0b88964b805ce726912d131",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f85d59a6_c39f956f",
         "filename": "src/add-ons/accelerants/neomagic/engine/nm_crtc.c",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2019-02-13T08:03:37Z",
       "side": 1,
       "message": "Alternating use of two variables as source and target like this is not nice, and also you are not checking the remaining space in the buffer.\n\nA good pattern would be:\n\nchar message[100];\nchar position \u003d 0;\n\nposition +\u003d snprintf(message + position, sizeof(message) - position, \"...\");\nposition +\u003d snprintf(message + position, sizeof(message) - position, \"...\");\n\nBeware, because the second parameter to snprintf is unsigned, so if position gets past the end of message, the bounds check will not work. So an extra check is needed.\n\nIt may end up being simpler to use BString.SetToFormat and append multiple strings.",
+      "revId": "338b4328ec395596b0b88964b805ce726912d131",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7bcb909_a6e0caa6",
+        "filename": "src/add-ons/accelerants/neomagic/engine/nm_crtc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1000091
+      },
+      "writtenOn": "2019-02-13T15:00:44Z",
+      "side": 1,
+      "message": "\u003e It may end up being simpler to use BString.SetToFormat and append multiple strings.\n\nIf only they were available in C.\n\nBut the multiple strings is done as a short string for each status type, combined in a single snprintf to msg at the end.",
+      "parentUuid": "f85d59a6_c39f956f",
       "revId": "338b4328ec395596b0b88964b805ce726912d131",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "53b87eb0_2088358a",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/NamespaceDump.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000091
+      },
+      "writtenOn": "2019-02-13T15:00:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "feea9708_9136395f",
+      "revId": "338b4328ec395596b0b88964b805ce726912d131",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "945a35a8_6ebd23b6",
         "filename": "src/add-ons/kernel/bus_managers/virtio/VirtioDevice.cpp",
         "patchSetId": 1
@@ -67,6 +121,24 @@
       "revId": "338b4328ec395596b0b88964b805ce726912d131",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e699e95_82f95e06",
+        "filename": "src/add-ons/kernel/bus_managers/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1000091
+      },
+      "writtenOn": "2019-02-13T15:00:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "945a35a8_6ebd23b6",
+      "revId": "338b4328ec395596b0b88964b805ce726912d131",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "bb75cace_47c837c0",
+        "filename": "src/add-ons/screen_savers/glife/GLifeConfig.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000091
+      },
+      "writtenOn": "2019-02-13T15:00:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56c580ff_60c6a7e1",
+      "revId": "338b4328ec395596b0b88964b805ce726912d131",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "98174d96_d3fe199d",
         "filename": "src/add-ons/screen_savers/glife/GLifeConfig.cpp",
         "patchSetId": 1
@@ -101,6 +191,24 @@
       "revId": "338b4328ec395596b0b88964b805ce726912d131",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c437ff3_19ba6a61",
+        "filename": "src/add-ons/screen_savers/glife/GLifeConfig.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000091
+      },
+      "writtenOn": "2019-02-13T15:00:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98174d96_d3fe199d",
+      "revId": "338b4328ec395596b0b88964b805ce726912d131",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
