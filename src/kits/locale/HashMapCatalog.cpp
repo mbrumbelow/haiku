@@ -258,7 +258,7 @@ HashMapCatalog::SetString(const CatKey& key, const char *translated)
  * wrong order, and this does happen, as an hash map is an unsorted container.
  */
 uint32
-HashMapCatalog::ComputeFingerprint() const
+HashMapCatalog::ComputeFingerprint()
 {
 	uint32 checksum = 0;
 
