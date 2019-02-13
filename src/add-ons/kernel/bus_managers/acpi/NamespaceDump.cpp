@@ -80,6 +80,7 @@ static void
 dump_acpi_namespace(acpi_ns_device_info *device, char *root, int indenting)
 {
 	char result[255];
+	char outbuffer[320];
 	char output[320];
 	char tabs[255] = "";
 	char hid[16] = "";
@@ -95,51 +96,52 @@ dump_acpi_namespace(acpi_ns_device_info *device, char *root, int indenting)
 	void *counter = NULL;
 	while (device->acpi->get_next_entry(ACPI_TYPE_ANY, root, result, 255, &counter) == B_OK) {
 		uint32 type = device->acpi->get_object_type(result);
-		snprintf(output, sizeof(output), "%s%s", tabs, result + depth);
+		snprintf(output	, sizeof(output	), "%s%s", tabs, result + depth);
 		switch(type) {
 			case ACPI_TYPE_INTEGER:
-				snprintf(output, sizeof(output), "%s     INTEGER", output);
+				strncat(output	, "     INTEGER", sizeof(output	));
 				break;
 			case ACPI_TYPE_STRING:
-				snprintf(output, sizeof(output), "%s     STRING", output);
+				strncat(output	, "     STRING", sizeof(output	));
 				break;
 			case ACPI_TYPE_BUFFER:
-				snprintf(output, sizeof(output), "%s     BUFFER", output);
+				strncat(output	, "     BUFFER", sizeof(output	));
 				break;
 			case ACPI_TYPE_PACKAGE:
-				snprintf(output, sizeof(output), "%s     PACKAGE", output);
+				strncat(output	, "     PACKAGE", sizeof(output	));
 				break;
 			case ACPI_TYPE_FIELD_UNIT:
-				snprintf(output, sizeof(output), "%s     FIELD UNIT", output);
+				strncat(output	, "     FIELD UNIT", sizeof(output	));
 				break;
 			case ACPI_TYPE_DEVICE:
 				hid[0] = 0; /* zero-terminate string; get_device_hid can (and will) fail! */
 				device->acpi->get_device_hid(result, hid, sizeof(hid));
-				snprintf(output, sizeof(output), "%s     DEVICE (%s)", output, hid);
+				snprintf(outbuffer, sizeof(outbuffer), "     DEVICE (%s)", hid);
+				strncat(output, outbuffer, sizeof(output));
 				break;
 			case ACPI_TYPE_EVENT:
-				snprintf(output, sizeof(output), "%s     EVENT", output);
+				strncat(output, "     EVENT", sizeof(output	));
 				break;
 			case ACPI_TYPE_METHOD:
-				snprintf(output, sizeof(output), "%s     METHOD", output);
+				strncat(output, "     METHOD", sizeof(output	));
 				break;
 			case ACPI_TYPE_MUTEX:
-				snprintf(output, sizeof(output), "%s     MUTEX", output);
+				strncat(output, "     MUTEX", sizeof(output	));
 				break;
 			case ACPI_TYPE_REGION:
-				snprintf(output, sizeof(output), "%s     REGION", output);
+				strncat(output, "     REGION", sizeof(output	));
 				break;
 			case ACPI_TYPE_POWER:
-				snprintf(output, sizeof(output), "%s     POWER", output);
+				strncat(output, "     POWER", sizeof(output	));
 				break;
 			case ACPI_TYPE_PROCESSOR:
-				snprintf(output, sizeof(output), "%s     PROCESSOR", output);
+				strncat(output, "     PROCESSOR", sizeof(output	));
 				break;
 			case ACPI_TYPE_THERMAL:
-				snprintf(output, sizeof(output), "%s     THERMAL", output);
+				strncat(output, "     THERMAL", sizeof(output	));
 				break;
 			case ACPI_TYPE_BUFFER_FIELD:
-				snprintf(output, sizeof(output), "%s     BUFFER_FIELD", output);
+				strncat(output, "     BUFFER_FIELD", sizeof(output	));
 				break;
 			case ACPI_TYPE_ANY:
 			default:
