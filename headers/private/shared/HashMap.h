@@ -1,16 +1,18 @@
 /*
  * Copyright 2004-2009, Ingo Weinhold, ingo_weinhold@gmx.de.
+ * Copyright 2019, Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  */
 #ifndef HASH_MAP_H
 #define HASH_MAP_H
 
-//#include <Debug.h>
-
-#include <util/OpenHashTable.h>
+#include <OpenHashTable.h>
+#include <Locker.h>
 
 #include "AutoLocker.h"
-#include "Locker.h"
+
+
+namespace BPrivate {
 
 
 // HashMapElement
@@ -148,6 +150,7 @@ public:
 	Value Remove(const Key& key);
 	void Clear();
 	Value Get(const Key& key) const;
+	bool Get(const Key& key, Value*& _value) const;
 
 	bool ContainsKey(const Key& key) const;
 
@@ -166,7 +169,7 @@ protected:
 
 
 // SynchronizedHashMap
-template<typename Key, typename Value>
+template<typename Key, typename Value, typename Locker = BLocker>
 class SynchronizedHashMap : public Locker {
 public:
 	typedef typename HashMap<Key, Value>::Entry Entry;
@@ -440,6 +443,19 @@ HashMap<Key, Value>::Get(const Key& key) const
 }
 
 
+// Get
+template<typename Key, typename Value>
+bool
+HashMap<Key, Value>::Get(const Key& key, Value*& _value) const
+{
+	if (Element* element = fTable.Lookup(key)) {
+		_value = &element->fValue;
+		return true;
+	}
+	return false;
+}
+
+
 // ContainsKey
 template<typename Key, typename Value>
 bool
@@ -466,5 +482,12 @@ HashMap<Key, Value>::GetIterator()
 	return Iterator(this);
 }
 
+} // namespace BPrivate
+
+using BPrivate::HashMap;
+using BPrivate::HashKey32;
+using BPrivate::HashKey64;
+using BPrivate::HashKeyPointer;
+using BPrivate::SynchronizedHashMap;
 
 #endif	// HASH_MAP_H
