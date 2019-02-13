@@ -16,6 +16,24 @@
       "revId": "7cc6163968350bd586baf384886d2684577774e1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "999a60b8_edfe5d74",
+        "filename": "src/apps/text_search/ChangesIterator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-02-13T15:30:42Z",
+      "side": 1,
+      "message": "This function is called PrintToStream, so I imagine performance is not much of a concern...\n\nRegardless, const does not allow the compiler that much more of an optimizartion anyway. As there was only one other place that expected the iterator to be const, I don\u0027t think it\u0027s worth introducing a whole new iterator and then changing all consumers.",
+      "parentUuid": "275c16ad_38433e7d",
+      "revId": "7cc6163968350bd586baf384886d2684577774e1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
