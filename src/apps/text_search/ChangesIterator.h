@@ -29,7 +29,7 @@ public:
 			void				EntryChanged(const char* path);
 
 			bool				IsEmpty() const;
-			void				PrintToStream() const;
+			void				PrintToStream();
 
 private:
 	typedef HashMap<HashString, uint32> PathMap;

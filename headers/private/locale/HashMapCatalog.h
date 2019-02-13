@@ -63,7 +63,7 @@ class CatKey {
 
 class HashMapCatalog: public BCatalogData {
 	protected:
-		uint32 ComputeFingerprint() const;
+		uint32 ComputeFingerprint();
 		typedef HashMap<CatKey, BString> CatMap;
 		CatMap 				fCatMap;
 

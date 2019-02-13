@@ -122,12 +122,11 @@ ChangesIterator::EntryChanged(const char* path)
 bool
 ChangesIterator::IsEmpty() const
 {
-	PathMap::Iterator iterator = fPathMap.GetIterator();
-	return !iterator.HasNext();
+	return fPathMap.Size() == 0;
 }
 
 void
-ChangesIterator::PrintToStream() const
+ChangesIterator::PrintToStream()
 {
 	printf("ChangesIterator contents:\n");
 	PathMap::Iterator iterator = fPathMap.GetIterator();
