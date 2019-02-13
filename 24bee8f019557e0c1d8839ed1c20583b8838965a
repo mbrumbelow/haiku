@@ -16,6 +16,24 @@
       "revId": "24bee8f019557e0c1d8839ed1c20583b8838965a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28b6b659_4b11d665",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1899,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-13T20:34:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6fe3f467_474a7b99",
+      "revId": "24bee8f019557e0c1d8839ed1c20583b8838965a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
