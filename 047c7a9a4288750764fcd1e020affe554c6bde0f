@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ec7226ab_51a55e3a",
+        "filename": "src/apps/launchbox/App.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-02-13T22:26:40Z",
+      "side": 1,
+      "message": "To reduce the complexity, we only store a single copy of the variable in App. To show the value of autostart as marked or unmarked we need to access the variable from App which is not possible without making an object(which is kind of impossible). A solution to this is to make the functions static which allow them to be accessed outside their own class.",
+      "parentUuid": "863f65e0_3afcb1c7",
+      "revId": "047c7a9a4288750764fcd1e020affe554c6bde0f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4a3514c4_53a33712",
         "filename": "src/apps/launchbox/App.h",
         "patchSetId": 5
