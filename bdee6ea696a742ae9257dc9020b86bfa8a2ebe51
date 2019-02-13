@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f4458878_fe901f51",
+        "filename": "docs/develop/kernel/device_manager_introduction.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-13T20:35:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61648d65_4c858057",
+      "revId": "bdee6ea696a742ae9257dc9020b86bfa8a2ebe51",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7219866d_b4e2a174",
         "filename": "docs/develop/kernel/sdhci_mmc_driver.md",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "fc0e2324_91a13827",
+        "filename": "docs/develop/kernel/sdhci_mmc_driver.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-13T20:35:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7219866d_b4e2a174",
+      "revId": "bdee6ea696a742ae9257dc9020b86bfa8a2ebe51",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fb9e40b6_ba475a25",
         "filename": "docs/develop/kernel/sdhci_mmc_driver.md",
         "patchSetId": 1
@@ -50,6 +86,24 @@
       "revId": "bdee6ea696a742ae9257dc9020b86bfa8a2ebe51",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e936f81_8e73bd63",
+        "filename": "docs/develop/kernel/sdhci_mmc_driver.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-13T20:35:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb9e40b6_ba475a25",
+      "revId": "bdee6ea696a742ae9257dc9020b86bfa8a2ebe51",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -85,6 +139,24 @@
       "revId": "bdee6ea696a742ae9257dc9020b86bfa8a2ebe51",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "810fa9e2_a5a6c7d1",
+        "filename": "docs/develop/kernel/sdhci_mmc_driver.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-13T20:35:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4b963c9_31fd4577",
+      "revId": "bdee6ea696a742ae9257dc9020b86bfa8a2ebe51",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
