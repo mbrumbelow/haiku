@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "968d22ee_abe89e36",
+        "filename": "src/bin/unzip/beos.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-13T08:18:31Z",
+      "side": 1,
+      "message": "Beware, the whole file is indented with spaces!\nWe should outsource this and use the version from info-zip upstream, anyways.\n\nIt is strange that you do a free(tmproot) in a check that verifies tmproot \u003d\u003d NULL",
+      "revId": "e637a79389c19b35a3705e3a206dc314f3c0ce86",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5376b2a_06ab4b1c",
+        "filename": "src/servers/net/Services.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-13T08:18:31Z",
+      "side": 1,
+      "message": "if execv succeeds, this code will never run...",
+      "revId": "e637a79389c19b35a3705e3a206dc314f3c0ce86",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f4917b9_bc4be36b",
+        "filename": "src/system/boot/platform/efi/devices.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-13T08:18:31Z",
+      "side": 1,
+      "message": "If you detach it, it will not delete the savedDevicePath. You do this only when yhe pointer is stored elsewhere. That may be the case here, but please do this very close to where it happens (before line 316?) in that case.",
+      "revId": "e637a79389c19b35a3705e3a206dc314f3c0ce86",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
