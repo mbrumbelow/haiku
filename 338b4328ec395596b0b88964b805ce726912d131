@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b96f596_05018dc3",
+        "filename": "src/add-ons/accelerants/neomagic/engine/nm_crtc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-13T08:03:37Z",
+      "side": 1,
+      "message": "While you are at it, this is also \u003e 80 columns",
+      "revId": "338b4328ec395596b0b88964b805ce726912d131",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f85d59a6_c39f956f",
+        "filename": "src/add-ons/accelerants/neomagic/engine/nm_crtc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-13T08:03:37Z",
+      "side": 1,
+      "message": "Alternating use of two variables as source and target like this is not nice, and also you are not checking the remaining space in the buffer.\n\nA good pattern would be:\n\nchar message[100];\nchar position \u003d 0;\n\nposition +\u003d snprintf(message + position, sizeof(message) - position, \"...\");\nposition +\u003d snprintf(message + position, sizeof(message) - position, \"...\");\n\nBeware, because the second parameter to snprintf is unsigned, so if position gets past the end of message, the bounds check will not work. So an extra check is needed.\n\nIt may end up being simpler to use BString.SetToFormat and append multiple strings.",
+      "revId": "338b4328ec395596b0b88964b805ce726912d131",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "feea9708_9136395f",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/NamespaceDump.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-13T08:03:37Z",
+      "side": 1,
+      "message": "Most of these can be replaced with an strncat instead",
+      "revId": "338b4328ec395596b0b88964b805ce726912d131",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "945a35a8_6ebd23b6",
+        "filename": "src/add-ons/kernel/bus_managers/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-13T08:03:37Z",
+      "side": 1,
+      "message": "I\u0027m sure you can find a solution that doesn\u0027t need copying the whole string around between two buffers at each string iteration!",
+      "revId": "338b4328ec395596b0b88964b805ce726912d131",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56c580ff_60c6a7e1",
+        "filename": "src/add-ons/screen_savers/glife/GLifeConfig.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-13T08:03:37Z",
+      "side": 1,
+      "message": "This is not great. It is done like this because B_PRId32 would lead to different strings in the 32 and 64bit catalogs.\n\nI wpuld say, use BString here, even if it will not be much better (you need a SetToFormat and a ReplaceAll, I think?)",
+      "revId": "338b4328ec395596b0b88964b805ce726912d131",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98174d96_d3fe199d",
+        "filename": "src/add-ons/screen_savers/glife/GLifeConfig.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-13T08:03:37Z",
+      "side": 1,
+      "message": "While you\u0027re at it, use BString.SetToFormat everywhere in this function",
+      "revId": "338b4328ec395596b0b88964b805ce726912d131",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
