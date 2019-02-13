@@ -80,6 +80,7 @@ SdhciBus::WorkerThread(void* cookie)
 	SdhciBus* bus = (SdhciBus*)cookie;
 	TRACE("worker thread spawned.\n");
 
+	// FIXME we have to get back here whenever a card is inserted!
 	// Wait for a card insertion
 	acquire_sem(bus->fSemaphore);
 
@@ -87,6 +88,7 @@ SdhciBus::WorkerThread(void* cookie)
 
 	// FIXME all this procedure should have timeouts to make sure we are not
 	// staying locked here.
+	// FIXME to which extent should this logic be moved to the mmc_bus?
 	bus->SetClock(400);
 
 	if (!bus->PowerOn()) {
@@ -157,11 +159,46 @@ SdhciBus::WorkerThread(void* cookie)
 		TRACE("Card supports 1.8v");
 	TRACE("Voltage range: %x\n", ocr & 0xFFFFFF);
 
-	// Next step: use CMD2/CMD3 to read card identifier and assign a short id.
-	// Then we are done, the card is set to data mode and we can hand it over
-	// to the mmc_disk driver!
-	
+	// TODO send CMD11 to switch to low voltage mode if card supports it?
+
+	TRACE("Send CMD2\n");
+	bus->fRegisters->argument = 0;
+	bus->fRegisters->command.SendCommand(2, Command::kR2Type);
+	acquire_sem(bus->fSemaphore);
+
+	uint32_t reply[4];
+	reply[0] = bus->fRegisters->response[0];
+	reply[1] = bus->fRegisters->response[1];
+	reply[2] = bus->fRegisters->response[2];
+	reply[3] = bus->fRegisters->response[3];
+
+	TRACE("Manufacturer: %02x%c%c\n", reply[3] >> 16, reply[3] >> 8,
+		reply[3]);
+	TRACE("Name: %c%c%c%c%c\n", reply[2] >> 24, reply[2] >> 16, reply[2] >> 8,
+		reply[2], reply[1] >> 24);
+	TRACE("Revision: %d.%d\n", (reply[1] >> 20) & 0xF, (reply[1] >> 16) & 0xF);
+	TRACE("Serial number: %x\n", (reply[1] << 16) | (reply[0] >> 16));
+	TRACE("Date: %d/%d\n", reply[0] & 0xF, 2000 + ((reply[0] >> 4) & 0xFF));
+
+	TRACE("Send CMD3\n");
+	bus->fRegisters->argument = 0;
+	bus->fRegisters->command.SendCommand(3, Command::kR6Type);
+	acquire_sem(bus->fSemaphore);
+
+	uint32_t r6 = bus->fRegisters->response[0];
+	TRACE("RCA: %x Status: %x\n", r6 >> 16, r6 & 0xFFFF);
+
+	if ((r6 & 0xFF00) != 0x5000)
+		ERROR("Card did not enter data state\n");
+
+	// The card now has an RCA and it entered the data phase, which means our
+	// initializing job is over, we can pass it on to the mmc_disk driver.
+
 	// TODO publish child device for the card
+	// TODO fill it with attributes from the CID
+	
+	// TODO iterate CMD2/CMD3 to assign an RCA to all cards (and publish devices
+	// for each of them)
 
 	TRACE("worker thread entering main loop\n");
 	while (bus->fStatus == B_OK) {
