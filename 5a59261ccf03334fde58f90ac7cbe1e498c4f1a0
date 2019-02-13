@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "fab9c971_785a13be",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/NamespaceDump.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-02-13T15:32:24Z",
+      "side": 1,
+      "message": "With this one, the function exceeds 1K of stack usage. This should be avoided.",
+      "revId": "5a59261ccf03334fde58f90ac7cbe1e498c4f1a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4052871a_31ed6e9e",
         "filename": "src/add-ons/kernel/bus_managers/acpi/NamespaceDump.cpp",
         "patchSetId": 2
@@ -30,6 +47,23 @@
       "writtenOn": "2019-02-13T15:21:35Z",
       "side": 1,
       "message": "beware, you have tabs in unexpected places here",
+      "revId": "5a59261ccf03334fde58f90ac7cbe1e498c4f1a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "706edfa0_71bb790e",
+        "filename": "src/add-ons/kernel/bus_managers/virtio/VirtioDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-02-13T15:32:24Z",
+      "side": 1,
+      "message": "This doubles the stack usage...",
       "revId": "5a59261ccf03334fde58f90ac7cbe1e498c4f1a0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
