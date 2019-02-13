@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "cf6555e8_763ca362",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Inode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000091
+      },
+      "writtenOn": "2019-02-13T11:51:39Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "eb54da7b_27fa2e94",
+      "revId": "41ddfe2a44cfd077483c9bf8fa80912431f772a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1e7e4ce5_a5a7a9fe",
         "filename": "src/add-ons/kernel/file_systems/btrfs/Inode.cpp",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "0f2ab295_12dd8b55",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Inode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1000091
+      },
+      "writtenOn": "2019-02-13T11:51:39Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "1e7e4ce5_a5a7a9fe",
+      "revId": "41ddfe2a44cfd077483c9bf8fa80912431f772a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "228670bd_e5ff64e3",
         "filename": "src/add-ons/kernel/file_systems/btrfs/Inode.cpp",
         "patchSetId": 1
@@ -50,6 +86,24 @@
       "revId": "41ddfe2a44cfd077483c9bf8fa80912431f772a3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6483028d_eeb084db",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Inode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1000091
+      },
+      "writtenOn": "2019-02-13T11:51:39Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "228670bd_e5ff64e3",
+      "revId": "41ddfe2a44cfd077483c9bf8fa80912431f772a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +141,24 @@
     },
     {
       "key": {
+        "uuid": "df38e3fd_c0aaa2d7",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Inode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1000091
+      },
+      "writtenOn": "2019-02-13T11:51:39Z",
+      "side": 0,
+      "message": "I\u0027ve added all from your notes above.\n\nThe additional return() you noted above prevents this one from double-freeing, so I was looking at the wrong end for source of the problem.",
+      "parentUuid": "40dbc644_667c5cca",
+      "revId": "41ddfe2a44cfd077483c9bf8fa80912431f772a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f6e8906e_c55ccded",
         "filename": "src/kits/tracker/NavMenu.cpp",
         "patchSetId": 1
@@ -116,6 +188,24 @@
       "side": 0,
       "message": "Same here.",
       "parentUuid": "f6e8906e_c55ccded",
+      "revId": "41ddfe2a44cfd077483c9bf8fa80912431f772a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7329adbf_3ea822bb",
+        "filename": "src/kits/tracker/NavMenu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 608,
+      "author": {
+        "id": 1000091
+      },
+      "writtenOn": "2019-02-13T11:51:39Z",
+      "side": 0,
+      "message": "I mistakenly thought the next delete was beyond the if(result !\u003d NULL) block immediately following, and would catch both cases.",
+      "parentUuid": "5169f731_65beff53",
       "revId": "41ddfe2a44cfd077483c9bf8fa80912431f772a3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
