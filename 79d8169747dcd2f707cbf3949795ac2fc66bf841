@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ecd694d6_8d7526ae",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Inode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1000091
+      },
+      "writtenOn": "2019-02-13T16:21:43Z",
+      "side": 1,
+      "message": "Yes it certainly looks like that\u0027s the more elegant approach.",
+      "parentUuid": "213aadfe_82286ba3",
+      "revId": "79d8169747dcd2f707cbf3949795ac2fc66bf841",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a6cae73c_307b5deb",
         "filename": "src/add-ons/kernel/file_systems/btrfs/Inode.cpp",
         "patchSetId": 2
