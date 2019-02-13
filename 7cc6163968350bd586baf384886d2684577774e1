@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "275c16ad_38433e7d",
+        "filename": "src/apps/text_search/ChangesIterator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2019-02-13T14:30:30Z",
+      "side": 1,
+      "message": "Can\u0027t we provide a const iterator anymore? This is a pretty suboptimal change.",
+      "revId": "7cc6163968350bd586baf384886d2684577774e1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
