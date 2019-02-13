@@ -122,6 +122,24 @@
       "revId": "e637a79389c19b35a3705e3a206dc314f3c0ce86",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1201a4f6_9ca5c111",
+        "filename": "src/system/boot/platform/efi/devices.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1000091
+      },
+      "writtenOn": "2019-02-13T15:28:50Z",
+      "side": 1,
+      "message": "\u003e The point is just making it obvious why the detach needs to happen here (I guess it is because add_device_path now owns the pointer?).\n\nOK, now located directly after the add_device_path",
+      "parentUuid": "96a4fa25_4869e630",
+      "revId": "e637a79389c19b35a3705e3a206dc314f3c0ce86",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
