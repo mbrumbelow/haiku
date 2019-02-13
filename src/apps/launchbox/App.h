@@ -26,13 +26,17 @@ public:
 
 			void				SetNamePanelSize(const BSize& size);
 			BSize				NamePanelSize();
+	static	void				ToggleAutoStart();
+	static	bool				AutoStart(){
+									return gAutoStart;}
 
 private:
 			void				_StoreSettingsIfNeeded();
 
-			bool				fSettingsChanged;
+	static		bool				gSettingsChanged;
 
 			BSize				fNamePanelSize;
+	static	bool				gAutoStart;
 };
 
 

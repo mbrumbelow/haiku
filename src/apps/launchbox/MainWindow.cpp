@@ -7,6 +7,8 @@
 
 #include <stdio.h>
 
+#include <Directory.h>
+#include <File.h>
 #include <Alert.h>
 #include <Application.h>
 #include <Catalog.h>
@@ -49,7 +51,6 @@ MainWindow::MainWindow(const char* name, BRect frame, bool addDefaultButtons)
 		else
 			_AddEmptyButtons();
 	}
-
 	SetLayout(new BGroupLayout(B_HORIZONTAL));
 	AddChild(fPadView);
 }
@@ -281,6 +282,12 @@ MainWindow::MessageReceived(BMessage* message)
 			break;
 		case MSG_TOGGLE_AUTORAISE:
 			ToggleAutoRaise();
+			break;
+		case MSG_TOGGLE_AUTOSTART:
+		{
+			_NotifySettingsChanged();
+			be_app->PostMessage(MSG_TOGGLE_AUTOSTART);
+		}
 			break;
 		case MSG_SHOW_ON_ALL_WORKSPACES:
 			fShowOnAllWorkspaces = !fShowOnAllWorkspaces;
@@ -653,4 +660,3 @@ MainWindow::_NotifySettingsChanged()
 {
 	be_app->PostMessage(MSG_SETTINGS_CHANGED);
 }
-

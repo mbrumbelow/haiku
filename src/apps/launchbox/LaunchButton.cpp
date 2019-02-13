@@ -376,7 +376,6 @@ LaunchButton::SetIgnoreDoubleClick(bool refuse)
 	sIgnoreDoubleClick = refuse;
 }
 
-
 // #pragma mark -
 
 

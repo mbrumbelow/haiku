@@ -11,6 +11,8 @@
 #include <Entry.h>
 #include <Message.h>
 #include <String.h>
+#include <Directory.h>
+#include <File.h>
 
 #include "support.h"
 
@@ -19,10 +21,12 @@
 #undef B_TRANSLATION_CONTEXT
 #define B_TRANSLATION_CONTEXT "LaunchBox"
 
+bool App::gAutoStart = false;
+bool App::gSettingsChanged = false;
+
 App::App()
 	:
 	BApplication("application/x-vnd.Haiku-LaunchBox"),
-	fSettingsChanged(false),
 	fNamePanelSize(200, 50)
 {
 	SetPulseRate(3000000);
@@ -69,6 +73,9 @@ App::ReadyToRun()
 		BSize size;
 		if (settings.FindSize("name panel size", &size) == B_OK)
 			fNamePanelSize = size;
+		bool auto_start;
+		if (settings.FindBool("autostart", &auto_start) == B_OK)
+			gAutoStart = auto_start;
 	}
 
 	if (!windowAdded) {
@@ -94,11 +101,14 @@ App::MessageReceived(BMessage* message)
 			if (wasCloned)
 				window->MoveBy(10, 10);
 			window->Show();
-			fSettingsChanged = true;
+			gSettingsChanged = true;
 			break;
 		}
+		case MSG_TOGGLE_AUTOSTART:
+			ToggleAutoStart();
+			break;
 		case MSG_SETTINGS_CHANGED:
-			fSettingsChanged = true;
+			gSettingsChanged = true;
 			break;
 		default:
 			BApplication::MessageReceived(message);
@@ -124,6 +134,14 @@ App::SetNamePanelSize(const BSize& size)
 }
 
 
+void
+App::ToggleAutoStart()
+{
+	gSettingsChanged = true;
+	gAutoStart = !AutoStart();
+}
+
+
 BSize
 App::NamePanelSize()
 {
@@ -139,7 +157,7 @@ App::NamePanelSize()
 void
 App::_StoreSettingsIfNeeded()
 {
-	if (!fSettingsChanged)
+	if (!gSettingsChanged)
 		return;
 
 	BMessage settings('sett');
@@ -156,8 +174,9 @@ App::_StoreSettingsIfNeeded()
 		}
 	}
 	settings.AddSize("name panel size", fNamePanelSize);
+	settings.AddBool("autostart", AutoStart());
 
 	save_settings(&settings, "main_settings", "LaunchBox");
 
-	fSettingsChanged = false;
+	gSettingsChanged = false;
 }
