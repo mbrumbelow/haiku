@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f707149_51fd858f",
+        "filename": "src/add-ons/accelerants/neomagic/engine/nm_crtc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-13T15:21:35Z",
+      "side": 1,
+      "message": "sprintf is useless here\n\nconst char* disp;\n\n...\n\ndisp \u003d \"on\";\n\nAlso, please use non-abbreviated variable names",
+      "revId": "5a59261ccf03334fde58f90ac7cbe1e498c4f1a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4052871a_31ed6e9e",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/NamespaceDump.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-13T15:21:35Z",
+      "side": 1,
+      "message": "beware, you have tabs in unexpected places here",
+      "revId": "5a59261ccf03334fde58f90ac7cbe1e498c4f1a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6695902d_1a7e7ace",
+        "filename": "src/add-ons/screen_savers/glife/GLifeConfig.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-13T15:21:35Z",
+      "side": 1,
+      "message": "you can remove this",
+      "revId": "5a59261ccf03334fde58f90ac7cbe1e498c4f1a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3e5e0a8_cf10e4d4",
+        "filename": "src/add-ons/screen_savers/glife/GLifeConfig.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-13T15:21:35Z",
+      "side": 1,
+      "message": "fGridHeight",
+      "revId": "5a59261ccf03334fde58f90ac7cbe1e498c4f1a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b306e593_99162d7a",
+        "filename": "src/add-ons/screen_savers/glife/GLifeConfig.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-13T15:21:35Z",
+      "side": 1,
+      "message": "I mentionned in my previous commant that this does not work. B_PRId32 will have different values on 32 and 64bit versions, so we will have two different strings. But we want to use a single catalog for both. This is why you need to use both SetToFormat and ReplaceAll here, to make sure the format (passed to B_TRANSLATE) does not include a B_PRId32.\n\nI think the simplest way would be:\n\nBString format \u003d B_TRANSLATE(\"Grid life delay: \u003cnumber\u003ex\");\nformat.ReplaceAll(\"\u003cnumber\u003e\", B_PRId32);\nformat.SetToFormat(format.String(), fGridDelay-\u003eValue());",
+      "revId": "5a59261ccf03334fde58f90ac7cbe1e498c4f1a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
