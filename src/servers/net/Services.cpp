@@ -452,8 +452,12 @@ Services::_LaunchService(struct service& service, int socket)
 		}
 		args[service.arguments.size()] = NULL;
 
-		if (execv(service.arguments[0].c_str(), (char* const*)args) < 0)
+		if (execv(service.arguments[0].c_str(), (char* const*)args) < 0) {
+			free(args);
 			exit(1);
+		} else {
+			free(args);
+		}
 
 		// we'll never trespass here
 	} else {
