@@ -50,6 +50,24 @@
       "revId": "647975fed559e32252c42e3a5f4e636626ec53c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b6ef10c_475f26d0",
+        "filename": "headers/private/shared/OpenHashTable.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-02-13T15:37:20Z",
+      "side": 1,
+      "message": "We may want to eventually provide 2 different versions of this, one for the kernel and one for userland, in which case we would have to undo that change. Additionally, most consumers of this API don\u0027t include the private headers directory, just certain subdirectories like this one, and so we would have to use this full path there, too.",
+      "parentUuid": "0a5dd181_fe5fc927",
+      "revId": "647975fed559e32252c42e3a5f4e636626ec53c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
