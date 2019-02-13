@@ -131,7 +131,7 @@ status_t nm_crtc_set_timing(display_mode target, bool crt_only)
 	htotal = ((target.timing.h_total >> 3) - 5);
 	hdisp_e = ((target.timing.h_display >> 3) - 1);
 	hblnk_s = hdisp_e;
-	hblnk_e = (htotal + 0); /* this register differs from standard VGA! (says + 4) */		
+	hblnk_e = (htotal + 0); /* this register differs from standard VGA! (says + 4) */
 	hsync_s = (target.timing.h_sync_start >> 3);
 	hsync_e = (target.timing.h_sync_end >> 3);
 
@@ -226,7 +226,7 @@ status_t nm_crtc_set_timing(display_mode target, bool crt_only)
 		/* we need to wait a bit or the card will mess-up it's register values.. */
 		snooze(10);
 		ISACRTCW(OVERFLOW,
-		(	
+		(
 			temp |
 			((vdisp_e & 0x100) >> (8 - 1)) |
 			((vdisp_e & 0x200) >> (9 - 6)) |
@@ -387,9 +387,10 @@ status_t nm_crtc_depth(int mode)
 status_t nm_crtc_dpms(bool display, bool h, bool v)
 {
 	char msg[100];
+	char buf[100];
 	uint8 temp, size_outputs;
 
-	sprintf(msg, "CRTC: setting DPMS: ");
+	sprintf(buf, "CRTC: setting DPMS: ");
 
 	/* start synchronous reset: required before turning screen off! */
 	ISASEQW(RESET, 0x01);
@@ -405,32 +406,32 @@ status_t nm_crtc_dpms(bool display, bool h, bool v)
 
 		/* end synchronous reset if display should be enabled */
 		ISASEQW(RESET, 0x03);
-		sprintf(msg, "%sdisplay on, ", msg);
+		sprintf(msg, "%sdisplay on, ", buf);
 	}
 	else
 	{
 		ISASEQW(CLKMODE, (temp | 0x20));
-		sprintf(msg, "%sdisplay off, ", msg);
+		sprintf(msg, "%sdisplay off, ", buf);
 	}
 
 	temp = 0x00;
 	if (h)
 	{
-		sprintf(msg, "%shsync enabled, ", msg);
+		sprintf(buf, "%shsync enabled, ", msg);
 	}
 	else
 	{
 		temp |= 0x10;
-		sprintf(msg, "%shsync disabled, ", msg);
+		sprintf(buf, "%shsync disabled, ", msg);
 	}
 	if (v)
 	{
-		sprintf(msg, "%svsync enabled\n", msg);
+		sprintf(msg, "%svsync enabled\n", buf);
 	}
 	else
 	{
 		temp |= 0x20;
-		sprintf(msg, "%svsync disabled\n", msg);
+		sprintf(msg, "%svsync disabled\n", buf);
 	}
 
 	LOG(4, (msg));
@@ -485,7 +486,7 @@ status_t nm_crtc_dpms(bool display, bool h, bool v)
 	return B_OK;
 }
 
-status_t nm_crtc_set_display_pitch() 
+status_t nm_crtc_set_display_pitch()
 {
 	uint32 offset;
 
@@ -495,7 +496,7 @@ status_t nm_crtc_set_display_pitch()
 	offset = si->fbc.bytes_per_row / 8;
 
 	LOG(2,("CRTC: offset register set to: $%04x\n", offset));
-		
+
 	/* program the card */
 	ISACRTCW(PITCHL, (offset & 0xff));
 	//fixme: test for max supported pitch if possible,
@@ -507,7 +508,7 @@ status_t nm_crtc_set_display_pitch()
 	return B_OK;
 }
 
-status_t nm_crtc_set_display_start(uint32 startadd,uint8 bpp) 
+status_t nm_crtc_set_display_start(uint32 startadd,uint8 bpp)
 {
 	uint8 val;
 	uint32 timeout = 0;

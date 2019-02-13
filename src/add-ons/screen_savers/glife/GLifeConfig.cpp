@@ -47,7 +47,7 @@ GLifeConfig::GLifeConfig(BRect frame, GLifeState* pglsState)
 		0, 4, B_BLOCK_THUMB);
 
 	fGridDelay->SetHashMarks(B_HASH_MARKS_BOTTOM);
-	fGridDelay->SetLimitLabels(B_TRANSLATE("None"), B_TRANSLATE_COMMENT("4x", 
+	fGridDelay->SetLimitLabels(B_TRANSLATE("None"), B_TRANSLATE_COMMENT("4x",
 			"This is a factor: the x represents 'times'"));
 	fGridDelay->SetValue(pglsState->GridDelay());
 	fGridDelay->SetHashMarkCount(5);
@@ -114,7 +114,7 @@ GLifeConfig::AttachedToWindow(void)
 	fGridDelay->SetTarget(this);
 
 #ifdef _USE_ASYNCHRONOUS
-	
+
 	m_uiWindowFlags = Window()->Flags();
 	Window()->SetFlags(m_uiWindowFlags | B_ASYNCHRONOUS_CONTROLS);
 
@@ -140,11 +140,12 @@ GLifeConfig::_UpdateLabels()
 	if (fGridDelay->Value() <= 0)
 		sprintf(delay, B_TRANSLATE("none"));
 	else {
-		sprintf(delay, "%" B_PRId32, fGridDelay->Value());
-		sprintf(delay, B_TRANSLATE_COMMENT("%sx", 
-				"This is a factor: the x represents 'times'"), delay);
+		char delaybuf[16];
+		sprintf(delaybuf, "%" B_PRId32, fGridDelay->Value());
+		sprintf(delay, B_TRANSLATE_COMMENT("%sx",
+				"This is a factor: the x represents 'times'"), delaybuf);
 	}
-	snprintf(newLabel, sizeof(newLabel), B_TRANSLATE("Grid Life Delay: %s"), 
+	snprintf(newLabel, sizeof(newLabel), B_TRANSLATE("Grid Life Delay: %s"),
 		delay);
 	fGridDelay->SetLabel(newLabel);
 }

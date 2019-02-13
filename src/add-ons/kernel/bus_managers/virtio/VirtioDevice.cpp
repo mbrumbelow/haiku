@@ -272,6 +272,7 @@ VirtioDevice::_DumpFeatures(const char* title, uint32 features,
 	const char* (*get_feature_name)(uint32))
 {
 	char features_string[512] = "";
+	char features_buffer[512] = "";
 	for (uint32 i = 0; i < 32; i++) {
 		uint32 feature = features & (1 << i);
 		if (feature == 0)
@@ -280,8 +281,10 @@ VirtioDevice::_DumpFeatures(const char* title, uint32 features,
 		if (name == NULL)
 			name = get_feature_name(feature);
 		if (name != NULL) {
-			snprintf(features_string, sizeof(features_string), "%s[%s] ",
-			features_string, name);
+			snprintf(features_buffer, sizeof(features_buffer), "%s[",
+				features_string);
+			snprintf(features_string, sizeof(features_string), "%s] ",
+				name);
 		}
 	}
 	TRACE("%s: %s\n", title, features_string);
