@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "d916b429_d543eff1",
+        "filename": "docs/develop/kernel/device_manager_introduction.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-02-14T08:32:21Z",
+      "side": 1,
+      "message": "I don\u0027t see any change when comparing Patchset 1 and 3.",
+      "parentUuid": "f4458878_fe901f51",
+      "revId": "bdee6ea696a742ae9257dc9020b86bfa8a2ebe51",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7219866d_b4e2a174",
         "filename": "docs/develop/kernel/sdhci_mmc_driver.md",
         "patchSetId": 1
