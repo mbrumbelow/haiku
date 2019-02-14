@@ -16,6 +16,23 @@
       "revId": "4a31974821a700b0669915518cc4eee904c2df29",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "208b9238_6f7e9aea",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2019-02-14T22:24:37Z",
+      "side": 1,
+      "message": "Is there another place where i need to place this? The MSG_TOGGLE_AUTOSTART case has been removed from MainWindow, so it should be sending msg to App.",
+      "revId": "4a31974821a700b0669915518cc4eee904c2df29",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
