@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b171a850_dc6b892d",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-02-14T08:45:03Z",
+      "side": 1,
+      "message": "You could in theory pull this into one block to avoid the duplication. Something like:\n\nstatus_t status \u003d B_NO_MEMORY; (instead of B_OK, and perhaps declare more closely to first use?)\n\n...\n\nSdhciBus* bus \u003d new...\nif (bus !\u003d NULL)\n   status \u003d bus-\u003eInitCheck();\n\nif (status !\u003d B_OK) {\n    if (sPCIx86Module !\u003d NULL) {\n        put_module(B_PCI_X86_MODULE_NAME);\n        sPCIx86Module \u003d NULL;\n    }\n    // This next block of code will make it very explicit to the\n    // reader that regs_area is taken care of by the bus object. This\n    // fact isn\u0027t very clear from the code before, since only _regs is\n    // passed, not the area id, the relation isn\u0027t obvious without looking\n    // up the destructor:\n    if (bus \u003d\u003d NULL)\n        delete_area(regs_area);\n    else\n        delete bus;\n    return status;\n}",
+      "revId": "48046c3ae12454c7bfea889f697f08e358edace1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
