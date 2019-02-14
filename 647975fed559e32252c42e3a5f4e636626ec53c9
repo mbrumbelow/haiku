@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "617277c6_11e823e3",
+        "filename": "headers/private/shared/HashMap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-02-14T08:27:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b599120_bf81ff5e",
+      "revId": "647975fed559e32252c42e3a5f4e636626ec53c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eed65496_c94bd562",
         "filename": "headers/private/shared/HashMap.h",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "647975fed559e32252c42e3a5f4e636626ec53c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9dd54810_454a4f73",
+        "filename": "headers/private/shared/HashMap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-02-14T08:27:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eed65496_c94bd562",
+      "revId": "647975fed559e32252c42e3a5f4e636626ec53c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
