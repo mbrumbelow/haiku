@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "e5f06223_d79e8701",
+        "filename": "src/apps/launchbox/App.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-14T07:38:02Z",
+      "side": 1,
+      "message": "You can access the app easily from anywhere using the be_app variable:\n\n((App*)be_app)-\u003eAutoStart()",
+      "parentUuid": "ec7226ab_51a55e3a",
+      "revId": "047c7a9a4288750764fcd1e020affe554c6bde0f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4a3514c4_53a33712",
         "filename": "src/apps/launchbox/App.h",
         "patchSetId": 5
