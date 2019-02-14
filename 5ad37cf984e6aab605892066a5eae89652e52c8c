@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30a1eed1_989020b2",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Inode.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-14T10:26:33Z",
+      "side": 1,
+      "message": "Shouldn\u0027t the MemoryDeleter be created only after the call to FindPrevious, which initializes the pointer? Here it is set to delete an un-initialized pointer...",
+      "revId": "5ad37cf984e6aab605892066a5eae89652e52c8c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
