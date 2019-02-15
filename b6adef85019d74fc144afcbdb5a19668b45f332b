@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f8b409b_2302c5c1",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Inode.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-02-15T19:06:11Z",
+      "side": 0,
+      "message": "The memory deleter is never detached, so this is now a double-free. I now see my previous comment was erroneous, I\u0027d misread the diff; that was correct. Why did you change it?",
+      "revId": "b6adef85019d74fc144afcbdb5a19668b45f332b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
