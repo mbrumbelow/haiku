@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c3a1f4ed_d5b0d5c5",
+        "filename": "headers/private/shared/HashMap.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2019-02-15T07:42:25Z",
+      "side": 1,
+      "message": "This seems to be unused now.",
+      "revId": "cc54b43e68608b10af87258c6e30d148ac7760db",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
