@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "46db724e_4ad6d6eb",
+        "filename": "src/bin/diff_zip.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2019-02-15T12:09:04Z",
+      "side": 1,
+      "message": "if we delete rootNodes - why not free all zipArgs[i] and deallocate zipArgs too?",
+      "revId": "515506a6899dc3251a77beef06acad2875a749b2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae4a25d3_5053c639",
+        "filename": "src/bin/diff_zip.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2019-02-15T12:09:04Z",
+      "side": 1,
+      "message": "If we delete rootNodes here - why not also on the early exits (in 354, 338, 327)? Or will the runtime free the memory automagically?",
+      "revId": "515506a6899dc3251a77beef06acad2875a749b2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "961ec6c5_16e47b32",
+        "filename": "src/system/boot/platform/efi/devices.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2019-02-15T12:09:04Z",
+      "side": 1,
+      "message": "We create a copy of the parameter path inside this function - make path const?",
+      "revId": "515506a6899dc3251a77beef06acad2875a749b2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4fe9ff23_86b09adc",
+        "filename": "src/system/boot/platform/efi/devices.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2019-02-15T12:09:04Z",
+      "side": 1,
+      "message": "Detach() does not delete the the memory allocated! The function add_device_path creates a copy of savedDevicePath and we can here delete the object?  So - do not call deleter.Detach() and let the destructor of the deleter object make the work.",
+      "revId": "515506a6899dc3251a77beef06acad2875a749b2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d963e88_e1a57bf5",
+        "filename": "src/system/kernel/debug/tracing.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1125,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2019-02-15T12:09:04Z",
+      "side": 1,
+      "message": "The call to new() is a placement new. Do we need to call delete here to de-allocate memory? Or only the destructor (e.g. T-\u003e~T()). The same applies for all following changes.",
+      "revId": "515506a6899dc3251a77beef06acad2875a749b2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
