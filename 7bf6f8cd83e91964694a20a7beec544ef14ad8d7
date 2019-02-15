@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "cf326d82_e606286b",
+        "filename": "src/add-ons/accelerants/neomagic/engine/nm_crtc.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-15T07:32:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c9e5975_ff428d9c",
+      "revId": "7bf6f8cd83e91964694a20a7beec544ef14ad8d7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a1fc943c_f41fef96",
         "filename": "src/add-ons/accelerants/neomagic/engine/nm_crtc.c",
         "patchSetId": 4
@@ -33,6 +51,24 @@
       "revId": "7bf6f8cd83e91964694a20a7beec544ef14ad8d7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70f8b4ca_6eb1fa9e",
+        "filename": "src/add-ons/accelerants/neomagic/engine/nm_crtc.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-15T07:32:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1fc943c_f41fef96",
+      "revId": "7bf6f8cd83e91964694a20a7beec544ef14ad8d7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
