@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ba543a5_1ebe5027",
+        "filename": "src/system/boot/platform/efi/devices.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-16T10:03:16Z",
+      "side": 1,
+      "message": "The device keeps a pointer to the savedDevicePath, so deleting it when this function exits afte rthis point is incorrect.\n\nThis means the deleter must be detached after this function succeeds.\n\nHowever, EfiDevice does not delete the memory when it\u0027s deleted, so we need to fix that as well. Now we have an use after free, which isn\u0027t good.\n\nMarco is right that add_device_path makes a copy of the string, but this doesn\u0027t.\n\nWe need a deeper review of the memory management here.",
+      "revId": "571b5a83cfbe666a95ffa953ab4a5a736a0e5207",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
