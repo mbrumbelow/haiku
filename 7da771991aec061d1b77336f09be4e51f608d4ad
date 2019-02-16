@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b359a51c_87a5f84e",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 1608,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-02-16T21:43:52Z",
+      "side": 1,
+      "message": "This still seems like a huge hack. Why can\u0027t the Device Manager have some API for handling this?",
+      "revId": "7da771991aec061d1b77336f09be4e51f608d4ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
