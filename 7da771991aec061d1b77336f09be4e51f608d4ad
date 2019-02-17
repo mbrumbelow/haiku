@@ -16,6 +16,24 @@
       "revId": "7da771991aec061d1b77336f09be4e51f608d4ad",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3533a5e9_269071a0",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 1608,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-17T07:25:20Z",
+      "side": 1,
+      "message": "The point of the device manager is to avoid loading all drivers when probing devices (this is how it works in the BeOS API, each driver gets asked \"do you handle this device?\").\n\nIt can\u0027t be an API, because the point is to do some filtering *before* we load any driver. Who would call the API then?\n\nWe are due for a larger refactor here when we start working on non-PCI devices tree (FDT and OpenFirmware)",
+      "parentUuid": "b359a51c_87a5f84e",
+      "revId": "7da771991aec061d1b77336f09be4e51f608d4ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
