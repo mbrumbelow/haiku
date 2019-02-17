@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fa1c4ae_8cd05611",
+        "filename": "src/add-ons/accelerants/radeon/overlay_management.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-02-17T19:46:43Z",
+      "side": 1,
+      "message": "I would move the free after the err label.",
+      "revId": "8083416dd23455c0e1c0890c6ad472dbcac65f45",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
