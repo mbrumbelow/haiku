@@ -34,6 +34,24 @@
       "revId": "48046c3ae12454c7bfea889f697f08e358edace1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ebaf450c_3d28e699",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-17T07:25:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b171a850_dc6b892d",
+      "revId": "48046c3ae12454c7bfea889f697f08e358edace1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
