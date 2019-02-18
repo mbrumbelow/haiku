@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c8cf2b44_467119bb",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/NamespaceDump.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-02-18T09:59:52Z",
+      "side": 1,
+      "message": "Please use a space after output (for the four strncat too)",
+      "revId": "a7b782b0fd7a57b8b043d9f2443b6f34ff66f454",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
