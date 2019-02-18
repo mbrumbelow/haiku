@@ -34,6 +34,24 @@
       "revId": "7da771991aec061d1b77336f09be4e51f608d4ad",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0377a9f8_4d1ec6e2",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 1608,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2019-02-18T12:45:56Z",
+      "side": 1,
+      "message": "As Adrien pointed out, there can\u0027t be an API. However, there should be a text based configuration rather than having those things hard coded (it could still serve as a fallback in case there is no configuration file).\n\nThis should be \"packagefs-able\", that is, any number of files are allowed to compile the configuration from. USB and ACPI should already have triggered the redesign of this part, but they somehow haven\u0027t achieved that yet :-)",
+      "parentUuid": "3533a5e9_269071a0",
+      "revId": "7da771991aec061d1b77336f09be4e51f608d4ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
