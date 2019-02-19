@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include "mmc_disk.h"
+#include "mmc.h"
 
 #include <drivers/device_manager.h>
 #include <drivers/KernelExport.h>
@@ -20,11 +21,11 @@
 
 #define TRACE_MMC_DISK
 #ifdef TRACE_MMC_DISK
-#	define TRACE(x...) dprintf("mmc_disk: " x)
+#	define TRACE(x...) dprintf("\33[33mmmc_disk:\33[0m " x)
 #else
 #	define TRACE(x...) ;
 #endif
-#define ERROR(x...)			dprintf("\33[33mmc_disk:\33[0m " x)
+#define ERROR(x...)			dprintf("\33[33mmmc_disk:\33[0m " x)
 #define CALLED() 			TRACE("CALLED %s\n", __PRETTY_FUNCTION__)
 
 #define MMC_DISK_DRIVER_MODULE_NAME "drivers/disk/mmc/mmc_disk/driver_v1"
@@ -37,29 +38,29 @@ static device_manager_info* sDeviceManager;
 static float
 mmc_disk_supports_device(device_node* parent)
 {
-	CALLED();
+	// Filter all devices that are not on an MMC bus
 	const char* bus;
-	// uint16 deviceType;
-
 	if (sDeviceManager->get_attr_string(parent, B_DEVICE_BUS, &bus,
 			true) != B_OK)
 		return -1;
 
-	if (strcmp(bus, "mmc") != 0) {
-		TRACE("bus value %s, parent: %p\n",bus, parent);
+	if (strcmp(bus, "mmc") != 0)
 		return 0.0;
-	}
-	// Used to check the device type but later we have attached an
-	// attribute(mmc) to the bus. Not a compulsion to use this condition
-	#if 0
-	if (sDeviceManager->get_attr_uint16(parent, SDHCI_DEVICE_TYPE_ITEM,
+
+	CALLED();
+
+	// Filter all devices that are not of the known types
+	uint8_t deviceType;
+	if (sDeviceManager->get_attr_uint8(parent, "mmc/type",
 			&deviceType, true) != B_OK)
 	{
-		TRACE(" Inavlid device type, bus found: %s and attr val %d\n",
-				bus, deviceType);
-		return 0.0;
+		ERROR("Could not get device type\n");
+		return -1;
 	}
-	#endif
+
+	if (deviceType != CARD_TYPE_SD && deviceType != CARD_TYPE_SDHC)
+		return 0.0;
+
 	TRACE("sdhci device found, parent: %p\n", parent);
 
 	return 0.8;
@@ -72,6 +73,7 @@ mmc_disk_register_device(device_node* node)
 	CALLED();
 
 	device_attr attrs[] = {
+		{ B_DEVICE_PRETTY_NAME, B_STRING_TYPE, { string: "SD Card" }},
 		{ NULL }
 	};
 
@@ -129,11 +131,99 @@ mmc_disk_register_child_devices(void* _cookie)
 }
 
 
+//	#pragma mark - device module API
+
+
+static status_t
+mmc_block_init_device(void* _info, void** _cookie)
+{
+	CALLED();
+	mmc_disk_driver_info* info = (mmc_disk_driver_info*)_info;
+
+	device_node* parent = sDeviceManager->get_parent_node(info->node);
+	sDeviceManager->get_driver(parent, (driver_module_info **)&info->mmc,
+		(void **)&info->mmc_device);
+	sDeviceManager->put_node(parent);
+
+	status_t status = B_OK;
+	// TODO Get capacity
+
+	return status;
+}
+
+
+static void
+mmc_block_uninit_device(void* _cookie)
+{
+	CALLED();
+	mmc_disk_driver_info* info = (mmc_disk_driver_info*)_cookie;
+
+	// TODO cleanup whatever is relevant
+}
+
+
+static status_t
+mmc_block_open(void* _info, const char* path, int openMode, void** _cookie)
+{
+	CALLED();
+	mmc_disk_driver_info* info = (mmc_disk_driver_info*)_info;
+
+	// TODO allocate cookie
+	*_cookie = NULL;
+
+	return B_OK;
+}
+
+
+static status_t
+mmc_block_close(void* cookie)
+{
+	//mmc_disk_handle* handle = (mmc_disk_handle*)cookie;
+	CALLED();
+
+	return B_OK;
+}
+
+
+static status_t
+mmc_block_free(void* cookie)
+{
+	CALLED();
+	mmc_disk_handle* handle = (mmc_disk_handle*)cookie;
+
+	free(handle);
+	return B_OK;
+}
+
+
 module_dependency module_dependencies[] = {
 	{B_DEVICE_MANAGER_MODULE_NAME, (module_info**)&sDeviceManager},
 	{}
 };
 
+
+struct device_module_info sMMCBlockDevice = {
+	{
+		MMC_DISK_DEVICE_MODULE_NAME,
+		0,
+		NULL
+	},
+
+	mmc_block_init_device,
+	mmc_block_uninit_device,
+	NULL, // remove,
+
+	mmc_block_open,
+	mmc_block_close,
+	mmc_block_free,
+	//mmc_block_read,
+	//mmc_block_write,
+	//mmc_block_io,
+	//mmc_block_ioctl,
+
+	NULL,	// select
+	NULL,	// deselect
+};
 
 struct driver_module_info sMMCDiskDriver = {
 	{
@@ -153,5 +243,6 @@ struct driver_module_info sMMCDiskDriver = {
 
 module_info* modules[] = {
 	(module_info*)&sMMCDiskDriver,
+	(module_info*)&sMMCBlockDevice,
 	NULL
 };

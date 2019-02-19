@@ -13,12 +13,16 @@
 #include <KernelExport.h>
 
 
-#define SDHCI_DEVICE_TYPE_ITEM "sdhci/type"
-
 typedef struct {
 	device_node* 	node;
-	status_t 		media_status;
+	mmc_driver_interface* mmc;
+	void* mmc_device;
 } mmc_disk_driver_info;
+
+
+typedef struct {
+
+} mmc_disk_handle;
 
 
 #endif /*_MMC_DISK_H*/
