@@ -1,9 +1,10 @@
 /*
- * Copyright 2018 Haiku, Inc. All rights reserved.
+ * Copyright 2018-2019 Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
  *		B Krishnan Iyer, krishnaniyer97@gmail.com
+ *		Adrien Destugues, pulkomandy@pulkomandy.tk
  */
 #ifndef _MMC_DISK_H
 #define _MMC_DISK_H
@@ -13,12 +14,16 @@
 #include <KernelExport.h>
 
 
-#define SDHCI_DEVICE_TYPE_ITEM "sdhci/type"
-
 typedef struct {
 	device_node* 	node;
-	status_t 		media_status;
+	mmc_driver_interface* mmc;
+	void* mmc_device;
 } mmc_disk_driver_info;
+
+
+typedef struct {
+	mmc_disk_driver_info* info;
+} mmc_disk_handle;
 
 
 #endif /*_MMC_DISK_H*/
