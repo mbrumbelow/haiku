@@ -1,9 +1,9 @@
 //--------------------------------------------------------------------
-//	
+//
 //	stddlg.cpp
 //
 //	Written by: Owen Smith
-//	
+//
 //--------------------------------------------------------------------
 
 /*
@@ -12,18 +12,19 @@
 */
 
 #include <Alert.h>
+#include <Catalog.h>
 #include <string.h>
 
-#include "constants.h"
 #include "stddlg.h"
+
+
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "MenuWorld"
+
 
 void ierror(const char* msg)
 {
-	char* fullMsg = new char[strlen(STR_IERROR) + strlen(msg) + 1];
-	strcpy(fullMsg, STR_IERROR);
-	strcpy(fullMsg, msg);
-	BAlert alert("Internal Error", fullMsg, "OK", NULL, NULL,
+	BAlert alert(B_TRANSLATE("Internal Error"), msg, B_TRANSLATE("OK"), NULL, NULL,
 		B_WIDTH_AS_USUAL, B_STOP_ALERT);
 	alert.Go();
-	delete [] fullMsg;
 }
