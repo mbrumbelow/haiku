@@ -92,7 +92,7 @@ IconsSaver::StartSaver(BView* view, bool /*preview*/)
 	if (fBackBitmap->Lock()) {
 		fBackView->FillRect(fBackView->Frame());
 		fBackView->SetDrawingMode(B_OP_ALPHA);
-		fBackView->SetBlendingMode(B_CONSTANT_ALPHA, B_ALPHA_OVERLAY);
+		fBackView->SetBlendingMode(B_CONSTANT_ALPHA, B_ALPHA_COMPOSITE);
 		fBackView->Sync();
 		fBackBitmap->Unlock();
 	}
