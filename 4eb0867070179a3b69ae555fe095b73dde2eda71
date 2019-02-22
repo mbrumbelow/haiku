@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d08d691_76ccebc2",
+        "filename": "src/add-ons/kernel/drivers/misc/poke.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-02-22T23:10:14Z",
+      "side": 1,
+      "message": "Huh? This is already checked above.",
+      "revId": "4eb0867070179a3b69ae555fe095b73dde2eda71",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ce60e96_e8770bbb",
+        "filename": "src/add-ons/kernel/drivers/misc/poke.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-02-22T23:10:14Z",
+      "side": 1,
+      "message": "So this will be done on 32-bit only, is that correct?",
+      "revId": "4eb0867070179a3b69ae555fe095b73dde2eda71",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
