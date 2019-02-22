@@ -785,8 +785,59 @@ XHCI::SubmitNormalRequest(Transfer *transfer)
 status_t
 XHCI::CancelQueuedTransfers(Pipe *pipe, bool force)
 {
-	TRACE_ALWAYS("cancel queued transfers for pipe %p (%d)\n", pipe,
+	TRACE("cancel queued transfers for pipe %p (%d)\n", pipe,
 		pipe->EndpointAddress());
+
+	xhci_endpoint *endpoint = (xhci_endpoint *)pipe->ControllerCookie();
+	if (endpoint == NULL || endpoint->trbs == NULL) {
+		// Someone's de-allocated this pipe or endpoint in the meantime.
+		// (Most likely AllocateDevice failed, and we were the temporary pipe.)
+		return B_NO_INIT;
+	}
+	if (endpoint->device->state != XHCI_STATE_CONFIGURED) {
+		// The device isn't configured; there are no transfers to cancel.
+		return B_OK;
+	}
+
+	MutexLocker endpointLocker(endpoint->lock);
+
+	uint8 endpointNumber = XHCI_ENDPOINT_ID(pipe);
+	if (StopEndpoint(false, endpointNumber,
+			endpoint->device->slot) == B_TIMED_OUT) {
+		TRACE_ERROR("failed to cancel queued transfers: could not stop endpoint\n");
+		return B_TIMED_OUT;
+	}
+
+	// Get the head TD from the endpoint. We don't want to free the TDs while
+	// holding the endpoint lock, as the callbacks could potentially cause
+	// deadlocks.
+	xhci_td* td_head = endpoint->td_head;
+	endpoint->td_head = NULL;
+
+	// Clear the endpoint's TRBs
+	memset(endpoint->trbs, 0, sizeof(xhci_trb) * XHCI_MAX_TRANSFERS);
+	endpoint->used = 0;
+	endpoint->current = 0;
+
+	// Set dequeue pointer location to the beginning of the ring
+	SetTRDequeue(endpoint->trb_addr, 0, endpointNumber, endpoint->device->slot);
+
+	// We don't need to do anything else to restart the ring, as it will resume
+	// operation as normal upon the next doorbell. (XHCI 1.1 § 4.6.9 p132.)
+	endpointLocker.Unlock();
+
+	xhci_td* td;
+	while ((td = td_head) != NULL) {
+		td_head = td_head->next;
+
+		if (td->transfer != NULL) {
+			td->transfer->Finished(B_CANCELED, 0);
+			delete td->transfer;
+			td->transfer = NULL;
+		}
+		FreeDescriptor(td);
+	}
+
 	return B_OK;
 }
 
@@ -1231,8 +1282,9 @@ XHCI::AllocateDevice(Hub *parent, int8 hubAddress, uint8 hubPort,
 		"XHCI device context");
 	if (device->device_ctx_area < B_OK) {
 		TRACE_ERROR("unable to create a device context area\n");
-		device->state = XHCI_STATE_DISABLED;
 		delete_area(device->input_ctx_area);
+		memset(device, 0, sizeof(struct xhci_device));
+		device->state = XHCI_STATE_DISABLED;
 		return NULL;
 	}
 	memset(device->device_ctx, 0, sizeof(*device->device_ctx) << fContextSizeShift);
@@ -1242,9 +1294,10 @@ XHCI::AllocateDevice(Hub *parent, int8 hubAddress, uint8 hubPort,
 			* XHCI_MAX_TRANSFERS, "XHCI endpoint trbs");
 	if (device->trb_area < B_OK) {
 		TRACE_ERROR("unable to create a device trbs area\n");
-		device->state = XHCI_STATE_DISABLED;
 		delete_area(device->input_ctx_area);
 		delete_area(device->device_ctx_area);
+		memset(device, 0, sizeof(struct xhci_device));
+		device->state = XHCI_STATE_DISABLED;
 		return NULL;
 	}
 
@@ -1269,10 +1322,11 @@ XHCI::AllocateDevice(Hub *parent, int8 hubAddress, uint8 hubPort,
 	if (ConfigureEndpoint(slot, 0, 4, device->trb_addr, 0,
 			maxPacketSize, maxPacketSize & 0x7ff, speed) != B_OK) {
 		TRACE_ERROR("unable to configure default control endpoint\n");
-		device->state = XHCI_STATE_DISABLED;
 		delete_area(device->input_ctx_area);
 		delete_area(device->device_ctx_area);
 		delete_area(device->trb_area);
+		memset(device, 0, sizeof(struct xhci_device));
+		device->state = XHCI_STATE_DISABLED;
 		return NULL;
 	}
 
@@ -1287,10 +1341,11 @@ XHCI::AllocateDevice(Hub *parent, int8 hubAddress, uint8 hubPort,
 	// device should get to addressed state (bsr = 0)
 	if (SetAddress(device->input_ctx_addr, false, slot) != B_OK) {
 		TRACE_ERROR("unable to set address\n");
-		device->state = XHCI_STATE_DISABLED;
 		delete_area(device->input_ctx_area);
 		delete_area(device->device_ctx_area);
 		delete_area(device->trb_area);
+		memset(device, 0, sizeof(struct xhci_device));
+		device->state = XHCI_STATE_DISABLED;
 		return NULL;
 	}
 
@@ -1332,10 +1387,11 @@ XHCI::AllocateDevice(Hub *parent, int8 hubAddress, uint8 hubPort,
 	if (actualLength != 8) {
 		TRACE_ERROR("error while getting the device descriptor: %s\n",
 			strerror(status));
-		device->state = XHCI_STATE_DISABLED;
 		delete_area(device->input_ctx_area);
 		delete_area(device->device_ctx_area);
 		delete_area(device->trb_area);
+		memset(device, 0, sizeof(struct xhci_device));
+		device->state = XHCI_STATE_DISABLED;
 		return NULL;
 	}
 
@@ -1376,10 +1432,11 @@ XHCI::AllocateDevice(Hub *parent, int8 hubAddress, uint8 hubPort,
 		if (actualLength != sizeof(usb_hub_descriptor)) {
 			TRACE_ERROR("error while getting the hub descriptor: %s\n",
 				strerror(status));
-			device->state = XHCI_STATE_DISABLED;
 			delete_area(device->input_ctx_area);
 			delete_area(device->device_ctx_area);
 			delete_area(device->trb_area);
+			memset(device, 0, sizeof(struct xhci_device));
+			device->state = XHCI_STATE_DISABLED;
 			return NULL;
 		}
 
@@ -1408,10 +1465,11 @@ XHCI::AllocateDevice(Hub *parent, int8 hubAddress, uint8 hubPort,
 		} else {
 			TRACE_ERROR("device object failed to initialize\n");
 		}
-		device->state = XHCI_STATE_DISABLED;
 		delete_area(device->input_ctx_area);
 		delete_area(device->device_ctx_area);
 		delete_area(device->trb_area);
+		memset(device, 0, sizeof(struct xhci_device));
+		device->state = XHCI_STATE_DISABLED;
 		return NULL;
 	}
 	fPortSlots[hubPort] = slot;
@@ -1561,9 +1619,43 @@ XHCI::_InsertEndpointForPipe(Pipe *pipe)
 status_t
 XHCI::_RemoveEndpointForPipe(Pipe *pipe)
 {
+	TRACE("_RemoveEndpointForPipe\n");
 	if (pipe->Parent()->Type() != USB_OBJECT_DEVICE)
 		return B_OK;
-	//Device* device = (Device *)pipe->Parent();
+	Device* usbDevice = (Device *)pipe->Parent();
+	struct xhci_device *device = (struct xhci_device *)
+		usbDevice->ControllerCookie();
+	if (usbDevice->Parent() == RootObject())
+		return B_BAD_VALUE;
+	if (device == NULL) {
+		panic("_RemoveEndpointForPipe device is NULL\n");
+		return B_BAD_VALUE;
+	}
+
+	uint8 id = XHCI_ENDPOINT_ID(pipe) - 1;
+	if (id >= XHCI_MAX_ENDPOINTS - 1)
+		return B_BAD_VALUE;
+
+	if (id > 0) {
+		mutex_lock(&device->endpoints[id].lock);
+
+		uint8 endpoint = id + 1;
+		StopEndpoint(true, endpoint, device->slot);
+
+		mutex_destroy(&device->endpoints[id].lock);
+		memset(&device->endpoints[id], 0, sizeof(xhci_endpoint));
+
+		_WriteContext(&device->input_ctx->input.dropFlags, (1 << endpoint));
+		_WriteContext(&device->input_ctx->input.addFlags, 0);
+
+		if (endpoint > 1)
+			ConfigureEndpoint(device->input_ctx_addr, true, device->slot);
+		else
+			EvaluateContext(device->input_ctx_addr, device->slot);
+
+		device->state = XHCI_STATE_ADDRESSED;
+	}
+	pipe->SetControllerCookie(NULL);
 
 	return B_OK;
 }
@@ -1617,8 +1709,8 @@ XHCI::_LinkDescriptorForPipe(xhci_td *descriptor, xhci_endpoint *endpoint)
 		endpoint->trb_addr + current * sizeof(struct xhci_trb),
 		endpoint->trbs[current].qwtrb0,
 		B_LENDIAN_TO_HOST_INT32(endpoint->trbs[current].dwtrb3));
-	endpoint->current = next;
 
+	endpoint->current = next;
 	return B_OK;
 }
 
@@ -2059,6 +2151,8 @@ XHCI::QueueCommand(xhci_trb* trb)
 void
 XHCI::HandleCmdComplete(xhci_trb* trb)
 {
+	TRACE("HandleCmdComplete trb %p\n", trb);
+
 	if (fCmdAddr == trb->qwtrb0) {
 		TRACE("Received command event\n");
 		fCmdResult[0] = trb->dwtrb2;
@@ -2072,6 +2166,7 @@ void
 XHCI::HandleTransferComplete(xhci_trb* trb)
 {
 	TRACE("HandleTransferComplete trb %p\n", trb);
+
 	addr_t source = trb->qwtrb0;
 	uint8 completionCode = TRB_2_COMP_CODE_GET(trb->dwtrb2);
 	uint32 remainder = TRB_2_REM_GET(trb->dwtrb2);
