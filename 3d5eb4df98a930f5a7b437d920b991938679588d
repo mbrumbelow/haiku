@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fec9f954_0e39ae31",
+        "filename": "src/add-ons/kernel/drivers/misc/poke.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-02-22T23:11:01Z",
+      "side": 1,
+      "message": "Just remove this code altogether, we don\u0027t need it then.",
+      "revId": "3d5eb4df98a930f5a7b437d920b991938679588d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
