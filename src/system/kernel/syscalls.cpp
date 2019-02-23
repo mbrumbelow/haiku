@@ -15,6 +15,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include <BytePointer.h>
 #include <TypeConstants.h>
 
 #include <arch_config.h>
@@ -202,6 +203,9 @@ syscall_dispatcher(uint32 callIndex, void* args, uint64* _returnValue)
 
 	startTime = system_time();
 
+#define GET_ARGUMENT(type, align, args, offset) \
+	(type)*({ BytePointer<align> pointer((char*)args + offset); &pointer; })
+
 	switch (callIndex) {
 		// the cases are auto-generated
 		#include "syscall_dispatcher.h"
@@ -209,6 +213,8 @@ syscall_dispatcher(uint32 callIndex, void* args, uint64* _returnValue)
 		default:
 			*_returnValue = (uint64)B_BAD_VALUE;
 	}
+
+#undef GET_ARGUMENT
 
 	user_debug_post_syscall(callIndex, args, *_returnValue, startTime);
 

@@ -362,13 +362,16 @@ public:
 				for (int k = 1; k < paramCount; k++) {
 					parameter = syscall->ParameterAt(k);
 					if (parameter->AlignmentTypeName()) {
-						file << ", (" << parameter->TypeName() << ")*("
+						file << ", GET_ARGUMENT("
+							<< parameter->TypeName() << ", "
 							<< parameter->AlignmentTypeName()
-							<< "*)((char*)args + " << parameter->Offset()
+							<< ", args, " << parameter->Offset()
 							<< ")";
 					} else {
-						file << ", *(" << _GetPointerType(parameter->TypeName())
-							<< ")((char*)args + " << parameter->Offset()
+						file << ", GET_ARGUMENT("
+							<< parameter->TypeName() << ", "
+							<< parameter->TypeName()
+							<< ", args, " << parameter->Offset()
 							<< ")";
 					}
 				}
