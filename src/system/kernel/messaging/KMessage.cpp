@@ -10,6 +10,7 @@
 #include <string.h>
 
 #include <ByteOrder.h>
+#include <BytePointer.h>
 #include <Debug.h>
 #include <KernelExport.h>
 #include <TypeConstants.h>
@@ -116,13 +117,13 @@ struct KMessage::FieldHeader {
 	{
 		if (index < 0 || index >= elementCount)
 			return NULL;
-		uint8* data = (uint8*)this + headerSize;
+		BytePointer<FieldValueHeader> data((uint8*)this + headerSize);
 		if (HasFixedElementSize()) {
 			*size = elementSize;
 			return data + elementSize * index;
 		}
 		// non-fixed element size: we need to iterate
-		FieldValueHeader* valueHeader = (FieldValueHeader*)data;
+		FieldValueHeader* valueHeader = &data;
 		for (int i = 0; i < index; i++)
 			valueHeader = valueHeader->NextFieldValueHeader();
 		*size = valueHeader->size;
@@ -745,7 +746,8 @@ KMessage::_FieldHeaderForOffset(int32 offset) const
 {
 	if (offset <= 0 || offset >= _Header()->size)
 		return NULL;
-	return (FieldHeader*)((uint8*)fBuffer + offset);
+	BytePointer<FieldHeader> header((uint8*)fBuffer + offset);
+	return &header;
 }
 
 
@@ -873,13 +875,13 @@ KMessage::_InitFromBuffer(bool sizeFromBuffer)
 		return B_BAD_DATA;
 
 	// check the fields
-	FieldHeader* fieldHeader = NULL;
+	BytePointer<FieldHeader> fieldHeader = NULL;
 	uint8* data = (uint8*)_FirstFieldHeader();
 	int32 remainingBytes = (uint8*)fBuffer + header->size - data;
 	while (remainingBytes > 0) {
 		if (remainingBytes < (int)sizeof(FieldHeader))
 			return B_BAD_DATA;
-		fieldHeader = (FieldHeader*)data;
+		fieldHeader = data;
 		// check field header
 		if (fieldHeader->type == B_ANY_TYPE)
 			return B_BAD_DATA;
@@ -926,7 +928,7 @@ KMessage::_InitFromBuffer(bool sizeFromBuffer)
 		data = (uint8*)fieldHeader->NextFieldHeader();
 		remainingBytes = (uint8*)fBuffer + header->size - data;
 	}
-	fLastFieldOffset = _BufferOffsetFor(fieldHeader);
+	fLastFieldOffset = _BufferOffsetFor(&fieldHeader);
 	return B_OK;
 }
 
