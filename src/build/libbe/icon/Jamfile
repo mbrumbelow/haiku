@@ -22,6 +22,7 @@ SEARCH_SOURCE += [ FDirName $(HAIKU_TOP) src libs agg src ] ;
 UseLibraryHeaders agg icon ;
 
 UsePrivateBuildHeaders shared ;
+UsePrivateHeaders shared ;
 
 USES_BE_API on <libbe_build>icon_kit.o = true ;
 

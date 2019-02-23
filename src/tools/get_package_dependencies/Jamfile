@@ -1,6 +1,7 @@
 SubDir HAIKU_TOP src tools get_package_dependencies ;
 
 UsePrivateBuildHeaders shared ;
+UsePrivateHeaders shared ;
 
 SEARCH_SOURCE += [ FDirName $(HAIKU_TOP) src bin pkgman ] ;
 

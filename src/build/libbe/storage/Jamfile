@@ -1,6 +1,7 @@
 SubDir HAIKU_TOP src build libbe storage ;
 
 UsePrivateBuildHeaders app kernel shared storage ;
+UsePrivateHeaders shared ;
 
 SEARCH_SOURCE += [ FDirName $(HAIKU_TOP) src kits storage ] ;
 SEARCH_SOURCE += [ FDirName $(HAIKU_TOP) src kits storage mime ] ;
