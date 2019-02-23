@@ -32,6 +32,7 @@
 #include <AutoDeleter.h>
 #include <block_cache.h>
 #include <boot/kernel_args.h>
+#include <BytePointer.h>
 #include <debug_heap.h>
 #include <disk_device_manager/KDiskDevice.h>
 #include <disk_device_manager/KDiskDeviceManager.h>
@@ -2548,15 +2549,17 @@ static status_t
 get_vnode_name(struct vnode* vnode, struct vnode* parent, char* name,
 	size_t nameSize, bool kernel)
 {
-	char buffer[sizeof(struct dirent) + B_FILE_NAME_LENGTH];
-	struct dirent* dirent = (struct dirent*)buffer;
+	struct {
+		struct dirent dirent;
+		char buffer[B_FILE_NAME_LENGTH];
+	} dirent;
 
-	status_t status = get_vnode_name(vnode, parent, dirent, sizeof(buffer),
-		get_current_io_context(kernel));
+	status_t status = get_vnode_name(vnode, parent, &dirent.dirent,
+		sizeof(dirent), get_current_io_context(kernel));
 	if (status != B_OK)
 		return status;
 
-	if (strlcpy(name, dirent->d_name, nameSize) >= nameSize)
+	if (strlcpy(name, dirent.dirent.d_name, nameSize) >= nameSize)
 		return B_BUFFER_OVERFLOW;
 
 	return B_OK;
@@ -2629,11 +2632,14 @@ dir_vnode_to_path(struct vnode* vnode, char* buffer, size_t bufferSize,
 		}
 
 		// get the node's name
-		char nameBuffer[sizeof(struct dirent) + B_FILE_NAME_LENGTH];
+		struct {
+			struct dirent dirent;
+			char nameBuffer[B_FILE_NAME_LENGTH];
+		} dirent;
 			// also used for fs_read_dir()
-		char* name = &((struct dirent*)nameBuffer)->d_name[0];
-		status = get_vnode_name(vnode, parentVnode, (struct dirent*)nameBuffer,
-			sizeof(nameBuffer), ioContext);
+		char* name = dirent.dirent.d_name;
+		status = get_vnode_name(vnode, parentVnode, &dirent.dirent,
+			sizeof(dirent), ioContext);
 
 		// release the current vnode, we only need its parent from now on
 		put_vnode(vnode);
@@ -6056,12 +6062,13 @@ dir_read(struct io_context* ioContext, struct vnode* vnode, void* cookie,
 
 	// we need to adjust the read dirents
 	uint32 count = *_count;
+	BytePointer<struct dirent> pointer(buffer);
 	for (uint32 i = 0; i < count; i++) {
-		error = fix_dirent(vnode, buffer, ioContext);
+		error = fix_dirent(vnode, &pointer, ioContext);
 		if (error != B_OK)
 			return error;
 
-		buffer = (struct dirent*)((uint8*)buffer + buffer->d_reclen);
+		pointer += pointer->d_reclen;
 	}
 
 	return error;
@@ -9169,15 +9176,17 @@ _user_open_parent_dir(int fd, char* userName, size_t nameLength)
 			return B_FILE_ERROR;
 
 		// get the vnode name
-		char _buffer[sizeof(struct dirent) + B_FILE_NAME_LENGTH];
-		struct dirent* buffer = (struct dirent*)_buffer;
-		status_t status = get_vnode_name(dirVNode, parentVNode, buffer,
-			sizeof(_buffer), get_current_io_context(false));
+		struct {
+			struct dirent dirent;
+			char buffer[B_FILE_NAME_LENGTH];
+		} dirent;
+		status_t status = get_vnode_name(dirVNode, parentVNode, &dirent.dirent,
+			sizeof(dirent), get_current_io_context(false));
 		if (status != B_OK)
 			return status;
 
 		// copy the name to the userland buffer
-		int len = user_strlcpy(userName, buffer->d_name, nameLength);
+		int len = user_strlcpy(userName, dirent.dirent.d_name, nameLength);
 		if (len < 0)
 			return len;
 		if (len >= (int)nameLength)
