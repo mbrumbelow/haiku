@@ -29,7 +29,7 @@ class BHandler;
 class BString;
 class BStringList;
 struct entry_ref;
-struct rgb_color;
+union rgb_color;
 
 
 // Name lengths and Scripting specifiers
