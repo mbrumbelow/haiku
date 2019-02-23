@@ -897,13 +897,13 @@ _user_accept(int socket, struct sockaddr *userAddress,
 	// accept()
 	SyscallRestartWrapper<int> result;
 
-	char address[MAX_SOCKET_ADDRESS_LENGTH];
+	struct sockaddr_storage address;
 	socklen_t userAddressBufferSize = addressLength;
 	result = common_accept(socket,
-		userAddress != NULL ? (sockaddr*)address : NULL, &addressLength, false);
+		userAddress != NULL ? (sockaddr*)&address : NULL, &addressLength, false);
 
 	// copy address size and address back to userland
-	if (copy_address_to_userland(address, addressLength, userAddress,
+	if (copy_address_to_userland(&address, addressLength, userAddress,
 			userAddressBufferSize, _addressLength) != B_OK) {
 		_user_close(result);
 		return B_BAD_ADDRESS;
@@ -941,15 +941,15 @@ _user_recvfrom(int socket, void *data, size_t length, int flags,
 	// recvfrom()
 	SyscallRestartWrapper<ssize_t> result;
 
-	char address[MAX_SOCKET_ADDRESS_LENGTH];
+	struct sockaddr_storage address;
 	socklen_t userAddressBufferSize = addressLength;
 	result = common_recvfrom(socket, data, length, flags,
-		userAddress != NULL ? (sockaddr*)address : NULL, &addressLength, false);
+		userAddress != NULL ? (sockaddr*)&address : NULL, &addressLength, false);
 	if (result < 0)
 		return result;
 
 	// copy address size and address back to userland
-	if (copy_address_to_userland(address, addressLength, userAddress,
+	if (copy_address_to_userland(&address, addressLength, userAddress,
 			userAddressBufferSize, _addressLength) != B_OK) {
 		return B_BAD_ADDRESS;
 	}
@@ -966,10 +966,10 @@ _user_recvmsg(int socket, struct msghdr *userMessage, int flags)
 	iovec* userVecs;
 	MemoryDeleter vecsDeleter;
 	void* userAddress;
-	char address[MAX_SOCKET_ADDRESS_LENGTH];
+	struct sockaddr_storage address;
 
 	status_t error = prepare_userland_msghdr(userMessage, message, userVecs,
-		vecsDeleter, userAddress, address);
+		vecsDeleter, userAddress, (char*)&address);
 	if (error != B_OK)
 		return error;
 
@@ -1004,7 +1004,7 @@ _user_recvmsg(int socket, struct msghdr *userMessage, int flags)
 	message.msg_name = userAddress;
 	message.msg_iov = userVecs;
 	message.msg_control = userAncillary;
-	if ((userAddress != NULL && user_memcpy(userAddress, address,
+	if ((userAddress != NULL && user_memcpy(userAddress, &address,
 				message.msg_namelen) != B_OK)
 		|| (userAncillary != NULL && user_memcpy(userAncillary, ancillary,
 				message.msg_controllen) != B_OK)
@@ -1042,9 +1042,9 @@ _user_sendto(int socket, const void *data, size_t length, int flags,
 	}
 
 	// copy address from userland
-	char address[MAX_SOCKET_ADDRESS_LENGTH];
+	struct sockaddr_storage address;
 	if (!IS_USER_ADDRESS(userAddress)
-			|| user_memcpy(address, userAddress, addressLength) != B_OK) {
+			|| user_memcpy(&address, userAddress, addressLength) != B_OK) {
 		return B_BAD_ADDRESS;
 	}
 
@@ -1052,7 +1052,7 @@ _user_sendto(int socket, const void *data, size_t length, int flags,
 	SyscallRestartWrapper<ssize_t> result;
 
 	return result = common_sendto(socket, data, length, flags,
-		(sockaddr*)address, addressLength, false);
+		(sockaddr*)&address, addressLength, false);
 }
 
 
@@ -1064,16 +1064,16 @@ _user_sendmsg(int socket, const struct msghdr *userMessage, int flags)
 	iovec* userVecs;
 	MemoryDeleter vecsDeleter;
 	void* userAddress;
-	char address[MAX_SOCKET_ADDRESS_LENGTH];
+	struct sockaddr_storage address;
 
 	status_t error = prepare_userland_msghdr(userMessage, message, userVecs,
-		vecsDeleter, userAddress, address);
+		vecsDeleter, userAddress, (char*)&address);
 	if (error != B_OK)
 		return error;
 
 	// copy the address from userland
 	if (userAddress != NULL
-			&& user_memcpy(address, userAddress, message.msg_namelen) != B_OK) {
+			&& user_memcpy(&address, userAddress, message.msg_namelen) != B_OK) {
 		return B_BAD_ADDRESS;
 	}
 
@@ -1175,15 +1175,15 @@ _user_getpeername(int socket, struct sockaddr *userAddress,
 		return error;
 
 	// getpeername()
-	char address[MAX_SOCKET_ADDRESS_LENGTH];
+	struct sockaddr_storage address;
 	socklen_t userAddressBufferSize = addressLength;
-	error = common_getpeername(socket, (sockaddr*)address, &addressLength,
+	error = common_getpeername(socket, (sockaddr*)&address, &addressLength,
 		false);
 	if (error != B_OK)
 		return error;
 
 	// copy address size and address back to userland
-	if (copy_address_to_userland(address, addressLength, userAddress,
+	if (copy_address_to_userland(&address, addressLength, userAddress,
 			userAddressBufferSize, _addressLength) != B_OK) {
 		return B_BAD_ADDRESS;
 	}
@@ -1205,15 +1205,15 @@ _user_getsockname(int socket, struct sockaddr *userAddress,
 		return error;
 
 	// getsockname()
-	char address[MAX_SOCKET_ADDRESS_LENGTH];
+	struct sockaddr_storage address;
 	socklen_t userAddressBufferSize = addressLength;
-	error = common_getsockname(socket, (sockaddr*)address, &addressLength,
+	error = common_getsockname(socket, (sockaddr*)&address, &addressLength,
 		false);
 	if (error != B_OK)
 		return error;
 
 	// copy address size and address back to userland
-	if (copy_address_to_userland(address, addressLength, userAddress,
+	if (copy_address_to_userland(&address, addressLength, userAddress,
 			userAddressBufferSize, _addressLength) != B_OK) {
 		return B_BAD_ADDRESS;
 	}
