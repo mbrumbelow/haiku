@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "52b0f3b6_6472cdf5",
+        "filename": "headers/os/interface/GraphicsDefs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-02-23T19:16:11Z",
+      "side": 1,
+      "message": "This violates type aliasing. Instead, please use my solution from https://git.haiku-os.org/haiku/commit/?id\u003dd3abf525c5f0ba0260a11649eb439a4e4730d39d\n\nThe reason it was reverted was due to a possible performance penalty. However, it appears GCC generates identical code on x86 for the operator\u003d\u003d I believe, so that should be just fine.",
+      "revId": "0e51794877cd13dbdb0b6949a34311fd070d6f1e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
