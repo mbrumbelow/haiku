@@ -16,12 +16,6 @@
 #include "tracing_config.h"
 
 
-struct trace_entry {
-	uint32	size			: 13;		// actual size is *4
-	uint32	previous_size	: 13;		// actual size is *4
-	uint32	flags			: 6;
-};
-
 struct tracing_stack_trace {
 	int32	depth;
 	addr_t	return_addresses[0];
@@ -70,6 +64,9 @@ private:
 };
 
 
+struct trace_entry;
+
+
 class TraceEntry {
 	public:
 		TraceEntry();
@@ -78,22 +75,23 @@ class TraceEntry {
 		virtual void Dump(TraceOutput& out);
 		virtual void DumpStackTrace(TraceOutput& out);
 
-		size_t Size() const		{ return ToTraceEntry()->size; }
-		uint16 Flags() const	{ return ToTraceEntry()->flags; }
+		size_t Size() const;
+		uint16 Flags() const;
 
 		void Initialized();
 
 		void* operator new(size_t size, const std::nothrow_t&) throw();
 
-		trace_entry* ToTraceEntry() const
-		{
-			return (trace_entry*)this - 1;
-		}
+		trace_entry* ToTraceEntry() const;
+		static TraceEntry* FromTraceEntry(trace_entry* entry);
+};
 
-		static TraceEntry* FromTraceEntry(trace_entry* entry)
-		{
-			return (TraceEntry*)(entry + 1);
-		}
+
+struct trace_entry {
+	uint32	size			: 13;		// actual size is *4
+	uint32	previous_size	: 13;		// actual size is *4
+	uint32	flags			: 6;
+	TraceEntry data[0];
 };
 
 
