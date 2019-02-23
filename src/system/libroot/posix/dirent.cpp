@@ -17,6 +17,8 @@
 #include <syscalls.h>
 #include <syscall_utils.h>
 
+#include <BytePointer.h>
+
 
 #define DIR_BUFFER_SIZE	4096
 
@@ -64,8 +66,8 @@ do_seek_dir(DIR* dir)
 		if (toSkip < dir->entries_left) {
 			// we have to skip only some of the buffered entries
 			for (; toSkip > 0; toSkip--) {
-				struct dirent* entry = (struct dirent*)
-					((uint8*)&dir->first_entry + dir->next_entry);
+				BytePointer<struct dirent> entry((uint8*)&dir->first_entry
+					+ dir->next_entry);
 				dir->entries_left--;
 				dir->next_entry += entry->d_reclen;
 			}
