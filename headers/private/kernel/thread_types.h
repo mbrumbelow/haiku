@@ -468,7 +468,7 @@ struct Thread : TeamThreadIteratorEntry<thread_id>, KernelReferenceable {
 	void			(*cancel_function)(int);
 
 	struct {
-		uint8		parameters[SYSCALL_RESTART_PARAMETER_SIZE];
+		uint64		parameters[SYSCALL_RESTART_PARAMETER_SIZE / sizeof(uint64)];
 	} syscall_restart;
 
 	struct {
