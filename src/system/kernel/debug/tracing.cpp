@@ -775,6 +775,20 @@ TraceEntry::DumpStackTrace(TraceOutput& out)
 }
 
 
+size_t
+TraceEntry::Size() const
+{
+	return ToTraceEntry()->size;
+}
+
+
+uint16
+TraceEntry::Flags() const
+{
+	return ToTraceEntry()->flags;
+}
+
+
 void
 TraceEntry::Initialized()
 {
@@ -794,6 +808,20 @@ TraceEntry::operator new(size_t size, const std::nothrow_t&) throw()
 	return entry != NULL ? entry + 1 : NULL;
 #endif
 	return NULL;
+}
+
+
+trace_entry*
+TraceEntry::ToTraceEntry() const
+{
+	return (trace_entry*)this - 1;
+}
+
+
+/* static */ TraceEntry*
+TraceEntry::FromTraceEntry(trace_entry* entry)
+{
+	return entry->data;
 }
 
 
