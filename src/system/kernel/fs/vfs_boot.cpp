@@ -126,20 +126,23 @@ compare_cd_boot(const void* _a, const void* _b)
 static uint32
 compute_check_sum(KDiskDevice* device, off_t offset)
 {
-	char buffer[512];
-	ssize_t bytesRead = read_pos(device->FD(), offset, buffer, sizeof(buffer));
+	union {
+		uint32 words[512 / sizeof(uint32)];
+		uint8 bytes[512];
+	} data;
+
+	ssize_t bytesRead = read_pos(device->FD(), offset, &data, sizeof(data));
 	if (bytesRead < B_OK)
 		return 0;
 
-	if (bytesRead < (ssize_t)sizeof(buffer))
-		memset(buffer + bytesRead, 0, sizeof(buffer) - bytesRead);
+	if (bytesRead < (ssize_t)sizeof(data))
+		memset(data.bytes + bytesRead, 0, sizeof(data) - bytesRead);
 
-	uint32* array = (uint32*)buffer;
 	uint32 sum = 0;
 
 	for (uint32 i = 0;
 			i < (bytesRead + sizeof(uint32) - 1) / sizeof(uint32); i++) {
-		sum += array[i];
+		sum += data.words[i];
 	}
 
 	return sum;
