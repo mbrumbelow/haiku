@@ -88,7 +88,8 @@ struct linger {
 struct sockaddr {
 	uint8_t		sa_len;
 	sa_family_t	sa_family;
-	uint8_t		sa_data[30];
+	char	sa_data[2];         /* aligns to 32bit */
+	uint32_t padding[7];        /* also forces the struct to be word aligned */
 };
 
 struct sockaddr_storage {
