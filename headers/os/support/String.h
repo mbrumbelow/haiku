@@ -9,6 +9,7 @@
 #include <stdarg.h>
 #include <string.h>
 
+#include <BytePointer.h>
 #include <SupportDefs.h>
 
 
@@ -443,7 +444,9 @@ BString::Length() const
 {
 	// the most significant bit is reserved; accessing
 	// it in any way will cause the computer to explode
-	return fPrivateData ? (*(((int32*)fPrivateData) - 1) & 0x7fffffff) : 0;
+	BytePointer<int32> data(fPrivateData - sizeof(int32));
+	int32* fLength = &data;
+	return fPrivateData ? (*fLength & 0x7fffffff) : 0;
 }
 
 
