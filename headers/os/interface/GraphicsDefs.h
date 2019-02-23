@@ -10,8 +10,9 @@
 
 
 // Pattern
-typedef struct pattern {
+typedef union pattern {
 	uint8 data[8];
+	uint64 word;
 } pattern;
 
 
@@ -19,8 +20,8 @@ typedef struct pattern {
 inline bool
 operator==(const pattern& a, const pattern& b)
 {
-	uint64* pa = (uint64*)a.data;
-	uint64* pb = (uint64*)b.data;
+	const uint64* pa = &a.word;
+	const uint64* pb = &b.word;
 	return (*pa == *pb);
 }
 
@@ -39,11 +40,14 @@ extern const pattern B_SOLID_LOW;
 
 
 // rgb_color
-typedef struct rgb_color {
-	uint8		red;
-	uint8		green;
-	uint8		blue;
-	uint8		alpha;
+typedef union rgb_color {
+	struct {
+		uint8		red;
+		uint8		green;
+		uint8		blue;
+		uint8		alpha;
+	};
+	uint32_t word;
 
 #if defined(__cplusplus)
 	// some convenient additions
@@ -62,19 +66,20 @@ typedef struct rgb_color {
 	inline bool
 	operator==(const rgb_color& other) const
 	{
-		return *(const uint32 *)this == *(const uint32 *)&other;
+		return this->word == other.word;
 	}
 
 	inline bool
 	operator!=(const rgb_color& other) const
 	{
-		return *(const uint32 *)this != *(const uint32 *)&other;
+		return this->word != other.word;
 	}
 
 	inline rgb_color&
 	operator=(const rgb_color& other)
 	{
-		return set_to(other.red, other.green, other.blue, other.alpha);
+		this->word = other.word;
+		return *this;
 	}
 #endif
 } rgb_color;
