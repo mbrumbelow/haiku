@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b84734a_754864b3",
+        "filename": "headers/private/kernel/thread_types.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-02-23T19:10:31Z",
+      "side": 1,
+      "message": "Please use __attribute__(aligned) (I think we have a macro for that, like _PACKED?) to 8 or whatever instead of using this hack.",
+      "revId": "68ea7a7e80b7c8e0a51b5e30d89b3f00ac958fef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
