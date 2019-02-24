@@ -1,0 +1,11 @@
+SubDir HAIKU_TOP src system kernel arch sparc ;
+
+KernelMergeObject kernel_arch_sparc.o :
+	arch_asm.S
+	arch_elf.cpp
+	arch_timer.cpp
+	arch_vm.cpp
+	:
+	$(TARGET_KERNEL_PIC_CCFLAGS) -Wno-unused
+	:
+;
