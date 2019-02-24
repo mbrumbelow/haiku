@@ -5,6 +5,7 @@
  */
 #include "SettingsWindow.h"
 
+#include <Bitmap.h>
 #include <Button.h>
 #include <CheckBox.h>
 #include <ControlLook.h>
@@ -12,12 +13,14 @@
 #include <GridLayoutBuilder.h>
 #include <GroupLayout.h>
 #include <GroupLayoutBuilder.h>
+#include <IconUtils.h>
 #include <LayoutBuilder.h>
 #include <Locale.h>
 #include <MenuItem.h>
 #include <MenuField.h>
 #include <Message.h>
 #include <PopUpMenu.h>
+#include <Resources.h>
 #include <ScrollView.h>
 #include <SeparatorView.h>
 #include <SpaceLayoutItem.h>
@@ -307,8 +310,21 @@ SettingsWindow::_CreateGeneralPage(float spacing)
 	fNewTabBehaviorOpenBlankItem = new BMenuItem(
 		B_TRANSLATE("Open blank page"),
 		new BMessage(MSG_NEW_TABS_BEHAVIOR_CHANGED));
-	fChooseButton = new BButton(B_TRANSLATE("Browse" B_UTF8_ELLIPSIS),
-		new BMessage(MSG_CHOOSE_DOWNLOAD_FOLDER));
+
+	fChooseButton = new BButton(NULL, new BMessage(MSG_CHOOSE_DOWNLOAD_FOLDER));
+	size_t size;
+	BResources* resources = BApplication::AppResources();
+	const uint8* data = static_cast<const uint8*>(resources->LoadResource(
+		B_VECTOR_ICON_TYPE, 207, &size));
+	font_height	fontHeight;
+	be_plain_font->GetHeight(&fontHeight);
+	float height = fontHeight.ascent + fontHeight.descent + fontHeight.leading
+		- 4;
+	BBitmap* icon = new BBitmap(BRect(0, 0, height, height), 0, B_RGBA32);
+	if (icon != NULL) {
+		if (BIconUtils::GetVectorIcon(data, size, icon) == B_OK)
+			fChooseButton->SetIcon(icon);
+	}
 
 	fNewWindowBehaviorOpenHomeItem->SetMarked(true);
 	fNewTabBehaviorOpenBlankItem->SetMarked(true);
@@ -319,7 +335,6 @@ SettingsWindow::_CreateGeneralPage(float spacing)
 	startUpBehaviorMenu->AddItem(fStartUpBehaviorStartNewSession);
 	fStartUpBehaviorMenu = new BMenuField("start up behavior",
 		B_TRANSLATE("Start up:"), startUpBehaviorMenu);
-
 
 	BPopUpMenu* newWindowBehaviorMenu = new BPopUpMenu("New windows");
 	newWindowBehaviorMenu->AddItem(fNewWindowBehaviorOpenHomeItem);
@@ -366,19 +381,19 @@ SettingsWindow::_CreateGeneralPage(float spacing)
 	BView* view = BGroupLayoutBuilder(B_VERTICAL, 0)
 		.Add(BGridLayoutBuilder(spacing / 2, spacing / 2)
 			.Add(fStartPageControl->CreateLabelLayoutItem(), 0, 0)
-			.Add(fStartPageControl->CreateTextViewLayoutItem(), 1, 0)
+			.Add(fStartPageControl->CreateTextViewLayoutItem(), 1, 0, 2, 1)
 
 			.Add(fSearchPageControl->CreateLabelLayoutItem(), 0, 1)
-			.Add(fSearchPageControl->CreateTextViewLayoutItem(), 1, 1)
+			.Add(fSearchPageControl->CreateTextViewLayoutItem(), 1, 1, 2, 1)
 
 			.Add(fStartUpBehaviorMenu->CreateLabelLayoutItem(), 0, 2)
-			.Add(fStartUpBehaviorMenu->CreateMenuBarLayoutItem(), 1, 2)
+			.Add(fStartUpBehaviorMenu->CreateMenuBarLayoutItem(), 1, 2, 2, 1)
 
 			.Add(fNewWindowBehaviorMenu->CreateLabelLayoutItem(), 0, 3)
-			.Add(fNewWindowBehaviorMenu->CreateMenuBarLayoutItem(), 1, 3)
+			.Add(fNewWindowBehaviorMenu->CreateMenuBarLayoutItem(), 1, 3, 2, 1)
 
 			.Add(fNewTabBehaviorMenu->CreateLabelLayoutItem(), 0, 4)
-			.Add(fNewTabBehaviorMenu->CreateMenuBarLayoutItem(), 1, 4)
+			.Add(fNewTabBehaviorMenu->CreateMenuBarLayoutItem(), 1, 4, 2, 1)
 
 			.Add(fDownloadFolderControl->CreateLabelLayoutItem(), 0, 5)
 			.Add(fDownloadFolderControl->CreateTextViewLayoutItem(), 1, 5)
