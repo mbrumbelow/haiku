@@ -123,7 +123,7 @@ BPackageInfoAttributeValue::SetTo(BPackageInfoAttributeID id,
 inline void
 BPackageInfoAttributeValue::Clear()
 {
-	memset(this, 0, sizeof(BPackageInfoAttributeValue));
+	memset(static_cast<void *>(this), 0, sizeof(BPackageInfoAttributeValue));
 	attributeID = B_PACKAGE_INFO_ENUM_COUNT;
 }
 
