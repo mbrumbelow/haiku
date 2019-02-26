@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "34e49eb1_ef822127",
+        "filename": "headers/private/kernel/arch/riscv64/arch_kernel.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-26T07:06:32Z",
+      "side": 1,
+      "message": "These values are for a 32bit architecture. It would be better to use the ones from x86_64",
+      "revId": "efb6680ddfe12fbe6d1398c72a633581ba2d83c3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f555db8_92414ce8",
+        "filename": "headers/private/kernel/arch/riscv64/arch_kernel_args.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-26T07:06:32Z",
+      "side": 1,
+      "message": "You probably don\u0027t need any of these? I hope RISC-V is more standardized than PPC or m68k",
+      "revId": "efb6680ddfe12fbe6d1398c72a633581ba2d83c3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48a7e0c4_76c52fa4",
+        "filename": "headers/private/kernel/arch/riscv64/arch_kernel_args.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-26T07:06:32Z",
+      "side": 1,
+      "message": "Probably some of this should be 64bit.",
+      "revId": "efb6680ddfe12fbe6d1398c72a633581ba2d83c3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "796e5d21_3351b871",
+        "filename": "headers/private/kernel/arch/riscv64/arch_thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-02-26T07:06:32Z",
+      "side": 1,
+      "message": "an \u003d NULL here wil lsave you some headaches later on.",
+      "revId": "efb6680ddfe12fbe6d1398c72a633581ba2d83c3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
