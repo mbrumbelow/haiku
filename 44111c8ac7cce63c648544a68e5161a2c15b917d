@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c3598fac_2874c75d",
+        "filename": "src/system/kernel/arch/sparc/arch_asm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-02-27T13:40:47Z",
+      "side": 1,
+      "message": "Trailing tab.",
+      "revId": "44111c8ac7cce63c648544a68e5161a2c15b917d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
