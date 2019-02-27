@@ -1,11 +1,82 @@
 
-THE HAIKU BOOK HOWTO
+THE HAIKU BOOK HOWTO: get involved in Haiku project and contribute into it.
+
+Welcome to the Development home for Haiku! Here is a general overview of the 
+information available for developers who would like to contribute to the Haiku
+Project. This is a end user documentation on this topic. It contains all the 
+instructions on how to become a Haiku developer and how to work with haiku 
+development community. 
+
+Introduction 
+
+The best way to get into developing on the Haiku project is to get to know the
+environment and make yourself familiar with the system. If you have programmed 
+for BeOS before, getting into the Haiku API shouldn't be a problem. Anyone can 
+help Haiku. If you love what Haiku is all about, you can get involved. It's up 
+to you what you want to do and how much time you contribute.
+The Haiku operating system is a great platform for aspiring developers. Those 
+who have struggled with learning application development under Linux, Microsoft
+Windows, or Macintosh will find writing programs under Haiku to be sensible and
+easy.
+
+The Haiku Os is written mostly in C++. A good understanding of C++ is required 
+for Haiku development process. In order to contribute to haiku you make take a 
+look at the following two books as a refernece which introduce readers to C++.  
+
+-- Learning to Program with Haiku) and the BeAPI (Programming with Haiku) 
+written by Jon Yoder (DarkWyrm).
+
+Documentation
+
+You can go for reading the books and documentations on Haiku operating system. 
+Then you can find the area of your interest and start looking at the code of 
+your interest area. Haiku is a meritocratic open source project with a large 
+variety of tasks. Even if you can't write code, you can still help! Haiku needs
+designers, (technical) writers, translators, testers... Get involved and help 
+out!
+
+Below are the list of series following links step-by-step  which can help you 
+to understand Haiku and getting involoved in it.
+ 
+ Haiku User Guide [https://www.haiku-os.org/docs/userguide/en/contents.html]
+ This link provide the User a Guide to understand Haiku operating system.
+
+ Haiku Book [https://www.haiku-os.org/docs/api]
+ This link provide all the documentation on the Application Programming Interface
+ (API) of the Haiku operating system.
+ 
+ Hailu Development Environment 
+ [https://www.haiku-os.org/development/contribute-dev-env]
+ This link provide a ways to install a haiku and its build tools to use a Haiku
+ operating System.
+
+ Haiku Coding Guidelines [https://www.haiku-os.org/development/coding-guidelines]
+ This link will describe the Haiku Coding Style while writing codes for the haiku
+ Os and submitting patches for it.
+
+ Haiku Icon Guidelines [https://www.haiku-os.org/development/icon-guidelines]
+ This document explains the artistic subtleties of Haiku icons.
+
+ Submitting Patch Guidelines 
+ [https://dev.haiku-os.org/wiki/CodingGuidelines/SubmittingPatches]
+ This link all the complete details for submitting patches for Haiku Operating 
+ System. 
+ 
+ Haiku Development Tracker [https://dev.haiku-os.org]
+ This link will provide all the details for fixing bugs and issue for haiku 
+ operating system. Please also take a look at our list of easy tasks at the 
+ bugtracker. They are mostly smaller bugs that can be fixed by one person. Pick
+ one of them, leave a comment that you are working on it and attach a patch 
+ when you're done.
+
+ Haiku Development FAQ [https://www.haiku-os.org/development/faq]
+ This link provide all the frequently asked question for haiku Development.
 
 The end user documentation for Haiku is automatically generated from the 
 source code using the Doxygen tool. We are talking BeBook-style documentation 
 here, not development related docs (those belong in trunk/docs/develop).
 
-This HOWTO only explains how to include your kit into the "Haiku Book", it
+This HOWTO also explains how to include your kit into the "Haiku Book", it
 is not a Doxygen tutorial. For information about using Doxygen, see the Doxygen
 manual, www.doxygen.org, and OpenBeOS newletters 31 and 29.
 
@@ -32,3 +103,79 @@ using the \defgroup and \ingroup tags. In practice, the results of this are a
 little disappointing. That's why, at least for the time being, we simply lump
 everything together, and give each kit one or more \page's. Feel free to take a
 peek at the Midi Kit docs to figure out what the hell that means ;-)
+
+Contributing Documentation 
+
+The main piece of documentation that still needs work are the API docs (found 
+in the tree at docs/user). Just find an undocumented class, write documentation
+for it, and submit a patch.
+
+Managing and Reporting Bug
+
+Since our developers are unable to test every hardware combination, nor every 
+different way of interacting with the operating system, we are relying on users 
+to give us some input on how things work at their end. Since Haiku is still 
+quite young, it's very likely that you will encounter bugs. We encourage users 
+to report bugs and together we can improve Haiku, bit by bit. One of the important
+thing here is you should not limit yourself within the errors you find. You can
+look for the code around the errors and other similar code in different files. 
+This way you can get better understanding of the code and then you can also 
+find the areas which interests you most. You can also help people in developing
+these tools. Visit our website to to test the system and discover bugs or provide 
+suggestions for future enhancements. 
+ 
+Haiku Bug Information [https://www.haiku-os.org/docs/welcome/en/bugreports.html] 
+
+After the bug has been reported, a developer will look at your bug and try to 
+classify it. Remember, we are all volunteers, and as such, sometimes a bug report
+might go unanswered for a while. Adding new information when it becomes available
+usually helps getting a bug picked up quicker, but do not try to 'bump' the bug 
+up by adding non-descriptive comments.
+
+Remember, reporting a bug is not something you spend a little time on and then you
+are done. If you reported a bug, then you are part of the Haiku development 
+process. Developers might come up with questions while they are trying to fix 
+your bug. Please stay around to answer these. Consider your participation 'done' 
+when bug is marked as 'fixed'.
+
+Getting Contact 
+
+Get in contact with other developers and users and join the discussions on IRC 
+(#haiku on webchat), in our forums or the mailing lists. When many different 
+people come together, rules have to be established to keep communication 
+effective. 
+If you are interested, follow the links bellow to find out how you
+can help out. Please remember to follow good behavioral habits when using the
+lists.
+
+ IRC channels [https://www.haiku-os.org/community/irc]
+ General discussion (on and off-topic) for the Haiku community.
+ 
+ Forums [https://www.haiku-os.org/community/irc]
+ Haiku online discussion site where people can hold conversations
+ in the form of posted messages.
+ 
+ General mailing list [https://www.freelists.org/list/haiku]
+ This is a general discussion list. Most discussions on Haik should  
+ happen here.
+ 
+ Development mailing list concerning Haiku itself
+ [https://www.freelists.org/list/haiku-development]
+ This mailing list is for discussions related to development of 
+ Haiku itself. All Haiku maintainers should subscribe here. Please
+ do not use this list for user support, feature requests or bug
+ reports, only for discussing implementation details. Discussions
+ about 3rd-party applications development should take place on
+ haiku-3rdparty (even if you need information about Haiku internals).
+ 
+ Mailing list for 3rd party application programmers
+ [https://www.freelists.org/list/haiku-3rdparty-dev]
+ Development of third party applications that run on Haiku are
+ discussed in this list. (e.g. new native software to run on Haiku).
+
+You can experiment with the code and then get engaged with the community through
+mailing lists and IRC. Although way of engaging with the community and finding 
+a beginner level tasks totally depends on the subsystem you are interested in.
+
+To know more please visit our project's website Haiku-os.org for the latest 
+news and announcements.
