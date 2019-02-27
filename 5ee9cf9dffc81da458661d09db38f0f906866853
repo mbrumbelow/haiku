@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4f9fb5c5_c8757d3b",
+        "filename": "src/system/kernel/messaging/KMessage.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 750,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-02-27T12:53:01Z",
+      "side": 1,
+      "message": "Here BytePointer is used to save one cast?",
+      "revId": "5ee9cf9dffc81da458661d09db38f0f906866853",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
