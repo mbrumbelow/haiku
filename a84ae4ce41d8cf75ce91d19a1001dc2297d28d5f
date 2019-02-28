@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b2e5457f_c3571c10",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2187,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-02-28T10:57:22Z",
+      "side": 1,
+      "message": "Please make yourself familiar with our coding style guidelines. There are several issues:\n * Wrong empty line at top\n * Missing spaces on while line\n * Declaration and assignment on different lines\n * Wrong indentation\n\nAlso, the \"else\" is superflous\n\nI am not a huge fan of this change, since the code wasn\u0027t so bad before, only perhaps the missing \"!\u003d NULL\" after the assignment.",
+      "revId": "a84ae4ce41d8cf75ce91d19a1001dc2297d28d5f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
