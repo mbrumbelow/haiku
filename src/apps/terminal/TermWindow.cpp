@@ -913,8 +913,8 @@ TermWindow::MessageReceived(BMessage *message)
 				// done before ResizeTo to work around a Dano bug
 				// (not erasing the decor)
 				SetLook(B_NO_BORDER_WINDOW_LOOK);
-				ResizeTo(screen.Frame().Width() + 1, screen.Frame().Height() + 1);
-				MoveTo(screen.Frame().left, screen.Frame().top);
+				MoveTo(0, 0);  // #11949 
+				ResizeTo(screen.Frame().Width(), screen.Frame().Height());
 				SetFlags(Flags() | (B_NOT_RESIZABLE | B_NOT_MOVABLE));
 				fFullScreen = true;
 			} else { // exit fullscreen
