@@ -2175,9 +2175,17 @@ addOrDeleteMenu(BMenu* menu, BMenu* toMenu)
 void
 BrowserWindow::_UpdateHistoryMenu()
 {
-	BMenuItem* menuItem;
-	while ((menuItem = fHistoryMenu->RemoveItem(fHistoryMenuFixedItemCount)))
+	
+	while(true){
+	    BMenuItem* menuItem;
+	    menuItem = fHistoryMenu->RemoveItem(fHistoryMenuFixedItemCount);
+	    if (menuItem == NULL){
+		break;
+	    }else{ 
 		delete menuItem;
+	}
+	}
+
 
 	BrowsingHistory* history = BrowsingHistory::DefaultInstance();
 	if (!history->Lock())
