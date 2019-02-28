@@ -45,6 +45,12 @@ MemoryBarMenu::MemoryBarMenu(const char* name, info_pack* infos, system_info& sy
 
 	fTeamList = (team_id*)malloc(sizeof (team_id) * fTeamCount);
 
+	if (!fTeamList){
+	    // memory error
+	    return B_NO_MEMORY;
+	}
+
+
 	unsigned int k;
 	for (k = 0; k < systemInfo.used_teams; k++) {
 		fTeamList[k] = infos[k].team_info.team;
