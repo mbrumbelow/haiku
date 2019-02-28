@@ -1895,10 +1895,10 @@ TermWindow::_FinishTitleDialog()
 	SetTitleDialog* oldDialog = fSetTabTitleDialog;
 	if (oldDialog != NULL && oldDialog->Lock()) {
 		// might have been unset in the meantime, so recheck
-		if (fSetTabTitleDialog == oldDialog) {
+		if (fSetTabTitleDialog == oldDialog) 
 			oldDialog->Finish();
-				// this also unsets the variables
-		}
+		// this also unsets the variables
+
 		oldDialog->Unlock();
 		return;
 	}
@@ -1947,11 +1947,11 @@ TermWindow::_FindSwitchTerminalTarget()
 			break;
 	}
 
-	if (i == numTerms) {
-		// we didn't find ourselves -- that shouldn't happen
+	if (i == numTerms) 
 		return -1;
-	}
 
+	// we didn't find ourselves -- that shouldn't happen
+	
 	uint32 currentWorkspace = 1L << current_workspace();
 
 	while (true) {
@@ -1959,10 +1959,10 @@ TermWindow::_FindSwitchTerminalTarget()
 			i = numTerms - 1;
 
 		const TerminalRoster::Info* info = fTerminalRoster.TerminalAt(i);
-		if (info->team == myTeamID) {
-			// That's ourselves again. We've run through the complete list.
+		if (info->team == myTeamID) 
 			return -1;
-		}
+
+		// That's ourselves again. We've run through the complete list.
 
 		if (!info->minimized && (info->workspaces & currentWorkspace) != 0)
 			return info->team;
