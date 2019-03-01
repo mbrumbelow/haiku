@@ -33,6 +33,24 @@
       "revId": "f1f15a7eeabcd0aa10e61eef71476fe4ee4b6e92",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8151999e_db33b3f5",
+        "filename": "src/kits/package/PackageRoster.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-03-01T21:41:16Z",
+      "side": 1,
+      "message": "Oh... \"InstallationLocation\"   so if there are active packages in the \"InstallationLocation\", then they are queued up to be activated later.\n\nWouldn\u0027t this return false positives during package install operations?",
+      "parentUuid": "c03e1b76_e2cea16e",
+      "revId": "f1f15a7eeabcd0aa10e61eef71476fe4ee4b6e92",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
