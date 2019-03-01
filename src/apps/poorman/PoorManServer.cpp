@@ -90,7 +90,7 @@ status_t PoorManServer::Run()
 	}
 	
 	httpd_sockaddr sa4;
-	memset(&sa4, 0, sizeof(httpd_sockaddr));
+	sa4.Clear();
 	sa4.sa_in.sin_family = AF_INET;
 	sa4.sa_in.sin_port = htons(80);
 	sa4.sa_in.sin_addr.s_addr = htonl(INADDR_ANY);
