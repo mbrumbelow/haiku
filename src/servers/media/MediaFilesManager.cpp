@@ -227,6 +227,9 @@ MediaFilesManager::GetRefFor(const char* type, const char* item,
 	entry_ref** _ref)
 {
 	CALLED();
+	if (type == NULL || item == NULL)
+	    return B_BAD_VALUE;
+
 	BAutolock _(this);
 
 	item_info* info;
@@ -243,6 +246,9 @@ MediaFilesManager::GetAudioGainFor(const char* type, const char* item,
 	float* _gain)
 {
 	CALLED();
+	if (type == NULL || item == NULL)
+            return B_BAD_VALUE;
+
 	BAutolock _(this);
 
 	item_info* info;
