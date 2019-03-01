@@ -566,7 +566,8 @@ static const Translation kTranslations[] = {
 	"Gerald Zajac\n" \
 	"Łukasz Zemczak\n" \
 	"JiSheng Zhang\n" \
-	"Zhao Shuai\n"
+	"Zhao Shuai\n" \
+	"Preetpal Kaur\n" \
 
 #define kWebsiteTeam  \
 	"Augustin Cavalier\n" \
