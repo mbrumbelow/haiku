@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d18ffd99_96760403",
+        "filename": "src/kits/package/PackageRoster.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-03-01T21:38:16Z",
+      "side": 1,
+      "message": "Add an extra newline here.  Two in-between functions.",
+      "revId": "f1f15a7eeabcd0aa10e61eef71476fe4ee4b6e92",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c03e1b76_e2cea16e",
+        "filename": "src/kits/package/PackageRoster.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-03-01T21:38:16Z",
+      "side": 1,
+      "message": "This feels \"reverse\" for some reason.  So CountInfos \u003e 0 means a reboot is needed?",
+      "revId": "f1f15a7eeabcd0aa10e61eef71476fe4ee4b6e92",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
