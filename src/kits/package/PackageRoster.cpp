@@ -52,6 +52,22 @@ BPackageRoster::~BPackageRoster()
 }
 
 
+bool
+BPackageRoster::IsRebootNeeded()
+{
+	BInstallationLocationInfo info;
+
+	if (GetInstallationLocationInfo(B_PACKAGE_INSTALLATION_LOCATION_SYSTEM,
+		info) != B_OK)
+		return false;
+
+	if (info.CurrentlyActivePackageInfos().CountInfos() != 0)
+		return true;
+
+	return false;
+}
+
+
 status_t
 BPackageRoster::GetCommonRepositoryConfigPath(BPath* path, bool create) const
 {
