@@ -499,6 +499,7 @@ static const Translation kTranslations[] = {
 	"Carwyn Jones\n" \
 	"Prasad Joshi\n" \
 	"Vasilis Kaoutsis\n" \
+	"Preetpal Kaur\n" \
 	"James Kim\n" \
 	"Shintaro Kinugawa\n" \
 	"Jan Klötzke\n" \
@@ -566,7 +567,7 @@ static const Translation kTranslations[] = {
 	"Gerald Zajac\n" \
 	"Łukasz Zemczak\n" \
 	"JiSheng Zhang\n" \
-	"Zhao Shuai\n"
+	"Zhao Shuai\n" \
 
 #define kWebsiteTeam  \
 	"Augustin Cavalier\n" \
