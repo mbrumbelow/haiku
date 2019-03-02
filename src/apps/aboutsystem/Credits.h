@@ -528,6 +528,7 @@ static const Translation kTranslations[] = {
 	"MrSiggler\n" \
 	"Takashi Murai\n" \
 	"Alan Murta\n" \
+	"Dash Nabanita\n" \
 	"Raghuram Nagireddy\n" \
 	"Kazuho Okui\n" \
 	"Jeroen Oortwijn (idefix)\n" \
