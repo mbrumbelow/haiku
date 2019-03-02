@@ -135,8 +135,8 @@ private:
 
 private:
 	BObjectList<client_window_info>	fWindows;
-	uint32							fWorkspaces;
-	int32							fWorkspaceCount;
+	uint32						fWorkspaces;
+	int32						fWorkspaceCount;
 };
 
 
@@ -160,7 +160,7 @@ public:
 		owner->GetFontHeight(&fontHeight);
 
 		SetBaselineOffset(
-			2 + (int32)ceilf(fontHeight.ascent + fontHeight.leading / 2));
+			2 + (int32)ceilf(fontHeight.ascent + fontHeight.leading >> 1));
 
 		SetHeight((int32)ceilf(fontHeight.ascent)
 			+ (int32)ceilf(fontHeight.descent)
@@ -284,7 +284,7 @@ WindowsView::WindowsView(team_id team, uint32 location)
 
 	BStringView* nameView = new BStringView("name", info.ref.name);
 	BFont font(be_plain_font);
-	font.SetSize(font.Size() * 2);
+	font.SetSize(font.Size() << 1);
 	font.SetFace(B_BOLD_FACE);
 	nameView->SetFont(&font);
 
