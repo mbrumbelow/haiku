@@ -112,7 +112,6 @@ local genericSources =
 	w_remainder.c w_remainderf.c # w_remainderl.c
 	w_scalb.c w_scalbf.c # w_scalbl.c
 	w_sinh.c w_sinhf.c # w_sinhl.c
-	# no asm for m68k in glibc
 	w_sqrt.c w_sqrtf.c # w_sqrtl.c
 	;
 
@@ -122,14 +121,39 @@ MergeObject <$(TARGET_ARCH)>posix_gnu_arch_$(TARGET_ARCH)_generic.o :
 ;
 
 
-#MergeObject <$(TARGET_ARCH)>posix_gnu_arch_$(TARGET_ARCH)_other.o :
-#	;
+MergeObject <$(TARGET_ARCH)>posix_gnu_arch_$(TARGET_ARCH)_e.o :
+	e_acosf.c
+	e_asin.c e_asinf.c
+	e_sqrt.c e_sqrtf.c
+	;
+
+MergeObject <$(TARGET_ARCH)>posix_gnu_arch_$(TARGET_ARCH)_s.o :
+	s_clog_template.c
+	s_isnan.S s_isnanf.S
+	s_rint.c s_rintf.c
+	;
+
+MergeObject <$(TARGET_ARCH)>posix_gnu_arch_$(TARGET_ARCH)_other.o :
+	add_n.S
+	addmul_1.S
+	doasin.c
+	fegetround.c fesetround.c
+	feholdexcpt.c
+	fesetenv.c
+	fraiseexcpt.c
+	lshift.S rshift.S
+	mul_1.S
+	sub_n.S
+	submul_1.S
+	;
 
 
 MergeObjectFromObjects <$(TARGET_ARCH)>posix_gnu_arch_$(TARGET_ARCH).o
 	: :
+	<$(TARGET_ARCH)>posix_gnu_arch_$(TARGET_ARCH)_e.o
+	<$(TARGET_ARCH)>posix_gnu_arch_$(TARGET_ARCH)_s.o
 	<$(TARGET_ARCH)>posix_gnu_arch_$(TARGET_ARCH)_generic.o
-	# <$(TARGET_ARCH)>posix_gnu_arch_$(TARGET_ARCH)_other.o
+	<$(TARGET_ARCH)>posix_gnu_arch_$(TARGET_ARCH)_other.o
 ;
 
 
