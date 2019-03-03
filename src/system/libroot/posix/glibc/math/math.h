@@ -126,6 +126,71 @@ extern int signgam;
 #endif
 
 
+/* Depending on the type of TG_ARG, call an appropriately suffixed
+   version of FUNC with arguments (including parentheses) ARGS.
+   Suffixed functions may not exist for long double if it has the same
+   format as double, or for other types with the same format as float,
+   double or long double.  The behavior is undefined if the argument
+   does not have a real floating type.  The definition may use a
+   conditional expression, so all suffixed versions of FUNC must
+   return the same type (FUNC may include a cast if necessary rather
+   than being a single identifier).  */
+#ifdef __NO_LONG_DOUBLE_MATH
+# if __HAVE_DISTINCT_FLOAT128
+#  error "Distinct _Float128 without distinct long double not supported."
+# endif
+# define __MATH_TG(TG_ARG, FUNC, ARGS)					\
+  (sizeof (TG_ARG) == sizeof (float) ? FUNC ## f ARGS : FUNC ARGS)
+#elif __HAVE_DISTINCT_FLOAT128
+# if __HAVE_GENERIC_SELECTION
+#  if __HAVE_FLOATN_NOT_TYPEDEF && __HAVE_FLOAT32
+#   define __MATH_TG_F32(FUNC, ARGS) _Float32: FUNC ## f ARGS,
+#  else
+#   define __MATH_TG_F32(FUNC, ARGS)
+#  endif
+#  if __HAVE_FLOATN_NOT_TYPEDEF && __HAVE_FLOAT64X
+#   if __HAVE_FLOAT64X_LONG_DOUBLE
+#    define __MATH_TG_F64X(FUNC, ARGS) _Float64x: FUNC ## l ARGS,
+#   else
+#    define __MATH_TG_F64X(FUNC, ARGS) _Float64x: FUNC ## f128 ARGS,
+#   endif
+#  else
+#   define __MATH_TG_F64X(FUNC, ARGS)
+#  endif
+#  define __MATH_TG(TG_ARG, FUNC, ARGS)	\
+     _Generic ((TG_ARG),			\
+	       float: FUNC ## f ARGS,		\
+	       __MATH_TG_F32 (FUNC, ARGS)	\
+	       default: FUNC ARGS,		\
+	       long double: FUNC ## l ARGS,	\
+	       __MATH_TG_F64X (FUNC, ARGS)	\
+	       _Float128: FUNC ## f128 ARGS)
+# else
+#  if __HAVE_FLOATN_NOT_TYPEDEF
+#   error "Non-typedef _FloatN but no _Generic."
+#  endif
+#  define __MATH_TG(TG_ARG, FUNC, ARGS)					\
+     __builtin_choose_expr						\
+     (__builtin_types_compatible_p (__typeof (TG_ARG), float),		\
+      FUNC ## f ARGS,							\
+      __builtin_choose_expr						\
+      (__builtin_types_compatible_p (__typeof (TG_ARG), double),	\
+       FUNC ARGS,							\
+       __builtin_choose_expr						\
+       (__builtin_types_compatible_p (__typeof (TG_ARG), long double),	\
+	FUNC ## l ARGS,							\
+	FUNC ## f128 ARGS)))
+# endif
+#else
+# define __MATH_TG(TG_ARG, FUNC, ARGS)		\
+  (sizeof (TG_ARG) == sizeof (float)		\
+   ? FUNC ## f ARGS				\
+   : sizeof (TG_ARG) == sizeof (double)		\
+   ? FUNC ARGS					\
+   : FUNC ## l ARGS)
+#endif
+
+
 /* ISO C99 defines some generic macros which work on any data type.  */
 #if __USE_ISOC99
 
@@ -246,6 +311,37 @@ enum
 # define MATH_ERREXCEPT	2	/* Exceptions raised by math functions.  */
 
 #endif /* Use ISO C99.  */
+
+/* Return nonzero value if X is a signaling NaN.  */
+# ifndef __cplusplus
+#  define issignaling(x) __MATH_TG ((x), __issignaling, (x))
+# else
+   /* In C++ mode, __MATH_TG cannot be used, because it relies on
+      __builtin_types_compatible_p, which is a C-only builtin.  On the
+      other hand, overloading provides the means to distinguish between
+      the floating-point types.  The overloading resolution will match
+      the correct parameter (regardless of type qualifiers (i.e.: const
+      and volatile)).  */
+extern "C++" {
+inline int issignaling (float __val) { return __issignalingf (__val); }
+inline int issignaling (double __val) { return __issignaling (__val); }
+inline int
+issignaling (long double __val)
+{
+#  ifdef __NO_LONG_DOUBLE_MATH
+  return __issignaling (__val);
+#  else
+  return __issignalingl (__val);
+#  endif
+}
+#  if __HAVE_FLOAT128_UNLIKE_LDBL
+/* When using an IEEE 128-bit long double, _Float128 is defined as long double
+   in C++.  */
+inline int issignaling (_Float128 __val) { return __issignalingf128 (__val); }
+#  endif
+} /* extern C++ */
+# endif
+
 
 #ifdef	__USE_MISC
 /* Support for various different standard error handling behaviors.  */
