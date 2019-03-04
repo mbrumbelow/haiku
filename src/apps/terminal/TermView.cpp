@@ -283,7 +283,7 @@ TermView::_InitObject(const ShellParameters& shellParameters)
 	fFontHeight = 0;
 	fFontAscent = 0;
 	fEmulateBold = false;
-	fAllowBold = false;
+	fBrightInsteadOfBold = false;
 	fFrameResized = false;
 	fResizeViewDisableCount = 0;
 	fLastActivityTime = 0;
@@ -780,8 +780,8 @@ TermView::SetTermFont(const BFont *font)
 	fEmulateBold = PrefHandler::Default() == NULL ? false
 		: PrefHandler::Default()->getBool(PREF_EMULATE_BOLD);
 
-	fAllowBold = PrefHandler::Default() == NULL ? false
-		: PrefHandler::Default()->getBool(PREF_ALLOW_BOLD);
+	fBrightInsteadOfBold = PrefHandler::Default() == NULL ? false
+		: PrefHandler::Default()->getBool(PREF_BRIGHT_INSTEAD_OF_BOLD);
 
 	_ScrollTo(0, false);
 	if (fScrollBar != NULL)
@@ -964,7 +964,7 @@ TermView::_DrawLinePart(float x1, float y1, uint32 attr, char *buf,
 	if (highlight != NULL)
 		attr = highlight->Highlighter()->AdjustTextAttributes(attr);
 
-	inView->SetFont(IS_BOLD(attr) && !fEmulateBold && fAllowBold
+	inView->SetFont(IS_BOLD(attr) && !fEmulateBold && !fBrightInsteadOfBold
 		? &fBoldFont : &fHalfFont);
 
 	// Set pen point
@@ -1007,11 +1007,7 @@ TermView::_DrawLinePart(float x1, float y1, uint32 attr, char *buf,
 
 	// Draw character.
 	if (IS_BOLD(attr)) {
-		if (fEmulateBold) {
-			inView->MovePenTo(x1 - 1, y1 + fFontAscent - 1);
-			inView->DrawString((char *)buf);
-			inView->SetDrawingMode(B_OP_BLEND);
-		} else {
+		if (fBrightInsteadOfBold) {
 			rgb_color bright = rgb_fore;
 
 			bright.red = saturated_add<uint8>(bright.red, 64);
@@ -1019,6 +1015,10 @@ TermView::_DrawLinePart(float x1, float y1, uint32 attr, char *buf,
 			bright.blue = saturated_add<uint8>(bright.blue, 64);
 
 			inView->SetHighColor(bright);
+		} else if (fEmulateBold) {
+			inView->MovePenTo(x1 - 1, y1 + fFontAscent - 1);
+			inView->DrawString((char *)buf);
+			inView->SetDrawingMode(B_OP_BLEND);
 		}
 	}
 
