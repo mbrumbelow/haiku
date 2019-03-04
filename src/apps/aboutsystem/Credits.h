@@ -548,6 +548,7 @@ static const Translation kTranslations[] = {
 	"Thomas Roell\n" \
 	"Rafael Romo\n" \
 	"Ralf Schülke\n" \
+	"Athira Selvan\n" \
 	"Zousar Shaker\n" \
 	"Caitlin Shaw\n" \
 	"Geoffry Song\n" \
@@ -566,8 +567,8 @@ static const Translation kTranslations[] = {
 	"Gerald Zajac\n" \
 	"Łukasz Zemczak\n" \
 	"JiSheng Zhang\n" \
-	"Zhao Shuai\n"
-
+	"Zhao Shuai\n" \
+	
 #define kWebsiteTeam  \
 	"Augustin Cavalier\n" \
 	"Niels Sascha Reedijk\n" \
