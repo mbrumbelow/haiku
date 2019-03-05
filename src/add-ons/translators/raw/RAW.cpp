@@ -2598,8 +2598,11 @@ DCRaw::_LoadRAWLosslessJPEG(const image_data_info& image)
 			if (fCR2Slice[0]) {
 				jidx = jrow * jwide + jcol;
 				i = jidx / (fCR2Slice[1] * jh.high);
-				if ((j = i >= fCR2Slice[0]))
+				if (i >= fCR2Slice[0]) {
+				    j = 1;
 					i  = fCR2Slice[0];
+				} else
+					j = 0;
 				jidx -= i * (fCR2Slice[1] * jh.high);
 				row = jidx / fCR2Slice[1 + j];
 				col = jidx % fCR2Slice[1 + j] + i * fCR2Slice[1];
