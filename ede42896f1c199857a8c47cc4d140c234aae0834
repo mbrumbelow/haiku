@@ -16,6 +16,24 @@
       "revId": "ede42896f1c199857a8c47cc4d140c234aae0834",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a215c14_483e35d8",
+        "filename": "src/bin/debug/ltrace/arch/x86_64/arch_ltrace_stub.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-03-05T21:51:21Z",
+      "side": 1,
+      "message": "\u003e This trick is not needed in x86_64 mode:\n\nI used call_stub(%rip) instead, [call_stub] isn\u0027t understood.",
+      "parentUuid": "291e4419_36b9a008",
+      "revId": "ede42896f1c199857a8c47cc4d140c234aae0834",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
