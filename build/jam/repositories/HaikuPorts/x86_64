@@ -106,6 +106,8 @@ RemotePackageRepository HaikuPorts
 	libpcre2-10.30-2
 	libpng16-1.6.35-1
 	libpng16_devel-1.6.35-1
+	libpsl-0.20.2
+	libpsl_devel-0.20.2
 	libsolv-0.3.0_haiku_2014_12_22-3
 	libsolv_devel-0.3.0_haiku_2014_12_22-3
 	libtasn1-4.13-1
@@ -247,6 +249,7 @@ RemotePackageRepository HaikuPorts
 	libpcre
 	libpcre2
 	libpng16
+	libpsl
 	libsolv
 	libtasn1
 	libtheora
