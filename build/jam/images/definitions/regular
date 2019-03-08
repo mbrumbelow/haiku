@@ -71,7 +71,7 @@ rule HaikuImageGetSystemLibs
 		[ MultiArchDefaultGristFiles [ FFilterByBuildFeatures
 			libalm.so
 			libbe.so libbsd.so libbnetapi.so libbluetooth.so
-			libcodec.so libcrypto.so
+			libcodec.so libbcrypto.so
 			libdebug.so libdebugger.so@primary libdevice.so
 			libgame.so libglut.so@mesa libgnu.so
 			libmail.so libmedia.so libmidi.so libmidi2.so
