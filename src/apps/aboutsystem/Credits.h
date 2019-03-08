@@ -460,6 +460,7 @@ static const Translation kTranslations[] = {
 	"Andrea Anzani\n" \
 	"Sean Bartell\n" \
 	"Sambuddha Basu\n" \
+	"Riya Baviskar\n" \
 	"Hannah Boneß\n" \
 	"Andre Braga\n" \
 	"Michael Bulash\n" \
