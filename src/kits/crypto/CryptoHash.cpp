@@ -140,8 +140,9 @@ BCryptoHash::Result(BString* hash)
 		memset(result, 0, digestLength);
 		fAlgorithm->Finish(result);
 
+		// use 3 character for number and a nul terminator
+		char hex[3];
 		for (size_t j = 0; j < digestLength; j++) {
-			char hex[2];
 			sprintf(hex, "%02x", result[j]);
 			hash->Append(hex, 2);
 		}
