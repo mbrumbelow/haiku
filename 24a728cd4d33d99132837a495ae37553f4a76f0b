@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f89e8bf8_4145623b",
+        "filename": "docs/develop/arch/long double.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-03-09T17:30:02Z",
+      "side": 1,
+      "message": "s/AArch64/ARM64/",
+      "revId": "24a728cd4d33d99132837a495ae37553f4a76f0b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
