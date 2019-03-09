@@ -458,6 +458,7 @@ static const Translation kTranslations[] = {
 
 #define kContributors \
 	"Andrea Anzani\n" \
+	"Khyati Agarwal\n" \
 	"Sean Bartell\n" \
 	"Sambuddha Basu\n" \
 	"Hannah Boneß\n" \
@@ -566,8 +567,8 @@ static const Translation kTranslations[] = {
 	"Gerald Zajac\n" \
 	"Łukasz Zemczak\n" \
 	"JiSheng Zhang\n" \
-	"Zhao Shuai\n" \
-	"Khyati Agarwal\n"
+	"Zhao Shuai\n" 
+	
 
 #define kWebsiteTeam  \
 	"Augustin Cavalier\n" \
