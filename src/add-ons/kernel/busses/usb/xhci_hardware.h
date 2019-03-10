@@ -309,7 +309,6 @@
 #define XHCI_MAX_SCRATCHPADS	256
 #define XHCI_MAX_DEVICES		128
 #define XHCI_MAX_TRANSFERS		8
-#define XHCI_MAX_TRBS_PER_TD	18
 
 
 struct xhci_trb {
@@ -450,10 +449,6 @@ struct xhci_device_ctx {
 	struct xhci_slot_ctx slot;
 	struct xhci_endpoint_ctx endpoints[XHCI_MAX_ENDPOINTS - 1];
 };
-
-
-#define XHCI_ENDPOINT_ID(pipe)	(2 * pipe->EndpointAddress()	\
-		+ (pipe->Direction() != Pipe::Out ? 1 : 0))
 
 
 #endif // !XHCI_HARDWARE_H
