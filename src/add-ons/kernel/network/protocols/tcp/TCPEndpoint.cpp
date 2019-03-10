@@ -2087,7 +2087,7 @@ TCPEndpoint::_SendQueued(bool force, uint32 sendWindow)
 	if (force && sendWindow == 0 && fSendNext <= fSendQueue.LastSequence()) {
 		// send one byte of data to ask for a window update
 		// (triggered by the persist timer)
-		sendWindow = 1;
+		//sendWindow = 1;
 	}
 
 	uint32 length = min_c(fSendQueue.Available(fSendNext), sendWindow);
@@ -2104,7 +2104,7 @@ TCPEndpoint::_SendQueued(bool force, uint32 sendWindow)
 			- tcp_options_length(segment);
 		uint32 segmentLength = min_c(length, segmentMaxSize);
 
-		if (fSendNext + segmentLength == fSendQueue.LastSequence()) {
+		if (fSendNext + segmentLength == fSendQueue.LastSequence() && !force) {
 			if (state_needs_finish(fState))
 				segment.flags |= TCP_FLAG_FINISH;
 			if (length > 0)
