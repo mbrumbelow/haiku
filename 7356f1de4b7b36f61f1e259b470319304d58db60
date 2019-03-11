@@ -70,6 +70,24 @@
       "revId": "7356f1de4b7b36f61f1e259b470319304d58db60",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68bac856_dc78ab35",
+        "filename": "src/add-ons/kernel/debugger/hangman/hangman.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-03-11T16:06:23Z",
+      "side": 0,
+      "message": "You can reproduce the cppcheck issue with a small testcase, then open a bug report about the false positive at cppcheck bug tracker.",
+      "parentUuid": "7da32cf4_17e6ae90",
+      "revId": "7356f1de4b7b36f61f1e259b470319304d58db60",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
