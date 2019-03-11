@@ -16,6 +16,24 @@
       "revId": "7356f1de4b7b36f61f1e259b470319304d58db60",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f11113cd_6f7a5782",
+        "filename": "src/add-ons/kernel/debugger/hangman/hangman.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-03-11T12:39:23Z",
+      "side": 0,
+      "message": "The only motivation here is to suppress cppcheck\u0027s error message. Since, there was a style violation in the same line and the meaning of the line is not changed, I decided to suppress the cppcheck\u0027s error message, even if it is probably a false positive. Though, probably it is not the best idea to use a \u0027try\u0027 word for the name of the variable. And as I can see now it was the source of confusion for cppcheck. Maybe it should be replaced with \u0027trial\u0027 or \u0027attempt\u0027?",
+      "parentUuid": "cb1e167e_653c1d78",
+      "revId": "7356f1de4b7b36f61f1e259b470319304d58db60",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
