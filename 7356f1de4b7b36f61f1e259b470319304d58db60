@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb1e167e_653c1d78",
+        "filename": "src/add-ons/kernel/debugger/hangman/hangman.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-03-11T09:04:23Z",
+      "side": 0,
+      "message": "Why would the equality check be reversed?",
+      "revId": "7356f1de4b7b36f61f1e259b470319304d58db60",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
