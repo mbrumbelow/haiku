@@ -34,6 +34,24 @@
       "revId": "7356f1de4b7b36f61f1e259b470319304d58db60",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b1245c9_446727a8",
+        "filename": "src/add-ons/kernel/debugger/hangman/hangman.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-03-11T14:43:04Z",
+      "side": 0,
+      "message": "Well \"try\" is a C++ keyword, not a C one. cppcheck produced a false alert because it it a C source file.",
+      "parentUuid": "f11113cd_6f7a5782",
+      "revId": "7356f1de4b7b36f61f1e259b470319304d58db60",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
