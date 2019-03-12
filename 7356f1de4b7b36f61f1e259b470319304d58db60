@@ -88,6 +88,24 @@
       "revId": "7356f1de4b7b36f61f1e259b470319304d58db60",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b57c16c_c0cc6cd4",
+        "filename": "src/add-ons/kernel/debugger/hangman/hangman.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-03-12T11:53:44Z",
+      "side": 0,
+      "message": "But what should I do with this exact line of code?",
+      "parentUuid": "68bac856_dc78ab35",
+      "revId": "7356f1de4b7b36f61f1e259b470319304d58db60",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
