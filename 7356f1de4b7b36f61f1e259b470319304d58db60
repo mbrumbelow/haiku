@@ -106,6 +106,24 @@
       "revId": "7356f1de4b7b36f61f1e259b470319304d58db60",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39f1a408_7cee8ea5",
+        "filename": "src/add-ons/kernel/debugger/hangman/hangman.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-03-12T12:04:50Z",
+      "side": 0,
+      "message": "Nothing to do with this exact line of code, this is a false positive.",
+      "parentUuid": "3b57c16c_c0cc6cd4",
+      "revId": "7356f1de4b7b36f61f1e259b470319304d58db60",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
