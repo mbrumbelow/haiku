@@ -893,6 +893,7 @@
 	BFont font;
 	view->GetFont(&font);
 	font.SetFace(B_ITALIC_FACE);
+	font.setFace(B_UNDERSCORE_FACE);
 	font.SetSpacing(B_CHAR_SPACING);
 	myView->SetFont(&font);
 \endcode

@@ -156,6 +156,39 @@ CharacterStyle::IsItalic() const
 
 
 bool
+CharacterStyle::SetUnderscore(bool underscore)
+{
+	uint16 face = Font().Face();
+	if ((underscore && (face & B_UNDERSCORE_FACE) != 0)
+		|| (!underscore && (face & B_UNDERSCORE_FACE) == 0)) {
+		return true;
+	}
+
+	uint16 neededFace = face;
+	if (underscore) {
+		if ((face & B_BOLD_FACE) != 0)
+			neededFace = B_BOLD_FACE | B_UNDERSCORE_FACE;
+		else
+			neededFace = B_UNDERSCORE_FACE;
+	} else {
+		if ((face & B_BOLD_FACE) != 0)
+			neededFace = B_BOLD_FACE;
+		else
+			neededFace = B_REGULAR_FACE;
+	}
+
+	return SetFont(_FindFontForFace(neededFace));
+}
+
+
+bool
+CharacterStyle::IsUnderscore() const
+{
+	return (Font().Face() & B_UNDERSCORE_FACE) != 0;
+}
+
+
+bool
 CharacterStyle::SetAscent(float ascent)
 {
 	CharacterStyleDataRef data = fStyleData->SetAscent(ascent);

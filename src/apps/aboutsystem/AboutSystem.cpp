@@ -722,7 +722,7 @@ AboutView::AddCopyrightEntry(const char* name, const char* text,
 {
 	BFont font(be_bold_font);
 	//font.SetSize(be_bold_font->Size());
-	font.SetFace(B_BOLD_FACE | B_ITALIC_FACE);
+	font.SetFace(B_BOLD_FACE | B_ITALIC_FACE | B_UNDERSCORE_FACE);
 
 	fCreditsView->SetFontAndColor(&font, B_FONT_ALL, &kHaikuYellow);
 	fCreditsView->Insert(name);
@@ -836,7 +836,7 @@ AboutView::PickRandomHaiku()
 	BString* s = (BString*)haikuList.ItemAt(rand() % haikuList.CountItems());
 	BFont font(be_bold_font);
 	font.SetSize(be_bold_font->Size());
-	font.SetFace(B_BOLD_FACE | B_ITALIC_FACE);
+	font.SetFace(B_BOLD_FACE | B_ITALIC_FACE | B_UNDERSCORE_FACE);
 	fCreditsView->SelectAll();
 	fCreditsView->Delete();
 	fCreditsView->SetFontAndColor(&font, B_FONT_ALL, &kDarkGrey);
@@ -931,7 +931,7 @@ AboutView::_CreateCreditsView()
 	fCreditsView->Insert("\n\n");
 
 	font.SetSize(be_bold_font->Size());
-	font.SetFace(B_BOLD_FACE | B_ITALIC_FACE);
+	font.SetFace(B_BOLD_FACE | B_ITALIC_FACE | B_UNDERSCORE_FACE);
 
 	fCreditsView->SetFontAndColor(&font, B_FONT_ALL, &kHaikuOrange);
 	fCreditsView->Insert(B_TRANSLATE("Current maintainers:\n"));

@@ -31,6 +31,8 @@ font_score(const FontStyle* style)
 			score += 5;
 		if (style->Face() & B_ITALIC_FACE)
 			score--;
+		if (style->Face() & B_UNDERSCORE_FACE)
+			;
 	}
 
 	return score;
@@ -40,7 +42,7 @@ font_score(const FontStyle* style)
 static int
 compare_font_styles(const FontStyle* a, const FontStyle* b)
 {
-	// Regular fonts come first, then bold, then italics
+	// Regular fonts come first, then bold, then italics, then underscores
 	return font_score(b) - font_score(a);
 }
 
@@ -239,6 +241,14 @@ FontFamily::GetStyle(const char *name) const
 		alternative.ReplaceFirst("Oblique", "Italic");
 		return _FindStyle(alternative.String());
 	}
+	if (alternative.FindFirst("Underscore") >= 0) {
+		alternative.ReplaceFirst("Underscore", "Underline");
+		return _FindStyle(alternative.String());
+	}
+	if (alternative.FindFirst("Underline") >= 0) {
+		alternative.ReplaceFirst("Underline", "Underscore");
+		return _FindStyle(alternative.String());
+	}
 
 	return NULL;
 }
@@ -263,7 +273,7 @@ FontFamily::GetStyleMatchingFace(uint16 face) const
 {
 	// TODO: support other faces (strike through, underlined, outlines...)
 	face &= B_BOLD_FACE | B_ITALIC_FACE | B_REGULAR_FACE | B_CONDENSED_FACE
-		| B_LIGHT_FACE | B_HEAVY_FACE;
+		| B_UNDERSCORE_FACE | B_LIGHT_FACE | B_HEAVY_FACE;
 
 	int32 count = fStyles.CountItems();
 	for (int32 i = 0; i < count; i++) {
