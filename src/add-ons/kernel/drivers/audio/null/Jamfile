@@ -2,7 +2,7 @@ SubDir HAIKU_TOP src add-ons kernel drivers audio null ;
 
 SetSubDirSupportedPlatformsBeOSCompatible ;
 
-UsePrivateHeaders audio ;
+UsePrivateHeaders media ;
 
 KernelAddon null_audio :
 	driver.c

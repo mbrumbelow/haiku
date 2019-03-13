@@ -5,7 +5,7 @@ SetSubDirSupportedPlatformsBeOSCompatible ;
 UsePrivateHeaders kernel net ;
 UsePrivateKernelHeaders ;
 UsePrivateHeaders [ FDirName kernel util ] ;
-UsePrivateHeaders kernel audio ;
+UsePrivateHeaders kernel media ;
 
 KernelAddon usb_audio :
 	Driver.cpp
