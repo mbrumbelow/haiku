@@ -18,24 +18,24 @@
 #include <Writer.h>
 
 
-class FFmpegPlugin : public BReaderPlugin, public BDecoderPlugin,
-	public BWriterPlugin, public BEncoderPlugin {
+class FFmpegPlugin : public ReaderPlugin, public DecoderPlugin,
+	public WriterPlugin, public EncoderPlugin {
 public:
-	virtual	BReader*			NewReader();
+	virtual	Reader*				NewReader();
 
-	virtual	BDecoder*			NewDecoder(uint index);
+	virtual	Decoder*			NewDecoder(uint index);
 	virtual	status_t			GetSupportedFormats(media_format** _formats,
 									size_t* _count);
 
-	virtual	BWriter*			NewWriter();
+	virtual	Writer*				NewWriter();
 	virtual	status_t			GetSupportedFileFormats(
 									const media_file_format** _fileFormats,
 									size_t* _count);
 
-	virtual	BEncoder*			NewEncoder(
+	virtual	Encoder*			NewEncoder(
 									const media_codec_info& codecInfo);
 
-	virtual	BEncoder*			NewEncoder(const media_format& format);
+	virtual	Encoder*			NewEncoder(const media_format& format);
 
 	virtual	status_t			RegisterNextEncoder(int32* cookie,
 									media_codec_info* codecInfo,

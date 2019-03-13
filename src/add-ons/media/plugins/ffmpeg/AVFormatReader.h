@@ -11,7 +11,7 @@
 #include <String.h>
 
 
-class AVFormatReader : public BReader {
+class AVFormatReader : public Reader {
 public:
 								AVFormatReader();
 								~AVFormatReader();

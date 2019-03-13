@@ -43,7 +43,7 @@ extern "C" {
 // #pragma mark -
 
 
-BDecoder*
+Decoder*
 FFmpegPlugin::NewDecoder(uint index)
 {
 // TODO: Confirm we can check index here.
@@ -53,7 +53,7 @@ FFmpegPlugin::NewDecoder(uint index)
 }
 
 
-BReader*
+Reader*
 FFmpegPlugin::NewReader()
 {
 	return new(std::nothrow) AVFormatReader();
@@ -67,7 +67,7 @@ FFmpegPlugin::GetSupportedFormats(media_format** _formats, size_t* _count)
 }
 
 
-BWriter*
+Writer*
 FFmpegPlugin::NewWriter()
 {
 	return new(std::nothrow) AVFormatWriter();
@@ -84,7 +84,7 @@ FFmpegPlugin::GetSupportedFileFormats(const media_file_format** _fileFormats,
 }
 
 
-BEncoder*
+Encoder*
 FFmpegPlugin::NewEncoder(const media_codec_info& codecInfo)
 {
 	for (size_t i = 0; i < gEncoderCount; i++) {
@@ -97,7 +97,7 @@ FFmpegPlugin::NewEncoder(const media_codec_info& codecInfo)
 }
 
 
-BEncoder*
+Encoder*
 FFmpegPlugin::NewEncoder(const media_format& format)
 {
 	for (size_t i = 0; i < gEncoderCount; i++) {
@@ -133,7 +133,7 @@ FFmpegPlugin::RegisterNextEncoder(int32* cookie, media_codec_info* _codecInfo,
 // #pragma mark -
 
 
-BMediaPlugin*
+MediaPlugin*
 instantiate_plugin()
 {
 	return new(std::nothrow) FFmpegPlugin;

@@ -15,7 +15,7 @@ extern "C" {
 }
 
 
-class AVFormatWriter : public BWriter {
+class AVFormatWriter : public Writer {
 public:
 								AVFormatWriter();
 								~AVFormatWriter();
