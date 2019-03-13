@@ -10,7 +10,7 @@
 #include <HttpRequest.h>
 #include <UrlProtocolRoster.h>
 
-#include "MediaDebug.h"
+#include "debug.h"
 
 
 // 10 seconds timeout
