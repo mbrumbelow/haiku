@@ -8,10 +8,8 @@
 
 #include <MediaIO.h>
 #include <OS.h>
+#include <RWLocker.h>
 #include <SupportDefs.h>
-
-
-class RWLocker;
 
 
 namespace BCodecKit {
