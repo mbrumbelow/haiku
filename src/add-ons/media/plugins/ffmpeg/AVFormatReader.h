@@ -6,9 +6,10 @@
 #define AV_FORMAT_READER_H
 
 
-#include <Reader.h>
 #include <Locker.h>
 #include <String.h>
+
+#include "ReaderPlugin.h"
 
 
 class AVFormatReader : public Reader {

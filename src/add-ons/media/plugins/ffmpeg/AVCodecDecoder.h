@@ -13,9 +13,8 @@
 
 //! libavcodec based decoder for Haiku
 
-#include <Decoder.h>
+
 #include <MediaFormats.h>
-#include <Reader.h>
 
 
 extern "C" {
@@ -28,6 +27,10 @@ extern "C" {
 	#include "swscale.h"
 	#include "timestamp.h"
 }
+
+
+#include "DecoderPlugin.h"
+#include "ReaderPlugin.h"
 
 #include "CodecTable.h"
 #include "gfx_util.h"

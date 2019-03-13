@@ -10,8 +10,8 @@
 #define _MEDIA_EXTRACTOR_H
 
 
-#include <Decoder.h>
-#include <Reader.h>
+#include "ReaderPlugin.h"
+#include "DecoderPlugin.h"
 
 
 namespace BPrivate {

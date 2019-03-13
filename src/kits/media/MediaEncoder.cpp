@@ -9,7 +9,7 @@
 
 #include <MediaEncoder.h>
 
-#include <Encoder.h>
+#include <EncoderPlugin.h>
 #include <PluginManager.h>
 
 #include <new>

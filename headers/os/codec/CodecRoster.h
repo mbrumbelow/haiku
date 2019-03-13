@@ -7,9 +7,9 @@
 
 
 #include <MediaDefs.h>
-#include <Reader.h>
-#include <Streamer.h>
-#include <Writer.h>
+#include <ReaderPlugin.h>
+#include <StreamerPlugin.h>
+#include <WriterPlugin.h>
 
 
 namespace BPrivate {

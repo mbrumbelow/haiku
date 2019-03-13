@@ -8,7 +8,7 @@
 
 #include <Url.h>
 
-#include "Streamer.h"
+#include "StreamerPlugin.h"
 
 
 namespace BPrivate {

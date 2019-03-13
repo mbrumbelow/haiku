@@ -5,7 +5,7 @@
  */
 
 
-#include <Writer.h>
+#include "WriterPlugin.h"
 
 #include <stdio.h>
 
