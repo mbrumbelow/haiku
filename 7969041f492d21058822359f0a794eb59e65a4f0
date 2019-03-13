@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a0e4394_a57b317e",
+        "filename": "headers/os/support/Url.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-03-13T11:37:02Z",
+      "side": 1,
+      "message": "this line is now larger than 80 columns and should be broken. Also missing space after comma",
+      "revId": "7969041f492d21058822359f0a794eb59e65a4f0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f38841f1_39579839",
+        "filename": "headers/os/support/Url.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-03-13T11:37:02Z",
+      "side": 1,
+      "message": "Remove them, don\u0027t just comment them out. The git history is there to keep track of old code.",
+      "revId": "7969041f492d21058822359f0a794eb59e65a4f0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9712457_55daef8d",
+        "filename": "src/kits/support/Url.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-03-13T11:37:02Z",
+      "side": 1,
+      "message": "indentation problem, missing space before {, and this should be done before calling _ExplodeUrlString, otherwise the result is ignored and this is useless. It is not even called if you put it after the \"return\" statement...",
+      "revId": "7969041f492d21058822359f0a794eb59e65a4f0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
