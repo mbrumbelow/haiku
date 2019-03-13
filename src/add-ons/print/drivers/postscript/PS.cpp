@@ -270,7 +270,7 @@ PSDriver::NextBand(BBitmap* bitmap, BPoint* offset)
 				// gray values
 			uchar* out_buffer = new uchar[out_size];
 				// gray values in hexadecimal
-
+			//FIXME: auto_ptr works only for new not for new[]
 			auto_ptr<uchar> _in_buffer(in_buffer);
 			auto_ptr<uchar> _out_buffer(out_buffer);
 

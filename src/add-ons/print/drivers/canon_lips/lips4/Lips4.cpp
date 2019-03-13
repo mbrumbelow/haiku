@@ -174,7 +174,7 @@ LIPS4Driver::NextBand(BBitmap* bitmap, BPoint* offset)
 
 			uchar* in_buffer  = new uchar[in_size];
 			uchar* out_buffer = new uchar[out_size];
-
+			//FIXME: auto_ptr works only for new not for new[]
 			auto_ptr<uchar> _in_buffer (in_buffer);
 			auto_ptr<uchar> _out_buffer(out_buffer);
 
