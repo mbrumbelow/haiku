@@ -82,7 +82,7 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 			!missing_symbols.cpp
 			Deprecated.cpp
 			:
-			be codec localestub shared
+			be libcodec.so localestub shared
 			[ TargetLibsupc++ ] [ TargetLibstdc++ ]
 			;
 	}
