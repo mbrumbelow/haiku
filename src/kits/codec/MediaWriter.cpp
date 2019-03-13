@@ -152,17 +152,17 @@ MediaWriter::CreateEncoder(Encoder** _encoder,
 
 
 status_t
-MediaWriter::SetMetaData(BMetaData* data)
+MediaWriter::SetCopyright(const char* copyright)
 {
 	if (fWriter == NULL)
 		return B_NO_INIT;
 
-	return fWriter->SetMetaData(data);
+	return fWriter->SetCopyright(copyright);
 }
 
 
 status_t
-MediaWriter::SetMetaData(int32 streamIndex, BMetaData* data)
+MediaWriter::SetCopyright(int32 streamIndex, const char* copyright)
 {
 	if (fWriter == NULL)
 		return B_NO_INIT;
@@ -171,7 +171,7 @@ MediaWriter::SetMetaData(int32 streamIndex, BMetaData* data)
 	if (!fStreamInfos.Get(streamIndex, &info))
 		return B_BAD_INDEX;
 
-	return fWriter->SetMetaData(info->cookie, data);
+	return fWriter->SetCopyright(info->cookie, copyright);
 }
 
 

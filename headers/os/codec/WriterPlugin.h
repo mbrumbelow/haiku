@@ -1,7 +1,6 @@
 #ifndef _WRITER_PLUGIN_H
 #define _WRITER_PLUGIN_H
 
-#include <MetaData.h>
 #include <MediaTrack.h>
 
 #include "MediaPlugin.h"
@@ -17,7 +16,7 @@ public:
 
 	virtual	status_t			Init(const media_file_format* fileFormat) = 0;
 
-	virtual	status_t			SetMetaData(BMetaData* data) = 0;
+	virtual	status_t			SetCopyright(const char* copyright) = 0;
 	virtual	status_t			CommitHeader() = 0;
 	virtual	status_t			Flush() = 0;
 	virtual	status_t			Close() = 0;
@@ -27,8 +26,8 @@ public:
 									const media_codec_info* codecInfo) = 0;
 	virtual	status_t			FreeCookie(void* cookie) = 0;
 
-	virtual status_t			SetMetaData(void* cookie,
-									BMetaData* data) = 0;
+	virtual	status_t			SetCopyright(void* cookie,
+									const char* copyright) = 0;
 
 	virtual	status_t			AddTrackInfo(void* cookie, uint32 code,
 									const void* data, size_t size,
