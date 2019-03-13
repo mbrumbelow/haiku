@@ -40,14 +40,6 @@
   #define TRACE(a...)
 #endif
 
-
-B_DECLARE_CODEC_KIT_PLUGIN(
-	RawDecoderPlugin,
-	"raw_decoder",
-	B_CODEC_KIT_PLUGIN_VERSION
-);
-
-
 inline size_t
 AudioBufferSize(int32 channel_count, uint32 sample_format, float frame_rate, bigtime_t buffer_duration = 50000 /* 50 ms */)
 {
@@ -571,4 +563,9 @@ RawDecoderPlugin::GetSupportedFormats(media_format ** formats, size_t * count)
 	*count = 2;
 
 	return B_OK;
+}
+
+BMediaPlugin *instantiate_plugin()
+{
+	return new RawDecoderPlugin;
 }
