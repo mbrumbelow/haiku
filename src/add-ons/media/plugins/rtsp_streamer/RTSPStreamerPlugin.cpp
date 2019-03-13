@@ -1,7 +1,3 @@
-/*
- * Copyright 2016-2019, Dario Casalinuovo
- * Distributed under the terms of the MIT License.
- */
 
 #include "RTSPStreamerPlugin.h"
 
