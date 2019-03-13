@@ -22,7 +22,7 @@ public:
 									const media_file_format& fileFormat);
 								~BMediaWriter();
 
-			status_t			InitCheck() const;
+			status_t			InitCheck();
 
 			BDataIO*			Target() const;
 
@@ -54,9 +54,8 @@ private:
 				void*			cookie;
 			};
 
-			status_t 			fInitCheck;
 			BDataIO*			fTarget;
-			BWriter*			fWriter;
+			BWriter*				fWriter;
 			List<StreamInfo>	fStreamInfos;
 			media_file_format	fFileFormat;
 

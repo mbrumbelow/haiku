@@ -184,7 +184,7 @@ BMediaExtractor::~BMediaExtractor()
 
 
 status_t
-BMediaExtractor::InitCheck() const
+BMediaExtractor::InitCheck()
 {
 	CALLED();
 	return fInitStatus;
@@ -215,7 +215,7 @@ BMediaExtractor::GetMetaData(BMetaData* data) const
 
 
 int32
-BMediaExtractor::CountStreams() const
+BMediaExtractor::CountStreams()
 {
 	CALLED();
 	return fStreamCount;
