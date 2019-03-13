@@ -18,6 +18,7 @@
 #include "PluginManager.h"
 
 
+
 class MediaExtractorChunkWriter : public ChunkWriter {
 public:
 	MediaExtractorChunkWriter(MediaWriter* writer, int32 streamIndex)
@@ -234,3 +235,4 @@ MediaWriter::WriteChunk(int32 streamIndex, const void* chunkBuffer,
 	return fWriter->WriteChunk(info->cookie, chunkBuffer, chunkSize,
 		encodeInfo);
 }
+

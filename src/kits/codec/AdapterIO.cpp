@@ -4,7 +4,6 @@
  *
  */
 
-
 #include "AdapterIO.h"
 
 #include <MediaIO.h>

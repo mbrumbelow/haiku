@@ -6,7 +6,6 @@
  * Distributed under the terms of the MIT License.
  */
 
-
 #include "ReaderPlugin.h"
 
 #include <stdio.h>
@@ -79,3 +78,4 @@ void Reader::_ReservedReader2() {}
 void Reader::_ReservedReader3() {}
 void Reader::_ReservedReader4() {}
 void Reader::_ReservedReader5() {}
+

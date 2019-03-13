@@ -4,7 +4,6 @@
  * Distributed under the terms of the MIT License.
  */
 
-
 #include "EncoderPlugin.h"
 
 #include <stdio.h>

@@ -4,7 +4,6 @@
  * Distributed under the terms of the MIT License.
  */
 
-
 #include "WriterPlugin.h"
 
 #include <stdio.h>
@@ -43,9 +42,9 @@ Writer::Perform(perform_code code, void* data)
 	return B_OK;
 }
 
-
 void Writer::_ReservedWriter1() {}
 void Writer::_ReservedWriter2() {}
 void Writer::_ReservedWriter3() {}
 void Writer::_ReservedWriter4() {}
 void Writer::_ReservedWriter5() {}
+
