@@ -48,10 +48,12 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 			TimeSource.cpp
 
 			# Experimental Media Kit
+			AdapterIO.cpp
 			MediaClient.cpp
 			MediaClientDefs.cpp
 			MediaClientNode.cpp
 			MediaConnection.cpp
+			MediaIO.cpp
 			SimpleMediaClient.cpp
 
 			# Internal Functionality
@@ -81,7 +83,7 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 			!missing_symbols.cpp
 			Deprecated.cpp
 			:
-			be libcodec.so localestub shared
+			be codec localestub shared
 			[ TargetLibsupc++ ] [ TargetLibstdc++ ]
 			;
 	}
