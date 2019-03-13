@@ -27,7 +27,7 @@ reflect32 (uint32 b)
 {
 	uint32 rw = 0;
 
-	for (int i = 0; i < 32; i++){
+	for (int i = 0; i < 32; i++) {
 		if (b & 1)
 			rw |= 1 << (31 - i);
 		b >>= 1;
