@@ -7,18 +7,17 @@
  *		Marcus Overhagen
  */
 
-#include <MediaFormats.h>
-
-#include <CodecRoster.h>
-#include <ObjectList.h>
-#include <Message.h>
-#include <Autolock.h>
 
 #include "AddOnManager.h"
 #include "DataExchange.h"
 #include "FormatManager.h"
 #include "MetaFormat.h"
 #include "MediaDebug.h"
+
+#include <MediaFormats.h>
+#include <ObjectList.h>
+#include <Message.h>
+#include <Autolock.h>
 
 #include <string.h>
 
@@ -48,7 +47,7 @@ get_next_encoder(int32* cookie, const media_file_format* fileFormat,
 		media_format candidateInputFormat;
 		media_format candidateOutputFormat;
 
-		status_t ret = BCodecKit::BCodecRoster::GetCodecInfo(
+		status_t ret = AddOnManager::GetInstance()->GetCodecInfo(
 			&candidateCodecInfo, &candidateFormatFamily,
 			&candidateInputFormat, &candidateOutputFormat, *cookie);
 
@@ -98,7 +97,7 @@ get_next_encoder(int32* cookie, const media_file_format* fileFormat,
 		media_format candidateInputFormat;
 		media_format candidateOutputFormat;
 
-		status_t ret = BCodecKit::BCodecRoster::GetCodecInfo(
+		status_t ret = AddOnManager::GetInstance()->GetCodecInfo(
 			&candidateCodecInfo, &candidateFormatFamily, &candidateInputFormat,
 			&candidateOutputFormat, *cookie);
 				
@@ -146,7 +145,7 @@ get_next_encoder(int32* cookie, media_codec_info* _codecInfo)
 	media_format inputFormat;
 	media_format outputFormat;
 
-	status_t ret = BCodecKit::BCodecRoster::GetCodecInfo(_codecInfo,
+	status_t ret = AddOnManager::GetInstance()->GetCodecInfo(_codecInfo,
 		&formatFamily, &inputFormat, &outputFormat, *cookie);
 	if (ret != B_OK)
 		return ret;
@@ -367,7 +366,7 @@ update_media_formats()
 
 	// We want the add-ons to register themselves with the format manager, so
 	// the list is up to date.
-	BCodecKit::BPrivate::AddOnManager::GetInstance()->RegisterAddOns();
+	AddOnManager::GetInstance()->RegisterAddOns();
 
 	BMessage reply;
 	FormatManager::GetInstance()->GetFormats(sLastFormatsUpdate, reply);
@@ -622,8 +621,10 @@ BMediaFormats::MakeFormatFor(const media_format_description* descriptions,
 	int32 descriptionCount, media_format* format, uint32 flags,
 	void* _reserved)
 {
-	return BCodecKit::BCodecRoster::MakeFormatFor(descriptions,
+	status_t status = FormatManager::GetInstance()->MakeFormatFor(descriptions,
 		descriptionCount, *format, flags, _reserved);
+
+	return status;
 }
 
 
@@ -637,3 +638,4 @@ BMediaFormats::MakeFormatFor(const media_format_description& description,
 	*_outFormat = inFormat;
 	return MakeFormatFor(&description, 1, _outFormat);
 }
+

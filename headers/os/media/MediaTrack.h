@@ -9,12 +9,12 @@
 #include <MediaFormats.h>
 
 
-namespace BCodecKit {
+namespace BPrivate { namespace media {
 	class BDecoder;
 	class BEncoder;
 	class BMediaExtractor;
 	class BMediaWriter;
-}
+} }
 
 class BMessage;
 class BView;
@@ -219,12 +219,12 @@ private:
 
 	// For read-only access to a BMediaTrack
 								BMediaTrack(
-									BCodecKit::BMediaExtractor* extractor,
+									BPrivate::media::BMediaExtractor* extractor,
 									int32 streamIndex);
 
 	// For write-only access to a BMediaTrack
 								BMediaTrack(
-									BCodecKit::BMediaWriter* writer,
+									BPrivate::media::BMediaWriter* writer,
 									int32 streamIndex, media_format* format,
 									const media_codec_info* codecInfo);
 
@@ -235,9 +235,9 @@ private:
 
 private:
 			status_t			fInitStatus;
-			BCodecKit::BDecoder* fDecoder;
-			BCodecKit::BDecoder* fRawDecoder;
-			BCodecKit::BMediaExtractor* fExtractor;
+			BPrivate::media::BDecoder* fDecoder;
+			BPrivate::media::BDecoder* fRawDecoder;
+			BPrivate::media::BMediaExtractor* fExtractor;
 
 			int32				fStream;
 			int64				fCurrentFrame;
@@ -245,9 +245,9 @@ private:
 
 			media_codec_info	fCodecInfo;
 
-			BCodecKit::BEncoder* fEncoder;
+			BPrivate::media::BEncoder* fEncoder;
 			int32				fEncoderID;
-			BCodecKit::BMediaWriter* fWriter;
+			BPrivate::media::BMediaWriter* fWriter;
 			media_format		fFormat;
 
 			uint32				fWorkaroundFlags;

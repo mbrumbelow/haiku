@@ -6,21 +6,20 @@
 
 #include <MediaFile.h>
 
-#include <File.h>
-#include <MediaExtractor.h>
-#include <MediaStreamer.h>
-#include <MediaTrack.h>
-#include <MediaWriter.h>
-#include <Url.h>
-
 #include <new>
 
 #include <stdlib.h>
 #include <string.h>
 
+#include <File.h>
+#include <MediaTrack.h>
+#include <Url.h>
+
 #include "MediaDebug.h"
 
-using namespace BCodecKit;
+#include "MediaExtractor.h"
+#include "MediaStreamer.h"
+#include "MediaWriter.h"
 
 
 BMediaFile::BMediaFile(const entry_ref* ref)
