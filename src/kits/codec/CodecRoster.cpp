@@ -47,13 +47,6 @@ BCodecRoster::ReleaseDecoder(BDecoder* decoder)
 
 
 status_t
-BCodecRoster::GetDecoderInfo(BDecoder* decoder, media_codec_info* info)
-{
-	return gPluginManager.GetDecoderInfo(decoder, info);
-}
-
-
-status_t
 BCodecRoster::InstantiateWriter(BWriter** writer, const media_file_format& mff,
 	BDataIO* target)
 {
