@@ -17,7 +17,6 @@
 #include <MediaFormats.h>
 #include <Reader.h>
 
-using namespace BCodecKit;
 
 extern "C" {
 	#include "avcodec.h"

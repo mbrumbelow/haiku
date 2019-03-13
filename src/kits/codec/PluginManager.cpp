@@ -21,10 +21,6 @@
 #include "MediaDebug.h"
 
 
-namespace BCodecKit {
-namespace BPrivate {
-
-
 PluginManager gPluginManager;
 
 #define BLOCK_SIZE 4096
@@ -818,7 +814,3 @@ PluginManager::_LoadPlugin(const entry_ref& ref, BMediaPlugin** plugin,
 	*image = id;
 	return B_OK;
 }
-
-
-} // namespace BPrivate
-} // namespace BCodecKit

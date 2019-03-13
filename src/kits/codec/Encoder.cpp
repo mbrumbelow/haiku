@@ -13,9 +13,6 @@
 #include <string.h>
 
 
-namespace BCodecKit {
-
-
 BEncoder::BEncoder()
 	:
 	fChunkWriter(NULL),
@@ -149,6 +146,3 @@ BChunkWriter::BChunkWriter()
 BChunkWriter::~BChunkWriter()
 {
 }
-
-
-} // namespace BCodecKit

@@ -8,12 +8,9 @@
 #include "MediaPlugin.h"
 
 
-namespace BCodecKit {
+namespace BPrivate { namespace media {
 
-namespace BPrivate {
-	class PluginManager;
-}
-
+class PluginManager;
 
 class BChunkProvider {
 public:
@@ -66,7 +63,7 @@ private:
 			BMediaPlugin*		fMediaPlugin;
 
 	// needed for plug-in reference count management
-	friend class BCodecKit::BPrivate::PluginManager;
+	friend class PluginManager;
 
 	virtual void				_ReservedDecoder1();
 	virtual void				_ReservedDecoder2();
@@ -87,8 +84,8 @@ public:
 									size_t* count) = 0;
 };
 
+} } // namespace BPrivate::media
 
-} // namespace BCodecKit
-
+using namespace BPrivate::media;
 
 #endif // _DECODER_PLUGIN_H

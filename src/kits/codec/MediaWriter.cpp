@@ -18,9 +18,6 @@
 #include "PluginManager.h"
 
 
-namespace BCodecKit {
-
-
 class BMediaExtractorChunkWriter : public BChunkWriter {
 public:
 	BMediaExtractorChunkWriter(BMediaWriter* writer, int32 streamIndex)
@@ -237,6 +234,3 @@ BMediaWriter::WriteChunk(int32 streamIndex, const void* chunkBuffer,
 	return fWriter->WriteChunk(info->cookie, chunkBuffer, chunkSize,
 		encodeInfo);
 }
-
-
-} // namespace BCodecKit

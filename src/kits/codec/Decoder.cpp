@@ -12,9 +12,6 @@
 #include <string.h>
 
 
-namespace BCodecKit {
-
-
 BDecoder::BDecoder()
 	:
 	fChunkProvider(NULL),
@@ -72,6 +69,3 @@ BChunkProvider::BChunkProvider()
 BChunkProvider::~BChunkProvider()
 {
 }
-
-
-} // namespace BCodecKit

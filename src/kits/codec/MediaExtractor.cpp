@@ -20,12 +20,6 @@
 #include "PluginManager.h"
 
 
-namespace BCodecKit {
-
-using BCodecKit::BPrivate::ChunkCache;
-using BCodecKit::BPrivate::chunk_buffer;
-
-
 // should be 0, to disable the chunk cache set it to 1
 #define DISABLE_CHUNK_CACHE 0
 
@@ -33,7 +27,7 @@ using BCodecKit::BPrivate::chunk_buffer;
 static const size_t kMaxCacheBytes = 3 * 1024 * 1024;
 
 
-struct stream_info {
+struct BPrivate::media::stream_info {
 	status_t		status;
 	void*			cookie;
 	bool			hasCookie;
@@ -487,6 +481,3 @@ BMediaExtractor::_ExtractorThread()
 		} while (streamsFilled < fStreamCount);
 	}
 }
-
-
-} // namespace BCodecKit

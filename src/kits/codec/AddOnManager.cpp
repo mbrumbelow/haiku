@@ -29,8 +29,9 @@
 #include "MetaFormat.h"
 
 
-namespace BCodecKit {
 namespace BPrivate {
+namespace media {
+
 
 //	#pragma mark - ImageLoader
 
@@ -674,5 +675,5 @@ AddOnManager::_GetReaders(const BPath& path, entry_ref* outRefs,
 }
 
 
+} // namespace media
 } // namespace BPrivate
-} // namespace BCodecKit

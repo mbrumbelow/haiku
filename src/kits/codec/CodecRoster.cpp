@@ -10,9 +10,6 @@
 #include "PluginManager.h"
 
 
-namespace BCodecKit {
-
-
 status_t
 BCodecRoster::InstantiateReader(BReader** reader, int32* streamCount,
 	media_file_format* mff, BDataIO* source)
@@ -134,6 +131,3 @@ BCodecRoster::GetNextEncoder(int32* cookie, media_codec_info* _codecInfo)
 {
 	return get_next_encoder(cookie, _codecInfo);
 }
-
-
-} // namespace BCodecKit

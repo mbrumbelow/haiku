@@ -20,10 +20,7 @@
 #include "TList.h"
 
 
-namespace BCodecKit {
-
-namespace BPrivate {
-
+namespace BPrivate { namespace media {
 
 class PluginManager {
 public:
@@ -90,11 +87,10 @@ private:
 			BLocker				fLocker;
 };
 
+} } // namespace BPrivate::media
 
-} } // namespace BCodecKit::BPrivate
+using namespace BPrivate::media;
 
-
-extern BCodecKit::BPrivate::PluginManager gPluginManager;
-
+extern PluginManager gPluginManager;
 
 #endif // _PLUGIN_MANAGER_H

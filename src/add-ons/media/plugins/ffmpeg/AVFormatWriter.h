@@ -9,8 +9,6 @@
 #include <Writer.h>
 #include <Locker.h>
 
-using namespace BCodecKit;
-
 
 extern "C" {
 	#include "avformat.h"

@@ -5,7 +5,6 @@
 #ifndef _CODEC_ROSTER_H
 #define _CODEC_ROSTER_H
 
-
 #include <Decoder.h>
 #include <Encoder.h>
 #include <MediaDefs.h>
@@ -14,7 +13,8 @@
 #include <Writer.h>
 
 
-namespace BCodecKit {
+namespace BPrivate {
+namespace media {
 
 
 class BCodecRoster {
@@ -118,8 +118,9 @@ public:
 	static status_t		GetNextEncoder(int32* cookie, media_codec_info* _codecInfo);
 };
 
+} // namespace media
+} // namespace BPrivate
 
-} // namespace BCodecKit
-
+using namespace BPrivate::media;
 
 #endif	// _CODEC_ROSTER_H

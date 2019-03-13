@@ -5,7 +5,6 @@
 #ifndef _MEDIA_WRITER_H
 #define _MEDIA_WRITER_H
 
-
 #include <Encoder.h>
 #include <MetaData.h>
 #include <Writer.h>
@@ -13,7 +12,8 @@
 #include "TList.h"
 
 
-namespace BCodecKit {
+namespace BPrivate {
+namespace media {
 
 
 class BMediaWriter {
@@ -63,7 +63,10 @@ private:
 };
 
 
-} // namespace BCodecKit
+}; // namespace media
+}; // namespace BPrivate
+
+using namespace BPrivate::media;
 
 
 #endif // _MEDIA_WRITER_H

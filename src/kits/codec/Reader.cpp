@@ -12,9 +12,6 @@
 #include <stdio.h>
 
 
-namespace BCodecKit {
-
-
 BReader::BReader()
 	:
 	fSource(NULL),
@@ -82,6 +79,3 @@ void BReader::_ReservedReader2() {}
 void BReader::_ReservedReader3() {}
 void BReader::_ReservedReader4() {}
 void BReader::_ReservedReader5() {}
-
-
-} // namespace BCodecKit

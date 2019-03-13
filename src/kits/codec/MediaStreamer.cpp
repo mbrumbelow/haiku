@@ -14,9 +14,6 @@
 #include "PluginManager.h"
 
 
-namespace BCodecKit {
-
-
 BMediaStreamer::BMediaStreamer(BUrl url)
 	:
 	fStreamer(NULL)
@@ -48,6 +45,3 @@ BMediaStreamer::CreateAdapter(BDataIO** adapter)
 
 	return gPluginManager.CreateStreamer(&fStreamer, fUrl, adapter);
 }
-
-
-} // namespace BCodecKit

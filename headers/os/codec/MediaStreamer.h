@@ -6,11 +6,13 @@
 #define _MEDIA_STREAMER_H
 
 
-#include <Streamer.h>
 #include <Url.h>
 
+#include "Streamer.h"
 
-namespace BCodecKit {
+
+namespace BPrivate {
+namespace media {
 
 
 class BMediaStreamer {
@@ -31,7 +33,9 @@ private:
 };
 
 
-} // namespace BCodecKit
+}; // namespace media
+}; // namespace BPrivate
 
+using namespace BPrivate::media;
 
 #endif

@@ -4,11 +4,15 @@
 #include <MediaDefs.h>
 #include <MediaFormats.h>
 
-
-namespace BCodecKit {
+namespace BPrivate {
 	class BDecoder;
 }
-
+namespace BPrivate {
+	namespace media {
+		class BDecoder;
+		class BDecoderPlugin;
+	}
+}
 
 class BMediaDecoder {
 	public:
@@ -43,8 +47,8 @@ class BMediaDecoder {
 
 		status_t AttachToDecoder();
 
-		BCodecKit::BDecoder*	fDecoder;
-		status_t				fInitStatus;
+		BPrivate::media::BDecoder* fDecoder;
+		status_t			fInitStatus;
 
 		/* fbc data and virtuals */
 

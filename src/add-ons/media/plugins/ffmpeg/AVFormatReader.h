@@ -10,8 +10,6 @@
 #include <Locker.h>
 #include <String.h>
 
-using namespace BCodecKit;
-
 
 class AVFormatReader : public BReader {
 public:
