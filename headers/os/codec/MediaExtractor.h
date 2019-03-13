@@ -26,6 +26,7 @@ struct stream_info;
 class MediaExtractor {
 public:
 								MediaExtractor(BDataIO* source, int32 flags);
+
 								~MediaExtractor();
 
 			status_t			InitCheck();
@@ -37,7 +38,7 @@ public:
 
 			status_t			GetMetaData(BMetaData* data) const;
 
-			int32				CountStreams();
+			int32				StreamCount();
 
 			const media_format*	EncodedFormat(int32 stream);
 			int64				CountFrames(int32 stream) const;

@@ -75,6 +75,8 @@ public:
 						BMetaData(const BMessage& msg);
 	virtual				~BMetaData();
 
+						BMetaData& operator=(const BMetaData& other);
+
 	// Woah. It seems we need BValue there.
 	bool				SetString(const char* key, const BString& value);
 	bool				SetBool(const char* key, bool value);
@@ -104,8 +106,6 @@ public:
 	// Retain ownership of the object, be careful with that
 	// that's why we need to introduce smart pointers!
 	const BMessage*		Message();
-
-	BMetaData&			operator=(const BMetaData& other);
 
 private:
 	// TODO: padding
