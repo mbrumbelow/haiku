@@ -14,7 +14,7 @@
 #include "PluginManager.h"
 
 
-BMediaStreamer::BMediaStreamer(BUrl url)
+MediaStreamer::MediaStreamer(BUrl url)
 	:
 	fStreamer(NULL)
 {
@@ -24,7 +24,7 @@ BMediaStreamer::BMediaStreamer(BUrl url)
 }
 
 
-BMediaStreamer::~BMediaStreamer()
+MediaStreamer::~MediaStreamer()
 {
 	CALLED();
 
@@ -34,7 +34,7 @@ BMediaStreamer::~BMediaStreamer()
 
 
 status_t
-BMediaStreamer::CreateAdapter(BDataIO** adapter)
+MediaStreamer::CreateAdapter(BDataIO** adapter)
 {
 	CALLED();
 

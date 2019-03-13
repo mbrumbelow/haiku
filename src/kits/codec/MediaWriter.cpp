@@ -18,9 +18,9 @@
 #include "PluginManager.h"
 
 
-class BMediaExtractorChunkWriter : public BChunkWriter {
+class MediaExtractorChunkWriter : public ChunkWriter {
 public:
-	BMediaExtractorChunkWriter(BMediaWriter* writer, int32 streamIndex)
+	MediaExtractorChunkWriter(MediaWriter* writer, int32 streamIndex)
 		:
 		fWriter(writer),
 		fStreamIndex(streamIndex)
@@ -35,7 +35,7 @@ public:
 	}
 
 private:
-	BMediaWriter*	fWriter;
+	MediaWriter*	fWriter;
 	int32			fStreamIndex;
 };
 
@@ -43,7 +43,7 @@ private:
 // #pragma mark -
 
 
-BMediaWriter::BMediaWriter(BDataIO* target, const media_file_format& fileFormat)
+MediaWriter::MediaWriter(BDataIO* target, const media_file_format& fileFormat)
 	:
 	fTarget(target),
 	fWriter(NULL),
@@ -56,7 +56,7 @@ BMediaWriter::BMediaWriter(BDataIO* target, const media_file_format& fileFormat)
 }
 
 
-BMediaWriter::~BMediaWriter()
+MediaWriter::~MediaWriter()
 {
 	CALLED();
 
@@ -75,7 +75,7 @@ BMediaWriter::~BMediaWriter()
 
 
 status_t
-BMediaWriter::InitCheck()
+MediaWriter::InitCheck()
 {
 	CALLED();
 
@@ -84,14 +84,14 @@ BMediaWriter::InitCheck()
 
 
 BDataIO*
-BMediaWriter::Target() const
+MediaWriter::Target() const
 {
 	return fTarget;
 }
 
 
 void
-BMediaWriter::GetFileFormatInfo(media_file_format* _fileFormat) const
+MediaWriter::GetFileFormatInfo(media_file_format* _fileFormat) const
 {
 	CALLED();
 
@@ -101,7 +101,7 @@ BMediaWriter::GetFileFormatInfo(media_file_format* _fileFormat) const
 
 
 status_t
-BMediaWriter::CreateEncoder(BEncoder** _encoder,
+MediaWriter::CreateEncoder(Encoder** _encoder,
 	const media_codec_info* codecInfo, media_format* format, uint32 flags)
 {
 	CALLED();
@@ -111,10 +111,10 @@ BMediaWriter::CreateEncoder(BEncoder** _encoder,
 
 	// TODO: Here we should work out a way so that if there is a setup
 	// failure we can try the next encoder.
-	BEncoder* encoder;
+	Encoder* encoder;
 	status_t ret = gPluginManager.CreateEncoder(&encoder, codecInfo, flags);
 	if (ret != B_OK) {
-		ERROR("BMediaWriter::CreateEncoder gPluginManager.CreateEncoder "
+		ERROR("MediaWriter::CreateEncoder gPluginManager.CreateEncoder "
 			"failed, codec: %s\n", codecInfo->pretty_name);
 		return ret;
 	}
@@ -130,16 +130,16 @@ BMediaWriter::CreateEncoder(BEncoder** _encoder,
 
 	if (!fStreamInfos.Insert(info)) {
 		gPluginManager.DestroyEncoder(encoder);
-		ERROR("BMediaWriter::CreateEncoder can't create StreamInfo "
+		ERROR("MediaWriter::CreateEncoder can't create StreamInfo "
 			"for stream %" B_PRId32 "\n", streamIndex);
 		return B_NO_MEMORY;
 	}
 
-	BChunkWriter* chunkWriter = new(std::nothrow) BMediaExtractorChunkWriter(
+	ChunkWriter* chunkWriter = new(std::nothrow) MediaExtractorChunkWriter(
 		this, streamIndex);
 	if (chunkWriter == NULL) {
 		gPluginManager.DestroyEncoder(encoder);
-		ERROR("BMediaWriter::CreateEncoder can't create ChunkWriter "
+		ERROR("MediaWriter::CreateEncoder can't create ChunkWriter "
 			"for stream %" B_PRId32 "\n", streamIndex);
 		return B_NO_MEMORY;
 	}
@@ -152,7 +152,7 @@ BMediaWriter::CreateEncoder(BEncoder** _encoder,
 
 
 status_t
-BMediaWriter::SetMetaData(BMetaData* data)
+MediaWriter::SetMetaData(BMetaData* data)
 {
 	if (fWriter == NULL)
 		return B_NO_INIT;
@@ -162,7 +162,7 @@ BMediaWriter::SetMetaData(BMetaData* data)
 
 
 status_t
-BMediaWriter::SetMetaData(int32 streamIndex, BMetaData* data)
+MediaWriter::SetMetaData(int32 streamIndex, BMetaData* data)
 {
 	if (fWriter == NULL)
 		return B_NO_INIT;
@@ -176,7 +176,7 @@ BMediaWriter::SetMetaData(int32 streamIndex, BMetaData* data)
 
 
 status_t
-BMediaWriter::CommitHeader()
+MediaWriter::CommitHeader()
 {
 	if (fWriter == NULL)
 		return B_NO_INIT;
@@ -186,7 +186,7 @@ BMediaWriter::CommitHeader()
 
 
 status_t
-BMediaWriter::Flush()
+MediaWriter::Flush()
 {
 	if (fWriter == NULL)
 		return B_NO_INIT;
@@ -196,7 +196,7 @@ BMediaWriter::Flush()
 
 
 status_t
-BMediaWriter::Close()
+MediaWriter::Close()
 {
 	if (fWriter == NULL)
 		return B_NO_INIT;
@@ -206,7 +206,7 @@ BMediaWriter::Close()
 
 
 status_t
-BMediaWriter::AddTrackInfo(int32 streamIndex, uint32 code,
+MediaWriter::AddTrackInfo(int32 streamIndex, uint32 code,
 	const void* data, size_t size, uint32 flags)
 {
 	if (fWriter == NULL)
@@ -221,7 +221,7 @@ BMediaWriter::AddTrackInfo(int32 streamIndex, uint32 code,
 
 
 status_t
-BMediaWriter::WriteChunk(int32 streamIndex, const void* chunkBuffer,
+MediaWriter::WriteChunk(int32 streamIndex, const void* chunkBuffer,
 	size_t chunkSize, media_encode_info* encodeInfo)
 {
 	if (fWriter == NULL)

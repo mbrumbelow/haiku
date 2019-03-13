@@ -7,25 +7,25 @@
 #include <Streamer.h>
 
 
-BStreamer::BStreamer()
+Streamer::Streamer()
 	:
 	fMediaPlugin(NULL)
 {
 }
 
 
-BStreamer::~BStreamer()
+Streamer::~Streamer()
 {
 }
 
 
-void BStreamer::_ReservedStreamer1() {}
-void BStreamer::_ReservedStreamer2() {}
-void BStreamer::_ReservedStreamer3() {}
-void BStreamer::_ReservedStreamer4() {}
-void BStreamer::_ReservedStreamer5() {}
+void Streamer::_ReservedStreamer1() {}
+void Streamer::_ReservedStreamer2() {}
+void Streamer::_ReservedStreamer3() {}
+void Streamer::_ReservedStreamer4() {}
+void Streamer::_ReservedStreamer5() {}
 
 
-BStreamerPlugin::BStreamerPlugin()
+StreamerPlugin::StreamerPlugin()
 {
 }

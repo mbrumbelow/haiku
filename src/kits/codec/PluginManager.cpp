@@ -225,7 +225,7 @@ private:
 
 
 status_t
-PluginManager::CreateReader(BReader** reader, int32* streamCount,
+PluginManager::CreateReader(Reader** reader, int32* streamCount,
 	media_file_format* mff, BDataIO* source)
 {
 	TRACE("PluginManager::CreateReader enter\n");
@@ -255,13 +255,13 @@ PluginManager::CreateReader(BReader** reader, int32* streamCount,
 	// try each reader by calling it's Sniff function...
 	for (int32 i = 0; i < count; i++) {
 		entry_ref ref = refs[i];
-		BMediaPlugin* plugin = GetPlugin(ref);
+		MediaPlugin* plugin = GetPlugin(ref);
 		if (plugin == NULL) {
 			printf("PluginManager::CreateReader: GetPlugin failed\n");
 			return B_ERROR;
 		}
 
-		BReaderPlugin* readerPlugin = dynamic_cast<BReaderPlugin*>(plugin);
+		ReaderPlugin* readerPlugin = dynamic_cast<ReaderPlugin*>(plugin);
 		if (readerPlugin == NULL) {
 			printf("PluginManager::CreateReader: dynamic_cast failed\n");
 			PutPlugin(plugin);
@@ -297,7 +297,7 @@ PluginManager::CreateReader(BReader** reader, int32* streamCount,
 
 
 void
-PluginManager::DestroyReader(BReader* reader)
+PluginManager::DestroyReader(Reader* reader)
 {
 	if (reader != NULL) {
 		TRACE("PluginManager::DestroyReader(%p (plugin: %p))\n", reader,
@@ -305,7 +305,7 @@ PluginManager::DestroyReader(BReader* reader)
 		// NOTE: We have to put the plug-in after deleting the reader,
 		// since otherwise we may actually unload the code for the
 		// destructor...
-		BMediaPlugin* plugin = reader->fMediaPlugin;
+		MediaPlugin* plugin = reader->fMediaPlugin;
 		delete reader;
 		PutPlugin(plugin);
 	}
@@ -313,7 +313,7 @@ PluginManager::DestroyReader(BReader* reader)
 
 
 status_t
-PluginManager::CreateDecoder(BDecoder** _decoder, const media_format& format)
+PluginManager::CreateDecoder(Decoder** _decoder, const media_format& format)
 {
 	TRACE("PluginManager::CreateDecoder enter\n");
 
@@ -327,13 +327,13 @@ PluginManager::CreateDecoder(BDecoder** _decoder, const media_format& format)
 		return ret;
 	}
 
-	BMediaPlugin* plugin = GetPlugin(ref);
+	MediaPlugin* plugin = GetPlugin(ref);
 	if (plugin == NULL) {
 		printf("PluginManager::CreateDecoder: GetPlugin failed\n");
 		return B_ERROR;
 	}
 	
-	BDecoderPlugin* decoderPlugin = dynamic_cast<BDecoderPlugin*>(plugin);
+	DecoderPlugin* decoderPlugin = dynamic_cast<DecoderPlugin*>(plugin);
 	if (decoderPlugin == NULL) {
 		printf("PluginManager::CreateDecoder: dynamic_cast failed\n");
 		PutPlugin(plugin);
@@ -358,7 +358,7 @@ PluginManager::CreateDecoder(BDecoder** _decoder, const media_format& format)
 
 
 status_t
-PluginManager::CreateDecoder(BDecoder** decoder, const media_codec_info& mci)
+PluginManager::CreateDecoder(Decoder** decoder, const media_codec_info& mci)
 {
 	TRACE("PluginManager::CreateDecoder enter\n");
 	entry_ref ref;
@@ -366,13 +366,13 @@ PluginManager::CreateDecoder(BDecoder** decoder, const media_codec_info& mci)
 	if (status != B_OK)
 		return status;
 
-	BMediaPlugin* plugin = GetPlugin(ref);
+	MediaPlugin* plugin = GetPlugin(ref);
 	if (plugin == NULL) {
 		ERROR("PluginManager::CreateDecoder: GetPlugin failed\n");
 		return B_ERROR;
 	}
 
-	BDecoderPlugin* decoderPlugin = dynamic_cast<BDecoderPlugin*>(plugin);
+	DecoderPlugin* decoderPlugin = dynamic_cast<DecoderPlugin*>(plugin);
 	if (decoderPlugin == NULL) {
 		ERROR("PluginManager::CreateDecoder: dynamic_cast failed\n");
 		PutPlugin(plugin);
@@ -398,7 +398,7 @@ PluginManager::CreateDecoder(BDecoder** decoder, const media_codec_info& mci)
 
 
 status_t
-PluginManager::GetDecoderInfo(BDecoder* decoder, media_codec_info* _info) const
+PluginManager::GetDecoderInfo(Decoder* decoder, media_codec_info* _info) const
 {
 	if (decoder == NULL)
 		return B_BAD_VALUE;
@@ -412,7 +412,7 @@ PluginManager::GetDecoderInfo(BDecoder* decoder, media_codec_info* _info) const
 
 
 void
-PluginManager::DestroyDecoder(BDecoder* decoder)
+PluginManager::DestroyDecoder(Decoder* decoder)
 {
 	if (decoder != NULL) {
 		TRACE("PluginManager::DestroyDecoder(%p, plugin: %p)\n", decoder,
@@ -420,7 +420,7 @@ PluginManager::DestroyDecoder(BDecoder* decoder)
 		// NOTE: We have to put the plug-in after deleting the decoder,
 		// since otherwise we may actually unload the code for the
 		// destructor...
-		BMediaPlugin* plugin = decoder->fMediaPlugin;
+		MediaPlugin* plugin = decoder->fMediaPlugin;
 		delete decoder;
 		PutPlugin(plugin);
 	}
@@ -431,7 +431,7 @@ PluginManager::DestroyDecoder(BDecoder* decoder)
 
 
 status_t
-PluginManager::CreateWriter(BWriter** writer, const media_file_format& mff,
+PluginManager::CreateWriter(Writer** writer, const media_file_format& mff,
 	BDataIO* target)
 {
 	TRACE("PluginManager::CreateWriter enter\n");
@@ -446,13 +446,13 @@ PluginManager::CreateWriter(BWriter** writer, const media_file_format& mff,
 		return ret;
 	}
 
-	BMediaPlugin* plugin = GetPlugin(ref);
+	MediaPlugin* plugin = GetPlugin(ref);
 	if (plugin == NULL) {
 		printf("PluginManager::CreateWriter: GetPlugin failed\n");
 		return B_ERROR;
 	}
 
-	BWriterPlugin* writerPlugin = dynamic_cast<BWriterPlugin*>(plugin);
+	WriterPlugin* writerPlugin = dynamic_cast<WriterPlugin*>(plugin);
 	if (writerPlugin == NULL) {
 		printf("PluginManager::CreateWriter: dynamic_cast failed\n");
 		PutPlugin(plugin);
@@ -475,7 +475,7 @@ PluginManager::CreateWriter(BWriter** writer, const media_file_format& mff,
 
 
 void
-PluginManager::DestroyWriter(BWriter* writer)
+PluginManager::DestroyWriter(Writer* writer)
 {
 	if (writer != NULL) {
 		TRACE("PluginManager::DestroyWriter(%p (plugin: %p))\n", writer,
@@ -483,7 +483,7 @@ PluginManager::DestroyWriter(BWriter* writer)
 		// NOTE: We have to put the plug-in after deleting the writer,
 		// since otherwise we may actually unload the code for the
 		// destructor...
-		BMediaPlugin* plugin = writer->fMediaPlugin;
+		MediaPlugin* plugin = writer->fMediaPlugin;
 		delete writer;
 		PutPlugin(plugin);
 	}
@@ -491,7 +491,7 @@ PluginManager::DestroyWriter(BWriter* writer)
 
 
 status_t
-PluginManager::CreateEncoder(BEncoder** _encoder,
+PluginManager::CreateEncoder(Encoder** _encoder,
 	const media_codec_info* codecInfo, uint32 flags)
 {
 	TRACE("PluginManager::CreateEncoder enter\n");
@@ -506,13 +506,13 @@ PluginManager::CreateEncoder(BEncoder** _encoder,
 		return ret;
 	}
 
-	BMediaPlugin* plugin = GetPlugin(ref);
+	MediaPlugin* plugin = GetPlugin(ref);
 	if (!plugin) {
 		printf("PluginManager::CreateEncoder: GetPlugin failed\n");
 		return B_ERROR;
 	}
 	
-	BEncoderPlugin* encoderPlugin = dynamic_cast<BEncoderPlugin*>(plugin);
+	EncoderPlugin* encoderPlugin = dynamic_cast<EncoderPlugin*>(plugin);
 	if (encoderPlugin == NULL) {
 		printf("PluginManager::CreateEncoder: dynamic_cast failed\n");
 		PutPlugin(plugin);
@@ -535,7 +535,7 @@ PluginManager::CreateEncoder(BEncoder** _encoder,
 
 
 status_t
-PluginManager::CreateEncoder(BEncoder** encoder, const media_format& format)
+PluginManager::CreateEncoder(Encoder** encoder, const media_format& format)
 {
 	TRACE("PluginManager::CreateEncoder enter nr2\n");
 
@@ -550,13 +550,13 @@ PluginManager::CreateEncoder(BEncoder** encoder, const media_format& format)
 		return ret;
 	}
 
-	BMediaPlugin* plugin = GetPlugin(ref);
+	MediaPlugin* plugin = GetPlugin(ref);
 	if (plugin == NULL) {
 		ERROR("PluginManager::CreateEncoder: GetPlugin failed\n");
 		return B_ERROR;
 	}
 
-	BEncoderPlugin* encoderPlugin = dynamic_cast<BEncoderPlugin*>(plugin);
+	EncoderPlugin* encoderPlugin = dynamic_cast<EncoderPlugin*>(plugin);
 	if (encoderPlugin == NULL) {
 		ERROR("PluginManager::CreateEncoder: dynamic_cast failed\n");
 		PutPlugin(plugin);
@@ -580,7 +580,7 @@ PluginManager::CreateEncoder(BEncoder** encoder, const media_format& format)
 
 
 void
-PluginManager::DestroyEncoder(BEncoder* encoder)
+PluginManager::DestroyEncoder(Encoder* encoder)
 {
 	if (encoder != NULL) {
 		TRACE("PluginManager::DestroyEncoder(%p, plugin: %p)\n", encoder,
@@ -588,7 +588,7 @@ PluginManager::DestroyEncoder(BEncoder* encoder)
 		// NOTE: We have to put the plug-in after deleting the encoder,
 		// since otherwise we may actually unload the code for the
 		// destructor...
-		BMediaPlugin* plugin = encoder->fMediaPlugin;
+		MediaPlugin* plugin = encoder->fMediaPlugin;
 		delete encoder;
 		PutPlugin(plugin);
 	}
@@ -596,7 +596,7 @@ PluginManager::DestroyEncoder(BEncoder* encoder)
 
 
 status_t
-PluginManager::CreateStreamer(BStreamer** streamer, BUrl url, BDataIO** source)
+PluginManager::CreateStreamer(Streamer** streamer, BUrl url, BDataIO** source)
 {
 	BAutolock _(fLocker);
 
@@ -616,13 +616,13 @@ PluginManager::CreateStreamer(BStreamer** streamer, BUrl url, BDataIO** source)
 	// try each reader by calling it's Sniff function...
 	for (int32 i = 0; i < count; i++) {
 		entry_ref ref = refs[i];
-		BMediaPlugin* plugin = GetPlugin(ref);
+		MediaPlugin* plugin = GetPlugin(ref);
 		if (plugin == NULL) {
 			printf("PluginManager::CreateStreamer: GetPlugin failed\n");
 			return B_ERROR;
 		}
 
-		BStreamerPlugin* streamerPlugin = dynamic_cast<BStreamerPlugin*>(plugin);
+		StreamerPlugin* streamerPlugin = dynamic_cast<StreamerPlugin*>(plugin);
 		if (streamerPlugin == NULL) {
 			printf("PluginManager::CreateStreamer: dynamic_cast failed\n");
 			PutPlugin(plugin);
@@ -656,7 +656,7 @@ PluginManager::CreateStreamer(BStreamer** streamer, BUrl url, BDataIO** source)
 
 
 void
-PluginManager::DestroyStreamer(BStreamer* streamer)
+PluginManager::DestroyStreamer(Streamer* streamer)
 {
 	BAutolock _(fLocker);
 
@@ -667,7 +667,7 @@ PluginManager::DestroyStreamer(BStreamer* streamer)
 		// NOTE: We have to put the plug-in after deleting the streamer,
 		// since otherwise we may actually unload the code for the
 		// destructor...
-		BMediaPlugin* plugin = streamer->fMediaPlugin;
+		MediaPlugin* plugin = streamer->fMediaPlugin;
 		delete streamer;
 
 		// Delete the plugin only when every reference is released
@@ -706,13 +706,13 @@ PluginManager::~PluginManager()
 }
 
 	
-BMediaPlugin*
+MediaPlugin*
 PluginManager::GetPlugin(const entry_ref& ref)
 {
 	TRACE("PluginManager::GetPlugin(%s)\n", ref.name);
 	fLocker.Lock();
 	
-	BMediaPlugin* plugin;
+	MediaPlugin* plugin;
 	plugin_info* pinfo;
 	plugin_info info;
 	
@@ -747,7 +747,7 @@ PluginManager::GetPlugin(const entry_ref& ref)
 
 
 void
-PluginManager::PutPlugin(BMediaPlugin* plugin)
+PluginManager::PutPlugin(MediaPlugin* plugin)
 {
 	TRACE("PluginManager::PutPlugin()\n");
 	fLocker.Lock();
@@ -776,7 +776,7 @@ PluginManager::PutPlugin(BMediaPlugin* plugin)
 
 
 status_t
-PluginManager::_LoadPlugin(const entry_ref& ref, BMediaPlugin** plugin,
+PluginManager::_LoadPlugin(const entry_ref& ref, MediaPlugin** plugin,
 	image_id* image)
 {
 	BPath p(&ref);
@@ -790,7 +790,7 @@ PluginManager::_LoadPlugin(const entry_ref& ref, BMediaPlugin** plugin,
 		return B_ERROR;
 	}
 		
-	BMediaPlugin* (*instantiate_plugin_func)();
+	MediaPlugin* (*instantiate_plugin_func)();
 	
 	if (get_image_symbol(id, "instantiate_plugin", B_SYMBOL_TYPE_TEXT,
 			(void**)&instantiate_plugin_func) < B_OK) {
@@ -800,7 +800,7 @@ PluginManager::_LoadPlugin(const entry_ref& ref, BMediaPlugin** plugin,
 		return B_ERROR;
 	}
 	
-	BMediaPlugin *pl;
+	MediaPlugin *pl;
 	
 	pl = (*instantiate_plugin_func)();
 	if (pl == NULL) {

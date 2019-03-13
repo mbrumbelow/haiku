@@ -10,7 +10,7 @@
 #include <stdio.h>
 
 
-BWriter::BWriter()
+Writer::Writer()
 	:
 	fTarget(NULL),
 	fMediaPlugin(NULL)
@@ -18,34 +18,34 @@ BWriter::BWriter()
 }
 
 
-BWriter::~BWriter()
+Writer::~Writer()
 {
 }
 
 
 BDataIO*
-BWriter::Target() const
+Writer::Target() const
 {
 	return fTarget;
 }
 
 
 void
-BWriter::_Setup(BDataIO* target)
+Writer::_Setup(BDataIO* target)
 {
 	fTarget = target;
 }
 
 
 status_t
-BWriter::Perform(perform_code code, void* data)
+Writer::Perform(perform_code code, void* data)
 {
 	return B_OK;
 }
 
 
-void BWriter::_ReservedWriter1() {}
-void BWriter::_ReservedWriter2() {}
-void BWriter::_ReservedWriter3() {}
-void BWriter::_ReservedWriter4() {}
-void BWriter::_ReservedWriter5() {}
+void Writer::_ReservedWriter1() {}
+void Writer::_ReservedWriter2() {}
+void Writer::_ReservedWriter3() {}
+void Writer::_ReservedWriter4() {}
+void Writer::_ReservedWriter5() {}

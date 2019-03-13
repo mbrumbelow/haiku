@@ -7,18 +7,18 @@
 #include "MediaPlugin.h"
 
 
-BMediaPlugin::BMediaPlugin()
+MediaPlugin::MediaPlugin()
 	:
 	fRefCount(0)
 {
 }
 
 
-BMediaPlugin::~BMediaPlugin()
+MediaPlugin::~MediaPlugin()
 {
 }
 
 
 // FBC
-void BMediaPlugin::_ReservedMediaPlugin1() {}
-void BMediaPlugin::_ReservedMediaPlugin2() {}
+void MediaPlugin::_ReservedMediaPlugin1() {}
+void MediaPlugin::_ReservedMediaPlugin2() {}

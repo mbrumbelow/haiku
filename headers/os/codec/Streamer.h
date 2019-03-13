@@ -17,16 +17,16 @@ namespace BPrivate { namespace media {
 class PluginManager;
 
 
-class BStreamer {
+class Streamer {
 public:
 	virtual status_t			Sniff(const BUrl& url, BDataIO** source) = 0;
 
 protected:
-								BStreamer();
-	virtual						~BStreamer();
+								Streamer();
+	virtual						~Streamer();
 
 private:
-			BMediaPlugin*		fMediaPlugin;
+			MediaPlugin*		fMediaPlugin;
 
 	friend class PluginManager;
 	friend class MediaStreamer;
@@ -41,11 +41,11 @@ private:
 };
 
 
-class BStreamerPlugin : public virtual BMediaPlugin {
+class StreamerPlugin : public virtual MediaPlugin {
 public:
-								BStreamerPlugin();
+								StreamerPlugin();
 
-	virtual	BStreamer*			NewStreamer() = 0;
+	virtual	Streamer*			NewStreamer() = 0;
 };
 
 } } // namespace BPrivate::media

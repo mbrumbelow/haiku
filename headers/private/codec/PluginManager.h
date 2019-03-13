@@ -27,50 +27,50 @@ public:
 								PluginManager();
 								~PluginManager();
 	
-			BMediaPlugin*		GetPlugin(const entry_ref& ref);
-			void				PutPlugin(BMediaPlugin* plugin);
+			MediaPlugin*		GetPlugin(const entry_ref& ref);
+			void				PutPlugin(MediaPlugin* plugin);
 
 	// Readers and Decoders
-			status_t			CreateReader(BReader** reader,
+			status_t			CreateReader(Reader** reader,
 									int32* streamCount, media_file_format* mff,
 									BDataIO* source);
-			void				DestroyReader(BReader* reader);
+			void				DestroyReader(Reader* reader);
 
-			status_t			CreateDecoder(BDecoder** decoder,
+			status_t			CreateDecoder(Decoder** decoder,
 									const media_format& format);
-			status_t			CreateDecoder(BDecoder** decoder,
+			status_t			CreateDecoder(Decoder** decoder,
 									const media_codec_info& mci);
-			status_t			GetDecoderInfo(BDecoder* decoder,
+			status_t			GetDecoderInfo(Decoder* decoder,
 									media_codec_info* _info) const;
-			void				DestroyDecoder(BDecoder* decoder);
+			void				DestroyDecoder(Decoder* decoder);
 
 	// Writers and Encoders	
-			status_t			CreateWriter(BWriter** writer,
+			status_t			CreateWriter(Writer** writer,
 									const media_file_format& mff,
 									BDataIO* target);
-			void				DestroyWriter(BWriter* writer);
+			void				DestroyWriter(Writer* writer);
 
-			status_t			CreateEncoder(BEncoder** encoder,
+			status_t			CreateEncoder(Encoder** encoder,
 									const media_codec_info* codecInfo,
 									uint32 flags);
 
-			status_t			CreateEncoder(BEncoder** encoder,
+			status_t			CreateEncoder(Encoder** encoder,
 									const media_format& format);
 
-			void				DestroyEncoder(BEncoder* encoder);
+			void				DestroyEncoder(Encoder* encoder);
 
-			status_t			CreateStreamer(BStreamer** streamer,
+			status_t			CreateStreamer(Streamer** streamer,
 									BUrl url, BDataIO** source);
-			void				DestroyStreamer(BStreamer* streamer);
+			void				DestroyStreamer(Streamer* streamer);
 
 private:
 			status_t			_LoadPlugin(const entry_ref& ref,
-									BMediaPlugin** plugin, image_id* image);
+									MediaPlugin** plugin, image_id* image);
 
 			struct plugin_info {
 				char			name[260];
 				int				usecount;
-				BMediaPlugin*	plugin;
+				MediaPlugin*	plugin;
 				image_id		image;
 		
 				plugin_info& operator=(const plugin_info& other)

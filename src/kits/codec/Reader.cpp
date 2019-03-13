@@ -12,7 +12,7 @@
 #include <stdio.h>
 
 
-BReader::BReader()
+Reader::Reader()
 	:
 	fSource(NULL),
 	fMediaPlugin(NULL)
@@ -20,62 +20,62 @@ BReader::BReader()
 }
 
 
-BReader::~BReader()
+Reader::~Reader()
 {
 }
 
 
 status_t
-BReader::GetMetaData(BMetaData* data)
-{
-	return B_NOT_SUPPORTED;
-}
-
-
-status_t
-BReader::Seek(void* cookie, uint32 flags, int64* frame, bigtime_t* time)
+Reader::GetMetaData(BMetaData* data)
 {
 	return B_NOT_SUPPORTED;
 }
 
 
 status_t
-BReader::FindKeyFrame(void* cookie, uint32 flags, int64* frame, bigtime_t* time)
+Reader::Seek(void* cookie, uint32 flags, int64* frame, bigtime_t* time)
 {
 	return B_NOT_SUPPORTED;
 }
 
 
 status_t
-BReader::GetStreamMetaData(void* cookie, BMetaData* data)
+Reader::FindKeyFrame(void* cookie, uint32 flags, int64* frame, bigtime_t* time)
+{
+	return B_NOT_SUPPORTED;
+}
+
+
+status_t
+Reader::GetStreamMetaData(void* cookie, BMetaData* data)
 {
 	return B_NOT_SUPPORTED;
 }
 
 
 BDataIO*
-BReader::Source() const
+Reader::Source() const
 {
 	return fSource;
 }
 
 
 void
-BReader::_Setup(BDataIO *source)
+Reader::_Setup(BDataIO *source)
 {
 	fSource = source;
 }
 
 
 status_t
-BReader::Perform(perform_code code, void* _data)
+Reader::Perform(perform_code code, void* _data)
 {
 	return B_OK;
 }
 
 
-void BReader::_ReservedReader1() {}
-void BReader::_ReservedReader2() {}
-void BReader::_ReservedReader3() {}
-void BReader::_ReservedReader4() {}
-void BReader::_ReservedReader5() {}
+void Reader::_ReservedReader1() {}
+void Reader::_ReservedReader2() {}
+void Reader::_ReservedReader3() {}
+void Reader::_ReservedReader4() {}
+void Reader::_ReservedReader5() {}

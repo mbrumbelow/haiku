@@ -11,7 +11,7 @@
 
 
 status_t
-BCodecRoster::InstantiateReader(BReader** reader, int32* streamCount,
+BCodecRoster::InstantiateReader(Reader** reader, int32* streamCount,
 	media_file_format* mff, BDataIO* source)
 {
 	return gPluginManager.CreateReader(reader, streamCount, mff, source);
@@ -19,35 +19,35 @@ BCodecRoster::InstantiateReader(BReader** reader, int32* streamCount,
 
 
 void
-BCodecRoster::ReleaseReader(BReader* reader)
+BCodecRoster::ReleaseReader(Reader* reader)
 {
 	return gPluginManager.DestroyReader(reader);
 }
 
 
 status_t
-BCodecRoster::InstantiateDecoder(BDecoder** decoder, const media_format& format)
+BCodecRoster::InstantiateDecoder(Decoder** decoder, const media_format& format)
 {
 	return gPluginManager.CreateDecoder(decoder, format);
 }
 
 
 status_t
-BCodecRoster::InstantiateDecoder(BDecoder** decoder, const media_codec_info& mci)
+BCodecRoster::InstantiateDecoder(Decoder** decoder, const media_codec_info& mci)
 {
 	return gPluginManager.CreateDecoder(decoder, mci);
 }
 
 
 void
-BCodecRoster::ReleaseDecoder(BDecoder* decoder)
+BCodecRoster::ReleaseDecoder(Decoder* decoder)
 {
 	return gPluginManager.DestroyDecoder(decoder);
 }
 
 
 status_t
-BCodecRoster::InstantiateWriter(BWriter** writer, const media_file_format& mff,
+BCodecRoster::InstantiateWriter(Writer** writer, const media_file_format& mff,
 	BDataIO* target)
 {
 	return gPluginManager.CreateWriter(writer, mff, target);
@@ -55,21 +55,21 @@ BCodecRoster::InstantiateWriter(BWriter** writer, const media_file_format& mff,
 
 
 void
-BCodecRoster::ReleaseWriter(BWriter* writer)
+BCodecRoster::ReleaseWriter(Writer* writer)
 {
 	return gPluginManager.DestroyWriter(writer);
 }
 
 
 status_t
-BCodecRoster::InstantiateEncoder(BEncoder** encoder, const media_format& format)
+BCodecRoster::InstantiateEncoder(Encoder** encoder, const media_format& format)
 {
 	return gPluginManager.CreateEncoder(encoder, format);
 }
 
 
 status_t
-BCodecRoster::InstantiateEncoder(BEncoder** encoder,
+BCodecRoster::InstantiateEncoder(Encoder** encoder,
 	const media_codec_info* codecInfo, uint32 flags)
 {
 	return gPluginManager.CreateEncoder(encoder, codecInfo, flags);
@@ -77,14 +77,14 @@ BCodecRoster::InstantiateEncoder(BEncoder** encoder,
 
 
 void
-BCodecRoster::ReleaseEncoder(BEncoder* encoder)
+BCodecRoster::ReleaseEncoder(Encoder* encoder)
 {
 	return gPluginManager.DestroyEncoder(encoder);
 }
 
 
 status_t
-BCodecRoster::InstantiateStreamer(BStreamer** streamer, BUrl url,
+BCodecRoster::InstantiateStreamer(Streamer** streamer, BUrl url,
 	BDataIO** source)
 {
 	return gPluginManager.CreateStreamer(streamer, url, source);
@@ -92,7 +92,7 @@ BCodecRoster::InstantiateStreamer(BStreamer** streamer, BUrl url,
 
 
 void
-BCodecRoster::ReleaseStreamer(BStreamer* streamer)
+BCodecRoster::ReleaseStreamer(Streamer* streamer)
 {
 	return gPluginManager.DestroyStreamer(streamer);
 }

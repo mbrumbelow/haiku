@@ -67,17 +67,17 @@ private:
 			status_t			_RegisterAddOn(const entry_ref& ref);
 			status_t			_UnregisterAddOn(const entry_ref& ref);
 
-			void				_RegisterReader(BReaderPlugin* reader,
+			void				_RegisterReader(ReaderPlugin* reader,
 									const entry_ref& ref);
-			void				_RegisterDecoder(BDecoderPlugin* decoder,
-									const entry_ref& ref);
-
-			void				_RegisterWriter(BWriterPlugin* writer,
-									const entry_ref& ref);
-			void				_RegisterEncoder(BEncoderPlugin* encoder,
+			void				_RegisterDecoder(DecoderPlugin* decoder,
 									const entry_ref& ref);
 
-			void				_RegisterStreamer(BStreamerPlugin* streamer,
+			void				_RegisterWriter(WriterPlugin* writer,
+									const entry_ref& ref);
+			void				_RegisterEncoder(EncoderPlugin* encoder,
+									const entry_ref& ref);
+
+			void				_RegisterStreamer(StreamerPlugin* streamer,
 									const entry_ref& ref);
 
 			bool				_FindDecoder(const media_format& format,

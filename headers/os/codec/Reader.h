@@ -18,7 +18,7 @@ enum {
 };
 
 
-class BReader {
+class Reader {
 public:
 	virtual	status_t			Sniff(int32* streamCount) = 0;
 
@@ -51,15 +51,15 @@ public:
 	virtual status_t			Perform(perform_code code, void* data);
 
 protected:
-								BReader();
-	virtual						~BReader();
+								Reader();
+	virtual						~Reader();
 
 private:
 			void				_Setup(BDataIO* source);
 
 			BDataIO*			fSource;
 
-			BMediaPlugin*		fMediaPlugin;
+			MediaPlugin*		fMediaPlugin;
 
 	// needed for plug-in reference count management
 	friend class PluginManager;
@@ -75,9 +75,9 @@ private:
 };
 
 
-class BReaderPlugin : public virtual BMediaPlugin {
+class ReaderPlugin : public virtual MediaPlugin {
 public:
-	virtual	BReader*			NewReader() = 0;
+	virtual	Reader*				NewReader() = 0;
 };
 
 } } // namespace BPrivate::media

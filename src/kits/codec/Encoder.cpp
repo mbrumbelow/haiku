@@ -13,7 +13,7 @@
 #include <string.h>
 
 
-BEncoder::BEncoder()
+Encoder::Encoder()
 	:
 	fChunkWriter(NULL),
 	fMediaPlugin(NULL)
@@ -21,7 +21,7 @@ BEncoder::BEncoder()
 }
 
 
-BEncoder::~BEncoder()
+Encoder::~Encoder()
 {
 	delete fChunkWriter;
 }
@@ -31,49 +31,49 @@ BEncoder::~BEncoder()
 
 
 status_t
-BEncoder::AddTrackInfo(uint32 code, const void* data, size_t size, uint32 flags)
+Encoder::AddTrackInfo(uint32 code, const void* data, size_t size, uint32 flags)
 {
 	return B_NOT_SUPPORTED;
 }
 
 
 BView*
-BEncoder::ParameterView()
+Encoder::ParameterView()
 {
 	return NULL;
 }
 
 
 BParameterWeb*
-BEncoder::ParameterWeb()
+Encoder::ParameterWeb()
 {
 	return NULL;
 }
 
 
 status_t
-BEncoder::GetParameterValue(int32 id, void* value, size_t* size) const
+Encoder::GetParameterValue(int32 id, void* value, size_t* size) const
 {
 	return B_NOT_SUPPORTED;
 }
 
 
 status_t
-BEncoder::SetParameterValue(int32 id, const void* value, size_t size)
+Encoder::SetParameterValue(int32 id, const void* value, size_t size)
 {
 	return B_NOT_SUPPORTED;
 }
 
 
 status_t
-BEncoder::GetEncodeParameters(encode_parameters* parameters) const
+Encoder::GetEncodeParameters(encode_parameters* parameters) const
 {
 	return B_NOT_SUPPORTED;
 }
 
 
 status_t
-BEncoder::SetEncodeParameters(encode_parameters* parameters)
+Encoder::SetEncodeParameters(encode_parameters* parameters)
 {
 	return B_NOT_SUPPORTED;
 }
@@ -83,7 +83,7 @@ BEncoder::SetEncodeParameters(encode_parameters* parameters)
 
 
 status_t
-BEncoder::WriteChunk(const void* chunkBuffer, size_t chunkSize,
+Encoder::WriteChunk(const void* chunkBuffer, size_t chunkSize,
 	media_encode_info* encodeInfo)
 {
 	return fChunkWriter->WriteChunk(chunkBuffer, chunkSize, encodeInfo);
@@ -91,7 +91,7 @@ BEncoder::WriteChunk(const void* chunkBuffer, size_t chunkSize,
 
 
 void
-BEncoder::SetChunkWriter(BChunkWriter* writer)
+Encoder::SetChunkWriter(ChunkWriter* writer)
 {
 	delete fChunkWriter;
 	fChunkWriter = writer;
@@ -102,37 +102,37 @@ BEncoder::SetChunkWriter(BChunkWriter* writer)
 
 
 status_t
-BEncoder::Perform(perform_code code, void* data)
+Encoder::Perform(perform_code code, void* data)
 {
 	return B_OK;
 }
 
 
-void BEncoder::_ReservedEncoder1() {}
-void BEncoder::_ReservedEncoder2() {}
-void BEncoder::_ReservedEncoder3() {}
-void BEncoder::_ReservedEncoder4() {}
-void BEncoder::_ReservedEncoder5() {}
-void BEncoder::_ReservedEncoder6() {}
-void BEncoder::_ReservedEncoder7() {}
-void BEncoder::_ReservedEncoder8() {}
-void BEncoder::_ReservedEncoder9() {}
-void BEncoder::_ReservedEncoder10() {}
-void BEncoder::_ReservedEncoder11() {}
-void BEncoder::_ReservedEncoder12() {}
-void BEncoder::_ReservedEncoder13() {}
-void BEncoder::_ReservedEncoder14() {}
-void BEncoder::_ReservedEncoder15() {}
-void BEncoder::_ReservedEncoder16() {}
-void BEncoder::_ReservedEncoder17() {}
-void BEncoder::_ReservedEncoder18() {}
-void BEncoder::_ReservedEncoder19() {}
-void BEncoder::_ReservedEncoder20() {}
+void Encoder::_ReservedEncoder1() {}
+void Encoder::_ReservedEncoder2() {}
+void Encoder::_ReservedEncoder3() {}
+void Encoder::_ReservedEncoder4() {}
+void Encoder::_ReservedEncoder5() {}
+void Encoder::_ReservedEncoder6() {}
+void Encoder::_ReservedEncoder7() {}
+void Encoder::_ReservedEncoder8() {}
+void Encoder::_ReservedEncoder9() {}
+void Encoder::_ReservedEncoder10() {}
+void Encoder::_ReservedEncoder11() {}
+void Encoder::_ReservedEncoder12() {}
+void Encoder::_ReservedEncoder13() {}
+void Encoder::_ReservedEncoder14() {}
+void Encoder::_ReservedEncoder15() {}
+void Encoder::_ReservedEncoder16() {}
+void Encoder::_ReservedEncoder17() {}
+void Encoder::_ReservedEncoder18() {}
+void Encoder::_ReservedEncoder19() {}
+void Encoder::_ReservedEncoder20() {}
 
 
 //	#pragma mark - EncoderPlugin
 
 
-BEncoderPlugin::BEncoderPlugin()
+EncoderPlugin::EncoderPlugin()
 {
 }
