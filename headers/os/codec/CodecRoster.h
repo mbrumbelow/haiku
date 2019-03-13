@@ -44,7 +44,7 @@ public:
 	static void			ReleaseEncoder(BEncoder* encoder);
 
 	static status_t		InstantiateStreamer(BStreamer** streamer,
-							BUrl url);
+							BUrl url, BDataIO** source);
 	static void			ReleaseStreamer(BStreamer* streamer);
 
 	static status_t		GetDecoderInfo(BDecoder* decoder,

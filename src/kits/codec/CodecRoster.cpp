@@ -101,9 +101,10 @@ BCodecRoster::ReleaseEncoder(BEncoder* encoder)
 
 
 status_t
-BCodecRoster::InstantiateStreamer(BStreamer** streamer, BUrl url)
+BCodecRoster::InstantiateStreamer(BStreamer** streamer, BUrl url,
+	BDataIO** source)
 {
-	return gPluginManager.CreateStreamer(streamer, url);
+	return gPluginManager.CreateStreamer(streamer, url, source);
 }
 
 
