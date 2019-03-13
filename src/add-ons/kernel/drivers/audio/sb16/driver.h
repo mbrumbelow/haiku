@@ -8,9 +8,13 @@
 #include <string.h>
 #include <stdlib.h>
 
-#define DEVFS_PATH	"audio/hmulti"
-#include <hmulti_audio.h>
-
+#ifdef COMPILE_FOR_R5
+        #define DEVFS_PATH	"audio/multi"
+        #include <multi_audio.h>
+#else
+        #define DEVFS_PATH	"audio/hmulti"
+        #include <hmulti_audio.h>
+#endif
 
 #define STRMINBUF		2
 #define STRMAXBUF		2
