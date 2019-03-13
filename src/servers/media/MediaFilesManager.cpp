@@ -16,7 +16,7 @@
 #include <MediaFiles.h>
 #include <Path.h>
 
-#include <MediaDebug.h>
+#include <debug.h>
 #include <MediaSounds.h>
 
 

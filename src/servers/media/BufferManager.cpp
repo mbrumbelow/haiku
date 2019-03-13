@@ -9,7 +9,7 @@
 
 #include <Autolock.h>
 
-#include "MediaDebug.h"
+#include "debug.h"
 #include "SharedBufferList.h"
 
 

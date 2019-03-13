@@ -41,7 +41,7 @@
 #include <OS.h>
 #include <Path.h>
 
-#include <MediaDebug.h>
+#include <debug.h>
 #include <MediaMisc.h>
 #include <Notifications.h>
 

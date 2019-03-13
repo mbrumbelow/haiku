@@ -35,7 +35,7 @@
 #include <OS.h>
 
 #include "DataExchange.h"
-#include "MediaDebug.h"
+#include "debug.h"
 #include "media_server.h"
 #include "NodeManager.h"
 #include "Notifications.h"
