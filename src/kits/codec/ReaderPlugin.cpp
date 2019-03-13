@@ -61,7 +61,7 @@ Reader::Source() const
 
 
 void
-Reader::_Setup(BDataIO *source)
+Reader::Setup(BDataIO *source)
 {
 	fSource = source;
 }

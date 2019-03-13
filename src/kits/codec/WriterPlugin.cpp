@@ -31,7 +31,7 @@ Writer::Target() const
 
 
 void
-Writer::_Setup(BDataIO* target)
+Writer::Setup(BDataIO* target)
 {
 	fTarget = target;
 }

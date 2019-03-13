@@ -2,7 +2,6 @@
 #define _WRITER_PLUGIN_H
 
 #include <MediaTrack.h>
-
 #include "MediaPlugin.h"
 
 namespace BPrivate { namespace media {
@@ -42,14 +41,13 @@ public:
 	virtual status_t			Perform(perform_code code, void* data);
 
 private:
-			void				_Setup(BDataIO* target);
+			void				Setup(BDataIO* target);
 
 			BDataIO*			fTarget;
 
-			MediaPlugin*		fMediaPlugin;
-
 	// needed for plug-in reference count management
 	friend class PluginManager;
+			MediaPlugin*		fMediaPlugin;
 
 	virtual void				_ReservedWriter1();
 	virtual void				_ReservedWriter2();
