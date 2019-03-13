@@ -90,14 +90,6 @@ BMetaData::BMetaData()
 }
 
 
-BMetaData::BMetaData(const BMetaData& data)
-	:
-	fMessage(NULL)
-{
-	fMessage = new BMessage(*data.fMessage);
-}
-
-
 BMetaData::BMetaData(const BMessage& msg)
 	:
 	fMessage(NULL)

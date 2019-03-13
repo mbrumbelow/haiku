@@ -146,13 +146,12 @@ public:
 	const BMessage*		Message();
 
 	BMetaData&			operator=(const BMetaData& other);
-						BMetaData(const BMetaData&);
 
 private:
 	// TODO: padding
 	BMessage*			fMessage;
 
-
+						BMetaData(const BMetaData&);
 };
 
 
