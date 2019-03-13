@@ -6,6 +6,8 @@
 
 #include "HTTPStreamerPlugin.h"
 
+#include "HTTPMediaIO.h"
+
 #include "MediaDebug.h"
 
 
@@ -29,26 +31,19 @@ HTTPStreamer::~HTTPStreamer()
 
 
 status_t
-HTTPStreamer::Sniff(const BUrl& url)
+HTTPStreamer::Sniff(const BUrl& url, BDataIO** source)
 {
 	CALLED();
 
-	HTTPMediaIO* adapter = new HTTPMediaIO(url);
+	HTTPMediaIO* outSource = new HTTPMediaIO(url);
 
-	status_t ret = adapter->Open();
+	status_t ret = outSource->Open();
 	if (ret == B_OK) {
-		fAdapter = adapter;
+		*source = outSource;
 		return B_OK;
 	}
-	delete adapter;
+	delete outSource;
 	return ret;
-}
-
-
-BMediaIO*
-HTTPStreamer::Adapter() const
-{
-	return fAdapter;
 }
 
 
