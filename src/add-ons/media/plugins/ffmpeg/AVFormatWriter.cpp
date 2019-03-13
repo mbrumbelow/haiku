@@ -425,7 +425,7 @@ AVFormatWriter::Init(const media_file_format* fileFormat)
 
 
 status_t
-AVFormatWriter::SetMetaData(BMetaData* data)
+AVFormatWriter::SetCopyright(const char* copyright)
 {
 	TRACE("AVFormatWriter::SetCopyright(%s)\n", copyright);
 
@@ -541,9 +541,9 @@ AVFormatWriter::FreeCookie(void* _cookie)
 
 
 status_t
-AVFormatWriter::SetMetaData(void* cookie, BMetaData* data)
+AVFormatWriter::SetCopyright(void* cookie, const char* copyright)
 {
-	TRACE("AVFormatWriter::SetMetaData(%p)\n", cookie);
+	TRACE("AVFormatWriter::SetCopyright(%p, %s)\n", cookie, copyright);
 
 	return B_NOT_SUPPORTED;
 }
