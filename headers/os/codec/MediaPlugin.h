@@ -9,11 +9,6 @@
 
 namespace BPrivate { namespace media {
 
-
-// TODO: Shouldn't this be a BReferenceable?
-// TODO: This will replace BMediaAddOn in media2,
-// see if we need some more accessor method and
-// add the needed padding.
 class MediaPlugin {
 public:
 								MediaPlugin();
