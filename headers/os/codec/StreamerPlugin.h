@@ -38,8 +38,6 @@ private:
 
 class StreamerPlugin : public virtual MediaPlugin {
 public:
-								StreamerPlugin();
-
 	virtual	Streamer*			NewStreamer() = 0;
 };
 
