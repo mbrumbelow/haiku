@@ -99,6 +99,13 @@ BMetaData::SetBool(const char* key, bool value)
 
 
 bool
+BMetaData::SetUInt32(const char* key, uint32 value)
+{
+	return fMessage->SetUInt32(key, value) == B_OK ? true : false;
+}
+
+
+bool
 BMetaData::SetInt64(const char* key, int64 value)
 {
 	return fMessage->SetInt64(key, value) == B_OK ? true : false;
@@ -116,6 +123,13 @@ bool
 BMetaData::GetBool(const char* key, bool* value) const
 {
 	return fMessage->FindBool(key, value) == B_OK ? true : false;
+}
+
+
+bool
+BMetaData::GetUInt32(const char* key, uint32* value) const
+{
+	return fMessage->FindUInt32(key, value) == B_OK ? true : false;
 }
 
 
