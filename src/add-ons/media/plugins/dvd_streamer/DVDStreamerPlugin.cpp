@@ -3,8 +3,9 @@
  * Distributed under the terms of the MIT License.
  */
 
-
 #include "DVDStreamerPlugin.h"
+
+#include "DVDMediaIO.h"
 
 
 B_DECLARE_CODEC_KIT_PLUGIN(
@@ -16,8 +17,7 @@ B_DECLARE_CODEC_KIT_PLUGIN(
 
 DVDStreamer::DVDStreamer()
 	:
-	BStreamer(),
-	fAdapter(NULL)
+	BStreamer()
 {
 }
 
@@ -28,46 +28,25 @@ DVDStreamer::~DVDStreamer()
 
 
 status_t
-DVDStreamer::Sniff(const BUrl& url)
+DVDStreamer::Sniff(const BUrl& url, BDataIO** source)
 {
 	BString path = url.UrlString();
 	BString protocol = url.Protocol();
 	if (protocol == "dvd") {
 		path = path.RemoveFirst("dvd://");
-	} else if (protocol == "file") {
+	} else if(protocol == "file") {
 		path = path.RemoveFirst("file://");	
 	} else
 		return B_UNSUPPORTED;
 
-	DVDMediaIO* adapter = new DVDMediaIO(path);
-	status_t ret = adapter->Open();
+	DVDMediaIO* outSource = new DVDMediaIO(path);
+	status_t ret = outSource->Open();
 	if (ret == B_OK) {
-		fAdapter = adapter;
+		*source = outSource;
 		return B_OK;
 	}
-	delete adapter;
+	delete outSource;
 	return ret;	
-}
-
-
-BMediaIO*
-DVDStreamer::Adapter() const
-{
-	return fAdapter;
-}
-
-
-void
-DVDStreamer::MouseMoved(uint32 x, uint32 y)
-{
-	fAdapter->MouseMoved(x, y);
-}
-
-
-void
-DVDStreamer::MouseDown(uint32 x, uint32 y)
-{
-	fAdapter->MouseDown(x, y);
 }
 
 
