@@ -58,9 +58,9 @@ enum {
 	// TODO: move this (after name change?) to MediaDefs.h
 
 
-class RawDecoderChunkProvider : public BChunkProvider {
+class RawDecoderChunkProvider : public ChunkProvider {
 public:
-							RawDecoderChunkProvider(BDecoder* decoder,
+							RawDecoderChunkProvider(Decoder* decoder,
 								int buffer_size, int frame_size);
 	virtual					~RawDecoderChunkProvider();
 
@@ -69,7 +69,7 @@ public:
 								media_header* mediaHeader);
 
 private:
-			BDecoder*		fDecoder;
+			Decoder*		fDecoder;
 			void*			fBuffer;
 			int				fBufferSize;
 			int				fFrameSize;
@@ -839,7 +839,7 @@ BMediaTrack::Perform(int32 selector, void* data)
 // #pragma mark - private
 
 
-BMediaTrack::BMediaTrack(BPrivate::media::BMediaExtractor* extractor,
+BMediaTrack::BMediaTrack(BPrivate::media::MediaExtractor* extractor,
 	int32 stream)
 {
 	CALLED();
@@ -871,7 +871,7 @@ BMediaTrack::BMediaTrack(BPrivate::media::BMediaExtractor* extractor,
 }
 
 
-BMediaTrack::BMediaTrack(BPrivate::media::BMediaWriter* writer,
+BMediaTrack::BMediaTrack(BPrivate::media::MediaWriter* writer,
 	int32 streamIndex, media_format* format,
 	const media_codec_info* codecInfo)
 {
@@ -971,7 +971,7 @@ BMediaTrack::SetupFormatTranslation(const media_format &from, media_format* to)
 		* from.u.raw_audio.channel_count;
 	media_format fromNotConst = from;
 
-	BChunkProvider* chunkProvider
+	ChunkProvider* chunkProvider
 		= new (std::nothrow) RawDecoderChunkProvider(fDecoder, buffer_size,
 			frame_size);
 	if (chunkProvider == NULL) {
@@ -1087,7 +1087,7 @@ status_t BMediaTrack::_Reserved_BMediaTrack_46(int32 arg, ...) { return B_ERROR;
 status_t BMediaTrack::_Reserved_BMediaTrack_47(int32 arg, ...) { return B_ERROR; }
 
 
-RawDecoderChunkProvider::RawDecoderChunkProvider(BDecoder* decoder,
+RawDecoderChunkProvider::RawDecoderChunkProvider(Decoder* decoder,
 	int buffer_size, int frame_size)
 {
 //	printf("RawDecoderChunkProvider: buffer_size %d, frame_size %d\n",

@@ -5,12 +5,12 @@
 #include <MediaFormats.h>
 
 namespace BPrivate {
-	class BDecoder;
+	class Decoder;
 }
 namespace BPrivate {
 	namespace media {
-		class BDecoder;
-		class BDecoderPlugin;
+		class Decoder;
+		class DecoderPlugin;
 	}
 }
 
@@ -47,7 +47,7 @@ class BMediaDecoder {
 
 		status_t AttachToDecoder();
 
-		BPrivate::media::BDecoder* fDecoder;
+		BPrivate::media::Decoder	*fDecoder;
 		status_t			fInitStatus;
 
 		/* fbc data and virtuals */

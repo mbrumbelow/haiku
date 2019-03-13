@@ -15,9 +15,9 @@
 
 namespace BPrivate {
 	namespace media {
-		class BMediaExtractor;
-		class BMediaStreamer;
-		class BMediaWriter;
+		class MediaExtractor;
+		class MediaStreamer;
+		class MediaWriter;
 	}
 	class _AddonManager;
 }
@@ -162,18 +162,18 @@ private:
 			status_t			ControlFile(int32 selector, void* ioData,
 									size_t size);
 
-			BPrivate::media::BMediaExtractor* fExtractor;
+			BPrivate::media::MediaExtractor* fExtractor;
 			int32				_reserved_BMediaFile_was_fExtractorID;
 			int32				fTrackNum;
 			status_t			fErr;
 
 			BPrivate::_AddonManager* fEncoderMgr;
 			BPrivate::_AddonManager* fWriterMgr;
-			BPrivate::media::BMediaWriter* fWriter;
+			BPrivate::media::MediaWriter* fWriter;
 			int32				fWriterID;
 			media_file_format	fMFI;
 
-			BPrivate::media::BMediaStreamer* fStreamer;
+			BPrivate::media::MediaStreamer* fStreamer;
 
 			bool				fFileClosed;
 			bool				fDeleteSource;
