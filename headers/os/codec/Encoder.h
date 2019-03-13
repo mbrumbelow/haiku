@@ -19,12 +19,7 @@ class PluginManager;
 
 class BChunkWriter {
 public:
-								BChunkWriter();
-	virtual						~BChunkWriter();
-
-protected:
-	friend class BEncoder;
-
+	virtual						~BChunkWriter() {};
 	virtual	status_t			WriteChunk(const void* chunkBuffer,
 									size_t chunkSize,
 									media_encode_info* encodeInfo) = 0;
