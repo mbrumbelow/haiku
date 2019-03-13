@@ -19,7 +19,6 @@ public:
 									media_header* mediaHeader) = 0;
 };
 
-
 class Decoder {
 public:
 								Decoder();

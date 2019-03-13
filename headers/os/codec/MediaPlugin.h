@@ -19,11 +19,6 @@ private:
 	friend class PluginManager;
 
 			int32				fRefCount;
-
-	virtual void				_ReservedMediaPlugin1();
-	virtual void				_ReservedMediaPlugin2();
-
-			uint32				fReserved[5];
 };
 
 class Decoder;
