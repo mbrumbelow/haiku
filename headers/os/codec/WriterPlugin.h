@@ -41,6 +41,12 @@ public:
 	virtual status_t			Perform(perform_code code, void* data);
 
 private:
+	virtual void				_ReservedWriter1();
+	virtual void				_ReservedWriter2();
+	virtual void				_ReservedWriter3();
+	virtual void				_ReservedWriter4();
+	virtual void				_ReservedWriter5();
+
 			void				Setup(BDataIO* target);
 
 			BDataIO*			fTarget;
@@ -48,12 +54,6 @@ private:
 	// needed for plug-in reference count management
 	friend class PluginManager;
 			MediaPlugin*		fMediaPlugin;
-
-	virtual void				_ReservedWriter1();
-	virtual void				_ReservedWriter2();
-	virtual void				_ReservedWriter3();
-	virtual void				_ReservedWriter4();
-	virtual void				_ReservedWriter5();
 
 			uint32				fReserved[5];
 };
