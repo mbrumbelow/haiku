@@ -20,6 +20,9 @@ enum {
 
 class Reader {
 public:
+								Reader();
+	virtual						~Reader();
+
 	virtual	status_t			Sniff(int32* streamCount) = 0;
 
 	virtual	void				GetFileFormatInfo(media_file_format* mff) = 0;
@@ -50,10 +53,6 @@ public:
 
 	virtual status_t			Perform(perform_code code, void* data);
 
-protected:
-								Reader();
-	virtual						~Reader();
-
 private:
 			void				_Setup(BDataIO* source);
 
@@ -63,7 +62,6 @@ private:
 
 	// needed for plug-in reference count management
 	friend class PluginManager;
-	friend class MediaExtractor;
 
 	virtual void				_ReservedReader1();
 	virtual void				_ReservedReader2();
