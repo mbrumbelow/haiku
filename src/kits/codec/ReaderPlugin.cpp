@@ -26,7 +26,7 @@ Reader::~Reader()
 
 
 status_t
-Reader::GetMetaData(BMetaData* data)
+Reader::GetMetaData(BMessage* _data)
 {
 	return B_NOT_SUPPORTED;
 }
@@ -47,7 +47,7 @@ Reader::FindKeyFrame(void* cookie, uint32 flags, int64* frame, bigtime_t* time)
 
 
 status_t
-Reader::GetStreamMetaData(void* cookie, BMetaData* data)
+Reader::GetStreamMetaData(void* cookie, BMessage* _data)
 {
 	return B_NOT_SUPPORTED;
 }
