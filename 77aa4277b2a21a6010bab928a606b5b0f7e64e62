@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "744eff7d_6df1751f",
+        "filename": "src/apps/haikudepot/textview/CharacterStyle.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-03-13T08:11:13Z",
+      "side": 1,
+      "message": "This code looks wrong. I think it was copied from the code dealing with italic and bold, when there used to be only two possibilities. Now there are three. The code above only deals with bold, but it should deal with bold and italic, and the existing code for bold and italic should each deal with underscore in addition. I think it should simply be something like this:\n\nif (underscore)\n   neededFace \u003d face | B_UNDERSCORE_FACE;\nelse\n   neededFace \u003d face \u0026 ~B_UNDERSCORE_FACE;\n\nAnd the other code similar to that.\n\nI think it\u0027s only complicated due to B_REGULAR_FACE. If B_REGULAR_FACE is not equal to 0, then something more needs to happen, I\u0027ll need to look that up. I.e. neededFace needs to either be (only) B_REGULAR_FACE or a combination of the other flags. Again, unless B_REGULAR_FACE \u003d\u003d 0.",
+      "revId": "77aa4277b2a21a6010bab928a606b5b0f7e64e62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45e3b3ca_1f68044d",
+        "filename": "src/servers/app/font/FontFamily.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-03-13T08:11:13Z",
+      "side": 1,
+      "message": "Hm. What is the font score used for? If B_UNDERSCORE_FACE should be ignored, a comment would be sufficient.",
+      "revId": "77aa4277b2a21a6010bab928a606b5b0f7e64e62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f5b303e_e25ba78b",
+        "filename": "src/servers/app/font/FontFamily.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-03-13T08:11:13Z",
+      "side": 1,
+      "message": "Looks like it\u0027s used for sorting. But now underscore or no underscore doesn\u0027t influence sorting, according to how font_score() does not change the score.",
+      "revId": "77aa4277b2a21a6010bab928a606b5b0f7e64e62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03f946e6_fcf31606",
+        "filename": "src/servers/app/font/FontFamily.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-03-13T08:11:13Z",
+      "side": 1,
+      "message": "\"underlined\" needs to be removed from the comment now.",
+      "revId": "77aa4277b2a21a6010bab928a606b5b0f7e64e62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
