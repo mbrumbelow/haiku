@@ -1,12 +1,9 @@
-/*
- * Copyright 2017, Dario Casalinuovo. All rights reserved.
- * Distributed under the terms of the MIT License.
- */
 #ifndef _STREAMER_PLUGIN_H
 #define _STREAMER_PLUGIN_H
 
 
 #include <MediaIO.h>
+#include <MediaTrack.h>
 #include <Url.h>
 
 #include "MediaPlugin.h"
@@ -19,17 +16,15 @@ class PluginManager;
 
 class Streamer {
 public:
-	virtual status_t			Sniff(const BUrl& url, BDataIO** source) = 0;
-
-protected:
 								Streamer();
 	virtual						~Streamer();
+
+	virtual status_t			Sniff(const BUrl& url, BDataIO** source) = 0;
 
 private:
 			MediaPlugin*		fMediaPlugin;
 
 	friend class PluginManager;
-	friend class MediaStreamer;
 
 	virtual void				_ReservedStreamer1();
 	virtual void				_ReservedStreamer2();
