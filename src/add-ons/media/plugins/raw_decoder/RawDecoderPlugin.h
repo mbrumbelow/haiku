@@ -25,10 +25,9 @@
 #ifndef _RAW_DECODER_PLUGIN_H
 #define _RAW_DECODER_PLUGIN_H
 
-#include <Decoder.h>
+#include "DecoderPlugin.h"
 
-
-class RawDecoder : public BDecoder
+class RawDecoder : public Decoder
 {
 public:
 	void		GetCodecInfo(media_codec_info *info);

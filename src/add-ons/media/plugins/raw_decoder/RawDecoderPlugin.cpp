@@ -520,7 +520,7 @@ RawDecoder::Decode(void *buffer, int64 *frameCount,
 }
 
 
-BDecoder *
+Decoder *
 RawDecoderPlugin::NewDecoder(uint index)
 {
 	return new RawDecoder;
@@ -565,7 +565,7 @@ RawDecoderPlugin::GetSupportedFormats(media_format ** formats, size_t * count)
 	return B_OK;
 }
 
-BMediaPlugin *instantiate_plugin()
+MediaPlugin *instantiate_plugin()
 {
 	return new RawDecoderPlugin;
 }

@@ -40,14 +40,14 @@ HTTPStreamer::Sniff(const BUrl& url, BDataIO** source)
 }
 
 
-BStreamer*
+Streamer*
 HTTPStreamerPlugin::NewStreamer()
 {
 	return new HTTPStreamer();
 }
 
 
-BMediaPlugin *instantiate_plugin()
+MediaPlugin *instantiate_plugin()
 {
 	return new HTTPStreamerPlugin();
 }
