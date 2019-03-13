@@ -67,10 +67,10 @@ private:
 };
 
 
-class RawDecoderPlugin : public BDecoderPlugin
+class RawDecoderPlugin : public DecoderPlugin
 {
 public:
-	BDecoder *	NewDecoder(uint index);
+	Decoder *	NewDecoder(uint index);
 	status_t	GetSupportedFormats(media_format ** formats, size_t * count);
 };
 
