@@ -251,7 +251,8 @@ btrfs_read_pages(fs_volume* _volume, fs_vnode* _node, void* _cookie,
 
 
 static status_t
-btrfs_io(fs_volume* _volume, fs_vnode* _node, void* _cookie, io_request* request)
+btrfs_io(fs_volume* _volume, fs_vnode* _node, void* _cookie,
+	io_request* request)
 {
 	Volume* volume = (Volume*)_volume->private_volume;
 	Inode* inode = (Inode*)_node->private_node;
@@ -647,7 +648,8 @@ btrfs_rewind_dir(fs_volume* /*_volume*/, fs_vnode* /*node*/, void* _cookie)
 
 
 static status_t
-btrfs_close_dir(fs_volume * /*_volume*/, fs_vnode * /*node*/, void * /*_cookie*/)
+btrfs_close_dir(fs_volume * /*_volume*/, fs_vnode * /*node*/,
+	   	void * /*_cookie*/)
 {
 	return B_OK;
 }
@@ -831,6 +833,7 @@ btrfs_remove_attr(fs_volume* _volume, fs_vnode* vnode,
 {
 	return EROFS;
 }
+
 
 //	#pragma mark -
 
