@@ -36,7 +36,7 @@ const uint32 PARSE_NO_MASK_BIT				= 0x00000000;
 const uint32 PARSE_RAW_PATH_MASK_BIT		= 0x00000001;
 
 
-BUrl::BUrl(const char* url)
+BUrl::BUrl(const char* url,bool encode)
 	:
 	fUrlString(),
 	fProtocol(),
@@ -49,7 +49,7 @@ BUrl::BUrl(const char* url)
 	fHasHost(false),
 	fHasFragment(false)
 {
-	SetUrlString(url);
+	SetUrlString(url,encode);
 }
 
 
@@ -220,10 +220,13 @@ BUrl::~BUrl()
 
 
 BUrl&
-BUrl::SetUrlString(const BString& url)
+BUrl::SetUrlString(const BString& url, bool encode)
 {
 	_ExplodeUrlString(url, PARSE_NO_MASK_BIT);
 	return *this;
+	if(encode){
+	UrlEncode(url,true,true);
+	}
 }
 
 
@@ -614,7 +617,7 @@ BUrl::HasFragment() const
 // #pragma mark URL encoding/decoding of needed fields
 
 
-void
+/*void
 BUrl::UrlEncode(bool strict)
 {
 	fUser = _DoUrlEncodeChunk(fUser, strict);
@@ -633,7 +636,7 @@ BUrl::UrlDecode(bool strict)
 	fHost = _DoUrlDecodeChunk(fHost, strict);
 	fFragment = _DoUrlDecodeChunk(fFragment, strict);
 	fPath = _DoUrlDecodeChunk(fPath, strict);
-}
+} */
 
 
 #ifdef HAIKU_TARGET_PLATFORM_HAIKU

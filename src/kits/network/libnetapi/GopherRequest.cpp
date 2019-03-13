@@ -188,7 +188,7 @@ BGopherRequest::BGopherRequest(const BUrl& url, BUrlProtocolListener* listener,
 {
 	fSocket = new(std::nothrow) BSocket();
 
-	fUrl.UrlDecode();
+	//fUrl.UrlDecode();
 	// the first part of the path is actually the document type
 
 	fPath = Url().Path();

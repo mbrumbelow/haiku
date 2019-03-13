@@ -40,7 +40,7 @@ BDataRequest::_ProtocolLoop()
 	bool isBase64 = false;
 
 	// The RFC has examples where some characters are URL-Encoded.
-	fUrl.UrlDecode(true);
+	//fUrl.UrlDecode(true);
 
 	// The RFC says this uses a nonstandard scheme, so the path, query and
 	// fragment are a bit nonsensical. It would be nice to handle them, but
