@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84e4e7ba_b8376276",
+        "filename": "src/kits/crypto/hash/blake2/blake2b-ref.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2019-03-14T10:26:13Z",
+      "side": 1,
+      "message": "is it on purpose? maybe to add some comment to make it less confusing, like \n\ninlen \u003d 0;\n    // the whole input buffer is traversed",
+      "revId": "d542a222acbac6c2d2974dd06e51ae50b5f61b9b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
