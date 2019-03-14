@@ -322,6 +322,9 @@ FindWindow::SwitchToTemplate(const entry_ref* ref)
 const char*
 FindWindow::QueryName() const
 {
+	if (!fFile)
+		return "";
+
 	if (fFromTemplate) {
 		if (!fQueryNameFromTemplate.Length()) {
 			fFile->ReadAttrString(kAttrQueryTemplateName,
@@ -330,8 +333,6 @@ FindWindow::QueryName() const
 
 		return fQueryNameFromTemplate.String();
 	}
-	if (!fFile)
-		return "";
 
 	return fRef.name;
 }
