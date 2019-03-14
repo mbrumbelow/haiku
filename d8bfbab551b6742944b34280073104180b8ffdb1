@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "3056241b_f3dbce91",
+        "filename": "src/bin/unzip/beos.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-03-14T12:37:21Z",
+      "side": 1,
+      "message": "unzip is built for the host platform. it could be moved to src/tools to make this clearer.",
+      "parentUuid": "9dc6caa3_5b22d6a8",
+      "revId": "d8bfbab551b6742944b34280073104180b8ffdb1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ef6fe81e_a517730c",
         "filename": "src/libs/libunwind/os-linux.h",
         "patchSetId": 1
