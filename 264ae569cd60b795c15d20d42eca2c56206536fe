@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "77fd1e73_509e2279",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/CRCTable.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-03-15T07:27:20Z",
+      "side": 1,
+      "message": "Please also adjust crc_table.cpp.",
+      "revId": "264ae569cd60b795c15d20d42eca2c56206536fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
