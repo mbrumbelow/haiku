@@ -953,6 +953,8 @@ DHCPClient::_TimeoutShift(int socket, dhcp_state& state,
 		stateMaxTime = fRebindingTime;
 	else if (state == REBINDING)
 		stateMaxTime = fLeaseTime;
+	else if (state == SELECTING || state == REQUESTING)
+		stateMaxTime = fRequestTime + AS_USECS(MAX_TIMEOUT);
 
 	if (system_time() > stateMaxTime) {
 		state = state == REBINDING ? INIT : REBINDING;
