@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e378288_5c190432",
+        "filename": "build/jam/ArchitectureRules",
+        "patchSetId": 1
+      },
+      "lineNbr": 715,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-03-15T15:54:04Z",
+      "side": 1,
+      "message": "Ah, shouldn\u0027t have reverted this as I left the commit in that removed these plugins.",
+      "revId": "bd064b7c0921b4a6120d457e3d98147e81afc14d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "acec05db_698fc26d",
+        "filename": "src/servers/media/BufferManager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-03-15T15:54:04Z",
+      "side": 1,
+      "message": "Also should not have been reverted",
+      "range": {
+        "startLine": 101,
+        "startChar": 41,
+        "endLine": 101,
+        "endChar": 42
+      },
+      "revId": "bd064b7c0921b4a6120d457e3d98147e81afc14d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a86885f_e73b20a2",
+        "filename": "src/servers/media/media_server.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-03-15T15:54:04Z",
+      "side": 1,
+      "message": "Also should not have been reverted",
+      "revId": "bd064b7c0921b4a6120d457e3d98147e81afc14d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
