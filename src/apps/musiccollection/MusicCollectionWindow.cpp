@@ -278,6 +278,7 @@ MusicCollectionWindow::MessageReceived(BMessage* message)
 
 		default:
 			BWindow::MessageReceived(message);
+			break;
 	}
 }
 
@@ -287,17 +288,15 @@ CaseInsensitiveString(BString &instring,  BString &outstring)
 {
 	outstring = "";
 	int i = 0;
-	while (instring[i])
-	{
-		if (instring[i] >= 65 && instring[i] <= 90) // capital letters   
-		{
+	while (instring[i]) {
+		if (instring[i] >= 65 && instring[i] <= 90) { 
+                        // capital letters
 			int ch = instring[i] + 32;
 			outstring += "[";
 			outstring += ch;
 			outstring += instring[i];
 			outstring += "]";
-		} else if (instring[i] >= 97 && instring[i] <= 122)
-		{
+		} else if (instring[i] >= 97 && instring[i] <= 122) {
 			int ch = instring[i]-32;
 			outstring += "[";
 			outstring += instring[i];
@@ -346,12 +345,12 @@ MusicCollectionWindow::_CreateQuery(BString& orgString)
 	query->PushAttr("Media:Title");
 	query->PushString(queryString);
 	query->PushOp(B_CONTAINS);
-		
+
 	query->PushAttr("Audio:Album");
 	query->PushString(queryString);
 	query->PushOp(B_CONTAINS);
 	query->PushOp(B_OR);
-	
+
 	query->PushAttr("Audio:Artist");
 	query->PushString(queryString);
 	query->PushOp(B_CONTAINS);
@@ -367,7 +366,7 @@ MusicCollectionWindow::_CreateQuery(BString& orgString)
 	query->PushAttr("BEOS:TYPE");
 	query->PushString("audio/");
 	query->PushOp(B_BEGINS_WITH);
-	
+
 	query->PushAttr("name");
 	query->PushString(queryString);
 	query->PushOp(B_CONTAINS);
