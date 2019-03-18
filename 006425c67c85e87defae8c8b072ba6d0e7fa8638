@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ef34458e_08734432",
+        "filename": "src/preferences/bluetooth/BluetoothSettings.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2019-03-18T17:41:24Z",
+      "side": 1,
+      "message": "The Save() function returns void. Save() is only called in the settings view\u0027s destructor. What reasonably could be done if a B_ERROR were detected?",
+      "revId": "006425c67c85e87defae8c8b072ba6d0e7fa8638",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
