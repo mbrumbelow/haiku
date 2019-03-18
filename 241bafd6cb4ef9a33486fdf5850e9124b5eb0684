@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ba376aa_35f3da40",
+        "filename": "src/apps/musiccollection/MusicCollectionWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2019-03-18T15:41:57Z",
+      "side": 1,
+      "message": "While you\u0027re at it: that { goes to the line above.",
+      "revId": "241bafd6cb4ef9a33486fdf5850e9124b5eb0684",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7a287ca_60aa7f68",
+        "filename": "src/apps/musiccollection/MusicCollectionWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2019-03-18T15:41:57Z",
+      "side": 1,
+      "message": "That { too goes to the line above.",
+      "revId": "241bafd6cb4ef9a33486fdf5850e9124b5eb0684",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
