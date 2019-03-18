@@ -47,10 +47,12 @@ BluetoothSettings::Save()
 {
 	fFile = new BFile(fPath.Path(), B_WRITE_ONLY | B_CREATE_FILE);
 
-	if (fFile->InitCheck() == B_OK) {
+	if (fFile->InitCheck() != B_OK) {
+		printf("Couldn't write file &s\n", fPath.Path());
+		return B_ERROR;
+	} else {
 		fFile->Write(&Data, sizeof(Data));
 		// TODO: Add more settings here.
 	}
-
 	delete fFile;
 }
