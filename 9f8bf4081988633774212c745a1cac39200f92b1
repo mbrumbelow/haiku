@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7407d7bf_c9045810",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/crc_table.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-03-18T14:11:17Z",
+      "side": 1,
+      "message": "These changes are not correct. Please turn the header into a C style comment and use the style found in other files.",
+      "revId": "9f8bf4081988633774212c745a1cac39200f92b1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8dfdcdcb_51f6306f",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/crc_table.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-03-18T14:11:17Z",
+      "side": 1,
+      "message": "why all these added blank lines?",
+      "revId": "9f8bf4081988633774212c745a1cac39200f92b1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49a5f7b2_2220e47a",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/crc_table.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-03-18T14:11:17Z",
+      "side": 1,
+      "message": "I think you should rather add yourself to the copyright lines above, as your work is not specifically about the reflected version.",
+      "revId": "9f8bf4081988633774212c745a1cac39200f92b1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ebc9ef3_27f5ae76",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/crc_table.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-03-18T14:11:17Z",
+      "side": 1,
+      "message": "This version of the code will leave a trailing tab at the end of the list.\nI think it\u0027s ok however, if generated code does not perfectly follow the style. It\u0027s more important to keep the generator readable, than the generated code.",
+      "revId": "9f8bf4081988633774212c745a1cac39200f92b1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
