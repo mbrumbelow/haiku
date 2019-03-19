@@ -350,6 +350,13 @@ struct btrfs_root {
 } _PACKED;
 
 
+struct btrfs_root_ref {
+	uint64	dirid;
+	uint64	sequence;
+	uint16	name_len;
+} _PACKED;
+
+
 struct btrfs_dir_entry {
 	btrfs_key location;
 	uint64	transaction_id;
