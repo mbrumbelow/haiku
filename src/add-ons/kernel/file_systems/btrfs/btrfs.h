@@ -350,6 +350,25 @@ struct btrfs_root {
 } _PACKED;
 
 
+struct btrfs_root_ref {
+	uint64	dir_id;
+	uint64	sequence;
+	uint16	name_length;
+	uint64 DirId() const
+		{ return B_LENDIAN_TO_HOST_INT64(dirid); }
+	uint64 Sequence() const
+		{ return B_LENDIAN_TO_HOST_INT64(sequence); }
+	uint64 NameLength() const
+		{ return B_LENDIAN_TO_HOST_INT16(name_length); }
+	void SetDirID(uint64 id)
+	{ dir_id = B_HOST_TO_LENDIAN_INT64(id); }
+	void SetSequence(uint64 seq)
+	{ sequence = B_HOST_TO_LENDIAN_INT64(sequence); }
+	void SetNameLength(uint16 length)
+	{ name_length = B_HOST_TO_LENDIAN_INT16(length); }
+} _PACKED;
+
+
 struct btrfs_dir_entry {
 	btrfs_key location;
 	uint64	transaction_id;
