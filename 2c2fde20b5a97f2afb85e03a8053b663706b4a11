@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab99132_8cb2f6cd",
+        "filename": "src/apps/musiccollection/MusicCollectionWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2019-03-19T18:06:47Z",
+      "side": 1,
+      "message": "The comment would have to be indented with tabs, not spaces. But in this case, the comment should fit into the 80char limit of the previous line.",
+      "revId": "2c2fde20b5a97f2afb85e03a8053b663706b4a11",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
