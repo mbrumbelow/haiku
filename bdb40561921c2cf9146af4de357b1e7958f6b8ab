@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "cd1f8c62_a213d444",
+        "filename": "build/jam/repositories/HaikuPorts/riscv64",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-03-19T14:12:23Z",
+      "side": 1,
+      "message": "sparc is empty as well :-)",
+      "parentUuid": "7113b2e7_8223a6b8",
+      "revId": "bdb40561921c2cf9146af4de357b1e7958f6b8ab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "08debb69_8adc42f3",
         "filename": "src/system/kernel/arch/riscv64/arch_elf.cpp",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "bdb40561921c2cf9146af4de357b1e7958f6b8ab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a018abb_f677df5d",
+        "filename": "src/system/kernel/arch/riscv64/arch_elf.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-03-19T14:12:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08debb69_8adc42f3",
+      "revId": "bdb40561921c2cf9146af4de357b1e7958f6b8ab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "379b6ef7_b340bf4c",
+        "filename": "src/system/kernel/arch/riscv64/arch_thread.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-03-19T14:12:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca0acac6_f5343751",
+      "revId": "bdb40561921c2cf9146af4de357b1e7958f6b8ab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "54d52604_f01a4dbd",
         "filename": "src/system/kernel/arch/riscv64/arch_timer.cpp",
         "patchSetId": 1
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "cb872a00_4544151a",
+        "filename": "src/system/kernel/arch/riscv64/arch_timer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-03-19T14:12:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54d52604_f01a4dbd",
+      "revId": "bdb40561921c2cf9146af4de357b1e7958f6b8ab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1a0f5c9_b1af6dde",
         "filename": "src/system/libroot/os/arch/riscv64/Jamfile",
         "patchSetId": 1
@@ -81,6 +153,24 @@
       "writtenOn": "2019-03-19T07:20:49Z",
       "side": 1,
       "message": "This loop is not needed when there is a single architecture",
+      "revId": "bdb40561921c2cf9146af4de357b1e7958f6b8ab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87683c75_86b00f63",
+        "filename": "src/system/libroot/os/arch/riscv64/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-03-19T14:12:23Z",
+      "side": 1,
+      "message": "All of the architectures actually do it. (including sparc).",
+      "parentUuid": "f1a0f5c9_b1af6dde",
       "revId": "bdb40561921c2cf9146af4de357b1e7958f6b8ab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "fe8d0b1c_6c807736",
+        "filename": "src/system/libroot/os/arch/riscv64/byteorder.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-03-19T14:12:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ead29b80_8fdae762",
+      "revId": "bdb40561921c2cf9146af4de357b1e7958f6b8ab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8bf45aa1_01dac693",
         "filename": "src/system/libroot/os/arch/riscv64/tls.c",
         "patchSetId": 1
@@ -118,6 +226,24 @@
       "revId": "bdb40561921c2cf9146af4de357b1e7958f6b8ab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c8ef9de_5f8b3782",
+        "filename": "src/system/libroot/os/arch/riscv64/tls.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-03-19T14:12:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8bf45aa1_01dac693",
+      "revId": "bdb40561921c2cf9146af4de357b1e7958f6b8ab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
