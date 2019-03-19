@@ -96,9 +96,8 @@ TestPageWindow::MessageReceived(BMessage* message)
 PrintersWindow::PrintersWindow(BRect frame)
 	:
 	BWindow(BRect(78, 71, 761, 509), B_TRANSLATE_SYSTEM_NAME("Printers"),
-		B_TITLED_WINDOW, B_AUTO_UPDATE_SIZE_LIMITS),
-	fSelectedPrinter(NULL),
-	fAddingPrinter(false)
+		B_TITLED_WINDOW, B_AUTO_UPDATE_SIZE_LIMITS | B_NOT_RESIZABLE |
+	  B_NOT_MOVABLE), fSelectedPrinter(NULL), fAddingPrinter(false)
 {
 	_BuildGUI();
 }
@@ -424,5 +423,3 @@ PrintersWindow::_UpdateJobButtons()
 		fRestart->SetEnabled(false);
 	}
 }
-
-
