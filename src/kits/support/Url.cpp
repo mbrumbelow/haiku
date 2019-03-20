@@ -36,7 +36,7 @@ const uint32 PARSE_NO_MASK_BIT				= 0x00000000;
 const uint32 PARSE_RAW_PATH_MASK_BIT		= 0x00000001;
 
 
-BUrl::BUrl(const char* url)
+BUrl::BUrl(const char* url, bool encode)
 	:
 	fUrlString(),
 	fProtocol(),
@@ -49,7 +49,7 @@ BUrl::BUrl(const char* url)
 	fHasHost(false),
 	fHasFragment(false)
 {
-	SetUrlString(url);
+	SetUrlString(url,encode);
 }
 
 
@@ -220,8 +220,11 @@ BUrl::~BUrl()
 
 
 BUrl&
-BUrl::SetUrlString(const BString& url)
+BUrl::SetUrlString(const BString& url, bool encode)
 {
+	if (encode) {
+		UrlEncode(url,true,true);
+	}
 	_ExplodeUrlString(url, PARSE_NO_MASK_BIT);
 	return *this;
 }
@@ -608,31 +611,6 @@ bool
 BUrl::HasFragment() const
 {
 	return fHasFragment;
-}
-
-
-// #pragma mark URL encoding/decoding of needed fields
-
-
-void
-BUrl::UrlEncode(bool strict)
-{
-	fUser = _DoUrlEncodeChunk(fUser, strict);
-	fPassword = _DoUrlEncodeChunk(fPassword, strict);
-	fHost = _DoUrlEncodeChunk(fHost, strict);
-	fFragment = _DoUrlEncodeChunk(fFragment, strict);
-	fPath = _DoUrlEncodeChunk(fPath, strict, true);
-}
-
-
-void
-BUrl::UrlDecode(bool strict)
-{
-	fUser = _DoUrlDecodeChunk(fUser, strict);
-	fPassword = _DoUrlDecodeChunk(fPassword, strict);
-	fHost = _DoUrlDecodeChunk(fHost, strict);
-	fFragment = _DoUrlDecodeChunk(fFragment, strict);
-	fPath = _DoUrlDecodeChunk(fPath, strict);
 }
 
 
