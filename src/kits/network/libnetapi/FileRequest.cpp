@@ -23,7 +23,7 @@ BFileRequest::BFileRequest(const BUrl& url, BUrlProtocolListener* listener,
 	BUrlRequest(url, listener, context, "BUrlProtocol.File", "file"),
 	fResult()
 {
-	fUrl.UrlDecode(true);
+	//fUrl.UrlDecode(true);
 }
 
 

@@ -36,7 +36,7 @@ HttpTest::~HttpTest()
 void
 HttpTest::GetTest()
 {
-	BUrl testUrl(fBaseUrl, "/user-agent");
+	BUrl testUrl(fBaseUrl, BString("/user-agent"));
 	BUrlContext* c = new BUrlContext();
 	c->AcquireReference();
 	BHttpRequest t(testUrl);
@@ -67,7 +67,7 @@ HttpTest::GetTest()
 void
 HttpTest::ProxyTest()
 {
-	BUrl testUrl(fBaseUrl, "/user-agent");
+	BUrl testUrl(fBaseUrl, BString("/user-agent"));
 
 	BUrlContext* c = new BUrlContext();
 	c->AcquireReference();
@@ -145,7 +145,7 @@ HttpTest::PortTest()
 void
 HttpTest::UploadTest()
 {
-	BUrl testUrl(fBaseUrl, "/post");
+	BUrl testUrl(fBaseUrl, BString("/post"));
 	BUrlContext c;
 	BHttpRequest t(testUrl);
 
@@ -176,7 +176,7 @@ HttpTest::UploadTest()
 void
 HttpTest::AuthBasicTest()
 {
-	BUrl testUrl(fBaseUrl, "/basic-auth/walter/secret");
+	BUrl testUrl(fBaseUrl, BString("/basic-auth/walter/secret"));
 	_AuthTest(testUrl);
 }
 
@@ -184,7 +184,7 @@ HttpTest::AuthBasicTest()
 void
 HttpTest::AuthDigestTest()
 {
-	BUrl testUrl(fBaseUrl, "/digest-auth/auth/walter/secret");
+	BUrl testUrl(fBaseUrl, BString("/digest-auth/auth/walter/secret"));
 	_AuthTest(testUrl);
 }
 
