@@ -98,20 +98,13 @@ CharacterStyle::SetBold(bool bold)
 		return true;
 	}
 
-	uint16 neededFace = face;
-	if (bold) {
-		if ((face & B_ITALIC_FACE) != 0)
-			neededFace = B_BOLD_FACE | B_ITALIC_FACE;
-		else
-			neededFace = B_BOLD_FACE;
-	} else {
-		if ((face & B_ITALIC_FACE) != 0)
-			neededFace = B_ITALIC_FACE;
-		else
-			neededFace = B_REGULAR_FACE;
-	}
+	uint16 neededFace = face;	
+	if (bold)
+   		neededFace = face | B_BOLD_FACE;
+	else
+   		neededFace = face & ~B_BOLD_FACE;
 
-	return SetFont(_FindFontForFace(neededFace));
+	return SetFont(_FindFontForFace(neededFace));	
 }
 
 
@@ -131,20 +124,13 @@ CharacterStyle::SetItalic(bool italic)
 		return true;
 	}
 
-	uint16 neededFace = face;
-	if (italic) {
-		if ((face & B_BOLD_FACE) != 0)
-			neededFace = B_BOLD_FACE | B_ITALIC_FACE;
-		else
-			neededFace = B_ITALIC_FACE;
-	} else {
-		if ((face & B_BOLD_FACE) != 0)
-			neededFace = B_BOLD_FACE;
-		else
-			neededFace = B_REGULAR_FACE;
-	}
+	uint16 neededFace = face;	
+	if (italic)
+   		neededFace = face | B_ITALIC_FACE;
+	else
+   		neededFace = face & ~B_ITALIC_FACE;
 
-	return SetFont(_FindFontForFace(neededFace));
+	return SetFont(_FindFontForFace(neededFace));	
 }
 
 
@@ -155,6 +141,32 @@ CharacterStyle::IsItalic() const
 }
 
 
+bool
+CharacterStyle::SetUnderscore(bool underscore)	
+{	
+	uint16 face = Font().Face();	
+	if ((underscore && (face & B_UNDERSCORE_FACE) != 0)
+		|| (!underscore && (face & B_UNDERSCORE_FACE) == 0)) {	
+		return true;	
+	}	
+	
+	uint16 neededFace = face;	
+	if (underscore)
+   		neededFace = face | B_UNDERSCORE_FACE;
+	else
+   		neededFace = face & ~B_UNDERSCORE_FACE;
+
+	return SetFont(_FindFontForFace(neededFace));	
+}	
+	
+	
+bool	
+CharacterStyle::IsUnderscore() const	
+{	
+	return (Font().Face() & B_UNDERSCORE_FACE) != 0;
+}
+	
+	
 bool
 CharacterStyle::SetAscent(float ascent)
 {

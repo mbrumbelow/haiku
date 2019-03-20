@@ -188,7 +188,7 @@ uint16
 FontStyle::PreservedFace(uint16 face) const
 {
 	// TODO: make this better
-	face &= ~(B_REGULAR_FACE | B_BOLD_FACE | B_ITALIC_FACE);
+	face &= ~(B_REGULAR_FACE | B_BOLD_FACE | B_ITALIC_FACE | B_UNDERSCORE_FACE);
 	face |= Face();
 
 	return face;
@@ -240,6 +240,10 @@ FontStyle::_TranslateStyleToFace(const char* name) const
 	if (string.IFindFirst("italic") >= 0
 		|| string.IFindFirst("oblique") >= 0)
 		face |= B_ITALIC_FACE;
+
+	if (string.IFindFirst("underscore") >= 0	
+		|| string.IFindFirst("underline") >= 0)	
+		face |= B_UNDERSCORE_FACE;
 
 	if (string.IFindFirst("condensed") >= 0)
 		face |= B_CONDENSED_FACE;
