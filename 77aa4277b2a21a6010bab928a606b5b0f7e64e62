@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "534e584d_7c2e6698",
+        "filename": "src/apps/haikudepot/textview/CharacterStyle.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000122
+      },
+      "writtenOn": "2019-03-20T12:11:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "744eff7d_6df1751f",
+      "revId": "77aa4277b2a21a6010bab928a606b5b0f7e64e62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45e3b3ca_1f68044d",
         "filename": "src/servers/app/font/FontFamily.cpp",
         "patchSetId": 1
