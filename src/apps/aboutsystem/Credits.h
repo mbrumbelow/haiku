@@ -467,6 +467,7 @@ static const Translation kTranslations[] = {
 	"Jean-Loïc Charroud\n" \
 	"Greg Crain\n" \
 	"Michael Davidson\n" \
+	"Pranali Deshmukh\n" \
 	"David Dengg\n" \
 	"John Drinkwater\n" \
 	"Yongcong Du\n" \
