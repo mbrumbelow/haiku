@@ -29,6 +29,9 @@ public:
 			bool				SetItalic(bool italic);
 			bool				IsItalic() const;
 
+			bool				SetUnderscore(bool underscore);
+			bool				IsUnderscore() const;
+
 			bool				SetAscent(float ascent);
 			float				Ascent() const;
 

@@ -2948,7 +2948,7 @@ TTextView::AddSpellMark(int32 start, int32 end)
 
 	// set the spell marks appearance
 	BFont font(fFont);
-	font.SetFace(B_BOLD_FACE | B_ITALIC_FACE);
+	font.SetFace(B_BOLD_FACE | B_ITALIC_FACE | B_UNDERSCORE_FACE);
 	SetFontAndColor(start, end, &font, B_FONT_ALL, &kSpellTextColor);
 
 	// add it to the queue

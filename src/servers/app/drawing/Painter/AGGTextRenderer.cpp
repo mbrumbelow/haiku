@@ -302,6 +302,42 @@ public:
 
 						break;
 					}
+
+					case glyph_data_underline: {
+						fVector = true;
+						if (fSubpixelAntiAliased) {
+							if (fRenderer.fContour.width() == 0.0) {
+								fRenderer.fSubpixRasterizer.add_path(
+									fTransformedGlyph);
+							} else {
+								fRenderer.fSubpixRasterizer.add_path(
+									fTransformedContour);
+							}
+						} else {
+							if (fRenderer.fContour.width() == 0.0) {
+								fRenderer.fRasterizer.add_path(
+									fTransformedGlyph);
+							} else {
+								fRenderer.fRasterizer.add_path(
+									fTransformedContour);
+							}
+						}
+#if SHOW_GLYPH_BOUNDS
+	agg::path_storage p;
+	p.move_to(glyphBounds.left + 0.5, glyphBounds.top + 0.5);
+	p.line_to(glyphBounds.right + 0.5, glyphBounds.top + 0.5);
+	agg::conv_stroke<agg::path_storage> ps(p);
+	ps.width(1.0);
+	if (fSubpixelAntiAliased) {
+		fRenderer.fSubpixRasterizer.add_path(ps);
+	} else {
+		fRenderer.fRasterizer.add_path(ps);
+	}
+#endif
+
+						break;
+					}
+
 					default:
 						break;
 				}

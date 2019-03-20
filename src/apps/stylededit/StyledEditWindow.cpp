@@ -368,6 +368,7 @@ StyledEditWindow::MessageReceived(BMessage* message)
 
 			BFont font;
 			font.SetFamilyAndStyle(fontFamily, fontStyle);
+			fUnderscoreItem->SetMarked((font.Face() & B_UNDERSCORE_FACE) != 0);
 			fItalicItem->SetMarked((font.Face() & B_ITALIC_FACE) != 0);
 			fBoldItem->SetMarked((font.Face() & B_BOLD_FACE) != 0);
 
@@ -392,6 +393,7 @@ StyledEditWindow::MessageReceived(BMessage* message)
 
 			BFont font;
 			font.SetFamilyAndStyle(fontFamily, fontStyle);
+			fUnderscoreItem->SetMarked((font.Face() & B_UNDERSCORE_FACE) != 0);
 			fItalicItem->SetMarked((font.Face() & B_ITALIC_FACE) != 0);
 			fBoldItem->SetMarked((font.Face() & B_BOLD_FACE) != 0);
 
@@ -432,6 +434,23 @@ StyledEditWindow::MessageReceived(BMessage* message)
 					break;
 				}
 			}
+			break;
+		}
+		case kMsgSetUnderscore:
+		{
+			uint32 sameProperties;
+			BFont font;
+			fTextView->GetFontAndColor(&font, &sameProperties);
+
+			if (fUnderscoreItem->IsMarked())
+				font.SetFace(B_REGULAR_FACE);
+			fUnderscoreItem->SetMarked(!fUnderscoreItem->IsMarked());
+
+			font_family family;
+			font_style style;
+			font.GetFamilyAndStyle(&family, &style);
+
+			_SetFontStyle(family, style);
 			break;
 		}
 		case kMsgSetItalic:
@@ -740,6 +759,7 @@ StyledEditWindow::MenusBeginning()
 
 	fBoldItem->SetMarked((font.Face() & B_BOLD_FACE) != 0);
 	fItalicItem->SetMarked((font.Face() & B_ITALIC_FACE) != 0);
+	fUnderscoreItem->SetMarked((font.Face() & B_UNDERSCORE_FACE) != 0);
 
 	switch (fTextView->Alignment()) {
 		case B_ALIGN_LEFT:
@@ -1279,13 +1299,16 @@ StyledEditWindow::_InitWindow(uint32 encoding)
 	fontSizeUpItem->SetShortcut('+', 0);
 	fontSizeDownItem->SetShortcut('-', 0);
 
-	// "Bold" & "Italic" menu items
+	// "Bold" & "Italic" & "Underscore" menu items
 	fFontMenu->AddItem(fBoldItem = new BMenuItem(B_TRANSLATE("Bold"),
 		new BMessage(kMsgSetBold)));
 	fFontMenu->AddItem(fItalicItem = new BMenuItem(B_TRANSLATE("Italic"),
 		new BMessage(kMsgSetItalic)));
+	fFontMenu->AddItem(fUnderscoreItem = new BMenuItem(B_TRANSLATE("Underscore"),
+		new BMessage(kMsgSetUnderscore)));	
 	fBoldItem->SetShortcut('B', 0);
 	fItalicItem->SetShortcut('I', 0);
+	fUnderscoreItem->SetShortcut('U', 0);
 	fFontMenu->AddSeparatorItem();
 
 	// Available fonts
@@ -1898,6 +1921,9 @@ StyledEditWindow::_SetFontStyle(const char* fontFamily, const char* fontStyle)
 
 	if (fItalicItem->IsMarked())
 		face |= B_ITALIC_FACE;
+
+	if(fUnderscoreItem->IsMarked())	
+		face |= B_UNDERSCORE_FACE;
 
 	font.SetFace(face);
 

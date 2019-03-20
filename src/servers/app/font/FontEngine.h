@@ -56,11 +56,12 @@ enum glyph_rendering {
 
 
 enum glyph_data_type {
-	glyph_data_invalid	= 0,
-	glyph_data_mono		= 1,
-	glyph_data_gray8	= 2,
-	glyph_data_outline	= 3,
-	glyph_data_subpix   = 4
+	glyph_data_invalid		= 0,
+	glyph_data_mono			= 1,
+	glyph_data_gray8		= 2,
+	glyph_data_outline		= 3,
+	glyph_data_subpix   	= 4,
+	glyph_data_underline	= 5
 };
 
 
