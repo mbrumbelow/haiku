@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "377ad3c2_9fe451df",
+        "filename": "src/system/kernel/lib/arch/riscv64/Jamfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-03-22T11:54:37Z",
+      "side": 1,
+      "message": "This should be enabled, you have the file!",
+      "revId": "4f60a6a789152c6feb5328fc8828da77c0ba7853",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16c13706_04655656",
+        "filename": "src/system/libroot/os/arch/riscv64/byteorder.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-03-22T11:54:37Z",
+      "side": 1,
+      "message": "You are now calling the function which was removed above.\n\nI don\u0027t know how it is for RISC-V, but for SPARC the float and int registers are separate, so a different implementation was needed. If that\u0027s not the case, you can probably alias __swap_float to __builtin_bswap32 in some .c or .h file",
+      "revId": "4f60a6a789152c6feb5328fc8828da77c0ba7853",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
