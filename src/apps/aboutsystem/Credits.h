@@ -553,6 +553,7 @@ static const Translation kTranslations[] = {
 	"Geoffry Song\n" \
 	"Daniel Switkin\n" \
 	"Atsushi Takamatsu\n" \
+	"Mbeng Tanyi\n" \
 	"James Urquhart\n" \
 	"Jason Vandermark\n" \
 	"Sandor Vroemisse\n" \
