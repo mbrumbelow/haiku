@@ -21,7 +21,7 @@
 #include <NetworkCookie.h>
 
 
-using BPrivate::BHttpTime;
+using BPrivate::BHTTPTime;
 
 
 static const char* kArchivedCookieName = "be:cookie.name";
@@ -78,7 +78,7 @@ BNetworkCookie::BNetworkCookie(BMessage* archive)
 	int32 expiration;
 	if (archive->FindString(kArchivedCookieExpirationDate, &expirationString)
 			== B_OK) {
-		BDateTime time = BHttpTime(expirationString).Parse();
+		BDateTime time = BHTTPTime(expirationString).Parse();
 		SetExpirationDate(time);
 	} else if (archive->FindInt32(kArchivedCookieExpirationDate, &expiration)
 			== B_OK) {
@@ -169,7 +169,7 @@ BNetworkCookie::ParseCookieString(const BString& string, const BURL& url)
 				// Will be a session cookie.
 				continue;
 			}
-			BDateTime parsed = BHttpTime(value).Parse();
+			BDateTime parsed = BHTTPTime(value).Parse();
 			SetExpirationDate(parsed);
 		} else if (name.ICompare("domain") == 0) {
 			if (value.IsEmpty()) {
@@ -377,7 +377,7 @@ BNetworkCookie::ExpirationDate() const
 const BString&
 BNetworkCookie::ExpirationString() const
 {
-	BHttpTime date(fExpiration);
+	BHTTPTime date(fExpiration);
 
 	if (!fExpirationStringValid) {
 		fExpirationString = date.ToString(BPrivate::B_HTTP_TIME_FORMAT_COOKIE);
@@ -661,7 +661,7 @@ BNetworkCookie::Archive(BMessage* into, bool deep) const
 
 	if (HasExpirationDate()) {
 		error = into->AddString(kArchivedCookieExpirationDate,
-			BHttpTime(fExpiration).ToString());
+			BHTTPTime(fExpiration).ToString());
 		if (error != B_OK)
 			return error;
 	}

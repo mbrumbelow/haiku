@@ -103,7 +103,7 @@ FetchFileJob::Execute()
 
 	//TODO: More detailed error codes?
 #if 0
-	const BHttpResult& outResult = dynamic_cast<const BHttpResult&>
+	const BHTTPResult& outResult = dynamic_cast<const BHTTPResult&>
 		(request->Result());
 
 	switch (outResult.StatusCode()) {

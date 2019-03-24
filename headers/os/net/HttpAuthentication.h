@@ -11,7 +11,7 @@
 #include <Url.h>
 
 // HTTP authentication method
-enum BHttpAuthenticationMethod {
+enum BHTTPAuthenticationMethod {
 	B_HTTP_AUTHENTICATION_NONE = 0,
 		// No authentication
 	B_HTTP_AUTHENTICATION_BASIC = 1,
@@ -23,41 +23,41 @@ enum BHttpAuthenticationMethod {
 };
 
 
-enum BHttpAuthenticationAlgorithm {
+enum BHTTPAuthenticationAlgorithm {
 	B_HTTP_AUTHENTICATION_ALGORITHM_NONE,
 	B_HTTP_AUTHENTICATION_ALGORITHM_MD5,
 	B_HTTP_AUTHENTICATION_ALGORITHM_MD5_SESS
 };
 
 
-enum BHttpAuthenticationQop {
+enum BHTTPAuthenticationQop {
 	B_HTTP_QOP_NONE,
 	B_HTTP_QOP_AUTH,
 	B_HTTP_QOP_AUTHINT
 };
 
 
-class BHttpAuthentication {
+class BHTTPAuthentication {
 public:
-								BHttpAuthentication();
-								BHttpAuthentication(const BString& username,
+								BHTTPAuthentication();
+								BHTTPAuthentication(const BString& username,
 									const BString& password);
-								BHttpAuthentication(
-									const BHttpAuthentication& other);
-								BHttpAuthentication& operator=(
-									const BHttpAuthentication& other);
+								BHTTPAuthentication(
+									const BHTTPAuthentication& other);
+								BHTTPAuthentication& operator=(
+									const BHTTPAuthentication& other);
 
 	// Field modification
 			void				SetUserName(const BString& username);
 			void				SetPassword(const BString& password);
 			void				SetMethod(
-									BHttpAuthenticationMethod type);
+									BHTTPAuthenticationMethod type);
 			status_t			Initialize(const BString& wwwAuthenticate);
 
 	// Field access
 			const BString&		UserName() const;
 			const BString&		Password() const;
-			BHttpAuthenticationMethod Method() const;
+			BHTTPAuthenticationMethod Method() const;
 
 			BString				Authorization(const BURL& url,
 									const BString& method) const;
@@ -80,7 +80,7 @@ private:
 									const BString& data) const;
 
 private:
-			BHttpAuthenticationMethod fAuthenticationMethod;
+			BHTTPAuthenticationMethod fAuthenticationMethod;
 			BString				fUserName;
 			BString				fPassword;
 
@@ -90,8 +90,8 @@ private:
 	mutable int					fDigestNc;
 			BString				fDigestOpaque;
 			bool				fDigestStale;
-			BHttpAuthenticationAlgorithm fDigestAlgorithm;
-			BHttpAuthenticationQop fDigestQop;
+			BHTTPAuthenticationAlgorithm fDigestAlgorithm;
+			BHTTPAuthenticationQop fDigestQop;
 
 			BString				fAuthorizationString;
 

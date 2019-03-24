@@ -15,7 +15,7 @@
 using std::ostream;
 
 
-BHttpResult::BHttpResult(const BURL& url)
+BHTTPResult::BHTTPResult(const BURL& url)
 	:
 	fUrl(url),
 	fHeaders(),
@@ -24,7 +24,7 @@ BHttpResult::BHttpResult(const BURL& url)
 }
 
 
-BHttpResult::BHttpResult(BMessage* archive)
+BHTTPResult::BHTTPResult(BMessage* archive)
 	:
 	BURLResult(archive),
 	fUrl(archive->FindString("http:url")),
@@ -39,7 +39,7 @@ BHttpResult::BHttpResult(BMessage* archive)
 }
 
 
-BHttpResult::BHttpResult(const BHttpResult& other)
+BHTTPResult::BHTTPResult(const BHTTPResult& other)
 	:
 	fUrl(other.fUrl),
 	fHeaders(other.fHeaders),
@@ -49,7 +49,7 @@ BHttpResult::BHttpResult(const BHttpResult& other)
 }
 
 
-BHttpResult::~BHttpResult()
+BHTTPResult::~BHTTPResult()
 {
 }
 
@@ -58,7 +58,7 @@ BHttpResult::~BHttpResult()
 
 
 void
-BHttpResult::SetUrl(const BURL& url)
+BHTTPResult::SetUrl(const BURL& url)
 {
 	fUrl = url;
 }
@@ -68,21 +68,21 @@ BHttpResult::SetUrl(const BURL& url)
 
 
 const BURL&
-BHttpResult::Url() const
+BHTTPResult::Url() const
 {
 	return fUrl;
 }
 
 
 BString
-BHttpResult::ContentType() const
+BHTTPResult::ContentType() const
 {
 	return Headers()["Content-Type"];
 }
 
 
 size_t
-BHttpResult::Length() const
+BHTTPResult::Length() const
 {
 	const char* length = Headers()["Content-Length"];
 	if (length == NULL)
@@ -91,22 +91,22 @@ BHttpResult::Length() const
 }
 
 
-const BHttpHeaders&
-BHttpResult::Headers() const
+const BHTTPHeaders&
+BHTTPResult::Headers() const
 {
 	return fHeaders;
 }
 
 
 int32
-BHttpResult::StatusCode() const
+BHTTPResult::StatusCode() const
 {
 	return fStatusCode;
 }
 
 
 const BString&
-BHttpResult::StatusText() const
+BHTTPResult::StatusText() const
 {
 	return fStatusString;
 }
@@ -116,7 +116,7 @@ BHttpResult::StatusText() const
 
 
 bool
-BHttpResult::HasHeaders() const
+BHTTPResult::HasHeaders() const
 {
 	return fHeaders.CountHeaders() > 0;
 }
@@ -125,8 +125,8 @@ BHttpResult::HasHeaders() const
 // #pragma mark Overloaded members
 
 
-BHttpResult&
-BHttpResult::operator=(const BHttpResult& other)
+BHTTPResult&
+BHTTPResult::operator=(const BHTTPResult& other)
 {
 	if (this == &other)
 		return *this;
@@ -141,7 +141,7 @@ BHttpResult::operator=(const BHttpResult& other)
 
 
 status_t
-BHttpResult::Archive(BMessage* target, bool deep) const
+BHTTPResult::Archive(BMessage* target, bool deep) const
 {
 	status_t result = BURLResult::Archive(target, deep);
 	if (result != B_OK)
@@ -160,10 +160,10 @@ BHttpResult::Archive(BMessage* target, bool deep) const
 
 
 /*static*/ BArchivable*
-BHttpResult::Instantiate(BMessage* archive)
+BHTTPResult::Instantiate(BMessage* archive)
 {
-	if (!validate_instantiation(archive, "BHttpResult"))
+	if (!validate_instantiation(archive, "BHTTPResult"))
 		return NULL;
 
-	return new BHttpResult(archive);
+	return new BHTTPResult(archive);
 }

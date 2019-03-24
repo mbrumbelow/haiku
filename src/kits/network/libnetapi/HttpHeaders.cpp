@@ -15,10 +15,10 @@
 #include <HttpHeaders.h>
 
 
-// #pragma mark -- BHttpHeader
+// #pragma mark -- BHTTPHeader
 
 
-BHttpHeader::BHttpHeader()
+BHTTPHeader::BHTTPHeader()
 	:
 	fName(),
 	fValue(),
@@ -28,7 +28,7 @@ BHttpHeader::BHttpHeader()
 }
 
 
-BHttpHeader::BHttpHeader(const char* string)
+BHTTPHeader::BHTTPHeader(const char* string)
 	:
 	fRawHeaderValid(true)
 {
@@ -36,7 +36,7 @@ BHttpHeader::BHttpHeader(const char* string)
 }
 
 
-BHttpHeader::BHttpHeader(const char* name, const char* value)
+BHTTPHeader::BHTTPHeader(const char* name, const char* value)
 	:
 	fRawHeaderValid(false)
 {
@@ -45,7 +45,7 @@ BHttpHeader::BHttpHeader(const char* name, const char* value)
 }
 
 
-BHttpHeader::BHttpHeader(const BHttpHeader& copy)
+BHTTPHeader::BHTTPHeader(const BHTTPHeader& copy)
 	:
 	fName(copy.fName),
 	fValue(copy.fValue),
@@ -55,7 +55,7 @@ BHttpHeader::BHttpHeader(const BHttpHeader& copy)
 
 
 void
-BHttpHeader::SetName(const char* name)
+BHTTPHeader::SetName(const char* name)
 {
 	fRawHeaderValid = false;
 	fName = name;
@@ -64,7 +64,7 @@ BHttpHeader::SetName(const char* name)
 
 
 void
-BHttpHeader::SetValue(const char* value)
+BHTTPHeader::SetValue(const char* value)
 {
 	fRawHeaderValid = false;
 	fValue = value;
@@ -73,7 +73,7 @@ BHttpHeader::SetValue(const char* value)
 
 
 bool
-BHttpHeader::SetHeader(const char* string)
+BHTTPHeader::SetHeader(const char* string)
 {
 	fRawHeaderValid = false;
 	fName.Truncate(0);
@@ -92,21 +92,21 @@ BHttpHeader::SetHeader(const char* string)
 
 
 const char*
-BHttpHeader::Name() const
+BHTTPHeader::Name() const
 {
 	return fName.String();
 }
 
 
 const char*
-BHttpHeader::Value() const
+BHTTPHeader::Value() const
 {
 	return fValue.String();
 }
 
 
 const char*
-BHttpHeader::Header() const
+BHTTPHeader::Header() const
 {
 	if (!fRawHeaderValid) {
 		fRawHeaderValid = true;
@@ -120,14 +120,14 @@ BHttpHeader::Header() const
 
 
 bool
-BHttpHeader::NameIs(const char* name) const
+BHTTPHeader::NameIs(const char* name) const
 {
 	return fName == BString(name).Trim().CapitalizeEachWord();
 }
 
 
-BHttpHeader&
-BHttpHeader::operator=(const BHttpHeader& other)
+BHTTPHeader&
+BHTTPHeader::operator=(const BHTTPHeader& other)
 {
 	fName = other.fName;
 	fValue = other.fValue;
@@ -137,17 +137,17 @@ BHttpHeader::operator=(const BHttpHeader& other)
 }
 
 
-// #pragma mark -- BHttpHeaders
+// #pragma mark -- BHTTPHeaders
 
 
-BHttpHeaders::BHttpHeaders()
+BHTTPHeaders::BHTTPHeaders()
 	:
 	fHeaderList()
 {
 }
 
 
-BHttpHeaders::BHttpHeaders(const BHttpHeaders& other)
+BHTTPHeaders::BHTTPHeaders(const BHTTPHeaders& other)
 	:
 	fHeaderList()
 {
@@ -155,7 +155,7 @@ BHttpHeaders::BHttpHeaders(const BHttpHeaders& other)
 }
 
 
-BHttpHeaders::~BHttpHeaders()
+BHTTPHeaders::~BHTTPHeaders()
 {
 	_EraseData();
 }
@@ -165,11 +165,11 @@ BHttpHeaders::~BHttpHeaders()
 
 
 const char*
-BHttpHeaders::HeaderValue(const char* name) const
+BHTTPHeaders::HeaderValue(const char* name) const
 {
 	for (int32 i = 0; i < fHeaderList.CountItems(); i++) {
-		BHttpHeader* header
-			= reinterpret_cast<BHttpHeader*>(fHeaderList.ItemAtFast(i));
+		BHTTPHeader* header
+			= reinterpret_cast<BHTTPHeader*>(fHeaderList.ItemAtFast(i));
 
 		if (header->NameIs(name))
 			return header->Value();
@@ -179,12 +179,12 @@ BHttpHeaders::HeaderValue(const char* name) const
 }
 
 
-BHttpHeader&
-BHttpHeaders::HeaderAt(int32 index) const
+BHTTPHeader&
+BHTTPHeaders::HeaderAt(int32 index) const
 {
 	//! Note: index _must_ be in-bounds
-	BHttpHeader* header
-		= reinterpret_cast<BHttpHeader*>(fHeaderList.ItemAtFast(index));
+	BHTTPHeader* header
+		= reinterpret_cast<BHTTPHeader*>(fHeaderList.ItemAtFast(index));
 
 	return *header;
 }
@@ -194,7 +194,7 @@ BHttpHeaders::HeaderAt(int32 index) const
 
 
 int32
-BHttpHeaders::CountHeaders() const
+BHTTPHeaders::CountHeaders() const
 {
 	return fHeaderList.CountItems();
 }
@@ -204,11 +204,11 @@ BHttpHeaders::CountHeaders() const
 
 
 int32
-BHttpHeaders::HasHeader(const char* name) const
+BHTTPHeaders::HasHeader(const char* name) const
 {
 	for (int32 i = 0; i < fHeaderList.CountItems(); i++) {
-		BHttpHeader* header
-			= reinterpret_cast<BHttpHeader*>(fHeaderList.ItemAt(i));
+		BHTTPHeader* header
+			= reinterpret_cast<BHTTPHeader*>(fHeaderList.ItemAt(i));
 
 		if (header->NameIs(name))
 			return i;
@@ -222,21 +222,21 @@ BHttpHeaders::HasHeader(const char* name) const
 
 
 bool
-BHttpHeaders::AddHeader(const char* line)
+BHTTPHeaders::AddHeader(const char* line)
 {
-	return _AddOrDeleteHeader(new(std::nothrow) BHttpHeader(line));
+	return _AddOrDeleteHeader(new(std::nothrow) BHTTPHeader(line));
 }
 
 
 bool
-BHttpHeaders::AddHeader(const char* name, const char* value)
+BHTTPHeaders::AddHeader(const char* name, const char* value)
 {
-	return _AddOrDeleteHeader(new(std::nothrow) BHttpHeader(name, value));
+	return _AddOrDeleteHeader(new(std::nothrow) BHTTPHeader(name, value));
 }
 
 
 bool
-BHttpHeaders::AddHeader(const char* name, int32 value)
+BHTTPHeaders::AddHeader(const char* name, int32 value)
 {
 	BString strValue;
 	strValue << value;
@@ -249,7 +249,7 @@ BHttpHeaders::AddHeader(const char* name, int32 value)
 
 
 void
-BHttpHeaders::PopulateFromArchive(BMessage* archive)
+BHTTPHeaders::PopulateFromArchive(BMessage* archive)
 {
 	Clear();
 
@@ -268,12 +268,12 @@ BHttpHeaders::PopulateFromArchive(BMessage* archive)
 
 
 void
-BHttpHeaders::Archive(BMessage* message) const
+BHTTPHeaders::Archive(BMessage* message) const
 {
 	int32 count = CountHeaders();
 
 	for (int32 i = 0; i < count; i++) {
-		BHttpHeader& header = HeaderAt(i);
+		BHTTPHeader& header = HeaderAt(i);
 		message->AddString(header.Name(), header.Value());
 	}
 }
@@ -283,7 +283,7 @@ BHttpHeaders::Archive(BMessage* message) const
 
 
 void
-BHttpHeaders::Clear()
+BHTTPHeaders::Clear()
 {
 	_EraseData();
 	fHeaderList.MakeEmpty();
@@ -293,8 +293,8 @@ BHttpHeaders::Clear()
 // #pragma mark Overloaded operators
 
 
-BHttpHeaders&
-BHttpHeaders::operator=(const BHttpHeaders& other)
+BHTTPHeaders&
+BHTTPHeaders::operator=(const BHTTPHeaders& other)
 {
 	if (&other == this)
 		return *this;
@@ -308,31 +308,31 @@ BHttpHeaders::operator=(const BHttpHeaders& other)
 }
 
 
-BHttpHeader&
-BHttpHeaders::operator[](int32 index) const
+BHTTPHeader&
+BHTTPHeaders::operator[](int32 index) const
 {
 	//! Note: Index _must_ be in-bounds
-	BHttpHeader* header
-		= reinterpret_cast<BHttpHeader*>(fHeaderList.ItemAtFast(index));
+	BHTTPHeader* header
+		= reinterpret_cast<BHTTPHeader*>(fHeaderList.ItemAtFast(index));
 
 	return *header;
 }
 
 
 const char*
-BHttpHeaders::operator[](const char* name) const
+BHTTPHeaders::operator[](const char* name) const
 {
 	return HeaderValue(name);
 }
 
 
 void
-BHttpHeaders::_EraseData()
+BHTTPHeaders::_EraseData()
 {
 	// Free allocated data;
 	for (int32 i = 0; i < fHeaderList.CountItems(); i++) {
-		BHttpHeader* header
-			= reinterpret_cast<BHttpHeader*>(fHeaderList.ItemAtFast(i));
+		BHTTPHeader* header
+			= reinterpret_cast<BHTTPHeader*>(fHeaderList.ItemAtFast(i));
 
 		delete header;
 	}
@@ -340,7 +340,7 @@ BHttpHeaders::_EraseData()
 
 
 bool
-BHttpHeaders::_AddOrDeleteHeader(BHttpHeader* header)
+BHTTPHeaders::_AddOrDeleteHeader(BHTTPHeader* header)
 {
 	if (header != NULL) {
 		if (fHeaderList.AddItem(header))

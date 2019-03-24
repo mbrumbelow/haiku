@@ -55,10 +55,10 @@ ToFileUrlProtocolListener::HeadersReceived(BURLRequest* caller,
 	// check that the status code is success.  Only if it is successful
 	// should the payload be streamed to the file.
 
-	const BHttpResult& httpResult = dynamic_cast<const BHttpResult&>(result);
+	const BHTTPResult& httpResult = dynamic_cast<const BHTTPResult&>(result);
 	int32 statusCode = httpResult.StatusCode();
 
-	if (!BHttpRequest::IsSuccessStatusCode(statusCode)) {
+	if (!BHTTPRequest::IsSuccessStatusCode(statusCode)) {
 		fprintf(stdout, "received http status %" B_PRId32
 			" --> will not store download to file\n", statusCode);
 		fShouldDownload = false;

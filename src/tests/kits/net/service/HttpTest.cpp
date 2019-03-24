@@ -39,7 +39,7 @@ HttpTest::GetTest()
 	BURL testUrl(fBaseUrl, "/user-agent");
 	BURLContext* c = new BURLContext();
 	c->AcquireReference();
-	BHttpRequest t(testUrl);
+	BHTTPRequest t(testUrl);
 
 	t.SetContext(c);
 
@@ -50,7 +50,7 @@ HttpTest::GetTest()
 
 	CPPUNIT_ASSERT_EQUAL(B_OK, t.Status());
 
-	const BHttpResult& r = dynamic_cast<const BHttpResult&>(t.Result());
+	const BHTTPResult& r = dynamic_cast<const BHTTPResult&>(t.Result());
 	CPPUNIT_ASSERT_EQUAL(200, r.StatusCode());
 	CPPUNIT_ASSERT_EQUAL(BString("OK"), r.StatusText());
 	CPPUNIT_ASSERT_EQUAL(kHeaderCountInTrivialRequest,
@@ -73,7 +73,7 @@ HttpTest::ProxyTest()
 	c->AcquireReference();
 	c->SetProxy("120.203.214.182", 83);
 
-	BHttpRequest t(testUrl);
+	BHTTPRequest t(testUrl);
 	t.SetContext(c);
 
 	BURLProtocolListener l;
@@ -86,7 +86,7 @@ HttpTest::ProxyTest()
 
 	CPPUNIT_ASSERT_EQUAL(B_OK, t.Status());
 
-	const BHttpResult& r = dynamic_cast<const BHttpResult&>(t.Result());
+	const BHTTPResult& r = dynamic_cast<const BHTTPResult&>(t.Result());
 
 printf("%s\n", r.StatusText().String());
 
@@ -120,7 +120,7 @@ void
 HttpTest::PortTest()
 {
 	BURL testUrl("http://portquiz.net:4242");
-	BHttpRequest t(testUrl);
+	BHTTPRequest t(testUrl);
 
 	// portquiz returns more easily parseable results when UA is Wget...
 	t.SetUserAgent("Wget/1.15 (haiku testsuite)");
@@ -135,7 +135,7 @@ HttpTest::PortTest()
 
 	CPPUNIT_ASSERT_EQUAL(B_OK, t.Status());
 
-	const BHttpResult& r = dynamic_cast<const BHttpResult&>(t.Result());
+	const BHTTPResult& r = dynamic_cast<const BHTTPResult&>(t.Result());
 	CPPUNIT_ASSERT_EQUAL(200, r.StatusCode());
 
 	CPPUNIT_ASSERT(listener.fResult.StartsWith("Port 4242 test successful!"));
@@ -147,11 +147,11 @@ HttpTest::UploadTest()
 {
 	BURL testUrl(fBaseUrl, "/post");
 	BURLContext c;
-	BHttpRequest t(testUrl);
+	BHTTPRequest t(testUrl);
 
 	t.SetContext(&c);
 
-	BHttpForm f;
+	BHTTPForm f;
 	f.AddString("hello", "world");
 	CPPUNIT_ASSERT(f.AddFile("_uploadfile", BPath("/system/data/licenses/MIT"))
 		== B_OK);
@@ -165,7 +165,7 @@ HttpTest::UploadTest()
 
 	CPPUNIT_ASSERT_EQUAL(B_OK, t.Status());
 
-	const BHttpResult& r = dynamic_cast<const BHttpResult&>(t.Result());
+	const BHTTPResult& r = dynamic_cast<const BHTTPResult&>(t.Result());
 	CPPUNIT_ASSERT_EQUAL(200, r.StatusCode());
 	CPPUNIT_ASSERT_EQUAL(BString("OK"), r.StatusText());
 	CPPUNIT_ASSERT_EQUAL(466, r.Length());
@@ -193,7 +193,7 @@ void
 HttpTest::_AuthTest(BURL& testUrl)
 {
 	BURLContext c;
-	BHttpRequest t(testUrl);
+	BHTTPRequest t(testUrl);
 
 	t.SetContext(&c);
 
@@ -207,7 +207,7 @@ HttpTest::_AuthTest(BURL& testUrl)
 
 	CPPUNIT_ASSERT_EQUAL(B_OK, t.Status());
 
-	const BHttpResult& r = dynamic_cast<const BHttpResult&>(t.Result());
+	const BHTTPResult& r = dynamic_cast<const BHTTPResult&>(t.Result());
 	CPPUNIT_ASSERT_EQUAL(200, r.StatusCode());
 	CPPUNIT_ASSERT_EQUAL(BString("OK"), r.StatusText());
 	CPPUNIT_ASSERT_EQUAL(kHeaderCountInTrivialRequest,

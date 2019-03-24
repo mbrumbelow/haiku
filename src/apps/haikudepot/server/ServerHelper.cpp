@@ -142,7 +142,7 @@ ServerHelper::AlertTransportError(BMessage* message)
 
 
 /*static*/ void
-ServerHelper::NotifyClientTooOld(const BHttpHeaders& responseHeaders)
+ServerHelper::NotifyClientTooOld(const BHTTPHeaders& responseHeaders)
 {
 	if (!ServerSettings::IsClientTooOld()) {
 		ServerSettings::SetClientTooOld();

@@ -20,7 +20,7 @@
 
 
 /*!
-	\class BHttpRequest
+	\class BHTTPRequest
 	\ingroup network
 	\brief Handles a request over HTTP or HTTPS.
 
@@ -36,7 +36,7 @@
 
 
 /*!
-	\fn void BHttpRequest::SetMethod(const char* method)
+	\fn void BHTTPRequest::SetMethod(const char* method)
 	\brief Set the HTTP method.
 
 	You can use either one of the standard methods (B_HTTP_GET is the default)
@@ -47,7 +47,7 @@
 
 
 /*!
-	\fn void BHttpRequest::SetFollowLocation(bool follow)
+	\fn void BHTTPRequest::SetFollowLocation(bool follow)
 	\brief Enable or disable following HTTP redirects.
 
 	An HTTP server can redirect a request to another address, either on the
@@ -59,7 +59,7 @@
 
 
 /*!
-	\fn void BHttpRequest::SetMaxRedirections(int8 maxRedirections)
+	\fn void BHTTPRequest::SetMaxRedirections(int8 maxRedirections)
 	\brief Set the maximal number of redirections to follow before giving up.
 
 	This is only useful when SetFollowLocation is enabled. It will abort
@@ -71,7 +71,7 @@
 
 
 /*!
-	\fn void BHttpRequest::SetReferrer(const BString& referrer)
+	\fn void BHTTPRequest::SetReferrer(const BString& referrer)
 	\brief Set the referrer.
 
 	The referrer is a string sent to the server in the "Referrer:" HTTP header
@@ -82,7 +82,7 @@
 
 
 /*!
-	\fn void BHttpRequest::SetUserAgent(const BString& userAgent)
+	\fn void BHTTPRequest::SetUserAgent(const BString& userAgent)
 	\brief Set the user agent.
 
 	The user agent is an identifier for the client sending an HTTP request.
@@ -94,7 +94,7 @@
 
 
 /*!
-	\fn void BHttpRequest::SetHeaders(const BHttpHeaders& headers)
+	\fn void BHTTPRequest::SetHeaders(const BHTTPHeaders& headers)
 	\brief Set the HTTP headers.
 
 	This method replaces the whole set of headers for this request with a copy
@@ -105,7 +105,7 @@
 
 
 /*!
-	\fn void BHttpRequest::AdoptHeaders(BHttpHeaders* const headers)
+	\fn void BHTTPRequest::AdoptHeaders(BHTTPHeaders* const headers)
 	\brief Set the HTTP headers.
 
 	This method replaces the whole set of headers for this request. It takes
@@ -114,20 +114,20 @@
 
 
 /*
-	\fn void BHttpRequest::SetDiscardDate(bool discard)
+	\fn void BHTTPRequest::SetDiscardDate(bool discard)
 
 	This is currently unused.
 */
 
 
 /*
-	\fn void BHttpRequest::DisableListener(bool disable)
+	\fn void BHTTPRequest::DisableListener(bool disable)
 	This is currently unused.
 */
 
 
 /*!
-	\fn void BHttpRequest::SetAutoReferrer(bool enable)
+	\fn void BHTTPRequest::SetAutoReferrer(bool enable)
 	\brief Automatically set the referrer when the request is done.
 
 	This allows HttpRequest to manage the referrer automatically. Each request
@@ -137,7 +137,7 @@
 
 
 /*!
-	\fn void BHttpRequest::SetPostFields(const BHttpForm& fields)
+	\fn void BHTTPRequest::SetPostFields(const BHTTPForm& fields)
 	\brief Set the fields for form POST data.
 
 	Replaces the content of the request with a copy of the given POST fields.
@@ -145,7 +145,7 @@
 
 
 /*!
-	\fn void BHttpRequest::AdoptPostFields(BHttpForm* const fields)
+	\fn void BHTTPRequest::AdoptPostFields(BHTTPForm* const fields)
 	\brief Set the fields for form POST data.
 
 	Replaces the content of the request with the given POST fields.
@@ -156,7 +156,7 @@
 
 
 /*!
-	\fn void BHttpRequest::AdoptInputData(BDataIO* const data, const ssize_t size = -1)
+	\fn void BHTTPRequest::AdoptInputData(BDataIO* const data, const ssize_t size = -1)
 	\brief Set the request body.
 
 	If the size is -1 (the default), the data will be sent using chunked
@@ -171,12 +171,12 @@
 
 
 /*!
-	\fn void BHttpRequest::SetUserName(const BString& userName)
+	\fn void BHTTPRequest::SetUserName(const BString& userName)
 	\brief Set the user name for HTTP authentication.
 */
 
 
 /*!
-	\fn void BHttpRequest::SetPassword(const BString& password)
+	\fn void BHTTPRequest::SetPassword(const BString& password)
 	\brief Set the user password for HTTP authentication.
 */

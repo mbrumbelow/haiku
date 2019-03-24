@@ -24,10 +24,10 @@ static int32 kBoundaryRandomSize = 16;
 using namespace std;
 
 
-// #pragma mark - BHttpFormData
+// #pragma mark - BHTTPFormData
 
 
-BHttpFormData::BHttpFormData()
+BHTTPFormData::BHTTPFormData()
 	:
 	fDataType(B_HTTPFORM_STRING),
 	fCopiedBuffer(false),
@@ -38,7 +38,7 @@ BHttpFormData::BHttpFormData()
 }
 
 
-BHttpFormData::BHttpFormData(const BString& name, const BString& value)
+BHTTPFormData::BHTTPFormData(const BString& name, const BString& value)
 	:
 	fDataType(B_HTTPFORM_STRING),
 	fCopiedBuffer(false),
@@ -51,7 +51,7 @@ BHttpFormData::BHttpFormData(const BString& name, const BString& value)
 }
 
 
-BHttpFormData::BHttpFormData(const BString& name, const BPath& file)
+BHTTPFormData::BHTTPFormData(const BString& name, const BPath& file)
 	:
 	fDataType(B_HTTPFORM_FILE),
 	fCopiedBuffer(false),
@@ -64,7 +64,7 @@ BHttpFormData::BHttpFormData(const BString& name, const BPath& file)
 }
 
 
-BHttpFormData::BHttpFormData(const BString& name, const void* buffer,
+BHTTPFormData::BHTTPFormData(const BString& name, const void* buffer,
 	ssize_t size)
 	:
 	fDataType(B_HTTPFORM_BUFFER),
@@ -77,7 +77,7 @@ BHttpFormData::BHttpFormData(const BString& name, const void* buffer,
 }
 
 
-BHttpFormData::BHttpFormData(const BHttpFormData& other)
+BHTTPFormData::BHTTPFormData(const BHTTPFormData& other)
 	:
 	fCopiedBuffer(false),
 	fFileMark(false),
@@ -88,7 +88,7 @@ BHttpFormData::BHttpFormData(const BHttpFormData& other)
 }
 
 
-BHttpFormData::~BHttpFormData()
+BHTTPFormData::~BHTTPFormData()
 {
 	if (fCopiedBuffer)
 		delete[] reinterpret_cast<const char*>(fBufferValue);
@@ -99,7 +99,7 @@ BHttpFormData::~BHttpFormData()
 
 
 bool
-BHttpFormData::InitCheck() const
+BHTTPFormData::InitCheck() const
 {
 	if (fDataType == B_HTTPFORM_BUFFER)
 		return fBufferValue != NULL;
@@ -109,63 +109,63 @@ BHttpFormData::InitCheck() const
 
 
 const BString&
-BHttpFormData::Name() const
+BHTTPFormData::Name() const
 {
 	return fName;
 }
 
 
 const BString&
-BHttpFormData::String() const
+BHTTPFormData::String() const
 {
 	return fStringValue;
 }
 
 
 const BPath&
-BHttpFormData::File() const
+BHTTPFormData::File() const
 {
 	return fPathValue;
 }
 
 
 const void*
-BHttpFormData::Buffer() const
+BHTTPFormData::Buffer() const
 {
 	return fBufferValue;
 }
 
 
 ssize_t
-BHttpFormData::BufferSize() const
+BHTTPFormData::BufferSize() const
 {
 	return fBufferSize;
 }
 
 
 bool
-BHttpFormData::IsFile() const
+BHTTPFormData::IsFile() const
 {
 	return fFileMark;
 }
 
 
 const BString&
-BHttpFormData::Filename() const
+BHTTPFormData::Filename() const
 {
 	return fFilename;
 }
 
 
 const BString&
-BHttpFormData::MimeType() const
+BHTTPFormData::MimeType() const
 {
 	return fMimeType;
 }
 
 
 form_content_type
-BHttpFormData::Type() const
+BHTTPFormData::Type() const
 {
 	return fDataType;
 }
@@ -175,7 +175,7 @@ BHttpFormData::Type() const
 
 
 status_t
-BHttpFormData::MarkAsFile(const BString& filename, const BString& mimeType)
+BHTTPFormData::MarkAsFile(const BString& filename, const BString& mimeType)
 {
 	if (fDataType == B_HTTPFORM_UNKNOWN || fDataType == B_HTTPFORM_FILE)
 		return B_ERROR;
@@ -189,7 +189,7 @@ BHttpFormData::MarkAsFile(const BString& filename, const BString& mimeType)
 
 
 void
-BHttpFormData::UnmarkAsFile()
+BHTTPFormData::UnmarkAsFile()
 {
 	fFilename.Truncate(0, true);
 	fMimeType.Truncate(0, true);
@@ -198,7 +198,7 @@ BHttpFormData::UnmarkAsFile()
 
 
 status_t
-BHttpFormData::CopyBuffer()
+BHTTPFormData::CopyBuffer()
 {
 	if (fDataType != B_HTTPFORM_BUFFER)
 		return B_ERROR;
@@ -215,8 +215,8 @@ BHttpFormData::CopyBuffer()
 }
 
 
-BHttpFormData&
-BHttpFormData::operator=(const BHttpFormData& other)
+BHTTPFormData&
+BHTTPFormData::operator=(const BHTTPFormData& other)
 {
 	fDataType = other.fDataType;
 	fCopiedBuffer = false;
@@ -236,17 +236,17 @@ BHttpFormData::operator=(const BHttpFormData& other)
 }
 
 
-// #pragma mark - BHttpForm
+// #pragma mark - BHTTPForm
 
 
-BHttpForm::BHttpForm()
+BHTTPForm::BHTTPForm()
 	:
 	fType(B_HTTP_FORM_URL_ENCODED)
 {
 }
 
 
-BHttpForm::BHttpForm(const BHttpForm& other)
+BHTTPForm::BHTTPForm(const BHTTPForm& other)
 	:
 	fFields(other.fFields),
 	fType(other.fType),
@@ -255,7 +255,7 @@ BHttpForm::BHttpForm(const BHttpForm& other)
 }
 
 
-BHttpForm::BHttpForm(const BString& formString)
+BHTTPForm::BHTTPForm(const BString& formString)
 	:
 	fType(B_HTTP_FORM_URL_ENCODED)
 {
@@ -263,7 +263,7 @@ BHttpForm::BHttpForm(const BString& formString)
 }
 
 
-BHttpForm::~BHttpForm()
+BHTTPForm::~BHTTPForm()
 {
 	Clear();
 }
@@ -273,7 +273,7 @@ BHttpForm::~BHttpForm()
 
 
 void
-BHttpForm::ParseString(const BString& formString)
+BHTTPForm::ParseString(const BString& formString)
 {
 	int32 index = 0;
 
@@ -283,14 +283,14 @@ BHttpForm::ParseString(const BString& formString)
 
 
 BString
-BHttpForm::RawData() const
+BHTTPForm::RawData() const
 {
 	BString result;
 
 	if (fType == B_HTTP_FORM_URL_ENCODED) {
 		for (FormStorage::const_iterator it = fFields.begin();
 			it != fFields.end(); it++) {
-			const BHttpFormData* currentField = &it->second;
+			const BHTTPFormData* currentField = &it->second;
 
 			switch (currentField->Type()) {
 				case B_HTTPFORM_UNKNOWN:
@@ -323,7 +323,7 @@ BHttpForm::RawData() const
 		// file content, this should be preferably handled by the protocol
 		for (FormStorage::const_iterator it = fFields.begin();
 			it != fFields.end(); it++) {
-			const BHttpFormData* currentField = &it->second;
+			const BHTTPFormData* currentField = &it->second;
 			result << _GetMultipartHeader(currentField);
 
 			switch (currentField->Type()) {
@@ -370,19 +370,19 @@ BHttpForm::RawData() const
 
 
 status_t
-BHttpForm::AddString(const BString& fieldName, const BString& value)
+BHTTPForm::AddString(const BString& fieldName, const BString& value)
 {
-	BHttpFormData formData(fieldName, value);
+	BHTTPFormData formData(fieldName, value);
 	if (!formData.InitCheck())
 		return B_ERROR;
 
-	fFields.insert(pair<BString, BHttpFormData>(fieldName, formData));
+	fFields.insert(pair<BString, BHTTPFormData>(fieldName, formData));
 	return B_OK;
 }
 
 
 status_t
-BHttpForm::AddInt(const BString& fieldName, int32 value)
+BHTTPForm::AddInt(const BString& fieldName, int32 value)
 {
 	BString strValue;
 	strValue << value;
@@ -392,13 +392,13 @@ BHttpForm::AddInt(const BString& fieldName, int32 value)
 
 
 status_t
-BHttpForm::AddFile(const BString& fieldName, const BPath& file)
+BHTTPForm::AddFile(const BString& fieldName, const BPath& file)
 {
-	BHttpFormData formData(fieldName, file);
+	BHTTPFormData formData(fieldName, file);
 	if (!formData.InitCheck())
 		return B_ERROR;
 
-	fFields.insert(pair<BString, BHttpFormData>(fieldName, formData));
+	fFields.insert(pair<BString, BHTTPFormData>(fieldName, formData));
 
 	if (fType != B_HTTP_FORM_MULTIPART)
 		SetFormType(B_HTTP_FORM_MULTIPART);
@@ -407,30 +407,30 @@ BHttpForm::AddFile(const BString& fieldName, const BPath& file)
 
 
 status_t
-BHttpForm::AddBuffer(const BString& fieldName, const void* buffer,
+BHTTPForm::AddBuffer(const BString& fieldName, const void* buffer,
 	ssize_t size)
 {
-	BHttpFormData formData(fieldName, buffer, size);
+	BHTTPFormData formData(fieldName, buffer, size);
 	if (!formData.InitCheck())
 		return B_ERROR;
 
-	fFields.insert(pair<BString, BHttpFormData>(fieldName, formData));
+	fFields.insert(pair<BString, BHTTPFormData>(fieldName, formData));
 	return B_OK;
 }
 
 
 status_t
-BHttpForm::AddBufferCopy(const BString& fieldName, const void* buffer,
+BHTTPForm::AddBufferCopy(const BString& fieldName, const void* buffer,
 	ssize_t size)
 {
-	BHttpFormData formData(fieldName, buffer, size);
+	BHTTPFormData formData(fieldName, buffer, size);
 	if (!formData.InitCheck())
 		return B_ERROR;
 
 	// Copy the buffer of the inserted form data copy to
 	// avoid an unneeded copy of the buffer upon insertion
 	pair<FormStorage::iterator, bool> insertResult
-		= fFields.insert(pair<BString, BHttpFormData>(fieldName, formData));
+		= fFields.insert(pair<BString, BHTTPFormData>(fieldName, formData));
 
 	return insertResult.first->second.CopyBuffer();
 }
@@ -440,7 +440,7 @@ BHttpForm::AddBufferCopy(const BString& fieldName, const void* buffer,
 
 
 void
-BHttpForm::MarkAsFile(const BString& fieldName, const BString& filename,
+BHTTPForm::MarkAsFile(const BString& fieldName, const BString& filename,
 	const BString& mimeType)
 {
 	FormStorage::iterator it = fFields.find(fieldName);
@@ -455,14 +455,14 @@ BHttpForm::MarkAsFile(const BString& fieldName, const BString& filename,
 
 
 void
-BHttpForm::MarkAsFile(const BString& fieldName, const BString& filename)
+BHTTPForm::MarkAsFile(const BString& fieldName, const BString& filename)
 {
 	MarkAsFile(fieldName, filename, "");
 }
 
 
 void
-BHttpForm::UnmarkAsFile(const BString& fieldName)
+BHTTPForm::UnmarkAsFile(const BString& fieldName)
 {
 	FormStorage::iterator it = fFields.find(fieldName);
 
@@ -477,7 +477,7 @@ BHttpForm::UnmarkAsFile(const BString& fieldName)
 
 
 void
-BHttpForm::SetFormType(form_type type)
+BHTTPForm::SetFormType(form_type type)
 {
 	fType = type;
 
@@ -490,7 +490,7 @@ BHttpForm::SetFormType(form_type type)
 
 
 bool
-BHttpForm::HasField(const BString& name) const
+BHTTPForm::HasField(const BString& name) const
 {
 	return (fFields.find(name) != fFields.end());
 }
@@ -500,7 +500,7 @@ BHttpForm::HasField(const BString& name) const
 
 
 BString
-BHttpForm::GetMultipartHeader(const BString& fieldName) const
+BHTTPForm::GetMultipartHeader(const BString& fieldName) const
 {
 	FormStorage::const_iterator it = fFields.find(fieldName);
 
@@ -512,21 +512,21 @@ BHttpForm::GetMultipartHeader(const BString& fieldName) const
 
 
 form_type
-BHttpForm::GetFormType() const
+BHTTPForm::GetFormType() const
 {
 	return fType;
 }
 
 
 const BString&
-BHttpForm::GetMultipartBoundary() const
+BHTTPForm::GetMultipartBoundary() const
 {
 	return fMultipartBoundary;
 }
 
 
 BString
-BHttpForm::GetMultipartFooter() const
+BHTTPForm::GetMultipartFooter() const
 {
 	BString result = "--";
 	result << fMultipartBoundary << "--\r\n";
@@ -535,7 +535,7 @@ BHttpForm::GetMultipartFooter() const
 
 
 ssize_t
-BHttpForm::ContentLength() const
+BHTTPForm::ContentLength() const
 {
 	if (fType == B_HTTP_FORM_URL_ENCODED)
 		return RawData().Length();
@@ -544,7 +544,7 @@ BHttpForm::ContentLength() const
 
 	for (FormStorage::const_iterator it = fFields.begin();
 		it != fFields.end(); it++) {
-		const BHttpFormData* c = &it->second;
+		const BHTTPFormData* c = &it->second;
 		contentLength += _GetMultipartHeader(c).Length();
 
 		switch (c->Type()) {
@@ -580,10 +580,10 @@ BHttpForm::ContentLength() const
 // #pragma mark Form iterator
 
 
-BHttpForm::Iterator
-BHttpForm::GetIterator()
+BHTTPForm::Iterator
+BHTTPForm::GetIterator()
 {
-	return BHttpForm::Iterator(this);
+	return BHTTPForm::Iterator(this);
 }
 
 
@@ -591,7 +591,7 @@ BHttpForm::GetIterator()
 
 
 void
-BHttpForm::Clear()
+BHTTPForm::Clear()
 {
 	fFields.clear();
 }
@@ -600,8 +600,8 @@ BHttpForm::Clear()
 // #pragma mark - Overloaded operators
 
 
-BHttpFormData&
-BHttpForm::operator[](const BString& name)
+BHTTPFormData&
+BHTTPForm::operator[](const BString& name)
 {
 	if (!HasField(name))
 		AddString(name, "");
@@ -611,7 +611,7 @@ BHttpForm::operator[](const BString& name)
 
 
 void
-BHttpForm::_ExtractNameValuePair(const BString& formString, int32* index)
+BHTTPForm::_ExtractNameValuePair(const BString& formString, int32* index)
 {
 	// Look for a name=value pair
 	int16 firstAmpersand = formString.FindFirst("&", *index);
@@ -646,7 +646,7 @@ BHttpForm::_ExtractNameValuePair(const BString& formString, int32* index)
 
 
 void
-BHttpForm::_GenerateMultipartBoundary()
+BHTTPForm::_GenerateMultipartBoundary()
 {
 	fMultipartBoundary = "----------------------------";
 
@@ -663,7 +663,7 @@ BHttpForm::_GenerateMultipartBoundary()
 
 
 BString
-BHttpForm::_GetMultipartHeader(const BHttpFormData* element) const
+BHTTPForm::_GetMultipartHeader(const BHTTPFormData* element) const
 {
 	BString result;
 	result << "--" << fMultipartBoundary << "\r\n";
@@ -713,7 +713,7 @@ BHttpForm::_GetMultipartHeader(const BHttpFormData* element) const
 // #pragma mark - Iterator
 
 
-BHttpForm::Iterator::Iterator(BHttpForm* form)
+BHTTPForm::Iterator::Iterator(BHTTPForm* form)
 	:
 	fElement(NULL)
 {
@@ -723,30 +723,30 @@ BHttpForm::Iterator::Iterator(BHttpForm* form)
 }
 
 
-BHttpForm::Iterator::Iterator(const Iterator& other)
+BHTTPForm::Iterator::Iterator(const Iterator& other)
 {
 	*this = other;
 }
 
 
 bool
-BHttpForm::Iterator::HasNext() const
+BHTTPForm::Iterator::HasNext() const
 {
 	return fStdIterator != fForm->fFields.end();
 }
 
 
-BHttpFormData*
-BHttpForm::Iterator::Next()
+BHTTPFormData*
+BHTTPForm::Iterator::Next()
 {
-	BHttpFormData* element = fElement;
+	BHTTPFormData* element = fElement;
 	_FindNext();
 	return element;
 }
 
 
 void
-BHttpForm::Iterator::Remove()
+BHTTPForm::Iterator::Remove()
 {
 	fForm->fFields.erase(fStdIterator);
 	fElement = NULL;
@@ -754,14 +754,14 @@ BHttpForm::Iterator::Remove()
 
 
 BString
-BHttpForm::Iterator::MultipartHeader()
+BHTTPForm::Iterator::MultipartHeader()
 {
 	return fForm->_GetMultipartHeader(fPrevElement);
 }
 
 
-BHttpForm::Iterator&
-BHttpForm::Iterator::operator=(const Iterator& other)
+BHTTPForm::Iterator&
+BHTTPForm::Iterator::operator=(const Iterator& other)
 {
 	fForm = other.fForm;
 	fStdIterator = other.fStdIterator;
@@ -773,7 +773,7 @@ BHttpForm::Iterator::operator=(const Iterator& other)
 
 
 void
-BHttpForm::Iterator::_FindNext()
+BHTTPForm::Iterator::_FindNext()
 {
 	fPrevElement = fElement;
 

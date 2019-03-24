@@ -22,11 +22,11 @@ enum {
 };
 
 
-class BHttpTime {
+class BHTTPTime {
 public:
-						BHttpTime();
-						BHttpTime(BDateTime date);
-						BHttpTime(const BString& dateString);
+						BHTTPTime();
+						BHTTPTime(BDateTime date);
+						BHTTPTime(const BString& dateString);
 	
 	// Date modification
 			void		SetString(const BString& string);

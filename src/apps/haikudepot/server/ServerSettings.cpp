@@ -112,7 +112,7 @@ ServerSettings::_GetUserAgentVersionString()
 
 
 void
-ServerSettings::AugmentHeaders(BHttpHeaders& headers)
+ServerSettings::AugmentHeaders(BHTTPHeaders& headers)
 {
 	headers.AddHeader("User-Agent", GetUserAgent());
 }

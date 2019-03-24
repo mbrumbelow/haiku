@@ -91,7 +91,7 @@ BGeolocation::LocateSelf(float& latitude, float& longitude)
 	if (request == NULL)
 		return B_BAD_DATA;
 
-	BHttpRequest* http = dynamic_cast<BHttpRequest*>(request);
+	BHTTPRequest* http = dynamic_cast<BHTTPRequest*>(request);
 	if (http == NULL) {
 		delete request;
 		return B_BAD_DATA;
@@ -111,7 +111,7 @@ BGeolocation::LocateSelf(float& latitude, float& longitude)
 		snooze(10000);
 
 	// Parse reply
-	const BHttpResult& reply = (const BHttpResult&)http->Result();
+	const BHTTPResult& reply = (const BHTTPResult&)http->Result();
 	if (reply.StatusCode() != 200) {
 		delete http;
 		return B_ERROR;

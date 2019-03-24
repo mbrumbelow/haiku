@@ -62,15 +62,15 @@ public:
 				return;
 			}
 
-			BHttpRequest* httpReq = dynamic_cast<BHttpRequest*>(request);
+			BHTTPRequest* httpReq = dynamic_cast<BHTTPRequest*>(request);
 			if (httpReq != NULL) {
-				const BHttpResult& httpRes
-					= (const BHttpResult&)httpReq->Result();
+				const BHTTPResult& httpRes
+					= (const BHTTPResult&)httpReq->Result();
 				int32 status = httpRes.StatusCode();
-				if (BHttpRequest::IsClientErrorStatusCode(status)
-						|| BHttpRequest::IsServerErrorStatusCode(status)) {
+				if (BHTTPRequest::IsClientErrorStatusCode(status)
+						|| BHTTPRequest::IsServerErrorStatusCode(status)) {
 					fRunning = false;
-				} else if (BHttpRequest::IsRedirectionStatusCode(status))
+				} else if (BHTTPRequest::IsRedirectionStatusCode(status))
 					return;
 			}
 

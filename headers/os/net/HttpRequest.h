@@ -22,15 +22,15 @@ namespace BPrivate {
 };
 
 
-class BHttpRequest : public BNetworkRequest {
+class BHTTPRequest : public BNetworkRequest {
 public:
-								BHttpRequest(const BURL& url,
+								BHTTPRequest(const BURL& url,
 									bool ssl = false,
 									const char* protocolName = "HTTP",
 									BURLProtocolListener* listener = NULL,
 									BURLContext* context = NULL);
-								BHttpRequest(const BHttpRequest& other);
-	virtual						~BHttpRequest();
+								BHTTPRequest(const BHTTPRequest& other);
+	virtual						~BHTTPRequest();
 
 			void				SetMethod(const char* const method);
 			void				SetFollowLocation(bool follow);
@@ -45,13 +45,13 @@ public:
 			void				SetRangeStart(off_t position);
 			void				SetRangeEnd(off_t position);
 
-			void				SetPostFields(const BHttpForm& fields);
-			void				SetHeaders(const BHttpHeaders& headers);
+			void				SetPostFields(const BHTTPForm& fields);
+			void				SetHeaders(const BHTTPHeaders& headers);
 
-			void				AdoptPostFields(BHttpForm* const fields);
+			void				AdoptPostFields(BHTTPForm* const fields);
 			void				AdoptInputData(BDataIO* const data,
 									const ssize_t size = -1);
-			void				AdoptHeaders(BHttpHeaders* const headers);
+			void				AdoptHeaders(BHTTPHeaders* const headers);
 
 			status_t			Stop();
 			const BURLResult&	Result() const;
@@ -77,7 +77,7 @@ private:
 
 	// URL result parameters access
 			BPositionIO*		_ResultRawData();
-			BHttpHeaders&		_ResultHeaders();
+			BHTTPHeaders&		_ResultHeaders();
 			void				_SetResultStatusCode(int32 statusCode);
 			BString&			_ResultStatusText();
 
@@ -97,11 +97,11 @@ private:
 			BString				fRequestMethod;
 			int8				fHttpVersion;
 
-			BHttpHeaders		fHeaders;
+			BHTTPHeaders		fHeaders;
 
 	// Request status
 
-			BHttpResult			fResult;
+			BHTTPResult			fResult;
 
 			// Request state/events
 			enum {
@@ -120,8 +120,8 @@ private:
 			BString				fOptUsername;
 			BString				fOptPassword;
 			uint32				fOptAuthMethods;
-			BHttpHeaders*		fOptHeaders;
-			BHttpForm*			fOptPostFields;
+			BHTTPHeaders*		fOptHeaders;
+			BHTTPForm*			fOptPostFields;
 			BDataIO*			fOptInputData;
 			ssize_t				fOptInputDataSize;
 			off_t				fOptRangeStart;

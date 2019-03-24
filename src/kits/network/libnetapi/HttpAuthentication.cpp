@@ -37,14 +37,14 @@ static const char* kBase64Symbols
 	= "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
 
 
-BHttpAuthentication::BHttpAuthentication()
+BHTTPAuthentication::BHTTPAuthentication()
 	:
 	fAuthenticationMethod(B_HTTP_AUTHENTICATION_NONE)
 {
 }
 
 
-BHttpAuthentication::BHttpAuthentication(const BString& username, const BString& password)
+BHTTPAuthentication::BHTTPAuthentication(const BString& username, const BString& password)
 	:
 	fAuthenticationMethod(B_HTTP_AUTHENTICATION_NONE),
 	fUserName(username),
@@ -53,7 +53,7 @@ BHttpAuthentication::BHttpAuthentication(const BString& username, const BString&
 }
 
 
-BHttpAuthentication::BHttpAuthentication(const BHttpAuthentication& other)
+BHTTPAuthentication::BHTTPAuthentication(const BHTTPAuthentication& other)
 	:
 	fAuthenticationMethod(other.fAuthenticationMethod),
 	fUserName(other.fUserName),
@@ -71,8 +71,8 @@ BHttpAuthentication::BHttpAuthentication(const BHttpAuthentication& other)
 }
 
 
-BHttpAuthentication& BHttpAuthentication::operator=(
-	const BHttpAuthentication& other)
+BHTTPAuthentication& BHTTPAuthentication::operator=(
+	const BHTTPAuthentication& other)
 {
 	fAuthenticationMethod = other.fAuthenticationMethod;
 	fUserName = other.fUserName;
@@ -94,7 +94,7 @@ BHttpAuthentication& BHttpAuthentication::operator=(
 
 
 void
-BHttpAuthentication::SetUserName(const BString& username)
+BHTTPAuthentication::SetUserName(const BString& username)
 {
 	fLock.Lock();
 	fUserName = username;
@@ -103,7 +103,7 @@ BHttpAuthentication::SetUserName(const BString& username)
 
 
 void
-BHttpAuthentication::SetPassword(const BString& password)
+BHTTPAuthentication::SetPassword(const BString& password)
 {
 	fLock.Lock();
 	fPassword = password;
@@ -112,7 +112,7 @@ BHttpAuthentication::SetPassword(const BString& password)
 
 
 void
-BHttpAuthentication::SetMethod(BHttpAuthenticationMethod method)
+BHTTPAuthentication::SetMethod(BHTTPAuthenticationMethod method)
 {
 	fLock.Lock();
 	fAuthenticationMethod = method;
@@ -121,7 +121,7 @@ BHttpAuthentication::SetMethod(BHttpAuthenticationMethod method)
 
 
 status_t
-BHttpAuthentication::Initialize(const BString& wwwAuthenticate)
+BHTTPAuthentication::Initialize(const BString& wwwAuthenticate)
 {
 	BPrivate::AutoLocker<BLocker> lock(fLock);
 
@@ -217,7 +217,7 @@ BHttpAuthentication::Initialize(const BString& wwwAuthenticate)
 
 
 const BString&
-BHttpAuthentication::UserName() const
+BHTTPAuthentication::UserName() const
 {
 	BPrivate::AutoLocker<BLocker> lock(fLock);
 	return fUserName;
@@ -225,15 +225,15 @@ BHttpAuthentication::UserName() const
 
 
 const BString&
-BHttpAuthentication::Password() const
+BHTTPAuthentication::Password() const
 {
 	BPrivate::AutoLocker<BLocker> lock(fLock);
 	return fPassword;
 }
 
 
-BHttpAuthenticationMethod
-BHttpAuthentication::Method() const
+BHTTPAuthenticationMethod
+BHTTPAuthentication::Method() const
 {
 	BPrivate::AutoLocker<BLocker> lock(fLock);
 	return fAuthenticationMethod;
@@ -241,7 +241,7 @@ BHttpAuthentication::Method() const
 
 
 BString
-BHttpAuthentication::Authorization(const BURL& url, const BString& method) const
+BHTTPAuthentication::Authorization(const BURL& url, const BString& method) const
 {
 	BPrivate::AutoLocker<BLocker> lock(fLock);
 	BString authorizationString;
@@ -302,7 +302,7 @@ BHttpAuthentication::Authorization(const BURL& url, const BString& method) const
 
 
 /*static*/ BString
-BHttpAuthentication::Base64Encode(const BString& string)
+BHTTPAuthentication::Base64Encode(const BString& string)
 {
 	BString result;
 	BString tmpString = string;
@@ -341,7 +341,7 @@ BHttpAuthentication::Base64Encode(const BString& string)
 
 
 /*static*/ BString
-BHttpAuthentication::Base64Decode(const BString& string)
+BHTTPAuthentication::Base64Decode(const BString& string)
 {
 	BString result;
 
@@ -377,7 +377,7 @@ BHttpAuthentication::Base64Decode(const BString& string)
 
 
 BString
-BHttpAuthentication::_DigestResponse(const BString& uri, const BString& method) const
+BHTTPAuthentication::_DigestResponse(const BString& uri, const BString& method) const
 {
 	PRINT(("HttpAuth: Computing digest response: \n"));
 	PRINT(("HttpAuth: > username  = %s\n", fUserName.String()));
@@ -426,7 +426,7 @@ BHttpAuthentication::_DigestResponse(const BString& uri, const BString& method) 
 
 
 BString
-BHttpAuthentication::_H(const BString& value) const
+BHTTPAuthentication::_H(const BString& value) const
 {
 	MD5_CTX context;
 	uchar hashResult[MD5_DIGEST_LENGTH];
@@ -458,7 +458,7 @@ BHttpAuthentication::_H(const BString& value) const
 
 
 BString
-BHttpAuthentication::_KD(const BString& secret, const BString& data) const
+BHTTPAuthentication::_KD(const BString& secret, const BString& data) const
 {
 	BString encode;
 	encode << secret << ':' << data;

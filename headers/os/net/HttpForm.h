@@ -26,27 +26,27 @@ enum form_content_type {
 };
 
 
-class BHttpFormData {
+class BHTTPFormData {
 private:
 	// Empty constructor is only kept for compatibility with map<>::operator[],
-	// but never used (see BHttpForm::operator[] which does the necessary
+	// but never used (see BHTTPForm::operator[] which does the necessary
 	// check up)
-								BHttpFormData();
+								BHTTPFormData();
 #if (__GNUC__ >= 6) || defined(__clang__)
-	friend class std::pair<const BString, BHttpFormData>;
+	friend class std::pair<const BString, BHTTPFormData>;
 #else
-	friend class std::map<BString, BHttpFormData>;
+	friend class std::map<BString, BHTTPFormData>;
 #endif
 
 public:
-								BHttpFormData(const BString& name,
+								BHTTPFormData(const BString& name,
 									const BString& value);
-								BHttpFormData(const BString& name,
+								BHTTPFormData(const BString& name,
 									const BPath& file);
-								BHttpFormData(const BString& name,
+								BHTTPFormData(const BString& name,
 									const void* buffer, ssize_t size);
-								BHttpFormData(const BHttpFormData& other);
-								~BHttpFormData();
+								BHTTPFormData(const BHTTPFormData& other);
+								~BHTTPFormData();
 
 	// Retrieve data informations
 			bool				InitCheck() const;
@@ -69,7 +69,7 @@ public:
 			status_t			CopyBuffer();
 
 	// Overloaded operators
-			BHttpFormData&		operator=(const BHttpFormData& other);
+			BHTTPFormData&		operator=(const BHTTPFormData& other);
 
 private:
 			form_content_type	fDataType;
@@ -87,17 +87,17 @@ private:
 };
 
 
-class BHttpForm {
+class BHTTPForm {
 public:
 	// Nested types
 	class Iterator;
-	typedef std::map<BString, BHttpFormData> FormStorage;
+	typedef std::map<BString, BHTTPFormData> FormStorage;
 
 public:
-								BHttpForm();
-								BHttpForm(const BHttpForm& other);
-								BHttpForm(const BString& formString);
-								~BHttpForm();
+								BHTTPForm();
+								BHTTPForm(const BHTTPForm& other);
+								BHTTPForm(const BString& formString);
+								~BHTTPForm();
 
 	// Form string parsing
 			void				ParseString(const BString& formString);
@@ -145,12 +145,12 @@ public:
 			void				Clear();
 
 	// Overloaded operators
-			BHttpFormData&		operator[](const BString& name);
+			BHTTPFormData&		operator[](const BString& name);
 
 private:
 			void				_ExtractNameValuePair(const BString& string, int32* index);
 			void				_GenerateMultipartBoundary();
-			BString				_GetMultipartHeader(const BHttpFormData* element) const;
+			BString				_GetMultipartHeader(const BHTTPFormData* element) const;
 			form_content_type	_GetType(FormStorage::const_iterator it) const;
 			void				_Erase(FormStorage::iterator it);
 
@@ -163,11 +163,11 @@ private:
 };
 
 
-class BHttpForm::Iterator {
+class BHTTPForm::Iterator {
 public:
 								Iterator(const Iterator& other);
 
-			BHttpFormData*		Next();
+			BHTTPFormData*		Next();
 			bool 				HasNext() const;
 			void				Remove();
 			BString				MultipartHeader();
@@ -175,17 +175,17 @@ public:
 			Iterator& 			operator=(const Iterator& other);
 
 private:
-								Iterator(BHttpForm* form);
+								Iterator(BHTTPForm* form);
 			void				_FindNext();
 
 private:
-	friend	class BHttpForm;
+	friend	class BHTTPForm;
 
-			BHttpForm*			fForm;
-			BHttpForm::FormStorage::iterator
+			BHTTPForm*			fForm;
+			BHTTPForm::FormStorage::iterator
 								fStdIterator;
-			BHttpFormData*		fElement;
-			BHttpFormData*		fPrevElement;
+			BHTTPFormData*		fElement;
+			BHTTPFormData*		fPrevElement;
 };
 
 #endif // _B_HTTP_FORM_H_

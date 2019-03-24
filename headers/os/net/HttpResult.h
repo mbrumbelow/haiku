@@ -17,14 +17,14 @@
 class BURLRequest;
 
 
-class BHttpResult: public BURLResult {
-			friend class 				BHttpRequest;
+class BHTTPResult: public BURLResult {
+			friend class 				BHTTPRequest;
 			
 public:
-										BHttpResult(const BURL& url);
-										BHttpResult(BMessage*);
-										BHttpResult(const BHttpResult& other);
-										~BHttpResult();
+										BHTTPResult(const BURL& url);
+										BHTTPResult(BMessage*);
+										BHTTPResult(const BHTTPResult& other);
+										~BHTTPResult();
 
 	// Result parameters modifications
 			void						SetUrl(const BURL& url);
@@ -35,7 +35,7 @@ public:
 			size_t						Length() const;
 
 	// HTTP-Specific stuff
-			const BHttpHeaders&			Headers() const;
+			const BHTTPHeaders&			Headers() const;
 			const BString&				StatusText() const;
 			int32						StatusCode() const;
 
@@ -43,14 +43,14 @@ public:
 			bool						HasHeaders() const;
 
 	// Overloaded members
-			BHttpResult&				operator=(const BHttpResult& other);
+			BHTTPResult&				operator=(const BHTTPResult& other);
 
 	virtual	status_t					Archive(BMessage*, bool) const;
 	static	BArchivable*				Instantiate(BMessage*);
 private:
 			BURL						fUrl;
 			
-			BHttpHeaders 				fHeaders;
+			BHTTPHeaders 				fHeaders;
 			int32						fStatusCode;
 			BString						fStatusString;
 };

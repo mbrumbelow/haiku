@@ -74,7 +74,7 @@ protected:
 private:
 			uint32				fOptions;
 
-			BHttpRequest*		fRequest;
+			BHTTPRequest*		fRequest;
 
 			status_t			DownloadToLocalFile(
 									const BPath& targetFilePath,

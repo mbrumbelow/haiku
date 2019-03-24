@@ -62,7 +62,7 @@
 
 
 /*!
-	\class BHttpFormData
+	\class BHTTPFormData
 	\ingroup network
 	\brief Stores a form data entry sent or received during an HTTP request.
 
@@ -75,41 +75,41 @@
 
 
 /*!
-	\fn BHttpFormData::BHttpFormData(const BString& name, const BString& value)
-	\brief Construct a BHttpFormData object with a string value.
+	\fn BHTTPFormData::BHTTPFormData(const BString& name, const BString& value)
+	\brief Construct a BHTTPFormData object with a string value.
 */
 
 
 /*!
-	\fn BHttpFormData::BHttpFormData(const BString& name, const BPath& value)
-	\brief Construct a BHttpFormData object which value is a file contents
+	\fn BHTTPFormData::BHTTPFormData(const BString& name, const BPath& value)
+	\brief Construct a BHTTPFormData object which value is a file contents
 */
 
 
 /*!
-	\fn BHttpFormData::BHttpFormData(const BString& name, const void* buffer,
+	\fn BHTTPFormData::BHTTPFormData(const BString& name, const void* buffer,
 		ssize_t size)
-	\brief Construct a BHttpFormData object which value is a binary buffer.
+	\brief Construct a BHTTPFormData object which value is a binary buffer.
 */
 
 
 /*!
-	\fn bool BHttpFormData::InitCheck() const
+	\fn bool BHTTPFormData::InitCheck() const
 	\brief Checks the initialization of the object
 
-	\return \c false if attempting to construct a BHttpFormData with a \c NULL
+	\return \c false if attempting to construct a BHTTPFormData with a \c NULL
 	        buffer.
 */
 
 
 /*!
-	\fn const BString& BHttpFormData::Name() const
+	\fn const BString& BHTTPFormData::Name() const
 	\brief Get the form field name
 */
 
 
 /*!
-	\fn const BString& BHttpFormData::String() const
+	\fn const BString& BHTTPFormData::String() const
 	\brief Get the string value of a form field.
 
 	\return An empty string for buffer and file based fields.
@@ -117,7 +117,7 @@
 
 
 /*!
-	\fn const BPath& BHttpFormData::File() const
+	\fn const BPath& BHTTPFormData::File() const
 	\brief Get the file path of a form field.
 
 	\return An empty string for buffer and string based fields.
@@ -125,7 +125,7 @@
 
 
 /*!
-	\fn const void* BHttpFormData::Buffer() const
+	\fn const void* BHTTPFormData::Buffer() const
 	\brief Get a pointer to the data of a form field.
 
 	\return An empty string for string and file based fields
@@ -133,7 +133,7 @@
 
 
 /*!
-	\fn ssize_t BHttpFormData::BufferSize() const;
+	\fn ssize_t BHTTPFormData::BufferSize() const;
 	\brief Get the buffer size
 
 	\return 0 for string and file based fields.
@@ -141,31 +141,31 @@
 
 
 /*!
-	\fn bool BHttpFormData::IsFile() const
+	\fn bool BHTTPFormData::IsFile() const
 	\return \c true if the field data is a file.
 */
 
 
 /*!
-	\fn const BString& BHttpFormData::Filename() const;
+	\fn const BString& BHTTPFormData::Filename() const;
 	\return The name of the file, for file based fields.
 */
 
 
 /*!
-	\fn const BString& BHttpFormData::MimeType() const
+	\fn const BString& BHTTPFormData::MimeType() const
 	\return The MIME type of the data.
 */
 
 
 /*!
-	\fn form_content_type BHttpFormData::Type() const
+	\fn form_content_type BHTTPFormData::Type() const
 	\return The kind of field.
 */
 
 
 /*!
-	\fn status_t BHttpFormData::CopyBuffer()
+	\fn status_t BHTTPFormData::CopyBuffer()
 	\brief Make a copy of the internal buffer
 
 	The constructor for buffer-based fields does not copy the data given to it,
@@ -175,93 +175,93 @@
 
 
 /*!
-	\fn status_t BHttpFormData::MarkAsFile(const BString& filename,
+	\fn status_t BHTTPFormData::MarkAsFile(const BString& filename,
 		const BString& mimeType)
 	\brief Mark a field as a file.
 */
 
 
 /*!
-	\fn void BHttpFormData::UnmarkAsFile()
+	\fn void BHTTPFormData::UnmarkAsFile()
 	\brief Unmark a field as a file.
 */
 
 
 /*!
-	\fn status_t BHttpFormData::CopyBuffer()
+	\fn status_t BHTTPFormData::CopyBuffer()
 */
 
 
 /*!
-	\fn BHttpFormData& BHttpFormData::operator=(const BHttpFormData& other)
+	\fn BHTTPFormData& BHTTPFormData::operator=(const BHTTPFormData& other)
 	\brief Assignment operator.
 */
 
 
 /*!
-	\class BHttpForm
+	\class BHTTPForm
 	\ingroup network
-	\brief Container for all the BHttpFormData instances making up an HTTP form contents.
+	\brief Container for all the BHTTPFormData instances making up an HTTP form contents.
 */
 
 
 /*!
-	\fn BHttpForm::BHttpForm()
+	\fn BHTTPForm::BHTTPForm()
 	\brief Create a new form object.
 */
 
 
 /*!
-	\fn BHttpForm::BHttpForm(const BHttpForm& other)
+	\fn BHTTPForm::BHTTPForm(const BHTTPForm& other)
 	\brief Create a new form object as a copy of \a other.
 */
 
 
 /*!
-	\fn BHttpForm::BHttpForm(const BString& formString)
+	\fn BHTTPForm::BHTTPForm(const BString& formString)
 	\brief Create a new form object and parse the \a formString.
 */
 
 
 /*!
-	\fn BHttpForm::~BHttpForm()
+	\fn BHTTPForm::~BHTTPForm()
 	\brief Clear the form and destroy the form object.
 */
 
 
 /*!
-	\fn void BHttpForm::ParseString(const BString& formString)
+	\fn void BHTTPForm::ParseString(const BString& formString)
 	\brief Parse the \a formString.
 */
 
 
 /*!
-	\fn BString BHttpForm::RawData() const
+	\fn BString BHTTPForm::RawData() const
 	\brief Return the form's raw data as a BString.
 */
 
 
 /*!
-	\fn status_t BHttpForm::AddString(const BString& fieldName,
+	\fn status_t BHTTPForm::AddString(const BString& fieldName,
 		const BString& value)
 	\brief Add a string to the form with the specified \a fieldName and \a value.
 */
 
 
 /*!
-	\fn status_t BHttpForm::AddInt(const BString& fieldName, int32 value)
+	\fn status_t BHTTPForm::AddInt(const BString& fieldName, int32 value)
 	\brief Add an int to the form with the specified \a fieldName and \a value.
 */
 
 
 /*!
-	\fn status_t BHttpForm::AddFile(const BString& fieldName, const BPath& file)
+	\fn status_t BHTTPForm::AddFile(const BString& fieldName, const BPath& file)
 	\brief Add a file to the form with the specified \a fieldName and \a value.
 */
 
 
 /*!
-	\fn status_t BHttpForm::AddBuffer(const BString& fieldName,
+	\fn status_t BHTTPForm::AddBuffer(const BString& fieldName,
 		const void* buffer, ssize_t size)
 	\brief Add a buffer to the form with the specified \a fieldName and \a buffer
 	       and \a size.
@@ -269,137 +269,137 @@
 
 
 /*!
-	\fn status_t BHttpForm::AddBufferCopy(const BString& fieldName,
+	\fn status_t BHTTPForm::AddBufferCopy(const BString& fieldName,
 		const void* buffer, ssize_t size)
 */
 
 
 /*!
-	\fn void BHttpForm::MarkAsFile(const BString& fieldName,
+	\fn void BHTTPForm::MarkAsFile(const BString& fieldName,
 		const BString& filename, const BString& mimeType)
 */
 
 
 /*!
-	\fn void BHttpForm::MarkAsFile(const BString& fieldName,
+	\fn void BHTTPForm::MarkAsFile(const BString& fieldName,
 		const BString& filename)
 	\brief Mark a field as a filename.
 */
 
 
 /*!
-	\fn void BHttpForm::UnmarkAsFile(const BString& fieldName)
+	\fn void BHTTPForm::UnmarkAsFile(const BString& fieldName)
 	\brief Unmark a field as a filename.
 */
 
 
 /*!
-	\fn void BHttpForm::SetFormType(form_type type)
+	\fn void BHTTPForm::SetFormType(form_type type)
 	\brief Change form type.
 */
 
 
 /*!
-	\fn bool BHttpForm::HasField(const BString& name) const
+	\fn bool BHTTPForm::HasField(const BString& name) const
 	\brief Returns whether or not a form has a field with the specified \a name.
 */
 
 
 /*!
-	\fn BString BHttpForm::GetMultipartHeader(const BString& fieldName) const
+	\fn BString BHTTPForm::GetMultipartHeader(const BString& fieldName) const
 */
 
 
 /*!
-	\fn form_type BHttpForm::GetFormType() const
+	\fn form_type BHTTPForm::GetFormType() const
 */
 
 
 /*!
-	\fn const BString& BHttpForm::GetMultipartBoundary() const
+	\fn const BString& BHTTPForm::GetMultipartBoundary() const
 */
 
 
 /*!
-	\fn BString BHttpForm::GetMultipartFooter() const
+	\fn BString BHTTPForm::GetMultipartFooter() const
 */
 
 
 /*!
-	\fn ssize_t BHttpForm::ContentLength() const
+	\fn ssize_t BHTTPForm::ContentLength() const
 */
 
 
 /*!
-	\fn BHttpForm::Iterator BHttpForm::GetIterator()
+	\fn BHTTPForm::Iterator BHTTPForm::GetIterator()
 */
 
 
 /*!
-	\fn void BHttpForm::Clear()
+	\fn void BHTTPForm::Clear()
 */
 
 
 /*!
-	\fn BHttpFormData& BHttpForm::operator[](const BString& name)
+	\fn BHTTPFormData& BHTTPForm::operator[](const BString& name)
 */
 
 
 /*!
-	\fn void BHttpForm::_ExtractNameValuePair(const BString& formString, int32* index)
+	\fn void BHTTPForm::_ExtractNameValuePair(const BString& formString, int32* index)
 */
 
 
 /*!
-	\fn void BHttpForm::_GenerateMultipartBoundary()
+	\fn void BHTTPForm::_GenerateMultipartBoundary()
 */
 
 
 /*!
-	\fn void BHttpForm::Clear()
+	\fn void BHTTPForm::Clear()
 */
 
 
 /*!
-	\class BHttpForm::Iterator
+	\class BHTTPForm::Iterator
 	\ingroup network
 	\brief Form Iterator.
 */
 
 
 /*!
-	\fn BHttpForm::Iterator::Iterator(BHttpForm* form)
+	\fn BHTTPForm::Iterator::Iterator(BHTTPForm* form)
 	\brief Constructor.
 */
 
 
 /*!
-	\fn BHttpForm::Iterator::Iterator(const Iterator& other);
+	\fn BHTTPForm::Iterator::Iterator(const Iterator& other);
 	\brief Copy contstructor.
 */
 
 
 /*!
-	\fn bool BHttpForm::Iterator::HasNext() const
+	\fn bool BHTTPForm::Iterator::HasNext() const
 */
 
 
 /*!
-	\fn BHttpFormData* BHttpForm::Iterator::Next()
+	\fn BHTTPFormData* BHTTPForm::Iterator::Next()
 */
 
 
 /*!
-	\fn void BHttpForm::Iterator::Remove()
+	\fn void BHTTPForm::Iterator::Remove()
 */
 
 
 /*!
-	\fn BString BHttpForm::Iterator::MultipartHeader()
+	\fn BString BHTTPForm::Iterator::MultipartHeader()
 */
 
 
 /*!
-	\fn BHttpForm::Iterator& BHttpForm::Iterator::operator=(const Iterator& other)
+	\fn BHTTPForm::Iterator& BHTTPForm::Iterator::operator=(const Iterator& other)
 	\brief Assignment operator.
 */

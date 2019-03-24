@@ -23,24 +23,24 @@ public:
 			void				SetCookieJar(
 									const BNetworkCookieJar& cookieJar);
 			void				AddAuthentication(const BURL& url,
-									const BHttpAuthentication& authentication);
+									const BHTTPAuthentication& authentication);
 			void				SetProxy(BString host, uint16 port);
 			void				AddCertificateException(const BCertificate& certificate);
 
 	// Context accessors
 			BNetworkCookieJar&	GetCookieJar();
-			BHttpAuthentication& GetAuthentication(const BURL& url);
+			BHTTPAuthentication& GetAuthentication(const BURL& url);
 			bool				UseProxy();
 			BString				GetProxyHost();
 			uint16				GetProxyPort();
 			bool				HasCertificateException(const BCertificate& certificate);
 
 private:
-			class 				BHttpAuthenticationMap;
+			class 				BHTTPAuthenticationMap;
 
 private:
 			BNetworkCookieJar	fCookieJar;
-			BHttpAuthenticationMap* fAuthenticationMap;
+			BHTTPAuthenticationMap* fAuthenticationMap;
 			typedef BObjectList<const BCertificate> BCertificateSet;
 			BCertificateSet		fCertificates;
 

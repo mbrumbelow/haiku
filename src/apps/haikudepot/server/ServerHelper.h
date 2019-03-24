@@ -17,7 +17,7 @@ public:
 	static	bool						IsPlatformNetworkAvailable();
 
 	static	void						NotifyClientTooOld(
-											const BHttpHeaders& responseHeaders
+											const BHTTPHeaders& responseHeaders
 											);
 	static	void						AlertClientTooOld(BMessage* message);
 

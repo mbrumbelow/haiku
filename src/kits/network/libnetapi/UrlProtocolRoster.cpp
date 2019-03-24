@@ -25,10 +25,10 @@ BURLProtocolRoster::MakeRequest(const BURL& url,
 {
 	// TODO: instanciate the correct BURLProtocol using add-on interface
 	if (url.Protocol() == "http") {
-		return new(std::nothrow) BHttpRequest(url, false, "HTTP", listener,
+		return new(std::nothrow) BHTTPRequest(url, false, "HTTP", listener,
 			context);
 	} else if (url.Protocol() == "https") {
-		return new(std::nothrow) BHttpRequest(url, true, "HTTPS", listener,
+		return new(std::nothrow) BHTTPRequest(url, true, "HTTPS", listener,
 			context);
 	} else if (url.Protocol() == "file") {
 		return new(std::nothrow) BFileRequest(url, listener, context);

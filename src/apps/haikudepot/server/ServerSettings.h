@@ -17,7 +17,7 @@ class ServerSettings {
 public:
 		static status_t					SetBaseUrl(const BURL& baseUrl);
 		static const BString			GetUserAgent();
-		static void						AugmentHeaders(BHttpHeaders& headers);
+		static void						AugmentHeaders(BHTTPHeaders& headers);
 		static BURL						CreateFullUrl(
 											const BString urlPathComponents);
 

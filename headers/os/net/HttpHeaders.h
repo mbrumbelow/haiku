@@ -11,13 +11,13 @@
 #include <String.h>
 
 
-class BHttpHeader {
+class BHTTPHeader {
 public:
-								BHttpHeader();
-								BHttpHeader(const char* string);
-								BHttpHeader(const char* name,
+								BHTTPHeader();
+								BHTTPHeader(const char* string);
+								BHTTPHeader(const char* name,
 									const char* value);
-								BHttpHeader(const BHttpHeader& copy);
+								BHTTPHeader(const BHTTPHeader& copy);
 
 	// Header data modification
 			void				SetName(const char* name);
@@ -33,7 +33,7 @@ public:
 			bool				NameIs(const char* name) const;
 
 	// Overloaded members
-			BHttpHeader&		operator=(const BHttpHeader& other);
+			BHTTPHeader&		operator=(const BHTTPHeader& other);
 
 private:
 			BString				fName;
@@ -44,15 +44,15 @@ private:
 };
 
 
-class BHttpHeaders {
+class BHTTPHeaders {
 public:
-								BHttpHeaders();
-								BHttpHeaders(const BHttpHeaders& copy);
-								~BHttpHeaders();
+								BHTTPHeaders();
+								BHTTPHeaders(const BHTTPHeaders& copy);
+								~BHTTPHeaders();
 
 	// Header list access
 			const char*			HeaderValue(const char* name) const;
-			BHttpHeader&		HeaderAt(int32 index) const;
+			BHTTPHeader&		HeaderAt(int32 index) const;
 
 	// Header count
 			int32				CountHeaders() const;
@@ -75,13 +75,13 @@ public:
 			void				Clear();
 
 	// Overloaded operators
-			BHttpHeaders&		operator=(const BHttpHeaders& other);
-			BHttpHeader&		operator[](int32 index) const;
+			BHTTPHeaders&		operator=(const BHTTPHeaders& other);
+			BHTTPHeader&		operator[](int32 index) const;
 			const char*			operator[](const char* name) const;
 
 private:
 			void				_EraseData();
-			bool				_AddOrDeleteHeader(BHttpHeader* header);
+			bool				_AddOrDeleteHeader(BHTTPHeader* header);
 
 private:
 			BList				fHeaderList;

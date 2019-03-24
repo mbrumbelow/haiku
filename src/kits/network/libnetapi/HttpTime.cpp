@@ -50,7 +50,7 @@ static const char* kDateFormats[] = {
 using namespace BPrivate;
 
 
-BHttpTime::BHttpTime()
+BHTTPTime::BHTTPTime()
 	:
 	fDate(0),
 	fDateFormat(B_HTTP_TIME_FORMAT_PREFERRED)
@@ -58,7 +58,7 @@ BHttpTime::BHttpTime()
 }
 
 
-BHttpTime::BHttpTime(BDateTime date)
+BHTTPTime::BHTTPTime(BDateTime date)
 	:
 	fDate(date),
 	fDateFormat(B_HTTP_TIME_FORMAT_PREFERRED)
@@ -66,7 +66,7 @@ BHttpTime::BHttpTime(BDateTime date)
 }
 
 
-BHttpTime::BHttpTime(const BString& dateString)
+BHTTPTime::BHTTPTime(const BString& dateString)
 	:
 	fDateString(dateString),
 	fDate(0),
@@ -79,14 +79,14 @@ BHttpTime::BHttpTime(const BString& dateString)
 
 
 void
-BHttpTime::SetString(const BString& string)
+BHTTPTime::SetString(const BString& string)
 {
 	fDateString = string;
 }
 
 
 void
-BHttpTime::SetDate(BDateTime date)
+BHTTPTime::SetDate(BDateTime date)
 {
 	fDate = date;
 }
@@ -96,7 +96,7 @@ BHttpTime::SetDate(BDateTime date)
 
 
 BDateTime
-BHttpTime::Parse()
+BHTTPTime::Parse()
 {
 	struct tm expireTime;
 	
@@ -135,7 +135,7 @@ BHttpTime::Parse()
 
 
 BString
-BHttpTime::ToString(int8 format)
+BHTTPTime::ToString(int8 format)
 {
 	BString expirationFinal;
 	struct tm expirationTm;

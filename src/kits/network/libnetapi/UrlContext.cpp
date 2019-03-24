@@ -16,8 +16,8 @@
 #include <HashString.h>
 
 
-class BURLContext::BHttpAuthenticationMap : public
-	SynchronizedHashMap<BPrivate::HashString, BHttpAuthentication*> {};
+class BURLContext::BHTTPAuthenticationMap : public
+	SynchronizedHashMap<BPrivate::HashString, BHTTPAuthentication*> {};
 
 
 BURLContext::BURLContext()
@@ -28,18 +28,18 @@ BURLContext::BURLContext()
 	fProxyHost(),
 	fProxyPort(0)
 {
-	fAuthenticationMap = new(std::nothrow) BHttpAuthenticationMap();
+	fAuthenticationMap = new(std::nothrow) BHTTPAuthenticationMap();
 
 	// This is the default authentication, used when nothing else is found.
 	// The empty string used as a key will match all the domain strings, once
 	// we have removed all components.
-	fAuthenticationMap->Put(HashString("", 0), new BHttpAuthentication());
+	fAuthenticationMap->Put(HashString("", 0), new BHTTPAuthentication());
 }
 
 
 BURLContext::~BURLContext()
 {
-	BHttpAuthenticationMap::Iterator iterator
+	BHTTPAuthenticationMap::Iterator iterator
 		= fAuthenticationMap->GetIterator();
 	while (iterator.HasNext())
 		delete iterator.Next().value;
@@ -60,7 +60,7 @@ BURLContext::SetCookieJar(const BNetworkCookieJar& cookieJar)
 
 void
 BURLContext::AddAuthentication(const BURL& url,
-	const BHttpAuthentication& authentication)
+	const BHTTPAuthentication& authentication)
 {
 	BString domain = url.Host();
 	domain += url.Path();
@@ -68,13 +68,13 @@ BURLContext::AddAuthentication(const BURL& url,
 
 	fAuthenticationMap->Lock();
 
-	BHttpAuthentication* previous = fAuthenticationMap->Get(hostHash);
+	BHTTPAuthentication* previous = fAuthenticationMap->Get(hostHash);
 
 	if (previous)
 		*previous = authentication;
 	else {
-		BHttpAuthentication* copy
-			= new(std::nothrow) BHttpAuthentication(authentication);
+		BHTTPAuthentication* copy
+			= new(std::nothrow) BHTTPAuthentication(authentication);
 		fAuthenticationMap->Put(hostHash, copy);
 	}
 
@@ -110,13 +110,13 @@ BURLContext::GetCookieJar()
 }
 
 
-BHttpAuthentication&
+BHTTPAuthentication&
 BURLContext::GetAuthentication(const BURL& url)
 {
 	BString domain = url.Host();
 	domain += url.Path();
 
-	BHttpAuthentication* authentication = NULL;
+	BHTTPAuthentication* authentication = NULL;
 
 	do {
 		authentication = fAuthenticationMap->Get( HashString(domain.String(),

@@ -368,7 +368,7 @@ WebAppInterface::RetrieveUserRating(const BString& packageName,
 	const BString &repositoryCode, const BString& username,
 	BMessage& message)
 {
-		// BHttpRequest later takes ownership of this.
+		// BHTTPRequest later takes ownership of this.
 	BMallocIO* requestEnvelopeData = new BMallocIO();
 	BJsonTextWriter requestEnvelopeWriter(requestEnvelopeData);
 
@@ -431,7 +431,7 @@ WebAppInterface::CreateUserRating(const BString& packageName,
 	const BString& languageCode, const BString& comment,
 	const BString& stability, int rating, BMessage& message)
 {
-		// BHttpRequest later takes ownership of this.
+		// BHTTPRequest later takes ownership of this.
 	BMallocIO* requestEnvelopeData = new BMallocIO();
 	BJsonTextWriter requestEnvelopeWriter(requestEnvelopeData);
 
@@ -510,7 +510,7 @@ WebAppInterface::UpdateUserRating(const BString& ratingID,
 	const BString& languageCode, const BString& comment,
 	const BString& stability, int rating, bool active, BMessage& message)
 {
-		// BHttpRequest later takes ownership of this.
+		// BHTTPRequest later takes ownership of this.
 	BMallocIO* requestEnvelopeData = new BMallocIO();
 	BJsonTextWriter requestEnvelopeWriter(requestEnvelopeData);
 
@@ -577,17 +577,17 @@ WebAppInterface::RetrieveScreenshot(const BString& code,
 	ProtocolListener listener(Logger::IsTraceEnabled());
 	listener.SetDownloadIO(stream);
 
-	BHttpHeaders headers;
+	BHTTPHeaders headers;
 	ServerSettings::AugmentHeaders(headers);
 
-	BHttpRequest request(url, isSecure, "HTTP", &listener);
+	BHTTPRequest request(url, isSecure, "HTTP", &listener);
 	request.SetMethod(B_HTTP_GET);
 	request.SetHeaders(headers);
 
 	thread_id thread = request.Run();
 	wait_for_thread(thread, NULL);
 
-	const BHttpResult& result = dynamic_cast<const BHttpResult&>(
+	const BHTTPResult& result = dynamic_cast<const BHTTPResult&>(
 		request.Result());
 
 	int32 statusCode = result.StatusCode();
@@ -758,11 +758,11 @@ WebAppInterface::_SendJsonRequest(const char* domain, BPositionIO* requestData,
 	ProtocolListener listener(Logger::IsTraceEnabled());
 	BURLContext context;
 
-	BHttpHeaders headers;
+	BHTTPHeaders headers;
 	headers.AddHeader("Content-Type", "application/json");
 	ServerSettings::AugmentHeaders(headers);
 
-	BHttpRequest request(url, isSecure, "HTTP", &listener, &context);
+	BHTTPRequest request(url, isSecure, "HTTP", &listener, &context);
 	request.SetMethod(B_HTTP_POST);
 	request.SetHeaders(headers);
 
@@ -771,7 +771,7 @@ WebAppInterface::_SendJsonRequest(const char* domain, BPositionIO* requestData,
 	// header.
 	if ((flags & NEEDS_AUTHORIZATION) != 0
 		&& !fUsername.IsEmpty() && !fPassword.IsEmpty()) {
-		BHttpAuthentication authentication(fUsername, fPassword);
+		BHTTPAuthentication authentication(fUsername, fPassword);
 		authentication.SetMethod(B_HTTP_AUTHENTICATION_BASIC);
 		context.AddAuthentication(url, authentication);
 	}
@@ -785,7 +785,7 @@ WebAppInterface::_SendJsonRequest(const char* domain, BPositionIO* requestData,
 	thread_id thread = request.Run();
 	wait_for_thread(thread, NULL);
 
-	const BHttpResult& result = dynamic_cast<const BHttpResult&>(
+	const BHTTPResult& result = dynamic_cast<const BHTTPResult&>(
 		request.Result());
 
 	int32 statusCode = result.StatusCode();
