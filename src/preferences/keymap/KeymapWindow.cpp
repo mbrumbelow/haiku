@@ -81,12 +81,24 @@ compare_key_list_items(const void* a, const void* b)
 	return BLocale::Default()->StringCompare(item1->Text(), item2->Text());
 }
 
-
 KeymapWindow::KeymapWindow()
 	:
-	BWindow(BRect(80, 50, 650, 300), B_TRANSLATE_SYSTEM_NAME("Keymap"),
+	BWindow(BRect(80, 50, 1000, 400), B_TRANSLATE_SYSTEM_NAME("Keymap"),
 		B_TITLED_WINDOW, B_ASYNCHRONOUS_CONTROLS | B_AUTO_UPDATE_SIZE_LIMITS)
 {
+
+	BScreen screen(this);
+	display_mode mode;
+	status_t status = screen.GetMode(&mode);
+	if(status == B_OK) 
+	{
+		if(mode.virtual_width <= 800 || mode.virtual_height <= 600) 
+		{
+			this->ResizeTo(570, 250);
+		}
+	}
+
+
 	fKeyboardLayoutView = new KeyboardLayoutView("layout");
 	fKeyboardLayoutView->SetKeymap(&fCurrentMap);
 	fKeyboardLayoutView->SetExplicitMinSize(BSize(B_SIZE_UNSET, 192));
