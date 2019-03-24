@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f432596e_22da8651",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-03-24T15:42:44Z",
+      "side": 1,
+      "message": "You can refer to issues using the syntax #14892, this way they are automatically linked to the relevant bug in Trac.",
+      "revId": "537f0424d09284655904fe7a19285dd9afe53909",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf3ddf55_9f52219d",
+        "filename": "src/preferences/keymap/KeymapWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-03-24T15:42:44Z",
+      "side": 1,
+      "message": "We expect Haiku to work on a 800x600 display (or maybe even 800x400), so now this is a bit too large in that case.\n\nThe previous size was computed for a 800px wide display, trying to spare some space for the DeskBar on the right (where it usually is).\n\nI would say we need to do something smarter: use a larger window size, but reduce it if it doesn\u0027t fit on low resolution displays (using BScreen to find out the current resolution, and then ResizeTo to change the size).",
+      "revId": "537f0424d09284655904fe7a19285dd9afe53909",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
