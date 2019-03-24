@@ -17,7 +17,7 @@
 #include <cppunit/TestSuite.h>
 
 
-class DataTest: public BTestCase, BUrlProtocolListener {
+class DataTest: public BTestCase, BURLProtocolListener {
 public:
 								DataTest();
 	virtual						~DataTest();
@@ -29,7 +29,7 @@ public:
 			void				Base64Test();
 			void				UrlDecodeTest();
 
-			void				DataReceived(BUrlRequest*, const char* data,
+			void				DataReceived(BURLRequest*, const char* data,
 									off_t, ssize_t size);
 
 	static	void				AddTests(BTestSuite& suite);

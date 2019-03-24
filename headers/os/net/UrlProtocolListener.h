@@ -13,10 +13,10 @@
 
 
 class BCertificate;
-class BUrlRequest;
+class BURLRequest;
 
 
-enum BUrlProtocolDebugMessage {
+enum BURLProtocolDebugMessage {
 	B_URL_PROTOCOL_DEBUG_TEXT,
 	B_URL_PROTOCOL_DEBUG_ERROR,
 	B_URL_PROTOCOL_DEBUG_HEADER_IN,
@@ -26,7 +26,7 @@ enum BUrlProtocolDebugMessage {
 };
 
 
-class BUrlProtocolListener {
+class BURLProtocolListener {
 public:
 	/**
 		ConnectionOpened()
@@ -34,7 +34,7 @@ public:
 
 		Called when the socket is opened.
 	*/
-	virtual	void				ConnectionOpened(BUrlRequest* caller);
+	virtual	void				ConnectionOpened(BURLRequest* caller);
 
 	/**
 		HostnameResolved(ip)
@@ -44,7 +44,7 @@ public:
 
 		Called when the final IP is discovered
 	*/
-	virtual void				HostnameResolved(BUrlRequest* caller,
+	virtual void				HostnameResolved(BURLRequest* caller,
 									const char* ip);
 
 	/**
@@ -54,7 +54,7 @@ public:
 		Called when the request has been emitted and the server begins to
 		reply. Typically when the HTTP status code is received.
 	*/
-	virtual void				ResponseStarted(BUrlRequest* caller);
+	virtual void				ResponseStarted(BURLRequest* caller);
 
 	/**
 		HeadersReceived()
@@ -63,8 +63,8 @@ public:
 		Called when all the server response metadata (such as headers) have
 		been read and parsed.
 	*/
-	virtual void				HeadersReceived(BUrlRequest* caller,
-									const BUrlResult& result);
+	virtual void				HeadersReceived(BURLRequest* caller,
+									const BURLResult& result);
 
 	/**
 		DataReceived(data, position, size)
@@ -75,7 +75,7 @@ public:
 
 		Called each time a full block of data is received.
 	*/
-	virtual void				DataReceived(BUrlRequest* caller,
+	virtual void				DataReceived(BURLRequest* caller,
 									const char* data, off_t position,
 									ssize_t size);
 
@@ -87,7 +87,7 @@ public:
 
 		Called each time a data block is received.
 	*/
-	virtual	void				DownloadProgress(BUrlRequest* caller,
+	virtual	void				DownloadProgress(BURLRequest* caller,
 									ssize_t bytesReceived, ssize_t bytesTotal);
 
 	/**
@@ -98,7 +98,7 @@ public:
 
 		Called each time a data block is emitted.
 	*/
-	virtual void				UploadProgress(BUrlRequest* caller,
+	virtual void				UploadProgress(BURLRequest* caller,
 									ssize_t bytesSent, ssize_t bytesTotal);
 
 	/**
@@ -109,18 +109,18 @@ public:
 
 		Called once the request is complete.
 	*/
-	virtual void				RequestCompleted(BUrlRequest* caller,
+	virtual void				RequestCompleted(BURLRequest* caller,
 									bool success);
 
 	/**
 		DebugMessage(type, text)
 		Frequency:	zero or more
-		Parameters:	type	Type of the verbose message (see BUrlProtocolDebug)
+		Parameters:	type	Type of the verbose message (see BURLProtocolDebug)
 
 		Called each time a debug message is emitted
 	*/
-	virtual void				DebugMessage(BUrlRequest* caller,
-									BUrlProtocolDebugMessage type,
+	virtual void				DebugMessage(BURLRequest* caller,
+									BURLProtocolDebugMessage type,
 									const char* text);
 
 	/**
@@ -132,7 +132,7 @@ public:
 		Return true to proceed anyway, false to abort the connection
 	*/
 	virtual bool				CertificateVerificationFailed(
-									BUrlRequest* caller,
+									BURLRequest* caller,
 									BCertificate& certificate,
 									const char* message);
 };

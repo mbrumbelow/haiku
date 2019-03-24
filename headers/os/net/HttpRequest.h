@@ -24,11 +24,11 @@ namespace BPrivate {
 
 class BHttpRequest : public BNetworkRequest {
 public:
-								BHttpRequest(const BUrl& url,
+								BHttpRequest(const BURL& url,
 									bool ssl = false,
 									const char* protocolName = "HTTP",
-									BUrlProtocolListener* listener = NULL,
-									BUrlContext* context = NULL);
+									BURLProtocolListener* listener = NULL,
+									BURLContext* context = NULL);
 								BHttpRequest(const BHttpRequest& other);
 	virtual						~BHttpRequest();
 
@@ -54,7 +54,7 @@ public:
 			void				AdoptHeaders(BHttpHeaders* const headers);
 
 			status_t			Stop();
-			const BUrlResult&	Result() const;
+			const BURLResult&	Result() const;
 
 	static	bool				IsInformationalStatusCode(int16 code);
 	static	bool				IsSuccessStatusCode(int16 code);

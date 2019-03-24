@@ -12,20 +12,20 @@
 #include <UrlRequest.h>
 
 
-class BFileRequest : public BUrlRequest {
+class BFileRequest : public BURLRequest {
 public:
-								BFileRequest(const BUrl& url,
-									BUrlProtocolListener* listener = NULL,
-									BUrlContext* context = NULL);
+								BFileRequest(const BURL& url,
+									BURLProtocolListener* listener = NULL,
+									BURLContext* context = NULL);
 	virtual						~BFileRequest();
 
-	const 	BUrlResult&			Result() const;
+	const 	BURLResult&			Result() const;
             void                SetDisableListener(bool disable);
 
 private:
 			status_t			_ProtocolLoop();
 private:
-			BUrlResult			fResult;
+			BURLResult			fResult;
 };
 
 

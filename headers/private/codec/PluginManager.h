@@ -63,7 +63,7 @@ public:
 			void				DestroyEncoder(BEncoder* encoder);
 
 			status_t			CreateStreamer(BStreamer** streamer,
-									BUrl url);
+									BURL url);
 			void				DestroyStreamer(BStreamer* streamer);
 
 private:

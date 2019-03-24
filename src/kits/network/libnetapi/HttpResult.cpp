@@ -15,7 +15,7 @@
 using std::ostream;
 
 
-BHttpResult::BHttpResult(const BUrl& url)
+BHttpResult::BHttpResult(const BURL& url)
 	:
 	fUrl(url),
 	fHeaders(),
@@ -26,7 +26,7 @@ BHttpResult::BHttpResult(const BUrl& url)
 
 BHttpResult::BHttpResult(BMessage* archive)
 	:
-	BUrlResult(archive),
+	BURLResult(archive),
 	fUrl(archive->FindString("http:url")),
 	fHeaders(),
 	fStatusCode(archive->FindInt32("http:statusCode"))
@@ -58,7 +58,7 @@ BHttpResult::~BHttpResult()
 
 
 void
-BHttpResult::SetUrl(const BUrl& url)
+BHttpResult::SetUrl(const BURL& url)
 {
 	fUrl = url;
 }
@@ -67,7 +67,7 @@ BHttpResult::SetUrl(const BUrl& url)
 // #pragma mark Result parameters access
 
 
-const BUrl&
+const BURL&
 BHttpResult::Url() const
 {
 	return fUrl;
@@ -143,7 +143,7 @@ BHttpResult::operator=(const BHttpResult& other)
 status_t
 BHttpResult::Archive(BMessage* target, bool deep) const
 {
-	status_t result = BUrlResult::Archive(target, deep);
+	status_t result = BURLResult::Archive(target, deep);
 	if (result != B_OK)
 		return result;
 

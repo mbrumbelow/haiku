@@ -28,7 +28,7 @@ DVDStreamer::~DVDStreamer()
 
 
 status_t
-DVDStreamer::Sniff(const BUrl& url)
+DVDStreamer::Sniff(const BURL& url)
 {
 	BString path = url.UrlString();
 	BString protocol = url.Protocol();

@@ -29,13 +29,13 @@ public:
 	static						void	AddTests(BTestSuite& suite);
 
 private:
-								void	_AuthTest(BUrl& url);
+								void	_AuthTest(BURL& url);
 
 	template<class T> static	void	_AddCommonTests(BString prefix,
 											CppUnit::TestSuite& suite);
 
 protected:
-								BUrl	fBaseUrl;
+								BURL	fBaseUrl;
 };
 
 

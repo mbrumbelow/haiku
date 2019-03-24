@@ -16,9 +16,9 @@
 class BNetworkCookie : public BArchivable {
 public:
 								BNetworkCookie(const char* name,
-									const char* value, const BUrl& url);
+									const char* value, const BURL& url);
 								BNetworkCookie(const BString& cookieString,
-									const BUrl& url);
+									const BURL& url);
 								BNetworkCookie(BMessage* archive);
 								BNetworkCookie();
 	virtual						~BNetworkCookie();
@@ -26,7 +26,7 @@ public:
 	// Parse a "SetCookie" string
 
 			status_t			ParseCookieString(const BString& string,
-									const BUrl& url);
+									const BURL& url);
 
 	// Modify the cookie fields
 			BNetworkCookie&		SetName(const BString& name);
@@ -53,7 +53,7 @@ public:
 			bool				IsHostOnly() const;
 			bool				IsSessionCookie() const;
 			bool				IsValid() const;
-			bool				IsValidForUrl(const BUrl& url) const;
+			bool				IsValidForUrl(const BURL& url) const;
 			bool				IsValidForDomain(const BString& domain) const;
 			bool				IsValidForPath(const BString& path) const;
 
@@ -84,9 +84,9 @@ private:
 			int32				_ExtractAttributeValuePair(
 									const BString& string, BString& name,
 									BString& value,	int32 index);
-			BString				_DefaultPathForUrl(const BUrl& url);
+			BString				_DefaultPathForUrl(const BURL& url);
 
-			bool				_CanBeSetFromUrl(const BUrl& url) const;
+			bool				_CanBeSetFromUrl(const BURL& url) const;
 			bool				_CanBeSetFromDomain(const BString& path) const;
 			bool				_CanBeSetFromPath(const BString& path) const;
 

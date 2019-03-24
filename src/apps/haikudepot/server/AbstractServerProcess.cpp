@@ -220,7 +220,7 @@ AbstractServerProcess::ParseJsonFromFileWithListener(
 status_t
 AbstractServerProcess::DownloadToLocalFileAtomically(
 	const BPath& targetFilePath,
-	const BUrl& url)
+	const BURL& url)
 {
 	BPath temporaryFilePath(tmpnam(NULL), NULL, true);
 	status_t result = DownloadToLocalFile(
@@ -253,7 +253,7 @@ AbstractServerProcess::DownloadToLocalFileAtomically(
 
 status_t
 AbstractServerProcess::DownloadToLocalFile(const BPath& targetFilePath,
-	const BUrl& url, uint32 redirects, uint32 failures)
+	const BURL& url, uint32 redirects, uint32 failures)
 {
 	if (WasStopped())
 		return B_CANCELED;
@@ -291,7 +291,7 @@ AbstractServerProcess::DownloadToLocalFile(const BPath& targetFilePath,
 
 	{
 		fRequest = dynamic_cast<BHttpRequest *>(
-			BUrlProtocolRoster::MakeRequest(url, &listener));
+			BURLProtocolRoster::MakeRequest(url, &listener));
 		fRequest->SetHeaders(headers);
 		fRequest->SetMaxRedirections(0);
 		fRequest->SetTimeout(TIMEOUT_MICROSECONDS);
@@ -326,7 +326,7 @@ AbstractServerProcess::DownloadToLocalFile(const BPath& targetFilePath,
 		return HD_CLIENT_TOO_OLD;
 	} else if (BHttpRequest::IsRedirectionStatusCode(statusCode)) {
 		if (location.Length() != 0) {
-			BUrl redirectUrl(result.Url(), location);
+			BURL redirectUrl(result.Url(), location);
 			fprintf(stdout, "[%s] will redirect to; %s\n",
 				Name(), redirectUrl.UrlString().String());
 			return DownloadToLocalFile(targetFilePath, redirectUrl,

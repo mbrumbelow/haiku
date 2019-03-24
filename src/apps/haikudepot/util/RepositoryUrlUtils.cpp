@@ -8,7 +8,7 @@
 
 
 void
-RepositoryUrlUtils::NormalizeUrl(BUrl& url)
+RepositoryUrlUtils::NormalizeUrl(BURL& url)
 {
 	if (url.Protocol() == "https")
 		url.SetProtocol("http");
@@ -26,9 +26,9 @@ RepositoryUrlUtils::EqualsNormalized(const BString& url1, const BString& url2)
 	if (url1.IsEmpty())
 		return false;
 
-	BUrl normalizedUrl1(url1);
+	BURL normalizedUrl1(url1);
 	NormalizeUrl(normalizedUrl1);
-	BUrl normalizedUrl2(url2);
+	BURL normalizedUrl2(url2);
 	NormalizeUrl(normalizedUrl2);
 
 	return normalizedUrl1 == normalizedUrl2;

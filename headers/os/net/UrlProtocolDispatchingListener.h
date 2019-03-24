@@ -32,40 +32,40 @@ enum {
 };
 
 
-class BUrlProtocolDispatchingListener : public BUrlProtocolListener {
+class BURLProtocolDispatchingListener : public BURLProtocolListener {
 public:
-								BUrlProtocolDispatchingListener(
+								BURLProtocolDispatchingListener(
 									BHandler* handler);
-								BUrlProtocolDispatchingListener(
+								BURLProtocolDispatchingListener(
 									const BMessenger& messenger);
-	virtual						~BUrlProtocolDispatchingListener();
+	virtual						~BURLProtocolDispatchingListener();
 
-	virtual	void				ConnectionOpened(BUrlRequest* caller);
-	virtual void				HostnameResolved(BUrlRequest* caller,
+	virtual	void				ConnectionOpened(BURLRequest* caller);
+	virtual void				HostnameResolved(BURLRequest* caller,
 									const char* ip);
-	virtual void				ResponseStarted(BUrlRequest* caller);
-	virtual void				HeadersReceived(BUrlRequest* caller,
-									const BUrlResult& result);
-	virtual void				DataReceived(BUrlRequest* caller,
+	virtual void				ResponseStarted(BURLRequest* caller);
+	virtual void				HeadersReceived(BURLRequest* caller,
+									const BURLResult& result);
+	virtual void				DataReceived(BURLRequest* caller,
 									const char* data, off_t position,
 									ssize_t size);
-	virtual	void				DownloadProgress(BUrlRequest* caller,
+	virtual	void				DownloadProgress(BURLRequest* caller,
 									ssize_t bytesReceived, ssize_t bytesTotal);
-	virtual void				UploadProgress(BUrlRequest* caller,
+	virtual void				UploadProgress(BURLRequest* caller,
 									ssize_t bytesSent, ssize_t bytesTotal);
-	virtual void				RequestCompleted(BUrlRequest* caller,
+	virtual void				RequestCompleted(BURLRequest* caller,
 									bool success);
-	virtual void				DebugMessage(BUrlRequest* caller,
-									BUrlProtocolDebugMessage type,
+	virtual void				DebugMessage(BURLRequest* caller,
+									BURLProtocolDebugMessage type,
 									const char* text);
 	virtual bool				CertificateVerificationFailed(
-									BUrlRequest* caller,
+									BURLRequest* caller,
 									BCertificate& certificate,
 									const char* message);
 
 private:
 			void				_SendMessage(BMessage* message,
-									int8 notification, BUrlRequest* caller);
+									int8 notification, BURLRequest* caller);
 
 private:
 			BMessenger	 		fMessenger;

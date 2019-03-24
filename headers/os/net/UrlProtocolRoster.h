@@ -10,16 +10,16 @@
 #include <stdlib.h>
 
 
-class BUrl;
-class BUrlContext;
-class BUrlProtocolListener;
-class BUrlRequest;
+class BURL;
+class BURLContext;
+class BURLProtocolListener;
+class BURLRequest;
 
-class BUrlProtocolRoster {
+class BURLProtocolRoster {
 public:
-    static  BUrlRequest*    MakeRequest(const BUrl& url,
-		                        BUrlProtocolListener* listener = NULL,
-                                BUrlContext* context = NULL);
+    static  BURLRequest*    MakeRequest(const BURL& url,
+		                        BURLProtocolListener* listener = NULL,
+                                BURLContext* context = NULL);
 };
 
 #endif

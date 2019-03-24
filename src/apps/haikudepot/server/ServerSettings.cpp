@@ -21,7 +21,7 @@
 #define USERAGENT_FALLBACK_VERSION "0.0.0"
 
 
-BUrl ServerSettings::sBaseUrl = BUrl(BASEURL_DEFAULT);
+BURL ServerSettings::sBaseUrl = BURL(BASEURL_DEFAULT);
 BString ServerSettings::sUserAgent = BString();
 pthread_once_t ServerSettings::sUserAgentInitOnce = PTHREAD_ONCE_INIT;
 bool ServerSettings::sPreferCache = false;
@@ -32,7 +32,7 @@ BLocker ServerSettings::sLock;
 
 
 status_t
-ServerSettings::SetBaseUrl(const BUrl& value)
+ServerSettings::SetBaseUrl(const BURL& value)
 {
 	if (!value.IsValid()) {
 		fprintf(stderr, "the url is not valid\n");
@@ -50,10 +50,10 @@ ServerSettings::SetBaseUrl(const BUrl& value)
 }
 
 
-BUrl
+BURL
 ServerSettings::CreateFullUrl(const BString urlPathComponents)
 {
-	return BUrl(sBaseUrl, urlPathComponents);
+	return BURL(sBaseUrl, urlPathComponents);
 }
 
 

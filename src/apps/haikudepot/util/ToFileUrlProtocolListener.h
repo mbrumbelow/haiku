@@ -6,7 +6,7 @@
 #include <UrlProtocolListener.h>
 #include <UrlRequest.h>
 
-class ToFileUrlProtocolListener : public BUrlProtocolListener {
+class ToFileUrlProtocolListener : public BURLProtocolListener {
 public:
 								ToFileUrlProtocolListener(BPath path,
 									BString traceLoggingIdentifier,
@@ -15,23 +15,23 @@ public:
 
 			ssize_t				ContentLength();
 
-			void				ConnectionOpened(BUrlRequest* caller);
-			void				HostnameResolved(BUrlRequest* caller,
+			void				ConnectionOpened(BURLRequest* caller);
+			void				HostnameResolved(BURLRequest* caller,
 									const char* ip);
-			void				ResponseStarted(BUrlRequest* caller);
-			void				HeadersReceived(BUrlRequest* caller,
-									const BUrlResult& result);
-			void				DataReceived(BUrlRequest* caller,
+			void				ResponseStarted(BURLRequest* caller);
+			void				HeadersReceived(BURLRequest* caller,
+									const BURLResult& result);
+			void				DataReceived(BURLRequest* caller,
 									const char* data, off_t position,
 									ssize_t size);
-			void				DownloadProgress(BUrlRequest* caller,
+			void				DownloadProgress(BURLRequest* caller,
 									ssize_t bytesReceived, ssize_t bytesTotal);
-			void				UploadProgress(BUrlRequest* caller,
+			void				UploadProgress(BURLRequest* caller,
 									ssize_t bytesSent, ssize_t bytesTotal);
-			void				RequestCompleted(BUrlRequest* caller,
+			void				RequestCompleted(BURLRequest* caller,
 									bool success);
-			void				DebugMessage(BUrlRequest* caller,
-									BUrlProtocolDebugMessage type,
+			void				DebugMessage(BURLRequest* caller,
+									BURLProtocolDebugMessage type,
 									const char* text);
 
 private:

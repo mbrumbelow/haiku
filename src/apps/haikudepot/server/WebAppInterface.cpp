@@ -193,7 +193,7 @@ private:
 };
 
 
-class ProtocolListener : public BUrlProtocolListener {
+class ProtocolListener : public BURLProtocolListener {
 public:
 	ProtocolListener(bool traceLogging)
 		:
@@ -206,45 +206,45 @@ public:
 	{
 	}
 
-	virtual	void ConnectionOpened(BUrlRequest* caller)
+	virtual	void ConnectionOpened(BURLRequest* caller)
 	{
 	}
 
-	virtual void HostnameResolved(BUrlRequest* caller, const char* ip)
+	virtual void HostnameResolved(BURLRequest* caller, const char* ip)
 	{
 	}
 
-	virtual void ResponseStarted(BUrlRequest* caller)
+	virtual void ResponseStarted(BURLRequest* caller)
 	{
 	}
 
-	virtual void HeadersReceived(BUrlRequest* caller, const BUrlResult& result)
+	virtual void HeadersReceived(BURLRequest* caller, const BURLResult& result)
 	{
 	}
 
-	virtual void DataReceived(BUrlRequest* caller, const char* data,
+	virtual void DataReceived(BURLRequest* caller, const char* data,
 		off_t position, ssize_t size)
 	{
 		if (fDownloadIO != NULL)
 			fDownloadIO->Write(data, size);
 	}
 
-	virtual	void DownloadProgress(BUrlRequest* caller, ssize_t bytesReceived,
+	virtual	void DownloadProgress(BURLRequest* caller, ssize_t bytesReceived,
 		ssize_t bytesTotal)
 	{
 	}
 
-	virtual void UploadProgress(BUrlRequest* caller, ssize_t bytesSent,
+	virtual void UploadProgress(BURLRequest* caller, ssize_t bytesSent,
 		ssize_t bytesTotal)
 	{
 	}
 
-	virtual void RequestCompleted(BUrlRequest* caller, bool success)
+	virtual void RequestCompleted(BURLRequest* caller, bool success)
 	{
 	}
 
-	virtual void DebugMessage(BUrlRequest* caller,
-		BUrlProtocolDebugMessage type, const char* text)
+	virtual void DebugMessage(BURLRequest* caller,
+		BURLProtocolDebugMessage type, const char* text)
 	{
 		if (fTraceLogging)
 			printf("jrpc: %s\n", text);
@@ -568,7 +568,7 @@ status_t
 WebAppInterface::RetrieveScreenshot(const BString& code,
 	int32 width, int32 height, BDataIO* stream)
 {
-	BUrl url = ServerSettings::CreateFullUrl(
+	BURL url = ServerSettings::CreateFullUrl(
 		BString("/__pkgscreenshot/") << code << ".png" << "?tw="
 			<< width << "&th=" << height);
 
@@ -737,7 +737,7 @@ WebAppInterface::_SendJsonRequest(const char* domain, BPositionIO* requestData,
 		return HD_CLIENT_TOO_OLD;
 	}
 
-	BUrl url = ServerSettings::CreateFullUrl(BString("/__api/v1/") << domain);
+	BURL url = ServerSettings::CreateFullUrl(BString("/__api/v1/") << domain);
 	bool isSecure = url.Protocol() == "https";
 
 	if (Logger::IsDebugEnabled()) {
@@ -756,7 +756,7 @@ WebAppInterface::_SendJsonRequest(const char* domain, BPositionIO* requestData,
 	}
 
 	ProtocolListener listener(Logger::IsTraceEnabled());
-	BUrlContext context;
+	BURLContext context;
 
 	BHttpHeaders headers;
 	headers.AddHeader("Content-Type", "application/json");

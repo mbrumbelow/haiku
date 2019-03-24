@@ -35,7 +35,7 @@ static const char* kArchivedCookieHostOnly = "be:cookie.hostonly";
 
 
 BNetworkCookie::BNetworkCookie(const char* name, const char* value,
-	const BUrl& url)
+	const BURL& url)
 {
 	_Reset();
 	fName = name;
@@ -52,7 +52,7 @@ BNetworkCookie::BNetworkCookie(const char* name, const char* value,
 }
 
 
-BNetworkCookie::BNetworkCookie(const BString& cookieString, const BUrl& url)
+BNetworkCookie::BNetworkCookie(const BString& cookieString, const BURL& url)
 {
 	_Reset();
 	fInitStatus = ParseCookieString(cookieString, url);
@@ -102,7 +102,7 @@ BNetworkCookie::~BNetworkCookie()
 
 
 status_t
-BNetworkCookie::ParseCookieString(const BString& string, const BUrl& url)
+BNetworkCookie::ParseCookieString(const BString& string, const BURL& url)
 {
 	_Reset();
 
@@ -461,7 +461,7 @@ BNetworkCookie::IsValid() const
 
 
 bool
-BNetworkCookie::IsValidForUrl(const BUrl& url) const
+BNetworkCookie::IsValidForUrl(const BURL& url) const
 {
 	if (Secure() && url.Protocol() != "https")
 		return false;
@@ -517,7 +517,7 @@ BNetworkCookie::IsValidForPath(const BString& path) const
 
 
 bool
-BNetworkCookie::_CanBeSetFromUrl(const BUrl& url) const
+BNetworkCookie::_CanBeSetFromUrl(const BURL& url) const
 {
 	if (url.Protocol() == "file")
 		return Domain() == "localhost" && _CanBeSetFromPath(url.Path());
@@ -850,7 +850,7 @@ BNetworkCookie::_ExtractAttributeValuePair(const BString& cookieString,
 
 
 BString
-BNetworkCookie::_DefaultPathForUrl(const BUrl& url)
+BNetworkCookie::_DefaultPathForUrl(const BURL& url)
 {
 	const BString& path = url.Path();
 	if (path.IsEmpty() || path.ByteAt(0) != '/')

@@ -17,19 +17,19 @@ using namespace std;
 
 
 void
-BUrlProtocolListener::ConnectionOpened(BUrlRequest*)
+BURLProtocolListener::ConnectionOpened(BURLRequest*)
 {
 }
 
 
 void
-BUrlProtocolListener::HostnameResolved(BUrlRequest*, const char*)
+BURLProtocolListener::HostnameResolved(BURLRequest*, const char*)
 {
 }
 
 
 bool
-BUrlProtocolListener::CertificateVerificationFailed(BUrlRequest* caller,
+BURLProtocolListener::CertificateVerificationFailed(BURLRequest* caller,
 	BCertificate& certificate, const char* message)
 {
 	return false;
@@ -37,44 +37,44 @@ BUrlProtocolListener::CertificateVerificationFailed(BUrlRequest* caller,
 
 
 void
-BUrlProtocolListener::ResponseStarted(BUrlRequest*)
+BURLProtocolListener::ResponseStarted(BURLRequest*)
 {
 }
 
 
 void
-BUrlProtocolListener::HeadersReceived(BUrlRequest*, const BUrlResult& result)
+BURLProtocolListener::HeadersReceived(BURLRequest*, const BURLResult& result)
 {
 }
 
 
 void
-BUrlProtocolListener::DataReceived(BUrlRequest*, const char*, off_t, ssize_t)
+BURLProtocolListener::DataReceived(BURLRequest*, const char*, off_t, ssize_t)
 {
 }
 
 
 void
-BUrlProtocolListener::DownloadProgress(BUrlRequest*, ssize_t, ssize_t)
+BURLProtocolListener::DownloadProgress(BURLRequest*, ssize_t, ssize_t)
 {
 }
 
 
 void
-BUrlProtocolListener::UploadProgress(BUrlRequest*, ssize_t, ssize_t)
+BURLProtocolListener::UploadProgress(BURLRequest*, ssize_t, ssize_t)
 {
 }
 
 
 void
-BUrlProtocolListener::RequestCompleted(BUrlRequest*, bool)
+BURLProtocolListener::RequestCompleted(BURLRequest*, bool)
 {
 }
 
 
 void
-BUrlProtocolListener::DebugMessage(BUrlRequest* caller,
-	BUrlProtocolDebugMessage type, const char* text)
+BURLProtocolListener::DebugMessage(BURLRequest* caller,
+	BURLProtocolDebugMessage type, const char* text)
 {
 #ifdef DEBUG
 	switch (type) {

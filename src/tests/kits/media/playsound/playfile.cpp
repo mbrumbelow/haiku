@@ -55,7 +55,7 @@ main(int argc, char *argv[])
 		return 1;
 	}
 
-	BUrl url;
+	BURL url;
 	bool isUrl = false;
 	entry_ref ref;
 

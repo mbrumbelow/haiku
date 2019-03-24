@@ -12,7 +12,7 @@
 
 class UrlPlaylistItem : public PlaylistItem {
 public:
-								UrlPlaylistItem(BUrl url);
+								UrlPlaylistItem(BURL url);
 								UrlPlaylistItem(const UrlPlaylistItem& item);
 								UrlPlaylistItem(const BMessage* archive);
 	virtual						~UrlPlaylistItem();
@@ -50,7 +50,7 @@ public:
 	virtual	status_t			MoveIntoTrash();
 	virtual	status_t			RestoreFromTrash();
 
-			BUrl				Url() const;
+			BURL				Url() const;
 
 protected:
 	virtual	bigtime_t			_CalculateDuration();
@@ -58,7 +58,7 @@ protected:
 	virtual	TrackSupplier*		_CreateTrackSupplier() const;
 
 private:
-			BUrl				fUrl;
+			BURL				fUrl;
 			bigtime_t			fDuration;
 };
 

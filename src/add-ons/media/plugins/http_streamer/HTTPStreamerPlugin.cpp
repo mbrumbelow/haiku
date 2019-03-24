@@ -29,7 +29,7 @@ HTTPStreamer::~HTTPStreamer()
 
 
 status_t
-HTTPStreamer::Sniff(const BUrl& url)
+HTTPStreamer::Sniff(const BURL& url)
 {
 	CALLED();
 

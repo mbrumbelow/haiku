@@ -14,22 +14,22 @@
 #include <Referenceable.h>
 
 
-class BUrlContext: public BReferenceable {
+class BURLContext: public BReferenceable {
 public:
-								BUrlContext();
-								~BUrlContext();
+								BURLContext();
+								~BURLContext();
 
 	// Context modifiers
 			void				SetCookieJar(
 									const BNetworkCookieJar& cookieJar);
-			void				AddAuthentication(const BUrl& url,
+			void				AddAuthentication(const BURL& url,
 									const BHttpAuthentication& authentication);
 			void				SetProxy(BString host, uint16 port);
 			void				AddCertificateException(const BCertificate& certificate);
 
 	// Context accessors
 			BNetworkCookieJar&	GetCookieJar();
-			BHttpAuthentication& GetAuthentication(const BUrl& url);
+			BHttpAuthentication& GetAuthentication(const BURL& url);
 			bool				UseProxy();
 			BString				GetProxyHost();
 			uint16				GetProxyPort();

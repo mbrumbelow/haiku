@@ -20,7 +20,7 @@ class FileListener;
 
 class HTTPMediaIO : public BAdapterIO {
 public:
-										HTTPMediaIO(BUrl url);
+										HTTPMediaIO(BURL url);
 	virtual								~HTTPMediaIO();
 
 	virtual void						GetFlags(int32* flags) const;
@@ -43,11 +43,11 @@ protected:
 
 	friend class FileListener;
 private:
-	BUrlRequest*						fReq;
+	BURLRequest*						fReq;
 	FileListener*						fListener;
 	thread_id							fReqThread;
 
-	BUrl								fUrl;
+	BURL								fUrl;
 	off_t								fTotalSize;
 	bool								fIsMutable;
 };

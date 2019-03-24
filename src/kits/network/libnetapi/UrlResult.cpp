@@ -10,7 +10,7 @@
 #include <UrlResult.h>
 
 
-BUrlResult::BUrlResult()
+BURLResult::BURLResult()
 	:
 	BArchivable(),
 	fContentType(),
@@ -19,7 +19,7 @@ BUrlResult::BUrlResult()
 }
 
 
-BUrlResult::BUrlResult(BMessage* archive)
+BURLResult::BURLResult(BMessage* archive)
 	:
 	BArchivable(archive)
 {
@@ -28,13 +28,13 @@ BUrlResult::BUrlResult(BMessage* archive)
 }
 
 
-BUrlResult::~BUrlResult()
+BURLResult::~BURLResult()
 {
 }
 
 
 status_t
-BUrlResult::Archive(BMessage* archive, bool deep) const
+BURLResult::Archive(BMessage* archive, bool deep) const
 {
 	status_t result = BArchivable::Archive(archive, deep);
 
@@ -49,37 +49,37 @@ BUrlResult::Archive(BMessage* archive, bool deep) const
 
 
 void
-BUrlResult::SetContentType(BString contentType)
+BURLResult::SetContentType(BString contentType)
 {
 	fContentType = contentType;
 }
 
 
 void
-BUrlResult::SetLength(size_t length)
+BURLResult::SetLength(size_t length)
 {
 	fLength = length;
 }
 
 
 BString
-BUrlResult::ContentType() const
+BURLResult::ContentType() const
 {
 	return fContentType;
 }
 
 
 size_t
-BUrlResult::Length() const
+BURLResult::Length() const
 {
 	return fLength;
 }
 
 
 /*static*/ BArchivable*
-BUrlResult::Instantiate(BMessage* archive)
+BURLResult::Instantiate(BMessage* archive)
 {
-	if (!validate_instantiation(archive, "BUrlResult"))
+	if (!validate_instantiation(archive, "BURLResult"))
 		return NULL;
-	return new BUrlResult(archive);
+	return new BURLResult(archive);
 }

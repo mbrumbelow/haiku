@@ -13,13 +13,13 @@
 
 class BGopherRequest : public BNetworkRequest {
 public:
-								BGopherRequest(const BUrl& url,
-									BUrlProtocolListener* listener = NULL,
-									BUrlContext* context = NULL);
+								BGopherRequest(const BURL& url,
+									BURLProtocolListener* listener = NULL,
+									BURLContext* context = NULL);
 	virtual						~BGopherRequest();
 
 			status_t			Stop();
-	const 	BUrlResult&			Result() const;
+	const 	BURLResult&			Result() const;
             void                SetDisableListener(bool disable);
 
 private:
@@ -38,7 +38,7 @@ private:
 
 			ssize_t				fPosition;
 
-			BUrlResult			fResult;
+			BURLResult			fResult;
 };
 
 

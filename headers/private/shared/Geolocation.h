@@ -15,7 +15,7 @@ namespace BPrivate {
 class BGeolocation {
 public:
 				BGeolocation();
-				BGeolocation(const BUrl& service);
+				BGeolocation(const BURL& service);
 
 	status_t	LocateSelf(float& latitude, float& longitude);
 	status_t	Locate(const BString placeName, float& latitude,
@@ -24,7 +24,7 @@ public:
 					BString& name);
 
 private:
-					BUrl	fService;
+					BURL	fService;
 	static const	char*	kDefaultService;
 };
 

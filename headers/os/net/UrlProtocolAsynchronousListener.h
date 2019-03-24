@@ -11,21 +11,21 @@
 #include <UrlProtocolDispatchingListener.h>
 
 
-class BUrlProtocolAsynchronousListener : public BHandler,
-	public BUrlProtocolListener {
+class BURLProtocolAsynchronousListener : public BHandler,
+	public BURLProtocolListener {
 public:
-								BUrlProtocolAsynchronousListener(
+								BURLProtocolAsynchronousListener(
 									bool transparent = false);
-	virtual						~BUrlProtocolAsynchronousListener();
+	virtual						~BURLProtocolAsynchronousListener();
 
 	// Synchronous listener access
-			BUrlProtocolListener* SynchronousListener();
+			BURLProtocolListener* SynchronousListener();
 									
 	// BHandler interface
 	virtual void				MessageReceived(BMessage* message);
 
 private:
-			BUrlProtocolDispatchingListener*
+			BURLProtocolDispatchingListener*
 						 		fSynchronousListener;
 };
 

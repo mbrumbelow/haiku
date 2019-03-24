@@ -117,7 +117,7 @@ UrlWrapper::RefsReceived(BMessage* msg)
 					}
 				}
 				if (url.Length()) {
-					BUrl u(url.String());
+					BURL u(url.String());
 					args[1] = (char*)u.UrlString().String();
 					mimetype = kURLHandlerSigBase;
 					mimetype += u.Protocol();
@@ -195,7 +195,7 @@ UrlWrapper::RefsReceived(BMessage* msg)
 					}
 				}
 				if (url.Length()) {
-					BUrl u(url.String());
+					BURL u(url.String());
 					args[1] = (char*)u.UrlString().String();
 					mimetype = kURLHandlerSigBase;
 					mimetype += u.Protocol();
@@ -209,7 +209,7 @@ UrlWrapper::RefsReceived(BMessage* msg)
 			// NetPositive Bookmark or any file with a META:url attribute
 			if (f.ReadAttr("META:url", B_STRING_TYPE, 0LL, buff,
 				B_PATH_NAME_LENGTH) > 0) {
-				BUrl u(buff);
+				BURL u(buff);
 				args[1] = (char*)u.UrlString().String();
 				mimetype = kURLHandlerSigBase;
 				mimetype += u.Protocol();
@@ -234,9 +234,9 @@ UrlWrapper::ArgvReceived(int32 argc, char** argv)
 	char* args[] = { (char *)"/bin/sh", (char *)"-c", NULL, NULL};
 	status_t err;
 
-	BUrl url(argv[1]);
+	BURL url(argv[1]);
 
-	BString full = BUrl(url).SetProtocol(BString()).UrlString();
+	BString full = BURL(url).SetProtocol(BString()).UrlString();
 	BString proto = url.Protocol();
 	BString host = url.Host();
 	BString port = BString() << url.Port();
@@ -260,7 +260,7 @@ UrlWrapper::ArgvReceived(int32 argc, char** argv)
 	if (proto == "about") {
 		app_info info;
 		BString sig;
-		// BUrl could get an accessor for the full - proto part...
+		// BURL could get an accessor for the full - proto part...
 		sig = host << "/" << path;
 		BMessage msg(B_ABOUT_REQUESTED);
 		if (be_roster->GetAppInfo(sig.String(), &info) == B_OK) {
@@ -519,7 +519,7 @@ UrlWrapper::ArgvReceived(int32 argc, char** argv)
 		BString mimetype;
 
 		url << full;
-		BUrl u(url.String());
+		BURL u(url.String());
 		args[0] = const_cast<char*>("urlwrapper"); //XXX
 		args[1] = (char*)u.UrlString().String();
 		args[2] = NULL;

@@ -12,7 +12,7 @@
 #include "MediaFileTrackSupplier.h"
 
 
-UrlPlaylistItem::UrlPlaylistItem(BUrl url)
+UrlPlaylistItem::UrlPlaylistItem(BURL url)
 	:
 	fUrl(url),
 	fDuration(-1)
@@ -22,7 +22,7 @@ UrlPlaylistItem::UrlPlaylistItem(BUrl url)
 
 UrlPlaylistItem::UrlPlaylistItem(const UrlPlaylistItem& item)
 {
-	fUrl = BUrl(item.Url());
+	fUrl = BURL(item.Url());
 }
 
 
@@ -30,7 +30,7 @@ UrlPlaylistItem::UrlPlaylistItem(const BMessage* archive)
 {
 	const char* url = NULL;
 	if (archive->FindString("mediaplayer:url", &url) == B_OK)
-		fUrl = BUrl(url);
+		fUrl = BURL(url);
 }
 
 
@@ -189,7 +189,7 @@ UrlPlaylistItem::_CreateTrackSupplier() const
 }
 
 
-BUrl
+BURL
 UrlPlaylistItem::Url() const
 {
 	return fUrl;

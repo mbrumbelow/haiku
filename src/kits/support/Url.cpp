@@ -36,7 +36,7 @@ const uint32 PARSE_NO_MASK_BIT				= 0x00000000;
 const uint32 PARSE_RAW_PATH_MASK_BIT		= 0x00000001;
 
 
-BUrl::BUrl(const char* url)
+BURL::BURL(const char* url)
 	:
 	fUrlString(),
 	fProtocol(),
@@ -53,7 +53,7 @@ BUrl::BUrl(const char* url)
 }
 
 
-BUrl::BUrl(BMessage* archive)
+BURL::BURL(BMessage* archive)
 	:
 	fUrlString(),
 	fProtocol(),
@@ -75,7 +75,7 @@ BUrl::BUrl(BMessage* archive)
 }
 
 
-BUrl::BUrl(const BUrl& other)
+BURL::BURL(const BURL& other)
 	:
 	BArchivable(),
 	fUrlString(),
@@ -111,7 +111,7 @@ BUrl::BUrl(const BUrl& other)
 }
 
 
-BUrl::BUrl(const BUrl& base, const BString& location)
+BURL::BURL(const BURL& base, const BString& location)
 	:
 	fUrlString(),
 	fProtocol(),
@@ -131,7 +131,7 @@ BUrl::BUrl(const BUrl& base, const BString& location)
 {
 	// This implements the algorithm in RFC3986, Section 5.2.
 
-	BUrl relative;
+	BURL relative;
 	relative._ExplodeUrlString(location, PARSE_RAW_PATH_MASK_BIT);
 		// This parse will leave the path 'raw' so that it still carries any
 		// special sequences such as '..' and '.' in it.  This way it can be
@@ -176,7 +176,7 @@ BUrl::BUrl(const BUrl& base, const BString& location)
 }
 
 
-BUrl::BUrl()
+BURL::BURL()
 	:
 	fUrlString(),
 	fProtocol(),
@@ -193,7 +193,7 @@ BUrl::BUrl()
 }
 
 
-BUrl::BUrl(const BPath& path)
+BURL::BURL(const BPath& path)
 	:
 	fUrlString(),
 	fProtocol(),
@@ -211,7 +211,7 @@ BUrl::BUrl(const BPath& path)
 }
 
 
-BUrl::~BUrl()
+BURL::~BURL()
 {
 }
 
@@ -219,16 +219,16 @@ BUrl::~BUrl()
 // #pragma mark URL fields modifiers
 
 
-BUrl&
-BUrl::SetUrlString(const BString& url)
+BURL&
+BURL::SetUrlString(const BString& url)
 {
 	_ExplodeUrlString(url, PARSE_NO_MASK_BIT);
 	return *this;
 }
 
 
-BUrl&
-BUrl::SetProtocol(const BString& protocol)
+BURL&
+BURL::SetProtocol(const BString& protocol)
 {
 	fProtocol = protocol;
 	fHasProtocol = !fProtocol.IsEmpty();
@@ -237,8 +237,8 @@ BUrl::SetProtocol(const BString& protocol)
 }
 
 
-BUrl&
-BUrl::SetUserName(const BString& user)
+BURL&
+BURL::SetUserName(const BString& user)
 {
 	fUser = user;
 	fHasUserName = !fUser.IsEmpty();
@@ -249,8 +249,8 @@ BUrl::SetUserName(const BString& user)
 }
 
 
-BUrl&
-BUrl::SetPassword(const BString& password)
+BURL&
+BURL::SetPassword(const BString& password)
 {
 	fPassword = password;
 	fHasPassword = !fPassword.IsEmpty();
@@ -261,8 +261,8 @@ BUrl::SetPassword(const BString& password)
 }
 
 
-BUrl&
-BUrl::SetHost(const BString& host)
+BURL&
+BURL::SetHost(const BString& host)
 {
 	fHost = host;
 	fHasHost = !fHost.IsEmpty();
@@ -272,8 +272,8 @@ BUrl::SetHost(const BString& host)
 }
 
 
-BUrl&
-BUrl::SetPort(int port)
+BURL&
+BURL::SetPort(int port)
 {
 	fPort = port;
 	fHasPort = (port != 0);
@@ -284,7 +284,7 @@ BUrl::SetPort(int port)
 
 
 void
-BUrl::_RemoveLastPathComponent(BString& path)
+BURL::_RemoveLastPathComponent(BString& path)
 {
 	int32 outputLastSlashIdx = path.FindLast('/');
 
@@ -295,8 +295,8 @@ BUrl::_RemoveLastPathComponent(BString& path)
 }
 
 
-BUrl&
-BUrl::SetPath(const BString& path)
+BURL&
+BURL::SetPath(const BString& path)
 {
 	// Implements RFC3986 section 5.2.4, "Remove dot segments"
 
@@ -367,8 +367,8 @@ BUrl::SetPath(const BString& path)
 }
 
 
-BUrl&
-BUrl::SetRequest(const BString& request)
+BURL&
+BURL::SetRequest(const BString& request)
 {
 	fRequest = request;
 	fHasRequest = !fRequest.IsEmpty();
@@ -377,8 +377,8 @@ BUrl::SetRequest(const BString& request)
 }
 
 
-BUrl&
-BUrl::SetFragment(const BString& fragment)
+BURL&
+BURL::SetFragment(const BString& fragment)
 {
 	fFragment = fragment;
 	fHasFragment = true;
@@ -391,7 +391,7 @@ BUrl::SetFragment(const BString& fragment)
 
 
 const BString&
-BUrl::UrlString() const
+BURL::UrlString() const
 {
 	if (!fUrlStringValid) {
 		fUrlString.Truncate(0);
@@ -420,28 +420,28 @@ BUrl::UrlString() const
 
 
 const BString&
-BUrl::Protocol() const
+BURL::Protocol() const
 {
 	return fProtocol;
 }
 
 
 const BString&
-BUrl::UserName() const
+BURL::UserName() const
 {
 	return fUser;
 }
 
 
 const BString&
-BUrl::Password() const
+BURL::Password() const
 {
 	return fPassword;
 }
 
 
 const BString&
-BUrl::UserInfo() const
+BURL::UserInfo() const
 {
 	if (!fUserInfoValid) {
 		fUserInfo = fUser;
@@ -457,21 +457,21 @@ BUrl::UserInfo() const
 
 
 const BString&
-BUrl::Host() const
+BURL::Host() const
 {
 	return fHost;
 }
 
 
 int
-BUrl::Port() const
+BURL::Port() const
 {
 	return fPort;
 }
 
 
 const BString&
-BUrl::Authority() const
+BURL::Authority() const
 {
 	if (!fAuthorityValid) {
 		fAuthority.Truncate(0);
@@ -490,21 +490,21 @@ BUrl::Authority() const
 
 
 const BString&
-BUrl::Path() const
+BURL::Path() const
 {
 	return fPath;
 }
 
 
 const BString&
-BUrl::Request() const
+BURL::Request() const
 {
 	return fRequest;
 }
 
 
 const BString&
-BUrl::Fragment() const
+BURL::Fragment() const
 {
 	return fFragment;
 }
@@ -514,7 +514,7 @@ BUrl::Fragment() const
 
 
 bool
-BUrl::IsValid() const
+BURL::IsValid() const
 {
 	if (!fHasProtocol)
 		return false;
@@ -542,70 +542,70 @@ BUrl::IsValid() const
 
 
 bool
-BUrl::HasProtocol() const
+BURL::HasProtocol() const
 {
 	return fHasProtocol;
 }
 
 
 bool
-BUrl::HasAuthority() const
+BURL::HasAuthority() const
 {
 	return fHasHost || fHasUserName;
 }
 
 
 bool
-BUrl::HasUserName() const
+BURL::HasUserName() const
 {
 	return fHasUserName;
 }
 
 
 bool
-BUrl::HasPassword() const
+BURL::HasPassword() const
 {
 	return fHasPassword;
 }
 
 
 bool
-BUrl::HasUserInfo() const
+BURL::HasUserInfo() const
 {
 	return fHasUserName || fHasPassword;
 }
 
 
 bool
-BUrl::HasHost() const
+BURL::HasHost() const
 {
 	return fHasHost;
 }
 
 
 bool
-BUrl::HasPort() const
+BURL::HasPort() const
 {
 	return fHasPort;
 }
 
 
 bool
-BUrl::HasPath() const
+BURL::HasPath() const
 {
 	return fHasPath;
 }
 
 
 bool
-BUrl::HasRequest() const
+BURL::HasRequest() const
 {
 	return fHasRequest;
 }
 
 
 bool
-BUrl::HasFragment() const
+BURL::HasFragment() const
 {
 	return fHasFragment;
 }
@@ -615,7 +615,7 @@ BUrl::HasFragment() const
 
 
 void
-BUrl::UrlEncode(bool strict)
+BURL::UrlEncode(bool strict)
 {
 	fUser = _DoUrlEncodeChunk(fUser, strict);
 	fPassword = _DoUrlEncodeChunk(fPassword, strict);
@@ -626,7 +626,7 @@ BUrl::UrlEncode(bool strict)
 
 
 void
-BUrl::UrlDecode(bool strict)
+BURL::UrlDecode(bool strict)
 {
 	fUser = _DoUrlDecodeChunk(fUser, strict);
 	fPassword = _DoUrlDecodeChunk(fPassword, strict);
@@ -638,7 +638,7 @@ BUrl::UrlDecode(bool strict)
 
 #ifdef HAIKU_TARGET_PLATFORM_HAIKU
 status_t
-BUrl::IDNAToAscii()
+BURL::IDNAToAscii()
 {
 	UErrorCode err = U_ZERO_ERROR;
 	icu::IDNA* converter = icu::IDNA::createUTS46Instance(0, err);
@@ -662,7 +662,7 @@ BUrl::IDNAToAscii()
 
 #ifdef HAIKU_TARGET_PLATFORM_HAIKU
 status_t
-BUrl::IDNAToUnicode()
+BURL::IDNAToUnicode()
 {
 	UErrorCode err = U_ZERO_ERROR;
 	icu::IDNA* converter = icu::IDNA::createUTS46Instance(0, err);
@@ -689,7 +689,7 @@ BUrl::IDNAToUnicode()
 
 #ifdef HAIKU_TARGET_PLATFORM_HAIKU
 bool
-BUrl::HasPreferredApplication() const
+BURL::HasPreferredApplication() const
 {
 	BString appSignature = PreferredApplication();
 	BMimeType mime(appSignature.String());
@@ -705,7 +705,7 @@ BUrl::HasPreferredApplication() const
 
 #ifdef HAIKU_TARGET_PLATFORM_HAIKU
 BString
-BUrl::PreferredApplication() const
+BURL::PreferredApplication() const
 {
 	BString appSignature;
 	BMimeType mime(_UrlMimeType().String());
@@ -719,7 +719,7 @@ BUrl::PreferredApplication() const
 
 #ifdef HAIKU_TARGET_PLATFORM_HAIKU
 status_t
-BUrl::OpenWithPreferredApplication(bool onProblemAskUser) const
+BURL::OpenWithPreferredApplication(bool onProblemAskUser) const
 {
 	if (!IsValid())
 		return B_BAD_VALUE;
@@ -736,7 +736,7 @@ BUrl::OpenWithPreferredApplication(bool onProblemAskUser) const
 	}
 
 	char* argv[] = {
-		const_cast<char*>("BUrlInvokedApplication"),
+		const_cast<char*>("BURLInvokedApplication"),
 		const_cast<char*>(urlString.String()),
 		NULL
 	};
@@ -764,14 +764,14 @@ BUrl::OpenWithPreferredApplication(bool onProblemAskUser) const
 
 
 /*static*/ BString
-BUrl::UrlEncode(const BString& url, bool strict, bool directory)
+BURL::UrlEncode(const BString& url, bool strict, bool directory)
 {
 	return _DoUrlEncodeChunk(url, strict, directory);
 }
 
 
 /*static*/ BString
-BUrl::UrlDecode(const BString& url, bool strict)
+BURL::UrlDecode(const BString& url, bool strict)
 {
 	return _DoUrlDecodeChunk(url, strict);
 }
@@ -781,7 +781,7 @@ BUrl::UrlDecode(const BString& url, bool strict)
 
 
 status_t
-BUrl::Archive(BMessage* into, bool deep) const
+BURL::Archive(BMessage* into, bool deep) const
 {
 	status_t ret = BArchivable::Archive(into, deep);
 
@@ -793,10 +793,10 @@ BUrl::Archive(BMessage* into, bool deep) const
 
 
 /*static*/ BArchivable*
-BUrl::Instantiate(BMessage* archive)
+BURL::Instantiate(BMessage* archive)
 {
-	if (validate_instantiation(archive, "BUrl"))
-		return new(std::nothrow) BUrl(archive);
+	if (validate_instantiation(archive, "BURL"))
+		return new(std::nothrow) BURL(archive);
 	return NULL;
 }
 
@@ -805,7 +805,7 @@ BUrl::Instantiate(BMessage* archive)
 
 
 bool
-BUrl::operator==(BUrl& other) const
+BURL::operator==(BURL& other) const
 {
 	UrlString();
 	other.UrlString();
@@ -815,7 +815,7 @@ BUrl::operator==(BUrl& other) const
 
 
 bool
-BUrl::operator!=(BUrl& other) const
+BURL::operator!=(BURL& other) const
 {
 	return !(*this == other);
 }
@@ -824,8 +824,8 @@ BUrl::operator!=(BUrl& other) const
 // #pragma mark URL assignment
 
 
-const BUrl&
-BUrl::operator=(const BUrl& other)
+const BURL&
+BURL::operator=(const BURL& other)
 {
 	fUrlStringValid = other.fUrlStringValid;
 	if (fUrlStringValid)
@@ -861,16 +861,16 @@ BUrl::operator=(const BUrl& other)
 }
 
 
-const BUrl&
-BUrl::operator=(const BString& string)
+const BURL&
+BURL::operator=(const BString& string)
 {
 	SetUrlString(string);
 	return *this;
 }
 
 
-const BUrl&
-BUrl::operator=(const char* string)
+const BURL&
+BURL::operator=(const char* string)
 {
 	SetUrlString(string);
 	return *this;
@@ -880,14 +880,14 @@ BUrl::operator=(const char* string)
 // #pragma mark URL to string conversion
 
 
-BUrl::operator const char*() const
+BURL::operator const char*() const
 {
 	return UrlString();
 }
 
 
 void
-BUrl::_ResetFields()
+BURL::_ResetFields()
 {
 	fHasProtocol = false;
 	fHasUserName = false;
@@ -915,7 +915,7 @@ BUrl::_ResetFields()
 
 
 bool
-BUrl::_ContainsDelimiter(const BString& url)
+BURL::_ContainsDelimiter(const BString& url)
 {
 	int32 len = url.Length();
 
@@ -993,7 +993,7 @@ char_offset_until_fn_false(const char* url, int32 len, int32 offset,
  * This function takes a URL in string-form and parses the components of the URL out.
  */
 status_t
-BUrl::_ExplodeUrlString(const BString& url, uint32 flags)
+BURL::_ExplodeUrlString(const BString& url, uint32 flags)
 {
 	_ResetFields();
 
@@ -1134,7 +1134,7 @@ BUrl::_ExplodeUrlString(const BString& url, uint32 flags)
 
 
 BString
-BUrl::_MergePath(const BString& relative) const
+BURL::_MergePath(const BString& relative) const
 {
 	// This implements RFC3986, Section 5.2.3.
 	if (HasAuthority() && fPath == "") {
@@ -1159,7 +1159,7 @@ BUrl::_MergePath(const BString& relative) const
 // This sets the path without normalizing it. If fed with a path that has . or
 // .. segments, this would make the URL invalid.
 void
-BUrl::_SetPathUnsafe(const BString& path)
+BURL::_SetPathUnsafe(const BString& path)
 {
 	fPath = path;
 	fHasPath = true; // RFC says an empty path is still a path
@@ -1176,7 +1176,7 @@ enum authority_parse_state {
 };
 
 void
-BUrl::SetAuthority(const BString& authority)
+BURL::SetAuthority(const BString& authority)
 {
 	fAuthority = authority;
 
@@ -1301,7 +1301,7 @@ BUrl::SetAuthority(const BString& authority)
 
 
 /*static*/ BString
-BUrl::_DoUrlEncodeChunk(const BString& chunk, bool strict, bool directory)
+BURL::_DoUrlEncodeChunk(const BString& chunk, bool strict, bool directory)
 {
 	BString result;
 
@@ -1327,7 +1327,7 @@ BUrl::_DoUrlEncodeChunk(const BString& chunk, bool strict, bool directory)
 
 
 /*static*/ BString
-BUrl::_DoUrlDecodeChunk(const BString& chunk, bool strict)
+BURL::_DoUrlDecodeChunk(const BString& chunk, bool strict)
 {
 	BString result;
 
@@ -1359,7 +1359,7 @@ BUrl::_DoUrlDecodeChunk(const BString& chunk, bool strict)
 
 
 bool
-BUrl::_IsHostIPV6Valid(size_t offset, int32 length) const
+BURL::_IsHostIPV6Valid(size_t offset, int32 length) const
 {
 	for (int32 i = 0; i < length; i++) {
 		char c = fHost[offset + i];
@@ -1372,7 +1372,7 @@ BUrl::_IsHostIPV6Valid(size_t offset, int32 length) const
 
 
 bool
-BUrl::_IsHostValid() const
+BURL::_IsHostValid() const
 {
 	if (fHost.StartsWith("[") && fHost.EndsWith("]"))
 		return _IsHostIPV6Valid(1, fHost.Length() - 2);
@@ -1402,7 +1402,7 @@ BUrl::_IsHostValid() const
 
 
 bool
-BUrl::_IsProtocolValid() const
+BURL::_IsProtocolValid() const
 {
 	for (int8 index = 0; index < fProtocol.Length(); index++) {
 		char c = fProtocol[index];
@@ -1418,14 +1418,14 @@ BUrl::_IsProtocolValid() const
 
 
 bool
-BUrl::_IsUnreserved(char c)
+BURL::_IsUnreserved(char c)
 {
 	return isalnum(c) || c == '-' || c == '.' || c == '_' || c == '~';
 }
 
 
 bool
-BUrl::_IsGenDelim(char c)
+BURL::_IsGenDelim(char c)
 {
 	return c == ':' || c == '/' || c == '?' || c == '#' || c == '['
 		|| c == ']' || c == '@';
@@ -1433,7 +1433,7 @@ BUrl::_IsGenDelim(char c)
 
 
 bool
-BUrl::_IsSubDelim(char c)
+BURL::_IsSubDelim(char c)
 {
 	return c == '!' || c == '$' || c == '&' || c == '\'' || c == '('
 		|| c == ')' || c == '*' || c == '+' || c == ',' || c == ';'
@@ -1442,21 +1442,21 @@ BUrl::_IsSubDelim(char c)
 
 
 bool
-BUrl::_IsUsernameChar(char c)
+BURL::_IsUsernameChar(char c)
 {
 	return !(c == ':' || c == '@');
 }
 
 
 bool
-BUrl::_IsPasswordChar(char c)
+BURL::_IsPasswordChar(char c)
 {
 	return !(c == '@');
 }
 
 
 bool
-BUrl::_IsHostChar(char c)
+BURL::_IsHostChar(char c)
 {
 	return ((uint8) c) > 127 || isalnum(c) || c == '-' || c == '_' || c == '.'
 		|| c == '%';
@@ -1464,21 +1464,21 @@ BUrl::_IsHostChar(char c)
 
 
 bool
-BUrl::_IsPortChar(char c)
+BURL::_IsPortChar(char c)
 {
 	return isdigit(c);
 }
 
 
 bool
-BUrl::_IsIPV6Char(char c)
+BURL::_IsIPV6Char(char c)
 {
 	return c == ':' || isxdigit(c);
 }
 
 
 BString
-BUrl::_UrlMimeType() const
+BURL::_UrlMimeType() const
 {
 	BString mime;
 	mime << "application/x-vnd.Be.URL." << fProtocol;

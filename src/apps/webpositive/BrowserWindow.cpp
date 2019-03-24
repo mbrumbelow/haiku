@@ -344,7 +344,7 @@ private:
 
 
 BrowserWindow::BrowserWindow(BRect frame, SettingsMessage* appSettings,
-		const BString& url, BUrlContext* context, uint32 interfaceElements,
+		const BString& url, BURLContext* context, uint32 interfaceElements,
 		BWebView* webView)
 	:
 	BWebWindow(frame, kApplicationName,
@@ -976,7 +976,7 @@ BrowserWindow::MessageReceived(BMessage* message)
 			if (!entry.Exists() || entry.GetPath(&path) != B_OK)
 				break;
 
-			BUrl url(path);
+			BURL url(path);
 			CurrentWebView()->LoadURL(url);
 			break;
 		}

@@ -36,8 +36,8 @@ HttpTest::~HttpTest()
 void
 HttpTest::GetTest()
 {
-	BUrl testUrl(fBaseUrl, "/user-agent");
-	BUrlContext* c = new BUrlContext();
+	BURL testUrl(fBaseUrl, "/user-agent");
+	BURLContext* c = new BURLContext();
 	c->AcquireReference();
 	BHttpRequest t(testUrl);
 
@@ -67,16 +67,16 @@ HttpTest::GetTest()
 void
 HttpTest::ProxyTest()
 {
-	BUrl testUrl(fBaseUrl, "/user-agent");
+	BURL testUrl(fBaseUrl, "/user-agent");
 
-	BUrlContext* c = new BUrlContext();
+	BURLContext* c = new BURLContext();
 	c->AcquireReference();
 	c->SetProxy("120.203.214.182", 83);
 
 	BHttpRequest t(testUrl);
 	t.SetContext(c);
 
-	BUrlProtocolListener l;
+	BURLProtocolListener l;
 	t.SetListener(&l);
 
 	CPPUNIT_ASSERT(t.Run());
@@ -101,12 +101,12 @@ printf("%s\n", r.StatusText().String());
 }
 
 
-class PortTestListener: public BUrlProtocolListener
+class PortTestListener: public BURLProtocolListener
 {
 public:
 	virtual			~PortTestListener() {};
 
-			void	DataReceived(BUrlRequest*, const char* data, off_t,
+			void	DataReceived(BURLRequest*, const char* data, off_t,
 						ssize_t size)
 			{
 				fResult.Append(data, size);
@@ -119,7 +119,7 @@ public:
 void
 HttpTest::PortTest()
 {
-	BUrl testUrl("http://portquiz.net:4242");
+	BURL testUrl("http://portquiz.net:4242");
 	BHttpRequest t(testUrl);
 
 	// portquiz returns more easily parseable results when UA is Wget...
@@ -145,8 +145,8 @@ HttpTest::PortTest()
 void
 HttpTest::UploadTest()
 {
-	BUrl testUrl(fBaseUrl, "/post");
-	BUrlContext c;
+	BURL testUrl(fBaseUrl, "/post");
+	BURLContext c;
 	BHttpRequest t(testUrl);
 
 	t.SetContext(&c);
@@ -176,7 +176,7 @@ HttpTest::UploadTest()
 void
 HttpTest::AuthBasicTest()
 {
-	BUrl testUrl(fBaseUrl, "/basic-auth/walter/secret");
+	BURL testUrl(fBaseUrl, "/basic-auth/walter/secret");
 	_AuthTest(testUrl);
 }
 
@@ -184,15 +184,15 @@ HttpTest::AuthBasicTest()
 void
 HttpTest::AuthDigestTest()
 {
-	BUrl testUrl(fBaseUrl, "/digest-auth/auth/walter/secret");
+	BURL testUrl(fBaseUrl, "/digest-auth/auth/walter/secret");
 	_AuthTest(testUrl);
 }
 
 
 void
-HttpTest::_AuthTest(BUrl& testUrl)
+HttpTest::_AuthTest(BURL& testUrl)
 {
-	BUrlContext c;
+	BURLContext c;
 	BHttpRequest t(testUrl);
 
 	t.SetContext(&c);

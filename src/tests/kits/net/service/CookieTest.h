@@ -12,7 +12,7 @@
 
 class BNetworkCookie;
 class BNetworkCookieJar;
-class BUrl;
+class BURL;
 
 
 class CookieTest: public BTestCase {
@@ -44,7 +44,7 @@ public:
 	static	void			AddTests(BTestSuite& suite);
 
 private:
-	const	BNetworkCookie*	_GetCookie(BNetworkCookieJar& jar, const BUrl& url,
+	const	BNetworkCookie*	_GetCookie(BNetworkCookieJar& jar, const BURL& url,
 								const char* name);
 };
 

@@ -59,7 +59,7 @@ public:
 			const BString&		Password() const;
 			BHttpAuthenticationMethod Method() const;
 
-			BString				Authorization(const BUrl& url,
+			BString				Authorization(const BURL& url,
 									const BString& method) const;
 
 	// Base64 encoding

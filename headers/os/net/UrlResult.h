@@ -10,11 +10,11 @@
 #include <String.h>
 
 
-class BUrlResult: public BArchivable {
+class BURLResult: public BArchivable {
 public:
-							BUrlResult();
-							BUrlResult(BMessage*);
-	virtual					~BUrlResult();
+							BURLResult();
+							BURLResult(BMessage*);
+	virtual					~BURLResult();
 
 	virtual	status_t		Archive(BMessage*, bool) const;
 

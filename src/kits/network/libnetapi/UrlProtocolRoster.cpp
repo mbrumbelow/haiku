@@ -19,11 +19,11 @@
 #include <UrlRequest.h>
 
 
-/* static */ BUrlRequest*
-BUrlProtocolRoster::MakeRequest(const BUrl& url,
-	BUrlProtocolListener* listener, BUrlContext* context)
+/* static */ BURLRequest*
+BURLProtocolRoster::MakeRequest(const BURL& url,
+	BURLProtocolListener* listener, BURLContext* context)
 {
-	// TODO: instanciate the correct BUrlProtocol using add-on interface
+	// TODO: instanciate the correct BURLProtocol using add-on interface
 	if (url.Protocol() == "http") {
 		return new(std::nothrow) BHttpRequest(url, false, "HTTP", listener,
 			context);

@@ -12,10 +12,10 @@
 class RepositoryUrlUtils {
 
 public:
-	static void				NormalizeUrl(BUrl& url);
+	static void				NormalizeUrl(BURL& url);
 	static bool				EqualsNormalized(const BString& url1,
 								const BString& url2);
-	static bool				EqualsNormalized(const BUrl& normalizedUrl1,
+	static bool				EqualsNormalized(const BURL& normalizedUrl1,
 								const BString& url2);
 };
 

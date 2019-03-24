@@ -13,7 +13,7 @@
 using namespace BCodecKit;
 
 
-RTSPMediaIO::RTSPMediaIO(BUrl ourUrl)
+RTSPMediaIO::RTSPMediaIO(BURL ourUrl)
 	:
 	BAdapterIO(
 		B_MEDIA_STREAMING | B_MEDIA_MUTABLE_SIZE | B_MEDIA_SEEK_BACKWARD,

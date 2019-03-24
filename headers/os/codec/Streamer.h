@@ -20,7 +20,7 @@ namespace BPrivate {
 
 class BStreamer {
 public:
-	virtual status_t			Sniff(const BUrl& url) = 0;
+	virtual status_t			Sniff(const BURL& url) = 0;
 	virtual BMediaIO*			Adapter() const = 0;
 
 	// Base impl does nothing

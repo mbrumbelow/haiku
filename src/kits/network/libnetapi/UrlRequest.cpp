@@ -12,11 +12,11 @@
 #include <stdio.h>
 
 
-static BReference<BUrlContext> gDefaultContext = new(std::nothrow) BUrlContext();
+static BReference<BURLContext> gDefaultContext = new(std::nothrow) BURLContext();
 
 
-BUrlRequest::BUrlRequest(const BUrl& url, BUrlProtocolListener* listener,
-	BUrlContext* context, const char* threadName, const char* protocolName)
+BURLRequest::BURLRequest(const BURL& url, BURLProtocolListener* listener,
+	BURLContext* context, const char* threadName, const char* protocolName)
 	:
 	fUrl(url),
 	fContext(context),
@@ -33,7 +33,7 @@ BUrlRequest::BUrlRequest(const BUrl& url, BUrlProtocolListener* listener,
 }
 
 
-BUrlRequest::~BUrlRequest()
+BURLRequest::~BURLRequest()
 {
 	Stop();
 }
@@ -43,16 +43,16 @@ BUrlRequest::~BUrlRequest()
 
 
 thread_id
-BUrlRequest::Run()
+BURLRequest::Run()
 {
 	// Thread already running
 	if (fRunning) {
-		PRINT(("BUrlRequest::Run() : Oops, already running ! "
+		PRINT(("BURLRequest::Run() : Oops, already running ! "
 			"[urlProtocol=%p]!\n", this));
 		return fThreadId;
 	}
 
-	fThreadId = spawn_thread(BUrlRequest::_ThreadEntry, fThreadName,
+	fThreadId = spawn_thread(BURLRequest::_ThreadEntry, fThreadName,
 		B_NORMAL_PRIORITY, this);
 
 	if (fThreadId < B_OK)
@@ -62,7 +62,7 @@ BUrlRequest::Run()
 
 	status_t launchErr = resume_thread(fThreadId);
 	if (launchErr < B_OK) {
-		PRINT(("BUrlRequest::Run() : Failed to resume thread %" B_PRId32 "\n",
+		PRINT(("BURLRequest::Run() : Failed to resume thread %" B_PRId32 "\n",
 			fThreadId));
 		return launchErr;
 	}
@@ -72,7 +72,7 @@ BUrlRequest::Run()
 
 
 status_t
-BUrlRequest::Pause()
+BURLRequest::Pause()
 {
 	// TODO
 	return B_ERROR;
@@ -80,7 +80,7 @@ BUrlRequest::Pause()
 
 
 status_t
-BUrlRequest::Resume()
+BURLRequest::Resume()
 {
 	// TODO
 	return B_ERROR;
@@ -88,7 +88,7 @@ BUrlRequest::Resume()
 
 
 status_t
-BUrlRequest::Stop()
+BURLRequest::Stop()
 {
 	if (!fRunning)
 		return B_ERROR;
@@ -102,7 +102,7 @@ BUrlRequest::Stop()
 
 
 status_t
-BUrlRequest::SetUrl(const BUrl& url)
+BURLRequest::SetUrl(const BURL& url)
 {
 	// We should avoid to change URL while the thread is running ...
 	if (IsRunning())
@@ -114,7 +114,7 @@ BUrlRequest::SetUrl(const BUrl& url)
 
 
 status_t
-BUrlRequest::SetContext(BUrlContext* context)
+BURLRequest::SetContext(BURLContext* context)
 {
 	if (IsRunning())
 		return B_ERROR;
@@ -125,7 +125,7 @@ BUrlRequest::SetContext(BUrlContext* context)
 
 
 status_t
-BUrlRequest::SetListener(BUrlProtocolListener* listener)
+BURLRequest::SetListener(BURLProtocolListener* listener)
 {
 	if (IsRunning())
 		return B_ERROR;
@@ -138,29 +138,29 @@ BUrlRequest::SetListener(BUrlProtocolListener* listener)
 // #pragma mark URL protocol parameters access
 
 
-const BUrl&
-BUrlRequest::Url() const
+const BURL&
+BURLRequest::Url() const
 {
 	return fUrl;
 }
 
 
-BUrlContext*
-BUrlRequest::Context() const
+BURLContext*
+BURLRequest::Context() const
 {
 	return fContext;
 }
 
 
-BUrlProtocolListener*
-BUrlRequest::Listener() const
+BURLProtocolListener*
+BURLRequest::Listener() const
 {
 	return fListener;
 }
 
 
 const BString&
-BUrlRequest::Protocol() const
+BURLRequest::Protocol() const
 {
 	return fProtocol;
 }
@@ -170,14 +170,14 @@ BUrlRequest::Protocol() const
 
 
 bool
-BUrlRequest::IsRunning() const
+BURLRequest::IsRunning() const
 {
 	return fRunning;
 }
 
 
 status_t
-BUrlRequest::Status() const
+BURLRequest::Status() const
 {
 	return fThreadStatus;
 }
@@ -187,9 +187,9 @@ BUrlRequest::Status() const
 
 
 /*static*/ int32
-BUrlRequest::_ThreadEntry(void* arg)
+BURLRequest::_ThreadEntry(void* arg)
 {
-	BUrlRequest* request = reinterpret_cast<BUrlRequest*>(arg);
+	BURLRequest* request = reinterpret_cast<BURLRequest*>(arg);
 	request->fThreadStatus = B_BUSY;
 	request->_ProtocolSetup();
 
@@ -208,7 +208,7 @@ BUrlRequest::_ThreadEntry(void* arg)
 
 
 void
-BUrlRequest::_EmitDebug(BUrlProtocolDebugMessage type,
+BURLRequest::_EmitDebug(BURLProtocolDebugMessage type,
 	const char* format, ...)
 {
 	if (fListener == NULL)

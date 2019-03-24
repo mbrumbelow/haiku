@@ -241,7 +241,7 @@ BHttpAuthentication::Method() const
 
 
 BString
-BHttpAuthentication::Authorization(const BUrl& url, const BString& method) const
+BHttpAuthentication::Authorization(const BURL& url, const BString& method) const
 {
 	BPrivate::AutoLocker<BLocker> lock(fLock);
 	BString authorizationString;

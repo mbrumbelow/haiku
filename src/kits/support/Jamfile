@@ -22,7 +22,7 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 			SetupFeatureObjectsDir zstd ;
 		}
 
-		# BUrl uses ICU to perform IDNA conversions (unicode domain names)
+		# BURL uses ICU to perform IDNA conversions (unicode domain names)
 		UseBuildFeatureHeaders icu ;
 		Includes [ FGristFiles Url.cpp ]
 			: [ BuildFeatureAttribute icu : headers ] ;

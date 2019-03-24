@@ -17,10 +17,10 @@
 #include <Path.h>
 
 
-BFileRequest::BFileRequest(const BUrl& url, BUrlProtocolListener* listener,
-	BUrlContext* context)
+BFileRequest::BFileRequest(const BURL& url, BURLProtocolListener* listener,
+	BURLContext* context)
 	:
-	BUrlRequest(url, listener, context, "BUrlProtocol.File", "file"),
+	BURLRequest(url, listener, context, "BURLProtocol.File", "file"),
 	fResult()
 {
 	fUrl.UrlDecode(true);
@@ -35,7 +35,7 @@ BFileRequest::~BFileRequest()
 }
 
 
-const BUrlResult&
+const BURLResult&
 BFileRequest::Result() const
 {
 	return fResult;

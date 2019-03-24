@@ -32,7 +32,7 @@ UrlTest::~UrlTest()
 void UrlTest::ParseTest()
 {
 	uint8 testIndex;
-	BUrl testUrl;
+	BURL testUrl;
 
 	const char* kTestLength[] =
 	{
@@ -63,7 +63,7 @@ void UrlTest::ParseTest()
 
 void UrlTest::TestIsValid()
 {
-	BUrl url("http:");
+	BURL url("http:");
 	CPPUNIT_ASSERT_MESSAGE("Created with a scheme but no hierarchical segment.",
 		!url.IsValid());
 
@@ -96,7 +96,7 @@ void UrlTest::TestIsValid()
 
 void UrlTest::TestGettersSetters()
 {
-	BUrl url;
+	BURL url;
 	url.SetProtocol("http");
 	url.SetUserName("user");
 	url.SetPassword("password");
@@ -125,7 +125,7 @@ void UrlTest::TestGettersSetters()
 
 void UrlTest::TestNullity()
 {
-	BUrl url;
+	BURL url;
 	url.SetProtocol("http");
 	url.SetHost("example.com");
 
@@ -144,8 +144,8 @@ void UrlTest::TestNullity()
 
 void UrlTest::TestCopy()
 {
-	BUrl url1("http://example.com");
-	BUrl url2(url1);
+	BURL url1("http://example.com");
+	BURL url2(url1);
 
 	url2.SetHost("www.example.com");
 
@@ -208,7 +208,7 @@ const ExplodeTest	kTestExplode[] =
 void UrlTest::ExplodeImplodeTest()
 {
 	uint8 testIndex;
-	BUrl testUrl;
+	BURL testUrl;
 
 	for (testIndex = 0; testIndex < (sizeof(kTestExplode) / sizeof(ExplodeTest)); testIndex++)
 	{
@@ -240,7 +240,7 @@ void UrlTest::ExplodeImplodeTest()
 void
 UrlTest::PathOnly()
 {
-	BUrl test = "lol";
+	BURL test = "lol";
 	CPPUNIT_ASSERT(test.HasPath());
 	CPPUNIT_ASSERT_EQUAL(BString("lol"), test.Path());
 	CPPUNIT_ASSERT_EQUAL(BString("lol"), test.UrlString());
@@ -526,7 +526,7 @@ UrlTest::RelativeUriTest()
 	{
 		NextSubTest();
 
-		BUrl baseUrl(tests[index].base);
+		BURL baseUrl(tests[index].base);
 
 		message.Truncate(7, true);
 		message << tests[index].base;
@@ -535,7 +535,7 @@ UrlTest::RelativeUriTest()
 
 		CPPUNIT_ASSERT_EQUAL_MESSAGE(message.String(),
 			BString(tests[index].absolute),
-			BUrl(baseUrl, tests[index].relative).UrlString());
+			BURL(baseUrl, tests[index].relative).UrlString());
 	}
 }
 
@@ -594,10 +594,10 @@ UrlTest::IDNTest()
 	{
 		NextSubTest();
 
-		BUrl url(tests[i].escaped);
+		BURL url(tests[i].escaped);
 		url.UrlDecode();
 
-		BUrl idn(tests[i].decoded);
+		BURL idn(tests[i].decoded);
 		status_t success = idn.IDNAToUnicode();
 
 		CPPUNIT_ASSERT_EQUAL(B_OK, success);

@@ -23,11 +23,11 @@ extern const char* kUrlProtocolMessageType;
 extern const char* kUrlProtocolCaller;
 
 
-BUrlProtocolAsynchronousListener::BUrlProtocolAsynchronousListener(
+BURLProtocolAsynchronousListener::BURLProtocolAsynchronousListener(
 	bool transparent)
 	:
 	BHandler("UrlProtocolAsynchronousListener"),
-	BUrlProtocolListener(),
+	BURLProtocolListener(),
 	fSynchronousListener(NULL)
 {
 	if (be_app->Lock()) {
@@ -38,12 +38,12 @@ BUrlProtocolAsynchronousListener::BUrlProtocolAsynchronousListener(
 
 	if (transparent) {
 		fSynchronousListener
-			= new(std::nothrow) BUrlProtocolDispatchingListener(this);
+			= new(std::nothrow) BURLProtocolDispatchingListener(this);
 	}
 }
 
 
-BUrlProtocolAsynchronousListener::~BUrlProtocolAsynchronousListener()
+BURLProtocolAsynchronousListener::~BURLProtocolAsynchronousListener()
 {
 	if (be_app->Lock()) {
 		be_app->RemoveHandler(this);
@@ -56,22 +56,22 @@ BUrlProtocolAsynchronousListener::~BUrlProtocolAsynchronousListener()
 // #pragma mark Synchronous listener access
 
 
-BUrlProtocolListener*
-BUrlProtocolAsynchronousListener::SynchronousListener()
+BURLProtocolListener*
+BURLProtocolAsynchronousListener::SynchronousListener()
 {
 	return fSynchronousListener;
 }
 
 
 void
-BUrlProtocolAsynchronousListener::MessageReceived(BMessage* message)
+BURLProtocolAsynchronousListener::MessageReceived(BMessage* message)
 {
 	if (message->what != B_URL_PROTOCOL_NOTIFICATION) {
 		BHandler::MessageReceived(message);
 		return;
 	}
 
-	BUrlRequest* caller;
+	BURLRequest* caller;
 	if (message->FindPointer(kUrlProtocolCaller, (void**)&caller) != B_OK)
 		return;
 
@@ -101,11 +101,11 @@ BUrlProtocolAsynchronousListener::MessageReceived(BMessage* message)
 			{
 				BMessage archive;
 				message->FindMessage("url:result", &archive);
-				BUrlResult* result = dynamic_cast<BUrlResult*>(
+				BURLResult* result = dynamic_cast<BURLResult*>(
 					instantiate_object(&archive));
 				if (result == NULL) {
-					debugger("Failed to unarchive BUrlResult");
-					result = new BUrlResult();
+					debugger("Failed to unarchive BURLResult");
+					result = new BURLResult();
 				}
 				HeadersReceived(caller, *result);
 				delete result;
@@ -162,8 +162,8 @@ BUrlProtocolAsynchronousListener::MessageReceived(BMessage* message)
 
 		case B_URL_PROTOCOL_DEBUG_MESSAGE:
 			{
-				BUrlProtocolDebugMessage type
-					= (BUrlProtocolDebugMessage)message->FindInt32("url:type");
+				BURLProtocolDebugMessage type
+					= (BURLProtocolDebugMessage)message->FindInt32("url:type");
 				BString text = message->FindString("url:text");
 
 				DebugMessage(caller, type, text);
@@ -185,7 +185,7 @@ BUrlProtocolAsynchronousListener::MessageReceived(BMessage* message)
 			break;
 
 		default:
-			PRINT(("BUrlProtocolAsynchronousListener: Unknown notification %d\n",
+			PRINT(("BURLProtocolAsynchronousListener: Unknown notification %d\n",
 				notification));
 			break;
 	}

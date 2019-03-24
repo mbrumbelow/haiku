@@ -441,7 +441,7 @@ Playlist::AppendItems(const BMessage* refsReceivedMessage, int32 appendIndex)
 	BMessage archivedUrl;
 	if (refsReceivedMessage->FindMessage("mediaplayer:url", &archivedUrl)
 			== B_OK) {
-		BUrl url(&archivedUrl);
+		BURL url(&archivedUrl);
 		AddItem(new UrlPlaylistItem(url));
 	}
 
@@ -634,7 +634,7 @@ Playlist::_ExtraMediaExists(Playlist* playlist, const entry_ref& ref)
 
 
 /*static*/ bool
-Playlist::_ExtraMediaExists(Playlist* playlist, BUrl url)
+Playlist::_ExtraMediaExists(Playlist* playlist, BURL url)
 {
 	for (int32 i = 0; i < playlist->CountItems(); i++) {
 		UrlPlaylistItem* compare

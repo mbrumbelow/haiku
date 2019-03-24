@@ -297,8 +297,8 @@ BHttpForm::RawData() const
 					break;
 
 				case B_HTTPFORM_STRING:
-					result << '&' << BUrl::UrlEncode(currentField->Name())
-						<< '=' << BUrl::UrlEncode(currentField->String());
+					result << '&' << BURL::UrlEncode(currentField->Name())
+						<< '=' << BURL::UrlEncode(currentField->String());
 					break;
 
 				case B_HTTPFORM_FILE:
@@ -307,7 +307,7 @@ BHttpForm::RawData() const
 				case B_HTTPFORM_BUFFER:
 					// Send the buffer only if its not marked as a file
 					if (!currentField->IsFile()) {
-						result << '&' << BUrl::UrlEncode(currentField->Name())
+						result << '&' << BURL::UrlEncode(currentField->Name())
 							<< '=';
 						result.Append(
 							reinterpret_cast<const char*>(currentField->Buffer()),

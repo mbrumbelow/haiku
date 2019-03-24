@@ -12,27 +12,27 @@
 #include <String.h>
 
 
-class BUrl : public BArchivable {
+class BURL : public BArchivable {
 public:
-								BUrl(const char* url);
-								BUrl(BMessage* archive);
-								BUrl(const BUrl& other);
-								BUrl(const BUrl& base, const BString& relative);
-								BUrl(const BPath& path);
-								BUrl();
-	virtual						~BUrl();
+								BURL(const char* url);
+								BURL(BMessage* archive);
+								BURL(const BURL& other);
+								BURL(const BURL& base, const BString& relative);
+								BURL(const BPath& path);
+								BURL();
+	virtual						~BURL();
 
 	// URL fields modifiers
-			BUrl&				SetUrlString(const BString& url);
-			BUrl&				SetProtocol(const BString& scheme);
-			BUrl&				SetUserName(const BString& user);
-			BUrl&				SetPassword(const BString& password);
+			BURL&				SetUrlString(const BString& url);
+			BURL&				SetProtocol(const BString& scheme);
+			BURL&				SetUserName(const BString& user);
+			BURL&				SetPassword(const BString& password);
 			void				SetAuthority(const BString& authority);
-			BUrl&				SetHost(const BString& host);
-			BUrl&				SetPort(int port);
-			BUrl&				SetPath(const BString& path);
-			BUrl&				SetRequest(const BString& request);
-			BUrl&				SetFragment(const BString& fragment);
+			BURL&				SetHost(const BString& host);
+			BURL&				SetPort(int port);
+			BURL&				SetPath(const BString& path);
+			BURL&				SetRequest(const BString& request);
+			BURL&				SetFragment(const BString& fragment);
 
 	// URL fields access
 			const BString&		UrlString() const;
@@ -86,13 +86,13 @@ public:
 	static	BArchivable*		Instantiate(BMessage* archive);
 
 	// URL comparison
-			bool				operator==(BUrl& other) const;
-			bool				operator!=(BUrl& other) const;
+			bool				operator==(BURL& other) const;
+			bool				operator!=(BURL& other) const;
 
 	// URL assignment
-			const BUrl&			operator=(const BUrl& other);
-			const BUrl&			operator=(const BString& string);
-			const BUrl&			operator=(const char* string);
+			const BURL&			operator=(const BURL& other);
+			const BURL&			operator=(const BString& string);
+			const BURL&			operator=(const char* string);
 
 	// URL to string conversion
 								operator const char*() const;

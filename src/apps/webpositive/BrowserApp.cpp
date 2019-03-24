@@ -104,7 +104,7 @@ BrowserApp::BrowserApp()
 	cookieStorePath << "/Cookies";
 	fCookies = new SettingsMessage(B_USER_SETTINGS_DIRECTORY,
 		cookieStorePath.String());
-	fContext = new BUrlContext();
+	fContext = new BURLContext();
 	if (fCookies->InitCheck() == B_OK) {
 		BMessage cookieArchive = fCookies->GetValue("cookies", cookieArchive);
 		fContext->SetCookieJar(BNetworkCookieJar(&cookieArchive));
@@ -481,7 +481,7 @@ BrowserApp::_RefsReceived(BMessage* message, int32* _pagesCreated,
 		BPath path;
 		if (entry.GetPath(&path) != B_OK)
 			continue;
-		BUrl url(path);
+		BURL url(path);
 		window = _CreateNewPage(url.UrlString(), window, fullscreen,
 			pagesCreated == 0);
 		pagesCreated++;

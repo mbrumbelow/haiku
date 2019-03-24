@@ -10,36 +10,36 @@
 #include <UrlProtocolListener.h>
 
 
-class BUrlSynchronousRequest : public BUrlRequest, public BUrlProtocolListener {
+class BURLSynchronousRequest : public BURLRequest, public BURLProtocolListener {
 public:
-								BUrlSynchronousRequest(BUrlRequest& asynchronousRequest);
-	virtual						~BUrlSynchronousRequest() { };
+								BURLSynchronousRequest(BURLRequest& asynchronousRequest);
+	virtual						~BURLSynchronousRequest() { };
 								
 	// Synchronous wait
 	virtual	status_t			Perform();
 	virtual	status_t			WaitUntilCompletion();
 
 	// Protocol hooks
-	virtual	void				ConnectionOpened(BUrlRequest* caller);
-	virtual void				HostnameResolved(BUrlRequest* caller,
+	virtual	void				ConnectionOpened(BURLRequest* caller);
+	virtual void				HostnameResolved(BURLRequest* caller,
 									const char* ip);
-	virtual void				ResponseStarted(BUrlRequest* caller);
-	virtual void				HeadersReceived(BUrlRequest* caller,
-									const BUrlResult& result);
-	virtual void				DataReceived(BUrlRequest* caller,
+	virtual void				ResponseStarted(BURLRequest* caller);
+	virtual void				HeadersReceived(BURLRequest* caller,
+									const BURLResult& result);
+	virtual void				DataReceived(BURLRequest* caller,
 									const char* data, off_t position,
 									ssize_t size);
-	virtual	void				DownloadProgress(BUrlRequest* caller,
+	virtual	void				DownloadProgress(BURLRequest* caller,
 									ssize_t bytesReceived, ssize_t bytesTotal);
-	virtual void				UploadProgress(BUrlRequest* caller,
+	virtual void				UploadProgress(BURLRequest* caller,
 									ssize_t bytesSent, ssize_t bytesTotal);
-	virtual void				RequestCompleted(BUrlRequest* caller,
+	virtual void				RequestCompleted(BURLRequest* caller,
 									bool success);
 									
 									
 protected:
 			bool				fRequestComplete;
-			BUrlRequest&		fWrappedRequest;
+			BURLRequest&		fWrappedRequest;
 };
 
 

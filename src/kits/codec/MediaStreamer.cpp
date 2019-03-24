@@ -18,7 +18,7 @@
 namespace BCodecKit {
 
 
-BMediaStreamer::BMediaStreamer(BUrl url)
+BMediaStreamer::BMediaStreamer(BURL url)
 	:
 	fUrl(url),
 	fStreamer(NULL),

@@ -20,7 +20,7 @@ const char* kUrlProtocolMessageType = "be:urlProtocolMessageType";
 const char* kUrlProtocolCaller = "be:urlProtocolCaller";
 
 
-BUrlProtocolDispatchingListener::BUrlProtocolDispatchingListener
+BURLProtocolDispatchingListener::BURLProtocolDispatchingListener
 	(BHandler* handler)
 		:
 		fMessenger(handler)
@@ -28,7 +28,7 @@ BUrlProtocolDispatchingListener::BUrlProtocolDispatchingListener
 }
 
 
-BUrlProtocolDispatchingListener::BUrlProtocolDispatchingListener
+BURLProtocolDispatchingListener::BURLProtocolDispatchingListener
 	(const BMessenger& messenger)
 		:
 		fMessenger(messenger)
@@ -36,13 +36,13 @@ BUrlProtocolDispatchingListener::BUrlProtocolDispatchingListener
 }
 
 
-BUrlProtocolDispatchingListener::~BUrlProtocolDispatchingListener()
+BURLProtocolDispatchingListener::~BURLProtocolDispatchingListener()
 {
 }
 
 
 void
-BUrlProtocolDispatchingListener::ConnectionOpened(BUrlRequest* caller)
+BURLProtocolDispatchingListener::ConnectionOpened(BURLRequest* caller)
 {
 	BMessage message(B_URL_PROTOCOL_NOTIFICATION);
 	_SendMessage(&message, B_URL_PROTOCOL_CONNECTION_OPENED, caller);
@@ -50,7 +50,7 @@ BUrlProtocolDispatchingListener::ConnectionOpened(BUrlRequest* caller)
 
 
 void
-BUrlProtocolDispatchingListener::HostnameResolved(BUrlRequest* caller,
+BURLProtocolDispatchingListener::HostnameResolved(BURLRequest* caller,
 	const char* ip)
 {
 	BMessage message(B_URL_PROTOCOL_NOTIFICATION);
@@ -61,7 +61,7 @@ BUrlProtocolDispatchingListener::HostnameResolved(BUrlRequest* caller,
 
 
 void
-BUrlProtocolDispatchingListener::ResponseStarted(BUrlRequest* caller)
+BURLProtocolDispatchingListener::ResponseStarted(BURLRequest* caller)
 {
 	BMessage message(B_URL_PROTOCOL_NOTIFICATION);
 	_SendMessage(&message, B_URL_PROTOCOL_RESPONSE_STARTED, caller);
@@ -69,8 +69,8 @@ BUrlProtocolDispatchingListener::ResponseStarted(BUrlRequest* caller)
 
 
 void
-BUrlProtocolDispatchingListener::HeadersReceived(BUrlRequest* caller,
-	const BUrlResult& result)
+BURLProtocolDispatchingListener::HeadersReceived(BURLRequest* caller,
+	const BURLResult& result)
 {
 	/* The URL request does not keep the headers valid after calling this
 	 * method. For asynchronous delivery to work, we need to archive them
@@ -85,7 +85,7 @@ BUrlProtocolDispatchingListener::HeadersReceived(BUrlRequest* caller,
 
 
 void
-BUrlProtocolDispatchingListener::DataReceived(BUrlRequest* caller,
+BURLProtocolDispatchingListener::DataReceived(BURLRequest* caller,
 	const char* data, off_t position, ssize_t size)
 {
 	BMessage message(B_URL_PROTOCOL_NOTIFICATION);
@@ -101,7 +101,7 @@ BUrlProtocolDispatchingListener::DataReceived(BUrlRequest* caller,
 
 
 void
-BUrlProtocolDispatchingListener::DownloadProgress(BUrlRequest* caller,
+BURLProtocolDispatchingListener::DownloadProgress(BURLRequest* caller,
 	ssize_t bytesReceived, ssize_t bytesTotal)
 {
 	BMessage message(B_URL_PROTOCOL_NOTIFICATION);
@@ -113,7 +113,7 @@ BUrlProtocolDispatchingListener::DownloadProgress(BUrlRequest* caller,
 
 
 void
-BUrlProtocolDispatchingListener::UploadProgress(BUrlRequest* caller,
+BURLProtocolDispatchingListener::UploadProgress(BURLRequest* caller,
 	ssize_t bytesSent, ssize_t bytesTotal)
 {
 	BMessage message(B_URL_PROTOCOL_NOTIFICATION);
@@ -126,7 +126,7 @@ BUrlProtocolDispatchingListener::UploadProgress(BUrlRequest* caller,
 
 
 void
-BUrlProtocolDispatchingListener::RequestCompleted(BUrlRequest* caller,
+BURLProtocolDispatchingListener::RequestCompleted(BURLRequest* caller,
 	bool success)
 {
 	BMessage message(B_URL_PROTOCOL_NOTIFICATION);
@@ -137,8 +137,8 @@ BUrlProtocolDispatchingListener::RequestCompleted(BUrlRequest* caller,
 
 
 void
-BUrlProtocolDispatchingListener::DebugMessage(BUrlRequest* caller,
-	BUrlProtocolDebugMessage type, const char* text)
+BURLProtocolDispatchingListener::DebugMessage(BURLRequest* caller,
+	BURLProtocolDebugMessage type, const char* text)
 {
 	BMessage message(B_URL_PROTOCOL_NOTIFICATION);
 	message.AddInt32("url:type", type);
@@ -149,8 +149,8 @@ BUrlProtocolDispatchingListener::DebugMessage(BUrlRequest* caller,
 
 
 bool
-BUrlProtocolDispatchingListener::CertificateVerificationFailed(
-	BUrlRequest* caller, BCertificate& certificate, const char* error)
+BURLProtocolDispatchingListener::CertificateVerificationFailed(
+	BURLRequest* caller, BCertificate& certificate, const char* error)
 {
 	BMessage message(B_URL_PROTOCOL_NOTIFICATION);
 	message.AddString("url:error", error);
@@ -168,8 +168,8 @@ BUrlProtocolDispatchingListener::CertificateVerificationFailed(
 
 
 void
-BUrlProtocolDispatchingListener::_SendMessage(BMessage* message,
-	int8 notification, BUrlRequest* caller)
+BURLProtocolDispatchingListener::_SendMessage(BMessage* message,
+	int8 notification, BURLRequest* caller)
 {
 	ASSERT(message != NULL);
 

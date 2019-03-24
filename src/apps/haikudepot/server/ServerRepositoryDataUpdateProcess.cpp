@@ -45,7 +45,7 @@ public:
 	virtual	void				Complete();
 
 private:
-			void				NormalizeUrl(BUrl& url) const;
+			void				NormalizeUrl(BURL& url) const;
 			bool				IsUnassociatedDepotByUrl(
 									const DepotInfo& depotInfo,
 									const BString& urlStr) const;

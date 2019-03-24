@@ -14,14 +14,14 @@
 #include <Referenceable.h>
 
 
-class BUrlRequest {
+class BURLRequest {
 public:
-									BUrlRequest(const BUrl& url,
-										BUrlProtocolListener* listener,
-										BUrlContext* context,
+									BURLRequest(const BURL& url,
+										BURLProtocolListener* listener,
+										BURLContext* context,
 										const char* threadName,
 										const char* protocolName);
-	virtual							~BUrlRequest();
+	virtual							~BURLRequest();
 
 	// URL protocol thread management
 	virtual	thread_id				Run();
@@ -31,32 +31,32 @@ public:
 	virtual void					SetTimeout(bigtime_t timeout) {}
 
 	// URL protocol parameters modification
-			status_t				SetUrl(const BUrl& url);
-			status_t				SetContext(BUrlContext* context);
-			status_t				SetListener(BUrlProtocolListener* listener);
+			status_t				SetUrl(const BURL& url);
+			status_t				SetContext(BURLContext* context);
+			status_t				SetListener(BURLProtocolListener* listener);
 
 	// URL protocol parameters access
-			const BUrl&				Url() const;
-			BUrlContext*			Context() const;
-			BUrlProtocolListener*	Listener() const;
+			const BURL&				Url() const;
+			BURLContext*			Context() const;
+			BURLProtocolListener*	Listener() const;
 			const BString&			Protocol() const;
 
 	// URL protocol informations
 			bool					IsRunning() const;
 			status_t				Status() const;
-	virtual const BUrlResult&		Result() const = 0;
+	virtual const BURLResult&		Result() const = 0;
 
 
 protected:
 	static	int32					_ThreadEntry(void* arg);
 	virtual	void					_ProtocolSetup() {};
 	virtual	status_t				_ProtocolLoop() = 0;
-	virtual void					_EmitDebug(BUrlProtocolDebugMessage type,
+	virtual void					_EmitDebug(BURLProtocolDebugMessage type,
 										const char* format, ...);
 protected:
-			BUrl					fUrl;
-			BReference<BUrlContext>	fContext;
-			BUrlProtocolListener*	fListener;
+			BURL					fUrl;
+			BReference<BURLContext>	fContext;
+			BURLProtocolListener*	fListener;
 
 			bool					fQuit;
 			bool					fRunning;

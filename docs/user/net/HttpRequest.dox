@@ -24,8 +24,8 @@
 	\ingroup network
 	\brief Handles a request over HTTP or HTTPS.
 
-	Instances of ths class will be created by the BUrlProtocolRoster for
-	BUrl with the "http" or "https" protocol. The HTTP protocol is
+	Instances of ths class will be created by the BURLProtocolRoster for
+	BURL with the "http" or "https" protocol. The HTTP protocol is
 	implemented as specified in RFC2616. The request headers and body can be
 	customized, then sent to the server. The reply is then parsed and made
 	available to the application.

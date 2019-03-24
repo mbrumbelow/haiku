@@ -95,10 +95,10 @@ namespace BPrivate {
 };
 
 
-BHttpRequest::BHttpRequest(const BUrl& url, bool ssl, const char* protocolName,
-	BUrlProtocolListener* listener, BUrlContext* context)
+BHttpRequest::BHttpRequest(const BURL& url, bool ssl, const char* protocolName,
+	BURLProtocolListener* listener, BURLContext* context)
 	:
-	BNetworkRequest(url, listener, context, "BUrlProtocol.HTTP", protocolName),
+	BNetworkRequest(url, listener, context, "BURLProtocol.HTTP", protocolName),
 	fSSL(ssl),
 	fRequestMethod(B_HTTP_GET),
 	fHttpVersion(B_HTTP_11),
@@ -120,7 +120,7 @@ BHttpRequest::BHttpRequest(const BUrl& url, bool ssl, const char* protocolName,
 BHttpRequest::BHttpRequest(const BHttpRequest& other)
 	:
 	BNetworkRequest(other.Url(), other.fListener, other.fContext,
-		"BUrlProtocol.HTTP", other.fSSL ? "HTTPS" : "HTTP"),
+		"BURLProtocol.HTTP", other.fSSL ? "HTTPS" : "HTTP"),
 	fSSL(other.fSSL),
 	fRequestMethod(other.fRequestMethod),
 	fHttpVersion(other.fHttpVersion),
@@ -322,7 +322,7 @@ BHttpRequest::StatusCodeClass(int16 code)
 }
 
 
-const BUrlResult&
+const BURLResult&
 BHttpRequest::Result() const
 {
 	return fResult;
@@ -429,7 +429,7 @@ BHttpRequest::_ProtocolLoop()
 					|| code == B_HTTP_STATUS_TEMPORARY_REDIRECT) {
 					BString locationUrl = fHeaders["Location"];
 
-					fUrl = BUrl(fUrl, locationUrl);
+					fUrl = BURL(fUrl, locationUrl);
 
 					// 302 and 303 redirections also convert POST requests to GET
 					// (and remove the posted form data)
@@ -475,7 +475,7 @@ BHttpRequest::_ProtocolLoop()
 						fContext->AddAuthentication(fUrl, newAuth);
 
 						// Get the copy of the authentication we just added.
-						// That copy is owned by the BUrlContext and won't be
+						// That copy is owned by the BURLContext and won't be
 						// deleted (unlike the temporary object above)
 						authentication = &fContext->GetAuthentication(fUrl);
 					}

@@ -19,11 +19,11 @@ using namespace BCodecKit;
 #define HTTP_TIMEOUT 10000000
 
 
-class FileListener : public BUrlProtocolListener {
+class FileListener : public BURLProtocolListener {
 public:
 		FileListener(HTTPMediaIO* owner)
 			:
-			BUrlProtocolListener(),
+			BURLProtocolListener(),
 			fRequest(NULL),
 			fAdapterIO(owner),
 			fInitSem(-1),
@@ -43,18 +43,18 @@ public:
 			return fRequest != NULL;
 		}
 
-		void ConnectionOpened(BUrlRequest* request)
+		void ConnectionOpened(BURLRequest* request)
 		{
 			fRequest = request;
 			fRunning = true;
 		}
 
-		void HeadersReceived(BUrlRequest* request, const BUrlResult& result)
+		void HeadersReceived(BURLRequest* request, const BURLResult& result)
 		{
 			fAdapterIO->UpdateSize();
 		}
 
-		void DataReceived(BUrlRequest* request, const char* data,
+		void DataReceived(BURLRequest* request, const char* data,
 			off_t position, ssize_t size)
 		{
 			if (request != fRequest) {
@@ -79,7 +79,7 @@ public:
 			fInputAdapter->Write(data, size);
 		}
 
-		void RequestCompleted(BUrlRequest* request, bool success)
+		void RequestCompleted(BURLRequest* request, bool success)
 		{
 			_ReleaseInit();
 
@@ -109,7 +109,7 @@ private:
 			}
 		}
 
-		BUrlRequest*	fRequest;
+		BURLRequest*	fRequest;
 		HTTPMediaIO*	fAdapterIO;
 		BInputAdapter*	fInputAdapter;
 		sem_id			fInitSem;
@@ -117,7 +117,7 @@ private:
 };
 
 
-HTTPMediaIO::HTTPMediaIO(BUrl url)
+HTTPMediaIO::HTTPMediaIO(BURL url)
 	:
 	BAdapterIO(B_MEDIA_STREAMING | B_MEDIA_SEEKABLE, HTTP_TIMEOUT),
 	fReq(NULL),
@@ -174,7 +174,7 @@ HTTPMediaIO::Open()
 
 	fListener = new FileListener(this);
 
-	fReq = BUrlProtocolRoster::MakeRequest(fUrl, fListener);
+	fReq = BURLProtocolRoster::MakeRequest(fUrl, fListener);
 
 	if (fReq == NULL)
 		return B_ERROR;

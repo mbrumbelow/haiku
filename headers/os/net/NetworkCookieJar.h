@@ -48,7 +48,7 @@ public:
 
 			status_t			AddCookie(const BNetworkCookie& cookie);
 			status_t			AddCookie(const BString& cookie,
-									const BUrl& url);
+									const BURL& url);
 			status_t			AddCookie(BNetworkCookie* cookie);
 			status_t			AddCookies(const BNetworkCookieList& cookies);
 
@@ -74,7 +74,7 @@ public:
 
 	// Iterators
 			Iterator			GetIterator() const;
-			UrlIterator			GetUrlIterator(const BUrl& url) const;
+			UrlIterator			GetUrlIterator(const BURL& url) const;
 
 
 private:
@@ -134,7 +134,7 @@ public:
 
 private:
 								UrlIterator(const BNetworkCookieJar* map,
-									const BUrl& url);
+									const BURL& url);
 
 			void				_Initialize();
 			bool				_SuperDomain();
@@ -155,7 +155,7 @@ private:
 			int32				fIndex;
 			int32				fLastIndex;
 
-			BUrl				fUrl;
+			BURL				fUrl;
 };
 
 #endif // _B_NETWORK_COOKIE_JAR_

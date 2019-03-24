@@ -14,23 +14,23 @@
 #include <UrlResult.h>
 
 
-class BUrlRequest;
+class BURLRequest;
 
 
-class BHttpResult: public BUrlResult {
+class BHttpResult: public BURLResult {
 			friend class 				BHttpRequest;
 			
 public:
-										BHttpResult(const BUrl& url);
+										BHttpResult(const BURL& url);
 										BHttpResult(BMessage*);
 										BHttpResult(const BHttpResult& other);
 										~BHttpResult();
 
 	// Result parameters modifications
-			void						SetUrl(const BUrl& url);
+			void						SetUrl(const BURL& url);
 
 	// Result parameters access
-			const BUrl&					Url() const;
+			const BURL&					Url() const;
 			BString						ContentType() const;
 			size_t						Length() const;
 
@@ -48,7 +48,7 @@ public:
 	virtual	status_t					Archive(BMessage*, bool) const;
 	static	BArchivable*				Instantiate(BMessage*);
 private:
-			BUrl						fUrl;
+			BURL						fUrl;
 			
 			BHttpHeaders 				fHeaders;
 			int32						fStatusCode;

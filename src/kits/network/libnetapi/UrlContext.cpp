@@ -16,11 +16,11 @@
 #include <HashString.h>
 
 
-class BUrlContext::BHttpAuthenticationMap : public
+class BURLContext::BHttpAuthenticationMap : public
 	SynchronizedHashMap<BPrivate::HashString, BHttpAuthentication*> {};
 
 
-BUrlContext::BUrlContext()
+BURLContext::BURLContext()
 	:
 	fCookieJar(),
 	fAuthenticationMap(NULL),
@@ -37,7 +37,7 @@ BUrlContext::BUrlContext()
 }
 
 
-BUrlContext::~BUrlContext()
+BURLContext::~BURLContext()
 {
 	BHttpAuthenticationMap::Iterator iterator
 		= fAuthenticationMap->GetIterator();
@@ -52,14 +52,14 @@ BUrlContext::~BUrlContext()
 
 
 void
-BUrlContext::SetCookieJar(const BNetworkCookieJar& cookieJar)
+BURLContext::SetCookieJar(const BNetworkCookieJar& cookieJar)
 {
 	fCookieJar = cookieJar;
 }
 
 
 void
-BUrlContext::AddAuthentication(const BUrl& url,
+BURLContext::AddAuthentication(const BURL& url,
 	const BHttpAuthentication& authentication)
 {
 	BString domain = url.Host();
@@ -83,7 +83,7 @@ BUrlContext::AddAuthentication(const BUrl& url,
 
 
 void
-BUrlContext::SetProxy(BString host, uint16 port)
+BURLContext::SetProxy(BString host, uint16 port)
 {
 	fProxyHost = host;
 	fProxyPort = port;
@@ -91,7 +91,7 @@ BUrlContext::SetProxy(BString host, uint16 port)
 
 
 void
-BUrlContext::AddCertificateException(const BCertificate& certificate)
+BURLContext::AddCertificateException(const BCertificate& certificate)
 {
 	BCertificate* copy = new(std::nothrow) BCertificate(certificate);
 	if (copy != NULL) {
@@ -104,14 +104,14 @@ BUrlContext::AddCertificateException(const BCertificate& certificate)
 
 
 BNetworkCookieJar&
-BUrlContext::GetCookieJar()
+BURLContext::GetCookieJar()
 {
 	return fCookieJar;
 }
 
 
 BHttpAuthentication&
-BUrlContext::GetAuthentication(const BUrl& url)
+BURLContext::GetAuthentication(const BURL& url)
 {
 	BString domain = url.Host();
 	domain += url.Path();
@@ -131,28 +131,28 @@ BUrlContext::GetAuthentication(const BUrl& url)
 
 
 bool
-BUrlContext::UseProxy()
+BURLContext::UseProxy()
 {
 	return !fProxyHost.IsEmpty();
 }
 
 
 BString
-BUrlContext::GetProxyHost()
+BURLContext::GetProxyHost()
 {
 	return fProxyHost;
 }
 
 
 uint16
-BUrlContext::GetProxyPort()
+BURLContext::GetProxyPort()
 {
 	return fProxyPort;
 }
 
 
 bool
-BUrlContext::HasCertificateException(const BCertificate& certificate)
+BURLContext::HasCertificateException(const BCertificate& certificate)
 {
 	struct Equals: public UnaryPredicate<const BCertificate> {
 		Equals(const BCertificate& itemToMatch)

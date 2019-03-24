@@ -29,27 +29,27 @@ ToFileUrlProtocolListener::~ToFileUrlProtocolListener()
 
 
 void
-ToFileUrlProtocolListener::ConnectionOpened(BUrlRequest* caller)
+ToFileUrlProtocolListener::ConnectionOpened(BURLRequest* caller)
 {
 }
 
 
 void
-ToFileUrlProtocolListener::HostnameResolved(BUrlRequest* caller,
+ToFileUrlProtocolListener::HostnameResolved(BURLRequest* caller,
 	const char* ip)
 {
 }
 
 
 void
-ToFileUrlProtocolListener::ResponseStarted(BUrlRequest* caller)
+ToFileUrlProtocolListener::ResponseStarted(BURLRequest* caller)
 {
 }
 
 
 void
-ToFileUrlProtocolListener::HeadersReceived(BUrlRequest* caller,
-	const BUrlResult& result)
+ToFileUrlProtocolListener::HeadersReceived(BURLRequest* caller,
+	const BURLResult& result)
 {
 
 	// check that the status code is success.  Only if it is successful
@@ -68,7 +68,7 @@ ToFileUrlProtocolListener::HeadersReceived(BUrlRequest* caller,
 
 
 void
-ToFileUrlProtocolListener::DataReceived(BUrlRequest* caller, const char* data,
+ToFileUrlProtocolListener::DataReceived(BURLRequest* caller, const char* data,
 	off_t position, ssize_t size)
 {
 	fContentLength += size;
@@ -90,28 +90,28 @@ ToFileUrlProtocolListener::DataReceived(BUrlRequest* caller, const char* data,
 
 
 void
-ToFileUrlProtocolListener::DownloadProgress(BUrlRequest* caller,
+ToFileUrlProtocolListener::DownloadProgress(BURLRequest* caller,
 	ssize_t bytesReceived, ssize_t bytesTotal)
 {
 }
 
 
 void
-ToFileUrlProtocolListener::UploadProgress(BUrlRequest* caller,
+ToFileUrlProtocolListener::UploadProgress(BURLRequest* caller,
 	ssize_t bytesSent, ssize_t bytesTotal)
 {
 }
 
 
 void
-ToFileUrlProtocolListener::RequestCompleted(BUrlRequest* caller, bool success)
+ToFileUrlProtocolListener::RequestCompleted(BURLRequest* caller, bool success)
 {
 }
 
 
 void
-ToFileUrlProtocolListener::DebugMessage(BUrlRequest* caller,
-	BUrlProtocolDebugMessage type, const char* text)
+ToFileUrlProtocolListener::DebugMessage(BURLRequest* caller,
+	BURLProtocolDebugMessage type, const char* text)
 {
 	if (fTraceLogging) {
 		fprintf(stdout, "url->file <%s>; %s\n",

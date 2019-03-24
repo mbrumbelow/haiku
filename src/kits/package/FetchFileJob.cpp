@@ -88,7 +88,7 @@ FetchFileJob::Execute()
 	if (result != B_OK)
 		return result;
 
-	BUrlRequest* request = BUrlProtocolRoster::MakeRequest(fFileURL.String(),
+	BURLRequest* request = BURLProtocolRoster::MakeRequest(fFileURL.String(),
 		this);
 	if (request == NULL)
 		return B_BAD_VALUE;
@@ -135,7 +135,7 @@ FetchFileJob::Execute()
 
 
 void
-FetchFileJob::DataReceived(BUrlRequest*, const char* data, off_t position,
+FetchFileJob::DataReceived(BURLRequest*, const char* data, off_t position,
 	ssize_t size)
 {
 	fTargetFile.WriteAt(position, data, size);
@@ -143,7 +143,7 @@ FetchFileJob::DataReceived(BUrlRequest*, const char* data, off_t position,
 
 
 void
-FetchFileJob::DownloadProgress(BUrlRequest*, ssize_t bytesReceived,
+FetchFileJob::DownloadProgress(BURLRequest*, ssize_t bytesReceived,
 	ssize_t bytesTotal)
 {
 	if (bytesTotal != 0) {
@@ -156,7 +156,7 @@ FetchFileJob::DownloadProgress(BUrlRequest*, ssize_t bytesReceived,
 
 
 void
-FetchFileJob::RequestCompleted(BUrlRequest*, bool success)
+FetchFileJob::RequestCompleted(BURLRequest*, bool success)
 {
 	fSuccess = success;
 }
