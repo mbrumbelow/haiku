@@ -1342,25 +1342,25 @@ TMagnify::KeyDown(const char *key, int32 numBytes)
 			break;
 
 		case B_LEFT_ARROW:
-			if (mods & B_OPTION_KEY)
+			if (mods & B_CONTROL_KEY)
 				NudgeMouse(-1,0);
 			else
 				MoveSelection(-1,0);
 			break;
 		case B_RIGHT_ARROW:
-			if (mods & B_OPTION_KEY)
+			if (mods & B_CONTROL_KEY)
 				NudgeMouse(1, 0);
 			else
 				MoveSelection(1,0);
 			break;
 		case B_UP_ARROW:
-			if (mods & B_OPTION_KEY)
+			if (mods & B_CONTROL_KEY)
 				NudgeMouse(0, -1);
 			else
 				MoveSelection(0,-1);
 			break;
 		case B_DOWN_ARROW:
-			if (mods & B_OPTION_KEY)
+			if (mods & B_CONTROL_KEY)
 				NudgeMouse(0, 1);
 			else
 				MoveSelection(0,1);
