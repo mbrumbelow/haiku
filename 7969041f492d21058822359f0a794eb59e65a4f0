@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "f4c159e5_fb32ee1d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-03-25T07:09:23Z",
+      "side": 1,
+      "message": "You should mention the ticket that motivates this change, for example:\n\nFixes #12983.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 5
+      },
+      "revId": "7969041f492d21058822359f0a794eb59e65a4f0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8a0e4394_a57b317e",
         "filename": "headers/os/support/Url.h",
         "patchSetId": 1
