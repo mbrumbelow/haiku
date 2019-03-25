@@ -1166,7 +1166,7 @@ void
 BPackageInfo::Parser::UrlStringValidator::Validate(const BString& urlString,
 	const char* pos)
 {
-	BUrl url(urlString);
+	BURL url(urlString);
 
 	if (!url.IsValid())
 		throw ParseError("invalid url", pos);

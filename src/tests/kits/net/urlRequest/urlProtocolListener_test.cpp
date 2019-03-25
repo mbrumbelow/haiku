@@ -11,23 +11,23 @@
 #include <UrlProtocolListener.h>
 
 
-class TestSyncListener : public BUrlProtocolListener {
+class TestSyncListener : public BURLProtocolListener {
 public:
-	void	ConnectionOpened(BUrlRequest* caller) {
+	void	ConnectionOpened(BURLRequest* caller) {
 				printf("Thread<#%5d> ", (int)find_thread(NULL));
 				printf("TestSyncListener::ConnectionOpened(%p)\n", caller);
 			}
 };
 
 
-class TestAsyncListener : public BUrlProtocolAsynchronousListener {
+class TestAsyncListener : public BURLProtocolAsynchronousListener {
 public:
 			TestAsyncListener(bool transparent)
 			:
-			BUrlProtocolAsynchronousListener(transparent)
+			BURLProtocolAsynchronousListener(transparent)
 			{ }
 			
-	void	ConnectionOpened(BUrlRequest* caller) {
+	void	ConnectionOpened(BURLRequest* caller) {
 				printf("Thread<#%5d> ", (int)find_thread(NULL));
 				printf("TestAsyncListener::ConnectionOpened(%p)\n", caller);
 			}
@@ -40,7 +40,7 @@ class Test {
 	
 	// Asynchronous listener with dispatcher not embedded
 	TestAsyncListener a;
-	BUrlProtocolDispatchingListener a_sync;
+	BURLProtocolDispatchingListener a_sync;
 	
 	// Asynchronous listener with embedded dispatcher
 	TestAsyncListener a_transparent;
@@ -53,9 +53,9 @@ public:
 			a_transparent(true)
 			{ }
 			
-	void testListener(BUrlProtocolListener* listener)
+	void testListener(BURLProtocolListener* listener)
 	{
-		listener->ConnectionOpened((BUrlRequest*)0xdeadbeef);
+		listener->ConnectionOpened((BURLRequest*)0xdeadbeef);
 	}
 	
 	

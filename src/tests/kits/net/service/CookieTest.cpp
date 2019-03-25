@@ -35,7 +35,7 @@ CookieTest::SimpleTest()
 {
 	BNetworkCookieJar jar;
 	char buffer[256];
-	BUrl url("http://www.chipchapin.com/WebTools/cookietest.php");
+	BURL url("http://www.chipchapin.com/WebTools/cookietest.php");
 
 	time_t t = time(NULL) + 6400; // Cookies expire in 1h45
 	struct tm* now = gmtime(&t);
@@ -82,7 +82,7 @@ CookieTest::StandardTest()
 	BNetworkCookieJar jar;
 	status_t result;
 
-	BUrl url("http://testsuites.opera.com/cookies/001.php");
+	BURL url("http://testsuites.opera.com/cookies/001.php");
 	result = jar.AddCookie("001=1", url);
 	CPPUNIT_ASSERT(result == B_OK);
 
@@ -108,7 +108,7 @@ CookieTest::ExpireTest()
 	BNetworkCookieJar jar;
 	status_t result;
 
-	BUrl url("http://testsuites.opera.com/cookies/003.php");
+	BURL url("http://testsuites.opera.com/cookies/003.php");
 	result = jar.AddCookie("003=1", url);
 	CPPUNIT_ASSERT(result == B_OK);
 
@@ -128,7 +128,7 @@ CookieTest::PathTest()
 	BNetworkCookieJar jar;
 	status_t result;
 
-	BUrl url("http://testsuites.opera.com/cookies/004/004.php");
+	BURL url("http://testsuites.opera.com/cookies/004/004.php");
 	result = jar.AddCookie("004=1", url);
 	CPPUNIT_ASSERT(result == B_OK);
 
@@ -148,7 +148,7 @@ CookieTest::MaxSizeTest()
 	BNetworkCookieJar jar;
 	status_t result;
 
-	BUrl url("http://testsuites.opera.com/cookies/006.php");
+	BURL url("http://testsuites.opera.com/cookies/006.php");
 	BString cookieString("006=");
 	for (int i = 0; i < 128; i++) {
 		cookieString << "00xxxxxxxxxxxxxx16xxxxxxxxxxxxxx";
@@ -169,7 +169,7 @@ CookieTest::MaxNumberTest()
 	BNetworkCookieJar jar;
 	status_t result;
 
-	BUrl url("http://testsuites.opera.com/cookies/007.php");
+	BURL url("http://testsuites.opera.com/cookies/007.php");
 	BString cookieString;
 
 	for (int i = 1; i <= 20; i++)
@@ -196,7 +196,7 @@ CookieTest::UpdateTest()
 	BNetworkCookieJar jar;
 	status_t result;
 
-	BUrl url("http://testsuites.opera.com/cookies/008.php");
+	BURL url("http://testsuites.opera.com/cookies/008.php");
 	result = jar.AddCookie("008=1", url);
 	CPPUNIT_ASSERT(result == B_OK);
 
@@ -217,7 +217,7 @@ CookieTest::HttpOnlyTest()
 	BNetworkCookieJar jar;
 	status_t result;
 
-	BUrl url("http://testsuites.opera.com/cookies/010.php");
+	BURL url("http://testsuites.opera.com/cookies/010.php");
 	result = jar.AddCookie("010=1; Httponly; Max-age=1", url);
 	CPPUNIT_ASSERT(result == B_OK);
 
@@ -236,7 +236,7 @@ CookieTest::EncodingTest()
 	BNetworkCookieJar jar;
 	status_t result;
 
-	BUrl url("http://testsuites.opera.com/cookies/011.php");
+	BURL url("http://testsuites.opera.com/cookies/011.php");
 	result = jar.AddCookie("011=UTF-8 \303\246\303\270\303\245 \346\227\245\346\234\254;", url);
 	CPPUNIT_ASSERT(result == B_OK);
 
@@ -255,7 +255,7 @@ CookieTest::DomainTest()
 	BNetworkCookieJar jar;
 	status_t result;
 
-	BUrl url("http://testsuites.opera.com/cookies/012.php");
+	BURL url("http://testsuites.opera.com/cookies/012.php");
 	result = jar.AddCookie("012-1=1; Domain=\"opera.com\"", url);
 	CPPUNIT_ASSERT(result == B_OK);
 	result = jar.AddCookie("012-1=1; Domain=\"example.com\"", url);
@@ -283,7 +283,7 @@ CookieTest::PersistantTest()
 
 	NextSubTest();
 
-	BUrl url("http://testsuites.opera.com/cookies/013.php");
+	BURL url("http://testsuites.opera.com/cookies/013.php");
 
 	strftime(buffer, sizeof(buffer),
 		"013-1=1; Expires=%a, %d-%b-%Y %H:%M:%S", now);
@@ -328,7 +328,7 @@ CookieTest::OverwriteTest()
 	BNetworkCookieJar jar;
 	status_t result;
 
-	BUrl url("http://testsuites.opera.com/cookies/015/015.php");
+	BURL url("http://testsuites.opera.com/cookies/015/015.php");
 	result = jar.AddCookie("015-01=1", url);
 	CPPUNIT_ASSERT(result == B_OK);
 
@@ -361,7 +361,7 @@ CookieTest::OrderTest()
 	BNetworkCookieJar jar;
 	status_t result;
 
-	BUrl url("http://testsuites.opera.com/cookies/016.php");
+	BURL url("http://testsuites.opera.com/cookies/016.php");
 	result = jar.AddCookie("016-01=1", url);
 	CPPUNIT_ASSERT(result == B_OK);
 
@@ -398,7 +398,7 @@ CookieTest::OrderTest()
 void
 CookieTest::ExpireParsingTest()
 {
-	BUrl url("http://testsuites.opera.com/cookies/301.php");
+	BURL url("http://testsuites.opera.com/cookies/301.php");
 	BNetworkCookie cookie;
 	status_t result;
 
@@ -520,11 +520,11 @@ CookieTest::ExpireParsingTest()
 void
 CookieTest::PathMatchingTest()
 {
-	const BUrl url("http://testsuites.opera.com/cookies/302/302.php");
-	const BUrl url1("http://testsuites.opera.com/cookies/302-5.php");
-	const BUrl url2("http://testsuites.opera.com/cookies/302/302-3.php");
-	const BUrl url3("http://testsuites.opera.com/cookies/302/sub/302-4.php");
-	const BUrl url4("http://testsuites.opera.com/cookies/302-2/302-6.php");
+	const BURL url("http://testsuites.opera.com/cookies/302/302.php");
+	const BURL url1("http://testsuites.opera.com/cookies/302-5.php");
+	const BURL url2("http://testsuites.opera.com/cookies/302/302-3.php");
+	const BURL url3("http://testsuites.opera.com/cookies/302/sub/302-4.php");
+	const BURL url4("http://testsuites.opera.com/cookies/302-2/302-6.php");
 	BNetworkCookie cookie;
 	status_t result;
 
@@ -612,8 +612,8 @@ CookieTest::PathMatchingTest()
 void
 CookieTest::DomainMatchingTest()
 {
-	const BUrl setter("http://testsuites.opera.com/cookies/304.php");
-	const BUrl getter("http://testsuites.opera.com/cookies/304-1.php");
+	const BURL setter("http://testsuites.opera.com/cookies/304.php");
+	const BURL getter("http://testsuites.opera.com/cookies/304-1.php");
 
 	BString bigData("304-12=1; Domain=\"");
 	for (int i = 0; i < 1500; i++)
@@ -665,7 +665,7 @@ CookieTest::DomainMatchingTest()
 void
 CookieTest::MaxAgeParsingTest()
 {
-	const BUrl setter("http://testsuites.opera.com/cookies/305.php");
+	const BURL setter("http://testsuites.opera.com/cookies/305.php");
 
 	BString bigData("305-12=1; Max-Age=\"");
 	for (int i = 0; i < 1500; i++)
@@ -764,7 +764,7 @@ CookieTest::ExplodeTest()
 	for (uint32 i = 0; i < (sizeof(tests) / sizeof(Test)); i++) {
 		NextSubTest();
 
-		BUrl url(tests[i].url);
+		BURL url(tests[i].url);
 		cookie.ParseCookieString(tests[i].cookieString, url);
 
 		CPPUNIT_ASSERT(tests[i].expected.valid == cookie.IsValid());
@@ -836,7 +836,7 @@ CookieTest::AddTests(BTestSuite& parent)
 
 
 const BNetworkCookie*
-CookieTest::_GetCookie(BNetworkCookieJar& jar, const BUrl& url,
+CookieTest::_GetCookie(BNetworkCookieJar& jar, const BURL& url,
 	const char* name)
 {
 	BNetworkCookieJar::UrlIterator it = jar.GetUrlIterator(url);

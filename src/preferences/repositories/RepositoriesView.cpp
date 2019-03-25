@@ -505,7 +505,7 @@ RepositoriesView::_UpdateFromRepoConfig(RepoRow* rowItem)
 void
 RepositoriesView::AddManualRepository(BString url)
 {
-	BUrl newRepoUrl(url);
+	BURL newRepoUrl(url);
 	if (!newRepoUrl.IsValid())
 		return;
 	
@@ -514,7 +514,7 @@ RepositoriesView::AddManualRepository(BString url)
 	int32 listCount = fListView->CountRows();
 	for (index = 0; index < listCount; index++) {
 		RepoRow* repoItem = dynamic_cast<RepoRow*>(fListView->RowAt(index));
-		BUrl rowRepoUrl(repoItem->Url());
+		BURL rowRepoUrl(repoItem->Url());
 		// Find an already existing URL
 		if (newRepoUrl == rowRepoUrl) {
 			(new BAlert("duplicate",
@@ -637,7 +637,7 @@ RepoRow*
 RepositoriesView::_AddRepo(BString name, BString url, bool enabled)
 {
 	// URL must be valid
-	BUrl repoUrl(url);
+	BURL repoUrl(url);
 	if (!repoUrl.IsValid())
 		return NULL;
 	int32 index;
@@ -645,7 +645,7 @@ RepositoriesView::_AddRepo(BString name, BString url, bool enabled)
 	// Find if the repo already exists in list
 	for (index = 0; index < listCount; index++) {
 		RepoRow* repoItem = dynamic_cast<RepoRow*>(fListView->RowAt(index));
-		BUrl itemUrl(repoItem->Url());
+		BURL itemUrl(repoItem->Url());
 		if (repoUrl == itemUrl) {
 			// update name and enabled values
 			if (name != repoItem->Name())

@@ -57,7 +57,7 @@ protected:
 
 			status_t			DownloadToLocalFileAtomically(
 									const BPath& targetFilePath,
-									const BUrl& url);
+									const BURL& url);
 
 			status_t			DeleteLocalFile(const BPath& filePath);
 			status_t			MoveDamagedFileAside(const BPath& filePath);
@@ -74,11 +74,11 @@ protected:
 private:
 			uint32				fOptions;
 
-			BHttpRequest*		fRequest;
+			BHTTPRequest*		fRequest;
 
 			status_t			DownloadToLocalFile(
 									const BPath& targetFilePath,
-									const BUrl& url,
+									const BURL& url,
 									uint32 redirects, uint32 failures);
 
 	static bool					LooksLikeGzip(const char *pathStr);

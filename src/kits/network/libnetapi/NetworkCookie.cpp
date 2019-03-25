@@ -21,7 +21,7 @@
 #include <NetworkCookie.h>
 
 
-using BPrivate::BHttpTime;
+using BPrivate::BHTTPTime;
 
 
 static const char* kArchivedCookieName = "be:cookie.name";
@@ -35,7 +35,7 @@ static const char* kArchivedCookieHostOnly = "be:cookie.hostonly";
 
 
 BNetworkCookie::BNetworkCookie(const char* name, const char* value,
-	const BUrl& url)
+	const BURL& url)
 {
 	_Reset();
 	fName = name;
@@ -52,7 +52,7 @@ BNetworkCookie::BNetworkCookie(const char* name, const char* value,
 }
 
 
-BNetworkCookie::BNetworkCookie(const BString& cookieString, const BUrl& url)
+BNetworkCookie::BNetworkCookie(const BString& cookieString, const BURL& url)
 {
 	_Reset();
 	fInitStatus = ParseCookieString(cookieString, url);
@@ -78,7 +78,7 @@ BNetworkCookie::BNetworkCookie(BMessage* archive)
 	int32 expiration;
 	if (archive->FindString(kArchivedCookieExpirationDate, &expirationString)
 			== B_OK) {
-		BDateTime time = BHttpTime(expirationString).Parse();
+		BDateTime time = BHTTPTime(expirationString).Parse();
 		SetExpirationDate(time);
 	} else if (archive->FindInt32(kArchivedCookieExpirationDate, &expiration)
 			== B_OK) {
@@ -102,7 +102,7 @@ BNetworkCookie::~BNetworkCookie()
 
 
 status_t
-BNetworkCookie::ParseCookieString(const BString& string, const BUrl& url)
+BNetworkCookie::ParseCookieString(const BString& string, const BURL& url)
 {
 	_Reset();
 
@@ -169,7 +169,7 @@ BNetworkCookie::ParseCookieString(const BString& string, const BUrl& url)
 				// Will be a session cookie.
 				continue;
 			}
-			BDateTime parsed = BHttpTime(value).Parse();
+			BDateTime parsed = BHTTPTime(value).Parse();
 			SetExpirationDate(parsed);
 		} else if (name.ICompare("domain") == 0) {
 			if (value.IsEmpty()) {
@@ -377,7 +377,7 @@ BNetworkCookie::ExpirationDate() const
 const BString&
 BNetworkCookie::ExpirationString() const
 {
-	BHttpTime date(fExpiration);
+	BHTTPTime date(fExpiration);
 
 	if (!fExpirationStringValid) {
 		fExpirationString = date.ToString(BPrivate::B_HTTP_TIME_FORMAT_COOKIE);
@@ -461,7 +461,7 @@ BNetworkCookie::IsValid() const
 
 
 bool
-BNetworkCookie::IsValidForUrl(const BUrl& url) const
+BNetworkCookie::IsValidForUrl(const BURL& url) const
 {
 	if (Secure() && url.Protocol() != "https")
 		return false;
@@ -517,7 +517,7 @@ BNetworkCookie::IsValidForPath(const BString& path) const
 
 
 bool
-BNetworkCookie::_CanBeSetFromUrl(const BUrl& url) const
+BNetworkCookie::_CanBeSetFromUrl(const BURL& url) const
 {
 	if (url.Protocol() == "file")
 		return Domain() == "localhost" && _CanBeSetFromPath(url.Path());
@@ -661,7 +661,7 @@ BNetworkCookie::Archive(BMessage* into, bool deep) const
 
 	if (HasExpirationDate()) {
 		error = into->AddString(kArchivedCookieExpirationDate,
-			BHttpTime(fExpiration).ToString());
+			BHTTPTime(fExpiration).ToString());
 		if (error != B_OK)
 			return error;
 	}
@@ -850,7 +850,7 @@ BNetworkCookie::_ExtractAttributeValuePair(const BString& cookieString,
 
 
 BString
-BNetworkCookie::_DefaultPathForUrl(const BUrl& url)
+BNetworkCookie::_DefaultPathForUrl(const BURL& url)
 {
 	const BString& path = url.Path();
 	if (path.IsEmpty() || path.ByteAt(0) != '/')

@@ -121,7 +121,7 @@ DataTest::UrlDecodeTest()
 
 
 void
-DataTest::DataReceived(BUrlRequest*, const char* data, off_t, ssize_t size)
+DataTest::DataReceived(BURLRequest*, const char* data, off_t, ssize_t size)
 {
 	fReceivedData.insert(fReceivedData.end(), data, data + size);
 }
@@ -154,7 +154,7 @@ DataTest::_RunTest(BString url, const char* expected, size_t expectedLength)
 {
 	NextSubTest();
 
-	BUrl testUrl(url);
+	BURL testUrl(url);
 	BDataRequest t(testUrl);
 	fReceivedData.clear();
 	t.SetListener(this);

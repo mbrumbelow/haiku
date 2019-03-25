@@ -14,12 +14,12 @@
 class BAbstractSocket;
 
 
-class BNetworkRequest: public BUrlRequest
+class BNetworkRequest: public BURLRequest
 {
 public:
-								BNetworkRequest(const BUrl& url,
-									BUrlProtocolListener* listener,
-									BUrlContext* context,
+								BNetworkRequest(const BURL& url,
+									BURLProtocolListener* listener,
+									BURLContext* context,
 									const char* threadName,
 									const char* protocolName);
 

@@ -53,7 +53,7 @@ keyb_int(int)
 
 int media_play(const char* uri)
 {
-	BUrl url;
+	BURL url;
 	entry_ref ref;
 	BMediaFile* playFile;
 

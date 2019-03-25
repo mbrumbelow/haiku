@@ -16,7 +16,7 @@ namespace BCodecKit {
 
 class BMediaStreamer {
 public:
-								BMediaStreamer(BUrl url);
+								BMediaStreamer(BURL url);
 								~BMediaStreamer();
 
 			status_t			InitCheck() const;
@@ -42,7 +42,7 @@ public:
 			void				MouseDown(uint32 x, uint32 y);
 
 private:
-			BUrl				fUrl;
+			BURL				fUrl;
 			BStreamer*			fStreamer;
 			status_t			fInitCheck;
 

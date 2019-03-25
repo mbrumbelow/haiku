@@ -59,7 +59,7 @@ void stressTest(int32 domainNumber, int32 totalCookies, char** flat, ssize_t* si
 	host << domains[domain] << "/";
 
 	watch = new BStopWatch("Cookie filtering");
-	BUrl url(host);
+	BURL url(host);
 	int32 count = 0;
 	for (BNetworkCookieJar::UrlIterator it(j.GetUrlIterator(url)); (c = it.Next()); ) {
 	//for (BNetworkCookieJar::Iterator it(j.GetIterator()); c = it.Next(); ) {

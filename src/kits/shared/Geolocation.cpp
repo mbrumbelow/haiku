@@ -25,7 +25,7 @@ BGeolocation::BGeolocation()
 }
 
 
-BGeolocation::BGeolocation(const BUrl& service)
+BGeolocation::BGeolocation(const BURL& service)
 	: fService(service)
 {
 }
@@ -72,12 +72,12 @@ BGeolocation::LocateSelf(float& latitude, float& longitude)
 	if (count < 2)
 		return B_DEVICE_NOT_FOUND;
 
-	class GeolocationListener: public BUrlProtocolListener
+	class GeolocationListener: public BURLProtocolListener
 	{
 		public:
 			virtual	~GeolocationListener() {};
 
-			void	DataReceived(BUrlRequest*, const char* data, off_t position,
+			void	DataReceived(BURLRequest*, const char* data, off_t position,
 						ssize_t size) {
 				result.WriteAt(position, data, size);
 			}
@@ -87,11 +87,11 @@ BGeolocation::LocateSelf(float& latitude, float& longitude)
 	GeolocationListener listener;
 
 	// Send Request (POST JSON message)
-	BUrlRequest* request = BUrlProtocolRoster::MakeRequest(fService, &listener);
+	BURLRequest* request = BURLProtocolRoster::MakeRequest(fService, &listener);
 	if (request == NULL)
 		return B_BAD_DATA;
 
-	BHttpRequest* http = dynamic_cast<BHttpRequest*>(request);
+	BHTTPRequest* http = dynamic_cast<BHTTPRequest*>(request);
 	if (http == NULL) {
 		delete request;
 		return B_BAD_DATA;
@@ -111,7 +111,7 @@ BGeolocation::LocateSelf(float& latitude, float& longitude)
 		snooze(10000);
 
 	// Parse reply
-	const BHttpResult& reply = (const BHttpResult&)http->Result();
+	const BHTTPResult& reply = (const BHTTPResult&)http->Result();
 	if (reply.StatusCode() != 200) {
 		delete http;
 		return B_ERROR;

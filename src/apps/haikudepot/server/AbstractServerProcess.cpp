@@ -118,7 +118,7 @@ AbstractServerProcess::IfModifiedSinceHeaderValue(BString& headerValue,
 
 		BDateTime modifiedDateTime = metaData
 			.GetDataModifiedTimestampAsDateTime();
-		BPrivate::BHttpTime modifiedHttpTime(modifiedDateTime);
+		BPrivate::BHTTPTime modifiedHttpTime(modifiedDateTime);
 		headerValue.SetTo(modifiedHttpTime
 			.ToString(BPrivate::B_HTTP_TIME_FORMAT_COOKIE));
 	} else {
@@ -220,7 +220,7 @@ AbstractServerProcess::ParseJsonFromFileWithListener(
 status_t
 AbstractServerProcess::DownloadToLocalFileAtomically(
 	const BPath& targetFilePath,
-	const BUrl& url)
+	const BURL& url)
 {
 	BPath temporaryFilePath(tmpnam(NULL), NULL, true);
 	status_t result = DownloadToLocalFile(
@@ -253,7 +253,7 @@ AbstractServerProcess::DownloadToLocalFileAtomically(
 
 status_t
 AbstractServerProcess::DownloadToLocalFile(const BPath& targetFilePath,
-	const BUrl& url, uint32 redirects, uint32 failures)
+	const BURL& url, uint32 redirects, uint32 failures)
 {
 	if (WasStopped())
 		return B_CANCELED;
@@ -275,7 +275,7 @@ AbstractServerProcess::DownloadToLocalFile(const BPath& targetFilePath,
 	ToFileUrlProtocolListener listener(targetFilePath, Name(),
 		Logger::IsTraceEnabled());
 
-	BHttpHeaders headers;
+	BHTTPHeaders headers;
 	ServerSettings::AugmentHeaders(headers);
 
 	BString ifModifiedSinceHeader;
@@ -290,8 +290,8 @@ AbstractServerProcess::DownloadToLocalFile(const BPath& targetFilePath,
 	thread_id thread;
 
 	{
-		fRequest = dynamic_cast<BHttpRequest *>(
-			BUrlProtocolRoster::MakeRequest(url, &listener));
+		fRequest = dynamic_cast<BHTTPRequest *>(
+			BURLProtocolRoster::MakeRequest(url, &listener));
 		fRequest->SetHeaders(headers);
 		fRequest->SetMaxRedirections(0);
 		fRequest->SetTimeout(TIMEOUT_MICROSECONDS);
@@ -300,10 +300,10 @@ AbstractServerProcess::DownloadToLocalFile(const BPath& targetFilePath,
 
 	wait_for_thread(thread, NULL);
 
-	const BHttpResult& result = dynamic_cast<const BHttpResult&>(
+	const BHTTPResult& result = dynamic_cast<const BHTTPResult&>(
 		fRequest->Result());
 	int32 statusCode = result.StatusCode();
-	const BHttpHeaders responseHeaders = result.Headers();
+	const BHTTPHeaders responseHeaders = result.Headers();
 	const char *locationC = responseHeaders["Location"];
 	BString location;
 
@@ -313,7 +313,7 @@ AbstractServerProcess::DownloadToLocalFile(const BPath& targetFilePath,
 	delete fRequest;
 	fRequest = NULL;
 
-	if (BHttpRequest::IsSuccessStatusCode(statusCode)) {
+	if (BHTTPRequest::IsSuccessStatusCode(statusCode)) {
 		fprintf(stdout, "[%s] did complete streaming data [%"
 			B_PRIdSSIZE " bytes]\n", Name(), listener.ContentLength());
 		return B_OK;
@@ -324,9 +324,9 @@ AbstractServerProcess::DownloadToLocalFile(const BPath& targetFilePath,
 	} else if (statusCode == B_HTTP_STATUS_PRECONDITION_FAILED) {
 		ServerHelper::NotifyClientTooOld(responseHeaders);
 		return HD_CLIENT_TOO_OLD;
-	} else if (BHttpRequest::IsRedirectionStatusCode(statusCode)) {
+	} else if (BHTTPRequest::IsRedirectionStatusCode(statusCode)) {
 		if (location.Length() != 0) {
-			BUrl redirectUrl(result.Url(), location);
+			BURL redirectUrl(result.Url(), location);
 			fprintf(stdout, "[%s] will redirect to; %s\n",
 				Name(), redirectUrl.UrlString().String());
 			return DownloadToLocalFile(targetFilePath, redirectUrl,

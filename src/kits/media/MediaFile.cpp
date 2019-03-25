@@ -84,7 +84,7 @@ BMediaFile::BMediaFile(const media_file_format* mfi, int32 flags)
 }
 
 
-BMediaFile::BMediaFile(const BUrl& url)
+BMediaFile::BMediaFile(const BURL& url)
 {
 	CALLED();
 	_Init();
@@ -93,7 +93,7 @@ BMediaFile::BMediaFile(const BUrl& url)
 }
 
 
-BMediaFile::BMediaFile(const BUrl& url, int32 flags)
+BMediaFile::BMediaFile(const BURL& url, int32 flags)
 {
 	CALLED();
 	_Init();
@@ -102,7 +102,7 @@ BMediaFile::BMediaFile(const BUrl& url, int32 flags)
 }
 
 
-BMediaFile::BMediaFile(const BUrl& destination, const media_file_format* mfi,
+BMediaFile::BMediaFile(const BURL& destination, const media_file_format* mfi,
 	int32 flags)
 {
 	CALLED();
@@ -148,7 +148,7 @@ BMediaFile::SetTo(BDataIO* destination)
 
 
 status_t
-BMediaFile::SetTo(const BUrl& url)
+BMediaFile::SetTo(const BURL& url)
 {
 	CALLED();
 
@@ -510,7 +510,7 @@ BMediaFile::_UnInit()
 
 
 void
-BMediaFile::_InitReader(BDataIO* source, const BUrl* url, int32 flags)
+BMediaFile::_InitReader(BDataIO* source, const BURL* url, int32 flags)
 {
 	CALLED();
 
@@ -552,7 +552,7 @@ BMediaFile::_InitReader(BDataIO* source, const BUrl* url, int32 flags)
 
 
 void
-BMediaFile::_InitWriter(BDataIO* target, const BUrl* url,
+BMediaFile::_InitWriter(BDataIO* target, const BURL* url,
 	const media_file_format* fileFormat, int32 flags)
 {
 	CALLED();
@@ -591,7 +591,7 @@ BMediaFile::_InitWriter(BDataIO* target, const BUrl* url,
 
 
 void
-BMediaFile::_InitStreamer(const BUrl& url, BDataIO** adapter)
+BMediaFile::_InitStreamer(const BURL& url, BDataIO** adapter)
 {
 	if (fStreamer != NULL)
 		delete fStreamer;

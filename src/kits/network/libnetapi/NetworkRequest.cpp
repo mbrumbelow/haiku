@@ -14,10 +14,10 @@
 #include <AbstractSocket.h>
 
 
-BNetworkRequest::BNetworkRequest(const BUrl& url, BUrlProtocolListener* listener,
-		BUrlContext* context, const char* threadName, const char* protocolName)
+BNetworkRequest::BNetworkRequest(const BURL& url, BURLProtocolListener* listener,
+		BURLContext* context, const char* threadName, const char* protocolName)
 	:
-	BUrlRequest(url, listener, context, threadName, protocolName),
+	BURLRequest(url, listener, context, threadName, protocolName),
 	fSocket(NULL)
 {
 }
@@ -26,7 +26,7 @@ BNetworkRequest::BNetworkRequest(const BUrl& url, BUrlProtocolListener* listener
 status_t
 BNetworkRequest::Stop()
 {
-	status_t threadStatus = BUrlRequest::Stop();
+	status_t threadStatus = BURLRequest::Stop();
 
 	if (threadStatus != B_OK)
 		return threadStatus;

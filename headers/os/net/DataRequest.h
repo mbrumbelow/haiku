@@ -14,16 +14,16 @@
 #include <UrlRequest.h>
 
 
-class BDataRequest: public BUrlRequest {
+class BDataRequest: public BURLRequest {
 public:
-							BDataRequest(const BUrl& url,
-								BUrlProtocolListener* listener = NULL,
-								BUrlContext* context = NULL);
-		const BUrlResult&	Result() const;
+							BDataRequest(const BURL& url,
+								BURLProtocolListener* listener = NULL,
+								BURLContext* context = NULL);
+		const BURLResult&	Result() const;
 private:
 		status_t			_ProtocolLoop();	
 private:
-		BUrlResult			fResult;
+		BURLResult			fResult;
 };
 
 #endif

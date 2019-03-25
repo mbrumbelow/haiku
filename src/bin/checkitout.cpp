@@ -119,10 +119,10 @@ CheckItOut::ArgvReceived(int32 argc, char** argv)
 		return;
 	}
 	
-	BUrl url(argv[1]);
+	BURL url(argv[1]);
 	fUrlString = url;
 
-	BString full = BUrl(url).SetProtocol(BString()).UrlString();
+	BString full = BURL(url).SetProtocol(BString()).UrlString();
 	BString proto = url.Protocol();
 	BString host = url.Host();
 	BString port = BString() << url.Port();
@@ -158,8 +158,8 @@ CheckItOut::_DoCheckItOut(entry_ref *ref, const char *name)
 	const char* pausec = " ; read -p 'Press any key'";
 	char* args[] = { (char *)"/bin/sh", (char *)"-c", NULL, NULL};
 
-	BUrl url(fUrlString);
-	BString full = BUrl(url).SetProtocol(BString()).UrlString();
+	BURL url(fUrlString);
+	BString full = BURL(url).SetProtocol(BString()).UrlString();
 	BString proto = url.Protocol();
 	BString host = url.Host();
 	BString port = BString() << url.Port();

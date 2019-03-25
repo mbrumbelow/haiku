@@ -602,7 +602,7 @@ PluginManager::DestroyEncoder(BEncoder* encoder)
 
 
 status_t
-PluginManager::CreateStreamer(BStreamer** streamer, BUrl url)
+PluginManager::CreateStreamer(BStreamer** streamer, BURL url)
 {
 	BAutolock _(fLocker);
 

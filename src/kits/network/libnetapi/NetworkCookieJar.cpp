@@ -112,7 +112,7 @@ BNetworkCookieJar::AddCookie(const BNetworkCookie& cookie)
 
 
 status_t
-BNetworkCookieJar::AddCookie(const BString& cookie, const BUrl& referrer)
+BNetworkCookieJar::AddCookie(const BString& cookie, const BURL& referrer)
 {
 	BNetworkCookie* heapCookie = new(std::nothrow) BNetworkCookie(cookie,
 		referrer);
@@ -458,10 +458,10 @@ BNetworkCookieJar::GetIterator() const
 
 
 BNetworkCookieJar::UrlIterator
-BNetworkCookieJar::GetUrlIterator(const BUrl& url) const
+BNetworkCookieJar::GetUrlIterator(const BURL& url) const
 {
 	if (!url.HasPath()) {
-		BUrl copy(url);
+		BURL copy(url);
 		copy.SetPath("/");
 		return BNetworkCookieJar::UrlIterator(this, copy);
 	}
@@ -726,7 +726,7 @@ BNetworkCookieJar::UrlIterator::UrlIterator(const UrlIterator& other)
 
 
 BNetworkCookieJar::UrlIterator::UrlIterator(const BNetworkCookieJar* cookieJar,
-	const BUrl& url)
+	const BURL& url)
 	:
 	fCookieJar(const_cast<BNetworkCookieJar*>(cookieJar)),
 	fIterator(NULL),

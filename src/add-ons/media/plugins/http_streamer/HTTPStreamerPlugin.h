@@ -22,7 +22,7 @@ public:
 								HTTPStreamer();
 	virtual						~HTTPStreamer();
 
-	virtual status_t			Sniff(const BUrl& url);
+	virtual status_t			Sniff(const BURL& url);
 	virtual BMediaIO*			Adapter() const;
 
 private:

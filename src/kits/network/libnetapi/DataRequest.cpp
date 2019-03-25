@@ -14,16 +14,16 @@
 #include <stdio.h>
 
 
-BDataRequest::BDataRequest(const BUrl& url, BUrlProtocolListener* listener,
-		BUrlContext* context)
-	: BUrlRequest(url, listener, context, "data URL parser", "data"),
+BDataRequest::BDataRequest(const BURL& url, BURLProtocolListener* listener,
+		BURLContext* context)
+	: BURLRequest(url, listener, context, "data URL parser", "data"),
 	fResult()
 {
 	fResult.SetContentType("text/plain");
 }
 
 
-const BUrlResult&
+const BURLResult&
 BDataRequest::Result() const
 {
 	return fResult;
