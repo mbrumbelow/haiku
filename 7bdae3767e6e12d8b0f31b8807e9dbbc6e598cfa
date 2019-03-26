@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "caa4c6cc_6daa8a41",
+        "filename": "src/apps/softwareupdater/UpdateManager.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-03-26T07:02:45Z",
+      "side": 1,
+      "message": "Here you are leaking the BPackageRoster instance. Allocate it on the stack instead:\n\nBPackageRoster roster;\nbool systemUpdated \u003d roster.IsRebootNeeded();\n\nor even like this:\n\nbool systemUpdated \u003d BPackageRoster().IsRebootNeeded();\n\nAlso \"systemUpdated\" is a misleading name for the variable. You could call it \"rebootNeeded\" instead. Then it makes the follow up code much easier to understand.",
+      "revId": "7bdae3767e6e12d8b0f31b8807e9dbbc6e598cfa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
