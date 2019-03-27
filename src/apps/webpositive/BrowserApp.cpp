@@ -58,6 +58,7 @@
 #include "WebViewConstants.h"
 
 
+
 #undef B_TRANSLATION_CONTEXT
 #define B_TRANSLATION_CONTEXT "WebPositive"
 
@@ -137,7 +138,7 @@ BrowserApp::AboutRequested()
 	// create the about window
 
 	const char* authors[] = {
-		"Andrea Anzani",
+		"Syed Souban",
 		"Stephan Aßmus",
 		"Alexandre Deckner",
 		"Rene Gollent",

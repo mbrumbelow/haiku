@@ -72,6 +72,8 @@
 
 #include <map>
 #include <stdio.h>
+#include<string>
+#include<stdlib.h>
 
 #include "AuthenticationPanel.h"
 #include "BaseURL.h"
@@ -2489,10 +2491,47 @@ BrowserWindow::_VisitURL(const BString& url)
 void
 BrowserWindow::_VisitSearchEngine(const BString& search)
 {
-	BString engine(fSearchPageURL);
-	engine.ReplaceAll("%s", _EncodeURIComponent(search).String());
+	
+	char buff[2];
+	search.CopyInto(buff,0,2);
+		
+	const char* searchCS = search.String();
+	char temp[1000];
+	int j = 0;
+	for (int i = 2 ;i<search.CountChars();i++)
+	{
+		temp[j++]=searchCS[i];
+	}
+	const char* newSearch = temp;
 
-	_VisitURL(engine);
+
+	//If user wants to search on Bing	
+	if (strcmp(buff,"b ")==0) {
+		BString engine("http://bing.com?q=%s");
+		engine.ReplaceAll("%s", _EncodeURIComponent(newSearch));
+		_VisitURL(engine);
+	}
+
+	//If user wants to search on Google	
+	else if (strcmp(buff,"g ")==0) {
+		BString engine(fSearchPageURL);
+		engine.ReplaceAll("%s", _EncodeURIComponent(newSearch));
+		_VisitURL(engine);
+	}
+    
+	//If user wants to search on Wikipedia	
+	else if (strcmp(buff,"w ")==0) {
+		BString engine("http://en.wikipedia.org/w/index.php?search=%s");
+		engine.ReplaceAll("%s", _EncodeURIComponent(newSearch));
+		_VisitURL(engine);
+	}
+	
+	//The default search engine is Google
+	else {
+		BString engine(fSearchPageURL);
+		engine.ReplaceAll("%s", _EncodeURIComponent(search.String()));
+		_VisitURL(engine);
+	}
 }
 
 
@@ -2701,3 +2740,4 @@ BrowserWindow::_ShowBookmarkBar(bool show)
 	else
 		fBookmarkBar->Hide();
 }
+                        
