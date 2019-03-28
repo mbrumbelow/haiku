@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "184089f5_e1354cab",
+        "filename": "src/add-ons/kernel/file_systems/fat/mkdos.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-03-28T07:15:02Z",
+      "side": 1,
+      "message": "The previous code was also correct (using a C++ constructor to initialize).\n\nWhat\u0027s more annoying here is that our coding style does not allow commented out code. Instead there should be a #if 0 and a comment explaining why the code is currently disabled. Or, if we are sure the code is not needed, it should be removed.",
+      "revId": "36d5625d5f944e85d35585864fa5ad9a590cf08e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
