@@ -29,7 +29,7 @@ BootMergeObject boot_platform_openfirmware.o :
 
 	:
 	:
-	boot_platform_generic.a
+	boot_platform_openfirmware.a
 	boot_platform_openfirmware_$(TARGET_ARCH).a
 ;
 
