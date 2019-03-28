@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "563a570e_6a88bf6b",
+        "filename": "src/system/boot/platform/openfirmware/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-03-28T13:51:31Z",
+      "side": 0,
+      "message": "src/system/boot/platform/generic/Jamfile \n\nboot_platform_generic_$HAIKU_BOOT_PLATFORM.a?",
+      "revId": "85117172fea92470fc48192ecd821c70c799e236",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
