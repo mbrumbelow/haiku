@@ -166,5 +166,6 @@ MergeObjectFromObjects <$(TARGET_ARCH)>posix_gnu_arch_$(TARGET_ARCH).o
 SEARCH on [ FGristFiles $(genericSources) ]
 	= [ FDirName $(HAIKU_TOP) src system libroot posix glibc arch
 		generic ]
+	  [ FDirName $(HAIKU_TOP) src system libroot posix glibc math ]
 	  [ FDirName $(HAIKU_TOP) src system libroot posix glibc arch
 		generic longdouble 128bit ] ;
