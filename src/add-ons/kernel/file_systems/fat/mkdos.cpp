@@ -125,7 +125,7 @@ dosfs_initialize(int fd, partition_id partitionID, const char* name,
 	const char *label = name;
 
 	// initialize the volume
-//	Volume volume(NULL);
+//	Volume volume = NULL;
 //	status = volume.Initialize(fd, name, parameters.blockSize,
 //		parameters.flags);
 
