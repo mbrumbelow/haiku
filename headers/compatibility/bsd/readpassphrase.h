@@ -23,7 +23,7 @@
 #ifndef _READPASSPHRASE_H_
 #define _READPASSPHRASE_H_
 
-#ifdef _BSD_SOURCE
+#ifndef __STRICT_ANSI__
 
 #define RPP_ECHO_OFF    0x00		/* Turn off echo (default). */
 #define RPP_ECHO_ON     0x01		/* Leave echo on. */
@@ -39,6 +39,6 @@ __BEGIN_DECLS
 char * readpassphrase(const char *, char *, size_t, int);
 __END_DECLS
 
-#endif
+#endif /* !__STRICT_ANSI__ */
 
 #endif /* !_READPASSPHRASE_H_ */
