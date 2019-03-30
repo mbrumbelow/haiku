@@ -1,0 +1,10 @@
+SubDir HAIKU_TOP src add-ons input_server filters switch_workspace ;
+
+SetSubDirSupportedPlatformsBeOSCompatible ;
+
+UsePrivateHeaders app ;
+
+Addon padblocker
+	: Padblocker.cpp
+	: be input_server [ TargetLibstdc++ ] [ TargetLibsupc++ ]
+	;
