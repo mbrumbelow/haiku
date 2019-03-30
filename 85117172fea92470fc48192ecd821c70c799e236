@@ -16,6 +16,24 @@
       "revId": "85117172fea92470fc48192ecd821c70c799e236",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56c24594_7201448e",
+        "filename": "src/system/boot/platform/openfirmware/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-03-30T15:22:32Z",
+      "side": 0,
+      "message": "More specifically, boot_platform_generic_openfirmware.a",
+      "parentUuid": "563a570e_6a88bf6b",
+      "revId": "85117172fea92470fc48192ecd821c70c799e236",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
