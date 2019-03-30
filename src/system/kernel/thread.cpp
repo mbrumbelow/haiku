@@ -3681,8 +3681,9 @@ _user_receive_data(thread_id *_userSender, void *buffer, size_t bufferSize)
 	status_t code;
 
 	if ((!IS_USER_ADDRESS(_userSender) && _userSender != NULL)
-		|| !IS_USER_ADDRESS(buffer))
+		|| (!IS_USER_ADDRESS(buffer) && buffer != NULL)) {
 		return B_BAD_ADDRESS;
+	}
 
 	code = receive_data_etc(&sender, buffer, bufferSize, B_KILL_CAN_INTERRUPT);
 		// supports userland buffers
