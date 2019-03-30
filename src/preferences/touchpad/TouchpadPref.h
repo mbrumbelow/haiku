@@ -39,9 +39,11 @@ public:
 									{ return fSettings; }
 
 			status_t			UpdateSettings();
+			status_t            SavePadBlockerSettings();
 
 private:
 			status_t			GetSettingsPath(BPath& path);
+			status_t            GetPadBlockerSettingsPath(BPath& path);
 			status_t			LoadSettings();
 			status_t			SaveSettings();
 
