@@ -13,7 +13,7 @@
 #include <FindDirectory.h>
 #include <File.h>
 #include <String.h>
-
+#include <Entry.h>
 #include <keyboard_mouse_driver.h>
 
 
@@ -66,6 +66,7 @@ TouchpadPref::UpdateSettings()
 	msg.AddInt16("scroll_xstepsize", fSettings.scroll_xstepsize);
 	msg.AddInt16("scroll_ystepsize", fSettings.scroll_ystepsize);
 	msg.AddInt8("scroll_acceleration", fSettings.scroll_acceleration);
+	msg.AddInt32("padblocking_speed", fSettings.threshold_value);
 	msg.AddInt8("tapgesture_sensibility", fSettings.tapgesture_sensibility);
 
 	return fTouchPad->Control(MS_SET_TOUCHPAD_SETTINGS, &msg);
@@ -89,6 +90,15 @@ TouchpadPref::GetSettingsPath(BPath &path)
 	return path.Append(TOUCHPAD_SETTINGS_FILE);
 }
 
+status_t
+TouchpadPref::GetPadBlockerSettingsPath(BPath &path)
+{
+	status_t status = find_directory(B_USER_SETTINGS_DIRECTORY, &path);
+	if (status < B_OK)
+		return status;
+
+	return path.Append(PADBLOCKER_SETTINGS_FILE);
+}
 
 status_t
 TouchpadPref::LoadSettings()
@@ -115,7 +125,8 @@ TouchpadPref::LoadSettings()
 		return B_ERROR;
 	}
 
-	return B_OK;
+
+return B_OK;
 }
 
 
@@ -147,6 +158,35 @@ TouchpadPref::SaveSettings()
 	return B_OK;
 }
 
+
+status_t
+TouchpadPref::SavePadBlockerSettings()
+{
+	BPath pBPath;
+	status_t status = GetPadBlockerSettingsPath(pBPath);
+	if (status != B_OK)
+		return status;
+
+	BFile pBSettingsFile(pBPath.Path(),
+		B_READ_WRITE | B_CREATE_FILE | B_ERASE_FILE);
+
+	status = pBSettingsFile.InitCheck();
+	if (status != B_OK)
+		return status;
+
+	char buf[64];
+	int32 threshold = fSettings.threshold_value * 10;
+	sprintf(buf, "%d #delay in 1/1000 secs", threshold);
+	int32 len = strlen(buf);
+
+	if (pBSettingsFile.Write(buf, len * sizeof(char))
+			!= sizeof(buf)) {
+		LOG("can't save PadBlocker settings\n");
+		return B_ERROR;
+	}
+
+	return B_OK;
+}
 
 status_t
 TouchpadPref::ConnectToTouchPad()

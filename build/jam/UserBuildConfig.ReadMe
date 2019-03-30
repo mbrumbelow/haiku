@@ -115,6 +115,9 @@ AddSymlinkToHaikuImage home config bin : /bin/crashing_app : crash ;
 # Add keymap settings.
 AddFilesToHaikuImage home config settings : <keymap>US-International : Key_map ;
 
+# Add padblocker to Haiku image
+AddSOurceDirectoryToHaikuImage src add-ons input_server padblocker : alwaysUpdate ; 
+
 # Adds the source directories src/kits/storage and src/tests/servers/debug
 # (recursively) to the image (as /boot/home/HaikuSources/src/kits/storage
 # and /boot/home/HaikuSources/src/tests/servers/debug respectively).
