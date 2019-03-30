@@ -310,16 +310,25 @@ TouchpadPrefView::MessageReceived(BMessage* message)
 			fTouchpadPref.UpdateSettings();
 			break;
 
+		case PADBLOCK_TIME_CHANGED:
+			settings.padblocker_threshold = fPadBlockerSlider->Value();
+			fRevertButton->SetEnabled(true);
+			fTouchpadPref.UpdateSettings();
+			fTouchpadPref.SavePadBlockerSettings();
+			break;
+
 		case DEFAULT_SETTINGS:
 			fTouchpadPref.Defaults();
 			fRevertButton->SetEnabled(true);
 			fTouchpadPref.UpdateSettings();
+			fTouchpadPref.SavePadBlockerSettings();
 			SetValues(&settings);
 			break;
 
 		case REVERT_SETTINGS:
 			fTouchpadPref.Revert();
 			fTouchpadPref.UpdateSettings();
+			fTouchpadPref.SavePadBlockerSettings();
 			fRevertButton->SetEnabled(false);
 			SetValues(&settings);
 			break;
@@ -339,6 +348,7 @@ TouchpadPrefView::AttachedToWindow()
 	fScrollStepXSlider->SetTarget(this);
 	fScrollStepYSlider->SetTarget(this);
 	fScrollAccelSlider->SetTarget(this);
+	fPadBlockerSlider->SetTarget(this);
 	fTapSlider->SetTarget(this);
 	fDefaultButton->SetTarget(this);
 	fRevertButton->SetTarget(this);
@@ -398,6 +408,14 @@ TouchpadPrefView::SetupView()
 	fScrollStepYSlider->SetLimitLabels(B_TRANSLATE("Slow"),
 		B_TRANSLATE("Fast"));
 
+	fPadBlockerSlider = new BSlider("padblocker",
+		B_TRANSLATE("Keyboard Lock Delay"),
+		new BMessage(PADBLOCK_TIME_CHANGED), 0, 100, B_HORIZONTAL);
+	fPadBlockerSlider->SetHashMarks(B_HASH_MARKS_BOTTOM);
+	fPadBlockerSlider->SetHashMarkCount(10);
+	fPadBlockerSlider->SetLimitLabels(B_TRANSLATE("Quick"),
+		B_TRANSLATE("Slow"));
+
 	fTwoFingerBox = new BCheckBox(B_TRANSLATE("Two finger scrolling"),
 		new BMessage(SCROLL_CONTROL_CHANGED));
 	fTwoFingerHorizontalBox = new BCheckBox(
@@ -422,6 +440,7 @@ TouchpadPrefView::SetupView()
 	scrollPrefRightLayout->AddChild(fScrollAccelSlider);
 	scrollPrefRightLayout->AddChild(fScrollStepXSlider);
 	scrollPrefRightLayout->AddChild(fScrollStepYSlider);
+	scrollPrefRightLayout->AddChild(fPadBlockerSlider);
 
 	BGroupLayout* scrollPrefLayout = new BGroupLayout(B_HORIZONTAL);
 	scrollPrefLayout->SetSpacing(spacing);
@@ -483,5 +502,6 @@ TouchpadPrefView::SetValues(touchpad_settings* settings)
 	fScrollStepXSlider->SetValue(20 - settings->scroll_xstepsize / 2);
 	fScrollStepYSlider->SetValue(20 - settings->scroll_ystepsize / 2);
 	fScrollAccelSlider->SetValue(settings->scroll_acceleration);
+	fPadBlockerSlider->SetValue(settings->padblocker_threshold);
 	fTapSlider->SetValue(settings->tapgesture_sensibility);
 }
