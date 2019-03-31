@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "94df0c0c_5d5e2fd3",
+        "filename": "src/kits/app/MessageUtils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2019-03-31T11:05:52Z",
+      "side": 1,
+      "message": "I know it\u0027s the same thing, but wouldn\u0027t B_BENDIAN_TO_HOST_INT32() be more accurate here?",
+      "revId": "b2819a95390b00fb09f0f5e8f28aef6c45ea7241",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
