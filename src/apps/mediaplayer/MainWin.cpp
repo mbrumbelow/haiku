@@ -67,6 +67,7 @@ enum {
 	M_DUMMY = 0x100,
 	M_FILE_OPEN = 0x1000,
 	M_NETWORK_STREAM_OPEN,
+	M_EJECT_DEVICE,
 	M_FILE_INFO,
 	M_FILE_PLAYLIST,
 	M_FILE_CLOSE,
@@ -867,6 +868,12 @@ MainWin::MessageReceived(BMessage* msg)
 			break;
 		}
 
+		case M_EJECT_DEVICE:
+		{
+			Eject();
+			break;
+		}
+
 		case M_FILE_INFO:
 			ShowFileInfo();
 			break;
@@ -1179,6 +1186,89 @@ MainWin::OpenPlaylistItem(const PlaylistItemRef& item)
 		string << "Opening '" << item->Name() << "'.";
 		fControls->SetDisabledString(string.String());
 	}
+}
+
+
+
+
+void
+MainWin::Eject()
+{
+	#ifdef  B_BEOS_VERSION_4_1
+		status_t media_status = B_DEV_NO_MEDIA;
+                fDevice = FindCDPlayerDevice();
+		ioctl(fDevice, B_GET_MEDIA_STATUS, &media_status, sizeof(media_status));
+		status_t result = ioctl(fDevice,
+				media_status == B_DEV_DOOR_OPEN ? B_LOAD_MEDIA : B_EJECT_DEVICE);
+
+	#else
+		status_t result = ioctl(fDevice, B_EJECT_DEVICE);
+
+	#endif
+		if (result != B_NO_ERROR){
+			printf(stderr, "error ejecting\n");
+			return;
+		}
+}
+
+
+static int 
+MainWin::FindCDPlayerDevice()
+{
+        return try_dir("/dev/disk");
+}
+
+
+static int
+MainWin::try_dir(const char *directory)
+{
+        BDirectory dir; 
+	dir.SetTo(directory); 
+	if(dir.InitCheck() != B_NO_ERROR) { 
+		return false; 
+	} 
+	dir.Rewind(); 
+	BEntry entry; 
+	while(dir.GetNextEntry(&entry) >= 0) { 
+		BPath path; 
+		const char *name; 
+		entry_ref e; 
+		
+		if(entry.GetPath(&path) != B_NO_ERROR) 
+			continue; 
+		name = path.Path(); 
+		
+		
+		if(entry.GetRef(&e) != B_NO_ERROR) 
+			continue; 
+
+		if(entry.IsDirectory()) { 
+			if(strcmp(e.name, "floppy") == 0) 
+				continue; // ignore floppy (it is not silent) 
+			int devfd = try_dir(name);
+			if(devfd >= 0)
+				return devfd;
+		} 
+		else { 
+			int devfd; 
+			device_geometry g; 
+
+			if(strcmp(e.name, "raw") != 0) 
+				continue; // ignore partitions 
+
+			devfd = open(name, O_RDONLY); 
+			if(devfd < 0) 
+                                continue; 
+                        if(ioctl(devfd, B_GET_GEOMETRY, &g, sizeof(g)) >= 0) {
+				if(g.device_type == B_CD)
+				{ 
+					return devfd;
+				}
+			}
+			close(devfd);
+		} 
+	}
+	return B_ERROR;
 }
 
 
@@ -1528,6 +1618,10 @@ MainWin::_CreateMenu()
 
 	item = new BMenuItem(B_TRANSLATE("Open network stream"),
 		new BMessage(M_NETWORK_STREAM_OPEN));
+	fFileMenu->AddItem(item);
+
+	item = new BMenuItem(B_TRANSLATE("Eject Device"),
+		new BMessage(M_EJECT_DEVICE));
 	fFileMenu->AddItem(item);
 
 	fFileMenu->AddSeparatorItem();
@@ -2725,5 +2819,3 @@ MainWin::_AdoptGlobalSettings()
 	fLoopSounds = settings.loopSound;
 	fScaleFullscreenControls = settings.scaleFullscreenControls;
 }
-
-
