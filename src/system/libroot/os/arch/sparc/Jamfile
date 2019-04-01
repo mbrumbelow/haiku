@@ -16,6 +16,7 @@ for architectureObject in [ MultiArchSubDirSetup sparc ] {
 			byteorder.S
 
 			stack_frame.c
+			stack_trace.cpp
 			system_time.c
 			thread.c
 			time.c
