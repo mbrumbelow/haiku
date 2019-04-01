@@ -48,6 +48,10 @@ public:
 			void				OpenPlaylist(const BMessage* playlistArchive);
 			void				OpenPlaylistItem(const PlaylistItemRef& item);
 
+			void                 Eject();
+                        static int           FindCDPlayerDevice();
+                        static int           try_dir(const char *directory);                             
+
 			void				ShowFileInfo();
 			void				ShowPlaylistWindow();
 			void				ShowSettingsWindow();
@@ -189,6 +193,7 @@ private:
 			bool				fScaleFullscreenControls;
 			bigtime_t			fInitialSeekPosition;
 			bool				fAllowWinding;
+			int         fDevice;
 
 	static	int					sNoVideoWidth;
 };
