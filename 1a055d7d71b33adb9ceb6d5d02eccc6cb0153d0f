@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6afd45fe_23e77eec",
+        "filename": "src/apps/mediaplayer/playlist/Playlist.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-01T13:03:58Z",
+      "side": 1,
+      "message": "I missed something above, also in my first review. You create a BEntry from the entry_ref with the option to traverse links. Then you do nothing with that and construct a BFile again. You should probably construct the BFile from the entry instead, or create the BFile from the ref while traversing links and checking InitCheck() from the BFile instead. You can then remove the whole BEntry related blob.",
+      "revId": "1a055d7d71b33adb9ceb6d5d02eccc6cb0153d0f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
