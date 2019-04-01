@@ -67,6 +67,7 @@ enum {
 	M_DUMMY = 0x100,
 	M_FILE_OPEN = 0x1000,
 	M_NETWORK_STREAM_OPEN,
+	M_EJECT_DEVICE,
 	M_FILE_INFO,
 	M_FILE_PLAYLIST,
 	M_FILE_CLOSE,
@@ -867,6 +868,12 @@ MainWin::MessageReceived(BMessage* msg)
 			break;
 		}
 
+		case M_EJECT_DEVICE:
+		{
+			Eject();
+			break;
+		}
+
 		case M_FILE_INFO:
 			ShowFileInfo();
 			break;
@@ -1181,6 +1188,25 @@ MainWin::OpenPlaylistItem(const PlaylistItemRef& item)
 	}
 }
 
+
+void
+MainWin::Eject()
+{
+	#ifdef
+		status_t media_status = B_DEV_NO_MEDIA;
+		ioctl(fDevice, B_GET_MEDIA_STATUS, &media_status, sizeof(media_status));
+		status_t result = ioctl(fDevice,
+				media_status == B_DEV_DOOR_OPEN ? B_LOAD_MEDIA : B_EJECT_DEVICE);
+
+	#else
+		status_t result = ioctl(fDevice, B_EJECT_DEVICE);
+
+	#endif
+		if (result != B_NO_ERROR){
+			printf(stderr, "error ejecting\n");
+			return;
+		}
+}
 
 void
 MainWin::ShowFileInfo()
@@ -1528,6 +1554,10 @@ MainWin::_CreateMenu()
 
 	item = new BMenuItem(B_TRANSLATE("Open network stream"),
 		new BMessage(M_NETWORK_STREAM_OPEN));
+	fFileMenu->AddItem(item);
+
+	item = new BMenuItem(B_TRANSLATE("Eject Device"),
+		new BMessage(M_EJECT_DEVICE));
 	fFileMenu->AddItem(item);
 
 	fFileMenu->AddSeparatorItem();
@@ -2725,5 +2755,3 @@ MainWin::_AdoptGlobalSettings()
 	fLoopSounds = settings.loopSound;
 	fScaleFullscreenControls = settings.scaleFullscreenControls;
 }
-
-
