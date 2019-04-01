@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d600a7a5_2eb7f629",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2019-04-01T21:54:49Z",
+      "side": 1,
+      "message": "There is actually a valid reason to keep this separated: not every architecture grows the stack in the same direction. You could probably unify it to some extent, but this would need to be taken into account in the loop condition/stack walking code via conditional compilation or some other mechanism.",
+      "revId": "e07e40937568c5aecf858d95759f6e5581e6ebac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
