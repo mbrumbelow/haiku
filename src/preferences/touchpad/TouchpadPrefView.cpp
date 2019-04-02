@@ -271,6 +271,10 @@ TouchpadPrefView::TouchpadPrefView()
 	SetupView();
 	// set view values
 	SetValues(&fTouchpadPref.Settings());
+	if (fTouchpadPref.IsTouchpadConnected() == false){
+		fTouchpadView->ShowTouchpadWarning();
+		DisablePref();
+	}
 }
 
 
@@ -370,7 +374,6 @@ TouchpadPrefView::SetupView()
 
 	fTouchpadView = new TouchpadView(BRect(0, 0, 130, 120));
 	fTouchpadView->SetExplicitMaxSize(BSize(130, 120));
-
 	// Create the "Mouse Speed" slider...
 	fScrollAccelSlider = new BSlider("scroll_accel",
 		B_TRANSLATE("Acceleration"),
@@ -484,4 +487,28 @@ TouchpadPrefView::SetValues(touchpad_settings* settings)
 	fScrollStepYSlider->SetValue(20 - settings->scroll_ystepsize / 2);
 	fScrollAccelSlider->SetValue(settings->scroll_acceleration);
 	fTapSlider->SetValue(settings->tapgesture_sensibility);
+}
+
+
+void
+TouchpadView::ShowTouchpadWarning()
+{
+	BAlert* alert = new BAlert(B_TRANSLATE("Touchpad Status"),
+		B_TRANSLATE("No touchpad found, the settings will have no effect"),
+		B_TRANSLATE("OK"), NULL, NULL, B_WIDTH_AS_USUAL, B_WARNING_ALERT);
+		alert->Go();
+}
+
+
+void
+TouchpadPrefView::DisablePref()
+{
+	fTwoFingerBox->SetEnabled(false);
+	fTwoFingerHorizontalBox->SetEnabled(false);
+	fRevertButton->SetEnabled(false);
+	fDefaultButton->SetEnabled(false);
+	fTapSlider->SetEnabled(false);
+	fScrollAccelSlider->SetEnabled(false);
+	fScrollStepXSlider->SetEnabled(false);
+	fScrollStepYSlider->SetEnabled(false);
 }
