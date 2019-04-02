@@ -56,6 +56,7 @@ public:
 			float			GetBottomScrollRatio()
 								{ return 1
 									- fYScrollRange / fPadRect.Height(); }
+			void 			ShowTouchpadWarning();
 private:
 	virtual void 			DrawSliders();
 
@@ -91,6 +92,8 @@ public:
 			void			SetValues(touchpad_settings *settings);
 
 private:
+			void 			DisablePref();
+
 			TouchpadView*	fTouchpadView;
 			BCheckBox*		fTwoFingerBox;
 			BCheckBox*		fTwoFingerHorizontalBox;
