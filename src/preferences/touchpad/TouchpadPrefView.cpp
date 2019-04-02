@@ -311,7 +311,7 @@ TouchpadPrefView::MessageReceived(BMessage* message)
 			break;
 
 		case PADBLOCK_TIME_CHANGED:
-			settings.threshold_value = fPadBlockerSlider->Value();
+			settings.padblocker_threshold = fPadBlockerSlider->Value();
 			fRevertButton->SetEnabled(true);
 			fTouchpadPref.UpdateSettings();
 			fTouchpadPref.SavePadBlockerSettings();
@@ -409,12 +409,12 @@ TouchpadPrefView::SetupView()
 		B_TRANSLATE("Fast"));
 
 	fPadBlockerSlider = new BSlider("padblocker",
-		B_TRANSLATE("PadBlock"),
+		B_TRANSLATE("Keyboard Lock Delay"),
 		new BMessage(PADBLOCK_TIME_CHANGED), 0, 100, B_HORIZONTAL);
 	fPadBlockerSlider->SetHashMarks(B_HASH_MARKS_BOTTOM);
-	fPadBlockerSlider->SetHashMarkCount(7);
-	fPadBlockerSlider->SetLimitLabels(B_TRANSLATE("Low"),
-		B_TRANSLATE("High"));
+	fPadBlockerSlider->SetHashMarkCount(10);
+	fPadBlockerSlider->SetLimitLabels(B_TRANSLATE("Quick"),
+		B_TRANSLATE("Slow"));
 
 	fTwoFingerBox = new BCheckBox(B_TRANSLATE("Two finger scrolling"),
 		new BMessage(SCROLL_CONTROL_CHANGED));
@@ -502,6 +502,6 @@ TouchpadPrefView::SetValues(touchpad_settings* settings)
 	fScrollStepXSlider->SetValue(20 - settings->scroll_xstepsize / 2);
 	fScrollStepYSlider->SetValue(20 - settings->scroll_ystepsize / 2);
 	fScrollAccelSlider->SetValue(settings->scroll_acceleration);
-	fPadBlockerSlider->SetValue(settings->threshold_value);
+	fPadBlockerSlider->SetValue(settings->padblocker_threshold);
 	fTapSlider->SetValue(settings->tapgesture_sensibility);
 }
