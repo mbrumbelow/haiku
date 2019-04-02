@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ebc66ea0_8a9eff4d",
+        "filename": "src/preferences/touchpad/TouchpadPrefView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-02T14:42:03Z",
+      "side": 1,
+      "message": "This line is larger than 80 columns.\nI think the wording could be better.\n\n\"No touchpad found, the settings will have no effect\" sounds better.",
+      "revId": "7a47e376ba44652fa0289db9a1acb7c0f33eb785",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83d6edeb_631639e1",
+        "filename": "src/preferences/touchpad/TouchpadPrefView.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-02T14:42:03Z",
+      "side": 1,
+      "message": "This should be at line 61 with the other private method",
+      "revId": "7a47e376ba44652fa0289db9a1acb7c0f33eb785",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
