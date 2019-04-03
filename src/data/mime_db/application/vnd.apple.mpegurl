@@ -1,0 +1,16 @@
+
+resource(0, "BEOS:TYPE") #'MIMS' "application/x-vnd.Be-meta-mime";
+
+resource(1, "META:TYPE") "application/vnd.apple.mpegurl";
+
+resource(2, "META:SNIFF_RULE") "0.50 (\"#EXTM3U\")";
+
+resource(3, "META:S:DESC") #'MSDC' "MP3 URL";
+
+resource(4, "META:EXTENS") message(234) {
+	"extensions" = "m3u",
+	"extensions" = "m3u8",
+	"type" = "application/vnd.apple.mpegurl"
+};
+
+resource(5, "META:PREF_APP") #'MSIG' "application/x-vnd.Haiku-MediaPlayer";
