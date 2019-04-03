@@ -105,6 +105,8 @@ private:
 
 			phys_addr_t			fKernelPhysicalPML4;
 			uint64*				fKernelVirtualPML4;
+			// TODO. [GSoC]
+			uint64*				fKernelVirtualPML4Limited;
 
 			X86PhysicalPageMapper* fPhysicalPageMapper;
 			TranslationMapPhysicalPageMapper* fKernelPhysicalPageMapper;

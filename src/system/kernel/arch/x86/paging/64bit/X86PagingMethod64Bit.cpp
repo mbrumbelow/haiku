@@ -87,12 +87,24 @@ X86PagingMethod64Bit::InitPostArea(kernel_args* args)
 		KERNEL_PMAP_SIZE, 0);
 	if (area < B_OK)
 		return area;
+	// TODO. [GSoC] Init a limited area of kernel space
+	area_id dual_area = vm_create_null_area(VMAddressSpace::KernelID(),
+		"limited physical map area of kernel", &address, B_EXACT_ADDRESS_LIMITED,
+		KERNEL_PMAP_SIZE_LIMITED, 0);
+	if (dual_area < B_OK)
+		return area;
 
 	// Create an area to represent the kernel PML4.
 	area = create_area("kernel pml4", (void**)&fKernelVirtualPML4,
 		B_EXACT_ADDRESS, B_PAGE_SIZE, B_ALREADY_WIRED,
 		B_KERNEL_READ_AREA | B_KERNEL_WRITE_AREA);
 	if (area < B_OK)
+		return area;
+	// TODO. [GSoC] create a limited kernel PML4 area, actually we only need to create one more top-level PML4 page
+	dual_area = create_area_limited("limited kernel PML4", (void**)&fKernelVirtualPML4Limited,
+		B_EXACT_ADDRESS_LIMITED, B_PAGE_SIZE, B_ALREADY_WIRED,
+		B_KERNEL_READ_AREA | B_KERNEL_WRITE_AREA);
+	if (dual_area < B_OK)
 		return area;
 
 	return B_OK;

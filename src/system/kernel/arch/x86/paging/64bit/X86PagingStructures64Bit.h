@@ -16,6 +16,8 @@ struct X86PagingStructures64Bit final : X86PagingStructures {
 
 			void				Init(uint64* virtualPML4,
 									phys_addr_t physicalPML4);
+			void				DualInit(uint64* virtualPML4,
+									phys_addr_t phsyicalPML4);
 
 	virtual	void				Delete();
 

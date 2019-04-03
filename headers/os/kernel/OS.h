@@ -94,7 +94,12 @@ typedef struct area_info {
 extern area_id		create_area(const char *name, void **startAddress,
 						uint32 addressSpec, size_t size, uint32 lock,
 						uint32 protection);
+extern area_id		create_area_limited(const char *name, void **startAddress,
+						uint32 addressSpec, size_t size, uint32 lock,
+						uint32 protection);
 extern area_id		clone_area(const char *name, void **destAddress,
+						uint32 addressSpec, uint32 protection, area_id source);
+extern area_id		clone_area_limited(const char *name, void **destAddress,
 						uint32 addressSpec, uint32 protection, area_id source);
 extern area_id		find_area(const char *name);
 extern area_id		area_for(void *address);

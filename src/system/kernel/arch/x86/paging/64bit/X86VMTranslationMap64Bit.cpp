@@ -131,6 +131,9 @@ X86VMTranslationMap64Bit::Init(bool kernel)
 		// Kernel PML4 is already mapped.
 		fPagingStructures->Init(method->KernelVirtualPML4(),
 			method->KernelPhysicalPML4());
+		// TODO. [GSoC] Placeholder for dual page table, which has limited view of kernel space
+		fPagingStructures->DualInit(method->KernelVirtualPML4_Limited(),
+			method->KernelPhysicalPML4_Limited());
 	} else {
 		// Allocate a physical page mapper.
 		status_t error = method->PhysicalPageMapper()
@@ -150,8 +153,9 @@ X86VMTranslationMap64Bit::Init(bool kernel)
 		memset(virtualPML4, 0, B_PAGE_SIZE);
 
 		// Copy the top 2 PML4 entries.
-		virtualPML4[510] = method->KernelVirtualPML4()[510];
-		virtualPML4[511] = method->KernelVirtualPML4()[511];
+		// TODO. [GSoC] only let user space has a limited view of kernel space
+		virtualPML4[510] = method->KernelVirtualPML4_Limited()[510];
+		vritualPML4[511] = method->KernelVirtualPML4_Limited()[511];
 
 		// Look up the PML4 physical address.
 		phys_addr_t physicalPML4;

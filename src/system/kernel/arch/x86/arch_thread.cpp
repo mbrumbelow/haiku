@@ -240,6 +240,10 @@ arch_thread_context_switch(Thread* from, Thread* to)
 
 		// set the page directory, if it changes
 		addr_t newPageDirectory = toPagingStructures->pgdir_phys;
+		// TODO. [GSoC] construct the PCID, which is allocated per-cpu.
+		newPageDirectory = constructPCIDSlot(newPageDirectory, cpu);
+		// The following line might need changing since they are likely to
+		// differ after PCID is enabled
 		if (newPageDirectory != activePagingStructures->pgdir_phys)
 			x86_swap_pgdir(newPageDirectory);
 

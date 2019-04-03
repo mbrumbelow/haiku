@@ -157,6 +157,27 @@
 	push	$nr;						\
 	jmp		int_bottom;
 
+// TODO.i [GSoC] Implementing PCID feature. For now, lets mimick linux
+#define PTI_USER_PGTABLE_BIT		PAGE_SHIFT
+#define PTI_USER_PGTABLE_MASK		(1 << PTI_USER_PGTABLE_BIT)
+#define PTI_USER_PCID_BIT		X86_CR3_PTI_PCID_USER_BIT
+#define PTI_USER_PCID_MASK		(1 << PTI_USER_PCID_BIT)
+#define PTI_USER_PGTABLE_AND_PCID_MASK  (PTI_USER_PCID_MASK | PTI_USER_PGTABLE_MASK)
+
+// Switch to kernel page table and clear PCID MSB(bit 11)
+#define SWITCH_TO_KERNEL_CR3(scratch_reg) \
+	.align 16:			\
+	mov	%cr3, scratch_reg;	\
+	and	$(~PTI_USER_PGTABLE_AND_PCID_MASK), scratch_reg;	\
+	mov	scratch_reg, %cr3;
+
+// For now, it is just an illustration of the whole flow without flushing TLB
+#define SWTICH_TO_USER_CR3(scratch_reg)	\
+	.align 16:
+	mov	%cr3, scratch_reg;	\
+	or	$(PTI_USER_PGTABLE_AND_PCID_MASK), scratch_reg;	\
+	mov	scratch_reg, %cr3;
+
 // Array of interrupt service routines.
 .align 16
 SYMBOL(isr_array):
@@ -213,6 +234,11 @@ STATIC_FUNCTION(int_bottom):
 
 	cld
 
+	// TODO. [GSoC] use rdi as temporary register
+	push	%rdi
+	SWTICH_TO_KERNEL_CR3(%rdi)
+	pop	%rdi
+
 	// Frame pointer is the iframe.
 	movq	%rsp, %rbp
 
@@ -232,6 +258,9 @@ STATIC_FUNCTION(int_bottom):
 
 	fxrstorq	(%rsp)
 	movq	%rbp, %rsp
+
+	// TODO. [GSoC] RESTORE_IFRAME will overwrite rdi, no need to recover manually
+	SWITCH_TO_USER_CR3(%rdi)
 
 	// Restore the saved registers.
 	RESTORE_IFRAME()
@@ -288,6 +317,9 @@ STATIC_FUNCTION(int_bottom_user):
 	fxrstorq	(%rsp)
 	movq	%rbp, %rsp
 
+	// TODO. [GSoC]
+	SWITCH_TO_USER_CR3(%rdi)
+
 	// Restore the saved registers.
 	RESTORE_IFRAME()
 
@@ -316,6 +348,9 @@ STATIC_FUNCTION(int_bottom_user):
 	fxrstorq	(%rsp)
 	movq	%rbp, %rsp
 
+	// TODO. [GSoC]
+	SWITCH_TO_USER_CR3(%rdi)
+
 	// Restore the saved registers.
 	RESTORE_IFRAME()
 
@@ -341,6 +376,10 @@ FUNCTION(x86_64_syscall_entry):
 	// to the stack.
 	swapgs
 	movq	%rsp, %gs:ARCH_THREAD_user_rsp
+	movq	%gs:ARCH_THREAD_syscall_rsp, %rsp
+
+	// TODO. [GSoC] We use rsp to save temporary cr3
+	SWITCH_TO_KERNEL_CR3(%rsp)
 	movq	%gs:ARCH_THREAD_syscall_rsp, %rsp
 
 	// The following pushes de-align the stack by 8 bytes, so account for that first.
@@ -447,6 +486,12 @@ FUNCTION(x86_64_syscall_entry):
 	RESTORE_IFRAME()
 	pop		%rcx
 	addq	$8, %rsp
+
+	// TODO. [GSoC] The switch happens after RESTORE_IFRAME, so push and pop is necessary
+	push	%rdi
+	SWITCH_TO_USER_CR3(%rdi)
+	pop	%rdi
+
 	pop		%r11
 	pop		%rsp
 
@@ -520,6 +565,9 @@ FUNCTION(x86_64_syscall_entry):
 	movq	IFRAME_fpu(%rbp), %rax
 	fxrstorq	(%rax)
 .Liret:
+	// TODO. [GSoC]
+	SWITCH_TO_USER_CR3(%rdi)
+
 	// Restore the saved registers.
 	RESTORE_IFRAME()
 
@@ -598,6 +646,9 @@ FUNCTION(x86_return_to_userland):
 	// update the thread's kernel time and return
 	UPDATE_THREAD_KERNEL_TIME()
 
+	// TODO. [GSoC]
+	SWITCH_TO_USER_CR3(%rdi)
+
 	// Restore the frame and return.
 	RESTORE_IFRAME()
 	swapgs
@@ -620,6 +671,9 @@ FUNCTION(x86_return_to_userland):
 	movq	%rbp, %rdi
 	call	x86_init_user_debug_at_kernel_exit
 1:
+	// TODO. [GSoC]
+	SWITCH_TO_USER_CR3(%rdi)
+
 	// Restore the saved registers.
 	RESTORE_IFRAME()
 

@@ -21,6 +21,19 @@ create_area(const char *name, void **address, uint32 addressSpec, size_t size,
 }
 
 
+// TODO. [GSoC] create limited view of kernel virtual address space
+area_id
+create_area_limited(const char *name, void **address, uint32 addressSpec, size_t size,
+	uint32 lock, uint32 protect)
+{
+	if (__gABIVersion < B_HAIKU_ABI_GCC_2_HAIKU)
+		protection |= B_EXECUTE_AREA;
+	// TODO. Maybe we don't have to create a whole new area here, but just duplicate
+	// the top-level PML4 page and unmaps certain mappings
+	return _kern_create_area_limited(name, address, addressSpec, size, lock, protection);
+}
+
+
 area_id
 clone_area(const char *name, void **address, uint32 addressSpec,
 	uint32 protection, area_id sourceArea)
@@ -30,6 +43,16 @@ clone_area(const char *name, void **address, uint32 addressSpec,
 	return _kern_clone_area(name, address, addressSpec, protection, sourceArea);
 }
 
+
+// TODO. [GSoC] Need to copy the limited view as well when copying area
+area_id
+clone_area_limited(const char *name, void **address, uint32 addressSpec,
+	uint32 protection, area_id sourceArea)
+{
+	if (__gABIVersion < B_HAIKU_ABI_GCC_2_HAIKU)
+                protection |= B_EXECUTE_AREA;
+	return _kern_clone_area_limited(name, address, addressSpec, protection, sourceArea);
+}
 
 area_id
 find_area(const char *name)
