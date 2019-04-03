@@ -26,11 +26,11 @@ struct of_arguments {
 	const char	*name;
 	int			num_args;
 	int			num_returns;
-	int			data[0];
+	intptr_t	data[0];
 
 #ifdef __cplusplus
-	int &Argument(int index) { return data[index]; }
-	int &ReturnValue(int index) { return data[num_args + index]; }
+	intptr_t &Argument(int index) { return data[index]; }
+	intptr_t &ReturnValue(int index) { return data[num_args + index]; }
 #endif
 };
 
