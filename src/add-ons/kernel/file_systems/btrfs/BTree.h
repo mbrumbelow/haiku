@@ -101,7 +101,6 @@ private:
 									const;
 			void				_AddIterator(TreeIterator* iterator);
 			void				_RemoveIterator(TreeIterator* iterator);
-private:
 			friend class TreeIterator;
 
 			fsblock_t			fRootBlock;
@@ -203,7 +202,6 @@ public:
 	private:
 		Path(const Path&);
 		Path operator=(const Path&);
-	private:
 		Node*	fNodes[BTRFS_MAX_TREE_DEPTH];
 		int		fSlots[BTRFS_MAX_TREE_DEPTH];
 		BTree*	fTree;
@@ -239,8 +237,6 @@ private:
 									uint32* _size, uint32* _offset);
 			// called by BTree
 			void				Stop();
-
-private:
 			BTree*			fTree;
 			BTree::Path*	fPath;
 			btrfs_key		fKey;
