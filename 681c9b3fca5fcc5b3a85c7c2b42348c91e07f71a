@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eca42814_def1c71d",
+        "filename": "src/system/libroot/posix/arch/riscv64/siglongjmp.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-04-04T21:53:43Z",
+      "side": 1,
+      "message": "Do we have Haiku License? ;)",
+      "range": {
+        "startLine": 3,
+        "startChar": 38,
+        "endLine": 3,
+        "endChar": 51
+      },
+      "revId": "681c9b3fca5fcc5b3a85c7c2b42348c91e07f71a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
