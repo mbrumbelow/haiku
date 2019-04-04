@@ -649,7 +649,9 @@ SettingsWindow::_ApplySettings()
 		fAutoHidePointer->Value() == B_CONTROL_ON);
 	fSettings->SetValue(kSettingsKeyShowHomeButton,
 		fShowHomeButton->Value() == B_CONTROL_ON);
-
+	
+	
+	
 	// New page policies
 	fSettings->SetValue(kSettingsKeyStartUpPolicy, _StartUpPolicy());
 	fSettings->SetValue(kSettingsKeyNewWindowPolicy, _NewWindowPolicy());

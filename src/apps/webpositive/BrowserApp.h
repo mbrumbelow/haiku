@@ -33,7 +33,6 @@
 #include <Catalog.h>
 #include <Rect.h>
 
-
 class BNetworkCookieJar;
 class BUrlContext;
 class ConsoleWindow;
@@ -42,7 +41,6 @@ class DownloadWindow;
 class BrowserWindow;
 class SettingsMessage;
 class SettingsWindow;
-
 
 class BrowserApp : public BApplication {
 public:
@@ -69,23 +67,25 @@ private:
 			void				_CreateNewTab(BrowserWindow* window,
 									const BString& url, bool select);
 			void				_ShowWindow(const BMessage* message,
-									BWindow* window);
+									BWindow* window);						
 
 private:
-			int					fWindowCount;
-			BRect				fLastWindowFrame;
-			BMessage*			fLaunchRefsMessage;
-			bool				fInitialized;
+			
+			int						fWindowCount;
+		
+			BRect					fLastWindowFrame;
+			BMessage*				fLaunchRefsMessage;
+			bool					fInitialized;
 
-			SettingsMessage*	fSettings;
-			SettingsMessage*	fCookies;
-			SettingsMessage*	fSession;
-			BUrlContext*		fContext;
+			SettingsMessage*		fSettings;
+			SettingsMessage*		fCookies;
+			SettingsMessage*		fSession;
+			BUrlContext*			fContext;
 
-			DownloadWindow*		fDownloadWindow;
-			SettingsWindow*		fSettingsWindow;
-			ConsoleWindow*		fConsoleWindow;
-			CookieWindow*		fCookieWindow;
+			DownloadWindow*			fDownloadWindow;
+			SettingsWindow*			fSettingsWindow;
+			ConsoleWindow*			fConsoleWindow;
+			CookieWindow*			fCookieWindow;	
 };
 
 

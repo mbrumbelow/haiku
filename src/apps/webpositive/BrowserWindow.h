@@ -31,7 +31,9 @@
 
 #include "WebWindow.h"
 #include <Messenger.h>
+#include "BrowserApp.h"
 #include <String.h>
+#include<string>
 
 class BButton;
 class BCheckBox;
@@ -193,6 +195,8 @@ private:
 
 			void				_SetPageIcon(BWebView* view,
 									const BBitmap* icon);
+									
+			void				_InitSearchEngines();
 
 			void				_UpdateHistoryMenu();
 			void				_UpdateClipboardItems();
@@ -221,6 +225,7 @@ private:
 			void				_ShowBookmarkBar(bool show);
 
 private:
+			int					SearchEnginesCount;
 			BMenu*				fHistoryMenu;
 			int32				fHistoryMenuFixedItemCount;
 
@@ -281,6 +286,13 @@ private:
 			BMenuItem*			fBookmarkBarMenuItem;
 			BookmarkBar*		fBookmarkBar;
 			BFilePanel*			fSavePanel;
+			int					searchEngineCount=3;
+			struct search_engine {
+				const char* shortcut;
+				const char* url;
+			};
+		
+			struct search_engine *engines;
 };
 
 
