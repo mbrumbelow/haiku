@@ -138,7 +138,7 @@ BrowserApp::AboutRequested()
 	// create the about window
 
 	const char* authors[] = {
-		"Syed Souban",
+		"Andrea Anzani",
 		"Stephan Aßmus",
 		"Alexandre Deckner",
 		"Rene Gollent",
