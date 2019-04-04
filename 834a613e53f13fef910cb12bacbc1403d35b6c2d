@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "14431d6a_5a2c37b2",
+        "filename": "src/add-ons/accelerants/intel_extreme/mode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1000141
+      },
+      "writtenOn": "2019-04-04T20:22:11Z",
+      "side": 0,
+      "message": "All of this is already done withing `create_display_modes()`, but a bit more, AND unlike older code, it works. Somehow. I think it\u0027s related to the fact that this function adds a bunch of default modes to the list if EDID is lacking, and that\u0027s why it works?",
+      "range": {
+        "startLine": 333,
+        "startChar": 2,
+        "endLine": 343,
+        "endChar": 70
+      },
+      "revId": "834a613e53f13fef910cb12bacbc1403d35b6c2d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
