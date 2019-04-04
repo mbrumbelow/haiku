@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "46dbd55b_c1d46ae1",
+        "filename": "src/system/libroot/os/area.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-04T11:33:44Z",
+      "side": 1,
+      "message": "Is there a reason for a new API here? Would it be possible to use create_area_etc with new flags instead?",
+      "revId": "5faeff1b97d5a048ac40d2e7c590d20e760f317e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa48c430_ac9e7c41",
+        "filename": "src/system/libroot/os/area.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-04T11:33:44Z",
+      "side": 1,
+      "message": "This is a new API, so gcc2 compatibility isn\u0027t a concern here (no BeOS app will call this)",
+      "revId": "5faeff1b97d5a048ac40d2e7c590d20e760f317e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
