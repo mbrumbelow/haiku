@@ -33,6 +33,24 @@
       "revId": "537f0424d09284655904fe7a19285dd9afe53909",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64eeceb3_5a6b99ec",
+        "filename": "src/preferences/keymap/KeymapWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-04T11:46:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf3ddf55_9f52219d",
+      "revId": "537f0424d09284655904fe7a19285dd9afe53909",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
