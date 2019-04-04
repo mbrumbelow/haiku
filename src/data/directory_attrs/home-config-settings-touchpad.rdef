@@ -8,4 +8,4 @@ resource app_version {
 
 	short_info = "A filter to block the touchpad while typing",
 	long_info = "An inut_server filter to block the touchpad while typing."
-};
+}

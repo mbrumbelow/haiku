@@ -16,7 +16,7 @@ typedef struct {
 	uint16	scroll_xstepsize;
 	uint16	scroll_ystepsize;
 	uint8	scroll_acceleration;	     // from 0 to 20
-	uint16  padblocker_threshold;        //0 to 100
+	uint16  padblocker_threshold        //0 to 100
 
 	uint8	tapgesture_sensibility;	// 0 : no tapgesture
 									// 20: very light tip is enough (default)

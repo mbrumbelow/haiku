@@ -279,4 +279,4 @@ AddDirectoryToHaikuImage home config settings printers "Save as PDF"
 
 # padblocker
 AddDirectoryToHaikuImage home config settings touchpad
-	: home-config-settings-touchpad.rdef ;
+	: home-config-settings-touchpad.rdef 

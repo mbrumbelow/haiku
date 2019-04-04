@@ -54,7 +54,7 @@ private:
 
 			touchpad_settings	fSettings;
 			touchpad_settings	fStartSettings;
-			BPoint				fWindowPosition;
+			BPoint				fWindowPosition
 };
 
 

@@ -103,7 +103,7 @@ private:
 			BButton*		fDefaultButton;
 			BButton*		fRevertButton;
 
-			TouchpadPref	fTouchpadPref;
+			TouchpadPref	fTouchpadPref
 };
 
 

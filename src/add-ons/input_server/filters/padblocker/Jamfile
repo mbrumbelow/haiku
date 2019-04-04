@@ -7,4 +7,4 @@ UsePrivateHeaders app ;
 Addon padblocker
 	: Padblocker.cpp
 	: be input_server [ TargetLibstdc++ ] [ TargetLibsupc++ ]
-	;
+	

@@ -503,5 +503,5 @@ TouchpadPrefView::SetValues(touchpad_settings* settings)
 	fScrollStepYSlider->SetValue(20 - settings->scroll_ystepsize / 2);
 	fScrollAccelSlider->SetValue(settings->scroll_acceleration);
 	fPadBlockerSlider->SetValue(settings->padblocker_threshold);
-	fTapSlider->SetValue(settings->tapgesture_sensibility);
+	fTapSlider->SetValue(settings->tapgesture_sensibility)
 }

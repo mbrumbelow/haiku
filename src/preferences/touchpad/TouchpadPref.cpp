@@ -224,5 +224,5 @@ TouchpadPref::ConnectToTouchPad()
 		return B_OK;
 
 	LOG("touchpad input device NOT found\n");
-	return B_ENTRY_NOT_FOUND;
+	return B_ENTRY_NOT_FOUND
 }

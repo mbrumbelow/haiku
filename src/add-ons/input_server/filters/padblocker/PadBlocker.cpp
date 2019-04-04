@@ -186,5 +186,5 @@ filter_result PadBlocker::Filter(BMessage *message, BList *outList)
 
 BInputServerFilter* instantiate_input_filter()
 {
-	return (new PadBlocker());
+	return (new PadBlocker())
 }
