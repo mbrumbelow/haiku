@@ -2486,13 +2486,39 @@ BrowserWindow::_VisitURL(const BString& url)
 }
 
 
+bool
+BrowserWindow::_IsSearchEngineShortcutQuery(const BString& searchQuery)
+{
+	return (searchQuery.StartsWith(kSettingsKeyGoogleSearchShortcut) ||
+		searchQuery.StartsWith(kSettingsKeyBingSearchShortcut) ||
+		searchQuery.StartsWith(kSettingsKeyWikipediaSearchShortcut));
+}
+
+
 void
 BrowserWindow::_VisitSearchEngine(const BString& search)
 {
-	BString engine(fSearchPageURL);
-	engine.ReplaceAll("%s", _EncodeURIComponent(search).String());
-
-	_VisitURL(engine);
+	
+	BString newSearch=search;
+	newSearch.Remove(0,2);
+	BString searchPrefix;
+	
+	search.CopyCharsInto(searchPrefix,0,2);
+	
+	//Searched on the particular search engine
+	if(_IsSearchEngineShortcutQuery(search))
+	{
+		BString engine(fAppSettings->GetValue(searchPrefix,fSearchPageURL));
+		engine.ReplaceAll("%s", _EncodeURIComponent(newSearch));
+		_VisitURL(engine);
+	}
+	
+	//Searched on default search engine
+	else {
+		BString engine(fSearchPageURL);
+		engine.ReplaceAll("%s", _EncodeURIComponent(search));
+		_VisitURL(engine);
+	}
 }
 
 
