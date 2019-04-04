@@ -219,6 +219,7 @@ private:
 									const BMessage* message);
 
 			void				_ShowBookmarkBar(bool show);
+			bool				_IsSearchEngineShortcutQuery(const BString& searchQuery);
 
 private:
 			BMenu*				fHistoryMenu;
