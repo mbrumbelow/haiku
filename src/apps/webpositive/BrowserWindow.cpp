@@ -2740,4 +2740,3 @@ BrowserWindow::_ShowBookmarkBar(bool show)
 	else
 		fBookmarkBar->Hide();
 }
-                        
