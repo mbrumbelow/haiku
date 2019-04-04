@@ -71,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "263b154c_6d8da9a2",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2510,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-04-04T22:01:21Z",
+      "side": 1,
+      "message": "I would make shortuct the key, since it will be the thing you are going to look for more often. Name is not really relevant outside of displaying it to the user, but you will need it only when you find the shortcut first.\nSo:\n\u003ckey,value\u003e: \"g\", struct(\"Google\", template)\n\nYou can also use BMessage as a container instead of std::map, but I don\u0027t have a preference here.",
+      "parentUuid": "042fcf2a_ca792ca9",
+      "revId": "2487feda3fafc569d1ceb1f605fa06e78bfb4f4f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9252cead_406566bf",
         "filename": "src/apps/webpositive/BrowserWindow.cpp",
         "patchSetId": 1
