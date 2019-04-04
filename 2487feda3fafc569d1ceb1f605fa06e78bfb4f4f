@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "042fcf2a_ca792ca9",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2510,
+      "author": {
+        "id": 1000131
+      },
+      "writtenOn": "2019-04-04T20:14:43Z",
+      "side": 1,
+      "message": "Which C++ data structure should I use to implement the table? According to me a std::map with key as a search engine string constant and value as a struct which will contain shortcut and the url template is one idea.\n For example:\n\u003ckey,value\u003e: \"Google\",struct(\"g \",template)",
+      "parentUuid": "4cb2b35c_d5ba16c4",
+      "revId": "2487feda3fafc569d1ceb1f605fa06e78bfb4f4f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9252cead_406566bf",
         "filename": "src/apps/webpositive/BrowserWindow.cpp",
         "patchSetId": 1
