@@ -649,7 +649,16 @@ SettingsWindow::_ApplySettings()
 		fAutoHidePointer->Value() == B_CONTROL_ON);
 	fSettings->SetValue(kSettingsKeyShowHomeButton,
 		fShowHomeButton->Value() == B_CONTROL_ON);
-
+	
+	fSettings->SetValue(kSettingsKeyGoogleSearchShortcut,
+		kSettingsKeyGoogleSearchPageURL);
+	fSettings->SetValue(kSettingsKeyBingSearchShortcut,
+		kSettingsKeyBingSearchPageURL);
+	fSettings->SetValue(kSettingsKeyWikipediaSearchShortcut,
+		kSettingsKeyWikipediaSearchPageURL);		
+	
+	
+	
 	// New page policies
 	fSettings->SetValue(kSettingsKeyStartUpPolicy, _StartUpPolicy());
 	fSettings->SetValue(kSettingsKeyNewWindowPolicy, _NewWindowPolicy());
