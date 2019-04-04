@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fecb1822_ab68d4f8",
+        "filename": "src/apps/Weather",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-04T19:15:39Z",
+      "side": 1,
+      "message": "We do not want this here, please remove.\n\nBefore pushing your commit, you can check \"git log --stat\" or \"git log -p\" to see what\u0027s in them.",
+      "revId": "2487feda3fafc569d1ceb1f605fa06e78bfb4f4f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2dc77e9_9be0e092",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2501,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-04T19:15:39Z",
+      "side": 1,
+      "message": "Why not use BString::Remove(0, 2) ?",
+      "revId": "2487feda3fafc569d1ceb1f605fa06e78bfb4f4f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4cb2b35c_d5ba16c4",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2510,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-04T19:15:39Z",
+      "side": 1,
+      "message": "With hardcoded shortcuts, this isn\u0027t very useful. I tend to customize mine a lot (for example \u0027t\u0027 to search for Haiku trac, \u0027c\u0027 to search in Gerrit changesets, ...).\n\nI would at least put the search engines in a table (with shortcut and URL template) so we can iterate on them instead of repeating the search code multiple times. This way it becomes easier to make the list configurable later on.\n\nAlso, identifying the search engine with StartWith(\"b \") would be more generic and allow more complex expressions (people may want to search using \"GOOGLE foo\" instead of just \"g foo\", for example, or maybe they have some less-used search engines they want to assign 2 letter shortcuts to).",
+      "revId": "2487feda3fafc569d1ceb1f605fa06e78bfb4f4f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9252cead_406566bf",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2518,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-04T19:15:39Z",
+      "side": 1,
+      "message": "If the user customized their main search engine, fSearchPageURL would not be Google anymore. People may use qwant or duckduckgo as their default search engine, for example.\n\nThis issue goes away if you implement the complete thing, with a table, a way to customize it from preferences, and support for selecting a default search engine from the table.",
+      "revId": "2487feda3fafc569d1ceb1f605fa06e78bfb4f4f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "483ad3be_06ad7969",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2525,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-04T19:15:39Z",
+      "side": 1,
+      "message": "it would be great to not default to english here, but to select the languag eaccording to the user\u0027s locale settings.",
+      "revId": "2487feda3fafc569d1ceb1f605fa06e78bfb4f4f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
