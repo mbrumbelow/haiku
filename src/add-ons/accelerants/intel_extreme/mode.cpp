@@ -316,6 +316,7 @@ status_t
 create_mode_list(void)
 {
 	CALLED();
+
 	for (uint32 i = 0; i < gInfo->port_count; i++) {
 		if (gInfo->ports[i] == NULL)
 			continue;
@@ -324,7 +325,7 @@ create_mode_list(void)
 		if (status == B_OK)
 			gInfo->has_edid = true;
 	}
-	
+
 	display_mode* list;
 	uint32 count = 0;
 
@@ -337,7 +338,6 @@ create_mode_list(void)
 		gInfo->mode_list_area = create_display_modes("intel extreme modes",
 			NULL, &gInfo->shared_info->panel_mode, 1, NULL, 0, NULL,
 			&list, &count);
-
 	} else {
 		// Otherwise return the 'real' list of modes
 		gInfo->mode_list_area = create_display_modes("intel extreme modes",
