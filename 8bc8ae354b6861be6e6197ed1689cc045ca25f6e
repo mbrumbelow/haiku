@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a09bf0ad_4e7ff4e8",
+        "filename": "src/preferences/keymap/KeymapWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-04T11:46:00Z",
+      "side": 1,
+      "message": "trailing whitespace",
+      "revId": "8bc8ae354b6861be6e6197ed1689cc045ca25f6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb733e6f_b245bddb",
+        "filename": "src/preferences/keymap/KeymapWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-04T11:46:00Z",
+      "side": 1,
+      "message": "trailing whitespace",
+      "revId": "8bc8ae354b6861be6e6197ed1689cc045ca25f6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "048bd3be_836e0219",
+        "filename": "src/preferences/keymap/KeymapWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-04T11:46:00Z",
+      "side": 1,
+      "message": "How is this computed? Could it be done in the code rather than a fixed size?\n\nFor example mode.virtual_width - 230, mode.virtual_height / 2? Would that give appropriate results for both 800x600 , 800x480, and 640x480?",
+      "revId": "8bc8ae354b6861be6e6197ed1689cc045ca25f6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
