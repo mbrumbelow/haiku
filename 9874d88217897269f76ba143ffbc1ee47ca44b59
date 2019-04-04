@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ed8f35d_f43094e2",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1197,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-04-04T21:50:44Z",
+      "side": 1,
+      "message": "@waddlesplash, aren\u0027t we getting rid of such compatibility code?",
+      "range": {
+        "startLine": 1197,
+        "startChar": 1,
+        "endLine": 1197,
+        "endChar": 27
+      },
+      "revId": "9874d88217897269f76ba143ffbc1ee47ca44b59",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf9d0910_0e0fa8db",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1216,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-04-04T21:50:44Z",
+      "side": 1,
+      "message": "This method doesn\u0027t do a lot, remove it.",
+      "range": {
+        "startLine": 1216,
+        "startChar": 9,
+        "endLine": 1216,
+        "endChar": 29
+      },
+      "revId": "9874d88217897269f76ba143ffbc1ee47ca44b59",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79e73716_575f133c",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1223,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-04-04T21:50:44Z",
+      "side": 1,
+      "message": "If I didn\u0027t miss anything, this method doesn\u0027t actually use anything from the class. Make it local to this cpp file and remove it from MainWin.",
+      "range": {
+        "startLine": 1223,
+        "startChar": 0,
+        "endLine": 1223,
+        "endChar": 9
+      },
+      "revId": "9874d88217897269f76ba143ffbc1ee47ca44b59",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9291ddc_cd95a82f",
+        "filename": "src/apps/mediaplayer/MainWin.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-04-04T21:50:44Z",
+      "side": 1,
+      "message": "Why is this name in snake_case?",
+      "range": {
+        "startLine": 53,
+        "startChar": 45,
+        "endLine": 53,
+        "endChar": 52
+      },
+      "revId": "9874d88217897269f76ba143ffbc1ee47ca44b59",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
