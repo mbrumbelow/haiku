@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b984e1cc_06610e5f",
+        "filename": "build/jam/images/definitions/regular",
+        "patchSetId": 6
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-04T11:41:10Z",
+      "side": 1,
+      "message": "- Trailing whitespace (needed before but not after the ; )\n- I think you don\u0027t need an rdef file here, you can just create a plain directory. The rdef would be used to set, for example, a custom icon for the directory.",
+      "revId": "8440a2981c2015ca9f391aac2e5d75e88990588e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd6f5c68_be439624",
+        "filename": "src/preferences/touchpad/TouchpadPref.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-04T11:41:10Z",
+      "side": 1,
+      "message": "The file is not in the \"home/congig/settings/touchpad\" directory that you added to the jamfile. Is that on purpose?",
+      "revId": "8440a2981c2015ca9f391aac2e5d75e88990588e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
