@@ -31,6 +31,15 @@ extern const char* kDefaultDownloadPath;
 extern const char* kDefaultStartPageURL;
 extern const char* kDefaultSearchPageURL;
 
+extern const char* kSettingsKeyGoogleSearchPageURL;
+extern const char* kSettingsKeyBingSearchPageURL;
+extern const char* kSettingsKeyWikipediaSearchPageURL;
+
+extern const char* kSettingsKeyGoogleSearchShortcut;
+extern const char* kSettingsKeyBingSearchShortcut;
+extern const char* kSettingsKeyWikipediaSearchShortcut;
+
+
 extern const char* kSettingsKeyUseProxy;
 extern const char* kSettingsKeyProxyAddress;
 extern const char* kSettingsKeyProxyPort;
