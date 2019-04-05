@@ -32,6 +32,17 @@ const char* kDefaultStartPageURL
 	= "file:///boot/home/config/settings/WebPositive/LoaderPages/Welcome";
 const char* kDefaultSearchPageURL = "http://www.google.com/search?q=%s";
 
+const char* kSettingsKeyGoogleSearchShortcut = "g ";
+const char* kSettingsKeyBingSearchShortcut = "b ";
+const char* kSettingsKeyWikipediaSearchShortcut = "w ";
+
+
+const char* kSettingsKeyGoogleSearchPageURL = "https://www.google.com/search?q=%s";
+const char* kSettingsKeyBingSearchPageURL = "http://www.bing.com/search?q=%s";
+const char* kSettingsKeyWikipediaSearchPageURL = "http://en.wikipedia.org/w/index.php?search=%s";
+
+
+
 const char* kSettingsKeyUseProxy = "use http proxy";
 const char* kSettingsKeyProxyAddress = "http proxy address";
 const char* kSettingsKeyProxyPort = "http proxy port";
