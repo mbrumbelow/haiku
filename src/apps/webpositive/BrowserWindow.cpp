@@ -2486,51 +2486,37 @@ BrowserWindow::_VisitURL(const BString& url)
 }
 
 
+bool
+BrowserWindow::_IsSearchEngineShortcutQuery(const BString& searchQuery)
+{
+	return (searchQuery.StartsWith(kSettingsKeyGoogleSearchShortcut) ||
+		searchQuery.StartsWith(kSettingsKeyBingSearchShortcut) ||
+		searchQuery.StartsWith(kSettingsKeyWikipediaSearchShortcut));
+}
+
+
 void
 BrowserWindow::_VisitSearchEngine(const BString& search)
 {
-	char buff[3];
-	const char* constSearch = search.String();
-	int actualQueryLength = search.CountChars()-2;
 	
-	buff[0] = constSearch[0];
-	buff[1] = constSearch[1];
-	buff[2] = '\0';
-	int j = 0;
-	char newSearch[actualQueryLength+1];
-	for(int i = 2;i<search.CountChars();i++)
+	BString newSearch=search;
+	newSearch.Remove(0,2);
+	BString searchPrefix;
+	
+	search.CopyCharsInto(searchPrefix,0,2);
+	
+	//Searched on the particular search engine
+	if(_IsSearchEngineShortcutQuery(search))
 	{
-		newSearch[j++]=constSearch[i];
-	}
-	newSearch[j]='\0';
-	fStatusText->SetText(buff);
-	
-	
-    //If user wants to search on Bing	
-	if (strcmp(buff,"b ")==0) {
-		BString engine("http://bing.com?q=%s");
-		engine.ReplaceAll("%s", _EncodeURIComponent(newSearch));
-		_VisitURL(engine);
-	}
-
-	//If user wants to search on Google	
-	else if (strcmp(buff,"g ")==0) {
-		BString engine(fSearchPageURL);
-		engine.ReplaceAll("%s", _EncodeURIComponent(newSearch));
-		_VisitURL(engine);
-	}
-    
-	//If user wants to search on Wikipedia	
-	else if (strcmp(buff,"w ")==0) {
-		BString engine("http://en.wikipedia.org/w/index.php?search=%s");
+		BString engine(fAppSettings->GetValue(searchPrefix,fSearchPageURL));
 		engine.ReplaceAll("%s", _EncodeURIComponent(newSearch));
 		_VisitURL(engine);
 	}
 	
-	//The default search engine is Google
+	//Searched on default search engine
 	else {
 		BString engine(fSearchPageURL);
-		engine.ReplaceAll("%s", _EncodeURIComponent(search.String()));
+		engine.ReplaceAll("%s", _EncodeURIComponent(search));
 		_VisitURL(engine);
 	}
 }
