@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2013 Haiku Inc. All rights reserved.
+ * Copyright 2010-2013, Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  */
 #ifndef _B_NETWORK_COOKIE_JAR_H_
@@ -40,8 +40,6 @@ public:
 public:
 								BNetworkCookieJar();
 								BNetworkCookieJar(
-									const BNetworkCookieJar& other);
-								BNetworkCookieJar(
 									const BNetworkCookieList& otherList);
 								BNetworkCookieJar(BMessage* archive);
 	virtual						~BNetworkCookieJar();
@@ -78,6 +76,7 @@ public:
 
 
 private:
+								BNetworkCookieJar(const BNetworkCookieJar&);
 			void				_DoFlatten() const;
 
 private:

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Haiku Inc. All rights reserved.
+ * Copyright 2010-2014, Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -34,14 +34,6 @@ BNetworkCookieJar::BNetworkCookieJar()
 	:
 	fCookieHashMap(new(std::nothrow) PrivateHashMap())
 {
-}
-
-
-BNetworkCookieJar::BNetworkCookieJar(const BNetworkCookieJar& other)
-	:
-	fCookieHashMap(new(std::nothrow) PrivateHashMap())
-{
-	*this = other;
 }
 
 
