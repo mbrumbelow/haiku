@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4c6a10a0_30aba587",
+        "filename": "src/system/runtime_loader/runtime_loader.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2019-04-08T21:12:29Z",
+      "side": 1,
+      "message": "Hmm current points to the next space, so when passed \"/usr/bin/env foo\" you\u0027re comparing \"/usr/bin/\" with \"/usr/bin/env\", which fails.\nAt least here it fails when running haikuporter.\nJust use memcmp(,,strlen(\"/usr/bin/\")).",
+      "revId": "938d81f65894443dc5a614aa90faaca679aa3ec7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
