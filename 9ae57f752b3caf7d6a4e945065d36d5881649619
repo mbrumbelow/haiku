@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e62b6a45_f6f61203",
+        "filename": "src/preferences/touchpad/TouchpadPref.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-08T07:32:40Z",
+      "side": 1,
+      "message": "An empty line between methods and fields was accidentally removed here. Please restore it.",
+      "revId": "9ae57f752b3caf7d6a4e945065d36d5881649619",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8583f96_1c980277",
+        "filename": "src/preferences/touchpad/TouchpadPrefView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-08T07:32:40Z",
+      "side": 1,
+      "message": "space before {",
+      "revId": "9ae57f752b3caf7d6a4e945065d36d5881649619",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc86f989_f4b31b6e",
+        "filename": "src/preferences/touchpad/TouchpadPrefView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-08T07:32:40Z",
+      "side": 1,
+      "message": "accidentally removed empty line?",
+      "revId": "9ae57f752b3caf7d6a4e945065d36d5881649619",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31a17fed_73365bb3",
+        "filename": "src/preferences/touchpad/TouchpadPrefView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-08T07:32:40Z",
+      "side": 1,
+      "message": "Is the warning needed, or is the disabling of the settings enough to tell the user that the settings won\u0027t work?",
+      "revId": "9ae57f752b3caf7d6a4e945065d36d5881649619",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af446acf_39cd6439",
+        "filename": "src/preferences/touchpad/TouchpadPrefView.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-08T07:32:40Z",
+      "side": 1,
+      "message": "empty line between methods and fields.",
+      "revId": "9ae57f752b3caf7d6a4e945065d36d5881649619",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
