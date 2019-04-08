@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a30b8f9b_f65489c6",
+        "filename": "src/apps/Weather",
+        "patchSetId": 9
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-08T07:29:02Z",
+      "side": 1,
+      "message": "We do not want this in this commit, please remove it.",
+      "revId": "0922e85549d37c76aaa3797ed2abf6f4ca3db71a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6f39e6c_e2a958aa",
+        "filename": "src/apps/webpositive/BrowserApp.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-08T07:29:02Z",
+      "side": 1,
+      "message": "This looks unrelated.",
+      "revId": "0922e85549d37c76aaa3797ed2abf6f4ca3db71a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2dc67a93_fb381399",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 2492,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-08T07:29:02Z",
+      "side": 1,
+      "message": "This is still using an hardcoded list of prefixes.",
+      "revId": "0922e85549d37c76aaa3797ed2abf6f4ca3db71a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08a8ae54_de94e138",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 2510,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-08T07:29:02Z",
+      "side": 1,
+      "message": "{ goes on the same line as if",
+      "revId": "0922e85549d37c76aaa3797ed2abf6f4ca3db71a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2c58e6e_881324ed",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 2514,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-08T07:29:02Z",
+      "side": 1,
+      "message": "} goes in the same line as else, move comment after else line",
+      "revId": "0922e85549d37c76aaa3797ed2abf6f4ca3db71a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
