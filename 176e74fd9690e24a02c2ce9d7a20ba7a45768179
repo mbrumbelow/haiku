@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "65331a56_c38a2f21",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-04-09T19:04:06Z",
+      "side": 1,
+      "message": "I can see someone with 16K monitor/TV complaining about this a few years down the line.",
+      "range": {
+        "startLine": 226,
+        "startChar": 1,
+        "endLine": 226,
+        "endChar": 37
+      },
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "714d5c15_cf6f71fd",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1254,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-04-09T19:04:06Z",
+      "side": 1,
+      "message": "This probably belongs with \"Open DiskProbe\" change.",
+      "range": {
+        "startLine": 1253,
+        "startChar": 2,
+        "endLine": 1254,
+        "endChar": 51
+      },
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf6710ed_ed96b755",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1265,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-04-09T19:04:06Z",
+      "side": 1,
+      "message": "fUnRegisterMenuItem-\u003eSetEnabled(disk-\u003eIsFile());",
+      "range": {
+        "startLine": 1262,
+        "startChar": 2,
+        "endLine": 1265,
+        "endChar": 42
+      },
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5102d3a9_0398002d",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1271,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-04-09T19:04:06Z",
+      "side": 1,
+      "message": "fWriteMenuItem-\u003eSetEnabled(!disk-\u003eIsReadOnly());",
+      "range": {
+        "startLine": 1268,
+        "startChar": 2,
+        "endLine": 1271,
+        "endChar": 36
+      },
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
