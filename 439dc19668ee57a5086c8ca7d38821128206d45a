@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8d80d819_27a9599c",
+        "filename": "src/system/ldscripts/riscv64/kernel.ld",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-09T19:14:49Z",
+      "side": 1,
+      "message": "You are using a 32bit kernel base again",
+      "revId": "439dc19668ee57a5086c8ca7d38821128206d45a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14d50018_68b74416",
+        "filename": "src/system/ldscripts/riscv64/kernel.ld",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-09T19:14:49Z",
+      "side": 1,
+      "message": "we probably don\u0027t care about them then",
+      "revId": "439dc19668ee57a5086c8ca7d38821128206d45a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbcadcb3_43f615b8",
+        "filename": "src/system/ldscripts/riscv64/kernel.ld",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-09T19:14:49Z",
+      "side": 1,
+      "message": "Anything below here can be dropped (like in the other arch linker files).\nWe do not need any of this in the kernel ELF file (debug infos are stored separately)",
+      "revId": "439dc19668ee57a5086c8ca7d38821128206d45a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
