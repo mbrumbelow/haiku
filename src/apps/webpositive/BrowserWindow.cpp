@@ -380,6 +380,7 @@ BrowserWindow::BrowserWindow(BRect frame, SettingsMessage* appSettings,
 		kDefaultStartPageURL);
 	fSearchPageURL = fAppSettings->GetValue(kSettingsKeySearchPageURL,
 		kDefaultSearchPageURL);
+	_InitSearchEngines();
 
 	// Create the interface elements
 	BMessage* newTabMessage = new BMessage(NEW_TAB);
@@ -698,6 +699,7 @@ BrowserWindow::~BrowserWindow()
 	delete fTabManager;
 	delete fPulseRunner;
 	delete fSavePanel;
+	delete[] fSearchEngines;
 }
 
 
@@ -2479,6 +2481,20 @@ BrowserWindow::_EncodeURIComponent(const BString& search)
 
 
 void
+BrowserWindow::_InitSearchEngines()
+{
+	// TODO make these configurable
+	fSearchEngines = new SearchEngine[kSearchEngineCount];
+	fSearchEngines[0].url="https://google.com/search?q=%s";
+	fSearchEngines[0].shortcut="g ";
+	fSearchEngines[1].url="https://bing.com/search?q=%s";
+	fSearchEngines[1].shortcut="b ";
+	fSearchEngines[2].url="http://en.wikipedia.org/w/index.php?search=%s";
+	fSearchEngines[2].shortcut="w ";
+}
+
+
+void
 BrowserWindow::_VisitURL(const BString& url)
 {
 	// fURLInputGroup->TextView()->SetText(url);
@@ -2489,9 +2505,24 @@ BrowserWindow::_VisitURL(const BString& url)
 void
 BrowserWindow::_VisitSearchEngine(const BString& search)
 {
+	BString searchQuery = search;
+	searchQuery.Remove(0, 2);
+	BString searchPrefix;
+	
+	search.CopyCharsInto(searchPrefix, 0, 2);
+	
+	// Default search URL
 	BString engine(fSearchPageURL);
-	engine.ReplaceAll("%s", _EncodeURIComponent(search).String());
 
+	// Check if the string starts with one of the search engine shortcuts
+	for (int i = 0; i < kSearchEngineCount; i++) {
+		if (search.StartsWith(fSearchEngines[i].shortcut)) {
+			engine = fSearchEngines[i].url;
+			break;	
+		}
+	}
+	
+	engine.ReplaceAll("%s", _EncodeURIComponent(searchQuery));
 	_VisitURL(engine);
 }
 
