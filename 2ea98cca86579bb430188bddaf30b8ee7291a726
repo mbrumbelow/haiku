@@ -1,0 +1,191 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e64cf69c_f1ebfbac",
+        "filename": "src/apps/drivesetup/DiskView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-09T19:44:08Z",
+      "side": 1,
+      "message": "You should add your copyright.",
+      "revId": "2ea98cca86579bb430188bddaf30b8ee7291a726",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fc60573_8171b04e",
+        "filename": "src/apps/drivesetup/DiskView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-09T19:44:08Z",
+      "side": 1,
+      "message": "if (encrypter !\u003d NULL) {",
+      "revId": "2ea98cca86579bb430188bddaf30b8ee7291a726",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "428bc1d4_c5375ff1",
+        "filename": "src/apps/drivesetup/DiskView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-09T19:44:08Z",
+      "side": 1,
+      "message": "Code duplication. A partion may theoretically also have a chain of parents, so this should be better placed in a recursive method?",
+      "revId": "2ea98cca86579bb430188bddaf30b8ee7291a726",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34fd94e6_b7854b91",
+        "filename": "src/apps/drivesetup/DiskView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-09T19:44:08Z",
+      "side": 1,
+      "message": "80 chars/line?",
+      "revId": "2ea98cca86579bb430188bddaf30b8ee7291a726",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9b7b092_95b2a10c",
+        "filename": "src/apps/drivesetup/DiskView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-09T19:44:08Z",
+      "side": 1,
+      "message": "This code is confusing. So fName !\u003d Name()?",
+      "revId": "2ea98cca86579bb430188bddaf30b8ee7291a726",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ce35342_95812a7b",
+        "filename": "src/apps/drivesetup/DiskView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-09T19:44:08Z",
+      "side": 1,
+      "message": "Coding style, { goes to next line.",
+      "revId": "2ea98cca86579bb430188bddaf30b8ee7291a726",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9811fb0b_51c11a9e",
+        "filename": "src/apps/drivesetup/MainWindow.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-09T19:44:08Z",
+      "side": 1,
+      "message": "Why is this placed in MainWindow? It seems it is used from PartitionView and PartitionList. Why not create a new class \"EncrypterUtils.h/cpp\" or similar?",
+      "revId": "2ea98cca86579bb430188bddaf30b8ee7291a726",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1acfacd4_4b57ce6b",
+        "filename": "src/apps/drivesetup/PartitionList.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-09T19:44:08Z",
+      "side": 1,
+      "message": "80 chars/line?",
+      "revId": "2ea98cca86579bb430188bddaf30b8ee7291a726",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12e91997_671b852d",
+        "filename": "src/apps/drivesetup/PartitionList.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-09T19:44:08Z",
+      "side": 1,
+      "message": "80 chars/line?",
+      "revId": "2ea98cca86579bb430188bddaf30b8ee7291a726",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ddc2a06_60ff39e8",
+        "filename": "src/apps/drivesetup/PartitionList.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-09T19:44:08Z",
+      "side": 1,
+      "message": "80 chars/line?",
+      "revId": "2ea98cca86579bb430188bddaf30b8ee7291a726",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ddff4de_4c214582",
+        "filename": "src/apps/drivesetup/PartitionList.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-09T19:44:08Z",
+      "side": 1,
+      "message": "80 chars/line?",
+      "revId": "2ea98cca86579bb430188bddaf30b8ee7291a726",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
