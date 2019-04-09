@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "72423410_51a5ff7d",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-09T19:27:14Z",
+      "side": 1,
+      "message": "Why is \"row\" not possibly NULL here?",
+      "revId": "a075ce979e83183c7553e247baef01f97e86b138",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
