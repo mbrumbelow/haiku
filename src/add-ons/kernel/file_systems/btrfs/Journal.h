@@ -17,6 +17,8 @@ public:
 							Journal(Volume* volume);
 							~Journal();
 
+			status_t		InitCheck();
+
 			Volume*			GetVolume() const { return fVolume; }
 			Transaction*	CurrentTransaction() const { return fOwner; }
 			uint64			SystemTransactionID() const
@@ -45,6 +47,7 @@ public:
 							Transaction();
 							~Transaction();
 
+			Journal*		GetJournal() const { return fJournal; }
 			int32			ID() const { return fJournal->TransactionID(); }
 			uint64			SystemID() const
 								{ return fJournal->SystemTransactionID(); }
