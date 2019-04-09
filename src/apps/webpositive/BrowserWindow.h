@@ -193,6 +193,8 @@ private:
 
 			void				_SetPageIcon(BWebView* view,
 									const BBitmap* icon);
+									
+			void				_InitSearchEngines();
 
 			void				_UpdateHistoryMenu();
 			void				_UpdateClipboardItems();
@@ -281,8 +283,14 @@ private:
 			BMenuItem*			fBookmarkBarMenuItem;
 			BookmarkBar*		fBookmarkBar;
 			BFilePanel*			fSavePanel;
+			int					searchEngineCount=3;
+			struct search_engine {
+				const char* shortcut;
+				const char* url;
+			};
+		
+			struct search_engine *engines;
 };
 
 
 #endif // BROWSER_WINDOW_H
-
