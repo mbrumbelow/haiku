@@ -25,6 +25,295 @@
     },
     {
       "key": {
+        "uuid": "0d95fdc5_e0d8abce",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-09T20:02:44Z",
+      "side": 1,
+      "message": "80 chars/line?",
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f0cdf75_011f19a0",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-09T20:02:44Z",
+      "side": 1,
+      "message": "B_V_SCROLL_BAR_WIDTH?",
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73f3eefb_955f633e",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-09T20:02:44Z",
+      "side": 1,
+      "message": "Why is fFileOpen a member variable? Do the BFilePanels auto-destruct themselves? If not, you would leak them, if you just overwrite fFileOpen.",
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d0e64fd_7629e3b7",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-09T20:02:44Z",
+      "side": 1,
+      "message": "Here too, see above.",
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16cdca10_82e3135b",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-09T20:02:44Z",
+      "side": 1,
+      "message": "I don\u0027t like the hard-coded 40 pixel status view height so much. At least put it in a static variable or #define.",
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "759af720_a4b89740",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-09T20:02:44Z",
+      "side": 1,
+      "message": "What happens if I launch multiple \"save disk image\" jobs? Looks like the status would jump forth and back. Better would be a one status bar per ongoing job. They could have an id.",
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b512995_499cfe72",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 671,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-09T20:02:44Z",
+      "side": 1,
+      "message": "Why is this in the default case?",
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e5cc9df_bb3f4ba4",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 783,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-09T20:02:44Z",
+      "side": 1,
+      "message": "\"Failed to obtain information about %s\" would be better.",
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0e3e954_70ed868e",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 808,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-09T20:02:44Z",
+      "side": 1,
+      "message": "Lots of code duplication with showing a BAlert. Better move this into a separate method.",
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05bc319d_89dac3a8",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 840,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-09T20:02:44Z",
+      "side": 1,
+      "message": "More BAlert code duplication.",
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0fc35938_c6476d99",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 870,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-09T20:02:44Z",
+      "side": 1,
+      "message": "stat() is not meaningful to the user. Inconsistent use of quotes around the file name versus RegisterFileDiskDevice().",
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9613cbb6_3fab24eb",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 925,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-09T20:02:44Z",
+      "side": 1,
+      "message": "Why do we have to equip the BAlert with B_CLOSE_ON_ESCAPE each time? Is there no flag for that? I thought we added that.",
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34e39158_93cb888a",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 994,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-09T20:02:44Z",
+      "side": 1,
+      "message": "This alert method becomes more and more urgent. :-)",
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13affffa_9798f80e",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1029,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-09T20:02:44Z",
+      "side": 1,
+      "message": "message is leaked.",
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8eb511d2_9ff19c98",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1037,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-09T20:02:44Z",
+      "side": 1,
+      "message": "One more message leaked.",
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "584b3e24_f56ec84f",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1118,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-09T20:02:44Z",
+      "side": 1,
+      "message": "message is leaked.",
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de26bb49_1f04cdc6",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1126,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-09T20:02:44Z",
+      "side": 1,
+      "message": "messages is leaked.",
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "714d5c15_cf6f71fd",
         "filename": "src/apps/drivesetup/MainWindow.cpp",
         "patchSetId": 2
