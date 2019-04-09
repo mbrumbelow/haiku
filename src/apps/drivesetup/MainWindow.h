@@ -11,7 +11,11 @@
 
 
 #include <DiskDeviceRoster.h>
+#include <FilePanel.h>
+#include <Notification.h>
 #include <PopUpMenu.h>
+#include <StatusBar.h>
+#include <StringView.h>
 #include <Window.h>
 
 #include "Support.h"
@@ -47,6 +51,11 @@ public:
 			status_t			StoreSettings(BMessage* archive) const;
 			status_t			RestoreSettings(BMessage* archive);
 			void				ApplyDefaultSettings();
+
+			status_t			RegisterFileDiskDevice(const char* fileName);
+			status_t			UnRegisterFileDiskDevice(const char* fileName);
+	static	int32				SaveDiskImage(void* data);
+	static	int32				WriteDiskImage(void* data);
 
 private:
 			void				_ScanDrives();
@@ -89,6 +98,8 @@ private:
 
 			PartitionListView*	fListView;
 			DiskView*			fDiskView;
+			BView*				fStatusView;
+			BStatusBar*			fStatusBar;
 
 			SpaceIDMap			fSpaceIDMap;
 
@@ -97,6 +108,7 @@ private:
 
 			BMenu*				fPartitionMenu;
 			BMenu*				fFormatMenu;
+			BMenu*				fDiskImageMenu;
 
 			BMenuBar* 			fMenuBar;
 
@@ -121,6 +133,15 @@ private:
 			BMenuItem*			fUnmountContextMenuItem;
 			BMenuItem*			fOpenDiskProbeContextMenuItem;
 			BPopUpMenu*			fContextMenu;
+
+			BMenuItem*			fRegisterMenuItem;
+			BMenuItem*			fUnRegisterMenuItem;
+			BMenuItem*			fSaveMenuItem;
+			BMenuItem*			fWriteMenuItem;
+
+			BFilePanel*			fFileOpen;
+
+			BNotification*		fNotification;
 };
 
 
