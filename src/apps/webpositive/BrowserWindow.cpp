@@ -380,6 +380,7 @@ BrowserWindow::BrowserWindow(BRect frame, SettingsMessage* appSettings,
 		kDefaultStartPageURL);
 	fSearchPageURL = fAppSettings->GetValue(kSettingsKeySearchPageURL,
 		kDefaultSearchPageURL);
+	_InitSearchEngines();
 
 	// Create the interface elements
 	BMessage* newTabMessage = new BMessage(NEW_TAB);
@@ -2477,6 +2478,17 @@ BrowserWindow::_EncodeURIComponent(const BString& search)
 	return result;
 }
 
+void
+BrowserWindow::_InitSearchEngines()
+{
+	engines = new struct search_engine[searchEngineCount];
+	engines[0].url="https://google.com/search?q=%s";
+	engines[0].shortcut="g ";
+	engines[1].url="https://bing.com/search?q=%s";
+	engines[1].shortcut="b ";
+	engines[2].url="http://en.wikipedia.org/w/index.php?search=%s";
+	engines[2].shortcut="w ";
+}
 
 void
 BrowserWindow::_VisitURL(const BString& url)
@@ -2489,10 +2501,31 @@ BrowserWindow::_VisitURL(const BString& url)
 void
 BrowserWindow::_VisitSearchEngine(const BString& search)
 {
-	BString engine(fSearchPageURL);
-	engine.ReplaceAll("%s", _EncodeURIComponent(search).String());
+	
+	BString searchQuery = search;
+	searchQuery.Remove(0,2);
+	BString searchPrefix;
+	bool isSearchEngineShortcutQuery = false;
+	
+	
+	search.CopyCharsInto(searchPrefix,0,2);
+	
+	for(int i=0;i<searchEngineCount;i++) {
+		if(search.StartsWith(engines[i].shortcut)) {
+			isSearchEngineShortcutQuery=true;
+			BString engine(engines[i].url);
+			engine.ReplaceAll("%s", _EncodeURIComponent(searchQuery));
+			_VisitURL(engine);
+			break;	
+		}
+	}
+	
+	if(!isSearchEngineShortcutQuery) {
+		BString engine(fSearchPageURL);
+		engine.ReplaceAll("%s", _EncodeURIComponent(search));
+		_VisitURL(engine);
+	}
 
-	_VisitURL(engine);
 }
 
 
