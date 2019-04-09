@@ -1,0 +1,259 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4513b35c_fb918a38",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 2480,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-09T07:07:04Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "8a22ea0ba458e3d7694d7ce4cfae943b631b4dea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06db5289_6c1fcb69",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 2492,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-09T07:07:04Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "8a22ea0ba458e3d7694d7ce4cfae943b631b4dea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91665410_dafa1cc5",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 2504,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-09T07:07:04Z",
+      "side": 1,
+      "message": "remove this empty line",
+      "revId": "8a22ea0ba458e3d7694d7ce4cfae943b631b4dea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68590b3d_82bfa3e2",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 2506,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-09T07:07:04Z",
+      "side": 1,
+      "message": "space after ,",
+      "revId": "8a22ea0ba458e3d7694d7ce4cfae943b631b4dea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ad1ba8b_8c3714bf",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 2510,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-09T07:07:04Z",
+      "side": 1,
+      "message": "only one blank line here",
+      "revId": "8a22ea0ba458e3d7694d7ce4cfae943b631b4dea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e9628a0_7e407a50",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 2511,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-09T07:07:04Z",
+      "side": 1,
+      "message": "space after ,",
+      "revId": "8a22ea0ba458e3d7694d7ce4cfae943b631b4dea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8a947e4_78d89902",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 2513,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-09T07:07:04Z",
+      "side": 1,
+      "message": "space after ;",
+      "revId": "8a22ea0ba458e3d7694d7ce4cfae943b631b4dea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f50e04ab_6aadcf0d",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 2515,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-09T07:07:04Z",
+      "side": 1,
+      "message": "space around \u003d",
+      "revId": "8a22ea0ba458e3d7694d7ce4cfae943b631b4dea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c61e1fbc_63615347",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 2526,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-09T07:07:04Z",
+      "side": 1,
+      "message": "you can have a single call to _VisitURL after the for and the if, instead of having two inside each.",
+      "revId": "8a22ea0ba458e3d7694d7ce4cfae943b631b4dea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc2a1789_0cd308b5",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 2528,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-09T07:07:04Z",
+      "side": 1,
+      "message": "no empty line needed here.",
+      "revId": "8a22ea0ba458e3d7694d7ce4cfae943b631b4dea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10d4002b_034986fa",
+        "filename": "src/apps/webpositive/BrowserWindow.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-09T07:07:04Z",
+      "side": 1,
+      "message": "trailing tabs, please remove",
+      "revId": "8a22ea0ba458e3d7694d7ce4cfae943b631b4dea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55c9cc4d_e1bd9661",
+        "filename": "src/apps/webpositive/BrowserWindow.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-09T07:07:04Z",
+      "side": 1,
+      "message": "fSearchEngineCount",
+      "revId": "8a22ea0ba458e3d7694d7ce4cfae943b631b4dea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa6e2d09_cc0d5b13",
+        "filename": "src/apps/webpositive/BrowserWindow.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-09T07:07:04Z",
+      "side": 1,
+      "message": "struct SearchEngine",
+      "revId": "8a22ea0ba458e3d7694d7ce4cfae943b631b4dea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb9cb18c_347ce6cb",
+        "filename": "src/apps/webpositive/BrowserWindow.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-09T07:07:04Z",
+      "side": 1,
+      "message": "trailing tabs, please remove.",
+      "revId": "8a22ea0ba458e3d7694d7ce4cfae943b631b4dea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "752fe9d9_77a1b693",
+        "filename": "src/apps/webpositive/BrowserWindow.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-09T07:07:04Z",
+      "side": 1,
+      "message": "fEngines.\nalso, use the same style for * as in the rest of the file (* then space)",
+      "revId": "8a22ea0ba458e3d7694d7ce4cfae943b631b4dea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
