@@ -34,6 +34,13 @@ Journal::~Journal()
 }
 
 
+status_t
+Journal::InitCheck()
+{
+	return B_OK;
+}
+
+
 /*static*/ void
 Journal::_TransactionWritten(int32 transactionID, int32 event, void* _journal)
 {
