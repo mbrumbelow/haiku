@@ -1,5 +1,6 @@
 /*
  * Copyright 2007-2010 Stephan Aßmus <superstippi@gmx.de>.
+ * Copyright 2013, Dancsó Róbert<dancso.robert@d-rendszer.hu>
  * All rights reserved. Distributed under the terms of the MIT license.
  */
 
@@ -7,15 +8,25 @@
 
 #include <stdio.h>
 
+#include <Application.h>
+#include <Bitmap.h>
 #include <DiskDeviceVisitor.h>
 #include <Catalog.h>
 #include <GroupLayout.h>
 #include <HashMap.h>
+#include <IconUtils.h>
 #include <LayoutItem.h>
+#include <LayoutUtils.h>
 #include <Locale.h>
 #include <PartitioningInfo.h>
+#include <Path.h>
+#include <Resources.h>
 #include <String.h>
+#include <Volume.h>
+#include <VolumeRoster.h>
 
+#include "icons.h"
+#include "EncryptionUtils.h"
 #include "MainWindow.h"
 
 
@@ -34,7 +45,7 @@ static const float		kLayoutInset	= 6;
 class PartitionView : public BView {
 public:
 	PartitionView(const char* name, float weight, off_t offset,
-			int32 level, partition_id id)
+			int32 level, partition_id id, BPartition* partition)
 		:
 		BView(name, B_WILL_DRAW | B_SUPPORTS_LAYOUT | B_FULL_UPDATE_ON_RESIZE),
 		fID(id),
@@ -63,7 +74,64 @@ public:
 		fGroupLayout->SetInsets(kLayoutInset, kLayoutInset + font.Size(),
 			kLayoutInset, kLayoutInset);
 
-		SetExplicitMinSize(BSize(font.Size() + 6, 30));
+		SetExplicitMinSize(BSize(font.Size() + 20, 30));
+
+		BVolume volume;
+		partition->GetVolume(&volume);
+
+		BVolume boot;
+		BVolumeRoster().GetBootVolume(&boot);
+		fBoot = volume == boot;
+		fReadOnly = volume.IsReadOnly();
+		fShared = volume.IsShared();
+		fEncrypted = false;
+
+		BPath path;
+		partition->GetPath(&path);
+
+		BString fullName(name);
+		if (partition->Device()->IsFile()) {
+			fullName << " (" << B_TRANSLATE("Virtual") << ")";
+			fVirtual = true;
+		} else
+			fVirtual = false;
+
+		for(;;) {
+			const char* encrypter = EncryptionType(path.Path());
+			if (encrypter != NULL) {
+				fullName << " (" << encrypter << ")";
+				fEncrypted = true;
+				break;
+			}
+			if (partition->Parent() != NULL) {
+				partition = partition->Parent();
+				partition->GetPath(&path);
+			} else
+				break;
+		}
+
+		SetName(fullName);
+		fUsed = 100.0 / ((float)volume.Capacity()
+				/ (volume.Capacity() - volume.FreeBytes()));
+		if (fUsed < 0)
+			fUsed = 100.0;
+
+		fIcon = new BBitmap(BRect(0, 0, 15, 15), B_RGBA32);
+
+		fBFS = BString(partition->ContentType()) == "Be File System";
+
+		if (fBoot)
+			BIconUtils::GetVectorIcon(kLeaf, sizeof(kLeaf), fIcon);
+		else if (fEncrypted)
+			BIconUtils::GetVectorIcon(kEncrypted, sizeof(kEncrypted), fIcon);
+		else if (fReadOnly)
+			BIconUtils::GetVectorIcon(kReadOnly, sizeof(kReadOnly), fIcon);
+		else if (fShared)
+			BIconUtils::GetVectorIcon(kShared, sizeof(kShared), fIcon);
+		else if (fVirtual)
+			BIconUtils::GetVectorIcon(kFile, sizeof(kFile), fIcon);
+		else
+			fIcon = NULL;
 	}
 
 	virtual void MouseDown(BPoint where)
@@ -94,21 +162,57 @@ public:
 
 		BRect b(Bounds());
 		if (fSelected) {
-			SetHighColor(ui_color(B_KEYBOARD_NAVIGATION_COLOR));
+			if (fReadOnly)
+				SetHighColor(make_color(255, 128, 128));
+			else if (fBoot || fBFS)
+				SetHighColor(make_color(128, 255, 128));
+			else
+				SetHighColor(ui_color(B_KEYBOARD_NAVIGATION_COLOR));
 			StrokeRect(b, B_SOLID_HIGH);
 			b.InsetBy(1, 1);
 			StrokeRect(b, B_SOLID_HIGH);
 			b.InsetBy(1, 1);
-		} else if (fLevel > 0) {
+		} else if (fLevel >= 0) {
 			StrokeRect(b, B_SOLID_HIGH);
 			b.InsetBy(1, 1);
 		}
 
+		if (CountChildren() == 0)
+			SetLowColor(make_color(255, 255, 255));
 		FillRect(b, B_SOLID_LOW);
+
+		if (fEncrypted && CountChildren() == 0) {
+			SetHighColor(make_color(128, 128, 128));
+			StrokeRect(b, B_SOLID_HIGH);
+			b.InsetBy(1, 1);
+			SetLowColor(make_color(224, 224, 0));
+			BRect e(BPoint(15, b.top), b.RightBottom());
+			e.InsetBy(1, 1);
+			FillRect(e, kStripes);
+		}
 
 		// prevent the text from moving when border width changes
 		if (!fSelected)
 			b.InsetBy(1, 1);
+
+		BRect used(b.LeftTop(), BSize(b.Width() / (100.0 / fUsed), b.Height()));
+
+		SetLowColor(make_color(240, 248, 255));
+
+		if (fReadOnly)
+			SetLowColor(make_color(255, 224, 224));
+		if (fBoot || fBFS)
+			SetLowColor(make_color(224, 255, 224));
+		if (CountChildren() == 0)
+			FillRect(used, B_SOLID_LOW);
+
+		if (fIcon && CountChildren() == 0) {
+			BPoint where = b.RightBottom() - BPoint(fIcon->Bounds().Width(),
+				fIcon->Bounds().Height());
+			SetDrawingMode(B_OP_OVER);
+			DrawBitmap(fIcon, where);
+			SetDrawingMode(B_OP_COPY);
+		}
 
 		float width;
 		BFont font;
@@ -169,6 +273,11 @@ public:
 		Invalidate();
 	}
 
+	bool IsEncrypted()
+	{
+		return fEncrypted;
+	}
+
 private:
 	void _SetMouseOver(bool mouseOver)
 	{
@@ -186,6 +295,15 @@ private:
 	bool			fSelected;
 	bool			fMouseOver;
 	BGroupLayout*	fGroupLayout;
+
+	bool			fBoot;
+	bool			fReadOnly;
+	bool			fShared;
+	bool			fEncrypted;
+	bool			fVirtual;
+	float			fUsed;
+	bool			fBFS;
+	BBitmap*		fIcon;
 };
 
 
@@ -208,8 +326,11 @@ public:
 		else
 			name = B_TRANSLATE("Device");
 
+		if (BString(device->ContentName()).Length() > 0)
+			name = device->ContentName();
+
 		PartitionView* view = new PartitionView(name, 1.0,
-			device->Offset(), 0, device->ID());
+			device->Offset(), 0, device->ID(), device);
 		fViewMap.Put(device->ID(), view);
 		fView->GetLayout()->AddView(view);
 		_AddSpaces(device, view);
@@ -236,13 +357,13 @@ public:
 			else {
 				char buffer[64];
 				snprintf(buffer, 64, B_TRANSLATE("Partition %ld"),
-					partition->ID());
+					partition->ID(), partition);
 				name << buffer;
 			}
 		}
 		partition_id id = partition->ID();
 		PartitionView* view = new PartitionView(name.String(), scale, offset,
-			level, id);
+			level, id, partition);
 		view->SetSelected(id == fSelectedPartition);
 		PartitionView* parent = fViewMap.Get(partition->Parent()->ID());
 		BGroupLayout* layout = parent->GroupLayout();
@@ -296,8 +417,9 @@ public:
 				double scale = (double)size / parentSize;
 				partition_id id
 					= fSpaceIDMap.SpaceIDFor(partition->ID(), offset);
-				PartitionView* view = new PartitionView(B_TRANSLATE("<empty>"),
-					scale, offset, parentView->Level() + 1, id);
+				PartitionView* view = new PartitionView(
+					B_TRANSLATE("<empty or unknown>"), scale, offset,
+					parentView->Level() + 1, id, partition);
 
 				fViewMap.Put(id, view);
 				BGroupLayout* layout = parentView->GroupLayout();
