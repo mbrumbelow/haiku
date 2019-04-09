@@ -48,6 +48,8 @@ public:
 	virtual	void				MessageReceived(BMessage* message);
 
 	// MainWindow
+	const	char*				EncryptionType(const char* path);
+
 			status_t			StoreSettings(BMessage* archive) const;
 			status_t			RestoreSettings(BMessage* archive);
 			void				ApplyDefaultSettings();
