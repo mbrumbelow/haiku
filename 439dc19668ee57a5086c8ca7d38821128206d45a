@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "beab096f_644b066a",
+        "filename": "src/system/ldscripts/riscv64/kernel.ld",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-04-09T19:17:11Z",
+      "side": 1,
+      "message": "On purpose per the RISC-V folks.\n\n\"I also see in your linker script\n        . \u003d 0xFFFFFFFF80000000 + SIZEOF_HEADERS;\nIn order to put the address 0xFFFFFFFF80000000 on the address bus, you have to have 64-bit physical addressing, and I\u0027m not aware of any RISC-V target with 64-bit physical addressing.  This is why the linux kernel uses 0x80000000 instead, because that only requires a minimum of 32-bit physical addressing, which all known 64-bit targets have.  This also requires using -mcmodel\u003dmedany to make addresses above 0x80000000 work on a 64-bit target.\"",
+      "parentUuid": "8d80d819_27a9599c",
+      "revId": "439dc19668ee57a5086c8ca7d38821128206d45a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "14d50018_68b74416",
         "filename": "src/system/ldscripts/riscv64/kernel.ld",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "4a250aa4_d6bc7531",
+        "filename": "src/system/ldscripts/riscv64/kernel.ld",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-04-09T19:17:11Z",
+      "side": 1,
+      "message": "can-do",
+      "parentUuid": "14d50018_68b74416",
+      "revId": "439dc19668ee57a5086c8ca7d38821128206d45a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dbcadcb3_43f615b8",
         "filename": "src/system/ldscripts/riscv64/kernel.ld",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2019-04-09T19:14:49Z",
       "side": 1,
       "message": "Anything below here can be dropped (like in the other arch linker files).\nWe do not need any of this in the kernel ELF file (debug infos are stored separately)",
+      "revId": "439dc19668ee57a5086c8ca7d38821128206d45a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a618fbd8_d256364b",
+        "filename": "src/system/ldscripts/riscv64/kernel.ld",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-04-09T19:17:11Z",
+      "side": 1,
+      "message": "can-do",
+      "parentUuid": "dbcadcb3_43f615b8",
       "revId": "439dc19668ee57a5086c8ca7d38821128206d45a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
