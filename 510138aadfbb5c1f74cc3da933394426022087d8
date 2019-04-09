@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c1e614e_1ae0a67b",
+        "filename": "src/apps/drivesetup/DiskView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-09T19:24:41Z",
+      "side": 1,
+      "message": "And partition_id really is the index here?",
+      "revId": "510138aadfbb5c1f74cc3da933394426022087d8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
