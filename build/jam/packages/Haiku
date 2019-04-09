@@ -249,7 +249,7 @@ AddFilesToPackage add-ons Screen\ Savers : $(SYSTEM_ADD_ONS_SCREENSAVERS) ;
 
 AddFilesToPackage add-ons disk_systems
 	: <disk_system>fat <disk_system>intel <disk_system>gpt <disk_system>bfs
-		<disk_system>ntfs ;
+		<disk_system>ntfs <disk_system>btrfs ;
 
 # Kernel bluetooth stack
 AddFilesToPackage add-ons kernel bluetooth : $(SYSTEM_BT_STACK) ;
