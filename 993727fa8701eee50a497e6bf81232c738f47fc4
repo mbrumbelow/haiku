@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f578c4d3_34355bb6",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Volume.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-10T10:10:14Z",
+      "side": 1,
+      "message": "Please add your copyright. :-)",
+      "revId": "993727fa8701eee50a497e6bf81232c738f47fc4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d015dd65_2f9206f0",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Volume.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-10T10:10:14Z",
+      "side": 1,
+      "message": "Just wondering... is label guaranteed to be !\u003d NULL here? \"Defensive programming\" would probably mandate a check anyway.",
+      "revId": "993727fa8701eee50a497e6bf81232c738f47fc4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba432e88_08bbb2a6",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/btrfs.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-10T10:10:14Z",
+      "side": 1,
+      "message": "The rule is to stick to one asterisk style (\"* \" versus \" *\") per file. Since the file (and the component?) already establishes \"const char* name\", please use that.",
+      "revId": "993727fa8701eee50a497e6bf81232c738f47fc4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e061388b_ceb9875f",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/kernel_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-10T10:10:14Z",
+      "side": 1,
+      "message": "Please add your copyright. :-)",
+      "revId": "993727fa8701eee50a497e6bf81232c738f47fc4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
