@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bdedfb2d_4cada0be",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-11T08:50:18Z",
+      "side": 1,
+      "message": "I had reformatted the commit message, but you removed my changes.\n\nThe format should be:\n\n- 1 short line with description of the change\n- 1 blank line\n- More detailed description\n- 1 blank line\n- Fixes, Change-Id, etc lines.\n\nThis is because the first line will then be used in cgit and gerrit when there is only limited space available.",
+      "revId": "5ea573c3a280bc04f75ac1f03bba00d0a7957e86",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6bce223_12759b3f",
+        "filename": "headers/private/input/touchpad_settings.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-11T08:50:18Z",
+      "side": 1,
+      "message": "This should be moved back to the previous location then",
+      "revId": "5ea573c3a280bc04f75ac1f03bba00d0a7957e86",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29d0e0d4_12d88026",
+        "filename": "headers/private/input/touchpad_settings.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-11T08:50:18Z",
+      "side": 1,
+      "message": "and this can be removed",
+      "revId": "5ea573c3a280bc04f75ac1f03bba00d0a7957e86",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cedf6614_b60778d4",
+        "filename": "src/add-ons/input_server/filters/padblocker/PadBlocker.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-11T08:50:18Z",
+      "side": 1,
+      "message": "This note is now out of date",
+      "revId": "5ea573c3a280bc04f75ac1f03bba00d0a7957e86",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c85df42_8cf8c495",
+        "filename": "src/add-ons/input_server/filters/padblocker/PadBlocker.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-11T08:50:18Z",
+      "side": 1,
+      "message": "trailing tab",
+      "revId": "5ea573c3a280bc04f75ac1f03bba00d0a7957e86",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9561a2f_853992d7",
+        "filename": "src/add-ons/input_server/filters/padblocker/PadBlocker.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-11T08:50:18Z",
+      "side": 1,
+      "message": "trailing tab",
+      "revId": "5ea573c3a280bc04f75ac1f03bba00d0a7957e86",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d0a93e6_5b71de0d",
+        "filename": "src/add-ons/input_server/filters/padblocker/PadBlocker.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-11T08:50:18Z",
+      "side": 1,
+      "message": "trailing tabs",
+      "revId": "5ea573c3a280bc04f75ac1f03bba00d0a7957e86",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
