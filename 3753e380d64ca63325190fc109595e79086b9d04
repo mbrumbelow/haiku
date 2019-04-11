@@ -59,6 +59,24 @@
     },
     {
       "key": {
+        "uuid": "780c426a_371aae97",
+        "filename": "src/data/directory_attrs/home-config-settings-touchpad.rdef",
+        "patchSetId": 10
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-11T11:08:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49127438_797ff08c",
+      "revId": "3753e380d64ca63325190fc109595e79086b9d04",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "67707c30_becd4ef4",
         "filename": "src/preferences/touchpad/TouchpadPref.h",
         "patchSetId": 10
