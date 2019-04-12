@@ -255,6 +255,13 @@ extern int pthread_key_delete(pthread_key_t key);
 extern void *pthread_getspecific(pthread_key_t key);
 extern int pthread_setspecific(pthread_key_t key, const void *value);
 
+/* bridge to the native threads API */
+extern int32 /* thread_id */ get_pthread_thread_id(pthread_t thread);
+/* TODO: Would be nice to have, but we use TLS to associate a thread with its
+   pthread object. So this is not trivial to implement.
+extern status_t		convert_to_pthread(thread_id thread, pthread_t *_thread);
+*/
+
 /* private functions */
 extern void __pthread_cleanup_push_handler(
 	struct __pthread_cleanup_handler *handler);

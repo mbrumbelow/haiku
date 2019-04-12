@@ -1,5 +1,5 @@
 /*
- * Copyright 2004-2009, Haiku Inc. All Rights Reserved.
+ * Copyright 2004-2019, Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  */
 #ifndef _OS_H
@@ -7,7 +7,6 @@
 
 /** Kernel specific structures and functions */
 
-#include <pthread.h>
 #include <stdarg.h>
 
 #include <SupportDefs.h>
@@ -362,13 +361,6 @@ extern status_t		_get_next_thread_info(team_id team, int32 *cookie,
 
 #define get_next_thread_info(team, cookie, info) \
 	_get_next_thread_info((team), (cookie), (info), sizeof(*(info)))
-
-/* bridge to the pthread API */
-extern thread_id	get_pthread_thread_id(pthread_t thread);
-/* TODO: Would be nice to have, but we use TLS to associate a thread with its
-   pthread object. So this is not trivial to implement.
-extern status_t		convert_to_pthread(thread_id thread, pthread_t *_thread);
-*/
 
 
 /* Time */
