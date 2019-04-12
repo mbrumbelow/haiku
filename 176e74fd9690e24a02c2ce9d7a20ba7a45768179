@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f7029c72_0c1f7d9b",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-12T06:49:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65331a56_c38a2f21",
+      "range": {
+        "startLine": 226,
+        "startChar": 1,
+        "endLine": 226,
+        "endChar": 37
+      },
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d95fdc5_e0d8abce",
         "filename": "src/apps/drivesetup/MainWindow.cpp",
         "patchSetId": 2
@@ -39,6 +63,24 @@
       "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7aea450_2c198ac0",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-12T06:49:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d95fdc5_e0d8abce",
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "fb2340f6_f613c533",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-12T06:49:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f0cdf75_011f19a0",
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "73f3eefb_955f633e",
         "filename": "src/apps/drivesetup/MainWindow.cpp",
         "patchSetId": 2
@@ -73,6 +133,24 @@
       "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef2abff1_22b501c0",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-12T06:49:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73f3eefb_955f633e",
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -93,6 +171,24 @@
     },
     {
       "key": {
+        "uuid": "9f687e1e_efc71806",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-12T06:49:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d0e64fd_7629e3b7",
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16cdca10_82e3135b",
         "filename": "src/apps/drivesetup/MainWindow.cpp",
         "patchSetId": 2
@@ -107,6 +203,24 @@
       "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "369504b9_9556963d",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-12T06:49:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16cdca10_82e3135b",
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -144,6 +258,24 @@
     },
     {
       "key": {
+        "uuid": "6e084789_57fa993b",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 671,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-12T06:49:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b512995_499cfe72",
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e5cc9df_bb3f4ba4",
         "filename": "src/apps/drivesetup/MainWindow.cpp",
         "patchSetId": 2
@@ -158,6 +290,24 @@
       "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6006be0e_27f94d48",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 783,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-12T06:49:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e5cc9df_bb3f4ba4",
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -178,6 +328,24 @@
     },
     {
       "key": {
+        "uuid": "b88296ad_779810f7",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 808,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-12T06:49:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0e3e954_70ed868e",
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "05bc319d_89dac3a8",
         "filename": "src/apps/drivesetup/MainWindow.cpp",
         "patchSetId": 2
@@ -195,6 +363,24 @@
     },
     {
       "key": {
+        "uuid": "098b59c6_6160c1db",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 840,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-12T06:49:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05bc319d_89dac3a8",
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0fc35938_c6476d99",
         "filename": "src/apps/drivesetup/MainWindow.cpp",
         "patchSetId": 2
@@ -209,6 +395,24 @@
       "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35772bb8_ddd69f58",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 870,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-12T06:49:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0fc35938_c6476d99",
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -246,6 +450,24 @@
     },
     {
       "key": {
+        "uuid": "c8c1da9b_f3e52be2",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 994,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-12T06:49:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34e39158_93cb888a",
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "13affffa_9798f80e",
         "filename": "src/apps/drivesetup/MainWindow.cpp",
         "patchSetId": 2
@@ -260,6 +482,24 @@
       "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80883436_23f8ea59",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1029,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-12T06:49:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13affffa_9798f80e",
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -280,6 +520,24 @@
     },
     {
       "key": {
+        "uuid": "0c8feae1_d4d48b37",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1037,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-12T06:49:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8eb511d2_9ff19c98",
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "584b3e24_f56ec84f",
         "filename": "src/apps/drivesetup/MainWindow.cpp",
         "patchSetId": 2
@@ -297,6 +555,24 @@
     },
     {
       "key": {
+        "uuid": "fda0ec75_d028646a",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1118,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-12T06:49:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "584b3e24_f56ec84f",
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "de26bb49_1f04cdc6",
         "filename": "src/apps/drivesetup/MainWindow.cpp",
         "patchSetId": 2
@@ -311,6 +587,24 @@
       "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbd85362_89b1acdd",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1126,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-12T06:49:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de26bb49_1f04cdc6",
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -337,6 +631,30 @@
     },
     {
       "key": {
+        "uuid": "ec0bcf71_07c19dc3",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1254,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-12T06:49:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "714d5c15_cf6f71fd",
+      "range": {
+        "startLine": 1253,
+        "startChar": 2,
+        "endLine": 1254,
+        "endChar": 51
+      },
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cf6710ed_ed96b755",
         "filename": "src/apps/drivesetup/MainWindow.cpp",
         "patchSetId": 2
@@ -360,6 +678,30 @@
     },
     {
       "key": {
+        "uuid": "5b465fc4_d2ff3d0f",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1265,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-12T06:49:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf6710ed_ed96b755",
+      "range": {
+        "startLine": 1262,
+        "startChar": 2,
+        "endLine": 1265,
+        "endChar": 42
+      },
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5102d3a9_0398002d",
         "filename": "src/apps/drivesetup/MainWindow.cpp",
         "patchSetId": 2
@@ -380,6 +722,30 @@
       "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e1c30da_30acba20",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1271,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-12T06:49:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5102d3a9_0398002d",
+      "range": {
+        "startLine": 1268,
+        "startChar": 2,
+        "endLine": 1271,
+        "endChar": 36
+      },
+      "revId": "176e74fd9690e24a02c2ce9d7a20ba7a45768179",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
