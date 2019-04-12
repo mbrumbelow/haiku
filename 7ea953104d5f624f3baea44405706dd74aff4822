@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9dcef951_fc07fd0d",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2019-04-12T22:12:21Z",
+      "side": 1,
+      "message": "Should this line be here?",
+      "range": {
+        "startLine": 537,
+        "startChar": 3,
+        "endLine": 537,
+        "endChar": 36
+      },
+      "revId": "7ea953104d5f624f3baea44405706dd74aff4822",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
