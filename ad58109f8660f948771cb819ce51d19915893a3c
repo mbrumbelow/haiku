@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0f6e6a51_7bd7c546",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-12T09:19:22Z",
+      "side": 1,
+      "message": "Sorry for not noticing this earlier, but here, we could check the return code of GetVectorIcon() one line above and avoid setting the icon in case of failure.",
+      "revId": "ad58109f8660f948771cb819ce51d19915893a3c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe44dcd8_46536395",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 810,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-12T09:19:22Z",
+      "side": 1,
+      "message": "Spelling typo",
+      "revId": "ad58109f8660f948771cb819ce51d19915893a3c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "302fe7cd_c2d4d57e",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-12T09:19:22Z",
+      "side": 1,
+      "message": "Why is the new FileErrorAlert() not used? (Three more times below)",
+      "revId": "ad58109f8660f948771cb819ce51d19915893a3c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d89c2903_415953dc",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 980,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-12T09:19:22Z",
+      "side": 1,
+      "message": "Five more places where FileErrorAlert() should be used.",
+      "revId": "ad58109f8660f948771cb819ce51d19915893a3c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "043544c2_52ed1e07",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1077,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-12T09:19:22Z",
+      "side": 1,
+      "message": "Three more places for FileErrorAlert() below.",
+      "revId": "ad58109f8660f948771cb819ce51d19915893a3c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d454ad7d_e054cc63",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1123,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-04-12T09:19:22Z",
+      "side": 1,
+      "message": "buffer is leaked. Sorry for not noticing the first time.",
+      "revId": "ad58109f8660f948771cb819ce51d19915893a3c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
