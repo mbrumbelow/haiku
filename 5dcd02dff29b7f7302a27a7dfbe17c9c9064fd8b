@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4bc546c1_0d35bb34",
+        "filename": "src/system/boot/loader/loader.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-04-13T20:42:32Z",
+      "side": 0,
+      "message": "This TODO should probably be removed, as we\u0027re never going to fix it now, right?",
+      "revId": "5dcd02dff29b7f7302a27a7dfbe17c9c9064fd8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
