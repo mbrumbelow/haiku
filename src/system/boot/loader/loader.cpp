@@ -272,16 +272,16 @@ load_modules(stage2_args* args, BootVolume& volume)
 				partition = partition->Parent();
 			}
 		}
-	} else {
-		// The boot image should only contain the file system
-		// needed to boot the system, so we just load it.
-		// ToDo: this is separate from the fall back from above
-		//	as this piece will survive a more intelligent module
-		//	loading approach...
-		char path[B_FILE_NAME_LENGTH];
-		snprintf(path, sizeof(path), "%s/%s", sAddonPaths[0], "file_systems");
-		load_modules_from(volume, path);
 	}
+
+	// The boot image should only contain the file system
+	// needed to boot the system, so we just load it.
+	// ToDo: this is separate from the fall back from above
+	//	as this piece will survive a more intelligent module
+	//	loading approach...
+	char path[B_FILE_NAME_LENGTH];
+	snprintf(path, sizeof(path), "%s/%s", sAddonPaths[0], "file_systems");
+	load_modules_from(volume, path);
 
 	return B_OK;
 }
