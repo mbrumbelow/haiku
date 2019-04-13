@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "26c4c53e_d8661c60",
+        "filename": "src/system/boot/loader/loader.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-13T08:39:19Z",
+      "side": 1,
+      "message": "This comment is not accurate anymore (we will also run this code in other cases and it will not load just one module).\n\nI think it also makes the whole if() above useless, as we will load all filesystem modules anyway, so there is no need to try to target the ones matching the boot partition first?",
+      "revId": "f201d463bd954f075336506356f1bcc75fe4a45d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
