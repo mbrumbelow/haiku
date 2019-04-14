@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4ae0d382_1231a7fc",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Journal.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000143
+      },
+      "writtenOn": "2019-04-14T23:30:28Z",
+      "side": 1,
+      "message": "I added it because it seem quite a few of the other file systems do it (try something like: `grep -r ::InitCheck -A2 haiku/src/add-ons/kernel/file_systems | grep \u0027return B_\u0027 -B2`).\n\nI can remove it if you think it would cause confusion though.",
+      "parentUuid": "e6ee55b3_3c316044",
+      "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "66436772_6eb6ed6c",
         "filename": "src/add-ons/kernel/file_systems/btrfs/Volume.cpp",
         "patchSetId": 6
@@ -30,6 +48,24 @@
       "writtenOn": "2019-04-14T23:12:15Z",
       "side": 1,
       "message": "When the disk is large than a limit (IIRC, about 1gb, or hundreds of mbs). The superblock is mirrored in the last half of the disk. Should we check that as well ? You can create a TODO to implement it later though.",
+      "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05566128_51375832",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Volume.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1000143
+      },
+      "writtenOn": "2019-04-14T23:30:28Z",
+      "side": 1,
+      "message": "We should (\"Mirror copies of the superblock are located at physical addresses 0x400 0000 (64 MiB) and 0x40 0000 0000 (256 GiB), if these locations are valid.\"), though I\u0027m not sure if we should do it here or after the file system is fully initialised (and the magic value is switched over from the temporary one to the permanent one).",
+      "parentUuid": "66436772_6eb6ed6c",
       "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "b07378b4_afed70da",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/btrfs.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000143
+      },
+      "writtenOn": "2019-04-14T23:30:28Z",
+      "side": 1,
+      "message": "I think endianness isn\u0027t an issue here, this is the typedef: `libs/uuid/uuid.h:typedef unsigned char uuid_t[16];`\n\nIt might still be better to use the original one or a new typedef because this typedef uses `unsigned char` instead of the more explicitly sized `uint8`.",
+      "parentUuid": "9b534452_c4958ade",
+      "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "03e7a6cf_4f0d9413",
         "filename": "src/add-ons/kernel/file_systems/btrfs/btrfs.h",
         "patchSetId": 6
@@ -64,6 +118,24 @@
       "writtenOn": "2019-04-14T23:12:15Z",
       "side": 1,
       "message": "same here, and more on below.",
+      "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a74018a1_e84091ea",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/btrfs.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000143
+      },
+      "writtenOn": "2019-04-14T23:30:28Z",
+      "side": 1,
+      "message": "(See above)",
+      "parentUuid": "03e7a6cf_4f0d9413",
       "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
