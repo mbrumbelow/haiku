@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e6ee55b3_3c316044",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Journal.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2019-04-14T23:12:15Z",
+      "side": 1,
+      "message": "You don\u0027t really need this function, because It always return OK, and it may confuse others.",
+      "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66436772_6eb6ed6c",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Volume.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2019-04-14T23:12:15Z",
+      "side": 1,
+      "message": "When the disk is large than a limit (IIRC, about 1gb, or hundreds of mbs). The superblock is mirrored in the last half of the disk. Should we check that as well ? You can create a TODO to implement it later though.",
+      "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b534452_c4958ade",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/btrfs.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2019-04-14T23:12:15Z",
+      "side": 1,
+      "message": "This changes the data order due to endianness, I think. Need someone to confirm on this.",
+      "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03e7a6cf_4f0d9413",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/btrfs.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2019-04-14T23:12:15Z",
+      "side": 1,
+      "message": "same here, and more on below.",
+      "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
