@@ -107,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "64f00271_56454435",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/btrfs.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-04-15T05:56:44Z",
+      "side": 1,
+      "message": "uint8 is always unsigned char, endianness isn\u0027t an issue, the typedef is indeed the same.",
+      "parentUuid": "b07378b4_afed70da",
+      "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "03e7a6cf_4f0d9413",
         "filename": "src/add-ons/kernel/file_systems/btrfs/btrfs.h",
         "patchSetId": 6
