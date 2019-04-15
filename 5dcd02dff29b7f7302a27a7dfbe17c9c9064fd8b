@@ -16,6 +16,24 @@
       "revId": "5dcd02dff29b7f7302a27a7dfbe17c9c9064fd8b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d083c2fd_0b9894fd",
+        "filename": "src/system/boot/loader/loader.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2019-04-15T19:44:50Z",
+      "side": 0,
+      "message": "That\u0027s unrelated. That is regarding all other driver modules. This commit only addresses file system/partitioning system drivers. I\u0027d rather leave that comment in for this commit, otherwise it confuses two separate issues.",
+      "parentUuid": "4bc546c1_0d35bb34",
+      "revId": "5dcd02dff29b7f7302a27a7dfbe17c9c9064fd8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
