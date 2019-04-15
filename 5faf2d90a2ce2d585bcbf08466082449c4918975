@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "00bbb222_d805c487",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Journal.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000143
+      },
+      "writtenOn": "2019-04-15T20:56:28Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1645a170_6b92f0e7",
+      "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc38208a_a8d19ff7",
         "filename": "src/add-ons/kernel/file_systems/btrfs/Volume.cpp",
         "patchSetId": 6
@@ -69,6 +87,24 @@
       "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ea2257c_6bc6e002",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Volume.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000143
+      },
+      "writtenOn": "2019-04-15T20:56:28Z",
+      "side": 1,
+      "message": "It\u0027s not, only during initialisation (and conversion from other file systems, in the Linux implementation), and we shouldn\u0027t mount with it.\n\nI\u0027ve removed it from IsValid() and removed the check from Initialize(), because we\u0027re constructing the superblock from there in memory, so it doesn\u0027t make much sense to do a check at that point, especially considering the magic number is the only thing currently being checked anyway.",
+      "parentUuid": "bc38208a_a8d19ff7",
+      "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -89,6 +125,24 @@
     },
     {
       "key": {
+        "uuid": "405d5899_4052e151",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Volume.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000143
+      },
+      "writtenOn": "2019-04-15T20:56:28Z",
+      "side": 1,
+      "message": "Whoops, you\u0027re right!\n\nShould also be `BTRFS_SUPER_BLOCK_OFFSET` here, not `BTRFS_RESERVED_SPACE_OFFSET`.",
+      "parentUuid": "eb595705_66b2a483",
+      "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a852711d_75614022",
         "filename": "src/add-ons/kernel/file_systems/btrfs/Volume.cpp",
         "patchSetId": 6
@@ -106,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "88814922_81fad317",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Volume.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1000143
+      },
+      "writtenOn": "2019-04-15T20:56:28Z",
+      "side": 1,
+      "message": "Yes, it was wrong anyway as noted above.",
+      "parentUuid": "a852711d_75614022",
+      "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b5672d1a_a676122d",
         "filename": "src/add-ons/kernel/file_systems/btrfs/Volume.cpp",
         "patchSetId": 6
@@ -120,6 +192,24 @@
       "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c0b42e4_988dd375",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Volume.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000143
+      },
+      "writtenOn": "2019-04-15T20:56:28Z",
+      "side": 1,
+      "message": "Fixed",
+      "parentUuid": "b5672d1a_a676122d",
+      "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -176,6 +266,24 @@
     },
     {
       "key": {
+        "uuid": "36ffea75_33bbd627",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Volume.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1000143
+      },
+      "writtenOn": "2019-04-15T20:56:28Z",
+      "side": 1,
+      "message": "\u003e \u003e though I\u0027m not sure if we should do it here or after the file system is fully initialised\n\u003e \n\u003e I think we should do when it is being initialized, my understanding about fs_initialize in Haiku is that it is like mkfs.btrfs, right ? And when you bring the disk, which is initialized in Haiku, it can be mounted from Linux.\n\nThe way the Linux implementation does it is only write the main superblock during the first step of the initialisation process (which mainly consists of creating the superblock and setting up the trees), and only during the second step of the initialisation process (creating a root dir, adding block groups to the extent tree, adding any other devices to the file system in case of a multi-disk fs, etc.) the other superblocks are written to disk, as part of transaction commit (and again later when the file system is fully initialised and the magic is switched over).\n\nConsidering only some of that first part of the initialisation process is implemented in this patch, I don\u0027t think it\u0027s necessary to write the other superblocks yet.\n\nI\u0027ve tried to clarify it with updated TODOs.\n\n\u003e I don\u0027t really understand about the temporary magic, have searched it in the specs, but unfortunately couldn\u0027t find it anywhere.\n\nI believe it\u0027s being used so if there is a failure during the initialisation process, the file system on disk isn\u0027t left in an inconsistent state that would be accepted for mounting.\n\nThe reason a magic number is being used at all instead of setting it to zero or leaving it uninitialised is so it can be used to detect when you try to initiate recovery on a partially initialised file system (which is not supported in the Linux implementation, but which is something the user might want to try when e.g. conversion from another file system fails and leaves the file system in this state), and so it can be used to detect when the user passes the same device more than once to `mkfs` for multi-device file systems.\n\nI believe the reason you can\u0027t find it in the spec is because they considered it an implementation detail. That said, considering a disk can be left in this state and some tools (e.g. `btrfs recover` as explained above) do act differently when they encounter this magic, it should arguably be put in the spec.",
+      "parentUuid": "7250b22e_b1d0a1d7",
+      "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1c5872e7_e06e05c0",
         "filename": "src/add-ons/kernel/file_systems/btrfs/Volume.cpp",
         "patchSetId": 6
@@ -187,6 +295,24 @@
       "writtenOn": "2019-04-15T10:59:56Z",
       "side": 1,
       "message": "GetNextInodeID is called on uninitialized variable (fLargestInodeID), since when the volume is firstly constructed doesn\u0027t initialize it. There are also other uninitialized attributes, you may want to change it.",
+      "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81c13595_fde2f75f",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Volume.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1000143
+      },
+      "writtenOn": "2019-04-15T20:56:28Z",
+      "side": 1,
+      "message": "That was a leftover from when I was still intending on initialising the fs tree and making a root dir etc., but that didn\u0027t get done for this patch (it\u0027s a rather large patch already). I\u0027ve removed that code.\n\nAs far as I can tell that was the only uninitialised member that was being *used*. There are some other members that aren\u0027t being initialised, but they\u0027re not used either, so it shouldn\u0027t be an issue?",
+      "parentUuid": "1c5872e7_e06e05c0",
       "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -207,6 +333,24 @@
       "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f298a7d_257fb77a",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/btrfs.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000143
+      },
+      "writtenOn": "2019-04-15T20:56:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc35e7a4_cab601cc",
+      "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -263,6 +407,24 @@
     },
     {
       "key": {
+        "uuid": "06cb9cb5_78f29b68",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/btrfs.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000143
+      },
+      "writtenOn": "2019-04-15T20:56:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64f00271_56454435",
+      "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03e7a6cf_4f0d9413",
         "filename": "src/add-ons/kernel/file_systems/btrfs/btrfs.h",
         "patchSetId": 6
@@ -298,6 +460,24 @@
     },
     {
       "key": {
+        "uuid": "5e12e408_b9e7dc18",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/btrfs.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000143
+      },
+      "writtenOn": "2019-04-15T20:56:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a74018a1_e84091ea",
+      "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bee0b11_124a0be7",
         "filename": "src/add-ons/kernel/file_systems/btrfs/kernel_interface.cpp",
         "patchSetId": 6
@@ -312,6 +492,24 @@
       "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a91c62ed_6abf14b6",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/kernel_interface.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000143
+      },
+      "writtenOn": "2019-04-15T20:56:28Z",
+      "side": 1,
+      "message": "I did that because I got a warning from the clang linter (\"#includes are not sorted properly [llvm-include-order]\") because of the case difference. Changed it back though.",
+      "parentUuid": "4bee0b11_124a0be7",
+      "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
