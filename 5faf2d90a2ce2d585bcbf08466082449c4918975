@@ -37,6 +37,92 @@
     },
     {
       "key": {
+        "uuid": "1645a170_6b92f0e7",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Journal.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-04-15T06:36:54Z",
+      "side": 1,
+      "message": "This can be removed.",
+      "parentUuid": "4ae0d382_1231a7fc",
+      "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc38208a_a8d19ff7",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Volume.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-04-15T06:36:54Z",
+      "side": 1,
+      "message": "Is BTRFS_SUPER_BLOCK_MAGIC_TEMPORARY always valid? Should we mount with this value?",
+      "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb595705_66b2a483",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Volume.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-04-15T06:36:54Z",
+      "side": 1,
+      "message": "Why use B_LENDIAN_TO_HOST_INT64 and not B_HOST_TO_LENDIAN_INT64?",
+      "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a852711d_75614022",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Volume.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-04-15T06:36:54Z",
+      "side": 1,
+      "message": "blocknum is in disk order. maybe use BTRFS_RESERVED_SPACE_OFFSET directly.",
+      "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5672d1a_a676122d",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Volume.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-04-15T06:36:54Z",
+      "side": 1,
+      "message": "root is in disk order",
+      "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "66436772_6eb6ed6c",
         "filename": "src/add-ons/kernel/file_systems/btrfs/Volume.cpp",
         "patchSetId": 6
@@ -66,6 +152,23 @@
       "side": 1,
       "message": "We should (\"Mirror copies of the superblock are located at physical addresses 0x400 0000 (64 MiB) and 0x40 0000 0000 (256 GiB), if these locations are valid.\"), though I\u0027m not sure if we should do it here or after the file system is fully initialised (and the magic value is switched over from the temporary one to the permanent one).",
       "parentUuid": "66436772_6eb6ed6c",
+      "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc35e7a4_cab601cc",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/btrfs.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-04-15T06:36:54Z",
+      "side": 1,
+      "message": "Please keep two blank lines here.",
       "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -154,6 +257,23 @@
       "side": 1,
       "message": "(See above)",
       "parentUuid": "03e7a6cf_4f0d9413",
+      "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4bee0b11_124a0be7",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/kernel_interface.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-04-15T06:36:54Z",
+      "side": 1,
+      "message": "#include are alphabetically ordered. Please keep btrfs.h where it was",
       "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
