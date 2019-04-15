@@ -113,15 +113,17 @@ BLocker::LockWithTimeout(bigtime_t timeout)
 void
 BLocker::Unlock()
 {
-	// The Be Book explicitly allows any thread, not just the lock owner, to
-	// unlock. This is bad practice, but we must allow it for compatibility
-	// reasons. We can at least warn the developer that something is probably
-	// wrong.
 	if (!IsLocked()) {
+		// The Be Book explicitly allows any thread, not just the lock owner, to
+		// unlock. This is bad practice, but we must allow it for compatibility
+		// reasons. We can at least warn the developer that something is probably
+		// wrong.
 		fprintf(stderr, "Unlocking BLocker with sem %" B_PRId32
-			" from wrong thread %" B_PRId32 ", current holder %" B_PRId32
-			" (see issue #6400).\n", fSemaphoreID, find_thread(NULL),
-			fLockOwner);
+			" from wrong thread %" B_PRId32 ", current holder %" B_PRId32 "\n",
+			fSemaphoreID, find_thread(NULL), fLockOwner);
+#ifndef _BEOS_R5_COMPATIBLE_
+		debugger("Unlocking BLocker from the wrong thread!");
+#endif
 	}
 
 	// Decrement the number of outstanding locks this thread holds
