@@ -158,6 +158,41 @@
     },
     {
       "key": {
+        "uuid": "7250b22e_b1d0a1d7",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Volume.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2019-04-15T10:59:56Z",
+      "side": 1,
+      "message": "\u003e though I\u0027m not sure if we should do it here or after the file system is fully initialised\n\nI think we should do when it is being initialized, my understanding about fs_initialize in Haiku is that it is like mkfs.btrfs, right ? And when you bring the disk, which is initialized in Haiku, it can be mounted from Linux.\n\nI don\u0027t really understand about the temporary magic, have searched it in the specs, but unfortunately couldn\u0027t find it anywhere.",
+      "parentUuid": "05566128_51375832",
+      "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c5872e7_e06e05c0",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Volume.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2019-04-15T10:59:56Z",
+      "side": 1,
+      "message": "GetNextInodeID is called on uninitialized variable (fLargestInodeID), since when the volume is firstly constructed doesn\u0027t initialize it. There are also other uninitialized attributes, you may want to change it.",
+      "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fc35e7a4_cab601cc",
         "filename": "src/add-ons/kernel/file_systems/btrfs/btrfs.h",
         "patchSetId": 6
