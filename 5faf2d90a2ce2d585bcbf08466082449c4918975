@@ -319,6 +319,24 @@
     },
     {
       "key": {
+        "uuid": "f95a9644_224d9dea",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Volume.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2019-04-16T05:05:35Z",
+      "side": 1,
+      "message": "\u003e As far as I can tell that was the only uninitialised member that was being \u003e *used*. There are some other members that aren\u0027t being initialised, but they\u0027re not used either, so it shouldn\u0027t be an issue?\n\nYeah, you can initialize them later in different patches, it depends on you.",
+      "parentUuid": "81c13595_fde2f75f",
+      "revId": "5faf2d90a2ce2d585bcbf08466082449c4918975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fc35e7a4_cab601cc",
         "filename": "src/add-ons/kernel/file_systems/btrfs/btrfs.h",
         "patchSetId": 6
