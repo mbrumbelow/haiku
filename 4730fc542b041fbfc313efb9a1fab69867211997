@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a7b2ec48_831ccad8",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Debug.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-18T11:31:29Z",
+      "side": 1,
+      "message": "There are some lines larger than 80 columns here. Also it seems this was copied from another file? If that\u0027s the case, maybe move it to headers/private/... and use the same implementation in multiple places, as there is nothing really specific to btrfs except for the name string, which could be #defined before including the common file, I guess.",
+      "revId": "4730fc542b041fbfc313efb9a1fab69867211997",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1e65269_94d24071",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Volume.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 698,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-18T11:31:29Z",
+      "side": 1,
+      "message": "unneeded extra blank line",
+      "revId": "4730fc542b041fbfc313efb9a1fab69867211997",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21fb01fc_5b9e5e3a",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/btrfs_disk_system.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-18T11:31:29Z",
+      "side": 1,
+      "message": "This should be indented 1, not 2 extra levels",
+      "revId": "4730fc542b041fbfc313efb9a1fab69867211997",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ba1835b_fa9758ab",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/btrfs_disk_system.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-18T11:31:29Z",
+      "side": 1,
+      "message": "you can use B_PAGE_SIZE? Or is that a different kind of page size?",
+      "revId": "4730fc542b041fbfc313efb9a1fab69867211997",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
