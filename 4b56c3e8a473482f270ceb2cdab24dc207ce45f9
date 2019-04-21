@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f831fe45_259f24a0",
+        "filename": "build/jam/packages/Haiku",
+        "patchSetId": 8
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-21T08:54:57Z",
+      "side": 1,
+      "message": "I would not add it here until it\u0027s 100% working",
+      "revId": "4b56c3e8a473482f270ceb2cdab24dc207ce45f9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14e669fd_9223f9fb",
+        "filename": "build/jam/packages/HaikuBootstrap",
+        "patchSetId": 8
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-21T08:54:57Z",
+      "side": 1,
+      "message": "And I would not add it here at all. The bootsrap version of Haiku should be reduced to the bare minimum (I\u0027m not even sure why we have ntfs in there)",
+      "revId": "4b56c3e8a473482f270ceb2cdab24dc207ce45f9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "305b13b5_a1c49351",
+        "filename": "src/add-ons/disk_systems/btrfs/Jamfile",
+        "patchSetId": 8
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-21T08:54:57Z",
+      "side": 1,
+      "message": "this line is over 80 columns",
+      "revId": "4b56c3e8a473482f270ceb2cdab24dc207ce45f9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
