@@ -1,7 +1,7 @@
 /*
  * Copyright 2013-2014, Stephan Aßmus <superstippi@gmx.de>.
  * Copyright 2013, Rene Gollent <rene@gollent.com>.
- * Copyright 2016-2018, Andrew Lindesay <apl@lindesay.co.nz>.
+ * Copyright 2016-2019, Andrew Lindesay <apl@lindesay.co.nz>.
  * All rights reserved. Distributed under the terms of the MIT License.
  */
 
@@ -13,6 +13,28 @@
 #include <package/PackageDefs.h>
 #include <package/PackageFlags.h>
 #include <Path.h>
+
+
+// #pragma mark - Language
+
+
+Language::Language(const BString& code, const BString& name,
+	bool isPopular)
+	:
+	fCode(code),
+	fName(name),
+	fIsPopular(isPopular)
+{
+}
+
+
+Language::Language(const Language& other)
+	:
+	fCode(other.Code()),
+	fName(other.Name()),
+	fIsPopular(other.IsPopular())
+{
+}
 
 
 // #pragma mark - UserInfo

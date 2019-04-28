@@ -1,6 +1,6 @@
 /*
  * Copyright 2013-2014, Stephan Aßmus <superstippi@gmx.de>.
- * Copyright 2016-2018, Andrew Lindesay <apl@lindesay.co.nz>.
+ * Copyright 2016-2019, Andrew Lindesay <apl@lindesay.co.nz>.
  * All rights reserved. Distributed under the terms of the MIT License.
  */
 #ifndef PACKAGE_INFO_H
@@ -19,6 +19,35 @@
 
 
 class BPath;
+
+
+/*! This class represents a language that is supported by the Haiku
+    Depot Server system.  This may differ from the set of languages
+    that are supported in the platform itself.
+*/
+
+class Language : public BReferenceable {
+public:
+								Language(const BString& code,
+									const BString& name,
+									bool isPopular);
+								Language(const Language& other);
+
+			const BString&		Code() const
+									{ return fCode; }
+			const BString&		Name() const
+									{ return fName; }
+			bool				IsPopular() const
+									{ return fIsPopular; }
+
+			bool				operator==(const Language& other) const
+									{ return other.Code() == Code(); }
+
+private:
+			BString				fCode;
+			BString				fName;
+			bool				fIsPopular;
+};
 
 
 class UserInfo {
