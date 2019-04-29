@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c1ec6bcb_624730dc",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2019-04-29T19:54:13Z",
+      "side": 1,
+      "message": "In our system Url.dox only corresponds with the Url.h file. Don\u0027t repeat other files. Doxygen will resolve links.",
+      "revId": "3a359925f4376e82c45cbc9c54111938ddf0b356",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f86e554_95e2ee06",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2019-04-29T19:54:13Z",
+      "side": 1,
+      "message": "There\u0027s weird spacing in your text. In this line in particular you have a tab (after and) and a missing space after \u0027it.\u0027  Furthermore, throughout the file you have trailing whitespace",
+      "revId": "3a359925f4376e82c45cbc9c54111938ddf0b356",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
