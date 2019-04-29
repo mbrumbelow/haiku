@@ -1,0 +1,392 @@
+Haiku BUrl class API Documentation
+
+/*
+ * Copyright 2010-2018 Haiku, Inc. All rights reserved.
+ * Distributed under the terms of the MIT License.
+ *
+ * Authors:
+ *      Nabanita Dash, dashnabanita@gmail.com
+ *
+ * Proofreaders:
+ *      Adrien Destugues, pulkomandy@gmail.com
+ *
+ * Corresponds to:
+ *      headers/os/support/Url.h
+ */
+
+/*!
+	\file Url.h
+	\ingroup support
+	\ingroup libbe
+	\brief Provides the BUrl class
+*/
+
+/*!
+	\file Archivable.h
+	\ingroup support
+	\ingroup libbe
+	\brief Provides the BArchivable interface and declares the BArchiver and
+	       BUnarchiver classes.
+*/
+
+/*!
+	\file Message.h
+	\ingroup app
+	\ingroup libbe
+	\brief Provides the BMessage class.
+*/
+
+/*!
+	\file Path.h
+	\ingroup storage
+	\ingroup libbe
+	\brief Provides the BPath class.
+*/
+
+/*!
+	\file String.h
+	\ingroup support
+	\ingroup libbe
+	\brief Defines the BString class and global operators and functions for
+	       handling strings.
+*/
+
+/*!
+	\class BUrl
+	\ingroup support
+	\ingroup libbe
+	\brief Class which provides references to web pages,used for 
+	       file transfer,email,database access.
+
+	BUrl is the BeOS Uniform Resource Locator which transfers reference 
+	to a web resource that specifies its location on a computer network
+	and	a mechanism to retrieve data from it.For example: 
+	http://www.example.com/index.html indicates a protocol (http), a 
+	hostname (www.example.com), and a file name (index.html).
+
+    Every BUrl consists of a sequence of five components. i.e.,
+    Protocol,authority(consisting of userinfo(user,password),
+    host,port),path,request and fragment.Protocol like http,https,ftp,
+    irc,etc are used.Authority consists of userinfo such as username and 
+    password,a host subcomponent consisting of IP address and a port 
+    subcomponent.A path component consists of sequence of path segments.
+    A request component preceeded by a question mark contains a query 
+    string of non-hierarchial data.The fragment contains a fragment 
+    identifier providing direction to a secondary resource,The fragment 
+    is an id attribute of a specific element.  
+*/
+
+/*!
+	\name Constructors and destructor
+*/
+
+//! @{
+
+/*!
+		\fn BUrl::BUrl(const char* url);
+        \brief Constructs a BUrl and fills it.
+
+        \param url A string that will be accepted as the address of the 
+        website.
+*/
+
+/*!
+		\fn BUrl::BUrl(BMessage* archive);
+		\brief Constructs a BUrl and fills it.
+
+		\param archive A message that contains information about BUrl.
+*/
+
+/*!
+		\fn BUrl::BUrl(const BUrl& other);
+		\brief Constructs a BUrl and fills it.
+
+		\param other A BUrl object that holds other url.
+*/
+
+/*!	
+		\fn BUrl::BUrl(const BUrl& base, const BString& relative);
+        \brief Constructs a BUrl and fills it.
+
+        \param base A BUrl object that holds base url.
+
+        \param relative A BString object. #add more
+*/
+
+/*!
+		\fn BUrl::BUrl(const BPath& path);
+		\brief Constructs a BUrl and fills it.
+
+		\param path A BPath object that conatins path which is
+		a part of the url.
+*/
+
+/*!
+		\fn BUrl::BUrl();
+		\brief Constructs an empty BUrl.
+*/
+
+/*!
+		\fn BUrl::~BUrl();
+		\brief Deletes this BUrl.
+
+		The BUrl that is deleted is the empty BUrl.
+*/
+
+//! @}
+
+/*!
+		\name URL fields modifiers
+*/
+
+//! @{
+
+/*!
+		\fn BUrl& BUrl::SetUrlString(const BString& url);
+		\brief Accepts a url as a string.
+
+		\param url A constant BString url is accepted as a string.
+*/
+
+/*!
+		\fn BUrl& BUrl::SetProtocol(const BString& scheme);
+		\brief Accepts the protocol of the url as a string.
+
+		\param scheme A constant BString scheme is accepted as a string. 			
+*/
+
+/*!
+		\fn BUrl& BUrl::SetUserName(const BString& user);
+		\brief Accepts username in the url as a string.
+
+		\param user A constant BString username is accepted as a string.
+*/
+
+/*!
+		\fn BUrl& BUrl::SetPassword(const BString& password);
+		\brief Accepts password of the user as a string.
+
+		\param password A constant BString password is accepted as a string.
+*/
+
+/*!
+		\fn void BUrl::SetAuthority(const BString& authority);
+		\brief Accepts an authority url of the user as a string.
+
+		\param authority A constant BString authority url is accepted as a
+		string.
+*/
+
+/*!
+		\fn BUrl& BUrl::SetHost(const BString& host);
+		\brief Accepts the host of the url as a string.
+
+		\param host A constant BString host of the url is accepted as a 
+		string.
+*/
+
+/*!
+		\fn BUrl& BUrl::SetPort(int port);
+		\brief Accepts the port number of the protocol as an integer.
+
+		\param port The port number of a protocol is always same which is 
+		accepted as an integer.
+*/
+
+/*!
+		\fn BUrl& BUrl::SetPath(const BString& path);
+		\brief Accepts the path of the url.
+
+		\param path A constant BString& path of the url is accepted as a
+		string.
+*/
+
+/*!
+		\fn BUrl& BUrl::SetRequest(const BString& request);
+		\brief Accepts the url of the request.
+
+		\param path A constant BString& url of the request is accepted as
+		a string.
+*/		
+
+/*!
+		\fn BUrl& BUrl::SetFragment(const BString& fragment);
+		\brief Accepts the fragment which is the optional last part of a
+		url.
+
+		\param path A constant BString& fragment refers to a resource that
+		is subordinate to another primary resource and accepted as a string.
+*/
+
+//! @}
+
+/*!
+		\name URL fields access
+*/
+
+//! @{
+
+/*!
+		\fn const BString& BUrl::UrlString() const;
+		\brief Returns the address of the website as a string.
+
+		\returns The url as a string. 		
+*/
+
+/*!
+		\fn const BString& BUrl::Protocol() const;
+		\brief Returns the protocol used in the url.
+
+		\returns The protocol in the url as a string.
+*/
+
+/*!
+		\fn const BString& BUrl::UserName() const;
+		\brief Returns the username.
+
+		\returns The username of the user as a string.
+*/
+
+/*!
+		\fn const BString& BUrl::Password() const;
+		\brief Returns the password.
+
+		\returns The password of the user as a string.
+*/			
+
+/*!
+		\fn const BString& BUrl::UserInfo() const;
+		\brief Returns the information aout the user.
+
+		\returns The information about the user as a string.
+*/
+
+/*!
+		\fn const BString& BUrl::Host() const;
+		\brief Returns the host used in the url.
+
+		\returns The host in the url as a string.
+*/
+
+/*!
+		\fn int BUrl::Port() const;
+		\brief Returns the port number used in the url.
+
+		\returns The port number in the url as a string.
+*/
+
+/*!
+		\fn const BString& BUrl::Authority() const;
+		\brief Returns the authority url as a string.
+
+		\returns The authority url as a string.
+*/
+
+/*!
+		\fn const BString& BUrl::Path() const;
+		\brief Returns the url path.
+
+		\returns The url-path as a string.
+*/
+
+/*!
+		\fn const BString& BUrl::Request() const;
+		\brief Returns the url-request.
+
+		\returns The url-request as a string.
+*/
+
+/*!
+		\fn const BString& BUrl::Fragment() const;
+		\brief Returns the fragment of the url.
+
+		\returns The fragment of the url as a string.
+*/
+
+//! @}
+
+/*!
+		\name URL fields access
+*/
+
+//! @{
+
+/*!
+		\fn bool BUrl::IsValid() const;
+		\brief Returns the address of the website as a string.
+
+		\returns The url as a string. 		
+*/
+
+/*!
+		\fn bool BUrl::Protocol() const;
+		\brief Returns the protocol used in the url.
+
+		\returns The protocol in the url as a string.
+*/
+
+/*!
+		\fn const BString& BUrl::UserName() const;
+		\brief Returns the username.
+
+		\returns The username of the user as a string.
+*/
+
+/*!
+		\fn const BString& BUrl::Password() const;
+		\brief Returns the password.
+
+		\returns The password of the user as a string.
+*/			
+
+/*!
+		\fn const BString& BUrl::UserInfo() const;
+		\brief Returns the information aout the user.
+
+		\returns The information about the user as a string.
+*/
+
+/*!
+		\fn const BString& BUrl::Host() const;
+		\brief Returns the host used in the url.
+
+		\returns The host in the url as a string.
+*/
+
+/*!
+		\fn int BUrl::Port() const;
+		\brief Returns the port number used in the url.
+
+		\returns The port number in the url as a string.
+*/
+
+/*!
+		\fn const BString& BUrl::Authority() const;
+		\brief Returns the authority url as a string.
+
+		\returns The authority url as a string.
+*/
+
+/*!
+		\fn const BString& BUrl::Path() const;
+		\brief Returns the url path.
+
+		\returns The url-path as a string.
+*/
+
+/*!
+		\fn const BString& BUrl::Request() const;
+		\brief Returns the url-request.
+
+		\returns The url-request as a string.
+*/
+
+/*!
+		\fn const BString& BUrl::Fragment() const;
+		\brief Returns the fragment of the url.
+
+		\returns The fragment of the url as a string.
+*/
+
+//! @}		
+
