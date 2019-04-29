@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "91f9e977_4f1762c0",
+        "filename": "src/system/kernel/cache/file_cache.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1294,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2019-04-29T20:03:59Z",
+      "side": 0,
+      "message": "Why did you pull out the size variable? It is not needed in the cached case at all and updating it above seems somewhat redundant to me.",
+      "revId": "1e4109cdb441e19780aed79fcd298f5cc6041a8f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}

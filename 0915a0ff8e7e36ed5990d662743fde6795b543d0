@@ -25,6 +25,47 @@
     },
     {
       "key": {
+        "uuid": "4cbacbf3_3e905650",
+        "filename": "src/system/kernel/cache/file_cache.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1278,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2019-04-29T20:03:59Z",
+      "side": 1,
+      "message": "I would move it above the declarations but keep it below the trace so that it would still show in the trace logs.",
+      "parentUuid": "aacdc26a_315050b8",
+      "range": {
+        "startLine": 1278,
+        "startChar": 5,
+        "endLine": 1278,
+        "endChar": 11
+      },
+      "revId": "0915a0ff8e7e36ed5990d662743fde6795b543d0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b9bbb16_0e699ef3",
+        "filename": "src/system/kernel/cache/file_cache.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1279,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2019-04-29T20:03:59Z",
+      "side": 1,
+      "message": "This previously would return B_OK in cache_io. Is it ok to change that?",
+      "revId": "0915a0ff8e7e36ed5990d662743fde6795b543d0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ba33f644_34f19e32",
         "filename": "src/system/kernel/cache/file_cache.cpp",
         "patchSetId": 2
@@ -42,6 +83,23 @@
         "endLine": 1280,
         "endChar": 11
       },
+      "revId": "0915a0ff8e7e36ed5990d662743fde6795b543d0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a018c1e_3be9c261",
+        "filename": "src/system/kernel/cache/file_cache.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1282,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2019-04-29T20:03:59Z",
+      "side": 1,
+      "message": "I personally dislike the B_OK alias B_NO_ERROR. It was a B_OK in cache_io as well, so I would keep that.",
       "revId": "0915a0ff8e7e36ed5990d662743fde6795b543d0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
