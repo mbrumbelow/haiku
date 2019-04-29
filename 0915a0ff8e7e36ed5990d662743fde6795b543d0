@@ -66,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "1db1ec38_97ffd53f",
+        "filename": "src/system/kernel/cache/file_cache.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1279,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-04-29T20:14:10Z",
+      "side": 1,
+      "message": "It returned B_BAD_VALUE in BFS and all other filesystems that used the cache (see next commit.) So returning B_OK would actually be a behavioral change.",
+      "parentUuid": "0b9bbb16_0e699ef3",
+      "revId": "0915a0ff8e7e36ed5990d662743fde6795b543d0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ba33f644_34f19e32",
         "filename": "src/system/kernel/cache/file_cache.cpp",
         "patchSetId": 2
