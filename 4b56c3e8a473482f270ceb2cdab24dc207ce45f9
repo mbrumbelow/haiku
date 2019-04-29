@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1f80ed06_89445563",
+        "filename": "build/jam/packages/Haiku",
+        "patchSetId": 8
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1000143
+      },
+      "writtenOn": "2019-04-29T21:58:59Z",
+      "side": 1,
+      "message": "Removed it",
+      "parentUuid": "f831fe45_259f24a0",
+      "revId": "4b56c3e8a473482f270ceb2cdab24dc207ce45f9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "14e669fd_9223f9fb",
         "filename": "build/jam/packages/HaikuBootstrap",
         "patchSetId": 8
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "537a4f65_ff01eef0",
+        "filename": "build/jam/packages/HaikuBootstrap",
+        "patchSetId": 8
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1000143
+      },
+      "writtenOn": "2019-04-29T21:58:59Z",
+      "side": 1,
+      "message": "Yeah, I didn\u0027t understand why NTFS was there either, but it being there was my reasoning for adding Btrfs as well...\n\nAnyway, removed (NTFS is still there for now)",
+      "parentUuid": "14e669fd_9223f9fb",
+      "revId": "4b56c3e8a473482f270ceb2cdab24dc207ce45f9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "305b13b5_a1c49351",
         "filename": "src/add-ons/disk_systems/btrfs/Jamfile",
         "patchSetId": 8
@@ -50,6 +86,24 @@
       "revId": "4b56c3e8a473482f270ceb2cdab24dc207ce45f9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee5714bf_1a4ba25f",
+        "filename": "src/add-ons/disk_systems/btrfs/Jamfile",
+        "patchSetId": 8
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000143
+      },
+      "writtenOn": "2019-04-29T21:58:59Z",
+      "side": 1,
+      "message": "Fixed",
+      "parentUuid": "305b13b5_a1c49351",
+      "revId": "4b56c3e8a473482f270ceb2cdab24dc207ce45f9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
