@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "a0868d7c_3474c635",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-30T07:03:42Z",
+      "side": 1,
+      "message": "I did not proofread this yet ;)",
+      "revId": "3a359925f4376e82c45cbc9c54111938ddf0b356",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c1ec6bcb_624730dc",
         "filename": "docs/user/support/Url.dox",
         "patchSetId": 1
@@ -37,6 +54,75 @@
     },
     {
       "key": {
+        "uuid": "3ba6307e_350a19a7",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-30T07:03:42Z",
+      "side": 1,
+      "message": "Doxygen will automatically generate the relevant links, and the other files are already documented. \\file refers to the current file, not things that are included.",
+      "parentUuid": "ef7e351d_de06b66d",
+      "revId": "3a359925f4376e82c45cbc9c54111938ddf0b356",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "865074a4_23109cf4",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-30T07:03:42Z",
+      "side": 1,
+      "message": "It\u0027s not only web pages. An URL is an \"universal resource locator\". The name \"universal\" means it can be used for many things outside the web. What about FTP? IRC? mailto: URLs? data: URLs? file: URLs?",
+      "revId": "3a359925f4376e82c45cbc9c54111938ddf0b356",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aca208f0_4045036d",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-30T07:03:42Z",
+      "side": 1,
+      "message": "Why mention BeOS here? This class did not exist in BeOS, and the notion of URL exists in other operating systems as well.",
+      "revId": "3a359925f4376e82c45cbc9c54111938ddf0b356",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0f575e6_0ba02c49",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-30T07:03:42Z",
+      "side": 1,
+      "message": "\"web\" refers only to HTTP, URLs allow a lot more than that.",
+      "revId": "3a359925f4376e82c45cbc9c54111938ddf0b356",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4f86e554_95e2ee06",
         "filename": "docs/user/support/Url.dox",
         "patchSetId": 1
@@ -66,6 +152,414 @@
       "side": 1,
       "message": "Yes, I will change this. Thanks for pointing it out.",
       "parentUuid": "4f86e554_95e2ee06",
+      "revId": "3a359925f4376e82c45cbc9c54111938ddf0b356",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99b978c2_7a35bad8",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-30T07:03:42Z",
+      "side": 1,
+      "message": "This is not right, the one shown above has only 3 components for example.",
+      "revId": "3a359925f4376e82c45cbc9c54111938ddf0b356",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e92b3ec0_5aac5d5c",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-30T07:03:42Z",
+      "side": 1,
+      "message": "space after , and .",
+      "revId": "3a359925f4376e82c45cbc9c54111938ddf0b356",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb81a53d_95ce0c7d",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-30T07:03:42Z",
+      "side": 1,
+      "message": "The host may also be a hostname (example.org isn\u0027t an IP address) and may also refer to non-IP addresses if you use a different network stack (IPv6, or some older protocols).",
+      "revId": "3a359925f4376e82c45cbc9c54111938ddf0b356",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e175a87_71f9ddde",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-30T07:03:42Z",
+      "side": 1,
+      "message": "This is not correct in all cases. Look at the format for data: or mailto: URLs for example, they do not use a sequence of path segments for the path",
+      "revId": "3a359925f4376e82c45cbc9c54111938ddf0b356",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e76b8fe8_77e1e9fe",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-30T07:03:42Z",
+      "side": 1,
+      "message": "This \\name tag will not be attached to anything. Have you generated the docs as html to check where it is rendered?",
+      "revId": "3a359925f4376e82c45cbc9c54111938ddf0b356",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11c4a1e3_6391989d",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-30T07:03:42Z",
+      "side": 1,
+      "message": "Do not mention websites, it could be something else.\n\nMention that if the string is not a valid URL, the caller has to check InitCheck().",
+      "revId": "3a359925f4376e82c45cbc9c54111938ddf0b356",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "320d5d3e_0d71f66e",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-30T07:03:42Z",
+      "side": 1,
+      "message": "Mention BArchivable or Unarchive here.",
+      "revId": "3a359925f4376e82c45cbc9c54111938ddf0b356",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fba5dd8c_d9944d00",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-30T07:03:42Z",
+      "side": 1,
+      "message": "Just say \"Copy constructor\", C++ programmer will know what that means.",
+      "revId": "3a359925f4376e82c45cbc9c54111938ddf0b356",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d2fb763_3b7b1deb",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-30T07:03:42Z",
+      "side": 1,
+      "message": "The brief is the same for all constructors, which isn\u0027t very helpful when looking at a list of them.\n\n\"Construct a BUrl using a known base and a string representing a relative URL\" would be better.",
+      "revId": "3a359925f4376e82c45cbc9c54111938ddf0b356",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4ed2b68_3d2346fe",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-30T07:03:42Z",
+      "side": 1,
+      "message": "An example would be useful here.",
+      "revId": "3a359925f4376e82c45cbc9c54111938ddf0b356",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e5a77dc_ac83cb3d",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-30T07:03:42Z",
+      "side": 1,
+      "message": "This always results in a file:// URL, it should be specified here.",
+      "revId": "3a359925f4376e82c45cbc9c54111938ddf0b356",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0a70acc_aee42842",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-30T07:03:42Z",
+      "side": 1,
+      "message": "I don\u0027t understand what you mean. Any BUrl object can be deleted using the destructor, of course?",
+      "revId": "3a359925f4376e82c45cbc9c54111938ddf0b356",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0c90756_1df3e7f9",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-30T07:03:42Z",
+      "side": 1,
+      "message": "\"Accepts\"? What is done with it? What does the function return?",
+      "revId": "3a359925f4376e82c45cbc9c54111938ddf0b356",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "899f520b_d2058fe6",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-30T07:03:42Z",
+      "side": 1,
+      "message": "This does not document anything. This is already written in the function prototype.",
+      "revId": "3a359925f4376e82c45cbc9c54111938ddf0b356",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0cf5c1bc_81c65cd5",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-30T07:03:42Z",
+      "side": 1,
+      "message": "\"Accepts\"?",
+      "revId": "3a359925f4376e82c45cbc9c54111938ddf0b356",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10675e8c_527e2b83",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-30T07:03:42Z",
+      "side": 1,
+      "message": "Again this does not document anything.\nAlso, it is a protocol, or is it a scheme?",
+      "revId": "3a359925f4376e82c45cbc9c54111938ddf0b356",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b01e0f9c_4fc9516a",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-30T07:03:42Z",
+      "side": 1,
+      "message": "Same problem here and below...",
+      "revId": "3a359925f4376e82c45cbc9c54111938ddf0b356",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2254a78d_ba2d7305",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-30T07:03:42Z",
+      "side": 1,
+      "message": "An example would be nice here, documenting exactly what happens to each of the URL parts and how the string is generated.\n\nWhere does the \"//\" in \"http://\" comes from? What if I want a relative URL, is it possible? How do I build a mailto: or data: URL and make sure I get a valid result?\n\nWhat if I try to call this on an empty URL, or one where I set only the path or only the protocol?",
+      "revId": "3a359925f4376e82c45cbc9c54111938ddf0b356",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2128f7f1_928efc0a",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-30T07:03:42Z",
+      "side": 1,
+      "message": "What does this information consist of exactly?",
+      "revId": "3a359925f4376e82c45cbc9c54111938ddf0b356",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36ecefc2_9426b954",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-30T07:03:42Z",
+      "side": 1,
+      "message": "\"as a string\" is not useful, you can see that from the function prototype already (likewise for the other functions)",
+      "revId": "3a359925f4376e82c45cbc9c54111938ddf0b356",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8b23b2a_3dc12a74",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-30T07:03:42Z",
+      "side": 1,
+      "message": "What does the \"authority\" consists of? I think it was not defined anywhere in the docs so far.",
+      "revId": "3a359925f4376e82c45cbc9c54111938ddf0b356",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "149aecc2_063201f3",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-30T07:03:42Z",
+      "side": 1,
+      "message": "A reminder of what the \"request\" is would be useful (especially as there is an unrelated BUrlRequest class)",
+      "revId": "3a359925f4376e82c45cbc9c54111938ddf0b356",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "802bd730_c2cdec1b",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-30T07:03:42Z",
+      "side": 1,
+      "message": "This is not right.",
+      "revId": "3a359925f4376e82c45cbc9c54111938ddf0b356",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05311def_eefcea23",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-30T07:03:42Z",
+      "side": 1,
+      "message": "You have already documented these?\nHave you generated the HTML documentation to check the result of your work? Were there warnings? Did you check if these end up having their description shown twice?",
       "revId": "3a359925f4376e82c45cbc9c54111938ddf0b356",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
