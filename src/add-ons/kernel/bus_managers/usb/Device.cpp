@@ -555,7 +555,9 @@ Device::ClearEndpoints(int32 interfaceIndex)
 
 		for (size_t i = 0; i < interfaceInfo->endpoint_count; i++) {
 			usb_endpoint_info* endpoint = &interfaceInfo->endpoint[i];
-			delete (Pipe*)GetStack()->GetObject(endpoint->handle);
+			Pipe* pipe = (Pipe*)GetStack()->GetObject(endpoint->handle);
+			pipe->CancelQueuedTransfers(false);
+			delete pipe;
 			endpoint->handle = 0;
 		}
 	}
