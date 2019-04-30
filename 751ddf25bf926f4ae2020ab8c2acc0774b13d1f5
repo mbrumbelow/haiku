@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "fcd5a5f4_5d0d7909",
+        "filename": "src/add-ons/kernel/drivers/bluetooth/h2/h2generic/h2generic.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-04-30T08:59:26Z",
+      "side": 1,
+      "message": "Normally, bluetooth devices should be identified using this entry (using the class and subclass, not specific IDs). Have you checked why this is not the case for this intel device?",
+      "revId": "751ddf25bf926f4ae2020ab8c2acc0774b13d1f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a2e675d2_3e7fb9f2",
         "filename": "src/add-ons/kernel/drivers/bluetooth/h2/h2generic/h2generic.cpp",
         "patchSetId": 1
