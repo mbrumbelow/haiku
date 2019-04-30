@@ -67,6 +67,10 @@ usb_support_descriptor supported_devices[] = {
 	{ 0, 0, 0, 0x044e, 0x3002 },
 	// Ericsson with non-standard id
 	{ 0, 0, 0, 0x0bdb, 0x1002 }
+
+	// Intel Bluetooth USB 
+	{ 0, 0, 0, 0x8087, 0x0a2a }
+	{ 0, 0, 0, 0x8087, 0x0a5a }
 };
 
 /* add a device to the list of connected devices */
