@@ -441,17 +441,26 @@ vesa_get_vbe_info_block(vbe_info_block *info)
 
 
 static void
-vesa_fixups(vbe_info_block *info)
+vesa_fixups(vbe_info_block *info, void *settings)
 {
 	const char *oem_string = (const char *)info->oem_string;
 
 	if (!strcmp(oem_string, "NVIDIA")) {
-		dprintf("Disabling nvidia scaling.\n");
-		struct bios_regs regs;
-		regs.eax = 0x4f14;
-		regs.ebx = 0x0102;
-		regs.ecx = 1;	// centered unscaled
-		call_bios(0x10, &regs);
+		const char *arg;
+		int32 scaling = -1;
+
+		arg = get_driver_parameter(settings, "nvidia_scaling", NULL, "1");
+		if (arg)
+			scaling = strtol(arg, NULL, 0);
+
+		if (scaling > -1) {
+			dprintf("Setting nvidia scaling mode to %" B_PRId32 "\n", scaling);
+			struct bios_regs regs;
+			regs.eax = 0x4f14;
+			regs.ebx = 0x0102;
+			regs.ecx = scaling;	// centered unscaled
+			call_bios(0x10, &regs);
+		}
 	}
 }
 
@@ -464,7 +473,7 @@ vesa_init(vbe_info_block *info, video_mode **_standardMode)
 
 	void *handle = load_driver_settings("vesa");
 
-	vesa_fixups(info);
+	vesa_fixups(info, handle);
 
 	sVBE2UseEDID = get_driver_boolean_parameter(handle, "vbe2_use_edid", false, true);
 

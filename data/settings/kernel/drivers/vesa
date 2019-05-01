@@ -5,3 +5,8 @@
 
 # Also use EDID information with VBE2. It is disabled by default because unreliable.
 #vbe2_use_edid
+
+# Set NVIDIA scaling mode
+# 1: disable scaling completely
+# other modes are available depending on the BIOS
+#nvidia_scaling 1
