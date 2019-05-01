@@ -2,3 +2,6 @@
 # mode {x-resolution} {y-resolution} {bitdepth},
 #   for example:
 #mode 1280 1024 32
+
+# Also use EDID information with VBE2. It is disabled by default because unreliable.
+#vbe2_use_edid

@@ -54,6 +54,7 @@ static uint32 sModeCount;
 static addr_t sFrameBuffer;
 static bool sModeChosen;
 static bool sSettingsLoaded;
+static bool sVBE2UseEDID;
 
 
 static int
@@ -461,7 +462,13 @@ vesa_init(vbe_info_block *info, video_mode **_standardMode)
 	if (vesa_get_vbe_info_block(info) != B_OK)
 		return B_ERROR;
 
+	void *handle = load_driver_settings("vesa");
+
 	vesa_fixups(info);
+
+	sVBE2UseEDID = get_driver_boolean_parameter(handle, "vbe2_use_edid", false, true);
+
+	unload_driver_settings(handle);
 
 	// fill mode list and find standard video mode
 
@@ -961,8 +968,8 @@ platform_init_video(void)
 	// Note, we currently ignore EDID information for VBE2 - while the EDID
 	// information itself seems to be reliable, older chips often seem to
 	// use very strange default timings with higher modes.
-	// TODO: Maybe add a setting to enable it anyway?
-	if (sInfo.version.major >= 3 && vesa_get_edid(&info) == B_OK) {
+	if (sInfo.version.major >= (sVBE2UseEDID ? 2 : 3)
+		&& vesa_get_edid(&info) == B_OK) {
 		// we got EDID information from the monitor, try to find a new default
 		// mode
 		video_mode *defaultMode = find_edid_mode(info, false);
