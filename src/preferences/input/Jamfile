@@ -1,0 +1,18 @@
+SubDir HAIKU_TOP src preferences input ;
+
+UsePrivateHeaders input ;
+
+Preference Input :
+	Input.cpp
+	InputWindow.cpp
+	InputDeviceView.cpp
+	: be [ TargetLibsupc++ ] localestub
+	;
+
+DoCatalogs Input :
+	x-vnd.Haiku-Input
+	:
+	Input.cpp
+	InputWindow.cpp
+	InputDeviceView.cpp
+;
