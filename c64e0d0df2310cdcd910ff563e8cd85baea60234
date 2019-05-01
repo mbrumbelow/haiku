@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5966f072_a221cea4",
+        "filename": "src/preferences/inputs/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-01T16:59:49Z",
+      "side": 1,
+      "message": "You need the standard copyright header at the top of every source file",
+      "revId": "c64e0d0df2310cdcd910ff563e8cd85baea60234",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9622704c_e5c00a27",
+        "filename": "src/preferences/inputs/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-01T16:59:49Z",
+      "side": 1,
+      "message": "The window could manage most things itself: the size rect, the title, the flags and the window type could be set here. This way the main application can just do \"new InputsWindow()\" and not take decisions about the window size and contents.",
+      "revId": "c64e0d0df2310cdcd910ff563e8cd85baea60234",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48b12c4a_60372bd9",
+        "filename": "src/preferences/inputs/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-01T16:59:49Z",
+      "side": 1,
+      "message": "Likewise, adding a layout and views into the window should be done here, rather than in the main() function.",
+      "revId": "c64e0d0df2310cdcd910ff563e8cd85baea60234",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a85ee348_624ac916",
+        "filename": "src/preferences/inputs/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-01T16:59:49Z",
+      "side": 1,
+      "message": "You can use the B_QUIT_ON_WINDOW_CLOSE flag to not need this.",
+      "revId": "c64e0d0df2310cdcd910ff563e8cd85baea60234",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2dbc6442_d4eec0c5",
+        "filename": "src/preferences/inputs/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-01T16:59:49Z",
+      "side": 1,
+      "message": "You should use BLayoutBuilder instead",
+      "revId": "c64e0d0df2310cdcd910ff563e8cd85baea60234",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
