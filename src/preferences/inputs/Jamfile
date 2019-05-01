@@ -1,0 +1,14 @@
+SubDir HAIKU_TOP src preferences inputs ;
+
+UsePrivateHeaders input ;
+
+Preference Inputs :
+	main.cpp
+	: be [ TargetLibsupc++ ] localestub
+	;
+
+DoCatalogs Inputs :
+	x-vnd.Haiku-Inputs
+	:
+	main.cpp
+;
