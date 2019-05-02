@@ -89,9 +89,8 @@ void BControlLook::_ReservedControlLook9() {}
 void BControlLook::_ReservedControlLook10() {}
 
 
-// NOTE: May come from a add-on in the future. Initialized in
-// InterfaceDefs.cpp
+// Initialized in InterfaceDefs.cpp
 BControlLook* be_control_look = NULL;
-
+image_id be_control_look_addon = -1;
 
 } // namespace BPrivate

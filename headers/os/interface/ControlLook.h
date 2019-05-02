@@ -417,12 +417,16 @@ protected:
 };
 
 extern BControlLook* be_control_look;
+extern image_id be_control_look_addon;
+
+extern "C" _EXPORT BControlLook *instantiate_control_look(image_id id);
 
 
 } // namespace BPrivate
 
 using BPrivate::BControlLook;
 using BPrivate::be_control_look;
+using BPrivate::be_control_look_addon;
 
 
 #endif // _CONTROL_LOOK_H

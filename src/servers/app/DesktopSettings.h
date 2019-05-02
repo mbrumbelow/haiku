@@ -76,6 +76,8 @@ public:
 			uint8				SubpixelAverageWeight() const;
 			bool				IsSubpixelOrderingRegular() const;
 
+			const BString&		ControlLook() const;
+
 protected:
 			DesktopSettingsPrivate*	fSettings;
 };
@@ -108,6 +110,8 @@ public:
 			void				SetSubpixelAverageWeight(uint8 averageWeight);
 			void				SetSubpixelOrderingRegular(
 									bool subpixelOrdering);
+
+			void				SetControlLook(const char *path);
 
 private:
 			Desktop*			fDesktop;
