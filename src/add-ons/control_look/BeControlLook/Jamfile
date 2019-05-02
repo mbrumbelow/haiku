@@ -1,0 +1,8 @@
+SubDir HAIKU_TOP src add-ons control_look BeControlLook ;
+
+UsePrivateHeaders interface ;
+
+Addon BeControlLook :
+	BeControlLook.cpp
+	: be <nogrist>app_server [ TargetLibstdc++ ] [ TargetLibsupc++ ]
+;
