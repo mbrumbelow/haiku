@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a312f082_1410fafe",
+        "filename": "headers/os/interface/ControlLook.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-05-03T18:41:39Z",
+      "side": 1,
+      "message": "Could this stay private?",
+      "revId": "d32ec20e9ad8f6e15b144477fa18a76526c4d9c7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
