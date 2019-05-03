@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2600dd6f_98e11104",
+        "filename": "src/add-ons/control_look/BeControlLook/BeControlLook.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-05-03T18:47:52Z",
+      "side": 1,
+      "message": "These should be 2 blank lines.",
+      "revId": "a17ceb2271bd464e43cb4871d87095235f4ac697",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
