@@ -170,7 +170,9 @@ for platform in [ MultiBootSubDirSetup ] {
 		}
 
 		SEARCH_SOURCE += [ FDirName $(SUBDIR) $(DOTDOT) libroot posix string ] ;
+		SEARCH_SOURCE += [ FDirName $(SUBDIR) $(DOTDOT) libroot posix musl string ] ;
 		SEARCH_SOURCE += [ FDirName $(SUBDIR) $(DOTDOT) libroot posix stdlib ] ;
+		SEARCH_SOURCE += [ FDirName $(SUBDIR) $(DOTDOT) libroot posix musl stdlib ] ;
 		SEARCH_SOURCE += [ FDirName $(SUBDIR) $(DOTDOT) libroot posix locale ] ;
 		SEARCH_SOURCE += [ FDirName $(SUBDIR) $(DOTDOT) kernel lib ] ;
 
@@ -181,11 +183,13 @@ for platform in [ MultiBootSubDirSetup ] {
 			qsort.c
 			kernel_vsprintf.cpp
 			memchr.c
+			memrchr.c
 			memcmp.c
 			memmove.c
+			stpcpy.c
 			strdup.cpp
 			strndup.cpp
-			strlen.cpp
+			strlen.c
 			strnlen.cpp
 			strcmp.c
 			strcasecmp.c
@@ -196,10 +200,13 @@ for platform in [ MultiBootSubDirSetup ] {
 			strlcat.c
 			strlcpy.c
 			strchr.c
+			strchrnul.c
 			strrchr.c
 			strtol.c
 			strtoul.c
 			$(extraSources)
+			: -Wno-error -include [ FDirName $(SUBDIR) $(DOTDOT) libroot posix
+				musl musl-haiku.h ]
 		;
 
 		AddResources haiku_loader.$(TARGET_BOOT_PLATFORM) : boot_loader.rdef ;
