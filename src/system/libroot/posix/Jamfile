@@ -23,13 +23,8 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 			dirent.c
 			errno.c
 			fcntl.cpp
-			fnmatch.c
 			fts.c
-			ftw.c
 			glob.c
-			inttypes.c
-			libgen.cpp
-			nftw.c
 			poll.c
 			$(PWD_BACKEND)
 			scheduler.cpp
@@ -62,3 +57,4 @@ SubInclude HAIKU_TOP src system libroot posix unistd ;
 SubInclude HAIKU_TOP src system libroot posix wchar ;
 
 SubInclude HAIKU_TOP src system libroot posix glibc ;
+SubInclude HAIKU_TOP src system libroot posix musl ;

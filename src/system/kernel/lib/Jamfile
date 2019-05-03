@@ -3,15 +3,19 @@ SubDir HAIKU_TOP src system kernel lib ;
 UsePrivateHeaders shared ;
 UsePrivateHeaders [ FDirName libroot locale ] ;
 
-# force inclusion of kernel_lib.h
-local kernelLibHeader = [ FDirName $(SUBDIR) kernel_lib.h ] ;
-CCFLAGS += -include $(kernelLibHeader) ;
-C++FLAGS += -include $(kernelLibHeader) ;
-
-
 local librootSources = [ FDirName $(HAIKU_TOP) src system libroot ] ;
 local librootOSSources = [ FDirName $(librootSources) os ] ;
 local posixSources = [ FDirName $(librootSources) posix ] ;
+local muslSources = [ FDirName $(librootSources) posix musl ] ;
+
+# force inclusion of kernel_lib.h and musl-haiku.h
+local kernelLibHeader = [ FDirName $(SUBDIR) kernel_lib.h ] ;
+local muslHaikuHeader = [ FDirName $(muslSources) musl-haiku.h ] ;
+CCFLAGS += -include $(kernelLibHeader) -include $(muslHaikuHeader) ;
+C++FLAGS += -include $(kernelLibHeader) -include $(muslHaikuHeader) ;
+
+# disable -Werror for this directory only
+SubDirCcFlags -Wno-error ;
 
 
 # kernel libroot os files
@@ -39,7 +43,9 @@ SEARCH_SOURCE += [ FDirName $(posixSources) ] ;
 SEARCH_SOURCE += [ FDirName $(posixSources) locale ] ;
 SEARCH_SOURCE += [ FDirName $(posixSources) stdio ] ;
 SEARCH_SOURCE += [ FDirName $(posixSources) stdlib ] ;
+SEARCH_SOURCE += [ FDirName $(muslSources) stdlib ] ;
 SEARCH_SOURCE += [ FDirName $(posixSources) string ] ;
+SEARCH_SOURCE += [ FDirName $(muslSources) string ] ;
 SEARCH_SOURCE += [ FDirName $(posixSources) sys ] ;
 SEARCH_SOURCE += [ FDirName $(posixSources) time ] ;
 SEARCH_SOURCE += [ FDirName $(posixSources) unistd ] ;
@@ -98,12 +104,15 @@ KernelMergeObject kernel_lib_posix.o :
 	# string
 	ffs.cpp
 	memchr.c
+	memrchr.c
 	memcmp.c
 	memmove.c
 	strcasecmp.c
+	strncasecmp.c
 	strcasestr.c
 	strcat.c
 	strchr.c
+	strchrnul.c
 	strcmp.c
 	strcpy.c
 	strcspn.c
@@ -111,7 +120,7 @@ KernelMergeObject kernel_lib_posix.o :
 	strerror.c
 	strlcat.c
 	strlcpy.c
-	strlen.cpp
+	strlen.c
 	strncat.c
 	strncmp.c
 	strncpy.cpp

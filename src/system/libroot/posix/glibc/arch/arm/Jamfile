@@ -26,8 +26,8 @@ local genericSources =
 	s_finite.c s_finitef.c
 	add_n.c sub_n.c
 	addmul_1.c mul_1.c
-	
-	cmp.c dbl2mpn.c divrem.c 
+
+	cmp.c dbl2mpn.c divrem.c
 	mpn2dbl.c mpn2flt.c mpn2ldbl.c
 	mul.c mul_n.c
 	s_isinf.c s_isinff.c
@@ -80,8 +80,6 @@ local genericSources =
 	e_fmodf.c w_fmodf.c
 	e_atan2f.c w_atan2f.c
 	e_rem_pio2f.c k_rem_pio2f.c
-
-	memrchr.c
 	;
 
 local architectureObject ;

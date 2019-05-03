@@ -17,42 +17,21 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 		local architecture = $(TARGET_PACKAGING_ARCH) ;
 
 		MergeObject <$(architecture)>posix_string.o :
-			bcmp.c
-			bcopy.c
-			bzero.c
 			ffs.cpp
-			memccpy.c
-			memchr.c
-			memcmp.c
-			memmove.c
-			stpcpy.c
-			strcasecmp.c
-			strcasestr.c
-			strcat.c
-			strchr.c
-			strchrnul.c
-			strcmp.c
 			strcoll.cpp
-			strcpy.c
-			strcspn.c
 			strdup.cpp
 			strerror.c
-			strlcat.c
-			strlcpy.c
-			strlen.cpp
 			strlwr.c
-			strncat.c
-			strncmp.c
 			strncpy.cpp
 			strndup.cpp
 			strnlen.cpp
-			strpbrk.c
-			strrchr.c
-			strspn.c
-			strstr.c
-			strtok.c
 			strupr.c
 			strxfrm.cpp
+
+			# these are here for GCC2 compatibility only
+			bcmp.c
+			bcopy.c
+			bzero.c
 			;
 	}
 }
