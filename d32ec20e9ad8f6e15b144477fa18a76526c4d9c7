@@ -16,6 +16,24 @@
       "revId": "d32ec20e9ad8f6e15b144477fa18a76526c4d9c7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66feaa49_68fff2e3",
+        "filename": "headers/os/interface/ControlLook.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2019-05-03T18:47:03Z",
+      "side": 1,
+      "message": "Probably yeah, the id is passed to the instantiate function anyway. Unless we wanted to access some resources from it, but then the class code should do it by itself.",
+      "parentUuid": "a312f082_1410fafe",
+      "revId": "d32ec20e9ad8f6e15b144477fa18a76526c4d9c7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
