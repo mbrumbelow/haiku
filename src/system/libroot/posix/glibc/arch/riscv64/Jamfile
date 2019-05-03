@@ -80,8 +80,6 @@ local genericSources =
 	e_fmodf.c w_fmodf.c
 	e_atan2f.c w_atan2f.c
 	e_rem_pio2f.c k_rem_pio2f.c
-
-	memrchr.c
 	;
 
 local architectureObject ;

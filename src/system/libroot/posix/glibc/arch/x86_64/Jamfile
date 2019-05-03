@@ -24,7 +24,6 @@ SubDirAsFlags -DPIC ;
 
 local genericSources =
 	cmp.c dbl2mpn.c divrem.c
-	memrchr.c
 	mpn2dbl.c mpn2flt.c mpn2ldbl.c
 	mul.c mul_n.c
 

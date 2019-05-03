@@ -1,0 +1,68 @@
+SubDir HAIKU_TOP src system libroot posix musl ;
+
+local architectureObject ;
+for architectureObject in [ MultiArchSubDirSetup ] {
+	on $(architectureObject) {
+		local architecture = $(TARGET_PACKAGING_ARCH) ;
+
+		SubDirSysHdrs $(SUBDIR) ;
+		SubDirHdrs [ FDirName $(SUBDIR) internal ] ;
+		SubDirCcFlags -include [ FDirName $(SUBDIR) musl-haiku.h ] ;
+
+		SEARCH_SOURCE += [ FDirName $(SUBDIR) legacy ] ;
+		SEARCH_SOURCE += [ FDirName $(SUBDIR) misc ] ;
+		SEARCH_SOURCE += [ FDirName $(SUBDIR) regex ] ;
+		SEARCH_SOURCE += [ FDirName $(SUBDIR) stdlib ] ;
+		SEARCH_SOURCE += [ FDirName $(SUBDIR) string ] ;
+
+		MergeObject <$(architecture)>posix_musl.o :
+			# legacy
+			ftw.c
+
+			# misc
+			basename.c
+			dirname.c
+			nftw.c
+
+			# regex
+			fnmatch.c
+
+			# stdlib
+			abs.c
+			atof.c
+			bsearch.c
+			imaxabs.c
+			imaxdiv.c
+			qsort.c
+
+			# string
+			memccpy.c
+			memchr.c
+			memrchr.c
+			memcmp.c
+			memmove.c
+			stpcpy.c
+			strcasecmp.c
+			strcasestr.c
+			strcat.c
+			strchr.c
+			strchrnul.c
+			strcmp.c
+			strcpy.c
+			strcspn.c
+			strlcat.c
+			strlcpy.c
+			strlen.c
+			strncat.c
+			strncasecmp.c
+			strncmp.c
+			strpbrk.c
+			strrchr.c
+			strspn.c
+			strstr.c
+			strtok_r.c
+			strtok.c
+			swab.c
+			;
+	}
+}

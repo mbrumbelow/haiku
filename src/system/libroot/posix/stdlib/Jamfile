@@ -11,11 +11,8 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 		UsePrivateSystemHeaders ;
 
 		MergeObject <$(architecture)>posix_stdlib.o :
-			abs.c
 			atfork.c
-			atof.c
 			atoi.c
-			bsearch.c
 			div.c
 			env.cpp
 			exit.cpp
@@ -24,7 +21,6 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 			merge.c
 			mktemp.c
 			pty.cpp
-			qsort.c
 			radixsort.c
 			rand.c
 			random.c
