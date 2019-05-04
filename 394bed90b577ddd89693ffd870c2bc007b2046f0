@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3e33721c_b560ef9f",
+        "filename": "src/kits/interface/InterfaceDefs.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1292,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-05-04T05:57:48Z",
+      "side": 1,
+      "message": "Should be \"path.Length() \u003e 0\".",
+      "revId": "394bed90b577ddd89693ffd870c2bc007b2046f0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06054cc7_3dcae806",
+        "filename": "src/kits/interface/InterfaceDefs.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1349,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-05-04T05:57:48Z",
+      "side": 1,
+      "message": "Should be \"\u003e\u003d 0\" to match above where it is instantiated.",
+      "revId": "394bed90b577ddd89693ffd870c2bc007b2046f0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0afd95d6_143a6b4d",
+        "filename": "src/kits/interface/InterfaceDefs.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1456,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-05-04T05:57:48Z",
+      "side": 1,
+      "message": "An error could also be in the communication itself. It doesn\u0027t look like that would be properly reported in the return code.",
+      "revId": "394bed90b577ddd89693ffd870c2bc007b2046f0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "425750af_e9f866d5",
+        "filename": "src/servers/app/DesktopSettings.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-05-04T05:57:48Z",
+      "side": 1,
+      "message": "Asterisk style: Should be \"const BString\u0026\" without the space.",
+      "revId": "394bed90b577ddd89693ffd870c2bc007b2046f0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52a810bd_8d87da3b",
+        "filename": "src/servers/app/DesktopSettings.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 965,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-05-04T05:57:48Z",
+      "side": 1,
+      "message": "See above.",
+      "revId": "394bed90b577ddd89693ffd870c2bc007b2046f0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "661b94ee_9d0005dc",
+        "filename": "src/servers/app/DesktopSettings.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1093,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-05-04T05:57:48Z",
+      "side": 1,
+      "message": "Asterisk style: \"const char* path\"",
+      "revId": "394bed90b577ddd89693ffd870c2bc007b2046f0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4430bfeb_646472b3",
+        "filename": "src/servers/app/DesktopSettings.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-05-04T05:57:48Z",
+      "side": 1,
+      "message": "Asterisk style: It should be \"const char* path\" to match the rest of the file.",
+      "revId": "394bed90b577ddd89693ffd870c2bc007b2046f0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c154d9b1_04307785",
+        "filename": "src/servers/app/DesktopSettingsPrivate.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-05-04T05:57:48Z",
+      "side": 1,
+      "message": "const char* path",
+      "revId": "394bed90b577ddd89693ffd870c2bc007b2046f0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a94bb09_c6aa1cee",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-05-04T05:57:48Z",
+      "side": 1,
+      "message": "There is no reporting whether setting the new control look actually worked.",
+      "revId": "394bed90b577ddd89693ffd870c2bc007b2046f0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
