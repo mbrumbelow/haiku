@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "43fb09a9_f177e242",
+        "filename": "src/bin/setcontrollook.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-05-06T15:22:43Z",
+      "side": 1,
+      "message": "I wouldn\u0027t know what ControlLook is supposed to be here. So I don\u0027t find the usage message helpful enough.",
+      "revId": "b95e630b291b4c4e7facea120bc66c633beb4d0d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
