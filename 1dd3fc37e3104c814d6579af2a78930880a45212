@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f29795c5_fc9fa60d",
+        "filename": "src/preferences/appearance/LookAndFeelSettingsView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-05-06T15:28:19Z",
+      "side": 1,
+      "message": "typo Contro*l*Look",
+      "revId": "1dd3fc37e3104c814d6579af2a78930880a45212",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
