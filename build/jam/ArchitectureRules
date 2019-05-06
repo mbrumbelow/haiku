@@ -132,6 +132,14 @@ rule ArchitectureSetup architecture
 			-Wno-builtin-requires-header ;
 	}
 
+	# Disable -Waddress-of-packed-member for gcc9.
+	if $(gccVersion[1]) >= 9 {
+		HAIKU_WARNING_CCFLAGS_$(architecture) +=
+			-Wno-address-of-packed-member ;
+		HAIKU_WARNING_C++FLAGS_$(architecture) +=
+			-Wno-address-of-packed-member ;
+	}
+
 	HAIKU_WERROR_FLAGS_$(architecture) = ;
 
 	if $(gccVersion[1]) >= 4 {
