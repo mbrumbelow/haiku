@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d46d019e_16353de6",
+        "filename": "src/add-ons/kernel/drivers/input/usb_hid/HIDDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-07T10:07:16Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be a quirk and enabled only for that specific device as well? Or is there a reason to always do it?",
+      "revId": "043096a712d2fb8633daf533cc078716e37625d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bcca340b_28ab7c0b",
+        "filename": "src/add-ons/kernel/drivers/input/usb_hid/QuirkyDevices.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-07T10:07:16Z",
+      "side": 1,
+      "message": "this line is \u003e 80 columns and should be split",
+      "revId": "043096a712d2fb8633daf533cc078716e37625d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
