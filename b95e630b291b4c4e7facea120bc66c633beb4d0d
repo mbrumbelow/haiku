@@ -16,6 +16,24 @@
       "revId": "b95e630b291b4c4e7facea120bc66c633beb4d0d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ddf6559_94cd8603",
+        "filename": "src/bin/setcontrollook.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2019-05-07T22:03:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43fb09a9_f177e242",
+      "revId": "b95e630b291b4c4e7facea120bc66c633beb4d0d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
