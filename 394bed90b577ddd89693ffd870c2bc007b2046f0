@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "c81da575_39e73f3d",
+        "filename": "src/kits/interface/InterfaceDefs.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1349,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2019-05-07T23:18:29Z",
+      "side": 1,
+      "message": "The if could probably be skipped but yeah :)",
+      "parentUuid": "06054cc7_3dcae806",
+      "revId": "394bed90b577ddd89693ffd870c2bc007b2046f0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0afd95d6_143a6b4d",
         "filename": "src/kits/interface/InterfaceDefs.cpp",
         "patchSetId": 2
@@ -47,6 +65,24 @@
       "writtenOn": "2019-05-04T05:57:48Z",
       "side": 1,
       "message": "An error could also be in the communication itself. It doesn\u0027t look like that would be properly reported in the return code.",
+      "revId": "394bed90b577ddd89693ffd870c2bc007b2046f0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62c9e6e6_f99c2ea7",
+        "filename": "src/kits/interface/InterfaceDefs.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1456,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2019-05-07T23:18:29Z",
+      "side": 1,
+      "message": "Right, I copy-pasted from the decor stuff… Not sure why it didn\u0027t use FlushWithReply().",
+      "parentUuid": "0afd95d6_143a6b4d",
       "revId": "394bed90b577ddd89693ffd870c2bc007b2046f0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -149,6 +185,24 @@
       "writtenOn": "2019-05-04T05:57:48Z",
       "side": 1,
       "message": "There is no reporting whether setting the new control look actually worked.",
+      "revId": "394bed90b577ddd89693ffd870c2bc007b2046f0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f06e5aee_9e3007c0",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2019-05-07T23:18:29Z",
+      "side": 1,
+      "message": "Hmm the other setters in DesktopSettingsPrivate seem to discard the Save() return code as well, but let\u0027s add a return here.",
+      "parentUuid": "4a94bb09_c6aa1cee",
       "revId": "394bed90b577ddd89693ffd870c2bc007b2046f0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
