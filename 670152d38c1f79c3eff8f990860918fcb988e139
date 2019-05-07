@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b1cf47cd_96bd43c3",
+        "filename": "build/jam/ArchitectureRules",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-05-07T13:36:49Z",
+      "side": 1,
+      "message": "This line is too long.",
+      "revId": "670152d38c1f79c3eff8f990860918fcb988e139",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
