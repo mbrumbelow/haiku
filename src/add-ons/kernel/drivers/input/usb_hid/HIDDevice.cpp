@@ -185,6 +185,9 @@ HIDDevice::HIDDevice(usb_device device, const usb_configuration_info *config,
 	if (fTransferBufferSize == 0) {
 		TRACE_ALWAYS("report claims a report size of 0\n");
 		return;
+	} else if ( fTransferBufferSize == 7 ) {
+		//XXX: Dirty Hack for my decus gaming mouse!
+		fTransferBufferSize = 8;
 	}
 
 	// We pad the allocation size so that we can always read 32 bits at a time
