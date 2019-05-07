@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "54922188_5e39e979",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-05-07T12:19:03Z",
+      "side": 1,
+      "message": "You could improve this to \"fFile \u003d\u003d NULL\" while you\u0027re at it. :-)",
+      "revId": "7fb3acb331a542aacbd5cc577a614c4bd99db570",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "209e30c8_5b3e2b9d",
         "filename": "src/kits/tracker/FindPanel.cpp",
         "patchSetId": 1
