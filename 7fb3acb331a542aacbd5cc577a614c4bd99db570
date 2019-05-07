@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "209e30c8_5b3e2b9d",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-07T12:18:47Z",
+      "side": 1,
+      "message": "if fFromTemplate is set and fQuesyNameFromTemplate is also set, we do not need to access fFile here.",
+      "revId": "7fb3acb331a542aacbd5cc577a614c4bd99db570",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
