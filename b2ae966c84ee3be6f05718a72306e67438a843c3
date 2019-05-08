@@ -16,6 +16,24 @@
       "revId": "b2ae966c84ee3be6f05718a72306e67438a843c3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "702a32af_9a207716",
+        "filename": "src/libs/compat/freebsd_network/compat.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1000061
+      },
+      "writtenOn": "2019-05-08T08:19:25Z",
+      "side": 1,
+      "message": "Ah, yes. I guess I should only free it if DEVICE_SOFTC_SET is not set (i.e. if we allocated it in compat. The idea is that if it was externally set, it is the responsibility of the caller to manage the memory. Will update the patch.\n\nAnd thanks for reviewing.",
+      "parentUuid": "f04f5349_5f35a482",
+      "revId": "b2ae966c84ee3be6f05718a72306e67438a843c3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
