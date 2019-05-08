@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d58010b7_95bfa2cf",
+        "filename": "src/libs/compat/freebsd_network/compat.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-05-08T09:32:18Z",
+      "side": 1,
+      "message": "Should be \nif ((dev-\u003eflags \u0026 DEVICE_SOFTC_SET) !\u003d 0) {",
+      "revId": "fb137ed152db568c0e96ac797eaaed2e97e621b1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ed6fa08_820c3c7b",
+        "filename": "src/libs/compat/freebsd_network/compat.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-05-08T09:32:18Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "fb137ed152db568c0e96ac797eaaed2e97e621b1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
