@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fd8f118_8d7d64b8",
+        "filename": "src/system/libroot/posix/inttypes.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-09T11:07:09Z",
+      "side": 0,
+      "message": "According to POSIX this should not be done (and musl doesn\u0027t do it).\nHow does BeOS behave here?",
+      "revId": "02079c66f3cff4cced9df077650aec79696aee6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14b6b624_2be3d67a",
+        "filename": "src/system/libroot/posix/stdlib/abs.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-09T11:07:09Z",
+      "side": 0,
+      "message": "labs and llabs appear to be missing from the musl version?",
+      "revId": "02079c66f3cff4cced9df077650aec79696aee6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e707f3dc_0f8c3405",
+        "filename": "src/system/libroot/posix/string/memccpy.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-09T11:07:09Z",
+      "side": 0,
+      "message": "I prefer this to the musl implementation, it is much more readable.",
+      "revId": "02079c66f3cff4cced9df077650aec79696aee6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52cc928c_5aea7189",
+        "filename": "src/system/libroot/posix/string/memchr.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-09T11:07:09Z",
+      "side": 0,
+      "message": "I prefer this to the musl implementation, it is much more readable.",
+      "revId": "02079c66f3cff4cced9df077650aec79696aee6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e78bc11_7b70eaf8",
+        "filename": "src/system/libroot/posix/string/memcmp.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-09T11:07:09Z",
+      "side": 0,
+      "message": "I prefer this to the musl implementation, it is much more readable.",
+      "revId": "02079c66f3cff4cced9df077650aec79696aee6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bffda120_0a8da7bd",
+        "filename": "src/system/libroot/posix/string/strcasecmp.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-09T11:07:09Z",
+      "side": 0,
+      "message": "I prefer this much cleanly formatted code from BSD to the musl equivalent.",
+      "revId": "02079c66f3cff4cced9df077650aec79696aee6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bafa0d0b_54cf6e81",
+        "filename": "src/system/libroot/posix/string/strlcat.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-09T11:07:09Z",
+      "side": 0,
+      "message": "I prefer this to the musl version, it is much more readable",
+      "revId": "02079c66f3cff4cced9df077650aec79696aee6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51057924_adbc09aa",
+        "filename": "src/system/libroot/posix/string/strtok.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-09T11:07:09Z",
+      "side": 0,
+      "message": "I prefer this to the musl implementation, it is much more readable",
+      "revId": "02079c66f3cff4cced9df077650aec79696aee6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6a02d70d_1deb7611",
+        "filename": "src/system/libroot/posix/musl/internal/atomic.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-09T11:07:09Z",
+      "side": 1,
+      "message": "this file should be implemented using our existing atomics implementation (atomic_add, etc).\n\nOr, the a_pre_llsc, etc. macros should be implemented appropriately for each architecture.",
+      "revId": "0af86ca38a592eba0c16901ea0e8a9aee0fc7e64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f70a0b0e_ba55379a",
+        "filename": "src/system/libroot/posix/musl/legacy/ftw.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-09T11:07:09Z",
+      "side": 1,
+      "message": "sounds dangerous... this actually depends on which order the parameters are pushed onto the stack. Our current implementation (from OpenBSD) has no such problem.",
+      "revId": "0af86ca38a592eba0c16901ea0e8a9aee0fc7e64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
