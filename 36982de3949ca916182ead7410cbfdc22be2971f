@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5322b555_00a9d82f",
+        "filename": "src/apps/haikudepot/model/LanguageModel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2019-05-11T19:50:44Z",
+      "side": 1,
+      "message": "I think that\u0027s OK.  It should only happen a couple of times during startup and is quite handy in the log.",
+      "parentUuid": "dbfa96bc_03b9ef7c",
+      "revId": "36982de3949ca916182ead7410cbfdc22be2971f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c10be29_59661441",
         "filename": "src/apps/haikudepot/model/LanguageModel.cpp",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "36982de3949ca916182ead7410cbfdc22be2971f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37cab849_d3ad6933",
+        "filename": "src/apps/haikudepot/model/LanguageModel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2019-05-11T19:50:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c10be29_59661441",
+      "revId": "36982de3949ca916182ead7410cbfdc22be2971f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "1e5c1b25_84bb431b",
+        "filename": "src/apps/haikudepot/model/LanguageModel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2019-05-11T19:50:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d381beb5_430553ff",
+      "revId": "36982de3949ca916182ead7410cbfdc22be2971f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7a130fae_19212a10",
         "filename": "src/apps/haikudepot/model/PackageInfo.h",
         "patchSetId": 1
@@ -67,6 +121,24 @@
       "revId": "36982de3949ca916182ead7410cbfdc22be2971f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53c34145_6de9eebc",
+        "filename": "src/apps/haikudepot/model/PackageInfo.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2019-05-11T19:50:44Z",
+      "side": 1,
+      "message": "I am not too sure I see the need for that.  The Language class here in HD is intentionally trying to remain distinct from the platform\u0027s own languages and doesn\u0027t use any of the same infrastructure (aside from initially selecting a sensible default) so sub-classing would perhaps present any purpose.",
+      "parentUuid": "7a130fae_19212a10",
+      "revId": "36982de3949ca916182ead7410cbfdc22be2971f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "6e8ff8d2_7121e271",
+        "filename": "src/apps/haikudepot/util/LanguageMenuUtils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2019-05-11T19:50:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40770733_d61d1dc2",
+      "revId": "36982de3949ca916182ead7410cbfdc22be2971f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e16b76a4_539fa03f",
         "filename": "src/apps/haikudepot/util/LanguageMenuUtils.cpp",
         "patchSetId": 1
@@ -101,6 +191,24 @@
       "revId": "36982de3949ca916182ead7410cbfdc22be2971f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e40aa01_9569a985",
+        "filename": "src/apps/haikudepot/util/LanguageMenuUtils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2019-05-11T19:50:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e16b76a4_539fa03f",
+      "revId": "36982de3949ca916182ead7410cbfdc22be2971f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "9b7b3d66_f2ec85af",
+        "filename": "src/apps/haikudepot/util/LanguageMenuUtils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2019-05-11T19:50:44Z",
+      "side": 1,
+      "message": "Thanks; I did not know about the debugger() function and yes this would be a good place to use it.",
+      "parentUuid": "81b2d988_73393f8a",
+      "revId": "36982de3949ca916182ead7410cbfdc22be2971f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "574b652d_9fb31fa3",
         "filename": "src/apps/haikudepot/util/LanguageMenuUtils.cpp",
         "patchSetId": 1
@@ -135,6 +261,24 @@
       "revId": "36982de3949ca916182ead7410cbfdc22be2971f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2a21345_bafccc2e",
+        "filename": "src/apps/haikudepot/util/LanguageMenuUtils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2019-05-11T19:50:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "574b652d_9fb31fa3",
+      "revId": "36982de3949ca916182ead7410cbfdc22be2971f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
