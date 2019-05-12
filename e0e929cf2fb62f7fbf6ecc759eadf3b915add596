@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7478584_1811cfc7",
+        "filename": "src/apps/haikudepot/server/ServerReferenceDataUpdateProcess.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-12T07:18:30Z",
+      "side": 1,
+      "message": "line \u003e 80 columns and { should go to the next line anyways",
+      "revId": "e0e929cf2fb62f7fbf6ecc759eadf3b915add596",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0d40272_2ddd2498",
+        "filename": "src/apps/haikudepot/server/ServerReferenceDataUpdateProcess.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-12T07:18:30Z",
+      "side": 1,
+      "message": "according to the latest version of the coding guidelines you need a second \"private:\" here (recent addition)",
+      "revId": "e0e929cf2fb62f7fbf6ecc759eadf3b915add596",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
