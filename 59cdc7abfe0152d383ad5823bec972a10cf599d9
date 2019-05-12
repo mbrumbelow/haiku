@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b58c7ea2_4a6d761e",
+        "filename": "src/preferences/input/Input.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-12T07:21:42Z",
+      "side": 1,
+      "message": "You need 2 blank lines here (includes and defines are considered 2 different blocks)",
+      "revId": "59cdc7abfe0152d383ad5823bec972a10cf599d9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad0fcfdc_b589ef46",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-12T07:21:42Z",
+      "side": 1,
+      "message": "1 blank line here",
+      "revId": "59cdc7abfe0152d383ad5823bec972a10cf599d9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cbcededd_cff489f1",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-12T07:21:42Z",
+      "side": 1,
+      "message": "2 blank lines here",
+      "revId": "59cdc7abfe0152d383ad5823bec972a10cf599d9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "559e4bb0_dae6c2f0",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-12T07:21:42Z",
+      "side": 1,
+      "message": "This is not what I meant. B_QUIT_ON_WINDOW_CLOSE is a window flag, it goes in the constructor (as B_NOT_RESIZABLE, etc). And when you use it, you don\u0027t need to implement QuitRequested at all, the default implementation will take care of this.",
+      "revId": "59cdc7abfe0152d383ad5823bec972a10cf599d9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
