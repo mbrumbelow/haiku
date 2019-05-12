@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "a3f5bf44_5fd4dc1c",
+        "filename": "src/apps/haikudepot/model/LanguageModel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-12T07:18:30Z",
+      "side": 1,
+      "message": "If this is used for sorting things in the GUI, you should rather use BCollator to sort strings in a locale aware way. BString::Compare does a byte by byte comparison, which isn\u0027t appropriate for anything non-ASCII",
+      "revId": "36982de3949ca916182ead7410cbfdc22be2971f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dbfa96bc_03b9ef7c",
         "filename": "src/apps/haikudepot/model/LanguageModel.cpp",
         "patchSetId": 1
@@ -139,6 +156,24 @@
       "revId": "36982de3949ca916182ead7410cbfdc22be2971f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28f15c9b_2c2c896c",
+        "filename": "src/apps/haikudepot/model/PackageInfo.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-12T07:18:30Z",
+      "side": 1,
+      "message": "In the case of HaikuDepot, we should display the language names using the current locale. This is done using BLanguage::GetName. I suspect your implementation is similar to BLanguage::GetNativeName, which is the correct thing to do in Haiku locale preferences, but not here, because we already know which language the user wants as the main one, and should use that even to refer as other languages.\n\nIn other words, I want this list when my system locale is set to English:\n\nEnglish\nFrench\nSpanish\n\nI do not want this:\n\nCastellano\nEnglish\nFrançais\n\nAnd when my system locale is set to French I want:\n\nAnglais\nEspagnol\nFrançais\n\nBLanguage is not necessarily tightly coupled with the other parts of the locale system, you can create an instance from just the language code and it will give you this information. This means HaikuDepot only needs to handle language codes, and not worry about what each language is called in the current locale.",
+      "parentUuid": "53c34145_6de9eebc",
+      "revId": "36982de3949ca916182ead7410cbfdc22be2971f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     },
     {
       "key": {
