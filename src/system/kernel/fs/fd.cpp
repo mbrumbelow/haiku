@@ -919,9 +919,6 @@ _user_seek(int fd, off_t pos, int seekType)
 status_t
 _user_ioctl(int fd, uint32 op, void* buffer, size_t length)
 {
-	if (buffer != NULL && !IS_USER_ADDRESS(buffer))
-		return B_BAD_ADDRESS;
-
 	TRACE(("user_ioctl: fd %d\n", fd));
 
 	SyscallRestartWrapper<status_t> status;
