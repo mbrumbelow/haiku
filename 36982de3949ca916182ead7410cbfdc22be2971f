@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "27f3052c_1c329e22",
+        "filename": "src/apps/haikudepot/model/LanguageModel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2019-05-13T21:02:11Z",
+      "side": 1,
+      "message": "Ok great; I have fixed that now.",
+      "parentUuid": "a3f5bf44_5fd4dc1c",
+      "revId": "36982de3949ca916182ead7410cbfdc22be2971f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dbfa96bc_03b9ef7c",
         "filename": "src/apps/haikudepot/model/LanguageModel.cpp",
         "patchSetId": 1
@@ -174,6 +192,24 @@
       "revId": "36982de3949ca916182ead7410cbfdc22be2971f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f86b0ee_919642b9",
+        "filename": "src/apps/haikudepot/model/PackageInfo.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2019-05-13T21:02:11Z",
+      "side": 1,
+      "message": "Thanks for the in-depth explanation above.  I get what you mean now and that makes sense to try to achieve.  I\u0027ve checked additionally with my locale set to German and Japanese and it works fine.  If the server has a language that is not supported by the Haiku operating system (this is actually the case) then it will fallback to use the language\u0027s name from the server data.  I think this is sensible behaviour.",
+      "parentUuid": "28f15c9b_2c2c896c",
+      "revId": "36982de3949ca916182ead7410cbfdc22be2971f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
