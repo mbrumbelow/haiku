@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d8d121dd_cf1dd9c2",
+        "filename": "src/system/runtime_loader/runtime_loader.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-05-15T05:41:53Z",
+      "side": 1,
+      "message": "Being picky: this switch is almost a copy-paste of the one below. Would it possible to factorize?",
+      "revId": "16338044d16dcfde751b277a23343d02c4f7dece",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
