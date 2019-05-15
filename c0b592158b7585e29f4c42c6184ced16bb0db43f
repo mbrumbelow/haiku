@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50e00258_6f268499",
+        "filename": "src/apps/haikudepot/model/LanguageModel.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-15T06:52:04Z",
+      "side": 1,
+      "message": "Beware, debugger() is continuable if the user chooses to from Debugger. And I\u0027m not sure the collator will sort in a meaningful way then.\n\nNot sure what else to do anyway in this case, so it\u0027s ok, but just wanted to note that for possible future uses.",
+      "revId": "c0b592158b7585e29f4c42c6184ced16bb0db43f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
