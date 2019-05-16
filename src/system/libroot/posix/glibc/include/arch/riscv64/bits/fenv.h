@@ -58,6 +58,7 @@ enum
       FE_UPWARD
   };
 
+#define __FE_ROUND_MASK (3U << 30)
 
 typedef unsigned int fexcept_t;
 typedef unsigned int fenv_t;
