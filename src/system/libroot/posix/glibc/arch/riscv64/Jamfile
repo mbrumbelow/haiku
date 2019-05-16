@@ -64,7 +64,7 @@ local genericSources =
 	e_acos.c w_acos.c
 	e_atan2.c #e_atan2l.c
 	w_atan2.c w_atan2l.c mpatan2.c mpatan.c mptan.c mpsqrt.c w_sqrt.c w_sqrtf.c
-	e_sqrtl.c
+	e_sqrt.c e_sqrtf.c e_sqrtl.c
 	e_fmod.c w_fmod.c
 	e_log.c w_log.c
 	e_cosh.c w_cosh.c
@@ -78,6 +78,7 @@ local genericSources =
 	s_lround.c s_lroundf.c s_round.c s_roundf.c
 	s_rint.c s_rintf.c s_lrintf.c
 	e_fmodf.c w_fmodf.c
+	#s_fpclassifyl.c
 	e_atan2f.c w_atan2f.c
 	e_rem_pio2f.c k_rem_pio2f.c
 
@@ -93,15 +94,13 @@ for architectureObject in [ MultiArchSubDirSetup riscv64 ] {
 			$(genericSources)
 			;
 
-		MergeObject <$(architecture)>posix_gnu_arch_$(TARGET_ARCH)_others.o :
-			e_sqrt.c
-			e_sqrtf.c
-			;
+		#MergeObject <$(architecture)>posix_gnu_arch_$(TARGET_ARCH)_others.o :
+		#	;
 
 		MergeObjectFromObjects <$(architecture)>posix_gnu_arch_$(TARGET_ARCH).o
 			: :
 			<$(architecture)>posix_gnu_arch_$(TARGET_ARCH)_generic.o
-			<$(architecture)>posix_gnu_arch_$(TARGET_ARCH)_others.o
+			#<$(architecture)>posix_gnu_arch_$(TARGET_ARCH)_others.o
 			;
 
 		SEARCH on [ FGristFiles $(genericSources) ]
