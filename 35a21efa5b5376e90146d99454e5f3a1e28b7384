@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6267b452_127ef8eb",
+        "filename": "headers/private/shared/cpu_type.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-05-16T06:32:21Z",
+      "side": 1,
+      "message": "calloc() should be used instead.",
+      "revId": "35a21efa5b5376e90146d99454e5f3a1e28b7384",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5d35be7_dd8d1c21",
+        "filename": "headers/private/shared/cpu_type.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-05-16T06:32:21Z",
+      "side": 1,
+      "message": "ditto.",
+      "revId": "35a21efa5b5376e90146d99454e5f3a1e28b7384",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
