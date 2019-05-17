@@ -31,7 +31,7 @@
 extern "C" addr_t mmu_map_physical_memory(addr_t physicalAddress, size_t size,
 	uint32 flags);
 extern "C" bool
-mmu_get_virtual_mapping(addr_t virtualAddress, phys_addr_t *_physicalAddress);
+mmu_get_virtual_mapping(addr_t virtualAddress, addr_t *_physicalAddress);
 
 
 #define write_io_32(a, v) ((*(vuint32 *)a) = v)

@@ -32,7 +32,7 @@
 
 //XXX
 extern "C" bool
-mmu_get_virtual_mapping(addr_t virtualAddress, phys_addr_t *_physicalAddress);
+mmu_get_virtual_mapping(addr_t virtualAddress, addr_t *_physicalAddress);
 
 extern "C" ArchMailbox*
 arch_get_mailbox_arm_bcm2835(addr_t base);
