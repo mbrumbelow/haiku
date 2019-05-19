@@ -215,7 +215,7 @@ _fbsd_init_drivers(driver_t *drivers[])
 	info = get_pci_info(root);
 
 	// Track if at least one device was successfully attached.
-	bool attached = false
+	bool attached = false;
 
 	for (p = 0; sProbedDevices[p].driver != NULL; p++) {
 		device_t device = NULL;
