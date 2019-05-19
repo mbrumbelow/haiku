@@ -16,6 +16,24 @@
       "revId": "b7155357ddea18c9d4c663d832f3682eebe0c6cb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c8ddb13_ac5b8477",
+        "filename": "src/system/libroot/posix/pthread/pthread_key.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-05-19T14:00:42Z",
+      "side": 1,
+      "message": "The loop is ATM not needed indeed. I think it\u0027s a left-over from when the function maybe used a int32 \u0026sequence, which could be changed by other threads. So yes a clean up shouldn\u0027t hurt.\n\nOverall the code looks OK from the POSIX point of view. Though because a destructor can call pthread_setspecific, __pthread_key_call_destructors should loop again each time it has executed a destructor (max PTHREAD_DESTRUCTOR_ITERATIONS times).",
+      "parentUuid": "0c76dc74_12be5e5b",
+      "revId": "b7155357ddea18c9d4c663d832f3682eebe0c6cb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
