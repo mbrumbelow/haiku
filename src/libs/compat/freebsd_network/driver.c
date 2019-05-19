@@ -214,6 +214,9 @@ _fbsd_init_drivers(driver_t *drivers[])
 		goto err7;
 	info = get_pci_info(root);
 
+	// Track if at least one device was successfully attached.
+	bool attached = false
+
 	for (p = 0; sProbedDevices[p].driver != NULL; p++) {
 		device_t device = NULL;
 		*info = sProbedDevices[p].info;
@@ -226,6 +229,7 @@ _fbsd_init_drivers(driver_t *drivers[])
 		// (i.e. they set driver softc in probe(), etc.)
 		if (device->methods.probe(device) >= 0
 				&& device_attach(device) == 0) {
+			attached = true;
 			dprintf("%s: init_driver(%p)\n", gDriverName,
 				sProbedDevices[p].driver);
 			status = init_root_device(&root);
@@ -236,13 +240,15 @@ _fbsd_init_drivers(driver_t *drivers[])
 			device_delete_child(root, device);
 	}
 
-	if (gDeviceCount > 0)
+	if (attached)
 		return B_OK;
+	else {
+		dprintf("%s: No device was successfully attached.\n",
+			gDriverName);
+		status = B_ERROR;
+	}
 
 	device_delete_child(NULL, root);
-
-	if (status == B_OK)
-		status = B_ERROR;
 
 err7:
 	uninit_wlan_stack();
