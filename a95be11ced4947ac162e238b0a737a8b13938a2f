@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb8803d2_81880626",
+        "filename": "src/system/libroot/posix/fcntl.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000061
+      },
+      "writtenOn": "2019-05-20T20:49:03Z",
+      "side": 1,
+      "message": "Maybe add a comment here too mentioning this is incomplete as it is not actually used/required in Haiku?",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 13
+      },
+      "revId": "a95be11ced4947ac162e238b0a737a8b13938a2f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
