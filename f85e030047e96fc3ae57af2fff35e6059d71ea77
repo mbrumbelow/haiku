@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "86ea73cc_b7d41016",
+        "filename": "src/apps/haikudepot/model/LanguageModel.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-05-20T21:27:31Z",
+      "side": 1,
+      "message": "I think Language is leaked later, since LanguageRef() should be called with \"alreadyHasReference \u003d true\". The default value for that parameter is \"false\". See https://www.haiku-os.org/docs/api/classBReference.html",
+      "revId": "f85e030047e96fc3ae57af2fff35e6059d71ea77",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dca39c32_357eaf81",
+        "filename": "src/apps/haikudepot/server/ServerReferenceDataUpdateProcess.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-05-20T21:27:31Z",
+      "side": 1,
+      "message": "I may have missed something, but I am wondering about where locking happens. Isn\u0027t this another thread?",
+      "revId": "f85e030047e96fc3ae57af2fff35e6059d71ea77",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e93ea1f_ba5bd74e",
+        "filename": "src/apps/haikudepot/server/ServerRepositoryDataUpdateProcess.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-05-20T21:27:31Z",
+      "side": 1,
+      "message": "Since this is repeatedly used, I would find it OK to have a short-cut method directly in Model. Something like \"const char* Model::PreferredLanguageCode() const\".",
+      "revId": "f85e030047e96fc3ae57af2fff35e6059d71ea77",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47e72f2e_d8b19a1c",
+        "filename": "src/apps/haikudepot/util/LanguageMenuUtils.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-05-20T21:27:31Z",
+      "side": 1,
+      "message": "This printf() should also be tied to the Logger.",
+      "revId": "f85e030047e96fc3ae57af2fff35e6059d71ea77",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
