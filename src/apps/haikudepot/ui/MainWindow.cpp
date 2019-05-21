@@ -817,7 +817,10 @@ MainWindow::_InitWorkerThreads()
 void
 MainWindow::_AdoptModel()
 {
-	fVisiblePackages = fModel.CreatePackageList();
+	{
+		AutoLocker<BLocker> modelLocker(fModel.Lock());
+		fVisiblePackages = fModel.CreatePackageList();
+	}
 
 	{
 		AutoLocker<BLocker> modelLocker(fModel.Lock());
