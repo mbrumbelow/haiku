@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "827a3835_2167447a",
+        "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-05-21T20:22:42Z",
+      "side": 0,
+      "message": "There are now 2 `modelLocker`s in this function. Could the blocks be combined?",
+      "revId": "38ce902686b9b6d4d19bfde134b18f997192ba01",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
