@@ -305,7 +305,7 @@ EndpointManager::SetPassive(TCPEndpoint* endpoint)
 	if (_LookupConnection(*endpoint->LocalAddress(), *passive))
 		return EADDRINUSE;
 
-	endpoint->PeerAddress().SetTo(*passive);
+	(*(endpoint->PeerAddress()))->sa_len = 0;
 	fConnectionHash.Insert(endpoint);
 	return B_OK;
 }
