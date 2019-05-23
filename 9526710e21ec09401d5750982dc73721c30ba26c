@@ -16,6 +16,23 @@
       "revId": "9526710e21ec09401d5750982dc73721c30ba26c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f95085d_a8e6f775",
+        "filename": "src/apps/haikudepot/ui/FilterView.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-05-23T13:10:00Z",
+      "side": 1,
+      "message": "_SelectCategoryCode and _MatchesCategoryCode could be static.",
+      "revId": "9526710e21ec09401d5750982dc73721c30ba26c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
