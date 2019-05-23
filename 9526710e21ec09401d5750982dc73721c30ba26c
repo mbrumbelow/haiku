@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6ed469c_e6e0431b",
+        "filename": "src/apps/haikudepot/model/Model.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-23T07:00:01Z",
+      "side": 1,
+      "message": "Creating and initializing a collator can be a costly operation (loading locale data from disk). It\u0027s recommended to create the object a single time and reuse it for all comparisons.",
+      "revId": "9526710e21ec09401d5750982dc73721c30ba26c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
