@@ -921,9 +921,9 @@ _user_ioctl(int fd, uint32 op, void* buffer, size_t length)
 {
 	TRACE(("user_ioctl: fd %d\n", fd));
 
-	// "buffer" is not always a pointer depending on "op", so we cannot
-	// check that it is a userland buffer here; the underlying implementation
-	// must do that.
+	// "buffer" is not always a pointer depending on "op"
+	if (!IS_USER_ADDRESS(buffer) && length != 0)
+		return B_BAD_ADDRESS;
 
 	SyscallRestartWrapper<status_t> status;
 
