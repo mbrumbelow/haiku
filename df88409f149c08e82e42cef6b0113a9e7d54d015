@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "53be89f5_4ee7c93d",
+        "filename": "src/preferences/input/Input.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-24T10:56:18Z",
+      "side": 1,
+      "message": "This should not be needed, the BLayoutBuilder in the BWindow constructor should do it already.",
+      "revId": "df88409f149c08e82e42cef6b0113a9e7d54d015",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4da67373_e1748f4b",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-24T10:56:18Z",
+      "side": 1,
+      "message": "This will lead to putting all the items in a column (one below the other) instead of a line (one to the right of the other).\n\nTry this instead:\n\n.Add(device list view)\n.AddGroup(B_VERTICAL)\n    .Add(box)\n    .Add(fDefaults)\n.End()\n.SetInesets(5,5,5,5)\n.End();\n\nIndenting the layout builder as a tree (one extra level each time you do an AddGroup, AddGrid, etc; one level down when you use the matching End()) helps to see which item is part of which group or grid.",
+      "revId": "df88409f149c08e82e42cef6b0113a9e7d54d015",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
