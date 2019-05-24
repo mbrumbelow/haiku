@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "68e148ec_79d05544",
+        "filename": "src/preferences/input/Input.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-24T10:56:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b58c7ea2_4a6d761e",
+      "revId": "59cdc7abfe0152d383ad5823bec972a10cf599d9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad0fcfdc_b589ef46",
         "filename": "src/preferences/input/InputWindow.cpp",
         "patchSetId": 6
@@ -33,6 +51,24 @@
       "revId": "59cdc7abfe0152d383ad5823bec972a10cf599d9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa39e4c5_cbee1f9d",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-24T10:56:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad0fcfdc_b589ef46",
+      "revId": "59cdc7abfe0152d383ad5823bec972a10cf599d9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "a1ffffee_63a3cb6d",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-24T10:56:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbcededd_cff489f1",
+      "revId": "59cdc7abfe0152d383ad5823bec972a10cf599d9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "559e4bb0_dae6c2f0",
         "filename": "src/preferences/input/InputWindow.cpp",
         "patchSetId": 6
@@ -67,6 +121,24 @@
       "revId": "59cdc7abfe0152d383ad5823bec972a10cf599d9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4190a848_8c276c69",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-24T10:56:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "559e4bb0_dae6c2f0",
+      "revId": "59cdc7abfe0152d383ad5823bec972a10cf599d9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
