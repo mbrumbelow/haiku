@@ -28,21 +28,13 @@ boot_arch_cpu_init(void)
 {
 	int32 busFrequency = 0;
 
-	int root = of_finddevice("/");
-	if (root == OF_FAILED) {
+	intptr_t cpus = of_finddevice("/");
+	if (cpus == OF_FAILED) {
 		printf("boot_arch_cpu_init(): Failed to open \"/\"!\n");
 		return B_ERROR;
 	}
 
-	of_getprop(root, "clock-frequency", &busFrequency, 4);
-		// we might find it in /cpus instead
-
-	// iterate through the "/cpus" node to find all CPUs
-	int cpus = of_finddevice("/cpus");
-	if (cpus == OF_FAILED) {
-		printf("boot_arch_cpu_init(): Failed to open \"/cpus\"!\n");
-		return B_ERROR;
-	}
+	of_getprop(cpus, "clock-frequency", &busFrequency, 4);
 
 	char cpuPath[256];
 	int cookie = 0;
