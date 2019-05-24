@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a37e820f_fa1bae7d",
+        "filename": "src/apps/haikudepot/util/LocaleUtils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-24T10:47:17Z",
+      "side": 1,
+      "message": "static variable, should be prefixed with s instead of f.",
+      "revId": "0004082668d5a528e65d5203c6d3dea51b14c26b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
