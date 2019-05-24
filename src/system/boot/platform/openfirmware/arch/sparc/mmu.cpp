@@ -56,18 +56,18 @@ extern "C" uint8 _end;
 static status_t
 find_physical_memory_ranges(size_t &total)
 {
-	int memory;
+	int32_t memory;
 	dprintf("checking for memory...\n");
-	if (of_getprop(gChosen, "memory", &memory, sizeof(int)) == OF_FAILED)
+	if (of_getprop(gChosen, "memory", &memory, sizeof(memory)) == OF_FAILED)
 		return B_ERROR;
-	int package = of_instance_to_package(memory);
+	intptr_t package = of_instance_to_package(memory);
 
 	total = 0;
 
 	// Memory base addresses are provided in 32 or 64 bit flavors
 	// #address-cells and #size-cells matches the number of 32-bit 'cells'
 	// representing the length of the base address and size fields
-	int root = of_finddevice("/");
+	intptr_t root = of_finddevice("/");
 	int32 regAddressCells = of_address_cells(root);
 	int32 regSizeCells = of_size_cells(root);
 	if (regAddressCells == OF_FAILED || regSizeCells == OF_FAILED) {
@@ -76,8 +76,7 @@ find_physical_memory_ranges(size_t &total)
 		regSizeCells = 1;
 	}
 
-	// NOTE : Size Cells of 2 is possible in theory... but I haven't seen it yet.
-	if (regAddressCells > 2 || regSizeCells > 1) {
+	if (regAddressCells > 2 || regSizeCells > 2) {
 		panic("%s: Unsupported OpenFirmware cell count detected.\n"
 		"Address Cells: %" B_PRId32 "; Size Cells: %" B_PRId32
 		" (CPU > 64bit?).\n", __func__, regAddressCells, regSizeCells);
