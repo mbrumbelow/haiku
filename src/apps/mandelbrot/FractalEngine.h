@@ -54,18 +54,33 @@ private:
 	uint8 fThreadCount;
 	thread_id fRenderThreads[MAX_RENDER_THREADS];
 	sem_id fRenderSem;
+		// sent to threads to tell them to start running
 	sem_id fRenderStoppedSem;
+		// sent to threads to tell them to stop running
 
-	bool fStopRender;
+	bool fRenderStopping;
+		// true when the render is trying to be stopped
+		// false otherwise
 	bool fRenderStopped;
+		// true when the render is stopped
+		// false otherwise
+	bool fResizing;
+		// true when the resize messages are ignored
+		// false otherwise
 
 	double fLocationX;
+		// the x (real) location of the center of the view
 	double fLocationY;
+		// the y (imaginary) location of the center of the view
 	double fSize;
+		// the scale of the view, defined as the width on the complex plane of
+		// a single pixel
 
 	uint16 fIterations;
+		// the number of iterations to run the fractal algorithm before giving up
 
 	const uint8* fColorset;
+		// a pointer to the pallete array currently in use
 
 	int32 (FractalEngine::*fDoSet)(double real, double imaginary);
 
