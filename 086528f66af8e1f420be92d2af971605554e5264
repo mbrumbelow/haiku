@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "93242546_fa0dc8a8",
+        "filename": "src/add-ons/kernel/generic/scsi_periph/io.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-05-25T17:28:50Z",
+      "side": 0,
+      "message": "Like this comment says, the scsi_raw driver needs the exact same changes to this function.",
+      "revId": "086528f66af8e1f420be92d2af971605554e5264",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
