@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ee2e6ac_a9741487",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-05-25T05:48:38Z",
+      "side": 0,
+      "message": "Newline after your pseudo-asserts, please, before the \"actual code\".",
+      "revId": "ca904ab353777023fc920f9a6780da51cca4781a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}

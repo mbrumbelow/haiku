@@ -1,0 +1,293 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "880717ee_f488c3b9",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-05-25T05:48:38Z",
+      "side": 1,
+      "message": "You can initialize these three in the member initialization above the {.",
+      "revId": "50ec892f79430d697eff2adc030ee362453f9ee0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fbf57282_862e4a47",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-05-25T05:48:38Z",
+      "side": 1,
+      "message": "%p not %lx, drop the cast, and space after comma. Also perhaps add the width/height to this one instead of having 2 messages in quick succession?",
+      "revId": "50ec892f79430d697eff2adc030ee362453f9ee0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10391291_dd5265f8",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-05-25T05:48:38Z",
+      "side": 1,
+      "message": "Comment superfluous.",
+      "revId": "50ec892f79430d697eff2adc030ee362453f9ee0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9bf0fb1_cdd40ba9",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-05-25T05:48:38Z",
+      "side": 1,
+      "message": "Same comments as above about prints.",
+      "revId": "50ec892f79430d697eff2adc030ee362453f9ee0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5be13162_3ec24c83",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-05-25T05:48:38Z",
+      "side": 1,
+      "message": "acquire",
+      "revId": "50ec892f79430d697eff2adc030ee362453f9ee0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c957335_cd064cae",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-05-25T05:48:38Z",
+      "side": 1,
+      "message": "If you want to add this multiline comment here, please add {} for this if.",
+      "revId": "50ec892f79430d697eff2adc030ee362453f9ee0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2ec0598_38011966",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-05-25T05:48:38Z",
+      "side": 1,
+      "message": "Putting this comment before the break would be cleaner.",
+      "revId": "50ec892f79430d697eff2adc030ee362453f9ee0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bcf5c0e2_849679af",
+        "filename": "src/apps/mandelbrot/FractalEngine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-05-25T05:48:38Z",
+      "side": 1,
+      "message": "space after //",
+      "revId": "50ec892f79430d697eff2adc030ee362453f9ee0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4972ed79_f992dd06",
+        "filename": "src/apps/mandelbrot/FractalEngine.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-05-25T05:48:38Z",
+      "side": 1,
+      "message": "Maybe make this \"released for each thread when a render starts\"?",
+      "revId": "50ec892f79430d697eff2adc030ee362453f9ee0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e3fca1c_dc25111f",
+        "filename": "src/apps/mandelbrot/FractalEngine.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-05-25T05:48:38Z",
+      "side": 1,
+      "message": "Isn\u0027t it the threads that are releasing fRenderStoppedSem? So then \"released by each thread once the render is stopped\" makes more sense here.",
+      "revId": "50ec892f79430d697eff2adc030ee362453f9ee0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87dea7ae_3bb78cee",
+        "filename": "src/apps/mandelbrot/FractalEngine.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-05-25T05:48:38Z",
+      "side": 1,
+      "message": "No need for this second line.",
+      "revId": "50ec892f79430d697eff2adc030ee362453f9ee0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a5a3d42_7394ab6d",
+        "filename": "src/apps/mandelbrot/FractalEngine.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-05-25T05:48:38Z",
+      "side": 1,
+      "message": "I think this whole comment is superfluous.",
+      "revId": "50ec892f79430d697eff2adc030ee362453f9ee0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2835cd2b_15105fd7",
+        "filename": "src/apps/mandelbrot/FractalEngine.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-05-25T05:48:38Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "50ec892f79430d697eff2adc030ee362453f9ee0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9e042e6_826a4476",
+        "filename": "src/apps/mandelbrot/FractalEngine.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-05-25T05:48:38Z",
+      "side": 1,
+      "message": "I don\u0027t think you need comments for these two, they\u0027re clear enough (and you can probably combine them into one line.)",
+      "revId": "50ec892f79430d697eff2adc030ee362453f9ee0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ead7c28_c49d37ca",
+        "filename": "src/apps/mandelbrot/FractalEngine.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-05-25T05:48:38Z",
+      "side": 1,
+      "message": "You can remove \"the scale of the view, defined as\"",
+      "revId": "50ec892f79430d697eff2adc030ee362453f9ee0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fae4804c_b50ac9e6",
+        "filename": "src/apps/mandelbrot/FractalEngine.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-05-25T05:48:38Z",
+      "side": 1,
+      "message": "I think you can remove this comment.",
+      "revId": "50ec892f79430d697eff2adc030ee362453f9ee0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36b90374_a4d0ec87",
+        "filename": "src/apps/mandelbrot/FractalEngine.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-05-25T05:48:38Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "50ec892f79430d697eff2adc030ee362453f9ee0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
