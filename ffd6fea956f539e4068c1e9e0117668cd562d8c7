@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "911fe937_8081b631",
+        "filename": ".mailmap",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-05-25T18:18:23Z",
+      "side": 1,
+      "message": "This file was probably not supposed to be added?",
+      "revId": "ffd6fea956f539e4068c1e9e0117668cd562d8c7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
