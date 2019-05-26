@@ -16,6 +16,24 @@
       "revId": "ffd6fea956f539e4068c1e9e0117668cd562d8c7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1cb196e1_2bd00bfb",
+        "filename": ".mailmap",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-26T11:52:31Z",
+      "side": 1,
+      "message": "Oops, not in this commit indeed. It\u0027s used to generate the commit stats taking into account that some people change mail addresses over the years. I don\u0027t mind having it in the repo but I should make a separate commit for that.",
+      "parentUuid": "911fe937_8081b631",
+      "revId": "ffd6fea956f539e4068c1e9e0117668cd562d8c7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
