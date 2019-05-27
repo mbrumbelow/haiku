@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3ea90b05_e7e5e1bd",
+        "filename": "src/apps/drivesetup/DiskView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-27T20:03:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e64cf69c_f1ebfbac",
+      "revId": "2ea98cca86579bb430188bddaf30b8ee7291a726",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3fc60573_8171b04e",
         "filename": "src/apps/drivesetup/DiskView.cpp",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "2ea98cca86579bb430188bddaf30b8ee7291a726",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "942bed46_9d98f1ff",
+        "filename": "src/apps/drivesetup/DiskView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-27T20:03:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fc60573_8171b04e",
+      "revId": "2ea98cca86579bb430188bddaf30b8ee7291a726",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "757f8239_3b5fae47",
+        "filename": "src/apps/drivesetup/DiskView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-27T20:03:24Z",
+      "side": 1,
+      "message": "Latest version of the patch uses a loop.",
+      "parentUuid": "428bc1d4_c5375ff1",
+      "revId": "2ea98cca86579bb430188bddaf30b8ee7291a726",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "34fd94e6_b7854b91",
         "filename": "src/apps/drivesetup/DiskView.cpp",
         "patchSetId": 1
@@ -67,6 +121,24 @@
       "revId": "2ea98cca86579bb430188bddaf30b8ee7291a726",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61b53a6e_c006de2f",
+        "filename": "src/apps/drivesetup/DiskView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-27T20:03:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34fd94e6_b7854b91",
+      "revId": "2ea98cca86579bb430188bddaf30b8ee7291a726",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "2cc1e0cb_ec957aac",
+        "filename": "src/apps/drivesetup/DiskView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-27T20:03:24Z",
+      "side": 1,
+      "message": "Reworked that part to make it simpler. Now the name is built when creating the object, once and for all.",
+      "parentUuid": "e9b7b092_95b2a10c",
+      "revId": "2ea98cca86579bb430188bddaf30b8ee7291a726",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ce35342_95812a7b",
         "filename": "src/apps/drivesetup/DiskView.cpp",
         "patchSetId": 1
@@ -101,6 +191,24 @@
       "revId": "2ea98cca86579bb430188bddaf30b8ee7291a726",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d1ae7ec_12b87f9b",
+        "filename": "src/apps/drivesetup/DiskView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-27T20:03:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ce35342_95812a7b",
+      "revId": "2ea98cca86579bb430188bddaf30b8ee7291a726",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "a06aa033_3e663907",
+        "filename": "src/apps/drivesetup/MainWindow.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-27T20:03:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9811fb0b_51c11a9e",
+      "revId": "2ea98cca86579bb430188bddaf30b8ee7291a726",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1acfacd4_4b57ce6b",
         "filename": "src/apps/drivesetup/PartitionList.cpp",
         "patchSetId": 1
@@ -135,6 +261,24 @@
       "revId": "2ea98cca86579bb430188bddaf30b8ee7291a726",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e4cce76_6e17afb6",
+        "filename": "src/apps/drivesetup/PartitionList.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-27T20:03:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1acfacd4_4b57ce6b",
+      "revId": "2ea98cca86579bb430188bddaf30b8ee7291a726",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "a54e9857_5834c0eb",
+        "filename": "src/apps/drivesetup/PartitionList.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-27T20:03:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12e91997_671b852d",
+      "revId": "2ea98cca86579bb430188bddaf30b8ee7291a726",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ddc2a06_60ff39e8",
         "filename": "src/apps/drivesetup/PartitionList.cpp",
         "patchSetId": 1
@@ -172,6 +334,24 @@
     },
     {
       "key": {
+        "uuid": "4867142a_002108f0",
+        "filename": "src/apps/drivesetup/PartitionList.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-27T20:03:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ddc2a06_60ff39e8",
+      "revId": "2ea98cca86579bb430188bddaf30b8ee7291a726",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ddff4de_4c214582",
         "filename": "src/apps/drivesetup/PartitionList.cpp",
         "patchSetId": 1
@@ -186,6 +366,24 @@
       "revId": "2ea98cca86579bb430188bddaf30b8ee7291a726",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a8a2625_0fc1867c",
+        "filename": "src/apps/drivesetup/PartitionList.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-27T20:03:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ddff4de_4c214582",
+      "revId": "2ea98cca86579bb430188bddaf30b8ee7291a726",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
