@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b8b8978e_bd45be72",
+        "filename": "src/add-ons/kernel/busses/scsi/ahci/ahci_port.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-27T16:16:33Z",
+      "side": 1,
+      "message": "I don\u0027t understand the naming here. An inquiry data is 36 bytes (https://docs.oracle.com/cd/E19683-01/817-0688/6mgfjqs31/index.html), and apparently some controllers may use even less data and Linux has quirks named \"short inquiry\" (https://lore.kernel.org/patchwork/patch/598871/)",
+      "revId": "ede13812550f1fca8af6de97015b2cfb1d9a877c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
