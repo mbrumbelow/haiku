@@ -16,6 +16,24 @@
       "revId": "ede13812550f1fca8af6de97015b2cfb1d9a877c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0486b132_a551b796",
+        "filename": "src/add-ons/kernel/busses/scsi/ahci/ahci_port.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-05-27T16:37:53Z",
+      "side": 1,
+      "message": "Have a look at the full struct:\nhttps://github.com/haiku/haiku/blob/master/headers/private/drivers/scsi_cmds.h#L236\ncdrtools (ie cdda2wav) doesn\u0027t want the full response, only until vendor_spec.\nHow would you name this length?",
+      "parentUuid": "b8b8978e_bd45be72",
+      "revId": "ede13812550f1fca8af6de97015b2cfb1d9a877c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
