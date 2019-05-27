@@ -34,6 +34,24 @@
       "revId": "ede13812550f1fca8af6de97015b2cfb1d9a877c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5cc3f6c_b892bf06",
+        "filename": "src/add-ons/kernel/busses/scsi/ahci/ahci_port.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-27T19:53:28Z",
+      "side": 1,
+      "message": "Section 3.6 here:\n\nhttps://www.seagate.com/files/staticfiles/support/docs/manual/Interface%20manuals/100293068j.pdf\n\nSo we have:\n- \"short\" reply: 5 bytes, just enough to contain the \"additional length\" field. This is the minimal size we are allowed to request (this could be used to know the additional length, allocate memory, and then get the whole response).\n- \"base\" length: 36 bytes, up to product revision level. We are guaranteed to be able to read at least 36 bytes on any device.\n- \"additional\" length, platform specific, up to 255 bytes, depending on how much extra things the device has to say.\n\nSo, INQUIRY_BASE_LENGTH would be fine here, I think.",
+      "parentUuid": "0486b132_a551b796",
+      "revId": "ede13812550f1fca8af6de97015b2cfb1d9a877c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
