@@ -18,6 +18,7 @@
 #define BTRFS_MAX_TREE_DEPTH		8
 
 
+//! Direction status
 enum btree_traversing {
 	BTREE_FORWARD = 1,
 	BTREE_EXACT = 0,
@@ -114,11 +115,14 @@ private:
 public:
 	class Node {
 	public:
+		//! Construct Node object for block zero
 		Node(Volume* volume);
+		//! Construct Node object for given block
 		Node(Volume* volume, off_t block);
 		~Node();
 
-			// just return from Header
+
+		//! Getter and Setter methods
 		uint64	LogicalAddress() const
 			{ return fNode->header.LogicalAddress(); }
 		uint64	Flags() const
@@ -146,9 +150,12 @@ public:
 		uint8*	ItemData(uint32 i) const
 			{ return (uint8*)Item(0) + Item(i)->Offset(); }
 
+		//! Set fNode to NULL
 		void	Keep();
+		//! Set fNode to NULL and write cache to disk
 		void	Unset();
 
+		//! Set fBlockNumber to block and load fNode into memory for the block
 		void	SetTo(off_t block);
 		void	SetToWritable(off_t block, int32 transactionId, bool empty);
 		int		SpaceUsed() const;
@@ -156,10 +163,21 @@ public:
 
 		off_t	BlockNum() const { return fBlockNumber;}
 		bool	IsWritable() const { return fWritable; }
+
+		/*!
+		 * copy node header, items and items data
+		 * length is size to insert/remove
+		 * if node is a internal node, length isnt used
+		 * length = 0: Copy a whole
+		 * length < 0: removing
+		 * length > 0: inserting
+		 */
 		status_t	Copy(const Node* origin, uint32 start, uint32 end,
 						int length) const;
+		//! Same as copy, but uses memmove on current node
 		status_t	MoveEntries(uint32 start, uint32 end, int length) const;
 
+		//! Returns B_OK if item slot is in Node, B_NOT_FOUND otherwise
 		status_t	SearchSlot(const btrfs_key& key, int* slot,
 						btree_traversing type) const;
 	private:
@@ -170,6 +188,14 @@ public:
 		void	_Copy(const Node* origin, uint32 at, uint32 from, uint32 to,
 					int length) const;
 		status_t	_SpaceCheck(int length) const;
+
+		/*!
+		 * calculate used space except the header.
+		 * type is only for leaf node
+		 * type 1: only item space
+		 * type 2: only item data space
+		 * type 3: both type 1 and 2
+		 */
 		int		_CalculateSpace(uint32 from, uint32 to, uint8 type = 1) const;
 
 		btrfs_stream*		fNode;
@@ -184,6 +210,7 @@ public:
 		Path(BTree* tree);
 		~Path();
 
+		//! Getter and Setter methods
 		Node*		GetNode(int level, int* _slot = NULL) const;
 		Node*		SetNode(off_t block, int slot);
 		Node*		SetNode(const Node* node, int slot);
@@ -195,13 +222,41 @@ public:
 
 		int			Move(int level, int step);
 
+
+		/*!
+		* Allocate and copy block and do all the changes that it can.
+		* for now, we only copy-on-write tree block,
+		* file data is "nocow" by default.
+		*
+		*  o   parent  o
+		*  |    ===>    \
+		*  o           x o
+		*/
 		status_t	CopyOnWrite(Transaction& transaction, int level,
 						uint32 start, int num, int length);
+		/*!
+		* Copy-On-Write all internal nodes start from a specific level.
+		* level > 0: to root
+		* level <= 0: to leaf
+		*
+		*      path    cow-path       path    cow-path
+		*  =================================================
+		*      root    cow-root       root level < 0
+		*       |      |               |
+		*       n1     cow-n1         ...______
+		*       |      |               |       \
+		*       n2     cow-n2          n1     cow-n1
+		*       |      /               |        |
+		*      ...____/                n2     cow-n2
+		*       |                      |        |
+		*      leaf    level > 0      leaf    cow-leaf
+		*/
 		status_t	InternalCopy(Transaction& transaction, int level);
-
 		BTree*		Tree() const { return fTree; }
 	private:
+		//! Copy constructor
 		Path(const Path&);
+		//! Assignment operator overload
 		Path operator=(const Path&);
 	private:
 		Node*	fNodes[BTRFS_MAX_TREE_DEPTH];
@@ -214,9 +269,11 @@ public:
 
 class TreeIterator : public SinglyLinkedListLinkImpl<TreeIterator> {
 public:
+								//! Constructor and destructor
 								TreeIterator(BTree* tree, const btrfs_key& key);
 								~TreeIterator();
 
+			//! Getter and Setter methods
 			void				Rewind(bool inverse = false);
 			status_t			Find(const btrfs_key& key);
 			status_t			GetNextEntry(void** _value,
