@@ -141,13 +141,6 @@ BTree::Node::SearchSlot(const btrfs_key& key, int* slot, btree_traversing type)
 }
 
 
-/*
- * calculate used space except the header.
- * type is only for leaf node
- * type 1: only item space
- * type 2: only item data space
- * type 3: both type 1 and 2
- */
 int
 BTree::Node::_CalculateSpace(uint32 from, uint32 to, uint8 type) const
 {
@@ -223,14 +216,6 @@ BTree::Node::_SpaceCheck(int length) const
 }
 
 
-/*
- * copy node header, items and items data
- * length is size to insert/remove
- * if node is a internal node, length isnt used
- * length = 0: Copy a whole
- * length < 0: removing
- * length > 0: inserting
- */
 status_t
 BTree::Node::Copy(const Node* origin, uint32 start, uint32 end, int length)
 	const
@@ -268,8 +253,6 @@ BTree::Node::Copy(const Node* origin, uint32 start, uint32 end, int length)
 }
 
 
-/* Like copy but here we use memmove on current node.
- */
 status_t
 BTree::Node::MoveEntries(uint32 start, uint32 end, int length) const
 {
@@ -432,15 +415,6 @@ BTree::Path::SetEntry(int slot, const btrfs_entry& entry, void* value)
 }
 
 
-/*
- * Allocate and copy block and do all the changes that it can.
- * for now, we only copy-on-write tree block,
- * file data is "nocow" by default.
- *
- * 	o	parent	o
- * 	|	 ===> 	 \
- * 	o	      	x o
- */
 status_t
 BTree::Path::CopyOnWrite(Transaction& transaction, int level, uint32 start,
 	int num, int length)
@@ -504,22 +478,6 @@ BTree::Path::CopyOnWrite(Transaction& transaction, int level, uint32 start,
 }
 
 
-/* Copy-On-Write all internal nodes start from a specific level.
- * level > 0: to root
- * level <= 0: to leaf
- *
- *		path	cow-path       path    cow-path
- *	=================================================
- *		root	cow-root       root	level < 0
- *		 |  	|               |
- *		 n1 	cow-n1         ...______
- *		 |  	|               |       \
- *		 n2 	cow-n2          n1     cow-n1
- *		 |  	/               |        |
- *		...____/                n2     cow-n2
- *		 |  	                |        |
- *		leaf	level > 0      leaf    cow-leaf
- */
 status_t
 BTree::Path::InternalCopy(Transaction& transaction, int level)
 {
