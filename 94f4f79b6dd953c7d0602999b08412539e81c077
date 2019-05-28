@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e1ed9f70_1597166f",
+        "filename": "src/apps/drivesetup/DiskView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-05-28T09:21:10Z",
+      "side": 1,
+      "message": "IMHO, the code block which deals with extending the fullName by the encrypter should be refactored into its own method (returning the name). And I would probably rewrite the loop:\n\nwhile (partition !\u003d NULL) {\n    BPath path;\n    partition-\u003eGetPath(\u0026path);\n    ...\n    partition \u003d partition-\u003eParent();\n}\n\nI think it would be more readable and you declare the path only once and where you need it. And you have the code-line to init the path also only once.",
+      "revId": "94f4f79b6dd953c7d0602999b08412539e81c077",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f38d1f4f_27e43d21",
+        "filename": "src/apps/drivesetup/EncryptionUtils.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-05-28T09:21:10Z",
+      "side": 1,
+      "message": "Here you read 11 bytes into a 16 byte unitialized buffer. Why would \"buffer\" be zero terminated as a result? Also, the ReadAt() may fail, for example due to permissions. I think, there should at least be a memset() on buffer, and then you would read sizeof(buffer) - 1, so it stays terminated.",
+      "revId": "94f4f79b6dd953c7d0602999b08412539e81c077",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a0bc6c9_ae656dd8",
+        "filename": "src/apps/drivesetup/PartitionList.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-05-28T09:21:10Z",
+      "side": 1,
+      "message": "A bit nicer would be a utility method:\n\nstatic inline bool\nappend_parameter(BString\u0026 string, bool append, const char* parameter)\n{\n    if (!append)\n        return;\n    if (string.Length() \u003e 0)\n        string.Append(\", \");\n    string.Append(parameter);\n}\n\nAnd then you call it like this:\n\nappendParameter(parameters, volume.KnowsAttr(), B_TRANSLATE(\"Attributes\"));\nappendParameter(parameters, volume.KnowsMime(), B_TRANSLATE(\"Mimes\"));\n\nYou save a whole bunch of \"if\"s and also repeated \u0027parameters +\u003d \", \"\u0027 and the two lines at the end, removing the last \", \".",
+      "revId": "94f4f79b6dd953c7d0602999b08412539e81c077",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ade50c29_997bffe5",
+        "filename": "src/apps/drivesetup/PartitionList.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-05-28T09:21:10Z",
+      "side": 1,
+      "message": "if (encrypter !\u003d NULL) {",
+      "revId": "94f4f79b6dd953c7d0602999b08412539e81c077",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b83c6520_8eb9d352",
+        "filename": "src/apps/drivesetup/PartitionList.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-05-28T09:21:10Z",
+      "side": 1,
+      "message": "No need to change the code, but more efficient would be to truncate the last two chars.",
+      "revId": "94f4f79b6dd953c7d0602999b08412539e81c077",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
