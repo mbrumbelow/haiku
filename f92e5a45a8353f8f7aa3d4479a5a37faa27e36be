@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "53d5dac3_b9461a08",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/BTree.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-29T06:59:19Z",
+      "side": 0,
+      "message": "ok, now I see you removed this comment from here. It was fine here, since it documents an implementation detail (so it goes well with the implementation). But it is not appropriate as a Doxygen comment explaining the API.",
+      "revId": "f92e5a45a8353f8f7aa3d4479a5a37faa27e36be",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}

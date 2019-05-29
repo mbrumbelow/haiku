@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e5f3841f_8197bf44",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/BTree.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-29T06:59:19Z",
+      "side": 1,
+      "message": "It would be more interesting to document what each of the values do here.",
+      "revId": "a5d141cfdb7b5336b82ad78acebb7aae9dc1ce25",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b5e0662_ab969eea",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/BTree.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-29T06:59:19Z",
+      "side": 1,
+      "message": "Is block 0 special in btrfs? Is it the root directory or something?",
+      "revId": "a5d141cfdb7b5336b82ad78acebb7aae9dc1ce25",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71a73ec8_f8eeb355",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/BTree.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-29T06:59:19Z",
+      "side": 1,
+      "message": "This is obvious from the inline documentation, so it does not seem very useful to add this comment. Advice I sometime get is \"good code is readable without the need for any comments, because it does exactly what you expect\", and this seems to be the case here.",
+      "revId": "a5d141cfdb7b5336b82ad78acebb7aae9dc1ce25",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9f7605e_aaf08572",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/BTree.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-29T06:59:19Z",
+      "side": 1,
+      "message": "This is documenting implementation details, rather than what the function does from a functional point of view.",
+      "revId": "a5d141cfdb7b5336b82ad78acebb7aae9dc1ce25",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6490ffb1_5c7638fc",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/BTree.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-29T06:59:19Z",
+      "side": 1,
+      "message": "same here.\n\n\"Load node at block offset from disk\" would be much better",
+      "revId": "a5d141cfdb7b5336b82ad78acebb7aae9dc1ce25",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21b04d43_bd0d9d2a",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/BTree.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-29T06:59:19Z",
+      "side": 1,
+      "message": "Again, memmove is an implementation detail. The implementation may be similar to Copy, but the intent is very different, and that\u0027s what\u0027s relevant here.",
+      "revId": "a5d141cfdb7b5336b82ad78acebb7aae9dc1ce25",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9824d57_15d488cd",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/BTree.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-29T06:59:19Z",
+      "side": 1,
+      "message": "What is an item slot? Why is the slot variable a pointer?",
+      "revId": "a5d141cfdb7b5336b82ad78acebb7aae9dc1ce25",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b30d3d3e_be74b18e",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/BTree.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-29T06:59:19Z",
+      "side": 1,
+      "message": "Why is there both Copy and _Copy? What\u0027s the difference?",
+      "revId": "a5d141cfdb7b5336b82ad78acebb7aae9dc1ce25",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36e47f26_db9f5516",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/BTree.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-29T06:59:19Z",
+      "side": 1,
+      "message": "Useless comments here.",
+      "revId": "a5d141cfdb7b5336b82ad78acebb7aae9dc1ce25",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2efe0512_8555e935",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/BTree.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-29T06:59:19Z",
+      "side": 1,
+      "message": "Useless comments here as well.",
+      "revId": "a5d141cfdb7b5336b82ad78acebb7aae9dc1ce25",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
