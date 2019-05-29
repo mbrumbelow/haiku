@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7873e3f0_03ea46e1",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Attribute.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-29T06:49:53Z",
+      "side": 1,
+      "message": "I would expand a bit on the class description. Rather than a field by field and method by method documentation, it would be more valuable to have some description here of how the class is used.\n\nFor example, does this class represent a single attribute, or multiple ones? What is an attribute in btrfs? Does this include classical attributes (name, permissions, owner, group), extended attributes (custom key-value pairs) or both?\n\nHow and when would it be used? Who is in charge of creating instances? What do they do with it?",
+      "revId": "f92e5a45a8353f8f7aa3d4479a5a37faa27e36be",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5727fc1a_3f617fb3",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Attribute.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-29T06:49:53Z",
+      "side": 1,
+      "message": "line \u003e 80 columns",
+      "revId": "f92e5a45a8353f8f7aa3d4479a5a37faa27e36be",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b4622ce_21a5bd5b",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Attribute.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-29T06:49:53Z",
+      "side": 1,
+      "message": "\"set to\"",
+      "revId": "f92e5a45a8353f8f7aa3d4479a5a37faa27e36be",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4bab9d04_24f627d6",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Attribute.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-29T06:49:53Z",
+      "side": 1,
+      "message": "line \u003e 80 columns",
+      "revId": "f92e5a45a8353f8f7aa3d4479a5a37faa27e36be",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87c493d1_747f420f",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Attribute.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-29T06:49:53Z",
+      "side": 1,
+      "message": "use \\return for documenting return values",
+      "revId": "f92e5a45a8353f8f7aa3d4479a5a37faa27e36be",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "906ae225_f901ca3c",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Attribute.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-29T06:49:53Z",
+      "side": 1,
+      "message": "line \u003e 80 columns",
+      "revId": "f92e5a45a8353f8f7aa3d4479a5a37faa27e36be",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2599d7f5_ee568d6d",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Attribute.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-29T06:49:53Z",
+      "side": 1,
+      "message": "use \\return for documenting return values",
+      "revId": "f92e5a45a8353f8f7aa3d4479a5a37faa27e36be",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3336d0b_b8e575a5",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Attribute.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-29T06:49:53Z",
+      "side": 1,
+      "message": "I think this kind of documentation is a bit useless. We are inside \"the Attribute object\", so obviously the field belongs here. And both the type and variable name already say it is the volume. So I do not learn anything from this comment. Same for the two other fields below.",
+      "revId": "f92e5a45a8353f8f7aa3d4479a5a37faa27e36be",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe15ab84_d243ef5c",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/AttributeIterator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-29T06:49:53Z",
+      "side": 1,
+      "message": "document the params using \\param[out]\n\n\\param[out] name name of the current attribute\n\\param[out] _nameLength length of the name\n\\return B_OK on success, ??? when there are no more attributes.",
+      "revId": "f92e5a45a8353f8f7aa3d4479a5a37faa27e36be",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48a5edf8_8c911d21",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/AttributeIterator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-05-29T06:49:53Z",
+      "side": 1,
+      "message": "This description is oriented towards the internals of the class. So it is not very relevant to people trying to use it. It would be useful as a comment in the implementation of the method, but does not help seeing things from an higher level of abstraction.\n\nSomething like \"rewind the iterator to the first attribute of the node\" would be a lot more helpful.",
+      "revId": "f92e5a45a8353f8f7aa3d4479a5a37faa27e36be",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
