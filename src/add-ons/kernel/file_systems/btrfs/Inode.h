@@ -22,6 +22,7 @@
 #endif
 
 
+//! Class used for in-memory representation of inodes
 class Inode {
 public:
 						Inode(Volume* volume, ino_t id);
@@ -98,10 +99,9 @@ private:
 };
 
 
-// The Vnode class provides a convenience layer upon get_vnode(), so that
-// you don't have to call put_vnode() anymore, which may make code more
-// readable in some cases
-
+/*! Wrapper class to make code more readable by eliminating the need to call
+ * put_vnode()
+ */
 class Vnode {
 public:
 	Vnode(Volume* volume, ino_t id)
