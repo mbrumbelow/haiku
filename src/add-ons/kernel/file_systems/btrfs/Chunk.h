@@ -13,12 +13,18 @@
 #include "btrfs.h"
 
 
+/*! In-memory representation of btrfs_chunk, which contains the mapping from a
+ * virtualized usable byte range within the backing storage to a set of one or 
+ * more stripes of backing devices
+ */
 class Chunk {
 public:
 								Chunk(btrfs_chunk* chunk,
 									fsblock_t offset);
 								~Chunk();
+			//! \return Value of current physical size
 			uint32				Size() const;
+			//! Calculates physical address of first stripe, in bytes
 			status_t			FindBlock(off_t logical, off_t& physical);
 			fsblock_t			Offset() const { return fChunkOffset; }
 			fsblock_t			End() const
