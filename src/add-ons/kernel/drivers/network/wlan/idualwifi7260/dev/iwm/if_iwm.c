@@ -5701,6 +5701,11 @@ iwm_pci_attach(device_t dev)
 
 	sc = device_get_softc(dev);
 
+#ifdef __HAIKU__
+	// Enable memory mapped io.
+	pci_enable_io(dev, SYS_RES_MEMORY);
+#endif
+
 	/* We disable the RETRY_TIMEOUT register (0x41) to keep
 	 * PCI Tx retries from interfering with C3 CPU state */
 	pci_write_config(dev, PCI_CFG_RETRY_TIMEOUT, 0x00, 1);
