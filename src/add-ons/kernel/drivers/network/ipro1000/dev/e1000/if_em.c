@@ -1876,6 +1876,17 @@ em_allocate_pci_resources(if_ctx_t ctx)
 	device_t dev = iflib_get_dev(ctx);
 	int rid, val;
 
+#ifdef __HAIKU__
+	// In FreeBSD, at this point memory mapped io is already enabled for the
+	// device, but not in Haiku. So we enable it.
+	//
+	// TODO(bga): Is there a better place to do this? I moved it as close to
+	//            the actual driver as possible (so, inside it) to prevent
+	//            doing this for devices that possibly do not need/want it.
+	//            Should we also enable port io?
+	pci_enable_io(dev, SYS_RES_MEMORY);
+#endif
+
 	rid = PCIR_BAR(0);
 	adapter->memory = bus_alloc_resource_any(dev, SYS_RES_MEMORY,
 	    &rid, RF_ACTIVE);
