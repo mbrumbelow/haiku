@@ -137,6 +137,9 @@ bus_alloc_mem_resource(device_t dev, struct resource *res, int regid)
 
 	// TODO: check flags & PCI_address_prefetchable ?
 
+	// Enable memory mapped io access.
+	pci_enable_io(dev, SYS_RES_MEMORY);
+
 	void *virtualAddr;
 
 	res->r_mapped_area = map_mem(&virtualAddr, addr, size, 0,
@@ -153,6 +156,9 @@ bus_alloc_mem_resource(device_t dev, struct resource *res, int regid)
 static int
 bus_alloc_ioport_resource(device_t dev, struct resource *res, int regid)
 {
+	// Enable memory mapped ioport access.
+	pci_enable_io(dev, SYS_RES_IOPORT);
+
 	res->r_bustag = X86_BUS_SPACE_IO;
 	res->r_bushandle = pci_read_config(dev, regid, 4) & PCI_address_io_mask;
 	return 0;
