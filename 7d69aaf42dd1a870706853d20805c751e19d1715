@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "838fd5a4_557e6789",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/BTree.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-06-03T13:36:10Z",
+      "side": 1,
+      "message": "unwanted empty lines?",
+      "revId": "7d69aaf42dd1a870706853d20805c751e19d1715",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74ada12b_f19a2d3e",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/BTree.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-06-03T13:36:10Z",
+      "side": 1,
+      "message": "which error codes, and what do each of them mean?",
+      "revId": "7d69aaf42dd1a870706853d20805c751e19d1715",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5674a967_7d1a639a",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/BTree.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-06-03T13:36:10Z",
+      "side": 1,
+      "message": "current",
+      "revId": "7d69aaf42dd1a870706853d20805c751e19d1715",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
