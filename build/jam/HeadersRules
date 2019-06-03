@@ -463,14 +463,14 @@ rule FStandardHeaders architecture
 	# The c++ headers.
 	headers += [ C++HeaderDirectories $(architecture) ] ;
 
+	# Use posix headers directory
+	headers += [ FDirName $(HAIKU_TOP) headers posix ] ;
+
 	# The gcc headers.
 	headers += [ GccHeaderDirectories $(architecture) ] ;
 
 	# Use headers directory, to allow to do things like include <posix/string.h>
 	headers += [ FDirName $(HAIKU_TOP) headers ] ;
-
-	# Use posix headers directory
-	headers += [ FDirName $(HAIKU_TOP) headers posix ] ;
 
 	# Use glibc headers
 	headers += [ FDirName $(HAIKU_TOP) headers glibc ] ;
