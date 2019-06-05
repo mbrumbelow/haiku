@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c01f5c40_8ab1303b",
+        "filename": "src/preferences/input/InputDeviceListView.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-06-05T06:46:42Z",
+      "side": 1,
+      "message": "This scroll view is not added to anything, so it will not be in the window.",
+      "revId": "e62873f1c83feb7bd30ad1e109b92861cb40a274",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "672c5f08_a8d5b525",
+        "filename": "src/preferences/input/InputDeviceView.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-06-05T06:46:42Z",
+      "side": 1,
+      "message": "You have both DeviceListView and InputDeviceListView, please pick only one.\nDeviceListView seems better, but we will need a scroll view on the window side, to manage the scrollbar and borders.",
+      "revId": "e62873f1c83feb7bd30ad1e109b92861cb40a274",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "019571a0_fc372833",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-06-05T06:46:42Z",
+      "side": 1,
+      "message": "It\u0027s \"revert\" not \"reverts\"",
+      "revId": "e62873f1c83feb7bd30ad1e109b92861cb40a274",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b06dde9a_de9364c4",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-06-05T06:46:42Z",
+      "side": 1,
+      "message": "Why do we need an horizontal group inside another horizontal group here?",
+      "revId": "e62873f1c83feb7bd30ad1e109b92861cb40a274",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf796dd0_4aa546e9",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-06-05T06:46:42Z",
+      "side": 1,
+      "message": "use either DeviceListView or fDeviceListView, but not both.",
+      "revId": "e62873f1c83feb7bd30ad1e109b92861cb40a274",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7509511c_e2daf3e6",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-06-05T06:46:42Z",
+      "side": 1,
+      "message": "indenting the content of a group one extra level will make this a lot more readable.",
+      "revId": "e62873f1c83feb7bd30ad1e109b92861cb40a274",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0aebcb19_e651a742",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-06-05T06:46:42Z",
+      "side": 1,
+      "message": "Here you have a vertical group inside another vertical group, is that what you want? and why?",
+      "revId": "e62873f1c83feb7bd30ad1e109b92861cb40a274",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87e775bd_251a84fe",
+        "filename": "src/preferences/input/Input_Mouse_Touchpad.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-06-05T06:46:42Z",
+      "side": 1,
+      "message": "This group is not needed, you could add the tabView directly",
+      "revId": "e62873f1c83feb7bd30ad1e109b92861cb40a274",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
