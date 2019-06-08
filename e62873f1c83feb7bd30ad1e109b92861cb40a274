@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f2451675_cc2d8253",
+        "filename": "src/preferences/input/InputDeviceListView.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-06-08T08:24:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c01f5c40_8ab1303b",
+      "revId": "e62873f1c83feb7bd30ad1e109b92861cb40a274",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "672c5f08_a8d5b525",
         "filename": "src/preferences/input/InputDeviceView.h",
         "patchSetId": 9
@@ -33,6 +51,24 @@
       "revId": "e62873f1c83feb7bd30ad1e109b92861cb40a274",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a66e7d22_7ef571b9",
+        "filename": "src/preferences/input/InputDeviceView.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-06-08T08:24:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "672c5f08_a8d5b525",
+      "revId": "e62873f1c83feb7bd30ad1e109b92861cb40a274",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
