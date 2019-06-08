@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0458c6c6_aaed3c56",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-06-08T08:24:01Z",
+      "side": 1,
+      "message": "Indeed, you need to set the \"selection message\" so that the DeviceList sends the message to your window everytime an item is selected. Note that there will be a single message for all items, but it should include the seleciton index (you will see that if you look at the output of PrintToStream). You can get the index using message-\u003eGetInt32() and act accordingly.\n\nI see you have also started to see how to use BCardLayout. I have noticed that it is not part of the BLayoutBuilder yet, so you will have to use a BCardView, to which you can add the various device views using AddChild().\n\nYou can then get the BCardLayout using BCardView::CardLayout(), and use that to set the visible \"card\" (child view) when you want to switch between the two views.",
+      "revId": "3b593abe9ecbea6da2cde72978ebf33ee2166e37",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fdac81b3_cdb832e7",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-06-08T08:24:01Z",
+      "side": 1,
+      "message": "Messages from all views (including the selection message for the list will land here. You can use message-\u003ePrintToStream() to see them in the terminal indeed.\n\nYou are missing just one important thing: forward the messages you don\u0027t handle yourself to the parent class:\n\nBWindow::MessageReceived(message);\n\nThis will allow the window to still process standard messages (B_QUIT_REQUESTED, etc) normally.",
+      "revId": "3b593abe9ecbea6da2cde72978ebf33ee2166e37",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
