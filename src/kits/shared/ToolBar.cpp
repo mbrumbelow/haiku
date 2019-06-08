@@ -1,5 +1,6 @@
 /*
  * Copyright 2011 Stephan Aßmus <superstippi@gmx.de>
+ * Copyright 2015 John Scipione
  * All rights reserved. Distributed under the terms of the MIT license.
  */
 #include "ToolBar.h"
@@ -78,10 +79,11 @@ LockableButton::MouseDown(BPoint point)
 //#pragma mark  -
 
 
-BToolBar::BToolBar(BRect frame, orientation ont)
+BToolBar::BToolBar(BRect frame, orientation ont, bool bottomBorder)
 	:
 	BGroupView(ont),
-	fOrientation(ont)
+	fOrientation(ont),
+	fBottomBorder(bottomBorder)
 {
 	_Init();
 
@@ -91,10 +93,11 @@ BToolBar::BToolBar(BRect frame, orientation ont)
 }
 
 
-BToolBar::BToolBar(orientation ont)
+BToolBar::BToolBar(orientation ont, bool bottomBorder)
 	:
 	BGroupView(ont),
-	fOrientation(ont)
+	fOrientation(ont),
+	fBottomBorder(bottomBorder)
 {
 	_Init();
 }
@@ -102,6 +105,22 @@ BToolBar::BToolBar(orientation ont)
 
 BToolBar::~BToolBar()
 {
+}
+
+
+void
+BToolBar::Draw(BRect updateRect)
+{
+	BRect rect(Bounds());
+	if (fBottomBorder) {
+		// Draw a 1px bottom border, like BMenuBar
+		rgb_color base = LowColor();
+
+		be_control_look->DrawBorder(this, rect, updateRect, base,
+			B_PLAIN_BORDER, 0, BControlLook::B_BOTTOM_BORDER);
+	}
+
+	BGroupView::Draw(rect & updateRect);
 }
 
 
@@ -243,10 +262,13 @@ void
 BToolBar::_Init()
 {
 	float inset = ceilf(be_control_look->DefaultItemSpacing() / 2);
-	GroupLayout()->SetInsets(inset, 0, inset, 0);
+	GroupLayout()->SetInsets(inset, 0.0f, inset, fBottomBorder ? 1.0f : 0.0f);
 	GroupLayout()->SetSpacing(1);
 
-	SetFlags(Flags() | B_FRAME_EVENTS | B_PULSE_NEEDED);
+	int32 flags = B_FRAME_EVENTS | B_PULSE_NEEDED;
+	if(fBottomBorder)
+		flags |= B_WILL_DRAW;
+	SetFlags(Flags() | flags);
 }
 
 
