@@ -45,6 +45,23 @@
       "revId": "5198f7dcffed996c298d18376af0cd8d92fd5a6a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "073f4b25_70b5a4a1",
+        "filename": "headers/private/shared/ToolBar.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-06-08T18:44:41Z",
+      "side": 1,
+      "message": "Maybe it is a good time to also add some FBC padding to the class. Does this change already break existing packages?",
+      "revId": "5198f7dcffed996c298d18376af0cd8d92fd5a6a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
