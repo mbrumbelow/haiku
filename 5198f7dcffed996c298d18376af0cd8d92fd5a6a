@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ac2152a_daf35af5",
+        "filename": "headers/private/shared/ToolBar.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-06-08T15:35:32Z",
+      "side": 1,
+      "message": "RFC. In other places we usually have B_NO_BORDER/B_PLAIN_BORDER, but this would only apply to the bottom, so B_PLAIN_BORDER could be misleading. On the other hand it would be more consistent.",
+      "range": {
+        "startLine": 19,
+        "startChar": 11,
+        "endLine": 19,
+        "endChar": 36
+      },
+      "revId": "5198f7dcffed996c298d18376af0cd8d92fd5a6a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d211ab17_2346798a",
+        "filename": "headers/private/shared/ToolBar.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-06-08T15:35:32Z",
+      "side": 1,
+      "message": "tab",
+      "range": {
+        "startLine": 24,
+        "startChar": 8,
+        "endLine": 24,
+        "endChar": 9
+      },
+      "revId": "5198f7dcffed996c298d18376af0cd8d92fd5a6a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
