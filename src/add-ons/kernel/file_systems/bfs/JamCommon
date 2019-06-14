@@ -17,6 +17,12 @@
 		OPTIM = -O1 ;
 	}
 
+	if $(HOST_PLATFORM) = darwin {
+		# clang requires c++11 for use of non-static data member
+		# e.g. check_control::stats
+		HOST_C++FLAGS += -std=c++11 ;
+	}
+
 	defines = [ FDefines $(defines) ] ;
 	SubDirCcFlags $(defines) ;
 	SubDirC++Flags $(defines) ;
