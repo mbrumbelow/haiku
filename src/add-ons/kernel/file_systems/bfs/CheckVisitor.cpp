@@ -61,7 +61,7 @@ CheckVisitor::StartBitmapPass()
 		return B_NO_MEMORY;
 	}
 
-	memset(&Control().stats, 0, sizeof(check_control::stats));
+	memset(&Control().stats, 0, sizeof(Control().stats));
 
 	// initialize bitmap
 	memset(fCheckBitmap, 0, size);
