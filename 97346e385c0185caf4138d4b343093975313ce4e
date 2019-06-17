@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64e3b807_fb6a3e76",
+        "filename": "src/bin/setdecor.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-06-17T19:25:40Z",
+      "side": 1,
+      "message": "This line should stay as is.",
+      "revId": "97346e385c0185caf4138d4b343093975313ce4e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b460789_72465ff0",
+        "filename": "src/bin/setdecor.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-06-17T19:25:40Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "97346e385c0185caf4138d4b343093975313ce4e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
