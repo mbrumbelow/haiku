@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "cfae862f_efdc15bb",
+        "filename": "src/preferences/input/Input_Mouse_Touchpad.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2019-06-18T17:46:32Z",
+      "side": 1,
+      "message": "This file and the header should be named InputMouseTouchpadView.cpp/h. I will admit the underscores kind of make the file name more readable, but it should be renamed to be consistent with this application and with most other Haiku code.",
+      "revId": "0e8d13f1b93c74dbaf608e4175c0d6f9ed26a258",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7570b0b1_474a254e",
         "filename": "src/preferences/input/Input_Mouse_Touchpad.cpp",
         "patchSetId": 12
