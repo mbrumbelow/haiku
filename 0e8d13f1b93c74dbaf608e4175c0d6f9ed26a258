@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "7ce18004_c0a41925",
+        "filename": "src/preferences/input/Input_Mouse_Touchpad.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2019-06-19T15:48:02Z",
+      "side": 1,
+      "message": "That sounds like a good name, with of course the same change made to the class in the header and cpp file.",
+      "parentUuid": "49bb2967_78c4aaee",
+      "revId": "0e8d13f1b93c74dbaf608e4175c0d6f9ed26a258",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7570b0b1_474a254e",
         "filename": "src/preferences/input/Input_Mouse_Touchpad.cpp",
         "patchSetId": 12
