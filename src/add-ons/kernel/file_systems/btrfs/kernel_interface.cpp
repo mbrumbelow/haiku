@@ -429,6 +429,59 @@ btrfs_open(fs_volume* /*_volume*/, fs_vnode* _node, int openMode,
 }
 
 
+status_t btrfs_create(fs_volume* volume, fs_vnode* dir, const char* name,
+		int mode, int perms, void** _cookie, ino_t* id)
+{
+	Volume* volume = (Volume*)_volume->private_volume;
+	Inode* directory = (Inode*)_directory->private_node;
+	BTree::Path path(volume->FSTree());
+
+	if (volume->IsReadOnly())
+		return B_READ_ONLY_DEVICE;
+
+	if (!directory->IsDirectory())
+		return B_NOT_A_DIRECTORY;
+
+	status_t status = directory->CheckPermissions(W_OK);
+	if (status < B_OK)
+		return status;
+
+	DirectoryIterator DirIter(directory);
+	uint32_t nameLen = 0;
+	while (name[nameLen] != '\0')
+		nameLen++;
+	if ((mode & O_EXCL) && (DirIter.Lookup(name, nameLen, id) == B_OK))
+		return B_FILE_EXISTS;
+
+	Transaction transaction(volume);
+	id = volume->GetNextInodeID();
+	mode = S_DIRECTORY | (mode & S_IUMSK);
+	Inode* inode = Inode::Create(transaction, id, directory, mode);
+	if (inode == NULL)
+		return B_NO_MEMORY;
+
+	status = inode->Insert(transaction, &path);
+	if (status != B_OK)
+		return status;
+
+	status = inode->MakeReference(transaction, &path, directory, name, mode);
+	if (status != B_OK)
+		return status;
+
+	put_vnode(volume->FSVolume(), inode->ID());
+	entry_cache_add(volume->ID(), directory->ID(), name, inode->ID());
+
+	status = transaction.Done();
+	if (status == B_OK)
+		notify_entry_created(volume->ID(), directory->ID(), name, inode->ID());
+	else
+		entry_cache_remove(volume->ID(), directory->ID(), name);
+
+	status = btrfs_open(_volume, inode, mode, _cookie);
+	return status;
+}
+
+
 static status_t
 btrfs_read(fs_volume* _volume, fs_vnode* _node, void* _cookie, off_t pos,
 	void* buffer, size_t* _length)
@@ -982,7 +1035,7 @@ fs_vnode_ops gBtrfsVnodeOps = {
 	NULL,	// fs_preallocate
 
 	/* file operations */
-	NULL,	// fs_create,
+	&btrfs_create,
 	&btrfs_open,
 	&btrfs_close,
 	&btrfs_free_cookie,
