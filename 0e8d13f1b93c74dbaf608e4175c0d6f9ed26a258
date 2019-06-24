@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "7678d92e_160f4736",
+        "filename": "src/preferences/input/Input_Mouse_Touchpad.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-06-24T16:15:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ce18004_c0a41925",
+      "revId": "0e8d13f1b93c74dbaf608e4175c0d6f9ed26a258",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7570b0b1_474a254e",
         "filename": "src/preferences/input/Input_Mouse_Touchpad.cpp",
         "patchSetId": 12
@@ -69,6 +87,24 @@
       "revId": "0e8d13f1b93c74dbaf608e4175c0d6f9ed26a258",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e07a3ba4_9c2e16f7",
+        "filename": "src/preferences/input/Input_Mouse_Touchpad.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-06-24T16:15:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7570b0b1_474a254e",
+      "revId": "0e8d13f1b93c74dbaf608e4175c0d6f9ed26a258",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
