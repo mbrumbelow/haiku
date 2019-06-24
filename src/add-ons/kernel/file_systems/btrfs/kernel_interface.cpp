@@ -1,4 +1,5 @@
 /*
+ * Copyright 2019, Bharathi Ramana Joshi, joshibharathiramana@gmail.com
  * Copyright 2019, Les De Ridder, les@lesderid.net
  * Copyright 2017, Chế Vũ Gia Hy, cvghy116@gmail.com.
  * Copyright 2011, Jérôme Duval, korli@users.berlios.de.
@@ -432,6 +433,91 @@ btrfs_open(fs_volume* /*_volume*/, fs_vnode* _node, int openMode,
 			return status;
 	}
 
+	cookieDeleter.Detach();
+	*_cookie = cookie;
+
+	return B_OK;
+}
+
+
+status_t btrfs_create(fs_volume* _volume, fs_vnode* _dir, const char* name,
+		int openMode, int mode, void** _cookie, ino_t* id)
+{
+	Volume* volume = (Volume*)_volume->private_volume;
+	Inode* directory = (Inode*)_dir->private_node;
+	BTree::Path path(volume->FSTree());
+
+	if (volume->IsReadOnly())
+		return B_READ_ONLY_DEVICE;
+
+	if (!directory->IsDirectory())
+		return B_NOT_A_DIRECTORY;
+
+	status_t status = directory->CheckPermissions(W_OK);
+	if (status < B_OK)
+		return status;
+
+	// We will need this later in the process, but it's easier to allocate now
+	// than having to revert the transaction later because we're out of memory.
+	file_cookie* cookie = new(std::nothrow) file_cookie;
+	if (cookie == NULL)
+		return B_NO_MEMORY;
+
+	ObjectDeleter<file_cookie> cookieDeleter(cookie);
+
+	Transaction transaction(volume);
+	*id = volume->GetNextInodeID();
+	openMode = S_FILE | (openMode & S_IUMSK);
+	Inode* inode = Inode::Create(transaction, *id, directory, mode);
+	if (inode == NULL)
+		return B_NO_MEMORY;
+
+	status =  inode->CheckPermissions(open_mode_to_access(openMode)
+		| (openMode & O_TRUNC ? W_OK : 0));
+	if(status != B_OK)
+		return status;
+
+	status = inode->Insert(transaction, &path);
+	if (status != B_OK) {
+		put_vnode(volume->FSVolume(), inode->ID());
+		return status;
+	}
+
+	status = inode->MakeReference(transaction, &path, directory, name,
+		openMode);
+	if (status != B_OK) {
+		inode->Remove(transaction, &path);
+		put_vnode(volume->FSVolume(), inode->ID());
+		return status;
+	}
+
+	if ((openMode & O_NOCACHE) != 0 && inode->FileCache() != NULL) {
+		status = file_cache_disable(inode->FileCache());
+		if (status != B_OK) {
+			entry_cache_remove(volume->ID(), directory->ID(), name);
+			return status;
+		}
+	}
+
+	put_vnode(volume->FSVolume(), inode->ID());
+	entry_cache_add(volume->ID(), directory->ID(), name, inode->ID());
+
+	status = transaction.Done();
+	if (status != B_OK)
+		ino_t* parent;
+
+		inode->Remove(transaction, &path);
+		inode->Dereference(transaction, &path, *parent, name);
+		entry_cache_remove(volume->ID(), directory->ID(), name);
+		return status;
+	}
+
+	notify_entry_created(volume->ID(), directory->ID(), name, inode->ID());
+
+	// Prepare the cookie
+	cookie->open_mode = openMode & BTRFS_OPEN_MODE_USER_MASK;
+	cookie->last_size = 0;
+	cookie->last_notification = system_time();
 	cookieDeleter.Detach();
 	*_cookie = cookie;
 
@@ -1048,7 +1134,7 @@ fs_vnode_ops gBtrfsVnodeOps = {
 	NULL,	// fs_preallocate
 
 	/* file operations */
-	NULL,	// fs_create,
+	&btrfs_create,
 	&btrfs_open,
 	&btrfs_close,
 	&btrfs_free_cookie,
