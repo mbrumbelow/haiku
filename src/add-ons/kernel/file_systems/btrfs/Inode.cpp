@@ -444,6 +444,14 @@ Inode::MakeReference(Transaction& transaction, BTree::Path* path,
 	uint16 nameLength = strlen(name);
 	uint64 index = parent->FindNextIndex(path);
 
+	// check for duplicate
+	DirectoryIterator DirIter(directory);
+	uint32_t nameLen = 0;
+	while (name[nameLen] != '\0')
+		nameLen++;
+	if ((mode & O_EXCL) && (DirIter.Lookup(name, nameLen, id) == B_OK))
+		return B_FILE_EXISTS
+
 	// insert inode_ref
 	btrfs_inode_ref* inodeRef = (btrfs_inode_ref*)malloc(sizeof(btrfs_inode_ref)
 		+ nameLength);
