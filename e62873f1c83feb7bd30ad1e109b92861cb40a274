@@ -261,6 +261,24 @@
       "revId": "e62873f1c83feb7bd30ad1e109b92861cb40a274",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa5cdaaa_28fbd3be",
+        "filename": "src/preferences/input/Input_Mouse_Touchpad.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-06-24T16:15:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87e775bd_251a84fe",
+      "revId": "e62873f1c83feb7bd30ad1e109b92861cb40a274",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
