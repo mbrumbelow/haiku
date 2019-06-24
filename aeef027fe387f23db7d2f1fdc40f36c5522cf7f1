@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "dd67c3cb_eab62177",
+        "filename": "src/add-ons/kernel/file_systems/fat/mkdos.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-06-24T16:17:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bc95cdd_0a02512a",
+      "revId": "aeef027fe387f23db7d2f1fdc40f36c5522cf7f1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "de51da7e_6f8422fa",
         "filename": "src/add-ons/kernel/file_systems/fat/mkdos.cpp",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "aeef027fe387f23db7d2f1fdc40f36c5522cf7f1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4aae20d3_816b1109",
+        "filename": "src/add-ons/kernel/file_systems/fat/mkdos.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-06-24T16:17:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de51da7e_6f8422fa",
+      "revId": "aeef027fe387f23db7d2f1fdc40f36c5522cf7f1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "a4b8cf28_168526ee",
+        "filename": "src/add-ons/kernel/file_systems/fat/mkdos.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-06-24T16:17:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e90615db_976be12f",
+      "revId": "aeef027fe387f23db7d2f1fdc40f36c5522cf7f1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d25143a2_31d68188",
         "filename": "src/add-ons/kernel/file_systems/fat/mkdos.cpp",
         "patchSetId": 1
@@ -67,6 +121,24 @@
       "revId": "aeef027fe387f23db7d2f1fdc40f36c5522cf7f1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "568f4d0f_bdbf4e84",
+        "filename": "src/add-ons/kernel/file_systems/fat/mkdos.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-06-24T16:17:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d25143a2_31d68188",
+      "revId": "aeef027fe387f23db7d2f1fdc40f36c5522cf7f1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "881d406b_5a5a1706",
+        "filename": "src/add-ons/kernel/file_systems/fat/mkdos.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-06-24T16:17:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67c86d88_9a6c6736",
+      "revId": "aeef027fe387f23db7d2f1fdc40f36c5522cf7f1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d422758_2cf2db08",
         "filename": "src/add-ons/kernel/file_systems/fat/mkdos.cpp",
         "patchSetId": 1
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "344b3a95_e606e2c2",
+        "filename": "src/add-ons/kernel/file_systems/fat/mkdos.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-06-24T16:17:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d422758_2cf2db08",
+      "revId": "aeef027fe387f23db7d2f1fdc40f36c5522cf7f1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "51328d3e_fd72921d",
         "filename": "src/add-ons/kernel/file_systems/fat/mkdos.cpp",
         "patchSetId": 1
@@ -118,6 +226,24 @@
       "revId": "aeef027fe387f23db7d2f1fdc40f36c5522cf7f1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7b411d8_6d93dae8",
+        "filename": "src/add-ons/kernel/file_systems/fat/mkdos.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-06-24T16:17:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51328d3e_fd72921d",
+      "revId": "aeef027fe387f23db7d2f1fdc40f36c5522cf7f1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
