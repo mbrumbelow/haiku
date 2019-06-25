@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ec0e065b_149b3c5d",
+        "filename": "src/add-ons/kernel/file_systems/reiserfs/Item.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-06-25T17:00:00Z",
+      "side": 1,
+      "message": "Please don\u0027t add new lines when not needed.",
+      "revId": "5a099e0407d7e6cdf4bc7b05839fc91f9ea25a2b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4356462f_6d1624e2",
+        "filename": "src/add-ons/kernel/file_systems/reiserfs/Key.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-06-25T17:00:00Z",
+      "side": 1,
+      "message": "There is a space after 3 tabs.",
+      "revId": "5a099e0407d7e6cdf4bc7b05839fc91f9ea25a2b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5aa9fca6_2cfc459e",
+        "filename": "src/add-ons/kernel/file_systems/reiserfs/Tree.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-06-25T17:00:00Z",
+      "side": 1,
+      "message": "This line is too long.",
+      "revId": "5a099e0407d7e6cdf4bc7b05839fc91f9ea25a2b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "faed667a_ea146804",
+        "filename": "src/add-ons/kernel/file_systems/reiserfs/Volume.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-06-25T17:00:00Z",
+      "side": 1,
+      "message": "Please keep on the previous line.",
+      "revId": "5a099e0407d7e6cdf4bc7b05839fc91f9ea25a2b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
