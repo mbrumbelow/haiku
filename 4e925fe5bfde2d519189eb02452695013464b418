@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "49f5700c_01988094",
+        "filename": "build/jam/ArchitectureRules",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-06-26T19:24:42Z",
+      "side": 1,
+      "message": "This is wrong, HAIKU_KERNEL_PLATFORM is one value.",
+      "revId": "4e925fe5bfde2d519189eb02452695013464b418",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
