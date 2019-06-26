@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "89f6a27a_fc2d289f",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2019-06-26T06:48:00Z",
+      "side": 1,
+      "message": "I think there should be a better way to detect duplicated files here.",
+      "range": {
+        "startLine": 449,
+        "startChar": 1,
+        "endLine": 454,
+        "endChar": 23
+      },
+      "revId": "bc343f8c1e900b429690192d824748b884d18414",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66adb905_f4190dc7",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2019-06-26T06:48:00Z",
+      "side": 1,
+      "message": "This mode is for creating inode, so you have to specify file instead of directory.",
+      "revId": "bc343f8c1e900b429690192d824748b884d18414",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c21e1397_0e904969",
         "filename": "src/add-ons/kernel/file_systems/btrfs/kernel_interface.cpp",
         "patchSetId": 1
