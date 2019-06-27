@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6d769c80_1c72a2e9",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Chunk.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2019-06-27T14:16:18Z",
+      "side": 1,
+      "message": "What are backing storage, and backing devices ? Also there is a trailing space.",
+      "revId": "84f6dece2794e9ea44baae709b25cd356474ccea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e70e28db_8c753a44",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Chunk.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2019-06-27T14:16:18Z",
+      "side": 1,
+      "message": "Calculates physical address of first stripe is not really correct, as it converts the logical address within the range of a chunk. The name FindBlock is kinda misleading, because we get the address from it not the block number, you can fix its name.",
+      "revId": "84f6dece2794e9ea44baae709b25cd356474ccea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
