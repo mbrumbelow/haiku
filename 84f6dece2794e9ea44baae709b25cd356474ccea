@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a8bcb5bc_d9860044",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Chunk.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-06-27T17:49:05Z",
+      "side": 1,
+      "message": "I believe it means non-volatile storage",
+      "parentUuid": "6d769c80_1c72a2e9",
+      "revId": "84f6dece2794e9ea44baae709b25cd356474ccea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e70e28db_8c753a44",
         "filename": "src/add-ons/kernel/file_systems/btrfs/Chunk.h",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "84f6dece2794e9ea44baae709b25cd356474ccea",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "786bb8ec_d1b7a423",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Chunk.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-06-27T17:49:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e70e28db_8c753a44",
+      "revId": "84f6dece2794e9ea44baae709b25cd356474ccea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
