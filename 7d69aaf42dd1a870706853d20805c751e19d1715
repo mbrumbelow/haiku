@@ -19,6 +19,40 @@
     },
     {
       "key": {
+        "uuid": "e1601db1_6f38c49b",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/BTree.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 998,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2019-06-27T14:05:30Z",
+      "side": 1,
+      "message": "Redundant empty lines.",
+      "revId": "7d69aaf42dd1a870706853d20805c751e19d1715",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2310f0b8_0906b4df",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/BTree.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2019-06-27T14:05:30Z",
+      "side": 1,
+      "message": "They are not only used by TreeIterator functions, for examples BTree methods too.",
+      "revId": "7d69aaf42dd1a870706853d20805c751e19d1715",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "74ada12b_f19a2d3e",
         "filename": "src/add-ons/kernel/file_systems/btrfs/BTree.h",
         "patchSetId": 4
@@ -30,6 +64,57 @@
       "writtenOn": "2019-06-03T13:36:10Z",
       "side": 1,
       "message": "which error codes, and what do each of them mean?",
+      "revId": "7d69aaf42dd1a870706853d20805c751e19d1715",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0685aae3_dea3395d",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/BTree.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2019-06-27T14:05:30Z",
+      "side": 1,
+      "message": "The intention of this constructor is not for setting to block zero (fBlockNumber is set to 0 but not cache data from disk, ie. using block_cache_get function). I believe there are some cases we don\u0027t know the block number at initialization stage, so we must have set it\u0027s location by calling SetTo() separately.",
+      "revId": "7d69aaf42dd1a870706853d20805c751e19d1715",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0327341_3a24ee12",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/BTree.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2019-06-27T14:05:30Z",
+      "side": 1,
+      "message": "IIRC, this function seems to be left out without attention (isn\u0027t called), please check again in the source code. You can ignore or remove it.",
+      "revId": "7d69aaf42dd1a870706853d20805c751e19d1715",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "354f3559_e6c49dcc",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/BTree.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2019-06-27T14:05:30Z",
+      "side": 1,
+      "message": "This function doesn\u0027t flush data to disk, as it calls block_cache_put which belongs to Haiku block_cache API, and it just removes a reference from the specified block (https://github.com/haiku/haiku/blob/master/src/system/kernel/cache/block_cache.cpp#L1788).\n\nI cannot find the document for this in our Haiku docs so you need to investigate the code base to understand it.",
       "revId": "7d69aaf42dd1a870706853d20805c751e19d1715",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
