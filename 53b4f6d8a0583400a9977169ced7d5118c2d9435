@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2f6d0f6d_693a85c3",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Attribute.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2019-06-28T13:44:26Z",
+      "side": 1,
+      "message": "trailing space",
+      "revId": "53b4f6d8a0583400a9977169ced7d5118c2d9435",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de587ef2_3fd0de08",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Attribute.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2019-06-28T13:44:26Z",
+      "side": 1,
+      "message": "\"i-node pointed by inode\" is a little bit weird here, did you mean the type ?",
+      "revId": "53b4f6d8a0583400a9977169ced7d5118c2d9435",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b9d9034_5e6c7c56",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Attribute.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2019-06-28T13:44:26Z",
+      "side": 1,
+      "message": "The comment doesn\u0027t really help to explain the function.",
+      "revId": "53b4f6d8a0583400a9977169ced7d5118c2d9435",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8cc860e_8ab4568d",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Attribute.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2019-06-28T13:44:26Z",
+      "side": 1,
+      "message": "Same here",
+      "revId": "53b4f6d8a0583400a9977169ced7d5118c2d9435",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c747fee1_0b13b0f2",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Attribute.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2019-06-28T13:44:26Z",
+      "side": 1,
+      "message": "Get the stat from the attribute is more correct here.",
+      "revId": "53b4f6d8a0583400a9977169ced7d5118c2d9435",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66756983_914dc549",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Attribute.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2019-06-28T13:44:26Z",
+      "side": 1,
+      "message": "\"attributes of this object\" is not really correct, as this class is associated with key type \"BTRFS_KEY_TYPE_XATTR_ITEM\", so the Read function here properly get some entry data with this key.",
+      "revId": "53b4f6d8a0583400a9977169ced7d5118c2d9435",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
