@@ -10,6 +10,12 @@
 
 // This needs to be included before the fs_shell wrapper
 #include <zlib.h>
+#include <uuid.h>
+#include <unistd.h>
+#include <algorithm>
+#include <stdio.h>
+#include <SupportDefs.h>
+
 #include <new>
 #include <util/AVLTree.h>
 
