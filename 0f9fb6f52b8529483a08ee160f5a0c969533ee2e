@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c59a0408_b3cf93bb",
+        "filename": "docs/develop/busses/usb/xhci.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-06-29T09:12:28Z",
+      "side": 1,
+      "message": "This sentence should be rewritten or deleted: the XHCI specification defines such structures as Event, Command and Transfer rings.",
+      "revId": "0f9fb6f52b8529483a08ee160f5a0c969533ee2e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
