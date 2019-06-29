@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3581a540_4d6d79a5",
+        "filename": "src/add-ons/kernel/drivers/audio/emuxki/emuxki.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-06-29T09:04:35Z",
+      "side": 1,
+      "message": "This line is too long.",
+      "revId": "919ac2f1fcf275ba3199c84050a6e8ee164d7282",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7b8ff93_2bab8f92",
+        "filename": "src/add-ons/kernel/drivers/audio/emuxki/emuxki.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-06-29T09:04:35Z",
+      "side": 1,
+      "message": "This line is too long.",
+      "revId": "919ac2f1fcf275ba3199c84050a6e8ee164d7282",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
