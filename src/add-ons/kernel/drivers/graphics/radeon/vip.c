@@ -105,7 +105,8 @@ static bool do_VIPFifoRead(device_info *di, uint8 channel, uint32 address, uint3
 		return false;
 	}
 		
-	SHOW_FLOW( 2, "address=%lx, count=%ld ", address, count );
+	SHOW_FLOW( 2, "address=%" B_PRIx32 ", count=%" B_PRIu32 " ",
+		address, count );
 	
 	Radeon_WaitForFifo( di, 2);
 	SHOW_FLOW0( 2, "1");
@@ -230,7 +231,8 @@ static bool do_VIPFifoWrite(device_info *di, uint8 channel, uint32 address, uint
     uint32 status;
 	uint32 i;
 	
-	SHOW_FLOW( 2, "address=%lx, count=%ld, ", address, count );
+	SHOW_FLOW( 2, "address=%" B_PRIx32 ", count=%" B_PRIu32 ", ",
+		address, count );
 
     Radeon_WaitForFifo( di, 2 );
     OUTREG( regs, RADEON_VIPH_REG_ADDR, ((channel << 14) | address | 0x1000) & ~0x2000 );
@@ -247,7 +249,7 @@ static bool do_VIPFifoWrite(device_info *di, uint8 channel, uint32 address, uint
 	for (i = 0; i < count; i+=4)
 	{
 		Radeon_WaitForFifo( di, 2);
-		SHOW_FLOW( 2, "count %ld", count);
+		SHOW_FLOW( 2, "count %" B_PRIu32, count);
 		OUTREG( regs, RADEON_VIPH_REG_DATA, *(uint32*)(buffer + i));
 		while(B_BUSY == (status = RADEON_VIPFifoIdle( di, 0x0f)));
     	if(B_OK != status)
@@ -423,7 +425,8 @@ int Radeon_FindVIPDevice(
 		
 		// compare device id directly
 		if( cur_device_id == device_id ) {
-			SHOW_FLOW( 3, "Device %08lx found on channel %d", device_id, channel);
+			SHOW_FLOW( 3, "Device %08" B_PRIx32 " found on channel %d",
+				device_id, channel);
 			RELEASE_BEN( di->si->cp.lock );
 			return channel;
 		}
