@@ -188,6 +188,12 @@
 /* Mach/i386 specific: define if the `i386_set_gdt' RPC is available.  */
 #undef	HAVE_I386_SET_GDT
 
+/* kallisti5: Currently our riscv64 stdc doesn't support 128 bit long double.
+ * It's 80 bit instead. Maybe someday we'll upgrade to muslc
+ */
+#define NO_LONG_DOUBLE 1
+#define __NO_LONG_DOUBLE_MATH 1
+
 /*
  */
 
