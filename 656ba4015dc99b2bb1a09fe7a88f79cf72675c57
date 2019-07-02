@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8d16b11a_bfb39625",
+        "filename": "src/system/libroot/posix/glibc/arch/riscv64/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-02T10:05:23Z",
+      "side": 1,
+      "message": "You really shouldn\u0027t use the 80bit version here :(\n80bit is weird and used only on x86 and m68k.\n\nI guess it\u0027s just to get the aliases? But we will get the same problem with ARM. We should have the aliases in a clean separate place.",
+      "revId": "656ba4015dc99b2bb1a09fe7a88f79cf72675c57",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
