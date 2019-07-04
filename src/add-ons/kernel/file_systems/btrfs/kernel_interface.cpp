@@ -1,4 +1,5 @@
 /*
+ * Copyright 2019, Bharathi Ramana Joshi, joshibharathiramana@gmail.com
  * Copyright 2019, Les De Ridder, les@lesderid.net
  * Copyright 2017, Chế Vũ Gia Hy, cvghy116@gmail.com.
  * Copyright 2011, Jérôme Duval, korli@users.berlios.de.
@@ -164,6 +165,24 @@ btrfs_read_fs_info(fs_volume* _volume, struct fs_info* info)
 }
 
 
+static status_t
+btrfs_write_fs_stat(fs_volume* _volume, const struct fs_info* info, uint32 mask)
+{
+	Volume* volume = (Volume*)_volume->private_volume;
+	if (volume->IsReadOnly())
+		return B_READ_ONLY_DEVICE;
+
+	MutexLocker locker(volume->Lock());
+
+	status_t status = B_BAD_VALUE;
+
+	if (mask & FS_WRITE_FSINFO_NAME) {
+		btrfs_super_block& superBlock = volume->SuperBlock();
+
+		status = volume->WriteSuperBlock();
+	}
+	return status;
+}
 //	#pragma mark -
 
 
@@ -940,7 +959,7 @@ btrfs_std_ops(int32 op, ...)
 fs_volume_ops gBtrfsVolumeOps = {
 	&btrfs_unmount,
 	&btrfs_read_fs_info,
-	NULL,	// write_fs_info()
+	&btrfs_write_fs_stat,
 	NULL,	// fs_sync,
 	&btrfs_get_vnode,
 };
