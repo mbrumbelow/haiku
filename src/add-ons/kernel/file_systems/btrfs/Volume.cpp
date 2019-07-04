@@ -1,4 +1,5 @@
 /*
+ * Copyright 2019, Bharathi Ramana Joshi, joshibharathiramana@gmail.com
  * Copyright 2019, Les De Ridder, les@lesderid.net
  * Copyright 2017, Chế Vũ Gia Hy, cvghy116@gmail.com.
  * Copyright 2011, Jérôme Duval, korli@users.berlios.de.
@@ -15,6 +16,7 @@
 #include "BTree.h"
 #include "CachedBlock.h"
 #include "Chunk.h"
+#include "CRCTable.h"
 #include "DebugSupport.h"
 #include "ExtentAllocator.h"
 #include "Inode.h"
@@ -652,7 +654,13 @@ Volume::FindBlock(off_t logical, off_t& physical)
 status_t
 Volume::WriteSuperBlock()
 {
-	// TODO(lesderid): Calculate checksum
+	uint32 csum =  calculate_crc((uint32)~1,
+				(uint8*)(fSuperBlock + BTRFS_CSUM_SIZE * sizeof(uint8)),
+				sizeof(btrfs_super_block) - BTRFS_CSUM_SIZE * sizeof(uint8));
+	if(csum == 0)
+		return B_BAD_VALUE;
+
+	memcpy(fSuperBlock->checksum, &csum, sizeof(csum));
 
 	if (write_pos(fDevice, BTRFS_SUPER_BLOCK_OFFSET, &fSuperBlock,
 			sizeof(btrfs_super_block))
