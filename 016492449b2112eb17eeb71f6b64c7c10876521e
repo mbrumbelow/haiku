@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "72dcee64_d11fb671",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/BTree.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2019-07-07T19:37:11Z",
+      "side": 1,
+      "message": "trailing space",
+      "revId": "016492449b2112eb17eeb71f6b64c7c10876521e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e933a1c_8099c6ed",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/BTree.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2019-07-07T19:37:11Z",
+      "side": 1,
+      "message": "\"s\"",
+      "revId": "016492449b2112eb17eeb71f6b64c7c10876521e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c30614e0_30c00759",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/BTree.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2019-07-07T19:37:11Z",
+      "side": 1,
+      "message": "No need to comment for this constructor.",
+      "revId": "016492449b2112eb17eeb71f6b64c7c10876521e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
