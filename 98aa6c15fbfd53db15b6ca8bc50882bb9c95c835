@@ -1,0 +1,510 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1bdb976c_cafe788d",
+        "filename": "src/preferences/input/Input.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-07-08T21:10:52Z",
+      "side": 1,
+      "message": "These go below Haiku API headers (Input.h should stay at the top since it\u0027s for this class)\n\nPlease add one line of space between groups and sort includes alphabetically",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 23
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c875fe5c_128127e3",
+        "filename": "src/preferences/input/Input.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-07-08T21:10:52Z",
+      "side": 1,
+      "message": "asterisk belongs to the type (InputWindow* window)",
+      "range": {
+        "startLine": 31,
+        "startChar": 13,
+        "endLine": 31,
+        "endChar": 14
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abead18e_c0a65a6c",
+        "filename": "src/preferences/input/Input.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-07-08T21:10:52Z",
+      "side": 1,
+      "message": "char**",
+      "range": {
+        "startLine": 69,
+        "startChar": 19,
+        "endLine": 69,
+        "endChar": 26
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf7c7ef4_e7f18411",
+        "filename": "src/preferences/input/InputConstants.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-07-08T21:10:52Z",
+      "side": 1,
+      "message": "Please use tabs instead of spaces",
+      "range": {
+        "startLine": 28,
+        "startChar": 32,
+        "endLine": 28,
+        "endChar": 36
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1cc98df9_fdc72505",
+        "filename": "src/preferences/input/InputConstants.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-07-08T21:10:52Z",
+      "side": 1,
+      "message": "same as above",
+      "range": {
+        "startLine": 29,
+        "startChar": 38,
+        "endLine": 29,
+        "endChar": 39
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c5b5b70_e4546148",
+        "filename": "src/preferences/input/InputMouse.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-07-08T21:10:52Z",
+      "side": 1,
+      "message": "goes at the top",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 23
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42378b68_8d26d222",
+        "filename": "src/preferences/input/InputMouse.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-07-08T21:10:52Z",
+      "side": 1,
+      "message": "is name used anywhere?",
+      "range": {
+        "startLine": 45,
+        "startChar": 23,
+        "endLine": 45,
+        "endChar": 39
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a45bcf33_e6f74791",
+        "filename": "src/preferences/input/InputMouse.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-07-08T21:10:52Z",
+      "side": 1,
+      "message": "Unnecessary comment",
+      "range": {
+        "startLine": 54,
+        "startChar": 1,
+        "endLine": 54,
+        "endChar": 27
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "062dffe6_700e8d2c",
+        "filename": "src/preferences/input/InputMouse.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-07-08T21:10:52Z",
+      "side": 1,
+      "message": "Why is InputWindow a friend?",
+      "range": {
+        "startLine": 42,
+        "startChar": 1,
+        "endLine": 42,
+        "endChar": 26
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a130303_a32f0379",
+        "filename": "src/preferences/input/InputTouchpadPrefView.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-07-08T21:10:52Z",
+      "side": 1,
+      "message": "one space too many :)",
+      "range": {
+        "startLine": 157,
+        "startChar": 11,
+        "endLine": 157,
+        "endChar": 13
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1780fea_3587e00f",
+        "filename": "src/preferences/input/InputTouchpadPrefView.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-07-08T21:10:52Z",
+      "side": 1,
+      "message": "These are used as locals (only in one function) so I believe there is no reason for them to be part of the class",
+      "range": {
+        "startLine": 65,
+        "startChar": 1,
+        "endLine": 67,
+        "endChar": 29
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c0f791f_e7848c95",
+        "filename": "src/preferences/input/InputTouchpadPrefView.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-07-08T21:10:52Z",
+      "side": 1,
+      "message": "Same with these",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 29
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52b9d825_ace3f282",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-07-08T21:10:52Z",
+      "side": 1,
+      "message": "what are these variables for?",
+      "range": {
+        "startLine": 48,
+        "startChar": 1,
+        "endLine": 49,
+        "endChar": 41
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "412db797_c8fb786c",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-07-08T21:10:52Z",
+      "side": 1,
+      "message": "missing space",
+      "range": {
+        "startLine": 65,
+        "startChar": 39,
+        "endLine": 65,
+        "endChar": 41
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21c560c0_01209697",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-07-08T21:10:52Z",
+      "side": 1,
+      "message": "missing space",
+      "range": {
+        "startLine": 67,
+        "startChar": 6,
+        "endLine": 67,
+        "endChar": 8
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "090b354f_160d9654",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-07-08T21:10:52Z",
+      "side": 1,
+      "message": "missing space",
+      "range": {
+        "startLine": 67,
+        "startChar": 21,
+        "endLine": 67,
+        "endChar": 23
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d4c65f5_ad08118d",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-07-08T21:10:52Z",
+      "side": 1,
+      "message": "If with range check would be better here I think, since you won\u0027t need to copy code if there are more indexes to handle.",
+      "range": {
+        "startLine": 69,
+        "startChar": 3,
+        "endLine": 77,
+        "endChar": 4
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65501b9c_5dd24009",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-07-08T21:10:52Z",
+      "side": 1,
+      "message": "wrong level of indentation",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 1
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62e11129_56de89ca",
+        "filename": "src/preferences/input/InputWindow.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-07-08T21:10:52Z",
+      "side": 1,
+      "message": "to the type",
+      "range": {
+        "startLine": 53,
+        "startChar": 16,
+        "endLine": 53,
+        "endChar": 17
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73af0f85_0c3e775d",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-07-08T21:10:52Z",
+      "side": 1,
+      "message": "Would it make more sense to implement \u003d\u003d and \u003d operators, then have static const fDefaultSettings, and use them for comparison?",
+      "range": {
+        "startLine": 210,
+        "startChar": 0,
+        "endLine": 256,
+        "endChar": 1
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dde3c033_93a35cad",
+        "filename": "src/preferences/input/MouseView.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-07-08T21:10:52Z",
+      "side": 1,
+      "message": "missed 3?",
+      "range": {
+        "startLine": 367,
+        "startChar": 16,
+        "endLine": 367,
+        "endChar": 18
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e91bd647_d3f1f00e",
+        "filename": "src/preferences/input/SettingsView.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-07-08T21:10:52Z",
+      "side": 1,
+      "message": "Does it need to be a friend?",
+      "range": {
+        "startLine": 41,
+        "startChar": 2,
+        "endLine": 41,
+        "endChar": 27
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
