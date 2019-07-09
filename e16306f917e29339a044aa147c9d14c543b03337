@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "21bed2ec_fca588eb",
+        "filename": "src/add-ons/kernel/file_systems/packagefs/package/Package.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-09T07:13:28Z",
+      "side": 1,
+      "message": "either way this is missing an error check?",
+      "revId": "e16306f917e29339a044aa147c9d14c543b03337",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4569cd0e_b111026b",
+        "filename": "src/add-ons/kernel/file_systems/packagefs/package/Package.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-09T07:13:28Z",
+      "side": 1,
+      "message": "Why the removal of std::nothrow here? Either you use nothrow and check for NULL, or you use plain new and check for std::bad_alloc exception.\n\nAnd the new() operator should be implemented accordingly (throw the exception unless called with std::nothrow)",
+      "revId": "e16306f917e29339a044aa147c9d14c543b03337",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "349e0e56_d4345fbc",
+        "filename": "src/add-ons/kernel/file_systems/packagefs/util/ClassCache.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-09T07:13:28Z",
+      "side": 1,
+      "message": "Isn\u0027t there a more C++ way of doing this? Using a template?",
+      "revId": "e16306f917e29339a044aa147c9d14c543b03337",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
