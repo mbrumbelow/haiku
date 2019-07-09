@@ -140,7 +140,7 @@ struct Package::LoaderContentHandler : BPackageContentHandler {
 		PackageNode* node;
 		if (S_ISREG(mode)) {
 			// file
-			node = new(std::nothrow) PackageFile(fPackage, mode,
+			node = new PackageFile(fPackage, mode,
 				PackageData(entry->Data()));
 		} else if (S_ISLNK(mode)) {
 			// symlink
@@ -201,7 +201,7 @@ struct Package::LoaderContentHandler : BPackageContentHandler {
 		if (!name.SetTo(attribute->Name()))
 			RETURN_ERROR(B_NO_MEMORY);
 
-		PackageNodeAttribute* nodeAttribute = new(std::nothrow)
+		PackageNodeAttribute* nodeAttribute = new
 			PackageNodeAttribute(attribute->Type(),
 			PackageData(attribute->Data()));
 		if (nodeAttribute == NULL)
