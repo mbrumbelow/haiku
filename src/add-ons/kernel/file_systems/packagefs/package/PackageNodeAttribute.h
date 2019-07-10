@@ -8,6 +8,7 @@
 
 #include <util/DoublyLinkedList.h>
 
+#include "ClassCache.h"
 #include "PackageData.h"
 
 #include "String.h"
@@ -17,11 +18,9 @@ class PackageNode;
 
 
 class PackageNodeAttribute
-	: public DoublyLinkedListLinkImpl<PackageNodeAttribute> {
+	: public DoublyLinkedListLinkImpl<PackageNodeAttribute>,
+	public ClassCache<PackageNodeAttribute> {
 public:
-	static	void*				operator new(size_t size);
-	static	void				operator delete(void* block);
-
 								PackageNodeAttribute(uint32 type,
 									const PackageData& data);
 								~PackageNodeAttribute();

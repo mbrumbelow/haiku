@@ -19,17 +19,10 @@
 #include <util/AutoLock.h>
 
 #include "DebugSupport.h"
-#include "ClassCache.h"
 #include "Package.h"
 
 
 using namespace BPackageKit::BHPKG;
-
-
-// #pragma mark - class cache
-
-
-CLASS_CACHE(PackageFile);
 
 
 // #pragma mark - DataAccessor

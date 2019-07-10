@@ -8,15 +8,14 @@
 
 #include <util/DoublyLinkedList.h>
 
+#include "ClassCache.h"
 #include "PackageNode.h"
 
 
 class PackageDirectory : public PackageNode,
-	public DoublyLinkedListLinkImpl<PackageDirectory> {
+	public DoublyLinkedListLinkImpl<PackageDirectory>,
+	public ClassCache<PackageDirectory> {
 public:
-	static	void*				operator new(size_t size);
-	static	void				operator delete(void* block);
-
 								PackageDirectory(Package* package, mode_t mode);
 	virtual						~PackageDirectory();
 

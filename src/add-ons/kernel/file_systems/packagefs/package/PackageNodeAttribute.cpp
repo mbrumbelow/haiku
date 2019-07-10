@@ -9,11 +9,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "ClassCache.h"
-
-
-CLASS_CACHE(PackageNodeAttribute);
-
 
 PackageNodeAttribute::PackageNodeAttribute(uint32 type,
 	const PackageData& data)

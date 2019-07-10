@@ -6,15 +6,13 @@
 #define PACKAGE_FILE_H
 
 
+#include "ClassCache.h"
 #include "PackageData.h"
 #include "PackageLeafNode.h"
 
 
-class PackageFile : public PackageLeafNode {
+class PackageFile : public PackageLeafNode, public ClassCache<PackageFile> {
 public:
-	static	void*				operator new(size_t size);
-	static	void				operator delete(void* block);
-
 								PackageFile(Package* package, mode_t mode,
 									const PackageData& data);
 	virtual						~PackageFile();
