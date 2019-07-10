@@ -462,6 +462,30 @@
     },
     {
       "key": {
+        "uuid": "5c49b19c_efaffae7",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2019-07-10T17:41:48Z",
+      "side": 1,
+      "message": "Didn\u0027t get that Can you please elaborate it one more time.",
+      "parentUuid": "73af0f85_0c3e775d",
+      "range": {
+        "startLine": 210,
+        "startChar": 0,
+        "endLine": 256,
+        "endChar": 1
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dde3c033_93a35cad",
         "filename": "src/preferences/input/MouseView.cpp",
         "patchSetId": 15
