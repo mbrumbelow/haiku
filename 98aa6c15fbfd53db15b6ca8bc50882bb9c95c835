@@ -486,6 +486,30 @@
     },
     {
       "key": {
+        "uuid": "ff3a7fb1_74c6f3b7",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-07-10T21:23:18Z",
+      "side": 1,
+      "message": "1. Implement MouseSettings::operator \u003d\u003d (rhs) which would do what IsRevertable does now (except for this and rhs, instead of fSettings and fOriginalSettings).\n2. Implement MouseSettings::operator !\u003d (rhs) which is return !(*this \u003d\u003d rhs).\n2. Implement MouseSettings::operator \u003d (rhs) which would do Revert() does now.\n3. Now you can have static const MouseSettings kDefaultSettings and MouseSettings* MouseSettings::fOriginalSettings.\n4. IsRevertable() { return *this !\u003d *fOriginalSettings; }\n5. IsDefaultable() { return *this !\u003d kDefaultSettings; }\n6. Revert() { *this \u003d *fOriginalSettings; }\n\nfOriginalSettings has to be a pointer because you can\u0027t put T in T (recursive dependency, size is unknown and compiler will complain).\n\nBut now when I spelled it out, it seems more convoluted, so do whatever you think is best.\n\nCurrent solution is OK too.",
+      "parentUuid": "5c49b19c_efaffae7",
+      "range": {
+        "startLine": 210,
+        "startChar": 0,
+        "endLine": 256,
+        "endChar": 1
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dde3c033_93a35cad",
         "filename": "src/preferences/input/MouseView.cpp",
         "patchSetId": 15
