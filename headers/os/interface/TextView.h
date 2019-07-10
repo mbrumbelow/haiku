@@ -287,10 +287,10 @@ private:
 			void				_ValidateLayoutData();
 			void				_ResetTextRect();
 
-			void				_HandleBackspace();
+			void				_HandleBackspace(int32 modifiers = -1);
 			void				_HandleArrowKey(uint32 arrowKey,
 									int32 modifiers = -1);
-			void				_HandleDelete();
+			void				_HandleDelete(int32 modifiers = -1);
 			void				_HandlePageKey(uint32 pageKey,
 									int32 modifiers = -1);
 			void				_HandleAlphaKey(const char* bytes,
@@ -460,7 +460,11 @@ private:
 			bool				fInstalledSelectOptionLinewiseShortcuts;
 			bool				fInstalledSelectHomeEndDocwiseShortcuts;
 
-			uint32				_reserved[5];
+			bool				fInstalledRemoveCommandWordwiseShortcuts;
+			bool				fInstalledRemoveOptionWordwiseShortcuts;
+
+			uint16				_reserved_;
+			uint32				_reserved[4];
 };
 
 #endif	// _TEXTVIEW_H
