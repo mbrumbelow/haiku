@@ -942,6 +942,30 @@
     },
     {
       "key": {
+        "uuid": "fd0229d0_52344eb7",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2019-07-11T12:36:44Z",
+      "side": 1,
+      "message": "You mean to say the settings like fMode, fFocusFollowsMouseMode and fAcceptFirstClick should be moved in fSettings?",
+      "parentUuid": "31d87bb1_aa4572ee",
+      "range": {
+        "startLine": 210,
+        "startChar": 0,
+        "endLine": 256,
+        "endChar": 1
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dde3c033_93a35cad",
         "filename": "src/preferences/input/MouseView.cpp",
         "patchSetId": 15
