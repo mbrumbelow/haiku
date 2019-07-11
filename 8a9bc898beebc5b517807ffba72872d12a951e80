@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "292713e4_74e530c1",
+        "filename": "src/system/kernel/cache/block_cache.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1231,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-11T06:56:14Z",
+      "side": 1,
+      "message": "\u003e 80 columns",
+      "revId": "8a9bc898beebc5b517807ffba72872d12a951e80",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
