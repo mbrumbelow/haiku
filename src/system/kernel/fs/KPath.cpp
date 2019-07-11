@@ -15,11 +15,15 @@
 
 #include <team.h>
 #include <vfs.h>
+#include <slab/Slab.h>
 
 
 // debugging
 #define TRACE(x) ;
 //#define TRACE(x) dprintf x
+
+
+extern object_cache* sPathNameCache;
 
 
 KPath::KPath(size_t bufferSize)
@@ -66,7 +70,7 @@ KPath::KPath(const KPath& other)
 
 KPath::~KPath()
 {
-	free(fBuffer);
+	_FreeBuffer();
 }
 
 
@@ -78,7 +82,7 @@ KPath::SetTo(const char* path, int32 flags, size_t bufferSize)
 
 	// free the previous buffer, if the buffer size differs
 	if (fBuffer != NULL && fBufferSize != bufferSize) {
-		free(fBuffer);
+		_FreeBuffer();
 		fBuffer = NULL;
 		fBufferSize = 0;
 	}
@@ -102,7 +106,7 @@ KPath::SetTo(const char* path, int32 flags, size_t bufferSize)
 void
 KPath::Adopt(KPath& other)
 {
-	free(fBuffer);
+	_FreeBuffer();
 
 	fBuffer = other.fBuffer;
 	fBufferSize = other.fBufferSize;
@@ -218,7 +222,7 @@ void
 KPath::UnlockBuffer()
 {
 	if (!fLocked) {
-		TRACE(("KPath::UnlockBuffer(): ERROR: Buffer not locked!\n"));
+		panic("KPath::UnlockBuffer(): Buffer not locked!");
 		return;
 	}
 
@@ -241,6 +245,12 @@ char*
 KPath::DetachBuffer()
 {
 	char* buffer = fBuffer;
+
+	if (fBufferSize == (B_PATH_NAME_LENGTH + 1)) {
+		buffer = (char*)malloc(fBufferSize);
+		memcpy(buffer, fBuffer, fBufferSize);
+		_FreeBuffer();
+	}
 
 	if (fBuffer != NULL) {
 		fBuffer = NULL;
@@ -412,8 +422,12 @@ KPath::operator!=(const char* path) const
 status_t
 KPath::_AllocateBuffer()
 {
-	if (fBuffer == NULL && fBufferSize != 0)
-		fBuffer = (char*)malloc(fBufferSize);
+	if (fBuffer == NULL && fBufferSize != 0) {
+		if (fBufferSize == (B_PATH_NAME_LENGTH + 1))
+			fBuffer = (char*)object_cache_alloc(sPathNameCache, 0);
+		else
+			fBuffer = (char*)malloc(fBufferSize);
+	}
 	if (fBuffer == NULL) {
 		fFailed = true;
 		return B_NO_MEMORY;
@@ -422,6 +436,16 @@ KPath::_AllocateBuffer()
 	fBuffer[0] = '\0';
 	fFailed = false;
 	return B_OK;
+}
+
+
+void
+KPath::_FreeBuffer()
+{
+	if (fBufferSize == (B_PATH_NAME_LENGTH + 1))
+		object_cache_free(sPathNameCache, fBuffer, 0);
+	else
+		free(fBuffer);
 }
 
 
