@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3b997d5c_d2b0018c",
+        "filename": "src/system/kernel/fs/KPath.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-11T06:55:18Z",
+      "side": 1,
+      "message": "The special casing is not so great here.\nWe could just not allow any other size to be used? What would that impact?",
+      "revId": "3aad365f6eba7531bffea499fe2cdb71dfae6490",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
