@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e28fe61_6583429c",
+        "filename": "src/system/kernel/cache/block_cache.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2556,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2019-07-11T08:45:03Z",
+      "side": 0,
+      "message": "When we utilize the I/O scheduler, we don\u0027t have to worry about congestion anymore. We can just move everything to the I/O scheduler and let it worry about the details. This will still perform drastically better, so the comment still holds true IMO.",
+      "revId": "404e96a6a904bfbab37c21b99cb909e47f0bf9ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
