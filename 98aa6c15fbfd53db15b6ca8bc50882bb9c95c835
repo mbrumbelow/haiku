@@ -534,6 +534,30 @@
     },
     {
       "key": {
+        "uuid": "31d87bb1_aa4572ee",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-11T10:32:48Z",
+      "side": 1,
+      "message": "At least implementing a SetTo() and a Compare() method (without operator overload) may save some code repetition here.\n\nSince fOriginalSettings is not stored inside fSettings, you don\u0027t need to make it a pointer.\n\nHowever, some of the settings are not stored inside fSettings/fOriginalSettings, would it make sense to move them there?",
+      "parentUuid": "e31ff66b_5f069a81",
+      "range": {
+        "startLine": 210,
+        "startChar": 0,
+        "endLine": 256,
+        "endChar": 1
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dde3c033_93a35cad",
         "filename": "src/preferences/input/MouseView.cpp",
         "patchSetId": 15
