@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5a2d0636_ec2db402",
+        "filename": "src/preferences/input/Input.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-11T10:42:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1bdb976c_cafe788d",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 23
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c875fe5c_128127e3",
         "filename": "src/preferences/input/Input.cpp",
         "patchSetId": 15
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "b9cde4ed_264a4c5b",
+        "filename": "src/preferences/input/Input.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-11T10:42:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abead18e_c0a65a6c",
+      "range": {
+        "startLine": 69,
+        "startChar": 19,
+        "endLine": 69,
+        "endChar": 26
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf7c7ef4_e7f18411",
         "filename": "src/preferences/input/InputConstants.h",
         "patchSetId": 15
@@ -91,6 +139,30 @@
       "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e008805_b6b9b738",
+        "filename": "src/preferences/input/InputConstants.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-11T10:42:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf7c7ef4_e7f18411",
+      "range": {
+        "startLine": 28,
+        "startChar": 32,
+        "endLine": 28,
+        "endChar": 36
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "26968e65_580729c7",
+        "filename": "src/preferences/input/InputConstants.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-11T10:42:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cc98df9_fdc72505",
+      "range": {
+        "startLine": 29,
+        "startChar": 38,
+        "endLine": 29,
+        "endChar": 39
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6c5b5b70_e4546148",
         "filename": "src/preferences/input/InputMouse.cpp",
         "patchSetId": 15
@@ -137,6 +233,30 @@
       "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3a2529a_ee289b42",
+        "filename": "src/preferences/input/InputMouse.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-11T10:42:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c5b5b70_e4546148",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 23
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "0916255f_c98d1dea",
+        "filename": "src/preferences/input/InputMouse.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-11T10:42:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42378b68_8d26d222",
+      "range": {
+        "startLine": 45,
+        "startChar": 23,
+        "endLine": 45,
+        "endChar": 39
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a45bcf33_e6f74791",
         "filename": "src/preferences/input/InputMouse.cpp",
         "patchSetId": 15
@@ -183,6 +327,30 @@
       "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9517993a_60b83d39",
+        "filename": "src/preferences/input/InputMouse.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-11T10:42:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a45bcf33_e6f74791",
+      "range": {
+        "startLine": 54,
+        "startChar": 1,
+        "endLine": 54,
+        "endChar": 27
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -209,6 +377,30 @@
     },
     {
       "key": {
+        "uuid": "b858b353_582a2196",
+        "filename": "src/preferences/input/InputMouse.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-11T10:42:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "062dffe6_700e8d2c",
+      "range": {
+        "startLine": 42,
+        "startChar": 1,
+        "endLine": 42,
+        "endChar": 26
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7a130303_a32f0379",
         "filename": "src/preferences/input/InputTouchpadPrefView.cpp",
         "patchSetId": 15
@@ -229,6 +421,30 @@
       "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c0f55f7_ee22dbc9",
+        "filename": "src/preferences/input/InputTouchpadPrefView.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-11T10:42:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a130303_a32f0379",
+      "range": {
+        "startLine": 157,
+        "startChar": 11,
+        "endLine": 157,
+        "endChar": 13
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -255,6 +471,30 @@
     },
     {
       "key": {
+        "uuid": "36a21f97_0fac233b",
+        "filename": "src/preferences/input/InputTouchpadPrefView.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-11T10:42:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1780fea_3587e00f",
+      "range": {
+        "startLine": 65,
+        "startChar": 1,
+        "endLine": 67,
+        "endChar": 29
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2c0f791f_e7848c95",
         "filename": "src/preferences/input/InputTouchpadPrefView.h",
         "patchSetId": 15
@@ -275,6 +515,30 @@
       "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bec38144_da605ff3",
+        "filename": "src/preferences/input/InputTouchpadPrefView.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-11T10:42:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c0f791f_e7848c95",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 29
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -324,6 +588,30 @@
     },
     {
       "key": {
+        "uuid": "79ecf963_f2b4d20b",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-11T10:42:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "412db797_c8fb786c",
+      "range": {
+        "startLine": 65,
+        "startChar": 39,
+        "endLine": 65,
+        "endChar": 41
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "21c560c0_01209697",
         "filename": "src/preferences/input/InputWindow.cpp",
         "patchSetId": 15
@@ -370,6 +658,30 @@
     },
     {
       "key": {
+        "uuid": "a653194f_6e5c3efe",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-11T10:42:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "090b354f_160d9654",
+      "range": {
+        "startLine": 67,
+        "startChar": 21,
+        "endLine": 67,
+        "endChar": 23
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d4c65f5_ad08118d",
         "filename": "src/preferences/input/InputWindow.cpp",
         "patchSetId": 15
@@ -390,6 +702,30 @@
       "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aecf1aed_3edf7747",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-11T10:42:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d4c65f5_ad08118d",
+      "range": {
+        "startLine": 69,
+        "startChar": 3,
+        "endLine": 77,
+        "endChar": 4
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -416,6 +752,30 @@
     },
     {
       "key": {
+        "uuid": "7d0dfbd1_bc2656c6",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-11T10:42:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65501b9c_5dd24009",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 1
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62e11129_56de89ca",
         "filename": "src/preferences/input/InputWindow.h",
         "patchSetId": 15
@@ -436,6 +796,30 @@
       "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78d255cd_2edfd11d",
+        "filename": "src/preferences/input/InputWindow.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-11T10:42:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62e11129_56de89ca",
+      "range": {
+        "startLine": 53,
+        "startChar": 16,
+        "endLine": 53,
+        "endChar": 17
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -581,6 +965,30 @@
     },
     {
       "key": {
+        "uuid": "efffabe3_ed7b3558",
+        "filename": "src/preferences/input/MouseView.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-11T10:42:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dde3c033_93a35cad",
+      "range": {
+        "startLine": 367,
+        "startChar": 16,
+        "endLine": 367,
+        "endChar": 18
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e91bd647_d3f1f00e",
         "filename": "src/preferences/input/SettingsView.h",
         "patchSetId": 15
@@ -601,6 +1009,30 @@
       "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bec0fa17_cc8b453b",
+        "filename": "src/preferences/input/SettingsView.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-11T10:42:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e91bd647_d3f1f00e",
+      "range": {
+        "startLine": 41,
+        "startChar": 2,
+        "endLine": 41,
+        "endChar": 27
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
