@@ -990,6 +990,30 @@
     },
     {
       "key": {
+        "uuid": "17de9f77_42eee3e0",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-11T14:50:42Z",
+      "side": 1,
+      "message": "You are right, these settings are not specific to one input device but common to all of them, which means eventually we should move them out of this view. Let\u0027s keep them as they are for now and handle this later, as this patch is quite large already.",
+      "parentUuid": "582da7dc_c101bce3",
+      "range": {
+        "startLine": 210,
+        "startChar": 0,
+        "endLine": 256,
+        "endChar": 1
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dde3c033_93a35cad",
         "filename": "src/preferences/input/MouseView.cpp",
         "patchSetId": 15
