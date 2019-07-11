@@ -510,6 +510,30 @@
     },
     {
       "key": {
+        "uuid": "e31ff66b_5f069a81",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2019-07-11T08:18:13Z",
+      "side": 1,
+      "message": "I think the current solution is OK. To make the code more complex is not a good idea according to me. As a beginner, I understand the current code if the current code is like that as you suggested ablove.Maybe I was unable to understand it.",
+      "parentUuid": "ff3a7fb1_74c6f3b7",
+      "range": {
+        "startLine": 210,
+        "startChar": 0,
+        "endLine": 256,
+        "endChar": 1
+      },
+      "revId": "98aa6c15fbfd53db15b6ca8bc50882bb9c95c835",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dde3c033_93a35cad",
         "filename": "src/preferences/input/MouseView.cpp",
         "patchSetId": 15
