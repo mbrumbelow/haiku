@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c12544cf_279776bc",
+        "filename": "src/system/kernel/cache/block_cache.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-11T06:57:35Z",
+      "side": 1,
+      "message": "you could use a static assert so that the problem is seen at buildtime if we change the size of either struct.",
+      "revId": "404e96a6a904bfbab37c21b99cb909e47f0bf9ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
