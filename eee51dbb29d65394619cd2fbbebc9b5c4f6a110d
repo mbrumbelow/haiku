@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "356a8a9d_b13dcda4",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Volume.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2019-07-13T20:26:41Z",
+      "side": 1,
+      "message": "trailing space",
+      "revId": "eee51dbb29d65394619cd2fbbebc9b5c4f6a110d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
