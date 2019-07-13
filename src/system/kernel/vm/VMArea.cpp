@@ -28,7 +28,6 @@ static area_id sNextAreaID = 1;
 
 VMArea::VMArea(VMAddressSpace* addressSpace, uint32 wiring, uint32 protection)
 	:
-	name(NULL),
 	protection(protection),
 	wiring(wiring),
 	memory_type(0),
@@ -53,7 +52,6 @@ VMArea::~VMArea()
 		// TODO: This might be stricter than necessary.
 
 	free_etc(page_protections, flags);
-	free_etc(name, flags);
 }
 
 
@@ -66,9 +64,6 @@ VMArea::Init(const char* name, uint32 allocationFlags)
 		length = B_OS_NAME_LENGTH;
 
 	// clone the name
-	this->name = (char*)malloc_etc(length, allocationFlags);
-	if (this->name == NULL)
-		return B_NO_MEMORY;
 	strlcpy(this->name, name, length);
 
 	id = atomic_add(&sNextAreaID, 1);
