@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b46cfc16_0307549b",
+        "filename": "src/system/kernel/vm/VMArea.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-13T06:02:42Z",
+      "side": 1,
+      "message": "This can be removed now, you can use strlcpy(..., B_OS_NAME_LENGTH); directly.",
+      "revId": "4f8ddce383b33a70d83919a9751df512706fd79c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
