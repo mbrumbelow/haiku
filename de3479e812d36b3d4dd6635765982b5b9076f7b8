@@ -187,6 +187,30 @@
       "revId": "de3479e812d36b3d4dd6635765982b5b9076f7b8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2836c935_2c1563cb",
+        "filename": "src/preferences/input/InputTouchpadPrefView.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-15T11:12:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a429d3ff_d55f8d2e",
+      "range": {
+        "startLine": 192,
+        "startChar": 1,
+        "endLine": 195,
+        "endChar": 27
+      },
+      "revId": "de3479e812d36b3d4dd6635765982b5b9076f7b8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
