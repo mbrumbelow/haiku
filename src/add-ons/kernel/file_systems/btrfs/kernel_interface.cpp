@@ -352,6 +352,50 @@ btrfs_lookup(fs_volume* _volume, fs_vnode* _directory, const char* name,
 
 
 static status_t
+btrfs_get_vnode_name(fs_volume* _volume, fs_vnode* vnode, char* buffer,
+		size_t bufferSize)
+{
+	Inode* inode = (Inode*)vnode->private_node;
+	Volume* volume = (Volume*)_volume->private_volume;
+
+	ino_t pid;
+	status_t status = inode->FindParent(&pid);
+	if (status != B_OK)
+		return status;
+
+	Inode* directory = new(std::nothrow) Inode(volume, pid);
+	if (directory == NULL || directory->InitCheck() != B_OK) {
+		delete directory;
+		return B_NO_MEMORY;
+	}
+
+	DirectoryIterator* iterator =
+		new(std::nothrow) DirectoryIterator(directory);
+	if (iterator == NULL || iterator->InitCheck() != B_OK) {
+		delete directory;
+		delete iterator;
+		return B_NO_MEMORY;
+	}
+
+	ino_t id;
+	status = iterator->GetNext(buffer, &bufferSize, &id);
+	while (status != B_ENTRY_NOT_FOUND) {
+		if (id == inode->ID()) {
+			delete directory;
+			delete iterator;
+			return B_OK;
+		}
+		status = iterator->GetNext(buffer, &bufferSize, &id);
+	}
+
+	delete directory;
+	delete iterator;
+
+	return B_ENTRY_NOT_FOUND;
+}
+
+
+static status_t
 btrfs_ioctl(fs_volume* _volume, fs_vnode* _node, void* _cookie, uint32 cmd,
 	void* buffer, size_t bufferLength)
 {
@@ -949,7 +993,7 @@ fs_volume_ops gBtrfsVolumeOps = {
 fs_vnode_ops gBtrfsVnodeOps = {
 	/* vnode operations */
 	&btrfs_lookup,
-	NULL,
+	&btrfs_get_vnode_name,
 	&btrfs_put_vnode,
 	NULL,	// btrfs_remove_vnode,
 
