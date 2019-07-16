@@ -16,6 +16,24 @@
       "revId": "709865144306334389c9648ff611d98d41da3970",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7e0e643_7631cfbd",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/kernel_interface.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2019-07-16T11:51:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39d91b2f_36aeba55",
+      "revId": "709865144306334389c9648ff611d98d41da3970",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
