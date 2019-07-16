@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1aec372f_e9d52b2e",
+        "filename": "src/add-ons/kernel/bus_managers/scsi/busses.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-07-16T20:51:24Z",
+      "side": 1,
+      "message": "It seems the empty line was added by mistake or is a left-over.",
+      "revId": "493311dc3e8dfdfa0ed959f24ceb0d2029102d9f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3974729_71958c31",
+        "filename": "src/add-ons/kernel/drivers/network/usb_asix/ASIXDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-07-16T20:51:24Z",
+      "side": 1,
+      "message": "Wow, this looks like it had same severe consequences. The read endpoint should have always been set.",
+      "revId": "493311dc3e8dfdfa0ed959f24ceb0d2029102d9f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
