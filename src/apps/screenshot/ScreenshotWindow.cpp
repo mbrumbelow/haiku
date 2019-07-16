@@ -139,7 +139,6 @@ ScreenshotWindow::ScreenshotWindow(const Utility& utility, bool silent,
 
 	// _NewScreenshot() needs a valid fNameControl
 	BString name(B_TRANSLATE_NOCOLLECT(fUtility.sDefaultFileNameBase));
-	name << 1;
 	name = _FindValidFileName(name.String());
 	fNameControl = new BTextControl("", B_TRANSLATE("Name:"), name, NULL);
 
