@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57db7c13_5065514e",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Volume.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-16T11:28:51Z",
+      "side": 1,
+      "message": "Either name this method GetLock(), or have Lock() and Unlock() methods that lock and unlock the mutex directly. The latter is preferred as that\u0027s the style we use in other places.",
+      "revId": "12aed354a281123b1f975344025740d407651254",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8537c367_31b2f6a3",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/kernel_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-16T11:28:51Z",
+      "side": 1,
+      "message": "I think this should check for other bits set in mask and return B_NOT_SUPPORTED if there are some set?",
+      "revId": "12aed354a281123b1f975344025740d407651254",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}

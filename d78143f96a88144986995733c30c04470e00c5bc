@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "5924688e_387976b3",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Volume.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-16T11:28:51Z",
+      "side": 1,
+      "message": "Why is this needed if there are no other changes to this file?",
+      "revId": "d78143f96a88144986995733c30c04470e00c5bc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d46abfec_9b9486be",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Volume.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-16T11:28:51Z",
+      "side": 1,
+      "message": "This is confusing because \"lock\" is also a verb, and the method name is often used that way. In this case, GetLock() is better.",
+      "revId": "d78143f96a88144986995733c30c04470e00c5bc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0f0f1c73_9f86d89c",
         "filename": "src/add-ons/kernel/file_systems/btrfs/kernel_interface.cpp",
         "patchSetId": 1
