@@ -17,6 +17,7 @@
 #include <Input.h>
 #include <Path.h>
 
+
 #if DEBUG
 #	define LOG(text...) PRINT((text))
 #else
@@ -27,7 +28,7 @@
 class TouchpadPref {
 public:
 								TouchpadPref();
-								~TouchpadPref();
+			virtual				~TouchpadPref();
 
 			void				Revert();
 			void				Defaults();

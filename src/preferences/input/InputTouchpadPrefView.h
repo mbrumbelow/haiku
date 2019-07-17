@@ -36,6 +36,8 @@ const uint TAP_CONTROL_CHANGED = '&tcc';
 const uint DEFAULT_SETTINGS = '&dse';
 const uint REVERT_SETTINGS = '&rse';
 
+class DeviceListView;
+
 
 //! Shows a touchpad
 class TouchpadView : public BView, public BInvoker {
@@ -78,7 +80,7 @@ private:
 
 class TouchpadPrefView : public BGroupView {
 public:
-							TouchpadPrefView(const char* name);
+							TouchpadPrefView();
 	virtual					~TouchpadPrefView();
 	virtual	void			MessageReceived(BMessage* message);
 	virtual	void			AttachedToWindow();
@@ -86,11 +88,10 @@ public:
 			void			SetupView();
 
 			void			SetValues(touchpad_settings *settings);
-			TouchpadPref	fTouchpadPref;
-
 private:
 			void 			DisablePref();
 
+			TouchpadPref	fTouchpadPref;
 			TouchpadView*	fTouchpadView;
 			BCheckBox*		fTwoFingerBox;
 			BCheckBox*		fTwoFingerHorizontalBox;

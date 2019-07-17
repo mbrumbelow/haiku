@@ -264,9 +264,9 @@ TouchpadView::DrawSliders()
 //	#pragma mark - TouchpadPrefView
 
 
-TouchpadPrefView::TouchpadPrefView(const char* name)
+TouchpadPrefView::TouchpadPrefView()
 	:
-	BGroupView(name)
+	BGroupView()
 {
 	SetupView();
 	// set view values
@@ -276,7 +276,7 @@ TouchpadPrefView::TouchpadPrefView(const char* name)
 		fShowWarning->SetText(B_TRANSLATE("No touchpad found, the settings "
 			"will have no effect."));
 	}
-	else
+	else 
 		fShowWarning->Hide();
 }
 
@@ -371,6 +371,7 @@ TouchpadPrefView::SetupView()
 	SetLayout(new BGroupLayout(B_VERTICAL));
 	BBox* scrollBox = new BBox("Touchpad");
 	scrollBox->SetLabel(B_TRANSLATE("Scrolling"));
+
 
 	fTouchpadView = new TouchpadView(BRect(0, 0, 130, 120));
 	fTouchpadView->SetExplicitMaxSize(BSize(130, 120));

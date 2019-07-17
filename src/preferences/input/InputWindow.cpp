@@ -19,16 +19,17 @@
 #include <LayoutBuilder.h>
 #include <SplitView.h>
 #include <Screen.h>
-#include <TabView.h>
 #include <stdio.h>
+#include <TabView.h>
 
 
+#include "InputConstants.h"
+#include "InputDeviceView.h"
+#include "InputMouse.h"
+#include "InputTouchpadPref.h"
 #include "InputWindow.h"
 #include "MouseSettings.h"
-#include "InputMouse.h"
-#include "InputConstants.h"
 #include "SettingsView.h"
-#include "InputTouchpadPref.h"
 
 #undef B_TRANSLATION_CONTEXT
 #define B_TRANSLATION_CONTEXT "InputWindow"
@@ -40,13 +41,8 @@ InputWindow::InputWindow(BRect rect)
 		B_NOT_RESIZABLE | B_NOT_ZOOMABLE | B_ASYNCHRONOUS_CONTROLS
 		| B_AUTO_UPDATE_SIZE_LIMITS | B_QUIT_ON_WINDOW_CLOSE)
 {
-	fInputMouse = new InputMouse();
-	fTouchpadPrefView = new TouchpadPrefView(B_TRANSLATE("Touchpad"));
-	fDeviceListView = new DeviceListView(B_TRANSLATE("Device List"));
-
-	fCardView = new BCardView();
-	fCardView->AddChild(fInputMouse);
-	fCardView->AddChild(fTouchpadPrefView);
+	fConnected = false;
+	ConnectToDevice();
 
 	BLayoutBuilder::Group<>(this, B_HORIZONTAL, 10)
 		.SetInsets(B_USE_WINDOW_SPACING)
@@ -90,8 +86,81 @@ InputWindow::MessageReceived(BMessage* message)
 			PostMessage(message, fTouchpadPrefView);
 			break;
 		}
+		case BUTTON_DEFAULTS:
+		case BUTTON_REVERT:
+		case kMsgSliderrepeatrate:
+		case kMsgSliderdelayrate:
+		{
+			PostMessage(message, fInputKeyboard);
+			break;
+		}
 		default:
 			BWindow::MessageReceived(message);
 			break;
 	}
+}
+
+status_t
+InputWindow::ConnectToDevice()
+{
+	BList devList;
+	status_t status = get_input_devices(&devList);
+	if (status != B_OK)
+		return status;
+
+	int32 i = 0;
+
+	fDeviceListView = new DeviceListView(B_TRANSLATE("Device List"));
+	fCardView = new BCardView();
+
+	while (true) {
+		BInputDevice* dev = (BInputDevice*)devList.ItemAt(i);
+		if (dev == NULL) {
+			break;
+		}
+		i++;
+
+		BString name = dev->Name();
+
+		if (name.FindFirst("Touchpad") >= 0
+				&&dev->Type() == B_POINTING_DEVICE) {
+
+			fTouchPad = dev;
+			fTouchpadPrefView = new TouchpadPrefView();
+			fCardView->AddChild(fTouchpadPrefView);
+			fDeviceListView->fDeviceList->AddItem(new BStringItem(name));
+
+		}
+		else if (name.FindFirst("Touchpad") != 0
+			&&dev->Type() == B_POINTING_DEVICE) {
+
+			fprintf(stderr, dev->Name());
+
+			fMouse = dev;
+			fInputMouse = new InputMouse();
+			fCardView->AddChild(fInputMouse);
+			fDeviceListView->fDeviceList->AddItem(new BStringItem(name));
+
+		}
+
+		else if (dev->Type() == B_KEYBOARD_DEVICE) {
+
+			fKeyboard = dev;
+			fInputKeyboard = new InputKeyboard();
+			fCardView->AddChild(fInputKeyboard);
+			fDeviceListView->fDeviceList->AddItem(new BStringItem(name));
+
+		}
+		else {
+			fprintf(stderr, "\nelse \n");
+			LOG("dev type %d\n", dev->Type());
+
+			delete dev;
+		}
+	}
+	if (fConnected) {
+		fError->SetText(B_TRANSLATE("no input device found"));
+		return B_OK;
+	}
+	return B_ENTRY_NOT_FOUND;
 }

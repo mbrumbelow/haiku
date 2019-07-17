@@ -163,8 +163,6 @@ TouchpadPref::ConnectToTouchPad()
 			break;
 		i++;
 
-		LOG("input device %s\n", dev->Name());
-
 		BString name = dev->Name();
 
 		if (name.FindFirst("Touchpad") >= 0
