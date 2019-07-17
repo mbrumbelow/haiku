@@ -34,7 +34,7 @@ class ArgvParser {
 
 		status_t EachArgvPrivate(const char* name,
 			ArgvHandler argvHandlerFunc, void* passThru);
-		char GetCh();
+		int GetCh();
 
 		status_t SendArgv(ArgvHandler argvHandlerFunc, void* passThru);
 			// done with a whole line of argv, send it off and get ready
