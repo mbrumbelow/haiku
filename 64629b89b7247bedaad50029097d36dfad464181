@@ -16,6 +16,24 @@
       "revId": "64629b89b7247bedaad50029097d36dfad464181",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad2efb71_babf8a38",
+        "filename": "src/add-ons/kernel/drivers/input/usb_hid/TabletProtocolHandler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-17T06:43:48Z",
+      "side": 1,
+      "message": "1 !\u003d 0 was evaluated first, and then ANDed bitwise with Data().\n\nI went with a non-functional change here, but if that\u0027s indeed more correct and only the LSB should be tested, we can go for (fRange-\u003eData() \u0026 1) !\u003d 0",
+      "parentUuid": "34e0d29d_3938e531",
+      "revId": "64629b89b7247bedaad50029097d36dfad464181",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
