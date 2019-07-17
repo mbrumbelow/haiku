@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a3e4af7f_7f67c786",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2019-07-17T17:33:26Z",
+      "side": 1,
+      "message": "DeviceList is used in the DeviceListView. As we are adding the items in the DeviceList name as \"Device Names\". And by using the DeviceName we are appending the items to the DeviceList. I don\u0027t think that we can use it directly.",
+      "parentUuid": "5fdbd498_36b6667e",
+      "revId": "ddc1b3fd87c374eae5e2c261773161e1afa6a4ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a6a6ee5e_b735bfc0",
         "filename": "src/preferences/input/InputDeviceView.cpp",
         "patchSetId": 3
