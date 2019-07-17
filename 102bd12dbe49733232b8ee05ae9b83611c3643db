@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "20dd1b0e_77739a28",
+        "filename": "src/preferences/input/Input.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-07-17T17:23:55Z",
+      "side": 1,
+      "message": "tab",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 1
+      },
+      "revId": "102bd12dbe49733232b8ee05ae9b83611c3643db",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69619702_97acf3f5",
+        "filename": "src/preferences/input/InputMouse.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-07-17T17:23:55Z",
+      "side": 1,
+      "message": "tabs instead of spaces",
+      "range": {
+        "startLine": 38,
+        "startChar": 8,
+        "endLine": 38,
+        "endChar": 13
+      },
+      "revId": "102bd12dbe49733232b8ee05ae9b83611c3643db",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1f40cf4_4370daf9",
+        "filename": "src/preferences/input/InputMouse.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-07-17T17:23:55Z",
+      "side": 1,
+      "message": "tabs instead of spaces",
+      "range": {
+        "startLine": 39,
+        "startChar": 8,
+        "endLine": 39,
+        "endChar": 16
+      },
+      "revId": "102bd12dbe49733232b8ee05ae9b83611c3643db",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bb70073_93e10e72",
+        "filename": "src/preferences/input/InputMouse.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-07-17T17:23:55Z",
+      "side": 1,
+      "message": "tabs instead of spaces",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 4
+      },
+      "revId": "102bd12dbe49733232b8ee05ae9b83611c3643db",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82bdb813_d937cf6e",
+        "filename": "src/preferences/input/InputMouse.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-07-17T17:23:55Z",
+      "side": 1,
+      "message": "asterisk belongs to the type",
+      "range": {
+        "startLine": 47,
+        "startChar": 12,
+        "endLine": 47,
+        "endChar": 13
+      },
+      "revId": "102bd12dbe49733232b8ee05ae9b83611c3643db",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f779433_87dcb8a6",
+        "filename": "src/preferences/input/InputMouse.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-07-17T17:23:55Z",
+      "side": 1,
+      "message": "same as above",
+      "range": {
+        "startLine": 48,
+        "startChar": 12,
+        "endLine": 48,
+        "endChar": 13
+      },
+      "revId": "102bd12dbe49733232b8ee05ae9b83611c3643db",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "661af44f_3b6ed1e8",
+        "filename": "src/preferences/input/SettingsView.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-07-17T17:23:55Z",
+      "side": 1,
+      "message": "why are there two empty lines here?",
+      "revId": "102bd12dbe49733232b8ee05ae9b83611c3643db",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
