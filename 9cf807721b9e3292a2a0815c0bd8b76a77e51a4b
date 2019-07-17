@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d50174e4_dad85411",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/kernel_interface.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2019-07-17T21:01:59Z",
+      "side": 1,
+      "message": "Come to think of this, Btrfs relies heavily on COW, so when one of the operation in the chain doesn\u0027t work we can safely ignore the clean up after fail here. As long as we don\u0027t commit the transaction the tree still remain its previous state.",
+      "revId": "9cf807721b9e3292a2a0815c0bd8b76a77e51a4b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d43fc5e_3ec4ad65",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/kernel_interface.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2019-07-17T21:01:59Z",
+      "side": 1,
+      "message": "The original idea here is end the transaction and flush data, as you can see here https://github.com/haiku/haiku/blob/master/src/add-ons/kernel/file_systems/btrfs/Journal.cpp#L51 (I have commented out the sync, so that we can still use the fs on RAM instead of writing on disk). I\u0027m not sure it\u0027s a good idea to do that way, but anw the transaction is ended here...",
+      "revId": "9cf807721b9e3292a2a0815c0bd8b76a77e51a4b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b95186bf_f1eb086b",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/kernel_interface.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2019-07-17T21:01:59Z",
+      "side": 1,
+      "message": "... but it\u0027s passed on next operations, which may cause some weird behaviors.",
+      "range": {
+        "startLine": 505,
+        "startChar": 1,
+        "endLine": 506,
+        "endChar": 56
+      },
+      "revId": "9cf807721b9e3292a2a0815c0bd8b76a77e51a4b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb6e39a8_148db13f",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/kernel_interface.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2019-07-17T21:01:59Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 514,
+        "startChar": 1,
+        "endLine": 515,
+        "endChar": 56
+      },
+      "revId": "9cf807721b9e3292a2a0815c0bd8b76a77e51a4b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}

@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "93e38671_f19bfc91",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2019-07-17T21:01:59Z",
+      "side": 1,
+      "message": "I have said it earlier, but I will make it more clear here, the check can be put in MakeReference(), since function does assign name to inode.",
+      "parentUuid": "08f3ca4a_61bcaaa6",
+      "range": {
+        "startLine": 449,
+        "startChar": 1,
+        "endLine": 454,
+        "endChar": 23
+      },
+      "revId": "bc343f8c1e900b429690192d824748b884d18414",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "66adb905_f4190dc7",
         "filename": "src/add-ons/kernel/file_systems/btrfs/kernel_interface.cpp",
         "patchSetId": 1
