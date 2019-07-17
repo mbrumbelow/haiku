@@ -12,6 +12,7 @@
 
 
 #include <InterfaceDefs.h>
+#include <Input.h>
 #include <Point.h>
 #include <SupportDefs.h>
 

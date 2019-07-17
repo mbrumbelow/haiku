@@ -12,6 +12,7 @@
 
 #include <Catalog.h>
 #include <DateFormat.h>
+#include <Input.h>
 #include <LayoutBuilder.h>
 #include <ListView.h>
 #include <Locale.h>
@@ -23,17 +24,6 @@
 #undef B_TRANSLATION_CONTEXT
 #define B_TRANSLATION_CONTEXT "DeviceList"
 
-
-DeviceName::DeviceName(const char* item, int d)
-	:
-	BStringItem(item)
-{
-	this->fDevice = d;
-}
-
-DeviceName::~DeviceName()
-{
-}
 
 DeviceListView::DeviceListView(const char* name)
 	:
@@ -47,10 +37,9 @@ DeviceListView::DeviceListView(const char* name)
 	SetExplicitMinSize(BSize(160, B_SIZE_UNSET));
 	SetExplicitMaxSize(BSize(B_SIZE_UNLIMITED, B_SIZE_UNSET));
 
-	fDeviceList->AddItem(new DeviceName("Mouse", 101));
-	fDeviceList->AddItem(new DeviceName("Touchpad", 102));
 
 	BLayoutBuilder::Group<>(this, B_VERTICAL)
+		.SetInsets(B_USE_DEFAULT_SPACING)
 		.Add(fScrollView)
 		.End();
 	fDeviceList->SetSelectionMessage(new BMessage(ITEM_SELECTED));
