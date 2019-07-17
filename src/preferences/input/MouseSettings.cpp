@@ -10,6 +10,7 @@
 #include <FindDirectory.h>
 #include <File.h>
 #include <Path.h>
+#include <String.h>
 #include <View.h>
 
 #include <stdio.h>
