@@ -43,6 +43,10 @@
 #ifndef _SYS_LINK_ELF_H_
 #define	_SYS_LINK_ELF_H_
 
+
+#ifdef _BSD_SOURCE
+
+
 #include <sys/elf.h>
 
 /*
@@ -103,5 +107,9 @@ void * dl_unwind_find_exidx(const void *, int *);
 #endif
 
 __END_DECLS
+
+
+#endif
+
 
 #endif /* _SYS_LINK_ELF_H_ */
