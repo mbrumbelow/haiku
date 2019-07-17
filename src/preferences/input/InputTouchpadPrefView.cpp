@@ -270,8 +270,8 @@ TouchpadPrefView::TouchpadPrefView(const char* name)
 {
 	SetupView();
 	// set view values
-	SetValues(&fTouchpadPref.Settings());
-	if (fTouchpadPref.IsTouchpadConnected() == false) {
+	SetValues(&fTouchpadPref->Settings());
+	if (fTouchpadPref->IsTouchpadConnected() == false) {
 		DisablePref();
 		fShowWarning->SetText(B_TRANSLATE("No touchpad found, the settings "
 			"will have no effect."));
@@ -289,13 +289,13 @@ TouchpadPrefView::~TouchpadPrefView()
 void
 TouchpadPrefView::MessageReceived(BMessage* message)
 {
-	touchpad_settings& settings = fTouchpadPref.Settings();
+	touchpad_settings& settings = fTouchpadPref->Settings();
 
 	switch (message->what) {
 		case SCROLL_AREA_CHANGED:
 			settings.scroll_rightrange = fTouchpadView->GetRightScrollRatio();
 			settings.scroll_bottomrange = fTouchpadView->GetBottomScrollRatio();
-			fTouchpadPref.UpdateSettings();
+			fTouchpadPref->UpdateSettings();
 			break;
 
 		case SCROLL_CONTROL_CHANGED:
@@ -306,24 +306,24 @@ TouchpadPrefView::MessageReceived(BMessage* message)
 			settings.scroll_xstepsize = (20 - fScrollStepXSlider->Value()) * 3;
 			settings.scroll_ystepsize = (20 - fScrollStepYSlider->Value()) * 3;
 			fTwoFingerHorizontalBox->SetEnabled(settings.scroll_twofinger);
-			fTouchpadPref.UpdateSettings();
+			fTouchpadPref->UpdateSettings();
 			break;
 
 		case TAP_CONTROL_CHANGED:
 			settings.tapgesture_sensibility = fTapSlider->Value();
-			fTouchpadPref.UpdateSettings();
+			fTouchpadPref->UpdateSettings();
 			break;
 
 		case DEFAULT_SETTINGS:
-			fTouchpadPref.Defaults();
+			fTouchpadPref->Defaults();
 			fRevertButton->SetEnabled(true);
-			fTouchpadPref.UpdateSettings();
+			fTouchpadPref->UpdateSettings();
 			SetValues(&settings);
 			break;
 
 		case REVERT_SETTINGS:
-			fTouchpadPref.Revert();
-			fTouchpadPref.UpdateSettings();
+			fTouchpadPref->Revert();
+			fTouchpadPref->UpdateSettings();
 			fRevertButton->SetEnabled(false);
 			SetValues(&settings);
 			break;
@@ -349,7 +349,7 @@ TouchpadPrefView::AttachedToWindow()
 	BSize size = PreferredSize();
 	Window()->ResizeTo(size.width, size.height);
 
-	BPoint position = fTouchpadPref.WindowPosition();
+	BPoint position = fTouchpadPref->WindowPosition();
 	// center window on screen if it had a bad position
 	if (position.x < 0 && position.y < 0)
 		Window()->CenterOnScreen();
@@ -361,7 +361,7 @@ TouchpadPrefView::AttachedToWindow()
 void
 TouchpadPrefView::DetachedFromWindow()
 {
-	fTouchpadPref.SetWindowPosition(Window()->Frame().LeftTop());
+	fTouchpadPref->SetWindowPosition(Window()->Frame().LeftTop());
 }
 
 
@@ -371,6 +371,8 @@ TouchpadPrefView::SetupView()
 	SetLayout(new BGroupLayout(B_VERTICAL));
 	BBox* scrollBox = new BBox("Touchpad");
 	scrollBox->SetLabel(B_TRANSLATE("Scrolling"));
+
+	fTouchpadPref = new TouchpadPref(fDeviceListView);
 
 	fTouchpadView = new TouchpadView(BRect(0, 0, 130, 120));
 	fTouchpadView->SetExplicitMaxSize(BSize(130, 120));

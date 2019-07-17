@@ -61,6 +61,14 @@ InputApplication::MessageReceived(BMessage* message)
 			fWindow->PostMessage(message);
 			break;
 		}
+		case BUTTON_DEFAULTS:
+		case BUTTON_REVERT:
+		case SLIDER_REPEAT_RATE:
+		case SLIDER_DELAY_RATE:
+		{
+			fWindow->PostMessage(message);
+			break;
+		}
 	default:
 		BApplication::MessageReceived(message);
 	}

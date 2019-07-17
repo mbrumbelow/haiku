@@ -22,30 +22,38 @@
 #include <TabView.h>
 #include <View.h>
 
-#include "InputWindow.h"
+#include "InputDeviceView.h"
 #include "MouseSettings.h"
 #include "MouseView.h"
 #include "SettingsView.h"
 
 #define MOUSE_SETTINGS 'Mss'
 
+class DeviceListView;
 
-class BTabView;
 
 class InputMouse : public BView {
 public:
-					InputMouse();
+					InputMouse(DeviceListView* devicelistview);
 	virtual			~InputMouse();
 	void			SetMouseType(int32 type);
 	void			MessageReceived(BMessage* message);
+	bool			IsMouseConnected()
+						{return fConnected;}
 private:
 
 	typedef BBox inherited;
+
+	status_t			ConnectToMouse();
+
+	bool 				fConnected;
+	BInputDevice* 		fMouse;
 
 	SettingsView*		fSettingsView;
 	MouseView*			fMouseView;
 	BButton*			fDefaultsButton;
 	BButton*			fRevertButton;
+	DeviceListView*		fDeviceListView;
 	MouseSettings		fSettings;
 
 	mouse_settings		fMouseSettings, fOriginalSettings;

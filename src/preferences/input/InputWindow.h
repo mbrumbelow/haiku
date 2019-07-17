@@ -10,18 +10,20 @@
 #ifndef INPUT_WINDOW_H
 #define INPUT_WINDOW_H
 
-#include <Window.h>
-#include <View.h>
+
+#include <Box.h>
+#include <CardView.h>
 #include <ListItem.h>
 #include <ListView.h>
+#include <Message.h>
 #include <ScrollBar.h>
 #include <ScrollView.h>
 #include <SeparatorView.h>
-#include <Box.h>
-#include <CardView.h>
-#include <Message.h>
+#include <View.h>
+#include <Window.h>
 
 #include "InputDeviceView.h"
+#include "InputKeyboard.h"
 #include "InputMouse.h"
 #include "InputTouchpadPrefView.h"
 #include "MouseSettings.h"
@@ -34,11 +36,12 @@ class BCardLayout;
 
 class SettingsView;
 class DeviceName;
+class InputDevices;
+class InputKeyboard;
+class InputMouse;
 class TouchpadPrefView;
 class TouchpadPref;
 class TouchpadView;
-class InputDevices;
-class InputMouse;
 
 
 class InputWindow : public BWindow
@@ -47,10 +50,12 @@ public:
 							InputWindow(BRect rect);
 		void				MessageReceived(BMessage* message);
 private:
+
 	DeviceListView*			fDeviceListView;
 	BCardView*				fCardView;
 	MouseSettings			fSettings;
 	SettingsView*			fSettingsView;
+	InputKeyboard*			fInputKeyboard;
 	InputMouse*				fInputMouse;
 	TouchpadPrefView*		fTouchpadPrefView;
 	TouchpadPref*			fTouchpadPref;

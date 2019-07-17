@@ -43,9 +43,13 @@ static const int32 kDefaultAccelerationFactor = 65536;
 static const bool kDefaultAcceptFirstClick = false;
 
 
-InputMouse::InputMouse()
+InputMouse::InputMouse(DeviceListView* devicelistview)
 	: BView("InputMouse", B_WILL_DRAW)
 {
+	fConnected = false;
+	fDeviceListView = devicelistview;
+	ConnectToMouse();
+
 	fSettingsView = new SettingsView(fSettings);
 
 	fDefaultsButton = new BButton(B_TRANSLATE("Defaults"),
@@ -214,4 +218,41 @@ InputMouse::MessageReceived(BMessage* message)
 			break;
 		}
 	}
+}
+
+status_t
+InputMouse::ConnectToMouse()
+{
+	BList devList;
+	status_t status = get_input_devices(&devList);
+	if (status != B_OK)
+		return status;
+
+	int32 i = 0;
+	while (true) {
+		BInputDevice* dev = (BInputDevice*)devList.ItemAt(i);
+		if (dev == NULL)
+			break;
+		i++;
+
+		LOG("input device %s\n", dev->Name());
+
+		BString name = dev->Name();
+
+		if (name.FindFirst("Mouse") >= 0
+			&& dev->Type() == B_POINTING_DEVICE) {
+			fConnected = true;
+			fMouse = dev;
+			fDeviceListView->fDeviceList->AddItem(new BStringItem(name));
+			// Don't bail out here, since we need to delete the other devices
+			// yet.
+		} else {
+			delete dev;
+		}
+	}
+	if (fConnected)
+		return B_OK;
+
+	LOG("mouse input device NOT found\n");
+	return B_ENTRY_NOT_FOUND;
 }

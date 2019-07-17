@@ -17,9 +17,11 @@
 #include <keyboard_mouse_driver.h>
 
 
-TouchpadPref::TouchpadPref()
+TouchpadPref::TouchpadPref(DeviceListView* devicelistview)
 {
 	fConnected = false;
+
+	fDeviceListView = devicelistview;
 	// default center position
 	fWindowPosition.x = -1;
 	fWindowPosition.y = -1;
@@ -172,6 +174,7 @@ TouchpadPref::ConnectToTouchPad()
 			&& !fConnected) {
 			fConnected = true;
 			fTouchPad = dev;
+			fDeviceListView->fDeviceList->AddItem(new BStringItem(name));
 			// Don't bail out here, since we need to delete the other devices
 			// yet.
 		} else {

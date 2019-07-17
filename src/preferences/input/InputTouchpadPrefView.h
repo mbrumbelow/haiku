@@ -19,6 +19,7 @@
 #include <Slider.h>
 #include <View.h>
 
+#include "InputDeviceView.h"
 #include "InputTouchpadPref.h"
 #include "touchpad_settings.h"
 
@@ -35,6 +36,8 @@ const uint SCROLL_CONTROL_CHANGED = '&scc';
 const uint TAP_CONTROL_CHANGED = '&tcc';
 const uint DEFAULT_SETTINGS = '&dse';
 const uint REVERT_SETTINGS = '&rse';
+
+class DeviceListView;
 
 
 //! Shows a touchpad
@@ -86,11 +89,10 @@ public:
 			void			SetupView();
 
 			void			SetValues(touchpad_settings *settings);
-			TouchpadPref	fTouchpadPref;
-
 private:
 			void 			DisablePref();
 
+			TouchpadPref*	fTouchpadPref;
 			TouchpadView*	fTouchpadView;
 			BCheckBox*		fTwoFingerBox;
 			BCheckBox*		fTwoFingerHorizontalBox;
@@ -101,6 +103,7 @@ private:
 			BButton*		fDefaultButton;
 			BButton*		fRevertButton;
 			BStringView*	fShowWarning;
+			DeviceListView*	fDeviceListView;
 };
 
 #endif	// TOUCHPAD_PREF_VIEW_H

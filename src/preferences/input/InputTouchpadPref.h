@@ -17,17 +17,20 @@
 #include <Input.h>
 #include <Path.h>
 
+#include "InputDeviceView.h"
+
 #if DEBUG
 #	define LOG(text...) PRINT((text))
 #else
 #	define LOG(text...)
 #endif
 
+class DeviceListView;
 
 class TouchpadPref {
 public:
-								TouchpadPref();
-								~TouchpadPref();
+								TouchpadPref(DeviceListView* devicelistview);
+			virtual				~TouchpadPref();
 
 			void				Revert();
 			void				Defaults();
@@ -56,6 +59,7 @@ private:
 			touchpad_settings	fSettings;
 			touchpad_settings	fStartSettings;
 			BPoint				fWindowPosition;
+			DeviceListView*		fDeviceListView;
 };
 
 
