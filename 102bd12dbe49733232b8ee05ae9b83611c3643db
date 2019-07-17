@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "79ac3ce6_82a8c6ed",
+        "filename": "src/preferences/input/Input.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2019-07-17T17:49:36Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "20dd1b0e_77739a28",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 1
+      },
+      "revId": "102bd12dbe49733232b8ee05ae9b83611c3643db",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "69619702_97acf3f5",
         "filename": "src/preferences/input/InputMouse.h",
         "patchSetId": 20
@@ -45,6 +69,30 @@
       "revId": "102bd12dbe49733232b8ee05ae9b83611c3643db",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbea39d6_8d0587f4",
+        "filename": "src/preferences/input/InputMouse.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2019-07-17T17:49:36Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "69619702_97acf3f5",
+      "range": {
+        "startLine": 38,
+        "startChar": 8,
+        "endLine": 38,
+        "endChar": 13
+      },
+      "revId": "102bd12dbe49733232b8ee05ae9b83611c3643db",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -94,6 +142,54 @@
     },
     {
       "key": {
+        "uuid": "14d3ef3a_72dfbb8e",
+        "filename": "src/preferences/input/InputMouse.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2019-07-17T17:49:36Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2bb70073_93e10e72",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 4
+      },
+      "revId": "102bd12dbe49733232b8ee05ae9b83611c3643db",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "287a72ca_3d6f05bf",
+        "filename": "src/preferences/input/InputMouse.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2019-07-17T17:49:36Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c1f40cf4_4370daf9",
+      "range": {
+        "startLine": 39,
+        "startChar": 8,
+        "endLine": 39,
+        "endChar": 16
+      },
+      "revId": "102bd12dbe49733232b8ee05ae9b83611c3643db",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "82bdb813_d937cf6e",
         "filename": "src/preferences/input/InputMouse.h",
         "patchSetId": 20
@@ -114,6 +210,30 @@
       "revId": "102bd12dbe49733232b8ee05ae9b83611c3643db",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c52cbfd6_40a0fdb0",
+        "filename": "src/preferences/input/InputMouse.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2019-07-17T17:49:36Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "82bdb813_d937cf6e",
+      "range": {
+        "startLine": 47,
+        "startChar": 12,
+        "endLine": 47,
+        "endChar": 13
+      },
+      "revId": "102bd12dbe49733232b8ee05ae9b83611c3643db",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "10507c06_32b11ebf",
+        "filename": "src/preferences/input/InputMouse.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2019-07-17T17:49:36Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6f779433_87dcb8a6",
+      "range": {
+        "startLine": 48,
+        "startChar": 12,
+        "endLine": 48,
+        "endChar": 13
+      },
+      "revId": "102bd12dbe49733232b8ee05ae9b83611c3643db",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "661af44f_3b6ed1e8",
         "filename": "src/preferences/input/SettingsView.cpp",
         "patchSetId": 20
@@ -154,6 +298,24 @@
       "revId": "102bd12dbe49733232b8ee05ae9b83611c3643db",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6319e2f_36f5ed48",
+        "filename": "src/preferences/input/SettingsView.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2019-07-17T17:49:36Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "661af44f_3b6ed1e8",
+      "revId": "102bd12dbe49733232b8ee05ae9b83611c3643db",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
