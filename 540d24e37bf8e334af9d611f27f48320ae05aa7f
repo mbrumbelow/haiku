@@ -16,6 +16,24 @@
       "revId": "540d24e37bf8e334af9d611f27f48320ae05aa7f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca031c14_65213635",
+        "filename": "src/add-ons/kernel/file_systems/fat/file.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-07-17T01:56:49Z",
+      "side": 1,
+      "message": "Null nodes should probably be tracked elsewhere.",
+      "parentUuid": "147987a0_34e1907a",
+      "revId": "540d24e37bf8e334af9d611f27f48320ae05aa7f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
