@@ -46,8 +46,15 @@ InputWindow::InputWindow(BRect _rect)
 	fDeviceListView = new DeviceListView(B_TRANSLATE("Device List"));
 
 	fCardView = new BCardView();
-	fCardView->AddChild(fInputMouse);
-	fCardView->AddChild(fTouchpadPrefView);
+	if (fSettings.IsMouseConnected() == true)
+	{
+		fCardView->AddChild(fInputMouse);
+	}
+
+	if (fTouchpadPref.IsTouchpadConnected() == true)
+	{
+		fCardView->AddChild(fTouchpadPrefView);
+	}
 
 	BLayoutBuilder::Group<>(this, B_HORIZONTAL, 10)
 		.Add(fDeviceListView)
