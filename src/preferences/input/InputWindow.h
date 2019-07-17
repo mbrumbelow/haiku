@@ -53,7 +53,7 @@ private:
 	SettingsView*			fSettingsView;
 	InputMouse*				fInputMouse;
 	TouchpadPrefView*		fTouchpadPrefView;
-	TouchpadPref*			fTouchpadPref;
+	TouchpadPref			fTouchpadPref;
 };
 
 #endif /* INPUT_WINDOW_H */

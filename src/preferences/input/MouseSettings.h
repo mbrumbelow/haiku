@@ -12,6 +12,7 @@
 
 
 #include <InterfaceDefs.h>
+#include <Input.h>
 #include <Point.h>
 #include <SupportDefs.h>
 
@@ -61,11 +62,14 @@ public:
 
 		bool AcceptFirstClick() const { return fAcceptFirstClick; }
 		void SetAcceptFirstClick(bool accept_first_click);
+		bool IsMouseConnected()
+				{ return fConnected; }
 
 private:
 		static status_t _GetSettingsPath(BPath &path);
 		void _RetrieveSettings();
 		status_t _SaveSettings();
+		status_t ConnectToMouse();
 
 		mouse_settings	fSettings, fOriginalSettings;
 		mode_mouse		fMode, fOriginalMode;
@@ -73,6 +77,8 @@ private:
 		mode_focus_follows_mouse	fOriginalFocusFollowsMouseMode;
 		bool			fAcceptFirstClick, fOriginalAcceptFirstClick;
 		BPoint			fWindowPosition;
+		bool 			fConnected;
+		BInputDevice* 		fMouse;
 };
 
 #endif	// MOUSE_SETTINGS_H

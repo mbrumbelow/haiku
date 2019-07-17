@@ -10,6 +10,7 @@
 #include <FindDirectory.h>
 #include <File.h>
 #include <Path.h>
+#include <String.h>
 #include <View.h>
 
 #include <stdio.h>
@@ -31,6 +32,8 @@ MouseSettings::MouseSettings()
 	:
 	fWindowPosition(-1, -1)
 {
+	fConnected = false;
+	ConnectToMouse();
 	_RetrieveSettings();
 
 	fOriginalSettings = fSettings;
@@ -135,6 +138,41 @@ MouseSettings::_SaveSettings()
 	file.WriteAt(kOffset, &fWindowPosition, sizeof(BPoint));
 
 	return B_OK;
+}
+
+status_t
+MouseSettings::ConnectToMouse()
+{
+	BList devList;
+	status_t status = get_input_devices(&devList);
+	if (status != B_OK)
+		return status;
+
+	int32 i = 0;
+	while (true) {
+		BInputDevice* dev = (BInputDevice*)devList.ItemAt(i);
+		if (dev == NULL)
+			break;
+		i++;
+
+		dev->Name();
+
+		BString name = dev->Name();
+
+		if (name.FindFirst("Mouse") >= 0
+			&& dev->Type() == B_POINTING_DEVICE
+			&& !fConnected) {
+			fConnected = true;
+			fMouse = dev;
+			// Don't bail out here, since we need to delete the other devices
+			// yet.
+		} else {
+			delete dev;
+		}
+	}
+	if (fConnected)
+		return B_OK;
+	return B_ENTRY_NOT_FOUND;
 }
 
 
