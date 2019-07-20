@@ -7,6 +7,7 @@
 
 
 #include_next <sys/wait.h>
+#include <features.h>
 
 
 #ifdef _BSD_SOURCE

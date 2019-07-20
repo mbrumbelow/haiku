@@ -28,6 +28,7 @@ documentation and/or software.
 #ifndef _SYS_MD5_H_
 #define _SYS_MD5_H_
 
+#include <features.h>
 
 #ifdef _BSD_SOURCE
 

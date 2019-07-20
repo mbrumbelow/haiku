@@ -7,6 +7,7 @@
 
 
 #include_next <unistd.h>
+#include <features.h>
 
 
 #ifdef _BSD_SOURCE

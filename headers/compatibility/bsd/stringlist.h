@@ -36,6 +36,7 @@
 #ifndef _STRINGLIST_H
 #define _STRINGLIST_H 
 
+#include <features.h>
 
 #ifdef _BSD_SOURCE
 
