@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "1602da86_8aa404d2",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2019-07-20T11:59:59Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "059ffa23_e49a1d0f",
+      "revId": "ddc1b3fd87c374eae5e2c261773161e1afa6a4ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a6a6ee5e_b735bfc0",
         "filename": "src/preferences/input/InputDeviceView.cpp",
         "patchSetId": 3
@@ -89,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "b82f786d_7d03af50",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2019-07-20T11:59:59Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "943acace_192ec45e",
+      "revId": "ddc1b3fd87c374eae5e2c261773161e1afa6a4ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e32ab7c1_ea3834e4",
         "filename": "src/preferences/input/InputDeviceView.cpp",
         "patchSetId": 3
@@ -103,6 +139,24 @@
       "revId": "ddc1b3fd87c374eae5e2c261773161e1afa6a4ac",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c63beb3_c0e40f21",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2019-07-20T11:59:59Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e32ab7c1_ea3834e4",
+      "revId": "ddc1b3fd87c374eae5e2c261773161e1afa6a4ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
