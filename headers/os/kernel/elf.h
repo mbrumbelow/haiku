@@ -28,6 +28,16 @@ typedef int64 Elf64_Sxword;
 
 typedef Elf64_Half Elf64_Versym;
 
+#if defined(__i386__)
+	#define Elf_Addr Elf32_Addr
+	#define Elf_Phdr Elf32_Phdr
+	#define Elf_Half Elf32_Half
+#elif defined(__x86_64__)
+	#define Elf_Addr Elf64_Addr
+	#define Elf_Phdr Elf64_Phdr
+	#define Elf_Half Elf64_Half
+#endif
+
 
 /*** ELF header ***/
 
