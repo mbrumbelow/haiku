@@ -6,6 +6,7 @@
 #ifndef _SYS_IOCCOM_H
 #define _SYS_IOCCOM_H
 
+#include <features.h>
 
 #ifdef _BSD_SOURCE
 

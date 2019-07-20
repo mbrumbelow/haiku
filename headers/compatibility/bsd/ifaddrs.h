@@ -5,6 +5,7 @@
 #ifndef _IFADDRS_H
 #define _IFADDRS_H
 
+#include <features.h>
 
 #ifdef _BSD_SOURCE
 

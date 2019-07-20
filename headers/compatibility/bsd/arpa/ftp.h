@@ -36,6 +36,7 @@
 #ifndef _ARPA_FTP_H_
 #define	_ARPA_FTP_H_
 
+#include <features.h>
 
 #ifdef _BSD_SOURCE
 

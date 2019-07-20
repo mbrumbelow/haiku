@@ -37,6 +37,7 @@
 #ifndef _ARPA_TFTP_H_
 #define	_ARPA_TFTP_H_
 
+#include <features.h>
 
 #ifdef _BSD_SOURCE
 

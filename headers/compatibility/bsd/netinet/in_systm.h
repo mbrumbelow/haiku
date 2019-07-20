@@ -5,6 +5,7 @@
 #ifndef _NETINET_IN_SYSTM_H_
 #define _NETINET_IN_SYSTM_H_
 
+#include <features.h>
 
 #ifdef _BSD_SOURCE
 

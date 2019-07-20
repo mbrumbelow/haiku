@@ -7,6 +7,7 @@
 
 
 #include_next <endian.h>
+#include <features.h>
 
 
 #ifdef _BSD_SOURCE
