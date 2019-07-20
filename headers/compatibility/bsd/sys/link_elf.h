@@ -44,7 +44,7 @@
 #define	_SYS_LINK_ELF_H_
 
 
-#ifdef _BSD_SOURCE
+#ifdef _DEFAULT_SOURCE
 
 
 #include <sys/elf.h>
