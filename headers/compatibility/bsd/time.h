@@ -7,6 +7,7 @@
 
 
 #include_next <time.h>
+#include <features.h>
 
 
 #ifdef _BSD_SOURCE

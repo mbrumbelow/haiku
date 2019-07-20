@@ -37,6 +37,7 @@
 #ifndef _ERR_H_
 #define	_ERR_H_
 
+#include <features.h>
 
 #ifdef _BSD_SOURCE
 

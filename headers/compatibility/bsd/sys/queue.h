@@ -33,6 +33,7 @@
 #ifndef _SYS_QUEUE_H_
 #define	_SYS_QUEUE_H_
 
+#include <features.h>
 
 #ifdef _BSD_SOURCE
 

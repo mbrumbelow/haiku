@@ -5,6 +5,7 @@
 #ifndef _BSD_PTY_H_
 #define _BSD_PTY_H_
 
+#include <features.h>
 
 #ifdef _BSD_SOURCE
 

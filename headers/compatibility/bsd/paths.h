@@ -37,6 +37,7 @@
 #ifndef _PATHS_H_
 #define	_PATHS_H_
 
+#include <features.h>
 
 #if defined(_BSD_SOURCE) || defined(_GNU_SOURCE)
 
