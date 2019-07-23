@@ -73,14 +73,15 @@ int media_play(const char* uri)
 	
 	for (int i = 0; i < playFile->CountTracks(); i++) {
 		BMediaTrack* track = playFile->TrackAt(i);
-		playFormat.type = B_MEDIA_RAW_AUDIO;
-		if ((track->DecodedFormat(&playFormat) == B_OK) 
+		if (track) {
+			playFormat.type = B_MEDIA_RAW_AUDIO;
+			if ((track->DecodedFormat(&playFormat) == B_OK)
 				&& (playFormat.type == B_MEDIA_RAW_AUDIO)) {
-			playTrack = track;
-			break;
-		}
-		if (track)
+				playTrack = track;
+				break;
+			}
 			playFile->ReleaseTrack(track);
+		}
 	}
 
 	// Good relations with the Wookiees, I have. 

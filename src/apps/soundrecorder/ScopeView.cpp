@@ -329,7 +329,7 @@ ScopeView::MouseDown(BPoint position)
 void
 ScopeView::InitBitmap()
 {
-	if (fBitmapView) {
+	if (fBitmap && fBitmapView) {
 		fBitmap->RemoveChild(fBitmapView);
 		delete fBitmapView;
 	}

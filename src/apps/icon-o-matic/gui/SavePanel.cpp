@@ -76,13 +76,17 @@ SavePanel::SavePanel(const char* name,
 	
 	// find a couple of important views and mess with their layout
 	BView* background = Window()->ChildAt(0);
+	if (!background) {
+		printf("SavePanel::SavePanel() - couldn't find necessary controls.\n");
+		return;
+	}
 	BButton* cancel = dynamic_cast<BButton*>(
 		background->FindView("cancel button"));
 	BView* textview = background->FindView("text view");
 	BScrollBar* hscrollbar = dynamic_cast<BScrollBar*>(
 		background->FindView("HScrollBar"));
 
-	if (!background || !cancel || !textview || !hscrollbar) {
+	if (!cancel || !textview || !hscrollbar) {
 		printf("SavePanel::SavePanel() - couldn't find necessary controls.\n");
 		return;
 	}

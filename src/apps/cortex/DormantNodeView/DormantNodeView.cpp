@@ -198,7 +198,9 @@ void DormantNodeView::MouseMoved(
 	if (!message && ((index = IndexOf(point)) >= 0)) {
 		DormantNodeListItem *item = dynamic_cast<DormantNodeListItem *>(ItemAt(index));
 		DormantNodeListItem *last = dynamic_cast<DormantNodeListItem *>(m_lastItemUnder);
-		BRect r = item->getRealFrame(be_plain_font);
+		BRect r;
+		if (item)
+			r = item->getRealFrame(be_plain_font);
 		if (item && r.Contains(point)) {
 			if (item != last) {
 				if (last)
