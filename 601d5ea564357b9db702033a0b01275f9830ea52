@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5b561cc3_9ab360f7",
+        "filename": "src/add-ons/input_server/filters/PadBlocker/PadBlocker.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-23T06:47:37Z",
+      "side": 1,
+      "message": "You have added this file twice (under padblocker and PadBlocker directories)",
+      "revId": "601d5ea564357b9db702033a0b01275f9830ea52",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
