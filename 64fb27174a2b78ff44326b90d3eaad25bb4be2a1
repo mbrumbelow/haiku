@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae74b658_726d5fa5",
+        "filename": "src/apps/cortex/DormantNodeView/DormantNodeView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-07-24T17:14:44Z",
+      "side": 1,
+      "message": "if (item !\u003d NULL) {",
+      "revId": "64fb27174a2b78ff44326b90d3eaad25bb4be2a1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b45b5e5_71372355",
+        "filename": "src/apps/cortex/DormantNodeView/DormantNodeView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-07-24T17:14:44Z",
+      "side": 1,
+      "message": "BRect r \u003d ...",
+      "revId": "64fb27174a2b78ff44326b90d3eaad25bb4be2a1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ae1f796_3a49e33a",
+        "filename": "src/apps/cortex/DormantNodeView/DormantNodeView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-07-24T17:14:44Z",
+      "side": 1,
+      "message": "if (r.Contains(point)) {",
+      "revId": "64fb27174a2b78ff44326b90d3eaad25bb4be2a1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a15489c_9e2ec769",
+        "filename": "src/apps/icon-o-matic/gui/SavePanel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-07-24T17:14:44Z",
+      "side": 1,
+      "message": "if (background \u003d\u003d NULL) {",
+      "revId": "64fb27174a2b78ff44326b90d3eaad25bb4be2a1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6dd13408_41746f74",
+        "filename": "src/apps/soundrecorder/ScopeView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-07-24T17:14:44Z",
+      "side": 1,
+      "message": "if (fBitmap !\u003d NULL \u0026\u0026 fBitmapView !\u003d NULL) {",
+      "revId": "64fb27174a2b78ff44326b90d3eaad25bb4be2a1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36add0fa_248e9a4f",
+        "filename": "src/bin/media_client/MediaPlay.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-07-24T17:14:44Z",
+      "side": 1,
+      "message": "if (track !\u003d NULL) {",
+      "revId": "64fb27174a2b78ff44326b90d3eaad25bb4be2a1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f15db89e_922451c3",
+        "filename": "src/preferences/screensaver/ScreenSaverWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1017,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-07-24T17:14:44Z",
+      "side": 1,
+      "message": "} else if (Selection() !\u003d 1",
+      "revId": "64fb27174a2b78ff44326b90d3eaad25bb4be2a1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
