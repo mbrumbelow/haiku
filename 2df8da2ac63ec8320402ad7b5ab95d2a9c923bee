@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c8d37d43_c579a09e",
+        "filename": "src/servers/registrar/TRoster.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2019-07-24T18:59:58Z",
+      "side": 1,
+      "message": "Typo in variable name in the if clause.",
+      "revId": "2df8da2ac63ec8320402ad7b5ab95d2a9c923bee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96b9fda9_eb34a2a7",
+        "filename": "src/servers/registrar/TRoster.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2019-07-24T18:59:58Z",
+      "side": 1,
+      "message": "The above block seems a bit problematic. If, e.g. we don\u0027t find a ref, but do find a signature, error will still be set to the failure from FindRef, rather than being reset to success, so we won\u0027t actually fall into the \"get the info\" block beneath, even though we have a search criteria.",
+      "revId": "2df8da2ac63ec8320402ad7b5ab95d2a9c923bee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fcee3876_e88eea99",
+        "filename": "src/servers/registrar/TRoster.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2019-07-24T18:59:58Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem entirely sane either, since the search code below special cases not having a signature (see line 757). It seems as if the error variable is redundant here?",
+      "revId": "2df8da2ac63ec8320402ad7b5ab95d2a9c923bee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
