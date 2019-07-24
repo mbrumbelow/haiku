@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b74c659e_c547d21d",
+        "filename": "headers/compatibility/bsd/arpa/tftp.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-07-24T17:39:41Z",
+      "side": 1,
+      "message": "Two blank lines before and after the #include macro.",
+      "revId": "241d0fcd39141eee9b78ea9df5d5632798b07680",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "885506ba_1b5055de",
+        "filename": "headers/compatibility/bsd/features.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-07-24T17:39:41Z",
+      "side": 1,
+      "message": "Two blank lines.",
+      "revId": "241d0fcd39141eee9b78ea9df5d5632798b07680",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
