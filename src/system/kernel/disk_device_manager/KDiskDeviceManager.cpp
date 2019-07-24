@@ -703,9 +703,7 @@ KDiskDeviceManager::CreateDevice(const char* path, bool* newlyCreated)
 			deviceLocker.Unlock();
 			delete device;
 			return error;
-		}
-
-		if (error == B_OK) {
+		} else {
 			// scan for partitions
 			_ScanPartition(device, false);
 			device->UnmarkBusy(true);

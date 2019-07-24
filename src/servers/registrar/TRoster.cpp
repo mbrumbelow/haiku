@@ -486,7 +486,8 @@ TRoster::HandleRemoveApp(BMessage* request)
 	status_t error = B_OK;
 	// get the parameters
 	team_id team;
-	if (request->FindInt32("team", &team) != B_OK)
+	error = request->FindInt32("team", &team);
+	if (errir != B_OK)
 		team = -1;
 
 	PRINT("team: %" B_PRId32 "\n", team);
@@ -659,6 +660,7 @@ TRoster::HandleGetAppInfo(BMessage* request)
 	BAutolock _(fLock);
 
 	status_t error = B_OK;
+	status_t error2;
 	// get the parameters
 	team_id team;
 	entry_ref ref;
@@ -666,20 +668,28 @@ TRoster::HandleGetAppInfo(BMessage* request)
 	bool hasTeam = true;
 	bool hasRef = true;
 	bool hasSignature = true;
-	if (request->FindInt32("team", &team) != B_OK)
+	error = request->FindInt32("team", &team)
+	if (error != B_OK)
 		hasTeam = false;
-	if (request->FindRef("ref", &ref) != B_OK)
+	error2 = request->FindRef("ref", &ref);
+	if (error2 != B_OK) {
+		error = error2;
 		hasRef = false;
-	if (request->FindString("signature", &signature) != B_OK)
+	}
+	error2 = request->FindString("signature", &signature);
+	if (error2 != B_OK) {
+		error = error2;
 		hasSignature = false;
+	}
 
-if (hasTeam)
-PRINT("team: %" B_PRId32 "\n", team);
-if (hasRef)
-PRINT("ref: %" B_PRId32 ", %" B_PRId64 ", %s\n", ref.device, ref.directory,
-	ref.name);
-if (hasSignature)
-PRINT("signature: %s\n", signature);
+	if (hasTeam)
+		PRINT("team: %" B_PRId32 "\n", team);
+	if (hasRef) {
+		PRINT("ref: %" B_PRId32 ", %" B_PRId64 ", %s\n", ref.device,
+			ref.directory, ref.name);
+	}
+	if (hasSignature)
+		PRINT("signature: %s\n", signature);
 
 	// get the info
 	RosterAppInfo* info = NULL;
@@ -733,8 +743,8 @@ TRoster::HandleGetAppList(BMessage* request)
 	status_t error = B_OK;
 	// get the parameters
 	const char* signature;
-	if (request->FindString("signature", &signature) != B_OK)
-		signature = NULL;
+	error = request->FindString("signature", &signature);
+	
 	// reply to the request
 	if (error == B_OK) {
 		BMessage reply(B_REG_SUCCESS);
