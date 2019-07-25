@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3986ab9b_6247bb37",
+        "filename": "headers/compatibility/bsd/features.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-07-25T10:28:46Z",
+      "side": 1,
+      "message": "It seems the new name is _DEFAULT_SOURCE\n\nI would also check if _POSIX_C_SOURCE and __STRICT_ANSI__ are not defined to define _DEFAULT_SOURCE.\nIf _BSD_SOURCE is defined, I would define _DEFAULT_SOURCE.",
+      "revId": "8203cc97208e1ff8fa469d5acc58655eeea091d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
