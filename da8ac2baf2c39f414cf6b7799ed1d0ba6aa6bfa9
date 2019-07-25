@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d2520ce0_20e4bcdc",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2019-07-25T19:58:18Z",
+      "side": 1,
+      "message": "Please use real_time_clock_usecs() and then convert to second",
+      "revId": "da8ac2baf2c39f414cf6b7799ed1d0ba6aa6bfa9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c44f905d_f60e2efa",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2019-07-25T19:58:18Z",
+      "side": 1,
+      "message": "SetTime() requires both tv_sec and tv_nsec from timespec, but only tv_sec is initialized.",
+      "revId": "da8ac2baf2c39f414cf6b7799ed1d0ba6aa6bfa9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
