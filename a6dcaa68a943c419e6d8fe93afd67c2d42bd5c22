@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "728bf25c_3b7c38de",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1416,
+      "author": {
+        "id": 1000038
+      },
+      "writtenOn": "2019-07-27T11:32:41Z",
+      "side": 0,
+      "message": "That %\u003d looks kind of klunky and not C-like.  Perhaps make the value 0 if the user specified zero, and 1 in all other cases.\nvalue \u003d (value !\u003d 0);",
+      "revId": "a6dcaa68a943c419e6d8fe93afd67c2d42bd5c22",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
