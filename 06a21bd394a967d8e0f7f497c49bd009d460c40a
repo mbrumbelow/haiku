@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7b7fea71_4f27682c",
+        "filename": "src/apps/cortex/DormantNodeView/DormantNodeView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-27T11:00:33Z",
+      "side": 1,
+      "message": "you can remove item \u0026\u0026 here, it was already checked above.",
+      "revId": "06a21bd394a967d8e0f7f497c49bd009d460c40a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
