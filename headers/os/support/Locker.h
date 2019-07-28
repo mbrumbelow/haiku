@@ -1,5 +1,5 @@
 /*
- * Copyright 2001-2010 Haiku, Inc. All rights reserved.
+ * Copyright 2001-2019 Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  */
 #ifndef	_LOCKER_H
@@ -30,20 +30,21 @@ public:
 			sem_id				Sem() const;
 
 private:
-								BLocker(const char* name, bool benaphoreStyle,
-									bool _ignored);
 								BLocker(const BLocker&);
 								BLocker& operator=(const BLocker&);
+
 			void				InitLocker(const char* name,
 									bool benaphoreStyle);
 			bool				AcquireLock(bigtime_t timeout, status_t* error);
 
-			int32				fBenaphoreCount;
-			sem_id				fSemaphoreID;
-			thread_id			fLockOwner;
-			int32				fRecursiveCount;
+#ifdef _BEOS_R5_COMPATIBLE_
+								BLocker(const char* name, bool benaphoreStyle,
+									bool _ignored);
+#endif
 
-			int32				_reserved[4];
+private:
+			sem_id				fSemaphoreID;
+			pthread_mutex_t		fMutex;
 };
 
 
