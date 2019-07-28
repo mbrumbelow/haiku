@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "235b236e_5db6662f",
+        "filename": "src/add-ons/kernel/file_systems/bfs/Journal.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-07-28T20:22:36Z",
+      "side": 1,
+      "message": "Yes, but we don\u0027t really care if it does; this code is also used in the fs_shell which does not use threads at all, for instance.",
+      "parentUuid": "2c41f3f3_cb918f79",
+      "revId": "619a536742b02e73e0332dfdc1c6f7752a479cf5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9f9d617f_090830b5",
         "filename": "src/add-ons/kernel/file_systems/bfs/Journal.cpp",
         "patchSetId": 1
