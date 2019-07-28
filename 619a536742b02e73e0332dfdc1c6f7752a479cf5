@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2c41f3f3_cb918f79",
+        "filename": "src/add-ons/kernel/file_systems/bfs/Journal.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-07-28T08:33:16Z",
+      "side": 1,
+      "message": "create_sem can fail.",
+      "revId": "619a536742b02e73e0332dfdc1c6f7752a479cf5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f9d617f_090830b5",
+        "filename": "src/add-ons/kernel/file_systems/bfs/Journal.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-07-28T08:33:16Z",
+      "side": 1,
+      "message": "fLogFlusherSem should be reset instead of fVolume",
+      "revId": "619a536742b02e73e0332dfdc1c6f7752a479cf5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "481f609f_7ee6cdb7",
+        "filename": "src/add-ons/kernel/file_systems/bfs/Journal.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-07-28T08:33:16Z",
+      "side": 1,
+      "message": "why not checking fLogFlusherSem instead?",
+      "revId": "619a536742b02e73e0332dfdc1c6f7752a479cf5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
