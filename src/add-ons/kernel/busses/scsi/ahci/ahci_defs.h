@@ -293,7 +293,7 @@ typedef struct {
 // 18 - Reserved (0)
 // 19 - Reserved (0)
 typedef struct {
-	uint8		cfis[0x40];		// command FIS
+	uint8		cfis[0x16];		// command FIS
 	uint8		acmd[0x20];		// ATAPI command
 	uint8		res[0x20];		// reserved
 } _PACKED command_table;
