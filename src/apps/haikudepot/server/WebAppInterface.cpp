@@ -352,7 +352,7 @@ WebAppInterface::RetrieveUserRatings(const BString& packageName,
 status_t
 WebAppInterface::RetrieveUserRating(const BString& packageName,
 	const BPackageVersion& version, const BString& architecture,
-	const BString &repositoryCode, const BString& username,
+	const BString& repositoryCode, const BString& username,
 	BMessage& message)
 {
 		// BHttpRequest later takes ownership of this.
@@ -469,7 +469,7 @@ WebAppInterface::CreateUserRating(const BString& packageName,
 
 	if (rating > 0.0f) {
 		requestEnvelopeWriter.WriteObjectName("rating");
-    	requestEnvelopeWriter.WriteInteger(rating);
+		requestEnvelopeWriter.WriteInteger(rating);
 	}
 
 	if (stability.Length() > 0) {
@@ -585,55 +585,6 @@ WebAppInterface::RetrieveScreenshot(const BString& code,
 	fprintf(stderr, "failed to get screenshot from '%s': %" B_PRIi32 "\n",
 		url.UrlString().String(), statusCode);
 	return B_ERROR;
-}
-
-
-status_t
-WebAppInterface::RequestCaptcha(BMessage& message)
-{
-	BString jsonString = JsonBuilder()
-		.AddValue("jsonrpc", "2.0")
-		.AddValue("id", ++fRequestIndex)
-		.AddValue("method", "generateCaptcha")
-		.AddArray("params")
-			.AddObject()
-			.EndObject()
-		.EndArray()
-	.End();
-
-	return _SendJsonRequest("captcha", jsonString, 0, message);
-}
-
-
-status_t
-WebAppInterface::CreateUser(const BString& nickName,
-	const BString& passwordClear, const BString& email,
-	const BString& captchaToken, const BString& captchaResponse,
-	const BString& languageCode, BMessage& message)
-{
-	JsonBuilder builder;
-	builder
-		.AddValue("jsonrpc", "2.0")
-		.AddValue("id", ++fRequestIndex)
-		.AddValue("method", "createUser")
-		.AddArray("params")
-			.AddObject()
-				.AddValue("nickname", nickName)
-				.AddValue("passwordClear", passwordClear);
-
-				if (!email.IsEmpty())
-					builder.AddValue("email", email);
-
-				builder.AddValue("captchaToken", captchaToken)
-				.AddValue("captchaResponse", captchaResponse)
-				.AddValue("naturalLanguageCode", languageCode)
-			.EndObject()
-		.EndArray()
-	;
-
-	BString jsonString = builder.End();
-
-	return _SendJsonRequest("user", jsonString, 0, message);
 }
 
 
@@ -843,17 +794,17 @@ WebAppInterface::_LogPayload(BPositionIO* requestData, size_t size)
 		printf("jrpc; error logging payload\n");
 	} else {
 		for (uint32 i = 0; i < size; i++) {
-    		bool esc = buffer[i] > 126 ||
-    			(buffer[i] < 0x20 && buffer[i] != 0x0a);
+			bool esc = buffer[i] > 126 ||
+				(buffer[i] < 0x20 && buffer[i] != 0x0a);
 
-    		if (esc)
-    			printf("\\u%02x", buffer[i]);
-    		else
-    			putchar(buffer[i]);
-    	}
+			if (esc)
+				printf("\\u%02x", buffer[i]);
+			else
+				putchar(buffer[i]);
+		}
 
-    	if (size == LOG_PAYLOAD_LIMIT)
-    		printf("...(continues)");
+		if (size == LOG_PAYLOAD_LIMIT)
+			printf("...(continues)");
 	}
 
 	requestData->Seek(requestDataOffset, SEEK_SET);
@@ -869,6 +820,6 @@ off_t
 WebAppInterface::_LengthAndSeekToZero(BPositionIO* data)
 {
 	off_t dataSize = data->Position();
-    data->Seek(0, SEEK_SET);
-    return dataSize;
+	data->Seek(0, SEEK_SET);
+	return dataSize;
 }

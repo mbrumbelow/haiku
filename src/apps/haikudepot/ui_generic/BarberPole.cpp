@@ -1,5 +1,6 @@
 /*
  * Copyright 2017 Julian Harnath <julian.harnath@rwth-aachen.de>
+ * Copyright 2019 Andrew Lindesay <apl@lindesay.co.nz>
  * All rights reserved. Distributed under the terms of the MIT license.
  */
 
@@ -183,39 +184,67 @@ BarberPole::MessageReceived(BMessage* message)
 void
 BarberPole::Draw(BRect updateRect)
 {
-
 	if (fIsSpinning) {
-		// Draw color stripes
-		float position = -fStripeWidth * (fNumColors + 0.5) + fScrollOffset;
-			// Starting position: beginning of the second color cycle
-			// The + 0.5 is so we start out without a partially visible stripe
-			// on the left side (makes it simpler to loop)
-		BRect bounds = Bounds();
-		bounds.InsetBy(-2, -2);
-		be_control_look->DrawStatusBar(this, bounds, updateRect,
-			ui_color(B_PANEL_BACKGROUND_COLOR), ui_color(B_STATUS_BAR_COLOR),
-			bounds.Width());
-		SetDrawingMode(B_OP_ALPHA);
-		uint32 colorIndex = 0;
-		for (uint32 i = 0; i < fNumStripes; i++) {
-			SetHighColor(fColors[colorIndex]);
-			colorIndex++;
-			if (colorIndex >= fNumColors)
-				colorIndex = 0;
-
-			BRect stripeFrame = fStripe.Frame();
-			fStripe.MapTo(stripeFrame,
-				stripeFrame.OffsetToCopy(position, 0.0));
-			FillPolygon(&fStripe);
-
-			position += fStripeWidth;
-		}
-		SetDrawingMode(B_OP_COPY);
-		// Draw box around it
-		bounds = Bounds();
-		be_control_look->DrawBorder(this, bounds, updateRect,
-			ui_color(B_PANEL_BACKGROUND_COLOR), B_PLAIN_BORDER);
+		_DrawSpin(updateRect);
+	} else {
+		_DrawNonSpin(updateRect);
 	}
+}
+
+
+void
+BarberPole::_DrawSpin(BRect updateRect)
+{
+	// Draw color stripes
+	float position = -fStripeWidth * (fNumColors + 0.5) + fScrollOffset;
+		// Starting position: beginning of the second color cycle
+		// The + 0.5 is so we start out without a partially visible stripe
+		// on the left side (makes it simpler to loop)
+	BRect bounds = Bounds();
+	bounds.InsetBy(-2, -2);
+	be_control_look->DrawStatusBar(this, bounds, updateRect,
+		ui_color(B_PANEL_BACKGROUND_COLOR), ui_color(B_STATUS_BAR_COLOR),
+		bounds.Width());
+	SetDrawingMode(B_OP_ALPHA);
+	uint32 colorIndex = 0;
+	for (uint32 i = 0; i < fNumStripes; i++) {
+		SetHighColor(fColors[colorIndex]);
+		colorIndex++;
+		if (colorIndex >= fNumColors)
+			colorIndex = 0;
+
+		BRect stripeFrame = fStripe.Frame();
+		fStripe.MapTo(stripeFrame,
+			stripeFrame.OffsetToCopy(position, 0.0));
+		FillPolygon(&fStripe);
+
+		position += fStripeWidth;
+	}
+
+	SetDrawingMode(B_OP_COPY);
+	// Draw box around it
+	bounds = Bounds();
+	be_control_look->DrawBorder(this, bounds, updateRect,
+		ui_color(B_PANEL_BACKGROUND_COLOR), B_PLAIN_BORDER);
+}
+
+
+/*! This will show something in the place of the spinner when there is no
+    spinning going on.
+*/
+
+void
+BarberPole::_DrawNonSpin(BRect updateRect)
+{
+	// approach copied from the DiskSetup application.
+	static const pattern kStripes = { { 0xc7, 0x8f, 0x1f, 0x3e, 0x7c,
+		0xf8, 0xf1, 0xe3 } };
+	BRect bounds = Bounds();
+	SetHighUIColor(B_PANEL_BACKGROUND_COLOR, B_DARKEN_1_TINT);
+	SetLowUIColor(B_PANEL_BACKGROUND_COLOR);
+	FillRect(bounds, kStripes);
+	be_control_look->DrawBorder(this, bounds, updateRect,
+		ui_color(B_PANEL_BACKGROUND_COLOR), B_PLAIN_BORDER);
 }
 
 
@@ -259,7 +288,15 @@ BarberPole::FrameResized(float width, float height)
 BSize
 BarberPole::MinSize()
 {
-	return BSize(50, 5);
+	BSize result = BView::MinSize();
+
+	if (result.width < 50)
+		result.SetWidth(50);
+
+	if (result.height < 5)
+		result.SetHeight(5);
+
+	return result;
 }
 
 

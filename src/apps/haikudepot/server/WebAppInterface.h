@@ -93,16 +93,6 @@ public:
 									int32 width, int32 height,
 									BDataIO* stream);
 
-			status_t			RequestCaptcha(BMessage& message);
-
-			status_t			CreateUser(const BString& nickName,
-									const BString& passwordClear,
-									const BString& email,
-									const BString& captchaToken,
-									const BString& captchaResponse,
-									const BString& languageCode,
-									BMessage& message);
-
 			status_t			AuthenticateUser(const BString& nickName,
 									const BString& passwordClear,
 									BMessage& message);

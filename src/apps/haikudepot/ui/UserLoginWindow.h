@@ -14,11 +14,29 @@
 
 
 class BButton;
-class BMenuField;
-class BTabView;
 class BTextControl;
-class BitmapView;
+class BTextView;
 class Model;
+class BarberPole;
+
+
+/*! This is a small in-memory class to represent a user's credentials; a
+    username and a password.
+ */
+
+class LoginDetails {
+	public:
+								LoginDetails(const BString& username,
+									const BString& passwordClear);
+	virtual						~LoginDetails();
+
+	const	BString&			Username() const;
+	const	BString&			PasswordClear() const;
+
+	private:
+			BString				fUsername;
+			BString				fPasswordClear;
+};
 
 
 class UserLoginWindow : public BWindow {
@@ -28,69 +46,53 @@ public:
 	virtual						~UserLoginWindow();
 
 	virtual	void				MessageReceived(BMessage* message);
+	virtual	void				DispatchMessage(BMessage* message,
+									BHandler* handler);
 
 			void				SetOnSuccessMessage(
 									const BMessenger& messenger,
 									const BMessage& message);
 
 private:
-			enum Mode {
-				NONE = 0,
-				LOGIN,
-				CREATE_ACCOUNT
-			};
-
-			void				_SetMode(Mode mode);
-			bool				_ValidateCreateAccountFields(
-									bool alertProblems = false);
 			void				_Login();
-			void				_CreateAccount();
-			void				_RequestCaptcha();
-			void				_LoginSuccessful(const BString& message);
+			void				_HandleCancel();
+			void				_HandleTransportFailure(status_t errno);
+			void				_HandleLoginError(BMessage& payload);
+			void				_HandleLoginFailure();
+			void				_HandleLoginSuccess(const BString& username,
+									const BString& passwordClear);
 
 			void				_SetWorkerThread(thread_id thread);
+			void				_WaitForWorkerThread();
+			bool				_IsWorkerThreadRunning();
+			bool				_IsCancelled();
+
+			void				_EnableMutableControls(bool enabled);
+
+			BString				_CreateInstructionText();
 
 	static	int32				_AuthenticateThreadEntry(void* data);
 			void				_AuthenticateThread();
 
-	static	int32				_RequestCaptchaThreadEntry(void* data);
-			void				_RequestCaptchaThread();
+	static float				_ExpectedInstructionTextHeight(
+									BTextView* instructionView);
 
-	static	int32				_CreateAccountThreadEntry(void* data);
-			void				_CreateAccountThread();
-
-			void				_CollectValidationFailures(
-									const BMessage& result,
-									BString& error) const;
+	static	status_t			_ExtractTokenFromResponse(BMessage payload,
+									BString& token);
 
 private:
 			BMessenger			fOnSuccessTarget;
 			BMessage			fOnSuccessMessage;
-
-			BTabView*			fTabView;
-
 			BTextControl*		fUsernameField;
 			BTextControl*		fPasswordField;
-
-			BTextControl*		fNewUsernameField;
-			BTextControl*		fNewPasswordField;
-			BTextControl*		fRepeatPasswordField;
-			BTextControl*		fEmailField;
-			BMenuField*			fLanguageCodeField;
-			BitmapView*			fCaptchaView;
-			BTextControl*		fCaptchaResultField;
-
 			BButton*			fSendButton;
 			BButton*			fCancelButton;
-
-			BString				fCaptchaToken;
-			BitmapRef			fCaptchaImage;
-			BString				fPreferredLanguageCode;
+			BarberPole*			fWorkerIndicator;
 
 			Model&				fModel;
 
-			Mode				fMode;
-
+			bool				fIsCancelled;
+			LoginDetails*		fLoginDetails;
 			BLocker				fLock;
 			thread_id			fWorkerThread;
 };

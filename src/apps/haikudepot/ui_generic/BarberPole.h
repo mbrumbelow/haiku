@@ -1,5 +1,6 @@
 /*
  * Copyright 2017 Julian Harnath <julian.harnath@rwth-aachen.de>
+ * Copyright 2019 Andrew Lindesay <apl@lindesay.co.nz>
  * All rights reserved. Distributed under the terms of the MIT license.
  */
 #ifndef BARBER_POLE_H
@@ -44,7 +45,8 @@ public:
 
 private:
 			void				_Spin();
-
+			void				_DrawSpin(BRect updateRect);
+			void				_DrawNonSpin(BRect updateRect);
 private:
 			bool				fIsSpinning;
 			float				fSpinSpeed;

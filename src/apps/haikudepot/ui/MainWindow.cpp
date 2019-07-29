@@ -142,6 +142,7 @@ MainWindow::MainWindow(const BMessage& settings)
 	set_small_font(userMenuBar);
 	userMenuBar->SetExplicitMaxSize(BSize(B_SIZE_UNSET,
 		menuBar->MaxSize().height));
+	_UpdateAuthorization();
 
 	fFilterView = new FilterView();
 	fFeaturedPackagesView = new FeaturedPackagesView();
@@ -1170,7 +1171,7 @@ void
 MainWindow::_OpenLoginWindow(const BMessage& onSuccessMessage)
 {
 	UserLoginWindow* window = new UserLoginWindow(this,
-		BRect(0, 0, 500, 400), fModel);
+		BRect(0, 0, 320, 256), fModel);
 
 	if (onSuccessMessage.what != 0)
 		window->SetOnSuccessMessage(BMessenger(this), onSuccessMessage);
@@ -1196,7 +1197,7 @@ MainWindow::_UpdateAuthorization()
 
 	if (fUserMenu != NULL) {
 		BString label;
-		if (username.Length() == 0) {
+		if (!hasUser) {
 			label = B_TRANSLATE("Not logged in");
 		} else {
 			label = B_TRANSLATE("Logged in as %User%");

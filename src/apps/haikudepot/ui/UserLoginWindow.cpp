@@ -6,161 +6,147 @@
 
 #include "UserLoginWindow.h"
 
-#include <algorithm>
-#include <stdio.h>
-
-#include <mail_encoding.h>
-
 #include <Alert.h>
 #include <Autolock.h>
-#include <AutoLocker.h>
 #include <Catalog.h>
 #include <Button.h>
 #include <LayoutBuilder.h>
-#include <MenuField.h>
-#include <PopUpMenu.h>
 #include <TextControl.h>
-#include <UnicodeChar.h>
+#include <TextView.h>
 
-#include "BitmapView.h"
+#include "BarberPole.h"
 #include "HaikuDepotConstants.h"
-#include "LanguageMenuUtils.h"
 #include "Model.h"
-#include "TabView.h"
+#include "ServerHelper.h"
+#include "ServerSettings.h"
 #include "WebAppInterface.h"
 
 
 #undef B_TRANSLATION_CONTEXT
 #define B_TRANSLATION_CONTEXT "UserLoginWindow"
 
+#define LINES_INSTRUCTION_TEXT 3
+
+#define KEY_ERRNO "errno"
+#define KEY_USERNAME "username"
+#define KEY_PASSWORD_CLEAR "passwordClear"
+#define KEY_PAYLOAD_MESSAGE "payloadMessage"
+
+#define SPIN_FOR_WAIT_WORKER_THREAD_DELAY_MI 250 * 1000
+	// quarter of a second
 
 enum {
 	MSG_SEND					= 'send',
-	MSG_TAB_SELECTED			= 'tbsl',
-	MSG_CAPTCHA_OBTAINED		= 'cpob',
-	MSG_VALIDATE_FIELDS			= 'vldt'
+	MSG_CANCEL					= 'canc',
+	MSG_TRANSPORT_FAILURE 		= 'tfai',
+	MSG_LOGIN_ERROR 			= 'lerr',
+	MSG_LOGIN_FAILURE			= 'lfai',
+	MSG_LOGIN_SUCCESS			= 'lsuc'
 };
+
+
+// #pragma mark - LoginDetails
+
+
+LoginDetails::LoginDetails(const BString& username,
+	const BString& passwordClear)
+	:
+	fUsername(username),
+	fPasswordClear(passwordClear)
+{
+	fUsername.Trim();
+}
+
+
+LoginDetails::~LoginDetails()
+{
+}
+
+
+const BString&
+LoginDetails::Username() const
+{
+	return fUsername;
+}
+
+
+const BString&
+LoginDetails::PasswordClear() const
+{
+	return fPasswordClear;
+}
+
+
+// #pragma mark - UserLoginWindow
 
 
 UserLoginWindow::UserLoginWindow(BWindow* parent, BRect frame, Model& model)
 	:
 	BWindow(frame, B_TRANSLATE("Log in"),
-		B_FLOATING_WINDOW_LOOK, B_FLOATING_SUBSET_WINDOW_FEEL,
+		B_FLOATING_WINDOW_LOOK, B_MODAL_APP_WINDOW_FEEL,
 		B_ASYNCHRONOUS_CONTROLS | B_AUTO_UPDATE_SIZE_LIMITS
 			| B_NOT_RESIZABLE | B_NOT_ZOOMABLE),
-	fPreferredLanguageCode(LANGUAGE_DEFAULT_CODE),
 	fModel(model),
-	fMode(NONE),
 	fWorkerThread(-1)
 {
 	AddToSubset(parent);
 
-	fUsernameField = new BTextControl(B_TRANSLATE("User name:"), "", NULL);
-	fPasswordField = new BTextControl(B_TRANSLATE("Pass phrase:"), "", NULL);
+	fUsernameField = new BTextControl(B_TRANSLATE("Nickname:"), "", NULL);
+	fPasswordField = new BTextControl(B_TRANSLATE("Password:"), "", NULL);
 	fPasswordField->TextView()->HideTyping(true);
-
-	fNewUsernameField = new BTextControl(B_TRANSLATE("User name:"), "",
-		NULL);
-	fNewPasswordField = new BTextControl(B_TRANSLATE("Pass phrase:"), "",
-		new BMessage(MSG_VALIDATE_FIELDS));
-	fNewPasswordField->TextView()->HideTyping(true);
-	fRepeatPasswordField = new BTextControl(B_TRANSLATE("Repeat pass phrase:"),
-		"", new BMessage(MSG_VALIDATE_FIELDS));
-	fRepeatPasswordField->TextView()->HideTyping(true);
-
-	{
-		AutoLocker<BLocker> locker(fModel.Lock());
-		fPreferredLanguageCode = fModel.Language().PreferredLanguage().Code();
-		// Construct languages popup
-		BPopUpMenu* languagesMenu = new BPopUpMenu(B_TRANSLATE("Language"));
-		fLanguageCodeField = new BMenuField("language",
-			B_TRANSLATE("Preferred language:"), languagesMenu);
-
-		LanguageMenuUtils::AddLanguagesToMenu(
-			fModel.Language().SupportedLanguages(),
-			languagesMenu);
-		languagesMenu->SetTargetForItems(this);
-
-		printf("using preferred language code [%s]\n",
-			fPreferredLanguageCode.String());
-		LanguageMenuUtils::MarkLanguageInMenu(fPreferredLanguageCode,
-			languagesMenu);
-	}
-
-	fEmailField = new BTextControl(B_TRANSLATE("Email address:"), "", NULL);
-	fCaptchaView = new BitmapView("captcha view");
-	fCaptchaResultField = new BTextControl("", "", NULL);
-
-	// Setup modification messages on all text fields to trigger validation
-	// of input
-	fNewUsernameField->SetModificationMessage(
-		new BMessage(MSG_VALIDATE_FIELDS));
-	fNewPasswordField->SetModificationMessage(
-		new BMessage(MSG_VALIDATE_FIELDS));
-	fRepeatPasswordField->SetModificationMessage(
-		new BMessage(MSG_VALIDATE_FIELDS));
-	fEmailField->SetModificationMessage(
-		new BMessage(MSG_VALIDATE_FIELDS));
-	fCaptchaResultField->SetModificationMessage(
-		new BMessage(MSG_VALIDATE_FIELDS));
-
-	fTabView = new TabView(BMessenger(this),
-		BMessage(MSG_TAB_SELECTED));
-
-	BGridView* loginCard = new BGridView(B_TRANSLATE("Log in"));
-	BLayoutBuilder::Grid<>(loginCard)
-		.AddTextControl(fUsernameField, 0, 0)
-		.AddTextControl(fPasswordField, 0, 1)
-		.AddGlue(0, 2)
-
-		.SetInsets(B_USE_DEFAULT_SPACING)
-	;
-	fTabView->AddTab(loginCard);
-
-	BGridView* createAccountCard = new BGridView(B_TRANSLATE("Create account"));
-	BLayoutBuilder::Grid<>(createAccountCard)
-		.AddTextControl(fNewUsernameField, 0, 0)
-		.AddTextControl(fNewPasswordField, 0, 1)
-		.AddTextControl(fRepeatPasswordField, 0, 2)
-		.AddTextControl(fEmailField, 0, 3)
-		.AddMenuField(fLanguageCodeField, 0, 4)
-		.Add(fCaptchaView, 0, 5)
-		.Add(fCaptchaResultField, 1, 5)
-
-		.SetInsets(B_USE_DEFAULT_SPACING)
-	;
-	fTabView->AddTab(createAccountCard);
 
 	fSendButton = new BButton("send", B_TRANSLATE("Log in"),
 		new BMessage(MSG_SEND));
 	fCancelButton = new BButton("cancel", B_TRANSLATE("Cancel"),
-		new BMessage(B_QUIT_REQUESTED));
+		new BMessage(MSG_CANCEL));
+
+	fWorkerIndicator = new BarberPole("login worker indicator");
+	BSize workerIndicatorSize;
+	workerIndicatorSize.SetHeight(20);
+	fWorkerIndicator->SetExplicitMinSize(workerIndicatorSize);
+
+	BTextView* instructionView = new BTextView("instruction text view");
+	instructionView->AdoptSystemColors();
+	instructionView->MakeEditable(false);
+	instructionView->MakeSelectable(false);
+	instructionView->SetText(_CreateInstructionText());
 
 	// Build layout
 	BLayoutBuilder::Group<>(this, B_VERTICAL)
-		.Add(fTabView)
+		.AddGrid(B_USE_DEFAULT_SPACING, B_USE_SMALL_SPACING)
+			.AddTextControl(fUsernameField, 0, 0)
+			.AddTextControl(fPasswordField, 0, 1)
+			.SetInsets(0)
+			.End()
+		.AddStrut(B_USE_SMALL_SPACING)
+		.Add(instructionView)
+		.AddGlue()
 		.AddGroup(B_HORIZONTAL)
 			.AddGlue()
 			.Add(fCancelButton)
 			.Add(fSendButton)
-		.End()
+			.End()
+		.Add(fWorkerIndicator)
+		.AddGlue()
 		.SetInsets(B_USE_WINDOW_INSETS)
 	;
 
+	BSize instructionSize;
+	instructionSize.SetHeight(
+		_ExpectedInstructionTextHeight(instructionView));
+	instructionView->SetExplicitMaxSize(instructionSize);
+
 	SetDefaultButton(fSendButton);
 
-	_SetMode(LOGIN);
-
 	CenterIn(parent->Frame());
+
+	fUsernameField->MakeFocus();
 }
 
 
 UserLoginWindow::~UserLoginWindow()
 {
-	BAutolock locker(&fLock);
-
-	if (fWorkerThread >= 0)
-		wait_for_thread(fWorkerThread, NULL);
+	_WaitForWorkerThread();
 }
 
 
@@ -168,58 +154,148 @@ void
 UserLoginWindow::MessageReceived(BMessage* message)
 {
 	switch (message->what) {
-		case MSG_VALIDATE_FIELDS:
-			_ValidateCreateAccountFields();
-			break;
-
-		case MSG_SEND:
-			switch (fMode) {
-				case LOGIN:
-					_Login();
-					break;
-				case CREATE_ACCOUNT:
-					_CreateAccount();
-					break;
-				default:
-					break;
-			}
-			break;
-
-		case MSG_TAB_SELECTED:
+		case MSG_TRANSPORT_FAILURE:
 		{
-			int32 tabIndex;
-			if (message->FindInt32("tab index", &tabIndex) == B_OK) {
-				switch (tabIndex) {
-					case 0:
-						_SetMode(LOGIN);
-						break;
-					case 1:
-						_SetMode(CREATE_ACCOUNT);
-						break;
-					default:
-						break;
-				}
+			int64 errno = B_OK;
+			message->FindInt64(KEY_ERRNO, &errno);
+			_HandleTransportFailure((status_t) errno);
+			break;
+		}
+		case MSG_LOGIN_ERROR:
+		{
+			BMessage payload;
+			if (message->FindMessage(KEY_PAYLOAD_MESSAGE, &payload) == B_OK)
+				_HandleLoginError(payload);
+			else
+				debugger("unable to find the json-rpc payload");
+			break;
+		}
+		case MSG_LOGIN_FAILURE:
+			_HandleLoginFailure();
+			break;
+		case MSG_LOGIN_SUCCESS:
+		{
+			BString username;
+			BString passwordClear;
+			if (message->FindString(KEY_PASSWORD_CLEAR, &passwordClear) == B_OK
+				&& message->FindString(KEY_USERNAME, &username) == B_OK) {
+				_HandleLoginSuccess(username, passwordClear);
+			} else {
+				debugger("unable to get username / passwordClear from the "
+					"MSG_LOGIN_SUCCESS message");
 			}
 			break;
 		}
-
-		case MSG_CAPTCHA_OBTAINED:
-			if (fCaptchaImage.Get() != NULL) {
-				fCaptchaView->SetBitmap(fCaptchaImage);
-			} else {
-				fCaptchaView->UnsetBitmap();
-			}
-			fCaptchaResultField->SetText("");
+		case MSG_SEND:
+			_Login();
 			break;
-
-		case MSG_LANGUAGE_SELECTED:
-			message->FindString("code", &fPreferredLanguageCode);
+		case MSG_CANCEL:
+			_HandleCancel();
 			break;
-
 		default:
 			BWindow::MessageReceived(message);
 			break;
 	}
+}
+
+
+void
+UserLoginWindow::DispatchMessage(BMessage* message, BHandler* handler)
+{
+	if (message->what == B_KEY_DOWN) {
+		int8 key;
+			// if the user presses escape, close the window.
+		if ((message->FindInt8("byte", &key) == B_OK)
+			&& key == B_ESCAPE) {
+			_HandleCancel();
+			return;
+		}
+	}
+
+	BWindow::DispatchMessage(message, handler);
+}
+
+
+void
+UserLoginWindow::_HandleCancel()
+{
+// TODO; nice if this also cancelled the underlying HTTP request.
+	{
+		BAutolock locker(&fLock);
+		fIsCancelled = true;
+	}
+	_WaitForWorkerThread();
+	Quit();
+}
+
+
+void
+UserLoginWindow::_HandleTransportFailure(status_t errno)
+{
+	fWorkerIndicator->Stop();
+	fprintf(stderr, "an error has arisen communicating with the"
+		" server to authenticate : %s\n",
+		strerror(errno));
+	ServerHelper::NotifyTransportError(errno);
+	_EnableMutableControls(true);
+}
+
+
+void
+UserLoginWindow::_HandleLoginError(BMessage& payload)
+{
+	fWorkerIndicator->Stop();
+	ServerHelper::NotifyServerJsonRpcError(payload);
+	_EnableMutableControls(true);
+}
+
+
+void
+UserLoginWindow::_HandleLoginFailure()
+{
+	fWorkerIndicator->Stop();
+	BAlert* alert = new(std::nothrow) BAlert(
+		B_TRANSLATE("Login failure"),
+		B_TRANSLATE("The login failed because the credentials were not "
+			"correct.  Correct the supplied credentials and try again."),
+		B_TRANSLATE("Close"), NULL, NULL,
+		B_WIDTH_AS_USUAL, B_WARNING_ALERT);
+
+	if (alert != NULL)
+		alert->Go();
+
+	_EnableMutableControls(true);
+}
+
+
+void
+UserLoginWindow::_HandleLoginSuccess(const BString& username,
+	const BString& passwordClear)
+{
+	{
+		BAutolock locker(fModel.Lock());
+		fModel.SetAuthorization(username, passwordClear, true);
+	}
+
+	// Clone these fields before the window goes away.
+	// (This method is executed from another thread.)
+	BMessenger onSuccessTarget(fOnSuccessTarget);
+	BMessage onSuccessMessage(fOnSuccessMessage);
+
+	BAlert* alert = new(std::nothrow) BAlert(
+		B_TRANSLATE("Success"),
+		B_TRANSLATE("The login was successful."),
+		B_TRANSLATE("Close"));
+
+	if (alert != NULL)
+		alert->Go();
+
+	// Send the success message after the alert has been closed,
+	// otherwise more windows will popup alongside the alert.
+	if (onSuccessTarget.IsValid() && onSuccessMessage.what != 0)
+		onSuccessTarget.SendMessage(&onSuccessMessage);
+
+	Quit();
 }
 
 
@@ -233,147 +309,6 @@ UserLoginWindow::SetOnSuccessMessage(
 
 
 void
-UserLoginWindow::_SetMode(Mode mode)
-{
-	if (fMode == mode)
-		return;
-
-	fMode = mode;
-
-	switch (fMode) {
-		case LOGIN:
-			fTabView->Select((int32)0);
-			fSendButton->SetLabel(B_TRANSLATE("Log in"));
-			fUsernameField->MakeFocus();
-			break;
-		case CREATE_ACCOUNT:
-			fTabView->Select(1);
-			fSendButton->SetLabel(B_TRANSLATE("Create account"));
-			if (fCaptchaToken.IsEmpty())
-				_RequestCaptcha();
-			fNewUsernameField->MakeFocus();
-			_ValidateCreateAccountFields();
-			break;
-		default:
-			break;
-	}
-}
-
-
-static int32
-count_digits(const BString& string)
-{
-	int32 digits = 0;
-	const char* c = string.String();
-	for (int32 i = 0; i < string.CountChars(); i++) {
-		uint32 unicodeChar = BUnicodeChar::FromUTF8(&c);
-		if (BUnicodeChar::IsDigit(unicodeChar))
-			digits++;
-	}
-	return digits;
-}
-
-
-static int32
-count_upper_case_letters(const BString& string)
-{
-	int32 upperCaseLetters = 0;
-	const char* c = string.String();
-	for (int32 i = 0; i < string.CountChars(); i++) {
-		uint32 unicodeChar = BUnicodeChar::FromUTF8(&c);
-		if (BUnicodeChar::IsUpper(unicodeChar))
-			upperCaseLetters++;
-	}
-	return upperCaseLetters;
-}
-
-
-bool
-UserLoginWindow::_ValidateCreateAccountFields(bool alertProblems)
-{
-	BString nickName(fNewUsernameField->Text());
-	BString password1(fNewPasswordField->Text());
-	BString password2(fRepeatPasswordField->Text());
-	BString email(fEmailField->Text());
-	BString captcha(fCaptchaResultField->Text());
-
-	// TODO: Use the same validation as the web-serivce
-	bool validUserName = nickName.Length() >= 3;
-	fNewUsernameField->MarkAsInvalid(!validUserName);
-
-	bool validPassword = password1.Length() >= 8
-		&& count_digits(password1) >= 2
-		&& count_upper_case_letters(password1) >= 2;
-	fNewPasswordField->MarkAsInvalid(!validPassword);
-	fRepeatPasswordField->MarkAsInvalid(password1 != password2);
-
-	bool validCaptcha = captcha.Length() > 0;
-	fCaptchaResultField->MarkAsInvalid(!validCaptcha);
-
-	bool valid = validUserName && validPassword && password1 == password2
-		&& validCaptcha;
-	if (valid && email.Length() > 0)
-		return true;
-
-	if (alertProblems) {
-		BString message;
-		alert_type alertType;
-		const char* okLabel = B_TRANSLATE("OK");
-		const char* cancelLabel = NULL;
-		if (!valid) {
-			message = B_TRANSLATE("There are problems in the form:\n\n");
-			alertType = B_WARNING_ALERT;
-		} else {
-			alertType = B_IDEA_ALERT;
-			okLabel = B_TRANSLATE("Ignore");
-			cancelLabel = B_TRANSLATE("Cancel");
-		}
-
-		if (!validUserName) {
-			message << B_TRANSLATE(
-				"The user name needs to be at least "
-				"3 letters long.") << "\n\n";
-		}
-		if (!validPassword) {
-			message << B_TRANSLATE(
-				"The password is too weak or invalid. "
-				"Please use at least 8 characters with "
-				"at least 2 numbers and 2 upper-case "
-				"letters.") << "\n\n";
-		}
-		if (password1 != password2) {
-			message << B_TRANSLATE(
-				"The passwords do not match.") << "\n\n";
-		}
-		if (email.Length() == 0) {
-			message << B_TRANSLATE(
-				"If you do not provide an email address, "
-				"you will not be able to reset your password "
-				"if you forget it.") << "\n\n";
-		}
-		if (!validCaptcha) {
-			message << B_TRANSLATE(
-				"The captcha puzzle needs to be solved.") << "\n\n";
-		}
-
-		BAlert* alert = new(std::nothrow) BAlert(
-			B_TRANSLATE("Input validation"),
-			message,
-			okLabel, cancelLabel, NULL,
-			B_WIDTH_AS_USUAL, alertType);
-
-		if (alert != NULL) {
-			int32 choice = alert->Go();
-			if (choice == 1)
-				return false;
-		}
-	}
-
-	return valid;
-}
-
-
-void
 UserLoginWindow::_Login()
 {
 	BAutolock locker(&fLock);
@@ -381,95 +316,52 @@ UserLoginWindow::_Login()
 	if (fWorkerThread >= 0)
 		return;
 
+	fLoginDetails = new LoginDetails(fUsernameField->Text(),
+		fPasswordField->Text());
+
+	fUsernameField->SetText(fLoginDetails->Username());
+	fPasswordField->SetText("");
+	_EnableMutableControls(false);
+
+	fIsCancelled = false;
+
 	thread_id thread = spawn_thread(&_AuthenticateThreadEntry,
 		"Authenticator", B_NORMAL_PRIORITY, this);
-	if (thread >= 0)
+	if (thread >= 0) {
 		_SetWorkerThread(thread);
-}
-
-
-void
-UserLoginWindow::_CreateAccount()
-{
-	if (!_ValidateCreateAccountFields(true))
-		return;
-
-	BAutolock locker(&fLock);
-
-	if (fWorkerThread >= 0)
-		return;
-
-	thread_id thread = spawn_thread(&_CreateAccountThreadEntry,
-		"Account creator", B_NORMAL_PRIORITY, this);
-	if (thread >= 0)
-		_SetWorkerThread(thread);
-}
-
-
-void
-UserLoginWindow::_RequestCaptcha()
-{
-	if (Lock()) {
-		fCaptchaToken = "";
-		fCaptchaView->UnsetBitmap();
-		fCaptchaImage.Unset();
-		Unlock();
+		fWorkerIndicator->Start();
 	}
+}
 
+
+bool
+UserLoginWindow::_IsCancelled()
+{
 	BAutolock locker(&fLock);
+	return fIsCancelled;
+}
 
-	if (fWorkerThread >= 0)
-		return;
 
-	thread_id thread = spawn_thread(&_RequestCaptchaThreadEntry,
-		"Captcha requester", B_NORMAL_PRIORITY, this);
-	if (thread >= 0)
-		_SetWorkerThread(thread);
+bool
+UserLoginWindow::_IsWorkerThreadRunning()
+{
+	BAutolock locker(&fLock);
+	return fWorkerThread >= 0;
 }
 
 
 void
-UserLoginWindow::_LoginSuccessful(const BString& message)
+UserLoginWindow::_WaitForWorkerThread()
 {
-	// Clone these fields before the window goes away.
-	// (This method is executd from another thread.)
-	BMessenger onSuccessTarget(fOnSuccessTarget);
-	BMessage onSuccessMessage(fOnSuccessMessage);
-
-	BMessenger(this).SendMessage(B_QUIT_REQUESTED);
-
-	BAlert* alert = new(std::nothrow) BAlert(
-		B_TRANSLATE("Success"),
-		message,
-		B_TRANSLATE("Close"));
-
-	if (alert != NULL)
-		alert->Go();
-
-	// Send the success message after the alert has been closed,
-	// otherwise more windows will popup alongside the alert.
-	if (onSuccessTarget.IsValid() && onSuccessMessage.what != 0)
-		onSuccessTarget.SendMessage(&onSuccessMessage);
+	while (_IsWorkerThreadRunning())
+		usleep(SPIN_FOR_WAIT_WORKER_THREAD_DELAY_MI);
 }
 
 
 void
 UserLoginWindow::_SetWorkerThread(thread_id thread)
 {
-	if (!Lock())
-		return;
-
-	bool enabled = thread < 0;
-
-	fUsernameField->SetEnabled(enabled);
-	fPasswordField->SetEnabled(enabled);
-	fNewUsernameField->SetEnabled(enabled);
-	fNewPasswordField->SetEnabled(enabled);
-	fRepeatPasswordField->SetEnabled(enabled);
-	fEmailField->SetEnabled(enabled);
-	fLanguageCodeField->SetEnabled(enabled);
-	fCaptchaResultField->SetEnabled(enabled);
-	fSendButton->SetEnabled(enabled);
+	BAutolock locker(&fLock);
 
 	if (thread >= 0) {
 		fWorkerThread = thread;
@@ -477,8 +369,6 @@ UserLoginWindow::_SetWorkerThread(thread_id thread)
 	} else {
 		fWorkerThread = -1;
 	}
-
-	Unlock();
 }
 
 
@@ -494,248 +384,107 @@ UserLoginWindow::_AuthenticateThreadEntry(void* data)
 void
 UserLoginWindow::_AuthenticateThread()
 {
-	if (!Lock())
-		return;
+	if (fLoginDetails == NULL)
+		debugger("illegal state; the login details were not available");
 
-	BString nickName(fUsernameField->Text());
-	BString passwordClear(fPasswordField->Text());
-
-	Unlock();
-
+	BMessenger messenger = BMessenger(this);
+	BString username = fLoginDetails->Username();
+	BString passwordClear = fLoginDetails->PasswordClear();
 	WebAppInterface interface;
 	BMessage info;
 
-	status_t status = interface.AuthenticateUser(
-		nickName, passwordClear, info);
+	delete fLoginDetails;
+	fLoginDetails = NULL;
+	status_t status = interface.AuthenticateUser(username, passwordClear, info);
 
-	BString error = B_TRANSLATE("Authentication failed. "
-		"Connection to the service failed.");
-
-	BMessage result;
-	if (status == B_OK && info.FindMessage("result", &result) == B_OK) {
-		BString token;
-		if (result.FindString("token", &token) == B_OK && !token.IsEmpty()) {
-			// We don't care for or store the token for now. The web-service
-			// supports two methods of authorizing requests. One is via
-			// Basic Authentication in the HTTP header, the other is via
-			// Token Bearer. Since the connection is encrypted, it is hopefully
-			// ok to send the password with each request instead of implementing
-			// the Token Bearer. See section 5.1.2 in the haiku-depot-web
-			// documentation.
-			error = "";
-			fModel.SetAuthorization(nickName, passwordClear, true);
-		} else {
-			error = B_TRANSLATE("Authentication failed. The user does "
-				"not exist or the wrong password was supplied.");
-		}
-	}
-
-	if (!error.IsEmpty()) {
-		BAlert* alert = new(std::nothrow) BAlert(
-			B_TRANSLATE("Authentication failed"),
-			error,
-			B_TRANSLATE("Close"), NULL, NULL,
-			B_WIDTH_AS_USUAL, B_WARNING_ALERT);
-
-		if (alert != NULL)
-			alert->Go();
-
-		_SetWorkerThread(-1);
-	} else {
-		_SetWorkerThread(-1);
-		_LoginSuccessful(B_TRANSLATE("The authentication was successful."));
-	}
-}
-
-
-int32
-UserLoginWindow::_RequestCaptchaThreadEntry(void* data)
-{
-	UserLoginWindow* window = reinterpret_cast<UserLoginWindow*>(data);
-	window->_RequestCaptchaThread();
-	return 0;
-}
-
-
-void
-UserLoginWindow::_RequestCaptchaThread()
-{
-	WebAppInterface interface;
-	BMessage info;
-
-	status_t status = interface.RequestCaptcha(info);
-
-	BAutolock locker(&fLock);
-
-	BMessage result;
-	if (status == B_OK && info.FindMessage("result", &result) == B_OK) {
-		result.FindString("token", &fCaptchaToken);
-		BString imageDataBase64;
-		if (result.FindString("pngImageDataBase64", &imageDataBase64) == B_OK) {
-			ssize_t encodedSize = imageDataBase64.Length();
-			ssize_t decodedSize = (encodedSize * 3 + 3) / 4;
-			if (decodedSize > 0) {
-				char* buffer = new char[decodedSize];
-				decodedSize = decode_base64(buffer, imageDataBase64.String(),
-					encodedSize);
-				if (decodedSize > 0) {
-					BMemoryIO memoryIO(buffer, (size_t)decodedSize);
-					fCaptchaImage.SetTo(new(std::nothrow) SharedBitmap(
-						memoryIO), true);
-					BMessenger(this).SendMessage(MSG_CAPTCHA_OBTAINED);
-				} else {
-					fprintf(stderr, "Failed to decode captcha: %s\n",
-						strerror(decodedSize));
+	if (!_IsCancelled()) {
+		if (status == B_OK) {
+			switch (interface.ErrorCodeFromResponse(info)) {
+				case ERROR_CODE_NONE:
+				{
+					BString token;
+					if (_ExtractTokenFromResponse(info, token) == B_OK) {
+						BMessage message(MSG_LOGIN_SUCCESS);
+						message.AddString(KEY_USERNAME, username);
+						message.AddString(KEY_PASSWORD_CLEAR, passwordClear);
+						messenger.SendMessage(&message);
+					} else
+						messenger.SendMessage(MSG_LOGIN_FAILURE);
+					break;
 				}
-				delete[] buffer;
+				default:
+				{
+					BMessage message(MSG_LOGIN_ERROR);
+					message.AddMessage(KEY_PAYLOAD_MESSAGE, &info);
+					messenger.SendMessage(&message);
+					break;
+				}
 			}
+		} else {
+			BMessage message(MSG_TRANSPORT_FAILURE);
+			message.AddInt64(KEY_ERRNO, (int64) status);
+			messenger.SendMessage(&message);
 		}
-	} else {
-		fprintf(stderr, "Failed to obtain captcha: %s\n", strerror(status));
 	}
 
 	_SetWorkerThread(-1);
 }
 
 
-int32
-UserLoginWindow::_CreateAccountThreadEntry(void* data)
+/*static*/ float
+UserLoginWindow::_ExpectedInstructionTextHeight(
+	BTextView* instructionView)
 {
-	UserLoginWindow* window = reinterpret_cast<UserLoginWindow*>(data);
-	window->_CreateAccountThread();
-	return 0;
+	float insetTop;
+	float insetBottom;
+	instructionView->GetInsets(NULL, &insetTop, NULL, &insetBottom);
+
+	BSize introductionSize;
+	font_height fh;
+	be_plain_font->GetHeight(&fh);
+	return ((fh.ascent + fh.descent + fh.leading) * LINES_INSTRUCTION_TEXT)
+		+ insetTop + insetBottom;
 }
 
 
-void
-UserLoginWindow::_CreateAccountThread()
+/*static*/ status_t
+UserLoginWindow::_ExtractTokenFromResponse(BMessage payload, BString& token)
 {
-	if (!Lock())
-		return;
+	BMessage payloadResult;
+	status_t result;
 
-	BString nickName(fNewUsernameField->Text());
-	BString passwordClear(fNewPasswordField->Text());
-	BString email(fEmailField->Text());
-	BString captchaToken(fCaptchaToken);
-	BString captchaResponse(fCaptchaResultField->Text());
-	BString languageCode(fPreferredLanguageCode);
+	token.SetTo("");
 
-	Unlock();
+	result = payload.FindMessage("result", &payloadResult);
 
-	WebAppInterface interface;
-	BMessage info;
-
-	status_t status = interface.CreateUser(
-		nickName, passwordClear, email, captchaToken, captchaResponse,
-		languageCode, info);
-
-	BAutolock locker(&fLock);
-
-	BString error = B_TRANSLATE(
-		"There was a puzzling response from the web service.");
-
-	BMessage result;
-	if (status == B_OK) {
-		if (info.FindMessage("result", &result) == B_OK) {
-			error = "";
-		} else if (info.FindMessage("error", &result) == B_OK) {
-			result.PrintToStream();
-			BString message;
-			if (result.FindString("message", &message) == B_OK) {
-				if (message == "captchabadresponse") {
-					error = B_TRANSLATE("You have not solved the captcha "
-						"puzzle correctly.");
-				} else if (message == "validationerror") {
-					_CollectValidationFailures(result, error);
-				} else {
-					BString response = B_TRANSLATE("It responded with: %message%");
-					response.ReplaceFirst("%message%", message);
-					error << " " << response;
-				}
-			}
-		}
-	} else {
-		error = B_TRANSLATE(
-			"It was not possible to contact the web service.");
+	if (result == B_OK) {
+		result = payloadResult.FindString("token", &token);
 	}
 
-	locker.Unlock();
-
-	if (!error.IsEmpty()) {
-		BAlert* alert = new(std::nothrow) BAlert(
-			B_TRANSLATE("Failed to create account"),
-			error,
-			B_TRANSLATE("Close"), NULL, NULL,
-			B_WIDTH_AS_USUAL, B_WARNING_ALERT);
-
-		if (alert != NULL)
-			alert->Go();
-
-		fprintf(stderr,
-			B_TRANSLATE("Failed to create account: %s\n"), error.String());
-
-		_SetWorkerThread(-1);
-
-		// We need a new captcha, it can be used only once
-		fCaptchaToken = "";
-		_RequestCaptcha();
-	} else {
-		fModel.SetAuthorization(nickName, passwordClear, true);
-
-		_SetWorkerThread(-1);
-		_LoginSuccessful(B_TRANSLATE("Account created successfully. "
-			"You can now rate packages and do other useful things."));
-	}
+	return result;
 }
 
 
+/*!	Various controls in the UI can be edited or clicked, but it should not be
+	possible to edit or use the controls when the system is attempting to
+	authenticate; this method allows those controls to be enabled / disabled
+	as necessary.
+ */
+
 void
-UserLoginWindow::_CollectValidationFailures(const BMessage& result,
-	BString& error) const
+UserLoginWindow::_EnableMutableControls(bool enabled)
 {
-	error = B_TRANSLATE("There are problems with the data you entered:\n\n");
+	fUsernameField->SetEnabled(enabled);
+	fPasswordField->SetEnabled(enabled);
+	fSendButton->SetEnabled(enabled);
+}
 
-	bool found = false;
 
-	BMessage data;
-	BMessage failures;
-	if (result.FindMessage("data", &data) == B_OK
-		&& data.FindMessage("validationfailures", &failures) == B_OK) {
-		int32 index = 0;
-		while (true) {
-			BString name;
-			name << index++;
-			BMessage failure;
-			if (failures.FindMessage(name, &failure) != B_OK)
-				break;
-
-			BString property;
-			BString message;
-			if (failure.FindString("property", &property) == B_OK
-				&& failure.FindString("message", &message) == B_OK) {
-				found = true;
-				if (property == "nickname" && message == "notunique") {
-					error << B_TRANSLATE(
-						"The username is already taken. "
-						"Please choose another.");
-				} else if (property == "passwordClear"
-					&& message == "invalid") {
-					error << B_TRANSLATE(
-						"The password is too weak or invalid. "
-						"Please use at least 8 characters with "
-						"at least 2 numbers and 2 upper-case "
-						"letters.");
-				} else if (property == "email" && message == "malformed") {
-					error << B_TRANSLATE(
-						"The email address appears to be malformed.");
-				} else {
-					error << property << ": " << message;
-				}
-			}
-		}
-	}
-
-	if (!found) {
-		error << B_TRANSLATE("But none could be listed here, sorry.");
-	}
+BString
+UserLoginWindow::_CreateInstructionText()
+{
+	BString result("To create a new account or to view the user usage "
+		"conditions, visit the Haiku Depot Server web interface at %serverUrl%");
+	result.ReplaceAll("%serverUrl%", ServerSettings::CreateFullUrl("/"));
+	return result;
 }
