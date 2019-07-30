@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee5a822c_604da7ba",
+        "filename": "src/apps/autoraise/AutoRaiseApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-07-30T15:48:40Z",
+      "side": 1,
+      "message": "Two blank lines after.",
+      "revId": "73faa51bcf60478f59fe2fe3517fb423975ea9f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6e0b6da_9bae95e3",
+        "filename": "src/apps/autoraise/AutoRaiseIcon.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-07-30T15:48:40Z",
+      "side": 1,
+      "message": "Two blank lines after.",
+      "revId": "73faa51bcf60478f59fe2fe3517fb423975ea9f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
