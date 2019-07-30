@@ -1,5 +1,6 @@
 /*
  * Copyright 2007-2011, Ingo Weinhold, ingo_weinhold@gmx.de.
+ * Copyright 2019, Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  */
 
@@ -42,7 +43,7 @@ struct ConditionVariableHashDefinition {
 
 typedef BOpenHashTable<ConditionVariableHashDefinition> ConditionVariableHash;
 static ConditionVariableHash sConditionVariableHash;
-static spinlock sConditionVariablesLock;
+static rw_spinlock sConditionVariableHashLock;
 
 
 static int
@@ -93,39 +94,56 @@ ConditionVariableEntry::Add(const void* object)
 {
 	ASSERT(object != NULL);
 
-	fThread = thread_get_current_thread();
+	InterruptsLocker _;
+	ReadSpinLocker hashLocker(sConditionVariableHashLock);
 
-	InterruptsSpinLocker _(sConditionVariablesLock);
+	ConditionVariable* variable = sConditionVariableHash.Lookup(object);
 
-	fVariable = sConditionVariableHash.Lookup(object);
-
-	if (fVariable == NULL) {
+	if (variable == NULL) {
 		fWaitStatus = B_ENTRY_NOT_FOUND;
 		return false;
 	}
 
-	fWaitStatus = STATUS_ADDED;
-	fVariable->fEntries.Add(this);
+	SpinLocker variableLocker(variable->fLock);
+	hashLocker.Unlock();
+
+	AddToLockedVariable(variable);
 
 	return true;
+}
+
+
+inline void
+ConditionVariableEntry::AddToLockedVariable(ConditionVariable* variable)
+{
+	ASSERT(fVariable == NULL);
+
+	B_INITIALIZE_SPINLOCK(&fLock);
+	fThread = thread_get_current_thread();
+	fVariable = variable;
+	fWaitStatus = STATUS_ADDED;
+	fVariable->fEntries.Add(this);
 }
 
 
 status_t
 ConditionVariableEntry::Wait(uint32 flags, bigtime_t timeout)
 {
+#if KDEBUG
 	if (!are_interrupts_enabled()) {
 		panic("ConditionVariableEntry::Wait() called with interrupts "
 			"disabled, entry: %p, variable: %p", this, fVariable);
 		return B_ERROR;
 	}
+#endif
 
 	InterruptsLocker _;
-
-	SpinLocker conditionLocker(sConditionVariablesLock);
+	SpinLocker entryLocker(fLock);
 
 	if (fVariable == NULL)
 		return fWaitStatus;
+
+	SpinLocker conditionLocker(fVariable->fLock);
 
 	thread_prepare_to_block(fThread, flags,
 		THREAD_BLOCK_TYPE_CONDITION_VARIABLE, fVariable);
@@ -133,6 +151,7 @@ ConditionVariableEntry::Wait(uint32 flags, bigtime_t timeout)
 	fWaitStatus = STATUS_WAITING;
 
 	conditionLocker.Unlock();
+	entryLocker.Unlock();
 
 	status_t error;
 	if ((flags & (B_RELATIVE_TIMEOUT | B_ABSOLUTE_TIMEOUT)) != 0)
@@ -140,10 +159,11 @@ ConditionVariableEntry::Wait(uint32 flags, bigtime_t timeout)
 	else
 		error = thread_block();
 
-	conditionLocker.Lock();
+	entryLocker.Lock();
 
 	// remove entry from variable, if not done yet
 	if (fVariable != NULL) {
+		conditionLocker.Lock();
 		fVariable->fEntries.Remove(this);
 		fVariable = NULL;
 	}
@@ -162,19 +182,6 @@ ConditionVariableEntry::Wait(const void* object, uint32 flags,
 }
 
 
-inline void
-ConditionVariableEntry::AddToVariable(ConditionVariable* variable)
-{
-	fThread = thread_get_current_thread();
-
-	InterruptsSpinLocker _(sConditionVariablesLock);
-
-	fVariable = variable;
-	fWaitStatus = STATUS_ADDED;
-	fVariable->fEntries.Add(this);
-}
-
-
 // #pragma mark - ConditionVariable
 
 
@@ -186,6 +193,7 @@ ConditionVariable::Init(const void* object, const char* objectType)
 	fObject = object;
 	fObjectType = objectType;
 	new(&fEntries) EntryList;
+	B_INITIALIZE_SPINLOCK(&fLock);
 
 	T_SCHEDULING_ANALYSIS(InitConditionVariable(this, object, objectType));
 	NotifyWaitObjectListeners(&WaitObjectListener::ConditionVariableInitialized,
@@ -201,13 +209,13 @@ ConditionVariable::Publish(const void* object, const char* objectType)
 	fObject = object;
 	fObjectType = objectType;
 	new(&fEntries) EntryList;
+	B_INITIALIZE_SPINLOCK(&fLock);
 
 	T_SCHEDULING_ANALYSIS(InitConditionVariable(this, object, objectType));
 	NotifyWaitObjectListeners(&WaitObjectListener::ConditionVariableInitialized,
 		this);
 
-	InterruptsLocker _;
-	SpinLocker locker(sConditionVariablesLock);
+	InterruptsWriteSpinLocker _(sConditionVariableHashLock);
 
 	ASSERT_PRINT(sConditionVariableHash.Lookup(object) == NULL,
 		"condition variable: %p\n", sConditionVariableHash.Lookup(object));
@@ -221,7 +229,9 @@ ConditionVariable::Unpublish()
 {
 	ASSERT(fObject != NULL);
 
-	InterruptsSpinLocker locker(sConditionVariablesLock);
+	InterruptsLocker _;
+	WriteSpinLocker hashLocker(sConditionVariableHashLock);
+	SpinLocker selfLocker(fLock);
 
 #if KDEBUG
 	ConditionVariable* variable = sConditionVariableHash.Lookup(fObject);
@@ -235,6 +245,8 @@ ConditionVariable::Unpublish()
 	fObject = NULL;
 	fObjectType = NULL;
 
+	hashLocker.Unlock();
+
 	if (!fEntries.IsEmpty())
 		_NotifyLocked(true, B_ENTRY_NOT_FOUND);
 }
@@ -243,7 +255,8 @@ ConditionVariable::Unpublish()
 void
 ConditionVariable::Add(ConditionVariableEntry* entry)
 {
-	entry->AddToVariable(this);
+	InterruptsSpinLocker _(fLock);
+	entry->AddToLockedVariable(this);
 }
 
 
@@ -259,7 +272,7 @@ ConditionVariable::Wait(uint32 flags, bigtime_t timeout)
 /*static*/ void
 ConditionVariable::NotifyOne(const void* object, status_t result)
 {
-	InterruptsSpinLocker locker(sConditionVariablesLock);
+	InterruptsReadSpinLocker locker(sConditionVariableHashLock);
 	ConditionVariable* variable = sConditionVariableHash.Lookup(object);
 	locker.Unlock();
 	if (variable == NULL)
@@ -272,13 +285,64 @@ ConditionVariable::NotifyOne(const void* object, status_t result)
 /*static*/ void
 ConditionVariable::NotifyAll(const void* object, status_t result)
 {
-	InterruptsSpinLocker locker(sConditionVariablesLock);
+	InterruptsReadSpinLocker locker(sConditionVariableHashLock);
 	ConditionVariable* variable = sConditionVariableHash.Lookup(object);
 	locker.Unlock();
 	if (variable == NULL)
 		return;
 
 	variable->NotifyAll(result);
+}
+
+
+void
+ConditionVariable::_Notify(bool all, status_t result)
+{
+	InterruptsSpinLocker _(fLock);
+
+	if (!fEntries.IsEmpty()) {
+		if (result > B_OK) {
+			panic("tried to notify with invalid result %" B_PRId32 "\n", result);
+			result = B_ERROR;
+		}
+
+		_NotifyLocked(all, result);
+	}
+}
+
+
+/*! Called with interrupts disabled and the condition variable's spinlock held.
+ */
+void
+ConditionVariable::_NotifyLocked(bool all, status_t result)
+{
+	// Dequeue and wake up the blocked threads.
+	// We *cannot* hold our own lock while acquiring the Entry's lock,
+	// as this leads to a (non-theoretical!) race between the Entry
+	// entering Wait() and acquiring its own lock, and then acquiring ours.
+	while (ConditionVariableEntry* entry = fEntries.RemoveHead()) {
+		release_spinlock(&fLock);
+
+		SpinLocker _(entry->fLock);
+		entry->fVariable = NULL;
+
+		if (entry->fWaitStatus <= 0) {
+			acquire_spinlock(&fLock);
+			continue;
+		}
+
+		if (entry->fWaitStatus == STATUS_WAITING) {
+			SpinLocker _(entry->fThread->scheduler_lock);
+			thread_unblock_locked(entry->fThread, result);
+		}
+
+		entry->fWaitStatus = result;
+
+		acquire_spinlock(&fLock);
+
+		if (!all)
+			break;
+	}
 }
 
 
@@ -310,48 +374,6 @@ ConditionVariable::Dump() const
 		kprintf(" %" B_PRId32, entry->fThread->id);
 	}
 	kprintf("\n");
-}
-
-
-void
-ConditionVariable::_Notify(bool all, status_t result)
-{
-	InterruptsSpinLocker locker(sConditionVariablesLock);
-
-	if (!fEntries.IsEmpty()) {
-		if (result > B_OK) {
-			panic("tried to notify with invalid result %" B_PRId32 "\n", result);
-			result = B_ERROR;
-		}
-
-		_NotifyLocked(all, result);
-	}
-}
-
-
-/*! Called with interrupts disabled and the condition variable spinlock and
-	scheduler lock held.
-*/
-void
-ConditionVariable::_NotifyLocked(bool all, status_t result)
-{
-	// dequeue and wake up the blocked threads
-	while (ConditionVariableEntry* entry = fEntries.RemoveHead()) {
-		entry->fVariable = NULL;
-
-		if (entry->fWaitStatus <= 0)
-			continue;
-
-		if (entry->fWaitStatus == STATUS_WAITING) {
-			SpinLocker _(entry->fThread->scheduler_lock);
-			thread_unblock_locked(entry->fThread, result);
-		}
-
-		entry->fWaitStatus = result;
-
-		if (!all)
-			break;
-	}
 }
 
 
