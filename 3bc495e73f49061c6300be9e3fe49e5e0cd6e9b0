@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1219b9c7_80497aa3",
+        "filename": "src/system/kernel/condition_variable.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2019-07-30T18:14:04Z",
+      "side": 1,
+      "message": "We usually put the methods in the same order, as declared. Apart from that, it\u0027s public, public static, protected, protected static, private, private static. Why the move? It makes reading the diff unnecessary hard, anyway, and should be in a separate commit, if needed.",
+      "revId": "3bc495e73f49061c6300be9e3fe49e5e0cd6e9b0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
