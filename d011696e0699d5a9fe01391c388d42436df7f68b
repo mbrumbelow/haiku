@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "abf9b8a9_6e2987c0",
+        "filename": "src/kits/support/Locker.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-30T19:50:36Z",
+      "side": 1,
+      "message": "Ok, this works, but it seems quite ugly to be messing with the pthread_mutex internals this much here (combined with the abuse of the \"unused\" field).\n\nIf we want to go about this maybe more cleanly, I would add a PTHREAD_MUTEX_B_LOCKER or whatever constant to the supported pthread mutex type (and probably make it private), implementing the behavior we need here.",
+      "revId": "d011696e0699d5a9fe01391c388d42436df7f68b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91b1dcb8_5640c883",
+        "filename": "src/kits/support/Locker.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-30T19:50:36Z",
+      "side": 1,
+      "message": "Well, relying on this being available inside pthread mutex doesn\u0027t seem great?",
+      "revId": "d011696e0699d5a9fe01391c388d42436df7f68b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}

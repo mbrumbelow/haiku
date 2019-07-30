@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "89a7e69f_190260c0",
+        "filename": "src/kits/support/Locker.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-07-30T19:50:36Z",
+      "side": 0,
+      "message": "This comment makes me wonder what happens to CountLockRequests now, does it behave the same as before with these changes?",
+      "revId": "1e8a3588cd421ed9cfbb5548fd377bd6d67422f3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
