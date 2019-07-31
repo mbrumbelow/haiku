@@ -16,6 +16,24 @@
       "revId": "3bc495e73f49061c6300be9e3fe49e5e0cd6e9b0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d16a863_c5eedca1",
+        "filename": "src/system/kernel/condition_variable.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-07-31T02:40:09Z",
+      "side": 1,
+      "message": "Yes, I can put it in a separate commit. This makes the file much easier to follow -- the KDL command functions do not \"come between\" the public Notify...() and the private _Notify, etc.",
+      "parentUuid": "1219b9c7_80497aa3",
+      "revId": "3bc495e73f49061c6300be9e3fe49e5e0cd6e9b0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
