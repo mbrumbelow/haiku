@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "43ec0963_ddfce15e",
+        "filename": "src/kits/app/AppMisc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2019-08-01T22:04:18Z",
+      "side": 1,
+      "message": "You might want to just assign the result to a variable outside the loop, then break, so you can free tokens in one place.",
+      "revId": "99e55f7e921aae18a88ac45a1fff0efb572fad7a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
