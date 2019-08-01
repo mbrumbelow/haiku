@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "96ef0664_db7aaf30",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-08-01T14:22:27Z",
+      "side": 1,
+      "message": "I have removed this because I moved the margin to the upper level (around both this and the device view on the right). Please don\u0027t re-add it.",
+      "revId": "7adfdcd59970da46287b4fe4d499100234d3089e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ff527b4_6d07ecb2",
+        "filename": "src/preferences/input/InputDeviceView.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-08-01T14:22:27Z",
+      "side": 1,
+      "message": "Why does this need to be public?",
+      "revId": "7adfdcd59970da46287b4fe4d499100234d3089e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c62a24a1_19718f04",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-08-01T14:22:27Z",
+      "side": 1,
+      "message": "This fConnected means there can only ever be one single device in the window. Once you have a touchpad, you cannot have another touchpad or a mouse. Once you have a mouse, you cannot have another mouse or a touchpad.\n\nThis is not what we want.",
+      "revId": "7adfdcd59970da46287b4fe4d499100234d3089e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32afaaae_055e5749",
+        "filename": "src/preferences/input/InputWindow.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-08-01T14:22:27Z",
+      "side": 1,
+      "message": "This does not work. What if there are multiple mouses with different settings?\n\nThe window should not need to know specifically about IntputMouse and TouchpadPrefView, it only needs to know that there is a BCardView with various device views inside it, and make sure the visible view matches the device selected in the device list view.",
+      "revId": "7adfdcd59970da46287b4fe4d499100234d3089e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94eb660c_ba4b3820",
+        "filename": "src/preferences/input/InputWindow.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-08-01T14:22:27Z",
+      "side": 1,
+      "message": "These should not go here. Each view should keep track of its own device.",
+      "revId": "7adfdcd59970da46287b4fe4d499100234d3089e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00002fd0_28e7c5d0",
+        "filename": "src/preferences/input/Jamfile",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-08-01T14:22:27Z",
+      "side": 1,
+      "message": "Keep this list in alphabetical order as well",
+      "revId": "7adfdcd59970da46287b4fe4d499100234d3089e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "290f2add_71371b72",
+        "filename": "src/preferences/input/Jamfile",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-08-01T14:22:27Z",
+      "side": 1,
+      "message": "And also this one.",
+      "revId": "7adfdcd59970da46287b4fe4d499100234d3089e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0605b5e4_9c809e3b",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-08-01T14:22:27Z",
+      "side": 1,
+      "message": "keep two blank lines between functions.",
+      "revId": "7adfdcd59970da46287b4fe4d499100234d3089e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5b6e348_73da2ee4",
+        "filename": "src/preferences/input/MouseSettings.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-08-01T14:22:27Z",
+      "side": 1,
+      "message": "Keep the includes in alphabetical order.",
+      "revId": "7adfdcd59970da46287b4fe4d499100234d3089e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
