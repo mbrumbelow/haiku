@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb6aaedc_63352fdc",
+        "filename": "src/kits/tracker/FSClipboard.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-08-02T08:05:37Z",
+      "side": 1,
+      "message": "Please make sure the comment is wrapped at 80 chars/line. Also, this is a multi-line else block with the comment, so please wrap in {}.",
+      "revId": "2897d162660424144c4293152919a0e5a5fe9ce1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
