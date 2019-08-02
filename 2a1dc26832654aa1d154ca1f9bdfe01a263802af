@@ -69,6 +69,24 @@
       "revId": "2a1dc26832654aa1d154ca1f9bdfe01a263802af",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ac2ef77_74eb2143",
+        "filename": "src/preferences/input/InputTouchpadPrefView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-08-02T21:15:57Z",
+      "side": 1,
+      "message": "No, this is not what I meant.\n\nThere should be a way to disable the pad blocker completely. So the leftmost position for the slider should be \"disabled\" instead of \"slow\", and when the slider is moved there, the padblocker should never enable itself. In case people don\u0027t want to use it.",
+      "parentUuid": "87e56b5d_bfa177e6",
+      "revId": "2a1dc26832654aa1d154ca1f9bdfe01a263802af",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
