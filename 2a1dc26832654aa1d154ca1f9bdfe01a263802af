@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "fdb59509_5b86e7bf",
+        "filename": "src/preferences/input/InputTouchpadPref.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2019-08-02T15:34:57Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fe63986b_d344a610",
+      "revId": "2a1dc26832654aa1d154ca1f9bdfe01a263802af",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d428573e_634d21ab",
         "filename": "src/preferences/input/InputTouchpadPrefView.cpp",
         "patchSetId": 6
@@ -33,6 +51,24 @@
       "revId": "2a1dc26832654aa1d154ca1f9bdfe01a263802af",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87e56b5d_bfa177e6",
+        "filename": "src/preferences/input/InputTouchpadPrefView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2019-08-02T15:34:57Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d428573e_634d21ab",
+      "revId": "2a1dc26832654aa1d154ca1f9bdfe01a263802af",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
