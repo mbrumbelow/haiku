@@ -27,12 +27,29 @@ keyboard.
 
 \image html US_PC_keyboard_keycodes.png
 
-International keyboards each differ a bit but generally share an extra key
-located in-between the left shift key and Z with the key code 0x69.
+Depending on the manufacturer, your keyboard may be laid out slightly
+differently. But the keycodes should still allow to uniquely identify a key
+by its position.
 
-Mac keyboards have an equal sign in the keypad with key code 0x6a and some
-other differences. Often times the keys produce the same key code but appear in
-different locations.
+The complete list of code is as follows:
+
+|0x01 | Esc         |0x02 | F1          |0x03 | F2          |0x04 | F3          |0x05 | F4          |0x06 | F5          |0x07 | F6          |0x08 | F7          |
+|0x09 | F8          |0x0a | F9          |0x0b | F10         |0x0c | F11         |0x0d | F12         |0x0e | PrintScreen |0x0f | Scroll      |0x11 |`            |
+|0x12 |1            |0x13 |2            |0x14 |3            |0x15 |4            |0x16 |5            |0x17 |6            |0x18 |7            |0x19 |8            |
+|0x1a |9            |0x1b |0            |0x1c |-            |0x1d |=            |0x1e |Backspace    |0x1f |Insert       |0x20 |Home         |0x21 |PageUp       |
+|0x22 |Num Lock     |0x23 |Keypad /     |0x24 |*            |0x25 |Keypad -     |0x26 |Tab          |0x27 |Q            |0x28 |W            |0x29 |E            |
+|0x2a |R            |0x2b |T            |0x2c |Y            |0x2d |U            |0x2e |I            |0x2f |O            |0x30 |P            |0x31 |[            |
+|0x32 |	]           |0x33 |	\           |0x34 |	Delete      |0x35 |	End         |0x36 |	PageDown    |0x37 |	KP7         |0x38 |	KP8         |0x39 |	KP9         |
+|0x3a |	KP+         |0x3b |	Caps        |0x3c |	A           |0x3d |	S           |0x3e |	D           |0x3f |	F           |0x40 |	G           |0x41 |	H           |
+|0x42 |	J           |0x43 |	K           |0x44 |	L           |0x45 |	;           |0x46 |	'           |0x47 |	Enter       |0x48 |	KP4         |0x49 |	KP5         |
+|0x4a |	KP6         |0x4b |	Left Shift  |0x4c |	Z           |0x4d |	X           |0x4e |	C           |0x4f |	V           |0x50 |	B           |0x51 |	N           |
+|0x52 |	M           |0x53 |	,           |0x54 |	.           |0x55 |	/           |0x56 |	Right Shift |0x57 |	Up Arrow    |0x58 |	KP1         |0x59 |	KP2         |
+|0x5a |	KP3         |0x5b |	KP Enter    |0x5c |	LeftControl |0x5d |	Left Alt    |0x5e |	Space       |0x5f |	Right Alt   |0x60 |	Right Ctrl  |0x61 |	Left Arrow  |
+|0x62 |	Down Arrow  |0x63 |	Right Arrow |0x64 |	KP0         |0x65 |	KP.         |0x66 |	Left Option |0x67 |	Right Option|0x68 |	Menu        |0x69 |	< (Intl)    |
+|0x6a |	Yen         |0x6b |	Ro(\\ japanese)|0x6c | Muhenkan |0x6d |	Henkan |0x6e |	Katakana/Hiragana |0x7f | Break     |0x80 |	Media Pause |0x81 |	Media Play  |
+|0x82 |	Media Play/Pause|0x83 |	Media Select|0x84 |	Media Next |0x85 | Media previous |0x86 | Media Stop |0x87 | Calculator |0x88 |	Computer |0x89 | E-Mail     |
+|0x8a |	WWW Home    |0x8b |	WWW Forward |0x8c |	WWW Back    |0x8d |	WWW Search  |0x8e |	WWW Bookmarks|0x8f | WWW Refresh|0x90 |	WWW Stop    |0x91 |	Volume Up   |
+|0x92 |	Volume Down |0x93 | Mute        |0x94 | Shutdown    |0x95 | Sleep       |0x96 | Wake        |     |             |     |             |     |             |
 
 
 \section modifiers Modifier Keys
