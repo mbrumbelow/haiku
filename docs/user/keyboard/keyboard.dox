@@ -27,12 +27,42 @@ keyboard.
 
 \image html US_PC_keyboard_keycodes.png
 
-International keyboards each differ a bit but generally share an extra key
-located in-between the left shift key and Z with the key code 0x69.
+Depending on the manufacturer, your keyboard may be laid out slightly
+differently. But the keycodes should still allow to uniquely identify a key
+by its position.
 
-Mac keyboards have an equal sign in the keypad with key code 0x6a and some
-other differences. Often times the keys produce the same key code but appear in
-different locations.
+The complete list of code is as follows:
+
+<table>
+<tr><th>Code</th><th>Key           </th><th>Code</th><th>Key           </th><th>Code</th><th>Key           </th><th>Code</th><th>Key           </th><th>Code</th><th>Key           </th></tr>
+<tr><td>0x01 </td><td> Esc         </td><td>0x02 </td><td> F1          </td><td>0x03 </td><td> F2          </td><td>0x04 </td><td> F3          </td><td>0x05 </td><td> F4          </td></tr>
+<tr><td>0x06 </td><td> F5          </td><td>0x07 </td><td> F6          </td><td>0x08 </td><td> F7          </td><td>0x09 </td><td> F8          </td><td>0x0a </td><td> F9          </td></tr>
+<tr><td>0x0b </td><td> F10         </td><td>0x0c </td><td> F11         </td><td>0x0d </td><td> F12         </td><td>0x0e </td><td> PrintScreen </td><td>0x0f </td><td> Scroll      </td></tr>
+<tr><td>0x11 </td><td>`            </td><td>0x12 </td><td>1            </td><td>0x13 </td><td>2            </td><td>0x14 </td><td>3            </td><td>0x15 </td><td>4            </td></tr>
+<tr><td>0x16 </td><td>5            </td><td>0x17 </td><td>6            </td><td>0x18 </td><td>7            </td><td>0x19 </td><td>8            </td><td>0x1a </td><td>9            </td></tr>
+<tr><td>0x1b </td><td>0            </td><td>0x1c </td><td>-            </td><td>0x1d </td><td>=            </td><td>0x1e </td><td>Backspace    </td><td>0x1f </td><td>Insert       </td></tr>
+<tr><td>0x20 </td><td>Home         </td><td>0x21 </td><td>PageUp       </td><td>0x22 </td><td>Num Lock     </td><td>0x23 </td><td>Keypad /     </td><td>0x24 </td><td>*            </td></tr>
+<tr><td>0x25 </td><td>Keypad -     </td><td>0x26 </td><td>Tab          </td><td>0x27 </td><td>Q            </td><td>0x28 </td><td>W            </td><td>0x29 </td><td>E            </td></tr>
+<tr><td>0x2a </td><td>R            </td><td>0x2b </td><td>T            </td><td>0x2c </td><td>Y            </td><td>0x2d </td><td>U            </td><td>0x2e </td><td>I            </td></tr>
+<tr><td>0x2f </td><td>O            </td><td>0x30 </td><td>P            </td><td>0x31 </td><td>[            </td><td>0x32 </td><td>	]           </td><td>0x33 </td><td>	\           </td></tr>
+<tr><td>0x34 </td><td>	Delete      </td><td>0x35 </td><td>	End         </td><td>0x36 </td><td>	PageDown    </td><td>0x37 </td><td>	KP7         </td><td>0x38 </td><td>	KP8         </td></tr>
+<tr><td>0x39 </td><td>	KP9         </td><td>0x3a </td><td>	KP+         </td><td>0x3b </td><td>	Caps        </td><td>0x3c </td><td>	A           </td><td>0x3d </td><td>	S           </td></tr>
+<tr><td>0x3e </td><td>	D           </td><td>0x3f </td><td>	F           </td><td>0x40 </td><td>	G           </td><td>0x41 </td><td>	H           </td><td>0x42 </td><td>	J           </td></tr>
+<tr><td>0x43 </td><td>	K           </td><td>0x44 </td><td>	L           </td><td>0x45 </td><td>	;           </td><td>0x46 </td><td>	'           </td><td>0x47 </td><td>	Enter       </td></tr>
+<tr><td>0x48 </td><td>	KP4         </td><td>0x49 </td><td>	KP5         </td><td>0x4a </td><td>	KP6         </td><td>0x4b </td><td>	Left Shift  </td><td>0x4c </td><td>	Z           </td></tr>
+<tr><td>0x4d </td><td>	X           </td><td>0x4e </td><td>	C           </td><td>0x4f </td><td>	V           </td><td>0x50 </td><td>	B           </td><td>0x51 </td><td>	N           </td></tr>
+<tr><td>0x52 </td><td>	M           </td><td>0x53 </td><td>	,           </td><td>0x54 </td><td>	.           </td><td>0x55 </td><td>	/           </td><td>0x56 </td><td>	Right Shift </td></tr>
+<tr><td>0x57 </td><td>	Up Arrow    </td><td>0x58 </td><td>	KP1         </td><td>0x59 </td><td>	KP2         </td><td>0x5a </td><td>	KP3         </td><td>0x5b </td><td>	KP Enter    </td></tr>
+<tr><td>0x5c </td><td>	LeftControl </td><td>0x5d </td><td>	Left Alt    </td><td>0x5e </td><td>	Space       </td><td>0x5f </td><td>	Right Alt   </td><td>0x60 </td><td>	Right Ctrl  </td></tr>
+<tr><td>0x61 </td><td>	Left Arrow  </td><td>0x62 </td><td>	Down Arrow  </td><td>0x63 </td><td>	Right Arrow </td><td>0x64 </td><td>	KP0         </td><td>0x65 </td><td>	KP.         </td></tr>
+<tr><td>0x66 </td><td>	Left Option </td><td>0x67 </td><td>	Right Option</td><td>0x68 </td><td>	Menu        </td><td>0x69 </td><td>	&lt; (Intl) </td><td>0x6a </td><td>	Yen         </td></tr>
+<tr><td>0x6b </td><td>	Ro(\ japanese)</td><td>0x6c </td><td> Muhenkan </td><td>0x6d </td><td>	Henkan </td><td>0x6e </td><td>	Katakana/Hiragana </td><td>0x7f </td><td> Break     </td></tr>
+<tr><td>0x80 </td><td>	Media Pause </td><td>0x81 </td><td>	Media Play  </td><td>0x82 </td><td>	Media Play/Pause</td><td>0x83 </td><td>	Media Select</td><td>0x84 </td><td>	Media Next ></td></tr>
+<tr><td>0x85 </td><td> Media previous </td><td>0x86 </td><td> Media Stop </td><td>0x87 </td><td> Calculator </td><td>0x88 </td><td>	Computer </td><td>0x89 </td><td> E-Mail     </td></tr>
+<tr><td>0x8a </td><td>	WWW Home    </td><td>0x8b </td><td>	WWW Forward </td><td>0x8c </td><td>	WWW Back    </td><td>0x8d </td><td>	WWW Search  </td><td>0x8e </td><td>	WWW Bookmarks</td></tr>
+<tr><td>0x8f </td><td> WWW Refresh</td><td>0x90 </td><td>	WWW Stop    </td><td>0x91 </td><td>	Volume Up   </td><td>0x92 </td><td>	Volume Down </td><td>0x93 </td><td> Mute        </td></td>
+<tr><td>0x94 </td><td> Shutdown    </td><td>0x95 </td><td> Sleep       </td><td>0x96 </td><td> Wake        </td><td>     </td><td>             </td><td>     </td><td>             </td></tr>
+</table>
 
 
 \section modifiers Modifier Keys
