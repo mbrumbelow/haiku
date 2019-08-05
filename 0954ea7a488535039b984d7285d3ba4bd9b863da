@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "62cd27df_82542f67",
+        "filename": "src/add-ons/kernel/drivers/network/wlan/ralinkwifi/dev/ral/rt2860.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1103,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2019-08-05T19:14:25Z",
+      "side": 1,
+      "message": "Correct me if I\u0027m wrong, but this would seem problematic, considering the if () above performs an ni \u003d\u003d NULL check (I might also note, this change would leave ni uninitialized at that point).",
+      "revId": "0954ea7a488535039b984d7285d3ba4bd9b863da",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
