@@ -389,6 +389,7 @@ BWindow::BWindow(BRect frame, int32 bitmapToken)
 
 BWindow::~BWindow()
 {
+	// TODO: Still needed?
 	if (BMenu* menu = dynamic_cast<BMenu*>(fFocus)) {
 		MenuPrivate(menu).QuitTracking();
 	}

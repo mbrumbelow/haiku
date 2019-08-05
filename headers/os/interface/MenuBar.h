@@ -66,6 +66,8 @@ public:
 	virtual	void				MessageReceived(BMessage* message);
 	virtual	void				MouseDown(BPoint where);
 	virtual	void				MouseUp(BPoint where);
+	virtual void				MouseMoved(BPoint where, uint32 state,
+									const BMessage *message);
 
 	virtual	BHandler*			ResolveSpecifier(BMessage* message,
 									int32 index, BMessage* specifier,

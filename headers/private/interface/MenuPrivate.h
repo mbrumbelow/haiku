@@ -77,6 +77,23 @@ private:
 
 };
 
+
+class TrackData {
+public:
+	TrackData();
+	~TrackData();
+
+	void SetInsideMenu(bool inside);
+	bool InsideMenu() const;
+
+	void Block();
+	void Release();
+private:
+	sem_id	fQuitSem;
+	int32	fInside;
+};
+
+
 };	// namespace BPrivate
 
 

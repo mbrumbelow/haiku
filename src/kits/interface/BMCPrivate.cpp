@@ -22,6 +22,9 @@
 #include <Window.h>
 
 
+#include <stdio.h>
+
+
 static const float kPopUpIndicatorWidth = 13.0f;
 
 
@@ -76,7 +79,7 @@ _BMCFilter_::~_BMCFilter_()
 filter_result
 _BMCFilter_::Filter(BMessage* message, BHandler** handler)
 {
-	if (message->what == B_MOUSE_DOWN) {
+	/*if (message->what == B_MOUSE_DOWN) {
 		if (BView* view = dynamic_cast<BView*>(*handler)) {
 			BPoint point;
 			message->FindPoint("be:view_where", &point);
@@ -84,7 +87,7 @@ _BMCFilter_::Filter(BMessage* message, BHandler** handler)
 			message->ReplacePoint("be:view_where", point);
 			*handler = fMenuField;
 		}
-	}
+	}*/
 
 	return B_DISPATCH_MESSAGE;
 }
@@ -207,6 +210,42 @@ _BMCMenuBar_::Draw(BRect updateRect)
 		updateRect, base, fShowPopUpMarker, flags);
 
 	DrawItems(updateRect);
+}
+
+
+void
+_BMCMenuBar_::MouseDown(BPoint where)
+{
+	thread_info info;
+	if (fMenuField->fMenuTaskID >= 0
+		&& get_thread_info(fMenuField->fMenuTaskID, &info) == B_OK
+		&& !Bounds().Contains(where)) {
+		BMenu::MouseDown(where);
+	} else if (Bounds().Contains(where)) {
+		BPoint point = where;
+		ConvertToParent(&point);
+		fMenuField->MouseDown(point);
+	}
+}
+
+
+void
+_BMCMenuBar_::MouseUp(BPoint where)
+{
+	if (!Bounds().Contains(where))
+		BMenu::MouseUp(where);
+}
+
+
+void
+_BMCMenuBar_::MouseMoved(BPoint where, uint32 code, const BMessage *message)
+{
+	printf("BMC MouseMoved\n");
+	// Eat the first mousemoved event
+	/*if (!fMoved)
+		fMoved = true;
+	else
+		BMenuBar::MouseMoved(where, code, message);*/
 }
 
 

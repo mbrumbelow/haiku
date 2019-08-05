@@ -18,6 +18,7 @@
 
 #include <binary_compatibility/Interface.h>
 
+#include <stdio.h>
 
 struct popup_menu_data {
 	BPopUpMenu* object;
@@ -114,21 +115,21 @@ BPopUpMenu::MessageReceived(BMessage* message)
 void
 BPopUpMenu::MouseDown(BPoint point)
 {
-	BView::MouseDown(point);
+	BMenu::MouseDown(point);
 }
 
 
 void
 BPopUpMenu::MouseUp(BPoint point)
 {
-	BView::MouseUp(point);
+	BMenu::MouseUp(point);
 }
 
 
 void
 BPopUpMenu::MouseMoved(BPoint point, uint32 code, const BMessage* message)
 {
-	BView::MouseMoved(point, code, message);
+	BMenu::MouseMoved(point, code, message);
 }
 
 
@@ -466,7 +467,7 @@ BPopUpMenu::_WaitMenu(void* _data)
 			window->UpdateIfNeeded();
 	}
 
- 	status_t unused;
+	status_t unused;
 	while (wait_for_thread(fTrackThread, &unused) == B_INTERRUPTED)
 		;
 

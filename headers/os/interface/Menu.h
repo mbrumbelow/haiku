@@ -19,6 +19,7 @@ class BMenuItem;
 namespace BPrivate {
 	class BMenuWindow;
 	class ExtraMenuData;
+	class TrackData;
 	class TriggerList;
 	class MenuPrivate;
 }
@@ -65,6 +66,11 @@ public:
 	virtual void				AllDetached();
 
 	virtual void				Draw(BRect updateRect);
+
+	virtual	void				MouseDown(BPoint where);
+	virtual	void				MouseUp(BPoint where);
+	virtual	void				MouseMoved(BPoint where, uint32 code,
+									const BMessage* message);
 
 	virtual void				MessageReceived(BMessage* message);
 	virtual	void				KeyDown(const char* bytes, int32 numBytes);
@@ -167,6 +173,7 @@ public:
 	virtual	bool				AddDynamicItem(add_state state);
 	virtual	void				DrawBackground(BRect updateRect);
 
+			// TODO: Needed?
 			void				SetTrackingHook(menu_tracking_hook hook,
 									void* state);
 
@@ -191,19 +198,20 @@ private:
 									bool keyDown = false);
 			void				_Hide();
 			BMenuItem*			_Track(int* action, long start = -1);
+			void				_StopTracking(BMenuItem *chosen = NULL);
 
 			void				_UpdateNavigationArea(BPoint position,
 									BRect& navAreaRectAbove,
 									BRect& navAreaBelow);
 
-			void				_UpdateStateOpenSelect(BMenuItem* item,
-									BPoint position, BRect& navAreaRectAbove,
-									BRect& navAreaBelow,
-									bigtime_t& selectedTime,
-									bigtime_t& navigationAreaTime);
-			void				_UpdateStateClose(BMenuItem* item,
-									const BPoint& where,
-									const uint32& buttons);
+			// void				_UpdateStateOpenSelect(BMenuItem* item,
+			// 						BPoint position, BRect& navAreaRectAbove,
+			// 						BRect& navAreaBelow,
+			// 						bigtime_t& selectedTime,
+			// 						bigtime_t& navigationAreaTime);
+			// void				_UpdateStateClose(BMenuItem* item,
+			// 						const BPoint& where,
+			// 						const uint32& buttons);
 
 			bool				_AddItem(BMenuItem* item, int32 index);
 			bool				_RemoveItems(int32 index, int32 count,
@@ -292,7 +300,8 @@ private:
 			float				fAscent;
 			float				fDescent;
 			float				fFontHeight;
-			uint32				fState;
+			// uint32				fState;
+			BMenu*				fTrackingMenu;
 			menu_layout			fLayout;
 			BRect*				fExtraRect;
 			float				fMaxContentWidth;
@@ -301,7 +310,8 @@ private:
 
 			LayoutData*			fLayoutData;
 
-			int32				_reserved;
+			// int32				_reserved;
+			BPrivate::TrackData*	fTrackData;
 
 			char				fTrigger;
 			bool				fResizeToFit;
