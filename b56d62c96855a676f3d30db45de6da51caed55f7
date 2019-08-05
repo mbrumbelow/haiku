@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a77ac1f_cf580e26",
+        "filename": "src/system/kernel/sem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2019-08-05T19:18:00Z",
+      "side": 1,
+      "message": "arv -\u003e argv? Also, does strtoul guarantee that the value is set in the error case? The documentation doesn\u0027t appear to say so, in which case it might be safer to initialize endptr to argv[1] beforehand.",
+      "revId": "b56d62c96855a676f3d30db45de6da51caed55f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
