@@ -1094,11 +1094,12 @@ rt2860_drain_stats_fifo(struct rt2860_softc *sc)
 		DPRINTFN(4, ("tx stat 0x%08x\n", stat));
 
 		wcid = (stat >> RT2860_TXQ_WCID_SHIFT) & 0xff;
-		ni = sc->wcid2ni[wcid];
 
 		/* if no ACK was requested, no feedback is available */
 		if (!(stat & RT2860_TXQ_ACKREQ) || wcid == 0xff || ni == NULL)
 			continue;
+
+		ni = sc->wcid2ni[wcid];
 
 		/* update per-STA AMRR stats */
 		if (stat & RT2860_TXQ_OK) {
