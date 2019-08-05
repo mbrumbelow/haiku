@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "72541545_40d5dab5",
+        "filename": "headers/private/package/hpkg/ReaderImplBase.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-08-05T13:46:07Z",
+      "side": 1,
+      "message": "So we lost the ability to read streams here. I don\u0027t know if that was useful, but we have two options:\n\n1) Move the new check in an else clause to this, where we know that the filesize is vqlid\n2) Remove support for streams that don\u0027t know their sizes altogether.",
+      "revId": "cb4e6b4bce2ea3ec87e5d0018d8148dbaf701f0f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
