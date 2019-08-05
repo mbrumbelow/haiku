@@ -451,6 +451,13 @@ ReaderImplBase::Init(BPositionIO* file, bool keepFile, Header& header, uint32 fl
 		fileSize = -1;
 	}
 
+	// validate file is longer than header
+	if (fileSize < (off_t)sizeof(header)) {
+		ErrorOutput()->PrintError("Error: Invalid %s file: Length shorter than "
+			"header!\n", fFileType);
+		return B_BAD_DATA;
+	}
+
 	// read the header
 	if ((error = ReadBuffer(0, &header, sizeof(header))) != B_OK)
 		return error;
