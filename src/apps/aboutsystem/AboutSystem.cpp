@@ -1122,7 +1122,7 @@ AboutView::_CreateCreditsView()
 	AddCopyrightEntry("The NetBSD Project",
 		B_TRANSLATE("Contains software developed by the NetBSD "
 		"Foundation, Inc. and its contributors:\n"
-		"ftp, tput\n"
+		"tput\n"
 		COPYRIGHT_STRING "1996-2008 The NetBSD Foundation, Inc. "
 		"All rights reserved."),
 		StringVector(kBerkeley, kBSDFourClause, NULL),
@@ -1131,7 +1131,7 @@ AboutView::_CreateCreditsView()
 
 	// FFmpeg copyrights
 	_AddPackageCredit(PackageCredit("FFmpeg")
-		.SetCopyright(B_TRANSLATE(COPYRIGHT_STRING "2000-2014 Fabrice "
+		.SetCopyright(B_TRANSLATE(COPYRIGHT_STRING "2000-2019 Fabrice "
 			"Bellard, et al."))
 		.SetLicenses(kLGPLv21, kLGPLv2, NULL)
 		.SetURL("https://www.ffmpeg.org"));
