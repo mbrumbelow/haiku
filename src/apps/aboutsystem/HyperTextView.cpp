@@ -1,5 +1,6 @@
 /*
  * Copyright 2008, Ingo Weinhold, ingo_weinhold@gmx.de.
+ * Copyright 2019, Haiku, Inc.
  * Distributed under the terms of the MIT license.
  */
 
@@ -7,10 +8,9 @@
 
 #include <Cursor.h>
 #include <Message.h>
+#include <ObjectList.h>
 #include <Region.h>
 #include <Window.h>
-
-#include <ObjectList.h>
 
 
 // #pragma mark - HyperTextAction
@@ -81,7 +81,8 @@ class HyperTextView::ActionInfoList
 	: public BObjectList<HyperTextView::ActionInfo> {
 public:
 	ActionInfoList(int32 itemsPerBlock = 20, bool owning = false)
-		: BObjectList<HyperTextView::ActionInfo>(itemsPerBlock, owning)
+		:
+		BObjectList<HyperTextView::ActionInfo>(itemsPerBlock, owning)
 	{
 	}
 };
@@ -114,7 +115,6 @@ void
 HyperTextView::MouseDown(BPoint where)
 {
 	// We eat all mouse button events.
-
 	BTextView::MouseDown(where);
 }
 

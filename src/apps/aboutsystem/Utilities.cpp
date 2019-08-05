@@ -1,5 +1,6 @@
 /*
  * Copyright 2008-2009, Ingo Weinhold, ingo_weinhold@gmx.de.
+ * Copyright 2019, Haiku, Inc.
  * Distributed under the terms of the MIT license.
  */
 
@@ -141,13 +142,13 @@ StringVector::SetTo(const char* string,...)
 void
 StringVector::SetTo(const char* string, va_list _list)
 {
-	// free old strings
+	// Free old strings
 	Unset();
 
 	if (string == NULL)
 		return;
 
-	// count strings
+	// Count strings
 	va_list list;
 	va_copy(list, _list);
 	fCount = 1;
@@ -155,7 +156,7 @@ StringVector::SetTo(const char* string, va_list _list)
 		fCount++;
 	va_end(list);
 
-	// create array and copy them
+	// Create array and copy them
 	fStrings = new BString[fCount];
 	fStrings[0] = string;
 
@@ -437,17 +438,17 @@ PackageCredit::_MaxCopyrightYear() const
 	int maxYear = 0;
 
 	for (int32 i = 0; const char* string = CopyrightAt(i); i++) {
-		// iterate through the numbers
+		// Iterate through the numbers
 		int32 start = 0;
 		while (true) {
-			// find the next number start
+			// Find the next number start
 			while (string[start] != '\0' && !isdigit(string[start]))
 				start++;
 
 			if (string[start] == '\0')
 				break;
 
-			// find the end
+			// Find the end
 			int32 end = start + 1;
 			while (string[end] != '\0' && isdigit(string[end]))
 				end++;

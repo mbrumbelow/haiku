@@ -1,5 +1,6 @@
 /*
  * Copyright 2008, Ingo Weinhold, ingo_weinhold@gmx.de.
+ * Copyright 2019, Haiku, Inc.
  * Distributed under the terms of the MIT license.
  */
 
@@ -28,9 +29,9 @@ URLAction::~URLAction()
 void
 URLAction::Clicked(HyperTextView* view, BPoint where, BMessage* message)
 {
-	// be lazy and let /bin/open open the URL
+	// Be lazy and let /bin/open open the URL
 	entry_ref ref;
-	if (get_ref_for_path("/bin/open", &ref))
+	if (get_ref_for_path("/bin/open", &ref) != B_OK)
 		return;
 
 	const char* args[] = { fURL.String(), NULL };
@@ -59,9 +60,8 @@ OpenFileAction::Clicked(HyperTextView* view, BPoint where, BMessage* message)
 	// get the entry ref and let Tracker open the file
 	entry_ref ref;
 	if (get_ref_for_path(fFile.String(), &ref) != B_OK
-		|| !BEntry(&ref).Exists()) {
+		|| !BEntry(&ref).Exists())
 		return;
-	}
 
 	BMessenger tracker("application/x-vnd.Be-TRAK");
 	if (tracker.IsValid()) {

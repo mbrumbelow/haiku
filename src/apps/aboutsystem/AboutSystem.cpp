@@ -1,5 +1,5 @@
 /*
- * Copyright 2005-2018, Haiku, Inc.
+ * Copyright 2005-2019, Haiku, Inc.
  * Distributed under the terms of the MIT license.
  *
  * Authors:
@@ -249,12 +249,13 @@ private:
 
 
 AboutApp::AboutApp()
-	: BApplication("application/x-vnd.Haiku-About")
+	:
+	BApplication("application/x-vnd.Haiku-About")
 {
 	B_TRANSLATE_MARK_SYSTEM_NAME_VOID("AboutSystem");
 
-	AboutWindow *window = new(std::nothrow) AboutWindow();
-	if (window)
+	AboutWindow* window = new(std::nothrow) AboutWindow();
+	if (window != NULL)
 		window->Show();
 }
 
@@ -276,7 +277,8 @@ AboutApp::MessageReceived(BMessage* message)
 
 
 AboutWindow::AboutWindow()
-	: BWindow(BRect(0, 0, 500, 300), B_TRANSLATE("About this system"),
+	:
+	BWindow(BRect(0, 0, 500, 300), B_TRANSLATE("About this system"),
 		B_TITLED_WINDOW, B_AUTO_UPDATE_SIZE_LIMITS | B_NOT_ZOOMABLE)
 {
 	SetLayout(new BGroupLayout(B_VERTICAL));
@@ -304,7 +306,8 @@ AboutWindow::QuitRequested()
 
 
 LogoView::LogoView()
-	: BView("logo", B_WILL_DRAW)
+	:
+	BView("logo", B_WILL_DRAW)
 {
 	fLogo = BTranslationUtils::GetBitmap(B_PNG_FORMAT, "logo.png");
 	SetViewColor(255, 255, 255);
@@ -352,7 +355,8 @@ LogoView::Draw(BRect updateRect)
 
 CropView::CropView(BView* target, int32 left, int32 top, int32 right,
 		int32 bottom)
-	: BView("crop view", 0),
+	:
+	BView("crop view", 0),
 	fTarget(target),
 	fCropLeft(left),
 	fCropTop(top),
@@ -420,7 +424,8 @@ CropView::DoLayout()
 #define B_TRANSLATION_CONTEXT "AboutView"
 
 AboutView::AboutView()
-	: BView("aboutview", B_WILL_DRAW | B_PULSE_NEEDED),
+	:
+	BView("aboutview", B_WILL_DRAW | B_PULSE_NEEDED),
 	fLastActionTime(system_time()),
 	fScrollRunner(NULL)
 {
@@ -435,7 +440,7 @@ AboutView::AboutView()
 	char string[1024];
 	strlcpy(string, B_TRANSLATE("Unknown"), sizeof(string));
 
-	// the version is stored in the BEOS:APP_VERSION attribute of libbe.so
+	// The version is stored in the BEOS:APP_VERSION attribute of libbe.so
 	BPath path;
 	if (find_directory(B_BEOS_LIB_DIRECTORY, &path) == B_OK) {
 		path.Append("libbe.so");
@@ -521,7 +526,8 @@ AboutView::AboutView()
 
 	int32 clockSpeed = get_rounded_cpu_speed();
 	if (clockSpeed < 1000)
-		snprintf(string, sizeof(string), B_TRANSLATE("%ld MHz"), clockSpeed);
+		snprintf(string, sizeof(string), B_TRANSLATE("%" B_PRId32 " MHz"),
+			clockSpeed);
 	else
 		snprintf(string, sizeof(string), B_TRANSLATE("%.2f GHz"),
 			clockSpeed / 1000.0f);
@@ -568,7 +574,7 @@ AboutView::AboutView()
 	fSubTextViews.AddItem(fUptimeView);
 	fUptimeView->SetText(UptimeToString(string, sizeof(string)));
 
-	const float offset = 5;
+	const float kOffset = 5;
 
 	SetLayout(new BGroupLayout(B_HORIZONTAL, 0));
 	SetViewUIColor(B_PANEL_BACKGROUND_COLOR);
@@ -580,18 +586,18 @@ AboutView::AboutView()
 				.Add(_CreateLabel("oslabel", B_TRANSLATE("Version:")))
 				.Add(versionView)
 				.Add(abiView)
-				.AddStrut(offset)
+				.AddStrut(kOffset)
 				.Add(_CreateLabel("cpulabel", processorLabel.String()))
 				.Add(cpuView)
 				.Add(frequencyView)
-				.AddStrut(offset)
+				.AddStrut(kOffset)
 				.Add(_CreateLabel("memlabel", B_TRANSLATE("Memory:")))
 				.Add(memSizeView)
 				.Add(fMemView)
-				.AddStrut(offset)
+				.AddStrut(kOffset)
 				.Add(_CreateLabel("kernellabel", B_TRANSLATE("Kernel:")))
 				.Add(kernelView)
-				.AddStrut(offset)
+				.AddStrut(kOffset)
 				.Add(_CreateLabel("uptimelabel",
 					B_TRANSLATE("Time running:")))
 				.Add(fUptimeView)
@@ -610,10 +616,8 @@ AboutView::AboutView()
 AboutView::~AboutView()
 {
 	for (PackageCreditMap::iterator it = fPackageCredits.begin();
-		it != fPackageCredits.end(); it++) {
-
+		it != fPackageCredits.end(); it++)
 		delete it->second;
-	}
 
 	delete fScrollRunner;
 }
@@ -681,8 +685,7 @@ AboutView::MessageReceived(BMessage* msg)
 		}
 		case SCROLL_CREDITS_VIEW:
 		{
-			BScrollBar* scrollBar =
-				fCreditsView->ScrollBar(B_VERTICAL);
+			BScrollBar* scrollBar = fCreditsView->ScrollBar(B_VERTICAL);
 			if (scrollBar == NULL)
 				break;
 			float max, min;
@@ -749,7 +752,8 @@ AboutView::AddCopyrightEntry(const char* name, const char* text,
 
 			BPath licensePath;
 			if (_GetLicensePath(licenseURL, licensePath) == B_OK) {
-				fCreditsView->InsertHyperText(B_TRANSLATE_NOCOLLECT(licenseName),
+				fCreditsView->InsertHyperText(
+					B_TRANSLATE_NOCOLLECT(licenseName),
 					new OpenFileAction(licensePath.Path()));
 			} else
 				fCreditsView->Insert(licenseName);
@@ -780,7 +784,7 @@ AboutView::AddCopyrightEntry(const char* name, const char* text,
 		fCreditsView->Insert("\n");
 	}
 
-	if (url) {
+	if (url != NULL) {
 		BString urlName;
 		BString urlAddress;
 		parse_named_url(url, urlName, urlAddress);
@@ -812,13 +816,13 @@ AboutView::PickRandomHaiku()
 		return;
 
 	char* buff = (char*)malloc((size_t)st.st_size + 1);
-	if (!buff)
+	if (buff == NULL)
 		return;
 	buff[(size_t)st.st_size] = '\0';
 	BList haikuList;
 	if (fortunes.Read(buff, (size_t)st.st_size) == (ssize_t)st.st_size) {
 		char* p = buff;
-		while (p && *p) {
+		while (p != NULL && *p != NULL) {
 			char* e = strchr(p, '%');
 			BString* s = new BString(p, e ? (e - p) : -1);
 			haikuList.AddItem(s);
@@ -842,7 +846,9 @@ AboutView::PickRandomHaiku()
 	fCreditsView->SetFontAndColor(&font, B_FONT_ALL, &kDarkGrey);
 	fCreditsView->Insert(s->String());
 	fCreditsView->Insert("\n");
-	while ((s = (BString*)haikuList.RemoveItem((int32)0))) {
+
+	while (haikuList.CountItems() > 0) {
+		s = (BString*)haikuList.RemoveItem((int32)0);
 		delete s;
 	}
 }
@@ -1039,7 +1045,7 @@ AboutView::_CreateCreditsView()
 	fCreditsView->Insert(
 		B_TRANSLATE(B_UTF8_ELLIPSIS "and the many people making donations!\n\n"));
 
-	// copyrights for various projects we use
+	// Copyrights for various projects we use
 
 	BPath mitPath;
 	_GetLicensePath("MIT", mitPath);
@@ -1415,9 +1421,8 @@ AboutView::_GetLicensePath(const char* license, BPath& path)
 	for (int i = 0; i < paths.CountStrings(); ++i) {
 		if (error == B_OK && path.SetTo(paths.StringAt(i)) == B_OK
 			&& path.Append(license) == B_OK
-			&& lstat(path.Path(), &st) == 0) {
+			&& lstat(path.Path(), &st) == 0)
 			return B_OK;
-		}
 	}
 
 	path.Unset();
@@ -1428,22 +1433,25 @@ AboutView::_GetLicensePath(const char* license, BPath& path)
 void
 AboutView::_AddCopyrightsFromAttribute()
 {
-#ifdef __HAIKU__
-	// open the app executable file
+	// Open the app executable file
 	char appPath[B_PATH_NAME_LENGTH];
 	int appFD;
-	if (BPrivate::get_app_path(appPath) != B_OK
-		|| (appFD = open(appPath, O_RDONLY)) < 0) {
-		return;
-	}
 
-	// open the attribute
+	status_t result = BPrivate::get_app_path(appPath);
+	if (result != B_OK)
+		return;
+
+	appFD = open(appPath, O_RDONLY);
+	if (appFD < 0)
+		return;
+
+	// Open the attribute
 	int attrFD = fs_fopen_attr(appFD, "COPYRIGHTS", B_STRING_TYPE, O_RDONLY);
 	close(appFD);
 	if (attrFD < 0)
 		return;
 
-	// attach it to a FILE
+	// Attach it to a FILE
 	FILE* attrFile = fdopen(attrFD, "r");
 	if (attrFile == NULL) {
 		close(attrFD);
@@ -1451,20 +1459,20 @@ AboutView::_AddCopyrightsFromAttribute()
 	}
 	CObjectDeleter<FILE, int> _(attrFile, fclose);
 
-	// read and parse the copyrights
+	// Read and parse the copyrights
 	BMessage package;
 	BString fieldName;
 	BString fieldValue;
 	char lineBuffer[LINE_MAX];
 	while (char* line = fgets(lineBuffer, sizeof(lineBuffer), attrFile)) {
-		// chop off line break
+		// Chop off line break
 		size_t lineLen = strlen(line);
 		if (lineLen > 0 && line[lineLen - 1] == '\n')
 			line[--lineLen] = '\0';
 
-		// flush previous field, if a new field begins, otherwise append
+		// Flush previous field if a new field begins, otherwise append
 		if (lineLen == 0 || !isspace(line[0])) {
-			// new field -- flush the previous one
+			// New field -- flush the previous one
 			if (fieldName.Length() > 0) {
 				fieldValue = trim_string(fieldValue.String(),
 					fieldValue.Length());
@@ -1472,63 +1480,61 @@ AboutView::_AddCopyrightsFromAttribute()
 				fieldName = "";
 			}
 		} else if (fieldName.Length() > 0) {
-			// append to current field
+			// Append to current field
 			fieldValue += line;
 			continue;
 		} else {
-			// bogus line -- ignore
+			// Bogus line -- ignore
 			continue;
 		}
 
 		if (lineLen == 0)
 			continue;
 
-		// parse new field
+		// Parse new field
 		char* colon = strchr(line, ':');
 		if (colon == NULL) {
-			// bogus line -- ignore
+			// Bogus line -- ignore
 			continue;
 		}
 
 		fieldName.SetTo(line, colon - line);
 		fieldName = trim_string(line, colon - line);
 		if (fieldName.Length() == 0) {
-			// invalid field name
+			// Invalid field name
 			continue;
 		}
 
 		fieldValue = colon + 1;
 
 		if (fieldName == "Package") {
-			// flush the current package
+			// Flush the current package
 			_AddPackageCredit(PackageCredit(package));
 			package.MakeEmpty();
 		}
 	}
 
-	// flush current package
+	// Flush current package
 	_AddPackageCredit(PackageCredit(package));
-#endif
 }
 
 
 void
 AboutView::_AddPackageCreditEntries()
 {
-	// sort the packages case-insensitively
+	// Sort the packages case-insensitively
 	PackageCredit* packages[fPackageCredits.size()];
 	int32 count = 0;
 	for (PackageCreditMap::iterator it = fPackageCredits.begin();
-			it != fPackageCredits.end(); ++it) {
+			it != fPackageCredits.end(); ++it)
 		packages[count++] = it->second;
-	}
 
 	if (count > 1) {
 		std::sort(packages, packages + count,
 			&PackageCredit::NameLessInsensitive);
 	}
 
-	// add the credits
+	// Add the credits
 	for (int32 i = 0; i < count; i++) {
 		PackageCredit* package = packages[i];
 
@@ -1556,7 +1562,7 @@ AboutView::_AddPackageCredit(const PackageCredit& package)
 		if (!package.IsBetterThan(*oldPackage))
 			return;
 
-		// replace the old credit
+		// Replace the old credit
 		fPackageCredits.erase(it);
 		delete oldPackage;
 	}
