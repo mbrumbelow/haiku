@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b675e8c_6aedd316",
+        "filename": "src/system/boot/platform/efi/video.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2019-08-06T23:23:06Z",
+      "side": 1,
+      "message": "Heads up! I think you meant Menu* and not BMenu*.",
+      "revId": "fa776b973f19fcda5bc67860ba7fbbd3b315557f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
