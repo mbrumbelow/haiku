@@ -16,6 +16,24 @@
       "revId": "0954ea7a488535039b984d7285d3ba4bd9b863da",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2c73cb4_f49cbe05",
+        "filename": "src/add-ons/kernel/drivers/network/wlan/ralinkwifi/dev/ral/rt2860.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1103,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-08-06T06:50:37Z",
+      "side": 1,
+      "message": "Yes, right, I missed that.\nSo we need to first check that wcid is in range, then set ni, then check ni is not NULL.",
+      "parentUuid": "62cd27df_82542f67",
+      "revId": "0954ea7a488535039b984d7285d3ba4bd9b863da",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
