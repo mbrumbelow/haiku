@@ -261,10 +261,10 @@ platform_switch_to_logo(void)
 bool
 video_mode_hook(Menu *menu, MenuItem *item)
 {
-	menu = item->Submenu();
-	item = menu->FindMarked();
-	if (item != NULL) {
-		sGraphicsMode = (UINTN)item->Data();
+	BMenu* submenu = item->Submenu();
+	subitem = submenu->FindMarked();
+	if (subitem != NULL) {
+		sGraphicsMode = (UINTN)subitem->Data();
 		sModeChosen = true;
 	}
 
