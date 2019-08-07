@@ -48,7 +48,7 @@ SYSTEM_APPS = [ FFilterByBuildFeatures
 
 DESKBAR_APPLICATIONS =
 	CharacterMap
-	DeskCalc Devices DiskProbe DiskUsage DriveSetup
+	Debugger DeskCalc Devices DiskProbe DiskUsage DriveSetup
 	Expander
 	StyledEdit
 	Terminal
