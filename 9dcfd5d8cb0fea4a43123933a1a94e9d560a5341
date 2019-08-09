@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "89a15c38_bb5e1090",
+        "filename": "headers/os/interface/InterfaceDefs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-08-09T12:06:04Z",
+      "side": 1,
+      "message": "What is backlight in this context? Screen, keyboard?",
+      "revId": "9dcfd5d8cb0fea4a43123933a1a94e9d560a5341",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
