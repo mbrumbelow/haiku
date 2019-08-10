@@ -63,7 +63,7 @@
 #define PAGE_ASSERT(page, condition)	\
 	ASSERT_PRINT((condition), "page: %p", (page))
 
-#define SCRUB_SIZE 16
+#define SCRUB_SIZE 32
 	// this many pages will be cleared at once in the page scrubber thread
 
 #define MAX_PAGE_WRITER_IO_PRIORITY				B_URGENT_DISPLAY_PRIORITY
@@ -132,6 +132,8 @@ static mutex sPageDeficitLock = MUTEX_INITIALIZER("page deficit");
 // guard against concurrent changes).
 static rw_lock sFreePageQueuesLock
 	= RW_LOCK_INITIALIZER("free/clear page queues");
+// Release this when adding pages to the free queue.
+static sem_id sFreePageQueueSem;
 
 #ifdef TRACK_PAGE_USAGE_STATS
 static page_num_t sPageUsageArrays[512];
@@ -1726,7 +1728,7 @@ mark_page_range_in_use(page_num_t startPage, page_num_t length, bool wired)
 
 
 /*!
-	This is a background thread that wakes up every now and then (every 100ms)
+	This is a background thread that wakes up when its sem is released
 	and moves some pages from the free queue over to the clear queue.
 	Given enough time, it will clear out all pages from the free queue - we
 	could probably slow it down after having reached a certain threshold.
@@ -1739,12 +1741,10 @@ page_scrubber(void *unused)
 	TRACE(("page_scrubber starting...\n"));
 
 	for (;;) {
-		snooze(100000); // 100ms
-
-		if (sFreePageQueue.Count() == 0
+		while (sFreePageQueue.Count() == 0
 				|| atomic_get(&sUnreservedFreePages)
 					< (int32)sFreePagesTarget) {
-			continue;
+			acquire_sem(sFreePageQueueSem);
 		}
 
 		// Since we temporarily remove pages from the free pages reserve,
@@ -1797,11 +1797,20 @@ page_scrubber(void *unused)
 			sClearPageQueue.PrependUnlocked(page[i]);
 		}
 
+		// eat up the sem if it was released multiple times
+		int32 semCount = 0;
+		get_sem_count(sFreePageQueueSem, &semCount);
+		if (semCount > 0)
+			acquire_sem_etc(sFreePageQueueSem, semCount, 0,	0);
+
 		locker.Unlock();
 
 		unreserve_pages(reserved);
 
 		TA(ScrubbedPages(scrubCount));
+
+		// wait at least 50ms between runs
+		snooze(50 * 1000);
 	}
 
 	return 0;
@@ -2583,6 +2592,8 @@ free_cached_pages(uint32 pagesToFree, bool dontWait)
 	}
 
 	remove_page_marker(marker);
+
+	release_sem(sFreePageQueueSem);
 
 	return pagesFreed;
 }
@@ -3405,6 +3416,7 @@ vm_page_init_post_thread(kernel_args *args)
 
 	// create a kernel thread to clear out pages
 
+	sFreePageQueueSem = create_sem(0, "free page queue");
 	thread_id thread = spawn_kernel_thread(&page_scrubber, "page scrubber",
 		B_LOWEST_ACTIVE_PRIORITY, NULL);
 	resume_thread(thread);
@@ -3603,6 +3615,8 @@ allocate_page_run_cleanup(VMPageQueue::PageList& freePages,
 		DEBUG_PAGE_ACCESS_END(page);
 		sClearPageQueue.PrependUnlocked(page);
 	}
+
+	release_sem(sFreePageQueueSem);
 }
 
 
