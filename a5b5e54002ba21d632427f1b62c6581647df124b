@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c544279c_3962cfa5",
+        "filename": "src/system/boot/loader/package_support.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2019-08-12T13:30:38Z",
+      "side": 1,
+      "message": "Does it ever occur that SetTo() is called repeatedly on the same PackageVolumeInfo? If so, this would potentially leak if fPackagesDir was already set by a previous call.",
+      "revId": "a5b5e54002ba21d632427f1b62c6581647df124b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
