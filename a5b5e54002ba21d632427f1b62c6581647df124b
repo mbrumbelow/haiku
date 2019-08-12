@@ -16,6 +16,24 @@
       "revId": "a5b5e54002ba21d632427f1b62c6581647df124b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3368e67d_96b31b10",
+        "filename": "src/system/boot/loader/package_support.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2019-08-12T13:34:22Z",
+      "side": 1,
+      "message": "I don\u0027t think SetTo is called repeatedly, but that is a good fix nonetheless. I will make that change.",
+      "parentUuid": "c544279c_3962cfa5",
+      "revId": "a5b5e54002ba21d632427f1b62c6581647df124b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
