@@ -786,7 +786,7 @@ public:
 	{
 		free(fStateChoiceText);
 		fStateChoiceText = NULL;
-	
+
 		if (volumeState != NULL && volumeState->Name() != NULL) {
 			char nameBuffer[128];
 			snprintf(nameBuffer, sizeof(nameBuffer), "%s (%s)", Label(),
@@ -1190,6 +1190,9 @@ add_boot_volume_item(Menu* menu, Directory* volume, const char* name)
 	Menu* subMenu = NULL;
 
 	if (volumeInfo != NULL) {
+		// Load old states first. This currently does not return an error.
+		volumeInfo->LoadOldStates();
+
 		subMenu = new(std::nothrow) Menu(CHOICE_MENU, "Select Haiku version");
 
 		for (PackageVolumeStateList::ConstIterator it
