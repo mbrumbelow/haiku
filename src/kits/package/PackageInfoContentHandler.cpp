@@ -155,7 +155,7 @@ BPackageInfoContentHandler::HandlePackageAttribute(
 					"Invalid package attribute section: unexpected package "
 					"attribute id %d encountered\n", value.attributeID);
 			}
-			return B_BAD_DATA;
+			return B_PACKAGE_FUTURE_DATA;
 	}
 
 	return B_OK;

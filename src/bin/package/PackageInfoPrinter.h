@@ -212,7 +212,9 @@ public:
 				break;
 
 			default:
-				return false;
+				printf("\tunknown or future attribute: "
+					"BPackageInfoAttributeID #%d\n", (int) value.attributeID);
+				return true;
 		}
 
 		return true;

@@ -22,6 +22,7 @@ static const struct error_base {
 	{B_APP_ERROR_BASE, "Application Kit "},
 	{B_INTERFACE_ERROR_BASE, "Interface Kit "},
 	{B_MEDIA_ERROR_BASE, "Media Kit "},
+	{B_PACKAGE_ERROR_BASE, "Package Kit "},
 	{B_TRANSLATION_ERROR_BASE, "Translation Kit "},
 	{B_MIDI_ERROR_BASE, "Midi Kit "},
 	{B_STORAGE_ERROR_BASE, "Storage Kit "},
@@ -309,6 +310,11 @@ error_description(int error)
 			return "Realtime disabled";
 		case B_MEDIA_REALTIME_UNAVAILABLE:
 			return "Realtime unavailable";
+
+		// Package Kit Errors
+
+		case B_PACKAGE_FUTURE_DATA:
+			return "Future or unknown but skippable data";
 
 		// Mail Kit Errors
 
