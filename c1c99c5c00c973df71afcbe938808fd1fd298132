@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "069b9738_75d6bee7",
+        "filename": "src/system/boot/loader/package_support.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000038
+      },
+      "writtenOn": "2019-08-13T20:58:21Z",
+      "side": 1,
+      "message": "Need to set this to NULL, otherwise call to GetNext(state) might fail.  Also it breaks the GCC2 build (compiler notices it).",
+      "range": {
+        "startLine": 229,
+        "startChar": 2,
+        "endLine": 229,
+        "endChar": 28
+      },
+      "revId": "c1c99c5c00c973df71afcbe938808fd1fd298132",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
