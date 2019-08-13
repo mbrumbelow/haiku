@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a94faddc_a8b8498b",
+        "filename": "src/system/kernel/kernel_daemon.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-08-13T06:48:03Z",
+      "side": 1,
+      "message": "80 columns limit, also you have useless parentheses, * has higher precedence than + already",
+      "revId": "82d4664e2e5d1ddf493f62b2b05d5425669e9ca5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
