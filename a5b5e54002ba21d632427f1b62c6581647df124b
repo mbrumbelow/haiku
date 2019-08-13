@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "3e703c2f_ee703892",
+        "filename": "src/system/boot/loader/menu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1193,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2019-08-13T02:10:38Z",
+      "side": 1,
+      "message": "This could be changed to `if (volumeInfo !\u003d NULL \u0026\u0026 volumeInfo-\u003eLoadOldStates() \u003d\u003d B_OK)` :)",
+      "revId": "a5b5e54002ba21d632427f1b62c6581647df124b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c544279c_3962cfa5",
         "filename": "src/system/boot/loader/package_support.cpp",
         "patchSetId": 2
@@ -31,6 +48,40 @@
       "side": 1,
       "message": "I don\u0027t think SetTo is called repeatedly, but that is a good fix nonetheless. I will make that change.",
       "parentUuid": "c544279c_3962cfa5",
+      "revId": "a5b5e54002ba21d632427f1b62c6581647df124b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05e8163a_c272fdab",
+        "filename": "src/system/boot/loader/package_support.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2019-08-13T02:10:38Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be B_ERROR or similar? In `SetTo()`, it returns an error for this condition.",
+      "revId": "a5b5e54002ba21d632427f1b62c6581647df124b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35eae7ae_c168b988",
+        "filename": "src/system/boot/loader/package_support.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2019-08-13T02:10:38Z",
+      "side": 1,
+      "message": "This isn\u0027t an error, so can remove the TODO, just as it isn\u0027t an error in the original code.",
       "revId": "a5b5e54002ba21d632427f1b62c6581647df124b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
