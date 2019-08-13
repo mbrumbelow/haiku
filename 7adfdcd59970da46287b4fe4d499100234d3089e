@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "7a4aa5c8_c5a75e6f",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2019-08-13T18:37:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "96ef0664_db7aaf30",
+      "revId": "7adfdcd59970da46287b4fe4d499100234d3089e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ff527b4_6d07ecb2",
         "filename": "src/preferences/input/InputDeviceView.h",
         "patchSetId": 6
@@ -68,6 +86,24 @@
       "revId": "7adfdcd59970da46287b4fe4d499100234d3089e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5045e01f_43d5a7e5",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2019-08-13T18:37:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c62a24a1_19718f04",
+      "revId": "7adfdcd59970da46287b4fe4d499100234d3089e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -140,6 +176,24 @@
     },
     {
       "key": {
+        "uuid": "38fdf746_697458ea",
+        "filename": "src/preferences/input/Jamfile",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2019-08-13T18:37:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "00002fd0_28e7c5d0",
+      "revId": "7adfdcd59970da46287b4fe4d499100234d3089e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "290f2add_71371b72",
         "filename": "src/preferences/input/Jamfile",
         "patchSetId": 6
@@ -168,6 +222,24 @@
       "writtenOn": "2019-08-02T14:37:21Z",
       "side": 1,
       "message": "Done",
+      "parentUuid": "290f2add_71371b72",
+      "revId": "7adfdcd59970da46287b4fe4d499100234d3089e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79356942_a4204cfe",
+        "filename": "src/preferences/input/Jamfile",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2019-08-13T18:37:33Z",
+      "side": 1,
+      "message": "Ack",
       "parentUuid": "290f2add_71371b72",
       "revId": "7adfdcd59970da46287b4fe4d499100234d3089e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
@@ -210,6 +282,24 @@
     },
     {
       "key": {
+        "uuid": "5fc9c0e3_d2c76dc8",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2019-08-13T18:37:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0605b5e4_9c809e3b",
+      "revId": "7adfdcd59970da46287b4fe4d499100234d3089e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5b6e348_73da2ee4",
         "filename": "src/preferences/input/MouseSettings.h",
         "patchSetId": 6
@@ -238,6 +328,24 @@
       "writtenOn": "2019-08-02T14:37:21Z",
       "side": 1,
       "message": "Done",
+      "parentUuid": "e5b6e348_73da2ee4",
+      "revId": "7adfdcd59970da46287b4fe4d499100234d3089e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "46130395_6559d155",
+        "filename": "src/preferences/input/MouseSettings.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2019-08-13T18:37:33Z",
+      "side": 1,
+      "message": "Ack",
       "parentUuid": "e5b6e348_73da2ee4",
       "revId": "7adfdcd59970da46287b4fe4d499100234d3089e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",

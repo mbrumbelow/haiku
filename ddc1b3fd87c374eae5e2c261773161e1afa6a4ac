@@ -209,6 +209,24 @@
       "revId": "ddc1b3fd87c374eae5e2c261773161e1afa6a4ac",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "620b03d3_8ec758a2",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2019-08-13T18:37:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a3bab8b9_5463f291",
+      "revId": "ddc1b3fd87c374eae5e2c261773161e1afa6a4ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
