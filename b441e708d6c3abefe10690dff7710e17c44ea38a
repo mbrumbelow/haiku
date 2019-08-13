@@ -16,6 +16,24 @@
       "revId": "b441e708d6c3abefe10690dff7710e17c44ea38a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de21e1ca_b73476f2",
+        "filename": "src/bin/package/PackageInfoPrinter.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000038
+      },
+      "writtenOn": "2019-08-13T19:27:33Z",
+      "side": 1,
+      "message": "Right, enums are ints, don\u0027t need that cast, will take it out.",
+      "parentUuid": "9dbf84e6_8e79f348",
+      "revId": "b441e708d6c3abefe10690dff7710e17c44ea38a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
