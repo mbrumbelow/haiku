@@ -1,4 +1,5 @@
 /*
+ * Copyright 2019, Ryan Leavengood.
  * Copyright 2009, Axel Dörfler, axeld@pinc-software.de.
  * Copyright 2002, Marcus Overhagen. All Rights Reserved.
  * Distributed under the terms of the MIT License.
@@ -27,20 +28,20 @@ BufferCache::~BufferCache()
 {
 	for (BufferMap::iterator iterator = fMap.begin(); iterator != fMap.end();
 			iterator++) {
-		delete iterator->second;
+		delete iterator->second.buffer;
 	}
 }
 
 
 BBuffer*
-BufferCache::GetBuffer(media_buffer_id id)
+BufferCache::GetBuffer(media_buffer_id id, port_id port)
 {
 	if (id <= 0)
 		return NULL;
 
 	BufferMap::iterator found = fMap.find(id);
 	if (found != fMap.end())
-		return found->second;
+		return found->second.buffer;
 
 	buffer_clone_info info;
 	info.buffer = id;
@@ -55,13 +56,32 @@ BufferCache::GetBuffer(media_buffer_id id)
 		debugger("BufferCache::GetBuffer: IDs mismatch");
 
 	try {
-		fMap.insert(std::make_pair(id, buffer));
+		buffer_cache_entry entry;
+		entry.buffer = buffer;
+		entry.port = port;
+		fMap.insert(std::make_pair(id, entry));
 	} catch (std::bad_alloc& exception) {
 		delete buffer;
 		return NULL;
 	}
 
 	return buffer;
+}
+
+
+void
+BufferCache::FlushCacheForPort(port_id port)
+{
+	for (BufferMap::iterator iterator = fMap.begin(); iterator != fMap.end();) {
+		if (iterator->second.port == port) {
+			// Delete the buffer
+			delete iterator->second.buffer;
+			// Then erase it from the map
+			iterator = fMap.erase(iterator);
+		} else {
+			iterator++;
+		}
+	}
 }
 
 
