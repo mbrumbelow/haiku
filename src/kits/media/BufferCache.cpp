@@ -33,20 +33,22 @@ BufferCache::~BufferCache()
 
 
 BBuffer*
-BufferCache::GetBuffer(media_buffer_id id)
+BufferCache::GetBuffer(media_buffer_id id, port_id port)
 {
 	if (id <= 0)
 		return NULL;
 
 	BufferMap::iterator found = fMap.find(id);
-	if (found != fMap.end())
-		return found->second;
+	if (found != fMap.end()) {
+		return found->second->buffer;
+	}
 
 	buffer_clone_info info;
 	info.buffer = id;
 	BBuffer* buffer = new(std::nothrow) BBuffer(info);
 	if (buffer == NULL || buffer->ID() <= 0
 			|| buffer->Data() == NULL) {
+
 		delete buffer;
 		return NULL;
 	}
@@ -54,14 +56,37 @@ BufferCache::GetBuffer(media_buffer_id id)
 	if (buffer->ID() != id)
 		debugger("BufferCache::GetBuffer: IDs mismatch");
 
+	cache_entry* entry = NULL;
 	try {
-		fMap.insert(std::make_pair(id, buffer));
+		entry = new (std::nothrow) cache_entry;
+		entry->buffer = buffer;
+		entry->port = port;
+		fMap.insert(std::make_pair(id, entry));
 	} catch (std::bad_alloc& exception) {
+		delete entry;
 		delete buffer;
 		return NULL;
 	}
 
 	return buffer;
+}
+
+
+void
+BufferCache::FlushCacheForPort(port_id port)
+{
+	for (BufferMap::iterator iterator = fMap.begin(); iterator != fMap.end();) {
+		if (iterator->second->port == port) {
+			// Delete the buffer
+			delete iterator->second->buffer;
+			// Delete the cache entry
+			delete iterator->second;
+			// Erase it from the map
+			iterator = fMap.erase(iterator);
+		} else {
+			iterator++;
+		}
+	}
 }
 
 

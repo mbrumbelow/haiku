@@ -15,6 +15,12 @@
 class BBuffer;
 
 
+struct cache_entry {
+	BBuffer*	buffer;
+	port_id		port;
+};
+
+
 namespace BPrivate {
 
 
@@ -23,10 +29,12 @@ public:
 								BufferCache();
 								~BufferCache();
 
-			BBuffer*			GetBuffer(media_buffer_id id);
+			BBuffer*			GetBuffer(media_buffer_id id, port_id port);
+
+			void				FlushCacheForPort(port_id port);
 
 private:
-	typedef std::map<media_buffer_id, BBuffer*> BufferMap;
+	typedef std::map<media_buffer_id, cache_entry*> BufferMap;
 
 			BufferMap			fMap;
 };
