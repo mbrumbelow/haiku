@@ -179,6 +179,10 @@ void
 TermApp::MessageReceived(BMessage* message)
 {
 	switch (message->what) {
+		case B_KEY_MAP_LOADED:
+			fTermWindow->PostMessage(message);
+			break;
+
 		case MSG_ACTIVATE_TERM:
 			fTermWindow->Activate();
 			break;
