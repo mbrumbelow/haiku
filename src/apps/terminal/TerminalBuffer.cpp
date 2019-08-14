@@ -91,6 +91,28 @@ TerminalBuffer::Encoding() const
 
 
 void
+TerminalBuffer::EnableInterpretMetaKey(bool enable)
+{
+	if (fListenerValid) {
+		BMessage message(MSG_ENABLE_META_KEY);
+		message.AddBool("enableInterpretMetaKey", enable);
+		fListener.SendMessage(&message);
+	}
+}
+
+
+void
+TerminalBuffer::EnableMetaKeySendsEscape(bool enable)
+{
+	if (fListenerValid) {
+		BMessage message(MSG_ENABLE_META_KEY);
+		message.AddBool("enableMetaKeySendsEscape", enable);
+		fListener.SendMessage(&message);
+	}
+}
+
+
+void
 TerminalBuffer::ReportX10MouseEvent(bool reportX10MouseEvent)
 {
 	if (fListenerValid) {
