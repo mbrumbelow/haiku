@@ -170,6 +170,7 @@ TermView::TermView(BRect frame, const ShellParameters& shellParameters,
 	fEncoding(M_UTF8),
 	fActive(false),
 	fScrBufSize(historySize),
+	fKeymapTableForModifiers(5),
 	fReportX10MouseEvent(false),
 	fReportNormalMouseEvent(false),
 	fReportButtonMouseEvent(false),
@@ -193,6 +194,7 @@ TermView::TermView(int rows, int columns,
 	fEncoding(M_UTF8),
 	fActive(false),
 	fScrBufSize(historySize),
+	fKeymapTableForModifiers(5),
 	fReportX10MouseEvent(false),
 	fReportNormalMouseEvent(false),
 	fReportButtonMouseEvent(false),
@@ -226,6 +228,7 @@ TermView::TermView(BMessage* archive)
 	fEncoding(M_UTF8),
 	fActive(false),
 	fScrBufSize(1000),
+	fKeymapTableForModifiers(5),
 	fReportX10MouseEvent(false),
 	fReportNormalMouseEvent(false),
 	fReportButtonMouseEvent(false),
@@ -307,6 +310,11 @@ TermView::_InitObject(const ShellParameters& shellParameters)
 	fSelection.SetHighlighter(this);
 	fSelection.SetRange(TermPos(0, 0), TermPos(0, 0));
 	fPrevPos = TermPos(-1, - 1);
+	fKeymap = NULL;
+	fKeymapChars = NULL;
+	fUseOptionAsMetaKey = false;
+	fInterpretMetaKey = true;
+	fMetaKeySendsEscape = true;
 	fReportX10MouseEvent = false;
 	fReportNormalMouseEvent = false;
 	fReportButtonMouseEvent = false;
@@ -716,6 +724,35 @@ TermView::SetEncoding(int encoding)
 
 	BAutolock _(fTextBuffer);
 	fTextBuffer->SetEncoding(fEncoding);
+}
+
+
+void
+TermView::SetKeymap(const key_map* keymap, const char* chars)
+{
+	delete fKeymap;
+	delete[] fKeymapChars;
+
+	fKeymap = keymap;
+	fKeymapChars = chars;
+
+	fKeymapTableForModifiers[0]
+		= &fKeymap->normal_map;
+	fKeymapTableForModifiers[B_SHIFT_KEY]
+		= &fKeymap->shift_map;
+	fKeymapTableForModifiers[B_CAPS_LOCK]
+		= &fKeymap->caps_map;
+	fKeymapTableForModifiers[B_CAPS_LOCK | B_SHIFT_KEY]
+		= &fKeymap->caps_shift_map;
+	fKeymapTableForModifiers[B_CONTROL_KEY]
+		= &fKeymap->control_map;
+}
+
+
+void
+TermView::SetUseOptionAsMetaKey(bool enable)
+{
+	fUseOptionAsMetaKey = enable && fKeymap != NULL && fKeymapChars != NULL;
 }
 
 
@@ -1799,6 +1836,16 @@ TermView::MessageReceived(BMessage *msg)
 			bool hidden = fCursorHidden;
 			if (msg->FindBool("hidden", &hidden) == B_OK)
 				fCursorHidden = hidden;
+			break;
+		}
+		case MSG_ENABLE_META_KEY:
+		{
+			bool enable;
+			if (msg->FindBool("enableInterpretMetaKey", &enable) == B_OK)
+				fInterpretMetaKey = enable;
+
+			if (msg->FindBool("enableMetaKeySendsEscape", &enable) == B_OK)
+				fMetaKeySendsEscape = enable;
 			break;
 		}
 		case MSG_REPORT_MOUSE_EVENT:
