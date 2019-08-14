@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "77ba71a0_9d2d9f0b",
+        "filename": "src/kits/media/BufferCache.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-08-14T22:13:38Z",
+      "side": 1,
+      "message": "needless {}",
+      "revId": "2362e2000f32156278db67c649404c0852a7547f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec0b38db_f990516b",
+        "filename": "src/kits/media/BufferCache.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-08-14T22:13:38Z",
+      "side": 1,
+      "message": "needless newline",
+      "revId": "2362e2000f32156278db67c649404c0852a7547f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
