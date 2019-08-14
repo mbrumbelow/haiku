@@ -24,9 +24,12 @@
 #include <Catalog.h>
 #include <Clipboard.h>
 #include <Catalog.h>
+#include <Entry.h>
+#include <FindDirectory.h>
 #include <InterfaceDefs.h>
 #include <Locale.h>
 #include <NodeInfo.h>
+#include <NodeMonitor.h>
 #include <Path.h>
 #include <Roster.h>
 #include <Screen.h>
@@ -63,7 +66,8 @@ TermApp::TermApp()
 	fTerminating(false),
 	fStartFullscreen(false),
 	fTermWindow(NULL),
-	fArgs(NULL)
+	fArgs(NULL),
+	fKeymapNodeRefValid(false)
 {
 	fArgs = new Arguments(0, NULL);
 
@@ -136,6 +140,17 @@ TermApp::ReadyToRun()
 		return;
 	}
 
+	// notify our window of changes to the user's keymap
+	BPath path;
+	if (find_directory(B_USER_SETTINGS_DIRECTORY, &path) == B_OK
+		&& path.Append("Key_map") == B_OK) {
+		BEntry entry(path.Path());
+		if (entry.GetNodeRef(&fKeymapNodeRef) == B_OK) {
+			fKeymapNodeRefValid = true;
+			watch_node(&fKeymapNodeRef, B_WATCH_STAT, fTermWindow);
+		}
+	}
+
 	// using BScreen::Frame isn't enough
 	if (fStartFullscreen)
 		BMessenger(fTermWindow).SendMessage(FULLSCREEN);
@@ -145,6 +160,10 @@ TermApp::ReadyToRun()
 bool
 TermApp::QuitRequested()
 {
+	// stop sending our window notification of keymap changes
+	if (fKeymapNodeRefValid)
+		watch_node(&fKeymapNodeRef, B_STOP_WATCHING, fTermWindow);
+
 	// check whether the system is shutting down
 	BMessage* message = CurrentMessage();
 	bool shutdown;

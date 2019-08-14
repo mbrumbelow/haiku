@@ -19,6 +19,7 @@
 #include <Application.h>
 #include <Catalog.h>
 #include <File.h>
+#include <Node.h>
 #include <String.h>
 
 #include "Colors.h"
@@ -62,6 +63,9 @@ private:
 			BWindow*			fTermWindow;
 			Arguments*			fArgs;
 	static	rgb_color			fDefaultPalette[kTermColorCount];
+
+			node_ref			fKeymapNodeRef;
+			bool				fKeymapNodeRefValid;
 };
 
 
