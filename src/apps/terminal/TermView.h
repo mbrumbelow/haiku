@@ -14,7 +14,10 @@
 #define TERMVIEW_H
 
 
+#include <unordered_map>
+
 #include <Autolock.h>
+#include <InterfaceDefs.h>
 #include <Messenger.h>
 #include <ObjectList.h>
 #include <String.h>
@@ -97,6 +100,10 @@ public:
 
 			void				SetScrollBar(BScrollBar* scrollBar);
 			BScrollBar*			ScrollBar() const { return fScrollBar; };
+
+			void				SetKeymap(const key_map* keymap,
+									const char* chars);
+			void				SetUseOptionAsMetaKey(bool enable);
 
 			void				SetMouseClipboard(BClipboard *);
 
@@ -334,6 +341,15 @@ private:
 			BPoint				fLastClickPoint;
 
 			HighlightList		fHighlights;
+
+			// keyboard
+			const key_map*		fKeymap;
+			const char*			fKeymapChars;
+			std::unordered_map<uint32, const int(*)[128]>
+								fKeymapTableForModifiers;
+			bool				fUseOptionAsMetaKey;
+			bool				fInterpretMetaKey;
+			bool				fMetaKeySendsEscape;
 
 			// mouse
 			int32				fMouseButtons;
