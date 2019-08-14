@@ -52,6 +52,9 @@ public:
 			void				UseAlternateScreenBuffer(bool clear);
 			void				UseNormalScreenBuffer();
 
+			void				EnableInterpretMetaKey(bool enable);
+			void				EnableMetaKeySendsEscape(bool enable);
+
 			void				ReportX10MouseEvent(bool report);
 			void				ReportNormalMouseEvent(bool report);
 			void				ReportButtonMouseEvent(bool report);
