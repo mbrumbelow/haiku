@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "a40a7489_2d0ad8fe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-08-15T16:39:45Z",
+      "side": 1,
+      "message": "Please don\u0027t get me to explain again how Dario replied to code reviews very agressively, for a long time I\u0027ve not been reviewing his code at all because of this.\n\nHowever, I interpret this type of comment as a bit agressive to other people involved with the code.\n\nThe Star Wars references are on the other hand somewhat part of the Be and Haiku culture, I think. There are apps and servers with strange thread names, fun comments, and in some cases error alert buttons. We are likewise known for doing this in our icons. As long as it doesn\u0027t get in the way of reading the code or UX, I think it\u0027s fine.\n\nLet\u0027s have fun, but not by pointing other\u0027s weaknesses and struggles :)\n\nAnyway, it\u0027s probably not that important.",
+      "parentUuid": "1c62f184_4c58938d",
+      "revId": "4d6c3fcd60a885081e0dcff5abf09d0a24aa090a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "31748613_6f0c673b",
         "filename": "src/kits/media/BufferCache.cpp",
         "patchSetId": 3
