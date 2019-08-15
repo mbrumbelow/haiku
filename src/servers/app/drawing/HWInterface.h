@@ -224,7 +224,7 @@ protected:
 				{
 					bpr = width * 4;
 					if (bpr > 0 && height > 0)
-						buffer = new uint8[bpr * height];
+						buffer = new(std::nothrow) uint8[bpr * height];
 					else
 						buffer = NULL;
 					left = 0;
