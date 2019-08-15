@@ -284,12 +284,17 @@ public:
 									hash_mark_location location,
 									uint32 flags, orientation orientation) = 0;
 
+	virtual	void				DrawTabFrame(BView* view, BRect& rect,
+									const BRect& updateRect,
+									const rgb_color& base, uint32 flags = 0,
+									uint32 borders = B_ALL_BORDERS,
+									border_style borderStyle = B_FANCY_BORDER,
+									uint32 side = B_TOP_BORDER) = 0;
 	virtual	void				DrawActiveTab(BView* view, BRect& rect,
 									const BRect& updateRect,
 									const rgb_color& base, uint32 flags = 0,
 									uint32 borders = B_ALL_BORDERS,
 									uint32 side = B_TOP_BORDER) = 0;
-
 	virtual	void				DrawInactiveTab(BView* view, BRect& rect,
 									const BRect& updateRect,
 									const rgb_color& base, uint32 flags = 0,
@@ -407,7 +412,6 @@ private:
 	virtual	void				_ReservedControlLook7();
 	virtual	void				_ReservedControlLook8();
 	virtual	void				_ReservedControlLook9();
-	virtual	void				_ReservedControlLook10();
 
 protected:
 			int32				fCachedWorkspace;

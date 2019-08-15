@@ -86,8 +86,6 @@ void BControlLook::_ReservedControlLook6() {}
 void BControlLook::_ReservedControlLook7() {}
 void BControlLook::_ReservedControlLook8() {}
 void BControlLook::_ReservedControlLook9() {}
-void BControlLook::_ReservedControlLook10() {}
-
 
 // Initialized in InterfaceDefs.cpp
 BControlLook* be_control_look = NULL;

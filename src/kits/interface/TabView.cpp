@@ -868,61 +868,12 @@ BRect
 BTabView::DrawTabs()
 {
 	BRect bounds(Bounds());
-	BRect tabsBounds;
 	uint32 borders = 0;
 	rgb_color base = ui_color(B_PANEL_BACKGROUND_COLOR);
-	if (fTabSide == kTopSide || fTabSide == kBottomSide) {
-		if (fTabSide == kTopSide)
-			bounds.bottom = fTabHeight;
-		else
-			bounds.top = bounds.bottom - fTabHeight;
-		tabsBounds = bounds;
-			// make a copy for later
 
-		// draw an inactive tab frame behind all tabs
-		borders = BControlLook::B_TOP_BORDER | BControlLook::B_BOTTOM_BORDER;
-		if (fBorderStyle == B_NO_BORDER) {
-			// removes left border that is an artifact of DrawInactiveTab()
-			bounds.left -= 1;
-		} else {
-			borders |= BControlLook::B_LEFT_BORDER
-				| BControlLook::B_RIGHT_BORDER;
-		}
-
-		// DrawInactiveTab draws 2px border
-		// draw a little wider tab frame to align B_PLAIN_BORDER with it
-		if (fBorderStyle == B_PLAIN_BORDER) {
-			bounds.left -= 1;
-			bounds.right += 1;
-		}
-	} else if (fTabSide == kLeftSide || fTabSide == kRightSide) {
-		if (fTabSide == kLeftSide)
-			bounds.right = fTabHeight;
-		else
-			bounds.left = bounds.right - fTabHeight;
-		tabsBounds = bounds;
-			// make a copy for later
-
-		// draw an inactive tab frame behind all tabs
-		borders = BControlLook::B_LEFT_BORDER | BControlLook::B_RIGHT_BORDER;
-		if (fBorderStyle == B_NO_BORDER) {
-			// removes top border that is an artifact of DrawInactiveTab()
-			bounds.top -= 1;
-		} else {
-			borders |= BControlLook::B_TOP_BORDER
-				| BControlLook::B_BOTTOM_BORDER;
-		}
-
-		// DrawInactiveTab draws 2px border
-		// draw a little wider tab frame to align B_PLAIN_BORDER with it
-		if (fBorderStyle == B_PLAIN_BORDER) {
-			bounds.top -= 1;
-			bounds.bottom += 1;
-		}
-	}
-
-	be_control_look->DrawInactiveTab(this, bounds, bounds, base, 0,
-		borders, fTabSide);
+	// draw frame behind tabs
+	be_control_look->DrawTabFrame(this, bounds, bounds, base, 0,
+		borders, fBorderStyle, fTabSide);
 
 	// draw the tabs on top of the inactive tab bounds
 	BRect activeTabFrame;
@@ -938,6 +889,7 @@ BTabView::DrawTabs()
 			i + 1 != fSelection);
 	}
 
+	BRect tabsBounds;
 	float last = 0.0f;
 	float lastTab = 0.0f;
 	if (fTabSide == kTopSide || fTabSide == kBottomSide) {
