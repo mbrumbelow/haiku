@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "3f40be2e_93a134fa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-08-15T09:04:46Z",
+      "side": 1,
+      "message": "I\u0027m being the old grumpy guy here, but I would prefer we avoid such comments in commit messages.\n\n(thanks for investigating and fixing, still!)",
+      "revId": "4d6c3fcd60a885081e0dcff5abf09d0a24aa090a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "31748613_6f0c673b",
         "filename": "src/kits/media/BufferCache.cpp",
         "patchSetId": 3
