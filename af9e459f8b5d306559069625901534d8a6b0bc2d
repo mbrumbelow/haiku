@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed7b8bdb_50fd24e7",
+        "filename": "src/kits/media/BufferCache.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2019-08-16T03:33:26Z",
+      "side": 1,
+      "message": "Can\u0027t you use `buffer_cache_entry entry;` and `fMap.Get(id, \u0026entry)` here, and then reuse `entry` when it\u0027s not found to put into the map?",
+      "revId": "af9e459f8b5d306559069625901534d8a6b0bc2d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
