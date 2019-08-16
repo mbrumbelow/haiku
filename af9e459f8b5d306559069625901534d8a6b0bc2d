@@ -34,6 +34,24 @@
       "revId": "af9e459f8b5d306559069625901534d8a6b0bc2d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c07a1dbd_ab199a62",
+        "filename": "src/kits/media/BufferCache.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2019-08-16T03:56:56Z",
+      "side": 1,
+      "message": "I tried that, you can\u0027t do that for some reason with HashMap, you have to pass a pointer. If you try to do what you suggest:\n\nC++ objects/haiku/x86_64/release/kits/media/BufferCache.o \n../src/kits/media/BufferCache.cpp: In member function \u0027BBuffer* BPrivate::BufferCache::GetBuffer(media_buffer_id, port_id)\u0027:\n../src/kits/media/BufferCache.cpp:44:19: error: cannot bind non-const lvalue reference of type \u0027BPrivate::buffer_cache_entry*\u0026\u0027 to an rvalue of type \u0027BPrivate::buffer_cache_entry*\u0027\n  if (fMap.Get(id, \u0026entry))",
+      "parentUuid": "ed7b8bdb_50fd24e7",
+      "revId": "af9e459f8b5d306559069625901534d8a6b0bc2d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
