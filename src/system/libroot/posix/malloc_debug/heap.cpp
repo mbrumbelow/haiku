@@ -48,6 +48,8 @@ static bool sParanoidValidation = false;
 static thread_id sWallCheckThread = -1;
 static bool sStopWallChecking = false;
 static bool sUseGuardPage = false;
+static thread_id sDumpingThread = -1;
+static bool sStopDumping = false;
 
 #if __cplusplus >= 201103L
 #include <cstddef>
@@ -1636,6 +1638,19 @@ heap_wall_checker(void *data)
 }
 
 
+static int32
+heap_periodic_dumper(void *data)
+{
+	int msInterval = (addr_t)data;
+	while (!sStopDumping) {
+		dump_allocations(true, -1);
+		snooze(msInterval * 1000);
+	}
+
+	return 0;
+}
+
+
 //	#pragma mark - Heap Debug API
 
 
@@ -1652,6 +1667,22 @@ debug_heap_start_wall_checking(int msInterval)
 
 	sStopWallChecking = false;
 	return resume_thread(sWallCheckThread);
+}
+
+
+static status_t
+debug_heap_start_periodic_dumping(int msInterval)
+{
+	if (sDumpingThread < 0) {
+		sDumpingThread = spawn_thread(heap_periodic_dumper, "periodic dumper",
+			B_LOW_PRIORITY, (void *)(addr_t)msInterval);
+	}
+
+	if (sDumpingThread < 0)
+		return sDumpingThread;
+
+	sStopDumping = false;
+	return resume_thread(sDumpingThread);
 }
 
 
@@ -2053,5 +2084,6 @@ heap_implementation __mallocDebugHeap = {
 	debug_heap_get_allocation_info,
 
 	NULL,	// set_dump_allocations_on_exit
-	NULL	// set_stack_trace_depth
+	NULL,	// set_stack_trace_depth
+	debug_heap_start_periodic_dumping
 };

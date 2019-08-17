@@ -144,6 +144,16 @@ heap_debug_set_stack_trace_depth(size_t stackTraceDepth)
 }
 
 
+extern "C" status_t
+heap_debug_start_periodic_dumping(int msInterval)
+{
+	if (sCurrentHeap->start_periodic_dumping != NULL)
+		return sCurrentHeap->start_periodic_dumping(msInterval);
+
+	return B_NOT_SUPPORTED;
+}
+
+
 // #pragma mark - Init
 
 
@@ -187,6 +197,13 @@ __init_heap(void)
 		if (argument != NULL
 			&& sscanf(argument, "w%d", &wallCheckInterval) == 1) {
 			heap_debug_start_wall_checking(wallCheckInterval);
+		}
+
+		int dumpingInterval = 0;
+		argument = strchr(mode, 'd');
+		if (argument != NULL
+			&& sscanf(argument, "d%d", &dumpingInterval) == 1) {
+			heap_debug_start_periodic_dumping(dumpingInterval);
 		}
 	}
 

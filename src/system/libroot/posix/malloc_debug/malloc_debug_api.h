@@ -40,6 +40,7 @@ struct heap_implementation {
 					thread_id *thread);
 	status_t	(*set_dump_allocations_on_exit)(bool enabled);
 	status_t	(*set_stack_trace_depth)(size_t stackTraceDepth);
+	status_t	(*start_periodic_dumping)(int msInterval);
 };
 
 

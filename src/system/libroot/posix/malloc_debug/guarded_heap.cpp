@@ -1234,5 +1234,6 @@ heap_implementation __mallocGuardedHeap = {
 	NULL,	// get_allocation_info
 
 	guarded_heap_set_dump_allocations_on_exit,
-	guarded_heap_set_stack_trace_depth
+	guarded_heap_set_stack_trace_depth,
+	NULL
 };
