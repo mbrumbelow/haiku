@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "13d1bb5c_d60c08f7",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2019-08-17T10:15:23Z",
+      "side": 1,
+      "message": "There is a confusion: Are you saying to remove the warning form the InputTouchpadPrefView.cpp or to remove the ConnectToTouchPad code from the InputTouchpadPref.cpp?",
+      "parentUuid": "bde6c8f5_a3e40fb9",
+      "revId": "1a4c33ecb715ca4ac1ee62df4d891a3151404bfc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5429e235_25a1fbe0",
         "filename": "src/preferences/input/InputWindow.cpp",
         "patchSetId": 9
