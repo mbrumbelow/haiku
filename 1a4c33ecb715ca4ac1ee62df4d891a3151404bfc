@@ -1,0 +1,191 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da79299b_3d78c923",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-08-17T09:34:38Z",
+      "side": 1,
+      "message": "A more appropriate name would be FindDevices()",
+      "revId": "1a4c33ecb715ca4ac1ee62df4d891a3151404bfc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9010010d_371ebfea",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-08-17T09:34:38Z",
+      "side": 1,
+      "message": "missing space after \u0026\u0026\n\nAlso I would first test for the type, and only then for the name. The behavior will be the same, but it sounds more logical to me.",
+      "revId": "1a4c33ecb715ca4ac1ee62df4d891a3151404bfc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bde6c8f5_a3e40fb9",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-08-17T09:34:38Z",
+      "side": 1,
+      "message": "The TouchpadPrefView constructor (and the constructors for the other views as well) should take the BInputDevice as a parameter.\n\nSo here you do new TohcpadPrefView(dev);\n\nAnd in the TouchpadPrefView code you do not need to have a ConnectToDevice anymore: you immediately get the correct device to connect to.\n\nAdvantages:\n- We only need to iterate over all the input devices once, here.\n- If there are multiple \"mouse\" devices, we create multiple views for each of them, and each view can be used for managing the settings of one particular device (this will not work immediately because currently we have one single setting file shared by all of them, but that\u0027s one of the next steps)",
+      "revId": "1a4c33ecb715ca4ac1ee62df4d891a3151404bfc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5429e235_25a1fbe0",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-08-17T09:34:38Z",
+      "side": 1,
+      "message": "} and else go on the same line",
+      "revId": "1a4c33ecb715ca4ac1ee62df4d891a3151404bfc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cea9dc08_a9f66e39",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-08-17T09:34:38Z",
+      "side": 1,
+      "message": "The check for the name is redundant here.\n\nelse if (dev-\u003eType() \u003d\u003d B_POINTING_DEVICE) \n\nis enough, because all touchpads will be processed by the previous if() already.",
+      "revId": "1a4c33ecb715ca4ac1ee62df4d891a3151404bfc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ef5bff9_e6e21fdf",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-08-17T09:34:38Z",
+      "side": 1,
+      "message": "you do not need to store fMouse and fInputMouse into the window object (likewise for the other devices and views). Once the view is added to the card view, you can access it through there, and only the view will need to do things with the device it manages.\n\nAdvantage:\n- If there are multiple \"mouse\" devices, everytime this code is run, the new device and view just replace the previous ones.",
+      "revId": "1a4c33ecb715ca4ac1ee62df4d891a3151404bfc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa7829a9_224ac27b",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-08-17T09:34:38Z",
+      "side": 1,
+      "message": "} and else go on the same line",
+      "revId": "1a4c33ecb715ca4ac1ee62df4d891a3151404bfc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c702ccc_2c32f5da",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-08-17T09:34:38Z",
+      "side": 1,
+      "message": "no empty line needed here",
+      "revId": "1a4c33ecb715ca4ac1ee62df4d891a3151404bfc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec1d657f_4c499a7f",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-08-17T09:34:38Z",
+      "side": 1,
+      "message": "no empty line needed here",
+      "revId": "1a4c33ecb715ca4ac1ee62df4d891a3151404bfc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5471e22a_f367bd8b",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-08-17T09:34:38Z",
+      "side": 1,
+      "message": "} and else go on the same line",
+      "revId": "1a4c33ecb715ca4ac1ee62df4d891a3151404bfc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6bf4b297_1d7d1eb1",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-08-17T09:34:38Z",
+      "side": 1,
+      "message": "where is fConnected set and what does it mean? Wouldn\u0027t it be simpler to check for fDeviceListView being empty?",
+      "revId": "1a4c33ecb715ca4ac1ee62df4d891a3151404bfc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
