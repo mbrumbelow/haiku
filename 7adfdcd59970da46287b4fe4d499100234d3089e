@@ -124,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "95d260c4_0bff48b0",
+        "filename": "src/preferences/input/InputWindow.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-08-18T14:08:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32afaaae_055e5749",
+      "revId": "7adfdcd59970da46287b4fe4d499100234d3089e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "94eb660c_ba4b3820",
         "filename": "src/preferences/input/InputWindow.h",
         "patchSetId": 6
@@ -138,6 +156,24 @@
       "revId": "7adfdcd59970da46287b4fe4d499100234d3089e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2562d0fd_5db84707",
+        "filename": "src/preferences/input/InputWindow.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-08-18T14:08:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94eb660c_ba4b3820",
+      "revId": "7adfdcd59970da46287b4fe4d499100234d3089e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
