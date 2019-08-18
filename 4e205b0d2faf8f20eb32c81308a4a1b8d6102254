@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3e5b537b_a69cd598",
+        "filename": "src/preferences/input/InputKeyboard.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-08-18T14:06:53Z",
+      "side": 1,
+      "message": "This block is indented one level too far now",
+      "revId": "4e205b0d2faf8f20eb32c81308a4a1b8d6102254",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
