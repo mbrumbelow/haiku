@@ -239,6 +239,7 @@ private:
 			BBitmap*		fLogo;
 
 			bigtime_t		fLastActionTime;
+			float			fLastVerticalPos;
 			BMessageRunner*	fScrollRunner;
 			PackageCreditMap fPackageCredits;
 };
@@ -421,6 +422,7 @@ CropView::DoLayout()
 AboutView::AboutView()
 	: BView("aboutview", B_WILL_DRAW | B_PULSE_NEEDED),
 	fLastActionTime(system_time()),
+	fLastVerticalPos(0),
 	fScrollRunner(NULL)
 {
 	// Begin Construction of System Information controls
@@ -660,9 +662,9 @@ AboutView::Pulse()
 	fMemView->SetText(MemUsageToString(string, sizeof(string), &info));
 
 	if (fScrollRunner == NULL
-		&& system_time() > fLastActionTime + 10000000) {
+		&& system_time() > fLastActionTime + 5000000) {
 		BMessage message(SCROLL_CREDITS_VIEW);
-		//fScrollRunner = new BMessageRunner(this, &message, 25000, -1);
+		fScrollRunner = new BMessageRunner(this, &message, 25000, -1);
 	}
 }
 
@@ -678,16 +680,31 @@ AboutView::MessageReceived(BMessage* msg)
 
 			break;
 		}
+
 		case SCROLL_CREDITS_VIEW:
 		{
 			BScrollBar* scrollBar =
 				fCreditsView->ScrollBar(B_VERTICAL);
 			if (scrollBar == NULL)
 				break;
+
 			float max, min;
 			scrollBar->GetRange(&min, &max);
-			if (scrollBar->Value() < max)
+
+			float currentVerticalPos = scrollBar->Value();
+			if (currentVerticalPos < max &&
+				currentVerticalPos == fLastVerticalPos)
 				fCreditsView->ScrollBy(0, 1);
+			else {
+				fLastActionTime = system_time();
+				delete fScrollRunner;
+				fScrollRunner = NULL;
+
+				if (currentVerticalPos >= max)
+					fCreditsView->ScrollTo(0, 0);
+			}
+
+			fLastVerticalPos = scrollBar->Value();
 
 			break;
 		}
@@ -893,9 +910,9 @@ AboutView::_CreateCreditsView()
 	fCreditsView->SetInsets(5, 5, 5, 5);
 	fCreditsView->SetViewUIColor(B_DOCUMENT_BACKGROUND_COLOR);
 
-	BScrollView* creditsScroller = new BScrollView("creditsScroller",
-		fCreditsView, B_WILL_DRAW | B_FRAME_EVENTS, false, true,
-		B_PLAIN_BORDER);
+	BScrollView* creditsScroller = new BScrollView(
+		"creditsScroller", fCreditsView, B_WILL_DRAW | B_FRAME_EVENTS, false,
+		true, B_PLAIN_BORDER);
 
 	// Haiku copyright
 	BFont font(be_bold_font);
