@@ -228,6 +228,7 @@ private:
 			void			_AddPackageCredit(const PackageCredit& package);
 			void			_AddPackageCreditEntries();
 
+			LogoView*		fLogoView;
 			BStringView*	fMemView;
 			BStringView*	fUptimeView;
 			BView*			fInfoView;
@@ -239,7 +240,10 @@ private:
 			BBitmap*		fLogo;
 
 			bigtime_t		fLastActionTime;
+			float			fLastVerticalPos;
+			bool			fGoScroll;
 			BMessageRunner*	fScrollRunner;
+
 			PackageCreditMap fPackageCredits;
 };
 
@@ -421,8 +425,12 @@ CropView::DoLayout()
 AboutView::AboutView()
 	: BView("aboutview", B_WILL_DRAW | B_PULSE_NEEDED),
 	fLastActionTime(system_time()),
+	fLastVerticalPos(0),
+	fGoScroll(false),
 	fScrollRunner(NULL)
 {
+	fLogoView = new LogoView();
+
 	// Begin Construction of System Information controls
 	system_info systemInfo;
 	get_system_info(&systemInfo);
@@ -574,7 +582,7 @@ AboutView::AboutView()
 
 	BLayoutBuilder::Group<>((BGroupLayout*)GetLayout())
 		.AddGroup(B_VERTICAL, 0)
-			.Add(new LogoView())
+			.Add(fLogoView)
 			.AddGroup(B_VERTICAL, 0)
 				.Add(_CreateLabel("oslabel", B_TRANSLATE("Version:")))
 				.Add(versionView)
@@ -660,9 +668,10 @@ AboutView::Pulse()
 	fMemView->SetText(MemUsageToString(string, sizeof(string), &info));
 
 	if (fScrollRunner == NULL
-		&& system_time() > fLastActionTime + 10000000) {
+		&& system_time() > fLastActionTime + 5000000
+		&& fGoScroll) {
 		BMessage message(SCROLL_CREDITS_VIEW);
-		//fScrollRunner = new BMessageRunner(this, &message, 25000, -1);
+		fScrollRunner = new BMessageRunner(this, &message, 25000, -1);
 	}
 }
 
@@ -678,16 +687,31 @@ AboutView::MessageReceived(BMessage* msg)
 
 			break;
 		}
+
 		case SCROLL_CREDITS_VIEW:
 		{
 			BScrollBar* scrollBar =
 				fCreditsView->ScrollBar(B_VERTICAL);
 			if (scrollBar == NULL)
 				break;
+
 			float max, min;
 			scrollBar->GetRange(&min, &max);
-			if (scrollBar->Value() < max)
+
+			float currentVerticalPos = scrollBar->Value();
+			if (currentVerticalPos < max &&
+				currentVerticalPos == fLastVerticalPos)
 				fCreditsView->ScrollBy(0, 1);
+			else {
+				fLastActionTime = system_time();
+				delete fScrollRunner;
+				fScrollRunner = NULL;
+
+				if (currentVerticalPos >= max)
+					fCreditsView->ScrollTo(0, 0);
+			}
+
+			fLastVerticalPos = scrollBar->Value();
 
 			break;
 		}
@@ -697,6 +721,18 @@ AboutView::MessageReceived(BMessage* msg)
 			printf("Easter egg\n");
 			PickRandomHaiku();
 			break;
+		}
+
+		case B_MOUSE_DOWN:
+		{
+			BPoint where;
+			int32 clicks;
+			if (msg->FindPoint("where", &where) == B_OK
+				&& fLogoView->Bounds().Contains(where)
+				&& msg->FindInt32("clicks", &clicks) == B_OK
+				&& clicks == 3)
+				fGoScroll = true;
+			// fall through for normal MouseDown()
 		}
 
 		default:
@@ -893,9 +929,9 @@ AboutView::_CreateCreditsView()
 	fCreditsView->SetInsets(5, 5, 5, 5);
 	fCreditsView->SetViewUIColor(B_DOCUMENT_BACKGROUND_COLOR);
 
-	BScrollView* creditsScroller = new BScrollView("creditsScroller",
-		fCreditsView, B_WILL_DRAW | B_FRAME_EVENTS, false, true,
-		B_PLAIN_BORDER);
+	BScrollView* creditsScroller = new BScrollView(
+		"creditsScroller", fCreditsView, B_WILL_DRAW | B_FRAME_EVENTS, false,
+		true, B_PLAIN_BORDER);
 
 	// Haiku copyright
 	BFont font(be_bold_font);
