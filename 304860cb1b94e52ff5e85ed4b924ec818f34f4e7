@@ -16,6 +16,24 @@
       "revId": "304860cb1b94e52ff5e85ed4b924ec818f34f4e7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3396bb67_3659a923",
+        "filename": "src/apps/terminal/TermView.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-08-22T19:18:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "960625cd_e072bbdc",
+      "revId": "304860cb1b94e52ff5e85ed4b924ec818f34f4e7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
