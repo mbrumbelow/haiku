@@ -91,7 +91,7 @@
 tty_settings gTTYSettings[kNumTTYs];
 
 
-static void tty_notify_select_event(struct tty* tty, uint8 event);
+static void tty_notify_select_pool(struct tty* tty, uint32 event);
 static void tty_notify_if_available(struct tty* tty, struct tty* otherTTY,
 	bool notifySelect);
 
@@ -832,9 +832,11 @@ reset_tty(struct tty* tty, int32 index, mutex* lock, bool isMaster)
 	tty->index = index;
 	tty->lock = lock;
 	tty->settings = &gTTYSettings[index];
-	tty->select_pool = NULL;
 	tty->is_master = isMaster;
 	tty->pending_eof = 0;
+
+	destroy_select_pool(tty->select_pool);
+	tty->select_pool = create_select_pool("tty");
 }
 
 
@@ -1108,7 +1110,7 @@ tty_close_cookie(struct tty_cookie* cookie)
 
 	// notify a select write event on the other tty, if we've closed this tty
 	if (cookie->tty->open_count == 0 && cookie->other_tty->open_count > 0)
-		tty_notify_select_event(cookie->other_tty, B_SELECT_WRITE);
+		tty_notify_select_pool(cookie->other_tty, B_EVENT_WRITE);
 }
 
 
@@ -1126,19 +1128,18 @@ tty_readable(struct tty* tty)
 
 
 static void
-tty_notify_select_event(struct tty* tty, uint8 event)
+tty_notify_select_pool(struct tty* tty, uint32 event)
 {
-	TRACE(("tty_notify_select_event(%p, %u)\n", tty, event));
+	TRACE(("tty_notify_select_pool(%p, %u)\n", tty, event));
 
-	if (tty->select_pool)
-		notify_select_event_pool(tty->select_pool, event);
+	notify_select_pool(tty->select_pool, event);
 }
 
 
 /*!	\brief Checks whether bytes can be read from/written to the line buffer of
 		   the given TTY and notifies the respective queues.
 
-	Also sends out \c B_SELECT_READ and \c B_SELECT_WRITE events as needed.
+	Also sends out \c B_EVENT_READ and \c B_EVENT_WRITE events as needed.
 
 	The TTY and the request lock must be held.
 
@@ -1160,7 +1161,7 @@ tty_notify_if_available(struct tty* tty, struct tty* otherTTY,
 		if (!tty->reader_queue.IsEmpty())
 			tty->reader_queue.NotifyFirst(readable);
 		else if (notifySelect)
-			tty_notify_select_event(tty, B_SELECT_READ);
+			tty_notify_select_pool(tty, B_EVENT_READ);
 	}
 
 	int32 writable = line_buffer_writable(tty->input_buffer);
@@ -1170,7 +1171,7 @@ tty_notify_if_available(struct tty* tty, struct tty* otherTTY,
 			tty->writer_queue.NotifyFirst(writable);
 		} else if (notifySelect) {
 			if (otherTTY && otherTTY->open_count > 0)
-				tty_notify_select_event(otherTTY, B_SELECT_WRITE);
+				tty_notify_select_pool(otherTTY, B_EVENT_WRITE);
 		}
 	}
 }
@@ -1513,7 +1514,6 @@ dump_tty_struct(struct tty& tty)
 	kprintf("  index:        %" B_PRId32 "\n", tty.index);
 	kprintf("  is_master:    %s\n", tty.is_master ? "true" : "false");
 	kprintf("  open_count:   %" B_PRId32 "\n", tty.open_count);
-	kprintf("  select_pool:  %p\n", tty.select_pool);
 	kprintf("  pending_eof:  %" B_PRIu32 "\n", tty.pending_eof);
 	kprintf("  lock:         %p\n", tty.lock);
 
@@ -2003,7 +2003,7 @@ tty_select(tty_cookie* cookie, uint8 event, uint32 ref, selectsync* sync)
 	struct tty* tty = cookie->tty;
 
 	TRACE(("tty_select(cookie = %p, event = %u, ref = %" B_PRIu32 ", sync = "
-		"%p)\n", cookie, event, ref, sync));
+		"%p)\n", cookie, event, sync));
 
 	// we don't support all kinds of events
 	if (event < B_SELECT_READ || event > B_SELECT_ERROR)
@@ -2013,7 +2013,6 @@ tty_select(tty_cookie* cookie, uint8 event, uint32 ref, selectsync* sync)
 	TTYReference ttyReference(cookie);
 	if (!ttyReference.IsLocked()) {
 		TRACE(("tty_select() done: cookie %p already closed\n", cookie));
-
 		notify_select_event(sync, event);
 		return B_OK;
 	}
@@ -2028,13 +2027,7 @@ tty_select(tty_cookie* cookie, uint8 event, uint32 ref, selectsync* sync)
 		otherTTY = NULL;
 
 	// add the event to the TTY's pool
-	status_t error = add_select_sync_pool_entry(&tty->select_pool, sync, event);
-	if (error != B_OK) {
-		TRACE(("tty_select() done: add_select_sync_pool_entry() failed: %"
-			B_PRIx32 "\n", error));
-
-		return error;
-	}
+	add_select_pool_entry(tty->select_pool, sync);
 
 	// finally also acquire the request mutex, for access to the reader/writer
 	// queues
@@ -2077,25 +2070,6 @@ tty_select(tty_cookie* cookie, uint8 event, uint32 ref, selectsync* sync)
 	}
 
 	return B_OK;
-}
-
-
-status_t
-tty_deselect(tty_cookie* cookie, uint8 event, selectsync* sync)
-{
-	struct tty* tty = cookie->tty;
-
-	TRACE(("tty_deselect(cookie = %p, event = %u, sync = %p)\n", cookie, event,
-		sync));
-
-	// we don't support all kinds of events
-	if (event < B_SELECT_READ || event > B_SELECT_ERROR)
-		return B_BAD_VALUE;
-
-	// lock the TTY (guards the select sync pool, among other things)
-	MutexLocker ttyLocker(tty->lock);
-
-	return remove_select_sync_pool_entry(&tty->select_pool, sync, event);
 }
 
 

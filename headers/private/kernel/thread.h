@@ -23,7 +23,7 @@
 
 struct arch_fork_arg;
 struct kernel_args;
-struct select_info;
+struct selectsync;
 struct thread_creation_attributes;
 
 
@@ -130,8 +130,7 @@ thread_id spawn_kernel_thread_etc(thread_func, const char *name, int32 priority,
 status_t wait_for_thread_etc(thread_id id, uint32 flags, bigtime_t timeout,
 	status_t *_returnCode);
 
-status_t select_thread(int32 object, struct select_info *info, bool kernel);
-status_t deselect_thread(int32 object, struct select_info *info, bool kernel);
+status_t select_thread(int32 object, struct selectsync *sync, bool kernel);
 
 #define syscall_64_bit_return_value() arch_syscall_64_bit_return_value()
 

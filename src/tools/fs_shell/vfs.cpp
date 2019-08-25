@@ -260,7 +260,6 @@ static struct fd_ops sFileOps = {
 	file_seek,
 	common_ioctl,
 	NULL,
-	NULL,
 	NULL,		// read_dir()
 	NULL,		// rewind_dir()
 	common_read_stat,
@@ -275,7 +274,6 @@ static struct fd_ops sDirectoryOps = {
 	NULL,		// seek()
 	common_ioctl,
 	NULL,		// select()
-	NULL,		// deselect()
 	dir_read,
 	dir_rewind,
 	common_read_stat,
@@ -290,7 +288,6 @@ static struct fd_ops sAttributeDirectoryOps = {
 	NULL,		// seek()
 	common_ioctl,
 	NULL,		// select()
-	NULL,		// deselect()
 	attr_dir_read,
 	attr_dir_rewind,
 	common_read_stat,
@@ -305,7 +302,6 @@ static struct fd_ops sAttributeOps = {
 	attr_seek,
 	common_ioctl,
 	NULL,		// select()
-	NULL,		// deselect()
 	NULL,		// read_dir()
 	NULL,		// rewind_dir()
 	attr_read_stat,
@@ -320,7 +316,6 @@ static struct fd_ops sIndexDirectoryOps = {
 	NULL,		// seek()
 	NULL,		// ioctl()
 	NULL,		// select()
-	NULL,		// deselect()
 	index_dir_read,
 	index_dir_rewind,
 	NULL,		// read_stat()
@@ -336,7 +331,6 @@ static struct fd_ops sIndexOps = {
 	NULL,		// seek()
 	NULL,		// ioctl()
 	NULL,		// select()
-	NULL,		// deselect()
 	NULL,		// dir_read()
 	NULL,		// dir_rewind()
 	index_read_stat,	// read_stat()
@@ -352,7 +346,6 @@ static struct fd_ops sQueryOps = {
 	NULL,		// seek()
 	NULL,		// ioctl()
 	NULL,		// select()
-	NULL,		// deselect()
 	query_read,
 	query_rewind,
 	NULL,		// read_stat()

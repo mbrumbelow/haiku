@@ -23,7 +23,7 @@
 #include <condition_variable.h>
 #include <debug_hex_dump.h>
 #include <lock.h>
-#include <select_sync_pool.h>
+#include <select_pool.h>
 #include <syscall_restart.h>
 #include <team.h>
 #include <thread.h>
@@ -190,9 +190,7 @@ public:
 			int32				ReaderCount() const { return fReaderCount; }
 			int32				WriterCount() const { return fWriterCount; }
 
-			status_t			Select(uint8 event, selectsync* sync,
-									int openMode);
-			status_t			Deselect(uint8 event, selectsync* sync,
+			int32				Select(uint32* events, selectsync* sync,
 									int openMode);
 
 			void				Dump(bool dumpData) const;
@@ -215,8 +213,7 @@ private:
 			int32				fWriterCount;
 			bool				fActive;
 
-			select_sync_pool*	fReadSelectSyncPool;
-			select_sync_pool*	fWriteSelectSyncPool;
+			select_pool*		fSelectPool;
 };
 
 
@@ -348,12 +345,12 @@ Inode::Inode()
 	fWriteRequests(),
 	fReaderCount(0),
 	fWriterCount(0),
-	fActive(false),
-	fReadSelectSyncPool(NULL),
-	fWriteSelectSyncPool(NULL)
+	fActive(false)
 {
 	fWriteCondition.Publish(this, "pipe");
 	mutex_init(&fRequestLock, "pipe request");
+
+	fSelectPool = create_select_pool("fifo inode");
 
 	bigtime_t time = real_time_clock();
 	fModificationTime.tv_sec = time / 1000000;
@@ -364,6 +361,7 @@ Inode::Inode()
 
 Inode::~Inode()
 {
+	destroy_select_pool(fSelectPool);
 	fWriteCondition.Unpublish();
 	mutex_destroy(&fRequestLock);
 }
@@ -552,10 +550,8 @@ Inode::NotifyBytesRead(size_t bytes)
 	size_t writable = fBuffer.Writable();
 	if (bytes > 0) {
 		// notify select()ors only, if nothing was writable before
-		if (writable == bytes) {
-			if (fWriteSelectSyncPool)
-				notify_select_event_pool(fWriteSelectSyncPool, B_SELECT_WRITE);
-		}
+		if (writable == bytes)
+			notify_select_pool(fSelectPool, B_EVENT_WRITE);
 
 		// If any of the waiting writers has a minimal write count that has
 		// now become satisfied, we notify all of them (condition variables
@@ -590,8 +586,7 @@ Inode::NotifyBytesWritten(size_t bytes)
 {
 	// notify reader, if something can be read now
 	if (bytes > 0 && fBuffer.Readable() == bytes) {
-		if (fReadSelectSyncPool)
-			notify_select_event_pool(fReadSelectSyncPool, B_SELECT_READ);
+		notify_select_pool(fSelectPool, B_EVENT_READ);
 
 		if (ReadRequest* request = fReadRequests.First())
 			request->Notify();
@@ -614,17 +609,13 @@ Inode::NotifyEndClosed(bool writer)
 			while (ReadRequest* request = iterator.Next())
 				request->Notify();
 
-			if (fReadSelectSyncPool)
-				notify_select_event_pool(fReadSelectSyncPool, B_SELECT_READ);
+			notify_select_pool(fSelectPool, B_EVENT_READ);
 		}
 	} else {
 		// Last reader is gone. Wake up all writers.
 		fWriteCondition.NotifyAll();
 
-		if (fWriteSelectSyncPool) {
-			notify_select_event_pool(fWriteSelectSyncPool, B_SELECT_WRITE);
-			notify_select_event_pool(fWriteSelectSyncPool, B_SELECT_ERROR);
-		}
+		notify_select_pool(fSelectPool, B_EVENT_WRITE | B_EVENT_ERROR);
 	}
 }
 
@@ -646,8 +637,7 @@ Inode::Open(int openMode)
 		fActive = true;
 
 		// notify all waiting writers that they can start
-		if (fWriteSelectSyncPool)
-			notify_select_event_pool(fWriteSelectSyncPool, B_SELECT_WRITE);
+		notify_select_pool(fSelectPool, B_EVENT_WRITE);
 		fWriteCondition.NotifyAll();
 	}
 }
@@ -692,52 +682,36 @@ Inode::Close(file_cookie* cookie)
 }
 
 
-status_t
-Inode::Select(uint8 event, selectsync* sync, int openMode)
+int32
+Inode::Select(uint32* events, selectsync* sync, int openMode)
 {
 	bool writer = true;
-	select_sync_pool** pool;
 	if ((openMode & O_RWMASK) == O_RDONLY) {
-		pool = &fReadSelectSyncPool;
+		*events = *events & (B_EVENT_READ | B_EVENT_ERROR);
 		writer = false;
 	} else if ((openMode & O_RWMASK) == O_WRONLY) {
-		pool = &fWriteSelectSyncPool;
+		*events = *events & (B_EVENT_READ | B_EVENT_ERROR);
 	} else
 		return B_NOT_ALLOWED;
 
-	if (add_select_sync_pool_entry(pool, sync, event) != B_OK)
-		return B_ERROR;
+	add_select_pool_entry(fSelectPool, sync);
 
 	// signal right away, if the condition holds already
+	uint32 returnEvents = 0;
 	if (writer) {
-		if ((event == B_SELECT_WRITE
-				&& (fBuffer.Writable() > 0 || fReaderCount == 0))
-			|| (event == B_SELECT_ERROR && fReaderCount == 0)) {
-			return notify_select_event(sync, event);
-		}
+		if ((*events & B_EVENT_WRITE) != 0 && (fBuffer.Writable() > 0
+				|| fReaderCount == 0))
+			returnEvents |= B_EVENT_WRITE;
+
+		if ((*events & B_EVENT_ERROR) != 0 && fReaderCount == 0)
+			returnEvents |= B_EVENT_ERROR;
 	} else {
-		if (event == B_SELECT_READ
-				&& (fBuffer.Readable() > 0 || fWriterCount == 0)) {
-			return notify_select_event(sync, event);
-		}
+		if ((*events & B_EVENT_READ) != 0
+				&& (fBuffer.Readable() > 0 || fWriterCount == 0))
+			returnEvents |= B_EVENT_READ;
 	}
 
-	return B_OK;
-}
-
-
-status_t
-Inode::Deselect(uint8 event, selectsync* sync, int openMode)
-{
-	select_sync_pool** pool;
-	if ((openMode & O_RWMASK) == O_RDONLY) {
-		pool = &fReadSelectSyncPool;
-	} else if ((openMode & O_RWMASK) == O_WRONLY) {
-		pool = &fWriteSelectSyncPool;
-	} else
-		return B_NOT_ALLOWED;
-
-	remove_select_sync_pool_entry(pool, sync, event);
+	*events = returnEvents;
 	return B_OK;
 }
 
@@ -1137,9 +1111,9 @@ fifo_set_flags(fs_volume* _volume, fs_vnode* _node, void* _cookie,
 }
 
 
-static status_t
+static int32
 fifo_select(fs_volume* _volume, fs_vnode* _node, void* _cookie,
-	uint8 event, selectsync* sync)
+	uint32* events, selectsync* sync)
 {
 	file_cookie* cookie = (file_cookie*)_cookie;
 
@@ -1149,23 +1123,7 @@ fifo_select(fs_volume* _volume, fs_vnode* _node, void* _cookie,
 		return B_ERROR;
 
 	MutexLocker locker(inode->RequestLock());
-	return inode->Select(event, sync, cookie->open_mode);
-}
-
-
-static status_t
-fifo_deselect(fs_volume* _volume, fs_vnode* _node, void* _cookie,
-	uint8 event, selectsync* sync)
-{
-	file_cookie* cookie = (file_cookie*)_cookie;
-
-	TRACE("fifo_deselect(vnode = %p)\n", _node);
-	Inode* inode = (Inode*)_node->private_node;
-	if (inode == NULL)
-		return B_ERROR;
-
-	MutexLocker locker(inode->RequestLock());
-	return inode->Deselect(event, sync, cookie->open_mode);
+	return inode->Select(events, sync, cookie->open_mode);
 }
 
 
@@ -1232,7 +1190,7 @@ static fs_vnode_ops sFIFOVnodeOps = {
 	&fifo_ioctl,
 	&fifo_set_flags,
 	&fifo_select,
-	&fifo_deselect,
+	NULL,	// deselect
 	&fifo_fsync,
 
 	NULL,	// fs_read_link

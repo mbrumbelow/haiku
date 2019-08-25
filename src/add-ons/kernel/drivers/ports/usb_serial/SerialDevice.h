@@ -63,7 +63,6 @@ static	SerialDevice *			MakeDevice(usb_device device, uint16 vendorID,
 		status_t				Write(const char *buffer, size_t *numBytes);
 		status_t				Control(uint32 op, void *arg, size_t length);
 		status_t				Select(uint8 event, uint32 ref, selectsync *sync);
-		status_t				DeSelect(uint8 event, selectsync *sync);
 		status_t				Close();
 		status_t				Free();
 

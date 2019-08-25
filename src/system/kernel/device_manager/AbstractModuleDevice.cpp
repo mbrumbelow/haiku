@@ -31,13 +31,6 @@ AbstractModuleDevice::HasSelect() const
 
 
 bool
-AbstractModuleDevice::HasDeselect() const
-{
-	return Module()->deselect != NULL;
-}
-
-
-bool
 AbstractModuleDevice::HasRead() const
 {
 	return Module()->read != NULL;
@@ -94,16 +87,9 @@ AbstractModuleDevice::Control(void* cookie, int32 op, void* buffer, size_t lengt
 
 
 status_t
-AbstractModuleDevice::Select(void* cookie, uint8 event, selectsync* sync)
+AbstractModuleDevice::Select(void* cookie, uint32* events, selectsync* sync)
 {
-	return Module()->select(cookie, event, sync);
-}
-
-
-status_t
-AbstractModuleDevice::Deselect(void* cookie, uint8 event, selectsync* sync)
-{
-	return Module()->deselect(cookie, event, sync);
+	return Module()->select(cookie, events, sync);
 }
 
 

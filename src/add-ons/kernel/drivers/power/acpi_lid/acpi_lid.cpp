@@ -7,7 +7,7 @@
 
 #include <ACPI.h>
 
-#include <fs/select_sync_pool.h>
+#include <select_pool.h>
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -44,7 +44,7 @@ typedef struct acpi_ns_device_info {
 	acpi_device acpi_cookie;
 	uint8 last_status;
 	bool updated;
-	select_sync_pool* select_pool;
+	struct select_pool* select_pool;
 } acpi_lid_device_info;
 
 
@@ -76,8 +76,7 @@ acpi_lid_notify_handler(acpi_handle _device, uint32 value, void *context)
 	if (value == ACPI_NOTIFY_STATUS_CHANGED) {
 		TRACE("status changed\n");
 		acpi_lid_read_status(device);
-		if (device->select_pool != NULL)
-			notify_select_event_pool(device->select_pool, B_SELECT_READ);
+		notify_select_pool(device->select_pool, B_EVENT_READ);
 	} else {
 		ERROR("unknown notification\n");
 	}
@@ -141,23 +140,17 @@ acpi_lid_control(void* _cookie, uint32 op, void* arg, size_t len)
 
 
 static status_t
-acpi_lid_select(void *_cookie, uint8 event, selectsync *sync)
+acpi_lid_select(void *_cookie, uint32* events, selectsync *sync)
 {
 	acpi_lid_device_info* device = (acpi_lid_device_info*)_cookie;
 
-	if (event != B_SELECT_READ)
+	if ((event & B_EVENT_READ) == 0)
 		return B_BAD_VALUE;
 
-	// add the event to the pool
-	status_t error = add_select_sync_pool_entry(&device->select_pool, sync,
-		event);
-	if (error != B_OK) {
-		ERROR("add_select_sync_pool_entry() failed: %#lx\n", error);
-		return error;
-	}
+	add_select_pool_entry(device->select_pool, sync);
 
 	if (device->updated)
-		notify_select_event(sync, event);
+		*events = B_EVENT_READ;
 
 	return B_OK;
 }
@@ -166,12 +159,7 @@ acpi_lid_select(void *_cookie, uint8 event, selectsync *sync)
 static status_t
 acpi_lid_deselect(void *_cookie, uint8 event, selectsync *sync)
 {
-	acpi_lid_device_info* device = (acpi_lid_device_info*)_cookie;
-
-	if (event != B_SELECT_READ)
-		return B_BAD_VALUE;
-
-	return remove_select_sync_pool_entry(&device->select_pool, sync, event);
+	return B_UNSUPPORTED;
 }
 
 
@@ -264,7 +252,7 @@ acpi_lid_init_driver(device_node *node, void **_driverCookie)
 
 	device->last_status = 0;
 	device->updated = false;
-	device->select_pool = NULL;
+	device->select_pool = create_select_pool("acpi lid");
 
 	*_driverCookie = device;
 	return B_OK;
@@ -278,6 +266,8 @@ acpi_lid_uninit_driver(void *driverCookie)
 
 	device->acpi->remove_notify_handler(device->acpi_cookie, ACPI_DEVICE_NOTIFY,
 		acpi_lid_notify_handler);
+
+	destroy_select_pool(device->select_pool);
 
 	free(device);
 }

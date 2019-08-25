@@ -44,8 +44,6 @@ extern object_cache* sFileDescriptorCache;
 static struct file_descriptor* get_fd_locked(struct io_context* context,
 	int fd);
 static struct file_descriptor* remove_fd(struct io_context* context, int fd);
-static void deselect_select_infos(file_descriptor* descriptor,
-	select_info* infos, bool putSyncObjects);
 
 
 struct FDGetterLocking {
@@ -355,7 +353,6 @@ remove_fd(struct io_context* context, int fd)
 	if ((uint32)fd < context->table_size)
 		descriptor = context->fds[fd];
 
-	select_info* selectInfos = NULL;
 	bool disconnected = false;
 
 	if (descriptor != NULL)	{
@@ -366,16 +363,10 @@ remove_fd(struct io_context* context, int fd)
 		fd_set_close_on_exec(context, fd, false);
 		context->num_used_fds--;
 
-		selectInfos = context->select_infos[fd];
-		context->select_infos[fd] = NULL;
-
 		disconnected = (descriptor->open_mode & O_DISCONNECTED);
 	}
 
 	mutex_unlock(&context->io_mutex);
-
-	if (selectInfos != NULL)
-		deselect_select_infos(descriptor, selectInfos, true);
 
 	return disconnected ? NULL : descriptor;
 }
@@ -444,14 +435,11 @@ dup2_fd(int oldfd, int newfd, bool kernel)
 	// Check for identity, note that it cannot be made above
 	// because we always want to return an error on invalid
 	// handles
-	select_info* selectInfos = NULL;
 	if (oldfd != newfd) {
 		// Now do the work
 		TFD(Dup2FD(context, oldfd, newfd));
 
 		evicted = context->fds[newfd];
-		selectInfos = context->select_infos[newfd];
-		context->select_infos[newfd] = NULL;
 		atomic_add(&context->fds[oldfd]->ref_count, 1);
 		atomic_add(&context->fds[oldfd]->open_count, 1);
 		context->fds[newfd] = context->fds[oldfd];
@@ -466,7 +454,6 @@ dup2_fd(int oldfd, int newfd, bool kernel)
 
 	// Say bye bye to the evicted fd
 	if (evicted) {
-		deselect_select_infos(evicted, selectInfos, true);
 		close_fd(context, evicted);
 		put_fd(evicted);
 	}
@@ -533,38 +520,8 @@ fd_ioctl(bool kernelFD, int fd, uint32 op, void* buffer, size_t length)
 }
 
 
-static void
-deselect_select_infos(file_descriptor* descriptor, select_info* infos,
-	bool putSyncObjects)
-{
-	TRACE(("deselect_select_infos(%p, %p)\n", descriptor, infos));
-
-	select_info* info = infos;
-	while (info != NULL) {
-		select_sync* sync = info->sync;
-
-		// deselect the selected events
-		uint16 eventsToDeselect = info->selected_events & ~B_EVENT_INVALID;
-		if (descriptor->ops->fd_deselect != NULL && eventsToDeselect != 0) {
-			for (uint16 event = 1; event < 16; event++) {
-				if ((eventsToDeselect & SELECT_FLAG(event)) != 0) {
-					descriptor->ops->fd_deselect(descriptor, event,
-						(selectsync*)info);
-				}
-			}
-		}
-
-		notify_select_events(info, B_EVENT_INVALID);
-		info = info->next;
-
-		if (putSyncObjects)
-			put_select_sync(sync);
-	}
-}
-
-
 status_t
-select_fd(int32 fd, struct select_info* info, bool kernel)
+select_fd(int32 fd, struct selectsync* info, bool kernel)
 {
 	TRACE(("select_fd(fd = %ld, info = %p (%p), 0x%x)\n", fd, info,
 		info->sync, info->selected_events));
@@ -579,16 +536,14 @@ select_fd(int32 fd, struct select_info* info, bool kernel)
 	if (descriptor == NULL)
 		return B_FILE_ERROR;
 
-	uint16 eventsToSelect = info->selected_events & ~B_EVENT_INVALID;
+	uint32 events = info->selected_events;
 
 	if (descriptor->ops->fd_select == NULL) {
 		// if the I/O subsystem doesn't support select(), we will
 		// immediately notify the select call
-		eventsToSelect &= ~SELECT_OUTPUT_ONLY_FLAGS;
-		if (eventsToSelect != 0)
-			return notify_select_events(info, eventsToSelect);
-		else
-			return B_OK;
+		events &= ~EVENT_OUTPUT_ONLY_FLAGS;
+		info->events = events;
+		return B_OK;
 	}
 
 	// We need the FD to stay open while we're doing this, so no select()/
@@ -597,94 +552,30 @@ select_fd(int32 fd, struct select_info* info, bool kernel)
 
 	locker.Unlock();
 
-	// select any events asked for
-	uint32 selectedEvents = 0;
-
-	for (uint16 event = 1; event < 16; event++) {
-		if ((eventsToSelect & SELECT_FLAG(event)) != 0
-			&& descriptor->ops->fd_select(descriptor, event,
-				(selectsync*)info) == B_OK) {
-			selectedEvents |= SELECT_FLAG(event);
-		}
-	}
-	info->selected_events = selectedEvents
-		| (info->selected_events & B_EVENT_INVALID);
+	status_t status = descriptor->ops->fd_select(descriptor, &events, info);
 
 	// Add the info to the IO context. Even if nothing has been selected -- we
 	// always support B_EVENT_INVALID.
 	locker.Lock();
 	if (context->fds[fd] != descriptor) {
-		// Someone close()d the index in the meantime. deselect() all
-		// events.
-		info->next = NULL;
-		deselect_select_infos(descriptor, info, false);
-
+		// Someone close()d this FD in the meantime. Nothing more to do.
 		// Release our open reference of the descriptor.
 		close_fd(context, descriptor);
 		return B_FILE_ERROR;
 	}
-
-	// The FD index hasn't changed, so we add the select info to the table.
-
-	info->next = context->select_infos[fd];
-	context->select_infos[fd] = info;
-
-	// As long as the info is in the list, we keep a reference to the sync
-	// object.
-	atomic_add(&info->sync->ref_count, 1);
 
 	// Finally release our open reference. It is safe just to decrement,
 	// since as long as the descriptor is associated with the slot,
 	// someone else still has it open.
 	atomic_add(&descriptor->open_count, -1);
 
-	return B_OK;
-}
-
-
-status_t
-deselect_fd(int32 fd, struct select_info* info, bool kernel)
-{
-	TRACE(("deselect_fd(fd = %ld, info = %p (%p), 0x%x)\n", fd, info,
-		info->sync, info->selected_events));
-
-	FDGetter fdGetter;
-		// define before the context locker, so it will be destroyed after it
-
-	io_context* context = get_current_io_context(kernel);
-	MutexLocker locker(context->io_mutex);
-
-	struct file_descriptor* descriptor = fdGetter.SetTo(context, fd, true);
-	if (descriptor == NULL)
-		return B_FILE_ERROR;
-
-	// remove the info from the IO context
-
-	select_info** infoLocation = &context->select_infos[fd];
-	while (*infoLocation != NULL && *infoLocation != info)
-		infoLocation = &(*infoLocation)->next;
-
-	// If not found, someone else beat us to it.
-	if (*infoLocation != info)
-		return B_OK;
-
-	*infoLocation = info->next;
-
-	locker.Unlock();
-
-	// deselect the selected events
-	uint16 eventsToDeselect = info->selected_events & ~B_EVENT_INVALID;
-	if (descriptor->ops->fd_deselect != NULL && eventsToDeselect != 0) {
-		for (uint16 event = 1; event < 16; event++) {
-			if ((eventsToDeselect & SELECT_FLAG(event)) != 0) {
-				descriptor->ops->fd_deselect(descriptor, event,
-					(selectsync*)info);
-			}
-		}
+	if (status != B_OK) {
+		// The select hook failed, so we should not add the select info to
+		// the table.
+		return status;
 	}
 
-	put_select_sync(info->sync);
-
+	info->events = events;
 	return B_OK;
 }
 

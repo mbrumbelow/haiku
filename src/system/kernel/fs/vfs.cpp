@@ -357,9 +357,7 @@ static off_t file_seek(struct file_descriptor* descriptor, off_t pos,
 	int seekType);
 static void file_free_fd(struct file_descriptor* descriptor);
 static status_t file_close(struct file_descriptor* descriptor);
-static status_t file_select(struct file_descriptor* descriptor, uint8 event,
-	struct selectsync* sync);
-static status_t file_deselect(struct file_descriptor* descriptor, uint8 event,
+static status_t file_select(struct file_descriptor* descriptor, uint32* events,
 	struct selectsync* sync);
 static status_t dir_read(struct io_context* context,
 	struct file_descriptor* descriptor, struct dirent* buffer,
@@ -432,7 +430,6 @@ static struct fd_ops sFileOps = {
 	common_ioctl,
 	NULL,		// set_flags
 	file_select,
-	file_deselect,
 	NULL,		// read_dir()
 	NULL,		// rewind_dir()
 	common_read_stat,
@@ -448,7 +445,6 @@ static struct fd_ops sDirectoryOps = {
 	common_ioctl,
 	NULL,		// set_flags
 	NULL,		// select()
-	NULL,		// deselect()
 	dir_read,
 	dir_rewind,
 	common_read_stat,
@@ -464,7 +460,6 @@ static struct fd_ops sAttributeDirectoryOps = {
 	common_ioctl,
 	NULL,		// set_flags
 	NULL,		// select()
-	NULL,		// deselect()
 	attr_dir_read,
 	attr_dir_rewind,
 	common_read_stat,
@@ -480,7 +475,6 @@ static struct fd_ops sAttributeOps = {
 	common_ioctl,
 	NULL,		// set_flags
 	NULL,		// select()
-	NULL,		// deselect()
 	NULL,		// read_dir()
 	NULL,		// rewind_dir()
 	attr_read_stat,
@@ -496,7 +490,6 @@ static struct fd_ops sIndexDirectoryOps = {
 	NULL,		// ioctl()
 	NULL,		// set_flags
 	NULL,		// select()
-	NULL,		// deselect()
 	index_dir_read,
 	index_dir_rewind,
 	NULL,		// read_stat()
@@ -513,7 +506,6 @@ static struct fd_ops sIndexOps = {
 	NULL,		// ioctl()
 	NULL,		// set_flags
 	NULL,		// select()
-	NULL,		// deselect()
 	NULL,		// dir_read()
 	NULL,		// dir_rewind()
 	index_read_stat,	// read_stat()
@@ -530,7 +522,6 @@ static struct fd_ops sQueryOps = {
 	NULL,		// ioctl()
 	NULL,		// set_flags
 	NULL,		// select()
-	NULL,		// deselect()
 	query_read,
 	query_rewind,
 	NULL,		// read_stat()
@@ -5006,18 +4997,15 @@ vfs_new_io_context(io_context* parentContext, bool purgeCloseOnExec)
 	// allocate space for FDs and their close-on-exec flag
 	context->fds = (file_descriptor**)malloc(
 		sizeof(struct file_descriptor*) * tableSize
-		+ sizeof(struct select_sync*) * tableSize
 		+ (tableSize + 7) / 8);
 	if (context->fds == NULL) {
 		free(context);
 		return NULL;
 	}
 
-	context->select_infos = (select_info**)(context->fds + tableSize);
-	context->fds_close_on_exec = (uint8*)(context->select_infos + tableSize);
+	context->fds_close_on_exec = (uint8*)(context->fds + tableSize);
 
 	memset(context->fds, 0, sizeof(struct file_descriptor*) * tableSize
-		+ sizeof(struct select_sync*) * tableSize
 		+ (tableSize + 7) / 8);
 
 	mutex_init(&context->io_mutex, "I/O context");
@@ -5121,35 +5109,29 @@ vfs_resize_fd_table(struct io_context* context, uint32 newSize)
 
 	// store pointers to the old tables
 	file_descriptor** oldFDs = context->fds;
-	select_info** oldSelectInfos = context->select_infos;
 	uint8* oldCloseOnExecTable = context->fds_close_on_exec;
 
 	// allocate new tables
 	file_descriptor** newFDs = (file_descriptor**)malloc(
 		sizeof(struct file_descriptor*) * newSize
-		+ sizeof(struct select_sync*) * newSize
 		+ newCloseOnExitBitmapSize);
 	if (newFDs == NULL)
 		return B_NO_MEMORY;
 
 	context->fds = newFDs;
-	context->select_infos = (select_info**)(context->fds + newSize);
-	context->fds_close_on_exec = (uint8*)(context->select_infos + newSize);
+	context->fds_close_on_exec = (uint8*)(context->fds + newSize);
 	context->table_size = newSize;
 
 	// copy entries from old tables
 	uint32 toCopy = min_c(oldSize, newSize);
 
 	memcpy(context->fds, oldFDs, sizeof(void*) * toCopy);
-	memcpy(context->select_infos, oldSelectInfos, sizeof(void*) * toCopy);
 	memcpy(context->fds_close_on_exec, oldCloseOnExecTable,
 		min_c(oldCloseOnExitBitmapSize, newCloseOnExitBitmapSize));
 
 	// clear additional entries, if the tables grow
 	if (newSize > oldSize) {
 		memset(context->fds + oldSize, 0, sizeof(void*) * (newSize - oldSize));
-		memset(context->select_infos + oldSize, 0,
-			sizeof(void*) * (newSize - oldSize));
 		memset(context->fds_close_on_exec + oldCloseOnExitBitmapSize, 0,
 			newCloseOnExitBitmapSize - oldCloseOnExitBitmapSize);
 	}
@@ -5848,8 +5830,8 @@ file_seek(struct file_descriptor* descriptor, off_t pos, int seekType)
 
 
 static status_t
-file_select(struct file_descriptor* descriptor, uint8 event,
-	struct selectsync* sync)
+file_select(struct file_descriptor* descriptor, uint32* events,
+	selectsync* sync)
 {
 	FUNCTION(("file_select(%p, %u, %p)\n", descriptor, event, sync));
 
@@ -5857,26 +5839,12 @@ file_select(struct file_descriptor* descriptor, uint8 event,
 
 	// If the FS has no select() hook, notify select() now.
 	if (!HAS_FS_CALL(vnode, select)) {
-		if (!SELECT_TYPE_IS_OUTPUT_ONLY(event))
-			return notify_select_event(sync, event);
-		else
-			return B_OK;
+		if (EVENT_TYPE_IS_OUTPUT_ONLY(*events))
+			*events = 0;
+		return B_OK;
 	}
 
-	return FS_CALL(vnode, select, descriptor->cookie, event, sync);
-}
-
-
-static status_t
-file_deselect(struct file_descriptor* descriptor, uint8 event,
-	struct selectsync* sync)
-{
-	struct vnode* vnode = descriptor->u.vnode;
-
-	if (!HAS_FS_CALL(vnode, deselect))
-		return B_OK;
-
-	return FS_CALL(vnode, deselect, descriptor->cookie, event, sync);
+	return FS_CALL(vnode, select, descriptor->cookie, events, sync);
 }
 
 

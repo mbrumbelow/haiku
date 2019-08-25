@@ -88,9 +88,7 @@ struct net_socket_module_info {
 	status_t	(*set_aborted)(net_socket* socket);
 
 	// notifications
-	status_t	(*request_notification)(net_socket* socket, uint8 event,
-					struct selectsync* sync);
-	status_t	(*cancel_notification)(net_socket* socket, uint8 event,
+	status_t	(*request_notification)(net_socket* socket, uint32* events,
 					struct selectsync* sync);
 	status_t	(*notify)(net_socket* socket, uint8 event, int32 value);
 

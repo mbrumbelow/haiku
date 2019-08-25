@@ -68,9 +68,7 @@ struct net_stack_interface_module_info {
 
 	status_t (*ioctl)(net_socket* socket, uint32 op, void *buffer,
 					size_t length);
-	status_t (*select)(net_socket* socket, uint8 event,
-					struct selectsync *sync);
-	status_t (*deselect)(net_socket* socket, uint8 event,
+	status_t (*select)(net_socket* socket, uint32* events,
 					struct selectsync *sync);
 
 	status_t (*get_next_socket_stat)(int family, uint32 *cookie,

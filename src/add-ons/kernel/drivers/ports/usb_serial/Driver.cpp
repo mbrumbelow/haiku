@@ -286,19 +286,6 @@ usb_serial_select(void *cookie, uint8 event, uint32 ref, selectsync *sync)
 }
 
 
-/* usb_serial_deselect - handle select exit */
-static status_t
-usb_serial_deselect(void *cookie, uint8 event, selectsync *sync)
-{
-	TRACE_FUNCALLS("> usb_serial_deselect(0x%08x, 0x%08x, %p)\n",
-		cookie, event, sync);
-	SerialDevice *device = (SerialDevice *)cookie;
-	status_t status = device->DeSelect(event, sync);
-	TRACE_FUNCRET("< usb_serial_deselect() returns: 0x%08x\n", status);
-	return status;
-}
-
-
 /* usb_serial_close - handle close() calls */
 static status_t
 usb_serial_close(void *cookie)
@@ -376,7 +363,7 @@ find_device(const char *name)
 		usb_serial_read,			/* -> read entry point */
 		usb_serial_write,			/* -> write entry point */
 		usb_serial_select,			/* -> select entry point */
-		usb_serial_deselect			/* -> deselect entry point */
+		NULL,						/* -> deselect entry point */
 	};
 
 	TRACE_FUNCALLS("> find_device(%s)\n", name);

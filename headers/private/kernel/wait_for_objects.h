@@ -1,50 +1,45 @@
 /*
- * Copyright 2007, Ingo Weinhold, bonefish@cs.tu-berlin.de. All rights reserved.
- * Distributed under the terms of the MIT License.
+ * Copyright 2007, Ingo Weinhold, ingo_weinhold@gmx.de.
+ * Copyright 2019, Augustin Cavalier <waddlesplash>
+ * All rights reserved. Distributed under the terms of the MIT License.
  */
-
 #ifndef _KERNEL_WAIT_FOR_OBJECTS_H
 #define _KERNEL_WAIT_FOR_OBJECTS_H
 
+#include <Drivers.h>
 #include <OS.h>
 
+#include <select_pool.h>
 #include <lock.h>
 
 
-struct select_sync;
+struct select_set;
+struct selectsync;
 
 
-typedef struct select_info {
-	struct select_info*	next;				// next in the object's list
-	struct select_sync*	sync;
-	int32				events;
-	uint16				selected_events;
-} select_info;
+typedef struct selectsync {
+	struct select_set*	set;
+	uint32				events;
+	uint32				selected_events;
 
-typedef struct select_sync {
-	int32				ref_count;
-	sem_id				sem;
-	uint32				count;
-	struct select_info*	set;
-} select_sync;
+	select_pool*		pool;
+	struct selectsync*	pool_next;
+} selectsync;
 
-#define SELECT_FLAG(type) (1L << (type - 1))
 
-#define SELECT_OUTPUT_ONLY_FLAGS \
+#define EVENT_OUTPUT_ONLY_FLAGS \
 	(B_EVENT_ERROR | B_EVENT_DISCONNECTED | B_EVENT_INVALID)
 
-#define SELECT_TYPE_IS_OUTPUT_ONLY(type) \
-	((SELECT_FLAG(type) & SELECT_OUTPUT_ONLY_FLAGS) != 0)
+#define EVENT_TYPE_IS_OUTPUT_ONLY(events) \
+	(((events) & EVENT_OUTPUT_ONLY_FLAGS) != 0)
 
 
 #ifdef __cplusplus
 extern "C" {
-#endif 
+#endif
 
-
-extern void		put_select_sync(select_sync* sync);
-extern status_t	notify_select_events(select_info* info, uint16 events);
-extern void		notify_select_events_list(select_info* list, uint16 events);
+extern status_t	select_sync_legacy_select(void* cookie,
+					device_select_hook hook, uint32* events, selectsync* sync);
 
 extern ssize_t	_user_wait_for_objects(object_wait_info* userInfos,
 					int numInfos, uint32 flags, bigtime_t timeout);
@@ -52,6 +47,6 @@ extern ssize_t	_user_wait_for_objects(object_wait_info* userInfos,
 
 #ifdef __cplusplus
 }
-#endif 
+#endif
 
 #endif	// _KERNEL_WAIT_FOR_OBJECTS_H

@@ -78,7 +78,6 @@ static struct tty_module_info sTTYModule = {
 	&tty_write,
 	&tty_control,
 	&tty_select,
-	&tty_deselect,
 	&tty_hardware_signal
 };
 

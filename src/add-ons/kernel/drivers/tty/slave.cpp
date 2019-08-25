@@ -212,15 +212,6 @@ slave_select(void *_cookie, uint8 event, uint32 ref, selectsync *sync)
 }
 
 
-static status_t
-slave_deselect(void *_cookie, uint8 event, selectsync *sync)
-{
-	slave_cookie *cookie = (slave_cookie *)_cookie;
-
-	return tty_deselect(cookie, event, sync);
-}
-
-
 device_hooks gSlaveTTYHooks = {
 	&slave_open,
 	&slave_close,
@@ -229,7 +220,7 @@ device_hooks gSlaveTTYHooks = {
 	&slave_read,
 	&slave_write,
 	&slave_select,
-	&slave_deselect,
+	NULL,	// deselect()
 	NULL,	// read_pages()
 	NULL	// write_pages()
 };

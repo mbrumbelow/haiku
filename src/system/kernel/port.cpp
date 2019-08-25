@@ -129,7 +129,7 @@ struct Port : public KernelReferenceable {
 	ConditionVariable	write_condition;
 	int32				total_count;
 		// messages read from port since creation
-	select_info*		select_infos;
+	struct select_pool*	select_pool;
 	MessageList			messages;
 
 	Port(team_id owner, int32 queueLength, char* name)
@@ -141,7 +141,7 @@ struct Port : public KernelReferenceable {
 		read_count(0),
 		write_count(queueLength),
 		total_count(0),
-		select_infos(NULL)
+		select_pool(NULL)
 	{
 		// id is initialized when the caller adds the port to the hash table
 
@@ -612,17 +612,6 @@ dump_port_info(int argc, char** argv)
 // #pragma mark - internal helper functions
 
 
-/*!	Notifies the port's select events.
-	The port must be locked.
-*/
-static void
-notify_port_select_events(Port* port, uint16 events)
-{
-	if (port->select_infos)
-		notify_select_events_list(port->select_infos, events);
-}
-
-
 static BReference<Port>
 get_locked_port(port_id id) GCC_2_NRV(portRef)
 {
@@ -795,8 +784,7 @@ uninit_port(Port* port)
 {
 	MutexLocker locker(port->lock);
 
-	notify_port_select_events(port, B_EVENT_INVALID);
-	port->select_infos = NULL;
+	destroy_select_pool(port->select_pool);
 
 	// Release the threads that were blocking on this port.
 	// read_port() will see the B_BAD_PORT_ID return value, and act accordingly
@@ -1080,8 +1068,7 @@ close_port(port_id id)
 	// wake up waiting read/writes
 	portRef->capacity = 0;
 
-	notify_port_select_events(portRef, B_EVENT_INVALID);
-	portRef->select_infos = NULL;
+	notify_select_pool(portRef->select_pool, B_EVENT_INVALID);
 
 	portRef->read_condition.NotifyAll(B_BAD_PORT_ID);
 	portRef->write_condition.NotifyAll(B_BAD_PORT_ID);
@@ -1142,7 +1129,7 @@ delete_port(port_id id)
 
 
 status_t
-select_port(int32 id, struct select_info* info, bool kernel)
+select_port(port_id id, struct selectsync* info, bool kernel)
 {
 	if (id < 0)
 		return B_BAD_PORT_ID;
@@ -1167,8 +1154,9 @@ select_port(int32 id, struct select_info* info, bool kernel)
 	if (info->selected_events != 0) {
 		uint16 events = 0;
 
-		info->next = portRef->select_infos;
-		portRef->select_infos = info;
+		if (portRef->select_pool == NULL)
+			portRef->select_pool = create_select_pool("port");
+		add_select_pool_entry(portRef->select_pool, info);
 
 		// check for events
 		if ((info->selected_events & B_EVENT_READ) != 0
@@ -1179,35 +1167,8 @@ select_port(int32 id, struct select_info* info, bool kernel)
 		if (portRef->write_count > 0)
 			events |= B_EVENT_WRITE;
 
-		if (events != 0)
-			notify_select_events(info, events);
+		info->events = events;
 	}
-
-	return B_OK;
-}
-
-
-status_t
-deselect_port(int32 id, struct select_info* info, bool kernel)
-{
-	if (id < 0)
-		return B_BAD_PORT_ID;
-	if (info->selected_events == 0)
-		return B_OK;
-
-	// get the port
-	BReference<Port> portRef = get_locked_port(id);
-	if (portRef == NULL)
-		return B_BAD_PORT_ID;
-	MutexLocker locker(portRef->lock, true);
-
-	// find and remove the infos
-	select_info** infoLocation = &portRef->select_infos;
-	while (*infoLocation != NULL && *infoLocation != info)
-		infoLocation = &(*infoLocation)->next;
-
-	if (*infoLocation == info)
-		*infoLocation = info->next;
 
 	return B_OK;
 }
@@ -1519,7 +1480,7 @@ read_port_etc(port_id id, int32* _code, void* buffer, size_t bufferSize,
 	portRef->write_count++;
 	portRef->read_count--;
 
-	notify_port_select_events(portRef, B_EVENT_WRITE);
+	notify_select_pool(portRef->select_pool, B_EVENT_WRITE);
 	portRef->write_condition.NotifyOne();
 		// make one spot in queue available again for write
 
@@ -1673,7 +1634,7 @@ writev_port_etc(port_id id, int32 msgCode, const iovec* msgVecs,
 	T(Write(id, portRef->read_count, portRef->write_count, message->code,
 		message->size, B_OK));
 
-	notify_port_select_events(portRef, B_EVENT_READ);
+	notify_select_pool(portRef->select_pool, B_EVENT_READ);
 	portRef->read_condition.NotifyOne();
 	return B_OK;
 
@@ -1682,7 +1643,7 @@ error:
 	// try and fail
 	T(Write(id, portRef->read_count, portRef->write_count, 0, 0, status));
 	portRef->write_count++;
-	notify_port_select_events(portRef, B_EVENT_WRITE);
+	notify_select_pool(portRef->select_pool, B_EVENT_WRITE);
 	portRef->write_condition.NotifyOne();
 
 	return status;

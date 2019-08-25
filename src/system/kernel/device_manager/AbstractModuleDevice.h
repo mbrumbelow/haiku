@@ -24,7 +24,6 @@ public:
 			device_node*	Node() const { return fNode; }
 
 	virtual	bool			HasSelect() const;
-	virtual	bool			HasDeselect() const;
 	virtual	bool			HasRead() const;
 	virtual	bool			HasWrite() const;
 	virtual	bool			HasIO() const;
@@ -38,9 +37,7 @@ public:
 	virtual	status_t		IO(void* cookie, io_request* request);
 	virtual	status_t		Control(void* cookie, int32 op, void* buffer,
 								size_t length);
-	virtual	status_t		Select(void* cookie, uint8 event, selectsync* sync);
-	virtual	status_t		Deselect(void* cookie, uint8 event,
-								selectsync* sync);
+	virtual	status_t		Select(void* cookie, uint32* events, selectsync* sync);
 
 	virtual	status_t		Close(void* cookie);
 	virtual	status_t		Free(void* cookie);

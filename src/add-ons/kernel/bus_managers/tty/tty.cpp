@@ -87,13 +87,6 @@ tty_select(struct ttyfile *, struct ddrover *, uint8, uint32, selectsync *)
 }
 
 
-status_t
-tty_deselect(struct ttyfile *, struct ddrover *, uint8, selectsync *)
-{
-	return B_OK;
-}
-
-
 void
 tty_init(struct tty *, bool)
 {
@@ -170,13 +163,13 @@ tty_module_std_ops(int32 op, ...)
 		case B_MODULE_INIT:
 		{
 			status_t status;
-		
+
 			//TRACE(("TTY: tty_module_init\n"));
-		
+
 			status = tty_module_init();
 			if (status < B_OK)
 				return status;
-		
+
 			return B_OK;
 		}
 
@@ -186,7 +179,7 @@ tty_module_std_ops(int32 op, ...)
 			return B_OK;
 	}
 
-	return B_BAD_VALUE;	
+	return B_BAD_VALUE;
 }
 
 
@@ -233,7 +226,7 @@ static struct tty_module_info_dano sDanoTTYModule = {
 	&tty_write,
 	&tty_control,
 	&tty_select,
-	&tty_deselect,
+	NULL,
 	&tty_init,
 	&tty_ilock,
 	&tty_hwsignal,

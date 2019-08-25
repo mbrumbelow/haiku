@@ -137,13 +137,6 @@ FileDevice::HasSelect() const
 
 
 bool
-FileDevice::HasDeselect() const
-{
-	return false;
-}
-
-
-bool
 FileDevice::HasRead() const
 {
 	return true;
@@ -366,17 +359,9 @@ FileDevice::Control(void* _cookie, int32 op, void* buffer, size_t length)
 
 
 status_t
-FileDevice::Select(void* _cookie, uint8 event, selectsync* sync)
+FileDevice::Select(void* _cookie, uint32* events, selectsync* sync)
 {
 	// TODO: Support (select_fd())!
-	return B_UNSUPPORTED;
-}
-
-
-status_t
-FileDevice::Deselect(void* cookie, uint8 event, selectsync* sync)
-{
-	// TODO: Support (deselect_fd())!
 	return B_UNSUPPORTED;
 }
 

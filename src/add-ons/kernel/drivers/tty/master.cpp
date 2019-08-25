@@ -199,15 +199,6 @@ master_select(void *_cookie, uint8 event, uint32 ref, selectsync *sync)
 }
 
 
-static status_t
-master_deselect(void *_cookie, uint8 event, selectsync *sync)
-{
-	master_cookie *cookie = (master_cookie *)_cookie;
-
-	return tty_deselect(cookie, event, sync);
-}
-
-
 device_hooks gMasterTTYHooks = {
 	&master_open,
 	&master_close,
@@ -216,7 +207,7 @@ device_hooks gMasterTTYHooks = {
 	&master_read,
 	&master_write,
 	&master_select,
-	&master_deselect,
+	NULL,	// deselect()
 	NULL,	// read_pages()
 	NULL	// write_pages()
 };

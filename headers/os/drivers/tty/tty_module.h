@@ -62,8 +62,6 @@ struct tty_module_info {
 					void *buffer, size_t length);
 	status_t	(*tty_select)(struct tty_cookie *cookie, uint8 event,
 					uint32 ref, selectsync *sync);
-	status_t	(*tty_deselect)(struct tty_cookie *cookie, uint8 event,
-					selectsync *sync);
 
 	status_t	(*tty_hardware_signal)(struct tty_cookie *cookie,
 					int signal, bool);

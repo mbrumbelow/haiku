@@ -10,7 +10,6 @@
 #include <iovec.h>
 
 struct kernel_args;
-struct select_info;
 
 
 #define PORT_FLAG_USE_USER_MEMCPY 0x80000000
@@ -38,8 +37,7 @@ int32 port_used_ports(void);
 
 size_t port_team_link_offset();
 
-status_t select_port(int32 object, struct select_info *info, bool kernel);
-status_t deselect_port(int32 object, struct select_info *info, bool kernel);
+status_t select_port(int32 object, struct selectsync *sync, bool kernel);
 
 // currently private API
 status_t writev_port_etc(port_id id, int32 msgCode, const iovec *msgVecs,

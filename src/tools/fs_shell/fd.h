@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright 2002-2006, Axel Dörfler, axeld@pinc-software.de.
  * Distributed under the terms of the MIT License.
  */
@@ -30,8 +30,6 @@ struct fd_ops {
 							void *buffer, fssh_size_t length);
 	fssh_status_t	(*fd_select)(struct file_descriptor *, uint8_t event,
 							uint32_t ref, struct select_sync *sync);
-	fssh_status_t	(*fd_deselect)(struct file_descriptor *, uint8_t event,
-							struct select_sync *sync);
 	fssh_status_t	(*fd_read_dir)(struct file_descriptor *,
 							struct fssh_dirent *buffer, fssh_size_t bufferSize,
 							uint32_t *_count);
@@ -87,8 +85,6 @@ extern void				put_fd(struct file_descriptor *descriptor);
 extern void				disconnect_fd(struct file_descriptor *descriptor);
 extern void				inc_fd_ref_count(struct file_descriptor *descriptor);
 extern fssh_status_t	select_fd(int fd, uint8_t event, uint32_t ref,
-							struct select_sync *sync, bool kernel);
-extern fssh_status_t	deselect_fd(int fd, uint8_t event,
 							struct select_sync *sync, bool kernel);
 extern bool				fd_is_valid(int fd, bool kernel);
 extern vnode*			fd_vnode(struct file_descriptor *descriptor);

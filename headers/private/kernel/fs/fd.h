@@ -19,7 +19,6 @@ struct file_descriptor;
 struct io_context;
 struct net_socket;
 struct selectsync;
-struct select_info;
 
 struct fd_ops {
 	status_t	(*fd_read)(struct file_descriptor *, off_t pos, void *buffer,
@@ -30,9 +29,7 @@ struct fd_ops {
 	status_t	(*fd_ioctl)(struct file_descriptor *, ulong op, void *buffer,
 						size_t length);
 	status_t	(*fd_set_flags)(struct file_descriptor *, int flags);
-	status_t	(*fd_select)(struct file_descriptor *, uint8 event,
-						struct selectsync *sync);
-	status_t	(*fd_deselect)(struct file_descriptor *, uint8 event,
+	status_t	(*fd_select)(struct file_descriptor *, uint32 *events,
 						struct selectsync *sync);
 	status_t	(*fd_read_dir)(struct io_context* ioContext,
 						struct file_descriptor *, struct dirent *buffer,
@@ -92,8 +89,7 @@ extern void put_fd(struct file_descriptor *descriptor);
 extern void disconnect_fd(struct file_descriptor *descriptor);
 extern void inc_fd_ref_count(struct file_descriptor *descriptor);
 extern int dup_foreign_fd(team_id fromTeam, int fd, bool kernel);
-extern status_t select_fd(int32 fd, struct select_info *info, bool kernel);
-extern status_t deselect_fd(int32 fd, struct select_info *info, bool kernel);
+extern status_t select_fd(int32 fd, selectsync *info, bool kernel);
 extern bool fd_is_valid(int fd, bool kernel);
 extern struct vnode *fd_vnode(struct file_descriptor *descriptor);
 

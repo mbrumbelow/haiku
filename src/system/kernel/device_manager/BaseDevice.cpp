@@ -44,13 +44,6 @@ BaseDevice::HasSelect() const
 
 
 bool
-BaseDevice::HasDeselect() const
-{
-	return false;
-}
-
-
-bool
 BaseDevice::HasRead() const
 {
 	return false;
@@ -100,14 +93,7 @@ BaseDevice::Control(void* cookie, int32 op, void* buffer, size_t length)
 
 
 status_t
-BaseDevice::Select(void* cookie, uint8 event, selectsync* sync)
-{
-	return B_UNSUPPORTED;
-}
-
-
-status_t
-BaseDevice::Deselect(void* cookie, uint8 event, selectsync* sync)
+BaseDevice::Select(void* cookie, uint32* events, selectsync* sync)
 {
 	return B_UNSUPPORTED;
 }

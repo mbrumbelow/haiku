@@ -60,7 +60,7 @@ struct cpu_ent;
 struct image;					// defined in image.c
 struct io_context;
 struct realtime_sem_context;	// defined in realtime_sem.cpp
-struct select_info;
+struct select_pool;
 struct user_thread;				// defined in libroot/user_thread.h
 struct VMAddressSpace;
 struct xsi_sem_context;			// defined in xsi_semaphore.cpp
@@ -507,7 +507,7 @@ struct Thread : TeamThreadIteratorEntry<thread_id>, KernelReferenceable {
 		struct list	waiters;	// protected by fLock
 	} exit;
 
-	struct select_info *select_infos;	// protected by fLock
+	struct ::select_pool *select_pool;	// protected by fLock
 
 	struct thread_debug_info debug_info;
 

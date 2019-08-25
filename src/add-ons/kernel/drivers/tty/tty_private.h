@@ -11,7 +11,7 @@
 #include <KernelExport.h>
 
 #include <condition_variable.h>
-#include <fs/select_sync_pool.h>
+#include <select_pool.h>
 #include <lock.h>
 #include <util/DoublyLinkedList.h>
 
@@ -135,7 +135,7 @@ struct tty {
 	int32				index;
 	struct mutex*		lock;
 	tty_settings*		settings;
-	select_sync_pool*	select_pool;
+	struct select_pool*	select_pool;
 	RequestQueue		reader_queue;
 	RequestQueue		writer_queue;
 	TTYCookieList		cookies;
@@ -187,7 +187,6 @@ extern status_t tty_ioctl(tty_cookie *cookie, uint32 op, void *buffer,
 					size_t length);
 extern status_t tty_select(tty_cookie *cookie, uint8 event, uint32 ref,
 					selectsync *sync);
-extern status_t tty_deselect(tty_cookie *cookie, uint8 event, selectsync *sync);
 
 extern void tty_add_debugger_commands();
 extern void tty_remove_debugger_commands();

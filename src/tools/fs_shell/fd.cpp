@@ -383,30 +383,6 @@ select_fd(int fd, uint8_t event, uint32_t ref, struct select_sync *sync, bool ke
 }
 
 
-fssh_status_t
-deselect_fd(int fd, uint8_t event, struct select_sync *sync, bool kernel)
-{
-// 	struct file_descriptor *descriptor;
-// 	fssh_status_t status;
-//
-// 	TRACE(("deselect_fd(fd = %d, event = %u, selectsync = %p)\n", fd, event, sync));
-//
-// 	descriptor = get_fd(get_current_io_context(kernel), fd);
-// 	if (descriptor == NULL)
-// 		return FSSH_B_FILE_ERROR;
-//
-// 	if (descriptor->ops->fd_deselect)
-// 		status = descriptor->ops->fd_deselect(descriptor, event, sync);
-// 	else
-// 		status = FSSH_B_OK;
-//
-// 	put_fd(descriptor);
-// 	return status;
-
-	return FSSH_B_BAD_VALUE;
-}
-
-
 /** This function checks if the specified fd is valid in the current
  *	context. It can be used for a quick check; the fd is not locked
  *	so it could become invalid immediately after this check.

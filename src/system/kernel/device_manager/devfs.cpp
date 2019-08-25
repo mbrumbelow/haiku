@@ -1544,7 +1544,7 @@ devfs_set_flags(fs_volume* _volume, fs_vnode* _vnode, void* _cookie,
 
 static status_t
 devfs_select(fs_volume* _volume, fs_vnode* _vnode, void* _cookie,
-	uint8 event, selectsync* sync)
+	uint32* events, selectsync* sync)
 {
 	struct devfs_vnode* vnode = (struct devfs_vnode*)_vnode->private_node;
 	struct devfs_cookie* cookie = (struct devfs_cookie*)_cookie;
@@ -1554,33 +1554,13 @@ devfs_select(fs_volume* _volume, fs_vnode* _vnode, void* _cookie,
 
 	// If the device has no select() hook, notify select() now.
 	if (!vnode->stream.u.dev.device->HasSelect()) {
-		if (!SELECT_TYPE_IS_OUTPUT_ONLY(event))
-			return notify_select_event((selectsync*)sync, event);
-		else
-			return B_OK;
+		if (EVENT_TYPE_IS_OUTPUT_ONLY(*events))
+			*events = 0;
+		return B_OK;
 	}
 
-	return vnode->stream.u.dev.device->Select(cookie->device_cookie, event,
-		(selectsync*)sync);
-}
-
-
-static status_t
-devfs_deselect(fs_volume* _volume, fs_vnode* _vnode, void* _cookie,
-	uint8 event, selectsync* sync)
-{
-	struct devfs_vnode* vnode = (struct devfs_vnode*)_vnode->private_node;
-	struct devfs_cookie* cookie = (struct devfs_cookie*)_cookie;
-
-	if (!S_ISCHR(vnode->stream.type))
-		return B_NOT_ALLOWED;
-
-	// If the device has no select() hook, notify select() now.
-	if (!vnode->stream.u.dev.device->HasDeselect())
-		return B_OK;
-
-	return vnode->stream.u.dev.device->Deselect(cookie->device_cookie, event,
-		(selectsync*)sync);
+	return vnode->stream.u.dev.device->Select(cookie->device_cookie, events,
+		sync);
 }
 
 
@@ -1914,7 +1894,7 @@ fs_vnode_ops kVnodeOps = {
 	&devfs_ioctl,
 	&devfs_set_flags,
 	&devfs_select,
-	&devfs_deselect,
+	NULL,	// deselect
 	&devfs_fsync,
 
 	&devfs_read_link,

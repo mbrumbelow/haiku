@@ -4,7 +4,7 @@
  * Distributed under the terms of the MIT License.
  */
 
-#include <fs/select_sync_pool.h>
+#include <select_pool.h>
 #include <wait_for_objects.h>
 
 #include <new>
@@ -45,22 +45,24 @@
 using std::nothrow;
 
 
-struct select_sync_pool_entry
-	: DoublyLinkedListLinkImpl<select_sync_pool_entry> {
-	selectsync			*sync;
-	uint16				events;
-};
+// Used to convert a B_SELECT_* into a B_EVENT_*.
+#define SELECT_FLAG(type)	(1L << (type - 1))
 
-typedef DoublyLinkedList<select_sync_pool_entry> SelectSyncPoolEntryList;
 
-struct select_sync_pool {
-	SelectSyncPoolEntryList	entries;
-};
+typedef struct select_pool {
+	selectsync* first;
+	mutex		 lock;
+} select_pool;
+
+typedef struct select_set {
+	sem_id				sem;
+	uint32				count;
+	struct selectsync*	syncs;
+} select_set;
 
 
 struct select_ops {
-	status_t (*select)(int32 object, struct select_info* info, bool kernel);
-	status_t (*deselect)(int32 object, struct select_info* info, bool kernel);
+	status_t (*select)(int32 object, struct selectsync* info, bool kernel);
 };
 
 
@@ -68,25 +70,21 @@ static const select_ops kSelectOps[] = {
 	// B_OBJECT_TYPE_FD
 	{
 		select_fd,
-		deselect_fd
 	},
 
 	// B_OBJECT_TYPE_SEMAPHORE
 	{
 		select_sem,
-		deselect_sem
 	},
 
 	// B_OBJECT_TYPE_PORT
 	{
 		select_port,
-		deselect_port
 	},
 
 	// B_OBJECT_TYPE_THREAD
 	{
 		select_thread,
-		deselect_thread
 	}
 };
 
@@ -377,51 +375,49 @@ fd_zero(fd_set *set, int numFDs)
 
 
 static status_t
-create_select_sync(int numFDs, select_sync*& _sync)
+create_select_set(int numFDs, select_set*& _set)
 {
-	// create sync structure
-	select_sync* sync = new(nothrow) select_sync;
-	if (sync == NULL)
+	// create set structure
+	select_set* set = new(nothrow) select_set;
+	if (set == NULL)
 		return B_NO_MEMORY;
-	ObjectDeleter<select_sync> syncDeleter(sync);
+	ObjectDeleter<select_set> setDeleter(set);
 
 	// create info set
-	sync->set = new(nothrow) select_info[numFDs];
-	if (sync->set == NULL)
+	set->syncs = new(nothrow) selectsync[numFDs];
+	if (set->syncs == NULL)
 		return B_NO_MEMORY;
-	ArrayDeleter<select_info> setDeleter(sync->set);
+	ArrayDeleter<selectsync> syncsDeleter(set->syncs);
 
 	// create select event semaphore
-	sync->sem = create_sem(0, "select");
-	if (sync->sem < 0)
-		return sync->sem;
+	set->sem = create_sem(0, "select");
+	if (set->sem < 0)
+		return set->sem;
 
-	sync->count = numFDs;
-	sync->ref_count = 1;
+	set->count = numFDs;
 
 	for (int i = 0; i < numFDs; i++) {
-		sync->set[i].next = NULL;
-		sync->set[i].sync = sync;
+		set->syncs[i].pool = NULL;
+		set->syncs[i].pool_next = NULL;
+		set->syncs[i].set = set;
 	}
 
 	setDeleter.Detach();
-	syncDeleter.Detach();
-	_sync = sync;
+	syncsDeleter.Detach();
+	_set = set;
 
 	return B_OK;
 }
 
 
 void
-put_select_sync(select_sync* sync)
+delete_select_set(select_set* set)
 {
-	FUNCTION(("put_select_sync(%p): -> %ld\n", sync, sync->ref_count - 1));
+	FUNCTION(("delete_select_set(%p)\n", set));
 
-	if (atomic_add(&sync->ref_count, -1) == 1) {
-		delete_sem(sync->sem);
-		delete[] sync->set;
-		delete sync;
-	}
+	delete_sem(set->sem);
+	delete[] set->syncs;
+	delete set;
 }
 
 
@@ -447,8 +443,8 @@ common_select(int numFDs, fd_set *readSet, fd_set *writeSet, fd_set *errorSet,
 	}
 
 	// allocate sync object
-	select_sync* sync;
-	status = create_select_sync(numFDs, sync);
+	select_set* set;
+	status = create_select_set(numFDs, set);
 	if (status != B_OK)
 		return status;
 
@@ -456,42 +452,50 @@ common_select(int numFDs, fd_set *readSet, fd_set *writeSet, fd_set *errorSet,
 
 	// start selecting file descriptors
 
+	bool haveEvents = false;
+
 	for (fd = 0; fd < numFDs; fd++) {
-		sync->set[fd].selected_events = 0;
-		sync->set[fd].events = 0;
+		set->syncs[fd].selected_events = 0;
+		set->syncs[fd].events = 0;
 
 		if (readSet && FD_ISSET(fd, readSet))
-			sync->set[fd].selected_events = SELECT_FLAG(B_SELECT_READ);
+			set->syncs[fd].selected_events = B_EVENT_READ;
 		if (writeSet && FD_ISSET(fd, writeSet))
-			sync->set[fd].selected_events |= SELECT_FLAG(B_SELECT_WRITE);
+			set->syncs[fd].selected_events |= B_EVENT_WRITE;
 		if (errorSet && FD_ISSET(fd, errorSet))
-			sync->set[fd].selected_events |= SELECT_FLAG(B_SELECT_ERROR);
+			set->syncs[fd].selected_events |= B_EVENT_ERROR;
 
-		if (sync->set[fd].selected_events != 0) {
-			select_fd(fd, sync->set + fd, kernel);
-				// array position is the same as the fd for select()
+		if (set->syncs[fd].selected_events != 0) {
+			status_t status = select_fd(fd, &set->syncs[fd], kernel);
+			if (status != B_OK)
+				set->syncs[fd].events = B_EVENT_ERROR;
+			if (set->syncs[fd].events != 0)
+				haveEvents = true;
 		}
 	}
 
-	// set new signal mask
-	sigset_t oldSigMask;
-	if (sigMask != NULL)
-		sigprocmask(SIG_SETMASK, sigMask, &oldSigMask);
+	if (!haveEvents) {
+		// set new signal mask
+		sigset_t oldSigMask;
+		if (sigMask != NULL)
+			sigprocmask(SIG_SETMASK, sigMask, &oldSigMask);
 
-	// wait for something to happen
-	status = acquire_sem_etc(sync->sem, 1,
-		B_CAN_INTERRUPT | (timeout >= 0 ? B_ABSOLUTE_TIMEOUT : 0), timeout);
+		// wait for something to happen
+		status = acquire_sem_etc(set->sem, 1,
+			B_CAN_INTERRUPT | (timeout >= 0 ? B_ABSOLUTE_TIMEOUT : 0), timeout);
 
-	// restore the old signal mask
-	if (sigMask != NULL)
-		sigprocmask(SIG_SETMASK, &oldSigMask, NULL);
+		// restore the old signal mask
+		if (sigMask != NULL)
+			sigprocmask(SIG_SETMASK, &oldSigMask, NULL);
 
-	PRINT(("common_select(): acquire_sem_etc() returned: %lx\n", status));
+		PRINT(("common_select(): acquire_sem_etc() returned: %lx\n", status));
+	}
+
 
 	// deselect file descriptors
 
 	for (fd = 0; fd < numFDs; fd++)
-		deselect_fd(fd, sync->set + fd, kernel);
+		remove_select_pool_entry(&set->syncs[fd]);
 
 	PRINT(("common_select(): events deselected\n"));
 
@@ -502,7 +506,6 @@ common_select(int numFDs, fd_set *readSet, fd_set *writeSet, fd_set *errorSet,
 	if (status == B_INTERRUPTED) {
 		// We must not clear the sets in this case, as applications may
 		// rely on the contents of them.
-		put_select_sync(sync);
 		T(SelectDone(numFDs, readSet, writeSet, errorSet, status));
 		return B_INTERRUPTED;
 	}
@@ -516,29 +519,28 @@ common_select(int numFDs, fd_set *readSet, fd_set *writeSet, fd_set *errorSet,
 
 	if (status == B_OK) {
 		for (count = 0, fd = 0;fd < numFDs; fd++) {
-			if (readSet && sync->set[fd].events & SELECT_FLAG(B_SELECT_READ)) {
+			if (readSet && set->syncs[fd].events & B_EVENT_READ) {
 				FD_SET(fd, readSet);
 				count++;
 			}
 			if (writeSet
-				&& sync->set[fd].events & SELECT_FLAG(B_SELECT_WRITE)) {
+				&& set->syncs[fd].events & B_EVENT_WRITE) {
 				FD_SET(fd, writeSet);
 				count++;
 			}
 			if (errorSet
-				&& sync->set[fd].events & SELECT_FLAG(B_SELECT_ERROR)) {
+				&& set->syncs[fd].events & B_EVENT_ERROR) {
 				FD_SET(fd, errorSet);
 				count++;
 			}
 		}
 	}
 
+	delete_select_set(set);
+
 	// B_TIMED_OUT and B_WOULD_BLOCK are supposed to return 0
 
-	put_select_sync(sync);
-
 	T(SelectDone(numFDs, readSet, writeSet, errorSet, status));
-
 	return count;
 }
 
@@ -546,9 +548,9 @@ common_select(int numFDs, fd_set *readSet, fd_set *writeSet, fd_set *errorSet,
 static int
 common_poll(struct pollfd *fds, nfds_t numFDs, bigtime_t timeout, bool kernel)
 {
-	// allocate sync object
-	select_sync* sync;
-	status_t status = create_select_sync(numFDs, sync);
+	// allocate set object
+	select_set* set;
+	status_t status = create_select_set(numFDs, set);
 	if (status != B_OK)
 		return status;
 
@@ -556,26 +558,30 @@ common_poll(struct pollfd *fds, nfds_t numFDs, bigtime_t timeout, bool kernel)
 
 	// start polling file descriptors (by selecting them)
 
-	bool invalid = false;
+	bool haveEvents = false;
 	for (uint32 i = 0; i < numFDs; i++) {
 		int fd = fds[i].fd;
-
-		// initialize events masks
-		sync->set[i].selected_events = fds[i].events
-			| POLLNVAL | POLLERR | POLLHUP;
-		sync->set[i].events = 0;
 		fds[i].revents = 0;
 
-		if (fd >= 0 && select_fd(fd, sync->set + i, kernel) != B_OK) {
-			sync->set[i].events = POLLNVAL;
-			fds[i].revents = POLLNVAL;
-				// indicates that the FD doesn't need to be deselected
-			invalid = true;
+		if (fd < 0)
+			continue;
+
+		// initialize events masks
+		set->syncs[i].selected_events = fds[i].events
+			| POLLNVAL | POLLERR | POLLHUP;
+		set->syncs[i].events = 0;
+
+		status = select_fd(fd, &set->syncs[i], kernel);
+		if (status != B_OK)
+			set->syncs[i].events = POLLNVAL;
+		if (set->syncs[i].events != 0) {
+			fds[i].events = set->syncs[i].events;
+			haveEvents = true;
 		}
 	}
 
-	if (!invalid) {
-		status = acquire_sem_etc(sync->sem, 1,
+	if (!haveEvents) {
+		status = acquire_sem_etc(set->sem, 1,
 			B_CAN_INTERRUPT | (timeout >= 0 ? B_ABSOLUTE_TIMEOUT : 0), timeout);
 	}
 
@@ -583,7 +589,7 @@ common_poll(struct pollfd *fds, nfds_t numFDs, bigtime_t timeout, bool kernel)
 
 	for (uint32 i = 0; i < numFDs; i++) {
 		if (fds[i].fd >= 0 && (fds[i].revents & POLLNVAL) == 0)
-			deselect_fd(fds[i].fd, sync->set + i, kernel);
+			remove_select_pool_entry(&set->syncs[i]);
 	}
 
 	// collect the events that have happened in the meantime
@@ -596,8 +602,8 @@ common_poll(struct pollfd *fds, nfds_t numFDs, bigtime_t timeout, bool kernel)
 					continue;
 
 				// POLLxxx flags and B_SELECT_xxx flags are compatible
-				fds[i].revents = sync->set[i].events
-					& sync->set[i].selected_events;
+				fds[i].revents = set->syncs[i].events
+					& set->syncs[i].selected_events;
 				if (fds[i].revents != 0)
 					count++;
 			}
@@ -610,7 +616,7 @@ common_poll(struct pollfd *fds, nfds_t numFDs, bigtime_t timeout, bool kernel)
 			break;
 	}
 
-	put_select_sync(sync);
+	delete_select_set(set);
 
 	T(PollDone(fds, numFDs, count));
 
@@ -624,46 +630,47 @@ common_wait_for_objects(object_wait_info* infos, int numInfos, uint32 flags,
 {
 	status_t status = B_OK;
 
-	// allocate sync object
-	select_sync* sync;
-	status = create_select_sync(numInfos, sync);
+	// allocate set object
+	select_set* set;
+	status = create_select_set(numInfos, set);
 	if (status != B_OK)
 		return status;
 
 	// start selecting objects
 
-	bool invalid = false;
+	bool haveEvents = false;
 	for (int i = 0; i < numInfos; i++) {
 		uint16 type = infos[i].type;
 		int32 object = infos[i].object;
 
 		// initialize events masks
-		sync->set[i].selected_events = infos[i].events
+		set->syncs[i].selected_events = infos[i].events
 			| B_EVENT_INVALID | B_EVENT_ERROR | B_EVENT_DISCONNECTED;
-		sync->set[i].events = 0;
+		set->syncs[i].events = 0;
 		infos[i].events = 0;
 
-		if (type >= kSelectOpsCount
-			|| kSelectOps[type].select(object, sync->set + i, kernel) != B_OK) {
-			sync->set[i].events = B_EVENT_INVALID;
-			infos[i].events = B_EVENT_INVALID;
-				// indicates that the object doesn't need to be deselected
-			invalid = true;
+		if (type >= kSelectOpsCount)
+			status = B_ERROR;
+		else
+			status = kSelectOps[type].select(object, &set->syncs[i], kernel);
+
+		if (status != B_OK)
+			set->syncs[i].events = B_EVENT_INVALID;
+		if (set->syncs[i].events != 0) {
+			infos[i].events = set->syncs[i].events;
+			haveEvents = true;
 		}
 	}
 
-	if (!invalid) {
-		status = acquire_sem_etc(sync->sem, 1, B_CAN_INTERRUPT | flags,
+	if (!haveEvents) {
+		status = acquire_sem_etc(set->sem, 1, B_CAN_INTERRUPT | flags,
 			timeout);
 	}
 
 	// deselect objects
 
 	for (int i = 0; i < numInfos; i++) {
-		uint16 type = infos[i].type;
-
-		if (type < kSelectOpsCount && (infos[i].events & B_EVENT_INVALID) == 0)
-			kSelectOps[type].deselect(infos[i].object, sync->set + i, kernel);
+		remove_select_pool_entry(&set->syncs[i]);
 	}
 
 	// collect the events that have happened in the meantime
@@ -671,8 +678,8 @@ common_wait_for_objects(object_wait_info* infos, int numInfos, uint32 flags,
 	ssize_t count = 0;
 	if (status == B_OK) {
 		for (int i = 0; i < numInfos; i++) {
-			infos[i].events = sync->set[i].events
-				& sync->set[i].selected_events;
+			infos[i].events = set->syncs[i].events
+				& set->syncs[i].selected_events;
 			if (infos[i].events != 0)
 				count++;
 		}
@@ -681,7 +688,7 @@ common_wait_for_objects(object_wait_info* infos, int numInfos, uint32 flags,
 		count = status;
 	}
 
-	put_select_sync(sync);
+	delete_select_set(set);
 
 	return count;
 }
@@ -690,183 +697,164 @@ common_wait_for_objects(object_wait_info* infos, int numInfos, uint32 flags,
 // #pragma mark - kernel private
 
 
-status_t
-notify_select_events(select_info* info, uint16 events)
+static status_t
+notify_select_events(selectsync* info, uint32 events)
 {
 	FUNCTION(("notify_select_events(%p (%p), 0x%x)\n", info, info->sync,
 		events));
 
 	if (info == NULL
-		|| info->sync == NULL
-		|| info->sync->sem < B_OK)
+		|| info->set == NULL
+		|| info->set->sem < B_OK)
 		return B_BAD_VALUE;
 
-	atomic_or(&info->events, events);
+	atomic_or((int32*)&info->events, events);
 
 	// only wake up the waiting select()/poll() call if the events
 	// match one of the selected ones
 	if (info->selected_events & events)
-		return release_sem_etc(info->sync->sem, 1, B_DO_NOT_RESCHEDULE);
+		return release_sem_etc(info->set->sem, 1, B_DO_NOT_RESCHEDULE);
 
 	return B_OK;
 }
 
 
-void
-notify_select_events_list(select_info* list, uint16 events)
-{
-	struct select_info* info = list;
-	while (info != NULL) {
-		notify_select_events(info, events);
-		info = info->next;
-	}
-}
-
-
-//	#pragma mark - public kernel API
+//	#pragma mark - deprecated public kernel API
 
 
 status_t
 notify_select_event(struct selectsync *sync, uint8 event)
 {
-	return notify_select_events((select_info*)sync, SELECT_FLAG(event));
+	return notify_select_events(sync, SELECT_FLAG(event));
 }
 
 
 //	#pragma mark - private kernel exported API
 
 
-static select_sync_pool_entry *
-find_select_sync_pool_entry(select_sync_pool *pool, selectsync *sync)
+static bool
+in_select_pool(select_pool* pool, selectsync* info)
 {
-	for (SelectSyncPoolEntryList::Iterator it = pool->entries.GetIterator();
-		 it.HasNext();) {
-		select_sync_pool_entry *entry = it.Next();
-		if (entry->sync == sync)
-			return entry;
+	for (selectsync* current = (selectsync*)pool->first; current != NULL;
+			current = current->pool_next) {
+		if (current == info)
+			return true;
 	}
-
-	return NULL;
+	return false;
 }
 
 
-static status_t
-add_select_sync_pool_entry(select_sync_pool *pool, selectsync *sync,
-	uint8 event)
+select_pool*
+create_select_pool(const char* object_type)
 {
-	// check, whether the entry does already exist
-	select_sync_pool_entry *entry = find_select_sync_pool_entry(pool, sync);
-	if (!entry) {
-		entry = new (std::nothrow) select_sync_pool_entry;
-		if (!entry)
-			return B_NO_MEMORY;
-
-		entry->sync = sync;
-		entry->events = 0;
-
-		pool->entries.Add(entry);
-	}
-
-	entry->events |= SELECT_FLAG(event);
-
-	return B_OK;
-}
-
-
-status_t
-add_select_sync_pool_entry(select_sync_pool **_pool, selectsync *sync,
-	uint8 event)
-{
-	// create the pool, if necessary
-	select_sync_pool *pool = *_pool;
-	if (!pool) {
-		pool = new (std::nothrow) select_sync_pool;
-		if (!pool)
-			return B_NO_MEMORY;
-
-		*_pool = pool;
-	}
-
-	// add the entry
-	status_t error = add_select_sync_pool_entry(pool, sync, event);
-
-	// cleanup
-	if (pool->entries.IsEmpty()) {
-		delete pool;
-		*_pool = NULL;
-	}
-
-	return error;
-}
-
-
-status_t
-remove_select_sync_pool_entry(select_sync_pool **_pool, selectsync *sync,
-	uint8 event)
-{
-	select_sync_pool *pool = *_pool;
-	if (!pool)
-		return B_ENTRY_NOT_FOUND;
-
-	// clear the event flag of the concerned entries
-	bool found = false;
-	for (SelectSyncPoolEntryList::Iterator it = pool->entries.GetIterator();
-		 it.HasNext();) {
-		select_sync_pool_entry *entry = it.Next();
-		if (entry->sync == sync) {
-			found = true;
-			entry->events &= ~SELECT_FLAG(event);
-
-			// remove the entry, if no longer needed
-			if (entry->events == 0) {
-				it.Remove();
-				delete entry;
-			}
-		}
-	}
-
-	if (!found)
-		return B_ENTRY_NOT_FOUND;
-
-	// delete the pool, if no longer needed
-	if (pool->entries.IsEmpty()) {
-		delete pool;
-		*_pool = NULL;
-	}
-
-	return B_OK;
+	select_pool* pool = new select_pool;
+	pool->first = NULL;
+	mutex_init(&pool->lock, object_type);
+	return pool;
 }
 
 
 void
-delete_select_sync_pool(select_sync_pool *pool)
+add_select_pool_entry(select_pool* pool, selectsync* info)
 {
-	if (!pool)
+	if (pool == NULL)
+		panic("trying to add a selectsync to a NULL pool!");
+	ASSERT(info != NULL);
+
+	MutexLocker _(pool->lock);
+
+	if (in_select_pool(pool, info))
 		return;
 
-	while (select_sync_pool_entry *entry = pool->entries.Head()) {
-		pool->entries.Remove(entry);
-		delete entry;
+	info->pool = pool;
+	info->pool_next = pool->first;
+	pool->first = info;
+}
+
+
+void
+remove_select_pool_entry(selectsync* info)
+{
+	if (info->pool == NULL)
+		return;
+
+	select_pool* pool = info->pool;
+
+	MutexLocker _(pool->lock);
+	info->pool = NULL;
+
+	if (pool->first == NULL)
+		return;
+
+	if (info == (selectsync*)pool->first) {
+		pool->first = info->pool_next;
+		return;
 	}
 
+	selectsync* previous = (selectsync*)pool->first;
+
+	for (selectsync* current = previous->pool_next; current != NULL;
+			current = current->pool_next) {
+		if (current == info) {
+			previous->pool_next = current->pool_next;
+			return;
+		}
+		previous = current;
+	}
+}
+
+
+void
+notify_select_pool(select_pool* pool, uint32 events)
+{
+	if (pool == NULL)
+		return;
+
+	MutexLocker _(pool->lock);
+	for (selectsync* info = (selectsync*)pool->first; info != NULL;
+			info = info->pool_next) {
+		if ((info->selected_events & events) != 0)
+			notify_select_events(info, events);
+	}
+}
+
+
+void
+destroy_select_pool(select_pool* pool)
+{
+	if (pool == NULL)
+		return;
+
+	MutexLocker locker(pool->lock);
+
+	// This loop looks a bit strange because we need to store the "next"
+	// pointer before notifying the current one.
+	selectsync* info;
+	while ((info = pool->first) != NULL) {
+		pool->first = pool->first->pool_next;
+		info->pool = NULL;
+		notify_select_events(info, B_EVENT_INVALID);
+	}
+
+	locker.Unlock();
 	delete pool;
 }
 
 
-void
-notify_select_event_pool(select_sync_pool *pool, uint8 event)
+status_t
+select_sync_legacy_select(void* cookie, device_select_hook hook, uint32* events,
+	selectsync* sync)
 {
-	if (!pool)
-		return;
+	int32 selectedEvents = 0;
 
-	FUNCTION(("notify_select_event_pool(%p, %u)\n", pool, event));
-
-	for (SelectSyncPoolEntryList::Iterator it = pool->entries.GetIterator();
-		 it.HasNext();) {
-		select_sync_pool_entry *entry = it.Next();
-		if (entry->events & SELECT_FLAG(event))
-			notify_select_event(entry->sync, event);
+	for (uint16 event = 1; event <= 8; event++) {
+		if ((*events & SELECT_FLAG(event)) != 0
+				&& hook(cookie, event, 0, sync) == B_OK)
+			selectedEvents |= SELECT_FLAG(event);
 	}
+
+	*events = sync->events;
+	return B_OK;
 }
 
 

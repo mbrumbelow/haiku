@@ -12,7 +12,7 @@
 #include <tty/tty_module.h>
 
 #include <condition_variable.h>
-#include <fs/select_sync_pool.h>
+#include <select_pool.h>
 #include <lock.h>
 #include <util/DoublyLinkedList.h>
 
@@ -131,7 +131,7 @@ struct tty {
 	int32				opened_count;
 	struct mutex		lock;
 	tty_settings		settings;
-	select_sync_pool*	select_pool;
+	struct select_pool*	select_pool;
 	RequestQueue		reader_queue;
 	RequestQueue		writer_queue;
 	TTYCookieList		cookies;
@@ -161,7 +161,6 @@ extern status_t tty_control(tty_cookie *cookie, uint32 op, void *buffer,
 	size_t length);
 extern status_t tty_select(tty_cookie *cookie, uint8 event, uint32 ref,
 	selectsync *sync);
-extern status_t tty_deselect(tty_cookie *cookie, uint8 event, selectsync *sync);
 
 extern status_t tty_input_lock(tty_cookie* cookie, bool lock);
 extern status_t tty_hardware_signal(tty_cookie* cookie, int signal, bool);

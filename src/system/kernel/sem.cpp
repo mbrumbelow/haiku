@@ -97,7 +97,7 @@ struct sem_entry {
 									// threads
 			char*				name;
 			team_id				owner;
-			select_info*		select_infos;
+			struct select_pool*	select_pool;
 			thread_id			last_acquirer;
 #if DEBUG_SEM_LAST_ACQUIRER
 			int32				last_acquire_count;
@@ -292,12 +292,10 @@ free_sem_slot(int slot, sem_id nextID)
 	sem->u.unused.next = NULL;
 }
 
-
 static inline void
-notify_sem_select_events(struct sem_entry* sem, uint16 events)
+notify_sem_select_events(struct sem_entry* sem, uint32 events)
 {
-	if (sem->u.used.select_infos)
-		notify_select_events_list(sem->u.used.select_infos, events);
+	notify_select_pool(sem->u.used.select_pool, events);
 }
 
 
@@ -325,8 +323,8 @@ uninit_sem_locked(struct sem_entry& sem, char** _name, SpinLocker& locker)
 {
 	KTRACE("delete_sem(sem: %ld)", sem.u.used.id);
 
-	notify_sem_select_events(&sem, B_EVENT_INVALID);
-	sem.u.used.select_infos = NULL;
+	destroy_select_pool(sem.u.used.select_pool);
+	sem.u.used.select_pool = NULL;
 
 	// free any threads waiting for this semaphore
 	while (queued_thread* entry = sem.queue.RemoveHead()) {
@@ -512,7 +510,7 @@ create_sem_etc(int32 count, const char* name, team_id owner)
 		new(&sem->queue) ThreadQueue;
 		sem->u.used.name = tempName;
 		sem->u.used.owner = team->id;
-		sem->u.used.select_infos = NULL;
+		sem->u.used.select_pool = NULL;
 		id = sem->id;
 
 		list_add_item(&team->sem_list, &sem->u.used.team_link);
@@ -537,7 +535,7 @@ create_sem_etc(int32 count, const char* name, team_id owner)
 
 
 status_t
-select_sem(int32 id, struct select_info* info, bool kernel)
+select_sem(int32 id, struct selectsync* sync, bool kernel)
 {
 	if (id < 0)
 		return B_BAD_SEM_ID;
@@ -554,41 +552,16 @@ select_sem(int32 id, struct select_info* info, bool kernel)
 		// kernel semaphore, but call from userland
 		return B_NOT_ALLOWED;
 	} else {
-		info->selected_events &= B_EVENT_ACQUIRE_SEMAPHORE | B_EVENT_INVALID;
+		sync->selected_events &= B_EVENT_ACQUIRE_SEMAPHORE | B_EVENT_INVALID;
 
-		if (info->selected_events != 0) {
-			info->next = sSems[slot].u.used.select_infos;
-			sSems[slot].u.used.select_infos = info;
+		if (sync->selected_events != 0) {
+			if (sSems[slot].u.used.select_pool == NULL)
+				sSems[slot].u.used.select_pool = create_select_pool("sem");
+			add_select_pool_entry(sSems[slot].u.used.select_pool, sync);
 
 			if (sSems[slot].u.used.count > 0)
-				notify_select_events(info, B_EVENT_ACQUIRE_SEMAPHORE);
+				sync->events = B_EVENT_ACQUIRE_SEMAPHORE;
 		}
-	}
-
-	return B_OK;
-}
-
-
-status_t
-deselect_sem(int32 id, struct select_info* info, bool kernel)
-{
-	if (id < 0)
-		return B_BAD_SEM_ID;
-
-	if (info->selected_events == 0)
-		return B_OK;
-
-	int32 slot = id % sMaxSems;
-
-	InterruptsSpinLocker _(&sSems[slot].lock);
-
-	if (sSems[slot].id == id) {
-		select_info** infoLocation = &sSems[slot].u.used.select_infos;
-		while (*infoLocation != NULL && *infoLocation != info)
-			infoLocation = &(*infoLocation)->next;
-
-		if (*infoLocation == info)
-			*infoLocation = info->next;
 	}
 
 	return B_OK;

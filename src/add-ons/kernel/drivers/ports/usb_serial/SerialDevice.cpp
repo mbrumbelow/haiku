@@ -440,16 +440,6 @@ SerialDevice::Select(uint8 event, uint32 ref, selectsync *sync)
 
 
 status_t
-SerialDevice::DeSelect(uint8 event, selectsync *sync)
-{
-	if (fDeviceRemoved)
-		return B_DEV_NOT_READY;
-
-	return gTTYModule->tty_deselect(fSystemTTYCookie, event, sync);
-}
-
-
-status_t
 SerialDevice::Close()
 {
 	OnClose();

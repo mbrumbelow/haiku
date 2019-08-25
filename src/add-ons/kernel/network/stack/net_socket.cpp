@@ -26,7 +26,7 @@
 #include <util/list.h>
 #include <WeakReferenceable.h>
 
-#include <fs/select_sync_pool.h>
+#include <select_pool.h>
 #include <kernel.h>
 
 #include <net_protocol.h>
@@ -63,7 +63,7 @@ struct net_socket_private : net_socket,
 	SocketList					pending_children;
 	SocketList					connected_children;
 
-	struct select_sync_pool*	select_pool;
+	struct select_pool*			select_pool;
 	mutex						lock;
 
 	bool						is_connected;
@@ -86,7 +86,6 @@ net_socket_private::net_socket_private()
 	owner(-1),
 	max_backlog(0),
 	child_count(0),
-	select_pool(NULL),
 	is_connected(false),
 	is_in_socket_list(false)
 {
@@ -101,6 +100,7 @@ net_socket_private::net_socket_private()
 	peer.ss_len = 0;
 
 	mutex_init(&lock, "socket");
+	select_pool = create_select_pool("socket");
 
 	// set defaults (may be overridden by the protocols)
 	send.buffer_size = 65535;
@@ -133,6 +133,8 @@ net_socket_private::~net_socket_private()
 	while (net_socket_private* child = connected_children.RemoveHead()) {
 		child->RemoveFromParent();
 	}
+
+	destroy_select_pool(select_pool);
 
 	mutex_unlock(&lock);
 
@@ -840,8 +842,7 @@ socket_connected(net_socket* _socket)
 	socket->is_connected = true;
 
 	// notify parent
-	if (parent->select_pool)
-		notify_select_event_pool(parent->select_pool, B_SELECT_READ);
+	notify_select_pool(parent->select_pool, B_EVENT_READ);
 
 	return B_OK;
 }
@@ -879,57 +880,33 @@ socket_aborted(net_socket* _socket)
 
 
 status_t
-socket_request_notification(net_socket* _socket, uint8 event, selectsync* sync)
+socket_request_notification(net_socket* _socket, uint32* events, selectsync* sync)
 {
 	net_socket_private* socket = (net_socket_private*)_socket;
 
-	mutex_lock(&socket->lock);
+	add_select_pool_entry(socket->select_pool, sync);
 
-	status_t status = add_select_sync_pool_entry(&socket->select_pool, sync,
-		event);
+	int32 returnEvents = 0;
 
-	mutex_unlock(&socket->lock);
-
-	if (status != B_OK)
-		return status;
-
-	// check if the event is already present
-	// TODO: add support for poll() types
-
-	switch (event) {
-		case B_SELECT_READ:
-		{
-			ssize_t available = socket_read_avail(socket);
-			if ((ssize_t)socket->receive.low_water_mark <= available
-				|| available < B_OK)
-				notify_select_event(sync, event);
-			break;
-		}
-		case B_SELECT_WRITE:
-		{
-			ssize_t available = socket_send_avail(socket);
-			if ((ssize_t)socket->send.low_water_mark <= available
-				|| available < B_OK)
-				notify_select_event(sync, event);
-			break;
-		}
-		case B_SELECT_ERROR:
-			if (socket->error != B_OK)
-				notify_select_event(sync, event);
-			break;
+	if ((*events & B_EVENT_READ) != 0) {
+		ssize_t available = socket_read_avail(socket);
+		if ((ssize_t)socket->receive.low_water_mark <= available
+			|| available < B_OK)
+			returnEvents |= B_EVENT_READ;
 	}
 
+	if ((*events & B_EVENT_WRITE) != 0) {
+		ssize_t available = socket_send_avail(socket);
+		if ((ssize_t)socket->send.low_water_mark <= available
+			|| available < B_OK)
+			returnEvents |= B_EVENT_WRITE;
+	}
+
+	if (socket->error != B_OK)
+		returnEvents |= B_EVENT_ERROR;
+
+	*events = returnEvents;
 	return B_OK;
-}
-
-
-status_t
-socket_cancel_notification(net_socket* _socket, uint8 event, selectsync* sync)
-{
-	net_socket_private* socket = (net_socket_private*)_socket;
-
-	MutexLocker _(socket->lock);
-	return remove_select_sync_pool_entry(&socket->select_pool, sync, event);
 }
 
 
@@ -939,34 +916,32 @@ socket_notify(net_socket* _socket, uint8 event, int32 value)
 	net_socket_private* socket = (net_socket_private*)_socket;
 	bool notify = true;
 
+	int32 events = 0;
+
 	switch (event) {
 		case B_SELECT_READ:
+			events |= B_EVENT_READ;
 			if ((ssize_t)socket->receive.low_water_mark > value
 				&& value >= B_OK)
 				notify = false;
 			break;
 
 		case B_SELECT_WRITE:
+			events |= B_EVENT_WRITE;
 			if ((ssize_t)socket->send.low_water_mark > value && value >= B_OK)
 				notify = false;
 			break;
 
 		case B_SELECT_ERROR:
+			events |= B_EVENT_ERROR | B_EVENT_READ | B_EVENT_WRITE;
 			socket->error = value;
 			break;
 	}
 
 	MutexLocker _(socket->lock);
 
-	if (notify && socket->select_pool != NULL) {
-		notify_select_event_pool(socket->select_pool, event);
-
-		if (event == B_SELECT_ERROR) {
-			// always notify read/write on error
-			notify_select_event_pool(socket->select_pool, B_SELECT_READ);
-			notify_select_event_pool(socket->select_pool, B_SELECT_WRITE);
-		}
-	}
+	if (notify)
+		notify_select_pool(socket->select_pool, events);
 
 	return B_OK;
 }
@@ -1769,7 +1744,6 @@ net_socket_module_info gNetSocketModule = {
 
 	// notifications
 	socket_request_notification,
-	socket_cancel_notification,
 	socket_notify,
 
 	// standard socket API

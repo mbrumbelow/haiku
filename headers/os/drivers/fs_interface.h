@@ -147,7 +147,7 @@ struct fs_vnode_ops {
 	status_t (*set_flags)(fs_volume* volume, fs_vnode* vnode, void* cookie,
 				int flags);
 	status_t (*select)(fs_volume* volume, fs_vnode* vnode, void* cookie,
-				uint8 event, selectsync* sync);
+				uint32* events, selectsync* sync);
 	status_t (*deselect)(fs_volume* volume, fs_vnode* vnode, void* cookie,
 				uint8 event, selectsync* sync);
 	status_t (*fsync)(fs_volume* volume, fs_vnode* vnode);

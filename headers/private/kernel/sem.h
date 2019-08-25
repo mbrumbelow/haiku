@@ -14,7 +14,6 @@
 
 
 struct kernel_args;
-struct select_info;
 
 
 #ifdef __cplusplus
@@ -26,9 +25,7 @@ extern void sem_delete_owned_sems(Team* team);
 extern int32 sem_used_sems(void);
 extern int32 sem_max_sems(void);
 
-extern status_t select_sem(int32 object, struct select_info *info, bool kernel);
-extern status_t deselect_sem(int32 object, struct select_info *info,
-			bool kernel);
+extern status_t select_sem(int32 object, struct selectsync *sync, bool kernel);
 
 extern sem_id create_sem_etc(int32 count, const char *name, team_id owner);
 

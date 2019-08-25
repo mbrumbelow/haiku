@@ -261,19 +261,11 @@ socket_set_flags(struct file_descriptor *descriptor, int flags)
 }
 
 
-static status_t
-socket_select(struct file_descriptor *descriptor, uint8 event,
+static int32
+socket_select(struct file_descriptor *descriptor, uint32* events,
 	struct selectsync *sync)
 {
-	return sStackInterface->select(descriptor->u.socket, event, sync);
-}
-
-
-static status_t
-socket_deselect(struct file_descriptor *descriptor, uint8 event,
-	struct selectsync *sync)
-{
-	return sStackInterface->deselect(descriptor->u.socket, event, sync);
+	return sStackInterface->select(descriptor->u.socket, events, sync);
 }
 
 
@@ -326,7 +318,6 @@ static struct fd_ops sSocketFDOps = {
 	&socket_ioctl,
 	&socket_set_flags,
 	&socket_select,
-	&socket_deselect,
 	NULL,	// fd_read_dir
 	NULL,	// fd_rewind_dir
 	&socket_read_stat,

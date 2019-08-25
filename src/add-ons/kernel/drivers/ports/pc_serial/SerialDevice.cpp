@@ -161,7 +161,7 @@ SerialDevice::SetModes(struct termios *tios)
 		// disable
 		MaskReg8(MCR, MCR_DTR);
 	} else {
-		// set FCR now, 
+		// set FCR now,
 		// 16650 and later chips have another reg at 2 when DLAB=1
 		uint8 fcr = FCR_ENABLE | FCR_RX_RST | FCR_TX_RST | FCR_F_8 | FCR_F64EN;
 		// enable fifo
@@ -283,7 +283,7 @@ SerialDevice::Service(struct tty *tty, uint32 op, void *buffer, size_t length)
 			SignalControlLineState(TTYHWCTS, msr & MSR_CTS);
 
 			if (enable) {
-				// 
+				//
 				WriteReg8(MCR, MCR_DTR | MCR_RTS | MCR_IRQ_EN /*| MCR_LOOP*//*XXXXXXX*/);
 				// enable irqs
 				fCachedIER = IER_RLS | IER_MS | IER_RDA;
@@ -411,7 +411,7 @@ SerialDevice::InterruptHandler()
 		size_t readable = 0;
 		size_t fifoavail = 1;
 		size_t i;
-		
+
 		//DEBUG
 //		for (int count = 0; ReadReg8(LSR) & LSR_DR; count++)
 //			gTTYModule->ttyin(&fTTY, &fRover, ReadReg8(RBR));
@@ -692,16 +692,6 @@ SerialDevice::Select(uint8 event, uint32 ref, selectsync *sync)
 		return B_DEV_NOT_READY;
 
 	return gTTYModule->tty_select(fSystemTTYCookie, event, ref, sync);
-}
-
-
-status_t
-SerialDevice::DeSelect(uint8 event, selectsync *sync)
-{
-	if (fDeviceRemoved)
-		return B_DEV_NOT_READY;
-
-	return gTTYModule->tty_deselect(fSystemTTYCookie, event, sync);
 }
 
 

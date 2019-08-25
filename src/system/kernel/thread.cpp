@@ -186,7 +186,7 @@ Thread::Thread(const char* name, thread_id threadID, struct cpu_ent* cpu)
 	fault_handler(0),
 	page_faults_allowed(1),
 	team(NULL),
-	select_infos(NULL),
+	select_pool(NULL),
 	kernel_stack_area(-1),
 	kernel_stack_base(0),
 	user_stack_area(-1),
@@ -2190,9 +2190,7 @@ thread_exit(void)
 	clear_thread_debug_info(&thread->debug_info, true);
 	threadDebugInfoLocker.Unlock();
 
-	// Remove the select infos. We notify them a little later.
-	select_info* selectInfos = thread->select_infos;
-	thread->select_infos = NULL;
+	destroy_select_pool(thread->select_pool);
 
 	threadCreationLocker.Unlock();
 	restore_interrupts(state);
@@ -2200,16 +2198,6 @@ thread_exit(void)
 	threadLocker.Unlock();
 
 	destroy_thread_debug_info(&debugInfo);
-
-	// notify select infos
-	select_info* info = selectInfos;
-	while (info != NULL) {
-		select_sync* sync = info->sync;
-
-		notify_select_events(info, B_EVENT_INVALID);
-		info = info->next;
-		put_select_sync(sync);
-	}
 
 	// notify listeners
 	sNotificationService.Notify(THREAD_REMOVED, thread);
@@ -2560,7 +2548,7 @@ wait_for_thread_etc(thread_id id, uint32 flags, bigtime_t timeout,
 
 
 status_t
-select_thread(int32 id, struct select_info* info, bool kernel)
+select_thread(int32 id, selectsync* sync, bool kernel)
 {
 	// get and lock the thread
 	Thread* thread = Thread::GetAndLock(id);
@@ -2570,45 +2558,12 @@ select_thread(int32 id, struct select_info* info, bool kernel)
 	ThreadLocker threadLocker(thread, true);
 
 	// We support only B_EVENT_INVALID at the moment.
-	info->selected_events &= B_EVENT_INVALID;
+	sync->selected_events &= B_EVENT_INVALID;
 
 	// add info to list
-	if (info->selected_events != 0) {
-		info->next = thread->select_infos;
-		thread->select_infos = info;
-
-		// we need a sync reference
-		atomic_add(&info->sync->ref_count, 1);
-	}
-
-	return B_OK;
-}
-
-
-status_t
-deselect_thread(int32 id, struct select_info* info, bool kernel)
-{
-	// get and lock the thread
-	Thread* thread = Thread::GetAndLock(id);
-	if (thread == NULL)
-		return B_BAD_THREAD_ID;
-	BReference<Thread> threadReference(thread, true);
-	ThreadLocker threadLocker(thread, true);
-
-	// remove info from list
-	select_info** infoLocation = &thread->select_infos;
-	while (*infoLocation != NULL && *infoLocation != info)
-		infoLocation = &(*infoLocation)->next;
-
-	if (*infoLocation != info)
-		return B_OK;
-
-	*infoLocation = info->next;
-
-	threadLocker.Unlock();
-
-	// surrender sync reference
-	put_select_sync(info->sync);
+	if (thread->select_pool == NULL)
+		thread->select_pool = create_select_pool("thread");
+	add_select_pool_entry(thread->select_pool, sync);
 
 	return B_OK;
 }
