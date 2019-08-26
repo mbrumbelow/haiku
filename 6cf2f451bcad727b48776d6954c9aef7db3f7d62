@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8fd3396f_c0106ff4",
+        "filename": "src/servers/input/InputServer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 954,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-08-26T07:16:36Z",
+      "side": 1,
+      "message": "Why not assign \"status\" with the return code here, and then \"return status;\" at the end of the function?",
+      "revId": "6cf2f451bcad727b48776d6954c9aef7db3f7d62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8ac8777_593e86e0",
+        "filename": "src/servers/input/InputServer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 957,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-08-26T07:16:36Z",
+      "side": 1,
+      "message": "And move the above two lines into an if-block \"status \u003d\u003d B_OK\". But don\u0027t assign status to the return code of Broadcast() (if it even returns anything), leave it as result of PostMessage().",
+      "revId": "6cf2f451bcad727b48776d6954c9aef7db3f7d62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
