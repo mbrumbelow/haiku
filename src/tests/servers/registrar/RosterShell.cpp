@@ -1,9 +1,10 @@
 // RosterShell.cpp
 
+#include <iostream>
+#include <sstream>
 #include <stdio.h>
 #include <string>
 #include <string.h>
-#include <strstream>
 #include <vector>
 
 #include <List.h>
@@ -28,22 +29,24 @@ const char kShellUsage[] =
 class Shell {
 public:
 	Shell()
-		: fTerminating(false)
+		:
+		fTerminating(false)
 	{
 	}
 
 	bool IsTerminating() const { return fTerminating; }
 
-	void DoCommand(vector<string> &cmdLine)
+	void
+	DoCommand(std::vector<std::string>& cmdLine)
 	{
 		if (cmdLine.size() > 0) {
-			string command = cmdLine[0];
+			std::string command = cmdLine[0];
 			if (command == "activate" || command == "a")
 				CmdActivate(cmdLine);
 			else if (command == "exit" || command == "e")
 				CmdExit(cmdLine);
 			else if (command == "help" || command == "h")
-				Usage();
+				Usage(std::string(" "));
 			else if (command == "launch")
 				CmdLaunch(cmdLine);
 			else if (command == "list" || command == "l")
@@ -53,47 +56,54 @@ public:
 			else if (command == "quit" || command == "q")
 				CmdQuit(cmdLine);
 			else
-				Usage(string("Unknown command `") + command + "'");
+				Usage(std::string("Unknown command `") + command + "'");
 		}
 	}
 
-	void Usage(string error = "")
+	void
+	Usage(std::string error)
 	{
 		if (error.length() > 0)
-			cout << error << endl;
-		cout << kShellUsage;
+			std::cout << error << std::endl;
+		std::cout << kShellUsage;
 	}
 
-	void CmdActivate(vector<string> &args)
+	void
+	CmdActivate(std::vector<std::string>& args)
 	{
 		BRoster roster;
+
 		// get a list of team IDs
 		BList teamList;
 		if (args.size() <= 1) {
 			printf("activate: requires exactly one argument\n");
 			return;
 		}
+
 		ParseTeamList(args, &teamList);
 		int32 count = teamList.CountItems();
 		if (count != 1) {
 			printf("activate: requires exactly one argument\n");
 			return;
 		}
+
 		// activate the team
-		team_id team = (team_id)teamList.ItemAt(0);
+		team_id team = (team_id)(addr_t)teamList.ItemAt(0);
 		status_t error = roster.ActivateApp(team);
 		if (error != B_OK) {
-			printf("activate: failed to activate application %ld: %s\n",
-				   team, strerror(error));
+			printf("activate: failed to activate application %" B_PRId32
+				": %s\n", team, strerror(error));
 		}
 	}
 
-	void CmdExit(vector<string> &)
+	void
+	CmdExit(std::vector<std::string>&)
 	{
 		fTerminating = true;
 	}
 
-	void CmdLaunch(vector<string> &args)
+	void
+	CmdLaunch(std::vector<std::string>& args)
 	{
 		// check args
 		if (args.size() != 2) {
@@ -101,7 +111,7 @@ public:
 			return;
 		}
 
-		string program = args[1];
+		std::string program = args[1];
 
 		// get an app ref
 		entry_ref ref;
@@ -117,72 +127,80 @@ public:
 		team_id teamID;
 		error = roster.Launch(&ref, (const BMessage*)NULL, &teamID);
 		if (error == B_OK) {
-			printf("launched \"%s\", team id: %ld\n", program.c_str(), teamID);
+			printf("launched \"%s\", team id: %" B_PRId32 "\n", program.c_str(),
+				teamID);
 		} else {
 			printf("launch: Failed to launch \"%s\": %s\n",
 				program.c_str(), strerror(error));
 		}
 	}
 
-	static void ParseTeamList(vector<string> &args, BList *teamList)
+	static void
+	ParseTeamList(std::vector<std::string>& args, BList* teamList)
 	{
 		for (int32 i = 1; i < (int32)args.size(); i++) {
-			string arg = args[i];
+			std::string arg = args[i];
 			team_id team = -1;
-			if (sscanf(arg.c_str(), "%ld", &team) > 0)
-				teamList->AddItem((void*)team);
+			if (sscanf(arg.c_str(), "%" B_PRId32, &team) > 0)
+				teamList->AddItem((void*)(addr_t)team);
 		}
 	}
 
-	void CmdList(vector<string> &args)
+	void
+	CmdList(std::vector<std::string>& args)
 	{
 		BRoster roster;
+
 		// get a list of team IDs
 		BList teamList;
 		if (args.size() > 1)
 			ParseTeamList(args, &teamList);
 		else
 			roster.GetAppList(&teamList);
+
 		// print an info for each team
 		int32 count = teamList.CountItems();
 		printf("%-8s%-40s\n", "team", "signature");
 		printf("---------------------------------------------------------\n");
 		for (int32 i = 0; i < count; i++) {
-			team_id team = (team_id)teamList.ItemAt(i);
+			team_id team = (team_id)(addr_t)teamList.ItemAt(i);
 			app_info info;
 			status_t error = roster.GetRunningAppInfo(team, &info);
 			if (error == B_OK)
-				printf("%-8ld%-40s\n", team, info.signature);
+				printf("%-8" B_PRId32 "%-40s\n", team, info.signature);
 			else {
-				printf("%-8ldfailed to get the app_info: %s\n", team,
+				printf("%-8" B_PRId32 "failed to get the app_info: %s\n", team,
 					   strerror(error));
 			}
 		}
 		printf("\n");
 	}
 
-	void CmdListLong(vector<string> &args)
+	void
+	CmdListLong(std::vector<std::string>& args)
 	{
 		BRoster roster;
+
 		// get a list of team IDs
 		BList teamList;
 		if (args.size() > 1)
 			ParseTeamList(args, &teamList);
 		else
 			roster.GetAppList(&teamList);
+
 		// print an info for each team
 		int32 count = teamList.CountItems();
 		for (int32 i = 0; i < count; i++) {
-			team_id team = (team_id)teamList.ItemAt(i);
-			printf("team %8ld\n", team);
+			team_id team = (team_id)(addr_t)teamList.ItemAt(i);
+			printf("team %" B_PRId32 "\n", team);
 			printf("-------------\n");
 			app_info info;
 			status_t error = roster.GetRunningAppInfo(team, &info);
 			if (error == B_OK) {
 				printf("signature: %s\n", info.signature);
-				printf("thread:    %ld\n", info.thread);
-				printf("port:      %ld\n", info.port);
-				printf("flags:     0x%lx\n", info.flags);
+				printf("thread:    %" B_PRId32 "\n", info.thread);
+				printf("port:      %" B_PRId32 "\n", info.port);
+				printf("flags:     0x%" B_PRIx32 "\n", info.flags);
 				printf("file:      %s\n", BPath(&info.ref).Path());
 			} else
 				printf("failed to get the app_info: %s\n", strerror(error));
@@ -190,7 +208,8 @@ public:
 		}
 	}
 
-	void CmdQuit(vector<string> &args)
+	void
+	CmdQuit(std::vector<std::string>& args)
 	{
 		BRoster roster;
 		// get a list of team IDs
@@ -199,27 +218,29 @@ public:
 			printf("quit: requires at least one argument\n");
 			return;
 		}
+
 		ParseTeamList(args, &teamList);
 		int32 count = teamList.CountItems();
 		if (count < 1) {
 			printf("quit: requires at least one argument\n");
 			return;
 		}
+
 		// send a B_QUIT_REQUESTED message to each team
 		for (int32 i = 0; i < count; i++) {
-			team_id team = (team_id)teamList.ItemAt(i);
+			team_id team = (team_id)(addr_t)teamList.ItemAt(i);
 			status_t error = B_OK;
 			BMessenger messenger(NULL, team, &error);
 			if (messenger.IsValid()) {
 				error = messenger.SendMessage(B_QUIT_REQUESTED);
 				if (error != B_OK) {
 					printf("quit: failed to deliver the B_QUIT_REQUESTED "
-						   "message to team %ld\n", team);
+						   "message to team %" B_PRId32 "\n", team);
 					printf("      %s\n", strerror(error));
 				}
 			} else {
-				printf("quit: failed to create a messenger for team %ld\n",
-					   team);
+				printf("quit: failed to create a messenger for team %" B_PRId32
+					"\n", team);
 				printf("      %s\n", strerror(error));
 			}
 		}
@@ -232,11 +253,18 @@ private:
 
 // read_line
 bool
-read_line(char *line, size_t size)
+read_line(char* line, size_t size)
 {
-	cout << "roster> ";
-	cout.flush();
-	return cin.getline(line, size);
+	std::cout << "roster> ";
+	std::cout.flush();
+
+	try {
+		std::cin.getline(line, size);
+	} catch (const std::exception &ex) {
+		return false;
+	}
+
+	return true;
 }
 
 // main
@@ -244,18 +272,20 @@ int
 main()
 {
 	Shell shell;
+
 	// main input loop
 	char line[10240];
 	while (!shell.IsTerminating() && read_line(line, sizeof(line))) {
 		// parse args
-		istrstream in(line);
-		vector<string> args;
-		string arg;
+		std::istringstream in(line);
+		std::vector<std::string> args;
+		std::string arg;
 		while (in >> arg)
 			args.push_back(arg);
 		// invoke command
 		shell.DoCommand(args);
 	}
+
 	return 0;
 }
 
