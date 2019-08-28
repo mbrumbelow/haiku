@@ -28,6 +28,8 @@
 #include "RootFileSystem.h"
 #include "file_systems/packagefs/packagefs.h"
 
+#include <new>
+
 
 using namespace boot;
 
