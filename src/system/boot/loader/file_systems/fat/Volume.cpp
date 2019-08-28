@@ -24,7 +24,6 @@
 
 
 using namespace FATFS;
-using std::nothrow;
 
 
 Volume::Volume(boot::Partition *partition)
@@ -36,7 +35,7 @@ Volume::Volume(boot::Partition *partition)
 	if ((fDevice = open_node(partition, O_RDONLY)) < B_OK)
 		return;
 
-	fCachedBlock = new(nothrow) CachedBlock(*this);
+	fCachedBlock = new(std::nothrow) CachedBlock(*this);
 	if (fCachedBlock == NULL)
 		return;
 
@@ -153,7 +152,7 @@ Volume::Volume(boot::Partition *partition)
 	TRACE(("%s: found fat%d filesystem, root dir at cluster %d\n", __FUNCTION__,
 		fFatBits, fRootDirCluster));
 
-	fRoot = new(nothrow) Directory(*this, 0, fRootDirCluster, "/");
+	fRoot = new(std::nothrow) Directory(*this, 0, fRootDirCluster, "/");
 	return;
 
 err1:
@@ -416,7 +415,7 @@ static status_t
 dosfs_get_file_system(boot::Partition *partition, ::Directory **_root)
 {
 	TRACE(("%s()\n", __FUNCTION__));
-	Volume *volume = new(nothrow) Volume(partition);
+	Volume *volume = new(std::nothrow) Volume(partition);
 	if (volume == NULL)
 		return B_NO_MEMORY;
 

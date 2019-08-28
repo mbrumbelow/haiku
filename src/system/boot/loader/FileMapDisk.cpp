@@ -25,8 +25,6 @@
 #endif
 
 
-using std::nothrow;
-
 
 // constructor
 FileMapDisk::FileMapDisk()
@@ -52,7 +50,7 @@ FileMapDisk::Init(Node *node/*, Partition *partition, FileMap *map, off_t imageS
 	fImageSize = imageSize;
 
 	// create and bind socket
-	fSocket = new(nothrow) UDPSocket;
+	fSocket = new(std::nothrow) UDPSocket;
 	if (!fSocket)
 		return B_NO_MEMORY;
 
@@ -164,7 +162,7 @@ FileMapDisk::FindAnyFileMapDisk(Directory *volume)
 		return NULL;
 
 	// create a FileMapDisk object
-	FileMapDisk *disk = new(nothrow) FileMapDisk;
+	FileMapDisk *disk = new(std::nothrow) FileMapDisk;
 	if (disk) {
 		error = disk->Init(node);
 		if (error != B_OK) {

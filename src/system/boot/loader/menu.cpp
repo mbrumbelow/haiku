@@ -655,7 +655,7 @@ public:
 
 		if (CountItems() > 0)
 			AddSeparatorItem();
-		AddItem(new(nothrow) MenuItem("Return to parent directory"));
+		AddItem(new(std::nothrow) MenuItem("Return to parent directory"));
 	}
 
 	virtual void Exited()
@@ -1184,7 +1184,7 @@ add_boot_volume_item(Menu* menu, Directory* volume, const char* name)
 			volumeInfo.Unset();
 	}
 
-	BootVolumeMenuItem* item = new(nothrow) BootVolumeMenuItem(name);
+	BootVolumeMenuItem* item = new(std::nothrow) BootVolumeMenuItem(name);
 	menu->AddItem(item);
 
 	Menu* subMenu = NULL;
@@ -1196,7 +1196,7 @@ add_boot_volume_item(Menu* menu, Directory* volume, const char* name)
 				= volumeInfo->States().GetIterator();
 			PackageVolumeState* state = it.Next();) {
 			PackageVolumeStateMenuItem* stateItem
-				= new(nothrow) PackageVolumeStateMenuItem(state->DisplayName(),
+				= new(std::nothrow) PackageVolumeStateMenuItem(state->DisplayName(),
 					volumeInfo, state);
 			subMenu->AddItem(stateItem);
 			stateItem->SetTarget(user_menu_boot_volume_state);
@@ -1254,21 +1254,21 @@ add_boot_volume_menu()
 
 	if (count == 0) {
 		// no boot volume found yet
-		menu->AddItem(item = new(nothrow) MenuItem("<No boot volume found>"));
+		menu->AddItem(item = new(std::nothrow) MenuItem("<No boot volume found>"));
 		item->SetType(MENU_ITEM_NO_CHOICE);
 		item->SetEnabled(false);
 	}
 
 	menu->AddSeparatorItem();
 
-	menu->AddItem(item = new(nothrow) MenuItem("Rescan volumes"));
+	menu->AddItem(item = new(std::nothrow) MenuItem("Rescan volumes"));
 	item->SetHelpText("Please insert a Haiku CD-ROM or attach a USB disk - "
 		"depending on your system, you can then boot from there.");
 	item->SetType(MENU_ITEM_NO_CHOICE);
 	if (count == 0)
 		item->Select(true);
 
-	menu->AddItem(item = new(nothrow) MenuItem("Return to main menu"));
+	menu->AddItem(item = new(std::nothrow) MenuItem("Return to main menu"));
 	item->SetType(MENU_ITEM_NO_CHOICE);
 
 	if (gBootVolume.GetBool(BOOT_VOLUME_BOOTED_FROM_IMAGE, false))
@@ -1281,22 +1281,22 @@ add_boot_volume_menu()
 static Menu*
 add_safe_mode_menu()
 {
-	Menu* safeMenu = new(nothrow) Menu(SAFE_MODE_MENU, "Safe Mode Options");
+	Menu* safeMenu = new(std::nothrow) Menu(SAFE_MODE_MENU, "Safe Mode Options");
 	MenuItem* item;
 
-	safeMenu->AddItem(item = new(nothrow) MenuItem("Safe mode"));
+	safeMenu->AddItem(item = new(std::nothrow) MenuItem("Safe mode"));
 	item->SetData(B_SAFEMODE_SAFE_MODE);
 	item->SetType(MENU_ITEM_MARKABLE);
 	item->SetHelpText("Puts the system into safe mode. This can be enabled "
 		"independently from the other options.");
 
-	safeMenu->AddItem(item = new(nothrow) MenuItem("Disable user add-ons"));
+	safeMenu->AddItem(item = new(std::nothrow) MenuItem("Disable user add-ons"));
 	item->SetData(B_SAFEMODE_DISABLE_USER_ADD_ONS);
 	item->SetType(MENU_ITEM_MARKABLE);
     item->SetHelpText("Prevents all user installed add-ons from being loaded. "
 		"Only the add-ons in the system directory will be used.");
 
-	safeMenu->AddItem(item = new(nothrow) MenuItem("Disable IDE DMA"));
+	safeMenu->AddItem(item = new(std::nothrow) MenuItem("Disable IDE DMA"));
 	item->SetData(B_SAFEMODE_DISABLE_IDE_DMA);
 	item->SetType(MENU_ITEM_MARKABLE);
     item->SetHelpText("Disables IDE DMA, increasing IDE compatibility "
@@ -1320,7 +1320,7 @@ add_safe_mode_menu()
 	// ... add the menu item, if so
 	if (hasMemoryBeyond4GB || needs64BitPaging) {
 		safeMenu->AddItem(
-			item = new(nothrow) MenuItem("Ignore memory beyond 4 GiB"));
+			item = new(std::nothrow) MenuItem("Ignore memory beyond 4 GiB"));
 		item->SetData(B_SAFEMODE_4_GB_MEMORY_LIMIT);
 		item->SetType(MENU_ITEM_MARKABLE);
 		item->SetHelpText("Ignores all memory beyond the 4 GiB address limit, "
@@ -1338,7 +1338,7 @@ add_safe_mode_menu()
 		"Useful e.g. to disable drivers temporarily.");
 
 	safeMenu->AddSeparatorItem();
-	safeMenu->AddItem(item = new(nothrow) MenuItem("Return to main menu"));
+	safeMenu->AddItem(item = new(std::nothrow) MenuItem("Return to main menu"));
 
 	return safeMenu;
 }
@@ -1347,7 +1347,7 @@ add_safe_mode_menu()
 static Menu*
 add_save_debug_syslog_menu()
 {
-	Menu* menu = new(nothrow) Menu(STANDARD_MENU, "Save syslog to volume ...");
+	Menu* menu = new(std::nothrow) Menu(STANDARD_MENU, "Save syslog to volume ...");
 	MenuItem* item;
 
 	const char* const kHelpText = "Currently only FAT32 volumes are supported. "
@@ -1386,7 +1386,7 @@ add_save_debug_syslog_menu()
 				size_to_string(partition->size, sizeBuffer,
 					sizeof(sizeBuffer)));
 
-			item = new(nothrow) MenuItem(name);
+			item = new(std::nothrow) MenuItem(name);
 			item->SetData(volume);
 			item->SetTarget(&debug_menu_save_previous_syslog);
 			item->SetType(MENU_ITEM_NO_CHOICE);
@@ -1400,14 +1400,14 @@ add_save_debug_syslog_menu()
 
 	if (itemsAdded == 0) {
 		menu->AddItem(item
-			= new(nothrow) MenuItem("No supported volumes found"));
+			= new(std::nothrow) MenuItem("No supported volumes found"));
 		item->SetType(MENU_ITEM_NO_CHOICE);
 		item->SetHelpText(kHelpText);
 		item->SetEnabled(false);
 	}
 
 	menu->AddSeparatorItem();
-	menu->AddItem(item = new(nothrow) MenuItem("Return to debug menu"));
+	menu->AddItem(item = new(std::nothrow) MenuItem("Return to debug menu"));
 	item->SetHelpText(kHelpText);
 
 	return menu;
@@ -1431,27 +1431,27 @@ add_debug_menu()
 #endif
 
 	menu->AddItem(item
-		= new(nothrow) MenuItem("Enable serial debug output"));
+		= new(std::nothrow) MenuItem("Enable serial debug output"));
 	item->SetData("serial_debug_output");
 	item->SetType(MENU_ITEM_MARKABLE);
 	item->SetHelpText("Turns on forwarding the syslog output to the serial "
 		"interface (default: 115200, 8N1).");
 
 	menu->AddItem(item
-		= new(nothrow) MenuItem("Enable on screen debug output"));
+		= new(std::nothrow) MenuItem("Enable on screen debug output"));
 	item->SetData("debug_screen");
 	item->SetType(MENU_ITEM_MARKABLE);
 	item->SetHelpText("Displays debug output on screen while the system "
 		"is booting, instead of the normal boot logo.");
 
 	menu->AddItem(item
-		= new(nothrow) MenuItem("Disable on screen paging"));
+		= new(std::nothrow) MenuItem("Disable on screen paging"));
 	item->SetData("disable_onscreen_paging");
 	item->SetType(MENU_ITEM_MARKABLE);
 	item->SetHelpText("Disables paging when on screen debug output is "
 		"enabled.");
 
-	menu->AddItem(item = new(nothrow) MenuItem("Enable debug syslog"));
+	menu->AddItem(item = new(std::nothrow) MenuItem("Enable debug syslog"));
 	item->SetType(MENU_ITEM_MARKABLE);
 	item->SetMarked(gKernelArgs.keep_debug_output_buffer);
 	item->SetTarget(&debug_menu_toggle_debug_syslog);
@@ -1463,7 +1463,7 @@ add_debug_menu()
 	bool hasPreviousSyslog
 		= syslogBuffer != NULL && ring_buffer_readable(syslogBuffer) > 0;
 	if (hasPreviousSyslog) {
-		menu->AddItem(item = new(nothrow) MenuItem(
+		menu->AddItem(item = new(std::nothrow) MenuItem(
 			"Save syslog from previous session during boot"));
 		item->SetType(MENU_ITEM_MARKABLE);
 		item->SetMarked(gKernelArgs.previous_debug_size);
@@ -1476,7 +1476,7 @@ add_debug_menu()
 	if (currentLogItemVisible) {
 		menu->AddSeparatorItem();
 		menu->AddItem(item
-			= new(nothrow) MenuItem("Display current boot loader log"));
+			= new(std::nothrow) MenuItem("Display current boot loader log"));
 		item->SetTarget(&debug_menu_display_current_log);
 		item->SetType(MENU_ITEM_NO_CHOICE);
 		item->SetHelpText(
@@ -1488,20 +1488,20 @@ add_debug_menu()
 			menu->AddSeparatorItem();
 
 		menu->AddItem(item
-			= new(nothrow) MenuItem("Display syslog from previous session"));
+			= new(std::nothrow) MenuItem("Display syslog from previous session"));
 		item->SetTarget(&debug_menu_display_previous_syslog);
 		item->SetType(MENU_ITEM_NO_CHOICE);
 		item->SetHelpText(
 			"Displays the syslog from the previous Haiku session.");
 
-		menu->AddItem(item = new(nothrow) MenuItem(
+		menu->AddItem(item = new(std::nothrow) MenuItem(
 			"Save syslog from previous session", add_save_debug_syslog_menu()));
 		item->SetHelpText("Saves the syslog from the previous Haiku session to "
 			"disk. Currently only FAT32 volumes are supported.");
 	}
 
 	menu->AddSeparatorItem();
-	menu->AddItem(item = new(nothrow) MenuItem(
+	menu->AddItem(item = new(std::nothrow) MenuItem(
 		"Add advanced debug option"));
 	item->SetType(MENU_ITEM_NO_CHOICE);
 	item->SetTarget(&debug_menu_add_advanced_option);
@@ -1509,7 +1509,7 @@ add_debug_menu()
 		"Allows advanced debugging options to be entered directly.");
 
 	menu->AddSeparatorItem();
-	menu->AddItem(item = new(nothrow) MenuItem("Return to main menu"));
+	menu->AddItem(item = new(std::nothrow) MenuItem("Return to main menu"));
 
 	return menu;
 }

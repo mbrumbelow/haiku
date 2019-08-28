@@ -527,7 +527,7 @@ add_block_devices(NodeList *devicesList, bool identifierMissing)
 				//	continue;
 //continue;
 
-				BlockHandle *drive = new(nothrow) XHDIDrive(driveID, major, minor);
+				BlockHandle *drive = new(std::nothrow) XHDIDrive(driveID, major, minor);
 				if (drive->InitCheck() != B_OK) {
 					dprintf("could not add drive (%d,%d)\n", major, minor);
 					delete drive;
@@ -554,7 +554,7 @@ add_block_devices(NodeList *devicesList, bool identifierMissing)
 			if (driveID == gBootDriveID)
 				continue;
 
-			BlockHandle *drive = new(nothrow) BlockHandle(driveID);
+			BlockHandle *drive = new(std::nothrow) BlockHandle(driveID);
 			if (drive->InitCheck() != B_OK) {
 				dprintf("could not add drive %u\n", driveID);
 				delete drive;
@@ -1136,19 +1136,19 @@ platform_add_boot_device(struct stage2_args *args, NodeList *devicesList)
 	init_xhdi();
 
 	//XXX: FIXME
-	//BlockHandle *drive = new(nothrow) BlockHandle(gBootDriveID);
+	//BlockHandle *drive = new(std::nothrow) BlockHandle(gBootDriveID);
 	BlockHandle *drive;
 	switch (gBootDriveAPI) {
 		case ATARI_BOOT_DRVAPI_FLOPPY:
-			drive = new(nothrow) FloppyDrive(gBootDriveID);
+			drive = new(std::nothrow) FloppyDrive(gBootDriveID);
 			break;
 			/*
 		case ATARI_BOOT_DRVAPI_XBIOS:
-			drive = new(nothrow) DMADrive(gBootDriveID);
+			drive = new(std::nothrow) DMADrive(gBootDriveID);
 			break;
 			*/
 		case ATARI_BOOT_DRVAPI_XHDI:
-			drive = new(nothrow) XHDIDrive(gBootDriveID, gBootDriveID, 0);
+			drive = new(std::nothrow) XHDIDrive(gBootDriveID, gBootDriveID, 0);
 			break;
 		case ATARI_BOOT_DRVAPI_UNKNOWN:
 		{
@@ -1158,14 +1158,14 @@ platform_add_boot_device(struct stage2_args *args, NodeList *devicesList)
 				gBootDriveID = id;
 				dprintf("nat_fead_get_bootdrive() = %d\n", id);
 				// XXX: which API does it refer to ??? id = letter - 'a'
-				drive = new(nothrow) XHDIDrive(gBootDriveID, gBootDriveID, 0);
+				drive = new(std::nothrow) XHDIDrive(gBootDriveID, gBootDriveID, 0);
 				break;
 			}
 		}
 		default:
 			dprintf("unknown boot drive API %d\n", gBootDriveAPI);
 			return B_ERROR;
-			drive = new(nothrow) BIOSDrive(gBootDriveID);
+			drive = new(std::nothrow) BIOSDrive(gBootDriveID);
 	}
 
 	if (drive == NULL || drive->InitCheck() != B_OK) {

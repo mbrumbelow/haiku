@@ -38,9 +38,6 @@ static const uint32 kFloppyArchiveOffset = BOOT_ARCHIVE_IMAGE_OFFSET * 1024;
 static const size_t kTarRegionSize = 8 * 1024 * 1024;	// 8 MB
 
 
-using std::nothrow;
-
-
 namespace TarFS {
 
 
@@ -358,7 +355,7 @@ TarFS::Directory::Open(void** _cookie, int mode)
 	_inherited::Open(_cookie, mode);
 
 	EntryIterator* iterator
-		= new(nothrow) EntryIterator(fEntries.GetIterator());
+		= new(std::nothrow) EntryIterator(fEntries.GetIterator());
 	if (iterator == NULL)
 		return B_NO_MEMORY;
 
@@ -484,7 +481,7 @@ TarFS::Directory::AddDirectory(char* dirName, TarFS::Directory** _dir)
 			return B_ERROR;
 	} else {
 		// doesn't exist yet -- create it
-		dir = new(nothrow) TarFS::Directory(this, dirName);
+		dir = new(std::nothrow) TarFS::Directory(this, dirName);
 		if (!dir)
 			return B_NO_MEMORY;
 
@@ -528,9 +525,9 @@ TarFS::Directory::AddFile(tar_header* header)
 	// create the entry
 	TarFS::Entry* entry;
 	if (header->type == TAR_FILE || header->type == TAR_FILE2)
-		entry = new(nothrow) TarFS::File(header, leaf);
+		entry = new(std::nothrow) TarFS::File(header, leaf);
 	else if (header->type == TAR_SYMLINK)
-		entry = new(nothrow) TarFS::Symlink(header, leaf);
+		entry = new(std::nothrow) TarFS::Symlink(header, leaf);
 	else
 		return B_BAD_VALUE;
 
@@ -837,7 +834,7 @@ TarFS::Volume::_Inflate(boot::Partition* partition, void* cookie, off_t offset,
 static status_t
 tarfs_get_file_system(boot::Partition* partition, ::Directory** _root)
 {
-	TarFS::Volume* volume = new(nothrow) TarFS::Volume;
+	TarFS::Volume* volume = new(std::nothrow) TarFS::Volume;
 	if (volume == NULL)
 		return B_NO_MEMORY;
 

@@ -22,8 +22,6 @@
 #endif
 
 
-using std::nothrow;
-
 
 // #pragma mark - UDPPacket
 
@@ -333,7 +331,7 @@ UDPService::HandleIPPacket(IPService *ipService, ip_addr_t sourceIP,
 		return;
 
 	// create a UDPPacket and queue it in the socket
-	UDPPacket *packet = new(nothrow) UDPPacket;
+	UDPPacket *packet = new(std::nothrow) UDPPacket;
 	if (packet == NULL)
 		return;
 	status_t error = packet->SetTo((uint8*)data + sizeof(udp_header),

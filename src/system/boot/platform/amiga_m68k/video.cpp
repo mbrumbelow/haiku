@@ -93,10 +93,10 @@ video_mode_hook(Menu *menu, MenuItem *item)
 Menu *
 video_mode_menu()
 {
-	Menu *menu = new(nothrow) Menu(CHOICE_MENU, "Select Video Mode");
+	Menu *menu = new(std::nothrow) Menu(CHOICE_MENU, "Select Video Mode");
 	MenuItem *item;
 
-	menu->AddItem(item = new(nothrow) MenuItem("Default"));
+	menu->AddItem(item = new(std::nothrow) MenuItem("Default"));
 	item->SetMarked(true);
 	item->Select(true);
 	item->SetHelpText("The Default video mode is the one currently configured "
@@ -110,7 +110,7 @@ video_mode_menu()
 		sprintf(label, "%ux%u %u bit", mode->width, mode->height,
 			mode->bits_per_pixel);
 
-		menu->AddItem(item = new(nothrow) MenuItem(label));
+		menu->AddItem(item = new(std::nothrow) MenuItem(label));
 		item->SetData(mode);
 	}
 */
@@ -165,7 +165,7 @@ video_mode_menu()
 			(info.PropertyFlags & DIPF_IS_LACE) ? " i" : "",
 			(info.PropertyFlags & DIPF_IS_PAL) ? " pal" : "");
 
-		menu->AddItem(item = new(nothrow) MenuItem(label));
+		menu->AddItem(item = new(std::nothrow) MenuItem(label));
 		item->SetData((void *)modeID);
 	}
 	
@@ -173,7 +173,7 @@ video_mode_menu()
 	dprintf("done\n");
 
 	menu->AddSeparatorItem();
-	menu->AddItem(item = new(nothrow) MenuItem("Return to main menu"));
+	menu->AddItem(item = new(std::nothrow) MenuItem("Return to main menu"));
 	item->SetType(MENU_ITEM_NO_CHOICE);
 
 	return menu;

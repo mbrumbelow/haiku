@@ -20,11 +20,11 @@ platform_add_menus(Menu *menu)
 
 	switch (menu->Type()) {
 		case MAIN_MENU:
-			menu->AddItem(item = new(nothrow) MenuItem("Select screen resolution", video_mode_menu()));
-			item->SetTarget(video_mode_hook);
-			break;
+			menu->AddItem(item = new(std::nothrow) MenuItem("Select screen 
+			resolution", video_mode_menu())); 
+			item->SetTarget(video_mode_hook); break;
 		case SAFE_MODE_MENU:
-			menu->AddItem(item = new(nothrow) MenuItem("Use fail-safe graphics driver"));
+			menu->AddItem(item = new(std::nothrow) MenuItem("Use fail-safe graphics driver"));
 			item->SetType(MENU_ITEM_MARKABLE);
 			item->SetData(B_SAFEMODE_FAIL_SAFE_VIDEO_MODE);
 			item->SetHelpText("The system will use VESA mode and won't try to open any video graphics driver");
@@ -32,15 +32,15 @@ platform_add_menus(Menu *menu)
 #if 0
 			smp_add_safemode_menus(menu);
 
-			menu->AddItem(item = new(nothrow) MenuItem("Don't call the BIOS"));
+			menu->AddItem(item = new(std::nothrow) MenuItem("Don't call the BIOS"));
 			item->SetType(MENU_ITEM_MARKABLE);
 
-			menu->AddItem(item = new(nothrow) MenuItem("Disable APM"));
+			menu->AddItem(item = new(std::nothrow) MenuItem("Disable APM"));
 			item->SetType(MENU_ITEM_MARKABLE);
 			item->SetData("disable_apm");
 			item->SetHelpText("This overrides the APM setting in the kernel settings file");
 
-			menu->AddItem(item = new(nothrow) MenuItem("Disable ACPI"));
+			menu->AddItem(item = new(std::nothrow) MenuItem("Disable ACPI"));
 			item->SetType(MENU_ITEM_MARKABLE);
 			item->SetData(B_SAFEMODE_DISABLE_ACPI);
 			item->SetHelpText("This overrides the ACPI setting in the kernel settings file");

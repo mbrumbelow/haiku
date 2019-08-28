@@ -16,8 +16,6 @@
 #include <boot/net/TCP.h>
 
 
-using std::nothrow;
-
 
 // sNetStack
 NetStack *NetStack::sNetStack = NULL;
@@ -51,12 +49,12 @@ NetStack::Init()
 	// create services
 
 	// ethernet service
-	fEthernetService = new(nothrow) EthernetService;
+	fEthernetService = new(std::nothrow) EthernetService;
 	if (!fEthernetService)
 		return B_NO_MEMORY;
 
 	// ARP service
-	fARPService = new(nothrow) ARPService(fEthernetService);
+	fARPService = new(std::nothrow) ARPService(fEthernetService);
 	if (!fARPService)
 		return B_NO_MEMORY;
 	status_t error = fARPService->Init();
@@ -64,7 +62,7 @@ NetStack::Init()
 		return error;
 
 	// IP service
-	fIPService = new(nothrow) IPService(fEthernetService, fARPService);
+	fIPService = new(std::nothrow) IPService(fEthernetService, fARPService);
 	if (!fIPService)
 		return B_NO_MEMORY;
 	error = fIPService->Init();
@@ -72,7 +70,7 @@ NetStack::Init()
 		return error;
 
 	// UDP service
-	fUDPService = new(nothrow) UDPService(fIPService);
+	fUDPService = new(std::nothrow) UDPService(fIPService);
 	if (!fUDPService)
 		return B_NO_MEMORY;
 	error = fUDPService->Init();
@@ -81,7 +79,7 @@ NetStack::Init()
 
 #ifdef __POWERPC__
 	// TCP service
-	fTCPService = new(nothrow) TCPService(fIPService);
+	fTCPService = new(std::nothrow) TCPService(fIPService);
 	if (fTCPService == NULL)
 		return B_NO_MEMORY;
 	error = fTCPService->Init();
@@ -99,7 +97,7 @@ NetStack::CreateDefault()
 	if (sNetStack)
 		return B_OK;
 
-	NetStack *netStack = new(nothrow) NetStack;
+	NetStack *netStack = new(std::nothrow) NetStack;
 	if (!netStack)
 		return B_NO_MEMORY;
 

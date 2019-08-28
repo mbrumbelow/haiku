@@ -238,7 +238,7 @@ Partition::Type() const
 Partition *
 Partition::AddChild()
 {
-	Partition *child = new(nothrow) Partition(fFD);
+	Partition *child = new(std::nothrow) Partition(fFD);
 	TRACE(("%p Partition::AddChild %p\n", this, child));
 	if (child == NULL)
 		return NULL;
@@ -448,7 +448,7 @@ add_partitions_for(int fd, bool mountFileSystems, bool isBootDevice)
 	TRACE(("add_partitions_for(fd = %d, mountFS = %s)\n", fd,
 		mountFileSystems ? "yes" : "no"));
 
-	Partition *partition = new(nothrow) Partition(fd);
+	Partition *partition = new(std::nothrow) Partition(fd);
 
 	// set some magic/default values
 	partition->block_size = 512;

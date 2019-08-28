@@ -595,7 +595,7 @@ BootVolume::_OpenSystemPackage()
 status_t
 vfs_init(stage2_args *args)
 {
-	gRoot = new(nothrow) RootFileSystem();
+	gRoot = new(std::nothrow) RootFileSystem();
 	if (gRoot == NULL)
 		return B_NO_MEMORY;
 
@@ -887,7 +887,7 @@ open_node(Node *node, int mode)
 
 	TRACE(("could open node at %p\n", node));
 
-	Descriptor *descriptor = new(nothrow) Descriptor(node, cookie);
+	Descriptor *descriptor = new(std::nothrow) Descriptor(node, cookie);
 	if (descriptor == NULL)
 		return B_NO_MEMORY;
 

@@ -70,7 +70,7 @@ platform_add_boot_device(struct stage2_args *args, NodeList *devicesList)
 				(serverAddress >> 24), (serverAddress >> 16) & 0xff,
 				(serverAddress >> 8) & 0xff, serverAddress & 0xff, fileName);
 
-			MemoryDisk* disk = new(nothrow) MemoryDisk(data, size, name);
+			MemoryDisk* disk = new(std::nothrow) MemoryDisk(data, size, name);
 			if (!disk) {
 				dprintf("platform_add_boot_device(): Out of memory!\n");
 				platform_free_region(data, size);
@@ -90,7 +90,7 @@ platform_add_boot_device(struct stage2_args *args, NodeList *devicesList)
 
 // 	// built-in boot archive?
 // 	if (gBuiltinBootArchiveSize > 0) {
-// 		MemoryDisk* disk = new(nothrow) MemoryDisk(gBuiltinBootArchive,
+// 		MemoryDisk* disk = new(std::nothrow) MemoryDisk(gBuiltinBootArchive,
 // 			gBuiltinBootArchiveSize);
 // 		if (!disk)
 // 			return B_NO_MEMORY;

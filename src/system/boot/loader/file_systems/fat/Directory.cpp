@@ -26,8 +26,6 @@
 #define TRACE(x) do {} while (0)
 
 
-using std::nothrow;
-
 
 namespace FATFS {
 
@@ -334,7 +332,7 @@ Directory::Open(void **_cookie, int mode)
 	TRACE(("FASFS::Directory::%s(, %d)\n", __FUNCTION__, mode));
 	_inherited::Open(_cookie, mode);
 
-	dir_cookie *c = new(nothrow) dir_cookie;
+	dir_cookie *c = new(std::nothrow) dir_cookie;
 	if (c == NULL)
 		return B_NO_MEMORY;
 
@@ -514,7 +512,7 @@ Directory::CreateFile(const char* name, mode_t permissions, Node** _node)
 		return error;
 
 	// create a File object
-	File* file = new(nothrow) File(fVolume, entryOffset,
+	File* file = new(std::nothrow) File(fVolume, entryOffset,
 		entry.Cluster(fVolume.FatBits()), entry.Size(), name);
 	if (file == NULL)
 		return B_NO_MEMORY;

@@ -18,7 +18,6 @@
 
 
 using namespace BFS;
-using std::nothrow;
 
 
 class CachedBlock {
@@ -423,12 +422,12 @@ Stream::NodeFactory(Volume& volume, off_t id)
 		return NULL;
 
 	if (stream.IsContainer())
-		return new(nothrow) Directory(stream);
+		return new(std::nothrow) Directory(stream);
 
 	if (stream.IsSymlink())
-		return new(nothrow) Link(stream);
+		return new(std::nothrow) Link(stream);
 
-	return new(nothrow) File(stream);
+	return new(std::nothrow) File(stream);
 }
 
 

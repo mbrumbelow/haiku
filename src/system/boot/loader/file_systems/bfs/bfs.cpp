@@ -27,7 +27,6 @@
 
 
 using namespace BFS;
-using std::nothrow;
 
 
 Volume::Volume(boot::Partition *partition)
@@ -56,7 +55,7 @@ Volume::Volume(boot::Partition *partition)
 
 	TRACE(("bfs: we do have a valid superblock (name = %s)!\n", fSuperBlock.name));
 
-	fRootNode = new(nothrow) BFS::Directory(*this, Root());
+	fRootNode = new(std::nothrow) BFS::Directory(*this, Root());
 	if (fRootNode == NULL)
 		return;
 
@@ -146,7 +145,7 @@ bfs_identify_file_system(boot::Partition *partition)
 static status_t
 bfs_get_file_system(boot::Partition *partition, ::Directory **_root)
 {
-	Volume *volume = new(nothrow) Volume(partition);
+	Volume *volume = new(std::nothrow) Volume(partition);
 	if (volume == NULL)
 		return B_NO_MEMORY;
 

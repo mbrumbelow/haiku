@@ -38,10 +38,10 @@ video_mode_hook(Menu *menu, MenuItem *item)
 Menu *
 video_mode_menu()
 {
-	Menu *menu = new(nothrow) Menu(CHOICE_MENU, "Select Video Mode");
+	Menu *menu = new(std::nothrow) Menu(CHOICE_MENU, "Select Video Mode");
 	MenuItem *item;
 
-	menu->AddItem(item = new(nothrow) MenuItem("Default"));
+	menu->AddItem(item = new(std::nothrow) MenuItem("Default"));
 	item->SetMarked(true);
 	item->Select(true);
 	item->SetHelpText("The Default video mode is the one currently configured "
@@ -50,7 +50,7 @@ video_mode_menu()
 
 
 	menu->AddSeparatorItem();
-	menu->AddItem(item = new(nothrow) MenuItem("Return to main menu"));
+	menu->AddItem(item = new(std::nothrow) MenuItem("Return to main menu"));
 	item->SetType(MENU_ITEM_NO_CHOICE);
 
 	return menu;

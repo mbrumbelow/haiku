@@ -262,7 +262,7 @@ platform_net_stack_init()
 	}
 
 	// create an EthernetInterface object for the device
-	OFEthernetInterface *interface = new(nothrow) OFEthernetInterface;
+	OFEthernetInterface *interface = new(std::nothrow) OFEthernetInterface;
 	if (!interface)
 		return B_NO_MEMORY;
 

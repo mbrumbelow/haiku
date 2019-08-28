@@ -15,8 +15,6 @@
 #include <stdio.h>
 
 
-using std::nothrow;
-
 
 namespace FFS {
 
@@ -60,7 +58,7 @@ Directory::Open(void **_cookie, int mode)
 {
 	_inherited::Open(_cookie, mode);
 
-	HashIterator *iterator = new(nothrow) HashIterator(fVolume.Device(), fNode);
+	HashIterator *iterator = new(std::nothrow) HashIterator(fVolume.Device(), fNode);
 	if (iterator == NULL)
 		return B_NO_MEMORY;
 
@@ -105,9 +103,9 @@ Directory::LookupDontTraverse(const char* name)
 		if (node->GetName(fileName, sizeof(fileName)) == B_OK
 			&& !strcmp(name, fileName)) {
 			if (node->IsFile())
-				return new(nothrow) File(fVolume, block);
+				return new(std::nothrow) File(fVolume, block);
 			if (node->IsDirectory())
-				return new(nothrow) Directory(fVolume, block);
+				return new(std::nothrow) Directory(fVolume, block);
 
 			return NULL;
 		}

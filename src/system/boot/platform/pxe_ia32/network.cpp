@@ -536,7 +536,7 @@ platform_net_stack_init()
 {
 	TRACE("platform_net_stack_init\n");
 
-	UNDI *interface = new(nothrow) UNDI;
+	UNDI *interface = new(std::nothrow) UNDI;
 	if (!interface)
 		return B_NO_MEMORY;
 

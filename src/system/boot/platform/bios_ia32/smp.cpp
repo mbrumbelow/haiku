@@ -567,7 +567,7 @@ smp_add_safemode_menus(Menu *menu)
 	MenuItem *item;
 
 	if (gKernelArgs.arch_args.ioapic_phys != 0) {
-		menu->AddItem(item = new(nothrow) MenuItem("Disable IO-APIC"));
+		menu->AddItem(item = new(std::nothrow) MenuItem("Disable IO-APIC"));
 		item->SetType(MENU_ITEM_MARKABLE);
 		item->SetData(B_SAFEMODE_DISABLE_IOAPIC);
 		item->SetHelpText("Disables using the IO APIC for interrupt routing, "
@@ -575,7 +575,7 @@ smp_add_safemode_menus(Menu *menu)
 	}
 
 	if (gKernelArgs.arch_args.apic_phys != 0) {
-		menu->AddItem(item = new(nothrow) MenuItem("Disable local APIC"));
+		menu->AddItem(item = new(std::nothrow) MenuItem("Disable local APIC"));
 		item->SetType(MENU_ITEM_MARKABLE);
 		item->SetData(B_SAFEMODE_DISABLE_APIC);
 		item->SetHelpText("Disables using the local APIC, also disables SMP.");
@@ -583,7 +583,7 @@ smp_add_safemode_menus(Menu *menu)
 		cpuid_info info;
 		if (get_current_cpuid(&info, 1, 0) == B_OK
 				&& (info.regs.ecx & IA32_FEATURE_EXT_X2APIC) != 0) {
-			menu->AddItem(item = new(nothrow) MenuItem("Disable X2APIC"));
+			menu->AddItem(item = new(std::nothrow) MenuItem("Disable X2APIC"));
 			item->SetType(MENU_ITEM_MARKABLE);
 			item->SetData(B_SAFEMODE_DISABLE_X2APIC);
 			item->SetHelpText("Disables using X2APIC.");
@@ -592,7 +592,7 @@ smp_add_safemode_menus(Menu *menu)
 		if (get_current_cpuid(&info, 7, 0) == B_OK
 				&& (info.regs.ebx & (IA32_FEATURE_SMEP
 					| IA32_FEATURE_SMAP)) != 0) {
-			menu->AddItem(item = new(nothrow) MenuItem(
+			menu->AddItem(item = new(std::nothrow) MenuItem(
 				"Disable SMEP and SMAP"));
 			item->SetType(MENU_ITEM_MARKABLE);
 			item->SetData(B_SAFEMODE_DISABLE_SMEP_SMAP);
@@ -604,7 +604,7 @@ smp_add_safemode_menus(Menu *menu)
 	if (gKernelArgs.num_cpus < 2)
 		return;
 
-	item = new(nothrow) MenuItem("Disable SMP");
+	item = new(std::nothrow) MenuItem("Disable SMP");
 	menu->AddItem(item);
 	item->SetData(B_SAFEMODE_DISABLE_SMP);
 	item->SetType(MENU_ITEM_MARKABLE);

@@ -243,7 +243,7 @@ TCPSocket::Connect(ip_addr_t address, uint16 port)
 		return error;
 
 	// send SYN
-	TCPPacket* packet = new(nothrow) TCPPacket();
+	TCPPacket* packet = new(std::nothrow) TCPPacket();
 	if (packet == NULL)
 		return B_NO_MEMORY;
 	error = packet->SetTo(NULL, 0, fAddress, fPort, address, port,
@@ -275,7 +275,7 @@ status_t
 TCPSocket::Close()
 {
 	// send FIN
-	TCPPacket* packet = new(nothrow) TCPPacket();
+	TCPPacket* packet = new(std::nothrow) TCPPacket();
 	if (packet == NULL)
 		return B_NO_MEMORY;
 	status_t error = packet->SetTo(NULL, 0, fAddress, fPort, fRemoteAddress,
@@ -386,7 +386,7 @@ TCPSocket::Write(const void* buffer, size_t bufferSize)
 
 	// TODO: Check for MTU and create multiple packets if necessary.
 
-	TCPPacket* packet = new(nothrow) TCPPacket();
+	TCPPacket* packet = new(std::nothrow) TCPPacket();
 	if (packet == NULL)
 		return B_NO_MEMORY;
 	status_t error = packet->SetTo(buffer, bufferSize, fAddress, fPort,
@@ -636,7 +636,7 @@ TCPSocket::_DumpQueue()
 status_t
 TCPSocket::_Ack()
 {
-	TCPPacket* packet = new(nothrow) TCPPacket();
+	TCPPacket* packet = new(std::nothrow) TCPPacket();
 	if (packet == NULL)
 		return B_NO_MEMORY;
 	status_t error = packet->SetTo(NULL, 0, fAddress, fPort, fRemoteAddress,
@@ -767,7 +767,7 @@ TCPService::HandleIPPacket(IPService* ipService, ip_addr_t sourceIP,
 		socket->Acknowledge(ackedNumber);
 	}
 
-	TCPPacket* packet = new(nothrow) TCPPacket();
+	TCPPacket* packet = new(std::nothrow) TCPPacket();
 	if (packet == NULL)
 		return;
 	status_t error = packet->SetTo((uint32*)data + header->dataOffset,

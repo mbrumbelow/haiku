@@ -11,8 +11,6 @@
 #include <unistd.h>
 
 
-using std::nothrow;
-
 
 namespace FFS {
 
@@ -188,7 +186,7 @@ File::InitCheck()
 status_t
 File::Open(void **_cookie, int mode)
 {
-	Stream *stream = new(nothrow) Stream(fVolume.Device(), fNode);
+	Stream *stream = new(std::nothrow) Stream(fVolume.Device(), fNode);
 	if (stream == NULL)
 		return B_NO_MEMORY;
 

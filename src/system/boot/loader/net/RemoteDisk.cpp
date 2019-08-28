@@ -19,8 +19,6 @@
 static const bigtime_t kRequestTimeout = 100000LL;
 
 
-using std::nothrow;
-
 
 #if __BYTE_ORDER == __LITTLE_ENDIAN
 
@@ -80,7 +78,7 @@ RemoteDisk::Init(ip_addr_t serverAddress, uint16 serverPort, off_t imageSize)
 	fImageSize = imageSize;
 
 	// create and bind socket
-	fSocket = new(nothrow) UDPSocket;
+	fSocket = new(std::nothrow) UDPSocket;
 	if (!fSocket)
 		return B_NO_MEMORY;
 	
@@ -223,7 +221,7 @@ RemoteDisk::FindAnyRemoteDisk()
 	remote_disk_header *reply = (remote_disk_header*)packet->Data();
 
 	// create a RemoteDisk object
-	RemoteDisk *remoteDisk = new(nothrow) RemoteDisk;
+	RemoteDisk *remoteDisk = new(std::nothrow) RemoteDisk;
 	if (remoteDisk) {
 		error = remoteDisk->Init(packet->SourceAddress(), ntohs(reply->port),
 			ntohll(reply->offset));

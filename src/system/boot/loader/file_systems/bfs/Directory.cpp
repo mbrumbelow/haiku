@@ -19,9 +19,6 @@
 extern Node *get_node_from(int fd);
 
 
-using std::nothrow;
-
-
 namespace BFS {
 
 
@@ -66,7 +63,7 @@ Directory::Open(void **_cookie, int mode)
 {
 	_inherited::Open(_cookie, mode);
 
-	*_cookie = (void *)new(nothrow) TreeIterator(&fTree);
+	*_cookie = (void *)new(std::nothrow) TreeIterator(&fTree);
 	if (*_cookie == NULL)
 		return B_NO_MEMORY;
 
