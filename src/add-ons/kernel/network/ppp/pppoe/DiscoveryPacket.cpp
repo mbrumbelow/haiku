@@ -9,6 +9,8 @@
 
 #include "DiscoveryPacket.h"
 
+#include <arpa/inet.h>
+
 DiscoveryPacket::DiscoveryPacket(uint8 code, uint16 sessionID)
 	: fCode(code),
 	fSessionID(sessionID),
