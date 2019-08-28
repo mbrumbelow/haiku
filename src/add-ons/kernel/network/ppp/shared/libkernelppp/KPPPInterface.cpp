@@ -2013,10 +2013,12 @@ KPPPInterface::CalculateBaudRate()
 		Device()->OutputTransferRate());
 	else {
 		fIfnet->link_speed = 0;
-		for (int32 index = 0; index < CountChildren(); index++)
-			if (ChildAt(index)->Ifnet())
+		for (int32 index = 0; index < CountChildren(); index++) {
+			if (ChildAt(index)->Ifnet()) {
 				fIfnet->link_speed += ChildAt(index)->Ifnet()->link_speed;
 				return;
+			}
+		}
 	}
 }
 
