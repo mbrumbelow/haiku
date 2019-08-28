@@ -535,7 +535,7 @@ PrimaryPartition::Assign(const PrimaryPartition& other)
 		off_t tableOffset = otherLogical->PartitionTableOffset();
 		otherLogical->GetPartitionDescriptor(&descriptor);
 
-		LogicalPartition* logical = new(nothrow) LogicalPartition(
+		LogicalPartition* logical = new(std::nothrow) LogicalPartition(
 			&descriptor, tableOffset, this);
 		if (!logical)
 			return B_NO_MEMORY;
@@ -864,8 +864,8 @@ PartitionMap::Check(off_t sessionSize) const
 
 	// 2. check overlapping of partitions and location of partition tables
 	bool result = true;
-	Partition** byOffset = new(nothrow) Partition*[partitionCount];
-	off_t* tableOffsets = new(nothrow) off_t[partitionCount - 3];
+	Partition** byOffset = new(std::nothrow) Partition*[partitionCount];
+	off_t* tableOffsets = new(std::nothrow) off_t[partitionCount - 3];
 	if (byOffset && tableOffsets) {
 		// fill the arrays
 		int32 byOffsetCount = 0;

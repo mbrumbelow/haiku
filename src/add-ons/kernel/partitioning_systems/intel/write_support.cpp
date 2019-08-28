@@ -634,7 +634,7 @@ get_partitionable_spaces(partition_data* partition,
 	off_t limitSize = 0, off_t headerSize = 0)
 {
 	PartitionPosition* positions
-		= new(nothrow) PartitionPosition[partition->child_count];
+		= new(std::nothrow) PartitionPosition[partition->child_count];
 	if (!positions)
 		return B_NO_MEMORY;
 	// fill the array
@@ -777,7 +777,7 @@ pm_shadow_changed(partition_data* partition, partition_data* child,
 				return B_ERROR;
 			}
 
-			PartitionMapCookie* map = new(nothrow) PartitionMapCookie;
+			PartitionMapCookie* map = new(std::nothrow) PartitionMapCookie;
 			if (!map)
 				return B_NO_MEMORY;
 
@@ -840,7 +840,7 @@ pm_shadow_changed(partition_data* partition, partition_data* child,
 		case B_PARTITION_INITIALIZE:
 		{
 			// create an empty partition map
-			PartitionMapCookie* map = new(nothrow) PartitionMapCookie;
+			PartitionMapCookie* map = new(std::nothrow) PartitionMapCookie;
 			if (!map)
 				return B_NO_MEMORY;
 
@@ -1051,7 +1051,7 @@ allocate_buffer(uint32 blockSize, int32 tryAlloc, int32* allocated)
 {
 	uint8* buffer = NULL;
 	for (int32 i = tryAlloc; i > 1; i /= 2) {
-		buffer = new(nothrow) uint8[i * blockSize];
+		buffer = new(std::nothrow) uint8[i * blockSize];
 		if (buffer) {
 			*allocated = i;
 			return buffer;
@@ -2169,7 +2169,7 @@ ep_create_child(int fd, partition_id partitionID, off_t offset, off_t size,
 		return B_ERROR;
 
 	// setup logical partition
-	LogicalPartition* logical = new(nothrow) LogicalPartition;
+	LogicalPartition* logical = new(std::nothrow) LogicalPartition;
 	if (!logical)
 		return B_NO_MEMORY;
 

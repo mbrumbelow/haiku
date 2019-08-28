@@ -113,7 +113,7 @@ pm_identify_partition(int fd, partition_data* partition, void** cookie)
 	}
 
 	// allocate a PartitionMap
-	PartitionMapCookie* map = new(nothrow) PartitionMapCookie;
+	PartitionMapCookie* map = new(std::nothrow) PartitionMapCookie;
 	if (!map)
 		return -1;
 

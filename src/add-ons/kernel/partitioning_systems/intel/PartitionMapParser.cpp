@@ -162,7 +162,7 @@ PartitionMapParser::_ParsePrimary(const partition_table* table,
 	}
 
 	// allocate a partition_table buffer
-	fPartitionTable = new(nothrow) partition_table;
+	fPartitionTable = new(std::nothrow) partition_table;
 	if (fPartitionTable == NULL)
 		return B_NO_MEMORY;
 
@@ -272,7 +272,7 @@ PartitionMapParser::_ParseExtended(PrimaryPartition* primary, off_t offset)
 		// add non-extended partition to list
 		if (error == B_OK && !nonExtended.IsEmpty()) {
 			LogicalPartition* partition
-				= new(nothrow) LogicalPartition(nonExtended);
+				= new(std::nothrow) LogicalPartition(nonExtended);
 			if (partition)
 				primary->AddLogicalPartition(partition);
 			else
