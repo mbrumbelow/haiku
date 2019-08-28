@@ -7,7 +7,7 @@ UseHeaders [ FDirName os interface ] ;
 
 SimpleTest ShapeTest :
 	main.cpp
-	: be [ TargetLibsupc++ ]
+	: be [ TargetLibsupc++ ] [ TargetLibstdc++ ]
 	;
 
 if ( $(TARGET_PLATFORM) = libbe_test ) {

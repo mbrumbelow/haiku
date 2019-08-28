@@ -25,7 +25,7 @@ SimpleTest PictureTest :
 	SVGViewView.cpp
 	: be translation 
 	[ BuildFeatureAttribute expat : library ]
-	[ TargetLibsupc++ ]
+	[ TargetLibsupc++ ] [ TargetLibstdc++ ]
 	;
 
 if $(TARGET_PLATFORM) = libbe_test {

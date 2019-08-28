@@ -37,8 +37,18 @@ rule TargetLibstdc++ asPath
 		] ;
 	} else {
 		if $(TARGET_PLATFORM) = libbe_test {
-			# Use the existing host library
-			return stdc++.r4 ;
+			if $(TARGET_PACKAGING_ARCH) = x86_gcc2 {
+				# the libstdc++.so for our legacy compiler (needs to be built)
+				return libstdc++.r4.so ;
+			}
+			# return libstdc++.so from the gcc_syslibs build feature.
+			local flags ;
+			if $(asPath) = true {
+				flags += path ;
+			}
+			return [
+				BuildFeatureAttribute gcc_syslibs : libstdc++.so : $(flags)
+			] ;
 		}
 		# TODO: return libstdc++.so for non-Haiku target platform if needed
 	}

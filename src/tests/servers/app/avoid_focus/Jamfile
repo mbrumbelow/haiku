@@ -7,7 +7,7 @@ UseHeaders [ FDirName os interface ] ;
 
 Application AvoidFocus :
 	AvoidFocus.cpp
-	: be [ TargetLibsupc++ ]
+	: be [ TargetLibsupc++ ] [ TargetLibstdc++ ]
 ;
 
 if $(TARGET_PLATFORM) = libbe_test {

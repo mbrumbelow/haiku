@@ -6,7 +6,7 @@ UsePrivateHeaders app interface shared ;
 
 Application Workspaces :
 	Workspaces.cpp 
-	: be shared localestub [ TargetLibsupc++ ]
+	: be shared localestub [ TargetLibsupc++ ] [ TargetLibstdc++ ]
 	: Workspaces.rdef 
 	;
 

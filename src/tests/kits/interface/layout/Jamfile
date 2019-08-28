@@ -5,7 +5,7 @@ SetSubDirSupportedPlatforms haiku libbe_test ;
 SimpleTest LayoutTest1 :
 	LayoutTest1.cpp
 	:
-	be [ TargetLibsupc++ ]
+	be [ TargetLibsupc++ ] [ TargetLibstdc++ ]
 ;
 
 if $(TARGET_PLATFORM) = libbe_test {

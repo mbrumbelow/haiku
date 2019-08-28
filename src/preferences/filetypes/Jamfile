@@ -24,7 +24,7 @@ Preference FileTypes :
 
 	PreferredAppMenu.cpp
 	StringView.cpp
-	: be tracker [ TargetLibsupc++ ] localestub
+	: be tracker [ TargetLibsupc++ ] [ TargetLibstdc++ ] localestub
 	: FileTypes.rdef FileTypes.icons.rdef
 	;
 
