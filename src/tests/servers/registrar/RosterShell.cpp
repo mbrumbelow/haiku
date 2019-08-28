@@ -10,6 +10,8 @@
 #include <Path.h>
 #include <Roster.h>
 
+using namespace std;
+
 const char kShellUsage[] =
 "Commands       Parameters     Description\n"
 "---------------------------------------------------------------------------\n"
