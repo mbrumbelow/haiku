@@ -2,7 +2,7 @@
 #include <SupportDefs.h>
 #include <String.h>
 #include <InterfaceDefs.h>
-
+#include <stdlib.h>
 
 inline void
 expect(BString &string, const char *expect, size_t bytes, int32 chars)
