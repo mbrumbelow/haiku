@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f13e6cc7_87512499",
+        "filename": "src/tests/servers/registrar/RosterShell.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-08-29T21:58:20Z",
+      "side": 1,
+      "message": "\"using namespace std\" would make things easier to read.",
+      "revId": "1f14d38e2c221c72233b9582a2c0b529d0bbde9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
