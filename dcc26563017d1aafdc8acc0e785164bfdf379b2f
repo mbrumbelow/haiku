@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0c2a4d26_a897a4d5",
+        "filename": "src/add-ons/kernel/network/ppp/shared/libkernelppp/KPPPInterface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2018,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-08-30T09:59:33Z",
+      "side": 1,
+      "message": "Why was \"+\u003d\" used here, if we return from the loop after finding the first Ifnet() device? This is irritating me.",
+      "revId": "dcc26563017d1aafdc8acc0e785164bfdf379b2f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
