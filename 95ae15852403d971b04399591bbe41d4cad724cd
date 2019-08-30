@@ -16,6 +16,24 @@
       "revId": "95ae15852403d971b04399591bbe41d4cad724cd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe726915_8b8da584",
+        "filename": "src/add-ons/kernel/drivers/midi/usb_midi/usb_midi.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1000079
+      },
+      "writtenOn": "2019-08-30T15:26:08Z",
+      "side": 1,
+      "message": "Completely overlook that point even though removing it first was my first idea (so i know it works as well). I have only moving it below for grouping the line with remove_port.\nremove_port_info use a different semaphore though : usbmidi_port_list_lock.\n\nI have amended the patch to be on the safe side.",
+      "parentUuid": "a1e5e9e1_510d9c26",
+      "revId": "95ae15852403d971b04399591bbe41d4cad724cd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
