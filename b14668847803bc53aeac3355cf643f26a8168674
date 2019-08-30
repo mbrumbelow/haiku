@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ba6fff3_42cca1f1",
+        "filename": "headers/config/HaikuConfig.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-08-30T18:54:54Z",
+      "side": 1,
+      "message": "Please make this __aarch64__ || __arm64__; and same below.",
+      "revId": "b14668847803bc53aeac3355cf643f26a8168674",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cbcd0480_218473ad",
+        "filename": "headers/config/HaikuConfig.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-08-30T18:54:54Z",
+      "side": 1,
+      "message": "This isn\u0027t needed; it defaults to 64 if the bit width is 64.",
+      "revId": "b14668847803bc53aeac3355cf643f26a8168674",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
