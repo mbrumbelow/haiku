@@ -69,6 +69,57 @@
       "revId": "b14668847803bc53aeac3355cf643f26a8168674",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ccb9f645_e883e0ac",
+        "filename": "headers/posix/arch/arm64/arch_setjmp.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-08-30T19:04:21Z",
+      "side": 1,
+      "message": "Please switch the copyright to Haiku.",
+      "revId": "b14668847803bc53aeac3355cf643f26a8168674",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7522edc_fbf82562",
+        "filename": "headers/posix/arch/arm64/arch_setjmp.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-08-30T19:04:21Z",
+      "side": 1,
+      "message": "Why add a definition for _SETJMP_BUF_SZ? Why int128?",
+      "revId": "b14668847803bc53aeac3355cf643f26a8168674",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0145b4b3_a1d8f69d",
+        "filename": "headers/posix/arch/arm64/signal.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-08-30T19:04:21Z",
+      "side": 1,
+      "message": "Please switch the copyright to Haiku.",
+      "revId": "b14668847803bc53aeac3355cf643f26a8168674",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
