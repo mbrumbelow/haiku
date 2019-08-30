@@ -56,11 +56,12 @@
 #	define __HAIKU_ARCH_ABI				"armeb"
 #	define __HAIKU_ARCH_ARM				1
 #	define __HAIKU_BIG_ENDIAN			1
-#elif defined(__arm64__)
+#elif defined(__aarch64__)
 #	define __HAIKU_ARCH					arm64
 #	define __HAIKU_ARCH_ABI				"arm64"
 #	define __HAIKU_ARCH_ARM64			1
 #	define __HAIKU_ARCH_BITS			64
+#	define __HAIKU_ARCH_PHYSICAL_BITS	64
 #elif defined(__riscv64__) || (defined(__riscv) && __riscv_xlen == 64)
 #	define __HAIKU_ARCH					riscv64
 #	define __HAIKU_ARCH_ABI				"riscv64"
