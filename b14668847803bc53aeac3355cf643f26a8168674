@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6d045900_e9fd2867",
+        "filename": "headers/config/HaikuConfig.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000159
+      },
+      "writtenOn": "2019-08-30T19:03:17Z",
+      "side": 1,
+      "message": "I added this define in extra ifdef, however I am not sure which compiler defines __arm64__.",
+      "parentUuid": "9ba6fff3_42cca1f1",
+      "revId": "b14668847803bc53aeac3355cf643f26a8168674",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cbcd0480_218473ad",
         "filename": "headers/config/HaikuConfig.h",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "b14668847803bc53aeac3355cf643f26a8168674",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa545a85_c38397bc",
+        "filename": "headers/config/HaikuConfig.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000159
+      },
+      "writtenOn": "2019-08-30T19:03:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbcd0480_218473ad",
+      "revId": "b14668847803bc53aeac3355cf643f26a8168674",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
