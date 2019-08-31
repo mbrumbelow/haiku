@@ -230,16 +230,20 @@ VirtioSCSIController::ExecuteRequest(scsi_ccb *ccb)
 	}
 	fRequest->FillRequest(inCount, outCount, entries);
 
+	atomic_add(&fCurrentRequest, 1);
 	fInterruptCondition.Add(&fInterruptConditionEntry);
 
 	fVirtio->queue_request_v(fRequestVirtioQueue, entries,
-		outCount, inCount, NULL);
+		outCount, inCount, (void *)(addr_t)fCurrentRequest);
 
 	result = fInterruptConditionEntry.Wait(B_RELATIVE_TIMEOUT,
 		fRequest->Timeout());
 
-	if (result != B_OK)
+	if (result != B_OK) {
+		ERROR("wait failed with status: %#" B_PRIx32 "\n", result);
+		fRequest->Abort();
 		return result;
+	}
 
 	return fRequest->Finish(false);
 }
@@ -273,11 +277,6 @@ VirtioSCSIController::_RequestCallback(void* driverCookie, void* cookie)
 {
 	CALLED();
 	VirtioSCSIController* controller = (VirtioSCSIController*)driverCookie;
-
-	while (controller->fVirtio->queue_dequeue(
-			controller->fRequestVirtioQueue, NULL, NULL)) {
-	}
-
 	controller->_RequestInterrupt();
 }
 
@@ -285,7 +284,11 @@ VirtioSCSIController::_RequestCallback(void* driverCookie, void* cookie)
 void
 VirtioSCSIController::_RequestInterrupt()
 {
-	fInterruptCondition.NotifyAll();
+	void* cookie = NULL;
+	while (fVirtio->queue_dequeue(fRequestVirtioQueue, &cookie, NULL)) {
+		if ((int32)(addr_t)cookie == atomic_get(&fCurrentRequest))
+			fInterruptCondition.NotifyAll();
+	}
 }
 
 
