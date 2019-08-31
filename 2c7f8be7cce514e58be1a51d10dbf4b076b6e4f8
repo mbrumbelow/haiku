@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a67a0a9f_3a52f73b",
+        "filename": "src/system/libroot/posix/glibc/include/arch/arm64/config.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-08-31T07:05:13Z",
+      "side": 1,
+      "message": "Pretty sure our compiler supports this?",
+      "revId": "2c7f8be7cce514e58be1a51d10dbf4b076b6e4f8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
