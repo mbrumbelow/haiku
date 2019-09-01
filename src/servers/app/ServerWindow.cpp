@@ -3199,9 +3199,17 @@ ServerWindow::_DispatchViewDrawingMessage(int32 code,
 			DTRACE(("ServerWindow %s: Message AS_VIEW_END_LAYER\n",
 				Title()));
 
-			fCurrentView->BlendAllLayers();
-			fCurrentView->SetPicture(NULL);
-			fCurrentView->CurrentState()->SetDrawingModeLocked(false);
+			try {
+				fCurrentView->BlendAllLayers();
+				fCurrentView->SetPicture(NULL);
+				fCurrentView->CurrentState()->SetDrawingModeLocked(false);
+			} catch (std::bad_alloc&) {
+				if (link.NeedsReply()) {
+					// the client is now blocking and waiting for a reply!
+					fLink.StartMessage(B_NO_MEMORY);
+					fLink.Flush();
+				}
+			}
 			break;
 		}
 
