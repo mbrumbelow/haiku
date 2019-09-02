@@ -328,24 +328,39 @@ WebAppInterface::GetChangelog(const BString& packageName, BMessage& message)
 
 status_t
 WebAppInterface::RetrieveUserRatings(const BString& packageName,
-	const BString& architecture, int resultOffset, int maxResults,
+	const BString& webAppRepositoryCode, int resultOffset, int maxResults,
 	BMessage& message)
 {
-	BString jsonString = JsonBuilder()
-		.AddValue("jsonrpc", "2.0")
-		.AddValue("id", ++fRequestIndex)
-		.AddValue("method", "searchUserRatings")
-		.AddArray("params")
-			.AddObject()
-				.AddValue("pkgName", packageName)
-				.AddValue("pkgVersionArchitectureCode", architecture)
-				.AddValue("offset", resultOffset)
-				.AddValue("limit", maxResults)
-			.EndObject()
-		.EndArray()
-	.End();
+		// BHttpRequest later takes ownership of this.
+	BMallocIO* requestEnvelopeData = new BMallocIO();
+	BJsonTextWriter requestEnvelopeWriter(requestEnvelopeData);
 
-	return _SendJsonRequest("userrating", jsonString, 0, message);
+	requestEnvelopeWriter.WriteObjectStart();
+	_WriteStandardJsonRpcEnvelopeValues(requestEnvelopeWriter,
+		"searchUserRatings");
+	requestEnvelopeWriter.WriteObjectName("params");
+	requestEnvelopeWriter.WriteArrayStart();
+	requestEnvelopeWriter.WriteObjectStart();
+
+	requestEnvelopeWriter.WriteObjectName("pkgName");
+	requestEnvelopeWriter.WriteString(packageName.String());
+	requestEnvelopeWriter.WriteObjectName("offset");
+	requestEnvelopeWriter.WriteInteger(resultOffset);
+	requestEnvelopeWriter.WriteObjectName("limit");
+	requestEnvelopeWriter.WriteInteger(maxResults);
+
+	if (!webAppRepositoryCode.IsEmpty()) {
+		requestEnvelopeWriter.WriteObjectName("repositoryCode");
+		requestEnvelopeWriter.WriteString(webAppRepositoryCode);
+	}
+
+	requestEnvelopeWriter.WriteObjectEnd();
+	requestEnvelopeWriter.WriteArrayEnd();
+	requestEnvelopeWriter.WriteObjectEnd();
+
+	return _SendJsonRequest("userrating", requestEnvelopeData,
+		_LengthAndSeekToZero(requestEnvelopeData), 0,
+		message);
 }
 
 

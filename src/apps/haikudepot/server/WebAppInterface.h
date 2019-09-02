@@ -58,7 +58,7 @@ public:
 
 			status_t			RetrieveUserRatings(
 									const BString& packageName,
-									const BString& architecture,
+									const BString& webAppRepositoryCode,
 									int resultOffset, int maxResults,
 									BMessage& message);
 
