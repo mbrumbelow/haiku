@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "28a5b0bf_daee9a2a",
+        "filename": "src/add-ons/kernel/drivers/network/virtio/virtio_net.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-09-02T08:24:53Z",
+      "side": 1,
+      "message": "Is the check for \"buf \u003d\u003d NULL\" now needed?",
+      "revId": "5cd6ee1d9fce934a21c01a6d21e6815656400070",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "620cd623_a1cb1204",
+        "filename": "src/add-ons/kernel/drivers/network/virtio/virtio_net.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-09-02T08:24:53Z",
+      "side": 1,
+      "message": "Ditto",
+      "revId": "5cd6ee1d9fce934a21c01a6d21e6815656400070",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
