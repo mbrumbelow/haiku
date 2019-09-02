@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ff0cf533_2503e39d",
+        "filename": "src/add-ons/kernel/drivers/network/virtio/virtio_net.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-09-02T14:27:23Z",
+      "side": 1,
+      "message": "It may still be possible to dequeue a NULL buffer? At any rate it does not hurt.",
+      "parentUuid": "28a5b0bf_daee9a2a",
+      "revId": "5cd6ee1d9fce934a21c01a6d21e6815656400070",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "620cd623_a1cb1204",
         "filename": "src/add-ons/kernel/drivers/network/virtio/virtio_net.cpp",
         "patchSetId": 1
