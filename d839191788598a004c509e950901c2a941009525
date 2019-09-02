@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "65efe543_6b9fda43",
+        "filename": "src/add-ons/kernel/busses/scsi/virtio/VirtioSCSIPrivate.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-09-02T08:42:24Z",
+      "side": 1,
+      "message": "Should be initialized in the constructor.",
+      "revId": "d839191788598a004c509e950901c2a941009525",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
