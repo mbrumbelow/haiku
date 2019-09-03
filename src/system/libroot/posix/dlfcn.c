@@ -40,8 +40,13 @@ dlsym(void *handle, char const *name)
 	status_t status;
 	void* caller = NULL;
 
-	if (handle == RTLD_NEXT)
+	if (handle == RTLD_NEXT) {
+#if defined(__arm__) || defined(__aarch64__)
+		caller = __builtin_return_address(0);
+#else
 		caller = __arch_get_caller();
+#endif
+	}
 
 	status = __gRuntimeLoader->get_library_symbol(handle, caller, name,
 		&location);
