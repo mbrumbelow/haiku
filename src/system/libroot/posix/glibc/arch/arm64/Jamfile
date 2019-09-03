@@ -19,7 +19,8 @@ if $(OPTIM) = -O0 {
 # don't compile with debugging
 DEBUG = 0 ;
 
-SubDirCcFlags -D_GNU_SOURCE -D_IEEE_LIBM ;
+SubDirCcFlags -D_GNU_SOURCE -D_IEEE_LIBM -DPIC ;
+SubDirAsFlags -DPIC ;
 
 # Note: There is no *l() support yet. Our compiler says sizeof(long double) = 8,
 # while there are only 96 and 128 bit implementation in glibc.
@@ -142,9 +143,15 @@ for architectureObject in [ MultiArchSubDirSetup arm64 ] {
 			$(genericSources)
 			;
 
+		MergeObject <$(architecture)>posix_gnu_arch_$(TARGET_ARCH)_other.o :
+			e_sqrt.c e_sqrtf.c
+			temporary_stubs.c
+			;
+
 		MergeObjectFromObjects <$(architecture)>posix_gnu_arch_$(TARGET_ARCH).o
 			: :
 			<$(architecture)>posix_gnu_arch_$(TARGET_ARCH)_generic.o
+			<$(architecture)>posix_gnu_arch_$(TARGET_ARCH)_other.o
 			;
 
 		SEARCH on [ FGristFiles $(genericSources) ]
