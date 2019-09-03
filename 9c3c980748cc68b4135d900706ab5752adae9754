@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b6524f7_698f5c4b",
+        "filename": "src/apps/terminal/TermView.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 738,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-09-03T20:27:28Z",
+      "side": 1,
+      "message": "This map is never actually used. Just remove.",
+      "revId": "9c3c980748cc68b4135d900706ab5752adae9754",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
