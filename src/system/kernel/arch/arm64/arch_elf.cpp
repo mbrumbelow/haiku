@@ -1,12 +1,7 @@
 /*
- * Copyright 2004-2018, Haiku Inc. All Rights Reserved.
- * Distributed under the terms of the MIT license.
- *
- * Copyright 2002, Travis Geiselbrecht. All rights reserved.
- * Distributed under the terms of the NewOS License.
+ * Copyright 2019 Haiku, Inc. All Rights Reserved.
+ * Distributed under the terms of the MIT License.
  */
-
-
 #ifdef _BOOT_MODE
 #	include <boot/arch.h>
 #endif
