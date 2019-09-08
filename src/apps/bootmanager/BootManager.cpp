@@ -10,8 +10,10 @@
 
 #include "BootManagerWindow.h"
 
+#include <Alert.h>
 #include <Application.h>
 #include <Catalog.h>
+#include <TextView.h>
 
 
 #undef B_TRANSLATION_CONTEXT
@@ -39,6 +41,19 @@ BootManager::BootManager()
 void
 BootManager::ReadyToRun()
 {
+	BAlert* alert = new BAlert(B_TRANSLATE("Warning to EFI Booters!"),
+		B_TRANSLATE("Please note, using BootManager for EFI booting is "
+		"currently not supported."),
+		B_TRANSLATE("I'm out of here!"), B_TRANSLATE("Let's Continue!"), NULL,
+		B_WIDTH_AS_USUAL, B_WARNING_ALERT);
+	alert->SetShortcut(0, B_ESCAPE);
+
+	if (alert->Go() == 0)
+	{
+		be_app->PostMessage(B_QUIT_REQUESTED);
+		return;
+	}
+
 	BootManagerWindow* window = new BootManagerWindow();
 	window->Show();
 }
