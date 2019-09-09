@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "da5d660f_bcfe017d",
+        "filename": "src/apps/haikudepot/ui/UserLoginWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2019-09-09T19:41:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8366edcd_f989a3f9",
+      "revId": "77a9ea6771af636b6ee4f358cda3d88f0fac0e62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64e683f0_c57eab67",
         "filename": "src/apps/haikudepot/ui/UserLoginWindow.cpp",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "77a9ea6771af636b6ee4f358cda3d88f0fac0e62",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83dae075_c6d2bf23",
+        "filename": "src/apps/haikudepot/ui/UserLoginWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2019-09-09T19:41:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64e683f0_c57eab67",
+      "revId": "77a9ea6771af636b6ee4f358cda3d88f0fac0e62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
