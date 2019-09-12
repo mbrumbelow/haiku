@@ -120,14 +120,15 @@ TeamBarMenuItem::DrawIcon()
 void
 TeamBarMenuItem::DrawBar(bool force)
 {
-	bool selected = IsSelected ();
+	bool selected = IsSelected();
 	BRect frame = Frame();
 	BMenu* menu = Menu ();
 	rgb_color highColor = menu->HighColor();
+
 	frame.right -=  24;
 	frame.left = frame.right-kBarWidth;
-	frame.top += 5;
-	frame.bottom = frame.top+8;
+	frame.top += 7;
+	frame.bottom -= 7;
 
 	if (fKernel < 0)
 		return;

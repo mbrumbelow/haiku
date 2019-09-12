@@ -73,8 +73,8 @@ KernelMemoryBarMenuItem::DrawBar(bool force)
 	rgb_color highColor = menu->HighColor();
 
 	// draw the bar itself
-	BRect cadre (frame.right - kMargin - kBarWidth, frame.top + 5,
-		frame.right - kMargin, frame.top + 13);
+	BRect cadre (frame.right - kMargin - kBarWidth, frame.top + 7,
+		frame.right - kMargin, frame.bottom -7);
 
 	if (fLastSum < 0)
 		force = true;
