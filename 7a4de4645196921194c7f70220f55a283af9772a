@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3506983_09f00109",
+        "filename": "src/system/ldscripts/arm64/kernel.ld",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-09-13T23:03:14Z",
+      "side": 1,
+      "message": "Both these files are extremely large compared to their ARM or x86_64 counterparts. Why do we need all this?",
+      "revId": "7a4de4645196921194c7f70220f55a283af9772a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
