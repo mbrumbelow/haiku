@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fc354817_2c15e735",
+        "filename": "src/system/kernel/arch/arm64/arch_cpu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-09-13T23:06:52Z",
+      "side": 1,
+      "message": "Two blank lines between/before functions, etc. as elsewhere.",
+      "revId": "9373f46363481d6c88f926a7380dedc633aa511f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
