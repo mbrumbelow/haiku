@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f137861d_77201eaa",
+        "filename": "src/system/libroot/os/arch/arm64/time.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-09-13T23:07:33Z",
+      "side": 1,
+      "message": "Two blank lines",
+      "revId": "33bc95289ea2a714604173014914c6aca5420f91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
