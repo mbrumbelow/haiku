@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "18c07696_81a96b45",
+        "filename": "src/system/runtime_loader/arch/arm64/arch_relocate.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-09-13T23:04:33Z",
+      "side": 1,
+      "message": "Two blank lines here. Same goes for the other .c files (see coding style.)",
+      "revId": "4574fcfdc34663590300fba6d8bbb2eefc71c9b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
