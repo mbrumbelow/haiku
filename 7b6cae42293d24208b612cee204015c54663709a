@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5dd6ef32_13e678dd",
+        "filename": "src/apps/haikudepot/ui/UserLoginWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1000003
+      },
+      "writtenOn": "2019-09-18T20:58:27Z",
+      "side": 1,
+      "message": "Extra space.",
+      "revId": "7b6cae42293d24208b612cee204015c54663709a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ef7c781_343cb204",
+        "filename": "src/apps/haikudepot/ui/UserUsageConditionsWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000003
+      },
+      "writtenOn": "2019-09-18T20:58:27Z",
+      "side": 1,
+      "message": "Also here.",
+      "revId": "7b6cae42293d24208b612cee204015c54663709a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e0fd025_2bb8f2f5",
+        "filename": "src/apps/haikudepot/ui/UserUsageConditionsWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000003
+      },
+      "writtenOn": "2019-09-18T20:58:27Z",
+      "side": 1,
+      "message": "Also here.",
+      "revId": "7b6cae42293d24208b612cee204015c54663709a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95b694fe_e882d59b",
+        "filename": "src/apps/haikudepot/ui/UserUsageConditionsWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000003
+      },
+      "writtenOn": "2019-09-18T20:58:27Z",
+      "side": 1,
+      "message": "Also here. But maybe there are more.",
+      "revId": "7b6cae42293d24208b612cee204015c54663709a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
