@@ -128,10 +128,10 @@ UserLoginWindow::UserLoginWindow(BWindow* parent, BRect frame, Model& model)
 		NULL);
 	fConfirmMinimumAgeCheckBox->SetEnabled(false);
 	fConfirmUserUsageConditionsCheckBox = new BCheckBox(
-		"confirm user usage conditions",
+		"confirm usage conditions",
 		B_TRANSLATE("I agree to the usage conditions for users"),
 		NULL);
-	fUserUsageConditionsLink = new LinkView("user usage conditions view",
+	fUserUsageConditionsLink = new LinkView("usage conditions view",
 		B_TRANSLATE("View the usage conditions for users"),
 		new BMessage(MSG_VIEW_LATEST_USER_USAGE_CONDITIONS));
 	fUserUsageConditionsLink->SetTarget(this);
@@ -596,8 +596,8 @@ UserLoginWindow::_CreateAccountUserUsageConditionsSetupThread()
 		BMessenger(this).SendMessage(&dataMessage);
 	} else {
 		AppUtils::NotifySimpleError(
-			B_TRANSLATE("User Usage Conditions Download Problem"),
-			B_TRANSLATE("An error has arisen downloading the user usage "
+			B_TRANSLATE("Usage conditions download problem"),
+			B_TRANSLATE("An error has arisen downloading the usage "
 				"conditions.  Check the log for details and try again."));
 		BMessenger(this).SendMessage(B_QUIT_REQUESTED);
 	}
@@ -759,11 +759,11 @@ UserLoginWindow::_CreateAccountThread()
 		return;
 
 	if (fUserUsageConditions == NULL)
-		debugger("missing user usage conditions when creating an account");
+		debugger("missing usage conditions when creating an account");
 
 	if (fConfirmMinimumAgeCheckBox->Value() == 0
 		|| fConfirmUserUsageConditionsCheckBox->Value() == 0) {
-		debugger("expected that the minimum age and user usage conditions are"
+		debugger("expected that the minimum age and usage conditions are "
 			"agreed to at this point");
 	}
 
@@ -903,7 +903,7 @@ void
 UserLoginWindow::_ViewUserUsageConditions()
 {
 	if (fUserUsageConditions == NULL)
-		debugger("the user usage conditions should be set");
+		debugger("the usage conditions should be set");
 	UserUsageConditionsWindow* window = new UserUsageConditionsWindow(
 		fModel, *fUserUsageConditions);
 	window->Show();
