@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6cc94993_46853b42",
+        "filename": "src/apps/haikudepot/model/UserCredentials.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-09-19T10:25:06Z",
+      "side": 1,
+      "message": "Would be nicer to foward errors from Addd*() as return code.",
+      "revId": "04bd481f29b9fe7ec24ab107ac5ce80ef3a936c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9abc3a59_443bf24a",
+        "filename": "src/apps/haikudepot/model/UserDetail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-09-19T10:25:06Z",
+      "side": 1,
+      "message": "Would be nice to forward errors from Add*() calls as return code.",
+      "revId": "04bd481f29b9fe7ec24ab107ac5ce80ef3a936c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71ea4d28_d6ff8ab8",
+        "filename": "src/apps/haikudepot/model/UserDetail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-09-19T10:25:06Z",
+      "side": 1,
+      "message": "Needs one more TAB here.",
+      "revId": "04bd481f29b9fe7ec24ab107ac5ce80ef3a936c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd863340_abed3465",
+        "filename": "src/apps/haikudepot/model/UserDetail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-09-19T10:25:06Z",
+      "side": 1,
+      "message": "Again, always returning B_OK, but archiving may have failed.",
+      "revId": "04bd481f29b9fe7ec24ab107ac5ce80ef3a936c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4cf4c7a6_eb40af4b",
+        "filename": "src/apps/haikudepot/server/WebAppInterface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-09-19T10:25:06Z",
+      "side": 1,
+      "message": "Why is this debugger() call?",
+      "revId": "04bd481f29b9fe7ec24ab107ac5ce80ef3a936c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b43fa39_b9188763",
+        "filename": "src/apps/haikudepot/server/WebAppInterface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-09-19T10:25:06Z",
+      "side": 1,
+      "message": "The assignment and use of \"result\" doesn\u0027t seem very strict or consistent.",
+      "revId": "04bd481f29b9fe7ec24ab107ac5ce80ef3a936c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56d2dd42_14e0a19e",
+        "filename": "src/apps/haikudepot/ui/UserUsageConditionsWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-09-19T10:25:06Z",
+      "side": 1,
+      "message": "Why a debugger() call for this error? Don\u0027t these have the chance to be seen by actual users?",
+      "revId": "04bd481f29b9fe7ec24ab107ac5ce80ef3a936c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a51eb50_d46508e0",
+        "filename": "src/apps/haikudepot/ui/UserUsageConditionsWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-09-19T10:25:06Z",
+      "side": 1,
+      "message": "If there is no \"default\" case declared, won\u0027t the compiler then warn about not all modes being handled, which seems better than a debugger() call only in case the developer actually tests the new modes?",
+      "revId": "04bd481f29b9fe7ec24ab107ac5ce80ef3a936c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
