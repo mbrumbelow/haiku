@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8f241e80_e0b6d091",
+        "filename": "src/apps/haikudepot/ui/UserLoginWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2019-09-19T14:38:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5dd6ef32_13e678dd",
+      "revId": "7b6cae42293d24208b612cee204015c54663709a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ef7c781_343cb204",
         "filename": "src/apps/haikudepot/ui/UserUsageConditionsWindow.cpp",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2019-09-18T20:58:27Z",
       "side": 1,
       "message": "Also here.",
+      "revId": "7b6cae42293d24208b612cee204015c54663709a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17c7cabb_a5d2924c",
+        "filename": "src/apps/haikudepot/ui/UserUsageConditionsWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2019-09-19T14:38:52Z",
+      "side": 1,
+      "message": "The user conditions text has more double spaces, which makes larger portsions of text arguably better readable. Let\u0027s keep those and only fix them in notifications etc.",
+      "parentUuid": "1ef7c781_343cb204",
       "revId": "7b6cae42293d24208b612cee204015c54663709a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "1f582e1b_6f88e2d5",
+        "filename": "src/apps/haikudepot/ui/UserUsageConditionsWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2019-09-19T14:38:52Z",
+      "side": 1,
+      "message": "as above.",
+      "parentUuid": "7e0fd025_2bb8f2f5",
+      "revId": "7b6cae42293d24208b612cee204015c54663709a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "95b694fe_e882d59b",
         "filename": "src/apps/haikudepot/ui/UserUsageConditionsWindow.cpp",
         "patchSetId": 2
@@ -64,6 +118,24 @@
       "writtenOn": "2019-09-18T20:58:27Z",
       "side": 1,
       "message": "Also here. But maybe there are more.",
+      "revId": "7b6cae42293d24208b612cee204015c54663709a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15c4d3eb_452171e2",
+        "filename": "src/apps/haikudepot/ui/UserUsageConditionsWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2019-09-19T14:38:52Z",
+      "side": 1,
+      "message": "fixed in patch #3",
+      "parentUuid": "95b694fe_e882d59b",
       "revId": "7b6cae42293d24208b612cee204015c54663709a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
