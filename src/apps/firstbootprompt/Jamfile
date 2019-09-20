@@ -3,18 +3,31 @@ SubDir HAIKU_TOP src apps firstbootprompt ;
 UseHeaders [ FDirName $(HAIKU_COMMON_PLATFORM_OBJECT_DIR) data keymaps ] ;
 UsePrivateHeaders app interface locale shared ;
 
-Includes [ FGristFiles BootPromptWindow.cpp ] : <keymap-locale>KeymapNames.h ;
 
-SEARCH_SOURCE += [ FDirName $(HAIKU_TOP) src preferences keymap ] ;
+local architectureObject ;
+for architectureObject in [ MultiArchSubDirSetup ] {
+	on $(architectureObject) {
+		if x86_gcc2 in $(TARGET_PACKAGING_ARCH) {
+			# Do not build with gcc2, ICU there is too old
+			continue ;
+		}
 
-Application FirstBootPrompt :
-	BootPrompt.cpp
-	BootPromptWindow.cpp
-	Keymap.cpp
-	KeymapListItem.cpp
-	: be translation shared [ TargetLibstdc++ ] localestub
-	: BootPrompt.rdef
-;
+		Includes [ FGristFiles BootPromptWindow.cpp ] : <keymap-locale>KeymapNames.h ;
+		SEARCH_SOURCE += [ FDirName $(HAIKU_TOP) src preferences keymap ] ;
+
+		Application FirstBootPrompt :
+			BootPrompt.cpp
+			BootPromptWindow.cpp
+			Keymap.cpp
+			KeymapListItem.cpp
+			: be translation shared [ TargetLibstdc++ ] localestub
+			: BootPrompt.rdef
+		;
+
+		# Once we have found a compiler allowing to build it, stop the loop.
+		break ;
+	}
+}
 
 DoCatalogs FirstBootPrompt :
 	x-vnd.Haiku-FirstBootPrompt

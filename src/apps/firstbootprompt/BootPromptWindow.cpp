@@ -15,12 +15,15 @@
 #include <Button.h>
 #include <Catalog.h>
 #include <ControlLook.h>
+#include <Country.h>
 #include <Directory.h>
 #include <Entry.h>
 #include <Font.h>
 #include <FindDirectory.h>
 #include <File.h>
 #include <FormattingConventions.h>
+#include <Geolocation.h>
+#include <Language.h>
 #include <LayoutBuilder.h>
 #include <ListView.h>
 #include <Locale.h>
@@ -41,6 +44,7 @@
 #include "KeymapNames.h"
 
 
+using BPrivate::BGeolocation;
 using BPrivate::MutableLocaleRoster;
 
 
@@ -337,16 +341,28 @@ BootPromptWindow::_UpdateStrings()
 void
 BootPromptWindow::_PopulateLanguages()
 {
-	// TODO: detect language/country from IP address
+	const char* firstPreferredLanguage = NULL;
 
-	// Get current first preferred language of the user
-	BMessage preferredLanguages;
-	BLocaleRoster::Default()->GetPreferredLanguages(&preferredLanguages);
-	const char* firstPreferredLanguage;
-	if (preferredLanguages.FindString("language", &firstPreferredLanguage)
-			!= B_OK) {
-		// Fall back to built-in language of this application.
-		firstPreferredLanguage = "en";
+	// Detect language/country from nearby Wifi networks if network is up
+	BGeolocation location;
+	BCountry country;
+	BLanguage language;
+	float longitude, latitude;
+	if (location.LocateSelf(longitude, latitude) == B_OK
+		&& location.Country(longitude, latitude, country) == B_OK
+		&& country.GetPreferredLanguage(language) == B_OK) {
+		firstPreferredLanguage = language.Code();
+	}
+
+	// Geolocation didn't work, get current preferred language from settings
+	if (firstPreferredLanguage == NULL) {
+		BMessage preferredLanguages;
+		BLocaleRoster::Default()->GetPreferredLanguages(&preferredLanguages);
+		if (preferredLanguages.FindString("language", &firstPreferredLanguage)
+				!= B_OK) {
+			// Fall back to built-in language of this application.
+			firstPreferredLanguage = "en";
+		}
 	}
 
 	BMessage installedCatalogs;
