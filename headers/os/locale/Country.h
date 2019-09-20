@@ -39,6 +39,9 @@ public:
 			status_t			GetName(BString& name,
 									const BLanguage* displayLanguage = NULL
 									) const;
+#if __GNUC__ > 2
+			status_t			GetPreferredLanguage(BLanguage&) const;
+#endif
 
 			const char*			Code() const;
 									// ISO-3166
