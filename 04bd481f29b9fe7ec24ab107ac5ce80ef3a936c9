@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5a8924c5_74f78b2f",
+        "filename": "src/apps/haikudepot/model/UserCredentials.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2019-09-20T08:50:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6cc94993_46853b42",
+      "revId": "04bd481f29b9fe7ec24ab107ac5ce80ef3a936c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9abc3a59_443bf24a",
         "filename": "src/apps/haikudepot/model/UserDetail.cpp",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "04bd481f29b9fe7ec24ab107ac5ce80ef3a936c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1aa6e84f_f4412158",
+        "filename": "src/apps/haikudepot/model/UserDetail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2019-09-20T08:50:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9abc3a59_443bf24a",
+      "revId": "04bd481f29b9fe7ec24ab107ac5ce80ef3a936c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "9a3158b2_2617d4d1",
+        "filename": "src/apps/haikudepot/model/UserDetail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2019-09-20T08:50:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71ea4d28_d6ff8ab8",
+      "revId": "04bd481f29b9fe7ec24ab107ac5ce80ef3a936c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd863340_abed3465",
         "filename": "src/apps/haikudepot/model/UserDetail.cpp",
         "patchSetId": 1
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "9a2c8dcd_2b2e8ee4",
+        "filename": "src/apps/haikudepot/model/UserDetail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2019-09-20T08:50:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd863340_abed3465",
+      "revId": "04bd481f29b9fe7ec24ab107ac5ce80ef3a936c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4cf4c7a6_eb40af4b",
         "filename": "src/apps/haikudepot/server/WebAppInterface.cpp",
         "patchSetId": 1
@@ -81,6 +153,24 @@
       "writtenOn": "2019-09-19T10:25:06Z",
       "side": 1,
       "message": "Why is this debugger() call?",
+      "revId": "04bd481f29b9fe7ec24ab107ac5ce80ef3a936c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49b9f544_6fdea143",
+        "filename": "src/apps/haikudepot/server/WebAppInterface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2019-09-20T08:50:15Z",
+      "side": 1,
+      "message": "I\u0027m using this like {{{IllegalStateException}}}.  It seems quite nice because it will pop up in the debugger saying what the problem was.",
+      "parentUuid": "4cf4c7a6_eb40af4b",
       "revId": "04bd481f29b9fe7ec24ab107ac5ce80ef3a936c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "eeb080f4_ef082811",
+        "filename": "src/apps/haikudepot/server/WebAppInterface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2019-09-20T08:50:15Z",
+      "side": 1,
+      "message": "This is as intended.  If the ```result``` is unable to be found then this is a serious failure.  The same goes for the ```nickname```.  The rest is a best-efforts attempt to extract the details from the payload.",
+      "parentUuid": "4b43fa39_b9188763",
+      "revId": "04bd481f29b9fe7ec24ab107ac5ce80ef3a936c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "56d2dd42_14e0a19e",
         "filename": "src/apps/haikudepot/ui/UserUsageConditionsWindow.cpp",
         "patchSetId": 1
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "8a848a77_70ba9ed8",
+        "filename": "src/apps/haikudepot/ui/UserUsageConditionsWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2019-09-20T08:50:15Z",
+      "side": 1,
+      "message": "(as previous comment) this is being used like ```IllegalStateException```.",
+      "parentUuid": "56d2dd42_14e0a19e",
+      "revId": "04bd481f29b9fe7ec24ab107ac5ce80ef3a936c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6a51eb50_d46508e0",
         "filename": "src/apps/haikudepot/ui/UserUsageConditionsWindow.cpp",
         "patchSetId": 1
@@ -132,6 +258,24 @@
       "writtenOn": "2019-09-19T10:25:06Z",
       "side": 1,
       "message": "If there is no \"default\" case declared, won\u0027t the compiler then warn about not all modes being handled, which seems better than a debugger() call only in case the developer actually tests the new modes?",
+      "revId": "04bd481f29b9fe7ec24ab107ac5ce80ef3a936c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b489ef87_343a2790",
+        "filename": "src/apps/haikudepot/ui/UserUsageConditionsWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2019-09-20T08:50:15Z",
+      "side": 1,
+      "message": "(as previous comment) this is being used like ```IllegalStateException```.",
+      "parentUuid": "6a51eb50_d46508e0",
       "revId": "04bd481f29b9fe7ec24ab107ac5ce80ef3a936c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
