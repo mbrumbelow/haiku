@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "06ebd109_47729cb3",
+        "filename": "src/apps/firstbootprompt/BootPromptWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-09-20T18:56:48Z",
+      "side": 1,
+      "message": "Should be ... \u0026\u0026 ... \u0026\u0026 ...",
+      "revId": "a9a2de5a923dfab69ee1760a91c01baee6e00f29",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
