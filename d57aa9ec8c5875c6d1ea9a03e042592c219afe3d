@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "17c47024_2caffa46",
+        "filename": "src/kits/locale/Country.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-09-20T19:12:46Z",
+      "side": 1,
+      "message": "SetTo could be used in the constructor.",
+      "revId": "d57aa9ec8c5875c6d1ea9a03e042592c219afe3d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
