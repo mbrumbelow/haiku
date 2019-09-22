@@ -62,6 +62,7 @@ KeymapTest::TestAssignment()
 void
 KeymapTest::TestGetChars()
 {
+#if __GNUC__ > 2
 	// Get a copy of the currently loaded keymap
 	key_map* keymap;
 	char* charArray;
@@ -111,6 +112,7 @@ KeymapTest::TestGetChars()
 
 	delete keymap;
 	delete[] charArray;
+#endif
 }
 
 
