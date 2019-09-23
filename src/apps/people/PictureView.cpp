@@ -275,7 +275,7 @@ PictureView::Draw(BRect updateRect)
 		BRect frame = rect.InsetByCopy(kPictureMargin, kPictureMargin);
 		BRect srcRect = picture->Bounds();
 		BSize size = frame.Size();
-		if (srcRect.Width() > srcRect.Height())
+		if (srcRect.Width() >= srcRect.Height())
 			size.height = srcRect.Height() * size.width / srcRect.Width();
 		else
 			size.width = srcRect.Width() * size.height / srcRect.Height();
