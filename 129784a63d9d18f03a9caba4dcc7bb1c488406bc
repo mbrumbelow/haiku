@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6a5e8840_2322a422",
+        "filename": "src/apps/firstbootprompt/BootPromptWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-09-23T06:25:34Z",
+      "side": 1,
+      "message": "BGeolocation comes before MutableLocaleRoster",
+      "revId": "129784a63d9d18f03a9caba4dcc7bb1c488406bc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
