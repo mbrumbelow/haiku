@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "df374ae9_e6e9fc26",
+        "filename": "src/apps/haikudepot/model/UserCredentials.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-09-24T10:33:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a8924c5_74f78b2f",
+      "revId": "04bd481f29b9fe7ec24ab107ac5ce80ef3a936c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9abc3a59_443bf24a",
         "filename": "src/apps/haikudepot/model/UserDetail.cpp",
         "patchSetId": 1
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "9abc3a59_443bf24a",
+      "revId": "04bd481f29b9fe7ec24ab107ac5ce80ef3a936c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9222eb77_77d1488c",
+        "filename": "src/apps/haikudepot/model/UserDetail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-09-24T10:33:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1aa6e84f_f4412158",
       "revId": "04bd481f29b9fe7ec24ab107ac5ce80ef3a936c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
@@ -107,6 +143,24 @@
     },
     {
       "key": {
+        "uuid": "0043a327_47aa37ab",
+        "filename": "src/apps/haikudepot/model/UserDetail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-09-24T10:33:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a3158b2_2617d4d1",
+      "revId": "04bd481f29b9fe7ec24ab107ac5ce80ef3a936c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd863340_abed3465",
         "filename": "src/apps/haikudepot/model/UserDetail.cpp",
         "patchSetId": 1
@@ -136,6 +190,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "cd863340_abed3465",
+      "revId": "04bd481f29b9fe7ec24ab107ac5ce80ef3a936c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37aa43f4_fd189b7b",
+        "filename": "src/apps/haikudepot/model/UserDetail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-09-24T10:33:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a2c8dcd_2b2e8ee4",
       "revId": "04bd481f29b9fe7ec24ab107ac5ce80ef3a936c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
@@ -177,6 +249,24 @@
     },
     {
       "key": {
+        "uuid": "5ae1c47a_95af35c0",
+        "filename": "src/apps/haikudepot/server/WebAppInterface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-09-24T10:33:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49b9f544_6fdea143",
+      "revId": "04bd481f29b9fe7ec24ab107ac5ce80ef3a936c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b43fa39_b9188763",
         "filename": "src/apps/haikudepot/server/WebAppInterface.cpp",
         "patchSetId": 1
@@ -209,6 +299,24 @@
       "revId": "04bd481f29b9fe7ec24ab107ac5ce80ef3a936c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d25f1f7_f105debf",
+        "filename": "src/apps/haikudepot/server/WebAppInterface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-09-24T10:33:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eeb080f4_ef082811",
+      "revId": "04bd481f29b9fe7ec24ab107ac5ce80ef3a936c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
