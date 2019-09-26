@@ -352,6 +352,9 @@ BTextView::BTextView(BMessage* archive)
 	if (archive->FindBool("_nedit", &toggle) == B_OK)
 		MakeEditable(!toggle);
 
+	if (archive->FindBool("_password", &toggle) == B_OK)
+		HideTyping(toggle);
+
 	ssize_t disallowedCount = 0;
 	const int32* disallowedChars = NULL;
 	if (archive->FindData("_dis_ch", B_RAW_TYPE,
@@ -438,6 +441,8 @@ BTextView::Archive(BMessage* data, bool deep) const
 		err = data->AddBool("_nsel", !fSelectable);
 	if (err == B_OK)
 		err = data->AddBool("_nedit", !fEditable);
+	if (err == B_OK)
+		err = data->AddBool("_password", IsTypingHidden());
 
 	if (err == B_OK && fDisallowedChars != NULL && fDisallowedChars->CountItems() > 0) {
 		err = data->AddData("_dis_ch", B_RAW_TYPE, fDisallowedChars->Items(),
