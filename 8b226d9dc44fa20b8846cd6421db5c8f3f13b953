@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c289a844_ae92f66d",
+        "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_serial.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-10-02T20:21:54Z",
+      "side": 1,
+      "message": "not 100% on this one yet.\nI\u0027ve seen in dts\u0027s a \"full 16550 compatibility flag\" for this device and a few mentions of rough 16550 compatibility.\n\nhttps://github.com/torvalds/linux/blob/master/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml#L59\n\nhttps://reviews.freebsd.org/D5749",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 69
+      },
+      "revId": "8b226d9dc44fa20b8846cd6421db5c8f3f13b953",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
