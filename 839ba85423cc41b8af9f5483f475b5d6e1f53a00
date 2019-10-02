@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e44ece43_40fee0d2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2019-10-02T19:52:33Z",
+      "side": 1,
+      "message": "s/lese/else/:)",
+      "range": {
+        "startLine": 7,
+        "startChar": 35,
+        "endLine": 7,
+        "endChar": 39
+      },
+      "revId": "839ba85423cc41b8af9f5483f475b5d6e1f53a00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89472caf_3b27e61a",
+        "filename": "build/jam/ArchitectureRules",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2019-10-02T19:52:33Z",
+      "side": 1,
+      "message": "Where is fdtcontroladdr defined?",
+      "range": {
+        "startLine": 266,
+        "startChar": 18,
+        "endLine": 266,
+        "endChar": 32
+      },
+      "revId": "839ba85423cc41b8af9f5483f475b5d6e1f53a00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
