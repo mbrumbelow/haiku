@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0846c3b9_e0ba0545",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/kernel_interface.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-10-08T20:06:44Z",
+      "side": 1,
+      "message": "Right, but the in-memory model must stay in sync as well, so \"uncreating\" the inode seems a good thing to do still?",
+      "parentUuid": "d50174e4_dad85411",
+      "revId": "9cf807721b9e3292a2a0815c0bd8b76a77e51a4b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8d43fc5e_3ec4ad65",
         "filename": "src/add-ons/kernel/file_systems/btrfs/kernel_interface.cpp",
         "patchSetId": 7
@@ -59,6 +77,30 @@
     },
     {
       "key": {
+        "uuid": "2ee8c49f_55bdacc1",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/kernel_interface.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-10-08T20:06:44Z",
+      "side": 1,
+      "message": "Here, it is used only if committing the transaction failed, is that ok?",
+      "parentUuid": "b95186bf_f1eb086b",
+      "range": {
+        "startLine": 505,
+        "startChar": 1,
+        "endLine": 506,
+        "endChar": 56
+      },
+      "revId": "9cf807721b9e3292a2a0815c0bd8b76a77e51a4b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "eb6e39a8_148db13f",
         "filename": "src/add-ons/kernel/file_systems/btrfs/kernel_interface.cpp",
         "patchSetId": 7
@@ -79,6 +121,30 @@
       "revId": "9cf807721b9e3292a2a0815c0bd8b76a77e51a4b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9610096f_f550cad0",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/kernel_interface.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-10-08T20:06:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb6e39a8_148db13f",
+      "range": {
+        "startLine": 514,
+        "startChar": 1,
+        "endLine": 515,
+        "endChar": 56
+      },
+      "revId": "9cf807721b9e3292a2a0815c0bd8b76a77e51a4b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
