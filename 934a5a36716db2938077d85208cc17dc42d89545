@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0066e15e_bcbb0f44",
+        "filename": "headers/os/drivers/usb/USB_video.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-10-11T19:51:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0623db10_4119f3b3",
+      "revId": "934a5a36716db2938077d85208cc17dc42d89545",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f0d9dac_a444483f",
         "filename": "headers/os/drivers/usb/USB_video.h",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "934a5a36716db2938077d85208cc17dc42d89545",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7b99efc_c67ee9d7",
+        "filename": "headers/os/drivers/usb/USB_video.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-10-11T19:51:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f0d9dac_a444483f",
+      "revId": "934a5a36716db2938077d85208cc17dc42d89545",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "d2df9500_d39baf05",
+        "filename": "headers/os/drivers/usb/USB_video.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-10-11T19:51:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f920481d_2ea2b37f",
+      "revId": "934a5a36716db2938077d85208cc17dc42d89545",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7a89c1ae_8e0a125e",
         "filename": "headers/os/drivers/usb/USB_video.h",
         "patchSetId": 2
@@ -67,6 +121,24 @@
       "revId": "934a5a36716db2938077d85208cc17dc42d89545",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "636eede5_39ddd095",
+        "filename": "headers/os/drivers/usb/USB_video.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-10-11T19:51:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a89c1ae_8e0a125e",
+      "revId": "934a5a36716db2938077d85208cc17dc42d89545",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "f8ae19b0_f312cdf3",
+        "filename": "headers/os/drivers/usb/USB_video.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-10-11T19:51:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b94f7fb2_692e9479",
+      "revId": "934a5a36716db2938077d85208cc17dc42d89545",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b12fa38_0d7ef496",
         "filename": "headers/os/drivers/usb/USB_video.h",
         "patchSetId": 2
@@ -101,6 +191,24 @@
       "revId": "934a5a36716db2938077d85208cc17dc42d89545",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d1bcc9e_0fd0bfc7",
+        "filename": "headers/os/drivers/usb/USB_video.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-10-11T19:51:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b12fa38_0d7ef496",
+      "revId": "934a5a36716db2938077d85208cc17dc42d89545",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "b4f17bd0_7904dd76",
+        "filename": "headers/os/drivers/usb/USB_video.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-10-11T19:51:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0dff30c4_baec5e89",
+      "revId": "934a5a36716db2938077d85208cc17dc42d89545",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c0296529_0edc1cb9",
         "filename": "headers/os/drivers/usb/USB_video.h",
         "patchSetId": 2
@@ -135,6 +261,24 @@
       "revId": "934a5a36716db2938077d85208cc17dc42d89545",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dcca2063_a2445096",
+        "filename": "headers/os/drivers/usb/USB_video.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-10-11T19:51:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0296529_0edc1cb9",
+      "revId": "934a5a36716db2938077d85208cc17dc42d89545",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
