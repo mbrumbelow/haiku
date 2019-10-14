@@ -34,6 +34,24 @@
       "revId": "8093fd3b728c2e349cfe2ef870035eb209c92db9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0a8c46a_e7f06ac3",
+        "filename": "src/add-ons/kernel/drivers/network/wlan/idualwifi7260/glue.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2019-10-14T17:40:14Z",
+      "side": 1,
+      "message": "That\u0027s a great point. We could change it everywhere to just use B_COUNT_OF to get the size during initialization, like...\n\nhttps://gist.github.com/ambroff/5567d3cb4c09c911168bdf3307915544\n\nI just tested that and it works fine (although a little gross, but not any worse than what was there before IMO).\n\nAlternatively, `__haiku_firmware_parts_count` is only referenced in one place, so we could just change that to a B_COUNT_OF.\n\nhttps://github.com/haiku/haiku/blob/master/src/libs/compat/freebsd_network/firmware.c#L38\n\nWhat do you think?",
+      "parentUuid": "bc48c7b4_6df2b39d",
+      "revId": "8093fd3b728c2e349cfe2ef870035eb209c92db9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
