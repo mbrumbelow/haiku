@@ -16,6 +16,24 @@
       "revId": "8093fd3b728c2e349cfe2ef870035eb209c92db9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc48c7b4_6df2b39d",
+        "filename": "src/add-ons/kernel/drivers/network/wlan/idualwifi7260/glue.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-10-14T15:13:56Z",
+      "side": 1,
+      "message": "It comes from: https://github.com/haiku/haiku/blob/master/src/libs/compat/freebsd_network/compat/sys/haiku-module.h#L237",
+      "parentUuid": "43b08015_1f33e926",
+      "revId": "8093fd3b728c2e349cfe2ef870035eb209c92db9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
