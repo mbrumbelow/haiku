@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3aed84f5_9d354665",
+        "filename": "src/libs/compat/freebsd_network/compat/sys/haiku-module.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-10-14T20:04:54Z",
+      "side": 1,
+      "message": "Either remove the ; here, or after the invocation of the macro (I don\u0027t know which way is cleaner).\n\nMaybe indeed using B_COUNT_OF directly instead of __haiku_firmware_parts_count  is better? But we still need to decide if the other ; goes inside or outside the macro anyway.",
+      "revId": "f7cff1c3857265b4ca808cc6df1ff8283fdaa1b8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
