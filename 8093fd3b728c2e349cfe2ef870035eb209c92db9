@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "43b08015_1f33e926",
+        "filename": "src/add-ons/kernel/drivers/network/wlan/idualwifi7260/glue.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-10-14T07:09:06Z",
+      "side": 1,
+      "message": "Why do we need to specify a size at all here? It sounds error-prone. Is it not possible to use B_COUNT_OF or similar to detect the array size?",
+      "revId": "8093fd3b728c2e349cfe2ef870035eb209c92db9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
