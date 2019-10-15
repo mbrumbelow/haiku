@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cc35d822_f7a1cb07",
+        "filename": "src/system/boot/platform/efi/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-10-15T18:14:42Z",
+      "side": 1,
+      "message": "IS this intermediate file really needed? Couldn\u0027t we do this all in a single pass?",
+      "revId": "73b38806353d550d602156caa7e94d1f6b594c58",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
