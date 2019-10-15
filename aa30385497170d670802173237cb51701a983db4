@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c899b378_6bb7f13b",
+        "filename": "src/apps/terminal/TermView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1866,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-10-15T19:27:41Z",
+      "side": 1,
+      "message": "Hm... perhaps rename “report” to “value”, since variable is reused?",
+      "revId": "aa30385497170d670802173237cb51701a983db4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6fd995ca_8716fcc8",
+        "filename": "src/apps/terminal/TerminalBuffer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-10-15T19:27:41Z",
+      "side": 1,
+      "message": "Parameter should be named “enable”, copy \u0026 paste error.",
+      "revId": "aa30385497170d670802173237cb51701a983db4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
