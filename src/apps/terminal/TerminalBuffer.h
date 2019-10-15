@@ -60,6 +60,7 @@ public:
 			void				ReportNormalMouseEvent(bool report);
 			void				ReportButtonMouseEvent(bool report);
 			void				ReportAnyMouseEvent(bool report);
+			void				EnableExtendedMouseCoordinates(bool report);
 
 protected:
 	virtual	void				NotifyListener();
