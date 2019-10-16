@@ -16,6 +16,24 @@
       "revId": "73b38806353d550d602156caa7e94d1f6b594c58",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f607972_29857894",
+        "filename": "src/system/boot/platform/efi/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-10-16T14:07:41Z",
+      "side": 1,
+      "message": "There\u0027s no guarantee all architectures will have identical source files (hpet for example on x86)   so at minimum splitting apart \"common\" EFI code and architecture dependant code makes sense.",
+      "parentUuid": "cc35d822_f7a1cb07",
+      "revId": "73b38806353d550d602156caa7e94d1f6b594c58",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
