@@ -186,6 +186,8 @@ if [ IsOptionalHaikuImagePackageAdded Welcome ] {
 
 	AddSymlinkToHaikuImage home Desktop	: /boot/system/bin/welcome
 		: Welcome ;
+	AddSymlinkToHaikuImage home Desktop	: /boot/system/bin/quicktour
+		: Quick\ Tour ;
 	AddSymlinkToHaikuImage home Desktop	: /boot/system/bin/userguide
 		: User\ Guide ;
 }
