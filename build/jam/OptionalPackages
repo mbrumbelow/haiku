@@ -184,8 +184,15 @@ if [ IsOptionalHaikuImagePackageAdded Welcome ] {
 
 	AddPackageFilesToHaikuImage system : haiku_welcome.hpkg : nameFromMetaInfo ;
 
-	AddSymlinkToHaikuImage home Desktop	: /boot/system/bin/welcome
-		: Welcome ;
+	local Alert_Info.hvif = [ FGristFiles Alert_Info.hvif ] ;
+	SEARCH on ($(Alert_Info.hvif) = [ FDirName $(HAIKU_TOP) src data icons ] ;
+	AddFileDataAttribute /boot/system/bin/quicktour : BEOS:ICON : 'VICN' : $(Alert_Info.hvif) ;
+	AddSymlinkToHaikuImage home Desktop	: /boot/system/bin/quicktour
+		: Quick\ Tour ;
+
+	local Misc_Book.hvif = [ FGristFiles Misc_Book.hvif ] ;
+	SEARCH on ($(Misc_Book.hvif) = [ FDirName $(HAIKU_TOP) src data icons ] ;
+	AddFileDataAttribute /boot/system/bin/userguide : BEOS:ICON : 'VICN' : $(Misc_Book.hvif) ;
 	AddSymlinkToHaikuImage home Desktop	: /boot/system/bin/userguide
 		: User\ Guide ;
 }
