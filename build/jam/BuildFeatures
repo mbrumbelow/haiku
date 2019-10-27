@@ -565,8 +565,6 @@ if [ IsPackageAvailable openexr_devel ]
 		;
 
 	EnableBuildFeatures openexr ;
-} else {
-	unavailableBuildFeatures += openexr ;
 }
 
 
@@ -589,6 +587,23 @@ if [ IsPackageAvailable ilmbase_devel ] {
 	EnableBuildFeatures ilmbase ;
 } else {
 	unavailableBuildFeatures += ilmbase ;
+}
+
+
+# openexr24
+if [ IsPackageAvailable openexr24_devel ] {
+	ExtractBuildFeatureArchives openexr :
+		file: base openexr24
+			runtime: lib
+		file: devel openexr24_devel
+			depends: base
+			libraries:
+				$(developLibDir)/libIlmImf.so
+				$(developLibDir)/libIlmImfUtil.so
+			headers: $(developHeadersDir) $(developHeadersDir)/OpenEXR
+		;
+
+	EnableBuildFeatures openexr ;
 }
 
 
