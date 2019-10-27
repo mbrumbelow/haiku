@@ -15,12 +15,15 @@
 #include <platform/openfirmware/openfirmware.h>
 
 
+#ifdef __powerpc__
 static int sHandle = OF_FAILED;
+#endif
 
 
 status_t
 init_real_time_clock(void)
 {
+#ifdef __powerpc__
 	// find RTC
 	intptr_t rtcCookie = 0;
 	if (of_get_next_device(&rtcCookie, 0, "rtc",
@@ -35,6 +38,7 @@ init_real_time_clock(void)
 		printf("%s(): Could not open RTC device!\n", __func__);
 		return B_ERROR;
 	}
+#endif
 
 	return B_OK;
 }
@@ -43,6 +47,7 @@ init_real_time_clock(void)
 bigtime_t
 real_time_clock_usecs(void)
 {
+#ifdef __powerpc__
 	if (sHandle == OF_FAILED)
 		return OF_FAILED;
 	int second, minute, hour, day, month, year;
@@ -54,4 +59,9 @@ real_time_clock_usecs(void)
 		// to assure monotonically increasing date.
 	return (((days * 24 + hour) * 60ULL + minute) * 60ULL + second)
 		* 1000000ULL;
+#else
+	// TODO implement for sparc. Apparently we only get the "date" command
+	// and we need to parse the output.
+	return 0;
+#endif
 }
