@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e26d3269_25c11f46",
+        "filename": "build/jam/repositories/HaikuPorts/x86_gcc2",
+        "patchSetId": 2
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-10-29T03:24:52Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this one be removed?",
+      "revId": "218d1205bd06e78d850ac0d7a714e3fb61eb63e7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
