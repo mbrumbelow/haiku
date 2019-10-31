@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7e1b2dc5_ad59abec",
+        "filename": "src/add-ons/screen_savers/glife/GLifeConfig.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-10-31T17:11:24Z",
+      "side": 1,
+      "message": "This will be confusing to some people, because B_PRId32 in original string will be replaced with \"d\" for example.",
+      "range": {
+        "startLine": 144,
+        "startChar": 20,
+        "endLine": 144,
+        "endChar": 32
+      },
+      "revId": "b209dff50f5ebcc6e665a7d61861f71b3574c1b0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
