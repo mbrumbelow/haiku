@@ -22,6 +22,30 @@
       "revId": "b209dff50f5ebcc6e665a7d61861f71b3574c1b0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6efdf3b9_4270409b",
+        "filename": "src/add-ons/screen_savers/glife/GLifeConfig.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2019-11-01T14:01:50Z",
+      "side": 1,
+      "message": "Oh, indeed, I wasn\u0027t aware of that.\nNow, what to do?\n* Just don\u0027t mention B_PRId32 in the comment? :)\n* Use %li like further up (l. 129-135) or use B_PRId32 there, too?    \n(when do I have to use B_PRId32 instead of e.g. %li?)",
+      "parentUuid": "7e1b2dc5_ad59abec",
+      "range": {
+        "startLine": 144,
+        "startChar": 20,
+        "endLine": 144,
+        "endChar": 32
+      },
+      "revId": "b209dff50f5ebcc6e665a7d61861f71b3574c1b0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
