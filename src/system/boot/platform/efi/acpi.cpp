@@ -250,10 +250,12 @@ acpi_init()
 			if (strncmp((char *)rsdp, ACPI_RSDP_SIGNATURE, 8) == 0)
 				TRACE(("acpi_init: found ACPI RSDP signature at %p\n", rsdp));
 
+			#if defined(__x86_64__) || defined(__x86__)
 			if (rsdp != NULL && acpi_check_rsdt(rsdp) == B_OK) {
 				gKernelArgs.arch_args.acpi_root = rsdp;
 				break;
 			}
+			#endif
 		}
 	}
 }
