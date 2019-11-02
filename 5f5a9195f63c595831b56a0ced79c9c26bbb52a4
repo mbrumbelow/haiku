@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0df70047_74d91246",
+        "filename": "src/system/boot/platform/efi/acpi.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2019-11-02T02:10:41Z",
+      "side": 1,
+      "message": "This seems odd to put the ifdef here, as the purpose of the entire function is to set `gKernelArgs.arch_args.acpi_root`. It seems like the correct approach would be to bail at the start of the function.",
+      "revId": "5f5a9195f63c595831b56a0ced79c9c26bbb52a4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f922a001_cf3b3d55",
+        "filename": "src/system/boot/platform/efi/mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2019-11-02T02:10:41Z",
+      "side": 1,
+      "message": "This should have an else guard with an #error pragma. This caused extremely subtle bugs with virtual memory in Haiku. On platforms that don\u0027t need this enabled, an explicit comment saying so should be used.",
+      "revId": "5f5a9195f63c595831b56a0ced79c9c26bbb52a4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
