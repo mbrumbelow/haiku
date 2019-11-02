@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ab9d2265_cb41bf26",
+        "filename": "src/system/boot/platform/efi/start.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-11-02T14:14:56Z",
+      "side": 1,
+      "message": "We might be able to hide these within a timer_early_init? or the timer_init, but I am still trying to avoid \"changing behavior or ordering\" until things are separated out as best we can.\n\nAnother option would be a arch_mmu_fix_addresses or something?",
+      "revId": "4e510ca62e1fe5ba3f55c4ab000cc25e7c972db1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "feb11a23_998acef8",
+        "filename": "src/system/boot/platform/efi/start.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-11-02T14:14:56Z",
+      "side": 1,
+      "message": "We might be able to hide these within timer_init, but I am still trying to avoid \"changing behavior or ordering\" until things are separated out as best we can.",
+      "revId": "4e510ca62e1fe5ba3f55c4ab000cc25e7c972db1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
