@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6f6fd9ca_f9b56986",
+        "filename": "src/add-ons/kernel/bus_managers/config_manager/arch/arm64/config_manager_arch.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2019-11-05T20:05:19Z",
+      "side": 1,
+      "message": "Unusual header?\nAlso, two blank lines after it.",
+      "revId": "b4e9f95314820c834646ba86ccfe4462c262adc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c5c7879_99726e5f",
+        "filename": "src/add-ons/kernel/bus_managers/config_manager/arch/arm64/config_manager_arch.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2019-11-05T20:05:19Z",
+      "side": 1,
+      "message": "Newline between type and name.",
+      "revId": "b4e9f95314820c834646ba86ccfe4462c262adc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3725e888_00af6491",
+        "filename": "src/add-ons/kernel/bus_managers/isa/arch/arm64/isa_controller.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2019-11-05T20:05:19Z",
+      "side": 1,
+      "message": "Again the blank line issue -- the rest looks good.",
+      "revId": "b4e9f95314820c834646ba86ccfe4462c262adc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07782032_7b9a7135",
+        "filename": "src/add-ons/kernel/bus_managers/pci/arch/arm64/Jamfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2019-11-05T20:05:19Z",
+      "side": 1,
+      "message": "While you\u0027re at it, you could also remove all those extraneous blanks in the Jamfiles :-)",
+      "revId": "b4e9f95314820c834646ba86ccfe4462c262adc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "907f7f40_6a3162dc",
+        "filename": "src/add-ons/kernel/bus_managers/pci/arch/arm64/pci_io.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2019-11-05T20:05:19Z",
+      "side": 1,
+      "message": "Extraneous blank line, missing lines below, though",
+      "revId": "b4e9f95314820c834646ba86ccfe4462c262adc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "948c19ab_ff754b0a",
+        "filename": "src/system/libroot/os/arch/arm64/thread.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2019-11-05T20:05:19Z",
+      "side": 1,
+      "message": "Two missing blank lines...",
+      "revId": "b4e9f95314820c834646ba86ccfe4462c262adc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "118436f8_be9e3c79",
+        "filename": "src/system/libroot/posix/arch/arm64/siglongjmp.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2019-11-05T20:05:19Z",
+      "side": 1,
+      "message": "What is this?",
+      "revId": "b4e9f95314820c834646ba86ccfe4462c262adc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
