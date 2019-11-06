@@ -118,6 +118,24 @@
       "revId": "b4e9f95314820c834646ba86ccfe4462c262adc2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a811147d_c8b92300",
+        "filename": "src/system/libroot/posix/arch/arm64/siglongjmp.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-11-06T07:36:08Z",
+      "side": 1,
+      "message": "Looks like a \"branch here\" to make an infinite loop. This will make sure the next person to call this function will not miss that it is not working at all, I guess. But a TODO or FIXME seems appropriate.",
+      "parentUuid": "118436f8_be9e3c79",
+      "revId": "b4e9f95314820c834646ba86ccfe4462c262adc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
