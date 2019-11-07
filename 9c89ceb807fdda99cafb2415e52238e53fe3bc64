@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b19877c2_48849ff8",
+        "filename": "src/kits/interface/ControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2019-11-07T08:43:36Z",
+      "side": 0,
+      "message": "In order to preserve compatibility, you cannot just remove a virtual. You have to add a function for this manually that calls the new virtual.\n\nSee for example: https://git.haiku-os.org/haiku/tree/src/kits/interface/View.cpp#n6530\n\nWe might also want to preserve compatibility with GCC4+ here, I\u0027d assume.",
+      "revId": "9c89ceb807fdda99cafb2415e52238e53fe3bc64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
