@@ -1970,6 +1970,32 @@ BListView::_RecalcItemTops(int32 start, int32 end)
 void
 BListView::_DoneTracking(BPoint where)
 {
+	if (!fTrack->is_dragging) {
+		// update selection only if a drag was not initiated
+		int32 index = IndexOf(where);
+		BListItem* item = ItemAt(index);
+		if (item != NULL) {
+			if (fListType != B_MULTIPLE_SELECTION_LIST
+				&& CurrentSelection(0) != fTrack->item_index) {
+				// reset selection back to item_index
+				BListItem* selectedItem = ItemAt(CurrentSelection(0));
+				if (selectedItem != NULL)
+					selectedItem->Deselect();
+				BListItem* originalItem = ItemAt(fTrack->item_index);
+				if (originalItem != NULL)
+					originalItem->Select();
+				fFirstSelected = fLastSelected = fTrack->item_index;
+			}
+
+			if (item->IsEnabled() && !item->IsSelected()) {
+				// actually update selection
+				Select(index, fListType == B_MULTIPLE_SELECTION_LIST
+					&& (modifiers() & B_SHIFT_KEY) != 0);
+				ScrollToSelection();
+			}
+		}
+	}
+
 	fTrack->try_drag = false;
 	fTrack->is_dragging = false;
 }
@@ -1978,6 +2004,27 @@ BListView::_DoneTracking(BPoint where)
 void
 BListView::_Track(BPoint where, uint32)
 {
+	if (!fTrack->is_dragging
+		// update selection only if a drag was not initiated
+		&& fListType != B_MULTIPLE_SELECTION_LIST) {
+			// only for single selection lists
+		int32 index = IndexOf(where);
+		int32 selectedIndex = CurrentSelection(0);
+		if (selectedIndex >= 0 && index != selectedIndex) {
+			BListItem* item = ItemAt(index);
+			if (item != NULL && item->IsEnabled()) {
+				// Appear to update the selection as you move over items
+				// (but don't call SelectionChanged() hook.)
+				BListItem* selectedItem = ItemAt(selectedIndex);
+				if (selectedItem != NULL)
+					selectedItem->Deselect();
+				item->Select();
+				fFirstSelected = fLastSelected = index;
+				Invalidate(ItemFrame(index) | ItemFrame(selectedIndex));
+			}
+		}
+	}
+
 	if (fTrack->item_index >= 0 && fTrack->try_drag) {
 		// initiate a drag if the mouse was moved far enough
 		BPoint offset = where - fTrack->drag_start;
