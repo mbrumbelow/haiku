@@ -155,14 +155,11 @@ BImageResources::GetIconResource(int32 id, icon_size size,
 	}
 
 	// fall back to R5 icon
-	if (size != B_LARGE_ICON && size != B_MINI_ICON)
-		return B_ERROR;
-
 	length = 0;
-	data = LoadResource(size == B_LARGE_ICON ? 'ICON' : 'MICN', id, &length);
+	size = (size == B_MINI_ICON ? B_MINI_ICON : B_LARGE_ICON);
 
-	if (data == NULL
-		|| length != (size_t)(size == B_LARGE_ICON ? 1024 : 256)) {
+	data = LoadResource(size == B_MINI_ICON ? 'MICN' : 'ICON', id, &length);
+	if (data == NULL || length != (size_t)(size * size)) {
 		TRESPASS();
 		return B_ERROR;
 	}
