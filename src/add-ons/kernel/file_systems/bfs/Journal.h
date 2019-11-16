@@ -30,6 +30,7 @@ public:
 			status_t		Unlock(Transaction* owner, bool success);
 
 			status_t		ReplayLog();
+			status_t		IgnoreLog();
 
 			Transaction*	CurrentTransaction() const { return fOwner; }
 			size_t			CurrentTransactionSize() const;
@@ -55,6 +56,7 @@ private:
 			status_t		_CheckRunArray(const run_array* array);
 			status_t		_ReplayRunArray(int32* start);
 			status_t		_TransactionDone(bool success);
+			status_t		_MarkAsClean();
 
 	static	void			_TransactionWritten(int32 transactionID,
 								int32 event, void* _logEntry);

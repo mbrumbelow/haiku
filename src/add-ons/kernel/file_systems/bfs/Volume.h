@@ -19,7 +19,8 @@ class Query;
 
 
 enum volume_flags {
-	VOLUME_READ_ONLY	= 0x0001
+	VOLUME_READ_ONLY	= 0x0001,
+	VOLUME_NO_RECOVERY	= 0x0002
 };
 
 enum volume_initialize_flags {
@@ -34,7 +35,8 @@ public:
 							Volume(fs_volume* volume);
 							~Volume();
 
-			status_t		Mount(const char* device, uint32 flags);
+			status_t		Mount(const char* device, const char* args,
+								uint32 flags);
 			status_t		Unmount();
 			status_t		Initialize(int fd, const char* name,
 								uint32 blockSize, uint32 flags);
