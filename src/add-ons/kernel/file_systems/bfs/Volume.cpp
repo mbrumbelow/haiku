@@ -326,7 +326,7 @@ Volume::Panic()
 
 
 status_t
-Volume::Mount(const char* deviceName, uint32 flags)
+Volume::Mount(const char* deviceName, const char* args, uint32 flags)
 {
 	// TODO: validate the FS in write mode as well!
 #if (B_HOST_IS_LENDIAN && defined(BFS_BIG_ENDIAN_ONLY)) \
@@ -334,6 +334,28 @@ Volume::Mount(const char* deviceName, uint32 flags)
 	// in big endian mode, we only mount read-only for now
 	flags |= B_MOUNT_READ_ONLY;
 #endif
+	if (args != NULL) {
+		char* options = strdup(args);
+		if (options == NULL)
+			return B_NO_MEMORY;
+		MemoryDeleter argsDeleter(options);
+
+		char* optionsEnd = strchr(options, ' ');
+		while (options != NULL && *options != '\0') {
+			if (optionsEnd != NULL)
+				*optionsEnd++ = '\0';
+
+			if (strcmp(options, "norecovery") == 0)
+				fFlags |= VOLUME_NO_RECOVERY;
+
+			options = optionsEnd;
+			if (options != NULL)
+				optionsEnd = strchr(options, ' ');
+		}
+
+		INFORM(("options: %s\n",
+			((fFlags & VOLUME_NO_RECOVERY) != 0) ? "norecovery" : ""));
+	}
 
 	DeviceOpener opener(deviceName, (flags & B_MOUNT_READ_ONLY) != 0
 		? O_RDONLY : O_RDWR);
@@ -382,8 +404,13 @@ Volume::Mount(const char* deviceName, uint32 flags)
 		return status;
 	}
 
-	// replaying the log is the first thing we will do on this disk
-	status = fJournal->ReplayLog();
+	// replaying/ignoring the log is the first thing we will do on this disk
+	if ((fFlags & VOLUME_READ_ONLY) == 0) {
+		if ((fFlags & VOLUME_NO_RECOVERY) != 0)
+			status = fJournal->IgnoreLog();
+		else
+			status = fJournal->ReplayLog();
+	}
 	if (status != B_OK) {
 		FATAL(("Replaying log failed, data may be corrupted, volume "
 			"read-only.\n"));

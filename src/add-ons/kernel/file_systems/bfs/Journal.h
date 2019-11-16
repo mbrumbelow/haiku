@@ -30,6 +30,7 @@ public:
 			status_t		Unlock(Transaction* owner, bool success);
 
 			status_t		ReplayLog();
+			status_t		IgnoreLog();
 
 			Transaction*	CurrentTransaction() const { return fOwner; }
 			size_t			CurrentTransactionSize() const;

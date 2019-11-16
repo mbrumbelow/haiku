@@ -558,8 +558,7 @@ Journal::_ReplayRunArray(int32* _start)
 /*!	Replays all log entries - this will put the disk into a
 	consistent and clean state, if it was not correctly unmounted
 	before.
-	This method is called by Journal::InitCheck() if the log start
-	and end pointer don't match.
+	This method is called by Volume::Mount()
 */
 status_t
 Journal::ReplayLog()
@@ -603,8 +602,41 @@ Journal::ReplayLog()
 
 	PRINT(("replaying worked fine!\n"));
 	fVolume->SuperBlock().log_start = HOST_ENDIAN_TO_BFS_INT64(
-		fVolume->LogEnd());
-	fVolume->LogStart() = HOST_ENDIAN_TO_BFS_INT64(fVolume->LogEnd());
+		(int64)fVolume->LogEnd());
+	fVolume->LogStart() = fVolume->LogEnd();
+	fVolume->SuperBlock().flags = HOST_ENDIAN_TO_BFS_INT32(
+		SUPER_BLOCK_DISK_CLEAN);
+
+	return fVolume->WriteSuperBlock();
+}
+
+
+/*!	Ignore all log entries - this will put the disk into a clean state
+	but possibly inconsistent, if it was not correctly unmounted
+	before.
+	This method is called by Volume::Mount()
+*/
+status_t
+Journal::IgnoreLog()
+{
+	// TODO: this logic won't work whenever the size of the pending transaction
+	//	equals the size of the log (happens with the original BFS only)
+	if (fVolume->LogStart() == fVolume->LogEnd())
+		return B_OK;
+
+	INFORM(("Ignoring log, disk was not correctly unmounted...\n"));
+
+	if (fVolume->SuperBlock().flags != SUPER_BLOCK_DISK_DIRTY) {
+		INFORM(("log_start and log_end differ, but disk is marked clean - "
+			"trying to ignore log...\n"));
+	}
+
+	if (fVolume->IsReadOnly())
+		return B_READ_ONLY_DEVICE;
+
+	fVolume->SuperBlock().log_start = HOST_ENDIAN_TO_BFS_INT64(
+		(int64)fVolume->LogEnd());
+	fVolume->LogStart() = fVolume->LogEnd();
 	fVolume->SuperBlock().flags = HOST_ENDIAN_TO_BFS_INT32(
 		SUPER_BLOCK_DISK_CLEAN);
 

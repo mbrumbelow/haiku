@@ -177,7 +177,7 @@ bfs_mount(fs_volume* _volume, const char* device, uint32 flags,
 	if (volume == NULL)
 		return B_NO_MEMORY;
 
-	status_t status = volume->Mount(device, flags);
+	status_t status = volume->Mount(device, args, flags);
 	if (status != B_OK) {
 		delete volume;
 		RETURN_ERROR(status);
