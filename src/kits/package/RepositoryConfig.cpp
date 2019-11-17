@@ -123,14 +123,11 @@ BRepositoryConfig::SetTo(const BEntry& entry)
 	if (result != B_OK)
 		return result;
 
-	const char* url = NULL;
 	const char* version = driverSettings.GetParameterValue(KEY_CONFIG_VERSION);
 	const char *baseUrlKey = KEY_BASE_URL;
 
 	if (version == NULL || atoi(version) < 2)
 		baseUrlKey = KEY_BASE_URL_LEGACY;
-	else
-		url = driverSettings.GetParameterValue(KEY_URL);
 
 	const char* baseUrl = driverSettings.GetParameterValue(baseUrlKey);
 	const char* priorityString = driverSettings.GetParameterValue(KEY_PRIORITY);
@@ -138,11 +135,13 @@ BRepositoryConfig::SetTo(const BEntry& entry)
 	if (baseUrl == NULL || *baseUrl == '\0')
 		return B_BAD_DATA;
 
+	const char* url = driverSettings.GetParameterValue(KEY_URL);
+
 	fName = entry.Name();
 	fBaseURL = baseUrl;
 	fPriority = priorityString == NULL
 		? kUnsetPriority : atoi(priorityString);
-	fURL = url == NULL ? "" : url;
+	fURL = url == NULL ? fBaseURL.String() : url;
 
 	BPath userSettingsPath;
 	if (find_directory(B_USER_SETTINGS_DIRECTORY, &userSettingsPath) == B_OK) {
