@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "25223e09_ca09cc86",
+        "filename": "headers/os/interface/View.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-11-19T21:14:16Z",
+      "side": 1,
+      "message": "Are the versions without a Phase really needed? We could just set a default value for the phase argument instead (BPoint phase \u003d B_ORIGIN) and it would be both cleaner and faster",
+      "revId": "c5bd54e706091cae3934096c5feb6007726847b3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7e7164e_35a44ab9",
+        "filename": "src/servers/app/drawing/Painter/bitmap_painter/BitmapPainter.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-11-19T21:14:16Z",
+      "side": 1,
+      "message": "I would put these in an else, as they are always overriden in the non-tiled case\n\nif((fOptions \u0026 B_TILE_BITMAP) \u003d\u003d 0) {\n    ...\n} else {\n    fScaleX \u003d 1.0;\n    fScaleY \u003d 1.0;\n}",
+      "revId": "c5bd54e706091cae3934096c5feb6007726847b3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eae8101e_5b1d9212",
+        "filename": "src/servers/app/drawing/Painter/bitmap_painter/DrawBitmapGeneric.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-11-19T21:14:16Z",
+      "side": 1,
+      "message": "Is it not possible to use an enum instead? With \"int Mode\" instead of \"typename Mode\" in the template arguments I think that should work",
+      "revId": "c5bd54e706091cae3934096c5feb6007726847b3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
