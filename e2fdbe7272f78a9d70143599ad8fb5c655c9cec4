@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cc6fcc3a_20c6c261",
+        "filename": "src/apps/deskbar/BarView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-11-19T21:03:32Z",
+      "side": 0,
+      "message": "I would prefer that we keep this behavior. The idea was that autoraise will only happen if the mouse cursor goes all the way to hitting the screen edge. This avoids unwanted triggering of the autoraise by just moving the mouse over the deskbar (but it does not seem to work as intended, as the autoraise triggers when not hitting the screen edge already)\n\nOnce this initial raising is done, deskbar should stay visible until the mouse is leaving it, which we could detect with B_EXITED_VIEW instead of using preventHideArea?",
+      "revId": "e2fdbe7272f78a9d70143599ad8fb5c655c9cec4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
