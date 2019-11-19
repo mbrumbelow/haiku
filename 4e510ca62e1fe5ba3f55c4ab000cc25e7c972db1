@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "8db4c4a9_5900a26e",
+        "filename": "src/system/boot/platform/efi/start.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-11-19T16:41:34Z",
+      "side": 1,
+      "message": "Ok, in that case an arch_convert_kernel_args may be the right thing to do here (and not require much changes). Thanks for clarifying!",
+      "parentUuid": "e9852caa_fb3d9998",
+      "revId": "4e510ca62e1fe5ba3f55c4ab000cc25e7c972db1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "feb11a23_998acef8",
         "filename": "src/system/boot/platform/efi/start.cpp",
         "patchSetId": 2
