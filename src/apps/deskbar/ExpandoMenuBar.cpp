@@ -70,7 +70,6 @@ All rights reserved.
 #include "WindowMenuItem.h"
 
 
-const float kMinMenuItemWidth = 50.0f;
 const float kIconPadding = 8.0f;
 
 const uint32 kMinimizeTeam = 'mntm';
@@ -92,7 +91,7 @@ TExpandoMenuBar::TExpandoMenuBar(TBarView* barView, bool vertical)
 		vertical ? B_ITEMS_IN_COLUMN : B_ITEMS_IN_ROW),
 	fBarView(barView),
 	fVertical(vertical),
-	fOverflow(false),
+	fOverflow(true), // always overflow on the first try so items resize
 	fFirstBuild(true),
 	fDeskbarMenuWidth(gMinimumWindowWidth),
 	fPreviousDragTargetItem(NULL),
@@ -725,58 +724,41 @@ TExpandoMenuBar::CheckItemSizes(int32 delta, bool reset)
 		return;
 
 	int32 itemCount = CountItems();
-	TTeamMenuItem* item = static_cast<TTeamMenuItem*>(ItemAt(0));
-	if (itemCount < 1 || item == NULL)
+	if (itemCount < 2)
 		return;
 
-	int32 iconSize = static_cast<TBarApp*>(be_app)->IconSize();
-	float iconOnlyWidth = kIconPadding + iconSize + kIconPadding;
-
-	float maxItemWidth;
-	float minItemWidth;
-	if (static_cast<TBarApp*>(be_app)->Settings()->hideLabels) {
-		maxItemWidth = iconOnlyWidth;
-		minItemWidth = iconOnlyWidth - kIconPadding * 3 / 4;
-	} else {
-		float labelWidth = gMinimumWindowWidth;
-		labelWidth += (be_plain_font->Size() - 12) * 4 + iconSize
-			- kMinimumIconSize;
-		maxItemWidth = iconOnlyWidth + labelWidth;
-		minItemWidth = iconOnlyWidth + floorf(labelWidth / 4);
-	}
-
-	float menuWidth = fDeskbarMenuWidth + kSepItemWidth
-		+ maxItemWidth * itemCount;
 	float maxWidth = fBarView->DragRegion()->Frame().left - 1
 		- fDeskbarMenuWidth - kSepItemWidth;
+	float minItemWidth = MinHorizontalItemWidth();
+	float maxItemWidth = MaxHorizontalItemWidth();
+	bool tooWide = CheckForSizeOverrunHorizontal();
+	float newWidth = maxItemWidth; // start at max width
 
-	float newWidth = -1.0f;
-
-	if (delta >= 0 && menuWidth > maxWidth) {
+	if (delta >= 0 && tooWide) {
+		// adding an item and menu is too wide
 		fOverflow = true;
-		reset = true;
-		newWidth = floorf(maxWidth / CountItems());
-	} else if (reset || (delta < 0 && fOverflow)) {
-		reset = true;
-		if (menuWidth > maxWidth)
-			newWidth = floorf(maxWidth / CountItems());
+		newWidth = floorf(maxWidth / itemCount);
+	} else if (delta < 0 && fOverflow) {
+		// removing an item and menu was too wide, check if it still is
+		if (tooWide)
+			newWidth = floorf(maxWidth / itemCount);
 		else
 			newWidth = maxItemWidth;
 	}
 
-	if (reset) {
+	if (tooWide && newWidth == maxItemWidth)
+		fOverflow = false;
+
+	if (fOverflow) {
+		// clip within limits
 		if (newWidth > maxItemWidth)
 			newWidth = maxItemWidth;
 		else if (newWidth < minItemWidth)
 			newWidth = minItemWidth;
 
 		SetMaxContentWidth(newWidth);
-		if (newWidth == maxItemWidth)
-			fOverflow = false;
 
-		InvalidateLayout();
-
-		for (int32 index = 0; ; index++) {
+		for (int32 index = 0; ; ++index) {
 			TTeamMenuItem* item = (TTeamMenuItem*)ItemAt(index);
 			if (item == NULL)
 				break;
@@ -784,10 +766,54 @@ TExpandoMenuBar::CheckItemSizes(int32 delta, bool reset)
 			item->SetOverrideWidth(newWidth);
 		}
 
+		InvalidateLayout();
+
 		Invalidate();
 		Window()->UpdateIfNeeded();
 		fBarView->CheckForScrolling();
 	}
+}
+
+
+float
+TExpandoMenuBar::MinHorizontalItemWidth()
+{
+	int32 iconSize = static_cast<TBarApp*>(be_app)->IconSize();
+	float iconOnlyWidth = iconSize + kIconPadding;
+
+	return static_cast<TBarApp*>(be_app)->Settings()->hideLabels
+		? iconOnlyWidth
+		: (iconSize - kMinimumIconSize) + gMinimumWindowWidth
+			+ (be_plain_font->Size() - 12) * 4;
+}
+
+
+float
+TExpandoMenuBar::MaxHorizontalItemWidth()
+{
+	int32 iconSize = static_cast<TBarApp*>(be_app)->IconSize();
+	float iconOnlyWidth = iconSize + kIconPadding;
+
+	// hide labels
+	if (static_cast<TBarApp*>(be_app)->Settings()->hideLabels)
+		return iconOnlyWidth + kIconPadding; // add an extra icon padding
+
+	// start at min width adjusted for font and icon size
+	float maxItemWidth = MinHorizontalItemWidth();
+
+	// go through list and find the widest label
+	for (int32 index = 0; ; ++index) {
+		TTeamMenuItem* item = (TTeamMenuItem*)ItemAt(index);
+		if (item == NULL)
+			break;
+
+		// TODO: why do we need to add 20 here?
+		float itemWidth = iconOnlyWidth + StringWidth(item->Label()) + 20;
+		maxItemWidth = std::max(maxItemWidth, itemWidth);
+	}
+
+	// but not too wide
+	return std::min(maxItemWidth, gMaximumWindowWidth);
 }
 
 
@@ -857,26 +883,39 @@ TExpandoMenuBar::DrawBackground(BRect updateRect)
 bool
 TExpandoMenuBar::CheckForSizeOverrun()
 {
-	if (fVertical) {
-		if (Window() == NULL)
-			return false;
+	if (fVertical)
+		return CheckForSizeOverrunVertical();
+	else
+		return CheckForSizeOverrunHorizontal();
+}
 
-		BRect screenFrame = (BScreen(Window())).Frame();
-		return Window()->Frame().bottom > screenFrame.bottom;
-	}
 
-	// horizontal
+bool
+TExpandoMenuBar::CheckForSizeOverrunVertical()
+{
+	if (!fVertical || Window() == NULL)
+		return false;
+
+	BRect screenFrame = (BScreen(Window())).Frame();
+	return Window()->Frame().bottom > screenFrame.bottom;
+
+}
+
+
+bool
+TExpandoMenuBar::CheckForSizeOverrunHorizontal()
+{
+	if (fVertical || fBarView == NULL)
+		return false;
+
+	// minimum two items before size overrun can occur
 	int32 itemCount = CountItems();
-	TTeamMenuItem* item = static_cast<TTeamMenuItem*>(ItemAt(0));
-	if (itemCount < 1 || item == NULL)
+	if (itemCount < 2)
 		return false;
 
-	float itemWidth = item->Frame().Width();
-	if (itemWidth <= 0)
-		return false;
-
-	float menuWidth = fDeskbarMenuWidth + kSepItemWidth + itemWidth * itemCount;
-	float maxWidth = fBarView->DragRegion()->Frame().left - 1;
+	float maxWidth = fBarView->DragRegion()->Frame().left - 1
+		- fDeskbarMenuWidth - kSepItemWidth;
+	float menuWidth = Frame().Width();
 
 	return menuWidth > maxWidth;
 }
