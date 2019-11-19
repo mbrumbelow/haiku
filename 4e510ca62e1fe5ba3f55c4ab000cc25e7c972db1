@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "e9852caa_fb3d9998",
+        "filename": "src/system/boot/platform/efi/start.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2019-11-19T08:59:45Z",
+      "side": 1,
+      "message": "It may not be. At least in EFI, it\u0027s actually wrapping an EFI platform_bootloader_address_to_kernel_address (and its partner platform_kernel_address_to_bootloader_address), which is doing a bunch of work of tracking pages and a temporary memory map prior to the EFI call to actually set the virtual memory map, which is done as one of the very last steps prior to kernel hand-off.\n\nI\u0027d imagine we\u0027d need to do similar VM setup on other arches.",
+      "parentUuid": "5c766599_7df6f1cd",
+      "revId": "4e510ca62e1fe5ba3f55c4ab000cc25e7c972db1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "feb11a23_998acef8",
         "filename": "src/system/boot/platform/efi/start.cpp",
         "patchSetId": 2
