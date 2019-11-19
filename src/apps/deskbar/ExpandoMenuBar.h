@@ -64,7 +64,8 @@ class TTeamMenuItem;
 
 class TExpandoMenuBar : public BMenuBar {
 public:
-							TExpandoMenuBar(TBarView* barView, bool vertical);
+							TExpandoMenuBar(menu_layout layout,
+								TBarView* barView = NULL);
 
 	virtual	void			AllAttached();
 	virtual	void			AttachedToWindow();
@@ -112,10 +113,18 @@ private:
 			void			_DoneTracking(BPoint where);
 			void			_Track(BPoint where, uint32);
 
+			bool			CheckForSizeOverrunVertical();
+			bool			CheckForSizeOverrunHorizontal();
+
+			float			MinHorizontalItemWidth();
+			float			MaxHorizontalItemWidth();
+
+			bool			Vertical() const
+								{ return Layout() == B_ITEMS_IN_COLUMN; };
 private:
 			TBarView*		fBarView;
-			bool			fVertical : 1;
 			bool			fOverflow : 1;
+			bool			fUnderflow : 1;
 			bool			fFirstBuild : 1;
 
 			float			fDeskbarMenuWidth;

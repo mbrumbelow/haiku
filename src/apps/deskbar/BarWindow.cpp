@@ -227,7 +227,7 @@ TBarWindow::Minimize(bool minimize)
 void
 TBarWindow::FrameResized(float width, float height)
 {
-	if (!fBarView->Vertical())
+	if (fBarView->MiniState() || !fBarView->Vertical())
 		return BWindow::FrameResized(width, height);
 
 	bool setToHiddenSize = static_cast<TBarApp*>(be_app)->Settings()->autoHide
@@ -249,7 +249,7 @@ TBarWindow::FrameResized(float width, float height)
 
 		if (oldWidth != newWidth) {
 			fBarView->ResizeTo(width, fBarView->Bounds().Height());
-			if (fBarView->Vertical() && fBarView->ExpandoState())
+			if (fBarView->Vertical() && fBarView->ExpandoMenuBar() != NULL)
 				fBarView->ExpandoMenuBar()->SetMaxContentWidth(width);
 
 			fBarView->UpdatePlacement();
@@ -295,8 +295,12 @@ TBarWindow::ScreenChanged(BRect size, color_space depth)
 {
 	BWindow::ScreenChanged(size, depth);
 
-	fBarView->UpdatePlacement();
 	SetSizeLimits();
+
+	if (fBarView != NULL) {
+		fBarView->DragRegion()->CalculateRegions();
+		fBarView->UpdatePlacement();
+	}
 }
 
 
@@ -666,13 +670,18 @@ TBarWindow::SetSizeLimits()
 		}
 	} else {
 		if (fBarView->Vertical()) {
-			BWindow::SetSizeLimits(gMinimumWindowWidth, gMaximumWindowWidth,
-				kMenuBarHeight - 1, B_SIZE_UNLIMITED);
+			float minHeight = 0;
+			float maxHeight = B_SIZE_UNLIMITED;
+			float minWidth = gMinimumWindowWidth;
+			float maxWidth = fBarView->MiniState() ? B_SIZE_UNLIMITED
+				: gMaximumWindowWidth;
+			BWindow::SetSizeLimits(minWidth, maxWidth, minHeight, maxHeight);
 		} else {
 			BWindow::SetSizeLimits(screenFrame.Width(), screenFrame.Width(),
 				kMenuBarHeight - 1, kMaximumIconSize + 4);
 		}
 	}
+
 }
 
 
