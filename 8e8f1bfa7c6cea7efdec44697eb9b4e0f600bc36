@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0bbf414_298fe40d",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1344,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-11-19T21:18:51Z",
+      "side": 1,
+      "message": "We could make this method a lot simpler now, I think?",
+      "revId": "8e8f1bfa7c6cea7efdec44697eb9b4e0f600bc36",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
