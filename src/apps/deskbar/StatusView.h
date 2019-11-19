@@ -79,8 +79,7 @@ class TReplicantShelf;
 
 class TReplicantTray : public BView {
 public:
-									TReplicantTray(TBarView* barView,
-										bool vertical);
+									TReplicantTray(TBarView* barView);
 		virtual						~TReplicantTray();
 
 		virtual	void				AttachedToWindow();
@@ -91,10 +90,6 @@ public:
 
 				void				AdjustPlacement();
 				void				ShowReplicantMenu(BPoint);
-
-				void				SetMultiRow(bool state);
-				bool				IsMultiRow() const
-										{ return fMultiRowMode; }
 
 				TTimeView*			Time() const { return fTime; }
 				void				ShowHideTime();
@@ -181,7 +176,6 @@ private:
 				float				fMaxReplicantHeight;
 				float				fMinTrayHeight;
 
-				bool				fMultiRowMode;
 				float				fMinimumTrayWidth;
 
 				bool				fAlignmentSupport;
@@ -209,11 +203,11 @@ public:
 	virtual void AttachedToWindow();
 	virtual void GetPreferredSize(float*, float*);
 	virtual void Draw(BRect);
+	virtual void DrawAfterChildren(BRect);
 	virtual void MouseDown(BPoint);
 	virtual void MouseUp(BPoint);
 	virtual void MouseMoved(BPoint, uint32, const BMessage*);
 
-	void DrawDragRegion();
 	BRect DragRegion() const;
 
 	bool SwitchModeForRect(BPoint mouse, BRect rect,
@@ -223,6 +217,9 @@ public:
 	void SetDragRegionLocation(int32);
 
 	bool IsDragging() { return IsTracking(); };
+
+private:
+	void DrawDragger();
 
 private:
 	TBarView* fBarView;

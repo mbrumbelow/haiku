@@ -147,22 +147,36 @@ TBarView::TBarView(BRect frame, bool vertical, bool left, bool top,
 	fMaxRecentDocs(kDefaultRecentDocCount),
 	fMaxRecentApps(kDefaultRecentAppCount),
 	fLastDragItem(NULL),
-	fMouseFilter(NULL)
+	fMouseFilter(NULL),
+	fTabHeight(kMenuBarHeight)
 {
+	// get window tab height
+	BWindow* tmpWindow = new(std::nothrow) BWindow(BRect(), NULL,
+		B_TITLED_WINDOW, 0);
+	if (tmpWindow != NULL) {
+		BMessage settings;
+		if (tmpWindow->GetDecoratorSettings(&settings) == B_OK) {
+			BRect tabRect;
+			if (settings.FindRect("tab frame", &tabRect) == B_OK)
+				fTabHeight = tabRect.Height();
+		}
+		delete tmpWindow;
+	}
+
 	// determine the initial Be menu size
 	// (will be updated later)
 	BRect menuFrame(frame);
 	if (fVertical)
-		menuFrame.bottom = menuFrame.top + kMenuBarHeight;
+		menuFrame.bottom = menuFrame.top + fTabHeight - 1;
 	else
-		menuFrame.bottom = menuFrame.top + fBarApp->IconSize() + 4;
+		menuFrame.bottom = menuFrame.top + TeamMenuItemHeight();
 
 	// create and add the Be menu
 	fBarMenuBar = new TBarMenuBar(menuFrame, "BarMenuBar", this);
 	AddChild(fBarMenuBar);
 
 	// create the status tray
-	fReplicantTray = new TReplicantTray(this, fVertical);
+	fReplicantTray = new TReplicantTray(this);
 
 	// create the resize control
 	fResizeControl = new TResizeControl(this);
@@ -177,16 +191,18 @@ TBarView::TBarView(BRect frame, bool vertical, bool left, bool top,
 	if (fTrayLocation != 0)
 		AddChild(fDragRegion);
 
-	// create and add the application menubar
-	fExpandoMenuBar = new TExpandoMenuBar(this, fVertical);
+	// create and add the expando menu bar
+	fExpandoMenuBar = new TExpandoMenuBar(
+		fVertical ? B_ITEMS_IN_COLUMN : B_ITEMS_IN_ROW, this);
 	fInlineScrollView = new TInlineScrollView(fExpandoMenuBar,
 		fVertical ? B_VERTICAL : B_HORIZONTAL);
 	AddChild(fInlineScrollView);
 
-	// If mini mode, hide the application menubar
+	// hide the expando menu bar in mini-mode
 	if (state == kMiniState)
 		fInlineScrollView->Hide();
 
+	// if auto-hide is on and we're not already hidden, hide ourself
 	if (fBarApp->Settings()->autoHide && !IsHidden())
 		Hide();
 }
@@ -434,8 +450,12 @@ TBarView::PlaceDeskbarMenu()
 	// Calculate the size of the deskbar menu
 	BRect menuFrame(Bounds());
 	if (fVertical) {
-		width = static_cast<TBarApp*>(be_app)->Settings()->width;
-		height = 4 + fReplicantTray->MaxReplicantHeight();
+		if (fState == kMiniState)
+			width = gMinimumWindowWidth;
+		else
+			width = static_cast<TBarApp*>(be_app)->Settings()->width;
+
+		height = fTabHeight;
 		menuFrame.bottom = menuFrame.top + height;
 	} else {
 		width = gMinimumWindowWidth;
@@ -483,91 +503,106 @@ void
 TBarView::PlaceTray(bool vertSwap, bool leftSwap)
 {
 	BPoint statusLoc;
-	if (fState == kFullState) {
-		fDragRegion->ResizeTo(fBarMenuBar->Frame().Width(), kMenuBarHeight);
-		statusLoc.y = fBarMenuBar->Frame().bottom + 1;
-		statusLoc.x = 0;
-		fDragRegion->MoveTo(statusLoc);
-		fDragRegion->Invalidate();
-
+	if (fTrayLocation == 0) {
+		// no replicant tray mode, not used
 		if (!fReplicantTray->IsHidden())
 			fReplicantTray->Hide();
-
 		return;
-	}
-
-	if (fReplicantTray->IsHidden())
+	} else if (fReplicantTray->IsHidden())
 		fReplicantTray->Show();
 
-	if (fTrayLocation != 0) {
-		fReplicantTray->SetMultiRow(fVertical);
-		fReplicantTray->RealignReplicants();
-		fDragRegion->ResizeToPreferred();
-			// also resizes replicant tray
+	fReplicantTray->RealignReplicants();
+	fDragRegion->ResizeToPreferred();
+		// also resizes replicant tray
 
-		fResizeControl->ResizeTo(kDragWidth, fDragRegion->Bounds().Height()
-			- 2); // make room for top and bottom border
-
-		if (fVertical) {
-			if (fResizeControl->IsHidden())
-				fResizeControl->Show();
-
+	if (fVertical) {
+		if (fState == kExpandoState) {
+			// move replicant tray down by 2px
 			if (fLeft) {
-				// move replicant tray past dragger width on left
-				// also down 1px so it won't cover the border
-				fReplicantTray->MoveTo(kDragWidth + kGutter, kGutter);
-
-				// shrink width by same amount
-				fReplicantTray->ResizeBy(-(kDragWidth + kGutter), 0);
+				// move replicant tray past dragger and shrink by same amount
+				fReplicantTray->MoveTo(kDragWidth + 1, 2);
+				fReplicantTray->ResizeBy(-(kDragWidth + 1), -2);
 			} else {
-				// move replicant tray down 1px so it won't cover the border
-				fReplicantTray->MoveTo(0, kGutter);
+				fReplicantTray->MoveTo(0, 2);
+				fReplicantTray->ResizeBy(0, -2);
 			}
 
 			statusLoc.x = 0;
 			statusLoc.y = fBarMenuBar->Frame().bottom + 1;
-		} else {
-			if (!fResizeControl->IsHidden())
-				fResizeControl->Hide();
+		} else if (fState == kMiniState) {
+			statusLoc.x = fLeft ? fBarMenuBar->Frame().right + 1 : 0;
+			statusLoc.y = 0;
 
-			// move right and down to not cover border then resize to fit
-			fReplicantTray->MoveTo(kGutter, kGutter);
-			fReplicantTray->ResizeBy(-kGutter, -kGutter);
-			BRect screenFrame = (BScreen(Window())).Frame();
-			statusLoc.x = screenFrame.right - fDragRegion->Bounds().Width();
-			statusLoc.y = -1;
+			// move past dragger and top border
+			// and make room for the top and bottom borders
+			fReplicantTray->MoveTo(fLeft ? kDragWidth : 0, kGutter);
+			fReplicantTray->ResizeBy(0, -4);
+		} else if (fState == kFullState) {
+			// not used
+			fDragRegion->ResizeTo(fBarMenuBar->Frame().Width(), kMenuBarHeight);
+			statusLoc.y = fBarMenuBar->Frame().bottom + 1;
+			statusLoc.x = 0;
 		}
+	} else {
+		// horizontal
 
-		fDragRegion->MoveTo(statusLoc);
-		fDragRegion->Invalidate();
-
-		if (fVertical && fLeft)
-			fResizeControl->MoveTo(fDragRegion->Bounds().right - kDragWidth, 1);
-		else
-			fResizeControl->MoveTo(0, 1);
-
-		fResizeControl->Invalidate();
+		// move tray right and down to not cover border, resize by same
+		fReplicantTray->MoveTo(2, 0);
+		fReplicantTray->ResizeBy(-2, 0);
+		BRect screenFrame = (BScreen(Window())).Frame();
+		statusLoc.x = screenFrame.right - fDragRegion->Bounds().Width();
+		statusLoc.y = 0;
 	}
+
+	fDragRegion->MoveTo(statusLoc);
+
+	// make room for top and bottom border
+	fResizeControl->ResizeTo(kDragWidth,  fDragRegion->Bounds().Height() - 2);
+
+	// resize control is only used in vertical expando mode
+	if (fVertical && fState == kExpandoState) {
+		// move resize control into place based on width setting
+		// which should always be valid in vertical expando mode
+		fResizeControl->MoveTo(
+			fLeft ? fBarApp->Settings()->width - kDragWidth : 0, 1);
+		if (fResizeControl->IsHidden())
+			fResizeControl->Show();
+	} else {
+		// hide resize control
+		if (!fResizeControl->IsHidden())
+			fResizeControl->Hide();
+		// hiding it is not enough, put it some where no-one will ever see it
+		fResizeControl->MoveTo(100000, -100000);
+	}
+
+	fDragRegion->Invalidate();
 }
 
 
 void
 TBarView::PlaceApplicationBar()
 {
-	BRect screenFrame = (BScreen(Window())).Frame();
-	if (fState == kMiniState) {
+	if (fVertical && fState == kMiniState) {
 		if (!fInlineScrollView->IsHidden())
 			fInlineScrollView->Hide();
+
+		// size and position window
+		BRect screenFrame = (BScreen(Window())).Frame();
 		SizeWindow(screenFrame);
 		PositionWindow(screenFrame);
 		Window()->UpdateIfNeeded();
-		Invalidate();
+
+		// Move the menu bar into place after window has been resized
+		// based on replicant tray.
+		fBarMenuBar->MoveTo(fLeft ? 0 : fDragRegion->Bounds().right + 1, 0);
+
 		return;
 	}
 
 	if (fInlineScrollView->IsHidden())
 		fInlineScrollView->Show();
 
+	BRect screenFrame = (BScreen(Window())).Frame();
 	BRect expandoFrame(0, 0, 0, 0);
 	if (fVertical) {
 		// left or right
@@ -617,7 +652,7 @@ void
 TBarView::GetPreferredWindowSize(BRect screenFrame, float* width, float* height)
 {
 	float windowHeight = 0;
-	float windowWidth = fBarApp->Settings()->width;
+	float windowWidth = 0;
 	bool setToHiddenSize = fBarApp->Settings()->autoHide && IsHidden()
 		&& !fDragRegion->IsDragging();
 
@@ -642,7 +677,10 @@ TBarView::GetPreferredWindowSize(BRect screenFrame, float* width, float* height)
 				else
 					windowHeight = fBarMenuBar->Frame().bottom + 1;
 
-				windowHeight += fExpandoMenuBar->Bounds().Height();
+				if (fExpandoMenuBar != NULL)
+					windowHeight += fExpandoMenuBar->Bounds().bottom;
+
+				windowWidth = fBarApp->Settings()->width;
 			} else {
 				// top or bottom, full
 				fExpandoMenuBar->CheckItemSizes(0);
@@ -652,10 +690,9 @@ TBarView::GetPreferredWindowSize(BRect screenFrame, float* width, float* height)
 			}
 		} else {
 			// four corners
-			if (fTrayLocation != 0)
-				windowHeight = fDragRegion->Frame().bottom;
-			else
-				windowHeight = fBarMenuBar->Frame().bottom;
+			windowHeight = fBarMenuBar->Frame().bottom;
+			windowWidth = fDragRegion->Frame().Width()
+				+ fBarMenuBar->Frame().Width() + 1;
 		}
 	}
 
@@ -671,6 +708,7 @@ TBarView::SizeWindow(BRect screenFrame)
 	float windowHeight;
 	GetPreferredWindowSize(screenFrame, &windowWidth, &windowHeight);
 	Window()->ResizeTo(windowWidth, windowHeight);
+	ResizeTo(windowWidth, windowHeight);
 }
 
 
@@ -682,15 +720,11 @@ TBarView::PositionWindow(BRect screenFrame)
 	GetPreferredWindowSize(screenFrame, &windowWidth, &windowHeight);
 
 	BPoint moveLoc(0, 0);
-	// right, expanded
-	if (!fLeft && fVertical) {
-		if (fState == kFullState)
-			moveLoc.x = screenFrame.right - fBarMenuBar->Frame().Width();
-		else
-			moveLoc.x = screenFrame.right - windowWidth;
-	}
+	// right, expanded, mini, or full
+	if (!fLeft && fVertical)
+		moveLoc.x = screenFrame.right - windowWidth;
 
-	// bottom, full or corners
+	// bottom, full
 	if (!fTop)
 		moveLoc.y = screenFrame.bottom - windowHeight;
 
@@ -770,22 +804,19 @@ TBarView::_ChangeState(BMessage* message)
 			// Send a message to the preferences window to let it know to
 			// enable or disable preference items.
 
-		if (vertSwap) {
-			TBarWindow* window = dynamic_cast<TBarWindow*>(Window());
-			if (window != NULL)
-				window->SetSizeLimits();
+		TBarWindow* barWindow = dynamic_cast<TBarWindow*>(Window());
+		if (barWindow != NULL)
+			barWindow->SetSizeLimits();
 
-			fReplicantTray->fTime->SetOrientation(fVertical);
-			if (fExpandoMenuBar != NULL) {
-				if (fVertical) {
-					fInlineScrollView->SetOrientation(B_VERTICAL);
-					fExpandoMenuBar->SetMenuLayout(B_ITEMS_IN_COLUMN);
-					fExpandoMenuBar->StartMonitoringWindows();
-				} else {
-					fInlineScrollView->SetOrientation(B_HORIZONTAL);
-					fExpandoMenuBar->SetMenuLayout(B_ITEMS_IN_ROW);
-					fExpandoMenuBar->StopMonitoringWindows();
-				}
+		if (vertSwap && fExpandoMenuBar != NULL) {
+			if (fVertical) {
+				fInlineScrollView->SetOrientation(B_VERTICAL);
+				fExpandoMenuBar->SetMenuLayout(B_ITEMS_IN_COLUMN);
+				fExpandoMenuBar->StartMonitoringWindows();
+			} else {
+				fInlineScrollView->SetOrientation(B_HORIZONTAL);
+				fExpandoMenuBar->SetMenuLayout(B_ITEMS_IN_ROW);
+				fExpandoMenuBar->StopMonitoringWindows();
 			}
 		}
 	}
