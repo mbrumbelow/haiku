@@ -112,6 +112,12 @@ private:
 			void			_DoneTracking(BPoint where);
 			void			_Track(BPoint where, uint32);
 
+			bool			CheckForSizeOverrunVertical();
+			bool			CheckForSizeOverrunHorizontal();
+
+			float			MinHorizontalItemWidth();
+			float			MaxHorizontalItemWidth();
+
 private:
 			TBarView*		fBarView;
 			bool			fVertical : 1;
