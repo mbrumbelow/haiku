@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e53069c2_9ba5f227",
+        "filename": "src/apps/powerstatus/PowerStatusView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-11-20T07:43:27Z",
+      "side": 0,
+      "message": "This used to draw an empty battery for empty battery slots. Now we will just get an empty tab, which I think is a bit strange?",
+      "revId": "f1271b6454e45ea7081146438391a56b8fe8f527",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}

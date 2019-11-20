@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "16b8c551_bea8b706",
+        "filename": "src/apps/powerstatus/PowerStatusView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-11-20T07:43:27Z",
+      "side": 1,
+      "message": "use make_color",
+      "revId": "f804c8125d20661808e2fc983b72073a02703136",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
