@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2016be1e_866a9519",
+        "filename": "headers/os/interface/View.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-11-20T18:37:34Z",
+      "side": 1,
+      "message": "I thought about it, but decided to go with \"DrawBitmap\" pattern (options could have default value but doesn\u0027t). Please have in mind that there will be BAffineTransform variant. Not that it prevents phase from having default value.\n\nI don\u0027t have preference, so let me know which one you think is better.",
+      "parentUuid": "25223e09_ca09cc86",
+      "revId": "c5bd54e706091cae3934096c5feb6007726847b3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f7e7164e_35a44ab9",
         "filename": "src/servers/app/drawing/Painter/bitmap_painter/BitmapPainter.cpp",
         "patchSetId": 2
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "85867bf9_ebb1808f",
+        "filename": "src/servers/app/drawing/Painter/bitmap_painter/BitmapPainter.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-11-20T18:37:34Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f7e7164e_35a44ab9",
+      "revId": "c5bd54e706091cae3934096c5feb6007726847b3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eae8101e_5b1d9212",
         "filename": "src/servers/app/drawing/Painter/bitmap_painter/DrawBitmapGeneric.h",
         "patchSetId": 2
@@ -47,6 +83,24 @@
       "writtenOn": "2019-11-19T21:14:16Z",
       "side": 1,
       "message": "Is it not possible to use an enum instead? With \"int Mode\" instead of \"typename Mode\" in the template arguments I think that should work",
+      "revId": "c5bd54e706091cae3934096c5feb6007726847b3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2b2c4e7_bc3e2adf",
+        "filename": "src/servers/app/drawing/Painter/bitmap_painter/DrawBitmapGeneric.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2019-11-20T18:37:34Z",
+      "side": 1,
+      "message": "Does it make a difference though? Types allow us to have additional \"parameters\" in them - before publishing this patchset I used static const bool to disable scaling in drawer, before going with resetting scale to 1.0 in BitmapPainter.",
+      "parentUuid": "eae8101e_5b1d9212",
       "revId": "c5bd54e706091cae3934096c5feb6007726847b3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
