@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "46d6a3ae_d3b4f79f",
+        "filename": "src/apps/deskbar/BarView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-11-21T12:05:17Z",
+      "side": 1,
+      "message": "use { } and put the comment inside that, I think?",
+      "revId": "7a728d9f2c495e09642ece1eb03e097806d4faf6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02d8d42d_5aa6307a",
+        "filename": "src/apps/deskbar/BarView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-11-21T12:05:17Z",
+      "side": 1,
+      "message": "is return BView::MouseDown(where); needed here as well?",
+      "revId": "7a728d9f2c495e09642ece1eb03e097806d4faf6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38205059_e3c5a0bd",
+        "filename": "src/apps/deskbar/TimeView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-11-21T12:05:17Z",
+      "side": 1,
+      "message": "this should be if (fCalendarWindow !\u003d NULL), even if the window is not currently shown, it needs to be destroyed.",
+      "revId": "7a728d9f2c495e09642ece1eb03e097806d4faf6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
