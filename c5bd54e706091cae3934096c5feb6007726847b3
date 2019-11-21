@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "1a523c70_1519e573",
+        "filename": "headers/os/interface/View.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-11-21T12:13:53Z",
+      "side": 1,
+      "message": "My guess is DrawBitmap is this way to preserve ABI compatibility as parameters were added to the existing function. Or maybe default arguments weren\u0027t possible in all cases (it is not possible to default bitmapRect to aBitmap-\u003eBounds(), for example, as it refers to another parameter of the method).\n\nUsing a default parameter makes one less method to document, and makes it clear what the default value is, before reading its implementation I was wondering if it would be B_ORIGIN, the rectangle top-left corner, or the current pen location. If we just have this in the method prototype, the question is answered immediately.\n\nIt is also faster (the methods are public so not inline-able) and smaller (less code generated).",
+      "parentUuid": "2016be1e_866a9519",
+      "revId": "c5bd54e706091cae3934096c5feb6007726847b3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f7e7164e_35a44ab9",
         "filename": "src/servers/app/drawing/Painter/bitmap_painter/BitmapPainter.cpp",
         "patchSetId": 2
@@ -101,6 +119,24 @@
       "side": 1,
       "message": "Does it make a difference though? Types allow us to have additional \"parameters\" in them - before publishing this patchset I used static const bool to disable scaling in drawer, before going with resetting scale to 1.0 in BitmapPainter.",
       "parentUuid": "eae8101e_5b1d9212",
+      "revId": "c5bd54e706091cae3934096c5feb6007726847b3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "270dad68_76185371",
+        "filename": "src/servers/app/drawing/Painter/bitmap_painter/DrawBitmapGeneric.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-11-21T12:13:53Z",
+      "side": 1,
+      "message": "No real difference, it\u0027s just that this seemed a bit unusual to me. But indeed the ability to have extra parameters inside the structs is something I didn\u0027t think about.",
+      "parentUuid": "a2b2c4e7_bc3e2adf",
       "revId": "c5bd54e706091cae3934096c5feb6007726847b3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
