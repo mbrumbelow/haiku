@@ -235,8 +235,6 @@ BMediaRosterEx::~BMediaRosterEx()
 	request.team = BPrivate::current_team();
 	QueryServer(SERVER_UNREGISTER_APP, &request, sizeof(request), &reply,
 		sizeof(reply));
-
-	BPrivate::SharedBufferList::Invalidate();
 }
 
 

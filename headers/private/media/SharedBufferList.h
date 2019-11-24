@@ -18,7 +18,6 @@ class SharedBufferList
 public:
 	static	area_id						Create(SharedBufferList** _list);
 	static	SharedBufferList*			Get();
-	static	void						Invalidate();
 
 			void						Put();
 			void 						DeleteGroupAndPut(
@@ -48,6 +47,15 @@ public:
 			status_t					GetBufferList(sem_id groupReclaimSem,
 											int32 bufferCount,
 											BBuffer** buffers);
+
+private:
+
+			status_t					_Init();
+	static	void						_Invalidate();
+			void 						_RequestBufferInOtherGroups(
+											sem_id groupReclaimSem,
+											media_buffer_id id);
+
 private:
 	struct _shared_buffer_info {
 		media_buffer_id			id;
@@ -60,11 +68,6 @@ private:
 
 	// 16 bytes per buffer, 8 pages in total (one entry less for the list)
 	enum { kMaxBuffers = 2047 };
-
-			status_t					_Init();
-			void 						_RequestBufferInOtherGroups(
-											sem_id groupReclaimSem,
-											media_buffer_id id);
 
 private:
 			sem_id						fSemaphore;

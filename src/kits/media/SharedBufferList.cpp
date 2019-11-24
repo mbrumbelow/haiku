@@ -91,7 +91,7 @@ SharedBufferList::Get()
 
 
 /*static*/ void
-SharedBufferList::Invalidate()
+SharedBufferList::_Invalidate()
 {
 	delete_area(sArea);
 	sList = NULL;
@@ -105,7 +105,7 @@ SharedBufferList::Put()
 	BAutolock _(sLocker);
 
 	if (atomic_add(&sRefCount, -1) == 1)
-		Invalidate();
+		_Invalidate();
 }
 
 
