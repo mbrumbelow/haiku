@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cccfb6da_46df798a",
+        "filename": "src/system/kernel/elf.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1917,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-11-25T22:06:34Z",
+      "side": 1,
+      "message": "This one is already safe, because it takes only B_OS_NAME_LENGTH - 8 characters from the source string, so it cannot overflow.\n\nThe \"8\" is picked to leave space for the 3 dots here, plus 5 extra chars we may add later.",
+      "revId": "cac42f5362f8c72ebc7299151ab283c4281236b3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d258f47_d4e6fe9e",
+        "filename": "src/system/kernel/elf.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1964,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-11-25T22:06:34Z",
+      "side": 1,
+      "message": "However, here we are adding more than 5 characters (especially if i gets large). Rather than cutting the string and just losing the last characters as snprintf does, it may be a better choice to instead remove more characters from the baseName in the first sprintf, so we are sure there is enough space left in the regionName here to fit everything.",
+      "revId": "cac42f5362f8c72ebc7299151ab283c4281236b3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
