@@ -69,6 +69,24 @@
       "revId": "cac42f5362f8c72ebc7299151ab283c4281236b3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e1f74e2_fdeac2fb",
+        "filename": "src/system/kernel/elf.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1964,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-11-26T07:54:07Z",
+      "side": 1,
+      "message": "You are right that that there is a risk of overflow with the current code here. The fix is to replace the 8 above with the correct value (that would be the length of \"...\" + \"_seg65535drw\" (65535 because e_phnum is a 16 bit number and can\u0027t be higher than that). So if we replace the 8 with a 16, I think we\u0027re good.\n\nInterestingly, we are already using snprintf in the next parts of the code, so we can as well keep this one (at least it\u0027s consistent).\n\nSo, the fix would be:\n- Use a 16 instead of 8 in the first sprintf, which guarantees the string will fit and will be truncated only there (with the ... indicating that this happened)\n- Use snprintf everywhere, as you did, just to be safe.",
+      "parentUuid": "c7ede12a_895f5d76",
+      "revId": "cac42f5362f8c72ebc7299151ab283c4281236b3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
