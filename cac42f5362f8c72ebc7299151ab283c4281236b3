@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "53d3d1ed_ea5f18bc",
+        "filename": "src/system/kernel/elf.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1917,
+      "author": {
+        "id": 1000166
+      },
+      "writtenOn": "2019-11-26T06:32:51Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "cccfb6da_46df798a",
+      "revId": "cac42f5362f8c72ebc7299151ab283c4281236b3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d258f47_d4e6fe9e",
         "filename": "src/system/kernel/elf.cpp",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2019-11-25T22:06:34Z",
       "side": 1,
       "message": "However, here we are adding more than 5 characters (especially if i gets large). Rather than cutting the string and just losing the last characters as snprintf does, it may be a better choice to instead remove more characters from the baseName in the first sprintf, so we are sure there is enough space left in the regionName here to fit everything.",
+      "revId": "cac42f5362f8c72ebc7299151ab283c4281236b3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7ede12a_895f5d76",
+        "filename": "src/system/kernel/elf.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1964,
+      "author": {
+        "id": 1000166
+      },
+      "writtenOn": "2019-11-26T06:32:51Z",
+      "side": 1,
+      "message": "I see. Would it be better to leave it as-is and fix it if an issue with the region name arises, or change it now for (seemingly) no reason?",
+      "parentUuid": "6d258f47_d4e6fe9e",
       "revId": "cac42f5362f8c72ebc7299151ab283c4281236b3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
