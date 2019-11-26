@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6f36799a_49d4143f",
+        "filename": "src/system/kernel/elf.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1916,
+      "author": {
+        "id": 1000166
+      },
+      "writtenOn": "2019-11-26T12:13:24Z",
+      "side": 1,
+      "message": "Fixed in patch set 3",
+      "parentUuid": "b09e66fb_9d6ef417",
+      "revId": "794830c4d695cf4d64b59142932b786c4f9ca8fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad418450_9c754468",
         "filename": "src/system/kernel/elf.cpp",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "794830c4d695cf4d64b59142932b786c4f9ca8fe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb612927_c84de359",
+        "filename": "src/system/kernel/elf.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1917,
+      "author": {
+        "id": 1000166
+      },
+      "writtenOn": "2019-11-26T12:13:24Z",
+      "side": 1,
+      "message": "Fixed in patch set 3",
+      "parentUuid": "ad418450_9c754468",
+      "revId": "794830c4d695cf4d64b59142932b786c4f9ca8fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
