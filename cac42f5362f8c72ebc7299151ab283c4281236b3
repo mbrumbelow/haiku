@@ -87,6 +87,24 @@
       "revId": "cac42f5362f8c72ebc7299151ab283c4281236b3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f1cc252_94af5da7",
+        "filename": "src/system/kernel/elf.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1964,
+      "author": {
+        "id": 1000166
+      },
+      "writtenOn": "2019-11-26T09:17:08Z",
+      "side": 1,
+      "message": "Done; hopefully, now it should be using snprintf everywhere.\nAlso, instead of sizeof(regionName) I opted to use B_OS_NAME_LENGTH for consistency with the rest of the code.",
+      "parentUuid": "0e1f74e2_fdeac2fb",
+      "revId": "cac42f5362f8c72ebc7299151ab283c4281236b3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
