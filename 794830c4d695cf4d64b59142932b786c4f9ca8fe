@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b09e66fb_9d6ef417",
+        "filename": "src/system/kernel/elf.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1916,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-11-26T11:51:00Z",
+      "side": 1,
+      "message": "We need a - 16 here as well",
+      "revId": "794830c4d695cf4d64b59142932b786c4f9ca8fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad418450_9c754468",
+        "filename": "src/system/kernel/elf.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1917,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-11-26T11:51:00Z",
+      "side": 1,
+      "message": "We can use B_OS_NAME_LENGTH instead of sizeof(baseName) here as well",
+      "revId": "794830c4d695cf4d64b59142932b786c4f9ca8fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
