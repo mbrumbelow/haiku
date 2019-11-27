@@ -48,12 +48,16 @@ ClockView::ClockView(const char* name)
 		new BMessage(kShowDayOfWeek));
 	fShowTimeZone = new BCheckBox(B_TRANSLATE("Show time zone"),
 		new BMessage(kShowTimeZone));
+	// Message explaining the location of the 12/24 hour setting
+	fHourSwitcher = new BStringView("HourSwitcher",
+	B_TRANSLATE("The setting for 12/24 hour display can be found\nin the Locale preferences."));
 
 	BView* view = BLayoutBuilder::Group<>(B_VERTICAL, 0)
 		.SetExplicitMaxSize(BSize(B_SIZE_UNLIMITED, B_SIZE_UNSET))
 		.Add(fShowSeconds)
 		.Add(fShowDayOfWeek)
 		.Add(fShowTimeZone)
+		.Add(fHourSwitcher)
 		.AddGlue()
 		.SetInsets(B_USE_DEFAULT_SPACING)
 		.View();

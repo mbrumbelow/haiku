@@ -10,7 +10,7 @@
 
 
 #include <View.h>
-
+#include <StringView.h>
 
 class BCheckBox;
 class BRadioButton;
@@ -33,6 +33,8 @@ private:
 			BCheckBox*			fShowSeconds;
 			BCheckBox*			fShowDayOfWeek;
 			BCheckBox*			fShowTimeZone;
+
+			BStringView*		fHourSwitcher;
 
 			int32				fCachedShowClock;
 			int32				fCachedShowSeconds;
