@@ -10,6 +10,10 @@ SubDirHdrs $(HAIKU_TOP) src add-ons kernel partitioning_systems gpt ;
 
 {
 	local defines = _BOOT_MODE GNU_EFI_USE_MS_ABI _BOOT_PLATFORM_EFI ;
+
+	# Workaround https://sourceforge.net/p/gnu-efi/bugs/23
+	defines += _MSC_VER ;
+
 	defines = [ FDefines $(defines) ] ;
 	SubDirCcFlags $(defines) ;
 	SubDirC++Flags $(defines) -fno-rtti ;
