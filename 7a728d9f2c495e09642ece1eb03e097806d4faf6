@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9382b58b_e0378b06",
+        "filename": "src/apps/deskbar/BarView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-02T11:39:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46d6a3ae_d3b4f79f",
+      "revId": "7a728d9f2c495e09642ece1eb03e097806d4faf6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02d8d42d_5aa6307a",
         "filename": "src/apps/deskbar/BarView.cpp",
         "patchSetId": 5
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "4febcef0_0e51c3f2",
+        "filename": "src/apps/deskbar/BarView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-02T11:39:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02d8d42d_5aa6307a",
+      "revId": "7a728d9f2c495e09642ece1eb03e097806d4faf6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "38205059_e3c5a0bd",
         "filename": "src/apps/deskbar/TimeView.cpp",
         "patchSetId": 5
@@ -50,6 +86,24 @@
       "revId": "7a728d9f2c495e09642ece1eb03e097806d4faf6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebbb9d4d_d0150f89",
+        "filename": "src/apps/deskbar/TimeView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-02T11:39:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38205059_e3c5a0bd",
+      "revId": "7a728d9f2c495e09642ece1eb03e097806d4faf6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
