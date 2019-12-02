@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cc8963d1_5595694b",
+        "filename": "src/apps/haikudepot/model/Model.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 857,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-02T11:40:54Z",
+      "side": 1,
+      "message": "you can use the new find_path or BPathFinder API which can handle all of this (appending the name, creating the directory, etc)",
+      "revId": "4632bcd46dbb808123780ea39a39a11a5bfb7adb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
