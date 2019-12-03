@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "216634de_ba8f7db3",
+        "filename": "src/system/boot/platform/openfirmware/arch/ppc/mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1000165
+      },
+      "writtenOn": "2019-12-03T12:43:46Z",
+      "side": 0,
+      "message": "Hello ! Thx for the feedback. You\u0027re right, being focused on getting the thing to compile again, i totally missed the point here. I\u0027ll fix that.",
+      "parentUuid": "0439fbfa_1da4bbcb",
+      "revId": "edc5a2174e74b860c348362cd9988fb7f78fb0e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a404f71c_8c377dea",
         "filename": "src/system/boot/platform/openfirmware/arch/ppc/mmu.cpp",
         "patchSetId": 1
