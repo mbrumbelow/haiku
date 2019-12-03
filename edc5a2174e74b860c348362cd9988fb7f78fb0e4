@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "e8a3ffb8_0ba93df6",
+        "filename": "build/jam/repositories/HaikuPorts/ppc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2019-12-03T14:24:50Z",
+      "side": 0,
+      "message": "You can\u0027t change this file manually; it has to be changed by generating it from the server.",
+      "revId": "edc5a2174e74b860c348362cd9988fb7f78fb0e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0439fbfa_1da4bbcb",
         "filename": "src/system/boot/platform/openfirmware/arch/ppc/mmu.cpp",
         "patchSetId": 1
