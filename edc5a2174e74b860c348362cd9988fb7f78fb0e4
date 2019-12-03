@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0439fbfa_1da4bbcb",
+        "filename": "src/system/boot/platform/openfirmware/arch/ppc/mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-03T09:17:20Z",
+      "side": 0,
+      "message": "The idea here is to be able to modify the return value. By removing the \u0026 you are modifying a copy of it, which won\u0027t work.",
+      "revId": "edc5a2174e74b860c348362cd9988fb7f78fb0e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a404f71c_8c377dea",
+        "filename": "src/system/boot/platform/openfirmware/arch/ppc/mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-03T09:17:20Z",
+      "side": 0,
+      "message": "Same problem here. Use an intptr_t\u0026 instead.",
+      "revId": "edc5a2174e74b860c348362cd9988fb7f78fb0e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
