@@ -15,6 +15,10 @@ extern "C" {
 
 extern void cpu_init(void);
 
+extern void
+calculate_cpu_conversion_factor(uint8 channel);
+
+
 #ifdef __cplusplus
 }
 #endif
