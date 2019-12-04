@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "87542cce_1ff9298a",
+        "filename": "build/jam/ImageRules",
+        "patchSetId": 2
+      },
+      "lineNbr": 1625,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2019-12-04T01:11:26Z",
+      "side": 1,
+      "message": "Not sure it\u0027s a good idea to leave files around, a subsequent build might mix things.\nAnother option is to rm it first.",
+      "revId": "392eb07b8dff6da4da40fa8796a1c063e0b582ae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a139ce0_216e0be8",
+        "filename": "src/system/libroot/os/arch/ppc/byteorder.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2019-12-04T01:11:26Z",
+      "side": 1,
+      "message": "You can probably put your own copyright here, did you write them yourself?",
+      "revId": "392eb07b8dff6da4da40fa8796a1c063e0b582ae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
