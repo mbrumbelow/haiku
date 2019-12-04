@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "01044805_8910b910",
+        "filename": "build/jam/ImageRules",
+        "patchSetId": 2
+      },
+      "lineNbr": 1625,
+      "author": {
+        "id": 1000165
+      },
+      "writtenOn": "2019-12-04T08:10:19Z",
+      "side": 1,
+      "message": "Hello ! I totally forgot about that and now i feel dumb. It was for testing purpose and i just forgot to restore it after...Thx a lot for the (hawkeyed) code  reviewing process.",
+      "parentUuid": "87542cce_1ff9298a",
+      "revId": "392eb07b8dff6da4da40fa8796a1c063e0b582ae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5a139ce0_216e0be8",
         "filename": "src/system/libroot/os/arch/ppc/byteorder.S",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2019-12-04T01:11:26Z",
       "side": 1,
       "message": "You can probably put your own copyright here, did you write them yourself?",
+      "revId": "392eb07b8dff6da4da40fa8796a1c063e0b582ae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e4a8378_d46ac68f",
+        "filename": "src/system/libroot/os/arch/ppc/byteorder.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000165
+      },
+      "writtenOn": "2019-12-04T08:10:19Z",
+      "side": 1,
+      "message": "__swap_int16 was in the file a long time ago (but was causing compilation issue when missing). The other 2 are personals",
+      "parentUuid": "5a139ce0_216e0be8",
       "revId": "392eb07b8dff6da4da40fa8796a1c063e0b582ae",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
