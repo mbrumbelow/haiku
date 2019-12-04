@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c6931458_2cc6ef16",
+        "filename": "src/system/boot/platform/efi/cpu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2019-12-04T18:34:23Z",
+      "side": 1,
+      "message": "Please remove those two lines, and always remove trailing spaces.",
+      "revId": "44541688d30e7dd14f34a76ba67526b674e38267",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
