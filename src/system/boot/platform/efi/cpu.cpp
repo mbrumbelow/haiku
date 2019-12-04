@@ -237,13 +237,11 @@ calculate_cpu_conversion_factor()
 {
 	uint8 channel = 2;
 
-	// When using channel 2, enable the input and disable the speaker.
-	if (channel == 2) {
-		uint8 control = in8(PIT_CHANNEL_2_CONTROL);
-		control &= PIT_CHANNEL_2_SPEAKER_OFF_MASK;
-		control |= PIT_CHANNEL_2_GATE_HIGH;
-		out8(control, PIT_CHANNEL_2_CONTROL);
-	}
+	// We are using channel 2, so we enable the input and disable the speaker.
+	uint8 control = in8(PIT_CHANNEL_2_CONTROL);
+	control &= PIT_CHANNEL_2_SPEAKER_OFF_MASK;
+	control |= PIT_CHANNEL_2_GATE_HIGH;
+	out8(control, PIT_CHANNEL_2_CONTROL);
 
 	uint64 tscDeltaQuick, tscDeltaSlower, tscDeltaSlow;
 	double conversionFactorQuick, conversionFactorSlower, conversionFactorSlow;
@@ -309,11 +307,10 @@ slower_sample:
 			slowSampleCount);
 	}
 
-	if (channel == 2) {
-		// Set the gate low again
-		out8(in8(PIT_CHANNEL_2_CONTROL) & ~PIT_CHANNEL_2_GATE_HIGH,
-			PIT_CHANNEL_2_CONTROL);
-	}
+	
+	
+	out8(in8(PIT_CHANNEL_2_CONTROL) & ~PIT_CHANNEL_2_GATE_HIGH,
+		PIT_CHANNEL_2_CONTROL);
 }
 
 

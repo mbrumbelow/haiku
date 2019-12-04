@@ -235,14 +235,6 @@ calculate_cpu_conversion_factor()
 {
 	uint8 channel = 0;
 
-	// When using channel 2, enable the input and disable the speaker.
-	if (channel == 2) {
-		uint8 control = in8(PIT_CHANNEL_2_CONTROL);
-		control &= PIT_CHANNEL_2_SPEAKER_OFF_MASK;
-		control |= PIT_CHANNEL_2_GATE_HIGH;
-		out8(control, PIT_CHANNEL_2_CONTROL);
-	}
-
 	uint64 tscDeltaQuick, tscDeltaSlower, tscDeltaSlow;
 	double conversionFactorQuick, conversionFactorSlower, conversionFactorSlow;
 	uint16 expired;
