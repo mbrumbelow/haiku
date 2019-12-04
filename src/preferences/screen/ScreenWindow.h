@@ -102,8 +102,6 @@ private:
 			BButton*		fApplyButton;
 			BButton*		fRevertButton;
 
-			BButton*		fBackgroundsButton;
-
 			ScreenMode		fScreenMode;
 			ScreenMode		fUndoScreenMode;
 				// screen modes for all workspaces

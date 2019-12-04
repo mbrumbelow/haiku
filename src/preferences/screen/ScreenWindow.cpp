@@ -230,11 +230,35 @@ ScreenWindow::ScreenWindow(ScreenSettings* settings)
 	fMonitorView = new MonitorView(BRect(0.0, 0.0, 80.0 * scaling,
 			80.0 * scaling), "monitor", screen.Frame().IntegerWidth() + 1,
 		screen.Frame().IntegerHeight() + 1);
+	fMonitorView->SetToolTip(B_TRANSLATE("Set background" B_UTF8_ELLIPSIS));
 	screenBox->AddChild(fMonitorView);
 
-	BStringView* workspaces = new BStringView("workspaces",
-		B_TRANSLATE("Workspaces"));
-	workspaces->SetAlignment(B_ALIGN_CENTER);
+	// brightness slider
+	fBrightnessSlider = new BSlider("brightness", B_TRANSLATE("Brightness:"),
+		NULL, 0, 255, B_HORIZONTAL);
+	screenBox->AddChild(fBrightnessSlider);
+
+	if (screen.GetBrightness(&fOriginalBrightness) == B_OK) {
+		fBrightnessSlider->SetModificationMessage(
+			new BMessage(SLIDER_BRIGHTNESS_MSG));
+		fBrightnessSlider->SetValue(fOriginalBrightness * 255);
+	} else {
+		// The driver does not support changing the brightness,
+		// so hide the slider
+		fBrightnessSlider->Hide();
+		fOriginalBrightness = -1;
+	}
+
+	// box on the left below the screen box with workspaces
+
+	BBox* workspacesBox = new BBox("workspaces box");
+	workspacesBox->SetLabel(B_TRANSLATE("Workspaces"));
+
+	BGroupLayout* workspacesLayout = new BGroupLayout(B_VERTICAL);
+	workspacesLayout->SetInsets(B_USE_DEFAULT_SPACING,
+		be_control_look->DefaultItemSpacing() * 2, B_USE_DEFAULT_SPACING,
+		B_USE_DEFAULT_SPACING);
+	workspacesBox->SetLayout(workspacesLayout);
 
 	fColumnsControl = new BSpinner("columns", B_TRANSLATE("Columns:"),
 		new BMessage(kMsgWorkspaceColumnsChanged));
@@ -252,9 +276,8 @@ ScreenWindow::ScreenWindow(ScreenSettings* settings)
 	fColumnsControl->SetValue(columns);
 	fRowsControl->SetValue(rows);
 
-	screenBox->AddChild(BLayoutBuilder::Group<>()
+	workspacesBox->AddChild(BLayoutBuilder::Group<>()
 		.AddGroup(B_VERTICAL, B_USE_SMALL_SPACING)
-			.Add(workspaces)
 			.AddGroup(B_HORIZONTAL, 0)
 				.AddGlue()
 				.AddGrid(B_USE_DEFAULT_SPACING, B_USE_SMALL_SPACING)
@@ -270,11 +293,12 @@ ScreenWindow::ScreenWindow(ScreenSettings* settings)
 			.End()
 		.View());
 
-	fBackgroundsButton = new BButton("BackgroundsButton",
-		B_TRANSLATE("Set background" B_UTF8_ELLIPSIS),
-		new BMessage(BUTTON_LAUNCH_BACKGROUNDS_MSG));
-	fBackgroundsButton->SetFontSize(be_plain_font->Size() * 0.9);
-	screenBox->AddChild(fBackgroundsButton);
+	// put workspaces slider in a vertical group with a half space above so
+	// if hidden you won't see the extra space.
+	BView* workspacesView = BLayoutBuilder::Group<>(B_VERTICAL, 0)
+		.AddStrut(B_USE_HALF_ITEM_SPACING)
+		.Add(workspacesBox)
+		.View();
 
 	// box on the right with screen resolution, etc.
 
@@ -510,22 +534,6 @@ ScreenWindow::ScreenWindow(ScreenSettings* settings)
 			.Add(fTVStandardField->CreateMenuBarLayoutItem(), 1, 6)
 		.End();
 
-	fBrightnessSlider = new BSlider("brightness", B_TRANSLATE("Brightness:"),
-		NULL, 0, 255, B_HORIZONTAL);
-
-	status_t result = screen.GetBrightness(&fOriginalBrightness);
-	if (result == B_OK) {
-		fBrightnessSlider->SetModificationMessage(
-			new BMessage(SLIDER_BRIGHTNESS_MSG));
-		fBrightnessSlider->SetValue(fOriginalBrightness * 255);
-	} else {
-		// The driver does not support changing the brightness,
-		// so hide the slider
-		fBrightnessSlider->Hide();
-
-		fOriginalBrightness = -1;
-	}
-
 	// TODO: we don't support getting the screen's preferred settings
 	/* fDefaultsButton = new BButton(buttonRect, "DefaultsButton", "Defaults",
 		new BMessage(BUTTON_DEFAULTS_MSG));*/
@@ -548,10 +556,10 @@ ScreenWindow::ScreenWindow(ScreenSettings* settings)
 			.AddGroup(B_VERTICAL, 0, 1)
 				.AddStrut(floorf(controlsBox->TopBorderOffset()) - 1)
 				.Add(screenBox)
+				.Add(workspacesView)
 				.End()
 			.AddGroup(B_VERTICAL, 0, 1)
 				.Add(controlsBox, 2)
-				.Add(fBrightnessSlider)
 				.End()
 			.End()
 		.AddGroup(B_HORIZONTAL, B_USE_DEFAULT_SPACING)
