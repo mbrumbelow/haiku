@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "54b060a4_d76a648c",
+        "filename": "headers/os/drivers/usb/USB_video.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-12-05T11:14:44Z",
+      "side": 1,
+      "message": "Looks like an unintended change.",
+      "revId": "f57d609e9b5632bb75cc20337df099f337acb08f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
