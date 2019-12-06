@@ -16,6 +16,24 @@
       "revId": "4632bcd46dbb808123780ea39a39a11a5bfb7adb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89b16125_ca7d84bb",
+        "filename": "src/apps/haikudepot/model/Model.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 857,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2019-12-06T10:35:46Z",
+      "side": 1,
+      "message": "Hello Adrien; I have had a look at this API and have experimented with it.  If I look at the constants for `path_base_directory` they are all system level top-level directoies, but I am trying to get the data to cache into `~/config/cache/HaikuDepot/...`.  I don\u0027t see a way to use this API to achieve this?",
+      "parentUuid": "cc8963d1_5595694b",
+      "revId": "4632bcd46dbb808123780ea39a39a11a5bfb7adb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
