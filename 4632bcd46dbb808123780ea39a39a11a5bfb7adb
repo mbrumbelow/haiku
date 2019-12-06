@@ -34,6 +34,24 @@
       "revId": "4632bcd46dbb808123780ea39a39a11a5bfb7adb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2caf0fab_76aaf1d1",
+        "filename": "src/apps/haikudepot/model/Model.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 857,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-06T11:45:31Z",
+      "side": 1,
+      "message": "It works differently from find_directory, and the constants are not specific to system or home-based. The idea is that it will find the \"right\" cache directory for the application calling the function. So a non-packaged application would get B_SYSTEM_NONPACKAGED_CACHE_DIRECTORY, a packaged application installed in /system would get B_SYSTEM_CACHE_DIRECTORY, etc.\n\nIt is indeed not possible to get to the user-cache directory from a system-wide application this way. Is there a reason you are doing this, however? Is the data stored here not shareable between users?\n\nIf so, then your implementation is fine.",
+      "parentUuid": "89b16125_ca7d84bb",
+      "revId": "4632bcd46dbb808123780ea39a39a11a5bfb7adb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
