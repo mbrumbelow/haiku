@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9af60381_6149a6e2",
+        "filename": "headers/posix/sys/mman.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000167
+      },
+      "writtenOn": "2019-12-06T18:42:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e203777d_df2b8297",
+      "revId": "ee1aa45ab6aa84070b86a4218a1b259813174959",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b60bef94_adf489c0",
         "filename": "src/system/libroot/posix/sys/mman.cpp",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "ee1aa45ab6aa84070b86a4218a1b259813174959",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95b50961_a48a1e08",
+        "filename": "src/system/libroot/posix/sys/mman.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1000167
+      },
+      "writtenOn": "2019-12-06T18:42:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b60bef94_adf489c0",
+      "revId": "ee1aa45ab6aa84070b86a4218a1b259813174959",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "16e18438_8f3b7e65",
+        "filename": "src/system/libroot/posix/sys/mman.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000167
+      },
+      "writtenOn": "2019-12-06T18:42:29Z",
+      "side": 1,
+      "message": "I have changed in the later commit. However, I have found nothing like set_area_info() or set_area_properties().",
+      "parentUuid": "9c596eb3_08198708",
+      "revId": "ee1aa45ab6aa84070b86a4218a1b259813174959",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "115dabd0_83e181df",
         "filename": "src/system/libroot/posix/sys/mman.cpp",
         "patchSetId": 1
@@ -67,6 +121,24 @@
       "revId": "ee1aa45ab6aa84070b86a4218a1b259813174959",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be28ad91_148b18ef",
+        "filename": "src/system/libroot/posix/sys/mman.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1000167
+      },
+      "writtenOn": "2019-12-06T18:42:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "115dabd0_83e181df",
+      "revId": "ee1aa45ab6aa84070b86a4218a1b259813174959",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
