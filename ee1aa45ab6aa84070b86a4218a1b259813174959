@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e203777d_df2b8297",
+        "filename": "headers/posix/sys/mman.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-12-06T09:42:07Z",
+      "side": 1,
+      "message": "Please use TABs for indentation, and adopt the asterisk-style (\"* \" versus \" *\") already used in the file.",
+      "revId": "ee1aa45ab6aa84070b86a4218a1b259813174959",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b60bef94_adf489c0",
+        "filename": "src/system/libroot/posix/sys/mman.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-12-06T09:42:07Z",
+      "side": 1,
+      "message": "You are allocating this on the heap, and then never deallocating it. This is a memory leak. Just allocate it on the stack instead:\n\narea_info info;\nget_area_info(area_for(address), \u0026info);",
+      "revId": "ee1aa45ab6aa84070b86a4218a1b259813174959",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c596eb3_08198708",
+        "filename": "src/system/libroot/posix/sys/mman.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-12-06T09:42:07Z",
+      "side": 1,
+      "message": "Why would setting a variable in an info object you allocated yourself (regardless of whether it is allocated on the stack or heap), have any effect whatsoever? You need to read a lot more information (code and documentation of mlock()) to understand what you need to do here.",
+      "revId": "ee1aa45ab6aa84070b86a4218a1b259813174959",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "115dabd0_83e181df",
+        "filename": "src/system/libroot/posix/sys/mman.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-12-06T09:42:07Z",
+      "side": 1,
+      "message": "Please have a look at the rest of this file how error codes have to be returned in order to be POSIXS spec compliant.",
+      "revId": "ee1aa45ab6aa84070b86a4218a1b259813174959",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
