@@ -185,6 +185,61 @@ posix_madvise(void* address, size_t length, int advice)
 
 
 int
+mlock(void* address, size_t length) {
+	area_info info;
+	void* end = address + length;
+	ssize_t cookie = 0;
+	if (end < address) return EINVAL; // The length is negative.
+	if (end == address) return 0;
+	if (_kern_get_area_info(_kern_area_for(address), &info) == B_BAD_VALUE) return ENOMEM;
+	/* TODO: cannot get current thread
+	 * if (!thread_get_current_thread()->team->effective_uid) return EPERM;
+	 */
+	if (!address % B_PAGE_SIZE) return EINVAL; // The addr argument is not a multiple of {PAGESIZE}.
+	/* Abolished: the address range might be smaller than the area, or it could overlap several areas
+	void* current;
+	size_t accumulated_size;
+	while (true) {
+		accumulated_size += info.size;
+		if (accumulated_size > length) current = end;
+		info.lock = B_FULL_LOCK;
+		if (current >= end) break;
+		if (_kern_get_next_area_info(0, &cookie, &info) == B_BAD_VALUE) return ENOMEM;
+	}
+	*/
+	if (info.name == "lock area" && info.size == length) info.lock = B_FULL_LOCK;
+	else _kern_create_area("lock area", &address, B_BASE_ADDRESS, length, B_FULL_LOCK, B_WRITE_AREA);
+	return 0;
+}
+
+
+int
+munlock(void* address, size_t length) {
+	area_info info;
+	void* end = address + length;
+	ssize_t cookie = 0;
+	if (end < address) return EINVAL; // The length is negative.
+	if (end == address) return 0;
+	if (_kern_get_area_info(_kern_area_for(address), &info) == B_BAD_VALUE) return ENOMEM;
+	if (!address % B_PAGE_SIZE) return EINVAL; // The addr argument is not a multiple of {PAGESIZE}.
+	/* Abolished: the address range might be smaller than the area, or it could overlap several areas
+	void* current;
+	size_t accumulated_size;
+	while (true) {
+		accumulated_size += info.size;
+		if (accumulated_size > length) current = end;
+		info.lock = B_NO_LOCK;
+		if (current >= end) break;
+		if (_kern_get_next_area_info(0, &cookie, &info) == B_BAD_VALUE) return ENOMEM;
+	}
+	*/
+	if (info.name == "lock area" && info.size == length) info.lock = B_NO_LOCK;
+	else _kern_create_area("lock area", &address, B_BASE_ADDRESS, length, B_NO_LOCK, B_WRITE_AREA);
+	return 0;
+}
+
+
+int
 shm_open(const char* name, int openMode, mode_t permissions)
 {
 	char path[PATH_MAX];
