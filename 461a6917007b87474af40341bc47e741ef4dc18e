@@ -1,0 +1,245 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "38ab57a5_e8aea783",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2019-12-07T07:53:41Z",
+      "side": 1,
+      "message": "I would suggest readding the \\since Haiku R1 statement, even though it is not a policy or a requirement, it has been done in other parts and I can see the value when we ever get to R1.1.\n\nI\u0027m unsure whether it needs to be propagated further down the document (in every method).",
+      "revId": "461a6917007b87474af40341bc47e741ef4dc18e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fdbd860d_b1db3187",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2019-12-07T07:53:41Z",
+      "side": 1,
+      "message": "Stray whitespace",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 1
+      },
+      "revId": "461a6917007b87474af40341bc47e741ef4dc18e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebe2db60_a26e337c",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2019-12-07T07:53:41Z",
+      "side": 1,
+      "message": "Stray whitespace",
+      "revId": "461a6917007b87474af40341bc47e741ef4dc18e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "917ba4c4_4b01b9f0",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2019-12-07T07:53:41Z",
+      "side": 1,
+      "message": "Suggestion about the class intro: how does this class behave when it comes to passing an invalid Url? Will it outright reject it (i.e. set the internal data to an empty string), will it take it over but simply refuse to pass the \"IsValid()\" call below? If the latter is the case, will it try to parse the various parts of the Url if it can? Or will the getters like Authority() and Port() fail?",
+      "range": {
+        "startLine": 53,
+        "startChar": 1,
+        "endLine": 53,
+        "endChar": 10
+      },
+      "revId": "461a6917007b87474af40341bc47e741ef4dc18e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb4417f7_a1abe7e1",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2019-12-07T07:53:41Z",
+      "side": 1,
+      "message": "Missing dot (.)",
+      "range": {
+        "startLine": 72,
+        "startChar": 48,
+        "endLine": 72,
+        "endChar": 51
+      },
+      "revId": "461a6917007b87474af40341bc47e741ef4dc18e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0146b93_dbed7577",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2019-12-07T07:53:41Z",
+      "side": 1,
+      "message": "Suggestion: add an example here.\n\nAlso: what happens if the relative URL is in fact an absolute URL. What will the resulting Url point to? It is a constructor, so it can\u0027t fail.",
+      "range": {
+        "startLine": 96,
+        "startChar": 1,
+        "endLine": 96,
+        "endChar": 7
+      },
+      "revId": "461a6917007b87474af40341bc47e741ef4dc18e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbcfae4e_cf3d76b3",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2019-12-07T07:53:41Z",
+      "side": 1,
+      "message": "While we are not consistent in other parts (BApplication calls this the Destructor Method and BMessenger talks about freeing resources), I think the way you put it here is semantically wrong, as semantically the \u0027delete\u0027 keyword deletes the BUrl. \n\nIn this case \u0027Destructor\u0027 seems fine.",
+      "range": {
+        "startLine": 116,
+        "startChar": 8,
+        "endLine": 116,
+        "endChar": 16
+      },
+      "revId": "461a6917007b87474af40341bc47e741ef4dc18e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f0295bd_938875f5",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 2
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2019-12-07T07:53:41Z",
+      "side": 1,
+      "message": "Params start with a capital and end with a dot (.).",
+      "range": {
+        "startLine": 165,
+        "startChar": 40,
+        "endLine": 165,
+        "endChar": 14
+      },
+      "revId": "461a6917007b87474af40341bc47e741ef4dc18e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9df05869_4c760490",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2019-12-07T07:53:41Z",
+      "side": 1,
+      "message": "Briefs end with a dot (.).",
+      "range": {
+        "startLine": 170,
+        "startChar": 38,
+        "endLine": 170,
+        "endChar": 9
+      },
+      "revId": "461a6917007b87474af40341bc47e741ef4dc18e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94c7a05e_e6663deb",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 2
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2019-12-07T07:53:41Z",
+      "side": 1,
+      "message": "Whitespace (I also always fall over it and it is by no means consistent in the current docs, but these diff viewers make it very obvious).",
+      "range": {
+        "startLine": 187,
+        "startChar": 3,
+        "endLine": 187,
+        "endChar": 4
+      },
+      "revId": "461a6917007b87474af40341bc47e741ef4dc18e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5b2ce84_4b37d746",
+        "filename": "docs/user/support/Url.dox",
+        "patchSetId": 2
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2019-12-07T07:53:41Z",
+      "side": 1,
+      "message": "Whitespace",
+      "range": {
+        "startLine": 371,
+        "startChar": 6,
+        "endLine": 371,
+        "endChar": 7
+      },
+      "revId": "461a6917007b87474af40341bc47e741ef4dc18e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
