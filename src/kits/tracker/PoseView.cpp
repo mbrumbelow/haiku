@@ -256,6 +256,7 @@ BPoseView::BPoseView(Model* model, uint32 viewMode)
 	fDragEnabled(true),
 	fDropEnabled(true),
 	fSelectionRectEnabled(true),
+	fLongPressEnabled(true),
 	fAlwaysAutoPlace(false),
 	fAllowPoseEditing(true),
 	fSelectionChangedHook(false),
@@ -2280,7 +2281,8 @@ BPoseView::MessageReceived(BMessage* message)
 			break;
 
 		case kMsgMouseLongDown:
-			MouseLongDown(message);
+			if (fLongPressEnabled)
+				MouseLongDown(message);
 			break;
 
 		case B_MOUSE_IDLE:
@@ -7388,9 +7390,11 @@ BPoseView::MouseDown(BPoint where)
 
 	CommitActivePose();
 
+	// see if mouse down occurred within a pose
 	int32 index;
 	BPose* pose = FindPose(where, &index);
 	if (pose != NULL) {
+		// click was within pose
 		if (!pose->IsSelected() || !secondaryMouseButtonDown)
 			AddRemoveSelectionRange(where, extendSelection, pose);
 
@@ -7406,6 +7410,30 @@ BPoseView::MouseDown(BPoint where)
 			// special handling for path field double-clicks
 			if (!WasClickInPath(pose, index, where))
 				OpenSelection(pose, &index);
+		} else if (mouse_mode() != B_FOCUS_FOLLOWS_MOUSE) {
+			// only activate window if we didn't just start a drag
+			// (and don't bother in focus follows mouse mode)
+			bool isDragging = false;
+			BPoint loc = where;
+			while (buttons > 0) {
+				fLongPressEnabled = false;
+					// disable long press while testing for drag
+				GetMouse(&loc, &buttons, false);
+				// loop until mouse has been dragged at least 2 pixels
+				// (or mouse up)
+				if (fabs(loc.x - where.x) > 2 || fabs(loc.y - where.y) > 2) {
+					isDragging = true;
+					break;
+				}
+
+				snooze(10000);
+			}
+			fLongPressEnabled = true;
+
+			if (!isDragging) {
+				window->Activate();
+				window->UpdateIfNeeded();
+			}
 		}
 	} else {
 		// click was not in any pose

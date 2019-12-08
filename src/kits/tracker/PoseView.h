@@ -768,6 +768,7 @@ protected:
 	bool fDragEnabled : 1;
 	bool fDropEnabled : 1;
 	bool fSelectionRectEnabled : 1;
+	bool fLongPressEnabled : 1;
 	bool fAlwaysAutoPlace : 1;
 	bool fAllowPoseEditing : 1;
 	bool fSelectionChangedHook : 1;
