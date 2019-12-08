@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a726904_9d9fe53d",
+        "filename": "src/data/keymaps/Turkish (Type-F).keymap",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2019-12-08T23:56:57Z",
+      "side": 1,
+      "message": "Can you replace this with the equivalent utf8 hex value?",
+      "revId": "70ad29a144450853508573d8dbf2c2d0b144dd02",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
