@@ -52,6 +52,24 @@
       "revId": "4632bcd46dbb808123780ea39a39a11a5bfb7adb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b6fdb7a_26f7088b",
+        "filename": "src/apps/haikudepot/model/Model.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 857,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2019-12-08T06:50:24Z",
+      "side": 1,
+      "message": "It is an interesting question as to where the caches *should* be stored.  The application was originally written such that the caches were stored at `~/config/cache/HaikuDepot/...` and I have never considered changing the location to a system-wide one.  I guess if the data were to be shared between users then I ought to introduce locking across that directory at startup etc... a bit more work than I want to get into here in this change.  I\u0027d rather leave the locations as is for now.",
+      "parentUuid": "2caf0fab_76aaf1d1",
+      "revId": "4632bcd46dbb808123780ea39a39a11a5bfb7adb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
