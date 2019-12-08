@@ -250,6 +250,7 @@ BPoseView::BPoseView(Model* model, uint32 viewMode)
 	fSelectionPivotPose(NULL),
 	fRealPivotPose(NULL),
 	fKeyRunner(NULL),
+	fOpenedSelectionOnMouseDown(false),
 	fTrackRightMouseUp(false),
 	fSelectionVisible(true),
 	fMultipleSelection(true),
@@ -4872,14 +4873,16 @@ BPoseView::HandleDropCommon(BMessage* message, Model* targetModel,
 		}
 
 		return false;
+	} else if (containerWindow != NULL) {
+		// drag started in a Tracker window, activate target window
+		containerWindow->Activate();
+		containerWindow->UpdateIfNeeded();
 	}
 
 	ASSERT(srcWindow != NULL);
 
 	if (srcWindow == containerWindow) {
-		// drag started in this window
-		containerWindow->Activate();
-		containerWindow->UpdateIfNeeded();
+		// drag started and ended in this window
 		poseView->ResetPosePlacementHint();
 
 		if (DragSelectionContains(targetPose, message)) {
@@ -7378,19 +7381,22 @@ BPoseView::MouseDown(BPoint where)
 
 	MakeFocus();
 
+	fOpenedSelectionOnMouseDown = false;
+
 	uint32 buttons = (uint32)window->CurrentMessage()->FindInt32("buttons");
 	uint32 modifierKeys = modifiers();
-	bool secondaryMouseButtonDown
+	bool secondaryMouseButtonDown = fTrackRightMouseUp
 		= SecondaryMouseButtonDown(modifierKeys, buttons);
-	fTrackRightMouseUp = secondaryMouseButtonDown;
 	bool extendSelection = (modifierKeys & B_COMMAND_KEY) != 0
 		&& fMultipleSelection;
 
 	CommitActivePose();
 
+	// see if mouse down occurred within a pose
 	int32 index;
 	BPose* pose = FindPose(where, &index);
 	if (pose != NULL) {
+		// click was within pose
 		if (!pose->IsSelected() || !secondaryMouseButtonDown)
 			AddRemoveSelectionRange(where, extendSelection, pose);
 
@@ -7404,17 +7410,16 @@ BPoseView::MouseDown(BPoint where)
 			&& fLastClickButtons == B_PRIMARY_MOUSE_BUTTON
 			&& (modifierKeys & B_CONTROL_KEY) == 0) {
 			// special handling for path field double-clicks
-			if (!WasClickInPath(pose, index, where))
+			if (!WasClickInPath(pose, index, where)) {
 				OpenSelection(pose, &index);
+				fOpenedSelectionOnMouseDown = true;
+			}
 		}
 	} else {
 		// click was not in any pose
 		fLastClickedPose = NULL;
 		if (fTextWidgetToCheck != NULL)
 			fTextWidgetToCheck->CancelWait();
-
-		window->Activate();
-		window->UpdateIfNeeded();
 
 		// only clear selection if we are not extending it
 		if (!extendSelection || !fSelectionRectEnabled || !fMultipleSelection)
@@ -7441,12 +7446,24 @@ BPoseView::SetTextWidgetToCheck(BTextWidget* widget, BTextWidget* old)
 void
 BPoseView::MouseUp(BPoint where)
 {
+	BContainerWindow* window = ContainerWindow();
+	if (window == NULL)
+		return;
+
+	// end drag
 	if (fSelectionRectInfo.isDragging)
 		_EndSelectionRect();
 
+	// activate window unless we just opened an app
+	if (mouse_mode() != B_FOCUS_FOLLOWS_MOUSE
+		&& !fOpenedSelectionOnMouseDown) {
+		window->Activate();
+		window->UpdateIfNeeded();
+	}
+	fOpenedSelectionOnMouseDown = false;
+
 	int32 index;
 	BPose* pose = FindPose(where, &index);
-	uint32 lastButtons = Window()->CurrentMessage()->FindInt32("last_buttons");
 	if (pose != NULL && fLastClickedPose != NULL && fAllowPoseEditing
 		&& !fTrackRightMouseUp) {
 		// This handy field has been added by the tracking filter.
@@ -7458,6 +7475,7 @@ BPoseView::MouseUp(BPoint where)
 
 	// Showing the pose context menu is done on mouse up (or long click)
 	// to make right button dragging possible
+	uint32 lastButtons = window->CurrentMessage()->FindInt32("last_buttons");
 	if (pose != NULL && fTrackRightMouseUp
 		&& (SecondaryMouseButtonDown(modifiers(), lastButtons))) {
 		if (!pose->IsSelected()) {

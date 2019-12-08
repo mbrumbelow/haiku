@@ -744,7 +744,6 @@ protected:
 	const BPose* fSelectionPivotPose;
 	const BPose* fRealPivotPose;
 	BMessageRunner* fKeyRunner;
-	bool fTrackRightMouseUp;
 
 	struct SelectionRectInfo {
 		SelectionRectInfo()
@@ -763,6 +762,8 @@ protected:
 	};
 	SelectionRectInfo fSelectionRectInfo;
 
+	bool fOpenedSelectionOnMouseDown : 1;
+	bool fTrackRightMouseUp : 1;
 	bool fSelectionVisible : 1;
 	bool fMultipleSelection : 1;
 	bool fDragEnabled : 1;
