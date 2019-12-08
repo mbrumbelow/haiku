@@ -64,9 +64,6 @@ const float kIconHorizOffset = 18.0f;
 const float kIconVertOffset = 6.0f;
 const float kBorderWidth = 32.0f;
 
-// Amount you have to move the mouse before a drag starts
-const float kDragSlop = 3.0f;
-
 
 HeaderView::HeaderView(Model* model)
 	:
