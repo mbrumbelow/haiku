@@ -106,10 +106,6 @@ _IMPEXP_BE
 void do_minimize_team(BRect zoomRect, team_id team, bool zoom);
 
 
-// Amount you have to move the mouse before a drag starts
-const float kDragSlop = 3.0f;
-
-
 namespace BPrivate {
 
 class DraggableContainerIcon : public BView {

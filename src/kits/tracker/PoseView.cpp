@@ -7388,9 +7388,11 @@ BPoseView::MouseDown(BPoint where)
 
 	CommitActivePose();
 
+	// see if mouse down occurred within a pose
 	int32 index;
 	BPose* pose = FindPose(where, &index);
 	if (pose != NULL) {
+		// click was within pose
 		if (!pose->IsSelected() || !secondaryMouseButtonDown)
 			AddRemoveSelectionRange(where, extendSelection, pose);
 
@@ -7406,6 +7408,28 @@ BPoseView::MouseDown(BPoint where)
 			// special handling for path field double-clicks
 			if (!WasClickInPath(pose, index, where))
 				OpenSelection(pose, &index);
+		} else if (mouse_mode() != B_FOCUS_FOLLOWS_MOUSE) {
+			// only activate window if we didn't just start a drag
+			// (and don't bother in focus follows mouse mode)
+			bool isDragging = false;
+			BPoint loc = where;
+			while (buttons > 0) {
+				GetMouse(&loc, &buttons, false);
+				// loop until mouse has been dragged a few pixels
+				// (or mouse up)
+				if (fabs(loc.x - where.x) > kDragSlop
+					|| fabs(loc.y - where.y) > kDragSlop) {
+					isDragging = true;
+					break;
+				}
+
+				snooze(10000);
+			}
+
+			if (!isDragging) {
+				window->Activate();
+				window->UpdateIfNeeded();
+			}
 		}
 	} else {
 		// click was not in any pose

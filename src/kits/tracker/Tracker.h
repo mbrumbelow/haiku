@@ -71,6 +71,9 @@ const uint32 kNextSpecifier = 'snxt';
 const uint32 kPreviousSpecifier = 'sprv';
 const uint32 B_ENTRY_SPECIFIER = 'sref';
 
+// pixels you have to move the mouse before a drag starts
+const float kDragSlop = 3.0f;
+
 
 #define kPropertyEntry "Entry"
 #define kPropertySelection "Selection"
