@@ -3,6 +3,11 @@ SubDir HAIKU_TOP src apps haikudepot ;
 # disable -Werror for this directory only
 SubDirC++Flags -Wno-error ;
 
+# TODO
+# the templated List class is using memmove with object pointers.  This in-app
+# class either needs to be fixed or replaced, but short term let the warning go.
+ObjectC++Flags Model.cpp  : -Wno-error=class-memaccess ;
+
 include [ FDirName $(HAIKU_TOP) src apps haikudepot build jam
 	HdsSchemaGenRules ] ;
 
