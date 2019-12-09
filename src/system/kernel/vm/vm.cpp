@@ -4953,7 +4953,7 @@ fill_area_info(struct VMArea* area, area_info* info, size_t size)
 	info->address = (void*)area->Base();
 	info->size = area->Size();
 	info->protection = area->protection;
-	info->lock = B_FULL_LOCK;
+	info->lock = area->wiring;
 	info->team = area->address_space->ID();
 	info->copy_count = 0;
 	info->in_count = 0;
@@ -6678,6 +6678,147 @@ _user_get_memory_properties(team_id teamID, const void* address,
 	error = user_memcpy(_lock, &wiring, sizeof(wiring));
 
 	return error;
+}
+
+
+status_t
+_user_mlock(void* address, size_t length) {
+	if (length < 0) return EINVAL; // The length is negative.
+	if (length == 0) return 0; // There is no need to lock the memory.
+	if (!address % B_PAGE_SIZE) return EINVAL; // The addr argument is not a multiple of {PAGESIZE}.
+
+	// Adopted from system/kernel/vm/vm.cpp: _user_create_area() with modifications
+
+	virtual_address_restrictions virtualAddressRestrictions = {};
+	virtualAddressRestrictions.address = address;
+	virtualAddressRestrictions.address_specification = B_EXACT_ADDRESS;
+
+	addr_t reservedMapPages = 0;
+	AddressSpaceWriteLocker locker;
+	status_t status = locker.SetTo(VMAddressSpace::CurrentID());
+	if (status != B_OK)
+		return status;
+
+	VMTranslationMap* map = locker.AddressSpace()->TranslationMap();
+	reservedMapPages = map->MaxPagesNeededToMap(0, length - 1);
+
+	int priority;
+	int32 flags = 0;
+	if (VMAddressSpace::CurrentID() != VMAddressSpace::KernelID())
+		priority = VM_PRIORITY_USER;
+	else if ((flags & CREATE_AREA_PRIORITY_VIP) != 0)
+		priority = VM_PRIORITY_VIP;
+	else
+		priority = VM_PRIORITY_SYSTEM;
+
+	// Reserve memory before acquiring the address space lock. This reduces the
+	// chances of failure, since while holding the write lock to the address
+	// space (if it is the kernel address space that is), the low memory handler
+	// won't be able to free anything for us.
+	addr_t reservedMemory = 0;
+	bigtime_t timeout = (flags & CREATE_AREA_DONT_WAIT) != 0 ? 0 : 1000000;
+	if (vm_try_reserve_memory(length, priority, timeout) != B_OK)
+		return ENOMEM;
+	reservedMemory = length;
+	// TODO: We don't reserve the memory for the pages for the page
+	// directories/tables. We actually need to do since we currently don't
+	// reclaim them (and probably can't reclaim all of them anyway). Thus
+	// there are actually less physical pages than there should be, which
+	// can get the VM into trouble in low memory situations.
+
+	VMAddressSpace* addressSpace;
+
+	// For full lock areas reserve the pages before locking the address
+	// space. E.g. block caches can't release their memory while we hold the
+	// address space lock.
+	page_num_t reservedPages = reservedMapPages;
+	reservedPages += length / B_PAGE_SIZE;
+
+	vm_page_reservation reservation;
+	if (reservedPages > 0) {
+		if ((flags & CREATE_AREA_DONT_WAIT) != 0) {
+			if (!vm_page_try_reserve_pages(&reservation, reservedPages,
+					priority)) {
+				reservedPages = 0;
+				status = B_WOULD_BLOCK;
+				if (reservedPages > 0)
+					vm_page_unreserve_pages(&reservation);
+				if (reservedMemory > 0)
+					vm_unreserve_memory(reservedMemory);
+
+				return status;
+			}
+		} else
+			vm_page_reserve_pages(&reservation, reservedPages, priority);
+	}
+
+	// Lock the address space and, if B_EXACT_ADDRESS and
+	// CREATE_AREA_UNMAP_ADDRESS_RANGE were specified, ensure the address range
+	// is not wired.
+	do {
+		status = locker.SetTo(VMAddressSpace::CurrentID());
+		addressSpace = locker.AddressSpace();
+	} while (virtualAddressRestrictions.address_specification
+			== B_EXACT_ADDRESS
+		&& (flags & CREATE_AREA_UNMAP_ADDRESS_RANGE) != 0
+		&& wait_if_address_range_is_wired(addressSpace,
+			(addr_t)virtualAddressRestrictions.address, length, &locker));
+
+	return status;
+}
+
+
+status_t
+_user_munlock(void* address, size_t length) {
+	if (length < 0) return EINVAL; // The length is negative.
+	if (length == 0) return 0; // There is no need to lock the memory.
+	if (!address % B_PAGE_SIZE) return EINVAL; // The addr argument is not a multiple of {PAGESIZE}.
+
+	// Adopted from system/kernel/vm/vm.cpp: _user_create_area() with modifications
+
+	virtual_address_restrictions virtualAddressRestrictions = {};
+	virtualAddressRestrictions.address = address;
+	virtualAddressRestrictions.address_specification = B_EXACT_ADDRESS;
+
+	addr_t reservedMapPages = 0;
+	AddressSpaceWriteLocker locker;
+	status_t status = locker.SetTo(VMAddressSpace::CurrentID());
+	if (status != B_OK)
+		return status;
+
+	VMTranslationMap* map = locker.AddressSpace()->TranslationMap();
+	reservedMapPages = map->MaxPagesNeededToMap(0, length - 1);
+
+	int priority;
+	int32 flags = 0;
+	if (VMAddressSpace::CurrentID() != VMAddressSpace::KernelID())
+		priority = VM_PRIORITY_USER;
+	else if ((flags & CREATE_AREA_PRIORITY_VIP) != 0)
+		priority = VM_PRIORITY_VIP;
+	else
+		priority = VM_PRIORITY_SYSTEM;
+
+	VMAddressSpace* addressSpace;
+
+	addr_t reservedMemory = 0;
+	reservedMemory = length;
+	vm_page_reservation reservation;
+	vm_page_unreserve_pages(&reservation);
+	vm_unreserve_memory(reservedMemory);
+
+	// Unlock the address space and, if B_EXACT_ADDRESS and
+	// CREATE_AREA_UNMAP_ADDRESS_RANGE were specified, ensure the address range
+	// is not wired.
+	do {
+		status = locker.SetTo(VMAddressSpace::CurrentID());
+		addressSpace = locker.AddressSpace();
+	} while (virtualAddressRestrictions.address_specification
+			== B_EXACT_ADDRESS
+		&& (flags & CREATE_AREA_UNMAP_ADDRESS_RANGE) != 0
+		&& wait_if_address_range_is_wired(addressSpace,
+			(addr_t)virtualAddressRestrictions.address, length, &locker));
+
+	return status;
 }
 
 

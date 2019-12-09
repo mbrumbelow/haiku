@@ -185,6 +185,18 @@ posix_madvise(void* address, size_t length, int advice)
 
 
 int
+mlock(void* address, size_t length) {
+	RETURN_AND_SET_ERRNO(_kern_mlock(address, length));
+}
+
+
+int
+munlock(void* address, size_t length) {
+	RETURN_AND_SET_ERRNO(_kern_munlock(address, length));
+}
+
+
+int
 shm_open(const char* name, int openMode, mode_t permissions)
 {
 	char path[PATH_MAX];
