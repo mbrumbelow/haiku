@@ -33,6 +33,24 @@
       "revId": "70ad29a144450853508573d8dbf2c2d0b144dd02",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4dff0389_3f680f77",
+        "filename": "src/data/keymaps/Turkish (Type-Q).keymap",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000169
+      },
+      "writtenOn": "2019-12-09T20:06:40Z",
+      "side": 1,
+      "message": "Question, how to insert hex value with three parts? AFAICS, hex values are written without the \u0027\u0027, but if I write the hex value for the TL sign (which is 0xE2 0x82 0xBA), first part is another letter (latin small letter a with circumflex). Will it understand it correctly?",
+      "parentUuid": "e2936966_072c9069",
+      "revId": "70ad29a144450853508573d8dbf2c2d0b144dd02",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
