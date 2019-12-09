@@ -16,6 +16,23 @@
       "revId": "70ad29a144450853508573d8dbf2c2d0b144dd02",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2936966_072c9069",
+        "filename": "src/data/keymaps/Turkish (Type-Q).keymap",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2019-12-09T00:03:04Z",
+      "side": 1,
+      "message": "replace with equivalent utf8 hex value",
+      "revId": "70ad29a144450853508573d8dbf2c2d0b144dd02",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
