@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "60034353_f2e3ac55",
+        "filename": "headers/posix/sys/mman.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-12-09T20:07:25Z",
+      "side": 1,
+      "message": "this should be \"const void*\" according to the spec.",
+      "revId": "39e7b98d908507e4f5679e0c3648d267cf914d40",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42179326_c09487e5",
+        "filename": "headers/private/kernel/vm/vm.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-12-09T20:07:25Z",
+      "side": 1,
+      "message": "the naming in this file uses \"size\" instead of length.",
+      "revId": "39e7b98d908507e4f5679e0c3648d267cf914d40",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
