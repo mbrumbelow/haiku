@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4bfeb602_503a97bc",
+        "filename": "src/data/keymaps/Turkish (Type-F).keymap",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2019-12-09T20:46:16Z",
+      "side": 0,
+      "message": "The space here is intentional and should be kept for quick combining.",
+      "revId": "f0bf7a93c0df7777d4b9c5299c35019ca2441e0f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a1c7079_468f3540",
+        "filename": "src/data/keymaps/Turkish (Type-F).keymap",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2019-12-09T20:46:16Z",
+      "side": 0,
+      "message": "keep space here",
+      "revId": "f0bf7a93c0df7777d4b9c5299c35019ca2441e0f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eba0e3a4_4b533009",
+        "filename": "src/data/keymaps/Turkish (Type-F).keymap",
+        "patchSetId": 1
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2019-12-09T20:46:16Z",
+      "side": 0,
+      "message": "keep space",
+      "revId": "f0bf7a93c0df7777d4b9c5299c35019ca2441e0f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
