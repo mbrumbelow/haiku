@@ -4953,7 +4953,7 @@ fill_area_info(struct VMArea* area, area_info* info, size_t size)
 	info->address = (void*)area->Base();
 	info->size = area->Size();
 	info->protection = area->protection;
-	info->lock = B_FULL_LOCK;
+	info->lock = area->wiring;
 	info->team = area->address_space->ID();
 	info->copy_count = 0;
 	info->in_count = 0;
@@ -6676,6 +6676,103 @@ _user_get_memory_properties(team_id teamID, const void* address,
 		return error;
 
 	error = user_memcpy(_lock, &wiring, sizeof(wiring));
+
+	return error;
+}
+
+
+struct LOCKED_PAGES {
+	void* start, end;
+	LOCKED_PAGES* previous, next;
+} locked_pages;
+
+
+status_t
+_user_mlock(const void* address, size_t size) {
+	if (size < 0) return EINVAL; // The length is negative.
+	if (size == 0) return 0; // There is no need to lock the memory.
+	if (!address % B_PAGE_SIZE) return EINVAL; // The addr argument is not a multiple of {PAGESIZE}.
+	LOCKED_PAGES* pointer_locked_pages = &locked_pages;
+	while (pointer_locked_pages != nullptr) {
+		if ((pointer_locked_pages->start >= address && pointer_locked_pages->start <= address + size) || (pointer_locked_pages->end >= address && pointer_locked_pages->end <= address + size)) {
+			return EAGAIN; // overlapping
+		}
+		pointer_locked_pages = pointer_locked_pages->next;
+	}
+
+	int error = lock_memory(address, size, B_DMA_IO | B_READ_DEVICE);
+
+	if (error == B_OK) {
+		bool save = false; // if the memory saved by merging with another segment
+		LOCKED_PAGES* last_pointer_locked_pages;
+		while (pointer_locked_pages != nullptr) {
+			if (pointer_locked_pages->end == address) {
+				pointer_locked_pages->end = address + size;
+				save = true;
+			}
+			if (pointer_locked_pages->start == address + size) {
+				pointer_locked_pages->start = address;
+				save = true;
+			}
+			last_pointer_locked_pages = pointer_locked_pages;
+			pointer_locked_pages = pointer_locked_pages->next;
+		}
+		if (!save) {
+			last_pointer_locked_pages->next = new LOCKED_PAGES();
+			last_pointer_locked_pages->next->start = address;
+			last_pointer_locked_pages->next->end = address + size;
+		}
+	}
+
+	return error;
+}
+
+
+status_t
+_user_munlock(const void* address, size_t size) {
+	if (size < 0) return EINVAL; // The length is negative.
+	if (size == 0) return 0; // There is no need to lock the memory.
+	if (!address % B_PAGE_SIZE) return EINVAL; // The addr argument is not a multiple of {PAGESIZE}.
+	LOCKED_PAGES* pointer_locked_pages = &locked_pages;
+	bool find_locked = false;
+	while (pointer_locked_pages != nullptr) {
+		if (pointer_locked_pages->start <= address && pointer_locked_pages->end >= address + size) find_locked = true; // containing
+		pointer_locked_pages = pointer_locked_pages->next;
+	}
+	if (!find_locked) return EAGAIN;
+
+	int error = unlock_memory(adrress, size, B_DMA_IO | B_READ_DEVICE);
+
+	if (error == B_OK) {
+		while (pointer_locked_pages != nullptr) {
+			if (pointer_locked_pages->start < address && pointer_locked_pages->end > address + size) {
+				LOCKED_PAGES* new_locked = new LOCKED_PAGES();
+				new_locked->start = address + size;
+				new_locked->end = pointer_locked_pages->end;
+				pointer_locked_pages->end = address;
+				new_locked->previous = pointer_locked_pages;
+				new_locked->next = pointer_locked_pages->next;
+				new_locked->next->previous = new_locked;
+				pointer_locked_pages->next = new_locked;
+				break;
+			}
+			if (pointer_locked_pages->start == address && pointer_locked_pages->end > address + size) {
+				pointer_locked_pages->start = address + size;
+				break;
+			}
+			if (pointer_locked_pages->start < address && pointer_locked_pages->end == address + size) {
+				pointer_locked_pages->end = address;
+				break;
+			}
+			if (pointer_locked_pages->start == address && pointer_locked_pages->end == address + size) {
+				pointer_locked_pages->previous->next = pointer_locked_pages->next;
+				pointer_locked_pages->next->previous = pointer_locked_pages->previous;
+				delete pointer_locked_pages;
+				break;
+			}
+			pointer_locked_pages = pointer_locked_pages->next;
+		}
+	}
 
 	return error;
 }
