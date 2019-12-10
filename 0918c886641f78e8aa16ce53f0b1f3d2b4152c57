@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "0a11e92b_82e535cb",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 6694,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-12-10T09:53:33Z",
+      "side": 1,
+      "message": "Please read up on \"c++ operator precedence\". The check \"!address % P_PAGE_SIZE\" does not do what you seem to think it does.",
+      "revId": "0918c886641f78e8aa16ce53f0b1f3d2b4152c57",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ce5b8904_a3d2eaf4",
         "filename": "src/tests/system/kernel/mlock_test.cpp",
         "patchSetId": 5
