@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "028db481_5d738846",
+        "filename": "src/tests/system/kernel/mlock_test.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-12-10T18:36:28Z",
+      "side": 1,
+      "message": "What actually means this space size?",
+      "revId": "2577879741e582f251aad08c04071a02c01ae55b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fdb31d51_9e8d1b07",
+        "filename": "src/tests/system/kernel/mlock_test.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-12-10T18:36:28Z",
+      "side": 1,
+      "message": "get_area_info should also be checked before mlock, obviously.",
+      "revId": "2577879741e582f251aad08c04071a02c01ae55b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
