@@ -4953,7 +4953,7 @@ fill_area_info(struct VMArea* area, area_info* info, size_t size)
 	info->address = (void*)area->Base();
 	info->size = area->Size();
 	info->protection = area->protection;
-	info->lock = B_FULL_LOCK;
+	info->lock = area->wiring;
 	info->team = area->address_space->ID();
 	info->copy_count = 0;
 	info->in_count = 0;
@@ -6676,6 +6676,137 @@ _user_get_memory_properties(team_id teamID, const void* address,
 		return error;
 
 	error = user_memcpy(_lock, &wiring, sizeof(wiring));
+
+	return error;
+}
+
+
+struct LOCKED_PAGES {
+	void* start, end;
+};
+
+struct VEC_LOCKED_PAGES {
+	team_id team;
+	DoublyLinkedList<LOCKED_PAGES>* locked_pages_list;
+};
+
+Vector<VEC_LOCKED_PAGES> vec_locked_pages;
+
+
+status_t
+_user_mlock(const void* address, size_t size) {
+	if (size == 0) return 0; // no need to lock
+	if (!(address % B_PAGE_SIZE)) return EINVAL; // addr is not a multiple of {PAGESIZE}
+
+	DoublyLinkedList<LOCKED_PAGES>* locked_pages;
+
+	for (Vector<VEC_LOCKED_PAGES>::Iterator pointer_vec_locked_pages = vec_locked_pages.Begin(); pointer_vec_locked_pages < vec_locked_pages.End(); pointer_vec_locked_pages++) {
+		if (pointer_vec_locked_pages->team == B_CURRENT_TEAM) {
+			locked_pages = ptr;
+			break;
+		}
+	}
+	if (!locked_pages) {
+		VEC_LOCKED_PAGES* new_vec_locked_pages_ele = new VEC_LOCKED_PAGES();
+		DoublyLinkedList<LOCKED_PAGES>* new_locked_pages = new LOCKED_PAGES();
+		new_vec_locked_pages_ele->team = B_CURRENT_TEAM;
+		new_vec_locked_pages_ele->locked_pages = new_locked_pages;
+		vec_locked_pages.Add(new_vec_locked_pages_ele);
+		locked_pages = vec_locked_pages.End() - 1;
+	}
+	
+	LOCKED_PAGES* pointer_locked_pages = locked_pages->Head();
+	while (pointer_locked_pages) {
+		if ((pointer_locked_pages->start >= address && pointer_locked_pages->start <= address + size) || (pointer_locked_pages->end >= address && pointer_locked_pages->end <= address + size)) {
+			return EAGAIN; // overlapping
+		}
+		pointer_locked_pages = locked_pages->GetNext(pointer_locked_pages);
+	}
+
+	int error = lock_memory(address, size, B_DMA_IO | B_READ_DEVICE);
+
+	if (error == B_OK) {
+		bool save = false; // if the memory saved by merging with another segment
+		LOCKED_PAGES* last_pointer_locked_pages;
+		while (pointer_locked_pages) {
+			if (pointer_locked_pages->end == address) {
+				pointer_locked_pages->end = address + size;
+				save = true;
+			}
+			if (pointer_locked_pages->start == address + size) {
+				pointer_locked_pages->start = address;
+				save = true;
+			}
+			last_pointer_locked_pages = pointer_locked_pages;
+			pointer_locked_pages = locked_pages->GetNext(pointer_locked_pages);
+		}
+		if (!save) {
+			LOCKED_PAGES* new_locked_pages_ele = new LOCKED_PAGES();
+			new_locked_pages_ele->start = address;
+			new_locked_pages_ele->end = address + size;
+			locked_pages->InsertAfter(last_pointer_locked_pages, new_locked_pages_ele);
+		}
+	}
+
+	return error;
+}
+
+
+status_t
+_user_munlock(const void* address, size_t size) {
+	if (size == 0) return 0; // no need to unlock
+	if (!(address % B_PAGE_SIZE)) return EINVAL; // addr is not a multiple of {PAGESIZE}
+
+	DoublyLinkedList<LOCKED_PAGES>* locked_pages;
+
+	for (Vector<VEC_LOCKED_PAGES>::Iterator pointer_vec_locked_pages = vec_locked_pages.Begin(); pointer_vec_locked_pages < vec_locked_pages.End(); pointer_vec_locked_pages++) {
+		if (pointer_vec_locked_pages->team == B_CURRENT_TEAM) {
+			locked_pages = ptr;
+			break;
+		}
+	}
+	if (!locked_pages) {
+		return EAGAIN; // no need to unlock
+	}
+
+	LOCKED_PAGES* pointer_locked_pages = locked_pages->Head();
+	bool find_locked = false;
+	while (pointer_locked_pages) {
+		if (pointer_locked_pages->start <= address && pointer_locked_pages->end >= address + size) {
+			find_locked = true; // containing
+			break;
+		}
+		pointer_locked_pages = locked_pages->GetNext(pointer_locked_pages);
+	}
+	if (!find_locked) return EAGAIN;
+
+	int error = unlock_memory(address, size, B_DMA_IO | B_READ_DEVICE);
+
+	if (error == B_OK) {
+		while (pointer_locked_pages) {
+			if (pointer_locked_pages->start < address && pointer_locked_pages->end > address + size) {
+				LOCKED_PAGES* new_locked_pages_ele = new LOCKED_PAGES();
+				new_locked_pages_ele->start = address + size;
+				new_locked_pages_ele->end = pointer_locked_pages->end;
+				locked_pages->InsertAfter(pointer_locked_pages, new_locked_pages_ele);
+				pointer_locked_pages->end = address;
+				break;
+			}
+			if (pointer_locked_pages->start == address && pointer_locked_pages->end > address + size) {
+				pointer_locked_pages->start = address + size;
+				break;
+			}
+			if (pointer_locked_pages->start < address && pointer_locked_pages->end == address + size) {
+				pointer_locked_pages->end = address;
+				break;
+			}
+			if (pointer_locked_pages->start == address && pointer_locked_pages->end == address + size) {
+				locked_pages->Remove(pointer_locked_pages);
+				break;
+			}
+			pointer_locked_pages = locked_pages->GetNext(pointer_locked_pages);
+		}
+	}
 
 	return error;
 }
