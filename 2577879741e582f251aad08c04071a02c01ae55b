@@ -2,6 +2,125 @@
   "comments": [
     {
       "key": {
+        "uuid": "72b2a415_93f5f18c",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 6684,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-12-10T18:43:38Z",
+      "side": 1,
+      "message": "LockedPages would be a better naming.",
+      "revId": "2577879741e582f251aad08c04071a02c01ae55b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b5035c5_de25cc2c",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 6693,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-12-10T18:43:38Z",
+      "side": 1,
+      "message": "Isn\u0027t there another structure which would better fit?",
+      "revId": "2577879741e582f251aad08c04071a02c01ae55b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "202a3905_ec07db48",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 6703,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-12-10T18:43:38Z",
+      "side": 1,
+      "message": "a lock is needed around access to the structures.",
+      "revId": "2577879741e582f251aad08c04071a02c01ae55b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4cd24e4_30d9202c",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 6704,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-12-10T18:43:38Z",
+      "side": 1,
+      "message": "B_CURRENT_TEAM is just a constant, this can\u0027t be used for such a check.",
+      "revId": "2577879741e582f251aad08c04071a02c01ae55b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "453b7f89_6de6dfc5",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 6710,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-12-10T18:43:38Z",
+      "side": 1,
+      "message": "new can fail.",
+      "revId": "2577879741e582f251aad08c04071a02c01ae55b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8990099_89fce103",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 6711,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-12-10T18:43:38Z",
+      "side": 1,
+      "message": "new can fail.",
+      "revId": "2577879741e582f251aad08c04071a02c01ae55b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "016fda82_6b677808",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 6726,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-12-10T18:43:38Z",
+      "side": 1,
+      "message": "B_DMA_IO isn\u0027t needed. B_READ_DEVICE and/or should be used depending on the area protection.",
+      "revId": "2577879741e582f251aad08c04071a02c01ae55b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "028db481_5d738846",
         "filename": "src/tests/system/kernel/mlock_test.cpp",
         "patchSetId": 7
