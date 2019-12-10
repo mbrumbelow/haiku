@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2cc0ed59_816215de",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 6687,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-12-10T09:38:47Z",
+      "side": 1,
+      "message": "Have you thought about where this variable is stored in memory and what happens when different threads execute the new syscall you introduced?",
+      "revId": "0918c886641f78e8aa16ce53f0b1f3d2b4152c57",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce5b8904_a3d2eaf4",
+        "filename": "src/tests/system/kernel/mlock_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-12-10T09:38:47Z",
+      "side": 1,
+      "message": "You are creating an area of the size SPACE_SIZE...",
+      "revId": "0918c886641f78e8aa16ce53f0b1f3d2b4152c57",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18ae95b9_b56cdaa7",
+        "filename": "src/tests/system/kernel/mlock_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-12-10T09:38:47Z",
+      "side": 1,
+      "message": "... you obtain info about the area...",
+      "revId": "0918c886641f78e8aa16ce53f0b1f3d2b4152c57",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be535b17_4fca8786",
+        "filename": "src/tests/system/kernel/mlock_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-12-10T09:38:47Z",
+      "side": 1,
+      "message": "... and require that the area has the expected size.",
+      "revId": "0918c886641f78e8aa16ce53f0b1f3d2b4152c57",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee1607e7_90883ec3",
+        "filename": "src/tests/system/kernel/mlock_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-12-10T09:38:47Z",
+      "side": 1,
+      "message": "And again.\n\nWhere is the connection to mlock() and munlock()? You don\u0027t seem to expect the calls to mlock() or munlock() to change the area size.",
+      "revId": "0918c886641f78e8aa16ce53f0b1f3d2b4152c57",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
