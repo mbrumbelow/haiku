@@ -154,6 +154,8 @@ AutomountSettingsPanel::AutomountSettingsPanel()
 			.AddGlue();
 
 	ShowCurrentSettings();
+	delete bootMountBox;
+	delete autoMountBox;
 }
 
 
