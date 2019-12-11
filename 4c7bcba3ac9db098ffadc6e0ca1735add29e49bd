@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c75c24bd_c51cc2d6",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 6701,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-12-11T20:37:13Z",
+      "side": 1,
+      "message": "Not sure what is the intention here. Is it locking the team?\n   Thread* thread \u003d thread_get_current_thread();\n   Team* team \u003d thread-\u003eteam;\n   TeamLocker teamLocker(team);\n\nthen move the list of ranges in the Team struct (located in headers/private/kernel/thread_types.h)",
+      "revId": "4c7bcba3ac9db098ffadc6e0ca1735add29e49bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18e8231e_b9340acf",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 6704,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-12-11T20:37:13Z",
+      "side": 1,
+      "message": "Here new_locked_pages_ele should be checked for NULL, bail out when it\u0027s the case.",
+      "revId": "4c7bcba3ac9db098ffadc6e0ca1735add29e49bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3b2fa1f_a5e26f43",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 6715,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-12-11T20:37:13Z",
+      "side": 1,
+      "message": "we want to extend the range on the left: \n* this means calling lock_memory() then updating pointer_locked_pages-\u003estart with address.\n* then update \"size\" with \"size - (pointer_locked_pages-\u003eend - address\" and \"address\" with \"pointer_locked_pages-\u003eend\", try the next range from the list.\n* if size is zero, bails out",
+      "revId": "4c7bcba3ac9db098ffadc6e0ca1735add29e49bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e4ee1bf_ac1a7e52",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 6729,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-12-11T20:37:13Z",
+      "side": 1,
+      "message": "if we can\u0027t extend the current range on the left, we need to fill the allocated one (new_locked_pages_ele), call lock_memory, insert new_locked_pages_ele in the list and bail out.",
+      "revId": "4c7bcba3ac9db098ffadc6e0ca1735add29e49bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4306b5ea_bfe082d7",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 6794,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-12-11T20:37:13Z",
+      "side": 1,
+      "message": "this looks OK.",
+      "revId": "4c7bcba3ac9db098ffadc6e0ca1735add29e49bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "570adaee_de1377e4",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 6809,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-12-11T20:37:13Z",
+      "side": 1,
+      "message": "size equals \"pointer_locked_pages-\u003eend - address\", this is the same as the line 6823",
+      "revId": "4c7bcba3ac9db098ffadc6e0ca1735add29e49bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a7c6232_7b766577",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 6814,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-12-11T20:37:13Z",
+      "side": 1,
+      "message": "unlock length is \"pointer_locked_pages-\u003eend - pointer_locked_pages-\u003estart\"\nor \"address + size - pointer_locked_pages-\u003estart\". This is the same case as line 6833, but the range is removed when the new size if zero.",
+      "revId": "4c7bcba3ac9db098ffadc6e0ca1735add29e49bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
