@@ -36,6 +36,40 @@
     },
     {
       "key": {
+        "uuid": "d5e8662e_c64bcdb9",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 6698,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-12-11T07:34:19Z",
+      "side": 1,
+      "message": "The Haiku coding style requires the \"return\" statement on its own line.",
+      "revId": "2577879741e582f251aad08c04071a02c01ae55b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8201931_ae8da8f4",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 6699,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-12-11T07:34:19Z",
+      "side": 1,
+      "message": "Please use \"address % B_PAGE_SIZE !\u003d 0\" as the expression and put the return on its own line.",
+      "revId": "2577879741e582f251aad08c04071a02c01ae55b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "202a3905_ec07db48",
         "filename": "src/system/kernel/vm/vm.cpp",
         "patchSetId": 7
