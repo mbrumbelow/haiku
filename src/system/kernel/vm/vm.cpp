@@ -4953,7 +4953,7 @@ fill_area_info(struct VMArea* area, area_info* info, size_t size)
 	info->address = (void*)area->Base();
 	info->size = area->Size();
 	info->protection = area->protection;
-	info->lock = B_FULL_LOCK;
+	info->lock = area->wiring;
 	info->team = area->address_space->ID();
 	info->copy_count = 0;
 	info->in_count = 0;
@@ -6677,6 +6677,171 @@ _user_get_memory_properties(team_id teamID, const void* address,
 
 	error = user_memcpy(_lock, &wiring, sizeof(wiring));
 
+	return error;
+}
+
+
+struct LockedPages {
+	void* start, end;
+};
+
+HashMap<team_id, LockedPages> map_locked_pages;
+HashMap<team_id, bool> map_locked_pages_lock;
+
+
+status_t
+_user_mlock(const void* address, size_t size) {
+	if (size == 0)
+		return B_OK; // no need to lock
+	if (address % B_PAGE_SIZE != 0)
+		return EINVAL; // addr is not a multiple of {PAGESIZE}
+
+	team_id team = team_get_current_team_id();
+	while (map_locked_pages_lock.Get(team)) ;
+	map_locked_pages_lock.Put(team, true);
+	DoublyLinkedList<LockedPages> locked_pages = map_locked_pages.Get(team);
+	int error = B_OK;
+	LockedPages* new_locked_pages_ele = new LOCKED_PAGES();
+
+	if (!locked_pages) {
+		map_locked_pages.Put(team, new DoublyLinkedList<LockedPages>());
+		DoublyLinkedList<LockedPages> locked_pages = map_locked_pages.Get(team);
+	}
+
+	LockedPages* pointer_locked_pages = locked_pages.Head();
+	while (pointer_locked_pages) { // overlapping
+		if ((pointer_locked_pages->start >= address && pointer_locked_pages->start <= address + size) || (pointer_locked_pages->end >= address && pointer_locked_pages->end <= address + size)) {
+			if (pointer_locked_pages->start > address && pointer_locked_pages->end < address + size) {
+				map_locked_pages_lock.Put(team, false);
+				error = _user_mlock(pointer_locked_pages->start, pointer_locked_pages->start - address);
+				if (error != B_OK)
+					return error;
+				return _user_mlock(address + size, address + size - pointer_locked_pages->end);
+			}
+			if (pointer_locked_pages->start == address && pointer_locked_pages->end == address + size)
+				map_locked_pages_lock.Put(team, false);
+				return B_OK;
+			if (pointer_locked_pages->start > address && pointer_locked_pages->end == address + size) {
+				address = pointer_locked_pages->start;
+			}
+			if (pointer_locked_pages->start == address && pointer_locked_pages->end < address + size) {
+				size = pointer_locked_pages->end - address;
+			}
+			break;
+		}
+		pointer_locked_pages = locked_pages.GetNext(pointer_locked_pages);
+	}
+
+	error = lock_memory(address, size, B_READ_DEVICE);
+
+	if (error == B_OK) {
+		bool save = false; // if the memory saved by merging with another segment
+		LockedPages* last_pointer_locked_pages;
+		pointer_locked_pages = locked_pages.Head();
+		while (pointer_locked_pages) {
+			if (pointer_locked_pages->end == address) {
+				pointer_locked_pages->end = address + size;
+				save = true;
+			}
+			if (pointer_locked_pages->start == address + size) {
+				pointer_locked_pages->start = address;
+				save = true;
+			}
+			last_pointer_locked_pages = pointer_locked_pages;
+			pointer_locked_pages = locked_pages.GetNext(pointer_locked_pages);
+		}
+		if (!save) {
+			new_locked_pages_ele->start = address;
+			new_locked_pages_ele->end = address + size;
+			locked_pages.InsertAfter(last_pointer_locked_pages, new_locked_pages_ele);
+		} else delete new_locked_pages_ele;
+		map_locked_pages.Put(team, locked_pages);
+	}
+
+	map_locked_pages_lock.Put(team, false);
+	return error;
+}
+
+
+status_t
+_user_munlock(const void* address, size_t size) {
+	if (size == 0)
+		return B_OK; // no need to unlock
+	if (address % B_PAGE_SIZE != 0)
+		return EINVAL; // addr is not a multiple of {PAGESIZE}
+
+	team_id team = team_get_current_team_id();
+	while (map_locked_pages_lock.Get(team)) ;
+	map_locked_pages_lock.Put(team, true);
+	DoublyLinkedList<LockedPages> locked_pages = map_locked_pages.Get(team);
+	int error = B_OK;
+	LockedPages* new_locked_pages_ele = new LOCKED_PAGES();
+	bool used_new_locked_pages_ele = false;
+
+	if (!map_locked_pages.Get(team))
+		return B_OK; // no need to unlock
+
+	LOCKED_PAGES* pointer_locked_pages = locked_pages.Head();
+	bool find_locked = false;
+	while (pointer_locked_pages) {
+		if (pointer_locked_pages->start < address && pointer_locked_pages->end > address + size) {
+			error = unlock_memory(address, size);
+			if (error == B_OK) {
+				new_locked_pages_ele->start = address + size;
+				new_locked_pages_ele->end = pointer_locked_pages->end;
+				locked_pages->InsertAfter(pointer_locked_pages, new_locked_pages_ele);
+				pointer_locked_pages->end = address;
+			} else delete new_locked_pages_ele;
+			goto end_munlock;
+		}
+		if ((pointer_locked_pages->start >= address && pointer_locked_pages->start <= address + size) || (pointer_locked_pages->end >= address && pointer_locked_pages->end <= address + size)) {
+			if (pointer_locked_pages->start == address && pointer_locked_pages->end < address + size) {
+				error = unlock_memory(address, pointer_locked_pages->end - address);
+				if (error == B_OK) locked_pages.Remove(pointer_locked_pages);
+				else goto end_munlock;
+			}
+			if (pointer_locked_pages->start == address && pointer_locked_pages->end > address + size) {
+				error = unlock_memory(address, size);
+				if (error == B_OK) pointer_locked_pages->start = address + size;
+				else goto end_munlock;
+			}
+			if (pointer_locked_pages->start < address && pointer_locked_pages->end == address + size) {
+				error = unlock_memory(address, size);
+				if (error == B_OK) pointer_locked_pages->end = address;
+				else goto end_munlock;
+			}
+			if (pointer_locked_pages->start > address && pointer_locked_pages->end == address + size) {
+				error = unlock_memory(pointer_locked_pages->start, size - (address - pointer_locked_pages->start));
+				if (error == B_OK) locked_pages.Remove(pointer_locked_pages);
+				else goto end_munlock;
+			}
+			if (pointer_locked_pages->start == address && pointer_locked_pages->end == address + size) {
+				error = unlock_memory(address, size);
+				if (error == B_OK) locked_pages.Remove(pointer_locked_pages);
+				else goto end_munlock;
+			}
+			if (pointer_locked_pages->start < address && pointer_locked_pages->end < address + size) {
+				error = unlock_memory(address, pointer_locked_pages->end - address);
+				if (error == B_OK) pointer_locked_pages->end = address;
+				else goto end_munlock;
+			}
+			if (pointer_locked_pages->start > address && pointer_locked_pages->end < address + size) {
+				error = unlock_memory(pointer_locked_pages->start, pointer_locked_pages->end - pointer_locked_pages->start);
+				if (error == B_OK) pointer_locked_pages->end = address;
+				else goto end_munlock;
+			}
+			if (pointer_locked_pages->start > address && pointer_locked_pages->end > address + size) {
+				error = unlock_memory(pointer_locked_pages->start, address + size - pointer_locked_pages->start);
+				if (error == B_OK) pointer_locked_pages->start = address + size;
+				else goto end_munlock;
+			}
+		}
+		pointer_locked_pages = locked_pages.GetNext(pointer_locked_pages);
+	}
+
+end_munlock:
+	map_locked_pages.Put(team, locked_pages);
+	map_locked_pages_lock.Put(team, false);
 	return error;
 }
 
