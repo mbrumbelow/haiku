@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0256cd2f_c12ed1df",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 6734,
+      "author": {
+        "id": 1000167
+      },
+      "writtenOn": "2019-12-12T15:44:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29d67626_ca29eb75",
+      "revId": "ea920a7baf1b843dcc2d487e36c1ee2a9996641f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5435480c_490e4b4f",
         "filename": "src/system/kernel/vm/vm.cpp",
         "patchSetId": 11
@@ -30,6 +48,24 @@
       "writtenOn": "2019-12-12T09:19:51Z",
       "side": 1,
       "message": "I\u0027m lost. Why using the user_data as a pointer here? You can add a locked_pages in the Team struct for your own need.",
+      "revId": "ea920a7baf1b843dcc2d487e36c1ee2a9996641f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fcc7a85_cb8cc5a9",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 6758,
+      "author": {
+        "id": 1000167
+      },
+      "writtenOn": "2019-12-12T15:44:57Z",
+      "side": 1,
+      "message": "How to add a locked_pages in the Team struct? I looked through the Team struct in thread_types.h. Should I use address_space or user_data? There is no function for getting and setting the content of a Team object.",
+      "parentUuid": "5435480c_490e4b4f",
       "revId": "ea920a7baf1b843dcc2d487e36c1ee2a9996641f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "f3b49b2e_da83a942",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 6768,
+      "author": {
+        "id": 1000167
+      },
+      "writtenOn": "2019-12-12T15:44:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b4b37d8_d4670e84",
+      "revId": "ea920a7baf1b843dcc2d487e36c1ee2a9996641f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3945abb3_4a33d9b9",
         "filename": "src/system/kernel/vm/vm.cpp",
         "patchSetId": 11
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "d1330a67_e32b9c7b",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 6773,
+      "author": {
+        "id": 1000167
+      },
+      "writtenOn": "2019-12-12T15:44:57Z",
+      "side": 1,
+      "message": "I think there is no parameter missing here.",
+      "parentUuid": "3945abb3_4a33d9b9",
+      "revId": "ea920a7baf1b843dcc2d487e36c1ee2a9996641f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "046645ec_76b62e1e",
         "filename": "src/system/kernel/vm/vm.cpp",
         "patchSetId": 11
@@ -84,6 +156,24 @@
       "revId": "ea920a7baf1b843dcc2d487e36c1ee2a9996641f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d714b3da_c17d44bd",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 6790,
+      "author": {
+        "id": 1000167
+      },
+      "writtenOn": "2019-12-12T15:44:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "046645ec_76b62e1e",
+      "revId": "ea920a7baf1b843dcc2d487e36c1ee2a9996641f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
