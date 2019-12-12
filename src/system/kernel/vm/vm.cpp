@@ -4953,7 +4953,7 @@ fill_area_info(struct VMArea* area, area_info* info, size_t size)
 	info->address = (void*)area->Base();
 	info->size = area->Size();
 	info->protection = area->protection;
-	info->lock = B_FULL_LOCK;
+	info->lock = area->wiring;
 	info->team = area->address_space->ID();
 	info->copy_count = 0;
 	info->in_count = 0;
@@ -6677,6 +6677,240 @@ _user_get_memory_properties(team_id teamID, const void* address,
 
 	error = user_memcpy(_lock, &wiring, sizeof(wiring));
 
+	return error;
+}
+
+
+static const size_t kTeamUserDataReservedSize	= 128 * B_PAGE_SIZE;
+static const size_t kTeamUserDataInitialSize	= 4 * B_PAGE_SIZE;
+
+
+// from system/kernel/team/team.cpp
+static status_t
+create_team_user_data(Team* team, void* exactAddress = NULL)
+{
+	void* address;
+	uint32 addressSpec;
+
+	if (exactAddress != NULL) {
+		address = exactAddress;
+		addressSpec = B_EXACT_ADDRESS;
+	} else {
+		address = (void*)KERNEL_USER_DATA_BASE;
+		addressSpec = B_RANDOMIZED_BASE_ADDRESS;
+	}
+
+	status_t result = vm_reserve_address_range(team->id, &address, addressSpec,
+		kTeamUserDataReservedSize, RESERVED_AVOID_BASE);
+
+	virtual_address_restrictions virtualRestrictions = {};
+	if (result == B_OK || exactAddress != NULL) {
+		if (exactAddress != NULL)
+			virtualRestrictions.address = exactAddress;
+		else
+			virtualRestrictions.address = address;
+		virtualRestrictions.address_specification = B_EXACT_ADDRESS;
+	} else {
+		virtualRestrictions.address = (void*)KERNEL_USER_DATA_BASE;
+		virtualRestrictions.address_specification = B_RANDOMIZED_BASE_ADDRESS;
+	}
+
+	physical_address_restrictions physicalRestrictions = {};
+	team->user_data_area = create_area_etc(team->id, "user area",
+		kTeamUserDataInitialSize, B_FULL_LOCK, B_READ_AREA | B_WRITE_AREA, 0, 0,
+		&virtualRestrictions, &physicalRestrictions, &address);
+	if (team->user_data_area < 0)
+		return team->user_data_area;
+
+	team->user_data = (addr_t)address;
+	team->used_user_data = 0;
+	team->user_data_size = kTeamUserDataInitialSize;
+	team->free_user_threads = NULL;
+
+	return B_OK;
+}
+
+
+struct LockedPages {
+	void* start;
+	void* end;
+};
+
+
+status_t
+_user_mlock(const void* address, size_t size) {
+	if (size == 0)
+		return B_OK; // no need to lock
+	if ((addr_t)address % B_PAGE_SIZE != 0)
+		return EINVAL; // addr is not a multiple of {PAGESIZE}
+
+	Thread* thread = thread_get_current_thread();
+	Team* team = thread->team;
+	TeamLocker teamLocker(team);
+	teamLocker.Lock();
+
+	int error = B_OK;
+	bool do_lock = false;
+	LockedPages* new_locked_pages_ele = new LockedPages();
+	if (!new_locked_pages_ele)
+		return ENOMEM;
+
+	DoublyLinkedList<LockedPages>* locked_pages = (void*)team->user_data;
+	if (!locked_pages) {
+		locked_pages = new DoublyLinkedList<LockedPages>();
+		error = create_team_user_data(team, locked_pages);
+		if (error != B_OK)
+			goto end_mlock;
+	}
+
+	LockedPages* pointer_locked_pages = locked_pages->Head();
+	while (pointer_locked_pages) { // overlapping
+		if ((pointer_locked_pages->start >= address && pointer_locked_pages->start <= (addr_t*)address + size) || (pointer_locked_pages->end >= address && pointer_locked_pages->end <= (addr_t*)address + size)) {
+			if (pointer_locked_pages->start > address && pointer_locked_pages->end < (addr_t*)address + size) {
+				error = lock_memory(address, (addr_t*)pointer_locked_pages->start - (addr_t*)address);
+				if (error != B_OK)
+					goto end_mlock;
+				error = lock_memory(pointer_locked_pages->end, (addr_t*)address + size - (addr_t*)pointer_locked_pages->end);
+				if (error != B_OK)
+					goto end_mlock;
+				pointer_locked_pages->start = address;
+				pointer_locked_pages->end = (addr_t*)address + size;
+				do_lock = false;
+			}
+			if (pointer_locked_pages->start == address && pointer_locked_pages->end == (addr_t*)address + size)
+				goto end_mlock;
+			if (pointer_locked_pages->start > address && pointer_locked_pages->end == (addr_t*)address + size) {
+				address = pointer_locked_pages->start;
+				do_lock = true;
+			}
+			if (pointer_locked_pages->start == address && pointer_locked_pages->end < (addr_t*)address + size) {
+				size = (addr_t*)pointer_locked_pages->end - (addr_t*)address;
+				do_lock = true;
+			}
+		}
+		pointer_locked_pages = locked_pages->GetNext(pointer_locked_pages);
+	}
+
+	if (do_lock) error = lock_memory(address, size, B_READ_DEVICE);
+
+	if (error == B_OK) {
+		bool save = false; // if the memory saved by merging with another segment
+		LockedPages* last_pointer_locked_pages;
+		pointer_locked_pages = locked_pages->Head();
+		while (pointer_locked_pages) {
+			if (pointer_locked_pages->end == address) {
+				pointer_locked_pages->end = (addr_t*)address + size;
+				save = true;
+			}
+			if (pointer_locked_pages->start == (addr_t*)address + size) {
+				pointer_locked_pages->start = address;
+				save = true;
+			}
+			last_pointer_locked_pages = pointer_locked_pages;
+			pointer_locked_pages = locked_pages->GetNext(pointer_locked_pages);
+		}
+		if (!save) {
+			new_locked_pages_ele->start = address;
+			new_locked_pages_ele->end = (addr_t*)address + size;
+			locked_pages->InsertAfter(last_pointer_locked_pages, new_locked_pages_ele);
+		} else
+			delete new_locked_pages_ele;
+	}
+
+end_mlock:
+	teamLocker.Unlock();
+	return error;
+}
+
+
+status_t
+_user_munlock(const void* address, size_t size) {
+	if (size == 0)
+		return B_OK; // no need to unlock
+	if ((addr_t)address % B_PAGE_SIZE != 0)
+		return EINVAL; // addr is not a multiple of {PAGESIZE}
+
+	Thread* thread = thread_get_current_thread();
+	Team* team = thread->team;
+	TeamLocker teamLocker(team);
+	teamLocker.Lock();
+
+	int error = B_OK;
+	LockedPages* new_locked_pages_ele = new LockedPages();
+	if (!new_locked_pages_ele)
+		return ENOMEM;
+
+	DoublyLinkedList<LockedPages>* locked_pages = (void*)team->user_data;
+	if (!locked_pages)
+		return B_OK; // no need to unlock
+
+	LockedPages* pointer_locked_pages = locked_pages->Head();
+	while (pointer_locked_pages) {
+		if (pointer_locked_pages->start < address && pointer_locked_pages->end > (addr_t*)address + size) {
+			error = unlock_memory(address, size);
+			if (error == B_OK) {
+				new_locked_pages_ele->start = (addr_t*)address + size;
+				new_locked_pages_ele->end = pointer_locked_pages->end;
+				locked_pages->InsertAfter(pointer_locked_pages, new_locked_pages_ele);
+				pointer_locked_pages->end = address;
+			} else delete new_locked_pages_ele;
+			goto end_munlock;
+		}
+		if ((pointer_locked_pages->start >= address && pointer_locked_pages->start <= (addr_t*)address + size) || (pointer_locked_pages->end >= address && pointer_locked_pages->end <= (addr_t*)address + size)) {
+			if (pointer_locked_pages->start == address && pointer_locked_pages->end < (addr_t*)address + size) {
+				error = unlock_memory(address, (addr_t*)pointer_locked_pages->end - address);
+				if (error == B_OK)
+					locked_pages->Remove(pointer_locked_pages);
+				else goto end_munlock;
+			}
+			if (pointer_locked_pages->start == address && pointer_locked_pages->end > (addr_t*)address + size) {
+				error = unlock_memory(address, size);
+				if (error == B_OK)
+					pointer_locked_pages->start = (addr_t*)address + size;
+				else goto end_munlock;
+			}
+			if (pointer_locked_pages->start < address && pointer_locked_pages->end == (addr_t*)address + size) {
+				error = unlock_memory(address, (addr_t*)pointer_locked_pages->end - address);
+				if (error == B_OK)
+					pointer_locked_pages->end = address;
+				else goto end_munlock;
+			}
+			if (pointer_locked_pages->start > address && pointer_locked_pages->end == (addr_t*)address + size) {
+				error = unlock_memory(pointer_locked_pages->start, (addr_t*)address + size - (addr_t*)pointer_locked_pages->start);
+				if (error == B_OK)
+					locked_pages->Remove(pointer_locked_pages);
+				else goto end_munlock;
+			}
+			if (pointer_locked_pages->start == address && pointer_locked_pages->end == (addr_t*)address + size) {
+				error = unlock_memory(address, size);
+				if (error == B_OK)
+					locked_pages->Remove(pointer_locked_pages);
+				else goto end_munlock;
+			}
+			if (pointer_locked_pages->start < address && pointer_locked_pages->end < (addr_t*)address + size) {
+				error = unlock_memory(address, (addr_t*)pointer_locked_pages->end - address);
+				if (error == B_OK)
+					pointer_locked_pages->end = address;
+				else goto end_munlock;
+			}
+			if (pointer_locked_pages->start > address && pointer_locked_pages->end < (addr_t*)address + size) {
+				error = unlock_memory(pointer_locked_pages->start, (addr_t*)pointer_locked_pages->end - (addr_t*)pointer_locked_pages->start);
+				if (error == B_OK)
+					pointer_locked_pages->end = address;
+				else goto end_munlock;
+			}
+			if (pointer_locked_pages->start > address && pointer_locked_pages->end > (addr_t*)address + size) {
+				error = unlock_memory(pointer_locked_pages->start, (addr_t*)address + size - (addr_t*)pointer_locked_pages->start);
+				if (error == B_OK)
+					pointer_locked_pages->start = (addr_t*)address + size;
+				else goto end_munlock;
+			}
+		}
+		pointer_locked_pages = locked_pages->GetNext(pointer_locked_pages);
+	}
+
+end_munlock:
+	teamLocker.Unlock();
 	return error;
 }
 
