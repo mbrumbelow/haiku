@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "6cb9ebaa_53b5dfc7",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 6758,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-12-12T15:59:58Z",
+      "side": 1,
+      "message": "diff --git a/headers/private/kernel/thread_types.h b/headers/private/kernel/thread_types.h\nindex 1da7cd5c5d..5752fb8962 100644\n--- a/headers/private/kernel/thread_types.h\n+++ b/headers/private/kernel/thread_types.h\n@@ -208,6 +208,10 @@ struct TeamThreadIteratorEntry\n        bool    visible;        // the entry is publicly visible\n };\n \n+struct LockedPages;\n+typedef DoublyLinkedList\u003cLockedPages\u003e LockedPagesList;\n+\n+\n \n struct Team : TeamThreadIteratorEntry\u003cteam_id\u003e, KernelReferenceable,\n                AssociatedDataOwner {\n@@ -240,6 +244,8 @@ struct Team : TeamThreadIteratorEntry\u003cteam_id\u003e, KernelReferenceable,\n        struct list             dead_threads;\n        int                             dead_threads_count;\n \n+       LockedPagesList locked_pages_list;\n+\n        // protected by the team\u0027s fLock\n        team_dead_children dead_children;\n        team_job_control_children stopped_children;",
+      "parentUuid": "8fcc7a85_cb8cc5a9",
+      "revId": "ea920a7baf1b843dcc2d487e36c1ee2a9996641f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1b4b37d8_d4670e84",
         "filename": "src/system/kernel/vm/vm.cpp",
         "patchSetId": 11
