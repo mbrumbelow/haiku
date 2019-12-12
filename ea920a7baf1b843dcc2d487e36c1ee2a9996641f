@@ -160,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "651c960c_62e025ce",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 6773,
+      "author": {
+        "id": 1000167
+      },
+      "writtenOn": "2019-12-12T16:11:28Z",
+      "side": 1,
+      "message": "There is actually a parameter B_READ_DEVICE missing here, and it is fixed in patchset 13.",
+      "parentUuid": "d1330a67_e32b9c7b",
+      "revId": "ea920a7baf1b843dcc2d487e36c1ee2a9996641f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "046645ec_76b62e1e",
         "filename": "src/system/kernel/vm/vm.cpp",
         "patchSetId": 11
