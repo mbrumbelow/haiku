@@ -34,6 +34,24 @@
       "revId": "f7ff432bcf76d1e3273c291d62350067dcdce50f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a72c120_eb17e9e1",
+        "filename": "headers/private/kernel/thread_types.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000167
+      },
+      "writtenOn": "2019-12-12T17:46:37Z",
+      "side": 1,
+      "message": "In this way, an error would be triggered.\n\nsrc/system/kernel/vm/vm.cpp:6709:41: error: cannot convert \u0027BKernel::LockedPagesList*\u0027 {aka \u0027DoublyLinkedList\u003cBKernel::LockedPages\u003e*\u0027} to \u0027LockedPagesList*\u0027 {aka \u0027DoublyLinkedList\u003cLockedPages\u003e*\u0027} in initialization\n  LockedPagesList* locked_pages \u003d \u0026team-\u003elocked_pages_list;\n                                         ^~~~~~~~~~~~~~~~~\nsrc/system/kernel/vm/vm.cpp: In function \u0027status_t _user_munlock(const void*, size_t)\u0027:\nsrc/system/kernel/vm/vm.cpp:6788:41: error: cannot convert \u0027BKernel::LockedPagesList*\u0027 {aka \u0027DoublyLinkedList\u003cBKernel::LockedPages\u003e*\u0027} to \u0027LockedPagesList*\u0027 {aka \u0027DoublyLinkedList\u003cLockedPages\u003e*\u0027} in initialization\n  LockedPagesList* locked_pages \u003d \u0026team-\u003elocked_pages_list;\n                                         ^~~~~~~~~~~~~~~~~",
+      "parentUuid": "50efb0ea_34889243",
+      "revId": "f7ff432bcf76d1e3273c291d62350067dcdce50f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
