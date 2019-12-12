@@ -70,6 +70,23 @@
       "revId": "f7ff432bcf76d1e3273c291d62350067dcdce50f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ddb0898_86aea57f",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 6780,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-12-12T17:55:33Z",
+      "side": 1,
+      "message": "you can add a \"using BKernel::LockedPagesList; \" in thread_types.h along with other \"using\".",
+      "revId": "f7ff432bcf76d1e3273c291d62350067dcdce50f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
