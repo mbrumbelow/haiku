@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5435480c_490e4b4f",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 6758,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-12-12T09:19:51Z",
+      "side": 1,
+      "message": "I\u0027m lost. Why using the user_data as a pointer here? You can add a locked_pages in the Team struct for your own need.",
+      "revId": "ea920a7baf1b843dcc2d487e36c1ee2a9996641f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b4b37d8_d4670e84",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 6768,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-12-12T09:19:51Z",
+      "side": 1,
+      "message": "you can add a variable \"endAddress\" instead of \"address + size\"\nthe overlapping condition can be simplified: pointer_locked_pages-\u003estart \u003c\u003d endAddress \u0026\u0026 pointer_locked_pages-\u003eend \u003e\u003d address",
+      "revId": "ea920a7baf1b843dcc2d487e36c1ee2a9996641f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3945abb3_4a33d9b9",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 6773,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-12-12T09:19:51Z",
+      "side": 1,
+      "message": "a parameter is missing.",
+      "revId": "ea920a7baf1b843dcc2d487e36c1ee2a9996641f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "046645ec_76b62e1e",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 6790,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2019-12-12T09:19:51Z",
+      "side": 1,
+      "message": "if you found a range after the current to be locked, you can break out of the loop. it would be a \"else break;\"",
+      "revId": "ea920a7baf1b843dcc2d487e36c1ee2a9996641f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
