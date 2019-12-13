@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "231e8bac_9ff37462",
+        "filename": "src/apps/terminal/TermView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1662,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2019-12-13T06:50:10Z",
+      "side": 1,
+      "message": "Honestly, I\u0027d change this entire switch expression to use early return in all instances and move the `BView::MessageReceived` to the end of the function.",
+      "parentUuid": "bb9e5350_64877108",
+      "revId": "c1edea8e3507f260004d20c6a2174ee918392cd0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c31bdc7d_d3a699da",
         "filename": "src/apps/terminal/TermView.cpp",
         "patchSetId": 2
