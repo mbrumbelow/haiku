@@ -34,9 +34,9 @@ extern addr_t mmu_map_physical_memory(addr_t physicalAddress, size_t size, uint3
 extern void mmu_free(void *virtualAddress, size_t size);
 
 extern void
-mmu_post_efi_setup(UINTN memory_map_size, EFI_MEMORY_DESCRIPTOR *memory_map, UINTN descriptor_size, UINTN descriptor_version);
+mmu_post_efi_setup(size_t memory_map_size, efi_memory_descriptor *memory_map, size_t descriptor_size, uint32_t descriptor_version);
 extern uint64_t
-mmu_generate_post_efi_page_tables(UINTN memory_map_size, EFI_MEMORY_DESCRIPTOR *memory_map, UINTN descriptor_size, UINTN descriptor_version);
+mmu_generate_post_efi_page_tables(size_t memory_map_size, efi_memory_descriptor *memory_map, size_t descriptor_size, uint32_t descriptor_version);
 extern status_t
 platform_kernel_address_to_bootloader_address(uint64_t address, void **_result);
 extern status_t
