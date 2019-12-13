@@ -1,0 +1,41 @@
+From 0828242107e21c8b0109da4af19ff4ee23fca60b Mon Sep 17 00:00:00 2001
+From: X512 <danger_mail@list.ru>
+Date: Fri, 13 Dec 2019 11:07:25 +0900
+Subject: [PATCH] fix scripting of BStringView and BListView
+
+---
+ src/kits/interface/ListView.cpp | 1 +
+ src/kits/interface/TextView.cpp | 4 +++-
+ 2 files changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/src/kits/interface/ListView.cpp b/src/kits/interface/ListView.cpp
+index ef537142c7..b842aec51a 100644
+--- a/src/kits/interface/ListView.cpp
++++ b/src/kits/interface/ListView.cpp
+@@ -313,6 +313,7 @@ BListView::MessageReceived(BMessage* message)
+ 
+ 			if (message->GetCurrentSpecifier(NULL, &specifier) != B_OK
+ 				|| specifier.FindString("property", &property) != B_OK) {
++				BView::MessageReceived(message);
+ 				return;
+ 			}
+ 
+diff --git a/src/kits/interface/TextView.cpp b/src/kits/interface/TextView.cpp
+index 7193f3b20a..30e098a6c7 100644
+--- a/src/kits/interface/TextView.cpp
++++ b/src/kits/interface/TextView.cpp
+@@ -884,8 +884,10 @@ BTextView::MessageReceived(BMessage* message)
+ 			const char* property;
+ 
+ 			if (message->GetCurrentSpecifier(NULL, &specifier) < B_OK
+-				|| specifier.FindString("property", &property) < B_OK)
++				|| specifier.FindString("property", &property) < B_OK) {
++				BView::MessageReceived(message);
+ 				return;
++			}
+ 
+ 			if (propInfo.FindMatch(message, 0, &specifier, specifier.what,
+ 					property) < B_OK) {
+-- 
+2.24.0
+
