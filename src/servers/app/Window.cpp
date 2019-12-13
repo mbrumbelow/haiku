@@ -908,7 +908,7 @@ Window::MouseDown(BMessage* message, BPoint where,
 				if (desktopSettings.MouseMode() == B_NORMAL_MOUSE
 					&& !acceptFirstClick)
 					fDesktop->ActivateWindow(this);
-				else if (!avoidFocus)
+				else if (!avoidFocus && !acceptFirstClick)
 					fDesktop->SetFocusWindow(this);
 
 				// Eat the click if we don't accept first click
