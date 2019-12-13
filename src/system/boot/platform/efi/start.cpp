@@ -33,10 +33,10 @@ extern void (*__ctor_list)(void);
 extern void (*__ctor_end)(void);
 
 
-const EFI_SYSTEM_TABLE		*kSystemTable;
-const EFI_BOOT_SERVICES		*kBootServices;
-const EFI_RUNTIME_SERVICES	*kRuntimeServices;
-EFI_HANDLE kImage;
+const efi_system_table		*kSystemTable;
+const efi_boot_services		*kBootServices;
+const efi_runtime_services	*kRuntimeServices;
+efi_handle kImage;
 
 
 static uint32 sBootOptions;
@@ -149,20 +149,20 @@ platform_start_kernel(void)
 	// Prepare to exit EFI boot services.
 	// Read the memory map.
 	// First call is to determine the buffer size.
-	UINTN memory_map_size = 0;
-	EFI_MEMORY_DESCRIPTOR dummy;
-	EFI_MEMORY_DESCRIPTOR *memory_map;
-	UINTN map_key;
-	UINTN descriptor_size;
-	UINT32 descriptor_version;
+	size_t memory_map_size = 0;
+	efi_memory_descriptor dummy;
+	efi_memory_descriptor *memory_map;
+	size_t map_key;
+	size_t descriptor_size;
+	uint32_t descriptor_version;
 	if (kBootServices->GetMemoryMap(&memory_map_size, &dummy, &map_key, &descriptor_size, &descriptor_version) != EFI_BUFFER_TOO_SMALL) {
 		panic("Unable to determine size of system memory map");
 	}
 
 	// Allocate a buffer twice as large as needed just in case it gets bigger between
 	// calls to ExitBootServices.
-	UINTN actual_memory_map_size = memory_map_size * 2;
-	memory_map = (EFI_MEMORY_DESCRIPTOR *)kernel_args_malloc(actual_memory_map_size);
+	size_t actual_memory_map_size = memory_map_size * 2;
+	memory_map = (efi_memory_descriptor *)kernel_args_malloc(actual_memory_map_size);
 	if (memory_map == NULL)
 		panic("Unable to allocate memory map.");
 
@@ -174,8 +174,8 @@ platform_start_kernel(void)
 
 	addr_t addr = (addr_t)memory_map;
 	dprintf("System provided memory map:\n");
-	for (UINTN i = 0; i < memory_map_size / descriptor_size; ++i) {
-		EFI_MEMORY_DESCRIPTOR *entry = (EFI_MEMORY_DESCRIPTOR *)(addr + i * descriptor_size);
+	for (size_t i = 0; i < memory_map_size / descriptor_size; ++i) {
+		efi_memory_descriptor *entry = (efi_memory_descriptor *)(addr + i * descriptor_size);
 		dprintf("  %#lx-%#lx  %#lx %#x %#lx\n",
 			entry->PhysicalStart, entry->PhysicalStart + entry->NumberOfPages * 4096,
 			entry->VirtualStart, entry->Type, entry->Attribute);
@@ -239,8 +239,8 @@ platform_exit(void)
  * @image: firmware-allocated handle that identifies the image
  * @systemTable: EFI system table
  */
-extern "C" EFI_STATUS
-efi_main(EFI_HANDLE image, EFI_SYSTEM_TABLE *systemTable)
+extern "C" efi_status
+efi_main(efi_handle image, efi_system_table *systemTable)
 {
 	stage2_args args;
 
