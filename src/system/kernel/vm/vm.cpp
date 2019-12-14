@@ -5103,7 +5103,7 @@ fill_area_info(struct VMArea* area, area_info* info, size_t size)
 	info->address = (void*)area->Base();
 	info->size = area->Size();
 	info->protection = area->protection;
-	info->lock = B_FULL_LOCK;
+	info->lock = area->wiring;
 	info->team = area->address_space->ID();
 	info->copy_count = 0;
 	info->in_count = 0;
@@ -6878,6 +6878,323 @@ _user_get_memory_properties(team_id teamID, const void* address,
 
 	error = user_memcpy(_lock, &wiring, sizeof(wiring));
 
+	return error;
+}
+
+
+struct LockedPages : DoublyLinkedListLinkImpl<LockedPages> {
+	void* start;
+	void* end;
+};
+
+
+status_t
+_user_mlock(const void* address, size_t size) {
+	if (size == 0)
+		return B_OK; // no need to lock
+	if ((addr_t)address % B_PAGE_SIZE != 0)
+		return EINVAL; // addr is not a multiple of {PAGESIZE}
+
+	Thread* thread = thread_get_current_thread();
+	Team* team = thread->team;
+	TeamLocker teamLocker(team);
+	teamLocker.Lock();
+
+	int error = B_OK;
+	LockedPages* new_locked_pages_ele = new LockedPages();
+	if (!new_locked_pages_ele)
+		return ENOMEM;
+
+	LockedPagesList* locked_pages = &team->locked_pages_list;
+	void* end_address = (addr_t*)address + size;
+
+	LockedPages* pointer_locked_pages = locked_pages->Head();
+	LockedPages* next_pointer_locked_pages
+		= locked_pages->GetNext(pointer_locked_pages);
+	while (pointer_locked_pages) {
+		if (pointer_locked_pages->start <= end_address
+			&& pointer_locked_pages->end >= address) { // overlapping
+			if (next_pointer_locked_pages)
+				if (next_pointer_locked_pages->start <= end_address
+					&& next_pointer_locked_pages->end >= address) {
+					if (next_pointer_locked_pages->start
+						< pointer_locked_pages->start) {
+						LockedPages* temp_pointer_locked_pages
+							= pointer_locked_pages;
+						pointer_locked_pages = next_pointer_locked_pages;
+						next_pointer_locked_pages = temp_pointer_locked_pages;
+					}
+					teamLocker.Unlock();
+					error = _user_mlock(next_pointer_locked_pages->start,
+						(addr_t)end_address
+						- (addr_t)next_pointer_locked_pages->start);
+					teamLocker.Lock();
+					if (error != B_OK) {
+						teamLocker.Unlock();
+						return error;
+					}
+					teamLocker.Unlock();
+					error = _user_mlock(address,
+						next_pointer_locked_pages->start);
+					teamLocker.Lock();
+					if (error != B_OK) {
+						teamLocker.Unlock();
+						return error;
+					}
+					pointer_locked_pages->start = address;
+					pointer_locked_pages->end = end_address;
+					locked_pages->Remove(next_pointer_locked_pages);
+					return error;
+				}
+			else if (pointer_locked_pages->start > address
+				&& pointer_locked_pages->end < end_address) {
+				error = lock_memory((void*)address,
+					(addr_t)pointer_locked_pages->start - (addr_t)address,
+					B_READ_DEVICE);
+				if (error != B_OK) {
+					teamLocker.Unlock();
+					return error;
+				}
+				error = lock_memory(pointer_locked_pages->end,
+					(addr_t)end_address - (addr_t)pointer_locked_pages->end,
+					B_READ_DEVICE);
+				if (error != B_OK) {
+					teamLocker.Unlock();
+					return error;
+				}
+				pointer_locked_pages->start = (void*)address;
+				pointer_locked_pages->end = end_address;
+				teamLocker.Unlock();
+				return error;
+					// cannot break here because lock_memory() might be failed
+			}
+			else if (pointer_locked_pages->start == address
+				&& pointer_locked_pages->end == end_address) {
+				teamLocker.Unlock();
+				return error;
+			}
+			else if (pointer_locked_pages->start > address
+				&& pointer_locked_pages->end == end_address)
+				address = pointer_locked_pages->start;
+			else if (pointer_locked_pages->start == address
+				&& pointer_locked_pages->end < end_address)
+				size = (addr_t)pointer_locked_pages->end - (addr_t)address;
+		}
+		pointer_locked_pages = locked_pages->GetNext(pointer_locked_pages);
+		next_pointer_locked_pages
+			= locked_pages->GetNext(next_pointer_locked_pages);
+	}
+
+	error = lock_memory((void*)address, size, B_READ_DEVICE);
+
+	if (error == B_OK) {
+		bool save = false;
+			// if the memory saved by merging with another segment
+		LockedPages* last_pointer_locked_pages = locked_pages->Head();
+		pointer_locked_pages = locked_pages->Head();
+		while (pointer_locked_pages) {
+			if (pointer_locked_pages->end == address) {
+				pointer_locked_pages->end = end_address;
+				save = true;
+			}
+			if (pointer_locked_pages->start == end_address) {
+				pointer_locked_pages->start = (void*)address;
+				save = true;
+			}
+			last_pointer_locked_pages = pointer_locked_pages;
+			pointer_locked_pages = locked_pages->GetNext(pointer_locked_pages);
+		}
+		if (!save) {
+			new_locked_pages_ele->start = (void*)address;
+			new_locked_pages_ele->end = end_address;
+			locked_pages->InsertAfter(last_pointer_locked_pages,
+				new_locked_pages_ele);
+		} else
+			delete new_locked_pages_ele;
+	}
+
+	teamLocker.Unlock();
+	return error;
+}
+
+
+status_t
+_user_munlock(const void* address, size_t size) {
+	if (size == 0)
+		return B_OK; // no need to unlock
+	if ((addr_t)address % B_PAGE_SIZE != 0)
+		return EINVAL; // addr is not a multiple of {PAGESIZE}
+
+	Thread* thread = thread_get_current_thread();
+	Team* team = thread->team;
+	TeamLocker teamLocker(team);
+	teamLocker.Lock();
+
+	int error = B_OK;
+	LockedPages* new_locked_pages_ele = new LockedPages();
+	if (!new_locked_pages_ele)
+		return ENOMEM;
+
+	LockedPagesList* locked_pages = &team->locked_pages_list;
+	if (!locked_pages)
+		return B_OK; // no need to unlock
+
+	void* end_address = (addr_t*)address + size;
+
+	LockedPages* pointer_locked_pages = locked_pages->Head();
+	LockedPages* next_pointer_locked_pages
+		= locked_pages->GetNext(pointer_locked_pages);
+	while (pointer_locked_pages) {
+		if (next_pointer_locked_pages)
+				if (next_pointer_locked_pages->start <= end_address
+					&& next_pointer_locked_pages->end >= address) {
+					if (next_pointer_locked_pages->start
+						< pointer_locked_pages->start) {
+						LockedPages* temp_pointer_locked_pages
+							= pointer_locked_pages;
+						pointer_locked_pages = next_pointer_locked_pages;
+						next_pointer_locked_pages = temp_pointer_locked_pages;
+					}
+					teamLocker.Unlock();
+					error = _user_munlock(next_pointer_locked_pages->start,
+						(addr_t)end_address
+						- (addr_t)next_pointer_locked_pages->start);
+					teamLocker.Lock();
+					if (error != B_OK) {
+						teamLocker.Unlock();
+						return error;
+					}
+					teamLocker.Unlock();
+					error = _user_munlock(address,
+						next_pointer_locked_pages->start);
+					teamLocker.Lock();
+					if (error != B_OK)
+						teamLocker.Unlock();
+					return error;
+				}
+		else if (pointer_locked_pages->start < address
+			&& pointer_locked_pages->end > end_address) {
+			error = unlock_memory((void*)address, size, B_READ_DEVICE);
+			if (error == B_OK) {
+				new_locked_pages_ele->start = end_address;
+				new_locked_pages_ele->end = pointer_locked_pages->end;
+				locked_pages->InsertAfter(pointer_locked_pages,
+					new_locked_pages_ele);
+				pointer_locked_pages->end = (void*)address;
+			} else delete new_locked_pages_ele;
+			teamLocker.Unlock();
+			return error;
+		}
+		else if (pointer_locked_pages->start == address
+			&& pointer_locked_pages->end < end_address) {
+			error = unlock_memory((void*)address,
+				(addr_t)pointer_locked_pages->end - (addr_t)address,
+				B_READ_DEVICE);
+			if (error == B_OK) {
+				pointer_locked_pages
+					= locked_pages->GetPrevious(pointer_locked_pages);
+				locked_pages->Remove(pointer_locked_pages->GetNext());
+			}
+			else {
+				teamLocker.Unlock();
+				return error;
+			}
+		}
+		else if (pointer_locked_pages->start == address
+			&& pointer_locked_pages->end > end_address) {
+			error = unlock_memory((void*)address, size, B_READ_DEVICE);
+			if (error == B_OK)
+				pointer_locked_pages->start = end_address;
+			else {
+				teamLocker.Unlock();
+				return error;
+			}
+		}
+		else if (pointer_locked_pages->start < address
+			&& pointer_locked_pages->end == end_address) {
+			error = unlock_memory((void*)address,
+				(addr_t)pointer_locked_pages->end - (addr_t)address,
+				B_READ_DEVICE);
+			if (error == B_OK)
+				pointer_locked_pages->end = (void*)address;
+			else {
+				teamLocker.Unlock();
+				return error;
+			}
+		}
+		else if (pointer_locked_pages->start > address
+			&& pointer_locked_pages->end == end_address) {
+			error = unlock_memory(pointer_locked_pages->start,
+				(addr_t)end_address - (addr_t)pointer_locked_pages->start,
+				B_READ_DEVICE);
+			if (error == B_OK) {
+				pointer_locked_pages
+					= locked_pages->GetPrevious(pointer_locked_pages);
+				locked_pages->Remove(pointer_locked_pages->GetNext());
+			}
+			else {
+				teamLocker.Unlock();
+				return error;
+			}
+		}
+		else if (pointer_locked_pages->start == address
+			&& pointer_locked_pages->end == end_address) {
+			error = unlock_memory((void*)address, size, B_READ_DEVICE);
+			if (error == B_OK) {
+				pointer_locked_pages
+					= locked_pages->GetPrevious(pointer_locked_pages);
+				locked_pages->Remove(pointer_locked_pages->GetNext());
+			}
+			else {
+				teamLocker.Unlock();
+				return error;
+			}
+		}
+		else if (pointer_locked_pages->start < address
+			&& pointer_locked_pages->end < end_address) {
+			error = unlock_memory((void*)address,
+				(addr_t)pointer_locked_pages->end
+				- (addr_t)address, B_READ_DEVICE);
+			if (error == B_OK)
+				pointer_locked_pages->end = (void*)address;
+			else {
+				teamLocker.Unlock();
+				return error;
+			}
+		}
+		else if (pointer_locked_pages->start > address
+			&& pointer_locked_pages->end < end_address) {
+			error = unlock_memory(pointer_locked_pages->start,
+				(addr_t)pointer_locked_pages->end
+				- (addr_t)pointer_locked_pages->start, B_READ_DEVICE);
+			if (error == B_OK) {
+				pointer_locked_pages
+					= locked_pages->GetPrevious(pointer_locked_pages);
+				locked_pages->Remove(pointer_locked_pages->GetNext());
+			}
+			else {
+				teamLocker.Unlock();
+				return error;
+			}
+		}
+		else if (pointer_locked_pages->start > address
+			&& pointer_locked_pages->end > end_address) {
+			error = unlock_memory(pointer_locked_pages->start,
+				(addr_t)end_address - (addr_t)pointer_locked_pages->start,
+				B_READ_DEVICE);
+			if (error == B_OK)
+				pointer_locked_pages->start = end_address;
+			else {
+				teamLocker.Unlock();
+				return error;
+			}
+		}
+		pointer_locked_pages = locked_pages->GetNext(pointer_locked_pages);
+		next_pointer_locked_pages
+			= locked_pages->GetNext(next_pointer_locked_pages);
+	}
+
+	teamLocker.Unlock();
 	return error;
 }
 
