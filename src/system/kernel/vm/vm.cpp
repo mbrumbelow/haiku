@@ -5103,7 +5103,7 @@ fill_area_info(struct VMArea* area, area_info* info, size_t size)
 	info->address = (void*)area->Base();
 	info->size = area->Size();
 	info->protection = area->protection;
-	info->lock = B_FULL_LOCK;
+	info->lock = area->wiring;
 	info->team = area->address_space->ID();
 	info->copy_count = 0;
 	info->in_count = 0;
@@ -6879,6 +6879,256 @@ _user_get_memory_properties(team_id teamID, const void* address,
 	error = user_memcpy(_lock, &wiring, sizeof(wiring));
 
 	return error;
+}
+
+
+// An ordered list of non-overlapping ranges to track mlock/munlock locking.
+// It is allowed to call mlock/munlock in unbalanced ways (lock a range
+// multiple times, unlock a part of it, lock several consecutive ranges and
+// unlock them in one go, etc). Howeve rthe low level lock_memory and
+// unlock_memory calls require the locks/unlocks to be balanced (you lock a
+// fixed range, and then unlock exactly the same range). This list allows to
+// keep track of what was locked exactly so we can unlock the correct things.
+struct LockedPages : DoublyLinkedListLinkImpl<LockedPages> {
+	addr_t start;
+	addr_t end;
+
+	status_t LockMemory()
+	{
+		return lock_memory((void*)start, end - start, B_READ_DEVICE);
+	}
+
+	status_t UnlockMemory()
+	{
+		return unlock_memory((void*)start, end - start, B_READ_DEVICE);
+	}
+};
+
+
+status_t
+_user_mlock(const void* address, size_t size) {
+	// Maybe there's nothing to do, in which case, do nothing
+	if (size == 0)
+		return B_OK;
+
+	// Make sure the address is multiple of B_PAGE_SIZE (POSIX allows us to
+	// reject the call otherwise)
+	if ((addr_t)address % B_PAGE_SIZE != 0)
+		return EINVAL;
+
+	size = ROUNDUP(size, B_PAGE_SIZE);
+
+	addr_t endAddress = (addr_t)address + size;
+
+	// Pre-allocate a linked list element we may need (it's simpler to do it
+	// now than run out of memory in the midle of changing things)
+	LockedPages* newRange = new(std::nothrow) LockedPages();
+	if (newRange == NULL)
+		return ENOMEM;
+
+	// Get and lock the team
+	Team* team = thread_get_current_thread()->team;
+	TeamLocker teamLocker(team);
+	teamLocker.Lock();
+
+	status_t error = B_OK;
+	LockedPagesList* lockedPages = &team->locked_pages_list;
+
+	// Locate the first locked range possibly overlapping ours
+	LockedPages* currentRange = lockedPages->Head();
+	while (currentRange != NULL && currentRange->end <= (addr_t)address)
+		currentRange = lockedPages->GetNext(currentRange);
+
+	if (currentRange == NULL || currentRange->start >= endAddress) {
+		// No existing range is overlapping with ours. We can just lock our
+		// range and stop here.
+		newRange->start = (addr_t)address;
+		newRange->end = endAddress;
+		error = newRange->LockMemory();
+		if (error != B_OK) {
+			delete newRange;
+			return error;
+		}
+		lockedPages->Insert(newRange);
+		return B_OK;
+	}
+
+	// We get here when there is at least one existing overlapping range.
+
+	if (currentRange->start <= (addr_t)address
+		&& currentRange->end >= endAddress) {
+		// An existing range is already fully covering the pages we need to
+		// lock. Nothing to do then.
+		delete newRange;
+		return B_OK;
+	}
+
+	if (currentRange->start < (addr_t)address
+		&& currentRange->end < endAddress) {
+		// An existing range covers the start of the area we want to lock.
+		// Advance our start address to avoid it.
+		address = (void*)currentRange->end;
+
+		// Move on to the next range for the next step
+		currentRange = lockedPages->GetNext(currentRange);
+	}
+
+	// Unlock all ranges fully overlapping with the area we need to lock
+	while (currentRange != NULL && currentRange->end <= endAddress) {
+		// The existing range is fully contained inside the new one we're
+		// trying to lock. Delete/unlock it, and replace it with a new one
+		// (this limits fragmentation of the range list, and is simpler to
+		// manage)
+		error = currentRange->UnlockMemory();
+		if (error != B_OK) {
+			delete newRange;
+			return error;
+		}
+		LockedPages* temp = currentRange;
+		currentRange = lockedPages->GetNext(currentRange);
+		lockedPages->Remove(temp);
+		delete temp;
+	}
+
+	if (currentRange != NULL) {
+		// One last range may cover the end of the area we're trying to lock
+		// In that case, move our end address to not overlap it
+		endAddress = currentRange->start;
+	}
+
+	// Finally we can lock the memory
+	newRange->start = (addr_t)address;
+	newRange->end = endAddress;
+
+	// In case two overlapping ranges (one at the start and the other at the
+	// end) already cover the area we're after, there's nothing more to do
+	if ((addr_t)address == endAddress) {
+		delete newRange;
+		return B_OK;
+	}
+
+	error = newRange->LockMemory();
+	if (error != B_OK) {
+		// Well, in this case we have unlocked some overlapping ranges already
+		// but didn't manage to re-lock. Oops.
+		delete newRange;
+		return error;
+	}
+	lockedPages->InsertBefore(currentRange, newRange);
+	return B_OK;
+}
+
+
+status_t
+_user_munlock(const void* address, size_t size) {
+	// Maybe there's nothing to do, in which case, do nothing
+	if (size == 0)
+		return B_OK;
+
+	// Make sure the address is multiple of B_PAGE_SIZE (POSIX allows us to
+	// reject the call otherwise)
+	if ((addr_t)address % B_PAGE_SIZE != 0)
+		return EINVAL;
+
+	// Round size up to the next page
+	size = ROUNDUP(size, B_PAGE_SIZE);
+
+	addr_t endAddress = (addr_t)address + size;
+
+	// Get and lock the team
+	Team* team = thread_get_current_thread()->team;
+	TeamLocker teamLocker(team);
+	teamLocker.Lock();
+
+	// Is there anything to unlock?
+	LockedPagesList* lockedPages = &team->locked_pages_list;
+	if (lockedPages->IsEmpty())
+		return B_OK;
+
+	status_t error = B_OK;
+
+	// Locate the first locked range possibly overlapping ours
+	LockedPages* currentRange = lockedPages->Head();
+	while (currentRange != NULL && currentRange->end <= (addr_t)address)
+		currentRange = lockedPages->GetNext(currentRange);
+
+	if (currentRange == NULL || currentRange->start >= endAddress) {
+		// No range is intersecting, nothing to unlock
+		return B_OK;
+	}
+
+	if (currentRange->start < (addr_t)address) {
+		if (currentRange->end > endAddress) {
+			// There is a range full covering the area we want to unlock,
+			// and it extends on both sides. We need to split it in two
+			LockedPages* newRange = new(std::nothrow) LockedPages();
+			if (newRange == NULL)
+				return ENOMEM;
+
+			newRange->start = endAddress;
+			newRange->end = currentRange->end;
+
+			error = currentRange->UnlockMemory();
+			if (error != B_OK) {
+				delete newRange;
+				return error;
+			}
+			currentRange->end = (addr_t)address;
+			error = currentRange->LockMemory();
+			if (error != B_OK) {
+				// Well we have unlocked more than we wanted...
+				delete newRange;
+				return error;
+			}
+			
+			error = newRange->LockMemory();
+			if (error != B_OK) {
+				// Well we have unlocked more than we wanted...
+				delete newRange;
+				return error;
+			}
+			lockedPages->InsertAfter(currentRange, newRange);
+			return B_OK;
+		} else {
+			// There is a range that overlaps and extends before the one we
+			// want to unlock, we need to shrink it
+			error = currentRange->UnlockMemory();
+			if (error != B_OK)
+				return error;
+			currentRange->end = (addr_t)address;
+			error = currentRange->LockMemory();
+			if (error != B_OK) {
+				// Well we have unlocked more than we wanted...
+				return error;
+			}
+		}
+	}
+
+	while (currentRange != NULL && currentRange->end <= endAddress) {
+		// Unlock all fully overlapping ranges
+		error = currentRange->UnlockMemory();
+		if (error != B_OK)
+			return error;
+		LockedPages* temp = currentRange;
+		currentRange = lockedPages->GetNext(currentRange);
+		lockedPages->Remove(temp);
+		delete temp;
+	}
+
+	// Finally split the last partially overlapping range if any
+	if (currentRange != NULL) {
+		error = currentRange->UnlockMemory();
+		if (error != B_OK)
+			return error;
+		currentRange->start = endAddress;
+		error = currentRange->LockMemory();
+		if (error != B_OK) {
+			// Well we have unlocked more than we wanted...
+			return error;
+		}
+	}
+
+	return B_OK;
 }
 
 
