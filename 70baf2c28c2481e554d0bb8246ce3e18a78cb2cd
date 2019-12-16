@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d850bb7a_a382f653",
+        "filename": "src/bin/mail_utils/spamdbm.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1481,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-16T16:00:45Z",
+      "side": 1,
+      "message": "The pointer is not initialized here",
+      "revId": "70baf2c28c2481e554d0bb8246ce3e18a78cb2cd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3bfd4fb2_7d7b09a5",
+        "filename": "src/bin/mail_utils/spamdbm.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1502,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-16T16:00:45Z",
+      "side": 1,
+      "message": "... so if you enter this if() ...",
+      "revId": "70baf2c28c2481e554d0bb8246ce3e18a78cb2cd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e4b4230_7487f40b",
+        "filename": "src/bin/mail_utils/spamdbm.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1514,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-16T16:00:45Z",
+      "side": 1,
+      "message": "... here you are deleting an uninitialized pointer, which will crash.\n\nMoreover, BAlert is self-destructing, callign the Go() method blocks until the user selects a button and then automatically deletes the BAlert object. Therefore this delete is adding two crashes, and fixing none.",
+      "revId": "70baf2c28c2481e554d0bb8246ce3e18a78cb2cd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
