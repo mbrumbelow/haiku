@@ -1,5 +1,5 @@
 /*
- * Copyright 2009 Haiku, Inc.
+ * Copyright 2007 Haiku, Inc.
  * Distributed under the terms of the MIT License.
  *
  * arch-specific config manager
@@ -7,6 +7,7 @@
  * Authors (in chronological order):
  *              François Revol (revol@free.fr)
  */
+
 
 #include <OS.h>
 #include <config_manager.h>

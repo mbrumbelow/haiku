@@ -4,8 +4,8 @@ UsePrivateHeaders kernel ;
 
 KernelAddon config_manager :
 	config_manager.c
-	: config_manager_arch.a
+	: config_manager_platform.a
 	;
 
-SubInclude HAIKU_TOP src add-ons kernel bus_managers config_manager arch
-	$(TARGET_KERNEL_ARCH) ;
+SubInclude HAIKU_TOP src add-ons kernel bus_managers config_manager platform
+	$(TARGET_KERNEL_PLATFORM) ;

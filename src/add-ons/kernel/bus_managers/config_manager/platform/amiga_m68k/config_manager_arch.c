@@ -8,6 +8,7 @@
  *              François Revol (revol@free.fr)
  */
 
+
 #include "config_manager_arch.h"
 
 #if 0
@@ -33,10 +34,10 @@ static struct hardcoded_device gHardcodedDevices[] = {
 
 #endif
 
+
 status_t
 amiga_hardcoded(struct device_info **info, int32 *count)
 {
 	return B_OK;
 }
-
 
