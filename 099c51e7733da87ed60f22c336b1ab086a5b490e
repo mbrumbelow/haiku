@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f938fec_f2db26fd",
+        "filename": "src/apps/haikudepot/model/ValidationFailure.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-16T10:21:35Z",
+      "side": 1,
+      "message": "space before comment?",
+      "revId": "099c51e7733da87ed60f22c336b1ab086a5b490e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "917dc4a8_2b47f3d9",
+        "filename": "src/apps/haikudepot/server/WebAppInterface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-16T10:21:35Z",
+      "side": 1,
+      "message": "indentation problem",
+      "revId": "099c51e7733da87ed60f22c336b1ab086a5b490e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4339fc9_4bc9dad7",
+        "filename": "src/apps/haikudepot/server/WebAppInterface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-16T10:21:35Z",
+      "side": 1,
+      "message": "identation problem",
+      "revId": "099c51e7733da87ed60f22c336b1ab086a5b490e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac2ca4b1_acd771ba",
+        "filename": "src/apps/haikudepot/server/WebAppInterface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 707,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-16T10:21:35Z",
+      "side": 1,
+      "message": "indentation problem",
+      "revId": "099c51e7733da87ed60f22c336b1ab086a5b490e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e23b957_42f76198",
+        "filename": "src/apps/haikudepot/ui/UserLoginWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-16T10:21:35Z",
+      "side": 1,
+      "message": "There is a B_CLOSE_ON_ESCAPE window flag that does this for you.",
+      "revId": "099c51e7733da87ed60f22c336b1ab086a5b490e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7777a008_31d7851f",
+        "filename": "src/apps/haikudepot/ui/UserLoginWindow.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-16T10:21:35Z",
+      "side": 1,
+      "message": "line \u003e 80 columns",
+      "revId": "099c51e7733da87ed60f22c336b1ab086a5b490e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
