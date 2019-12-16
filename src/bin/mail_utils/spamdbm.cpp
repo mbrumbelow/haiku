@@ -1510,6 +1510,8 @@ DisplayErrorMessage (
       AlertPntr->Go ();
     }
   }
+
+  delete AlertPntr;
 }
 
 
