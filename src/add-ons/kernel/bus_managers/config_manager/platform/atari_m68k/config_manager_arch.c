@@ -8,11 +8,14 @@
  *              François Revol (revol@free.fr)
  */
 
+
 #include "config_manager_arch.h"
+
 
 #define DIS sizeof(struct device_info)
 #define DIF (B_DEVICE_INFO_ENABLED|B_DEVICE_INFO_CONFIGURED)
 #define DID 'm68k', 'atar', 'i   '
+
 
 static struct hardcoded_device gHardcodedDevices[] = {
 /* video */
@@ -33,8 +36,9 @@ static struct hardcoded_device gHardcodedDevices[] = {
 	 .configs = { }},
 };
 
+
 status_t
-atari_hardcoded(struct device_info **info, int32 *count)
+config_manager_scan_hardcoded(struct device_info **info, int32 *count)
 {
 	return B_OK;
 }
