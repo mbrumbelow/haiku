@@ -16,6 +16,24 @@
       "revId": "928934ea16b775d7cb3a7c54761b067b607cc2d2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04896535_b21eca22",
+        "filename": "headers/private/kernel/platform/efi/protocol/device-path.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-12-17T23:53:55Z",
+      "side": 1,
+      "message": "Yeah. I kind of just crammed them in here.  devices.cpp seems better since it\u0027s the only consumer.",
+      "parentUuid": "040d7cd2_dfcf9e97",
+      "revId": "928934ea16b775d7cb3a7c54761b067b607cc2d2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
