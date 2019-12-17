@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0d6bfcad_43d27a32",
+        "filename": "src/add-ons/kernel/bus_managers/config_manager/arch/arm64/config_manager_arch.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-17T09:26:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f6fd9ca_f9b56986",
+      "revId": "b4e9f95314820c834646ba86ccfe4462c262adc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c5c7879_99726e5f",
         "filename": "src/add-ons/kernel/bus_managers/config_manager/arch/arm64/config_manager_arch.c",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "b4e9f95314820c834646ba86ccfe4462c262adc2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25df907b_c801a9b3",
+        "filename": "src/add-ons/kernel/bus_managers/config_manager/arch/arm64/config_manager_arch.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-17T09:26:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c5c7879_99726e5f",
+      "revId": "b4e9f95314820c834646ba86ccfe4462c262adc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "859cec8b_575cbd43",
+        "filename": "src/add-ons/kernel/bus_managers/isa/arch/arm64/isa_controller.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-17T09:26:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3725e888_00af6491",
+      "revId": "b4e9f95314820c834646ba86ccfe4462c262adc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "07782032_7b9a7135",
         "filename": "src/add-ons/kernel/bus_managers/pci/arch/arm64/Jamfile",
         "patchSetId": 2
@@ -67,6 +121,24 @@
       "revId": "b4e9f95314820c834646ba86ccfe4462c262adc2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c7922ec_79873ea8",
+        "filename": "src/add-ons/kernel/bus_managers/pci/arch/arm64/Jamfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-17T09:26:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07782032_7b9a7135",
+      "revId": "b4e9f95314820c834646ba86ccfe4462c262adc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "bad9c5b6_f1bf227a",
+        "filename": "src/add-ons/kernel/bus_managers/pci/arch/arm64/pci_io.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-17T09:26:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "907f7f40_6a3162dc",
+      "revId": "b4e9f95314820c834646ba86ccfe4462c262adc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "948c19ab_ff754b0a",
         "filename": "src/system/libroot/os/arch/arm64/thread.c",
         "patchSetId": 2
@@ -101,6 +191,24 @@
       "revId": "b4e9f95314820c834646ba86ccfe4462c262adc2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc19c032_792997a9",
+        "filename": "src/system/libroot/os/arch/arm64/thread.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-17T09:26:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "948c19ab_ff754b0a",
+      "revId": "b4e9f95314820c834646ba86ccfe4462c262adc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -136,6 +244,24 @@
       "revId": "b4e9f95314820c834646ba86ccfe4462c262adc2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e810f36_d90cd520",
+        "filename": "src/system/libroot/posix/arch/arm64/siglongjmp.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-17T09:26:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a811147d_c8b92300",
+      "revId": "b4e9f95314820c834646ba86ccfe4462c262adc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
