@@ -16,6 +16,24 @@
       "revId": "33bc95289ea2a714604173014914c6aca5420f91",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5451b0cd_f73fc573",
+        "filename": "src/system/libroot/os/arch/arm64/time.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-17T09:27:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f137861d_77201eaa",
+      "revId": "33bc95289ea2a714604173014914c6aca5420f91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
