@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f97f8abe_40bff4b1",
+        "filename": "src/system/boot/platform/efi/devices.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2019-12-18T20:03:36Z",
+      "side": 1,
+      "message": "Needs less if() and more return \u003cboolean expression\u003e",
+      "revId": "a32ba9959c3358e07e60b2ae495ce606d40056b3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
