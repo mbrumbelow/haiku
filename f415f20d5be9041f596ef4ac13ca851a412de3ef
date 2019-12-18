@@ -1,0 +1,361 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aca734c0_919f6205",
+        "filename": "src/system/boot/platform/efi/devices.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-18T09:24:51Z",
+      "side": 1,
+      "message": "yes, please :)",
+      "revId": "f415f20d5be9041f596ef4ac13ca851a412de3ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6501d927_d1f013f3",
+        "filename": "src/system/boot/platform/efi/devices.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-18T09:24:51Z",
+      "side": 1,
+      "message": "80 column limit is exceeded here",
+      "revId": "f415f20d5be9041f596ef4ac13ca851a412de3ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6eb5d2a3_b3b95c59",
+        "filename": "src/system/boot/platform/efi/devices.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-18T09:24:51Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "f415f20d5be9041f596ef4ac13ca851a412de3ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a65c922c_5d17f5f0",
+        "filename": "src/system/boot/platform/efi/devices.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-18T09:24:51Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "f415f20d5be9041f596ef4ac13ca851a412de3ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06cf4a4c_09a93284",
+        "filename": "src/system/boot/platform/efi/devices.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-18T09:24:51Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "f415f20d5be9041f596ef4ac13ca851a412de3ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91f2a705_94b4d4af",
+        "filename": "src/system/boot/platform/efi/devices.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-18T09:24:51Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "f415f20d5be9041f596ef4ac13ca851a412de3ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79ac786f_7792fa7c",
+        "filename": "src/system/boot/platform/efi/devices.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-18T09:24:51Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "f415f20d5be9041f596ef4ac13ca851a412de3ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd6392c9_0d9492e5",
+        "filename": "src/system/boot/platform/efi/devices.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-18T09:24:51Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "f415f20d5be9041f596ef4ac13ca851a412de3ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc8f6bd2_60a609b2",
+        "filename": "src/system/boot/platform/efi/devices.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-18T09:24:51Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "f415f20d5be9041f596ef4ac13ca851a412de3ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f21cf39c_285c05fe",
+        "filename": "src/system/boot/platform/efi/mmu.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-18T09:24:51Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "f415f20d5be9041f596ef4ac13ca851a412de3ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41b803f2_9156c4ca",
+        "filename": "src/system/boot/platform/efi/mmu.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-18T09:24:51Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "f415f20d5be9041f596ef4ac13ca851a412de3ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce43076a_c87864fc",
+        "filename": "src/system/boot/platform/efi/mmu.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-18T09:24:51Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "f415f20d5be9041f596ef4ac13ca851a412de3ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06764b62_ac5f034d",
+        "filename": "src/system/boot/platform/efi/mmu.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-18T09:24:51Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "f415f20d5be9041f596ef4ac13ca851a412de3ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d35352d7_603e17ef",
+        "filename": "src/system/boot/platform/efi/mmu.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-18T09:24:51Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "f415f20d5be9041f596ef4ac13ca851a412de3ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67c74a16_bdaa53f9",
+        "filename": "src/system/boot/platform/efi/mmu.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-18T09:24:51Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "f415f20d5be9041f596ef4ac13ca851a412de3ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3d6a4d5_feecaf93",
+        "filename": "src/system/boot/platform/efi/mmu.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-18T09:24:51Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "f415f20d5be9041f596ef4ac13ca851a412de3ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b7a9ea6_2bbeac10",
+        "filename": "src/system/boot/platform/efi/mmu.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-18T09:24:51Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "f415f20d5be9041f596ef4ac13ca851a412de3ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26528740_494c432d",
+        "filename": "src/system/boot/platform/efi/mmu.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-18T09:24:51Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "f415f20d5be9041f596ef4ac13ca851a412de3ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3a92c51_f0c9732c",
+        "filename": "src/system/boot/platform/efi/mmu.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-18T09:24:51Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "f415f20d5be9041f596ef4ac13ca851a412de3ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb87245c_e2e0c991",
+        "filename": "src/system/boot/platform/efi/start.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-18T09:24:51Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "f415f20d5be9041f596ef4ac13ca851a412de3ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c0d6faf_fb27318f",
+        "filename": "src/system/boot/platform/efi/start.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-18T09:24:51Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "f415f20d5be9041f596ef4ac13ca851a412de3ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
