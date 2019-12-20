@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e0714536_db87ddad",
+        "filename": "src/kits/tracker/AutoMounterSettings.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-20T12:33:41Z",
+      "side": 1,
+      "message": "Why are these two created at all? If they are not added to the window, they should just be removed completely.",
+      "revId": "8c867623a863155feb0e9954a5c891dd952e2909",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
