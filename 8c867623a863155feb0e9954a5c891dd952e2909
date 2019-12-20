@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "86d15f11_63e454f6",
+        "filename": "src/apps/terminal/TermView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 736,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2019-12-20T12:40:49Z",
+      "side": 0,
+      "message": "Removing these lines is the wrong fix. You need to wrap these in ifs:\n\nif (keymap !\u003d fKeymap)\n    delete fKeymap;\nif (chars !\u003d fKeymapChars)\n    delete[] fKeymapChars;",
+      "revId": "8c867623a863155feb0e9954a5c891dd952e2909",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
