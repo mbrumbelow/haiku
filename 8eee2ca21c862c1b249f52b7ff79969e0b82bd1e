@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "89a511ed_3a3d4b70",
+        "filename": "src/system/boot/platform/efi/arch/arm/relocation_func.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2019-12-21T02:30:47Z",
+      "side": 1,
+      "message": "Is this include still needed? I suspect this should disappear with the removal of gnu-efi. Can you make sure the gnu-efi packages have been removed from your generated directory and recompile?",
+      "revId": "8eee2ca21c862c1b249f52b7ff79969e0b82bd1e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
