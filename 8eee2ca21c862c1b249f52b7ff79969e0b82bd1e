@@ -16,6 +16,24 @@
       "revId": "8eee2ca21c862c1b249f52b7ff79969e0b82bd1e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4723140f_74b04096",
+        "filename": "src/system/boot/platform/efi/devices.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2019-12-21T22:27:19Z",
+      "side": 0,
+      "message": "I think there are actually EFI methods to modify a device path, should maybe look into whether that fixes the hanging. But yes, essentially was attempting to go from a device path to the partition to the device path of the parent, which would hopefully be the full disk. There may be a better way to achieve that though. Would need to go back to the UEFI spec, see what options are available.",
+      "parentUuid": "acdec38c_b8bf1f50",
+      "revId": "8eee2ca21c862c1b249f52b7ff79969e0b82bd1e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
