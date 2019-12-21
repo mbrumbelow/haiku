@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "acdec38c_b8bf1f50",
+        "filename": "src/system/boot/platform/efi/devices.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-21T17:02:58Z",
+      "side": 0,
+      "message": "So, what we were doing here is locating the first node of type DEVICE_PATH_MESSAGING and truncating the path there. Now we will always be preserving the full path. Is that the right thing to do?\n\nOne reason I see why this could fail is that devicePath may not be in memory we are supposed to modify? Shouldn\u0027t we do this on a copy of the path instead?\n\nIn any case I would appreciate a little more detail on what this code was doing before and what it\u0027s doing now.",
+      "revId": "8eee2ca21c862c1b249f52b7ff79969e0b82bd1e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
