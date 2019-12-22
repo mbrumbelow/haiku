@@ -745,10 +745,13 @@ MultiAudioNode::Disconnected(const media_source& producer,
 
 	channel->fInput.source = media_source::null;
 	channel->fInput.format = channel->fPreferredFormat;
-
-	BAutolock locker(fBufferLock);
-	_FillWithZeros(*channel);
-	//GetFormat(&channel->fInput.format);
+	
+	{
+		BAutolock locker(fBufferLock);
+		_FillWithZeros(*channel);
+		//GetFormat(&channel->fInput.format);
+	}
+	_StopOutputThread();
 }
 
 
