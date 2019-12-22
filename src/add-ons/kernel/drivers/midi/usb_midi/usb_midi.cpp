@@ -675,8 +675,8 @@ usb_midi_write(driver_cookie* cookie, off_t position,
 			DPRINTF_DEBUG((MY_ID "built packet %p %x:%d %x %x %x\n",
 				pkt, pkt->cin, pkt->cn,
 				pkt->midi[0], pkt->midi[1], pkt->midi[2]));
-			xfer_bytes -= pkt_bytes;
-			bytes_left -= pkt_bytes;
+			xfer_bytes -= min_c(pkt_bytes, xfer_bytes);
+			bytes_left -= min_c(pkt_bytes, bytes_left);
 			midiseq += pkt_bytes;
 			packet_count++;
 			pkt++;
