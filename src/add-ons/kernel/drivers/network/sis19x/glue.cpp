@@ -7,6 +7,7 @@
 
 #include <PCI.h>
 
+extern "C" {
 #include <sys/bus.h>
 #include <sys/rman.h>
 #include <sys/systm.h>
@@ -44,7 +45,7 @@ __haiku_select_miibus_driver(device_t dev)
 int
 HAIKU_CHECK_DISABLE_INTERRUPTS(device_t dev)
 {
-	struct sge_softc *sc = device_get_softc(dev);
+	sge_softc *sc = (sge_softc*)device_get_softc(dev);
 	uint32_t status;
 
 	status = CSR_READ_4(sc, IntrStatus);
@@ -111,3 +112,4 @@ haiku_sge_get_mac_addr_apc(device_t dev, uint8_t* dest, int* rgmii)
 
 	return B_ERROR;
 }
+} // extern "C"

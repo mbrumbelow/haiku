@@ -13,7 +13,7 @@ SEARCH_SOURCE += [ FDirName $(SUBDIR) dev mii ] ;
 SEARCH_SOURCE += [ FDirName $(SUBDIR) dev sge ] ;
 
 KernelAddon sis19x :
-	glue.c
+	glue.cpp
 	ukphy.c
 	ukphy_subr.c
 	if_sge.c
