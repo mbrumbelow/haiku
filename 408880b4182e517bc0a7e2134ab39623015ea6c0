@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f7253148_2d3c5fba",
+        "filename": "src/servers/app/Window.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 908,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2019-12-27T11:35:25Z",
+      "side": 1,
+      "message": "avoidFocus and desktopSettings declaration and initialization should be moved within the block, too.",
+      "revId": "408880b4182e517bc0a7e2134ab39623015ea6c0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
