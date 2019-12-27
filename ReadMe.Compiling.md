@@ -35,7 +35,7 @@ nightly builds.
  * `nasm`
  * `wget`
  * `[un]zip`
- * `xorriso`
+ * `xorriso` (manually do "pkgman install xorriso_x86" for GCC 2 systems)
  * `mtools` (<https://gnu.org/software/mtools/intro.html>)
  * case-sensitive file system
 
