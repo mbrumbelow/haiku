@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9d56a28b_acc1dd3e",
+        "filename": "src/add-ons/kernel/file_systems/netfs/server/ClientConnection.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2370,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2019-12-27T11:09:05Z",
+      "side": 1,
+      "message": "It would be nice to remove the superfluous B_OK assignment, too.",
+      "revId": "10a8679a4a3faa43e44c440af8d8693ff9a27c11",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79ff5880_e3a39314",
+        "filename": "src/add-ons/kernel/network/stack/net_socket.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1484,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2019-12-27T11:09:05Z",
+      "side": 1,
+      "message": "It would be nice to remove the superfluous B_OK assignment, too.",
+      "revId": "10a8679a4a3faa43e44c440af8d8693ff9a27c11",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
