@@ -32,7 +32,9 @@
 
 #define L_ctermid  		32
 #define L_cuserid  		32
+#if __STDC_VERSION__ < 201112L || __cplusplus < 201402L
 #define	L_tmpnam		512
+#endif
 
 #define	P_tmpdir		"/tmp/"
 
@@ -160,7 +162,9 @@ extern int		getchar(void);
 extern int		getchar_unlocked(void);
 extern int		fgetc(FILE *stream);
 extern int		fgetc_unlocked(FILE *stream);
+#if __STDC_VERSION__ < 201112L || __cplusplus < 201402L
 extern char		*gets(char *buffer);
+#endif
 extern char		*fgets(char *string, int stringLength, FILE *stream);
 extern char		*fgets_unlocked(char *string, int stringLength, FILE *stream);
 
@@ -192,10 +196,12 @@ extern char		*ctermid(char *controllingTerminal);
 extern char		*cuserid(char *s);
 
 /* temporary files */
-extern char		*tempnam(char const *path, char const *prefix);
 extern FILE		*tmpfile(void);
-extern char 	*tmpnam(char *nameBuffer);
 extern char 	*tmpnam_r(char *nameBuffer);
+#if __STDC_VERSION__ < 201112L || __cplusplus < 201402L
+extern char		*tempnam(char const *path, char const *prefix);
+extern char 	*tmpnam(char *nameBuffer);
+#endif
 
 #include <stdio_post.h>
 
