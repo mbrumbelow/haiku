@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a7c69928_6c9285d3",
+        "filename": "docs/user/graphics/Accelerant.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-31T22:24:25Z",
+      "side": 1,
+      "message": "This is not the refresh rate, it\u0027s the pixel clock.\nThe pixel clock ticks every pixel. The refresh rate ticks every frame.",
+      "revId": "f26a3425d4f0b4da6304b97ecf647453899bc5f0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ed87002_a936a18b",
+        "filename": "docs/user/graphics/Accelerant.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-31T22:24:25Z",
+      "side": 1,
+      "message": "I find this a bit disappointing as a documentation.\n\nI would document the whole structure with an explanation of how video timings are made. You need a figure like this to make this clear:\n\ngrimware.org/lib/exe/fetch.php/documentations/devices/crtc.6845/crtc.standard.video.frame.png",
+      "revId": "f26a3425d4f0b4da6304b97ecf647453899bc5f0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd17bc74_5d9e5fc9",
+        "filename": "docs/user/graphics/Accelerant.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-31T22:24:25Z",
+      "side": 1,
+      "message": "Vertical lines and pixels are the same.",
+      "revId": "f26a3425d4f0b4da6304b97ecf647453899bc5f0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0c44174_8e866234",
+        "filename": "docs/user/graphics/Accelerant.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-31T22:24:25Z",
+      "side": 1,
+      "message": "What does this mean?",
+      "revId": "f26a3425d4f0b4da6304b97ecf647453899bc5f0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd320abc_27822154",
+        "filename": "docs/user/graphics/Accelerant.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-31T22:24:25Z",
+      "side": 1,
+      "message": "What does this mean?",
+      "revId": "f26a3425d4f0b4da6304b97ecf647453899bc5f0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c17d66a1_77915717",
+        "filename": "docs/user/graphics/Accelerant.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2019-12-31T22:24:25Z",
+      "side": 1,
+      "message": "Document how this is related to B_SCROLL and how these interact with the actual mode specified in \"timing\"",
+      "revId": "f26a3425d4f0b4da6304b97ecf647453899bc5f0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
