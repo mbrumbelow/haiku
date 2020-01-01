@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7768d5f5_0e1dec45",
+        "filename": "src/libs/print/libprint/GraphicsDriver.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-01-01T12:01:30Z",
+      "side": 1,
+      "message": "missing space after for",
+      "revId": "003169fbb3de9f45444b0f37af36e1ae53bee50c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
