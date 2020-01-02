@@ -349,8 +349,8 @@ static const Translation kTranslations[] = {
 		"Anders Trobäck\n"
 		"Victor Widell\n"
 	},
-#if 0
 	{ "tr",
+        "Emir Sarı\n"
 		"Hüseyin Aksu\n"
 		"Halil İbrahim Azak\n"
 		"Aras Ergus\n"
@@ -366,7 +366,6 @@ static const Translation kTranslations[] = {
 		"ocingiler\n"
 		"yakup\n"
 	},
-#endif
 	{ "uk",
 		"Pavlo Bvrda\n"
 		"Mariya Pilipchuk\n"
