@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "bc2e9c9c_d43caa9f",
+        "filename": "src/system/boot/arch/x86/cpu.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-02T13:00:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c6ffc5c_4aed74a8",
+      "revId": "00befb9af92478262c1f6a9fa926aa730fe1a6c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "32087375_5f33451d",
         "filename": "src/system/boot/arch/x86/cpu.h",
         "patchSetId": 4
@@ -33,6 +51,24 @@
       "revId": "00befb9af92478262c1f6a9fa926aa730fe1a6c1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82d99623_40dd068a",
+        "filename": "src/system/boot/arch/x86/cpu.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-02T13:00:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32087375_5f33451d",
+      "revId": "00befb9af92478262c1f6a9fa926aa730fe1a6c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "4cf4ca32_a9a85cce",
+        "filename": "src/system/boot/arch/x86/efi_platform.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-02T13:00:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9bbe880_71b2bd6a",
+      "revId": "00befb9af92478262c1f6a9fa926aa730fe1a6c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a3c17e0_f838c0f7",
         "filename": "src/system/boot/platform/bios_ia32/cpu.h",
         "patchSetId": 4
@@ -67,6 +121,24 @@
       "revId": "00befb9af92478262c1f6a9fa926aa730fe1a6c1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d39d0350_5fb54699",
+        "filename": "src/system/boot/platform/bios_ia32/cpu.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-02T13:00:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a3c17e0_f838c0f7",
+      "revId": "00befb9af92478262c1f6a9fa926aa730fe1a6c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "b3813943_ca381b85",
+        "filename": "src/system/boot/platform/efi/cpu.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-02T13:00:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e4feba2_6f404cbe",
+      "revId": "00befb9af92478262c1f6a9fa926aa730fe1a6c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a64d466_3d42d0e7",
         "filename": "src/system/boot/platform/efi/cpu.h",
         "patchSetId": 4
@@ -101,6 +191,24 @@
       "revId": "00befb9af92478262c1f6a9fa926aa730fe1a6c1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ccff312_786b2119",
+        "filename": "src/system/boot/platform/efi/cpu.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-02T13:00:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a64d466_3d42d0e7",
+      "revId": "00befb9af92478262c1f6a9fa926aa730fe1a6c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
