@@ -1,5 +1,5 @@
 /*
- * Copyright 2002-2012, Haiku, Inc. All Rights Reserved.
+ * Copyright 2002-2020, Haiku, Inc. All Rights Reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -10,6 +10,7 @@
  *		Ryan Leavengood
  *		Vlad Slepukhin
  *		Sarzhuk Zharski
+ *		Pascal R. G. Abresch
  */
 
 
@@ -395,6 +396,46 @@ StyledEditWindow::MessageReceived(BMessage* message)
 			fBoldItem->SetMarked((font.Face() & B_BOLD_FACE) != 0);
 
 			_SetFontStyle(fontFamily, fontStyle);
+			break;
+		}
+		case kMsgSetFontUp:
+		{
+			uint32 sameProperties;
+			BFont font;
+
+			fTextView->GetFontAndColor(&font, &sameProperties);
+			//GetFont seems to return a constant size for font.Size(),
+			//thus not used here (maybe that is a bug)
+			int32 cur_size = font.Size();
+
+			for( unsigned int a = 0; a < sizeof(fontSizes)/sizeof(fontSizes[0]); a++) {
+				if (fontSizes[a] >= cur_size) {
+					if (a == sizeof(fontSizes)/sizeof(fontSizes[0]) -1) {
+						break; //max size, can't get bigger
+					}
+					_SetFontSize(fontSizes[a+1]);
+					break;
+				}
+			}
+			break;
+		}
+		case kMsgSetFontDown:
+		{
+			uint32 sameProperties;
+			BFont font;
+
+			fTextView->GetFontAndColor(&font, &sameProperties);
+			int32 cur_size = font.Size();
+
+			for( unsigned int a = 0; a < sizeof(fontSizes)/sizeof(fontSizes[0]); a++) {
+				if (fontSizes[a] >= cur_size) {
+					if (a == 0) {
+						break; //min size, can't get smaller
+					}
+					_SetFontSize(fontSizes[a-1]);
+					break;
+				}
+			}
 			break;
 		}
 		case kMsgSetItalic:
@@ -1212,7 +1253,6 @@ StyledEditWindow::_InitWindow(uint32 encoding)
 	fFontSizeMenu->SetRadioMode(true);
 	fFontMenu->AddItem(fFontSizeMenu);
 
-	const int32 fontSizes[] = {9, 10, 11, 12, 14, 18, 24, 36, 48, 72};
 	for (uint32 i = 0; i < sizeof(fontSizes) / sizeof(fontSizes[0]); i++) {
 		BMessage* fontMessage = new BMessage(FONT_SIZE);
 		fontMessage->AddFloat("size", fontSizes[i]);
@@ -1235,10 +1275,16 @@ StyledEditWindow::_InitWindow(uint32 encoding)
 	fFontMenu->AddSeparatorItem();
 
 	// "Bold" & "Italic" menu items
+	fFontMenu->AddItem(fFontSizeUpItem = new BMenuItem(B_TRANSLATE("Font size up"),
+		new BMessage(kMsgSetFontUp)));
+	fFontMenu->AddItem(fFontSizeDownItem = new BMenuItem(B_TRANSLATE("Font size down"),
+		new BMessage(kMsgSetFontDown)));
 	fFontMenu->AddItem(fBoldItem = new BMenuItem(B_TRANSLATE("Bold"),
 		new BMessage(kMsgSetBold)));
 	fFontMenu->AddItem(fItalicItem = new BMenuItem(B_TRANSLATE("Italic"),
 		new BMessage(kMsgSetItalic)));
+	fFontSizeUpItem->SetShortcut('+', 0);
+	fFontSizeDownItem->SetShortcut('-', 0);
 	fBoldItem->SetShortcut('B', 0);
 	fItalicItem->SetShortcut('I', 0);
 	fFontMenu->AddSeparatorItem();

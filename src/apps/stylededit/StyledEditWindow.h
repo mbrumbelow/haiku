@@ -1,11 +1,12 @@
 /*
- * Copyright 2002-2012, Haiku, Inc. All Rights Reserved.
+ * Copyright 2002-2020, Haiku, Inc. All Rights Reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
  *		Mattias Sundblad
  *		Andrew Bachmann
  *		Jonas Sundström
+ *		Pascal R. G. Abresch
  */
 #ifndef STYLED_EDIT_WINDOW_H
 #define STYLED_EDIT_WINDOW_H
@@ -127,6 +128,8 @@ private:
 
 			BMenuItem*			fBoldItem;
 			BMenuItem*			fItalicItem;
+			BMenuItem*			fFontSizeDownItem;
+			BMenuItem*			fFontSizeUpItem;
 
 			BMenuItem*			fWrapItem;
 			BMenuItem*			fAlignLeft;
