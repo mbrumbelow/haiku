@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fb50f01f_5d261f3d",
+        "filename": "src/apps/aboutsystem/Credits.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2020-01-02T18:43:47Z",
+      "side": 1,
+      "message": "two tabs too many",
+      "revId": "797e5753bbfa93c1afe3f453b0880b78b189d724",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
