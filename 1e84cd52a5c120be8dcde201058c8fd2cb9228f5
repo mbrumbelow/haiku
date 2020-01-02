@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa0cef6d_a89aad8e",
+        "filename": "src/apps/aboutsystem/Credits.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-02T18:16:50Z",
+      "side": 1,
+      "message": "Use tabs, not spaces.",
+      "revId": "1e84cd52a5c120be8dcde201058c8fd2cb9228f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
