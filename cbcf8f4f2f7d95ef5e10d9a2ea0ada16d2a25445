@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "59251657_389eaa1b",
+        "filename": "src/apps/aboutsystem/Credits.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2020-01-02T19:26:37Z",
+      "side": 1,
+      "message": "Indent by two tabs, not spaces.",
+      "revId": "cbcf8f4f2f7d95ef5e10d9a2ea0ada16d2a25445",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
