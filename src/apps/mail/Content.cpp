@@ -1039,8 +1039,13 @@ TTextView::KeyDown(const char *key, int32 count)
 						end++;
 					Select(start, end);
 					if (fYankBuffer) {
-						fYankBuffer = (char *)realloc(fYankBuffer,
+						char *result = (char *)realloc(fYankBuffer,
 									 strlen(fYankBuffer) + (end - start) + 1);
+						if (result == NULL) {
+							free(fYankBuffer);
+							goto done;
+						}
+						fYankBuffer = result;
 						GetText(start, end - start,
 							    &fYankBuffer[strlen(fYankBuffer)]);
 					} else {
@@ -2469,8 +2474,9 @@ TTextView::Reader::Run(void *_this)
 				eol += 2;	// CR+LF belong to the line
 				size_t length = eol - header;
 
-		 		buffer = (char *)realloc(buffer, length + 1);
-		 		if (buffer == NULL)
+				free(buffer);
+				buffer = (char *)malloc(buffer, length + 1);
+				if (buffer == NULL)
 		 			goto done;
 
 		 		memcpy(buffer, header, length);
@@ -3092,17 +3098,14 @@ TTextView::AddQuote(int32 start, int32 finish)
 			// add quote to this line
 			int32 lineLength = index - lastLine + 1;
 
-			char* newTarget = (char *)realloc(target,
+			char* result = (char *)realloc(target,
 				targetLength + lineLength + quoteLength);
-			if (newTarget == NULL) {
-				// free the old buffer
+			if (result == NULL) {
 				free(target);
-				target = NULL;
 				free(text);
 				return;
-			} else {
-				target = newTarget;
 			}
+			target = result;
 
 			// copy the quote sign
 			memcpy(&target[targetLength], QUOTE, quoteLength);
