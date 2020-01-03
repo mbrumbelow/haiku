@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2259f952_891736e8",
+        "filename": "src/kits/interface/Menu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1915,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-03T07:48:39Z",
+      "side": 1,
+      "message": "These are not great variable names.",
+      "revId": "26b7da61e830a93a052e0026bbb941729e623e61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1f3ad71_962859af",
+        "filename": "src/kits/interface/Menu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1935,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-03T07:48:39Z",
+      "side": 1,
+      "message": "space around operators (*) and the last + goes on the next line",
+      "revId": "26b7da61e830a93a052e0026bbb941729e623e61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
