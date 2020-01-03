@@ -586,8 +586,9 @@ TermView::SetTermSize(int rows, int columns, bool notifyShell)
 	if (columns > 0)
 		fColumns = columns;
 
-	// To keep things simple, get rid of the selection first.
-	_Deselect();
+	// To keep things simple, only get rid of the selection first if the new size would affect the selection.
+	if (rows < fSelection.End().y || columns < fSelection.End().x)
+		_Deselect();
 
 	{
 		BAutolock _(fTextBuffer);
