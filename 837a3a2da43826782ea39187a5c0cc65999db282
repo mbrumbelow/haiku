@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "04dbb751_972896a9",
+        "filename": "src/apps/haikudepot/model/Captcha.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2020-01-04T22:30:59Z",
+      "side": 1,
+      "message": "I would extend the printf with information were it comes from, i.e. “Captcha(BMessage*) - expected key... “\n\nAlso... doesn’t HaikuDepot have a proper logging framework already, written by yourself?",
+      "revId": "837a3a2da43826782ea39187a5c0cc65999db282",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b88fd39b_0733b2c2",
+        "filename": "src/apps/haikudepot/model/Captcha.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2020-01-04T22:30:59Z",
+      "side": 1,
+      "message": "You could check “into” here for completeness sake.",
+      "revId": "837a3a2da43826782ea39187a5c0cc65999db282",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4948f2fe_d14216c4",
+        "filename": "src/apps/haikudepot/model/ValidationFailure.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2020-01-04T22:30:59Z",
+      "side": 1,
+      "message": "Perhaps call AddMessage() here for tidiness sake. If you ever decide to do more in AddMessage(), you don’t have another spot in the code to watch out for.",
+      "revId": "837a3a2da43826782ea39187a5c0cc65999db282",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc77de67_f3441c55",
+        "filename": "src/apps/haikudepot/model/ValidationFailure.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2020-01-04T22:30:59Z",
+      "side": 1,
+      "message": "Error checking needed:\nresult \u003d item-\u003eArchive(...\nif (result !\u003d B_OK)\n    break;\n(check for result in loop can be removed then)",
+      "revId": "837a3a2da43826782ea39187a5c0cc65999db282",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "877efe6c_28b33a69",
+        "filename": "src/apps/haikudepot/model/ValidationFailure.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2020-01-04T22:30:59Z",
+      "side": 1,
+      "message": "Same here.",
+      "revId": "837a3a2da43826782ea39187a5c0cc65999db282",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "526fc97f_676ba8ee",
+        "filename": "src/apps/haikudepot/server/ServerHelper.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2020-01-04T22:30:59Z",
+      "side": 1,
+      "message": "This line should be indented one more tab.",
+      "revId": "837a3a2da43826782ea39187a5c0cc65999db282",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a2fca55_970fa73f",
+        "filename": "src/apps/haikudepot/server/WebAppInterface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2020-01-04T22:30:59Z",
+      "side": 1,
+      "message": "I don’t understand this block of changes. Unless the “searchUserRatings” is just a copy\u0026paste bug and should be “getPkgChangelog”.\n\nI must say though, that I liked the tidiness of my JsonBuilder chained method calls.",
+      "revId": "837a3a2da43826782ea39187a5c0cc65999db282",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "208a707f_2ebba0a1",
+        "filename": "src/apps/haikudepot/server/WebAppInterface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2020-01-04T22:30:59Z",
+      "side": 1,
+      "message": "Can’t the BJsonTextWriter follow the same pattern as my old JsonBuilder with returning a reference to itself from the Write* methods? Then the code could look similarily clean as before.\n\nI think this is called “fluent API” now.",
+      "revId": "837a3a2da43826782ea39187a5c0cc65999db282",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0619dac7_4a4b5361",
+        "filename": "src/apps/haikudepot/ui/UserLoginWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2020-01-04T22:30:59Z",
+      "side": 1,
+      "message": "String contains double spaces.",
+      "revId": "837a3a2da43826782ea39187a5c0cc65999db282",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16b2a6dc_e38f12d1",
+        "filename": "src/apps/haikudepot/ui/UserLoginWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2020-01-04T22:30:59Z",
+      "side": 1,
+      "message": "Note to self: reviewed to here... could window be gone already?",
+      "revId": "837a3a2da43826782ea39187a5c0cc65999db282",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
