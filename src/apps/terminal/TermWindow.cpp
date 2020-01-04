@@ -987,9 +987,11 @@ TermWindow::MessageReceived(BMessage *message)
 		case MSG_COLOR_CHANGED:
 		case MSG_COLOR_SCHEME_CHANGED:
 		{
-			_SetTermColors(_ActiveTermViewContainerView());
-			_ActiveTermViewContainerView()->Invalidate();
-			_ActiveTermView()->Invalidate();
+			for (int32 i = fTabView->CountTabs() - 1; i >= 0 ; i--) {
+				_SetTermColors(_TermViewContainerViewAt(i));
+				_TermViewContainerViewAt(i)->Invalidate();
+				_TermViewAt(i)->Invalidate();
+			}
 			break;
 		}
 		case MSG_SAVE_AS_DEFAULT:
