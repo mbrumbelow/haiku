@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9442f2b3_5a38a35c",
+        "filename": "src/apps/terminal/TermView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2020-01-05T21:14:04Z",
+      "side": 1,
+      "message": "80 column limit.",
+      "range": {
+        "startLine": 589,
+        "startChar": 62,
+        "endLine": 589,
+        "endChar": 106
+      },
+      "revId": "dd093fd880daa76c16f7d500c0a462baee4507a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
