@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dd288c05_a6d8666b",
+        "filename": "headers/posix/math.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-05T08:40:22Z",
+      "side": 1,
+      "message": "__builtin_signbit is only for double, you need to use __builtin_signbitf for float and __builtin_signbitl for long double.\n\nIn other words, keep the macros as they are for gcc2, and replace the __* functions with __builtin_*",
+      "revId": "63fce0315ad720e708566b27d335e86aa55a7168",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
