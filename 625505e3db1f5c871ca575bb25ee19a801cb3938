@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a53bf81_bfe63f44",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2020-01-05T16:10:44Z",
+      "side": 1,
+      "message": "#42 - https://dev.haiku-os.org/ticket/42 - was closed 13 years ago. :)",
+      "revId": "625505e3db1f5c871ca575bb25ee19a801cb3938",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a717ab7_17c82bcd",
+        "filename": "src/bin/setlocale.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2020-01-05T16:10:44Z",
+      "side": 1,
+      "message": "I suppose this should be 2020, with you as author below.",
+      "revId": "625505e3db1f5c871ca575bb25ee19a801cb3938",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5666c495_22d8babd",
+        "filename": "src/bin/setlocale.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2020-01-05T16:10:44Z",
+      "side": 1,
+      "message": "For the \"list\" arguments, options are not mandatory.\nMaybe I don\u0027t understand what it\u0027s supposed to mean...",
+      "revId": "625505e3db1f5c871ca575bb25ee19a801cb3938",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d55512d8_6d37f449",
+        "filename": "src/bin/setlocale.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2020-01-05T16:10:44Z",
+      "side": 1,
+      "message": "It\u0027s not really a switch. Maybe:\n\n-l, --list     List all locales\n-d, --detail   List all locales in a long, detailed format:",
+      "revId": "625505e3db1f5c871ca575bb25ee19a801cb3938",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7566700_d063f09b",
+        "filename": "src/bin/setlocale.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2020-01-05T16:10:44Z",
+      "side": 1,
+      "message": "That line is a bit long. Maybe a newline before that?\nAlso, use /t for tabs here and everywhere.",
+      "revId": "625505e3db1f5c871ca575bb25ee19a801cb3938",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
