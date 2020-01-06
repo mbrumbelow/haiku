@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c93bb48_a055f972",
+        "filename": "src/apps/haikudepot/ui/UserLoginWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2020-01-06T19:48:18Z",
+      "side": 1,
+      "message": "You seem to store a worker thread id only in this one member fWorkerThread. Maybe another part of the code makes sure that you can’t start another worker while one is already running, but the mechanics here seem too fragile: You would leak the thread data. At least check fWorkerThread at he start of the method before allocating anything.",
+      "revId": "c92c78b06f72cb1a625c64c2096ba12b4815c25d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
