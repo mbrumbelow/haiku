@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "8dfc53db_2ab07f2d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000167
+      },
+      "writtenOn": "2020-01-06T16:57:29Z",
+      "side": 1,
+      "message": "There is no \"UPDATE CHANGE\" button from my view in PR #42. I might have no permission to directly push to that change-id?",
+      "parentUuid": "4a9aa1bf_6944632f",
+      "revId": "625505e3db1f5c871ca575bb25ee19a801cb3938",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a717ab7_17c82bcd",
         "filename": "src/bin/setlocale.cpp",
         "patchSetId": 1
