@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90235f91_295b54aa",
+        "filename": "src/apps/mail/Content.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-01-06T20:30:43Z",
+      "side": 1,
+      "message": "fYankBuffer should be set to NULL.",
+      "revId": "be82b76035252b91cf710f1d97dcc1e5f80556f6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
