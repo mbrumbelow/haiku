@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "fb591b17_37088f9d",
+        "filename": "src/apps/haikudepot/model/Captcha.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-01-06T04:37:10Z",
+      "side": 1,
+      "message": "I added some extra information there.  The \"logging framework\" actually only allows the log level to be set.  The log output is still just `printf`.  It would be a good idea then the timestamp and the source location could be included.  I might get onto that; a matter of time.",
+      "parentUuid": "04dbb751_972896a9",
+      "revId": "837a3a2da43826782ea39187a5c0cc65999db282",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b88fd39b_0733b2c2",
         "filename": "src/apps/haikudepot/model/Captcha.cpp",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "837a3a2da43826782ea39187a5c0cc65999db282",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55f46c6b_9a73a764",
+        "filename": "src/apps/haikudepot/model/Captcha.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-01-06T04:37:10Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "b88fd39b_0733b2c2",
+      "revId": "837a3a2da43826782ea39187a5c0cc65999db282",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "956170f0_759fe99b",
+        "filename": "src/apps/haikudepot/model/ValidationFailure.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-01-06T04:37:10Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "4948f2fe_d14216c4",
+      "revId": "837a3a2da43826782ea39187a5c0cc65999db282",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc77de67_f3441c55",
         "filename": "src/apps/haikudepot/model/ValidationFailure.cpp",
         "patchSetId": 2
@@ -67,6 +121,24 @@
       "revId": "837a3a2da43826782ea39187a5c0cc65999db282",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "865bdde3_716189cc",
+        "filename": "src/apps/haikudepot/model/ValidationFailure.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-01-06T04:37:10Z",
+      "side": 1,
+      "message": "Thanks; that\u0027s done now.  I prefer not to use the early exit technique so have maintained the `result` variable.",
+      "parentUuid": "bc77de67_f3441c55",
+      "revId": "837a3a2da43826782ea39187a5c0cc65999db282",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "1cbb7d35_e73e1e98",
+        "filename": "src/apps/haikudepot/model/ValidationFailure.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-01-06T04:37:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "877efe6c_28b33a69",
+      "revId": "837a3a2da43826782ea39187a5c0cc65999db282",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "526fc97f_676ba8ee",
         "filename": "src/apps/haikudepot/server/ServerHelper.cpp",
         "patchSetId": 2
@@ -101,6 +191,24 @@
       "revId": "837a3a2da43826782ea39187a5c0cc65999db282",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dffd46b7_a901eb9a",
+        "filename": "src/apps/haikudepot/server/ServerHelper.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-01-06T04:37:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "526fc97f_676ba8ee",
+      "revId": "837a3a2da43826782ea39187a5c0cc65999db282",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "60952785_786e61e4",
+        "filename": "src/apps/haikudepot/server/WebAppInterface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-01-06T04:37:10Z",
+      "side": 1,
+      "message": "Done; thanks for spotting that!",
+      "parentUuid": "7a2fca55_970fa73f",
+      "revId": "837a3a2da43826782ea39187a5c0cc65999db282",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "208a707f_2ebba0a1",
         "filename": "src/apps/haikudepot/server/WebAppInterface.cpp",
         "patchSetId": 2
@@ -135,6 +261,24 @@
       "revId": "837a3a2da43826782ea39187a5c0cc65999db282",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6521a5e_6221386f",
+        "filename": "src/apps/haikudepot/server/WebAppInterface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-01-06T04:37:10Z",
+      "side": 1,
+      "message": "Yes this is generally referred to as a \"fluent\" API.  The writer is general and in another context may be streaming to a file or socket rather than memory.  For this reason, I want it to be able to return the result as a `status_t`.  Also the fluent approach is difficult in situations where elements have to be dynamically added or removed.  An example of this would be where a given parameter could be missing under some conditions.  This can be seen in the method `RetreiveUserRatingForPackageAndVersionByUser`.  For these reasons I prefer to keep the structure as is.",
+      "parentUuid": "208a707f_2ebba0a1",
+      "revId": "837a3a2da43826782ea39187a5c0cc65999db282",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "4984c065_c6c6d18a",
+        "filename": "src/apps/haikudepot/ui/UserLoginWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-01-06T04:37:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0619dac7_4a4b5361",
+      "revId": "837a3a2da43826782ea39187a5c0cc65999db282",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16b2a6dc_e38f12d1",
         "filename": "src/apps/haikudepot/ui/UserLoginWindow.cpp",
         "patchSetId": 2
@@ -166,6 +328,24 @@
       "writtenOn": "2020-01-04T22:30:59Z",
       "side": 1,
       "message": "Note to self: reviewed to here... could window be gone already?",
+      "revId": "837a3a2da43826782ea39187a5c0cc65999db282",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c41c097_97f63e00",
+        "filename": "src/apps/haikudepot/ui/UserLoginWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-01-06T04:37:10Z",
+      "side": 1,
+      "message": "The request to Quit the Window checks to see if a thread is active and will flag this.  Later when the thread has completed it will again action the attempt to Quit the Window.  This way any background processing should have completed.  Is this suitable do you think?",
+      "parentUuid": "16b2a6dc_e38f12d1",
       "revId": "837a3a2da43826782ea39187a5c0cc65999db282",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
