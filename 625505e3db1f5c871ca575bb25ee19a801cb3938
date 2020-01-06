@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "4a9aa1bf_6944632f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-06T07:45:54Z",
+      "side": 1,
+      "message": "Then, please reuse the change-id from that change instead of creating a new one? This way it\u0027s simpler to track reviews in a single place.",
+      "parentUuid": "45f65e4e_9dc43e8c",
+      "revId": "625505e3db1f5c871ca575bb25ee19a801cb3938",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a717ab7_17c82bcd",
         "filename": "src/bin/setlocale.cpp",
         "patchSetId": 1
