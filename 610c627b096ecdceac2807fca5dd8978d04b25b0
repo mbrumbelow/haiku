@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b78434c3_77f6cdbd",
+        "filename": "src/bin/setlocale.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2020-01-06T06:15:03Z",
+      "side": 1,
+      "message": "Still typo \"...the second gets...\". Maybe add a \\n for an empty line above.",
+      "revId": "610c627b096ecdceac2807fca5dd8978d04b25b0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35f6f764_610289c0",
+        "filename": "src/bin/setlocale.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2020-01-06T06:15:03Z",
+      "side": 1,
+      "message": "{ goes on previous line",
+      "revId": "610c627b096ecdceac2807fca5dd8978d04b25b0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76fbba56_c4a8ce78",
+        "filename": "src/bin/setlocale.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2020-01-06T06:15:03Z",
+      "side": 1,
+      "message": "{ goes on previous line",
+      "revId": "610c627b096ecdceac2807fca5dd8978d04b25b0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96af8de6_af720982",
+        "filename": "src/bin/setlocale.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2020-01-06T06:15:03Z",
+      "side": 1,
+      "message": "on #42 this was marked \"Superfluous block.\" by Axel. Still true (I think).",
+      "revId": "610c627b096ecdceac2807fca5dd8978d04b25b0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12691083_f49dadca",
+        "filename": "src/bin/setlocale.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2020-01-06T06:15:03Z",
+      "side": 1,
+      "message": "Superfluous block.",
+      "revId": "610c627b096ecdceac2807fca5dd8978d04b25b0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10f1859d_6acfb800",
+        "filename": "src/bin/setlocale.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2020-01-06T06:15:03Z",
+      "side": 1,
+      "message": "{ goes on previous line",
+      "revId": "610c627b096ecdceac2807fca5dd8978d04b25b0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22eda402_2d7ee755",
+        "filename": "src/bin/setlocale.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2020-01-06T06:15:03Z",
+      "side": 1,
+      "message": "Superfluous block",
+      "revId": "610c627b096ecdceac2807fca5dd8978d04b25b0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
