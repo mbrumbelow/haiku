@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "33793f65_2d92faf3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-06T21:12:31Z",
+      "side": 1,
+      "message": "You can update changes by making new commits including the Change-Id line in your commit message.\n\nFor example this commit has this one:\n\nChange-Id: Icc076459edc99c0f9598d5d05292b17b19de13ec\n\nTo update change 42 you would use this instead:\n\nChange-Id: I8550d44dc6cb715cb9a8cb44efc3203e6f420fe8\n\nand when you push your change, it will automatically detect that it is an update of the existing one.\n\nBut now that we have so many comments in this new change request, don\u0027t worry about it. Just remember it for next time you rework an existing change.",
+      "parentUuid": "8dfc53db_2ab07f2d",
+      "revId": "625505e3db1f5c871ca575bb25ee19a801cb3938",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a717ab7_17c82bcd",
         "filename": "src/bin/setlocale.cpp",
         "patchSetId": 1
