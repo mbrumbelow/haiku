@@ -98,6 +98,7 @@ LongAndDragTrackingFilter::Filter(BMessage* message, BHandler** target)
 		case B_MOUSE_UP:
 			_StopTracking();
 			message->AddInt32("last_buttons", (int32)fClickButtons);
+			message->AddInt32("buttons", fClickButtons);
 			return B_DISPATCH_MESSAGE;
 
 		case B_MOUSE_MOVED:
