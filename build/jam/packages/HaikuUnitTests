@@ -1,0 +1,36 @@
+local haikuUnitTestsPackage = haiku_unittests.hpkg ;
+HaikuPackage $(haikuUnitTestsPackage) ;
+
+AddFilesToPackage bin : UnitTester ;
+AddLibrariesToPackage lib : libcppunit.so ;
+
+
+# TODO: Find a better way to get all of the unit tests dynamically
+
+AddFilesToPackage add-ons unittests haiku
+	:
+	app_server_unit_tests.so
+	haikudepottest.so
+	libapptest.so
+	libappteststub.so
+	libinterfacetest.so
+	libkerneldebuggertest.so
+	libkernelfstest.so
+	libkernelutilstest.so
+	liblaunch_daemontest.so
+	libmakeudfimagetest.so
+	libmediatest.so
+	libnetapitest.so
+	librootposixtest.so
+	libsharedtest.so
+	libstoragetest.so
+	libsupporttest_RemoteTestObject.so
+	libsupporttest.so
+	libtranslationtest.so
+	libtranslatorstest.so
+	localekittest.so
+	posixnettest.so
+	servicekittest.so
+;
+
+BuildHaikuPackage $(haikuUnitTestsPackage) : haiku_unittests ;
