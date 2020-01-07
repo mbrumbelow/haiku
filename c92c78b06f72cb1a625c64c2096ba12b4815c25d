@@ -16,6 +16,24 @@
       "revId": "c92c78b06f72cb1a625c64c2096ba12b4815c25d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "070cda17_dacfb9a1",
+        "filename": "src/apps/haikudepot/ui/UserLoginWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-01-07T05:15:04Z",
+      "side": 1,
+      "message": "Yes this is not good; As suggested above, I have moved the check to the start of the method to avoid the possibility of leaking. Thanks.",
+      "parentUuid": "1c93bb48_a055f972",
+      "revId": "c92c78b06f72cb1a625c64c2096ba12b4815c25d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
