@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "799ace2c_f716c49a",
+        "filename": "src/data/keymaps/French (NF Z71-300).keymap",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-01-07T22:19:02Z",
+      "side": 1,
+      "message": "is it expected to have \u0027\u0026\u0027 here? Or should it be 0xc3a0?",
+      "revId": "af31f78f7104463dbd4092d7f1b2890f20c4379c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
