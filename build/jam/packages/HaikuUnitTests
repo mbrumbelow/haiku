@@ -1,0 +1,6 @@
+local haikuUnitTestsPackage = haiku_unittests.hpkg ;
+HaikuPackage $(haikuUnitTestsPackage) ;
+
+AddFilesToPackage bin : UnitTester ;
+
+BuildHaikuPackage $(haikuUnitTestsPackage) : haiku_unittests ;
