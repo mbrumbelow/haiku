@@ -7305,6 +7305,7 @@ BPoseView::MouseDragged(const BMessage* message)
 		fTextWidgetToCheck->CancelWait();
 
 	fTrackRightMouseUp = false;
+	fTrackMouseUp = false;
 
 	BPoint where;
 	uint32 buttons = 0;
@@ -7329,6 +7330,7 @@ void
 BPoseView::MouseLongDown(const BMessage* message)
 {
 	fTrackRightMouseUp = false;
+	fTrackMouseUp = false;
 
 	BPoint where;
 	if (message->FindPoint("where", &where) != B_OK)
@@ -7383,6 +7385,7 @@ BPoseView::MouseDown(BPoint where)
 	bool secondaryMouseButtonDown
 		= SecondaryMouseButtonDown(modifierKeys, buttons);
 	fTrackRightMouseUp = secondaryMouseButtonDown;
+	fTrackMouseUp = !secondaryMouseButtonDown;
 	bool extendSelection = (modifierKeys & B_COMMAND_KEY) != 0
 		&& fMultipleSelection;
 
@@ -7468,7 +7471,12 @@ BPoseView::MouseUp(BPoint where)
 		}
 		ShowContextMenu(where);
 	}
+
+	if (fTrackMouseUp)
+		Window()->Activate();
+
 	fTrackRightMouseUp = false;
+	fTrackMouseUp = false;
 }
 
 
