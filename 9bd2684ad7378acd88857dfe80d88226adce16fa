@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6673a8b5_ea4d5a0b",
+        "filename": "headers/os/game/PushGameSound.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-01-08T14:36:38Z",
+      "side": 1,
+      "message": "2001-2020   Copyright covers the range of copyright, not just the current year.",
+      "revId": "9bd2684ad7378acd88857dfe80d88226adce16fa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec95cbbb_ba27514b",
+        "filename": "headers/os/game/WindowScreen.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-01-08T14:36:38Z",
+      "side": 1,
+      "message": "2006-2020 Copyright covers the range of copyright, not just the current year.",
+      "revId": "9bd2684ad7378acd88857dfe80d88226adce16fa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
