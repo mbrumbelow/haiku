@@ -5,12 +5,14 @@
 #ifndef	_WINDOW_SCREEN_H
 #define	_WINDOW_SCREEN_H
 
+
 #include <Accelerant.h>
 #include <GraphicsCard.h>
 #include <OS.h>
 #include <SupportDefs.h>
 #include <Window.h>
 #include <kernel/image.h>
+
 
 void set_mouse_position(int32 x, int32 y);
 
@@ -27,24 +29,24 @@ public:
 	        				uint32 attributes, status_t* _error);
 	virtual				~BWindowScreen();
 
-	virtual void		Quit();
-	virtual void		ScreenConnected(bool active);
+	virtual	void		Quit();
+	virtual	void		ScreenConnected(bool active);
     		void		Disconnect();
 
 	virtual	void		WindowActivated(bool active);
-	virtual void		WorkspaceActivated(int32 workspace, bool active);
-	virtual void		ScreenChanged(BRect screenSize, color_space depth);
+	virtual	void		WorkspaceActivated(int32 workspace, bool active);
+	virtual	void		ScreenChanged(BRect screenSize, color_space depth);
 
-	virtual void		Hide();
-	virtual void		Show();
+	virtual	void		Hide();
+	virtual	void		Show();
 
 			void		SetColorList(rgb_color* list, int32 firstIndex = 0,
 							int32 lastIndex = 255);
-	status_t			SetSpace(uint32 space);
+			status_t	SetSpace(uint32 space);
 
 			bool		CanControlFrameBuffer();
-	status_t			SetFrameBuffer(int32 width, int32 height);
-	status_t			MoveDisplayArea(int32 x, int32 y);
+			status_t	SetFrameBuffer(int32 width, int32 height);
+			status_t	MoveDisplayArea(int32 x, int32 y);
 	rgb_color*			ColorList();
 	frame_buffer_info*	FrameBufferInfo();
 	graphics_card_hook	CardHookAt(int32 index);
@@ -55,10 +57,10 @@ public:
 
 private:
 	virtual status_t	Perform(perform_code d, void* arg);
-	virtual void		_ReservedWindowScreen1();
-	virtual void		_ReservedWindowScreen2();
-	virtual void		_ReservedWindowScreen3();
-	virtual void		_ReservedWindowScreen4();
+	virtual	void		_ReservedWindowScreen1();
+	virtual	void		_ReservedWindowScreen2();
+	virtual	void		_ReservedWindowScreen3();
+	virtual	void		_ReservedWindowScreen4();
 			status_t	_InitData(uint32 space, uint32 attributes);
 			void		_DisposeData();
 			status_t	_LockScreen(bool lock);

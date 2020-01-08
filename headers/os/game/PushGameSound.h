@@ -1,11 +1,13 @@
 /*
  *  Copyright 2020, Haiku Inc. All Rights Reserved.
- *  Distributed under terms of the MIT License.
+ *  Distributed under the terms of the MIT License.
  */
 #ifndef _PUSHGAMESOUND_H
 #define _PUSHGAMESOUND_H
 
+
 #include <StreamingGameSound.h>
+
 
 class BList;
 
@@ -23,29 +25,29 @@ public:
 		lock_ok_frames_dropped
 	};
 
-	virtual lock_status	LockNextPage(void** _pagePtr, size_t* _pageSize);
+	virtual	lock_status	LockNextPage(void** _pagePtr, size_t* _pageSize);
 	virtual	status_t	UnlockPage(void* pagePtr);
 
-	virtual lock_status	LockForCyclic(void** _basePtr, size_t* _size);
-	virtual status_t	UnlockCyclic();
-	virtual size_t		CurrentPosition();
+	virtual	lock_status	LockForCyclic(void** _basePtr, size_t* _size);
+	virtual	status_t	UnlockCyclic();
+	virtual	size_t		CurrentPosition();
 
-	virtual BGameSound*	Clone() const;
+	virtual	BGameSound*	Clone() const;
 
-	virtual status_t	Perform(int32 selector, void* data);
+	virtual	status_t	Perform(int32 selector, void* data);
 
 protected:
 						BPushGameSound(BGameSoundDevice* device);
 
-	virtual status_t	SetParameters(size_t BufferFrameCount,
+	virtual	status_t	SetParameters(size_t bufferFrameCount,
 							const gs_audio_format* format, size_t bufferCount);
 
-	virtual status_t	SetStreamHook(void (*hook)(void* inCookie,
+	virtual	status_t	SetStreamHook(void (*hook)(void* inCookie,
 								void* buffer, size_t byteCount,
 								BStreamingGameSound* me),
 							void* cookie);
 
-	virtual void		FillBuffer(void* buffer, size_t byteCount);
+	virtual	void		FillBuffer(void* buffer, size_t byteCount);
 
 private:
 						BPushGameSound();
@@ -54,7 +56,7 @@ private:
 
 			bool		BytesReady(size_t* bytes);
 
-	virtual status_t	_Reserved_BPushGameSound_0(int32 arg, ...);
+	virtual	status_t	_Reserved_BPushGameSound_0(int32 arg, ...);
 	virtual	status_t	_Reserved_BPushGameSound_1(int32 arg, ...);
 	virtual	status_t	_Reserved_BPushGameSound_2(int32 arg, ...);
 	virtual	status_t	_Reserved_BPushGameSound_3(int32 arg, ...);
