@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "db0fa3b1_5faf1997",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1193,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-01-09T07:45:50Z",
+      "side": 1,
+      "message": "The rest of the code uses \"* \" asterisk style. Please make this consistent (here and at other places).\n\nAlso, please don\u0027t mix static and class methods. Static methods come first, then the complete class definition in the same order like they are declared in the header.",
+      "revId": "7f25c2d585886563a6f2bda14d27499bbde67056",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba6ac2c6_a70b8b05",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1204,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-01-09T07:45:50Z",
+      "side": 1,
+      "message": "We usually avoid abbreviations like that unless it\u0027s a common one like \"i\" for index. You don\u0027t need \"e\" anyway, just to get the name. Use BEntry::Name() for this instead.",
+      "revId": "7f25c2d585886563a6f2bda14d27499bbde67056",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6bf0537_b4ecf292",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1218,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-01-09T07:45:50Z",
+      "side": 1,
+      "message": "Try to move the declarations to where the variables are needed. Also \"devfd\" would be devFD in camel case, or, even better, deviceFD. And \"geometry\" instead of \"g\".",
+      "revId": "7f25c2d585886563a6f2bda14d27499bbde67056",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c8890cf_12f52374",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1226,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-01-09T07:45:50Z",
+      "side": 1,
+      "message": "Wrong identation.",
+      "revId": "7f25c2d585886563a6f2bda14d27499bbde67056",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ccd695f9_e42f2a1b",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1237,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-01-09T07:45:50Z",
+      "side": 1,
+      "message": "Camel case, please -\u003e mediaStatus.",
+      "revId": "7f25c2d585886563a6f2bda14d27499bbde67056",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
