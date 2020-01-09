@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6a8f7a91_24a387c4",
+        "filename": "src/apps/deskcalc/CalcView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 816,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-01-09T19:02:06Z",
+      "side": 0,
+      "message": "Why is this TODO removed?",
+      "revId": "dda1013cdb4781c4d2625a45ff9d84983e9eec86",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
