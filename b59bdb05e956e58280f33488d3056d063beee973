@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "add2ad50_fbe0d835",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-01-09T19:19:39Z",
+      "side": 1,
+      "message": "A private header should come after public headers",
+      "revId": "b59bdb05e956e58280f33488d3056d063beee973",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
