@@ -450,7 +450,7 @@ View::ViewAt(const BPoint& where)
 	if (!frame.Contains(where))
 		return NULL;
 
-	for (View* child = FirstChild(); child; child = child->NextSibling()) {
+	for (View* child = LastChild(); child; child = child->PreviousSibling()) {
 		View* view = child->ViewAt(where);
 		if (view != NULL)
 			return view;
