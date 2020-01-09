@@ -36,6 +36,7 @@
 #include <stdio.h>
 #include <string.h>
 
+#include <Alert.h>
 #include <Catalog.h>
 #include <OS.h>
 #define PNG_NO_PEDANTIC_WARNINGS
@@ -299,8 +300,12 @@ void throw_error(png_structp ppng, png_const_charp error_msg)
 
 void alert_warning(png_structp ppng, png_const_charp error_msg)
 {
-	// Ignore
-	// TODO show a BAlert?
+	BAlert* alert = new BAlert("alert",
+			B_TRANSLATE(error_msg),
+			B_TRANSLATE("OK"), NULL, NULL, B_WIDTH_FROM_LABEL,
+			B_INFO_ALERT);
+	alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
+	alert->Go();
 }
 
 status_t
