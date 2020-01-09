@@ -1,0 +1,64 @@
+SubDir HAIKU_TOP src tests add-ons kernel file_systems xfs xfs_shell ;
+
+SEARCH_SOURCE += [ FDirName $(HAIKU_TOP) src add-ons kernel file_systems xfs ] ;
+
+# prevent inclusion of HaikuBuildCompatibility.h
+DEFINES += HAIKU_BUILD_COMPATIBILITY_H ;
+
+# set some additional defines
+{
+	local defines =
+		FS_SHELL
+		TRACE_xfs # ENABLE DEBUGGING
+		USER=1
+		;
+
+	defines = [ FDefines $(defines) ] ;
+	SubDirCcFlags $(defines) -Wno-multichar ;
+	SubDirC++Flags $(defines) -Wno-multichar -fno-rtti ;
+	HOST_LINKFLAGS += -lz ;	# zlib link
+}
+
+
+# platform specific libraries
+local fsShellCommandLibs ;
+if ! $(HOST_PLATFORM_HAIKU_COMPATIBLE) {
+	fsShellCommandLibs = $(HOST_NETWORK_LIBS) ;
+}
+
+
+UseHeaders [ FDirName $(HAIKU_TOP) headers build ] : true ;
+UseHeaders [ FDirName $(HAIKU_TOP) headers build os ] : true ;
+UseHeaders [ FDirName $(HAIKU_TOP) headers build os support ] : true ;
+
+UsePrivateKernelHeaders ;
+UsePrivateHeaders shared storage fs_shell ;
+UsePrivateHeaders file_systems ;
+UseHeaders [ FDirName $(HAIKU_TOP) headers private ] : true ;
+UseHeaders [ FDirName $(HAIKU_TOP) src tools fs_shell ] ;
+UseHeaders [ FDirName $(HAIKU_TOP) src libs uuid ] : true ;
+
+
+local xfsSources =
+	kernel_interface.cpp
+;
+
+local utilitySources =
+	AVLTreeBase.cpp
+;
+
+BuildPlatformMergeObject <build>xfs.o : $(xfsSources) $(utilitySources) ;
+
+BuildPlatformMain <build>xfs_shell
+	:
+	# no extra files
+	:
+	<build>xfs.o
+	<build>fs_shell.a $(HOST_LIBSUPC++) $(HOST_LIBSTDC++)
+	$(HOST_LIBROOT) $(fsShellCommandLibs) uuid
+;
+
+SEARCH on [ FGristFiles $(utilitySources) ]
+	+= [ FDirName $(HAIKU_TOP) src system kernel util ] ;
+SEARCH on [ FGristFiles DebugSupport.cpp ]
+	+= [ FDirName $(HAIKU_TOP) src add-ons kernel file_systems shared ] ;
