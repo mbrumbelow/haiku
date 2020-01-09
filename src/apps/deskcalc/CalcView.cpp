@@ -33,7 +33,7 @@
 #include <MenuItem.h>
 #include <Message.h>
 #include <MessageRunner.h>
-#include <PlaySound.h>
+#include <Beep.h>
 #include <Point.h>
 #include <PopUpMenu.h>
 #include <Region.h>
@@ -813,7 +813,6 @@ CalcView::Copy()
 		be_clipboard->Clear();
 		BMessage* clipper = be_clipboard->Data();
 		clipper->what = B_MIME_DATA;
-		// TODO: should check return for errors!
 		BString expression = fExpressionTextView->Text();
 		clipper->AddData("text/plain", B_MIME_TYPE,
 			expression.String(), expression.Length());
@@ -1382,16 +1381,8 @@ CalcView::_FlashKey(int32 key, uint32 flashFlags)
 void
 CalcView::_AudioFeedback(bool inBackGround)
 {
-	// TODO: Use beep events... This interface is not implemented on Haiku
-	// anyways...
-#if 0
-	if (fOptions->audio_feedback) {
-		BEntry zimp("key.AIFF");
-		entry_ref zimp_ref;
-		zimp.GetRef(&zimp_ref);
-		play_sound(&zimp_ref, true, false, inBackGround);
-	}
-#endif
+	if (fOptions->audio_feedback)
+		beep();
 }
 
 
@@ -1454,9 +1445,7 @@ CalcView::_CreatePopUpMenu(bool addKeypadModeMenuItems)
 	fPopUpMenu = new BPopUpMenu("pop-up", false, false);
 
 	fPopUpMenu->AddItem(fAutoNumlockItem);
-	// TODO: Enable this when we use beep events which can be configured
-	// in the Sounds preflet.
-	//fPopUpMenu->AddItem(fAudioFeedbackItem);
+	fPopUpMenu->AddItem(fAudioFeedbackItem);
 	fPopUpMenu->AddSeparatorItem();
 	fPopUpMenu->AddItem(fAngleModeRadianItem);
 	fPopUpMenu->AddItem(fAngleModeDegreeItem);
