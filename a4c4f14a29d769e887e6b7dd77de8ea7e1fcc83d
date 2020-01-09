@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d677f3a0_2c6faed7",
+        "filename": "src/servers/app/View.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 723,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-01-09T18:07:57Z",
+      "side": 1,
+      "message": "This doesn\u0027t fit in 80 columns.",
+      "revId": "a4c4f14a29d769e887e6b7dd77de8ea7e1fcc83d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b47f883_05a8967e",
+        "filename": "src/servers/app/View.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1409,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-01-09T18:07:57Z",
+      "side": 1,
+      "message": "Ditto",
+      "revId": "a4c4f14a29d769e887e6b7dd77de8ea7e1fcc83d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
