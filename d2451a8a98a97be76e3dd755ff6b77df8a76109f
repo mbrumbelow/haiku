@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "958a7ea2_bf80dac9",
+        "filename": "src/bin/setlocale.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-09T08:08:12Z",
+      "side": 1,
+      "message": "two blank lines here",
+      "revId": "d2451a8a98a97be76e3dd755ff6b77df8a76109f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a7d3c2e_bc314938",
+        "filename": "src/bin/setlocale.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-09T08:08:12Z",
+      "side": 1,
+      "message": "two blank lines here",
+      "revId": "d2451a8a98a97be76e3dd755ff6b77df8a76109f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7284d44b_d28f39b9",
+        "filename": "src/bin/setlocale.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-09T08:08:12Z",
+      "side": 1,
+      "message": "two blank lines here",
+      "revId": "d2451a8a98a97be76e3dd755ff6b77df8a76109f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98cd264f_42845af8",
+        "filename": "src/bin/setlocale.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-09T08:08:12Z",
+      "side": 1,
+      "message": "this comma does not goes on a separate line",
+      "revId": "d2451a8a98a97be76e3dd755ff6b77df8a76109f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ec8899d_d203f928",
+        "filename": "src/bin/setlocale.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-09T08:08:12Z",
+      "side": 1,
+      "message": "Why is this separate from kHelpMessage? Just give the full help directly, it will be more useful.",
+      "revId": "d2451a8a98a97be76e3dd755ff6b77df8a76109f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3f1b4e5_dbbe9fb6",
+        "filename": "src/bin/setlocale.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-09T08:08:12Z",
+      "side": 1,
+      "message": "this comma does not go on a separate line",
+      "revId": "d2451a8a98a97be76e3dd755ff6b77df8a76109f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d740fb50_c2676ab8",
+        "filename": "src/bin/setlocale.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-09T08:08:12Z",
+      "side": 1,
+      "message": "You can use a single printf call for all this, it will be more efficient",
+      "revId": "d2451a8a98a97be76e3dd755ff6b77df8a76109f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "458516d0_4b426608",
+        "filename": "src/bin/setlocale.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-09T08:08:12Z",
+      "side": 1,
+      "message": "how can we get here when there is a return 0 just the line above?",
+      "revId": "d2451a8a98a97be76e3dd755ff6b77df8a76109f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
