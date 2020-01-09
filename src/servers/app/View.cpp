@@ -1406,7 +1406,7 @@ View::RebuildClipping(bool deep)
 				return;
 
 			for (; child; child = child->NextSibling()) {
-				if (child->IsVisible())
+				if (child->IsVisible() && child->fViewColor != B_TRANSPARENT_COLOR)
 					childrenRegion->Include((clipping_rect)child->Frame());
 			}
 
