@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3bdead4f_5d7fad73",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 2480,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-10T20:56:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4513b35c_fb918a38",
+      "revId": "8a22ea0ba458e3d7694d7ce4cfae943b631b4dea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "06db5289_6c1fcb69",
         "filename": "src/apps/webpositive/BrowserWindow.cpp",
         "patchSetId": 18
@@ -33,6 +51,24 @@
       "revId": "8a22ea0ba458e3d7694d7ce4cfae943b631b4dea",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a0331a3_b9eb19f5",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 2492,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-10T20:56:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06db5289_6c1fcb69",
+      "revId": "8a22ea0ba458e3d7694d7ce4cfae943b631b4dea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "52e9edf2_8c72c079",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 2504,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-10T20:56:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91665410_dafa1cc5",
+      "revId": "8a22ea0ba458e3d7694d7ce4cfae943b631b4dea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "68590b3d_82bfa3e2",
         "filename": "src/apps/webpositive/BrowserWindow.cpp",
         "patchSetId": 18
@@ -67,6 +121,24 @@
       "revId": "8a22ea0ba458e3d7694d7ce4cfae943b631b4dea",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "725cc88a_a3706c68",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 2506,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-10T20:56:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68590b3d_82bfa3e2",
+      "revId": "8a22ea0ba458e3d7694d7ce4cfae943b631b4dea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "b803c05f_7df51cd3",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 2510,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-10T20:56:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ad1ba8b_8c3714bf",
+      "revId": "8a22ea0ba458e3d7694d7ce4cfae943b631b4dea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9e9628a0_7e407a50",
         "filename": "src/apps/webpositive/BrowserWindow.cpp",
         "patchSetId": 18
@@ -101,6 +191,24 @@
       "revId": "8a22ea0ba458e3d7694d7ce4cfae943b631b4dea",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ddae68d1_c4ba91fe",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 2511,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-10T20:56:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e9628a0_7e407a50",
+      "revId": "8a22ea0ba458e3d7694d7ce4cfae943b631b4dea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "c1549eba_5f03020c",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 2513,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-10T20:56:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8a947e4_78d89902",
+      "revId": "8a22ea0ba458e3d7694d7ce4cfae943b631b4dea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f50e04ab_6aadcf0d",
         "filename": "src/apps/webpositive/BrowserWindow.cpp",
         "patchSetId": 18
@@ -135,6 +261,24 @@
       "revId": "8a22ea0ba458e3d7694d7ce4cfae943b631b4dea",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93afda08_32836a3a",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 2515,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-10T20:56:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f50e04ab_6aadcf0d",
+      "revId": "8a22ea0ba458e3d7694d7ce4cfae943b631b4dea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "f3603661_290474da",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 2526,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-10T20:56:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c61e1fbc_63615347",
+      "revId": "8a22ea0ba458e3d7694d7ce4cfae943b631b4dea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cc2a1789_0cd308b5",
         "filename": "src/apps/webpositive/BrowserWindow.cpp",
         "patchSetId": 18
@@ -169,6 +331,24 @@
       "revId": "8a22ea0ba458e3d7694d7ce4cfae943b631b4dea",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f3e07d2_37512b0e",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 2528,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-10T20:56:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc2a1789_0cd308b5",
+      "revId": "8a22ea0ba458e3d7694d7ce4cfae943b631b4dea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -189,6 +369,24 @@
     },
     {
       "key": {
+        "uuid": "13d2c48a_b70d2362",
+        "filename": "src/apps/webpositive/BrowserWindow.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-10T20:56:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10d4002b_034986fa",
+      "revId": "8a22ea0ba458e3d7694d7ce4cfae943b631b4dea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55c9cc4d_e1bd9661",
         "filename": "src/apps/webpositive/BrowserWindow.h",
         "patchSetId": 18
@@ -203,6 +401,24 @@
       "revId": "8a22ea0ba458e3d7694d7ce4cfae943b631b4dea",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7caff37_723027aa",
+        "filename": "src/apps/webpositive/BrowserWindow.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-10T20:56:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55c9cc4d_e1bd9661",
+      "revId": "8a22ea0ba458e3d7694d7ce4cfae943b631b4dea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -223,6 +439,24 @@
     },
     {
       "key": {
+        "uuid": "7005470f_783bf996",
+        "filename": "src/apps/webpositive/BrowserWindow.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-10T20:56:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa6e2d09_cc0d5b13",
+      "revId": "8a22ea0ba458e3d7694d7ce4cfae943b631b4dea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb9cb18c_347ce6cb",
         "filename": "src/apps/webpositive/BrowserWindow.h",
         "patchSetId": 18
@@ -240,6 +474,24 @@
     },
     {
       "key": {
+        "uuid": "3f0729ff_ad83d2bd",
+        "filename": "src/apps/webpositive/BrowserWindow.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-10T20:56:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb9cb18c_347ce6cb",
+      "revId": "8a22ea0ba458e3d7694d7ce4cfae943b631b4dea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "752fe9d9_77a1b693",
         "filename": "src/apps/webpositive/BrowserWindow.h",
         "patchSetId": 18
@@ -254,6 +506,24 @@
       "revId": "8a22ea0ba458e3d7694d7ce4cfae943b631b4dea",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c558a88d_b35a2591",
+        "filename": "src/apps/webpositive/BrowserWindow.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-10T20:56:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "752fe9d9_77a1b693",
+      "revId": "8a22ea0ba458e3d7694d7ce4cfae943b631b4dea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
