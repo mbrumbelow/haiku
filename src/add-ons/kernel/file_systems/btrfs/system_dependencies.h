@@ -8,14 +8,12 @@
 
 #ifdef FS_SHELL
 
-// This needs to be included before the fs_shell wrapper
-#include <zlib.h>
+#include "fssh_api_wrapper.h"
+#include "fssh_auto_deleter.h"
 
 #include <util/AVLTree.h>
 #include <uuid.h>
-
-#include "fssh_api_wrapper.h"
-#include "fssh_auto_deleter.h"
+#include <zlib.h>
 
 #else	// !FS_SHELL
 
