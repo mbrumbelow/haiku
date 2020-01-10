@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c7c24d97_a6e2bc49",
+        "filename": "src/add-ons/translators/png/PNGTranslator.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-10T19:45:04Z",
+      "side": 1,
+      "message": "these 3 lines are 1 indentation level too far and I think error_msg fits on the previous line.",
+      "revId": "0ee1519822b510d287e55df08582435b3b8fc230",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
