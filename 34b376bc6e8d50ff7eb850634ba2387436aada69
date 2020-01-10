@@ -16,6 +16,24 @@
       "revId": "34b376bc6e8d50ff7eb850634ba2387436aada69",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78292428_e27ec880",
+        "filename": "src/bin/setlocale.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000167
+      },
+      "writtenOn": "2020-01-10T11:22:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a100fd5_02ebdc69",
+      "revId": "34b376bc6e8d50ff7eb850634ba2387436aada69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
