@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2c5adc9a_38a08f49",
+        "filename": "src/add-ons/translators/png/PNGTranslator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-10T08:08:29Z",
+      "side": 1,
+      "message": "This call to B_TRANSLATE is useless, because the error messages will not be in the catalog of translatable strings.",
+      "revId": "ec5c35e38f44d485691c500070890599afee64b8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90196905_87567f99",
+        "filename": "src/add-ons/translators/png/PNGTranslator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-10T08:08:29Z",
+      "side": 1,
+      "message": "It should not be an \"info\", but an error or warning alert",
+      "revId": "ec5c35e38f44d485691c500070890599afee64b8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
