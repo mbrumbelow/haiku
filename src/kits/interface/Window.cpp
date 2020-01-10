@@ -1224,6 +1224,7 @@ FrameMoved(origin);
 					fFrame.OffsetTo(origin);
 					FrameMoved(origin);
 				}
+/*
 				if (width != fFrame.Width() || height != fFrame.Height()) {
 					// TODO: remove code duplicatation with
 					// B_WINDOW_RESIZED case...
@@ -1234,7 +1235,7 @@ FrameMoved(origin);
 					_AdoptResize();
 					FrameResized(width, height);
 				}
-				
+*/				
 				// draw
 				int32 count = infos.CountItems();
 				for (int32 i = 0; i < count; i++) {
