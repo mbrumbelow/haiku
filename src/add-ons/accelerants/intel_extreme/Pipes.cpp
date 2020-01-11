@@ -171,7 +171,7 @@ Pipe::_ConfigureTranscoder(display_mode* target)
 
 
 void
-Pipe::ConfigureTimings(display_mode* target)
+Pipe::ConfigureTimings(display_mode* target, bool hardware)
 {
 	CALLED();
 
@@ -185,7 +185,7 @@ Pipe::ConfigureTimings(display_mode* target)
 	/* If there is a transcoder, leave the display at its native resolution,
 	 * and configure only the transcoder (panel fitting will match them
 	 * together). */
-	if (!fHasTranscoder)
+	if (!fHasTranscoder && hardware)
 	{
 		// update timing (fPipeOffset bumps the DISPLAY_A to B when needed)
 		write32(INTEL_DISPLAY_A_HTOTAL + fPipeOffset,
@@ -209,26 +209,22 @@ Pipe::ConfigureTimings(display_mode* target)
 			| ((uint32)target->timing.v_sync_start - 1));
 	}
 
-	// XXX: Is it ok to do these on non-digital?
-
-	write32(INTEL_DISPLAY_A_POS + fPipeOffset, 0);
-
-	// Set the image size for both pipes, just in case.
-	write32(INTEL_DISPLAY_A_IMAGE_SIZE,
-		((uint32)(target->virtual_width - 1) << 16)
-			| ((uint32)target->virtual_height - 1));
-	write32(INTEL_DISPLAY_B_IMAGE_SIZE,
-		((uint32)(target->virtual_width - 1) << 16)
-			| ((uint32)target->virtual_height - 1));
-
 	write32(INTEL_DISPLAY_A_PIPE_SIZE + fPipeOffset,
-		((uint32)(target->timing.v_display - 1) << 16)
-			| ((uint32)target->timing.h_display - 1));
+		((uint32)(target->timing.h_display - 1) << 16)
+			| ((uint32)target->timing.v_display - 1));
 
-	// This is useful for debugging: it sets the border to red, so you
-	// can see what is border and what is porch (black area around the
-	// sync)
-	//write32(INTEL_DISPLAY_A_RED + fPipeOffset, 0x00FF0000);
+	// Set the plane size as well while we're at it (this is independant, we
+	// could have a larger plane and scroll through it).
+	if (gInfo->shared_info->device_type.Generation() > 4) {
+		// This is "reserved" on G45 and below.
+		write32(INTEL_DISPLAY_A_IMAGE_SIZE + fPipeOffset,
+			((uint32)(target->virtual_width - 1) << 16)
+			| ((uint32)target->virtual_height - 1));
+	}
+
+	// Since we set the plane to be the same size as the display, we can just
+	// show it starting at top-left.
+	write32(INTEL_DISPLAY_A_POS + fPipeOffset, 0);
 
 	if (fHasTranscoder)
 		_ConfigureTranscoder(target);
