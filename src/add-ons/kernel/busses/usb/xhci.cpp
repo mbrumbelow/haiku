@@ -243,7 +243,7 @@ XHCI::XHCI(pci_info *info, Stack *stack)
 
 	size_t mapSize = fPCIInfo->u.h0.base_register_sizes[0];
 
-	TRACE("map physical memory %08" B_PRIxPHYSADDR ", size: %" B_PRIuSIZE "\n",
+	TRACE("map registers %08" B_PRIxPHYSADDR ", size: %" B_PRIuSIZE "\n",
 		physicalAddress, mapSize);
 
 	fRegisterArea = map_physical_memory("XHCI memory mapped registers",
@@ -275,7 +275,7 @@ XHCI::XHCI(pci_info *info, Stack *stack)
 	uint32 cparams = ReadCapReg32(XHCI_HCCPARAMS);
 	if (cparams == 0xffffffff)
 		return;
-	TRACE_ALWAYS("capability params: 0x%08" B_PRIx32 "\n", cparams);
+	TRACE_ALWAYS("capability parameters: 0x%08" B_PRIx32 "\n", cparams);
 
 	// if 64 bytes context structures, then 1
 	fContextSizeShift = HCC_CSZ(cparams);
@@ -398,7 +398,7 @@ XHCI::XHCI(pci_info *info, Stack *stack)
 	memset(fDevices, 0, sizeof(fDevices));
 
 	fInitOK = true;
-	TRACE("XHCI host controller driver constructed\n");
+	TRACE("driver construction successful\n");
 }
 
 
@@ -442,7 +442,6 @@ XHCI::~XHCI()
 void
 XHCI::_SwitchIntelPorts()
 {
-	TRACE("Intel xHC Controller\n");
 	TRACE("Looking for EHCI owned ports\n");
 	uint32 ports = sPCIModule->read_pci_config(fPCIInfo->bus,
 		fPCIInfo->device, fPCIInfo->function, XHCI_INTEL_USB3PRM, 4);
@@ -479,7 +478,7 @@ XHCI::Start()
 	}
 
 	if ((ReadOpReg(XHCI_PAGESIZE) & (1 << 0)) == 0) {
-		TRACE_ERROR("Controller does not support 4K page size.\n");
+		TRACE_ERROR("controller does not support 4K page size\n");
 		return B_ERROR;
 	}
 
@@ -487,7 +486,7 @@ XHCI::Start()
 	uint32 capabilities = ReadCapReg32(XHCI_HCSPARAMS1);
 	fPortCount = HCS_MAX_PORTS(capabilities);
 	if (fPortCount == 0) {
-		TRACE_ERROR("Invalid number of ports: %u\n", fPortCount);
+		TRACE_ERROR("invalid number of ports: %u\n", fPortCount);
 		return B_ERROR;
 	}
 
@@ -529,7 +528,7 @@ XHCI::Start()
 	uint32 params2 = ReadCapReg32(XHCI_HCSPARAMS2);
 	fScratchpadCount = HCS_MAX_SC_BUFFERS(params2);
 	if (fScratchpadCount > XHCI_MAX_SCRATCHPADS) {
-		TRACE_ERROR("Invalid number of scratchpads: %" B_PRIu32 "\n",
+		TRACE_ERROR("invalid number of scratchpads: %" B_PRIu32 "\n",
 			fScratchpadCount);
 		return B_ERROR;
 	}
@@ -671,13 +670,11 @@ XHCI::Start()
 	SetRootHub(fRootHub);
 
 	TRACE_ALWAYS("successfully started the controller\n");
+
 #ifdef TRACE_USB
 	TRACE("No-Op test...\n");
-	status_t noopResult = Noop();
-	TRACE("No-Op %ssuccessful\n", noopResult < B_OK ? "un" : "");
+	Noop();
 #endif
-
-	//DumpRing(fCmdRing, (XHCI_MAX_COMMANDS - 1));
 
 	return BusManager::Start();
 }
@@ -690,7 +687,7 @@ XHCI::SubmitTransfer(Transfer *transfer)
 	if (transfer->TransferPipe()->DeviceAddress() == fRootHubAddress)
 		return fRootHub->ProcessTransfer(this, transfer);
 
-	TRACE("SubmitTransfer()\n");
+	TRACE("SubmitTransfer(%p)\n", transfer);
 	Pipe *pipe = transfer->TransferPipe();
 	if ((pipe->Type() & USB_OBJECT_CONTROL_PIPE) != 0)
 		return SubmitControlRequest(transfer);
@@ -772,7 +769,6 @@ XHCI::SubmitControlRequest(Transfer *transfer)
 		FreeDescriptor(descriptor);
 		return status;
 	}
-	TRACE("SubmitControlRequest() request linked\n");
 
 	return B_OK;
 }
@@ -795,44 +791,41 @@ XHCI::SubmitNormalRequest(Transfer *transfer)
 	if (status != B_OK)
 		return status;
 
-	// Compute the size to use for the TRBs, and then how many TRBs
-	// of this size we will need. We always need at least 1, of course.
-	size_t dataLength = transfer->DataLength(),
-		packetSize = pipe->MaxPacketSize(),
-		packetsPerTrb = 4;
+	// TRBs within a TD must be "grouped" into TD Fragments, which mostly means
+	// that a max_burst_payload boundary cannot be crossed within a TRB, but
+	// only between TRBs. More than one TRB can be in a TD Fragment, but we keep
+	// things simple by setting trbSize to the MBP. (XHCI 1.2 § 4.11.7.1 p235.)
+	size_t trbSize = endpoint->max_burst_payload;
 
 	if (isochronousData != NULL) {
 		if (isochronousData->packet_count == 0)
 			return B_BAD_VALUE;
 
 		// Isochronous transfers use more specifically sized packets.
-		packetSize = transfer->DataLength() / isochronousData->packet_count;
-		if (packetSize > pipe->MaxPacketSize() || packetSize
+		trbSize = transfer->DataLength() / isochronousData->packet_count;
+		if (trbSize > pipe->MaxPacketSize() || trbSize
 				!= (size_t)isochronousData->packet_descriptors[0].request_length)
 			return B_BAD_VALUE;
-		packetsPerTrb = 1;
 	}
 
-	// Now that we know packetSize & packetsPerTrb, compute TRB size and count.
-	const size_t trbSize = packetsPerTrb * packetSize;
-	const int32 trbCount = (dataLength + trbSize - 1) / trbSize;
+	// Now that we know trbSize, compute the count.
+	const int32 trbCount = (transfer->DataLength() + trbSize - 1) / trbSize;
 
 	xhci_td *td = CreateDescriptor(trbCount, trbCount, trbSize);
 	if (td == NULL)
 		return B_NO_MEMORY;
 
 	// Normal Stage
-	size_t remaining = dataLength;
-	int32 remainingPackets = (remaining - trbSize) / packetSize;
+	size_t remaining = transfer->DataLength();
 	for (int32 i = 0; i < trbCount; i++) {
 		// The "TD Size" field of a transfer TRB indicates the number of
 		// remaining maximum-size *packets* in this TD, *not* including the
 		// packets in the current TRB, and capped at 31 if there are more
-		// than 31 packets remaining in the TD. (XHCI 1.1 § 4.11.2.4 p210.)
-		int32 tdSize = remainingPackets > 31 ? 31 : remainingPackets;
-		if (tdSize < 0)
-			tdSize = 0;
-		int32 trbLength = remaining < trbSize ? remaining : trbSize;
+		// than 31 packets remaining in the TD. (XHCI 1.2 § 4.11.2.4 p218.)
+		int32 tdSize = remaining / pipe->MaxPacketSize();
+		if (tdSize > 31)
+			tdSize = 31;
+		int32 trbLength = (remaining < trbSize) ? remaining : trbSize;
 
 		td->trbs[i].address = td->buffer_addrs[i];
 		td->trbs[i].status = TRB_2_IRQ(0)
@@ -844,7 +837,6 @@ XHCI::SubmitNormalRequest(Transfer *transfer)
 
 		td->trb_used++;
 		remaining -= trbLength;
-		remainingPackets -= packetsPerTrb;
 	}
 
 	// Isochronous-specific
@@ -919,7 +911,6 @@ XHCI::SubmitNormalRequest(Transfer *transfer)
 		FreeDescriptor(td);
 		return status;
 	}
-	TRACE("SubmitNormalRequest() request linked\n");
 
 	return B_OK;
 }
@@ -982,7 +973,7 @@ XHCI::CancelQueuedTransfers(Pipe *pipe, bool force)
 			endpoint->device->slot);
 
 		// We don't need to do anything else to restart the ring, as it will resume
-		// operation as normal upon the next doorbell. (XHCI 1.1 § 4.6.9 p132.)
+		// operation as normal upon the next doorbell. (XHCI 1.2 § 4.6.9 p136.)
 	} else {
 		// We couldn't stop the endpoint. Most likely the device has been
 		// removed and the endpoint was stopped by the hardware, or is
@@ -1482,9 +1473,19 @@ XHCI::AllocateDevice(Hub *parent, int8 hubAddress, uint8 hubPort,
 		break;
 	}
 
+	xhci_endpoint* endpoint0 = &device->endpoints[0];
+	mutex_init(&endpoint0->lock, "xhci endpoint lock");
+	endpoint0->device = device;
+	endpoint0->id = 0;
+	endpoint0->td_head = NULL;
+	endpoint0->used = 0;
+	endpoint0->current = 0;
+	endpoint0->trbs = device->trbs;
+	endpoint0->trb_addr = device->trb_addr;
+
 	// configure the Control endpoint 0
-	if (ConfigureEndpoint(slot, 0, USB_OBJECT_CONTROL_PIPE, false,
-			device->trb_addr, 0, maxPacketSize, speed, 0, 0) != B_OK) {
+	if (ConfigureEndpoint(endpoint0, slot, 0, USB_OBJECT_CONTROL_PIPE, false,
+			0, maxPacketSize, speed, 0, 0) != B_OK) {
 		TRACE_ERROR("unable to configure default control endpoint\n");
 		delete_area(device->input_ctx_area);
 		delete_area(device->device_ctx_area);
@@ -1493,15 +1494,6 @@ XHCI::AllocateDevice(Hub *parent, int8 hubAddress, uint8 hubPort,
 		device->state = XHCI_STATE_DISABLED;
 		return NULL;
 	}
-
-	mutex_init(&device->endpoints[0].lock, "xhci endpoint lock");
-	device->endpoints[0].device = device;
-	device->endpoints[0].id = 0;
-	device->endpoints[0].td_head = NULL;
-	device->endpoints[0].used = 0;
-	device->endpoints[0].current = 0;
-	device->endpoints[0].trbs = device->trbs;
-	device->endpoints[0].trb_addr = device->trb_addr;
 
 	// device should get to addressed state (bsr = 0)
 	if (SetAddress(device->input_ctx_addr, false, slot) != B_OK) {
@@ -1527,7 +1519,7 @@ XHCI::AllocateDevice(Hub *parent, int8 hubAddress, uint8 hubPort,
 
 	// Create a temporary pipe with the new address
 	ControlPipe pipe(parent);
-	pipe.SetControllerCookie(&device->endpoints[0]);
+	pipe.SetControllerCookie(endpoint0);
 	pipe.InitCommon(device->address + 1, 0, speed, Pipe::Default, maxPacketSize, 0,
 		hubAddress, hubPort);
 
@@ -1550,7 +1542,7 @@ XHCI::AllocateDevice(Hub *parent, int8 hubAddress, uint8 hubPort,
 		&actualLength);										// actual length
 
 	if (actualLength != 8) {
-		TRACE_ERROR("error while getting the device descriptor: %s\n",
+		TRACE_ERROR("failed to get the device descriptor: %s\n",
 			strerror(status));
 		delete_area(device->input_ctx_area);
 		delete_area(device->device_ctx_area);
@@ -1688,11 +1680,11 @@ XHCI::_InsertEndpointForPipe(Pipe *pipe)
 	if (usbDevice->Parent() == RootObject())
 		return B_OK;
 	if (device == NULL) {
-		panic("_InsertEndpointForPipe device is NULL\n");
+		panic("device is NULL\n");
 		return B_NO_INIT;
 	}
 
-	uint8 id = (2 * pipe->EndpointAddress()
+	const uint8 id = (2 * pipe->EndpointAddress()
 		+ (pipe->Direction() != Pipe::Out ? 1 : 0)) - 1;
 	if (id >= XHCI_MAX_ENDPOINTS - 1)
 		return B_BAD_VALUE;
@@ -1707,46 +1699,43 @@ XHCI::_InsertEndpointForPipe(Pipe *pipe)
 			EvaluateContext(device->input_ctx_addr, device->slot);
 		}
 
-		mutex_init(&device->endpoints[id].lock, "xhci endpoint lock");
-		MutexLocker endpointLocker(device->endpoints[id].lock);
+		xhci_endpoint* endpoint = &device->endpoints[id];
+		mutex_init(&endpoint->lock, "xhci endpoint lock");
+		MutexLocker endpointLocker(endpoint->lock);
 
-		device->endpoints[id].device = device;
-		device->endpoints[id].id = id;
-		device->endpoints[id].td_head = NULL;
-		device->endpoints[id].used = 0;
-		device->endpoints[id].current = 0;
+		endpoint->device = device;
+		endpoint->id = id;
+		endpoint->td_head = NULL;
+		endpoint->used = 0;
+		endpoint->current = 0;
 
-		device->endpoints[id].trbs = device->trbs
-			+ id * XHCI_ENDPOINT_RING_SIZE;
-		device->endpoints[id].trb_addr = device->trb_addr
+		endpoint->trbs = device->trbs + id * XHCI_ENDPOINT_RING_SIZE;
+		endpoint->trb_addr = device->trb_addr
 			+ id * XHCI_ENDPOINT_RING_SIZE * sizeof(xhci_trb);
-		memset(device->endpoints[id].trbs, 0,
+		memset(endpoint->trbs, 0,
 			sizeof(xhci_trb) * XHCI_ENDPOINT_RING_SIZE);
 
-		TRACE("_InsertEndpointForPipe trbs device %p endpoint %p\n",
-			device->trbs, device->endpoints[id].trbs);
-		TRACE("_InsertEndpointForPipe trb_addr device 0x%" B_PRIxPHYSADDR
+		TRACE("insert endpoint for pipe: trbs, device %p endpoint %p\n",
+			device->trbs, endpoint->trbs);
+		TRACE("insert endpoint for pipe: trb_addr, device 0x%" B_PRIxPHYSADDR
 			" endpoint 0x%" B_PRIxPHYSADDR "\n", device->trb_addr,
-			device->endpoints[id].trb_addr);
+			endpoint->trb_addr);
 
-		uint8 endpoint = id + 1;
+		const uint8 endpointNum = id + 1;
 
-		TRACE("trb_addr 0x%" B_PRIxPHYSADDR "\n", device->endpoints[id].trb_addr);
-
-		status_t status = ConfigureEndpoint(device->slot, id, pipe->Type(),
-			pipe->Direction() == Pipe::In, device->endpoints[id].trb_addr,
-			pipe->Interval(), pipe->MaxPacketSize(), usbDevice->Speed(),
-			pipe->MaxBurst(), pipe->BytesPerInterval());
+		status_t status = ConfigureEndpoint(endpoint, device->slot, id, pipe->Type(),
+			pipe->Direction() == Pipe::In, pipe->Interval(), pipe->MaxPacketSize(),
+			usbDevice->Speed(), pipe->MaxBurst(), pipe->BytesPerInterval());
 		if (status != B_OK) {
-			TRACE_ERROR("unable to configure endpoint\n");
+			TRACE_ERROR("unable to configure endpoint: %s\n", strerror(status));
 			return status;
 		}
 
 		_WriteContext(&device->input_ctx->input.dropFlags, 0);
 		_WriteContext(&device->input_ctx->input.addFlags,
-			(1 << endpoint) | (1 << 0));
+			(1 << endpointNum) | (1 << 0));
 
-		if (endpoint > 1)
+		if (endpointNum > 1)
 			ConfigureEndpoint(device->input_ctx_addr, false, device->slot);
 		else
 			EvaluateContext(device->input_ctx_addr, device->slot);
@@ -1764,8 +1753,6 @@ XHCI::_InsertEndpointForPipe(Pipe *pipe)
 		device->state = XHCI_STATE_CONFIGURED;
 	}
 	pipe->SetControllerCookie(&device->endpoints[id]);
-
-	TRACE("_InsertEndpointForPipe for pipe %p at id %d\n", pipe, id);
 
 	return B_OK;
 }
@@ -1823,7 +1810,7 @@ XHCI::_RemoveEndpointForPipe(Pipe *pipe)
 status_t
 XHCI::_LinkDescriptorForPipe(xhci_td *descriptor, xhci_endpoint *endpoint)
 {
-	TRACE("_LinkDescriptorForPipe\n");
+	TRACE("link descriptor for pipe\n");
 
 	// We must check this before we lock the endpoint, because if it is
 	// NULL, the mutex is probably uninitialized, too.
@@ -1839,7 +1826,7 @@ XHCI::_LinkDescriptorForPipe(xhci_td *descriptor, xhci_endpoint *endpoint)
 	// "used" refers to the number of currently linked TDs, not the number of
 	// used TRBs on the ring (we use 2 TRBs on the ring per transfer.)
 	if (endpoint->used >= (XHCI_MAX_TRANSFERS - 1)) {
-		TRACE_ERROR("_LinkDescriptorForPipe max transfers count exceeded\n");
+		TRACE_ERROR("link descriptor for pipe: max transfers count exceeded\n");
 		mutex_unlock(&endpoint->lock);
 		return B_BAD_VALUE;
 	}
@@ -1852,10 +1839,10 @@ XHCI::_LinkDescriptorForPipe(xhci_td *descriptor, xhci_endpoint *endpoint)
 		eventdata = current + 1;
 	uint8 next = eventdata + 1;
 
-	TRACE("_LinkDescriptorForPipe current %d, next %d\n", current, next);
+	TRACE("link descriptor for pipe: current %d, next %d\n", current, next);
 
 	// Add a Link TRB to the end of the descriptor.
-	addr_t addr = endpoint->trb_addr + eventdata * sizeof(xhci_trb);
+	phys_addr_t addr = endpoint->trb_addr + eventdata * sizeof(xhci_trb);
 	descriptor->trbs[descriptor->trb_used].address = addr;
 	descriptor->trbs[descriptor->trb_used].status = TRB_2_IRQ(0);
 	descriptor->trbs[descriptor->trb_used].flags = TRB_3_TYPE(TRB_TYPE_LINK)
@@ -1956,7 +1943,7 @@ XHCI::_LinkDescriptorForPipe(xhci_td *descriptor, xhci_endpoint *endpoint)
 status_t
 XHCI::_UnlinkDescriptorForPipe(xhci_td *descriptor, xhci_endpoint *endpoint)
 {
-	TRACE("_UnlinkDescriptorForPipe\n");
+	TRACE("unlink descriptor for pipe\n");
 	// We presume that the caller has already locked or owns the endpoint.
 
 	endpoint->used--;
@@ -1980,8 +1967,8 @@ XHCI::_UnlinkDescriptorForPipe(xhci_td *descriptor, xhci_endpoint *endpoint)
 
 
 status_t
-XHCI::ConfigureEndpoint(uint8 slot, uint8 number, uint8 type, bool directionIn,
-	uint64 ringAddr, uint16 interval, uint16 maxPacketSize, usb_speed speed,
+XHCI::ConfigureEndpoint(xhci_endpoint* ep, uint8 slot, uint8 number, uint8 type,
+	bool directionIn, uint16 interval, uint16 maxPacketSize, usb_speed speed,
 	uint8 maxBurst, uint16 bytesPerInterval)
 {
 	struct xhci_device* device = &fDevices[slot];
@@ -1991,7 +1978,7 @@ XHCI::ConfigureEndpoint(uint8 slot, uint8 number, uint8 type, bool directionIn,
 	uint64 qwendpoint2 = 0;
 	uint32 dwendpoint4 = 0;
 
-	// Compute and assign the endpoint type. (XHCI 1.1 § 6.2.3 Table 6-9 p429.)
+	// Compute and assign the endpoint type. (XHCI 1.2 § 6.2.3 Table 6-9 p452.)
 	uint8 xhciType = 4;
 	if ((type & USB_OBJECT_INTERRUPT_PIPE) != 0)
 		xhciType = 3;
@@ -2002,7 +1989,7 @@ XHCI::ConfigureEndpoint(uint8 slot, uint8 number, uint8 type, bool directionIn,
 	xhciType |= directionIn ? (1 << 2) : 0;
 	dwendpoint1 |= ENDPOINT_1_EPTYPE(xhciType);
 
-	// Compute and assign interval. (XHCI 1.1 § 6.2.3.6 p433.)
+	// Compute and assign interval. (XHCI 1.2 § 6.2.3.6 p456.)
 	uint16 calcInterval;
 	if ((type & USB_OBJECT_BULK_PIPE) != 0
 			|| (type & USB_OBJECT_CONTROL_PIPE) != 0) {
@@ -2040,12 +2027,12 @@ XHCI::ConfigureEndpoint(uint8 slot, uint8 number, uint8 type, bool directionIn,
 	dwendpoint0 |= ENDPOINT_0_INTERVAL(calcInterval);
 
 	// For non-isochronous endpoints, we want the controller to retry failed
-	// transfers, if possible. (XHCI 1.1 § 4.10.2.3 p189.)
+	// transfers, if possible. (XHCI 1.2 § 4.10.2.3 p197.)
 	if ((type & USB_OBJECT_ISO_PIPE) == 0)
 		dwendpoint1 |= ENDPOINT_1_CERR(3);
 
 	// Assign maximum burst size. For USB3 devices this is passed in; for
-	// all other devices we compute it. (XHCI 1.1 § 4.8.2 p154.)
+	// all other devices we compute it. (XHCI 1.2 § 4.8.2 p161.)
 	if (speed == USB_SPEED_HIGHSPEED && (type & (USB_OBJECT_INTERRUPT_PIPE
 			| USB_OBJECT_ISO_PIPE)) != 0) {
 		maxBurst = (maxPacketSize & 0x1800) >> 11;
@@ -2055,9 +2042,13 @@ XHCI::ConfigureEndpoint(uint8 slot, uint8 number, uint8 type, bool directionIn,
 	dwendpoint1 |= ENDPOINT_1_MAXBURST(maxBurst);
 
 	// Assign maximum packet size, set the ring address, and set the
-	// "Dequeue Cycle State" bit. (XHCI 1.1 § 6.2.3 Table 6-10 p430.)
+	// "Dequeue Cycle State" bit. (XHCI 1.2 § 6.2.3 Table 6-10 p453.)
 	dwendpoint1 |= ENDPOINT_1_MAXPACKETSIZE(maxPacketSize);
-	qwendpoint2 |= ENDPOINT_2_DCS_BIT | ringAddr;
+	qwendpoint2 |= ENDPOINT_2_DCS_BIT | ep->trb_addr;
+
+	// The Max Burst Payload is the number of bytes moved by a
+	// maximum sized burst. (XHCI 1.2 § 4.11.7.1 p236.)
+	ep->max_burst_payload = (maxBurst + 1) * maxPacketSize;
 
 	// Assign average TRB length.
 	if ((type & USB_OBJECT_CONTROL_PIPE) != 0) {
@@ -2070,11 +2061,11 @@ XHCI::ConfigureEndpoint(uint8 slot, uint8 number, uint8 type, bool directionIn,
 		// but we don't know what it is here.)
 		dwendpoint4 |= ENDPOINT_4_AVGTRBLENGTH(maxPacketSize);
 	} else {
-		// Under all other circumstances, we put 4 packets in a TRB.
-		dwendpoint4 |= ENDPOINT_4_AVGTRBLENGTH(maxPacketSize * 4);
+		// Under all other circumstances, we put max_burst_payload in a TRB.
+		dwendpoint4 |= ENDPOINT_4_AVGTRBLENGTH(ep->max_burst_payload);
 	}
 
-	// Assign maximum ESIT payload. (XHCI 1.1 § 4.14.2 p250.)
+	// Assign maximum ESIT payload. (XHCI 1.2 § 4.14.2 p259.)
 	if ((type & (USB_OBJECT_INTERRUPT_PIPE | USB_OBJECT_ISO_PIPE)) != 0) {
 		// TODO: For SuperSpeedPlus endpoints, there is yet another descriptor
 		// for isochronous endpoints that specifies the maximum ESIT payload.
@@ -2429,8 +2420,6 @@ XHCI::QueueCommand(xhci_trb* trb)
 void
 XHCI::HandleCmdComplete(xhci_trb* trb)
 {
-	TRACE("HandleCmdComplete trb %p\n", trb);
-
 	if (fCmdAddr == trb->address) {
 		TRACE("Received command event\n");
 		fCmdResult[0] = trb->status;
@@ -2444,8 +2433,6 @@ XHCI::HandleCmdComplete(xhci_trb* trb)
 void
 XHCI::HandleTransferComplete(xhci_trb* trb)
 {
-	TRACE("HandleTransferComplete trb %p\n", trb);
-
 	const uint32 flags = B_LENDIAN_TO_HOST_INT32(trb->flags);
 	const uint8 endpointNumber = TRB_3_ENDPOINT_GET(flags),
 		slot = TRB_3_SLOT_GET(flags);
@@ -2591,7 +2578,7 @@ XHCI::DoCommand(xhci_trb* trb)
 
 	status_t status = B_OK;
 	uint32 completionCode = TRB_2_COMP_CODE_GET(fCmdResult[0]);
-	TRACE("Command Complete. Result: %" B_PRId32 "\n", completionCode);
+	TRACE("command complete\n");
 	if (completionCode != COMP_SUCCESS) {
 		TRACE_ERROR("unsuccessful command %" B_PRId32 ", error %s (%" B_PRId32 ")\n",
 			TRB_3_TYPE_GET(trb->flags), xhci_error_string(completionCode),
@@ -2601,8 +2588,6 @@ XHCI::DoCommand(xhci_trb* trb)
 
 	trb->status = fCmdResult[0];
 	trb->flags = fCmdResult[1];
-	TRACE("Storing trb 0x%08" B_PRIx32 " 0x%08" B_PRIx32 "\n", trb->status,
-		trb->flags);
 
 	fCmdAddr = 0;
 	Unlock();
@@ -2738,7 +2723,7 @@ XHCI::SetTRDequeue(uint64 dequeue, uint16 stream, uint8 endpoint, uint8 slot)
 	xhci_trb trb;
 	trb.address = dequeue | ENDPOINT_2_DCS_BIT;
 		// The DCS bit is copied from the address field as in ConfigureEndpoint.
-		// (XHCI 1.1 § 4.6.10 p142.)
+		// (XHCI 1.2 § 4.6.10 p142.)
 	trb.status = TRB_2_STREAM(stream);
 	trb.flags = TRB_3_TYPE(TRB_TYPE_SET_TR_DEQUEUE)
 		| TRB_3_SLOT(slot) | TRB_3_ENDPOINT(endpoint);

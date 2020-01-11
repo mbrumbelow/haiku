@@ -242,13 +242,16 @@ static const Translation kTranslations[] = {
 	{ "pt",
 		"Marcos Alves (Xeon3D)\n"
 		"Vasco Costa (gluon)\n"
+		"Victor Domingos\n"
 		"Adriano Duarte\n"
 		"Louis de M.\n"
 		"pedrothegameroficialtm\n"
+		"zeru\n"
 		// "taos\n" bugfixes only, no actual translations
 	},
 	{ "pt_BR",
 		"Cabral Bandeira (beyraq)\n"
+		"Victor Domingos\n"
 		"Adriano A. Duarte (Sri_Dhryko)\n"
 		"Wallace Maia\n"
 		"Tiago Matos (tiagoms)\n"
@@ -346,7 +349,6 @@ static const Translation kTranslations[] = {
 		"Anders Trobäck\n"
 		"Victor Widell\n"
 	},
-#if 0
 	{ "tr",
 		"Hüseyin Aksu\n"
 		"Halil İbrahim Azak\n"
@@ -355,6 +357,7 @@ static const Translation kTranslations[] = {
 		"Enes Burhan Kuran\n"
 		"Ali Rıza Nazlı\n"
 		"Anıl Özbek\n"
+		"Emir Sarı\n"
 		"Sinan Talebi\n"
 		"csakirt\n"
 		"Hezarfen\n"
@@ -363,7 +366,6 @@ static const Translation kTranslations[] = {
 		"ocingiler\n"
 		"yakup\n"
 	},
-#endif
 	{ "uk",
 		"Pavlo Bvrda\n"
 		"Mariya Pilipchuk\n"
