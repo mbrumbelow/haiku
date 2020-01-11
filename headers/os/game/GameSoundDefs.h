@@ -1,9 +1,6 @@
 /*
- *  Copyright 2001-2002, Haiku Inc. All Rights Reserved.
+ *  Copyright 2020, Haiku, Inc. All Rights Reserved.
  *  Distributed under the terms of the MIT License.
- *
- * Author:
- *		Christopher ML Zumwalt May (zummy@users.sf.net)
  */
 #ifndef _GAME_SOUND_DEFS_H
 #define _GAME_SOUND_DEFS_H
@@ -33,7 +30,7 @@ enum {
 };
 
 
-struct gs_audio_format {		
+struct gs_audio_format {
 	// same as media_raw_audio_format
 	enum format {	// for "format"
 		B_GS_U8 = 0x11,			// 128 == mid, 1 == bottom, 255 == top
@@ -55,7 +52,7 @@ enum gs_attributes {
 	B_GS_NO_ATTRIBUTE = 0,		// when there is no attribute
 	B_GS_MAIN_GAIN = 1,			// 0 == 0 dB, -6.0 == -6 dB (gs_id ignored)
 	B_GS_CD_THROUGH_GAIN,		// 0 == 0 dB, -12.0 == -12 dB (gs_id ignored)
-								//	but which CD?
+								// but which CD?
 	B_GS_GAIN = 128,			// 0 == 0 dB, -1.0 == -1 dB, +10.0 == +10 dB
 	B_GS_PAN,					// 0 == middle, -1.0 == left, +1.0 == right
 	B_GS_SAMPLING_RATE,			// 44100.0 == 44.1 kHz
