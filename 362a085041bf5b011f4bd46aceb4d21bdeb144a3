@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "512d8571_5cea990e",
+        "filename": "headers/private/fs_shell/fssh_uuid.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-11T19:48:44Z",
+      "side": 1,
+      "message": "The point of these custom headers is to remove all these #includes. The fs_shell headers are meant to replace the system ones, so they must not include the system headers.",
+      "revId": "362a085041bf5b011f4bd46aceb4d21bdeb144a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca94d8d3_b84480fb",
+        "filename": "headers/private/fs_shell/fssh_uuidP.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-11T19:48:44Z",
+      "side": 1,
+      "message": "This file is private in libuuid, so there is no need for an fssh wrapper for it. You can remove it.",
+      "revId": "362a085041bf5b011f4bd46aceb4d21bdeb144a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a409af1_b87cc192",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/system_dependencies.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-11T19:48:44Z",
+      "side": 1,
+      "message": "update the copyright (add a line for 2020, you can assign the work to yourself or to \"Haiku, inc\" as you prefer)",
+      "revId": "362a085041bf5b011f4bd46aceb4d21bdeb144a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c637bc15_8a59ec93",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/system_dependencies.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-11T19:48:44Z",
+      "side": 1,
+      "message": "two blank lines here",
+      "revId": "362a085041bf5b011f4bd46aceb4d21bdeb144a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d1e17ff_502e040a",
+        "filename": "src/tools/fs_shell/fssh_uuid.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-11T19:48:44Z",
+      "side": 1,
+      "message": "You don\u0027t need this. It is still fine to use the real libuuid implementation, just not its .h file.",
+      "revId": "362a085041bf5b011f4bd46aceb4d21bdeb144a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f574f8a_b7300ce4",
+        "filename": "src/tools/fs_shell/fssh_uuidP.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-11T19:48:44Z",
+      "side": 1,
+      "message": "You don\u0027t need this file, it is still possible to use the libuuid implementation.",
+      "revId": "362a085041bf5b011f4bd46aceb4d21bdeb144a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
