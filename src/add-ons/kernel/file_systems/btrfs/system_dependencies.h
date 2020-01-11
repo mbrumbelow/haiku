@@ -5,17 +5,16 @@
 #ifndef _SYSTEM_DEPENDENCIES_H
 #define _SYSTEM_DEPENDENCIES_H
 
-
 #ifdef FS_SHELL
 
 #include "fssh_api_wrapper.h"
 #include "fssh_auto_deleter.h"
+#include "fssh_uuid.h"
 
 #include <util/AVLTree.h>
-#include <uuid.h>
 #include <zlib.h>
 
-#else	// !FS_SHELL
+#else // !FS_SHELL
 
 #include <AutoDeleter.h>
 #include <util/kernel_cpp.h>
@@ -46,7 +45,6 @@
 #include <uuid.h>
 #include <zlib.h>
 
-#endif	// !FS_SHELL
+#endif // !FS_SHELL
 
-
-#endif	// _SYSTEM_DEPENDENCIES
+#endif // _SYSTEM_DEPENDENCIES
