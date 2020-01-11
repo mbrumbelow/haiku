@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aba77e20_394421c6",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-11T18:23:11Z",
+      "side": 1,
+      "message": "extra trailing tab here",
+      "revId": "a235ce34639fee511029171c9b267d5811a6b821",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
