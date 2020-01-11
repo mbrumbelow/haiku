@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cba23d0e_5af2d74e",
+        "filename": "src/apps/terminal/TermView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-11T12:36:48Z",
+      "side": 1,
+      "message": "this line is too long (80 columns max)",
+      "revId": "be6da0611e55c58d32af4e5072dee2e4428e23fd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
