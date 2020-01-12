@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b9c5750e_47ee36ac",
+        "filename": "src/servers/app/View.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 723,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-01-12T13:49:49Z",
+      "side": 1,
+      "message": "still over 80 columns",
+      "revId": "b5664305f62234c0bb02b8047c31ec5044e658de",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16ccfabe_4b64ca98",
+        "filename": "src/servers/app/View.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 940,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-01-12T13:49:49Z",
+      "side": 1,
+      "message": "Indentation is particularly weird here.",
+      "revId": "b5664305f62234c0bb02b8047c31ec5044e658de",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97677794_affcb091",
+        "filename": "src/servers/app/View.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1427,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-01-12T13:49:49Z",
+      "side": 1,
+      "message": "still over 80 columns",
+      "revId": "b5664305f62234c0bb02b8047c31ec5044e658de",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
