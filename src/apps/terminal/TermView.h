@@ -82,7 +82,7 @@ public:
 			void				GetFontSize(float* width, float* height);
 			int					Rows() const;
 			int					Columns() const;
-			BRect				SetTermSize(int rows, int cols,
+			BRect				SetTermSize(int rows, int columns,
 									bool notifyShell);
 			void				SetTermSize(BRect rect,
 									bool notifyShell = false);
@@ -147,7 +147,7 @@ protected:
 	virtual void				MouseUp(BPoint where);
 
 	virtual void				FrameResized(float width, float height);
-	virtual void				MessageReceived(BMessage* message);
+	virtual void				MessageReceived(BMessage* msg);
 
 	virtual void				ScrollTo(BPoint where);
 	virtual void				TargetedByScrollView(BScrollView *scrollView);

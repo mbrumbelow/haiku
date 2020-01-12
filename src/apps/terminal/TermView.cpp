@@ -1900,12 +1900,12 @@ TermView::MessageReceived(BMessage *msg)
 
 
 status_t
-TermView::GetSupportedSuites(BMessage *message)
+TermView::GetSupportedSuites(BMessage *msg)
 {
 	BPropertyInfo propInfo(sPropList);
-	message->AddString("suites", "suite/vnd.naan-termview");
-	message->AddFlat("messages", &propInfo);
-	return BView::GetSupportedSuites(message);
+	msg->AddString("suites", "suite/vnd.naan-termview");
+	msg->AddFlat("messages", &propInfo);
+	return BView::GetSupportedSuites(msg);
 }
 
 
@@ -1962,13 +1962,13 @@ TermView::TargetedByScrollView(BScrollView *scrollView)
 
 
 BHandler*
-TermView::ResolveSpecifier(BMessage* message, int32 index, BMessage* specifier,
+TermView::ResolveSpecifier(BMessage* msg, int32 index, BMessage* specifier,
 	int32 what, const char* property)
 {
 	BHandler* target = this;
 	BPropertyInfo propInfo(sPropList);
-	if (propInfo.FindMatch(message, index, specifier, what, property) < B_OK) {
-		target = BView::ResolveSpecifier(message, index, specifier, what,
+	if (propInfo.FindMatch(msg, index, specifier, what, property) < B_OK) {
+		target = BView::ResolveSpecifier(msg, index, specifier, what,
 			property);
 	}
 
