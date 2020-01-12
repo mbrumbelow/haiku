@@ -31,7 +31,7 @@ _BTextInput_::_BTextInput_(BRect frame, BRect textRect, uint32 resizeMask,
 	uint32 flags)
 	:
 	BTextView(frame, "_input_", textRect, resizeMask, flags),
-	fPreviousText(NULL)
+	fPreviousText(NULL), fBool(false)
 {
 	MakeResizable(true);
 }
@@ -40,7 +40,7 @@ _BTextInput_::_BTextInput_(BRect frame, BRect textRect, uint32 resizeMask,
 _BTextInput_::_BTextInput_(BMessage* archive)
 	:
 	BTextView(archive),
-	fPreviousText(NULL)
+	fPreviousText(NULL), fBool(false)
 {
 	MakeResizable(true);
 }
@@ -72,13 +72,9 @@ _BTextInput_::Archive(BMessage* data, bool deep) const
 void
 _BTextInput_::MouseDown(BPoint where)
 {
-	if (!IsFocus()) {
-		MakeFocus(true);
-		return;
-	}
-
-	// only pass through to base class if we already have focus
+	fBool = true;
 	BTextView::MouseDown(where);
+	fBool = false;
 }
 
 
@@ -131,7 +127,8 @@ _BTextInput_::MakeFocus(bool state)
 
 	if (state) {
 		SetInitialText();
-		SelectAll();
+		if (!fBool)
+			SelectAll();
 	} else {
 		if (strcmp(Text(), fPreviousText) != 0)
 			TextControl()->Invoke();
