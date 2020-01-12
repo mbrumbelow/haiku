@@ -1,0 +1,191 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bbb7e0fa_0ed4684d",
+        "filename": "headers/os/game/DirectWindow.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-12T15:59:24Z",
+      "side": 1,
+      "message": "keep all these aligned (make sure you are using 4 spaces per tab in your editor settings)",
+      "revId": "cac9a546566674ad744d4d95d1b701f5f563de62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6fbac272_0f5d6ce0",
+        "filename": "headers/os/game/DirectWindow.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-12T15:59:24Z",
+      "side": 1,
+      "message": "two blank lines here",
+      "revId": "cac9a546566674ad744d4d95d1b701f5f563de62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "591cff87_eaa2486d",
+        "filename": "headers/os/game/DirectWindow.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-12T15:59:24Z",
+      "side": 1,
+      "message": "indentation was better before (keep everything neatly aligned in 3 columns, one for static/virtual, one for the type, one for the method name and parameters)",
+      "revId": "cac9a546566674ad744d4d95d1b701f5f563de62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "302bf546_35d6a487",
+        "filename": "headers/os/game/DirectWindow.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-12T15:59:24Z",
+      "side": 1,
+      "message": "the empty lines here look a bit arbitrary. Try to group things in a way that makes sense, for example why aren\u0027t FrameMoved and FrameResized next to each other?",
+      "revId": "cac9a546566674ad744d4d95d1b701f5f563de62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47c95b99_bdced14e",
+        "filename": "headers/os/game/DirectWindow.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-12T15:59:24Z",
+      "side": 1,
+      "message": "use a separate private: block for variables",
+      "revId": "cac9a546566674ad744d4d95d1b701f5f563de62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78d42fd5_7305fe90",
+        "filename": "headers/os/game/FileGameSound.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-12T15:59:24Z",
+      "side": 1,
+      "message": "try to better preserve the vertical alignment here",
+      "revId": "cac9a546566674ad744d4d95d1b701f5f563de62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df5f06fd_ae524864",
+        "filename": "headers/os/game/FileGameSound.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-12T15:59:24Z",
+      "side": 1,
+      "message": "you can fix the indentation problem here while you are at it (mixed space and tabs)",
+      "revId": "cac9a546566674ad744d4d95d1b701f5f563de62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a73fa9c5_8f63215f",
+        "filename": "headers/os/game/SimpleGameSound.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-12T15:59:24Z",
+      "side": 1,
+      "message": "trailing whitespace",
+      "revId": "cac9a546566674ad744d4d95d1b701f5f563de62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e94b21b4_6cced2ec",
+        "filename": "headers/os/game/SimpleGameSound.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-12T15:59:24Z",
+      "side": 1,
+      "message": "trailing whitespace",
+      "revId": "cac9a546566674ad744d4d95d1b701f5f563de62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a5b69f7_f3b6604b",
+        "filename": "headers/os/game/SimpleGameSound.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-12T15:59:24Z",
+      "side": 1,
+      "message": "here as well try to improve the vertical alignment",
+      "revId": "cac9a546566674ad744d4d95d1b701f5f563de62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e065e99f_6e05c91b",
+        "filename": "headers/os/game/SimpleGameSound.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-12T15:59:24Z",
+      "side": 1,
+      "message": "fix this line, it is parameters for the method above, indent it accordingly",
+      "revId": "cac9a546566674ad744d4d95d1b701f5f563de62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
