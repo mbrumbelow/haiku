@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d13cee70_bb6369d7",
+        "filename": "src/servers/app/View.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 724,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2020-01-12T14:55:20Z",
+      "side": 1,
+      "message": "Since this became a \"multi-line-if-statement\" now, you need parenthesis around the block:\n\nif (!child-\u003eIsVisible()\n    || child-\u003efViewColor \u003d\u003d B_TRANSPARENT_COLOR) {\n    continue;\n}\n\n... Same at the other instance farther below.",
+      "revId": "b247df0ac10aea032b29e96056d965e56c02761b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "daa2a002_935684c3",
+        "filename": "src/servers/app/View.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 944,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2020-01-12T14:55:20Z",
+      "side": 1,
+      "message": "The \"correct\" way to place these parenthesis would be:\n\nif (fParent\n    \u0026\u0026 IsVisible()\n    \u0026\u0026 ((oldColor \u003d\u003d B_TRANSPARENT_COLOR)\n        !\u003d (color \u003d\u003d B_TRANSPARENT_COLOR)) {\n    fParent-\u003eRebuildClipping(false);\n}",
+      "revId": "b247df0ac10aea032b29e96056d965e56c02761b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
