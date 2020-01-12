@@ -517,8 +517,8 @@ BTextControl::MessageReceived(BMessage* message)
 void
 BTextControl::MouseDown(BPoint where)
 {
-	if (!fText->IsFocus())
-		fText->MakeFocus(true);
+	if (!IsFocus())
+		MakeFocus();
 }
 
 

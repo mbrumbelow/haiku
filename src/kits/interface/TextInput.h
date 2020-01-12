@@ -29,7 +29,6 @@ virtual					~_BTextInput_();
 static	BArchivable*	Instantiate(BMessage *data);
 virtual	status_t		Archive(BMessage *data, bool deep = true) const;
 
-virtual	void			MouseDown(BPoint where);
 virtual	void			FrameResized(float width, float height);
 virtual	void			KeyDown(const char *bytes, int32 numBytes);
 virtual	void			MakeFocus(bool focusState = true);

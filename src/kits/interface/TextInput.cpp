@@ -70,19 +70,6 @@ _BTextInput_::Archive(BMessage* data, bool deep) const
 
 
 void
-_BTextInput_::MouseDown(BPoint where)
-{
-	if (!IsFocus()) {
-		MakeFocus(true);
-		return;
-	}
-
-	// only pass through to base class if we already have focus
-	BTextView::MouseDown(where);
-}
-
-
-void
 _BTextInput_::FrameResized(float width, float height)
 {
 	BTextView::FrameResized(width, height);
@@ -131,7 +118,6 @@ _BTextInput_::MakeFocus(bool state)
 
 	if (state) {
 		SetInitialText();
-		SelectAll();
 	} else {
 		if (strcmp(Text(), fPreviousText) != 0)
 			TextControl()->Invoke();
