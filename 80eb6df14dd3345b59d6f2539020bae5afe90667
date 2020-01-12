@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "887edd66_d0a3c04b",
+        "filename": "headers/os/game/GameSoundDefs.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-12T16:01:28Z",
+      "side": 1,
+      "message": "It is not a rewrite if any comments are preserved from the BeOS version.",
+      "revId": "80eb6df14dd3345b59d6f2539020bae5afe90667",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
