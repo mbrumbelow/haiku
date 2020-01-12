@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a29de59_508b97e2",
+        "filename": "src/apps/terminal/TermView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1903,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-12T19:07:05Z",
+      "side": 1,
+      "message": "please don\u0027t use abbreviations, \"message\" was fine.",
+      "revId": "0da8c947d877f92657d80b4e45b36c468db16940",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb3245cc_f1aa7199",
+        "filename": "src/apps/terminal/TermWindow.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-12T19:07:05Z",
+      "side": 1,
+      "message": "now this line is \u003e80 columns",
+      "revId": "0da8c947d877f92657d80b4e45b36c468db16940",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
