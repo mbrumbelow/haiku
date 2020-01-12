@@ -70,6 +70,24 @@
     },
     {
       "key": {
+        "uuid": "6f3f98ae_5b6dd76b",
+        "filename": "headers/os/game/DirectWindow.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2020-01-12T16:33:07Z",
+      "side": 1,
+      "message": "Aren\u0027t things that get split to more than one line supposed to have two empty lines around them?",
+      "parentUuid": "302bf546_35d6a487",
+      "revId": "cac9a546566674ad744d4d95d1b701f5f563de62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "47c95b99_bdced14e",
         "filename": "headers/os/game/DirectWindow.h",
         "patchSetId": 2
