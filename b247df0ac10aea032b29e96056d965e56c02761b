@@ -33,6 +33,24 @@
       "revId": "b247df0ac10aea032b29e96056d965e56c02761b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24d6bc36_a976c205",
+        "filename": "src/servers/app/View.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 944,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2020-01-12T14:58:23Z",
+      "side": 1,
+      "message": "Ugh... and can you please write \"fParent !\u003d NULL\" while you\u0027re at it. Sorry for not noticing before.",
+      "parentUuid": "daa2a002_935684c3",
+      "revId": "b247df0ac10aea032b29e96056d965e56c02761b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
