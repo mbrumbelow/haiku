@@ -1,0 +1,191 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b00f78c4_dfdcc071",
+        "filename": "headers/os/game/DirectWindow.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-13T18:58:25Z",
+      "side": 1,
+      "message": "these constructors are still not aligned properly.\n\nThere are 3 columns:\n- One for virtual/static specifiers\n- One for return types\n- One for method name and parameters\n\nJust make sure everything in each column is vertically aligned.",
+      "revId": "fb084863e3bdd8f0fafe839a9db632f225e32781",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22dd59dc_02d32752",
+        "filename": "headers/os/game/DirectWindow.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-13T18:58:25Z",
+      "side": 1,
+      "message": "This method is not aligned properly with the other ones",
+      "revId": "fb084863e3bdd8f0fafe839a9db632f225e32781",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2cb4e099_419f0131",
+        "filename": "headers/os/game/DirectWindow.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-13T18:58:25Z",
+      "side": 1,
+      "message": "use a tab between static and bool",
+      "revId": "fb084863e3bdd8f0fafe839a9db632f225e32781",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "321cb4ff_6805e2ed",
+        "filename": "headers/os/game/DirectWindow.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-13T18:58:25Z",
+      "side": 1,
+      "message": "remove this tab",
+      "revId": "fb084863e3bdd8f0fafe839a9db632f225e32781",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e52d6bf_a2b3bdaf",
+        "filename": "headers/os/game/DirectWindow.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-13T18:58:25Z",
+      "side": 1,
+      "message": "use a tab between static and int32",
+      "revId": "fb084863e3bdd8f0fafe839a9db632f225e32781",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "917cae04_2221f001",
+        "filename": "headers/os/game/FileGameSound.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-13T18:58:25Z",
+      "side": 1,
+      "message": "align the status_t with the other status_t below",
+      "revId": "fb084863e3bdd8f0fafe839a9db632f225e32781",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95c29ff5_cc25ab90",
+        "filename": "headers/os/game/SimpleGameSound.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-13T18:58:25Z",
+      "side": 1,
+      "message": "why?",
+      "revId": "fb084863e3bdd8f0fafe839a9db632f225e32781",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "daa88411_12143a83",
+        "filename": "headers/os/game/SimpleGameSound.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-13T18:58:25Z",
+      "side": 1,
+      "message": "align the status_t with the return type of the methods above",
+      "revId": "fb084863e3bdd8f0fafe839a9db632f225e32781",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "191584a7_88de6bad",
+        "filename": "headers/os/game/SimpleGameSound.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-13T18:58:25Z",
+      "side": 1,
+      "message": "align the bool with the return type of the methods above",
+      "revId": "fb084863e3bdd8f0fafe839a9db632f225e32781",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07b24eca_4e337aef",
+        "filename": "headers/os/game/SimpleGameSound.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-13T18:58:25Z",
+      "side": 1,
+      "message": "why?",
+      "revId": "fb084863e3bdd8f0fafe839a9db632f225e32781",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d2b98a1_b21f437d",
+        "filename": "headers/os/game/SimpleGameSound.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-13T18:58:25Z",
+      "side": 1,
+      "message": "align the status_t with the ones below",
+      "revId": "fb084863e3bdd8f0fafe839a9db632f225e32781",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
