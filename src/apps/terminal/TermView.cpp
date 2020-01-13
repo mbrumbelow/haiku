@@ -1517,71 +1517,71 @@ TermView::FrameResized(float width, float height)
 
 
 void
-TermView::MessageReceived(BMessage *msg)
+TermView::MessageReceived(BMessage *message)
 {
-	if (fActiveState->MessageReceived(msg))
+	if (fActiveState->MessageReceived(message))
 		return;
 
 	entry_ref ref;
 	const char *ctrl_l = "\x0c";
 
 	// first check for any dropped message
-	if (msg->WasDropped() && (msg->what == B_SIMPLE_DATA
-			|| msg->what == B_MIME_DATA)) {
+	if (message->WasDropped() && (message->what == B_SIMPLE_DATA
+			|| message->what == B_MIME_DATA)) {
 		char *text;
 		ssize_t numBytes;
 		//rgb_color *color;
 
 		int32 i = 0;
 
-		if (msg->FindRef("refs", i++, &ref) == B_OK) {
+		if (message->FindRef("refs", i++, &ref) == B_OK) {
 			// first check if secondary mouse button is pressed
 			int32 buttons = 0;
-			msg->FindInt32("buttons", &buttons);
+			message->FindInt32("buttons", &buttons);
 
 			if (buttons == B_SECONDARY_MOUSE_BUTTON) {
 				// start popup menu
-				_SecondaryMouseButtonDropped(msg);
+				_SecondaryMouseButtonDropped(message);
 				return;
 			}
 
 			_DoFileDrop(ref);
 
-			while (msg->FindRef("refs", i++, &ref) == B_OK) {
+			while (message->FindRef("refs", i++, &ref) == B_OK) {
 				_WritePTY(" ", 1);
 				_DoFileDrop(ref);
 			}
 			return;
 #if 0
-		} else if (msg->FindData("RGBColor", B_RGB_COLOR_TYPE,
+		} else if (message->FindData("RGBColor", B_RGB_COLOR_TYPE,
 				(const void **)&color, &numBytes) == B_OK
 				&& numBytes == sizeof(color)) {
 			// TODO: handle color drop
 			// maybe only on replicants ?
 			return;
 #endif
-		} else if (msg->FindData("text/plain", B_MIME_TYPE,
+		} else if (message->FindData("text/plain", B_MIME_TYPE,
 				(const void **)&text, &numBytes) == B_OK) {
 			_WritePTY(text, numBytes);
 			return;
 		}
 	}
 
-	switch (msg->what) {
+	switch (message->what) {
 		case B_SIMPLE_DATA:
 		case B_REFS_RECEIVED:
 		{
 			// handle refs if they weren't dropped
 			int32 i = 0;
-			if (msg->FindRef("refs", i++, &ref) == B_OK) {
+			if (message->FindRef("refs", i++, &ref) == B_OK) {
 				_DoFileDrop(ref);
 
-				while (msg->FindRef("refs", i++, &ref) == B_OK) {
+				while (message->FindRef("refs", i++, &ref) == B_OK) {
 					_WritePTY(" ", 1);
 					_DoFileDrop(ref);
 				}
 			} else
-				BView::MessageReceived(msg);
+				BView::MessageReceived(message);
 			break;
 		}
 
@@ -1592,7 +1592,7 @@ TermView::MessageReceived(BMessage *msg)
 		case B_PASTE:
 		{
 			int32 code;
-			if (msg->FindInt32("index", &code) == B_OK)
+			if (message->FindInt32("index", &code) == B_OK)
 				Paste(be_clipboard);
 			break;
 		}
@@ -1629,14 +1629,14 @@ TermView::MessageReceived(BMessage *msg)
 			int32 i;
 			int32 encodingID;
 			BMessage specifier;
-			if (msg->GetCurrentSpecifier(&i, &specifier) == B_OK
+			if (message->GetCurrentSpecifier(&i, &specifier) == B_OK
 				&& strcmp("encoding",
 					specifier.FindString("property", i)) == 0) {
-				msg->FindInt32 ("data", &encodingID);
+				message->FindInt32 ("data", &encodingID);
 				SetEncoding(encodingID);
-				msg->SendReply(B_REPLY);
+				message->SendReply(B_REPLY);
 			} else {
-				BView::MessageReceived(msg);
+				BView::MessageReceived(message);
 			}
 			break;
 		}
@@ -1645,21 +1645,21 @@ TermView::MessageReceived(BMessage *msg)
 		{
 			int32 i;
 			BMessage specifier;
-			if (msg->GetCurrentSpecifier(&i, &specifier) == B_OK) {
+			if (message->GetCurrentSpecifier(&i, &specifier) == B_OK) {
 				if (strcmp("encoding",
 					specifier.FindString("property", i)) == 0) {
 					BMessage reply(B_REPLY);
 					reply.AddInt32("result", Encoding());
-					msg->SendReply(&reply);
+					message->SendReply(&reply);
 				} else if (strcmp("tty",
 					specifier.FindString("property", i)) == 0) {
 					BMessage reply(B_REPLY);
 					reply.AddString("result", TerminalName());
-					msg->SendReply(&reply);
+					message->SendReply(&reply);
 				} else
-					BView::MessageReceived(msg);
+					BView::MessageReceived(message);
 			} else
-				BView::MessageReceived(msg);
+				BView::MessageReceived(message);
 			break;
 		}
 
@@ -1672,12 +1672,12 @@ TermView::MessageReceived(BMessage *msg)
 		case B_INPUT_METHOD_EVENT:
 		{
 			int32 opcode;
-			if (msg->FindInt32("be:opcode", &opcode) == B_OK) {
+			if (message->FindInt32("be:opcode", &opcode) == B_OK) {
 				switch (opcode) {
 					case B_INPUT_METHOD_STARTED:
 					{
 						BMessenger messenger;
-						if (msg->FindMessenger("be:reply_to",
+						if (message->FindMessenger("be:reply_to",
 								&messenger) == B_OK) {
 							fInline = new (std::nothrow)
 								InlineInput(messenger);
@@ -1692,7 +1692,7 @@ TermView::MessageReceived(BMessage *msg)
 
 					case B_INPUT_METHOD_CHANGED:
 						if (fInline != NULL)
-							_HandleInputMethodChanged(msg);
+							_HandleInputMethodChanged(message);
 						break;
 
 					case B_INPUT_METHOD_LOCATION_REQUEST:
@@ -1714,7 +1714,7 @@ TermView::MessageReceived(BMessage *msg)
 			BAutolock locker(fTextBuffer);
 			float deltaY = 0;
 			if (fTextBuffer->IsAlternateScreenActive()
-				&& msg->FindFloat("be:wheel_delta_y", &deltaY) == B_OK
+				&& message->FindFloat("be:wheel_delta_y", &deltaY) == B_OK
 				&& deltaY != 0) {
 				// We are in alternative screen mode and have a vertical delta
 				// we can work with -- emulate scrolling via terminal escape
@@ -1747,7 +1747,7 @@ TermView::MessageReceived(BMessage *msg)
 			} else {
 				// let the BView's implementation handle the standard scrolling
 				locker.Unlock();
-				BView::MessageReceived(msg);
+				BView::MessageReceived(message);
 			}
 
 			break;
@@ -1764,7 +1764,7 @@ TermView::MessageReceived(BMessage *msg)
 			_UpdateSIGWINCH();
 			break;
 		case kSecondaryMouseDropAction:
-			_DoSecondaryMouseDropAction(msg);
+			_DoSecondaryMouseDropAction(message);
 			break;
 		case MSG_TERMINAL_BUFFER_CHANGED:
 		{
@@ -1775,7 +1775,7 @@ TermView::MessageReceived(BMessage *msg)
 		case MSG_SET_TERMINAL_TITLE:
 		{
 			const char* title;
-			if (msg->FindString("title", &title) == B_OK) {
+			if (message->FindString("title", &title) == B_OK) {
 				if (fListener != NULL)
 					fListener->SetTermViewTitle(this, title);
 			}
@@ -1784,19 +1784,19 @@ TermView::MessageReceived(BMessage *msg)
 		case MSG_SET_TERMINAL_COLORS:
 		{
 			int32 count  = 0;
-			if (msg->FindInt32("count", &count) != B_OK)
+			if (message->FindInt32("count", &count) != B_OK)
 				break;
 			bool dynamic  = false;
-			if (msg->FindBool("dynamic", &dynamic) != B_OK)
+			if (message->FindBool("dynamic", &dynamic) != B_OK)
 				break;
 			for (int i = 0; i < count; i++) {
 				uint8 index = 0;
-				if (msg->FindUInt8("index", i, &index) != B_OK)
+				if (message->FindUInt8("index", i, &index) != B_OK)
 					break;
 
 				ssize_t bytes = 0;
 				rgb_color* color = 0;
-				if (msg->FindData("color", B_RGB_COLOR_TYPE,
+				if (message->FindData("color", B_RGB_COLOR_TYPE,
 							i, (const void**)&color, &bytes) != B_OK)
 					break;
 				SetTermColor(index, *color, dynamic);
@@ -1806,14 +1806,14 @@ TermView::MessageReceived(BMessage *msg)
 		case MSG_RESET_TERMINAL_COLORS:
 		{
 			int32 count  = 0;
-			if (msg->FindInt32("count", &count) != B_OK)
+			if (message->FindInt32("count", &count) != B_OK)
 				break;
 			bool dynamic  = false;
-			if (msg->FindBool("dynamic", &dynamic) != B_OK)
+			if (message->FindBool("dynamic", &dynamic) != B_OK)
 				break;
 			for (int i = 0; i < count; i++) {
 				uint8 index = 0;
-				if (msg->FindUInt8("index", i, &index) != B_OK)
+				if (message->FindUInt8("index", i, &index) != B_OK)
 					break;
 
 				SetTermColor(index,
@@ -1824,44 +1824,45 @@ TermView::MessageReceived(BMessage *msg)
 		case MSG_SET_CURSOR_STYLE:
 		{
 			int32 style = BLOCK_CURSOR;
-			if (msg->FindInt32("style", &style) == B_OK)
+			if (message->FindInt32("style", &style) == B_OK)
 				fCursorStyle = style;
 
 			bool blinking = fCursorBlinking;
-			if (msg->FindBool("blinking", &blinking) == B_OK)
+			if (message->FindBool("blinking", &blinking) == B_OK)
 				SwitchCursorBlinking(blinking);
 
 			bool hidden = fCursorHidden;
-			if (msg->FindBool("hidden", &hidden) == B_OK)
+			if (message->FindBool("hidden", &hidden) == B_OK)
 				fCursorHidden = hidden;
 			break;
 		}
 		case MSG_ENABLE_META_KEY:
 		{
 			bool enable;
-			if (msg->FindBool("enableInterpretMetaKey", &enable) == B_OK)
+			if (message->FindBool("enableInterpretMetaKey", &enable) == B_OK)
 				fInterpretMetaKey = enable;
 
-			if (msg->FindBool("enableMetaKeySendsEscape", &enable) == B_OK)
+			if (message->FindBool("enableMetaKeySendsEscape", &enable) == B_OK)
 				fMetaKeySendsEscape = enable;
 			break;
 		}
 		case MSG_REPORT_MOUSE_EVENT:
 		{
 			bool value;
-			if (msg->FindBool("reportX10MouseEvent", &value) == B_OK)
+			if (message->FindBool("reportX10MouseEvent", &value) == B_OK)
 				fReportX10MouseEvent = value;
 
-			if (msg->FindBool("reportNormalMouseEvent", &value) == B_OK)
+			if (message->FindBool("reportNormalMouseEvent", &value) == B_OK)
 				fReportNormalMouseEvent = value;
 
-			if (msg->FindBool("reportButtonMouseEvent", &value) == B_OK)
+			if (message->FindBool("reportButtonMouseEvent", &value) == B_OK)
 				fReportButtonMouseEvent = value;
 
-			if (msg->FindBool("reportAnyMouseEvent", &value) == B_OK)
+			if (message->FindBool("reportAnyMouseEvent", &value) == B_OK)
 				fReportAnyMouseEvent = value;
 
-			if (msg->FindBool("enableExtendedMouseCoordinates", &value) == B_OK)
+			if (message->FindBool(
+				"enableExtendedMouseCoordinates", &value) == B_OK)
 				fEnableExtendedMouseCoordinates = value;
 			break;
 		}
@@ -1886,21 +1887,21 @@ TermView::MessageReceived(BMessage *msg)
 		case MSG_QUIT_TERMNAL:
 		{
 			int32 reason;
-			if (msg->FindInt32("reason", &reason) != B_OK)
+			if (message->FindInt32("reason", &reason) != B_OK)
 				reason = 0;
 			if (fListener != NULL)
 				fListener->NotifyTermViewQuit(this, reason);
 			break;
 		}
 		default:
-			BView::MessageReceived(msg);
+			BView::MessageReceived(message);
 			break;
 	}
 }
 
 
 status_t
-TermView::GetSupportedSuites(BMessage *message)
+TermView::GetSupportedSuites(BMessage* message)
 {
 	BPropertyInfo propInfo(sPropList);
 	message->AddString("suites", "suite/vnd.naan-termview");
@@ -1977,30 +1978,30 @@ TermView::ResolveSpecifier(BMessage* message, int32 index, BMessage* specifier,
 
 
 void
-TermView::_SecondaryMouseButtonDropped(BMessage* msg)
+TermView::_SecondaryMouseButtonDropped(BMessage* message)
 {
-	// Launch menu to choose what is to do with the msg data
+	// Launch menu to choose what is to do with the message data
 	BPoint point;
-	if (msg->FindPoint("_drop_point_", &point) != B_OK)
+	if (message->FindPoint("_drop_point_", &point) != B_OK)
 		return;
 
-	BMessage* insertMessage = new BMessage(*msg);
+	BMessage* insertMessage = new BMessage(*message);
 	insertMessage->what = kSecondaryMouseDropAction;
 	insertMessage->AddInt8("action", kInsert);
 
-	BMessage* cdMessage = new BMessage(*msg);
+	BMessage* cdMessage = new BMessage(*message);
 	cdMessage->what = kSecondaryMouseDropAction;
 	cdMessage->AddInt8("action", kChangeDirectory);
 
-	BMessage* lnMessage = new BMessage(*msg);
+	BMessage* lnMessage = new BMessage(*message);
 	lnMessage->what = kSecondaryMouseDropAction;
 	lnMessage->AddInt8("action", kLinkFiles);
 
-	BMessage* mvMessage = new BMessage(*msg);
+	BMessage* mvMessage = new BMessage(*message);
 	mvMessage->what = kSecondaryMouseDropAction;
 	mvMessage->AddInt8("action", kMoveFiles);
 
-	BMessage* cpMessage = new BMessage(*msg);
+	BMessage* cpMessage = new BMessage(*message);
 	cpMessage->what = kSecondaryMouseDropAction;
 	cpMessage->AddInt8("action", kCopyFiles);
 
@@ -2019,7 +2020,7 @@ TermView::_SecondaryMouseButtonDropped(BMessage* msg)
 	BDirectory firstDir;
 	entry_ref ref;
 	int i = 0;
-	while (msg->FindRef("refs", i++, &ref) == B_OK) {
+	while (message->FindRef("refs", i++, &ref) == B_OK) {
 		BNode node(&ref);
 		BEntry entry(&ref);
 		BDirectory dir;
@@ -2057,10 +2058,10 @@ TermView::_SecondaryMouseButtonDropped(BMessage* msg)
 
 
 void
-TermView::_DoSecondaryMouseDropAction(BMessage* msg)
+TermView::_DoSecondaryMouseDropAction(BMessage* message)
 {
 	int8 action = -1;
-	msg->FindInt8("action", &action);
+	message->FindInt8("action", &action);
 
 	BString outString = "";
 	BString itemString = "";
@@ -2088,7 +2089,7 @@ TermView::_DoSecondaryMouseDropAction(BMessage* msg)
 	bool listContainsDirectory = false;
 	entry_ref ref;
 	int32 i = 0;
-	while (msg->FindRef("refs", i++, &ref) == B_OK) {
+	while (message->FindRef("refs", i++, &ref) == B_OK) {
 		BEntry ent(&ref);
 		BNode node(&ref);
 		BPath path(&ent);
