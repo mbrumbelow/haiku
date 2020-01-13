@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "c284a71e_c160cf7c",
+        "filename": "src/apps/terminal/TermView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1903,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-13T07:40:28Z",
+      "side": 1,
+      "message": "You would need to change in the other direction, replace all \"msg\" with \"message\".",
+      "parentUuid": "8759f742_10570468",
+      "revId": "0da8c947d877f92657d80b4e45b36c468db16940",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fb3245cc_f1aa7199",
         "filename": "src/apps/terminal/TermWindow.h",
         "patchSetId": 2
