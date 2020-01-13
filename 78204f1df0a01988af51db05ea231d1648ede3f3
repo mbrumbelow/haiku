@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f1a16bf9_998a06e7",
+        "filename": "src/apps/haikudepot/server/WebAppInterface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-13T12:34:33Z",
+      "side": 1,
+      "message": "tab between static and int32",
+      "revId": "78204f1df0a01988af51db05ea231d1648ede3f3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d85d698_baaa6144",
+        "filename": "src/apps/haikudepot/server/WebAppInterface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-13T12:34:33Z",
+      "side": 1,
+      "message": "the use of a tab here was correct between static and status_t",
+      "revId": "78204f1df0a01988af51db05ea231d1648ede3f3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
