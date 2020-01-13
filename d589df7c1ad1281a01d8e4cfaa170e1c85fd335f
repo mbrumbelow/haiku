@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "88467709_36e833dd",
+        "filename": "src/apps/terminal/TermView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1864,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-13T18:59:55Z",
+      "side": 1,
+      "message": "this line is now too long, you need to split it (before the \u003d\u003d)",
+      "revId": "d589df7c1ad1281a01d8e4cfaa170e1c85fd335f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
