@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df0cbed9_18602814",
+        "filename": "headers/os/game/DirectWindow.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-13T10:20:13Z",
+      "side": 1,
+      "message": "incorrect indentation here, BDirectwindow\u0026 is the type, operator\u003d is the method name.",
+      "revId": "dfd54da95d1419f0a761fd2385dc5c5f7fd0590e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23dcb734_ebeb4750",
+        "filename": "headers/os/game/DirectWindow.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-13T10:20:13Z",
+      "side": 1,
+      "message": "separate the private methods and the private fields with an extra \"private:\" in between them.",
+      "revId": "dfd54da95d1419f0a761fd2385dc5c5f7fd0590e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ea70873_0cbb44f5",
+        "filename": "headers/os/game/FileGameSound.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-13T10:20:13Z",
+      "side": 1,
+      "message": "Order the includes alphabetically (DataIO goes first)",
+      "revId": "dfd54da95d1419f0a761fd2385dc5c5f7fd0590e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76cab8b5_16e417fc",
+        "filename": "headers/os/game/FileGameSound.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-13T10:20:13Z",
+      "side": 1,
+      "message": "Incorrect indentation for operator\u003d here as well",
+      "revId": "dfd54da95d1419f0a761fd2385dc5c5f7fd0590e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed08ceef_e05c63a7",
+        "filename": "headers/os/game/FileGameSound.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-13T10:20:13Z",
+      "side": 1,
+      "message": "This comment should go below _Reserved_BFileGameSound_0 (as it was before)",
+      "revId": "dfd54da95d1419f0a761fd2385dc5c5f7fd0590e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb2c54bb_bb88d640",
+        "filename": "headers/os/game/SimpleGameSound.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-13T10:20:13Z",
+      "side": 1,
+      "message": "remove these extra tabs",
+      "revId": "dfd54da95d1419f0a761fd2385dc5c5f7fd0590e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85b6694b_76a1e5f8",
+        "filename": "headers/os/game/SimpleGameSound.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-13T10:20:13Z",
+      "side": 1,
+      "message": "keep all methods aligned, the constructors above are one tab less than the other methods below",
+      "revId": "dfd54da95d1419f0a761fd2385dc5c5f7fd0590e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3ec98e2_79bd2cb1",
+        "filename": "headers/os/game/SimpleGameSound.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-13T10:20:13Z",
+      "side": 1,
+      "message": "status_t, bool, etc go in the \"type\" column (they should be aligned with BGameSound* and status_t above, for example)",
+      "revId": "dfd54da95d1419f0a761fd2385dc5c5f7fd0590e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f6d1590_ea832b3b",
+        "filename": "headers/os/game/SimpleGameSound.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-13T10:20:13Z",
+      "side": 1,
+      "message": "alignment for this line is incorrect, keep it as it was before",
+      "revId": "dfd54da95d1419f0a761fd2385dc5c5f7fd0590e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
