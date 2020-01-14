@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8c97e0ed_207e1715",
+        "filename": "headers/os/game/StreamingGameSound.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-14T17:49:06Z",
+      "side": 1,
+      "message": "Declare this typedef inside the BStreamingGameSound class. Otherwise, if people #including this header have anything called \"hook\", there will be a conflict.",
+      "revId": "9f0797003b9d1f9f418d24851529b3780e2edfc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad9f5e2f_bef11b93",
+        "filename": "headers/os/game/StreamingGameSound.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-14T17:49:06Z",
+      "side": 1,
+      "message": "you can use the \"hook\" type here too.",
+      "revId": "9f0797003b9d1f9f418d24851529b3780e2edfc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
