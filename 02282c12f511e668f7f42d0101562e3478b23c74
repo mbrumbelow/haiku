@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "42e59a0f_252ac830",
+        "filename": "headers/os/game/StreamingGameSound.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-14T12:28:07Z",
+      "side": 1,
+      "message": "the alignment for the return types and specifiers (virtual, static, etc) is not correct. Check our coding guidelines about this:\nhttps://www.haiku-os.org/development/coding-guidelines/",
+      "revId": "02282c12f511e668f7f42d0101562e3478b23c74",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bea96ace_4b37696d",
+        "filename": "headers/os/game/StreamingGameSound.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-14T12:28:07Z",
+      "side": 1,
+      "message": "you could use a typedef for the hook function, making this easier to read",
+      "revId": "02282c12f511e668f7f42d0101562e3478b23c74",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ae35c7c_1d584681",
+        "filename": "headers/os/game/StreamingGameSound.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-14T12:28:07Z",
+      "side": 1,
+      "message": "you have mixed space and tabs here",
+      "revId": "02282c12f511e668f7f42d0101562e3478b23c74",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2687430f_9eeab6bc",
+        "filename": "headers/os/game/StreamingGameSound.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-14T12:28:07Z",
+      "side": 1,
+      "message": "mixed space/tabs",
+      "revId": "02282c12f511e668f7f42d0101562e3478b23c74",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ecbd827c_e6f1036f",
+        "filename": "headers/os/game/StreamingGameSound.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-14T12:28:07Z",
+      "side": 1,
+      "message": "mixed space/tabs",
+      "revId": "02282c12f511e668f7f42d0101562e3478b23c74",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b79f055_bc5349f9",
+        "filename": "headers/os/game/StreamingGameSound.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-14T12:28:07Z",
+      "side": 1,
+      "message": "mixed space/tabs",
+      "revId": "02282c12f511e668f7f42d0101562e3478b23c74",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
