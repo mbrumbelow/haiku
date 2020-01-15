@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9092f39a_48a01646",
+        "filename": "src/tests/kits/storage/PathTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1336,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-15T11:19:42Z",
+      "side": 1,
+      "message": "This seems strange.\n\n1) I don\u0027t see why it would not be allowed to flatten an empty path\n2) It seems the Flatten method fails with B_NO_INIT, but then Unflatten of the resulting buffer succeeds anyway?\n\nI would say the test was correct, and the BPath code should be fixed so that Flatten() does the right thing in this case.",
+      "revId": "e08db915cd8fb1de8c3d80ad2fd6dd7d7f53d474",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
