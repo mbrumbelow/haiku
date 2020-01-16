@@ -16,6 +16,23 @@
       "revId": "e08db915cd8fb1de8c3d80ad2fd6dd7d7f53d474",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c1b027b_8d3794d1",
+        "filename": "src/tests/kits/storage/PathTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1355,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-01-16T10:34:59Z",
+      "side": 1,
+      "message": "The \u0027\u003d\u0027 actually moves to the next line, as it was in the file before (though generally, many tests were written before we established our coding style).",
+      "revId": "e08db915cd8fb1de8c3d80ad2fd6dd7d7f53d474",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
