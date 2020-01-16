@@ -1,4 +1,4 @@
-SubDir HAIKU_TOP src tests add-ons kernel file_systems xfs xfs_shell ;
+SubDir HAIKU_TOP src tools xfs_shell ;
 
 SEARCH_SOURCE += [ FDirName $(HAIKU_TOP) src add-ons kernel file_systems xfs ] ;
 
@@ -12,7 +12,7 @@ DEFINES += HAIKU_BUILD_COMPATIBILITY_H ;
 		;
 
 	if $(TARGET_PACKAGING_ARCH) = x86_gcc2 {
-		# GCC2 doesn't compile BFS/XFS correctly with -O2 or more
+		# GCC2 doesn't compile BFS correctly with -O2 or more
 		OPTIM = -O1 ;
 	}
 
@@ -46,14 +46,21 @@ UsePrivateHeaders fs_shell ;
 UseHeaders [ FDirName $(HAIKU_TOP) headers private ] : true ;
 UseHeaders [ FDirName $(HAIKU_TOP) src tools fs_shell ] ;
 
-local xfsSource =
+local bfsSource =
+	Debug.cpp
+#	Query.cpp
+#	QueryParserUtils.cpp
+
 	kernel_interface.cpp
 ;
 
-BuildPlatformMergeObject <build>xfs.o : $(xfsSource) ;
+BuildPlatformMergeObject <build>xfs.o : $(bfsSource) ;
 
 BuildPlatformMain <build>xfs_shell
 	:
+	#	additional_commands.cpp
+	#	command_checkfs.cpp
+	#	command_resizefs.cpp
 	:
 	<build>xfs.o
 	<build>fs_shell.a $(HOST_LIBSUPC++) $(HOST_LIBSTDC++)
