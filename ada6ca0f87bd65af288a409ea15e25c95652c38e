@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c1b172ca_7108682f",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 1220,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-17T18:58:20Z",
+      "side": 1,
+      "message": "what if there are multiple CD drives? We could eject the wrong one. So we have to start from the currently playing file, find the device it is stored on (probably through looking at filesystem mount points) and then get the geometry of that to see if it is a CD (or even better, if it is any kind of removable media).",
+      "revId": "ada6ca0f87bd65af288a409ea15e25c95652c38e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75ffb404_152ffbf3",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 1240,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-17T18:58:20Z",
+      "side": 1,
+      "message": "The disc should first be unmounted cleanly, not ejected without any warning.\nAlso, the playback should be stopped before.",
+      "revId": "ada6ca0f87bd65af288a409ea15e25c95652c38e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c62dfb8_834eae09",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 1594,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-17T18:58:20Z",
+      "side": 1,
+      "message": "This menu should be enabled only when playing music (or video) from a CD or DVD.",
+      "revId": "ada6ca0f87bd65af288a409ea15e25c95652c38e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
