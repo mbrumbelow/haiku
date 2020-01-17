@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9cf39869_f78a6d39",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4783,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-01-17T11:51:42Z",
+      "side": 1,
+      "message": "\"if (IsFocus())\" should do the same.",
+      "revId": "a2dbf546e788f2c4f27454e98e2a91b3a3d2d5fb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
