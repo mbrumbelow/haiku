@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b3619a3_a9a4c8a5",
+        "filename": "src/kits/interface/TextInput.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-01-17T11:48:47Z",
+      "side": 1,
+      "message": "fInMouseDown(false) goes on the next line.",
+      "revId": "8b73a7778bf987a7fb66cd0015cbf5a4f02bc720",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9406b36a_a99e4217",
+        "filename": "src/kits/interface/TextInput.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-01-17T11:48:47Z",
+      "side": 1,
+      "message": "fInMouseDown(false) goes on the next line.",
+      "revId": "8b73a7778bf987a7fb66cd0015cbf5a4f02bc720",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
