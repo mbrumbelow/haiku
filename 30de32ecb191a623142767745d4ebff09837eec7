@@ -52,6 +52,24 @@
       "revId": "30de32ecb191a623142767745d4ebff09837eec7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b08c7e2_ce4db5c9",
+        "filename": "src/add-ons/kernel/drivers/graphics/intel_extreme/power.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000170
+      },
+      "writtenOn": "2020-01-18T17:36:18Z",
+      "side": 0,
+      "message": "\"Do not leave dead, commented, or #if 0\u0027ed code behind\" that\u0027s from the https://www.haiku-os.org/development/coding-guidelines/ page. I think it would be better if we didn\u0027t have any not-yet-working code. If you say, I can easily revert this change though.",
+      "parentUuid": "111ae7bb_b6cd6d8f",
+      "revId": "30de32ecb191a623142767745d4ebff09837eec7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
