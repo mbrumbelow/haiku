@@ -119,10 +119,11 @@ intel_en_downclock(intel_info &info)
 
 	uint32 rc6Mask = INTEL6_RC_CTL_RC6_ENABLE;
 
+	/* They will be used later when more features will be added.
 	if (depth > 1)
 		rc6Mask |= INTEL6_RC_CTL_RC6p_ENABLE;
 	if (depth > 2)
-		rc6Mask |= INTEL6_RC_CTL_RC6pp_ENABLE;
+		rc6Mask |= INTEL6_RC_CTL_RC6pp_ENABLE;*/
 
 	write32(info, INTEL6_RC_CONTROL, rc6Mask | INTEL6_RC_CTL_EI_MODE(1)
 		| INTEL6_RC_CTL_HW_ENABLE);
