@@ -255,7 +255,7 @@ status_t XML::Write(
 	
 	ExportContext context(stream);
 	status_t err = context.writeObject(object);
-	if(err < B_OK)
+	if(err != B_OK)
 		*outError = context.errorText();
 	return err;
 }

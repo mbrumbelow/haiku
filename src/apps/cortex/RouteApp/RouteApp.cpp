@@ -182,10 +182,10 @@ void RouteApp::MessageReceived(
 
 		case B_SAVE_REQUESTED: {
 			err = message->FindRef("directory", &ref);
-			if(err < B_OK)
+			if(err != B_OK)
 				break;
 			err = message->FindString("name", &name);
-			if(err < B_OK)
+			if(err != B_OK)
 				break;
 			
 			_writeSelectedNodeSet(&ref, name);
@@ -216,7 +216,7 @@ void RouteApp::RefsReceived(
 
 	for(int32 n = 0; ; ++n) {	
 		err = message->FindRef("refs", n, &ref);
-		if(err < B_OK)
+		if(err != B_OK)
 			break;
 		
 		_readNodeSet(&ref);
@@ -471,7 +471,7 @@ status_t RouteApp::_writeSettings() {
 	BDirectory baseDirectory, settingsDirectory;
 	
 	err = baseDirectory.SetTo(path.Path());
-	if(err < B_OK)
+	if(err != B_OK)
 		return err;
 	
 	path.Append(s_settingsDirectory);
@@ -491,7 +491,7 @@ status_t RouteApp::_writeSettings() {
 		s_settingsFile,
 		B_WRITE_ONLY | B_CREATE_FILE | B_ERASE_FILE);
 	err = file.InitCheck();
-	if(err < B_OK)
+	if(err != B_OK)
 		return err;
 
 	// write document header
@@ -505,7 +505,7 @@ status_t RouteApp::_writeSettings() {
 		this,
 		&errorText);
 	
-	if(err < B_OK) {
+	if(err != B_OK) {
 		fprintf(stderr,
 			"!!! RouteApp::_writeSettings() failed: %s\n",
 			errorText.String());
@@ -540,7 +540,7 @@ public:													// *** hooks
 			status_t err = m_routingView->importStateFor(
 				this,
 				archive);
-			if(err < B_OK) {
+			if(err != B_OK) {
 				PRINT((
 					"!!! _RouteAppImportContext::importStateFor() failed:\n"
 					"    %s\n", strerror(err)));
@@ -558,7 +558,7 @@ status_t RouteApp::_readNodeSet(
 
 	BFile file(ref, B_READ_ONLY);
 	status_t err = file.InitCheck();
-	if(err < B_OK)
+	if(err != B_OK)
 		return err;
 
 	routeWindow->Lock();
@@ -643,7 +643,7 @@ status_t RouteApp::_writeSelectedNodeSet(
 		if(!panel)
 			continue;
 		err = context.addNode(panel->ref->id());
-		if(err < B_OK) {
+		if(err != B_OK) {
 			PRINT((	
 				"!!! context.addNode() failed: '%s\n", strerror(err)));
 		}
@@ -653,7 +653,7 @@ status_t RouteApp::_writeSelectedNodeSet(
 	// open/clobber file
 	BDirectory dir(dirRef);
 	err = dir.InitCheck();
-	if(err < B_OK)
+	if(err != B_OK)
 		return err;
 
 	BFile file(
@@ -661,7 +661,7 @@ status_t RouteApp::_writeSelectedNodeSet(
 		filename,
 		B_WRITE_ONLY | B_CREATE_FILE | B_ERASE_FILE);
 	err = file.InitCheck();
-	if(err < B_OK)
+	if(err != B_OK)
 		return err;
 	
 	// write document header
@@ -671,7 +671,7 @@ status_t RouteApp::_writeSelectedNodeSet(
 	// export nodes
 	context.stream = &file;
 	err = context.writeObject(manager);
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT((
 			"!!! RouteApp::_writeSelectedNodeSet(): error:\n"
 			"    %s\n", context.errorText()));
@@ -699,7 +699,7 @@ status_t RouteApp::_InitMimeTypes() {
 	
 	if(!s_nodeSetType.IsInstalled()) {
 		err = s_nodeSetType.Install();
-		if(err < B_OK) {
+		if(err != B_OK) {
 			PRINT((
 				"!!! RouteApp::_InitMimeTypes(): Install():\n"
 				"    %s\n", strerror(err)));
@@ -707,7 +707,7 @@ status_t RouteApp::_InitMimeTypes() {
 		}
 		
 		err = s_nodeSetType.SetPreferredApp(s_appSignature);
-		if(err < B_OK) {
+		if(err != B_OK) {
 			PRINT((
 				"!!! RouteApp::_InitMimeTypes(): SetPreferredApp():\n"
 				"    %s\n", strerror(err)));

@@ -287,7 +287,7 @@ DiskProbe::Probe(BEntry& entry, const char* attribute)
 {
 	entry_ref ref;
 	status_t status = entry.GetRef(&ref);
-	if (status < B_OK)
+	if (status != B_OK)
 		return status;
 
 	ProbeWindow* lastWindow(NULL);

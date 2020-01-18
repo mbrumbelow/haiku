@@ -73,7 +73,7 @@ public:
 	status_t getPreferredFormat(
 		media_format&								ioFormat) {
 		status_t err = _inherited::getPreferredFormat(ioFormat);
-		if(err < B_OK)
+		if(err != B_OK)
 			return err;
 			
 		ioFormat.u.raw_audio.channel_count = 1;

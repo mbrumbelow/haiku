@@ -510,7 +510,7 @@ NumericValControl::MessageReceived(BMessage* pMsg)
 	switch (pMsg->what) {
 		case M_SET_VALUE:
 			err = pMsg->FindDouble("value", &dfValue);
-			if (err < B_OK) {
+			if (err != B_OK) {
 				_inherited::MessageReceived(pMsg);
 				break;
 			}

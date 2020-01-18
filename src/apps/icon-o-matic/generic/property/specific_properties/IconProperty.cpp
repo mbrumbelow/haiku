@@ -46,7 +46,7 @@ IconProperty::IconProperty(BMessage* archive)
 	: Property(archive),
 	  fMessage(new BMessage())
 {
-	if (archive->FindMessage("message", fMessage) < B_OK) {
+	if (archive->FindMessage("message", fMessage) != B_OK) {
 		delete fMessage;
 		fMessage = NULL;
 	}

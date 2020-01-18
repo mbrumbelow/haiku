@@ -763,7 +763,7 @@ DocumentBuilder::_AddShape(path_attributes& attributes, bool outline,
 		return B_NO_MEMORY;
 	}
 
-	if (AddPathsFromVertexSource(icon, shape, fPathStorage, attributes.index) < B_OK)
+	if (AddPathsFromVertexSource(icon, shape, fPathStorage, attributes.index) != B_OK)
 		printf("failed to convert from vertex source\n");
 
 	shape->multiply(attributes.transform);

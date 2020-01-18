@@ -124,7 +124,7 @@ public:
 	{
 		uint32 buttons;
 		if (Window()->CurrentMessage()->FindInt32("buttons",
-				(int32*)&buttons) < B_OK)
+				(int32*)&buttons) != B_OK)
 			buttons = 0;
 
 		_SetMouseOver(buttons == 0

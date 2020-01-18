@@ -319,10 +319,10 @@ TEnclosuresView::MessageReceived(BMessage *msg)
 			if (msg->FindInt32("opcode", &opcode) == B_NO_ERROR)
 			{
 				dev_t device;
-				if (msg->FindInt32("device", &device) < B_OK)
+				if (msg->FindInt32("device", &device) != B_OK)
 					break;
 				ino_t inode;
-				if (msg->FindInt64("node", &inode) < B_OK)
+				if (msg->FindInt64("node", &inode) != B_OK)
 					break;
 
 				for (int32 index = fList->CountItems();index-- > 0;)
@@ -522,7 +522,7 @@ TListItem::DrawItem(BView *owner, BRect r, bool /* complete */)
 		BMailAttachment *attachment = dynamic_cast<BMailAttachment *>(fComponent);
 
 		char name[B_FILE_NAME_LENGTH * 2];
-		if ((attachment == NULL) || (attachment->FileName(name) < B_OK))
+		if ((attachment == NULL) || (attachment->FileName(name) != B_OK))
 			strcpy(name, "unnamed");
 
 		BMimeType type;

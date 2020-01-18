@@ -108,7 +108,7 @@ MoveStylesCommand::Perform()
 			break;
 		}
 	}
-	if (ret < B_OK)
+	if (ret != B_OK)
 		return ret;
 
 	// add styles to container at the insertion index
@@ -136,7 +136,7 @@ MoveStylesCommand::Undo()
 			break;
 		}
 	}
-	if (ret < B_OK)
+	if (ret != B_OK)
 		return ret;
 
 	// add styles to container at remembered indices

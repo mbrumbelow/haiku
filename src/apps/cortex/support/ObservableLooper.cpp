@@ -233,7 +233,7 @@ status_t ObservableLooper::Archive(
 		return B_NOT_ALLOWED;
 	
 	status_t err = _inherited::Archive(archive, deep);
-	if(err < B_OK)
+	if(err != B_OK)
 		return err;
 	
 	archive->AddInt64("quitTimeout", m_quitTimeout);
@@ -252,7 +252,7 @@ void ObservableLooper::_handleAddObserver(
 	BMessenger observer;
 	status_t err = message->FindMessenger(
 		"observer", &observer);
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT((
 			"* ObservableLooper::_handleAddObserver(): no observer specified!\n"));
 		// send reply? +++++
@@ -295,7 +295,7 @@ void ObservableLooper::_handleRemoveObserver(
 	BMessenger observer;
 	status_t err = message->FindMessenger(
 		"observer", &observer);
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT((
 			"* ObservableLooper::_handleRemoveObserver(): no observer specified!\n"));
 		// send reply? +++++

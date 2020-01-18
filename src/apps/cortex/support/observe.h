@@ -165,7 +165,7 @@ public:										// ctor/dtor
 			_observer_messenger,
 			_target_messenger,
 			reply, timeout);
-		if(err < B_OK) {
+		if(err != B_OK) {
 			PRINT((
 				"! observer_handle<>(): add_observer() failed:\n"
 				"  %s\n", strerror(err)));
@@ -193,7 +193,7 @@ public:										// interface
 			_target_messenger,
 			reply,
 			_timeout);
-		if(err < B_OK) {
+		if(err != B_OK) {
 			PRINT((
 				"! observer_handle<>::release(): remove_observer() failed:\n"
 				"  %s\n", strerror(err)));

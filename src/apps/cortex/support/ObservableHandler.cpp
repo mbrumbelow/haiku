@@ -220,7 +220,7 @@ void ObservableHandler::_handleAddObserver(
 	BMessenger observer;
 	status_t err = message->FindMessenger(
 		"observer", &observer);
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT((
 			"* ObservableHandler::_handleAddObserver(): no observer specified!\n"));
 		// send reply? +++++
@@ -269,7 +269,7 @@ void ObservableHandler::_handleRemoveObserver(
 	BMessenger observer;
 	status_t err = message->FindMessenger(
 		"observer", &observer);
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT((
 			"* ObservableHandler::_handleRemoveObserver(): no observer specified!\n"));
 		// send reply? +++++

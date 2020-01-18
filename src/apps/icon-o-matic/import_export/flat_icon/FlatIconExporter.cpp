@@ -75,7 +75,7 @@ FlatIconExporter::Export(const Icon* icon, BPositionIO* stream)
 
 	// flatten icon
 	status_t ret = _Export(buffer, icon);
-	if (ret < B_OK)
+	if (ret != B_OK)
 		return ret;
 
 	// write buffer to stream
@@ -105,7 +105,7 @@ FlatIconExporter::Export(const Icon* icon, BNode* node,
 
 	// flatten icon
 	status_t ret = _Export(buffer, icon);
-	if (ret < B_OK) {
+	if (ret != B_OK) {
 		printf("failed to export to buffer: %s\n", strerror(ret));
 		return ret;
 	}
@@ -150,7 +150,7 @@ FlatIconExporter::_Export(LittleEndianBuffer& buffer, const Icon* icon)
 	// styles
 	StyleContainer* styles = icon->Styles();
 	status_t ret = _WriteStyles(buffer, styles);
-	if (ret < B_OK)
+	if (ret != B_OK)
 		return ret;
 
 #if PRINT_STATISTICS
@@ -160,7 +160,7 @@ FlatIconExporter::_Export(LittleEndianBuffer& buffer, const Icon* icon)
 	// paths
 	PathContainer* paths = icon->Paths();
 	ret = _WritePaths(buffer, paths);
-	if (ret < B_OK)
+	if (ret != B_OK)
 		return ret;
 
 #if PRINT_STATISTICS
@@ -169,7 +169,7 @@ FlatIconExporter::_Export(LittleEndianBuffer& buffer, const Icon* icon)
 
 	// shapes
 	ret = _WriteShapes(buffer, styles, paths, icon->Shapes());
-	if (ret < B_OK)
+	if (ret != B_OK)
 		return ret;
 
 #if PRINT_STATISTICS

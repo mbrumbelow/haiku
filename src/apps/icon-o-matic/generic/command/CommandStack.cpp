@@ -209,7 +209,7 @@ CommandStack::_AddCommand(Command* command)
 				// after collapsing, the command might
 				// have changed it's mind about InitCheck()
 				// (the commands reversed each other)
-				if (top->InitCheck() < B_OK) {
+				if (top->InitCheck() != B_OK) {
 					fUndoHistory.pop();
 					delete top;
 				}
@@ -219,7 +219,7 @@ CommandStack::_AddCommand(Command* command)
 				// after collapsing, the command might
 				// have changed it's mind about InitCheck()
 				// (the commands reversed each other)
-				if (command->InitCheck() < B_OK) {
+				if (command->InitCheck() != B_OK) {
 					delete command;
 					add = false;
 				}

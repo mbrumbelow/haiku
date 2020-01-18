@@ -251,7 +251,7 @@ Settings::LoadSettings()
 
 	BMessage settings;
 	status = settings.Unflatten(&file);
-	if (status < B_OK || settings.what != 'BeMl')
+	if (status != B_OK || settings.what != 'BeMl')
 		return status;
 
 	BRect rect;

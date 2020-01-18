@@ -116,7 +116,7 @@ MainWindow::MessageReceived(BMessage* message)
 		case MSG_LAUNCH: 
 		{
 			BView* pointer;
-			if (message->FindPointer("be:source", (void**)&pointer) < B_OK)
+			if (message->FindPointer("be:source", (void**)&pointer) != B_OK)
 				break;
 			LaunchButton* button = dynamic_cast<LaunchButton*>(pointer);
 			if (button == NULL)
@@ -132,7 +132,7 @@ MainWindow::MessageReceived(BMessage* message)
 						BMessage trackerMessage(B_REFS_RECEIVED);
 						trackerMessage.AddRef("refs", button->Ref());
 						status_t ret = messenger.SendMessage(&trackerMessage);
-						if (ret < B_OK) {
+						if (ret != B_OK) {
 							errorMessage = B_TRANSLATE("Failed to send "
 							"'open folder' command to Tracker.\n\nError: ");
 							errorMessage << strerror(ret);
@@ -143,7 +143,7 @@ MainWindow::MessageReceived(BMessage* message)
 							"running?");
 				} else {
 					status_t ret = be_roster->Launch(button->Ref());
-					if (ret < B_OK && ret != B_ALREADY_RUNNING) {
+					if (ret != B_OK && ret != B_ALREADY_RUNNING) {
 						BString errStr(B_TRANSLATE("Failed to launch '%1'.\n"
 							"\nError:"));
 						BPath path(button->Ref());

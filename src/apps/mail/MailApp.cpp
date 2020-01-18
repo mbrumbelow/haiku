@@ -277,7 +277,7 @@ TMailApp::MessageReceived(BMessage *msg)
 				case M_FORWARD_WITHOUT_ATTACHMENTS:
 				{
 					TMailWindow	*sourceWindow;
-					if (msg->FindPointer("window", (void **)&sourceWindow) < B_OK
+					if (msg->FindPointer("window", (void **)&sourceWindow) != B_OK
 						|| !sourceWindow->Lock())
 						break;
 
@@ -297,7 +297,7 @@ TMailApp::MessageReceived(BMessage *msg)
 				case M_COPY_TO_NEW:
 				{
 					TMailWindow	*sourceWindow;
-					if (msg->FindPointer("window", (void **)&sourceWindow) < B_OK
+					if (msg->FindPointer("window", (void **)&sourceWindow) != B_OK
 						|| !sourceWindow->Lock())
 						break;
 					msg->FindRef("ref", &ref);
@@ -682,11 +682,11 @@ TMailWindow *
 TMailApp::FindWindow(const entry_ref &ref)
 {
 	BEntry entry(&ref);
-	if (entry.InitCheck() < B_OK)
+	if (entry.InitCheck() != B_OK)
 		return NULL;
 
 	node_ref nodeRef;
-	if (entry.GetNodeRef(&nodeRef) < B_OK)
+	if (entry.GetNodeRef(&nodeRef) != B_OK)
 		return NULL;
 
 	BWindow	*window;
@@ -997,7 +997,7 @@ TMailApp::LoadSettings()
 
 	BMessage settings;
 	status = settings.Unflatten(&file);
-	if (status < B_OK || settings.what != 'BeMl') {
+	if (status != B_OK || settings.what != 'BeMl') {
 		// the current settings are corrupted, try old ones
 		return LoadOldSettings();
 	}

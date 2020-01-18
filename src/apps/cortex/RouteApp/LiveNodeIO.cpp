@@ -76,7 +76,7 @@ LiveNodeIO::LiveNodeIO(
 		m_key,
 		m_name,
 		m_kind);
-	if(err < B_OK)
+	if(err != B_OK)
 		return;
 	
 	m_exportValid = true;
@@ -100,11 +100,11 @@ status_t LiveNodeIO::getNode(
 		// match key against previously imported nodes
 		err = context->getNodeFor(key(), outNode);
 
-		if(err < B_OK) {
+		if(err != B_OK) {
 			// match key against system nodes
 			err = _match_system_node_key(key(), manager, outNode);
 		
-			if(err < B_OK) {
+			if(err != B_OK) {
 				PRINT((
 					"!!! No node found for key '%s'\n",
 					key()));
@@ -117,7 +117,7 @@ status_t LiveNodeIO::getNode(
 			name(),
 			kind(),
 			outNode);
-		if(err < B_OK) {
+		if(err != B_OK) {
 			PRINT((
 				"!!! No node found named '%s' with kinds %" B_PRId64 "\n",
 				name(),

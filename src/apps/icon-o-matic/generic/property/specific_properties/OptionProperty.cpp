@@ -54,7 +54,7 @@ OptionProperty::OptionProperty(BMessage* archive)
 	if (!archive)
 		return;
 
-	if (archive->FindInt32("option", &fCurrentOptionID) < B_OK)
+	if (archive->FindInt32("option", &fCurrentOptionID) != B_OK)
 		fCurrentOptionID = -1;
 }
 

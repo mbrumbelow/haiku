@@ -302,7 +302,7 @@ ActivityWindow::_LoadSettings(BMessage& settings)
 {
 	BFile file;
 	status_t status = _OpenSettings(file, B_READ_ONLY);
-	if (status < B_OK)
+	if (status != B_OK)
 		return status;
 
 	return settings.Unflatten(&file);
@@ -315,7 +315,7 @@ ActivityWindow::_SaveSettings()
 	BFile file;
 	status_t status = _OpenSettings(file, B_WRITE_ONLY | B_CREATE_FILE
 		| B_ERASE_FILE);
-	if (status < B_OK)
+	if (status != B_OK)
 		return status;
 
 	BMessage settings('actm');

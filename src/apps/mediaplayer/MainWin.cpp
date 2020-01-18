@@ -700,9 +700,9 @@ MainWin::MessageReceived(BMessage* msg)
 			int32 index;
 			// if false, the message was meant to only update the GUI
 			bool play;
-			if (msg->FindBool("play", &play) < B_OK || !play)
+			if (msg->FindBool("play", &play) != B_OK || !play)
 				break;
-			if (msg->FindInt32("index", &index) < B_OK
+			if (msg->FindInt32("index", &index) != B_OK
 				|| index != fPlaylist->CurrentItemIndex())
 				break;
 			PlaylistItemRef item(fPlaylist->ItemAt(index));
@@ -1973,7 +1973,7 @@ MainWin::_MouseDown(BMessage* msg, BView* originalHandler)
 	if (msg->FindPoint("screen_where", &screenWhere) != B_OK) {
 		// TODO: remove
 		// Workaround for BeOS R5, it has no "screen_where"
-		if (!originalHandler || msg->FindPoint("where", &screenWhere) < B_OK)
+		if (!originalHandler || msg->FindPoint("where", &screenWhere) != B_OK)
 			return;
 		originalHandler->ConvertToScreen(&screenWhere);
 	}
@@ -2022,7 +2022,7 @@ MainWin::_MouseMoved(BMessage* msg, BView* originalHandler)
 	if (msg->FindPoint("screen_where", &mousePos) != B_OK) {
 		// TODO: remove
 		// Workaround for BeOS R5, it has no "screen_where"
-		if (!originalHandler || msg->FindPoint("where", &mousePos) < B_OK)
+		if (!originalHandler || msg->FindPoint("where", &mousePos) != B_OK)
 			return;
 		originalHandler->ConvertToScreen(&mousePos);
 	}

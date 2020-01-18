@@ -353,7 +353,7 @@ void TransportView::MessageReceived(
 		case NodeGroup::M_RELEASED:
 			{
 				err = message->FindInt32("groupID", (int32*)&groupID);
-				if(err < B_OK) {
+				if(err != B_OK) {
 					PRINT((
 						"* TransportView::MessageReceived(NodeGroup::M_RELEASED)\n"
 						"  no groupID!\n"));
@@ -375,7 +375,7 @@ void TransportView::MessageReceived(
 
 		case NodeGroup::M_OBSERVER_ADDED:
 			err = message->FindInt32("groupID", (int32*)&groupID);
-			if(err < B_OK) {
+			if(err != B_OK) {
 				PRINT((
 					"* TransportView::MessageReceived(NodeGroup::M_OBSERVER_ADDED)\n"
 					"  no groupID!\n"));
@@ -394,7 +394,7 @@ void TransportView::MessageReceived(
 		case NodeGroup::M_TRANSPORT_STATE_CHANGED:
 			uint32 groupID;
 			err = message->FindInt32("groupID", (int32*)&groupID);
-			if(err < B_OK) {
+			if(err != B_OK) {
 				PRINT((
 					"* TransportView::MessageReceived(NodeGroup::M_TRANSPORT_STATE_CHANGED)\n"
 					"  no groupID!\n"));
@@ -458,7 +458,7 @@ void TransportView::MessageReceived(
 			{
 				const char* name;
 				err = message->FindString("_value", &name);
-				if(err < B_OK) {
+				if(err != B_OK) {
 					PRINT((
 						"! TransportView::MessageReceived(M_SET_NAME): no _value!\n"));
 					break;
@@ -493,7 +493,7 @@ void TransportView::_handleSelectGroup(
 
 	uint32 groupID;
 	status_t err = message->FindInt32("groupID", (int32*)&groupID);
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT((
 			"* TransportView::_handleSelectGroup(): no groupID\n"));
 		return;
@@ -526,7 +526,7 @@ void TransportView::_selectGroup(
 	}
 
 	err = m_manager->findGroup(groupID, &m_group);
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT((
 			"* TransportView::_selectGroup(%" B_PRId32 "): findGroup() failed:\n"
 			"  %s\n",
@@ -994,7 +994,7 @@ void TransportView::_updateTimeSource() {
 
 	media_node tsNode;
 	status_t err = m_group->getTimeSource(&tsNode);
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT((
 			"! TransportView::_updateTimeSource(): m_group->getTimeSource():\n"
 			"  %s\n",
@@ -1024,7 +1024,7 @@ void TransportView::_updateTimeSource() {
 			B_RAW_TYPE,
 			&data,
 			&size);
-		if(err < B_OK)
+		if(err != B_OK)
 			continue;
 
 		itemNode = *((media_node*)data);
@@ -1071,7 +1071,7 @@ void TransportView::_updateRunMode() {
 //	}
 //
 //	err = m_manager->roster->GetSystemTimeSource(&m_timeSourcePresets[1]);
-//	if(err < B_OK) {
+//	if(err != B_OK) {
 //		PRINT((
 //			"* TransportView::_initTimeSources():\n"
 //			"  GetSystemTimeSource() failed: %s\n", strerror(err)));
@@ -1085,13 +1085,13 @@ void TransportView::_timeSourceCreated(
 	status_t err;
 	media_node_id id;
 	err = message->FindInt32("nodeID", &id);
-	if(err < B_OK)
+	if(err != B_OK)
 		return;
 
 //	PRINT(("### _timeSourceCreated(): %" B_PRId32 "\n", id));
 	NodeRef* ref;
 	err = m_manager->getNodeRef(id, &ref);
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT((
 			"!!! TransportView::_timeSourceCreated(): node %" B_PRId32 " doesn't exist\n",
 			id));
@@ -1123,7 +1123,7 @@ void TransportView::_timeSourceDeleted(
 	status_t err;
 	media_node_id id;
 	err = message->FindInt32("nodeID", &id);
-	if(err < B_OK)
+	if(err != B_OK)
 		return;
 
 //	PRINT(("### _timeSourceDeleted(): %" B_PRId32 "\n", id));
@@ -1146,7 +1146,7 @@ void TransportView::_timeSourceDeleted(
 			B_RAW_TYPE,
 			&data,
 			&size);
-		if(err < B_OK)
+		if(err != B_OK)
 			continue;
 
 		itemNode = *((media_node*)data);

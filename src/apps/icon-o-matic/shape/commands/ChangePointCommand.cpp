@@ -56,7 +56,7 @@ ChangePointCommand::InitCheck()
 	// (but tracking the selection does not yet work in Icon-O-Matic)
 	
 	status_t ret = PathCommand::InitCheck();
-	if (ret < B_OK)
+	if (ret != B_OK)
 		return ret;
 
 	BPoint point;
@@ -86,7 +86,7 @@ status_t
 ChangePointCommand::Undo()
 {
 	status_t status = InitCheck();
-	if (status < B_OK)
+	if (status != B_OK)
 		return status;
 
 	// set the point to the remembered state and

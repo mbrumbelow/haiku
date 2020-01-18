@@ -371,7 +371,7 @@ ValControl::MessageReceived(BMessage* message)
 	switch (message->what) {
 		case M_SET_VALUE:
 			err = message->FindString("_value", &stringValue);
-			if(err < B_OK) {
+			if(err != B_OK) {
 				PRINT((
 					"! ValControl::MessageReceived(): no _value found!\n"));
 				break;
@@ -379,7 +379,7 @@ ValControl::MessageReceived(BMessage* message)
 				
 			// set from string
 			err = setValueFrom(stringValue);
-			if (err < B_OK) {
+			if (err != B_OK) {
 				PRINT((
 					"! ValControl::MessageReceived(): setValueFrom('%s'):\n"
 					"  %s\n",
@@ -431,7 +431,7 @@ ValControl::Archive(BMessage* archive, bool deep) const
 		err = archive->AddInt32("alignFlags", (int32)fAlignFlags);
 	if (err == B_OK)
 		err = archive->AddRect("origBounds", fOrigBounds);
-	if (err < B_OK)
+	if (err != B_OK)
 		return err;
 
 	// write layout set?

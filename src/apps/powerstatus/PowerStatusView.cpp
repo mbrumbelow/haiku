@@ -849,7 +849,7 @@ PowerStatusReplicant::_LoadSettings()
 		return;
 
 	BMessage settings;
-	if (settings.Unflatten(&file) < B_OK)
+	if (settings.Unflatten(&file) != B_OK)
 		return;
 
 	FromMessage(&settings);

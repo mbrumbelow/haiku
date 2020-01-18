@@ -159,7 +159,7 @@ status_t __CORTEX_NAMESPACE__ _get_node_signature(
 	// get ref
 	NodeRef* ref;
 	status_t err = manager->getNodeRef(node, &ref);
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT((
 			"!!! ConnectionIO::_getNodeSignature(): node %" B_PRId32
 			" not found\n", node));
@@ -224,7 +224,7 @@ status_t __CORTEX_NAMESPACE__ _match_node_signature(
 		name,
 		kind); // is this argument supported yet? +++++
 			
-	if(err < B_OK)
+	if(err != B_OK)
 		return err;
 	
 	for(int32 n = 0; n < count; ++n) {

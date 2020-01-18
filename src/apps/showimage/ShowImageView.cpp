@@ -942,7 +942,7 @@ ShowImageView::SaveToFile(BDirectory* dir, const char* name, BBitmap* bitmap,
 		BFile file(dir, name, B_WRITE_ONLY | B_CREATE_FILE | B_ERASE_FILE);
 		if (file.InitCheck() != B_OK)
 			break;
-		if (roster->Translate(&stream, NULL, NULL, &file, format->type) < B_OK)
+		if (roster->Translate(&stream, NULL, NULL, &file, format->type) != B_OK)
 			break;
 		// set mime type
 		BNodeInfo info(&file);

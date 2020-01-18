@@ -36,7 +36,7 @@ FlipPointsCommand::FlipPointsCommand(VectorPath* path,
 		fCount = count;
 	}
 
-	if (InitCheck() < B_OK)
+	if (InitCheck() != B_OK)
 		return;
 
 	memcpy(fIndex, indices, count * sizeof(int32));
@@ -53,7 +53,7 @@ status_t
 FlipPointsCommand::InitCheck()
 {
 	status_t status = PathCommand::InitCheck();
-	if (status < B_OK)
+	if (status != B_OK)
 		return status;
 	if (!fIndex)
 		status = B_NO_MEMORY;

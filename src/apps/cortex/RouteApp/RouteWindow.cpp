@@ -638,7 +638,7 @@ RouteWindow::_handleGroupSelected(BMessage* message)
 	uint32 groupID;
 
 	err = message->FindInt32("groupID", (int32*)&groupID);
-	if (err < B_OK) {
+	if (err != B_OK) {
 		PRINT((
 			"! RouteWindow::_handleGroupSelected(): no groupID in message!\n"));
 		return;
@@ -662,7 +662,7 @@ RouteWindow::_handleShowErrorMessage(BMessage* message)
 	BString text;
 
 	err = message->FindString("text", &text);
-	if (err < B_OK) {
+	if (err != B_OK) {
 		PRINT((
 			"! RouteWindow::_handleShowErrorMessage(): no text in message!\n"));
 		return;
@@ -680,7 +680,7 @@ RouteWindow::_refreshTransportSettings(BMessage* message)
 	uint32 groupID;
 
 	err = message->FindInt32("groupID", (int32*)&groupID);
-	if (err < B_OK) {
+	if (err != B_OK) {
 		PRINT((
 			"! RouteWindow::_refreshTransportSettings(): no groupID in message!\n"));
 		return;
@@ -726,7 +726,7 @@ RouteWindow::_toggleGroupRolling()
 
 	NodeGroup* g;
 	status_t err = m_routingView->manager->findGroup(m_selectedGroupID, &g);
-	if (err < B_OK)
+	if (err != B_OK)
 		return;
 
 	Autolock _l(g);

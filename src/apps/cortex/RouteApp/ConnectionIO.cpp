@@ -154,12 +154,12 @@ status_t ConnectionIO::instantiate(
 	// find output node
 	NodeRef* outputRef;
 	err = m_outputNodeIO->getNode(manager, context, &node);
-	if(err < B_OK)
+	if(err != B_OK)
 		return err;
 	err = manager->getNodeRef(
 		node,
 		&outputRef);
-	if(err < B_OK)
+	if(err != B_OK)
 		return err;
 
 	// find output +++++ currently matches by name only
@@ -176,7 +176,7 @@ status_t ConnectionIO::instantiate(
 		outputs,
 		outputBufferSize,
 		&count);
-	if(err < B_OK)
+	if(err != B_OK)
 		return err;
 	
 	media_output output;
@@ -198,12 +198,12 @@ status_t ConnectionIO::instantiate(
 	// find input node
 	NodeRef* inputRef;
 	err = m_inputNodeIO->getNode(manager, context, &node);
-	if(err < B_OK)
+	if(err != B_OK)
 		return err;
 	err = manager->getNodeRef(
 		node,
 		&inputRef);
-	if(err < B_OK)
+	if(err != B_OK)
 		return err;
 
 	// find input +++++ currently matches by name only
@@ -211,7 +211,7 @@ status_t ConnectionIO::instantiate(
 	err = inputRef->getFreeInputs(
 		inputs /*,
 		m_inputFormat.type*/);
-	if(err < B_OK)
+	if(err != B_OK)
 		return err;
 	
 	media_input input;
@@ -244,7 +244,7 @@ status_t ConnectionIO::instantiate(
 			input,
 			&con);
 			
-	if(err < B_OK)
+	if(err != B_OK)
 		return err;
 	
 	if(outCon)
@@ -467,7 +467,7 @@ void ConnectionIO::xmlImportChild(
 		
 		media_format f;
 		err = io->getFormat(f);
-		if(err < B_OK) {
+		if(err != B_OK) {
 			context.reportError("Malformed format.\n");
 			delete child;
 			return;

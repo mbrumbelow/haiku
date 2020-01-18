@@ -104,8 +104,8 @@ void dbg_printf_end();
 
 #define TPRINT(x) DEBUG_CONTEXT( __out x )
 #define TREPORT_ERROR(status) DEBUG_CONTEXT_LINE( __out("%s\n", strerror(status)) )
-#define TRETURN_ERROR(err) { status_t _status = err; if (_status < B_OK) TREPORT_ERROR(_status); return _status;}
-#define TSET_ERROR(var, err) { status_t _status = err; if (_status < B_OK) TREPORT_ERROR(_status); var = _status; }
+#define TRETURN_ERROR(err) { status_t _status = err; if (_status != B_OK) TREPORT_ERROR(_status); return _status;}
+#define TSET_ERROR(var, err) { status_t _status = err; if (_status != B_OK) TREPORT_ERROR(_status); var = _status; }
 #define TFUNCTION(x) DEBUG_CONTEXT_FUNCTION( ": ", __out x )
 #define TFUNCTION_START() DEBUG_CONTEXT_FUNCTION( "\n",  )
 #define TFUNCTION_END() DEBUG_CONTEXT_FUNCTION( " done\n",  )

@@ -237,7 +237,7 @@ status_t
 ProxyAudioSupplier::InitCheck() const
 {
 	status_t ret = AudioSupplier::InitCheck();
-	if (ret < B_OK)
+	if (ret != B_OK)
 		return ret;
 	return B_OK;
 }

@@ -67,7 +67,7 @@ status_t _AudioAdapterNode::getRequiredInputFormat(
 	media_format&								ioFormat) {
 		
 	status_t err = getPreferredInputFormat(ioFormat);
-	if(err < B_OK)
+	if(err != B_OK)
 		return err;
 
 	// 16sep99: input byte-swapping now supported		
@@ -102,7 +102,7 @@ status_t _AudioAdapterNode::getPreferredInputFormat(
 	media_format&								ioFormat) {
 
 	status_t err = _inherited::getPreferredInputFormat(ioFormat);
-	if(err < B_OK)
+	if(err != B_OK)
 		return err;
 		
 	_AudioAdapterParams* p = dynamic_cast<_AudioAdapterParams*>(parameterSet());
@@ -144,7 +144,7 @@ status_t _AudioAdapterNode::getRequiredOutputFormat(
 	media_format&								ioFormat) {
 		
 	status_t err = getPreferredOutputFormat(ioFormat);
-	if(err < B_OK)
+	if(err != B_OK)
 		return err;
 		
 	ioFormat.u.raw_audio.format = media_raw_audio_format::wildcard.format;
@@ -176,7 +176,7 @@ status_t _AudioAdapterNode::getPreferredOutputFormat(
 	media_format&								ioFormat) {
 
 	status_t err = _inherited::getPreferredOutputFormat(ioFormat);
-	if(err < B_OK)
+	if(err != B_OK)
 		return err;
 
 	_AudioAdapterParams* p = dynamic_cast<_AudioAdapterParams*>(parameterSet());
@@ -456,7 +456,7 @@ void _AudioAdapterNode::_attemptOutputFormatChange(
 	}
 
 	err = prepareFormatChange(f);
-	if(err < B_OK)
+	if(err != B_OK)
 	{
 		PRINT((
 			"! format not supported\n"));
@@ -464,7 +464,7 @@ void _AudioAdapterNode::_attemptOutputFormatChange(
 	}
 
 	err = ProposeFormatChange(&f, dest);
-	if(err < B_OK)
+	if(err != B_OK)
 	{
 		PRINT((
 			"! format rejected\n"));
@@ -476,7 +476,7 @@ void _AudioAdapterNode::_attemptOutputFormatChange(
 		dest,
 		&f);
 		
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT(("! ChangeFormat(): %s\n", strerror(err)));
 		goto broadcast;
 	}

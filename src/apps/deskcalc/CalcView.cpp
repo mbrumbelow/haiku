@@ -947,7 +947,7 @@ CalcView::Evaluate()
 
 	fEvaluateThread = spawn_thread(_EvaluateThread, "Evaluate Thread",
 		B_LOW_PRIORITY, this);
-	if (fEvaluateThread < B_OK) {
+	if (fEvaluateThread != B_OK) {
 		// failed to create evaluate thread, error out
 		fExpressionTextView->SetText(strerror(fEvaluateThread));
 		return;
@@ -1172,16 +1172,16 @@ CalcView::_LoadSettings(BMessage* archive)
 		fKeypadDescription = kKeypadDescriptionBasic;
 
 	// read grid dimensions
-	if (archive->FindInt16("cols", &fColumns) < B_OK)
+	if (archive->FindInt16("cols", &fColumns) != B_OK)
 		fColumns = 5;
-	if (archive->FindInt16("rows", &fRows) < B_OK)
+	if (archive->FindInt16("rows", &fRows) != B_OK)
 		fRows = 4;
 
 	// read color scheme
 	const rgb_color* color;
 	ssize_t size;
 	if (archive->FindData("rgbBaseColor", B_RGB_COLOR_TYPE,
-			(const void**)&color, &size) < B_OK
+			(const void**)&color, &size) != B_OK
 		|| size != sizeof(rgb_color)) {
 		fBaseColor = ui_color(B_PANEL_BACKGROUND_COLOR);
 		puts("Missing rgbBaseColor from CalcView archive!\n");
@@ -1189,7 +1189,7 @@ CalcView::_LoadSettings(BMessage* archive)
 		fBaseColor = *color;
 
 	if (archive->FindData("rgbDisplay", B_RGB_COLOR_TYPE,
-			(const void**)&color, &size) < B_OK
+			(const void**)&color, &size) != B_OK
 		|| size != sizeof(rgb_color)) {
 		fExpressionBGColor = (rgb_color){ 0, 0, 0, 255 };
 		puts("Missing rgbBaseColor from CalcView archive!\n");
@@ -1204,7 +1204,7 @@ CalcView::_LoadSettings(BMessage* archive)
 
 	// load display text
 	const char* display;
-	if (archive->FindString("displayText", &display) < B_OK) {
+	if (archive->FindString("displayText", &display) != B_OK) {
 		puts("Missing expression text from CalcView archive.\n");
 	} else {
 		// init expression text

@@ -63,7 +63,7 @@ inline void assert_locked(const ILockable* target) {
 //		status_t err = manager->disconnect(c);
 //
 //#if DEBUG
-//		if(err < B_OK)
+//		if(err != B_OK)
 //			PRINT((
 //				"* disconnect():\n"
 //				"  output %s:%s\n"

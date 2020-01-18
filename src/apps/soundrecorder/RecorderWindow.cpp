@@ -227,17 +227,17 @@ RecorderWindow::InitWindow()
 			goto bad_mojo;
 
 		error = fRoster->GetAudioInput(&fAudioInputNode);
-		if (error < B_OK) //	there's no input?
+		if (error != B_OK) //	there's no input?
 			goto bad_mojo;
 
 		error = fRoster->GetAudioMixer(&fAudioMixerNode);
-		if (error < B_OK) //	there's no mixer?
+		if (error != B_OK) //	there's no mixer?
 			goto bad_mojo;
 
 		fRecorder = new BMediaRecorder("Sound Recorder",
 			B_MEDIA_RAW_AUDIO);
 
-		if (fRecorder->InitCheck() < B_OK)
+		if (fRecorder->InitCheck() != B_OK)
 			goto bad_mojo;
 
 		// Set the node to accept only audio data
@@ -660,20 +660,20 @@ RecorderWindow::Record(BMessage * message)
 	char name[256];
 	//	Create a file with a temporary name
 	status_t err = NewTempName(name);
-	if (err < B_OK) {
+	if (err != B_OK) {
 		ErrorAlert(B_TRANSLATE("Cannot find an unused name to use for the "
 			"new recording"), err);
 		return;
 	}
 	//	Find the file so we can refer to it later
 	err = fTempDir.FindEntry(name, &fRecEntry);
-	if (err < B_OK) {
+	if (err != B_OK) {
 		ErrorAlert(B_TRANSLATE("Cannot find the temporary file created to "
 			"hold the new recording"), err);
 		return;
 	}
 	err = fRecFile.SetTo(&fTempDir, name, O_RDWR);
-	if (err < B_OK) {
+	if (err != B_OK) {
 		ErrorAlert(B_TRANSLATE("Cannot open the temporary file created to "
 			"hold the new recording"), err);
 		fRecEntry.Unset();
@@ -684,7 +684,7 @@ RecorderWindow::Record(BMessage * message)
 		* fRecordFormat.u.raw_audio.frame_rate
 		* (fRecordFormat.u.raw_audio.format
 			& media_raw_audio_format::B_AUDIO_SIZE_MASK));
-	if (err < B_OK) {
+	if (err != B_OK) {
 		ErrorAlert(B_TRANSLATE("Cannot record a sound that long"), err);
 		fRecEntry.Remove();
 		fRecEntry.Unset();
@@ -696,7 +696,7 @@ RecorderWindow::Record(BMessage * message)
 
 	// Hook up input
 	err = MakeRecordConnection(fAudioInputNode);
-	if (err < B_OK) {
+	if (err != B_OK) {
 		ErrorAlert(B_TRANSLATE("Cannot connect to the selected sound input"),
 			err);
 		fRecEntry.Remove();
@@ -737,7 +737,7 @@ RecorderWindow::Play(BMessage * message)
 	fPlayer = new BSoundPlayer(fAudioMixerNode, &fPlayFormat.u.raw_audio,
 		"Sound Player");
 	status_t err = fPlayer->InitCheck();
-	if (err < B_OK)
+	if (err != B_OK)
 		return;
 
 	fVolumeSlider->SetSoundPlayer(fPlayer);
@@ -880,7 +880,7 @@ RecorderWindow::MakeRecordConnection(const media_node & input)
 		err = fRoster->GetFreeOutputsFor(input, &audioOutput, 1,
 			&count, B_MEDIA_RAW_AUDIO);
 
-		if (err < B_OK) {
+		if (err != B_OK) {
 			CONNECT((stderr, "RecorderWindow::MakeRecordConnection():"
 				" couldn't get free outputs from audio input node\n"));
 			return err;
@@ -905,7 +905,7 @@ RecorderWindow::MakeRecordConnection(const media_node & input)
 	//	Tell the consumer where we want data to go.
 	err = fRecorder->SetHooks(RecordFile, NotifyRecordFile, this);
 
-	if (err < B_OK) {
+	if (err != B_OK) {
 		CONNECT((stderr, "RecorderWindow::MakeRecordConnection():"
 			" couldn't set the sound recorder's hook functions\n"));
 		return err;
@@ -915,7 +915,7 @@ RecorderWindow::MakeRecordConnection(const media_node & input)
 
 		err = fRecorder->Connect(input, &audioOutput, &fRecordFormat);
 
-		if (err < B_OK) {
+		if (err != B_OK) {
 			CONNECT((stderr, "RecorderWindow::MakeRecordConnection():"
 				" failed to connect sound recorder to audio input node.\n"));
 
@@ -944,7 +944,7 @@ RecorderWindow::StopRecording()
 
 	status_t err = B_OK;
 	err = fRecorder->Stop(true);
-	if (err < B_OK)
+	if (err != B_OK)
 		return err;
 
 	// We maintain the connection active
@@ -1062,7 +1062,7 @@ RecorderWindow::UpdatePlayFile(SoundListItem* item, bool updateDisplay)
 	entry_ref ref;
 	entry.GetRef(&ref);
 	fPlayFile = new BMediaFile(&ref); //, B_MEDIA_FILE_UNBUFFERED);
-	if ((err = fPlayFile->InitCheck()) < B_OK) {
+	if ((err = fPlayFile->InitCheck()) != B_OK) {
 		delete fPlayFile;
 		fPlayFile = NULL;
 		return err;
@@ -1167,10 +1167,10 @@ again:
 		BPath path;
 		status_t err;
 		BEntry tempEnt;
-		if ((err = fTempDir.GetEntry(&tempEnt)) < B_OK) {
+		if ((err = fTempDir.GetEntry(&tempEnt)) != B_OK) {
 			return err;
 		}
-		if ((err = tempEnt.GetPath(&path)) < B_OK) {
+		if ((err = tempEnt.GetPath(&path)) != B_OK) {
 			return err;
 		}
 		path.Append(name);

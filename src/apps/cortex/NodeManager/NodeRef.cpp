@@ -111,7 +111,7 @@ status_t NodeRef::release() {
 
 	// hand off to parent release() implementation
 	status_t parentErr = _inherited::release();
-	return (parentErr < B_OK) ? parentErr : err;
+	return (parentErr != B_OK) ? parentErr : err;
 }
 
 NodeRef::~NodeRef() {
@@ -535,7 +535,7 @@ status_t NodeRef::addPositionObserver(
 	// try to create messenger
 	status_t error;
 	BMessenger m(handler, NULL, &error);
-	if(error < B_OK) {
+	if(error != B_OK) {
 		PRINT((
 			"* NodeRef::addPositionListener(): BMessenger() failed:\n"
 			"  %s\n"
@@ -641,7 +641,7 @@ status_t NodeRef::releaseNode() {
 		for(vector<Connection>::iterator it = c_set.begin();
 			it != c_set.end(); ++it) {
 			err = m_manager->disconnect(*it);
-			if(err < B_OK) {
+			if(err != B_OK) {
 				PRINT((
 					"! NodeRef('%s')::releaseNode():\n"
 					"  NodeManager::disconnect('%s'->'%s') failed:\n"
@@ -667,7 +667,7 @@ status_t NodeRef::releaseNode() {
 		err = BMediaRoster::Roster()->ReleaseNode(
 			m_info.node);	
 		
-		if(err < B_OK) {
+		if(err != B_OK) {
 			PRINT((
 				"!!! ReleaseNode(%" B_PRId32 ") failed:\n"
 				"    %s\n",
@@ -681,7 +681,7 @@ status_t NodeRef::releaseNode() {
 
 			// ask add-on host to release the node
 			err = AddOnHost::ReleaseInternalNode(m_info);
-			if(err < B_OK) {
+			if(err != B_OK) {
 				PRINT((
 					"!!! AddOnHost::ReleaseInternalNode(%" B_PRId32
 						") failed:\n"
@@ -742,7 +742,7 @@ status_t NodeRef::findInput(
 	
 	// check free inputs
 	err = getFreeInputs(inputs);
-	if(err < B_OK)	
+	if(err != B_OK)	
 		return err;
 		
 	it = find_if(
@@ -757,7 +757,7 @@ status_t NodeRef::findInput(
 	// check connected inputs
 	inputs.clear();
 	err = getConnectedInputs(inputs);
-	if(err < B_OK)	
+	if(err != B_OK)	
 		return err;
 		
 	it = find_if(
@@ -783,7 +783,7 @@ status_t NodeRef::findOutput(
 	
 	// check free outputs
 	err = getFreeOutputs(outputs);
-	if(err < B_OK)	
+	if(err != B_OK)	
 		return err;
 		
 	it = find_if(
@@ -798,7 +798,7 @@ status_t NodeRef::findOutput(
 	// check connected outputs
 	outputs.clear();
 	err = getConnectedOutputs(outputs);
-	if(err < B_OK)	
+	if(err != B_OK)	
 		return err;
 		
 	it = find_if(
@@ -887,7 +887,7 @@ status_t NodeRef::findFreeInput(
 	inputs.reserve(32);
 	
 	err = getFreeInputs(inputs);
-	if(err < B_OK)	
+	if(err != B_OK)	
 		return err;
 		
 	it = find_if(
@@ -914,7 +914,7 @@ status_t NodeRef::findFreeInput(
 	inputs.reserve(32);
 	
 	err = getFreeInputs(inputs);
-	if(err < B_OK)	
+	if(err != B_OK)	
 		return err;
 		
 	it = find_if(
@@ -940,7 +940,7 @@ status_t NodeRef::findFreeOutput(
 	outputs.reserve(32);
 	
 	err = getFreeOutputs(outputs);
-	if(err < B_OK)	
+	if(err != B_OK)	
 		return err;
 		
 	it = find_if(
@@ -966,7 +966,7 @@ status_t NodeRef::findFreeOutput(
 	outputs.reserve(32);
 	
 	err = getFreeOutputs(outputs);
-	if(err < B_OK)	
+	if(err != B_OK)	
 		return err;
 		
 	it = find_if(
@@ -999,7 +999,7 @@ status_t NodeRef::getFreeInputs(
 	while (true) {
 		err = r->GetFreeInputsFor(
 			m_info.node, inputBuffer, inputBufferSize, &count, filterType);
-		if (err < B_OK) {
+		if (err != B_OK) {
 			delete [] inputBuffer;
 			return err;
 		}
@@ -1043,7 +1043,7 @@ status_t NodeRef::getConnectedInputs(
 	while (true) {
 		err = r->GetConnectedInputsFor(
 			m_info.node, inputBuffer, inputBufferSize, &count);
-		if (err < B_OK) {
+		if (err != B_OK) {
 			delete [] inputBuffer;
 			return err;
 		}
@@ -1087,7 +1087,7 @@ status_t NodeRef::getFreeOutputs(
 	while (true) {
 		err = r->GetFreeOutputsFor(
 			m_info.node, outputBuffer, outputBufferSize, &count, filterType);
-		if (err < B_OK) {
+		if (err != B_OK) {
 			delete [] outputBuffer;
 			return err;
 		}
@@ -1130,7 +1130,7 @@ status_t NodeRef::getConnectedOutputs(
 	while (true) {
 		err = r->GetConnectedOutputsFor(
 			m_info.node, outputBuffer, outputBufferSize, &count);
-		if (err < B_OK) {
+		if (err != B_OK) {
 			delete [] outputBuffer;
 			return err;
 		}
@@ -1172,7 +1172,7 @@ status_t NodeRef::getFreeInputs(
 	status_t err = BMediaRoster::Roster()->GetFreeInputsFor(
 		m_info.node, outInputs, maxInputs, outNumInputs, filterType);
 		
-	if(err < B_OK)
+	if(err != B_OK)
 		return err;
 		
 	// fix missing node info
@@ -1189,7 +1189,7 @@ status_t NodeRef::getConnectedInputs(
 	status_t err = BMediaRoster::Roster()->GetConnectedInputsFor(
 		m_info.node, outInputs, maxInputs, outNumInputs);
 		
-	if(err < B_OK)
+	if(err != B_OK)
 		return err;
 		
 	// fix missing node info
@@ -1206,7 +1206,7 @@ status_t NodeRef::getFreeOutputs(
 	status_t err = BMediaRoster::Roster()->GetFreeOutputsFor(
 		m_info.node, outOutputs, maxOutputs, outNumOutputs, filterType);
 		
-	if(err < B_OK)
+	if(err != B_OK)
 		return err;
 		
 	// fix missing node info
@@ -1222,7 +1222,7 @@ status_t NodeRef::getConnectedOutputs(
 	status_t err = BMediaRoster::Roster()->GetConnectedOutputsFor(
 		m_info.node, outOutputs, maxOutputs, outNumOutputs);
 		
-	if(err < B_OK)
+	if(err != B_OK)
 		return err;
 		
 	// fix missing node info
@@ -1268,7 +1268,7 @@ void NodeRef::MessageReceived(
 				int32 runMode;
 				bigtime_t delay = 0LL;
 				err = message->FindInt32("runMode", &runMode);
-				if(err < B_OK) {
+				if(err != B_OK) {
 					PRINT((
 						"! NodeRef::MessageReceived(M_SET_RUN_MODE): no value found.\n"));
 					break;
@@ -1289,10 +1289,10 @@ void NodeRef::MessageReceived(
 			{
 				bool cycling;
 				err = message->FindBool("cycling", &cycling);
-				if(err < B_OK) {
+				if(err != B_OK) {
 					int32 val;
 					err = message->FindInt32("be:value", &val);
-					if(err < B_OK) {
+					if(err != B_OK) {
 						PRINT((
 							"! NodeRef::MessageReceived(M_SET_CYCLING): no value found.\n"));
 						break;
@@ -1505,7 +1505,7 @@ NodeRef::NodeRef(
 		node,
 		&m_info);
 
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT((
 			"!!! NodeRef(): BMediaRoster::GetLiveNodeInfo(%" B_PRId32
 				") failed:\n"
@@ -1677,7 +1677,7 @@ status_t NodeRef::_setTimeSource(
 	err = m_manager->roster->SetTimeSourceFor(
 		id(), timeSourceID);
 		
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT((
 			"* NodeRef('%s')::_setTimeSource(%" B_PRId32 "):\n"
 			"  SetTimeSourceFor() failed: %s\n",
@@ -1717,7 +1717,7 @@ status_t NodeRef::_setRunMode(
 		D_ROSTER(("# roster->SetProducerRunModeDelay()\n"));
 		err = m_manager->roster->SetProducerRunModeDelay(
 			node(), delay, m);
-		if(err < B_OK) {
+		if(err != B_OK) {
 			PRINT((
 				"NodeRef('%s')::_setRunMode(): SetProducerRunModeDelay(%"
 					B_PRIdBIGTIME ") failed: %s\n",
@@ -1728,7 +1728,7 @@ status_t NodeRef::_setRunMode(
 		D_ROSTER(("# roster->SetRunModeNode()\n"));
 		err = m_manager->roster->SetRunModeNode(
 			node(), m);
-		if(err < B_OK) {
+		if(err != B_OK) {
 			PRINT((
 				"NodeRef('%s')::_setRunMode(): SetRunModeNode(%d) failed: %s\n",
 				name(), m, strerror(err)));
@@ -1782,7 +1782,7 @@ status_t NodeRef::_preroll(
 			position,
 			0LL);
 
-		if(err < B_OK) {
+		if(err != B_OK) {
 			PRINT((
 				"*** NodeRef('%s')::_preroll(%" B_PRIdBIGTIME
 					"): BMediaRoster::SeekNode():\n"
@@ -1798,7 +1798,7 @@ status_t NodeRef::_preroll(
 	err = BMediaRoster::Roster()->PrerollNode(
 		node());
 	
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT((
 			"*** NodeRef('%s')::_preroll(%" B_PRIdBIGTIME
 				"): BMediaRoster::PrerollNode():\n"
@@ -1839,7 +1839,7 @@ status_t NodeRef::_seek(
 	status_t err = BMediaRoster::Roster()->SeekNode(
 		node(), position, when);			
 
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT((
 			"*** NodeRef('%s')::_seek(to %" B_PRIdBIGTIME ", at %"
 				B_PRIdBIGTIME "): BMediaRoster::SeekNode():\n"
@@ -1912,7 +1912,7 @@ status_t NodeRef::_start(
 	status_t err = BMediaRoster::Roster()->StartNode(
 		node(),	when);
 		
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT((
 			"  * StartNode(%" B_PRId32 ") failed: '%s'\n",
 			id(), strerror(err)));
@@ -1956,7 +1956,7 @@ status_t NodeRef::_stop() {
 	status_t err = BMediaRoster::Roster()->StopNode(
 		node(), 0, true);
 
-	if(err < B_OK)
+	if(err != B_OK)
 		return err;
 	
 	// 9aug99: refuse further position notification
@@ -2006,7 +2006,7 @@ status_t NodeRef::_roll(
 		err = BMediaRoster::Roster()->RollNode(
 			node(),	start, stop, position);
 		
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT((
 			"NodeRef('%s')::_roll(%" B_PRIdBIGTIME " to %" B_PRIdBIGTIME
 				", from %" B_PRIdBIGTIME ")\n"
@@ -2048,7 +2048,7 @@ status_t NodeRef::_updateLatency() {
 	status_t err = BMediaRoster::Roster()->GetLatencyFor(
 		node(),
 		&latency);
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT((
 			"* NodeRef('%s')::_updateLatency(): GetLatencyFor() failed:\n"
 			"  %s\n",
@@ -2120,7 +2120,7 @@ status_t NodeRef::_startPositionThread() {
 			m_tpStart,
 			m_lastSeekPos);
 			
-		if(err < B_OK) {
+		if(err != B_OK) {
 			PRINT((
 				"* NodeRef::_startPositionThread(): _handlePositionUpdate() failed:\n"
 				"  %s\\n",
@@ -2146,7 +2146,7 @@ status_t NodeRef::_startPositionThread() {
 			tpTarget,
 			targetPosition);
 
-		if(err < B_OK) {
+		if(err != B_OK) {
 			PRINT((
 				"* NodeRef::_createPositionThread(): _schedulePositionUpdate() failed:\n"
 				"  %s\\n",
@@ -2188,7 +2188,7 @@ status_t NodeRef::_handlePositionUpdate(
 		perfTime + m_positionUpdatePeriod,
 		position + m_positionUpdatePeriod);
 
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT((
 			"* NodeRef::_handlePositionUpdate(): _schedulePositionUpdate() failed:\n"
 			"  %s\n",
@@ -2237,7 +2237,7 @@ status_t NodeRef::_schedulePositionUpdate(
 
 	err = m_positionThread->sync(when, position, B_INFINITE_TIMEOUT);
 
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT((
 			"! NodeRef::_schedulePositionUpdate(): m_positionThread->sync() failed:\n"
 			"  %s\n", strerror(err)));

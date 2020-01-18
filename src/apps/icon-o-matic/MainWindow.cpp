@@ -297,7 +297,7 @@ MainWindow::MessageReceived(BMessage* message)
 		case MSG_EXPORT_AS:
 		{
 			int32 exportMode;
-			if (message->FindInt32("export mode", &exportMode) < B_OK)
+			if (message->FindInt32("export mode", &exportMode) != B_OK)
 				exportMode = EXPORT_MODE_MESSAGE;
 			entry_ref ref;
 			const char* name;
@@ -460,7 +460,7 @@ MainWindow::MessageReceived(BMessage* message)
 // TODO: listen to selection in CanvasView to add a manipulator
 case MSG_PATH_SELECTED: {
 	VectorPath* path;
-	if (message->FindPointer("path", (void**)&path) < B_OK)
+	if (message->FindPointer("path", (void**)&path) != B_OK)
 		path = NULL;
 
 	fPathListView->SetCurrentShape(NULL);
@@ -477,7 +477,7 @@ case MSG_PATH_SELECTED: {
 case MSG_STYLE_SELECTED:
 case MSG_STYLE_TYPE_CHANGED: {
 	Style* style;
-	if (message->FindPointer("style", (void**)&style) < B_OK)
+	if (message->FindPointer("style", (void**)&style) != B_OK)
 		style = NULL;
 	if (!fDocument->Icon()->Styles()->HasStyle(style))
 		style = NULL;
@@ -498,7 +498,7 @@ case MSG_STYLE_TYPE_CHANGED: {
 }
 case MSG_SHAPE_SELECTED: {
 	Shape* shape;
-	if (message->FindPointer("shape", (void**)&shape) < B_OK)
+	if (message->FindPointer("shape", (void**)&shape) != B_OK)
 		shape = NULL;
 	if (!fIcon || !fIcon->Shapes()->HasShape(shape))
 		shape = NULL;
@@ -631,7 +631,7 @@ void
 MainWindow::Open(const entry_ref& ref, bool append)
 {
 	BFile file(&ref, B_READ_ONLY);
-	if (file.InitCheck() < B_OK)
+	if (file.InitCheck() != B_OK)
 		return;
 
 	Icon* icon;
@@ -713,7 +713,7 @@ MainWindow::Open(const entry_ref& ref, bool append)
 		}
 	}
 
-	if (ret < B_OK) {
+	if (ret != B_OK) {
 		// inform user of failure at this point
 		BString helper(B_TRANSLATE("Opening the document failed!"));
 		helper << "\n\n" << B_TRANSLATE("Error: ") << strerror(ret);
@@ -792,7 +792,7 @@ MainWindow::Open(const BMessenger& externalObserver, const uint8* data,
 			// mode, in this case it is used read-only, and it does not assume
 			// ownership of the buffer
 
-		if (ret < B_OK) {
+		if (ret != B_OK) {
 			// inform user of failure at this point
 			BString helper(B_TRANSLATE("Opening the icon failed!"));
 			helper << "\n\n" << B_TRANSLATE("Error: ") << strerror(ret);

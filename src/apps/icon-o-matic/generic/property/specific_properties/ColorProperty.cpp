@@ -47,7 +47,7 @@ ColorProperty::ColorProperty(BMessage* archive)
 	if (!archive)
 		return;
 
-	if (archive->FindInt32("value", (int32*)&fValue) < B_OK)
+	if (archive->FindInt32("value", (int32*)&fValue) != B_OK)
 		fValue = kBlack;
 }
 

@@ -652,15 +652,15 @@ ActivityView::Archive(BMessage* into, bool deep) const
 	status_t status;
 
 	status = BView::Archive(into, deep);
-	if (status < B_OK)
+	if (status != B_OK)
 		return status;
 
 	status = into->AddString("add_on", kSignature);
-	if (status < B_OK)
+	if (status != B_OK)
 		return status;
 
 	status = SaveState(*into);
-	if (status < B_OK)
+	if (status != B_OK)
 		return status;
 
 	return B_OK;

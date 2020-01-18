@@ -798,7 +798,7 @@ SetFileType(BFile* file, int32 translator, uint32 type)
 
 	status_t err = BTranslatorRoster::Default()->GetOutputFormats(translator,
 		(const translation_format**)&formats, &count);
-	if (err < B_OK)
+	if (err != B_OK)
 		return err;
 
 	const char* mime = NULL;

@@ -148,13 +148,13 @@ CopyEngine::CopyFile(const BEntry& _source, const BEntry& _destination,
 
 	BFile source(&_source, B_READ_ONLY);
 	status_t ret = source.InitCheck();
-	if (ret < B_OK)
+	if (ret != B_OK)
 		return ret;
 
 	BFile* destination = new (nothrow) BFile(&_destination,
 		B_WRITE_ONLY | B_CREATE_FILE | B_ERASE_FILE);
 	ret = destination->InitCheck();
-	if (ret < B_OK) {
+	if (ret != B_OK) {
 		delete destination;
 		return ret;
 	}
@@ -201,7 +201,7 @@ CopyEngine::CopyFile(const BEntry& _source, const BEntry& _destination,
 
 		// enqueue the buffer
 		ret = fBufferQueue.Push(buffer);
-		if (ret < B_OK) {
+		if (ret != B_OK) {
 			buffer->deleteFile = false;
 			delete buffer;
 			delete destination;
@@ -228,7 +228,7 @@ CopyEngine::_CollectCopyInfo(const char* _source, int32& level,
 
 	BDirectory source(_source);
 	status_t ret = source.InitCheck();
-	if (ret < B_OK)
+	if (ret != B_OK)
 		return ret;
 
 	BEntry entry;
@@ -244,7 +244,7 @@ CopyEngine::_CollectCopyInfo(const char* _source, int32& level,
 
 		BPath sourceEntryPath;
 		status_t ret = entry.GetPath(&sourceEntryPath);
-		if (ret < B_OK)
+		if (ret != B_OK)
 			return ret;
 
 		if (fEntryFilter != NULL
@@ -257,14 +257,14 @@ CopyEngine::_CollectCopyInfo(const char* _source, int32& level,
 			// handle recursive directory copy
 			BPath srcFolder;
 			ret = entry.GetPath(&srcFolder);
-			if (ret < B_OK)
+			if (ret != B_OK)
 				return ret;
 
 			if (cancelSemaphore >= 0)
 				lock.Unlock();
 
 			ret = _CollectCopyInfo(srcFolder.Path(), level, cancelSemaphore);
-			if (ret < B_OK)
+			if (ret != B_OK)
 				return ret;
 		} else if (S_ISLNK(statInfo.st_mode)) {
 			// link, ignore size
@@ -289,11 +289,11 @@ CopyEngine::_CopyFolder(const char* _source, const char* _destination,
 
 	BDirectory source(_source);
 	status_t ret = source.InitCheck();
-	if (ret < B_OK)
+	if (ret != B_OK)
 		return ret;
 
 	ret = create_directory(_destination, 0777);
-	if (ret < B_OK && ret != B_FILE_EXISTS) {
+	if (ret != B_OK && ret != B_FILE_EXISTS) {
 		fprintf(stderr, "Could not create '%s': %s\n", _destination,
 			strerror(ret));
 		return ret;
@@ -301,7 +301,7 @@ CopyEngine::_CopyFolder(const char* _source, const char* _destination,
 
 	BDirectory destination(_destination);
 	ret = destination.InitCheck();
-	if (ret < B_OK)
+	if (ret != B_OK)
 		return ret;
 
 	BEntry entry;
@@ -365,7 +365,7 @@ CopyEngine::_CopyFolder(const char* _source, const char* _destination,
 
 			BPath dstFolder;
 			ret = copy.GetPath(&dstFolder);
-			if (ret < B_OK)
+			if (ret != B_OK)
 				return ret;
 
 			if (cancelSemaphore >= 0)
@@ -373,7 +373,7 @@ CopyEngine::_CopyFolder(const char* _source, const char* _destination,
 
 			ret = _CopyFolder(sourceEntryPath.Path(), dstFolder.Path(), level,
 				cancelSemaphore);
-			if (ret < B_OK)
+			if (ret != B_OK)
 				return ret;
 
 			if (cancelSemaphore >= 0 && !lock.Lock()) {
@@ -395,7 +395,7 @@ CopyEngine::_CopyFolder(const char* _source, const char* _destination,
 			if (S_ISLNK(statInfo.st_mode)) {
 				// copy symbolic links
 				BSymLink srcLink(&entry);
-				if (ret < B_OK)
+				if (ret != B_OK)
 					return ret;
 
 				char linkPath[B_PATH_NAME_LENGTH];
@@ -408,13 +408,13 @@ CopyEngine::_CopyFolder(const char* _source, const char* _destination,
 
 				BSymLink dstLink;
 				ret = destination.CreateSymLink(name, linkPath, &dstLink);
-				if (ret < B_OK)
+				if (ret != B_OK)
 					return ret;
 			} else {
 				// copy file data
 				// NOTE: Do not pass the locker, we simply keep holding the lock!
 				ret = CopyFile(entry, copy);
-				if (ret < B_OK)
+				if (ret != B_OK)
 					return ret;
 			}
 		}
@@ -432,7 +432,7 @@ CopyEngine::_CopyFolder(const char* _source, const char* _destination,
 		char attrName[B_ATTR_NAME_LENGTH];
 		while (sourceNode.GetNextAttrName(attrName) == B_OK) {
 			attr_info info;
-			if (sourceNode.GetAttrInfo(attrName, &info) < B_OK)
+			if (sourceNode.GetAttrInfo(attrName, &info) != B_OK)
 				continue;
 			size_t size = 4096;
 			uint8 buffer[size];

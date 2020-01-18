@@ -77,7 +77,7 @@ status_t
 RemovePointsCommand::InitCheck()
 {
 	status_t status = PathCommand::InitCheck();
-	if (status < B_OK)
+	if (status != B_OK)
 		return status;
 	if (!fIndex || !fPoint || !fPointIn || !fPointOut || !fConnected)
 		status = B_NO_MEMORY;
@@ -97,7 +97,7 @@ status_t
 RemovePointsCommand::Undo()
 {
 	status_t status = InitCheck();
-	if (status < B_OK)
+	if (status != B_OK)
 		return status;
 
 	AutoNotificationSuspender _(fPath);
@@ -131,7 +131,7 @@ status_t
 RemovePointsCommand::Redo()
 {
 	status_t status = InitCheck();
-	if (status < B_OK)
+	if (status != B_OK)
 		return status;
 
 	AutoNotificationSuspender _(fPath);
@@ -185,7 +185,7 @@ RemovePointsCommand::_Init(const int32* indices, int32 count,
 		fCount = count;
 	}
 
-	if (InitCheck() < B_OK)
+	if (InitCheck() != B_OK)
 		return;
 
 	memcpy(fIndex, indices, count * sizeof(int32));

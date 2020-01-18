@@ -30,7 +30,7 @@ SourceExporter::Export(const Icon* icon, BPositionIO* stream)
 {
 	BMallocIO buffer;
 	status_t ret = FlatIconExporter::Export(icon, &buffer);
-	if (ret < B_OK)
+	if (ret != B_OK)
 		return ret;
 
 	return _Export((const uint8*)buffer.Buffer(), buffer.BufferLength(),

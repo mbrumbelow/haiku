@@ -66,7 +66,7 @@ App::ArgvReceived(int32 argc, char** argv)
 	for (int32 i = 1; i < argc; i++) {
 		BEntry entry(argv[i]);
 		entry_ref ref;
-		if (entry.GetRef(&ref) < B_OK)
+		if (entry.GetRef(&ref) != B_OK)
 			continue;
 		new ResWindow(BRect(50, 100, 600, 400), &ref);
 	}

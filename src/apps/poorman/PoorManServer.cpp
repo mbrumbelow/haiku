@@ -104,7 +104,7 @@ status_t PoorManServer::Run()
 		B_NORMAL_PRIORITY,
 		static_cast<void*>(this)
 	);
-	if (fListenerTid < B_OK) {
+	if (fListenerTid != B_OK) {
 		poorman_log("can't create listener thread.\n", false, INADDR_NONE, RED);
 		return B_ERROR;
 	}
@@ -243,7 +243,7 @@ int32 PoorManServer::_Listener(void* data)
 			B_NORMAL_PRIORITY,
 			static_cast<void*>(s)
 		);
-		if (tid < B_OK) {
+		if (tid != B_OK) {
 			continue;
 		}
 		/*We don't check the return code here.

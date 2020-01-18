@@ -50,7 +50,7 @@ NodeSyncThread::~NodeSyncThread() {
 	// clean up
 	if(m_thread) {
 		err = kill_thread(m_thread);
-		if(err < B_OK)
+		if(err != B_OK)
 			PRINT((
 				"! ~NodeSyncThread(): kill_thread(%" B_PRId32 "):\n"
 				"  %s\n",
@@ -62,7 +62,7 @@ NodeSyncThread::~NodeSyncThread() {
 	
 	if(m_port) {
 		err = delete_port(m_port);
-		if(err < B_OK)
+		if(err != B_OK)
 			PRINT((
 				"! ~NodeSyncThread(): delete_port(%" B_PRId32 "):\n"
 				"  %s\n",
@@ -163,7 +163,7 @@ void NodeSyncThread::_sync() {
 			m_portBuffer,
 			m_portBufferSize);
 			
-		if(readCount < B_OK) {
+		if(readCount != B_OK) {
 			PRINT((
 				"! NodeSyncThread::_sync(): read_port():\n"
 				"  %s\n",
@@ -194,13 +194,13 @@ void NodeSyncThread::_sync() {
 			op.timeout);
 
 		// deliver reply
-		if(err < B_OK) {
+		if(err != B_OK) {
 			m.what = M_SYNC_FAILED;
 			m.AddInt32("error", err);
 		}
 		
 		err = m_messenger->SendMessage(&m);
-		if(err < B_OK) {
+		if(err != B_OK) {
 			PRINT((
 				"! NodeSyncThread::_sync(): m_messenger->SendMessage():\n"
 				"  %s\n",

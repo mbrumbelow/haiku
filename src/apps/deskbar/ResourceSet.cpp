@@ -155,7 +155,7 @@ namespace TResourcePrivate {
 			if (file->GetSize(&size) == B_OK) {
 				fSize = (size_t)size;
 				fData = malloc(fSize);
-				if (file->ReadAt(0, fData, fSize) < B_OK ) {
+				if (file->ReadAt(0, fData, fSize) != B_OK ) {
 					free(fData);
 					fData = NULL;
 					fSize = 0;

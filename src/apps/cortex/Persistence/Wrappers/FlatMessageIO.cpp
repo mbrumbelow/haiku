@@ -201,7 +201,7 @@ void FlatMessageIO::xmlImportComplete(
 	m_ownMessage = true;
 	
 	status_t err = m_message->Unflatten(decodedData);
-	if(err < B_OK) {
+	if(err != B_OK) {
 		// decode failed; report error & clean up
 		BString error = "Unflatten(): ";
 		error << strerror(err);

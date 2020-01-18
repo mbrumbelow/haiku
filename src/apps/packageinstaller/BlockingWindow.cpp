@@ -43,7 +43,7 @@ BlockingWindow::Go()
 	// to reinvent a well fledged wheel. This concept has been borrowed from
 	// the current BAlert implementation
 	fSemaphore = create_sem(0, "PackageInstaller BlockingWindow");
-	if (fSemaphore < B_OK) {
+	if (fSemaphore != B_OK) {
 		Quit();
 		return returnValue;
 	}

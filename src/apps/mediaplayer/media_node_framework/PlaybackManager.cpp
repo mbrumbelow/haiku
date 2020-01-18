@@ -223,7 +223,7 @@ PlaybackManager::MessageReceived(BMessage* message)
 		case MSG_PLAYBACK_FORCE_UPDATE:
 		{
 			int64 frame;
-			if (message->FindInt64("frame", &frame) < B_OK)
+			if (message->FindInt64("frame", &frame) != B_OK)
 				frame = CurrentFrame();
 			SetCurrentFrame(frame);
 			break;

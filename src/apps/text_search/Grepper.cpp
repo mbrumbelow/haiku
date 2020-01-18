@@ -337,7 +337,7 @@ Grepper::_RunnerThread()
 	dup(oldStdErr);
 	close(oldStdErr);
 
-	if (xargsThread < B_OK) {
+	if (xargsThread != B_OK) {
 		close(fXargsInput);
 		close(out);
 		close(err);
