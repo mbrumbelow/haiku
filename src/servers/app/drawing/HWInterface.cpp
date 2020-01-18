@@ -53,6 +53,7 @@ HWInterface::HWInterface(bool doubleBuffered, bool enableUpdateQueue)
 	fCursorObscured(false),
 	fHardwareCursorEnabled(false),
 	fCursorLocation(0, 0),
+	fCursorHiddenOnFrontbuf(false),
 	fDoubleBuffered(doubleBuffered),
 	fVGADevice(-1),
 	fUpdateExecutor(NULL),
@@ -493,12 +494,21 @@ HWInterface::HideOverlay(Overlay* overlay)
 
 
 bool
-HWInterface::HideFloatingOverlays(const BRect& area)
+HWInterface::HideFloatingOverlays(const BRect& area, bool onFrontBuf)
 {
-	if (IsDoubleBuffered())
+	if (IsDoubleBuffered() && !onFrontBuf)
 		return false;
 	if (!fFloatingOverlaysLock.Lock())
 		return false;
+	if (IsDoubleBuffered() && onFrontBuf && !fCursorHiddenOnFrontbuf) {
+		fCursorHiddenOnFrontbufRect = _CursorFrame() & FrontBuffer()->Bounds() & area;
+		if (fCursorHiddenOnFrontbufRect.IsValid()) {
+			fCursorHiddenOnFrontbuf = true;
+			BRegion region = (BRegion)fCursorHiddenOnFrontbufRect;
+			_CopyBackToFront(region);
+			return true;
+		}
+	}
 	if (fCursorAreaBackup && !fCursorAreaBackup->cursor_hidden) {
 		BRect backupArea(fCursorAreaBackup->left, fCursorAreaBackup->top,
 			fCursorAreaBackup->right, fCursorAreaBackup->bottom);
@@ -514,9 +524,9 @@ HWInterface::HideFloatingOverlays(const BRect& area)
 
 
 bool
-HWInterface::HideFloatingOverlays()
+HWInterface::HideFloatingOverlays(bool onFrontBuf)
 {
-	if (IsDoubleBuffered())
+	if (IsDoubleBuffered() && !onFrontBuf)
 		return false;
 	if (!fFloatingOverlaysLock.Lock())
 		return false;
@@ -529,7 +539,10 @@ HWInterface::HideFloatingOverlays()
 void
 HWInterface::ShowFloatingOverlays()
 {
-	if (fCursorAreaBackup && fCursorAreaBackup->cursor_hidden)
+	if (fCursorHiddenOnFrontbuf) {
+		fCursorHiddenOnFrontbuf = false;
+		_DrawCursor(fCursorHiddenOnFrontbufRect);
+	} else if (fCursorAreaBackup && fCursorAreaBackup->cursor_hidden)
 		_DrawCursor(_CursorFrame());
 
 	fFloatingOverlaysLock.Unlock();
