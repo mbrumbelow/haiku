@@ -129,10 +129,7 @@ status_t INIT_ACCELERANT(int the_fd) {
 	Everybody else get's a read-only clone.
 	*/
 	result = create_mode_list();
-	if (result != B_OK) 
-	{
-		goto error1;
-	}
+	if (result != B_OK) goto error1;
 
 	/*
 	Put the cursor at the start of the frame buffer.
@@ -175,9 +172,6 @@ status_t INIT_ACCELERANT(int the_fd) {
 
 	/* note that overlay is not in use (for eng_bes_move_overlay()) */
 	si->overlay.active = false;
-
-	/* bail out if something failed */
-	if (result != B_OK) goto error1;
 
 	/* initialise various cursor stuff */
 	head1_cursor_init();
