@@ -191,8 +191,8 @@ public:
 	// ---
 	// NOTE: Investigate locking for these! The client code should already hold a
 	// ReadLock, but maybe these functions should acquire a WriteLock!
-			bool				HideFloatingOverlays(const BRect& area);
-			bool				HideFloatingOverlays();
+			bool				HideFloatingOverlays(const BRect& area, bool onFrontBuf = false);
+			bool				HideFloatingOverlays(bool onFrontBuf = false);
 			void				ShowFloatingOverlays();
 
 	// Listener support
@@ -261,6 +261,8 @@ protected:
 			bool				fCursorObscured;
 			bool				fHardwareCursorEnabled;
 			BPoint				fCursorLocation;
+			bool				fCursorHiddenOnFrontbuf;
+			BRect				fCursorHiddenOnFrontbufRect;
 
 			BRect				fTrackingRect;
 

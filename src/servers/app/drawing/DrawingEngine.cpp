@@ -66,17 +66,18 @@ extend_by_stroke_width(BRect& rect, float penSize)
 
 class AutoFloatingOverlaysHider {
 	public:
-		AutoFloatingOverlaysHider(HWInterface* interface, const BRect& area)
+		AutoFloatingOverlaysHider(HWInterface* interface, const BRect& area,
+			bool onFrontBuf = false)
 			:
 			fInterface(interface),
-			fHidden(interface->HideFloatingOverlays(area))
+			fHidden(interface->HideFloatingOverlays(area, onFrontBuf))
 		{
 		}
 
-		AutoFloatingOverlaysHider(HWInterface* interface)
+		AutoFloatingOverlaysHider(HWInterface* interface, bool onFrontBuf = false)
 			:
 			fInterface(interface),
-			fHidden(fInterface->HideFloatingOverlays())
+			fHidden(fInterface->HideFloatingOverlays(onFrontBuf))
 		{
 		}
 
@@ -481,7 +482,7 @@ DrawingEngine::CopyRegion(/*const*/ BRegion* region, int32 xOffset,
 	BRect frame = region->Frame();
 	frame = frame | frame.OffsetByCopy(xOffset, yOffset);
 
-	AutoFloatingOverlaysHider _(fGraphicsCard, frame);
+	AutoFloatingOverlaysHider _(fGraphicsCard, frame, fCopyToFront);
 
 	int32 count = region->CountRects();
 
@@ -553,7 +554,7 @@ DrawingEngine::CopyRegion(/*const*/ BRegion* region, int32 xOffset,
 	clipping_rect* sortedRectList = NULL;
 	int32 nextSortedIndex = 0;
 
-	if (fAvailableHWAccleration & HW_ACC_COPY_REGION) {
+	if ((fAvailableHWAccleration & HW_ACC_COPY_REGION) && fCopyToFront) {
 		sortedRectList = new(std::nothrow) clipping_rect[count];
 		if (sortedRectList == NULL)
 			return;
@@ -572,10 +573,8 @@ DrawingEngine::CopyRegion(/*const*/ BRegion* region, int32 xOffset,
 			sortedRectList[nextSortedIndex].right	= (int32)n->rect.right;
 			sortedRectList[nextSortedIndex].bottom	= (int32)n->rect.bottom;
 			nextSortedIndex++;
-		} else {
-			BRect touched = CopyRect(n->rect, xOffset, yOffset);
-			fGraphicsCard->Invalidate(touched);
 		}
+		CopyRect(n->rect, xOffset, yOffset);
 
 		for (int32 k = 0; k < n->next_pointer; k++) {
 			n->pointers[k]->in_degree--;
@@ -587,10 +586,6 @@ DrawingEngine::CopyRegion(/*const*/ BRegion* region, int32 xOffset,
 	// trigger the HW accelerated version if it was available
 	if (sortedRectList) {
 		fGraphicsCard->CopyRegion(sortedRectList, count, xOffset, yOffset);
-		if (fGraphicsCard->IsDoubleBuffered()) {
-			fGraphicsCard->Invalidate(
-				region->Frame().OffsetByCopy(xOffset, yOffset));
-		}
 	}
 
 	delete[] sortedRectList;
@@ -1567,35 +1562,48 @@ DrawingEngine::CopyRect(BRect src, int32 xOffset, int32 yOffset) const
 {
 	// TODO: assumes drawing buffer is 32 bits (which it currently always is)
 	BRect dst;
-	RenderingBuffer* buffer = fGraphicsCard->DrawingBuffer();
-	if (buffer) {
-		BRect clip(0, 0, buffer->Width() - 1, buffer->Height() - 1);
+	RenderingBuffer* buffers[2];
+	int32 bufferCnt = 0;
 
-		dst = src;
-		dst.OffsetBy(xOffset, yOffset);
+	buffers[bufferCnt++] = fGraphicsCard->DrawingBuffer();
+	if (
+		fGraphicsCard->IsDoubleBuffered()
+		&& !(fAvailableHWAccleration & HW_ACC_COPY_REGION)
+		&& fCopyToFront) {
+		buffers[bufferCnt++] = fGraphicsCard->FrontBuffer();
+	}
 
-		if (clip.Intersects(src) && clip.Intersects(dst)) {
-			uint32 bytesPerRow = buffer->BytesPerRow();
-			uint8* bits = (uint8*)buffer->Bits();
+	for (int32 i = 0; i < bufferCnt; i++) {
+		RenderingBuffer* buffer = buffers[i];
+		if (buffer) {
+			BRect clip(0, 0, buffer->Width() - 1, buffer->Height() - 1);
 
-			// clip source rect
-			src = src & clip;
-			// clip dest rect
-			dst = dst & clip;
-			// move dest back over source and clip source to dest
-			dst.OffsetBy(-xOffset, -yOffset);
-			src = src & dst;
-
-			// calc offset in buffer
-			bits += (ssize_t)src.left * 4 + (ssize_t)src.top * bytesPerRow;
-
-			uint32 width = src.IntegerWidth() + 1;
-			uint32 height = src.IntegerHeight() + 1;
-
-			_CopyRect(bits, width, height, bytesPerRow, xOffset, yOffset);
-
-			// offset dest again, because it is return value
+			dst = src;
 			dst.OffsetBy(xOffset, yOffset);
+
+			if (clip.Intersects(src) && clip.Intersects(dst)) {
+				uint32 bytesPerRow = buffer->BytesPerRow();
+				uint8* bits = (uint8*)buffer->Bits();
+
+				// clip source rect
+				src = src & clip;
+				// clip dest rect
+				dst = dst & clip;
+				// move dest back over source and clip source to dest
+				dst.OffsetBy(-xOffset, -yOffset);
+				src = src & dst;
+
+				// calc offset in buffer
+				bits += (ssize_t)src.left * 4 + (ssize_t)src.top * bytesPerRow;
+
+				uint32 width = src.IntegerWidth() + 1;
+				uint32 height = src.IntegerHeight() + 1;
+
+				_CopyRect(bits, width, height, bytesPerRow, xOffset, yOffset);
+
+				// offset dest again, because it is return value
+				dst.OffsetBy(xOffset, yOffset);
+			}
 		}
 	}
 	return dst;
