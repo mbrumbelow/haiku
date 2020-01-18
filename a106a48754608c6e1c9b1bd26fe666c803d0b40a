@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "73685d45_6395e8f8",
+        "filename": "src/apps/cortex/NodeManager/NodeSyncThread.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-18T12:36:00Z",
+      "side": 1,
+      "message": "this is incorrect. Positive readCount does not indicate a failure.",
+      "revId": "a106a48754608c6e1c9b1bd26fe666c803d0b40a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71a986ab_262b113c",
+        "filename": "src/apps/deskbar/ResourceSet.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-18T12:36:00Z",
+      "side": 1,
+      "message": "this is incorrect. Use !\u003d fSize here instead.",
+      "revId": "a106a48754608c6e1c9b1bd26fe666c803d0b40a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8436e241_1381b1bb",
+        "filename": "src/apps/deskbar/StatusView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-18T12:36:00Z",
+      "side": 1,
+      "message": "this is incorrect.",
+      "revId": "a106a48754608c6e1c9b1bd26fe666c803d0b40a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc342a78_ea083af7",
+        "filename": "src/apps/deskcalc/CalcView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 950,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-18T12:36:00Z",
+      "side": 1,
+      "message": "this is incorrect",
+      "revId": "a106a48754608c6e1c9b1bd26fe666c803d0b40a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
