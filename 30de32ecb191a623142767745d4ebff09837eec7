@@ -70,6 +70,24 @@
       "revId": "30de32ecb191a623142767745d4ebff09837eec7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6763ac80_6fb73b37",
+        "filename": "src/add-ons/kernel/drivers/graphics/intel_extreme/power.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-18T23:11:09Z",
+      "side": 0,
+      "message": "This is not dead code left behind, but \"dead\" code yet to be used, which I think is different.",
+      "parentUuid": "9b08c7e2_ce4db5c9",
+      "revId": "30de32ecb191a623142767745d4ebff09837eec7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
