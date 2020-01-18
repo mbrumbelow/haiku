@@ -493,9 +493,9 @@ HWInterface::HideOverlay(Overlay* overlay)
 
 
 bool
-HWInterface::HideFloatingOverlays(const BRect& area)
+HWInterface::HideFloatingOverlays(const BRect& area, bool onFrontBuf)
 {
-	if (IsDoubleBuffered())
+	if (IsDoubleBuffered() && !onFrontBuf)
 		return false;
 	if (!fFloatingOverlaysLock.Lock())
 		return false;
@@ -514,9 +514,9 @@ HWInterface::HideFloatingOverlays(const BRect& area)
 
 
 bool
-HWInterface::HideFloatingOverlays()
+HWInterface::HideFloatingOverlays(bool onFrontBuf)
 {
-	if (IsDoubleBuffered())
+	if (IsDoubleBuffered() && !onFrontBuf)
 		return false;
 	if (!fFloatingOverlaysLock.Lock())
 		return false;
