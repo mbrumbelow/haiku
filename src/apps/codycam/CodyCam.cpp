@@ -320,7 +320,7 @@ CodyCam::_SetUpNodes()
 	/* start the nodes */
 	bigtime_t initLatency = 0;
 	status = fMediaRoster->GetInitialLatencyFor(fProducerNode, &initLatency);
-	if (status < B_OK) {
+	if (status != B_OK) {
 		fWindow->ErrorAlert(B_TRANSLATE("Error getting initial latency for the "
 			"capture node"), status);
 		return status;

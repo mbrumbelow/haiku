@@ -444,7 +444,7 @@ DataEditor::SetTo(BEntry &entry, const char *attribute)
 
 	struct stat stat;
 	status_t status = entry.GetStat(&stat);
-	if (status < B_OK)
+	if (status != B_OK)
 		return status;
 
 	entry.GetRef(&fAttributeRef);
@@ -460,7 +460,7 @@ DataEditor::SetTo(BEntry &entry, const char *attribute)
 				return errno;
 
 			status = entry.SetTo(info.device_name);
-			if (status < B_OK)
+			if (status != B_OK)
 				return status;
 
 			entry.GetStat(&stat);
@@ -472,10 +472,10 @@ DataEditor::SetTo(BEntry &entry, const char *attribute)
 	}
 
 	status = fFile.SetTo(&entry, B_READ_WRITE);
-	if (status < B_OK) {
+	if (status != B_OK) {
 		// try to open read only
 		status = fFile.SetTo(&entry, B_READ_ONLY);
-		if (status < B_OK)
+		if (status != B_OK)
 			return status;
 
 		fIsReadOnly = true;
@@ -519,7 +519,7 @@ DataEditor::SetTo(BEntry &entry, const char *attribute)
 		fIsReadOnly = true;
 	} else {
 		status = fFile.GetSize(&fSize);
-		if (status < B_OK) {
+		if (status != B_OK) {
 			fFile.Unset();
 			return status;
 		}
@@ -582,7 +582,7 @@ DataEditor::Replace(off_t offset, const uint8 *data, size_t length)
 
 	if (fNeedsUpdate) {
 		status_t status = Update();
-		if (status < B_OK)
+		if (status != B_OK)
 			return status;
 	}
 
@@ -718,7 +718,7 @@ DataEditor::Save()
 
 		if (fNeedsUpdate) {
 			status_t status = Update();
-			if (status < B_OK)
+			if (status != B_OK)
 				return status;
 		}
 
@@ -736,7 +736,7 @@ DataEditor::Save()
 		} else
 			bytesWritten = fFile.WriteAt(fRealViewOffset, fView, size);
 
-		if (bytesWritten < B_OK)
+		if (bytesWritten != B_OK)
 			return bytesWritten;
 	}
 
@@ -855,7 +855,7 @@ DataEditor::SetViewOffset(off_t offset, bool sendNotices)
 
 	if (fView == NULL) {
 		status_t status = SetViewSize(fViewSize);
-		if (status < B_OK)
+		if (status != B_OK)
 			return status;
 	}
 
@@ -965,7 +965,7 @@ DataEditor::Update()
 	} else
 		bytesRead = fFile.ReadAt(fRealViewOffset, fView, fRealViewSize);
 
-	if (bytesRead < B_OK)
+	if (bytesRead != B_OK)
 		return bytesRead;
 
 	if ((size_t)bytesRead < fRealViewSize) {
@@ -1062,7 +1062,7 @@ DataEditor::GetViewBuffer(const uint8 **_buffer)
 		debugger("DataEditor: view not locked");
 
 	status_t status = UpdateIfNeeded();
-	if (status < B_OK)
+	if (status != B_OK)
 		return status;
 
 	*_buffer = fView + fViewOffset - fRealViewOffset;
@@ -1246,7 +1246,7 @@ DataEditor::StartWatching(BMessenger target)
 
 	node_ref node;
 	status_t status = fFile.GetNodeRef(&node);
-	if (status < B_OK)
+	if (status != B_OK)
 		return status;
 
 	fObservers.AddItem(new BMessenger(target));

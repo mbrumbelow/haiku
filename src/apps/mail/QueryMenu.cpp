@@ -209,7 +209,7 @@ status_t QueryMenu::SetPredicate(const char *expr, BVolume *volume)
 //	else if ((status = fQuery->SetVolume(volume)) != B_OK)
 //		return status;
 //	
-//	if ((status = fQuery->SetPredicate(expr)) < B_OK)
+//	if ((status = fQuery->SetPredicate(expr)) != B_OK)
 //		return status;
 
 	// Force query thread to exit if still running

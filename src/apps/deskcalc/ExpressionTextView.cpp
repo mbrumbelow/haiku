@@ -456,7 +456,7 @@ ExpressionTextView::SaveSettings(BMessage* archive) const
 		BString* item = (BString*)fPreviousExpressions.ItemAtFast(i);
 		status_t ret = archive->AddString("previous expression",
 			item->String());
-		if (ret < B_OK)
+		if (ret != B_OK)
 			return ret;
 	}
 	return B_OK;

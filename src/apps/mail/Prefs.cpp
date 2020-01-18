@@ -459,7 +459,7 @@ TPrefsWindow::MessageReceived(BMessage* msg)
 		case P_REPLY_PREAMBLE:
 		{
 			int32 index = -1;
-			if (msg->FindInt32("index", &index) < B_OK)
+			if (msg->FindInt32("index", &index) != B_OK)
 				break;
 			BMenuItem *item = fReplyPreambleMenu->ItemAt(index);
 			if (item == NULL) {

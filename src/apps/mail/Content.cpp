@@ -734,7 +734,7 @@ TContentView::MessageReceived(BMessage *msg)
 				if (signature == NULL)
 					break;
 				ssize_t bytesRead = file.Read(signature, size);
-				if (bytesRead < B_OK) {
+				if (bytesRead != B_OK) {
 					free (signature);
 					break;
 				}
@@ -1139,7 +1139,7 @@ TTextView::MessageReceived(BMessage *msg)
 							puts("no memory!");
 							return;
 						}
-						if (file.Read(text, size) < B_OK) {
+						if (file.Read(text, size) != B_OK) {
 							puts("could not read from file");
 							free(text);
 							continue;
@@ -1213,10 +1213,10 @@ TTextView::MessageReceived(BMessage *msg)
 			int32 opcode;
 			if (msg->FindInt32("opcode", &opcode) == B_NO_ERROR) {
 				dev_t device;
-				if (msg->FindInt32("device", &device) < B_OK)
+				if (msg->FindInt32("device", &device) != B_OK)
 					break;
 				ino_t inode;
-				if (msg->FindInt64("node", &inode) < B_OK)
+				if (msg->FindInt64("node", &inode) != B_OK)
 					break;
 
 				hyper_text *enclosure;
@@ -1828,7 +1828,7 @@ TTextView::Open(hyper_text *enclosure)
 		}
 
 		case TYPE_MAILTO:
-			if (be_roster->Launch(B_MAIL_TYPE, 1, &enclosure->name) < B_OK) {
+			if (be_roster->Launch(B_MAIL_TYPE, 1, &enclosure->name) != B_OK) {
 				char *argv[] = {(char *)"Mail", enclosure->name};
 				be_app->ArgvReceived(2, argv);
 			}
@@ -2027,7 +2027,7 @@ TTextView::AddAsContent(BEmailMessage *mail, bool wrap, uint32 charset, mail_enc
 
 	BTextMailComponent *body = mail->Body();
 	if (body == NULL) {
-		if (mail->SetBody(body = new BTextMailComponent()) < B_OK)
+		if (mail->SetBody(body = new BTextMailComponent()) != B_OK)
 			return;
 	}
 	body->SetEncoding(encoding, charset);

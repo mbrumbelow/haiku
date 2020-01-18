@@ -245,7 +245,7 @@ inline void NodeManager::_clearGroup(
 
 //	// [e.moon 7nov99] release the group
 //	status_t err = remove_observer(this, group);
-//	if(err < B_OK) {
+//	if(err != B_OK) {
 //		// spew diagnostics
 //		PRINT((
 //			"!!! NodeManager::_clearGroup(): remove_observer(group %ld):\n"
@@ -290,7 +290,7 @@ inline void NodeManager::_freeConnection(
 			connection->destinationNode(),
 			connection->destination());
 
-		if(err < B_OK) {
+		if(err != B_OK) {
 			D_METHOD((
 				"!!! BMediaRoster::Disconnect('%s' -> '%s') failed:\n"
 				"    %s\n",
@@ -569,7 +569,7 @@ bool NodeManager::findRoute(
 
 	NodeRef* ref;
 	err = getNodeRef(nodeA, &ref);
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT((
 			"!!! NodeManager::findRoute(%" B_PRId32 ", %" B_PRId32
 			"): no ref for node %" B_PRId32 "\n", nodeA, nodeB, nodeA));
@@ -1002,13 +1002,13 @@ status_t NodeManager::instantiate(
 		err = AddOnHost::InstantiateDormantNode(
 			info, &node, timeout);
 
-		if(err < B_OK) {
+		if(err != B_OK) {
 			node = media_node::null;
 
 			// attempt to relaunch
 			BMessenger mess;
 			err = AddOnHost::Launch(&mess);
-			if(err < B_OK) {
+			if(err != B_OK) {
 				PRINT((
 					"!!! NodeManager::instantiate(): giving up on AddOnHost\n"));
 
@@ -1027,7 +1027,7 @@ status_t NodeManager::instantiate(
 		err = roster->InstantiateDormantNode(info, &node);
 	}
 
-	if(err < B_OK) {
+	if(err != B_OK) {
 		*outRef = 0;
 		return err;
 	}
@@ -1087,7 +1087,7 @@ status_t NodeManager::instantiate(
 		file,
 		requireNodeKinds,
 		&info);
-	if(err < B_OK) {
+	if(err != B_OK) {
 		*outRef = 0;
 		return err;
 	}
@@ -1095,7 +1095,7 @@ status_t NodeManager::instantiate(
 	// * Instantiate
 	err = instantiate(info, outRef, timeout, nodeFlags);
 
-	if(err < B_OK)
+	if(err != B_OK)
 		return err;
 
 	ASSERT(*outRef);
@@ -1109,7 +1109,7 @@ status_t NodeManager::instantiate(
 		false,
 		&dur);
 
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT((
 			"* SetRefFor() failed: %s\n", strerror(err)));
 	}
@@ -1160,11 +1160,11 @@ status_t NodeManager::connect(
 	// * Find (& create if necessary) NodeRefs
 
 	NodeRef* outputRef;
-	if(getNodeRef(output.node.node, &outputRef) < B_OK)
+	if(getNodeRef(output.node.node, &outputRef) != B_OK)
 		outputRef = _addRefFor(output.node, 0);
 
 	NodeRef* inputRef;
-	if(getNodeRef(input.node.node, &inputRef) < B_OK)
+	if(getNodeRef(input.node.node, &inputRef) != B_OK)
 		inputRef = _addRefFor(input.node, 0);
 
 	// * Connect the nodes
@@ -1181,7 +1181,7 @@ status_t NodeManager::connect(
 		&finalOutput,
 		&finalInput);
 
-	if(err < B_OK) {
+	if(err != B_OK) {
 		if(outConnection)
 			*outConnection = Connection();
 		connectionFailed(output, input, templateFormat, err);
@@ -1565,7 +1565,7 @@ void NodeManager::releaseComplete() {
 	D_ROSTER(("# roster->StopWatching()\n"));
 	status_t err = roster->StopWatching(
 		BMessenger(this));
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT((
 			"* roster->StopWatching() failed: %s\n", strerror(err)));
 	}
@@ -1906,7 +1906,7 @@ inline status_t NodeManager::_handleNodesCreated(
 	type_code type;
 	int32 count;
 	err = message->GetInfo("media_node_id", &type, &count);
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT((
 			"* NodeManager::_handleNodesCreated(): GetInfo() failed:\n"
 			"  %s\n",
@@ -1940,7 +1940,7 @@ inline status_t NodeManager::_handleNodesCreated(
 		// fetch ID of next node
 		int32 id;
 		err = message->FindInt32("media_node_id", n, &id);
-		if(err < B_OK) {
+		if(err != B_OK) {
 			PRINT((
 				"* NodeManager::_handleNodesCreated(): FindInt32() failed:\n"
 				"  %s", strerror(err)));
@@ -1950,7 +1950,7 @@ inline status_t NodeManager::_handleNodesCreated(
 		// look up the node
 		media_node node;
 		err = roster->GetNodeFor(id, &node);
-		if(err < B_OK) {
+		if(err != B_OK) {
 			PRINT((
 				"* NodeManager::_handleNodesCreated(): roster->GetNodeFor(%"
 					B_PRId32 ") failed:\n"
@@ -1961,7 +1961,7 @@ inline status_t NodeManager::_handleNodesCreated(
 
 		// look for an existing NodeRef; if not found, create one:
 		NodeRef* ref = 0;
-		if(getNodeRef(node.node, &ref) < B_OK) {
+		if(getNodeRef(node.node, &ref) != B_OK) {
 			// create one
 			ref = _addRefFor(
 				node,
@@ -1989,7 +1989,7 @@ inline status_t NodeManager::_handleNodesCreated(
 
 			// release the (duplicate) media_node reference
 			err = roster->ReleaseNode(node);
-			if(err < B_OK) {
+			if(err != B_OK) {
 				PRINT((
 					"* NodeManager::_handleNodesCreated(): roster->ReleaseNode(%"
 						B_PRId32 ") failed:\n"
@@ -2030,7 +2030,7 @@ inline status_t NodeManager::_handleNodesCreated(
 			// +++++ FAILED ON STARTUP [e.moon 28sep99]; haven't reproduced yet
 			//       [21oct99] failed again
 			//ASSERT(err == B_OK);
-			if(err < B_OK) {
+			if(err != B_OK) {
 				PRINT((
 					"!!! NodeManager::_handleNodesCreated():\n"
 					"    NodeRef('%s')::getConnectedInputs() failed:\n"
@@ -2066,7 +2066,7 @@ inline status_t NodeManager::_handleNodesCreated(
 				ASSERT(sourceRef);
 				media_output output;
 				err = sourceRef->findOutput(input.source, &output);
-				if(err < B_OK) {
+				if(err != B_OK) {
 					PRINT((
 						"* NodeManager::_handleNodesCreated():\n"
 						"  Building initial Connection set: couldn't find output\n"
@@ -2150,7 +2150,7 @@ inline void NodeManager::_handleNodesDeleted(
 	type_code type;
 	int32 count;
 	status_t err = message->GetInfo("media_node_id", &type, &count);
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT((
 			"* NodeManager::_handleNodesDeleted(): GetInfo() failed:\n"
 			"  %s\n",
@@ -2164,7 +2164,7 @@ inline void NodeManager::_handleNodesDeleted(
 
 		int32 id;
 		err = message->FindInt32("media_node_id", n, &id);
-		if(err < B_OK) {
+		if(err != B_OK) {
 			PRINT((
 				"* NodeManager::_handleNodesDeleted(): FindInt32() failed\n"
 				"  %s\n",
@@ -2175,7 +2175,7 @@ inline void NodeManager::_handleNodesDeleted(
 		// fetch ref
 		NodeRef* ref;
 		err = getNodeRef(id, &ref);
-		if(err < B_OK) {
+		if(err != B_OK) {
 			PRINT((
 				"* NodeManager::_handleNodesDeleted(): getNodeRef(%" B_PRId32
 					") failed\n"
@@ -2243,7 +2243,7 @@ inline void NodeManager::_handleConnectionMade(
 
 		// fetch output
 		err = message->FindData("output", B_RAW_TYPE, n, &data, &dataSize);
-		if(err < B_OK) {
+		if(err != B_OK) {
 			if(!n) {
 				PRINT((
 					"* NodeManager::_handleConnectionMade(): no entries in message.\n"));
@@ -2259,7 +2259,7 @@ inline void NodeManager::_handleConnectionMade(
 
 		// fetch input
 		err = message->FindData("input", B_RAW_TYPE, n, &data, &dataSize);
-		if(err < B_OK) {
+		if(err != B_OK) {
 			if(!n) {
 				PRINT((
 					"* NodeManager::_handleConnectionMade(): no complete entries in message.\n"));
@@ -2319,7 +2319,7 @@ inline void NodeManager::_handleConnectionBroken(
 
 		// fetch source
 		err = message->FindData("source", B_RAW_TYPE, n, &data, &dataSize);
-		if(err < B_OK) {
+		if(err != B_OK) {
 			if(!n) {
 				PRINT((
 					"* NodeManager::_handleConnectionBroken(): incomplete entry in message.\n"));
@@ -2336,7 +2336,7 @@ inline void NodeManager::_handleConnectionBroken(
 		// look up the connection +++++ SLOW +++++
 		Connection con;
 		err = findConnection(source, &con);
-		if(err < B_OK) {
+		if(err != B_OK) {
 			PRINT((
 				"* NodeManager::_handleConnectionBroken(): connection not found:\n"
 				"  %" B_PRId32 ":%" B_PRId32 "\n",
@@ -2375,7 +2375,7 @@ NodeManager::_handleFormatChanged(BMessage *message)
 	// fetch source
 	media_source* source;
 	err = message->FindData("be:source", B_RAW_TYPE, (const void**)&source, &dataSize);
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT((
 			"* NodeManager::_handleFormatChanged(): incomplete entry in message.\n"));
 		return;
@@ -2384,7 +2384,7 @@ NodeManager::_handleFormatChanged(BMessage *message)
 	// fetch destination
 	media_destination* destination;
 	err = message->FindData("be:destination", B_RAW_TYPE, (const void**)&destination, &dataSize);
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT((
 			"* NodeManager::_handleFormatChanged(): incomplete entry in message.\n"));
 		return;
@@ -2393,7 +2393,7 @@ NodeManager::_handleFormatChanged(BMessage *message)
 	// fetch format
 	media_format* format;
 	err = message->FindData("be:format", B_RAW_TYPE, (const void**)&format, &dataSize);
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT((
 			"* NodeManager::_handleFormatChanged(): incomplete entry in message.\n"));
 		return;

@@ -129,7 +129,7 @@ void
 PasswordAlert::Go(BString& password)
 {
 	fAlertSem = create_sem(0, "AlertSem");
-	if (fAlertSem < B_OK) {
+	if (fAlertSem != B_OK) {
 		Quit();
 		return;
 	}

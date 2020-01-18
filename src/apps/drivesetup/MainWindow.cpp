@@ -483,12 +483,12 @@ MainWindow::QuitRequested()
 status_t
 MainWindow::StoreSettings(BMessage* archive) const
 {
-	if (archive->ReplaceRect("window frame", Frame()) < B_OK)
+	if (archive->ReplaceRect("window frame", Frame()) != B_OK)
 		archive->AddRect("window frame", Frame());
 
 	BMessage columnSettings;
 	fListView->SaveState(&columnSettings);
-	if (archive->ReplaceMessage("column settings", &columnSettings) < B_OK)
+	if (archive->ReplaceMessage("column settings", &columnSettings) != B_OK)
 		archive->AddMessage("column settings", &columnSettings);
 
 	return B_OK;
@@ -826,7 +826,7 @@ MainWindow::_DisplayPartitionError(BString _message,
 		snprintf(message, sizeof(message), _message.String());
 	}
 
-	if (error < B_OK) {
+	if (error != B_OK) {
 		BString helper = message;
 		const char* errorString
 			= B_TRANSLATE_COMMENT("Error: ", "in any error alert");
@@ -835,7 +835,7 @@ MainWindow::_DisplayPartitionError(BString _message,
 	}
 
 	BAlert* alert = new BAlert("error", message, B_TRANSLATE("OK"), NULL, NULL,
-		B_WIDTH_FROM_WIDEST, error < B_OK ? B_STOP_ALERT : B_INFO_ALERT);
+		B_WIDTH_FROM_WIDEST, error != B_OK ? B_STOP_ALERT : B_INFO_ALERT);
 	alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
 	alert->Go(NULL);
 }

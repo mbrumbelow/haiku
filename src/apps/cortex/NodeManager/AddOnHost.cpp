@@ -71,7 +71,7 @@ status_t AddOnHost::FindInstance(
 			-1,
 			&err);
 			
-		if(err < B_OK)
+		if(err != B_OK)
 			return err;
 		if(!s_messenger.IsValid())
 			return B_ERROR;
@@ -104,7 +104,7 @@ status_t AddOnHost::Launch(
 	// find it
 	entry_ref appRef;
 	err = be_roster->FindApp(addon_host::g_appSignature, &appRef);
-	if(err < B_OK)
+	if(err != B_OK)
 		return err;
 		
 	// start it
@@ -115,7 +115,7 @@ status_t AddOnHost::Launch(
 		1,
 		&arg,
 		&team);
-	if(err < B_OK)
+	if(err != B_OK)
 		return err;
 
 	// fetch messenger to the new app and return it	
@@ -124,7 +124,7 @@ status_t AddOnHost::Launch(
 		team,
 		&err);
 			
-	if(err < B_OK)
+	if(err != B_OK)
 		return err;
 	if(!s_messenger.IsValid())
 		return B_ERROR;
@@ -146,7 +146,7 @@ status_t AddOnHost::InstantiateDormantNode(
 	if(!s_messenger.IsValid()) {
 		err = Launch(0);
 		
-		if(err < B_OK) {
+		if(err != B_OK) {
 			// give up
 			PRINT((
 				"!!! AddOnHost::InstantiateDormantNode(): Launch() failed:\n"
@@ -171,7 +171,7 @@ status_t AddOnHost::InstantiateDormantNode(
 //	PRINT((
 //		"### SendMessage() returned '%s'\n", strerror(err)));
 
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT((
 			"!!! AddOnHost::InstantiateDormantNode(): SendMessage() failed:\n"
 			"    %s\n",
@@ -190,7 +190,7 @@ status_t AddOnHost::InstantiateDormantNode(
 		
 		// fetch node ID
 		err = reply.FindInt32("node_id", &nodeID);
-		if(err < B_OK) {
+		if(err != B_OK) {
 			PRINT((
 				"!!! AddOnHost::InstantiateDormantNode(): 'node_id' missing from reply.\n"));
 			return B_ERROR;
@@ -198,7 +198,7 @@ status_t AddOnHost::InstantiateDormantNode(
 
 		// fetch node
 		err = BMediaRoster::Roster()->GetNodeFor(nodeID, outNode);
-		if(err < B_OK) {
+		if(err != B_OK) {
 			PRINT((
 				"!!! AddOnHost::InstantiateDormantNode(): node missing!\n"));
 			return B_ERROR;
@@ -224,7 +224,7 @@ status_t AddOnHost::ReleaseInternalNode(
 	if(!s_messenger.IsValid()) {
 		err = Launch(0);
 		
-		if(err < B_OK) {
+		if(err != B_OK) {
 			// give up
 			PRINT((
 				"!!! AddOnHost::ReleaseInternalNode(): Launch() failed:\n"
@@ -247,7 +247,7 @@ status_t AddOnHost::ReleaseInternalNode(
 		timeout);
 		
 
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT((
 			"!!! AddOnHost::ReleaseInternalNode(): SendMessage() failed:\n"
 			"    %s\n",

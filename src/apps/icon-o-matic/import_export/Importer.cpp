@@ -31,7 +31,7 @@ Importer::Init(Icon* icon)
 	fStyleIndexOffset = 0;
 	fPathIndexOffset = 0;
 
-	if (!icon || icon->InitCheck() < B_OK)
+	if (!icon || icon->InitCheck() != B_OK)
 		return B_BAD_VALUE;
 
 	fStyleIndexOffset = icon->Styles()->CountStyles();

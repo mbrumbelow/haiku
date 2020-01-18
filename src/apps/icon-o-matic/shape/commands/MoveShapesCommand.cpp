@@ -108,7 +108,7 @@ MoveShapesCommand::Perform()
 			break;
 		}
 	}
-	if (ret < B_OK)
+	if (ret != B_OK)
 		return ret;
 
 	// add shapes to container at the insertion index
@@ -136,7 +136,7 @@ MoveShapesCommand::Undo()
 			break;
 		}
 	}
-	if (ret < B_OK)
+	if (ret != B_OK)
 		return ret;
 
 	// add shapes to container at remembered indices

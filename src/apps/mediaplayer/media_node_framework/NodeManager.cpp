@@ -545,7 +545,7 @@ NodeManager::_TearDownNodes(bool disconnect)
 			err = fMediaRoster->Disconnect(fVideoConnection.producer.node,
 				fVideoConnection.source, fVideoConnection.consumer.node,
 				fVideoConnection.destination);
-			if (err < B_OK)
+			if (err != B_OK)
 				print_error("unable to disconnect video nodes", err);
 		} else {
 			fprintf(stderr, "NodeManager::_TearDownNodes() - cannot "
@@ -575,7 +575,7 @@ NodeManager::_TearDownNodes(bool disconnect)
 			err = fMediaRoster->Disconnect(fAudioConnection.producer.node,
 				fAudioConnection.source, fAudioConnection.consumer.node,
 				fAudioConnection.destination);
-			if (err < B_OK) {
+			if (err != B_OK) {
 				print_error("unable to disconnect audio nodes", err);
 				disconnect = false;
 			}
@@ -616,14 +616,14 @@ NodeManager::_StartNodes()
 		// figure out what recording delay to use
 		status = fMediaRoster->GetLatencyFor(fVideoConnection.producer,
 			&latency);
-		if (status < B_OK) {
+		if (status != B_OK) {
 			print_error("error getting latency for video producer",
 				status);
 		} else
 			TRACE("video latency: %Ld\n", latency);
 		status = fMediaRoster->SetProducerRunModeDelay(
 			fVideoConnection.producer, latency);
-		if (status < B_OK) {
+		if (status != B_OK) {
 			print_error("error settings run mode delay for video producer",
 				status);
 		}
@@ -631,7 +631,7 @@ NodeManager::_StartNodes()
 		// start the nodes
 		status = fMediaRoster->GetInitialLatencyFor(
 			fVideoConnection.producer, &initLatency);
-		if (status < B_OK) {
+		if (status != B_OK) {
 			print_error("error getting initial latency for video producer",
 				status);
 		}

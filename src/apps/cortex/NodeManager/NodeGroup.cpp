@@ -212,7 +212,7 @@ status_t NodeGroup::addNode(
 //	
 	// initialize the new node
 	status_t err = node->_initTransportState();
-	if(err < B_OK)
+	if(err != B_OK)
 		return err;
 
 	// set time source
@@ -306,7 +306,7 @@ status_t NodeGroup::removeNode(
 
 	// stop the node if necessary	
 	status_t err = node->_stop();
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT((
 			"*** NodeGroup::removeNode('%s'): error from node->_stop():\n"
 			"    %s\n",
@@ -640,7 +640,7 @@ status_t NodeGroup::setTimeSource(
 	
 //	// try to set as sync node
 //	err = setSyncNode(timeSource);
-//	if(err < B_OK) {
+//	if(err != B_OK) {
 //		PRINT((
 //			"* NodeGroup::setTimeSource(): setSyncNode() failed: %s\n",
 //			strerror(err)));
@@ -716,7 +716,7 @@ void NodeGroup::MessageReceived(
 					B_RAW_TYPE,
 					(const void**)&data,
 					&dataSize);
-				if(err < B_OK) {
+				if(err != B_OK) {
 					PRINT((
 						"* NodeGroup::MessageReceived(M_SET_TIME_SOURCE):\n"
 						"  no timeSourceNode!\n"));
@@ -732,7 +732,7 @@ void NodeGroup::MessageReceived(
 			{
 				uint32 runMode;
 				err = message->FindInt32("runMode", (int32*)&runMode);
-				if(err < B_OK) {
+				if(err != B_OK) {
 					PRINT((
 						"* NodeGroup::MessageReceived(M_SET_RUN_MODE):\n"
 						"  no runMode!\n"));
@@ -755,7 +755,7 @@ void NodeGroup::MessageReceived(
 			{
 				bigtime_t position;
 				err = message->FindInt64("position", (int64*)&position);
-				if(err < B_OK) {
+				if(err != B_OK) {
 					PRINT((	
 						"* NodeGroup::MessageReceived(M_SET_START_POSITION):\n"
 						"  no position!\n"));
@@ -769,7 +769,7 @@ void NodeGroup::MessageReceived(
 			{
 				bigtime_t position;
 				err = message->FindInt64("position", (int64*)&position);
-				if(err < B_OK) {
+				if(err != B_OK) {
 					PRINT((	
 						"* NodeGroup::MessageReceived(M_SET_END_POSITION):\n"
 						"  no position!\n"));
@@ -931,7 +931,7 @@ NodeGroup::NodeGroup(
 	media_node ts;
 	D_ROSTER(("# roster->GetTimeSource()\n"));
 	status_t err = m_manager->roster->GetTimeSource(&ts);
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT((
 			"*** NodeGroup(): roster->GetTimeSource() failed:\n"
 			"    %s\n", strerror(err)));
@@ -1115,7 +1115,7 @@ status_t NodeGroup::_preroll() {
 //			BMediaRoster::Roster()->GetLatencyFor(
 //				r->node(),
 //				&latency);
-//		if(err < B_OK) {
+//		if(err != B_OK) {
 //			PRINT((
 //				"* calcLatencyFn: GetLatencyFor() failed: %s\n",
 //				strerror(err)));
@@ -1128,7 +1128,7 @@ status_t NodeGroup::_preroll() {
 //			r->node(),
 //			&add);
 ////		PRINT(("-   %Ld\n", add));
-//		if(err < B_OK) {
+//		if(err != B_OK) {
 //			PRINT((
 //				"* calcLatencyFn: GetInitialLatencyFor() failed: %s\n",
 //				strerror(err)));
@@ -1187,7 +1187,7 @@ status_t NodeGroup::_start() {
 	for(node_set::iterator it = m_nodes.begin();
 		it != m_nodes.end(); ++it) {
 		err = (*it)->_seekStopped(m_startPosition);
-		if(err < B_OK) {
+		if(err != B_OK) {
 			PRINT((
 				"! NodeGroup('%s')::_start():\n"
 				"  ref('%s')->_seekStopped(%" B_PRIdBIGTIME ") failed:\n"
@@ -1214,7 +1214,7 @@ status_t NodeGroup::_start() {
 	for(node_set::iterator it = m_nodes.begin();
 		it != m_nodes.end(); ++it) {
 		err = (*it)->_start(when);
-		if(err < B_OK) {
+		if(err != B_OK) {
 			PRINT((
 				"! NodeGroup('%s')::_start():\n"
 				"  ref('%s')->_start(%" B_PRIdBIGTIME ") failed:\n"
@@ -1324,7 +1324,7 @@ status_t NodeGroup::_roll() {
 			tpStart,
 			tpStop,
 			m_startPosition);
-		if(e < B_OK)
+		if(e != B_OK)
 			err = e;
 		else
 			allFailed = false;
@@ -1391,7 +1391,7 @@ status_t NodeGroup::_initCycleThread() {
 	if(m_cycleThread) {
 		// thread is still alive
 		err = _destroyCycleThread();
-		if(err < B_OK)
+		if(err != B_OK)
 			return err;
 	}
 
@@ -1402,7 +1402,7 @@ status_t NodeGroup::_initCycleThread() {
 		"NodeGroup[cycleThread]",
 		B_NORMAL_PRIORITY,
 		(void*)this);
-	if(m_cycleThread < B_OK) {
+	if(m_cycleThread != B_OK) {
 		PRINT((
 			"* NodeGroup::_initCycleThread(): spawn_thread() failed:\n"
 			"  %s\n",
@@ -1435,7 +1435,7 @@ status_t NodeGroup::_destroyCycleThread() {
 			B_TIMEOUT,
 			10000LL);
 
-		if(err < B_OK) {
+		if(err != B_OK) {
 			// bad thread.  die, thread, die.
 			PRINT((
 				"* NodeGroup::_destroyCycleThread(): port write failed; killing.\n"));
@@ -1626,7 +1626,7 @@ void NodeGroup::_cycleThread() {
 			_handleCycleService();
 			continue;
 		}		
-		else if(err < B_OK) {
+		else if(err != B_OK) {
 			// any other error is bad news
 			PRINT((
 				"* NodeGroup::_cycleThread(): read_port error:\n"
@@ -1692,7 +1692,7 @@ void NodeGroup::_handleCycleService() {
 		err = (*it)->_seek(
 			m_startPosition,
 			m_cycleBoundary);
-		if(err < B_OK) {
+		if(err != B_OK) {
 			PRINT((
 				"- _handleCycleService(): node('%s')::_seek() failed:\n"
 				"  %s\n",

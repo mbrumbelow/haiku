@@ -304,18 +304,18 @@ ScopeView::MouseDown(BPoint position)
 		size_t size;
 
 		BMimeType wavType("audio/x-wav");
-		if (wavType.InitCheck() < B_OK
-			|| wavType.GetIcon(&data, &size) < B_OK) {
+		if (wavType.InitCheck() != B_OK
+			|| wavType.GetIcon(&data, &size) != B_OK) {
 			wavType.SetTo("audio");
-			if (wavType.InitCheck() < B_OK
-				|| wavType.GetIcon(&data, &size) < B_OK) {
+			if (wavType.InitCheck() != B_OK
+				|| wavType.GetIcon(&data, &size) != B_OK) {
 				return;
 			}
 		}
 
 		BBitmap* bitmap = new BBitmap(
 			BRect(0, 0, 31, 31), 0, B_RGBA32);
-		if (BIconUtils::GetVectorIcon(data, size, bitmap) < B_OK) {
+		if (BIconUtils::GetVectorIcon(data, size, bitmap) != B_OK) {
 			delete[] data;
 			delete bitmap;
 			return;

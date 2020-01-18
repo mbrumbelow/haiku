@@ -115,7 +115,7 @@ SudokuField::Archive(BMessage* archive, bool deep) const
 	status_t status = BArchivable::Archive(archive, deep);
 	if (status == B_OK)
 		archive->AddInt32("block size", fBlockSize);
-	if (status < B_OK)
+	if (status != B_OK)
 		return status;
 
 	uint32 count = fSize * fSize;

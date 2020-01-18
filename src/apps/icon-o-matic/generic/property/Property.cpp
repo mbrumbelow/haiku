@@ -41,9 +41,9 @@ Property::Property(BMessage* archive)
 	if (!archive)
 		return;
 
-	if (archive->FindInt32("id", (int32*)&fIdentifier) < B_OK)
+	if (archive->FindInt32("id", (int32*)&fIdentifier) != B_OK)
 		fIdentifier = 0;
-	if (archive->FindBool("editable", &fEditable) < B_OK)
+	if (archive->FindBool("editable", &fEditable) != B_OK)
 		fEditable = true;
 }
 
@@ -119,11 +119,11 @@ IntProperty::IntProperty(BMessage* archive)
 	if (!archive)
 		return;
 
-	if (archive->FindInt32("value", &fValue) < B_OK)
+	if (archive->FindInt32("value", &fValue) != B_OK)
 		fValue = 0;
-	if (archive->FindInt32("min", &fMin) < B_OK)
+	if (archive->FindInt32("min", &fMin) != B_OK)
 		fMin = 0;
-	if (archive->FindInt32("max", &fMax) < B_OK)
+	if (archive->FindInt32("max", &fMax) != B_OK)
 		fMax = 0;
 }
 
@@ -254,11 +254,11 @@ FloatProperty::FloatProperty(BMessage* archive)
 	if (!archive)
 		return;
 
-	if (archive->FindFloat("value", &fValue) < B_OK)
+	if (archive->FindFloat("value", &fValue) != B_OK)
 		fValue = 0.0;
-	if (archive->FindFloat("min", &fMin) < B_OK)
+	if (archive->FindFloat("min", &fMin) != B_OK)
 		fMin = 0.0;
-	if (archive->FindFloat("max", &fMax) < B_OK)
+	if (archive->FindFloat("max", &fMax) != B_OK)
 		fMax = 0.0;
 }
 
@@ -381,7 +381,7 @@ UInt8Property::UInt8Property(BMessage* archive)
 	if (!archive)
 		return;
 
-	if (archive->FindInt8("value", (int8*)&fValue) < B_OK)
+	if (archive->FindInt8("value", (int8*)&fValue) != B_OK)
 		fValue = 0;
 }
 
@@ -495,7 +495,7 @@ BoolProperty::BoolProperty(BMessage* archive)
 	if (!archive)
 		return;
 
-	if (archive->FindBool("value", &fValue) < B_OK)
+	if (archive->FindBool("value", &fValue) != B_OK)
 		fValue = false;
 }
 
@@ -620,7 +620,7 @@ StringProperty::StringProperty(BMessage* archive)
 	if (!archive)
 		return;
 
-	if (archive->FindString("value", &fValue) < B_OK)
+	if (archive->FindString("value", &fValue) != B_OK)
 		fValue = "";
 }
 

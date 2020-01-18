@@ -484,7 +484,7 @@ CharacterWindow::_SaveSettings()
 	BFile file;
 	status_t status = _OpenSettings(file, B_WRITE_ONLY | B_CREATE_FILE
 		| B_ERASE_FILE);
-	if (status < B_OK)
+	if (status != B_OK)
 		return status;
 
 	BMessage settings('chrm');

@@ -146,7 +146,7 @@ status_t
 CalcWindow::SaveSettings(BMessage* archive) const
 {
 	status_t ret = archive->AddRect("window frame", Frame());
-	if (ret < B_OK)
+	if (ret != B_OK)
 		return ret;
 
 	return fCalcView->SaveSettings(archive);

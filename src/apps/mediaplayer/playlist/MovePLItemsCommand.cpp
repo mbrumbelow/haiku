@@ -129,7 +129,7 @@ MovePLItemsCommand::Perform()
 			break;
 		}
 	}
-	if (ret < B_OK)
+	if (ret != B_OK)
 		return ret;
 
 	// take care about currently played item
@@ -163,7 +163,7 @@ MovePLItemsCommand::Undo()
 			break;
 		}
 	}
-	if (ret < B_OK)
+	if (ret != B_OK)
 		return ret;
 
 	// take care about currently played item

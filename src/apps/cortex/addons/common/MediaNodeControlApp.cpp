@@ -79,7 +79,7 @@ MediaNodeControlApp::MediaNodeControlApp(
 	
 	// get the node	
 	status_t err = r->GetNodeFor(nodeID, &m_node);
-	if(err < B_OK) {
+	if(err != B_OK) {
 		char buffer[512];
 		sprintf(buffer,
 			"MediaNodeControlApp: couldn't find node (%" B_PRId32 "):\n%s\n",
@@ -93,7 +93,7 @@ MediaNodeControlApp::MediaNodeControlApp(
 	// fetch info (name)
 	live_node_info nInfo;
 	err = r->GetLiveNodeInfo(m_node, &nInfo);
-	if(err < B_OK) {
+	if(err != B_OK) {
 		char buffer[512];
 		sprintf(buffer,
 			"MediaNodeControlApp: couldn't get node info (%" B_PRId32
@@ -110,7 +110,7 @@ MediaNodeControlApp::MediaNodeControlApp(
 	// get parameter web
 	BParameterWeb* pWeb;
 	err = r->GetParameterWebFor(m_node, &pWeb);
-	if(err < B_OK) {
+	if(err != B_OK) {
 		char buffer[512];
 		sprintf(buffer,
 			"MediaNodeControlApp: no parameters for node (%" B_PRId32

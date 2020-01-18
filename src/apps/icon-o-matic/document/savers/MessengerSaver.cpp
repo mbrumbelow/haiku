@@ -36,13 +36,13 @@ MessengerSaver::Save(Document* document)
 	FlatIconExporter exporter;
 	BMallocIO stream;
 	status_t ret = exporter.Export(document->Icon(), &stream);
-	if (ret < B_OK)
+	if (ret != B_OK)
 		return ret;
 
 	BMessage message(B_ICON_DATA_EDITED);
 	ret = message.AddData("icon data", B_VECTOR_ICON_TYPE,
 						  stream.Buffer(), stream.BufferLength());
-	if (ret < B_OK)
+	if (ret != B_OK)
 		return ret;
 
 	return fMessenger.SendMessage(&message);

@@ -769,7 +769,7 @@ PackageScript::_RunScript(const char* workingDirectory, const BString& script)
 		delete argv[i];
 	delete [] argv;
 
-	if (fThreadId < B_OK)
+	if (fThreadId != B_OK)
 		return fThreadId;
 
 	// thread id is now suspended.

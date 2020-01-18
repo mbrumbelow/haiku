@@ -47,7 +47,7 @@ BitmapExporter::Export(const Icon* icon, BPositionIO* stream)
 				   bitmapFlags, B_RGBA32);
 
 	status_t ret  = bitmap.InitCheck();
-	if (ret < B_OK)
+	if (ret != B_OK)
 		return ret;
 
 	IconRenderer renderer(&bitmap);

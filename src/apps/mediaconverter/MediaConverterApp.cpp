@@ -505,7 +505,7 @@ MediaConverterApp::_ConvertFile(BMediaFile* inFile, BMediaFile* outFile,
 		ret = B_CANCELED;
 	}
 
-	if (ret < B_OK) {
+	if (ret != B_OK) {
 		delete[] audioBuffer;
 		delete[] videoBuffer;
 		delete outFile;

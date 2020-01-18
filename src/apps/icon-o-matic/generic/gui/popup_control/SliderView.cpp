@@ -197,7 +197,7 @@ SliderView::MouseMoved(BPoint where, uint32 transit, const BMessage* message)
 {
 	uint32 buttons = 0;
 	if (BMessage* message = Window()->CurrentMessage()) {
-		if (message->FindInt32("buttons", (int32*)&buttons) < B_OK)
+		if (message->FindInt32("buttons", (int32*)&buttons) != B_OK)
 			buttons = 0;
 	}
 

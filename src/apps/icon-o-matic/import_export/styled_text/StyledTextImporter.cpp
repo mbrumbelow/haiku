@@ -195,7 +195,7 @@ StyledTextImporter::Import(Icon* icon, BMessage* clipping)
 		text_run_array *runs = NULL;
 		ssize_t runsLength;
 		if (clipping->FindData("application/x-vnd.Be-text_run_array",
-			B_MIME_TYPE, (const void **)&runs, &runsLength) < B_OK)
+			B_MIME_TYPE, (const void **)&runs, &runsLength) != B_OK)
 			runs = NULL;
 		BString str(text, textLength);
 		return _Import(icon, str.String(), runs);
@@ -211,13 +211,13 @@ StyledTextImporter::Import(Icon* icon, const entry_ref* ref)
 	status_t err;
 	BFile file(ref, B_READ_ONLY);
 	err = file.InitCheck();
-	if (err < B_OK)
+	if (err != B_OK)
 		return err;
 
 	BNodeInfo info(&file);
 	char mime[B_MIME_TYPE_LENGTH];
 	err = info.GetType(mime);
-	if (err < B_OK)
+	if (err != B_OK)
 		return err;
 
 	if (strncmp(mime, "text/plain", B_MIME_TYPE_LENGTH))
@@ -225,7 +225,7 @@ StyledTextImporter::Import(Icon* icon, const entry_ref* ref)
 
 	off_t size;
 	err = file.GetSize(&size);
-	if (err < B_OK)
+	if (err != B_OK)
 		return err;
 	if (size > 1 * 1024 * 1024) // Don't load files that big
 		return E2BIG;
@@ -246,7 +246,7 @@ StyledTextImporter::_Import(Icon* icon, const char *text, text_run_array *runs)
 {
 	CALLED();
 	status_t ret = Init(icon);
-	if (ret < B_OK) {
+	if (ret != B_OK) {
 		printf("StyledTextImporter::Import() - Init() error: %s\n",
 			strerror(ret));
 		return ret;
@@ -343,7 +343,7 @@ StyledTextImporter::_Import(Icon* icon, const char *text, text_run_array *runs)
 				}
 			}
 			ShapeIterator iterator(icon, shape, offset, glyphName.String());
-			if (iterator.Iterate(&glyph) < B_OK)
+			if (iterator.Iterate(&glyph) != B_OK)
 				return B_ERROR;
 
 		}

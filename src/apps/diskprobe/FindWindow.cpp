@@ -333,7 +333,7 @@ FindTextView::Paste(BClipboard* clipboard)
 		if (fMode == kHexMode) {
 			char* hex;
 			size_t hexSize;
-			if (_GetHexFromData(data, dataSize, &hex, &hexSize) < B_OK)
+			if (_GetHexFromData(data, dataSize, &hex, &hexSize) != B_OK)
 				return;
 
 			Insert(hex, hexSize);
@@ -418,7 +418,7 @@ FindTextView::SetMode(find_mode mode)
 		char* hex;
 		size_t hexSize;
 		if (_GetHexFromData((const uint8*)Text(), TextLength(), &hex, &hexSize)
-				< B_OK)
+				!= B_OK)
 			return B_NO_MEMORY;
 
 		fMode = mode;
@@ -430,7 +430,7 @@ FindTextView::SetMode(find_mode mode)
 
 		uint8* data;
 		size_t dataSize;
-		if (_GetDataFromHex(Text(), TextLength(), &data, &dataSize) < B_OK)
+		if (_GetDataFromHex(Text(), TextLength(), &data, &dataSize) != B_OK)
 			return B_NO_MEMORY;
 
 		fMode = mode;
@@ -455,7 +455,7 @@ FindTextView::SetData(BMessage& message)
 	if (fMode == kHexMode) {
 		char* hex;
 		size_t hexSize;
-		if (_GetHexFromData(data, dataSize, &hex, &hexSize) < B_OK)
+		if (_GetHexFromData(data, dataSize, &hex, &hexSize) != B_OK)
 			return;
 
 		SetText(hex, hexSize);

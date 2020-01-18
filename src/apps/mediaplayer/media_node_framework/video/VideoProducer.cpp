@@ -424,7 +424,7 @@ VideoProducer::Connect(status_t error, const media_source& source,
 		fBufferGroup = new BBufferGroup(fConnectedFormat.display.bytes_per_row
 			* fConnectedFormat.display.line_count, BUFFER_COUNT);
 		status_t err = fBufferGroup->InitCheck();
-		if (err < B_OK) {
+		if (err != B_OK) {
 			delete fBufferGroup;
 			fBufferGroup = NULL;
 			ERROR("Connect() - buffer group error: %s\n", strerror(err));
@@ -559,12 +559,12 @@ VideoProducer::_HandleStart(bigtime_t performanceTime)
 	fPerformanceTimeBase = performanceTime;
 
 	fFrameSync = create_sem(0, "frame synchronization");
-	if (fFrameSync < B_OK)
+	if (fFrameSync != B_OK)
 		return;
 
 	fThread = spawn_thread(_FrameGeneratorThreadEntry, "frame generator",
 		B_NORMAL_PRIORITY, this);
-	if (fThread < B_OK) {
+	if (fThread != B_OK) {
 		delete_sem(fFrameSync);
 		return;
 	}

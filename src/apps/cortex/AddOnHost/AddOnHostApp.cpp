@@ -78,7 +78,7 @@ App::MessageReceived(BMessage* message)
 			const void *data;
 			ssize_t dataSize;
 			err = message->FindData("info", B_RAW_TYPE, &data, &dataSize);
-			if (err < B_OK) {
+			if (err != B_OK) {
 				PRINT((
 					"!!! App::MessageReceived(M_INSTANTIATE):\n"
 					"    missing 'info'\n"));
@@ -124,7 +124,7 @@ App::MessageReceived(BMessage* message)
 			const void *data;
 			ssize_t dataSize;
 			err = message->FindData("info", B_RAW_TYPE, &data, &dataSize);
-			if (err < B_OK) {
+			if (err != B_OK) {
 				PRINT((
 					"!!! App::MessageReceived(M_RELEASE):\n"
 					"    missing 'info'\n"));

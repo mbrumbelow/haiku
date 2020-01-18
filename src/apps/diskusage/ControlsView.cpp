@@ -55,7 +55,7 @@ VolumeTab::VolumeTab(BVolume* volume)
 	fIcon(new BBitmap(BRect(0, 0, 15, 15), B_RGBA32)),
 	fVolume(volume)
 {
-	if (fVolume->GetIcon(fIcon, B_MINI_ICON) < B_OK) {
+	if (fVolume->GetIcon(fIcon, B_MINI_ICON) != B_OK) {
 		delete fIcon;
 		fIcon = NULL;
 	}

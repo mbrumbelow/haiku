@@ -805,9 +805,9 @@ AboutView::PickRandomHaiku()
 
 	BFile fortunes(path.Path(), B_READ_ONLY);
 	struct stat st;
-	if (fortunes.InitCheck() < B_OK)
+	if (fortunes.InitCheck() != B_OK)
 		return;
-	if (fortunes.GetStat(&st) < B_OK)
+	if (fortunes.GetStat(&st) != B_OK)
 		return;
 
 	char* buff = (char*)malloc((size_t)st.st_size + 1);

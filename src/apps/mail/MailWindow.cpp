@@ -1721,7 +1721,7 @@ TMailWindow::MessageReceived(BMessage* msg)
 		case M_EDIT_QUERIES:
 		{
 			BPath path;
-			if (_GetQueryPath(&path) < B_OK)
+			if (_GetQueryPath(&path) != B_OK)
 				break;
 
 			// the user used this command, make sure the folder actually
@@ -2984,7 +2984,7 @@ TMailWindow::OpenMessage(const entry_ref* ref, uint32 characterSetForDecoding)
 	}
 
 	err = fMail->InitCheck();
-	if (err < B_OK) {
+	if (err != B_OK) {
 		delete fMail;
 		fMail = NULL;
 		return err;
@@ -3090,7 +3090,7 @@ TMailWindow::_RebuildQueryMenu(bool firstTime)
 	bool queryItemsAdded = false;
 
 	BPath queryPath;
-	if (_GetQueryPath(&queryPath) < B_OK)
+	if (_GetQueryPath(&queryPath) != B_OK)
 		return;
 
 	BDirectory queryDir(queryPath.Path());

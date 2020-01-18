@@ -181,7 +181,7 @@ void MessageIO::xmlExportContent(
 			if(m_message->GetInfo(
 				fields[fieldIndex].String(),
 				&type,
-				&count) < B_OK || n >= count)
+				&count) != B_OK || n >= count)
 				continue;
 
 			// found a field at the current index, so don't give up
@@ -194,7 +194,7 @@ void MessageIO::xmlExportContent(
 				fields[fieldIndex].String(),
 				n);
 				
-			if(err < B_OK) {
+			if(err != B_OK) {
 				BString errText;
 				errText << "Couldn't export field '" << fields[fieldIndex] <<
 					"' index " << n << ": " << strerror(err) << "\n";
@@ -318,7 +318,7 @@ void MessageIO::xmlImportChildComplete(
 		name,
 		m_fieldName.String(),
 		m_fieldData.String());	
-	if(err < B_OK) {
+	if(err != B_OK) {
 		context.reportWarning("Invalid field data.\n");
 	}
 }
@@ -459,7 +459,7 @@ status_t MessageIO::_exportField(
 		case B_BOOL_TYPE: {
 			bool v;
 			err = message->FindBool(name, index, &v);
-			if(err < B_OK)
+			if(err != B_OK)
 				return err;
 			elementName = _boolEl;
 			content = (v ? "true" : "false");
@@ -469,7 +469,7 @@ status_t MessageIO::_exportField(
 		case B_INT8_TYPE: {
 			int8 v;
 			err = message->FindInt8(name, index, &v);
-			if(err < B_OK)
+			if(err != B_OK)
 				return err;
 			elementName = _int8El;
 			content << (int32)v;
@@ -479,7 +479,7 @@ status_t MessageIO::_exportField(
 		case B_INT16_TYPE: {
 			int16 v;
 			err = message->FindInt16(name, index, &v);
-			if(err < B_OK)
+			if(err != B_OK)
 				return err;
 			elementName = _int16El;
 			content << (int32)v;
@@ -489,7 +489,7 @@ status_t MessageIO::_exportField(
 		case B_INT32_TYPE: {
 			int32 v;
 			err = message->FindInt32(name, index, &v);
-			if(err < B_OK)
+			if(err != B_OK)
 				return err;
 			elementName = _int32El;
 			content << v;
@@ -499,7 +499,7 @@ status_t MessageIO::_exportField(
 		case B_INT64_TYPE: {
 			int64 v;
 			err = message->FindInt64(name, index, &v);
-			if(err < B_OK)
+			if(err != B_OK)
 				return err;
 			elementName = _int64El;
 			content << v;
@@ -509,7 +509,7 @@ status_t MessageIO::_exportField(
 		case B_FLOAT_TYPE: {
 			float v;
 			err = message->FindFloat(name, index, &v);
-			if(err < B_OK)
+			if(err != B_OK)
 				return err;
 			elementName = _floatEl;
 			content << v; // +++++ need adjustable precision!
@@ -519,7 +519,7 @@ status_t MessageIO::_exportField(
 		case B_DOUBLE_TYPE: {
 			double v;
 			err = message->FindDouble(name, index, &v);
-			if(err < B_OK)
+			if(err != B_OK)
 				return err;
 			elementName = _doubleEl;
 			content << (float)v; // +++++ need adjustable precision!
@@ -529,7 +529,7 @@ status_t MessageIO::_exportField(
 		case B_STRING_TYPE: {
 			const char* v;
 			err = message->FindString(name, index, &v);
-			if(err < B_OK)
+			if(err != B_OK)
 				return err;
 			elementName = _stringEl;
 			content = v;
@@ -539,7 +539,7 @@ status_t MessageIO::_exportField(
 		case B_POINT_TYPE: {
 			BPoint v;
 			err = message->FindPoint(name, index, &v);
-			if(err < B_OK)
+			if(err != B_OK)
 				return err;
 			elementName = _pointEl;
 			content << v.x << ", " << v.y;
@@ -549,7 +549,7 @@ status_t MessageIO::_exportField(
 		case B_RECT_TYPE: {
 			BRect v;
 			err = message->FindRect(name, index, &v);
-			if(err < B_OK)
+			if(err != B_OK)
 				return err;
 			elementName = _rectEl;
 			content << v.left << ", " << v.top << ", " <<
@@ -560,7 +560,7 @@ status_t MessageIO::_exportField(
 		case B_MESSAGE_TYPE: {
 			BMessage m;
 			err = message->FindMessage(name, index, &m);
-			if(err < B_OK)
+			if(err != B_OK)
 				return err;
 			
 			// write child message

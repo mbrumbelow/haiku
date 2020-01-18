@@ -434,7 +434,7 @@ void MediaRoutingView::MessageReceived(
 					{
 						// [e.moon 8dec99] allow for existing panel
 						MediaNodePanel* panel;
-						if(_findPanelFor(id, &panel) < B_OK)
+						if(_findPanelFor(id, &panel) != B_OK)
 							_addPanelFor(id, BPoint(5.0, 5.0));
 					}
 				}
@@ -507,16 +507,16 @@ void MediaRoutingView::MessageReceived(
 			D_MESSAGE(("MediaRoutingView::MessageReceived(B_MEDIA_FORMAT_CHANGED)\n"));
 
 			media_node_id nodeID;
-			if(message->FindInt32("__source_node_id", &nodeID) < B_OK)
+			if(message->FindInt32("__source_node_id", &nodeID) != B_OK)
 				break;
 
 			uint32 connectionID;
-			if(message->FindInt32("__connection_id", (int32*)&connectionID) < B_OK)
+			if(message->FindInt32("__connection_id", (int32*)&connectionID) != B_OK)
 				break;
 
 			media_source* source;
 			ssize_t dataSize;
-			if(message->FindData("be:source", B_RAW_TYPE, (const void**)&source, &dataSize) < B_OK)
+			if(message->FindData("be:source", B_RAW_TYPE, (const void**)&source, &dataSize) != B_OK)
 				break;
 
 			MediaWire* wire;
@@ -583,15 +583,15 @@ void MediaRoutingView::MessageReceived(
 		{
 			D_MESSAGE(("MediaRoutingView::MessageReceived(M_NODE_START_TIME_SOURCE)\n"));
 			int32 id;
-			if(message->FindInt32("nodeID", &id) < B_OK)
+			if(message->FindInt32("nodeID", &id) != B_OK)
 				break;
 			NodeRef* ref;
-			if(manager->getNodeRef(id, &ref) < B_OK)
+			if(manager->getNodeRef(id, &ref) != B_OK)
 				break;
 
 			bigtime_t when = system_time();
 			status_t err = manager->roster->StartTimeSource(ref->node(), when);
-			if(err < B_OK) {
+			if(err != B_OK) {
 				PRINT((
 					"! StartTimeSource(%" B_PRId32 "): '%s'\n",
 					ref->id(), strerror(err)));
@@ -602,15 +602,15 @@ void MediaRoutingView::MessageReceived(
 		{
 			D_MESSAGE(("MediaRoutingView::MessageReceived(M_NODE_STOP_TIME_SOURCE)\n"));
 			int32 id;
-			if(message->FindInt32("nodeID", &id) < B_OK)
+			if(message->FindInt32("nodeID", &id) != B_OK)
 				break;
 			NodeRef* ref;
-			if(manager->getNodeRef(id, &ref) < B_OK)
+			if(manager->getNodeRef(id, &ref) != B_OK)
 				break;
 
 			bigtime_t when = system_time();
 			status_t err = manager->roster->StopTimeSource(ref->node(), when);
-			if(err < B_OK) {
+			if(err != B_OK) {
 				PRINT((
 					"! StopTimeSource(%" B_PRId32 "): '%s'\n",
 					ref->id(), strerror(err)));
@@ -631,13 +631,13 @@ void MediaRoutingView::MessageReceived(
 		{
 			D_MESSAGE(("MediaRoutingView::MessageReceived(M_GROUP_SET_LOCKED)\n"));
 			int32 groupID;
-			if(message->FindInt32("groupID", &groupID) < B_OK)
+			if(message->FindInt32("groupID", &groupID) != B_OK)
 				break;
 			bool locked;
-			if(message->FindBool("locked", &locked) < B_OK)
+			if(message->FindBool("locked", &locked) != B_OK)
 				break;
 			NodeGroup* group;
-			if(manager->findGroup(groupID, &group) < B_OK)
+			if(manager->findGroup(groupID, &group) != B_OK)
 				break;
 			uint32 f = locked ?
 				group->groupFlags() | NodeGroup::GROUP_LOCKED :
@@ -1036,17 +1036,17 @@ status_t MediaRoutingView::importState(
 		// find panel state info; stop when exhausted
 		BMessage m;
 		err = archive->FindMessage("panel", n, &m);
-		if(err < B_OK)
+		if(err != B_OK)
 			break;
 
 		const char* nodeName;
 		err = archive->FindString("nodeName", n, &nodeName);
-		if(err < B_OK)
+		if(err != B_OK)
 			break;
 
 		uint32 nodeKind;
 		err = archive->FindInt32("nodeKind", n, (int32*)&nodeKind);
-		if(err < B_OK)
+		if(err != B_OK)
 			break;
 
 		// look up matching panel +++++ SLOW +++++
@@ -1149,12 +1149,12 @@ status_t MediaRoutingView::importStateFor(
 		// fetch archived key & panel data
 		const char* key;
 		err = archive->FindString("nodeKey", archiveIndex, &key);
-		if(err < B_OK)
+		if(err != B_OK)
 			break;
 
 		BMessage m;
 		err = archive->FindMessage("panel", archiveIndex, &m);
-		if(err < B_OK) {
+		if(err != B_OK) {
 			PRINT((
 				"!!! MediaRoutingView::importStateFor(): missing panel %"
 					B_PRId32 "\n", archiveIndex));
@@ -1164,7 +1164,7 @@ status_t MediaRoutingView::importStateFor(
 		// find corresponding node
 		media_node_id id;
 		err = context->getNodeFor(key, &id);
-		if(err < B_OK) {
+		if(err != B_OK) {
 			PRINT((
 				"!!! MediaRoutingView::importStateFor(): missing node '%s'\n",
 				key));
@@ -1174,12 +1174,12 @@ status_t MediaRoutingView::importStateFor(
 		// look for panel, create it if necessary
 		MediaNodePanel* panel;
 		err = _findPanelFor(id,	&panel);
-		if(err < B_OK) {
+		if(err != B_OK) {
 			// create it
 			err = _addPanelFor(
 				id,
 				BPoint(5.0, 5.0));
-			if(err < B_OK) {
+			if(err != B_OK) {
 				PRINT((
 					"!!! MediaRoutingView::importStateFor(): _addPanelFor():\n"
 					"    %s\n", strerror(err)));
@@ -1187,7 +1187,7 @@ status_t MediaRoutingView::importStateFor(
 			}
 
 			err = _findPanelFor(id,	&panel);
-			if(err < B_OK) {
+			if(err != B_OK) {
 				PRINT((
 					"!!! MediaRoutingView::importStateFor(): _findPanelFor():\n"
 					"    %s\n", strerror(err)));
@@ -1216,7 +1216,7 @@ status_t MediaRoutingView::exportStateFor(
 		err = _findPanelFor(
 			context->nodeAt(n),
 			&panel);
-		if(err < B_OK) {
+		if(err != B_OK) {
 			PRINT((
 				"!!! MediaRoutingView::exportStateFor():\n"
 				"    no panel for node %" B_PRId32 "\n",

@@ -81,7 +81,7 @@ DormantNodeIO::DormantNodeIO(
 	// * extract dormant-node info 	
 	dormant_node_info info;
 	err = ref->getDormantNodeInfo(&info);
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT((	
 			"!!! DormantNodeIO(): getDormantNodeInfo() failed:\n"
 			"    %s\n",
@@ -92,7 +92,7 @@ DormantNodeIO::DormantNodeIO(
 	dormant_flavor_info flavorInfo;
 	err = BMediaRoster::Roster()->GetDormantFlavorInfoFor(
 		info, &flavorInfo);
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT((	
 			"!!! DormantNodeIO(): GetDormantFlavorInfoFor() failed:\n"
 			"    %s\n",
@@ -184,7 +184,7 @@ status_t DormantNodeIO::instantiate(
 	// find matching dormant node
 	dormant_node_info info;
 	err = _matchDormantNode(&info);
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT((
 			"!!! _matchDormantNode() failed: %s\n", strerror(err)));
 		return err;
@@ -196,7 +196,7 @@ status_t DormantNodeIO::instantiate(
 		outRef,
 		B_INFINITE_TIMEOUT,
 		m_flags);
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT((
 			"!!! instantiate() failed: %s\n", strerror(err)));
 		return err;
@@ -206,7 +206,7 @@ status_t DormantNodeIO::instantiate(
 	if(m_entry.InitCheck() == B_OK && m_entry.GetRef(&mediaRef) == B_OK) {
 		// set ref
 		err = (*outRef)->setFile(mediaRef);
-		if(err < B_OK) {
+		if(err != B_OK) {
 			PRINT((
 				"!!! WARNING: setFile() failed: %s\n", strerror(err)));
 		}
@@ -240,7 +240,7 @@ status_t DormantNodeIO::_matchDormantNode(
 		m_dormantName.String(),
 		m_kinds,
 		0 /*~m_kinds*/);
-	if(err < B_OK)
+	if(err != B_OK)
 		return err;
 	
 	if(!count)
@@ -489,7 +489,7 @@ inline void _read_entry(
 	
 	entry_ref r;
 	status_t err = get_ref_for_path(data, &r);
-	if(err < B_OK) {
+	if(err != B_OK) {
 		BString text;
 		text << "_read_entry_ref(): get_ref_for_path('" << data << "') failed:\n"
 			"   " << strerror(err) << "\n";

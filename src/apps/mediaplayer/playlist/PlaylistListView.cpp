@@ -332,7 +332,7 @@ PlaylistListView::MouseDown(BPoint where)
 		MakeFocus(true);
 
 	int32 clicks;
-	if (Window()->CurrentMessage()->FindInt32("clicks", &clicks) < B_OK)
+	if (Window()->CurrentMessage()->FindInt32("clicks", &clicks) != B_OK)
 		clicks = 1;
 
 	bool handled = false;

@@ -105,7 +105,7 @@ SVGExporter::Export(const Icon* icon, BPositionIO* stream)
 			for (int32 i = 0; i < count; i++) {
 				Shape* shape = icon->Shapes()->ShapeAtFast(i);
 				ret = _ExportShape(shape, stream);
-				if (ret < B_OK)
+				if (ret != B_OK)
 					break;
 			}
 		}
@@ -226,7 +226,7 @@ SVGExporter::_ExportShape(const Shape* shape, BPositionIO* stream)
 	char color[64];
 	status_t ret = _GetFill(style, color, stream);
 
-	if (ret < B_OK)
+	if (ret != B_OK)
 		return ret;
 
 	// The transformation matrix is extracted again in order to
@@ -283,7 +283,7 @@ SVGExporter::_ExportShape(const Shape* shape, BPositionIO* stream)
 	helper << "        d=\"";
 	ret = write_line(stream, helper);
 
-	if (ret < B_OK)
+	if (ret != B_OK)
 		return ret;
 
 	int32 count = shape->Paths()->CountPaths();
@@ -349,7 +349,7 @@ SVGExporter::_ExportShape(const Shape* shape, BPositionIO* stream)
 			helper << "z";
 
 		ret = write_line(stream, helper);
-		if (ret < B_OK)
+		if (ret != B_OK)
 			break;
 	}
 	helper << "\"\n";

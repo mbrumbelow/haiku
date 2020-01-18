@@ -463,7 +463,7 @@ status_t AudioFilterNode::AcceptFormat(
 
 	// validate against required format
 	err = validateProposedInputFormat(required, *ioFormat);
-	if(err < B_OK)
+	if(err != B_OK)
 		return err;
 		
 	// if an output connection has been made, try to create an operation
@@ -555,7 +555,7 @@ void AudioFilterNode::BufferReceived(
 	processBuffer(buffer, outBuffer);
 
 	status_t err = SendBuffer(outBuffer, m_output.source, m_output.destination);
-	if (err < B_OK) {
+	if (err != B_OK) {
 		PRINT(("AudioFilterNode::BufferReceived():\n"
 			"\tSendBuffer() failed: %s\n", strerror(err)));
 		outBuffer->Recycle();
@@ -721,7 +721,7 @@ void AudioFilterNode::ProducerDataStatus(
 			status, 
 			m_output.destination,
 			tpWhen);
-		if(err < B_OK) {
+		if(err != B_OK) {
 			PRINT(("\tSendDataStatus(): %s\n", strerror(err)));
 		}
 	}
@@ -788,7 +788,7 @@ void AudioFilterNode::Connect(
 #endif
 
 	// connection failed?	
-	if(status < B_OK) {
+	if(status != B_OK) {
 		PRINT(("\tCONNECTION FAILED: Status '%s'\n", strerror(status)));
 		// 'unreserve' the output
 		m_output.destination = media_destination::null;
@@ -802,7 +802,7 @@ void AudioFilterNode::Connect(
 	// figure downstream latency
 	media_node_id timeSource;
 	err = FindLatencyFor(m_output.destination, &m_downstreamLatency, &timeSource);
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT(("\t!!! FindLatencyFor(): %s\n", strerror(err)));
 	}
 	PRINT(("\tdownstream latency = %" B_PRIdBIGTIME "\n", m_downstreamLatency));
@@ -823,7 +823,7 @@ void AudioFilterNode::Connect(
 //			m_input.source,
 //			m_input.destination,
 //			EventLatency() + SchedulingLatency());
-//		if(err < B_OK)
+//		if(err != B_OK)
 //			PRINT(("\t!!! SendLatencyChange(): %s\n", strerror(err)));
 //	}
 
@@ -930,7 +930,7 @@ status_t AudioFilterNode::FormatProposal(
 	err = validateProposedOutputFormat(
 		required,
 		*ioFormat);
-	if(err < B_OK)
+	if(err != B_OK)
 		return err;
 	
 //	// specialize the format
@@ -1037,7 +1037,7 @@ void AudioFilterNode::LatencyChanged(
 			m_input.source,
 			m_input.destination,
 			EventLatency() + SchedulingLatency());
-		if(err < B_OK)
+		if(err != B_OK)
 			PRINT(("\t!!! SendLatencyChange(): %s\n", strerror(err)));
 	}
 }
@@ -1113,7 +1113,7 @@ status_t AudioFilterNode::PrepareToConnect(
 	err = validateProposedOutputFormat(
 		required,	*ioFormat);
 
-	if(err < B_OK) {
+	if(err != B_OK) {
 		// no go
 		return err;
 	}
@@ -1263,7 +1263,7 @@ void AudioFilterNode::handleParameterEvent(
 	ASSERT(m_parameterSet);
 	err = m_parameterSet->setValue(id, changeTime, value, size);
 	
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT((
 			"* AudioFilterNode::handleParameterEvent(): m_parameterSet->SetValue() failed:\n"
 			"  %s\n", strerror(err)));
@@ -1373,7 +1373,7 @@ void AudioFilterNode::updateOperation() {
 		m_input.source,
 		m_input.destination,
 		EventLatency() + SchedulingLatency());
-	if(err < B_OK)
+	if(err != B_OK)
 		PRINT(("\t!!! SendLatencyChange(): %s\n", strerror(err)));
 }
 

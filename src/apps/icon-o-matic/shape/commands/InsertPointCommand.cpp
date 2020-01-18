@@ -55,7 +55,7 @@ status_t
 InsertPointCommand::Perform()
 {
 	status_t status = InitCheck();
-	if (status < B_OK)
+	if (status != B_OK)
 		return status;
 
 	// path point is already added
@@ -71,7 +71,7 @@ status_t
 InsertPointCommand::Undo()
 {
 	status_t status = InitCheck();
-	if (status < B_OK)
+	if (status != B_OK)
 		return status;
 
 	AutoNotificationSuspender _(fPath);
@@ -100,7 +100,7 @@ status_t
 InsertPointCommand::Redo()
 {
 	status_t status = InitCheck();
-	if (status < B_OK)
+	if (status != B_OK)
 		return status;
 
 

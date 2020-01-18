@@ -108,7 +108,7 @@ MovePathsCommand::Perform()
 			break;
 		}
 	}
-	if (ret < B_OK)
+	if (ret != B_OK)
 		return ret;
 
 	// add paths to container at the insertion index
@@ -136,7 +136,7 @@ MovePathsCommand::Undo()
 			break;
 		}
 	}
-	if (ret < B_OK)
+	if (ret != B_OK)
 		return ret;
 
 	// add paths to container at remembered indices

@@ -63,7 +63,7 @@ PropertyObject::Archive(BMessage* into) const
 		BString value;
 		p->GetValue(value);
 		ret = into->AddString(idString, value.String());
-		if (ret < B_OK)
+		if (ret != B_OK)
 			return ret;
 	}
 	return ret;

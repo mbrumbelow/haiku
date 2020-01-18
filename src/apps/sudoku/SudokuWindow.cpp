@@ -397,7 +397,7 @@ SudokuWindow::_MessageDropped(BMessage* message)
 		hasRef = true;
 	}
 
-	if (status < B_OK) {
+	if (status != B_OK) {
 		char buffer[1024];
 		if (hasRef) {
 			snprintf(buffer, sizeof(buffer),
@@ -482,7 +482,7 @@ SudokuWindow::MessageReceived(BMessage* message)
 
 		case kMsgExportAs:
 		{
-			if (message->FindInt32("as", (int32 *)&fExportFormat) < B_OK)
+			if (message->FindInt32("as", (int32 *)&fExportFormat) != B_OK)
 				fExportFormat = kExportAsText;
 			fSavePanel->Show();
 			break;

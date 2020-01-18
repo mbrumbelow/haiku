@@ -50,10 +50,10 @@ MessageExporter::Export(const Icon* icon, BPositionIO* stream)
 			VectorPath* path = paths->PathAtFast(i);
 			BMessage pathArchive;
 			ret = _Export(path, &pathArchive);
-			if (ret < B_OK)
+			if (ret != B_OK)
 				break;
 			ret = allPaths.AddMessage("path", &pathArchive);
-			if (ret < B_OK)
+			if (ret != B_OK)
 				break;
 		}
 	
@@ -69,10 +69,10 @@ MessageExporter::Export(const Icon* icon, BPositionIO* stream)
 			Style* style = styles->StyleAtFast(i);
 			BMessage styleArchive;
 			ret = _Export(style, &styleArchive);
-			if (ret < B_OK)
+			if (ret != B_OK)
 				break;
 			ret = allStyles.AddMessage("style", &styleArchive);
-			if (ret < B_OK)
+			if (ret != B_OK)
 				break;
 		}
 	
@@ -89,10 +89,10 @@ MessageExporter::Export(const Icon* icon, BPositionIO* stream)
 			Shape* shape = shapes->ShapeAtFast(i);
 			BMessage shapeArchive;
 			ret = _Export(shape, paths, styles, &shapeArchive);
-			if (ret < B_OK)
+			if (ret != B_OK)
 				break;
 			ret = allShapes.AddMessage("shape", &shapeArchive);
-			if (ret < B_OK)
+			if (ret != B_OK)
 				break;
 		}
 	
@@ -167,7 +167,7 @@ MessageExporter::_Export(const Shape* shape,
 		for (int32 i = 0; i < count; i++) {
 			VectorPath* path = shape->Paths()->PathAtFast(i);
 			ret = into->AddInt32("path ref", globalPaths->IndexOf(path));
-			if (ret < B_OK)
+			if (ret != B_OK)
 				break;
 		}
 	}

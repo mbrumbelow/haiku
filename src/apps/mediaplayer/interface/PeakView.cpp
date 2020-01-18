@@ -124,7 +124,7 @@ void
 PeakView::MouseDown(BPoint where)
 {
 	int32 buttons;
-	if (Window()->CurrentMessage()->FindInt32("buttons", &buttons) < B_OK)
+	if (Window()->CurrentMessage()->FindInt32("buttons", &buttons) != B_OK)
 		buttons = B_PRIMARY_MOUSE_BUTTON;
 
 	if (buttons & B_PRIMARY_MOUSE_BUTTON) {

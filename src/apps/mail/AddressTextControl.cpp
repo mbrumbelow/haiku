@@ -764,7 +764,7 @@ AddressTextControl::MessageReceived(BMessage* message)
 
 						BString attr = "";
 						if (buttons == B_PRIMARY_MOUSE_BUTTON) {
-							if (message->FindString("attr", &attr) < B_OK)
+							if (message->FindString("attr", &attr) != B_OK)
 								attr = "META:email";
 						} else {
 							BNode node(&ref);

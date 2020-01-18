@@ -145,7 +145,7 @@ add_query_menu_items(BMenu* menu, const char* attribute, uint32 what,
 			message->AddRef("ref", &ref);
 
 			BString value;
-			if (file.ReadAttrString(attribute, &value) < B_OK)
+			if (file.ReadAttrString(attribute, &value) != B_OK)
 				continue;
 
 			message->AddString("attribute", value.String());

@@ -125,7 +125,7 @@ TermApp::ReadyToRun()
 	status_t status = _MakeTermWindow();
 
 	// failed spawn, print stdout and open alert panel
-	if (status < B_OK) {
+	if (status != B_OK) {
 		BAlert* alert = new BAlert("alert",
 			B_TRANSLATE("Terminal couldn't start the shell. Sorry."),
 			B_TRANSLATE("OK"), NULL, NULL, B_WIDTH_FROM_LABEL,

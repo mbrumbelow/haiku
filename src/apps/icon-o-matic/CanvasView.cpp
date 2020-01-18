@@ -113,7 +113,7 @@ CanvasView::MouseDown(BPoint where)
 		MakeFocus(true);
 
 	int32 buttons;
-	if (Window()->CurrentMessage()->FindInt32("buttons", &buttons) < B_OK)
+	if (Window()->CurrentMessage()->FindInt32("buttons", &buttons) != B_OK)
 		buttons = 0;
 
 	// handle clicks of the third mouse button ourselves (panning),

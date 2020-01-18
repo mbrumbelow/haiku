@@ -152,7 +152,7 @@ Shell::Open(int row, int col, const ShellParameters& parameters)
 		return B_ERROR;
 
 	status_t status = _Spawn(row, col, parameters);
-	if (status < B_OK)
+	if (status != B_OK)
 		return status;
 
 	fTermParse = new (std::nothrow) TermParse(fFd);

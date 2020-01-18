@@ -99,7 +99,7 @@ MediaTrackVideoSupplier::ReadFrame(void* buffer, bigtime_t* performanceTime,
 			!= format.display.bytes_per_row) {
 		ret = _SwitchFormat(format.display.format,
 			format.display.bytes_per_row);
-		if (ret < B_OK) {
+		if (ret != B_OK) {
 			fprintf(stderr, "MediaTrackVideoSupplier::ReadFrame() - "
 				"unable to switch media format: %s\n", strerror(ret));
 			return ret;
@@ -112,7 +112,7 @@ MediaTrackVideoSupplier::ReadFrame(void* buffer, bigtime_t* performanceTime,
 	media_header mediaHeader;
 	ret = fVideoTrack->ReadFrames(buffer, &frameCount, &mediaHeader);
 
-	if (ret < B_OK) {
+	if (ret != B_OK) {
 		if (ret != B_LAST_BUFFER_ERROR) {
 			fprintf(stderr, "MediaTrackVideoSupplier::ReadFrame() - "
 				"error while reading frame of track: %s\n", strerror(ret));
@@ -164,7 +164,7 @@ MediaTrackVideoSupplier::SeekToTime(bigtime_t* performanceTime)
 bigtime_t _performanceTime = *performanceTime;
 	status_t ret = fVideoTrack->FindKeyFrameForTime(performanceTime,
 		B_MEDIA_SEEK_CLOSEST_BACKWARD);
-	if (ret < B_OK)
+	if (ret != B_OK)
 		return ret;
 
 	ret = fVideoTrack->SeekToTime(performanceTime);
@@ -270,7 +270,7 @@ MediaTrackVideoSupplier::_SwitchFormat(color_space format, uint32 bytesPerRow)
 	// get the encoded format
 	fFormat.Clear();
 	status_t ret = fVideoTrack->EncodedFormat(&fFormat);
-	if (ret < B_OK) {
+	if (ret != B_OK) {
 		printf("MediaTrackVideoSupplier::_SwitchFormat() - "
 			"fVideoTrack->EncodedFormat(): %s\n", strerror(ret));
 		return ret;
@@ -300,7 +300,7 @@ MediaTrackVideoSupplier::_SwitchFormat(color_space format, uint32 bytesPerRow)
 	bytesPerRow = max_c(bytesPerRow, minBytesPerRow);
 
 	ret = _SetDecodedFormat(width, height, format, bytesPerRow);
-	if (ret < B_OK) {
+	if (ret != B_OK) {
 		printf("MediaTrackVideoSupplier::_SwitchFormat() - "
 			"fVideoTrack->DecodedFormat(): %s - retrying with B_RGB32\n",
 			strerror(ret));
@@ -308,7 +308,7 @@ MediaTrackVideoSupplier::_SwitchFormat(color_space format, uint32 bytesPerRow)
 		bytesPerRow = max_c(bytesPerRow, width * 4);
 
 		ret = _SetDecodedFormat(width, height, format, bytesPerRow);
-		if (ret < B_OK) {
+		if (ret != B_OK) {
 			printf("MediaTrackVideoSupplier::_SwitchFormat() - "
 				"fVideoTrack->DecodedFormat(): %s - giving up\n",
 				strerror(ret));

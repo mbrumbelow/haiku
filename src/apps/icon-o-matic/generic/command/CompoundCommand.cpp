@@ -49,10 +49,10 @@ CompoundCommand::Perform()
 		for (; i < fCount; i++) {
 			if (fCommands[i])
 				status = fCommands[i]->Perform();
-			if (status < B_OK)
+			if (status != B_OK)
 				break;
 		}
-/*		if (status < B_OK) {
+/*		if (status != B_OK) {
 			// roll back
 			i--;
 			for (; i >= 0; i--) {
@@ -74,7 +74,7 @@ CompoundCommand::Undo()
 		for (; i >= 0; i--) {
 			if (fCommands[i])
 				status = fCommands[i]->Undo();
-			if (status < B_OK)
+			if (status != B_OK)
 				break;
 		}
 	}

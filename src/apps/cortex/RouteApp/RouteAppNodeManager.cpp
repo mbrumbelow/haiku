@@ -117,7 +117,7 @@ const MediaIcon* RouteAppNodeManager::mediaIconFor(
 	// look up live_node_info
 	NodeRef* ref;
 	status_t err = getNodeRef(nodeID, &ref);
-	if(err < B_OK)
+	if(err != B_OK)
 		return 0;	
 
 	return mediaIconFor(ref->nodeInfo(), iconSize);	
@@ -250,7 +250,7 @@ void RouteAppNodeManager::connectionMade(
 	// create or merge groups
 	NodeRef *producer, *consumer;
 	err = getNodeRef(connection->sourceNode(), &producer);
-	if(err < B_OK) {
+	if(err != B_OK) {
 		D_HOOK((
 			"!!! RouteAppNodeManager::connectionMade():\n"
 			"    sourceNode (%ld) not found\n",
@@ -258,7 +258,7 @@ void RouteAppNodeManager::connectionMade(
 		return;	
 	}
 	err = getNodeRef(connection->destinationNode(), &consumer);
-	if(err < B_OK) {
+	if(err != B_OK) {
 		D_HOOK((
 			"!!! RouteAppNodeManager::connectionMade():\n"
 			"    destinationNode (%ld) not found\n",
@@ -356,7 +356,7 @@ void RouteAppNodeManager::connectionBroken(
 
 	NodeRef *producer, *consumer;
 	err = getNodeRef(connection->sourceNode(), &producer);
-	if(err < B_OK) {
+	if(err != B_OK) {
 		D_HOOK((
 			"!!! RouteAppNodeManager::connectionMade():\n"
 			"    sourceNode (%ld) not found\n",
@@ -364,7 +364,7 @@ void RouteAppNodeManager::connectionBroken(
 		return;	
 	}
 	err = getNodeRef(connection->destinationNode(), &consumer);
-	if(err < B_OK) {
+	if(err != B_OK) {
 		D_HOOK((
 			"!!! RouteAppNodeManager::connectionMade():\n"
 			"    destinationNode (%ld) not found\n",
@@ -410,11 +410,11 @@ void RouteAppNodeManager::connectionFailed(
 
 	NodeRef *producer, *consumer;
 	err = getNodeRef(output.node.node, &producer);
-	if(err < B_OK) {
+	if(err != B_OK) {
 		return;	
 	}
 	err = getNodeRef(input.node.node, &consumer);
-	if(err < B_OK) {
+	if(err != B_OK) {
 		return;	
 	}
 
@@ -457,7 +457,7 @@ void RouteAppNodeManager::xmlExportBegin(
 			// fetch node
 			NodeRef* ref;
 			err = getNodeRef(id, &ref);
-			if(err < B_OK) {
+			if(err != B_OK) {
 				D_SETTINGS((
 					"! RVNM::xmlExportBegin(): node %ld doesn't exist\n", id));
 
@@ -502,7 +502,7 @@ void RouteAppNodeManager::xmlExportContent(
 			// fetch node
 			NodeRef* ref;
 			err = getNodeRef(id, &ref);
-			if(err < B_OK) {
+			if(err != B_OK) {
 				D_SETTINGS((
 					"! RouteAppNodeManager::xmlExportContent():\n"
 					"  getNodeRef(%ld) failed: '%s'\n",
@@ -521,7 +521,7 @@ void RouteAppNodeManager::xmlExportContent(
 
 			// create an IO object for the node & write it
 			DormantNodeIO io(ref, nodeSet.keyAt(n));
-			if(context.writeObject(&io) < B_OK)
+			if(context.writeObject(&io) != B_OK)
 				// abort
 				return;
 		}		
@@ -534,7 +534,7 @@ void RouteAppNodeManager::xmlExportContent(
 				&(*it).second, 
 				this,
 				&nodeSet);
-			if(context.writeObject(&io) < B_OK)
+			if(context.writeObject(&io) != B_OK)
 				// abort
 				return;
 				
@@ -624,7 +624,7 @@ void RouteAppNodeManager::xmlImportChild(
 			this,
 			dynamic_cast<NodeSetIOContext*>(&context),
 			&con);
-		if(err < B_OK) {
+		if(err != B_OK) {
 			D_SETTINGS((
 				"!!! ConnectionIO::instantiate() failed:\n"
 				"    '%s'\n", strerror(err)));

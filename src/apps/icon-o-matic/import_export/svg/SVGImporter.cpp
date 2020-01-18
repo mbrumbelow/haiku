@@ -40,7 +40,7 @@ status_t
 SVGImporter::Import(Icon* icon, const entry_ref* ref)
 {
 	status_t ret = Init(icon);
-	if (ret < B_OK) {
+	if (ret != B_OK) {
 		printf("SVGImporter::Import() - "
 			   "Init() error: %s\n", strerror(ret));
 		return ret;
@@ -48,13 +48,13 @@ SVGImporter::Import(Icon* icon, const entry_ref* ref)
 
 	BPath path(ref);
 	ret = path.InitCheck();
-	if (ret < B_OK)
+	if (ret != B_OK)
 		return ret;
 
 	// peek into file to see if this could be an SVG file at all
 	BFile file(path.Path(), B_READ_ONLY);
 	ret = file.InitCheck();
-	if (ret < B_OK)
+	if (ret != B_OK)
 		return ret;
 
 	ssize_t size = 5;

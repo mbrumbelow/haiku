@@ -47,7 +47,7 @@ status_t
 AddPointCommand::Perform()
 {
 	status_t status = InitCheck();
-	if (status < B_OK)
+	if (status != B_OK)
 		return status;
 
 	// path point is already added,
@@ -63,7 +63,7 @@ status_t
 AddPointCommand::Undo()
 {
 	status_t status = InitCheck();
-	if (status < B_OK)
+	if (status != B_OK)
 		return status;
 
 	// remove point
@@ -82,7 +82,7 @@ status_t
 AddPointCommand::Redo()
 {
 	status_t status = InitCheck();
-	if (status < B_OK)
+	if (status != B_OK)
 		return status;
 
 	AutoNotificationSuspender _(fPath);

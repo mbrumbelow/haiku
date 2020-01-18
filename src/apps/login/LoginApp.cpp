@@ -93,7 +93,7 @@ LoginApp::MessageReceived(BMessage *message)
 			BRoster roster;
 			BRoster::Private rosterPrivate(roster);
 			status_t error = rosterPrivate.ShutDown(reboot, false, false);
-			if (error < B_OK) {
+			if (error != B_OK) {
 				BString msg(B_TRANSLATE("Error: %1"));
 				msg.ReplaceFirst("%1", strerror(error));
 				BAlert* alert = new BAlert(("Error"), msg.String(),

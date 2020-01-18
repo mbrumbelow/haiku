@@ -328,7 +328,7 @@ void FlangerNode::BufferReceived(
 	filterBuffer(pBuffer);
 
 	status_t err = SendBuffer(pBuffer, m_output.source, m_output.destination);
-	if (err < B_OK) {
+	if (err != B_OK) {
 		PRINT(("FlangerNode::BufferReceived():\n"
 			"\tSendBuffer() failed: %s\n", strerror(err)));
 		pBuffer->Recycle();
@@ -473,7 +473,7 @@ void FlangerNode::ProducerDataStatus(
 			status,
 			m_output.destination,
 			tpWhen);
-		if(err < B_OK) {
+		if(err != B_OK) {
 			PRINT(("\tSendDataStatus(): %s\n", strerror(err)));
 		}
 	}
@@ -532,7 +532,7 @@ void FlangerNode::Connect(
 	status_t err;
 
 	// connection failed?
-	if(status < B_OK) {
+	if(status != B_OK) {
 		PRINT(("\tStatus: %s\n", strerror(status)));
 		// 'unreserve' the output
 		m_output.destination = media_destination::null;
@@ -547,7 +547,7 @@ void FlangerNode::Connect(
 	// figure downstream latency
 	media_node_id timeSource;
 	err = FindLatencyFor(m_output.destination, &m_downstreamLatency, &timeSource);
-	if(err < B_OK) {
+	if(err != B_OK) {
 		PRINT(("\t!!! FindLatencyFor(): %s\n", strerror(err)));
 	}
 	PRINT(("\tdownstream latency = %" B_PRIdBIGTIME "\n", m_downstreamLatency));
@@ -568,7 +568,7 @@ void FlangerNode::Connect(
 			m_input.source,
 			m_input.destination,
 			EventLatency() + SchedulingLatency());
-		if(err < B_OK)
+		if(err != B_OK)
 			PRINT(("\t!!! SendLatencyChange(): %s\n", strerror(err)));
 	}
 
@@ -736,7 +736,7 @@ void FlangerNode::LatencyChanged(
 			m_input.source,
 			m_input.destination,
 			EventLatency() + SchedulingLatency());
-		if(err < B_OK)
+		if(err != B_OK)
 			PRINT(("\t!!! SendLatencyChange(): %s\n", strerror(err)));
 	}
 }
@@ -809,7 +809,7 @@ status_t FlangerNode::PrepareToConnect(
 			m_preferredFormat,
 		*pioFormat);
 
-	if(err < B_OK) {
+	if(err != B_OK) {
 		// no go
 		return err;
 	}

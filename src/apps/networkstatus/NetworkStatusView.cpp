@@ -157,12 +157,12 @@ NetworkStatusView::_UpdateBitmaps()
 		return;
 
 	BFile file(info.name, B_READ_ONLY);
-	if (file.InitCheck() < B_OK)
+	if (file.InitCheck() != B_OK)
 		return;
 
 	BResources resources(&file);
 #ifdef HAIKU_TARGET_PLATFORM_HAIKU
-	if (resources.InitCheck() < B_OK)
+	if (resources.InitCheck() != B_OK)
 		return;
 #endif
 

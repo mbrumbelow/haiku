@@ -107,7 +107,7 @@ int32
 Exporter::_ExportThread()
 {
 	status_t ret = _Export(fClonedIcon, &fRef);
-	if (ret < B_OK) {
+	if (ret != B_OK) {
 		// inform user of failure at this point
 		BString helper(B_TRANSLATE("Saving your document failed!"));
 		helper << "\n\n" << B_TRANSLATE("Error: ") << strerror(ret);
@@ -187,7 +187,7 @@ Exporter::_Export(const Icon* icon, const entry_ref* docRef)
 				   "unkown exception occured!\n");
 			ret = B_ERROR;
 		}
-		if (ret < B_OK) {
+		if (ret != B_OK) {
 			printf("Exporter::_Export() - "
 				   "failed to export icon: %s\n", strerror(ret));
 		}
@@ -197,7 +197,7 @@ Exporter::_Export(const Icon* icon, const entry_ref* docRef)
 	}
 	outFile.Unset();
 
-//	if (ret < B_OK && ref != docRef) {
+//	if (ret != B_OK && ref != docRef) {
 //		// in case of failure, remove temporary file
 //		entry.Remove();
 //	}

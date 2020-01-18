@@ -237,11 +237,11 @@ TermView::TermView(BMessage* archive)
 {
 	BRect frame = Bounds();
 
-	if (archive->FindInt32("encoding", (int32*)&fEncoding) < B_OK)
+	if (archive->FindInt32("encoding", (int32*)&fEncoding) != B_OK)
 		fEncoding = M_UTF8;
-	if (archive->FindInt32("columns", (int32*)&fColumns) < B_OK)
+	if (archive->FindInt32("columns", (int32*)&fColumns) != B_OK)
 		fColumns = COLUMNS_DEFAULT;
-	if (archive->FindInt32("rows", (int32*)&fRows) < B_OK)
+	if (archive->FindInt32("rows", (int32*)&fRows) != B_OK)
 		fRows = ROWS_DEFAULT;
 
 	int32 argc = 0;
@@ -363,11 +363,11 @@ TermView::_InitObject(const ShellParameters& shellParameters)
 
 	error = fShell->Open(fRows, fColumns, modifiedShellParameters);
 
-	if (error < B_OK)
+	if (error != B_OK)
 		return error;
 
 	error = _AttachShell(fShell);
-	if (error < B_OK)
+	if (error != B_OK)
 		return error;
 
 	fHighlights.AddItem(&fSelection);
@@ -1971,7 +1971,7 @@ TermView::ResolveSpecifier(BMessage* message, int32 index, BMessage* specifier,
 {
 	BHandler* target = this;
 	BPropertyInfo propInfo(sPropList);
-	if (propInfo.FindMatch(message, index, specifier, what, property) < B_OK) {
+	if (propInfo.FindMatch(message, index, specifier, what, property) != B_OK) {
 		target = BView::ResolveSpecifier(message, index, specifier, what,
 			property);
 	}
@@ -2957,7 +2957,7 @@ void
 TermView::_HandleInputMethodChanged(BMessage *message)
 {
 	const char *string = NULL;
-	if (message->FindString("be:string", &string) < B_OK || string == NULL)
+	if (message->FindString("be:string", &string) != B_OK || string == NULL)
 		return;
 
 	_ActivateCursor(false);

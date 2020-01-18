@@ -110,13 +110,13 @@ TermParse::StartThreads(TerminalBuffer *buffer)
 	fBuffer = buffer;
 
 	status_t status = _InitPtyReader();
-	if (status < B_OK) {
+	if (status != B_OK) {
 		fBuffer = NULL;
 		return status;
 	}
 
 	status = _InitTermParse();
-	if (status < B_OK) {
+	if (status != B_OK) {
 		_StopPtyReader();
 		fBuffer = NULL;
 		return status;
@@ -243,7 +243,7 @@ TermParse::PtyReader()
 			do {
 				status = acquire_sem(fReaderLocker);
 			} while (status == B_INTERRUPTED);
-			if (status < B_OK)
+			if (status != B_OK)
 				return status;
 
 			bufferSize = fReadBufferSize;
@@ -1261,7 +1261,7 @@ TermParse::_ReadParserBuffer()
 				acquire_sem_etc(fReaderSem, semCount, B_RELATIVE_TIMEOUT, 0);
 		}
 
-		if (status < B_OK) {
+		if (status != B_OK) {
 			fBuffer->Lock();
 			return status;
 		}

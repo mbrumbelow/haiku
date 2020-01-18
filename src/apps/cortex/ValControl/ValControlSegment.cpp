@@ -211,7 +211,7 @@ ValControlSegment::MouseDown(BPoint point)
 
 	// double click?
 	bigtime_t doubleClickInterval;
-	if (get_click_speed(&doubleClickInterval) < B_OK) {
+	if (get_click_speed(&doubleClickInterval) != B_OK) {
 		PRINT(("* ValControlSegment::MouseDown():\n"
 			"  get_click_speed() failed."));
 		return;

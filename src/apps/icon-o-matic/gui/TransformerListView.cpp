@@ -193,7 +193,7 @@ TransformerListView::MessageReceived(BMessage* message)
 				break;
 		
 			uint32 type;
-			if (message->FindInt32("type", (int32*)&type) < B_OK)
+			if (message->FindInt32("type", (int32*)&type) != B_OK)
 				break;
 		
 			Transformer* transformer

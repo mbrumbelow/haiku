@@ -92,13 +92,13 @@ CalcApplication::_LoadSettings(BMessage& archive)
 {
 	// locate preferences file
 	BFile prefsFile;
-	if (_InitSettingsFile(&prefsFile, false) < B_OK) {
+	if (_InitSettingsFile(&prefsFile, false) != B_OK) {
 		printf("no preference file found.\n");
 		return;
 	}
 
 	// unflatten settings data
-	if (archive.Unflatten(&prefsFile) < B_OK) {
+	if (archive.Unflatten(&prefsFile) != B_OK) {
 		printf("error unflattening settings.\n");
 	}
 }
@@ -116,7 +116,7 @@ CalcApplication::_SaveSettings()
 
 	fCalcWindow->Unlock();
 
-	if (ret < B_OK) {
+	if (ret != B_OK) {
 		fprintf(stderr, "CalcApplication::_SaveSettings() - error from window: "
 			"%s\n", strerror(ret));
 		return;
@@ -125,14 +125,14 @@ CalcApplication::_SaveSettings()
 	// flatten entire acrhive and write to settings file
 	BFile prefsFile;
 	ret = _InitSettingsFile(&prefsFile, true);
-	if (ret < B_OK) {
+	if (ret != B_OK) {
 		fprintf(stderr, "CalcApplication::_SaveSettings() - "
 			"error creating file: %s\n", strerror(ret));
 		return;
 	}
 
 	ret = archive.Flatten(&prefsFile);
-	if (ret < B_OK) {
+	if (ret != B_OK) {
 		fprintf(stderr, "CalcApplication::_SaveSettings() - error flattening "
 			"to file: %s\n", strerror(ret));
 		return;
@@ -146,11 +146,11 @@ CalcApplication::_InitSettingsFile(BFile* file, bool write)
 	// find user settings directory
 	BPath prefsPath;
 	status_t ret = find_directory(B_USER_SETTINGS_DIRECTORY, &prefsPath);
-	if (ret < B_OK)
+	if (ret != B_OK)
 		return ret;
 
 	ret = prefsPath.Append(kSettingsFileName);
-	if (ret < B_OK)
+	if (ret != B_OK)
 		return ret;
 
 	if (write) {

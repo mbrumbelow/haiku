@@ -201,7 +201,7 @@ WorkerThread::MessageReceived(BMessage* message)
 
 			if (fDDRoster.GetPartitionWithID(id, &device, &partition) == B_OK) {
 				if (!partition->IsMounted()) {
-					if (partition->Mount() < B_OK) {
+					if (partition->Mount() != B_OK) {
 						_SetStatusMessage(B_TRANSLATE("The partition can't be "
 							"mounted. Please choose a different partition."));
 						break;
@@ -214,7 +214,7 @@ WorkerThread::MessageReceived(BMessage* message)
 				}
 			} else if (fDDRoster.GetDeviceWithID(id, &device) == B_OK) {
 				if (!device.IsMounted()) {
-					if (device.Mount() < B_OK) {
+					if (device.Mount() != B_OK) {
 						_SetStatusMessage(B_TRANSLATE("The disk can't be "
 							"mounted. Please choose a different disk."));
 						break;
@@ -367,7 +367,7 @@ WorkerThread::_PerformInstall(partition_id sourcePartitionID,
 	if (fDDRoster.GetPartitionWithID(targetPartitionID, &device,
 			&partition) == B_OK) {
 		if (!partition->IsMounted()) {
-			if ((err = partition->Mount()) < B_OK) {
+			if ((err = partition->Mount()) != B_OK) {
 				_SetStatusMessage(mountError);
 				ERR("BPartition::Mount");
 				return _InstallationError(err);
@@ -383,7 +383,7 @@ WorkerThread::_PerformInstall(partition_id sourcePartitionID,
 		}
 	} else if (fDDRoster.GetDeviceWithID(targetPartitionID, &device) == B_OK) {
 		if (!device.IsMounted()) {
-			if ((err = device.Mount()) < B_OK) {
+			if ((err = device.Mount()) != B_OK) {
 				_SetStatusMessage(mountError);
 				ERR("BDiskDevice::Mount");
 				return _InstallationError(err);

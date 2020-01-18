@@ -247,7 +247,7 @@ color.alpha = fAlphaSlider->Value();
 		case MSG_COLOR_PICKER:
 		{
 			rgb_color color;
-			if (restore_color_from_message(message, color) < B_OK)
+			if (restore_color_from_message(message, color) != B_OK)
 				break;
 
 			if (fColorPickerPanel == NULL) {

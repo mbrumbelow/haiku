@@ -90,19 +90,19 @@ SudokuView::Archive(BMessage* into, bool deep) const
 	status_t status;
 
 	status = BView::Archive(into, deep);
-	if (status < B_OK)
+	if (status != B_OK)
 		return status;
 
 	status = into->AddString("add_on", kSignature);
-	if (status < B_OK)
+	if (status != B_OK)
 		return status;
 
 	status = into->AddRect("bounds", Bounds());
-	if (status < B_OK)
+	if (status != B_OK)
 		return status;
 
 	status = SaveState(*into);
-	if (status < B_OK)
+	if (status != B_OK)
 		return status;
 	return B_OK;
 }
@@ -138,7 +138,7 @@ SudokuView::SetTo(entry_ref& ref)
 {
 	BPath path;
 	status_t status = path.SetTo(&ref);
-	if (status < B_OK)
+	if (status != B_OK)
 		return status;
 
 	FILE* file = fopen(path.Path(), "r");
@@ -154,7 +154,7 @@ SudokuView::SetTo(entry_ref& ref)
 	while (fgets(line, sizeof(line), file) != NULL
 		&& out < maxOut) {
 		status = _FilterString(line, sizeof(line), buffer, out, ignore);
-		if (status < B_OK) {
+		if (status != B_OK) {
 			fclose(file);
 			return status;
 		}
@@ -180,7 +180,7 @@ SudokuView::SetTo(const char* data)
 	uint32 out = 0;
 
 	status_t status = _FilterString(data, 65536, buffer, out, ignore);
-	if (status < B_OK)
+	if (status != B_OK)
 		return B_BAD_VALUE;
 
 	_PushUndo();
@@ -215,7 +215,7 @@ SudokuView::SaveTo(entry_ref& ref, uint32 exportAs)
 	BFile file;
 	status_t status = file.SetTo(&ref, B_WRITE_ONLY | B_CREATE_FILE
 		| B_ERASE_FILE);
-	if (status < B_OK)
+	if (status != B_OK)
 		return status;
 
 	return SaveTo(file, exportAs);
@@ -367,13 +367,13 @@ SudokuView::SaveTo(BDataIO& stream, uint32 exportAs)
 		{
 			BMallocIO mallocIO;
 			status_t status = SaveTo(mallocIO, kExportAsPicture);
-			if (status < B_OK)
+			if (status != B_OK)
 				return status;
 
 			mallocIO.Seek(0LL, SEEK_SET);
 			BPicture picture;
 			status = picture.Unflatten(&mallocIO);
-			if (status < B_OK)
+			if (status != B_OK)
 				return status;
 
 			BBitmap* bitmap = new BBitmap(Bounds(), B_BITMAP_ACCEPTS_VIEWS,

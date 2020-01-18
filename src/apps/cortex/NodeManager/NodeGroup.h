@@ -499,7 +499,7 @@ private:				// *** transport thread guts
 				BMediaRoster::Roster()->GetLatencyFor(
 					r->node(),
 					&latency);
-			if(err < B_OK) {
+			if(err != B_OK) {
 				PRINT((
 					"* calcLatencyFn: GetLatencyFor() failed: %s\n",
 					strerror(err)));
@@ -509,7 +509,7 @@ private:				// *** transport thread guts
 			err = BMediaRoster::Roster()->GetInitialLatencyFor(
 				r->node(),
 				&add);
-			if(err < B_OK) {
+			if(err != B_OK) {
 				PRINT((
 					"* calcLatencyFn: GetInitialLatencyFor() failed: %s\n",
 					strerror(err)));
