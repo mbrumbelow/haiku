@@ -16,6 +16,24 @@
       "revId": "dda1013cdb4781c4d2625a45ff9d84983e9eec86",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9be7d6ba_e1afd157",
+        "filename": "src/apps/deskcalc/CalcView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 816,
+      "author": {
+        "id": 1000170
+      },
+      "writtenOn": "2020-01-18T10:27:51Z",
+      "side": 0,
+      "message": "It does not explain. What would return with an error? The be_clipboard-\u003eData()?",
+      "parentUuid": "6a8f7a91_24a387c4",
+      "revId": "dda1013cdb4781c4d2625a45ff9d84983e9eec86",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
