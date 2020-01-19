@@ -38,6 +38,7 @@ local generics =
 	fmax.c fmaxf.c fmaxl.c
 	fmin.c fminf.c fminl.c
 	fmod.c fmodf.c fmodl.c
+	__fpclassify.c __fpclassifyf.c
 	frexp.c frexpf.c frexpl.c
 	hypot.c hypotf.c hypotl.c
 	ilogb.c ilogbf.c ilogbl.c
@@ -69,6 +70,7 @@ local generics =
 	rint.c rintf.c rintl.c
 	round.c roundf.c roundl.c
 	scalb.c scalbf.c scalbln.c scalblnf.c scalblnl.c scalbn.c scalbnf.c scalbnl.c
+	__signbit.c __signbitf.c
 	signgam.c
 	significand.c significandf.c
 	__sin.c sin.c __sinl.c sinl.c
