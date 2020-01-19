@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d5caadd7_b8b22447",
+        "filename": "src/servers/app/View.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 723,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-01-19T15:06:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9c5750e_47ee36ac",
+      "revId": "b5664305f62234c0bb02b8047c31ec5044e658de",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16ccfabe_4b64ca98",
         "filename": "src/servers/app/View.cpp",
         "patchSetId": 12
@@ -30,6 +48,24 @@
       "writtenOn": "2020-01-12T13:49:49Z",
       "side": 1,
       "message": "Indentation is particularly weird here.",
+      "revId": "b5664305f62234c0bb02b8047c31ec5044e658de",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01ffe72d_ed89649a",
+        "filename": "src/servers/app/View.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 940,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-01-19T15:06:08Z",
+      "side": 1,
+      "message": "What indentation should be used?",
+      "parentUuid": "16ccfabe_4b64ca98",
       "revId": "b5664305f62234c0bb02b8047c31ec5044e658de",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -50,6 +86,24 @@
       "revId": "b5664305f62234c0bb02b8047c31ec5044e658de",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ddbeb786_1be972dc",
+        "filename": "src/servers/app/View.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1427,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-01-19T15:06:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97677794_affcb091",
+      "revId": "b5664305f62234c0bb02b8047c31ec5044e658de",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
