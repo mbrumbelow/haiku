@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "557aa1f9_51970f23",
+        "filename": "src/add-ons/kernel/drivers/audio/emuxki/emuxki.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 1777,
+      "author": {
+        "id": 1000170
+      },
+      "writtenOn": "2020-01-19T12:22:00Z",
+      "side": 0,
+      "message": "You mean the int32 conversion is useless?",
+      "parentUuid": "98399565_c863af77",
+      "revId": "30de32ecb191a623142767745d4ebff09837eec7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f9b1cd66_6dfa650d",
         "filename": "src/add-ons/kernel/drivers/graphics/intel_extreme/power.cpp",
         "patchSetId": 1
