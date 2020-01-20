@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7c195fa0_181f7a87",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 1220,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-01-20T21:09:22Z",
+      "side": 1,
+      "message": "Why not ask the guy with that configuration for a patch instead? :-)\n\nIt\u0027s perfectly fine to unload the drive in order to place a new CD in it, no matter if you were listening to a CD before or not IMO.",
+      "parentUuid": "c1b172ca_7108682f",
+      "revId": "ada6ca0f87bd65af288a409ea15e25c95652c38e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "75ffb404_152ffbf3",
         "filename": "src/apps/mediaplayer/MainWin.cpp",
         "patchSetId": 14
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "39bc2a71_427a1f6f",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 1240,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-01-20T21:09:22Z",
+      "side": 1,
+      "message": "When it\u0027s a CD, it shouln\u0027t really matter. The OS should handle that gracefully, anyway.",
+      "parentUuid": "75ffb404_152ffbf3",
+      "revId": "ada6ca0f87bd65af288a409ea15e25c95652c38e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4c62dfb8_834eae09",
         "filename": "src/apps/mediaplayer/MainWin.cpp",
         "patchSetId": 14
@@ -47,6 +83,24 @@
       "writtenOn": "2020-01-17T18:58:20Z",
       "side": 1,
       "message": "This menu should be enabled only when playing music (or video) from a CD or DVD.",
+      "revId": "ada6ca0f87bd65af288a409ea15e25c95652c38e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9252629e_8f069ca8",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 1594,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-01-20T21:09:22Z",
+      "side": 1,
+      "message": "See above, I think it makes sense to it there either way.",
+      "parentUuid": "4c62dfb8_834eae09",
       "revId": "ada6ca0f87bd65af288a409ea15e25c95652c38e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
