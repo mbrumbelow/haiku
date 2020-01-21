@@ -372,12 +372,26 @@ LVDSPort::LVDSPort()
 pipe_index
 LVDSPort::PipePreference()
 {
-	// TODO: Technically INTEL_PIPE_B is only required on < gen 4
-	// otherwise we can use INTEL_PIPE_ANY, however it seems to break
-	// modesetting atm. (likely due to a bug on our end)
-	//if (gInfo->shared_info->device_type.Generation() < 4)
-	//	return INTEL_PIPE_B;
+	// Older devices have hardcoded pipe/port mappings, so just use that
+	if (gInfo->shared_info->device_type.Generation() < 4)
+		return INTEL_PIPE_B;
 
+	// Ideally we could just return INTEL_PIPE_ANY for the newer devices, but
+	// this doesn't quite work yet.
+
+	// For Ibex Point, read the existing LVDS configuration and just reuse that
+	// (it seems our attempt to change it doesn't work, anyway)
+	if (gInfo->shared_info->pch_info == INTEL_PCH_IBX) {
+		uint32 portState = read32(_PortRegister());
+		if (portState & DISPLAY_MONITOR_PIPE_B)
+			return INTEL_PIPE_B;
+		else
+			return INTEL_PIPE_A;
+	}
+
+	// For later PCH versions, assume pipe B for now. Note that Cougar Point
+	// and probably later devices add a pipe C, so we'd need to handle that
+	// and the port register has a different format because of it.
 	return INTEL_PIPE_B;
 }
 
@@ -620,10 +634,18 @@ LVDSPort::SetDisplayMode(display_mode* target, uint32 colorMode)
 			panelFitterControl &= ~PANEL_FITTER_ENABLED;
 			write32(INTEL_PANEL_FIT_CONTROL, panelFitterControl);
 		} else {
+			// We don't need to do anything more for later generations, the
+			// scaling is handled at the transcoder level. We may want to
+			// configure dithering, but the code below ignores the previous
+			// value in the register and may mess things up so we should do
+			// this in a safeer way. For now, assume the BIOS did the right
+			// thing.
+#if 0
 			// Disable panel fitting, but enable 8 to 6-bit dithering
 			write32(INTEL_PANEL_FIT_CONTROL, 0x4);
 				// TODO: do not do this if the connected panel is 24-bit
 				// (I don't know how to detect that)
+#endif
 		}
 	}
 
