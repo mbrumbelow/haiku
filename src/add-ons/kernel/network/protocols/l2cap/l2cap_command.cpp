@@ -150,7 +150,7 @@ l2cap_con_req(uint8 _ident, uint16 _psm, uint16 _scid)
 	NetBufferPrepend<struct _con_req> bufferHeader(_m);
 	status_t status = bufferHeader.Status();
 	if (status < B_OK) {
-		/* TODO free the buffer */
+		gBufferModule->free(m);
 		return NULL;
 	}
 
@@ -179,7 +179,7 @@ l2cap_con_rsp(uint8 _ident, uint16 _dcid, uint16 _scid, uint16 _result, uint16 _
 	NetBufferPrepend<struct _con_rsp> bufferHeader(_m);
 	status_t status = bufferHeader.Status();
 	if (status < B_OK) {
-		/* TODO free the buffer */
+		gBufferModule->free(_m);
 		return NULL;
 	}
 
@@ -204,15 +204,16 @@ l2cap_cfg_req(uint8 _ident, uint16 _dcid, uint16 _flags, net_buffer* _data)
 {
 
 	net_buffer* _m = gBufferModule->create(sizeof(struct _cfg_req));
-	if ((_m) == NULL){
-		/* TODO free the _data buffer? */
+	if ((_m) == NULL) {
+		gBufferModule->free(_data);
 		return NULL;
 	}
 
 	NetBufferPrepend<struct _cfg_req> bufferHeader(_m);
 	status_t status = bufferHeader.Status();
 	if (status < B_OK) {
-		/* TODO free the buffer */
+		gBufferModule->free(_m);
+		gBufferModule->free(_data);
 		return NULL;
 	}
 
@@ -225,8 +226,6 @@ l2cap_cfg_req(uint8 _ident, uint16 _dcid, uint16 _flags, net_buffer* _data)
 
 	bufferHeader.Sync();
 
-	/* Add the given data */
-	// TODO: given data can be freed... merge does it?
 	if (_data != NULL)
 		gBufferModule->merge(_m, _data, true);
 
@@ -240,15 +239,16 @@ l2cap_cfg_rsp(uint8 _ident, uint16 _scid, uint16 _flags, uint16 _result, net_buf
 {
 
 	net_buffer* _m = gBufferModule->create(sizeof(struct _cfg_rsp));
-	if ((_m) == NULL){
-		/* TODO free the _data buffer */
+	if ((_m) == NULL) {
+		gBufferModule->free(_data);
 		return NULL;
 	}
 
 	NetBufferPrepend<struct _cfg_rsp> bufferHeader(_m);
 	status_t status = bufferHeader.Status();
 	if (status < B_OK) {
-		/* TODO free the buffer */
+		gBufferModule->free(_m);
+		gBufferModule->free(_data);
 		return NULL;
 	}
 
@@ -276,14 +276,13 @@ l2cap_discon_req(uint8 _ident, uint16 _dcid, uint16 _scid)
 {
 
 	net_buffer* _m = gBufferModule->create(sizeof(struct _discon_req));
-	if ((_m) == NULL){
+	if ((_m) == NULL)
 		return NULL;
-	}
 
 	NetBufferPrepend<struct _discon_req> bufferHeader(_m);
 	status_t status = bufferHeader.Status();
 	if (status < B_OK) {
-		/* TODO free the buffer */
+		gBufferModule->free(_m);
 		return NULL;
 	}
 
@@ -306,14 +305,13 @@ l2cap_discon_rsp(uint8 _ident, uint16 _dcid, uint16 _scid)
 {
 
 	net_buffer* _m = gBufferModule->create(sizeof(struct _discon_rsp));
-	if ((_m) == NULL){
+	if ((_m) == NULL)
 		return NULL;
-	}
 
 	NetBufferPrepend<struct _discon_rsp> bufferHeader(_m);
 	status_t status = bufferHeader.Status();
 	if (status < B_OK) {
-		/* TODO free the buffer */
+		gBufferModule->free(_m);
 		return NULL;
 	}
 
@@ -335,12 +333,10 @@ net_buffer*
 l2cap_echo_req(uint8 _ident, void* _data, size_t _size)
 {
 	net_buffer* _m = gBufferModule->create(sizeof(l2cap_cmd_hdr_t));
-	if ((_m) == NULL){
-		/* TODO free the _data buffer */
+	if ((_m) == NULL) {
+		gBufferModule->free(_data);
 		return NULL;
 	}
-
-
 
 	if ((_data) != NULL) {
 	   	gBufferModule->append(_m, _data, _size);
@@ -356,14 +352,13 @@ l2cap_info_req(uint8 _ident, uint16 _type)
 {
 
 	net_buffer* _m = gBufferModule->create(sizeof(struct _info_req));
-	if ((_m) == NULL){
+	if ((_m) == NULL)
 		return NULL;
-	}
 
 	NetBufferPrepend<struct _info_req> bufferHeader(_m);
 	status_t status = bufferHeader.Status();
 	if (status < B_OK) {
-		/* TODO free the buffer */
+		gBufferModule->free(_m);
 		return NULL;
 	}
 
@@ -385,14 +380,13 @@ l2cap_info_rsp(uint8 _ident, uint16 _type, uint16 _result, uint16 _mtu)
 {
 
 	net_buffer* _m = gBufferModule->create(sizeof(struct _info_rsp));
-	if ((_m) == NULL){
+	if ((_m) == NULL)
 		return NULL;
-	}
 
 	NetBufferPrepend<struct _info_rsp> bufferHeader(_m);
 	status_t status = bufferHeader.Status();
 	if (status < B_OK) {
-		/* TODO free the buffer */
+		gBufferModule->free(_m);
 		return NULL;
 	}
 
@@ -450,7 +444,7 @@ l2cap_build_cfg_options(uint16* _mtu, uint16* _flush_timo, l2cap_flow_t* _flow)
 		NetBufferPrepend<struct _cfg_opt_mtu> bufferHeader(_m);
 		status_t status = bufferHeader.Status();
 		if (status < B_OK) {
-			/* TODO free the buffer ?? */
+			gBufferModule->free(_m);
 			return NULL;
 		}
 
@@ -466,7 +460,7 @@ l2cap_build_cfg_options(uint16* _mtu, uint16* _flush_timo, l2cap_flow_t* _flow)
 		NetBufferPrepend<struct _cfg_opt_flush> bufferHeader(_m);
 		status_t status = bufferHeader.Status();
 		if (status < B_OK) {
-			/* TODO free the buffer ?? */
+			gBufferModule->free(_m);
 			return NULL;
 		}
 
@@ -482,7 +476,7 @@ l2cap_build_cfg_options(uint16* _mtu, uint16* _flush_timo, l2cap_flow_t* _flow)
 		NetBufferPrepend<struct _cfg_opt_flow> bufferHeader(_m);
 		status_t status = bufferHeader.Status();
 		if (status < B_OK) {
-			/* TODO free the buffer ?? */
+			gBufferModule->free(_m);
 			return NULL;
 		}
 
