@@ -37,6 +37,41 @@
     },
     {
       "key": {
+        "uuid": "f71c1d0d_5a7e98c5",
+        "filename": "headers/private/fs_shell/fssh_uuid.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-22T07:55:35Z",
+      "side": 1,
+      "message": "I have made the required changes for the btrfs_shell and I put them directly in the system_dependencies.h there.\n\nIf it\u0027s needed for multiple filesystems, this file makes sense, but then the btrfs_shell system_dependencies.h should be adjusted to also use it.",
+      "parentUuid": "03a175d5_48ebd33b",
+      "revId": "8a0bbc4a4beff574317b773d0ba35bfd465e344d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d582d9b9_3cd34b46",
+        "filename": "src/add-ons/kernel/file_systems/xfs/JamCommon",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-22T07:55:35Z",
+      "side": 1,
+      "message": "You don\u0027t need a JamCommon file. This file exists for bfs because it\u0027s a special case, there are two versions of it for big-endian and little-endian systems.\n\nLook at how it\u0027s done for other filesystems, where there is a single Jamfile.",
+      "revId": "8a0bbc4a4beff574317b773d0ba35bfd465e344d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9c26e4d8_94f9a993",
         "filename": "src/add-ons/kernel/file_systems/xfs/JamCommon",
         "patchSetId": 2
@@ -119,6 +154,24 @@
       "side": 1,
       "message": "It\u0027s for kernel debugging. We don\u0027t have those functions yet.",
       "parentUuid": "6f8bdb72_f01a6c47",
+      "revId": "8a0bbc4a4beff574317b773d0ba35bfd465e344d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d118ba17_14aa80d2",
+        "filename": "src/add-ons/kernel/file_systems/xfs/JamCommon",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-22T07:55:35Z",
+      "side": 1,
+      "message": "I mean, you wrote COMMONDS instead of COMMANDS.",
+      "parentUuid": "388e022b_86123886",
       "revId": "8a0bbc4a4beff574317b773d0ba35bfd465e344d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -263,6 +316,24 @@
       "revId": "8a0bbc4a4beff574317b773d0ba35bfd465e344d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7699d9e_32c644be",
+        "filename": "src/add-ons/kernel/file_systems/xfs/JamCommon",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-22T07:55:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a37e316a_cad81b51",
+      "revId": "8a0bbc4a4beff574317b773d0ba35bfd465e344d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
