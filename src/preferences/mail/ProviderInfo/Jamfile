@@ -3,6 +3,7 @@ SubDir HAIKU_TOP src preferences mail ProviderInfo ;
 HAIKU_PROVIDER_INFOS =
 	aol.com
 	arcor.de
+	aueb.gr
 	cern.ch
 	free.fr
 	freenet.de
@@ -12,14 +13,20 @@ HAIKU_PROVIDER_INFOS =
 	hotmail.com
 	laposte.net
 	lycos.de
+	mycosmos.gr
 	mymail.ch
 	netcologne.de
 	o2online.de
 	physik.rwth-aachen.de
 	rwth-aachen.de
 	shaw.ca
+	staff.mail.uni-mannheim.de
+	students.mail.uni-mannheim.de
 	t-online.de
 	telus.net
+	tudelft.nl
+	uoa.gr
+	uoc.gr
 	web.de
 	yahoo.com
 	yahoo.de
