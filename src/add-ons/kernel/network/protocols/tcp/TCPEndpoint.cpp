@@ -1451,8 +1451,10 @@ TCPEndpoint::_Spawn(TCPEndpoint* parent, tcp_segment_header& segment,
 {
 	MutexLocker _(fLock);
 
-	// TODO error checking
-	ProtocolSocket::Open();
+	if (ProtocolSocket::Open() != B_OK) {
+		T(Error(this, "opening failed", __LINE__));
+		return DROP;
+	}
 
 	fState = SYNCHRONIZE_RECEIVED;
 	T(Spawn(parent, this));
@@ -1616,7 +1618,7 @@ TCPEndpoint::_Receive(tcp_segment_header& segment, net_buffer* buffer)
 				" wnd: %" B_PRIu32, fReceiveNext.Number(), fReceiveWindow);
 			if ((segment.flags & TCP_FLAG_RESET) != 0) {
 				// TODO: this doesn't look right - review!
-				return DROP;
+				return DROP | RESET;
 			}
 			return DROP | IMMEDIATE_ACKNOWLEDGE;
 		}
