@@ -11,6 +11,7 @@
 
 
 #include <Menu.h>
+#include <Locker.h>
 
 
 enum menu_states {
@@ -19,6 +20,10 @@ enum menu_states {
 	MENU_STATE_KEY_TO_SUBMENU = 2,
 	MENU_STATE_KEY_LEAVE_SUBMENU = 3,
 	MENU_STATE_CLOSED = 5
+};
+
+enum menu_track_command {
+	MENU_TRACK_COMMAND_DONE = 0
 };
 
 
@@ -76,6 +81,19 @@ private:
 	static	BBitmap*			sMenuItemAlt;
 	static	BBitmap*			sMenuItemMenu;
 
+};
+
+struct MenuTrackState {
+	thread_id trackThread;
+	BLocker locker;
+	bool quit;
+	BMenu* rootMenu;
+	BMenu* curMenu;
+	BMenuItem *invokedItem;
+	BRect navAreaRectAbove;
+	BRect navAreaRectBelow;
+	bigtime_t selectedTime;
+	bigtime_t navigationAreaTime;
 };
 
 };	// namespace BPrivate

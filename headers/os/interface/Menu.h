@@ -17,6 +17,7 @@ class BMenuItem;
 
 
 namespace BPrivate {
+	class MenuTrackState;
 	class BMenuWindow;
 	class ExtraMenuData;
 	class TriggerList;
@@ -190,7 +191,7 @@ private:
 			bool				_Show(bool selectFirstItem = false,
 									bool keyDown = false);
 			void				_Hide();
-			BMenuItem*			_Track(int* action, long start = -1);
+			BMenuItem*			_Track(int32* action, int32 start = -1);
 
 			void				_UpdateNavigationArea(BPoint position,
 									BRect& navAreaRectAbove,
@@ -281,7 +282,7 @@ private:
 	static	uint32				sCommandKey;
 	static	uint32				sMenuKey;
 
-			BMenuItem*			fChosenItem;
+			BPrivate::MenuTrackState* fTrackState;
 			BList				fItems;
 			BRect				fPad;
 			BMenuItem*			fSelected;
