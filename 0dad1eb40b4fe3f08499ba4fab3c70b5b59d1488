@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cf0c64b2_63685b7a",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-23T17:31:24Z",
+      "side": 1,
+      "message": "two blank lines are needed here",
+      "revId": "0dad1eb40b4fe3f08499ba4fab3c70b5b59d1488",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7c1ba22_10800983",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-23T17:31:24Z",
+      "side": 1,
+      "message": "always two empty lines between functions. Check the coding guidelines",
+      "revId": "0dad1eb40b4fe3f08499ba4fab3c70b5b59d1488",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43427310_39e3136c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-23T17:31:24Z",
+      "side": 1,
+      "message": "this line is \u003e 80 column",
+      "revId": "0dad1eb40b4fe3f08499ba4fab3c70b5b59d1488",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0528b9b_5dd83a59",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-23T17:31:24Z",
+      "side": 1,
+      "message": "missing \\n I think?",
+      "revId": "0dad1eb40b4fe3f08499ba4fab3c70b5b59d1488",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5849715b_47eeb401",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-23T17:31:24Z",
+      "side": 1,
+      "message": "line \u003e 80 columns",
+      "revId": "0dad1eb40b4fe3f08499ba4fab3c70b5b59d1488",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f5849dd_5b8b05ff",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-23T17:31:24Z",
+      "side": 1,
+      "message": "line \u003e 80 columns.",
+      "revId": "0dad1eb40b4fe3f08499ba4fab3c70b5b59d1488",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4704956f_4230538b",
+        "filename": "src/tests/add-ons/kernel/file_systems/xfs/xfs_shell/Jamfile",
+        "patchSetId": 6
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-23T17:31:24Z",
+      "side": 1,
+      "message": "I think this line is not needed (the next one is more complete)",
+      "revId": "0dad1eb40b4fe3f08499ba4fab3c70b5b59d1488",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
