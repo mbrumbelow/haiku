@@ -1135,7 +1135,31 @@ rule AddHaikuImageSourcePackages packages
 	# Adds the given source packages for <packages> to the image.
 
 	if $(HAIKU_INCLUDE_SOURCES) = 1 {
-		AddHaikuImagePackages $(packages)_source ;
+		packages = [ FFilterByBuildFeatures $(packages) ] ;
+
+		local package ;
+		for package in $(packages) {
+			local resolvedPackage = [ IsPackageAvailable $(package) ] ;
+			if ! $(resolvedPackage) {
+				Echo "AddHaikuImagePackages: package" $(package)
+					"not available!" ;
+				continue ;
+			}
+
+			if ! [ on $(resolvedPackage) return $(HAIKU_PACKAGE_ADDED) ] {
+				HAIKU_PACKAGE_ADDED on $(resolvedPackage) = 1 ;
+				HAIKU_ADDED_PACKAGES += $(resolvedPackage) ;
+
+				# download the package file and add it to the image
+				local file = [ FetchPackage $(package) ] ;
+
+				if $(HAIKU_UPDATE_ALL_PACKAGES) {
+					HAIKU_INCLUDE_IN_IMAGE on $(file) = 1 ;
+				}
+
+				AddPackageFilesToHaikuImage _sources_ : $(file) ;
+			}
+		}
 	}
 }
 
