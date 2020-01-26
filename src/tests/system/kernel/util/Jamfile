@@ -11,11 +11,12 @@ UseHeaders [ FDirName $(HAIKU_TOP) src tests kits app ] ;
 UnitTestLib libkernelutilstest.so
 	: KernelUtilsTestAddon.cpp
 #	  AVLTreeMapTest.cpp
+	  BOpenHashTableTest.cpp
 	  SinglyLinkedListTest.cpp
 	  DoublyLinkedListTest.cpp
 	  VectorMapTest.cpp
 	  VectorSetTest.cpp
 	  VectorTest.cpp
-	: [ TargetLibstdc++ ]
+	: [ TargetLibstdc++ ] be
 ;
 
