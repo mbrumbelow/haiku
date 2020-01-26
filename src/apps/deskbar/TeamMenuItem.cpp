@@ -96,7 +96,7 @@ TTeamMenuItem::~TTeamMenuItem()
 status_t
 TTeamMenuItem::Invoke(BMessage* message)
 {
-	if (fBarView->InvokeItem(Signature())) {
+	if (fBarView != NULL && fBarView->InvokeItem(Signature())) {
 		// handles drop on application
 		return B_OK;
 	}
