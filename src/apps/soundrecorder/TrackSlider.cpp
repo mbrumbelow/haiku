@@ -64,11 +64,12 @@ TrackSlider::AttachedToWindow()
 void
 TrackSlider::_InitBitmap()
 {
-	if (fBitmapView) {
-		fBitmap->RemoveChild(fBitmapView);
+	if (fBitmapView != NULL) {
+		if (fBitmap != NULL)
+			fBitmap->RemoveChild(fBitmapView);
 		delete fBitmapView;
 	}
-	if (fBitmap)
+	if (fBitmap != NULL)
 		delete fBitmap;
 		
 	BRect rect = Bounds();
