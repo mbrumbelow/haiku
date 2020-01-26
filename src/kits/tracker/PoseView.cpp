@@ -8427,7 +8427,8 @@ BPoseView::SwitchDir(const entry_ref* newDirRef, AttributeStreamNode* node)
 	// check if model is a trash dir, if so
 	// update ContainerWindow's fIsTrash, etc.
 	// variables to indicate new state
-	ContainerWindow()->UpdateIfTrash(model);
+	if (ContainerWindow())
+		ContainerWindow()->UpdateIfTrash(model);
 
 	StopWatching();
 	ClearPoses();
