@@ -64,7 +64,7 @@ TrackSlider::AttachedToWindow()
 void
 TrackSlider::_InitBitmap()
 {
-	if (fBitmapView) {
+	if (fBitmap && fBitmapView) {
 		fBitmap->RemoveChild(fBitmapView);
 		delete fBitmapView;
 	}
