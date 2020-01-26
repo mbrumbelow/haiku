@@ -23,6 +23,8 @@ HAIKU_PROVIDER_INFOS =
 	web.de
 	yahoo.com
 	yahoo.de
+	yandex.com
+	yandex.ru
 ;
 
 for file in $(HAIKU_PROVIDER_INFOS) {
