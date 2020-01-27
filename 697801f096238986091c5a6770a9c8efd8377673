@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aaa4f7ee_bead2e41",
+        "filename": "headers/os/BeBuild.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-27T10:46:49Z",
+      "side": 1,
+      "message": "This does not work for gcc2. Maybe __attribute__((dllexport)) can be used there but I\u0027m not sure if that still works.\n\nAt least protect this with a check on __GNUC__ \u003e 2.",
+      "revId": "697801f096238986091c5a6770a9c8efd8377673",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
