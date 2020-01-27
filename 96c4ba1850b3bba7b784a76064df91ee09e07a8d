@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97af6814_5881a276",
+        "filename": "build/jam/OptionalPackages",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-01-27T14:33:50Z",
+      "side": 1,
+      "message": "Why the _sources_ vs sources ?",
+      "revId": "96c4ba1850b3bba7b784a76064df91ee09e07a8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
