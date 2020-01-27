@@ -375,11 +375,12 @@ pipe_index
 LVDSPort::PipePreference()
 {
 	// Older devices have hardcoded pipe/port mappings, so just use that
-	if (gInfo->shared_info->device_type.Generation() < 4)
+	if (gInfo->shared_info->device_type.Generation() < 3)
 		return INTEL_PIPE_B;
 
-	// Ideally we could just return INTEL_PIPE_ANY for the newer devices, but
-	// this doesn't quite work yet.
+	// Ideally we could just return INTEL_PIPE_ANY, but this doesn't quite work
+	// yet (probably because we need to unlock the panel power sequencer above
+	// for all devices so we can actually change the pipe configuration)
 
 	// For Ibex Point and SandyBridge, read the existing LVDS configuration and
 	// just reuse that (it seems our attempt to change it doesn't work, anyway)
