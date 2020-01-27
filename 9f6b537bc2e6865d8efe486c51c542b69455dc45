@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "18d1336b_8db19173",
+        "filename": "src/servers/app/ClientMemoryAllocator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2020-01-27T18:22:55Z",
+      "side": 1,
+      "message": "I would prefer to pull this into the same if-block:\n\nif (fAllocator !\u003d NULL) {\n    if (fBlock !\u003d NULL)\n        fAllocator-\u003eFree(fBlock);\n    fAllocator-\u003eReleaseReference();\n}\n\n... but if its a hassle to change, I\u0027ll commit as is.",
+      "revId": "9f6b537bc2e6865d8efe486c51c542b69455dc45",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
