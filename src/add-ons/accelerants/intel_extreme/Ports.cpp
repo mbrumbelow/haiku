@@ -375,15 +375,16 @@ pipe_index
 LVDSPort::PipePreference()
 {
 	// Older devices have hardcoded pipe/port mappings, so just use that
-	if (gInfo->shared_info->device_type.Generation() < 4)
+	if (gInfo->shared_info->device_type.Generation() < 3)
 		return INTEL_PIPE_B;
 
-	// Ideally we could just return INTEL_PIPE_ANY for the newer devices, but
-	// this doesn't quite work yet.
+	// Ideally we could just return INTEL_PIPE_ANY, but this doesn't quite work
+	// yet (probably because we need to unlock the panel power sequencer above
+	// for all devices so we can actually change the pipe configuration)
 
-	// For Ibex Point and Sandy Bridge, read the existing LVDS configuration
-	// and just reuse that (it seems our attempt to change it doesn't work,
-	// anyway)
+	// For now, read the existing LVDS configuration and just reuse that
+	// It doesn't matter as long as we don't attempt to handle multiple
+	// displays, anyway.
 	if (gInfo->shared_info->device_type.Generation() <= 6) {
 		uint32 portState = read32(_PortRegister());
 		if (portState & DISPLAY_MONITOR_PIPE_B)
@@ -392,10 +393,11 @@ LVDSPort::PipePreference()
 			return INTEL_PIPE_A;
 	}
 
-	// For later PCH versions, assume pipe B for now. Note that later devices
-	// add a pipe C (but do they add a transcoder C?), so we'd need to handle
-	// that and the port register has a different format because of it.
-	// (using PORT_TRANS_*_SEL_CPT to select which transcoder to use)
+	// For later PCH versions and generation 4 devices, assume pipe B for now.
+	// Note that later devices add a pipe C (but do they add a transcoder C?),
+	// so we'd need to handle that and the port register has a different format
+	// because of it (using PORT_TRANS_*_SEL_CPT to select which transcoder to
+	// use).
 	return INTEL_PIPE_B;
 }
 
