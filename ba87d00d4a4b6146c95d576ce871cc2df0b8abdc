@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "925fdf10_ae7bf6a2",
+        "filename": "src/system/boot/platform/u-boot/start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-28T15:21:22Z",
+      "side": 1,
+      "message": "Don\u0027t we have a specific macro for status_t? B_PRIxSTATUS or something?",
+      "revId": "ba87d00d4a4b6146c95d576ce871cc2df0b8abdc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "168fd225_6456044d",
+        "filename": "src/system/boot/platform/u-boot/start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-28T15:21:22Z",
+      "side": 1,
+      "message": "line \u003e 80 columns",
+      "revId": "ba87d00d4a4b6146c95d576ce871cc2df0b8abdc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
