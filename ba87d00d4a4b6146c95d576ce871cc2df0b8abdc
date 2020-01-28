@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d2148320_f018637c",
+        "filename": "src/system/boot/platform/u-boot/start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-01-28T15:31:48Z",
+      "side": 1,
+      "message": "Nope. I wish.\n\nheaders/os/support/SupportDefs.h:#define B_PRIx8\t\t\t\"x\"\nheaders/os/support/SupportDefs.h:#define B_PRIx16\t\t\"x\"\nheaders/os/support/SupportDefs.h:#define B_PRIx32\t\t__HAIKU_PRI_PREFIX_32 \"x\"\nheaders/os/support/SupportDefs.h:#define B_PRIx64\t\t__HAIKU_PRI_PREFIX_64 \"x\"\nheaders/os/support/SupportDefs.h:#define B_PRIxSIZE\t\t__HAIKU_PRI_PREFIX_ADDR \"x\"\nheaders/os/support/SupportDefs.h:#define B_PRIxADDR\t\t__HAIKU_PRI_PREFIX_ADDR \"x\"\nheaders/os/support/SupportDefs.h:#define B_PRIxPHYSADDR\t__HAIKU_PRI_PREFIX_PHYS_ADDR \"x\"\nheaders/os/support/SupportDefs.h:#define B_PRIxGENADDR\t__HAIKU_PRI_PREFIX_GENERIC_ADDR \"x\"\nheaders/os/support/SupportDefs.h:#define B_PRIxOFF\t\tB_PRIx64",
+      "parentUuid": "925fdf10_ae7bf6a2",
+      "revId": "ba87d00d4a4b6146c95d576ce871cc2df0b8abdc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "168fd225_6456044d",
         "filename": "src/system/boot/platform/u-boot/start.cpp",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "ba87d00d4a4b6146c95d576ce871cc2df0b8abdc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "202278b4_b6950cff",
+        "filename": "src/system/boot/platform/u-boot/start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-01-28T15:31:48Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "168fd225_6456044d",
+      "revId": "ba87d00d4a4b6146c95d576ce871cc2df0b8abdc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
