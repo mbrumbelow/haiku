@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3eef834a_5c76f236",
+        "filename": "src/tests/system/kernel/util/BOpenHashTableTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-01-28T23:42:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "75dcbdb2_82381632",
+      "revId": "9e221f32528a504aaae13efa5b731a43d0482303",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "786c2a99_e690f6fb",
         "filename": "src/tests/system/kernel/util/BOpenHashTableTest.cpp",
         "patchSetId": 2
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "d14cc500_53fc49d7",
+        "filename": "src/tests/system/kernel/util/BOpenHashTableTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-01-28T23:42:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "786c2a99_e690f6fb",
+      "revId": "9e221f32528a504aaae13efa5b731a43d0482303",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4838af01_f5719516",
         "filename": "src/tests/system/kernel/util/BOpenHashTableTest.cpp",
         "patchSetId": 2
@@ -47,6 +83,24 @@
       "writtenOn": "2020-01-28T11:57:35Z",
       "side": 1,
       "message": "I would use:\n\nCHK(map \u0026 (1 \u003c\u003c entry-\u003eValue()) \u003d\u003d 0);\nmap |\u003d 1 \u003c\u003c entry-\u003eValue();\n\nand at the end:\n\nCHK(map \u003d\u003d (1 \u003c\u003c kEntryCount) - 1);",
+      "revId": "9e221f32528a504aaae13efa5b731a43d0482303",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2d6bf8d_cedf8602",
+        "filename": "src/tests/system/kernel/util/BOpenHashTableTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-01-28T23:42:52Z",
+      "side": 1,
+      "message": "This seems a little more difficult to understand than the simple sum and count, but I can change it if you\u0027d like.",
+      "parentUuid": "4838af01_f5719516",
       "revId": "9e221f32528a504aaae13efa5b731a43d0482303",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "e66cf164_b16f96e0",
+        "filename": "src/tests/system/kernel/util/BOpenHashTableTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-01-28T23:42:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c5512e5f_897bc473",
+      "revId": "9e221f32528a504aaae13efa5b731a43d0482303",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "66d35d9b_d5730b98",
         "filename": "src/tests/system/kernel/util/BOpenHashTableTest.cpp",
         "patchSetId": 2
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "2a767831_0e47e531",
+        "filename": "src/tests/system/kernel/util/BOpenHashTableTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-01-28T23:42:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "66d35d9b_d5730b98",
+      "revId": "9e221f32528a504aaae13efa5b731a43d0482303",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "178416bb_3c91a821",
         "filename": "src/tests/system/kernel/util/BOpenHashTableTest.cpp",
         "patchSetId": 2
@@ -101,6 +191,24 @@
       "revId": "9e221f32528a504aaae13efa5b731a43d0482303",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f8a6b9e_5762f167",
+        "filename": "src/tests/system/kernel/util/BOpenHashTableTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-01-28T23:42:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "178416bb_3c91a821",
+      "revId": "9e221f32528a504aaae13efa5b731a43d0482303",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
