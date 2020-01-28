@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "75dcbdb2_82381632",
+        "filename": "src/tests/system/kernel/util/BOpenHashTableTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-28T11:57:35Z",
+      "side": 1,
+      "message": "You may as well allocate it on the stack?",
+      "revId": "9e221f32528a504aaae13efa5b731a43d0482303",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "786c2a99_e690f6fb",
+        "filename": "src/tests/system/kernel/util/BOpenHashTableTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-28T11:57:35Z",
+      "side": 1,
+      "message": "You could use a BObjectList instead, then I think you don\u0027t need a BObjectDeleter",
+      "revId": "9e221f32528a504aaae13efa5b731a43d0482303",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4838af01_f5719516",
+        "filename": "src/tests/system/kernel/util/BOpenHashTableTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-28T11:57:35Z",
+      "side": 1,
+      "message": "I would use:\n\nCHK(map \u0026 (1 \u003c\u003c entry-\u003eValue()) \u003d\u003d 0);\nmap |\u003d 1 \u003c\u003c entry-\u003eValue();\n\nand at the end:\n\nCHK(map \u003d\u003d (1 \u003c\u003c kEntryCount) - 1);",
+      "revId": "9e221f32528a504aaae13efa5b731a43d0482303",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5512e5f_897bc473",
+        "filename": "src/tests/system/kernel/util/BOpenHashTableTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-28T11:57:35Z",
+      "side": 1,
+      "message": "use \u003d\u003d here. Or better, use CPPUNIT_ASSERT_EQUAL which provides better logs in case of problems (it prints the expected and found values)",
+      "revId": "9e221f32528a504aaae13efa5b731a43d0482303",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66d35d9b_d5730b98",
+        "filename": "src/tests/system/kernel/util/BOpenHashTableTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-28T11:57:35Z",
+      "side": 1,
+      "message": "we are inserting 20 elements.",
+      "revId": "9e221f32528a504aaae13efa5b731a43d0482303",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "178416bb_3c91a821",
+        "filename": "src/tests/system/kernel/util/BOpenHashTableTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-28T11:57:35Z",
+      "side": 1,
+      "message": "\u003d\u003d",
+      "revId": "9e221f32528a504aaae13efa5b731a43d0482303",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "457331e1_59de604d",
+        "filename": "src/tests/system/kernel/util/KernelUtilsTestAddon.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-28T11:57:35Z",
+      "side": 1,
+      "message": "keep two blank lines here",
+      "revId": "9e221f32528a504aaae13efa5b731a43d0482303",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
