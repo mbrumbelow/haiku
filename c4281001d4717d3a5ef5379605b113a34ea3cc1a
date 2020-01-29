@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f11a8265_34babfb6",
+        "filename": "src/tests/system/kernel/util/Jamfile",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-29T07:38:02Z",
+      "side": 1,
+      "message": "We are linking to the be libraries here now (I guess because of BObjectList), so this comment needs to be adjusted (or removed? I\u0027m not sure what is meant by \"two versions of the test lib\" here)",
+      "revId": "c4281001d4717d3a5ef5379605b113a34ea3cc1a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
