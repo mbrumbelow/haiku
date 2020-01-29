@@ -107,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "5bddc7e7_98691309",
+        "filename": "src/tests/system/kernel/util/BOpenHashTableTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-01-29T07:34:53Z",
+      "side": 1,
+      "message": "Yes, but the sum check is only indirect, and can lead to false negative tests (where the sum happens to be correct but built from different numbers).\n\nA more readable version would be maybe using an std::set and comparing it with the original values?\n\nBut right, it may not be worth the extra complexity.",
+      "parentUuid": "f2d6bf8d_cedf8602",
+      "revId": "9e221f32528a504aaae13efa5b731a43d0482303",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c5512e5f_897bc473",
         "filename": "src/tests/system/kernel/util/BOpenHashTableTest.cpp",
         "patchSetId": 2
