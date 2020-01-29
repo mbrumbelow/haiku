@@ -16,6 +16,24 @@
       "revId": "c4281001d4717d3a5ef5379605b113a34ea3cc1a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3639902_3e87a4cd",
+        "filename": "src/tests/system/kernel/util/Jamfile",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-01-29T09:49:02Z",
+      "side": 1,
+      "message": "Yup, I added libbe just for BObjectList.\n \nAh, good call, I didn\u0027t notice that comment. This comment is ancient and hasn\u0027t been relevant for a long time so I just deleted it.\n\nlibkernelutilstest.so used to be built with a rule called CommonTestLib. That rule took two library list arguments, one for the libraries to link when targeting Haiku, and one for the libraries to use when targeting R5, and it would produce both variants.\n\nThis hasn\u0027t been true for a long time so this comment is meaningless now.",
+      "parentUuid": "f11a8265_34babfb6",
+      "revId": "c4281001d4717d3a5ef5379605b113a34ea3cc1a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
