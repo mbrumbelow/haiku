@@ -16,6 +16,24 @@
       "revId": "8c47ec304fbe450f066ae711a509d9fe0bbf4c90",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf3c8b0d_d20cc2ef",
+        "filename": "src/add-ons/kernel/network/protocols/tcp/EndpointManager.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-01-30T00:34:57Z",
+      "side": 1,
+      "message": "Oh yeah that\u0027s a good point. The test cases that just got merged don\u0027t actually cover that case. I\u0027ll add some additional test cases for InsertUnchecked, RemoveUnchecked, and removing an object that isn\u0027t already present in the table.\n\nThanks man.",
+      "parentUuid": "5414e176_12fd0ec6",
+      "revId": "8c47ec304fbe450f066ae711a509d9fe0bbf4c90",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
