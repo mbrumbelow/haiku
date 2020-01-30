@@ -16,6 +16,24 @@
       "revId": "e835def0ac700de7a05d72501f3f5e3b5d25e8a9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f17b61e_24a7a7e0",
+        "filename": "src/tests/system/kernel/util/BOpenHashTableTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-01-30T17:46:32Z",
+      "side": 1,
+      "message": "Oops! I\u0027m sorry I keep making that same mistake, it\u0027s probably annoying. Fixed.\n\nI wonder if it\u0027s possible to just make a clang-format configuration that reproduces this code style. I think it would be easy except for the member indentation requirement.",
+      "parentUuid": "159c2b2e_254fd827",
+      "revId": "e835def0ac700de7a05d72501f3f5e3b5d25e8a9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
