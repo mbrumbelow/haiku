@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "88c94aa1_776585d3",
+        "filename": "src/apps/haikudepot/model/Captcha.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2020-01-31T19:52:09Z",
+      "side": 1,
+      "message": "The multi-line body needs parenthesis.",
+      "revId": "d5a7eb99d3fe5155f35ba0407cc5c5b464fd8aa4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "850375d6_c723f0c4",
+        "filename": "src/apps/haikudepot/model/Captcha.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2020-01-31T19:52:09Z",
+      "side": 1,
+      "message": "No need to check NULL, delete does as well.",
+      "revId": "d5a7eb99d3fe5155f35ba0407cc5c5b464fd8aa4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "156f06a0_79902d65",
+        "filename": "src/apps/haikudepot/model/Captcha.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2020-01-31T19:52:09Z",
+      "side": 1,
+      "message": "As before.",
+      "revId": "d5a7eb99d3fe5155f35ba0407cc5c5b464fd8aa4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18408ce9_7816b4a6",
+        "filename": "src/apps/haikudepot/model/ValidationFailure.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2020-01-31T19:52:09Z",
+      "side": 1,
+      "message": "Could be moved directly above for loop.",
+      "revId": "d5a7eb99d3fe5155f35ba0407cc5c5b464fd8aa4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc1c0119_d8227fc3",
+        "filename": "src/apps/haikudepot/model/ValidationFailure.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2020-01-31T19:52:09Z",
+      "side": 1,
+      "message": "Could test into",
+      "revId": "d5a7eb99d3fe5155f35ba0407cc5c5b464fd8aa4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
