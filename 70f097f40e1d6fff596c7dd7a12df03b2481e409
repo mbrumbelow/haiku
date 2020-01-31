@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a450ddac_9173a19b",
+        "filename": "src/add-ons/kernel/network/protocols/tcp/EndpointManager.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-01-31T21:22:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a1d351d1_9e7f457a",
+      "revId": "70f097f40e1d6fff596c7dd7a12df03b2481e409",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1d4d899d_7e63a826",
         "filename": "src/add-ons/kernel/network/protocols/tcp/EndpointManager.cpp",
         "patchSetId": 8
@@ -30,6 +48,24 @@
       "writtenOn": "2020-01-31T19:43:04Z",
       "side": 1,
       "message": "I am just wondering why the endpoint can be already in fConnectionHash at this point? Why is the endpoint not removed from the hash when the remote is not accepting the connection?",
+      "revId": "70f097f40e1d6fff596c7dd7a12df03b2481e409",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c5073e3_e1bc24be",
+        "filename": "src/add-ons/kernel/network/protocols/tcp/EndpointManager.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-01-31T21:22:21Z",
+      "side": 1,
+      "message": "In the current implementation the only time the TCPEndpoint removes itself from this map is when the destructor is called, or when tcp_unbind() is called. The latter isn\u0027t relevant for this example.\n\nclose() \u003d\u003e _kern_close() \u003d\u003e ... \u003d\u003e tcp_uninit_protocol() \u003d\u003e TCPEndpoint::~TCPEndpoint() \u003d\u003e EndpointManager::Unbind() \u003d\u003e fConnectionHash.Remove(endpoint).\n\nSo basically the endpoint will stick around in the connection map in the closed state until someone in userspace calls close() or the process exits.\n\nIn the gnupg code and in the test that reproduces this KDL the socket is reused before calling close.",
+      "parentUuid": "1d4d899d_7e63a826",
       "revId": "70f097f40e1d6fff596c7dd7a12df03b2481e409",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
