@@ -272,8 +272,8 @@ EndpointManager::SetConnection(TCPEndpoint* endpoint, const sockaddr* _local,
 		local.SetPort(port);
 	}
 
-	// We want to connect create a connection for (local, peer), so check to
-	// make sure that this is not already in use.
+	// We want to create a connection for (local, peer), so check to make sure
+	// that this pair is not already in use by an existing connection.
 	if (_LookupConnection(*local, peer) != NULL)
 		return EADDRINUSE;
 
