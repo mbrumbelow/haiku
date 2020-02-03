@@ -50,7 +50,7 @@ public:
 						off_t position, ssize_t size);
 	virtual void	DownloadProgress(BUrlRequest*, ssize_t bytesReceived,
 						ssize_t bytesTotal);
-	virtual void 	RequestCompleted(BUrlRequest*, bool success);
+	virtual void 	RequestCompleted(BUrlRequest* request, bool success);
 #endif
 
 protected:
@@ -62,6 +62,7 @@ private:
 			BEntry				fTargetEntry;
 			BFile				fTargetFile;
 			bool				fSuccess;
+			status_t			fError;
 			float				fDownloadProgress;
 			off_t				fBytes;
 			off_t				fTotalBytes;
