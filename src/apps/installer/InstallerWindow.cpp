@@ -215,6 +215,7 @@ InstallerWindow::InstallerWindow()
 	fPackagesView = new PackagesView("packages_view");
 	BScrollView* packagesScrollView = new BScrollView("packagesScroll",
 		fPackagesView, B_WILL_DRAW, false, true);
+	packagesScrollView->SetExplicitMaxSize(BSize(B_SIZE_UNSET, 300));
 
 	const char* requiredDiskSpaceString
 		= B_TRANSLATE("Additional disk space required: 0.0 KiB");

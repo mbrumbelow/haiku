@@ -13,6 +13,7 @@
 #include <Directory.h>
 #include <Entry.h>
 #include <fs_attr.h>
+#include <GroupLayout.h>
 #include <LayoutUtils.h>
 #include <Locale.h>
 #include <Messenger.h>
@@ -131,11 +132,12 @@ Group::~Group()
 }
 
 
-PackageCheckBox::PackageCheckBox(BRect rect, Package *item)
+PackageCheckBox::PackageCheckBox(Package *item)
 	:
-	BCheckBox(rect.OffsetBySelf(7, 0), "pack_cb", item->Name(), NULL),
+	BCheckBox("pack_cb", item->Name(), NULL),
 	fPackage(item)
 {
+	SetExplicitSize(BSize(290, B_SIZE_UNSET));
 }
 
 
@@ -164,7 +166,6 @@ void
 PackageCheckBox::MouseMoved(BPoint point, uint32 transit,
 	const BMessage* dragMessage)
 {
-	printf("%s called\n", __PRETTY_FUNCTION__);
 	if (transit == B_ENTERED_VIEW) {
 		BMessage msg(MSG_STATUS_MESSAGE);
 		msg.AddString("status", fPackage->Description());
@@ -176,9 +177,9 @@ PackageCheckBox::MouseMoved(BPoint point, uint32 transit,
 }
 
 
-GroupView::GroupView(BRect rect, Group *group)
+GroupView::GroupView(Group *group)
 	:
-	BStringView(rect, "group", group->GroupName()),
+	BStringView("group", group->GroupName()),
 	fGroup(group)
 {
 	SetFont(be_bold_font);
@@ -194,17 +195,17 @@ GroupView::~GroupView()
 // #pragma mark -
 
 
-PackagesView::PackagesView(BRect rect, const char* name)
-	:
-	BView(rect, name, B_FOLLOW_ALL_SIDES, B_WILL_DRAW | B_FRAME_EVENTS)
-{
-}
-
-
 PackagesView::PackagesView(const char* name)
 	:
-	BView(name, B_WILL_DRAW | B_FRAME_EVENTS)
+	BView(name, B_WILL_DRAW)
 {
+	BGroupLayout* layout = new BGroupLayout(B_VERTICAL);
+	layout->SetSpacing(0);
+	layout->SetInsets(B_USE_SMALL_SPACING);
+	SetLayout(layout);
+
+	SetViewUIColor(B_DOCUMENT_BACKGROUND_COLOR);
+	SetExplicitMinSize(BSize(300, 80));
 }
 
 
@@ -226,6 +227,10 @@ PackagesView::Clean()
 		}
 	}
 	ScrollTo(0, 0);
+
+	BView* parent = Parent();
+	BRect r = parent->Bounds();
+	parent->FrameResized(r.Width(), r.Height());
 }
 
 
@@ -233,34 +238,30 @@ void
 PackagesView::AddPackages(BList& packages, BMessage* msg)
 {
 	int32 count = packages.CountItems();
-	BRect rect = Bounds();
-	BRect bounds = rect;
-	rect.left = 1;
-	rect.bottom = 15;
-	rect.top = 0;
 	BString lastGroup = "";
 	for (int32 i = 0; i < count; i++) {
 		void* item = packages.ItemAt(i);
 		Package* package = static_cast<Package*>(item);
 		if (lastGroup != BString(package->GroupName())) {
-			rect.OffsetBy(0, 1);
 			lastGroup = package->GroupName();
 			Group* group = new Group();
 			group->SetGroupName(package->GroupName());
-			GroupView *view = new GroupView(rect, group);
+			GroupView *view = new GroupView(group);
 			AddChild(view);
-			rect.OffsetBy(0, 17);
 		}
-		PackageCheckBox* checkBox = new PackageCheckBox(rect, package);
+		PackageCheckBox* checkBox = new PackageCheckBox(package);
 		checkBox->SetValue(package->OnByDefault()
 			? B_CONTROL_ON : B_CONTROL_OFF);
 		checkBox->SetEnabled(!package->AlwaysOn());
 		checkBox->SetMessage(new BMessage(*msg));
 		AddChild(checkBox);
-		rect.OffsetBy(0, 20);
 	}
-	ResizeTo(bounds.Width(), rect.top);
 	Invalidate();
+
+	// Force scrollbars to update
+	BView* parent = Parent();
+	BRect r = parent->Bounds();
+	parent->FrameResized(r.Width(), r.Height());
 }
 
 
@@ -294,36 +295,6 @@ PackagesView::GetPackagesToInstall(BList* list, int32* size)
 
 
 void
-PackagesView::FrameResized(float width, float height)
-{
-	if (CountChildren() == 0)
-		Invalidate();
-
-	BScrollBar* scrollBar = ScrollBar(B_VERTICAL);
-	if (scrollBar == NULL)
-		return;
-
-	float virtualHeight = 0.0;
-
-	int32 count = CountChildren();
-	if (count > 0) {
-		BView* child = ChildAt(count - 1);
-		virtualHeight = child->Frame().bottom;
-	}
-
-	if (height > virtualHeight) {
-		scrollBar->SetRange(0.0f, 0.0f);
-		scrollBar->SetValue(0.0f);
-	} else {
-		scrollBar->SetRange(0.0f, virtualHeight - height);
-		scrollBar->SetProportion(height / virtualHeight);
-	}
-
-	scrollBar->SetSteps(15, height);
-}
-
-
-void
 PackagesView::Draw(BRect updateRect)
 {
 	if (CountChildren() > 0)
@@ -334,25 +305,3 @@ PackagesView::Draw(BRect updateRect)
 		Bounds(), updateRect, ViewColor(), BControlLook::B_DISABLED,
 		BAlignment(B_ALIGN_CENTER, B_ALIGN_MIDDLE));
 }
-
-
-void
-PackagesView::GetPreferredSize(float* _width, float* _height)
-{
-	// TODO: Something more nice as default? I need to see how this looks
-	// when there are actually any packages...
-	if (_width != NULL)
-		*_width = 400.0;
-
-	if (_height != NULL)
-		*_height = 80.0;
-}
-
-
-BSize
-PackagesView::MaxSize()
-{
-	return BLayoutUtils::ComposeSize(ExplicitMaxSize(),
-		BSize(B_SIZE_UNLIMITED, B_SIZE_UNLIMITED));
-}
-
