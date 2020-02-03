@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "71fba958_b512c798",
+        "filename": "src/tests/kits/storage/FileTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-03T11:48:06Z",
+      "side": 0,
+      "message": "use B_PRId32 otherwise this will fix 32bit build but break 64bit (likewise in other similar cases below).",
+      "revId": "dcee1c8ce483b5c9d40d6f511a77d24d9435ccf2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
