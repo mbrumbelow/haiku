@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "db80fffb_cb44322a",
+        "filename": "src/apps/haikudepot/model/Captcha.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-03T07:17:00Z",
+      "side": 1,
+      "message": "two blank lines here, and in several of the other files at the same place (between #includes and everything else)",
+      "revId": "fd26c0c1cc0862143da11e50336835268944d644",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
