@@ -220,9 +220,8 @@ InstallerWindow::InstallerWindow()
 		= B_TRANSLATE("Additional disk space required: 0.0 KiB");
 	fSizeView = new BStringView("size_view", requiredDiskSpaceString);
 	fSizeView->SetAlignment(B_ALIGN_RIGHT);
-	fSizeView->SetExplicitMaxSize(BSize(B_SIZE_UNLIMITED, B_SIZE_UNLIMITED));
 	fSizeView->SetExplicitAlignment(
-		BAlignment(B_ALIGN_RIGHT, B_ALIGN_MIDDLE));
+		BAlignment(B_ALIGN_RIGHT, B_ALIGN_TOP));
 
 	fProgressBar = new BStatusBar("progress",
 		B_TRANSLATE("Install progress:  "));
