@@ -16,6 +16,24 @@
       "revId": "e66fce2d88fef2ba970c948d75b90333995f5ac9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18492aaf_34a0c217",
+        "filename": "src/kits/package/FetchFileJob.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2020-02-03T23:03:39Z",
+      "side": 1,
+      "message": "I first set the code depending on the code class, then precise the error for specific codes when that makes sense, without having to list all cases.",
+      "parentUuid": "c507846c_4f81f0d9",
+      "revId": "e66fce2d88fef2ba970c948d75b90333995f5ac9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
