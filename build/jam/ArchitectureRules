@@ -431,6 +431,8 @@ rule KernelArchitectureSetup architecture
 			# 040 and 060 in the kernel.
 			HAIKU_KERNEL_CCFLAGS += -mtune=68020-60 ;
 			HAIKU_KERNEL_C++FLAGS += -mtune=68020-60 ;
+			HAIKU_DEFINES_$(architecture) += _GLIBCXX_HAVE_FENV_H ;
+			HAIKU_KERNEL_DEFINES += _GLIBCXX_HAVE_FENV_H ;
 
 		case riscv64 :
 			# Kernel lives within any single 2 GiB address space.
