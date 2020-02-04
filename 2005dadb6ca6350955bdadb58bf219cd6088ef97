@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d820090_9b72afff",
+        "filename": "src/kits/tracker/infowindow/FilePermissionsView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-04T07:20:32Z",
+      "side": 1,
+      "message": "Put private fields at the end of the class",
+      "revId": "2005dadb6ca6350955bdadb58bf219cd6088ef97",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f287b60_7fbae3bf",
+        "filename": "src/kits/tracker/infowindow/FilePermissionsView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-04T07:20:32Z",
+      "side": 1,
+      "message": "It could be done with a SetPenLocation in a simpler way, I think?",
+      "revId": "2005dadb6ca6350955bdadb58bf219cd6088ef97",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa07aefd_0edba2fd",
+        "filename": "src/kits/tracker/infowindow/FilePermissionsView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-04T07:20:32Z",
+      "side": 1,
+      "message": "You could use SetExplicitMinSize here (it allows them to be larger or wider if needed)",
+      "revId": "2005dadb6ca6350955bdadb58bf219cd6088ef97",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
