@@ -41,19 +41,25 @@ SECTIONS
    *(.got)
    *(.data*)
    *(.sdata)
-   /* the EFI loader doesn't seem to like a .bss section, so we stick
-      it all into .data: */
+  }
+  .note.gnu.build-id : { *(.note.gnu.build-id) }
+
+  _edata = .;
+  _data_size = . - _etext;
+
+  .bss:
+  {
+   __bss_start = . ;
    *(.sbss)
    *(.scommon)
    *(.dynbss)
    *(.bss)
    *(COMMON)
    *(.rel.local)
-  }
-  .note.gnu.build-id : { *(.note.gnu.build-id) }
 
-  _edata = .;
-  _data_size = . - _etext;
+   __bss_end = . ;
+  }
+
   . = ALIGN(4096);
   .dynamic  : { *(.dynamic) }
   . = ALIGN(4096);

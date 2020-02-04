@@ -32,6 +32,8 @@
 
 extern void (*__ctor_list)(void);
 extern void (*__ctor_end)(void);
+extern char __bss_start;
+extern char __bss_end;
 
 
 const efi_system_table		*kSystemTable;
@@ -256,6 +258,7 @@ efi_main(efi_handle image, efi_system_table *systemTable)
 	stage2_args args;
 
 	memset(&args, 0, sizeof(stage2_args));
+	memset(&__bss_start, 0, &__bss_end - &__bss_start);
 
 	kImage = image;
 	kSystemTable = systemTable;
