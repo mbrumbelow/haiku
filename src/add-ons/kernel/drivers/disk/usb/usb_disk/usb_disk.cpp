@@ -811,8 +811,9 @@ usb_disk_operation_bulk(device_lun *lun, uint8* operation,
 				gUSBModule->clear_feature(directionIn ? device->bulk_in
 					: device->bulk_out, USB_FEATURE_ENDPOINT_HALT);
 			} else {
-				TRACE_ALWAYS("sending or receiving of the data failed: %s\n",
-					strerror(device->status));
+				TRACE_ALWAYS("sending or receiving of the data failed: %s"
+					"expected %d bytes but received %d\n",
+					strerror(device->status), *dataLength, transferedData);
 				usb_disk_reset_recovery(device);
 				return B_ERROR;
 			}
@@ -1190,6 +1191,35 @@ usb_disk_update_capacity(device_lun *lun)
 		lun->media_present = false;
 		lun->media_changed = false;
 		usb_disk_reset_capacity(lun);
+		return result;
+	}
+
+	// If the disk is larger than 2TB, it will reply with the maximum possible
+	// block count here. In that case, we use another command which returns a
+	// 64bit capacity, but is usually not supported by smaller devices.
+	if (parameter.last_logical_block_address == 0xFFFFFFFF) {
+		TRACE("large disk detected, use SCSI_READ_CAPACITY_16\n");
+		size_t dataLength = sizeof(scsi_read_capacity_16_parameter);
+		scsi_read_capacity_16_parameter parameter;
+
+		uint8 commandBlock[16];
+		memset(commandBlock, 0, sizeof(commandBlock));
+
+		commandBlock[0] = SCSI_READ_CAPACITY_16;
+		commandBlock[1] = SCSI_ACTION_READ_CAPACITY_16;
+
+		result = usb_disk_operation(lun, commandBlock, 16, &parameter,
+			&dataLength, true, &action);
+
+		if (result == B_OK) {
+			lun->media_present = true;
+			lun->media_changed = false;
+			lun->block_size = B_BENDIAN_TO_HOST_INT32(
+				parameter.logical_block_length);
+			lun->block_count = B_BENDIAN_TO_HOST_INT64(
+				parameter.last_logical_block_address) + 1;
+		}
+
 		return result;
 	}
 
