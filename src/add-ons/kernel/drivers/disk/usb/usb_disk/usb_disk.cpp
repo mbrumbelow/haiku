@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2012, Haiku Inc. All rights reserved.
+ * Copyright 2008-2020, Haiku Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -811,8 +811,9 @@ usb_disk_operation_bulk(device_lun *lun, uint8* operation,
 				gUSBModule->clear_feature(directionIn ? device->bulk_in
 					: device->bulk_out, USB_FEATURE_ENDPOINT_HALT);
 			} else {
-				TRACE_ALWAYS("sending or receiving of the data failed: %s\n",
-					strerror(device->status));
+				TRACE_ALWAYS("sending or receiving of the data failed: %s"
+					"expected %d bytes but received %d\n",
+					strerror(device->status), *dataLength, transferedData);
 				usb_disk_reset_recovery(device);
 				return B_ERROR;
 			}
@@ -1193,11 +1194,39 @@ usb_disk_update_capacity(device_lun *lun)
 		return result;
 	}
 
+	// If the disk is larger than 2TB, it will reply with the maximum possible
+	// block count here. In that case, we use another command which returns a
+	// 64bit capacity, but is usually not supported by smaller devices.
+	if (parameter.last_logical_block_address == UINT32_MAX) {
+		TRACE("large disk detected, use SCSI_READ_CAPACITY_16\n");
+		size_t dataLength = sizeof(scsi_read_capacity_16_parameter);
+		scsi_read_capacity_16_parameter parameter16;
+
+		uint8 commandBlock[16];
+		memset(commandBlock, 0, sizeof(commandBlock));
+
+		commandBlock[0] = SCSI_SERVICE_ACTION_IN;
+		commandBlock[1] = SCSI_SERVICE_ACTION_READ_CAPACITY_16;
+
+		result = usb_disk_operation(lun, commandBlock, 16, &parameter16,
+			&dataLength, true, &action);
+
+		if (result != B_OK)
+			return result;
+
+		lun->block_count = B_BENDIAN_TO_HOST_INT64(
+			parameter16.last_logical_block_address) + 1;
+		lun->block_size = B_BENDIAN_TO_HOST_INT32(
+			parameter16.logical_block_length);
+	} else {
+		lun->block_count = B_BENDIAN_TO_HOST_INT32(
+			parameter.last_logical_block_address) + 1;
+		lun->block_size = B_BENDIAN_TO_HOST_INT32(
+			parameter.logical_block_length);
+	}
+
 	lun->media_present = true;
 	lun->media_changed = false;
-	lun->block_size = B_BENDIAN_TO_HOST_INT32(parameter.logical_block_length);
-	lun->block_count =
-		B_BENDIAN_TO_HOST_INT32(parameter.last_logical_block_address) + 1;
 	return B_OK;
 }
 

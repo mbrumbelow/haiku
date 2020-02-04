@@ -1,5 +1,5 @@
 /*
- * Copyright 2008, Haiku Inc. All rights reserved.
+ * Copyright 2008-2020, Haiku Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -17,12 +17,17 @@ typedef enum {
 	SCSI_START_STOP_UNIT_6 = 0x1b,
 	SCSI_SEND_DIAGNOSTIC = 0x1d,
 	SCSI_READ_CAPACITY_10 = 0x25,
+	SCSI_SERVICE_ACTION_IN = 0x9E,
 	SCSI_READ_10 = 0x28,
 	SCSI_WRITE_10 = 0x2a,
 	SCSI_SYNCHRONIZE_CACHE_10 = 0x35,
 	SCSI_READ_12 = 0xA8,
 	SCSI_WRITE_12 = 0xAA,
 } scsi_operations;
+
+typedef enum {
+	SCSI_SERVICE_ACTION_READ_CAPACITY_16 = 0x10,
+} scsi_service_actions;
 
 // common command structures
 typedef struct scsi_command_6_s {
@@ -41,6 +46,15 @@ typedef struct scsi_command_10_s {
 	uint16	transfer_length;
 	uint8	control;
 } _PACKED scsi_command_10;
+
+typedef struct scsi_command_16_s {
+	uint8	operation;
+	uint8	service_action;
+	uint32	logical_block_address;
+	uint32	allocation_length;
+	uint8	pmi;
+	uint8	control;
+} _PACKED scsi_command_16;
 
 // parameters = returned data
 typedef struct scsi_request_sense_6_parameter_s {
@@ -88,6 +102,14 @@ typedef struct scsi_read_capacity_10_parameter_s {
 	uint32	last_logical_block_address;
 	uint32	logical_block_length;
 } _PACKED scsi_read_capacity_10_parameter;
+
+typedef struct scsi_read_capacity_16_parameter_s {
+	uint64	last_logical_block_address;
+	uint32	logical_block_length;
+	uint16	flags;
+	uint16	alignment;
+	//uint32	reserved[4];
+} _PACKED scsi_read_capacity_16_parameter;
 
 // request sense keys/codes
 typedef enum {
