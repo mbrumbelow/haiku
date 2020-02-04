@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e2f6d65_af61e14b",
+        "filename": "src/add-ons/kernel/drivers/disk/usb/usb_disk/usb_disk.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1200,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-02-04T11:41:36Z",
+      "side": 1,
+      "message": "please use UINT_MAX",
+      "revId": "84088c52ade182368fab15ffc276e1a40494690a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b16deab1_31aed52e",
+        "filename": "src/add-ons/kernel/drivers/disk/usb/usb_disk/usb_disk.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1226,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-02-04T11:41:36Z",
+      "side": 1,
+      "message": "I would factorize the setting of lun-\u003emedia_present, lun-\u003emedia_changed and lun-\u003eblock_size, and the lun-\u003eblock_count plus one.",
+      "revId": "84088c52ade182368fab15ffc276e1a40494690a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
