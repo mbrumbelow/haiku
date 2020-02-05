@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "98ce45fa_a4540981",
+        "filename": "build/jam/ArchitectureRules",
+        "patchSetId": 1
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-05T16:05:18Z",
+      "side": 1,
+      "message": "Why is this inside the switch for boot targets? Will that break efi on m68k (ok, an unlikely setup, but...)?",
+      "revId": "d4cceb1f07b8401f2f9057a6969213e6b13107ed",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
