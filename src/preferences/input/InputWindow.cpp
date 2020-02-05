@@ -132,8 +132,7 @@ InputWindow::Show()
 {
 	CenterOnScreen();
 	BWindow::Show();
-	status_t x = watch_input_devices(this, true);
-	puts(strerror(x));
+	watch_input_devices(this, true);
 }
 
 
