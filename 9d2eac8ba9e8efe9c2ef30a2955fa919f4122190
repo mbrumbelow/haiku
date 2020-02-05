@@ -1,0 +1,276 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d56b4eb5_a9424460",
+        "filename": "src/system/boot/platform/next_m68k/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-05T19:32:42Z",
+      "side": 1,
+      "message": "Why do we need Atari things in this jamfile for NeXT?",
+      "revId": "9d2eac8ba9e8efe9c2ef30a2955fa919f4122190",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e29ccb6_bb04edc5",
+        "filename": "src/system/boot/platform/next_m68k/devices.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-05T19:32:42Z",
+      "side": 1,
+      "message": "probably not ATARI?",
+      "revId": "9d2eac8ba9e8efe9c2ef30a2955fa919f4122190",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "667c42f5_42f1fb00",
+        "filename": "src/system/boot/platform/next_m68k/devices.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-05T19:32:42Z",
+      "side": 1,
+      "message": "trailing whitespace",
+      "revId": "9d2eac8ba9e8efe9c2ef30a2955fa919f4122190",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0533f61_aaba4815",
+        "filename": "src/system/boot/platform/next_m68k/devices.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-05T19:32:42Z",
+      "side": 1,
+      "message": "trailing whitespace",
+      "revId": "9d2eac8ba9e8efe9c2ef30a2955fa919f4122190",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe8ad53b_d11c3a69",
+        "filename": "src/system/boot/platform/next_m68k/menu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-05T19:32:42Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "9d2eac8ba9e8efe9c2ef30a2955fa919f4122190",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14abe468_8cd4889a",
+        "filename": "src/system/boot/platform/next_m68k/menu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-05T19:32:42Z",
+      "side": 1,
+      "message": "probably not VESA",
+      "revId": "9d2eac8ba9e8efe9c2ef30a2955fa919f4122190",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49dd19b1_3803265b",
+        "filename": "src/system/boot/platform/next_m68k/nextrom.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-05T19:32:42Z",
+      "side": 1,
+      "message": "I think you can use #pragma pack(push,2) before the struct declaration and #pragma pack(pop) after it. Then you don\u0027t need explicit padding.",
+      "revId": "9d2eac8ba9e8efe9c2ef30a2955fa919f4122190",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c564347_18c5e615",
+        "filename": "src/system/boot/platform/next_m68k/stage1.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-05T19:32:42Z",
+      "side": 1,
+      "message": "We are not running TOS here, are we?",
+      "revId": "9d2eac8ba9e8efe9c2ef30a2955fa919f4122190",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c5ef1e1_35ddeaf6",
+        "filename": "src/system/boot/platform/next_m68k/stage1.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-05T19:32:42Z",
+      "side": 1,
+      "message": "Not applicable (I hope)",
+      "revId": "9d2eac8ba9e8efe9c2ef30a2955fa919f4122190",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5da3cdc1_af05f799",
+        "filename": "src/system/boot/platform/next_m68k/stage1.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-05T19:32:42Z",
+      "side": 1,
+      "message": "We are not using nasm here?",
+      "revId": "9d2eac8ba9e8efe9c2ef30a2955fa919f4122190",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22b71e80_31d7a428",
+        "filename": "src/system/boot/platform/next_m68k/start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-05T19:32:42Z",
+      "side": 1,
+      "message": "They are defined by the linker script, not by gcc.",
+      "revId": "9d2eac8ba9e8efe9c2ef30a2955fa919f4122190",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9899836_9f2d261c",
+        "filename": "src/system/boot/platform/next_m68k/start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-05T19:32:42Z",
+      "side": 1,
+      "message": "trailing whitespace",
+      "revId": "9d2eac8ba9e8efe9c2ef30a2955fa919f4122190",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22e5c9bf_4eb1a83b",
+        "filename": "src/system/boot/platform/next_m68k/start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-05T19:32:42Z",
+      "side": 1,
+      "message": "leftover debug?",
+      "revId": "9d2eac8ba9e8efe9c2ef30a2955fa919f4122190",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "413c369f_2b8a87d2",
+        "filename": "src/system/ldscripts/m68k/boot_loader_next_m68k.ld",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-05T19:32:42Z",
+      "side": 1,
+      "message": "I think this comment is specific to sparc (where the code is loaded then relocated), for you it shouldn\u0027t matter",
+      "revId": "9d2eac8ba9e8efe9c2ef30a2955fa919f4122190",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8adca1fc_1a368972",
+        "filename": "src/system/ldscripts/m68k/boot_loader_next_m68k.ld",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-05T19:32:42Z",
+      "side": 1,
+      "message": "the } : text would look better on a separate line",
+      "revId": "9d2eac8ba9e8efe9c2ef30a2955fa919f4122190",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff15eae4_e41ae4b1",
+        "filename": "src/system/ldscripts/m68k/boot_loader_next_m68k.ld",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-05T19:32:42Z",
+      "side": 1,
+      "message": "newline between { and *(",
+      "revId": "9d2eac8ba9e8efe9c2ef30a2955fa919f4122190",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
