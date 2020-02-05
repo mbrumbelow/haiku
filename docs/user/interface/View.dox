@@ -30,6 +30,7 @@
 	\brief Primary mouse button mask parameter.
 
 	\since BeOS R3
+	\deprecated Haiku R1
 */
 
 
@@ -38,6 +39,7 @@
 	\brief Secondary mouse button mask parameter.
 
 	\since BeOS R3
+	\deprecated Haiku R1
 */
 
 
@@ -46,6 +48,22 @@
 	\brief Tertiary mouse button mask parameter.
 
 	\since BeOS R3
+	\deprecated Haiku R1
+*/
+
+
+/*!
+	\var B_MOUSE_BUTTON(n)
+	\brief Compute mouse button mask for button n
+
+	Buttons are numbered from 1 to 32.
+	Button 1 should be used for main operations (selecting, dragging, opening objects).
+	Button 2 should be used for secondary operations (popup menus).
+	Button 3 should be used for clipboard paste.
+	Other buttons are not present in all mice, and should be used only as shortcuts for
+	functions already reachable by other means.
+
+	\since Haiku R1
 */
 
 
