@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1493f621_c8950a5f",
+        "filename": "src/system/boot/platform/next_m68k/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2020-02-05T20:20:55Z",
+      "side": 1,
+      "message": "Because it\u0027s the simplest way I found to run a program that tells if the offsets are correct in the structure. I run it in ARAnyM.",
+      "parentUuid": "d56b4eb5_a9424460",
+      "revId": "9d2eac8ba9e8efe9c2ef30a2955fa919f4122190",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9e29ccb6_bb04edc5",
         "filename": "src/system/boot/platform/next_m68k/devices.cpp",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "9d2eac8ba9e8efe9c2ef30a2955fa919f4122190",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6685f692_f793ce61",
+        "filename": "src/system/boot/platform/next_m68k/devices.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2020-02-05T20:20:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e29ccb6_bb04edc5",
+      "revId": "9d2eac8ba9e8efe9c2ef30a2955fa919f4122190",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "e341272a_3afb3b6c",
+        "filename": "src/system/boot/platform/next_m68k/devices.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2020-02-05T20:20:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "667c42f5_42f1fb00",
+      "revId": "9d2eac8ba9e8efe9c2ef30a2955fa919f4122190",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0533f61_aaba4815",
         "filename": "src/system/boot/platform/next_m68k/devices.cpp",
         "patchSetId": 1
@@ -67,6 +121,24 @@
       "revId": "9d2eac8ba9e8efe9c2ef30a2955fa919f4122190",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7a8ee9e_6d58912d",
+        "filename": "src/system/boot/platform/next_m68k/devices.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2020-02-05T20:20:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0533f61_aaba4815",
+      "revId": "9d2eac8ba9e8efe9c2ef30a2955fa919f4122190",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "bcae1941_2830dd7d",
+        "filename": "src/system/boot/platform/next_m68k/menu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2020-02-05T20:20:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe8ad53b_d11c3a69",
+      "revId": "9d2eac8ba9e8efe9c2ef30a2955fa919f4122190",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "14abe468_8cd4889a",
         "filename": "src/system/boot/platform/next_m68k/menu.cpp",
         "patchSetId": 1
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "2a2f8cc5_6ae12d38",
+        "filename": "src/system/boot/platform/next_m68k/menu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2020-02-05T20:20:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14abe468_8cd4889a",
+      "revId": "9d2eac8ba9e8efe9c2ef30a2955fa919f4122190",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "49dd19b1_3803265b",
         "filename": "src/system/boot/platform/next_m68k/nextrom.h",
         "patchSetId": 1
@@ -118,6 +226,24 @@
       "revId": "9d2eac8ba9e8efe9c2ef30a2955fa919f4122190",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "222f44b3_daefc5c2",
+        "filename": "src/system/boot/platform/next_m68k/nextrom.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2020-02-05T20:20:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49dd19b1_3803265b",
+      "revId": "9d2eac8ba9e8efe9c2ef30a2955fa919f4122190",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -172,6 +298,24 @@
     },
     {
       "key": {
+        "uuid": "c59d9cc9_b7b2ad74",
+        "filename": "src/system/boot/platform/next_m68k/stage1.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2020-02-05T20:20:55Z",
+      "side": 1,
+      "message": "Because that comment comes from x86 code :p",
+      "parentUuid": "5da3cdc1_af05f799",
+      "revId": "9d2eac8ba9e8efe9c2ef30a2955fa919f4122190",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "22b71e80_31d7a428",
         "filename": "src/system/boot/platform/next_m68k/start.cpp",
         "patchSetId": 1
@@ -206,6 +350,24 @@
     },
     {
       "key": {
+        "uuid": "7d24d953_ddcc692f",
+        "filename": "src/system/boot/platform/next_m68k/start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2020-02-05T20:20:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9899836_9f2d261c",
+      "revId": "9d2eac8ba9e8efe9c2ef30a2955fa919f4122190",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "22e5c9bf_4eb1a83b",
         "filename": "src/system/boot/platform/next_m68k/start.cpp",
         "patchSetId": 1
@@ -217,6 +379,24 @@
       "writtenOn": "2020-02-05T19:32:42Z",
       "side": 1,
       "message": "leftover debug?",
+      "revId": "9d2eac8ba9e8efe9c2ef30a2955fa919f4122190",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ffd1e9e_5e1dd9c9",
+        "filename": "src/system/boot/platform/next_m68k/start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2020-02-05T20:20:55Z",
+      "side": 1,
+      "message": "Yeah, that\u0027s for the demo.",
+      "parentUuid": "22e5c9bf_4eb1a83b",
       "revId": "9d2eac8ba9e8efe9c2ef30a2955fa919f4122190",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -240,6 +420,24 @@
     },
     {
       "key": {
+        "uuid": "15078ba2_60a54268",
+        "filename": "src/system/ldscripts/m68k/boot_loader_next_m68k.ld",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2020-02-05T20:20:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "413c369f_2b8a87d2",
+      "revId": "9d2eac8ba9e8efe9c2ef30a2955fa919f4122190",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8adca1fc_1a368972",
         "filename": "src/system/ldscripts/m68k/boot_loader_next_m68k.ld",
         "patchSetId": 1
@@ -257,6 +455,24 @@
     },
     {
       "key": {
+        "uuid": "1596ae23_cd96d96d",
+        "filename": "src/system/ldscripts/m68k/boot_loader_next_m68k.ld",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2020-02-05T20:20:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8adca1fc_1a368972",
+      "revId": "9d2eac8ba9e8efe9c2ef30a2955fa919f4122190",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff15eae4_e41ae4b1",
         "filename": "src/system/ldscripts/m68k/boot_loader_next_m68k.ld",
         "patchSetId": 1
@@ -271,6 +487,24 @@
       "revId": "9d2eac8ba9e8efe9c2ef30a2955fa919f4122190",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "718c7482_07d2ee78",
+        "filename": "src/system/ldscripts/m68k/boot_loader_next_m68k.ld",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2020-02-05T20:20:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff15eae4_e41ae4b1",
+      "revId": "9d2eac8ba9e8efe9c2ef30a2955fa919f4122190",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
