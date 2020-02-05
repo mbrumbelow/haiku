@@ -18,7 +18,9 @@
 
 #define	TITLE_BAR_HEIGHT	 25
 #define	WIND_WIDTH			420
-#define WIND_HEIGHT			340
+#define WIND_HEIGHT			600
+#define WIND_SPACING         64
+#define HEIGHT
 
 
 class PersonView;

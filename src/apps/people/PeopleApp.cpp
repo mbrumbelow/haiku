@@ -77,6 +77,7 @@ TPeopleApp::TPeopleApp()
 
 	fPosition.Set(6, TITLE_BAR_HEIGHT, 6 + WIND_WIDTH,
 		TITLE_BAR_HEIGHT + WIND_HEIGHT);
+	
 	BPoint pos = fPosition.LeftTop();
 
 	BPath path;
@@ -311,7 +312,7 @@ TPeopleApp::_NewWindow(entry_ref* ref)
 		fPosition.OffsetTo(fPosition.left, TITLE_BAR_HEIGHT);
 	if (fPosition.right > screen.Frame().right)
 		fPosition.OffsetTo(6, fPosition.top);
-
+	
 	return window;
 }
 
@@ -360,3 +361,15 @@ TPeopleApp::_SavePreferences(BMessage* message) const
 	}
 }
 
+
+void
+TPeopleApp::AdjustSize(int32 height, int32 height1)
+{
+	BRect frame;
+	height = BScreen().Frame().Height();
+	height1 = height - WIND_SPACING;
+	if (WIND_HEIGHT > (height1))
+	{
+		BScreen screen(BWindow* window);
+	}
+}
