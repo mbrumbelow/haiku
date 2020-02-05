@@ -1,6 +1,7 @@
 SubDir HAIKU_TOP src add-ons kernel drivers timer ;
 
 UsePrivateHeaders drivers ;
+SubDirHdrs $(HAIKU_TOP) headers private kernel platform $(TARGET_KERNEL_PLATFORM) ;
 
 KernelAddon <driver>hpet :
 	hpet.cpp ;
