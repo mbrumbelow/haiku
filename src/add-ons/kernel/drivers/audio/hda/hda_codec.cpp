@@ -1,11 +1,12 @@
 /*
- * Copyright 2007-2012, Haiku, Inc. All Rights Reserved.
+ * Copyright 2007-2020, Haiku, Inc. All Rights Reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
  *		Ithamar Adema, ithamar AT unet DOT nl
  *		Axel Dörfler, axeld@pinc-software.de
  *		Jérôme Duval, korli@users.berlios.de
+ *		Ryan Leavengood, leavengood@gmail.com
  */
 
 
@@ -651,6 +652,8 @@ hda_widget_get_associations(hda_audio_group* audioGroup)
 
 			if (widget.type != WT_PIN_COMPLEX)
 				continue;
+			if (CONF_DEFAULT_CONNTYPE(widget.d.pin.config) == PIN_CONN_NONE)
+				continue;
 			if (CONF_DEFAULT_ASSOCIATION(widget.d.pin.config) != i)
 				continue;
 			if (audioGroup->associations[index].pin_count == 0) {
@@ -966,6 +969,9 @@ hda_widget_find_input_path(hda_audio_group* audioGroup, hda_widget* widget,
 					& (WIDGET_FLAG_INPUT_PATH | WIDGET_FLAG_OUTPUT_PATH)) != 0)
 				return false;
 
+			if (CONF_DEFAULT_CONNTYPE(widget->d.pin.config) == PIN_CONN_NONE)
+				return false;
+
 			if (PIN_CAP_IS_INPUT(widget->d.pin.capabilities)) {
 				switch (CONF_DEFAULT_DEVICE(widget->d.pin.config)) {
 					case PIN_DEV_CD:
@@ -1025,7 +1031,8 @@ hda_audio_group_build_output_tree(hda_audio_group* audioGroup, bool useMixer)
 		hda_widget& widget = audioGroup->widgets[i];
 
 		if (widget.type != WT_PIN_COMPLEX
-			|| !PIN_CAP_IS_OUTPUT(widget.d.pin.capabilities))
+			|| !PIN_CAP_IS_OUTPUT(widget.d.pin.capabilities)
+			|| CONF_DEFAULT_CONNTYPE(widget.d.pin.config) == PIN_CONN_NONE)
 			continue;
 
 		int device = CONF_DEFAULT_DEVICE(widget.d.pin.config);
