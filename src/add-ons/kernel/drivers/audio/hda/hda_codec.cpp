@@ -1,11 +1,12 @@
 /*
- * Copyright 2007-2012, Haiku, Inc. All Rights Reserved.
+ * Copyright 2007-2020, Haiku, Inc. All Rights Reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
  *		Ithamar Adema, ithamar AT unet DOT nl
  *		Axel Dörfler, axeld@pinc-software.de
  *		Jérôme Duval, korli@users.berlios.de
+ *		Ryan Leavengood, leavengood@gmail.com
  */
 
 
@@ -651,6 +652,8 @@ hda_widget_get_associations(hda_audio_group* audioGroup)
 
 			if (widget.type != WT_PIN_COMPLEX)
 				continue;
+			if (CONF_DEFAULT_CONNECTIVITY(widget.d.pin.config) == PIN_CONN_NONE)
+				continue;
 			if (CONF_DEFAULT_ASSOCIATION(widget.d.pin.config) != i)
 				continue;
 			if (audioGroup->associations[index].pin_count == 0) {
@@ -966,6 +969,11 @@ hda_widget_find_input_path(hda_audio_group* audioGroup, hda_widget* widget,
 					& (WIDGET_FLAG_INPUT_PATH | WIDGET_FLAG_OUTPUT_PATH)) != 0)
 				return false;
 
+			// Ignore pins which are not connected
+			if (CONF_DEFAULT_CONNECTIVITY(widget->d.pin.config) ==
+				PIN_CONN_NONE)
+				return false;
+
 			if (PIN_CAP_IS_INPUT(widget->d.pin.capabilities)) {
 				switch (CONF_DEFAULT_DEVICE(widget->d.pin.config)) {
 					case PIN_DEV_CD:
@@ -1027,6 +1035,12 @@ hda_audio_group_build_output_tree(hda_audio_group* audioGroup, bool useMixer)
 		if (widget.type != WT_PIN_COMPLEX
 			|| !PIN_CAP_IS_OUTPUT(widget.d.pin.capabilities))
 			continue;
+
+		if (CONF_DEFAULT_CONNECTIVITY(widget.d.pin.config) == PIN_CONN_NONE) {
+			TRACE("  skipping pin widget %" B_PRIu32 ", it is not connected\n",
+				widget.node_id);
+			continue;
+		}
 
 		int device = CONF_DEFAULT_DEVICE(widget.d.pin.config);
 		if (device != PIN_DEV_HEAD_PHONE_OUT
