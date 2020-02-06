@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "21d72b5a_25550e9e",
+        "filename": "src/kits/tracker/infowindow/FilePermissionsView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000079
+      },
+      "writtenOn": "2020-02-06T11:11:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d820090_9b72afff",
+      "revId": "2005dadb6ca6350955bdadb58bf219cd6088ef97",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f287b60_7fbae3bf",
         "filename": "src/kits/tracker/infowindow/FilePermissionsView.cpp",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "10c1c236_59eb4550",
+        "filename": "src/kits/tracker/infowindow/FilePermissionsView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000079
+      },
+      "writtenOn": "2020-02-06T11:11:42Z",
+      "side": 1,
+      "message": "It does not work (tested with MovePenBy), maybe because we reuse BStringView::Draw that might set the position on his own. The first letter was mostly out of the view.",
+      "parentUuid": "5f287b60_7fbae3bf",
+      "revId": "2005dadb6ca6350955bdadb58bf219cd6088ef97",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fa07aefd_0edba2fd",
         "filename": "src/kits/tracker/infowindow/FilePermissionsView.cpp",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2020-02-04T07:20:32Z",
       "side": 1,
       "message": "You could use SetExplicitMinSize here (it allows them to be larger or wider if needed)",
+      "revId": "2005dadb6ca6350955bdadb58bf219cd6088ef97",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55793cf6_d59793f3",
+        "filename": "src/kits/tracker/infowindow/FilePermissionsView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000079
+      },
+      "writtenOn": "2020-02-06T11:11:42Z",
+      "side": 1,
+      "message": "It does not work perfectly : the bottom of the last letter is cut (on the left side of the view)",
+      "parentUuid": "fa07aefd_0edba2fd",
       "revId": "2005dadb6ca6350955bdadb58bf219cd6088ef97",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
