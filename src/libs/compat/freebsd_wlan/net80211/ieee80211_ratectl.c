@@ -93,6 +93,7 @@ ieee80211_ratectl_sysctl_stats(SYSCTL_HANDLER_ARGS)
 	if (error)
 		return (error);
 #ifndef __HAIKU__
+	// FIXME why is this disabled in Haiku?
 	sbuf_new_for_sysctl(&sb, NULL, 8, req);
 	sbuf_clear_flags(&sb, SBUF_INCLUDENUL);
 

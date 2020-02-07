@@ -304,6 +304,7 @@ sysctl_ieee80211coms(SYSCTL_HANDLER_ARGS)
 	if (error)
 		return (error);
 #ifndef __HAIKU__
+	// FIXME why is this needed in Haiku and not FreeBSD?
 	sbuf_new_for_sysctl(&sb, NULL, 8, req);
 	sbuf_clear_flags(&sb, SBUF_INCLUDENUL);
 	sp = "";
