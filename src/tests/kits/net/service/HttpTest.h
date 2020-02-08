@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Haiku, inc.
+ * Copyright 2014-2020 Haiku, inc.
  * Distributed under the terms of the MIT License.
  */
 #ifndef HTTP_TEST_H
@@ -13,14 +13,18 @@
 
 #include <cppunit/TestSuite.h>
 
+#include "TestServer.h"
+
 
 class HttpTest: public BTestCase {
 public:
-										HttpTest();
+										HttpTest(TestServerMode mode
+												 	= TEST_SERVER_MODE_HTTP);
 	virtual								~HttpTest();
 
+	virtual						void	setUp();
+
 								void	GetTest();
-								void	PortTest();
 								void	UploadTest();
 								void	AuthBasicTest();
 								void	AuthDigestTest();
@@ -29,13 +33,10 @@ public:
 	static						void	AddTests(BTestSuite& suite);
 
 private:
-								void	_AuthTest(BUrl& url);
-
 	template<class T> static	void	_AddCommonTests(BString prefix,
 											CppUnit::TestSuite& suite);
 
-protected:
-								BUrl	fBaseUrl;
+	TestServer fTestServer;
 };
 
 
