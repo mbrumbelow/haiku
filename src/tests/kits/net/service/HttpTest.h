@@ -5,7 +5,6 @@
 #ifndef HTTP_TEST_H
 #define HTTP_TEST_H
 
-
 #include <Url.h>
 
 #include <TestCase.h>
@@ -20,7 +19,6 @@ public:
 	virtual								~HttpTest();
 
 								void	GetTest();
-								void	PortTest();
 								void	UploadTest();
 								void	AuthBasicTest();
 								void	AuthDigestTest();
@@ -29,13 +27,8 @@ public:
 	static						void	AddTests(BTestSuite& suite);
 
 private:
-								void	_AuthTest(BUrl& url);
-
 	template<class T> static	void	_AddCommonTests(BString prefix,
 											CppUnit::TestSuite& suite);
-
-protected:
-								BUrl	fBaseUrl;
 };
 
 
