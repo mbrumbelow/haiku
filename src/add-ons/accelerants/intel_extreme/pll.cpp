@@ -61,7 +61,11 @@ static pll_limits kLimits9xxSdvo = {
 	// p, p1, p2,  n,   m, m1, m2
 	{  5,  1,  5,  5,  70, 12,  7},	// min
 	{ 80,  8, 10, 10, 120, 22, 11},	// max
-	200000, 1400000, 2800000
+	148000,
+		// Lower than in the spec, so we will more aggressively use P2=5
+		// which allows us to have timings closer to the requested ones at high
+		// resolutions.
+	1400000, 2800000
 };
 
 static pll_limits kLimits9xxLvds = {
