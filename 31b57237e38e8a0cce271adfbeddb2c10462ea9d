@@ -16,6 +16,24 @@
       "revId": "31b57237e38e8a0cce271adfbeddb2c10462ea9d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63d02073_c0e5efa4",
+        "filename": "src/add-ons/kernel/file_systems/nfs4/RequestBuilder.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 812,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-02-12T16:53:06Z",
+      "side": 1,
+      "message": "It doesn\u0027t make sense. fRequest-\u003eStream() would have crashed on the next line.",
+      "parentUuid": "4a48d720_9a2568d8",
+      "revId": "31b57237e38e8a0cce271adfbeddb2c10462ea9d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
