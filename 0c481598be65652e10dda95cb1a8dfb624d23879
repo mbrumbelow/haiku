@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "298161fd_2f18b711",
+        "filename": "src/tests/kits/net/service/HttpTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-14T13:31:05Z",
+      "side": 0,
+      "message": "I think these commennts explaining what we are testing are worth keeping",
+      "revId": "0c481598be65652e10dda95cb1a8dfb624d23879",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "517df530_d5769a67",
+        "filename": "src/tests/kits/net/service/HttpTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-14T13:31:05Z",
+      "side": 0,
+      "message": "The goal of this test was checking the use of an alternate port for an HTTP request. This is now covered by the other tests (as we always use a non-default port), but now we lose coverage of the case where the default port should be used (making sure 80 or 443 is selected depending on wether we use https or not).",
+      "revId": "0c481598be65652e10dda95cb1a8dfb624d23879",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbb7a10f_2ce8dd8b",
+        "filename": "src/tests/kits/net/service/HttpTest.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-14T13:31:05Z",
+      "side": 0,
+      "message": "two blank lines was correct here",
+      "revId": "0c481598be65652e10dda95cb1a8dfb624d23879",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}

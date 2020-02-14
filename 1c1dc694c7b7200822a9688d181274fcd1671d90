@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6a16d62d_cb7e663e",
+        "filename": "src/tests/kits/net/service/HttpTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-14T13:31:05Z",
+      "side": 1,
+      "message": "line \u003e 80 columns",
+      "revId": "1c1dc694c7b7200822a9688d181274fcd1671d90",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0c19710_45c124d5",
+        "filename": "src/tests/kits/net/service/HttpTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-14T13:31:05Z",
+      "side": 1,
+      "message": "1000 microseconds (1 millisecond) was fine as a delay here. Is there a need to poll this fast?",
+      "revId": "1c1dc694c7b7200822a9688d181274fcd1671d90",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bae2941_b0bc6940",
+        "filename": "src/tests/kits/net/service/HttpTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-14T13:31:05Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be in cppunit setUp() instead?",
+      "revId": "1c1dc694c7b7200822a9688d181274fcd1671d90",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32d08fa3_e445b9ae",
+        "filename": "src/tests/kits/net/service/HttpTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-14T13:31:05Z",
+      "side": 1,
+      "message": "I had picked a random one out of an online list of open proxy servers",
+      "revId": "1c1dc694c7b7200822a9688d181274fcd1671d90",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5630188b_83b54ff8",
+        "filename": "src/tests/kits/net/service/HttpTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-14T13:31:05Z",
+      "side": 1,
+      "message": "It seems better to comment out the HttpsTest testsuite above. By doing this, you are still running the \"Https\" tests but in fact they don\u0027t use HTTPS, which is confusing.",
+      "revId": "1c1dc694c7b7200822a9688d181274fcd1671d90",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cebe6438_6da200b0",
+        "filename": "src/tests/kits/net/service/TestServer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-14T13:31:05Z",
+      "side": 1,
+      "message": "include the standard copyright header in new files.",
+      "revId": "1c1dc694c7b7200822a9688d181274fcd1671d90",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60150a70_a31fcb75",
+        "filename": "src/tests/kits/net/service/TestServer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-14T13:31:05Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "1c1dc694c7b7200822a9688d181274fcd1671d90",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b25bbaf7_b2cc4262",
+        "filename": "src/tests/kits/net/service/testserver.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-14T13:31:05Z",
+      "side": 1,
+      "message": "In fact it is qute useful to be able to test our behavior against non-compliant servers, too.",
+      "revId": "1c1dc694c7b7200822a9688d181274fcd1671d90",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b1aa58b_34f42597",
+        "filename": "src/tests/kits/net/service/testserver.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-14T13:31:05Z",
+      "side": 1,
+      "message": "this comment can be removed since it duplicates the class comment",
+      "revId": "1c1dc694c7b7200822a9688d181274fcd1671d90",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
