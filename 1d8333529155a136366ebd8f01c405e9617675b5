@@ -16,6 +16,24 @@
       "revId": "1d8333529155a136366ebd8f01c405e9617675b5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad8b9e29_d8bc0fc3",
+        "filename": "src/tests/kits/net/service/HttpTest.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-02-15T18:03:17Z",
+      "side": 1,
+      "message": "Oops, sorry. For some reason I thought member variables were supposed to be aligned seperately. Fixed.",
+      "parentUuid": "9a06005f_c9dfa1cf",
+      "revId": "1d8333529155a136366ebd8f01c405e9617675b5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
