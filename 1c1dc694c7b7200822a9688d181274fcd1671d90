@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "72d2220a_1e50c8c2",
+        "filename": "src/tests/kits/net/service/HttpTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-02-15T02:31:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6a16d62d_cb7e663e",
+      "revId": "1c1dc694c7b7200822a9688d181274fcd1671d90",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c0c19710_45c124d5",
         "filename": "src/tests/kits/net/service/HttpTest.cpp",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "1c1dc694c7b7200822a9688d181274fcd1671d90",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "deef5dc7_620bc567",
+        "filename": "src/tests/kits/net/service/HttpTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-02-15T02:31:38Z",
+      "side": 1,
+      "message": "Oops, my mistake. I thought snooze() took a duration in milliseconds, not microseconds. Fixed.",
+      "parentUuid": "c0c19710_45c124d5",
+      "revId": "1c1dc694c7b7200822a9688d181274fcd1671d90",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "4b4e1486_3cfbf667",
+        "filename": "src/tests/kits/net/service/HttpTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-02-15T02:31:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2bae2941_b0bc6940",
+      "revId": "1c1dc694c7b7200822a9688d181274fcd1671d90",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "32d08fa3_e445b9ae",
         "filename": "src/tests/kits/net/service/HttpTest.cpp",
         "patchSetId": 1
@@ -67,6 +121,24 @@
       "revId": "1c1dc694c7b7200822a9688d181274fcd1671d90",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ebda666_cb4f3911",
+        "filename": "src/tests/kits/net/service/HttpTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-02-15T02:31:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "32d08fa3_e445b9ae",
+      "revId": "1c1dc694c7b7200822a9688d181274fcd1671d90",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "d2b9da01_1b824bce",
+        "filename": "src/tests/kits/net/service/HttpTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-02-15T02:31:38Z",
+      "side": 1,
+      "message": "Yup, makes sense.",
+      "parentUuid": "5630188b_83b54ff8",
+      "revId": "1c1dc694c7b7200822a9688d181274fcd1671d90",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cebe6438_6da200b0",
         "filename": "src/tests/kits/net/service/TestServer.cpp",
         "patchSetId": 1
@@ -101,6 +191,24 @@
       "revId": "1c1dc694c7b7200822a9688d181274fcd1671d90",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5af2a9da_d3315d74",
+        "filename": "src/tests/kits/net/service/TestServer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-02-15T02:31:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "cebe6438_6da200b0",
+      "revId": "1c1dc694c7b7200822a9688d181274fcd1671d90",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "b8b62057_a01a7041",
+        "filename": "src/tests/kits/net/service/TestServer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-02-15T02:31:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "60150a70_a31fcb75",
+      "revId": "1c1dc694c7b7200822a9688d181274fcd1671d90",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b25bbaf7_b2cc4262",
         "filename": "src/tests/kits/net/service/testserver.py",
         "patchSetId": 1
@@ -138,6 +264,24 @@
     },
     {
       "key": {
+        "uuid": "3dec49d2_f386b4c5",
+        "filename": "src/tests/kits/net/service/testserver.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-02-15T02:31:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b25bbaf7_b2cc4262",
+      "revId": "1c1dc694c7b7200822a9688d181274fcd1671d90",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b1aa58b_34f42597",
         "filename": "src/tests/kits/net/service/testserver.py",
         "patchSetId": 1
@@ -152,6 +296,24 @@
       "revId": "1c1dc694c7b7200822a9688d181274fcd1671d90",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9c91e17_e3dddc43",
+        "filename": "src/tests/kits/net/service/testserver.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-02-15T02:31:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6b1aa58b_34f42597",
+      "revId": "1c1dc694c7b7200822a9688d181274fcd1671d90",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }

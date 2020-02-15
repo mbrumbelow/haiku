@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e38b3c8e_1cf5012c",
+        "filename": "src/tests/kits/net/service/HttpTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-02-15T02:31:38Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "298161fd_2f18b711",
+      "revId": "0c481598be65652e10dda95cb1a8dfb624d23879",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "517df530_d5769a67",
         "filename": "src/tests/kits/net/service/HttpTest.cpp",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2020-02-14T13:31:05Z",
       "side": 0,
       "message": "The goal of this test was checking the use of an alternate port for an HTTP request. This is now covered by the other tests (as we always use a non-default port), but now we lose coverage of the case where the default port should be used (making sure 80 or 443 is selected depending on wether we use https or not).",
+      "revId": "0c481598be65652e10dda95cb1a8dfb624d23879",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93b7d343_b1b2968f",
+        "filename": "src/tests/kits/net/service/HttpTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-02-15T02:31:38Z",
+      "side": 0,
+      "message": "Hrm, yeah I see. I assumed that the default port was chosen by BUrl, but it looks like BRequest is the one that does it.\n\nI think as long as we have a test that asserts the right default port is chosen for HTTP and HTTPS URLs then we\u0027d be good. I\u0027d like to avoid having the tests bind port 80 or 443 if possible.\n\nLemme see if I can figure out a better solution.",
+      "parentUuid": "517df530_d5769a67",
       "revId": "0c481598be65652e10dda95cb1a8dfb624d23879",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -50,6 +86,24 @@
       "revId": "0c481598be65652e10dda95cb1a8dfb624d23879",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0d0c9c8_fa4f5827",
+        "filename": "src/tests/kits/net/service/HttpTest.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-02-15T02:31:38Z",
+      "side": 0,
+      "message": "Oops, that wasn\u0027t intentional. I just realized that a bunch of my code style mistakes are being caused by ccls which is reformatting stuff as I type. I just disabled that so hopefully I\u0027ll stop making mistakes like this.",
+      "parentUuid": "dbb7a10f_2ce8dd8b",
+      "revId": "0c481598be65652e10dda95cb1a8dfb624d23879",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
