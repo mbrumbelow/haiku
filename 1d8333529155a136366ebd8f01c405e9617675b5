@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a06005f_c9dfa1cf",
+        "filename": "src/tests/kits/net/service/HttpTest.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-15T10:40:55Z",
+      "side": 1,
+      "message": "Indentation is incorrect here, TestServer should be aligned with the types above (all the \"void\") and fTestServer with the method names",
+      "revId": "1d8333529155a136366ebd8f01c405e9617675b5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
