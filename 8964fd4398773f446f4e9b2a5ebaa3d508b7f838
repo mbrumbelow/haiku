@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "777644c6_a4dc5a4b",
+        "filename": "build/jam/ImageRules",
+        "patchSetId": 1
+      },
+      "lineNbr": 1635,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-17T08:19:49Z",
+      "side": 1,
+      "message": "Don\u0027t we need a\n\n    Depends $(image) : $(efiLoader) $(EFIICON);\n\nhere? In case someone wants to change the icon.",
+      "revId": "8964fd4398773f446f4e9b2a5ebaa3d508b7f838",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
