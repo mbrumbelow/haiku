@@ -1634,6 +1634,8 @@ rule BuildEfiSystemPartition image : efiLoader
 {
 	Depends $(image) : $(efiLoader) ;
 
+	EFIICON on $(image) = [ FDirName $(HAIKU_TOP) data artwork VolumeIcon.icns ] ;
+
 	BuildEfiSystemPartition1 $(image) : $(efiLoader) ;
 }
 
@@ -1644,5 +1646,6 @@ actions BuildEfiSystemPartition1
 	mformat -i $(<) -f 2880
 	mmd -D s -i $(<) ::/EFI
 	mmd -D s -i $(<) ::/EFI/BOOT
+	mcopy -D o -i $(<) $(EFIICON) ::/.VolumeIcon.icns
 	mcopy -D o -i $(<) $(>) ::/EFI/BOOT/BOOTX64.EFI
 }
