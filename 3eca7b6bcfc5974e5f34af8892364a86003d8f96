@@ -16,6 +16,24 @@
       "revId": "3eca7b6bcfc5974e5f34af8892364a86003d8f96",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3759c41_26bc0d6f",
+        "filename": "src/add-ons/kernel/drivers/audio/hda/hda_codec.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 972,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2020-02-18T19:14:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "699f9952_52b93b21",
+      "revId": "3eca7b6bcfc5974e5f34af8892364a86003d8f96",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
