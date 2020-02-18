@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "edf17cdb_8bfafa2b",
+        "filename": "src/system/boot/platform/efi/console.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2020-02-18T00:58:36Z",
+      "side": 1,
+      "message": "Am I misunderstanding the terminology used here, or is the logic here inverted? As best I can tell, if (graphics) is switching over to text mode, and vice versa, which appears to be counter to the intent based on the call from console_init().",
+      "revId": "baf0452126a3ef74df551ef17af4c632eb2abcc9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
