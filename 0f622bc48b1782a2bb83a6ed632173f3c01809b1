@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "392eaa33_82fd457e",
+        "filename": "src/apps/deskbar/TeamMenuItem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-02-19T06:49:31Z",
+      "side": 1,
+      "message": "This is no longer used.",
+      "parentUuid": "b23470bf_1358409d",
+      "revId": "0f622bc48b1782a2bb83a6ed632173f3c01809b1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "866960f6_f6537a60",
         "filename": "src/apps/deskbar/TeamMenuItem.cpp",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "c9586b32_32208f35",
+        "filename": "src/apps/deskbar/TeamMenuItem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-02-19T06:49:31Z",
+      "side": 1,
+      "message": "This was borrowed from some old Tracker code. I used B_MINI_ICON here because it was type icon_size in my mind and I\u0027m using it in a comparison. This code is no longer used.",
+      "parentUuid": "866960f6_f6537a60",
+      "revId": "0f622bc48b1782a2bb83a6ed632173f3c01809b1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d41f156_8e97225a",
         "filename": "src/apps/deskbar/TeamMenuItem.cpp",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2018-07-24T06:42:41Z",
       "side": 1,
       "message": "I find weird that the height is now independent of kVPad. What\u0027s the trick?",
+      "revId": "0f622bc48b1782a2bb83a6ed632173f3c01809b1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ab1179f_d86ba0a4",
+        "filename": "src/apps/deskbar/TeamMenuItem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-02-19T06:49:31Z",
+      "side": 1,
+      "message": "A version of this code made it into the later patch but kVPad comes into play in the icon scaling portion so I must have simply left it out at this stage.",
+      "parentUuid": "6d41f156_8e97225a",
       "revId": "0f622bc48b1782a2bb83a6ed632173f3c01809b1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false

@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1db6ea12_00d14dca",
+        "filename": "src/apps/deskbar/BarView.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1241,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-02-19T06:49:31Z",
+      "side": 1,
+      "message": "here\u0027s where kVPad comes back into play as padding around the icon.",
+      "revId": "d5d9e1926109a5ed9f334af59f45f2dacfb36b46",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f3c2f344_d16816fb",
+        "filename": "src/apps/deskbar/BarView.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1249,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-02-19T06:49:31Z",
+      "side": 1,
+      "message": "and then here is the evolution of the code you commented on with the same 1.1f font scaling and kMinTeamItemHeight (20, same as the old code.)\n\n// better written version of the line would be:\nlabelHeight \u003d std::min(kMinTeamItemHeight, ceilf(labelHeight * 1.1f));",
+      "revId": "d5d9e1926109a5ed9f334af59f45f2dacfb36b46",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
