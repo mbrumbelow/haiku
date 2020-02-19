@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b8a7c67d_53440743",
+        "filename": "src/apps/deskbar/BarView.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-02-19T00:42:44Z",
+      "side": 1,
+      "message": "This line should not be in this commit but the next one.",
+      "revId": "e2fc79055edd8192c38d3107b4adb1ee05a57071",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
