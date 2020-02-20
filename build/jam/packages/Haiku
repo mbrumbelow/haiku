@@ -25,6 +25,7 @@ for driver in $(SYSTEM_ADD_ONS_DRIVERS_NET) {
 	}
 }
 
+AddFirmwareToPackage intel_microcode@x86_64 ;
 
 # modules
 AddFilesToPackage add-ons kernel bus_managers : $(SYSTEM_ADD_ONS_BUS_MANAGERS) ;
