@@ -21,7 +21,9 @@
 #include <util/FixedWidthPointer.h>
 
 
-#define CURRENT_KERNEL_ARGS_VERSION	1
+#define KERNEL_ARGS_VERSION_V1		1
+#define KERNEL_ARGS_VERSION_V2		2
+#define CURRENT_KERNEL_ARGS_VERSION	KERNEL_ARGS_VERSION_V2
 #define MAX_KERNEL_ARGS_RANGE		20
 
 // names of common boot_volume fields

@@ -246,6 +246,7 @@ convert_kernel_args()
 	fix_address(gKernelArgs.boot_splash);
 	fix_address(gKernelArgs.arch_args.apic);
 	fix_address(gKernelArgs.arch_args.hpet);
+	fix_address(gKernelArgs.arch_args.ucode_data);
 
 	convert_preloaded_image(static_cast<preloaded_elf64_image*>(
 		gKernelArgs.kernel_image.Pointer()));
