@@ -126,6 +126,8 @@ main(stage2_args *args)
 
 			load_modules(args, bootVolume);
 
+			platform_load_ucode(bootVolume);
+
 			// apply boot settings
 			apply_boot_settings();
 

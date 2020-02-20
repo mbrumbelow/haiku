@@ -1034,9 +1034,9 @@ open_from(Directory *directory, const char *name, int mode, mode_t permissions)
 	char path[B_PATH_NAME_LENGTH];
 	if (strlcpy(path, name, sizeof(path)) >= sizeof(path))
 		return B_NAME_TOO_LONG;
-
 	Node *node;
 	status_t error = get_node_for_path(directory, path, &node);
+
 	if (error != B_OK) {
 		if (error != B_ENTRY_NOT_FOUND)
 			return error;
