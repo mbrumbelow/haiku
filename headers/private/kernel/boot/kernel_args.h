@@ -111,4 +111,9 @@ typedef struct kernel_args {
 
 } _PACKED kernel_args;
 
+
+const size_t kernel_args_size_v1 = sizeof(kernel_args) - sizeof(FixedWidthPointer<void>)
+	- sizeof(uint32);
+
+
 #endif	/* KERNEL_BOOT_KERNEL_ARGS_H */
