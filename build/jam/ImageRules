@@ -429,6 +429,31 @@ rule AddWifiFirmwareToContainer container : driver : package : archive : extract
 }
 
 
+rule AddFirmwareToPackage packages
+{
+	# AddFirmwareToContainer <packages>
+	packages = [ FFilterByBuildFeatures $(packages) ] ;
+
+	local package ;
+	for package in $(packages) {
+		local resolvedPackage = [ IsPackageAvailable $(package) ] ;
+		if ! $(resolvedPackage) {
+			Echo "AddFirmwareToPackage: package" $(package)
+				"not available!" ;
+			continue ;
+		}
+
+		local file = [ FetchPackage $(package) ] ;
+		local systemDirTokens
+			= [ on $(HAIKU_CURRENTLY_BUILT_HAIKU_PACKAGE)
+				return $(HAIKU_CONTAINER_SYSTEM_DIR_TOKENS) ] ;
+
+		local dirTokens = $(systemDirTokens) data ;
+		ExtractArchiveToPackage $(dirTokens) : $(file) : : data ;
+	}
+}
+
+
 rule ExtractArchiveToContainer container : directoryTokens : archiveFile
 	: flags : extractedSubDir
 {
