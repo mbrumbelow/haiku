@@ -39,6 +39,9 @@ using namespace boot;
 #endif
 
 
+int debug_uload = false;
+
+
 struct __DIR {
 	Directory*	directory;
 	void*		cookie;
@@ -773,6 +776,8 @@ mount_file_systems(stage2_args *args)
 static status_t
 get_node_for_path(Directory *directory, char *path, Node **_node)
 {
+	if (debug_uload == 1) TRACE(("get_node_for_path: 1\n"));
+
 	directory->Acquire();
 		// balance Acquire()/Release() calls
 
@@ -784,6 +789,8 @@ get_node_for_path(Directory *directory, char *path, Node **_node)
 		// path component), and filter out multiple slashes
 		for (nextPath = path + 1; nextPath[0] != '\0' && nextPath[0] != '/'; nextPath++);
 
+	if (debug_uload == 1) TRACE(("get_node_for_path: 2 %s\n", path));
+
 		if (*nextPath == '/') {
 			*nextPath = '\0';
 			do
@@ -791,24 +798,30 @@ get_node_for_path(Directory *directory, char *path, Node **_node)
 			while (*nextPath == '/');
 		}
 
+	if (debug_uload == 1) TRACE(("get_node_for_path: 3 %s\n", path));
 		nextNode = directory->Lookup(path, true);
 		directory->Release();
 
 		if (nextNode == NULL)
 			return B_ENTRY_NOT_FOUND;
 
+	if (debug_uload == 1) TRACE(("get_node_for_path: 4\n"));
 		path = nextPath;
 		if (S_ISDIR(nextNode->Type()))
 			directory = (Directory *)nextNode;
 		else if (path[0])
 			return B_NOT_ALLOWED;
 
+	if (debug_uload == 1) TRACE(("get_node_for_path: 5\n"));
 		// are we done?
 		if (path[0] == '\0') {
 			*_node = nextNode;
+	if (debug_uload == 1) TRACE(("get_node_for_path: 6\n"));
 			return B_OK;
 		}
 	}
+
+	if (debug_uload == 1) TRACE(("get_node_for_path: 7\n"));
 
 	return B_ENTRY_NOT_FOUND;
 }
@@ -1036,13 +1049,18 @@ open_from(Directory *directory, const char *name, int mode, mode_t permissions)
 		return B_NAME_TOO_LONG;
 
 	Node *node;
+	if (debug_uload == 1) TRACE(("open_from: %s\n", name));
 	status_t error = get_node_for_path(directory, path, &node);
+	if (debug_uload == 1) TRACE(("open_from: %s\n", strerror(error)));
+
 	if (error != B_OK) {
 		if (error != B_ENTRY_NOT_FOUND)
 			return error;
 
 		if ((mode & O_CREAT) == 0)
 			return B_ENTRY_NOT_FOUND;
+
+	if (debug_uload == 1) TRACE(("open_from: 2\n"));
 
 		// try to resolve the parent directory
 		strlcpy(path, name, sizeof(path));
@@ -1077,6 +1095,7 @@ open_from(Directory *directory, const char *name, int mode, mode_t permissions)
 		return B_FILE_EXISTS;
 	}
 
+	if (debug_uload == 1) TRACE(("open_from: 3\n"));
 	int fd = open_node(node, mode);
 
 	node->Release();
