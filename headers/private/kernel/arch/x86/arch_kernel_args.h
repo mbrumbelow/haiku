@@ -40,6 +40,9 @@ typedef struct {
 	FixedWidthPointer<void> hpet;
 	// needed for UEFI, otherwise kernel acpi support can't find ACPI root
 	FixedWidthPointer<void> acpi_root;
+	// microcode
+	FixedWidthPointer<void> ucode_data;
+	uint32	ucode_data_size;
 } _PACKED arch_kernel_args;
 
 #endif	/* KERNEL_ARCH_x86_KERNEL_ARGS_H */
