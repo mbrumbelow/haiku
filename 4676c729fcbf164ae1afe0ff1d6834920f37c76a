@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "e633e67f_8845851b",
+        "filename": "src/add-ons/kernel/drivers/timer/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-02-20T17:26:03Z",
+      "side": 1,
+      "message": "Why is this needed?",
+      "revId": "4676c729fcbf164ae1afe0ff1d6834920f37c76a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "758a6710_42e74c79",
         "filename": "src/system/boot/platform/efi/arch/riscv64/crt0-efi-riscv64.S",
         "patchSetId": 1
@@ -30,6 +47,23 @@
       "writtenOn": "2020-02-19T22:37:47Z",
       "side": 1,
       "message": "GPL-2.0+ followed by a BSD 3-clause license.",
+      "revId": "4676c729fcbf164ae1afe0ff1d6834920f37c76a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8d2cd3a_4ef235d5",
+        "filename": "src/system/boot/platform/efi/arch/x86_64/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-02-20T17:26:03Z",
+      "side": 1,
+      "message": "It would be nice if the root Jamfile declared these in some global variable, so we didn\u0027t have to re-declare them in subdirectories.",
       "revId": "4676c729fcbf164ae1afe0ff1d6834920f37c76a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
