@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "01d69105_2acd8d5c",
+        "filename": "src/system/boot/platform/efi/arch/x86_64/Jamfile",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-20T21:47:35Z",
+      "side": 1,
+      "message": "wasn\u0027t the gnu efi stuff removed?",
+      "revId": "079dec73678586eb6687d6aa35a6572117349b04",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f13c836_14080c26",
+        "filename": "src/system/boot/platform/efi/arch/x86_64/arch_mmu.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-20T21:47:35Z",
+      "side": 1,
+      "message": "80 columns (also other lines below)",
+      "revId": "079dec73678586eb6687d6aa35a6572117349b04",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbe7d70a_b58cadfa",
+        "filename": "src/system/boot/platform/efi/arch/x86_64/arch_mmu.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-20T21:47:35Z",
+      "side": 1,
+      "message": "this #if can be removed now?",
+      "revId": "079dec73678586eb6687d6aa35a6572117349b04",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7104b2d_6853ec97",
+        "filename": "src/system/boot/platform/efi/arch/x86_64/arch_start.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-20T21:47:35Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "079dec73678586eb6687d6aa35a6572117349b04",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
