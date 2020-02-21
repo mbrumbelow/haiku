@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "6dfabfd4_01e05a37",
+        "filename": "headers/os/support/Url.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-02-21T13:40:34Z",
+      "side": 1,
+      "message": "Why not leave BUrl(const char* url) as is and add BUrl(const char* url, bool encode)?",
+      "revId": "52172c70cd975ac21ebd7f4a5dca9b0d2ce46166",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "112c1e3f_defa6be7",
+        "filename": "headers/os/support/Url.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-02-21T13:40:34Z",
+      "side": 1,
+      "message": "Why not leave SetUrlString(const BString\u0026 url) as is, and add SetUrlString(const BString\u0026 url, bool encode)?",
+      "revId": "52172c70cd975ac21ebd7f4a5dca9b0d2ce46166",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2167590c_e74f0aca",
         "filename": "src/kits/network/libnetapi/FileRequest.cpp",
         "patchSetId": 4
