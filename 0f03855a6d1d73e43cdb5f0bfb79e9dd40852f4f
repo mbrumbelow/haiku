@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bbea5ac8_5faded65",
+        "filename": "build/jam/ImageRules",
+        "patchSetId": 4
+      },
+      "lineNbr": 1143,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-02-21T13:35:22Z",
+      "side": 1,
+      "message": "Should be AddHaikuImageSystemPackages",
+      "revId": "0f03855a6d1d73e43cdb5f0bfb79e9dd40852f4f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9416390b_8e8bfa83",
+        "filename": "build/jam/ImageRules",
+        "patchSetId": 4
+      },
+      "lineNbr": 1147,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-02-21T13:35:22Z",
+      "side": 1,
+      "message": "Why the check for HAIKU_INCLUDE_SOURCES in AddHaikuImageSystemPackages ?",
+      "revId": "0f03855a6d1d73e43cdb5f0bfb79e9dd40852f4f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5079a3f_44467d33",
+        "filename": "build/jam/ImageRules",
+        "patchSetId": 4
+      },
+      "lineNbr": 1158,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-02-21T13:35:22Z",
+      "side": 1,
+      "message": "Why the check for HAIKU_INCLUDE_SOURCES in AddHaikuImageDisabledPackages?",
+      "revId": "0f03855a6d1d73e43cdb5f0bfb79e9dd40852f4f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b40e80f6_3bfa0ca2",
+        "filename": "build/jam/OptionalPackages",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-02-21T13:35:22Z",
+      "side": 1,
+      "message": "I would add a flags parameter to AddHaikuImageSourcesPackages, and drop the check for HAIKU_INCLUDE_SOURCES here.",
+      "revId": "0f03855a6d1d73e43cdb5f0bfb79e9dd40852f4f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c4e6236_4c759e98",
+        "filename": "build/jam/OptionalPackages",
+        "patchSetId": 4
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-02-21T13:35:22Z",
+      "side": 1,
+      "message": "I would add a \"flags\" optional parameter to AddHaikuImageSystemPackages",
+      "revId": "0f03855a6d1d73e43cdb5f0bfb79e9dd40852f4f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
