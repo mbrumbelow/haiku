@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa63f8d3_742b64cf",
+        "filename": "src/system/boot/platform/efi/mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-02-21T15:41:50Z",
+      "side": 1,
+      "message": "actually!  kernel/kernel.h seems to include arch_kernel.h",
+      "range": {
+        "startLine": 15,
+        "startChar": 10,
+        "endLine": 15,
+        "endChar": 25
+      },
+      "revId": "0758a4d4bc757571a692e3e2a75749257a75caf9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
