@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2167590c_e74f0aca",
+        "filename": "src/kits/network/libnetapi/FileRequest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-21T12:01:34Z",
+      "side": 1,
+      "message": "remove this",
+      "revId": "52172c70cd975ac21ebd7f4a5dca9b0d2ce46166",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ed9ddd5_3a29f4b1",
+        "filename": "src/kits/network/libnetapi/GopherRequest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-21T12:01:34Z",
+      "side": 1,
+      "message": "remove this",
+      "revId": "52172c70cd975ac21ebd7f4a5dca9b0d2ce46166",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
