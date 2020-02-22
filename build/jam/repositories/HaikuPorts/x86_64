@@ -7,6 +7,7 @@ RemotePackageRepository HaikuPorts
 	ca_root_certificates-2020_01_01-1
 	gnu_efi_kernel-3.0.10-1
 	haikuporter-1.2.3-2
+	intel_microcode-20200508-1
 	noto-20170920-3
 	noto_sans_cjk_jp-1.004-2
 	timgmsoundfont-fixed-5
