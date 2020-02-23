@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dd32aff6_4f39a429",
+        "filename": "src/apps/stylededit/StyledEditApp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-23T19:39:14Z",
+      "side": 1,
+      "message": "This is not nice for localization:\n\nExisting problems from previous code:\n- Some languages may need the number before the \"untitled\" word\n- The translated string has a trailing whitespace which can easily be missed\nSolution: use \"Untitled %d\" and BString::SetToFormat instead.\n\nNewly introduced problems:\n- This B_TRANSLATE is under a different context than the one in StyledEditWindow, so they will show up as two different strings in Pootle. If the translators misses this (or if they translate only one of them, as will be the case when this is merged), things will not work.\nSolution: Use B_TRANSLATE_CONTEXT and specify the context explicitly so the string is not duplicatded.\n\nIn general I wonder if getting the info from the window title is a good idea. It could be simpler if StyledEditWindow had a GetUntitledNumber (returning the number for untitled documents, and -1 otherwise, for example)? Or at least a GetUntitledWindowName(int number) to do the B_TRANSLATE call and to be used both here and in the window constructor when it sets its own name. This way the window naming logic/format stays better isolated from this.",
+      "revId": "036f9c50320ec1a4ee772904c9bc2f567d82f21c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5460773_60c8f880",
+        "filename": "src/apps/stylededit/StyledEditApp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-23T19:39:14Z",
+      "side": 1,
+      "message": "This single loop approach will not work if the windows are out of order.\n\nSimple example:\n\nI am 1, first window is 2: no match\nI am 1, second window is 1: I become 2\nNo more windows: I stay 2\n\nNow there are two \"untitled window 2\".\n\nAn ugly option is to reset i\u003d0 everytime you match the title with another window, but this is inefficient. I think we need a map of used/available numbers, either built on the fly here (simpler) or maintained by StyledEditWindow whenever a window is open, closed, or renamed (more involved, but more efficient).",
+      "revId": "036f9c50320ec1a4ee772904c9bc2f567d82f21c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
