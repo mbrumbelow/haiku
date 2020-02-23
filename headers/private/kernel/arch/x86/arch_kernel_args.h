@@ -45,4 +45,33 @@ typedef struct {
 	uint32	ucode_data_size;
 } _PACKED arch_kernel_args;
 
+
+// kernel args
+typedef struct {
+	// architecture specific
+	uint32	system_time_cv_factor;
+	uint64	cpu_clock_speed;
+	uint32	phys_pgdir;
+	uint64	vir_pgdir;
+	uint32	num_pgtables;
+	uint32	pgtables[MAX_BOOT_PTABLES];
+	uint64	virtual_end;
+	uint64	page_hole;
+	// smp stuff
+	uint32	apic_time_cv_factor; // apic ticks per second
+	uint32	apic_phys;
+	FixedWidthPointer<void> apic;
+	uint32	ioapic_phys;
+	uint32	cpu_apic_id[SMP_MAX_CPUS];
+	uint32	cpu_apic_version[SMP_MAX_CPUS];
+	// hpet stuff
+	uint32	hpet_phys;
+	FixedWidthPointer<void> hpet;
+	// needed for UEFI, otherwise kernel acpi support can't find ACPI root
+	FixedWidthPointer<void> acpi_root;
+} _PACKED arch_kernel_args_v1;
+
+#define KERNEL_ARCH_ARGS_V1
+
+
 #endif	/* KERNEL_ARCH_x86_KERNEL_ARGS_H */

@@ -42,3 +42,21 @@ arch_platform_init_post_thread(struct kernel_args *args)
 	return B_OK;
 }
 
+
+status_t
+arch_platform_convert_args(struct kernel_args *args, bool* upgraded)
+{
+	if (args->version == KERNEL_ARGS_VERSION_V1
+			&& args->kernel_args_size == sizeof(kernel_args_v1)) {
+		kernel_args_v1* bootKernelArgsV1 = (kernel_args_v1*)args;
+		args->boot_splash = bootKernelArgsV1->boot_splash;
+		args->arch_args.ucode_data = NULL;
+		args->arch_args.ucode_data_size= 0;
+		args->version = KERNEL_ARGS_VERSION_V2;
+		args->kernel_args_size = sizeof(kernel_args);
+		if (upgraded != NULL)
+			*upgraded = true;
+	}
+	return B_OK;
+}
+

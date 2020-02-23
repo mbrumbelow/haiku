@@ -103,17 +103,26 @@ _start(kernel_args *bootKernelArgs, int currentCPU)
 		// released kernels.
 		debug_early_boot_message("Version mismatch between boot loader and "
 			"kernel!\n");
-		return -1;
 	}
 
 	smp_set_num_cpus(bootKernelArgs->num_cpus);
+
+	bool upgraded = false;
 
 	// wait for all the cpus to get here
 	smp_cpu_rendezvous(&sCpuRendezvous);
 
 	// the passed in kernel args are in a non-allocated range of memory
-	if (currentCPU == 0)
+	if (currentCPU == 0) {
+		// We try to convert an old kernelArgs format to the current one
+		if (arch_platform_convert_args(bootKernelArgs, &upgraded) != B_OK
+			|| bootKernelArgs->kernel_args_size != sizeof(kernel_args)
+			|| bootKernelArgs->version != CURRENT_KERNEL_ARGS_VERSION) {
+			debug_early_boot_message("Kernel args upgrade failed!\n");
+			return -1;
+		}
 		memcpy(&sKernelArgs, bootKernelArgs, sizeof(kernel_args));
+	}
 
 	smp_cpu_rendezvous(&sCpuRendezvous2);
 
@@ -130,8 +139,8 @@ _start(kernel_args *bootKernelArgs, int currentCPU)
 		debug_init(&sKernelArgs);
 		set_dprintf_enabled(true);
 		dprintf("Welcome to kernel debugger output!\n");
-		dprintf("Haiku revision: %s, debug level: %d\n", get_haiku_revision(),
-			KDEBUG_LEVEL);
+		dprintf("Haiku revision: %s, debug level: %d%s\n", get_haiku_revision(),
+			KDEBUG_LEVEL, upgraded ? " kernel args upgraded" : "");
 
 		// init modules
 		TRACE("init CPU\n");

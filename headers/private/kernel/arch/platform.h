@@ -20,6 +20,8 @@ extern "C" {
 status_t arch_platform_init(struct kernel_args *kernelArgs);
 status_t arch_platform_init_post_vm(struct kernel_args *kernelArgs);
 status_t arch_platform_init_post_thread(struct kernel_args *kernelArgs);
+status_t arch_platform_convert_args(struct kernel_args *kernelArgs, bool* upgraded);
+
 
 #ifdef __cplusplus
 }	// extern "C"
