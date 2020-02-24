@@ -16,6 +16,24 @@
       "revId": "69ddbe5ccef9d5e37760a098fd809da939ecb385",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04345446_374849e8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-02-24T14:46:51Z",
+      "side": 1,
+      "message": "It fix the issue, fixed commit message.",
+      "parentUuid": "c625b886_4e920bfe",
+      "revId": "69ddbe5ccef9d5e37760a098fd809da939ecb385",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
