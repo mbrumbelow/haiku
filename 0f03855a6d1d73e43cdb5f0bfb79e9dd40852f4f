@@ -142,6 +142,24 @@
     },
     {
       "key": {
+        "uuid": "e7e0ff87_4f0fbbb8",
+        "filename": "build/jam/OptionalPackages",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-02-24T14:24:09Z",
+      "side": 1,
+      "message": "Right, I have mixed up the rules AddHaikuImagePackages vs AddPackageFilesToHaikuImage",
+      "parentUuid": "e50e6c71_594d8aa1",
+      "revId": "0f03855a6d1d73e43cdb5f0bfb79e9dd40852f4f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8c4e6236_4c759e98",
         "filename": "build/jam/OptionalPackages",
         "patchSetId": 4
@@ -171,6 +189,24 @@
       "side": 1,
       "message": "Same problem as above, AddHaikuImageSystemPackages works only with packages to download from the repos.",
       "parentUuid": "8c4e6236_4c759e98",
+      "revId": "0f03855a6d1d73e43cdb5f0bfb79e9dd40852f4f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c904a03_565657b5",
+        "filename": "build/jam/OptionalPackages",
+        "patchSetId": 4
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-02-24T14:24:09Z",
+      "side": 1,
+      "message": "OK, adding a rule AddSystemPackageFilesToHaikuImage would to factorize a bit would be nicer (similar to AddHaikuImageSystemPackages)",
+      "parentUuid": "ff0a6fc7_dc0b9e47",
       "revId": "0f03855a6d1d73e43cdb5f0bfb79e9dd40852f4f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
