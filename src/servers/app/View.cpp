@@ -105,6 +105,7 @@ View::View(IntRect frame, IntPoint scrollingOffset, const char* name,
 	fVisible(true),
 	fBackgroundDirty(true),
 	fIsDesktopBackground(false),
+	fIsTransparent(false),
 
 	fEventMask(0),
 	fEventOptions(0),
@@ -126,6 +127,8 @@ View::View(IntRect frame, IntPoint scrollingOffset, const char* name,
 	fUserClipping(NULL),
 	fScreenAndUserClipping(NULL)
 {
+	_UpdateIsTransparent();
+
 	if (fDrawState)
 		fDrawState->SetSubPixelPrecise(fFlags & B_SUBPIXEL_PRECISE);
 }
@@ -487,6 +490,9 @@ void
 View::SetFlags(uint32 flags)
 {
 	fFlags = flags;
+
+	_UpdateIsTransparent();
+
 	fDrawState->SetSubPixelPrecise(fFlags & B_SUBPIXEL_PRECISE);
 }
 
@@ -521,6 +527,19 @@ View::SetViewBitmap(ServerBitmap* bitmap, IntRect sourceRect,
 	fBitmapOptions = options;
 
 	_UpdateOverlayView();
+}
+
+
+void
+View::_UpdateIsTransparent()
+{
+	bool oldIsTransparent = fIsTransparent;
+	fIsTransparent = (fFlags & B_OPAQUE_VIEW) == 0
+		&& fViewColor == B_TRANSPARENT_COLOR;
+
+	if (fParent != NULL && IsVisible() && oldIsTransparent != fIsTransparent) {
+		fParent->RebuildClipping(false);
+	}
 }
 
 
@@ -716,8 +735,7 @@ View::ResizeBy(int32 x, int32 y, BRegion* dirtyRegion)
 				// include their own dirty regions in ParentResized()
 				for (View* child = FirstChild(); child;
 						child = child->NextSibling()) {
-					if (!child->IsVisible()
-						|| child->fViewColor == B_TRANSPARENT_COLOR) {
+					if (!child->IsVisible() || child->fIsTransparent) {
 						continue;
 					}
 					IntRect previousChildVisible(
@@ -921,22 +939,6 @@ View::CopyBits(IntRect src, IntRect dst, BRegion& windowContentClipping)
 
 
 // #pragma mark -
-
-
-void
-View::SetViewColor(const rgb_color& color)
-{
-	rgb_color oldColor = fViewColor;
-	fViewColor = color;
-	// Child view with B_TRANSPARENT_COLOR view color change clipping of
-	// parent view.
-	if (fParent != NULL
-		&& IsVisible()
-		&& ((oldColor == B_TRANSPARENT_COLOR)
-			!= (color == B_TRANSPARENT_COLOR))) {
-		fParent->RebuildClipping(false);
-	}
-}
 
 
 void
@@ -1418,8 +1420,7 @@ View::RebuildClipping(bool deep)
 				return;
 
 			for (; child; child = child->NextSibling()) {
-				if (child->IsVisible()
-					&& child->fViewColor != B_TRANSPARENT_COLOR) {
+				if (child->IsVisible() && !child->fIsTransparent) {
 					childrenRegion->Include((clipping_rect)child->Frame());
 				}
 			}

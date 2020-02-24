@@ -53,6 +53,7 @@
 #include <AppServerLink.h>
 #include <binary_compatibility/Interface.h>
 #include <binary_compatibility/Support.h>
+#include <libroot_private.h>
 #include <MessagePrivate.h>
 #include <MessageUtils.h>
 #include <PortLink.h>
@@ -1050,7 +1051,8 @@ BView::SetFlags(uint32 flags)
 
 		uint32 changesFlags = flags ^ fFlags;
 		if (changesFlags & (B_WILL_DRAW | B_FULL_UPDATE_ON_RESIZE
-				| B_FRAME_EVENTS | B_SUBPIXEL_PRECISE)) {
+				| B_FRAME_EVENTS | B_SUBPIXEL_PRECISE
+				| B_OPAQUE_VIEW)) {
 			_CheckLockAndSwitchCurrent();
 
 			fOwner->fLink->StartMessage(AS_VIEW_SET_FLAGS);
@@ -5759,6 +5761,13 @@ BView::_InitData(BRect frame, const char* name, uint32 resizingMode,
 	// version restored:
 	// fFlags = (resizingMode & _RESIZE_MASK_) | (flags & ~_RESIZE_MASK_);
 	fFlags = resizingMode | flags;
+
+	// not working
+	#if 0
+	if (__gAPIVersion < B_HAIKU_VERSION_1_PRE_BETA_2) {
+		fFlags |= B_OPAQUE_VIEW;
+	}
+	#endif
 
 	// handle rounding
 	frame.left = roundf(frame.left);

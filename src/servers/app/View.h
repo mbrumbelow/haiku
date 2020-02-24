@@ -135,7 +135,8 @@ public:
 
 			const rgb_color& ViewColor() const
 								{ return fViewColor; }
-			void			SetViewColor(const rgb_color& color);
+			void			SetViewColor(const rgb_color& color)
+								{ fViewColor = color; _UpdateIsTransparent(); }
 
 			void			ColorUpdated(color_which which, rgb_color color);
 			void			SetViewUIColor(color_which which, float tint);
@@ -231,6 +232,7 @@ protected:
 								bool deep);
 			Overlay*		_Overlay() const;
 			void			_UpdateOverlayView() const;
+			void 			_UpdateIsTransparent();
 
 			BString			fName;
 			int32			fToken;
@@ -254,6 +256,7 @@ protected:
 			bool			fVisible : 1;
 			bool			fBackgroundDirty : 1;
 			bool			fIsDesktopBackground : 1;
+			bool			fIsTransparent : 1;
 
 			uint32			fEventMask;
 			uint32			fEventOptions;
