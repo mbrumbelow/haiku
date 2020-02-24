@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c0b6a9a6_cbecec61",
+        "filename": "src/system/kernel/arch/x86/arch_cpu.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-24T10:44:59Z",
+      "side": 1,
+      "message": "this one is wrongly indented with a space",
+      "revId": "357ca3f052b03b75ec714195dfef64bd0f90e6f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
