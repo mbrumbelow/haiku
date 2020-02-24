@@ -223,18 +223,21 @@ if $(TARGET_GCC_VERSION_$(TARGET_PACKAGING_ARCH)[1]) = 2 {
 
 for platform in [ MultiBootSubDirSetup ] {
 	on $(platform) {
-		if $(TARGET_ARCH) = x86_64 && $(TARGET_BOOT_PLATFORM) = efi {
-			SEARCH_SOURCE += [ FDirName $(SUBDIR) $(DOTDOT) libroot os arch
-								x86_64 ] ;
-		} else {
-			SEARCH_SOURCE += [ FDirName $(SUBDIR) $(DOTDOT) libroot os arch
-									$(TARGET_KERNEL_ARCH) ] ;
-		}
 
+		SEARCH_SOURCE += [ FDirName $(SUBDIR) $(DOTDOT) libroot os
+			arch $(TARGET_ARCH) ] ;
 		SEARCH_SOURCE += [ FDirName $(SUBDIR) $(DOTDOT) libroot posix string ] ;
 		SEARCH_SOURCE += [ FDirName $(SUBDIR) $(DOTDOT) libroot posix stdlib ] ;
 		SEARCH_SOURCE += [ FDirName $(SUBDIR) $(DOTDOT) libroot posix locale ] ;
 		SEARCH_SOURCE += [ FDirName $(SUBDIR) $(DOTDOT) kernel lib ] ;
+
+		local extraLibs = ;
+		if $(TARGET_BOOT_PLATFORM) = efi {
+			if $(TARGET_KERNEL_ARCH) in arm x86 {
+				# 32-bit builds need sw 64-bit div calls
+				extraLibs += [ TargetStaticLibgcc ] ;
+			}
+		}
 
 		BootMergeObject boot_libroot_$(platform:G=).o :
 			abs.c
@@ -262,6 +265,8 @@ for platform in [ MultiBootSubDirSetup ] {
 			strtol.c
 			strtoul.c
 			$(extraSources)
+			: :
+			$(extraLibs)
 		;
 
 		AddResources haiku_loader.$(TARGET_BOOT_PLATFORM) : boot_loader.rdef ;
@@ -300,6 +305,7 @@ for platform in [ MultiBootSubDirSetup ] {
 			]
 			# libroot functions needed by the stage2 boot loader
 			boot_libroot_$(platform:G=).o
+			$(extraLibs)
 
 			: $(HAIKU_TOP)/src/system/ldscripts/$(TARGET_ARCH)/boot_loader_$(platform:G=).ld
 			: $(ldflags)

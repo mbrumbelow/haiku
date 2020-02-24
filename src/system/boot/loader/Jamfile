@@ -94,6 +94,13 @@ for platform in [ MultiBootSubDirSetup ] {
 			SubDirC++Flags -fno-rtti -include $(kernelC++Header) ;
 		}
 
+		local extraLibs = ;
+		if $(TARGET_BOOT_PLATFORM) = efi {
+			if $(TARGET_KERNEL_ARCH) in arm x86 {
+				# 32-bit builds need sw 64-bit div calls
+				extraLibs += [ TargetStaticLibgcc ] ;
+			}
+		}
 
 		BootStaticLibrary [ MultiBootGristFiles boot_loader ] :
 			PathBlacklist.cpp
@@ -125,6 +132,8 @@ for platform in [ MultiBootSubDirSetup ] {
 
 			DataIO.cpp
 			Referenceable.cpp
+			: :
+			$(extraLibs)
 			;
 
 		# The partition support is built in an extra static library
