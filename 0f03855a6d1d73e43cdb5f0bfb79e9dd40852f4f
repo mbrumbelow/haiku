@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "82bd7457_1444cd62",
+        "filename": "build/jam/ImageRules",
+        "patchSetId": 4
+      },
+      "lineNbr": 1143,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-24T13:19:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bbea5ac8_5faded65",
+      "revId": "0f03855a6d1d73e43cdb5f0bfb79e9dd40852f4f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9416390b_8e8bfa83",
         "filename": "build/jam/ImageRules",
         "patchSetId": 4
@@ -33,6 +51,24 @@
       "revId": "0f03855a6d1d73e43cdb5f0bfb79e9dd40852f4f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd152a64_3ec40f10",
+        "filename": "build/jam/ImageRules",
+        "patchSetId": 4
+      },
+      "lineNbr": 1147,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-24T13:19:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9416390b_8e8bfa83",
+      "revId": "0f03855a6d1d73e43cdb5f0bfb79e9dd40852f4f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "600d6de2_a89e6076",
+        "filename": "build/jam/ImageRules",
+        "patchSetId": 4
+      },
+      "lineNbr": 1158,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-24T13:19:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5079a3f_44467d33",
+      "revId": "0f03855a6d1d73e43cdb5f0bfb79e9dd40852f4f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b40e80f6_3bfa0ca2",
         "filename": "build/jam/OptionalPackages",
         "patchSetId": 4
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "e50e6c71_594d8aa1",
+        "filename": "build/jam/OptionalPackages",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-24T13:19:20Z",
+      "side": 1,
+      "message": "It does not seem to work, AddHaikuImageSourcePackages expects the bare name (for example \u0027zlib\u0027) and handles fetching the package from the repos with the correct version. So we cannot use it for the packages generated during the build.",
+      "parentUuid": "b40e80f6_3bfa0ca2",
+      "revId": "0f03855a6d1d73e43cdb5f0bfb79e9dd40852f4f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8c4e6236_4c759e98",
         "filename": "build/jam/OptionalPackages",
         "patchSetId": 4
@@ -81,6 +153,24 @@
       "writtenOn": "2020-02-21T13:35:22Z",
       "side": 1,
       "message": "I would add a \"flags\" optional parameter to AddHaikuImageSystemPackages",
+      "revId": "0f03855a6d1d73e43cdb5f0bfb79e9dd40852f4f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff0a6fc7_dc0b9e47",
+        "filename": "build/jam/OptionalPackages",
+        "patchSetId": 4
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-24T13:19:20Z",
+      "side": 1,
+      "message": "Same problem as above, AddHaikuImageSystemPackages works only with packages to download from the repos.",
+      "parentUuid": "8c4e6236_4c759e98",
       "revId": "0f03855a6d1d73e43cdb5f0bfb79e9dd40852f4f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
