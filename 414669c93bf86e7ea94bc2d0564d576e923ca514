@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "51f0407d_a909b506",
+        "filename": "src/system/boot/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-02-25T10:25:12Z",
+      "side": 1,
+      "message": "This line is too long.\n\nThis means libroot/os/arch/x86 will be used instead of libroot/os/arch/x86_64, is it what we want?",
+      "revId": "414669c93bf86e7ea94bc2d0564d576e923ca514",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
