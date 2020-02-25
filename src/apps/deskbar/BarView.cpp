@@ -331,6 +331,7 @@ TBarView::MouseMoved(BPoint where, uint32 transit, const BMessage* dragMessage)
 
 	BPoint whereScreen = currentMessage->GetPoint("screen_where",
 		ConvertToScreen(where));
+
 	BRect screenFrame = (BScreen(Window())).Frame();
 
 	// Auto-Raise and Auto-Hide
@@ -392,11 +393,9 @@ TBarView::MouseDown(BPoint where)
 	BPoint whereScreen = currentMessage->GetPoint("screen_where",
 		ConvertToScreen(where));
 	if (Window()->Frame().Contains(whereScreen)) {
-		// don't activate window if calendar is showing
-		if (!fReplicantTray->fTime->IsShowingCalendar()
-			&& (alwaysOnTop || (autoRaise && isTopMost))) {
+		// activate on click unless always on top or calendar is showing
+		if (!alwaysOnTop && !fReplicantTray->fTime->IsShowingCalendar())
 			Window()->Activate();
-		}
 
 		if ((modifiers() & (B_CONTROL_KEY | B_COMMAND_KEY | B_OPTION_KEY
 				| B_SHIFT_KEY)) == (B_CONTROL_KEY | B_COMMAND_KEY)) {
