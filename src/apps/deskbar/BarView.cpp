@@ -331,16 +331,9 @@ TBarView::MouseMoved(BPoint where, uint32 transit, const BMessage* dragMessage)
 
 	BPoint whereScreen = currentMessage->GetPoint("screen_where",
 		ConvertToScreen(where));
-	BRect screenFrame = (BScreen(Window())).Frame();
 
 	// Auto-Raise and Auto-Hide
-	if ((whereScreen.x == screenFrame.left
-			|| whereScreen.x == screenFrame.right
-			|| whereScreen.y == screenFrame.top
-			|| whereScreen.y == screenFrame.bottom)
-		&& Window()->Frame().Contains(whereScreen)) {
-		// cursor is on a screen edge within the window frame
-
+	if (Window()->Frame().Contains(whereScreen)) {
 		// raise Deskbar
 		if (!alwaysOnTop && autoRaise && !isTopMost)
 			RaiseDeskbar(true);
