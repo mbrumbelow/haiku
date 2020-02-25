@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f43da5f_eed90638",
+        "filename": "src/add-ons/accelerants/matrox/InitAccelerant.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-25T12:27:10Z",
+      "side": 1,
+      "message": "the \"goto error1\" should be on a separate line.",
+      "revId": "08fb4af0d60288eaf6da560e8fc643de58929d60",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2992d192_e05696de",
+        "filename": "src/add-ons/accelerants/nvidia/InitAccelerant.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-25T12:27:10Z",
+      "side": 1,
+      "message": "the \"goto error1\" should be on a separate line",
+      "revId": "08fb4af0d60288eaf6da560e8fc643de58929d60",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62b13793_4439d0ec",
+        "filename": "src/add-ons/accelerants/via/InitAccelerant.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-25T12:27:10Z",
+      "side": 1,
+      "message": "the \"goto error1\" should be on a separate line",
+      "revId": "08fb4af0d60288eaf6da560e8fc643de58929d60",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
