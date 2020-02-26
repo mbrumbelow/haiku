@@ -313,11 +313,14 @@ void
 PreferencesWindow::_EnableDisableDependentItems()
 {
 	TBarApp* barApp = static_cast<TBarApp*>(be_app);
-	if (barApp->BarView()->Vertical()
-		&& barApp->BarView()->ExpandoState()) {
+
+	bool verticalExpando = barApp->BarView()->Vertical()
+		&& barApp->BarView()->ExpandoState();
+	if (verticalExpando) {
 		fAppsShowExpanders->SetEnabled(true);
 		fAppsExpandNew->SetEnabled(fAppsShowExpanders->Value());
 	} else {
+		// disable expander settings if not in expando mode
 		fAppsShowExpanders->SetEnabled(false);
 		fAppsExpandNew->SetEnabled(false);
 	}
@@ -329,7 +332,11 @@ PreferencesWindow::_EnableDisableDependentItems()
 	fMenuRecentApplicationCount->SetEnabled(
 		fMenuRecentApplications->Value() != B_CONTROL_OFF);
 
-	fWindowAutoRaise->SetEnabled(
+	// disable auto-raise in horizontal top mode
+	bool horizontalTop = !barApp->BarView()->Vertical()
+		&& barApp->BarView()->Top();
+	// disable auto-raise if always-on-top
+	fWindowAutoRaise->SetEnabled(!horizontalTop &&
 		fWindowAlwaysOnTop->Value() == B_CONTROL_OFF);
 }
 
