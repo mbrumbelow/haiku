@@ -133,10 +133,12 @@ TBarView::TBarView(BRect frame, bool vertical, bool left, bool top,
 	:
 	BView(frame, "BarView", B_FOLLOW_ALL_SIDES, B_WILL_DRAW),
 	fBarApp(static_cast<TBarApp*>(be_app)),
+	fBarWindow(NULL),
 	fInlineScrollView(NULL),
 	fBarMenuBar(NULL),
 	fExpandoMenuBar(NULL),
 	fTrayLocation(1),
+	fIsRaised(false),
 	fVertical(vertical),
 	fTop(top),
 	fLeft(left),
@@ -204,6 +206,8 @@ void
 TBarView::AttachedToWindow()
 {
 	BView::AttachedToWindow();
+
+	fBarWindow = dynamic_cast<TBarWindow*>(Window());
 
 	SetViewUIColor(B_MENU_BACKGROUND_COLOR);
 	SetFont(be_plain_font);
@@ -316,12 +320,16 @@ TBarView::MouseMoved(BPoint where, uint32 transit, const BMessage* dragMessage)
 		SetEventMask(0);
 
 		return BView::MouseMoved(where, transit, dragMessage);
-	} else {
+	} else if (EventMask() != B_POINTER_EVENTS) {
 		// track mouse outside view
 		SetEventMask(B_POINTER_EVENTS, B_NO_POINTER_HISTORY);
 	}
 
-	bool isTopMost = Window()->Feel() == B_FLOATING_ALL_WINDOW_FEEL;
+	// exit if menu or calendar is showing
+	if (fBarWindow == NULL || fBarWindow->IsShowingMenu()
+		|| fReplicantTray->fTime->IsShowingCalendar()) {
+		return BView::MouseMoved(where, transit, dragMessage);
+	}
 
 	// where is relative to status tray while mouse is over it so pull
 	// the screen point out of the message instead
@@ -331,34 +339,21 @@ TBarView::MouseMoved(BPoint where, uint32 transit, const BMessage* dragMessage)
 
 	BPoint whereScreen = currentMessage->GetPoint("screen_where",
 		ConvertToScreen(where));
-	BRect screenFrame = (BScreen(Window())).Frame();
 
 	// Auto-Raise and Auto-Hide
-	if ((whereScreen.x == screenFrame.left
-			|| whereScreen.x == screenFrame.right
-			|| whereScreen.y == screenFrame.top
-			|| whereScreen.y == screenFrame.bottom)
-		&& Window()->Frame().Contains(whereScreen)) {
-		// cursor is on a screen edge within the window frame
-
+	if (Window()->Frame().Contains(whereScreen)) {
 		// raise Deskbar
-		if (!alwaysOnTop && autoRaise && !isTopMost)
+		if (!alwaysOnTop && autoRaise && !fIsRaised)
 			RaiseDeskbar(true);
 
 		// show Deskbar
 		if (autoHide && IsHidden())
 			HideDeskbar(false);
 	} else {
-		// stop if menu is showing or calendar is showing
-		TBarWindow* window = dynamic_cast<TBarWindow*>(Window());
-		if ((window != NULL && window->IsShowingMenu())
-			|| fReplicantTray->fTime->IsShowingCalendar()) {
-			return BView::MouseMoved(where, transit, dragMessage);
-		}
-
-		// lower Deskbar
-		if (!alwaysOnTop && autoRaise && isTopMost)
+		if (!alwaysOnTop && autoRaise && fIsRaised) {
+			// lower Deskbar
 			RaiseDeskbar(false);
+		}
 
 		// check if cursor to bar distance is below threshold
 		BRect preventHideArea = Window()->Frame().InsetByCopy(
@@ -377,6 +372,12 @@ TBarView::MouseMoved(BPoint where, uint32 transit, const BMessage* dragMessage)
 void
 TBarView::MouseDown(BPoint where)
 {
+	// exit if menu or calendar is showing
+	if (fBarWindow == NULL || fBarWindow->IsShowingMenu()
+		|| fReplicantTray->fTime->IsShowingCalendar()) {
+		return BView::MouseDown(where);
+	}
+
 	// where is relative to status tray while mouse is over it so pull
 	// the screen point out of the message instead
 	BMessage* currentMessage = Window()->CurrentMessage();
@@ -387,16 +388,13 @@ TBarView::MouseDown(BPoint where)
 	bool alwaysOnTop = settings->alwaysOnTop;
 	bool autoRaise = settings->autoRaise;
 	bool autoHide = settings->autoHide;
-	bool isTopMost = Window()->Feel() == B_FLOATING_ALL_WINDOW_FEEL;
 
 	BPoint whereScreen = currentMessage->GetPoint("screen_where",
 		ConvertToScreen(where));
 	if (Window()->Frame().Contains(whereScreen)) {
-		// don't activate window if calendar is showing
-		if (!fReplicantTray->fTime->IsShowingCalendar()
-			&& (alwaysOnTop || (autoRaise && isTopMost))) {
+		// horizontal top mode stays in back unless a menu is open
+		if (!alwaysOnTop && (fVertical || !fTop))
 			Window()->Activate();
-		}
 
 		if ((modifiers() & (B_CONTROL_KEY | B_COMMAND_KEY | B_OPTION_KEY
 				| B_SHIFT_KEY)) == (B_CONTROL_KEY | B_COMMAND_KEY)) {
@@ -405,15 +403,8 @@ TBarView::MouseDown(BPoint where)
 			return BView::MouseDown(where);
 		}
 	} else {
-		// stop if menu is showing or calendar is showing
-		TBarWindow* window = dynamic_cast<TBarWindow*>(Window());
-		if ((window != NULL && window->IsShowingMenu())
-			|| fReplicantTray->fTime->IsShowingCalendar()) {
-			return BView::MouseDown(where);
-		}
-
 		// lower deskbar
-		if (!alwaysOnTop && autoRaise && isTopMost)
+		if (!alwaysOnTop && autoRaise && fIsRaised)
 			RaiseDeskbar(false);
 
 		// hide deskbar
@@ -799,10 +790,20 @@ TBarView::_ChangeState(BMessage* message)
 void
 TBarView::RaiseDeskbar(bool raise)
 {
-	if (raise)
+	if (!fVertical && fTop) {
+		// horizontal top mode stays in back unless a menu is open
+		fIsRaised = false;
+		return;
+	}
+
+	fIsRaised = raise;
+
+	// raise or lower Deskbar without changing the active window
+	if (raise) {
 		Window()->SetFeel(B_FLOATING_ALL_WINDOW_FEEL);
-	else
 		Window()->SetFeel(B_NORMAL_WINDOW_FEEL);
+	} else
+		Window()->SendBehind(Window());
 }
 
 
@@ -810,19 +811,18 @@ void
 TBarView::HideDeskbar(bool hide)
 {
 	BRect screenFrame = (BScreen(Window())).Frame();
-	TBarWindow* barWindow = dynamic_cast<TBarWindow*>(Window());
 
 	if (hide) {
 		Hide();
-		if (barWindow != NULL)
-			barWindow->SetSizeLimits();
+		if (fBarWindow != NULL)
+			fBarWindow->SetSizeLimits();
 
 		PositionWindow(screenFrame);
 		SizeWindow(screenFrame);
 	} else {
 		Show();
-		if (barWindow != NULL)
-			barWindow->SetSizeLimits();
+		if (fBarWindow != NULL)
+			fBarWindow->SetSizeLimits();
 
 		SizeWindow(screenFrame);
 		PositionWindow(screenFrame);

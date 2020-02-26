@@ -90,7 +90,7 @@ TBarWindow::TBarWindow()
 			| B_NOT_MINIMIZABLE | B_NOT_MOVABLE | B_NOT_V_RESIZABLE
 			| B_AVOID_FRONT | B_ASYNCHRONOUS_CONTROLS,
 		B_ALL_WORKSPACES),
-	fShowingMenu(false)
+	fMenusShown(0)
 {
 	desk_settings* settings = ((TBarApp*)be_app)->Settings();
 	if (settings->alwaysOnTop)
@@ -132,9 +132,15 @@ TBarWindow::MenusBeginning()
 		return;
 	}
 
+	// horizontal top always in the background unless a menu is open
+	bool horizontalTop = fBarView != NULL && !fBarView->Vertical()
+		&& fBarView->Top();
+	if (horizontalTop)
+		Activate(true);
+
 	sDeskbarMenu->ResetTargets();
 
-	fShowingMenu = true;
+	fMenusShown++;
 	BWindow::MenusBeginning();
 }
 
@@ -142,8 +148,14 @@ TBarWindow::MenusBeginning()
 void
 TBarWindow::MenusEnded()
 {
-	fShowingMenu = false;
+	--fMenusShown;
 	BWindow::MenusEnded();
+
+	// horizontal top always in the background unless a menu is open
+	bool horizontalTop = fBarView != NULL && !fBarView->Vertical()
+		&& fBarView->Top();
+	if (horizontalTop)
+		Activate(false);
 
 	if (sDeskbarMenu->LockLooper()) {
 		sDeskbarMenu->ForceRebuild();
@@ -646,7 +658,7 @@ TBarWindow::GetIconFrame(BMessage* message)
 bool
 TBarWindow::IsShowingMenu() const
 {
-	return fShowingMenu;
+	return fMenusShown > 0;
 }
 
 

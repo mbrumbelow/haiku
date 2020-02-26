@@ -69,6 +69,7 @@ const float kMaxPreventHidingDist = 80.0f;
 class BShelf;
 class TBarApp;
 class TBarMenuBar;
+class TBarWindow;
 class TExpandoMenuBar;
 class TReplicantTray;
 class TDragRegion;
@@ -186,6 +187,7 @@ private:
 			void			_ChangeState(BMessage* message);
 
 			TBarApp*			fBarApp;
+			TBarWindow*			fBarWindow;
 			TInlineScrollView*	fInlineScrollView;
 			TBarMenuBar*		fBarMenuBar;
 			TExpandoMenuBar*	fExpandoMenuBar;
@@ -194,6 +196,8 @@ private:
 			TDragRegion*	fDragRegion;
 			TResizeControl*	fResizeControl;
 			TReplicantTray*	fReplicantTray;
+
+			bool			fIsRaised : 1;
 
 			bool			fVertical : 1;
 			bool			fTop : 1;
