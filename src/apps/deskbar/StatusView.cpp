@@ -1120,6 +1120,42 @@ TReplicantTray::ViewAt(int32* index, int32* id, const char* name)
 }
 
 
+/*!	Find a replicant view at \a where location.
+ *	\return The view pointer or NULL if not found.
+ */
+
+BView*
+TReplicantTray::ViewAt(BPoint where)
+{
+	BView* view = NULL;
+
+	int32 count = ReplicantCount() - 1;
+	for (int32 index = count; index >= 0; index--) {
+		fShelf->ReplicantAt(index, &view);
+		if (view != NULL && view->Frame().Contains(where))
+			break; // we found the replicant we were looking for
+	}
+
+	return view;
+}
+
+
+/*!	Find a replicant frame at \a where location.
+ *	\return The frame rect or an uninitialized BRect if not found.
+ */
+
+BRect
+TReplicantTray::FrameAt(BPoint where)
+{
+	BRect viewFrame;
+	BView* view = ViewAt(where);
+	if (view != NULL)
+		view->ConvertToParent(&viewFrame);
+
+	return viewFrame;
+}
+
+
 /**	Shelf will call to determine where and if
  *	the replicant is to be added
  */
@@ -1669,6 +1705,38 @@ TDragRegion::SetDragRegionLocation(int32 location)
 
 	fDragLocation = location;
 	Invalidate();
+}
+
+
+BView*
+TDragRegion::ReplicantAt(BPoint where)
+{
+	// upcast from BView*
+	TReplicantTray* replicantTray
+		= dynamic_cast<TReplicantTray*>(fReplicantTray);
+	if (replicantTray == NULL)
+		return NULL;
+
+	// where comes in parent coordinates
+	// convert to child then to grandchild
+	ConvertFromParent(&where);
+	replicantTray->ConvertFromParent(&where);
+
+	return replicantTray->ViewAt(where);
+}
+
+
+BRect
+TDragRegion::ReplicantFrameAt(BPoint where)
+{
+	BRect parentFrame;
+	BView* view = ReplicantAt(where);
+	if (view != NULL) {
+		parentFrame = view->Frame();
+		ConvertToParent(&parentFrame);
+	}
+
+	return parentFrame;
 }
 
 

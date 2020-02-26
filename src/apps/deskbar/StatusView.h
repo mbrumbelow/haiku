@@ -141,6 +141,8 @@ private:
 										bool byIndex = false);
 				BView*				ViewAt(int32* index, int32* id,
 										const char* name);
+				BView*				ViewAt(BPoint where);
+				BRect				FrameAt(BPoint where);
 
 				void				RealReplicantAdjustment(int32 startindex);
 
@@ -169,6 +171,7 @@ private:
 
 				status_t			_SaveSettings();
 
+	friend class TDragRegion;
 	friend class TReplicantShelf;
 	friend class TBarView;
 
@@ -223,6 +226,10 @@ public:
 	void SetDragRegionLocation(int32);
 
 	bool IsDragging() { return IsTracking(); };
+
+	/* convinience methods to convert coordinates */
+	BView* ReplicantAt(BPoint where);
+	BRect ReplicantFrameAt(BPoint where);
 
 private:
 	TBarView* fBarView;
