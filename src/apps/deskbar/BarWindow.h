@@ -95,7 +95,7 @@ private:
 private:
 	static	TDeskbarMenu*		sDeskbarMenu;
 			TBarView*			fBarView;
-			bool				fShowingMenu;
+			int32				fMenusShown;
 };
 
 
