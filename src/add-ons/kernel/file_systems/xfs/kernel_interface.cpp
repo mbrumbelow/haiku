@@ -3,13 +3,15 @@
  * All rights reserved. Distributed under the terms of the MIT License.
  */
 #include "system_dependencies.h"
+#include "Volume.h"
 
-#ifdef TRACE_XFS
-#define TRACE(x...) dprintf("\33[34mxfs:\33[0m " x)
+#define TRACE_BTRFS
+#ifdef TRACE_BTRFS
+#define TRACE(x...) dprintf("\n\33[34mxfs:\33[0m " x)
 #else
 #define TRACE(x...) ;
 #endif
-
+#define ERROR(x...) dprintf("\n\33[34mxfs:\33[0m " x)
 
 struct identify_cookie
 {
@@ -19,15 +21,13 @@ struct identify_cookie
 	int cookie;
 };
 
-
 //!	xfs_io() callback hook
 static status_t
 iterative_io_get_vecs_hook(void *cookie, io_request *request, off_t offset,
-						size_t size, struct file_io_vec *vecs, size_t *_count)
+						   size_t size, struct file_io_vec *vecs, size_t *_count)
 {
 	return B_NOT_SUPPORTED;
 }
-
 
 //!	xfs_io() callback hook
 static status_t
@@ -37,7 +37,6 @@ iterative_io_finished_hook(void *cookie, io_request *request, status_t status,
 	return B_NOT_SUPPORTED;
 }
 
-
 //	#pragma mark - Scanning
 static float
 xfs_identify_partition(int fd, partition_data *partition, void **_cookie)
@@ -45,13 +44,11 @@ xfs_identify_partition(int fd, partition_data *partition, void **_cookie)
 	return B_NOT_SUPPORTED;
 }
 
-
 static status_t
 xfs_scan_partition(int fd, partition_data *partition, void *_cookie)
 {
 	return B_NOT_SUPPORTED;
 }
-
 
 static void
 xfs_free_identify_partition_cookie(partition_data *partition, void *_cookie)
@@ -60,15 +57,37 @@ xfs_free_identify_partition_cookie(partition_data *partition, void *_cookie)
 	return;
 }
 
-
 //	#pragma mark -
 static status_t
 xfs_mount(fs_volume *_volume, const char *device, uint32 flags,
 		  const char *args, ino_t *_rootID)
 {
-	return B_NOT_SUPPORTED;
-}
+	TRACE("xfs_mount(): Trying to mount\n");
 
+	Volume *volume = new (std::nothrow) Volume(_volume);
+	if (volume == NULL)
+		return B_NO_MEMORY;
+
+	// TODO: this is a bit hacky: we can't use publish_vnode() to publish
+	// the root node, or else its file cache cannot be created (we could
+	// create it later, though). Therefore we're using get_vnode() in Mount(),
+	// but that requires us to export our volume data before calling it.
+	_volume->private_volume = volume;
+	_volume->ops = &gxfsVolumeOps;
+
+	status_t status = volume->Mount(device, flags);
+	if (status != B_OK)
+	{
+		ERROR("Failed mounting the volume. Error: %s\n", strerror(status));
+		delete volume;
+		return status;
+	}
+
+	/* Don't have Inodes yet */
+	// *_rootID = volume->Root()->ID();
+
+	return B_OK;
+}
 
 static status_t
 xfs_unmount(fs_volume *_volume)
@@ -76,13 +95,11 @@ xfs_unmount(fs_volume *_volume)
 	return B_NOT_SUPPORTED;
 }
 
-
 static status_t
 xfs_read_fs_info(fs_volume *_volume, struct fs_info *info)
 {
 	return B_NOT_SUPPORTED;
 }
-
 
 //	#pragma mark -
 
@@ -93,20 +110,17 @@ xfs_get_vnode(fs_volume *_volume, ino_t id, fs_vnode *_node, int *_type,
 	return B_NOT_SUPPORTED;
 }
 
-
 static status_t
 xfs_put_vnode(fs_volume *_volume, fs_vnode *_node, bool reenter)
 {
 	return B_NOT_SUPPORTED;
 }
 
-
 static bool
 xfs_can_page(fs_volume *_volume, fs_vnode *_node, void *_cookie)
 {
 	return B_NOT_SUPPORTED;
 }
-
 
 static status_t
 xfs_read_pages(fs_volume *_volume, fs_vnode *_node, void *_cookie,
@@ -115,7 +129,6 @@ xfs_read_pages(fs_volume *_volume, fs_vnode *_node, void *_cookie,
 	return B_NOT_SUPPORTED;
 }
 
-
 static status_t
 xfs_io(fs_volume *_volume, fs_vnode *_node, void *_cookie,
 	   io_request *request)
@@ -123,14 +136,12 @@ xfs_io(fs_volume *_volume, fs_vnode *_node, void *_cookie,
 	return B_NOT_SUPPORTED;
 }
 
-
 static status_t
 xfs_get_file_map(fs_volume *_volume, fs_vnode *_node, off_t offset,
 				 size_t size, struct file_io_vec *vecs, size_t *_count)
 {
 	return B_NOT_SUPPORTED;
 }
-
 
 //	#pragma mark -
 
@@ -141,7 +152,6 @@ xfs_lookup(fs_volume *_volume, fs_vnode *_directory, const char *name,
 	return B_NOT_SUPPORTED;
 }
 
-
 static status_t
 xfs_ioctl(fs_volume *_volume, fs_vnode *_node, void *_cookie, uint32 cmd,
 		  void *buffer, size_t bufferLength)
@@ -149,13 +159,11 @@ xfs_ioctl(fs_volume *_volume, fs_vnode *_node, void *_cookie, uint32 cmd,
 	return B_NOT_SUPPORTED;
 }
 
-
 static status_t
 xfs_read_stat(fs_volume *_volume, fs_vnode *_node, struct stat *stat)
 {
 	return B_NOT_SUPPORTED;
 }
-
 
 static status_t
 xfs_open(fs_volume * /*_volume*/, fs_vnode *_node, int openMode,
@@ -164,7 +172,6 @@ xfs_open(fs_volume * /*_volume*/, fs_vnode *_node, int openMode,
 	return B_NOT_SUPPORTED;
 }
 
-
 static status_t
 xfs_read(fs_volume *_volume, fs_vnode *_node, void *_cookie, off_t pos,
 		 void *buffer, size_t *_length)
@@ -172,13 +179,11 @@ xfs_read(fs_volume *_volume, fs_vnode *_node, void *_cookie, off_t pos,
 	return B_NOT_SUPPORTED;
 }
 
-
 static status_t
 xfs_close(fs_volume *_volume, fs_vnode *_node, void *_cookie)
 {
 	return B_NOT_SUPPORTED;
 }
-
 
 static status_t
 xfs_free_cookie(fs_volume *_volume, fs_vnode *_node, void *_cookie)
@@ -192,7 +197,6 @@ xfs_access(fs_volume *_volume, fs_vnode *_node, int accessMode)
 	return B_NOT_SUPPORTED;
 }
 
-
 static status_t
 xfs_read_link(fs_volume *_volume, fs_vnode *_node, char *buffer,
 			  size_t *_bufferSize)
@@ -200,13 +204,11 @@ xfs_read_link(fs_volume *_volume, fs_vnode *_node, char *buffer,
 	return B_NOT_SUPPORTED;
 }
 
-
 status_t
 xfs_unlink(fs_volume *_volume, fs_vnode *_directory, const char *name)
 {
 	return B_NOT_SUPPORTED;
 }
-
 
 //	#pragma mark - Directory functions
 
@@ -217,20 +219,17 @@ xfs_create_dir(fs_volume *_volume, fs_vnode *_directory, const char *name,
 	return B_NOT_SUPPORTED;
 }
 
-
 static status_t
 xfs_remove_dir(fs_volume *_volume, fs_vnode *_directory, const char *name)
 {
 	return B_NOT_SUPPORTED;
 }
 
-
 static status_t
 xfs_open_dir(fs_volume * /*_volume*/, fs_vnode *_node, void **_cookie)
 {
 	return B_NOT_SUPPORTED;
 }
-
 
 static status_t
 xfs_read_dir(fs_volume *_volume, fs_vnode *_node, void *_cookie,
@@ -239,13 +238,11 @@ xfs_read_dir(fs_volume *_volume, fs_vnode *_node, void *_cookie,
 	return B_NOT_SUPPORTED;
 }
 
-
 static status_t
 xfs_rewind_dir(fs_volume * /*_volume*/, fs_vnode * /*node*/, void *_cookie)
 {
 	return B_NOT_SUPPORTED;
 }
-
 
 static status_t
 xfs_close_dir(fs_volume * /*_volume*/, fs_vnode * /*node*/,
@@ -254,13 +251,11 @@ xfs_close_dir(fs_volume * /*_volume*/, fs_vnode * /*node*/,
 	return B_NOT_SUPPORTED;
 }
 
-
 static status_t
 xfs_free_dir_cookie(fs_volume *_volume, fs_vnode *_node, void *_cookie)
 {
 	return B_NOT_SUPPORTED;
 }
-
 
 static status_t
 xfs_open_attr_dir(fs_volume *_volume, fs_vnode *_node, void **_cookie)
@@ -268,20 +263,17 @@ xfs_open_attr_dir(fs_volume *_volume, fs_vnode *_node, void **_cookie)
 	return B_NOT_SUPPORTED;
 }
 
-
 static status_t
 xfs_close_attr_dir(fs_volume *_volume, fs_vnode *_node, void *cookie)
 {
 	return B_NOT_SUPPORTED;
 }
 
-
 static status_t
 xfs_free_attr_dir_cookie(fs_volume *_volume, fs_vnode *_node, void *_cookie)
 {
 	return B_NOT_SUPPORTED;
 }
-
 
 static status_t
 xfs_read_attr_dir(fs_volume *_volume, fs_vnode *_node,
@@ -290,13 +282,11 @@ xfs_read_attr_dir(fs_volume *_volume, fs_vnode *_node,
 	return B_NOT_SUPPORTED;
 }
 
-
 static status_t
 xfs_rewind_attr_dir(fs_volume *_volume, fs_vnode *_node, void *_cookie)
 {
 	return B_NOT_SUPPORTED;
 }
-
 
 /* attribute operations */
 static status_t
@@ -306,14 +296,12 @@ xfs_create_attr(fs_volume *_volume, fs_vnode *_node,
 	return B_NOT_SUPPORTED;
 }
 
-
 static status_t
 xfs_open_attr(fs_volume *_volume, fs_vnode *_node, const char *name,
 			  int openMode, void **_cookie)
 {
 	return B_NOT_SUPPORTED;
 }
-
 
 static status_t
 xfs_close_attr(fs_volume *_volume, fs_vnode *_node,
@@ -322,14 +310,12 @@ xfs_close_attr(fs_volume *_volume, fs_vnode *_node,
 	return B_NOT_SUPPORTED;
 }
 
-
 static status_t
 xfs_free_attr_cookie(fs_volume *_volume, fs_vnode *_node,
 					 void *cookie)
 {
 	return B_NOT_SUPPORTED;
 }
-
 
 static status_t
 xfs_read_attr(fs_volume *_volume, fs_vnode *_node, void *_cookie,
@@ -338,14 +324,12 @@ xfs_read_attr(fs_volume *_volume, fs_vnode *_node, void *_cookie,
 	return B_NOT_SUPPORTED;
 }
 
-
 static status_t
 xfs_write_attr(fs_volume *_volume, fs_vnode *_node, void *cookie,
 			   off_t pos, const void *buffer, size_t *length)
 {
 	return B_NOT_SUPPORTED;
 }
-
 
 static status_t
 xfs_read_attr_stat(fs_volume *_volume, fs_vnode *_node,
@@ -354,14 +338,12 @@ xfs_read_attr_stat(fs_volume *_volume, fs_vnode *_node,
 	return B_NOT_SUPPORTED;
 }
 
-
 static status_t
 xfs_write_attr_stat(fs_volume *_volume, fs_vnode *_node,
 					void *cookie, const struct stat *stat, int statMask)
 {
 	return B_NOT_SUPPORTED;
 }
-
 
 static status_t
 xfs_rename_attr(fs_volume *_volume, fs_vnode *fromVnode,
@@ -370,7 +352,6 @@ xfs_rename_attr(fs_volume *_volume, fs_vnode *fromVnode,
 	return B_NOT_SUPPORTED;
 }
 
-
 static status_t
 xfs_remove_attr(fs_volume *_volume, fs_vnode *vnode,
 				const char *name)
@@ -378,21 +359,18 @@ xfs_remove_attr(fs_volume *_volume, fs_vnode *vnode,
 	return B_NOT_SUPPORTED;
 }
 
-
 static uint32
 xfs_get_supported_operations(partition_data *partition, uint32 mask)
 {
 	return B_NOT_SUPPORTED;
 }
 
-
 static status_t
 xfs_initialize(int fd, partition_id partitionID, const char *name,
-			const char *parameterString, off_t partitionSize, disk_job_id job)
+			   const char *parameterString, off_t partitionSize, disk_job_id job)
 {
 	return B_NOT_SUPPORTED;
 }
-
 
 static status_t
 xfs_uninitialize(int fd, partition_id partitionID, off_t partitionSize,
@@ -400,7 +378,6 @@ xfs_uninitialize(int fd, partition_id partitionID, off_t partitionSize,
 {
 	return B_NOT_SUPPORTED;
 }
-
 
 //	#pragma mark -
 
@@ -435,7 +412,7 @@ fs_volume_ops gxfsVolumeOps = {
 	&xfs_get_vnode,
 };
 
-fs_vnode_ops gxfsVnodeOps = {
+fs_vnode_ops VnodeOps = {
 	/* vnode operations */
 	&xfs_lookup,
 	NULL, // xfs_get_vnode_name - optional, and we can't do better than the
@@ -508,7 +485,6 @@ fs_vnode_ops gxfsVnodeOps = {
 	&xfs_remove_attr,
 };
 
-
 static file_system_module_info sxfsFileSystem = {
 	{
 		"file_systems/xfs" B_CURRENT_FS_API_VERSION,
@@ -520,7 +496,7 @@ static file_system_module_info sxfsFileSystem = {
 	"XFS File System", // pretty_name
 
 	// DDM flags
-	0| B_DISK_SYSTEM_SUPPORTS_INITIALIZING |B_DISK_SYSTEM_SUPPORTS_CONTENT_NAME
+	0 | B_DISK_SYSTEM_SUPPORTS_INITIALIZING | B_DISK_SYSTEM_SUPPORTS_CONTENT_NAME
 	//	| B_DISK_SYSTEM_SUPPORTS_WRITING
 	,
 
