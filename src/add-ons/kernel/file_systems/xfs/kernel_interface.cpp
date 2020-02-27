@@ -1,14 +1,10 @@
 /*
+ * Copyright 2001-2017, Axel Dörfler, axeld@pinc-software.de.
  * Copyright 2020 Shubham Bhagat, shubhambhagat111@yahoo.com
  * All rights reserved. Distributed under the terms of the MIT License.
  */
 #include "system_dependencies.h"
-
-#ifdef TRACE_XFS
-#define TRACE(x...) dprintf("\33[34mxfs:\33[0m " x)
-#else
-#define TRACE(x...) ;
-#endif
+#include "Volume.h"
 
 
 struct identify_cookie
@@ -23,7 +19,7 @@ struct identify_cookie
 //!	xfs_io() callback hook
 static status_t
 iterative_io_get_vecs_hook(void *cookie, io_request *request, off_t offset,
-						size_t size, struct file_io_vec *vecs, size_t *_count)
+	size_t size, struct file_io_vec *vecs, size_t *_count)
 {
 	return B_NOT_SUPPORTED;
 }
@@ -32,7 +28,7 @@ iterative_io_get_vecs_hook(void *cookie, io_request *request, off_t offset,
 //!	xfs_io() callback hook
 static status_t
 iterative_io_finished_hook(void *cookie, io_request *request, status_t status,
-						   bool partialTransfer, size_t bytesTransferred)
+	bool partialTransfer, size_t bytesTransferred)
 {
 	return B_NOT_SUPPORTED;
 }
@@ -66,7 +62,29 @@ static status_t
 xfs_mount(fs_volume *_volume, const char *device, uint32 flags,
 		  const char *args, ino_t *_rootID)
 {
-	return B_NOT_SUPPORTED;
+	TRACE("xfs_mount(): Trying to mount\n");
+
+	Volume *volume = new (std::nothrow) Volume(_volume);
+	if (volume == NULL)
+		return B_NO_MEMORY;
+
+	_volume->private_volume = volume;
+	_volume->ops = &gxfsVolumeOps;
+
+	status_t status = volume->Mount(device, flags);
+	if (status != B_OK)
+	{
+		ERROR("Failed mounting the volume. Error: %s\n", strerror(status));
+		delete volume;
+		return status;
+	}
+
+/* Don't have Inodes yet */
+#if 0
+	 *_rootID = volume->Root()->ID();
+#endif
+
+	return B_OK;
 }
 
 
@@ -82,7 +100,6 @@ xfs_read_fs_info(fs_volume *_volume, struct fs_info *info)
 {
 	return B_NOT_SUPPORTED;
 }
-
 
 //	#pragma mark -
 
@@ -130,7 +147,6 @@ xfs_get_file_map(fs_volume *_volume, fs_vnode *_node, off_t offset,
 {
 	return B_NOT_SUPPORTED;
 }
-
 
 //	#pragma mark -
 
@@ -185,6 +201,7 @@ xfs_free_cookie(fs_volume *_volume, fs_vnode *_node, void *_cookie)
 {
 	return B_NOT_SUPPORTED;
 }
+
 
 static status_t
 xfs_access(fs_volume *_volume, fs_vnode *_node, int accessMode)
@@ -385,7 +402,6 @@ xfs_get_supported_operations(partition_data *partition, uint32 mask)
 	return B_NOT_SUPPORTED;
 }
 
-
 static status_t
 xfs_initialize(int fd, partition_id partitionID, const char *name,
 			const char *parameterString, off_t partitionSize, disk_job_id job)
@@ -393,14 +409,12 @@ xfs_initialize(int fd, partition_id partitionID, const char *name,
 	return B_NOT_SUPPORTED;
 }
 
-
 static status_t
 xfs_uninitialize(int fd, partition_id partitionID, off_t partitionSize,
 				 uint32 blockSize, disk_job_id job)
 {
 	return B_NOT_SUPPORTED;
 }
-
 
 //	#pragma mark -
 
@@ -434,6 +448,7 @@ fs_volume_ops gxfsVolumeOps = {
 	NULL, // fs_sync,
 	&xfs_get_vnode,
 };
+
 
 fs_vnode_ops gxfsVnodeOps = {
 	/* vnode operations */
@@ -520,7 +535,8 @@ static file_system_module_info sxfsFileSystem = {
 	"XFS File System", // pretty_name
 
 	// DDM flags
-	0| B_DISK_SYSTEM_SUPPORTS_INITIALIZING |B_DISK_SYSTEM_SUPPORTS_CONTENT_NAME
+	0|B_DISK_SYSTEM_SUPPORTS_INITIALIZING
+	 |B_DISK_SYSTEM_SUPPORTS_CONTENT_NAME
 	//	| B_DISK_SYSTEM_SUPPORTS_WRITING
 	,
 
