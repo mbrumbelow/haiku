@@ -10,6 +10,7 @@
 
 #include <Application.h>
 #include <Looper.h>
+#include <MenuBar.h>
 #include <MenuItem.h>
 #include <PopUpMenu.h>
 #include <Window.h>
@@ -347,14 +348,17 @@ BPopUpMenu::_Go(BPoint where, bool autoInvoke, bool startOpened,
 	// Get a pointer to the window from which Go() was called
 	BWindow* window
 		= dynamic_cast<BWindow*>(BLooper::LooperForThread(find_thread(NULL)));
-	data->window = window;
 
 	// Asynchronous menu: we set the BWindow menu's semaphore
 	// and let BWindow block when needed
-	if (async && window != NULL)
+	if (async && window != NULL) {
+		if (!_HasMenuBar(this))
+			window->MenusBeginning();
 		_set_menu_sem_(window, sem);
+	}
 
 	data->object = this;
+	data->window = window;
 	data->autoInvoke = autoInvoke;
 	data->useRect = _specialRect != NULL;
 	if (_specialRect != NULL)
@@ -400,9 +404,13 @@ BPopUpMenu::_thread_entry(void* menuData)
 	data->selected = menu->_StartTrack(data->where, data->autoInvoke,
 		data->startOpened, rect);
 
+	// We aren't the BWindow thread, so don't call MenusEnded() directly.
 	// Reset the window menu semaphore
-	if (data->async && data->window)
+	if (data->async && data->window) {
+		if (!_HasMenuBar(data->object))
+			data->window->PostMessage(_MENUS_DONE_);
 		_set_menu_sem_(data->window, B_BAD_SEM_ID);
+	}
 
 	delete_sem(data->lock);
 
@@ -478,4 +486,36 @@ BPopUpMenu::_WaitMenu(void* _data)
 	delete data;
 
 	return selected;
+}
+
+
+/* static */
+bool
+BPopUpMenu::_HasMenuBar(BPopUpMenu* popUpMenu)
+{
+	if (popUpMenu == NULL)
+		return false;
+
+	// we have a pop up menu;
+
+	BMenu* menu = static_cast<BMenu*>(popUpMenu);
+	BMenu* self = menu;
+
+	// we have a menu, static_cast to an inherited class is guaranteed to pass
+
+	BMenu* _menu = NULL;
+	while ((_menu = menu->Supermenu()) != NULL)
+		menu = _menu;
+
+	// went up the menu hierarchy and found the topmost menu ancestor
+	// (possibly ourself)
+
+	if (menu == NULL || menu == self)
+		return false;
+
+	// we have a topmost menu that is not ourself
+
+	return dynamic_cast<BMenuBar*>(menu) != NULL;
+
+	// our topmost menu has been determined to be a BMenuBar or not
 }
