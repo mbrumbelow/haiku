@@ -9,6 +9,7 @@
  *
  * Authors:
  *		Humdinger <humdingerb@gmail.com>
+ *		Andrew Lindesay <apl@lindesay.co.nz>
  *
 -->
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -153,6 +154,19 @@ The second item is to <span class="menu">Manage repositories...</span>. It opens
 <p>Here you move the mouse over the stars to light them up and choose your rating, you can also choose from a number of levels to judge the stability of the application and pick the language of your optional comment. To make a comment meaningful, you should have worked with the application you're about to rate for a while to become familiar with its features, bugs and quirks. And don't write the next great American novel... keep it short, sweet and polite. :)<br />
 After you click <span class="button">Send</span> the data is transmitted to the server. You may have to go to the <span class="menu">Tools</span> menu to <span class="menu">Refresh repositories</span> before you can see your changes.</p>
 <p>At any time, you can come back and edit your comment and re-rate it. You can also hide your rating from other users by deactivating the checkbox <span class="menu">Other users can see this rating</span>.</p>
+
+<h2><a href="#"><img src="../../images/up.png" style="border:none;float:right" alt="index" /></a>
+<a id="logs" name="logs">Diagnostic Logs</a></h2>
+<p>As HaikuDepot is used, it makes complex interactions with network as well as local services.  Things can go wrong in these interactions.  The cause of a given problem can  be something which was unexpected at the time that the application was written and so a very specific error message was not able to be provided.  HaikuDepot outputs some text, usually hidden from end users, that provides a diagnostic log of what the application does.  Sometimes being able to get a copy of this diagnostic log is very helpful in diagnosing and then fixing a bug in the software.</p>
+<p>You may be presented with an error message from the HaikuDepot application that suggests viewing the logs to get further in-depth information or you may have lodged an issue in the Haiku <a href="https://dev.haiku-os.org/">bug tracking system</a> and you have been subsequently asked to provide the logs to help understand the problem.</p>
+<p>To see the diagnostic logs, HaikuDepot needs to be started from the <a href="terminal.html">Terminal</a> application that is included with your Haiku installation.  Open the <a href="terminal.html">Terminal</a> application and start Haiku with the following terminal command;</p>
+
+<pre>/boot/system/apps/HaikuDepot -v debug</pre>
+
+<p>The command uses the <code>-v</code> flag to control the verbosity of the diagnostic logs.  Possible values are; <code>off</code>, <code>info</code>, <code>debug</code> and <code>trace</code>.  Using the <code>off</code> value will provide a small quantity of logging and using the <code>trace</code> value will yield the largest quantity of logging in high detail.</p>
+
+<p>As HaikuDepot starts-up you will see a text shown in the terminal window; this is the diagnostic logging.</p>
+
 </div>
 </div>
 
