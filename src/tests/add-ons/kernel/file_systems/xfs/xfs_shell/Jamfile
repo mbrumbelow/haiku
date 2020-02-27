@@ -38,6 +38,8 @@ UseHeaders [ FDirName $(HAIKU_TOP) headers private ] : true ;
 UseHeaders [ FDirName $(HAIKU_TOP) src tools fs_shell ] ;
 
 local xfsSource =
+	xfs_sb.cpp
+	Volume.cpp
 	kernel_interface.cpp
 ;
 
