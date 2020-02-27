@@ -1,0 +1,531 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2be0e7db_441a2d40",
+        "filename": "src/add-ons/kernel/file_systems/xfs/.vscode/c_cpp_properties.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-27T18:10:08Z",
+      "side": 1,
+      "message": "This should not be added to the repo.",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0913521_f31a86c2",
+        "filename": "src/add-ons/kernel/file_systems/xfs/.vscode/settings.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-27T18:10:08Z",
+      "side": 1,
+      "message": "this should not be added to the repo",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "722d4627_fb8475e5",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-27T18:10:08Z",
+      "side": 1,
+      "message": "don\u0027t forget the copyright header. If you copied this from the btrfs files, do not remove the existing copyrights.",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd9ced4c_c74b346f",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-27T18:10:08Z",
+      "side": 1,
+      "message": "should be XFS not btrfs",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ffe90d14_29119c77",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-27T18:10:08Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e5cb3d8_0f005822",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-27T18:10:08Z",
+      "side": 1,
+      "message": "Why is this class here? It looks like it could be reused in several filesystem implementations, in that case it may be a good idea to instead move it to src/add-ons/kernel/filesystems/shared or something like that?",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d301072e_61f1b745",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-27T18:10:08Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cedbe1dd_8c2c548d",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-27T18:10:08Z",
+      "side": 1,
+      "message": "two blank lines (same below)",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d0a045c_0d6bb0f1",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-27T18:10:08Z",
+      "side": 1,
+      "message": "This line is too long, keep it under 80 columns",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef9c9233_2e2cd23b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-27T18:10:08Z",
+      "side": 1,
+      "message": "Should this be intermixed with Volume class implementation?",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0a8e7f7_8446b03d",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-27T18:10:08Z",
+      "side": 1,
+      "message": "two empty lines",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0b77f2e_a3b4872c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-27T18:10:08Z",
+      "side": 1,
+      "message": "do not comment out code this way. Use #if 0 instead.",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54bc8e29_d525d30f",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-27T18:10:08Z",
+      "side": 1,
+      "message": "It should stay XFS.",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d193bab1_50c29e46",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-27T18:10:08Z",
+      "side": 1,
+      "message": "two blank lines was correct here",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ecf72ef_b13fe7fb",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-27T18:10:08Z",
+      "side": 1,
+      "message": "this line should be indented just a single tab, I think?",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e260785_60f45c11",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-27T18:10:08Z",
+      "side": 1,
+      "message": "Is this TODO applicable to XFS? Do we even have the file cache being used yet?",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca45b1c5_643f8f4a",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-27T18:10:08Z",
+      "side": 1,
+      "message": "what happens to \"volume\" here? When will it be deleted?",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f81eee4_663e5f14",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-27T18:10:08Z",
+      "side": 1,
+      "message": "two blank lines was correct (also all instances below)",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa01e620_13049b1a",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-27T18:10:08Z",
+      "side": 1,
+      "message": "the previous name was correct, g marks global variables and should be kept.",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33220592_f67867e5",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-27T18:10:08Z",
+      "side": 1,
+      "message": "this line is larger than 80 columns and should be split",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7dc82417_c34f3a0b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/system_dependencies.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-27T18:10:08Z",
+      "side": 1,
+      "message": "indent with tabs",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d98b113_b6fbcea3",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs_sb.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-27T18:10:08Z",
+      "side": 1,
+      "message": "did you check that there is no padding in your xfs_sb structure?\n\nAlso you are trying to copy data into a type, not into a variable, this will not work.",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3dd48e7_d144c647",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs_sb.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-27T18:10:08Z",
+      "side": 1,
+      "message": "I would name this class SuperBlock which is more in line with our coding style. And to avoid confusion I would put it in a namespace named XFS.",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f69a63c2_cc3cc6db",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs_sb.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-27T18:10:08Z",
+      "side": 1,
+      "message": "this should be private",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "666a2c11_faa08762",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs_sb.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-27T18:10:08Z",
+      "side": 1,
+      "message": "method names start with uppercase, so use SwapEndian, IsValid, and Name",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9981201a_53bc4a2b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs_sb.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-27T18:10:08Z",
+      "side": 1,
+      "message": "The typedef is useless in C++.",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43f2d084_deafa2ad",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs_sb.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-27T18:10:08Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "faf719ee_a6a061f4",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs_types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-27T18:10:08Z",
+      "side": 1,
+      "message": "You must not include system headers. Always go through system_dependencies.h otherwise you will have build problems with the fs_shell.",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7006635_6c75e687",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs_types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-27T18:10:08Z",
+      "side": 1,
+      "message": "use ino_t",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "004d83c0_fc36e33c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs_types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-27T18:10:08Z",
+      "side": 1,
+      "message": "use off_t",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83e590a4_9d4d2055",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs_types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-27T18:10:08Z",
+      "side": 1,
+      "message": "use off_t",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
