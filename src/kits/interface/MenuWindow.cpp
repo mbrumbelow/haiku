@@ -11,10 +11,15 @@
 
 #include <MenuWindow.h>
 
+#include <Control.h>
 #include <ControlLook.h>
 #include <Debug.h>
+#include <GroupLayout.h>
 #include <Menu.h>
+#include <MenuBar.h>
 #include <MenuItem.h>
+#include <Point.h>
+#include <Screen.h>
 
 #include <MenuPrivate.h>
 #include <WindowPrivate.h>
@@ -22,15 +27,9 @@
 
 namespace BPrivate {
 
-class BMenuScroller : public BView {
+class BMenuScroller : public BControl {
 public:
 							BMenuScroller(BRect frame);
-
-			bool			IsEnabled() const;
-			void			SetEnabled(bool enabled);
-
-private:
-			bool			fEnabled;
 };
 
 
@@ -41,10 +40,14 @@ public:
 	virtual	void			AttachedToWindow();
 	virtual	void			DetachedFromWindow();
 	virtual	void			Draw(BRect updateRect);
+	virtual	void			LayoutChanged();
 
 private:
 	friend class BMenuWindow;
 
+			void			MoveSubmenusOver(BMenu* menu, BRect menuFrame,
+								BRect screenFrame);
+private:
 			BMenu*			fMenu;
 };
 
@@ -71,29 +74,15 @@ public:
 using namespace BPrivate;
 
 
-const int kScrollerHeight = 12;
+const float kScrollerHeight = 12.f;
+const float kScrollStep = 19.f;
 
 
 BMenuScroller::BMenuScroller(BRect frame)
 	:
-	BView(frame, "menu scroller", 0, B_WILL_DRAW | B_FRAME_EVENTS),
-	fEnabled(false)
+	BControl(frame, "menu scroller", "", NULL, 0, B_WILL_DRAW | B_FRAME_EVENTS)
 {
 	SetViewUIColor(B_MENU_BACKGROUND_COLOR);
-}
-
-
-bool
-BMenuScroller::IsEnabled() const
-{
-	return fEnabled;
-}
-
-
-void
-BMenuScroller::SetEnabled(bool enabled)
-{
-	fEnabled = enabled;
 }
 
 
@@ -166,9 +155,9 @@ LowerScroller::Draw(BRect updateRect)
 //	#pragma mark -
 
 
-BMenuFrame::BMenuFrame(BMenu *menu)
+BMenuFrame::BMenuFrame(BMenu* menu)
 	:
-	BView(BRect(0, 0, 1, 1), "menu frame", B_FOLLOW_ALL_SIDES, B_WILL_DRAW),
+	BView("menu frame", B_WILL_DRAW),
 	fMenu(menu)
 {
 }
@@ -227,8 +216,89 @@ BMenuFrame::Draw(BRect updateRect)
 }
 
 
+void
+BMenuFrame::LayoutChanged()
+{
+	if (fMenu == NULL || Window() == NULL)
+		return BView::LayoutChanged();
 
-//	#pragma mark -
+	// resize window to menu width
+	float width = fMenu->Frame().Width();
+	Window()->SetSizeLimits(2, width, 2, B_SIZE_UNLIMITED);
+	ResizeTo(width, Window()->Frame().Height());
+
+	// push child menus over recursively
+	MoveSubmenusOver(fMenu, fMenu->ConvertToScreen(fMenu->Frame()),
+		(BScreen(fMenu->Window())).Frame());
+
+	BView::LayoutChanged();
+}
+
+
+void
+BMenuFrame::MoveSubmenusOver(BMenu* menu, BRect menuFrame, BRect screenFrame)
+{
+	if (menu == NULL)
+		return;
+
+	for (int32 i = menu->CountItems(); i-- > 0;) {
+		BMenu* submenu = menu->SubmenuAt(i);
+		if (submenu == NULL || submenu->Window() == NULL)
+			continue; // not an open submenu, next
+
+		BMenuWindow* submenuWindow
+			= dynamic_cast<BMenuWindow*>(submenu->Window());
+		if (submenuWindow == NULL)
+			break; // submenu window was not a BMenuWindow, strange if true
+
+		// found an open submenu, get submenu frame
+		BPoint submenuLoc;
+		BRect submenuFrame;
+		if (submenu->LockLooper()) {
+			// need to lock looper because we're in a different thread
+			submenuFrame = submenu->Frame();
+			submenu->ConvertToScreen(&submenuFrame);
+			submenu->UnlockLooper();
+		} else
+			break; // give up
+
+		// get submenu loc and convert it to screen coords using menu
+		if (menu->LockLooper()) {
+			// check if submenu should be displayed right or left of menu
+			submenuLoc = (submenuFrame.right < menuFrame.right
+				? submenu->Superitem()->Frame().LeftTop()
+					- BPoint(submenuFrame.Width() + 1, -1)
+				: submenu->Superitem()->Frame().RightTop() + BPoint(1, 1));
+			menu->ConvertToScreen(&submenuLoc);
+			submenuFrame.OffsetTo(submenuLoc);
+			menu->UnlockLooper();
+		} else
+			break; // give up
+
+		// move submenu frame into screen bounds vertically
+		if (submenuFrame.Height() < screenFrame.Height()) {
+			if (submenuFrame.bottom >= screenFrame.bottom)
+				submenuLoc.y -= (submenuFrame.bottom - screenFrame.bottom);
+			else if (submenuFrame.top <= screenFrame.top)
+				submenuLoc.y += (screenFrame.top - submenuFrame.top);
+		} else {
+			// put menu at top of screen, turn on the scroll arrows
+			submenuLoc.y = 0;
+		}
+
+		// move submenu window into place
+		submenuWindow->MoveTo(submenuLoc);
+
+		// recurse through submenu's submenus
+		MoveSubmenusOver(submenu, submenuFrame, screenFrame);
+
+		// we're done with this menu
+		break;
+	}
+}
+
+
+//	#pragma mark - BMenuWindow
 
 
 BMenuWindow::BMenuWindow(const char *name)
@@ -236,14 +306,15 @@ BMenuWindow::BMenuWindow(const char *name)
 	:
 	BWindow(BRect(0, 0, 0, 0), name, B_BORDERED_WINDOW_LOOK, kMenuWindowFeel,
 		B_NOT_MOVABLE | B_NOT_ZOOMABLE | B_NOT_RESIZABLE | B_AVOID_FOCUS
-			| kAcceptKeyboardFocusFlag),
+			| kAcceptKeyboardFocusFlag | B_AUTO_UPDATE_SIZE_LIMITS),
 	fMenu(NULL),
 	fMenuFrame(NULL),
 	fUpperScroller(NULL),
 	fLowerScroller(NULL),
-	fScrollStep(19)
+	fScrollStep(kScrollStep)
 {
-	SetSizeLimits(2, 10000, 2, 10000);
+	SetSizeLimits(2, B_SIZE_UNLIMITED, 2, B_SIZE_UNLIMITED);
+	SetLayout(new BGroupLayout(B_VERTICAL, 0));
 }
 
 
@@ -254,22 +325,25 @@ BMenuWindow::~BMenuWindow()
 
 
 void
-BMenuWindow::DispatchMessage(BMessage *message, BHandler *handler)
+BMenuWindow::DispatchMessage(BMessage* message, BHandler* handler)
 {
 	BWindow::DispatchMessage(message, handler);
 }
 
 
 void
-BMenuWindow::AttachMenu(BMenu *menu)
+BMenuWindow::AttachMenu(BMenu* menu)
 {
-	if (fMenuFrame)
+	if (fMenuFrame != NULL)
 		debugger("BMenuWindow: a menu is already attached!");
+
 	if (menu != NULL) {
 		fMenuFrame = new BMenuFrame(menu);
-		AddChild(fMenuFrame);
+		GetLayout()->AddView(1, fMenuFrame);
 		menu->MakeFocus(true);
 		fMenu = menu;
+		// pass messages on from window to menu
+		SetPreferredHandler(fMenu);
 	}
 }
 
@@ -278,11 +352,12 @@ void
 BMenuWindow::DetachMenu()
 {
 	DetachScrollers();
-	if (fMenuFrame) {
-		RemoveChild(fMenuFrame);
+	if (fMenuFrame != NULL) {
+		GetLayout()->RemoveView(fMenuFrame);
 		delete fMenuFrame;
 		fMenuFrame = NULL;
 		fMenu = NULL;
+		SetPreferredHandler(NULL);
 	}
 }
 
@@ -302,22 +377,22 @@ BMenuWindow::AttachScrollers()
 	if (fUpperScroller == NULL) {
 		fUpperScroller = new UpperScroller(
 			BRect(0, 0, frame.right, kScrollerHeight - 1));
-		AddChild(fUpperScroller);
+		GetLayout()->AddView(0, fUpperScroller);
 	}
 
 	if (fLowerScroller == NULL) {
 		fLowerScroller = new LowerScroller(
 			BRect(0, frame.bottom - kScrollerHeight + 1, frame.right,
 				frame.bottom));
-		AddChild(fLowerScroller);
+		GetLayout()->AddView(2, fLowerScroller);
 	}
 
 	fUpperScroller->SetEnabled(false);
 	fLowerScroller->SetEnabled(true);
 
-	fMenuFrame->ResizeBy(0, -2 * kScrollerHeight);
-	fMenuFrame->MoveBy(0, kScrollerHeight);
-
+	BRect screenFrame(BScreen(fMenu->Window()).Frame());
+	fMenuFrame->SetExplicitSize(BSize(B_SIZE_UNSET,
+		screenFrame.Height() - kScrollerHeight * 2));
 	fValue = 0;
 	fLimit = fMenu->Bounds().Height() - (frame.Height() - 2 * kScrollerHeight);
 }
@@ -328,20 +403,23 @@ BMenuWindow::DetachScrollers()
 {
 	// BeOS doesn't remember the position where the last scrolling ended,
 	// so we just scroll back to the beginning.
-	if (fMenu)
+	if (fMenu != NULL)
 		fMenu->ScrollTo(0, 0);
 
-	if (fLowerScroller) {
-		RemoveChild(fLowerScroller);
+	if (fUpperScroller != NULL) {
+		GetLayout()->RemoveView(fUpperScroller);
+		delete fUpperScroller;
+		fUpperScroller = NULL;
+	}
+
+	if (fLowerScroller != NULL) {
+		GetLayout()->RemoveView(fLowerScroller);
 		delete fLowerScroller;
 		fLowerScroller = NULL;
 	}
 
-	if (fUpperScroller) {
-		RemoveChild(fUpperScroller);
-		delete fUpperScroller;
-		fUpperScroller = NULL;
-	}
+	if (fMenuFrame != NULL)
+		fMenuFrame->SetExplicitSize(BSize(B_SIZE_UNSET, B_SIZE_UNSET));
 }
 
 
@@ -470,5 +548,10 @@ BMenuWindow::_ScrollBy(const float& step)
 			fValue += step;
 		}
 	}
+
+	// redraw the bottom area on scroll so we don't see partially drawn bottom arrows
+	fMenuFrame->Invalidate(BRect(0,
+		Bounds().bottom - kScrollerHeight + 1 - step * 2,
+		Bounds().right, Bounds().bottom));
 }
 
