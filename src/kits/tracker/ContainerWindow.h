@@ -63,6 +63,10 @@ class Model;
 class ModelNodeLazyOpener;
 class BorderedView;
 class SelectionWindow;
+class TLiveUpdatingArrangeByMenu;
+class TLiveUpdatingFileMenu;
+class TLiveUpdatingFilePopUpMenu;
+class TLiveUpdatingWindowMenu;
 
 
 #define kDefaultFolderTemplate "DefaultFolderTemplate"
@@ -288,7 +292,7 @@ protected:
 	BGroupView* fVScrollBarContainer;
 	BGroupView* fCountContainer;
 
-	BPopUpMenu* fFileContextMenu;
+	TLiveUpdatingFilePopUpMenu* fFileContextMenu;
 	BPopUpMenu* fWindowContextMenu;
 	BPopUpMenu* fDropContextMenu;
 	BPopUpMenu* fVolumeContextMenu;
@@ -306,9 +310,9 @@ protected:
 	BPoseView* fPoseView;
 	LockingList<BWindow>* fWindowList;
 	BMenu* fAttrMenu;
-	BMenu* fWindowMenu;
-	BMenu* fFileMenu;
-	BMenu* fArrangeByMenu;
+	TLiveUpdatingWindowMenu* fWindowMenu;
+	TLiveUpdatingFileMenu* fFileMenu;
+	TLiveUpdatingArrangeByMenu* fArrangeByMenu;
 
 	SelectionWindow* fSelectionWindow;
 
