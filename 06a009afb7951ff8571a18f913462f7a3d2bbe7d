@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "bfc88109_bab67d11",
+        "filename": "src/add-ons/kernel/file_systems/xfs/.vscode/c_cpp_properties.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-02-28T15:11:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2be0e7db_441a2d40",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0913521_f31a86c2",
         "filename": "src/add-ons/kernel/file_systems/xfs/.vscode/settings.json",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2940c8b_6f43b98e",
+        "filename": "src/add-ons/kernel/file_systems/xfs/.vscode/settings.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-02-28T15:11:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0913521_f31a86c2",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "1d2319e6_d52dff9a",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-02-28T15:11:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "722d4627_fb8475e5",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fd9ced4c_c74b346f",
         "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
         "patchSetId": 1
@@ -67,6 +121,24 @@
       "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61dbc545_9e3cfc60",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-02-28T15:11:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd9ced4c_c74b346f",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "8bfa063d_a8386f13",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-02-28T15:11:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ffe90d14_29119c77",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e5cb3d8_0f005822",
         "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
         "patchSetId": 1
@@ -98,6 +188,24 @@
       "writtenOn": "2020-02-27T18:10:08Z",
       "side": 1,
       "message": "Why is this class here? It looks like it could be reused in several filesystem implementations, in that case it may be a good idea to instead move it to src/add-ons/kernel/filesystems/shared or something like that?",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9c735de_2f8692b6",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-02-28T15:11:13Z",
+      "side": 1,
+      "message": "Yes that seems like a good idea. Will do this in another PR",
+      "parentUuid": "0e5cb3d8_0f005822",
       "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "f65c1976_629a3adf",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-02-28T15:11:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d301072e_61f1b745",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cedbe1dd_8c2c548d",
         "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
         "patchSetId": 1
@@ -135,6 +261,24 @@
       "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ac40b39_2a683f6a",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-02-28T15:11:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cedbe1dd_8c2c548d",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "322c5709_25ef86c1",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-02-28T15:11:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d0a045c_0d6bb0f1",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef9c9233_2e2cd23b",
         "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
         "patchSetId": 1
@@ -169,6 +331,24 @@
       "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "299d75e7_a673c1c7",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-02-28T15:11:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef9c9233_2e2cd23b",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -189,6 +369,24 @@
     },
     {
       "key": {
+        "uuid": "d8423592_f73e4b8f",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-02-28T15:11:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0a8e7f7_8446b03d",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0b77f2e_a3b4872c",
         "filename": "src/add-ons/kernel/file_systems/xfs/Volume.h",
         "patchSetId": 1
@@ -203,6 +401,24 @@
       "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c8096dd_fa17e245",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-02-28T15:11:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0b77f2e_a3b4872c",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -223,6 +439,24 @@
     },
     {
       "key": {
+        "uuid": "d2563c59_3a981c64",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-02-28T15:11:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54bc8e29_d525d30f",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d193bab1_50c29e46",
         "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
         "patchSetId": 1
@@ -237,6 +471,24 @@
       "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09f3f13c_f40adf79",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-02-28T15:11:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d193bab1_50c29e46",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -257,6 +509,24 @@
     },
     {
       "key": {
+        "uuid": "c6a2a426_a3104a04",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-02-28T15:11:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ecf72ef_b13fe7fb",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e260785_60f45c11",
         "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
         "patchSetId": 1
@@ -268,6 +538,24 @@
       "writtenOn": "2020-02-27T18:10:08Z",
       "side": 1,
       "message": "Is this TODO applicable to XFS? Do we even have the file cache being used yet?",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63e5de61_9c17d71a",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-02-28T15:11:13Z",
+      "side": 1,
+      "message": "File cache is not. Not entirely sure if it\u0027s applicable but this was seen in both BFS and BTRFS so I let it be till I knew for sure.",
+      "parentUuid": "6e260785_60f45c11",
       "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -291,6 +579,24 @@
     },
     {
       "key": {
+        "uuid": "aa9e3213_e481b10d",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-02-28T15:11:13Z",
+      "side": 1,
+      "message": "It will be deleted during unmounting, which I haven\u0027t added yet",
+      "parentUuid": "ca45b1c5_643f8f4a",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f81eee4_663e5f14",
         "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
         "patchSetId": 1
@@ -305,6 +611,24 @@
       "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4fec876_744ae30b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-02-28T15:11:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f81eee4_663e5f14",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -325,6 +649,24 @@
     },
     {
       "key": {
+        "uuid": "894343ea_8bb469d1",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-02-28T15:11:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa01e620_13049b1a",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "33220592_f67867e5",
         "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
         "patchSetId": 1
@@ -339,6 +681,24 @@
       "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a20e4e2f_24a9532c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-02-28T15:11:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33220592_f67867e5",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -359,6 +719,24 @@
     },
     {
       "key": {
+        "uuid": "c3c691b4_67fb53e6",
+        "filename": "src/add-ons/kernel/file_systems/xfs/system_dependencies.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-02-28T15:11:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7dc82417_c34f3a0b",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5d98b113_b6fbcea3",
         "filename": "src/add-ons/kernel/file_systems/xfs/xfs_sb.c",
         "patchSetId": 1
@@ -370,6 +748,24 @@
       "writtenOn": "2020-02-27T18:10:08Z",
       "side": 1,
       "message": "did you check that there is no padding in your xfs_sb structure?\n\nAlso you are trying to copy data into a type, not into a variable, this will not work.",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02390802_898ec19e",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs_sb.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-02-28T15:11:13Z",
+      "side": 1,
+      "message": "Fixed. I thought of making xfs_sb_t the variable but forgot.\nI checked and there is no padding",
+      "parentUuid": "5d98b113_b6fbcea3",
       "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -393,6 +789,24 @@
     },
     {
       "key": {
+        "uuid": "7134450c_26eaab34",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs_sb.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-02-28T15:11:13Z",
+      "side": 1,
+      "message": "Will make another PR for this. I will need to make quite a few changes here and there",
+      "parentUuid": "c3dd48e7_d144c647",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f69a63c2_cc3cc6db",
         "filename": "src/add-ons/kernel/file_systems/xfs/xfs_sb.h",
         "patchSetId": 1
@@ -407,6 +821,24 @@
       "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39c3d5cf_8c00630f",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs_sb.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-02-28T15:11:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f69a63c2_cc3cc6db",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -427,6 +859,24 @@
     },
     {
       "key": {
+        "uuid": "a7307fc6_29791378",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs_sb.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-02-28T15:11:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "666a2c11_faa08762",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9981201a_53bc4a2b",
         "filename": "src/add-ons/kernel/file_systems/xfs/xfs_sb.h",
         "patchSetId": 1
@@ -441,6 +891,24 @@
       "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "816a5d09_834aab91",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs_sb.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-02-28T15:11:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9981201a_53bc4a2b",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -461,6 +929,24 @@
     },
     {
       "key": {
+        "uuid": "3287217c_d5b325b0",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs_sb.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-02-28T15:11:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43f2d084_deafa2ad",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "faf719ee_a6a061f4",
         "filename": "src/add-ons/kernel/file_systems/xfs/xfs_types.h",
         "patchSetId": 1
@@ -475,6 +961,24 @@
       "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd5e24da_f50b044d",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs_types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-02-28T15:11:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "faf719ee_a6a061f4",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -495,6 +999,24 @@
     },
     {
       "key": {
+        "uuid": "9a90ba7d_407df3e3",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs_types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-02-28T15:11:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7006635_6c75e687",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "004d83c0_fc36e33c",
         "filename": "src/add-ons/kernel/file_systems/xfs/xfs_types.h",
         "patchSetId": 1
@@ -512,6 +1034,24 @@
     },
     {
       "key": {
+        "uuid": "1b0fb1df_f608089b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs_types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-02-28T15:11:13Z",
+      "side": 1,
+      "message": "Do we do this for the other types as well?",
+      "parentUuid": "004d83c0_fc36e33c",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "83e590a4_9d4d2055",
         "filename": "src/add-ons/kernel/file_systems/xfs/xfs_types.h",
         "patchSetId": 1
@@ -523,6 +1063,24 @@
       "writtenOn": "2020-02-27T18:10:08Z",
       "side": 1,
       "message": "use off_t",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b879bfc_87ea2a04",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs_types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-02-28T15:11:13Z",
+      "side": 1,
+      "message": "filoff_t and off_t are different I believe. We will find out eventually",
+      "parentUuid": "83e590a4_9d4d2055",
       "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
