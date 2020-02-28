@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "965ac977_169c975c",
+        "filename": "docs/user/interface/Window.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 1053,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-28T12:58:49Z",
+      "side": 1,
+      "message": "I don\u0027t see the point of documenting that this doesn\u0027t exist? In the API reference at least, it sounds more like something that should go in docs/develop",
+      "revId": "86836f31c721b9e46b1d48b466d40fcd23e550b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c9aa9b3_0f22ecd6",
+        "filename": "docs/user/interface/Window.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 1066,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-28T12:58:49Z",
+      "side": 1,
+      "message": "This is a private API that should not be documented here.",
+      "revId": "86836f31c721b9e46b1d48b466d40fcd23e550b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f839d649_ede80d16",
+        "filename": "src/kits/interface/PopUpMenu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-28T12:58:49Z",
+      "side": 1,
+      "message": "Should we remove this code from BMenuBar and always do it here? Wouldn\u0027t that be simpler?",
+      "revId": "86836f31c721b9e46b1d48b466d40fcd23e550b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c32a1da_c3f20f59",
+        "filename": "src/kits/interface/PopUpMenu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-28T12:58:49Z",
+      "side": 1,
+      "message": "Why is this a static method?",
+      "revId": "86836f31c721b9e46b1d48b466d40fcd23e550b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
