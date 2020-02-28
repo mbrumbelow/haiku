@@ -1026,6 +1026,22 @@ TTracker::ArgvReceived(int32 argc, char** argv)
 
 
 void
+TTracker::DispatchMessage(BMessage* message, BHandler* handler)
+{
+	if (message->what == B_MODIFIERS_CHANGED) {
+		for (int32 i = 0; i < fWindowList.CountItems(); i++) {
+			BContainerWindow* window = dynamic_cast<BContainerWindow*>(
+				fWindowList.ItemAt(i));
+			if (window != NULL)
+				window->PostMessage(message);
+		}
+	}
+
+	BApplication::DispatchMessage(message, handler);
+}
+
+
+void
 TTracker::OpenContainerWindow(Model* model, BMessage* originalRefsList,
 	OpenSelector openSelector, uint32 openFlags, bool checkAlreadyOpen,
 	const BMessage* stateMessage)

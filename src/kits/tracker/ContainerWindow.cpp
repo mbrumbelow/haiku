@@ -1514,6 +1514,10 @@ BContainerWindow::MessageReceived(BMessage* message)
 			break;
 		}
 
+		case B_MODIFIERS_CHANGED:
+			UpdateMenuItemsForModifiersChanged();
+			break;
+
 		case kNewFolder:
 			PostMessage(message, PoseView());
 			break;
@@ -1573,6 +1577,7 @@ BContainerWindow::MessageReceived(BMessage* message)
 		case kCreateLink:
 		case kCreateRelativeLink:
 		{
+			bool relative = message->what == kCreateRelativeLink;
 			entry_ref ref;
 			if (message->FindRef("refs", &ref) == B_OK) {
 				BRoster().AddToRecentFolders(&ref);
@@ -1582,14 +1587,12 @@ BContainerWindow::MessageReceived(BMessage* message)
 					break;
 
 				PoseView()->MoveSelectionInto(&model, this, false, false,
-					message->what == kCreateLink,
-					message->what == kCreateRelativeLink);
+					relative, relative);
 			} else if (!TargetModel()->IsQuery()
 				&& !TargetModel()->IsVirtualDirectory()) {
 				// no destination specified, create link in same dir as item
-				PoseView()->MoveSelectionInto(TargetModel(), this, false, false,
-					message->what == kCreateLink,
-					message->what == kCreateRelativeLink);
+				PoseView()->MoveSelectionInto(TargetModel(), this, false,
+					false, relative, relative);
 			}
 			break;
 		}
@@ -2600,9 +2603,6 @@ BContainerWindow::SetupMoveCopyMenus(const entry_ref* item_ref, BMenu* parent)
 		return;
 	}
 
-	// Grab the modifiers state since we use it twice
-	uint32 modifierKeys = modifiers();
-
 	// re-parent items to this menu since they're shared
 	int32 index;
 	BMenuItem* trash = parent->FindItem(kMoveToTrash);
@@ -2632,13 +2632,6 @@ BContainerWindow::SetupMoveCopyMenus(const entry_ref* item_ref, BMenu* parent)
 		parent->AddItem(fCreateLinkItem, index);
 	}
 
-	// Set the "Create Link" item label here so it
-	// appears correctly when menus are disabled, too.
-	if (modifierKeys & B_SHIFT_KEY)
-		fCreateLinkItem->SetLabel(B_TRANSLATE("Create relative link"));
-	else
-		fCreateLinkItem->SetLabel(B_TRANSLATE("Create link"));
-
 	// only enable once the menus are built
 	fMoveToItem->SetEnabled(false);
 	fCopyToItem->SetEnabled(false);
@@ -2667,33 +2660,14 @@ BContainerWindow::SetupMoveCopyMenus(const entry_ref* item_ref, BMenu* parent)
 
 	// Set "Create Link" menu item message and
 	// add all mounted volumes (except the one this item lives on)
-	if (modifierKeys & B_SHIFT_KEY) {
-		fCreateLinkItem->SetMessage(new BMessage(kCreateRelativeLink));
-		PopulateMoveCopyNavMenu(dynamic_cast<BNavMenu*>
-				(fCreateLinkItem->Submenu()),
-			kCreateRelativeLink, item_ref, false);
-	} else {
-		fCreateLinkItem->SetMessage(new BMessage(kCreateLink));
-		PopulateMoveCopyNavMenu(dynamic_cast<BNavMenu*>
-			(fCreateLinkItem->Submenu()),
-		kCreateLink, item_ref, false);
-	}
+	UpdateCreateLinkMenuItem(fCreateLinkItem, item_ref);
 
 	fMoveToItem->SetEnabled(true);
 	fCopyToItem->SetEnabled(true);
 	fCreateLinkItem->SetEnabled(true);
 
 	// Set the "Identify" item label
-	BMenuItem* identifyItem = parent->FindItem(kIdentifyEntry);
-	if (identifyItem != NULL) {
-		if (modifierKeys & B_SHIFT_KEY) {
-			identifyItem->SetLabel(B_TRANSLATE("Force identify"));
-			identifyItem->Message()->ReplaceBool("force", true);
-		} else {
-			identifyItem->SetLabel(B_TRANSLATE("Identify"));
-			identifyItem->Message()->ReplaceBool("force", false);
-		}
-	}
+	UpdateIdentifyMenuItem(parent->FindItem(kIdentifyEntry));
 }
 
 
@@ -2710,16 +2684,16 @@ BContainerWindow::ShowDropContextMenu(BPoint loc)
 	BMenuItem* item = fDropContextMenu->FindItem(kCreateLink);
 	if (item == NULL)
 		item = fDropContextMenu->FindItem(kCreateRelativeLink);
-	if (item && (modifiers() & B_SHIFT_KEY)) {
+	if (item != NULL && (modifiers() & B_SHIFT_KEY)) {
 		item->SetLabel(B_TRANSLATE("Create relative link here"));
 		item->SetMessage(new BMessage(kCreateRelativeLink));
-	} else if (item) {
+	} else if (item != NULL) {
 		item->SetLabel(B_TRANSLATE("Create link here"));
 		item->SetMessage(new BMessage(kCreateLink));
 	}
 
 	item = fDropContextMenu->Go(global, true, true);
-	if (item)
+	if (item != NULL)
 		return item->Command();
 
 	return 0;
@@ -2918,9 +2892,11 @@ BContainerWindow::AddFileContextMenus(BMenu* menu)
 #endif
 
 	menu->AddSeparatorItem();
+
 	BMessage* message = new BMessage(kIdentifyEntry);
 	message->AddBool("force", false);
 	menu->AddItem(new BMenuItem(B_TRANSLATE("Identify"), message));
+
 	BMenu* addOnMenuItem = new BMenu(B_TRANSLATE("Add-ons"));
 	addOnMenuItem->SetFont(be_plain_font);
 	menu->AddItem(addOnMenuItem);
@@ -4358,6 +4334,101 @@ BContainerWindow::PopulateArrangeByMenu(BMenu* menu)
 		'K');
 	item->SetTarget(PoseView());
 	menu->AddItem(item);
+}
+
+
+void
+BContainerWindow::UpdateMenuItemsForModifiersChanged()
+{
+	BMenuItem* item = NULL;
+
+	// File menu
+	if (fFileMenu != NULL) {
+		// Identify/Force identify
+		item = fFileMenu->FindItem(kIdentifyEntry);
+		UpdateIdentifyMenuItem(item);
+
+		// Create link/Create relative link
+		item = fFileMenu->FindItem(kCreateLink);
+		UpdateCreateLinkMenuItem(item);
+		item = fFileMenu->FindItem(kCreateRelativeLink);
+		UpdateCreateLinkMenuItem(item);
+
+	}
+
+	// File context menu
+	if (fFileContextMenu != NULL) {
+		// Identify/Force identify
+		item = fFileContextMenu->FindItem(kIdentifyEntry);
+		UpdateIdentifyMenuItem(item);
+
+		// Create link/Create relative link
+		item = fFileContextMenu->FindItem(kCreateLink);
+		UpdateCreateLinkMenuItem(item);
+		item = fFileContextMenu->FindItem(kCreateRelativeLink);
+		UpdateCreateLinkMenuItem(item);
+	}
+}
+
+
+void
+BContainerWindow::UpdateIdentifyMenuItem(BMenuItem* item)
+{
+	if (item == NULL || item->Menu() == NULL)
+		return;
+
+	if ((modifiers() & B_SHIFT_KEY) != 0) {
+		item->Message()->ReplaceBool("force", true);
+		item->SetLabel(B_TRANSLATE("Force identify"));
+	} else {
+		item->Message()->ReplaceBool("force", false);
+		// add some room for the label to grow
+		BString label(B_TRANSLATE("Identify"));
+		float shortLabel = item->Menu()->StringWidth(
+			B_TRANSLATE("Identify"));
+		float longLabel = item->Menu()->StringWidth(
+			B_TRANSLATE("Force identify"));
+		while (longLabel > shortLabel) {
+			label << " ";
+			longLabel -= item->Menu()->StringWidth(" ");
+		}
+		item->SetLabel(label.String());
+	}
+}
+
+
+void
+BContainerWindow::UpdateCreateLinkMenuItem(BMenuItem* item,
+	const entry_ref* ref)
+{
+	if (item == NULL || item->Menu() == NULL)
+		return;
+
+	if ((modifiers() & B_SHIFT_KEY) != 0) {
+		item->Message()->what = kCreateRelativeLink;
+		if (strcmp(item->Label(), B_TRANSLATE("Current folder")) != 0)
+			item->SetLabel(B_TRANSLATE("Create relative link"));
+	} else {
+		item->Message()->what = kCreateLink;
+		if (strcmp(item->Label(), B_TRANSLATE("Current folder")) != 0) {
+			// add some room for the label to grow
+			BString label(B_TRANSLATE("Create link"));
+			float shortLabel = item->Menu()->StringWidth(
+				B_TRANSLATE("Create link"));
+			float longLabel = item->Menu()->StringWidth(
+				B_TRANSLATE("Create relative link"));
+			while (longLabel > shortLabel) {
+				label << " ";
+				longLabel -= item->Menu()->StringWidth(" ");
+			}
+			item->SetLabel(label.String());
+		}
+	}
+
+	if (ref != NULL) {
+		BNavMenu* navMenu = dynamic_cast<BNavMenu*>(item->Submenu());
+		PopulateMoveCopyNavMenu(navMenu, item->Message()->what, ref, false);
+	}
 }
 
 

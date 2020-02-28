@@ -11,6 +11,7 @@
 
 #include <MenuWindow.h>
 
+#include <Application.h>
 #include <ControlLook.h>
 #include <Debug.h>
 #include <Menu.h>
@@ -256,6 +257,9 @@ BMenuWindow::~BMenuWindow()
 void
 BMenuWindow::DispatchMessage(BMessage *message, BHandler *handler)
 {
+	if (message->what == B_MODIFIERS_CHANGED)
+		be_app_messenger.SendMessage(message);
+
 	BWindow::DispatchMessage(message, handler);
 }
 

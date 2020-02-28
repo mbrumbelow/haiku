@@ -244,6 +244,10 @@ protected:
 	virtual void RepopulateMenus();
 	void PopulateArrangeByMenu(BMenu*);
 
+	void UpdateMenuItemsForModifiersChanged();
+	void UpdateIdentifyMenuItem(BMenuItem* item);
+	void UpdateCreateLinkMenuItem(BMenuItem* item, const entry_ref* ref = NULL);
+
 	virtual void SetCutItem(BMenu*);
 	virtual void SetCopyItem(BMenu*);
 	virtual void SetPasteItem(BMenu*);

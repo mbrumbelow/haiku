@@ -89,6 +89,7 @@ public:
 	virtual void Pulse();
 	virtual void RefsReceived(BMessage* message);
 	virtual void ArgvReceived(int32 argc, char** argv);
+	virtual void DispatchMessage(BMessage* message, BHandler* handler);
 
 	MimeTypeList* MimeTypes() const;
 		// list of mime types that have a description and do not have
