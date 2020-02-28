@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ed443f9a_dbd52dc2",
+        "filename": "docs/user/interface/Window.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 1053,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-02-28T16:32:53Z",
+      "side": 1,
+      "message": "That comment comes from BeBook where it says \"These hook functions are not invoked because of messages—don\u0027t go looking for a \u0027menus beginning\u0027 or \u0027menus ended\u0027 message.\" Although that statement doesn\u0027t appear to be 100% true even on BeOS R5 _MENUS_DONE_ was defined in AppDefs.h.",
+      "parentUuid": "965ac977_169c975c",
+      "revId": "86836f31c721b9e46b1d48b466d40fcd23e550b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3c9aa9b3_0f22ecd6",
         "filename": "docs/user/interface/Window.dox",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2020-02-28T12:58:49Z",
       "side": 1,
       "message": "This is a private API that should not be documented here.",
+      "revId": "86836f31c721b9e46b1d48b466d40fcd23e550b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99ab582c_154e1939",
+        "filename": "docs/user/interface/Window.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 1066,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-02-28T16:32:53Z",
+      "side": 1,
+      "message": "I guess being private is why the BeBook said there was no \"menus ended\" message.",
+      "parentUuid": "3c9aa9b3_0f22ecd6",
       "revId": "86836f31c721b9e46b1d48b466d40fcd23e550b6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "fe500485_a600ca9b",
+        "filename": "src/kits/interface/PopUpMenu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-02-28T16:32:53Z",
+      "side": 1,
+      "message": "If we did that then you wouldn\u0027t get hook methods called for a BMenu that isn\u0027t also a BPopUpMenu connected to a BMenuBar.",
+      "parentUuid": "f839d649_ede80d16",
+      "revId": "86836f31c721b9e46b1d48b466d40fcd23e550b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9c32a1da_c3f20f59",
         "filename": "src/kits/interface/PopUpMenu.cpp",
         "patchSetId": 1
@@ -64,6 +118,24 @@
       "writtenOn": "2020-02-28T12:58:49Z",
       "side": 1,
       "message": "Why is this a static method?",
+      "revId": "86836f31c721b9e46b1d48b466d40fcd23e550b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b804240d_be09b504",
+        "filename": "src/kits/interface/PopUpMenu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-02-28T16:32:53Z",
+      "side": 1,
+      "message": "Because it gets called from the menu window looper thread or the main window looper thread.",
+      "parentUuid": "9c32a1da_c3f20f59",
       "revId": "86836f31c721b9e46b1d48b466d40fcd23e550b6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
