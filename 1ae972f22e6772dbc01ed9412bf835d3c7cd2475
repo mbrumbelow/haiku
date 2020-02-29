@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b4f99f99_21f80476",
+        "filename": "src/apps/haikudepot/HaikuDepotConstants.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2020-02-29T07:05:09Z",
+      "side": 1,
+      "message": "If we put it in the ReportingBugs page instead:\n\n\"available at \u0027Tips for a helpful bug report\u0027 of the Welcome package.\"",
+      "revId": "1ae972f22e6772dbc01ed9412bf835d3c7cd2475",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
