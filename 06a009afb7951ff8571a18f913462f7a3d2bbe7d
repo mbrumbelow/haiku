@@ -1052,6 +1052,24 @@
     },
     {
       "key": {
+        "uuid": "5f2a3187_822b3f55",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs_types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-29T10:24:12Z",
+      "side": 1,
+      "message": "I think the others are really XFS-specific and we don\u0027t have matching generic types.",
+      "parentUuid": "1b0fb1df_f608089b",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "83e590a4_9d4d2055",
         "filename": "src/add-ons/kernel/file_systems/xfs/xfs_types.h",
         "patchSetId": 1
@@ -1084,6 +1102,24 @@
       "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "142138de_d1cf901f",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs_types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-29T10:24:12Z",
+      "side": 1,
+      "message": "Yes, seems right.",
+      "parentUuid": "8b879bfc_87ea2a04",
+      "revId": "06a009afb7951ff8571a18f913462f7a3d2bbe7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }

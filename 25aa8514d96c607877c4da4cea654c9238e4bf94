@@ -1,0 +1,293 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3b3a305d_6c6b4956",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-29T10:24:12Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "25aa8514d96c607877c4da4cea654c9238e4bf94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12037dd1_90a0d017",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-29T10:24:12Z",
+      "side": 1,
+      "message": "malloc can fail, check for that and return B_NO_MEMORY",
+      "revId": "25aa8514d96c607877c4da4cea654c9238e4bf94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae0481ce_0d76c3a6",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-29T10:24:12Z",
+      "side": 1,
+      "message": "when is the buffer free()d ?",
+      "revId": "25aa8514d96c607877c4da4cea654c9238e4bf94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e92e27fd_bd0e4034",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-29T10:24:12Z",
+      "side": 1,
+      "message": "you are returning a pointer to the stack here. This will crash, because superBlockObject will be deleted when the function returns",
+      "revId": "25aa8514d96c607877c4da4cea654c9238e4bf94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b924620_8e699cad",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-29T10:24:12Z",
+      "side": 1,
+      "message": "the { goes on the same line as the if (also in other places below)",
+      "revId": "25aa8514d96c607877c4da4cea654c9238e4bf94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07d88146_da74ed89",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-29T10:24:12Z",
+      "side": 1,
+      "message": "} else { on a single line",
+      "revId": "25aa8514d96c607877c4da4cea654c9238e4bf94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ecba59e_2e210896",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-29T10:24:12Z",
+      "side": 1,
+      "message": "you do the byteswapping in superblock constructor so this is useless, you don\u0027t save anything here.",
+      "revId": "25aa8514d96c607877c4da4cea654c9238e4bf94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba4cc697_72a364d9",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-29T10:24:12Z",
+      "side": 1,
+      "message": "The alignment of types / method names in this class is not correct. Check the style guide.",
+      "revId": "25aa8514d96c607877c4da4cea654c9238e4bf94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4fda0fdd_4c741c51",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-29T10:24:12Z",
+      "side": 1,
+      "message": "I think this class should not store the fBlockSize, but instead get it from the superblock?\n\nWhat is the difference between fBlockSize and fbsize?",
+      "revId": "25aa8514d96c607877c4da4cea654c9238e4bf94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cfc3bf6_0a28ba60",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-29T10:24:12Z",
+      "side": 1,
+      "message": "_volume-\u003eprivate_volume should be reset to NULL here, otherwise it points to deleted memory",
+      "revId": "25aa8514d96c607877c4da4cea654c9238e4bf94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c991544_80439704",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-29T10:24:12Z",
+      "side": 1,
+      "message": "you can at least \"delete _volume-\u003eprivate_volume\" here. And I think that\u0027s enough to implement a first version of unmount.",
+      "revId": "25aa8514d96c607877c4da4cea654c9238e4bf94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "caf5b56b_8468e319",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-29T10:24:12Z",
+      "side": 1,
+      "message": "two blank lines before and two blank lines after the pragma mark",
+      "revId": "25aa8514d96c607877c4da4cea654c9238e4bf94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8ebbe2b_46fd05c8",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-29T10:24:12Z",
+      "side": 1,
+      "message": "always two blank lines between functions (also for all functions below)",
+      "revId": "25aa8514d96c607877c4da4cea654c9238e4bf94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "affed78d_b7737cf8",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs_sb.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-29T10:24:12Z",
+      "side": 1,
+      "message": "two blank lines between functions, always (and also above in this file)",
+      "revId": "25aa8514d96c607877c4da4cea654c9238e4bf94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ffa617f0_f0eee316",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs_sb.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-29T10:24:12Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "25aa8514d96c607877c4da4cea654c9238e4bf94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3cf6aed_79a79d91",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs_sb.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-29T10:24:12Z",
+      "side": 1,
+      "message": "why not having a constructor for this instead?\n\nAlso the parameter should be a const char*",
+      "revId": "25aa8514d96c607877c4da4cea654c9238e4bf94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cdf8516_2fb6abe0",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs_sb.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-02-29T10:24:12Z",
+      "side": 1,
+      "message": "call it fSuperBlockData or something. xfs_sb_t is a type name, not a variable name.",
+      "revId": "25aa8514d96c607877c4da4cea654c9238e4bf94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
