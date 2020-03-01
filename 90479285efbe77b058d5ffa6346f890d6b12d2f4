@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "df54ce52_a051bcf2",
+        "filename": "docs/user/app/Notification.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-03-01T22:52:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18bb2359_cc2dc2af",
+      "revId": "90479285efbe77b058d5ffa6346f890d6b12d2f4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c79f6b34_1459f97b",
         "filename": "docs/user/app/Notification.dox",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "90479285efbe77b058d5ffa6346f890d6b12d2f4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a564225a_1cb64625",
+        "filename": "docs/user/app/Notification.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-03-01T22:52:37Z",
+      "side": 1,
+      "message": "I added more clarification to the class description, including a code sample. I was in doubt whether to put it here. Technically it does not belong here, but it does make sense that a user would encounter it. In the end I decided to put this more general usage instruction in the class description.",
+      "parentUuid": "c79f6b34_1459f97b",
+      "revId": "90479285efbe77b058d5ffa6346f890d6b12d2f4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
