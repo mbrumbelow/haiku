@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "41af7dee_1c900ac3",
+        "filename": "src/system/kernel/condition_variable.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-03-02T08:11:38Z",
+      "side": 1,
+      "message": "Interrupts are already disabled, and will be again in _RemoveFromVariable()?",
+      "revId": "0a9e8de94c69bf84806cceb889a2852f748eb7f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
