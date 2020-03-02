@@ -52,6 +52,24 @@
       "revId": "0a9e8de94c69bf84806cceb889a2852f748eb7f5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "220b8c46_9f48d738",
+        "filename": "src/system/kernel/condition_variable.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-03-02T15:41:55Z",
+      "side": 1,
+      "message": "But why? This just means that all callers of RemoveFromVariable in the future have to take care that interrupts are disabled. Checking the interrupt flag status in disable_interrupts is one instruction, and this way the abstraction is preserved.",
+      "parentUuid": "902d9d0c_0004167b",
+      "revId": "0a9e8de94c69bf84806cceb889a2852f748eb7f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
