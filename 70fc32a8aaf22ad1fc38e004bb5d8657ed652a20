@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "70ab3ce2_3832fd19",
+        "filename": "src/apps/stylededit/StyledEditWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-02T19:02:23Z",
+      "side": 1,
+      "message": "space goes before (, not after.\nAnd this line is longer than 80 columns",
+      "revId": "70fc32a8aaf22ad1fc38e004bb5d8657ed652a20",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f7e6b76_b5dc77a9",
+        "filename": "src/apps/stylededit/StyledEditWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-02T19:02:23Z",
+      "side": 1,
+      "message": "This can lead to skipping entries in the size list.\n\nIf font size is 13, and the array has 11, 12, 14, 16, the result will be 16 instead of the expected 14.",
+      "revId": "70fc32a8aaf22ad1fc38e004bb5d8657ed652a20",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a1606b5_5190f4d1",
+        "filename": "src/apps/stylededit/StyledEditWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1277,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-02T19:02:23Z",
+      "side": 1,
+      "message": "This comment is now at the wrong place",
+      "revId": "70fc32a8aaf22ad1fc38e004bb5d8657ed652a20",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81ae5396_7139bdb0",
+        "filename": "src/apps/stylededit/StyledEditWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1280,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-02T19:02:23Z",
+      "side": 1,
+      "message": "I would word them as \"Increase size\" / \"Decrease size\" instead. We are already in the \"font\" menu so there is no need to repeat that.",
+      "revId": "70fc32a8aaf22ad1fc38e004bb5d8657ed652a20",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
