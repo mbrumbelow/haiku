@@ -34,6 +34,24 @@
       "revId": "0a9e8de94c69bf84806cceb889a2852f748eb7f5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "902d9d0c_0004167b",
+        "filename": "src/system/kernel/condition_variable.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-03-02T14:30:17Z",
+      "side": 1,
+      "message": "Sure, but this is just not needed. InterruptsLocker could be moved from _RemoveFromVariable() to the destructor. This spares the useless check in _RemoveFromVariable()",
+      "parentUuid": "bde1895d_d726ac1e",
+      "revId": "0a9e8de94c69bf84806cceb889a2852f748eb7f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
