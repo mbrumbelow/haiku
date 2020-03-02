@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e50a4049_2851a51e",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-02T18:54:25Z",
+      "side": 1,
+      "message": "space missing before {",
+      "revId": "766203d694ef0d032af1cdbd8d24f27296f42eb4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a899e94_7719b674",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-02T18:54:25Z",
+      "side": 1,
+      "message": "space missing before { (also in other places later in the file)",
+      "revId": "766203d694ef0d032af1cdbd8d24f27296f42eb4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc0cb267_04931a83",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-02T18:54:25Z",
+      "side": 1,
+      "message": "spaces missing after } and before {",
+      "revId": "766203d694ef0d032af1cdbd8d24f27296f42eb4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3819c1e0_cbaf5ff5",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-02T18:54:25Z",
+      "side": 1,
+      "message": "{ goes on the same line as if()",
+      "revId": "766203d694ef0d032af1cdbd8d24f27296f42eb4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
