@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4724561a_7b4622d7",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-02T17:50:14Z",
+      "side": 1,
+      "message": "\"Scanning\" is correct here (it means \"Methods related to scanning/identifying partitions\")",
+      "revId": "e3baa63328b5c55fa7282bf65490fd80e158e749",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed8b2181_ccb2ab9f",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-02T17:50:14Z",
+      "side": 1,
+      "message": "this needs one level of indentation (1 tab, no more no less)",
+      "revId": "e3baa63328b5c55fa7282bf65490fd80e158e749",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0e65a15_446941c2",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-02T17:50:14Z",
+      "side": 1,
+      "message": "this line is now too long",
+      "revId": "e3baa63328b5c55fa7282bf65490fd80e158e749",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee067d83_c39ad4fc",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-02T17:50:14Z",
+      "side": 1,
+      "message": "Don\u0027t forget to add the standard copyright header to all new files",
+      "revId": "e3baa63328b5c55fa7282bf65490fd80e158e749",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
