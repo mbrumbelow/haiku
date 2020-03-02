@@ -16,6 +16,24 @@
       "revId": "0a9e8de94c69bf84806cceb889a2852f748eb7f5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bde1895d_d726ac1e",
+        "filename": "src/system/kernel/condition_variable.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-03-02T13:37:08Z",
+      "side": 1,
+      "message": "Well, RemoveFromVariable is called from the destructor, which is probably called with interrupts enabled, so yes?\n\ndisable_interrupts returns whether or not interrupts were disabled, so essentially it functions like a \"recursive lock\", so this is harmless. All other functions save ...Locked() ones presume interrupts may be enabled, so it makes sense to this.",
+      "parentUuid": "41af7dee_1c900ac3",
+      "revId": "0a9e8de94c69bf84806cceb889a2852f748eb7f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
