@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "f54f9eeb_93ad6e25",
+        "filename": "headers/os/interface/View.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-03-03T20:52:40Z",
+      "side": 1,
+      "message": "These changes to the public API should probably be documented in the HaikuBook.",
+      "revId": "32c2aac60e535064f2b67d2151634deb6fd5118d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e6f830aa_a7e2b79f",
         "filename": "src/add-ons/input_server/devices/mouse/MouseInputDevice.cpp",
         "patchSetId": 9
