@@ -194,4 +194,5 @@ InputWindow::AddDevice(BInputDevice* dev)
 	} else {
 		delete dev;
 	}
+	fDeviceListView->SetExplicitSize();
 }

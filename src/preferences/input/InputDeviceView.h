@@ -33,6 +33,7 @@ public:
 			DeviceListView(const char *name);
 	virtual		~DeviceListView();
 	virtual	void	AttachedToWindow();
+	void		SetExplicitSize();
 	BListView*	fDeviceList;
 
 private:
