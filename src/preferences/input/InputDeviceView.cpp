@@ -34,9 +34,7 @@ DeviceListView::DeviceListView(const char* name)
 	fScrollView = new BScrollView("ScrollView",fDeviceList,
 					0 , false, B_FANCY_BORDER);
 
-	SetExplicitMinSize(BSize(160, B_SIZE_UNSET));
 	SetExplicitMaxSize(BSize(B_SIZE_UNLIMITED, B_SIZE_UNSET));
-
 
 	BLayoutBuilder::Group<>(this, B_VERTICAL)
 		.Add(fScrollView)
@@ -55,4 +53,18 @@ DeviceListView::AttachedToWindow()
 
 	fDeviceList->Select(0);
 	SetViewUIColor(B_PANEL_BACKGROUND_COLOR);
+}
+
+void
+DeviceListView::SetExplicitSize()
+{
+	float minWidth = 0;
+	for (int32 i = 0; i < fDeviceList->CountItems(); i++) {
+		BStringItem* item = (BStringItem*)fDeviceList->ItemAt(i);
+		float width = fDeviceList->StringWidth(item->Text());
+		if (width > minWidth){
+			minWidth = width;
+		}
+	}
+	SetExplicitMinSize(BSize(minWidth + 40 , B_SIZE_UNSET));
 }
