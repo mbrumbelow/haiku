@@ -67,6 +67,23 @@
       "revId": "70fc32a8aaf22ad1fc38e004bb5d8657ed652a20",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7a814db_a68b55f5",
+        "filename": "src/apps/stylededit/StyledEditWindow.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2020-03-03T03:12:24Z",
+      "side": 1,
+      "message": "I don\u0027t know why so many other menu items are member variables here, but you don\u0027t really need to add these, since they are not referenced after they are created. So you can just have local variables for them to add them to the menu and set the shortcut in StyledEditWindow.cpp.",
+      "revId": "70fc32a8aaf22ad1fc38e004bb5d8657ed652a20",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
