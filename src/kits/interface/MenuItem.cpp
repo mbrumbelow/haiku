@@ -274,20 +274,22 @@ BMenuItem::SetTrigger(char trigger)
 void
 BMenuItem::SetShortcut(char shortcut, uint32 modifiers)
 {
-	if (fShortcutChar != 0 && (fModifiers & B_COMMAND_KEY) != 0
-		&& fWindow != NULL) {
-		fWindow->RemoveShortcut(fShortcutChar, fModifiers);
+	if (fWindow != NULL && fWindow->LockLooper()) {
+		if (fShortcutChar != 0 && (fModifiers & B_COMMAND_KEY) != 0)
+			fWindow->RemoveShortcut(fShortcutChar, fModifiers);
+
+		fShortcutChar = shortcut;
+
+		if (shortcut != 0)
+			fModifiers = modifiers | B_COMMAND_KEY;
+		else
+			fModifiers = 0;
+
+		if (fShortcutChar != 0 && (fModifiers & B_COMMAND_KEY))
+			fWindow->AddShortcut(fShortcutChar, fModifiers, this);
+
+		fWindow->UnlockLooper();
 	}
-
-	fShortcutChar = shortcut;
-
-	if (shortcut != 0)
-		fModifiers = modifiers | B_COMMAND_KEY;
-	else
-		fModifiers = 0;
-
-	if (fShortcutChar != 0 && (fModifiers & B_COMMAND_KEY) && fWindow)
-		fWindow->AddShortcut(fShortcutChar, fModifiers, this);
 
 	if (fSuper != NULL) {
 		fSuper->InvalidateLayout();
