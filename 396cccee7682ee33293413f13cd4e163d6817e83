@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cbb0d666_5e7a96f4",
+        "filename": "headers/private/kernel/boot/kernel_args.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-03T20:42:38Z",
+      "side": 1,
+      "message": "line too long",
+      "revId": "396cccee7682ee33293413f13cd4e163d6817e83",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
