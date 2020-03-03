@@ -70,6 +70,24 @@
       "revId": "0a9e8de94c69bf84806cceb889a2852f748eb7f5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5772f3bd_eb1c0fad",
+        "filename": "src/system/kernel/condition_variable.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-03-03T05:57:48Z",
+      "side": 1,
+      "message": "_RemoveFromVariable is a method you just introduced, it\u0027s private, so what\u0027s the problem? \"should be called with interrupts disabled\" could document it anyway. I understand when one refactors to reuse a code part, but not when one changes it needlessly. This change leads to think only the destruction code path is changed, but it isn\u0027t the case. \nMoreover you now try to make me believe there would be new callers in the future, this is misleading too.",
+      "parentUuid": "220b8c46_9f48d738",
+      "revId": "0a9e8de94c69bf84806cceb889a2852f748eb7f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
