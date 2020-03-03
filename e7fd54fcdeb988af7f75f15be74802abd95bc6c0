@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e0d1ee52_d6e4798e",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-03T20:41:26Z",
+      "side": 0,
+      "message": "I would have done a much simpler thing: replace the 160 here with StringWidth(\"W\") * 16 or something similar that gives about the right size.\n\nThe reason is, we do not want the list to jump in size when devices are added or removed. So we should just have it at a fixed size that is computed from the font size, no matter the actual contents of the list.",
+      "revId": "e7fd54fcdeb988af7f75f15be74802abd95bc6c0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
