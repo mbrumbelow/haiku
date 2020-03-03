@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "43e1ca5f_921ad338",
+        "filename": "headers/os/interface/View.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-03-03T20:50:35Z",
+      "side": 1,
+      "message": "This constant needs to be added to docs/user/interface/View.dox",
+      "revId": "290b47035f3d529fa6128d7f0e185f52349c7dd7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
