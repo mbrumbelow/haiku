@@ -34,9 +34,11 @@ DeviceListView::DeviceListView(const char* name)
 	fScrollView = new BScrollView("ScrollView",fDeviceList,
 					0 , false, B_FANCY_BORDER);
 
-	SetExplicitMinSize(BSize(160, B_SIZE_UNSET));
-	SetExplicitMaxSize(BSize(B_SIZE_UNLIMITED, B_SIZE_UNSET));
+	static const float kStringWidthFactor = 10.0;
 
+	SetExplicitMinSize(BSize(StringWidth("W") * kStringWidthFactor,
+	                    B_SIZE_UNSET));
+	SetExplicitMaxSize(BSize(B_SIZE_UNLIMITED, B_SIZE_UNSET));
 
 	BLayoutBuilder::Group<>(this, B_VERTICAL)
 		.Add(fScrollView)
