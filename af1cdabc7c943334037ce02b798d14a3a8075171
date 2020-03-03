@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f758ed7d_3302e320",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-03-03T19:55:07Z",
+      "side": 1,
+      "message": "I don\u0027t love the name of this method. SetExplicitMinWidth() would make me happier, SetExplicitMinDeviceListWidth() would make me even happier.",
+      "revId": "af1cdabc7c943334037ce02b798d14a3a8075171",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf08e730_50fb30e3",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-03-03T19:55:07Z",
+      "side": 1,
+      "message": "Don\u0027t call fDeviceList-\u003eCountItems() every loop iteration, either put the count in a variable outside the loop or loop backwards through the items e.g. for (int32 i \u003d fDeviceList-\u003eCountItems(); i-- \u003e 0:) { ... }",
+      "revId": "af1cdabc7c943334037ce02b798d14a3a8075171",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c77aea9_e743406d",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-03-03T19:55:07Z",
+      "side": 1,
+      "message": "Use std::max(width, minWidth) located in the \u003calgrithm\u003e header instead of a separate comparison and assignment.",
+      "revId": "af1cdabc7c943334037ce02b798d14a3a8075171",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2c0f831_e4fae51a",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-03-03T19:55:07Z",
+      "side": 1,
+      "message": "Put the arbitrary constant 40 in its own static const float at the top of the file following the naming convention like this:\n\nstatic const float kExtraDeviceListWidth \u003d 40;\n\nBeOS and Haiku use float type for gui dimensions.",
+      "revId": "af1cdabc7c943334037ce02b798d14a3a8075171",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
