@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e7c3e80c_3b8c065e",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-03T10:06:11Z",
+      "side": 1,
+      "message": "missing space before {",
+      "revId": "7e16eb3f9f09d66088bf2ec2839cca5a7a9369a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9267631_3be5b635",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-03T10:06:11Z",
+      "side": 1,
+      "message": "{ goes on the same line as if()",
+      "revId": "7e16eb3f9f09d66088bf2ec2839cca5a7a9369a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01c6e800_bccdb42c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-03T10:06:11Z",
+      "side": 1,
+      "message": "no {} needed here",
+      "revId": "7e16eb3f9f09d66088bf2ec2839cca5a7a9369a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
