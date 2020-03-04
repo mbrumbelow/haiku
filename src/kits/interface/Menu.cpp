@@ -1,5 +1,5 @@
 /*
- * Copyright 2001-2018 Haiku, Inc. All rights reserved.
+ * Copyright 2001-2020 Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT license.
  *
  * Authors:
@@ -1456,6 +1456,70 @@ BMenu::SetTrackingHook(menu_tracking_hook func, void* state)
 {
 	fExtraMenuData->trackingHook = func;
 	fExtraMenuData->trackingState = state;
+}
+
+
+/* static */
+void
+BMenu::MoveSubmenusOver(BMenu* menu, BRect menuFrame, BRect screenFrame)
+{
+	if (menu == NULL)
+		return;
+
+	for (int32 i = menu->CountItems(); i-- > 0;) {
+		BMenu* submenu = menu->SubmenuAt(i);
+		if (submenu == NULL || submenu->Window() == NULL)
+			continue; // not an open submenu, next
+
+		BMenuWindow* submenuWindow
+			= dynamic_cast<BMenuWindow*>(submenu->Window());
+		if (submenuWindow == NULL)
+			break; // submenu window was not a BMenuWindow, strange if true
+
+		// found an open submenu, get submenu frame
+		BPoint submenuLoc;
+		BRect submenuFrame;
+		if (submenu->LockLooper()) {
+			// need to lock looper because we're in a different thread
+			submenuFrame = submenu->Frame();
+			submenu->ConvertToScreen(&submenuFrame);
+			submenu->UnlockLooper();
+		} else
+			break; // give up
+
+		// get submenu loc and convert it to screen coords using menu
+		if (menu->LockLooper()) {
+			// check if submenu should be displayed right or left of menu
+			submenuLoc = (submenuFrame.right < menuFrame.right
+				? submenu->Superitem()->Frame().LeftTop()
+					- BPoint(submenuFrame.Width() + 1, -1)
+				: submenu->Superitem()->Frame().RightTop() + BPoint(1, 1));
+			menu->ConvertToScreen(&submenuLoc);
+			submenuFrame.OffsetTo(submenuLoc);
+			menu->UnlockLooper();
+		} else
+			break; // give up
+
+		// move submenu frame into screen bounds vertically
+		if (submenuFrame.Height() < screenFrame.Height()) {
+			if (submenuFrame.bottom >= screenFrame.bottom)
+				submenuLoc.y -= (submenuFrame.bottom - screenFrame.bottom);
+			else if (submenuFrame.top <= screenFrame.top)
+				submenuLoc.y += (screenFrame.top - submenuFrame.top);
+		} else {
+			// put menu at top of screen, turn on the scroll arrows
+			submenuLoc.y = 0;
+		}
+
+		// move submenu window into place
+		submenuWindow->MoveTo(submenuLoc);
+
+		// recurse through submenu's submenus
+		BMenu::MoveSubmenusOver(submenu, submenuFrame, screenFrame);
+
+		// we're done with this menu
+		break;
+	}
 }
 
 

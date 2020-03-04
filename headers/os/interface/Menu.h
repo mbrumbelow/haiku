@@ -1,5 +1,5 @@
 /*
- * Copyright 2007-2013 Haiku, Inc. All rights reserved.
+ * Copyright 2007-2020 Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  */
 #ifndef _MENU_H
@@ -169,6 +169,9 @@ public:
 
 			void				SetTrackingHook(menu_tracking_hook hook,
 									void* state);
+
+	static	void				MoveSubmenusOver(BMenu* menu, BRect menuFrame,
+									BRect screenFrame);
 
 private:
 	friend class BMenuBar;

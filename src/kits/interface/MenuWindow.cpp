@@ -1,10 +1,11 @@
 /*
- * Copyright 2001-2015, Haiku, Inc.
+ * Copyright 2001-2020 Haiku, Inc. All Rights Reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
- *		Marc Flerackers (mflerackers@androme.be)
- *		Stefano Ceccherini (stefano.ceccherini@gmail.com)
+ *		Stefano Ceccherini, stefano.ceccherini@gmail.com
+ *		Marc Flerackers, mflerackers@androme.be
+ *		John Scipione, jscipione@gmail.com
  */
 
 //!	BMenuWindow is a custom BWindow for BMenus.
@@ -13,8 +14,11 @@
 
 #include <ControlLook.h>
 #include <Debug.h>
+#include <GroupLayout.h>
 #include <Menu.h>
 #include <MenuItem.h>
+#include <Point.h>
+#include <Screen.h>
 
 #include <MenuPrivate.h>
 #include <WindowPrivate.h>
@@ -22,15 +26,9 @@
 
 namespace BPrivate {
 
-class BMenuScroller : public BView {
+class BMenuScroller : public BControl {
 public:
 							BMenuScroller(BRect frame);
-
-			bool			IsEnabled() const;
-			void			SetEnabled(bool enabled);
-
-private:
-			bool			fEnabled;
 };
 
 
@@ -41,6 +39,7 @@ public:
 	virtual	void			AttachedToWindow();
 	virtual	void			DetachedFromWindow();
 	virtual	void			Draw(BRect updateRect);
+	virtual	void			LayoutChanged();
 
 private:
 	friend class BMenuWindow;
@@ -71,30 +70,16 @@ public:
 using namespace BPrivate;
 
 
-const int kScrollerHeight = 12;
+const float kScrollerHeight = 12.f;
+const float kScrollStep = 19.f;
 
 
 BMenuScroller::BMenuScroller(BRect frame)
 	:
-	BView(frame, "menu scroller", 0, B_WILL_DRAW | B_FRAME_EVENTS
-		| B_FULL_UPDATE_ON_RESIZE),
-	fEnabled(false)
+	BControl(frame, "menu scroller", "", NULL, 0,
+		B_WILL_DRAW | B_FRAME_EVENTS | B_FULL_UPDATE_ON_RESIZE)
 {
 	SetViewUIColor(B_MENU_BACKGROUND_COLOR);
-}
-
-
-bool
-BMenuScroller::IsEnabled() const
-{
-	return fEnabled;
-}
-
-
-void
-BMenuScroller::SetEnabled(bool enabled)
-{
-	fEnabled = enabled;
 }
 
 
@@ -167,9 +152,9 @@ LowerScroller::Draw(BRect updateRect)
 //	#pragma mark -
 
 
-BMenuFrame::BMenuFrame(BMenu *menu)
+BMenuFrame::BMenuFrame(BMenu* menu)
 	:
-	BView(BRect(0, 0, 1, 1), "menu frame", B_FOLLOW_ALL_SIDES, B_WILL_DRAW),
+	BView("menu frame", B_WILL_DRAW),
 	fMenu(menu)
 {
 }
@@ -228,11 +213,28 @@ BMenuFrame::Draw(BRect updateRect)
 }
 
 
+void
+BMenuFrame::LayoutChanged()
+{
+	if (fMenu == NULL || Window() == NULL)
+		return BView::LayoutChanged();
+
+	// resize window to menu width
+	Window()->ResizeTo(fMenu->Frame().Width(), Window()->Frame().Height());
+
+	// push child menus over recursively
+	BMenu::MoveSubmenusOver(fMenu, fMenu->ConvertToScreen(fMenu->Frame()),
+		(BScreen(fMenu->Window())).Frame());
+
+	BView::LayoutChanged();
+}
+
+
 
 //	#pragma mark -
 
 
-BMenuWindow::BMenuWindow(const char *name)
+BMenuWindow::BMenuWindow(const char* name)
 	// The window will be resized by BMenu, so just pass a dummy rect
 	:
 	BWindow(BRect(0, 0, 0, 0), name, B_BORDERED_WINDOW_LOOK, kMenuWindowFeel,
@@ -242,9 +244,10 @@ BMenuWindow::BMenuWindow(const char *name)
 	fMenuFrame(NULL),
 	fUpperScroller(NULL),
 	fLowerScroller(NULL),
-	fScrollStep(19)
+	fScrollStep(kScrollStep)
 {
-	SetSizeLimits(2, 10000, 2, 10000);
+	SetSizeLimits(2, B_SIZE_UNLIMITED, 2, B_SIZE_UNLIMITED);
+	SetLayout(new BGroupLayout(B_VERTICAL, 0));
 }
 
 
@@ -262,15 +265,18 @@ BMenuWindow::DispatchMessage(BMessage *message, BHandler *handler)
 
 
 void
-BMenuWindow::AttachMenu(BMenu *menu)
+BMenuWindow::AttachMenu(BMenu* menu)
 {
-	if (fMenuFrame)
+	if (fMenuFrame != NULL)
 		debugger("BMenuWindow: a menu is already attached!");
+
 	if (menu != NULL) {
 		fMenuFrame = new BMenuFrame(menu);
-		AddChild(fMenuFrame);
+		GetLayout()->AddView(1, fMenuFrame);
 		menu->MakeFocus(true);
 		fMenu = menu;
+		// pass messages on from window to menu
+		SetPreferredHandler(menu);
 	}
 }
 
@@ -279,11 +285,12 @@ void
 BMenuWindow::DetachMenu()
 {
 	DetachScrollers();
-	if (fMenuFrame) {
-		RemoveChild(fMenuFrame);
+	if (fMenuFrame != NULL) {
+		GetLayout()->RemoveView(fMenuFrame);
 		delete fMenuFrame;
 		fMenuFrame = NULL;
 		fMenu = NULL;
+		SetPreferredHandler(NULL);
 	}
 }
 
@@ -293,7 +300,7 @@ BMenuWindow::AttachScrollers()
 {
 	// We want to attach a scroller only if there's a
 	// menu frame already existing.
-	if (!fMenu || !fMenuFrame)
+	if (fMenu == NULL || fMenuFrame == NULL)
 		return;
 
 	fMenu->MakeFocus(true);
@@ -312,14 +319,14 @@ BMenuWindow::AttachScrollers()
 	if (fUpperScroller == NULL) {
 		fUpperScroller = new UpperScroller(
 			BRect(0, 0, frame.right, kScrollerHeight - 1));
-		AddChild(fUpperScroller);
+		GetLayout()->AddView(0, fUpperScroller);
 	}
 
 	if (fLowerScroller == NULL) {
 		fLowerScroller = new LowerScroller(
 			BRect(0, frame.bottom - kScrollerHeight + 1, frame.right,
 				frame.bottom));
-		AddChild(fLowerScroller);
+		GetLayout()->AddView(2, fLowerScroller);
 	}
 
 	fUpperScroller->ResizeTo(frame.right, kScrollerHeight - 1);
@@ -338,17 +345,17 @@ BMenuWindow::DetachScrollers()
 {
 	// BeOS doesn't remember the position where the last scrolling ended,
 	// so we just scroll back to the beginning.
-	if (fMenu)
+	if (fMenu != NULL)
 		fMenu->ScrollTo(0, 0);
 
-	if (fLowerScroller) {
-		RemoveChild(fLowerScroller);
+	if (fLowerScroller != NULL) {
+		GetLayout()->RemoveView(fLowerScroller);
 		delete fLowerScroller;
 		fLowerScroller = NULL;
 	}
 
-	if (fUpperScroller) {
-		RemoveChild(fUpperScroller);
+	if (fUpperScroller != NULL) {
+		GetLayout()->RemoveView(fUpperScroller);
 		delete fUpperScroller;
 		fUpperScroller = NULL;
 	}
@@ -455,6 +462,8 @@ BMenuWindow::_Scroll(const BPoint& where)
 void
 BMenuWindow::_ScrollBy(const float& step)
 {
+	BRect frame(Bounds());
+
 	if (step > 0) {
 		if (fValue == 0) {
 			fUpperScroller->SetEnabled(true);
@@ -471,6 +480,9 @@ BMenuWindow::_ScrollBy(const float& step)
 			fMenu->ScrollBy(0, step);
 			fValue += step;
 		}
+
+		fMenuFrame->Invalidate(BRect(frame.left, frame.top,
+			frame.right, frame.top + (kScrollerHeight + 1) + step * 2));
 	} else if (step < 0) {
 		if (fValue == fLimit) {
 			fLowerScroller->SetEnabled(true);
@@ -486,6 +498,10 @@ BMenuWindow::_ScrollBy(const float& step)
 			fMenu->ScrollBy(0, step);
 			fValue += step;
 		}
+
+		fMenuFrame->Invalidate(BRect(frame.left,
+			frame.bottom - (kScrollerHeight + 1) - step * 2,
+		Bounds().right, Bounds().bottom));
 	}
 }
 
