@@ -1,10 +1,11 @@
 /*
- * Copyright 2001-2009, Haiku, Inc.
+ * Copyright 2001-2020 Haiku, Inc. All Rights Reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
- *		Marc Flerackers (mflerackers@androme.be)
- *		Stefano Ceccherini (burton666@libero.it)
+ *		Stefano Ceccherini, burton666@libero.it
+ *		Marc Flerackers, mflerackers@androme.be
+ *		John Scipione, jscipione@gmail.com
  */
 #ifndef MENU_WINDOW_H
 #define MENU_WINDOW_H
