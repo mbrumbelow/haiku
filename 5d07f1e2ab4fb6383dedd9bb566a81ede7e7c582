@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "430eca3b_d55c20f0",
+        "filename": "docs/user/interface/View.dox",
+        "patchSetId": 10
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-03-04T21:01:00Z",
+      "side": 1,
+      "message": "This line is too long.",
+      "revId": "5d07f1e2ab4fb6383dedd9bb566a81ede7e7c582",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f72e3f7f_2df2ecf6",
+        "filename": "docs/user/interface/View.dox",
+        "patchSetId": 10
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-03-04T21:01:00Z",
+      "side": 1,
+      "message": "This one too.",
+      "revId": "5d07f1e2ab4fb6383dedd9bb566a81ede7e7c582",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
