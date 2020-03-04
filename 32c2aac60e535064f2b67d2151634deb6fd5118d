@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "a3df15fd_18318b6b",
+        "filename": "headers/os/interface/View.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-03-04T20:14:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "277bc2f1_00c26f9b",
+      "revId": "32c2aac60e535064f2b67d2151634deb6fd5118d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e6f830aa_a7e2b79f",
         "filename": "src/add-ons/input_server/devices/mouse/MouseInputDevice.cpp",
         "patchSetId": 9
