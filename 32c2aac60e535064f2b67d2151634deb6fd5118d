@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "277bc2f1_00c26f9b",
+        "filename": "headers/os/interface/View.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-04T12:08:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f54f9eeb_93ad6e25",
+      "revId": "32c2aac60e535064f2b67d2151634deb6fd5118d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e6f830aa_a7e2b79f",
         "filename": "src/add-ons/input_server/devices/mouse/MouseInputDevice.cpp",
         "patchSetId": 9
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "d523a631_9f66a9a9",
+        "filename": "src/add-ons/input_server/devices/mouse/MouseInputDevice.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-04T12:08:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6f830aa_a7e2b79f",
+      "revId": "32c2aac60e535064f2b67d2151634deb6fd5118d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2c407f7a_268be7e7",
         "filename": "src/preferences/input/InputMouse.cpp",
         "patchSetId": 9
@@ -50,6 +86,24 @@
       "revId": "32c2aac60e535064f2b67d2151634deb6fd5118d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3795e292_e0bc5331",
+        "filename": "src/preferences/input/InputMouse.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-04T12:08:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c407f7a_268be7e7",
+      "revId": "32c2aac60e535064f2b67d2151634deb6fd5118d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
