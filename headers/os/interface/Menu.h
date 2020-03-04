@@ -170,6 +170,9 @@ public:
 			void				SetTrackingHook(menu_tracking_hook hook,
 									void* state);
 
+	static	void				MoveSubmenusOver(BMenu* menu, BRect menuFrame,
+									BRect screenFrame);
+
 private:
 	friend class BMenuBar;
 	friend class BPrivate::MenuPrivate;
