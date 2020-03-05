@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7b66ebb1_27954f4a",
+        "filename": "src/kits/interface/MenuWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-03-05T20:43:39Z",
+      "side": 1,
+      "message": "The second \"if\" should be moved to the else to make the code more compact.",
+      "revId": "3862472de7c7b2409da83b5fa7987f1522a73b37",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7bed6061_eaa5d120",
+        "filename": "src/kits/interface/MenuWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-03-05T20:43:39Z",
+      "side": 1,
+      "message": "Extraneous blank line.",
+      "revId": "3862472de7c7b2409da83b5fa7987f1522a73b37",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
