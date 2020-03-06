@@ -38,7 +38,8 @@ APRWindow::APRWindow(BRect frame)
 	:
 	BWindow(frame, B_TRANSLATE_SYSTEM_NAME("Appearance"), B_TITLED_WINDOW,
 		B_NOT_RESIZABLE | B_NOT_ZOOMABLE | B_AUTO_UPDATE_SIZE_LIMITS
-			| B_QUIT_ON_WINDOW_CLOSE, B_ALL_WORKSPACES)
+			| B_QUIT_ON_WINDOW_CLOSE | B_WILL_ACCEPT_FIRST_CLICK,
+		B_ALL_WORKSPACES)
 {
 	fDefaultsButton = new BButton("defaults", B_TRANSLATE("Defaults"),
 		new BMessage(kMsgSetDefaults), B_WILL_DRAW);
@@ -80,7 +81,22 @@ APRWindow::APRWindow(BRect frame)
 
 
 void
-APRWindow::MessageReceived(BMessage *message)
+APRWindow::DispatchMessage(BMessage* message, BHandler* handler)
+{
+	// Activate window on click unless we clicked on ColorWhichListView
+	// or ColorPreview we might be initiating drag and drop operation.
+	if (message != NULL && message->what == B_MOUSE_DOWN) {
+		if (!IsActive() && handler != FindView("AttributeList")
+			&& handler != FindView("ColorPreview")) {
+			Activate(true);
+		}
+	}
+	BWindow::DispatchMessage(message, handler);
+}
+
+
+void
+APRWindow::MessageReceived(BMessage* message)
 {
 	switch (message->what) {
 		case kMsgUpdate:

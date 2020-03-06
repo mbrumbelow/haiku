@@ -25,6 +25,7 @@ public:
 	virtual	bool				InitiateDrag(BPoint where, int32 index,
 									bool wasSelected);
 	virtual	void				MessageReceived(BMessage* message);
+	virtual	void				MouseUp(BPoint where);
 };
 
 
