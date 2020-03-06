@@ -210,6 +210,24 @@
       "revId": "0f03855a6d1d73e43cdb5f0bfb79e9dd40852f4f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5cde47f9_8f4f46e5",
+        "filename": "build/jam/OptionalPackages",
+        "patchSetId": 4
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-06T13:05:46Z",
+      "side": 1,
+      "message": "I think adding yet another rule for adding packages would create more confusion. However the existing rule can accept multiple files, making this section a lot less repetitive.",
+      "parentUuid": "7c904a03_565657b5",
+      "revId": "0f03855a6d1d73e43cdb5f0bfb79e9dd40852f4f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
