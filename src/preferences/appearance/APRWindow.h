@@ -26,7 +26,9 @@ class LookAndFeelSettingsView;
 class APRWindow : public BWindow {
 public:
 							APRWindow(BRect frame);
-			void			MessageReceived(BMessage *message);
+	virtual	void			DispatchMessage(BMessage* message,
+								BHandler* handler);
+	virtual	void			MessageReceived(BMessage* message);
 
 private:
 			void			_UpdateButtons();

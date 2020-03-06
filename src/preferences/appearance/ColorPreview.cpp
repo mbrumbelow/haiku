@@ -142,10 +142,6 @@ ColorPreview::MessageReceived(BMessage* message)
 void
 ColorPreview::MouseDown(BPoint where)
 {
-	BWindow* window = Window();
-	if (window != NULL)
-		window->Activate();
-
 	fMessageRunner = new BMessageRunner(this, new BMessage(kMsgMessageRunner),
 		300000, 1);
 
@@ -179,6 +175,10 @@ ColorPreview::MouseUp(BPoint where)
 {
 	delete fMessageRunner;
 	fMessageRunner = NULL;
+
+	BWindow* window = Window();
+	if (window != NULL && !window->IsActive())
+		window->Activate(true);
 
 	BControl::MouseUp(where);
 }
