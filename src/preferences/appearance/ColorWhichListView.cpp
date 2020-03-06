@@ -16,6 +16,7 @@
 
 #include <Bitmap.h>
 #include <String.h>
+#include <Window.h>
 
 #include "ColorWhichItem.h"
 #include "defs.h"
@@ -145,4 +146,15 @@ ColorWhichListView::MessageReceived(BMessage* message)
 	}
 
 	BListView::MessageReceived(message);
+}
+
+
+void
+ColorWhichListView::MouseUp(BPoint where)
+{
+	BWindow* window = Window();
+	if (window != NULL && !window->IsActive())
+		window->Activate(true);
+
+	BListView::MouseUp(where);
 }
