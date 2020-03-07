@@ -16,6 +16,24 @@
       "revId": "95b15c7283075fb8242d10d825bf7672f9347f21",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9ea4a9a_3fde50f3",
+        "filename": "docs/user/interface/View.dox",
+        "patchSetId": 11
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-03-07T23:17:37Z",
+      "side": 1,
+      "message": "I guess the question is whether we also bestow semantic meaning to B_PRIMARY_MOUSE_BUTTON. As the (new) documentation suggests, the buttons identified by 1 and 2 are not necessarily next to each other. In fact, it does seem to refer more to the function of the button, rather than the position of the button on the physical device. \n\nSo I would be in favor of not deprecating the existing button masks.",
+      "parentUuid": "b74b045c_800583b3",
+      "revId": "95b15c7283075fb8242d10d825bf7672f9347f21",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
