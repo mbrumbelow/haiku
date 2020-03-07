@@ -34,6 +34,24 @@
       "revId": "000bdbfd8e208a63c0a25076242a7b0f0b753d8a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "707621af_af59e634",
+        "filename": "headers/os/interface/Menu.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-03-07T05:16:16Z",
+      "side": 1,
+      "message": "Haiku has introduced a BPrivate::MenuPrivate class that you may #include \u003cMenuPrivate.h\u003e to get the menu Layout().",
+      "parentUuid": "e8224d34_ea429685",
+      "revId": "000bdbfd8e208a63c0a25076242a7b0f0b753d8a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
