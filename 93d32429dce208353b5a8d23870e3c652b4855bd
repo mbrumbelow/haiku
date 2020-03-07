@@ -16,6 +16,24 @@
       "revId": "93d32429dce208353b5a8d23870e3c652b4855bd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30f01f70_a605dc6c",
+        "filename": "src/kits/interface/MenuWindow.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-03-07T04:46:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aac60174_374d2781",
+      "revId": "93d32429dce208353b5a8d23870e3c652b4855bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
