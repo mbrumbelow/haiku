@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "871f4b9b_1846c213",
+        "filename": "src/preferences/appearance/LookAndFeelSettingsView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-07T10:36:26Z",
+      "side": 1,
+      "message": "Shouldn\u0027t it be label.RemoveLast(\"Decorator\").Trim() instead? Removing the \"Decorator\" will leave trailing whitespace, which the Trim() will then remove, in that case?\n\nAlso, since this is done in several places, maybe consider moving it to a private method? Not too important now, but I\u0027m worried that sometime we will want to localize decorator and control look names, and in that case the mapping could become more complicated.",
+      "revId": "30ac9a553067152ea1b318367a22276a917e539d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "903428e8_622ed876",
+        "filename": "src/preferences/appearance/LookAndFeelSettingsView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-07T10:36:26Z",
+      "side": 1,
+      "message": "you can use .Length() \u003d\u003d 0 here",
+      "revId": "30ac9a553067152ea1b318367a22276a917e539d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
