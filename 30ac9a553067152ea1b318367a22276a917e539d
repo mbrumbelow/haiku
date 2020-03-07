@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3cfdb67e_7216e9c0",
+        "filename": "src/preferences/appearance/LookAndFeelSettingsView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-03-07T12:33:51Z",
+      "side": 1,
+      "message": "The order doesn\u0027t matter because RemoveLast takes the Decorator or ControlLook bit off the string and then the trim takes any leading and trailing spaces off but if it makes you feel better I can Trim() second.\n\nA private method would work to reduce repetition, fair enough.",
+      "parentUuid": "871f4b9b_1846c213",
+      "revId": "30ac9a553067152ea1b318367a22276a917e539d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "903428e8_622ed876",
         "filename": "src/preferences/appearance/LookAndFeelSettingsView.cpp",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2020-03-07T10:36:26Z",
       "side": 1,
       "message": "you can use .Length() \u003d\u003d 0 here",
+      "revId": "30ac9a553067152ea1b318367a22276a917e539d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "826f0dc0_31f1166a",
+        "filename": "src/preferences/appearance/LookAndFeelSettingsView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-03-07T12:33:51Z",
+      "side": 1,
+      "message": "I could use Length() \u003d\u003d 0 here but I wanted it to match the BString(\"\") parameter passed into _SetControlLook() below. I guess that this isn\u0027t important though.",
+      "parentUuid": "903428e8_622ed876",
       "revId": "30ac9a553067152ea1b318367a22276a917e539d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
