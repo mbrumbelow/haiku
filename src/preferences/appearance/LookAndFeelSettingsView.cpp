@@ -1,5 +1,5 @@
 /*
- *  Copyright 2010-2012 Haiku, Inc. All rights reserved.
+ *  Copyright 2010-2020 Haiku, Inc. All rights reserved.
  *  Distributed under the terms of the MIT license.
  *
  *	Authors:
@@ -60,14 +60,10 @@ static const int32 kMsgDoubleScrollBarArrows = 'dsba';
 static const int32 kMsgArrowStyleSingle = 'mass';
 static const int32 kMsgArrowStyleDouble = 'masd';
 
-static const int32 kMsgKnobStyleNone = 'mksn';
-static const int32 kMsgKnobStyleDots = 'mksd';
-static const int32 kMsgKnobStyleLines = 'mksl';
-
 static const bool kDefaultDoubleScrollBarArrowsSetting = false;
 
 
-//	#pragma mark -
+//	#pragma mark - LookAndFeelSettingsView
 
 
 LookAndFeelSettingsView::LookAndFeelSettingsView(const char* name)
@@ -78,8 +74,18 @@ LookAndFeelSettingsView::LookAndFeelSettingsView(const char* name)
 	fDecorMenu(NULL),
 	fControlLookInfoButton(NULL),
 	fControlLookMenuField(NULL),
-	fControlLookMenu(NULL)
+	fControlLookMenu(NULL),
+	fArrowStyleSingle(NULL),
+	fArrowStyleDouble(NULL),
+	fSavedDecor(NULL),
+	fCurrentDecor(NULL),
+	fSavedControlLook(NULL),
+	fCurrentControlLook(NULL),
+	fSavedDoubleArrowsValue(_DoubleScrollBarArrows())
 {
+	fCurrentDecor = fDecorUtility.CurrentDecorator()->Name();
+	fSavedDecor = fCurrentDecor;
+
 	// Decorator menu
 	_BuildDecorMenu();
 	fDecorMenuField = new BMenuField("decorator",
@@ -87,6 +93,9 @@ LookAndFeelSettingsView::LookAndFeelSettingsView(const char* name)
 
 	fDecorInfoButton = new BButton(B_TRANSLATE("About"),
 		new BMessage(kMsgDecorInfo));
+
+	BPrivate::get_control_look(fCurrentControlLook);
+	fSavedControlLook = fCurrentControlLook;
 
 	// ControlLook menu
 	_BuildControlLookMenu();
@@ -100,8 +109,6 @@ LookAndFeelSettingsView::LookAndFeelSettingsView(const char* name)
 	// scroll bar arrow style
 	BBox* arrowStyleBox = new BBox("arrow style");
 	arrowStyleBox->SetLabel(B_TRANSLATE("Arrow style"));
-
-	fSavedDoubleArrowsValue = _DoubleScrollBarArrows();
 
 	fArrowStyleSingle = new FakeScrollBar(true, false,
 		new BMessage(kMsgArrowStyleSingle));
@@ -175,13 +182,13 @@ LookAndFeelSettingsView::AttachedToWindow()
 
 
 void
-LookAndFeelSettingsView::MessageReceived(BMessage *msg)
+LookAndFeelSettingsView::MessageReceived(BMessage* message)
 {
-	switch (msg->what) {
+	switch (message->what) {
 		case kMsgSetDecor:
 		{
 			BString newDecor;
-			if (msg->FindString("decor", &newDecor) == B_OK)
+			if (message->FindString("decor", &newDecor) == B_OK)
 				_SetDecor(newDecor);
 			break;
 		}
@@ -201,14 +208,14 @@ LookAndFeelSettingsView::MessageReceived(BMessage *msg)
 				"License: %decorLic\n\n"
 				"%decorDesc\n"));
 
-
 			infoText.ReplaceFirst("%decorName", decor->Name().String());
 			infoText.ReplaceFirst("%decorAuthors", authorsText.String());
 			infoText.ReplaceFirst("%decorLic", decor->LicenseName().String());
 			infoText.ReplaceFirst("%decorURL", decor->SupportURL().String());
-			infoText.ReplaceFirst("%decorDesc", decor->ShortDescription().String());
+			infoText.ReplaceFirst("%decorDesc",
+				decor->ShortDescription().String());
 
-			BAlert *infoAlert = new BAlert(B_TRANSLATE("About decorator"),
+			BAlert* infoAlert = new BAlert(B_TRANSLATE("About decorator"),
 				infoText.String(), B_TRANSLATE("OK"));
 			infoAlert->SetFlags(infoAlert->Flags() | B_CLOSE_ON_ESCAPE);
 			infoAlert->Go();
@@ -218,10 +225,9 @@ LookAndFeelSettingsView::MessageReceived(BMessage *msg)
 
 		case kMsgSetControlLook:
 		{
-			BString newControlLook;
-			if (msg->FindString("control_look", &newControlLook) == B_OK) {
-				BPrivate::set_control_look(newControlLook);
-			}
+			BString controlLook;
+			if (message->FindString("control_look", &controlLook) == B_OK)
+				_SetControlLook(controlLook);
 			break;
 		}
 
@@ -232,7 +238,7 @@ LookAndFeelSettingsView::MessageReceived(BMessage *msg)
 			if (!BPrivate::get_control_look(path))
 				break;
 
-			if (path.Length()) {
+			if (path.Length() > 0) {
 				BFile file(path.String(), B_READ_ONLY);
 				if (file.InitCheck() != B_OK)
 					break;
@@ -247,7 +253,7 @@ LookAndFeelSettingsView::MessageReceived(BMessage *msg)
 				infoText << "\n" << version.long_info;
 			}
 
-			BAlert *infoAlert = new BAlert(B_TRANSLATE("About control look"),
+			BAlert* infoAlert = new BAlert(B_TRANSLATE("About control look"),
 				infoText.String(), B_TRANSLATE("OK"));
 			infoAlert->SetFlags(infoAlert->Flags() | B_CLOSE_ON_ESCAPE);
 			infoAlert->Go();
@@ -264,8 +270,31 @@ LookAndFeelSettingsView::MessageReceived(BMessage *msg)
 			break;
 
 		default:
-			BView::MessageReceived(msg);
+			BView::MessageReceived(message);
 			break;
+	}
+}
+
+
+//	#pragma mark - LookAndFeelSettingsView private methods
+
+
+void
+LookAndFeelSettingsView::_SetDecor(const BString& name)
+{
+	_SetDecor(fDecorUtility.FindDecorator(name));
+}
+
+
+void
+LookAndFeelSettingsView::_SetDecor(DecorInfo* decorInfo)
+{
+	if (fDecorUtility.SetDecorator(decorInfo) == B_OK) {
+		fCurrentDecor = fDecorUtility.CurrentDecorator()->Name();
+		BString label(fCurrentDecor);
+		label.Trim().RemoveLast("Decorator");
+		fDecorMenu->FindItem(label.String())->SetMarked(true);
+		Window()->PostMessage(kMsgUpdate);
 	}
 }
 
@@ -286,16 +315,35 @@ LookAndFeelSettingsView::_BuildDecorMenu()
 		}
 
 		BString decorName = decorator->Name();
-
 		BMessage* message = new BMessage(kMsgSetDecor);
 		message->AddString("decor", decorName);
 
-		BMenuItem* item = new BMenuItem(decorName, message);
+		BString label(decorName);
+		label.Trim().RemoveLast("Decorator");
+		BMenuItem* item = new BMenuItem(label, message);
 
 		fDecorMenu->AddItem(item);
+		if (decorName == fCurrentDecor)
+			item->SetMarked(true);
 	}
+}
 
-	_AdoptToCurrentDecor();
+
+void
+LookAndFeelSettingsView::_SetControlLook(const BString& path)
+{
+	fCurrentControlLook = path;
+	BPrivate::set_control_look(path);
+
+	if (path.Length() > 0) {
+		BEntry entry(path.String());
+		BString label(entry.Name());
+		label.Trim().RemoveLast("ControlLook");
+		fControlLookMenu->FindItem(label.String())->SetMarked(true);
+	} else
+		fControlLookMenu->FindItem(B_TRANSLATE("Default"))->SetMarked(true);
+
+	Window()->PostMessage(kMsgUpdate);
 }
 
 
@@ -305,9 +353,6 @@ LookAndFeelSettingsView::_BuildControlLookMenu()
 	BPathFinder pathFinder;
 	BStringList paths;
 	BDirectory dir;
-	BString currentLook;
-
-	BPrivate::get_control_look(currentLook);
 
 	fControlLookMenu = new BPopUpMenu(B_TRANSLATE("Choose ControlLook"));
 
@@ -315,68 +360,34 @@ LookAndFeelSettingsView::_BuildControlLookMenu()
 	message->AddString("control_look", "");
 
 	BMenuItem* item = new BMenuItem(B_TRANSLATE("Default"), message);
-	if (currentLook == "")
+	if (fCurrentControlLook.Length() == 0)
 		item->SetMarked(true);
 	fControlLookMenu->AddItem(item);
 
 	status_t error = pathFinder.FindPaths(B_FIND_PATH_ADD_ONS_DIRECTORY,
 		"control_look", paths);
 
-	for (int i = 0; i < paths.CountStrings(); ++i) {
+	int32 count = paths.CountStrings();
+	for (int i = 0; i < count; ++i) {
 		if (error != B_OK || dir.SetTo(paths.StringAt(i)) != B_OK)
 			continue;
 
 		BEntry entry;
-		for (; dir.GetNextEntry(&entry) == B_OK;) {
+		while (dir.GetNextEntry(&entry) == B_OK) {
 			BPath path(paths.StringAt(i), entry.Name());
-			BString name(entry.Name());
-			name.RemoveLast("ControlLook");
-			name.Trim();
+
+			BString label(entry.Name());
+			label.Trim().RemoveLast("ControlLook");
 
 			message = new BMessage(kMsgSetControlLook);
 			message->AddString("control_look", path.Path());
 
-			item = new BMenuItem(name.String(), message);
-			if (currentLook == path.Path())
-				item->SetMarked(true);
+			item = new BMenuItem(label.String(), message);
 			fControlLookMenu->AddItem(item);
+			if (BString(path.Path()) == fCurrentControlLook)
+				item->SetMarked(true);
 		}
 	}
-}
-
-
-void
-LookAndFeelSettingsView::_SetDecor(const BString& name)
-{
-	_SetDecor(fDecorUtility.FindDecorator(name));
-}
-
-
-void
-LookAndFeelSettingsView::_SetDecor(DecorInfo* decorInfo)
-{
-	if (fDecorUtility.SetDecorator(decorInfo) == B_OK) {
-		_AdoptToCurrentDecor();
-		Window()->PostMessage(kMsgUpdate);
-	}
-}
-
-
-void
-LookAndFeelSettingsView::_AdoptToCurrentDecor()
-{
-	fCurrentDecor = fDecorUtility.CurrentDecorator()->Name();
-	if (fSavedDecor.Length() == 0)
-		fSavedDecor = fCurrentDecor;
-	_AdoptInterfaceToCurrentDecor();
-}
-
-void
-LookAndFeelSettingsView::_AdoptInterfaceToCurrentDecor()
-{
-	BMenuItem* item = fDecorMenu->FindItem(fCurrentDecor);
-	if (item != NULL)
-		item->SetMarked(true);
 }
 
 
@@ -396,6 +407,9 @@ LookAndFeelSettingsView::_SetDoubleScrollBarArrows(bool doubleArrows)
 	scroll_bar_info info;
 	get_scroll_bar_info(&info);
 
+	if (info.double_arrows == doubleArrows)
+		return;
+
 	info.double_arrows = doubleArrows;
 	set_scroll_bar_info(&info);
 
@@ -412,6 +426,7 @@ bool
 LookAndFeelSettingsView::IsDefaultable()
 {
 	return fCurrentDecor != fDecorUtility.DefaultDecorator()->Name()
+		|| fCurrentControlLook != BString("")
 		|| _DoubleScrollBarArrows() != false;
 }
 
@@ -420,7 +435,7 @@ void
 LookAndFeelSettingsView::SetDefaults()
 {
 	_SetDecor(fDecorUtility.DefaultDecorator());
-	BPrivate::set_control_look(BString(""));
+	_SetControlLook(BString(""));
 	_SetDoubleScrollBarArrows(false);
 }
 
@@ -429,6 +444,7 @@ bool
 LookAndFeelSettingsView::IsRevertable()
 {
 	return fCurrentDecor != fSavedDecor
+		|| fCurrentControlLook != fSavedControlLook
 		|| _DoubleScrollBarArrows() != fSavedDoubleArrowsValue;
 }
 
@@ -438,6 +454,7 @@ LookAndFeelSettingsView::Revert()
 {
 	if (IsRevertable()) {
 		_SetDecor(fSavedDecor);
+		_SetControlLook(fSavedControlLook);
 		_SetDoubleScrollBarArrows(fSavedDoubleArrowsValue);
 	}
 }
