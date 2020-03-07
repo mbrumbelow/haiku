@@ -33,6 +33,24 @@
       "revId": "00ce6e774f00f4740983f9993432a9b511e05dc7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3da3acf4_32041f6c",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-03-07T15:00:15Z",
+      "side": 1,
+      "message": "Done, I didn\u0027t ignored you comment. It just skipped from my mind while pushing the commit. I will be careful from next time. :)",
+      "parentUuid": "26594e5b_415aab1b",
+      "revId": "00ce6e774f00f4740983f9993432a9b511e05dc7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
