@@ -51,6 +51,24 @@
       "revId": "00ce6e774f00f4740983f9993432a9b511e05dc7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "936f9658_4aa69053",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-03-07T15:07:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3da3acf4_32041f6c",
+      "revId": "00ce6e774f00f4740983f9993432a9b511e05dc7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
