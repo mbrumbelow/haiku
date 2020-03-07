@@ -16,6 +16,24 @@
       "revId": "000bdbfd8e208a63c0a25076242a7b0f0b753d8a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8224d34_ea429685",
+        "filename": "headers/os/interface/Menu.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-03-07T05:02:30Z",
+      "side": 1,
+      "message": "Without it compilation fails because BMenu::Layout() is protected now and can\u0027t be accessed in BSeparatorItem.",
+      "parentUuid": "7e7d36fa_cf8240fd",
+      "revId": "000bdbfd8e208a63c0a25076242a7b0f0b753d8a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
