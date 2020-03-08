@@ -34,6 +34,24 @@
       "revId": "95b15c7283075fb8242d10d825bf7672f9347f21",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54bb718c_48ee64bc",
+        "filename": "docs/user/interface/View.dox",
+        "patchSetId": 11
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-08T08:36:15Z",
+      "side": 1,
+      "message": "This was already discussed in the first comments for this change.\n\n\"primary\"/\"secondary\" is not really semantic. Originally I had introduced new constants, B_FORWARD_MOUSE_BUTTON and B_BACK_MOUSE_BUTTON, which is how the 4th and 5th buttons are used pretty much everywhere. But reviewers did not agree and suggested to use a B_MOUSE_BUTTON_1, etc approach as is done in Dano. I find it silly to have such a set of fixed constants so I made a macro instead.\n\nThe new macro still does not correspond to the physical order of the buttons, on a typical right-handed mouse, 1 is left, 2 is right, and 3 is middle.\n\nI\u0027m fine with merging the original version of this patch if it\u0027s preferred (with B_FORWARD_MOUSE_BUTTON and B_BACK_MOUSE_BUTTON, which goes the semantic way). We\u0027ll need to find a name/meaning for the 6th mouse buttons, however, when I get to work on that (on my mouse it needs USB-HID quirks first).",
+      "parentUuid": "b9ea4a9a_3fde50f3",
+      "revId": "95b15c7283075fb8242d10d825bf7672f9347f21",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
