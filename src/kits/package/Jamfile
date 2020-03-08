@@ -144,6 +144,7 @@ DoCatalogs libpackage.so :
 	x-vnd.Haiku-libpackage
 	:
 	PackageManager.cpp
+	RefreshRepositoryRequest.cpp
 ;
 
 HaikuSubInclude solver ;
