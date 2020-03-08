@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "a7cfb5d7_dfe631d9",
+        "filename": "headers/os/interface/Menu.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-03-08T02:58:49Z",
+      "side": 1,
+      "message": "Submenus relayouting shouldn\u0027t be called from MenuWindow. It probably should be called in BMenu:_UpdateWindowViewSize.",
+      "parentUuid": "1843c62d_d3971000",
+      "revId": "7d2aa31e0cde50f3c51478b5ecde63816071663a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "91b9e0d1_8ae6d42d",
         "filename": "src/kits/interface/MenuWindow.cpp",
         "patchSetId": 6
