@@ -2911,6 +2911,77 @@ BMenu::_ChooseTrigger(const char* title, int32& index, uint32& trigger,
 
 
 void
+BMenu::_MoveSubmenus()
+{
+	if (!LockLooper())
+		return;
+
+	BRect menuFrame = ConvertToScreen(Frame());
+	BRect screenFrame = BScreen(Window()).Frame();
+
+	UnlockLooper();
+
+	if (menu == NULL)
+		return;
+
+	for (int32 i = CountItems(); i-- > 0;) {
+		BMenu* submenu = SubmenuAt(i);
+		if (submenu == NULL || submenu->Window() == NULL)
+			continue; // not an open submenu, next
+
+		BMenuWindow* submenuWindow
+			= dynamic_cast<BMenuWindow*>(submenu->Window());
+		if (submenuWindow == NULL)
+			break; // submenu window was not a BMenuWindow, strange if true
+
+		// found an open submenu, get submenu frame
+		BPoint submenuLoc;
+		BRect submenuFrame;
+		if (submenu->LockLooper()) {
+			// need to lock looper because we're in a different thread
+			submenuFrame = submenu->Frame();
+			submenu->ConvertToScreen(&submenuFrame);
+			submenu->UnlockLooper();
+		} else
+			break; // give up
+
+		// get submenu loc and convert it to screen coords using menu
+		if (LockLooper()) {
+			// check if submenu should be displayed right or left of menu
+			submenuLoc = (submenuFrame.right < menuFrame.right
+				? submenu->Superitem()->Frame().LeftTop()
+					- BPoint(submenuFrame.Width() + 1, -1)
+				: submenu->Superitem()->Frame().RightTop() + BPoint(1, 1));
+			ConvertToScreen(&submenuLoc);
+			submenuFrame.OffsetTo(submenuLoc);
+			UnlockLooper();
+		} else
+			break; // give up
+
+		// move submenu frame into screen bounds vertically
+		if (submenuFrame.Height() < screenFrame.Height()) {
+			if (submenuFrame.bottom >= screenFrame.bottom)
+				submenuLoc.y -= (submenuFrame.bottom - screenFrame.bottom);
+			else if (submenuFrame.top <= screenFrame.top)
+				submenuLoc.y += (screenFrame.top - submenuFrame.top);
+		} else {
+			// put menu at top of screen, turn on the scroll arrows
+			submenuLoc.y = 0;
+		}
+
+		// move submenu window into place
+		submenuWindow->MoveTo(submenuLoc);
+
+		// recurse through submenu's submenus
+		submenu->_MoveSubmenus();
+
+		// we're done with this menu
+		break;
+	}
+}
+
+
+void
 BMenu::_UpdateWindowViewSize(const bool &move)
 {
 	BMenuWindow* window = static_cast<BMenuWindow*>(Window());
@@ -2976,6 +3047,8 @@ BMenu::_UpdateWindowViewSize(const bool &move)
 
 	if (move)
 		window->MoveTo(frame.LeftTop());
+
+	_MoveSubmenus();
 }
 
 

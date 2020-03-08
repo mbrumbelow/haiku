@@ -260,6 +260,7 @@ private:
 			bool				_ChooseTrigger(const char* title, int32& index,
 									uint32& trigger,
 									BPrivate::TriggerList& triggers);
+			void				_MoveSubmenus();
 			void				_UpdateWindowViewSize(const bool &updatePosition);
 			bool				_AddDynamicItems(bool keyDown = false);
 			bool				_OkToProceed(BMenuItem* item,
