@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d1be6638_674b2ce1",
+        "filename": "src/apps/deskbar/BarMenuBar.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-03-08T10:52:24Z",
+      "side": 1,
+      "message": "You\u0027re right, in patch set 22 I took this code out and the kSizeOfTeamIconBitmap too and set the teamIcon to NULL above. If we want to bring the old team icon back for some reason we can reintroduce it later.",
+      "parentUuid": "430350a7_46481e13",
+      "revId": "9f91668e193a810bc21ab129a85b68dba4e0caf2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "00f695dd_5ceba73b",
         "filename": "src/apps/deskbar/BarView.cpp",
         "patchSetId": 21
@@ -48,6 +66,42 @@
       "side": 1,
       "message": "Although Hide() is getting called as you can clearly see, when switching between modes the app menu can draw on top of the mini-mode, it updates a second later most of the time but by moving Deskbar around the screen enough you can get it into a bad state and see the app menu drawn on top of Deskbar. This prevents that from happening.",
       "parentUuid": "00f695dd_5ceba73b",
+      "revId": "9f91668e193a810bc21ab129a85b68dba4e0caf2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf8a995c_585e6c42",
+        "filename": "src/apps/deskbar/BarView.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-03-08T10:52:24Z",
+      "side": 1,
+      "message": "Forget this. MoveTo code has been deleted in patch set 22. If this becomes a problem later we can put it back. I tested and the problem is pretty much gone since I refactored the mode switching anyway.",
+      "parentUuid": "f45c8825_2c56e3bd",
+      "revId": "9f91668e193a810bc21ab129a85b68dba4e0caf2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1835d9d2_10a8db0a",
+        "filename": "src/apps/deskbar/BarView.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-03-08T10:52:24Z",
+      "side": 1,
+      "message": "Forget this, I took the code out and above for fResizeControl in Patchset 22. If this becomes a problem in the future we can always put it back in.",
+      "parentUuid": "f45c8825_2c56e3bd",
       "revId": "9f91668e193a810bc21ab129a85b68dba4e0caf2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -89,6 +143,24 @@
     },
     {
       "key": {
+        "uuid": "c7d2ac32_ed047d66",
+        "filename": "src/apps/deskbar/ExpandoMenuBar.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-03-08T10:52:24Z",
+      "side": 1,
+      "message": "Forget the #if 0, commented out code has been deleted in Patch Set 22.",
+      "parentUuid": "1d5a61e4_e1ce68e2",
+      "revId": "9f91668e193a810bc21ab129a85b68dba4e0caf2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "45674708_99477cde",
         "filename": "src/apps/deskbar/ExpandoMenuBar.cpp",
         "patchSetId": 21
@@ -124,6 +196,24 @@
     },
     {
       "key": {
+        "uuid": "fca3b227_902007ab",
+        "filename": "src/apps/deskbar/ExpandoMenuBar.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 840,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-03-08T10:52:24Z",
+      "side": 1,
+      "message": "Commented out code has been removed in patch set 22.",
+      "parentUuid": "77ab6488_e4127ea4",
+      "revId": "9f91668e193a810bc21ab129a85b68dba4e0caf2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "38a6e13f_ff0a0cab",
         "filename": "src/apps/deskbar/StatusView.cpp",
         "patchSetId": 21
@@ -141,6 +231,24 @@
     },
     {
       "key": {
+        "uuid": "be63abcb_9faf4e3d",
+        "filename": "src/apps/deskbar/StatusView.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 1623,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-03-08T10:52:24Z",
+      "side": 1,
+      "message": "Fixed in 22.",
+      "parentUuid": "38a6e13f_ff0a0cab",
+      "revId": "9f91668e193a810bc21ab129a85b68dba4e0caf2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2d811573_b86dbe66",
         "filename": "src/apps/deskbar/StatusView.cpp",
         "patchSetId": 21
@@ -152,6 +260,24 @@
       "writtenOn": "2020-03-08T08:17:45Z",
       "side": 1,
       "message": "80 columns",
+      "revId": "9f91668e193a810bc21ab129a85b68dba4e0caf2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac758fa7_42ef2c0e",
+        "filename": "src/apps/deskbar/StatusView.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 1647,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-03-08T10:52:24Z",
+      "side": 1,
+      "message": "Fixed in 22.",
+      "parentUuid": "2d811573_b86dbe66",
       "revId": "9f91668e193a810bc21ab129a85b68dba4e0caf2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
