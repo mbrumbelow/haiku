@@ -501,7 +501,7 @@ BMenuWindow::_ScrollBy(const float& step)
 
 		fMenuFrame->Invalidate(BRect(frame.left,
 			frame.bottom - (kScrollerHeight + 1) - step * 2,
-		Bounds().right, Bounds().bottom));
+			frame.right, frame.bottom));
 	}
 }
 
