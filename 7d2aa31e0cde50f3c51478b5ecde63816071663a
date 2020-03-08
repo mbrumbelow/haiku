@@ -179,6 +179,24 @@
     },
     {
       "key": {
+        "uuid": "0f4dc423_9947b1cc",
+        "filename": "src/kits/interface/MenuWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-03-08T03:31:32Z",
+      "side": 1,
+      "message": "You\u0027re right this wasn\u0027t needed, I took it out and the corresponding SetPreferredHandler(NULL) below.",
+      "parentUuid": "e99cd1ac_16390614",
+      "revId": "7d2aa31e0cde50f3c51478b5ecde63816071663a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "420cd1b4_91ba1090",
         "filename": "src/kits/interface/MenuWindow.cpp",
         "patchSetId": 6
