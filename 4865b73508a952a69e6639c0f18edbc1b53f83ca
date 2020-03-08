@@ -16,6 +16,24 @@
       "revId": "4865b73508a952a69e6639c0f18edbc1b53f83ca",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d394cfb1_0172ab27",
+        "filename": "src/apps/stylededit/StyledEditWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1273,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-08T08:54:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b45c2644_605b4167",
+      "revId": "4865b73508a952a69e6639c0f18edbc1b53f83ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
