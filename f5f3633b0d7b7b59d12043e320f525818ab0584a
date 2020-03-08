@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6fb1684e_7ff043e1",
+        "filename": "src/kits/tracker/LiveUpdatingMenu.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-03-08T04:29:25Z",
+      "side": 1,
+      "message": "You\u0027re right, I don\u0027t need this bit anymore, this is handled by BMenuFrame::LayoutChanged() now, removed.",
+      "parentUuid": "a75fb005_4ae11ffc",
+      "revId": "f5f3633b0d7b7b59d12043e320f525818ab0584a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fc979762_c17d900a",
         "filename": "src/kits/tracker/LiveUpdatingMenu.cpp",
         "patchSetId": 11
@@ -30,6 +48,24 @@
       "writtenOn": "2020-03-08T02:55:21Z",
       "side": 1,
       "message": "You should never manually resize menu window, let do it resize automatically. If menu window doesn\u0027t resize correctly, it need to be fixed.",
+      "revId": "f5f3633b0d7b7b59d12043e320f525818ab0584a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e3c4fbe_d22c0552",
+        "filename": "src/kits/tracker/LiveUpdatingMenu.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-03-08T04:29:25Z",
+      "side": 1,
+      "message": "Don\u0027t need this either, nixed.",
+      "parentUuid": "fc979762_c17d900a",
       "revId": "f5f3633b0d7b7b59d12043e320f525818ab0584a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
