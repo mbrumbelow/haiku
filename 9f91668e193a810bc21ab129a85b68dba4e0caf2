@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "430350a7_46481e13",
+        "filename": "src/apps/deskbar/BarMenuBar.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-08T08:17:45Z",
+      "side": 1,
+      "message": "I don\u0027t understand this? Are you checking that pointer size is 32bit? What\u0027t the point? If you want to know if this is a 32bit system, there are constants for that (B_HAIKU_32_BIT).\n\nBut overall, I don\u0027t see why we need to preserve the bitmap icon at all.",
+      "revId": "9f91668e193a810bc21ab129a85b68dba4e0caf2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00f695dd_5ceba73b",
+        "filename": "src/apps/deskbar/BarView.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-08T08:17:45Z",
+      "side": 1,
+      "message": "Why is it not enough? Hidden should be hidden?",
+      "revId": "9f91668e193a810bc21ab129a85b68dba4e0caf2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e258743_9b02aa3e",
+        "filename": "src/apps/deskbar/ExpandoMenuBar.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-08T08:17:45Z",
+      "side": 1,
+      "message": "Either delete the code, or use #if 0 to disable it. Do not comment it out.",
+      "revId": "9f91668e193a810bc21ab129a85b68dba4e0caf2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45674708_99477cde",
+        "filename": "src/apps/deskbar/ExpandoMenuBar.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 840,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-08T08:17:45Z",
+      "side": 1,
+      "message": "use #if 0 for disabled code and explain in a comment why it is disabled (or just delete it)",
+      "revId": "9f91668e193a810bc21ab129a85b68dba4e0caf2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38a6e13f_ff0a0cab",
+        "filename": "src/apps/deskbar/StatusView.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 1623,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-08T08:17:45Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "9f91668e193a810bc21ab129a85b68dba4e0caf2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d811573_b86dbe66",
+        "filename": "src/apps/deskbar/StatusView.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 1647,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-08T08:17:45Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "9f91668e193a810bc21ab129a85b68dba4e0caf2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
