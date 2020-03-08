@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c091a452_cffd1bf9",
+        "filename": "headers/os/interface/Menu.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-03-08T02:20:17Z",
+      "side": 1,
+      "message": "I knew you were going to say this. Where should this method go then?",
+      "parentUuid": "fe28b511_214247ae",
+      "revId": "7d2aa31e0cde50f3c51478b5ecde63816071663a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "91b9e0d1_8ae6d42d",
         "filename": "src/kits/interface/MenuWindow.cpp",
         "patchSetId": 6
@@ -30,6 +48,24 @@
       "writtenOn": "2020-03-08T02:03:08Z",
       "side": 1,
       "message": "Why use BControl?",
+      "revId": "7d2aa31e0cde50f3c51478b5ecde63816071663a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d919f38_b86768e3",
+        "filename": "src/kits/interface/MenuWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-03-08T02:20:17Z",
+      "side": 1,
+      "message": "BControl gets us IsEnabled() and SetEnabled(). Better to use BControl than reproduce the methods.",
+      "parentUuid": "91b9e0d1_8ae6d42d",
       "revId": "7d2aa31e0cde50f3c51478b5ecde63816071663a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -70,6 +106,24 @@
     },
     {
       "key": {
+        "uuid": "bad1aac1_b04ec45f",
+        "filename": "src/kits/interface/MenuWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-03-08T02:20:17Z",
+      "side": 1,
+      "message": "Scrolling doesn\u0027t redraw the arrows right without this. I realize that in your patch this was not needed.",
+      "parentUuid": "420cd1b4_91ba1090",
+      "revId": "7d2aa31e0cde50f3c51478b5ecde63816071663a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "93587293_55582d16",
         "filename": "src/kits/interface/MenuWindow.cpp",
         "patchSetId": 6
@@ -81,6 +135,24 @@
       "writtenOn": "2020-03-08T02:03:08Z",
       "side": 1,
       "message": "Same as above.",
+      "revId": "7d2aa31e0cde50f3c51478b5ecde63816071663a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "912eabbe_c3778eaf",
+        "filename": "src/kits/interface/MenuWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-03-08T02:20:17Z",
+      "side": 1,
+      "message": "When you scroll up instead of down this is needed so that the arrow doesn\u0027t disappear.",
+      "parentUuid": "93587293_55582d16",
       "revId": "7d2aa31e0cde50f3c51478b5ecde63816071663a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
