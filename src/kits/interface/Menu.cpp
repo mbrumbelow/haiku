@@ -728,11 +728,7 @@ BMenu::AddItem(BMenuItem* item, int32 index)
 
 	InvalidateLayout();
 	if (LockLooper()) {
-		if (!Window()->IsHidden()) {
-			_LayoutItems(index);
-			_UpdateWindowViewSize(false);
-			Invalidate();
-		}
+		Invalidate();
 		UnlockLooper();
 	}
 
@@ -849,12 +845,8 @@ BMenu::AddList(BList* list, int32 index)
 	}
 
 	InvalidateLayout();
-	if (locked && Window() != NULL && !Window()->IsHidden()) {
-		// Make sure we update the layout if needed.
-		_LayoutItems(index);
-		_UpdateWindowViewSize(false);
+	if (locked)
 		Invalidate();
-	}
 
 	if (locked)
 		UnlockLooper();
@@ -2083,11 +2075,8 @@ BMenu::_RemoveItems(int32 index, int32 count, BMenuItem* item,
 
 	if (invalidateLayout) {
 		InvalidateLayout();
-		if (locked && window != NULL) {
-			_LayoutItems(0);
-			_UpdateWindowViewSize(false);
+		if (locked)
 			Invalidate();
-		}
 	}
 
 	if (locked)
