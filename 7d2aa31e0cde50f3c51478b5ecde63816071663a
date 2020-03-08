@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fe28b511_214247ae",
+        "filename": "headers/os/interface/Menu.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-03-08T02:03:08Z",
+      "side": 1,
+      "message": "I don\u0027t think that public API extension is needed here.",
+      "revId": "7d2aa31e0cde50f3c51478b5ecde63816071663a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91b9e0d1_8ae6d42d",
+        "filename": "src/kits/interface/MenuWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-03-08T02:03:08Z",
+      "side": 1,
+      "message": "Why use BControl?",
+      "revId": "7d2aa31e0cde50f3c51478b5ecde63816071663a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ece281f2_0fe32dc3",
+        "filename": "src/kits/interface/MenuWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-03-08T02:03:08Z",
+      "side": 1,
+      "message": "Why this is needed? Menu is focused above.",
+      "revId": "7d2aa31e0cde50f3c51478b5ecde63816071663a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "420cd1b4_91ba1090",
+        "filename": "src/kits/interface/MenuWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-03-08T02:03:08Z",
+      "side": 1,
+      "message": "Why this is needed? In my patch (https://review.haiku-os.org/c/haiku/+/2310) everything is updating fine when menu is resized or scroller is attached/detached.",
+      "revId": "7d2aa31e0cde50f3c51478b5ecde63816071663a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93587293_55582d16",
+        "filename": "src/kits/interface/MenuWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-03-08T02:03:08Z",
+      "side": 1,
+      "message": "Same as above.",
+      "revId": "7d2aa31e0cde50f3c51478b5ecde63816071663a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
