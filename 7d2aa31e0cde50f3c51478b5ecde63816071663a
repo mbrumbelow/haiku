@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "48070295_e0706db9",
+        "filename": "headers/os/interface/Menu.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-03-08T02:35:14Z",
+      "side": 1,
+      "message": "It should have leading underline and be private. Friend classed can be used if necessary.",
+      "parentUuid": "c091a452_cffd1bf9",
+      "revId": "7d2aa31e0cde50f3c51478b5ecde63816071663a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "91b9e0d1_8ae6d42d",
         "filename": "src/kits/interface/MenuWindow.cpp",
         "patchSetId": 6
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "BControl gets us IsEnabled() and SetEnabled(). Better to use BControl than reproduce the methods.",
       "parentUuid": "91b9e0d1_8ae6d42d",
+      "revId": "7d2aa31e0cde50f3c51478b5ecde63816071663a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d0c44e9_f22ad93b",
+        "filename": "src/kits/interface/MenuWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-03-08T02:35:14Z",
+      "side": 1,
+      "message": "BMenuScroller is not BControl by logical meaning. It is not do invoking. Using it just introduce additional overhead.",
+      "parentUuid": "3d919f38_b86768e3",
       "revId": "7d2aa31e0cde50f3c51478b5ecde63816071663a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -153,6 +189,24 @@
       "side": 1,
       "message": "When you scroll up instead of down this is needed so that the arrow doesn\u0027t disappear.",
       "parentUuid": "93587293_55582d16",
+      "revId": "7d2aa31e0cde50f3c51478b5ecde63816071663a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b2a7f9c_7d6cef26",
+        "filename": "src/kits/interface/MenuWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-03-08T02:35:14Z",
+      "side": 1,
+      "message": "Maybe something was broken with introducing of layout API. Nothing disappear for me.",
+      "parentUuid": "912eabbe_c3778eaf",
       "revId": "7d2aa31e0cde50f3c51478b5ecde63816071663a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
