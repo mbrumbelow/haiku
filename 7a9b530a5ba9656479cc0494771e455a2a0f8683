@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64837331_679f4006",
+        "filename": "src/kits/tracker/LiveUpdatingMenu.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-03-08T05:03:01Z",
+      "side": 1,
+      "message": "Should be removed.",
+      "revId": "7a9b530a5ba9656479cc0494771e455a2a0f8683",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
