@@ -297,6 +297,7 @@ protected:
 	BMenuItem* fMoveToItem;
 	BMenuItem* fCopyToItem;
 	BMenuItem* fCreateLinkItem;
+	BMenuItem* fIdentifyItem;
 	BMenuItem* fOpenWithItem;
 	ModelMenuItem* fNavigationItem;
 	BMenuBar* fMenuBar;
@@ -324,6 +325,8 @@ protected:
 	static LockingList<struct AddonShortcut>* fAddonsList;
 
 private:
+	status_t fInitStatus;
+
 	BRect fSavedZoomRect;
 	BRect fPreviousBounds;
 
