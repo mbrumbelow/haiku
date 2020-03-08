@@ -2976,6 +2976,12 @@ BMenu::_UpdateWindowViewSize(const bool &move)
 
 	if (move)
 		window->MoveTo(frame.LeftTop());
+
+	if (fSelected != NULL && fSelected->Submenu() != NULL
+		&& fSelected->Submenu()->LockLooper()) {
+		fSelected->Submenu()->_UpdateWindowViewSize(true);
+		fSelected->Submenu()->UnlockLooper();
+	}
 }
 
 
