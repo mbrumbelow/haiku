@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e81afd02_badf32f5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-03-08T02:12:01Z",
+      "side": 1,
+      "message": "Commit message is bad, because primary goal of this change is recursive relayout of submenus on menu resize (#15782). Using layout is minor change.",
+      "revId": "642559197260fb790070e1cd46eb80a3d9891fc9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
