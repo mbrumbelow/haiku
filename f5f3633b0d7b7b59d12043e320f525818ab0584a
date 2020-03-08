@@ -16,6 +16,23 @@
       "revId": "f5f3633b0d7b7b59d12043e320f525818ab0584a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc979762_c17d900a",
+        "filename": "src/kits/tracker/LiveUpdatingMenu.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-03-08T02:55:21Z",
+      "side": 1,
+      "message": "You should never manually resize menu window, let do it resize automatically. If menu window doesn\u0027t resize correctly, it need to be fixed.",
+      "revId": "f5f3633b0d7b7b59d12043e320f525818ab0584a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
