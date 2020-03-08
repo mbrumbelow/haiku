@@ -33,6 +33,24 @@
       "revId": "7a9b530a5ba9656479cc0494771e455a2a0f8683",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "155ddf33_e1f972e9",
+        "filename": "src/kits/tracker/LiveUpdatingMenu.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-03-08T21:35:27Z",
+      "side": 1,
+      "message": "Removed in Patch Set 16",
+      "parentUuid": "64837331_679f4006",
+      "revId": "7a9b530a5ba9656479cc0494771e455a2a0f8683",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
