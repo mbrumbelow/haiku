@@ -2104,6 +2104,7 @@ BMenu::_RelayoutIfNeeded()
 		fUseCachedMenuLayout = true;
 		_CacheFontInfo();
 		_LayoutItems(0);
+		_UpdateWindowViewSize(false);
 		return true;
 	}
 	return false;
