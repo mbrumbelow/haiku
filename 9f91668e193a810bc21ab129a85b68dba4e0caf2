@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "d4d71232_3d7b4d32",
+        "filename": "src/apps/deskbar/BarMenuBar.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-09T08:48:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1be6638_674b2ce1",
+      "revId": "9f91668e193a810bc21ab129a85b68dba4e0caf2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "00f695dd_5ceba73b",
         "filename": "src/apps/deskbar/BarView.cpp",
         "patchSetId": 21
@@ -108,6 +126,24 @@
     },
     {
       "key": {
+        "uuid": "176fee52_f51ef635",
+        "filename": "src/apps/deskbar/BarView.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-09T08:48:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf8a995c_585e6c42",
+      "revId": "9f91668e193a810bc21ab129a85b68dba4e0caf2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e258743_9b02aa3e",
         "filename": "src/apps/deskbar/ExpandoMenuBar.cpp",
         "patchSetId": 21
@@ -158,6 +194,24 @@
       "revId": "9f91668e193a810bc21ab129a85b68dba4e0caf2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "540b71b8_399e808f",
+        "filename": "src/apps/deskbar/ExpandoMenuBar.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-09T08:48:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7d2ac32_ed047d66",
+      "revId": "9f91668e193a810bc21ab129a85b68dba4e0caf2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -214,6 +268,24 @@
     },
     {
       "key": {
+        "uuid": "e85f733c_ce9f948b",
+        "filename": "src/apps/deskbar/ExpandoMenuBar.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 840,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-09T08:48:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fca3b227_902007ab",
+      "revId": "9f91668e193a810bc21ab129a85b68dba4e0caf2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "38a6e13f_ff0a0cab",
         "filename": "src/apps/deskbar/StatusView.cpp",
         "patchSetId": 21
@@ -249,6 +321,24 @@
     },
     {
       "key": {
+        "uuid": "c0b69e9f_99a27152",
+        "filename": "src/apps/deskbar/StatusView.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 1623,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-09T08:48:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be63abcb_9faf4e3d",
+      "revId": "9f91668e193a810bc21ab129a85b68dba4e0caf2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d811573_b86dbe66",
         "filename": "src/apps/deskbar/StatusView.cpp",
         "patchSetId": 21
@@ -281,6 +371,24 @@
       "revId": "9f91668e193a810bc21ab129a85b68dba4e0caf2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81d3e1e1_85b13fb1",
+        "filename": "src/apps/deskbar/StatusView.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 1647,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-09T08:48:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac758fa7_42ef2c0e",
+      "revId": "9f91668e193a810bc21ab129a85b68dba4e0caf2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
