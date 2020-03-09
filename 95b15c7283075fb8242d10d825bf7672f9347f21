@@ -52,6 +52,24 @@
       "revId": "95b15c7283075fb8242d10d825bf7672f9347f21",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1d002e5_05e6f1cc",
+        "filename": "docs/user/interface/View.dox",
+        "patchSetId": 11
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-03-09T19:25:50Z",
+      "side": 1,
+      "message": "I think this is an interesting discussion, but I also think that what you are trying to accomplish (making more mouse buttons adressible though a macro), it is not necessary to solve the discussion about how to handle mouse buttons semantically.\n\nAs for the documentation (in this case), I would say it is a nice service to the reader to point to the new macro  in the blocks that you have marked as deprecated (though this is in no way a blocker for me).",
+      "parentUuid": "54bb718c_48ee64bc",
+      "revId": "95b15c7283075fb8242d10d825bf7672f9347f21",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
