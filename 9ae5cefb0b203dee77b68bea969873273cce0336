@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8de865a2_3b4259d5",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 872,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-03-09T08:20:17Z",
+      "side": 1,
+      "message": "fMoveToItem !\u003d NULL",
+      "revId": "9ae5cefb0b203dee77b68bea969873273cce0336",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77b5e8ca_83fa19d8",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 875,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-03-09T08:20:17Z",
+      "side": 1,
+      "message": "fCopyToItem !\u003d NULL",
+      "revId": "9ae5cefb0b203dee77b68bea969873273cce0336",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1fe07b5a_1d8a7fe6",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 878,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-03-09T08:20:17Z",
+      "side": 1,
+      "message": "fCreateLinkItem  !\u003d NULL",
+      "revId": "9ae5cefb0b203dee77b68bea969873273cce0336",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac9cb2d4_49c0c3b6",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 881,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-03-09T08:20:17Z",
+      "side": 1,
+      "message": "fOpenWithItem !\u003d NULL",
+      "revId": "9ae5cefb0b203dee77b68bea969873273cce0336",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "873086e5_614288c6",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2599,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-03-09T08:20:17Z",
+      "side": 1,
+      "message": "fMoveToItem \u003d\u003d NULL || fCopyToItem \u003d\u003d NULL || fCreateLinkItem \u003d\u003d NULL",
+      "revId": "9ae5cefb0b203dee77b68bea969873273cce0336",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d3dafce_69efb437",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3540,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-03-09T08:20:17Z",
+      "side": 1,
+      "message": "item-\u003eMessage() !\u003d NULL",
+      "revId": "9ae5cefb0b203dee77b68bea969873273cce0336",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7957383d_5b7b6389",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3575,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-03-09T08:20:17Z",
+      "side": 1,
+      "message": "item-\u003eMessage() !\u003d NULL",
+      "revId": "9ae5cefb0b203dee77b68bea969873273cce0336",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
