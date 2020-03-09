@@ -204,8 +204,13 @@ TBarView::TBarView(BRect frame, bool vertical, bool left, bool top,
 	AddChild(fInlineScrollView);
 
 	// hide the expando menu bar in mini-mode
-	if (state == kMiniState)
-		fInlineScrollView->Hide();
+	if (state == kMiniState) {
+		if (!fInlineScrollView->IsHidden()) {
+			fInlineScrollView->Hide();
+			// hiding is not enough, put somewhere no one will ever see it
+			fInlineScrollView->MoveTo(-10000, 10000);
+		}
+	}
 
 	// if auto-hide is on and we're not already hidden, hide ourself
 	if (fBarApp->Settings()->autoHide && !IsHidden())
@@ -576,8 +581,11 @@ TBarView::PlaceTray(bool vertSwap, bool leftSwap)
 			fResizeControl->Show();
 	} else {
 		// hide resize control
-		if (!fResizeControl->IsHidden())
+		if (!fResizeControl->IsHidden()) {
 			fResizeControl->Hide();
+			// hiding is not enough, put somewhere no one will ever see it
+			fResizeControl->MoveTo(10000, -10000);
+		}
 	}
 
 	fDragRegion->Invalidate();
