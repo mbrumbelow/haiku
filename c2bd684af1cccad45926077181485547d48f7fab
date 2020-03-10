@@ -16,6 +16,24 @@
       "revId": "c2bd684af1cccad45926077181485547d48f7fab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f96e1936_fa8921d2",
+        "filename": "src/add-ons/kernel/drivers/power/acpi_battery/acpi_battery.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-03-10T10:33:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c17a7dc_41af4b1b",
+      "revId": "c2bd684af1cccad45926077181485547d48f7fab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
