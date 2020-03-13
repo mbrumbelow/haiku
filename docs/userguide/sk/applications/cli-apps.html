@@ -32,11 +32,13 @@
 <div class="inner">
 <ul class="lang-menu">
 <li class="now"><img src="../../images/flags/sk.png" alt="" /> Slovenčina</li>
+<li><a href="../../id/applications/cli-apps.html"><img src="../../images/flags/id.png" alt="" />Bahasa Indonesia</a></li>
 <li><a href="../../ca/applications/cli-apps.html"><img src="../../images/flags/ca.png" alt="" />Català</a></li>
 <li><a href="../../de/applications/cli-apps.html"><img src="../../images/flags/de.png" alt="" />Deutsch</a></li>
 <li><a href="../../en/applications/cli-apps.html"><img src="../../images/flags/gb.png" alt="" />English</a></li>
 <li><a href="../../es/applications/cli-apps.html"><img src="../../images/flags/es.png" alt="" />Español</a></li>
 <li><a href="../../fr/applications/cli-apps.html"><img src="../../images/flags/fr.png" alt="" />Français</a></li>
+<li><a href="../../fur/applications/cli-apps.html"><img src="../../images/flags/fur.png" alt="" />Furlan</a></li>
 <li><a href="../../it/applications/cli-apps.html"><img src="../../images/flags/it.png" alt="" />Italiano</a></li>
 <li><a href="../../hu/applications/cli-apps.html"><img src="../../images/flags/hu.png" alt="" />Magyar</a></li>
 <li><a href="../../pl/applications/cli-apps.html"><img src="../../images/flags/pl.png" alt="" />Polski</a></li>
@@ -45,6 +47,7 @@
 <li><a href="../../ro/applications/cli-apps.html"><img src="../../images/flags/ro.png" alt="" />Română</a></li>
 <li><a href="../../fi/applications/cli-apps.html"><img src="../../images/flags/fi.png" alt="" />Suomi</a></li>
 <li><a href="../../sv_SE/applications/cli-apps.html"><img src="../../images/flags/sv_SE.png" alt="" />Svenska</a></li>
+<li><a href="../../tr/applications/cli-apps.html"><img src="../../images/flags/tr.png" alt="" />Türkçe</a></li>
 <li><a href="../../zh_CN/applications/cli-apps.html"><img src="../../images/flags/zh_CN.png" alt="" /> 中文 ［中文］</a></li>
 <li><a href="../../ru/applications/cli-apps.html"><img src="../../images/flags/ru.png" alt="" />Русский</a></li>
 <li><a href="../../uk/applications/cli-apps.html"><img src="../../images/flags/uk.png" alt="" />Українська</a></li>
@@ -123,8 +126,8 @@ An example:</p>
 	<tr><td><p><span class="cli">checkfs</span></p></td><td style="width:10px;"> </td>
 		<td><p><span class="cli">checkfs</span> je dôležitý nástroj na hľadanie chýb vo vašom súborovom systéme. Jednoducho pridajte názov zväzku ako <span class="path">/Haiku</span> alebo cestu k zariadeniu a systém prebehne každý súbor a opraví možné nezrovnalosti.</p></td></tr>
 <tr><td><p><span class="cli">desklink</span></p></td><td style="width:10px;"> </td>
-		<td valign="top"><p><span class="cli">desklink</span> dokáže priradiť ikonu ľubovolnému súboru, priečinku, požiadavke alebo aplikácii v oznamovacej oblasti Panela. Taktiež ponúka možnosť poskytnúť kontextové menu po kliknutí na ikonu pravým tlačidlom na vykonanie špeciálnych operácií. Ako príklad môžete skúsiť pridať aplikáciu príkazového riadka <span class="app">screenshot</span> s rôznymi možnosťami pomocou tohto kódu (znak „<tt>\\</tt>“ v prvom riadku je na zalomenie riadka v Termináli):</p>
-<pre class="terminal"> desklink "cmd=Active window (2s):/bin/screenshot --window --border --delay 2" \\
+		<td valign="top"><p><span class="cli">desklink</span> dokáže priradiť ikonu ľubovolnému súboru, priečinku, požiadavke alebo aplikácii v oznamovacej oblasti Panela. Taktiež ponúka možnosť poskytnúť kontextové menu po kliknutí na ikonu pravým tlačidlom na vykonanie špeciálnych operácií. Ako príklad môžete skúsiť pridať aplikáciu príkazového riadka <span class="app">screenshot</span> s rôznymi možnosťami pomocou tohto kódu (znak „<tt>\</tt>“ v prvom riadku je na zalomenie riadka v Termináli):</p>
+<pre class="terminal"> desklink "cmd=Active window (2s):/bin/screenshot --window --border --delay 2" \
 "cmd=Remove replicant:desklink --remove=screenshot" /bin/screenshot
 </pre>
 <p><img src="../images/apps-images/cli-desklink.png" alt="cli-alert.png" /></p>

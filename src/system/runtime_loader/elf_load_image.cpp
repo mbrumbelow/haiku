@@ -416,7 +416,7 @@ parse_elf_header(elf_ehdr* eheader, int32* _pheaderSize,
 	*_pheaderSize = eheader->e_phentsize * eheader->e_phnum;
 	*_sheaderSize = eheader->e_shentsize * eheader->e_shnum;
 
-	if (*_pheaderSize <= 0 || *_sheaderSize <= 0)
+	if (*_pheaderSize <= 0)
 		return B_NOT_AN_EXECUTABLE;
 
 	return B_OK;
@@ -444,7 +444,7 @@ parse_elf32_header(Elf32_Ehdr* eheader, int32* _pheaderSize,
 	*_pheaderSize = eheader->e_phentsize * eheader->e_phnum;
 	*_sheaderSize = eheader->e_shentsize * eheader->e_shnum;
 
-	if (*_pheaderSize <= 0 || *_sheaderSize <= 0)
+	if (*_pheaderSize <= 0)
 		return B_NOT_AN_EXECUTABLE;
 
 	return B_OK;
@@ -469,7 +469,7 @@ parse_elf64_header(Elf64_Ehdr* eheader, int32* _pheaderSize,
 	*_pheaderSize = eheader->e_phentsize * eheader->e_phnum;
 	*_sheaderSize = eheader->e_shentsize * eheader->e_shnum;
 
-	if (*_pheaderSize <= 0 || *_sheaderSize <= 0)
+	if (*_pheaderSize <= 0)
 		return B_NOT_AN_EXECUTABLE;
 
 	return B_OK;
@@ -641,7 +641,7 @@ load_image(char const* name, image_type type, const char* rpath,
 		#endif
 	}
 
-	set_abi_version(image->abi);
+	set_abi_api_version(image->abi, image->api_version);
 
 	// init gcc version dependent image flags
 	// symbol resolution strategy

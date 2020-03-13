@@ -6,7 +6,9 @@ SubDirC++Flags -Wno-error ;
 include [ FDirName $(HAIKU_TOP) src apps haikudepot build jam
 	HdsSchemaGenRules ] ;
 
-UsePrivateHeaders interface kernel net package shared storage support ;
+UseBuildFeatureHeaders icu ;
+
+UsePrivateHeaders interface kernel net package shared storage support locale ;
 
 HAIKUDEPOT_GENERATED_SOURCES_DIRECTORY = $(TARGET_COMMON_DEBUG_LOCATE_TARGET) ;
 
@@ -114,11 +116,13 @@ local applicationSources =
 	App.cpp
 	BarberPole.cpp
 	BitmapView.cpp
+	Captcha.cpp
+	CreateUserDetail.cpp
 	DecisionProvider.cpp
 	FeaturedPackagesView.cpp
 	FilterView.cpp
-	LocalIconStore.cpp
 	JobStateListener.cpp
+	LocalIconStore.cpp
 	LanguageModel.cpp
 	LinkView.cpp
 	LinkedBitmapView.cpp
@@ -142,7 +146,13 @@ local applicationSources =
 	ScreenshotWindow.cpp
 	ScrollableGroupView.cpp
 	SharedBitmap.cpp
+	UserCredentials.cpp
+	UserDetail.cpp
 	UserLoginWindow.cpp
+	UserUsageConditions.cpp
+	UserUsageConditionsWindow.cpp
+	ValidationFailure.cpp
+	ValidationUtils.cpp
 	WorkStatusView.cpp
 
 	# network + server / local processes
@@ -216,17 +226,21 @@ local generatedReferenceParserSourceFiles =
 ;
 
 Application HaikuDepot
-	: $(applicationSources)
-		$(textDocumentSources)
-		$(generatedPkgModelSourceFiles)
-		$(generatedRepositoryModelSourceFiles)
-		$(generatedReferenceModelSourceFiles)
-		$(generatedPkgParserSourceFiles)
-		$(generatedRepositoryParserSourceFiles)
-		$(generatedReferenceParserSourceFiles)
-	: be package bnetapi translation libcolumnlistview.a shared
-		[ TargetLibstdc++ ] [ TargetLibsupc++ ] localestub
-	: HaikuDepot.rdef
+	:
+	$(applicationSources)
+	$(textDocumentSources)
+	$(generatedPkgModelSourceFiles)
+	$(generatedRepositoryModelSourceFiles)
+	$(generatedReferenceModelSourceFiles)
+	$(generatedPkgParserSourceFiles)
+	$(generatedRepositoryParserSourceFiles)
+	$(generatedReferenceParserSourceFiles)
+	:
+	be package bnetapi translation libcolumnlistview.a shared
+	[ TargetLibstdc++ ] [ TargetLibsupc++ ] localestub
+	[ BuildFeatureAttribute icu : libraries ]
+	:
+	HaikuDepot.rdef
 ;
 
 DoCatalogs HaikuDepot :

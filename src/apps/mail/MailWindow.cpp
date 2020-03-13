@@ -150,9 +150,9 @@ static const uint32 kByForumlaItem = 'Fbyq';
 	// taken from src/kits/tracker/FindPanel.h
 static const int kCopyBufferSize = 64 * 1024;	// 64 KB
 
-static const char* kSameRecipientItem = B_TRANSLATE_MARK("Same recipient");
-static const char* kSameSenderItem = B_TRANSLATE_MARK("Same sender");
-static const char* kSameSubjectItem = B_TRANSLATE_MARK("Same subject");
+static const char* kSameRecipientItem = B_TRANSLATE("Same recipient");
+static const char* kSameSenderItem = B_TRANSLATE("Same sender");
+static const char* kSameSubjectItem = B_TRANSLATE("Same subject");
 
 
 // static bitmap cache
@@ -366,11 +366,11 @@ TMailWindow::TMailWindow(BRect rect, const char* title, TMailApp* app,
 		new BMessage(M_FIND_AGAIN), 'G'));
 	if (!fIncoming) {
 		menu->AddSeparatorItem();
-		fQuote = new BMenuItem(B_TRANSLATE("Quote"),
-			new BMessage(M_QUOTE), '\'');
+		fQuote = new BMenuItem(B_TRANSLATE("Increase quote level"),
+			new BMessage(M_ADD_QUOTE_LEVEL), '+');
 		menu->AddItem(fQuote);
-		fRemoveQuote = new BMenuItem(B_TRANSLATE("Remove quote"),
-			new BMessage(M_REMOVE_QUOTE), '\'', B_SHIFT_KEY);
+		fRemoveQuote = new BMenuItem(B_TRANSLATE("Decrease quote level"),
+			new BMessage(M_SUB_QUOTE_LEVEL), '-');
 		menu->AddItem(fRemoveQuote);
 
 		menu->AddSeparatorItem();
@@ -383,12 +383,12 @@ TMailWindow::TMailWindow(BRect rect, const char* title, TMailApp* app,
 	menu->AddSeparatorItem();
 	menu->AddItem(item = new BMenuItem(
 		B_TRANSLATE("Settings" B_UTF8_ELLIPSIS),
-		new BMessage(M_PREFS),','));
+		new BMessage(M_PREFS)));
 	item->SetTarget(be_app);
 	fMenuBar->AddItem(menu);
 	menu->AddItem(item = new BMenuItem(
 		B_TRANSLATE("Accounts" B_UTF8_ELLIPSIS),
-		new BMessage(M_ACCOUNTS),'-'));
+		new BMessage(M_ACCOUNTS)));
 	item->SetTarget(be_app);
 
 	// View Menu
@@ -1462,8 +1462,8 @@ TMailWindow::MessageReceived(BMessage* msg)
 			FindWindow::FindAgain(this);
 			break;
 
-		case M_QUOTE:
-		case M_REMOVE_QUOTE:
+		case M_ADD_QUOTE_LEVEL:
+		case M_SUB_QUOTE_LEVEL:
 			PostMessage(msg->what, fContentView);
 			break;
 
@@ -1522,10 +1522,16 @@ TMailWindow::MessageReceived(BMessage* msg)
 
 			BPoint where;
 			if (msg->FindPoint("where", &where) != B_OK) {
-				BRect bounds = fToolBar->Bounds();
-				where = fToolBar->ConvertToScreen(BPoint(
-					(bounds.right - bounds.left) / 2,
-					(bounds.bottom - bounds.top) / 2));
+				BRect rect;
+				BButton* button = fToolBar->FindButton(M_SIG_MENU);
+				if (button != NULL)
+					rect = button->Frame();
+				else
+					rect = fToolBar->Bounds();
+
+				where = button->ConvertToScreen(BPoint(
+					((rect.right - rect.left) / 2) - 16,
+					(rect.bottom - rect.top) / 2));
 			}
 
 			if ((item = menu->Go(where, false, true)) != NULL) {
@@ -2952,14 +2958,14 @@ TMailWindow::OpenMessage(const entry_ref* ref, uint32 characterSetForDecoding)
 			BMessage msg(REFS_RECEIVED);
 			entry_ref enc_ref;
 
-			char* s = strtok((char*)string.String(), ":");
-			while (s != NULL) {
-				BEntry entry(s, true);
+			BStringList list;
+			string.Split(":", false, list);
+			for (int32 i = 0; i < list.CountStrings(); i++) {
+				BEntry entry(list.StringAt(i), true);
 				if (entry.Exists()) {
 					entry.GetRef(&enc_ref);
 					msg.AddRef("refs", &enc_ref);
 				}
-				s = strtok(NULL, ":");
 			}
 			AddEnclosure(&msg);
 		}

@@ -1,4 +1,4 @@
-1	dutch; flemish	x-vnd.Be-MAIL	1326862533
+1	dutch; flemish	x-vnd.Be-MAIL	1630923361
 Set to Saved	Mail		Als Bewaard markeren
 Your main text contains %ld unencodable characters. Perhaps a different character set would work better? Hit Send to send it anyway (a substitute character will be used in place of the unencodable ones), or choose Cancel to go back and try fixing it up.	Mail		Uw hoofdtekst bevat %ld niet-codeerbare tekens. Mogelijk werkt een andere letterset beter? Klik op 'Versturen' om de tekst toch te versturen (een vervangend teken zal dan gebruikt worden op de plaats van elk niet-codeerbaar teken), of kies 'Annuleren' om terug te keren voor een herstelpoging.
 Text wrapping:	Mail		Tekstafbreking:
@@ -10,8 +10,9 @@ Mailing	Mail		Mailverkeer
 Unread	Mail		Ongelezen
 Copy to new	Mail		Kopiëren naar nieuw
 Save as draft	Mail		Bewaren als concept
-Encoding:	Mail		Coderen:
+Encoding:	Mail		Codering:
 Print	Mail		Afdrukken
+Encoding	Mail		Codering
 Default account:	Mail		Standaard-account:
 Message	Mail		Bericht
 Bcc:	Mail		Bcc:
@@ -54,7 +55,6 @@ Reply to sender	Mail		Afzender beantwoorden
 Copy	Mail		Kopiëren
 Add signature	Mail		Onderschrift toevoegen
 %n - Full name	Mail		%n - Volledige naam
-Remove quote	Mail		Citaat verwijderen
 Signature	Mail		Onderschrift
 Use default account	Mail		Standaard-account gebruiken
 draft	B_USER_DIRECTORY/mail/draft		concept
@@ -120,6 +120,7 @@ Sorry	Mail		Sorry
 Forward	Mail		Doorsturen
 Open attachment	Mail		Bijlage openen
 mail	B_USER_DIRECTORY/mail		mail
+Save this message as a draft before closing?	Mail		Bericht bewaren als concept alvorens het te sluiten?
 The mail_daemon is not running. The message is queued and will be sent when the mail_daemon is started.	Mail		De mail_daemon is niet actief. Het bericht staat in de wachtrij en zal worden verzonden zodra de mail_daemon is gestart.
 None	Mail		Geen
 Resend	Mail		Opnieuw versturen
@@ -143,7 +144,6 @@ New mail message	Mail		Nieuw mailbericht
 An error occurred trying to open this signature.	Mail		Er is een fout ontstaan bij het openen van dit onderschift.
 Edit signatures…	Mail		Pas onderschriften aan…
 User interface	Mail		Gebruikersinterface
-Quote	Mail		Citeren
 Inconsistency occurred in the undo/redo buffer.	Mail		Er is een onregelmatigheid ontstaan in het herstel- /herhaalbuffer.
 Remove attachment	Mail		Verwijder bijlage
 Set to…	Mail		Instellen als…

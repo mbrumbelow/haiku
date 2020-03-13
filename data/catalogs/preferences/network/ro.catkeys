@@ -1,4 +1,4 @@
-1	romanian	x-vnd.Haiku-Network	3284324275
+1	romanian	x-vnd.Haiku-Network	3039697761
 Ethernet device	InterfaceListItem		Dispozitiv Ethernet
 Link speed:	IntefaceView		Viteză legătură:
 disconnected	IntefaceView		deconectat
@@ -14,22 +14,23 @@ Gateway:	IntefaceAddressView		Gateway:
 The netmask defines your local network	IntefaceAddressView		Masca de rețea definește rețeaua locală
 Your IP address	IntefaceAddressView		Adresă IP
 DHCP	IntefaceAddressView		DHCP
-Dial Up	NetworkWindow		Dial Up
 Netmask:	IntefaceAddressView		Mască rețea:
 EAP	EAP protected network		EAP
 Services	NetworkWindow		Servicii
 Installing NetworkStatus in Deskbar failed: %s	NetworkWindow		Instalarea NetworkStatus pe Deskbar a eșuat: %s
 Revert	NetworkWindow		Revenire
+off	ServiceListItem		oprit
 WEP	WEP protected network		WEP
 <no wireless networks found>	IntefaceView		<nu s-au găsit rețele wireless>
+Enable	IntefaceView		Activează
 connected	IntefaceView		conectat
-VPN	NetworkWindow		VPN
 Apply	IntefaceAddressView		Aplică
 Disable	ServiceView		Dezactivare
 WPA2	WPA2 protected network		WPA2
 Show network status in Deskbar	NetworkWindow		Afișează starea rețelei în Deskbar
 Mode:	IntefaceAddressView		Mod:
 connected	InterfaceListItem		conectat
+OK	NetworkWindow		OK
 Static	IntefaceAddressView		Static
 launch error	NetworkWindow		eroare la lansare
 Renegotiate	IntefaceView		Renegociază
@@ -37,7 +38,9 @@ MAC address:	IntefaceView		Adresă MAC:
 %name% (%authenticationMode%)	WirelessNetworkMenuItem		%name% (%authenticationMode%)
 disabled	InterfaceListItem		dezactivat
 Dial-up connection	InterfaceListItem		Conexiune Dial-up
+on	ServiceListItem		pornit
 The method for obtaining an IP address	IntefaceAddressView		Metoda de obținere a unei adrese IP
+disconnected	InterfaceListItem		deconectat
 Automatic	IntefaceAddressView		Automat
 Choose automatically	IntefaceView		Alege automat
 Status:	IntefaceView		Stare:

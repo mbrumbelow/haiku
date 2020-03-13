@@ -1,4 +1,4 @@
-1	indonesian	x-vnd.Haiku-Network	3284324275
+1	indonesian	x-vnd.Haiku-Network	3039697761
 Ethernet device	InterfaceListItem		Perangkat ethernet
 Link speed:	IntefaceView		Kecepatan jalur:
 disconnected	IntefaceView		terputus
@@ -14,22 +14,23 @@ Gateway:	IntefaceAddressView		Gateway:
 The netmask defines your local network	IntefaceAddressView		Netmask mendefinisikan jaringan lokal anda
 Your IP address	IntefaceAddressView		Alamat IP Anda
 DHCP	IntefaceAddressView		DHCP
-Dial Up	NetworkWindow		Dial Up
 Netmask:	IntefaceAddressView		Netmask:
 EAP	EAP protected network		EAP
 Services	NetworkWindow		Layanan
 Installing NetworkStatus in Deskbar failed: %s	NetworkWindow		Memasang NetworkStatus di Deskbar gagal: %s
 Revert	NetworkWindow		Pulihkan
+off	ServiceListItem		mati
 WEP	WEP protected network		WEP
 <no wireless networks found>	IntefaceView		<no wireless networks found>
+Enable	IntefaceView		Bisa
 connected	IntefaceView		terhubung
-VPN	NetworkWindow		VPN
 Apply	IntefaceAddressView		Terapkan
 Disable	ServiceView		Dilumpuhkan
 WPA2	WPA2 protected network		WPA2
 Show network status in Deskbar	NetworkWindow		Tampilkan status jaringan di Deskbar
 Mode:	IntefaceAddressView		Mode:
 connected	InterfaceListItem		terhubung
+OK	NetworkWindow		OKE
 Static	IntefaceAddressView		Statis
 launch error	NetworkWindow		memunculkan galat
 Renegotiate	IntefaceView		Renegoisasi
@@ -37,7 +38,9 @@ MAC address:	IntefaceView		Alamat MAC:
 %name% (%authenticationMode%)	WirelessNetworkMenuItem		%name% (%authenticationMode%)
 disabled	InterfaceListItem		dilumpuhkan
 Dial-up connection	InterfaceListItem		Koneksi dial-up
+on	ServiceListItem		Nyala
 The method for obtaining an IP address	IntefaceAddressView		Metode untuk memperoleh alamat IP
+disconnected	InterfaceListItem		terputus
 Automatic	IntefaceAddressView		Otomatis
 Choose automatically	IntefaceView		Pilih otomatis
 Status:	IntefaceView		Status:

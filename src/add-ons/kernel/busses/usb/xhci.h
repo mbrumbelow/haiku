@@ -25,14 +25,6 @@ struct xhci_endpoint;
 class XHCIRootHub;
 
 
-enum xhci_state {
-	XHCI_STATE_DISABLED = 0,
-	XHCI_STATE_ENABLED,
-	XHCI_STATE_DEFAULT,
-	XHCI_STATE_ADDRESSED,
-	XHCI_STATE_CONFIGURED,
-};
-
 #define XHCI_ENDPOINT_RING_SIZE	(XHCI_MAX_TRANSFERS * 2 + 1)
 
 
@@ -62,6 +54,8 @@ typedef struct xhci_endpoint {
 	xhci_device*	device;
 	uint8			id;
 
+	uint16			max_burst_payload;
+
 	xhci_td*		td_head;
 	uint8			used;
 	uint8			current;
@@ -74,7 +68,6 @@ typedef struct xhci_endpoint {
 typedef struct xhci_device {
 	uint8 slot;
 	uint8 address;
-	enum xhci_state state;
 	area_id trb_area;
 	phys_addr_t trb_addr;
 	struct xhci_trb *trbs; // [XHCI_MAX_ENDPOINTS - 1][XHCI_ENDPOINT_RING_SIZE]
@@ -137,8 +130,8 @@ private:
 			int32				Interrupt();
 
 			// Endpoint management
-			status_t			ConfigureEndpoint(uint8 slot, uint8 number,
-									uint8 type, bool directionIn, uint64 ringAddr,
+			status_t			ConfigureEndpoint(xhci_endpoint* ep, uint8 slot,
+									uint8 number, uint8 type, bool directionIn,
 									uint16 interval, uint16 maxPacketSize,
 									usb_speed speed, uint8 maxBurst,
 									uint16 bytesPerInterval);

@@ -822,6 +822,15 @@ common_user_vector_io(int fd, off_t pos, const iovec* userVecs, size_t count,
 
 	ssize_t bytesTransferred = 0;
 	for (uint32 i = 0; i < count; i++) {
+		if (vecs[i].iov_base == NULL)
+			continue;
+		if (!IS_USER_ADDRESS(vecs[i].iov_base)) {
+			status = B_BAD_ADDRESS;
+			if (bytesTransferred == 0)
+				return status;
+			break;
+		}
+
 		size_t length = vecs[i].iov_len;
 		if (write) {
 			status = descriptor->ops->fd_write(descriptor, pos,
@@ -925,8 +934,11 @@ _user_ioctl(int fd, uint32 op, void* buffer, size_t length)
 	TRACE(("user_ioctl: fd %d\n", fd));
 
 	// "buffer" is not always a pointer depending on "op", so we cannot
-	// check that it is a userland buffer here; the underlying implementation
-	// must do that.
+	// check that it is a userland buffer here. Instead we check that
+	// it is at least not within the bounds of kernel memory; as in
+	// the cases where it is a numeric constant it is usually a low one.
+	if (IS_KERNEL_ADDRESS(buffer))
+		return B_BAD_ADDRESS;
 
 	SyscallRestartWrapper<status_t> status;
 
@@ -972,6 +984,8 @@ _user_read_dir(int fd, struct dirent* userBuffer, size_t bufferSize,
 	if (status != B_OK)
 		return status;
 
+	ASSERT(count <= maxCount);
+
 	// copy the buffer back -- determine the total buffer size first
 	size_t sizeToCopy = 0;
 	BytePointer<struct dirent> entry = buffer;
@@ -980,6 +994,8 @@ _user_read_dir(int fd, struct dirent* userBuffer, size_t bufferSize,
 		sizeToCopy += length;
 		entry += length;
 	}
+
+	ASSERT(sizeToCopy <= bufferSize);
 
 	if (user_memcpy(userBuffer, buffer, sizeToCopy) != B_OK)
 		return B_BAD_ADDRESS;

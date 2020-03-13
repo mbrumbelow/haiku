@@ -30,9 +30,6 @@
 #define ptoa(x)			((unsigned long)((x) << PAGE_SHIFT))
 #define atop(x)			((unsigned long)((x) >> PAGE_SHIFT))
 
-/* MAJOR FIXME */
-#define Maxmem			(32768)
-
 #ifndef MSIZE
 #define MSIZE 256
 #endif
@@ -50,13 +47,14 @@
 #define ALIGN_BYTES		(sizeof(unsigned long) - 1)
 #define ALIGN(x)		((((unsigned long)x) + ALIGN_BYTES) & ~ALIGN_BYTES)
 
-#if defined(__x86_64__) || defined(__i386__)
+#if defined(__x86_64__) || defined(__i386__) || defined(__M68K__)
 #define	ALIGNED_POINTER(p, t)	1
 #elif defined(__powerpc__)
 #define	ALIGNED_POINTER(p, t)	((((uintptr_t)(p)) & (sizeof (t) - 1)) == 0)
 #elif defined(__arm__)
 #define	ALIGNED_POINTER(p, t)	((((unsigned)(p)) & (sizeof(t) - 1)) == 0)
-#elif defined(__mips__) || defined(__sparc__) || defined(__riscv64__)
+#elif defined(__mips__) || defined(__sparc__) || defined(__riscv64__) \
+	|| defined(__aarch64__) || defined(__arm64__)
 #define	ALIGNED_POINTER(p, t)	((((unsigned long)(p)) & (sizeof (t) - 1)) == 0)
 #else
 #error Need definition of ALIGNED_POINTER for this arch!
@@ -64,8 +62,13 @@
 
 /* defined in arch_cpu.h which we can't include here as it's C++ */
 #if defined(__x86_64__) || defined(__i386__) || defined(__arm__) \
-	|| defined(__sparc__) || defined(__riscv64__)
+	|| defined(__sparc__) || defined(__riscv64__) \
+	|| defined(__aarch64__) || defined(__arm64__)
 #define CACHE_LINE_SIZE 64
+#elif defined(__powerpc__)
+#define CACHE_LINE_SIZE 128
+#elif defined(__M68K__)
+#define CACHE_LINE_SIZE 16
 #else
 #error Need definition of CACHE_LINE_SIZE for this arch!
 #endif

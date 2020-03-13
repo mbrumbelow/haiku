@@ -7,6 +7,7 @@
  * Authors:
  *		Stefano Ceccherini, stefano.ceccherini@gmail.com
  *		Kian Duffy, myob@users.sourceforge.net
+ *		Simon South, simon@simonsouth.net
  *		Ingo Weinhold, ingo_weinhold@gmx.de
  *		Siarzhuk Zharski, zharik@gmx.li
  */
@@ -15,6 +16,8 @@
 
 
 #include <Autolock.h>
+#include <HashMap.h>
+#include <InterfaceDefs.h>
 #include <Messenger.h>
 #include <ObjectList.h>
 #include <String.h>
@@ -79,7 +82,7 @@ public:
 			void				GetFontSize(float* width, float* height);
 			int					Rows() const;
 			int					Columns() const;
-			BRect				SetTermSize(int rows, int cols,
+			BRect				SetTermSize(int rows, int columns,
 									bool notifyShell);
 			void				SetTermSize(BRect rect,
 									bool notifyShell = false);
@@ -97,6 +100,10 @@ public:
 
 			void				SetScrollBar(BScrollBar* scrollBar);
 			BScrollBar*			ScrollBar() const { return fScrollBar; };
+
+			void				SetKeymap(const key_map* keymap,
+									const char* chars);
+			void				SetUseOptionAsMetaKey(bool enable);
 
 			void				SetMouseClipboard(BClipboard *);
 
@@ -145,8 +152,8 @@ protected:
 	virtual void				ScrollTo(BPoint where);
 	virtual void				TargetedByScrollView(BScrollView *scrollView);
 
-	virtual status_t			GetSupportedSuites(BMessage* msg);
-	virtual BHandler*			ResolveSpecifier(BMessage* msg, int32 index,
+	virtual status_t			GetSupportedSuites(BMessage* message);
+	virtual BHandler*			ResolveSpecifier(BMessage* message, int32 index,
 									BMessage* specifier, int32 form,
 									const char* property);
 
@@ -208,8 +215,8 @@ private:
 
 			void				_DoPrint(BRect updateRect);
 			void				_UpdateScrollBarRange();
-			void				_SecondaryMouseButtonDropped(BMessage* msg);
-			void				_DoSecondaryMouseDropAction(BMessage* msg);
+			void				_SecondaryMouseButtonDropped(BMessage* message);
+			void				_DoSecondaryMouseDropAction(BMessage* message);
 			void				_DoFileDrop(entry_ref &ref);
 
 			void				_SynchronizeWithTextBuffer(
@@ -335,6 +342,15 @@ private:
 
 			HighlightList		fHighlights;
 
+			// keyboard
+			const key_map*		fKeymap;
+			const char*			fKeymapChars;
+			HashMap<HashKey32<int32>, const int32(*)[128]>
+								fKeymapTableForModifiers;
+			bool				fUseOptionAsMetaKey;
+			bool				fInterpretMetaKey;
+			bool				fMetaKeySendsEscape;
+
 			// mouse
 			int32				fMouseButtons;
 			int32				fModifiers;
@@ -343,6 +359,7 @@ private:
 			bool				fReportNormalMouseEvent;
 			bool				fReportButtonMouseEvent;
 			bool				fReportAnyMouseEvent;
+			bool				fEnableExtendedMouseCoordinates;
 			BClipboard*			fMouseClipboard;
 
 			// states

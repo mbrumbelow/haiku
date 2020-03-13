@@ -277,12 +277,10 @@ View::AddChild(View* view)
 			// trigger redraw
 			IntRect clippedFrame = view->Frame();
 			ConvertToVisibleInTopView(&clippedFrame);
-			BRegion* dirty = fWindow->GetRegion();
-			if (dirty) {
-				dirty->Set((clipping_rect)clippedFrame);
-				fWindow->MarkContentDirtyAsync(*dirty);
-				fWindow->RecycleRegion(dirty);
-			}
+
+			BRegion dirty;
+			dirty.Set((clipping_rect)clippedFrame);
+			fWindow->MarkContentDirtyAsync(dirty);
 		}
 	}
 }
@@ -333,12 +331,10 @@ View::RemoveChild(View* view)
 			// trigger redraw
 			IntRect clippedFrame = view->Frame();
 			ConvertToVisibleInTopView(&clippedFrame);
-			BRegion* dirty = fWindow->GetRegion();
-			if (dirty) {
-				dirty->Set((clipping_rect)clippedFrame);
-				fWindow->MarkContentDirtyAsync(*dirty);
-				fWindow->RecycleRegion(dirty);
-			}
+
+			BRegion dirty;
+			dirty.Set((clipping_rect)clippedFrame);
+			fWindow->MarkContentDirtyAsync(dirty);
 		}
 	}
 
@@ -720,8 +716,10 @@ View::ResizeBy(int32 x, int32 y, BRegion* dirtyRegion)
 				// include their own dirty regions in ParentResized()
 				for (View* child = FirstChild(); child;
 						child = child->NextSibling()) {
-					if (!child->IsVisible())
+					if (!child->IsVisible()
+						|| child->fViewColor == B_TRANSPARENT_COLOR) {
 						continue;
+					}
 					IntRect previousChildVisible(
 						child->Frame() & oldBounds & Bounds());
 					if (dirty->Frame().Intersects(previousChildVisible)) {
@@ -923,6 +921,22 @@ View::CopyBits(IntRect src, IntRect dst, BRegion& windowContentClipping)
 
 
 // #pragma mark -
+
+
+void
+View::SetViewColor(const rgb_color& color)
+{
+	rgb_color oldColor = fViewColor;
+	fViewColor = color;
+	// Child view with B_TRANSPARENT_COLOR view color change clipping of
+	// parent view.
+	if (fParent != NULL
+		&& IsVisible()
+		&& ((oldColor == B_TRANSPARENT_COLOR)
+			!= (color == B_TRANSPARENT_COLOR))) {
+		fParent->RebuildClipping(false);
+	}
+}
 
 
 void
@@ -1264,12 +1278,10 @@ View::SetHidden(bool hidden)
 				// trigger a redraw
 				IntRect clippedBounds = Bounds();
 				ConvertToVisibleInTopView(&clippedBounds);
-				BRegion* dirty = fWindow->GetRegion();
-				if (!dirty)
-					return;
-				dirty->Set((clipping_rect)clippedBounds);
-				fWindow->MarkContentDirty(*dirty);
-				fWindow->RecycleRegion(dirty);
+
+				BRegion dirty;
+				dirty.Set((clipping_rect)clippedBounds);
+				fWindow->MarkContentDirty(dirty);
 			}
 		}
 	}
@@ -1406,8 +1418,10 @@ View::RebuildClipping(bool deep)
 				return;
 
 			for (; child; child = child->NextSibling()) {
-				if (child->IsVisible())
+				if (child->IsVisible()
+					&& child->fViewColor != B_TRANSPARENT_COLOR) {
 					childrenRegion->Include((clipping_rect)child->Frame());
+				}
 			}
 
 			fLocalClipping.Exclude(childrenRegion);
@@ -1512,12 +1526,9 @@ View::_ScreenClipping(BRegion* windowContentClipping, bool force) const
 		ConvertToVisibleInTopView(&clippedBounds);
 		if (clippedBounds.Width() < fScreenClipping.Frame().Width()
 			|| clippedBounds.Height() < fScreenClipping.Frame().Height()) {
-			BRegion* temp = fWindow->GetRegion();
-			if (temp) {
-				temp->Set((clipping_rect)clippedBounds);
-				fScreenClipping.IntersectWith(temp);
-				fWindow->RecycleRegion(temp);
-			}
+			BRegion temp;
+			temp.Set((clipping_rect)clippedBounds);
+			fScreenClipping.IntersectWith(&temp);
 		}
 
 		fScreenClipping.IntersectWith(windowContentClipping);

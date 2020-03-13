@@ -4,7 +4,7 @@
 <head>
 <!-- 
  *
- * Copyright 2011, Haiku, Inc. All rights reserved.
+ * Copyright 2011, 2019, Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -30,11 +30,13 @@
 <div class="inner">
 <ul class="lang-menu">
 <li class="now"><img src="../../images/flags/hu.png" alt="" /> Magyar</li>
+<li><a href="../../id/applications/mail.html"><img src="../../images/flags/id.png" alt="" />Bahasa Indonesia</a></li>
 <li><a href="../../ca/applications/mail.html"><img src="../../images/flags/ca.png" alt="" />Català</a></li>
 <li><a href="../../de/applications/mail.html"><img src="../../images/flags/de.png" alt="" />Deutsch</a></li>
 <li><a href="../../en/applications/mail.html"><img src="../../images/flags/gb.png" alt="" />English</a></li>
 <li><a href="../../es/applications/mail.html"><img src="../../images/flags/es.png" alt="" />Español</a></li>
 <li><a href="../../fr/applications/mail.html"><img src="../../images/flags/fr.png" alt="" />Français</a></li>
+<li><a href="../../fur/applications/mail.html"><img src="../../images/flags/fur.png" alt="" />Furlan</a></li>
 <li><a href="../../it/applications/mail.html"><img src="../../images/flags/it.png" alt="" />Italiano</a></li>
 <li><a href="../../pl/applications/mail.html"><img src="../../images/flags/pl.png" alt="" />Polski</a></li>
 <li><a href="../../pt_PT/applications/mail.html"><img src="../../images/flags/pt_PT.png" alt="" />Português</a></li>
@@ -43,6 +45,7 @@
 <li><a href="../../sk/applications/mail.html"><img src="../../images/flags/sk.png" alt="" />Slovenčina</a></li>
 <li><a href="../../fi/applications/mail.html"><img src="../../images/flags/fi.png" alt="" />Suomi</a></li>
 <li><a href="../../sv_SE/applications/mail.html"><img src="../../images/flags/sv_SE.png" alt="" />Svenska</a></li>
+<li><a href="../../tr/applications/mail.html"><img src="../../images/flags/tr.png" alt="" />Türkçe</a></li>
 <li><a href="../../zh_CN/applications/mail.html"><img src="../../images/flags/zh_CN.png" alt="" /> 中文 ［中文］</a></li>
 <li><a href="../../ru/applications/mail.html"><img src="../../images/flags/ru.png" alt="" />Русский</a></li>
 <li><a href="../../uk/applications/mail.html"><img src="../../images/flags/uk.png" alt="" />Українська</a></li>
@@ -57,6 +60,7 @@
 
 <div id="content">
 <div>
+<div class="box-info">Az oldal fordítása még folyamatban van. Amíg tart a fordítás, addig a lefordítatlan részek angolul jelennek meg.</div>
 
 <table class="index" id="index" summary="index">
 <tr class="heading"><td>Index</td></tr>
@@ -67,9 +71,9 @@
 
 <h2><img src="../../images/apps-images/mail-icon_64.png" alt="mail-icon_64.png" width="64" height="64" />Levelezés (Mail)</h2>
 <table summary="layout" border="0" cellspacing="0" cellpadding="2">
-<tr><td>Asztalsáv:</td><td style="width:15px;"></td><td><span class="menu">Programok</span></td></tr>
+<tr><td>Asztalsáv:</td><td style="width:15px;"></td><td><span class="menu">Alkalmazások</span></td></tr>
 <tr><td>Útvonal:</td><td></td><td><span class="path">/boot/system/apps/Mail</span></td></tr>
-<tr><td>Bellítások:</td><td></td><td><span class="path">~/config/settings/Mail/</span><br />
+<tr><td>Beállítások:</td><td></td><td><span class="path">~/config/settings/Mail/</span><br />
 <span class="path">~/config/settings/Mail/Menu Links/</span> - a leveles láda helyi menüjének tartalma<br />
 <span class="path">~/config/settings/Mail/signatures/</span> - aláírások tárolása<br />
 <span class="path">~/config/settings/Mail/status/</span> - egyéni állapotok tárolása</td></tr>
@@ -112,7 +116,8 @@
 <p>A <span class="menu">Cím mentése</span> összegyűjti a levélben található összes e-mail címet egy almenübe. Innen egy címet kiválasztva megnyílik a <a href="people.html">Névjegyek</a> program, amiben további információkat is megadhatunk.</p>
 <h3>
 <a href="#"><img src="../../images/up.png" style="border:none;float:right" alt="index" /></a>Lekérdezések</h3>
-<p>Jelenleg ez a funkció még nem működik, de a későbbiekben ezt arra tudjuk majd használni, hogy különféle lekérdezésekkel a jelenleg megnyitott levélhez hasonlóakat (például azonos feladó vagy tárgy) megkapjuk.</p>
+<p>This menu holds queries that show all mails related to the currently open mail. Selecting <span class="menu">Same recipient</span>, <span class="menu">Same sender</span> or <span class="menu">Same subject</span> opens a query that lists all corresponding mails:</p>
+<img src="../images/apps-images/mail-query.png" alt="mail-query.png" /> 
 
 <h2>
 <a href="#"><img src="../../images/up.png" style="border:none;float:right" alt="index" /></a>
@@ -130,7 +135,7 @@ A <span class="menu">Címzett</span>, a <span class="menu">Másolat</span>, és 
 <p>A <span class="menu">Mentés piszkozatként</span> menüvel a levelet elmentheted, majd később bármikor folytathatod annak szerkesztését. Betöltéshez csak ki kell választani a szükségeset a <span class="menu">Piszkozat megnyitása</span> almenüből, ahová a program összegyűjti a "Draft" (piszkozat) állapotú leveleket.</p>
 <h3>
 <a href="#"><img src="../../images/up.png" style="border:none;float:right" alt="index" /></a>Szerkesztés</h3>
-<p>Az <span class="menu">Idézet</span> és az <span class="menu">Idézet eltávolítása</span> menü vagy az azoknak megfelelő kombinációk (<span class="key">ALT</span> <span class="key">←</span> / <span class="key">→</span>) az idézet szintjének megadására szolgálnak a "&gt;" szimbólum használatával az idézett sorok előtt. Csak jelöljük ki a megfelelő sorokat, és használjuk a menüelemeket.</p>
+<p><span class="menu">Increase</span> and <span class="menu">Decrease quote level</span> or their respective shortcuts <span class="key">ALT</span> <span class="key"> </span> / <span class="key">-</span> are used to add/remove a level of quoting by adjusting the number of "&gt;" symbols in front of quoted lines. Just select some text in all the lines you want un/quoted and invoke the menu item.</p>
 
 <img src="../images/apps-images/mail-spellcheck.png" alt="email-spellcheck.png" /> 
 

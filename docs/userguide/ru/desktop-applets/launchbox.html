@@ -12,6 +12,7 @@
  * Translators:
  *		Sergei Reznikov
  *		Michael Smirnov
+ *		Vsevolod
  *
 -->
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -31,11 +32,13 @@
 <div class="inner">
 <ul class="lang-menu">
 <li class="now"><img src="../../images/flags/ru.png" alt="" /> Русский</li>
+<li><a href="../../id/desktop-applets/launchbox.html"><img src="../../images/flags/id.png" alt="" />Bahasa Indonesia</a></li>
 <li><a href="../../ca/desktop-applets/launchbox.html"><img src="../../images/flags/ca.png" alt="" />Català</a></li>
 <li><a href="../../de/desktop-applets/launchbox.html"><img src="../../images/flags/de.png" alt="" />Deutsch</a></li>
 <li><a href="../../en/desktop-applets/launchbox.html"><img src="../../images/flags/gb.png" alt="" />English</a></li>
 <li><a href="../../es/desktop-applets/launchbox.html"><img src="../../images/flags/es.png" alt="" />Español</a></li>
 <li><a href="../../fr/desktop-applets/launchbox.html"><img src="../../images/flags/fr.png" alt="" />Français</a></li>
+<li><a href="../../fur/desktop-applets/launchbox.html"><img src="../../images/flags/fur.png" alt="" />Furlan</a></li>
 <li><a href="../../it/desktop-applets/launchbox.html"><img src="../../images/flags/it.png" alt="" />Italiano</a></li>
 <li><a href="../../hu/desktop-applets/launchbox.html"><img src="../../images/flags/hu.png" alt="" />Magyar</a></li>
 <li><a href="../../pl/desktop-applets/launchbox.html"><img src="../../images/flags/pl.png" alt="" />Polski</a></li>
@@ -45,6 +48,7 @@
 <li><a href="../../sk/desktop-applets/launchbox.html"><img src="../../images/flags/sk.png" alt="" />Slovenčina</a></li>
 <li><a href="../../fi/desktop-applets/launchbox.html"><img src="../../images/flags/fi.png" alt="" />Suomi</a></li>
 <li><a href="../../sv_SE/desktop-applets/launchbox.html"><img src="../../images/flags/sv_SE.png" alt="" />Svenska</a></li>
+<li><a href="../../tr/desktop-applets/launchbox.html"><img src="../../images/flags/tr.png" alt="" />Türkçe</a></li>
 <li><a href="../../zh_CN/desktop-applets/launchbox.html"><img src="../../images/flags/zh_CN.png" alt="" /> 中文 ［中文］</a></li>
 <li><a href="../../uk/desktop-applets/launchbox.html"><img src="../../images/flags/uk.png" alt="" />Українська</a></li>
 <li><a href="../../jp/desktop-applets/launchbox.html"><img src="../../images/flags/jp.png" alt="" />日本語</a></li>
@@ -72,20 +76,22 @@
 <tr><td><span class="menu">Добавить кнопку</span></td><td style="width:10px;"> </td><td>Добавляет пустую кнопку.</td></tr>
 <tr><td><span class="menu">Очистить кнопку</span></td><td> </td><td>Делает кнопку пустой.</td></tr>
 <tr><td><span class="menu">Удалить кнопку</span></td><td> </td><td>Удаляет кнопку.</td></tr>
-<tr><td><span class="menu">Set description...</span></td><td> </td><td>Hovering the mouse over an icon shows a tooltip with the file's name and, in case of an application, its short description if it differs from its name (see topic <a href="../filetypes.html#settings-apps">FileTypes</a>). With this menu item you can customize the description for this tooltip.</td></tr>
-<tr><td class="onelinetop"><span class="menu">Настройки</span><br />
-<span class="menu">- Расположить горизонтально</span><br />
-<span class="menu">- Размер значков</span><br />
-<span class="menu">- Игнорировать двойной щелчок</span><br />
-<span class="menu">- Отображать рамку окна</span><br />
-<span class="menu">- Всплывать при наведении</span><br />
-<span class="menu">- Отображать на всех рабочих столах</span></td><td> </td><td class="onelinetop"><br />
-Меняет расположение кнопок на горизонтальное.<br />
-Устанавливает размер иконок от 16 до 64 пикселей.<br />
-Запускает объект только один раз даже когда клик произведён, возможно случайно, дважды.<br />
-Отображает рамку вокруг окна.<br />
-Панель запуска показывается поверх всех окон, если подвести мышь к краю экрана.<br />
-Отображает Панель запуска на всех рабочих столах.</td></tr>
+<tr><td><span class="menu">Изменить описание...</span></td><td> </td><td>При наведении мыши на иконку показывается подсказка с именем файла и, в случае приложения, с его кратким описанием, если оно отличается от имени  (см. тему <a href="../filetypes.html#settings-apps">Типы файлов</a>). Этот пункт меню позволяет изменять описание приложения.</td></tr>
+<tr><td class="onelinetop"><span class="menu">Settings</span><br />
+<span class="menu">- Horizontal layout</span><br />
+<span class="menu">- Icon size</span><br />
+<span class="menu">- Ignore double-click</span><br />
+<span class="menu">- Show window border</span><br />
+<span class="menu">- Autostart</span><br />
+<span class="menu">- Auto raise</span><br />
+<span class="menu">- Show on all workspaces</span></td><td> </td><td class="onelinetop"><br />
+Aligns the buttons horizontally.<br />
+Sets the icon size between 16 and 64 pixel.<br />
+Launches the object only once, even when you (accidentally) double-click.<br />
+Shows the window border.<br />
+Starts LaunchBox automatically on boot-up.<br />
+LaunchBox pops up if the mouse is near the screen edge.<br />
+Shows the LaunchBox on every workspace.</td></tr>
 <tr><td><span class="menu">Панель</span><br />
 <span class="menu">- Создать</span><br />
 <span class="menu">- Дублировать</span><br />
@@ -93,9 +99,9 @@
 Создает новую панель.<br />
 Дублирует текущую панель.<br />
 Закрывает текущую панель.</td></tr>
-<tr><td><span class="menu">LaunchBox</span><br />
-<span class="menu">- Quit</span></td><td> </td><td><br />
-Quits all LaunchBox pads.</td><td> </td></tr>
+<tr><td><span class="menu">Панель запуска</span><br />
+<span class="menu">- Выход</span></td><td> </td><td><br />
+Закрывает все панели LaunchBox.</td><td> </td></tr>
 </table>
 
 </div>

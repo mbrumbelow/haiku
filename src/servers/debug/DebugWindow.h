@@ -2,7 +2,6 @@
  * Copyright 2019, Adrien Destugues, pulkomandy@pulkomandy.tk.
  * Distributed under the terms of the MIT License.
  */
-
 #ifndef DEBUGWINDOW_H
 #define DEBUGWINDOW_H
 
@@ -28,15 +27,20 @@ enum {
 
 class DebugWindow : public BWindow {
 public:
-				DebugWindow(const char* appName);
-				~DebugWindow();
+					DebugWindow(const char* appName);
+					~DebugWindow();
 
-	void		MessageReceived(BMessage* message);
-	int32		Go();
+	void			MessageReceived(BMessage* message);
+	int32			Go();
+
 private:
-	BBitmap		fBitmap;
-	sem_id		fSemaphore;
-	int32		fAction;
+	static	BRect	IconSize();
+
+private:
+	BBitmap			fBitmap;
+	BButton*		fOKButton;
+	sem_id			fSemaphore;
+	int32			fAction;
 };
 
 

@@ -71,8 +71,8 @@ InstallerApp::MessageReceived(BMessage* message)
 {
 	switch (message->what) {
 		case kMsgAgree:
-			fEULAWindow->Lock();
-			fEULAWindow->Quit();
+			fEULAWindow->PostMessage(B_QUIT_REQUESTED);
+			break;
 		case kMsgNext:
 			new InstallerWindow();
 			break;

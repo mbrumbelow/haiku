@@ -224,11 +224,11 @@ BSecureSocket::Private::ErrorCode(int returnValue)
 
 			if (returnValue == -1)
 			{
-				fprintf(stderr, "SSL %s\n", ERR_error_string(error, NULL));
+				fprintf(stderr, "SSL rv -1 %s\n", ERR_error_string(error, NULL));
 				return errno;
 			}
 
-			fprintf(stderr, "SSL %s\n", ERR_error_string(error, NULL));
+			fprintf(stderr, "SSL rv other %s\n", ERR_error_string(error, NULL));
 			return B_ERROR;
 		}
 
@@ -239,7 +239,7 @@ BSecureSocket::Private::ErrorCode(int returnValue)
 		case SSL_ERROR_WANT_X509_LOOKUP:
 		default:
 			// TODO: translate SSL error codes!
-			fprintf(stderr, "SSL %s\n", ERR_error_string(error, NULL));
+			fprintf(stderr, "SSL other %s\n", ERR_error_string(error, NULL));
 			return B_ERROR;
 	}
 }
@@ -532,10 +532,7 @@ BSecureSocket::InitCheck()
 bool
 BSecureSocket::CertificateVerificationFailed(BCertificate&, const char*)
 {
-	// Until apps actually make use of the certificate API, let's keep the old
-	// behavior and accept all connections, even if the certificate validation
-	// didn't work.
-	return true;
+	return false;
 }
 
 
@@ -548,9 +545,20 @@ BSecureSocket::Read(void* buffer, size_t size)
 	if (!IsConnected())
 		return B_ERROR;
 
-	int bytesRead = SSL_read(fPrivate->fSSL, buffer, size);
-	if (bytesRead >= 0)
-		return bytesRead;
+	int bytesRead;
+	int retry;
+	do {
+		bytesRead = SSL_read(fPrivate->fSSL, buffer, size);
+		if (bytesRead >= 0)
+			return bytesRead;
+		// Don't retry in cases of "no data available" for non-blocking sockets
+		int error = SSL_get_error(fPrivate->fSSL, bytesRead);
+		if (error == SSL_ERROR_WANT_READ || error == SSL_ERROR_WANT_WRITE)
+			return B_WOULD_BLOCK;
+		// Otherwise, check if we should retry (maybe we were interrupted by
+		// a signal, for example)
+		retry = BIO_should_retry(SSL_get_rbio(fPrivate->fSSL));
+	} while(retry != 0);
 
 	return fPrivate->ErrorCode(bytesRead);
 }
@@ -589,12 +597,10 @@ BSecureSocket::_SetupCommon(const char* host)
 	BIO_set_fd(fPrivate->fBIO, fSocket, BIO_NOCLOSE);
 	SSL_set_bio(fPrivate->fSSL, fPrivate->fBIO, fPrivate->fBIO);
 	SSL_set_ex_data(fPrivate->fSSL, Private::sDataIndex, this);
-	if (host != NULL) {
-		BString hostString = host;
-		if (hostString != "")
-			SSL_set_tlsext_host_name(fPrivate->fSSL, host);
+	if (host != NULL && host[0] != '\0') {
+		SSL_set_tlsext_host_name(fPrivate->fSSL, host);
+		X509_VERIFY_PARAM_set1_host(SSL_get0_param(fPrivate->fSSL), host, 0);
 	}
-
 
 	return B_OK;
 }

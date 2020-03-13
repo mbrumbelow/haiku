@@ -793,10 +793,10 @@ EHCI::StartDebugTransfer(Transfer *transfer)
 
 	if ((pipe->Type() & USB_OBJECT_CONTROL_PIPE) != 0) {
 		result = FillQueueWithRequest(transfer, transferData.queue_head,
-			&transferData.data_descriptor, &transferData.incoming);
+			&transferData.data_descriptor, &transferData.incoming, false);
 	} else {
 		result = FillQueueWithData(transfer, transferData.queue_head,
-			&transferData.data_descriptor, &transferData.incoming);
+			&transferData.data_descriptor, &transferData.incoming, false);
 	}
 
 	if (result != B_OK) {
@@ -971,13 +971,17 @@ EHCI::SubmitTransfer(Transfer *transfer)
 	if ((pipe->Type() & USB_OBJECT_ISO_PIPE) != 0)
 		return SubmitIsochronous(transfer);
 
+	status_t result = transfer->InitKernelAccess();
+	if (result != B_OK)
+		return result;
+
 	ehci_qh *queueHead = CreateQueueHead();
 	if (!queueHead) {
 		TRACE_ERROR("failed to allocate queue head\n");
 		return B_NO_MEMORY;
 	}
 
-	status_t result = InitQueueHead(queueHead, pipe);
+	result = InitQueueHead(queueHead, pipe);
 	if (result != B_OK) {
 		TRACE_ERROR("failed to init queue head\n");
 		FreeQueueHead(queueHead);
@@ -988,10 +992,10 @@ EHCI::SubmitTransfer(Transfer *transfer)
 	ehci_qtd *dataDescriptor;
 	if ((pipe->Type() & USB_OBJECT_CONTROL_PIPE) != 0) {
 		result = FillQueueWithRequest(transfer, queueHead, &dataDescriptor,
-			&directionIn);
+			&directionIn, true);
 	} else {
 		result = FillQueueWithData(transfer, queueHead, &dataDescriptor,
-			&directionIn);
+			&directionIn, true);
 	}
 
 	if (result != B_OK) {
@@ -1046,6 +1050,10 @@ EHCI::SubmitIsochronous(Transfer *transfer)
 			"isochronous packetSize is bigger than pipe MaxPacketSize\n");
 		return B_BAD_VALUE;
 	}
+
+	status_t result = transfer->InitKernelAccess();
+	if (result != B_OK)
+		return result;
 
 	// Ignore the fact that the last descriptor might need less bandwidth.
 	// The overhead is not worthy.
@@ -1172,7 +1180,7 @@ EHCI::SubmitIsochronous(Transfer *transfer)
 	TRACE("isochronous filled itds count %d\n", itdIndex);
 
 	// Add transfer to the list
-	status_t result = AddPendingIsochronousTransfer(transfer, isoRequest,
+	result = AddPendingIsochronousTransfer(transfer, isoRequest,
 		itdIndex - 1, directionIn, bufferPhy, bufferLog,
 		transfer->DataLength());
 	if (result != B_OK) {
@@ -1527,12 +1535,6 @@ EHCI::AddPendingTransfer(Transfer *transfer, ehci_qh *queueHead,
 	if (!data)
 		return B_NO_MEMORY;
 
-	status_t result = transfer->InitKernelAccess();
-	if (result != B_OK) {
-		delete data;
-		return result;
-	}
-
 	data->transfer = transfer;
 	data->queue_head = queueHead;
 	data->data_descriptor = dataDescriptor;
@@ -1569,12 +1571,6 @@ EHCI::AddPendingIsochronousTransfer(Transfer *transfer, ehci_itd **isoRequest,
 		= new(std::nothrow) isochronous_transfer_data;
 	if (!data)
 		return B_NO_MEMORY;
-
-	status_t result = transfer->InitKernelAccess();
-	if (result != B_OK) {
-		delete data;
-		return result;
-	}
 
 	data->transfer = transfer;
 	data->descriptors = isoRequest;
@@ -1895,11 +1891,10 @@ EHCI::FinishTransfers()
 						transfer->transfer->AdvanceByFragment(actualLength);
 						if (transfer->transfer->VectorLength() > 0) {
 							FreeDescriptorChain(transfer->data_descriptor);
-							transfer->transfer->PrepareKernelAccess();
 							status_t result = FillQueueWithData(
 								transfer->transfer,
 								transfer->queue_head,
-								&transfer->data_descriptor, NULL);
+								&transfer->data_descriptor, NULL, true);
 
 							if (result == B_OK && Lock()) {
 								// reappend the transfer
@@ -2221,11 +2216,16 @@ EHCI::LinkInterruptQueueHead(ehci_qh *queueHead, Pipe *pipe)
 		queueHead->endpoint_caps |= (0xff << EHCI_QH_CAPS_ISM_SHIFT);
 	} else {
 		// As we do not yet support FSTNs to correctly reference low/full
-		// speed interrupt transfers, we simply put them into the 1 interval
+		// speed interrupt transfers, we simply put them into the 1 or 8 interval
 		// queue. This way we ensure that we reach them on every micro frame
 		// and can do the corresponding start/complete split transactions.
 		// ToDo: use FSTNs to correctly link non high speed interrupt transfers
-		interval = 1;
+		if (pipe->Speed() == USB_SPEED_LOWSPEED) {
+			// Low speed devices can't be polled faster than 8ms, so just use
+			// that.
+			interval = 4;
+		} else
+			interval = 1;
 
 		// For now we also force start splits to be in micro frame 0 and
 		// complete splits to be in micro frame 2, 3 and 4.
@@ -2289,7 +2289,7 @@ EHCI::UnlinkQueueHead(ehci_qh *queueHead, ehci_qh **freeListHead)
 
 status_t
 EHCI::FillQueueWithRequest(Transfer *transfer, ehci_qh *queueHead,
-	ehci_qtd **_dataDescriptor, bool *_directionIn)
+	ehci_qtd **_dataDescriptor, bool *_directionIn, bool prepareKernelAccess)
 {
 	Pipe *pipe = transfer->TransferPipe();
 	usb_request_data *requestData = transfer->RequestData();
@@ -2329,6 +2329,8 @@ EHCI::FillQueueWithRequest(Transfer *transfer, ehci_qh *queueHead,
 		}
 
 		if (!directionIn) {
+			if (prepareKernelAccess)
+				transfer->PrepareKernelAccess();
 			WriteDescriptorChain(dataDescriptor, transfer->Vector(),
 				transfer->VectorCount());
 		}
@@ -2352,7 +2354,7 @@ EHCI::FillQueueWithRequest(Transfer *transfer, ehci_qh *queueHead,
 
 status_t
 EHCI::FillQueueWithData(Transfer *transfer, ehci_qh *queueHead,
-	ehci_qtd **_dataDescriptor, bool *_directionIn)
+	ehci_qtd **_dataDescriptor, bool *_directionIn, bool prepareKernelAccess)
 {
 	Pipe *pipe = transfer->TransferPipe();
 	bool directionIn = (pipe->Direction() == Pipe::In);
@@ -2369,6 +2371,8 @@ EHCI::FillQueueWithData(Transfer *transfer, ehci_qh *queueHead,
 
 	lastDescriptor->token |= EHCI_QTD_IOC;
 	if (!directionIn) {
+		if (prepareKernelAccess)
+			transfer->PrepareKernelAccess();
 		WriteDescriptorChain(firstDescriptor, transfer->Vector(),
 			transfer->VectorCount());
 	}

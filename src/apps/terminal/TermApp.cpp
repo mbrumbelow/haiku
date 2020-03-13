@@ -8,6 +8,7 @@
  * Authors:
  *		Jeremiah Bailey, <jjbailey@gmail.com>
  *		Kian Duffy, <myob@users.sourceforge.net>
+ *		Simon South, simon@simonsouth.net
  *		Siarzhuk Zharski, <zharik@gmx.li>
  */
 
@@ -124,14 +125,13 @@ TermApp::ReadyToRun()
 	status_t status = _MakeTermWindow();
 
 	// failed spawn, print stdout and open alert panel
-	// TODO: This alert does never show up.
 	if (status < B_OK) {
 		BAlert* alert = new BAlert("alert",
 			B_TRANSLATE("Terminal couldn't start the shell. Sorry."),
 			B_TRANSLATE("OK"), NULL, NULL, B_WIDTH_FROM_LABEL,
 			B_INFO_ALERT);
 		alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
-		alert->Go(NULL);
+		alert->Go();
 		PostMessage(B_QUIT_REQUESTED);
 		return;
 	}
@@ -179,6 +179,10 @@ void
 TermApp::MessageReceived(BMessage* message)
 {
 	switch (message->what) {
+		case B_KEY_MAP_LOADED:
+			fTermWindow->PostMessage(message);
+			break;
+
 		case MSG_ACTIVATE_TERM:
 			fTermWindow->Activate();
 			break;

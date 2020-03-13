@@ -120,7 +120,7 @@
 #define XHCI_ERDP_LO(n)		(0x0038 + (0x20 * (n)))
 #define XHCI_ERDP_HI(n)		(0x003C + (0x20 * (n)))
 // Event Handler Busy (EHB)
-#define ERST_EHB			(1 << 3)
+#define ERDP_BUSY			(1 << 3)
 
 
 // Host Controller Doorbell Registers
@@ -317,19 +317,6 @@ struct xhci_trb {
 	uint32 status;
 	uint32 flags;
 } __attribute__((__aligned__(4)));
-
-
-struct xhci_segment {
-	xhci_trb *		trbs;
-	xhci_segment *	next;
-};
-
-
-struct xhci_ring {
-	xhci_segment *	first_seg;
-	xhci_trb *		enqueue;
-	xhci_trb *		dequeue;
-};
 
 
 // Section 6.5

@@ -1,0 +1,147 @@
+1	dutch; flemish	x-vnd.Haiku-HaikuDepot	2051848200
+Repository update error	LocalRepositoryUpdateProcess		Fout bij updaten softwarebronnen
+An error occurred while refreshing the repository: %error%	LocalRepositoryUpdateProcess		Er is een fout opgetreden bij het verversen van de softwarebronnen: %error%
+Check for updates…	MainWindow		Controleer op updates…
+Uninstall	PackageManager		Verwijderen
+(%Votes%)	FeaturedPackagesView		(%Votes%)
+Uninstalled	PackageListView		Verwijderd
+Available packages	MainWindow		Beschikbare pakketten
+Create account	UserLoginWindow		Registreren
+OK	App		OK
+Mostly stable	RatePackageWindow		Meestal stabiel
+The response to the captcha was incorrect.	ServerHelper		De ingevoerde captcha is foutief.
+Develop packages	MainWindow		Ontwikkelaarspakketten
+Rate package…	PackageInfoView		Pakket beoordelen…
+Starting the package daemon failed:\n\n%Error%	App		Starten van de pakket-daemon mislukt:\n\n%Error%
+<no info>	PackageInfoView		<geen info>
+No user ratings available.	PackageInfoView		Geen beoordelingen beschikbaar.
+Downloading package '%name%'	WorkStatusView		Downloading pakket '%name%'
+Rating	PackageListView		Beoordeling
+Synchronizing icons	ServerIconExportUpdateProcess		Iconen synchroniseren
+Does not start	RatePackageWindow		Start niet
+Show	MainWindow		Toon
+An error occurred while obtaining the package list: %message%	LocalPkgDataLoadProcess		Een fout is opgetreden bij het ophalen van de pakket lijst: %message%
+Not specified	RatePackageWindow		Niet gespecificeerd
+Unstable but usable	RatePackageWindow		Instabiel maar bruikbaar
+Active	PackageListView		Actief
+Login or Create account	MainWindow		Inloggen of registreren
+<Package contents not available for remote packages>	PackageContentsView		<Pakketinhoud niet beschikbaar voor pakketten op afstand>
+{0, plural,one{1 package to download}other{# packages to download}}	WorkStatusView		{0, plural,one{1 pakket om te downloaden}other{# pakketten om te downloaden}}
+Ratings	PackageInfoView		Beoordelingen
+Switch account…	MainWindow		Wissel van account…
+Preferred language:	UserLoginWindow		Voorkeurstaal:
+Server Error	ServerHelper		Server Fout
+Name	PackageListView		Naam
+Local	LocalPkgDataLoadProcess		Lokaal
+Rate %Package%	RatePackageWindow		Beoordeel %Package%
+An error occurred while initializing the package manager: %message%	LocalPkgDataLoadProcess		Een fout is opgetreden bij het initialiseren van de pakketbeheerder: %message%
+Quit HaikuDepot	App		HaikuDepot afsluiten
+Category	FilterView		Categorie
+User rating	RatePackageWindow		Beoordeling
+Installed packages	MainWindow		Geïnstalleerde pakketten
+A requested object or an object involved in the request was not found on the server.	ServerHelper		Een gevraagd object of een object verbonden in het verzoek werd niet gevonden op de server.
+Other users can see this rating	RatePackageWindow		Andere gebruikers mogen deze beoordeling zien
+Stable	RatePackageWindow		Stabiel
+This application is too old to communicate with the  HaikuDepot server system.  Obtain a newer version of HaikuDepot  by updating your Haiku system.  The minimum version of  HaikuDepot required is \"%s\".	ServerHelper		De toepassing is te oud om te communiceren met het HaikuDepot server systeel? Vervang deze door een nieuwere versie door het updated van u Haiku systeem. De minimum versie van HaikuDepot vereist is \"%s\".
+Fatal error	PackageManager		Fatale fout
+Package action failed	PackageInfoView		Pakketactie mislukt
+No changelog available.	PackageInfoView		Geen changelog beschikbaar.
+Error	App		Fout
+There was a puzzling response from the web service.	UserLoginWindow		De webservice gaf een raadselachtig antwoord.
+Not logged in	MainWindow		Niet ingelogd
+No, quit HaikuDepot	App		Nee, HaikuDepot afsluiten
+Featured packages	FeaturedPackagesView		Aanbevolen pakketten
+Your rating was uploaded successfully. You can update or remove it at the HaikuDepot Server website.	RatePackageWindow		Uw beoordeling is succesvol geüpload. U kunt deze bijwerken of verwijderen via de HaikuDepot-website.
+Network Error	ServerHelper		Netwerk Fout
+Available	PackageListView		Beschikbaar
+Cancel	UserLoginWindow		Annuleren
+HaikuDepot needs the package daemon to function, and it appears to be not running.\nWould you like to start it now?	App		HaikuDepot vereist dat de pakket-daemon functioneert, welke niet actief lijkt.\nWilt u de pakket-daemon nu starten?
+Click a package to view information	PackageInfoView		Klik op een pakket om informatie te bekijken
+Contents	PackageInfoView		Pakketinhoud
+Close	PackageManager		Sluiten
+A network transport error has arisen communicating with the HaikuDepot server system: %s	ServerHelper		Een netwerk transport fout is opgetreden tijdens de communicatie met het HaikuDepot server systeem: %s
+Changelog	PackageInfoView		Changelog
+Rating not possible	MainWindow		Beoordeling niet mogelijk
+Package update error	MainWindow		Pakket verversing fout
+About	PackageInfoView		Over
+%FIRST_PROCESS_DESCRIPTION% +{0, plural, one{# process} other{# processes}}	ProcessCoordinator		%FIRST_PROCESS_DESCRIPTION% +{0, plural, one{# proces} other{# processen}}
+Reboot required	PackageManager		Herstart vereist
+Very unstable	RatePackageWindow		Erg instabiel
+All packages	PackageListView		Alle pakketten
+Network Transport Error	ServerHelper		Netwerk Transport Fout
+Stability	RatePackageWindow		Stabiliteit
+Send	RatePackageWindow		Versturen
+Start package daemon	App		Start pakket-daemon
+The package action could not be scheduled: %Error%	PackageInfoView		De pakketactie kon niet ingepland worden: %Error%
+Cancel	RatePackageWindow		Annuleren
+Inactive	PackageListView		Inactief
+Synchronizing meta-data about repositories	ServerRepositoryDataUpdateProcess		Synchroniseren meta-data over pakketbronnen
+OK	MainWindow		OK
+{0, plural, one{# item} other{# items}}	PackageListView		{0, plural, one{# item} other{# items}}
+Usage conditions download problem	UserLoginWindow		Gebruiksvoorwaarden downloadprobleem
+OK	PackageInfoView		OK
+Downloading:	PackageInfoView		Downloaden:
+Success	UserLoginWindow		Succes
+Package daemon problem	App		Pakket-daemonprobleem
+(%Votes%)	PackageInfoView		(%Votes%)
+Repository	PackageListView		Pakketbron
+%hd.timestamp% (version %hd.version%)	PackageInfoView		%hd.timestamp% (versie %hd.version%)
+Close	UserLoginWindow		Sluiten
+Close	RatePackageWindow		Sluiten
+Synchronizing package data for repository '%REPO_NAME%'	ServerPkgDataUpdateProcess		Synchroniseer pakketdata voor pakketbron '%REPO_NAME%'
+View the usage conditions	UserLoginWindow		Bekijk de gebruiksvoorwaarden
+Size	PackageListView		Grootte
+Your rating:	RatePackageWindow		Uw beoordeling:
+I am %MinimumAgeYears% years of age or older	UserLoginWindow		Ik ben %MinimumAgeYears% jaar of ouder
+Your rating was updated.	RatePackageWindow		Uw beoordeling is bijgewerkt.
+All categories	FilterView		Alle categorieën
+Repositories	MainWindow		Pakketbronnen
+n/a	PackageInfoView		n.v.t.
+Cancel	MainWindow		Annuleren
+View agreed usage conditions…	MainWindow		Afgesproken gebruiksvoorwaarden bekijken ...
+{0, plural,one{(1 more to download)}other{(# more to download)}}	WorkStatusView		{0, plural,one{(nog 1 om te downloaden)}other{(# meer om te downloaden)}}
+Refresh repositories	MainWindow		Pakketbronnen verversen
+Tools	MainWindow		Gereedschap
+This package doesn't seem to be on the HaikuDepot Server, so it's not possible to create a new rating or edit an existing rating.	MainWindow		Dit pakket lijkt niet op de HaikuDepot-server aanwezig te zijn, waardoor het niet mogelijk is om een nieuwe beoordeling te maken of een bestaande beoordeling te bewerken.
+Language	RatePackageWindow		Taal
+Log out	MainWindow		Uitloggen
+Comment language:	RatePackageWindow		Commentaartaal:
+Status	PackageListView		Status
+Update	RatePackageWindow		Bijwerken
+OK	ServerHelper		OK
+Language	UserLoginWindow		Taal
+OK	UserLoginWindow		OK
+Reading repository data	LocalPkgDataLoadProcess		Lees pakketbron data
+Synchronizing reference data from server	ServerReferenceDataUpdateProcess		Synchroniseren referentie data van server
+Stability:	RatePackageWindow		Stabiliteit:
+A validation error has occurred	ServerHelper		Een validatie fout is opgetreden
+Source packages	MainWindow		Broncodepakketten
+-	no package size		-
+Try again	App		Opnieuw proberen
+Rate package	RatePackageWindow		Beoordeel pakket
+Unknown	PackageListView		Onbekend
+I agree to the usage conditions	UserLoginWindow		Ik aanvaard de gebruiksvoorwaarden
+Log in	UserLoginWindow		Inloggen
+Logged in as %User%	MainWindow		Ingelogd als %User%
+Email address:	UserLoginWindow		E-mailadres:
+Screenshot	ScreenshotWindow		Schermafbeelding
+HaikuDepot	System name		HaikuDepot
+A reboot is necessary to complete the installation process.	PackageManager		Een herstart is vereist om het installatie proces te voltooien.
+View latest usage conditions…	MainWindow		Bekijk laatste gebruiksvoorwaarden...
+Search terms:	FilterView		Zoektermen:
+Pending…	PackageListView		In behandeling…
+Category:	FilterView		Categorie:
+Authentication failed	UserLoginWindow		Authenticatie mislukt
+Manage repositories…	MainWindow		Beheer pakketbronnen...
+Fetching remote repository data	LocalRepositoryUpdateProcess		Ophalen pakketbron data op afstand
+Description	PackageListView		Beschrijving
+Open %DeskbarLink%	PackageManager		Open %DeskbarLink%
+Install	PackageManager		Installeren
+Input validation	UserLoginWindow		Invoervalidatie
+An unexpected error has been sent from the HaikuDepot server [%i]	ServerHelper		Een onverwachte fout is verstuurd van de HaikuDepot server [%i]
+Log in…	MainWindow		Inloggen…
+You need to be logged into an account before you can rate packages.	MainWindow		U moet ingelogd zijn om pakketten te kunnen beoordelen.
+Client version too old	ServerHelper		Client versie te oud
+Local repository load error	LocalPkgDataLoadProcess		Fout bij laden lokaal pakketbron
+9999.99 KiB	PackageListView		9999.99 KiB
+All repositories	MainWindow		Alle pakketbronnen

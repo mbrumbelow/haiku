@@ -465,7 +465,7 @@ RatePackageWindow::_SetWorkerThread(thread_id thread)
 }
 
 
-int32
+/*static*/ int32
 RatePackageWindow::_QueryRatingThreadEntry(void* data)
 {
 	RatePackageWindow* window = reinterpret_cast<RatePackageWindow*>(data);
@@ -548,7 +548,7 @@ RatePackageWindow::_QueryRatingThread()
 	Unlock();
 
 	BAutolock locker(fModel.Lock());
-	BString username = fModel.Username();
+	BString nickname = fModel.Nickname();
 	locker.Unlock();
 
 	if (package.Get() == NULL) {
@@ -570,9 +570,10 @@ RatePackageWindow::_QueryRatingThread()
 			package->DepotName().String());
 		BMessenger(this).SendMessage(B_QUIT_REQUESTED);
 	} else {
-		status_t status = interface.RetrieveUserRating(
-			package->Name(), package->Version(), package->Architecture(),
-			repositoryCode, username, info);
+		status_t status = interface
+			.RetreiveUserRatingForPackageAndVersionByUser(package->Name(),
+			package->Version(), package->Architecture(), repositoryCode,
+			nickname, info);
 
 		if (status == B_OK) {
 				// could be an error or could be a valid response envelope

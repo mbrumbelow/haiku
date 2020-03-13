@@ -306,7 +306,7 @@ relocate_dependencies(image_t *image)
 static void
 init_dependencies(image_t *image, bool initHead)
 {
-	image_t **initList;
+	image_t **initList = NULL;
 	ssize_t count, i;
 
 	if (initHead && image->preinit_array) {
@@ -316,8 +316,10 @@ init_dependencies(image_t *image, bool initHead)
 	}
 
 	count = get_sorted_image_list(image, &initList, RFLAG_INITIALIZED);
-	if (count <= 0)
+	if (count <= 0) {
+		free(initList);
 		return;
+	}
 
 	if (!initHead) {
 		// this removes the "calling" image
@@ -359,6 +361,34 @@ init_dependencies(image_t *image, bool initHead)
 	TRACE(("%ld: init done.\n", find_thread(NULL)));
 
 	free(initList);
+}
+
+
+static void
+call_term_functions(image_t* image)
+{
+	init_term_function before;
+	if (find_symbol(image,
+			SymbolLookupInfo(B_TERM_BEFORE_FUNCTION_NAME, B_SYMBOL_TYPE_TEXT),
+			(void**)&before) == B_OK) {
+		before(image->id);
+	}
+
+	if (image->term_array) {
+		uint count_term = image->term_array_len / sizeof(addr_t);
+		for (uint i = count_term; i-- > 0;)
+			((initfini_array_function)image->term_array[i])();
+	}
+
+	if (image->term_routine)
+		((init_term_function)image->term_routine)(image->id);
+
+	init_term_function after;
+	if (find_symbol(image,
+			SymbolLookupInfo(B_TERM_AFTER_FUNCTION_NAME, B_SYMBOL_TYPE_TEXT),
+			(void**)&after) == B_OK) {
+		after(image->id);
+	}
 }
 
 
@@ -718,28 +748,7 @@ unload_library(void* handle, image_id imageID, bool addOn)
 
 			image_event(image, IMAGE_EVENT_UNINITIALIZING);
 
-			init_term_function before;
-			if (find_symbol(image,
-					SymbolLookupInfo(B_TERM_BEFORE_FUNCTION_NAME, B_SYMBOL_TYPE_TEXT),
-					(void**)&before) == B_OK) {
-				before(image->id);
-			}
-
-			if (image->term_array) {
-				uint count_term = image->term_array_len / sizeof(addr_t);
-				for (uint i = count_term; i-- > 0;)
-					((initfini_array_function)image->term_array[i])();
-			}
-
-			if (image->term_routine)
-				((init_term_function)image->term_routine)(image->id);
-
-			init_term_function after;
-			if (find_symbol(image,
-					SymbolLookupInfo(B_TERM_AFTER_FUNCTION_NAME, B_SYMBOL_TYPE_TEXT),
-					(void**)&after) == B_OK) {
-				after(image->id);
-			}
+			call_term_functions(image);
 
 			TLSBlockTemplates::Get().Unregister(image->dso_tls_id);
 
@@ -1148,14 +1157,7 @@ terminate_program(void)
 
 		image_event(image, IMAGE_EVENT_UNINITIALIZING);
 
-		if (image->term_array) {
-			uint count_term = image->term_array_len / sizeof(addr_t);
-			for (uint j = count_term; j-- > 0;)
-				((init_term_function)image->term_array[j])(image->id);
-		}
-
-		if (image->term_routine)
-			((init_term_function)image->term_routine)(image->id);
+		call_term_functions(image);
 
 		image_event(image, IMAGE_EVENT_UNLOADING);
 	}
@@ -1177,7 +1179,7 @@ rldelf_init(void)
 		runtime_loader_debug_area *area;
 		area_id areaID = _kern_create_area(RUNTIME_LOADER_DEBUG_AREA_NAME,
 			(void **)&area, B_RANDOMIZED_ANY_ADDRESS, size, B_NO_LOCK,
-			B_READ_AREA | B_WRITE_AREA);
+			B_READ_AREA | B_WRITE_AREA | B_CLONEABLE_AREA);
 		if (areaID < B_OK) {
 			FATAL("Failed to create debug area.\n");
 			_kern_loading_app_failed(areaID);

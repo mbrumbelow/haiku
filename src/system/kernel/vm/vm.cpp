@@ -2108,14 +2108,12 @@ vm_clone_area(team_id team, const char* name, void** address,
 
 	VMCache* cache = vm_area_get_locked_cache(sourceArea);
 
-	if (!kernel && sourceAddressSpace == VMAddressSpace::Kernel()
-		&& targetAddressSpace != VMAddressSpace::Kernel()
-		&& !(sourceArea->protection & B_USER_CLONEABLE_AREA)) {
-		// kernel areas must not be cloned in userland, unless explicitly
-		// declared user-cloneable upon construction
+	if (!kernel && sourceAddressSpace != targetAddressSpace
+		&& (sourceArea->protection & B_CLONEABLE_AREA) == 0) {
 #if KDEBUG
-		panic("attempting to clone kernel area \"%s\" (%" B_PRId32 ")!",
-			sourceArea->name, sourceID);
+		Team* team = thread_get_current_thread()->team;
+		dprintf("team \"%s\" (%" B_PRId32 ") attempted to clone area \"%s\" (%"
+			B_PRId32 ")!\n", team->Name(), team->id, sourceArea->name, sourceID);
 #endif
 		status = B_NOT_ALLOWED;
 	} else if (sourceArea->cache_type == CACHE_TYPE_NULL) {
@@ -5992,6 +5990,11 @@ transfer_area(area_id id, void** _address, uint32 addressSpec, team_id target,
 	if (info.team != thread_get_current_thread()->team->id)
 		return B_PERMISSION_DENIED;
 
+	// We need to mark the area cloneable so the following operations work.
+	status = set_area_protection(id, info.protection | B_CLONEABLE_AREA);
+	if (status != B_OK)
+		return status;
+
 	area_id clonedArea = vm_clone_area(target, info.name, _address,
 		addressSpec, info.protection, REGION_NO_PRIVATE_MAP, id, kernel);
 	if (clonedArea < 0)
@@ -6002,6 +6005,9 @@ transfer_area(area_id id, void** _address, uint32 addressSpec, team_id target,
 		vm_delete_area(target, clonedArea, kernel);
 		return status;
 	}
+
+	// Now we can reset the protection to whatever it was before.
+	set_area_protection(clonedArea, info.protection);
 
 	// TODO: The clonedArea is B_SHARED_AREA, which is not really desired.
 

@@ -92,7 +92,6 @@ static const rgb_color kLinkBlue = { 80, 80, 200, 255 };
 static const rgb_color kBeOSBlue = { 0, 0, 200, 255 };
 static const rgb_color kBeOSRed = { 200, 0, 0, 255 };
 
-static const char* kBerkeley = B_TRANSLATE_MARK("Berkeley");
 static const char* kBSDTwoClause = B_TRANSLATE_MARK("BSD (2-clause)");
 static const char* kBSDThreeClause = B_TRANSLATE_MARK("BSD (3-clause)");
 static const char* kBSDFourClause = B_TRANSLATE_MARK("BSD (4-clause)");
@@ -1051,9 +1050,6 @@ AboutView::_CreateCreditsView()
 	fCreditsView->SetFontAndColor(&font, B_FONT_ALL, &kHaikuGreen);
 	fCreditsView->Insert(B_TRANSLATE("\nCopyrights\n\n"));
 
-	fCreditsView->SetFontAndColor(be_plain_font, B_FONT_ALL, &kDarkGrey);
-	fCreditsView->Insert(B_TRANSLATE("[Click a license name to read the "
-		"respective license.]\n\n"));
 
 	// Haiku license
 	BString haikuLicense = B_TRANSLATE_COMMENT("The code that is unique to "
@@ -1070,26 +1066,31 @@ AboutView::_CreateCreditsView()
 	int32 licensePart4 = haikuLicense.FindLast(">");
 	BString part;
 	haikuLicense.CopyInto(part, 0, licensePart1);
+	fCreditsView->SetFontAndColor(be_plain_font, B_FONT_ALL, &kDarkGrey);
 	fCreditsView->Insert(part);
 
 	part.Truncate(0);
 	haikuLicense.CopyInto(part, licensePart1 + 1, licensePart2 - 1
 		- licensePart1);
+	fCreditsView->SetFontAndColor(be_plain_font, B_FONT_ALL, &kLinkBlue);
 	fCreditsView->InsertHyperText(part, new OpenFileAction(mitPath.Path()));
 
 	part.Truncate(0);
 	haikuLicense.CopyInto(part, licensePart2 + 1, licensePart3 - 1
 		- licensePart2);
+	fCreditsView->SetFontAndColor(be_plain_font, B_FONT_ALL, &kDarkGrey);
 	fCreditsView->Insert(part);
 
 	part.Truncate(0);
 	haikuLicense.CopyInto(part, licensePart3 + 1, licensePart4 - 1
 		- licensePart3);
+	fCreditsView->SetFontAndColor(be_plain_font, B_FONT_ALL, &kLinkBlue);
 	fCreditsView->InsertHyperText(part, new OpenFileAction(lgplPath.Path()));
 
 	part.Truncate(0);
 	haikuLicense.CopyInto(part, licensePart4 + 1, haikuLicense.Length() - 1
 		- licensePart4);
+	fCreditsView->SetFontAndColor(be_plain_font, B_FONT_ALL, &kDarkGrey);
 	fCreditsView->Insert(part);
 
 	// GNU copyrights
@@ -1118,20 +1119,9 @@ AboutView::_CreateCreditsView()
 		StringVector(),
 		"https://www.freebsd.org");
 
-	// NetBSD copyrights
-	AddCopyrightEntry("The NetBSD Project",
-		B_TRANSLATE("Contains software developed by the NetBSD "
-		"Foundation, Inc. and its contributors:\n"
-		"ftp, tput\n"
-		COPYRIGHT_STRING "1996-2008 The NetBSD Foundation, Inc. "
-		"All rights reserved."),
-		StringVector(kBerkeley, kBSDFourClause, NULL),
-		StringVector(),
-		"https://www.netbsd.org");
-
 	// FFmpeg copyrights
 	_AddPackageCredit(PackageCredit("FFmpeg")
-		.SetCopyright(B_TRANSLATE(COPYRIGHT_STRING "2000-2014 Fabrice "
+		.SetCopyright(B_TRANSLATE(COPYRIGHT_STRING "2000-2019 Fabrice "
 			"Bellard, et al."))
 		.SetLicenses(kLGPLv21, kLGPLv2, NULL)
 		.SetURL("https://www.ffmpeg.org"));

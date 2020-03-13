@@ -263,6 +263,7 @@ BTextView::BTextView(BRect frame, const char* name, BRect textRect,
 		flags | B_FRAME_EVENTS | B_PULSE_NEEDED | B_INPUT_METHOD_AWARE)
 {
 	_InitObject(textRect, NULL, NULL);
+	SetViewUIColor(B_DOCUMENT_BACKGROUND_COLOR);
 }
 
 
@@ -274,6 +275,7 @@ BTextView::BTextView(BRect frame, const char* name, BRect textRect,
 		flags | B_FRAME_EVENTS | B_PULSE_NEEDED | B_INPUT_METHOD_AWARE)
 {
 	_InitObject(textRect, initialFont, initialColor);
+	SetViewUIColor(B_DOCUMENT_BACKGROUND_COLOR);
 }
 
 
@@ -283,6 +285,7 @@ BTextView::BTextView(const char* name, uint32 flags)
 		flags | B_FRAME_EVENTS | B_PULSE_NEEDED | B_INPUT_METHOD_AWARE)
 {
 	_InitObject(Bounds(), NULL, NULL);
+	SetViewUIColor(B_DOCUMENT_BACKGROUND_COLOR);
 }
 
 
@@ -293,6 +296,7 @@ BTextView::BTextView(const char* name, const BFont* initialFont,
 		flags | B_FRAME_EVENTS | B_PULSE_NEEDED | B_INPUT_METHOD_AWARE)
 {
 	_InitObject(Bounds(), initialFont, initialColor);
+	SetViewUIColor(B_DOCUMENT_BACKGROUND_COLOR);
 }
 
 
@@ -307,6 +311,11 @@ BTextView::BTextView(BMessage* archive)
 		rect.Set(0, 0, 0, 0);
 
 	_InitObject(rect, NULL, NULL);
+
+	bool toggle;
+
+	if (archive->FindBool("_password", &toggle) == B_OK)
+		HideTyping(toggle);
 
 	const char* text = NULL;
 	if (archive->FindString("_text", &text) == B_OK)
@@ -330,8 +339,6 @@ BTextView::BTextView(BMessage* archive)
 	if (archive->FindInt32("_sel", &flag) == B_OK &&
 		archive->FindInt32("_sel", &flag2) == B_OK)
 		Select(flag, flag2);
-
-	bool toggle;
 
 	if (archive->FindBool("_stylable", &toggle) == B_OK)
 		SetStylable(toggle);
@@ -434,6 +441,8 @@ BTextView::Archive(BMessage* data, bool deep) const
 		err = data->AddBool("_nsel", !fSelectable);
 	if (err == B_OK)
 		err = data->AddBool("_nedit", !fEditable);
+	if (err == B_OK)
+		err = data->AddBool("_password", IsTypingHidden());
 
 	if (err == B_OK && fDisallowedChars != NULL && fDisallowedChars->CountItems() > 0) {
 		err = data->AddData("_dis_ch", B_RAW_TYPE, fDisallowedChars->Items(),
@@ -778,8 +787,10 @@ BTextView::MakeFocus(bool focus)
 		if (!fActive)
 			_Activate();
 	} else {
-		if (fActive)
+		if (fActive) {
+			Select(fCaretOffset, fCaretOffset);
 			_Deactivate();
+		}
 	}
 }
 
@@ -875,8 +886,10 @@ BTextView::MessageReceived(BMessage* message)
 			const char* property;
 
 			if (message->GetCurrentSpecifier(NULL, &specifier) < B_OK
-				|| specifier.FindString("property", &property) < B_OK)
+				|| specifier.FindString("property", &property) < B_OK) {
+				BView::MessageReceived(message);
 				return;
+			}
 
 			if (propInfo.FindMatch(message, 0, &specifier, specifier.what,
 					property) < B_OK) {
@@ -3124,7 +3137,6 @@ BTextView::_InitObject(BRect textRect, const BFont* initialFont,
 	fLastClickOffset = -1;
 
 	SetDoesUndo(true);
-	SetViewUIColor(B_DOCUMENT_BACKGROUND_COLOR);
 }
 
 

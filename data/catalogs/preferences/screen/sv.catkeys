@@ -1,4 +1,4 @@
-1	swedish	x-vnd.Haiku-Screen	4090394050
+1	swedish	x-vnd.Haiku-Screen	133788249
 no	Screen		nej
 bits/pixel	Screen		bitar/pixel
 15 bits/pixel, 32768 colors	Screen		15 bitar/pixel, 32768 färger
@@ -17,6 +17,7 @@ vertically	Screen		vertikalt
 All workspaces	Screen		Alla arbetsytor
 Use laptop panel:	Screen		Använd bärbar panel:
 Could not write VESA mode settings file:\n\t	Screen		Kunde inte skriva VESA-lägesinställningar till fil:\n\t
+Display info	Screen		Skärminfo
 Settings will revert in %seconds.	Screen		Inställningarna kommer att återställas inom %seconds.
 Cancel	Screen		Avbryt
 Other…	Screen		Andra...
@@ -33,6 +34,7 @@ Warning	Screen		Varning
 24 bits/pixel, 16 Million colors	Screen		24 bitar/pixel, 16 miljoner färger
 Hz	Screen		Hz
 Workspaces	Screen		Arbetsytor
+Brightness:	Screen		Ljusstyrka:
 32 bits/pixel, 16 Million colors	Screen		32 bitar/pixel, 16 miljoner färger
 Done	Screen		Klar
 16 bits/pixel, 65536 colors	Screen		16 bitar/pixel, 65536 färger

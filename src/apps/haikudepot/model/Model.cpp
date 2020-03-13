@@ -24,6 +24,7 @@
 #include <Message.h>
 #include <Path.h>
 
+#include "HaikuDepotConstants.h"
 #include "Logger.h"
 #include "LocaleUtils.h"
 #include "StorageUtils.h"
@@ -624,15 +625,20 @@ Model::PopulatePackage(const PackageInfoRef& package, uint32 flags)
 		BMessage info;
 
 		BString packageName;
-		BString architecture;
+		BString webAppRepositoryCode;
 		{
 			BAutolock locker(&fLock);
 			packageName = package->Name();
-			architecture = package->Architecture();
+			const DepotInfo* depot = DepotForName(package->DepotName());
+
+			if (depot != NULL)
+				webAppRepositoryCode = depot->WebAppRepositoryCode();
 		}
 
-		status_t status = fWebAppInterface.RetrieveUserRatings(packageName,
-			architecture, 0, 50, info);
+		status_t status = fWebAppInterface
+			.RetreiveUserRatingsForPackageForDisplay(packageName,
+				webAppRepositoryCode, 0, PACKAGE_INFO_MAX_USER_RATINGS,
+				info);
 		if (status == B_OK) {
 			// Parse message
 			BMessage result;
@@ -687,17 +693,20 @@ Model::PopulatePackage(const PackageInfoRef& package, uint32 flags)
 					BString minor = "?";
 					BString micro = "";
 					double revision = -1;
+					BString architectureCode = "";
 					BMessage version;
 					if (item.FindMessage("pkgVersion", &version) == B_OK) {
 						version.FindString("major", &major);
 						version.FindString("minor", &minor);
 						version.FindString("micro", &micro);
 						version.FindDouble("revision", &revision);
+						version.FindString("architectureCode",
+							&architectureCode);
 					}
 					BString versionString = major;
 					versionString << ".";
 					versionString << minor;
-					if (micro.Length() > 0) {
+					if (!micro.IsEmpty()) {
 						versionString << ".";
 						versionString << micro;
 					}
@@ -706,21 +715,18 @@ Model::PopulatePackage(const PackageInfoRef& package, uint32 flags)
 						versionString << (int) revision;
 					}
 
-					BDateTime createTimestamp;
-					double createTimestampMillisF;
-					if (item.FindDouble("createTimestamp",
-						&createTimestampMillisF) == B_OK) {
-						double createTimestampSecsF =
-							createTimestampMillisF / 1000.0;
-						time_t createTimestampSecs =
-							(time_t) createTimestampSecsF;
-						createTimestamp.SetTime_t(createTimestampSecs);
+					if (!architectureCode.IsEmpty()) {
+						versionString << " " << STR_MDASH << " ";
+						versionString << architectureCode;
 					}
+
+					double createTimestamp;
+					item.FindDouble("createTimestamp", &createTimestamp);
 
 					// Add the rating to the PackageInfo
 					UserRating userRating = UserRating(UserInfo(user), rating,
-						comment, languageCode, versionString, 0, 0,
-						createTimestamp);
+						comment, languageCode, versionString,
+						(uint64) createTimestamp);
 					package->AddUserRating(userRating);
 
 					if (Logger::IsDebugEnabled()) {
@@ -799,43 +805,43 @@ Model::_PopulatePackageChangelog(const PackageInfoRef& package)
 
 
 void
-Model::SetUsername(BString username)
+Model::SetNickname(BString nickname)
 {
 	BString password;
-	if (username.Length() > 0) {
+	if (nickname.Length() > 0) {
 		BPasswordKey key;
 		BKeyStore keyStore;
-		if (keyStore.GetKey(kHaikuDepotKeyring, B_KEY_TYPE_PASSWORD, username,
+		if (keyStore.GetKey(kHaikuDepotKeyring, B_KEY_TYPE_PASSWORD, nickname,
 				key) == B_OK) {
 			password = key.Password();
 		} else {
-			username = "";
+			nickname = "";
 		}
 	}
-	SetAuthorization(username, password, false);
+	SetAuthorization(nickname, password, false);
 }
 
 
 const BString&
-Model::Username() const
+Model::Nickname() const
 {
-	return fWebAppInterface.Username();
+	return fWebAppInterface.Nickname();
 }
 
 
 void
-Model::SetAuthorization(const BString& username, const BString& password,
+Model::SetAuthorization(const BString& nickname, const BString& passwordClear,
 	bool storePassword)
 {
-	if (storePassword && username.Length() > 0 && password.Length() > 0) {
-		BPasswordKey key(password, B_KEY_PURPOSE_WEB, username);
+	if (storePassword && nickname.Length() > 0 && passwordClear.Length() > 0) {
+		BPasswordKey key(passwordClear, B_KEY_PURPOSE_WEB, nickname);
 		BKeyStore keyStore;
 		keyStore.AddKeyring(kHaikuDepotKeyring);
 		keyStore.AddKey(kHaikuDepotKeyring, key);
 	}
 
 	BAutolock locker(&fLock);
-	fWebAppInterface.SetAuthorization(username, password);
+	fWebAppInterface.SetAuthorization(UserCredentials(nickname, passwordClear));
 
 	_NotifyAuthorizationChanged();
 }
@@ -844,24 +850,30 @@ Model::SetAuthorization(const BString& username, const BString& password,
 status_t
 Model::_LocalDataPath(const BString leaf, BPath& path) const
 {
-	BString leafAssembled(leaf);
-	leafAssembled.ReplaceAll("%languageCode%",
-		LanguageModel().PreferredLanguage().Code());
+	BPath resultPath;
+	status_t result = B_OK;
 
-	BPath repoDataPath;
+	if (result == B_OK)
+		result = find_directory(B_USER_CACHE_DIRECTORY, &resultPath);
 
-	if (find_directory(B_USER_CACHE_DIRECTORY, &repoDataPath) == B_OK
-		&& repoDataPath.Append("HaikuDepot") == B_OK
-		&& create_directory(repoDataPath.Path(), 0777) == B_OK
-		&& repoDataPath.Append(leafAssembled) == B_OK) {
-		path.SetTo(repoDataPath.Path());
-		return B_OK;
+	if (result == B_OK)
+		result = resultPath.Append("HaikuDepot");
+
+	if (result == B_OK)
+		result = create_directory(resultPath.Path(), 0777);
+
+	if (result == B_OK)
+		result = resultPath.Append(leaf);
+
+	if (result == B_OK)
+		path.SetTo(resultPath.Path());
+	else {
+		path.Unset();
+		fprintf(stdout, "unable to find the user cache file for "
+			"[%s] data; %s\n", leaf.String(), strerror(result));
 	}
 
-	path.Unset();
-	fprintf(stdout, "unable to find the user cache file for [%s] data",
-		leaf.String());
-	return B_ERROR;
+	return result;
 }
 
 
@@ -874,7 +886,10 @@ Model::_LocalDataPath(const BString leaf, BPath& path) const
 status_t
 Model::DumpExportRepositoryDataPath(BPath& path) const
 {
-	return _LocalDataPath("repository-all_%languageCode%.json.gz", path);
+	BString leaf;
+	leaf.SetToFormat("repository-all_%s.json.gz",
+		LanguageModel().PreferredLanguage().Code());
+	return _LocalDataPath(leaf, path);
 }
 
 
@@ -886,7 +901,10 @@ Model::DumpExportRepositoryDataPath(BPath& path) const
 status_t
 Model::DumpExportReferenceDataPath(BPath& path) const
 {
-	return _LocalDataPath("reference-all_%languageCode%.json.gz", path);
+	BString leaf;
+	leaf.SetToFormat("reference-all_%s.json.gz",
+		LanguageModel().PreferredLanguage().Code());
+	return _LocalDataPath(leaf, path);
 }
 
 
@@ -894,18 +912,29 @@ status_t
 Model::IconStoragePath(BPath& path) const
 {
 	BPath iconStoragePath;
+	status_t result = B_OK;
 
-	if (find_directory(B_USER_CACHE_DIRECTORY, &iconStoragePath) == B_OK
-		&& iconStoragePath.Append("HaikuDepot") == B_OK
-		&& iconStoragePath.Append("__allicons") == B_OK
-		&& create_directory(iconStoragePath.Path(), 0777) == B_OK) {
+	if (result == B_OK)
+		result = find_directory(B_USER_CACHE_DIRECTORY, &iconStoragePath);
+
+	if (result == B_OK)
+		result = iconStoragePath.Append("HaikuDepot");
+
+	if (result == B_OK)
+		result = iconStoragePath.Append("__allicons");
+
+	if (result == B_OK)
+		result = create_directory(iconStoragePath.Path(), 0777);
+
+	if (result == B_OK)
 		path.SetTo(iconStoragePath.Path());
-		return B_OK;
+	else {
+		path.Unset();
+		fprintf(stdout, "unable to find the user cache directory for "
+			"icons; %s\n", strerror(result));
 	}
 
-	path.Unset();
-	fprintf(stdout, "unable to find the user cache directory for icons");
-	return B_ERROR;
+	return result;
 }
 
 
@@ -913,23 +942,10 @@ status_t
 Model::DumpExportPkgDataPath(BPath& path,
 	const BString& repositorySourceCode) const
 {
-	BPath repoDataPath;
-	BString leafName;
-
-	leafName.SetToFormat("pkg-all-%s-%s.json.gz", repositorySourceCode.String(),
+	BString leaf;
+	leaf.SetToFormat("pkg-all-%s-%s.json.gz", repositorySourceCode.String(),
 		LanguageModel().PreferredLanguage().Code());
-
-	if (find_directory(B_USER_CACHE_DIRECTORY, &repoDataPath) == B_OK
-		&& repoDataPath.Append("HaikuDepot") == B_OK
-		&& create_directory(repoDataPath.Path(), 0777) == B_OK
-		&& repoDataPath.Append(leafName.String()) == B_OK) {
-		path.SetTo(repoDataPath.Path());
-		return B_OK;
-	}
-
-	path.Unset();
-	fprintf(stdout, "unable to find the user cache file for pkgs' data");
-	return B_ERROR;
+	return _LocalDataPath(leaf, path);
 }
 
 

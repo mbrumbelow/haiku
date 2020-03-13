@@ -12,8 +12,8 @@ DEFINES += HAIKU_BUILD_COMPATIBILITY_H ;
 		FS_SHELL
 		;
 
-	if $(DEBUG) = 0 {
-		# the gcc on BeOS doesn't compile BFS correctly with -O2 or more
+	if $(TARGET_PACKAGING_ARCH) = x86_gcc2 {
+		# GCC2 doesn't compile BFS correctly with -O2 or more
 		OPTIM = -O1 ;
 	}
 
@@ -60,6 +60,7 @@ local bfsSource =
 	Journal.cpp
 	Query.cpp
 	QueryParserUtils.cpp
+	ResizeVisitor.cpp
 	Volume.cpp
 
 	kernel_interface.cpp
@@ -71,6 +72,7 @@ BuildPlatformMain <build>bfs_shell
 	:
 	additional_commands.cpp
 	command_checkfs.cpp
+	command_resizefs.cpp
 	:
 	<build>bfs.o
 	<build>fs_shell.a $(HOST_LIBSUPC++) $(HOST_LIBSTDC++)

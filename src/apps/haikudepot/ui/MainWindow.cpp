@@ -48,6 +48,7 @@
 #include "support.h"
 #include "ScreenshotWindow.h"
 #include "UserLoginWindow.h"
+#include "UserUsageConditionsWindow.h"
 #include "WorkStatusView.h"
 
 
@@ -56,23 +57,23 @@
 
 
 enum {
-	MSG_BULK_LOAD_DONE		= 'mmwd',
-	MSG_REFRESH_REPOS			= 'mrrp',
-	MSG_MANAGE_REPOS			= 'mmrp',
-	MSG_SOFTWARE_UPDATER		= 'mswu',
-	MSG_LOG_IN					= 'lgin',
-	MSG_LOG_OUT					= 'lgot',
-	MSG_AUTHORIZATION_CHANGED	= 'athc',
-	MSG_CATEGORIES_LIST_CHANGED	= 'clic',
-	MSG_PACKAGE_CHANGED			= 'pchd',
-	MSG_WORK_STATUS_CHANGE		= 'wsch',
-	MSG_WORK_STATUS_CLEAR		= 'wscl',
+	MSG_BULK_LOAD_DONE						= 'mmwd',
+	MSG_REFRESH_REPOS						= 'mrrp',
+	MSG_MANAGE_REPOS						= 'mmrp',
+	MSG_SOFTWARE_UPDATER					= 'mswu',
+	MSG_LOG_IN								= 'lgin',
+	MSG_LOG_OUT								= 'lgot',
+	MSG_AUTHORIZATION_CHANGED				= 'athc',
+	MSG_CATEGORIES_LIST_CHANGED				= 'clic',
+	MSG_PACKAGE_CHANGED						= 'pchd',
+	MSG_WORK_STATUS_CHANGE					= 'wsch',
+	MSG_WORK_STATUS_CLEAR					= 'wscl',
 
-	MSG_SHOW_FEATURED_PACKAGES	= 'sofp',
-	MSG_SHOW_AVAILABLE_PACKAGES	= 'savl',
-	MSG_SHOW_INSTALLED_PACKAGES	= 'sins',
-	MSG_SHOW_SOURCE_PACKAGES	= 'ssrc',
-	MSG_SHOW_DEVELOP_PACKAGES	= 'sdvl'
+	MSG_SHOW_FEATURED_PACKAGES				= 'sofp',
+	MSG_SHOW_AVAILABLE_PACKAGES				= 'savl',
+	MSG_SHOW_INSTALLED_PACKAGES				= 'sins',
+	MSG_SHOW_SOURCE_PACKAGES				= 'ssrc',
+	MSG_SHOW_DEVELOP_PACKAGES				= 'sdvl'
 };
 
 
@@ -130,6 +131,7 @@ MainWindow::MainWindow(const BMessage& settings)
 	fUserMenu(NULL),
 	fLogInItem(NULL),
 	fLogOutItem(NULL),
+	fUsersUserUsageConditionsMenuItem(NULL),
 	fModelListener(new MainWindowModelListener(BMessenger(this)), true),
 	fBulkLoadProcessCoordinator(NULL),
 	fSinglePackageMode(false)
@@ -142,6 +144,7 @@ MainWindow::MainWindow(const BMessage& settings)
 	set_small_font(userMenuBar);
 	userMenuBar->SetExplicitMaxSize(BSize(B_SIZE_UNSET,
 		menuBar->MaxSize().height));
+	_UpdateAuthorization();
 
 	fFilterView = new FilterView();
 	fFeaturedPackagesView = new FeaturedPackagesView();
@@ -203,7 +206,7 @@ MainWindow::MainWindow(const BMessage& settings)
 	else
 		fListTabs->Select(1);
 
-	_RestoreUserName(settings);
+	_RestoreNickname(settings);
 	_RestoreWindowFrame(settings);
 
 	atomic_set(&fPackagesToShowListID, 0);
@@ -228,6 +231,7 @@ MainWindow::MainWindow(const BMessage& settings, const PackageInfoRef& package)
 	fUserMenu(NULL),
 	fLogInItem(NULL),
 	fLogOutItem(NULL),
+	fUsersUserUsageConditionsMenuItem(NULL),
 	fModelListener(new MainWindowModelListener(BMessenger(this)), true),
 	fBulkLoadProcessCoordinator(NULL),
 	fSinglePackageMode(true)
@@ -244,7 +248,7 @@ MainWindow::MainWindow(const BMessage& settings, const PackageInfoRef& package)
 	fModel.AddListener(fModelListener);
 
 	// Restore settings
-	_RestoreUserName(settings);
+	_RestoreNickname(settings);
 	_RestoreWindowFrame(settings);
 
 	fPackageInfoView->SetPackage(package);
@@ -331,7 +335,15 @@ MainWindow::MessageReceived(BMessage* message)
 			break;
 
 		case MSG_LOG_OUT:
-			fModel.SetUsername("");
+			fModel.SetNickname("");
+			break;
+
+		case MSG_VIEW_LATEST_USER_USAGE_CONDITIONS:
+			_ViewUserUsageConditions(LATEST);
+			break;
+
+		case MSG_VIEW_USERS_USER_USAGE_CONDITIONS:
+			_ViewUserUsageConditions(USER);
 			break;
 
 		case MSG_AUTHORIZATION_CHANGED:
@@ -636,7 +648,7 @@ MainWindow::StoreSettings(BMessage& settings) const
 		settings.AddBool("show source packages", fModel.ShowSourcePackages());
 	}
 
-	settings.AddString("username", fModel.Username());
+	settings.AddString("username", fModel.Nickname());
 }
 
 
@@ -734,17 +746,29 @@ MainWindow::_BuildUserMenu(BMenuBar* menuBar)
 		new BMessage(MSG_LOG_OUT));
 	fUserMenu->AddItem(fLogOutItem);
 
+	BMenuItem *latestUserUsageConditionsMenuItem =
+		new BMenuItem(B_TRANSLATE("View latest usage conditions"
+			B_UTF8_ELLIPSIS),
+			new BMessage(MSG_VIEW_LATEST_USER_USAGE_CONDITIONS));
+	fUserMenu->AddItem(latestUserUsageConditionsMenuItem);
+
+	fUsersUserUsageConditionsMenuItem =
+		new BMenuItem(B_TRANSLATE("View agreed usage conditions"
+			B_UTF8_ELLIPSIS),
+			new BMessage(MSG_VIEW_USERS_USER_USAGE_CONDITIONS));
+	fUserMenu->AddItem(fUsersUserUsageConditionsMenuItem);
+
 	menuBar->AddItem(fUserMenu);
 }
 
 
 void
-MainWindow::_RestoreUserName(const BMessage& settings)
+MainWindow::_RestoreNickname(const BMessage& settings)
 {
-	BString username;
-	if (settings.FindString("username", &username) == B_OK
-		&& username.Length() > 0) {
-		fModel.SetUsername(username);
+	BString nickname;
+	if (settings.FindString("username", &nickname) == B_OK
+		&& nickname.Length() > 0) {
+		fModel.SetNickname(nickname);
 	}
 }
 
@@ -943,12 +967,13 @@ MainWindow::_BulkLoadProcessCoordinatorFinished(
 {
 	if (coordinatorState.ErrorStatus() != B_OK) {
 		AppUtils::NotifySimpleError(
-			B_TRANSLATE("Package Update Error"),
+			B_TRANSLATE("Package update error"),
 			B_TRANSLATE("While updating package data, a problem has arisen "
 				"that may cause data to be outdated or missing from the "
-				"application's display.  Additional details regarding this "
+				"application's display. Additional details regarding this "
 				"problem may be able to be obtained from the application "
-				"logs."));
+				"logs."
+				ALERT_MSG_LOGS_USER_GUIDE));
 	}
 	BMessenger messenger(this);
 	messenger.SendMessage(MSG_BULK_LOAD_DONE);
@@ -1182,11 +1207,13 @@ MainWindow::_OpenLoginWindow(const BMessage& onSuccessMessage)
 void
 MainWindow::_UpdateAuthorization()
 {
-	BString username(fModel.Username());
-	bool hasUser = !username.IsEmpty();
+	BString nickname(fModel.Nickname());
+	bool hasUser = !nickname.IsEmpty();
 
 	if (fLogOutItem != NULL)
 		fLogOutItem->SetEnabled(hasUser);
+	if (fUsersUserUsageConditionsMenuItem != NULL)
+		fUsersUserUsageConditionsMenuItem->SetEnabled(hasUser);
 	if (fLogInItem != NULL) {
 		if (hasUser)
 			fLogInItem->SetLabel(B_TRANSLATE("Switch account" B_UTF8_ELLIPSIS));
@@ -1196,11 +1223,11 @@ MainWindow::_UpdateAuthorization()
 
 	if (fUserMenu != NULL) {
 		BString label;
-		if (username.Length() == 0) {
-			label = B_TRANSLATE("Not logged in");
-		} else {
+		if (hasUser) {
 			label = B_TRANSLATE("Logged in as %User%");
-			label.ReplaceAll("%User%", username);
+			label.ReplaceAll("%User%", nickname);
+		} else {
+			label = B_TRANSLATE("Not logged in");
 		}
 		fUserMenu->Superitem()->SetLabel(label);
 	}
@@ -1287,7 +1314,7 @@ MainWindow::_RatePackage()
     	return;
 	}
 
-	if (fModel.Username().IsEmpty()) {
+	if (fModel.Nickname().IsEmpty()) {
 		BAlert* alert = new(std::nothrow) BAlert(
 			B_TRANSLATE("Not logged in"),
 			B_TRANSLATE("You need to be logged into an account before you "
@@ -1331,4 +1358,14 @@ MainWindow::_ShowScreenshot()
 		fScreenshotWindow->Activate();
 
 	fScreenshotWindow->Unlock();
+}
+
+
+void
+MainWindow::_ViewUserUsageConditions(
+	UserUsageConditionsSelectionMode mode)
+{
+	UserUsageConditionsWindow* window = new UserUsageConditionsWindow(
+		fModel, mode);
+	window->Show();
 }

@@ -2,9 +2,9 @@
 DNS settings	DNSClientServiceAddOn		Параметри DNS
 Move down	DNSSettingsView		Пересунути вниз
 DNS settings	DNSSettingsView		Параметри DNS
-Remove	DNSSettingsView		Видалити
+Remove	DNSSettingsView		Вилучити
 Domain:	DNSSettingsView		Домен:
 Add	DNSSettingsView		Додати
 Server:	DNSSettingsView		Сервер:
-Move up	DNSSettingsView		Вверх
+Move up	DNSSettingsView		Вгору
 Apply	DNSSettingsView		Застосувати

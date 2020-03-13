@@ -1,5 +1,5 @@
 1	ukrainian	x-vnd.Be-PEPL	2332202134
-Launching the FileTypes preflet to configure Person attributes has failed.\n\nError: 	People		Підключення префлету FileTypes для вибору атрибутів Person призупинене.\n\nПомилка: 
+Launching the FileTypes preflet to configure Person attributes has failed.\n\nError: 	People		Не вдалося запустити префлет FileTypes для налаштування атрибутів Person.\n\nПомилка: 
 Unnamed person	People		Безіменна персона
 New person…	People		Нова персона
 Address	People		Адреса
@@ -37,7 +37,7 @@ Configure attributes	People		Встановити атрибути
 Work phone	People		Робочий телефон
 State	People		Держава
 Nickname	People		Кличка
-OK	People		Гаразд
+OK	People		ОК
 File	People		Файл
 Redo	People		Переробити
 Close	People		Закрити

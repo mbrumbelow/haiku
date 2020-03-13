@@ -14,13 +14,13 @@ licenses {
 	MIT
 	"GNU LGPL v2.1"
 }
+flags			system_package
 
 provides {
 	haiku=%HAIKU_VERSION% compat>=R1~alpha4_pm_hrev51198
 	cmd:arp
 	cmd:chop
 	cmd:clear
-	cmd:compress
 	cmd:df
 	cmd:ftpd
 	cmd:hd
@@ -38,7 +38,6 @@ provides {
 	cmd:telnet
 	cmd:telnetd
 	cmd:top
-	cmd:tput
 	cmd:traceroute
 	cmd:trash
 	cmd:unchop
@@ -57,6 +56,9 @@ requires {
 	cmd:unzip
 #endif
 	lib:libcurl
+#ifdef HAIKU_BUILD_FEATURE_X86_64_LIBEDIT_ENABLED
+	lib:libedit
+#endif
 #ifdef HAIKU_BUILD_FEATURE_X86_64_FONTCONFIG_ENABLED
 	lib:libfontconfig
 #endif

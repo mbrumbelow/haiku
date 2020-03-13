@@ -21,7 +21,6 @@ provides {
 	cmd:arp
 	cmd:chop
 	cmd:clear
-	cmd:compress
 	cmd:df
 	cmd:ftpd
 	cmd:hd
@@ -39,7 +38,6 @@ provides {
 	cmd:telnet
 	cmd:telnetd
 	cmd:top
-	cmd:tput
 	cmd:traceroute
 	cmd:trash
 	cmd:unchop
@@ -56,6 +54,9 @@ requires {
 	cmd:gunzip
 	cmd:tar
 	cmd:unzip
+#endif
+#ifdef HAIKU_BUILD_FEATURE_ARM_LIBEDIT_ENABLED
+	lib:libedit
 #endif
 	lib:libfreetype
 #ifdef HAIKU_BUILD_FEATURE_ARM_FONTCONFIG_ENABLED

@@ -7,6 +7,7 @@
 //!	file system interface to Haiku's vnode layer
 
 
+#include "Attribute.h"
 #include "CheckVisitor.h"
 #include "Debug.h"
 #include "Volume.h"
@@ -14,7 +15,7 @@
 #include "Index.h"
 #include "BPlusTree.h"
 #include "Query.h"
-#include "Attribute.h"
+#include "ResizeVisitor.h"
 #include "bfs_control.h"
 #include "bfs_disk_system.h"
 
@@ -134,7 +135,7 @@ bfs_identify_partition(int fd, partition_data* partition, void** _cookie)
 	memcpy(&cookie->super_block, &superBlock, sizeof(disk_super_block));
 
 	*_cookie = cookie;
-	return 0.8f;
+	return 0.85f;
 }
 
 
@@ -765,6 +766,18 @@ bfs_ioctl(fs_volume* _volume, fs_vnode* _node, void* _cookie, uint32 cmd,
 			}
 
 			return volume->WriteSuperBlock();
+		}
+		case BFS_IOCTL_RESIZE:
+		{
+			if (bufferLength != sizeof(uint64))
+				return B_BAD_VALUE;
+
+			uint64 size;
+			if (user_memcpy((uint8*)&size, buffer, sizeof(uint64)) != B_OK)
+				return B_BAD_ADDRESS;
+
+			ResizeVisitor resizer(volume);
+			return resizer.Resize(size, -1);
 		}
 
 #ifdef DEBUG_FRAGMENTER

@@ -114,6 +114,7 @@
 #define IA32_MSR_FS_BASE				0xc0000100
 #define IA32_MSR_GS_BASE				0xc0000101
 #define IA32_MSR_KERNEL_GS_BASE			0xc0000102
+#define IA32_MSR_TSC_AUX				0xc0000103
 
 // K8 MSR registers
 #define K8_MSR_IPM						0xc0010055
@@ -198,6 +199,7 @@
 #define IA32_FEATURE_AMD_EXT_NX			(1 << 20) // no execute bit
 #define IA32_FEATURE_AMD_EXT_MMXEXT		(1 << 22) // mmx extensions
 #define IA32_FEATURE_AMD_EXT_FFXSR		(1 << 25) // fast FXSAVE/FXRSTOR
+#define IA32_FEATURE_AMD_EXT_PDPE1GB	(1 << 26) // Gibibyte pages
 #define IA32_FEATURE_AMD_EXT_RDTSCP		(1 << 27) // rdtscp instruction
 #define IA32_FEATURE_AMD_EXT_LONG		(1 << 29) // long mode
 #define IA32_FEATURE_AMD_EXT_3DNOWEXT	(1 << 30) // 3DNow! extensions
@@ -207,6 +209,7 @@
 // available on Intel processors
 #define IA32_FEATURES_INTEL_EXT			(IA32_FEATURE_AMD_EXT_SYSCALL		\
 											| IA32_FEATURE_AMD_EXT_NX		\
+											| IA32_FEATURE_AMD_EXT_PDPE1GB	\
 											| IA32_FEATURE_AMD_EXT_RDTSCP	\
 											| IA32_FEATURE_AMD_EXT_LONG)
 
@@ -286,13 +289,17 @@
 #define IA32_FEATURE_STIBP			(1 << 27)	// STIBP Speculation Control
 #define IA32_FEATURE_L1D_FLUSH		(1 << 28)	// L1D_FLUSH supported
 #define IA32_FEATURE_ARCH_CAPABILITIES	(1 << 29)	// IA32_ARCH_CAPABILITIES MSR
-#define IA32_FEATURE_SSBD			(1 << 30)	// Speculative Store Bypass Disable
+#define IA32_FEATURE_SSBD			(1 << 31)	// Speculative Store Bypass Disable
 
 // x86 defined features from cpuid eax 0x80000007, edx register
 #define IA32_FEATURE_INVARIANT_TSC		(1 << 8)
 
 // x86 defined features from cpuid eax 0x80000008, ebx register
-#define IA32_FEATURE_AMD_EXT_IBPB	(1 << 12)	/* IBPB Support only (no IBRS) */
+#define IA32_FEATURE_CLZERO			(1 << 0)	// CLZERO instruction
+#define IA32_FEATURE_IBPB			(1 << 12)	// IBPB Support only (no IBRS)
+#define IA32_FEATURE_AMD_SSBD		(1 << 24)	// Speculative Store Bypass Disable
+#define IA32_FEATURE_VIRT_SSBD		(1 << 25)	// Virtualized Speculative Store Bypass Disable
+#define IA32_FEATURE_AMD_SSB_NO		(1 << 26)	// Speculative Store Bypass is fixed in hardware
 
 
 // Memory type ranges
@@ -489,7 +496,7 @@ typedef struct arch_cpu_info {
 	__asm__("invlpg (%0)" : : "r" (va))
 
 #define wbinvd() \
-	__asm__("wbinvd")
+	__asm__ volatile ("wbinvd" : : : "memory")
 
 #define set_ac() \
 	__asm__ volatile (ASM_STAC : : : "memory")
@@ -556,6 +563,8 @@ void __x86_setup_system_time(uint64 conversionFactor,
 void __x86_setup_system_time(uint32 conversionFactor,
 	uint32 conversionFactorNsecs, bool conversionFactorNsecsShift);
 #endif
+
+status_t __x86_patch_errata_percpu(int cpu);
 
 void x86_userspace_thread_exit(void);
 void x86_end_userspace_thread_exit(void);

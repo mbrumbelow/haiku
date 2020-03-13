@@ -1,4 +1,4 @@
-1	friulian	x-vnd.Haiku-Screen	4090394050
+1	friulian	x-vnd.Haiku-Screen	133788249
 no	Screen		no
 bits/pixel	Screen		bit/pixel
 15 bits/pixel, 32768 colors	Screen		15 bit/pixel, 32768 colôrs
@@ -17,7 +17,8 @@ vertically	Screen		in verticâl
 All workspaces	Screen		Ducj i spazis di lavôr
 Use laptop panel:	Screen		Dopre panel dal portatil:
 Could not write VESA mode settings file:\n\t	Screen		Impussibil scrivi il file des impostazions de modalitât VESA:\n\t
-Settings will revert in %seconds.	Screen		Si tornarà aes impostazions vielis in %seconds seconts.
+Display info	Screen		Mostre informazions
+Settings will revert in %seconds.	Screen		Si tornarà aes impostazions vielis in %seconds.
 Cancel	Screen		Cancele
 Other…	Screen		Altri…
 Screen	Screen		Schermi
@@ -33,6 +34,7 @@ Warning	Screen		Avertiment
 24 bits/pixel, 16 Million colors	Screen		24 bit/pixel, 16 Milions di colôrs
 Hz	Screen		Hz
 Workspaces	Screen		Spazis di lavôr
+Brightness:	Screen		Luminositât:
 32 bits/pixel, 16 Million colors	Screen		32 bit/pixel, 16 Milions di colôrs
 Done	Screen		Apliche
 16 bits/pixel, 65536 colors	Screen		16 bit/pixel, 65536 colôrs
