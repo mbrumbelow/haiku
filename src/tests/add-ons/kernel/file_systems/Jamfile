@@ -11,3 +11,4 @@ HaikuSubInclude random_read ;
 HaikuSubInclude udf ;
 HaikuSubInclude userlandfs ;
 HaikuSubInclude xfs ;
+HaikuSubInclude ufs2 ;
