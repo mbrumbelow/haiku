@@ -964,8 +964,31 @@ Volume::_ReadPackagesDirectory()
 status_t
 Volume::_InitLatestState()
 {
-	if (_InitLatestStateFromActivatedPackages() == B_OK)
+	if (_InitLatestStateFromActivatedPackages() == B_OK) {
+		// Activate any new packages
+		{
+			AutoLocker<BLocker> locker(fLock);
+
+			for (PackageFileNameHashTable::Iterator it
+					= fLatestState->ByFileNameIterator();
+					Package* package = it.Next();) {
+				if (!package->IsActive()) {
+					try {
+						fPackagesToBeActivated.insert(package);
+					} catch (std::bad_alloc& exception) {
+						ERROR("out of memory\n");
+						return B_NO_MEMORY;
+					}
+
+					fChangeCount++;
+				}
+			}
+		}
+
+		ProcessPendingPackageActivationChanges();
+
 		return B_OK;
+	}
 
 	INFORM("Failed to get activated packages info from activated packages file."
 		" Assuming all package files in package directory are activated.\n");
