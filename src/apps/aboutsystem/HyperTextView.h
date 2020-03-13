@@ -7,7 +7,6 @@
 
 #include <TextView.h>
 
-
 // TODO: The current implementation works correctly only for insertions at the
 // end of the text. It doesn't keep track of any other insertions or deletions.
 
@@ -17,8 +16,8 @@ class HyperTextView;
 
 class HyperTextAction {
 public:
-								HyperTextAction();
-	virtual						~HyperTextAction();
+						HyperTextAction();
+	virtual					~HyperTextAction();
 
 	virtual	void				MouseOver(HyperTextView* view, BPoint where,
 									BMessage* message);
@@ -29,36 +28,40 @@ public:
 
 class HyperTextView : public BTextView {
 public:
-								HyperTextView(const char* name,
-									uint32 flags = B_WILL_DRAW
-										| B_PULSE_NEEDED);
-								HyperTextView(BRect frame, const char* name,
-									BRect textRect, uint32 resizeMask,
-									uint32 flags = B_WILL_DRAW
-										| B_PULSE_NEEDED);
-	virtual						~HyperTextView();
+						HyperTextView(const char* name,
+							uint32 flags = B_WILL_DRAW
+								| B_PULSE_NEEDED);
+						HyperTextView(BRect frame, const char* name,
+							BRect textRect, uint32 resizeMask,
+							uint32 flags = B_WILL_DRAW
+								| B_PULSE_NEEDED);
+	virtual					~HyperTextView();
 
 	virtual	void				MouseDown(BPoint where);
 	virtual	void				MouseUp(BPoint where);
 	virtual	void				MouseMoved(BPoint where, uint32 transit,
-									const BMessage* dragMessage);
+							const BMessage* dragMessage);
 
-			void				AddHyperTextAction(int32 startOffset,
-									int32 endOffset, HyperTextAction* action);
+		void				AddHyperTextAction(int32 startOffset,
+							int32 endOffset, HyperTextAction* action);
 
-			void				InsertHyperText(const char* inText,
-									HyperTextAction* action,
-									const text_run_array* inRuns = NULL);
-			void				InsertHyperText(const char* inText,
-									int32 inLength, HyperTextAction* action,
-									const text_run_array* inRuns = NULL);
+		void				InsertHyperText(const char* inText,
+							HyperTextAction* action,
+							const text_run_array* inRuns = NULL);
+		void				InsertHyperText(const char* inText,
+							int32 inLength, HyperTextAction* action,
+							const text_run_array* inRuns = NULL);
+		int32				StartOffsetActionAt(const BPoint& where) const;
+		int32				EndOffsetActionAt(const BPoint& where) const;
+		void				AddUnderlinedRect(BRect* underlineRect);
 private:
-			HyperTextAction*	_ActionAt(const BPoint& where) const;
+		struct ActionInfo;
+		ActionInfo*			_ActionAt(const BPoint& where) const;
+		class ActionInfoList;
 
-			struct ActionInfo;
-			class ActionInfoList;
-
-			ActionInfoList*		fActionInfos;
+		ActionInfoList*			fActionInfos;
+		ActionInfo*			fCurrentAction;
+		BRegion*			fUnderlinedRegion;
 };
 
 
