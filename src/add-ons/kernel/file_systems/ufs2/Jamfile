@@ -1,0 +1,37 @@
+SubDir HAIKU_TOP src add-ons kernel file_systems ufs2 ; 
+
+# set some additional defines
+{
+    local defines =
+        UFS2_DEBUGGER_COMMANDS
+        ;
+
+    defines = [ FDefines $(defines) ] ; 
+    SubDirCcFlags $(defines) ;
+    SubDirC++Flags $(defines) ;
+}
+
+UsePrivateHeaders [ FDirName kernel util ] ; 
+UsePrivateHeaders shared storage file_systems ;
+UsePrivateKernelHeaders ;
+
+DEFINES += DEBUG_APP="\\\"ufs2\\\"" ;
+
+UseHeaders [ FDirName $(HAIKU_TOP) src libs uuid ] : true ;
+
+local ufs2Sources =
+    kernel_cpp.cpp
+    kernel_interface.cpp
+    ;   
+KernelAddon ufs2 :
+    $(ufs2Sources)
+    :   
+        libuuid_kernel.a
+;
+
+SEARCH on [ FGristFiles $(ufs2Sources) ]
+    = [ FDirName  $(HAIKU_TOP) src add-ons kernel file_systems ufs2 ] ; 
+
+SEARCH on [ FGristFiles kernel_cpp.cpp ]
+    = [ FDirName $(HAIKU_TOP src system kernel util ] ; 
+
