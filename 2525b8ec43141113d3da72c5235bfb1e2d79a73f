@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4d385ed_4294d7a0",
+        "filename": "docs/user/app/KeyStore.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-13T12:39:11Z",
+      "side": 1,
+      "message": "80 columns limit",
+      "revId": "2525b8ec43141113d3da72c5235bfb1e2d79a73f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b76b246_9ae56abd",
+        "filename": "docs/user/app/KeyStore.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-13T12:39:11Z",
+      "side": 1,
+      "message": "80 cols (and more of these below)",
+      "revId": "2525b8ec43141113d3da72c5235bfb1e2d79a73f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93da88e3_dc848e89",
+        "filename": "docs/user/app/_app_keystore.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-13T12:39:11Z",
+      "side": 1,
+      "message": "Should we say something more like \"patches welcome\" here? I think it would make sense for someone to improve the situation and provide some encryption (probably with a \"master password\"), rather than implementing their own storage.",
+      "revId": "2525b8ec43141113d3da72c5235bfb1e2d79a73f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e90030e4_479bbe78",
+        "filename": "docs/user/app/_app_keystore.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-13T12:39:11Z",
+      "side": 1,
+      "message": "80 columns limit here and a few other lines below",
+      "revId": "2525b8ec43141113d3da72c5235bfb1e2d79a73f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50b2f2f6_e59b1f64",
+        "filename": "docs/user/book.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-13T12:39:11Z",
+      "side": 1,
+      "message": "Why do these land in the Application Kit? Shouldn\u0027t they be Crypto Kit or something like that?",
+      "revId": "2525b8ec43141113d3da72c5235bfb1e2d79a73f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
