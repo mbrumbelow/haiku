@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "48e65201_692abfab",
+        "filename": "docs/user/app/KeyStore.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-03-13T21:23:28Z",
+      "side": 1,
+      "message": "Unfortunately Doxygen does not seem to parse the reference properly if there is a line break in it, so will leave this as this is.",
+      "parentUuid": "c4d385ed_4294d7a0",
+      "revId": "2525b8ec43141113d3da72c5235bfb1e2d79a73f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9b76b246_9ae56abd",
         "filename": "docs/user/app/KeyStore.dox",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "2525b8ec43141113d3da72c5235bfb1e2d79a73f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5fd36168_3db6ba0b",
+        "filename": "docs/user/app/KeyStore.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-03-13T21:23:28Z",
+      "side": 1,
+      "message": "Doxygen limitations.",
+      "parentUuid": "9b76b246_9ae56abd",
+      "revId": "2525b8ec43141113d3da72c5235bfb1e2d79a73f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "37c20937_a3673ff8",
+        "filename": "docs/user/app/_app_keystore.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-03-13T21:23:28Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "93da88e3_dc848e89",
+      "revId": "2525b8ec43141113d3da72c5235bfb1e2d79a73f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e90030e4_479bbe78",
         "filename": "docs/user/app/_app_keystore.dox",
         "patchSetId": 1
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "566a2055_41b44d41",
+        "filename": "docs/user/app/_app_keystore.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-03-13T21:23:28Z",
+      "side": 1,
+      "message": "I\u0027ll fix this, it will be 83 columns, but in my defense, the leading tab will be removed in the final output, so we are back at 79.",
+      "parentUuid": "e90030e4_479bbe78",
+      "revId": "2525b8ec43141113d3da72c5235bfb1e2d79a73f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50b2f2f6_e59b1f64",
         "filename": "docs/user/book.dox",
         "patchSetId": 1
@@ -84,6 +156,24 @@
       "revId": "2525b8ec43141113d3da72c5235bfb1e2d79a73f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba9b23c8_aec4fdbc",
+        "filename": "docs/user/book.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-03-13T21:23:28Z",
+      "side": 1,
+      "message": "So the primary reason is that the header is under headers/os/app. Also the keys are currently not encrypted, so there is very little crypto involved. I understand the question, but I would say it can always be moved when the backend has improved.",
+      "parentUuid": "50b2f2f6_e59b1f64",
+      "revId": "2525b8ec43141113d3da72c5235bfb1e2d79a73f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
