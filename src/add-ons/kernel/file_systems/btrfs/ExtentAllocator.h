@@ -6,8 +6,17 @@
 #define EXTENT_ALLOCATOR_H
 
 
-#include "Volume.h"
 #include "BTree.h"
+#include "Volume.h"
+
+#include "system_dependencies.h"
+
+
+#ifdef FS_SHELL
+#define ERROR(x...) TRACE(x)
+#else
+#include <DebugSupport.h>
+#endif
 
 
 //#define TRACE_BTRFS
@@ -16,8 +25,6 @@
 #else
 #	define TRACE(x...) ;
 #endif
-
-#define ERROR(x...) dprintf("\33[34mbtrfs:\33[0m " x)
 
 
 struct CachedExtent : AVLTreeNode {

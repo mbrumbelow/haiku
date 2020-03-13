@@ -1,5 +1,5 @@
 /*
- * Copyright 2017-2018, Andrew Lindesay <apl@lindesay.co.nz>.
+ * Copyright 2017-2020, Andrew Lindesay <apl@lindesay.co.nz>.
  * All rights reserved. Distributed under the terms of the MIT License.
  */
 
@@ -27,29 +27,30 @@
 #define KEY_HEADER_MINIMUM_VERSION "X-Desktop-Application-Minimum-Version"
 
 
-/*! This method will cause an alert to be shown to the user regarding a
+/*! \brief This method will cause an alert to be shown to the user regarding a
     JSON-RPC error that has been sent from the application server.  It will
     send a message to the application looper which will then relay the message
     to the looper and then onto the user to see.
+    \param responsePayload The top level payload returned from the server.
 */
 
 /*static*/ void
-ServerHelper::NotifyServerJsonRpcError(BMessage& error)
+ServerHelper::NotifyServerJsonRpcError(BMessage& responsePayload)
 {
 	BMessage message(MSG_SERVER_ERROR);
-	message.AddMessage("error", &error);
+	message.AddMessage("error", &responsePayload);
 	be_app->PostMessage(&message);
 }
 
 
 /*static*/ void
-ServerHelper::AlertServerJsonRpcError(BMessage* message)
+ServerHelper::AlertServerJsonRpcError(BMessage* responseEnvelopeMessage)
 {
-	BMessage error;
+	BMessage errorMessage;
 	int32 errorCode = 0;
 
-	if (message->FindMessage("error", &error) == B_OK)
-		errorCode = WebAppInterface::ErrorCodeFromResponse(error);
+	if (responseEnvelopeMessage->FindMessage("error", &errorMessage) == B_OK)
+		errorCode = WebAppInterface::ErrorCodeFromResponse(errorMessage);
 
 	BString alertText;
 
@@ -63,11 +64,15 @@ ServerHelper::AlertServerJsonRpcError(BMessage* message)
 				" in the request was not found on the server.");
 			break;
 		case ERROR_CODE_CAPTCHABADRESPONSE:
-			alertText = B_TRANSLATE("The response to the captcha was incorrect.");
+			alertText = B_TRANSLATE("The response to the captcha was"
+				" incorrect.");
 			break;
 		case ERROR_CODE_AUTHORIZATIONFAILURE:
 		case ERROR_CODE_AUTHORIZATIONRULECONFLICT:
-			alertText = B_TRANSLATE("Authorization or security issue");
+			alertText = B_TRANSLATE("Authorization or security issue.  Logout"
+				" and log back in again to check that your password is correct"
+				" and also check that you have agreed to the latest usage"
+				" conditions.");
 			break;
 		default:
 			alertText.SetToFormat(
@@ -206,4 +211,78 @@ ServerHelper::IsPlatformNetworkAvailable()
 	}
 
 	return false;
+}
+
+
+/*! If the response is an error and the error is a validation failure then
+ * various validation errors may be carried in the error data.  These are
+ * copied into the supplied failures.  An abridged example input JSON structure
+ * would be;
+ *
+ * \code
+ * {
+ *   ...
+ *   "error": {
+ *     "code": -32800,
+ *     "data": {
+         "validationfailures": [
+           { "property": "nickname", "message": "required" },
+           ...
+         ]
+       },
+       ...
+ *   }
+ * }
+ * \endcode
+ *
+ * \param failures is the object into which the validation failures are to be
+ *   written.
+ * \param responseEnvelopeMessage is a representation of the entire JSON-RPC
+ *   response sent back from the server when the error occurred.
+ *
+ */
+
+/*static*/ void
+ServerHelper::GetFailuresFromJsonRpcError(
+	ValidationFailures& failures, BMessage& responseEnvelopeMessage)
+{
+	BMessage errorMessage;
+	int32 errorCode = WebAppInterface::ErrorCodeFromResponse(
+		responseEnvelopeMessage);
+
+	if (responseEnvelopeMessage.FindMessage("error", &errorMessage) == B_OK) {
+		BMessage dataMessage;
+
+		if (errorMessage.FindMessage("data", &dataMessage) == B_OK) {
+			BMessage validationFailuresMessage;
+
+			if (dataMessage.FindMessage("validationfailures",
+					&validationFailuresMessage) == B_OK) {
+				_GetFailuresFromJsonRpcFailures(failures,
+					validationFailuresMessage);
+			}
+		}
+	}
+}
+
+
+/*static*/ void
+ServerHelper::_GetFailuresFromJsonRpcFailures(
+	ValidationFailures& failures, BMessage& jsonRpcFailures)
+{
+	int32 index = 0;
+	while (true) {
+		BString name;
+		name << index++;
+		BMessage failure;
+		if (jsonRpcFailures.FindMessage(name, &failure) != B_OK)
+			break;
+
+		BString property;
+		BString message;
+		if (failure.FindString("property", &property) == B_OK
+				&& failure.FindString("message", &message) == B_OK) {
+			failures.AddFailure(property, message);
+		}
+	}
 }

@@ -15,12 +15,17 @@
 #include "BTree.h"
 #include "CachedBlock.h"
 #include "Chunk.h"
-#include "DebugSupport.h"
+#include "CRCTable.h"
 #include "ExtentAllocator.h"
 #include "Inode.h"
 #include "Journal.h"
 #include "Utility.h"
 
+#ifdef FS_SHELL
+#define RETURN_ERROR return
+#else
+#include "DebugSupport.h"
+#endif
 
 //#define TRACE_BTRFS
 #ifdef TRACE_BTRFS
@@ -28,7 +33,6 @@
 #else
 #	define TRACE(x...) ;
 #endif
-#	define ERROR(x...) dprintf("\33[34mbtrfs:\33[0m " x)
 
 
 class DeviceOpener {
@@ -431,19 +435,24 @@ Volume::Mount(const char* deviceName, uint32 flags)
 	TRACE("Volume::Mount() Find larget inode id % " B_PRIu64 "\n",
 		fLargestInodeID);
 
-	// Initialize Journal
-	fJournal = new(std::nothrow) Journal(this);
-	if (fJournal == NULL)
-		return B_NO_MEMORY;
+	if ((flags & B_MOUNT_READ_ONLY) != 0) {
+		fJournal = NULL;
+		fExtentAllocator = NULL;
+	} else {
+		// Initialize Journal
+		fJournal = new(std::nothrow) Journal(this);
+		if (fJournal == NULL)
+			return B_NO_MEMORY;
 
-	// Initialize ExtentAllocator;
-	fExtentAllocator = new(std::nothrow) ExtentAllocator(this);
-	if (fExtentAllocator == NULL)
-		return B_NO_MEMORY;
-	status = fExtentAllocator->Initialize();
-	if (status != B_OK) {
-		ERROR("could not initalize extent allocator!\n");
-		return status;
+		// Initialize ExtentAllocator;
+		fExtentAllocator = new(std::nothrow) ExtentAllocator(this);
+		if (fExtentAllocator == NULL)
+			return B_NO_MEMORY;
+		status = fExtentAllocator->Initialize();
+		if (status != B_OK) {
+			ERROR("could not initalize extent allocator!\n");
+			return status;
+		}
 	}
 
 	// ready
@@ -652,7 +661,14 @@ Volume::FindBlock(off_t logical, off_t& physical)
 status_t
 Volume::WriteSuperBlock()
 {
-	// TODO(lesderid): Calculate checksum
+	uint32 checksum = calculate_crc((uint32)~1,
+			(uint8 *)(&fSuperBlock + sizeof(fSuperBlock.checksum)),
+			sizeof(fSuperBlock) - sizeof(fSuperBlock.checksum));
+
+	fSuperBlock.checksum[0] = (checksum >>  0) & 0xFF;
+	fSuperBlock.checksum[1] = (checksum >>  8) & 0xFF;
+	fSuperBlock.checksum[2] = (checksum >> 16) & 0xFF;
+	fSuperBlock.checksum[3] = (checksum >> 24) & 0xFF;
 
 	if (write_pos(fDevice, BTRFS_SUPER_BLOCK_OFFSET, &fSuperBlock,
 			sizeof(btrfs_super_block))

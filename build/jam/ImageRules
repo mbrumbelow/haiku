@@ -1618,9 +1618,13 @@ actions BuildCDBootPPCImage1 bind MAPS
 	# Extras (readme files, etc)
 	cp $(>[4]) $(HAIKU_OUTPUT_DIR)/cd/
 
-	xorriso -as mkisofs -v -hfs -part -map $(MAPS) -no-desktop -hfs-volid bootimg \
-		-V $(VOLID) -hfs-bless $(HAIKU_OUTPUT_DIR)/cd/boot -prep-boot \
-		boot/haikuloader.xcf -r -o $(<) $(HAIKU_OUTPUT_DIR)/cd
+	# Xorriso doesn't have map and some other required tools
+	# to make bootable PowerPC images
+	genisoimage -v -hfsplus -map $(MAPS) \
+		-hfs-bless $(HAIKU_OUTPUT_DIR)/cd/boot -part -no-desktop \
+		-hfs-parms MAX_XTCSIZE=2656248 -hfs-volid Haiku \
+		--chrp-boot -r -J -o $(<) $(HAIKU_OUTPUT_DIR)/cd
+
 	$(RM) -r $(HAIKU_OUTPUT_DIR)/cd
 }
 
@@ -1628,7 +1632,28 @@ actions BuildCDBootPPCImage1 bind MAPS
 
 rule BuildEfiSystemPartition image : efiLoader
 {
+	local macVolumeIcon = [ FDirName
+		$(HAIKU_TOP) data artwork VolumeIcon.icns ] ;
+
 	Depends $(image) : $(efiLoader) ;
+	Depends $(image) : $(macVolumeIcon) ;
+
+	switch $(TARGET_ARCH) {
+		case x86_64 :
+			EFINAME on $(image) = "BOOTX64.EFI" ;
+		case arm :
+			EFINAME on $(image) = "BOOTARM.EFI" ;
+		case arm64 :
+			EFINAME on $(image) = "BOOTAA64.EFI" ;
+		case riscv32 :
+			EFINAME on $(image) = "BOOTRISCV32.EFI" ;
+		case riscv64 :
+			EFINAME on $(image) = "BOOTRISCV64.EFI" ;
+		case * :
+			Exit "Error: Unknown EFI architecture!" ;
+	}
+
+	EFIICON on $(image) = $(macVolumeIcon) ;
 
 	BuildEfiSystemPartition1 $(image) : $(efiLoader) ;
 }
@@ -1637,8 +1662,9 @@ actions BuildEfiSystemPartition1
 {
 	$(RM) $(<)
 	dd if=/dev/zero of=$(<) bs=1024 count=2880
-	mformat -i $(<) -n 36 -h 2 -t 80
+	mformat -i $(<) -f 2880
 	mmd -D s -i $(<) ::/EFI
 	mmd -D s -i $(<) ::/EFI/BOOT
-	mcopy -D o -i $(<) $(>) ::/EFI/BOOT/BOOTX64.EFI
+	mcopy -D o -i $(<) $(EFIICON) ::/.VolumeIcon.icns
+	mcopy -D o -i $(<) $(>) ::/EFI/BOOT/$(EFINAME)
 }

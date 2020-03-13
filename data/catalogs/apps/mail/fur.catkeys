@@ -1,4 +1,4 @@
-1	friulian	x-vnd.Be-MAIL	500866093
+1	friulian	x-vnd.Be-MAIL	1477453861
 Set to Saved	Mail		Met come Salvât
 Your main text contains %ld unencodable characters. Perhaps a different character set would work better? Hit Send to send it anyway (a substitute character will be used in place of the unencodable ones), or choose Cancel to go back and try fixing it up.	Mail		Il to test principâl al conten %ld caratars che no si puedin codificâ. Podaressial lâ ben forsit un complès di caratars diferents? Frache Invie par inviâlu distès (un caratar sostitutîf al vignarà doprât al puest di chei no codificabii), o sielç Anule par tornâ indaûr e justâ il test.
 Text wrapping:	Mail		Rie gnove automatiche:
@@ -6,12 +6,14 @@ Show icons & labels	Mail		Mostre iconis e etichetis
 (Date unavailable)	Mail		(Date no disponibile)
 Reply	Mail		Rispuint
 Next message	Mail		Messaç sucessîf
+Mailing	Mail		Spedizion pueste
 Unread	Mail		No let
 Same sender	Mail		Stes mitent
 Copy to new	Mail		Copie su gnûf
 Save as draft	Mail		Salve come stampon
 Encoding:	Mail		Codifiche:
 Print	Mail		Stampe
+Decrease quote level	Mail		Diminuìs nivel di citazion
 Encoding	Mail		Codifiche
 Default account:	Mail		Account predefinît:
 Message	Mail		Messaç
@@ -20,6 +22,7 @@ New	Mail		Gnûf
 Save	Mail		Salve
 Undo	Mail		Disfe
 Button bar:	Mail		Sbare dai botons:
+%e wrote:\\n	Mail		%e e/al à scrit:\\n
 Save changes to this signature?	Mail		Salve lis modifichis a cheste firme?
 Save attachment…	Mail		Salve zonte…
 Paste	Mail		Tache
@@ -57,7 +60,6 @@ Reply to sender	Mail		Rispuint al mitent
 Copy	Mail		Copie
 Add signature	Mail		Zonte firme
 %n - Full name	Mail		%n - Non complet
-Remove quote	Mail		Gjave citazion
 Signature	Mail		Firme
 Use default account	Mail		Dopre l'account predefinît
 draft	B_USER_DIRECTORY/mail/draft		stampon
@@ -149,7 +151,6 @@ New mail message	Mail		Gnûf messaç di pueste
 An error occurred trying to open this signature.	Mail		Si è verificât un erôr cirint di vierzi cheste firme.
 Edit signatures…	Mail		Modifiche firme…
 User interface	Mail		Interface utent
-Quote	Mail		Cite
 Inconsistency occurred in the undo/redo buffer.	Mail		Si è verificade une incoerence intal buffer 'disfe/torne fâs'.
 Remove attachment	Mail		Gjave zonte
 Set to…	Mail		Met a…
@@ -161,3 +162,8 @@ Send message	Mail		Invie messaç
 Delete	Mail		Elimine
 Put your favorite e-mail queries and query templates in this folder.	Mail		Met lis tôs interogazions di e-mail preferidis e i modei di interogazion in cheste cartele.
 Spam	Mail		Malvolude
+Couldn't open this signature. Sorry.	Mail		Impussibil vierzi cheste firme. Scuse.
+Revert	Mail		Torne indaûr
+Unknown	Mail		No cognossût
+Increase quote level	Mail		Aumente nivel di citazion
+Add enclosure…	Mail		Inserìs alegât…

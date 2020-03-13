@@ -12,10 +12,20 @@
 #include "AttributeIterator.h"
 #include "btrfs.h"
 #include "btrfs_disk_system.h"
-#include "DebugSupport.h"
 #include "DirectoryIterator.h"
 #include "Inode.h"
+#include "system_dependencies.h"
 #include "Utility.h"
+
+
+#ifdef FS_SHELL
+#define ERROR(x...) TRACE(x)
+#define INFORM(x...) TRACE(x)
+#define init_debugging()
+#define exit_debugging()
+#else
+#include <DebugSupport.h>
+#endif
 
 
 //#define TRACE_BTRFS
@@ -483,6 +493,51 @@ btrfs_read_link(fs_volume* _volume, fs_vnode* _node, char* buffer,
 }
 
 
+status_t
+btrfs_unlink(fs_volume* _volume, fs_vnode* _directory, const char* name)
+{
+	if (!strcmp(name, "..") || !strcmp(name, "."))
+		return B_NOT_ALLOWED;
+
+	Volume* volume = (Volume*)_volume->private_volume;
+	Inode* directory = (Inode*)_directory->private_node;
+
+	status_t status = directory->CheckPermissions(W_OK);
+	if (status < B_OK)
+		return status;
+
+	Transaction transaction(volume);
+	BTree::Path path(volume->FSTree());
+
+	ino_t id;
+	status = DirectoryIterator(directory).Lookup(name, strlen(name), &id);
+	if (status != B_OK)
+		return status;
+
+	Inode inode(volume, id);
+	status = inode.InitCheck();
+	if (status != B_OK)
+		return status;
+
+	status = inode.Remove(transaction, &path);
+	if (status != B_OK)
+		return status;
+	status = inode.Dereference(transaction, &path, directory->ID(), name);
+	if (status != B_OK)
+		return status;
+
+	entry_cache_remove(volume->ID(), directory->ID(), name);
+
+	status = transaction.Done();
+	if (status == B_OK)
+		notify_entry_removed(volume->ID(), directory->ID(), name, id);
+	else
+		entry_cache_add(volume->ID(), directory->ID(), name, id);
+
+	return status;
+}
+
+
 //	#pragma mark - Directory functions
 
 
@@ -883,7 +938,7 @@ btrfs_initialize(int fd, partition_id partitionID, const char* name,
 	if (parameters.verbose) {
 		btrfs_super_block super = volume.SuperBlock();
 
-		INFORM(("Disk was initialized successfully.\n"));
+		INFORM("Disk was initialized successfully.\n");
 		INFORM("\tlabel: \"%s\"\n", super.label);
 		INFORM("\tblock size: %u bytes\n", (unsigned)super.BlockSize());
 		INFORM("\tsector size: %u bytes\n", (unsigned)super.SectorSize());
@@ -949,7 +1004,8 @@ fs_volume_ops gBtrfsVolumeOps = {
 fs_vnode_ops gBtrfsVnodeOps = {
 	/* vnode operations */
 	&btrfs_lookup,
-	NULL,
+	NULL, // btrfs_get_vnode_name - optional, and we can't do better than the
+		// fallback implementation, so leave as NULL.
 	&btrfs_put_vnode,
 	NULL,	// btrfs_remove_vnode,
 
@@ -973,7 +1029,7 @@ fs_vnode_ops gBtrfsVnodeOps = {
 	NULL,	// fs_create_symlink,
 
 	NULL,	// fs_link,
-	NULL,	// fs_unlink,
+	&btrfs_unlink,
 	NULL,	// fs_rename,
 
 	&btrfs_access,

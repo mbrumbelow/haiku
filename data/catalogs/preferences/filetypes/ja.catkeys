@@ -1,5 +1,6 @@
-1	japanese	x-vnd.Haiku-FileTypes	734679611
+1	japanese	x-vnd.Haiku-FileTypes	436017301
 Left	Attribute Window	Attribute column alignment in Tracker	左揃え
+Float	Attribute ListView		浮動小数点数
 Final	Application Types Window		リリース版
 FileTypes request	FileTypes Window		ファイルタイプの登録
 This file type already exists	New File Type Window		このファイルタイプはすでに存在します。
@@ -13,7 +14,7 @@ Select same preferred application as	FileTypes Window		このタイプと同じ�
 Could not change attributes	Attribute Window		属性を変更できません
 Icon	FileTypes Window		アイコン
 Add…	Application Type Window		追加…
-Attribute name:	Attribute Window		属性の名前:
+Attribute name:	Attribute Window		属性名:
 Long description:	Application Type Window		詳細説明:
 Cancel	Preferred App Menu		中止
 Remove	FileTypes Window		削除
@@ -31,6 +32,7 @@ Signature:	Application Types Window		署名:
 None	FileTypes Window		無し
 Exclusive launch	Application Type Window		排他的起動
 Removing a file type cannot be reverted.\nAre you sure you want to remove it?	FileTypes Window		ファイルタイプの削除は撤回できません。\nそれでも削除を実行しますか?
+Integer 64 bit	Attribute ListView		64 ビット整数
 Cancel	New File Type Window		中止
 Select same preferred application as	FileType Window		このタイプと同じ優先アプリケーションを選ぶ
 Cancel	Type List Window		中止
@@ -38,15 +40,18 @@ Don't save	Application Type Window		保存しない
 Center	Attribute Window	Attribute column alignment in Tracker	中央揃え
 Done	Extension Window		完了
 Development	Application Types Window		開発
+Same as…	FileType Window	The same APPLICATION as ...	このアプリケーションと同様…
 Abort	Application Types Window		中断
 Save	Application Type Window		保存
-Same as…	FileType Window	The same APPLICATION as ...	このアプリケーションと同様…
 %1 application type	Application Type Window		%1のアプリケーションタイプ
 Icon	Application Type Window		アイコン
+Duration	Attribute ListView		期間
 Version:	Application Type Window		バージョン:
 Default application	FileType Window		デフォルトアプリケーション
 Internal name:	New File Type Window		内部名:
+Integer 8 bit	Attribute ListView		8 ビット整数
 Extension:	Extension Window		拡張子:
+Time	Attribute ListView		時間
 Extensions:	FileTypes Window		拡張子:
 Select preferred application	FileType Window		優先アプリケーションを選択する
 Description:	FileTypes Window		説明:
@@ -62,10 +67,12 @@ Done	Attribute Window		完了
 FileTypes request	FileTypes		ファイルタイプの登録
 Select same type as	FileType Window		このアプリケーションと同じタイプを選ぶ
 Version:	Application Types Window		バージョン:
-Application types	Application Types Window		アプリケーションタイプ
 (from application)	FileTypes Window		(アプリケーションから)
+Application types	Application Types Window		アプリケーションタイプ
 Description:	Application Types Window		説明:
 Name:	Application Types Window		名前:
+Rating	Attribute ListView		評価
+duration	Attribute ListView		期間
 File could not be opened	Preferred App Menu		ファイルを開けませんでした
 Args only	Application Type Window		引数のみ
 Could not open \"%s\":\n%s	FileTypes		\"%s\" が開けません:\n%s
@@ -83,16 +90,21 @@ Type name:	FileTypes Window		タイプ名:
 Visible	Attribute Window		表示する
 Select preferred application	FileTypes Window		優先アプリケーションを選択する
 Path:	Application Types Window		パス:
+rating	Attribute ListView		評価
 Could not install file type	New File Type Window		ファイルタイプをインストールできませんでした
 Same as…	FileTypes Window		このタイプと同様…
 Golden master	Application Type Window		ゴールデンマスター
+Checkbox	Attribute ListView		チェックボックス
 FileTypes request	Preferred App Menu		ファイルタイプの登録
-Single launch	Application Type Window		複数同時起動不可
 no icon	FileTypes Window		アイコン無し
+Single launch	Application Type Window		複数同時起動不可
 %s file type	FileType Window		%sのファイルタイプ
+Default	Attribute ListView		デフォルト
 Removing a super type cannot be reverted.\nAll file types that belong to this super type will be lost!\n\nAre you sure you want to do this? To remove the whole group, hold down the Shift key and press \"Remove\".	FileTypes Window		スーパータイプの削除は取り消せません。\n削除されるスーパータイプに属するファイルタイプはすべて削除されます！\n\nそれでも削除を実行しますか?グループ全体を削除するには、シフトキーを押しながら\"削除\"を押してください。
+String	Attribute ListView		文字列
 Add type	New File Type Window		タイプの追加
 Remove icon	Icon View		アイコンを削除
+Boolean	Attribute ListView		真偽値
 Cancel	Extension Window		中止
 Alignment:	Attribute Window		配置:
 Icon	FileType Window		アイコン
@@ -101,6 +113,7 @@ Development	Application Type Window		開発
 Golden master	Application Types Window		ゴールデンマスター
 Add	Extension Window		追加
 Open…	FileTypes Window		開く…
+checkbox	Attribute ListView		チェックボックス
 Could not change file extensions	Extension Window		ファイル拡張子の変更はできませんでした
 Could not open file	FileType Window		ファイルを開けません
 Choose type	Type List Window		タイプを選択
@@ -110,7 +123,7 @@ Application types…	FileTypes Window		アプリケーションタイプ…
 Add icon…	Icon View		アイコンを追加…
 Cancel	FileTypes Window		中止
 Save into resource file…	Application Type Window		リソースファイルに保存…
-Special:	Attribute Window		特別:
+Special:	Attribute Window		スペシャル:
 Type:	Attribute Window		タイプ:
 Could not retrieve application signature	Preferred App Menu		アプリケーションの署名を読みだせませんでした。
 Beta	Application Types Window		ベータ版
@@ -118,14 +131,15 @@ Add group	New File Type Window		グループを追加
 Cancel	Attribute Window		中止
 Gamma	Application Types Window		ガンマ版
 Supported types	Application Type Window		対応しているタイプ
+Integer 32 bit	Attribute ListView		32 ビット整数
 Beta	Application Type Window		ベータ版
 Could not retrieve preferred application of this file	Preferred App Menu		このファイルの優先アプリケーションを検索できませんでした。
 Application flags	Application Type Window		アプリケーションフラグ
 OK	FileTypes		OK
 Group name:	New File Type Window		グループ名:
 Move up	FileTypes Window		上へ移動
-Add	Attribute Window		追加
 File	FileTypes Window		ファイル
+Add	Attribute Window		追加
 Open file	FileTypes		ファイルを開く
 Version info	Application Type Window		バージョン情報
 Final	Application Type Window		リリース版
@@ -142,16 +156,18 @@ Extra attributes	FileTypes Window		拡張属性
 Group:	New File Type Window		グループ:
 Alpha	Application Types Window		アルファ版
 Close	Application Type Window		閉じる
+Integer 16 bit	Attribute ListView		16 ビット整数
 Extension	Extension Window		拡張子
 Rule:	FileTypes Window		ルール:
 FileTypes	System name		FileTypes
 Version	Application Types Window		バージョン
 Quit	FileTypes Window		終了
 File type	FileType Window		ファイルタイプ
-Internal name:	FileTypes Window		内部的な名前:
+Internal name:	FileTypes Window		内部名:
 Add…	FileTypes Window		追加…
 Edit icon…	Icon View		アイコンの編集…
 Internal name:	Attribute Window		内部名:
 Show recognition rule	FileTypes Window		認識ルールを表示
+Double	Attribute ListView		倍精度浮動小数点数
 Move down	FileTypes Window		下へ移動
 Alpha	Application Type Window		アルファ版

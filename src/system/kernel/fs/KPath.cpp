@@ -438,7 +438,7 @@ KPath::_AllocateBuffer()
 		return B_NO_MEMORY;
 	}
 
-	fBuffer[0] = '\0';
+	memset(fBuffer, 0, fBufferSize);
 	fFailed = false;
 	return B_OK;
 }

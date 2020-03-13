@@ -1,9 +1,6 @@
 /*
  * Copyright 2004-2005, Axel Dörfler, axeld@pinc-software.de. All rights reserved.
  * Distributed under the terms of the MIT License.
- *
- * calculate_cpu_conversion_factor() was written by Travis Geiselbrecht and
- * licensed under the NewOS license.
  */
 
 
@@ -27,17 +24,6 @@
 #else
 #	define TRACE(x) ;
 #endif
-
-
-extern "C" void
-spin(bigtime_t microseconds)
-{
-	#warning U-Boot:TODO!!
-	// TODO: use API if available
-
-	// fallback to arch-specific code
-	arch_spin(microseconds);
-}
 
 
 extern "C" void

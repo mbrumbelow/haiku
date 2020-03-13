@@ -3,8 +3,10 @@
  * Distributed under the terms of the MIT License.
  */
 
+
 #include "DebugWindow.h"
 
+#include <algorithm>
 #include <stdio.h>
 
 #include <Button.h>
@@ -26,7 +28,7 @@ DebugWindow::DebugWindow(const char* appName)
 	:
 	BWindow(BRect(0, 0, 100, 50), "Crashed program", B_MODAL_WINDOW,
 		B_CLOSE_ON_ESCAPE | B_NOT_RESIZABLE | B_AUTO_UPDATE_SIZE_LIMITS),
-	fBitmap(BRect(0, 0, 31, 31), B_RGBA32),
+	fBitmap(IconSize(), B_RGBA32),
 	fSemaphore(create_sem(0, "DebugWindow")),
 	fAction(kActionKillTeam)
 {
@@ -38,11 +40,9 @@ DebugWindow::DebugWindow(const char* appName)
 
 	BResources resources;
 	resources.SetToImage(B_TRANSLATION_CONTEXT);
-	printf("init %s\n", strerror(resources.InitCheck()));
 	size_t size;
 	const uint8* iconData = (const uint8*)resources.LoadResource('VICN', 2,
 		&size);
-	printf("icon %p\n", iconData);
 	BIconUtils::GetVectorIcon(iconData, size, &fBitmap);
 	BStripeView *stripeView = new BStripeView(fBitmap);
 
@@ -55,7 +55,10 @@ DebugWindow::DebugWindow(const char* appName)
 	message->SetWordWrap(true);
 	message->SetText(buffer);
 	message->SetExplicitMaxSize(BSize(B_SIZE_UNSET, B_SIZE_UNSET));
-	message->SetExplicitMinSize(BSize(310, B_SIZE_UNSET));
+	float width = message->StringWidth(appName)
+		+ message->StringWidth(" ") * 12;
+	width = std::max(width, message->StringWidth("W") * 30);
+	message->SetExplicitMinSize(BSize(width, B_SIZE_UNSET));
 
 	BRadioButton *terminate = new BRadioButton("terminate",
 		B_TRANSLATE("Terminate"), new BMessage(kActionKillTeam));
@@ -68,8 +71,9 @@ DebugWindow::DebugWindow(const char* appName)
 	BRadioButton *core = new BRadioButton("core",
 		B_TRANSLATE("Write core file"), new BMessage(kActionWriteCoreFile));
 
-	BButton *close = new BButton("close", B_TRANSLATE("Oh no!"),
+	fOKButton = new BButton("close", B_TRANSLATE("Oh no!"),
 		new BMessage(B_QUIT_REQUESTED));
+	fOKButton->MakeDefault(true);
 
 	terminate->SetValue(B_CONTROL_ON);
 
@@ -87,7 +91,7 @@ DebugWindow::DebugWindow(const char* appName)
 				.End()
 				.AddGroup(B_HORIZONTAL)
 					.AddGlue()
-					.Add(close)
+					.Add(fOKButton)
 				.End()
 			.End()
 		.End();
@@ -116,6 +120,8 @@ DebugWindow::MessageReceived(BMessage* message)
 		case kActionWriteCoreFile:
 		case kActionSaveReportTeam:
 			fAction = message->what;
+			fOKButton->SetLabel(fAction == kActionDebugTeam
+				? B_TRANSLATE("Oh yeah!") : B_TRANSLATE("Oh no!"));
 			return;
 	}
 
@@ -134,3 +140,10 @@ DebugWindow::Go()
 }
 
 
+BRect
+DebugWindow::IconSize()
+{
+	int32 size = std::max((int32)1, ((int32)be_plain_font->Size() + 15) / 16)
+		* 32 - 1;
+	return BRect(0, 0, size, size);
+}

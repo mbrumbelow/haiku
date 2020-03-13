@@ -16,7 +16,6 @@
 #include <CardLayout.h>
 #include <Catalog.h>
 #include <ColumnListView.h>
-#include <DateFormat.h>
 #include <Font.h>
 #include <GridView.h>
 #include <LayoutBuilder.h>
@@ -39,6 +38,7 @@
 #include "BitmapView.h"
 #include "LinkView.h"
 #include "LinkedBitmapView.h"
+#include "LocaleUtils.h"
 #include "MarkupTextView.h"
 #include "MessagePackageListener.h"
 #include "PackageActionHandler.h"
@@ -401,9 +401,7 @@ public:
 		} else
 			fPublisherView->SetText(publisher);
 
-		BString version = B_TRANSLATE("%Version%");
-		version.ReplaceAll("%Version%", package.Version().ToString());
-		fVersionInfo->SetText(version);
+		fVersionInfo->SetText(package.Version().ToString());
 
 		RatingSummary ratingSummary = package.CalculateRatingSummary();
 
@@ -899,11 +897,9 @@ public:
 		}
 
 		{
-			BDateFormat dateFormat;
-			BString createTimestampPresentation;
-
-			dateFormat.Format(createTimestampPresentation,
-				rating.CreateTimestamp().Date(), B_MEDIUM_DATE_FORMAT);
+			BString createTimestampPresentation =
+				LocaleUtils::TimestampToDateTimeString(
+					rating.CreateTimestamp());
 
 			BString ratingContextDescription(
 				B_TRANSLATE("%hd.timestamp% (version %hd.version%)"));

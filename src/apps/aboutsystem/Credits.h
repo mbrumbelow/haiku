@@ -1,5 +1,5 @@
 /*
- * Copyright 2005-2014, Haiku, Inc.
+ * Copyright 2005-2020, Haiku, Inc.
  * Distributed under the terms of the MIT license.
  *
  * Authors:
@@ -37,11 +37,9 @@ static const Translation kTranslations[] = {
 		"cssvb94\n"
 		"naydef\n"
 	},
-#if 0
 	{ "ca",
 		"Paco Rivière\n"
 	},
-#endif
 	{ "zh",
 		"Dong Guangyu\n"
 		"Pengfei Han (kurain)\n"
@@ -125,6 +123,9 @@ static const Translation kTranslations[] = {
 		"roptat\n"
 		"Starchaser\n"
 		"Wabouz\n"
+	},
+	{ "fur",
+		"Fabio Tomat\n"
 	},
 	{ "de",
 		"Atalanttore\n"
@@ -241,13 +242,16 @@ static const Translation kTranslations[] = {
 	{ "pt",
 		"Marcos Alves (Xeon3D)\n"
 		"Vasco Costa (gluon)\n"
+		"Victor Domingos\n"
 		"Adriano Duarte\n"
 		"Louis de M.\n"
 		"pedrothegameroficialtm\n"
+		"zeru\n"
 		// "taos\n" bugfixes only, no actual translations
 	},
 	{ "pt_BR",
 		"Cabral Bandeira (beyraq)\n"
+		"Victor Domingos\n"
 		"Adriano A. Duarte (Sri_Dhryko)\n"
 		"Wallace Maia\n"
 		"Tiago Matos (tiagoms)\n"
@@ -345,7 +349,6 @@ static const Translation kTranslations[] = {
 		"Anders Trobäck\n"
 		"Victor Widell\n"
 	},
-#if 0
 	{ "tr",
 		"Hüseyin Aksu\n"
 		"Halil İbrahim Azak\n"
@@ -354,6 +357,7 @@ static const Translation kTranslations[] = {
 		"Enes Burhan Kuran\n"
 		"Ali Rıza Nazlı\n"
 		"Anıl Özbek\n"
+		"Emir Sarı\n"
 		"Sinan Talebi\n"
 		"csakirt\n"
 		"Hezarfen\n"
@@ -362,7 +366,6 @@ static const Translation kTranslations[] = {
 		"ocingiler\n"
 		"yakup\n"
 	},
-#endif
 	{ "uk",
 		"Pavlo Bvrda\n"
 		"Mariya Pilipchuk\n"
@@ -390,6 +393,7 @@ static const Translation kTranslations[] = {
 	"Fredrik Holmqvist\n" \
 	"Philippe Houdoin\n" \
 	"Kacper Kasper\n" \
+	"Ryan Leavengood\n" \
 	"Andrew Lindesay\n" \
 	"Michael Lotz\n" \
 	"Scott McCreary\n" \
@@ -428,7 +432,6 @@ static const Translation kTranslations[] = {
 	"Marcin Konicki\n" \
 	"Waldemar Kornewald\n" \
 	"Thomas Kurschel\n" \
-	"Ryan Leavengood\n" \
 	"Brecht Machiels\n" \
 	"Matt Madia\n" \
 	"David McPaul\n" \
@@ -457,6 +460,7 @@ static const Translation kTranslations[] = {
 	"\n"
 
 #define kContributors \
+	"Kyle Ambroff-Kao\n" \
 	"Andrea Anzani\n" \
 	"Sean Bartell\n" \
 	"Sambuddha Basu\n" \
@@ -465,6 +469,7 @@ static const Translation kTranslations[] = {
 	"Michael Bulash\n" \
 	"Bruce Cameron\n" \
 	"Jean-Loïc Charroud\n" \
+	"Ilya Chugin (X512)\n" \
 	"Greg Crain\n" \
 	"Michael Davidson\n" \
 	"David Dengg\n" \
@@ -499,6 +504,7 @@ static const Translation kTranslations[] = {
 	"Carwyn Jones\n" \
 	"Prasad Joshi\n" \
 	"Vasilis Kaoutsis\n" \
+	"Preetpal Kaur\n" \
 	"James Kim\n" \
 	"Shintaro Kinugawa\n" \
 	"Jan Klötzke\n" \

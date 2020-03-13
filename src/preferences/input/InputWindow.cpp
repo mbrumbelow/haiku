@@ -1,9 +1,10 @@
 /*
- * Copyright 2019, Haiku, Inc.
+ * Copyright 2019-2020, Haiku, Inc.
  * Distributed under the terms of the MIT License.
  *
- * Author:
+ * Authors:
  *		Preetpal Kaur <preetpalok123@gmail.com>
+ *		Adrien Destugues <pulkomandy@gmail.com>
  */
 
 
@@ -19,16 +20,16 @@
 #include <LayoutBuilder.h>
 #include <SplitView.h>
 #include <Screen.h>
-#include <TabView.h>
-#include <stdio.h>
 
+#include <private/input/InputServerTypes.h>
 
+#include "InputConstants.h"
+#include "InputDeviceView.h"
+#include "InputMouse.h"
+#include "InputTouchpadPref.h"
 #include "InputWindow.h"
 #include "MouseSettings.h"
-#include "InputMouse.h"
-#include "InputConstants.h"
 #include "SettingsView.h"
-#include "InputTouchpadPref.h"
 
 #undef B_TRANSLATION_CONTEXT
 #define B_TRANSLATION_CONTEXT "InputWindow"
@@ -40,13 +41,7 @@ InputWindow::InputWindow(BRect rect)
 		B_NOT_RESIZABLE | B_NOT_ZOOMABLE | B_ASYNCHRONOUS_CONTROLS
 		| B_AUTO_UPDATE_SIZE_LIMITS | B_QUIT_ON_WINDOW_CLOSE)
 {
-	fInputMouse = new InputMouse();
-	fTouchpadPrefView = new TouchpadPrefView(B_TRANSLATE("Touchpad"));
-	fDeviceListView = new DeviceListView(B_TRANSLATE("Device List"));
-
-	fCardView = new BCardView();
-	fCardView->AddChild(fInputMouse);
-	fCardView->AddChild(fTouchpadPrefView);
+	FindDevice();
 
 	BLayoutBuilder::Group<>(this, B_HORIZONTAL, 10)
 		.SetInsets(B_USE_WINDOW_SPACING)
@@ -59,13 +54,13 @@ InputWindow::InputWindow(BRect rect)
 void
 InputWindow::MessageReceived(BMessage* message)
 {
-	int32 name = message->GetInt32("index", 0);
-
 	switch (message->what) {
-
 		case ITEM_SELECTED:
 		{
-			fCardView->CardLayout()->SetVisibleItem(name);
+			int32 index = message->GetInt32("index", 0);
+			if (index >= 0)
+				fCardView->CardLayout()->SetVisibleItem(index);
+			break;
 		}
 		case kMsgMouseType:
 		case kMsgMouseMap:
@@ -78,7 +73,8 @@ InputWindow::MessageReceived(BMessage* message)
 		case kMsgDefaults:
 		case kMsgRevert:
 		{
-			PostMessage(message, fInputMouse);
+			PostMessage(message,
+				fCardView->CardLayout()->VisibleItem()->View());
 			break;
 		}
 		case SCROLL_AREA_CHANGED:
@@ -87,11 +83,117 @@ InputWindow::MessageReceived(BMessage* message)
 		case DEFAULT_SETTINGS:
 		case REVERT_SETTINGS:
 		{
-			PostMessage(message, fTouchpadPrefView);
+			PostMessage(message,
+				fCardView->CardLayout()->VisibleItem()->View());
 			break;
 		}
+		case kMsgSliderrepeatrate:
+		case kMsgSliderdelayrate:
+		{
+			PostMessage(message,
+				fCardView->CardLayout()->VisibleItem()->View());
+			break;
+		}
+
+		case IS_NOTIFY_DEVICE:
+		{
+			bool added = message->FindBool("added");
+			BString name = message->FindString("name");
+
+			if (added) {
+				BInputDevice* device = find_input_device(name);
+				if (device)
+					AddDevice(device);
+			} else {
+				for (int i = 0; i < fDeviceListView->fDeviceList->CountItems();
+					i++) {
+					BStringItem* item = dynamic_cast<BStringItem*>(
+						fDeviceListView->fDeviceList->ItemAt(i));
+					if (item->Text() == name) {
+						fDeviceListView->fDeviceList->RemoveItem(i);
+						BView* settings = fCardView->ChildAt(i);
+						fCardView->RemoveChild(settings);
+						delete settings;
+						break;
+					}
+				}
+			}
+
+			break;
+		}
+
 		default:
 			BWindow::MessageReceived(message);
 			break;
+	}
+}
+
+
+void
+InputWindow::Show()
+{
+	CenterOnScreen();
+	BWindow::Show();
+	status_t x = watch_input_devices(this, true);
+	puts(strerror(x));
+}
+
+
+void
+InputWindow::Hide()
+{
+	BWindow::Hide();
+	watch_input_devices(this, false);
+}
+
+
+status_t
+InputWindow::FindDevice()
+{
+	BList devList;
+	status_t status = get_input_devices(&devList);
+	if (status != B_OK)
+		return status;
+
+	int32 i = 0;
+
+	fDeviceListView = new DeviceListView(B_TRANSLATE("Device List"));
+	fCardView = new BCardView();
+
+	while (true) {
+		BInputDevice* dev = (BInputDevice*)devList.ItemAt(i);
+		if (dev == NULL) {
+			break;
+		}
+		i++;
+
+		AddDevice(dev);
+	}
+
+	return B_OK;
+}
+
+
+void
+InputWindow::AddDevice(BInputDevice* dev)
+{
+	BString name = dev->Name();
+
+	if (dev->Type() == B_POINTING_DEVICE
+		&& name.FindFirst("Touchpad") >= 0) {
+
+		TouchpadPrefView* view = new TouchpadPrefView(dev);
+		fCardView->AddChild(view);
+		fDeviceListView->fDeviceList->AddItem(new BStringItem(name));
+	} else if (dev->Type() == B_POINTING_DEVICE) {
+		InputMouse* view = new InputMouse(dev);
+		fCardView->AddChild(view);
+		fDeviceListView->fDeviceList->AddItem(new BStringItem(name));
+	} else if (dev->Type() == B_KEYBOARD_DEVICE) {
+		InputKeyboard* view = new InputKeyboard(dev);
+		fCardView->AddChild(view);
+		fDeviceListView->fDeviceList->AddItem(new BStringItem(name));
+	} else {
+		delete dev;
 	}
 }

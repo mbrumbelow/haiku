@@ -1,4 +1,4 @@
-1	french	x-vnd.Haiku-Keymap	2693024251
+1	french	x-vnd.Haiku-Keymap	824461838
 Key	Modifier keys window	As in a computer keyboard key	Touche
 Japanese	KeymapNames		Japonais
 US	KeymapNames		US
@@ -56,8 +56,8 @@ Irish	KeymapNames		Irlandais
 Remove	Keyboard Layout View		Supprimer
 Tilde trigger	Keymap window		Tilde
 Shift	Keyboard Layout View	Shift key	Majuscule
-Czech (Mac)	KeymapNames		Tchèque (Mac)
 Macedonian	KeymapNames		Macédonien
+Czech (Mac)	KeymapNames		Tchèque (Mac)
 Left command	Keyboard Layout View		Commande gauche
 Albanian	KeymapNames		Albanais
 (Current)	Keymap window		(Actif)
@@ -66,16 +66,16 @@ Esperanto	KeymapNames		Espéranto
 Belarusian	KeymapNames		Biélorusse
 Warning: left and right key roles do not match	Modifier keys window		Attention : les rôles des touches gauche et droite ne correspondent pas
 Circumflex trigger	Keymap window		Accent circonflexe
-Caps lock	Keyboard Layout View		Verr. maj.
+Caps lock	Keyboard Layout View		Verr. Maj.
 Left shift	Keyboard Layout View		Majuscule gauche
 Russian (Yawert)	KeymapNames		Russe (Yawert)
 Bulgarian (Cyrillic)	KeymapNames		Bulgare (cyrillique)
-Left control	Keyboard Layout View		Contrôle gauche
 Swedish	KeymapNames		Suédois
+Left control	Keyboard Layout View		Contrôle gauche
 CAPS	Keyboard Layout View	Very short for 'caps lock'	Maj.
 Role	Modifier keys window	As in the role of a modifier key	Rôle
-German	KeymapNames		Allemand
 Svorak	KeymapNames		Svorak
+German	KeymapNames		Allemand
 Swiss-German	KeymapNames		Suisse-Allemand
 Ctrl key	Modifier keys window	Label of key farthest from the spacebar, usually Ctrle.g. Strg for German keyboard	Touche contrôle
 Czech	KeymapNames		Tchèque
@@ -83,13 +83,15 @@ Russian (Udmurt, Komi, Mari)	KeymapNames		Russe (Udmurt, Komi, Mari)
 Control:	Modifier keys window	Control key role name	Contrôle :
 Disabled	Modifier keys window	Do nothing	Désactivé
 Select dead keys	Keymap window		Sélection des touches mortes
-Right shift	Keyboard Layout View		Majuscule droite
 Russian (Mac)	KeymapNames		Russe (Mac)
+Right shift	Keyboard Layout View		Majuscule droite
+ESC	Keyboard Layout View		Esc
 Belarusian (Latin)	KeymapNames		Biélorusse (Latin)
 Hebrew	KeymapNames		Hébreu
 Layout	Keymap window		Disposition
 Greek	KeymapNames		Grec
 Revert	Keymap window		Défaire
+CTRL	Keyboard Layout View	Very short for 'control'	Ctrl
 Grave trigger	Keymap window		Accent grave
 Menu	Keyboard Layout View	Menu key	Menu
 Faeroese	KeymapNames		Féroïen
@@ -98,6 +100,7 @@ Polish (Typewriter)	KeymapNames		Polonais (Machine à écrire)
 French (Mac)	KeymapNames		Français (Mac)
 User:	Keymap window		Utilisateur :
 Alt/Opt key	Modifier keys window	Label of Alt key (PC)/Option key (Mac)	Touche Alt/Option
+SHIFT	Keyboard Layout View		Maj
 Estonian	KeymapNames		Estonien
 Serbian (Latin)	KeymapNames		Serbe (Latin)
 French	KeymapNames		Français
@@ -113,8 +116,9 @@ Defaults	Keymap window		Valeurs par défaut
 ISO-9995	KeymapNames		ISO-9995
 System:	Keymap window		Système :
 Switch shortcut keys	Keymap window		Basculer les touches de raccourcis
-Belgian (comma)	KeymapNames		Belge (virgule)
 Right command	Keyboard Layout View		Commande droite
+NUM LOCK	Keyboard Layout View		Verr. Num.
+Belgian (comma)	KeymapNames		Belge (virgule)
 Norwegian	KeymapNames		Norvégien
 Font	Keymap window		Police
 Danish	KeymapNames		Danois

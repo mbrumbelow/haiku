@@ -7,8 +7,14 @@
 #  include <arch/x86_64/fenv.h>
 #elif defined(__arm__)
 #  include <arch/arm/fenv.h>
+#elif defined(__aarch64__)
+#  include <arch/arm64/fenv.h>
 #elif defined(__POWERPC__)
 #  include <arch/ppc/fenv.h>
+#elif defined(__riscv64__)
+#  include <arch/riscv64/fenv.h>
+#elif defined(__sparc__)
+#  include <arch/sparc64/fenv.h>
 #else
 #  error There is no fenv.h for this architecture!
 #endif

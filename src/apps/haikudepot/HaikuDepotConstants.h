@@ -6,25 +6,32 @@
 #define HAIKU_DEPOT_CONSTANTS_H
 
 enum {
-	MSG_MAIN_WINDOW_CLOSED		= 'mwcl',
-	MSG_PACKAGE_SELECTED		= 'pkgs',
-	MSG_PACKAGE_WORKER_BUSY		= 'pkwb',
-	MSG_PACKAGE_WORKER_IDLE		= 'pkwi',
-	MSG_ADD_VISIBLE_PACKAGES	= 'avpk',
-	MSG_UPDATE_SELECTED_PACKAGE	= 'uspk',
-	MSG_CLIENT_TOO_OLD			= 'oldc',
-	MSG_NETWORK_TRANSPORT_ERROR	= 'nett',
-	MSG_SERVER_ERROR			= 'svre',
-	MSG_SERVER_DATA_CHANGED		= 'svdc',
-	MSG_ALERT_SIMPLE_ERROR		= 'nser',
-	MSG_DID_ADD_USER_RATING		= 'adur',
-	MSG_DID_UPDATE_USER_RATING	= 'upur',
-	MSG_LANGUAGE_SELECTED		= 'lngs'
+	MSG_MAIN_WINDOW_CLOSED					= 'mwcl',
+	MSG_PACKAGE_SELECTED					= 'pkgs',
+	MSG_PACKAGE_WORKER_BUSY					= 'pkwb',
+	MSG_PACKAGE_WORKER_IDLE					= 'pkwi',
+	MSG_ADD_VISIBLE_PACKAGES				= 'avpk',
+	MSG_UPDATE_SELECTED_PACKAGE				= 'uspk',
+	MSG_CLIENT_TOO_OLD						= 'oldc',
+	MSG_NETWORK_TRANSPORT_ERROR				= 'nett',
+	MSG_SERVER_ERROR						= 'svre',
+	MSG_SERVER_DATA_CHANGED					= 'svdc',
+	MSG_ALERT_SIMPLE_ERROR					= 'nser',
+	MSG_DID_ADD_USER_RATING					= 'adur',
+	MSG_DID_UPDATE_USER_RATING				= 'upur',
+	MSG_LANGUAGE_SELECTED					= 'lngs',
+	MSG_VIEW_LATEST_USER_USAGE_CONDITIONS	= 'vluc',
+	MSG_VIEW_USERS_USER_USAGE_CONDITIONS	= 'vuuc',
+	MSG_USER_USAGE_CONDITIONS_DATA			= 'uucd',
+	MSG_USER_USAGE_CONDITIONS_ERROR			= 'uuce'
 };
 
 
 #define RATING_MISSING					-1.0f
 #define RATING_MIN						0.0f
+
+
+#define RGB_COLOR_WHITE						(rgb_color) { 255, 255, 255, 255 }
 
 
 #define HD_ERROR_BASE					(B_ERRORS_END + 1)
@@ -56,8 +63,22 @@ enum {
 };
 
 
+enum UserUsageConditionsSelectionMode {
+	LATEST		= 1,
+	USER		= 2,
+	FIXED		= 3
+		// means that the user usage conditions are supplied to the window.
+};
+
 #define LANGUAGE_DEFAULT_CODE "en"
 #define LANGUAGE_DEFAULT Language(LANGUAGE_DEFAULT_CODE, "English", true)
 
+
+#define PACKAGE_INFO_MAX_USER_RATINGS 250
+
+#define STR_MDASH "\xE2\x80\x94"
+
+#define ALERT_MSG_LOGS_USER_GUIDE "\nInformation about how to view the logs is " \
+	"available in the HaikuDepot section of the user guide."
 
 #endif // HAIKU_DEPOT_CONSTANTS_H

@@ -23,6 +23,7 @@
 #include <Alert.h>
 #include <Application.h>
 #include <AppFileInfo.h>
+#include <AutoLocker.h>
 #include <Beep.h>
 #include <Bitmap.h>
 #include <Catalog.h>
@@ -33,7 +34,6 @@
 #include <MenuItem.h>
 #include <Message.h>
 #include <MessageRunner.h>
-#include <PlaySound.h>
 #include <Point.h>
 #include <PopUpMenu.h>
 #include <Region.h>
@@ -78,22 +78,86 @@ static const float kMinimumHeightScientific	= 200.0f;
 static const float kMaximumHeightScientific	= 400.0f;
 
 // basic mode keypad layout (default)
-const char *kKeypadDescriptionBasic = B_TRANSLATE_MARK(
-	"7   8   9   (   )  \n"
-	"4   5   6   *   /  \n"
-	"1   2   3   +   -  \n"
-	"0   .   BS  =   C  \n");
+const char *kKeypadDescriptionBasic[] = {
+	B_TRANSLATE_MARK("7"),
+	B_TRANSLATE_MARK("8"),
+	B_TRANSLATE_MARK("9"),
+	B_TRANSLATE_MARK("("),
+	B_TRANSLATE_MARK(")"),
+	"\n",
+	B_TRANSLATE_MARK("4"),
+	B_TRANSLATE_MARK("5"),
+	B_TRANSLATE_MARK("6"),
+	B_TRANSLATE_MARK("*"),
+	B_TRANSLATE_MARK("/"),
+	"\n",
+	B_TRANSLATE_MARK("1"),
+	B_TRANSLATE_MARK("2"),
+	B_TRANSLATE_MARK("3"),
+	B_TRANSLATE_MARK("+"),
+	B_TRANSLATE_MARK("-"),
+	"\n",
+	B_TRANSLATE_MARK("0"),
+	B_TRANSLATE_MARK("."),
+	B_TRANSLATE_MARK("BS"),
+	B_TRANSLATE_MARK("="),
+	B_TRANSLATE_MARK("C"),
+	"\n",
+	NULL
+};
 
 // scientific mode keypad layout
-const char *kKeypadDescriptionScientific = B_TRANSLATE_MARK(
-	"ln    sin   cos   tan   π    \n"
-	"log   asin  acos  atan  sqrt \n"
-	"exp   sinh  cosh  tanh  cbrt \n"
-	"!     ceil  floor E     ^    \n"
-	"7     8     9     (     )    \n"
-	"4     5     6     *     /    \n"
-	"1     2     3     +     -    \n"
-	"0     .     BS    =     C    \n");
+const char *kKeypadDescriptionScientific[] = {
+	B_TRANSLATE_MARK("ln"),
+	B_TRANSLATE_MARK("sin"),
+	B_TRANSLATE_MARK("cos"),
+	B_TRANSLATE_MARK("tan"),
+	B_TRANSLATE_MARK("π"),
+	"\n",
+	B_TRANSLATE_MARK("log"),
+	B_TRANSLATE_MARK("asin"),
+	B_TRANSLATE_MARK("acos"),
+	B_TRANSLATE_MARK("atan"),
+	B_TRANSLATE_MARK("sqrt"),
+	"\n",
+	B_TRANSLATE_MARK("exp"),
+	B_TRANSLATE_MARK("sinh"),
+	B_TRANSLATE_MARK("cosh"),
+	B_TRANSLATE_MARK("tanh"),
+	B_TRANSLATE_MARK("cbrt"),
+	"\n",
+	B_TRANSLATE_MARK("!"),
+	B_TRANSLATE_MARK("ceil"),
+	B_TRANSLATE_MARK("floor"),
+	B_TRANSLATE_MARK("E"),
+	B_TRANSLATE_MARK("^"),
+	"\n",
+	B_TRANSLATE_MARK("7"),
+	B_TRANSLATE_MARK("8"),
+	B_TRANSLATE_MARK("9"),
+	B_TRANSLATE_MARK("("),
+	B_TRANSLATE_MARK(")"),
+	"\n",
+	B_TRANSLATE_MARK("4"),
+	B_TRANSLATE_MARK("5"),
+	B_TRANSLATE_MARK("6"),
+	B_TRANSLATE_MARK("*"),
+	B_TRANSLATE_MARK("/"),
+	"\n",
+	B_TRANSLATE_MARK("1"),
+	B_TRANSLATE_MARK("2"),
+	B_TRANSLATE_MARK("3"),
+	B_TRANSLATE_MARK("+"),
+	B_TRANSLATE_MARK("-"),
+	"\n",
+	B_TRANSLATE_MARK("0"),
+	B_TRANSLATE_MARK("."),
+	B_TRANSLATE_MARK("BS"),
+	B_TRANSLATE_MARK("="),
+	B_TRANSLATE_MARK("C"),
+	"\n",
+	NULL
+};
 
 
 enum {
@@ -109,6 +173,9 @@ struct CalcView::CalcKey {
 	uint32		flags;
 //	float		width;
 };
+
+
+typedef AutoLocker<BClipboard> ClipboardLocker;
 
 
 CalcView*
@@ -135,7 +202,7 @@ CalcView::CalcView(BRect frame, rgb_color rgbBaseColor, BMessage* settings)
 	fWidth(1),
 	fHeight(1),
 
-	fKeypadDescription(strdup(kKeypadDescriptionBasic)),
+	fKeypadDescription(kKeypadDescriptionBasic),
 	fKeypad(NULL),
 
 #ifdef __HAIKU__
@@ -146,7 +213,6 @@ CalcView::CalcView(BRect frame, rgb_color rgbBaseColor, BMessage* settings)
 
 	fPopUpMenu(NULL),
 	fAutoNumlockItem(NULL),
-	fAudioFeedbackItem(NULL),
 	fOptions(new CalcOptions()),
 	fEvaluateThread(-1),
 	fEvaluateMessageRunner(NULL),
@@ -174,7 +240,7 @@ CalcView::CalcView(BMessage* archive)
 	fWidth(1),
 	fHeight(1),
 
-	fKeypadDescription(strdup(kKeypadDescriptionBasic)),
+	fKeypadDescription(kKeypadDescriptionBasic),
 	fKeypad(NULL),
 
 #ifdef __HAIKU__
@@ -185,7 +251,6 @@ CalcView::CalcView(BMessage* archive)
 
 	fPopUpMenu(NULL),
 	fAutoNumlockItem(NULL),
-	fAudioFeedbackItem(NULL),
 	fOptions(new CalcOptions()),
 	fEvaluateThread(-1),
 	fEvaluateMessageRunner(NULL),
@@ -201,9 +266,8 @@ CalcView::CalcView(BMessage* archive)
 
 CalcView::~CalcView()
 {
-	delete fKeypad;
+	delete[] fKeypad;
 	delete fOptions;
-	free(fKeypadDescription);
 	delete fEvaluateMessageRunner;
 	delete_sem(fEvaluateSemaphore);
 }
@@ -253,10 +317,6 @@ CalcView::MessageReceived(BMessage* message)
 				ToggleAutoNumlock();
 				return;
 
-			case MSG_OPTIONS_AUDIO_FEEDBACK:
-				ToggleAudioFeedback();
-				return;
-
 			case MSG_OPTIONS_ANGLE_MODE_RADIAN:
 				SetDegreeMode(false);
 				return;
@@ -288,14 +348,16 @@ CalcView::MessageReceived(BMessage* message)
 
 			// handle paste
 			case B_PASTE:
+			{
 				// access system clipboard
-				if (be_clipboard->Lock()) {
+				ClipboardLocker locker(be_clipboard);
+				if (locker.IsLocked()) {
 					BMessage* clipper = be_clipboard->Data();
-					//clipper->PrintToStream();
-					Paste(clipper);
-					be_clipboard->Unlock();
+					if (clipper)
+						Paste(clipper);
 				}
 				break;
+			}
 
 			// (replicant) about box requested
 			case B_ABOUT_REQUESTED:
@@ -746,17 +808,22 @@ void
 CalcView::Copy()
 {
 	// access system clipboard
-	if (be_clipboard->Lock()) {
-		be_clipboard->Clear();
-		BMessage* clipper = be_clipboard->Data();
+	ClipboardLocker locker(be_clipboard);
+	if (!locker.IsLocked())
+		return;
+
+	if (be_clipboard->Clear() != B_OK)
+		return;
+
+	BMessage* clipper = be_clipboard->Data();
+	if (clipper == NULL)
+		return;
+
+	BString expression = fExpressionTextView->Text();
+	if (clipper->AddData("text/plain", B_MIME_TYPE,
+		expression.String(), expression.Length()) == B_OK) {
 		clipper->what = B_MIME_DATA;
-		// TODO: should check return for errors!
-		BString expression = fExpressionTextView->Text();
-		clipper->AddData("text/plain", B_MIME_TYPE,
-			expression.String(), expression.Length());
-		//clipper->PrintToStream();
 		be_clipboard->Commit();
-		be_clipboard->Unlock();
 	}
 }
 
@@ -866,7 +933,9 @@ CalcView::SaveSettings(BMessage* archive) const
 
 	// record calculator description
 	if (ret == B_OK)
-		ret = archive->AddString("calcDesc", fKeypadDescription);
+		ret = archive->AddString("calcDesc",
+			fKeypadDescription == kKeypadDescriptionBasic
+			? "basic" : "scientific");
 
 	return ret;
 }
@@ -888,7 +957,6 @@ CalcView::Evaluate()
 		return;
 	}
 
-	_AudioFeedback(false);
 	_SetEnabled(false);
 		// Disable input while we evaluate
 
@@ -927,14 +995,6 @@ CalcView::ToggleAutoNumlock(void)
 {
 	fOptions->auto_num_lock = !fOptions->auto_num_lock;
 	fAutoNumlockItem->SetMarked(fOptions->auto_num_lock);
-}
-
-
-void
-CalcView::ToggleAudioFeedback(void)
-{
-	fOptions->audio_feedback = !fOptions->audio_feedback;
-	fAudioFeedbackItem->SetMarked(fOptions->audio_feedback);
 }
 
 
@@ -982,8 +1042,7 @@ CalcView::SetKeypadMode(uint8 mode)
 
 		case KEYPAD_MODE_SCIENTIFIC:
 		{
-			free(fKeypadDescription);
-			fKeypadDescription = strdup(kKeypadDescriptionScientific);
+			fKeypadDescription = kKeypadDescriptionScientific;
 			fRows = 8;
 			_ParseCalcDesc(fKeypadDescription);
 
@@ -1012,8 +1071,7 @@ CalcView::SetKeypadMode(uint8 mode)
 		case KEYPAD_MODE_BASIC:
 		default:
 		{
-			free(fKeypadDescription);
-			fKeypadDescription = strdup(kKeypadDescriptionBasic);
+			fKeypadDescription = kKeypadDescriptionBasic;
 			fRows = 4;
 			_ParseCalcDesc(fKeypadDescription);
 
@@ -1061,7 +1119,7 @@ CalcView::_EvaluateThread(void* data)
 		BString expression(calcView->fExpressionTextView->Text());
 		try {
 			result = parser.Evaluate(expression.String());
-		} catch (ParseException e) {
+		} catch (ParseException& e) {
 			result << e.message.String() << " at " << (e.position + 1);
 			status = B_ERROR;
 		}
@@ -1101,13 +1159,12 @@ CalcView::_LoadSettings(BMessage* archive)
 		return B_BAD_VALUE;
 
 	// record calculator description
-	const char* calcDesc;
-	if (archive->FindString("calcDesc", &calcDesc) < B_OK)
-		calcDesc = kKeypadDescriptionBasic;
-
-	// save calculator description for reference
-	free(fKeypadDescription);
-	fKeypadDescription = strdup(calcDesc);
+	BString calcDesc;
+	archive->FindString("calcDesc", &calcDesc);
+	if (calcDesc == "scientific" || calcDesc.StartsWith("ln"))
+		fKeypadDescription = kKeypadDescriptionScientific;
+	else
+		fKeypadDescription = kKeypadDescriptionBasic;
 
 	// read grid dimensions
 	if (archive->FindInt16("cols", &fColumns) < B_OK)
@@ -1163,21 +1220,20 @@ CalcView::_LoadSettings(BMessage* archive)
 
 
 void
-CalcView::_ParseCalcDesc(const char* keypadDescription)
+CalcView::_ParseCalcDesc(const char** keypadDescription)
 {
 	// TODO: should calculate dimensions from desc here!
 	fKeypad = new CalcKey[fRows * fColumns];
 
 	// scan through calculator description and assemble keypad
 	CalcKey* key = fKeypad;
-	const char* p = keypadDescription;
+	for (int i = 0; const char* p = keypadDescription[i]; i++) {
+		// Move to next row as needed
+		if (strcmp(p, "\n") == 0)
+			continue;
 
-	while (*p != 0) {
 		// copy label
-		char* l = key->label;
-		while (!isspace(*p))
-			*l++ = *p++;
-		*l = '\0';
+		strlcpy(key->label, B_TRANSLATE_NOCOLLECT(p), sizeof(key->label));
 
 		// set code
 		if (strcmp(key->label, "=") == 0)
@@ -1198,8 +1254,6 @@ CalcView::_ParseCalcDesc(const char* keypadDescription)
 		fExpressionTextView->AddKeypadLabel(key->label);
 
 		// advance
-		while (isspace(*p))
-			++p;
 		key++;
 	}
 }
@@ -1272,8 +1326,6 @@ CalcView::_PressKey(int key)
 			fExpressionTextView->Insert(fKeypad[key].code);
 		}
 	}
-
-	_AudioFeedback(true);
 }
 
 
@@ -1321,22 +1373,6 @@ CalcView::_FlashKey(int32 key, uint32 flashFlags)
 
 
 void
-CalcView::_AudioFeedback(bool inBackGround)
-{
-	// TODO: Use beep events... This interface is not implemented on Haiku
-	// anyways...
-#if 0
-	if (fOptions->audio_feedback) {
-		BEntry zimp("key.AIFF");
-		entry_ref zimp_ref;
-		zimp.GetRef(&zimp_ref);
-		play_sound(&zimp_ref, true, false, inBackGround);
-	}
-#endif
-}
-
-
-void
 CalcView::_Colorize()
 {
 	// calculate light and dark color from base color
@@ -1370,8 +1406,6 @@ CalcView::_CreatePopUpMenu(bool addKeypadModeMenuItems)
 	// construct items
 	fAutoNumlockItem = new BMenuItem(B_TRANSLATE("Enable Num Lock on startup"),
 		new BMessage(MSG_OPTIONS_AUTO_NUM_LOCK));
-	fAudioFeedbackItem = new BMenuItem(B_TRANSLATE("Audio Feedback"),
-		new BMessage(MSG_OPTIONS_AUDIO_FEEDBACK));
 	fAngleModeRadianItem = new BMenuItem(B_TRANSLATE("Radians"),
 		new BMessage(MSG_OPTIONS_ANGLE_MODE_RADIAN));
 	fAngleModeDegreeItem = new BMenuItem(B_TRANSLATE("Degrees"),
@@ -1387,7 +1421,6 @@ CalcView::_CreatePopUpMenu(bool addKeypadModeMenuItems)
 
 	// apply current settings
 	fAutoNumlockItem->SetMarked(fOptions->auto_num_lock);
-	fAudioFeedbackItem->SetMarked(fOptions->audio_feedback);
 	fAngleModeRadianItem->SetMarked(!fOptions->degree_mode);
 	fAngleModeDegreeItem->SetMarked(fOptions->degree_mode);
 
@@ -1395,9 +1428,6 @@ CalcView::_CreatePopUpMenu(bool addKeypadModeMenuItems)
 	fPopUpMenu = new BPopUpMenu("pop-up", false, false);
 
 	fPopUpMenu->AddItem(fAutoNumlockItem);
-	// TODO: Enable this when we use beep events which can be configured
-	// in the Sounds preflet.
-	//fPopUpMenu->AddItem(fAudioFeedbackItem);
 	fPopUpMenu->AddSeparatorItem();
 	fPopUpMenu->AddItem(fAngleModeRadianItem);
 	fPopUpMenu->AddItem(fAngleModeDegreeItem);

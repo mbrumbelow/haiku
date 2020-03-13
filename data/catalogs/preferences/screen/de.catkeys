@@ -1,4 +1,4 @@
-1	german	x-vnd.Haiku-Screen	4090394050
+1	german	x-vnd.Haiku-Screen	133788249
 no	Screen		nein
 bits/pixel	Screen		Bits/Pixel
 15 bits/pixel, 32768 colors	Screen		15 Bits/Pixel, 32768 Farben
@@ -17,7 +17,8 @@ vertically	Screen		vertikal
 All workspaces	Screen		Alle Arbeitsflächen
 Use laptop panel:	Screen		Laptop-Panel verwenden:
 Could not write VESA mode settings file:\n\t	Screen		Die VESA-Modus-Datei konnte nicht gespeichert werden:\n\t
-Settings will revert in %seconds.	Screen		Die Einstellungen werden in %seconds Sekunden zurückgesetzt.
+Display info	Screen		Bildschirminfo
+Settings will revert in %seconds.	Screen		Die Einstellungen werden in %seconds zurückgesetzt.
 Cancel	Screen		Abbrechen
 Other…	Screen		Andere…
 Screen	Screen		Bildschirm
@@ -33,6 +34,7 @@ Warning	Screen		Warnung
 24 bits/pixel, 16 Million colors	Screen		24 Bits/Pixel, 16 Millionen Farben
 Hz	Screen		Hz
 Workspaces	Screen		Arbeitsflächen
+Brightness:	Screen		Helligkeit:
 32 bits/pixel, 16 Million colors	Screen		32 Bits/Pixel, 16 Millionen Farben
 Done	Screen		Fertig
 16 bits/pixel, 65536 colors	Screen		16 Bits/Pixel, 65535 Farben

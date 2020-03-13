@@ -76,8 +76,8 @@ public:
 									float* _height);
 	virtual void				ResizeToPreferred();
 	virtual	void				DoLayout();
-	virtual	void				FrameMoved(BPoint newPosition);
-	virtual	void				FrameResized(float newWidth, float newHeight);
+	virtual	void				FrameMoved(BPoint where);
+	virtual	void				FrameResized(float width, float height);
 
 			void				InvalidateLayout();
 
@@ -313,7 +313,7 @@ private:
 			bool				fStickyMode;
 			bool				fIgnoreHidden;
 			bool				fTriggerEnabled;
-			bool				fRedrawAfterSticky;
+			bool				fHasSubmenus;
 			bool				fAttachAborted;
 };
 
