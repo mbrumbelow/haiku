@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5fce4efd_4c090c0e",
+        "filename": "src/servers/app/DesktopSettings.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-13T12:27:45Z",
+      "side": 1,
+      "message": "Do these need to be in the settings? I think they should not be configurable, and be hardcoded in app_server?",
+      "revId": "4e819091f172b3023b5bb26eb9080bc93e8ae8c8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47b7d51d_97a35768",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3563,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-13T12:27:45Z",
+      "side": 1,
+      "message": "\"ancient Haiku\" is not BeOS. I think we never used that font even in old Haiku versions.",
+      "revId": "4e819091f172b3023b5bb26eb9080bc93e8ae8c8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
