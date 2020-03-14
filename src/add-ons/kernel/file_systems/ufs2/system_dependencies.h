@@ -12,9 +12,7 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-typedef unsigned char uuid_t[16];
 
-void uuid_generate(uuid_t out);	
 #ifdef __cplusplus
 }
 #endif
@@ -29,7 +27,6 @@ void uuid_generate(uuid_t out);
 #include <util/Stack.h>
 
 #include <ByteOrder.h>
-#include <uuid.h>
 
 #include <tracing.h>
 #include <driver_settings.h>
