@@ -1,4 +1,7 @@
-
+/*
+ * Copyright 2020 Suhel Mehta, mehtasuhel@gmail.com
+ * All rights reserved. Distributed under the terms of the MIT License.
+ */
 #ifndef _SYSTE_DEPENDENCIES_H
 #define _SYSTEM_DEPENDENCIES_H
 

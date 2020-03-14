@@ -1,3 +1,7 @@
+/*
+ * Copyright 2020 Suhel Mehta, mehtasuhel@gmail.com
+ * All rights reserved. Distributed under the terms of the MIT License.
+ */
 #include "system_dependencies.h"
 
 #ifdef TRACE_ufs2
@@ -513,7 +517,7 @@ static file_system_module_info sufs2FileSystem = {
 	},
 
 	"ufs2",			   // short_name
-	"ufs2 File System", // pretty_name
+	"Unix Filesystem 2", // pretty_name
 
 	// DDM flags
 	0| B_DISK_SYSTEM_SUPPORTS_INITIALIZING |B_DISK_SYSTEM_SUPPORTS_CONTENT_NAME
