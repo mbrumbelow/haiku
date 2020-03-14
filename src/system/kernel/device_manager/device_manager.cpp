@@ -893,6 +893,162 @@ get_next_attr(device_node* node, device_attr** _attr)
 }
 
 
+static status_t
+set_attr_uint8(device_node* node, const char* name,
+	uint8 value)
+{
+	if (node == NULL || name == NULL)
+		return B_BAD_VALUE;
+
+	device_attr_private* attr = find_attr(node, name, false, B_UINT8_TYPE);
+	if (attr == NULL) {
+		device_attr _attr = {name, B_UINT8_TYPE, {ui8: value}};
+		attr = new(std::nothrow) device_attr_private(_attr);
+		if (attr == NULL)
+			return B_NO_MEMORY;
+		if (attr->InitCheck() != B_OK) {
+			delete attr;
+			return B_NO_MEMORY;
+		}
+		node->Attributes().Add(attr);
+	} else
+		attr->value.ui8 = value;
+	return B_OK;
+}
+
+
+static status_t
+set_attr_uint16(device_node* node, const char* name,
+	uint16 value)
+{
+	if (node == NULL || name == NULL)
+		return B_BAD_VALUE;
+
+	device_attr_private* attr = find_attr(node, name, false, B_UINT16_TYPE);
+	if (attr == NULL) {
+		device_attr _attr = {name, B_UINT16_TYPE, {ui16: value}};
+		attr = new(std::nothrow) device_attr_private(_attr);
+		if (attr == NULL)
+			return B_NO_MEMORY;
+		if (attr->InitCheck() != B_OK) {
+			delete attr;
+			return B_NO_MEMORY;
+		}
+		node->Attributes().Add(attr);
+	} else
+		attr->value.ui16 = value;
+	return B_OK;
+}
+
+
+static status_t
+set_attr_uint32(device_node* node, const char* name,
+	uint32 value)
+{
+	if (node == NULL || name == NULL)
+		return B_BAD_VALUE;
+
+	device_attr_private* attr = find_attr(node, name, false, B_UINT32_TYPE);
+	if (attr == NULL) {
+		device_attr _attr = {name, B_UINT32_TYPE, {ui32: value}};
+		attr = new(std::nothrow) device_attr_private(_attr);
+		if (attr == NULL)
+			return B_NO_MEMORY;
+		if (attr->InitCheck() != B_OK) {
+			delete attr;
+			return B_NO_MEMORY;
+		}
+		node->Attributes().Add(attr);
+	} else
+		attr->value.ui32 = value;
+	return B_OK;
+}
+
+
+static status_t
+set_attr_uint64(device_node* node, const char* name,
+	uint64 value)
+{
+	if (node == NULL || name == NULL)
+		return B_BAD_VALUE;
+
+	device_attr_private* attr = find_attr(node, name, false, B_UINT64_TYPE);
+	if (attr == NULL) {
+		device_attr _attr = {name, B_UINT64_TYPE, {ui64: value}};
+		attr = new(std::nothrow) device_attr_private(_attr);
+		if (attr == NULL)
+			return B_NO_MEMORY;
+		if (attr->InitCheck() != B_OK) {
+			delete attr;
+			return B_NO_MEMORY;
+		}
+		node->Attributes().Add(attr);
+	} else
+		attr->value.ui64 = value;
+	return B_OK;
+}
+
+
+static status_t
+set_attr_string(device_node* node, const char* name,
+	const char* value)
+{
+	if (node == NULL || name == NULL)
+		return B_BAD_VALUE;
+
+	device_attr_private* attr = find_attr(node, name, false, B_STRING_TYPE);
+	if (attr == NULL) {
+		device_attr _attr = {name, B_STRING_TYPE, {string: value}};
+		attr = new(std::nothrow) device_attr_private(_attr);
+		if (attr == NULL)
+			return B_NO_MEMORY;
+		if (attr->InitCheck() != B_OK) {
+			delete attr;
+			return B_NO_MEMORY;
+		}
+		node->Attributes().Add(attr);
+	} else {
+		char* string = strdup(value);
+		if (string == NULL)
+			return B_NO_MEMORY;
+		free((char*)attr->value.string);
+		attr->value.string = strdup(value);
+	}
+	return B_OK;
+}
+
+
+static status_t
+set_attr_raw(device_node* node, const char* name,
+	const void* data, size_t length)
+{
+	if (node == NULL || name == NULL)
+		return B_BAD_VALUE;
+
+	device_attr_private* attr = find_attr(node, name, false, B_RAW_TYPE);
+	if (attr == NULL) {
+		device_attr _attr = {name, B_RAW_TYPE, {raw: {data, length}}};
+		attr = new(std::nothrow) device_attr_private(_attr);
+		if (attr == NULL)
+			return B_NO_MEMORY;
+		if (attr->InitCheck() != B_OK) {
+			delete attr;
+			return B_NO_MEMORY;
+		}
+		node->Attributes().Add(attr);
+	} else {
+		void* data = malloc(length);
+		if (data == NULL)
+			return B_NO_MEMORY;
+		free((void*)attr->value.raw.data);
+		attr->value.raw.data = data;
+		attr->value.raw.length = length;
+		memcpy((void*)attr->value.raw.data, data, length);
+	}
+	return B_OK;
+}
+
+
 struct device_manager_info gDeviceManagerModule = {
 	{
 		B_DEVICE_MANAGER_MODULE_NAME,
@@ -928,6 +1084,12 @@ struct device_manager_info gDeviceManagerModule = {
 	get_attr_string,
 	get_attr_raw,
 	get_next_attr,
+	set_attr_uint8,
+	set_attr_uint16,
+	set_attr_uint32,
+	set_attr_uint64,
+	set_attr_string,
+	set_attr_raw,
 };
 
 
