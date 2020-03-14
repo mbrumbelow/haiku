@@ -592,20 +592,16 @@ PackageWriterImpl::Finish()
 				_UpdateReadPackageInfo();
 		}
 
-		if (fPackageInfo.InitCheck() != B_OK) {
-			fListener->PrintError("No package-info file found (%s)!\n",
-				B_HPKG_PACKAGE_INFO_FILE_NAME);
-			return B_BAD_DATA;
-		}
+		if (fPackageInfo.InitCheck() == B_OK) {
+			fPackageInfo.SetInstallPath(fInstallPath);
 
-		fPackageInfo.SetInstallPath(fInstallPath);
+			RegisterPackageInfo(PackageAttributes(), fPackageInfo);
 
-		RegisterPackageInfo(PackageAttributes(), fPackageInfo);
-
-		if (fCheckLicenses) {
-			status_t result = _CheckLicenses();
-			if (result != B_OK)
-				return result;
+			if (fCheckLicenses) {
+				status_t result = _CheckLicenses();
+				if (result != B_OK)
+					return result;
+			}
 		}
 
 		if ((Flags() & B_HPKG_WRITER_UPDATE_PACKAGE) != 0)

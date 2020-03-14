@@ -58,6 +58,7 @@ static const char* kUsage =
 	"    -0 ... -9  - Use compression level 0 ... 9. 0 means no, 9 best "
 		"compression.\n"
 	"                 Defaults to 9.\n"
+	"    -a         - Create regular archive. .PackageInfo will be not used.\n"
 	"    -b         - Create an empty build package. Only the .PackageInfo "
 		"will\n"
 	"                 be added.\n"

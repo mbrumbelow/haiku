@@ -36,6 +36,7 @@ command_create(int argc, const char* const* argv)
 	const char* packageInfoFileName = NULL;
 	const char* installPath = NULL;
 	bool isBuildPackage = false;
+	bool isArchive = false;
 	bool quiet = false;
 	bool verbose = false;
 	int32 compressionLevel = BPackageKit::BHPKG::B_HPKG_COMPRESSION_LEVEL_BEST;
@@ -50,7 +51,7 @@ command_create(int argc, const char* const* argv)
 		};
 
 		opterr = 0; // don't print errors
-		int c = getopt_long(argc, (char**)argv, "+b0123456789C:hi:I:qvz",
+		int c = getopt_long(argc, (char**)argv, "+ab0123456789C:hi:I:qvz",
 			sLongOptions, NULL);
 		if (c == -1)
 			break;
@@ -67,6 +68,10 @@ command_create(int argc, const char* const* argv)
 			case '8':
 			case '9':
 				compressionLevel = c - '0';
+				break;
+
+			case 'a':
+				isArchive = true;
 				break;
 
 			case 'b':
@@ -181,10 +186,12 @@ command_create(int argc, const char* const* argv)
 	}
 
 	// add the .PackageInfo
-	result = packageWriter.AddEntry(
-		BPackageKit::BHPKG::B_HPKG_PACKAGE_INFO_FILE_NAME, packageInfoFD);
-	if (result != B_OK)
-		return 1;
+	if (!isArchive) {
+		result = packageWriter.AddEntry(
+			BPackageKit::BHPKG::B_HPKG_PACKAGE_INFO_FILE_NAME, packageInfoFD);
+		if (result != B_OK)
+			return 1;
+	}
 
 	// write the package
 	result = packageWriter.Finish();
