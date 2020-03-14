@@ -5,7 +5,6 @@
 #include <math.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <ToolTip.h>
 #include <TextView.h>
 
 #include "HyperTextView.h"
