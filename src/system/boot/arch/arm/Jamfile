@@ -15,7 +15,6 @@ local kernelLibArchObjects =
 
 local kernelArchSources =
 	arch_elf.cpp
-	arch_uart_8250.cpp
 ;
 
 local kernelDebugSources =
