@@ -1,5 +1,5 @@
 /*
- * Copyright 2019, Haiku, Inc. All rights reserved.
+ * Copyright 2019-2020, Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -11,15 +11,18 @@
 #include <stdlib.h>
 
 #include <algorithm>
+#include <condition_variable.h>
 #include <AutoDeleter.h>
 #include <kernel.h>
 #include <util/AutoLock.h>
 
 #include <fs/devfs.h>
 #include <bus/PCI.h>
+#include <PCI_x86.h>
 
 extern "C" {
 #include <libnvme/nvme.h>
+#include <libnvme/nvme_internal.h>
 }
 
 
@@ -69,6 +72,7 @@ static const uint8 kDriveIcon[] = {
 
 
 static device_manager_info* sDeviceManager;
+static pci_x86_module_info* sPCIx86Module;
 
 typedef struct {
 	device_node*			node;
@@ -79,7 +83,6 @@ typedef struct {
 	struct nvme_ns*			ns;
 	uint64					capacity;
 	uint32					block_size;
-	size_t					max_transfer_size;
 	status_t				media_status;
 
 	struct qpair_info {
@@ -88,6 +91,10 @@ typedef struct {
 	}						qpairs[NVME_MAX_QPAIRS];
 	uint32					qpair_count;
 	uint32					next_qpair;
+
+	rw_lock					rounded_write_lock;
+
+	ConditionVariable		interrupt;
 } nvme_disk_driver_info;
 typedef nvme_disk_driver_info::qpair_info qpair_info;
 
@@ -154,6 +161,9 @@ nvme_disk_set_capacity(nvme_disk_driver_info* info, uint64 capacity,
 //	#pragma mark - device module API
 
 
+static int32 nvme_interrupt_handler(void* _info);
+
+
 static status_t
 nvme_disk_init_device(void* _info, void** _cookie)
 {
@@ -216,8 +226,6 @@ nvme_disk_init_device(void* _info, void** _cookie)
 
 	// store capacity information
 	nvme_disk_set_capacity(info, nsstat.sectors, nsstat.sector_size);
-	info->max_transfer_size = ROUNDDOWN(cstat.max_xfer_size,
-		nsstat.sector_size);
 
 	TRACE("capacity: %" B_PRIu64 ", block_size %" B_PRIu32 "\n",
 		info->capacity, info->block_size);
@@ -238,6 +246,58 @@ nvme_disk_init_device(void* _info, void** _cookie)
 		return B_NO_MEMORY;
 	}
 
+	// set up rounded-write lock
+	rw_lock_init(&info->rounded_write_lock, "nvme rounded writes");
+
+	// set up interrupt
+	if (get_module(B_PCI_X86_MODULE_NAME, (module_info**)&sPCIx86Module)
+			!= B_OK) {
+		sPCIx86Module = NULL;
+	}
+
+	uint16 command = pci->read_pci_config(pcidev, PCI_command, 2);
+	command &= ~(PCI_command_int_disable);
+	pci->write_pci_config(pcidev, PCI_command, 2, command);
+
+	uint8 irq = info->info.u.h0.interrupt_line;
+	if (sPCIx86Module != NULL) {
+		if (sPCIx86Module->get_msix_count(info->info.bus, info->info.device,
+				info->info.function)) {
+			uint8 msixVector = 0;
+			if (sPCIx86Module->configure_msix(info->info.bus, info->info.device,
+					info->info.function, 1, &msixVector) == B_OK
+				&& sPCIx86Module->enable_msix(info->info.bus, info->info.device,
+					info->info.function) == B_OK) {
+				TRACE_ALWAYS("using MSI-X\n");
+				irq = msixVector;
+			}
+		} else if (sPCIx86Module->get_msi_count(info->info.bus,
+				info->info.device, info->info.function) >= 1) {
+			uint8 msiVector = 0;
+			if (sPCIx86Module->configure_msi(info->info.bus, info->info.device,
+					info->info.function, 1, &msiVector) == B_OK
+				&& sPCIx86Module->enable_msi(info->info.bus, info->info.device,
+					info->info.function) == B_OK) {
+				TRACE_ALWAYS("using message signaled interrupts\n");
+				irq = msiVector;
+			}
+		}
+	}
+
+	if (irq == 0 || irq == 0xFF) {
+		TRACE_ERROR("device PCI:%d:%d:%d was assigned an invalid IRQ\n",
+			info->info.bus, info->info.device, info->info.function);
+		return B_ERROR;
+	}
+	info->interrupt.Init(NULL, NULL);
+	install_io_interrupt_handler(irq, nvme_interrupt_handler, (void*)info, B_NO_HANDLED_INFO);
+
+	if (info->ctrlr->feature_supported[NVME_FEAT_INTERRUPT_COALESCING]) {
+		uint32 microseconds = 16, threshold = 32;
+		nvme_admin_set_feature(info->ctrlr, false, NVME_FEAT_INTERRUPT_COALESCING,
+			((microseconds / 100) << 8) | threshold, 0, NULL);
+	}
+
 	*_cookie = info;
 	return B_OK;
 }
@@ -248,6 +308,16 @@ nvme_disk_uninit_device(void* _cookie)
 {
 	CALLED();
 	nvme_disk_driver_info* info = (nvme_disk_driver_info*)_cookie;
+
+	remove_io_interrupt_handler(info->info.u.h0.interrupt_line,
+		nvme_interrupt_handler, (void*)info);
+
+	rw_lock_destroy(&info->rounded_write_lock);
+
+	nvme_ns_close(info->ns);
+	nvme_ctrlr_close(info->ctrlr);
+
+	// TODO: Deallocate MSI(-X).
 }
 
 
@@ -274,7 +344,7 @@ nvme_disk_close(void* cookie)
 {
 	CALLED();
 
-	nvme_disk_handle* handle = (nvme_disk_handle*)cookie;
+	//nvme_disk_handle* handle = (nvme_disk_handle*)cookie;
 	return B_OK;
 }
 
@@ -293,6 +363,15 @@ nvme_disk_free(void* cookie)
 // #pragma mark - I/O functions
 
 
+static int32
+nvme_interrupt_handler(void* _info)
+{
+	nvme_disk_driver_info* info = (nvme_disk_driver_info*)_info;
+	info->interrupt.NotifyAll();
+	return 0;
+}
+
+
 static qpair_info*
 get_next_qpair(nvme_disk_driver_info* info)
 {
@@ -309,16 +388,19 @@ disk_io_callback(status_t* status, const struct nvme_cpl* cpl)
 
 
 static void
-await_status(struct nvme_qpair* qpair, status_t& status)
+await_status(nvme_disk_driver_info* info, struct nvme_qpair* qpair, status_t& status)
 {
+	ConditionVariableEntry entry;
 	while (status == EINPROGRESS) {
-		// nvme_ioqp_poll uses locking internally on the entire device,
-		// not just this qpair, so it is entirely possible that it could
-		// return 0 (i.e. no completions processed) and yet our status
-		// changed, because some other thread processed the completion
-		// before we got to it. So, recheck it before sleeping.
-		if (nvme_ioqp_poll(qpair, 0) == 0 && status == EINPROGRESS)
-			snooze(5);
+		info->interrupt.Add(&entry);
+
+		nvme_ioqp_poll(qpair, 0);
+
+		if (status != EINPROGRESS)
+			return;
+
+		entry.Wait();
+		nvme_ioqp_poll(qpair, 0);
 	}
 }
 
@@ -347,54 +429,18 @@ do_nvme_io(nvme_disk_driver_info* info, off_t rounded_pos, void* buffer,
 	mutex_unlock(&qpinfo->mtx);
 	if (ret != 0) {
 		TRACE_ERROR("attempt to queue %s I/O at %" B_PRIdOFF " of %" B_PRIuSIZE
-			" bytes failed!", write ? "write" : "read", rounded_pos, *rounded_len);
+			" bytes failed!\n", write ? "write" : "read", rounded_pos, *rounded_len);
 		return ret;
 	}
 
-	await_status(qpinfo->qpair, status);
+	await_status(info, qpinfo->qpair, status);
 
 	if (status != B_OK) {
-		TRACE_ERROR("%s at %" B_PRIdOFF " of %" B_PRIuSIZE " bytes failed!",
+		TRACE_ERROR("%s at %" B_PRIdOFF " of %" B_PRIuSIZE " bytes failed!\n",
 			write ? "write" : "read", rounded_pos, *rounded_len);
 		*rounded_len = 0;
 	}
 	return status;
-}
-
-
-static status_t
-do_nvme_segmented_io(nvme_disk_driver_info* info, off_t rounded_pos,
-	void* buffer, size_t* rounded_len, bool write = false)
-{
-	// The max transfer size is already a multiple of the block size,
-	// so divide and iterate appropriately. In the case where the length
-	// is less than the maximum transfer size, we'll wind up with 0 in the
-	// division, and only one transfer to take care of.
-	const size_t max_xfer = info->max_transfer_size;
-	int32 transfers = *rounded_len / max_xfer;
-	if ((*rounded_len % max_xfer) != 0)
-		transfers++;
-
-	size_t transferred = 0;
-	for (int32 i = 0; i < transfers; i++) {
-		size_t transfer_len = max_xfer;
-		// The last transfer will usually be smaller.
-		if (i == (transfers - 1))
-			transfer_len = *rounded_len - transferred;
-
-		status_t status = do_nvme_io(info, rounded_pos, buffer,
-			&transfer_len, write);
-		if (status != B_OK) {
-			*rounded_len = transferred;
-			return transferred > 0 ? (write ? B_PARTIAL_WRITE : B_PARTIAL_READ)
-				: status;
-		}
-
-		transferred += transfer_len;
-		rounded_pos += transfer_len;
-		buffer = ((int8*)buffer) + transfer_len;
-	}
-	return B_OK;
 }
 
 
@@ -418,7 +464,7 @@ nvme_disk_read(void* cookie, off_t pos, void* buffer, size_t* length)
 			return B_NO_MEMORY;
 		}
 
-		status_t status = do_nvme_segmented_io(handle->info, rounded_pos,
+		status_t status = do_nvme_io(handle->info, rounded_pos,
 			bounceBuffer, &rounded_len);
 		if (status != B_OK) {
 			// The "rounded_len" will be the actual transferred length, but
@@ -439,7 +485,7 @@ nvme_disk_read(void* cookie, off_t pos, void* buffer, size_t* length)
 
 	// If we got here, that means the arguments are already rounded to LBAs
 	// and the buffer is a kernel one, so just do the I/O directly.
-	return do_nvme_segmented_io(handle->info, pos, buffer, length);
+	return do_nvme_io(handle->info, pos, buffer, length);
 }
 
 
@@ -461,11 +507,20 @@ nvme_disk_write(void* cookie, off_t pos, const void* buffer, size_t* length)
 			return B_NO_MEMORY;
 		}
 
+		// If we rounded, we must protect against simulaneous writes inside
+		// the rounded blocks, as otherwise data corruption would occur.
+		WriteLocker writeLocker;
+		ReadLocker readLocker;
+		if (rounded_pos != pos || rounded_len != *length)
+			writeLocker.SetTo(handle->info->rounded_write_lock, false);
+		else
+			readLocker.SetTo(handle->info->rounded_write_lock, false);
+
 		// Since we rounded, we need to read in the first and last logical
 		// blocks before we copy our information to the bounce buffer.
 		// TODO: This would be faster if we queued both reads at once!
 		size_t readlen = block_size;
-		status_t status;
+		status_t status = B_OK;
 		if (rounded_pos != pos) {
 			status = do_nvme_io(handle->info, rounded_pos, bounceBuffer,
 				&readlen);
@@ -495,7 +550,7 @@ nvme_disk_write(void* cookie, off_t pos, const void* buffer, size_t* length)
 			return status;
 		}
 
-		status = do_nvme_segmented_io(handle->info, rounded_pos, bounceBuffer,
+		status = do_nvme_io(handle->info, rounded_pos, bounceBuffer,
 			&rounded_len, true);
 		if (status != B_OK) {
 			*length = std::min(*length, (size_t)std::max((off_t)0,
@@ -504,9 +559,11 @@ nvme_disk_write(void* cookie, off_t pos, const void* buffer, size_t* length)
 		return status;
 	}
 
+	ReadLocker _(handle->info->rounded_write_lock);
+
 	// If we got here, that means the arguments are already rounded to LBAs,
 	// so just do the I/O directly.
-	return do_nvme_segmented_io(handle->info, pos, (void*)buffer, length, true);
+	return do_nvme_io(handle->info, pos, (void*)buffer, length, true);
 }
 
 
@@ -523,7 +580,7 @@ nvme_disk_flush(nvme_disk_driver_info* info)
 	if (ret != 0)
 		return ret;
 
-	await_status(qpinfo->qpair, status);
+	await_status(info, qpinfo->qpair, status);
 	return status;
 }
 
