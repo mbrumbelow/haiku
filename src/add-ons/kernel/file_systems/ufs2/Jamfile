@@ -17,17 +17,10 @@ UsePrivateKernelHeaders ;
 
 DEFINES += DEBUG_APP="\\\"ufs2\\\"" ;
 
-UseHeaders [ FDirName $(HAIKU_TOP) src libs uuid ] : true ;
-
 local ufs2Sources =
     kernel_cpp.cpp
     kernel_interface.cpp
     ;   
-KernelAddon ufs2 :
-    $(ufs2Sources)
-    :   
-        libuuid_kernel.a
-;
 
 SEARCH on [ FGristFiles $(ufs2Sources) ]
     = [ FDirName  $(HAIKU_TOP) src add-ons kernel file_systems ufs2 ] ; 
