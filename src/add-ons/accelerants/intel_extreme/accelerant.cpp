@@ -366,9 +366,6 @@ probe_ports()
 		foundLVDS = true;
 		gInfo->ports[gInfo->port_count++] = lvdsPort;
 		gInfo->head_mode |= HEAD_MODE_LVDS_PANEL;
-		gInfo->head_mode |= HEAD_MODE_A_ANALOG;
-			// FIXME this should not be set, but without it, LVDS modesetting
-			// doesn't work on SandyBridge. Find out why it makes a difference.
 		gInfo->head_mode |= HEAD_MODE_B_DIGITAL;
 	} else
 		delete lvdsPort;
@@ -433,20 +430,36 @@ assign_pipes()
 	// assigned when the count is > 1;
 
 	uint32 current = 0;
+
+	bool assigned[gInfo->pipe_count];
+	memset(assigned, 0, gInfo->pipe_count);
+
+	// Some ports need to be assigned to a fixed pipe on old hardware (or due
+	// to limitations in the current driver on current hardware). Assign those
+	// first
 	for (uint32 i = 0; i < gInfo->port_count; i++) {
 		if (gInfo->ports[i] == NULL)
 			continue;
 
 		pipe_index preference = gInfo->ports[i]->PipePreference();
 		if (preference != INTEL_PIPE_ANY) {
-			// Some ports *really* need to be assigned a pipe due to
-			// implementation bugs.
 			int index = (preference == INTEL_PIPE_B) ? 1 : 0;
+			if (assigned[index]) {
+				TRACE("Pipe %d is already assigned, it will drive multiple "
+					"displays\n", index);
+			}
 			gInfo->ports[i]->SetPipe(gInfo->pipes[index]);
+			assigned[index] = true;
 			continue;
 		}
+	}
 
+	// In a second pass, assign the remaining ports to the remaining pipes
+	for (uint32 i = 0; i < gInfo->port_count; i++) {
 		if (gInfo->ports[i]->IsConnected()) {
+			while (current < gInfo->pipe_count && assigned[current])
+				current++;
+
 			if (current >= gInfo->pipe_count) {
 				ERROR("%s: No pipes left to assign to port %s!\n", __func__,
 					gInfo->ports[i]->PortName());
@@ -454,7 +467,6 @@ assign_pipes()
 			}
 
 			gInfo->ports[i]->SetPipe(gInfo->pipes[current]);
-			current++;
 		}
 	}
 
@@ -481,9 +493,6 @@ intel_init_accelerant(int device)
 	init_lock(&info.engine_lock, "intel extreme engine");
 
 	setup_ring_buffer(info.primary_ring_buffer, "intel primary ring buffer");
-
-	TRACE("pipe control for: 0x%" B_PRIx32 " 0x%" B_PRIx32 "\n",
-		read32(INTEL_PIPE_CONTROL), read32(INTEL_PIPE_CONTROL));
 
 	// Probe all ports
 	status = probe_ports();

@@ -1,4 +1,4 @@
-1	ukrainian	x-vnd.Haiku-HaikuDepot	2510596347
+1	ukrainian	x-vnd.Haiku-HaikuDepot	429905564
 Repository update error	LocalRepositoryUpdateProcess		Помилка оновлення репозиторія 
 An error occurred while refreshing the repository: %error%	LocalRepositoryUpdateProcess		Під час оновлення репозиторія сталася помилка: %error%
 User Created	UserLoginWindow		Користувача створено
@@ -12,7 +12,6 @@ Create account	UserLoginWindow		Створити обліковий запис
 OK	App		ОК
 Mostly stable	RatePackageWindow		Найстабільніший
 The response to the captcha was incorrect.	ServerHelper		Невірна відповідь на капчу.
-While updating package data, a problem has arisen that may cause data to be outdated or missing from the application's display. Additional details regarding this problem may be able to be obtained from the application logs.	MainWindow		Під час оновлення пакунку сталася помилка, що може призвести до появи у вікні застосунку застарілих елементів або їх відсутності. Додаткові відомості щодо цього можна переглянути у лог-файлах застосунку.
 Develop packages	MainWindow		Пакети розробника
 Rate package…	PackageInfoView		Оцінити пакет…
 Starting the package daemon failed:\n\n%Error%	App		Запуск демона пакету призупинено:\n\n%Error%
@@ -46,7 +45,6 @@ A response to the captcha question must be provided.	UserLoginWindow		Необх
 Category	FilterView		Категорія
 User rating	RatePackageWindow		Рейтинг користувача
 Installed packages	MainWindow		Встановлені пакети
-An error has arisen downloading the usage conditions required to create a new user. Check the log for details and try again.	UserLoginWindow		При завантаженні умов використання, необхідних для створення нового користувача, виникла помилка. Перевірте журнал для деталізації та спробуйте ще раз.
 A requested object or an object involved in the request was not found on the server.	ServerHelper		На сервері не знайдено потрібний об'єкт або об'єкт, що міститься у запиті.
 Other users can see this rating	RatePackageWindow		Інші користувачі можуть побачити цю оцінку
 Stable	RatePackageWindow		Стабільний
@@ -63,7 +61,7 @@ It was not possible to communicate with the server to obtain a captcha image req
 Your rating was uploaded successfully. You can update or remove it at the HaikuDepot Server website.	RatePackageWindow		Ваша оцінка успішно завантажена. Ви можете оновити або вилучити її на веб-сайті HaikuDepot Server.
 Network Error	ServerHelper		Помилка мережі
 Available	PackageListView		Доступні
-Cancel	UserLoginWindow		Відмінити
+Cancel	UserLoginWindow		Скасувати
 HaikuDepot needs the package daemon to function, and it appears to be not running.\nWould you like to start it now?	App		Сховище Haiku потребує запуску демона пакетів, який напевно не працює.\nЗапустити його зараз?
 Click a package to view information	PackageInfoView		Клікніть по пакунку, для відображення інформації про нього
 The password must be at least eight characters long, consist of at least two digits and one upper case character.	UserLoginWindow		Пароль повинен бути не менше восьми символів, включаючи принаймні дві цифри та один символ у верхньому регістрі.
@@ -87,7 +85,7 @@ Send	RatePackageWindow		Надіслати
 Start package daemon	App		Запустити демон пакетів
 The password must be repeated in order to reduce the chance of entering the password incorrectly.	UserLoginWindow		Пароль потрібно повторити, щоб зменшити ймовірність неправильного введення пароля.
 The package action could not be scheduled: %Error%	PackageInfoView		Дію пакета неможливо спрогнозувати: %Error%
-Cancel	RatePackageWindow		Відмінити
+Cancel	RatePackageWindow		Скасувати
 Inactive	PackageListView		Неактивний
 Nickname:	UserLoginWindow		Користувач:
 Synchronizing meta-data about repositories	ServerRepositoryDataUpdateProcess		Синхронізація мета-даних репозиторіїв.
@@ -114,7 +112,7 @@ Your rating was updated.	RatePackageWindow		Ваш рейтинг оновлен
 All categories	FilterView		Всі категорії
 Repositories	MainWindow		Репозиторії
 n/a	PackageInfoView		немає
-Cancel	MainWindow		Відмінити
+Cancel	MainWindow		Скасувати
 View agreed usage conditions…	MainWindow		Погоджені Умови користування…
 {0, plural,one{(1 more to download)}other{(# more to download)}}	WorkStatusView		{0, plural,one{(1 більше для завантаження)}other{(# більше для завантаження)}}
 Refresh repositories	MainWindow		Оновити репозиторії

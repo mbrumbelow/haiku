@@ -44,7 +44,6 @@ efi_handle kImage;
 
 static uint32 sBootOptions;
 
-
 extern "C" int main(stage2_args *args);
 extern "C" void _start(void);
 extern "C" void efi_enter_kernel(uint64 pml4, uint64 entry_point, uint64 stack);

@@ -138,6 +138,12 @@ Pipe::Configure(display_mode* mode)
 	write32(INTEL_DISPLAY_A_PIPE_CONTROL + fPipeOffset, pipeControl);
 	read32(INTEL_DISPLAY_A_PIPE_CONTROL + fPipeOffset);
 #endif
+
+	// According to SandyBridge modesetting sequence, pipe must be enabled
+	// before PLL are configured.
+	addr_t pipeReg = INTEL_DISPLAY_A_PIPE_CONTROL + fPipeOffset;
+	write32(pipeReg, read32(pipeReg) | INTEL_PIPE_ENABLED);
+
 }
 
 
@@ -184,17 +190,18 @@ Pipe::ConfigureTimings(display_mode* target, bool hardware)
 {
 	CALLED();
 
-	TRACE("%s: fPipeOffset: 0x%" B_PRIx32"\n", __func__, fPipeOffset);
+	TRACE("%s(%d): fPipeOffset: 0x%" B_PRIx32"\n", __func__, hardware,
+		fPipeOffset);
 
 	if (target == NULL) {
 		ERROR("%s: Invalid display mode!\n", __func__);
 		return;
 	}
 
-	/* If there is a transcoder, leave the display at its native resolution,
+	/* If using the transcoder, leave the display at its native resolution,
 	 * and configure only the transcoder (panel fitting will match them
 	 * together). */
-	if (!fHasTranscoder && hardware)
+	if (!fHasTranscoder || hardware)
 	{
 		// update timing (fPipeOffset bumps the DISPLAY_A to B when needed)
 		write32(INTEL_DISPLAY_A_HTOTAL + fPipeOffset,
@@ -319,6 +326,13 @@ Pipe::ConfigureClocks(const pll_divisors& divisors, uint32 pixelClock,
 		//		& DISPLAY_PLL_9xx_POST1_DIVISOR_MASK;
 		}
 
+		// Also configure the FP0 divisor on SandyBridge
+		if (gInfo->shared_info->device_type.Generation() == 6) {
+			pll |= ((1 << (divisors.p1 - 1))
+					<< DISPLAY_PLL_SNB_FP0_POST1_DIVISOR_SHIFT)
+				& DISPLAY_PLL_SNB_FP0_POST1_DIVISOR_MASK;
+		}
+
 		if (divisors.p2 == 5 || divisors.p2 == 7)
 			pll |= DISPLAY_PLL_DIVIDE_HIGH;
 
@@ -338,13 +352,52 @@ Pipe::ConfigureClocks(const pll_divisors& divisors, uint32 pixelClock,
 			pll |= DISPLAY_PLL_POST1_DIVIDE_2;
 	}
 
-	// Allow the PLL to warm up by masking its bit.
 	write32(pllControl, pll & ~DISPLAY_PLL_NO_VGA_CONTROL);
+		// FIXME what is this doing? Why put the PLL back under VGA_CONTROL
+		// here?
 	read32(pllControl);
 	spin(150);
+
+	// Configure and enable the PLL
 	write32(pllControl, pll);
 	read32(pllControl);
+
+	// Allow the PLL to warm up.
 	spin(150);
+
+	if (gInfo->shared_info->device_type.Generation() >= 6) {
+		// SandyBridge has 3 transcoders, but only 2 PLLs. So there is a new
+		// register which routes the PLL output to the transcoder that we need
+		// to configure
+		uint32 pllSel = read32(SNB_DPLL_SEL);
+		TRACE("Old PLL selection: %x\n", pllSel);
+		uint32 shift = 0;
+		uint32 pllIndex = 0;
+
+		// FIXME we assume that pipe A is used with transcoder A, and pipe B
+		// with transcoder B, that may not always be the case
+		if (fPipeIndex == INTEL_PIPE_A) {
+			shift = 0;
+			pllIndex = 0;
+			TRACE("Route PLL A to transcoder A\n");
+		} else if (fPipeIndex == INTEL_PIPE_B) {
+			shift = 4;
+			pllIndex = 1;
+			TRACE("Route PLL B to transcoder B\n");
+		} else {
+			ERROR("Attempting to configure PLL for unhandled pipe");
+			return;
+		}
+
+		// Mask out the previous PLL configuration for this transcoder
+		pllSel &= ~(0xF << shift);
+
+		// Set up the new configuration for this transcoder and enable it
+		pllSel |= (8 | pllIndex) << shift;
+
+		TRACE("New PLL selection: %x\n", pllSel);
+		write32(SNB_DPLL_SEL, pllSel);
+	}
 }
 
 
