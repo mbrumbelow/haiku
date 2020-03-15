@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eddd79f4_1c6f4f4c",
+        "filename": "docs/user/interface/GridLayoutBuilder.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-15T16:50:46Z",
+      "side": 1,
+      "message": "I think \"itself\" here grammatically refers to \"the method\", which is not correct (it should refer to the BGridLayoutBuilder\" object instead). Maybe \"returns a self-reference\" or something like that would avoid the problem?",
+      "revId": "d84b59dbdd896119ca0715a7095ea34a03a912a8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b356ae8_1fdb6e6d",
+        "filename": "docs/user/interface/GridLayoutBuilder.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-15T16:50:46Z",
+      "side": 1,
+      "message": "I would have written \"zero-indexed\" or \"zero-based\" ?",
+      "revId": "d84b59dbdd896119ca0715a7095ea34a03a912a8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c09f7b19_023b6374",
+        "filename": "docs/user/interface/SplitLayoutBuilder.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-15T16:50:46Z",
+      "side": 1,
+      "message": "::Split?",
+      "revId": "d84b59dbdd896119ca0715a7095ea34a03a912a8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
