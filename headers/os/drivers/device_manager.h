@@ -115,6 +115,9 @@ typedef struct device_manager_info {
 	status_t (*set_attr_raw)(device_node *node, const char *name,
 					const void *data, size_t size);
 
+	status_t (*find_child_node)(device_node *parent,
+					const device_attr *attrs, device_node **node);
+
 } device_manager_info;
 
 
