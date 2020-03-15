@@ -86,7 +86,6 @@ acpi_enumerate_child_devices(device_node* node, const char* root)
 			case ACPI_TYPE_PROCESSOR:
 			case ACPI_TYPE_THERMAL:
 			case ACPI_TYPE_DEVICE: {
-				char hid[16] = "";
 				device_attr attrs[] = {
 					// info about device
 					{ B_DEVICE_BUS, B_STRING_TYPE, { string: "acpi" }},
@@ -95,7 +94,6 @@ acpi_enumerate_child_devices(device_node* node, const char* root)
 					{ ACPI_DEVICE_PATH_ITEM, B_STRING_TYPE, { string: result }},
 
 					// info about the device
-					{ ACPI_DEVICE_HID_ITEM, B_STRING_TYPE, { string: hid }},
 					{ ACPI_DEVICE_TYPE_ITEM, B_UINT32_TYPE, { ui32: type }},
 
 					// consumer specification
@@ -107,12 +105,31 @@ acpi_enumerate_child_devices(device_node* node, const char* root)
 					{ NULL }
 				};
 
-				if (type == ACPI_TYPE_DEVICE)
-					get_device_hid(result, hid, sizeof(hid));
-
 				if (gDeviceManager->register_node(node, ACPI_DEVICE_MODULE_NAME, attrs,
-						NULL, &deviceNode) == B_OK)
-	                acpi_enumerate_child_devices(deviceNode, result);
+						NULL, &deviceNode) != B_OK) {
+					break;
+				}
+				if (type == ACPI_TYPE_DEVICE) {
+					char* hid = NULL;
+					char* cidList[8] = { NULL };
+					if (get_device_info(result, &hid, (char**)&cidList, 8) == B_OK) {
+						if (hid != NULL) {
+							gDeviceManager->set_attr_string(deviceNode,
+								ACPI_DEVICE_HID_ITEM, hid);
+							free(hid);
+						}
+						for (int i = 0; cidList[i] != NULL; i++) {
+							gDeviceManager->set_attr_string(deviceNode,
+								ACPI_DEVICE_CID_ITEM, cidList[i]);
+							free(cidList[i]);
+						}
+					}
+					uint32 addr;
+					if (get_device_addr(result, &addr) == B_OK) {
+						gDeviceManager->set_attr_uint32(deviceNode, ACPI_DEVICE_ADDR_ITEM, addr);
+					}
+				}
+				acpi_enumerate_child_devices(deviceNode, result);
 				break;
 			}
 			default:
@@ -253,7 +270,7 @@ static struct acpi_root_info sACPIRootModule = {
 	get_next_entry,
 	get_next_object,
 	get_device,
-	get_device_hid,
+	get_device_info,
 	get_object_type,
 	get_object,
 	get_object_typed,
