@@ -527,6 +527,9 @@ rule KernelArchitectureSetup architecture
 					HAIKU_BOOT_$(bootTarget:U)_CCFLAGS += -Wno-error=main -m32 ;
 					HAIKU_BOOT_$(bootTarget:U)_C++FLAGS += -Wno-error=main -m32 ;
 				}
+			case openfirmware :
+				HAIKU_BOOT_$(bootTarget:U)_CCFLAGS += -fno-pic -Wno-error=main -Wstack-usage=1023 ;
+				HAIKU_BOOT_$(bootTarget:U)_C++FLAGS += -fno-pic -Wno-error=main -Wstack-usage=1023 ;
 			case * :
 				# all other bootloaders are non-PIC
 				HAIKU_BOOT_$(bootTarget:U)_CCFLAGS += -fno-pic -Wno-error=main ;

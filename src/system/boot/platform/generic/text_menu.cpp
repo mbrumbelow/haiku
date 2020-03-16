@@ -159,7 +159,7 @@ print_item_at(int32 line, MenuItem *item, bool clearHelp = true)
 		if (length > width * 2)
 			width += 2 * kOffsetX - 1;
 
-		char buffer[width + 1];
+		char* buffer = (char*)malloc(width + 1);
 		buffer[width] = '\0';
 			// make sure the buffer is always terminated
 
@@ -195,6 +195,8 @@ print_item_at(int32 line, MenuItem *item, bool clearHelp = true)
 			print_centered(console_height() - kHelpLines + row, buffer);
 			row++;
 		}
+
+		free(buffer);
 	}
 }
 
