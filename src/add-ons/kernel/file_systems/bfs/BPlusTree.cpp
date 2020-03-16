@@ -1055,7 +1055,6 @@ BPlusTree::_FindKey(const bplustree_node* node, const uint8* key,
 		return B_ENTRY_NOT_FOUND;
 	}
 
-	off_t* values = node->Values();
 	int16 saveIndex = -1;
 
 	// binary search in the key array
@@ -1082,8 +1081,9 @@ BPlusTree::_FindKey(const bplustree_node* node, const uint8* key,
 		} else {
 			if (_index)
 				*_index = i;
-			if (_next)
-				*_next = BFS_ENDIAN_TO_HOST_INT64(values[i]);
+			if (_next) {
+				*_next = BFS_ENDIAN_TO_HOST_INT64(node->ValueAt(i));
+			}
 			return B_OK;
 		}
 	}
@@ -1094,7 +1094,7 @@ BPlusTree::_FindKey(const bplustree_node* node, const uint8* key,
 		if (saveIndex == node->NumKeys())
 			*_next = node->OverflowLink();
 		else
-			*_next = BFS_ENDIAN_TO_HOST_INT64(values[saveIndex]);
+			*_next = BFS_ENDIAN_TO_HOST_INT64(node->ValueAt(saveIndex));
 	}
 	return B_ENTRY_NOT_FOUND;
 }
@@ -2307,7 +2307,7 @@ BPlusTree::Find(const uint8* key, uint16 keyLength, off_t* _value)
 #endif
 		if (node->OverflowLink() == BPLUSTREE_NULL) {
 			if (status == B_OK && _value != NULL)
-				*_value = BFS_ENDIAN_TO_HOST_INT64(node->Values()[keyIndex]);
+				*_value = BFS_ENDIAN_TO_HOST_INT64(node->ValueAt(keyIndex));
 
 #ifdef DEBUG
 			if (levels != (int32)fHeader.MaxNumberOfLevels())
