@@ -99,6 +99,7 @@ struct bplustree_node {
 
 	inline	uint16*				KeyLengths() const;
 	inline	off_t*				Values() const;
+	inline	off_t				ValueAt(int index) const;
 	inline	uint8*				Keys() const;
 	inline	int32				Used() const;
 			uint8*				KeyAt(int32 index, uint16* keyLength) const;
@@ -571,6 +572,21 @@ inline off_t*
 bplustree_node::Values() const
 {
 	return (off_t*)((char*)KeyLengths() + NumKeys() * sizeof(uint16));
+}
+
+
+inline off_t
+bplustree_node::ValueAt(int index) const
+{
+	off_t* base = Values();
+#if __sparc64__
+	// Use byte access to fix alignment
+	off_t tmp;
+	memcpy(&tmp, base + index, sizeof(tmp));
+	return tmp;
+#else
+	return base[index];
+#endif
 }
 
 
