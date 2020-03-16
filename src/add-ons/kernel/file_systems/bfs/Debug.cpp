@@ -227,9 +227,9 @@ dump_bplustree_node(const bplustree_node* node, const bplustree_header* header,
 		memcpy(buffer, key, length);
 		buffer[length] = '\0';
 
-		off_t* value = node->Values() + i;
-		if ((addr_t)value < (addr_t)node
-			|| (addr_t)value > (addr_t)node + header->node_size)
+		uint8* valueAddress = (uint8*)node->ValuesBase() + i * sizeof(off_t);
+		if ((addr_t)valueAddress < (addr_t)node
+			|| (addr_t)valueAddress > (addr_t)node + header->node_size)
 			kprintf("  %2d. Invalid Offset!!\n", (int)i);
 		else {
 			kprintf("  %2d. ", (int)i);
@@ -247,17 +247,18 @@ dump_bplustree_node(const bplustree_node* node, const bplustree_header* header,
 			} else
 				kprintf("???");
 
-			off_t offset = *value & 0x3fffffffffffffffLL;
+			off_t value = node->ValueAt(i);
+			off_t offset = value & 0x3fffffffffffffffLL;
 			kprintf(" (%d bytes) -> %" B_PRIdOFF, length, offset);
 			if (volume != NULL) {
 				block_run run = volume->ToBlockRun(offset);
 				kprintf(" (%d, %d)", (int)run.allocation_group, run.start);
 			}
-			if (bplustree_node::LinkType(*value)
+			if (bplustree_node::LinkType(value)
 					== BPLUSTREE_DUPLICATE_FRAGMENT) {
 				kprintf(" (duplicate fragment %" B_PRIdOFF ")\n",
 					*value & 0x3ff);
-			} else if (bplustree_node::LinkType(*value)
+			} else if (bplustree_node::LinkType(value)
 					== BPLUSTREE_DUPLICATE_NODE) {
 				kprintf(" (duplicate node)\n");
 			} else

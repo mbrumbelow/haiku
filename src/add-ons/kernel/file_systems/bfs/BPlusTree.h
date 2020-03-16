@@ -97,8 +97,13 @@ struct bplustree_node {
 									{ return BFS_ENDIAN_TO_HOST_INT16(
 										all_key_length); }
 
-	inline	uint16*				KeyLengths() const;
-	inline	off_t*				Values() const;
+	inline	void*				KeyLengthsBase() const;
+	inline	uint16				KeyLengthAt(uint16 index) const;
+	inline	void				SetKeyLengthAt(uint16 index,
+									uint16 value) const;
+	inline	void*				ValuesBase() const;
+	inline	off_t				ValueAt(int index) const;
+	inline	void				SetValueAt(uint16 index, off_t value) const;
 	inline	uint8*				Keys() const;
 	inline	int32				Used() const;
 			uint8*				KeyAt(int32 index, uint16* keyLength) const;
@@ -543,7 +548,7 @@ bplustree_header::CheckNode(const bplustree_node* node) const
 	return IsValidLink(node->LeftLink())
 		&& IsValidLink(node->RightLink())
 		&& IsValidLink(node->OverflowLink())
-		&& (int8*)node->Values() + node->NumKeys() * sizeof(off_t)
+		&& (int8*)node->ValuesBase() + node->NumKeys() * sizeof(off_t)
 				<= (int8*)node + NodeSize();
 }
 
@@ -559,18 +564,57 @@ bplustree_header::IsValidLink(off_t link) const
 //	#pragma mark - bplustree_node inline functions
 
 
-inline uint16*
-bplustree_node::KeyLengths() const
+inline void*
+bplustree_node::KeyLengthsBase() const
 {
-	return (uint16*)(((char*)this) + key_align(sizeof(bplustree_node)
-		+ AllKeyLength()));
+	return (uint8*)this + key_align(sizeof(bplustree_node) + AllKeyLength());
 }
 
 
-inline off_t*
-bplustree_node::Values() const
+inline uint16
+bplustree_node::KeyLengthAt(uint16 index) const
+ {
+	uint16 result;
+	memcpy(&result, (uint8*)KeyLengthsBase() + index * sizeof(uint16),
+		sizeof(uint16));
+	return result;
+}
+
+
+inline void
+bplustree_node::SetKeyLengthAt(uint16 index, uint16 value) const
 {
-	return (off_t*)((char*)KeyLengths() + NumKeys() * sizeof(uint16));
+	memcpy((uint8*)KeyLengthsBase() + index * sizeof(uint16), &value,
+		sizeof(uint16));
+}
+
+
+inline void*
+bplustree_node::ValuesBase() const
+{
+	return (uint8*)KeyLengthsBase() + NumKeys() * sizeof(uint16);
+}
+
+
+inline off_t
+bplustree_node::ValueAt(int index) const
+{
+	off_t* base = (off_t*)ValuesBase();
+#if __sparc64__
+	// Use byte access to fix alignment
+	off_t tmp;
+	memcpy(&tmp, base + index, sizeof(tmp));
+	return tmp;
+#else
+	return base[index];
+#endif
+}
+
+
+inline void
+bplustree_node::SetValueAt(uint16 index, off_t value) const
+{
+	memcpy((uint8*)ValuesBase() + index * sizeof(off_t), &value, sizeof(off_t));
 }
 
 
