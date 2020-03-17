@@ -5291,7 +5291,14 @@ user_strlcpy(char* to, const char* from, size_t size)
 		return B_BAD_VALUE;
 	if (from == NULL)
 		return B_BAD_ADDRESS;
-	if (!validate_user_range(to, size) || !validate_user_range(from, size))
+
+	// Protect the source address from overflows.
+	if ((addr_t)from + size < (addr_t)from)
+		size -= (addr_t)from + size;
+	if (IS_USER_ADDRESS(from) && !IS_USER_ADDRESS((addr_t)from + size))
+		size = USER_TOP - (addr_t)from;
+
+	if (!validate_user_range(to, size))
 		return B_BAD_ADDRESS;
 
 	return arch_cpu_user_strlcpy(to, from, size);
