@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ddd9529d_aff582dd",
+        "filename": "src/system/boot/loader/load_driver_settings.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2020-03-17T10:49:18Z",
+      "side": 1,
+      "message": "Would be nice if we didn\u0027t have commented out code in tree. Looks fine otherwise.",
+      "revId": "a207d7b35bb30965c217128fb22de6b3e034c78f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
