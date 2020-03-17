@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e4bc0ae6_033af43d",
+        "filename": "docs/user/interface/GridLayoutBuilder.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-03-17T07:13:28Z",
+      "side": 1,
+      "message": "I rephrased the line to:\n\nThe method returns a self reference, so that calls to the builder may be chained.",
+      "parentUuid": "eddd79f4_1c6f4f4c",
+      "revId": "d84b59dbdd896119ca0715a7095ea34a03a912a8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9b356ae8_1fdb6e6d",
         "filename": "docs/user/interface/GridLayoutBuilder.dox",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "a22ad059_98616192",
+        "filename": "docs/user/interface/GridLayoutBuilder.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-03-17T07:13:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b356ae8_1fdb6e6d",
+      "revId": "d84b59dbdd896119ca0715a7095ea34a03a912a8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c09f7b19_023b6374",
         "filename": "docs/user/interface/SplitLayoutBuilder.dox",
         "patchSetId": 1
@@ -50,6 +86,24 @@
       "revId": "d84b59dbdd896119ca0715a7095ea34a03a912a8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a016619d_e4e8988c",
+        "filename": "docs/user/interface/SplitLayoutBuilder.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-03-17T07:13:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c09f7b19_023b6374",
+      "revId": "d84b59dbdd896119ca0715a7095ea34a03a912a8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
