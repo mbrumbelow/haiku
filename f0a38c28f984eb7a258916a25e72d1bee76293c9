@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "6fb5b572_9452bb52",
+        "filename": "src/add-ons/kernel/file_systems/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-17T17:21:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c69c845e_16a17f26",
+      "revId": "f0a38c28f984eb7a258916a25e72d1bee76293c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b4b83c02_99d20106",
         "filename": "src/add-ons/kernel/file_systems/ufs2/Jamfile",
         "patchSetId": 1
@@ -48,6 +66,41 @@
       "writtenOn": "2020-03-13T20:12:11Z",
       "side": 1,
       "message": "I think UFS does not use UUIDs, so you can remove this and libuuid below.",
+      "revId": "f0a38c28f984eb7a258916a25e72d1bee76293c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d86772f3_cf3584d1",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-17T17:21:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4b83c02_99d20106",
+      "revId": "f0a38c28f984eb7a258916a25e72d1bee76293c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af91c461_e3fb2c6e",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-17T17:21:26Z",
+      "side": 1,
+      "message": "You have removed too much here. remove just the \": libuuid_kernel.a\" part.",
       "revId": "f0a38c28f984eb7a258916a25e72d1bee76293c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -71,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "a4cc17ac_13296fed",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-17T17:21:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de21a1f3_e6409997",
+      "revId": "f0a38c28f984eb7a258916a25e72d1bee76293c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f092784_685d79c2",
         "filename": "src/add-ons/kernel/file_systems/ufs2/system_dependencies.h",
         "patchSetId": 1
@@ -85,6 +156,24 @@
       "revId": "f0a38c28f984eb7a258916a25e72d1bee76293c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ca0a689_80c2e29b",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/system_dependencies.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-17T17:21:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f092784_685d79c2",
+      "revId": "f0a38c28f984eb7a258916a25e72d1bee76293c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -135,6 +224,30 @@
     },
     {
       "key": {
+        "uuid": "7ff0de9f_2842b199",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/system_dependencies.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-17T17:21:26Z",
+      "side": 1,
+      "message": "The typo should be fixed, of course",
+      "parentUuid": "21580e41_6af864e8",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 30
+      },
+      "revId": "f0a38c28f984eb7a258916a25e72d1bee76293c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8d1670d5_afb76d2a",
         "filename": "src/add-ons/kernel/file_systems/ufs2/system_dependencies.h",
         "patchSetId": 1
@@ -146,6 +259,24 @@
       "writtenOn": "2020-03-13T20:12:11Z",
       "side": 1,
       "message": "no uuid needed for UFS",
+      "revId": "f0a38c28f984eb7a258916a25e72d1bee76293c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5182c29_ddad9e32",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/system_dependencies.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-17T17:21:26Z",
+      "side": 1,
+      "message": "You can remove the now empty extern \"C\" block and the __cplusplus guards around it.",
+      "parentUuid": "8d1670d5_afb76d2a",
       "revId": "f0a38c28f984eb7a258916a25e72d1bee76293c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -166,6 +297,24 @@
       "revId": "f0a38c28f984eb7a258916a25e72d1bee76293c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8feb675e_255c0f21",
+        "filename": "src/tests/add-ons/kernel/file_systems/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-17T17:21:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "635730c1_edd197b3",
+      "revId": "f0a38c28f984eb7a258916a25e72d1bee76293c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
