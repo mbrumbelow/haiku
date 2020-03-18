@@ -162,10 +162,10 @@ TBarMenuBar::SmartResize(float width, float height)
 		fDeskbarMenuItem->SetContentSize(width - kSepItemWidth, height);
 	else {
 		int32 count = CountItems();
-		if (fDeskbarMenuItem)
-			fDeskbarMenuItem->SetContentSize(width / count, height);
-		if (fAppListMenuItem)
-			fAppListMenuItem->SetContentSize(width / count, height);
+		if (fDeskbarMenuItem != NULL)
+			fDeskbarMenuItem->SetContentSize(floorf(width / count) + 1, height);
+		if (fAppListMenuItem != NULL)
+			fAppListMenuItem->SetContentSize(floorf(width / count) + 1, height);
 	}
 
 	InvalidateLayout();
