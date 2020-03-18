@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3e85dd06_b1709293",
+        "filename": "src/apps/deskbar/BarMenuBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-03-18T21:12:20Z",
+      "side": 1,
+      "message": "Is this really correct, or would \"ceilf(width / count)\" be instead? The only difference is when the size can be divided without rest.",
+      "revId": "f1d10740a9ce452321ab021c3d6bc0a9839082ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
