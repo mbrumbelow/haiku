@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "cedc3208_0a2cc12e",
+        "filename": "src/apps/deskbar/BarMenuBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-03-19T17:13:24Z",
+      "side": 1,
+      "message": "Isn\u0027t this code related to bug?",
+      "revId": "f1d10740a9ce452321ab021c3d6bc0a9839082ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3e85dd06_b1709293",
         "filename": "src/apps/deskbar/BarMenuBar.cpp",
         "patchSetId": 1
