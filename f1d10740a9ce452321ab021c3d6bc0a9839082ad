@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "13b5b48c_b626779c",
+        "filename": "src/apps/deskbar/BarMenuBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-03-19T17:40:24Z",
+      "side": 1,
+      "message": "Hmmmm you make a good point, we could probably just take this line out instead, but it\u0027s been there since the beginning, and I mean the beginning as in since the first day of OpenTracker release all the way back in September 2001: https://github.com/HaikuArchives/OpenTracker/blob/f88024f5ca06b1b8a98e1eff16457a64d0196370/opentracker/deskbar/BarMenuBar.cpp#L80",
+      "parentUuid": "cedc3208_0a2cc12e",
+      "revId": "f1d10740a9ce452321ab021c3d6bc0a9839082ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3e85dd06_b1709293",
         "filename": "src/apps/deskbar/BarMenuBar.cpp",
         "patchSetId": 1
