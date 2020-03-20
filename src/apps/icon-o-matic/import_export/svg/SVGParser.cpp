@@ -192,8 +192,6 @@ named_color colors[] =
 	{ "zzzzzzzzzzz",0,0,0, 0 }
 }; 
 
-
-
 // cmp_color
 int
 cmp_color(const void* p1, const void* p2)
@@ -227,6 +225,27 @@ parse_color(const char* str)
 			sscanf(str, "%x", &c);
 		}
 		return rgb8_packed(c);
+	} else if (strncmp(str, "rgb", 3) == 0) {
+	    const char *str2 = str;
+		str += 3;
+		while(*str && *str != '(') ++str;
+		if (*str == '(') {
+		   	int8u r = atoi(++str);
+			while(*str && *str != ',') ++str;
+			if (*str == ',') {
+				int8u g = atoi(++str);
+				while(*str && *str != ',') ++str;
+				if (*str == ',') {
+					int8u b = atoi(++str);
+					while(*str && *str != ')') ++str;
+					if (*str == ')') {
+						return rgba8(r,g,b,255);
+					}
+				}
+			}
+		}
+		throw exception("parse_color: Invalid color '%s'", str2);
+		return rgba8(255,255,255,255);
 	} else {
 		named_color c;
 		unsigned len = strlen(str);
@@ -248,6 +267,7 @@ parse_color(const char* str)
 		return rgba8(pc->r, pc->g, pc->b, pc->a);
 	}
 }
+
 
 // parse_double
 double
