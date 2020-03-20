@@ -3,6 +3,11 @@
  * All rights reserved. Distributed under the terms of the MIT License.
  */
 
+/*
+Important:
+All fields in XFS metadata structures are in big-endian byte order
+except for log items which are formatted in host order.
+*/
 #ifndef _XFS_SB_H_
 #define _XFS_SB_H_
 
@@ -11,7 +16,8 @@
 
 #define XFS_SB_MAGIC 0x58465342 /* Identifies XFS. "XFSB" */
 #define XFS_SB_MAXSIZE 512
-
+#define BBLOCKLOG 9		/* Log of block size should be 9 */
+#define BBLOCKSIZE 1<<BBLOCKLOG		/* The size of a basic block should be 512 */
 
 
 /*	Version 4 superblock definition	*/
@@ -126,4 +132,122 @@ Superblock quota flags - sb_qflags
 #define XFS_SB_VERSION2_PROJID32BIT 0x0008	/* 32-bit project id */
 #define XFS_SB_VERSION2_CRCBIT 0x0010		/* Metadata checksumming */
 #define XFS_SB_VERSION2_FTYPE 0x0020
+
+
+/* AG Free Space Block */
+
+/* 
+index 0 for free space B+Tree indexed by block number
+index 1 for free space B+Tree indexed by extent size
+
+Version 5 has XFS_BT_NUM_AGF defined as 3. This is because the index 2 is
+for reverse-mapped B+Trees. I have agf_spare0/1 defined here instead.
+*/
+
+#define XFS_BTNUM_AGF 2
+#define XFS_AG_MAGICNUM 0x58414746
+class XfsAgf{
+
+	private:
+			uint32			agf_magicnum;
+			uint32			agf_versionnum;		// should be set to 1
+			uint32			agf_seqno;	// defines the ag number for the sector
+			uint32			agf_length;	// size of ag in fs blocks
+			uint32			agf_roots[XFS_BTNUM_AGF];	// roots of trees
+			uint32			agf_spare0;	//spare
+			uint32			agf_levels[XFS_BTNUM_AGF];	// tree levels
+			uint32			agf_spare1;	//spare
+			uint32			agf_flfirst;	// index to first free list block
+			uint32			agf_fllast;		// index to last free list block
+			uint32			agf_flcount;	// number of blocks in freelist
+			uint32			agf_freeblks;	// current num of free blocks in AG
+			uint32			agf_longest;	// no.of blocks of longest
+											// contiguous free space in the AG
+
+			/*number of blocks used for the free space B+trees.
+			This is only used if the XFS_SB_VERSION2_LAZYSBCOUNTBIT
+			bit is set in sb_features2 
+			TODO:	Otherwise?
+			*/
+
+			uint32			agf_btreeblks;
+}
+
+/* Allocation B+ Tree Format */
+#define XFS_ABTB_MAGICNUM 0x41425442	// For block offset B+Tree
+#define XFS_ABTC_MAGICNUM 0x41425443	// For block count B+ Tree
+
+
+/* Header for Short Format btree */
+#define XFS_BTREE_SBLOCK_SIZE	18
+
+struct bplustree_sheader {
+			uint32				bb_magic;
+			uint16				bb_level;
+			uint16				bb_numrecs;
+			uint32				bb_leftsib;
+			uint32				bb_rightsib;
+
+			uint32				magic() 
+								{ return B_BENDIAN_TO_HOST_INT32(bb_magic); }
+			
+			uint16				level() 
+								{ return B_BENDIAN_TO_HOST_INT16(bb_level); }
+			
+			uint16				numrecs()
+								{ return B_BENDIAN_TO_HOST_INT16(bb_numrecs); }
+
+			xfs_alloc_ptr_t		left()
+								{ return B_BENDIAN_TO_HOST_INT32(bb_leftsib); }
+
+			xfs_alloc_ptr_t		right()
+								{ return B_BENDIAN_TO_HOST_INT32(bb_rightsib);}
+}
+
+
+/* Header for Long Format btree */
+#define XFS_BTREE_FBLOCK_SIZE	24
+struct bplustree_sheader {
+			uint32				bb_magic;
+			uint16				bb_level;
+			uint16				bb_numrecs;
+			uint64				bb_leftsib;
+			uint64				bb_rightsib;
+
+			uint32				magic() 
+								{ return B_BENDIAN_TO_HOST_INT32(bb_magic); }
+			
+			uint16				level() 
+								{ return B_BENDIAN_TO_HOST_INT16(bb_level); }
+			
+			uint16				numrecs()
+								{ return B_BENDIAN_TO_HOST_INT16(bb_numrecs); }
+			
+			uint64				left()
+								{ return B_BENDIAN_TO_HOST_INT32(bb_leftsib); }
+			
+			uint64				right()
+								{ return B_BENDIAN_TO_HOST_INT32(bb_rightsib);}
+}
+
+
+/* Array of these records in the leaf node along with above headers */
+#define XFS_ALLOC_RED_SIZE	8
+typedef struct xfs_alloc_rec {
+			uint32				ar_startblock;
+			uint32				ar_blockcount;
+			
+			uint32				startblock(){
+								return B_BENDIAN_TO_HOST_INT32(ar_startblock);
+								}
+			uint32				blockcount(){
+								return B_BENDIAN_TO_HOST_INT32(ar_blockcount);
+								}
+} xfs_alloc_rec_t, xfs_alloc_key_t;
+
+
+// Swap Endians while returning itself
+typedef uint32 xfs_alloc_ptr_t;	//  Node pointers, AG relative block pointer
+
+
 #endif
