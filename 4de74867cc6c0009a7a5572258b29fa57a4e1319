@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "39a28b5b_944eb6c2",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-20T12:48:13Z",
+      "side": 1,
+      "message": "It may be a good idea to log an error here. If the magic is correct but other fields are not, we are probably looking at a corrupt filesystem?",
+      "revId": "4de74867cc6c0009a7a5572258b29fa57a4e1319",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82da2f00_8bebf5b1",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-20T12:48:13Z",
+      "side": 1,
+      "message": "Is it a good idea to put all the data structures in a single file? Will it not be a very long file eventually?",
+      "revId": "4de74867cc6c0009a7a5572258b29fa57a4e1319",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2fd56436_4249e851",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-20T12:48:13Z",
+      "side": 1,
+      "message": "Can we use an \"Xfs\" C++ namespace instead of prefixing class and struct names with Xfs?\n\nCan we give non-abbreviated name to classes? AGFreeSpace would be so much more readable.",
+      "revId": "4de74867cc6c0009a7a5572258b29fa57a4e1319",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f2efa36_c148ac60",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-20T12:48:13Z",
+      "side": 1,
+      "message": "I don\u0027t see the point of repeating agf_ in all member fields. We know which class we\u0027re in, right?",
+      "revId": "4de74867cc6c0009a7a5572258b29fa57a4e1319",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45f6ed7c_b33e38d9",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-20T12:48:13Z",
+      "side": 1,
+      "message": "Please use a class with public methods and private fields.",
+      "revId": "4de74867cc6c0009a7a5572258b29fa57a4e1319",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed766a7f_92d52c82",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-20T12:48:13Z",
+      "side": 1,
+      "message": "please be consistent with the endian-swapping strategy.\n\n- Either it is done outside the class (as you did for the superblock), or inside the class (as you do here).\n- Either it is done when creating the object (as you did for the superblock), or when accessing/setting the fields (as you did here)\n\nPick one way and stick to it for all data structures, otherwise we\u0027ll get lost about what is endian-swapped and what isn\u0027t.",
+      "revId": "4de74867cc6c0009a7a5572258b29fa57a4e1319",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f147f5aa_0ba2e9c4",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-20T12:48:13Z",
+      "side": 1,
+      "message": "This has the same name as the struct above?\nAlso I don\u0027t see this one in the docs at https://xfs.org/docs/xfsdocs-xml-dev/XFS_Filesystem_Structure/tmp/en-US/html/AG_Free_Space_Btrees.html\n\nPlease reference the docs for each struct so we can keep track of what they are.",
+      "revId": "4de74867cc6c0009a7a5572258b29fa57a4e1319",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
