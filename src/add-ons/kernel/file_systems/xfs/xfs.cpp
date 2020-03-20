@@ -11,9 +11,13 @@ XfsSuperBlock::IsValid()
 {
 	if (sb_magicnum != XFS_SB_MAGIC) return false;
 
+	if (BBLOCKSIZE <= sb_blocksize){
+		ERROR("Basic block is less than 512 bytes!");
+		return false;
+	}
+	
 	return true;
 }
-
 
 uint32
 XfsSuperBlock::BlockSize()
