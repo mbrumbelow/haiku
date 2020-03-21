@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ce96c06d_cf8be05e",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-03-21T14:36:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39a28b5b_944eb6c2",
+      "revId": "4de74867cc6c0009a7a5572258b29fa57a4e1319",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "82da2f00_8bebf5b1",
         "filename": "src/add-ons/kernel/file_systems/xfs/xfs.h",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2020-03-20T12:48:13Z",
       "side": 1,
       "message": "Is it a good idea to put all the data structures in a single file? Will it not be a very long file eventually?",
+      "revId": "4de74867cc6c0009a7a5572258b29fa57a4e1319",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4eeea8d9_c3456afa",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-03-21T14:36:59Z",
+      "side": 1,
+      "message": "Was going to move it anyway when I thought of the right place. It\u0027s still in the works",
+      "parentUuid": "82da2f00_8bebf5b1",
       "revId": "4de74867cc6c0009a7a5572258b29fa57a4e1319",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "e8bcfd43_5808e9cc",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-03-21T14:36:59Z",
+      "side": 1,
+      "message": "Will do this soon. I was thinking of following the docs nomenclature closely. But I suppose it doesn\u0027t matter",
+      "parentUuid": "2fd56436_4249e851",
+      "revId": "4de74867cc6c0009a7a5572258b29fa57a4e1319",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5f2efa36_c148ac60",
         "filename": "src/add-ons/kernel/file_systems/xfs/xfs.h",
         "patchSetId": 1
@@ -64,6 +118,24 @@
       "writtenOn": "2020-03-20T12:48:13Z",
       "side": 1,
       "message": "I don\u0027t see the point of repeating agf_ in all member fields. We know which class we\u0027re in, right?",
+      "revId": "4de74867cc6c0009a7a5572258b29fa57a4e1319",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71a8879f_c88de019",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-03-21T14:36:59Z",
+      "side": 1,
+      "message": "Removed. Tried to follow docs closely.",
+      "parentUuid": "5f2efa36_c148ac60",
       "revId": "4de74867cc6c0009a7a5572258b29fa57a4e1319",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "d5251dff_c14a8ad0",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-03-21T14:36:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45f6ed7c_b33e38d9",
+      "revId": "4de74867cc6c0009a7a5572258b29fa57a4e1319",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed766a7f_92d52c82",
         "filename": "src/add-ons/kernel/file_systems/xfs/xfs.h",
         "patchSetId": 1
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "1a90c57f_490b4111",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-03-21T14:36:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed766a7f_92d52c82",
+      "revId": "4de74867cc6c0009a7a5572258b29fa57a4e1319",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f147f5aa_0ba2e9c4",
         "filename": "src/add-ons/kernel/file_systems/xfs/xfs.h",
         "patchSetId": 1
@@ -115,6 +223,24 @@
       "writtenOn": "2020-03-20T12:48:13Z",
       "side": 1,
       "message": "This has the same name as the struct above?\nAlso I don\u0027t see this one in the docs at https://xfs.org/docs/xfsdocs-xml-dev/XFS_Filesystem_Structure/tmp/en-US/html/AG_Free_Space_Btrees.html\n\nPlease reference the docs for each struct so we can keep track of what they are.",
+      "revId": "4de74867cc6c0009a7a5572258b29fa57a4e1319",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bfcef4b5_8e2bd05a",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-03-21T14:36:59Z",
+      "side": 1,
+      "message": "That was a mistake. Anyway, I\u0027ve changed the names considerably",
+      "parentUuid": "f147f5aa_0ba2e9c4",
       "revId": "4de74867cc6c0009a7a5572258b29fa57a4e1319",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
