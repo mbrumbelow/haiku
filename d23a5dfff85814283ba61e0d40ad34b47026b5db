@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b600777b_f442a260",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 881,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-21T08:19:05Z",
+      "side": 1,
+      "message": "Why remove the LineArray code here? It\u0027s faster because it sends all the lines to app_server in a single message. Is there a problem with it?",
+      "revId": "d23a5dfff85814283ba61e0d40ad34b47026b5db",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70340e91_86f38a1a",
+        "filename": "src/kits/interface/ScrollBar.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-21T08:19:05Z",
+      "side": 1,
+      "message": "Why is that so? Does not sound like a great way to manage the flag? Can we just mask it out inside the DrawScrollbarButton() method?",
+      "revId": "d23a5dfff85814283ba61e0d40ad34b47026b5db",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}

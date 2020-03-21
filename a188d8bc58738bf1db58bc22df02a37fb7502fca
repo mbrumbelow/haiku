@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b50e7812_85fe4a61",
+        "filename": "headers/os/interface/ControlLook.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-21T08:19:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6eda406c_fea5d9d8",
+      "revId": "a188d8bc58738bf1db58bc22df02a37fb7502fca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a9e1bc6_36f102de",
         "filename": "headers/os/interface/ControlLook.h",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "36c14110_92c5113d",
+        "filename": "headers/os/interface/ControlLook.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-21T08:19:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a9e1bc6_36f102de",
+      "revId": "a188d8bc58738bf1db58bc22df02a37fb7502fca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a838d4b_8cc3f160",
         "filename": "headers/private/interface/ScrollBarPrivate.h",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2018-07-23T16:17:45Z",
       "side": 1,
       "message": "These names are not very nice...\nMaybe ARROW_START / ARROW_END for the outer pair and ARROW_ALT_START / ARROW_ALT_END for the inner pair?\n\nThe combination of having two arrows with the same meaning, and two different names depending on if the scrollbar is horizontal or vertical, does not make this easy.",
+      "revId": "a188d8bc58738bf1db58bc22df02a37fb7502fca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00330854_f0221b75",
+        "filename": "headers/private/interface/ScrollBarPrivate.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-21T08:19:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a838d4b_8cc3f160",
       "revId": "a188d8bc58738bf1db58bc22df02a37fb7502fca",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
@@ -87,6 +141,24 @@
     },
     {
       "key": {
+        "uuid": "3ca2f4b5_1d093e1a",
+        "filename": "src/kits/interface/ScrollBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-21T08:19:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd35cdca_8b5dc7cb",
+      "revId": "a188d8bc58738bf1db58bc22df02a37fb7502fca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "825d5f17_47d40ebf",
         "filename": "src/kits/interface/ScrollBar.cpp",
         "patchSetId": 1
@@ -98,6 +170,24 @@
       "writtenOn": "2018-07-23T16:17:45Z",
       "side": 1,
       "message": "It sounds fine to me that there is some margin between the arrow and the button edge?",
+      "revId": "a188d8bc58738bf1db58bc22df02a37fb7502fca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e4df194_cdc9ca10",
+        "filename": "src/kits/interface/ScrollBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1479,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-21T08:19:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "825d5f17_47d40ebf",
       "revId": "a188d8bc58738bf1db58bc22df02a37fb7502fca",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
