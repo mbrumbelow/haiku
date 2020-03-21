@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "612d1a01_47ba9507",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 881,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-03-21T22:05:44Z",
+      "side": 1,
+      "message": "It was not a problem, reworked in patch set 3 to use line arrays.",
+      "parentUuid": "b9f05822_5bf0ccb1",
+      "revId": "d23a5dfff85814283ba61e0d40ad34b47026b5db",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "70340e91_86f38a1a",
         "filename": "src/kits/interface/ScrollBar.cpp",
         "patchSetId": 2
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "Here’s the problem. Buttons can be B_PARTIALLY_ACTIVATED and we’re drawing the scroll bar buttons using button drawing methods in HaikuControlLook. We’re also using B_PARTIALLY_ACTIVATED to mean that a scroll bar is scrollable. I don’t want to draw the scroll bar buttons B_PARTIALLY_ACTIVATED when the scroll bar is scrollable so I set the flag after drawing the buttons but perhaps this could be reworked.",
       "parentUuid": "70340e91_86f38a1a",
+      "revId": "d23a5dfff85814283ba61e0d40ad34b47026b5db",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "267d3dd8_79dc88c0",
+        "filename": "src/kits/interface/ScrollBar.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-03-21T22:05:44Z",
+      "side": 1,
+      "message": "This needed a bit more work. We always want to draw non-scrollable scroll bars as if they were disabled so instead of looking at the B_PARTIALLY_ACTIVATED flag in HaikuControlLook and BeControlLook, set the B_DISABLED flag in BScrollBar when not scrollable and only consider the B_DISABLED flag in HaikuControlLook and BeControlLook. There was an edge case where drawing the scroll bar arrow using DrawArrowShape on a non-scrollable scroll bar would draw the arrow as though it was enabled in BControlLook when it should have been draw as disabled. I couldn\u0027t consider the B_PARTIALLY_ACTIVATED flag here because DrawArrowShape is also used to draw arrows in menus and in outline list views which don\u0027t understand B_PARTIALLY_ACTIVATED.",
+      "parentUuid": "03a42b7c_9edbc052",
       "revId": "d23a5dfff85814283ba61e0d40ad34b47026b5db",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
