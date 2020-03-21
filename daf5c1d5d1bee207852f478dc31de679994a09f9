@@ -36,6 +36,23 @@
     },
     {
       "key": {
+        "uuid": "eed9ec2e_ae25ea2e",
+        "filename": "src/apps/icon-o-matic/import_export/svg/SVGParser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-21T08:00:34Z",
+      "side": 1,
+      "message": "do we allow rgbaeiou12345( to parse succesfully?\n\nwhy not use scanf(\"rgb ( %d , %d ,%d , %d )\") instead? The code would be a lot simpler and better handle whitespace (scanf will care about the details).\n\nYou also need to perform bound checks, because rgb(4096,-3054,99999,27) is not a valid color.",
+      "revId": "daf5c1d5d1bee207852f478dc31de679994a09f9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1a5b637e_d0a68cba",
         "filename": "src/apps/icon-o-matic/import_export/svg/SVGParser.cpp",
         "patchSetId": 1
@@ -121,6 +138,24 @@
     },
     {
       "key": {
+        "uuid": "bbc8ec9d_b30f1eda",
+        "filename": "src/apps/icon-o-matic/import_export/svg/SVGParser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-21T08:00:34Z",
+      "side": 1,
+      "message": "I don\u0027t see why we\u0027d allow that. Space after comma.",
+      "parentUuid": "e20ca97a_113c9a57",
+      "revId": "daf5c1d5d1bee207852f478dc31de679994a09f9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1ad9e65a_4d4036e2",
         "filename": "src/apps/icon-o-matic/import_export/svg/SVGParser.cpp",
         "patchSetId": 1
@@ -135,6 +170,24 @@
       "revId": "daf5c1d5d1bee207852f478dc31de679994a09f9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de568d17_b83b1908",
+        "filename": "src/apps/icon-o-matic/import_export/svg/SVGParser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-21T08:00:34Z",
+      "side": 1,
+      "message": "Coding style says two blank lines between functions, this is correct.",
+      "parentUuid": "1ad9e65a_4d4036e2",
+      "revId": "daf5c1d5d1bee207852f478dc31de679994a09f9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
