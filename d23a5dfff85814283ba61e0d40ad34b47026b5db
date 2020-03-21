@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b9f05822_5bf0ccb1",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 881,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-03-21T08:48:21Z",
+      "side": 1,
+      "message": "I don’t think there’s a problem. This could be refactored to use BeginLineArray and EndLineArray I haven’t touched this drawing code in a while and overlooked it.",
+      "parentUuid": "b600777b_f442a260",
+      "revId": "d23a5dfff85814283ba61e0d40ad34b47026b5db",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "70340e91_86f38a1a",
         "filename": "src/kits/interface/ScrollBar.cpp",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2020-03-21T08:19:05Z",
       "side": 1,
       "message": "Why is that so? Does not sound like a great way to manage the flag? Can we just mask it out inside the DrawScrollbarButton() method?",
+      "revId": "d23a5dfff85814283ba61e0d40ad34b47026b5db",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03a42b7c_9edbc052",
+        "filename": "src/kits/interface/ScrollBar.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-03-21T08:48:21Z",
+      "side": 1,
+      "message": "Here’s the problem. Buttons can be B_PARTIALLY_ACTIVATED and we’re drawing the scroll bar buttons using button drawing methods in HaikuControlLook. We’re also using B_PARTIALLY_ACTIVATED to mean that a scroll bar is scrollable. I don’t want to draw the scroll bar buttons B_PARTIALLY_ACTIVATED when the scroll bar is scrollable so I set the flag after drawing the buttons but perhaps this could be reworked.",
+      "parentUuid": "70340e91_86f38a1a",
       "revId": "d23a5dfff85814283ba61e0d40ad34b47026b5db",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
