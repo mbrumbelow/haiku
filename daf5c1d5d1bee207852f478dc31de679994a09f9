@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a10ea93e_3aa5d241",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2020-03-21T07:29:43Z",
+      "side": 1,
+      "message": "Typo:\n    Icon-O-Matic: Correctly parse rgb(X,X,X, X) colors in SVG import",
+      "revId": "daf5c1d5d1bee207852f478dc31de679994a09f9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e7ec08d_7ff5577b",
+        "filename": "src/apps/icon-o-matic/import_export/svg/SVGParser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2020-03-21T07:29:43Z",
+      "side": 1,
+      "message": "Code style:\n    const char* str2 \u003d str;",
+      "revId": "daf5c1d5d1bee207852f478dc31de679994a09f9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a5b637e_d0a68cba",
+        "filename": "src/apps/icon-o-matic/import_export/svg/SVGParser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2020-03-21T07:29:43Z",
+      "side": 1,
+      "message": "Code style: space after \u0027while\u0027",
+      "revId": "daf5c1d5d1bee207852f478dc31de679994a09f9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82e5cff2_5de23d1c",
+        "filename": "src/apps/icon-o-matic/import_export/svg/SVGParser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2020-03-21T07:29:43Z",
+      "side": 1,
+      "message": "Code style: space after \u0027while\u0027",
+      "revId": "daf5c1d5d1bee207852f478dc31de679994a09f9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "740af4ac_3042fda6",
+        "filename": "src/apps/icon-o-matic/import_export/svg/SVGParser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2020-03-21T07:29:43Z",
+      "side": 1,
+      "message": "Code style: space after \u0027while\u0027",
+      "revId": "daf5c1d5d1bee207852f478dc31de679994a09f9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7482f8d5_2a54dc68",
+        "filename": "src/apps/icon-o-matic/import_export/svg/SVGParser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2020-03-21T07:29:43Z",
+      "side": 1,
+      "message": "Code style: space after commas\n    return rgba8(r, g, b, 255);",
+      "revId": "daf5c1d5d1bee207852f478dc31de679994a09f9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e20ca97a_113c9a57",
+        "filename": "src/apps/icon-o-matic/import_export/svg/SVGParser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2020-03-21T07:29:43Z",
+      "side": 1,
+      "message": "Code style: space after commas, though as in the color definitions at the top, just separating the alpha value might be permissible(?)\n    return rgba8(255,255,255, 255);",
+      "revId": "daf5c1d5d1bee207852f478dc31de679994a09f9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ad9e65a_4d4036e2",
+        "filename": "src/apps/icon-o-matic/import_export/svg/SVGParser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2020-03-21T07:29:43Z",
+      "side": 1,
+      "message": "Excess empty line.",
+      "revId": "daf5c1d5d1bee207852f478dc31de679994a09f9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
