@@ -101,6 +101,24 @@
       "revId": "01c696917a28527c1f6b8de54b2b84bb84c7f608",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0946da19_990f0182",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/ufs2.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-03-21T20:13:52Z",
+      "side": 1,
+      "message": "I used http://ptgmedia.pearsoncmg.com/images/0131482092/samplechapter/mcdougall_ch15.pdf as a reference.",
+      "parentUuid": "8759d388_75633cfb",
+      "revId": "01c696917a28527c1f6b8de54b2b84bb84c7f608",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
