@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a4a8d894_ab8cfc67",
+        "filename": "src/add-ons/control_look/BeControlLook/BeControlLook.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1272,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-21T08:04:20Z",
+      "side": 1,
+      "message": "\u003e 80 columns",
+      "revId": "2ae11879b2cead23d36f75549749a090b14a75ea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01162e9b_f1f9b867",
+        "filename": "src/add-ons/control_look/BeControlLook/BeControlLook.rdef",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-21T08:04:20Z",
+      "side": 1,
+      "message": "Shouldn\u0027t it be version 5.0.3?",
+      "revId": "2ae11879b2cead23d36f75549749a090b14a75ea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
