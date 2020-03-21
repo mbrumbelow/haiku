@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ff88a7c_0b5b135b",
+        "filename": "src/add-ons/kernel/drivers/power/pch_thermal/AreaKeeper.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-03-21T19:23:38Z",
+      "side": 1,
+      "message": "It would be better to move this file to a common private directory instead of copying it yet again.",
+      "revId": "1744667a5e849df2439a4365eb41848d27320d46",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
