@@ -160,7 +160,8 @@ static property_info sReplicantPropertyList[] = {
 
 namespace BPrivate {
 
-struct replicant_data {
+class replicant_data {
+public:
 	replicant_data(BMessage *message, BView *view, BDragger *dragger,
 		BDragger::relation relation, unsigned long id);
 	replicant_data();

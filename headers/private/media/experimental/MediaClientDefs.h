@@ -53,7 +53,8 @@ private:
 } media_client;
 
 
-typedef struct media_connection {
+typedef class media_connection {
+public:
 	media_connection_id			Id() const;
 	media_connection_kinds		Kinds() const;
 
