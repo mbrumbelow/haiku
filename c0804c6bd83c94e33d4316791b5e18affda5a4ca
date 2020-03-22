@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "35af3a9b_2da4d8f2",
+        "filename": "src/system/kernel/debug/debug_commands.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-03-22T17:50:02Z",
+      "side": 1,
+      "message": "How about using strncmp !\u003d 0 instead of !(strncmp \u003d\u003d 0)",
+      "revId": "c0804c6bd83c94e33d4316791b5e18affda5a4ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
