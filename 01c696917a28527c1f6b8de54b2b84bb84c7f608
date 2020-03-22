@@ -119,6 +119,24 @@
       "revId": "01c696917a28527c1f6b8de54b2b84bb84c7f608",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac782096_683f1d0a",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/ufs2.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-22T08:57:16Z",
+      "side": 1,
+      "message": "Section 15.2.6 says \"The major information in the\nsuperblock that identifies the file system geometry is listed below\". I think it does not give the complete details of the structure layout but only the few fields that are actually used.\n\nSince UFS has a long history and some backwards compatibility, there are several fields that are still there but will not be used for anything. This structure should match exactly what\u0027s on disk.\n\nThe codument points to \"See struct fs in usr/src/uts/common/sys/fs/ufs_fs.h for the complete\nsuperblock structure definition\" which can be found here: https://github.com/illumos/illumos-gate/blob/master/usr/src/uts/common/sys/fs/ufs_fs.h",
+      "parentUuid": "0946da19_990f0182",
+      "revId": "01c696917a28527c1f6b8de54b2b84bb84c7f608",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
