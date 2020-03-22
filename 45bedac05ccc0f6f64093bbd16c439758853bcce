@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9d1bb363_e2c4f3a4",
+        "filename": "src/apps/haikudepot/ui/App.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-22T11:59:26Z",
+      "side": 1,
+      "message": "I think showing a \"preventive\" alert like this is not great user experience. Will the application still work? Maybe? We\u0027re not sure?\n\nI think it\u0027s make the application work in a \"degraded\" mode and show warnings (preferably \"inlined\" in the UI - disable buttons that won\u0027t work, for example, rather than alerts) in the actual places where this is a problem.",
+      "revId": "45bedac05ccc0f6f64093bbd16c439758853bcce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
