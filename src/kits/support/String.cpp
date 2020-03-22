@@ -2700,6 +2700,7 @@ BString::_ReplaceAtPositions(const PosVect* positions, int32 searchLength,
 
 //	#pragma mark - backwards compatibility
 
+#if __GNUC__ == 2
 
 /*!	Translates to (missing const):
 	BString& BString::operator<<(BString& string)
@@ -2709,6 +2710,8 @@ __ls__7BStringR7BString(BString* self, BString& string)
 {
 	return self->operator<<(string);
 }
+
+#endif
 
 
 #if __GNUC__ > 3
@@ -2783,13 +2786,14 @@ BStringRef::operator&()
 }
 
 
-
+/*
 extern "C" BStringRef
 _ZN7BStringixEi(BString* self, int32 index)
 
 {
 	return BStringRef(*self, index);
 }
+*/
 #endif
 
 
