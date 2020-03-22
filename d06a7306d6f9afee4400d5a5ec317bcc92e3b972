@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c8a2e391_a4e249d9",
+        "filename": "src/apps/installer/WorkerThread.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-22T20:38:13Z",
+      "side": 1,
+      "message": "is it still a directory? Or is it hpkg files now?",
+      "revId": "d06a7306d6f9afee4400d5a5ec317bcc92e3b972",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae8eaebf_b26b0837",
+        "filename": "src/apps/installer/WorkerThread.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-22T20:38:13Z",
+      "side": 1,
+      "message": "I think this can be deleted now?",
+      "revId": "d06a7306d6f9afee4400d5a5ec317bcc92e3b972",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
