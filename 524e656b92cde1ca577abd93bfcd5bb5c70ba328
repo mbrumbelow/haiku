@@ -16,6 +16,24 @@
       "revId": "524e656b92cde1ca577abd93bfcd5bb5c70ba328",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac8fa46f_2f7644c3",
+        "filename": "headers/private/kernel/platform/efi/types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-03-23T18:20:14Z",
+      "side": 1,
+      "message": "This constants are explictly mentioned in UEFI spec. EFI_ERROR_MASK is expected to be unsigned. ((size_t)INTPTR_MIN) is probably can be used.",
+      "parentUuid": "583c6047_70323493",
+      "revId": "524e656b92cde1ca577abd93bfcd5bb5c70ba328",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
