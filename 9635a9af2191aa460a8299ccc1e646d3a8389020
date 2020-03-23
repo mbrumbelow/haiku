@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fdc03fcc_8a0196b5",
+        "filename": "src/apps/pulse/NormalPulseView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-23T17:50:01Z",
+      "side": 1,
+      "message": "Why not use %d instead? (ok, it needs a larger temp buffer)",
+      "revId": "9635a9af2191aa460a8299ccc1e646d3a8389020",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
