@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "70b6371c_00379e1c",
+        "filename": "src/add-ons/kernel/drivers/bluetooth/h2/h2generic/h2upper.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-23T10:21:57Z",
+      "side": 1,
+      "message": "Can we fix the size of the array while we are at it?",
+      "revId": "454dadc8f69efcc620962e3750b3f0cb1dcdbf12",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
