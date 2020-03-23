@@ -251,8 +251,8 @@ Identify(BPositionIO* inSource, const translation_format* inFormat,
 {
 	dprintf(("PPMTranslator: Identify()\n"));
 	/* Silence compiler warnings. */
-	inFormat = inFormat;
-	ioExtension = ioExtension;
+	(void)inFormat;
+	(void)ioExtension;
 
 	/* Check that requested format is something we can deal with. */
 	if (outType == 0) {
