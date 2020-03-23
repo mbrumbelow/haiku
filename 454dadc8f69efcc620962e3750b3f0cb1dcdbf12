@@ -16,6 +16,24 @@
       "revId": "454dadc8f69efcc620962e3750b3f0cb1dcdbf12",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9858c06_843e9ea2",
+        "filename": "src/add-ons/kernel/drivers/bluetooth/h2/h2generic/h2upper.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-03-23T11:50:07Z",
+      "side": 1,
+      "message": "I don\u0027t know that is supposed to be done here, BT_SCO is outside of nbuffersTx array bounds.",
+      "parentUuid": "70b6371c_00379e1c",
+      "revId": "454dadc8f69efcc620962e3750b3f0cb1dcdbf12",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
