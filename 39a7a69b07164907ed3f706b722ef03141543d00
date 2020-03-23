@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f32683dc_753e2cd6",
+        "filename": "src/system/boot/platform/openfirmware/Jamfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-03-23T18:36:43Z",
+      "side": 1,
+      "message": "Sorry, just noticed this comes after console.cpp.",
+      "revId": "39a7a69b07164907ed3f706b722ef03141543d00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
