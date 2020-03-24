@@ -631,6 +631,7 @@ HAIKU_NO_DOWNLOADS=0
 HAIKU_PACKAGING_ARCHS=
 
 set_default_value HAIKU_NASM		nasm
+set_default_value HAIKU_UNSUPPORTED_TOOLCHAINS	0
 
 if sha256sum < /dev/null > /dev/null 2>&1; then
 	HOST_SHA256=sha256sum
@@ -915,7 +916,8 @@ else
 		fi
 	fi
 
-	if [ "$targetArchs" = " x86_gcc2" ]; then
+	if [ "$targetArchs" = " x86_gcc2" ] && \
+		[ "$HAIKU_UNSUPPORTED_TOOLCHAINS" = "0" ]; then
 		echo "Building a GCC2-only Haiku is no longer supported."
 		echo "Please configure the secondary architecture."
 		exit 1
