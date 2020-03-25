@@ -34,6 +34,29 @@
       "revId": "524e656b92cde1ca577abd93bfcd5bb5c70ba328",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7fdab051_d3269361",
+        "filename": "headers/private/kernel/platform/efi/types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-03-25T18:57:11Z",
+      "side": 1,
+      "message": "size_t vs ssize_t ?",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 1
+      },
+      "revId": "524e656b92cde1ca577abd93bfcd5bb5c70ba328",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
