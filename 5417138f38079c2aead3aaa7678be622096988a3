@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "db16278a_9fcd73b9",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1068,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-25T17:49:58Z",
+      "side": 1,
+      "message": "this would behave strangely if a new device is added to the tree between two calls and ends up before the \"last\" one in iteration order. It will \"rewind\" the find to that device and iterate again over the following ones.\n\nI can\u0027t say if there are any practical consequences to this, however.",
+      "revId": "5417138f38079c2aead3aaa7678be622096988a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
