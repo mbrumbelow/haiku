@@ -105,6 +105,30 @@
       "revId": "524e656b92cde1ca577abd93bfcd5bb5c70ba328",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea10fdaa_1761777a",
+        "filename": "headers/private/kernel/platform/efi/types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-03-25T19:30:16Z",
+      "side": 1,
+      "message": "EFI_ERROR is macros to check error. It should check high bit. One of way to check high bit is convert to signed and check for negative, that was originally used here. (0x80000000\u0026x) !\u003d 0 is also possible, but it need separate handling for 32 and 64 bits.",
+      "parentUuid": "931defad_d9a14f81",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 1
+      },
+      "revId": "524e656b92cde1ca577abd93bfcd5bb5c70ba328",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
