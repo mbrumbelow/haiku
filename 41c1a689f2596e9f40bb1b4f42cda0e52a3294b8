@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a0712be_cf8f91a8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-03-25T15:18:23Z",
+      "side": 1,
+      "message": "\"xfs: read_fs_info() hook\" would be enough.",
+      "revId": "41c1a689f2596e9f40bb1b4f42cda0e52a3294b8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ba12102_f7be216b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-03-25T15:18:23Z",
+      "side": 1,
+      "message": "Please keep two blank lines after #include block",
+      "revId": "41c1a689f2596e9f40bb1b4f42cda0e52a3294b8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ddffffe8_f77eae68",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-03-25T15:18:23Z",
+      "side": 1,
+      "message": "Please add blanks before and after | (and keep the line within 80-characters length.",
+      "revId": "41c1a689f2596e9f40bb1b4f42cda0e52a3294b8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
