@@ -81,6 +81,30 @@
       "revId": "524e656b92cde1ca577abd93bfcd5bb5c70ba328",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "931defad_d9a14f81",
+        "filename": "headers/private/kernel/platform/efi/types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-03-25T19:20:35Z",
+      "side": 1,
+      "message": "I saw. You wrote ssize_t which is signed",
+      "parentUuid": "91678d80_3c5aa201",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 1
+      },
+      "revId": "524e656b92cde1ca577abd93bfcd5bb5c70ba328",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
