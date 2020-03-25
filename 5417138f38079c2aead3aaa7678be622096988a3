@@ -16,6 +16,24 @@
       "revId": "5417138f38079c2aead3aaa7678be622096988a3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51350909_6f71e083",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1068,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-03-25T17:59:39Z",
+      "side": 1,
+      "message": "\u003e this would behave strangely if a new device is added to the tree between two calls and ends up before the \"last\" one in iteration order. It will \"rewind\" the find to that device and iterate again over the following ones.\n\nNot sure I\u0027m following: the new device node before the last one would just be ignored until finding the \"last\" node. get_next_child_node() is already using a similar pattern (\"skip those we already traversed\")",
+      "parentUuid": "db16278a_9fcd73b9",
+      "revId": "5417138f38079c2aead3aaa7678be622096988a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
