@@ -1,6 +1,6 @@
 /*
  * Copyright 2014, Stephan Aßmus <superstippi@gmx.de>.
- * Copyright 2019, Andrew Lindesay <apl@lindesay.co.nz>.
+ * Copyright 2019-2020, Andrew Lindesay <apl@lindesay.co.nz>.
  * All rights reserved. Distributed under the terms of the MIT License.
  */
 
@@ -21,6 +21,7 @@
 #include <LayoutBuilder.h>
 #include <MenuField.h>
 #include <PopUpMenu.h>
+#include <StringFormat.h>
 #include <TextControl.h>
 
 #include "AppUtils.h"
@@ -942,12 +943,11 @@ UserLoginWindow::_SetUserUsageConditions(
 	fUserUsageConditions = userUsageConditions;
 
 	if (fUserUsageConditions != NULL) {
-		BString minimumAgeString;
-		minimumAgeString.SetToFormat("%" B_PRId8,
-			fUserUsageConditions->MinimumAge());
-		BString label = B_TRANSLATE(
-			"I am %MinimumAgeYears% years of age or older");
-		label.ReplaceAll("%MinimumAgeYears%", minimumAgeString);
+		BString label;
+		static BStringFormat format(B_TRANSLATE("{0, plural,"
+			"one{I am at least one year old}"
+			"other{I am # years of age or older}}"));
+		format.Format(label, fUserUsageConditions->MinimumAge());
 		fConfirmMinimumAgeCheckBox->SetLabel(label);
 	} else {
 		fConfirmMinimumAgeCheckBox->SetLabel(PLACEHOLDER_TEXT);
