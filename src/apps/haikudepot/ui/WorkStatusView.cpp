@@ -22,6 +22,9 @@
 #undef B_TRANSLATION_CONTEXT
 #define B_TRANSLATION_CONTEXT "WorkStatusView"
 
+#define SIZE_STATUS_BAR			BSize(100,20)
+#define VIEW_INDEX_BARBER_POLE	(int32) 0
+#define VIEW_INDEX_PROGRESS_BAR	(int32) 1
 
 WorkStatusView::WorkStatusView(const char* name)
 	:
@@ -36,8 +39,10 @@ WorkStatusView::WorkStatusView(const char* name)
 	fProgressLayout->AddView(fBarberPole);
 	fProgressLayout->AddView(fProgressBar);
 
+	fBarberPole->SetExplicitSize(SIZE_STATUS_BAR);
 	fProgressBar->SetMaxValue(1.0f);
-	fProgressBar->SetBarHeight(20);
+	fProgressBar->SetBarHeight(SIZE_STATUS_BAR.Height());
+	fProgressBar->SetExplicitSize(SIZE_STATUS_BAR);
 
 	fStatusText->SetFontSize(be_plain_font->Size() * 0.9f);
 
@@ -70,8 +75,8 @@ void
 WorkStatusView::SetBusy()
 {
 	fBarberPole->Start();
-	if (fProgressLayout->VisibleIndex() != 0)
-		fProgressLayout->SetVisibleItem((int32)0);
+	if (fProgressLayout->VisibleIndex() != VIEW_INDEX_BARBER_POLE)
+		fProgressLayout->SetVisibleItem(VIEW_INDEX_BARBER_POLE);
 }
 
 
@@ -79,7 +84,7 @@ void
 WorkStatusView::SetIdle()
 {
 	fBarberPole->Stop();
-	fProgressLayout->SetVisibleItem((int32)0);
+	fProgressLayout->SetVisibleItem(VIEW_INDEX_BARBER_POLE);
 	SetText(NULL);
 }
 
@@ -88,8 +93,8 @@ void
 WorkStatusView::SetProgress(float value)
 {
 	fProgressBar->SetTo(value);
-	if (fProgressLayout->VisibleIndex() != 1)
-		fProgressLayout->SetVisibleItem(1);
+	if (fProgressLayout->VisibleIndex() != VIEW_INDEX_PROGRESS_BAR)
+		fProgressLayout->SetVisibleItem(VIEW_INDEX_PROGRESS_BAR);
 }
 
 
