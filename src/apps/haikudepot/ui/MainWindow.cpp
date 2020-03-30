@@ -75,6 +75,9 @@ enum {
 	MSG_SHOW_DEVELOP_PACKAGES				= 'sdvl'
 };
 
+#define SPIN_UNTIL_COORDINATOR_FINISHED_MI 250 * 1000
+	// quarter of a second
+
 #define KEY_ERROR_STATUS "errorStatus"
 
 using namespace BPackageKit;
