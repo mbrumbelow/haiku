@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "96d65891_4a5f02bd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-03-30T08:51:28Z",
+      "side": 1,
+      "message": "Please add \"ufs2: \" before commit message. First line of commit message should include component name if possible.",
+      "revId": "a2f8de6d451538c3d16c62714c724239e71b0642",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
