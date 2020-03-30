@@ -1,0 +1,191 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "38ab60ab_452428bc",
+        "filename": "docs/user/interface/SplitView.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-30T10:54:42Z",
+      "side": 1,
+      "message": "Creating a BSplitView manually is also fine, the use of the layout builders is not mandatory (same for BGroupView, BGridView, etc).",
+      "revId": "a3a540e244f71b40a75574e9be39369f1340b8d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aacd67e0_04081fc0",
+        "filename": "docs/user/interface/SplitView.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-30T10:54:42Z",
+      "side": 1,
+      "message": "laid out",
+      "revId": "a3a540e244f71b40a75574e9be39369f1340b8d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c2dcb6f_d0ed867e",
+        "filename": "docs/user/interface/SplitView.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-30T10:54:42Z",
+      "side": 1,
+      "message": "to change the division of space / to change how space is divided",
+      "revId": "a3a540e244f71b40a75574e9be39369f1340b8d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e40fcb57_baee67be",
+        "filename": "docs/user/interface/SplitView.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-30T10:54:42Z",
+      "side": 1,
+      "message": "Maybe mention somewhere that BGroupView is similar but doesn\u0027t allow resizing.",
+      "revId": "a3a540e244f71b40a75574e9be39369f1340b8d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a8d73b1_6dab8f03",
+        "filename": "docs/user/interface/SplitView.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-30T10:54:42Z",
+      "side": 1,
+      "message": "is it allowed for some of these to be NULL if one only wants to get one or two insets and doesn\u0027t care about the others?",
+      "revId": "a3a540e244f71b40a75574e9be39369f1340b8d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b745b2bb_920cb753",
+        "filename": "docs/user/interface/SplitView.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-30T10:54:42Z",
+      "side": 1,
+      "message": "orderd left to right / ordered top to bottom would be more specific",
+      "revId": "a3a540e244f71b40a75574e9be39369f1340b8d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f29d52a6_14a35e7e",
+        "filename": "docs/user/interface/SplitView.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-30T10:54:42Z",
+      "side": 1,
+      "message": "Is there a default value?",
+      "revId": "a3a540e244f71b40a75574e9be39369f1340b8d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99672feb_f8259bef",
+        "filename": "docs/user/interface/SplitView.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-30T10:54:42Z",
+      "side": 1,
+      "message": "This should explain how the weight affects the layout. For example, if one item has a weight of 3 and another has a weight of 1, they zill use 3/4 and 1/4 of the space, respectively, unless other size constraints (min/max sizes) come into play.",
+      "revId": "a3a540e244f71b40a75574e9be39369f1340b8d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c797a7b6_47901445",
+        "filename": "docs/user/interface/SplitView.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-30T10:54:42Z",
+      "side": 1,
+      "message": "This is not correct. This method returns wether the item is currently collapsed",
+      "revId": "a3a540e244f71b40a75574e9be39369f1340b8d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2472b165_093f605f",
+        "filename": "docs/user/interface/SplitView.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-30T10:54:42Z",
+      "side": 1,
+      "message": "I think it will be placed before. Index 0 places it as the first view, before what was previously view at index 0, and so on.",
+      "revId": "a3a540e244f71b40a75574e9be39369f1340b8d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "edc627ff_e67a1ec5",
+        "filename": "docs/user/interface/SplitView.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-03-30T10:54:42Z",
+      "side": 1,
+      "message": "same here",
+      "revId": "a3a540e244f71b40a75574e9be39369f1340b8d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
