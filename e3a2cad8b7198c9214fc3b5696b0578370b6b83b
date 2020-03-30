@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "080cd8e4_cb6f7884",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-03-30T08:46:17Z",
+      "side": 1,
+      "message": "Delete this line. Next line is enough.",
+      "revId": "e3a2cad8b7198c9214fc3b5696b0578370b6b83b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
