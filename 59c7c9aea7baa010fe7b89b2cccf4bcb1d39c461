@@ -16,6 +16,24 @@
       "revId": "59c7c9aea7baa010fe7b89b2cccf4bcb1d39c461",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69e83a05_01881100",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/BusManager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 880,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-03-31T11:43:18Z",
+      "side": 1,
+      "message": "\u003e doesn\u0027t inserting it in the middle break the ABI for the module?\n\nCorrect, I don\u0027t see this as a problem, as I don\u0027t expect any users outside of the Haiku tree. Or are there any?",
+      "parentUuid": "c9c2f354_3acb47dc",
+      "revId": "59c7c9aea7baa010fe7b89b2cccf4bcb1d39c461",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
