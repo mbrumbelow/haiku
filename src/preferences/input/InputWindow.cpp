@@ -27,6 +27,7 @@
 #include "InputDeviceView.h"
 #include "InputMouse.h"
 #include "InputTouchpadPref.h"
+#include "InputWacom.h"
 #include "InputWindow.h"
 #include "MouseSettings.h"
 #include "SettingsView.h"
@@ -183,7 +184,9 @@ InputWindow::AddDevice(BInputDevice* dev)
 		TouchpadPrefView* view = new TouchpadPrefView(dev);
 		fCardView->AddChild(view);
 		fDeviceListView->fDeviceList->AddItem(new BStringItem(name));
-	} else if (dev->Type() == B_POINTING_DEVICE) {
+	} else if (dev->Type() == B_POINTING_DEVICE
+		&& name.FindFirst("Mouse") >= 0) {
+
 		InputMouse* view = new InputMouse(dev);
 		fCardView->AddChild(view);
 		fDeviceListView->fDeviceList->AddItem(new BStringItem(name));
