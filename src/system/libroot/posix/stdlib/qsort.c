@@ -69,7 +69,7 @@ swapfunc(char *a, char *b, int n, int swaptype)
 		swapcode(char, a, b, n)
 }
 
-#define swap(a, b)					\
+#define swap(a, b, es)					\
 	if (swaptype == 0) {				\
 		long t = *(long *)(a);			\
 		*(long *)(a) = *(long *)(b);		\
@@ -109,7 +109,7 @@ loop:	SWAPINIT(a, es);
 		for (pm = (char *)a + es; pm < (char *)a + n * es; pm += es)
 			for (pl = pm; pl > (char *)a && cmp(pl - es, pl) > 0;
 			     pl -= es)
-				swap(pl, pl - es);
+				swap(pl, pl - es, es);
 		return;
 	}
 	pm = (char *)a + (n / 2) * es;
@@ -124,7 +124,7 @@ loop:	SWAPINIT(a, es);
 		}
 		pm = med3(pl, pm, pn, cmp);
 	}
-	swap(a, pm);
+	swap(a, pm, es);
 	pa = pb = (char *)a + es;
 
 	pc = pd = (char *)a + (n - 1) * es;
@@ -132,7 +132,7 @@ loop:	SWAPINIT(a, es);
 		while (pb <= pc && (r = cmp(pb, a)) <= 0) {
 			if (r == 0) {
 				swap_cnt = 1;
-				swap(pa, pb);
+				swap(pa, pb, es);
 				pa += es;
 			}
 			pb += es;
@@ -140,14 +140,14 @@ loop:	SWAPINIT(a, es);
 		while (pb <= pc && (r = cmp(pc, a)) >= 0) {
 			if (r == 0) {
 				swap_cnt = 1;
-				swap(pc, pd);
+				swap(pc, pd, es);
 				pd -= es;
 			}
 			pc -= es;
 		}
 		if (pb > pc)
 			break;
-		swap(pb, pc);
+		swap(pb, pc, es);
 		swap_cnt = 1;
 		pb += es;
 		pc -= es;
@@ -156,7 +156,7 @@ loop:	SWAPINIT(a, es);
 		for (pm = (char *)a + es; pm < (char *)a + n * es; pm += es)
 			for (pl = pm; pl > (char *)a && cmp(pl - es, pl) > 0;
 			     pl -= es)
-				swap(pl, pl - es);
+				swap(pl, pl - es, es);
 		return;
 	}
 
@@ -174,4 +174,115 @@ loop:	SWAPINIT(a, es);
 		goto loop;
 	}
 /*		qsort(pn - r, r / es, es, cmp);*/
+}
+
+
+/*
+ * Qsort_r routine based upon above routine for qsort
+ */
+typedef int cmpr_t(void const *, void const *, void *);
+static inline char *med3_r(char *, char *, char *, void *, cmpr_t *);
+
+static inline
+char *
+med3_r(char *a, char *b, char *c, void *arg, cmpr_t *cmpr)
+{
+	return cmpr(a, b, arg) < 0 ?
+	       (cmpr(b, c, arg) < 0 ? b : (cmpr(a, c, arg) < 0 ? c : a ))
+              :(cmpr(b, c, arg) > 0 ? b : (cmpr(a, c, arg) < 0 ? a : c ));
+}
+
+void
+qsort_r(void *base, size_t numElements, size_t sizeOfElement, cmpr_t *cmpr,
+	void *cookie)
+{
+	char *pa;
+	char *pb;
+	char *pc;
+	char *pd;
+	char *pl;
+	char *pm;
+	char *pn;
+	int d;
+	int r;
+	int swaptype;
+	int swap_cnt;
+
+loop:	SWAPINIT(base, sizeOfElement);
+	swap_cnt = 0;
+	if (numElements < 7) {
+		for (pm = (char *)base + sizeOfElement;
+			 pm < (char *)base + numElements * sizeOfElement;
+			 pm += sizeOfElement)
+			for (pl = pm;
+				 pl > (char *)base && cmpr(pl - sizeOfElement, pl, cookie) > 0;
+			     pl -= sizeOfElement)
+				swap(pl, pl - sizeOfElement, sizeOfElement);
+		return;
+	}
+	pm = (char *)base + (numElements / 2) * sizeOfElement;
+	if (numElements > 7) {
+		pl = base;
+		pn = (char *)base + (numElements - 1) * sizeOfElement;
+		if (numElements > 40) {
+			d = (numElements / 8) * sizeOfElement;
+			pl = med3_r(pl, pl + d, pl + 2 * d, cookie, cmpr);
+			pm = med3_r(pm - d, pm, pm + d, cookie, cmpr);
+			pn = med3_r(pn - 2 * d, pn - d, pn, cookie, cmpr);
+		}
+		pm = med3_r(pl, pm, pn, cookie, cmpr);
+	}
+	swap(base, pm, sizeOfElement);
+	pa = pb = (char *)base + sizeOfElement;
+
+	pc = pd = (char *)base + (numElements - 1) * sizeOfElement;
+	for (;;) {
+		while (pb <= pc && (r = cmpr(pb, base, cookie)) <= 0) {
+			if (r == 0) {
+				swap_cnt = 1;
+				swap(pa, pb, sizeOfElement);
+				pa += sizeOfElement;
+			}
+			pb += sizeOfElement;
+		}
+		while (pb <= pc && (r = cmpr(pc, base, cookie)) >= 0) {
+			if (r == 0) {
+				swap_cnt = 1;
+				swap(pc, pd, sizeOfElement);
+				pd -= sizeOfElement;
+			}
+			pc -= sizeOfElement;
+		}
+		if (pb > pc)
+			break;
+		swap(pb, pc, sizeOfElement);
+		swap_cnt = 1;
+		pb += sizeOfElement;
+		pc -= sizeOfElement;
+	}
+	if (swap_cnt == 0) {  /* Switch to insertion sort */
+		for (pm = (char *)base + sizeOfElement;
+			 pm < (char *)base + numElements * sizeOfElement;
+			 pm += sizeOfElement)
+			for (pl = pm;
+				 pl > (char *)base && cmpr(pl - sizeOfElement, pl, cookie) > 0;
+			     pl -= sizeOfElement)
+				swap(pl, pl - sizeOfElement, sizeOfElement);
+		return;
+	}
+
+	pn = (char *)base + numElements * sizeOfElement;
+	r = min(pa - (char *)base, pb - pa);
+	vecswap(base, pb - r, r);
+	r = min((int)(pd - pc), (int)(pn - pd - sizeOfElement));
+	vecswap(pb, pn - r, r);
+	if ((r = pb - pa) > (int)sizeOfElement)
+		qsort_r(base, r / sizeOfElement, sizeOfElement, cmpr, cookie);
+	if ((r = pd - pc) > (int)sizeOfElement) {
+		/* Iterate rather than recurse to save stack space */
+		base = pn - r;
+		numElements = r / sizeOfElement;
+		goto loop;
+	}
+/*		qsort_r(pn - r, r / sizeOfElement, sizeOfElement, cmpr, cookie);*/
 }

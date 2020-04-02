@@ -140,6 +140,7 @@ extern int		lcong48_r(unsigned short int param[7],
 
 /* search and sort functions */
 typedef int (*_compare_function)(const void *, const void *);
+typedef int (*_compare_function_reentrant)(const void *, const void *, void *);
 
 extern void		*bsearch(const void *key, const void *base, size_t numElements,
 					size_t sizeOfElement, _compare_function);
@@ -149,6 +150,8 @@ extern int		mergesort(void *base, size_t numElements, size_t sizeOfElement,
 					_compare_function);
 extern void		qsort(void *base, size_t numElements, size_t sizeOfElement,
 					_compare_function);
+extern void		qsort_r(void *base, size_t numElements, size_t sizeOfElement,
+					_compare_function_reentrant, void *cookie);
 extern int		radixsort(u_char const **base, int numElements,
 					u_char const *table, u_int endByte);
 extern int		sradixsort(u_char const **base, int numElements,
