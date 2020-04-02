@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "88461e44_9cca4904",
+        "filename": "docs/user/interface/SplitView.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-04-02T16:23:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38ab60ab_452428bc",
+      "revId": "a3a540e244f71b40a75574e9be39369f1340b8d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aacd67e0_04081fc0",
         "filename": "docs/user/interface/SplitView.dox",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "a3a540e244f71b40a75574e9be39369f1340b8d3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87c5651b_95349f5d",
+        "filename": "docs/user/interface/SplitView.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-04-02T16:23:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aacd67e0_04081fc0",
+      "revId": "a3a540e244f71b40a75574e9be39369f1340b8d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "394c113e_ea2a8415",
+        "filename": "docs/user/interface/SplitView.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-04-02T16:23:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c2dcb6f_d0ed867e",
+      "revId": "a3a540e244f71b40a75574e9be39369f1340b8d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e40fcb57_baee67be",
         "filename": "docs/user/interface/SplitView.dox",
         "patchSetId": 1
@@ -67,6 +121,24 @@
       "revId": "a3a540e244f71b40a75574e9be39369f1340b8d3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41c34ac4_b10e785d",
+        "filename": "docs/user/interface/SplitView.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-04-02T16:23:31Z",
+      "side": 1,
+      "message": "Added a related block.",
+      "parentUuid": "e40fcb57_baee67be",
+      "revId": "a3a540e244f71b40a75574e9be39369f1340b8d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "fd763c8d_e2ce5d3c",
+        "filename": "docs/user/interface/SplitView.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-04-02T16:23:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a8d73b1_6dab8f03",
+      "revId": "a3a540e244f71b40a75574e9be39369f1340b8d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b745b2bb_920cb753",
         "filename": "docs/user/interface/SplitView.dox",
         "patchSetId": 1
@@ -101,6 +191,24 @@
       "revId": "a3a540e244f71b40a75574e9be39369f1340b8d3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2b490b8_7fcc8ecc",
+        "filename": "docs/user/interface/SplitView.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-04-02T16:23:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b745b2bb_920cb753",
+      "revId": "a3a540e244f71b40a75574e9be39369f1340b8d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "a25b7483_c06ceb7b",
+        "filename": "docs/user/interface/SplitView.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-04-02T16:23:31Z",
+      "side": 1,
+      "message": "There is on the constructor (B_USE_DEFAULT_SPACING), but not on the explicit setter.",
+      "parentUuid": "f29d52a6_14a35e7e",
+      "revId": "a3a540e244f71b40a75574e9be39369f1340b8d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99672feb_f8259bef",
         "filename": "docs/user/interface/SplitView.dox",
         "patchSetId": 1
@@ -135,6 +261,24 @@
       "revId": "a3a540e244f71b40a75574e9be39369f1340b8d3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b949faca_e7dc8e8f",
+        "filename": "docs/user/interface/SplitView.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-04-02T16:23:31Z",
+      "side": 1,
+      "message": "I think a thorough explanation of the weight property should be part of the general introduction of the Layout system. I have added a shorter note in the SetItemWeight methods.",
+      "parentUuid": "99672feb_f8259bef",
+      "revId": "a3a540e244f71b40a75574e9be39369f1340b8d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "0b3d2c4c_6fb1f720",
+        "filename": "docs/user/interface/SplitView.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-04-02T16:23:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c797a7b6_47901445",
+      "revId": "a3a540e244f71b40a75574e9be39369f1340b8d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2472b165_093f605f",
         "filename": "docs/user/interface/SplitView.dox",
         "patchSetId": 1
@@ -172,6 +334,24 @@
     },
     {
       "key": {
+        "uuid": "f740019f_8e44c814",
+        "filename": "docs/user/interface/SplitView.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-04-02T16:23:31Z",
+      "side": 1,
+      "message": "You\u0027re right. It\u0027s a list and the item is added at the index, so everything is shifted right.",
+      "parentUuid": "2472b165_093f605f",
+      "revId": "a3a540e244f71b40a75574e9be39369f1340b8d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "edc627ff_e67a1ec5",
         "filename": "docs/user/interface/SplitView.dox",
         "patchSetId": 1
@@ -186,6 +366,24 @@
       "revId": "a3a540e244f71b40a75574e9be39369f1340b8d3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0dc94fb_19687c51",
+        "filename": "docs/user/interface/SplitView.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-04-02T16:23:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "edc627ff_e67a1ec5",
+      "revId": "a3a540e244f71b40a75574e9be39369f1340b8d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
