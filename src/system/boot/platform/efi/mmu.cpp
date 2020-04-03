@@ -19,8 +19,8 @@
 
 struct allocated_memory_region {
 	allocated_memory_region *next;
-	uint64_t vaddr;
-	uint64_t paddr;
+	addr_t vaddr;
+	addr_t paddr;
 	size_t size;
 	bool released;
 };
@@ -38,7 +38,7 @@ static addr_t sNextVirtualAddress = KERNEL_LOAD_BASE + 32 * 1024 * 1024;
 static allocated_memory_region *allocated_memory_regions = NULL;
 
 
-extern "C" uint64_t
+extern "C" addr_t
 mmu_allocate_page()
 {
 	efi_physical_addr addr;
@@ -111,7 +111,7 @@ platform_allocate_region(void **_address, size_t size, uint8 /* protection */, b
 	region->released = false;
 
 	if (*_address != NULL) {
-		region->vaddr = (uint64_t)*_address;
+		region->vaddr = (addr_t)*_address;
 	}
 
 	//dprintf("Allocated region %#lx (requested %p) %#lx %lu\n", region->vaddr, *_address, region->paddr, region->size);
@@ -167,7 +167,7 @@ static allocated_memory_region *
 get_region(void *address, size_t size)
 {
 	for (allocated_memory_region *region = allocated_memory_regions; region; region = region->next) {
-		if (region->paddr == (uint64_t)address && region->size == size) {
+		if (region->paddr == (addr_t)address && region->size == size) {
 			return region;
 		}
 	}
@@ -208,12 +208,12 @@ convert_physical_ranges() {
 
 
 extern "C" status_t
-platform_bootloader_address_to_kernel_address(void *address, uint64_t *_result)
+platform_bootloader_address_to_kernel_address(void *address, addr_t *_result)
 {
 	// Convert any physical ranges prior to looking up address
 	convert_physical_ranges();
 
-	uint64_t addr = (uint64_t)address;
+	addr_t addr = (addr_t)address;
 
 	for (allocated_memory_region *region = allocated_memory_regions; region; region = region->next) {
 		if (region->paddr <= addr && addr < region->paddr + region->size) {
@@ -233,7 +233,7 @@ platform_bootloader_address_to_kernel_address(void *address, uint64_t *_result)
 
 
 extern "C" status_t
-platform_kernel_address_to_bootloader_address(uint64_t address, void **_result)
+platform_kernel_address_to_bootloader_address(addr_t address, void **_result)
 {
 	for (allocated_memory_region *region = allocated_memory_regions; region; region = region->next) {
 		if (region->vaddr != 0 && region->vaddr <= address && address < region->vaddr + region->size) {
