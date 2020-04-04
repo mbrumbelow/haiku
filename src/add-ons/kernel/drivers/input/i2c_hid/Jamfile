@@ -1,0 +1,26 @@
+SubDir HAIKU_TOP src add-ons kernel drivers input i2c_hid ;
+
+SubDirC++Flags -fno-rtti ;
+
+SubDirSysHdrs $(HAIKU_TOP) headers os drivers ;
+UsePrivateHeaders [ FDirName kernel util ] input drivers device i2c ;
+UsePrivateKernelHeaders ;
+
+KernelAddon i2c_hid :
+	DeviceList.cpp
+	Driver.cpp
+	HIDDevice.cpp
+
+	HIDCollection.cpp
+	HIDParser.cpp
+	HIDReport.cpp
+	HIDReportItem.cpp
+	HIDWriter.cpp
+
+	ProtocolHandler.cpp
+
+	JoystickProtocolHandler.cpp
+	KeyboardProtocolHandler.cpp
+	MouseProtocolHandler.cpp
+	TabletProtocolHandler.cpp
+;
