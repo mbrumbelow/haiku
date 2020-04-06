@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8243c9ad_fd78d342",
+        "filename": "src/add-ons/kernel/bus_managers/i2c/I2CDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-06T10:58:37Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "44036e9d95af7db5668b3b6207cb594bfa0b8c17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
