@@ -86,7 +86,8 @@ rule DefineDefaultBuildProfiles
 				man
 				nano
 				noto
-				noto_sans_cjk_jp
+				noto_sans_cjk
+				noto_serif_cjk
 				openssh
 				p7zip
 				pdfwriter
