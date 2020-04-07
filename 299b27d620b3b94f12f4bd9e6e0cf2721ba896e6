@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a721236_12c6239f",
+        "filename": "src/libs/gnu/qsort.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-07T07:27:50Z",
+      "side": 1,
+      "message": "Can we use a version which is not under 4-clause BSD?\nThe current one in FreeBSD isn\u0027t:\nhttps://github.com/freebsd/freebsd/blob/master/lib/libc/stdlib/qsort.c\n\nIn general if we\u0027re importing sourcecode from somewhere else, we should take the latest version?",
+      "revId": "299b27d620b3b94f12f4bd9e6e0cf2721ba896e6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
