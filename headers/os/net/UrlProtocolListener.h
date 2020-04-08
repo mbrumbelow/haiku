@@ -88,7 +88,7 @@ public:
 		Called each time a data block is received.
 	*/
 	virtual	void				DownloadProgress(BUrlRequest* caller,
-									ssize_t bytesReceived, ssize_t bytesTotal);
+									off_t bytesReceived, off_t bytesTotal);
 
 	/**
 		UploadProgress(bytesSent, bytesTotal)
@@ -99,7 +99,7 @@ public:
 		Called each time a data block is emitted.
 	*/
 	virtual void				UploadProgress(BUrlRequest* caller,
-									ssize_t bytesSent, ssize_t bytesTotal);
+									off_t bytesSent, off_t bytesTotal);
 
 	/**
 		RequestCompleted(success)

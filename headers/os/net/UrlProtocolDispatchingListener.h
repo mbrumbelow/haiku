@@ -50,9 +50,9 @@ public:
 									const char* data, off_t position,
 									ssize_t size);
 	virtual	void				DownloadProgress(BUrlRequest* caller,
-									ssize_t bytesReceived, ssize_t bytesTotal);
+									off_t bytesReceived, off_t bytesTotal);
 	virtual void				UploadProgress(BUrlRequest* caller,
-									ssize_t bytesSent, ssize_t bytesTotal);
+									off_t bytesSent, off_t bytesTotal);
 	virtual void				RequestCompleted(BUrlRequest* caller,
 									bool success);
 	virtual void				DebugMessage(BUrlRequest* caller,
