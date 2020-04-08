@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b6539936_517e5539",
+        "filename": "docs/user/interface/CardLayout.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-08T14:24:18Z",
+      "side": 1,
+      "message": "While correct, the example with tabs is a bit confusing, because you would normally use a BTabView for that.\n\nAnother case where this is useful, and perhaps easier to explain, is to create \"wizard\" style dialogs, where a set of steps and questions are shown one after the other (possibly with next/previous buttons)",
+      "revId": "fb6e15d6ebf6870a4680b010a07f1fae8e3215dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8ef303f_6c1cff17",
+        "filename": "docs/user/interface/CardLayout.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-08T14:24:18Z",
+      "side": 1,
+      "message": "BArchivable::Instantiate() should be used instead of calling this directly.",
+      "revId": "fb6e15d6ebf6870a4680b010a07f1fae8e3215dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c43dcbe_c3cdcaab",
+        "filename": "docs/user/interface/CardLayout.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-08T14:24:18Z",
+      "side": 1,
+      "message": "The \\return already translates to a \"Returns:\" in the generated HTML. So just \"A borrowed reference to ...\" is fine. Also, you\u0027re using \"borrowed reference\" in these cases but I think that\u0027s Rust vocabulary, and possibly confusing because references in C++ are something else.",
+      "revId": "fb6e15d6ebf6870a4680b010a07f1fae8e3215dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7bced4e2_014eea6a",
+        "filename": "docs/user/interface/CardLayout.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-08T14:24:18Z",
+      "side": 1,
+      "message": "I would just put \"An item that is already added to this layout\". The prototype of the function shows that it is a pointer, and the fact that it must be already added implies the object lifetime.",
+      "revId": "fb6e15d6ebf6870a4680b010a07f1fae8e3215dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ab0de4a_479c7832",
+        "filename": "docs/user/interface/CardLayout.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-08T14:24:18Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this call debugger() when attempting to use a item that\u0027s not in the stack? In any case I wouldn\u0027t document that. The function accepts either NULL or an item that\u0027s on the stack, if you try something else, you are out of documented bounds.",
+      "revId": "fb6e15d6ebf6870a4680b010a07f1fae8e3215dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "133b5163_6bfe2e7b",
+        "filename": "docs/user/interface/CardView.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-08T14:24:18Z",
+      "side": 1,
+      "message": "could we use something to link to the parent method directly here?",
+      "revId": "fb6e15d6ebf6870a4680b010a07f1fae8e3215dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e4051d0_8841aa84",
+        "filename": "docs/user/interface/LayoutBuilder.Cards.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-08T14:24:18Z",
+      "side": 1,
+      "message": "at the top of the stack?",
+      "revId": "fb6e15d6ebf6870a4680b010a07f1fae8e3215dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14c5ef87_4c1d164e",
+        "filename": "docs/user/interface/LayoutBuilder.Cards.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-08T14:24:18Z",
+      "side": 1,
+      "message": "Can\u0027t we use \\copydoc for all these? I guess they will be documented the same way for all layout builders?",
+      "revId": "fb6e15d6ebf6870a4680b010a07f1fae8e3215dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8aadba10_c8718ccf",
+        "filename": "docs/user/interface/LayoutBuilder.Cards.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-08T14:24:18Z",
+      "side": 1,
+      "message": "\u003e 80 columns",
+      "revId": "fb6e15d6ebf6870a4680b010a07f1fae8e3215dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2828a062_f6153479",
+        "filename": "docs/user/interface/LayoutBuilder.Cards.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-08T14:24:18Z",
+      "side": 1,
+      "message": "\u003e 80 columns",
+      "revId": "fb6e15d6ebf6870a4680b010a07f1fae8e3215dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
