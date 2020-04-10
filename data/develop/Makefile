@@ -1,4 +1,4 @@
-## Haiku Generic Makefile v2.6 ##
+## Haiku Generic Makefile v2.7 ##
 
 ## Fill in this file to specify the project being created, and the referenced
 ## Makefile-Engine will do all of the hard work for you. This handles any
@@ -41,6 +41,9 @@ RDEFS =
 #	Both RDEFS and RSRCS can be utilized in the same Makefile.
 RSRCS =
 
+#	Specify special attributes to add. Full or relative paths can be used.
+ATTRIBUTES =
+
 # End Pe/Eddie support.
 # @<-src@
 #%}
@@ -80,11 +83,27 @@ LOCAL_INCLUDE_PATHS =
 #	SOME (O1), FULL (O3), or leave blank (for the default optimization level).
 OPTIMIZE :=
 
-# 	Specify the codes for languages you are going to support in this
-# 	application. The default "en" one must be provided too. "make catkeys"
-# 	will recreate only the "locales/en.catkeys" file. Use it as a template
-# 	for creating catkeys for other languages. All localization files must be
-# 	placed in the "locales" subdirectory.
+#	Specify the directory for localization sources. This is the
+#	directory where raw localization files (*.catkeys) are placed. If left
+#	blank, this defaults to the "locales" subdirectory.
+CATKEYS_DIR :=
+
+#	Specify the directory for localization resource data. This is the directory
+#	where compiled localization files (*.catalog) are placed. If left blank,
+#	this defaults to the "OBJ_DIR/APP_MIME_SIG" subdirectory.
+CATALOGS_DIR :=
+
+#	Specify the catalog installation directory for the 'catalogsinstall' rule.
+#	This is the directory where compiled localization files (*.catalog) are
+#	installed to be used by compiled binaries. If left blank, the defaults to
+#	"/boot/home/config/non-packaged/data/locale/catalogs".
+CATALOG_INSTALL_DIR :=
+
+#	Specify the codes for languages you are going to support in this
+#	application. The default "en" one must be provided too. "make catkeys"
+#	will recreate only the "CATKEYS_DIR/en.catkeys" file. Use it as a
+#	template for creating catkeys for other languages. All localization files
+#	must be placed in the "CATKEYS_DIR" subdirectory.
 LOCALES =
 
 #	Specify all the preprocessor symbols to be defined. The symbols will not
@@ -124,6 +143,21 @@ APP_VERSION :=
 #	binary in ~/add-ons/kernel/drivers/dev/video/usb, so that your driver will
 #	appear at /dev/video/usb when loaded. The default is "misc".
 DRIVER_PATH =
+
+#	Specify the directory for where object files are placed. If left blank, this
+#	defaults to a subdirectory in the format of:
+#		objects.(system cpu)-(compiler)(compiler version)-(release/debug)
+#	Example:
+#		objects.x86-cc2-debug
+OBJ_DIR :=
+
+#	Specify the directory for where the compiled binary is placed. If left
+#	blank, this defaults to the "OBJ_DIR" subdirectory.
+TARGET_DIR :=
+
+#	Specify a directory for the 'install' rule. There is no default, so
+#	running the 'install' target with this empty will result in an error.
+INSTALL_DIR :=
 
 ## Include the Makefile-Engine
 DEVEL_DIRECTORY := \

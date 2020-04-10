@@ -1,9 +1,9 @@
-## Haiku Generic Makefile Engine v2.6 ##
+## Haiku Generic Makefile Engine v2.7 ##
 
 ## Does all the hard work for the Generic Makefile, which only has to specify
 ## the project parameters.
 
-## Supports Generic Makefile v2.6.
+## Supports Generic Makefile v2.7.
 ##   Probably works with Generic Makefile v2.0+, but support is not guaranteed.
 
 # Determine the CPU type
@@ -35,28 +35,29 @@ endif
 MIMESET	:= mimeset
 XRES	:= xres
 RESCOMP	:= rc
+ADDATTR	:= addattr
 CC		:= $(CC)
 C++		:= $(CXX)
 
 # Set up CFLAGS.
 ifeq ($(strip $(TYPE)), DRIVER)
-	CFLAGS	+= -D_KERNEL_MODE=1 -fno-pic
+	CFLAGS += -D_KERNEL_MODE=1 -fno-pic
 else
 	CFLAGS +=
 endif
 
 # Set up optimization flags.
 ifeq ($(strip $(OPTIMIZE)), FULL)
-	OPTIMIZER	= -O3
+	OPTIMIZER = -O3
 else
 ifeq ($(strip $(OPTIMIZE)), SOME)
-	OPTIMIZER	= -O1
+	OPTIMIZER = -O1
 else
 ifeq ($(strip $(OPTIMIZE)), NONE)
-	OPTIMIZER	= -O0
+	OPTIMIZER = -O0
 else
 #	OPTIMIZE isn't set, so set it to FULL
-	OPTIMIZER	= -O3
+	OPTIMIZER = -O3
 endif
 endif
 endif
@@ -79,9 +80,9 @@ endif
 
 # Set up the linker & linker flags.
 ifeq ($(origin LD), default)
-	LD			:= $(CC)
+	LD := $(CC)
 endif
-LDFLAGS		+= $(DEBUG)
+LDFLAGS += $(DEBUG)
 
 # Binary-type-specific linker flags.
 ifeq ($(strip $(TYPE)), APP)
@@ -101,18 +102,20 @@ endif
 CC_VER = $(word 1, $(subst -, , $(subst ., , $(shell $(CC) -dumpversion))))
 
 # Set the object directory if it isn't already.
-OBJ_DIR := objects.$(CPU)-$(CC)$(CC_VER)-$(if $(DEBUGGER),debug,release)
+ifeq ($(OBJ_DIR), )
+	OBJ_DIR := objects.$(CPU)-$(CC)$(CC_VER)-$(if $(DEBUGGER),debug,release)
+endif
 
 # Output the binary alongside the objects unless another directory is specified.
 ifeq ($(TARGET_DIR), )
-	TARGET_DIR	:= $(OBJ_DIR)
+	TARGET_DIR := $(OBJ_DIR)
 endif
 
 # NOTE: make doesn't find the target if its name is enclosed in quotes.
 ifeq ($(strip $(TYPE)), STATIC)
-	TARGET		:= $(TARGET_DIR)/$(NAME).a
+	TARGET := $(TARGET_DIR)/$(NAME).a
 else
-	TARGET		:= $(TARGET_DIR)/$(NAME)
+	TARGET := $(TARGET_DIR)/$(NAME)
 endif
 
 # Psuedo-function for converting a list of source files in SRCS variable to a
@@ -178,7 +181,7 @@ LINK_LIBS += $(filter %.so %.a _APP_ _KERNEL_, $(LIBS))
 LINK_LIBS += $(foreach lib, $(filter-out %.so %.a _APP_ _KERNEL_, $(LIBS)), $(addprefix -l, $(lib)))
 
 # Add the linkpaths and linklibs to LDFLAGS.
-LDFLAGS += $(LINK_PATHS)  $(LINK_LIBS)
+LDFLAGS += $(LINK_PATHS) $(LINK_LIBS)
 
 # Add the defines to CFLAGS.
 CFLAGS += $(foreach define, $(DEFINES), $(addprefix -D, $(define)))
@@ -221,13 +224,24 @@ else
 	DO_RSRCS := $(XRES) -o $(TARGET) $(RSRCS)
 endif
 
+# Create the attribute instruction.
+ifeq ($(ATTRIBUTES), )
+	DO_ATTRS :=
+else
+	DO_ATTRS := $(ADDATTR) $(ATTRIBUTES) "$(TARGET)"
+endif
+
 # Set the directory for internationalization sources (catkeys) if it isn't
 # already.
-CATKEYS_DIR	:= locales
+ifeq ($(CATKEYS_DIR), )
+	CATKEYS_DIR := locales
+endif
 
 # Set the directory for internationalization resource data (catalogs) if it
 # isn't already.
-CATALOGS_DIR := $(OBJ_DIR)/$(APP_MIME_SIG)
+ifeq ($(CATALOGS_DIR), )
+	CATALOGS_DIR := $(OBJ_DIR)/$(APP_MIME_SIG)
+endif
 
 # Pseudo-function for converting a list of language codes in CATALOGS variable
 # to a corresponding list of catkeys files in $(CATALOGS_DIR)/xx.catalog
@@ -246,6 +260,7 @@ $(TARGET):	$(OBJ_DIR) $(OBJS) $(RSRCS)
 	$(BUILD_LINE)
 	$(DO_RSRCS)
 	$(MIMESET) -f "$@"
+	$(DO_ATTRS)
 
 # Create OBJ_DIR if it doesn't exist.
 $(OBJ_DIR)::
@@ -370,7 +385,9 @@ else
 endif
 
 # Set the catalog installation directory if it isn't already.
-CATALOG_INSTALL_DIR := $(shell finddir B_USER_NONPACKAGED_DATA_DIRECTORY)/locale/catalogs
+ifeq ($(CATALOG_INSTALL_DIR), )
+	CATALOG_INSTALL_DIR := $(shell finddir B_USER_NONPACKAGED_DATA_DIRECTORY)/locale/catalogs
+endif
 
 # Rule to install localization resources catalogs.
 catalogsinstall :: catalogs
