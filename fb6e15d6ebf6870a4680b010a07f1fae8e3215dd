@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c7eb17a8_a033033e",
+        "filename": "docs/user/interface/CardLayout.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-04-11T08:30:32Z",
+      "side": 1,
+      "message": "I like that suggestion. I was indeed looking for the best example here.",
+      "parentUuid": "b6539936_517e5539",
+      "revId": "fb6e15d6ebf6870a4680b010a07f1fae8e3215dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a8ef303f_6c1cff17",
         "filename": "docs/user/interface/CardLayout.dox",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "c9a5b3ad_ec000b17",
+        "filename": "docs/user/interface/CardLayout.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-04-11T08:30:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8ef303f_6c1cff17",
+      "revId": "fb6e15d6ebf6870a4680b010a07f1fae8e3215dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8c43dcbe_c3cdcaab",
         "filename": "docs/user/interface/CardLayout.dox",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2020-04-08T14:24:18Z",
       "side": 1,
       "message": "The \\return already translates to a \"Returns:\" in the generated HTML. So just \"A borrowed reference to ...\" is fine. Also, you\u0027re using \"borrowed reference\" in these cases but I think that\u0027s Rust vocabulary, and possibly confusing because references in C++ are something else.",
+      "revId": "fb6e15d6ebf6870a4680b010a07f1fae8e3215dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78e1b603_c46baa3d",
+        "filename": "docs/user/interface/CardLayout.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-04-11T08:30:32Z",
+      "side": 1,
+      "message": "Ack for the returns bit.\n\nThe borrowed reference is indeed a rust-ism and it is semi-intentional. The background is that working with Rust gives me the proper ways of thinking about ownership, which has always been part of C++ and Haiku, but having it been made explicit, also gave me the tools to apply it to other situations. So yes, the concept of ownership (and lifetimes) will be more explicit in documentation that I will write. \n\nHaving said that, I know \u0027borrowed reference\u0027 is a poor transplant, especially since C++ itself introduces a first class concept of references (which in a sense act exactly like \u0027borrowed\u0027 references). In an earlier draft I used the term \u0027borrowed pointer\u0027, but it feels misleading, as it is not the pointer itself that is borrowed, but the underlying object.\n\nSo I am not sure which way to go here just yet.",
+      "parentUuid": "8c43dcbe_c3cdcaab",
       "revId": "fb6e15d6ebf6870a4680b010a07f1fae8e3215dd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "12b9c591_6d19cb04",
+        "filename": "docs/user/interface/CardLayout.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-04-11T08:30:32Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7bced4e2_014eea6a",
+      "revId": "fb6e15d6ebf6870a4680b010a07f1fae8e3215dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ab0de4a_479c7832",
         "filename": "docs/user/interface/CardLayout.dox",
         "patchSetId": 1
@@ -81,6 +153,24 @@
       "writtenOn": "2020-04-08T14:24:18Z",
       "side": 1,
       "message": "Shouldn\u0027t this call debugger() when attempting to use a item that\u0027s not in the stack? In any case I wouldn\u0027t document that. The function accepts either NULL or an item that\u0027s on the stack, if you try something else, you are out of documented bounds.",
+      "revId": "fb6e15d6ebf6870a4680b010a07f1fae8e3215dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5502df88_db00582e",
+        "filename": "docs/user/interface/CardLayout.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-04-11T08:30:32Z",
+      "side": 1,
+      "message": "https://git.haiku-os.org/haiku/tree/src/kits/interface/CardLayout.cpp#n70\n\nSo it seems like the documentation here is not correct. If the item is not NULL and it is not in the stack, nothing happens. I actually think your suggestion to call debugger() is the right call, this is obviously a programmer error that needs to be made explicit. Shall I add that?",
+      "parentUuid": "9ab0de4a_479c7832",
       "revId": "fb6e15d6ebf6870a4680b010a07f1fae8e3215dd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "edf42139_0d660525",
+        "filename": "docs/user/interface/CardView.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-04-11T08:30:32Z",
+      "side": 1,
+      "message": "The option is to remove it, but then the documentation from BView is copied.\n\nNot sure if that is preferred.\n\nI am actually thinking that Perform should not be documented at all, and should just be hidden from the documentation.",
+      "parentUuid": "133b5163_6bfe2e7b",
+      "revId": "fb6e15d6ebf6870a4680b010a07f1fae8e3215dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1e4051d0_8841aa84",
         "filename": "docs/user/interface/LayoutBuilder.Cards.dox",
         "patchSetId": 1
@@ -115,6 +223,24 @@
       "writtenOn": "2020-04-08T14:24:18Z",
       "side": 1,
       "message": "at the top of the stack?",
+      "revId": "fb6e15d6ebf6870a4680b010a07f1fae8e3215dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7374d832_6729ed7d",
+        "filename": "docs/user/interface/LayoutBuilder.Cards.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-04-11T08:30:32Z",
+      "side": 1,
+      "message": "That\u0027s not quite it. Internally, the stack is a list. Added items will be at the end of that list (index++).\n\nI chose the metaphor of a stack of cards, because this is the card layout. I am doubting whether this really is the strongest metaphor, as the layout is not consistent in enforcing that. Otherwise there would be methods like Prev() and Next() to switch between visible cards.\n\nHaving said that, adding a view definitely does not make it visible, so it is not at the top of the stack.",
+      "parentUuid": "1e4051d0_8841aa84",
       "revId": "fb6e15d6ebf6870a4680b010a07f1fae8e3215dd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -138,6 +264,24 @@
     },
     {
       "key": {
+        "uuid": "e10c7b16_a9f2c89b",
+        "filename": "docs/user/interface/LayoutBuilder.Cards.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-04-11T08:30:32Z",
+      "side": 1,
+      "message": "I think that that\u0027s a useful thing to explore. We probably need to override some of the documentation, as the parameters may differ based on the current layout of the builder.\n\nI was planning on unifying these docs when finishing the layout classes (#15368).",
+      "parentUuid": "14c5ef87_4c1d164e",
+      "revId": "fb6e15d6ebf6870a4680b010a07f1fae8e3215dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8aadba10_c8718ccf",
         "filename": "docs/user/interface/LayoutBuilder.Cards.dox",
         "patchSetId": 1
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "2bf55793_d9e4d152",
+        "filename": "docs/user/interface/LayoutBuilder.Cards.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-04-11T08:30:32Z",
+      "side": 1,
+      "message": "Unfortunately I did not find a way to break this line into 80 characters without confusing Doxygen.",
+      "parentUuid": "8aadba10_c8718ccf",
+      "revId": "fb6e15d6ebf6870a4680b010a07f1fae8e3215dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2828a062_f6153479",
         "filename": "docs/user/interface/LayoutBuilder.Cards.dox",
         "patchSetId": 1
@@ -169,6 +331,24 @@
       "revId": "fb6e15d6ebf6870a4680b010a07f1fae8e3215dd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6db5396_a0e06388",
+        "filename": "docs/user/interface/LayoutBuilder.Cards.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-04-11T08:30:32Z",
+      "side": 1,
+      "message": "Idem",
+      "parentUuid": "2828a062_f6153479",
+      "revId": "fb6e15d6ebf6870a4680b010a07f1fae8e3215dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
