@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a5d5078_5b59075c",
+        "filename": "data/develop/Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-11T17:33:40Z",
+      "side": 1,
+      "message": "Is there a reason for customizing these?",
+      "revId": "5b9dadcf918c09a93af678a88982851473ed4389",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5884a3d_ac579be2",
+        "filename": "data/develop/Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-11T17:33:40Z",
+      "side": 1,
+      "message": "I think we don\u0027t want this to be configurable. Hardcoding it would only result to confusion for people who switch between different compilers. And the goal of the makefile_engine is to have a really minimal makefile. If oyu are doing anything more complex, you should pick a better buildsystem (cmake, jamfile engine, ...)",
+      "revId": "5b9dadcf918c09a93af678a88982851473ed4389",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27dc4d9b_e2f29360",
+        "filename": "data/develop/Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-11T17:33:40Z",
+      "side": 1,
+      "message": "This one would normally be set from the command line when installing, why would one set a value in the makefile?",
+      "revId": "5b9dadcf918c09a93af678a88982851473ed4389",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b1c5119_e781dd14",
+        "filename": "src/data/settings/tracker_new_templates/Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-11T17:33:40Z",
+      "side": 1,
+      "message": "Why is this file duplicated in the source tree? Can\u0027t we use a single copy in the two places?",
+      "revId": "5b9dadcf918c09a93af678a88982851473ed4389",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
