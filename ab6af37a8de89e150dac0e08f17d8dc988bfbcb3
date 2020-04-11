@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "35aa3129_dada68a8",
+        "filename": "src/apps/firstbootprompt/BootPromptWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-04-11T20:20:42Z",
+      "side": 1,
+      "message": "Suggestion: preferably keep the empty line between _UpdateKeymapsMenu() and the next line (the comment).",
+      "revId": "ab6af37a8de89e150dac0e08f17d8dc988bfbcb3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa3fbf20_e19015da",
+        "filename": "src/apps/firstbootprompt/BootPromptWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-04-11T20:20:42Z",
+      "side": 1,
+      "message": "Style: it seems like the indention is off, while and all the lines that follow seem to have one tab too many.\n\nSuggestion: I would suggest adding a remark about why you are deleting the menu items and re-adding them. It took me some time to figure out that the Menu does not allow sorting, and that\u0027s why you clear the menu and add a new list. A one line comment would be helpful for the next person revisiting this.",
+      "revId": "ab6af37a8de89e150dac0e08f17d8dc988bfbcb3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
