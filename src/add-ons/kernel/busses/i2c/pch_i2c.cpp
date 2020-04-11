@@ -370,6 +370,24 @@ scan_bus(i2c_bus_cookie cookie)
 }
 
 
+static status_t
+acquire_bus(i2c_bus_cookie cookie)
+{
+	CALLED();
+	pch_i2c_sim_info* bus = (pch_i2c_sim_info*)cookie;
+	return rw_lock_write_lock(&bus->lock);
+}
+
+
+static void
+release_bus(i2c_bus_cookie cookie)
+{
+	CALLED();
+	pch_i2c_sim_info* bus = (pch_i2c_sim_info*)cookie;
+	rw_lock_write_unlock(&bus->lock);
+}
+
+
 //	#pragma mark -
 
 
@@ -467,6 +485,7 @@ init_bus(device_node* node, void** bus_cookie)
 		goto err;
 	}
 
+	rw_lock_init(&bus->lock, "pch_i2c");
 	*bus_cookie = bus;
 	return status;
 
@@ -482,6 +501,7 @@ uninit_bus(void* bus_cookie)
 {
 	pch_i2c_sim_info* bus = (pch_i2c_sim_info*)bus_cookie;
 
+	rw_lock_destroy(&bus->lock);
 	remove_io_interrupt_handler(bus->irq,
 		(interrupt_handler)pch_i2c_interrupt_handler, bus);
 	if (bus->registersArea >= 0)
@@ -521,6 +541,8 @@ static i2c_sim_interface sPchI2cDeviceModule = {
 	set_sim,
 	exec_command,
 	scan_bus,
+	acquire_bus,
+	release_bus,
 };
 
 
