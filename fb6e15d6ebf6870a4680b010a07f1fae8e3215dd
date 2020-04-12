@@ -107,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "81066c2b_0ddd611c",
+        "filename": "docs/user/interface/CardLayout.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-12T07:43:19Z",
+      "side": 1,
+      "message": "Well, the C++ indeed leaves this all implicit, but the Be API has explicit things in some places. For example, BBitmap has SetBits (makes a copy of the data) and AdoptBit (takes ownership of the original data). And I guess the opposite would be having Get...() and Create...() methods to indicate the ownership of the returned pointer.\n\nHaving spent too much time in C++, the concept is quite natural to me, and I would infer it from documentation that says things like:\n\nReturns a pointer to the foo (that returns only a pointer, which implies the object itself keeps its existing ownership)\n\nReturns a newly allocated foo (returns the object itself, through a pointer, which implies the caller takes ownership)\n\nBut, that may be too subtle for people not used to it.\n\nThe Be Book mentions it in some places as \"the caller must free the object\" or \"the function takes ownership of the object, it must not be freed\". Which I think is a bit too low level. In any case, maybe the concept of object ownership should be documented somewhere separately (\"special topics\" in Be Book way) and then we can introduce and define whatever vocabulary we decide to use. Then, it\u0027s fine to import concepts from Rust, without assuming readers already know about them.",
+      "parentUuid": "78e1b603_c46baa3d",
+      "revId": "fb6e15d6ebf6870a4680b010a07f1fae8e3215dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7bced4e2_014eea6a",
         "filename": "docs/user/interface/CardLayout.dox",
         "patchSetId": 1
@@ -177,6 +195,24 @@
     },
     {
       "key": {
+        "uuid": "cae88aa0_c08aebd8",
+        "filename": "docs/user/interface/CardLayout.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-12T07:43:19Z",
+      "side": 1,
+      "message": "Yes, that would be nice.",
+      "parentUuid": "5502df88_db00582e",
+      "revId": "fb6e15d6ebf6870a4680b010a07f1fae8e3215dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "133b5163_6bfe2e7b",
         "filename": "docs/user/interface/CardView.dox",
         "patchSetId": 1
@@ -206,6 +242,24 @@
       "side": 1,
       "message": "The option is to remove it, but then the documentation from BView is copied.\n\nNot sure if that is preferred.\n\nI am actually thinking that Perform should not be documented at all, and should just be hidden from the documentation.",
       "parentUuid": "133b5163_6bfe2e7b",
+      "revId": "fb6e15d6ebf6870a4680b010a07f1fae8e3215dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf745a13_bf881039",
+        "filename": "docs/user/interface/CardView.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-12T07:43:19Z",
+      "side": 1,
+      "message": "Well, the idea behind it should be documented once. It\u0027s a thing that\u0027s not usual even to seasoned C++ programmers, and it may be important in some cases to understand it. I wouldn\u0027t copy it everytime it is used, your approach of mentionning it is from BView is fine. I would just make sure there is a link to BView::Perform documentation or to some separate page about ABI future-proofing in the Be API that gives all the details no one really wanted to know.",
+      "parentUuid": "edf42139_0d660525",
       "revId": "fb6e15d6ebf6870a4680b010a07f1fae8e3215dd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
