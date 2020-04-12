@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c136fd1b_87627edf",
+        "filename": "src/add-ons/kernel/busses/i2c/pch_i2c.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-12T07:48:16Z",
+      "side": 1,
+      "message": "why a read-write lock if you use only writers? Wouldn\u0027t a mutex be fine?",
+      "revId": "e8b9824f2a7fb7dc703d58193cdc7ca5b67dbf1a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
