@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a90b71e3_105d2ba2",
+        "filename": "src/kits/bluetooth/DeviceClass.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-04-12T15:03:18Z",
+      "side": 1,
+      "message": "Whitespace in empty line. You can enable auto deleting trailing whitespace in Pe or Koder.",
+      "revId": "1f237118a2c5a47c0394f9ce38a69646e2e31a04",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
