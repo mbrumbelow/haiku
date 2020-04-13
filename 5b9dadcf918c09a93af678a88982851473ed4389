@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5632c904_8c1ecaeb",
+        "filename": "data/develop/Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2020-04-13T21:04:53Z",
+      "side": 1,
+      "message": "I was thinking just for user preference and the fact that these variables were specified as available to customize within the makefile_engine. At the very least, of all these locale settings, I would keep the \"CATALOG_INSTALL_DIR\" variable still when considering if the catalog should be installed within a test environment or a \"final resting place\".",
+      "parentUuid": "2a5d5078_5b59075c",
+      "revId": "5b9dadcf918c09a93af678a88982851473ed4389",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f5884a3d_ac579be2",
         "filename": "data/develop/Makefile",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2020-04-11T17:33:40Z",
       "side": 1,
       "message": "I think we don\u0027t want this to be configurable. Hardcoding it would only result to confusion for people who switch between different compilers. And the goal of the makefile_engine is to have a really minimal makefile. If oyu are doing anything more complex, you should pick a better buildsystem (cmake, jamfile engine, ...)",
+      "revId": "5b9dadcf918c09a93af678a88982851473ed4389",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3fd5fc2_c9e966a4",
+        "filename": "data/develop/Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2020-04-13T21:04:53Z",
+      "side": 1,
+      "message": "I\u0027m hesistant about this, but I guess at the very least, this can still be specified on the command line...",
+      "parentUuid": "f5884a3d_ac579be2",
       "revId": "5b9dadcf918c09a93af678a88982851473ed4389",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "fd25d5d1_8d46428c",
+        "filename": "data/develop/Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2020-04-13T21:04:53Z",
+      "side": 1,
+      "message": "I feel that this would be handy if the developer wants to specify a \"default install directory\" for easy testing or the like, and then when it becomes time to actually install the binary in a finally location, one could simply specify the INSTALL_DIR variable on the command line, and override the makefile.",
+      "parentUuid": "27dc4d9b_e2f29360",
+      "revId": "5b9dadcf918c09a93af678a88982851473ed4389",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4b1c5119_e781dd14",
         "filename": "src/data/settings/tracker_new_templates/Makefile",
         "patchSetId": 1
@@ -64,6 +118,24 @@
       "writtenOn": "2020-04-11T17:33:40Z",
       "side": 1,
       "message": "Why is this file duplicated in the source tree? Can\u0027t we use a single copy in the two places?",
+      "revId": "5b9dadcf918c09a93af678a88982851473ed4389",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80044c20_dff19a61",
+        "filename": "src/data/settings/tracker_new_templates/Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2020-04-13T21:04:53Z",
+      "side": 1,
+      "message": "True, I\u0027ll try to setup a symlink for this.",
+      "parentUuid": "4b1c5119_e781dd14",
       "revId": "5b9dadcf918c09a93af678a88982851473ed4389",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
