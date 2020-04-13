@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa45d15e_179ad985",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 5296,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-04-13T20:46:40Z",
+      "side": 1,
+      "message": "Spaces instead of tab.",
+      "revId": "a68a69157cb848a46c66b0f27a85b6462b4485cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ca6bf9b_734eaa3a",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 5311,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-04-13T20:46:40Z",
+      "side": 1,
+      "message": "Wrong space.",
+      "revId": "a68a69157cb848a46c66b0f27a85b6462b4485cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
