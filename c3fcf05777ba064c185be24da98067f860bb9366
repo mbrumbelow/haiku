@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f660a203_d7713d2a",
+        "filename": "src/apps/firstbootprompt/BootPromptWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1000038
+      },
+      "writtenOn": "2020-04-13T18:34:31Z",
+      "side": 1,
+      "message": "This breaks the GCC2 build, since it doesn\u0027t know what kind of int \"0\" is.  Use \"(long int) 0\" instead of 0 in RemoveItem(0).",
+      "revId": "c3fcf05777ba064c185be24da98067f860bb9366",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
