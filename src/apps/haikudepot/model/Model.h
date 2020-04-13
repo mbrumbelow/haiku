@@ -83,6 +83,7 @@ public:
 									{ return fDepots; }
 			const DepotInfo*	DepotForName(const BString& name) const;
 			bool				SyncDepot(const DepotInfo& depot);
+			bool				HasAnyProminentPackages();
 
 			void				Clear();
 
@@ -136,7 +137,8 @@ public:
 									const BString& passwordClear,
 									bool storePassword);
 
-			const WebAppInterface& GetWebAppInterface() const
+			const WebAppInterface&
+								GetWebAppInterface() const
 									{ return fWebAppInterface; }
 
 			void				ReplaceDepotByUrl(

@@ -448,6 +448,18 @@ Model::SyncDepot(const DepotInfo& depot)
 }
 
 
+bool
+Model::HasAnyProminentPackages()
+{
+	for (int32 i = fDepots.CountItems() - 1; i >= 0; i--) {
+		const DepotInfo& existingDepot = fDepots.ItemAtFast(i);
+		if (existingDepot.HasAnyProminentPackages())
+			return true;
+	}
+	return false;
+}
+
+
 void
 Model::Clear()
 {

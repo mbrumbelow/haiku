@@ -75,10 +75,10 @@ enum {
 	MSG_SHOW_DEVELOP_PACKAGES				= 'sdvl'
 };
 
-#define SPIN_UNTIL_COORDINATOR_FINISHED_MI 250 * 1000
-	// quarter of a second
-
 #define KEY_ERROR_STATUS "errorStatus"
+
+#define TAB_FEATURED_PACKAGES	0
+#define TAB_ALL_PACKAGES		1
 
 using namespace BPackageKit;
 using namespace BPackageKit::BManager::BPrivate;
@@ -207,9 +207,9 @@ MainWindow::MainWindow(const BMessage& settings)
 		fModel.SetShowSourcePackages(showOption);
 
 	if (fModel.ShowFeaturedPackages())
-		fListTabs->Select(0);
+		fListTabs->Select(TAB_FEATURED_PACKAGES);
 	else
-		fListTabs->Select(1);
+		fListTabs->Select(TAB_ALL_PACKAGES);
 
 	_RestoreNickname(settings);
 	_UpdateAuthorization();
@@ -974,6 +974,18 @@ MainWindow::_BulkLoadCompleteReceived(status_t errorStatus)
 	fRefreshRepositoriesItem->SetEnabled(true);
 	_AdoptModel();
 	_UpdateAvailableRepositories();
+
+	// if after loading everything in, it transpires that there are no
+	// featured packages then the featured packages should be disabled
+	// and the user should be switched to the "all packages" view so
+	// that they are not presented with a blank window!
+
+	bool hasFeaturedPackages = fModel.HasAnyProminentPackages();
+	fListTabs->TabAt(TAB_FEATURED_PACKAGES)->SetEnabled(hasFeaturedPackages);
+	if (!hasFeaturedPackages
+			&& fListTabs->Selection() == TAB_FEATURED_PACKAGES) {
+		fListTabs->Select(TAB_ALL_PACKAGES);
+	}
 }
 
 
