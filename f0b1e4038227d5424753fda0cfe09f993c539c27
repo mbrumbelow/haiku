@@ -1,0 +1,191 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d94786c_ebe05bfa",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-14T07:57:14Z",
+      "side": 1,
+      "message": "SwapEndian would be preferred",
+      "revId": "f0b1e4038227d5424753fda0cfe09f993c539c27",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1dd6a7b5_3aad4a5b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-14T07:57:14Z",
+      "side": 1,
+      "message": "trailing whitespace (also in other places below)",
+      "revId": "f0b1e4038227d5424753fda0cfe09f993c539c27",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c85fbabe_be65aa7a",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-14T07:57:14Z",
+      "side": 1,
+      "message": "use camel case for methods: Magic, Level, NumRecs (or maybe RecordCount), Left, Right",
+      "revId": "f0b1e4038227d5424753fda0cfe09f993c539c27",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3f119e1_018f238c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-14T07:57:14Z",
+      "side": 1,
+      "message": "space before { or move it to the next line as you did for the other methods",
+      "revId": "f0b1e4038227d5424753fda0cfe09f993c539c27",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f09e78e7_c6161e42",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-14T07:57:14Z",
+      "side": 1,
+      "message": "space before {",
+      "revId": "f0b1e4038227d5424753fda0cfe09f993c539c27",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6b03dbb_faa3cb48",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-14T07:57:14Z",
+      "side": 1,
+      "message": "space before {",
+      "revId": "f0b1e4038227d5424753fda0cfe09f993c539c27",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97ac7b12_debfca53",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-14T07:57:14Z",
+      "side": 1,
+      "message": "space before {",
+      "revId": "f0b1e4038227d5424753fda0cfe09f993c539c27",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65c8fd39_92dd7967",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-14T07:57:14Z",
+      "side": 1,
+      "message": "space before {",
+      "revId": "f0b1e4038227d5424753fda0cfe09f993c539c27",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e35bf8c1_63050bdf",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-14T07:57:14Z",
+      "side": 1,
+      "message": "fAgNumber, fRoot, fRecType, fKeyType, fPtrType",
+      "revId": "f0b1e4038227d5424753fda0cfe09f993c539c27",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ecf1d6cc_9cf9139f",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-14T07:57:14Z",
+      "side": 1,
+      "message": "\"public:\" methods go first, then \"private:\" methods, and finally \"private:\" fields.",
+      "revId": "f0b1e4038227d5424753fda0cfe09f993c539c27",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0b6b016_4eb37c72",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-14T07:57:14Z",
+      "side": 1,
+      "message": "2 blank lines between functions",
+      "revId": "f0b1e4038227d5424753fda0cfe09f993c539c27",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
