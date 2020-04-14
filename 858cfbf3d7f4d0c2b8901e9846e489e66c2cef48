@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "25d14742_d7d8ead0",
+        "filename": "src/add-ons/accelerants/intel_extreme/mode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-04-14T19:40:03Z",
+      "side": 1,
+      "message": "Tabs to be removed.",
+      "revId": "858cfbf3d7f4d0c2b8901e9846e489e66c2cef48",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0adeff9_d3cc4c03",
+        "filename": "src/add-ons/accelerants/intel_extreme/mode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-04-14T19:40:03Z",
+      "side": 1,
+      "message": "The braces could be removed for the block.",
+      "revId": "858cfbf3d7f4d0c2b8901e9846e489e66c2cef48",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
