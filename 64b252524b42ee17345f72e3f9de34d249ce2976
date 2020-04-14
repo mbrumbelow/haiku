@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "714f03d4_fa68c5aa",
+        "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1458,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-14T09:05:07Z",
+      "side": 1,
+      "message": "Is it not possible to use a semaphore or a condition variable?",
+      "revId": "64b252524b42ee17345f72e3f9de34d249ce2976",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "513a4d33_07b3fdcb",
+        "filename": "src/apps/haikudepot/ui/ToLatestUserUsageConditionsWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-14T09:05:07Z",
+      "side": 1,
+      "message": "I think using BStringFormat would be better here (plural rules can be more complicated than you\u0027d expect, even if in English this is fine)",
+      "revId": "64b252524b42ee17345f72e3f9de34d249ce2976",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26118b3d_c5fcf3b4",
+        "filename": "src/apps/haikudepot/ui/ToLatestUserUsageConditionsWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-14T09:05:07Z",
+      "side": 1,
+      "message": "Do we need an alert for that? I\u0027d just disable the \"Agree\" button and not let things proceed until the checkboxes are checked?",
+      "revId": "64b252524b42ee17345f72e3f9de34d249ce2976",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18a72234_3320f95c",
+        "filename": "src/apps/haikudepot/ui/WorkStatusView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-14T09:05:07Z",
+      "side": 1,
+      "message": "\"static const BSize kStatusBarSize \u003d BSize(100, 20);\" would be better.",
+      "revId": "64b252524b42ee17345f72e3f9de34d249ce2976",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
