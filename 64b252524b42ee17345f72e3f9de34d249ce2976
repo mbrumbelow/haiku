@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "a92bedbd_676eb22e",
+        "filename": "src/apps/haikudepot/ui/ToLatestUserUsageConditionsWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-14T12:03:31Z",
+      "side": 1,
+      "message": "I see that the same string is used in another file. In order to save work for the translators, it would make sense to have the same \"context\" for both so they don\u0027t need to translate twice.\n\nTwo options for that: use B_TRANSLATE_CONTEXT and refer to the context of the other file, or just use a common B_TRANSLATION_CONTEXT for both files if conflicts are otherwise unlikely (the context is there because sometimes, the same word in English is translated differently in different contexts, but the \"1 context per file\" rule isn\u0027t ideal for that. It does help translators understanding where a string is used, however).",
+      "parentUuid": "513a4d33_07b3fdcb",
+      "revId": "64b252524b42ee17345f72e3f9de34d249ce2976",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "26118b3d_c5fcf3b4",
         "filename": "src/apps/haikudepot/ui/ToLatestUserUsageConditionsWindow.cpp",
         "patchSetId": 1
