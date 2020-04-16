@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0bf778af_69e37859",
+        "filename": "src/kits/network/libnetapi/FtpConnection.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-04-16T10:35:55Z",
+      "side": 1,
+      "message": "You need to include file name in Jamfile to enable compilation.",
+      "revId": "71bbe2a65502bf4739b2783290319da1304dfb25",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
