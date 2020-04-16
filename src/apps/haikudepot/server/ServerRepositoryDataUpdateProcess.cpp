@@ -46,14 +46,6 @@ public:
 	virtual	void				Complete();
 
 private:
-			void				NormalizeUrl(BUrl& url) const;
-			bool				IsUnassociatedDepotByUrl(
-									const DepotInfo& depotInfo,
-									const BString& urlStr) const;
-
-			int32				IndexOfUnassociatedDepotByUrl(
-									const BString& url) const;
-
 			Model*				fModel;
 			Stoppable*			fStoppable;
 };

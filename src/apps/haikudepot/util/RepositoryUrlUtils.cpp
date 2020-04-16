@@ -3,8 +3,37 @@
  * All rights reserved. Distributed under the terms of the MIT License.
  */
 
-
 #include "RepositoryUrlUtils.h"
+
+
+// these are mappings of known legacy identifier URLs that are possibly
+// still present in some installations.
+
+static const char* kLegacyUrlMappings[] = {
+	"https://eu.hpkg.haiku-os.org/haikuports/master/x86_gcc2/current",
+	"https://hpkg.haiku-os.org/haikuports/master/x86_gcc2/current",
+	"https://eu.hpkg.haiku-os.org/haikuports/master/x86_64/current",
+	"https://hpkg.haiku-os.org/haikuports/master/x86_64/current",
+	NULL,
+	NULL
+};
+
+
+/*!	See #14927 -- some older legacy URLs (unique identifiers) from early in
+	the days of the Haiku package management system changed and so those
+	hard-coded cases need to be transformed to work.
+*/
+
+/*static*/ void
+RepositoryUrlUtils::SwapOutLegacyRepositoryIdentiferUrl(BString& url)
+{
+	for (int32 i = 0; kLegacyUrlMappings[i] != NULL; i += 2) {
+		if (url == kLegacyUrlMappings[i]) {
+			url.SetTo(kLegacyUrlMappings[i + 1]);
+			return;
+		}
+	}
+}
 
 
 void

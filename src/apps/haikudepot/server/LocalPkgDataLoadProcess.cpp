@@ -89,296 +89,318 @@ LocalPkgDataLoadProcess::Description() const
 status_t
 LocalPkgDataLoadProcess::RunInternal()
 {
- 	if (Logger::IsDebugEnabled())
- 		printf("[%s] will refresh the package list\n", Name());
+	if (Logger::IsDebugEnabled())
+		printf("[%s] will refresh the package list\n", Name());
 
- 	BPackageRoster roster;
- 	BStringList repositoryNames;
+	BPackageRoster roster;
+	BStringList repositoryNames;
 
- 	status_t result = roster.GetRepositoryNames(repositoryNames);
+	status_t result = roster.GetRepositoryNames(repositoryNames);
 
- 	if (result != B_OK)
- 		return result;
+	if (result != B_OK)
+		return result;
 
- 	std::vector<DepotInfo> depots(repositoryNames.CountStrings());
- 	for (int32 i = 0; i < repositoryNames.CountStrings(); i++) {
- 		const BString& repoName = repositoryNames.StringAt(i);
- 		DepotInfo depotInfo = DepotInfo(repoName);
+	std::vector<DepotInfo> depots(repositoryNames.CountStrings());
+	for (int32 i = 0; i < repositoryNames.CountStrings(); i++) {
+		const BString& repoName = repositoryNames.StringAt(i);
+		DepotInfo depotInfo = DepotInfo(repoName);
 
- 		BRepositoryConfig repoConfig;
- 		status_t getRepositoryConfigStatus = roster.GetRepositoryConfig(
- 			repoName, &repoConfig);
+		BRepositoryConfig repoConfig;
+		status_t getRepositoryConfigStatus = roster.GetRepositoryConfig(
+			repoName, &repoConfig);
 
- 		if (getRepositoryConfigStatus == B_OK) {
- 			depotInfo.SetURL(repoConfig.URL());
+		if (getRepositoryConfigStatus == B_OK) {
+			BString tweakedRepoConfigUrl(repoConfig.URL());
+			RepositoryUrlUtils::SwapOutLegacyRepositoryIdentiferUrl(
+				tweakedRepoConfigUrl);
 
- 			if (Logger::IsDebugEnabled()) {
- 				printf("[%s] local repository [%s] info;\n"
- 					" * url [%s]\n", Name(), repoName.String(),
- 					repoConfig.URL().String());
- 			}
- 		} else {
- 			printf("[%s] unable to obtain the repository config for local "
- 				"repository '%s'; %s\n", Name(),
- 				repoName.String(), strerror(getRepositoryConfigStatus));
- 		}
+			if (Logger::IsDebugEnabled()
+					&& tweakedRepoConfigUrl != repoConfig.URL()) {
+				printf("[%s] swapped out legacy repo url [%s] for [%s]\n",
+					Name(), repoConfig.URL().String(),
+					tweakedRepoConfigUrl.String());
+			}
 
- 		depots[i] = depotInfo;
- 	}
+			depotInfo.SetURL(tweakedRepoConfigUrl);
 
- 	PackageManager manager(B_PACKAGE_INSTALLATION_LOCATION_HOME);
- 	try {
- 		manager.Init(PackageManager::B_ADD_INSTALLED_REPOSITORIES
- 			| PackageManager::B_ADD_REMOTE_REPOSITORIES);
+			if (Logger::IsDebugEnabled()) {
+				printf("[%s] local repository [%s] info;\n"
+					" * url [%s]\n", Name(), repoName.String(),
+					depotInfo.URL().String());
+			}
+		} else {
+			printf("[%s] unable to obtain the repository config for local "
+				"repository '%s'; %s\n", Name(),
+				repoName.String(), strerror(getRepositoryConfigStatus));
+		}
+
+		depots[i] = depotInfo;
+	}
+
+	PackageManager manager(B_PACKAGE_INSTALLATION_LOCATION_HOME);
+	try {
+		manager.Init(PackageManager::B_ADD_INSTALLED_REPOSITORIES
+			| PackageManager::B_ADD_REMOTE_REPOSITORIES);
 	} catch (BException& ex) {
- 		BString message(B_TRANSLATE("An error occurred while "
- 			"initializing the package manager: %message%"));
- 		message.ReplaceFirst("%message%", ex.Message());
- 		_NotifyError(message.String());
- 		return B_ERROR;
- 	}
+		BString message(B_TRANSLATE("An error occurred while "
+			"initializing the package manager: %message%"));
+		message.ReplaceFirst("%message%", ex.Message());
+		_NotifyError(message.String());
+		return B_ERROR;
+	}
 
- 	BObjectList<BSolverPackage> packages;
- 	result = manager.Solver()->FindPackages("",
- 		BSolver::B_FIND_CASE_INSENSITIVE | BSolver::B_FIND_IN_NAME
- 			| BSolver::B_FIND_IN_SUMMARY | BSolver::B_FIND_IN_DESCRIPTION
- 			| BSolver::B_FIND_IN_PROVIDES,
- 		packages);
- 	if (result != B_OK) {
- 		BString message(B_TRANSLATE("An error occurred while "
- 			"obtaining the package list: %message%"));
- 		message.ReplaceFirst("%message%", strerror(result));
- 		_NotifyError(message.String());
- 		return B_ERROR;
- 	}
+	BObjectList<BSolverPackage> packages;
+	result = manager.Solver()->FindPackages("",
+		BSolver::B_FIND_CASE_INSENSITIVE | BSolver::B_FIND_IN_NAME
+			| BSolver::B_FIND_IN_SUMMARY | BSolver::B_FIND_IN_DESCRIPTION
+			| BSolver::B_FIND_IN_PROVIDES,
+		packages);
+	if (result != B_OK) {
+		BString message(B_TRANSLATE("An error occurred while "
+			"obtaining the package list: %message%"));
+		message.ReplaceFirst("%message%", strerror(result));
+		_NotifyError(message.String());
+		return B_ERROR;
+	}
 
- 	if (packages.IsEmpty())
- 		return B_ERROR;
+	if (packages.IsEmpty())
+		return B_ERROR;
 
- 	PackageInfoMap foundPackages;
- 		// if a given package is installed locally, we will potentially
- 		// get back multiple entries, one for each local installation
- 		// location, and one for each remote repository the package
- 		// is available in. The above map is used to ensure that in such
- 		// cases we consolidate the information, rather than displaying
- 		// duplicates
- 	PackageInfoMap remotePackages;
- 		// any package that we find in a remote repository goes in this map.
- 		// this is later used to discern which packages came from a local
- 		// installation only, as those must be handled a bit differently
- 		// upon uninstallation, since we'd no longer be able to pull them
- 		// down remotely.
- 	BStringList systemFlaggedPackages;
- 		// any packages flagged as a system package are added to this list.
- 		// such packages cannot be uninstalled, nor can any of their deps.
- 	PackageInfoMap systemInstalledPackages;
- 		// any packages installed in system are added to this list.
- 		// This is later used for dependency resolution of the actual
- 		// system packages in order to compute the list of protected
- 		// dependencies indicated above.
+	PackageInfoMap foundPackages;
+		// if a given package is installed locally, we will potentially
+		// get back multiple entries, one for each local installation
+		// location, and one for each remote repository the package
+		// is available in. The above map is used to ensure that in such
+		// cases we consolidate the information, rather than displaying
+		// duplicates
+	PackageInfoMap remotePackages;
+		// any package that we find in a remote repository goes in this map.
+		// this is later used to discern which packages came from a local
+		// installation only, as those must be handled a bit differently
+		// upon uninstallation, since we'd no longer be able to pull them
+		// down remotely.
+	BStringList systemFlaggedPackages;
+		// any packages flagged as a system package are added to this list.
+		// such packages cannot be uninstalled, nor can any of their deps.
+	PackageInfoMap systemInstalledPackages;
+		// any packages installed in system are added to this list.
+		// This is later used for dependency resolution of the actual
+		// system packages in order to compute the list of protected
+		// dependencies indicated above.
 
- 	for (int32 i = 0; i < packages.CountItems(); i++) {
- 		BSolverPackage* package = packages.ItemAt(i);
- 		const BPackageInfo& repoPackageInfo = package->Info();
- 		const BString repositoryName = package->Repository()->Name();
- 		PackageInfoRef modelInfo;
- 		PackageInfoMap::iterator it = foundPackages.find(
- 			repoPackageInfo.Name());
- 		if (it != foundPackages.end())
- 			modelInfo.SetTo(it->second);
- 		else {
- 			// Add new package info
- 			modelInfo.SetTo(new(std::nothrow) PackageInfo(repoPackageInfo),
- 				true);
+	for (int32 i = 0; i < packages.CountItems(); i++) {
+		BSolverPackage* package = packages.ItemAt(i);
+		const BPackageInfo& repoPackageInfo = package->Info();
+		const BString repositoryName = package->Repository()->Name();
+		PackageInfoRef modelInfo;
+		PackageInfoMap::iterator it = foundPackages.find(
+			repoPackageInfo.Name());
+		if (it != foundPackages.end())
+			modelInfo.SetTo(it->second);
+		else {
+			// Add new package info
+			modelInfo.SetTo(new(std::nothrow) PackageInfo(repoPackageInfo),
+				true);
 
- 			if (modelInfo.Get() == NULL)
- 				return B_ERROR;
+			if (modelInfo.Get() == NULL)
+				return B_ERROR;
 
- 			foundPackages[repoPackageInfo.Name()] = modelInfo;
- 		}
+			foundPackages[repoPackageInfo.Name()] = modelInfo;
+		}
 
- 		// The package list here considers those packages that are installed
- 		// in the system as well as those that exist in remote repositories.
- 		// It is better if the 'depot name' is from the remote repository
- 		// because then it will be possible to perform a rating on it later.
+		// The package list here considers those packages that are installed
+		// in the system as well as those that exist in remote repositories.
+		// It is better if the 'depot name' is from the remote repository
+		// because then it will be possible to perform a rating on it later.
 
- 		if (modelInfo->DepotName().IsEmpty()
- 			|| modelInfo->DepotName() == REPOSITORY_NAME_SYSTEM
- 			|| modelInfo->DepotName() == REPOSITORY_NAME_INSTALLED) {
- 			modelInfo->SetDepotName(repositoryName);
- 		}
+		if (modelInfo->DepotName().IsEmpty()
+			|| modelInfo->DepotName() == REPOSITORY_NAME_SYSTEM
+			|| modelInfo->DepotName() == REPOSITORY_NAME_INSTALLED) {
+			modelInfo->SetDepotName(repositoryName);
+		}
 
- 		modelInfo->AddListener(fPackageInfoListener);
+		modelInfo->AddListener(fPackageInfoListener);
 
- 		BSolverRepository* repository = package->Repository();
- 		BPackageManager::RemoteRepository* remoteRepository =
- 			dynamic_cast<BPackageManager::RemoteRepository*>(repository);
+		BSolverRepository* repository = package->Repository();
+		BPackageManager::RemoteRepository* remoteRepository =
+			dynamic_cast<BPackageManager::RemoteRepository*>(repository);
 
- 		if (remoteRepository != NULL) {
+		if (remoteRepository != NULL) {
+			BString remoteRepositoryUrl(remoteRepository->Config().URL());
+			BString remoteRepositoryUrlTweaked(remoteRepositoryUrl);
+			RepositoryUrlUtils::SwapOutLegacyRepositoryIdentiferUrl(
+				remoteRepositoryUrlTweaked);
 
- 			std::vector<DepotInfo>::iterator it;
+			if (Logger::IsDebugEnabled()
+					&& remoteRepositoryUrlTweaked != remoteRepositoryUrl) {
+				printf("[%s] swapped out legacy repo url [%s] for [%s]\n",
+					Name(), remoteRepositoryUrl.String(),
+					remoteRepositoryUrlTweaked.String());
+			}
+		
+			std::vector<DepotInfo>::iterator it;
 
- 			for (it = depots.begin(); it != depots.end(); it++) {
- 				if (RepositoryUrlUtils::EqualsNormalized(
- 					it->URL(), remoteRepository->Config().URL())) {
- 					break;
- 				}
- 			}
+			for (it = depots.begin(); it != depots.end(); it++) {
+				if (RepositoryUrlUtils::EqualsNormalized(
+					it->URL(), remoteRepositoryUrlTweaked)) {
+					break;
+				}
+			}
 
- 			if (it == depots.end()) {
- 				if (Logger::IsDebugEnabled()) {
- 					printf("pkg [%s] repository [%s] not recognized"
- 						" --> ignored\n",
- 						modelInfo->Name().String(), repositoryName.String());
- 				}
- 			} else {
- 				it->AddPackage(modelInfo);
+			if (it == depots.end()) {
+				if (Logger::IsDebugEnabled()) {
+					printf("pkg [%s] repository [%s] not recognized"
+						" --> ignored\n",
+						modelInfo->Name().String(), repositoryName.String());
+				}
+			} else {
+				it->AddPackage(modelInfo);
 
- 				if (Logger::IsTraceEnabled()) {
- 					printf("pkg [%s] assigned to [%s]\n",
- 						modelInfo->Name().String(), repositoryName.String());
- 				}
- 			}
+				if (Logger::IsTraceEnabled()) {
+					printf("pkg [%s] assigned to [%s]\n",
+						modelInfo->Name().String(), repositoryName.String());
+				}
+			}
 
- 			remotePackages[modelInfo->Name()] = modelInfo;
- 		} else {
- 			if (repository == static_cast<const BSolverRepository*>(
- 					manager.SystemRepository())) {
- 				modelInfo->AddInstallationLocation(
- 					B_PACKAGE_INSTALLATION_LOCATION_SYSTEM);
- 				if (!modelInfo->IsSystemPackage()) {
- 					systemInstalledPackages[repoPackageInfo.FileName()]
- 						= modelInfo;
- 				}
- 			} else if (repository == static_cast<const BSolverRepository*>(
- 					manager.HomeRepository())) {
- 				modelInfo->AddInstallationLocation(
- 					B_PACKAGE_INSTALLATION_LOCATION_HOME);
- 			}
- 		}
+			remotePackages[modelInfo->Name()] = modelInfo;
+		} else {
+			if (repository == static_cast<const BSolverRepository*>(
+					manager.SystemRepository())) {
+				modelInfo->AddInstallationLocation(
+					B_PACKAGE_INSTALLATION_LOCATION_SYSTEM);
+				if (!modelInfo->IsSystemPackage()) {
+					systemInstalledPackages[repoPackageInfo.FileName()]
+						= modelInfo;
+				}
+			} else if (repository == static_cast<const BSolverRepository*>(
+					manager.HomeRepository())) {
+				modelInfo->AddInstallationLocation(
+					B_PACKAGE_INSTALLATION_LOCATION_HOME);
+			}
+		}
 
- 		if (modelInfo->IsSystemPackage())
- 			systemFlaggedPackages.Add(repoPackageInfo.FileName());
- 	}
+		if (modelInfo->IsSystemPackage())
+			systemFlaggedPackages.Add(repoPackageInfo.FileName());
+	}
 
- 	BAutolock lock(fModel->Lock());
+	BAutolock lock(fModel->Lock());
 
- 	if (fForce)
- 		fModel->Clear();
+	if (fForce)
+		fModel->Clear();
 
- 	// filter remote packages from the found list
- 	// any packages remaining will be locally installed packages
- 	// that weren't acquired from a repository
- 	for (PackageInfoMap::iterator it = remotePackages.begin();
- 			it != remotePackages.end(); it++) {
- 		foundPackages.erase(it->first);
- 	}
+	// filter remote packages from the found list
+	// any packages remaining will be locally installed packages
+	// that weren't acquired from a repository
+	for (PackageInfoMap::iterator it = remotePackages.begin();
+			it != remotePackages.end(); it++) {
+		foundPackages.erase(it->first);
+	}
 
- 	if (!foundPackages.empty()) {
- 		BString repoName = B_TRANSLATE("Local");
- 		depots.push_back(DepotInfo(repoName));
+	if (!foundPackages.empty()) {
+		BString repoName = B_TRANSLATE("Local");
+		depots.push_back(DepotInfo(repoName));
 
- 		for (PackageInfoMap::iterator it = foundPackages.begin();
- 				it != foundPackages.end(); ++it) {
- 			depots.back().AddPackage(it->second);
- 		}
- 	}
+		for (PackageInfoMap::iterator it = foundPackages.begin();
+				it != foundPackages.end(); ++it) {
+			depots.back().AddPackage(it->second);
+		}
+	}
 
- 	{
- 		std::vector<DepotInfo>::iterator it;
+	{
+		std::vector<DepotInfo>::iterator it;
 
- 		for (it = depots.begin(); it != depots.end(); it++) {
- 			if (fModel->HasDepot(it->Name()))
- 				fModel->SyncDepot(*it);
- 			else
- 				fModel->AddDepot(*it);
- 		}
- 	}
+		for (it = depots.begin(); it != depots.end(); it++) {
+			if (fModel->HasDepot(it->Name()))
+				fModel->SyncDepot(*it);
+			else
+				fModel->AddDepot(*it);
+		}
+	}
 
- 	// compute the OS package dependencies
- 	try {
- 		// create the solver
- 		BSolver* solver;
- 		status_t error = BSolver::Create(solver);
- 		if (error != B_OK)
- 			throw BFatalErrorException(error, "Failed to create solver.");
+	// compute the OS package dependencies
+	try {
+		// create the solver
+		BSolver* solver;
+		status_t error = BSolver::Create(solver);
+		if (error != B_OK)
+			throw BFatalErrorException(error, "Failed to create solver.");
 
- 		ObjectDeleter<BSolver> solverDeleter(solver);
- 		BPath systemPath;
- 		error = find_directory(B_SYSTEM_PACKAGES_DIRECTORY, &systemPath);
- 		if (error != B_OK) {
- 			throw BFatalErrorException(error,
- 				"Unable to retrieve system packages directory.");
- 		}
+		ObjectDeleter<BSolver> solverDeleter(solver);
+		BPath systemPath;
+		error = find_directory(B_SYSTEM_PACKAGES_DIRECTORY, &systemPath);
+		if (error != B_OK) {
+			throw BFatalErrorException(error,
+				"Unable to retrieve system packages directory.");
+		}
 
- 		// add the "installed" repository with the given packages
- 		BSolverRepository installedRepository;
- 		{
- 			BRepositoryBuilder installedRepositoryBuilder(installedRepository,
- 				REPOSITORY_NAME_INSTALLED);
- 			for (int32 i = 0; i < systemFlaggedPackages.CountStrings(); i++) {
- 				BPath packagePath(systemPath);
- 				packagePath.Append(systemFlaggedPackages.StringAt(i));
- 				installedRepositoryBuilder.AddPackage(packagePath.Path());
- 			}
- 			installedRepositoryBuilder.AddToSolver(solver, true);
- 		}
+		// add the "installed" repository with the given packages
+		BSolverRepository installedRepository;
+		{
+			BRepositoryBuilder installedRepositoryBuilder(installedRepository,
+				REPOSITORY_NAME_INSTALLED);
+			for (int32 i = 0; i < systemFlaggedPackages.CountStrings(); i++) {
+				BPath packagePath(systemPath);
+				packagePath.Append(systemFlaggedPackages.StringAt(i));
+				installedRepositoryBuilder.AddPackage(packagePath.Path());
+			}
+			installedRepositoryBuilder.AddToSolver(solver, true);
+		}
 
- 		// add system repository
- 		BSolverRepository systemRepository;
- 		{
- 			BRepositoryBuilder systemRepositoryBuilder(systemRepository,
- 				REPOSITORY_NAME_SYSTEM);
- 			for (PackageInfoMap::iterator it = systemInstalledPackages.begin();
- 					it != systemInstalledPackages.end(); it++) {
- 				BPath packagePath(systemPath);
- 				packagePath.Append(it->first);
- 				systemRepositoryBuilder.AddPackage(packagePath.Path());
- 			}
- 			systemRepositoryBuilder.AddToSolver(solver, false);
- 		}
+		// add system repository
+		BSolverRepository systemRepository;
+		{
+			BRepositoryBuilder systemRepositoryBuilder(systemRepository,
+				REPOSITORY_NAME_SYSTEM);
+			for (PackageInfoMap::iterator it = systemInstalledPackages.begin();
+					it != systemInstalledPackages.end(); it++) {
+				BPath packagePath(systemPath);
+				packagePath.Append(it->first);
+				systemRepositoryBuilder.AddPackage(packagePath.Path());
+			}
+			systemRepositoryBuilder.AddToSolver(solver, false);
+		}
 
- 		// solve
- 		error = solver->VerifyInstallation();
- 		if (error != B_OK) {
- 			throw BFatalErrorException(error, "Failed to compute packages to "
- 				"install.");
- 		}
+		// solve
+		error = solver->VerifyInstallation();
+		if (error != B_OK) {
+			throw BFatalErrorException(error, "Failed to compute packages to "
+				"install.");
+		}
 
- 		BSolverResult solverResult;
- 		error = solver->GetResult(solverResult);
- 		if (error != B_OK) {
- 			throw BFatalErrorException(error, "Failed to retrieve system "
- 				"package dependency list.");
- 		}
+		BSolverResult solverResult;
+		error = solver->GetResult(solverResult);
+		if (error != B_OK) {
+			throw BFatalErrorException(error, "Failed to retrieve system "
+				"package dependency list.");
+		}
 
- 		for (int32 i = 0; const BSolverResultElement* element
- 				= solverResult.ElementAt(i); i++) {
- 			BSolverPackage* package = element->Package();
- 			if (element->Type() == BSolverResultElement::B_TYPE_INSTALL) {
- 				PackageInfoMap::iterator it = systemInstalledPackages.find(
- 					package->Info().FileName());
- 				if (it != systemInstalledPackages.end())
- 					it->second->SetSystemDependency(true);
- 			}
- 		}
+		for (int32 i = 0; const BSolverResultElement* element
+				= solverResult.ElementAt(i); i++) {
+			BSolverPackage* package = element->Package();
+			if (element->Type() == BSolverResultElement::B_TYPE_INSTALL) {
+				PackageInfoMap::iterator it = systemInstalledPackages.find(
+					package->Info().FileName());
+				if (it != systemInstalledPackages.end())
+					it->second->SetSystemDependency(true);
+			}
+		}
 	} catch (BFatalErrorException& ex) {
- 		printf("Fatal exception occurred while resolving system dependencies: "
- 			"%s, details: %s\n", strerror(ex.Error()), ex.Details().String());
+		printf("Fatal exception occurred while resolving system dependencies: "
+			"%s, details: %s\n", strerror(ex.Error()), ex.Details().String());
 	} catch (BNothingToDoException&) {
- 		// do nothing
+		// do nothing
 	} catch (BException& ex) {
- 		printf("Exception occurred while resolving system dependencies: %s\n",
- 			ex.Message().String());
- 	} catch (...) {
- 		printf("Unknown exception occurred while resolving system "
- 			"dependencies.\n");
- 	}
+		printf("Exception occurred while resolving system dependencies: %s\n",
+			ex.Message().String());
+	} catch (...) {
+		printf("Unknown exception occurred while resolving system "
+			"dependencies.\n");
+	}
 
- 	if (Logger::IsDebugEnabled())
- 		printf("did refresh the package list\n");
+	if (Logger::IsDebugEnabled())
+		printf("did refresh the package list\n");
 
- 	return B_OK;
+	return B_OK;
 }
 
 
@@ -386,8 +408,8 @@ void
 LocalPkgDataLoadProcess::_NotifyError(const BString& messageText) const
 {
 	printf("an error has arisen loading data of packages from local : %s\n",
-		messageText.String());
+	messageText.String());
 	AppUtils::NotifySimpleError(
-		B_TRANSLATE("Local repository load error"),
-		messageText);
+	B_TRANSLATE("Local repository load error"),
+	messageText);
 }
