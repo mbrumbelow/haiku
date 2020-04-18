@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "52425809_d244167b",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-04-18T03:32:03Z",
+      "side": 1,
+      "message": "I\u0027m actually curious, why does this need a BMessageRunner at all? Why not just send the scroll message right here in Pulse()?",
+      "revId": "8965eb7b61d5a72de4ae60bbe6a41822ff4af327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
