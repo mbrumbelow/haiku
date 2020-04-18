@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b910e65_decb2dfc",
+        "filename": "src/apps/haikudepot/ui/PackageListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 649,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-04-18T18:27:55Z",
+      "side": 0,
+      "message": "2 blank lines between functions.",
+      "revId": "898afd0a20d8ddf7939fccb0699712b9c8524c37",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b28eaf6_e876df8b",
+        "filename": "src/apps/haikudepot/ui/PackageListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 650,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-04-18T18:27:55Z",
+      "side": 0,
+      "message": "Need 2 blank lines above this one.",
+      "revId": "898afd0a20d8ddf7939fccb0699712b9c8524c37",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}

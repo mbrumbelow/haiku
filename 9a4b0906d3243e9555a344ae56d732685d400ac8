@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "69029cde_2a5fdfb5",
+        "filename": "src/apps/haikudepot/ui/PackageListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-04-18T18:27:55Z",
+      "side": 1,
+      "message": "Trailing space.",
+      "revId": "9a4b0906d3243e9555a344ae56d732685d400ac8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30eb3b04_c896217f",
+        "filename": "src/apps/haikudepot/ui/PackageListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-04-18T18:27:55Z",
+      "side": 1,
+      "message": "Should be \"Version\".",
+      "revId": "9a4b0906d3243e9555a344ae56d732685d400ac8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e30ae3a1_b071591b",
+        "filename": "src/apps/haikudepot/ui/PackageListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-04-18T18:27:55Z",
+      "side": 1,
+      "message": "Put these 2 lines *above* the next 2, and add a blank line below them.",
+      "revId": "9a4b0906d3243e9555a344ae56d732685d400ac8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
