@@ -16,6 +16,24 @@
       "revId": "00780d3fd0e601db3358e9c7eae78bb5c163f9e7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "104aa3b7_a19310b5",
+        "filename": "src/add-ons/kernel/bus_managers/i2c/bus_raw.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-04-19T10:51:21Z",
+      "side": 1,
+      "message": "no, it doesn\u0027t.",
+      "parentUuid": "1f69acb4_225144ea",
+      "revId": "00780d3fd0e601db3358e9c7eae78bb5c163f9e7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
