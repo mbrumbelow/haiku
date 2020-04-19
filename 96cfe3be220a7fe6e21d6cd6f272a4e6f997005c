@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "46818093_82b86fa3",
+        "filename": "src/add-ons/kernel/bus_managers/i2c/bus_raw.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-19T10:24:21Z",
+      "side": 1,
+      "message": "newline after )",
+      "revId": "96cfe3be220a7fe6e21d6cd6f272a4e6f997005c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
