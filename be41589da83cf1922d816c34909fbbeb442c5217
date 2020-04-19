@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "20e3ff27_cef7f19d",
+        "filename": "src/add-ons/kernel/drivers/wmi/WMIACPI.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-19T07:26:37Z",
+      "side": 1,
+      "message": "\u003e 80 columns",
+      "revId": "be41589da83cf1922d816c34909fbbeb442c5217",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b80a466_57158bad",
+        "filename": "src/add-ons/kernel/drivers/wmi/WMIACPI.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-19T07:26:37Z",
+      "side": 1,
+      "message": "\u003e 80 columns",
+      "revId": "be41589da83cf1922d816c34909fbbeb442c5217",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9cd7487a_f5010014",
+        "filename": "src/add-ons/kernel/drivers/wmi/WMIACPI.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-19T07:26:37Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "be41589da83cf1922d816c34909fbbeb442c5217",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6443f7d8_f2ee4b0e",
+        "filename": "src/add-ons/kernel/drivers/wmi/WMIACPI.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-19T07:26:37Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "be41589da83cf1922d816c34909fbbeb442c5217",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c32c070f_a31c519b",
+        "filename": "src/add-ons/kernel/drivers/wmi/WMIAsus.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-19T07:26:37Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "be41589da83cf1922d816c34909fbbeb442c5217",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
