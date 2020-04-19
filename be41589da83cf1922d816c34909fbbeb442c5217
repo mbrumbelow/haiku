@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e7ab3b3a_01cee21c",
+        "filename": "src/add-ons/kernel/drivers/wmi/WMIACPI.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-04-19T11:00:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20e3ff27_cef7f19d",
+      "revId": "be41589da83cf1922d816c34909fbbeb442c5217",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b80a466_57158bad",
         "filename": "src/add-ons/kernel/drivers/wmi/WMIACPI.cpp",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "be41589da83cf1922d816c34909fbbeb442c5217",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ec16fe4_6c02a858",
+        "filename": "src/add-ons/kernel/drivers/wmi/WMIACPI.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-04-19T11:00:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b80a466_57158bad",
+      "revId": "be41589da83cf1922d816c34909fbbeb442c5217",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "7fc2d86f_e2048f61",
+        "filename": "src/add-ons/kernel/drivers/wmi/WMIACPI.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-04-19T11:00:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9cd7487a_f5010014",
+      "revId": "be41589da83cf1922d816c34909fbbeb442c5217",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6443f7d8_f2ee4b0e",
         "filename": "src/add-ons/kernel/drivers/wmi/WMIACPI.cpp",
         "patchSetId": 2
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "424fd66f_93561b3f",
+        "filename": "src/add-ons/kernel/drivers/wmi/WMIACPI.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-04-19T11:00:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6443f7d8_f2ee4b0e",
+      "revId": "be41589da83cf1922d816c34909fbbeb442c5217",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c32c070f_a31c519b",
         "filename": "src/add-ons/kernel/drivers/wmi/WMIAsus.cpp",
         "patchSetId": 2
@@ -84,6 +156,24 @@
       "revId": "be41589da83cf1922d816c34909fbbeb442c5217",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec1328d9_30dbf2e1",
+        "filename": "src/add-ons/kernel/drivers/wmi/WMIAsus.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-04-19T11:00:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c32c070f_a31c519b",
+      "revId": "be41589da83cf1922d816c34909fbbeb442c5217",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
