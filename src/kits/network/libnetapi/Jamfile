@@ -77,6 +77,8 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 			HttpResult.cpp
 			HttpTime.cpp
 
+			FtpConnection.cpp
+
 			notifications.cpp
 
 			$(md5Sources)
