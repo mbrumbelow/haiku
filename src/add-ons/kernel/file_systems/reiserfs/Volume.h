@@ -75,7 +75,7 @@ public:
 	status_t ReadObject(VNode *node, off_t offset, void *buffer,
 						size_t bufferSize, size_t *bytesRead);
 	status_t ReadLink(VNode *node, char *buffer, size_t bufferSize,
-					  size_t *bytesRead);
+					  size_t *linkLength);
 
 	status_t FindEntry(const VNode *rootDir, const char *path,
 					   VNode *foundNode);
