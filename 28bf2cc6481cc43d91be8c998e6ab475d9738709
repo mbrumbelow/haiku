@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "049237a9_f9546f38",
+        "filename": "src/tests/kits/storage/SymLinkTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-20T07:14:38Z",
+      "side": 1,
+      "message": "The idea was to return the length, so that you could do something like this:\n\nlen \u003d link.ReadLink(NULL, 0);\nchar* buffer \u003d malloc(len);\nlink.ReadLink(buffer, len);\n\nB_BUFFER_OVERFLOW does not give this information.",
+      "revId": "28bf2cc6481cc43d91be8c998e6ab475d9738709",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
