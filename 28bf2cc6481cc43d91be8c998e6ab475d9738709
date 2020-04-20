@@ -16,6 +16,24 @@
       "revId": "28bf2cc6481cc43d91be8c998e6ab475d9738709",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93fdb840_20f9da4f",
+        "filename": "src/tests/kits/storage/SymLinkTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-04-20T12:06:58Z",
+      "side": 1,
+      "message": "This indeed hints to a problematic API change of ours. This behavior had not been documented by Be Inc., though. In any case, I think we should fix this in the ReadLink() implementation; in this case, ReadLink() should also fill as many bytes as possible (not sure if ours does that) -- IMO it should not clobber the buffer if it returns an error.",
+      "parentUuid": "049237a9_f9546f38",
+      "revId": "28bf2cc6481cc43d91be8c998e6ab475d9738709",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
