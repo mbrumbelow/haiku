@@ -1070,16 +1070,22 @@ _kern_read_link(int fd, const char *path, char *buffer, size_t *_bufferSize)
 	if (error != B_OK)
 		return error;
 
-	// readlink
-	ssize_t bytesRead = readlink(realPath.c_str(), buffer, *_bufferSize);
+	// On Haiku _kern_read_link will return the length of the link, *not* the
+	// number of bytes written to the buffer parameter. To emulate that here,
+	// we use a buffer that is at least PATH_MAX to guarantee that the entire
+	// link will fit. We can then return bytesRead, which will be the length
+	// of the link, but we'll copy only *_bufferSize bytes into buffer.
+	char link[PATH_MAX];
+	ssize_t bytesRead = readlink(realPath.c_str(), link, *_bufferSize);
 	if (bytesRead < 0)
 		return errno;
 
 	if (*_bufferSize > 0) {
-		if ((size_t)bytesRead == *_bufferSize)
-			bytesRead--;
-
-		buffer[bytesRead] = '\0';
+		size_t bytesToCopy = (static_cast<size_t>(bytesRead) < *_bufferSize)
+			? bytesRead
+			: (*_bufferSize - 1);
+		memcpy(buffer, link, bytesToCopy);
+		buffer[bytesToCopy] = '\0';
 	}
 
 	*_bufferSize = bytesRead;

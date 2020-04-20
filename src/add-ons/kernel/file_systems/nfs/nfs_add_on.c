@@ -2290,8 +2290,7 @@ fs_readlink(fs_volume *_volume, fs_vnode *_node, char *buf, size_t *bufsize)
 
 	length = XDRInPacketGetDynamic(&reply, data);
 
-	length = min_c(length, *bufsize);
-	memcpy(buf, data, length);
+	memcpy(buf, data, min_c(length, *bufsize));
 	*bufsize = length;
 
 	XDRInPacketDestroy(&reply);
