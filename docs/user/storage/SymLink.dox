@@ -120,6 +120,8 @@
 	\retval B_BAD_VALUE \a buf was \c NULL or the object didn't refer to a
 	        symbolic link.
 	\retval B_FILE_ERROR The object was not initialized.
+	\retval B_BUFFER_OVERFLOW if the symlink's contents is longer than
+		\a size so it does not fit in \a buffer.
 
 	\since BeOS R3
 */
