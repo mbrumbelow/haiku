@@ -1,0 +1,872 @@
+/*
+ * Copyright 2020 Haiku Inc. All rights reserved.
+ * Distributed under the terms of the MIT License.
+ *
+ * Authors:
+ *		Khaled Emara, mail@KhaledEmara.dev
+ */
+
+
+#include <FtpConnection.h>
+
+#include <arpa/inet.h>
+
+#include <algorithm>
+#include <cctype>
+#include <cstdio>
+#include <fstream>
+#include <iterator>
+#include <map>
+#include <sstream>
+
+#include <AutoDeleter.h>
+#include <BufferedDataIO.h>
+#include <DataIO.h>
+#include <Debug.h>
+#include <File.h>
+#include <Path.h>
+#include <Socket.h>
+#include <UrlRequest.h>
+
+
+BFtpResponse::BFtpResponse(int16 code, const BString& message)
+	:
+	fStatus(code),
+	fMessage(message)
+{
+}
+
+
+
+BFtpResponse::BFtpResponse(const BFtpResponse& other)
+	:
+	fStatus(other.GetStatus()),
+	fMessage(other.GetMessage())
+{
+}
+
+
+
+BFtpResponse::BFtpResponse(BMessage* archive)
+	:
+	BUrlResult(archive),
+	fStatus(archive->FindInt16("ftp:status")),
+	fMessage(archive->FindString("ftp:message"))
+{
+}
+
+
+
+BFtpResponse::~BFtpResponse()
+{
+}
+
+
+
+bool
+BFtpResponse::IsOk() const
+{
+	return fStatus < B_FTP_STATUS__TRANSIENT_NEGATIVE_COMPLETION_BASE;
+}
+
+
+
+int16
+BFtpResponse::GetStatus() const
+{
+	return fStatus;
+}
+
+
+
+const BString&
+BFtpResponse::GetMessage() const
+{
+	return fMessage;
+}
+
+
+
+BFtpResponse&
+BFtpResponse::operator=(const BFtpResponse& other)
+{
+	if (this == &other)
+		return *this;
+
+	fStatus = other.fStatus;
+	fMessage = other.fMessage;
+
+	return *this;
+}
+
+
+
+status_t
+BFtpResponse::Archive(BMessage* target, bool deep) const
+{
+	status_t result = BUrlResult::Archive(target, deep);
+	if (result != B_OK)
+		return result;
+
+	target->AddInt16("ftp:status", fStatus);
+	target->AddString("ftp:message", fMessage);
+
+	return B_OK;
+}
+
+
+
+BArchivable*
+BFtpResponse::Instantiate(BMessage* archive)
+{
+	if (!validate_instantiation(archive, "BFtpResponse"))
+		return NULL;
+
+	return new BFtpResponse(archive);
+}
+
+
+
+BFtpDirectoryResponse::BFtpDirectoryResponse(const BFtpResponse& response)
+	:
+	BFtpResponse(response)
+{
+	if (IsOk()) {
+		int32 begin = GetMessage().FindFirst('"', 0);
+		int32 end   = GetMessage().FindFirst('"', begin + 1);
+		GetMessage().CopyInto(fDirectory, begin + 1, end - begin - 1);
+	}
+}
+
+
+
+const BString&
+BFtpDirectoryResponse::GetDirectory() const
+{
+	return fDirectory;
+}
+
+
+
+BFtpListingResponse::BFtpListingResponse(const BFtpResponse& response,
+	const BString& data)
+	:
+	BFtpResponse(response)
+{
+	if (IsOk()) {
+		int32 lastPos = 0;
+		BString placeholder;
+		for (int32 pos = data.FindFirst("\r\n");
+			 pos != B_ERROR;
+			 pos = data.FindFirst("\r\n", lastPos)) {
+				data.CopyInto(placeholder, lastPos, pos - lastPos);
+				fListing.push_back(placeholder);
+				lastPos = pos + 2;
+		}
+	}
+}
+
+
+
+const std::vector<BString>&
+BFtpListingResponse::GetListing() const
+{
+	return fListing;
+}
+
+
+
+BFtpConnection::BFtpConnection(const BUrl& url, const char* protocolName,
+	BUrlProtocolListener* listener, BUrlContext* context)
+	:
+	BNetworkRequest(url, listener, context, "BUrlProtocol.FTP", protocolName),
+	fCommand(kCommandInvalid),
+	fResult(B_FTP_STATUS_INVALID_RESPONSE),
+	fMode(B_FTP_TRANSFER_MODE_BINARY),
+	fUsername("anonymous"),
+	fPassword("haiku-development@freelists.org"),
+	fRemotePath(BPath()),
+	fNewRemotePath(BPath()),
+	fLocalPath(BPath()),
+	fLogin(false),
+	fKeepAlive(false),
+	fAppend(false)
+{
+	fSocket = NULL;
+}
+
+
+
+BFtpConnection::BFtpConnection(const BFtpConnection& other)
+	:
+	BNetworkRequest(other.Url(), other.fListener, other.fContext,
+		"BUrlProtocol.FTP", "FTP"),
+	fCommand(kCommandInvalid),
+	fResult(B_FTP_STATUS_INVALID_RESPONSE),
+	fMode(B_FTP_TRANSFER_MODE_BINARY),
+	fUsername("anonymous"),
+	fPassword("haiku-development@freelists.org"),
+	fRemotePath(BPath()),
+	fNewRemotePath(BPath()),
+	fLocalPath(BPath()),
+	fLogin(false),
+	fKeepAlive(false),
+	fAppend(false)
+{
+	fSocket = NULL;
+}
+
+
+
+BFtpConnection::~BFtpConnection()
+{
+	Stop();
+
+	delete fSocket;
+}
+
+
+
+void
+BFtpConnection::Login()
+{
+	return Login("anonymous", "haiku-development@freelists.org");
+}
+
+
+
+void
+BFtpConnection::Login(const BString& name, const BString& password)
+{
+	fUsername = name;
+	fPassword = password;
+	fLogin = true;
+}
+
+
+
+BFtpResponse
+BFtpConnection::_Login()
+{
+	BFtpResponse response = SendCommand("USER", fUsername);
+	if (response.IsOk())
+		response = SendCommand("PASS", fPassword);
+
+	return response;
+}
+
+
+
+void
+BFtpConnection::KeepAlive()
+{
+	fKeepAlive = true;
+}
+
+
+
+BFtpResponse
+BFtpConnection::_KeepAlive()
+{
+	return SendCommand("NOOP");
+}
+
+
+
+void
+BFtpConnection::GetWorkingDirectory()
+{
+	fCommand = kCommandGetWorkingDirectory;
+}
+
+
+
+BFtpDirectoryResponse
+BFtpConnection::_GetWorkingDirectory()
+{
+	return BFtpDirectoryResponse(SendCommand("PWD"));
+}
+
+
+
+void
+BFtpConnection::GetDirectoryListing(const BString& directory)
+{
+	fRemotePath.SetTo(directory.String(), NULL, true);
+	fCommand = kCommandGetDirectoryListing;
+}
+
+
+
+BFtpListingResponse
+BFtpConnection::_GetDirectoryListing()
+{
+	BMallocIO receiveStream;
+	BFtpDataChannel data(*this);
+
+	BFtpResponse response = data.Open(B_FTP_TRANSFER_MODE_TEXT);
+	if (response.IsOk()) {
+		response = SendCommand("NLST", BString(fRemotePath.Path()));
+		if (response.IsOk()) {
+			data.Receive(receiveStream);
+			response = _GetResponse();
+		}
+	}
+
+	return BFtpListingResponse(response, BString(
+											(char *)receiveStream.Buffer(),
+											receiveStream.BufferLength()));
+}
+
+
+
+void
+BFtpConnection::ChangeDirectory(const BString& directory)
+{
+	fRemotePath.SetTo(directory.String(), NULL, true);
+	fCommand = kCommandChangeDirectory;
+}
+
+
+
+BFtpResponse
+BFtpConnection::_ChangeDirectory()
+{
+	return SendCommand("CWD", BString(fRemotePath.Path()));
+}
+
+
+
+void
+BFtpConnection::ParentDirectory()
+{
+	fCommand = kCommandParentDirectory;
+}
+
+
+
+BFtpResponse
+BFtpConnection::_ParentDirectory()
+{
+	return SendCommand("CDUP");
+}
+
+
+
+void
+BFtpConnection::CreateDirectory(const BString& name)
+{
+	fRemotePath.SetTo(name, NULL, true);
+	fCommand = kCommandCreateDirectory;
+}
+
+
+
+BFtpResponse
+BFtpConnection::_CreateDirectory()
+{
+	return SendCommand("MKD", BString(fRemotePath.Path()));
+}
+
+
+
+void
+BFtpConnection::DeleteDirectory(const BString& name)
+{
+	fRemotePath.SetTo(name, NULL, true);
+	fCommand = kCommandDeleteDirectory;
+}
+
+
+
+BFtpResponse
+BFtpConnection::_DeleteDirectory()
+{
+	return SendCommand("RMD", BString(fRemotePath.Path()));
+}
+
+
+
+void
+BFtpConnection::RenameFile(const BString& file, const BString& newName)
+{
+	fRemotePath.SetTo(file, NULL, true);
+	fNewRemotePath.SetTo(newName, NULL, true);
+	fCommand = kCommandRenameFile;
+}
+
+
+
+BFtpResponse
+BFtpConnection::_RenameFile()
+{
+	BFtpResponse response = SendCommand("RNFR", BString(fRemotePath.Path()));
+	if (response.IsOk())
+	   response = SendCommand("RNTO", BString(fNewRemotePath.Path()));
+
+	return response;
+}
+
+
+
+void
+BFtpConnection::DeleteFile(const BString& name)
+{
+	fRemotePath.SetTo(name, NULL, true);
+	fCommand = kCommandDeleteFile;
+}
+
+
+
+BFtpResponse
+BFtpConnection::_DeleteFile()
+{
+	return SendCommand("DELE", BString(fRemotePath.Path()));
+}
+
+
+void
+BFtpConnection::Download(const BString& remoteFile, const BString& localPath,
+	int8 mode)
+{
+	fRemotePath.SetTo(remoteFile, NULL, true);
+	fLocalPath.SetTo(localPath, NULL, true);
+	fMode = mode;
+	fCommand = kCommandDownload;
+}
+
+
+
+BFtpResponse
+BFtpConnection::_Download()
+{
+	BFtpDataChannel data(*this);
+	BFtpResponse response = data.Open(fMode);
+	if (response.IsOk()) {
+		response = SendCommand("RETR", BString(fRemotePath.Path()));
+		if (response.IsOk()) {
+			fRemotePath.SetTo(BString(fRemotePath.Path())
+								.ReplaceAll('\\', '/').String(),
+							  NULL, true);
+
+			fLocalPath.SetTo(BString(fLocalPath.Path())
+								.ReplaceAll('\\', '/').String(),
+							 fRemotePath.Leaf(), true);
+
+			BFile file(fLocalPath.Path(),
+					   B_WRITE_ONLY | B_CREATE_FILE | B_ERASE_FILE);
+			if (file.InitCheck() != B_OK)
+				return BFtpResponse(B_FTP_STATUS_INVALID_FILE);
+
+			data.Receive(file);
+
+			response = _GetResponse();
+
+			if (!response.IsOk())
+				std::remove(fLocalPath.Path());
+		}
+	}
+
+	return response;
+}
+
+
+
+void
+BFtpConnection::Upload(const BString& localFile, const BString& remotePath,
+	int8 mode, bool append)
+{
+	fLocalPath.SetTo(localFile, NULL, true);
+	fRemotePath.SetTo(remotePath, NULL, true);
+	fMode = mode;
+	fAppend = append;
+	fCommand = kCommandUpload;
+}
+
+
+
+BFtpResponse
+BFtpConnection::_Upload()
+{
+	BFile file(fLocalPath.Path(), B_READ_ONLY);
+	if (file.InitCheck() != B_OK)
+		return BFtpResponse(B_FTP_STATUS_INVALID_FILE);
+
+	fLocalPath.SetTo(BString(fLocalPath.Path()).ReplaceAll('\\', '/').String(),
+					 NULL, true);
+
+	fRemotePath.SetTo(BString(fRemotePath.Path())
+						.ReplaceAll('\\', '/').String(),
+					  fLocalPath.Leaf(), true);
+
+	BFtpDataChannel data(*this);
+	BFtpResponse response = data.Open(fMode);
+	if (response.IsOk()) {
+		response = SendCommand(fAppend ? "APPE" : "STOR", fRemotePath.Path());
+		if (response.IsOk()) {
+			data.Send(file);
+
+			response = _GetResponse();
+		}
+	}
+
+	return response;
+}
+
+
+
+BFtpResponse
+BFtpConnection::SendCommand(const BString& command, const BString& parameter)
+{
+	BString commandStr;
+	if (parameter != "")
+		commandStr.SetToFormat("%s %s\r\n",
+							   command.String(),
+							   parameter.String());
+	else
+		commandStr.SetToFormat("%s\r\n", command.String());
+
+	fSocket->Write(commandStr.String(), commandStr.Length());
+
+	return _GetResponse();
+}
+
+
+
+status_t
+BFtpConnection::Connect()
+{
+	delete fSocket;
+
+	fSocket = new(std::nothrow) BSocket();
+
+	if (fSocket == NULL)
+		return B_NO_MEMORY;
+
+	_EmitDebug(B_URL_PROTOCOL_DEBUG_TEXT, "Connection to %s on port %d.",
+		fUrl.Authority().String(), fRemoteAddr.Port());
+	return fSocket->Connect(fRemoteAddr);
+}
+
+
+
+status_t
+BFtpConnection::Stop()
+{
+	BFtpResponse response = SendCommand("QUIT");
+	if (response.IsOk() && fSocket != NULL)
+		fSocket->Disconnect();
+
+	return BNetworkRequest::Stop();
+}
+
+
+
+const BFtpResponse&
+BFtpConnection::Result() const
+{
+	return fResult;
+}
+
+
+
+status_t
+BFtpConnection::_ProtocolLoop()
+{
+	BString host = fUrl.Host();
+	int port = 21;
+
+	if (fUrl.HasPort())
+		port = fUrl.Port();
+
+	if (fContext->UseProxy()) {
+		host = fContext->GetProxyHost();
+		port = fContext->GetProxyPort();
+	}
+
+	if (!_ResolveHostName(host, port)) {
+		_EmitDebug(B_URL_PROTOCOL_DEBUG_ERROR,
+			"Unable to resolve hostname (%s), aborting.",
+				fUrl.Host().String());
+		return B_SERVER_NOT_FOUND;
+	}
+
+	status_t connectError = Connect();
+	if (connectError != B_OK) {
+		_EmitDebug(B_URL_PROTOCOL_DEBUG_ERROR, "Socket connection error %s",
+			strerror(connectError));
+		return connectError;
+	}
+
+	BFtpResponse response = _GetResponse();
+	if (!response.IsOk())
+		return B_RESOURCE_UNAVAILABLE;
+
+	if (fListener != NULL)
+		fListener->ConnectionOpened(this);
+
+	_EmitDebug(B_URL_PROTOCOL_DEBUG_TEXT,
+		"Connection opened, sending request.");
+
+	fResult = _Login();
+
+	if (!fResult.IsOk())
+		return B_RESOURCE_UNAVAILABLE;
+
+	switch (fCommand) {
+		case kCommandInvalid:
+			return B_RESOURCE_NOT_FOUND;
+		case kCommandGetWorkingDirectory:
+			fResult = _GetWorkingDirectory();
+			break;
+		case kCommandGetDirectoryListing:
+			fResult = _GetDirectoryListing();
+			break;
+		case kCommandChangeDirectory:
+			fResult = _ChangeDirectory();
+			break;
+		case kCommandParentDirectory:
+			fResult = _ParentDirectory();
+			break;
+		case kCommandCreateDirectory:
+			fResult = _CreateDirectory();
+			break;
+		case kCommandDeleteDirectory:
+			fResult = _DeleteDirectory();
+			break;
+		case kCommandRenameFile:
+			fResult = _RenameFile();
+			break;
+		case kCommandDeleteFile:
+			fResult = _DeleteFile();
+			break;
+		case kCommandDownload:
+			fResult = _Download();
+			break;
+		case kCommandUpload:
+			fResult = _Upload();
+			break;
+	}
+
+	if (!fResult.IsOk())
+		return B_RESOURCE_UNAVAILABLE;
+
+	return B_OK;
+}
+
+
+
+BFtpResponse
+BFtpConnection::_GetResponse()
+{
+	unsigned int lastCode  = 0;
+	bool isInsideMultiline = false;
+	std::string message;
+
+	while (true) {
+		char buffer[1024];
+		std::size_t length, bytesReceived = 0;
+
+		if (fReceiveBuffer.IsEmpty()) {
+			length = fSocket->Read(buffer, sizeof(buffer));
+			bytesReceived += length;
+			if (fListener != NULL) {
+				fListener->DataReceived(this, buffer,
+								bytesReceived - length, length);
+			}
+		} else {
+			fReceiveBuffer.CopyInto(buffer, 0, fReceiveBuffer.Length());
+			length = fReceiveBuffer.Length();
+			fReceiveBuffer.SetTo("");
+		}
+
+		std::istringstream in(std::string(buffer, length),
+							  std::ios_base::binary);
+		while (in) {
+			unsigned int code;
+			if (in >> code) {
+				char separator;
+				in.get(separator);
+
+				if ((separator == '-') && !isInsideMultiline) {
+					isInsideMultiline = true;
+
+					if (lastCode == 0)
+						lastCode = code;
+
+					std::getline(in, message);
+
+					message.erase(message.length() - 1);
+					message = separator + message + "\n";
+				} else {
+					if ((separator != '-') &&
+						((code == lastCode) || (lastCode == 0))) {
+						std::string line;
+						std::getline(in, line);
+
+						line.erase(line.length() - 1);
+
+						if (code == lastCode) {
+							std::ostringstream out;
+							out << code << separator << line;
+							message += out.str();
+						} else {
+							message = separator + line;
+						}
+
+						fReceiveBuffer.SetTo(buffer +
+							static_cast<std::size_t>(in.tellg()),
+							length - static_cast<std::size_t>(in.tellg()));
+
+						return BFtpResponse(code, BString(message.c_str()));
+					} else {
+						std::string line;
+						std::getline(in, line);
+
+						if (!line.empty()) {
+							line.erase(line.length() - 1);
+
+							std::ostringstream out;
+							out << code << separator << line << "\n";
+							message += out.str();
+						}
+					}
+				}
+			} else if (lastCode != 0) {
+				in.clear();
+
+				std::string line;
+				std::getline(in, line);
+
+				if (!line.empty()) {
+					line.erase(line.length() - 1);
+
+					message += line + "\n";
+				}
+			} else {
+				return BFtpResponse(B_FTP_STATUS_INVALID_RESPONSE);
+			}
+		}
+	}
+}
+
+
+
+BFtpDataChannel::BFtpDataChannel(BFtpConnection& owner)
+	:
+	fFtpConnection(owner)
+{
+}
+
+
+
+BFtpResponse
+BFtpDataChannel::Open(int8 mode)
+{
+	// Open a data connection in active mode (we connect to the server)
+	BFtpResponse response = fFtpConnection.SendCommand("PASV");
+	if (response.IsOk()) {
+		// Extract the connection address and port from the response
+		std::string::size_type begin =
+			std::string(response.GetMessage().String())
+				.find_first_of("0123456789");
+		if (begin != std::string::npos) {
+			uint8 data[6] = {0, 0, 0, 0, 0, 0};
+			BString str;
+			response.GetMessage().CopyInto(str,
+										   static_cast<int32>(begin),
+										   response.GetMessage().Length());
+			std::size_t index = 0;
+			for (int i = 0; i < 6; ++i) {
+				// Extract the current number
+				while (isdigit(str[index])) {
+					data[i] = data[i] * 10 + (str[index] - '0');
+					index++;
+				}
+
+				// Skip separator
+				index++;
+			}
+
+			std::stringstream ss;
+			std::string address;
+
+			// Reconstruct connection port and address
+			ss	<<	static_cast<uint8>(data[0]) << '.'
+				<<	static_cast<uint8>(data[1]) << '.'
+				<<	static_cast<uint8>(data[2]) << '.'
+				<<	static_cast<uint8>(data[3]) << '.';
+			ss >> address;
+			int port = data[4] * 256 + data[5];
+
+			BNetworkAddress remoteAddr =
+				BNetworkAddress(inet_addr(address.c_str()), port);
+
+			if (remoteAddr.InitCheck() != B_OK) {
+				return BFtpResponse(B_FTP_STATUS_CONNECTION_FAILED);
+			}
+
+			delete fDataSocket;
+
+			fDataSocket = new(std::nothrow) BSocket();
+
+			if (fDataSocket == NULL)
+				return BFtpResponse(B_FTP_STATUS_CONNECTION_FAILED);
+
+			status_t connectError = fDataSocket->Connect(remoteAddr);
+
+			// Connect the data channel to the server
+			if (connectError == B_OK) {
+				// Translate transfer mode into corresponding FTP parameter
+				BString modeStr;
+				switch (mode) {
+					case B_FTP_TRANSFER_MODE_BINARY	: modeStr = "I"; break;
+					case B_FTP_TRANSFER_MODE_TEXT	: modeStr = "A"; break;
+					case B_FTP_TRANSFER_MODE_EBCDIC	: modeStr = "E"; break;
+				}
+
+				// Set the transfer mode
+				response = fFtpConnection.SendCommand("TYPE", modeStr);
+			} else {
+				// Failed to connect to the server
+				response = BFtpResponse(B_FTP_STATUS_CONNECTION_FAILED);
+			}
+		}
+	}
+
+	return response;
+}
+
+
+
+void
+BFtpDataChannel::Receive(BDataIO& stream)
+{
+	char buffer[4096];
+	ssize_t received;
+
+	while ((received = fDataSocket->Read(buffer, sizeof(buffer))) > 0) {
+		stream.Write(buffer, received);
+	}
+	stream.Flush();
+
+	fDataSocket->Disconnect();
+}
+
+
+
+void
+BFtpDataChannel::Send(BDataIO &stream)
+{
+	char buffer[4096];
+	ssize_t received;
+
+	while ((received = stream.Read(buffer, sizeof(buffer)))) {
+		fDataSocket->Write(buffer, received);
+	}
+	fDataSocket->Flush();
+
+	fDataSocket->Disconnect();
+}
+
+
