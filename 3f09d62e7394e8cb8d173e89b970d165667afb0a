@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7178b310_c908cb8c",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Volume.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-04-20T14:52:50Z",
+      "side": 1,
+      "message": "DeviceOpener implementation should be also moved to separate file and be shared.",
+      "revId": "3f09d62e7394e8cb8d173e89b970d165667afb0a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
