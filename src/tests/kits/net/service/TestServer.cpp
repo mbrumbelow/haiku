@@ -234,21 +234,27 @@ TestServer::TestServer(TestServerMode mode)
 // fPort.
 status_t TestServer::Start()
 {
-	if (fPort.InitCheck() != B_OK) {
-		return fPort.InitCheck();
-	}
-
 	// This is the child process. We can exec the server process.
 	std::vector<std::string> child_process_args;
-	child_process_args.push_back("/bin/python3");
-	child_process_args.push_back(TestFilePath("testserver.py"));
-	child_process_args.push_back("--port");
-	child_process_args.push_back(to_string(fPort.Port()));
-	child_process_args.push_back("--fd");
-	child_process_args.push_back(to_string(fPort.FileDescriptor()));
+	if (fMode < TEST_SERVER_MODE_FTP) {
+		if (fPort.InitCheck() != B_OK) {
+			return fPort.InitCheck();
+		}
+
+		child_process_args.push_back("/bin/python3");
+		child_process_args.push_back(TestFilePath("testserver.py"));
+		child_process_args.push_back("--port");
+		child_process_args.push_back(to_string(fPort.Port()));
+		child_process_args.push_back("--fd");
+		child_process_args.push_back(to_string(fPort.FileDescriptor()));
+	}
 
 	if (fMode == TEST_SERVER_MODE_HTTPS) {
 		child_process_args.push_back("--use-tls");
+	}
+
+	if (fMode == TEST_SERVER_MODE_FTP) {
+		child_process_args.push_back("/bin/ftpd");
 	}
 
 	// After this the child process has started. It may take a short amount of
@@ -265,17 +271,23 @@ status_t TestServer::Start()
 BUrl TestServer::BaseUrl() const
 {
 	std::string scheme;
+	std::string port_string
 	switch(fMode) {
 	case TEST_SERVER_MODE_HTTP:
 		scheme = "http://";
+		port_string = to_string(fPort.Port());
 		break;
 
 	case TEST_SERVER_MODE_HTTPS:
 		scheme = "https://";
+		port_string = to_string(fPort.Port());
+		break;
+
+	case TEST_SERVER_MODE_FTP:
+		scheme = "ftp://";
+		port_string = "21";
 		break;
 	}
-
-	std::string port_string = to_string(fPort.Port());
 
 	std::string baseUrl = scheme + "127.0.0.1:" + port_string + "/";
 	return BUrl(baseUrl.c_str());

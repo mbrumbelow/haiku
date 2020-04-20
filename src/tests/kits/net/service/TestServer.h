@@ -46,6 +46,7 @@ private:
 enum TestServerMode {
 	TEST_SERVER_MODE_HTTP,
 	TEST_SERVER_MODE_HTTPS,
+	TEST_SERVER_MODE_FTP,
 };
 
 
