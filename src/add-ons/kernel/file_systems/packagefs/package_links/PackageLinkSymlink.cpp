@@ -159,9 +159,14 @@ PackageLinkSymlink::Read(io_request* request)
 status_t
 PackageLinkSymlink::ReadSymlink(void* buffer, size_t* bufferSize)
 {
-	size_t toCopy = std::min(strlen(fLinkPath), *bufferSize);
-	memcpy(buffer, fLinkPath, toCopy);
-	*bufferSize = toCopy;
+	size_t linkLength = strnlen(fLinkPath, B_PATH_NAME_LENGTH);
+
+	if (linkLength < *bufferSize)
+		user_memcpy(buffer, fLinkPath, linkLength);
+	else
+		user_memcpy(buffer, fLinkPath, *bufferSize);
+
+	*bufferSize = linkLength;
 
 	return B_OK;
 }

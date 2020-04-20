@@ -565,10 +565,10 @@ fs_read_link(fs_volume* _volume, fs_vnode* _node, char* buffer,
 	size_t length = strlen(node->attr.slName);
 	if (length > *_bufferSize)
 		memcpy(buffer, node->attr.slName, *_bufferSize);
-	else {
+	else
 		memcpy(buffer, node->attr.slName, length);
-		*_bufferSize = length;
-	}
+
+	*_bufferSize = length;
 
 	return B_OK;
 }
