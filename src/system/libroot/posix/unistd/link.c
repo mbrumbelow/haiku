@@ -5,6 +5,7 @@
 
 
 #include <errno.h>
+#include <string.h>
 #include <unistd.h>
 
 #include <errno_private.h>
@@ -34,7 +35,9 @@ readlinkat(int fd, const char *path, char *buffer, size_t bufferSize)
 	if (linkLen < bufferSize)
 		buffer[linkLen] = '\0';
 
-	return linkLen;
+	// _kern_read_link() returns the length of the link, but readlinkat() is
+	// supposed to return the number of bytes placed into buffer.
+	return strnlen(buffer, bufferSize);
 }
 
 

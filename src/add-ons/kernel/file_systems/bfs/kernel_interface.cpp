@@ -1602,11 +1602,15 @@ bfs_read_link(fs_volume* _volume, fs_vnode* _node, char* buffer,
 		return B_OK;
 	}
 
-	size_t linkLen = strlen(inode->Node().short_symlink);
-	if (linkLen < *_bufferSize)
-		*_bufferSize = linkLen;
+	size_t linkLength = strlen(inode->Node().short_symlink);
 
-	return user_memcpy(buffer, inode->Node().short_symlink, *_bufferSize);
+	size_t bytesToCopy = (linkLength < *_bufferSize)
+		? linkLength
+		: *_bufferSize;
+
+	*_bufferSize = linkLength;
+
+	return user_memcpy(buffer, inode->Node().short_symlink, bytesToCopy);
 }
 
 
