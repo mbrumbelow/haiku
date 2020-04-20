@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "abdd5912_7ecf4640",
+        "filename": "src/kits/network/libnetapi/FtpConnection.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-04-20T20:27:07Z",
+      "side": 1,
+      "message": "You should call BFtpResponse fResult field constructor here.",
+      "revId": "1fdf02794d5ecb5d8296210ed98875e23d288fc9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
