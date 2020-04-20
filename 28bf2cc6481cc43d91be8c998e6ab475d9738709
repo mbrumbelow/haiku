@@ -34,6 +34,24 @@
       "revId": "28bf2cc6481cc43d91be8c998e6ab475d9738709",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc08c0ba_11c9c89a",
+        "filename": "src/tests/kits/storage/SymLinkTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-20T16:31:40Z",
+      "side": 1,
+      "message": "Well, the Be Book documents it as \"to be perfectly safe, the buffer should be B_PATH_NAME_LENGTH characters long\", and everyone wants to be perfectly safe, right? So it seems unlikely someone would have used a shorter buffer.\n\nBut, I would go on the side of compatibility with BeOS here, even if it actually contradicts the Be Book (\"The function returns the number of bytes that were copied (or it returns an error).\", but it can return more than the number of bytes actually copied in that case). The behavior is not completely unheard of in other places (snprintf, for example) so it makes some sense.",
+      "parentUuid": "93fdb840_20f9da4f",
+      "revId": "28bf2cc6481cc43d91be8c998e6ab475d9738709",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
