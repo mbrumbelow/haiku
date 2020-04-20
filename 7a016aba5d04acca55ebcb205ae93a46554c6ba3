@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "02c12d0d_04f911aa",
+        "filename": "src/kits/network/libnetapi/FtpConnection.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-04-20T18:22:04Z",
+      "side": 1,
+      "message": "BFtpResponse constructor takes (int16 code, const std::string\u0026 message \u003d \"\") as arguments, not (const BFtpResponse\u0026 response). You need to adjust calling of base constructor or add new compatible BFtpResponse constructor.",
+      "revId": "7a016aba5d04acca55ebcb205ae93a46554c6ba3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
