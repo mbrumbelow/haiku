@@ -89,16 +89,15 @@ BSymLink::ReadLink(char* buffer, size_t size)
 	if (InitCheck() != B_OK)
 		return B_FILE_ERROR;
 
-	size_t linkLen = size;
-	status_t result = _kern_read_link(get_fd(), NULL, buffer, &linkLen);
+	char link[B_PATH_NAME_LENGTH];
+	size_t linkLen = sizeof(link);
+	status_t result = _kern_read_link(get_fd(), NULL, link, &linkLen);
 	if (result < B_OK)
 		return result;
 
-	// null-terminate
-	if (linkLen >= size)
-		return B_BUFFER_OVERFLOW;
-
-	buffer[linkLen] = '\0';
+	size_t bytesToCopy = std::min(linkLen, size);
+	memcpy(buffer, link, bytesToCopy);
+	buffer[bytesToCopy - 1] = '\0';
 
 	return linkLen;
 }
