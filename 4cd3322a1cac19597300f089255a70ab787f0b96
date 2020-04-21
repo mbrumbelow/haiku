@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "95d794d6_94de616c",
+        "filename": "headers/os/net/FtpConnection.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-21T06:34:22Z",
+      "side": 1,
+      "message": "use BString instead of std::string at least in the API",
+      "revId": "4cd3322a1cac19597300f089255a70ab787f0b96",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "508b2385_db333b05",
+        "filename": "headers/os/net/FtpConnection.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-21T06:34:22Z",
+      "side": 1,
+      "message": "line wider than 80 columns (there aer more of these in the file)",
+      "revId": "4cd3322a1cac19597300f089255a70ab787f0b96",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c41b6caa_93305943",
+        "filename": "headers/os/net/FtpConnection.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-21T06:34:22Z",
+      "side": 1,
+      "message": "I think all functions here could return a status_t. GetWorkingDirectory needs to return the directory, as well?",
+      "revId": "4cd3322a1cac19597300f089255a70ab787f0b96",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8698115_77400b01",
+        "filename": "src/kits/network/libnetapi/FtpConnection.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-21T06:34:22Z",
+      "side": 1,
+      "message": "The way I expect to use FTP is:\n- I would create a session, connect and login\n- Then, I would send one or more commands (download, upload, change directory, etc)\n\nThis is currently not implemented. What is the plan? How would we make this fit with the \"protocol loop\" system and the asynchronous mode of the API (with listeners going through BMessage to notify the application when something happens)? Can the same mechanism be used for HTTP 1.1 where we want to reuse connections as well?",
+      "revId": "4cd3322a1cac19597300f089255a70ab787f0b96",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aae83252_afc0b5e8",
+        "filename": "src/kits/network/libnetapi/FtpConnection.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 763,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-21T06:34:22Z",
+      "side": 1,
+      "message": "Use BDataIO instead of iostreams.\n\nIn fact this should probably be more similar to the DataReceived callback that exists for HTTP, where we let the caller application decide how exactly to handle the incoming data.",
+      "revId": "4cd3322a1cac19597300f089255a70ab787f0b96",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f885debc_53f443d0",
+        "filename": "src/tests/kits/net/service/FtpTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-21T06:34:22Z",
+      "side": 1,
+      "message": "You can\u0027t use single quotes around a string in C++. Also, this line is more than 80 columns wide.",
+      "revId": "4cd3322a1cac19597300f089255a70ab787f0b96",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "043f274d_84da6185",
+        "filename": "src/tests/kits/net/service/FtpTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-21T06:34:22Z",
+      "side": 1,
+      "message": "this line is more than 80 columns wide",
+      "revId": "4cd3322a1cac19597300f089255a70ab787f0b96",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7746fab_1ea21010",
+        "filename": "src/tests/kits/net/service/FtpTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-21T06:34:22Z",
+      "side": 1,
+      "message": "why use a reference instead of a pointer here?",
+      "revId": "4cd3322a1cac19597300f089255a70ab787f0b96",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
