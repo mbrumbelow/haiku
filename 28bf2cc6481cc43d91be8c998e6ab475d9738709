@@ -52,6 +52,24 @@
       "revId": "28bf2cc6481cc43d91be8c998e6ab475d9738709",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "372b3a88_a2782384",
+        "filename": "src/tests/kits/storage/SymLinkTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-04-21T08:10:20Z",
+      "side": 1,
+      "message": "I sat down tonight to fix this and to do some testing in BeOS to make sure we\u0027re actually matching its behavior. I updated the patch but it isn\u0027t ready to merge because the change to ReadLink breaks MakeLinkedPath. I\u0027m out of time for today but I\u0027ll fix that up and submit an update tomorrow.\n\nI spent some time testing in BeOS. Some notes:\n\nlink.ReadLink(NULL, 0) definitely crashes in R5. Are you sure that is supposed to be possible?\n\nlink.ReadLink() indeed does always return the length of the links contents, so the patch is updated to reflect that.\n\nlink.ReadLink() did not seem to guarantee NULL termination of the string written to the provided buffer. I\u0027ve verified that it does write a \u0027\\0\u0027 byte to the end of the string IFF the link contents is shorter than the provided size. But if the buffer size is \u003c\u003d the link contents length, no \u0027\\0\u0027 byte is written.\n\nIt seems to me that while making the guarantee that the string is always NULL terminated is not the same behavior as BeOS, doing so is way safer so it seems like the right thing to do.",
+      "parentUuid": "fc08c0ba_11c9c89a",
+      "revId": "28bf2cc6481cc43d91be8c998e6ab475d9738709",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
