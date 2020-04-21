@@ -16,6 +16,24 @@
       "revId": "3f09d62e7394e8cb8d173e89b970d165667afb0a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8daa64d_cc099ee0",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Volume.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-04-21T21:47:56Z",
+      "side": 1,
+      "message": "Do you mean moving the DeviceOpener implementation to a different cpp file like DeviceOpener.cpp in common folder and then using it? If yes then it may give error while running building ufs2_shell.",
+      "parentUuid": "7178b310_c908cb8c",
+      "revId": "3f09d62e7394e8cb8d173e89b970d165667afb0a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
