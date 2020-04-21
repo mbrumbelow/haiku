@@ -70,6 +70,24 @@
       "revId": "28bf2cc6481cc43d91be8c998e6ab475d9738709",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af214e1c_1ae95c9d",
+        "filename": "src/tests/kits/storage/SymLinkTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-04-21T17:43:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "372b3a88_a2782384",
+      "revId": "28bf2cc6481cc43d91be8c998e6ab475d9738709",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
