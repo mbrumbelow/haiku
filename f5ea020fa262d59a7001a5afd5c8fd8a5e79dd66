@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a4173e6c_11c472aa",
+        "filename": "src/add-ons/screen_savers/message/Message.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-04-23T14:29:48Z",
+      "side": 1,
+      "message": "80-Columns",
+      "revId": "f5ea020fa262d59a7001a5afd5c8fd8a5e79dd66",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
