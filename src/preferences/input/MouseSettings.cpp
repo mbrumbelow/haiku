@@ -203,6 +203,9 @@ MouseSettings::Defaults()
 		map.button[0] = B_PRIMARY_MOUSE_BUTTON;
 		map.button[1] = B_SECONDARY_MOUSE_BUTTON;
 		map.button[2] = B_TERTIARY_MOUSE_BUTTON;
+		map.button[3] = B_MOUSE_BUTTON(4);
+		map.button[4] = B_MOUSE_BUTTON(5);
+		map.button[5] = B_MOUSE_BUTTON(6);
 		SetMapping(map);
 	}
 }
@@ -221,7 +224,10 @@ MouseSettings::IsDefaultable()
 		|| fAcceptFirstClick != kDefaultAcceptFirstClick
 		|| fSettings.map.button[0] != B_PRIMARY_MOUSE_BUTTON
 		|| fSettings.map.button[1] != B_SECONDARY_MOUSE_BUTTON
-		|| fSettings.map.button[2] != B_TERTIARY_MOUSE_BUTTON;
+		|| fSettings.map.button[2] != B_TERTIARY_MOUSE_BUTTON
+		|| fSettings.map.button[3] != B_MOUSE_BUTTON(4)
+		|| fSettings.map.button[4] != B_MOUSE_BUTTON(5)
+		|| fSettings.map.button[5] != B_MOUSE_BUTTON(6);
 }
 
 
@@ -254,7 +260,10 @@ MouseSettings::IsRevertable()
 		|| fAcceptFirstClick != fOriginalAcceptFirstClick
 		|| fSettings.map.button[0] != fOriginalSettings.map.button[0]
 		|| fSettings.map.button[1] != fOriginalSettings.map.button[1]
-		|| fSettings.map.button[2] != fOriginalSettings.map.button[2];
+		|| fSettings.map.button[2] != fOriginalSettings.map.button[2]
+		|| fSettings.map.button[3] != fOriginalSettings.map.button[3]
+		|| fSettings.map.button[4] != fOriginalSettings.map.button[4]
+		|| fSettings.map.button[5] != fOriginalSettings.map.button[5];
 }
 
 
