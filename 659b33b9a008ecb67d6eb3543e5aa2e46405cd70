@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b3bce3f8_96126b56",
+        "filename": "src/add-ons/kernel/file_systems/common/DeviceOpener.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-04-25T07:48:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c7b0e88_30448519",
+      "revId": "659b33b9a008ecb67d6eb3543e5aa2e46405cd70",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5bbd346a_7eff949b",
         "filename": "src/add-ons/kernel/file_systems/common/DeviceOpener.cpp",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2020-04-24T06:53:32Z",
       "side": 1,
       "message": "always two empty lines between functions",
+      "revId": "659b33b9a008ecb67d6eb3543e5aa2e46405cd70",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "026fabef_070fb3a5",
+        "filename": "src/add-ons/kernel/file_systems/common/DeviceOpener.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-04-25T07:48:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5bbd346a_7eff949b",
       "revId": "659b33b9a008ecb67d6eb3543e5aa2e46405cd70",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "7ca3236f_4d887c20",
+        "filename": "src/add-ons/kernel/file_systems/common/DeviceOpener.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-04-25T07:48:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc667553_a4c0c4bb",
+      "revId": "659b33b9a008ecb67d6eb3543e5aa2e46405cd70",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e8ad4da8_3c7b7ef3",
         "filename": "src/add-ons/kernel/file_systems/common/DeviceOpener.cpp",
         "patchSetId": 3
@@ -64,6 +118,24 @@
       "writtenOn": "2020-04-24T06:53:32Z",
       "side": 1,
       "message": "this line is too long",
+      "revId": "659b33b9a008ecb67d6eb3543e5aa2e46405cd70",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5b1dd22_ecadc157",
+        "filename": "src/add-ons/kernel/file_systems/common/DeviceOpener.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-04-25T07:48:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8ad4da8_3c7b7ef3",
       "revId": "659b33b9a008ecb67d6eb3543e5aa2e46405cd70",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "f8bbf2b2_28e03365",
+        "filename": "src/add-ons/kernel/file_systems/common/DeviceOpener.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-04-25T07:48:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdc72dc9_4f2b7fc0",
+      "revId": "659b33b9a008ecb67d6eb3543e5aa2e46405cd70",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "72c14422_6751f013",
         "filename": "src/add-ons/kernel/file_systems/ufs2/Volume.cpp",
         "patchSetId": 3
@@ -98,6 +188,24 @@
       "writtenOn": "2020-04-24T06:53:32Z",
       "side": 1,
       "message": "two blank lines between functions",
+      "revId": "659b33b9a008ecb67d6eb3543e5aa2e46405cd70",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de045a4a_eb29f1bd",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Volume.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-04-25T07:48:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72c14422_6751f013",
       "revId": "659b33b9a008ecb67d6eb3543e5aa2e46405cd70",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "166217da_5278c139",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Volume.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-04-25T07:48:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd50b751_314f57db",
+      "revId": "659b33b9a008ecb67d6eb3543e5aa2e46405cd70",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3207ea9a_b6a50d61",
         "filename": "src/add-ons/kernel/file_systems/ufs2/Volume.cpp",
         "patchSetId": 3
@@ -132,6 +258,24 @@
       "writtenOn": "2020-04-24T06:53:32Z",
       "side": 1,
       "message": "two blank lines between functions",
+      "revId": "659b33b9a008ecb67d6eb3543e5aa2e46405cd70",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d4fa40d_94ddc99d",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Volume.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-04-25T07:48:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3207ea9a_b6a50d61",
       "revId": "659b33b9a008ecb67d6eb3543e5aa2e46405cd70",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "06775738_e5bcb5af",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Volume.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-04-25T07:48:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6cc13e5d_5f1cf1d3",
+      "revId": "659b33b9a008ecb67d6eb3543e5aa2e46405cd70",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ed20dc8e_c3a72b69",
         "filename": "src/add-ons/kernel/file_systems/ufs2/Volume.cpp",
         "patchSetId": 3
@@ -166,6 +328,24 @@
       "writtenOn": "2020-04-24T06:53:32Z",
       "side": 1,
       "message": "two blank lines between functions",
+      "revId": "659b33b9a008ecb67d6eb3543e5aa2e46405cd70",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec64d6a1_4aa8e53f",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Volume.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-04-25T07:48:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed20dc8e_c3a72b69",
       "revId": "659b33b9a008ecb67d6eb3543e5aa2e46405cd70",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
