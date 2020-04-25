@@ -34,6 +34,24 @@
       "revId": "ab755f1bf8cc94e410775f7ad56c7e0b6bbb650f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25402dc8_5f70737b",
+        "filename": "src/kits/storage/SymLink.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-04-25T05:25:09Z",
+      "side": 1,
+      "message": "I pushed a WIP patch which fixes this in bfs, which required fixing readlinkat() in libroot.\n\nI need to test this a little more but I\u0027m out of time for today. Also it looks like every filesystem needs its read_link function updated since they either emulate the posix behavior or are maybe a little broken.",
+      "parentUuid": "1c7f5f91_c5654f88",
+      "revId": "ab755f1bf8cc94e410775f7ad56c7e0b6bbb650f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
