@@ -16,6 +16,24 @@
       "revId": "2c3060926d7abadc1a4aa29ff9b0236088710ef5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48c3e4f0_31e255cc",
+        "filename": "src/servers/app/ScreenManager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-04-25T00:00:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f00b257_1b5b585e",
+      "revId": "2c3060926d7abadc1a4aa29ff9b0236088710ef5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
