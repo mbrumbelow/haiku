@@ -1,10 +1,11 @@
 /*
- * Copyright 2011-2015, Haiku, Inc. All Rights Reserved.
+ * Copyright 2011-2020, Haiku, Inc. All Rights Reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
  *		Michael Lotz, mmlr@mlotz.ch
  *		Alexander von Gluck IV, kallisti5@unixzen.com
+ *		Adrien Destugues, pulkomandy@pulkomandy.tk
  */
 
 
@@ -79,6 +80,24 @@ FDITransmitter::Disable()
 	write32(targetRegister, value & ~FDI_TX_ENABLE);
 	read32(targetRegister);
 	spin(150);
+}
+
+
+void
+FDITransmitter::ConfigureClocks(fdi_pll config)
+{
+	CALLED();
+	uint32 targetRegister = fRegisterBase + FDI_DATA_M_OFFSET;
+	write32(targetRegister, config.data_m | FDI_RX_TRANS_UNIT_SIZE(64));
+
+	targetRegister = fRegisterBase + FDI_DATA_N_OFFSET;
+	write32(targetRegister, config.data_n);
+
+	targetRegister = fRegisterBase + FDI_LINK_M_OFFSET;
+	write32(targetRegister, config.link_m);
+
+	targetRegister = fRegisterBase + FDI_LINK_N_OFFSET;
+	write32(targetRegister, config.link_n);
 }
 
 
@@ -168,6 +187,24 @@ FDIReceiver::Disable()
 }
 
 
+void
+FDIReceiver::ConfigureClocks(fdi_pll config)
+{
+	CALLED();
+	uint32 targetRegister = fRegisterBase + FDI_DATA_M_OFFSET;
+	write32(targetRegister, config.data_m | FDI_RX_TRANS_UNIT_SIZE(64));
+
+	targetRegister = fRegisterBase + FDI_DATA_N_OFFSET;
+	write32(targetRegister, config.data_n);
+
+	targetRegister = fRegisterBase + FDI_LINK_M_OFFSET;
+	write32(targetRegister, config.link_m);
+
+	targetRegister = fRegisterBase + FDI_LINK_N_OFFSET;
+	write32(targetRegister, config.link_n);
+}
+
+
 bool
 FDIReceiver::IsPLLEnabled()
 {
@@ -231,11 +268,56 @@ FDILink::FDILink(pipe_index pipeIndex)
 	fReceiver(pipeIndex),
 	fPipeIndex(pipeIndex)
 {
+	// FIXME the indexing by a single pipe index is incorrect. The transcoders
+	// (on the receiver side) can be mapped to any pipe (on the transmitter
+	// side). But that will do for now as we don't attempt such fancy things
+	// in the driver yet.
+}
+
+
+#if __GNUC__ <= 2
+static inline uint32_t __builtin_clzl(uint64_t value)
+{
+	asm ("bsrl %0, %0" : "=r" (value) : "0" (value));
+	return 63 - (uint32_t)value;
+}
+#endif
+
+
+static uint64_t round_up_pow2(uint64_t value)
+{
+	int magnitude = (sizeof(value) * CHAR_BIT) - 1 - __builtin_clzl(value - 1);
+	return 1UL << magnitude;
+}
+
+
+static fdi_pll compute_clocks(uint64_t pixelClock, uint32_t bpp,
+	uint64_t baseClock, uint32_t lanes)
+{
+	// Compute M and N so that they fit on 24 bits while minimizing the
+	// rounding error
+	uint64 data_n = round_up_pow2(baseClock * lanes);
+	uint64 data_m = pixelClock * bpp * data_n / (baseClock * lanes);
+
+	while ((data_n | data_m) >= (1 << 24)) {
+		data_m >>= 1;
+		data_n >>= 1;
+	}
+
+	uint64_t link_n = round_up_pow2(baseClock);
+	uint64_t link_m = pixelClock * link_n / baseClock;
+
+	while ((link_n | link_m) >= (1 << 24)) {
+		link_m >>= 1;
+		link_n >>= 1;
+	}
+
+	return (fdi_pll){data_m, data_n, link_m, link_n};
 }
 
 
 status_t
-FDILink::Train(display_mode* target)
+FDILink::ConfigureTx(display_mode* target)
 {
 	CALLED();
 
@@ -256,36 +338,69 @@ FDILink::Train(display_mode* target)
 			break;
 	}
 
-	// Khz / 10. ( each output octet encoded as 10 bits.
-	uint32 linkBandwidth = gInfo->shared_info->fdi_link_frequency * 1000 / 10;
+	// The fdi_link_frequency given by the driver is the bit clock, given
+	// in MHz. Each symbol is made of 10 bits (8 data bytes plus two bytes
+	// for balancing and clock recovery), and we need kHz precision for our
+	// math here.
+	uint32 symbolClock = gInfo->shared_info->fdi_link_frequency * 1000 / 10;
+
+	// Compute number of lanes needed
 	uint32 bps = target->timing.pixel_clock * bitsPerPixel * 21 / 20;
+	fLanes = bps / (symbolClock * 8);
+	TRACE("%s: FDI Link Lanes: %" B_PRIu32 "\n", __func__, fLanes);
 
-	uint32 lanes = bps / (linkBandwidth * 8);
+	// Set the Data M/N and Link M/N before enabling the transmitter PLL.
+	// We can also set the transfer unit size here since it is in the same
+	// register. Its value is fixed (63), but is not the default value in the
+	// register at reset.
+	fPllConfig = compute_clocks(target->timing.pixel_clock,
+		bitsPerPixel / 8, symbolClock, fLanes);
 
-	TRACE("%s: FDI Link Lanes: %" B_PRIu32 "\n", __func__, lanes);
+	Transmitter().ConfigureClocks(fPllConfig);
 
-	// Enable FDI clocks
-	Receiver().EnablePLL(lanes);
-	Receiver().SwitchClock(true);
-	Transmitter().EnablePLL(lanes);
+	return B_OK;
+}
 
+
+status_t
+FDILink::Train(display_mode* target)
+{
+	CALLED();
+
+	// XXX 9a. set TU size for Rx here before training (we use the default value anyway)
 	status_t result = B_ERROR;
 
 	// TODO: Only _AutoTrain on IVYB Stepping B or later
 	// otherwise, _ManualTrain
 	if (gInfo->shared_info->device_type.Generation() >= 7)
-		result = _AutoTrain(lanes);
+		result = _AutoTrain(fLanes);
 	else if (gInfo->shared_info->device_type.Generation() == 6)
-		result = _SnbTrain(lanes);
+		result = _SnbTrain(fLanes);
 	else if (gInfo->shared_info->device_type.Generation() == 5)
-		result = _IlkTrain(lanes);
+		result = _IlkTrain(fLanes);
 	else
-		result = _NormalTrain(lanes);
+		result = _NormalTrain(fLanes);
 
 	if (result != B_OK) {
 		ERROR("%s: FDI training fault.\n", __func__);
 	}
 
+#if 0
+    c.   Configure and enable PCH DPLL, wait for PCH DPLL warmup (Can be done anytime before enabling
+        PCH transcoder)
+    d.   [DevCPT] Configure DPLL SEL to set the DPLL to transcoder mapping and enable DPLL to the
+        transcoder.
+    e.   [DevCPT] Configure DPLL_CTL DPLL_HDMI_multipler.
+#endif
+
+    // 9f.   Configure PCH transcoder timings, M/N/TU, and other transcoder
+	// settings (should match CPU settings).
+	Receiver().ConfigureClocks(fPllConfig);
+
+#if 0
+    g.   [DevCPT] Configure and enable Transcoder DisplayPort Control if DisplayPort will be used
+    h.   Enable PCH transcoder
+#endif
 	return result;
 }
 
@@ -430,11 +545,14 @@ FDILink::_IlkTrain(uint32 lanes)
 status_t
 FDILink::_SnbTrain(uint32 lanes)
 {
+	// This implements step 9b of the modesetting sequence
+	// (volume 3, part 2, Section 1.1.2)
 	CALLED();
 	uint32 txControl = Transmitter().Base() + PCH_FDI_TX_CONTROL;
 	uint32 rxControl = Receiver().Base() + PCH_FDI_RX_CONTROL;
 
 	// Train 1
+	// Unmask the interrupt status bits we need to read
 	uint32 imrControl = Receiver().Base() + PCH_FDI_RX_IMR;
 	uint32 tmp = read32(imrControl);
 	tmp &= ~FDI_RX_SYMBOL_LOCK;
@@ -443,6 +561,8 @@ FDILink::_SnbTrain(uint32 lanes)
 	read32(imrControl);
 	spin(150);
 
+	// i. Set pre-emphasis and voltage
+	// ii. Set training pattern 1 and enable Rx and Tx
 	tmp = read32(txControl);
 	tmp &= ~FDI_DP_PORT_WIDTH_MASK;
 	tmp |= FDI_DP_PORT_WIDTH(lanes);
@@ -452,6 +572,7 @@ FDILink::_SnbTrain(uint32 lanes)
 
 	tmp |= FDI_LINK_TRAIN_400MV_0DB_SNB_B;
 	write32(txControl, tmp);
+	Transmitter().Enable();
 
 	write32(Receiver().Base() + PCH_FDI_RX_MISC,
 		FDI_RX_TP1_TO_TP2_48 | FDI_RX_FDI_DELAY_90);
@@ -467,9 +588,10 @@ FDILink::_SnbTrain(uint32 lanes)
 	write32(rxControl, rxControl);
 	Receiver().Enable();
 
+	// Initial read to clear any pending interrupt
 	uint32 iirControl = Receiver().Base() + PCH_FDI_RX_IIR;
-	TRACE("%s: FDI RX IIR Control @ 0x%" B_PRIx32 "\n", __func__, iirControl);
 
+	// i. Try again with different pre-emphasis and voltage if training fails
 	int i = 0;
 	for (i = 0; i < 4; i++) {
 		tmp = read32(txControl);
@@ -478,34 +600,41 @@ FDILink::_SnbTrain(uint32 lanes)
 		write32(txControl, tmp);
 
 		read32(txControl);
+
+		// iii. Wait for training pattern 1 time
 		spin(500);
 
 		int retry = 0;
 		for (retry = 0; retry < 5; retry++) {
+			// iv. Check PCH ISR (IIR on IBX+) for bit lock and retry if it
+			// fails
 			tmp = read32(iirControl);
-			TRACE("%s: FDI RX IIR 0x%" B_PRIx32 "\n", __func__, tmp);
 			if (tmp & FDI_RX_BIT_LOCK) {
 				TRACE("%s: FDI train 1 done\n", __func__);
 				write32(iirControl, tmp | FDI_RX_BIT_LOCK);
-				break;
+				goto train1_success;
 			}
 			spin(50);
 		}
-		if (retry < 5)
-			break;
+
 	}
 
-	if (i == 4) {
-		ERROR("%s: FDI train 1 failure!\n", __func__);
-		return B_ERROR;
-	}
+	ERROR("%s: FDI train 1 failure!\n", __func__);
+	return B_ERROR;
 
+train1_success:
 	// Train 2
+	// v. Set train pattern 2 on CPU and PCH
 	tmp = read32(txControl);
 	tmp &= ~FDI_LINK_TRAIN_NONE;
 	tmp |= FDI_LINK_TRAIN_PATTERN_2;
 
-	// if gen6? It's always gen6
+	// FIXME if we can detect problems with voltage and emphasis only in
+	// training pattern 2, we should make sure we perform the whole training
+	// with the same value. What's the point of doing training pattern 1 and
+	// then changing all the settings?
+	// In other words, the two for (i= 0 to 4) loops should be just one single
+	// loop enclosing the two steps of the training.
 	tmp &= ~FDI_LINK_TRAIN_VOL_EMP_MASK;
 	tmp |= FDI_LINK_TRAIN_400MV_0DB_SNB_B;
 	write32(txControl, tmp);
@@ -530,10 +659,13 @@ FDILink::_SnbTrain(uint32 lanes)
 		write32(txControl, tmp);
 
 		read32(txControl);
-		spin(500);
+
+		// vi. Wait for train 2 pattern time
+		spin(1500);
 
 		int retry = 0;
 		for (retry = 0; retry < 5; retry++) {
+			// vii. Wait for symbol lock
 			tmp = read32(iirControl);
 			TRACE("%s: FDI RX IIR 0x%" B_PRIx32 "\n", __func__, tmp);
 
@@ -549,10 +681,27 @@ FDILink::_SnbTrain(uint32 lanes)
 	}
 
 	if (i == 4) {
-		ERROR("%s: FDI train 1 failure!\n", __func__);
+		ERROR("%s: FDI train 2 failure!\n", __func__);
 		return B_ERROR;
 	}
 
+	// viii. Enable normal pixel output
+	tmp = read32(txControl);
+	tmp |= FDI_LINK_TRAIN_NONE;
+	write32(txControl, tmp);
+
+	tmp = read32(rxControl);
+	if (gInfo->shared_info->pch_info == INTEL_PCH_CPT) {
+		tmp |= FDI_LINK_TRAIN_NORMAL_CPT;
+	} else {
+		tmp |= FDI_LINK_TRAIN_NONE;
+	}
+	write32(rxControl, tmp);
+
+	// ix. Wait for FDI idle pattern time
+	spin(3100);
+
+	TRACE("FDI training succesful!\n");
 	return B_OK;
 }
 

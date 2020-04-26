@@ -68,6 +68,7 @@ virtual	status_t					GetEDID(edid1_info* edid,
 										bool forceRead = false);
 
 virtual	status_t					GetPLLLimits(pll_limits& limits);
+		status_t					PreConfigure(display_mode*);
 
 virtual status_t					SetDisplayMode(display_mode* mode,
 										uint32 colorMode) { return B_ERROR; };

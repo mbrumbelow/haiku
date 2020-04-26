@@ -881,6 +881,13 @@ struct intel_free_graphics_memory {
 #define PCH_FDI_RX_IIR					0x014
 #define PCH_FDI_RX_IMR					0x018
 
+// These apply to both the CPU/Tx and PCH/Rx side of the FDI link, they
+// conveniently have the same layout and offsets
+#define FDI_DATA_M_OFFSET				0x030
+#define FDI_DATA_N_OFFSET				0x034
+#define FDI_LINK_M_OFFSET				0x040
+#define FDI_LINK_N_OFFSET				0x044
+
 #define FDI_RX_ENABLE					(1 << 31)
 #define FDI_RX_PLL_ENABLED				(1 << 13)
 
