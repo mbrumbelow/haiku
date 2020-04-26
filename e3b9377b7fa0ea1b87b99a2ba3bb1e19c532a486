@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b30531aa_10498480",
+        "filename": "src/add-ons/kernel/file_systems/iso9660/kernel_interface.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-26T17:38:20Z",
+      "side": 1,
+      "message": "wouldn\u0027t it be better to use std::min here instead? (also in the other filesystems)",
+      "revId": "e3b9377b7fa0ea1b87b99a2ba3bb1e19c532a486",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40dbc67d_aa47b092",
+        "filename": "src/build/libroot/fs.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 1073,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-26T17:38:20Z",
+      "side": 1,
+      "message": "Alternatively one could use lstat to get the size, as shown here: https://linux.die.net/man/2/readlink",
+      "revId": "e3b9377b7fa0ea1b87b99a2ba3bb1e19c532a486",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b31691e_03622fc6",
+        "filename": "src/system/libroot/posix/unistd/link.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-26T17:38:20Z",
+      "side": 1,
+      "message": "min(linkLen, bufferSize) would be more efficient (no need to iterate the string). It would also handle links with a \\0 in their target (however that is probably a bad idea)",
+      "revId": "e3b9377b7fa0ea1b87b99a2ba3bb1e19c532a486",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
