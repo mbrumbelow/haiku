@@ -106,6 +106,24 @@
       "revId": "ab755f1bf8cc94e410775f7ad56c7e0b6bbb650f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "708f9943_ddb109a4",
+        "filename": "src/kits/storage/SymLink.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-04-26T23:53:07Z",
+      "side": 1,
+      "message": "OK I\u0027ve finished all of them. Here is a summary.\n\nread_link function fixed:\n* bfs\n* btrfs\n* exfat\n* ext2\n* iso9660\n* nfs\n* packagefs\n* ramfs\n* reiserfs\n\nNo changes required:\n* bindfs\n* cdda\n* fat\n* nfs4\n* ntfs\n* udf\n* userlandfs\n\nread_link Not implemented yet so nothing to do for this patch\n* googlefs\n* netfs\n* ufs2\n* xfs",
+      "parentUuid": "5c65af89_e31f3233",
+      "revId": "ab755f1bf8cc94e410775f7ad56c7e0b6bbb650f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
