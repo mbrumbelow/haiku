@@ -1810,6 +1810,22 @@ tty_control(tty_cookie* cookie, uint32 op, void* buffer, size_t length)
 
 			return B_ERROR;
 		}
+
+		case TCFLSH:
+		{
+			if (op & TCOFLUSH) {
+				struct tty* otherTTY = cookie->other_tty;
+				if (otherTTY->open_count <= 0)
+					return B_ERROR;
+
+				clear_line_buffer(otherTTY->input_buffer);
+			}
+
+			if (op & TCIFLUSH)
+				clear_line_buffer(tty->input_buffer);
+
+			return B_OK;
+		}
 	}
 
 	TRACE(("tty: unsupported opcode %lu\n", op));
