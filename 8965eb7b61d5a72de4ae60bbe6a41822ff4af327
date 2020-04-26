@@ -16,6 +16,24 @@
       "revId": "8965eb7b61d5a72de4ae60bbe6a41822ff4af327",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9aa5c601_80327567",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2020-04-26T01:53:29Z",
+      "side": 1,
+      "message": "This is due to keeping the scrolling smooth. The pulse rate for AboutSystem is very fast and would mess up the credit scroll speed. By having a BMessageRunner, the scrolling can have its own speed independent of the pulse rate of AboutSystem, and avoid jittering due to the Pulse() method also handling the gathering of other information.",
+      "parentUuid": "52425809_d244167b",
+      "revId": "8965eb7b61d5a72de4ae60bbe6a41822ff4af327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
