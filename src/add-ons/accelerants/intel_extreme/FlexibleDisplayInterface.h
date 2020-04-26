@@ -13,6 +13,14 @@
 #include "intel_extreme.h"
 
 
+struct fdi_pll {
+	uint32_t data_m;
+	uint32_t data_n;
+	uint32_t link_m;
+	uint32_t link_n;
+};
+
+
 class FDITransmitter {
 public:
 									FDITransmitter(pipe_index pipeIndex);
@@ -21,6 +29,7 @@ public:
 		void						Enable();
 		void						Disable();
 
+		void						ConfigureClocks(fdi_pll);
 		bool						IsPLLEnabled();
 		void						EnablePLL(uint32 lanes);
 		void						DisablePLL();
@@ -41,6 +50,7 @@ public:
 		void						Enable();
 		void						Disable();
 
+		void						ConfigureClocks(fdi_pll);
 		bool						IsPLLEnabled();
 		void						EnablePLL(uint32 lanes);
 		void						DisablePLL();
@@ -65,6 +75,7 @@ public:
 		FDIReceiver&				Receiver()
 										{ return fReceiver; };
 
+		status_t					ConfigureTx(display_mode* target);
 		status_t					Train(display_mode* target);
 
 private:
@@ -78,6 +89,9 @@ private:
 		FDIReceiver					fReceiver;
 
 		pipe_index					fPipeIndex;
+
+		uint32						fLanes;
+		struct fdi_pll				fPllConfig;
 };
 
 

@@ -220,6 +220,40 @@ Port::GetPLLLimits(pll_limits& limits)
 
 
 status_t
+Port::PreConfigure(display_mode* target)
+{
+	bool alreadyFdi = true;
+	if (gInfo->shared_info->device_type.Generation() >= 6) {
+		// SandyBridge modesetting sequence (volume 3, part 2, Section 1.1.2)
+
+		// 2. Enable PCH clock reference source and PCH Slanesodulator,
+		// wait for warmup (Can be done anytime before enabling port)
+			// skip, most certainly already set up by bios to use other ports,
+			// will need for coldstart though
+
+		// 4. If enabling port on PCH: (Must be done before enabling CPU pipe
+		// or FDI)
+		//	a.	Enable PCH FDI Receiver PLL, wait for warmup plus DMI latency
+		//	b.	Switch from Rawclk to PCDclk in FDI Receiver (FDI A OR FDI B)
+		//	c.	[DevSNB] Enable CPU FDI Transmitter PLL, wait for warmup
+		//	d.	[DevILK] CPU FDI PLL is always on and does not need to be
+		//		enabled
+		FDILink* link = fPipe->FDI();
+		if (link != NULL) {
+			alreadyFdi = link->Receiver().IsPLLEnabled();
+			uint32_t lanes = 1; // FIXME compute from timings
+			link->Receiver().EnablePLL(lanes);
+			link->Receiver().SwitchClock(true);
+			// XXX SNB only, not needed for ILK
+			link->Transmitter().EnablePLL(lanes);
+		}
+	}
+
+	return alreadyFdi ? B_ERROR : B_OK;
+}
+
+
+status_t
 Port::_GetI2CSignals(void* cookie, int* _clock, int* _data)
 {
 	addr_t ioRegister = (addr_t)cookie;
@@ -314,15 +348,10 @@ AnalogPort::SetDisplayMode(display_mode* target, uint32 colorMode)
 		return B_ERROR;
 	}
 
-#if 0
-	// Disabled for now as our code doesn't work. Let's hope VESA/EFI has
-	// already set things up for us during boot.
-	// Train FDI if it exists
-	FDILink* link = fPipe->FDI();
-	if (link != NULL)
-		link->Train(target);
-#endif
+	bool alreadyFdi = PreConfigure(target) == B_ERROR;
 
+	// 6. Configure CPU pipe timings, M/N/TU, and other pipe settings
+	// (Can be done anytime before enabling CPU pipe)
 	pll_divisors divisors;
 	compute_pll_divisors(target, &divisors, false);
 
@@ -330,21 +359,41 @@ AnalogPort::SetDisplayMode(display_mode* target, uint32 colorMode)
 	if (gInfo->shared_info->device_type.Generation() >= 3)
 		extraPLLFlags |= DISPLAY_PLL_MODE_NORMAL;
 
-	// Program general pipe config
-	fPipe->Configure(target);
-
 	// Program pipe PLL's
 	fPipe->ConfigureClocks(divisors, target->timing.pixel_clock, extraPLLFlags);
 
+	FDILink* link = fPipe->FDI();
+	if (link != NULL) {
+		link->ConfigureTx(target);
+	}
+
+	// Program target display mode
+	fPipe->ConfigureTimings(target);
+
+	// 7. Enable CPU pipe
+	fPipe->Enable(true);
+
+#if 0
+	8. Configure and enable CPU planes (VGA or hires)
+#endif
+	// 9. Train FDI if it exists
+	if (!alreadyFdi && link != NULL)
+		link->Train(target);
+
+#if 0
+10. Enable ports (DisplayPort must enable in training pattern 1)
+11. Enable panel power through panel power sequencing
+12. Wait for panel power sequencing to reach enabled steady state
+13. Disable panel power override
+14. If DisplayPort, complete link training
+15. Enable panel backlight
+#endif
 	write32(_PortRegister(), (read32(_PortRegister())
 		& ~(DISPLAY_MONITOR_POLARITY_MASK | DISPLAY_MONITOR_VGA_POLARITY))
 		| ((target->timing.flags & B_POSITIVE_HSYNC) != 0
 			? DISPLAY_MONITOR_POSITIVE_HSYNC : 0)
 		| ((target->timing.flags & B_POSITIVE_VSYNC) != 0
 			? DISPLAY_MONITOR_POSITIVE_VSYNC : 0));
-
-	// Program target display mode
-	fPipe->ConfigureTimings(target);
 
 	// Set fCurrentMode to our set display mode
 	memcpy(&fCurrentMode, target, sizeof(display_mode));
@@ -480,6 +529,20 @@ LVDSPort::SetDisplayMode(display_mode* target, uint32 colorMode)
 		return B_ERROR;
 	}
 
+	// 1. Enable panel power as needed to retrieve panel configuration
+	// (use AUX VDD enable bit)
+		// skip, did detection already, might need that before that though
+
+	bool alreadyFdi = PreConfigure(target) == B_ERROR;
+
+#if 0
+	// 5. Enable CPU panel fitter if needed for hires, required for VGA
+	// (Can be done anytime before enabling CPU pipe)
+	PanelFitter* fitter = pipe->PanelFitter();
+	if (fitter != NULL)
+		fitter->Enable(mode);
+#endif
+
 	addr_t panelControl = INTEL_PANEL_CONTROL;
 	addr_t panelStatus = INTEL_PANEL_STATUS;
 	if (gInfo->shared_info->pch_info != INTEL_PCH_NONE) {
@@ -500,14 +563,13 @@ LVDSPort::SetDisplayMode(display_mode* target, uint32 colorMode)
 		}
 	}
 
-#if 0
-	// Disabled for now as our code doesn't work. Let's hope VESA/EFI has
-	// already set things up for us during boot.
+	// Program general pipe config
+	fPipe->Configure(target);
+
 	// Train FDI if it exists
 	FDILink* link = fPipe->FDI();
-	if (link != NULL)
+	if (!alreadyFdi && link != NULL)
 		link->Train(target);
-#endif
 
 	// For LVDS panels, we may need to set the timings according to the panel
 	// native video mode, and let the panel fitter do the scaling. But the
@@ -598,9 +660,6 @@ LVDSPort::SetDisplayMode(display_mode* target, uint32 colorMode)
 	// DPLL mode LVDS for i915+
 	if (gInfo->shared_info->device_type.Generation() >= 3)
 		extraPLLFlags |= DISPLAY_PLL_MODE_LVDS;
-
-	// Program general pipe config
-	fPipe->Configure(target);
 
 	// Program pipe PLL's (using the hardware mode timings, since that's what
 	// the PLL is used for)
@@ -735,14 +794,15 @@ DigitalPort::SetDisplayMode(display_mode* target, uint32 colorMode)
 		return B_ERROR;
 	}
 
-#if 0
-	// Disabled for now as our code doesn't work. Let's hope VESA/EFI has
-	// already set things up for us during boot.
+	bool alreadyFdi = PreConfigure(target) == B_ERROR;
+
+	// Program general pipe config
+	fPipe->Configure(target);
+
 	// Train FDI if it exists
 	FDILink* link = fPipe->FDI();
-	if (link != NULL)
+	if (!alreadyFdi && link != NULL)
 		link->Train(target);
-#endif
 
 	pll_divisors divisors;
 	compute_pll_divisors(target, &divisors, false);
@@ -750,9 +810,6 @@ DigitalPort::SetDisplayMode(display_mode* target, uint32 colorMode)
 	uint32 extraPLLFlags = 0;
 	if (gInfo->shared_info->device_type.Generation() >= 3)
 		extraPLLFlags |= DISPLAY_PLL_MODE_NORMAL;
-
-	// Program general pipe config
-	fPipe->Configure(target);
 
 	// Program pipe PLL's
 	fPipe->ConfigureClocks(divisors, target->timing.pixel_clock, extraPLLFlags);
@@ -937,6 +994,15 @@ DisplayPort::SetDisplayMode(display_mode* target, uint32 colorMode)
 	TRACE("%s: %s %dx%d\n", __func__, PortName(), target->virtual_width,
 		target->virtual_height);
 
+	// 3. If enabling CPU embedded DisplayPort A: (Can be done anytime
+	// before enabling CPU pipe or port)
+	//	a.	Enable PCH 120MHz clock source output to CPU, wait for DMI
+	//		latency
+	//	b.	Configure and enable CPU DisplayPort PLL in the DisplayPort A
+	//		register, wait for warmup
+		// skip, not doing eDP right now, should go into
+		// EmbeddedDisplayPort class though
+
 	ERROR("TODO: DisplayPort\n");
 	return B_ERROR;
 }
@@ -1103,14 +1169,15 @@ DigitalDisplayInterface::SetDisplayMode(display_mode* target, uint32 colorMode)
 		return B_ERROR;
 	}
 
-#if 0
-	// Disabled for now as our code doesn't work. Let's hope VESA/EFI has
-	// already set things up for us during boot.
+	bool alreadyFdi = PreConfigure(target) == B_ERROR;
+
+	// Program general pipe config
+	fPipe->Configure(target);
+
 	// Train FDI if it exists
 	FDILink* link = fPipe->FDI();
-	if (link != NULL)
+	if (!alreadyFdi && link != NULL)
 		link->Train(target);
-#endif
 
 	pll_divisors divisors;
 	compute_pll_divisors(target, &divisors, false);
@@ -1118,9 +1185,6 @@ DigitalDisplayInterface::SetDisplayMode(display_mode* target, uint32 colorMode)
 	uint32 extraPLLFlags = 0;
 	if (gInfo->shared_info->device_type.Generation() >= 3)
 		extraPLLFlags |= DISPLAY_PLL_MODE_NORMAL;
-
-	// Program general pipe config
-	fPipe->Configure(target);
 
 	// Program pipe PLL's
 	fPipe->ConfigureClocks(divisors, target->timing.pixel_clock, extraPLLFlags);
