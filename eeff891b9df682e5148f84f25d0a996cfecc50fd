@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb2b32af_47d75b37",
+        "filename": "src/add-ons/screen_savers/message/Message.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-04-26T21:46:59Z",
+      "side": 1,
+      "message": "The \u003d would actually go to the next line, but it\u0027s obviously too late for that now...",
+      "revId": "eeff891b9df682e5148f84f25d0a996cfecc50fd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
