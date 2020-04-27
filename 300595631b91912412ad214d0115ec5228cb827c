@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1ca141c0_ffb19722",
+        "filename": "src/add-ons/kernel/file_systems/bfs/kernel_interface.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-04-27T07:56:08Z",
+      "side": 1,
+      "message": "This should better go after the FS_SHELL block.",
+      "revId": "300595631b91912412ad214d0115ec5228cb827c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9f90c47_7f8eb2f4",
+        "filename": "src/add-ons/kernel/file_systems/ext2/kernel_interface.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-04-27T07:56:08Z",
+      "side": 1,
+      "message": "Please keep two blank lines after the copyright header.",
+      "revId": "300595631b91912412ad214d0115ec5228cb827c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19369b1d_de32724b",
+        "filename": "src/add-ons/kernel/file_systems/iso9660/kernel_interface.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-04-27T07:56:08Z",
+      "side": 1,
+      "message": "Please keep two blank lines after the copyright header.",
+      "revId": "300595631b91912412ad214d0115ec5228cb827c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88a5e235_1701a42a",
+        "filename": "src/add-ons/kernel/file_systems/ramfs/kernel_interface.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-04-27T07:56:08Z",
+      "side": 1,
+      "message": "This line is too long.",
+      "revId": "300595631b91912412ad214d0115ec5228cb827c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
