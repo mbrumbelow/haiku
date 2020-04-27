@@ -87,6 +87,24 @@
       "revId": "9f6b05e5f02c8cc68a76a595a9bbf07062f72196",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "256f61fb_85dfac7a",
+        "filename": "src/add-ons/kernel/drivers/display/acpi_videooutput.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-04-27T21:06:25Z",
+      "side": 1,
+      "message": "in the doc https://01.org/sites/default/files/documentation/skl_opregion_rev0p5.pdf \nit\u0027s 3.4.5 Backlight Brightness (BCLP) page 58\nACPI DSDT writes in this register, so that the graphics driver can set the brightness. Is it what you have in mind?",
+      "parentUuid": "19a9d914_7df8f78d",
+      "revId": "9f6b05e5f02c8cc68a76a595a9bbf07062f72196",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
