@@ -283,6 +283,7 @@ public:
 			void				FixScrollBar(bool scrollToFit);
 			void				SetEditMode(bool state)
 									{ fEditMode = state; }
+			void				SetLayoutRowSampleSize(int32 value);
 
 	virtual void				FrameResized(float width, float height);
 	virtual void				ScrollTo(BPoint where);
@@ -304,11 +305,13 @@ private:
 			void				InvalidateCachedPositions();
 			bool				FindVisibleRect(BRow* row, BRect* _rect);
 
+private:
 			BList*				fColumns;
 			BList*				fSortColumns;
 			float				fItemsHeight;
 			BRowContainer		fRows;
 			BRect				fVisibleRect;
+			int32				fLayoutRowSampleSize;
 
 #if DOUBLE_BUFFERED_COLUMN_RESIZE
 			BBitmap*			fDrawBuffer;
@@ -1920,6 +1923,21 @@ BColumnListView::SetEditMode(bool state)
 }
 
 
+/*! The layout of the table may be slow because there are a large number
+	of rows to get the geometry of to find out the best way to render the
+	table.  In the case of a large quantity of data, a subset of the data
+	would suffice to produce a good outcome but avoiding the cost of the
+	full calculation.  This value specifies how many rows to consider
+	during the layout process.
+*/
+
+void
+BColumnListView::SetLayoutRowSampleSize(int32 value)
+{
+	fOutlineView->SetLayoutRowSampleSize(value);
+}
+
+
 void
 BColumnListView::Refresh()
 {
@@ -3072,6 +3090,7 @@ OutlineView::OutlineView(BRect rect, BList* visibleColumns, BList* sortColumns,
 	fSortColumns(sortColumns),
 	fItemsHeight(0.0),
 	fVisibleRect(rect.OffsetToCopy(0, 0)),
+	fLayoutRowSampleSize(INT32_MAX),
 	fFocusRow(0),
 	fRollOverRow(0),
 	fLastSelectedItem(0),
@@ -3145,6 +3164,13 @@ list_view_type
 OutlineView::SelectionMode() const
 {
 	return fSelectionMode;
+}
+
+
+void
+OutlineView::SetLayoutRowSampleSize(int32 value)
+{
+	fLayoutRowSampleSize = value;
 }
 
 
@@ -4922,13 +4948,18 @@ float
 OutlineView::GetColumnPreferredWidth(BColumn* column)
 {
 	float preferred = 0.0;
-	for (RecursiveOutlineIterator iterator(&fRows); BRow* row =
-		iterator.CurrentRow(); iterator.GoToNext()) {
+	int32 count = 0;
+	BRow* row;
+	for (RecursiveOutlineIterator iterator(&fRows);
+			(row = iterator.CurrentRow()) != NULL
+				&& count < fLayoutRowSampleSize;
+			iterator.GoToNext()) {
 		BField* field = row->GetField(column->fFieldID);
 		if (field) {
 			float width = column->GetPreferredWidth(field, this)
 				+ iterator.CurrentLevel() * kOutlineLevelIndent;
 			preferred = max_c(preferred, width);
+			count++;
 		}
 	}
 

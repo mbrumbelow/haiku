@@ -1,5 +1,5 @@
 /*
- * Copyright 2018, Andrew Lindesay, <apl@lindesay.co.nz>.
+ * Copyright 2018-2020, Andrew Lindesay, <apl@lindesay.co.nz>.
  * Copyright 2017, Julian Harnath, <julian.harnath@rwth-aachen.de>.
  * Copyright 2015, Axel Dörfler, <axeld@pinc-software.de>.
  * Copyright 2013-2014, Stephan Aßmus <superstippi@gmx.de>.
@@ -28,6 +28,11 @@
 #undef B_TRANSLATION_CONTEXT
 #define B_TRANSLATION_CONTEXT "PackageListView"
 
+#define LAYOUT_SAMPLE_SIZE 100
+	// the table is likely to be handling a large quantity of data and this is
+	// costly to layout considering all of the data.  This value constricts the
+	// volume of data taken into consideration when optimally laying out the
+	// table.
 
 static const char* skPackageStateAvailable = B_TRANSLATE_MARK("Available");
 static const char* skPackageStateUninstalled = B_TRANSLATE_MARK("Uninstalled");
@@ -822,6 +827,8 @@ PackageListView::PackageListView(BLocker* modelLock)
 
 	fItemCountView = new ItemCountView();
 	AddStatusView(fItemCountView);
+
+	SetLayoutRowSampleSize(LAYOUT_SAMPLE_SIZE);
 }
 
 

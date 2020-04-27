@@ -256,6 +256,9 @@ public:
 									bool showHorizontalScrollbar = true);
 	virtual						~BColumnListView();
 
+	// Performance
+			void				SetLayoutRowSampleSize(int32 value);
+
 	// Interaction
 	virtual	bool				InitiateDrag(BPoint, bool wasSelected);
 	virtual	void				MessageDropped(BMessage*, BPoint point);
