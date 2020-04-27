@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a7399aeb_f265a2b2",
+        "filename": "src/add-ons/kernel/drivers/display/acpi_videooutput.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-04-27T18:04:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d660a922_457cc39a",
+      "revId": "9f6b05e5f02c8cc68a76a595a9bbf07062f72196",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9324b7f7_fdc7ccec",
         "filename": "src/add-ons/kernel/drivers/display/acpi_videooutput.cpp",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2020-04-27T10:14:21Z",
       "side": 1,
       "message": "So if I understand correctly, this method connects the brightness keys directly to ACPI brightness setting? There is no way to get/set brightness from userspace?",
+      "revId": "9f6b05e5f02c8cc68a76a595a9bbf07062f72196",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62688645_8551e26a",
+        "filename": "src/add-ons/kernel/drivers/display/acpi_videooutput.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-04-27T18:04:24Z",
+      "side": 1,
+      "message": "ACPI get/set brightness doesn\u0027t work anyway without the graphics driver. \nWe could push key events to userspace (with an input device).",
+      "parentUuid": "9324b7f7_fdc7ccec",
       "revId": "9f6b05e5f02c8cc68a76a595a9bbf07062f72196",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
