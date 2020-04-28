@@ -460,6 +460,7 @@ static const Translation kTranslations[] = {
 	"\n"
 
 #define kContributors \
+	"Pascal R. G. Abresch\n" \
 	"Kyle Ambroff-Kao\n" \
 	"Andrea Anzani\n" \
 	"Sean Bartell\n" \
