@@ -105,6 +105,24 @@
       "revId": "9f6b05e5f02c8cc68a76a595a9bbf07062f72196",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "045bcfda_89fefbb5",
+        "filename": "src/add-ons/kernel/drivers/display/acpi_videooutput.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-04-28T14:25:56Z",
+      "side": 1,
+      "message": "I don\u0027t know about the ACPI side of things. Currently the Intel driver sets the brightness from the brightness slider in Screen preferences.\n\nIf we want to use this, it looks like the driver should also set the CBLV field so that ACPI knows the current level?\n\nThis documentation is for the relatively new Skylake systems, is this also available on older ones or do we have to use the older mechanisms (SMI is mentionned in the doc)?",
+      "parentUuid": "256f61fb_85dfac7a",
+      "revId": "9f6b05e5f02c8cc68a76a595a9bbf07062f72196",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
