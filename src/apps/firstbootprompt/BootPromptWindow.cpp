@@ -21,6 +21,8 @@
 #include <FindDirectory.h>
 #include <File.h>
 #include <FormattingConventions.h>
+#include <IconUtils.h>
+#include <IconView.h>
 #include <LayoutBuilder.h>
 #include <ListView.h>
 #include <Locale.h>
@@ -75,19 +77,10 @@ public:
 		BStringItem(label),
 		fLanguage(language)
 	{
-		fIcon = new(std::nothrow) BBitmap(BRect(0, 0, 15, 15), B_RGBA32);
-		if (fIcon != NULL
-			&& (!fIcon->IsValid()
-				|| BLocaleRoster::Default()->GetFlagIconForLanguage(fIcon,
-					language) != B_OK)) {
-			delete fIcon;
-			fIcon = NULL;
-		}
 	}
 
 	~LanguageItem()
 	{
-		delete fIcon;
 	}
 
 	const char* Language() const
@@ -98,26 +91,10 @@ public:
 	void DrawItem(BView* owner, BRect frame, bool complete)
 	{
 		BStringItem::DrawItem(owner, frame, true/*complete*/);
-
-		// Draw the icon
-		if (fIcon != NULL) {
-			frame.left = frame.right - kFlagWidth;
-			BRect iconFrame(frame);
-			iconFrame.Set(iconFrame.left, iconFrame.top + 1,
-				iconFrame.left + kFlagWidth - 2,
-				iconFrame.top + kFlagWidth - 1);
-
-			owner->SetDrawingMode(B_OP_OVER);
-			owner->DrawBitmap(fIcon, iconFrame);
-			owner->SetDrawingMode(B_OP_COPY);
-		}
 	}
 
 private:
-	static	const int			kFlagWidth = 16;
-
 			BString				fLanguage;
-			BBitmap*			fIcon;
 };
 
 
@@ -173,12 +150,34 @@ BootPromptWindow::BootPromptWindow()
 
 	fInfoTextView->SetExplicitMinSize(BSize(width, height));
 
+	BResources* res = BApplication::AppResources();
+	size_t size = 0;
+	const uint8_t* data;
+
+	BBitmap desktopIcon(BRect(0, 0, 24, 24), B_RGBA32);
+	data = (const uint8_t*)res->LoadResource('VICN', "Desktop", &size);
+	BIconUtils::GetVectorIcon(data, size, &desktopIcon);
+
+	BBitmap installerIcon(BRect(0, 0, 24, 24), B_RGBA32);
+	data = (const uint8_t*)res->LoadResource('VICN', "Installer", &size);
+	BIconUtils::GetVectorIcon(data, size, &installerIcon);
+
 	fDesktopButton = new BButton("", new BMessage(MSG_BOOT_DESKTOP));
 	fDesktopButton->SetTarget(be_app);
 	fDesktopButton->MakeDefault(true);
+	fDesktopButton->SetIcon(&desktopIcon);
 
 	fInstallerButton = new BButton("", new BMessage(MSG_RUN_INSTALLER));
 	fInstallerButton->SetTarget(be_app);
+	fInstallerButton->SetIcon(&installerIcon);
+
+	data = (const uint8_t*)res->LoadResource('VICN', "Language", &size);
+	IconView* languageIcon = new IconView(B_LARGE_ICON);
+	languageIcon->SetIcon(data, size);
+
+	data = (const uint8_t*)res->LoadResource('VICN', "Keymap", &size);
+	IconView* keymapIcon = new IconView(B_LARGE_ICON);
+	keymapIcon->SetIcon(data, size);
 
 	fLanguagesLabelView = new BStringView("languagesLabel", "");
 	fLanguagesLabelView->SetFont(be_bold_font);
@@ -207,17 +206,21 @@ BootPromptWindow::BootPromptWindow()
 	_PopulateKeymaps();
 
 	BLayoutBuilder::Group<>(this, B_VERTICAL, 0)
-		.AddGroup(B_HORIZONTAL)
-			.Add(fLanguagesLabelView)
-			.SetInsets(B_USE_WINDOW_SPACING, B_USE_WINDOW_SPACING,
-				B_USE_WINDOW_SPACING, B_USE_DEFAULT_SPACING)
-		.End()
-		.AddGroup(B_HORIZONTAL)
-			.Add(languagesScrollView)
+		.AddGroup(B_HORIZONTAL, 0)
+			.AddGroup(B_VERTICAL, 0)
+				.AddGroup(B_HORIZONTAL)
+					.Add(languageIcon)
+					.Add(fLanguagesLabelView)
+				.End()
+				.Add(languagesScrollView)
+				.SetInsets(0,0, B_USE_DEFAULT_SPACING, 0)
+			.End()
 			.Add(fInfoTextView)
-			.SetInsets(B_USE_WINDOW_SPACING, 0)
+			.SetInsets(B_USE_WINDOW_SPACING, B_USE_WINDOW_SPACING,
+				B_USE_WINDOW_SPACING, 0)
 		.End()
 		.AddGroup(B_HORIZONTAL)
+			.Add(keymapIcon)
 			.Add(fKeymapsMenuField)
 			.AddGlue()
 			.SetInsets(B_USE_WINDOW_SPACING, B_USE_DEFAULT_SPACING)
