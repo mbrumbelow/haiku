@@ -75,19 +75,10 @@ public:
 		BStringItem(label),
 		fLanguage(language)
 	{
-		fIcon = new(std::nothrow) BBitmap(BRect(0, 0, 15, 15), B_RGBA32);
-		if (fIcon != NULL
-			&& (!fIcon->IsValid()
-				|| BLocaleRoster::Default()->GetFlagIconForLanguage(fIcon,
-					language) != B_OK)) {
-			delete fIcon;
-			fIcon = NULL;
-		}
 	}
 
 	~LanguageItem()
 	{
-		delete fIcon;
 	}
 
 	const char* Language() const
@@ -98,26 +89,10 @@ public:
 	void DrawItem(BView* owner, BRect frame, bool complete)
 	{
 		BStringItem::DrawItem(owner, frame, true/*complete*/);
-
-		// Draw the icon
-		if (fIcon != NULL) {
-			frame.left = frame.right - kFlagWidth;
-			BRect iconFrame(frame);
-			iconFrame.Set(iconFrame.left, iconFrame.top + 1,
-				iconFrame.left + kFlagWidth - 2,
-				iconFrame.top + kFlagWidth - 1);
-
-			owner->SetDrawingMode(B_OP_OVER);
-			owner->DrawBitmap(fIcon, iconFrame);
-			owner->SetDrawingMode(B_OP_COPY);
-		}
 	}
 
 private:
-	static	const int			kFlagWidth = 16;
-
 			BString				fLanguage;
-			BBitmap*			fIcon;
 };
 
 
