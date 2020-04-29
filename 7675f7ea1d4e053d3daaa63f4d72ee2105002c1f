@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e26bfbe_28774130",
+        "filename": "src/add-ons/kernel/drivers/graphics/vesa/device.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-04-29T11:49:10Z",
+      "side": 1,
+      "message": "This should be:\nuser_memcpy((uint8_t*)buffer + 1, \u0026max, 1);",
+      "revId": "7675f7ea1d4e053d3daaa63f4d72ee2105002c1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
