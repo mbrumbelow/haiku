@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af56b175_ded0c219",
+        "filename": "docs/user/storage/SymLink.dox",
+        "patchSetId": 17
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-04-29T06:44:42Z",
+      "side": 1,
+      "message": "Why the double tabs here?",
+      "revId": "039e1503f3389e22df93e697d32ee42166a8ab9a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44848479_5d2990c8",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/kernel_interface.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-04-29T06:44:42Z",
+      "side": 1,
+      "message": "If there is enough space, please don\u0027t put every value in its own line (here, and at other places).",
+      "revId": "039e1503f3389e22df93e697d32ee42166a8ab9a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b80ef6a_3b5d25a1",
+        "filename": "src/add-ons/kernel/file_systems/netfs/client/netfs.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-04-29T06:44:42Z",
+      "side": 1,
+      "message": "I\u0027m not sure if this is still the case, or even being enforced for new code, but we used to use only \"TODO\" instead of \"XXX\", \"FIXME\", and other choices in order to make them more easily locatable.",
+      "revId": "039e1503f3389e22df93e697d32ee42166a8ab9a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f67a455_12d5b935",
+        "filename": "src/add-ons/kernel/file_systems/reiserfs/Volume.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-04-29T06:44:42Z",
+      "side": 1,
+      "message": "Why couldn\u0027t you use ReadObject() anymore?",
+      "revId": "039e1503f3389e22df93e697d32ee42166a8ab9a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a8d7c98_a594cd1f",
+        "filename": "src/build/libroot/fs.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 1087,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-04-29T06:44:42Z",
+      "side": 1,
+      "message": "As long as bytesRead is smaller than *_bufferSize, you don\u0027t need to do this, and safe the extra kernel call.",
+      "revId": "039e1503f3389e22df93e697d32ee42166a8ab9a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}

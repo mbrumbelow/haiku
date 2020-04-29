@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8c7a0378_d74fe586",
+        "filename": "src/add-ons/kernel/file_systems/bfs/kernel_interface.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-04-29T06:44:42Z",
+      "side": 0,
+      "message": "Those two blank lines were there intentionally, and are actually a requirement of our coding style.",
+      "revId": "8ff2f81f6bf95180a6230b8ad6db008a5a3c38e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
