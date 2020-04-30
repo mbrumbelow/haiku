@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "dae9dcfb_032fa87d",
+        "filename": "docs/user/storage/SymLink.dox",
+        "patchSetId": 17
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-04-30T01:00:41Z",
+      "side": 1,
+      "message": "I mistakenly thought that this was the way to break up a long line so that it reflowed properly in the generated output. I see from looking at other files in this repro that this isn\u0027t the case.\n\nFixed.",
+      "parentUuid": "af56b175_ded0c219",
+      "revId": "039e1503f3389e22df93e697d32ee42166a8ab9a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44848479_5d2990c8",
         "filename": "src/add-ons/kernel/file_systems/btrfs/kernel_interface.cpp",
         "patchSetId": 17
@@ -33,6 +51,24 @@
       "revId": "039e1503f3389e22df93e697d32ee42166a8ab9a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e11618e6_98f2dfd8",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/kernel_interface.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-04-30T01:00:41Z",
+      "side": 1,
+      "message": "Sure. It wasn\u0027t clear to me that this style wasn\u0027t desired. I fixed this everywhere in the patch.",
+      "parentUuid": "44848479_5d2990c8",
+      "revId": "039e1503f3389e22df93e697d32ee42166a8ab9a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "9450ad01_2f5aba86",
+        "filename": "src/add-ons/kernel/file_systems/netfs/client/netfs.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-04-30T01:00:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4b80ef6a_3b5d25a1",
+      "revId": "039e1503f3389e22df93e697d32ee42166a8ab9a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f67a455_12d5b935",
         "filename": "src/add-ons/kernel/file_systems/reiserfs/Volume.cpp",
         "patchSetId": 17
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "c31d5339_4e6214af",
+        "filename": "src/add-ons/kernel/file_systems/reiserfs/Volume.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-04-30T01:00:41Z",
+      "side": 1,
+      "message": "The main problem is that Volume::ReadLink() needs access to the StreamReader that lives on the stack in ::ReadObject(). I saw two options:\n\n1. Just inline the logic from ReadObject and change the behavior, which is what I did.\n2. Change the contract for ReadObject so that it exposed the actual stream length.\n\nSince it seemed that ReadObject was meant to be used for reading regular files as well, I felt like it was best to not change it and instead go with route #1.\n\nLooking at this again though, Volume::ReadObject isn\u0027t even used at all. So in my latest update I just removed it.",
+      "parentUuid": "9f67a455_12d5b935",
+      "revId": "039e1503f3389e22df93e697d32ee42166a8ab9a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a8d7c98_a594cd1f",
         "filename": "src/build/libroot/fs.cpp",
         "patchSetId": 17
@@ -84,6 +156,24 @@
       "revId": "039e1503f3389e22df93e697d32ee42166a8ab9a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb385d9b_b38b0c4e",
+        "filename": "src/build/libroot/fs.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 1087,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-04-30T01:00:41Z",
+      "side": 1,
+      "message": "That\u0027s a great point. Fixed.",
+      "parentUuid": "5a8d7c98_a594cd1f",
+      "revId": "039e1503f3389e22df93e697d32ee42166a8ab9a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
