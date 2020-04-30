@@ -16,6 +16,24 @@
       "revId": "5e8ea5dfa76c386c6429a309378042f682d56aaa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b52de5f_dfd03543",
+        "filename": "src/add-ons/kernel/generic/tty/tty.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1816,
+      "author": {
+        "id": 1000057
+      },
+      "writtenOn": "2020-04-30T07:57:30Z",
+      "side": 1,
+      "message": "Now you mention it, I agree. It\u0027s working on my system (partly) anyway since the code here checks the lower bits of which bit \u00271\u0027 is set for TCFLSH (which I also happen to set (TCOFLUSH)). And as mentioned, I get OK status which keeps my code \u0027in the air\u0027 at all.",
+      "parentUuid": "e9b8d74f_6cc7c123",
+      "revId": "5e8ea5dfa76c386c6429a309378042f682d56aaa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
