@@ -91,7 +91,8 @@ BRepositoryInfo::Archive(BMessage* data, bool deep) const
 
 	if ((result = data->AddString(kNameField, fName)) != B_OK)
 		return result;
-	if ((result = data->AddString(kURLField, fURL)) != B_OK)
+	// Field in the archive is named "url" for backward compatility reasons.
+	if ((result = data->AddString(kURLField, fIdentifier)) != B_OK)
 		return result;
 	if ((result = data->AddString(kVendorField, fVendor)) != B_OK)
 		return result;
@@ -153,9 +154,9 @@ BRepositoryInfo::BaseURL() const
 
 
 const BString&
-BRepositoryInfo::URL() const
+BRepositoryInfo::Identifier() const
 {
-	return fURL;
+	return fIdentifier;
 }
 
 
@@ -209,9 +210,9 @@ BRepositoryInfo::SetName(const BString& name)
 
 
 void
-BRepositoryInfo::SetURL(const BString& url)
+BRepositoryInfo::SetIdentifier(const BString& identifier)
 {
-	fURL = url;
+	fIdentifier = identifier;
 }
 
 
@@ -281,7 +282,8 @@ BRepositoryInfo::_SetTo(const BMessage* data)
 	status_t result;
 	if ((result = data->FindString(kNameField, &fName)) != B_OK)
 		return result;
-	if ((result = data->FindString(kURLField, &fURL)) != B_OK)
+	// The field in the archive is named "url" for backwards compatibility
+	if ((result = data->FindString(kURLField, &fIdentifier)) != B_OK)
 		return result;
 	if ((result = data->FindString(kVendorField, &fVendor)) != B_OK)
 		return result;
@@ -341,7 +343,10 @@ BRepositoryInfo::_SetTo(const BEntry& entry)
 		&unload_driver_settings);
 
 	const char* name = get_driver_parameter(settingsHandle, "name", NULL, NULL);
-	const char* url = get_driver_parameter(settingsHandle, "url", NULL, NULL);
+	const char* identifier = get_driver_parameter(settingsHandle, "identifier", NULL, NULL);
+	// Also handle the old name if the new one isn't found
+	if (identifier == NULL)
+		identifier = get_driver_parameter(settingsHandle, "url", NULL, NULL);
 	const char* baseUrl = get_driver_parameter(settingsHandle, "baseurl", NULL, NULL);
 	const char* vendor
 		= get_driver_parameter(settingsHandle, "vendor", NULL, NULL);
@@ -352,7 +357,8 @@ BRepositoryInfo::_SetTo(const BEntry& entry)
 	const char* architectureString
 		= get_driver_parameter(settingsHandle, "architecture", NULL, NULL);
 
-	if (name == NULL || *name == '\0' || url == NULL || *url == '\0'
+	if (name == NULL || *name == '\0'
+		|| identifier == NULL || *identifier == '\0'
 		|| vendor == NULL || *vendor == '\0'
 		|| summary == NULL || *summary == '\0'
 		|| priorityString == NULL || *priorityString == '\0'
@@ -368,7 +374,7 @@ BRepositoryInfo::_SetTo(const BEntry& entry)
 
 	fName = name;
 	fBaseURL = baseUrl;
-	fURL = url;
+	fIdentifier = identifier;
 	fVendor = vendor;
 	fSummary = summary;
 	fPriority = atoi(priorityString);
