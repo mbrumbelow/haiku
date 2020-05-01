@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fb8c8226_cf30e097",
+        "filename": "src/kits/package/RepositoryConfig.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-05-01T20:50:32Z",
+      "side": 1,
+      "message": "The fallback to the `baseUrl` only makes sense if the version is \u003c 2.  If the `baseUrl` and `url` are not *both* present when the version \u003e\u003d 2 then this should be considered an error.\n\nI can\u0027t find time straight away to do the code-fix for that, but will try if it is still open in the coming few days.",
+      "revId": "578be804c9eff4b75087188194275ba7e7cb1642",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
