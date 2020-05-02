@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da628f07_a4631c01",
+        "filename": "src/apps/softwareupdater/UpdateManager.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-05-02T16:36:20Z",
+      "side": 1,
+      "message": "It doesn\u0027t have to be a pointer, does it?",
+      "revId": "52ad6a9f01017ea00c81d6bf7cf20a6afa52a6f6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
