@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c262f86_0740c7d8",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-02T06:56:55Z",
+      "side": 1,
+      "message": "why not trigger this on the B_ABOUT_REQUESTED message?",
+      "revId": "b542d9aa6ce3d777c426746cefe79964a1543f3a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af6915f9_9685fde6",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-02T06:56:55Z",
+      "side": 1,
+      "message": "This should probably not be here",
+      "revId": "b542d9aa6ce3d777c426746cefe79964a1543f3a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb2d068b_16337d16",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-02T06:56:55Z",
+      "side": 1,
+      "message": "this line is longer than 80 columns and I don\u0027t understand your comment. The idea here is to forward B_MOUSE_DOWN to the BView default handler in case BView wants to do something with it",
+      "revId": "b542d9aa6ce3d777c426746cefe79964a1543f3a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
