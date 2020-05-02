@@ -16,6 +16,24 @@
       "revId": "52ad6a9f01017ea00c81d6bf7cf20a6afa52a6f6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6fb3f922_5c5b178c",
+        "filename": "src/apps/softwareupdater/UpdateManager.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-02T19:05:39Z",
+      "side": 1,
+      "message": "It doesn\u0027t have to, but I went with that for symetry with the fProblemWindowMessenger. It was confusing to have one as a pointer, but not the other.\n\nI guess I could have an uninitialized messenger here and use SetTo when the problem window is created.",
+      "parentUuid": "da628f07_a4631c01",
+      "revId": "52ad6a9f01017ea00c81d6bf7cf20a6afa52a6f6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
