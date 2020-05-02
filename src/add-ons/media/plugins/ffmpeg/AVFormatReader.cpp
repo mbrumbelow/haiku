@@ -395,10 +395,9 @@ StreamBase::FrameRate() const
 			frameRate = (double)fStream->codecpar->sample_rate;
 			break;
 		case AVMEDIA_TYPE_VIDEO:
-			if (fStream->avg_frame_rate.den && fStream->avg_frame_rate.num)
-				frameRate = av_q2d(fStream->avg_frame_rate);
-			else if (fStream->r_frame_rate.den && fStream->r_frame_rate.num)
-				frameRate = av_q2d(fStream->r_frame_rate);
+			AVRational frame_rate = av_guess_frame_rate(NULL, fStream, NULL);
+			if (frame_rate.den && frame_rate.num)
+				frameRate = av_q2d(frame_rate);
 			else if (fStream->time_base.den && fStream->time_base.num)
 				frameRate = 1 / av_q2d(fStream->time_base);
 
