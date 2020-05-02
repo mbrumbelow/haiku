@@ -137,6 +137,7 @@ private:
 									const PackageSet& packagesToActivate,
 									const PackageSet& packagesToDeactivate);
 									// throws Exception
+			void				_PrepareFirstBootPackages();
 			void				_FillInActivationChangeItem(
 									PackageFSActivationChangeItem* item,
 									PackageFSActivationChangeType type,
@@ -169,6 +170,7 @@ private:
 			node_ref			fOldStateDirectoryRef;
 			BString				fOldStateDirectoryName;
 			node_ref			fTransactionDirectoryRef;
+			bool				fFirstBootProcessing;
 			BDirectory			fWritableFilesDirectory;
 			StringSet			fAddedGroups;
 			StringSet			fAddedUsers;
