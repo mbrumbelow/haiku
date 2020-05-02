@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "45855c17_aeae5a66",
+        "filename": "src/add-ons/media/plugins/ffmpeg/AVFormatReader.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-05-02T16:40:13Z",
+      "side": 1,
+      "message": "if (frame_rate.den !\u003d 0 \u0026\u0026 frame_rate.num !\u003d 0)\nwould be more correct.",
+      "revId": "69297308189631d31b8a9f8886db02253b226be1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
