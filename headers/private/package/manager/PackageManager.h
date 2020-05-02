@@ -103,6 +103,7 @@ public:
 			void				Update(const BSolverPackageSpecifierList&
 									packages);
 			void				FullSync();
+			void				FirstBootProcessing();
 
 			void				VerifyInstallation();
 

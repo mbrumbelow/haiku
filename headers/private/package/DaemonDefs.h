@@ -47,6 +47,14 @@ enum {
 		// "deactivate": string[]
 		//		file names of the packages to activate; must be in the
 		//		transaction directory
+		// "first boot processing": bool
+		//		if present and set to true then runs the package installation
+		//		processing for specified packages on the volume.  This means
+		//		creating users, config files, and running post-install scripts.
+		//		Should be done only for first boot, since the packages present
+		//		haven't actually run through the package installation process;
+		//		they've just been copied there by the Installer.  Usually
+		//		triggered by a special case in the launch daemon.
 	B_MESSAGE_COMMIT_TRANSACTION_REPLY	= 'PKTR'
 		// "error": int32
 		//		a BTransactionError describing how committing the transaction

@@ -8,13 +8,37 @@ postInstallDir=$3
 
 if [ -e $freshInstallIndicator ]; then
 	# execute scripts
-	for f in $postInstallDir/*.sh
-	do
-		if [ -f $f ]; then
-			echo "Running $title script $f ..." > /dev/dprintf
-			$f
+
+	# We now use the package kit first-boot-processing feature rather than
+	# explicitly running all scripts in /boot/system/post-install since besides
+	# running the scripts, it creates users, groups and settings files.
+
+	if [ "$postInstallDir" == "/boot/system/boot/post-install" ]; then
+		# Wait a while for package_daemon to finish starting up.  Couldn't
+		# find a launch_daemon option for this and package_daemon doesn't
+		# respond to scripting BMessages.  Sending the request too early
+		# makes package_daemon segment fault.  It has to mount all the package
+		# file systems, then do a sanity check on the files, then it's ready.
+		sleep 15s
+		echo "Running $title package first boot processing via pkgman." > /dev/dprintf
+		/system/bin/pkgman first-boot-processing
+		echo "pkgman finished $title package first boot processing." > /dev/dprintf
+
+		# Special case for one script file that isn't in a package.
+		specialCaseFile="$postInstallDir/add_catalog_entry_attributes.sh"
+		if [ -e "$specialCaseFile" ]; then
+			echo "Running $title special case $specialCaseFile first boot processing." > /dev/dprintf
+			"$specialCaseFile"
 		fi
-	done
+	else
+		for f in $postInstallDir/*.sh
+		do
+			if [ -f $f ]; then
+				echo "Running $title script $f ..." > /dev/dprintf
+				$f
+			fi
+		done
+	fi
 
 	sync
 	rm $freshInstallIndicator

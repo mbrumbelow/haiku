@@ -340,6 +340,41 @@ BPackageManager::FullSync()
 
 
 void
+BPackageManager::FirstBootProcessing()
+{
+	Init(B_ADD_INSTALLED_REPOSITORIES);
+
+	// Create our one and only transaction (BActivationTransaction wrapper).
+
+	InstalledRepository& installationRepository = InstallationRepository();
+	Transaction* transaction = new Transaction(installationRepository);
+	// Only using fTransactions here so transaction gets deleted later.
+	if (!fTransactions.AddItem(transaction)) {
+		delete transaction;
+		throw std::bad_alloc();
+	}
+
+	status_t error = fInstallationInterface->PrepareTransaction(*transaction);
+	if (error != B_OK)
+		DIE(error, "Failed to create transaction");
+
+	// Add all active packages as ones being "installed".
+
+	int32 count = installationRepository.CountPackages();
+	for (int32 i = 0; i < count; i++) {
+		BSolverPackage* package = installationRepository.PackageAt(i);
+		if (!transaction->ActivationTransaction().AddPackageToActivate(
+				package->Info().FileName())) {
+			throw std::bad_alloc();
+		}
+	}
+
+	transaction->ActivationTransaction().SetFirstBootProcessing(true);
+	_CommitPackageChanges(*transaction);
+}
+
+
+void
 BPackageManager::VerifyInstallation()
 {
 	Init(B_ADD_INSTALLED_REPOSITORIES | B_ADD_REMOTE_REPOSITORIES
