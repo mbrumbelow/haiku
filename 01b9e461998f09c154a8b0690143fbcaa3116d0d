@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "03b2a91e_aa5b4ca2",
+        "filename": "src/kits/network/libnetapi/FtpConnection.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-02T07:13:09Z",
+      "side": 1,
+      "message": "I think you want a BMemoryIO here that will access the buffer.",
+      "revId": "01b9e461998f09c154a8b0690143fbcaa3116d0d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "326633f1_dab94706",
+        "filename": "src/kits/network/libnetapi/FtpConnection.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-02T07:13:09Z",
+      "side": 1,
+      "message": "Wouldn\u0027t BPath be more suitable for this? We should probably normalize all paths to be represented in a way that can be handled easily, so I would replace all \\ with / in them, if that\u0027s possible? (yes FTP is not a great protocol and will lead to many confusing issues like this)",
+      "revId": "01b9e461998f09c154a8b0690143fbcaa3116d0d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77c23b75_000dacb8",
+        "filename": "src/kits/network/libnetapi/FtpConnection.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-02T07:13:09Z",
+      "side": 1,
+      "message": "this line is longer than 80 columns.\n\nAlso you still have a mix of tabs and spaces for indentation in this file, use only tabs",
+      "revId": "01b9e461998f09c154a8b0690143fbcaa3116d0d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac2cc3d0_a51ed902",
+        "filename": "src/kits/network/libnetapi/FtpConnection.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-02T07:13:09Z",
+      "side": 1,
+      "message": "BString::SetToFormat may be an easier way to do this (it works like sprintf)",
+      "revId": "01b9e461998f09c154a8b0690143fbcaa3116d0d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e37a0810_ca9b961f",
+        "filename": "src/kits/network/libnetapi/FtpConnection.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 891,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-02T07:13:09Z",
+      "side": 1,
+      "message": "we should extend BSocket to be able to read directly into a BDataIO instead",
+      "revId": "01b9e461998f09c154a8b0690143fbcaa3116d0d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35d23d9d_6ec0be1b",
+        "filename": "src/kits/network/libnetapi/FtpConnection.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 892,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-02T07:13:09Z",
+      "side": 1,
+      "message": "you have an infinite loop here",
+      "revId": "01b9e461998f09c154a8b0690143fbcaa3116d0d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
