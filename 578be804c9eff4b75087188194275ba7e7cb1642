@@ -16,6 +16,24 @@
       "revId": "578be804c9eff4b75087188194275ba7e7cb1642",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e748cf7_7853b2a1",
+        "filename": "src/kits/package/RepositoryConfig.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-02T07:23:06Z",
+      "side": 1,
+      "message": "What happens in this code is a little confusing now, but the idea is:\n- identifier is always retrieved from the \"url\" key\n- in version 1, fBaseURL is also retrieved from the \"url\" key. In version 2, it is retrieved from the new \"base_url\" key\n\nI think this should be enough. This extra check would cover the case where we are in version 2, base_url is present, but url is not? Which seems a bit strange to me.\n\nMoreover, it would be simpler to have fallback values by passing them to driverSettings.GetParameterValue, which is designed to handle this already.\n\nAnd it\u0027s probably a good idea for fIdentifier to first try to load the \"identifier\" key, and try \"url\" only if \"identifier\" is not found. This way we can later (once everyone has updated their system) change the config file format to rename the confusing \"url\" field.",
+      "parentUuid": "fb8c8226_cf30e097",
+      "revId": "578be804c9eff4b75087188194275ba7e7cb1642",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
