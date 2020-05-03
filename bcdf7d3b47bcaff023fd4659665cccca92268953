@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "82d52aa9_3c82c767",
+        "filename": "src/kits/media/libmedia.rdef",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-05-03T13:38:04Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c2e780b2_e060c98b",
+      "revId": "bcdf7d3b47bcaff023fd4659665cccca92268953",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50df9c4d_6e876e85",
         "filename": "src/kits/media/libmedia.rdef",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "471d87e1_e698dbb8",
+        "filename": "src/kits/media/libmedia.rdef",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-05-03T13:38:04Z",
+      "side": 1,
+      "message": "When doing a similar thing for the package kit, I literally copied something from somewhere else. Having said that, if you look at the .rdef for libtracker, then just having the signature might be enough. We don\u0027t need to separately add the version, right?",
+      "parentUuid": "50df9c4d_6e876e85",
+      "revId": "bcdf7d3b47bcaff023fd4659665cccca92268953",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3f38204f_ca454020",
         "filename": "src/kits/media/libmedia.rdef",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2020-05-03T11:14:33Z",
       "side": 1,
       "message": "In most other places, the long info field is actually used for a copyright indication (although this is being discussed elsewhere as being not needed)",
+      "revId": "bcdf7d3b47bcaff023fd4659665cccca92268953",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24929b9c_9e810f0d",
+        "filename": "src/kits/media/libmedia.rdef",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-05-03T13:38:04Z",
+      "side": 1,
+      "message": "As per the previous comment: maybe just add the signature and leave it there?",
+      "parentUuid": "3f38204f_ca454020",
       "revId": "bcdf7d3b47bcaff023fd4659665cccca92268953",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
