@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f64160f7_167f57e5",
+        "filename": "src/tests/system/network/tcp_client_non_blocking.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-03T15:55:54Z",
+      "side": 1,
+      "message": "Why not the standard license header?",
+      "revId": "5a5f767dd1f0ee9560bc08093a58203f18c7321a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f570242f_67311af7",
+        "filename": "src/tests/system/network/tcp_client_non_blocking.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-03T15:55:54Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "5a5f767dd1f0ee9560bc08093a58203f18c7321a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b024ba8f_de82b22a",
+        "filename": "src/tests/system/network/tcp_client_non_blocking.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-03T15:55:54Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "5a5f767dd1f0ee9560bc08093a58203f18c7321a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "432a03cb_7188b3c5",
+        "filename": "src/tests/system/network/tcp_client_non_blocking.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-03T15:55:54Z",
+      "side": 1,
+      "message": "while (true) (and #include \u003cstdbool.h\u003e)",
+      "revId": "5a5f767dd1f0ee9560bc08093a58203f18c7321a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f23ad1f_43381d2a",
+        "filename": "src/tests/system/network/tcp_client_non_blocking.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-03T15:55:54Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "5a5f767dd1f0ee9560bc08093a58203f18c7321a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
