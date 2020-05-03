@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a7c7eab6_7d954be3",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4057,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-03T19:43:48Z",
+      "side": 1,
+      "message": "shouldn\u0027t the left/right position still be ignored in list mode?",
+      "revId": "d270393a9396530d5362bd52c559aa37aa74cb0f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
