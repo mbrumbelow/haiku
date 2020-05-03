@@ -9,6 +9,8 @@ SimpleTest udp_server : udp_server.c : $(TARGET_NETWORK_LIBS) ;
 
 SimpleTest tcp_server : tcp_server.c : $(TARGET_NETWORK_LIBS) ;
 SimpleTest tcp_client : tcp_client.c : $(TARGET_NETWORK_LIBS) ;
+SimpleTest tcp_client_non_blocking : tcp_client_non_blocking.c
+	: $(TARGET_NETWORK_LIBS) ;
 
 SimpleTest ipv46_server : ipv46_server.cpp : $(TARGET_NETWORK_LIBS) ;
 SimpleTest ipv46_client : ipv46_client.cpp : $(TARGET_NETWORK_LIBS) ;
