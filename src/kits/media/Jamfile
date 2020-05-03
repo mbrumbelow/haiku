@@ -14,6 +14,9 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 		SEARCH_SOURCE += [ FDirName $(SUBDIR) experimental ] ;
 		SEARCH_SOURCE += [ FDirName $(SUBDIR) legacy ] ;
 
+		AddResources [ MultiArchDefaultGristFiles libmedia.so ] :
+			libmedia.rdef ;
+
 		SharedLibrary [ MultiArchDefaultGristFiles libmedia.so ] :
 			# Public Media Kit
 			Buffer.cpp
