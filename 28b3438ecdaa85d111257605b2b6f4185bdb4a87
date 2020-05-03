@@ -16,6 +16,24 @@
       "revId": "28b3438ecdaa85d111257605b2b6f4185bdb4a87",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de70c8bf_4149f857",
+        "filename": "src/add-ons/media/plugins/ffmpeg/AVFormatReader.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-03T15:52:59Z",
+      "side": 0,
+      "message": "I don\u0027t know. Do you have interlaced video files to test with?",
+      "parentUuid": "a9a6d6f0_e654d93d",
+      "revId": "28b3438ecdaa85d111257605b2b6f4185bdb4a87",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }

@@ -16,6 +16,24 @@
       "revId": "11e3d5047742b9374b2798a021d84d25443df927",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f7b09a9_36ff0897",
+        "filename": "src/add-ons/media/plugins/ffmpeg/AVFormatReader.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-03T15:52:59Z",
+      "side": 1,
+      "message": "I wanted to be very specific about detecting the default rate of ffmpeg when it has no idea what it\u0027s doing. It may be valid to have a video file with a very high framerate if you don\u0027t intend to play it realtime (I can imagine some scientific data or whatever)",
+      "parentUuid": "beb5625f_75d5a4fc",
+      "revId": "11e3d5047742b9374b2798a021d84d25443df927",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
