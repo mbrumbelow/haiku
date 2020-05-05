@@ -255,6 +255,9 @@ Thread::~Thread()
 		delete_sem(msg.write_sem);
 	if (msg.read_sem >= 0)
 		delete_sem(msg.read_sem);
+#ifdef __x86_64__
+	arch_thread_destroy_thread_struct(this);
+#endif
 
 	scheduler_on_thread_destroy(this);
 

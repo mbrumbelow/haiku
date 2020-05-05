@@ -19,6 +19,7 @@ extern "C" {
 status_t arch_thread_init(struct kernel_args *args);
 status_t arch_team_init_team_struct(Team *t, bool kernel);
 status_t arch_thread_init_thread_struct(Thread *t);
+void arch_thread_destroy_thread_struct(Thread *t);
 status_t arch_thread_init_tls(Thread *thread);
 void arch_thread_context_switch(Thread *t_from, Thread *t_to);
 void arch_thread_init_kthread_stack(Thread *thread, void *stack,
