@@ -16,6 +16,24 @@
       "revId": "63c0757ba5044e4f9657e28d4482f079e8ebb2aa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48e34838_9089cbf7",
+        "filename": "src/add-ons/kernel/drivers/midi/usb_midi/usb_midi.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 657,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-05-05T09:26:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "708e89e8_ae6b05d2",
+      "revId": "63c0757ba5044e4f9657e28d4482f079e8ebb2aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
