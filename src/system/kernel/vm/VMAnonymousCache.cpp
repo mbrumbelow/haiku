@@ -489,12 +489,12 @@ VMAnonymousCache::Init(bool canOvercommit, int32 numPrecommittedPages,
 void
 VMAnonymousCache::_FreeSwapPageRange(off_t fromOffset, off_t toOffset)
 {
+	WriteLocker locker(sSwapHashLock);
+
 	swap_block* swapBlock = NULL;
 	off_t toIndex = toOffset >> PAGE_SHIFT;
 	for (off_t pageIndex = fromOffset >> PAGE_SHIFT;
 		pageIndex < toIndex && fAllocatedSwapSize > 0; pageIndex++) {
-
-		WriteLocker locker(sSwapHashLock);
 
 		// Get the swap slot index for the page.
 		swap_addr_t blockIndex = pageIndex & SWAP_BLOCK_MASK;
