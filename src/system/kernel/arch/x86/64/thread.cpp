@@ -68,7 +68,10 @@ class RestartSyscall : public AbstractTraceEntry {
 extern "C" void x86_64_thread_entry();
 
 // Initial thread saved state.
-static arch_thread sInitialState;
+static uint8 *sInitialFpuState;
+extern uint64 gFPUSaveLength;
+extern bool gHasXsave;
+extern bool gHasXsavec;
 
 
 void
@@ -140,12 +143,41 @@ arch_thread_init(kernel_args* args)
 {
 	// Save one global valid FPU state; it will be copied in the arch dependent
 	// part of each new thread.
-	asm volatile (
-		"clts;"		\
-		"fninit;"	\
-		"fnclex;"	\
-		"fxsave %0;"
-		: "=m" (sInitialState.fpu_state));
+	if (gHasXsave || gHasXsavec) {
+		posix_memalign((void**)&sInitialFpuState, 64, gFPUSaveLength);
+		memset(sInitialFpuState, 0, gFPUSaveLength);
+		if (gHasXsavec) {
+			asm volatile (
+				"clts;"		\
+				"fninit;"	\
+				"fnclex;"	\
+				"movl $0x7,%%eax;"	\
+				"movl $0x0,%%edx;"	\
+				"movq %0,%%rdi;"	\
+				"xsavec64 (%%rdi)"
+				:: "m" (sInitialFpuState));
+		} else {
+			asm volatile (
+				"clts;"		\
+				"fninit;"	\
+				"fnclex;"	\
+				"movl $0x7,%%eax;"	\
+				"movl $0x0,%%edx;"	\
+				"movq %0,%%rdi;"	\
+				"xsave64 (%%rdi)"
+				:: "m" (sInitialFpuState));
+		}
+	} else {
+		posix_memalign((void**)&sInitialFpuState, 16, gFPUSaveLength);
+		memset(sInitialFpuState, 0, gFPUSaveLength);
+		asm volatile (
+			"clts;"		\
+			"fninit;"	\
+			"fnclex;"	\
+			"movq %0,%%rdi;"	\
+			"fxsaveq (%%rdi)"
+			:: "m" (sInitialFpuState));
+	}
 	return B_OK;
 }
 
@@ -153,13 +185,23 @@ arch_thread_init(kernel_args* args)
 status_t
 arch_thread_init_thread_struct(Thread* thread)
 {
-	// Copy the initial saved FPU state to the new thread.
-	memcpy(&thread->arch_info, &sInitialState, sizeof(arch_thread));
-
 	// Initialise the current thread pointer.
 	thread->arch_info.thread = thread;
 
+	posix_memalign((void**)&thread->arch_info.fpu_state, 64, gFPUSaveLength);
+
+	// Copy the initial saved FPU state to the new thread.
+	memcpy(thread->arch_info.fpu_state, sInitialFpuState, gFPUSaveLength);
+
 	return B_OK;
+}
+
+
+void
+arch_thread_destroy_thread_struct(Thread* thread)
+{
+	free(thread->arch_info.fpu_state);
+	thread->arch_info.fpu_state = NULL;
 }
 
 
@@ -309,11 +351,10 @@ arch_setup_signal_frame(Thread* thread, struct sigaction* action,
 
 	if (frame->fpu != nullptr) {
 		memcpy((void*)&signalFrameData->context.uc_mcontext.fpu, frame->fpu,
-			sizeof(signalFrameData->context.uc_mcontext.fpu));
+			gFPUSaveLength);
 	} else {
 		memcpy((void*)&signalFrameData->context.uc_mcontext.fpu,
-			sInitialState.fpu_state,
-			sizeof(signalFrameData->context.uc_mcontext.fpu));
+			sInitialFpuState, gFPUSaveLength);
 	}
 
 	// Fill in signalFrameData->context.uc_stack.
@@ -385,9 +426,8 @@ arch_restore_signal_frame(struct signal_frame_data* signalFrameData)
 	Thread* thread = thread_get_current_thread();
 
 	memcpy(thread->arch_info.fpu_state,
-		(void*)&signalFrameData->context.uc_mcontext.fpu,
-		sizeof(thread->arch_info.fpu_state));
-	frame->fpu = &thread->arch_info.fpu_state;
+		(void*)&signalFrameData->context.uc_mcontext.fpu, gFPUSaveLength);
+	frame->fpu = thread->arch_info.fpu_state;
 
 	// The syscall return code overwrites frame->ax with the return value of
 	// the syscall, need to return it here to ensure the correct value is
