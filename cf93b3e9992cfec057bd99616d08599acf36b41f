@@ -1,0 +1,191 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cc386dde_b534e4b5",
+        "filename": "headers/private/file_systems/DeviceOpener.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-06T19:28:28Z",
+      "side": 1,
+      "message": "this line is more than 80 columns",
+      "revId": "cf93b3e9992cfec057bd99616d08599acf36b41f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b4e4485_e02801e4",
+        "filename": "headers/private/file_systems/DeviceOpener.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-06T19:28:28Z",
+      "side": 1,
+      "message": "this line is more than 80 columns",
+      "revId": "cf93b3e9992cfec057bd99616d08599acf36b41f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b9cf4ab_da83faab",
+        "filename": "src/add-ons/kernel/file_systems/bfs/JamCommon",
+        "patchSetId": 7
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-06T19:28:28Z",
+      "side": 1,
+      "message": "DeviceOpener comes after Debug in alphabetical order",
+      "revId": "cf93b3e9992cfec057bd99616d08599acf36b41f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1426d26_b95c2380",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Jamfile",
+        "patchSetId": 7
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-06T19:28:28Z",
+      "side": 1,
+      "message": "Keep it in alphabetical order (after DebugSupport)",
+      "revId": "cf93b3e9992cfec057bd99616d08599acf36b41f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5d88be9_79af81c7",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Volume.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-06T19:28:28Z",
+      "side": 1,
+      "message": "keep it in alphabetical order (after CRCTable)",
+      "revId": "cf93b3e9992cfec057bd99616d08599acf36b41f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52c66fc1_066b427a",
+        "filename": "src/add-ons/kernel/file_systems/exfat/Volume.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-06T19:28:28Z",
+      "side": 1,
+      "message": "DeviceOpener should be #included here",
+      "revId": "cf93b3e9992cfec057bd99616d08599acf36b41f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8c1bc7d_ac712732",
+        "filename": "src/add-ons/kernel/file_systems/ext2/Jamfile",
+        "patchSetId": 7
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-06T19:28:28Z",
+      "side": 1,
+      "message": "Sort this list in alphabetical order (it is not now, that\u0027s an error from previous maintainers)",
+      "revId": "cf93b3e9992cfec057bd99616d08599acf36b41f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "066a9443_9f74306c",
+        "filename": "src/add-ons/kernel/file_systems/ext2/Volume.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-06T19:28:28Z",
+      "side": 1,
+      "message": "DeviceOpener shoulf be #included here",
+      "revId": "cf93b3e9992cfec057bd99616d08599acf36b41f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ba3c05b_c4d12017",
+        "filename": "src/add-ons/kernel/file_systems/shared/DeviceOpener.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-06T19:28:28Z",
+      "side": 1,
+      "message": "two empty lines here",
+      "revId": "cf93b3e9992cfec057bd99616d08599acf36b41f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "632934de_edae54e6",
+        "filename": "src/add-ons/kernel/file_systems/shared/DeviceOpener.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-06T19:28:28Z",
+      "side": 1,
+      "message": "two empty lines here",
+      "revId": "cf93b3e9992cfec057bd99616d08599acf36b41f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "770b753a_6d9a7256",
+        "filename": "src/tests/add-ons/kernel/file_systems/btrfs/btrfs_shell/Jamfile",
+        "patchSetId": 7
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-06T19:28:28Z",
+      "side": 1,
+      "message": "keep this in alphabetical order (after DebugSupport)",
+      "revId": "cf93b3e9992cfec057bd99616d08599acf36b41f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
