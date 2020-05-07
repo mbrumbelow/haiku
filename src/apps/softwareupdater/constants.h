@@ -9,7 +9,7 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 
-#define kAppSignature "application/x-vnd.haiku-softwareupdater"
+#define kAppSignature "application/x-vnd.Haiku-SoftwareUpdater"
 #define kSettingsFilename "SoftwareUpdater_settings"
 
 enum {

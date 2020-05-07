@@ -12,7 +12,7 @@
 
 // server signature
 static const char* kServerSignature
-	= "application/x-vnd.haiku.userlandfs-server";
+	= "application/application/x-vnd.Haiku-userlandfs_server";
 
 // usage
 static const char* kUsage =

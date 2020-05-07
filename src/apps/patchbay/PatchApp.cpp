@@ -19,7 +19,7 @@
 
 PatchApp::PatchApp()
 	:
-	BApplication("application/x-vnd.Haiku.PatchBay")
+	BApplication("application/x-vnd.Haiku-PatchBay")
 {}
 
 

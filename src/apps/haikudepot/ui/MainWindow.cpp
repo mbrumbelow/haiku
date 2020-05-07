@@ -344,7 +344,7 @@ MainWindow::MessageReceived(BMessage* message)
 			break;
 
 		case MSG_SOFTWARE_UPDATER:
-			be_roster->Launch("application/x-vnd.haiku-softwareupdater");
+			be_roster->Launch("application/x-vnd.Haiku-SoftwareUpdater");
 			break;
 
 		case MSG_LOG_IN:

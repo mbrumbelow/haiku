@@ -229,7 +229,7 @@ main(int argc, const char** argv)
 
 	// process files
 
-	BApplication app("application/x-vnd.haiku.mimeset");
+	BApplication app("application/x-vnd.Haiku-mimeset");
 
 	for (; optind < argc; optind++) {
 		const char* arg = argv[optind];

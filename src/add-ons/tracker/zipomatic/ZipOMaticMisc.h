@@ -9,7 +9,7 @@
 #define ZIPOMATIC_MISC_H
 
 
-#define ZIPOMATIC_APP_SIG		"application/x-vnd.haiku.zip-o-matic"
+#define ZIPOMATIC_APP_SIG		"application/x-vnd.Haiku-zip_o_matic"
 
 #define ZIPPO_WINDOW_QUIT		'winq'
 #define ZIPPO_QUIT_OR_CONTINUE	'alrt'
