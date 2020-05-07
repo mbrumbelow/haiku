@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 
+#include <Catalog.h>
 #include <FilePanel.h>
 #include <GroupLayout.h>
 #include <Menu.h>
@@ -20,6 +21,8 @@
 #include "SerialApp.h"
 #include "TermView.h"
 
+
+#define B_TRANSLATION_CONTEXT "SerialWindow"
 
 const int SerialWindow::kBaudrates[] = { 50, 75, 110, 134, 150, 200, 300, 600,
 	1200, 1800, 2400, 4800, 9600, 19200, 31250, 38400, 57600, 115200, 230400
@@ -35,7 +38,8 @@ const int SerialWindow::kBaudrateConstants[] = { B_50_BPS, B_75_BPS, B_110_BPS,
 };
 
 
-const char* SerialWindow::kWindowTitle = "SerialConnect";
+const char* SerialWindow::kWindowTitle =
+	B_TRANSLATE_SYSTEM_NAME("SerialConnect");
 
 
 SerialWindow::SerialWindow()
@@ -69,7 +73,8 @@ SerialWindow::SerialWindow()
 	r = fTermView->Frame();
 	r.top = r.bottom - 37;
 
-	fStatusBar = new BStatusBar(r, "file transfer progress", NULL, NULL);
+	fStatusBar = new BStatusBar(r, B_TRANSLATE("file transfer progress"),
+		NULL, NULL);
 	fStatusBar->SetResizingMode(B_FOLLOW_BOTTOM | B_FOLLOW_LEFT_RIGHT);
 	fStatusBar->SetViewUIColor(B_PANEL_BACKGROUND_COLOR);
 	fStatusBar->Hide();
@@ -79,10 +84,10 @@ SerialWindow::SerialWindow()
 	AddChild(scrollBar);
 	AddChild(fStatusBar);
 
-	fConnectionMenu = new BMenu("Connection");
-	fFileMenu = new BMenu("File");
-	BMenu* settingsMenu = new BMenu("Settings");
-	BMenu* editMenu = new BMenu("Edit");
+	fConnectionMenu = new BMenu(B_TRANSLATE("Connection"));
+	fFileMenu = new BMenu(B_TRANSLATE("File"));
+	BMenu* settingsMenu = new BMenu(B_TRANSLATE("Settings"));
+	BMenu* editMenu = new BMenu(B_TRANSLATE("Edit"));
 
 	fConnectionMenu->SetRadioMode(true);
 
@@ -91,20 +96,21 @@ SerialWindow::SerialWindow()
 	menuBar->AddItem(fFileMenu);
 	menuBar->AddItem(settingsMenu);
 
-	BMenuItem* logFile = new BMenuItem("Log to file" B_UTF8_ELLIPSIS,
-		new BMessage(kMsgLogfile));
+	BMenuItem* logFile = new BMenuItem(
+		B_TRANSLATE("Log to file" B_UTF8_ELLIPSIS), new BMessage(kMsgLogfile));
 	fFileMenu->AddItem(logFile);
 
 	// The "send" items are disabled initially. They are enabled only once we
 	// are connected to a serial port.
 	BMessage* sendMsg = new BMessage(kMsgSendFile);
 	sendMsg->AddString("protocol", "xmodem");
-	BMenuItem* xmodemSend = new BMenuItem("XModem send" B_UTF8_ELLIPSIS,
+	BMenuItem* xmodemSend = new BMenuItem(
+		B_TRANSLATE("XModem send" B_UTF8_ELLIPSIS),
 		sendMsg);
 	fFileMenu->AddItem(xmodemSend);
 	xmodemSend->SetEnabled(false);
 
-	BMenuItem* rawSend = new BMenuItem("Raw send" B_UTF8_ELLIPSIS,
+	BMenuItem* rawSend = new BMenuItem(B_TRANSLATE("Raw send" B_UTF8_ELLIPSIS),
 		new BMessage(kMsgSendFile));
 	fFileMenu->AddItem(rawSend);
 	rawSend->SetEnabled(false);
@@ -118,7 +124,7 @@ SerialWindow::SerialWindow()
 #endif
 
 	// Items for the edit menu
-	BMenuItem* clearScreen = new BMenuItem("Clear history",
+	BMenuItem* clearScreen = new BMenuItem(B_TRANSLATE("Clear history"),
 		new BMessage(kMsgClear));
 	editMenu->AddItem(clearScreen);
 
@@ -126,41 +132,44 @@ SerialWindow::SerialWindow()
 
 	// Configuring all this by menus may be a bit unhandy. Make a setting
 	// window instead ?
-	fBaudrateMenu = new BMenu("Baud rate");
+	fBaudrateMenu = new BMenu(B_TRANSLATE("Baud rate"));
 	fBaudrateMenu->SetRadioMode(true);
 	settingsMenu->AddItem(fBaudrateMenu);
 
-	fParityMenu = new BMenu("Parity");
+	fParityMenu = new BMenu(B_TRANSLATE("Parity"));
 	fParityMenu->SetRadioMode(true);
 	settingsMenu->AddItem(fParityMenu);
 
-	fStopbitsMenu = new BMenu("Stop bits");
+	fStopbitsMenu = new BMenu(B_TRANSLATE("Stop bits"));
 	fStopbitsMenu->SetRadioMode(true);
 	settingsMenu->AddItem(fStopbitsMenu);
 
-	fFlowcontrolMenu = new BMenu("Flow control");
+	fFlowcontrolMenu = new BMenu(B_TRANSLATE("Flow control"));
 	fFlowcontrolMenu->SetRadioMode(true);
 	settingsMenu->AddItem(fFlowcontrolMenu);
 
-	fDatabitsMenu = new BMenu("Data bits");
+	fDatabitsMenu = new BMenu(B_TRANSLATE("Data bits"));
 	fDatabitsMenu->SetRadioMode(true);
 	settingsMenu->AddItem(fDatabitsMenu);
 
-	fLineTerminatorMenu = new BMenu("Line terminator");
+	fLineTerminatorMenu = new BMenu(B_TRANSLATE("Line terminator"));
 	fLineTerminatorMenu->SetRadioMode(true);
 	settingsMenu->AddItem(fLineTerminatorMenu);
 
 	BMessage* message = new BMessage(kMsgSettings);
 	message->AddInt32("parity", B_NO_PARITY);
-	BMenuItem* parityNone = new BMenuItem("None", message);
+	BMenuItem* parityNone =
+		new BMenuItem(B_TRANSLATE_COMMENT("None", "Parity"), message);
 
 	message = new BMessage(kMsgSettings);
 	message->AddInt32("parity", B_ODD_PARITY);
-	BMenuItem* parityOdd = new BMenuItem("Odd", message);
+	BMenuItem* parityOdd = new BMenuItem(B_TRANSLATE_COMMENT("Odd", "Parity"),
+		message);
 
 	message = new BMessage(kMsgSettings);
 	message->AddInt32("parity", B_EVEN_PARITY);
-	BMenuItem* parityEven = new BMenuItem("Even", message);
+	BMenuItem* parityEven =
+		new BMenuItem(B_TRANSLATE_COMMENT("Even", "Parity"), message);
 
 	fParityMenu->AddItem(parityNone);
 	fParityMenu->AddItem(parityOdd);
@@ -169,11 +178,13 @@ SerialWindow::SerialWindow()
 
 	message = new BMessage(kMsgSettings);
 	message->AddInt32("databits", B_DATA_BITS_7);
-	BMenuItem* data7 = new BMenuItem("7", message);
+	BMenuItem* data7 =
+		new BMenuItem(B_TRANSLATE_COMMENT("7", "Databits"), message);
 
 	message = new BMessage(kMsgSettings);
 	message->AddInt32("databits", B_DATA_BITS_8);
-	BMenuItem* data8 = new BMenuItem("8", message);
+	BMenuItem* data8 =
+		new BMenuItem(B_TRANSLATE_COMMENT("8", "Databits"), message);
 
 	fDatabitsMenu->AddItem(data7);
 	fDatabitsMenu->AddItem(data8);
@@ -181,11 +192,13 @@ SerialWindow::SerialWindow()
 
 	message = new BMessage(kMsgSettings);
 	message->AddInt32("stopbits", B_STOP_BITS_1);
-	BMenuItem* stop1 = new BMenuItem("1", message);
+	BMenuItem* stop1 =
+		new BMenuItem(B_TRANSLATE_COMMENT("1", "Stopbits"), message);
 
 	message = new BMessage(kMsgSettings);
 	message->AddInt32("stopbits", B_STOP_BITS_2);
-	BMenuItem* stop2 = new BMenuItem("2", message);
+	BMenuItem* stop2 =
+		new BMenuItem(B_TRANSLATE_COMMENT("2", "Stopbits"), message);
 
 	fStopbitsMenu->AddItem(stop1);
 	fStopbitsMenu->AddItem(stop2);
@@ -205,26 +218,30 @@ SerialWindow::SerialWindow()
 	}
 
 	message = new BMessage(kMsgCustomBaudrate);
-	BMenuItem* custom = new BMenuItem("custom" B_UTF8_ELLIPSIS, message);
+	BMenuItem* custom = new BMenuItem(B_TRANSLATE("custom" B_UTF8_ELLIPSIS), message);
 	fBaudrateMenu->AddItem(custom);
 
 	fBaudrateMenu->SetTargetForItems(be_app);
 
 	message = new BMessage(kMsgSettings);
 	message->AddInt32("flowcontrol", B_HARDWARE_CONTROL);
-	BMenuItem* hardware = new BMenuItem("Hardware", message);
+	BMenuItem* hardware =
+		new BMenuItem(B_TRANSLATE_COMMENT("Hardware", "Flowcontrol"), message);
 
 	message = new BMessage(kMsgSettings);
 	message->AddInt32("flowcontrol", B_SOFTWARE_CONTROL);
-	BMenuItem* software = new BMenuItem("Software", message);
+	BMenuItem* software =
+		new BMenuItem(B_TRANSLATE_COMMENT("Software", "Flowcontrol"), message);
 
 	message = new BMessage(kMsgSettings);
 	message->AddInt32("flowcontrol", B_HARDWARE_CONTROL | B_SOFTWARE_CONTROL);
-	BMenuItem* both = new BMenuItem("Both", message);
+	BMenuItem* both =
+		new BMenuItem(B_TRANSLATE_COMMENT("Both", "Flowcontrol"), message);
 
 	message = new BMessage(kMsgSettings);
 	message->AddInt32("flowcontrol", 0);
-	BMenuItem* noFlow = new BMenuItem("None", message);
+	BMenuItem* noFlow =
+		new BMenuItem(B_TRANSLATE_COMMENT("None", "Flowcontrol"), message);
 
 	fFlowcontrolMenu->AddItem(hardware);
 	fFlowcontrolMenu->AddItem(software);
@@ -234,15 +251,19 @@ SerialWindow::SerialWindow()
 
 	message = new BMessage(kMsgSettings);
 	message->AddString("terminator", "\n");
-	BMenuItem* lf = new BMenuItem("LF (\\n)", message);
+	BMenuItem* lf =
+		new BMenuItem(B_TRANSLATE_COMMENT("LF (\\n)", "Terminator"), message);
 
 	message = new BMessage(kMsgSettings);
 	message->AddString("terminator", "\r");
-	BMenuItem* cr = new BMenuItem("CR (\\r)", message);
+	BMenuItem* cr =
+		new BMenuItem(B_TRANSLATE_COMMENT("CR (\\r)", "Terminator"), message);
 
 	message = new BMessage(kMsgSettings);
 	message->AddString("terminator", "\r\n");
-	BMenuItem* crlf = new BMenuItem("CR/LF (\\r\\n)", message);
+	BMenuItem* crlf =
+		new BMenuItem(B_TRANSLATE_COMMENT("CR/LF (\\r\\n)", "Terminator"),
+		message);
 
 	fLineTerminatorMenu->AddItem(lf);
 	fLineTerminatorMenu->AddItem(cr);
@@ -292,14 +313,14 @@ void SerialWindow::MenusBeginning()
 	if (deviceCount > 0) {
 		fConnectionMenu->AddSeparatorItem();
 
-		BMenuItem* disconnect = new BMenuItem("Disconnect",
+		BMenuItem* disconnect = new BMenuItem(B_TRANSLATE("Disconnect"),
 			new BMessage(kMsgOpenPort), 'Z', B_OPTION_KEY);
 		if (!connected)
 			disconnect->SetEnabled(false);
 		disconnect->SetTarget(be_app);
 		fConnectionMenu->AddItem(disconnect);
 	} else {
-		BMenuItem* noDevices = new BMenuItem("<no serial port available>", NULL);
+		BMenuItem* noDevices = new BMenuItem(B_TRANSLATE("<no serial port available>"), NULL);
 		noDevices->SetEnabled(false);
 		fConnectionMenu->AddItem(noDevices);
 	}
