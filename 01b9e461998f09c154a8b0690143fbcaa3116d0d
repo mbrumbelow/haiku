@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ae790973_87d1576e",
+        "filename": "src/kits/network/libnetapi/FtpConnection.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-07T19:41:06Z",
+      "side": 1,
+      "message": "Actually, there is an even better solution: you can use a BMallocIO that will allocate memory as needed. You can also query it about the available data size, and I think remove the ostringstream completely.\n\nThis will probably save a copy of the data or two",
+      "parentUuid": "03b2a91e_aa5b4ca2",
+      "revId": "01b9e461998f09c154a8b0690143fbcaa3116d0d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "326633f1_dab94706",
         "filename": "src/kits/network/libnetapi/FtpConnection.cpp",
         "patchSetId": 7
@@ -53,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "6b14df7b_450d82fc",
+        "filename": "src/kits/network/libnetapi/FtpConnection.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-07T19:41:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77c23b75_000dacb8",
+      "revId": "01b9e461998f09c154a8b0690143fbcaa3116d0d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ac2cc3d0_a51ed902",
         "filename": "src/kits/network/libnetapi/FtpConnection.cpp",
         "patchSetId": 7
@@ -64,6 +100,24 @@
       "writtenOn": "2020-05-02T07:13:09Z",
       "side": 1,
       "message": "BString::SetToFormat may be an easier way to do this (it works like sprintf)",
+      "revId": "01b9e461998f09c154a8b0690143fbcaa3116d0d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "985c3c02_ad0387bb",
+        "filename": "src/kits/network/libnetapi/FtpConnection.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-07T19:41:06Z",
+      "side": 1,
+      "message": "This line is longer than 80 columns now",
+      "parentUuid": "ac2cc3d0_a51ed902",
       "revId": "01b9e461998f09c154a8b0690143fbcaa3116d0d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -87,6 +141,24 @@
     },
     {
       "key": {
+        "uuid": "d3f0f0f8_1600f546",
+        "filename": "src/kits/network/libnetapi/FtpConnection.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 891,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-07T19:41:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e37a0810_ca9b961f",
+      "revId": "01b9e461998f09c154a8b0690143fbcaa3116d0d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "35d23d9d_6ec0be1b",
         "filename": "src/kits/network/libnetapi/FtpConnection.cpp",
         "patchSetId": 7
@@ -101,6 +173,24 @@
       "revId": "01b9e461998f09c154a8b0690143fbcaa3116d0d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c80219cd_8046aae0",
+        "filename": "src/kits/network/libnetapi/FtpConnection.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 892,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-07T19:41:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35d23d9d_6ec0be1b",
+      "revId": "01b9e461998f09c154a8b0690143fbcaa3116d0d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
