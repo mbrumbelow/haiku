@@ -1,4 +1,4 @@
-resource app_signature "application/x-vnd.haiku.zip-o-matic";
+resource app_signature "application/x-vnd.Haiku-zip_o_matic";
 
 resource app_flags B_SINGLE_LAUNCH;
 

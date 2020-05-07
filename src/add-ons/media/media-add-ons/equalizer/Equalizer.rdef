@@ -2,7 +2,7 @@
  * Equalizer.rdef
  */
 
-resource app_signature "application/x-vnd.equalizer.media_addon";
+resource app_signature "application/x-vnd.Haiku-Equalizer-media_addon";
 
 resource app_version {
 	major  = 0,

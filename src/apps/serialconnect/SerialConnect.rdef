@@ -1,5 +1,5 @@
 
-resource app_signature "application/x-vnd.haiku.SerialConnect";
+resource app_signature "application/x-vnd.Haiku-SerialConnect";
 
 resource app_version {
 	major  = 0, 
