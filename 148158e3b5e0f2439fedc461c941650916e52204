@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d280b3fa_fb562b4a",
+        "filename": "src/apps/serialconnect/SerialWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-08T07:05:10Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "148158e3b5e0f2439fedc461c941650916e52204",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf27bffd_82945f5e",
+        "filename": "src/apps/serialconnect/SerialWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-08T07:05:10Z",
+      "side": 1,
+      "message": "this won\u0027t work for a const char*. You need to use B_TRANSLATE_MARK here and then B_TRANSLATE_NOCOLLECT (I don\u0027t know if there is a _SYSTEM_NAME version of it) where kWindowTitle is used.",
+      "revId": "148158e3b5e0f2439fedc461c941650916e52204",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9de890f_88aa85bc",
+        "filename": "src/apps/serialconnect/SerialWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-08T07:05:10Z",
+      "side": 1,
+      "message": "Does these really need translation?",
+      "revId": "148158e3b5e0f2439fedc461c941650916e52204",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd642230_a6b9198a",
+        "filename": "src/apps/serialconnect/SerialWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-08T07:05:10Z",
+      "side": 1,
+      "message": "this could also use the \"baudrat\" comment. Also, this line is more than 80 columns",
+      "revId": "148158e3b5e0f2439fedc461c941650916e52204",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be6b4a35_d1ad6fc2",
+        "filename": "src/apps/serialconnect/SerialWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-08T07:05:10Z",
+      "side": 1,
+      "message": "Is translation useful here?",
+      "revId": "148158e3b5e0f2439fedc461c941650916e52204",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5cae942d_51dc6673",
+        "filename": "src/apps/serialconnect/SerialWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-08T07:05:10Z",
+      "side": 1,
+      "message": "This line is more than 80 columns",
+      "revId": "148158e3b5e0f2439fedc461c941650916e52204",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
