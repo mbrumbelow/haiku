@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f2db01af_c30c2c31",
+        "filename": "src/add-ons/kernel/file_systems/ext2/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-05-08T21:14:40Z",
+      "side": 1,
+      "message": "I\u0027m not certain this works. If the volume is mounted read-only then Volume::fJournal will be initialized with a NoJournal reguardless of whether a journal is supported. It doesn\u0027t appear to be initialized with NULL anywhere.\n\nI think it would be better to add a method to Volume HasJournalFeature() which checks for EXT2_FEATURE_HAS_JOURNAL in fSuperBlock.CompatibleFeatures().",
+      "revId": "ea553c0e9897bbee070b0817b6220837cbb499d2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
