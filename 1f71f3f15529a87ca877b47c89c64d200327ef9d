@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bd5cd000_354c0d50",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2020-05-08T17:47:05Z",
+      "side": 1,
+      "message": "Empty TODO",
+      "revId": "1f71f3f15529a87ca877b47c89c64d200327ef9d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
