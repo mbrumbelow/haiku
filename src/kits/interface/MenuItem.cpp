@@ -12,6 +12,7 @@
 
 
 #include <ctype.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -66,13 +67,7 @@ BMenuItem::BMenuItem(const char* label, BMessage* message, char shortcut,
 		fLabel = strdup(label);
 
 	SetMessage(message);
-
-	fShortcutChar = shortcut;
-
-	if (shortcut != 0)
-		fModifiers = modifiers | B_COMMAND_KEY;
-	else
-		fModifiers = 0;
+	SetShortcut(shortcut, modifiers);
 }
 
 
@@ -274,19 +269,21 @@ BMenuItem::SetTrigger(char trigger)
 void
 BMenuItem::SetShortcut(char shortcut, uint32 modifiers)
 {
-	if (fShortcutChar != 0 && (fModifiers & B_COMMAND_KEY) != 0
-		&& fWindow != NULL) {
+	if (_IsValidShortcut(fShortcutChar, fModifiers) && fWindow != NULL) {
 		fWindow->RemoveShortcut(fShortcutChar, fModifiers);
 	}
 
 	fShortcutChar = shortcut;
 
-	if (shortcut != 0)
-		fModifiers = modifiers | B_COMMAND_KEY;
-	else
+	if (shortcut != 0) {
+		if (modifiers != B_NO_MODIFIERS)
+			fModifiers = modifiers | B_COMMAND_KEY;
+		else
+			fModifiers = B_NO_MODIFIERS;
+	} else
 		fModifiers = 0;
 
-	if (fShortcutChar != 0 && (fModifiers & B_COMMAND_KEY) && fWindow)
+	if (_IsValidShortcut(fShortcutChar, fModifiers) && fWindow != NULL)
 		fWindow->AddShortcut(fShortcutChar, fModifiers, this);
 
 	if (fSuper != NULL) {
@@ -572,7 +569,7 @@ BMenuItem::Install(BWindow* window)
 
 	fWindow = window;
 
-	if (fShortcutChar != 0 && (fModifiers & B_COMMAND_KEY) && fWindow)
+	if (_IsValidShortcut(fShortcutChar, fModifiers) && fWindow != NULL)
 		window->AddShortcut(fShortcutChar, fModifiers, this);
 
 	if (!Messenger().IsValid())
@@ -628,10 +625,8 @@ BMenuItem::Uninstall()
 	if (Target() == fWindow)
 		SetTarget(BMessenger());
 
-	if (fShortcutChar != 0 && (fModifiers & B_COMMAND_KEY) != 0
-		&& fWindow != NULL) {
+	if (_IsValidShortcut(fShortcutChar, fModifiers) && fWindow != NULL)
 		fWindow->RemoveShortcut(fShortcutChar, fModifiers);
-	}
 
 	fWindow = NULL;
 }
@@ -760,7 +755,7 @@ BMenuItem::_DrawShortcutSymbol(bool submenus)
 		where.x -= fBounds.Height() / 2;
 
 	const float ascent = MenuPrivate(fSuper).Ascent();
-	if (fShortcutChar < B_SPACE && kUTF8ControlMap[(int)fShortcutChar])
+	if (fShortcutChar < B_SPACE)
 		_DrawControlChar(fShortcutChar, where + BPoint(0, ascent));
 	else
 		fSuper->DrawChar(fShortcutChar, where + BPoint(0, ascent));
@@ -827,11 +822,33 @@ BMenuItem::_DrawControlChar(char shortcut, BPoint where)
 {
 	// TODO: If needed, take another font for the control characters
 	//	(or have font overlays in the app_server!)
-	const char* symbol = " ";
-	if (kUTF8ControlMap[(int)fShortcutChar])
-		symbol = kUTF8ControlMap[(int)fShortcutChar];
+	if (kUTF8ControlMap[(int)fShortcutChar]) {
+		const char* symbol = kUTF8ControlMap[(int)fShortcutChar];
+		fSuper->DrawString(symbol, where);
+	} else if (shortcut >= B_F1_KEY && shortcut <= B_F12_KEY) {
+		int number = 1 + (shortcut - B_F1_KEY);
+		char shortcutString[10];
+		snprintf(shortcutString, sizeof(shortcutString), "F%d", number);
+		// Account for this being longer that one character. Subtracting two
+		// times the size of space seems to align this nicely.
+		where.x -= (fSuper->StringWidth(shortcutString) - (2 * fSuper->StringWidth(" ")));
+		fSuper->DrawString(shortcutString, where);
+	}
+}
 
-	fSuper->DrawString(symbol, where);
+
+bool
+BMenuItem::_IsValidShortcut(char shortcut, uint32 modifiers)
+{
+	if (shortcut != 0) {
+		// Either explicitly ask for no modifiers or must have at least
+		// B_COMMAND_KEY
+		if (modifiers == B_NO_MODIFIERS)
+			return true;
+		else
+			return (modifiers & B_COMMAND_KEY) != 0;
+	}
+	return false;
 }
 
 

@@ -348,6 +348,7 @@ private:
 									bool notifyIputServer = false);
 			void				_SetName(const char* title);
 
+			void				_AddShortcut(uint32 key, uint32 modifiers, Shortcut* shortcut);
 			Shortcut*			_FindShortcut(uint32 key, uint32 modifiers);
 			BView*				_FindView(BView* view, BPoint point) const;
 			BView*				_FindView(int32 token);

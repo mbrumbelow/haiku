@@ -95,6 +95,8 @@ private:
 			void				_DrawSubmenuSymbol();
 			void				_DrawControlChar(char shortcut, BPoint where);
 
+			bool				_IsValidShortcut(char shortcut, uint32 modifiers);
+
 private:
 			char*				fLabel;
 			BMenu*				fSubmenu;

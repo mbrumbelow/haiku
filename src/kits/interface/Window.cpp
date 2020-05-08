@@ -108,6 +108,8 @@ public:
 	static	uint32			PrepareModifiers(uint32 modifiers);
 
 private:
+			uint32			_InitializeModifiers(uint32 modifiers);
+
 			uint32			fKey;
 			uint32			fModifiers;
 			BMenuItem*		fMenuItem;
@@ -242,7 +244,7 @@ BWindow::unpack_cookie::unpack_cookie()
 BWindow::Shortcut::Shortcut(uint32 key, uint32 modifiers, BMenuItem* item)
 	:
 	fKey(PrepareKey(key)),
-	fModifiers(PrepareModifiers(modifiers)),
+	fModifiers(_InitializeModifiers(modifiers)),
 	fMenuItem(item),
 	fMessage(NULL),
 	fTarget(NULL)
@@ -254,7 +256,7 @@ BWindow::Shortcut::Shortcut(uint32 key, uint32 modifiers, BMessage* message,
 	BHandler* target)
 	:
 	fKey(PrepareKey(key)),
-	fModifiers(PrepareModifiers(modifiers)),
+	fModifiers(_InitializeModifiers(modifiers)),
 	fMenuItem(NULL),
 	fMessage(message),
 	fTarget(target)
@@ -272,7 +274,20 @@ BWindow::Shortcut::~Shortcut()
 bool
 BWindow::Shortcut::Matches(uint32 key, uint32 modifiers) const
 {
-	return fKey == key && fModifiers == modifiers;
+	if (fModifiers == B_NO_MODIFIERS && modifiers == 0)
+		return fKey == key;
+	else
+		return fKey == key && fModifiers == modifiers;
+}
+
+
+uint32
+BWindow::Shortcut::_InitializeModifiers(uint32 modifiers)
+{
+	if (modifiers == B_NO_MODIFIERS)
+		return modifiers;
+	else
+		return PrepareModifiers(modifiers) | B_COMMAND_KEY;
 }
 
 
@@ -289,7 +304,7 @@ BWindow::Shortcut::AllowedModifiers()
 uint32
 BWindow::Shortcut::PrepareModifiers(uint32 modifiers)
 {
-	return (modifiers & AllowedModifiers()) | B_COMMAND_KEY;
+	return modifiers & AllowedModifiers();
 }
 
 
@@ -1686,13 +1701,7 @@ void
 BWindow::AddShortcut(uint32 key, uint32 modifiers, BMenuItem* item)
 {
 	Shortcut* shortcut = new(std::nothrow) Shortcut(key, modifiers, item);
-	if (shortcut == NULL)
-		return;
-
-	// removes the shortcut if it already exists!
-	RemoveShortcut(key, modifiers);
-
-	fShortcuts.AddItem(shortcut);
+	_AddShortcut(key, modifiers, shortcut);
 }
 
 
@@ -1712,13 +1721,7 @@ BWindow::AddShortcut(uint32 key, uint32 modifiers, BMessage* message,
 
 	Shortcut* shortcut = new(std::nothrow) Shortcut(key, modifiers, message,
 		target);
-	if (shortcut == NULL)
-		return;
-
-	// removes the shortcut if it already exists!
-	RemoveShortcut(key, modifiers);
-
-	fShortcuts.AddItem(shortcut);
+	_AddShortcut(key, modifiers, shortcut);
 }
 
 
@@ -3696,6 +3699,8 @@ BWindow::_HandleKeyDown(BMessage* event)
 	}
 
 	// Handle shortcuts
+	bool shortcutCalled = false;
+
 	if ((modifiers & B_COMMAND_KEY) != 0) {
 		// Command+q has been pressed, so, we will quit
 		// the shortcut mechanism doesn't allow handlers outside the window
@@ -3718,52 +3723,57 @@ BWindow::_HandleKeyDown(BMessage* event)
 				return true;
 			}
 		}
+	}
 
-		// Pretend that the user opened a menu, to give the subclass a
-		// chance to update it's menus. This may install new shortcuts,
-		// which is why we have to call it here, before trying to find
-		// a shortcut for the given key.
-		MenusBeginning();
+	// Pretend that the user opened a menu, to give the subclass a
+	// chance to update it's menus. This may install new shortcuts,
+	// which is why we have to call it here, before trying to find
+	// a shortcut for the given key.
+	MenusBeginning();
 
-		Shortcut* shortcut = _FindShortcut(key, modifiers);
-		if (shortcut != NULL) {
-			// TODO: would be nice to move this functionality to
-			//	a Shortcut::Invoke() method - but since BMenu::InvokeItem()
-			//	(and BMenuItem::Invoke()) are private, I didn't want
-			//	to mess with them (BMenuItem::Invoke() is public in
-			//	Dano/Zeta, though, maybe we should just follow their
-			//	example)
-			if (shortcut->MenuItem() != NULL) {
-				BMenu* menu = shortcut->MenuItem()->Menu();
-				if (menu != NULL)
-					MenuPrivate(menu).InvokeItem(shortcut->MenuItem(), true);
-			} else {
-				BHandler* target = shortcut->Target();
-				if (target == NULL)
-					target = CurrentFocus();
+	Shortcut* shortcut = NULL;
+	// Handle function keys
+	if (key == B_FUNCTION_KEY && rawKey >= B_F1_KEY && rawKey <= B_F12_KEY)
+		shortcut = _FindShortcut(rawKey, modifiers);
+	else
+		shortcut = _FindShortcut(key, modifiers);
 
-				if (shortcut->Message() != NULL) {
-					BMessage message(*shortcut->Message());
+	if (shortcut != NULL) {
+		shortcutCalled = true;
+		// TODO: would be nice to move this functionality to
+		//	a Shortcut::Invoke() method - but since BMenu::InvokeItem()
+		//	(and BMenuItem::Invoke()) are private, I didn't want
+		//	to mess with them (BMenuItem::Invoke() is public in
+		//	Dano/Zeta, though, maybe we should just follow their
+		//	example)
+		if (shortcut->MenuItem() != NULL) {
+			BMenu* menu = shortcut->MenuItem()->Menu();
+			if (menu != NULL)
+				MenuPrivate(menu).InvokeItem(shortcut->MenuItem(), true);
+		} else {
+			BHandler* target = shortcut->Target();
+			if (target == NULL)
+				target = CurrentFocus();
 
-					if (message.ReplaceInt64("when", system_time()) != B_OK)
-						message.AddInt64("when", system_time());
-					if (message.ReplaceBool("shortcut", true) != B_OK)
-						message.AddBool("shortcut", true);
+			if (shortcut->Message() != NULL) {
+				BMessage message(*shortcut->Message());
 
-					PostMessage(&message, target);
-				}
+				if (message.ReplaceInt64("when", system_time()) != B_OK)
+					message.AddInt64("when", system_time());
+				if (message.ReplaceBool("shortcut", true) != B_OK)
+					message.AddBool("shortcut", true);
+
+				PostMessage(&message, target);
 			}
 		}
-
-		MenusEnded();
-
-		// we always eat the event if the command key was pressed
-		return true;
 	}
+
+	MenusEnded();
 
 	// TODO: convert keys to the encoding of the target view
 
-	return false;
+	// we always eat the event if a shortcut handled it
+	return shortcutCalled;
 }
 
 
@@ -3874,6 +3884,19 @@ BMessage*
 BWindow::ConvertToMessage(void* raw, int32 code)
 {
 	return BLooper::ConvertToMessage(raw, code);
+}
+
+
+void
+BWindow::_AddShortcut(uint32 key, uint32 modifiers, Shortcut* shortcut)
+{
+	if (shortcut == NULL)
+		return;
+
+	// removes the shortcut if it already exists!
+	RemoveShortcut(key, modifiers);
+
+	fShortcuts.AddItem(shortcut);
 }
 
 
