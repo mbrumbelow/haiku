@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "971d4dab_ccba6a67",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-05-08T12:10:33Z",
+      "side": 1,
+      "message": "Here and at other places: superfluous and misleading else.",
+      "revId": "30b1fbd3103c14edd8451ece06d1552233a2d417",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2aeb098_b2dc704e",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-05-08T12:10:33Z",
+      "side": 1,
+      "message": "Can\u0027t the logic be moved into the existing PrepareModifiers() method instead?",
+      "revId": "30b1fbd3103c14edd8451ece06d1552233a2d417",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf615acc_0c83c31d",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3717,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-05-08T12:10:33Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be solved using the new mechanism as well instead?",
+      "revId": "30b1fbd3103c14edd8451ece06d1552233a2d417",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d773861_c1c4edb9",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3775,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-05-08T12:10:33Z",
+      "side": 1,
+      "message": "Why this change in behavior?",
+      "revId": "30b1fbd3103c14edd8451ece06d1552233a2d417",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b193b443_24af322c",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3891,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-05-08T12:10:33Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this sanitize the modifiers using PrepareModifier() as well? Or what is the purpose of that method?",
+      "revId": "30b1fbd3103c14edd8451ece06d1552233a2d417",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
