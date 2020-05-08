@@ -3,22 +3,20 @@
  * Distributed under the terms of the MIT License.
  */
 
-#include <strings.h>
 
 // find first (least significant) set bit
-int
+extern "C" int
 ffs(int value)
 {
+#if __GNUC__ >= 3
+	return __builtin_ffs(value);
+#else
 	if (!value)
 		return 0;
 
-	// ToDo: This can certainly be optimized (e.g. by binary search). Or not
-	// unlikely there's a single assembler instruction...
-	for (int i = 1; i <= (int)sizeof(value) * 8; i++, value >>= 1) {
-		if (value & 1)
-			return i;
-	}
-
-	// never gets here
-	return 0;
+	asm("rep; bsf %1,%0"
+		: "=r" (value)
+		: "rm" (value));
+	return value;
+#endif
 }

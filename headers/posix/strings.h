@@ -13,7 +13,11 @@
 extern "C" {
 #endif
 
+#if __GNUC__ < 3
 extern int ffs(int i);
+#else
+static inline int ffs(int i) { return __builtin_ffs(i); }
+#endif
 
 extern int		strcasecmp(const char *string1, const char *string2);
 extern int		strncasecmp(const char *string1, const char *string2,
