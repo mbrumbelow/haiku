@@ -4,6 +4,7 @@
  *
  * Authors:
  *		Jerome Duval, jerome.duval@free.fr
+ *		Markku Hyppönen, make.hypponen@pp.inet.fi
  */
 #ifndef BACKGROUNDS_VIEW_H
 #define BACKGROUNDS_VIEW_H
@@ -40,14 +41,13 @@ class ImageFilePanel;
 
 class BGImageMenuItem : public BMenuItem {
 public:
-							BGImageMenuItem(const char* label, int32 imageIndex,
-								BMessage* message, char shortcut = 0,
-								uint32 modifiers = 0);
-
-			int32			ImageIndex() { return fImageIndex; }
+								BGImageMenuItem(const char* label,
+									int32 imageIndex, BMessage* message,
+									char shortcut = 0, uint32 modifiers = 0);
+			int32				ImageIndex() { return fImageIndex; }
 
 private:
-			int32			fImageIndex;
+			int32				fImageIndex;
 };
 
 
@@ -99,6 +99,33 @@ protected:
 };
 
 
+class Settings {
+public:
+								Settings();
+
+			int32				fWorkspace;
+			BackgroundImage*	fImage;
+			BackgroundImage::BackgroundImageInfo* fInfo;
+			rgb_color			fColor;
+			bool				fIsAllWorkspacesSelected;
+
+};
+
+
+class Controls {
+public:
+								Controls();
+
+			int32				fWorkspace;
+			rgb_color			fColor;
+			bool				fTextWidgetLabelOutline;
+			int32				fImageIndex;
+			int32				fPlacementIndex;
+			float				fOffsetX;
+			float				fOffsetY;
+};
+
+
 class BackgroundsView : public BBox {
 public:
 								BackgroundsView();
@@ -119,6 +146,10 @@ public:
 
 protected:
 			void				_Save();
+			void				_Revert();
+			void				_RevertTo(BackgroundImage*& image,
+									BackgroundImage::BackgroundImageInfo*& info,
+									rgb_color& color);
 			void				_NotifyServer();
 			void				_NotifyScreenPreflet();
 			void				_LoadSettings();
@@ -140,6 +171,12 @@ protected:
 			bool				_AddItem(BGImageMenuItem* item);
 
 			BackgroundImage::Mode	_FindPlacementMode();
+			void				_SetInitialSettings();
+			void				_SetControlSettings(int32 workspace);
+			Settings*			_GetInitialSettings(int32 workspace);
+			Controls*			_GetControlSettings(int32 workspace,
+									bool remove);
+			void				_ResetControlSettings();
 
 			BColorControl*		fPicker;
 			BButton*			fApply;
@@ -176,6 +213,8 @@ protected:
 			FramePart*			fBottomRight;
 
 			bool				fFoundPositionSetting;
+			BObjectList<Settings>* fInitialSettings;
+			BObjectList<Controls>* fControlSettings;
 };
 
 #endif	// BACKGROUNDS_VIEW_H
