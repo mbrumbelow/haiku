@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3806c095_a6016f1d",
+        "filename": "src/bin/fortune.rdef",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2020-05-08T06:28:17Z",
+      "side": 1,
+      "message": "Is this change going to be alright, considering that the mail daemon uses the same MIME signature in an add-on with similar functionality? (See: https://github.com/haiku/haiku/blob/abb59d7351c7ddb50c63c40430a82d94fa61917a/src/add-ons/mail_daemon/outbound_filters/fortune/Fortune.rdef#L5)\n\nThe only real difference is that the windows of the add-on within the Mail app and standalone Fortune windows are going to stack in the Tracker bar, right?",
+      "revId": "66e989cd4a3c4df2b91d59fd79df1432faf35abd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
