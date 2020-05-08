@@ -7,7 +7,8 @@
  *		Jerome Duval, jerome.duval@free.fr
  *		Jonas Sundström, jonas@kirilla.se
  *		John Scipione, jscipione@gmail.com
- *		Brian Hill <supernova@warpmail.net>
+ *		Brian Hill, supernova@warpmail.net
+ *		Markku Hyppönen, make.hypponen@pp.inet.fi
  */
 
 
@@ -331,6 +332,8 @@ BackgroundsView::MessageReceived(BMessage* message)
 		}
 
 		case kMsgManualPlacement:
+		case kMsgUpdateColor:
+		case kMsgImagePlacement:
 		case kMsgTilePlacement:
 		case kMsgScalePlacement:
 		case kMsgCenterPlacement:
@@ -339,12 +342,6 @@ BackgroundsView::MessageReceived(BMessage* message)
 			break;
 
 		case kMsgIconLabelOutline:
-			_UpdateButtons();
-			break;
-
-		case kMsgUpdateColor:
-		case kMsgImagePlacement:
-			_UpdatePreview();
 			_UpdateButtons();
 			break;
 
@@ -411,15 +408,15 @@ BackgroundsView::MessageReceived(BMessage* message)
 			_Save();
 
 			// Notify the server and Screen preflet
-			thread_id notify_thread;
-			notify_thread = spawn_thread(BackgroundsView::_NotifyThread,
+			thread_id notifyThread;
+			notifyThread = spawn_thread(BackgroundsView::_NotifyThread,
 				"notifyThread", B_NORMAL_PRIORITY, this);
-			resume_thread(notify_thread);
+			resume_thread(notifyThread);
 			_UpdateButtons();
 			break;
 		}
 		case kMsgRevertSettings:
-			_UpdateWithCurrent();
+			_Revert();
 			break;
 
 		default:
@@ -434,9 +431,9 @@ BackgroundsView::_LoadDesktopFolder()
 {
 	BPath path;
 	if (find_directory(B_DESKTOP_DIRECTORY, &path) == B_OK) {
-		status_t err;
-		err = get_ref_for_path(path.Path(), &fCurrentRef);
-		if (err != B_OK)
+		status_t error;
+		error = get_ref_for_path(path.Path(), &fCurrentRef);
+		if (error != B_OK)
 			printf("error in LoadDesktopSettings\n");
 		_LoadFolder(true);
 	}
@@ -450,9 +447,9 @@ BackgroundsView::_LoadDefaultFolder()
 	if (find_directory(B_USER_SETTINGS_DIRECTORY, &path) == B_OK) {
 		BString pathString = path.Path();
 		pathString << "/Tracker/DefaultFolderTemplate";
-		status_t err;
-		err = get_ref_for_path(pathString.String(), &fCurrentRef);
-		if (err != B_OK)
+		status_t error;
+		error = get_ref_for_path(pathString.String(), &fCurrentRef);
+		if (error != B_OK)
 			printf("error in LoadDefaultFolderSettings\n");
 		_LoadFolder(false);
 	}
@@ -462,13 +459,111 @@ BackgroundsView::_LoadDefaultFolder()
 void
 BackgroundsView::_LoadRecentFolder(BPath path)
 {
-	status_t err;
-	err = get_ref_for_path(path.Path(), &fCurrentRef);
-	if (err != B_OK)
+	status_t error;
+	error = get_ref_for_path(path.Path(), &fCurrentRef);
+	if (error != B_OK)
 		printf("error in LoadRecentFolder\n");
 	_LoadFolder(false);
 }
 
+
+Settings*
+BackgroundsView::_GetInitialSettings(int32 workspace)
+{
+	for (int32 i=0; i < fInitialSettings->CountItems(); i++) {
+		Settings* settings = (Settings*)fInitialSettings->ItemAt(i);
+		if (settings != NULL && settings->fWorkspace == workspace)
+			return settings;
+	}
+	return NULL;
+}
+
+
+Controls*
+BackgroundsView::_GetControlSettings(int32 workspace, bool remove)
+{
+	if (fControlSettings == NULL)
+		fControlSettings = new BObjectList<Controls>();
+
+	int32 count = fControlSettings->CountItems();
+
+	for (int32 i=0; i < count; i++) {
+	Controls* controls = (Controls*)fControlSettings->ItemAt(i);
+		if (controls != NULL && controls->fWorkspace == workspace) {
+			if (remove)
+				return fControlSettings->RemoveItemAt(i);
+			else
+				return controls;
+		}			
+	}
+	return NULL;
+}
+
+
+void
+BackgroundsView::_SetInitialSettings()
+{
+	if (fInitialSettings == NULL)
+		fInitialSettings = new BObjectList<Settings>();
+
+	if (_GetInitialSettings(current_workspace()) == NULL) {
+		BNode node(&fCurrentRef);
+		if (node.InitCheck() != B_OK)
+			return;
+
+		Settings* settings = new Settings();
+		settings->fWorkspace = current_workspace();
+		settings->fColor = BScreen().DesktopColor();
+		settings->fImage =
+				BackgroundImage::GetBackgroundImage(&node, true, this);
+		settings->fInfo = settings->fImage
+				->ImageInfoForWorkspace(current_workspace());
+
+		fInitialSettings->AddItem(settings);
+	} 
+}
+
+void
+BackgroundsView::_SetControlSettings(int32 workspace)
+{
+	if (fControlSettings == NULL)
+		fControlSettings = new BObjectList<Controls>();
+
+	Controls* controls = _GetControlSettings(workspace, true);
+
+	if (controls != NULL)
+		delete controls;
+
+	controls = new Controls();
+	rgb_color color = fPicker->ValueAsColor();
+
+	controls->fWorkspace = workspace;
+	controls->fColor = color;
+	controls->fTextWidgetLabelOutline =
+			fIconLabelOutline->Value() == B_CONTROL_ON;
+	controls->fImageIndex = fImageMenu->IndexOf(fImageMenu->FindMarked());
+	controls->fPlacementIndex =
+			fPlacementMenu->IndexOf(fPlacementMenu->FindMarked());
+	controls->fOffsetX = atoi(fXPlacementText->Text());
+	controls->fOffsetY = atoi(fYPlacementText->Text());
+	
+	fControlSettings->AddItem(controls);
+
+
+}
+
+void
+BackgroundsView::_ResetControlSettings()
+{
+	if (!fControlSettings)
+		return;
+
+	if (fWorkspaceMenu->IndexOf(fWorkspaceMenu->FindMarked()) == 0) {
+		while (fControlSettings->CountItems() > 0) {
+			delete fControlSettings->RemoveItemAt(0);
+		}
+	}
+}
 
 void
 BackgroundsView::_LoadFolder(bool isDesktop)
@@ -479,9 +574,10 @@ BackgroundsView::_LoadFolder(bool isDesktop)
 	}
 
 	BNode node(&fCurrentRef);
-	if (node.InitCheck() == B_OK)
+	if (node.InitCheck() == B_OK) {
 		fCurrent = BackgroundImage::GetBackgroundImage(&node, isDesktop, this);
-
+		_SetInitialSettings();
+	}
 	_UpdateWithCurrent();
 }
 
@@ -489,13 +585,38 @@ BackgroundsView::_LoadFolder(bool isDesktop)
 void
 BackgroundsView::_UpdateWithCurrent(void)
 {
-	if (fCurrent == NULL)
+	rgb_color color = BScreen().DesktopColor();
+	_RevertTo(fCurrent,fCurrentInfo,color);
+	_UpdatePreview();
+	_UpdateButtons();
+}
+
+
+void
+BackgroundsView::_Revert()
+{
+	Settings* bgInfo = (Settings*)_GetInitialSettings(current_workspace());
+	_RevertTo(bgInfo->fImage,bgInfo->fInfo,bgInfo->fColor);
+	_ResetControlSettings();
+	_SetInitialSettings();
+	_UpdatePreview();
+	_UpdateButtons();
+
+	fRevert->SetEnabled(false);
+}
+
+
+void
+BackgroundsView::_RevertTo(BackgroundImage*& image, 
+	BackgroundImage::BackgroundImageInfo*& info, rgb_color& color)
+{
+	if (image == NULL)
 		return;
 
 	fPlacementMenu->FindItem(kMsgScalePlacement)
-		->SetEnabled(fCurrent->IsDesktop());
+		->SetEnabled(image->IsDesktop());
 	fPlacementMenu->FindItem(kMsgCenterPlacement)
-		->SetEnabled(fCurrent->IsDesktop());
+		->SetEnabled(image->IsDesktop());
 
 	if (fWorkspaceMenu->IndexOf(fWorkspaceMenu->FindMarked()) > 5)
 		fImageMenu->FindItem(kMsgNoImage)->SetLabel(B_TRANSLATE("Default"));
@@ -512,36 +633,38 @@ BackgroundsView::_UpdateWithCurrent(void)
 	}
 
 	fImageMenu->SetTargetForItems(this);
+        
+	info = image->ImageInfoForWorkspace(current_workspace());
 
-	fCurrentInfo = fCurrent->ImageInfoForWorkspace(current_workspace());
-
-	if (!fCurrentInfo) {
+	if (!info) {
 		fImageMenu->FindItem(kMsgNoImage)->SetMarked(true);
 		fPlacementMenu->FindItem(kMsgManualPlacement)->SetMarked(true);
 		fIconLabelOutline->SetValue(B_CONTROL_ON);
 	} else {
-		fIconLabelOutline->SetValue(fCurrentInfo->fTextWidgetLabelOutline
+		fIconLabelOutline->SetValue(info->fTextWidgetLabelOutline
 			? B_CONTROL_ON : B_CONTROL_OFF);
 
-		fLastImageIndex = fCurrentInfo->fImageIndex;
+		fLastImageIndex = info->fImageIndex;
 		_FindImageItem(fLastImageIndex)->SetMarked(true);
 
 		if (fLastImageIndex > -1) {
-
 			BString xtext, ytext;
 			int32 cmd = 0;
-			switch (fCurrentInfo->fMode) {
+			switch (info->fMode) {
 				case BackgroundImage::kCentered:
 					cmd = kMsgCenterPlacement;
 					break;
+
 				case BackgroundImage::kScaledToFit:
 					cmd = kMsgScalePlacement;
 					break;
+
 				case BackgroundImage::kAtOffset:
 					cmd = kMsgManualPlacement;
-					xtext << (int)fCurrentInfo->fOffset.x;
-					ytext << (int)fCurrentInfo->fOffset.y;
+					xtext << (int)info->fOffset.x;
+					ytext << (int)info->fOffset.y;
 					break;
+
 				case BackgroundImage::kTiled:
 					cmd = kMsgTilePlacement;
 					break;
@@ -557,26 +680,15 @@ BackgroundsView::_UpdateWithCurrent(void)
 		}
 	}
 
-	rgb_color color = {255, 255, 255, 255};
-	if (fCurrent->IsDesktop()) {
-		color = BScreen().DesktopColor();
-		fPicker->SetEnabled(true);
-	} else
-		fPicker->SetEnabled(false);
-
+	fPicker->SetEnabled(true);
 	fPicker->SetValue(color);
-
-	_UpdatePreview();
-	_UpdateButtons();
 }
 
 
 void
 BackgroundsView::_Save()
 {
-	bool textWidgetLabelOutline
-		= fIconLabelOutline->Value() == B_CONTROL_ON;
-
+	bool textWidgetLabelOutline = fIconLabelOutline->Value() == B_CONTROL_ON;
 	BackgroundImage::Mode mode = _FindPlacementMode();
 	BPoint offset(atoi(fXPlacementText->Text()), atoi(fYPlacementText->Text()));
 
@@ -603,8 +715,8 @@ BackgroundsView::_Save()
 			if (fWorkspaceMenu->FindItem(kMsgCurrentWorkspace)->IsMarked()) {
 				if (fCurrentInfo->fWorkspace & workspaceMask
 					&& fCurrentInfo->fWorkspace != workspaceMask) {
-					fCurrentInfo->fWorkspace = fCurrentInfo->fWorkspace
-						^ workspaceMask;
+					fCurrentInfo->fWorkspace =
+						fCurrentInfo->fWorkspace ^ workspaceMask;
 					fCurrentInfo = new BackgroundImage::BackgroundImageInfo(
 						workspaceMask, fLastImageIndex, mode, offset,
 						textWidgetLabelOutline, fCurrentInfo->fImageSet,
@@ -676,36 +788,36 @@ BackgroundsView::_NotifyServer()
 	} else {
 		int32 i = -1;
 		BMessage reply;
-		int32 err;
+		int32 error;
 		BEntry currentEntry(&fCurrentRef);
 		BPath currentPath(&currentEntry);
 		bool isCustomFolder
 			= !fWorkspaceMenu->FindItem(kMsgDefaultFolder)->IsMarked();
 
 		do {
-			BMessage msg(B_GET_PROPERTY);
+			BMessage message = B_GET_PROPERTY;
 			i++;
 
 			// look at the "Poses" in every Tracker window
-			msg.AddSpecifier("Poses");
-			msg.AddSpecifier("Window", i);
+			message.AddSpecifier("Poses");
+			message.AddSpecifier("Window", i);
 
 			reply.MakeEmpty();
-			tracker.SendMessage(&msg, &reply);
+			tracker.SendMessage(&message, &reply);
 
 			// break out of the loop when we're at the end of
 			// the windows
 			if (reply.what == B_MESSAGE_NOT_UNDERSTOOD
-				&& reply.FindInt32("error", &err) == B_OK
-				&& err == B_BAD_INDEX)
+				&& reply.FindInt32("error", &error) == B_OK
+				&& error == B_BAD_INDEX)
 				break;
 
 			// don't stop for windows that don't understand
 			// a request for "Poses"; they're not displaying
 			// folders
 			if (reply.what == B_MESSAGE_NOT_UNDERSTOOD
-				&& reply.FindInt32("error", &err) == B_OK
-				&& err != B_BAD_SCRIPT_SYNTAX)
+				&& reply.FindInt32("error", &error) == B_OK
+				&& error != B_BAD_SCRIPT_SYNTAX)
 				continue;
 
 			BMessenger trackerWindow;
@@ -714,14 +826,14 @@ BackgroundsView::_NotifyServer()
 
 			if (isCustomFolder) {
 				// found a window with poses, ask for its path
-				msg.MakeEmpty();
-				msg.what = B_GET_PROPERTY;
-				msg.AddSpecifier("Path");
-				msg.AddSpecifier("Poses");
-				msg.AddSpecifier("Window", i);
+				message.MakeEmpty();
+				message.what = B_GET_PROPERTY;
+				message.AddSpecifier("Path");
+				message.AddSpecifier("Poses");
+				message.AddSpecifier("Window", i);
 
 				reply.MakeEmpty();
-				tracker.SendMessage(&msg, &reply);
+				tracker.SendMessage(&message, &reply);
 
 				// go on with the next if this din't have a path
 				if (reply.what == B_MESSAGE_NOT_UNDERSTOOD)
@@ -844,9 +956,40 @@ BackgroundsView::_LoadSettings()
 
 
 void
-BackgroundsView::WorkspaceActivated(uint32 oldWorkspaces, bool active)
+BackgroundsView::WorkspaceActivated(uint32 workspace, bool active)
 {
+	rgb_color color = fPicker->ValueAsColor();
+
+	if ((int)workspace == current_workspace()) {		
+		return;
+	} else {
+		_SetControlSettings(workspace);
+	}
+
+	_SetInitialSettings();
 	_UpdateWithCurrent();
+	_UpdatePreview();
+
+	Controls* controls =
+			(Controls*)_GetControlSettings(current_workspace(),false);
+
+	if (controls != NULL) {
+		fPicker->SetValue(controls->fColor);
+		fIconLabelOutline->SetValue(controls->fTextWidgetLabelOutline ?
+			B_CONTROL_ON : B_CONTROL_OFF);
+
+		fImageMenu->ItemAt(controls->fImageIndex)->SetMarked(true);
+		fPlacementMenu->ItemAt(controls->fPlacementIndex)->SetMarked(true);
+		
+		BString xtext, ytext;
+		xtext << (int)controls->fOffsetX;
+		ytext << (int)controls->fOffsetY;
+		fXPlacementText->SetText(xtext);
+		fYPlacementText->SetText(ytext);
+
+		_UpdateButtons();
+		_UpdatePreview();
+	}
 }
 
 
@@ -862,6 +1005,7 @@ BackgroundsView::_UpdatePreview()
 		&& imageEnabled;
 	if (fXPlacementText->IsEnabled() ^ textEnabled)
 		fXPlacementText->SetEnabled(textEnabled);
+
 	if (fYPlacementText->IsEnabled() ^ textEnabled)
 		fYPlacementText->SetEnabled(textEnabled);
 
@@ -917,10 +1061,13 @@ BackgroundsView::_FindPlacementMode()
 
 	if (fPlacementMenu->FindItem(kMsgCenterPlacement)->IsMarked())
 		mode = BackgroundImage::kCentered;
+
 	if (fPlacementMenu->FindItem(kMsgScalePlacement)->IsMarked())
 		mode = BackgroundImage::kScaledToFit;
+
 	if (fPlacementMenu->FindItem(kMsgManualPlacement)->IsMarked())
 		mode = BackgroundImage::kAtOffset;
+
 	if (fPlacementMenu->FindItem(kMsgTilePlacement)->IsMarked())
 		mode = BackgroundImage::kTiled;
 
@@ -931,45 +1078,82 @@ BackgroundsView::_FindPlacementMode()
 void
 BackgroundsView::_UpdateButtons()
 {
-	bool hasChanged = false;
+	Settings* initialSettings =
+			(Settings*)_GetInitialSettings(current_workspace());
+
+	if (initialSettings == NULL)
+		return;
+
+	BackgroundImage* image = initialSettings->fImage;
+	BackgroundImage::BackgroundImageInfo* info = initialSettings->fInfo;
+	rgb_color color = initialSettings->fColor;
+	bool differsFromInitial = false;
+	bool differsFromControls = false;
+
 	if (fPicker->IsEnabled()
 		&& fPicker->ValueAsColor() != BScreen().DesktopColor()) {
-		hasChanged = true;
+		differsFromControls = true;
 	} else if (fCurrentInfo) {
 		if ((fIconLabelOutline->Value() == B_CONTROL_ON)
 			^ fCurrentInfo->fTextWidgetLabelOutline) {
-			hasChanged = true;
+			differsFromControls = true;
 		} else if (_FindPlacementMode() != fCurrentInfo->fMode) {
-			hasChanged = true;
+			differsFromControls = true;
 		} else if (fCurrentInfo->fImageIndex
 			!= ((BGImageMenuItem*)fImageMenu->FindMarked())->ImageIndex()) {
-			hasChanged = true;
-		} else if (fCurrent->IsDesktop()
+			differsFromControls = true;
+		} else if (image->IsDesktop()
 			&& ((fCurrentInfo->fWorkspace != B_ALL_WORKSPACES)
 				^ (fWorkspaceMenu->FindItem(kMsgCurrentWorkspace)->IsMarked())))
 		{
-			hasChanged = true;
+			differsFromControls = true;
 		} else if (fCurrentInfo->fImageIndex > -1
 			&& fCurrentInfo->fMode == BackgroundImage::kAtOffset) {
-			BString oldString, newString;
+			BString oldString;
 			oldString << (int)fCurrentInfo->fOffset.x;
-			if (oldString != BString(fXPlacementText->Text())) {
-				hasChanged = true;
-			}
+			if (oldString != BString(fXPlacementText->Text()))
+				differsFromControls = true;
 			oldString = "";
 			oldString << (int)fCurrentInfo->fOffset.y;
-			if (oldString != BString(fYPlacementText->Text())) {
-				hasChanged = true;
-			}
+			if (oldString != BString(fYPlacementText->Text()))
+				differsFromControls = true;
 		}
-	} else if (fImageMenu->IndexOf(fImageMenu->FindMarked()) > 0) {
-		hasChanged = true;
-	} else if (fIconLabelOutline->Value() == B_CONTROL_OFF) {
-		hasChanged = true;
 	}
 
-	fApply->SetEnabled(hasChanged);
-	fRevert->SetEnabled(hasChanged);
+	if (fPicker->IsEnabled()
+		&& fPicker->ValueAsColor() != color) {
+		differsFromInitial = true;
+	} else if (info) {
+		if ((fIconLabelOutline->Value() == B_CONTROL_ON)
+			^ info->fTextWidgetLabelOutline) {
+			differsFromInitial = true;
+		} else if (_FindPlacementMode() != info->fMode) {
+			differsFromInitial = true;
+		} else if (info->fImageIndex
+			!= ((BGImageMenuItem*)fImageMenu->FindMarked())->ImageIndex()) {
+			differsFromInitial = true;
+		} else if (info->fImageIndex > -1
+			&& info->fMode == BackgroundImage::kAtOffset) {
+			BString oldString;
+			oldString << (int)info->fOffset.x;
+			if (oldString != BString(fXPlacementText->Text())) {
+				differsFromInitial = true;
+			}
+			oldString = "";
+			oldString << (int)info->fOffset.y;
+			if (oldString != BString(fYPlacementText->Text())) {
+				differsFromInitial = true;
+			}
+		}
+	} else if (fImageMenu->IndexOf(fImageMenu->FindMarked())
+			!= info->fImageIndex) {
+		differsFromInitial = true;
+	} else if (fIconLabelOutline->Value() == B_CONTROL_OFF) {
+		differsFromControls = true;
+	}
+
+	fApply->SetEnabled(differsFromControls);
+	fRevert->SetEnabled(differsFromInitial);
 }
 
 
@@ -1642,3 +1826,18 @@ FramePart::_SetSizeAndAlignment()
 	}
 }
 
+
+Settings::Settings()
+	:	
+	fImage(NULL),
+	fInfo(NULL),
+	fColor(rgb_color())
+{
+}
+
+
+Controls::Controls()
+	:
+	fColor(rgb_color())
+{
+}
