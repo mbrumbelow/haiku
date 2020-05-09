@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "449b4029_510ecba8",
+        "filename": "src/apps/serialconnect/SerialWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-09T07:53:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d280b3fa_fb562b4a",
+      "revId": "148158e3b5e0f2439fedc461c941650916e52204",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf27bffd_82945f5e",
         "filename": "src/apps/serialconnect/SerialWindow.cpp",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "148158e3b5e0f2439fedc461c941650916e52204",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cde75fcb_a887c3b4",
+        "filename": "src/apps/serialconnect/SerialWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-09T07:53:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf27bffd_82945f5e",
+      "revId": "148158e3b5e0f2439fedc461c941650916e52204",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "e4906a96_b22a2897",
+        "filename": "src/apps/serialconnect/SerialWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-09T07:53:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9de890f_88aa85bc",
+      "revId": "148158e3b5e0f2439fedc461c941650916e52204",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fd642230_a6b9198a",
         "filename": "src/apps/serialconnect/SerialWindow.cpp",
         "patchSetId": 1
@@ -67,6 +121,24 @@
       "revId": "148158e3b5e0f2439fedc461c941650916e52204",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab5f22be_280c37bc",
+        "filename": "src/apps/serialconnect/SerialWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-09T07:53:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd642230_a6b9198a",
+      "revId": "148158e3b5e0f2439fedc461c941650916e52204",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "cbf09871_89ead79d",
+        "filename": "src/apps/serialconnect/SerialWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-09T07:53:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be6b4a35_d1ad6fc2",
+      "revId": "148158e3b5e0f2439fedc461c941650916e52204",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5cae942d_51dc6673",
         "filename": "src/apps/serialconnect/SerialWindow.cpp",
         "patchSetId": 1
@@ -101,6 +191,24 @@
       "revId": "148158e3b5e0f2439fedc461c941650916e52204",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76721ec7_76822452",
+        "filename": "src/apps/serialconnect/SerialWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-09T07:53:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5cae942d_51dc6673",
+      "revId": "148158e3b5e0f2439fedc461c941650916e52204",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
