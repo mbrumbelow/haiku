@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6e3241d3_bfb7f33f",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2020-05-09T15:58:11Z",
+      "side": 1,
+      "message": "Yes that would be good to fix.",
+      "parentUuid": "971d4dab_ccba6a67",
+      "revId": "30b1fbd3103c14edd8451ece06d1552233a2d417",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a2aeb098_b2dc704e",
         "filename": "src/kits/interface/Window.cpp",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2020-05-08T12:10:33Z",
       "side": 1,
       "message": "Can\u0027t the logic be moved into the existing PrepareModifiers() method instead?",
+      "revId": "30b1fbd3103c14edd8451ece06d1552233a2d417",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e6fe3f3_ee21d892",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2020-05-09T15:58:11Z",
+      "side": 1,
+      "message": "I don\u0027t think it can because of how B_NO_MODIFIERS changes the behavior. This else can also be removed.",
+      "parentUuid": "a2aeb098_b2dc704e",
       "revId": "30b1fbd3103c14edd8451ece06d1552233a2d417",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "3dbb0017_3b519a88",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3717,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2020-05-09T15:58:11Z",
+      "side": 1,
+      "message": "No, I don\u0027t think so. These still use CMD so the B_NO_MODIFIERS would not matter here. I don\u0027t know why BWindow is handling this. Obviously this has been here in the code for a long time.",
+      "parentUuid": "cf615acc_0c83c31d",
+      "revId": "30b1fbd3103c14edd8451ece06d1552233a2d417",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8d773861_c1c4edb9",
         "filename": "src/kits/interface/Window.cpp",
         "patchSetId": 1
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "38fcd35b_3bde5388",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3775,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2020-05-09T15:58:11Z",
+      "side": 1,
+      "message": "Because of how the logic was re-arranged it should be maintaining the same behavior.",
+      "parentUuid": "8d773861_c1c4edb9",
+      "revId": "30b1fbd3103c14edd8451ece06d1552233a2d417",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b193b443_24af322c",
         "filename": "src/kits/interface/Window.cpp",
         "patchSetId": 1
@@ -81,6 +153,24 @@
       "writtenOn": "2020-05-08T12:10:33Z",
       "side": 1,
       "message": "Shouldn\u0027t this sanitize the modifiers using PrepareModifier() as well? Or what is the purpose of that method?",
+      "revId": "30b1fbd3103c14edd8451ece06d1552233a2d417",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd42b123_7a3d31b0",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3891,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2020-05-09T15:58:11Z",
+      "side": 1,
+      "message": "This method was mainly added to reduce some code duplication, but I see your point. PrepareModifiers is part of the Shortcut class and is called by the constructor so the shortcut passed here has already been \"prepared\", but probably these modifiers should also be masked/cleaned-up. It depends on what RemoveShortcut does. Probably the key and modifiers are not even needed in this method\u0027s parameters since they are already in the shortcut.\n\nGood catch.",
+      "parentUuid": "b193b443_24af322c",
       "revId": "30b1fbd3103c14edd8451ece06d1552233a2d417",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
