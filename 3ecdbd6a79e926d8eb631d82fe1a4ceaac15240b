@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "6fc87100_4585ddd0",
+        "filename": "src/apps/aboutsystem/Credits.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-10T17:16:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46c18100_ec56e83f",
+      "revId": "3ecdbd6a79e926d8eb631d82fe1a4ceaac15240b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a21a4a3b_3a2bb5ff",
         "filename": "src/apps/aboutsystem/Credits.h",
         "patchSetId": 1
