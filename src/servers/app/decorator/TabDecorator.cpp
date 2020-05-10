@@ -459,7 +459,9 @@ TabDecorator::_DistributeTabSize(float delta)
 		previousTab = tab;
 	}
 
-	if (delta > 0) {
+	// Contine as long as there is at least 1px difference between the widest
+	// and shortest tabs
+	if (delta >= 1.0f) {
 		_DistributeTabSize(delta);
 		return;
 	}
