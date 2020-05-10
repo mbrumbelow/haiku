@@ -16,6 +16,24 @@
       "revId": "1fdf02794d5ecb5d8296210ed98875e23d288fc9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f91e7fe0_bbb29cf1",
+        "filename": "src/kits/network/libnetapi/FtpConnection.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2020-05-10T21:05:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abdd5912_7ecf4640",
+      "revId": "1fdf02794d5ecb5d8296210ed98875e23d288fc9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }

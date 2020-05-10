@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2ba83c85_b124ccae",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2020-05-10T21:05:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d730ab1_c4e1856a",
+      "revId": "7a016aba5d04acca55ebcb205ae93a46554c6ba3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02c12d0d_04f911aa",
         "filename": "src/kits/network/libnetapi/FtpConnection.cpp",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "7a016aba5d04acca55ebcb205ae93a46554c6ba3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b1e243f_84eaea70",
+        "filename": "src/kits/network/libnetapi/FtpConnection.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2020-05-10T21:05:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02c12d0d_04f911aa",
+      "revId": "7a016aba5d04acca55ebcb205ae93a46554c6ba3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
