@@ -31,24 +31,30 @@ static const Translation kTranslations[] = {
 		"Michael Bulash\n"
 		"Siaržuk Žarski\n"
 	},
+#if 0
 	{ "bg",
 		"Ognyan Valeri Angelov\n"
 		"Росен Арабаджиев\n"
 		"cssvb94\n"
 		"naydef\n"
 	},
+#endif
 	{ "ca",
 		"Paco Rivière\n"
+		"jare\n"
 	},
 	{ "zh",
 		"Dong Guangyu\n"
 		"Pengfei Han (kurain)\n"
 		"Don Liu\n"
 		"adcros\n"
+		"blumia\n"
 		"cirno\n"
 		"dgy18787\n"
 		"hlwork\n"
+		"raphino\n"
 	},
+#if 0
 	{ "hr",
 		"Ivica Koli\n"
 		"Zlatko Sehanović\n"
@@ -63,11 +69,13 @@ static const Translation kTranslations[] = {
 		"Matěj Kocián\n"
 		"zafan\n"
 	},
+#endif
 	{ "da",
 		"KapiX\n"
 		"Brian Matzon\n"
 		"Kristian Poul Herkild\n"
 		"sylvester\n"
+		"scootergrisen\n"
 	},
 	{ "nl",
 		"Floris Kint\n" // FKint
@@ -78,31 +86,37 @@ static const Translation kTranslations[] = {
 		"lolacio\n"
 		"madhusudansrg4\n"
 		"michiel\n"
+		"noaccount\n"
 		"Sintendo\n"
 		"Tagliano\n"
 		// "taos\n" bugfixes only, no actual translations
 		"wrench123456789\n"
+		"Begasus\n"
+		"mauritslamers\n"
 	},
+#if 0
 	{ "en_ca",
 		"Edwin Amsler\n"
 		"infamy\n"
 		"Simon South\n"
 	},
+#endif
 	{ "en_gb",
 		"Harsh Vardhan\n"
 		"Humdinger\n"
 		"Jessica_Lily\n"
 		"Richie Nyhus\n"
 	},
+#if 0
 	{ "eo",
 		"Travis D. Reed (Dancxjo)\n"
 		"kojoto\n"
 	},
+#endif
 	{ "fi",
 		"Jorma Karvonen (Karvjorm)\n"
 		"Jaakko Leikas (Garjala)\n"
 		"Tommi Nieminen (SuperOscar)\n"
-		"Niels Sascha Reedijk\n"
 		"Slavi Stefanov Sotirov\n"
 		"nortti\n"
 	},
@@ -123,6 +137,9 @@ static const Translation kTranslations[] = {
 		"roptat\n"
 		"Starchaser\n"
 		"Wabouz\n"
+		"JozanLeClerc\n"
+		"Krevar\n"
+		"sunazerty\n"
 	},
 	{ "fur",
 		"Fabio Tomat\n"
@@ -140,16 +157,24 @@ static const Translation kTranslations[] = {
 		"Ivaylo Tsenkov\n"
 		"svend\n"
 		"taos\n"
+		"FabianR\n"
+		"HonkXL\n"
 	},
 	{ "el",
 		"Γιάννης Κωνσταντινίδης [Giannis Konstantinidis] (giannisk)\n"
 		"Βαγγέλης Μαμαλάκης [Vaggelis Mamalakis]\n"
 		"Άλεξ-Π. Νάτσιος [Alex-P. Natsios] (Drakevr)\n"
+		"Panagiotis Vasilopoulos\n"
 		"Efstathios Iosifidis\n"
 		"Jim Spentzos\n"
 		"JamesSP472\n"
 		"vasper\n"
+		"blu.256\n"
+		"giannisk\n"
+		"greekboy\n"
+		"hxze\n"
 	},
+#if 0
 	{ "hi",
 		"Abhishek Arora\n"
 		"Dhruwat Bhagat\n"
@@ -158,6 +183,7 @@ static const Translation kTranslations[] = {
 		"Harsh Vardhan\n"
 		"unitedroad\n"
 	},
+#endif
 	{ "hu",
 		"Zsolt Bicskei\n"
 		"Róbert Dancsó (dsjonny)\n"
@@ -166,13 +192,17 @@ static const Translation kTranslations[] = {
 		"Bence Nagy\n"
 		// "Reznikov Sergei (Diver)\n" bugfixes only
 		"Zoltán Szabó (Bird)\n"
+		"Zoltán Szatmáry\n"
+		"johnny_b\n"
 	},
 	{ "id",
 		"Raefal Dhia\n"
 		"Henry Guzman\n"
 		"iyank4\n"
 		"mazbrili\n"
-		"nurasto\n"
+		"Dityo Nurasto\n"
+		"Bre.haviours\n"
+		"muriirum\n"
 	},
 	{ "it",
 		"Andrea Bernardi\n"
@@ -186,9 +216,14 @@ static const Translation kTranslations[] = {
 		"Daniele Tosti\n"
 		"davide.orsi\n"
 		"fabiusp98\n"
-		"TheClue\n"
+		"Gabriele Baldassarre\n"
 		"TropinotoHirto\n"
 		"valzant\n"
+		"Fabio Tomat\n"
+		"JackBurton\n"
+		"Pavlo Bvrda\n"
+		"errata_corrige\n"
+		"pharaone\n"
 	},
 	{ "ja",
 		"Satoshi Eguchi\n"
@@ -204,9 +239,11 @@ static const Translation kTranslations[] = {
 		"Hiromu Yakura\n"
 		"The JPBE.net user group\n"
 	},
+#if 0
 	{ "ko",
 		"soul.lee\n"
 	},
+#endif
 	{ "lt",
 		"Algirdas Buckus\n"
 		"Simonas Kazlauskas\n" //nagisa
@@ -216,7 +253,6 @@ static const Translation kTranslations[] = {
 	{ "fa",
 		"Mehran Rahbardar\n"
 	},
-#endif
 	{ "mi",
 		"Rob Judd\n"
 	},
@@ -224,6 +260,7 @@ static const Translation kTranslations[] = {
 		"Klapaucius\n"
 		"petterhj\n"
 	},
+#endif
 	{ "pl",
 		"Dariusz Knociński\n"
 		"Szymon Barczak\n"
@@ -238,6 +275,9 @@ static const Translation kTranslations[] = {
 		"rausman\n"
 		"stasinek\n"
 		"zzzzzzzzz\n"
+		"arckat\n"
+		"nawordar\n"
+		"wielb\n"
 	},
 	{ "pt",
 		"Marcos Alves (Xeon3D)\n"
@@ -247,6 +287,8 @@ static const Translation kTranslations[] = {
 		"Louis de M.\n"
 		"pedrothegameroficialtm\n"
 		"zeru\n"
+		"Ricardo Simões\n"
+		"jcfb\n"
 		// "taos\n" bugfixes only, no actual translations
 	},
 	{ "pt_BR",
@@ -293,16 +335,22 @@ static const Translation kTranslations[] = {
 		"Snowfire\n"
 		"solarcold\n"
 		"i-Demon-i\n"
+		"Iah\n"
+		"Luka Andjelkovic\n"
+		"Roskin\n"
+		"TK-313\n"
+		"iimetra\n"
+		"sikmir\n"
 		// "taos\n" bugfixes only, no actual translations
 	},
 	{ "sk",
 		"Bachoru\n"
 		"Ivan Masár\n"
 	},
+#if 0
 	{ "sl",
 		"Matej Horvat\n"
 	},
-#if 0
 	{ "sr",
 		"Luka Andjelkovic\n"
 		"Nikola Miljkovic\n"
@@ -337,6 +385,17 @@ static const Translation kTranslations[] = {
 		"ruilovacastillo\n"
 		"valzant\n"
 		"zerabat\n"
+		"Calebin\n"
+		"Jose64141\n"
+		"cafeina\n"
+		"dhijazo\n"
+		"jma_sp\n"
+		"jonatanpc8\n"
+		"mikelcaz\n"
+		"quique\n"
+		"snunezcr\n"
+		"xgrimator\n"
+		"zeroxp\n"
 		// "taos\n" bugfixes only, no actual translations
 	},
 	{ "sv",
@@ -348,6 +407,10 @@ static const Translation kTranslations[] = {
 		"Jonas Sundström\n"
 		"Anders Trobäck\n"
 		"Victor Widell\n"
+		"Forza\n"
+	},
+	{ "th",
+		"Sompon Chanrit\n"
 	},
 	{ "tr",
 		"Hüseyin Aksu\n"
@@ -365,6 +428,8 @@ static const Translation kTranslations[] = {
 		"Kardanadam\n"
 		"ocingiler\n"
 		"yakup\n"
+		"bitigchi\n"
+		"ctasan\n"
 	},
 	{ "uk",
 		"Pavlo Bvrda\n"
@@ -374,6 +439,8 @@ static const Translation kTranslations[] = {
 		"Oleg Varunok\n"
 		"axeller\n"
 		"neiron13\n"
+		"Iah\n"
+		"mayk77\n"
 	},
 };
 
