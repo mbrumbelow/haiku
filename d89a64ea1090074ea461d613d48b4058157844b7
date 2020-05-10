@@ -1,0 +1,225 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fd8c86a8_a7f98a3d",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Volume.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-10T12:12:48Z",
+      "side": 1,
+      "message": "this is not the right way to enable traces.\n\nTo enable the traces, uncomment the #define TRACE_UFS2 and leave the TRACE macro in this #else doing nothing.",
+      "revId": "d89a64ea1090074ea461d613d48b4058157844b7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71cf0c9d_e1225293",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-10T12:12:48Z",
+      "side": 1,
+      "message": "indentation of define is incorrect",
+      "revId": "d89a64ea1090074ea461d613d48b4058157844b7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c58286a_97bc5eed",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/ufs2.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-10T12:12:48Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "d89a64ea1090074ea461d613d48b4058157844b7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5025d0b6_1089d622",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/ufs2.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-10T12:12:48Z",
+      "side": 1,
+      "message": "mixed tabs/spaces",
+      "revId": "d89a64ea1090074ea461d613d48b4058157844b7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3ad1e4a_48be622e",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/ufs2.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-10T12:12:48Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "d89a64ea1090074ea461d613d48b4058157844b7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69645a4e_54b7f39c",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/ufs2.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-10T12:12:48Z",
+      "side": 1,
+      "message": "why not use the standard struct timeval?",
+      "revId": "d89a64ea1090074ea461d613d48b4058157844b7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1624acd1_08c3e7c4",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/ufs2.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-10T12:12:48Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "d89a64ea1090074ea461d613d48b4058157844b7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44a94cdd_faeaa94c",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/ufs2.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-10T12:12:48Z",
+      "side": 1,
+      "message": "missing spaces before { and after }",
+      "revId": "d89a64ea1090074ea461d613d48b4058157844b7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e761b6c_113b7677",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/ufs2.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-10T12:12:48Z",
+      "side": 1,
+      "message": "missing space before { and after }",
+      "revId": "d89a64ea1090074ea461d613d48b4058157844b7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f49df04_381876aa",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/ufs2.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-10T12:12:48Z",
+      "side": 1,
+      "message": "missing space before {",
+      "revId": "d89a64ea1090074ea461d613d48b4058157844b7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2208edb3_bd320e74",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/ufs2.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-10T12:12:48Z",
+      "side": 1,
+      "message": "missing space after }",
+      "revId": "d89a64ea1090074ea461d613d48b4058157844b7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e88b02b_3ae46bd9",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/ufs2.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-10T12:12:48Z",
+      "side": 1,
+      "message": "missing space before {",
+      "revId": "d89a64ea1090074ea461d613d48b4058157844b7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ab064df_0e4f702b",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/ufs2.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-10T12:12:48Z",
+      "side": 1,
+      "message": "missing space after }",
+      "revId": "d89a64ea1090074ea461d613d48b4058157844b7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
