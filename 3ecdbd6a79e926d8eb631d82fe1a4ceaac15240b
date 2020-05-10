@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cddfba1e_14988e7f",
+        "filename": "src/apps/aboutsystem/Credits.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-10T17:12:51Z",
+      "side": 1,
+      "message": "the Greek teem had decided to have their names in greek with transliteration in brackets, I think we should keep doing that for everyone",
+      "revId": "3ecdbd6a79e926d8eb631d82fe1a4ceaac15240b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1dd98da9_9842dcb0",
+        "filename": "src/apps/aboutsystem/Credits.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-10T17:12:51Z",
+      "side": 1,
+      "message": "giannis is already listed with his real name",
+      "revId": "3ecdbd6a79e926d8eb631d82fe1a4ceaac15240b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46c18100_ec56e83f",
+        "filename": "src/apps/aboutsystem/Credits.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-10T17:12:51Z",
+      "side": 1,
+      "message": "TheClue is Gabriele Baldassarre so this can be removed",
+      "revId": "3ecdbd6a79e926d8eb631d82fe1a4ceaac15240b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a21a4a3b_3a2bb5ff",
+        "filename": "src/apps/aboutsystem/Credits.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-10T17:12:51Z",
+      "side": 1,
+      "message": "Already listed with his real name Emir Sarı",
+      "revId": "3ecdbd6a79e926d8eb631d82fe1a4ceaac15240b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
