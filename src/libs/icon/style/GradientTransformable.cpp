@@ -523,7 +523,7 @@ Gradient::FitToBounds(const BRect& bounds)
 	parl[3] = bounds.top;
 	parl[4] = bounds.right;
 	parl[5] = bounds.bottom;
-	agg::trans_affine transform(-200.0, -200.0, 200.0, 200.0, parl);
+	agg::trans_affine transform(parl, 0, 0, 1, 1);
 	multiply(transform);
 }
 
@@ -601,6 +601,8 @@ Gradient::PrintToStream() const
 			   step->color.blue,
 			   step->color.alpha);
 	}
+
+	Transformable::PrintToStream();
 }
 
 // _MakeEmpty
