@@ -275,6 +275,20 @@ TabletProtocolHandler::_ReadReport(void *buffer, uint32 *cookie)
 			buttons |= (button->Data() & 1) << (button->UsageID() - 1);
 	}
 
+	uint32 tip = 0;
+	if (fTip != NULL && fTip->Extract() == B_OK
+		&& fTip->Valid()) {
+		tip = ((fTip->Data() & 1) !=0);
+	}
+
+	uint32 barrel = 0;
+	if (fBarrelSwitch != NULL && fBarrelSwitch->Extract() == B_OK
+		&& fBarrelSwitch->Valid()) {
+		barrel = ((fBarrelSwitch->Data() & 1) !=0);
+	}
+
+	buttons = buttons | tip | (barrel<<1);
+
 	float pressure = 1.0f;
 	if (fPressure != NULL && fPressure->Extract() == B_OK
 		&& fPressure->Valid()) {
