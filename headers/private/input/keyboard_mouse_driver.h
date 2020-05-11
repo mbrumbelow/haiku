@@ -100,12 +100,12 @@ typedef struct {
 
 typedef struct {
 	uint32		buttons;
+	uint32		switches;
 	float		xpos;
 	float		ypos;
 	bool		has_contact;
 	float		pressure;
 	int32		clicks;
-	bool		eraser;
 	bigtime_t	timestamp;
 	int32		wheel_ydelta;
 	int32		wheel_xdelta;
