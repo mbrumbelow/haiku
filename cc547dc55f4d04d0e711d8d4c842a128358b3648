@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b69d2a0f_6b39e572",
+        "filename": "src/add-ons/kernel/drivers/input/usb_hid/TabletProtocolHandler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-05-11T22:15:50Z",
+      "side": 1,
+      "message": "This assigns a boolean to a uint32. Style wise there would need to be a space before the 0 and in this case the parenthesis are unneeded.",
+      "revId": "cc547dc55f4d04d0e711d8d4c842a128358b3648",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e2eb5c1_88a6b275",
+        "filename": "src/add-ons/kernel/drivers/input/usb_hid/TabletProtocolHandler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-05-11T22:15:50Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "cc547dc55f4d04d0e711d8d4c842a128358b3648",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0285270_a34b3016",
+        "filename": "src/add-ons/kernel/drivers/input/usb_hid/TabletProtocolHandler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-05-11T22:15:50Z",
+      "side": 1,
+      "message": "Instead of filling two extra uint32 temporaries, this could be simplified to oring the values directly to the buttons in the above two cases:\n\n...\nbuttons |\u003d fTip-\u003eData() \u0026 1;\n...\nbuttons |\u003d (fBarrelSwitch-\u003eData() \u0026 1) \u003c\u003c 1;\n...",
+      "revId": "cc547dc55f4d04d0e711d8d4c842a128358b3648",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
