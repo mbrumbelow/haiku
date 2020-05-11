@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c3cac4c2_78ab1cd3",
+        "filename": "src/kits/network/libnetapi/FtpConnection.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-11T11:42:03Z",
+      "side": 1,
+      "message": "indent by just one tab more than the previous line",
+      "revId": "289c82d428c4d462ca5ddfb2e66559a453579481",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cbfa6f58_66a5a3dd",
+        "filename": "src/kits/network/libnetapi/FtpConnection.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-11T11:42:03Z",
+      "side": 1,
+      "message": "this if now need braces because there are multiple lines in it (as per our coding guidelines)",
+      "revId": "289c82d428c4d462ca5ddfb2e66559a453579481",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d373643_8d515089",
+        "filename": "src/kits/network/libnetapi/FtpConnection.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-11T11:42:03Z",
+      "side": 1,
+      "message": "indent by just one tab more than the above line instead of aligning with the (, as specified in our coding guidelines.",
+      "revId": "289c82d428c4d462ca5ddfb2e66559a453579481",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
