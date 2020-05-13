@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7010c5fa_a41de1c4",
+        "filename": "src/preferences/backgrounds/BackgroundsView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-05-13T18:39:55Z",
+      "side": 1,
+      "message": "No need to cast?",
+      "revId": "e97b4b0ebd4fbc0dbbc2d07723607728f72d3044",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd27ec96_b8c44f3f",
+        "filename": "src/preferences/backgrounds/BackgroundsView.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-05-13T18:39:55Z",
+      "side": 1,
+      "message": "Any reason to have pointers here?",
+      "revId": "e97b4b0ebd4fbc0dbbc2d07723607728f72d3044",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
