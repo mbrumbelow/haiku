@@ -509,6 +509,8 @@ Decorator::IsFocus(Decorator::Tab* tab) const
 const BRegion&
 Decorator::GetFootprint()
 {
+	static BLocker locker;
+	BAutolock lock(locker);
 	if (!fFootprintValid) {
 		_GetFootprint(&fFootprint);
 		fFootprintValid = true;
