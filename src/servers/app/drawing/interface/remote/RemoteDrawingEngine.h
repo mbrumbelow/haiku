@@ -13,6 +13,8 @@
 #include "RemoteHWInterface.h"
 #include "ServerFont.h"
 
+#include <AutoDeleter.h>
+
 class BPoint;
 class BRect;
 class BRegion;
@@ -174,7 +176,7 @@ private:
 			float				fStringWidthResult;
 			BBitmap*			fReadBitmapResult;
 
-			BitmapDrawingEngine*
+			ObjectDeleter<BitmapDrawingEngine>
 								fBitmapDrawingEngine;
 };
 
