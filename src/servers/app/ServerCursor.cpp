@@ -49,6 +49,7 @@ ServerCursor::ServerCursor(BRect r, color_space format, int32 flags,
 	fCursorData(NULL),
 	fManager(NULL)
 {
+	printf("+ServerCursor(%p)\n", this);
 	fHotSpot.ConstrainTo(Bounds());
 	AllocateBuffer();
 }
@@ -66,6 +67,7 @@ ServerCursor::ServerCursor(const uint8* data)
 	fCursorData(NULL),
 	fManager(NULL)
 {
+	printf("+ServerCursor(%p)\n", this);
 	// 68-byte array used in BeOS for holding cursors.
 	// This API has serious problems and should be deprecated (but supported)
 	// in R2
@@ -133,6 +135,7 @@ ServerCursor::ServerCursor(const uint8* alreadyPaddedData, uint32 width,
 	fCursorData(NULL),
 	fManager(NULL)
 {
+	printf("+ServerCursor(%p)\n", this);
 	AllocateBuffer();
 	if (Bits())
 		memcpy(Bits(), alreadyPaddedData, BitsLength());
@@ -150,6 +153,7 @@ ServerCursor::ServerCursor(const ServerCursor* cursor)
 	fCursorData(NULL),
 	fManager(NULL)
 {
+	printf("+ServerCursor(%p)\n", this);
 	// TODO: Hm. I don't move this into the if clause,
 	// because it might break code elsewhere.
 	AllocateBuffer();
@@ -170,6 +174,7 @@ ServerCursor::ServerCursor(const ServerCursor* cursor)
 //!	Frees the heap space allocated for the cursor's image data
 ServerCursor::~ServerCursor()
 {
+	printf("-ServerCursor(%p)\n", this);
 	delete[] fCursorData;
 }
 
@@ -195,7 +200,7 @@ ServerCursor::AttachedToManager(CursorManager* manager)
 void
 ServerCursor::LastReferenceReleased()
 {
-	if (fManager != NULL && fManager->RemoveCursor(this))
+	if (fManager == NULL || fManager->RemoveCursor(this))
 		delete this;
 }
 

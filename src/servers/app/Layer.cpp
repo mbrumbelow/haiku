@@ -23,8 +23,7 @@ public:
 		fDrawingEngine(drawingEngine),
 		fBitmapBounds(bitmapBounds)
 	{
-		delete fDrawState;
-		fDrawState = drawState;
+		fDrawState.SetTo(drawState);
 	}
 
 	virtual DrawingEngine* GetDrawingEngine() const
@@ -43,7 +42,7 @@ public:
 
 	virtual void ResyncDrawState()
 	{
-		fDrawingEngine->SetDrawState(fDrawState);
+		fDrawingEngine->SetDrawState(fDrawState.Get());
 	}
 
 	virtual void UpdateCurrentDrawingRegion()
@@ -104,10 +103,7 @@ Layer::PushLayer(Layer* layer)
 Layer*
 Layer::PopLayer()
 {
-	Layer* const previousLayer = static_cast<Layer*>(PopPicture());
-	if (previousLayer != NULL)
-		previousLayer->ReleaseReference();
-	return previousLayer;
+	return static_cast<Layer*>(PopPicture());
 }
 
 
@@ -120,16 +116,15 @@ Layer::RenderToBitmap(Canvas* canvas)
 
 	fLeftTopOffset = boundingBox.LeftTop();
 
-	UtilityBitmap* const layerBitmap = _AllocateBitmap(boundingBox);
+	BReference<UtilityBitmap> layerBitmap(_AllocateBitmap(boundingBox), true);
 	if (layerBitmap == NULL)
 		return NULL;
 
 	BitmapHWInterface layerInterface(layerBitmap);
-	DrawingEngine* const layerEngine = layerInterface.CreateDrawingEngine();
-	if (layerEngine == NULL) {
-		layerBitmap->ReleaseReference();
+	ObjectDeleter<DrawingEngine> const layerEngine(layerInterface.CreateDrawingEngine());
+	if (layerEngine.Get() == NULL)
 		return NULL;
-	}
+
 	layerEngine->SetRendererOffset(boundingBox.left, boundingBox.top);
 		// Drawing commands of the layer's picture use coordinates in the
 		// coordinate space of the underlying canvas. The coordinate origin
@@ -141,7 +136,7 @@ Layer::RenderToBitmap(Canvas* canvas)
 		// Painter), to prevent this origin from being further transformed by
 		// e.g. scaling.
 
-	LayerCanvas layerCanvas(layerEngine, canvas->CurrentState(), boundingBox);
+	LayerCanvas layerCanvas(layerEngine.Get(), canvas->CurrentState(), boundingBox);
 
 	AlphaMask* const mask = layerCanvas.GetAlphaMask();
 	IntPoint oldOffset;
@@ -179,9 +174,7 @@ Layer::RenderToBitmap(Canvas* canvas)
 		// state instance now, if the picture commands contained push/pop
 		// commands)
 
-	delete layerEngine;
-
-	return layerBitmap;
+	return layerBitmap.Detach();
 }
 
 
