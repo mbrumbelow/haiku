@@ -33,7 +33,8 @@ Volume::IsValidSuperBlock()
 
 
 Volume::Volume(fs_volume *volume)
-	: fFSVolume(volume)
+	: fFSVolume(volume),
+	fRootNode(NULL)
 {
 	fFlags = 0;
 	mutex_init(&fLock, "ufs2 volume");
@@ -97,6 +98,12 @@ Volume::Mount(const char *deviceName, uint32 flags)
 	}
 
 	TRACE("Valid super block\n");
+
+	status = get_vnode(fFSVolume, 2, (void**) &fRootNode);
+	if (status != B_OK) {
+		ERROR("could not create root node: get_vnode() failed! %d\n",status);
+		return status;
+	}
 
 	opener.Keep();
 	return B_OK;
