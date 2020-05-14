@@ -412,7 +412,7 @@ Desktop::Desktop(uid_t userID, const char* targetScreen)
 	MessageLooper("desktop"),
 
 	fUserID(userID),
-	fTargetScreen(strdup(targetScreen)),
+	fTargetScreen(targetScreen),
 	fSettings(NULL),
 	fSharedReadOnlyArea(-1),
 	fApplicationsLock("application list"),
@@ -465,13 +465,9 @@ Desktop::Desktop(uid_t userID, const char* targetScreen)
 
 Desktop::~Desktop()
 {
-	delete fSettings;
-
 	delete_area(fSharedReadOnlyArea);
 	delete_port(fMessagePort);
 	gFontManager->DetachUser(fUserID);
-
-	free(fTargetScreen);
 }
 
 
@@ -504,7 +500,7 @@ Desktop::Init()
 
 	gFontManager->AttachUser(fUserID);
 
-	fSettings = new DesktopSettingsPrivate(fServerReadOnlyMemory);
+	fSettings.SetTo(new DesktopSettingsPrivate(fServerReadOnlyMemory));
 
 	for (int32 i = 0; i < kMaxWorkspaces; i++) {
 		_Windows(i).SetIndex(i);
@@ -2482,7 +2478,7 @@ void
 Desktop::_GetLooperName(char* name, size_t length)
 {
 	snprintf(name, length, "d:%d:%s", fUserID,
-		fTargetScreen == NULL ? "baron" : fTargetScreen);
+		fTargetScreen == NULL ? "baron" : fTargetScreen.String());
 }
 
 
@@ -2542,10 +2538,10 @@ Desktop::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 			if (link.ReadString(&appSignature) != B_OK)
 				break;
 
-			ServerApp* app = new (std::nothrow) ServerApp(this, clientReplyPort,
-				clientLooperPort, clientTeamID, htoken, appSignature);
+			ObjectDeleter<ServerApp> app(new (std::nothrow) ServerApp(this, clientReplyPort,
+				clientLooperPort, clientTeamID, htoken, appSignature));
 			status_t status = B_OK;
-			if (app == NULL)
+			if (app.Get() == NULL)
 				status = B_NO_MEMORY;
 			if (status == B_OK)
 				status = app->InitCheck();
@@ -2554,11 +2550,9 @@ Desktop::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 			if (status == B_OK) {
 				// add the new ServerApp to the known list of ServerApps
 				fApplicationsLock.Lock();
-				fApplications.AddItem(app);
+				fApplications.AddItem(app.Detach());
 				fApplicationsLock.Unlock();
 			} else {
-				delete app;
-
 				// if everything went well, ServerApp::Run() will notify
 				// the client - but since it didn't, we do it here
 				BPrivate::LinkSender reply(clientReplyPort);
@@ -3754,13 +3748,11 @@ Desktop::_SetWorkspace(int32 index, bool moveFocusWindow)
 		} else {
 			// We need to remember the previous visible region of the
 			// window if they changed their order
-			BRegion* region = new (std::nothrow)
-				BRegion(window->VisibleRegion());
-			if (region != NULL) {
-				if (previousRegions.AddItem(region))
+			ObjectDeleter<BRegion> region(new (std::nothrow)
+				BRegion(window->VisibleRegion()));
+			if (region.Get() != NULL) {
+				if (previousRegions.AddItem(region.Detach()))
 					windows.AddWindow(window);
-				else
-					delete region;
 			}
 		}
 	}
