@@ -16,6 +16,24 @@
       "revId": "2e200539b994012aa096c9271dc90eb61cb3e3c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "faf95cf2_0df829d0",
+        "filename": "src/apps/text_search/GrepWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2020-05-14T16:18:14Z",
+      "side": 1,
+      "message": "I\u0027m not sure. I used B_TRANSLATE_SYSTEM_NAME in the first place, because otherwise Tracker etc. wouldn\u0027t show the translated app name AFAIK.\n\nThere\u0027s also precendence of doing this in activity monitor, deskcalk and web+.",
+      "parentUuid": "0ca9e965_3a5a77e3",
+      "revId": "2e200539b994012aa096c9271dc90eb61cb3e3c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
