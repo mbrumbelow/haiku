@@ -23,8 +23,7 @@ public:
 		fDrawingEngine(drawingEngine),
 		fBitmapBounds(bitmapBounds)
 	{
-		delete fDrawState;
-		fDrawState = drawState;
+		fDrawState.SetTo(drawState);
 	}
 
 	virtual DrawingEngine* GetDrawingEngine() const
@@ -43,7 +42,7 @@ public:
 
 	virtual void ResyncDrawState()
 	{
-		fDrawingEngine->SetDrawState(fDrawState);
+		fDrawingEngine->SetDrawState(fDrawState.Get());
 	}
 
 	virtual void UpdateCurrentDrawingRegion()

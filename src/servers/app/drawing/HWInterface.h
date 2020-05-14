@@ -9,6 +9,7 @@
 #define HW_INTERFACE_H
 
 
+#include <AutoDeleter.h>
 #include <Accelerant.h>
 #include <GraphicsCard.h>
 #include <List.h>
@@ -250,7 +251,8 @@ protected:
 				bool			cursor_hidden;
 			};
 
-			buffer_clip*		fCursorAreaBackup;
+			ObjectDeleter<buffer_clip>
+								fCursorAreaBackup;
 	mutable	BLocker				fFloatingOverlaysLock;
 
 			ServerCursor*		fCursor;
@@ -268,7 +270,8 @@ protected:
 			int					fVGADevice;
 
 private:
-			UpdateQueue*		fUpdateExecutor;
+			ObjectDeleter<UpdateQueue>
+								fUpdateExecutor;
 
 			BList				fListeners;
 };

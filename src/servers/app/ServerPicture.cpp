@@ -915,9 +915,9 @@ ServerPicture::ServerPicture()
 	fOwner(NULL)
 {
 	fToken = gTokenSpace.NewToken(kPictureToken, this);
-	fData = new(std::nothrow) BMallocIO();
+	fData.SetTo(new(std::nothrow) BMallocIO());
 
-	PictureDataWriter::SetTo(fData);
+	PictureDataWriter::SetTo(fData.Get());
 }
 
 
@@ -935,7 +935,7 @@ ServerPicture::ServerPicture(const ServerPicture& picture)
 	if (mallocIO == NULL)
 		return;
 
-	fData = mallocIO;
+	fData.SetTo(mallocIO);
 
 	const off_t size = picture.DataLength();
 	if (mallocIO->SetSize(size) < B_OK)
@@ -944,7 +944,7 @@ ServerPicture::ServerPicture(const ServerPicture& picture)
 	picture.fData->ReadAt(0, const_cast<void*>(mallocIO->Buffer()),
 		size);
 
-	PictureDataWriter::SetTo(fData);
+	PictureDataWriter::SetTo(fData.Get());
 }
 
 
@@ -958,20 +958,20 @@ ServerPicture::ServerPicture(const char* fileName, int32 offset)
 {
 	fToken = gTokenSpace.NewToken(kPictureToken, this);
 
-	fFile = new(std::nothrow) BFile(fileName, B_READ_WRITE);
-	if (fFile == NULL)
+	fFile.SetTo(new(std::nothrow) BFile(fileName, B_READ_WRITE));
+	if (fFile.Get() == NULL)
 		return;
 
 	BPrivate::Storage::OffsetFile* offsetFile
-		= new(std::nothrow) BPrivate::Storage::OffsetFile(fFile, offset);
+		= new(std::nothrow) BPrivate::Storage::OffsetFile(fFile.Get(), offset);
 	if (offsetFile == NULL || offsetFile->InitCheck() != B_OK) {
 		delete offsetFile;
 		return;
 	}
 
-	fData = offsetFile;
+	fData.SetTo(offsetFile);
 
-	PictureDataWriter::SetTo(fData);
+	PictureDataWriter::SetTo(fData.Get());
 }
 
 
@@ -979,8 +979,6 @@ ServerPicture::~ServerPicture()
 {
 	ASSERT(fOwner == NULL);
 
-	delete fData;
-	delete fFile;
 	gTokenSpace.RemoveToken(fToken);
 
 	if (fPictures != NULL) {
@@ -1116,7 +1114,7 @@ ServerPicture::Play(Canvas* target)
 {
 	// TODO: for now: then change PicturePlayer
 	// to accept a BPositionIO object
-	BMallocIO* mallocIO = dynamic_cast<BMallocIO*>(fData);
+	BMallocIO* mallocIO = dynamic_cast<BMallocIO*>(fData.Get());
 	if (mallocIO == NULL)
 		return;
 
@@ -1176,7 +1174,7 @@ ServerPicture::NestPicture(ServerPicture* picture)
 off_t
 ServerPicture::DataLength() const
 {
-	if (fData == NULL)
+	if (fData.Get() == NULL)
 		return 0;
 	off_t size;
 	fData->GetSize(&size);

@@ -19,6 +19,7 @@
 #include "Canvas.h"
 #include "IntRect.h"
 
+#include <AutoDeleter.h>
 #include <GraphicsDefs.h>
 #include <InterfaceDefs.h>
 #include <ObjectList.h>
@@ -208,9 +209,9 @@ public:
 	inline	bool			IsScreenClippingValid() const
 								{
 									return fScreenClippingValid
-										&& (fUserClipping == NULL
-										|| (fUserClipping != NULL
-										&& fScreenAndUserClipping != NULL));
+										&& (fUserClipping.Get() == NULL
+										|| (fUserClipping.Get() != NULL
+										&& fScreenAndUserClipping.Get() != NULL));
 								}
 
 			// debugging
@@ -276,8 +277,10 @@ protected:
 	mutable	BRegion			fScreenClipping;
 	mutable	bool			fScreenClippingValid;
 
-			BRegion*		fUserClipping;
-	mutable	BRegion*		fScreenAndUserClipping;
+			ObjectDeleter<BRegion>
+							fUserClipping;
+	mutable	ObjectDeleter<BRegion>
+							fScreenAndUserClipping;
 };
 
 #endif	// VIEW_H

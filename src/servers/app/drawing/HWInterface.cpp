@@ -43,7 +43,6 @@ HWInterfaceListener::~HWInterfaceListener()
 HWInterface::HWInterface(bool doubleBuffered, bool enableUpdateQueue)
 	:
 	MultiLocker("hw interface lock"),
-	fCursorAreaBackup(NULL),
 	fFloatingOverlaysLock("floating overlays lock"),
 	fCursor(NULL),
 	fDragBitmap(NULL),
@@ -65,8 +64,6 @@ HWInterface::HWInterface(bool doubleBuffered, bool enableUpdateQueue)
 HWInterface::~HWInterface()
 {
 	SetAsyncDoubleBuffered(false);
-
-	delete fCursorAreaBackup;
 
 	// The standard cursor doesn't belong us - the drag bitmap might
 	if (fCursor != fCursorAndDragBitmap)
@@ -255,7 +252,7 @@ HWInterface::MoveCursorTo(float x, float y)
 			// anything if the cursor is hidden
 			// (invalid cursor frame), but explicitly
 			// testing for it here saves us some cycles
-			if (fCursorAreaBackup) {
+			if (fCursorAreaBackup.Get() != NULL) {
 				// means we have a software cursor which we need to draw
 				_RestoreCursorArea();
 				_DrawCursor(_CursorFrame());
@@ -312,16 +309,15 @@ void
 HWInterface::SetAsyncDoubleBuffered(bool doubleBuffered)
 {
 	if (doubleBuffered) {
-		if (fUpdateExecutor != NULL)
+		if (fUpdateExecutor.Get() != NULL)
 			return;
-		fUpdateExecutor = new (nothrow) UpdateQueue(this);
-		AddListener(fUpdateExecutor);
+		fUpdateExecutor.SetTo(new (nothrow) UpdateQueue(this));
+		AddListener(fUpdateExecutor.Get());
 	} else {
-		if (fUpdateExecutor == NULL)
+		if (fUpdateExecutor.Get() == NULL)
 			return;
-		RemoveListener(fUpdateExecutor);
-		delete fUpdateExecutor;
-		fUpdateExecutor = NULL;
+		RemoveListener(fUpdateExecutor.Get());
+		fUpdateExecutor.Unset();
 	}
 }
 
@@ -499,7 +495,7 @@ HWInterface::HideFloatingOverlays(const BRect& area)
 		return false;
 	if (!fFloatingOverlaysLock.Lock())
 		return false;
-	if (fCursorAreaBackup && !fCursorAreaBackup->cursor_hidden) {
+	if (fCursorAreaBackup.Get() != NULL && !fCursorAreaBackup->cursor_hidden) {
 		BRect backupArea(fCursorAreaBackup->left, fCursorAreaBackup->top,
 			fCursorAreaBackup->right, fCursorAreaBackup->bottom);
 		if (area.Intersects(backupArea)) {
@@ -529,7 +525,7 @@ HWInterface::HideFloatingOverlays()
 void
 HWInterface::ShowFloatingOverlays()
 {
-	if (fCursorAreaBackup && fCursorAreaBackup->cursor_hidden)
+	if (fCursorAreaBackup.Get() != NULL && fCursorAreaBackup->cursor_hidden)
 		_DrawCursor(_CursorFrame());
 
 	fFloatingOverlaysLock.Unlock();
@@ -607,7 +603,7 @@ HWInterface::_DrawCursor(IntRect area) const
 
 		uint8* dst = buffer;
 
-		if (fCursorAreaBackup && fCursorAreaBackup->buffer
+		if (fCursorAreaBackup.Get() != NULL && fCursorAreaBackup->buffer
 			&& fFloatingOverlaysLock.Lock()) {
 			fCursorAreaBackup->cursor_hidden = false;
 			// remember which area the backup contains
@@ -904,7 +900,7 @@ HWInterface::_CursorFrame() const
 void
 HWInterface::_RestoreCursorArea() const
 {
-	if (fCursorAreaBackup && !fCursorAreaBackup->cursor_hidden) {
+	if (fCursorAreaBackup.Get() != NULL && !fCursorAreaBackup->cursor_hidden) {
 		_CopyToFront(fCursorAreaBackup->buffer, fCursorAreaBackup->bpr,
 			fCursorAreaBackup->left, fCursorAreaBackup->top,
 			fCursorAreaBackup->right, fCursorAreaBackup->bottom);
@@ -1077,20 +1073,17 @@ HWInterface::_AdoptDragBitmap(const ServerBitmap* bitmap, const BPoint& offset)
 //	if (fDragBitmap)
 //		fDragBitmap->Acquire();
 
-	delete fCursorAreaBackup;
-	fCursorAreaBackup = NULL;
+	fCursorAreaBackup.Unset();
 
 	if (!fCursorAndDragBitmap)
 		return;
 
 	if (fCursorAndDragBitmap && !IsDoubleBuffered()) {
 		BRect cursorBounds = fCursorAndDragBitmap->Bounds();
-		fCursorAreaBackup = new buffer_clip(cursorBounds.IntegerWidth() + 1,
-			cursorBounds.IntegerHeight() + 1);
-		if (fCursorAreaBackup->buffer == NULL) {
-			delete fCursorAreaBackup;
-			fCursorAreaBackup = NULL;
-		}
+		fCursorAreaBackup.SetTo(new buffer_clip(cursorBounds.IntegerWidth() + 1,
+			cursorBounds.IntegerHeight() + 1));
+		if (fCursorAreaBackup->buffer == NULL)
+			fCursorAreaBackup.Unset();
 	}
  	_DrawCursor(_CursorFrame());
 }

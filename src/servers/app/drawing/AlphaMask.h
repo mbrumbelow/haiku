@@ -141,7 +141,7 @@ private:
 
 private:
 			BReference<ServerPicture> fPicture;
-			DrawState*			fDrawState;
+			ObjectDeleter<DrawState> fDrawState;
 };
 
 

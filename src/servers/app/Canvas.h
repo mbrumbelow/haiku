@@ -15,6 +15,7 @@
 #define CANVAS_H
 
 
+#include <AutoDeleter.h>
 #include <Point.h>
 
 #include "SimpleTransform.h"
@@ -42,7 +43,7 @@ public:
 
 	virtual	void			PushState();
 	virtual	void			PopState();
-			DrawState*		CurrentState() const { return fDrawState; }
+			DrawState*		CurrentState() const { return fDrawState.Get(); }
 			void			SetDrawState(DrawState* newState);
 
 			void			SetDrawingOrigin(BPoint origin);
@@ -83,7 +84,8 @@ protected:
 								SimpleTransform& transform) const = 0;
 
 protected:
-			DrawState*		fDrawState;
+			ObjectDeleter<DrawState>
+							fDrawState;
 };
 
 
