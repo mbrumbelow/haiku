@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cea21c94_7bcef48a",
+        "filename": "src/servers/app/Canvas.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-05-14T16:38:58Z",
+      "side": 1,
+      "message": "AutoDeleter.h is not in public API, Point.h is, thus each one deserves its group.",
+      "revId": "bb198eba3de639106ee74c8470a392ee921b0557",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b10ae24_02928d33",
+        "filename": "src/servers/app/Canvas.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-05-14T16:38:58Z",
+      "side": 1,
+      "message": "fDrawState should stay on the previous line.",
+      "revId": "bb198eba3de639106ee74c8470a392ee921b0557",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52af38e9_118e0d7d",
+        "filename": "src/servers/app/Desktop.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-05-14T16:38:58Z",
+      "side": 1,
+      "message": "this goes in the next group",
+      "revId": "bb198eba3de639106ee74c8470a392ee921b0557",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e4a8c06_7f5bc684",
+        "filename": "src/servers/app/Desktop.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-05-14T16:38:58Z",
+      "side": 1,
+      "message": "fSettings should stay on the previous line.",
+      "revId": "bb198eba3de639106ee74c8470a392ee921b0557",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d5ac213_5a6e970d",
+        "filename": "src/servers/app/decorator/DefaultWindowBehaviour.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-05-14T16:38:58Z",
+      "side": 1,
+      "message": "This comes before \"OtherLocalHeaders\"",
+      "revId": "bb198eba3de639106ee74c8470a392ee921b0557",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
