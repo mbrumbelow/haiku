@@ -829,7 +829,7 @@ DesktopSettingsPrivate::_ValidateWorkspacesLayout(int32& columns,
 
 DesktopSettings::DesktopSettings(Desktop* desktop)
 	:
-	fSettings(desktop->fSettings)
+	fSettings(desktop->fSettings.Get())
 {
 
 }

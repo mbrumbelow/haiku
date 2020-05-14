@@ -40,6 +40,7 @@ FontStyle::FontStyle(node_ref& nodeRef, const char* path, FT_Face face)
 	fFace(_TranslateStyleToFace(face->style_name)),
 	fFullAndHalfFixed(false)
 {
+	printf("+FontStyle(%p, \"%s\")\n", this, path);
 	fName.Truncate(B_FONT_STYLE_LENGTH);
 		// make sure this style can be found using the Be API
 
@@ -76,6 +77,7 @@ FontStyle::FontStyle(node_ref& nodeRef, const char* path, FT_Face face)
 
 FontStyle::~FontStyle()
 {
+	printf("-FontStyle(%p)\n", this);
 	// make sure the font server is ours
 	if (fFamily != NULL && gFontManager->Lock()) {
 		gFontManager->RemoveStyle(this);
