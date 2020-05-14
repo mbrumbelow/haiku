@@ -34,6 +34,24 @@
       "revId": "2e200539b994012aa096c9271dc90eb61cb3e3c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7f8d8a3_0241bc63",
+        "filename": "src/apps/text_search/GrepWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-14T16:35:09Z",
+      "side": 1,
+      "message": "yes, using SYSTEM_NAME is correct but I think you still need MARK/NOCOLLECT in this case. I guess there is a B_TRANSLATE_MARK_SYSTEM_NAME or something like this",
+      "parentUuid": "faf95cf2_0df829d0",
+      "revId": "2e200539b994012aa096c9271dc90eb61cb3e3c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
