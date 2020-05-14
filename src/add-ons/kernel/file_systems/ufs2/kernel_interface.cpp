@@ -84,7 +84,7 @@ ufs2_mount(fs_volume *_volume, const char *device, uint32 flags,
 		return B_NO_MEMORY;
 
 	_volume->private_volume = volume;
-	//_volume->ops = &gufs2VolumeOps;
+	_volume->ops = &gUfs2VolumeOps;
 
 	status_t status = volume->Mount(device, flags);
 	if (status != B_OK){
@@ -453,10 +453,10 @@ ufs2_std_ops(int32 op, ...)
 	}
 }
 
-fs_volume_ops gufs2VolumeOps = {
+fs_volume_ops gUfs2VolumeOps = {
 	&ufs2_unmount,
 	&ufs2_read_fs_info,
-	NULL, // write_fs_info()
+	NULL, //write_fs_info()
 	NULL, // fs_sync,
 	&ufs2_get_vnode,
 };
