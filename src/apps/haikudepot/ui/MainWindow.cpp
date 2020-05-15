@@ -211,9 +211,9 @@ MainWindow::MainWindow(const BMessage& settings)
 	BPackageRoster().StartWatching(this,
 		B_WATCH_PACKAGE_INSTALLATION_LOCATIONS);
 
-	_StartBulkLoad();
-
 	_InitWorkerThreads();
+	_AdoptModel();
+	_StartBulkLoad();
 }
 
 
@@ -254,6 +254,7 @@ MainWindow::MainWindow(const BMessage& settings, const PackageInfoRef& package)
 	fPackageInfoView->SetPackage(package);
 
 	_InitWorkerThreads();
+	_AdoptModel();
 }
 
 
