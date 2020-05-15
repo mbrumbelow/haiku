@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "25a6dc02_440464ae",
+        "filename": "headers/private/shared/AutoDeleter.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-05-15T20:11:45Z",
+      "side": 1,
+      "message": "Incorrect indentation. Also, you do not need the {}; no implementation of these functions is fine.",
+      "revId": "59f557a7df8aacf6c4bc402518a7e6e2ef71054c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
