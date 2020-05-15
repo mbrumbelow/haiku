@@ -294,10 +294,23 @@ B_TRANSLATE_MARK_VOID("About this system")
 
 	BMenu* shutdownMenu = new BMenu(B_TRANSLATE("Shutdown" B_UTF8_ELLIPSIS));
 
+	item = new BMenuItem(B_TRANSLATE("Power off"),
+		new BMessage(kShutdownSystem));
+	item->SetEnabled(!dragging);
+	shutdownMenu->AddItem(item);
+
+	BMessage* message = new BMessage(kShutdownSystem);
+	message->AddBool("confirm", true);
+	AddItem(new BMenuItem(shutdownMenu, message));
+
 	item = new BMenuItem(B_TRANSLATE("Restart system"),
 		new BMessage(kRebootSystem));
 	item->SetEnabled(!dragging);
 	shutdownMenu->AddItem(item);
+
+	BMessage* message = new BMessage(kRebootSystem);
+	message->AddBool("confirm", true);
+	AddItem(new BMenuItem(shutdownMenu, message));
 
 	B_TRANSLATE_MARK_VOID("Suspend");
 
@@ -310,16 +323,8 @@ B_TRANSLATE_MARK_VOID("About this system")
 	}
 #endif
 
-	item = new BMenuItem(B_TRANSLATE("Power off"),
-		new BMessage(kShutdownSystem));
-	item->SetEnabled(!dragging);
-	shutdownMenu->AddItem(item);
 	shutdownMenu->SetFont(be_plain_font);
-
 	shutdownMenu->SetTargetForItems(be_app);
-	BMessage* message = new BMessage(kShutdownSystem);
-	message->AddBool("confirm", true);
-	AddItem(new BMenuItem(shutdownMenu, message));
 
 	fAddState = kAddingRecents;
 
