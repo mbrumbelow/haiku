@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1382f8d2_ecd7d873",
+        "filename": "src/apps/deskbar/DeskbarMenu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-05-15T13:02:18Z",
+      "side": 1,
+      "message": "You add the menu item a second time here with a different method.\nThis doesn\u0027t make any sense.",
+      "revId": "58a20559f8e5666a4a85ce4b948f2aef43d5fb4f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
