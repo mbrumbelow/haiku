@@ -24,11 +24,10 @@ typedef struct mutex {
 	spinlock				lock;
 #if KDEBUG
 	thread_id				holder;
-	uint16					_unused;
 #else
 	int32					count;
-	uint16					ignore_unlock_count;
 #endif
+	uint16					_unused;
 	uint8					flags;
 } mutex;
 
