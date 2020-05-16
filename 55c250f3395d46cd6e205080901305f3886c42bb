@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3e5d1e66_84e125cd",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 607,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-05-16T17:20:14Z",
+      "side": 1,
+      "message": "please remove the space after 0.",
+      "revId": "55c250f3395d46cd6e205080901305f3886c42bb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd4170fb_ed7b0cbf",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-05-16T17:20:14Z",
+      "side": 1,
+      "message": "could be simplified with min(i, count - 1)",
+      "revId": "55c250f3395d46cd6e205080901305f3886c42bb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1169932_a16f8fe5",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 726,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-05-16T17:20:14Z",
+      "side": 1,
+      "message": "{ comes on the previous line.",
+      "revId": "55c250f3395d46cd6e205080901305f3886c42bb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a66451f_93ac68a6",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-05-16T17:20:14Z",
+      "side": 1,
+      "message": "else { goes on the previous line.",
+      "revId": "55c250f3395d46cd6e205080901305f3886c42bb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
