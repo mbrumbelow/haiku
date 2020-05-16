@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "69b4c4a9_929ea87e",
+        "filename": "docs/develop/file_systems/ufs2.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-16T16:22:09Z",
+      "side": 1,
+      "message": "Alternatively you can start from an existing freebsd image, so it has some files in it:\n\n- Download FreeBSD-12.1-RELEASE-amd64-mini-memstick.img\n- diskimage register FreeBSD-12.1-RELEASE-amd64-mini-memstick.img to access the MBR style partitions inside it (on Linux probably using mount -o loop or something like that)\n- dd if\u003d/dev/disk/virtual/files/8/1 bs\u003d8K skip\u003d1 of\u003dfbsd_ufstest.img to extract the filesystem from the partition (skipping the freebsd disklabel)\n- Check the result: file fbsd_ufstest.img\n\n\u003e fbsd_ufstest.img: Unix Fast File system [v2] (little-endian)",
+      "revId": "4043658e79057bbd55cb2bf339f4aa1ba12e039f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
