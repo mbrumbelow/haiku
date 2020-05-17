@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "48db8798_34c72839",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-17T13:16:22Z",
+      "side": 1,
+      "message": "I think we don\u0027t need a secondary icon? for now at least. Is it possible to share this code with the Media preferences (I think that\u0027s where it comes from?)\n\nInstead of copying it in this file, could we move it for example to the shared kit (src/kits/shared) and have both preferences use it?",
+      "revId": "9e9a3d2e321cbd5564bb4077e4e5074bddb8578f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abb25444_985aee62",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-17T13:16:22Z",
+      "side": 1,
+      "message": "why new BString here? name is already a BString, you can simply use \u0027name.String()\u0027 to convret it to a char*?",
+      "revId": "9e9a3d2e321cbd5564bb4077e4e5074bddb8578f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
