@@ -31,6 +31,7 @@ InputApplication::InputApplication()
 {
 	BRect rect(0, 0, 600, 500);
 	InputWindow* window = new InputWindow(rect);
+	DeviceListItemView::SetIcons(&fIcons);
 	window->Show();
 }
 

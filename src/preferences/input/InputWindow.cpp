@@ -183,15 +183,21 @@ InputWindow::AddDevice(BInputDevice* dev)
 
 		TouchpadPrefView* view = new TouchpadPrefView(dev);
 		fCardView->AddChild(view);
-		fDeviceListView->fDeviceList->AddItem(new BStringItem(name));
+		DeviceListItemView* touchpad = new DeviceListItemView(
+			(new BString(name))->String(), input_type::TOUCHPAD_TYPE);
+		fDeviceListView->fDeviceList->AddItem(touchpad);
 	} else if (dev->Type() == B_POINTING_DEVICE) {
 		InputMouse* view = new InputMouse(dev);
 		fCardView->AddChild(view);
-		fDeviceListView->fDeviceList->AddItem(new BStringItem(name));
+		DeviceListItemView* mouse = new DeviceListItemView(
+			(new BString(name))->String(), input_type::MOUSE_TYPE);
+		fDeviceListView->fDeviceList->AddItem(mouse);
 	} else if (dev->Type() == B_KEYBOARD_DEVICE) {
 		InputKeyboard* view = new InputKeyboard(dev);
 		fCardView->AddChild(view);
-		fDeviceListView->fDeviceList->AddItem(new BStringItem(name));
+		DeviceListItemView* keyboard = new DeviceListItemView(
+			(new BString(name))->String(), input_type::KEYBOARD_TYPE);
+		fDeviceListView->fDeviceList->AddItem(keyboard);
 	} else {
 		delete dev;
 	}
