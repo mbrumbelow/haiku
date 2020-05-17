@@ -33,6 +33,24 @@
       "revId": "9e9a3d2e321cbd5564bb4077e4e5074bddb8578f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "938a4537_edd12568",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-05-17T13:28:21Z",
+      "side": 1,
+      "message": "I tried this first but then, there is no device present in the list. When I create new BString object then, the names comes. I don\u0027t know why but it happens!\nCan you please provide the reason behind this?",
+      "parentUuid": "abb25444_985aee62",
+      "revId": "9e9a3d2e321cbd5564bb4077e4e5074bddb8578f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
