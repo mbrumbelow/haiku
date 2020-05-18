@@ -20,10 +20,11 @@ DEFINES += DEBUG_APP="\\\"xfs\\\"" ;
 UseHeaders [ FDirName $(HAIKU_TOP) src libs uuid ] : true ;
 
 local xfsSources =
-    xfs.cpp
-    Volume.cpp
+    Inode.cpp
     kernel_cpp.cpp
     kernel_interface.cpp
+	Volume.cpp
+    xfs.cpp
     ;
 KernelAddon xfs :
     $(xfsSources)
