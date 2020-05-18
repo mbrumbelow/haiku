@@ -44,6 +44,14 @@ UnicodeBlockView::SetFilter(const char* filter)
 	_UpdateBlocks();
 }
 
+void
+UnicodeBlockView::SetCharacterFont(const BFont& font)
+{
+	fCharacterFont = font;
+	fUnicodeBlocks = fCharacterFont.Blocks();
+	_UpdateBlocks();
+}
+
 
 void
 UnicodeBlockView::ShowPrivateBlocks(bool show)
@@ -76,6 +84,18 @@ UnicodeBlockView::IsShowingBlock(int32 blockIndex) const
 	if (!fShowPrivateBlocks && kUnicodeBlocks[blockIndex].private_block)
 		return false;
 
+	if (fShowContainedBlocksOnly) {
+		if (kUnicodeBlocks[blockIndex].block != kNoBlock
+			&& !fUnicodeBlocks.Includes(
+				kUnicodeBlocks[blockIndex].block))
+			return false;
+
+		if (!fCharacterFont.IncludesBlock(
+			kUnicodeBlocks[blockIndex].start,
+			kUnicodeBlocks[blockIndex].end))
+				return false;
+	}
+
 	return true;
 }
 
@@ -91,10 +111,12 @@ UnicodeBlockView::_UpdateBlocks()
 				continue;
 		}
 
-		if (!IsShowingBlock(i))
-			continue;
-
 		AddItem(fBlocks.ItemAt(i));
+
+		if (!IsShowingBlock(i))
+			fBlocks.ItemAt(i)->SetEnabled(false);
+		else
+			fBlocks.ItemAt(i)->SetEnabled(true);
 	}
 }
 
