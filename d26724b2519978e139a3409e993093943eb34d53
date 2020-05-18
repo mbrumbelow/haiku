@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "56d44e0c_b37db575",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-18T06:38:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77698c97_5bc208fa",
+      "revId": "d26724b2519978e139a3409e993093943eb34d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f21d0f0_a3a252a2",
         "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
         "patchSetId": 3
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "cb869f7c_a15bb72c",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-18T06:38:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f21d0f0_a3a252a2",
+      "revId": "d26724b2519978e139a3409e993093943eb34d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f0ebaa3_0dd8e4a6",
         "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
         "patchSetId": 3
@@ -50,6 +86,24 @@
       "revId": "d26724b2519978e139a3409e993093943eb34d53",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98b08c20_3e1e1e44",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-18T06:38:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f0ebaa3_0dd8e4a6",
+      "revId": "d26724b2519978e139a3409e993093943eb34d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
