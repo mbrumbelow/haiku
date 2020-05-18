@@ -9,9 +9,10 @@
 bool
 XfsSuperBlock::IsValid()
 {
-	if (sb_magicnum != XFS_SB_MAGIC) return false;
+	if (sb_magicnum != XFS_SB_MAGIC)
+		return false;
 
-	if (BBLOCKSIZE > sb_blocksize){
+	if (BBLOCKSIZE > sb_blocksize) {
 		ERROR("Basic block is less than 512 bytes!");
 		return false;
 	}
@@ -27,10 +28,52 @@ XfsSuperBlock::BlockSize()
 }
 
 
+uint8
+XfsSuperBlock::BlockLog()
+{
+	return sb_blocklog;
+}
+
+
+uint32
+XfsSuperBlock::DirBlockSize()
+{
+	return BlockSize() * (1 << sb_dirblklog);
+}
+
+
+uint8
+XfsSuperBlock::AgInodeBits()
+{
+	return AgBlocksLog() + InodesPerBlkLog();
+}
+
+
+uint8
+XfsSuperBlock::InodesPerBlkLog()
+{
+	return sb_inopblog;
+}
+
+
+uint8
+XfsSuperBlock::AgBlocksLog()
+{
+	return sb_agblklog;
+}
+
+
 uint32
 XfsSuperBlock::Size()
 {
 	return XFS_SB_MAXSIZE;
+}
+
+
+uint16
+XfsSuperBlock::InodeSize()
+{
+	return sb_inodesize;
 }
 
 
@@ -66,6 +109,27 @@ char*
 XfsSuperBlock::Name()
 {
 	return sb_fname;
+}
+
+
+xfs_ino_t
+XfsSuperBlock::Root() const
+{
+	return sb_rootino;
+}
+
+
+xfs_agnumber_t
+XfsSuperBlock::AgCount()
+{
+	return sb_agcount;
+}
+
+
+xfs_agblock_t
+XfsSuperBlock::AgBlocks()
+{
+	return sb_agblocks;
 }
 
 
