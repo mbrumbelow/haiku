@@ -24,6 +24,7 @@ local xfsSources =
     Volume.cpp
     kernel_cpp.cpp
     kernel_interface.cpp
+	Inode.cpp
     ;
 KernelAddon xfs :
     $(xfsSources)
