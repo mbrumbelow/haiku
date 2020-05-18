@@ -1,6 +1,7 @@
 #include "BPlusTree.h"
 
-void bplustree_short_block::SwapEndian()
+void
+bplustree_short_block::SwapEndian()
 {
 	bb_magic = B_BENDIAN_TO_HOST_INT32(bb_magic);
 	bb_level = B_BENDIAN_TO_HOST_INT16(bb_level);
@@ -10,7 +11,8 @@ void bplustree_short_block::SwapEndian()
 }
 
 
-void bplustree_long_block::SwapEndian()
+void
+bplustree_long_block::SwapEndian()
 {
 	bb_magic = B_BENDIAN_TO_HOST_INT32(bb_magic);
 	bb_level = B_BENDIAN_TO_HOST_INT16(bb_level);
@@ -20,25 +22,29 @@ void bplustree_long_block::SwapEndian()
 }
 
 
-void xfs_alloc_rec::SwapEndian()
+void
+xfs_alloc_rec::SwapEndian()
 {
 	ar_startblock = B_BENDIAN_TO_HOST_INT32(ar_startblock);
 	ar_blockcount =  B_BENDIAN_TO_HOST_INT32(ar_blockcount);
 }
 
 
-uint32 BPlusTree::BlockSize(){
+uint32
+BPlusTree::BlockSize(){
 	return fVolume.SuperBlock().BlockSize();
 }
 
 
-int BPlusTree::RecordSize(){
+int
+BPlusTree::RecordSize(){
 	if (fRecType == ALLOC_FLAG)
 		return XFS_ALLOC_REC_SIZE;
 }
 
 
-int BPlusTree::MaxRecords(bool leaf){
+int
+BPlusTree::MaxRecords(bool leaf){
 	int blockLen = BlockSize();
 	
 	if (fPtrType == SHORT_BLOCK_FLAG)
@@ -57,33 +63,43 @@ int BPlusTree::MaxRecords(bool leaf){
 }
 
 
-int BPlusTree::KeyLen(){
-	if (fKeyType == ALLOC_FLAG) return XFS_ALLOC_REC_SIZE;
+int
+BPlusTree::KeyLen(){
+	if (fKeyType == ALLOC_FLAG)
+		return XFS_ALLOC_REC_SIZE;
 }
 
 
-int BPlusTree::BlockLen(){
-	if(fPtrType == LONG_BLOCK_FLAG) return XFS_BTREE_LBLOCK_SIZE;
-	else return XFS_BTREE_SBLOCK_SIZE;
+int
+BPlusTree::BlockLen(){
+	if (fPtrType == LONG_BLOCK_FLAG)
+		return XFS_BTREE_LBLOCK_SIZE;
+	if (fPtrType == SHORT_BLOCK_FLAG)
+		return XFS_BTREE_SBLOCK_SIZE;
 }
 
 
-int BPlusTree::PtrLen(){
-	if(fPtrType == LONG_BLOCK_FLAG) return sizeof(uint64);
-	else return sizeof(uint32);
+int
+BPlusTree::PtrLen(){
+	if (fPtrType == LONG_BLOCK_FLAG) return sizeof(uint64);
+	else
+		return sizeof(uint32);
 }
 
 
-int BPlusTree::RecordOffset(int pos){
+int
+BPlusTree::RecordOffset(int pos){
 	return BlockLen() + (pos-1)*RecordSize();
 }
 
 
-int BPlusTree::KeyOffset(int pos){
+int
+BPlusTree::KeyOffset(int pos){
 	return BlockLen() + (pos-1)*KeyLen();
 }
 
 
-int BPlusTree::PtrOffset(int pos, int level){
+int
+BPlusTree::PtrOffset(int pos, int level){
 	return BlockLen() + MaxRecords(level>0)*KeyLen() + (pos-1)*PtrLen();
 }
