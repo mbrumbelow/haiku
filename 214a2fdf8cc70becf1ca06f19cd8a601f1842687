@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "189feb98_93485009",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-18T14:15:08Z",
+      "side": 1,
+      "message": "the { goes on the next line",
+      "revId": "214a2fdf8cc70becf1ca06f19cd8a601f1842687",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50393d2e_625a4464",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-18T14:15:08Z",
+      "side": 1,
+      "message": "keep this in alphabetical order",
+      "revId": "214a2fdf8cc70becf1ca06f19cd8a601f1842687",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65edc408_0be4bfe9",
+        "filename": "src/tests/add-ons/kernel/file_systems/xfs/xfs_shell/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-18T14:15:08Z",
+      "side": 1,
+      "message": "keep in alphabetical order, indent with tabs",
+      "revId": "214a2fdf8cc70becf1ca06f19cd8a601f1842687",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
