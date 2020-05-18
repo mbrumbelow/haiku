@@ -173,7 +173,7 @@ CharacterWindow::CharacterWindow()
 	}
 	if (settings.FindBool("show contained blocks only", &show) == B_OK) {
 		fCharacterView->ShowContainedBlocksOnly(show);
-		fUnicodeBlockView->ShowPrivateBlocks(show);
+		fUnicodeBlockView->ShowContainedBlocksOnly(show);
 	}
 
 	const char* family;
@@ -202,6 +202,7 @@ CharacterWindow::CharacterWindow()
 		font.SetSize(fontSize);
 
 		fCharacterView->SetCharacterFont(font);
+		fUnicodeBlockView->SetCharacterFont(font);
 	} else
 		fontSize = (int32)fCharacterView->CharacterFont().Size();
 
@@ -262,11 +263,9 @@ CharacterWindow::CharacterWindow()
 		new BMessage(kMsgPrivateBlocks)));
 	item->SetMarked(fCharacterView->IsShowingPrivateBlocks());
 // TODO: this feature is not yet supported by Haiku!
-#if 0
 	menu->AddItem(item = new BMenuItem("Only show blocks contained in font",
 		new BMessage(kMsgContainedBlocks)));
 	item->SetMarked(fCharacterView->IsShowingContainedBlocksOnly());
-#endif
 	menuBar->AddItem(menu);
 
 	fFontMenu = _CreateFontMenu();
@@ -395,7 +394,8 @@ CharacterWindow::MessageReceived(BMessage* message)
 
 			BFont font = fCharacterView->CharacterFont();
 			font.SetSize(size);
-			fCharacterView->SetCharacterFont(font);
+			fCharacterView->SetCharacterFont(&font);
+			fUnicodeBlockView->SetCharacterFont(&font);
 			break;
 		}
 
@@ -528,7 +528,8 @@ CharacterWindow::_SetFont(const char* family, const char* style)
 	BFont font = fCharacterView->CharacterFont();
 	font.SetFamilyAndStyle(family, style);
 
-	fCharacterView->SetCharacterFont(font);
+	fCharacterView->SetCharacterFont(&font);
+	fUnicodeBlockView->SetCharacterFont(&font);
 	fGlyphView->SetFont(&font, B_FONT_FAMILY_AND_STYLE);
 }
 
