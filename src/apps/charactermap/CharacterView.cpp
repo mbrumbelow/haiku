@@ -61,7 +61,7 @@ void
 CharacterView::SetCharacterFont(const BFont& font)
 {
 	fCharacterFont = font;
-
+	fUnicodeBlocks = fCharacterFont.Blocks();
 	InvalidateLayout();
 }
 
@@ -97,10 +97,16 @@ CharacterView::IsShowingBlock(int32 blockIndex) const
 	if (!fShowPrivateBlocks && kUnicodeBlocks[blockIndex].private_block)
 		return false;
 
-	if (fShowContainedBlocksOnly
-		&& !fCharacterFont.Blocks().Includes(
-				kUnicodeBlocks[blockIndex].block)) {
-		return false;
+	if (fShowContainedBlocksOnly) {
+		if (kUnicodeBlocks[blockIndex].block != kNoBlock
+			&& !fUnicodeBlocks.Includes(
+				kUnicodeBlocks[blockIndex].block))
+			return false;
+
+		if (!fCharacterFont.IncludesBlock(
+			kUnicodeBlocks[blockIndex].start,
+			kUnicodeBlocks[blockIndex].end))
+				return false;
 	}
 
 	return true;
