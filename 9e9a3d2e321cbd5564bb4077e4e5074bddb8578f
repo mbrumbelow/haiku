@@ -51,6 +51,24 @@
       "revId": "9e9a3d2e321cbd5564bb4077e4e5074bddb8578f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17428e1a_bc156603",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-18T10:20:47Z",
+      "side": 1,
+      "message": "Yes, this is because in DeviceListItemView you have only stored a pointer to the name (const char* fTitle; in the class definition). So, it relies on something else keeping the name. If you use name.String(), the name is destroyed when this method exits. But what you have done now results in a memory leak, the new BString(name) is never freed.\n\nI think the simpler solution is to make DeviceListItemView inherit from BStringItem instead of BListItem, and let BStringItem manage the label. BStringItem is a BListItem with a text label, that\u0027s a good start for what we need. Then we only have to add the icon, and rewrite the drawing function to draw the icon and the text next to it.\n\nAnother solution is to use a BString for the label instead of a const char*. BString will then take care of the memory management problems.",
+      "parentUuid": "938a4537_edd12568",
+      "revId": "9e9a3d2e321cbd5564bb4077e4e5074bddb8578f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
