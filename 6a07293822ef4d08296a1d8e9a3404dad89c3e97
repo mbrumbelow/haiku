@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "05284482_fa5b6cb6",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Volume.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-18T06:43:43Z",
+      "side": 1,
+      "message": "keep the includes in alphabetical order:\n\n#include \"Volume.h\"\n\n#include \"DeviceOpener.h\"\n#include \"Inode.h\"",
+      "revId": "6a07293822ef4d08296a1d8e9a3404dad89c3e97",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3c5bb73_66be2b16",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Volume.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-18T06:43:43Z",
+      "side": 1,
+      "message": "two blank lines here",
+      "revId": "6a07293822ef4d08296a1d8e9a3404dad89c3e97",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
