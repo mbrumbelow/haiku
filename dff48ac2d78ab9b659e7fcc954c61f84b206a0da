@@ -16,6 +16,24 @@
       "revId": "dff48ac2d78ab9b659e7fcc954c61f84b206a0da",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87172fe9_54de4420",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-05-19T19:42:18Z",
+      "side": 1,
+      "message": "The incoming `package` is found in the list not by object-equality by comparison on the `title` and `name` and so they could be two different instances.",
+      "parentUuid": "c2672f61_4e823801",
+      "revId": "dff48ac2d78ab9b659e7fcc954c61f84b206a0da",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
