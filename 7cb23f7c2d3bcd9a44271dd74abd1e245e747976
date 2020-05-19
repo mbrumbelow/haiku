@@ -16,6 +16,24 @@
       "revId": "7cb23f7c2d3bcd9a44271dd74abd1e245e747976",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c20c681_d42eceba",
+        "filename": "src/system/boot/platform/bios_ia32/acpi.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-05-19T07:48:43Z",
+      "side": 1,
+      "message": "This is more a warning, so it will only print \"acpi: RSDT failed checksum validation\" or \"acpi: XSDT failed checksum validation\".\nThe print \"found valid XSDT at 0ffff1000\" is only a trace. We can remove \"valid\" from the trace if that helps.",
+      "parentUuid": "ce87d209_e0ab387f",
+      "revId": "7cb23f7c2d3bcd9a44271dd74abd1e245e747976",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
