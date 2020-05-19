@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce87d209_e0ab387f",
+        "filename": "src/system/boot/platform/bios_ia32/acpi.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-05-19T07:08:04Z",
+      "side": 1,
+      "message": "Sure that there shouldn\u0027t be a return here? Now it will print \"XXXX failed checksum\", directly before \"found valid XXXX\". That doesn\u0027t really seem to make any sense to me, at least :-)",
+      "revId": "7cb23f7c2d3bcd9a44271dd74abd1e245e747976",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
