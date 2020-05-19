@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "400cfe52_62074069",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-05-19T08:24:28Z",
+      "side": 1,
+      "message": "partitioning",
+      "revId": "8439c1ddf5974d0b3786b0184dda088b8f6c5e11",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb5256f8_29c1ed8a",
+        "filename": "src/add-ons/kernel/partitioning_systems/sun/sun.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-05-19T08:24:28Z",
+      "side": 1,
+      "message": "Stray tabs.",
+      "revId": "8439c1ddf5974d0b3786b0184dda088b8f6c5e11",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
