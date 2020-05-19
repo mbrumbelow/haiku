@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ac1cd60_3886adde",
+        "filename": "src/apps/charactermap/CharacterView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-05-19T07:14:31Z",
+      "side": 1,
+      "message": "Extraneous parentheses here and at other places.",
+      "revId": "8746767018b5d4788686c9f71b344f329a5c3c87",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99765e60_393f2143",
+        "filename": "src/apps/charactermap/CharacterView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-05-19T07:14:31Z",
+      "side": 1,
+      "message": "It\u0027s not clear to me what the purpose of fUnicodeBlocks is in comparison to fCharacterFont.IncludeBlock()?",
+      "revId": "8746767018b5d4788686c9f71b344f329a5c3c87",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ed5916c_e8e1c3f2",
+        "filename": "src/apps/charactermap/CharacterView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-05-19T07:14:31Z",
+      "side": 1,
+      "message": "Indentation is wrong; there need to be an extra tab since those are parameters.",
+      "revId": "8746767018b5d4788686c9f71b344f329a5c3c87",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
