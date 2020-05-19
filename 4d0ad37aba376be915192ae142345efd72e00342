@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "673b25cb_eaa26818",
+        "filename": "src/add-ons/kernel/drivers/disk/nvme/nvme_disk.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 758,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-05-19T08:07:58Z",
+      "side": 1,
+      "message": "\"nvme_request.lba_count + vec_lba_count\" could only one time computed as a variable. Would make this more readable maybe.",
+      "revId": "4d0ad37aba376be915192ae142345efd72e00342",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
