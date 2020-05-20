@@ -160,11 +160,11 @@ TDeskbarMenu::AddNextItem()
 	TrackingHookData* data = fBarView->GetTrackingHookData();
 	if (fAddState == kAddingRecents) {
 		static const char* recentTitle[] = {
-			B_TRANSLATE_MARK("Recent documents"),
+			B_TRANSLATE_MARK("Recent applications")},
 			B_TRANSLATE_MARK("Recent folders"),
-			B_TRANSLATE_MARK("Recent applications")};
-		const int recentType[] = {kRecentDocuments, kRecentFolders,
-			kRecentApplications};
+			B_TRANSLATE_MARK("Recent documents");
+		const int recentType[] = {kRecentApplications, kRecentFolders,
+			kRecentDocuments};
 		const int recentTypes = 3;
 		TRecentsMenu* recentItem[recentTypes];
 
@@ -450,13 +450,17 @@ TRecentsMenu::TRecentsMenu(const char* name, TBarView* bar, int32 which,
 		return;
 
 	switch (which) {
-		case kRecentDocuments:
-			fRecentsCount = app->Settings()->recentDocsCount;
-			fRecentsEnabled = app->Settings()->recentDocsEnabled;
-			break;
 		case kRecentApplications:
 			fRecentsCount = app->Settings()->recentAppsCount;
 			fRecentsEnabled = app->Settings()->recentAppsEnabled;
+			break;
+		case kRecentFolders:
+			fRecentsCount = app->Settings()->recentFoldersCount;
+			fRecentsEnabled = app->Settings()->recentFoldersEnabled;
+			break;
+		case kRecentDocuments:
+			fRecentsCount = app->Settings()->recentDocsCount;
+			fRecentsEnabled = app->Settings()->recentDocsEnabled;
 			break;
 		case kRecentAppDocuments:
 			fRecentsCount = app->Settings()->recentDocsCount;
@@ -465,10 +469,6 @@ TRecentsMenu::TRecentsMenu(const char* name, TBarView* bar, int32 which,
 				fSignature = strdup(signature);
 			if (appRef != NULL)
 				fAppRef = new entry_ref(*appRef);
-			break;
-		case kRecentFolders:
-			fRecentsCount = app->Settings()->recentFoldersCount;
-			fRecentsEnabled = app->Settings()->recentFoldersEnabled;
 			break;
 	}
 }
@@ -523,18 +523,18 @@ TRecentsMenu::AddRecents(int32 count)
 		BRoster roster;
 
 		switch (fWhich) {
-			case kRecentDocuments:
-				roster.GetRecentDocuments(&fRecentList, count);
-				break;
 			case kRecentApplications:
 				roster.GetRecentApps(&fRecentList, count);
+				break;
+			case kRecentFolders:
+				roster.GetRecentFolders(&fRecentList, count);
+				break;
+			case kRecentDocuments:
+				roster.GetRecentDocuments(&fRecentList, count);
 				break;
 			case kRecentAppDocuments:
 				roster.GetRecentDocuments(&fRecentList, count, NULL,
 					fSignature);
-				break;
-			case kRecentFolders:
-				roster.GetRecentFolders(&fRecentList, count);
 				break;
 			default:
 				return false;
