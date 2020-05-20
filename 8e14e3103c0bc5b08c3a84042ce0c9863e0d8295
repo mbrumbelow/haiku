@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bef8ea3f_5bc4d600",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2020-05-20T04:09:33Z",
+      "side": 1,
+      "message": "missing return for the non-matched-if case",
+      "revId": "8e14e3103c0bc5b08c3a84042ce0c9863e0d8295",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70289a98_4d7e13be",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2020-05-20T04:09:33Z",
+      "side": 1,
+      "message": "missing return for the non-matched-if case",
+      "revId": "8e14e3103c0bc5b08c3a84042ce0c9863e0d8295",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a5a90e9_ee9f3e3c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2020-05-20T04:09:33Z",
+      "side": 1,
+      "message": "why declare variables here but not initialize them ?",
+      "range": {
+        "startLine": 65,
+        "startChar": 1,
+        "endLine": 70,
+        "endChar": 8
+      },
+      "revId": "8e14e3103c0bc5b08c3a84042ce0c9863e0d8295",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1f0ec26_4eaed902",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2020-05-20T04:09:33Z",
+      "side": 1,
+      "message": "usually in this case, it\u0027s better doing \"return fNode-\u003edi_magic \u003d\u003d INODE_MAGIC\"",
+      "revId": "8e14e3103c0bc5b08c3a84042ce0c9863e0d8295",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
