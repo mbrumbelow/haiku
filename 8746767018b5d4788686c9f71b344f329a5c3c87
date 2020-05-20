@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "27f774a1_3f127078",
+        "filename": "src/apps/charactermap/CharacterView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2020-05-20T03:25:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ac1cd60_3886adde",
+      "revId": "8746767018b5d4788686c9f71b344f329a5c3c87",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99765e60_393f2143",
         "filename": "src/apps/charactermap/CharacterView.cpp",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "26b63363_52d8de69",
+        "filename": "src/apps/charactermap/CharacterView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2020-05-20T03:25:37Z",
+      "side": 1,
+      "message": "It\u0027s confusing due to Be compatibility.  The number of Unicode blocks represented by BFont::Blocks is quite small.  Back when I did that implementation the opinion was to keep the number of blocks defined by BeOS for binary compatibility reasons.  Those are the only blocks that can be queried using the fUnicodeBlocks-\u003eIncludes() method.  The benefit of those blocks is that they can be queried very quickly via a bitfield comparison, but the downside is that there are only 71 of them.  \n\nThe IncludesBlock method uses fontconfig to query any arbitrary block via a start and end codepoint.  This allows the CharacterMap app to look up many more Unicode blocks than the ones defined in BeOS. \n\nThe Be-compatible blocks are specified by name (B_BASIC_LATIN_BLOCK, for example) whereas the non-Be-compatible blocks are specified with the constant kNoBlock and then looked up via the start and end codepoints.\n\nHope that makes sense?",
+      "parentUuid": "99765e60_393f2143",
+      "revId": "8746767018b5d4788686c9f71b344f329a5c3c87",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ed5916c_e8e1c3f2",
         "filename": "src/apps/charactermap/CharacterView.cpp",
         "patchSetId": 1
@@ -50,6 +86,24 @@
       "revId": "8746767018b5d4788686c9f71b344f329a5c3c87",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d7b7ed6_0bf9f1c1",
+        "filename": "src/apps/charactermap/CharacterView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2020-05-20T03:25:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ed5916c_e8e1c3f2",
+      "revId": "8746767018b5d4788686c9f71b344f329a5c3c87",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
