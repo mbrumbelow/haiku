@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "2b938fb3_d596dfcb",
+        "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-05-21T10:15:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31c5858e_735f0beb",
+      "revId": "dff48ac2d78ab9b659e7fcc954c61f84b206a0da",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "af262d13_bce57c7e",
         "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
         "patchSetId": 1
@@ -71,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "7313efd1_41b25958",
+        "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 827,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-05-21T10:15:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af262d13_bce57c7e",
+      "revId": "dff48ac2d78ab9b659e7fcc954c61f84b206a0da",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0f0d512_0d52cebf",
         "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
         "patchSetId": 1
@@ -85,6 +121,24 @@
       "revId": "dff48ac2d78ab9b659e7fcc954c61f84b206a0da",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80997afb_c9a13100",
+        "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 832,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-05-21T10:15:59Z",
+      "side": 1,
+      "message": "This is true and makes sense, but would make this change much larger since the locking is happening in a large number of places.  Instead of tackling this here, I have opened a new ticket to do this in the future.\nhttps://dev.haiku-os.org/ticket/16089",
+      "parentUuid": "f0f0d512_0d52cebf",
+      "revId": "dff48ac2d78ab9b659e7fcc954c61f84b206a0da",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
