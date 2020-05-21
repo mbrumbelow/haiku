@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7da5a841_f83ce966",
+        "filename": "src/preferences/input/Input.rdef",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-21T08:09:04Z",
+      "side": 1,
+      "message": "Is this needed?",
+      "revId": "e502c2417c5b72c7f8a3fd012f77094fbb3c1010",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33c15624_ad3b97f1",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-21T08:09:04Z",
+      "side": 1,
+      "message": "iconFrame is not used after this line, why set it here?",
+      "revId": "e502c2417c5b72c7f8a3fd012f77094fbb3c1010",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff6161e5_572b989e",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-21T08:09:04Z",
+      "side": 1,
+      "message": "Here you create and configure a Renderer object but it is deleted when this method returns. And in DrawItem you are creating it again.\n\nWouldn\u0027t it be better to have the Renderer as an attribute in the class, so you can create it only once and reuse it each time the DrawItem or Update methods are called?",
+      "revId": "e502c2417c5b72c7f8a3fd012f77094fbb3c1010",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2a7d8c4_9a96fc4c",
+        "filename": "src/preferences/input/InputIcons.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-21T08:09:04Z",
+      "side": 1,
+      "message": "I think we want small icons of 16x16 pixels, so this should be 15",
+      "revId": "e502c2417c5b72c7f8a3fd012f77094fbb3c1010",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95d58cae_77db9141",
+        "filename": "src/preferences/input/InputIcons.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-21T08:09:04Z",
+      "side": 1,
+      "message": "use ICON_SIZE instead of 15 here",
+      "revId": "e502c2417c5b72c7f8a3fd012f77094fbb3c1010",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac8eb184_aa9f43c7",
+        "filename": "src/preferences/input/InputIcons.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-21T08:09:04Z",
+      "side": 1,
+      "message": "You are not using B_COLOR_8_BIT_TYPE resources but vector icons. You can use B_VECTOR_ICON_TYPE here.",
+      "revId": "e502c2417c5b72c7f8a3fd012f77094fbb3c1010",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4fc4bc21_7801433f",
+        "filename": "src/preferences/input/InputIcons.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-21T08:09:04Z",
+      "side": 1,
+      "message": "you can use sBounds instead of creating a new BRect",
+      "revId": "e502c2417c5b72c7f8a3fd012f77094fbb3c1010",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6462ab10_0c6ec50e",
+        "filename": "src/preferences/input/InputIcons.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-21T08:09:04Z",
+      "side": 1,
+      "message": "return sBounds.OffsetTo(topLeft); will do the same thing in a simpler way.",
+      "revId": "e502c2417c5b72c7f8a3fd012f77094fbb3c1010",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22911a00_d19ff44f",
+        "filename": "src/preferences/input/InputIcons.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-21T08:09:04Z",
+      "side": 1,
+      "message": "I think we are in 2020 now?",
+      "revId": "e502c2417c5b72c7f8a3fd012f77094fbb3c1010",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b19f451_3ed6efc4",
+        "filename": "src/preferences/input/InputIcons.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-21T08:09:04Z",
+      "side": 1,
+      "message": "I think this IconSet structure is unused now?",
+      "revId": "e502c2417c5b72c7f8a3fd012f77094fbb3c1010",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
