@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63bf4e95_06a1282b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-21T08:12:09Z",
+      "side": 1,
+      "message": "indentation is incorrect",
+      "revId": "4778e74118817350025b6d7ad19be2899968a5b3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6013d490_4087830f",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-21T08:12:09Z",
+      "side": 1,
+      "message": "indentation is incorrect",
+      "revId": "4778e74118817350025b6d7ad19be2899968a5b3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78255c6a_1549c303",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-21T08:12:09Z",
+      "side": 1,
+      "message": "{} are not needed because the body is a single line",
+      "revId": "4778e74118817350025b6d7ad19be2899968a5b3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c05e32a_b823e148",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-21T08:12:09Z",
+      "side": 1,
+      "message": "indentation is incorrect",
+      "revId": "4778e74118817350025b6d7ad19be2899968a5b3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23d1aa54_12b979af",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Jamfile",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-21T08:12:09Z",
+      "side": 1,
+      "message": "use tabs to indent, not spaces",
+      "revId": "4778e74118817350025b6d7ad19be2899968a5b3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
