@@ -16,6 +16,24 @@
       "revId": "c3bdf08cb69436cf27d581f7350d79293d23cd8b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2e42ce5_093add6a",
+        "filename": "src/kits/tracker/infowindow/AttributesView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-21T20:12:58Z",
+      "side": 1,
+      "message": "A call to B_TRANSLATE and parsing the string to set up the object.\nI could make it static so it\u0027s done only once but there would be thread safety problems if opening multiple info windows at the same time.\n\nI think it would be better to move this outside the while() loop, however, so it\u0027s done once for all attributes.",
+      "parentUuid": "45eb6e98_4b837957",
+      "revId": "c3bdf08cb69436cf27d581f7350d79293d23cd8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
