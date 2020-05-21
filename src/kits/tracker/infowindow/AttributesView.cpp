@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Adrien Destugues <pulkomandy@pulkomandy.tk>
+ * Copyright (C) 2019-2020 Adrien Destugues <pulkomandy@pulkomandy.tk>
  *
  * Distributed under terms of the MIT license.
  */
@@ -13,6 +13,7 @@
 #include <FormattingConventions.h>
 #include <fs_attr.h>
 #include <Node.h>
+#include <StringFormat.h>
 
 
 #undef B_TRANSLATION_CONTEXT
@@ -68,6 +69,8 @@ AttributesView::AttributesView(Model* model)
 		row->SetField(new BStringField(name), 0);
 
 		BString representation;
+		BStringFormat multiValueFormat(B_TRANSLATE(
+			"{0, plural, other{<# values>}}"));
 		switch(info.type) {
 			case B_STRING_TYPE:
 			case B_MIME_STRING_TYPE:
@@ -88,8 +91,8 @@ AttributesView::AttributesView(Model* model)
 					representation = value ? B_TRANSLATE("yes")
 						: B_TRANSLATE("no");
 				} else {
-					representation.SetToFormat(B_TRANSLATE(
-						"<%" B_PRIdOFF " values>"), info.size / sizeof(bool));
+					multiValueFormat.Format(representation,
+						info.size / sizeof(bool));
 				}
 				break;
 			}
@@ -100,8 +103,8 @@ AttributesView::AttributesView(Model* model)
 					node->ReadAttr(name, info.type, 0, &value, sizeof(value));
 					representation.SetToFormat("%" B_PRId16, value);
 				} else {
-					representation.SetToFormat(B_TRANSLATE(
-						"<%" B_PRIdOFF " values>"), info.size / sizeof(int16));
+					multiValueFormat.Format(representation,
+						info.size / sizeof(int16));
 				}
 				break;
 			}
@@ -112,8 +115,8 @@ AttributesView::AttributesView(Model* model)
 					node->ReadAttr(name, info.type, 0, &value, sizeof(value));
 					representation.SetToFormat("%" B_PRId32, value);
 				} else {
-					representation.SetToFormat(B_TRANSLATE(
-						"<%" B_PRIdOFF " values>"), info.size / sizeof(int32));
+					multiValueFormat.Format(representation,
+						info.size / sizeof(int32));
 				}
 				break;
 			}
@@ -124,8 +127,8 @@ AttributesView::AttributesView(Model* model)
 					node->ReadAttr(name, info.type, 0, &value, sizeof(value));
 					representation.SetToFormat("%" B_PRId64, value);
 				} else {
-					representation.SetToFormat(B_TRANSLATE(
-						"<%" B_PRIdOFF " values>"), info.size / sizeof(int64));
+					multiValueFormat.Format(representation,
+						info.size / sizeof(int64));
 				}
 				break;
 			}
@@ -136,8 +139,8 @@ AttributesView::AttributesView(Model* model)
 					node->ReadAttr(name, info.type, 0, &value, sizeof(value));
 					representation.SetToFormat("%" B_PRId8, value);
 				} else {
-					representation.SetToFormat(B_TRANSLATE(
-						"<%" B_PRIdOFF " values>"), info.size / sizeof(int8));
+					multiValueFormat.Format(representation,
+						info.size / sizeof(int8));
 				}
 				break;
 			}
@@ -149,8 +152,10 @@ AttributesView::AttributesView(Model* model)
 					representation.SetToFormat("(%g,%g) (%g,%g)", value.left,
 						value.top, value.right, value.bottom);
 				} else {
-					representation.SetToFormat(B_TRANSLATE(
-						"<%" B_PRIdOFF " rectangles>"), info.size / sizeof(BRect));
+					BStringFormat multiRectFormat(B_TRANSLATE(
+						"{0, plural, other{<# rectangles>}}"));
+					multiRectFormat.Format(representation,
+						info.size / sizeof(BRect));
 				}
 				break;
 			}
@@ -161,8 +166,8 @@ AttributesView::AttributesView(Model* model)
 					node->ReadAttr(name, info.type, 0, &value, sizeof(value));
 					representation.SetToFormat("%f", value);
 				} else {
-					representation.SetToFormat(B_TRANSLATE(
-						"<%" B_PRIdOFF " values>"), info.size / sizeof(double));
+					multiValueFormat.Format(representation,
+						info.size / sizeof(double));
 				}
 				break;
 			}
@@ -173,8 +178,8 @@ AttributesView::AttributesView(Model* model)
 					node->ReadAttr(name, info.type, 0, &value, sizeof(value));
 					representation.SetToFormat("%f", value);
 				} else {
-					representation.SetToFormat(B_TRANSLATE(
-						"<%" B_PRIdOFF " values>"), info.size / sizeof(float));
+					multiValueFormat.Format(representation,
+						info.size / sizeof(float));
 				}
 				break;
 			}
@@ -192,8 +197,10 @@ AttributesView::AttributesView(Model* model)
 					dateTimeFormatter.Format(representation, value,
 						B_SHORT_DATE_FORMAT, B_SHORT_TIME_FORMAT);
 				} else {
-					representation.SetToFormat(B_TRANSLATE(
-						"<%" B_PRIdOFF " dates>"), info.size / sizeof(time_t));
+					BStringFormat multiDateFormat(B_TRANSLATE(
+						"{0, plural, other{<# dates>}}"));
+					multiDateFormat.Format(representation,
+						info.size / sizeof(time_t));
 				}
 				break;
 			}
@@ -204,8 +211,8 @@ AttributesView::AttributesView(Model* model)
 					node->ReadAttr(name, info.type, 0, &value, sizeof(value));
 					representation.SetToFormat("%" B_PRIu16, value);
 				} else {
-					representation.SetToFormat(B_TRANSLATE(
-						"<%" B_PRIdOFF " values>"), info.size / sizeof(uint16));
+					multiValueFormat.Format(representation,
+						info.size / sizeof(uint16));
 				}
 				break;
 			}
@@ -216,8 +223,8 @@ AttributesView::AttributesView(Model* model)
 					node->ReadAttr(name, info.type, 0, &value, sizeof(value));
 					representation.SetToFormat("%" B_PRIu32, value);
 				} else {
-					representation.SetToFormat(B_TRANSLATE(
-						"<%" B_PRIdOFF " values>"), info.size / sizeof(uint32));
+					multiValueFormat.Format(representation,
+						info.size / sizeof(uint32));
 				}
 				break;
 			}
@@ -228,8 +235,8 @@ AttributesView::AttributesView(Model* model)
 					node->ReadAttr(name, info.type, 0, &value, sizeof(value));
 					representation.SetToFormat("%" B_PRIu64, value);
 				} else {
-					representation.SetToFormat(B_TRANSLATE(
-						"<%" B_PRIdOFF " values>"), info.size / sizeof(int64));
+					multiValueFormat.Format(representation,
+						info.size / sizeof(uint64));
 				}
 				break;
 			}
@@ -240,15 +247,18 @@ AttributesView::AttributesView(Model* model)
 					node->ReadAttr(name, info.type, 0, &value, sizeof(value));
 					representation.SetToFormat("%" B_PRIu8, value);
 				} else {
-					representation.SetToFormat(B_TRANSLATE(
-						"<%" B_PRIdOFF " values>"), info.size / sizeof(int8));
+					multiValueFormat.Format(representation,
+						info.size / sizeof(uint8));
 				}
 				break;
 			}
 			default:
-				representation.SetToFormat(B_TRANSLATE(
-					"<%" B_PRIdOFF " bytes of data>"), info.size);
+			{
+				BStringFormat sizeFormat(B_TRANSLATE(
+					"{0, plural, one{<# data byte>} other{<# bytes of data>}}"));
+				sizeFormat.Format(representation, info.size);
 				break;
+			}
 		}
 		row->SetField(new BStringField(representation), kValueColumn);
 
