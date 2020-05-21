@@ -34,6 +34,57 @@
       "revId": "dff48ac2d78ab9b659e7fcc954c61f84b206a0da",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31c5858e_735f0beb",
+        "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-21T08:22:56Z",
+      "side": 1,
+      "message": "debugger() is a continuable function (if the user decides to resume the app from inside debugger()) so you probably want to put the _AdoptPackage in an else clause?",
+      "revId": "dff48ac2d78ab9b659e7fcc954c61f84b206a0da",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af262d13_bce57c7e",
+        "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 827,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-21T08:22:56Z",
+      "side": 1,
+      "message": "missing \\n",
+      "revId": "dff48ac2d78ab9b659e7fcc954c61f84b206a0da",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0f0d512_0d52cebf",
+        "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 832,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-21T08:22:56Z",
+      "side": 1,
+      "message": "it would be a good idea to rename Lock() to GetLock() because this is a bit confusing. Also it should return a reference rather than a pointer since you\u0027re not doing a NULL check here.",
+      "revId": "dff48ac2d78ab9b659e7fcc954c61f84b206a0da",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
