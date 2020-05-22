@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c90ddc7_1c0cc883",
+        "filename": "src/apps/charactermap/CharacterView.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-05-22T09:24:42Z",
+      "side": 1,
+      "message": "Same here.",
+      "revId": "63b7c1ae769fbe21c8ad5e5407f8e262e45cafac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1678c6f_668d2c8e",
+        "filename": "src/apps/charactermap/UnicodeBlockView.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-05-22T09:24:42Z",
+      "side": 1,
+      "message": "And while you\u0027re at it, I\u0027d prefer:\nfBlocks.ItemAt(i)-\u003eSetEnabled(IsShowingBlock(i));",
+      "revId": "63b7c1ae769fbe21c8ad5e5407f8e262e45cafac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
