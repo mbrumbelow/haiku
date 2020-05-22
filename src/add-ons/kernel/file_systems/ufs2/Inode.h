@@ -12,6 +12,7 @@
 
 #define	UFS2_ROOT	((ino_t)2)
 
+
 struct ufs2_inode {
 	u_int16_t	fileMode;
 	int16_t		linkCount;
@@ -57,6 +58,27 @@ struct ufs2_inode {
 	int64_t		unused2;
 	int64_t		unused3;
 
+
+	static void _DecodeTime(struct timespec *timespec, uint64 time,
+		uint32 time_extra, bool extra)
+	{
+		timespec->tv_sec = B_LENDIAN_TO_HOST_INT32(time);
+		if (extra && sizeof(timespec->tv_sec) > 4)
+			timespec->tv_sec |=
+				(uint64)(B_LENDIAN_TO_HOST_INT32(time_extra) & 0x2) << 32;
+		if (extra)
+			timespec->tv_nsec = B_LENDIAN_TO_HOST_INT32(time_extra) >> 2;
+		else
+			timespec->tv_nsec = 0;
+	}
+	void GetAccessTime(struct timespec *timespec, bool extra) const
+		{ _DecodeTime(timespec, accessTime, nsAccessTime, extra); }
+	void GetChangeTime(struct timespec *timespec, bool extra) const
+		{ _DecodeTime(timespec, changeTime, nsChangeTime, extra); }
+	void GetModificationTime(struct timespec *timespec, bool extra) const
+		{ _DecodeTime(timespec, modifiedTime, nsModifiedTime, extra); }
+	void GetCreationTime(struct timespec *timespec, bool extra) const
+		{ _DecodeTime(timespec, createTime, nsCreateTime, extra); }
 };
 
 class Inode {
@@ -86,14 +108,14 @@ class Inode {
 			off_t		Size() const { return fNode.size; }
 			uid_t		UserID() const { return fNode.userId; }
 			gid_t		GroupID() const { return fNode.groupId; }
-			/*void		GetChangeTime(struct timespec& timespec) const
-							{ fNode.GetChangeTime(timespec); }
-			void		GetModificationTime(struct timespec& timespec) const
-							{ fNode.GetModificationTime(timespec); }
-			void		GetCreationTime(struct timespec& timespec) const
-							{ fNode.GetCreationTime(timespec); }
-			void		GetAccessTime(struct timespec& timespec) const
-							{ fNode.GetCreationTime(timespec); }*/
+			void		GetChangeTime(struct timespec *timespec) const
+							{ fNode.GetChangeTime(timespec, fHasNanoTime); }
+			void		GetModificationTime(struct timespec *timespec) const
+							{ fNode.GetModificationTime(timespec, fHasNanoTime); }
+			void		GetCreationTime(struct timespec *timespec) const
+							{ fNode.GetCreationTime(timespec, fHasNanoTime); }
+			void		GetAccessTime(struct timespec *timespec) const
+							{ fNode.GetAccessTime(timespec, fHasNanoTime); }
 
 			Volume*		GetVolume() const { return fVolume; }
 
@@ -119,6 +141,7 @@ private:
 			::Volume*	fVolume;
 			ino_t		fID;
 			void*		fCache;
+			bool		fHasNanoTime;
 			void*		fMap;
 			status_t	fInitStatus;
 			ufs2_inode	fNode;

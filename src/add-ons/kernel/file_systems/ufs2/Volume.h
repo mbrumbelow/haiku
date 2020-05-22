@@ -28,7 +28,8 @@ class Volume {
 
 				bool					IsValidSuperBlock();
 				bool					IsValidInodeBlock(off_t block) const;
-				bool					IsReadOnly() const;
+				bool					IsReadOnly() const
+										{ return (fFlags & VOLUME_READ_ONLY) != 0; }
 				fs_volume*				FSVolume() const { return fFSVolume; }
 				dev_t					ID() const
 										{ return fFSVolume ? fFSVolume->id : -1; }
