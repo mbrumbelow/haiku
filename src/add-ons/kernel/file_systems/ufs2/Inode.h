@@ -12,6 +12,7 @@
 
 #define	UFS2_ROOT	((ino_t)2)
 
+
 struct ufs2_inode {
 	u_int16_t	fileMode;
 	int16_t		linkCount;
@@ -57,6 +58,21 @@ struct ufs2_inode {
 	int64_t		unused2;
 	int64_t		unused3;
 
+
+	static void _DecodeTime(struct timespec& timespec,
+		const ufs2_timespec& time)
+	{
+		timespec.tv_sec = B_LENDIAN_TO_HOST_INT64(time.seconds);
+		timespec.tv_nsec = B_LENDIAN_TO_HOST_INT32(time.nanoseconds);
+	}
+/*	void GetAccessTime(struct timespec& timespec) const
+		{ _DecodeTime(timespec, access_time); }
+	void GetChangeTime(struct timespec& timespec) const
+		{ _DecodeTime(timespec, change_time); }
+	void GetModificationTime(struct timespec& timespec) const
+		{ _DecodeTime(timespec, modification_time); }
+	void GetCreationTime(struct timespec& timespec) const
+		{ _DecodeTime(timespec, creation_time); }*/
 };
 
 class Inode {

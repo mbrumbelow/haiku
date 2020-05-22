@@ -9,7 +9,9 @@
 #include "Volume.h"
 #include "Inode.h"
 
-#ifdef TRACE_ufs2
+
+#define TRACE_UFS2
+#ifdef TRACE_UFS2
 #define TRACE(x...) dprintf("\33[34mufs2:\33[0m " x)
 #else
 #define TRACE(x...) ;
@@ -198,7 +200,27 @@ ufs2_ioctl(fs_volume *_volume, fs_vnode *_node, void *_cookie, uint32 cmd,
 static status_t
 ufs2_read_stat(fs_volume *_volume, fs_vnode *_node, struct stat *stat)
 {
-	return B_NOT_SUPPORTED;
+	TRACE("Reading stat...\n");
+	Inode* inode = (Inode*)_node->private_node;
+	stat->st_dev = inode->GetVolume()->ID();
+	stat->st_ino = inode->ID();
+	stat->st_nlink = 1;
+	stat->st_blksize = 65536;
+
+	stat->st_uid = inode->UserID();
+	stat->st_gid = inode->GroupID();
+	stat->st_mode = inode->Mode();
+	stat->st_type = 0;
+
+//	inode->GetAccessTime(stat->st_atim);
+//	inode->GetModificationTime(stat->st_mtim);
+//	inode->GetChangeTime(stat->st_ctim);
+//	inode->GetCreationTime(stat->st_crtim);
+
+	stat->st_size = inode->Size();
+	stat->st_blocks = (inode->Size() + 511) / 512;
+
+	return B_OK;
 }
 
 
