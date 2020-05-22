@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f6baad8_2484526f",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-22T07:44:07Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "909638b3fd512736f4d0eb7af3ec2fc5ed2003ee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e18a0ec5_e87eaf7c",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-22T07:44:07Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "909638b3fd512736f4d0eb7af3ec2fc5ed2003ee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3ca5145_a60e5582",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-22T07:44:07Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "909638b3fd512736f4d0eb7af3ec2fc5ed2003ee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40183575_94967152",
+        "filename": "src/preferences/input/InputDeviceView.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-22T07:44:07Z",
+      "side": 1,
+      "message": "two blank lines here",
+      "revId": "909638b3fd512736f4d0eb7af3ec2fc5ed2003ee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "608e30f1_fbb2ca29",
+        "filename": "src/preferences/input/InputDeviceView.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-22T07:44:07Z",
+      "side": 1,
+      "message": "two blank lines here",
+      "revId": "909638b3fd512736f4d0eb7af3ec2fc5ed2003ee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55d6b1f2_7bbc0707",
+        "filename": "src/preferences/input/InputDeviceView.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-22T07:44:07Z",
+      "side": 1,
+      "message": "all method names and field names should be aligned on the same column",
+      "revId": "909638b3fd512736f4d0eb7af3ec2fc5ed2003ee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "389648a6_fb6c1fac",
+        "filename": "src/preferences/input/InputDeviceView.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-22T07:44:07Z",
+      "side": 1,
+      "message": "all method names and field names should be aligned on the same column",
+      "revId": "909638b3fd512736f4d0eb7af3ec2fc5ed2003ee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d913b8b_3b49c303",
+        "filename": "src/preferences/input/InputIcons.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-22T07:44:07Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "909638b3fd512736f4d0eb7af3ec2fc5ed2003ee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3da56c97_2df671bc",
+        "filename": "src/preferences/input/InputIcons.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-22T07:44:07Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "909638b3fd512736f4d0eb7af3ec2fc5ed2003ee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
