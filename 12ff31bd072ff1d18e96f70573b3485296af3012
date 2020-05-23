@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2494e685_622de8cd",
+        "filename": "src/servers/app/decorator/Decorator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-05-23T17:55:28Z",
+      "side": 1,
+      "message": "Well, we use this convention hundreds of times in the kernel: https://xref.landonf.org/source/search?q\u003d%22_%22\u0026defs\u003d\u0026refs\u003d\u0026path\u003dkernel+cpp\u0026hist\u003d\u0026type\u003d\u0026project\u003dhaiku\n\nIf we want to revisit it, that should probably happen in a later discussion.",
+      "parentUuid": "dd9fed16_e528e37b",
+      "revId": "12ff31bd072ff1d18e96f70573b3485296af3012",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8f75cb02_01af86a6",
         "filename": "src/servers/app/decorator/Decorator.h",
         "patchSetId": 1
