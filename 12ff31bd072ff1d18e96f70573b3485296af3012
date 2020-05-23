@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dd9fed16_e528e37b",
+        "filename": "src/servers/app/decorator/Decorator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-05-23T15:00:07Z",
+      "side": 1,
+      "message": "I would prefer not to use \"_\" as a variable name. I remember searching for a bug for hours that just read like:\nMutexLocker (fLock);\nThat\u0027s hard to spot and has a drastic outcome...",
+      "revId": "12ff31bd072ff1d18e96f70573b3485296af3012",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f75cb02_01af86a6",
+        "filename": "src/servers/app/decorator/Decorator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-05-23T15:00:07Z",
+      "side": 1,
+      "message": "AFAICT \"mutable\" should be on the same level as \"virtual\".",
+      "revId": "12ff31bd072ff1d18e96f70573b3485296af3012",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
