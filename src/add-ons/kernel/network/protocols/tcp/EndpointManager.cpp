@@ -420,7 +420,7 @@ EndpointManager::_BindToAddress(WriteLocker& locker, TCPEndpoint* endpoint,
 	int32 retry = 0;
 	do {
 		EndpointTable::ValueIterator portUsers = fEndpointHash.Lookup(port);
-		retry = false;
+		retrying = false;
 
 		while (portUsers.HasNext()) {
 			TCPEndpoint* user = portUsers.Next();
