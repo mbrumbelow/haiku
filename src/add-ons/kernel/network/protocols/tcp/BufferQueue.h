@@ -13,8 +13,8 @@
 
 #include <util/DoublyLinkedList.h>
 
-#ifndef DEBUG_BUFFER_QUEUE
-#	define DEBUG_BUFFER_QUEUE 1
+#ifndef DEBUG_TCP_BUFFER_QUEUE
+#	define DEBUG_TCP_BUFFER_QUEUE 0
 #endif
 
 
@@ -55,7 +55,7 @@ public:
 			tcp_sequence		NextSequence() const
 									{ return fFirstSequence + fContiguousBytes; }
 
-#if DEBUG_BUFFER_QUEUE
+#if DEBUG_TCP_BUFFER_QUEUE
 			void				Verify() const;
 			void				Dump() const;
 #endif
