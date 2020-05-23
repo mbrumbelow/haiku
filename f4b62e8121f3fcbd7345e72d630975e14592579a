@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "78c29577_bcd068e1",
+        "filename": "src/add-ons/accelerants/radeon_hd/mode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-23T12:20:08Z",
+      "side": 1,
+      "message": "two blank lines between functions",
+      "revId": "f4b62e8121f3fcbd7345e72d630975e14592579a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eeb9f9a7_7fe88050",
+        "filename": "src/add-ons/accelerants/radeon_hd/mode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-23T12:20:08Z",
+      "side": 1,
+      "message": "{ goes to the next line here",
+      "revId": "f4b62e8121f3fcbd7345e72d630975e14592579a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3be12caa_563f1abb",
+        "filename": "src/add-ons/accelerants/radeon_hd/mode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-23T12:20:08Z",
+      "side": 1,
+      "message": "missing ; and this function does not return a bool",
+      "revId": "f4b62e8121f3fcbd7345e72d630975e14592579a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48ca5ff4_a6b0c43a",
+        "filename": "src/add-ons/accelerants/radeon_hd/mode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-23T12:20:08Z",
+      "side": 1,
+      "message": "indent with tabs",
+      "revId": "f4b62e8121f3fcbd7345e72d630975e14592579a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a73d9345_3ed54100",
+        "filename": "src/add-ons/accelerants/radeon_hd/mode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-23T12:20:08Z",
+      "side": 1,
+      "message": "register is a C keyword and can\u0027t be used as a variable name. Also you probably want an uint32_t or an addr_t here?",
+      "revId": "f4b62e8121f3fcbd7345e72d630975e14592579a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fabe5d2_49896b37",
+        "filename": "src/add-ons/accelerants/radeon_hd/mode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-23T12:20:08Z",
+      "side": 1,
+      "message": "uint32_t I think",
+      "revId": "f4b62e8121f3fcbd7345e72d630975e14592579a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c982cad_d4c3ca1e",
+        "filename": "src/add-ons/accelerants/radeon_hd/mode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-23T12:20:08Z",
+      "side": 1,
+      "message": "this line is larger than 80 characters",
+      "revId": "f4b62e8121f3fcbd7345e72d630975e14592579a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
