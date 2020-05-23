@@ -431,3 +431,48 @@ get_mode_bpp(display_mode* mode)
 		__func__);
 	return 32;
 }
+
+
+static uint32_t
+radeon_get_backlight_register()
+{
+	// R600 and up is 0x172c else its 0x0018
+	return 0x172c;
+}
+
+
+status_t
+radeon_set_brightness(float brightness)
+{
+	CALLED();
+
+	if (brightness < 0 || brightness > 1)
+		return B_BAD_VALUE;
+
+	uint32_t bl_register = radeon_get_backlight_register();
+	uint8_t brightness_u8 = ceilf(brightness * 255)
+	uint32_t level = Read32(bl_register);
+	level = level & ~ATOM_S2_CURRENT_BL_LEVEL_MASK
+	level = level | (( brightness_u8 << ATOM_S2_CURRENT_BL_LEVEL_SHIFT )
+					& ATOM_S2_CURRENT_BL_LEVEL_MASK)
+
+	Write32(bl_register, level);
+        return B_OK;
+}
+
+
+status_t
+radeon_get_brightness(float* brightness)
+{
+	CALLED();
+
+	if (brightness == NULL)
+		return B_BAD_VALUE;
+
+	uint32_t brightness_reg = Read32(radeon_get_backlight_register());
+	uint8_t brightness_u8 = ((brightness_reg & ATOM_S2_CURRENT_BL_LEVEL_MASK) >>
+			ATOM_S2_CURRENT_BL_LEVEL_SHIFT);
+	*brightness = (float)brightness_u8 / 255
+
+	return B_OK;
+}
