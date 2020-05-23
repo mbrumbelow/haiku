@@ -18,6 +18,8 @@
 #include <OS.h>
 #include <USB3.h>
 
+#include <kernel.h>
+
 int32 api_version = B_CUR_DRIVER_API_VERSION;
 
 #define DEBUG_DRIVER 0
@@ -502,15 +504,29 @@ device_interupt_callback(void* cookie, status_t status, void* data,
 }
 
 // read_header
-static void
+static status_t
 read_header(const wacom_device* device, void* buffer)
 {
 	uint16* ids = (uint16*)buffer;
 	uint32* size = (uint32*)buffer;
 
-	ids[0] = device->vendor;
-	ids[1] = device->product;
-	size[1] = device->max_packet_size;
+	uint16* destVendor = &ids[0];
+	uint16* destProduct = &ids[1];
+	uint32* destMaxProductSize = &size[1];
+
+	if (!IS_USER_ADDRESS(buffer)) {
+		memcpy(destVendor, &device->vendor, sizeof(uint16));
+		memcpy(destProduct, &device->product, sizeof(uint16));
+		memcpy(destMaxProductSize, &device->max_packet_size, sizeof(uint32));
+		return B_OK;
+	}
+
+	if (user_memcpy(destVendor, &device->vendor, sizeof(uint16)) == B_OK
+		&& user_memcpy(destProduct, &device->product, sizeof(uint16)) == B_OK
+		&& user_memcpy(destMaxProductSize, &device->max_packet_size, sizeof(uint32)) == B_OK)
+		return B_OK;
+
+	return B_BAD_ADDRESS;
 }
 
 // device_read
@@ -558,8 +574,7 @@ device_read(void* cookie, off_t pos, void* buf, size_t* count)
 							"B_TIMED_OUT\n", cookie, kBasePublishPath,
 							device->number));
 						*count = 8;
-						read_header(device, buffer);
-						ret = B_OK;
+						ret = read_header(device, buffer);
 					} else {
 						// any other error trying to acquire the semaphore
 						*count = 0;
@@ -570,8 +585,13 @@ device_read(void* cookie, off_t pos, void* buf, size_t* count)
 						// copy the data from the buffer
 						dataLength = min_c(device->length, *count - 8);
 						*count = dataLength + 8;
-						read_header(device, buffer);
-						memcpy(buffer + 8, device->data, dataLength);
+						ret = read_header(device, buffer);
+						if (ret == B_OK) {
+							if (IS_USER_ADDRESS(buffer))
+								ret = user_memcpy(buffer + 8, device->data, dataLength);
+							else
+								memcpy(buffer + 8, device->data, dataLength);
+						}
 					} else {
 						// an error happened during the interrupt transfer
 						*count = 0;
@@ -587,8 +607,7 @@ device_read(void* cookie, off_t pos, void* buf, size_t* count)
 					device->number, ret);
 			}
 		} else if (*count == 8) {
-			read_header(device, buffer);
-			ret = B_OK;
+			ret = read_header(device, buffer);
 		} else {
 			dprintf(ID "device_read(%p) name = \"%s%d\" -> buffer size must be "
 				"at least 8 bytes!\n", cookie, kBasePublishPath,
