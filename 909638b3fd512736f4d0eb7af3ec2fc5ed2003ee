@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "005ec206_0a16743e",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-05-24T10:29:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1f6baad8_2484526f",
+      "revId": "909638b3fd512736f4d0eb7af3ec2fc5ed2003ee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e18a0ec5_e87eaf7c",
         "filename": "src/preferences/input/InputDeviceView.cpp",
         "patchSetId": 9
@@ -33,6 +51,24 @@
       "revId": "909638b3fd512736f4d0eb7af3ec2fc5ed2003ee",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92239d14_a5c317a5",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-05-24T10:29:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e18a0ec5_e87eaf7c",
+      "revId": "909638b3fd512736f4d0eb7af3ec2fc5ed2003ee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "6aff2382_2e3f4554",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-05-24T10:29:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e3ca5145_a60e5582",
+      "revId": "909638b3fd512736f4d0eb7af3ec2fc5ed2003ee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "40183575_94967152",
         "filename": "src/preferences/input/InputDeviceView.h",
         "patchSetId": 9
@@ -67,6 +121,24 @@
       "revId": "909638b3fd512736f4d0eb7af3ec2fc5ed2003ee",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf06a624_7a2ad534",
+        "filename": "src/preferences/input/InputDeviceView.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-05-24T10:29:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "40183575_94967152",
+      "revId": "909638b3fd512736f4d0eb7af3ec2fc5ed2003ee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "882680e2_2e6fb9bf",
+        "filename": "src/preferences/input/InputDeviceView.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-05-24T10:29:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "608e30f1_fbb2ca29",
+      "revId": "909638b3fd512736f4d0eb7af3ec2fc5ed2003ee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55d6b1f2_7bbc0707",
         "filename": "src/preferences/input/InputDeviceView.h",
         "patchSetId": 9
@@ -101,6 +191,24 @@
       "revId": "909638b3fd512736f4d0eb7af3ec2fc5ed2003ee",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "018b4e92_c036be19",
+        "filename": "src/preferences/input/InputDeviceView.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-05-24T10:29:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "55d6b1f2_7bbc0707",
+      "revId": "909638b3fd512736f4d0eb7af3ec2fc5ed2003ee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "79b409ca_b6eb451d",
+        "filename": "src/preferences/input/InputDeviceView.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-05-24T10:29:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "389648a6_fb6c1fac",
+      "revId": "909638b3fd512736f4d0eb7af3ec2fc5ed2003ee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d913b8b_3b49c303",
         "filename": "src/preferences/input/InputIcons.cpp",
         "patchSetId": 9
@@ -138,6 +264,24 @@
     },
     {
       "key": {
+        "uuid": "fa01dd99_05690800",
+        "filename": "src/preferences/input/InputIcons.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-05-24T10:29:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2d913b8b_3b49c303",
+      "revId": "909638b3fd512736f4d0eb7af3ec2fc5ed2003ee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3da56c97_2df671bc",
         "filename": "src/preferences/input/InputIcons.h",
         "patchSetId": 9
@@ -152,6 +296,24 @@
       "revId": "909638b3fd512736f4d0eb7af3ec2fc5ed2003ee",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99e6a4be_ddc4b2b0",
+        "filename": "src/preferences/input/InputIcons.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-05-24T10:29:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3da56c97_2df671bc",
+      "revId": "909638b3fd512736f4d0eb7af3ec2fc5ed2003ee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
