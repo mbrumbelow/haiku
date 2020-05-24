@@ -1,4 +1,4 @@
-1	turkish	x-vnd.Haiku-libtracker	1850084712
+1	turkish	x-vnd.Haiku-libtracker	2332899407
 Created	ContainerWindow		Oluşturulma
 Icon	AttributesView		Simge
 Open and make preferred	OpenWithWindow		Aç ve tercih edilen yap
@@ -7,7 +7,7 @@ Open with…	ContainerWindow		Birlikte aç…
 Error moving \"%name\" to Trash. (%error)	FSUtils		\"%name\" Çöp'e taşınırken hata (%error)
 Or	FindPanel		veya
 before	FindPanel		önce
-Volume icons	TrackerSettingsWindow		Ses düzeyi simgeleri
+Volume icons	TrackerSettingsWindow		Disk simgeleri
 Ignore case	SelectionWindow		BÜYÜK/küçük harf yoksay
 Current folder	ContainerWindow		Şu anki klasör
 Finish: %time - Over %finishtime left	StatusWindow		Bitiş: %time - Yaklaşık %finishtime kaldı
@@ -25,7 +25,7 @@ You can't replace a folder with one of its sub-folders.	FSUtils		Bir klasörü k
 Select…	VirtualDirectoryWindow		Seç…
 Name	Default Query Columns		Ad
 Unmount	ContainerWindow		Bağlantıyı kes
-Eject when unmounting	AutoMounterSettings		Bağlantıyı keserken çıkart
+Eject when unmounting	AutoMounterSettings		Bağlantıyı keserken çıkar
 Searching for disks to mount…	StatusWindow		Bağlanacak disk aranıyor…
 Value	AttributesView		Değer
 Information	InfoWindow		Bilgi
@@ -60,7 +60,7 @@ You can't move or copy items to read-only volumes.	FSUtils		Ögeler saltokunur d
 Create link	ContainerWindow		Bağlantı oluştur
 starts with	FindPanel		ile başlar
 Replace	FSUtils		Değiştir
-?+* follows nothing.	libtracker		?+* hiçbir şeyi izlemiyor.
+?+* follows nothing.	libtracker		?+*, hiçbir şeyden sonra gelmiyor.
 Rectangle	AttributesView		Dikdörtgen
 Move to	ContainerWindow		Taşı
 Status	Email Query Columns		Durum
@@ -82,7 +82,7 @@ Select	InfoWindow		Seç
 OK	OpenWithWindow		Tamam
 Include trash	FindPanel		Çöp'ü içer
 GiB	WidgetAttributeText		GiB
-Clean up	ContainerWindow		Temizle
+Clean up	ContainerWindow		Toparla
 Modified	FindPanel		Değiştirilme
 Select all	QueryContainerWindow		Tümünü seç
 Select…	FilePanelPriv		Seç…
@@ -91,7 +91,7 @@ Name	Person Query Columns		Ad
 Skip all	FSUtils		Tümünü atla
 Corrupted opcode.	libtracker		Hasar görmüş işlem kodu.
 Atom	AttributesView		Atom
-%SizeProcessed of %TotalSize, %BytesPerSecond/s	StatusWindow		%SizeProcessed/%TotalSize, %BytesPerSecond/s
+%SizeProcessed of %TotalSize, %BytesPerSecond/s	StatusWindow		%SizeProcessed/%TotalSize, %BytesPerSecond/sn
 Preparing to restore items…	StatusWindow		Ögeler eski haline getirilmeye hazırlanıyor…
 Mount	ContainerWindow		Bağla
 Desktop	B_DESKTOP_DIRECTORY		Masaüstü
@@ -102,7 +102,7 @@ Character	AttributesView		Karakter
 All disks	FindPanel		Tüm diskler
 Affine transform	AttributesView		Afin dönüşüm
 Window	ContainerWindow		Pencere
-%BytesPerSecond/s	StatusWindow		%BytesPerSecond/s
+%BytesPerSecond/s	StatusWindow		%BytesPerSecond/sn
 Remove	FindPanel		Kaldır
 Company	Person Query Columns		Şirket
 Recent documents	FavoritesMenu		Son belgeler
@@ -114,7 +114,7 @@ Edit templates…	TemplatesMenu		Şablonları düzenle…
 %capacity (%used used -- %free free)	InfoWindow		%capacity (%used kullanılıyor -- %free kullanılmayan)
 Hide dotfiles	SettingsView		Nokta ile başlayan dosyaları gizle
 Trash	Model		Çöp
-Enable type-ahead filtering	SettingsView		Otomatik tamamlayan süzmeyi etkinleştir
+Enable type-ahead filtering	SettingsView		Hemen bulan süzmeyi etkinleştir
 copy	FSUtils	filename copy	kopyala
 New folder%ld	FSUtils		Yeni klasör%ld
 Location	OpenWithWindow		Konum
@@ -134,7 +134,7 @@ Move to Trash	ContainerWindow		Çöp'e taşı
 All files and folders	FindPanel		Tüm dosyalar ve klasörler
 Add-ons	ContainerWindow		Eklentiler
 Too many parenthesis.	libtracker		Çok fazla parantez.
-Increase size	ContainerWindow		Boyutu arttır
+Increase size	ContainerWindow		Büyüt
 \nShould this be fixed?	FSUtils		\nBu düzeltilsin mi?
 URL	Bookmark Query Columns		URL
 Move	PoseView		Taşı
@@ -185,7 +185,7 @@ There was a problem trying to save in the folder you specified. Please try anoth
 Desktop	TrackerSettingsWindow		Masaüstü
 Nested *?+.	libtracker		İç içe geçmiş *?+.
 Move	FSUtils	button label	Taşı
-Clean up	DeskWindow		Temizle
+Clean up	DeskWindow		Toparla
 Group	FilePermissionsView		Grup
 Could not find an application to open \"%name\" (%error). 	FSUtils		\"%name\" ögesini açabilecek bir uygulama bulunamadı (%error). 
 Internal error.	libtracker		İç hata.
@@ -244,7 +244,7 @@ Copying: 	StatusWindow		Kopyalanıyor:
 Show navigator	SettingsView		Adres çubuğunu göster
 Select all	DeskWindow		Tümünü seç
 Double-precision floating point number	AttributesView		Çifte keskinlikli kayan noktalı sayı
-Decrease size	ContainerWindow		Boyutu düşür
+Decrease size	ContainerWindow		Küçült
 Recent queries	FindPanel		Son sorgular
 Mount all	MountMenu		Tümünü bağla
 128 x 128	DeskWindow		128 x 128
@@ -265,9 +265,9 @@ Cut	FilePanelPriv		Kes
 Favorites	FilePanelPriv		Favoriler
 Point	AttributesView		Nokta
 home	B_USER_DIRECTORY		ev
-Tracker New Templates	B_USER_SETTINGS_DIRECTORY/Tracker/Tracker New Templates		İzleyici Yeni şablonlar
+Tracker New Templates	B_USER_SETTINGS_DIRECTORY/Tracker/Tracker New Templates		Yeni İzleyici şablonları
 Disk mounting during boot	AutoMounterSettings		Önyükleme sırasında bağlama
-Don't automount	AutoMounterSettings		Otomatik bağlanmaz
+Don't automount	AutoMounterSettings		Otomatik bağlama yok
 Could not find application \"%appname\"	OpenWithWindow		\"%appname\" uygulaması bulunamıyor
 Unmatched parenthesis.	libtracker		Eşleşmeyen parantezler.
 Extended attribute	AttributesView		Genişletilmiş öznitelik
@@ -286,6 +286,7 @@ Error creating link to \"%name\".	FSUtils		\"%name\" ögesine bağlantı yaratı
 Unknown	FilePermissionsView		Bilinmeyen
 Paste links	ContainerWindow		Bağlantıları yapıştır
 Restoring: 	StatusWindow		Eski haline getiriliyor: 
+The Tracker must be running to set the default printer.	PoseView		Öntanımlı yazıcıyı ayarlamak için İzleyici çalışıyor olmalıdır.
 calculating…	InfoWindow		hesaplanıyor…
 Preferred for file	OpenWithWindow		Dosya için tercih edilen
 OK	AutoMounterSettings		Tamam
@@ -314,7 +315,7 @@ Select…	QueryContainerWindow		Seç…
 Open	ContainerWindow		Aç
 Settings…	MountMenu		Ayarlar…
 You cannot put the selected item(s) into the trash.	FSUtils		Seçili ögeyi/ögeleri Çöp'e atamazsınız.
-Increase size	DeskWindow		Boyutu arttır
+Increase size	DeskWindow		Büyüt
 starts with	SelectionWindow		başlar
 Any	AttributesView		Herhangi biri
 New	DeskWindow		Yeni
@@ -414,14 +415,14 @@ There was a problem trying to replace \"%name\". The item might be open or busy.
 Windows	TrackerSettingsWindow		Pencereler
 Show space bars on volumes	SettingsView		Disklerde doluluk çubuklarını göster
 Could not update permissions of file \"%name\". %error	FSUtils		\"%name\" dosyasının izinleri güncellenemedi. %error
-Decrease size	DeskWindow		Boyutu azalt
+Decrease size	DeskWindow		Küçült
 Emptying Trash… 	StatusWindow		Çöp boşaltılıyor… 
 {0, plural, one{for # file} other{for # files}}	InfoWindow		{0, plural, other{, # dosya}}
 KiB	WidgetAttributeText		KiB
 Revert	TrackerSettingsWindow		Eski haline döndür
 trash	B_TRASH_DIRECTORY		çöp
 If you move the system folder or its contents, you won't be able to boot %osName!\n\nAre you sure you want to do this?\n\nTo move the system folder or its contents anyway, hold down the Shift key and click \"Move\".	FSUtils		Sistem klasörünü veya içindekileri taşırsanız %osName çalışmayacaktır!\n\nBunu yapmak istediğinizden emin misiniz?\n\nYine de taşımak istiyorsanız Shift düğmesini basılı tutun ve \"Taşı\"ya basın.
-Close all in workspace	ContainerWindow		Tüm çalışma alanlarında kapat
+Close all in workspace	ContainerWindow		Bu çalışma alanındakileri kapat
 Corrupted expression.	libtracker		Hasar görmüş ifade.
 32 x 32	DeskWindow		32 x 32
 Network address	AttributesView		Ağ adresi
@@ -445,10 +446,9 @@ the config folder	FSUtils		yapılandırma klasörü
 Sorry, could not create a new folder.	FSUtils		Üzgünüm, yeni bir klasör oluşturulamadı.
 Select all	VirtualDirectoryWindow		Tümünü seç
 Rename	FSUtils	button label	Yeniden adlandır
-Clean up all	ContainerWindow		Tümünü temizle
+Clean up all	ContainerWindow		Hepsini toparla
 Add current folder	FilePanelPriv		Şu anki klasörü ekle
 Description:	InfoWindow		Açıklama:
-The Tracker must be running to see set the default printer.	PoseView		Öntanımlı yazıcıyı görebilmesi için İzleyici'nin çalışıyor olması gerekir.
 Are you sure you want to delete the selected item(s)? This operation cannot be reverted.	FSUtils		Seçili öge/ögeleri silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.
 Grayscale picture	AttributesView		Gri tonlu resim
 Mount	DeskWindow		Bağla
@@ -475,7 +475,7 @@ matches regular expression	SelectionWindow		düzenli ifade ile eşleşir
 Invert selection	ContainerWindow		Seçimi tersine çevir
 Close	VirtualDirectoryWindow		Kapat
 Monochrome picture	AttributesView		Siyah beyaz resim
-Real name	ContainerWindow		Gerçek adı
+Real name	ContainerWindow		Gerçek ad
 Could not open \"%name\". The file is mistakenly marked as executable. 	FSUtils		\"%name\" açılamadı. Dosya yanlışlıkla çalıştırılabilir olarak imlenmiş. 
 Go to parent	FilePanelPriv		Üst klasöre git
 Save	FindPanel		Kaydet

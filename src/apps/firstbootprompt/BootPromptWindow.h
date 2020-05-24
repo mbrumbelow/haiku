@@ -27,6 +27,7 @@ public:
 private:
 			void				_InitCatalog(bool saveSettings);
 			void				_UpdateStrings();
+			void				_UpdateKeymapsMenu();
 			void				_PopulateLanguages();
 			void				_PopulateKeymaps();
 			void				_ActivateKeymap(const BMessage* message) const;
@@ -37,6 +38,7 @@ private:
 private:
 			BTextView*			fInfoTextView;
 			BStringView*		fLanguagesLabelView;
+			BStringView*		fKeymapsMenuLabel;
 			BListView*			fLanguagesListView;
 			BMenuField*			fKeymapsMenuField;
 			BMenuItem*			fDefaultKeymapItem;

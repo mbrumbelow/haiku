@@ -90,9 +90,11 @@ DoCatalogs libbe.so
 	AboutMenuItem.cpp
 	AboutWindow.cpp
 	ColorControl.cpp
+	DecorInfo.cpp
 	Dragger.cpp
 	Menu.cpp
 	PrintJob.cpp
+	StringForRate.cpp
 	StringForSize.cpp
 	TextView.cpp
 	ZombieReplicantView.cpp

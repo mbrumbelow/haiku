@@ -9,7 +9,7 @@ boot loader, kernel, the system libraries, servers, and applications."
 packager		"The Haiku build system"
 vendor			"Haiku Project"
 
-copyrights		"2001-2019 Haiku, Inc. et al"
+copyrights		"2001-2020 Haiku, Inc. et al"
 licenses {
 	MIT
 	"GNU LGPL v2.1"
@@ -96,13 +96,6 @@ requires {
 #endif
 #ifdef HAIKU_BUILD_FEATURE_SPARC_LIBWEBP_ENABLED
 	lib:libwebp
-#endif
-#ifdef HAIKU_BUILD_FEATURE_SPARC_ILMBASE_ENABLED
-	lib:libhalf
-	lib:libiex
-	lib:libiexmath
-	lib:libilmthread
-	lib:libimath
 #endif
 #ifdef HAIKU_BUILD_FEATURE_SPARC_OPENEXR_ENABLED
 	lib:libilmimf

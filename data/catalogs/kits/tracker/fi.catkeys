@@ -1,4 +1,4 @@
-1	finnish	x-vnd.Haiku-libtracker	176213216
+1	finnish	x-vnd.Haiku-libtracker	659027911
 Created	ContainerWindow		Luotu
 Icon	AttributesView		Kuvake
 Open and make preferred	OpenWithWindow		Avaa ja tee ensisijaiseksi
@@ -286,6 +286,7 @@ Error creating link to \"%name\".	FSUtils		Virhe luotaessa linkkiä kohteeseen �
 Unknown	FilePermissionsView		Tuntematon
 Paste links	ContainerWindow		Liitä linkit
 Restoring: 	StatusWindow		Palautetaan: 
+The Tracker must be running to set the default printer.	PoseView		Oletustulostimen asettamiseksi Seuraajan on oltava käynnissä.
 calculating…	InfoWindow		lasketaan...
 Preferred for file	OpenWithWindow		Ensisijainen tiedostolle
 OK	AutoMounterSettings		Valmis
@@ -448,7 +449,6 @@ Rename	FSUtils	button label	Nimeä uudelleen
 Clean up all	ContainerWindow		Tyhjennä kaikki
 Add current folder	FilePanelPriv		Lisää nykyinen kansio
 Description:	InfoWindow		Kuvaus:
-The Tracker must be running to see set the default printer.	PoseView		Seuraajan on oltava käynnissä oletustulostimen näkymiseksi.
 Are you sure you want to delete the selected item(s)? This operation cannot be reverted.	FSUtils		Oletko varma, että haluat poistaa valitut kohteet? Tätä toimintoa ei voi palauttaa.
 Grayscale picture	AttributesView		Harmaaskaalakuva
 Mount	DeskWindow		Liitä

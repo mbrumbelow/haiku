@@ -3,7 +3,7 @@ Authentication required	Authentication Panel		Kimlik doğrulaması gerekli
 Previous	WebPositive Window		Önceki
 (Finish: %date)	Download Window		(Bitiş: %date)
 Open bookmarks confirmation	WebPositive Window		Yer imi aç onayı
-Download folder:	Settings Window		İndirilenler klasörü
+Download folder:	Settings Window		İndirmeler klasörü
 Close window	WebPositive Window		Pencereyi kapat
 Find:	WebPositive Window		Bul:
 Script console	WebPositive Window		Betik konsolu
@@ -27,7 +27,7 @@ Clone current page	Settings Window		Şu anki sayfadan bir tane daha aç
 Start page:	Settings Window		Başlangıç sayfası:
 Cancel	Download Window		İptal
 Settings	Settings Window		Ayarlar
-Downloads	WebPositive Window		İndirilenler
+Downloads	WebPositive Window		İndirmeler
 Browse…	Settings Window		Göz at…
 A bookmark for this page (%bookmarkName) already exists.	WebPositive Window	Don't translate variable %bookmarkName	Bu sayfa için bir yer imi (%bookmarkName) hâlihazırda mevcut.
 Resume prior session	Settings Window		Bir önceki oturumu sürdür
@@ -46,7 +46,7 @@ New tabs:	Settings Window		Yeni sekmeler:
 %url failed	WebPositive Window	Loading URL failed. Don't translate variable %url.	%url yüklenemedi
 Open downloads folder	Download Window		İndirilenler klasörünü aç
 Proxy server	Settings Window		Vekil sunucu
-Decrease size	WebPositive Window		Boyutu azalt
+Decrease size	WebPositive Window		Küçült
 Default fixed font size:	Settings Window		Öntanımlı sabit yazıtipi boyutu:
 Sans serif font:	Settings Window		Sans serif yazıtipi:
 Clear	WebPositive Window		Temizle
@@ -78,7 +78,7 @@ View	WebPositive Window		Görünüm
 Paste	URL Bar		Yapıştır
 Find next	WebPositive Window		Sonrakini bul
 Open search page	Settings Window		Arama sayfasını aç
-Increase size	WebPositive Window		Boyutu arttır
+Increase size	WebPositive Window		Büyüt
 New tab	WebPositive Window		Yeni sekme
 Today	WebPositive Window		Bugün
 Open location	WebPositive Window		Konum aç
@@ -111,7 +111,7 @@ Continue downloads	WebPositive		İndirmeleri sürdür
 Proxy server requires authentication	Settings Window		Vekil sunucu oturum açma gerektirir
 Cancel	Settings Window		İptal
 History	WebPositive Window		Geçmiş
-Reset size	WebPositive Window		Boyutu sıfırla
+Reset size	WebPositive Window		Orijinal boyut
 Do you really want to clear the browsing history?	WebPositive Window		Tarama geçmişini temizlemek istediğinizden emin misiniz?
 Find next occurrence of search terms	WebPositive Window	find bar next button tooltip	Arama dizgisinin bir sonraki oluşumunu bul
 Fixed font:	Settings Window		Sabit yazıtipi
@@ -124,14 +124,14 @@ Show home button	Settings Window		Anasayfa düğmesini göster
 Start new session	Settings Window		Yeni oturum başlat
 The cookie jar is empty!	Cookie Manager		Çerez kavanozu boş!
 Value	Cookie Manager		Değer
-Remove missing	Download Window		Eksik olanları kaldır
+Remove missing	Download Window		Yarım kalanları kaldır
 Paste	WebPositive Window		Yapıştır
 Double-click or middle-click to open new tab.	Tab Manager		Yeni bir sekme açmak için çift tıklayın veya orta fare düğmesine basın.
 Next	WebPositive Window		Sonraki
 Bookmark error	WebPositive Window		Yer imi hatası
 OK	WebPositive Window		Tamam
 WebPositive	Download Window		WebPositive
-Zoom text only	WebPositive Window		Yalnızca metni yakınlaştır
+Zoom text only	WebPositive Window		Yalnızca metni büyüt
 Save page as…	WebPositive Window		Sayfayı farklı kaydet…
 Page source error	WebPositive Window		Sayfa kaynağı hatası
 Auto-hide mouse pointer	Settings Window		Fare imlecini kendiliğinden gizle
@@ -149,7 +149,7 @@ Confirmation	WebPositive Window		Onaylama
 Session cookie	Cookie Manager		Oturum çerezi
 Open all	WebPositive Window		Tümünü aç
 Cut	WebPositive Window		Kes
-Downloads	Download Window		İndirilenler
+Downloads	Download Window		İndirmeler
 Open blank page	Settings Window		Boş sayfa aç
 Clear history	WebPositive Window		Geçmişi sil
 Cancel	WebPositive Window		İptal

@@ -613,6 +613,7 @@ ActivityView::_Init(const BMessage* settings)
 	fLegendLayoutItem = NULL;
 #endif
 	SetViewColor(B_TRANSPARENT_COLOR);
+	SetFlags(Flags() | B_TRANSPARENT_BACKGROUND);
 
 	fLastRefresh = 0;
 	fDrawResolution = 1;
@@ -1447,8 +1448,7 @@ ActivityView::Draw(BRect updateRect)
 
 		BString label = source->Label();
 		float possibleLabelWidth = frame.right - colorBox.right - 12 - width;
-		// TODO: TruncateString() is broken... remove + 5 when fixed!
-		if (ceilf(StringWidth(label.String()) + 5) > possibleLabelWidth)
+		if (ceilf(StringWidth(label.String())) > possibleLabelWidth)
 			label = source->ShortLabel();
 		TruncateString(&label, B_TRUNCATE_MIDDLE, possibleLabelWidth);
 

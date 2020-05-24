@@ -339,6 +339,10 @@ nvme_static_assert((offsetof(struct nvme_tracker, u.sgl) & 7) == 0,
 		   "SGL must be Qword aligned");
 
 struct nvme_qpair {
+	/*
+	 * Guards access to this structure.
+	 */
+	pthread_mutex_t				lock;
 
 	volatile uint32_t	        *sq_tdbl;
 	volatile uint32_t	        *cq_hdbl;
@@ -544,15 +548,14 @@ struct nvme_ctrlr {
 	void				*aer_cb_arg;
 
 	/*
-	 * Guards access to the controller itself, including admin queues.
-	 */
-	pthread_mutex_t			lock;
-
-
-	/*
 	 * Admin queue pair.
 	 */
 	struct nvme_qpair		adminq;
+
+	/*
+	 * Guards access to the controller itself.
+	 */
+	pthread_mutex_t			lock;
 
 	/*
 	 * Identify Controller data.
@@ -687,9 +690,6 @@ extern int  nvme_qpair_submit_request(struct nvme_qpair *qpair,
 extern void nvme_qpair_reset(struct nvme_qpair *qpair);
 extern void nvme_qpair_fail(struct nvme_qpair *qpair);
 
-extern unsigned int nvme_qpair_poll(struct nvme_qpair *qpair,
-				    unsigned int max_completions);
-
 extern int nvme_request_pool_construct(struct nvme_qpair *qpair);
 
 extern void nvme_request_pool_destroy(struct nvme_qpair *qpair);
@@ -708,6 +708,7 @@ nvme_request_allocate_contig(struct nvme_qpair *qpair,
 			     nvme_cmd_cb cb_fn, void *cb_arg);
 
 extern void nvme_request_free(struct nvme_request *req);
+extern void nvme_request_free_locked(struct nvme_request *req);
 
 extern void nvme_request_add_child(struct nvme_request *parent,
 				   struct nvme_request *child);

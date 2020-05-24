@@ -19,15 +19,15 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 
 # Include required packages:
 # primary architecture
-AddHaikuImagePackages [ FFilterByBuildFeatures
+AddHaikuImageSystemPackages [ FFilterByBuildFeatures
 	bash bc coreutils curl freetype icu libsolv zlib zstd
 
 	regular_image @{
-		bzip2 ctags diffutils expat ffmpeg findutils gawk glu grep gutenprint8
-		gzip ilmbase jasper jpeg
-		less libedit libicns libpcap libpng16 libwebp
-		mesa mesa_devel mesa_swpipe@!gcc2 mesa_swrast@gcc2
-		netcat openexr
+		bzip2 diffutils expat ffmpeg findutils gawk gmp glu grep gutenprint8
+		gzip
+		lame less libedit libicns
+		mesa mesa_devel mesa_swpipe@!gcc2 mesa_swrast@gcc2 mpfr
+		netcat
 		sed sharutils
 		tar tcpdump unzip wget which zip
 	}@
@@ -36,15 +36,16 @@ AddHaikuImageSourcePackages [ FFilterByBuildFeatures
 	bash bc coreutils
 
 	regular_image @{
-		ctags expat ffmpeg findutils gawk grep gutenprint8
+		expat ffmpeg findutils gawk gmp grep gutenprint8
 		gzip
-		less libicns
+		lame less libicns
+		mpfr
 		sed sharutils
 		tar wget which
 	}@
 ] ;
 if $(HAIKU_PACKAGING_ARCHS[1]) != x86_gcc2 {
-	AddHaikuImagePackages [ FFilterByBuildFeatures gcc_syslibs ] ;
+	AddHaikuImageSystemPackages [ FFilterByBuildFeatures gcc_syslibs ] ;
 }
 
 if $(HAIKU_PACKAGING_ARCHS[2]) {
@@ -53,7 +54,7 @@ if $(HAIKU_PACKAGING_ARCHS[2]) {
 	for architectureObject
 			in [ MultiArchSubDirSetup $(HAIKU_PACKAGING_ARCHS[2-]) ] {
 		on $(architectureObject) {
-			AddHaikuImagePackages [ FFilterByBuildFeatures
+			AddHaikuImageSystemPackages [ FFilterByBuildFeatures
 				curl freetype icu libsolv zlib
 
 				regular_image @{
@@ -61,7 +62,7 @@ if $(HAIKU_PACKAGING_ARCHS[2]) {
 				}@
 			] ;
 			if $(TARGET_PACKAGING_ARCH) != x86_gcc2 {
-				AddHaikuImagePackages [ FFilterByBuildFeatures gcc_syslibs
+				AddHaikuImageSystemPackages [ FFilterByBuildFeatures gcc_syslibs
 					mesa_swpipe ] ;
 			}
 		}
@@ -70,11 +71,11 @@ if $(HAIKU_PACKAGING_ARCHS[2]) {
 
 # If enabled, make sure that OpenSSL is added to the image.
 if [ FIsBuildFeatureEnabled openssl ] {
-	AddHaikuImagePackages openssl ;
+	AddHaikuImageSystemPackages openssl ;
 }
 
 # add additionally requested packages
-AddHaikuImagePackages $(HAIKU_IMAGE_ADDITIONAL_PACKAGES) ;
+AddHaikuImageSystemPackages $(HAIKU_IMAGE_ADDITIONAL_PACKAGES) ;
 
 # Optionally we allow not to include the "src" subdirectory.
 if $(HAIKU_DONT_INCLUDE_SRC) {

@@ -529,7 +529,10 @@ control_device_manager(const char* subsystem, uint32 function, void* buffer,
 
 			device_attr* attr = iterator.Next();
 			attrInfo.cookie = (device_node_cookie)attr;
-			strlcpy(attrInfo.name, attr->name, 254);
+			if (attr->name != NULL)
+				strlcpy(attrInfo.name, attr->name, 254);
+			else
+				attrInfo.name[0] = '\0';
 			attrInfo.type = attr->type;
 			switch (attrInfo.type) {
 				case B_UINT8_TYPE:
@@ -545,7 +548,10 @@ control_device_manager(const char* subsystem, uint32 function, void* buffer,
 					attrInfo.value.ui64 = attr->value.ui64;
 					break;
 				case B_STRING_TYPE:
-					strlcpy(attrInfo.value.string, attr->value.string, 254);
+					if (attr->value.string != NULL)
+						strlcpy(attrInfo.value.string, attr->value.string, 254);
+					else
+						attrInfo.value.string[0] = '\0';
 					break;
 				/*case B_RAW_TYPE:
 					if (attr.value.raw.length > attr_info->attr.value.raw.length)
@@ -893,6 +899,53 @@ get_next_attr(device_node* node, device_attr** _attr)
 }
 
 
+static status_t
+find_child_node(device_node* parent, const device_attr* attributes,
+	device_node** _node, bool *_lastFound)
+{
+	RecursiveLocker _(sLock);
+
+	NodeList::ConstIterator iterator = parent->Children().GetIterator();
+	device_node* last = *_node;
+
+	// find the next one that fits
+	while (iterator.HasNext()) {
+		device_node* node = iterator.Next();
+
+		if (!node->IsRegistered())
+			continue;
+
+		if (node == last)
+			*_lastFound = true;
+		else if (!node->CompareTo(attributes) && *_lastFound) {
+			if (last != NULL)
+				last->Release();
+
+			node->Acquire();
+			*_node = node;
+			return B_OK;
+		}
+		if (find_child_node(node, attributes, _node, _lastFound) == B_OK)
+			return B_OK;
+	}
+
+	return B_ENTRY_NOT_FOUND;
+}
+
+
+static status_t
+find_child_node(device_node* parent, const device_attr* attributes,
+	device_node** _node)
+{
+	device_node* last = *_node;
+	bool lastFound = last == NULL;
+	status_t status = find_child_node(parent, attributes, _node, &lastFound);
+	if (status == B_ENTRY_NOT_FOUND && last != NULL && lastFound)
+		last->Release();
+	return status;
+}
+
+
 struct device_manager_info gDeviceManagerModule = {
 	{
 		B_DEVICE_MANAGER_MODULE_NAME,
@@ -928,6 +981,7 @@ struct device_manager_info gDeviceManagerModule = {
 	get_attr_string,
 	get_attr_raw,
 	get_next_attr,
+	find_child_node
 };
 
 
@@ -1612,6 +1666,16 @@ device_node::_GetNextDriverPath(void*& cookie, KPath& _path)
 						break;
 				}
 				break;
+			case PCI_data_acquisition:
+				switch (subType) {
+					case PCI_data_acquisition_other:
+						_AddPath(*stack, "busses", "i2c");
+						break;
+					default:
+						_AddPath(*stack, "drivers");
+						break;
+				}
+				break;
 			default:
 				if (sRootNode == this) {
 					_AddPath(*stack, "busses/pci");
@@ -1629,6 +1693,7 @@ device_node::_GetNextDriverPath(void*& cookie, KPath& _path)
 						_AddPath(*stack, "busses");
 					}
 					_AddPath(*stack, "drivers", sGenericContextPath);
+					_AddPath(*stack, "busses/i2c");
 					_AddPath(*stack, "busses/scsi");
 					_AddPath(*stack, "busses/random");
 				}
@@ -1909,6 +1974,11 @@ device_node::Probe(const char* devicePath, uint32 updateCycle)
 				matches = type == PCI_display;
 			} else if (!strcmp(devicePath, "video")) {
 				matches = type == PCI_multimedia && subType == PCI_video;
+			} else if (!strcmp(devicePath, "power")) {
+				matches = type == PCI_data_acquisition;
+			} else if (!strcmp(devicePath, "input")) {
+				matches = type == PCI_data_acquisition
+					&& subType == PCI_data_acquisition_other;
 			}
 		} else {
 			// This driver does not support types, but still wants to its

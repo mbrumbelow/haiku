@@ -401,25 +401,42 @@ static void nvme_qpair_complete_tracker(struct nvme_qpair *qpair,
 	if (req->cb_fn)
 		req->cb_fn(req->cb_arg, cpl);
 
-	nvme_request_free(req);
+	nvme_request_free_locked(req);
 
 done:
 	tr->req = NULL;
 
 	LIST_REMOVE(tr, list);
 	LIST_INSERT_HEAD(&qpair->free_tr, tr, list);
+}
+
+static void nvme_qpair_submit_queued_requests(struct nvme_qpair *qpair)
+{
+	STAILQ_HEAD(, nvme_request) req_queue;
+	STAILQ_INIT(&req_queue);
+
+	pthread_mutex_lock(&qpair->lock);
+
+	STAILQ_CONCAT(&req_queue, &qpair->queued_req);
 
 	/*
 	 * If the controller is in the middle of a reset, don't
-	 * try to submit queued requests here - let the reset logic
+	 * try to submit queued requests - let the reset logic
 	 * handle that instead.
 	 */
-	if (!STAILQ_EMPTY(&qpair->queued_req) &&
-	    !qpair->ctrlr->resetting) {
-		req = STAILQ_FIRST(&qpair->queued_req);
-		STAILQ_REMOVE_HEAD(&qpair->queued_req, stailq);
+	while (!qpair->ctrlr->resetting && LIST_FIRST(&qpair->free_tr)
+			&& !STAILQ_EMPTY(&req_queue)) {
+		struct nvme_request *req = STAILQ_FIRST(&req_queue);
+		STAILQ_REMOVE_HEAD(&req_queue, stailq);
+
+		pthread_mutex_unlock(&qpair->lock);
 		nvme_qpair_submit_request(qpair, req);
+		pthread_mutex_lock(&qpair->lock);
 	}
+
+	STAILQ_CONCAT(&qpair->queued_req, &req_queue);
+
+	pthread_mutex_unlock(&qpair->lock);
 }
 
 static void nvme_qpair_manual_complete_tracker(struct nvme_qpair *qpair,
@@ -464,7 +481,7 @@ static void nvme_qpair_manual_complete_request(struct nvme_qpair *qpair,
 	if (req->cb_fn)
 		req->cb_fn(req->cb_arg, &cpl);
 
-	nvme_request_free(req);
+	nvme_request_free_locked(req);
 }
 
 static void nvme_qpair_abort_aers(struct nvme_qpair *qpair)
@@ -678,6 +695,12 @@ static int _nvme_qpair_build_prps_sgl_request(struct nvme_qpair *qpair,
 			return -1;
 		}
 
+		nvme_assert((phys_addr & 0x3) == 0, "address must be dword aligned\n");
+		nvme_assert((length >= remaining_transfer_len) || ((phys_addr + length) % PAGE_SIZE) == 0,
+			"All SGEs except last must end on a page boundary\n");
+		nvme_assert((sge_count == 0) || (phys_addr % PAGE_SIZE) == 0,
+			"All SGEs except first must start on a page boundary\n");
+
 		data_transferred = nvme_min(remaining_transfer_len, length);
 
 		nseg = data_transferred >> PAGE_SHIFT;
@@ -723,18 +746,6 @@ static int _nvme_qpair_build_prps_sgl_request(struct nvme_qpair *qpair,
 				}
 				last_nseg++;
 				cur_nseg++;
-
-				/* physical address and length check */
-				if (remaining_transfer_len ||
-				    (!remaining_transfer_len &&
-				     (cur_nseg < nseg))) {
-					if ((length & (PAGE_SIZE - 1)) ||
-					    unaligned) {
-						_nvme_qpair_req_bad_phys(qpair,
-									 tr);
-						return -1;
-					}
-				}
 			}
 		}
 	}
@@ -842,6 +853,8 @@ int nvme_qpair_construct(struct nvme_ctrlr *ctrlr, struct nvme_qpair *qpair,
 
 	nvme_assert(entries != 0, "Invalid number of entries\n");
 	nvme_assert(trackers != 0, "Invalid trackers\n");
+
+	pthread_mutex_init(&qpair->lock, NULL);
 
 	qpair->entries = entries;
 	qpair->trackers = trackers;
@@ -956,6 +969,9 @@ fail:
 
 void nvme_qpair_destroy(struct nvme_qpair *qpair)
 {
+	if (!qpair->ctrlr)
+		return; // Not initialized.
+
 	if (nvme_qpair_is_admin_queue(qpair))
 		_nvme_qpair_admin_qpair_destroy(qpair);
 
@@ -973,9 +989,12 @@ void nvme_qpair_destroy(struct nvme_qpair *qpair)
 	}
 	nvme_request_pool_destroy(qpair);
 
+	qpair->ctrlr = NULL;
+
+	pthread_mutex_destroy(&qpair->lock);
 }
 
-bool nvme_qpair_enabled(struct nvme_qpair *qpair)
+static bool nvme_qpair_enabled(struct nvme_qpair *qpair)
 {
 	if (!qpair->enabled && !qpair->ctrlr->resetting)
 		nvme_qpair_enable(qpair);
@@ -1022,17 +1041,24 @@ int nvme_qpair_submit_request(struct nvme_qpair *qpair,
 		return ret;
 	}
 
+	pthread_mutex_lock(&qpair->lock);
+
 	tr = LIST_FIRST(&qpair->free_tr);
-	if (tr == NULL || !qpair->enabled) {
+	if (tr == NULL || !qpair->enabled || !STAILQ_EMPTY(&qpair->queued_req)) {
 		/*
-		 * No tracker is available, or the qpair is disabled due
-		 * to an in-progress controller-level reset.
+		 * No tracker is available, the qpair is disabled due
+		 * to an in-progress controller-level reset, or
+		 * there are already queued requests.
 		 *
 		 * Put the request on the qpair's request queue to be
 		 * processed when a tracker frees up via a command
 		 * completion or when the controller reset is completed.
 		 */
 		STAILQ_INSERT_TAIL(&qpair->queued_req, req, stailq);
+		pthread_mutex_unlock(&qpair->lock);
+
+		if (tr)
+			nvme_qpair_submit_queued_requests(qpair);
 		return 0;
 	}
 
@@ -1062,9 +1088,15 @@ int nvme_qpair_submit_request(struct nvme_qpair *qpair,
 	if (ret == 0)
 		nvme_qpair_submit_tracker(qpair, tr);
 
+	pthread_mutex_unlock(&qpair->lock);
+
 	return ret;
 }
 
+/*
+ * Poll for completion of NVMe commands submitted to the
+ * specified I/O queue pair.
+ */
 unsigned int nvme_qpair_poll(struct nvme_qpair *qpair,
 			     unsigned int max_completions)
 {
@@ -1089,6 +1121,8 @@ unsigned int nvme_qpair_poll(struct nvme_qpair *qpair,
 		 * queue doorbells don't wrap around.
 		 */
 		max_completions = qpair->entries - 1;
+
+	pthread_mutex_lock(&qpair->lock);
 
 	while (1) {
 
@@ -1117,11 +1151,18 @@ unsigned int nvme_qpair_poll(struct nvme_qpair *qpair,
 	if (num_completions > 0)
 		nvme_mmio_write_4(qpair->cq_hdbl, qpair->cq_head);
 
+	pthread_mutex_unlock(&qpair->lock);
+
+	if (!STAILQ_EMPTY(&qpair->queued_req))
+		nvme_qpair_submit_queued_requests(qpair);
+
 	return num_completions;
 }
 
 void nvme_qpair_reset(struct nvme_qpair *qpair)
 {
+	pthread_mutex_lock(&qpair->lock);
+
 	qpair->sq_tail = qpair->cq_head = 0;
 
 	/*
@@ -1134,28 +1175,40 @@ void nvme_qpair_reset(struct nvme_qpair *qpair)
 
 	memset(qpair->cmd, 0, qpair->entries * sizeof(struct nvme_cmd));
 	memset(qpair->cpl, 0, qpair->entries * sizeof(struct nvme_cpl));
+
+	pthread_mutex_unlock(&qpair->lock);
 }
 
 void nvme_qpair_enable(struct nvme_qpair *qpair)
 {
+	pthread_mutex_lock(&qpair->lock);
+
 	if (nvme_qpair_is_io_queue(qpair))
 		_nvme_qpair_io_qpair_enable(qpair);
 	else
 		_nvme_qpair_admin_qpair_enable(qpair);
+
+	pthread_mutex_unlock(&qpair->lock);
 }
 
 void nvme_qpair_disable(struct nvme_qpair *qpair)
 {
+	pthread_mutex_lock(&qpair->lock);
+
 	if (nvme_qpair_is_io_queue(qpair))
 		_nvme_qpair_io_qpair_disable(qpair);
 	else
 		_nvme_qpair_admin_qpair_disable(qpair);
+
+	pthread_mutex_unlock(&qpair->lock);
 }
 
 void nvme_qpair_fail(struct nvme_qpair *qpair)
 {
 	struct nvme_tracker *tr;
 	struct nvme_request *req;
+
+	pthread_mutex_lock(&qpair->lock);
 
 	while (!STAILQ_EMPTY(&qpair->queued_req)) {
 
@@ -1182,5 +1235,7 @@ void nvme_qpair_fail(struct nvme_qpair *qpair)
 						   1, true);
 
 	}
+
+	pthread_mutex_unlock(&qpair->lock);
 }
 

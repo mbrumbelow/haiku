@@ -1,4 +1,4 @@
-1	french	x-vnd.haiku-icon_o_matic	1170856381
+1	french	x-vnd.haiku-icon_o_matic	3554185674
 None	Icon-O-Matic-Properties		Aucun
 Rotate Path Indices	Icon-O-Matic-RotatePathIndiciesCmd		Rotation des indices de chemin
 Add empty	Icon-O-Matic-ShapesList		Ajouter une forme vide
@@ -19,12 +19,13 @@ Unassign Path	Icon-O-Matic-UnassignPathCmd		Révoquer le chemin
 The text you are trying to import is quite long, are you sure?	Icon-O-Matic-StyledTextImport		Vous essayez d’importer un texte plutôt long, êtes-vous sûr de vous ?
 Paste	Icon-O-Matic-Properties		Coller
 Detect Orient.	Icon-O-Matic-PropertyNames		Détecter l’orientation.
-Click on a shape above	Empty transformers list - 1st line		Cliquer sur une forme ci-dessus
+Click on a shape above	Empty transformers list - 1st line		Cliquez sur une forme ci-dessus
 Close	Icon-O-Matic-Menu-File		Fermer
 Add rect	Icon-O-Matic-PathsList		Ajouter un rectangle
 Rotation	Icon-O-Matic-PropertyNames		Rotation
 Multi Paste Properties	Icon-O-Matic-Properties		Propriétés de collage multiple
 Bleep!	Exporter - Continue in error dialog		Bip !
+Transform	Icon-O-Matic-PathManipulator		Transformer
 Remove Transformer	Icon-O-Matic-RemoveTransformersCmd		Supprimer une transformation
 META:ICON Attribute	Icon-O-Matic-SavePanel		Attribut META:ICON
 Add shape with style	Icon-O-Matic-Menu-Shape		Ajouter une forme avec un style
@@ -61,7 +62,7 @@ Opening the document failed!	Icon-O-Matic-Main		L’ouverture du document a éch
 Shape	Icon-O-Matic-Menus		Forme
 Add with path & style	Icon-O-Matic-ShapesList		Ajouter avec le chemin & le style
 <unavailable>	Icon-O-Matic-StyleTypes		<indisponible>
-Min LOD	Icon-O-Matic-PropertyNames		Niveau de détail minimal
+Min LOD	Icon-O-Matic-PropertyNames		Seuil min.
 Reverse Path	Icon-O-Matic-ReversePathCmd		Inverser le chemin
 Move Transformers	Icon-O-Matic-MoveTransformersCmd		Déplacer les transformations
 Add	Icon-O-Matic-TransformersList		Ajouter
@@ -108,8 +109,10 @@ Redo	Icon-O-Matic-Main		Rétablir
 Change Color	Icon-O-Matic-SetColorCmd		Changer la couleur
 Remove	Icon-O-Matic-ShapesList		Enlever
 Drop shapes	Icon-O-Matic-ShapesList		Supprimer les formes
+PNG Set	Icon-O-Matic-SavePanel		Ensemble PNG
 to attach transformers.	Empty transformers list - 2nd line		pour attacher des transformations.
 Linear	Icon-O-Matic-StyleTypes		Linéaire
+any of the other lists to	Empty property list - 2nd line		l'une des autres listes pour
 Nudge Control Point	Icon-O-Matic-NudgePointsCommand		Déplacer le point de contrôle
 Flip Control Point	Icon-O-Matic-FlipPointsCmd		Retourner le Point de Contrôle
 Add Paths	Icon-O-Matic-AddPathsCmd		Ajouter les chemins
@@ -149,8 +152,9 @@ Failed to open the file '%s' as an SVG document.\n\nError: %s	Icon-O-Matic-SVGIm
 Export icon	Dialog title		Exporter l’icône
 Color (#%02x%02x%02x)	Icon-O-Matic-StyledTextImport		Couleur (#%02x%02x%02x)
 Edit Gradient	Icon-O-Matic-SetGradientCmd		Éditer le dégadé
+Set 	Set (property name)		Ensemble
 Rotate indices forwards	Icon-O-Matic-PathsList		Permuter les indices vers l’avant
-Click on an object in	Empty property list - 1st line		Cliquez sur un objet
+Click on an object in	Empty property list - 1st line		Cliquez sur un objet dans
 Save	Icon-O-Matic-Menu-File		Enregistrer
 No	Icon-O-Matic-StyledTextImport		Non
 Add circle	Icon-O-Matic-PathsList		Ajouter un cercle
@@ -158,7 +162,7 @@ Freeze transformation	Icon-O-Matic-ShapesList		Figer la transformation
 Freeze Shapes	Icon-O-Matic-FreezeTransformationCmd		Figer les formes
 Miter Limit	Icon-O-Matic-PropertyNames		Limite de raccord
 Untitled	Icon-O-Matic-Main		Sans nom
-Max LOD	Icon-O-Matic-PropertyNames		Niveau de détail maximal
+Max LOD	Icon-O-Matic-PropertyNames		Seuil max.
 Add Path	Icon-O-Matic-AddPathsCmd		Ajouter un chemin
 Save changes to current icon before closing?	Icon-O-Matic-Menu-Settings		Sauvegarder les changements de l’icône actuelle avant de fermer ?
 load error	Icon-O-Matic-SVGImport		erreur de chargement
@@ -179,6 +183,7 @@ Transformer	Icon-O-Matic-Menus		Transformation
 Invert selection	Icon-O-Matic-Properties		Inverser la sélection
 <unkown property>	Icon-O-Matic-PropertyNames		<propriétés inconnue>
 Pick a color	Icon-O-Matic-ColorPicker		Choisissez une couleur
+Multi Set 	Multi Set (property name)		Multi-ensemble
 Settings…	Icon-O-Matic-SavePanel		Réglages…
 Add with style	Icon-O-Matic-ShapesList		Ajouter avec le style
 New	Icon-O-Matic-Menu-File		Nouveau

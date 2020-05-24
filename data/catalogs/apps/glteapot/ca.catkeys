@@ -1,5 +1,5 @@
-1	catalan; valencian	x-vnd.Haiku-GLTeapot	1557538833
-Upper center	TeapotWindow		Amunt al centre
+1	catalan; valencian	x-vnd.Haiku-GLTeapot	1569683445
+Upper center	TeapotWindow		A dalt al centre
 Lighting	TeapotWindow		Il·luminació
 Off	TeapotWindow		Apaga
 Lower left	TeapotWindow		Inferior esquerre
@@ -11,6 +11,8 @@ Quit	TeapotWindow		Surt
 Filled polygons	TeapotWindow		Polígons plens
 Settings	TeapotWindow		Paràmetres
 Fog	TeapotWindow		Boira
+Backface culling	TeapotWindow		Supressió de cares posteriors
+Z-buffered	TeapotWindow		Z-emmagatzematge intermedi
 File	TeapotWindow		Fitxer
 Perspective	TeapotWindow		Perspectiva
 GLTeapot	System name		GLTeapot
