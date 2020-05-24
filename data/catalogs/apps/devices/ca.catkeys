@@ -1,4 +1,4 @@
-1	catalan; valencian	x-vnd.Haiku-Devices	490380176
+1	catalan; valencian	x-vnd.Haiku-Devices	3345509916
 ACPI bus	DevicesView		Bus ACPI
 Encryption controller	Device		Controlador del xifratge
 Bus Information	Device		Informació del bus
@@ -15,7 +15,7 @@ Class Info:\t\t\t\t: %classInfo%	DeviceSCSI		Informació de classe:\t\t\t\t: %cl
 Mass storage controller	Device		Controlador d'emmagatzematge massiu
 Connection	DevicesView		Connexió
 Printer	DeviceSCSI		Impressora
-ACPI Processor Namespace '%2'	DeviceACPI		Espai de noms ACPI del Processador '%2'
+ACPI Processor Namespace '%2'	DeviceACPI		Espai de noms de processador ACPI "%2'"
 SCSI Information	DeviceSCSI		Informació de SCSI
 Manufacturer	Device		Fabricant
 Device name:	Device		Nom del dispositiu:
@@ -23,11 +23,11 @@ Scanner	DeviceSCSI		Escànner
 Memory controller	Device		Controlador de la memòria
 Unknown device	DevicesView		El dispositiu és desconegut
 Unknown	DevicePCI		Desconegut
-ACPI node '%1'	DeviceACPI		Node '%1' ACPI
+ACPI node '%1'	DeviceACPI		Node d'ACPI %1
 Optical Drive	DeviceSCSI		Unitat òptica
 Name	PropertyList		Nom
 Manufacturer	DeviceSCSI		Fabricant
-Device Name\t\t\t\t: %Name%\nManufacturer\t\t\t: %Manufacturer%\nDriver used\t\t\t\t: %DriverUsed%\nDevice paths\t: %DevicePaths%	Device		Nom del dispositiu\t\t\t\t: %Name%\nFabricant\t\t\t: %Manufacturer%\nControlador utilitzat\t\t\t\t: %DriverUsed%\nRutes del dispositiu\t: %DevicePaths%
+Device Name\t\t\t\t: %Name%\nManufacturer\t\t\t: %Manufacturer%\nDriver used\t\t\t\t: %DriverUsed%\nDevice paths\t: %DevicePaths%	Device		Nom del dispositiu\t\t\t\t: %Name%\nFabricant\t\t\t: %Manufacturer%\nControlador usat\t\t\t\t: %DriverUsed%\nCamins del dispositiu\t: %DevicePaths%
 Device name	Device		Nom del dispositiu
 Satellite communications controller	Device		Controlador de les comunicacions per satèl·lit
 Device class	DeviceSCSI		Classe de dispositiu
@@ -40,7 +40,7 @@ PCI Information	DevicePCI		Informació PCI
 Tape Drive	DeviceSCSI		Unitat de cinta
 Changer	DeviceSCSI		Canviador
 Serial bus controller	Device		Controlador del bus sèrie
-Refresh devices	DevicesView		Refresca la llista dels dispositius
+Refresh devices	DevicesView		Actualitza la llista de dispositius
 Category	DevicesView		Categoria
 RBC	DeviceSCSI		RBC
 None	Device		Cap
@@ -54,10 +54,12 @@ Device name	DeviceACPI		Nom del dispositiu
 Card Reader	DeviceSCSI		Lector de targetes
 Display controller	Device		Controlador de la pantalla
 Basic information	DevicesView		Informació bàsica
+ACPI Button '%1'	DeviceACPI		Botó d'ACPI %1
 Bus	DevicesView		Bus
+ACPI <unknown>	DeviceACPI		ACPI <desconegut>
 Device name	DevicePCI		Nom del dispositiu
 Disk Drive	DeviceSCSI		Unitat de disc
-Other	DeviceSCSI		Altre
+Other	DeviceSCSI		Altres
 Report compatibility	DevicesView		Informe de compatibilitat
 Computer	Device		Ordinador
 PCI bus	Device		Bus PCI
@@ -84,7 +86,7 @@ Array	DeviceSCSI		Matriu
 Unclassified device	Device		Dispositiu sense classificar
 ACPI controller	Device		Controlador ACPI
 Network controller	Device		Controlador de xarxa
-Driver used	Device		Controlador utilitzat
+Driver used	Device		Controlador usat
 Communication controller	Device		Controlador de comunicacions
 ACPI bus	Device		Bus ACPI
 unknown	Device		desconegut

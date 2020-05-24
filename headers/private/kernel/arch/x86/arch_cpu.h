@@ -34,9 +34,12 @@
 
 // MSR registers (possibly Intel specific)
 #define IA32_MSR_TSC					0x10
+#define IA32_MSR_PLATFORM_ID			0x17
 #define IA32_MSR_APIC_BASE				0x1b
 #define IA32_MSR_SPEC_CTRL				0x48
 #define IA32_MSR_PRED_CMD				0x49
+#define IA32_MSR_UCODE_WRITE			0x79	// IA32_BIOS_UPDT_TRIG
+#define IA32_MSR_UCODE_REV				0x8b	// IA32_BIOS_SIGN_ID
 #define IA32_MSR_PLATFORM_INFO			0xce
 #define IA32_MSR_MPERF					0xe7
 #define IA32_MSR_APERF					0xe8
@@ -291,6 +294,13 @@
 #define IA32_FEATURE_ARCH_CAPABILITIES	(1 << 29)	// IA32_ARCH_CAPABILITIES MSR
 #define IA32_FEATURE_SSBD			(1 << 31)	// Speculative Store Bypass Disable
 
+// x86 features from cpuid eax 0xd, ecx 1, eax register
+// reference http://www.intel.com/Assets/en_US/PDF/appnote/241618.pdf (Table 3-8)
+#define IA32_FEATURE_XSAVEOPT		(1 << 0) // XSAVEOPT Instruction
+#define IA32_FEATURE_XSAVEC			(1 << 1) // XSAVEC and compacted XRSTOR
+#define IA32_FEATURE_XGETBV1		(1 << 2) // XGETBV with ECX=1 Instruction
+#define IA32_FEATURE_XSAVES			(1 << 3) // XSAVES and XRSTORS Instruction
+
 // x86 defined features from cpuid eax 0x80000007, edx register
 #define IA32_FEATURE_INVARIANT_TSC		(1 << 8)
 
@@ -399,6 +409,7 @@ enum x86_feature_type {
 	FEATURE_7_EDX,          // cpuid eax=7, edx registers
 	FEATURE_EXT_7_EDX,		// cpuid eax=0x80000007, edx register
 	FEATURE_EXT_8_EBX,		// cpuid eax=0x80000008, ebx register
+	FEATURE_D_1_EAX,		// cpuid eax=0xd, ecx=1, eax register
 
 	FEATURE_NUM
 };
@@ -431,6 +442,7 @@ typedef struct arch_cpu_info {
 	int					stepping;
 	int					model;
 	int					extended_model;
+	uint32				patch_level;
 
 	uint32				logical_apic_id;
 
@@ -446,6 +458,37 @@ typedef struct arch_cpu_info {
 	void*				kernel_tls;
 #endif
 } arch_cpu_info;
+
+
+// Reference Intel SDM Volume 3 9.11 "Microcode Update Facilities"
+// https://www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-software-developer-vol-3a-part-1-manual.pdf
+// 9.11.1 Table 9-7. Microcode Update Field Definitions
+struct intel_microcode_header {
+	uint32 header_version;
+	uint32 update_revision;
+	uint32 date;
+	uint32 processor_signature;
+	uint32 checksum;
+	uint32 loader_revision;
+	uint32 processor_flags;
+	uint32 data_size;
+	uint32 total_size;
+	uint32 reserved[3];
+};
+
+
+struct intel_microcode_extended_signature_header {
+	uint32 extended_signature_count;
+	uint32 extended_checksum;
+	uint32 reserved[3];
+};
+
+
+struct intel_microcode_extended_signature {
+	uint32 processor_signature;
+	uint32 processor_flags;
+	uint32 checksum;
+};
 
 
 #define nop() __asm__ ("nop"::)

@@ -368,6 +368,11 @@ rule KernelArchitectureSetup architecture
 	local ccBaseFlags = -finline -fno-builtin ;
 
 	if $(gccVersion[1]) >= 4 {
+		if $(HAIKU_CC_IS_CLANG_$(architecture)) != 1 {
+			# Clang does not yet understand this flag.
+			ccBaseFlags += -fno-semantic-interposition ;
+		}
+
 		ccBaseFlags += -ffreestanding ;
 	}
 
@@ -379,7 +384,7 @@ rule KernelArchitectureSetup architecture
 
 	HAIKU_KERNEL_CCFLAGS = $(HAIKU_CCFLAGS_$(architecture)) $(ccBaseFlags) ;
 	HAIKU_KERNEL_C++FLAGS = $(HAIKU_C++FLAGS_$(architecture)) $(c++BaseFlags) ;
-	HAIKU_KERNEL_PIC_CCFLAGS = -fno-pic ;
+	HAIKU_KERNEL_PIC_CCFLAGS = ;
 	HAIKU_KERNEL_PIC_LINKFLAGS = ;
 	HAIKU_KERNEL_ADDON_LINKFLAGS = ;
 
@@ -452,13 +457,14 @@ rule KernelArchitectureSetup architecture
 			HAIKU_KERNEL_C++FLAGS += -mcmodel=medany ;
 
 		case x86 :
+			HAIKU_KERNEL_PIC_CCFLAGS = -fno-pic ;
 			HAIKU_KERNEL_CCFLAGS += -march=pentium ;
 			HAIKU_KERNEL_C++FLAGS += -march=pentium ;
 
 		case x86_64 :
 			# Kernel lives in the top 2GB of the address space, use kernel code
 			# model.
-			HAIKU_KERNEL_PIC_CCFLAGS += -mcmodel=kernel ;
+			HAIKU_KERNEL_PIC_CCFLAGS = -fno-pic -mcmodel=kernel ;
 
 			# Disable the red zone, which cannot be used in kernel code due to
 			# interrupts, and always enable the frame pointer so stack traces

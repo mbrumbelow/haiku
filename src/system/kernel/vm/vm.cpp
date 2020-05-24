@@ -644,6 +644,11 @@ cut_area(VMAddressSpace* addressSpace, VMArea* area, addr_t address,
 	VMCacheChainLocker cacheChainLocker(cache);
 	cacheChainLocker.LockAllSourceCaches();
 
+	// If no one else uses the area's cache and it's an anonymous cache, we can
+	// resize or split it, too.
+	bool onlyCacheUser = cache->areas == area && area->cache_next == NULL
+		&& cache->consumers.IsEmpty() && cache->type == CACHE_TYPE_RAM;
+
 	// Cut the end only?
 	if (areaLast <= lastAddress) {
 		size_t oldSize = area->Size();
@@ -657,10 +662,7 @@ cut_area(VMAddressSpace* addressSpace, VMArea* area, addr_t address,
 		// unmap pages
 		unmap_pages(area, address, oldSize - newSize);
 
-		// If no one else uses the area's cache, we can resize it, too.
-		if (cache->areas == area && area->cache_next == NULL
-			&& cache->consumers.IsEmpty()
-			&& cache->type == CACHE_TYPE_RAM) {
+		if (onlyCacheUser) {
 			// Since VMCache::Resize() can temporarily drop the lock, we must
 			// unlock all lower caches to prevent locking order inversion.
 			cacheChainLocker.Unlock(cache);
@@ -676,9 +678,10 @@ cut_area(VMAddressSpace* addressSpace, VMArea* area, addr_t address,
 		addr_t oldBase = area->Base();
 		addr_t newBase = lastAddress + 1;
 		size_t newSize = areaLast - lastAddress;
+		size_t newOffset = newBase - oldBase;
 
 		// unmap pages
-		unmap_pages(area, oldBase, newBase - oldBase);
+		unmap_pages(area, oldBase, newOffset);
 
 		// resize the area
 		status_t error = addressSpace->ShrinkAreaHead(area, newSize,
@@ -686,9 +689,14 @@ cut_area(VMAddressSpace* addressSpace, VMArea* area, addr_t address,
 		if (error != B_OK)
 			return error;
 
-		// TODO: If no one else uses the area's cache, we should resize it, too!
-
-		area->cache_offset += newBase - oldBase;
+		if (onlyCacheUser) {
+			// Since VMCache::Rebase() can temporarily drop the lock, we must
+			// unlock all lower caches to prevent locking order inversion.
+			cacheChainLocker.Unlock(cache);
+			cache->Rebase(cache->virtual_base + newOffset, priority);
+			cache->ReleaseRefAndUnlock();
+		}
+		area->cache_offset += newOffset;
 
 		return B_OK;
 	}
@@ -696,7 +704,6 @@ cut_area(VMAddressSpace* addressSpace, VMArea* area, addr_t address,
 	// The tough part -- cut a piece out of the middle of the area.
 	// We do that by shrinking the area to the begin section and creating a
 	// new area for the end section.
-
 	addr_t firstNewSize = address - area->Base();
 	addr_t secondBase = lastAddress + 1;
 	addr_t secondSize = areaLast - lastAddress;
@@ -711,26 +718,85 @@ cut_area(VMAddressSpace* addressSpace, VMArea* area, addr_t address,
 	if (error != B_OK)
 		return error;
 
-	// TODO: If no one else uses the area's cache, we might want to create a
-	// new cache for the second area, transfer the concerned pages from the
-	// first cache to it and resize the first cache.
-
-	// map the second area
 	virtual_address_restrictions addressRestrictions = {};
 	addressRestrictions.address = (void*)secondBase;
 	addressRestrictions.address_specification = B_EXACT_ADDRESS;
 	VMArea* secondArea;
-	error = map_backing_store(addressSpace, cache,
-		area->cache_offset + (secondBase - area->Base()), area->name,
-		secondSize, area->wiring, area->protection, REGION_NO_PRIVATE_MAP, 0,
-		&addressRestrictions, kernel, &secondArea, NULL);
-	if (error != B_OK) {
-		addressSpace->ShrinkAreaTail(area, oldSize, allocationFlags);
-		return error;
-	}
 
-	// We need a cache reference for the new area.
-	cache->AcquireRefLocked();
+	if (onlyCacheUser) {
+		// Create a new cache for the second area.
+		VMCache* secondCache;
+		error = VMCacheFactory::CreateAnonymousCache(secondCache, false, 0, 0,
+			dynamic_cast<VMAnonymousNoSwapCache*>(cache) == NULL, priority);
+		if (error != B_OK) {
+			addressSpace->ShrinkAreaTail(area, oldSize, allocationFlags);
+			return error;
+		}
+
+		secondCache->Lock();
+		secondCache->temporary = cache->temporary;
+		secondCache->virtual_base = area->cache_offset;
+		secondCache->virtual_end = area->cache_offset + secondSize;
+
+		// Transfer the concerned pages from the first cache.
+		off_t adoptOffset = area->cache_offset + secondBase - area->Base();
+		error = secondCache->Adopt(cache, adoptOffset, secondSize,
+			area->cache_offset);
+
+		if (error == B_OK) {
+			// Since VMCache::Resize() can temporarily drop the lock, we must
+			// unlock all lower caches to prevent locking order inversion.
+			cacheChainLocker.Unlock(cache);
+			cache->Resize(cache->virtual_base + firstNewSize, priority);
+			// Don't unlock the cache yet because we might have to resize it
+			// back.
+
+			// Map the second area.
+			error = map_backing_store(addressSpace, secondCache,
+				area->cache_offset, area->name, secondSize, area->wiring,
+				area->protection, REGION_NO_PRIVATE_MAP, 0,
+				&addressRestrictions, kernel, &secondArea, NULL);
+		}
+
+		if (error != B_OK) {
+			// Restore the original cache.
+			cache->Resize(cache->virtual_base + oldSize, priority);
+
+			// Move the pages back.
+			status_t readoptStatus = cache->Adopt(secondCache,
+				area->cache_offset, secondSize, adoptOffset);
+			if (readoptStatus != B_OK) {
+				// Some (swap) pages have not been moved back and will be lost
+				// once the second cache is deleted.
+				panic("failed to restore cache range: %s",
+					strerror(readoptStatus));
+
+				// TODO: Handle out of memory cases by freeing memory and
+				// retrying.
+			}
+
+			cache->ReleaseRefAndUnlock();
+			secondCache->ReleaseRefAndUnlock();
+			addressSpace->ShrinkAreaTail(area, oldSize, allocationFlags);
+			return error;
+		}
+
+		// Now we can unlock it.
+		cache->ReleaseRefAndUnlock();
+		secondCache->Unlock();
+	} else {
+		error = map_backing_store(addressSpace, cache, area->cache_offset
+			+ (secondBase - area->Base()),
+			area->name, secondSize, area->wiring, area->protection,
+			REGION_NO_PRIVATE_MAP, 0, &addressRestrictions, kernel, &secondArea,
+			NULL);
+		if (error != B_OK) {
+			addressSpace->ShrinkAreaTail(area, oldSize, allocationFlags);
+			return error;
+		}
+		// We need a cache reference for the new area.
+		cache->AcquireRefLocked();
+	}
 
 	if (_secondArea != NULL)
 		*_secondArea = secondArea;
@@ -3361,7 +3427,7 @@ dump_area(int argc, char** argv)
 
 		VMAreaHashTable::Iterator it = VMAreaHash::GetIterator();
 		while ((area = it.Next()) != NULL) {
-			if (((mode & 4) != 0 && area->name != NULL
+			if (((mode & 4) != 0
 					&& !strcmp(argv[index], area->name))
 				|| (num != 0 && (((mode & 1) != 0 && (addr_t)area->id == num)
 					|| (((mode & 2) != 0 && area->Base() <= num
@@ -5242,14 +5308,30 @@ vm_debug_copy_page_memory(team_id teamID, void* unsafeMemory, void* buffer,
 }
 
 
+static inline bool
+validate_user_range(const void* addr, size_t size)
+{
+	addr_t address = (addr_t)addr;
+
+	// Check for overflows on all addresses.
+	if ((address + size) < address)
+		return false;
+
+	// Validate that the address does not cross the kernel/user boundary.
+	if (IS_USER_ADDRESS(address))
+		return IS_USER_ADDRESS(address + size);
+	else
+		return !IS_USER_ADDRESS(address + size);
+}
+
+
 //	#pragma mark - kernel public API
 
 
 status_t
 user_memcpy(void* to, const void* from, size_t size)
 {
-	// don't allow address overflows
-	if ((addr_t)from + size < (addr_t)from || (addr_t)to + size < (addr_t)to)
+	if (!validate_user_range(to, size) || !validate_user_range(from, size))
 		return B_BAD_ADDRESS;
 
 	if (arch_cpu_user_memcpy(to, from, size) < B_OK)
@@ -5276,19 +5358,23 @@ user_strlcpy(char* to, const char* from, size_t size)
 	if (from == NULL)
 		return B_BAD_ADDRESS;
 
-	// limit size to avoid address overflows
-	size_t maxSize = std::min((addr_t)size,
-		~(addr_t)0 - std::max((addr_t)from, (addr_t)to) + 1);
-		// NOTE: Since arch_cpu_user_strlcpy() determines the length of \a from,
-		// the source address might still overflow.
+	// Protect the source address from overflows.
+	size_t maxSize = size;
+	if ((addr_t)from + maxSize < (addr_t)from)
+		maxSize -= (addr_t)from + maxSize;
+	if (IS_USER_ADDRESS(from) && !IS_USER_ADDRESS((addr_t)from + maxSize))
+		maxSize = USER_TOP - (addr_t)from;
+
+	if (!validate_user_range(to, maxSize))
+		return B_BAD_ADDRESS;
 
 	ssize_t result = arch_cpu_user_strlcpy(to, from, maxSize);
+	if (result < 0)
+		return result;
 
 	// If we hit the address overflow boundary, fail.
-	if (result < 0 || (result >= 0 && (size_t)result >= maxSize
-			&& maxSize < size)) {
+	if ((size_t)result >= maxSize && maxSize < size)
 		return B_BAD_ADDRESS;
-	}
 
 	return result;
 }
@@ -5297,9 +5383,9 @@ user_strlcpy(char* to, const char* from, size_t size)
 status_t
 user_memset(void* s, char c, size_t count)
 {
-	// don't allow address overflows
-	if ((addr_t)s + count < (addr_t)s)
+	if (!validate_user_range(s, count))
 		return B_BAD_ADDRESS;
+
 	if (arch_cpu_user_memset(s, c, count) < B_OK)
 		return B_BAD_ADDRESS;
 

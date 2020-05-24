@@ -594,6 +594,7 @@ AboutView::AboutView()
 				.Add(_CreateLabel("uptimelabel",
 					B_TRANSLATE("Time running:")))
 				.Add(fUptimeView)
+				.AddGlue()
 				.SetInsets(5, 5, 5, 5)
 			.End()
 			// TODO: investigate: adding this causes the time to be cut
@@ -602,7 +603,7 @@ AboutView::AboutView()
 		.Add(_CreateCreditsView());
 
 	float min = fMemView->MinSize().width * 1.1f;
-	fCreditsView->SetExplicitMinSize(BSize(min, min));
+	fCreditsView->SetExplicitMinSize(BSize(min * 3, min));
 }
 
 
@@ -911,7 +912,8 @@ AboutView::_CreateCreditsView()
 	if (year < 2008)
 		year = 2008;
 	snprintf(string, sizeof(string),
-		COPYRIGHT_STRING "2001-%" B_PRId32 " The Haiku project. ", year);
+		B_TRANSLATE(COPYRIGHT_STRING "2001-%" B_PRId32 " The Haiku project. "),
+		year);
 
 	fCreditsView->SetFontAndColor(be_plain_font, B_FONT_ALL, &kDarkGrey);
 	fCreditsView->Insert(string);
@@ -955,6 +957,12 @@ AboutView::_CreateCreditsView()
 
 	fCreditsView->SetFontAndColor(be_plain_font, B_FONT_ALL, &kDarkGrey);
 	fCreditsView->Insert(kPastWebsiteTeam);
+
+	fCreditsView->SetFontAndColor(&font, B_FONT_ALL, &kHaikuOrange);
+	fCreditsView->Insert(B_TRANSLATE("Testing and bug triaging:\n"));
+
+	fCreditsView->SetFontAndColor(be_plain_font, B_FONT_ALL, &kDarkGrey);
+	fCreditsView->Insert(kTestingTeam);
 
 	fCreditsView->SetFontAndColor(&font, B_FONT_ALL, &kHaikuOrange);
 	fCreditsView->Insert(B_TRANSLATE("Contributors:\n"));

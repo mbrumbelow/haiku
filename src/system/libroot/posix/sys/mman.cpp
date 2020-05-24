@@ -132,6 +132,9 @@ mmap(void* address, size_t length, int protection, int flags, int fd,
 	if ((protection & PROT_EXEC) != 0)
 		areaProtection |= B_EXECUTE_AREA;
 
+	if ((flags & MAP_NORESERVE) != 0)
+		areaProtection |= B_OVERCOMMITTING_AREA;
+
 	// create a name for this area based on calling image
 	void* addr = __builtin_return_address(0);
 	char* imageName;

@@ -33,6 +33,7 @@ AddFilesToPackage add-ons kernel busses agp_gart : <agp_gart>intel@x86,x86_64 ;
 AddFilesToPackage add-ons kernel busses ata
 	: generic_ide_pci it8211 legacy_sata silicon_image_3112 highpoint_ide_pci ide_isa@x86 ;
 
+AddFilesToPackage add-ons kernel busses i2c : pch_i2c@x86,x86_64 ;
 AddFilesToPackage add-ons kernel busses random : virtio_rng ;
 AddFilesToPackage add-ons kernel busses scsi : ahci virtio_scsi ;
 AddFilesToPackage add-ons kernel busses usb : <usb>uhci <usb>ohci <usb>ehci
@@ -46,7 +47,7 @@ AddFilesToPackage add-ons kernel debugger
 AddFilesToPackage add-ons kernel file_systems : $(SYSTEM_ADD_ONS_FILE_SYSTEMS) ;
 AddFilesToPackage add-ons kernel generic
 	: ata_adapter bios@x86,x86_64 dpc
-		locked_pool mpu401 scsi_periph <module>tty ;
+		locked_pool mpu401 scsi_periph smbios@x86,x86_64 <module>tty ;
 AddFilesToPackage add-ons kernel partitioning_systems
 	: amiga_rdb@m68k apple@ppc efi_gpt intel session ;
 AddFilesToPackage add-ons kernel interrupt_controllers : openpic@ppc ;
@@ -58,10 +59,12 @@ if $(TARGET_ARCH) = x86 || $(TARGET_ARCH) = x86_64 {
 }
 
 # drivers
+AddNewDriversToPackage 				: wmi@x86,x86_64 ;
 AddNewDriversToPackage disk			: nvme_disk@x86,x86_64 ;
 AddNewDriversToPackage disk scsi	: scsi_cd scsi_disk ;
 AddNewDriversToPackage disk virtual : virtio_block ram_disk ;
 AddNewDriversToPackage power		: $(SYSTEM_ADD_ONS_DRIVERS_POWER) ;
+AddNewDriversToPackage sensor		: $(SYSTEM_ADD_ONS_DRIVERS_SENSOR) ;
 AddNewDriversToPackage network		: virtio_net ;
 #AddNewDriversToPackage display		: display_adapter@x86 ;
 

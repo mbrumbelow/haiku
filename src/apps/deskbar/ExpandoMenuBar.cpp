@@ -46,6 +46,7 @@ All rights reserved.
 #include <ControlLook.h>
 #include <Debug.h>
 #include <MenuPrivate.h>
+#include <MessengerPrivate.h>
 #include <NodeInfo.h>
 #include <Roster.h>
 #include <Screen.h>
@@ -255,6 +256,7 @@ TExpandoMenuBar::MouseDown(BPoint where)
 	BMessage* message = Window()->CurrentMessage();
 	BMenuItem* menuItem;
 	TTeamMenuItem* item = TeamItemAtPoint(where, &menuItem);
+	fLastClickedItem = item;
 
 	if (message == NULL || item == NULL || fBarView == NULL
 		|| fBarView->Dragging()) {
@@ -263,7 +265,9 @@ TExpandoMenuBar::MouseDown(BPoint where)
 	}
 
 	int32 modifiers = 0;
+	int32 buttons = 0;
 	message->FindInt32("modifiers", &modifiers);
+	message->FindInt32("buttons", &buttons);
 
 	// check for three finger salute, a.k.a. Vulcan Death Grip
 	if ((modifiers & B_COMMAND_KEY) != 0
@@ -280,6 +284,29 @@ TExpandoMenuBar::MouseDown(BPoint where)
 		}
 		return;
 			// absorb the message
+	} else if (item != NULL
+		&& (modifiers & B_SHIFT_KEY) == 0
+		&& (buttons & B_TERTIARY_MOUSE_BUTTON) != 0) {
+		be_roster->Launch(item->Signature());
+		return;
+			// absorb the message
+	} else {
+		TWindowMenuItem* wndItem = dynamic_cast<TWindowMenuItem*>(menuItem);
+		if (wndItem != NULL
+			&& (modifiers & B_SHIFT_KEY) != 0
+			&& (buttons & B_TERTIARY_MOUSE_BUTTON) != 0) {
+			// close window
+			client_window_info* info;
+			BMessenger wnd;
+			info = get_window_info(wndItem->ID());
+			if (info == NULL) return;
+			BMessenger::Private(wnd).SetTo(
+				info->team, info->client_port, info->client_token);
+			free(info); info = NULL;
+			wnd.SendMessage(B_QUIT_REQUESTED);
+			return;
+				// absorb the message
+		}
 	}
 
 	// control click - show all/hide all shortcut
@@ -297,9 +324,8 @@ TExpandoMenuBar::MouseDown(BPoint where)
 	if (Vertical() && static_cast<TBarApp*>(be_app)->Settings()->superExpando
 		&& item->ExpanderBounds().Contains(where)) {
 		// start the animation here, finish on mouse up
-		fLastClickedItem = item;
-		MouseDownThread<TExpandoMenuBar>::TrackMouse(this,
-			&TExpandoMenuBar::_DoneTracking, &TExpandoMenuBar::_Track);
+		item->SetArrowDirection(BControlLook::B_RIGHT_DOWN_ARROW);
+		SetMouseEventMask(B_POINTER_EVENTS, B_NO_POINTER_HISTORY);
 		Invalidate(item->ExpanderBounds());
 		return;
 			// absorb the message
@@ -315,7 +341,6 @@ TExpandoMenuBar::MouseDown(BPoint where)
 			// absorb the message
 	}
 
-	fLastClickedItem = item;
 	BMenuBar::MouseDown(where);
 }
 
@@ -333,6 +358,24 @@ TExpandoMenuBar::MouseMoved(BPoint where, uint32 code, const BMessage* message)
 	if (message == NULL) {
 		// force a cleanup
 		_FinishedDrag();
+
+		if (Vertical() && buttons != 0
+				&& static_cast<TBarApp*>(be_app)->Settings()->superExpando) {
+			TTeamMenuItem* lastItem
+				= dynamic_cast<TTeamMenuItem*>(fLastClickedItem);
+			if (lastItem != NULL) {
+				if (lastItem->ExpanderBounds().Contains(where))
+					lastItem->SetArrowDirection(
+						BControlLook::B_RIGHT_DOWN_ARROW);
+				else {
+					lastItem->SetArrowDirection(lastItem->IsExpanded()
+						? BControlLook::B_DOWN_ARROW
+						: BControlLook::B_RIGHT_ARROW);
+				}
+
+				Invalidate(lastItem->ExpanderBounds());
+			}
+		}
 
 		switch (code) {
 			case B_INSIDE_VIEW:
@@ -439,12 +482,24 @@ TExpandoMenuBar::MouseMoved(BPoint where, uint32 code, const BMessage* message)
 void
 TExpandoMenuBar::MouseUp(BPoint where)
 {
+	TTeamMenuItem* lastItem = dynamic_cast<TTeamMenuItem*>(fLastClickedItem);
+	fLastClickedItem = NULL;
+
 	if (fBarView != NULL && fBarView->Dragging()) {
 		_FinishedDrag(true);
 		return;
 			// absorb the message
 	}
 
+	if (Vertical() && static_cast<TBarApp*>(be_app)->Settings()->superExpando
+		&& lastItem != NULL && lastItem->ExpanderBounds().Contains(where)) {
+		lastItem->ToggleExpandState(true);
+		lastItem->SetArrowDirection(lastItem->IsExpanded()
+			? BControlLook::B_DOWN_ARROW
+			: BControlLook::B_RIGHT_ARROW);
+
+		Invalidate(lastItem->ExpanderBounds());
+	}
 	BMenuBar::MouseUp(where);
 }
 
@@ -1074,42 +1129,4 @@ TExpandoMenuBar::_FinishedDrag(bool invoke)
 
 	if (!invoke && fBarView != NULL && fBarView->Dragging())
 		fBarView->DragStop(true);
-}
-
-
-void
-TExpandoMenuBar::_DoneTracking(BPoint where)
-{
-	TTeamMenuItem* lastItem = dynamic_cast<TTeamMenuItem*>(fLastClickedItem);
-	if (lastItem == NULL)
-		return;
-
-	if (!lastItem->ExpanderBounds().Contains(where))
-		return;
-
-	lastItem->ToggleExpandState(true);
-	lastItem->SetArrowDirection(lastItem->IsExpanded()
-		? BControlLook::B_DOWN_ARROW
-		: BControlLook::B_RIGHT_ARROW);
-
-	Invalidate(lastItem->ExpanderBounds());
-}
-
-
-void
-TExpandoMenuBar::_Track(BPoint where, uint32)
-{
-	TTeamMenuItem* lastItem = dynamic_cast<TTeamMenuItem*>(fLastClickedItem);
-	if (lastItem == NULL)
-		return;
-
-	if (lastItem->ExpanderBounds().Contains(where))
-		lastItem->SetArrowDirection(BControlLook::B_RIGHT_DOWN_ARROW);
-	else {
-		lastItem->SetArrowDirection(lastItem->IsExpanded()
-			? BControlLook::B_DOWN_ARROW
-			: BControlLook::B_RIGHT_ARROW);
-	}
-
-	Invalidate(lastItem->ExpanderBounds());
 }

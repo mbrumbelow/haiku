@@ -16,7 +16,7 @@ Window	PreferencesWindow		Pencere
 Defaults	PreferencesWindow		Öntanımlılar
 Menu	PreferencesWindow		Menü
 Recent documents	DeskbarMenu		Son kullanılan belgeler
-Auto-hide	PreferencesWindow		Otomatik gizle
+Auto-hide	PreferencesWindow		Kendiliğinden gizle
 Always on top	PreferencesWindow		Her zaman üstte
 <Deskbar folder is empty>	DeskbarMenu		<Masaüstü Çubuğu klasörü boş>
 Show all	WindowMenu		Tümünü göster
@@ -34,12 +34,12 @@ Revert	PreferencesWindow		Eski haline döndür
 Small	PreferencesWindow		Küçük
 Recent applications:	PreferencesWindow		Son kullanılan uygulamalar:
 Shutdown…	DeskbarMenu		Bilgisayarı kapat…
-Tracker always first	PreferencesWindow		İzleyici her zaman önde
+Tracker always first	PreferencesWindow		İzleyici her zaman ilk sırada
 Preferences	B_USER_DESKBAR_DIRECTORY/Preferences		Tercihler
 Recent folders	DeskbarMenu		Son kullanılan klasörler
 About this system	DeskbarMenu		Bu sistem hakkında
 Show calendar…	TimeView		Takvimi göster…
-Deskbar preferences…	DeskbarMenu		Masaüstü Çubuğu tercihleri...
+Deskbar preferences…	DeskbarMenu		Masaüstü Çubuğu tercihleri…
 Expand new applications	PreferencesWindow		Yeni uygulamaları genişlet
 Show replicants	DeskbarMenu		Yinelenmişleri göster
 Hide application names	PreferencesWindow		Uygulama adlarını gizle

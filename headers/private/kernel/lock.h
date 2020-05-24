@@ -24,10 +24,8 @@ typedef struct mutex {
 	spinlock				lock;
 #if KDEBUG
 	thread_id				holder;
-	uint16					_unused;
 #else
 	int32					count;
-	uint16					ignore_unlock_count;
 #endif
 	uint8					flags;
 } mutex;
@@ -101,7 +99,7 @@ typedef struct rw_lock {
 #	define RECURSIVE_LOCK_INITIALIZER(name)	{ MUTEX_INITIALIZER(name), 0 }
 #else
 #	define MUTEX_INITIALIZER(name) \
-	{ name, NULL, B_SPINLOCK_INITIALIZER, 0, 0, 0 }
+	{ name, NULL, B_SPINLOCK_INITIALIZER, 0, 0 }
 #	define RECURSIVE_LOCK_INITIALIZER(name)	{ MUTEX_INITIALIZER(name), -1, 0 }
 #endif
 

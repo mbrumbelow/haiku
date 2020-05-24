@@ -12,7 +12,7 @@
 
 # The Haiku (base) version. For development builds the revision will be
 # attached.
-HAIKU_VERSION = r1~beta1 ;
+HAIKU_VERSION = r1~beta2 ;
 
 
 #pragma mark - container settings
@@ -216,7 +216,7 @@ HOST_UNARFLAGS		?= x ;
 
 # check the host platform compatibility
 SetPlatformCompatibilityFlagVariables HOST_PLATFORM : HOST : host
-	: linux openbsd freebsd darwin mingw ;
+	: linux openbsd freebsd darwin msys ;
 HOST_PLATFORM_(host)_COMPATIBLE = 1 ;
 
 if $(HOST_PLATFORM) = linux || $(HOST_PLATFORM) = freebsd
@@ -305,6 +305,9 @@ if $(HOST_ARCH) = m68k {
 if $(HOST_PLATFORM) != darwin {
 	# fix for new changes to DSO linking policies
 	HOST_LINKFLAGS += -Xlinker --no-as-needed ;
+	if $(HOST_GCC_VERSION[1]) >= 3 {
+		HOST_LINKFLAGS += -Wl,--copy-dt-needed-entries ;
+	}
 }
 
 
@@ -400,7 +403,7 @@ if $(HOST_PLATFORM_HAIKU_COMPATIBLE) {
 } else {
 	HOST_LINKFLAGS += -lm -ldl ;
 	HOST_LIBSTDC++ = stdc++ ;
-	if $(HOST_PLATFORM) = mingw {
+	if $(HOST_PLATFORM) = msys {
 		HOST_ADD_BUILD_COMPATIBILITY_LIB_DIR
 			= "PATH=$PATH:$(HOST_BUILD_COMPATIBILITY_LIB_DIR)" ;
 	} else if $(HOST_PLATFORM) = darwin {
@@ -635,7 +638,7 @@ switch $(HOST_PLATFORM) {
 	case linux		: HOST_DEFINES	+= HAIKU_HOST_PLATFORM_LINUX ;
 	case freebsd	: HOST_DEFINES	+= HAIKU_HOST_PLATFORM_FREEBSD ;
 	case darwin		: HOST_DEFINES	+= HAIKU_HOST_PLATFORM_DARWIN ;
-	case mingw		: HOST_DEFINES	+= HAIKU_HOST_PLATFORM_MINGW ;
+	case msys		: HOST_DEFINES	+= HAIKU_HOST_PLATFORM_MSYS ;
 }
 
 # define host platform 64 bit macro

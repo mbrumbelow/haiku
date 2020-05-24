@@ -28,9 +28,10 @@
 #define PAGE_READ_ONLY	0x0002
 #define PAGE_READ_WRITE	0x0001
 
-// NULL is actually a possible physical address...
-//#define PHYSINVAL ((void *)-1)
-#define PHYSINVAL NULL
+// NULL is actually a possible physical address, so use -1 (which is
+// misaligned, so not a valid address) as the invalid physical address.
+#define PHYSINVAL ((void *)-1)
+//#define PHYSINVAL NULL
 
 //#define TRACE_MMU
 #ifdef TRACE_MMU
@@ -70,7 +71,7 @@ remove_virtual_range_to_keep(void *start, uint32 size)
 static status_t
 find_physical_memory_ranges(size_t &total)
 {
-	dprintf("checking for memory...\n");
+	TRACE("checking for memory...\n");
 	intptr_t package = of_instance_to_package(sMemoryInstance);
 
 	total = 0;
@@ -79,12 +80,17 @@ find_physical_memory_ranges(size_t &total)
 	// #address-cells and #size-cells matches the number of 32-bit 'cells'
 	// representing the length of the base address and size fields
 	intptr_t root = of_finddevice("/");
-	int32 regAddressCells = of_address_cells(root);
 	int32 regSizeCells = of_size_cells(root);
-	if (regAddressCells == OF_FAILED || regSizeCells == OF_FAILED) {
-		dprintf("finding base/size length counts failed, assume 32-bit.\n");
-		regAddressCells = 1;
+	if (regSizeCells == OF_FAILED) {
+		dprintf("finding size of memory cells failed, assume 32-bit.\n");
 		regSizeCells = 1;
+	}
+
+	int32 regAddressCells = of_address_cells(root);
+	if (regAddressCells == OF_FAILED) {
+		// Sun Netra T1-105 is missing this, but we can guess that if the size
+		// is 64bit, the address also likely is.
+		regAddressCells = regSizeCells;
 	}
 
 	if (regAddressCells != 2 || regSizeCells != 2) {
@@ -104,10 +110,10 @@ find_physical_memory_ranges(size_t &total)
 
 	for (int32 i = 0; i < count; i++) {
 		if (regions[i].size <= 0) {
-			dprintf("%d: empty region\n", i);
+			TRACE("%d: empty region\n", i);
 			continue;
 		}
-		dprintf("%" B_PRIu32 ": base = %" B_PRIx64 ","
+		TRACE("%" B_PRIu32 ": base = %" B_PRIx64 ","
 			"size = %" B_PRIx64 "\n", i, regions[i].base, regions[i].size);
 
 		total += regions[i].size;
@@ -157,8 +163,8 @@ static bool
 map_range(void *virtualAddress, void *physicalAddress, size_t size, uint16 mode)
 {
 	// everything went fine, so lets mark the space as used.
-	int status = of_call_method(sMmuInstance, "map", 4, 0, mode, size,
-		virtualAddress, physicalAddress);
+	int status = of_call_method(sMmuInstance, "map", 5, 0, (uint64)mode, size,
+		virtualAddress, 0, physicalAddress);
 
 	if (status != 0) {
 		dprintf("map_range(base: %p, size: %" B_PRIuSIZE ") "
@@ -182,12 +188,17 @@ find_allocated_ranges(void **_exceptionHandlers)
 	struct translation_map {
 		void *PhysicalAddress() {
 			int64_t p = data;
+#if 0
+			// The openboot own "map?" word does not do this, so it must not
+			// be needed
 			// Sign extend
 			p <<= 23;
 			p >>= 23;
+#endif
 
-			// Remove low bits
-			p &= 0xFFFFFFFFFFFFE000ll;
+			// Keep only PA[40:13]
+			// FIXME later CPUs have some more bits here
+			p &= 0x000001FFFFFFE000ll;
 
 			return (void*)p;
 		}
@@ -214,12 +225,12 @@ find_allocated_ranges(void **_exceptionHandlers)
 	}
 	length = length / sizeof(struct translation_map);
 	uint32 total = 0;
-	dprintf("found %d translations\n", length);
+	TRACE("found %d translations\n", length);
 
 	for (int i = 0; i < length; i++) {
 		struct translation_map *map = &translations[i];
 		bool keepRange = true;
-		TRACE("%i: map: %p, length %ld -> phy %p mode %d\n", i,
+		TRACE("%i: map: %p, length %ld -> phy %p mode %d: ", i,
 			map->virtual_address, map->length,
 			map->PhysicalAddress(), map->Mode());
 
@@ -246,8 +257,7 @@ find_allocated_ranges(void **_exceptionHandlers)
 		// insert range in virtual ranges to keep
 
 		if (keepRange) {
-			TRACE("%i: keeping free range starting at va %p\n", i,
-				map->virtual_address);
+			TRACE("keeping\n");
 
 			if (insert_virtual_range_to_keep(map->virtual_address,
 					map->length) != B_OK) {
@@ -255,11 +265,13 @@ find_allocated_ranges(void **_exceptionHandlers)
 					"(num ranges = %" B_PRIu32 ")\n",
 					gKernelArgs.num_virtual_allocated_ranges);
 			}
+		} else {
+			TRACE("dropping\n");
 		}
 
 		total += map->length;
 	}
-	dprintf("total size kept: %" B_PRIu32 "\n", total);
+	TRACE("total size kept: %" B_PRIu32 "\n", total);
 
 	// remove the boot loader code from the virtual ranges to keep in the
 	// kernel
@@ -564,7 +576,7 @@ arch_mmu_init(void)
 		dprintf("Error: could not find physical memory ranges!\n");
 		return B_ERROR;
 	}
-	dprintf("total physical memory = %luMB\n", total / (1024 * 1024));
+	TRACE("total physical memory = %luMB\n", total / (1024 * 1024));
 
 	void *exceptionHandlers = (void *)-1;
 	if (find_allocated_ranges(&exceptionHandlers) != B_OK) {
@@ -588,11 +600,11 @@ arch_mmu_init(void)
 
 	// set kernel args
 
-	dprintf("virt_allocated: %" B_PRIu32 "\n",
+	TRACE("virt_allocated: %" B_PRIu32 "\n",
 		gKernelArgs.num_virtual_allocated_ranges);
-	dprintf("phys_allocated: %" B_PRIu32 "\n",
+	TRACE("phys_allocated: %" B_PRIu32 "\n",
 		gKernelArgs.num_physical_allocated_ranges);
-	dprintf("phys_memory: %" B_PRIu32 "\n",
+	TRACE("phys_memory: %" B_PRIu32 "\n",
 		gKernelArgs.num_physical_memory_ranges);
 
 #if 0

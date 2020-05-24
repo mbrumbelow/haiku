@@ -1,5 +1,5 @@
 /*
- * Copyright 2018-2019, Andrew Lindesay <apl@lindesay.co.nz>.
+ * Copyright 2018-2020, Andrew Lindesay <apl@lindesay.co.nz>.
  * All rights reserved. Distributed under the terms of the MIT License.
  */
 
@@ -13,6 +13,7 @@
 #include <package/PackageRoster.h>
 
 #include "AbstractServerProcess.h"
+#include "HaikuDepotConstants.h"
 #include "LocalPkgDataLoadProcess.h"
 #include "LocalRepositoryUpdateProcess.h"
 #include "Model.h"
@@ -25,9 +26,27 @@
 #include "ServerReferenceDataUpdateProcess.h"
 #include "ServerRepositoryDataUpdateProcess.h"
 #include "ServerSettings.h"
+#include "StorageUtils.h"
+#include "UserDetailVerifierProcess.h"
 
 
 using namespace BPackageKit;
+
+
+/*static*/ ProcessCoordinator*
+ProcessCoordinatorFactory::CreateUserDetailVerifierCoordinator(
+	UserDetailVerifierListener* userDetailVerifierListener,
+	ProcessCoordinatorListener* processCoordinatorListener,
+	Model* model)
+{
+	ProcessCoordinator* processCoordinator = new ProcessCoordinator(
+		"UserDetailVerifier",
+		processCoordinatorListener);
+	ProcessNode* userDetailVerifier = new ProcessNode(
+		new UserDetailVerifierProcess(model, userDetailVerifierListener));
+	processCoordinator->AddNode(userDetailVerifier);
+	return processCoordinator;
+}
 
 
 /* static */ ProcessCoordinator*
@@ -36,10 +55,12 @@ ProcessCoordinatorFactory::CreateBulkLoadCoordinator(
 	ProcessCoordinatorListener* processCoordinatorListener,
 	Model* model, bool forceLocalUpdate)
 {
+	bool areWorkingFilesAvailable = StorageUtils::AreWorkingFilesAvailable();
 	uint32 serverProcessOptions = _CalculateServerProcessOptions();
 	BAutolock locker(model->Lock());
 	ProcessCoordinator* processCoordinator = new ProcessCoordinator(
-		processCoordinatorListener);
+		"BulkLoad",
+		processCoordinatorListener, new BMessage(MSG_BULK_LOAD_DONE));
 
 	ProcessNode *localRepositoryUpdate =
 		new ProcessNode(new LocalRepositoryUpdateProcess(model,
@@ -52,46 +73,49 @@ ProcessCoordinatorFactory::CreateBulkLoadCoordinator(
 	localPkgDataLoad->AddPredecessor(localRepositoryUpdate);
 	processCoordinator->AddNode(localPkgDataLoad);
 
-	ProcessNode *serverIconExportUpdate =
-		new ProcessNode(new ServerIconExportUpdateProcess(model,
-			serverProcessOptions));
-	serverIconExportUpdate->AddPredecessor(localPkgDataLoad);
-	processCoordinator->AddNode(serverIconExportUpdate);
+	if (areWorkingFilesAvailable) {
+		ProcessNode *serverIconExportUpdate =
+			new ProcessNode(new ServerIconExportUpdateProcess(model,
+				serverProcessOptions));
+		serverIconExportUpdate->AddPredecessor(localPkgDataLoad);
+		processCoordinator->AddNode(serverIconExportUpdate);
 
-	ProcessNode *serverRepositoryDataUpdate =
-		new ProcessNode(new ServerRepositoryDataUpdateProcess(model,
-			serverProcessOptions));
-	serverRepositoryDataUpdate->AddPredecessor(localPkgDataLoad);
-	processCoordinator->AddNode(serverRepositoryDataUpdate);
+		ProcessNode *serverRepositoryDataUpdate =
+			new ProcessNode(new ServerRepositoryDataUpdateProcess(model,
+				serverProcessOptions));
+		serverRepositoryDataUpdate->AddPredecessor(localPkgDataLoad);
+		processCoordinator->AddNode(serverRepositoryDataUpdate);
 
-	ProcessNode *serverReferenceDataUpdate =
-		new ProcessNode(new ServerReferenceDataUpdateProcess(model,
-			serverProcessOptions));
-	processCoordinator->AddNode(serverReferenceDataUpdate);
+		ProcessNode *serverReferenceDataUpdate =
+			new ProcessNode(new ServerReferenceDataUpdateProcess(model,
+				serverProcessOptions));
+		processCoordinator->AddNode(serverReferenceDataUpdate);
 
-	// create a process for each of the repositories that are configured on the
-	// local system.  Later, only those that have a web-app repository server
-	// code will be actually processed, but this means that the creation of the
-	// 'processes' does not need to be dynamic as the process coordinator runs.
+		// create a process for each of the repositories that are configured on
+		// the local system.  Later, only those that have a web-app repository
+		// server code will be actually processed, but this means that the
+		// creation of the 'processes' does not need to be dynamic as the
+		// process coordinator runs.
 
-	BPackageRoster roster;
-	BStringList repoNames;
-	status_t repoNamesResult = roster.GetRepositoryNames(repoNames);
+		BPackageRoster roster;
+		BStringList repoNames;
+		status_t repoNamesResult = roster.GetRepositoryNames(repoNames);
 
-	if (repoNamesResult == B_OK) {
-		AutoLocker<BLocker> locker(model->Lock());
+		if (repoNamesResult == B_OK) {
+			AutoLocker<BLocker> locker(model->Lock());
 
-		for (int32 i = 0; i < repoNames.CountStrings(); i++) {
-			ProcessNode* processNode = new ProcessNode(
-				new ServerPkgDataUpdateProcess(
-					model->Language().PreferredLanguage().Code(),
-					repoNames.StringAt(i), model, serverProcessOptions));
-			processNode->AddPredecessor(serverRepositoryDataUpdate);
-			processNode->AddPredecessor(serverReferenceDataUpdate);
-			processCoordinator->AddNode(processNode);
+			for (int32 i = 0; i < repoNames.CountStrings(); i++) {
+				ProcessNode* processNode = new ProcessNode(
+					new ServerPkgDataUpdateProcess(
+						model->Language().PreferredLanguage()->Code(),
+						repoNames.StringAt(i), model, serverProcessOptions));
+				processNode->AddPredecessor(serverRepositoryDataUpdate);
+				processNode->AddPredecessor(serverReferenceDataUpdate);
+				processCoordinator->AddNode(processNode);
+			}
+		} else {
+			printf("a problem has arisen getting the repository names.\n");
 		}
-	} else {
-		printf("a problem has arisen getting the repository names.\n");
 	}
 
 	return processCoordinator;

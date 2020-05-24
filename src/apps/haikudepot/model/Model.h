@@ -1,12 +1,11 @@
 /*
  * Copyright 2013-2014, Stephan Aßmus <superstippi@gmx.de>.
- * Copyright 2016-2019, Andrew Lindesay <apl@lindesay.co.nz>.
+ * Copyright 2016-2020, Andrew Lindesay <apl@lindesay.co.nz>.
  * All rights reserved. Distributed under the terms of the MIT License.
  */
 #ifndef MODEL_H
 #define MODEL_H
 
-#include <FindDirectory.h>
 #include <Locker.h>
 
 #include "AbstractProcess.h"
@@ -19,6 +18,12 @@
 class BFile;
 class BMessage;
 class BPath;
+
+
+typedef enum package_list_view_mode {
+	PROMINENT,
+	ALL
+} package_list_view_mode;
 
 
 class PackageFilter : public BReferenceable {
@@ -72,9 +77,7 @@ public:
 
 			bool				AddListener(const ModelListenerRef& listener);
 
-			// !Returns new PackageInfoList from current parameters
-			PackageList			CreatePackageList() const;
-
+			PackageInfoRef		PackageForName(const BString& name);
 			bool				MatchesFilter(
 									const PackageInfoRef& package) const;
 
@@ -84,6 +87,7 @@ public:
 									{ return fDepots; }
 			const DepotInfo*	DepotForName(const BString& name) const;
 			bool				SyncDepot(const DepotInfo& depot);
+			bool				HasAnyProminentPackages();
 
 			void				Clear();
 
@@ -103,9 +107,11 @@ public:
 			void				SetSearchTerms(const BString& searchTerms);
 			BString				SearchTerms() const;
 
-			void				SetShowFeaturedPackages(bool show);
-			bool				ShowFeaturedPackages() const
-									{ return fShowFeaturedPackages; }
+			void				SetPackageListViewMode(
+									package_list_view_mode mode);
+			package_list_view_mode
+								PackageListViewMode() const
+									{ return fPackageListViewMode; }
 			void				SetShowAvailablePackages(bool show);
 			bool				ShowAvailablePackages() const
 									{ return fShowAvailablePackages; }
@@ -137,7 +143,8 @@ public:
 									const BString& passwordClear,
 									bool storePassword);
 
-			const WebAppInterface& GetWebAppInterface() const
+			const WebAppInterface&
+								GetWebAppInterface() const
 									{ return fWebAppInterface; }
 
 			void				ReplaceDepotByUrl(
@@ -155,14 +162,10 @@ public:
 
 private:
 			void				_AddCategory(const CategoryRef& category);
-			status_t			_LocalDataPath(const BString leaf,
-									BPath& path) const;
 
 			void				_MaybeLogJsonRpcError(
 									const BMessage &responsePayload,
 									const char *sourceDescription) const;
-
-			void				_UpdateIsFeaturedFilter();
 
 	static	int32				_PopulateAllPackagesEntry(void* cookie);
 
@@ -173,17 +176,6 @@ private:
 									const PackageInfoRef& package,
 									const ScreenshotInfo& info,
 									int32 scaledWidth, bool fromCacheOnly);
-
-			bool				_GetCacheFile(BPath& path, BFile& file,
-									directory_which directory,
-									const char* relativeLocation,
-									const char* fileName,
-									uint32 openMode) const;
-			bool				_GetCacheFile(BPath& path, BFile& file,
-									directory_which directory,
-									const char* relativeLocation,
-									const char* fileName,
-									bool ignoreAge, time_t maxAge) const;
 
 			void				_NotifyAuthorizationChanged();
 			void				_NotifyCategoryListChanged();
@@ -205,9 +197,9 @@ private:
 			PackageFilterRef	fCategoryFilter;
 			BString				fDepotFilter;
 			PackageFilterRef	fSearchTermsFilter;
-			PackageFilterRef	fIsFeaturedFilter;
 
-			bool				fShowFeaturedPackages;
+			package_list_view_mode
+								fPackageListViewMode;
 			bool				fShowAvailablePackages;
 			bool				fShowInstalledPackages;
 			bool				fShowSourcePackages;

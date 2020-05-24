@@ -302,6 +302,14 @@ struct nvme_ctrlr_stat {
 	bool			log_pages[256];
 
 	/**
+	 * Whether SGL is supported by the controller.
+	 *
+	 * Note that this does not mean all SGL requests will fail;
+	 * many are convertible into standard (PRP) requests by libnvme.
+	 */
+	bool			sgl_supported;
+
+	/**
 	 * All the features supported.
 	 */
 	bool			features[256];
@@ -769,7 +777,7 @@ extern int nvme_ioqp_submit_cmd(struct nvme_qpair *qpair,
  *
  * @sa nvme_cmd_cb
  */
-extern unsigned int nvme_ioqp_poll(struct nvme_qpair *qpair,
+extern unsigned int nvme_qpair_poll(struct nvme_qpair *qpair,
 				   unsigned int max_completions);
 
 /**
@@ -819,7 +827,7 @@ extern int nvme_ns_data(struct nvme_ns *ns,
  *
  * @param ns		Namespace handle
  * @param qpair		I/O queue pair handle
- * @param buffer	Data buffer
+ * @param buffer	Physically contiguous data buffer
  * @param lba		Starting LBA to read from
  * @param lba_count	Number of LBAs to read
  * @param cb_fn		Completion callback
@@ -903,7 +911,7 @@ extern int nvme_ns_write_zeroes(struct nvme_ns *ns, struct nvme_qpair *qpair,
  *
  * @param ns		Namespace handle
  * @param qpair		I/O queue pair handle
- * @param buffer	Data buffer
+ * @param buffer	Physically contiguous data buffer
  * @param lba		Starting LBA to read from
  * @param lba_count	Number of LBAs to read
  * @param cb_fn		Completion callback

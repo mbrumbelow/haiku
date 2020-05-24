@@ -7,7 +7,7 @@ Quit	SoftwareUpdaterWindow	Alert button label	Esci
 There were no updates found.	CheckManager		Nessun aggiornamento trovato.
 Updates have not been completed, are you sure you want to quit?	SoftwareUpdaterWindow		Gli aggiornamenti non sono stati completati, sei sicuro di voler uscire?
 Updates found	SoftwareUpdaterWindow		Aggiornamenti trovati
-Update now	SoftwareUpdaterWindow		Aggiorna ora
+Update now	SoftwareUpdaterWindow		Aggiorna
 For some reason, we could not reboot your computer.	SoftwareUpdaterWindow		Per qualche motivo non è possibile riavviare il computer.
 OK	UpdateManager		OK
 Unrecognized argument	SoftwareUpdaterApp	Error message	Argomento non riconosciuto
@@ -17,10 +17,10 @@ New packages to be installed	SoftwareUpdaterWindow	List super item label	Nuovi p
 Packages to be updated	SoftwareUpdaterWindow	List super item label	Pacchetti da aggiornare
 to	SoftwareUpdaterWindow	List item text	a
 Attempting to cancel the updates…	SoftwareUpdaterWindow		Tentativo di cancellazione degli aggiornamenti in corso…
-Contacting software repositories to check for package updates.	CheckManager		Contatta i repository del software per verificare la presenza di aggiornamenti ai pacchetti.
+Contacting software repositories to check for package updates.	CheckManager		Contatto i repository per verificare la presenza di aggiornamenti.
 Available updates found	CheckManager		Aggiornamenti disponibili trovati
 from repository	SoftwareUpdaterWindow	List item text	dal repository
-Contacting software repositories to check for package updates.	SoftwareUpdaterWindow		Contatta i repository del software per verificare la presenza di aggiornamenti ai pacchetti.
+Contacting software repositories to check for package updates.	SoftwareUpdaterWindow		Contatto i repository per verificare la presenza di aggiornamenti.
 Cancelling updates	SoftwareUpdaterWindow		Annullamento degli aggiornamenti
 Cancel	SoftwareUpdaterWindow	Alert button label	Annulla
 There were no updates found.	UpdateAction		Nessun aggiornamento trovato.
@@ -29,7 +29,7 @@ Please choose from these update options:\n\nUpdate:\n\tUpdates all installed pac
 The following changes will be made:	SoftwareUpdaterWindow		Saranno apportate le seguenti modifiche:
 Argument variables are no longer accepted\n	SoftwareUpdaterApp		Variabili argomento non sono più accettate\n
 Fatal error while checking for updates: %s\n	CheckAction		Errore critico durante il controllo per gli aggiornamenti: %s\n
-SoftwareUpdater	System name		SoftwareUpdater
+SoftwareUpdater	System name		Installazione Aggiornamenti
 No active network connection was found.\n	CheckManager		Non è stata trovata nessuna connessione di rete attiva.\n
 Applying changes	UpdateManager		Applicazione delle modifiche
 Full sync	SoftwareUpdaterWindow	Alert button label	Sincronizzazione completa
@@ -41,7 +41,7 @@ Exception occurred while checking for updates: %s\n	CheckAction		Eccezione rilev
 Packages are being updated	UpdateManager		I pacchetti sono in fase di aggiornamento
 Cancel	SoftwareUpdaterWindow		Annulla
 Don't quit	SoftwareUpdaterWindow		Non chiudere
-Click here to run SoftwareUpdater. Some updates will require a problem solution to be selected.	CheckManager		Clicca qui per eseguire SoftwareUpdater. Alcuni aggiornamenti causeranno un probleme la cui soluzione dovrà essere selezionata.
+Click here to run SoftwareUpdater. Some updates will require a problem solution to be selected.	CheckManager		Clicca qui per eseguire il programma di installazione degli aggiornamenti. Alcuni aggiornamenti causeranno un problema la cui soluzione richiederà il tuo intervento.
 Checking for updates	SoftwareUpdaterWindow		Controllo per aggiornamenti
 Updates completed	UpdateManager		Aggiornamenti completati
 Reboot	SoftwareUpdaterWindow		Riavvia

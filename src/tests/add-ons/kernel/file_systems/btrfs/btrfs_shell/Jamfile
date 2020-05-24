@@ -2,8 +2,8 @@ SubDir HAIKU_TOP src tests add-ons kernel file_systems btrfs btrfs_shell ;
 
 SEARCH_SOURCE += [ FDirName $(HAIKU_TOP) src add-ons kernel file_systems btrfs ] ;
 
-# prevent inclusion of HaikuBuildCompatibility.h
-DEFINES += HAIKU_BUILD_COMPATIBILITY_H ;
+# prevent inclusion of HaikuBuildCompatibility.h and _BSD_SOURCE headers
+DEFINES += HAIKU_BUILD_COMPATIBILITY_H __STRICT_ANSI__ ;
 
 # set some additional defines
 {
@@ -47,6 +47,7 @@ local btrfsSources =
 	Chunk.cpp
 	CRCTable.cpp
 	DebugSupport.cpp
+	DeviceOpener.cpp
 	DirectoryIterator.cpp
 	ExtentAllocator.cpp
 	Inode.cpp
@@ -74,4 +75,7 @@ BuildPlatformMain <build>btrfs_shell
 SEARCH on [ FGristFiles $(utilitySources) ]
 	+= [ FDirName $(HAIKU_TOP) src system kernel util ] ;
 SEARCH on [ FGristFiles DebugSupport.cpp ]
+	+= [ FDirName $(HAIKU_TOP) src add-ons kernel file_systems shared ] ;
+
+SEARCH on [ FGristFiles DeviceOpener.cpp ]
 	+= [ FDirName $(HAIKU_TOP) src add-ons kernel file_systems shared ] ;

@@ -80,6 +80,10 @@ public:
 protected:
 	C			*fObject;
 	DeleteFunc	fDelete;
+
+private:
+	AutoDeleter(const AutoDeleter&);
+	AutoDeleter& operator=(const AutoDeleter&);
 };
 
 
@@ -252,6 +256,11 @@ struct FileDescriptorCloser {
 	inline void Unset()
 	{
 		SetTo(-1);
+	}
+
+	inline int Get()
+	{
+		return fDescriptor;
 	}
 
 	inline int Detach()
