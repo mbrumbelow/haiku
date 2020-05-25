@@ -708,6 +708,9 @@ mmu_init(void)
 				}
 			} else if (extMemoryBlock[i].type == 3) {
 				// ACPI reclaim -- physical memory we could actually use later
+				// (We are not really "ignoring" this memory, though.)
+			} else {
+				// Reserved or otherwise unusable memory.
 				gKernelArgs.ignored_physical_memory += extMemoryBlock[i].length;
 			}
 		}

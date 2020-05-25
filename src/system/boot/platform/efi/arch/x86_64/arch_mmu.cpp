@@ -94,11 +94,15 @@ arch_mmu_post_efi_setup(size_t memory_map_size,
 		}
 		case EfiACPIReclaimMemory:
 			// ACPI reclaim -- physical memory we could actually use later
-			gKernelArgs.ignored_physical_memory += entry->NumberOfPages * 4096;
+			// (We are not really "ignoring" this memory, though.)
 			break;
 		case EfiRuntimeServicesCode:
 		case EfiRuntimeServicesData:
 			entry->VirtualStart = entry->PhysicalStart;
+			break;
+
+		default:
+			gKernelArgs.ignored_physical_memory += entry->NumberOfPages * 4096;
 			break;
 		}
 	}
