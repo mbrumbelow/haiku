@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b1b8683_4237bf87",
+        "filename": "data/system/boot/PostInstallScript",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-26T15:56:24Z",
+      "side": 1,
+      "message": "that should be fixed. Can you provide a debug report?",
+      "revId": "a2df43e3a8eec0dcdbc6128f56a88bbfb095e416",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e80c7a5_c900cc99",
+        "filename": "data/system/boot/PostInstallScript",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-26T15:56:24Z",
+      "side": 1,
+      "message": "that should be fixed, too? And couldn\u0027t this one be done at build time instead?",
+      "revId": "a2df43e3a8eec0dcdbc6128f56a88bbfb095e416",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85fb2287_736d89e6",
+        "filename": "src/kits/package/ActivationTransaction.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-26T15:56:24Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "a2df43e3a8eec0dcdbc6128f56a88bbfb095e416",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "635886a6_410c64dd",
+        "filename": "src/kits/package/ActivationTransaction.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-26T15:56:24Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "a2df43e3a8eec0dcdbc6128f56a88bbfb095e416",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
