@@ -16,6 +16,24 @@
       "revId": "9afc0df0c2f67cb5979072a9b850a823ae2d515a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a5e7ca7_6d711cc1",
+        "filename": "src/preferences/input/InputIcons.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-05-27T08:00:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6c2ef1ac_8b1a2b85",
+      "revId": "9afc0df0c2f67cb5979072a9b850a823ae2d515a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
