@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c0a77e85_4c8c3ad2",
+        "filename": "src/add-ons/kernel/drivers/input/wacom/wacom.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2020-05-27T21:58:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "641538d8_ec69b5fd",
+      "revId": "298f9ae678a18fb52c4db492e23384766a5599b1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1da01bd0_71d67812",
         "filename": "src/add-ons/kernel/drivers/input/wacom/wacom.c",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "298f9ae678a18fb52c4db492e23384766a5599b1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "996ead4a_0a3d1b85",
+        "filename": "src/add-ons/kernel/drivers/input/wacom/wacom.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2020-05-27T21:58:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1da01bd0_71d67812",
+      "revId": "298f9ae678a18fb52c4db492e23384766a5599b1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
