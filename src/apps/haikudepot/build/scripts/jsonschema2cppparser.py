@@ -6,7 +6,7 @@
 # =====================================
 
 # This simple tool will read a JSON schema and will then generate a
-# listener for use the 'BJson' class in the Haiku system.  This
+# listener for use with the 'BJson' class in the Haiku system.  This
 # allows data conforming to the schema to be able to be parsed.
 
 import string

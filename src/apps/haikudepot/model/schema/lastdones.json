@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "id": "http://haikudepot.haiku-os.org/schema/lastdone.json",
+  "title": "LastDone",
+  "javaType": "org.haiku.haikudepot.model.LastDones",
+  "type": "object",
+  "properties": {
+	"items": {
+	  "type": "array",
+	  "items": {
+		"type": "object",
+		"javaType": "org.haiku.haikudepot.model.LastDone",
+		"properties": {
+		  "key": {
+			"type": "string"
+		  },
+		  "doneTimestamp": {
+			"type": "integer"
+		  },
+		  "type": {
+			"type": "string"
+		  }
+		}
+	  }
+	}
+  }
+}

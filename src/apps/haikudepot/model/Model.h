@@ -10,6 +10,7 @@
 
 #include "AbstractProcess.h"
 #include "LanguageModel.h"
+#include "LastDoneStore.h"
 #include "LocalIconStore.h"
 #include "PackageInfo.h"
 #include "WebAppInterface.h"
@@ -152,6 +153,7 @@ public:
 									DepotMapper* depotMapper,
 									void* context);
 
+			status_t			LastDoneDataPath(BPath& path) const;
 			status_t			IconStoragePath(BPath& path) const;
 			status_t			DumpExportReferenceDataPath(BPath& path) const;
 			status_t			DumpExportRepositoryDataPath(BPath& path) const;
@@ -160,7 +162,9 @@ public:
 
 			void				LogDepotsWithNoWebAppRepositoryCode() const;
 
+			LastDoneStore&		GetLastDoneStore();
 private:
+			void				_InitLastDoneStore();
 			void				_AddCategory(const CategoryRef& category);
 
 			void				_MaybeLogJsonRpcError(
@@ -207,6 +211,7 @@ private:
 
 			LanguageModel		fLanguageModel;
 			WebAppInterface		fWebAppInterface;
+			LastDoneStore		fLastDoneStore;
 
 			ModelListenerList	fListeners;
 };

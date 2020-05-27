@@ -1,5 +1,5 @@
 /*
- * Copyright 2018, Andrew Lindesay <apl@lindesay.co.nz>.
+ * Copyright 2018-2020, Andrew Lindesay <apl@lindesay.co.nz>.
  * All rights reserved. Distributed under the terms of the MIT License.
  */
 
@@ -28,6 +28,10 @@
     repository site.  This is typically HPKR data copied over to the local
     machine.  From there, a latter process will process this data by using the
     facilities of the Package Kit.
+
+    The refresh process will only happen initially and thereafter one time
+    per 5 days or so.  Also it will happen when the user explicitly chooses
+    to trigger the bulk update.
 */
 
 class LocalRepositoryUpdateProcess : public AbstractProcess {
@@ -43,10 +47,16 @@ protected:
 	virtual status_t			RunInternal();
 
 private:
+			bool				_ShouldRunForRepositoryName(
+									const BString& repoName,
+									BPackageKit::BPackageRoster& roster,
+									BPackageKit::BRepositoryCache* cache);
+
 			status_t			_RunForRepositoryName(const BString& repoName,
 									BPackageKit::BContext& context,
 									BPackageKit::BPackageRoster& roster,
 									BPackageKit::BRepositoryCache* cache);
+
 			void				_NotifyError(const BString& error) const;
 			void				_NotifyError(const BString& error,
 									const BString& details) const;

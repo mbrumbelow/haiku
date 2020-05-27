@@ -1,5 +1,5 @@
 /*
- * Copyright 2017-2018, Andrew Lindesay <apl@lindesay.co.nz>.
+ * Copyright 2017-2020, Andrew Lindesay <apl@lindesay.co.nz>.
  * All rights reserved. Distributed under the terms of the MIT License.
  */
 
@@ -179,8 +179,7 @@ AbstractServerProcess::ParseJsonFromFileWithListener(
 	FILE* file = fopen(pathStr, "rb");
 
 	if (file == NULL) {
-		printf("[%s] unable to find the meta data file at [%s]\n", Name(),
-			path.Path());
+		printf("[%s] unable to find the file at [%s]\n", Name(), path.Path());
 		return B_FILE_NOT_FOUND;
 	}
 

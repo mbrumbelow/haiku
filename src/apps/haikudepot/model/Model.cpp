@@ -331,6 +331,7 @@ Model::Model()
 	fShowSourcePackages(false),
 	fShowDevelopPackages(false)
 {
+	_InitLastDoneStore();
 }
 
 
@@ -927,6 +928,13 @@ Model::DumpExportReferenceDataPath(BPath& path) const
 
 
 status_t
+Model::LastDoneDataPath(BPath& path) const
+{
+	return StorageUtils::LocalWorkingFilesPath("lastdone.json", path);
+}
+
+
+status_t
 Model::IconStoragePath(BPath& path) const
 {
 	return StorageUtils::LocalWorkingDirectoryPath("__allicons", path);
@@ -1124,4 +1132,25 @@ Model::_AddCategory(const CategoryRef& category)
 	}
 
 	fCategories.Add(category);
+}
+
+
+LastDoneStore&
+Model::GetLastDoneStore()
+{
+	return fLastDoneStore;
+}
+
+
+void
+Model::_InitLastDoneStore()
+{
+	BPath path;
+	status_t result = LastDoneDataPath(path);
+
+	if (result == B_OK)
+		result = fLastDoneStore.Init(path);
+
+	if (result != B_OK)
+		printf("! unable to configure last-done store\n");
 }

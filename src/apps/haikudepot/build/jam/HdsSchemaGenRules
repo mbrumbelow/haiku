@@ -34,7 +34,9 @@ actions HdsSchemaGenTouch
 
 rule HdsSchemaGenModel
 {
-	SEARCH on $(2) = [ FDirName $(SUBDIR) server schema ] ;
+	SEARCH on $(2) = [ FDirName $(SUBDIR) server schema ]
+		[ FDirName $(SUBDIR) model schema ]
+		;
 	SEARCH on $(3) = [ FDirName $(SUBDIR) build scripts ] ;
 
 	Clean $(1:D) ;
@@ -57,7 +59,9 @@ actions HdsSchemaGenModel1
 
 rule HdsSchemaGenBulkParser
 {
-	SEARCH on $(2) = [ FDirName $(SUBDIR) server schema ] ;
+	SEARCH on $(2) = [ FDirName $(SUBDIR) server schema ]
+		[ FDirName $(SUBDIR) model schema ]
+		;
 	SEARCH on $(3) = [ FDirName $(SUBDIR) build scripts ] ;
 
 	Clean $(1:D) ;
@@ -80,7 +84,9 @@ actions HdsSchemaGenBulkParser1
 
 rule HdsSchemaGenParser
 {
-	SEARCH on $(2) = [ FDirName $(SUBDIR) server schema ] ;
+	SEARCH on $(2) = [ FDirName $(SUBDIR) server schema ]
+		[ FDirName $(SUBDIR) model schema ]
+		;
 	SEARCH on $(3) = [ FDirName $(SUBDIR) build scripts ] ;
 
 	Clean $(1:D) ;

@@ -22,6 +22,9 @@ local dumpExportPkgBulkListenerTargetDirectory =
 local dumpExportReferenceListenerTargetDirectory =
 	[ FDirName $(HAIKUDEPOT_GENERATED_SOURCES_DIRECTORY)
 		dumpexportreferencelistener ] ;
+local lastDonesListenerTargetDirectory =
+	[ FDirName $(HAIKUDEPOT_GENERATED_SOURCES_DIRECTORY)
+		lastdoneslistener ] ;
 
 local dumpExportPkgModelTargetDirectory =
 	[ FDirName $(HAIKUDEPOT_GENERATED_SOURCES_DIRECTORY)
@@ -32,6 +35,9 @@ local dumpExportRepositoryModelTargetDirectory =
 local dumpExportReferenceModelTargetDirectory =
 	[ FDirName $(HAIKUDEPOT_GENERATED_SOURCES_DIRECTORY)
 		dumpexportreferencemodel ] ;
+local lastDonesModelTargetDirectory =
+	[ FDirName $(HAIKUDEPOT_GENERATED_SOURCES_DIRECTORY)
+		lastdonesmodel ] ;
 
 # During the build process, some sources are generated into a directory.  In
 # order to maintain a timestamp on that generation process, a dummy file is
@@ -40,12 +46,14 @@ local dumpExportReferenceModelTargetDirectory =
 
 local dummyFile = "dummy.dat" ;
 
-local dumpExportRepositoryBulkListerTargetFile =
+local dumpExportRepositoryBulkListenerTargetFile =
 	[ FDirName $(dumpExportRepositoryBulkListerTargetDirectory) $(dummyFile) ] ;
 local dumpExportPkgBulkListenerTargetFile =
 	[ FDirName $(dumpExportPkgBulkListenerTargetDirectory) $(dummyFile) ] ;
 local dumpExportReferenceListenerTargetFile =
 	[ FDirName $(dumpExportReferenceListenerTargetDirectory) $(dummyFile) ] ;
+local lastDonesListenerTargetFile =
+	[ FDirName $(lastDonesListenerTargetDirectory) $(dummyFile) ] ;
 
 local dumpExportPkgModelTargetFile =
 	[ FDirName $(dumpExportPkgModelTargetDirectory) $(dummyFile) ] ;
@@ -53,6 +61,8 @@ local dumpExportRepositoryModelTargetFile =
 	[ FDirName $(dumpExportRepositoryModelTargetDirectory) $(dummyFile) ] ;
 local dumpExportReferenceModelTargetFile =
 	[ FDirName $(dumpExportReferenceModelTargetDirectory) $(dummyFile) ] ;
+local lastDonesModelTargetFile =
+	[ FDirName $(lastDonesModelTargetDirectory) $(dummyFile) ] ;
 
 # source directories
 local sourceDirs =
@@ -76,10 +86,12 @@ SEARCH_SOURCE += [ FDirName $(HAIKU_TOP) src servers package ] ;
 SEARCH_SOURCE += $(dumpExportRepositoryBulkListerTargetDirectory) ;
 SEARCH_SOURCE += $(dumpExportPkgBulkListenerTargetDirectory) ;
 SEARCH_SOURCE += $(dumpExportReferenceListenerTargetDirectory) ;
+SEARCH_SOURCE += $(lastDonesListenerTargetDirectory) ;
 
 SEARCH_SOURCE += $(dumpExportPkgModelTargetDirectory) ;
 SEARCH_SOURCE += $(dumpExportRepositoryModelTargetDirectory) ;
 SEARCH_SOURCE += $(dumpExportReferenceModelTargetDirectory) ;
+SEARCH_SOURCE += $(lastDonesModelTargetDirectory) ;
 
 local textDocumentSources =
 	# edits_generic
@@ -120,6 +132,7 @@ local applicationSources =
 	FeaturedPackagesView.cpp
 	FilterView.cpp
 	JobStateListener.cpp
+	LastDoneStore.cpp
 	LocalIconStore.cpp
 	LanguageModel.cpp
 	LinkView.cpp
@@ -214,6 +227,11 @@ local generatedReferenceModelSourceFiles =
 	DumpExportReferenceCountry.cpp
 ;
 
+local generatedLastDonesModelSourceFiles =
+	LastDones.cpp
+	LastDone.cpp
+;
+
 local generatedPkgParserSourceFiles =
 	DumpExportPkgJsonListener.cpp
 ;
@@ -226,6 +244,10 @@ local generatedReferenceParserSourceFiles =
 	DumpExportReferenceJsonListener.cpp
 ;
 
+local generatedLastDonesParserSourceFiles =
+	LastDonesJsonListener.cpp
+;
+
 Application HaikuDepot
 	:
 	$(applicationSources)
@@ -233,9 +255,11 @@ Application HaikuDepot
 	$(generatedPkgModelSourceFiles)
 	$(generatedRepositoryModelSourceFiles)
 	$(generatedReferenceModelSourceFiles)
+	$(generatedLastDonesModelSourceFiles)
 	$(generatedPkgParserSourceFiles)
 	$(generatedRepositoryParserSourceFiles)
 	$(generatedReferenceParserSourceFiles)
+	$(generatedLastDonesParserSourceFiles)
 	:
 	be package bnetapi translation libcolumnlistview.a shared
 	[ TargetLibstdc++ ] [ TargetLibsupc++ ] localestub
@@ -283,7 +307,10 @@ HdsSchemaGenModel $(dumpExportRepositoryModelTargetFile)
 HdsSchemaGenModel $(dumpExportReferenceModelTargetFile)
 	: dumpexportreference.json : jsonschema2cppmodel.py ;
 
-HdsSchemaGenBulkParser $(dumpExportRepositoryBulkListerTargetFile)
+HdsSchemaGenModel $(lastDonesModelTargetFile)
+	: lastdones.json : jsonschema2cppmodel.py ;
+
+HdsSchemaGenBulkParser $(dumpExportRepositoryBulkListenerTargetFile)
 	: dumpexportrepository.json : jsonschema2cppparser.py ;
 
 HdsSchemaGenBulkParser $(dumpExportPkgBulkListenerTargetFile)
@@ -291,6 +318,9 @@ HdsSchemaGenBulkParser $(dumpExportPkgBulkListenerTargetFile)
 
 HdsSchemaGenParser $(dumpExportReferenceListenerTargetFile)
 	: dumpexportreference.json : jsonschema2cppparser.py ;
+
+HdsSchemaGenParser $(lastDonesListenerTargetFile)
+	: lastdones.json : jsonschema2cppparser.py ;
 
 HdsSchemaGenAppSrcDependsOnGeneration
 	[ FGristFiles $(generatedPkgParserSourceFiles) ]
@@ -300,12 +330,17 @@ HdsSchemaGenAppSrcDependsOnGeneration
 HdsSchemaGenAppSrcDependsOnGeneration
 	[ FGristFiles $(generatedRepositoryParserSourceFiles) ]
 	[ FGristFiles $(generatedRepositoryParserSourceFiles:S=.h) ]
-	: $(dumpExportRepositoryBulkListerTargetFile) ;
+	: $(dumpExportRepositoryBulkListenerTargetFile) ;
 
 HdsSchemaGenAppSrcDependsOnGeneration
 	[ FGristFiles $(generatedReferenceParserSourceFiles) ]
 	[ FGristFiles $(generatedReferenceParserSourceFiles:S=.h) ]
 	: $(dumpExportReferenceListenerTargetFile) ;
+
+HdsSchemaGenAppSrcDependsOnGeneration
+	[ FGristFiles $(generatedLastDonesParserSourceFiles) ]
+	[ FGristFiles $(generatedLastDonesParserSourceFiles:S=.h) ]
+	: $(lastDonesListenerTargetFile) ;
 
 HdsSchemaGenAppSrcDependsOnGeneration
 	[ FGristFiles $(generatedRepositoryModelSourceFiles) ]
@@ -322,6 +357,11 @@ HdsSchemaGenAppSrcDependsOnGeneration
 	[ FGristFiles $(generatedReferenceModelSourceFiles:S=.h) ]
 	: $(dumpExportReferenceModelTargetFile) ;
 
+HdsSchemaGenAppSrcDependsOnGeneration
+	[ FGristFiles $(generatedLastDonesModelSourceFiles) ]
+	[ FGristFiles $(generatedLastDonesModelSourceFiles:S=.h) ]
+	: $(lastDonesModelTargetFile) ;
+
 # This will ensure that if any of the generated files' header files change, then
 # the application should be re-built.
 
@@ -333,4 +373,6 @@ Depends [ FGristFiles $(applicationSources:S=.o) ]
 	[ FGristFiles $(generatedRepositoryModelSourceFiles:S=.h) ]
 	[ FGristFiles $(generatedReferenceParserSourceFiles:S=.h) ]
 	[ FGristFiles $(generatedReferenceModelSourceFiles:S=.h) ]
+	[ FGristFiles $(generatedLastDonesParserSourceFiles:S=.h) ]
+	[ FGristFiles $(generatedLastDonesModelSourceFiles:S=.h) ]
 ;
