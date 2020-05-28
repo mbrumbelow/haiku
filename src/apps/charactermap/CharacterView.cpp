@@ -289,34 +289,46 @@ CharacterView::FrameResized(float width, float height)
 void
 CharacterView::MouseDown(BPoint where)
 {
-	int32 buttons;
 	if (!fHasCharacter
-		|| Window()->CurrentMessage() == NULL
-		|| Window()->CurrentMessage()->FindInt32("buttons", &buttons) != B_OK
-		|| (buttons & B_SECONDARY_MOUSE_BUTTON) == 0) {
-		// Memorize click point for dragging
-		fClickPoint = where;
+		|| Window()->CurrentMessage() == NULL)
 		return;
+
+	int32 buttons;
+	if (Window()->CurrentMessage()->FindInt32("buttons", &buttons) == B_OK) {
+		// Create pop-up menu
+		BPopUpMenu* menu = new BPopUpMenu(B_EMPTY_STRING, false, false);
+
+		if ((buttons & B_PRIMARY_MOUSE_BUTTON) != 0) {
+			// Show large version of character
+			menu->SetFont(&fCharacterFont);
+			menu->SetFontSize(fCharacterFont.Size() * 2.5);
+
+			char text[16];
+			UnicodeToUTF8(fCurrentCharacter, text, sizeof(text));
+
+			menu->AddItem(new BMenuItem(text, NULL));
+
+			// Memorize click point for dragging
+			fClickPoint = where;
+		} else {
+			// Show context menu
+			menu->SetFont(be_plain_font);
+
+			BMessage* message =  new BMessage(B_COPY);
+			message->AddInt32("character", fCurrentCharacter);
+			menu->AddItem(new BMenuItem(B_TRANSLATE("Copy character"), message, 'C'));
+
+			message =  new BMessage(kMsgCopyAsEscapedString);
+			message->AddInt32("character", fCurrentCharacter);
+			menu->AddItem(new BMenuItem(B_TRANSLATE("Copy as escaped byte string"),
+				message, 'C', B_SHIFT_KEY));
+		}
+
+		menu->SetTargetForItems(this);
+
+		ConvertToScreen(&where);
+		menu->Go(where, true, true, true);
 	}
-
-	// Open pop-up menu
-
-	BPopUpMenu *menu = new BPopUpMenu(B_EMPTY_STRING, false, false);
-	menu->SetFont(be_plain_font);
-
-	BMessage* message =  new BMessage(B_COPY);
-	message->AddInt32("character", fCurrentCharacter);
-	menu->AddItem(new BMenuItem(B_TRANSLATE("Copy character"), message, 'C'));
-
-	message =  new BMessage(kMsgCopyAsEscapedString);
-	message->AddInt32("character", fCurrentCharacter);
-	menu->AddItem(new BMenuItem(B_TRANSLATE("Copy as escaped byte string"),
-		message, 'C', B_SHIFT_KEY));
-
-	menu->SetTargetForItems(this);
-
-	ConvertToScreen(&where);
-	menu->Go(where, true, true, true);
 }
 
 
