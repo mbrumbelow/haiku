@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ddebc285_fe3fc939",
+        "filename": "src/kits/network/libnetapi/SecureSocket.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-28T06:54:28Z",
+      "side": 1,
+      "message": "This is not a \"maybe\" anymore since at this point we checked for errno \u003d\u003d EINTR",
+      "revId": "ecb2792d53b4d5cbeea23541c24aada29a611ed8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f22a2a8c_e3f4af06",
+        "filename": "src/kits/network/libnetapi/SecureSocket.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-28T06:54:28Z",
+      "side": 1,
+      "message": "This comment isn\u0027t quite correct for the write case, it would be \"no buffer space available\" or something like that.",
+      "revId": "ecb2792d53b4d5cbeea23541c24aada29a611ed8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
