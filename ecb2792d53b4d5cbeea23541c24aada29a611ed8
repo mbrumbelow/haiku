@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "62e9b362_fc4d4c7a",
+        "filename": "src/kits/network/libnetapi/SecureSocket.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-05-28T18:35:06Z",
+      "side": 1,
+      "message": "Not necessarily. We could have errno \u003d\u003d 0 and error \u003d\u003d SSL_ERROR_SSL or some other openssl error that isn\u0027t WANT_READ or WANT_WRITE.\n\nBy the time we call BIO_should_retry all we know is that an error occurred that could be retriable and may or may not have been signal interruption.",
+      "parentUuid": "ddebc285_fe3fc939",
+      "revId": "ecb2792d53b4d5cbeea23541c24aada29a611ed8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8861a6b6_3c9d7fca",
         "filename": "src/kits/network/libnetapi/SecureSocket.cpp",
         "patchSetId": 2
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "24106c17_8e3a0ba3",
+        "filename": "src/kits/network/libnetapi/SecureSocket.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-05-28T18:35:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8861a6b6_3c9d7fca",
+      "revId": "ecb2792d53b4d5cbeea23541c24aada29a611ed8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f22a2a8c_e3f4af06",
         "filename": "src/kits/network/libnetapi/SecureSocket.cpp",
         "patchSetId": 2
@@ -50,6 +86,24 @@
       "revId": "ecb2792d53b4d5cbeea23541c24aada29a611ed8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5f0f6fa_26122dcf",
+        "filename": "src/kits/network/libnetapi/SecureSocket.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-05-28T18:35:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f22a2a8c_e3f4af06",
+      "revId": "ecb2792d53b4d5cbeea23541c24aada29a611ed8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
