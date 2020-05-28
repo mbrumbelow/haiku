@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "8861a6b6_3c9d7fca",
+        "filename": "src/kits/network/libnetapi/SecureSocket.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-05-28T15:00:18Z",
+      "side": 1,
+      "message": "should be \"while (retry !\u003d 0);\"",
+      "revId": "ecb2792d53b4d5cbeea23541c24aada29a611ed8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f22a2a8c_e3f4af06",
         "filename": "src/kits/network/libnetapi/SecureSocket.cpp",
         "patchSetId": 2
