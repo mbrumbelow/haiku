@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "41214fa2_fbc2d5bb",
+        "filename": "src/apps/charactermap/CharacterView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-05-29T16:16:48Z",
+      "side": 1,
+      "message": "Asterisk should go to the left (it has been this way before, I know).",
+      "revId": "f8dfedaf52945debf36f52a26063dae4412e7121",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40630378_9d122e8c",
+        "filename": "src/apps/charactermap/CharacterView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-05-29T16:16:48Z",
+      "side": 1,
+      "message": "We always want to have boolean expressions, so that would be:\nif ((buttons \u0026 B_PRIMARY_MOUSE_BUTTON) !\u003d 0)",
+      "revId": "f8dfedaf52945debf36f52a26063dae4412e7121",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
