@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "24f60ee9_7d80ef5b",
+        "filename": "data/system/boot/PostInstallScript",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000038
+      },
+      "writtenOn": "2020-05-29T19:22:01Z",
+      "side": 1,
+      "message": "Build time would be easier (wouldn\u0027t have to set up a whole new jam infrastructure to package scripts - a couple of weeks for me to figure out jam), but is that possible - it\u0027s modifying the attributes on significant directories on the installed OS.  Or do the directory attributes get copied over from the installation media?",
+      "parentUuid": "9e80c7a5_c900cc99",
+      "revId": "a2df43e3a8eec0dcdbc6128f56a88bbfb095e416",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "85fb2287_736d89e6",
         "filename": "src/kits/package/ActivationTransaction.cpp",
         "patchSetId": 2
