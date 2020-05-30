@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "e247e9db_c9422a2c",
+        "filename": "data/system/boot/PostInstallScript",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-05-30T11:18:22Z",
+      "side": 1,
+      "message": "Attributes are copied both during Install and during build of an Haiku image, as far as I know. Otherwise the OS would not boot at all (BRoster::Launch by MIME signature would be broken, as well as many other things), WebPositive bookmarks would lose their URL and icon, and probably other things would break too.",
+      "parentUuid": "24f60ee9_7d80ef5b",
+      "revId": "a2df43e3a8eec0dcdbc6128f56a88bbfb095e416",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "85fb2287_736d89e6",
         "filename": "src/kits/package/ActivationTransaction.cpp",
         "patchSetId": 2
