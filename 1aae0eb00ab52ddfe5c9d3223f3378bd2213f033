@@ -16,6 +16,24 @@
       "revId": "1aae0eb00ab52ddfe5c9d3223f3378bd2213f033",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e332a7d8_bd2328f1",
+        "filename": "headers/private/kernel/arch/x86/arch_thread_types.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-05-31T11:40:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6320862_706cf194",
+      "revId": "1aae0eb00ab52ddfe5c9d3223f3378bd2213f033",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
