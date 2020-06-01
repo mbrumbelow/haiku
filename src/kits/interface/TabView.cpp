@@ -342,10 +342,10 @@ BTab::DrawTab(BView* owner, BRect frame, tab_position position, bool full)
 
 	if (position == B_TAB_FRONT) {
 		be_control_look->DrawActiveTab(owner, frame, frame, no_tint, 0,
-			borders, fTabView->TabSide());
+			borders, fTabView->TabSide(), position, full);
 	} else {
 		be_control_look->DrawInactiveTab(owner, frame, frame, no_tint, 0,
-			borders, fTabView->TabSide());
+			borders, fTabView->TabSide(), position, full);
 	}
 
 	DrawLabel(owner, frame);

@@ -10,6 +10,7 @@
 #include <Font.h>
 #include <Rect.h>
 #include <Slider.h>
+#include <TabView.h>
 
 
 class BBitmap;
@@ -86,6 +87,7 @@ public:
 		B_FLAT					= 1 << 8, // flat look (e.g. button background)
 		B_INVALID				= 1 << 9, // invalid value, use B_FAILURE_COLOR
 		B_IS_CONTROL			= 1 << 10, // use control colors
+		B_IS_BUTTON				= 1 << 11, // use button colors
 
 		B_BLEND_FRAME			= 1 << 16,
 	};
@@ -294,12 +296,16 @@ public:
 									const BRect& updateRect,
 									const rgb_color& base, uint32 flags = 0,
 									uint32 borders = B_ALL_BORDERS,
-									uint32 side = B_TOP_BORDER) = 0;
+									uint32 side = B_TOP_BORDER,
+									tab_position position = B_TAB_FRONT,
+									bool full = true) = 0;
 	virtual	void				DrawInactiveTab(BView* view, BRect& rect,
 									const BRect& updateRect,
 									const rgb_color& base, uint32 flags = 0,
 									uint32 borders = B_ALL_BORDERS,
-									uint32 side = B_TOP_BORDER) = 0;
+									uint32 side = B_TOP_BORDER,
+									tab_position position = B_TAB_ANY,
+									bool full = true) = 0;
 
 	virtual	void				DrawSplitter(BView* view, BRect& rect,
 									const BRect& updateRect,

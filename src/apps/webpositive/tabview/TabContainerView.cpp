@@ -75,44 +75,48 @@ TabContainerView::MessageReceived(BMessage* message)
 void
 TabContainerView::Draw(BRect updateRect)
 {
+	// draw tab frame
+	BRect rect(Bounds());
 	rgb_color base = ui_color(B_PANEL_BACKGROUND_COLOR);
-	BRect frame(Bounds());
+	uint32 borders = BControlLook::B_TOP_BORDER
+		| BControlLook::B_BOTTOM_BORDER;
+	be_control_look->DrawTabFrame(this, rect, updateRect, base, 0,
+		borders, B_NO_BORDER);
 
-	// Draw empty area before first tab.
-	uint32 borders = BControlLook::B_TOP_BORDER | BControlLook::B_BOTTOM_BORDER;
-	BRect leftFrame(frame.left, frame.top, kLeftTabInset, frame.bottom);
-	be_control_look->DrawInactiveTab(this, leftFrame, updateRect, base, 0,
-		borders);
-
-	// Draw all tabs, keeping track of where they end.
+	// draw tabs on top of frame
 	BGroupLayout* layout = GroupLayout();
 	int32 count = layout->CountItems() - 1;
 	for (int32 i = 0; i < count; i++) {
-		TabLayoutItem* item = dynamic_cast<TabLayoutItem*>(
-			layout->ItemAt(i));
-		if (!item || !item->IsVisible())
+		TabLayoutItem* item = dynamic_cast<TabLayoutItem*>(layout->ItemAt(i));
+		if (item == NULL || !item->IsVisible())
 			continue;
-		item->Parent()->Draw(updateRect);
-		frame.left = item->Frame().right + 1;
+		item->Parent()->Draw(item->Frame());
 	}
-
-	// Draw empty area after last tab.
-	be_control_look->DrawInactiveTab(this, frame, updateRect, base, 0, borders);
 }
 
 
 void
 TabContainerView::MouseDown(BPoint where)
 {
+	if (Window() == NULL)
+		return;
+
+	BMessage* currentMessage = Window()->CurrentMessage();
+	if (currentMessage == NULL)
+		return;
+
 	uint32 buttons;
-	if (Window()->CurrentMessage()->FindInt32("buttons", (int32*)&buttons) != B_OK)
+	if (currentMessage->FindInt32("buttons", (int32*)&buttons) != B_OK)
 		buttons = B_PRIMARY_MOUSE_BUTTON;
+
 	uint32 clicks;
-	if (Window()->CurrentMessage()->FindInt32("clicks", (int32*)&clicks) != B_OK)
+	if (currentMessage->FindInt32("clicks", (int32*)&clicks) != B_OK)
 		clicks = 1;
+
 	fMouseDown = true;
 	SetMouseEventMask(B_POINTER_EVENTS, B_LOCK_WINDOW_FOCUS);
-	if (fLastMouseEventTab)
+
+	if (fLastMouseEventTab != NULL)
 		fLastMouseEventTab->MouseDown(where, buttons);
 	else {
 		if ((buttons & B_TERTIARY_MOUSE_BUTTON) != 0) {
@@ -185,20 +189,21 @@ TabContainerView::AddTab(TabView* tab, int32 index)
 	if (index == -1)
 		index = GroupLayout()->CountItems() - 1;
 
-	bool hasFrames = fController != NULL && fController->HasFrames();
-	bool isFirst = index == 0 && hasFrames;
-	bool isLast = index == GroupLayout()->CountItems() - 1 && hasFrames;
+	bool isFirst = index == 0;
+	bool isLast = index == GroupLayout()->CountItems() - 1;
 	bool isFront = fSelectedTab == NULL;
-	tab->Update(isFirst, isLast, isFront);
+	bool isFull = true;
+	tab->Update(isFirst, isLast, isFront, isFull);
 
 	GroupLayout()->AddItem(index, tab->LayoutItem());
 
 	if (isFront)
 		SelectTab(tab);
+
 	if (isLast) {
 		TabLayoutItem* item
 			= dynamic_cast<TabLayoutItem*>(GroupLayout()->ItemAt(index - 1));
-		if (item)
+		if (item != NULL)
 			item->Parent()->SetIsLast(false);
 	}
 
@@ -212,8 +217,7 @@ TabContainerView::RemoveTab(int32 index)
 {
 	TabLayoutItem* item
 		= dynamic_cast<TabLayoutItem*>(GroupLayout()->RemoveItem(index));
-
-	if (!item)
+	if (item == NULL)
 		return NULL;
 
 	BRect dirty(Bounds());
@@ -225,27 +229,28 @@ TabContainerView::RemoveTab(int32 index)
 		fLastMouseEventTab = NULL;
 
 	// Update tabs after or before the removed tab.
-	bool hasFrames = fController != NULL && fController->HasFrames();
 	item = dynamic_cast<TabLayoutItem*>(GroupLayout()->ItemAt(index));
-	if (item) {
+	if (item != NULL) {
 		// This tab is behind the removed tab.
 		TabView* tab = item->Parent();
-		tab->Update(index == 0 && hasFrames,
-			index == GroupLayout()->CountItems() - 2 && hasFrames,
-			tab == fSelectedTab);
+		tab->Update(index == 0,
+			index == GroupLayout()->CountItems() - 2,
+			tab == fSelectedTab, tab != NULL && fSelectedTab != NULL
+				&& IndexOf(tab) == IndexOf(fSelectedTab) - 1);
 		if (removedTab == fSelectedTab) {
 			fSelectedTab = NULL;
 			SelectTab(tab);
-		} else if (fController && tab == fSelectedTab)
+		} else if (fController != NULL && tab == fSelectedTab)
 			fController->TabSelected(index);
 	} else {
 		// The removed tab was the last tab.
 		item = dynamic_cast<TabLayoutItem*>(GroupLayout()->ItemAt(index - 1));
-		if (item) {
+		if (item != NULL) {
 			TabView* tab = item->Parent();
-			tab->Update(index == 0 && hasFrames,
-				index == GroupLayout()->CountItems() - 2 && hasFrames,
-				tab == fSelectedTab);
+			tab->Update(index == 0,
+				index == GroupLayout()->CountItems() - 2,
+				tab == fSelectedTab, tab != NULL && fSelectedTab != NULL
+					&& IndexOf(tab) == IndexOf(fSelectedTab) - 1);
 			if (removedTab == fSelectedTab) {
 				fSelectedTab = NULL;
 				SelectTab(tab);
@@ -284,7 +289,7 @@ TabContainerView::SelectTab(int32 index)
 	TabView* tab = NULL;
 	TabLayoutItem* item = dynamic_cast<TabLayoutItem*>(
 		GroupLayout()->ItemAt(index));
-	if (item)
+	if (item != NULL)
 		tab = item->Parent();
 
 	SelectTab(tab);
@@ -297,12 +302,12 @@ TabContainerView::SelectTab(TabView* tab)
 	if (tab == fSelectedTab)
 		return;
 
-	if (fSelectedTab)
+	if (fSelectedTab != NULL)
 		fSelectedTab->SetIsFront(false);
 
 	fSelectedTab = tab;
 
-	if (fSelectedTab)
+	if (fSelectedTab != NULL)
 		fSelectedTab->SetIsFront(true);
 
 	if (fController != NULL) {
@@ -314,6 +319,19 @@ TabContainerView::SelectTab(TabView* tab)
 			SetFirstVisibleTabIndex(index);
 
 		fController->TabSelected(index);
+	}
+
+	// update all tabs, set only the tab before the selected tab as not full
+	TabLayoutItem* beforeSelected = dynamic_cast<TabLayoutItem*>(
+		GroupLayout()->ItemAt(IndexOf(fSelectedTab) - 1));
+	BGroupLayout* layout = GroupLayout();
+	int32 count = layout->CountItems() - 1;
+	for (int32 i = 0; i < count; i++) {
+		TabLayoutItem* item = dynamic_cast<TabLayoutItem*>(
+			layout->ItemAt(i));
+		if (item == NULL || !item->IsVisible())
+			continue;
+		item->Parent()->SetIsFull(item != beforeSelected);
 	}
 }
 
