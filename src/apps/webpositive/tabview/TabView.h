@@ -29,21 +29,29 @@ public:
 			void 				Draw(BRect updateRect);
 	virtual	void				DrawBackground(BView* owner, BRect frame,
 									const BRect& updateRect, bool isFirst,
-									bool isLast, bool isFront);
+									bool isLast, bool isFront, bool isFull);
 	virtual	void				DrawContents(BView* owner, BRect frame,
-									const BRect& updateRect, bool isFirst,
-									bool isLast, bool isFront);
+									const BRect& updateRect);
 
 	virtual	void				MouseDown(BPoint where, uint32 buttons);
 	virtual	void				MouseUp(BPoint where);
 	virtual	void				MouseMoved(BPoint where, uint32 transit,
 									const BMessage* dragMessage);
 
-			void				SetIsFront(bool isFront);
-			bool				IsFront() const;
+			void				SetIsFirst(bool isFirst);
+			bool				IsFirst() const { return fIsFirst; };
+
 			void				SetIsLast(bool isLast);
+			bool				IsLast() const { return fIsLast; };
+
+			void				SetIsFront(bool isFront);
+			bool				IsFront() const { return fIsFront; };
+
+			void				SetIsFull(bool isFull);
+			bool				IsFull() const { return fIsFull; };
+
 	virtual	void				Update(bool isFirst, bool isLast,
-									bool isFront);
+									bool isFront, bool isFull);
 
 			BLayoutItem*		LayoutItem() const;
 			void				SetContainerView(
@@ -64,9 +72,10 @@ private:
 
 			BString				fLabel;
 
-			bool				fIsFirst;
-			bool				fIsLast;
-			bool				fIsFront;
+			bool				fIsFirst : 1;
+			bool				fIsLast : 1;
+			bool				fIsFront : 1;
+			bool				fIsFull : 1;
 };
 
 

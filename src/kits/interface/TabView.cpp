@@ -340,13 +340,24 @@ BTab::DrawTab(BView* owner, BRect frame, tab_position position, bool full)
 			borders |= BControlLook::B_BOTTOM_BORDER;
 	}
 
+	uint32 flags = 0;
+
+	// use B_HOVER flag to mean first
+	if (position == B_TAB_FIRST)
+		flags |= BControlLook::B_HOVER;
+
+	// use B_FLAT flag to mean not full
+	if (!full)
+		flags |= BControlLook::B_FLAT;
+
 	if (position == B_TAB_FRONT) {
-		be_control_look->DrawActiveTab(owner, frame, frame, no_tint, 0,
+		be_control_look->DrawActiveTab(owner, frame, frame, no_tint, flags,
 			borders, fTabView->TabSide());
 	} else {
-		be_control_look->DrawInactiveTab(owner, frame, frame, no_tint, 0,
+		be_control_look->DrawInactiveTab(owner, frame, frame, no_tint, flags,
 			borders, fTabView->TabSide());
 	}
+
 
 	DrawLabel(owner, frame);
 }
