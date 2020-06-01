@@ -318,8 +318,52 @@ BTab::DrawLabel(BView* owner, BRect frame)
 void
 BTab::DrawTab(BView* owner, BRect frame, tab_position position, bool full)
 {
-	rgb_color no_tint = ui_color(B_PANEL_BACKGROUND_COLOR);
+	rgb_color base = ui_color(B_PANEL_BACKGROUND_COLOR);
+	uint32 flags = 0;
+	uint32 borders = _Borders(owner, frame);
+
+	if (position == B_TAB_FRONT) {
+		be_control_look->DrawActiveTab(owner, frame, frame, base, flags,
+			borders, fTabView->TabSide());
+	} else {
+		be_control_look->DrawInactiveTab(owner, frame, frame, base, flags,
+			borders, fTabView->TabSide());
+	}
+
+	DrawLabel(owner, frame);
+}
+
+
+void
+BTab::DrawTab(BView* owner, BRect frame, int32 index, int32 selected,
+	int32 first, int32 last)
+{
+	rgb_color base = ui_color(B_PANEL_BACKGROUND_COLOR);
+	uint32 flags = 0;
+	uint32 borders = _Borders(owner, frame);
+
+	if (index == selected) {
+		be_control_look->DrawActiveTab(owner, frame, frame, base, flags,
+			borders, fTabView->TabSide(), index, selected, first, last);
+	} else {
+		be_control_look->DrawInactiveTab(owner, frame, frame, base, flags,
+			borders, fTabView->TabSide(), index, selected, first, last);
+	}
+
+	DrawLabel(owner, frame);
+}
+
+
+//	#pragma mark - BTab private methods
+
+
+uint32
+BTab::_Borders(BView* owner, BRect frame)
+{
 	uint32 borders = 0;
+	if (owner == NULL || fTabView == NULL)
+		return borders;
+
 	if (fTabView->TabSide() == BTabView::kTopSide
 		|| fTabView->TabSide() == BTabView::kBottomSide) {
 		borders = BControlLook::B_TOP_BORDER | BControlLook::B_BOTTOM_BORDER;
@@ -340,22 +384,21 @@ BTab::DrawTab(BView* owner, BRect frame, tab_position position, bool full)
 			borders |= BControlLook::B_BOTTOM_BORDER;
 	}
 
-	if (position == B_TAB_FRONT) {
-		be_control_look->DrawActiveTab(owner, frame, frame, no_tint, 0,
-			borders, fTabView->TabSide());
-	} else {
-		be_control_look->DrawInactiveTab(owner, frame, frame, no_tint, 0,
-			borders, fTabView->TabSide());
-	}
-
-	DrawLabel(owner, frame);
+	return borders;
 }
 
 
 //	#pragma mark - FBC padding and private methods
 
 
-void BTab::_ReservedTab1() {}
+extern "C" void
+B_IF_GCC_2(_ZN4BTab13_ReservedTab1Ev, _ReservedTab1__4BTab)(BTab* tab,
+	BView* owner, BRect frame, int32 index, int32 selected, int32 first,
+	int32 last)
+{
+	tab->DrawTab(owner, frame, index, selected, first, last);
+}
+
 void BTab::_ReservedTab2() {}
 void BTab::_ReservedTab3() {}
 void BTab::_ReservedTab4() {}
@@ -920,10 +963,7 @@ BTabView::DrawTabs()
 		if (i == fSelection)
 			activeTabFrame = tabFrame;
 
-		TabAt(i)->DrawTab(this, tabFrame,
-			i == fSelection ? B_TAB_FRONT :
-				(i == 0) ? B_TAB_FIRST : B_TAB_ANY,
-			i + 1 != fSelection);
+		TabAt(i)->DrawTab(this, tabFrame, i, fSelection, 0, tabCount - 1);
 	}
 
 	BRect tabsBounds;
