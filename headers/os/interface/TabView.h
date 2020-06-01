@@ -51,6 +51,9 @@ public:
 	virtual	void				DrawLabel(BView* owner, BRect frame);
 	virtual	void				DrawTab(BView* owner, BRect frame,
 									tab_position position, bool full = true);
+	virtual	void				DrawTab(BView* owner, BRect frame,
+									int32 index, int32 selected,
+									int32 first, int32 last);
 
 	class Private;
 
@@ -58,7 +61,6 @@ private:
 	friend class Private;
 
 	// FBC padding and forbidden methods
-	virtual	void				_ReservedTab1();
 	virtual	void				_ReservedTab2();
 	virtual	void				_ReservedTab3();
 	virtual	void				_ReservedTab4();
@@ -72,6 +74,9 @@ private:
 	virtual	void				_ReservedTab12();
 
 			BTab&				operator=(const BTab&);
+
+private:
+			uint32				_Borders(BView* owner, BRect frame);
 
 private:
 			bool 				fEnabled;
