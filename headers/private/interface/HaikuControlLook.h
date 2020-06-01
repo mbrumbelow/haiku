@@ -237,6 +237,13 @@ public:
 									uint32 borders = B_ALL_BORDERS,
 									border_style borderStyle = B_FANCY_BORDER,
 									uint32 side = B_TOP_BORDER);
+	virtual	void				DrawTab(BView* view, BRect& rect,
+									const BRect& updateRect,
+									const rgb_color& base, uint32 flags = 0,
+									uint32 borders = B_ALL_BORDERS,
+									uint32 side = B_TOP_BORDER,
+									tab_position position = B_TAB_ANY,
+									bool full = true);
 	virtual	void				DrawActiveTab(BView* view, BRect& rect,
 									const BRect& updateRect,
 									const rgb_color& base, uint32 flags = 0,

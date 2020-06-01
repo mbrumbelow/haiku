@@ -16,6 +16,7 @@
 #include <ControlLook.h>
 #include <GroupView.h>
 #include <SpaceLayoutItem.h>
+#include <TabView.h>
 #include <Window.h>
 
 #include "TabContainerView.h"
@@ -28,7 +29,11 @@ TabView::TabView()
 	:
 	fContainerView(NULL),
 	fLayoutItem(new TabLayoutItem(this)),
-	fLabel()
+	fLabel(),
+	fIsFirst(false),
+	fIsLast(false),
+	fIsFront(false),
+	fIsFull(true)
 {
 }
 
@@ -70,60 +75,48 @@ void
 TabView::Draw(BRect updateRect)
 {
 	BRect frame(fLayoutItem->Frame());
-	if (fIsFront) {
-		// Extend the front tab outward left/right in order to merge
-		// the frames of adjacent tabs.
-		if (!fIsFirst)
-			frame.left--;
-		if (!fIsLast)
-			frame.right++;
-	}
+	frame.right++;
 	frame.bottom++;
 
+	// make room for tail of last tab
+	if (fIsLast)
+		frame.right -= 2;
+
 	DrawBackground(fContainerView, frame, updateRect, fIsFirst, fIsLast,
-		fIsFront);
+		fIsFront, fIsFull);
 
 	if (fIsFront) {
 		frame.top += 3.0f;
-		if (!fIsFirst)
-			frame.left++;
-		if (!fIsLast)
-			frame.right--;
 	} else
 		frame.top += 6.0f;
 
 	float spacing = be_control_look->DefaultLabelSpacing();
 	frame.InsetBy(spacing, spacing / 2);
-	DrawContents(fContainerView, frame, updateRect, fIsFirst, fIsLast,
-		fIsFront);
+	DrawContents(fContainerView, frame, updateRect);
 }
 
 
 void
 TabView::DrawBackground(BView* owner, BRect frame, const BRect& updateRect,
-	bool isFirst, bool isLast, bool isFront)
+	bool isFirst, bool isLast, bool isFront, bool isFull)
 {
 	rgb_color base = ui_color(B_PANEL_BACKGROUND_COLOR);
 	uint32 borders = BControlLook::B_TOP_BORDER
 		| BControlLook::B_BOTTOM_BORDER;
+	tab_position position = B_TAB_ANY;
 
-	if (isFirst)
-		borders |= BControlLook::B_LEFT_BORDER;
-	if (isLast)
-		borders |= BControlLook::B_RIGHT_BORDER;
-	if (isFront) {
-		be_control_look->DrawActiveTab(owner, frame, updateRect, base,
-			0, borders);
-	} else {
-		be_control_look->DrawInactiveTab(owner, frame, updateRect, base,
-			0, borders);
-	}
+	if (isFront)
+		position = B_TAB_FRONT;
+	else if (isFirst)
+		position = B_TAB_FIRST;
+
+	be_control_look->DrawTab(owner, frame, updateRect, base,
+		0, borders, BControlLook::B_TOP_BORDER, position, isFull);
 }
 
 
 void
-TabView::DrawContents(BView* owner, BRect frame, const BRect& updateRect,
-	bool isFirst, bool isLast, bool isFront)
+TabView::DrawContents(BView* owner, BRect frame, const BRect& updateRect)
 {
 	rgb_color base = ui_color(B_PANEL_BACKGROUND_COLOR);
 	be_control_look->DrawLabel(owner, fLabel.String(), frame, updateRect,
@@ -151,34 +144,46 @@ TabView::MouseMoved(BPoint where, uint32 transit, const BMessage* dragMessage)
 
 
 void
-TabView::SetIsFront(bool isFront)
+TabView::SetIsFirst(bool isFirst)
 {
-	Update(fIsFirst, fIsLast, isFront);
-}
-
-
-bool
-TabView::IsFront() const
-{
-	return fIsFront;
+	Update(isFirst, fIsLast, fIsFront, fIsFull);
 }
 
 
 void
 TabView::SetIsLast(bool isLast)
 {
-	Update(fIsFirst, isLast, fIsFront);
+	Update(fIsFirst, isLast, fIsFront, fIsFull);
 }
 
 
 void
-TabView::Update(bool isFirst, bool isLast, bool isFront)
+TabView::SetIsFront(bool isFront)
 {
-	if (fIsFirst == isFirst && fIsLast == isLast && fIsFront == isFront)
+	Update(fIsFirst, fIsLast, isFront, fIsFull);
+}
+
+
+void
+TabView::SetIsFull(bool isFull)
+{
+	// don't do a full update, too expensive
+	fIsFull = isFull;
+}
+
+
+void
+TabView::Update(bool isFirst, bool isLast, bool isFront, bool isFull)
+{
+	if (fIsFirst == isFirst && fIsLast == isLast && fIsFront == isFront
+		&& fIsFull == isFull) {
 		return;
+	}
+
 	fIsFirst = isFirst;
 	fIsLast = isLast;
 	fIsFront = isFront;
+	fIsFull = isFull;
 
 	fLayoutItem->InvalidateContainer();
 }
@@ -339,8 +344,8 @@ void
 TabLayoutItem::InvalidateContainer(BRect frame)
 {
 	// Invalidate more than necessary, to help the TabContainerView
-	// redraw the parts outside any tabs...
-	frame.bottom++;
-	frame.right++;
+	// redraw the parts outside any tabs... need 2px
+	frame.bottom += 2;
+	frame.right += 2;
 	fParent->ContainerView()->Invalidate(frame);
 }

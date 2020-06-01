@@ -127,7 +127,18 @@ B_IF_GCC_2(_ReservedControlLook4__Q28BPrivate12BControlLook,
 }
 
 
-void BControlLook::_ReservedControlLook5() {}
+extern "C" void
+B_IF_GCC_2(_ReservedControlLook5__Q28BPrivate12BControlLook,
+		_ZN8BPrivate12BControlLook21_ReservedControlLook5Ev)(
+	BControlLook* controlLook, BView* view, BRect rect,
+		const BRect& updateRect, const rgb_color& base, uint32 flags,
+		uint32 borders, uint32 side, tab_position position, bool full)
+{
+	controlLook->DrawTab(view, rect, updateRect, base, flags,
+		borders, side, position, full);
+}
+
+
 void BControlLook::_ReservedControlLook6() {}
 void BControlLook::_ReservedControlLook7() {}
 void BControlLook::_ReservedControlLook8() {}

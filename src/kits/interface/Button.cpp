@@ -138,6 +138,7 @@ BButton::Draw(BRect updateRect)
 	rgb_color textColor = ui_color(B_CONTROL_TEXT_COLOR);
 
 	uint32 flags = be_control_look->Flags(this);
+	flags |= BControlLook::B_IS_BUTTON;
 	if (_Flag(FLAG_DEFAULT))
 		flags |= BControlLook::B_DEFAULT_BUTTON;
 	if (_Flag(FLAG_FLAT) && !IsTracking())

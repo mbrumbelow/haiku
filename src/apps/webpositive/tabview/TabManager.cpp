@@ -67,8 +67,8 @@ public:
 		uint32 flags = be_control_look->Flags(this);
 		uint32 borders = BControlLook::B_TOP_BORDER
 			| BControlLook::B_BOTTOM_BORDER;
-		be_control_look->DrawInactiveTab(this, bounds, updateRect, base,
-			0, borders);
+		be_control_look->DrawTabFrame(this, bounds, updateRect, base,
+			0, borders, B_NO_BORDER);
 		if (IsEnabled()) {
 			rgb_color button = tint_color(base, 1.07);
 			be_control_look->DrawButtonBackground(this, bounds, updateRect,
@@ -341,10 +341,7 @@ public:
 
 	virtual void Draw(BRect updateRect)
 	{
-		BRect bounds(Bounds());
-		rgb_color base = LowColor();
-		be_control_look->DrawInactiveTab(this, bounds, updateRect,
-			base, 0, BControlLook::B_TOP_BORDER);
+		// draw nothing
 	}
 };
 
@@ -426,8 +423,8 @@ public:
 
 	virtual BSize MaxSize();
 
-	virtual void DrawContents(BView* owner, BRect frame, const BRect& updateRect,
-		bool isFirst, bool isLast, bool isFront);
+	virtual void DrawContents(BView* owner, BRect frame,
+		const BRect& updateRect);
 
 	virtual void MouseDown(BPoint where, uint32 buttons);
 	virtual void MouseUp(BPoint where);
@@ -437,8 +434,7 @@ public:
 	void SetIcon(const BBitmap* icon);
 
 private:
-	void _DrawCloseButton(BView* owner, BRect& frame, const BRect& updateRect,
-		bool isFirst, bool isLast, bool isFront);
+	void _DrawCloseButton(BView* owner, BRect& frame, const BRect& updateRect);
 	BRect _CloseRectFrame(BRect frame) const;
 
 private:
@@ -485,13 +481,12 @@ WebTabView::MaxSize()
 
 
 void
-WebTabView::DrawContents(BView* owner, BRect frame, const BRect& updateRect,
-	bool isFirst, bool isLast, bool isFront)
+WebTabView::DrawContents(BView* owner, BRect frame, const BRect& updateRect)
 {
 	if (fController->CloseButtonsAvailable())
-		_DrawCloseButton(owner, frame, updateRect, isFirst, isLast, isFront);
+		_DrawCloseButton(owner, frame, updateRect);
 
-	if (fIcon) {
+	if (fIcon != NULL) {
 		BRect iconBounds(0, 0, kIconSize - 1, kIconSize - 1);
 		// clip to icon bounds, if they are smaller
 		if (iconBounds.Contains(fIcon->Bounds()))
@@ -523,7 +518,7 @@ WebTabView::DrawContents(BView* owner, BRect frame, const BRect& updateRect,
 		frame.left = frame.left + kIconSize + kIconInset * 2;
 	}
 
-	TabView::DrawContents(owner, frame, updateRect, isFirst, isLast, isFront);
+	TabView::DrawContents(owner, frame, updateRect);
 }
 
 
@@ -603,7 +598,7 @@ WebTabView::_CloseRectFrame(BRect frame) const
 
 
 void WebTabView::_DrawCloseButton(BView* owner, BRect& frame,
-	const BRect& updateRect, bool isFirst, bool isLast, bool isFront)
+	const BRect& updateRect)
 {
 	BRect closeRect = _CloseRectFrame(frame);
 	frame.right = closeRect.left - be_control_look->DefaultLabelSpacing();
