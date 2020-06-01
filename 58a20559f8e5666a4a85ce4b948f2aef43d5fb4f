@@ -16,6 +16,24 @@
       "revId": "58a20559f8e5666a4a85ce4b948f2aef43d5fb4f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c481a4f3_64a0128e",
+        "filename": "src/apps/deskbar/DeskbarMenu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2020-06-01T07:21:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1382f8d2_ecd7d873",
+      "revId": "58a20559f8e5666a4a85ce4b948f2aef43d5fb4f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
