@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7684450a_8405d10b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-02T14:11:11Z",
+      "side": 1,
+      "message": "keep includes in alphabetical order (except system_dependencies.h which must be first)",
+      "revId": "56fe92a8c7d843370aec51c8e7674fa84f6dafb4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b22d9e4_017d0807",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-02T14:11:11Z",
+      "side": 1,
+      "message": "space before (, around !\u003d, and before {",
+      "revId": "56fe92a8c7d843370aec51c8e7674fa84f6dafb4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59699526_24159fd6",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-02T14:11:11Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "56fe92a8c7d843370aec51c8e7674fa84f6dafb4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c92767a2_cc13835a",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-02T14:11:11Z",
+      "side": 1,
+      "message": "unneeded {}",
+      "revId": "56fe92a8c7d843370aec51c8e7674fa84f6dafb4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25906482_ab1aeca9",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-02T14:11:11Z",
+      "side": 1,
+      "message": "unneeded blank line",
+      "revId": "56fe92a8c7d843370aec51c8e7674fa84f6dafb4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3095fb4c_ebb301fc",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-02T14:11:11Z",
+      "side": 1,
+      "message": "what is the difference between \"change time\" and \"modification time\"?",
+      "revId": "56fe92a8c7d843370aec51c8e7674fa84f6dafb4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
