@@ -302,11 +302,13 @@ PackageContentsView::SetPackage(const PackageInfoRef& package)
 		fLastPackageState = package.Get() != NULL ? package->State() : NONE;
 	}
 
-	// if the package is not installed then there is no point in attempting to
-	// populate data for it.
+	// if the package is not installed and is not a local file on disk then
+	// there is no point in attempting to populate data for it.
 
-	if (package.Get() != NULL && package->State() == ACTIVATED)
+	if (package.Get() != NULL
+			&& (package->State() == ACTIVATED || package->IsLocalFile())) {
 		release_sem_etc(fContentPopulatorSem, 1, 0);
+	}
 }
 
 
@@ -373,10 +375,13 @@ PackageContentsView::_PopulatePackageContents(const PackageInfo& package)
 	BPath packagePath;
 
 	// Obtain path to the package file
+	printf("**Y1**\n");
 	if (package.IsLocalFile()) {
+		printf("**Y2**\n");
 		BString pathString = package.LocalFilePath();
 		packagePath.SetTo(pathString.String());
 	} else {
+			printf("**Y3**\n");
 		int32 installLocation = _InstallLocation(package);
 		if (installLocation == B_PACKAGE_INSTALLATION_LOCATION_SYSTEM) {
 			if (find_directory(B_SYSTEM_PACKAGES_DIRECTORY, &packagePath)
