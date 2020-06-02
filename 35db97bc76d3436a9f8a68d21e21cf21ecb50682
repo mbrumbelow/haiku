@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fe525830_3a7905ab",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-02T14:15:05Z",
+      "side": 1,
+      "message": "two blank lines, also copyright header is missing",
+      "revId": "35db97bc76d3436a9f8a68d21e21cf21ecb50682",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "254d10ec_0c69451a",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-02T14:15:05Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "35db97bc76d3436a9f8a68d21e21cf21ecb50682",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b32781a_716f31e6",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-02T14:15:05Z",
+      "side": 1,
+      "message": "use C++ comments (// instead of /**/)",
+      "revId": "35db97bc76d3436a9f8a68d21e21cf21ecb50682",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc537519_019724ec",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-02T14:15:05Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "35db97bc76d3436a9f8a68d21e21cf21ecb50682",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "beadfdcc_fe5e7cfd",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-02T14:15:05Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "35db97bc76d3436a9f8a68d21e21cf21ecb50682",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7238753_5f7ee7a5",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-02T14:15:05Z",
+      "side": 1,
+      "message": "no blank line",
+      "revId": "35db97bc76d3436a9f8a68d21e21cf21ecb50682",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67325d76_24fdf755",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-02T14:15:05Z",
+      "side": 1,
+      "message": "indent like \"public:\"",
+      "revId": "35db97bc76d3436a9f8a68d21e21cf21ecb50682",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22d8fd74_60cb367f",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-02T14:15:05Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "35db97bc76d3436a9f8a68d21e21cf21ecb50682",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55e4bf09_4a0ceda5",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-02T14:15:05Z",
+      "side": 1,
+      "message": "why all these tabs? The value could fit on the same line as the #define",
+      "revId": "35db97bc76d3436a9f8a68d21e21cf21ecb50682",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
