@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9059ca6c_4f5ecbfe",
+        "filename": "headers/os/interface/ControlLook.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-03T06:36:44Z",
+      "side": 1,
+      "message": "This flag (with the current name at least) seems extremely specific. I think I would rather introduce a DrawButtonLabel() for buttons instead.",
+      "revId": "ad6003db650100cf2d981023f9cedabf34e6bee0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f12c654e_39926fee",
+        "filename": "src/add-ons/control_look/BeControlLook/BeControlLook.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1124,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-03T06:36:44Z",
+      "side": 1,
+      "message": "does it actually work to intermix a line array with other commands? I expect that all lines will be drawn when you call EndLineArray, at least that\u0027s the idea of the API.\n\nI would put this FillRect before the BeginLineArray to have the drawing calls in the same order as the actual drawing then?",
+      "revId": "ad6003db650100cf2d981023f9cedabf34e6bee0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
