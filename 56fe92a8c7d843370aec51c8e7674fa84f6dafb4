@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ec68dfd8_d3542d51",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-03T07:56:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7684450a_8405d10b",
+      "revId": "56fe92a8c7d843370aec51c8e7674fa84f6dafb4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b22d9e4_017d0807",
         "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
         "patchSetId": 4
@@ -33,6 +51,24 @@
       "revId": "56fe92a8c7d843370aec51c8e7674fa84f6dafb4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1b70350_acf44bd7",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-03T07:56:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b22d9e4_017d0807",
+      "revId": "56fe92a8c7d843370aec51c8e7674fa84f6dafb4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "45407964_d8fd4e16",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-03T07:56:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59699526_24159fd6",
+      "revId": "56fe92a8c7d843370aec51c8e7674fa84f6dafb4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c92767a2_cc13835a",
         "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
         "patchSetId": 4
@@ -67,6 +121,24 @@
       "revId": "56fe92a8c7d843370aec51c8e7674fa84f6dafb4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1495cc0d_53a9a6a3",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-03T07:56:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c92767a2_cc13835a",
+      "revId": "56fe92a8c7d843370aec51c8e7674fa84f6dafb4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "fc24a25c_d7f6a76c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-03T07:56:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25906482_ab1aeca9",
+      "revId": "56fe92a8c7d843370aec51c8e7674fa84f6dafb4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3095fb4c_ebb301fc",
         "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
         "patchSetId": 4
@@ -98,6 +188,24 @@
       "writtenOn": "2020-06-02T14:11:11Z",
       "side": 1,
       "message": "what is the difference between \"change time\" and \"modification time\"?",
+      "revId": "56fe92a8c7d843370aec51c8e7674fa84f6dafb4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6043dc3_e272e6fc",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-03T07:56:56Z",
+      "side": 1,
+      "message": "I too had this doubt before. Change time tracks the time when the \"metadata\" of the inode was last modified. Modification time tracks the time when the \"data\" of the file itself was last modified.",
+      "parentUuid": "3095fb4c_ebb301fc",
       "revId": "56fe92a8c7d843370aec51c8e7674fa84f6dafb4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
