@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f003489_af287d15",
+        "filename": "src/servers/app/font/GlyphLayoutEngine.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-06-04T17:39:35Z",
+      "side": 1,
+      "message": "Is it possible to use auto lock here?",
+      "revId": "1733b154e99b92855c01137ae63bb3478d56a993",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
