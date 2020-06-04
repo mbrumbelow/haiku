@@ -371,6 +371,37 @@ GlyphLayoutEngine::_WriteLockAndAcquireFallbackEntry(
 		}
 	}
 
+	// Try to get the glyph from the fallback fonts
+	// this time use style regular
+	// TODO: attempt to get rid of e.g italic style by stripping it
+	// as in "bold italic" -> "bold" before falling back to regular
+	if (fallbackEntry == NULL) {
+		for (i = 0; fallbacks[i] != NULL; i++) {
+			if (gFontManager->Lock()) {
+				FontStyle* fallbackStyle = gFontManager->GetStyleByIndex(fallbacks[i],
+					0);
+
+				if (fallbackStyle == NULL) {
+					gFontManager->Unlock();
+					continue;
+				}
+
+				ServerFont fallbackFont(*fallbackStyle, font.Size());
+				gFontManager->Unlock();
+
+				FontCacheEntry* candidateFallbackEntry = FontCacheEntryFor(
+					fallbackFont, forceVector, entry, charCode,
+					fallbackCacheReference, true);
+
+				// Stop when we find a font that indeed has the glyph we need.
+				if (candidateFallbackEntry != NULL) {
+					fallbackEntry = candidateFallbackEntry;
+					break;
+				}
+			}
+		}
+	}
+	
 	// NOTE: We don't care if fallbackEntry is still NULL, fetching
 	// alternate glyphs will simply not work.
 
