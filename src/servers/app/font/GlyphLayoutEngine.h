@@ -338,35 +338,48 @@ GlyphLayoutEngine::_WriteLockAndAcquireFallbackEntry(
 	};
 
 	int i = 0;
+	int c = 0;
+	const char* fontStyle;
 	fallbackEntry = NULL;
 
 	// Try to get the glyph from the fallback fonts
-	for (i = 0; fallbacks[i] != NULL; i++) {
-		if (gFontManager->Lock()) {
-			FontStyle* fallbackStyle = gFontManager->GetStyle(fallbacks[i],
-				font.Style());
+	for (c = 0; c < 2; c++) {
+		if (c == 0) {
+			fontStyle = font.Style();
+		}
+		else {
+			if (fallbackEntry != NULL) { break; }
+			fontStyle = "Regular";
+		}
+		// TODO: add a third iteration here that strips italic style
+		// before trying Regular style
+		for (i = 0; fallbacks[i] != NULL; i++) {
+			if (gFontManager->Lock()) {
+				FontStyle* fallbackStyle = gFontManager->GetStyle(fallbacks[i],
+					fontStyle);
 
-			if (fallbackStyle == NULL) {
+				if (fallbackStyle == NULL) {
+					gFontManager->Unlock();
+					continue;
+				}
+
+				ServerFont fallbackFont(*fallbackStyle, font.Size());
 				gFontManager->Unlock();
-				continue;
-			}
 
-			ServerFont fallbackFont(*fallbackStyle, font.Size());
-			gFontManager->Unlock();
+				// Force the write-lock on the fallback entry, since we
+				// don't transfer or copy GlyphCache objects from one cache
+				// to the other, but create new glyphs which are stored in
+				// "entry" in any case, which requires the write cache for
+				// sure (used FontEngine of fallbackEntry).
+				FontCacheEntry* candidateFallbackEntry = FontCacheEntryFor(
+					fallbackFont, forceVector, entry, charCode,
+					fallbackCacheReference, true);
 
-			// Force the write-lock on the fallback entry, since we
-			// don't transfer or copy GlyphCache objects from one cache
-			// to the other, but create new glyphs which are stored in
-			// "entry" in any case, which requires the write cache for
-			// sure (used FontEngine of fallbackEntry).
-			FontCacheEntry* candidateFallbackEntry = FontCacheEntryFor(
-				fallbackFont, forceVector, entry, charCode,
-				fallbackCacheReference, true);
-
-			// Stop when we find a font that indeed has the glyph we need.
-			if (candidateFallbackEntry != NULL) {
-				fallbackEntry = candidateFallbackEntry;
-				break;
+				// Stop when we find a font that indeed has the glyph we need.
+				if (candidateFallbackEntry != NULL) {
+					fallbackEntry = candidateFallbackEntry;
+					break;
+				}
 			}
 		}
 	}
