@@ -247,7 +247,7 @@ TBarApp::InitSettings()
 	settings.superExpando = fDefaultSettings.superExpando = false;
 	settings.expandNewTeams = fDefaultSettings.expandNewTeams = false;
 	settings.hideLabels = fDefaultSettings.hideLabels = false;
-	settings.iconSize = fDefaultSettings.iconSize = kMinimumIconSize;
+	settings.iconSize = fDefaultSettings.iconSize = kDefaultIconSize;
 	// recent items
 	settings.recentDocsEnabled = fDefaultSettings.recentDocsEnabled = true;
 	settings.recentFoldersEnabled
