@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8386960c_1f06f941",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-05T06:41:28Z",
+      "side": 1,
+      "message": "time is a 64bit value but you convert it using a 32bit function",
+      "revId": "dd9cdbcb6fe28352c566e4c382947f65d50a17d7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34f1e07c_b0a8d2ec",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-05T06:41:28Z",
+      "side": 1,
+      "message": "I don\u0027t understand what you are doing here.\n\nA timespec must always have a tv_nsec in the tange 0..1000000000 (less than 1 second) and the other part of the timestamp in the seconds field. There is no need to check the sizeof here?",
+      "revId": "dd9cdbcb6fe28352c566e4c382947f65d50a17d7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2e7a90e_175e82e7",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Volume.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-05T06:41:28Z",
+      "side": 1,
+      "message": "several lines here are larger than 80 columns, please reformat the code",
+      "revId": "dd9cdbcb6fe28352c566e4c382947f65d50a17d7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c42d8707_b59b5b3b",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/kernel_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-05T06:41:28Z",
+      "side": 1,
+      "message": "Set it to 1 even if it\u0027s a TODO, because not setting it will confuse things.\n\nAnd when you add a TODO, explain what needs to be done, for example in this case: // TODO handle hardlinks which will have nlink \u003e 1",
+      "revId": "dd9cdbcb6fe28352c566e4c382947f65d50a17d7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
