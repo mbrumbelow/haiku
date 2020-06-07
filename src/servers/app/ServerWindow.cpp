@@ -3245,6 +3245,7 @@ ServerWindow::_DispatchPictureMessage(int32 code, BPrivate::LinkReceiver& link)
 			link.Read<float>(&x);
 			link.Read<float>(&y);
 
+			fCurrentView->SetDrawingOrigin(BPoint(x, y));
 			picture->WriteSetOrigin(BPoint(x, y));
 			break;
 		}
@@ -3259,12 +3260,14 @@ ServerWindow::_DispatchPictureMessage(int32 code, BPrivate::LinkReceiver& link)
 
 		case AS_VIEW_PUSH_STATE:
 		{
+			fCurrentView->PushState();
 			picture->WritePushState();
 			break;
 		}
 
 		case AS_VIEW_POP_STATE:
 		{
+			fCurrentView->PopState();
 			picture->WritePopState();
 			break;
 		}
