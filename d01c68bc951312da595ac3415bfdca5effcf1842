@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e96a682e_1dbd0dc5",
+        "filename": "src/kits/package/RepositoryInfo.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-07T08:35:34Z",
+      "side": 0,
+      "message": "How can things work without this check? In the case where the baseurl field is missing, we build it from the old \"url\" field. But we have to check that it is indeed a valid url in that case, otherwise, where do we download the packages from?",
+      "revId": "d01c68bc951312da595ac3415bfdca5effcf1842",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
