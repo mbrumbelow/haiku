@@ -3708,24 +3708,16 @@ ServerWindow::_DispatchPictureMessage(int32 code, BPrivate::LinkReceiver& link)
 			link.Read<int32>(&opCount);
 			link.Read<int32>(&ptCount);
 
-			uint32* opList = new(std::nothrow) uint32[opCount];
-			BPoint* ptList = new(std::nothrow) BPoint[ptCount];
-			if (opList != NULL && ptList != NULL
-				&& link.Read(opList, opCount * sizeof(uint32)) >= B_OK
-				&& link.Read(ptList, ptCount * sizeof(BPoint)) >= B_OK) {
-				// This might seem a bit weird, but under BeOS, the shapes
-				// are always offset by the current pen location
-				BPoint penLocation
-					= fCurrentView->CurrentState()->PenLocation();
-				for (int32 i = 0; i < ptCount; i++) {
-					ptList[i] += penLocation;
-				}
-				const bool fill = (code == AS_FILL_SHAPE);
-				picture->WriteDrawShape(opCount, opList, ptCount, ptList, fill);
+			ArrayDeleter<uint32> opList(new(std::nothrow) uint32[opCount]);
+			ArrayDeleter<BPoint> ptList(new(std::nothrow) BPoint[ptCount]);
+			if (opList.Get() == NULL || ptList.Get() == NULL
+				|| link.Read(opList.Get(), opCount * sizeof(uint32)) < B_OK
+				|| link.Read(ptList.Get(), ptCount * sizeof(BPoint)) < B_OK) {
+				break;
 			}
+			picture->WriteDrawShape(opCount, opList.Get(), ptCount,
+				ptList.Get(), code == AS_FILL_SHAPE);
 
-			delete[] opList;
-			delete[] ptList;
 			break;
 		}
 
