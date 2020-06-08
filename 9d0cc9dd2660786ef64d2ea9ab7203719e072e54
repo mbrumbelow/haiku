@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d03e613b_0732faed",
+        "filename": "src/servers/app/ServerPicture.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-06-08T13:55:30Z",
+      "side": 1,
+      "message": "Only one blank line between include \"sections\".",
+      "revId": "9d0cc9dd2660786ef64d2ea9ab7203719e072e54",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2955ac8b_998c1bee",
+        "filename": "src/servers/app/ServerWindow.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 3677,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-06-08T13:55:30Z",
+      "side": 1,
+      "message": "Why not use BStackOrHeapArray here also? Whatever the other branches use as a point/char count should be good.",
+      "revId": "9d0cc9dd2660786ef64d2ea9ab7203719e072e54",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
