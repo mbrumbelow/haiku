@@ -366,14 +366,9 @@ draw_polygon(void* _canvas, size_t numPoints, const BPoint viewPoints[],
 	if (numPoints == 0)
 		return;
 
-	const size_t kMaxStackCount = 200;
-	char stackData[kMaxStackCount * sizeof(BPoint)];
-	BPoint* points = (BPoint*)stackData;
-	if (numPoints > kMaxStackCount) {
-		points = (BPoint*)malloc(numPoints * sizeof(BPoint));
-		if (points == NULL)
-			return;
-	}
+	BStackOrHeapArray<BPoint, 200> points(numPoints);
+	if (!points.IsValid())
+		return;
 
 	canvas->PenToScreenTransform().Apply(points, viewPoints, numPoints);
 
@@ -382,9 +377,6 @@ draw_polygon(void* _canvas, size_t numPoints, const BPoint viewPoints[],
 
 	canvas->GetDrawingEngine()->DrawPolygon(points, numPoints, polyFrame,
 		fill, isClosed && numPoints > 2);
-
-	if (numPoints > kMaxStackCount)
-		free(points);
 }
 
 
