@@ -16,6 +16,24 @@
       "revId": "72e3fcabbe9b168101dd3ee77dc8f582fd5de3fc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad0d0c58_71b19ee5",
+        "filename": "src/kits/interface/PicturePlayer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-06-08T09:51:19Z",
+      "side": 1,
+      "message": "Thanks for pointing this issue. This and other patches are adjusted.",
+      "parentUuid": "1ab5699c_2c39afa7",
+      "revId": "72e3fcabbe9b168101dd3ee77dc8f582fd5de3fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
