@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e8e29eea_56b643fd",
+        "filename": "src/servers/app/ServerWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3124,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-08T08:51:54Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "31e35ee70b02071ea8f166b8c19457e635d7d0da",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a519dded_b7e27dde",
+        "filename": "src/servers/app/ServerWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3628,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-08T08:51:54Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "31e35ee70b02071ea8f166b8c19457e635d7d0da",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
