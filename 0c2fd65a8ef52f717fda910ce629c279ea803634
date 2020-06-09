@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "96045e68_ad5bb01a",
+        "filename": "src/kits/interface/PicturePlayer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2020-06-09T20:12:03Z",
+      "side": 1,
+      "message": "Please remove the comment, it\u0027s no longer ugly. :-)",
+      "revId": "0c2fd65a8ef52f717fda910ce629c279ea803634",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e5c0a09_30075303",
+        "filename": "src/servers/app/ServerPicture.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2020-06-09T20:12:03Z",
+      "side": 1,
+      "message": "leff-over debugging output",
+      "revId": "0c2fd65a8ef52f717fda910ce629c279ea803634",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
