@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "80d7992f_b43971e0",
+        "filename": "src/servers/app/ServerPicture.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-06-09T08:25:09Z",
+      "side": 1,
+      "message": "Fits on a single line, operator goes to the next line.",
+      "revId": "ba741765944fec5df61a929e9ca965ef500b8420",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01888c1a_6736818f",
+        "filename": "src/servers/app/ServerPicture.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-06-09T08:25:09Z",
+      "side": 1,
+      "message": "This easily fits into a single line; and if it wouldn\u0027t, the \u0027\u003d\u0027 would go to the beginning of the second line.",
+      "revId": "ba741765944fec5df61a929e9ca965ef500b8420",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
