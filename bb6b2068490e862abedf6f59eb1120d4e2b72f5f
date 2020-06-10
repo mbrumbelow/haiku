@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "17d3c352_3e0665a4",
+        "filename": "src/servers/app/drawing/interface/remote/RemoteDrawingEngine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-06-10T03:34:57Z",
+      "side": 1,
+      "message": "Will this just create an invalid transform state (or rather a one similary broken) as the X/Y offset are not transmitted? A TODO or FIXME should be added, or the BAffineTransform modified.",
+      "revId": "bb6b2068490e862abedf6f59eb1120d4e2b72f5f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
