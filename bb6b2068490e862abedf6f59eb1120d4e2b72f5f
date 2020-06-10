@@ -16,6 +16,24 @@
       "revId": "bb6b2068490e862abedf6f59eb1120d4e2b72f5f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc7fe899_09856d9e",
+        "filename": "src/servers/app/drawing/interface/remote/RemoteDrawingEngine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-06-10T03:51:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17d3c352_3e0665a4",
+      "revId": "bb6b2068490e862abedf6f59eb1120d4e2b72f5f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
