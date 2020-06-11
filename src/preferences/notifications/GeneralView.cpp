@@ -27,6 +27,7 @@
 #include <Query.h>
 #include <Roster.h>
 #include <String.h>
+#include <StringFormat.h>
 #include <SymLink.h>
 #include <Volume.h>
 #include <VolumeRoster.h>
@@ -347,10 +348,11 @@ GeneralView::_EnableControls()
 void
 GeneralView::_SetTimeoutLabel(int32 value)
 {
-	BString label(B_TRANSLATE("Timeout:"));
-	label.Append(" ");
-	label << value;
-	label.Append(" ").Append(B_TRANSLATE("seconds"));
+	static BStringFormat format(B_TRANSLATE("{0, plural, "
+		"=1{Timeout: # second}"
+		"other{Timeout: # seconds}}"));
+	BString label;
+	format.Format(label, value);
 	fDurationSlider->SetLabel(label.String());
 }
 
@@ -358,10 +360,10 @@ GeneralView::_SetTimeoutLabel(int32 value)
 void
 GeneralView::_SetWidthLabel(int32 value)
 {
-	BString label(B_TRANSLATE("Width:"));
-	label.Append(" ");
-	label << value;
-	label.Append(" ").Append(B_TRANSLATE("pixels"));
+	BString width;
+	width << value;
+	BString label(B_TRANSLATE("Width: %x% pixels"));
+	label.ReplaceFirst("%x%", width);
 	fWidthSlider->SetLabel(label.String());
 }
 
