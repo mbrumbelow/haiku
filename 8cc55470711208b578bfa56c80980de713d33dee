@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c2ce5aca_a80d205c",
+        "filename": "docs/user/drivers/fs_interface.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 1414,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-06-11T07:46:52Z",
+      "side": 1,
+      "message": "I would still add a \"usually\" here; as I said, there is no guarantee that this happens as the current wording suggests.",
+      "revId": "8cc55470711208b578bfa56c80980de713d33dee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
