@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b1f26845_a995eac8",
+        "filename": "src/system/kernel/arch/arm/arch_debug_console.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-06-11T16:28:22Z",
+      "side": 1,
+      "message": "UEFI API can\u0027t be used in kernel because boot loader exit EFI boot services. Proper driver should be used,",
+      "revId": "35ad5506ce07383db77c4b5f9a9b45d6e166ba80",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
