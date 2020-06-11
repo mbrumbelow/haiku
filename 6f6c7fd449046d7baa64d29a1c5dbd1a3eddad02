@@ -22,6 +22,30 @@
       "revId": "6f6c7fd449046d7baa64d29a1c5dbd1a3eddad02",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0c98944_63425250",
+        "filename": "src/preferences/notifications/GeneralView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2020-06-11T12:11:22Z",
+      "side": 1,
+      "message": "I\u0027m totally OK with using BStringFormat here as well. I was just thinking that the minimum width is 300px and would therefore probably not subject to \u0027weird\u0027 pluralizations.",
+      "parentUuid": "593bdf13_f11683fe",
+      "range": {
+        "startLine": 365,
+        "startChar": 1,
+        "endLine": 366,
+        "endChar": 34
+      },
+      "revId": "6f6c7fd449046d7baa64d29a1c5dbd1a3eddad02",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
