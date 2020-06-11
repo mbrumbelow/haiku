@@ -46,6 +46,30 @@
       "revId": "6f6c7fd449046d7baa64d29a1c5dbd1a3eddad02",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac95a63a_0a766799",
+        "filename": "src/preferences/notifications/GeneralView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2020-06-11T12:20:18Z",
+      "side": 1,
+      "message": "I have actually found a language where it wouldn\u0027t work: https://unicode-org.github.io/cldr-staging/charts/37/supplemental/language_plural_rules.html#ars",
+      "parentUuid": "a0c98944_63425250",
+      "range": {
+        "startLine": 365,
+        "startChar": 1,
+        "endLine": 366,
+        "endChar": 34
+      },
+      "revId": "6f6c7fd449046d7baa64d29a1c5dbd1a3eddad02",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
