@@ -16,6 +16,24 @@
       "revId": "67c1799b2e258fb7143297d926ba67088f9f1154",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "663a8207_51dac3ec",
+        "filename": "src/apps/expander/ExpanderWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000218
+      },
+      "writtenOn": "2020-06-11T04:34:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3304e95e_65b98c0e",
+      "revId": "67c1799b2e258fb7143297d926ba67088f9f1154",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
