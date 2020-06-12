@@ -8,7 +8,7 @@
 #include "ufs2.h"
 #include "Volume.h"
 #include "Inode.h"
-
+#include "DirectoryIterator.h"
 
 #define TRACE_UFS2
 #ifdef TRACE_UFS2
@@ -308,7 +308,17 @@ ufs2_remove_dir(fs_volume *_volume, fs_vnode *_directory, const char *name)
 static status_t
 ufs2_open_dir(fs_volume * /*_volume*/, fs_vnode *_node, void **_cookie)
 {
-	return B_NOT_SUPPORTED;
+	Inode* inode = (Inode*)_node->private_node;
+
+	if (!inode->IsDirectory())
+		return B_NOT_A_DIRECTORY;
+
+	DirectoryIterator* iterator = new(std::nothrow) DirectoryIterator(inode);
+	if (iterator == NULL)
+		return B_NO_MEMORY;
+
+	*_cookie = iterator;
+	return B_OK;
 }
 
 
