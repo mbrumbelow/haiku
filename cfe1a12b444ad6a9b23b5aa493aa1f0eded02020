@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "531de95e_e1cf4859",
+        "filename": "headers/os/interface/View.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-12T08:41:46Z",
+      "side": 1,
+      "message": "We don\u0027t want this. Applications can use B_MOUSE_BUTTON(4) directly for the new buttons, there is no need for extra values in this enum",
+      "revId": "cfe1a12b444ad6a9b23b5aa493aa1f0eded02020",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
