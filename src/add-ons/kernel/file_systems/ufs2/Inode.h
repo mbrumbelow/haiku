@@ -118,6 +118,8 @@ class Inode {
 
 			Volume*		GetVolume() const { return fVolume; }
 
+			int64_t		GetBlockPointer() {return fNode.directBlkPtr1; }
+
 //			status_t	FindBlock(off_t logical, off_t& physical,
 //							off_t* _length = NULL);
 //			status_t	ReadAt(off_t pos, uint8* buffer, size_t* length);
