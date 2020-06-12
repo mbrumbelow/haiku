@@ -13,6 +13,7 @@
 #endif
 #define ERROR(x...) dprintf("\33[34mufs2:\33[0m " x)
 
+//function that is called before publish_vnode
 Inode::Inode(Volume* volume, ino_t id)
 	:
 	fVolume(volume),

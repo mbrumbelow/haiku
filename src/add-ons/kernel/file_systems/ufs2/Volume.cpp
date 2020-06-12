@@ -119,6 +119,9 @@ Volume::Mount(const char *deviceName, uint32 flags)
 	fRootNode = new(std::nothrow) Inode(this, UFS2_ROOT);
 	status = publish_vnode(fFSVolume, UFS2_ROOT, (void*)fRootNode,
 			&gufs2VnodeOps, fRootNode->Mode(), 0);
+
+	//It gives value -2147483643
+	TRACE("Tracing status %d\n", status);
 	opener.Keep();
 	return B_OK;
 
