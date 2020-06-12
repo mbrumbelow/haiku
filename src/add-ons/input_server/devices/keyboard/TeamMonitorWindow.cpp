@@ -28,7 +28,6 @@
 #include <SpaceLayoutItem.h>
 #include <String.h>
 #include <StringView.h>
-#include <TextView.h>
 
 #include <syscalls.h>
 #include <tracker_private.h>
@@ -127,7 +126,7 @@ private:
 			IconView*		fIconView;
 	const	char*			fInfoString;
 			BCardLayout*	fLayout;
-			BTextView*		fInfoTextView;
+			BStringView*	fInfoTextView;
 
 			BStringView*	fTeamName;
 			BStringView*	fSysComponent;
@@ -188,12 +187,15 @@ TeamMonitorWindow::TeamMonitorWindow()
 	fRestartButton = new BButton("restart", B_TRANSLATE("Restart the desktop"),
 		new BMessage(TM_RESTART_DESKTOP));
 
+	BButton* openTerminal = new BButton("terminal",
+		B_TRANSLATE("Open Terminal"), new BMessage(kMsgLaunchTerminal));
+
 	fCancelButton = new BButton("cancel", B_TRANSLATE("Cancel"),
 		new BMessage(TM_CANCEL));
 	SetDefaultButton(fCancelButton);
 
 	BGroupLayoutBuilder(layout)
-		.Add(scrollView)
+		.Add(scrollView, 10)
 		.AddGroup(B_HORIZONTAL)
 			.SetInsets(0, 0, 0, 0)
 			.Add(fKillButton)
@@ -207,6 +209,7 @@ TeamMonitorWindow::TeamMonitorWindow()
 			.AddGlue()
 			.Add(fRestartButton)
 			.AddGlue(inset)
+			.Add(openTerminal)
 			.Add(fCancelButton);
 
 	CenterOnScreen();
@@ -273,6 +276,7 @@ TeamMonitorWindow::MessageReceived(BMessage* msg)
 
 		case kMsgLaunchTerminal:
 			be_roster->Launch("application/x-vnd.Haiku-Terminal");
+			PostMessage(B_QUIT_REQUESTED);
 			break;
 
 		case TM_FORCE_REBOOT:
@@ -577,9 +581,6 @@ TeamDescriptionView::TeamDescriptionView()
 	fRebootRunner(NULL)
 {
 	fInfoString = B_TRANSLATE(
-		"Select an application from the list above and click one of "
-		"the buttons 'Kill application' and 'Quit application' "
-		"in order to close it.\n\n"
 		"Hold CONTROL+ALT+DELETE for %ld seconds to reboot.");
 
 	fTeamName = new BStringView("team name", "team name");
@@ -591,13 +592,9 @@ TeamDescriptionView::TeamDescriptionView()
 		"If the application will not quit you may have to kill it."));
 	fQuitOverdue->SetFont(be_bold_font);
 
-	fInfoTextView = new BTextView("info text");
+	fInfoTextView = new BStringView("info text", fInfoString);
 	fInfoTextView->SetLowUIColor(B_PANEL_BACKGROUND_COLOR);
 	fInfoTextView->SetViewUIColor(B_PANEL_BACKGROUND_COLOR);
-	BGroupView* infoGroup = new BGroupView(B_VERTICAL);
-	BGroupLayoutBuilder(infoGroup)
-		.Add(fInfoTextView)
-		.AddGlue();
 
 	fIconView = new IconView();
 	fIconView->SetExplicitAlignment(
@@ -607,7 +604,6 @@ TeamDescriptionView::TeamDescriptionView()
 	teamPropertiesView->SetViewUIColor(B_PANEL_BACKGROUND_COLOR);
 	BGridLayout* layout = new BGridLayout();
 	teamPropertiesView->SetLayout(layout);
-
 
 	BLayoutBuilder::Grid<>(layout)
 		.SetInsets(0)
@@ -623,13 +619,8 @@ TeamDescriptionView::TeamDescriptionView()
 
 	fLayout = new BCardLayout();
 	SetLayout(fLayout);
-	fLayout->AddView(infoGroup);
+	fLayout->AddView(fInfoTextView);
 	fLayout->AddView(teamPropertiesView);
-
-	infoGroup->SetExplicitMinSize(BSize(StringWidth("x") * 70, B_SIZE_UNSET));
-	fInfoTextView->SetExplicitSize(BSize(B_SIZE_UNSET, be_plain_font->Size() * 7.2));
-	fInfoTextView->MakeEditable(false);
-	fInfoTextView->MakeSelectable(false);
 
 	SetItem(NULL);
 }
@@ -686,24 +677,18 @@ TeamDescriptionView::SetItem(TeamListItem* item)
 
 	if (item == NULL) {
 		if (fInfoTextView != NULL) {
-			int32 styleStart = 0;
-			int32 styleEnd = 0;
-			BString text;
+			BFont font;
+			fInfoTextView->GetFont(&font);
+			font.SetFace(B_REGULAR_FACE);
 
+			if (fRebootRunner != NULL && fSeconds < 4)
+				font.SetFace(B_BOLD_FACE);
+
+			fInfoTextView->SetFont(&font);
+
+			BString text;
 			text.SetToFormat(fInfoString, fSeconds);
 			fInfoTextView->SetText(text);
-			if (fRebootRunner != NULL && fSeconds < 4) {
-				styleStart = text.FindLast('\n');
-				styleEnd = text.Length();
-			}
-
-			if (styleStart != styleEnd) {
-				BFont font;
-				fInfoTextView->GetFont(&font);
-				font.SetFace(B_BOLD_FACE);
-				fInfoTextView->SetStylable(true);
-				fInfoTextView->SetFontAndColor(styleStart, styleEnd, &font);
-			}
 		}
 	} else {
 		fTeamName->SetText(item->Path()->Path());
