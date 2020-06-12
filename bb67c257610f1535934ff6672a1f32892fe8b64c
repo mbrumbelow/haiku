@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ea7fcc17_fe4f8cef",
+        "filename": "src/add-ons/input_server/devices/keyboard/TeamMonitorWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-06-12T08:50:53Z",
+      "side": 1,
+      "message": "I\u0027m not sure about the button placing here. Its functionality better matches the \"Restart Desktop\" button, maybe it should move there instead?",
+      "revId": "bb67c257610f1535934ff6672a1f32892fe8b64c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5330b6c6_477a9c73",
+        "filename": "src/add-ons/input_server/devices/keyboard/TeamMonitorWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 632,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-06-12T08:50:53Z",
+      "side": 1,
+      "message": "Since the text is now only a single line, maybe just use a simple BStringView instead?",
+      "revId": "bb67c257610f1535934ff6672a1f32892fe8b64c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
