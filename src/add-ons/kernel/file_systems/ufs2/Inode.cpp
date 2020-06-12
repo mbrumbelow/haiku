@@ -13,6 +13,7 @@
 #endif
 #define ERROR(x...) dprintf("\33[34mufs2:\33[0m " x)
 
+
 Inode::Inode(Volume* volume, ino_t id)
 	:
 	fVolume(volume),
@@ -29,6 +30,17 @@ Inode::Inode(Volume* volume, ino_t id)
 			fMap = file_map_create(fVolume->ID(), ID(), Size());
 		}
 	}
+	int fd = fVolume->Device();
+	int64_t offset;
+	offset =
+		(ino_to_fsba((ufs2_super_block* )&fVolume->SuperBlock(), id) * MINBSIZE)
+		+
+		(ino_to_fsbo((ufs2_super_block* )&fVolume->SuperBlock(), id) * 256);
+
+	if (read_pos(fd, offset, (void*)&fNode, sizeof(fNode)) != sizeof(fNode)) {
+		ERROR("Inode::Inode(): IO Error\n");
+	}
+
 }
 
 
