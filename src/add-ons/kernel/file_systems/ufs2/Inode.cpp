@@ -13,6 +13,7 @@
 #endif
 #define ERROR(x...) dprintf("\33[34mufs2:\33[0m " x)
 
+//function that is called before publish_vnode
 Inode::Inode(Volume* volume, ino_t id)
 	:
 	fVolume(volume),
@@ -20,6 +21,7 @@ Inode::Inode(Volume* volume, ino_t id)
 	fCache(NULL),
 	fMap(NULL)
 {
+
 	rw_lock_init(&fLock, "ufs2 inode");
 
 	fInitStatus = B_OK;//UpdateNodeFromDisk();
@@ -28,6 +30,17 @@ Inode::Inode(Volume* volume, ino_t id)
 			fCache = file_cache_create(fVolume->ID(), ID(), Size());
 			fMap = file_map_create(fVolume->ID(), ID(), Size());
 		}
+	}
+	int fd = fVolume->Device();
+	ufs2_inode* fNode2 = &fNode;//new(std::nothrow) ufs2_inode;
+	char* fBuffer;
+	fBuffer = new(std::nothrow) char[512];
+	if (read_pos(fd, 164352, fBuffer, sizeof(fNode)) == sizeof(fNode)) {
+		memcpy(fNode2, fBuffer, 512);
+	}
+	else
+	{
+		ERROR("Inode::Inode(): IO Error");
 	}
 }
 
