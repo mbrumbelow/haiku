@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4c63aaba_3bb64241",
+        "filename": "src/add-ons/input_server/devices/keyboard/TeamMonitorWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2020-06-12T16:15:37Z",
+      "side": 1,
+      "message": "You mean left align it? Dunno what happens when the \"Restart Desktop\" button makes an appearance; will it just move the \"Open Terminal\" button farther to the right?\n\nIn any case, I wanted to move the button as far away as possible from the \"Force reboot\" button at the left. You should know how jittery you get with old age... :)",
+      "parentUuid": "ea7fcc17_fe4f8cef",
+      "revId": "bb67c257610f1535934ff6672a1f32892fe8b64c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5330b6c6_477a9c73",
         "filename": "src/add-ons/input_server/devices/keyboard/TeamMonitorWindow.cpp",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "bb67c257610f1535934ff6672a1f32892fe8b64c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "806efd43_dca84518",
+        "filename": "src/add-ons/input_server/devices/keyboard/TeamMonitorWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 632,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2020-06-12T16:15:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5330b6c6_477a9c73",
+      "revId": "bb67c257610f1535934ff6672a1f32892fe8b64c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
