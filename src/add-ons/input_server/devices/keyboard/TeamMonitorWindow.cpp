@@ -188,12 +188,15 @@ TeamMonitorWindow::TeamMonitorWindow()
 	fRestartButton = new BButton("restart", B_TRANSLATE("Restart the desktop"),
 		new BMessage(TM_RESTART_DESKTOP));
 
+	BButton* openTerminal = new BButton("terminal",
+		B_TRANSLATE("Open Terminal"), new BMessage(kMsgLaunchTerminal));
+
 	fCancelButton = new BButton("cancel", B_TRANSLATE("Cancel"),
 		new BMessage(TM_CANCEL));
 	SetDefaultButton(fCancelButton);
 
 	BGroupLayoutBuilder(layout)
-		.Add(scrollView)
+		.Add(scrollView, 10)
 		.AddGroup(B_HORIZONTAL)
 			.SetInsets(0, 0, 0, 0)
 			.Add(fKillButton)
@@ -207,6 +210,7 @@ TeamMonitorWindow::TeamMonitorWindow()
 			.AddGlue()
 			.Add(fRestartButton)
 			.AddGlue(inset)
+			.Add(openTerminal)
 			.Add(fCancelButton);
 
 	CenterOnScreen();
@@ -273,6 +277,7 @@ TeamMonitorWindow::MessageReceived(BMessage* msg)
 
 		case kMsgLaunchTerminal:
 			be_roster->Launch("application/x-vnd.Haiku-Terminal");
+			PostMessage(B_QUIT_REQUESTED);
 			break;
 
 		case TM_FORCE_REBOOT:
@@ -577,9 +582,6 @@ TeamDescriptionView::TeamDescriptionView()
 	fRebootRunner(NULL)
 {
 	fInfoString = B_TRANSLATE(
-		"Select an application from the list above and click one of "
-		"the buttons 'Kill application' and 'Quit application' "
-		"in order to close it.\n\n"
 		"Hold CONTROL+ALT+DELETE for %ld seconds to reboot.");
 
 	fTeamName = new BStringView("team name", "team name");
@@ -627,7 +629,7 @@ TeamDescriptionView::TeamDescriptionView()
 	fLayout->AddView(teamPropertiesView);
 
 	infoGroup->SetExplicitMinSize(BSize(StringWidth("x") * 70, B_SIZE_UNSET));
-	fInfoTextView->SetExplicitSize(BSize(B_SIZE_UNSET, be_plain_font->Size() * 7.2));
+	fInfoTextView->SetExplicitSize(BSize(B_SIZE_UNSET, be_plain_font->Size() * 4.2));
 	fInfoTextView->MakeEditable(false);
 	fInfoTextView->MakeSelectable(false);
 
