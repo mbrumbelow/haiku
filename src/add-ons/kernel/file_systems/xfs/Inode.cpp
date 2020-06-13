@@ -1,7 +1,8 @@
 /*
-* Copyright 2020, Shubham Bhagat, shubhambhagat111@yahoo.com
-* All rights reserved. Distributed under the terms of the MIT License.
-*/
+ * Copyright 2020, Shubham Bhagat, shubhambhagat111@yahoo.com
+ * All rights reserved. Distributed under the terms of the MIT License.
+ */
+
 
 #include "Inode.h"
 
@@ -127,20 +128,34 @@ Inode::Inode(Volume* volume, xfs_ino_t id)
 {
 	fVolume = volume;
 	fId = id;
-	fNode = new(std::nothrow) xfs_inode_t;
+}
 
-	uint16 inodeSize = volume->InodeSize();
+
+status_t
+Inode::Init()
+{
+	fNode = new(std::nothrow) xfs_inode_t;
+	if (fNode == NULL)
+		return B_NO_MEMORY;
+
+	uint16 inodeSize = fVolume->InodeSize();
 	fBuffer = new(std::nothrow) char[inodeSize];
+	if (fBuffer == NULL)
+		return B_NO_MEMORY;
 
 	status_t status = GetFromDisk();
 	if (status == B_OK) {
-	status = InitCheck();
+		status = InitCheck();
 		if (status) {
-			TRACE("Inode successfully read!");
+			TRACE("Init(): Inode successfully read.\n");
+			status = B_OK;
 		} else {
-			TRACE("Inode wasn't read successfully!");
+			TRACE("Init(): Inode wasn't read successfully!\n");
+			status = B_BAD_VALUE;
 		}
 	}
+
+	return status;
 }
 
 
@@ -166,8 +181,8 @@ Inode::GetFromDisk()
 
 	xfs_agblock_t agBlocks = fVolume->AgBlocks();
 
-	xfs_fsblock_t blockToRead =
-		FSB_TO_BB(fVolume->BlockLog(), ((uint64)(agNo * agBlocks) + agBlock));
+	xfs_fsblock_t blockToRead = FSB_TO_BB(fVolume->BlockLog(),
+		((uint64)(agNo * agBlocks) + agBlock));
 
 	xfs_daddr_t readPos = blockToRead*(BBLOCKSIZE) + offset;
 
