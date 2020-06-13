@@ -6,6 +6,13 @@
 #include "xfs.h"
 
 
+uint8
+XfsSuperBlock::Flags()
+{
+	return sb_flags;
+}
+
+
 bool
 XfsSuperBlock::IsValid()
 {
@@ -124,7 +131,6 @@ XfsSuperBlock::AgCount()
 {
 	return sb_agcount;
 }
-
 
 xfs_agblock_t
 XfsSuperBlock::AgBlocks()

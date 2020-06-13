@@ -129,16 +129,16 @@ Inode::Inode(Volume* volume, xfs_ino_t id)
 	fId = id;
 	fNode = new(std::nothrow) xfs_inode_t;
 
-	uint16 inodeSize = volume->InodeSize();
+	uint16 inodeSize = fVolume->InodeSize();
 	fBuffer = new(std::nothrow) char[inodeSize];
 
 	status_t status = GetFromDisk();
 	if (status == B_OK) {
 	status = InitCheck();
 		if (status) {
-			TRACE("Inode successfully read!");
+			TRACE("Inode successfully read!\n");
 		} else {
-			TRACE("Inode wasn't read successfully!");
+			TRACE("Inode wasn't read successfully!\n");
 		}
 	}
 }

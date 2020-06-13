@@ -4,8 +4,7 @@
  * All rights reserved. Distributed under the terms of the MIT License.
  */
 #include "Volume.h"
-#include "DeviceOpener.h"
-
+#include "Inode.h"
 
 Volume::Volume(fs_volume *volume)
     : fFSVolume(volume)
@@ -92,6 +91,17 @@ Volume::Mount(const char *deviceName, uint32 flags)
 	}
 
 	opener.Keep();
+
+
+	//publish the root inode
+	Inode* rootInode = new(std::nothrow) Inode(this, this->Root());
+	if (rootInode != NULL) {
+		status = publish_vnode(this->FSVolume(), this->Root(),
+			(void*)rootInode, &gxfsVnodeOps, rootInode->Mode(), 0);
+
+		if (status!=B_OK)
+			return B_BAD_VALUE;
+	}
 	return B_OK;
 }
 
