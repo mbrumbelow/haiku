@@ -1,12 +1,13 @@
 /*
-* Copyright 2020, Shubham Bhagat, shubhambhagat111@yahoo.com
-* All rights reserved. Distributed under the terms of the MIT License.
-*/
-
+ * Copyright 2020, Shubham Bhagat, shubhambhagat111@yahoo.com
+ * All rights reserved. Distributed under the terms of the MIT License.
+ */
 #ifndef _VOLUME_H_
 #define _VOLUME_H_
 
+
 #include "xfs.h"
+#include <DeviceOpener.h>
 
 
 /* Converting the FS Blocks to Basic Blocks */
@@ -36,7 +37,7 @@ public:
 									{ return fFSVolume ? fFSVolume->id : -1; }
 			fs_volume* 			FSVolume() const
 									{ return fFSVolume; }
-			char*				Name()
+			const char*			Name() const
 									{ return fSuperBlock.Name(); }
 
 			XfsSuperBlock&		SuperBlock() { return fSuperBlock; }
@@ -44,9 +45,11 @@ public:
 
 			static	status_t	Identify(int fd, XfsSuperBlock *superBlock);
 
-			uint32				BlockSize() { return fSuperBlock.BlockSize(); }
+			uint32				BlockSize() const
+									{ return fSuperBlock.BlockSize(); }
 
-			uint8				BlockLog() { return fSuperBlock.BlockLog(); }
+			uint8				BlockLog() const
+									{ return fSuperBlock.BlockLog(); }
 
 			uint32				DirBlockSize()
 									{ return fSuperBlock.DirBlockSize(); }
@@ -54,19 +57,25 @@ public:
 			uint8				AgInodeBits()
 									{ return fSuperBlock.AgInodeBits(); }
 
-			uint8				AgBlocksLog()
+			uint8				AgBlocksLog() const
 									{ return fSuperBlock.AgBlocksLog(); }
 
-			uint8				InodesPerBlkLog()
+			uint8				InodesPerBlkLog() const
 									{ return fSuperBlock.InodesPerBlkLog(); }
 
 			off_t				Root() const { return fSuperBlock.Root(); }
 
-			uint16				InodeSize() { return fSuperBlock.InodeSize(); }
+			uint16				InodeSize() const
+									{ return fSuperBlock.InodeSize(); }
 
-			xfs_agnumber_t		AgCount() { return fSuperBlock.AgCount(); }
+			xfs_agnumber_t		AgCount() const
+									{ return fSuperBlock.AgCount(); }
 
-			xfs_agblock_t		AgBlocks() { return fSuperBlock.AgBlocks(); }
+			xfs_agblock_t		AgBlocks() const
+									{ return fSuperBlock.AgBlocks(); }
+
+			uint8				SuperBlockFlags() const
+									{ return fSuperBlock.Flags(); }
 
 	#if 0
 			off_t				NumBlocks() const
