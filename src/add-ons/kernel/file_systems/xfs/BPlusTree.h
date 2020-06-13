@@ -1,30 +1,26 @@
 /*
-* Copyright 2020, Shubham Bhagat, shubhambhagat111@yahoo.com
-* All rights reserved. Distributed under the terms of the MIT License.
-*/
-
+ * Copyright 2020, Shubham Bhagat, shubhambhagat111@yahoo.com
+ * All rights reserved. Distributed under the terms of the MIT License.
+ */
 #ifndef _BPLUS_TREE_H_
 #define _BPLUS_TREE_H_
+
 
 #include "system_dependencies.h"
 
 /* Allocation B+ Tree Format */
 #define XFS_ABTB_MAGICNUM 0x41425442	// For block offset B+Tree
 #define XFS_ABTC_MAGICNUM 0x41425443	// For block count B+ Tree
-
-
 /* Header for Short Format btree */
 #define XFS_BTREE_SBLOCK_SIZE	18
-
 /* Header for Long Format btree */
 #define XFS_BTREE_LBLOCK_SIZE	24
 
 
 /*
-* Headers are the "nodes" really and are called "blocks". The records, keys and
-* pts are calculated using helpers
-*/
-
+ * Headers are the "nodes" really and are called "blocks". The records, keys and
+ * pts are calculated using helpers
+ */
 struct bplustree_short_block {
 			void				SwapEndian();
 
@@ -97,7 +93,6 @@ typedef struct xfs_alloc_rec {
 typedef uint32 xfs_alloc_ptr_t;	//  Node pointers, AG relative block pointer
 
 #define ALLOC_FLAG 0x1
-
 #define LONG_BLOCK_FLAG 0x1
 #define SHORT_BLOCK_FLAG 0x2
 
@@ -140,4 +135,3 @@ class BPlusTree {
 
 
 #endif
-

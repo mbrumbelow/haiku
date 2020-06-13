@@ -1,12 +1,13 @@
 /*
-* Copyright 2020, Shubham Bhagat, shubhambhagat111@yahoo.com
-* All rights reserved. Distributed under the terms of the MIT License.
-*/
-
+ * Copyright 2020, Shubham Bhagat, shubhambhagat111@yahoo.com
+ * All rights reserved. Distributed under the terms of the MIT License.
+ */
 #ifndef _VOLUME_H_
 #define _VOLUME_H_
 
+
 #include "xfs.h"
+#include <DeviceOpener.h>
 
 
 /* Converting the FS Blocks to Basic Blocks */
@@ -67,6 +68,9 @@ public:
 			xfs_agnumber_t		AgCount() { return fSuperBlock.AgCount(); }
 
 			xfs_agblock_t		AgBlocks() { return fSuperBlock.AgBlocks(); }
+
+			uint8				SuperBlockFlags()
+									{ return fSuperBlock.Flags(); }
 
 	#if 0
 			off_t				NumBlocks() const

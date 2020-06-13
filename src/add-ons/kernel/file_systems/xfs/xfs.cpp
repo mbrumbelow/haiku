@@ -6,6 +6,13 @@
 #include "xfs.h"
 
 
+uint8
+XfsSuperBlock::Flags()
+{
+	return sb_flags;
+}
+
+
 bool
 XfsSuperBlock::IsValid()
 {
