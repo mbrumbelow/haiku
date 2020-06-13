@@ -25,7 +25,11 @@ extern fs_volume_ops gxfsVolumeOps;
 #define XFS_SB_MAGIC 0x58465342 /* Identifies XFS. "XFSB" */
 #define XFS_SB_MAXSIZE 512
 #define BBLOCKLOG 9		/* Log of block size should be 9 */
-#define BBLOCKSIZE 1 << BBLOCKLOG		/* The size of a basic block should be 512 */
+#define BBLOCKSIZE 1 << BBLOCKLOG /* The size of a basic block should be 512 */
+
+/* Converting the FS Blocks to Basic Blocks */
+#define FSBSHIFT(fsBlockLog) (fsBlockLog - BBLOCKLOG);
+#define FSB_TO_BB(fsBlockLog, x) x << FSBSHIFT(fsBlockLog);
 
 
 /*	Version 4 superblock definition	*/
@@ -51,7 +55,7 @@ public:
 			xfs_ino_t		Root() const;
 			xfs_agnumber_t	AgCount();
 			xfs_agblock_t	AgBlocks();
-
+			uint8			Flags();
 private:
 
 			uint32			sb_magicnum;

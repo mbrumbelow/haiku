@@ -7,6 +7,7 @@
 #define _VOLUME_H_
 
 #include "xfs.h"
+#include <DeviceOpener.h>
 
 
 /* Converting the FS Blocks to Basic Blocks */
@@ -67,6 +68,9 @@ public:
 			xfs_agnumber_t		AgCount() { return fSuperBlock.AgCount(); }
 
 			xfs_agblock_t		AgBlocks() { return fSuperBlock.AgBlocks(); }
+
+			uint8				SuperBlockFlags()
+									{ return fSuperBlock.Flags(); }
 
 	#if 0
 			off_t				NumBlocks() const

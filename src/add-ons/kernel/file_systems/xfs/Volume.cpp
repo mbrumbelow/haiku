@@ -1,14 +1,13 @@
 /*
- * Copyright 2001 - 2017, Axel Dörfler, axeld @pinc - software.de.
- * Copyright 2020, Shubham Bhagat, shubhambhagat111@yahoo.com
- * All rights reserved. Distributed under the terms of the MIT License.
- */
+* Copyright 2001 - 2017, Axel Dörfler, axeld @pinc - software.de.
+* Copyright 2020, Shubham Bhagat, shubhambhagat111@yahoo.com
+* All rights reserved. Distributed under the terms of the MIT License.
+*/
 #include "Volume.h"
-#include "DeviceOpener.h"
-
+#include "Inode.h"
 
 Volume::Volume(fs_volume *volume)
-    : fFSVolume(volume)
+	: fFSVolume(volume)
 {
 	fFlags = 0;
 	mutex_init(&fLock, "xfs volume");
@@ -65,7 +64,7 @@ Volume::Mount(const char *deviceName, uint32 flags)
 
 	DeviceOpener opener(deviceName, (flags & B_MOUNT_READ_ONLY) != 0
 										? O_RDONLY
- 										: O_RDWR);
+										: O_RDWR);
 	fDevice = opener.Device();
 	if (fDevice < B_OK) {
 		ERROR("Volume::Mount(): couldn't open device\n");
@@ -92,6 +91,17 @@ Volume::Mount(const char *deviceName, uint32 flags)
 	}
 
 	opener.Keep();
+
+
+	//publish the root inode
+	Inode* rootInode = new(std::nothrow) Inode(this, this->Root());
+	if (rootInode != NULL) {
+		status = publish_vnode(this->FSVolume(), this->Root(),
+			(void*)rootInode, &gxfsVnodeOps, rootInode->Mode(), 0);
+
+		if (status!=B_OK)
+			return B_BAD_VALUE;
+	}
 	return B_OK;
 }
 

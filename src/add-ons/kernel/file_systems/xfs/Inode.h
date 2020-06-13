@@ -8,15 +8,15 @@
 
 
 #include "system_dependencies.h"
-#include "Volume.h"
 #include "xfs_types.h"
-
+#include "Volume.h"
 
 #define INODE_MAGIC 0x494e
-#define INODE_CORE_SIZE 96				// For v4 FS
-#define INODE_CORE_UNLINKED_SIZE 100	//For v4 FS
-#define DATA_FORK_OFFSET 0x64
-
+#define INODE_MINSIZE_LOG 8
+#define INODE_MAXSIZE_LOG 11
+#define INODE_CORE_SIZE 96
+#define INODE_CORE_UNLINKED_SIZE 100	// Inode core but with unlinked pointer
+#define DATA_FORK_OFFSET 0x64	// For v4 FS
 #define INO_MASK(x)		((1ULL << (x)) - 1)
 	// Gets 2^x - 1
 #define INO_TO_AGNO(id, volume)	(xfs_agnumber_t)id >> (volume->AgInodeBits())
@@ -29,6 +29,23 @@
 	// Gets the AG relative block number that contains inode
 #define INO_TO_OFFSET(id, volume) (id & INO_MASK(volume->InodesPerBlkLog()))
 	// Gets the offset into the block from the inode number
+#define DIR_DFORK_PTR(dir_ino_ptr) (char*) dir_ino_ptr + DATA_FORK_OFFSET
+#define DIR_AFORK_PTR(dir_ino_ptr) \
+					(XFS_DFORK_PTR + \
+					((uint32)dir_ino_ptr->di_forkoff<<3))
+#define DIR_AFORK_EXIST(dir_ino_ptr) dir_ino_ptr->di_forkoff!=0
+
+
+typedef struct { uint8 i[8]; } xfs_dir2_ino8_t; // 8 byte inode #
+
+
+typedef struct { uint8 i[4]; } xfs_dir2_ino4_t;	// 4 byte inode #
+
+
+typedef union{
+	xfs_dir2_ino8_t		i8;
+	xfs_dir2_ino4_t		i4;
+} xfs_dir2_inou_t;
 
 
 typedef struct xfs_timestamp
@@ -61,7 +78,7 @@ typedef struct xfs_inode
 		void				GetChangeTime(struct timespec& timestamp);
 		void				GetAccessTime(struct timespec& timestamp);
 		int8				Format();		// The format of the inode
-		xfs_fsize_t			Size() const;	// TODO
+		xfs_fsize_t			Size() const;
 		xfs_rfsblock_t		NoOfBlocks() const;
 		uint32				NLink();
 		uint16				Flags();
@@ -129,11 +146,13 @@ class Inode
 
 		int8		Version() { return fNode->Version(); }
 
-		xfs_fsize_t	Size() const { return fNode->Size(); }
-
 		xfs_rfsblock_t	NoOfBlocks() const { return fNode->NoOfBlocks(); }
 
+		char*		Buffer() { return fBuffer; }
+
 		int16		Flags() const { return fNode->Flags(); }
+
+		xfs_fsize_t	Size() const { return fNode->Size(); }
 
 		void		GetChangeTime(struct timespec& timestamp) const
 					{ fNode->GetChangeTime(timestamp); }
@@ -144,10 +163,10 @@ class Inode
 		void		GetAccessTime(struct timespec& timestamp) const
 					{ fNode->GetAccessTime(timestamp); }
 
-	private:
 		uint32		UserId() { return fNode->UserId(); }
 		uint32		GroupId() { return fNode->GroupId(); }
 
+	private:
 		status_t			GetFromDisk();
 		xfs_inode_t*		fNode;
 		xfs_ino_t			fId;
