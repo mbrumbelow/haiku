@@ -1,22 +1,21 @@
 /*
-* Copyright 2020, Shubham Bhagat, shubhambhagat111@yahoo.com
-* All rights reserved. Distributed under the terms of the MIT License.
-*/
-
+ * Copyright 2020, Shubham Bhagat, shubhambhagat111@yahoo.com
+ * All rights reserved. Distributed under the terms of the MIT License.
+ */
 #ifndef _INODE_H_
 #define _INODE_H_
 
-
 #include "system_dependencies.h"
-#include "Volume.h"
 #include "xfs_types.h"
+#include "Volume.h"
 
 
 #define INODE_MAGIC 0x494e
-#define INODE_CORE_SIZE 96				// For v4 FS
-#define INODE_CORE_UNLINKED_SIZE 100	//For v4 FS
-#define DATA_FORK_OFFSET 0x64
-
+#define INODE_MINSIZE_LOG 8
+#define INODE_MAXSIZE_LOG 11
+#define INODE_CORE_SIZE 96
+#define INODE_CORE_UNLINKED_SIZE 100	// Inode core but with unlinked pointer
+#define DATA_FORK_OFFSET 0x64	// For v4 FS
 #define INO_MASK(x)		((1ULL << (x)) - 1)
 	// Gets 2^x - 1
 #define INO_TO_AGNO(id, volume)	(xfs_agnumber_t)id >> (volume->AgInodeBits())
@@ -29,17 +28,20 @@
 	// Gets the AG relative block number that contains inode
 #define INO_TO_OFFSET(id, volume) (id & INO_MASK(volume->InodesPerBlkLog()))
 	// Gets the offset into the block from the inode number
+#define DIR_DFORK_PTR(dir_ino_ptr) (char*) dir_ino_ptr + DATA_FORK_OFFSET
+#define DIR_AFORK_PTR(dir_ino_ptr) \
+					(XFS_DFORK_PTR + \
+					((uint32)dir_ino_ptr->di_forkoff<<3))
+#define DIR_AFORK_EXIST(dir_ino_ptr) dir_ino_ptr->di_forkoff!=0
 
 
-typedef struct xfs_timestamp
-{
+typedef struct xfs_timestamp {
 		int32				t_sec;
 		int32				t_nsec;
 } xfs_timestamp_t;
 
 
-typedef enum xfs_dinode_fmt
-{
+typedef enum xfs_dinode_fmt {
 		XFS_DINODE_FMT_DEV,		// For devices
 		XFS_DINODE_FMT_LOCAL,	// For Directories and links
 		XFS_DINODE_FMT_EXTENTS,	// For large number of extents
@@ -49,11 +51,10 @@ typedef enum xfs_dinode_fmt
 
 
 /*
-	The xfs_ino_t is the same for all types of inodes, the data and attribute
-	fork might be different and that is to be handled accordingly.
-*/
-typedef struct xfs_inode
-{
+ * The xfs_ino_t is the same for all types of inodes, the data and attribute
+ * fork might be different and that is to be handled accordingly.
+ */
+typedef struct xfs_inode {
 		void				SwapEndian();
 		int8				Version();		//TODO
 		mode_t				Mode();
@@ -61,7 +62,7 @@ typedef struct xfs_inode
 		void				GetChangeTime(struct timespec& timestamp);
 		void				GetAccessTime(struct timespec& timestamp);
 		int8				Format();		// The format of the inode
-		xfs_fsize_t			Size() const;	// TODO
+		xfs_fsize_t			Size() const;
 		xfs_rfsblock_t		NoOfBlocks() const;
 		uint32				NLink();
 		uint16				Flags();
@@ -99,60 +100,64 @@ typedef struct xfs_inode
 } xfs_inode_t;
 
 
-class Inode
-{
-	public:
-					Inode(Volume* volume, xfs_ino_t id);
-					~Inode();
-		bool		InitCheck();
+class Inode {
+public:
+								Inode(Volume* volume, xfs_ino_t id);
+								~Inode();
+			status_t			Init();
+			bool				InitCheck();
 
-		xfs_ino_t	ID() const { return fId; }
+			xfs_ino_t			ID() const { return fId; }
 
-		bool		IsDirectory() const
-						{ return S_ISDIR(Mode()); }
+			bool				IsDirectory() const
+									{ return S_ISDIR(Mode()); }
 
-		bool		IsFile() const
-						{ return S_ISREG(Mode()); }
+			bool				IsFile() const
+									{ return S_ISREG(Mode()); }
 
-		bool		IsSymLink() const
-						{ return S_ISLNK(Mode()); }
+			bool				IsSymLink() const
+									{ return S_ISLNK(Mode()); }
 
-		mode_t		Mode() const { return fNode->Mode(); }
+			mode_t				Mode() const { return fNode->Mode(); }
 
-		Volume*		GetVolume() { return fVolume;}
+			Volume*				GetVolume() { return fVolume;}
 
-		int8		Format() { return fNode->Format(); }
+			int8				Format() { return fNode->Format(); }
 
-		bool		IsLocal() { return Format() == XFS_DINODE_FMT_LOCAL; }
+			bool				IsLocal()
+									{ return Format() == XFS_DINODE_FMT_LOCAL; }
 
-		uint32		NLink() { return fNode->NLink(); }
+			uint32				NLink() { return fNode->NLink(); }
 
-		int8		Version() { return fNode->Version(); }
+			int8				Version() { return fNode->Version(); }
 
-		xfs_fsize_t	Size() const { return fNode->Size(); }
+			xfs_rfsblock_t		NoOfBlocks() const
+									{ return fNode->NoOfBlocks(); }
 
-		xfs_rfsblock_t	NoOfBlocks() const { return fNode->NoOfBlocks(); }
+			char*				Buffer() { return fBuffer; }
 
-		int16		Flags() const { return fNode->Flags(); }
+			int16				Flags() const { return fNode->Flags(); }
 
-		void		GetChangeTime(struct timespec& timestamp) const
-					{ fNode->GetChangeTime(timestamp); }
+			xfs_fsize_t			Size() const { return fNode->Size(); }
 
-		void		GetModificationTime(struct timespec& timestamp) const
-					{ fNode->GetModificationTime(timestamp); }
+			void				GetChangeTime(struct timespec& timestamp) const
+								{ fNode->GetChangeTime(timestamp); }
 
-		void		GetAccessTime(struct timespec& timestamp) const
-					{ fNode->GetAccessTime(timestamp); }
+			void				GetModificationTime(struct timespec& timestamp) const
+								{ fNode->GetModificationTime(timestamp); }
 
-	private:
-		uint32		UserId() { return fNode->UserId(); }
-		uint32		GroupId() { return fNode->GroupId(); }
+			void				GetAccessTime(struct timespec& timestamp) const
+								{ fNode->GetAccessTime(timestamp); }
 
-		status_t			GetFromDisk();
-		xfs_inode_t*		fNode;
-		xfs_ino_t			fId;
-		Volume*				fVolume;
-		char*				fBuffer;	// Contains the disk inode in BE format
+			uint32				UserId() { return fNode->UserId(); }
+			uint32				GroupId() { return fNode->GroupId(); }
+
+private:
+			status_t			GetFromDisk();
+			xfs_inode_t*		fNode;
+			xfs_ino_t			fId;
+			Volume*				fVolume;
+			char*				fBuffer;	// Contains the disk inode in BE format
 };
 
 #endif
