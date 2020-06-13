@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bbd03c54_aabe6cf2",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-13T20:40:55Z",
+      "side": 1,
+      "message": "So the rootInodeNumber is 128.\nHere is how things look when xfs_shell is started and an ls is performed:\n\u0027.\u0027, \u0027..\u0027, \u0027myfs\u0027 (a few xfs_read_stat calls are made during this and myfs which xfs_shell treats as root directory. It shows correct dir size and other stats)\n\nNow when you cd into myfs (the root dir) and ls, it fails\nThe process is such. There is a xfs_lookup performed on \u0027.\u0027 and we successfully return 128 as the inode number. Then some get_vnodes are performed internally and I confirmed that they look for 128 inode# only. But then xfs_read_stat is called internally and, here is the thing, it access the privateNode associated to 128. I printed the inode number and I get garbage value. My best guess it that there is an issue with Inode publishing.\n\nPastebin for some output (it\u0027s not pretty :P): https://pastebin.com/1BUPsZu4",
+      "revId": "021128640da1296bed6dce046e869621818bbd69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
