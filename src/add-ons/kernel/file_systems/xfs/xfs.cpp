@@ -6,6 +6,13 @@
 #include "xfs.h"
 
 
+uint8
+XfsSuperBlock::Flags() const
+{
+	return sb_flags;
+}
+
+
 bool
 XfsSuperBlock::IsValid()
 {
@@ -22,14 +29,14 @@ XfsSuperBlock::IsValid()
 
 
 uint32
-XfsSuperBlock::BlockSize()
+XfsSuperBlock::BlockSize() const
 {
 	return sb_blocksize;
 }
 
 
 uint8
-XfsSuperBlock::BlockLog()
+XfsSuperBlock::BlockLog() const
 {
 	return sb_blocklog;
 }
@@ -50,63 +57,63 @@ XfsSuperBlock::AgInodeBits()
 
 
 uint8
-XfsSuperBlock::InodesPerBlkLog()
+XfsSuperBlock::InodesPerBlkLog() const
 {
 	return sb_inopblog;
 }
 
 
 uint8
-XfsSuperBlock::AgBlocksLog()
+XfsSuperBlock::AgBlocksLog() const
 {
 	return sb_agblklog;
 }
 
 
 uint32
-XfsSuperBlock::Size()
+XfsSuperBlock::Size() const
 {
 	return XFS_SB_MAXSIZE;
 }
 
 
 uint16
-XfsSuperBlock::InodeSize()
+XfsSuperBlock::InodeSize() const
 {
 	return sb_inodesize;
 }
 
 
 xfs_rfsblock_t
-XfsSuperBlock::TotalBlocks()
+XfsSuperBlock::TotalBlocks() const
 {
 	return sb_dblocks;
 }
 
 
 xfs_rfsblock_t
-XfsSuperBlock::TotalBlocksWithLog()
+XfsSuperBlock::TotalBlocksWithLog() const
 {
 	return TotalBlocks() + sb_logblocks;
 }
 
 
 uint64
-XfsSuperBlock::FreeBlocks()
+XfsSuperBlock::FreeBlocks() const
 {
 	return sb_fdblocks;
 }
 
 
 uint64
-XfsSuperBlock::UsedBlocks()
+XfsSuperBlock::UsedBlocks() const
 {
 	return TotalBlocks() - FreeBlocks();
 }
 
 
-char*
-XfsSuperBlock::Name()
+const char*
+XfsSuperBlock::Name() const
 {
 	return sb_fname;
 }
@@ -120,14 +127,14 @@ XfsSuperBlock::Root() const
 
 
 xfs_agnumber_t
-XfsSuperBlock::AgCount()
+XfsSuperBlock::AgCount() const
 {
 	return sb_agcount;
 }
 
 
 xfs_agblock_t
-XfsSuperBlock::AgBlocks()
+XfsSuperBlock::AgBlocks() const
 {
 	return sb_agblocks;
 }
