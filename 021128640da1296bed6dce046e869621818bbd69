@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "39e8aace_edfa19d1",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-14T19:43:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83181482_18b1b3bb",
+      "revId": "021128640da1296bed6dce046e869621818bbd69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f9c15866_64318e20",
         "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2020-06-14T13:16:17Z",
       "side": 1,
       "message": "B_NOT_SUPPORTED sounds like a better error?",
+      "revId": "021128640da1296bed6dce046e869621818bbd69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91f3efe2_a7b850df",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-14T19:43:06Z",
+      "side": 1,
+      "message": "Yes, it does. Updated! :D",
+      "parentUuid": "f9c15866_64318e20",
       "revId": "021128640da1296bed6dce046e869621818bbd69",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "59be0d0f_4ab5b130",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-14T19:43:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "950986b6_8790a3c4",
+      "revId": "021128640da1296bed6dce046e869621818bbd69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3d8c005f_c7aa14d0",
         "filename": "src/add-ons/kernel/file_systems/xfs/Directory.h",
         "patchSetId": 1
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "c244807c_3cf8384b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-14T19:43:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d8c005f_c7aa14d0",
+      "revId": "021128640da1296bed6dce046e869621818bbd69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "094640d4_a2341940",
         "filename": "src/add-ons/kernel/file_systems/xfs/ShortDirectory.cpp",
         "patchSetId": 1
@@ -81,6 +153,24 @@
       "writtenOn": "2020-06-14T13:16:17Z",
       "side": 1,
       "message": "why not store the data as an uint64 in the header?\n\nreturn B_BENDIAN_TO_HOST_INT64(fHeader.parent); would be much simpler to handle?",
+      "revId": "021128640da1296bed6dce046e869621818bbd69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7dc44b92_7e3e01cd",
+        "filename": "src/add-ons/kernel/file_systems/xfs/ShortDirectory.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-14T19:43:06Z",
+      "side": 1,
+      "message": "The header is defined by XFS specs. They store a uint8[8] or a uint8[4] depending on the inode number of parent. So I can\u0027t really do that. But, is there a better way to handle uint8[]?",
+      "parentUuid": "094640d4_a2341940",
       "revId": "021128640da1296bed6dce046e869621818bbd69",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -122,6 +212,24 @@
     },
     {
       "key": {
+        "uuid": "dfb750a8_dce72d8a",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-14T19:43:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8f15e91_513f822b",
+      "revId": "021128640da1296bed6dce046e869621818bbd69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c17961d6_f29911d9",
         "filename": "src/add-ons/kernel/file_systems/xfs/Volume.h",
         "patchSetId": 1
@@ -136,6 +244,24 @@
       "revId": "021128640da1296bed6dce046e869621818bbd69",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e65c7e9_59dbdb8c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-14T19:43:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c17961d6_f29911d9",
+      "revId": "021128640da1296bed6dce046e869621818bbd69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -156,6 +282,24 @@
     },
     {
       "key": {
+        "uuid": "3c172b40_abb66e4c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-14T19:43:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04540583_142f9854",
+      "revId": "021128640da1296bed6dce046e869621818bbd69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b72de74e_caf15490",
         "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
         "patchSetId": 1
@@ -167,6 +311,24 @@
       "writtenOn": "2020-06-14T13:16:17Z",
       "side": 1,
       "message": "why is that commented out?",
+      "revId": "021128640da1296bed6dce046e869621818bbd69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d8d6ba7_73acb008",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-14T19:43:06Z",
+      "side": 1,
+      "message": "I\u0027ve moved the code elsewhere. Removed this.",
+      "parentUuid": "b72de74e_caf15490",
       "revId": "021128640da1296bed6dce046e869621818bbd69",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
