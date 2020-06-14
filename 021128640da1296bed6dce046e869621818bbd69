@@ -2,6 +2,91 @@
   "comments": [
     {
       "key": {
+        "uuid": "83181482_18b1b3bb",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-14T13:16:17Z",
+      "side": 1,
+      "message": "You should not delete the inode here. You didn\u0027t create it and you don\u0027t own it.",
+      "revId": "021128640da1296bed6dce046e869621818bbd69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9c15866_64318e20",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-14T13:16:17Z",
+      "side": 1,
+      "message": "B_NOT_SUPPORTED sounds like a better error?",
+      "revId": "021128640da1296bed6dce046e869621818bbd69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "950986b6_8790a3c4",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-14T13:16:17Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "021128640da1296bed6dce046e869621818bbd69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d8c005f_c7aa14d0",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-14T13:16:17Z",
+      "side": 1,
+      "message": "space before {",
+      "revId": "021128640da1296bed6dce046e869621818bbd69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "094640d4_a2341940",
+        "filename": "src/add-ons/kernel/file_systems/xfs/ShortDirectory.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-14T13:16:17Z",
+      "side": 1,
+      "message": "why not store the data as an uint64 in the header?\n\nreturn B_BENDIAN_TO_HOST_INT64(fHeader.parent); would be much simpler to handle?",
+      "revId": "021128640da1296bed6dce046e869621818bbd69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bbd03c54_aabe6cf2",
         "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
         "patchSetId": 1
@@ -13,6 +98,75 @@
       "writtenOn": "2020-06-13T20:40:55Z",
       "side": 1,
       "message": "So the rootInodeNumber is 128.\nHere is how things look when xfs_shell is started and an ls is performed:\n\u0027.\u0027, \u0027..\u0027, \u0027myfs\u0027 (a few xfs_read_stat calls are made during this and myfs which xfs_shell treats as root directory. It shows correct dir size and other stats)\n\nNow when you cd into myfs (the root dir) and ls, it fails\nThe process is such. There is a xfs_lookup performed on \u0027.\u0027 and we successfully return 128 as the inode number. Then some get_vnodes are performed internally and I confirmed that they look for 128 inode# only. But then xfs_read_stat is called internally and, here is the thing, it access the privateNode associated to 128. I printed the inode number and I get garbage value. My best guess it that there is an issue with Inode publishing.\n\nPastebin for some output (it\u0027s not pretty :P): https://pastebin.com/1BUPsZu4",
+      "revId": "021128640da1296bed6dce046e869621818bbd69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8f15e91_513f822b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-14T13:16:17Z",
+      "side": 1,
+      "message": "Apparently you are deleting the inone in DirectoryIterator destructor, which probably explains this.",
+      "parentUuid": "bbd03c54_aabe6cf2",
+      "revId": "021128640da1296bed6dce046e869621818bbd69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c17961d6_f29911d9",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-14T13:16:17Z",
+      "side": 1,
+      "message": "this line is larger than 80 columns",
+      "revId": "021128640da1296bed6dce046e869621818bbd69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04540583_142f9854",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-14T13:16:17Z",
+      "side": 1,
+      "message": "keep includes in alphabetical order",
+      "revId": "021128640da1296bed6dce046e869621818bbd69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b72de74e_caf15490",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-14T13:16:17Z",
+      "side": 1,
+      "message": "why is that commented out?",
       "revId": "021128640da1296bed6dce046e869621818bbd69",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
