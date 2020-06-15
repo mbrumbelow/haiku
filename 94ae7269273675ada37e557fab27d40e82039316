@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e6083e28_745942fb",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-06-15T19:24:19Z",
+      "side": 1,
+      "message": "You missed this one, and also there is still an extraneous blank line between the header, and the header guard -- and in most other header files, too. I did not mention each violation, I only gave examples; I\u0027m afraid you\u0027ll have to go over the code yourself :-)",
+      "revId": "94ae7269273675ada37e557fab27d40e82039316",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40be1cbb_cec9fdc1",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-06-15T19:24:19Z",
+      "side": 1,
+      "message": "Two spaces instead of one before \u0027{\u0027",
+      "revId": "94ae7269273675ada37e557fab27d40e82039316",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca51eb8a_4d39718c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-06-15T19:24:19Z",
+      "side": 1,
+      "message": "Indentation is still off in this class.",
+      "revId": "94ae7269273675ada37e557fab27d40e82039316",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
