@@ -1,0 +1,276 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "26ed3113_1c0523fb",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-06-15T07:47:05Z",
+      "side": 1,
+      "message": "Wrong header indentation, plus there are two blank lines between the header and the first include.",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f0ab35c_be5b221c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-06-15T07:47:05Z",
+      "side": 1,
+      "message": "The \u0027{\u0027 goes to the end of the previous line. Here, and at other places.",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e4fcc21_7c586d53",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-06-15T07:47:05Z",
+      "side": 1,
+      "message": "We don\u0027t use \u0027else\u0027 when it\u0027s not necessary. The block before ends in \"return\", so the else is not needed at all, and is only misleading. Here, and at other places, too.",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7df6f68d_d1343a92",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-06-15T07:47:05Z",
+      "side": 1,
+      "message": "The head is incorrectly indented, it should be:\n/*\n *\n */\n(note the space in the first column)",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67a2779f_23075ab9",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-06-15T07:47:05Z",
+      "side": 1,
+      "message": "Same here. However, we usually use doxygen style to document classes and functions, so that one could create a document out of this.",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c328728f_19709317",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-06-15T07:47:05Z",
+      "side": 1,
+      "message": "The \u0027{\u0027 goes to the end of the previous line here.",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33637565_a7714d2a",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-06-15T07:47:05Z",
+      "side": 1,
+      "message": "Indenting seems to be off: \"public\" is not indented, the class names should be in column 32. The return types needs to be indented such that a \"virtual\" or a \"static\" fits in front of there. Same for the fields.\n\nPlease have another look at https://www.haiku-os.org/development/coding-guidelines :-)",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c55c1cf8_ed2a01e2",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-06-15T07:47:05Z",
+      "side": 1,
+      "message": "Please ALWAYS check the outcome of allocations. They may fail. Don\u0027t do this later, but directly when you write that code, or else the chances that you forget are high.",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e46d1a73_d45d7bcf",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-06-15T07:47:05Z",
+      "side": 1,
+      "message": "Indentation is wrong.",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78be874e_ce4493d7",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-06-15T07:47:05Z",
+      "side": 1,
+      "message": "Operators beside \u0027,\u0027 go to the next line.",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13e881df_510ce506",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-06-15T07:47:05Z",
+      "side": 1,
+      "message": "There is no blank line between header, and header guard.",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e94904b8_1b19829a",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-06-15T07:47:05Z",
+      "side": 1,
+      "message": "But two blank lines here.",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72032f8e_e8b0bea3",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-06-15T07:47:05Z",
+      "side": 1,
+      "message": "Why two blank lines between two typedefs?",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c93fe70_8bcfd12b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-06-15T07:47:05Z",
+      "side": 1,
+      "message": "Missing space before \u0027{\u0027.",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b721eed9_99e506e7",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-06-15T07:47:05Z",
+      "side": 1,
+      "message": "We don\u0027t indent the second line that much.",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afe6a663_26c3748d",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-06-15T07:47:05Z",
+      "side": 1,
+      "message": "Please only use \u0027{\u0027 and \u0027}\u0027 when needed. It\u0027s not for single line statements.",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
