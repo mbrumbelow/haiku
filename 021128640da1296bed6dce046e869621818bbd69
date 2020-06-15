@@ -195,6 +195,24 @@
     },
     {
       "key": {
+        "uuid": "11d4aef0_c4f301b5",
+        "filename": "src/add-ons/kernel/file_systems/xfs/ShortDirectory.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-15T19:00:33Z",
+      "side": 1,
+      "message": "I resonate with what you\u0027re saying...But why wouldn\u0027t they do it the same way? Also, in a nutshell, would you like me to change it to uint64 and all?",
+      "parentUuid": "54758ded_747d2964",
+      "revId": "021128640da1296bed6dce046e869621818bbd69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bbd03c54_aabe6cf2",
         "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
         "patchSetId": 1
