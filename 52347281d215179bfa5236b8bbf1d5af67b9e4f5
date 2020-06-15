@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7921960d_e3e39669",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-15T18:58:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26ed3113_1c0523fb",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "22a04139_2eee1d33",
         "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2020-06-15T17:17:33Z",
       "side": 1,
       "message": "It would be better if ShortDir is allocated before using. You can either pass a new instance via constructor\u0027s argument or create a new method (ex. Init() return a status), this is to prevent allocating later on GetNext, and Lookup()",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb6abff3_c4fe8005",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-15T18:58:46Z",
+      "side": 1,
+      "message": "Yeah but I can\u0027t return B_NO_MEMORY from constructor no :(?",
+      "parentUuid": "22a04139_2eee1d33",
       "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "8401b543_e38ed717",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-15T18:58:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f0ab35c_be5b221c",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e4fcc21_7c586d53",
         "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
         "patchSetId": 2
@@ -64,6 +118,24 @@
       "writtenOn": "2020-06-15T07:47:05Z",
       "side": 1,
       "message": "We don\u0027t use \u0027else\u0027 when it\u0027s not necessary. The block before ends in \"return\", so the else is not needed at all, and is only misleading. Here, and at other places, too.",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a064ab0_dca6d0b9",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-15T18:58:46Z",
+      "side": 1,
+      "message": "Makes sense. Fixed",
+      "parentUuid": "8e4fcc21_7c586d53",
       "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -93,6 +165,30 @@
     },
     {
       "key": {
+        "uuid": "fb3c01a5_f9366a83",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-15T18:58:46Z",
+      "side": 1,
+      "message": "Would you like them to be merged now? They will have to be separated later on so I personally don\u0027t get why do it at all... But that\u0027s just me",
+      "parentUuid": "1260879b_396d1b4e",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 4
+      },
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7df6f68d_d1343a92",
         "filename": "src/add-ons/kernel/file_systems/xfs/Directory.h",
         "patchSetId": 2
@@ -107,6 +203,24 @@
       "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a84eb5f_de6d2b21",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-15T18:58:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7df6f68d_d1343a92",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -127,6 +241,24 @@
     },
     {
       "key": {
+        "uuid": "c920c7a7_c0ac81b1",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-15T18:58:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67a2779f_23075ab9",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c328728f_19709317",
         "filename": "src/add-ons/kernel/file_systems/xfs/Directory.h",
         "patchSetId": 2
@@ -144,6 +276,24 @@
     },
     {
       "key": {
+        "uuid": "41986cb9_9788bcc6",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-15T18:58:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c328728f_19709317",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "33637565_a7714d2a",
         "filename": "src/add-ons/kernel/file_systems/xfs/Directory.h",
         "patchSetId": 2
@@ -155,6 +305,24 @@
       "writtenOn": "2020-06-15T07:47:05Z",
       "side": 1,
       "message": "Indenting seems to be off: \"public\" is not indented, the class names should be in column 32. The return types needs to be indented such that a \"virtual\" or a \"static\" fits in front of there. Same for the fields.\n\nPlease have another look at https://www.haiku-os.org/development/coding-guidelines :-)",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f543e63c_fc80071d",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-15T18:58:46Z",
+      "side": 1,
+      "message": "Alright I\u0027ve fixed this. Also it\u0027s actually 33 cols :P",
+      "parentUuid": "33637565_a7714d2a",
       "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -178,6 +346,24 @@
     },
     {
       "key": {
+        "uuid": "b593acbc_934070c9",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-15T18:58:46Z",
+      "side": 1,
+      "message": "Ok so the reason I didn\u0027t do checking here was because it\u0027s a constructor and I can\u0027t return anything. Should I have manually check fBuffer after the constructor has returned?",
+      "parentUuid": "c55c1cf8_ed2a01e2",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e46d1a73_d45d7bcf",
         "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
         "patchSetId": 2
@@ -192,6 +378,24 @@
       "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05a28d44_c1feb769",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-15T18:58:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e46d1a73_d45d7bcf",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -212,6 +416,24 @@
     },
     {
       "key": {
+        "uuid": "df70b581_4cc33d30",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-15T18:58:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78be874e_ce4493d7",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "13e881df_510ce506",
         "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
         "patchSetId": 2
@@ -226,6 +448,24 @@
       "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d8b3b1e_16435cca",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-15T18:58:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13e881df_510ce506",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -246,6 +486,24 @@
     },
     {
       "key": {
+        "uuid": "55714f7d_974d1f59",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-15T18:58:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e94904b8_1b19829a",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "72032f8e_e8b0bea3",
         "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
         "patchSetId": 2
@@ -257,6 +515,24 @@
       "writtenOn": "2020-06-15T07:47:05Z",
       "side": 1,
       "message": "Why two blank lines between two typedefs?",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b1b0150_e2ca31a4",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-15T18:58:46Z",
+      "side": 1,
+      "message": "This was bymistake. Fixed.",
+      "parentUuid": "72032f8e_e8b0bea3",
       "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -277,6 +553,24 @@
       "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96edd9f6_6d012cbe",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-15T18:58:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c93fe70_8bcfd12b",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -303,6 +597,30 @@
     },
     {
       "key": {
+        "uuid": "4362344a_8fd1d865",
+        "filename": "src/add-ons/kernel/file_systems/xfs/ShortDirectory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-15T18:58:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "646b9090_ec316a45",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 7
+      },
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d5d86969_bd3e3e2a",
         "filename": "src/add-ons/kernel/file_systems/xfs/Volume.h",
         "patchSetId": 2
@@ -317,6 +635,24 @@
       "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46ed0d57_0c7cc71d",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-15T18:58:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5d86969_bd3e3e2a",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -337,6 +673,24 @@
     },
     {
       "key": {
+        "uuid": "32f13921_48fce2e8",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-15T18:58:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b721eed9_99e506e7",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "afe6a663_26c3748d",
         "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
         "patchSetId": 2
@@ -351,6 +705,24 @@
       "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de9bc1d0_fd6e1434",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-15T18:58:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afe6a663_26c3748d",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -371,6 +743,24 @@
     },
     {
       "key": {
+        "uuid": "c6479100_4b6afe08",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-15T18:58:46Z",
+      "side": 1,
+      "message": "DirectoryIterator itself doesn\u0027t return anything. It\u0027s associated classes do. At the moment the only associated class is ShortDirectory which does return B_BUFFER_OVERFLOW",
+      "parentUuid": "aebae09c_ca8bcb84",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a4681570_44135ece",
         "filename": "src/add-ons/kernel/file_systems/xfs/xfs.h",
         "patchSetId": 2
@@ -385,6 +775,24 @@
       "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b7c969e_108d055f",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-15T18:58:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4681570_44135ece",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
