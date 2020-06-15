@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "49495a9d_dd7c77be",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Volume.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-15T10:24:31Z",
+      "side": 1,
+      "message": "I don\u0027t understand this, you are getting fRootNode but then you overwrite it by creating a new Inode? Other filesystems do not seem to call get_vnode here.",
+      "revId": "7aba70d7a6f9a29020fa05ac708b7350ef22adae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3450d1ce_83847866",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Volume.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-15T10:24:31Z",
+      "side": 1,
+      "message": "you can use strerror() to convert status_t or errno to a readable message. Then maybe it\u0027s possible to see what the problem is.",
+      "revId": "7aba70d7a6f9a29020fa05ac708b7350ef22adae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
