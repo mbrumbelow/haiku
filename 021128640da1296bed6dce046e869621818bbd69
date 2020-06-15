@@ -177,6 +177,24 @@
     },
     {
       "key": {
+        "uuid": "54758ded_747d2964",
+        "filename": "src/add-ons/kernel/file_systems/xfs/ShortDirectory.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-15T06:46:17Z",
+      "side": 1,
+      "message": "well you can have an uint64 or uint32 depending on the inode number just in the same way?",
+      "parentUuid": "7dc44b92_7e3e01cd",
+      "revId": "021128640da1296bed6dce046e869621818bbd69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bbd03c54_aabe6cf2",
         "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
         "patchSetId": 1
