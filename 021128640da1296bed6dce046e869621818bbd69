@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "02d74b09_385be9ef",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-16T06:26:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91f3efe2_a7b850df",
+      "revId": "021128640da1296bed6dce046e869621818bbd69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "950986b6_8790a3c4",
         "filename": "src/add-ons/kernel/file_systems/xfs/Directory.h",
         "patchSetId": 1
@@ -207,6 +225,24 @@
       "side": 1,
       "message": "I resonate with what you\u0027re saying...But why wouldn\u0027t they do it the same way? Also, in a nutshell, would you like me to change it to uint64 and all?",
       "parentUuid": "54758ded_747d2964",
+      "revId": "021128640da1296bed6dce046e869621818bbd69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44bb4ad6_c9480d7b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/ShortDirectory.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-16T06:26:07Z",
+      "side": 1,
+      "message": "Yes, functionally it will be the same, but you will not need the memcpy here which I think makes things more complex for no good reason.",
+      "parentUuid": "11d4aef0_c4f301b5",
       "revId": "021128640da1296bed6dce046e869621818bbd69",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -368,6 +404,24 @@
       "revId": "021128640da1296bed6dce046e869621818bbd69",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c99e852c_ee1525b5",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-16T06:26:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d8d6ba7_73acb008",
+      "revId": "021128640da1296bed6dce046e869621818bbd69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
