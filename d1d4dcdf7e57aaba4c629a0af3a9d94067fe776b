@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a2812635_99c55973",
+        "filename": "src/apps/clock/cl_view.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2020-06-17T16:21:20Z",
+      "side": 1,
+      "message": "Instead of the (C) there sould be the full word \"Copyright\", plus a space after it. I\u0027d personally go for the \"©\" character, but I think there \"Copyright\" everywhere else...",
+      "revId": "d1d4dcdf7e57aaba4c629a0af3a9d94067fe776b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d52c3a76_78e45881",
+        "filename": "src/apps/clock/cl_view.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2020-06-17T16:21:20Z",
+      "side": 1,
+      "message": "Year before the copyright holder. Also, it looks nicer IMO without the spaces around the dash, so \"1991-1998\" and \"2004-2007\".",
+      "revId": "d1d4dcdf7e57aaba4c629a0af3a9d94067fe776b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
