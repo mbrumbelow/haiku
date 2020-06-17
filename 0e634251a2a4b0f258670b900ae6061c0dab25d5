@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb1f6c5d_0530f9fe",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-17T06:29:26Z",
+      "side": 1,
+      "message": "two blank lines here",
+      "revId": "0e634251a2a4b0f258670b900ae6061c0dab25d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "867581e5_e6d6cf77",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-17T06:29:26Z",
+      "side": 1,
+      "message": "no blank line here",
+      "revId": "0e634251a2a4b0f258670b900ae6061c0dab25d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46f66517_a122b1dd",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-17T06:29:26Z",
+      "side": 1,
+      "message": "I don\u0027t understand why you need this variable",
+      "revId": "0e634251a2a4b0f258670b900ae6061c0dab25d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "923cb4e2_a4cb264d",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-17T06:29:26Z",
+      "side": 1,
+      "message": "This is only stored in a local variable, so this memory is leaked.\n\nWhy not read directly into fNode?\n\nread_pos(fd, 164352, (void*)\u0026fNode, sizeof(fNode)) \u003d\u003d sizeof(fNode)",
+      "revId": "0e634251a2a4b0f258670b900ae6061c0dab25d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d520d6c_ddf08957",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-17T06:29:26Z",
+      "side": 1,
+      "message": "Now all your Inodes will be read from offset 164352 from the disk. This means all files and all directories will always be the root directory and never anything else. This does not make a very useful filesystem. As we discussed earlier, the offset needs to be computed from the inode id passed as a parameter to this function, so that it can be used for other files and directories as well.",
+      "revId": "0e634251a2a4b0f258670b900ae6061c0dab25d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6de2154_03dfc996",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-17T06:29:26Z",
+      "side": 1,
+      "message": "Why 512 and not sizeof(fNode)?",
+      "revId": "0e634251a2a4b0f258670b900ae6061c0dab25d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
