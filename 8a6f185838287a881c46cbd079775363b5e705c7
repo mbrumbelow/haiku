@@ -46,6 +46,30 @@
       "revId": "8a6f185838287a881c46cbd079775363b5e705c7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "104a54f8_3f17ea24",
+        "filename": "src/apps/clock/cl_view.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-18T11:42:01Z",
+      "side": 1,
+      "message": "Haiku and OpenBeOS are the same thing, so copyright 2002-2020 Haiku seems fine to me.",
+      "parentUuid": "e458edbf_b1fc2bca",
+      "range": {
+        "startLine": 352,
+        "startChar": 0,
+        "endLine": 352,
+        "endChar": 1
+      },
+      "revId": "8a6f185838287a881c46cbd079775363b5e705c7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
