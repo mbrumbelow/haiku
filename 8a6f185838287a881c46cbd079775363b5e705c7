@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "89534715_1788c17c",
+        "filename": "src/apps/clock/cl_view.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1000003
+      },
+      "writtenOn": "2020-06-18T07:44:48Z",
+      "side": 1,
+      "message": "While you\u0027re at it you can also update copyright years and replace OpenBeOS with Haiku, Inc :)",
+      "range": {
+        "startLine": 352,
+        "startChar": 0,
+        "endLine": 352,
+        "endChar": 1
+      },
+      "revId": "8a6f185838287a881c46cbd079775363b5e705c7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
