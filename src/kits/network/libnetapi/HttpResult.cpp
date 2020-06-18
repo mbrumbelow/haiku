@@ -87,7 +87,15 @@ BHttpResult::Length() const
 	const char* length = Headers()["Content-Length"];
 	if (length == NULL)
 		return 0;
-	return atoi(length);
+	int old_errno = errno;
+	errno = 0;
+	char *endptr = NULL;
+	size_t result = strtoul(length, &endptr, 10);
+	if (errno != 0 || *endptr != '\0') {
+		result = 0;
+	}
+	old_errno = errno;
+	return result;
 }
 
 
