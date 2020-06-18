@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "fee33701_6d7754a9",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-06-18T07:41:42Z",
+      "side": 1,
+      "message": "memcpy takes it\u0027s parameter as a pointer so I created a pointer for it but then you told a better way so it can be removed.",
+      "parentUuid": "46f66517_a122b1dd",
+      "revId": "0e634251a2a4b0f258670b900ae6061c0dab25d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "923cb4e2_a4cb264d",
         "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
         "patchSetId": 3
@@ -70,6 +88,24 @@
     },
     {
       "key": {
+        "uuid": "1918492c_56c2ef33",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-06-18T07:41:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "923cb4e2_a4cb264d",
+      "revId": "0e634251a2a4b0f258670b900ae6061c0dab25d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7d520d6c_ddf08957",
         "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
         "patchSetId": 3
@@ -81,6 +117,24 @@
       "writtenOn": "2020-06-17T06:29:26Z",
       "side": 1,
       "message": "Now all your Inodes will be read from offset 164352 from the disk. This means all files and all directories will always be the root directory and never anything else. This does not make a very useful filesystem. As we discussed earlier, the offset needs to be computed from the inode id passed as a parameter to this function, so that it can be used for other files and directories as well.",
+      "revId": "0e634251a2a4b0f258670b900ae6061c0dab25d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7da0759e_ca10a688",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-06-18T07:41:42Z",
+      "side": 1,
+      "message": "Actually I was understanding how to calculate the offset from inode number and for that I found a way in https://github.com/sleuthkit/sleuthkit/blob/develop/tsk/fs/ffs.c here is a function named itod_lcl that calculates offset of a inode and it is defined at https://github.com/sleuthkit/sleuthkit/blob/develop/tsk/fs/tsk_ffs.h\nWill it be useful? What are your views about it?",
+      "parentUuid": "7d520d6c_ddf08957",
       "revId": "0e634251a2a4b0f258670b900ae6061c0dab25d5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
