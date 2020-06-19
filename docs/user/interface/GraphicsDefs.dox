@@ -111,3 +111,126 @@
 
 	\since BeOS R3
 */
+
+
+/*!
+	\var alpha_function B_ALPHA_COMPOSITE_SOURCE_OVER
+
+	Draws source over destination preserving transparency. Same as
+	\c B_ALPHA_COMPOSITE.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var alpha_function B_ALPHA_COMPOSITE_SOURCE_IN
+
+	Draws source only where destination is not transparent.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var alpha_function B_ALPHA_COMPOSITE_SOURCE_OUT
+
+	Draws source only where destination is transparent.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var alpha_function B_ALPHA_COMPOSITE_SOURCE_ATOP
+
+	Draws source only where destination is not transparent. Colors from both
+	are used in the result.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var alpha_function B_ALPHA_COMPOSITE_DESTINATION_OVER
+
+	Draws source where destination is transparent, making it appear as if it
+	is drawn behind.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var alpha_function B_ALPHA_COMPOSITE_DESTINATION_IN
+
+	Blends source alpha channel with destination.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var alpha_function B_ALPHA_COMPOSITE_DESTINATION_OUT
+
+	Blends inverse of source alpha channel with destination. Result appears as
+	if source was cut out of destination.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var alpha_function B_ALPHA_COMPOSITE_DESTINATION_ATOP
+
+	Draws source only where it is not transparent. Destination is blended on
+	top of it. Colors from both are used in the result.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var alpha_function B_ALPHA_COMPOSITE_XOR
+
+	Result is transparent only where both source and destination are transparent
+	or opaque.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var alpha_function B_ALPHA_COMPOSITE_CLEAR
+
+	Erases destination to full transparency, where source is not transparent.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var alpha_function B_ALPHA_COMPOSITE_DIFFERENCE
+
+	Subtracts both inputs in a way that always yields positive result.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var alpha_function B_ALPHA_COMPOSITE_LIGHTEN
+
+	Retains lighter pixels of both inputs.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var alpha_function B_ALPHA_COMPOSITE_DARKEN
+
+	Retains darker pixels of both inputs.
+
+	\since Haiku R1
+*/
