@@ -328,6 +328,69 @@ PixelFormat::SetDrawingMode(drawing_mode mode, source_alpha alphaSrcMode,
 						fBlendSolidVSpan = blend_solid_vspan_alpha_pc;
 						fBlendColorHSpan = blend_color_hspan_alpha_pc;
 					}
+				} else if (alphaFncMode == B_ALPHA_COMPOSITE_SOURCE_IN) {
+					fBlendPixel = alpha_src_in::blend_pixel;
+					fBlendHLine = alpha_src_in::blend_hline;
+					fBlendSolidHSpanSubpix = alpha_src_in::blend_solid_hspan_subpix;
+					fBlendSolidHSpan = alpha_src_in::blend_solid_hspan;
+					fBlendSolidVSpan = alpha_src_in::blend_solid_vspan;
+					fBlendColorHSpan = alpha_src_in::blend_color_hspan;
+				} else if (alphaFncMode == B_ALPHA_COMPOSITE_SOURCE_OUT) {
+					fBlendPixel = alpha_src_out::blend_pixel;
+					fBlendHLine = alpha_src_out::blend_hline;
+					fBlendSolidHSpanSubpix = alpha_src_out::blend_solid_hspan_subpix;
+					fBlendSolidHSpan = alpha_src_out::blend_solid_hspan;
+					fBlendSolidVSpan = alpha_src_out::blend_solid_vspan;
+					fBlendColorHSpan = alpha_src_out::blend_color_hspan;
+				} else if (alphaFncMode == B_ALPHA_COMPOSITE_SOURCE_ATOP) {
+					fBlendPixel = alpha_src_atop::blend_pixel;
+					fBlendHLine = alpha_src_atop::blend_hline;
+					fBlendSolidHSpanSubpix = alpha_src_atop::blend_solid_hspan_subpix;
+					fBlendSolidHSpan = alpha_src_atop::blend_solid_hspan;
+					fBlendSolidVSpan = alpha_src_atop::blend_solid_vspan;
+					fBlendColorHSpan = alpha_src_atop::blend_color_hspan;
+				} else if (alphaFncMode == B_ALPHA_COMPOSITE_DESTINATION_OVER) {
+					fBlendPixel = alpha_dst_over::blend_pixel;
+					fBlendHLine = alpha_dst_over::blend_hline;
+					fBlendSolidHSpanSubpix = alpha_dst_over::blend_solid_hspan_subpix;
+					fBlendSolidHSpan = alpha_dst_over::blend_solid_hspan;
+					fBlendSolidVSpan = alpha_dst_over::blend_solid_vspan;
+					fBlendColorHSpan = alpha_dst_over::blend_color_hspan;
+				} else if (alphaFncMode == B_ALPHA_COMPOSITE_DESTINATION_IN) {
+					fBlendPixel = alpha_dst_in::blend_pixel;
+					fBlendHLine = alpha_dst_in::blend_hline;
+					fBlendSolidHSpanSubpix = alpha_dst_in::blend_solid_hspan_subpix;
+					fBlendSolidHSpan = alpha_dst_in::blend_solid_hspan;
+					fBlendSolidVSpan = alpha_dst_in::blend_solid_vspan;
+					fBlendColorHSpan = alpha_dst_in::blend_color_hspan;
+				} else if (alphaFncMode == B_ALPHA_COMPOSITE_DESTINATION_OUT) {
+					fBlendPixel = alpha_dst_out::blend_pixel;
+					fBlendHLine = alpha_dst_out::blend_hline;
+					fBlendSolidHSpanSubpix = alpha_dst_out::blend_solid_hspan_subpix;
+					fBlendSolidHSpan = alpha_dst_out::blend_solid_hspan;
+					fBlendSolidVSpan = alpha_dst_out::blend_solid_vspan;
+					fBlendColorHSpan = alpha_dst_out::blend_color_hspan;
+				} else if (alphaFncMode == B_ALPHA_COMPOSITE_DESTINATION_ATOP) {
+					fBlendPixel = alpha_dst_atop::blend_pixel;
+					fBlendHLine = alpha_dst_atop::blend_hline;
+					fBlendSolidHSpanSubpix = alpha_dst_atop::blend_solid_hspan_subpix;
+					fBlendSolidHSpan = alpha_dst_atop::blend_solid_hspan;
+					fBlendSolidVSpan = alpha_dst_atop::blend_solid_vspan;
+					fBlendColorHSpan = alpha_dst_atop::blend_color_hspan;
+				} else if (alphaFncMode == B_ALPHA_COMPOSITE_XOR) {
+					fBlendPixel = alpha_xor::blend_pixel;
+					fBlendHLine = alpha_xor::blend_hline;
+					fBlendSolidHSpanSubpix = alpha_xor::blend_solid_hspan_subpix;
+					fBlendSolidHSpan = alpha_xor::blend_solid_hspan;
+					fBlendSolidVSpan = alpha_xor::blend_solid_vspan;
+					fBlendColorHSpan = alpha_xor::blend_color_hspan;
+				} else if (alphaFncMode == B_ALPHA_COMPOSITE_CLEAR) {
+					fBlendPixel = alpha_clear::blend_pixel;
+					fBlendHLine = alpha_clear::blend_hline;
+					fBlendSolidHSpanSubpix = alpha_clear::blend_solid_hspan_subpix;
+					fBlendSolidHSpan = alpha_clear::blend_solid_hspan;
+					fBlendSolidVSpan = alpha_clear::blend_solid_vspan;
+					fBlendColorHSpan = alpha_clear::blend_color_hspan;
 				}
 			}
 			break;
