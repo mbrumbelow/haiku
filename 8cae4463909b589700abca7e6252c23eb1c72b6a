@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8291e27f_f60b8f09",
+        "filename": "src/kits/interface/ColumnListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1718,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-06-20T02:53:11Z",
+      "side": 1,
+      "message": "prefer isExpanded over expanded",
+      "revId": "8cae4463909b589700abca7e6252c23eb1c72b6a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b88ae118_280b3a12",
+        "filename": "src/kits/interface/ColumnListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1719,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-06-20T02:53:11Z",
+      "side": 1,
+      "message": "I realize that you didn’t create the c variable name here but from the coding guidelines: “Use self-describing well chosen identifiers whenever possible. Avoid identifiers such as r (hard to search for)”",
+      "revId": "8cae4463909b589700abca7e6252c23eb1c72b6a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c05f3cf8_fc868776",
+        "filename": "src/kits/interface/ColumnListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1729,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-06-20T02:53:11Z",
+      "side": 1,
+      "message": "The coding guidelines do explicitly require you to add a new line between cases but the switch example does suggest it. Doing so makes it clearer that the case above doesn’t fall-through.",
+      "revId": "8cae4463909b589700abca7e6252c23eb1c72b6a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
