@@ -1715,10 +1715,23 @@ BColumnListView::KeyDown(const char* bytes, int32 numBytes)
 				if (focusRow == NULL)
 					break;
 
-				bool expanded = focusRow->IsExpanded();
-				if ((c == B_RIGHT_ARROW && !expanded)
-					|| (c == B_LEFT_ARROW && expanded)) {
-					fOutlineView->ToggleFocusRowOpen();
+				bool expanded = focusRow->HasLatch() && focusRow->IsExpanded();
+				switch (c) {
+				case B_LEFT_ARROW:
+					if (expanded)
+						fOutlineView->ToggleFocusRowOpen();
+					else if (focusRow->fParent != NULL) {
+						fOutlineView->DeselectAll();
+						fOutlineView->SetFocusRow(focusRow->fParent, true);
+						fOutlineView->ScrollTo(focusRow->fParent);
+					}
+					break;
+				case B_RIGHT_ARROW:
+					if (!expanded)
+						fOutlineView->ToggleFocusRowOpen();
+					else
+						fOutlineView->ChangeFocusRow(false, true, false);
+					break;
 				}
 			}
 			break;
