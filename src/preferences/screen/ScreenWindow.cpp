@@ -233,7 +233,7 @@ ScreenWindow::ScreenWindow(ScreenSettings* settings)
 
 	// brightness slider
 	fBrightnessSlider = new BSlider("brightness", B_TRANSLATE("Brightness:"),
-		NULL, 0, 255, B_HORIZONTAL);
+		NULL, 1, 255, B_HORIZONTAL);
 	groupView->AddChild(fBrightnessSlider);
 
 	if (screen.GetBrightness(&fOriginalBrightness) == B_OK) {
