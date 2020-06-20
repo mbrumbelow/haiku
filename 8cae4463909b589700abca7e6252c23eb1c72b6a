@@ -50,6 +50,24 @@
       "revId": "8cae4463909b589700abca7e6252c23eb1c72b6a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e401b94e_2c46f2dc",
+        "filename": "src/kits/interface/ColumnListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1729,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-06-20T02:59:06Z",
+      "side": 1,
+      "message": "... does not explicitly require ...",
+      "parentUuid": "c05f3cf8_fc868776",
+      "revId": "8cae4463909b589700abca7e6252c23eb1c72b6a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
