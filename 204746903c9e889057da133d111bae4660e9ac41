@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "55d3926e_8e6d4aa9",
+        "filename": "build/jam/images/MMCImage",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-06-21T02:21:33Z",
+      "side": 1,
+      "message": "my brain is squishy here.. I don\u0027t think EFI on arm actually needs the haiku-floppyboot since we can depend on EFI runtime services to \"locate Haiku on media\"",
+      "revId": "204746903c9e889057da133d111bae4660e9ac41",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63704ac2_8dbd8082",
+        "filename": "src/system/boot/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-06-21T02:21:33Z",
+      "side": 1,
+      "message": "Others could apply here (riscv?) but, figured the intent was clearer with this vs !\u003d x86_64",
+      "revId": "204746903c9e889057da133d111bae4660e9ac41",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
