@@ -192,6 +192,9 @@ private:
 									bool keyDown = false);
 			void				_Hide();
 			BMenuItem*			_Track(int* action, long start = -1);
+			void				_ScriptingMessageReceived(BMessage* message);
+			void				_ItemScriptingMessageReceived(BMessage* message, BMenuItem* item);
+			status_t			_ResolveItemSpecifier(const BMessage& specifier, int32 what, BMenuItem*& item);
 
 			void				_UpdateNavigationArea(BPoint position,
 									BRect& navAreaRectAbove,
