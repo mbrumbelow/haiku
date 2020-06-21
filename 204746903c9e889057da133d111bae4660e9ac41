@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "09337290_22ada751",
+        "filename": "src/bin/makebootable/platform/efi/makebootable.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-06-21T02:28:32Z",
+      "side": 1,
+      "message": "But Alex senpai, why would you need to add this?  x86_64 is efi and we don\u0027t need such hacks!1!!\n\n\nx86_64\u0027s TARGET_KERNEL_PLATFORM is actually bios_ia32. This is our first \"native EFI\" kernel platform.\n\nSee? x86_64 below.\n\n            HAIKU_KERNEL_PLATFORM ?\u003d bios_ia32 ;\n            HAIKU_BOOT_TARGETS +\u003d bios_ia32 efi pxe_ia32 ;",
+      "revId": "204746903c9e889057da133d111bae4660e9ac41",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "63704ac2_8dbd8082",
         "filename": "src/system/boot/Jamfile",
         "patchSetId": 1
