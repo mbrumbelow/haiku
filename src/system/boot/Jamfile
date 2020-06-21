@@ -317,6 +317,9 @@ for platform in [ MultiBootSubDirSetup ] {
 		switch $(TARGET_BOOT_PLATFORM) {
 			case efi :
 				BuildEFILoader haiku_loader.$(TARGET_BOOT_PLATFORM) : boot_loader_$(TARGET_BOOT_PLATFORM) ;
+				if $(TARGET_ARCH) = arm || $(TARGET_ARCH) = arm64 {
+					BuildUImageScript boot.scr : $(HAIKU_MMC_UBOOT_SCRIPT) ;
+				}
 
 			case bios_ia32 :
 				BuildBiosLoader haiku_loader.$(TARGET_BOOT_PLATFORM) : boot_loader_$(TARGET_BOOT_PLATFORM) ;
