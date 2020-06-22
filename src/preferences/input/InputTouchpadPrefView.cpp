@@ -268,6 +268,7 @@ TouchpadPrefView::TouchpadPrefView(BInputDevice* dev)
 	:
 	BGroupView()
 {
+	fTouchpadPref.SetDevice(dev);
 	SetupView();
 	// set view values
 	SetValues(&fTouchpadPref.Settings());

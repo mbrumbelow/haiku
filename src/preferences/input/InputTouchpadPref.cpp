@@ -62,6 +62,13 @@ TouchpadPref::UpdateSettings()
 	return fTouchPad->Control(MS_SET_TOUCHPAD_SETTINGS, &msg);
 }
 
+void
+TouchpadPref::SetDevice(BInputDevice *dev)
+{
+	delete fTouchPad;
+	fTouchPad = dev;
+}
+
 
 void
 TouchpadPref::Defaults()

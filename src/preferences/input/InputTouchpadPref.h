@@ -32,6 +32,7 @@ public:
 
 			void				Revert();
 			void				Defaults();
+			void 				SetDevice(BInputDevice *dev);
 
 			BPoint 				WindowPosition()
 									{ return fWindowPosition; }
