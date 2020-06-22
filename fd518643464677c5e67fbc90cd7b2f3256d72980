@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e54bd983_5f83453b",
+        "filename": "src/kits/app/Looper.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-22T11:30:10Z",
+      "side": 1,
+      "message": "I guess it would return the BHandlers attached to the looper, just like the View property for BWindow?",
+      "revId": "fd518643464677c5e67fbc90cd7b2f3256d72980",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
