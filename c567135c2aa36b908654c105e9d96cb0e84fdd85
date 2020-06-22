@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "159308d4_ad28d59a",
+        "filename": "src/kits/interface/Menu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1657,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-22T11:32:26Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "c567135c2aa36b908654c105e9d96cb0e84fdd85",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c049b876_88c533b0",
+        "filename": "src/kits/interface/Menu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1802,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-22T11:32:26Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "c567135c2aa36b908654c105e9d96cb0e84fdd85",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
