@@ -16,6 +16,24 @@
       "revId": "fd518643464677c5e67fbc90cd7b2f3256d72980",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be95e94c_57ed0394",
+        "filename": "src/kits/app/Looper.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-06-22T11:40:17Z",
+      "side": 1,
+      "message": "\"Handler\" property already exists for that. According definition, \"Handlers\" have BMessenger type and no index specifier.",
+      "parentUuid": "e54bd983_5f83453b",
+      "revId": "fd518643464677c5e67fbc90cd7b2f3256d72980",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
