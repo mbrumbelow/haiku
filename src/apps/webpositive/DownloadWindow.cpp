@@ -59,8 +59,7 @@ public:
 
 	virtual BSize MinSize()
 	{
-		BSize minSize = BGroupView::MinSize();
-		return BSize(minSize.width, 80);
+		return BSize(0, 80);
 	}
 
 	virtual void Pulse()
@@ -90,7 +89,7 @@ class DownloadContainerScrollView : public BScrollView {
 public:
 	DownloadContainerScrollView(BView* target)
 		:
-		BScrollView("Downloads scroll view", target, 0, false, true,
+		BScrollView("Downloads scroll view", target, 0, true, true,
 			B_NO_BORDER)
 	{
 	}
