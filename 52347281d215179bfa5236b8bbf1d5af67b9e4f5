@@ -142,6 +142,24 @@
     },
     {
       "key": {
+        "uuid": "0db6cf53_933b9b0b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-24T17:50:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a064ab0_dca6d0b9",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1260879b_396d1b4e",
         "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
         "patchSetId": 2
@@ -210,6 +228,30 @@
       "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7a51c95_9e3d9e09",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-24T17:50:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43b8c9e5_de3e9f36",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 4
+      },
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -350,6 +392,24 @@
       "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a97fa114_c894ac25",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-24T17:50:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f543e63c_fc80071d",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -560,6 +620,24 @@
       "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12aec20a_69c8240f",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-24T17:50:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b1b0150_e2ca31a4",
+      "revId": "52347281d215179bfa5236b8bbf1d5af67b9e4f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
