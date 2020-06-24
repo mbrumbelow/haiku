@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1d84371c_ad175c7b",
+        "filename": "src/apps/webpositive/DownloadWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000220
+      },
+      "writtenOn": "2020-06-24T10:40:16Z",
+      "side": 1,
+      "message": "0 is a bit weird perhaps, but I noticed that it\u0027ll never shrink to 0 anyhow. There could be a better value to use..",
+      "revId": "2a5f7475321eb617f7ff7e2bd825e2a670941d60",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
