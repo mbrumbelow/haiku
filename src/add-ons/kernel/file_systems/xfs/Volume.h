@@ -77,6 +77,9 @@ public:
 			uint8				SuperBlockFlags() const
 									{ return fSuperBlock.Flags(); }
 
+			uint32				SuperBlockFeatures2() const
+									{ return fSuperBlock.Features2(); }
+
 	#if 0
 			off_t				NumBlocks() const
 									{ return fSuperBlock.NumBlocks(); }
