@@ -33,6 +33,7 @@ MouseSettings::MouseSettings()
 	:
 	fWindowPosition(-1, -1)
 {
+	Defaults();
 	_RetrieveSettings();
 
 	fOriginalSettings = fSettings;
@@ -41,23 +42,38 @@ MouseSettings::MouseSettings()
 	fOriginalAcceptFirstClick = fAcceptFirstClick;
 }
 
+MouseSettings::MouseSettings(mouse_settings settings)
+	:
+	fSettings(settings)
+{
+	_RetrieveSettings();
+
+#ifdef DEBUG
+        Dump();
+#endif
+
+	fOriginalSettings = fSettings;
+	fOriginalMode = fMode;
+	fOriginalFocusFollowsMouseMode = fFocusFollowsMouseMode;
+	fOriginalAcceptFirstClick = fAcceptFirstClick;
+}
 
 MouseSettings::~MouseSettings()
 {
-	_SaveSettings();
+	// _SaveSettings();
 }
 
 
-status_t
-MouseSettings::_GetSettingsPath(BPath &path)
-{
-	status_t status = find_directory(B_USER_SETTINGS_DIRECTORY, &path);
-	if (status < B_OK)
-		return status;
+// status_t
+// MouseSettings::_GetSettingsPath(BPath &path)
+// {
+// 	status_t status = find_directory(B_USER_SETTINGS_DIRECTORY, &path);
+// 	if (status < B_OK)
+// 		return status;
 
-	path.Append(mouse_settings_file);
-	return B_OK;
-}
+// 	path.Append(mouse_settings_file);
+// 	return B_OK;
+// }
 
 
 void
@@ -83,8 +99,8 @@ MouseSettings::_RetrieveSettings()
 	// also try to load the window position from disk
 
 	BPath path;
-	if (_GetSettingsPath(path) < B_OK)
-		return;
+	// if (_GetSettingsPath(path) < B_OK)
+		// return;
 
 	BFile file(path.Path(), B_READ_ONLY);
 	if (file.InitCheck() < B_OK)
@@ -113,31 +129,31 @@ MouseSettings::_RetrieveSettings()
 }
 
 
-status_t
-MouseSettings::_SaveSettings()
-{
-	BPath path;
-	status_t status = _GetSettingsPath(path);
-	if (status < B_OK)
-		return status;
+// status_t
+// MouseSettings::_SaveSettings()
+// {
+// 	BPath path;
+// 	status_t status = _GetSettingsPath(path);
+// 	if (status < B_OK)
+// 		return status;
 
-	BFile file(path.Path(), B_READ_WRITE | B_CREATE_FILE);
-	status = file.InitCheck();
-	if (status < B_OK)
-		return status;
+// 	BFile file(path.Path(), B_READ_WRITE | B_CREATE_FILE);
+// 	status = file.InitCheck();
+// 	if (status < B_OK)
+// 		return status;
 
-#if R5_COMPATIBLE
-	const off_t kOffset = sizeof(mouse_settings) - sizeof(mouse_map)
-		+ sizeof(int32) * 3;
-	// we have to do this because mouse_map counts 16 buttons in OBOS
-#else
-	const off_t kOffset = sizeof(mouse_settings);
-#endif
+// #if R5_COMPATIBLE
+// 	const off_t kOffset = sizeof(mouse_settings) - sizeof(mouse_map)
+// 		+ sizeof(int32) * 3;
+// 	// we have to do this because mouse_map counts 16 buttons in OBOS
+// #else
+// 	const off_t kOffset = sizeof(mouse_settings);
+// #endif
 
-	file.WriteAt(kOffset, &fWindowPosition, sizeof(BPoint));
+// 	file.WriteAt(kOffset, &fWindowPosition, sizeof(BPoint));
 
-	return B_OK;
-}
+// 	return B_OK;
+// }
 
 
 #ifdef DEBUG
@@ -380,3 +396,306 @@ MouseSettings::SetAcceptFirstClick(bool accept_first_click)
 	set_accept_first_click(accept_first_click);
 	fAcceptFirstClick = accept_first_click;
 }
+
+mouse_settings*
+MouseSettings::GetSettings() {
+	return &fSettings;
+}
+
+
+/* MultiMouseSettings functions */
+
+MultipleMouseSettings::MultipleMouseSettings()
+{
+	// Defaults();
+	RetrieveSettings();
+
+#ifdef DEBUG
+        Dump();
+#endif
+
+}
+
+
+MultipleMouseSettings::~MultipleMouseSettings()
+{
+	SaveSettings();
+
+#ifdef DEBUG
+        Dump();
+#endif
+
+	std::map<BString, MouseSettings*>::iterator itr;
+	for (itr = fMouseSettingsObject.begin(); itr != fMouseSettingsObject.end(); ++itr) {
+		printf("mouse_name:\t%s\n", itr->first.String());
+		printf("type: %d  button mouse\n", itr->second->fSettings.type);
+		printf("\n");
+	}
+}
+
+
+// MultipleMouseSettings::MultipleMouseSettings(BMessage* archive)
+// {
+// 	int i = 0;
+// 	const char* deviceName;
+// 	mouse_settings* settings;
+// 	ssize_t size = 0;
+
+// 	while (archive->FindString("mouseDevice", i, &deviceName) == B_OK) {
+// 		archive->FindData("mouseSettings", B_ANY_TYPE, i, (const void**)&settings, &size);
+
+// 		// fMouseSettingsObject.insert(std::pair<const char*, mouse_settings*>(deviceName, settings));
+// 	}
+// }
+
+
+status_t
+MultipleMouseSettings::GetSettingsPath(BPath &path)
+{
+	status_t status = find_directory(B_USER_SETTINGS_DIRECTORY, &path);
+	if (status < B_OK)
+		return status;
+
+	path.Append(mouse_settings_file);
+	return B_OK;
+}
+
+void
+MultipleMouseSettings::RetrieveSettings()
+{
+	// retrieve current values
+	// also try to load the window position from disk
+
+	BPath path;
+	if (GetSettingsPath(path) < B_OK)
+		return;
+
+	BFile file(path.Path(), B_READ_ONLY);
+	if (file.InitCheck() < B_OK)
+		return;
+
+	// if (file.ReadAt(0, &fMultipleMouseSettings, sizeof(multiple_mouse_settings))
+	// 		!= sizeof(multiple_mouse_settings)) {
+	// 	Defaults();
+	// }
+
+	BMessage message;
+	message.Unflatten(&file);
+
+	int i = 0;
+	BString deviceName;
+	mouse_settings* settings;
+	ssize_t size = 0;
+
+	printf("===BEGIN: RETERIVE STUFF===\n");
+	while (message.FindString("mouseDevice", i, &deviceName) == B_OK) {
+		message.FindData("mouseSettings", B_ANY_TYPE, i, (const void**)&settings, &size);
+		printf("Device name: %s \n", deviceName.String());
+		printf("Settings.type: %d \n", settings->type);
+		printf("Settings.click_speed: %d \n", (int)settings->click_speed);
+		printf("Settings.accel.accel_factor: %d \n", settings->accel.accel_factor);
+		printf("Settings.accel.speed: %d \n", settings->accel.speed);
+		printf("Settings.accel.enabled: %s \n", settings->accel.enabled  ? "enabled" : "disabled");
+		printf("Mousebutton map: Button 0: %d\n", settings->map.button[0]);
+		printf("Mousebutton map: Button 1: %d\n", settings->map.button[1]);
+		printf("Mousebutton map: Button 2: %d\n", settings->map.button[2]);
+		printf("Mousebutton map: Button 3: %d\n", settings->map.button[3]);
+		printf("Mousebutton map: Button 4: %d\n", settings->map.button[4]);
+		printf("Mousebutton map: Button 5: %d\n\n", settings->map.button[5]);
+		// mouse_settings s = *settings;  // shallow copy, deepcopy
+		MouseSettings sM = MouseSettings(*settings);
+		fMouseSettingsObject.insert(std::pair<BString, MouseSettings*>(deviceName, &sM));
+		i++;
+	}
+
+	std::map<BString, MouseSettings*>::const_iterator itr;
+	printf("\nAddress of MouseSettings objects:\n");
+	for (itr = fMouseSettingsObject.begin(); itr != fMouseSettingsObject.end(); ++itr) {
+		printf("%s: %p\n", itr->first.String(), (void*)&(itr->second));
+	}
+	
+	printf("===End: RETERIVE STUFF===\n");
+	
+
+	// std::map<const char*, MouseSettings*>::iterator itr2;
+	// for (itr2 = fMouseSettingsObject.begin(); itr2 != fMouseSettingsObject.end(); ++itr2) {
+	// 	itr2->second->_RetrieveSettings();
+	// }
+}
+
+
+
+status_t
+MultipleMouseSettings::Archive(BMessage* into, bool deep) const
+{
+	std::map<BString, MouseSettings*>::const_iterator itr;
+	for (itr = fMouseSettingsObject.begin(); itr != fMouseSettingsObject.end(); ++itr) {
+		into->AddString("mouseDevice", itr->first);
+		// into->AddData("mouseSettings", B_ANY_TYPE, &itr->second, sizeof(itr->second));
+		// into->AddData("mouseSettings", B_ANY_TYPE, itr->second, sizeof(*(itr->second)));
+		into->AddData("mouseSettings", B_ANY_TYPE, itr->second->GetSettings(), sizeof(*(itr->second->GetSettings())));
+	}
+
+	return B_OK;
+}
+
+
+status_t
+MultipleMouseSettings::SaveSettings()
+{
+// #ifdef DEBUG
+// 	Dump();
+// #endif
+
+	BPath path;
+	status_t status = GetSettingsPath(path);
+	if (status < B_OK)
+		return status;
+
+	BFile file(path.Path(), B_READ_WRITE | B_CREATE_FILE);
+	status = file.InitCheck();
+	if (status != B_OK)
+		return status;
+
+	BMessage message;
+	Archive(&message, true);
+	// return message.Flatten(&file);
+	message.Flatten(&file);
+
+
+	int j = 0;
+	BString savedeviceName;
+	mouse_settings* savesettings;
+	ssize_t sizet = 0;
+
+	printf("===BEGIN: SAVE STUFF===\n");
+	while (message.FindString("mouseDevice", j, &savedeviceName) == B_OK) {
+		message.FindData("mouseSettings", B_ANY_TYPE, j, (const void**)&savesettings, &sizet);
+		printf("Device name: %s \n", savedeviceName.String());
+		printf("Settings.type: %d \n", savesettings->type);
+		printf("Settings.click_speed: %d \n", (int)savesettings->click_speed);
+		printf("Settings.accel.accel_factor: %d \n", savesettings->accel.accel_factor);
+		printf("Settings.accel.speed: %d \n", savesettings->accel.speed);
+		printf("Settings.accel.enabled: %s \n", savesettings->accel.enabled  ? "enabled" : "disabled");
+		printf("Mousebutton map: Button 0: %d\n", savesettings->map.button[0]);
+		printf("Mousebutton map: Button 1: %d\n", savesettings->map.button[1]);
+		printf("Mousebutton map: Button 2: %d\n", savesettings->map.button[2]);
+		printf("Mousebutton map: Button 3: %d\n", savesettings->map.button[3]);
+		printf("Mousebutton map: Button 4: %d\n", savesettings->map.button[4]);
+		printf("Mousebutton map: Button 5: %d\n\n", savesettings->map.button[5]);
+		j++;
+	}
+	printf("\nAddress of MouseSettings objects:\n");
+	std::map<BString, MouseSettings*>::const_iterator itr;
+	for (itr = fMouseSettingsObject.begin(); itr != fMouseSettingsObject.end(); ++itr) {
+		printf("%s: %p\n", itr->first.String(), (void*)&(itr->second));
+	}
+	printf("===End: SAVE STUFF===\n\n");
+
+	// return message.Flatten(&file);
+
+	// who is responsible for saving the mouse mode and accept_first_click?
+	
+	
+	// //Retrieve Settings Code
+	
+	// BPath retrieve_path;
+	// if (GetSettingsPath(retrieve_path) < B_OK)
+	// 	return B_OK;
+
+	// BFile retrieve_file(retrieve_path.Path(), B_READ_ONLY);
+	// if (retrieve_file.InitCheck() < B_OK)
+	// 	return B_OK;
+	
+	// BMessage retrive_message;
+	// retrive_message.Unflatten(&retrieve_file);
+
+	// // Archive(&message, true);
+
+	// int i = 0;
+	// BString deviceName;
+	// mouse_settings* settings;
+	// ssize_t size = 0;
+
+	// printf("===BEGIN: RETERIVE STUFF===\n");
+	// while (retrive_message.FindString("mouseDevice", i, &deviceName) == B_OK) {
+	// 	retrive_message.FindData("mouseSettings", B_ANY_TYPE, i, (const void**)&settings, &size);
+	// 	printf("Device name: %s \n", deviceName.String());
+	// 	printf("Settings.type: %d \n", settings->type);
+	// 	printf("Settings.click_speed: %d \n", (int)settings->click_speed);
+	// 	printf("Settings.accel.accel_factor: %d \n", settings->accel.accel_factor);
+	// 	printf("Settings.accel.speed: %d \n", settings->accel.speed);
+	// 	printf("Settings.accel.enabled: %s \n", settings->accel.enabled  ? "enabled" : "disabled");
+	// 	printf("Mousebutton map: Button 0: %d\n", settings->map.button[0]);
+	// 	printf("Mousebutton map: Button 1: %d\n", settings->map.button[1]);
+	// 	printf("Mousebutton map: Button 2: %d\n", settings->map.button[2]);
+	// 	printf("Mousebutton map: Button 3: %d\n", settings->map.button[3]);
+	// 	printf("Mousebutton map: Button 4: %d\n", settings->map.button[4]);
+	// 	printf("Mousebutton map: Button 5: %d\n\n", settings->map.button[5]);
+	// 	mouse_settings s = *settings;  // shallow copy, deepcopy
+	// 	MouseSettings sM = MouseSettings(s);
+	// 	fMouseSettingsObject.insert(std::pair<BString, MouseSettings*>(deviceName, &sM));
+	// 	i++;
+	// }
+	// printf("===End: RETERIVE STUFF===\n");
+
+	return B_OK;
+}
+
+
+void
+MultipleMouseSettings::Defaults()
+{
+	std::map<BString, MouseSettings*>::iterator itr;
+	for (itr = fMouseSettingsObject.begin(); itr != fMouseSettingsObject.end(); ++itr) {
+		itr->second->Defaults();
+	}
+
+}
+
+
+#ifdef DEBUG
+void
+MultipleMouseSettings::Dump()
+{
+	std::map<BString, MouseSettings*>::iterator itr;
+	for (itr = fMouseSettingsObject.begin(); itr != fMouseSettingsObject.end(); ++itr) {
+		printf("mouse_name:\t%s\n", itr->first.String());
+		itr->second->Dump();
+		printf("\n");
+	}
+
+}
+#endif
+
+
+MouseSettings*
+MultipleMouseSettings::AddMouseSettings(BString mouse_name)
+{
+	std::map<BString, MouseSettings*>::iterator itr;
+	for (itr = fMouseSettingsObject.begin(); itr != fMouseSettingsObject.end(); ++itr) {
+		if (itr->first == mouse_name) {
+			return itr->second;
+		}
+	}
+
+	MouseSettings* settings = new MouseSettings();
+	fMouseSettingsObject.insert(std::pair<BString, MouseSettings*>(mouse_name, settings));
+	return settings;
+}
+
+
+MouseSettings*
+MultipleMouseSettings::GetMouseSettings(BString mouse_name)
+{
+	std::map<BString, MouseSettings*>::iterator itr;
+	for (itr = fMouseSettingsObject.begin(); itr != fMouseSettingsObject.end(); ++itr) {
+		if (itr->first == mouse_name) {
+			return itr->second;
+		}
+	}
+	// TODO: raise error when settings not found
+	// printf("%s\n", "NOT FOUND" );
+	MouseSettings *p = NULL;
+	return p;
+ }

@@ -11,6 +11,7 @@
 #define MOUSE_SETTINGS_H
 
 
+#include <Archivable.h>
 #include <Input.h>
 #include <InterfaceDefs.h>
 #include <Point.h>
@@ -24,6 +25,7 @@ class BPath;
 class MouseSettings {
 public:
 		MouseSettings();
+		MouseSettings(mouse_settings settings);
 		~MouseSettings();
 
 		void Revert();
@@ -63,17 +65,53 @@ public:
 		bool AcceptFirstClick() const { return fAcceptFirstClick; }
 		void SetAcceptFirstClick(bool accept_first_click);
 
-private:
-		static status_t _GetSettingsPath(BPath &path);
 		void _RetrieveSettings();
-		status_t _SaveSettings();
+
+		mouse_settings* GetSettings();
+		// void SetSettings(mouse_settings& settings);
 
 		mouse_settings	fSettings, fOriginalSettings;
+private:
+		// static status_t _GetSettingsPath(BPath &path);
+		// void _RetrieveSettings();
+		// status_t _SaveSettings();
+
+		// mouse_settings	fSettings, fOriginalSettings;
 		mode_mouse		fMode, fOriginalMode;
 		mode_focus_follows_mouse	fFocusFollowsMouseMode;
 		mode_focus_follows_mouse	fOriginalFocusFollowsMouseMode;
 		bool			fAcceptFirstClick, fOriginalAcceptFirstClick;
 		BPoint			fWindowPosition;
+};
+
+// We want the settings to be stored in a BMessage
+class MultipleMouseSettings: public BArchivable {
+	public:
+		MultipleMouseSettings();
+		~MultipleMouseSettings();
+
+		// MultipleMouseSettings(BMessage* message);
+//		 Constructor used to get the data from an archived message
+
+		status_t Archive(BMessage* into, bool deep = false) const;
+		// status_t Unflatten(MouseSettings* settings);
+
+		void Defaults();
+		void Dump();
+		status_t SaveSettings();
+
+
+		MouseSettings* AddMouseSettings(BString mouse_name);
+		MouseSettings* GetMouseSettings(BString mouse_name);
+
+	private:
+		static status_t GetSettingsPath(BPath &path);
+		void RetrieveSettings();
+		// typedef std::map<const char*, mouse_settings> multiple_mouse_settings
+		// multiple_mouse_settings	fMultipleMouseSettings, fMultipleMouseOriginalSettings;
+
+		typedef std::map<BString, MouseSettings*> mouse_settings_object;
+		mouse_settings_object  fMouseSettingsObject;
 };
 
 #endif	// MOUSE_SETTINGS_H

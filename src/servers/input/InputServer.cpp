@@ -568,7 +568,7 @@ InputServer::MessageReceived(BMessage* message)
 
 		case IS_SAVE_SETTINGS:
 			fKeyboardSettings.Save();
-			fMouseSettings.SaveSettings();
+			fMultipleMouseSettings.SaveSettings();
 			return;
 
 		case IS_SAVE_KEYMAP:
