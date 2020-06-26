@@ -187,7 +187,10 @@ InputWindow::AddDevice(BInputDevice* dev)
 			name, TOUCHPAD_TYPE);
 		fDeviceListView->fDeviceList->AddItem(touchpad);
 	} else if (dev->Type() == B_POINTING_DEVICE) {
-		InputMouse* view = new InputMouse(dev);
+
+		MouseSettings* settings;
+		settings = fMultipleMouseSettings.AddMouseSettings(name);
+		InputMouse* view = new InputMouse(dev, settings);
 		fCardView->AddChild(view);
 		DeviceListItemView* mouse = new DeviceListItemView(
 			name, MOUSE_TYPE);
