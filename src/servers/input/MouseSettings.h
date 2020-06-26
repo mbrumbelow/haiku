@@ -60,10 +60,10 @@ class MouseSettings {
 		bool AcceptFirstClick() const { return fAcceptFirstClick; }
 		void SetAcceptFirstClick(bool acceptFirstClick);
 
-		status_t SaveSettings();
+		// status_t SaveSettings();
 
 	private:
-		static status_t GetSettingsPath(BPath &path);
+		// static status_t GetSettingsPath(BPath &path);
 		void RetrieveSettings();
 
 		mouse_settings	fSettings, fOriginalSettings;
@@ -74,4 +74,21 @@ class MouseSettings {
 		bool			fOriginalAcceptFirstClick;
 };
 
+
+class MultiMouseSettings {
+	public:
+		MultiMouseSettings();
+		~MultiMouseSettings();
+
+		void Defaults();
+		status_t SaveSettings();
+
+		void AddMouseSettings(int32 mouse_id, mouse_settings settings);
+		mouse_settings GetMouseSettings(int32 mouse_id);
+
+	private:
+		static status_t GetSettingsPath(BPath &path);
+		void RetrieveSettings();
+		multi_mouse_settings	fMultiMouseSettings, fMultiMouseOriginalSettings;
+}
 #endif
