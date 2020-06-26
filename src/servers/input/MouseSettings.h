@@ -27,6 +27,7 @@
 class MouseSettings {
 	public:
 		MouseSettings();
+		MouseSettings(mouse_settings settings);
 		~MouseSettings();
 
 		void Defaults();
@@ -60,11 +61,12 @@ class MouseSettings {
 		bool AcceptFirstClick() const { return fAcceptFirstClick; }
 		void SetAcceptFirstClick(bool acceptFirstClick);
 
-		status_t SaveSettings();
+		void RetrieveSettings();
+
+		mouse_settings* GetSettings();
+		mouse_settings SetSettings(mouse_settings& settings);
 
 	private:
-		static status_t GetSettingsPath(BPath &path);
-		void RetrieveSettings();
 
 		mouse_settings	fSettings, fOriginalSettings;
 		mode_mouse		fMode, fOriginalMode;
@@ -72,6 +74,28 @@ class MouseSettings {
 		mode_focus_follows_mouse	fOriginalFocusFollowsMouseMode;
 		bool			fAcceptFirstClick;
 		bool			fOriginalAcceptFirstClick;
+};
+
+
+class MultipleMouseSettings {
+	public:
+		MultipleMouseSettings();
+		~MultipleMouseSettings();
+
+		void Defaults();
+		status_t SaveSettings();
+
+
+		void AddMouseSettings(const char* mouse_name, MouseSettings settings);
+		MouseSettings GetMouseSettings(const char* mouse_name);
+
+	private:
+		static status_t GetSettingsPath(BPath &path);
+		void RetrieveSettings();
+		multiple_mouse_settings	fMultipleMouseSettings, fMultipleMouseOriginalSettings;
+
+		typedef std::map<const char*, MouseSettings> mouse_settings_object;
+		mouse_settings_object  fMouseSettingsObject;
 };
 
 #endif
