@@ -43,6 +43,7 @@ class InputMouse;
 class TouchpadPrefView;
 class TouchpadPref;
 class TouchpadView;
+class MultipleMouseSettings;
 
 
 class InputWindow : public BWindow
@@ -56,10 +57,11 @@ public:
 private:
 		status_t			FindDevice();
 		void				AddDevice(BInputDevice* device);
-private:
 
 		BListView*			fDeviceListView;
 		BCardView*			fCardView;
+
+		MultipleMouseSettings 	fMultipleMouseSettings;
 };
 
 #endif /* INPUT_WINDOW_H */
