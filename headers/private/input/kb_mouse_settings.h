@@ -5,6 +5,8 @@
 #ifndef _KB_MOUSE_SETTINGS_H
 #define _KB_MOUSE_SETTINGS_H
 
+#include <map>
+
 
 #include <InterfaceDefs.h>
 
@@ -31,6 +33,8 @@ typedef struct {
 	mouse_accel	accel;
 	bigtime_t	click_speed;
 } mouse_settings;
+
+typedef std::map<int32, mouse_settings> multi_mouse_settings;
 
 #define mouse_settings_file "Mouse_settings"
 
