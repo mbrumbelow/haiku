@@ -47,7 +47,6 @@ Server input_server :
 
 	AddOnManager.cpp
 
-	MouseSettings.cpp
 	KeyboardSettings.cpp
 
 	MethodReplicant.cpp
@@ -60,6 +59,8 @@ Server input_server :
 	AddOnMonitor.cpp
 	AddOnMonitorHandler.cpp
 	NodeMonitorHandler.cpp
+	
+	MouseSettings.cpp
 
 	: be [ TargetLibstdc++ ]
 ;
@@ -70,3 +71,6 @@ SEARCH on [ FGristFiles AddOnMonitor.cpp
 		AddOnMonitorHandler.cpp
 		NodeMonitorHandler.cpp ]
 	+= [ FDirName $(SUBDIR) $(DOTDOT) $(DOTDOT) kits storage ] ;
+
+SEARCH on [ FGristFiles MouseSettings.cpp ]
+	+= [ FDirName $(SUBDIR) $(DOTDOT) $(DOTDOT) preferences input ] ;
