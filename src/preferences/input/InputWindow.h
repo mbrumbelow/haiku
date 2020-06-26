@@ -43,6 +43,7 @@ class InputMouse;
 class TouchpadPrefView;
 class TouchpadPref;
 class TouchpadView;
+class MultipleMouseSettings;
 
 
 class InputWindow : public BWindow
@@ -59,6 +60,8 @@ private:
 
 	DeviceListView*				fDeviceListView;
 	BCardView*				fCardView;
+
+	MultipleMouseSettings 	fMultipleMouseSettings;
 };
 
 #endif /* INPUT_WINDOW_H */
