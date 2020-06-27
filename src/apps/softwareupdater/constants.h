@@ -55,7 +55,6 @@ static const uint32 kMsgFinalQuit = 'iFIN';
 static const uint32 kMsgMoreDetailsToggle = 'iDTO';
 static const uint32 kMsgWindowFrameChanged = 'iWFC';
 static const uint32 kMsgSetZoomLimits = 'iSZL';
-static const uint32 kMsgReboot = 'iREB';
 static const uint32 kMsgShowReboot = 'iSRB';
 
 // Message data keys

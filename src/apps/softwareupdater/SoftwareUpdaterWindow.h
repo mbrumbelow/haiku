@@ -180,7 +180,6 @@ private:
 			BStringView*		fDetailView;
 			BButton*			fUpdateButton;
 			BButton*			fCancelButton;
-			BButton*			fRebootButton;
 			BStatusBar*			fStatusBar;
 			PackageListView*	fListView;
 			BScrollView*		fScrollView;
@@ -190,7 +189,6 @@ private:
 			BLayoutItem*		fProgressLayoutItem;
 			BLayoutItem*		fCancelButtonLayoutItem;
 			BLayoutItem*		fUpdateButtonLayoutItem;
-			BLayoutItem*		fRebootButtonLayoutItem;
 			BLayoutItem*		fDetailsCheckboxLayoutItem;
 
 			uint32				fCurrentState;

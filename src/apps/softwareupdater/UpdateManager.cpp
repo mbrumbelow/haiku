@@ -376,12 +376,12 @@ UpdateManager::ProgressTransactionCommitted(InstalledRepository& repository,
 	if (BPackageRoster().IsRebootNeeded()) {
 		detail = B_TRANSLATE("A reboot is necessary to complete the "
 			"update process.");
+		_FinalUpdate(header.String(), detail.String());
 		fStatusWindow->PostMessage(kMsgShowReboot);
 	} else {
 		detail = B_TRANSLATE("Updates have been successfully installed.");
+		_FinalUpdate(header.String(), detail.String());
 	}
-
-	_FinalUpdate(header.String(), detail.String());
 
 	if (fVerbose) {
 		const char* repositoryName = repository.Name().String();

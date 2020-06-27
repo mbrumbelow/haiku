@@ -62,8 +62,6 @@ SoftwareUpdaterWindow::SoftwareUpdaterWindow()
 	fUpdateButton->MakeDefault(true);
 	fCancelButton = new BButton(B_TRANSLATE("Cancel"),
 		new BMessage(kMsgCancel));
-	fRebootButton = new BButton(B_TRANSLATE("Reboot"),
-		new BMessage(kMsgReboot));
 
 	fHeaderView = new BStringView("header",
 		B_TRANSLATE("Checking for updates"), B_WILL_DRAW);
@@ -108,7 +106,6 @@ SoftwareUpdaterWindow::SoftwareUpdaterWindow()
 				.AddGlue()
 				.Add(fCancelButton)
 				.Add(fUpdateButton)
-				.Add(fRebootButton)
 			.End()
 		.End()
 	.End();
@@ -118,7 +115,6 @@ SoftwareUpdaterWindow::SoftwareUpdaterWindow()
 	fPackagesLayoutItem = layout_item_for(fScrollView);
 	fCancelButtonLayoutItem = layout_item_for(fCancelButton);
 	fUpdateButtonLayoutItem = layout_item_for(fUpdateButton);
-	fRebootButtonLayoutItem = layout_item_for(fRebootButton);
 	fDetailsCheckboxLayoutItem = layout_item_for(fDetailsCheckbox);
 
 	_SetState(STATE_DISPLAY_STATUS);
@@ -314,15 +310,6 @@ SoftwareUpdaterWindow::MessageReceived(BMessage* message)
 		}
 
 		case kMsgShowReboot:
-		{
-			fRebootButtonLayoutItem->SetVisible(true);
-			fRebootButton->SetLabel(B_TRANSLATE_COMMENT("Reboot",
-				"Button label"));
-			fRebootButton->MakeDefault(true);
-			break;
-		}
-
-		case kMsgReboot:
 		{
 			if (_GetState() != STATE_FINAL_MESSAGE)
 				break;
@@ -600,7 +587,6 @@ SoftwareUpdaterWindow::_SetState(uint32 state)
 		fPackagesLayoutItem->SetVisible(false);
 		fDetailsCheckboxLayoutItem->SetVisible(false);
 		fCancelButtonLayoutItem->SetVisible(false);
-		fRebootButtonLayoutItem->SetVisible(false);
 	}
 	fCurrentState = state;
 
