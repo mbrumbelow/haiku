@@ -38,15 +38,15 @@ void
 ${cppclassname}::AddTo${cppname}(${cppcontainertype}* value)
 {
     if (${cppmembername} == NULL)
-        ${cppmembername} = new List<${cppcontainertype}*, true>();
-    ${cppmembername}->Add(value);
+        ${cppmembername} = new std::vector<${cppcontainertype}*>();
+    ${cppmembername}->push_back(value);
 }
 
 
 void
-${cppclassname}::Set${cppname}(List<${cppcontainertype}*, true>* value)
+${cppclassname}::Set${cppname}(std::vector<${cppcontainertype}*>* value)
 {
-   ${cppmembername} = value; 
+   ${cppmembername} = value;
 }
 
 
@@ -55,14 +55,14 @@ ${cppclassname}::Count${cppname}()
 {
     if (${cppmembername} == NULL)
         return 0;
-    return ${cppmembername}->CountItems();
+    return ${cppmembername}->size();
 }
 
 
 ${cppcontainertype}*
 ${cppclassname}::${cppname}ItemAt(int32 index)
 {
-    return ${cppmembername}->ItemAt(index);
+    return ${cppmembername}->at(index);
 }
 
 
@@ -82,7 +82,7 @@ def writelistaccessorsheader(outputfile, cppname, cppcontainertype):
 
     outputfile.write(
         string.Template("""    void AddTo${cppname}(${cppcontainertype}* value);
-    void Set${cppname}(List<${cppcontainertype}*, true>* value);
+    void Set${cppname}(std::vector<${cppcontainertype}*>* value);
     int32 Count${cppname}();
     ${cppcontainertype}* ${cppname}ItemAt(int32 index);
     bool ${cppname}IsNull();
@@ -261,9 +261,9 @@ def writedestructorlogicforlist(outputfile, propname, propmetadata):
     }
 
     outputfile.write(
-        string.Template("""        int32 count = ${cppmembername}->CountItems(); 
+        string.Template("""        int32 count = ${cppmembername}->size(); 
         for (i = 0; i < count; i++)
-            delete ${cppmembername}->ItemAt(i);
+            delete ${cppmembername}->at(i);
 """).substitute(dict))
 
 
@@ -336,7 +336,8 @@ def schematocppmodels(inputfile, schema, outputdirectory):
 #ifndef ${guarddefname}
 #define ${guarddefname}
 
-#include "List.h"
+#include <vector>
+
 #include "String.h"
 
 """).substitute({'guarddefname': guarddefname}))
