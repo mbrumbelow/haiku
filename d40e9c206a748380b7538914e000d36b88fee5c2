@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f4128bb_e22aec21",
+        "filename": "src/apps/softwareupdater/SoftwareUpdaterWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2020-06-27T21:47:21Z",
+      "side": 1,
+      "message": "If you were to change the second “true” to a “false” for this Shutdown method, the system would simply reboot without the second prompt.",
+      "revId": "d40e9c206a748380b7538914e000d36b88fee5c2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
