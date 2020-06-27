@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6069fb72_b74decec",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/DirectoryIterator.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-27T15:13:00Z",
+      "side": 1,
+      "message": "these braces are not needed",
+      "revId": "5a760518b9cebedc05cf605899af1f1383d6f07a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eaf08b72_83a2aca2",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/DirectoryIterator.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-27T15:13:00Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "5a760518b9cebedc05cf605899af1f1383d6f07a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "564783c4_63db391d",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/DirectoryIterator.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-27T15:13:00Z",
+      "side": 1,
+      "message": "return B_ERROR or B_BAD_DATA or something like this. B_NOT_SUPPORTED is for when the code isn\u0027t there yet, but here it\u0027s a \"real\" error (failed to read from disk)",
+      "revId": "5a760518b9cebedc05cf605899af1f1383d6f07a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d517940_bf9250e4",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/DirectoryIterator.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-27T15:13:00Z",
+      "side": 1,
+      "message": "same here",
+      "revId": "5a760518b9cebedc05cf605899af1f1383d6f07a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28af4f62_0133f3a4",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/DirectoryIterator.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-27T15:13:00Z",
+      "side": 1,
+      "message": "now that the function is a bit complete, it can return B_OK again.",
+      "revId": "5a760518b9cebedc05cf605899af1f1383d6f07a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bbb21b5_3739fd8c",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-27T15:13:00Z",
+      "side": 1,
+      "message": "missing space after {",
+      "revId": "5a760518b9cebedc05cf605899af1f1383d6f07a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
