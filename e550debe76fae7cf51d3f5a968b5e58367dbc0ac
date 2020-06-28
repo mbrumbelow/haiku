@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f1c7efa1_eb6e6e0e",
+        "filename": "src/servers/app/drawing/Painter/drawing_modes/AggCompOpAdapter.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2020-06-28T12:53:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8043d54a_69861182",
+      "revId": "e550debe76fae7cf51d3f5a968b5e58367dbc0ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b3f2947a_7e4e90d3",
         "filename": "src/servers/app/drawing/Painter/drawing_modes/AggCompOpAdapter.h",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "e550debe76fae7cf51d3f5a968b5e58367dbc0ac",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb035996_e64abbd1",
+        "filename": "src/servers/app/drawing/Painter/drawing_modes/AggCompOpAdapter.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2020-06-28T12:53:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3f2947a_7e4e90d3",
+      "revId": "e550debe76fae7cf51d3f5a968b5e58367dbc0ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "f5385041_a1b46c6f",
+        "filename": "src/servers/app/drawing/Painter/drawing_modes/AggCompOpAdapter.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2020-06-28T12:53:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "436988ab_fc5b6db4",
+      "revId": "e550debe76fae7cf51d3f5a968b5e58367dbc0ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7628c122_e3710c71",
         "filename": "src/servers/app/drawing/Painter/drawing_modes/PixelFormat.h",
         "patchSetId": 2
@@ -67,6 +121,24 @@
       "revId": "e550debe76fae7cf51d3f5a968b5e58367dbc0ac",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b107be1f_830eb6bf",
+        "filename": "src/servers/app/drawing/Painter/drawing_modes/PixelFormat.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2020-06-28T12:53:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7628c122_e3710c71",
+      "revId": "e550debe76fae7cf51d3f5a968b5e58367dbc0ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "2bc280dc_f06ea2f7",
+        "filename": "src/tests/servers/app/drawing_modes/DrawingModes.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2020-06-28T12:53:15Z",
+      "side": 1,
+      "message": "Done. Documentation states that ImportBits works for B_RGB bitmaps only, so I don\u0027t think it can be used here.",
+      "parentUuid": "aa458f81_cffb18d2",
+      "revId": "e550debe76fae7cf51d3f5a968b5e58367dbc0ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "da80e56b_1f896b72",
         "filename": "src/tests/servers/app/drawing_modes/DrawingModes.cpp",
         "patchSetId": 2
@@ -101,6 +191,24 @@
       "revId": "e550debe76fae7cf51d3f5a968b5e58367dbc0ac",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31818ca1_bd1a6594",
+        "filename": "src/tests/servers/app/drawing_modes/DrawingModes.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2020-06-28T12:53:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da80e56b_1f896b72",
+      "revId": "e550debe76fae7cf51d3f5a968b5e58367dbc0ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
