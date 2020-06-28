@@ -16,6 +16,24 @@
       "revId": "2a5f7475321eb617f7ff7e2bd825e2a670941d60",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1bea514a_b12527f5",
+        "filename": "src/apps/webpositive/DownloadWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2020-06-28T16:40:43Z",
+      "side": 1,
+      "message": "I think B_SIZE_UNSET instead of the \"0\" would work.",
+      "parentUuid": "1d84371c_ad175c7b",
+      "revId": "2a5f7475321eb617f7ff7e2bd825e2a670941d60",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
