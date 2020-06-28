@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8043d54a_69861182",
+        "filename": "src/servers/app/drawing/Painter/drawing_modes/AggCompOpAdapter.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-28T08:24:56Z",
+      "side": 1,
+      "message": "Would x * sizeof(color_type) be better than x \u003c\u003c 2 here?",
+      "revId": "e550debe76fae7cf51d3f5a968b5e58367dbc0ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3f2947a_7e4e90d3",
+        "filename": "src/servers/app/drawing/Painter/drawing_modes/AggCompOpAdapter.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-28T08:24:56Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "e550debe76fae7cf51d3f5a968b5e58367dbc0ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "436988ab_fc5b6db4",
+        "filename": "src/servers/app/drawing/Painter/drawing_modes/AggCompOpAdapter.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-28T08:24:56Z",
+      "side": 1,
+      "message": "p +\u003d sizeof(color_type) / sizeof(value_type) ?",
+      "revId": "e550debe76fae7cf51d3f5a968b5e58367dbc0ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7628c122_e3710c71",
+        "filename": "src/servers/app/drawing/Painter/drawing_modes/PixelFormat.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-28T08:24:56Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "e550debe76fae7cf51d3f5a968b5e58367dbc0ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa458f81_cffb18d2",
+        "filename": "src/tests/servers/app/drawing_modes/DrawingModes.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-28T08:24:56Z",
+      "side": 1,
+      "message": "80 columns. Also I think you could use ImportBits here.",
+      "revId": "e550debe76fae7cf51d3f5a968b5e58367dbc0ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da80e56b_1f896b72",
+        "filename": "src/tests/servers/app/drawing_modes/DrawingModes.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-28T08:24:56Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "e550debe76fae7cf51d3f5a968b5e58367dbc0ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
