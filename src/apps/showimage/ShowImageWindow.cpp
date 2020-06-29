@@ -840,8 +840,9 @@ ShowImageWindow::MessageReceived(BMessage* message)
 			break;
 
 		case MSG_FILE_PREV:
-			if (_ClosePrompt() && fNavigator.PreviousFile())
+			if (_ClosePrompt() && fNavigator.PreviousFile()) {
 				_LoadImage(false);
+			}
 			break;
 
 		case MSG_FILE_NEXT:
@@ -857,9 +858,9 @@ ShowImageWindow::MessageReceived(BMessage* message)
 
 		case kMsgDeleteCurrentFile:
 		{
-			if (fNavigator.MoveFileToTrash())
+			if (fNavigator.MoveFileToTrash()) {
 				_LoadImage();
-			else
+			} else
 				PostMessage(B_QUIT_REQUESTED);
 			break;
 		}
@@ -1251,6 +1252,10 @@ ShowImageWindow::_ClosePrompt()
 status_t
 ShowImageWindow::_LoadImage(bool forward)
 {
+	// If the user triggered a _LoadImage while in a slide show,
+	// make sure the new image is shown for the set delay:
+	_ResetSlideShowDelay();
+
 	BMessenger us(this);
 	status_t status = my_app->DefaultCache().RetrieveImage(
 		fNavigator.CurrentRef(), fNavigator.CurrentPage(), &us);
@@ -1510,6 +1515,14 @@ ShowImageWindow::_StopSlideShow()
 		delete fSlideShowRunner;
 		fSlideShowRunner = NULL;
 	}
+}
+
+
+void
+ShowImageWindow::_ResetSlideShowDelay()
+{
+	if (fSlideShowRunner != NULL)
+		fSlideShowRunner->SetInterval(fSlideShowDelay);
 }
 
 
