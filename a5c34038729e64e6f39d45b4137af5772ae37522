@@ -387,6 +387,24 @@
     },
     {
       "key": {
+        "uuid": "2c47996b_b7fdef89",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-29T12:34:33Z",
+      "side": 1,
+      "message": "You can see for yourself in the coding guidelines (near the bottom of the page https://www.haiku-os.org/development/coding-guidelines/):\n\n- First is the include for the currentfile (here Volume.h for Volume.cpp)\n- One blank line\n- All other includes grouped by scope, global to local, one blank line between each group:\n- First C++ headers (things like \u003cmap\u003e, \u003calgorithm\u003e, etc)\n- Then POSIX headers\n- Then Haiku API headers\n- Then 3rd party libraries\n- And finally local headers\n\nInside each group, sort alphabetically.",
+      "parentUuid": "6f8419b3_354feb51",
+      "revId": "a5c34038729e64e6f39d45b4137af5772ae37522",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8607d44a_74de6651",
         "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
         "patchSetId": 9
