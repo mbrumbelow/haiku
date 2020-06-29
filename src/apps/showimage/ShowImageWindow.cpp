@@ -840,8 +840,10 @@ ShowImageWindow::MessageReceived(BMessage* message)
 			break;
 
 		case MSG_FILE_PREV:
-			if (_ClosePrompt() && fNavigator.PreviousFile())
+			if (_ClosePrompt() && fNavigator.PreviousFile()) {
+				_ResetSlideShowDelay();
 				_LoadImage(false);
+			}
 			break;
 
 		case MSG_FILE_NEXT:
@@ -851,15 +853,17 @@ ShowImageWindow::MessageReceived(BMessage* message)
 					// Wrap back around
 					fNavigator.FirstFile();
 				}
+				_ResetSlideShowDelay();
 				_LoadImage();
 			}
 			break;
 
 		case kMsgDeleteCurrentFile:
 		{
-			if (fNavigator.MoveFileToTrash())
+			if (fNavigator.MoveFileToTrash()) {
+				_ResetSlideShowDelay();
 				_LoadImage();
-			else
+			} else
 				PostMessage(B_QUIT_REQUESTED);
 			break;
 		}
@@ -1510,6 +1514,14 @@ ShowImageWindow::_StopSlideShow()
 		delete fSlideShowRunner;
 		fSlideShowRunner = NULL;
 	}
+}
+
+
+void
+ShowImageWindow::_ResetSlideShowDelay()
+{
+	if (fSlideShowRunner != NULL)
+		fSlideShowRunner->SetInterval(fSlideShowDelay);
 }
 
 
