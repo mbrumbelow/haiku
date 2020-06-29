@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "84fb8399_e5381ef3",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-29T11:27:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "296192f9_505a1397",
+      "revId": "a5c34038729e64e6f39d45b4137af5772ae37522",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "09d63793_aed9f570",
         "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
         "patchSetId": 9
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "55541b49_c8126644",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-29T11:27:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09d63793_aed9f570",
+      "revId": "a5c34038729e64e6f39d45b4137af5772ae37522",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a29f205_af0e51de",
         "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
         "patchSetId": 9
@@ -47,6 +83,24 @@
       "writtenOn": "2020-06-27T15:38:20Z",
       "side": 1,
       "message": "this looks confusing. Either InitCheck() returns a status_t, and you can do \"return InitCheck();\" here directly. Or, InitCheck() returns a bool, in which case you shouldn\u0027t assign it to a status_t.\n\nAlso, why would GetFromDisk() return B_OK but then InitCheck() fail? Wouldn\u0027t it be simpler if GetFromDisk() already performed all the required checks instead?",
+      "revId": "a5c34038729e64e6f39d45b4137af5772ae37522",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c93499d_fdff587c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-29T11:27:49Z",
+      "side": 1,
+      "message": "Makes sense. I have removed the InitCheck and moved it to Init itself. It seems appropriate to let GetFromDisk to only do the work of getting from disk. Let me know what you think",
+      "parentUuid": "5a29f205_af0e51de",
       "revId": "a5c34038729e64e6f39d45b4137af5772ae37522",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "fc75a8f8_441684c7",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-29T11:27:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "519d8d75_2cf9a583",
+      "revId": "a5c34038729e64e6f39d45b4137af5772ae37522",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f63d36e_5a1c1da5",
         "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
         "patchSetId": 9
@@ -84,6 +156,24 @@
       "revId": "a5c34038729e64e6f39d45b4137af5772ae37522",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d33d677a_badf46db",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-29T11:27:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f63d36e_5a1c1da5",
+      "revId": "a5c34038729e64e6f39d45b4137af5772ae37522",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "bbfc22b4_2b47804b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/ShortDirectory.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-29T11:27:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30324072_41d1a9ef",
+      "revId": "a5c34038729e64e6f39d45b4137af5772ae37522",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "587cfa43_3af21498",
         "filename": "src/add-ons/kernel/file_systems/xfs/ShortDirectory.cpp",
         "patchSetId": 9
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "e4f07852_6fd3ab93",
+        "filename": "src/add-ons/kernel/file_systems/xfs/ShortDirectory.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-29T11:27:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "587cfa43_3af21498",
+      "revId": "a5c34038729e64e6f39d45b4137af5772ae37522",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b7853b3_f13e875b",
         "filename": "src/add-ons/kernel/file_systems/xfs/ShortDirectory.cpp",
         "patchSetId": 9
@@ -132,6 +258,24 @@
       "writtenOn": "2020-06-27T15:38:20Z",
       "side": 1,
       "message": "|| strcmp(name, \"..\") !\u003d 0\n\n(but check what you mean here, because this condition is equivalent to just this:\n\nif (strcmp(name, \"..\") !\u003d 0)\n\n)",
+      "revId": "a5c34038729e64e6f39d45b4137af5772ae37522",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b37336a_82a7ea32",
+        "filename": "src/add-ons/kernel/file_systems/xfs/ShortDirectory.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-29T11:27:49Z",
+      "side": 1,
+      "message": "I had already fixed it in the new patch where we can read dirs now. Nevertheless fixed it here too.",
+      "parentUuid": "0b7853b3_f13e875b",
       "revId": "a5c34038729e64e6f39d45b4137af5772ae37522",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "52abd771_893b99c7",
+        "filename": "src/add-ons/kernel/file_systems/xfs/ShortDirectory.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-29T11:27:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd36e7d4_eec8b1c0",
+      "revId": "a5c34038729e64e6f39d45b4137af5772ae37522",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "40aee5a1_13eb6bd6",
         "filename": "src/add-ons/kernel/file_systems/xfs/ShortDirectory.h",
         "patchSetId": 9
@@ -172,6 +334,24 @@
     },
     {
       "key": {
+        "uuid": "3a8f95b7_6f1e0122",
+        "filename": "src/add-ons/kernel/file_systems/xfs/ShortDirectory.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-29T11:27:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40aee5a1_13eb6bd6",
+      "revId": "a5c34038729e64e6f39d45b4137af5772ae37522",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dd35529c_a0d8e665",
         "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
         "patchSetId": 9
@@ -183,6 +363,24 @@
       "writtenOn": "2020-06-27T15:38:20Z",
       "side": 1,
       "message": "empty line between Volume.h and the other includes",
+      "revId": "a5c34038729e64e6f39d45b4137af5772ae37522",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f8419b3_354feb51",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-29T11:27:49Z",
+      "side": 1,
+      "message": "I don\u0027t get it... We don\u0027t have empty lines between includes right?",
+      "parentUuid": "dd35529c_a0d8e665",
       "revId": "a5c34038729e64e6f39d45b4137af5772ae37522",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -206,6 +404,24 @@
     },
     {
       "key": {
+        "uuid": "effa7442_1e86f6e0",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-29T11:27:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8607d44a_74de6651",
+      "revId": "a5c34038729e64e6f39d45b4137af5772ae37522",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "66d5a163_20160bbc",
         "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
         "patchSetId": 9
@@ -220,6 +436,24 @@
       "revId": "a5c34038729e64e6f39d45b4137af5772ae37522",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78df6872_d0e10df8",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-29T11:27:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66d5a163_20160bbc",
+      "revId": "a5c34038729e64e6f39d45b4137af5772ae37522",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -240,6 +474,24 @@
     },
     {
       "key": {
+        "uuid": "031b1025_ffd1875c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-29T11:27:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ce43e58_25db8507",
+      "revId": "a5c34038729e64e6f39d45b4137af5772ae37522",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c57ac0de_22756d28",
         "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
         "patchSetId": 9
@@ -254,6 +506,24 @@
       "revId": "a5c34038729e64e6f39d45b4137af5772ae37522",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af615d2e_d4f6508b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-29T11:27:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c57ac0de_22756d28",
+      "revId": "a5c34038729e64e6f39d45b4137af5772ae37522",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -274,6 +544,24 @@
     },
     {
       "key": {
+        "uuid": "5247e349_2082a9d4",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-29T11:27:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "627f9223_9c884303",
+      "revId": "a5c34038729e64e6f39d45b4137af5772ae37522",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b650f40d_fa9dfe14",
         "filename": "src/add-ons/kernel/file_systems/xfs/xfs.h",
         "patchSetId": 9
@@ -288,6 +576,24 @@
       "revId": "a5c34038729e64e6f39d45b4137af5772ae37522",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "adf6f6ea_14f5d379",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-29T11:27:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b650f40d_fa9dfe14",
+      "revId": "a5c34038729e64e6f39d45b4137af5772ae37522",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
