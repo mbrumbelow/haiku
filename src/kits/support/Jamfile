@@ -46,6 +46,7 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 			JobQueue.cpp
 			List.cpp
 			Locker.cpp
+			MemoryRingIO.cpp
 			PointerList.cpp
 			Referenceable.cpp
 			StopWatch.cpp

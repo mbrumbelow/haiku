@@ -55,7 +55,10 @@ UnitTestLib libsupporttest.so
 		MallocSeekTest.cpp
 		MallocWriteTest.cpp
 		MallocBufferLengthTest.cpp
-		
+
+		# BMemoryRingIO
+		MemoryRingIOTest.cpp
+
 		#BString
 		StringTest.cpp
 		StringConstructionTest.cpp
