@@ -48,6 +48,7 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 			Locker.cpp
 			PointerList.cpp
 			Referenceable.cpp
+			RingIO.cpp
 			StopWatch.cpp
 			String.cpp
 			StringList.cpp
