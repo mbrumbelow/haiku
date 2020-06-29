@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "04e49d63_fce7a533",
+        "filename": "data/boot/u-boot/boot-arm.scr.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-06-29T02:24:46Z",
+      "side": 1,
+      "message": "Trailing whitespace.",
+      "revId": "7a0ad261a4e04cac0139fda92ee8ab7b26e828f9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
