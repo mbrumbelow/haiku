@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "e00e226e_0dd47502",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Debug.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-30T07:57:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f6e1e0e_05336d88",
+      "revId": "40ba654c5eb125e2ce0c251fbe2d047371cd0858",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "346443c5_8f0c104e",
         "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
         "patchSetId": 12
@@ -51,6 +69,24 @@
       "revId": "40ba654c5eb125e2ce0c251fbe2d047371cd0858",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e7e5ea7_7e4dfcb5",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-30T07:57:48Z",
+      "side": 1,
+      "message": "Eagle eye. Done.",
+      "parentUuid": "346443c5_8f0c104e",
+      "revId": "40ba654c5eb125e2ce0c251fbe2d047371cd0858",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -89,6 +125,24 @@
     },
     {
       "key": {
+        "uuid": "0bd34fbb_e02d028b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/ShortDirectory.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-30T07:57:48Z",
+      "side": 1,
+      "message": "Nice. Done.",
+      "parentUuid": "3a7ab404_a644cadf",
+      "revId": "40ba654c5eb125e2ce0c251fbe2d047371cd0858",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7f3e172d_2b14d919",
         "filename": "src/add-ons/kernel/file_systems/xfs/ShortDirectory.cpp",
         "patchSetId": 12
@@ -124,6 +178,24 @@
     },
     {
       "key": {
+        "uuid": "5fa2fc5c_dd78c1dc",
+        "filename": "src/add-ons/kernel/file_systems/xfs/ShortDirectory.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-30T07:57:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f3e172d_2b14d919",
+      "revId": "40ba654c5eb125e2ce0c251fbe2d047371cd0858",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a6d30a3c_ead05f4e",
         "filename": "src/add-ons/kernel/file_systems/xfs/ShortDirectory.h",
         "patchSetId": 12
@@ -135,6 +207,24 @@
       "writtenOn": "2020-06-30T07:09:11Z",
       "side": 1,
       "message": "Why not name the struct ShortFormDirHeader? Same for the one above, why not name it LiteralAreaOffset?",
+      "revId": "40ba654c5eb125e2ce0c251fbe2d047371cd0858",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e08127f8_81ad1f24",
+        "filename": "src/add-ons/kernel/file_systems/xfs/ShortDirectory.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-06-30T07:57:48Z",
+      "side": 1,
+      "message": "Okay so it does look a little too big of a name but this is what the original specs follow. It makes sense for multiple reasons. \n1) There are multiple versions of these directories and it is important to know which version these structures are for. This one is version 2 so \"dir2\". \n2) It reduces the mental mapping when jumping between docs and code. And if someone else wants to specifically find a structure, he won\u0027t even be able to grep it in our code after seeing the docs.\n3) We have very less number of structures here so renaming is okay. I\u0027m working on directories that have more structures. Should we really rename them all?\n\nI don\u0027t mind renaming. These points made me feel it wasn\u0027t needed. Let me know what you think.",
+      "parentUuid": "a6d30a3c_ead05f4e",
       "revId": "40ba654c5eb125e2ce0c251fbe2d047371cd0858",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
