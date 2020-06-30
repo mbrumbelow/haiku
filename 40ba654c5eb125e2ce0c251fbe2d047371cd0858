@@ -228,6 +228,24 @@
       "revId": "40ba654c5eb125e2ce0c251fbe2d047371cd0858",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "783f9729_dd4e33d1",
+        "filename": "src/add-ons/kernel/file_systems/xfs/ShortDirectory.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-30T08:20:46Z",
+      "side": 1,
+      "message": "I usually prefer to have readable names in the code, and a comment referring to the documentation. It also allows the class names to follow our standard naming convention and casing.\n\nBy the way, also missing space before {",
+      "parentUuid": "e08127f8_81ad1f24",
+      "revId": "40ba654c5eb125e2ce0c251fbe2d047371cd0858",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
