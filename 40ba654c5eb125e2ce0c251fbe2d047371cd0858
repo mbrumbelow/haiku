@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f6e1e0e_05336d88",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Debug.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-30T07:09:11Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "40ba654c5eb125e2ce0c251fbe2d047371cd0858",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "346443c5_8f0c104e",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-30T07:09:11Z",
+      "side": 1,
+      "message": "missing space around *",
+      "revId": "40ba654c5eb125e2ce0c251fbe2d047371cd0858",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a7ab404_a644cadf",
+        "filename": "src/add-ons/kernel/file_systems/xfs/ShortDirectory.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-30T07:09:11Z",
+      "side": 1,
+      "message": "looks very much like an strncmp() to me?",
+      "revId": "40ba654c5eb125e2ce0c251fbe2d047371cd0858",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f3e172d_2b14d919",
+        "filename": "src/add-ons/kernel/file_systems/xfs/ShortDirectory.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-30T07:09:11Z",
+      "side": 1,
+      "message": "{ goes on the same line as for",
+      "revId": "40ba654c5eb125e2ce0c251fbe2d047371cd0858",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6d30a3c_ead05f4e",
+        "filename": "src/add-ons/kernel/file_systems/xfs/ShortDirectory.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-06-30T07:09:11Z",
+      "side": 1,
+      "message": "Why not name the struct ShortFormDirHeader? Same for the one above, why not name it LiteralAreaOffset?",
+      "revId": "40ba654c5eb125e2ce0c251fbe2d047371cd0858",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
