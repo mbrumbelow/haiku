@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af6e08af_e898f5b7",
+        "filename": "docs/user/support/MemoryRingIO.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-01T12:22:20Z",
+      "side": 1,
+      "message": "\"using BDataIO interface\" makes more sense than \"on top of BDataIO\"",
+      "revId": "d98a4d5201316c9d0fd87feb80f594fd50c01037",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae4e2826_cc320385",
+        "filename": "headers/os/support/MemoryRingIO.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-01T12:22:20Z",
+      "side": 1,
+      "message": "this line and the next one are too long",
+      "revId": "d98a4d5201316c9d0fd87feb80f594fd50c01037",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aeb13c33_7d29c95d",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-01T12:22:20Z",
+      "side": 1,
+      "message": "this line is too long. Also it has two nested ternary operators, and is unreadable. Use if/else (same for the function above).",
+      "revId": "d98a4d5201316c9d0fd87feb80f594fd50c01037",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55c2e69e_7a350535",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-01T12:22:20Z",
+      "side": 1,
+      "message": "1) Use a template for this\n2) Use a condition variable to signal changes rather than a snooze of arbitrary duration, which will both use more CPU and introduce unneeded delays.",
+      "revId": "d98a4d5201316c9d0fd87feb80f594fd50c01037",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1baa164e_b4b8710c",
+        "filename": "src/tests/kits/support/bmemoryio/MemoryRingIOTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-01T12:22:20Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "d98a4d5201316c9d0fd87feb80f594fd50c01037",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6819d968_b089efb6",
+        "filename": "src/tests/kits/support/bmemoryio/MemoryRingIOTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-01T12:22:20Z",
+      "side": 1,
+      "message": "this and several other lines below are too long",
+      "revId": "d98a4d5201316c9d0fd87feb80f594fd50c01037",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
