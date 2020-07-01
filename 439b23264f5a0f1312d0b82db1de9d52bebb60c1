@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc855eda_1b12f30c",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1000035
+      },
+      "writtenOn": "2020-07-01T23:05:59Z",
+      "side": 1,
+      "message": "Should probably use pthread_cond_broadcast() here to unblock all threads.",
+      "revId": "439b23264f5a0f1312d0b82db1de9d52bebb60c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
