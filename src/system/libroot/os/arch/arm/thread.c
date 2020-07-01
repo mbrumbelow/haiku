@@ -28,6 +28,6 @@ find_thread(const char *name)
 void
 __sync_synchronize(void)
 {
-	dmb();
+	__asm volatile ("dmb" : : : "memory");
 }
 #endif
