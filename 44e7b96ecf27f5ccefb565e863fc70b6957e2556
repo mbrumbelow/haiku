@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "487ba2e1_17783d8d",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/DirectoryIterator.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-01T12:03:24Z",
+      "side": 1,
+      "message": "this line is too long still",
+      "revId": "44e7b96ecf27f5ccefb565e863fc70b6957e2556",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c451942_0d028d8d",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/DirectoryIterator.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-01T12:03:24Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "44e7b96ecf27f5ccefb565e863fc70b6957e2556",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cfee9650_447ab052",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/DirectoryIterator.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-01T12:03:24Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "44e7b96ecf27f5ccefb565e863fc70b6957e2556",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "baa2e9cf_df68b818",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-01T12:03:24Z",
+      "side": 1,
+      "message": "braces not needed here since the body of the if is a single line",
+      "revId": "44e7b96ecf27f5ccefb565e863fc70b6957e2556",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
