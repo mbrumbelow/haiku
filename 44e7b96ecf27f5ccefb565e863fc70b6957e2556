@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6cadeb34_b13f4474",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/DirectoryIterator.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-07-01T18:30:23Z",
+      "side": 1,
+      "message": "Sorry I did not noticed it before but now it is done.",
+      "parentUuid": "487ba2e1_17783d8d",
+      "revId": "44e7b96ecf27f5ccefb565e863fc70b6957e2556",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3c451942_0d028d8d",
         "filename": "src/add-ons/kernel/file_systems/ufs2/DirectoryIterator.cpp",
         "patchSetId": 10
@@ -33,6 +51,24 @@
       "revId": "44e7b96ecf27f5ccefb565e863fc70b6957e2556",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2dc85454_3d657f6a",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/DirectoryIterator.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-07-01T18:30:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c451942_0d028d8d",
+      "revId": "44e7b96ecf27f5ccefb565e863fc70b6957e2556",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "ce38a481_51c91edd",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/DirectoryIterator.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-07-01T18:30:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cfee9650_447ab052",
+      "revId": "44e7b96ecf27f5ccefb565e863fc70b6957e2556",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "baa2e9cf_df68b818",
         "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
         "patchSetId": 10
@@ -67,6 +121,24 @@
       "revId": "44e7b96ecf27f5ccefb565e863fc70b6957e2556",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a794c768_25d45d2a",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-07-01T18:30:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "baa2e9cf_df68b818",
+      "revId": "44e7b96ecf27f5ccefb565e863fc70b6957e2556",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
