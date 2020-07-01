@@ -25,7 +25,7 @@ local platform_src =
 	timer.cpp
 	menu.cpp
 	devices.cpp
-	cpu.cpp
+	processor.cpp
 	quirks.cpp
 	smp.cpp
 	serial.cpp

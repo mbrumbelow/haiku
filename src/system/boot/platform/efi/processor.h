@@ -2,11 +2,11 @@
  * Copyright 2019-2020, Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  */
-#ifndef _EFI_CPU_H
-#define _EFI_CPU_H
+#ifndef _EFI_PROCESSOR_H
+#define _EFI_PROCESSOR_H
 
 
-void cpu_init(void);
+void processor_init(void);
 
 
-#endif /* _EFI_CPU_H */
+#endif /* _EFI_PROCESSOR_H */

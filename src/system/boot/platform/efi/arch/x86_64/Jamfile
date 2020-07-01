@@ -21,6 +21,7 @@ for platform in [ MultiBootSubDirSetup efi ] {
 		smp_trampoline.S
 		support.S
 		relocation_func.cpp
+		arch_processor.cpp
 		arch_start.cpp
 		arch_smp.cpp
 		arch_mmu.cpp

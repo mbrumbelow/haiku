@@ -23,9 +23,9 @@
 #include "arch_start.h"
 #include "acpi.h"
 #include "console.h"
-#include "cpu.h"
 #include "efi_platform.h"
 #include "mmu.h"
+#include "processor.h"
 #include "quirks.h"
 #include "serial.h"
 #include "smp.h"
@@ -196,7 +196,7 @@ efi_main(efi_handle image, efi_system_table *systemTable)
 	// disable apm in case we ever load a 32-bit kernel...
 	gKernelArgs.platform_args.apm.version = 0;
 
-	cpu_init();
+	processor_init();
 	acpi_init();
 	timer_init();
 	smp_init();

@@ -13,6 +13,7 @@ for platform in [ MultiBootSubDirSetup efi ] {
 		crt0-efi-$(TARGET_ARCH).S
 		#entry.S
 		relocation_func.cpp
+		arch_processor.cpp
 		arch_smp.cpp
 		arch_start.cpp
 		arch_mmu.cpp
