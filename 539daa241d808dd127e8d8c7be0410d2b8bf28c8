@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2c2883c2_8cadcd04",
+        "filename": "src/apps/showimage/ShowImageWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 845,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-01T12:05:40Z",
+      "side": 1,
+      "message": "the braces are not needed anymore",
+      "revId": "539daa241d808dd127e8d8c7be0410d2b8bf28c8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d987e975_0245ff4d",
+        "filename": "src/apps/showimage/ShowImageWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-01T12:05:40Z",
+      "side": 1,
+      "message": "the braces are not needed anymore",
+      "revId": "539daa241d808dd127e8d8c7be0410d2b8bf28c8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
