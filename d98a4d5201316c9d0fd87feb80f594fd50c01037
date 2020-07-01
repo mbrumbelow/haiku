@@ -70,6 +70,24 @@
     },
     {
       "key": {
+        "uuid": "17054773_c123fb37",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-07-01T14:11:11Z",
+      "side": 1,
+      "message": "I don\u0027t think we have condition variables in userland? At least I don\u0027t know where they are...\n\nA semaphore of some kind will have to do most likely.",
+      "parentUuid": "55c2e69e_7a350535",
+      "revId": "d98a4d5201316c9d0fd87feb80f594fd50c01037",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1baa164e_b4b8710c",
         "filename": "src/tests/kits/support/bmemoryio/MemoryRingIOTest.cpp",
         "patchSetId": 3
