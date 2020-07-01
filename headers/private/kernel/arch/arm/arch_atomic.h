@@ -9,27 +9,24 @@
 #define _KERNEL_ARCH_ARM_ATOMIC_H
 
 
-#include <arch_cpu.h>
-
-
 static inline void
 memory_read_barrier_inline(void)
 {
-	dmb();
+	__asm volatile ("dmb" : : : "memory");
 }
 
 
 static inline void
 memory_write_barrier_inline(void)
 {
-	dmb();
+	__asm volatile ("dmb" : : : "memory");
 }
 
 
 static inline void
 memory_full_barrier_inline(void)
 {
-	dmb();
+	__asm volatile ("dmb" : : : "memory");
 }
 
 
