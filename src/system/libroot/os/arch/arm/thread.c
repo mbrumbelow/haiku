@@ -11,6 +11,8 @@
 #include <OS.h>
 
 #include <arch_atomic.h>
+#include <arch_cpu.h>
+
 #include "syscalls.h"
 
 
