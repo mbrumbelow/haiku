@@ -37,7 +37,8 @@
 #include <efi/types.h>
 #include <efi/system-table.h>
 
-#include <elf.h>
+#include <os/kernel/elf.h>
+#include <system/arch/arm/arch_elf.h>
 
 extern "C" efi_status _relocate(long ldbase, Elf32_Dyn *dyn,
 		      efi_handle image __attribute__((__unused__)),
