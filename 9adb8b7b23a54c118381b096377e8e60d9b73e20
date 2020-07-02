@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dfaa6c19_0420ad1f",
+        "filename": "src/kits/interface/Menu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2342,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-02T09:51:25Z",
+      "side": 1,
+      "message": "The item can be any item -- using *Reverse() here doesn\u0027t really make any sense. If it does make a difference, the caller should be fixed instead.",
+      "revId": "9adb8b7b23a54c118381b096377e8e60d9b73e20",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c527d7b9_05cb5186",
+        "filename": "src/kits/interface/Menu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2361,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-02T09:51:25Z",
+      "side": 1,
+      "message": "You already know the index two lines above, why not just use this to remove the item?",
+      "revId": "9adb8b7b23a54c118381b096377e8e60d9b73e20",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
