@@ -26,6 +26,7 @@ public:
 			bool				AddList(const BList* list);
 
 			bool				RemoveItem(void* item);
+			bool				RemoveItemReverse(void* item);
 			void*				RemoveItem(int32 index);
 			bool				RemoveItems(int32 index, int32 count);
 			bool				ReplaceItem(int32 index, void* item);
@@ -52,6 +53,8 @@ public:
 			bool				HasItem(const void* item) const;
 			int32				IndexOf(void* item) const;
 			int32				IndexOf(const void* item) const;
+			int32				ReverseIndexOf(void* item) const;
+			int32				ReverseIndexOf(const void* item) const;
 			int32				CountItems() const;
 			bool				IsEmpty() const;
 

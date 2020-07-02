@@ -189,6 +189,17 @@ BList::RemoveItem(void* item)
 }
 
 
+bool
+BList::RemoveItemReverse(void* item)
+{
+	int32 index = ReverseIndexOf(item);
+	bool result = (index >= 0);
+	if (result)
+		RemoveItem(index);
+	return result;
+}
+
+
 void*
 BList::RemoveItem(int32 index)
 {
@@ -381,6 +392,28 @@ int32
 BList::IndexOf(const void* item) const
 {
 	for (int32 i = 0; i < fItemCount; i++) {
+		if (fObjectList[i] == item)
+			return i;
+	}
+	return -1;
+}
+
+
+int32
+BList::ReverseIndexOf(void* item) const
+{
+	for (int32 i = fItemCount - 1; i >= 0; i--) {
+		if (fObjectList[i] == item)
+			return i;
+	}
+	return -1;
+}
+
+
+int32
+BList::ReverseIndexOf(const void* item) const
+{
+	for (int32 i = fItemCount - 1; i >= 0; i--) {
 		if (fObjectList[i] == item)
 			return i;
 	}

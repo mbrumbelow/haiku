@@ -2339,7 +2339,7 @@ BMenu::_RemoveItems(int32 index, int32 count, BMenuItem* item,
 	// The plan is simple: If we're given a BMenuItem directly, we use it
 	// and ignore index and count. Otherwise, we use them instead.
 	if (item != NULL) {
-		if (fItems.RemoveItem(item)) {
+		if (fItems.RemoveItemReverse(item)) {
 			if (item == fSelected && window != NULL)
 				_SelectItem(NULL);
 			item->Uninstall();
@@ -2358,7 +2358,7 @@ BMenu::_RemoveItems(int32 index, int32 count, BMenuItem* item,
 		for (; i >= index; i--) {
 			item = static_cast<BMenuItem*>(fItems.ItemAt(i));
 			if (item != NULL) {
-				if (fItems.RemoveItem(item)) {
+				if (fItems.RemoveItemReverse(item)) {
 					if (item == fSelected && window != NULL)
 						_SelectItem(NULL);
 					item->Uninstall();
