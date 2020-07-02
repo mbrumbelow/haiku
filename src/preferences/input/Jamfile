@@ -16,6 +16,9 @@ Preference Input :
 	MouseView.cpp
 	MouseSettings.cpp
 	SettingsView.cpp
+	WacomMappingView.cpp
+	WacomPenView.cpp
+	WacomSettingsView.cpp
 	: be [ TargetLibsupc++ ] localestub
 	: Input.rdef
 	;
