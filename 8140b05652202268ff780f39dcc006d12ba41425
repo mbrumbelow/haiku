@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c51041a8_a27cae60",
+        "filename": "headers/os/support/MemoryRingIO.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-07-02T19:37:36Z",
+      "side": 1,
+      "message": "These should be renamed and the comments dropped. Specifically:\n\nfBufferSize\nfWriteNextAt\nfReadNextAt",
+      "revId": "8140b05652202268ff780f39dcc006d12ba41425",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29108114_8420fb63",
+        "filename": "headers/os/support/MemoryRingIO.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-07-02T19:37:36Z",
+      "side": 1,
+      "message": "fBufferFull",
+      "revId": "8140b05652202268ff780f39dcc006d12ba41425",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f01c03a_84993d82",
+        "filename": "headers/os/support/MemoryRingIO.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-07-02T19:37:36Z",
+      "side": 1,
+      "message": "comment not needed, docs suffice.",
+      "revId": "8140b05652202268ff780f39dcc006d12ba41425",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ac2ce01_d64f7480",
+        "filename": "src/tests/kits/support/bmemoryio/MemoryRingIOTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-07-02T19:37:36Z",
+      "side": 1,
+      "message": "license header? (or do other tests not have that?)",
+      "revId": "8140b05652202268ff780f39dcc006d12ba41425",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eedd77ac_d6a0b06e",
+        "filename": "src/tests/kits/support/bmemoryio/MemoryRingIOTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-07-02T19:37:36Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "8140b05652202268ff780f39dcc006d12ba41425",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a7316f6_37412f80",
+        "filename": "src/tests/kits/support/bmemoryio/MemoryRingIOTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-07-02T19:37:36Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "8140b05652202268ff780f39dcc006d12ba41425",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
