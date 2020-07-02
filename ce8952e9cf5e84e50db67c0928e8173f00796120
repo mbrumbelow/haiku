@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "767deeaa_57a0cd53",
+        "filename": "src/system/boot/platform/efi/Jamfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-07-02T15:51:29Z",
+      "side": 1,
+      "message": "This is one of the final \"conflicts\"\n\n   kernel/arch/XXX on x86 is required for in8,out8,etc\n   kernel/arch/XXX on arm crates arch_cpu.h conflicts",
+      "revId": "ce8952e9cf5e84e50db67c0928e8173f00796120",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
