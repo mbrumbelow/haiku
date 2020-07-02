@@ -2,6 +2,74 @@
   "comments": [
     {
       "key": {
+        "uuid": "49fa629f_265e3c9a",
+        "filename": "docs/user/support/MemoryRingIO.dox",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-07-02T00:22:24Z",
+      "side": 1,
+      "message": "\"with a\" instead of \"using\"",
+      "revId": "439b23264f5a0f1312d0b82db1de9d52bebb60c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c29cb60_b01e45c6",
+        "filename": "docs/user/support/MemoryRingIO.dox",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-07-02T00:22:24Z",
+      "side": 1,
+      "message": "Won\u0027t it also return the EOF error?",
+      "revId": "439b23264f5a0f1312d0b82db1de9d52bebb60c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "896519ca_749d28dc",
+        "filename": "docs/user/support/MemoryRingIO.dox",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-07-02T00:22:24Z",
+      "side": 1,
+      "message": "B_CANCELED is probably a better error code.",
+      "revId": "439b23264f5a0f1312d0b82db1de9d52bebb60c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf3293eb_483566b7",
+        "filename": "docs/user/support/MemoryRingIO.dox",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-07-02T00:22:24Z",
+      "side": 1,
+      "message": "The former should indeed be B_NO_MEMORY; the latter should be B_BAD_VALUE.",
+      "revId": "439b23264f5a0f1312d0b82db1de9d52bebb60c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dc855eda_1b12f30c",
         "filename": "src/kits/support/MemoryRingIO.cpp",
         "patchSetId": 4
