@@ -16,6 +16,23 @@
       "revId": "ce8952e9cf5e84e50db67c0928e8173f00796120",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d319e69_817dfd45",
+        "filename": "src/system/boot/platform/efi/arch/arm/relocation_func.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-07-02T15:54:18Z",
+      "side": 1,
+      "message": "these need re-evaluated",
+      "revId": "ce8952e9cf5e84e50db67c0928e8173f00796120",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
