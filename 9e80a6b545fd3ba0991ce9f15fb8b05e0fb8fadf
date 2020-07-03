@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "462a48c7_28aa1f0d",
+        "filename": "headers/os/support/MemoryRingIO.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-03T19:53:07Z",
+      "side": 1,
+      "message": "As far as I know, C and C++ only guarantee that sizeof(char) \u003d\u003d 1. They dont\u0027 say that this is 8 bits, but instead define CHAR_BIT to be the number of bits in a char.\n\nThey also say that uint8_t is only defined if the architecture can actually store 8 bit values. The type that is \"at least 8 bits\" is uint_least8_t, and there is also an uint_fast8_t which is \"the fastest type that can store at least 8bits\".\n\nuint8 is a BeOS type but it seems fine to assume it behaves the same as uint8_t.\n\nSo, if what you want is 8bit bytes, uint8 is the way to go. And on platforms we plan to port Haiku to, that will always be fine.",
+      "parentUuid": "7d564600_37fc2aca",
+      "revId": "9e80a6b545fd3ba0991ce9f15fb8b05e0fb8fadf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5342353e_68667575",
         "filename": "headers/os/support/MemoryRingIO.h",
         "patchSetId": 6
