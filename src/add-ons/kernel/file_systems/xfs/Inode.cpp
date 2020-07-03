@@ -175,7 +175,8 @@ Inode::GetFromDisk()
 		// Inode len to read (size of inode)
 
 	TRACE("AgNumber: (%d), AgRelativeIno: (%d), AgRelativeBlockNum: (%d),"
-		"Offset: (%d), len: (%d)\n", agNo, agInodeNo, agBlock, offset, len);
+		"Offset: (%d), len: (%d)\n", agNo,
+		agRelativeInodeNo, agBlock, offset, len);
 
 	if (agNo > fVolume->AgCount()) {
 		ERROR("Inode::GetFromDisk : AG Number more than number of AGs");

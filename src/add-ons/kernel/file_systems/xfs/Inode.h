@@ -159,6 +159,9 @@ public:
 
 			xfs_fsize_t			Size() const { return fNode->Size(); }
 
+			uint32				DirBlockSize() const
+									{ return fVolume->DirBlockSize(); }
+
 			void				GetChangeTime(struct timespec& timestamp) const
 								{ fNode->GetChangeTime(timestamp); }
 
