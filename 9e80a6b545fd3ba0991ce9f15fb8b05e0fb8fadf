@@ -1,0 +1,310 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "948ef2b1_30885f3b",
+        "filename": "headers/os/support/MemoryRingIO.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-07-03T16:06:53Z",
+      "side": 1,
+      "message": "`char` is technically arch-dependent; this should probably be `uint8` instead.",
+      "revId": "9e80a6b545fd3ba0991ce9f15fb8b05e0fb8fadf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5342353e_68667575",
+        "filename": "headers/os/support/MemoryRingIO.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-07-03T16:06:53Z",
+      "side": 1,
+      "message": "I just realized there is no padding here; we should have some amount of uint32 padding like we do in other classes. I\u0027m not sure how much we add, I think 4 or 5?",
+      "revId": "9e80a6b545fd3ba0991ce9f15fb8b05e0fb8fadf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a593e60c_b3ee9d84",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-07-03T16:06:53Z",
+      "side": 1,
+      "message": "Use C++ style comments please.\n\nAdditionally, use the infinitive form as it is more concise, and remove some of the other clauses:\n\n// We avoid the use of pthread_mutexattr as it can possibly fail.\n// The only Haiku-specific behavior we depend on is that PTHREAD_MUTEX_DEFAULT\n// mutexes check for double-locks.",
+      "revId": "9e80a6b545fd3ba0991ce9f15fb8b05e0fb8fadf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d010371b_76f19fe7",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-07-03T16:06:53Z",
+      "side": 1,
+      "message": "Blank line below these two.",
+      "revId": "9e80a6b545fd3ba0991ce9f15fb8b05e0fb8fadf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d55533dd_c843bdb2",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-07-03T16:06:53Z",
+      "side": 1,
+      "message": "Blank line after.",
+      "revId": "9e80a6b545fd3ba0991ce9f15fb8b05e0fb8fadf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80c9a938_2844942e",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-07-03T16:06:53Z",
+      "side": 1,
+      "message": "Won\u0027t this be a double lock in the case of !fEnded, as WaitForRead locks again? Shouldn\u0027t this be placed after the Wait()?",
+      "revId": "9e80a6b545fd3ba0991ce9f15fb8b05e0fb8fadf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ffa7b54f_88b5dce4",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-07-03T16:06:53Z",
+      "side": 1,
+      "message": "blank line below",
+      "revId": "9e80a6b545fd3ba0991ce9f15fb8b05e0fb8fadf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "059bd18e_f072f1a0",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-07-03T16:06:53Z",
+      "side": 1,
+      "message": "This looks pretty inefficient to do all this math every loop. Please do the math at the top of the loop about how much there is to copy before the buffer wraps, and then use `memcpy`. The same for the write loop. That will also eliminate the need for RING_MASK.",
+      "revId": "9e80a6b545fd3ba0991ce9f15fb8b05e0fb8fadf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f3b9fcb_4c3f5896",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-07-03T16:06:53Z",
+      "side": 1,
+      "message": "Same comments about locking as in above function.",
+      "revId": "9e80a6b545fd3ba0991ce9f15fb8b05e0fb8fadf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a29cdda_c204b352",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-07-03T16:06:53Z",
+      "side": 1,
+      "message": "blank line after.",
+      "revId": "9e80a6b545fd3ba0991ce9f15fb8b05e0fb8fadf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42cfa793_30ee40c1",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-07-03T16:06:53Z",
+      "side": 1,
+      "message": "blank line after.",
+      "revId": "9e80a6b545fd3ba0991ce9f15fb8b05e0fb8fadf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "887e4ec9_5697d08b",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-07-03T16:06:53Z",
+      "side": 1,
+      "message": "blank line after.",
+      "revId": "9e80a6b545fd3ba0991ce9f15fb8b05e0fb8fadf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10c45e99_95150b65",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-07-03T16:06:53Z",
+      "side": 1,
+      "message": "C++ style comment",
+      "revId": "9e80a6b545fd3ba0991ce9f15fb8b05e0fb8fadf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec7e54ff_65be7064",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-07-03T16:06:53Z",
+      "side": 1,
+      "message": "uint8, as in header of course",
+      "revId": "9e80a6b545fd3ba0991ce9f15fb8b05e0fb8fadf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32503812_1521b15b",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-07-03T16:06:53Z",
+      "side": 1,
+      "message": "braces unnecessary",
+      "revId": "9e80a6b545fd3ba0991ce9f15fb8b05e0fb8fadf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e3bbfa7_f3668f20",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-07-03T16:06:53Z",
+      "side": 1,
+      "message": "This function can be simplified by just returning `fBufferSize - BytesAvailable()`.",
+      "revId": "9e80a6b545fd3ba0991ce9f15fb8b05e0fb8fadf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3902c9c_e672a9ef",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-07-03T16:06:53Z",
+      "side": 1,
+      "message": "blank line after",
+      "revId": "9e80a6b545fd3ba0991ce9f15fb8b05e0fb8fadf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3862d04b_1cefe123",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-07-03T16:06:53Z",
+      "side": 1,
+      "message": "blank line after",
+      "revId": "9e80a6b545fd3ba0991ce9f15fb8b05e0fb8fadf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
