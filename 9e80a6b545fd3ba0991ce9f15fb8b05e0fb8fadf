@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7d564600_37fc2aca",
+        "filename": "headers/os/support/MemoryRingIO.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000035
+      },
+      "writtenOn": "2020-07-03T19:44:09Z",
+      "side": 1,
+      "message": "It might be arch-dependent but it\u0027s guaranteed to be 1 byte per C++ spec. In fact this will be more correct than using `uint8` as an architecture might define a byte to have more than 8 bits.",
+      "parentUuid": "948ef2b1_30885f3b",
+      "revId": "9e80a6b545fd3ba0991ce9f15fb8b05e0fb8fadf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5342353e_68667575",
         "filename": "headers/os/support/MemoryRingIO.h",
         "patchSetId": 6
@@ -98,6 +116,24 @@
       "writtenOn": "2020-07-03T16:06:53Z",
       "side": 1,
       "message": "Won\u0027t this be a double lock in the case of !fEnded, as WaitForRead locks again? Shouldn\u0027t this be placed after the Wait()?",
+      "revId": "9e80a6b545fd3ba0991ce9f15fb8b05e0fb8fadf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0323171_6e25ed31",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000035
+      },
+      "writtenOn": "2020-07-03T19:44:09Z",
+      "side": 1,
+      "message": "Yes, I intentionally depend on it. If locking failed in WaitForRead(), it will not unlock when WaitForRead() end.\n\nThis is placed before the wait so the lock goes like this:\n\nRead() acquires the lock -\u003e WaitForRead() unlocks then wait on the conditional -\u003e once signaled the lock is relocked -\u003e WaitForRead() returns without unlocking since the lock wasn\u0027t owned by it -\u003e Read() does it\u0027s job -\u003e Read() unlocks.\n\nIt\u0027s done like this so that the state we know (BytesAvailable() \u003e 0) stays true until Read() finishes.",
+      "parentUuid": "80c9a938_2844942e",
       "revId": "9e80a6b545fd3ba0991ce9f15fb8b05e0fb8fadf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
