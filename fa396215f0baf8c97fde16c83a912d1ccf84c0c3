@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad05c21d_001cc96a",
+        "filename": "docs/user/net/UrlProtocolDispatchingListener.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-03T19:39:14Z",
+      "side": 1,
+      "message": "either the \\brief has to be on a single line and the one above is incorrect, or this one and all the ones below should have a linebreak to stay under 80 columns.",
+      "revId": "fa396215f0baf8c97fde16c83a912d1ccf84c0c3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd3756bc_c2045df7",
+        "filename": "docs/user/net/UrlProtocolDispatchingListener.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-03T19:39:14Z",
+      "side": 1,
+      "message": "Maybe document the standard fields (be:urlProtocolCaller and be:urlProtocolMessageType) once here, it will save a lot of repeating them in all the functions below.",
+      "revId": "fa396215f0baf8c97fde16c83a912d1ccf84c0c3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e392afe_b2464138",
+        "filename": "docs/user/net/UrlProtocolDispatchingListener.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-03T19:39:14Z",
+      "side": 1,
+      "message": "pointer to the UrlRequest originating the notification (or something along that line in proper english)",
+      "revId": "fa396215f0baf8c97fde16c83a912d1ccf84c0c3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02e07600_23838f7e",
+        "filename": "docs/user/net/UrlProtocolDispatchingListener.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-03T19:39:14Z",
+      "side": 1,
+      "message": "is available (metadata like data is uncountable in english).",
+      "revId": "fa396215f0baf8c97fde16c83a912d1ccf84c0c3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3cfdc42_544f804d",
+        "filename": "docs/user/net/UrlProtocolDispatchingListener.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-03T19:39:14Z",
+      "side": 1,
+      "message": "This description ends up being confusing, as there are two kinds of messages and two kinds of emitting",
+      "revId": "fa396215f0baf8c97fde16c83a912d1ccf84c0c3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9260f64a_34a60238",
+        "filename": "docs/user/net/UrlProtocolDispatchingListener.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-03T19:39:14Z",
+      "side": 1,
+      "message": "I think this is incorrect",
+      "revId": "fa396215f0baf8c97fde16c83a912d1ccf84c0c3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "310be777_b6acbd25",
+        "filename": "docs/user/net/UrlProtocolDispatchingListener.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-03T19:39:14Z",
+      "side": 1,
+      "message": "pointer to certificate is enough",
+      "revId": "fa396215f0baf8c97fde16c83a912d1ccf84c0c3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
