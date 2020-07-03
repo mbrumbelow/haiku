@@ -30,6 +30,13 @@ DirectoryIterator::Init()
 			return B_NO_MEMORY;
 		return B_OK;
 	}
+	if (fInode->Format() == XFS_DINODE_FMT_EXTENTS) {
+		fExtentDir = new(std::nothrow) Extent(fInode);
+		if (fExtentDir == NULL)
+			return B_NO_MEMORY;
+		status_t status = fExtentDir->Init();
+		return status;
+	}
 
 	/* Return B_OK so even if the shortform directory has an extent directory
 	 * we can atleast still list the shortform directory
@@ -87,6 +94,8 @@ DirectoryIterator::Lookup(const char* name, size_t length, xfs_ino_t* ino)
 	//TODO: Reading from extent based dirs
 	if (fInode->Format() == XFS_DINODE_FMT_EXTENTS) {
 		TRACE("Iterator:Lookup: EXTENTS");
+		// status_t status = fExtentDir->Lookup(name, length, ino);
+		// return status;
 		return B_NOT_SUPPORTED;
 	}
 
