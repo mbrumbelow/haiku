@@ -16,6 +16,24 @@
       "revId": "d4cceb1f07b8401f2f9057a6969213e6b13107ed",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7e9e350_f383b5bc",
+        "filename": "build/jam/ArchitectureRules",
+        "patchSetId": 1
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2020-07-04T22:46:32Z",
+      "side": 1,
+      "message": "Hmm I didn\u0027t see any BOOT related flags in the cpu switch so it seemed more logical to put them with the other ones. Can probably be moved there.",
+      "parentUuid": "98ce45fa_a4540981",
+      "revId": "d4cceb1f07b8401f2f9057a6969213e6b13107ed",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
