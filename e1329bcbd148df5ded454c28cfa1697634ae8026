@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fad4ec69_f787ad35",
+        "filename": "headers/private/kernel/boot/arch/x86/arch_cpuasm.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-07-04T16:40:13Z",
+      "side": 1,
+      "message": "This file is basically identical to the kernel variant. Can\u0027t we share just it, then, using the same #include method the build headers use?",
+      "revId": "e1329bcbd148df5ded454c28cfa1697634ae8026",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
