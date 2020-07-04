@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "200e368b_fe5a26ea",
+        "filename": "build/jam/ArchitectureRules",
+        "patchSetId": 7
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-07-04T19:42:55Z",
+      "side": 1,
+      "message": "yeah, i can break it out. It is needed since we\u0027re targeting cortex-a7 or higher (chips guaranteed to have a hardware fpu)",
+      "parentUuid": "206dd7ac_e722f9fa",
+      "revId": "417aaadd62a36b22048f4fa8d1342d94af85651d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "84271921_846352bb",
         "filename": "src/system/boot/platform/efi/Jamfile",
         "patchSetId": 7
@@ -47,6 +65,24 @@
       "writtenOn": "2020-07-04T18:09:53Z",
       "side": 1,
       "message": "This should probably also be placed in a separate commit",
+      "revId": "417aaadd62a36b22048f4fa8d1342d94af85651d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47b4d019_412ad758",
+        "filename": "src/system/libroot/os/arch/arm/thread.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-07-04T19:42:55Z",
+      "side": 1,
+      "message": "generic_system_time_nsecs.cpp:(.text+0x7d8): undefined reference to `dmb\u0027",
+      "parentUuid": "81f2132c_5e490455",
       "revId": "417aaadd62a36b22048f4fa8d1342d94af85651d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
