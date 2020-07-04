@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "206dd7ac_e722f9fa",
+        "filename": "build/jam/ArchitectureRules",
+        "patchSetId": 7
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-07-04T17:53:47Z",
+      "side": 1,
+      "message": "Do we need this? It should probably be in a separate commit anyway.",
+      "revId": "417aaadd62a36b22048f4fa8d1342d94af85651d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84271921_846352bb",
+        "filename": "src/system/boot/platform/efi/Jamfile",
+        "patchSetId": 7
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-07-04T17:53:47Z",
+      "side": 1,
+      "message": "I don\u0027t think we need this warning? Anyone will wind up running into problems if they do anyway...",
+      "revId": "417aaadd62a36b22048f4fa8d1342d94af85651d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
