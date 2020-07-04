@@ -150,7 +150,9 @@ TTimeView::AttachedToWindow()
 {
 	fCurrentTime = time(NULL);
 
-	SetFont(be_plain_font);
+	BFont font(be_bold_font);
+	font.SetSize(font.Size()+1);
+	SetFont(&font);
 	if (Parent()) {
 		fParent = Parent();
 		AdoptParentColors();
