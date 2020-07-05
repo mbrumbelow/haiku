@@ -70,7 +70,8 @@ DirectoryIterator::GetNext(char* name, size_t* length, xfs_ino_t* ino)
 	//TODO: Reading from extent based directories
 	if (fInode->Format() == XFS_DINODE_FMT_EXTENTS) {
 		TRACE("Iterator:GetNext: EXTENTS");
-		return B_NOT_SUPPORTED;
+		status_t status = fExtentDir->GetNext(name, length, ino);
+		return status;
 	}
 
 	//TODO: Reading from B+Trees based directories
@@ -95,11 +96,8 @@ DirectoryIterator::Lookup(const char* name, size_t length, xfs_ino_t* ino)
 	//TODO: Reading from extent based dirs
 	if (fInode->Format() == XFS_DINODE_FMT_EXTENTS) {
 		TRACE("Iterator:Lookup: EXTENTS");
-		#if 0
-			status_t status = fExtentDir->Lookup(name, length, ino);
-			return status;
-		#endif
-		return B_NOT_SUPPORTED;
+		status_t status = fExtentDir->Lookup(name, length, ino);
+		return status;
 	}
 
 	//TODO: Reading from B+Tree based dirs

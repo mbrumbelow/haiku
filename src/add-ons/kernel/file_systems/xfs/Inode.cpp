@@ -160,6 +160,16 @@ Inode::Init()
 }
 
 
+bool
+Inode::HasFileTypeField()
+{
+	if (fVolume->SuperBlockFeatures2() & XFS_SB_VERSION2_FTYPE)
+		return true;
+	else
+		return false;
+}
+
+
 status_t
 Inode::GetFromDisk()
 {
@@ -212,14 +222,14 @@ Inode::~Inode()
 uint32
 hashfunction(const char* name, int length)
 {
+	TRACE("name: %s, length: %d\n", name, length);
 	uint32 hashVal = 0;
-
 	int lengthCovered = 0;
 	int index = 0;
 	if (length >= 4) {
-		for (; index <= length; index+=4)
+		for (; index < length and (length-index)>=4 ; index+=4)
 		{
-			lengthCovered = index;
+			lengthCovered+=4;
 			hashVal = (name[index] << 21) ^ (name[index+1] << 14)
 				^ (name[index+2] << 7) ^ (name[index+3] << 0)
 				^ ((hashVal << 28) | (hashVal >> (4)));
