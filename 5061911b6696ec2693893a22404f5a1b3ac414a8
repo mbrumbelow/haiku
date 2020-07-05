@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c9a7ba67_c8415bf2",
+        "filename": "docs/user/net/UrlRequest.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-05T09:50:15Z",
+      "side": 1,
+      "message": "In fact it\u0027s even worse than that. This destructor only calls the BUrlRequest implementation of Stop(). It can\u0027t call the subclassed version because by the time this code is run, the vtable is already destroyed (yay, C++).\n\nSo, subclasses must override this and call their own Stop() implementation here (and do all other needed cleanup).",
+      "revId": "5061911b6696ec2693893a22404f5a1b3ac414a8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a540fbc0_8ed194e3",
+        "filename": "docs/user/net/UrlRequest.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-05T09:50:15Z",
+      "side": 1,
+      "message": "is this even useful or safe to do?\n\nI mean, I can imagine we would like to pause a download, but the server would probably quickly timeout the request if we do that, right?",
+      "revId": "5061911b6696ec2693893a22404f5a1b3ac414a8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0990f648_b5592094",
+        "filename": "docs/user/net/UrlRequest.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-05T09:50:15Z",
+      "side": 1,
+      "message": "more precisely \"no response received from server\" I think?",
+      "revId": "5061911b6696ec2693893a22404f5a1b3ac414a8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ee54b61_13523b4b",
+        "filename": "docs/user/net/UrlRequest.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-05T09:50:15Z",
+      "side": 1,
+      "message": "This can only be done before the request is Run(). I think it\u0027s worth saying this explicitly in the method description (it can be deduced from the B_ERROR return)",
+      "revId": "5061911b6696ec2693893a22404f5a1b3ac414a8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "063d19a5_b90c599a",
+        "filename": "docs/user/net/UrlRequest.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-05T09:50:15Z",
+      "side": 1,
+      "message": "sounds like a bug. What happens then? Crash if the request attempts to set a cookie?",
+      "revId": "5061911b6696ec2693893a22404f5a1b3ac414a8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f401f7c6_ccc369b4",
+        "filename": "docs/user/net/UrlRequest.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-05T09:50:15Z",
+      "side": 1,
+      "message": "we don\u0027t usually document private fields in the public API documentation.",
+      "revId": "5061911b6696ec2693893a22404f5a1b3ac414a8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
