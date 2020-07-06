@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4be7824_e36ba80c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-06T09:16:49Z",
+      "side": 1,
+      "message": "name this variable entrySize",
+      "revId": "1ed9a4547145a609113ab7bc0e4a6492b99d7fb7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc115108_233b4e67",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-06T09:16:49Z",
+      "side": 1,
+      "message": "use an if:\n\nif (fInode-\u003eHasFileTypeField())\n    entrySize +\u003d sizeof(uint8);",
+      "revId": "1ed9a4547145a609113ab7bc0e4a6492b99d7fb7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7fee32d0_63a208fe",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-06T09:16:49Z",
+      "side": 1,
+      "message": "use std::binary_search (https://en.cppreference.com/w/cpp/algorithm/binary_search) maybe?",
+      "revId": "1ed9a4547145a609113ab7bc0e4a6492b99d7fb7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94b7463c_f9e5d423",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-06T09:16:49Z",
+      "side": 1,
+      "message": "use \u0026\u0026 rather than and (both are accepted by gcc but \u0026\u0026 is more usual)",
+      "revId": "1ed9a4547145a609113ab7bc0e4a6492b99d7fb7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
