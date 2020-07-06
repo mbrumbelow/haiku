@@ -143,6 +143,24 @@
     },
     {
       "key": {
+        "uuid": "710f9f09_bbfb7b6f",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-06T13:32:50Z",
+      "side": 1,
+      "message": "No, I\u0027m suggesting that you use the existing one in the C library:\n\nhttp://www.cplusplus.com/reference/cstdlib/bsearch/\n\nWhy write a binary search yourself? It\u0027s a problem solved long ago already, reusing an existing function will avoid having to think about it again.\n\nWhen reading the code, for me it\u0027s much easier to see the bsearch function and think \"ok we\u0027re searching something in a sorted array\" than analyse this while loop to understand what we\u0027re doing.",
+      "parentUuid": "cf9f8591_71bc7734",
+      "revId": "1ed9a4547145a609113ab7bc0e4a6492b99d7fb7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "94b7463c_f9e5d423",
         "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
         "patchSetId": 4
