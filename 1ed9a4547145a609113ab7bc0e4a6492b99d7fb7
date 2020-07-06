@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1bf1e083_f824e931",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-07-06T12:06:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4be7824_e36ba80c",
+      "revId": "1ed9a4547145a609113ab7bc0e4a6492b99d7fb7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc115108_233b4e67",
         "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
         "patchSetId": 4
@@ -33,6 +51,24 @@
       "revId": "1ed9a4547145a609113ab7bc0e4a6492b99d7fb7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09df1249_eb77e434",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-07-06T12:06:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc115108_233b4e67",
+      "revId": "1ed9a4547145a609113ab7bc0e4a6492b99d7fb7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "12f35d5a_c7cd1249",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-07-06T12:06:43Z",
+      "side": 1,
+      "message": "But this requires a specific TYPE right? I am iterating over a buffer in this binary search (and ofcource changing Endian).\nI use lower_bound and upper_bound regularly but over data structures like set, vector etc.,",
+      "parentUuid": "7fee32d0_63a208fe",
+      "revId": "1ed9a4547145a609113ab7bc0e4a6492b99d7fb7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "94b7463c_f9e5d423",
         "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
         "patchSetId": 4
@@ -67,6 +121,24 @@
       "revId": "1ed9a4547145a609113ab7bc0e4a6492b99d7fb7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad83a9c6_a451135b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-07-06T12:06:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94b7463c_f9e5d423",
+      "revId": "1ed9a4547145a609113ab7bc0e4a6492b99d7fb7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
