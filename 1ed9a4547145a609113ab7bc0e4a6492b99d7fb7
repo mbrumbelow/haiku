@@ -107,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "b78769ee_f4931b78",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-06T12:28:52Z",
+      "side": 1,
+      "message": "you can use std::begin\u003cExtentLeafEntry, numberOfLeafEntries\u003e(leafEntry) to create an iterator on the array.\n\nBut maybe indeed it is simpler to use the C-style bsearch() function instead.",
+      "parentUuid": "12f35d5a_c7cd1249",
+      "revId": "1ed9a4547145a609113ab7bc0e4a6492b99d7fb7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "94b7463c_f9e5d423",
         "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
         "patchSetId": 4
