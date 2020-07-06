@@ -1,0 +1,118 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff0df531_8766b121",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2020-07-06T17:40:08Z",
+      "side": 1,
+      "message": "If status is not used elsewhere, you can return from the function directly.",
+      "revId": "acfb9bb5fb1faab0c9618706657738b5c9830e10",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25a85ebe_26924b1a",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2020-07-06T17:40:08Z",
+      "side": 1,
+      "message": "same here",
+      "revId": "acfb9bb5fb1faab0c9618706657738b5c9830e10",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eebdf286_cda2c30f",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2020-07-06T17:40:08Z",
+      "side": 1,
+      "message": "need `const`",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 11
+      },
+      "revId": "acfb9bb5fb1faab0c9618706657738b5c9830e10",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbe53de6_02343a94",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2020-07-06T17:40:08Z",
+      "side": 1,
+      "message": "This only need to return the expression.",
+      "range": {
+        "startLine": 166,
+        "startChar": 1,
+        "endLine": 169,
+        "endChar": 15
+      },
+      "revId": "acfb9bb5fb1faab0c9618706657738b5c9830e10",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "183dd943_3e3079ae",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2020-07-06T17:40:08Z",
+      "side": 1,
+      "message": "no space after `;` for the condition",
+      "revId": "acfb9bb5fb1faab0c9618706657738b5c9830e10",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c540e0f_07bd0edb",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2020-07-06T17:40:08Z",
+      "side": 1,
+      "message": "need `const`",
+      "revId": "acfb9bb5fb1faab0c9618706657738b5c9830e10",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
