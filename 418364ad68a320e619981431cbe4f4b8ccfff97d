@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0f097f6d_9cdd7481",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-07-07T03:19:31Z",
+      "side": 1,
+      "message": "capitalize and add component, i.e.:\n\ndocs: Remove mention of OpenBeOS newsletter.",
+      "revId": "418364ad68a320e619981431cbe4f4b8ccfff97d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8a4fd1c_e5b218f6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-07-07T03:19:31Z",
+      "side": 1,
+      "message": "Two blank lines between summary and description.",
+      "revId": "418364ad68a320e619981431cbe4f4b8ccfff97d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e173504_e8831fcf",
+        "filename": "docs/user/HOWTO",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-07-07T03:19:31Z",
+      "side": 1,
+      "message": "remove double space.",
+      "revId": "418364ad68a320e619981431cbe4f4b8ccfff97d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
