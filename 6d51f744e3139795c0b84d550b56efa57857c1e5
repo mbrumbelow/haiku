@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e28c95ad_5088e3c5",
+        "filename": "headers/os/support/MemoryRingIO.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-09T20:45:08Z",
+      "side": 1,
+      "message": "Not a fan of this name. Isn\u0027t this rather just a Close()? Also, there should then also be a IsClosed() so you know the stream has been closed.",
+      "revId": "6d51f744e3139795c0b84d550b56efa57857c1e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28bb27d0_bf490c67",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-09T20:45:08Z",
+      "side": 1,
+      "message": "What about __builtin_clz()?",
+      "revId": "6d51f744e3139795c0b84d550b56efa57857c1e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b06eabd_127dc46f",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-09T20:45:08Z",
+      "side": 1,
+      "message": "avoids -\u003e avoid",
+      "revId": "6d51f744e3139795c0b84d550b56efa57857c1e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9f726c5_6feb40b6",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-09T20:45:08Z",
+      "side": 1,
+      "message": "We usually don\u0027t mix class implementations with other stuff, but keep them separate (like your next_power_of_two() implementation). The declaration order in the header should match that of the implementation, too.\n\nWhy not use a private method here instead, anyway?",
+      "revId": "6d51f744e3139795c0b84d550b56efa57857c1e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa197684_fb5ac164",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-09T20:45:08Z",
+      "side": 1,
+      "message": "That\u0027s not really the error code I would have expected in this case. But I don\u0027t really have a good idea or suggestion either.\nIn any way, this is usually returned when you use a timeout of 0 -- and the call would indeed block. However, in this case, it won\u0027t block, because the stream closed already.",
+      "revId": "6d51f744e3139795c0b84d550b56efa57857c1e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
