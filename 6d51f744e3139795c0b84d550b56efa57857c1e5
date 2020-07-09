@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "05556dac_675a1152",
+        "filename": "headers/os/support/MemoryRingIO.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2020-07-09T21:26:33Z",
+      "side": 1,
+      "message": "Maybe the POSIX error code \"ENODATA\" could be used?",
+      "parentUuid": "e28c95ad_5088e3c5",
+      "revId": "6d51f744e3139795c0b84d550b56efa57857c1e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "28bb27d0_bf490c67",
         "filename": "src/kits/support/MemoryRingIO.cpp",
         "patchSetId": 8
