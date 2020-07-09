@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "19f5a9fa_38f68c19",
+        "filename": "src/apps/codycam/FtpClient.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-09T06:54:32Z",
+      "side": 1,
+      "message": "Isn\u0027t that what puts() is for?",
+      "revId": "21e213d3b0970a9500a741e8072d878927828f87",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
