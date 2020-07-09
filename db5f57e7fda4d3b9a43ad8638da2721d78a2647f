@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da3cb935_c0ce3b44",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-09T14:58:39Z",
+      "side": 1,
+      "message": "sM is a temporary object created on the stack. This means it is deleted when the while loop exits. But you are inserting a pointer to it into fMouseSettingsObject. This means the pointer is left pointing to nothing.\n\nYou need to make sure the settings remain allocated:\n\nMouseSettings* mouseSettings \u003d new MouseSettings(*settings);\nfMouseSettingsObject.insert(std::pair\u003cBString, MouseSettings*\u003e(deviceName, mouseSettings));\n\nAnd in the destructor you need to release the memory for all of these:\n\nfor (itr \u003d fMouseSettingsObject.begin(); itr !\u003d fMouseSettingsObject.end(); ++itr) {\n    delete itr-\u003esecond;\n}",
+      "revId": "db5f57e7fda4d3b9a43ad8638da2721d78a2647f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
