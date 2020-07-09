@@ -16,6 +16,24 @@
       "revId": "db5f57e7fda4d3b9a43ad8638da2721d78a2647f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0af37cc_48b04c0d",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-07-09T17:40:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "da3cb935_c0ce3b44",
+      "revId": "db5f57e7fda4d3b9a43ad8638da2721d78a2647f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
