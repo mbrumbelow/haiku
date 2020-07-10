@@ -1,0 +1,463 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e880a23_799f2f95",
+        "filename": "src/preferences/input/InputMouse.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-10T17:10:25Z",
+      "side": 1,
+      "message": "shouldn\u0027t these default settings be inside MouseSettings.cpp?",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dcc90cab_f4087da7",
+        "filename": "src/preferences/input/InputMouse.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-10T17:10:25Z",
+      "side": 1,
+      "message": "no empty line here",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ef229ec_ac2ed8f5",
+        "filename": "src/preferences/input/InputMouse.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-10T17:10:25Z",
+      "side": 1,
+      "message": "this can be deleted now",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc67a8d6_58fc23de",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-10T17:10:25Z",
+      "side": 1,
+      "message": "no empty line here",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc160662_a282abd1",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-10T17:10:25Z",
+      "side": 1,
+      "message": "no empty line here",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c396e59_3ed0b0a5",
+        "filename": "src/preferences/input/InputWindow.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-10T17:10:25Z",
+      "side": 1,
+      "message": "align fMultipleMouseSettings with the fields and methods above using tabs",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2bbb222_44f8292c",
+        "filename": "src/preferences/input/InputWindow.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-10T17:10:25Z",
+      "side": 1,
+      "message": "no blank line needed here",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3606a6f_e80c647b",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-10T17:10:25Z",
+      "side": 1,
+      "message": "two empty lines",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f20a8ad_cbc65ee2",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-10T17:10:25Z",
+      "side": 1,
+      "message": "indentation is incorrect",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fec6eb22_85e57554",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-10T17:10:25Z",
+      "side": 1,
+      "message": "indentation is incorrect",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76bef91a_a37a54c6",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-10T17:10:25Z",
+      "side": 1,
+      "message": "this line is too long, and the {} are not needed because the body is a single line",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2127302_2b054b78",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-10T17:10:25Z",
+      "side": 1,
+      "message": "only one empty line here",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06daa088_f9095a0b",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-10T17:10:25Z",
+      "side": 1,
+      "message": "check that this works (if it doesn\u0027t and return !\u003d B_OK, the settings are probably in the old format and need to be loaded with the old code for migration)",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56935b8e_a379ef0c",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-10T17:10:25Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91f28427_51c724ef",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-10T17:10:25Z",
+      "side": 1,
+      "message": "single space between \u003d and new.\n\nAlso if you use new this way, you need to catch the exception in case there is no memory. Otherwise, use new(std::nothrow) and check the result is not NULL",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d30f7373_3ee7e49f",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-10T17:10:25Z",
+      "side": 1,
+      "message": "this line is too long. Probaby a typedef for the std::pair would help with that",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "075ead51_a0c42b36",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-10T17:10:25Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6e05bb8_ef473d17",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-10T17:10:25Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1076a1e0_c3fbd591",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-10T17:10:25Z",
+      "side": 1,
+      "message": "all code after this line in this function is useless (it looks like a copy of the code for loading?)\n\nAlso, check that Archive and Flatten return B_OK, they could fail (if the disk is full, for example)",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0a3d47e_4968401c",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-10T17:10:25Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd06e379_38374758",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-10T17:10:25Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef0a2464_5d70ec1e",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-10T17:10:25Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aecc781d_34f6460c",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-10T17:10:25Z",
+      "side": 1,
+      "message": "no empty line here",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9617220_a72d6356",
+        "filename": "src/preferences/input/MouseSettings.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-10T17:10:25Z",
+      "side": 1,
+      "message": "single empty line here",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2577ac09_2481da7b",
+        "filename": "src/preferences/input/MouseSettings.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-10T17:10:25Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09690fb2_393450b5",
+        "filename": "src/servers/input/InputServer.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-10T17:10:25Z",
+      "side": 1,
+      "message": "I think this one is not needed anymore?",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1755753c_237dca8b",
+        "filename": "src/servers/input/MouseSettings.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-10T17:10:25Z",
+      "side": 1,
+      "message": "I think this is not needed? The settings are inside the map now?",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}

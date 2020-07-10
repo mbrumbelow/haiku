@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "377712cf_fa21636c",
+        "filename": "src/preferences/input/MouseSettings.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-10T17:10:25Z",
+      "side": 0,
+      "message": "one thing to consider is migrating settings from the old format for existing users when they update their system. So we need to preserve this method and use it when the settings are not a BMessage (BMessage.Unflatten() fails). In this case we need to get the old format settings and apply them to all mouses.",
+      "revId": "2899294cf166fb4feefd9a66aeadcc6513194b13",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
