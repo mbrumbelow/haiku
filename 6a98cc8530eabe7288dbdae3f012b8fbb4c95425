@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0fac22fb_89b2cdd4",
+        "filename": "src/system/boot/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-10T06:48:05Z",
+      "side": 1,
+      "message": "I don\u0027t think having the debug info in the Pe file is useful?\n\nThe idea is that this is just a format conversion, so it\u0027s possible to load the ELF file in GDB for debugging while running the Pe file (in qemu or on real hardware).",
+      "revId": "6a98cc8530eabe7288dbdae3f012b8fbb4c95425",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
