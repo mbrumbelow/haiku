@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "00f0c266_7a41cb77",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-07-10T11:32:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4008b841_b6847041",
+      "revId": "9240e1f018f1d89251ef6ed23da23a65139b8a84",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "306ea253_549f2f0e",
         "filename": "src/preferences/input/MouseSettings.cpp",
         "patchSetId": 11
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "ec7d68ee_2f777312",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 682,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-07-10T11:32:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "306ea253_549f2f0e",
+      "revId": "9240e1f018f1d89251ef6ed23da23a65139b8a84",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dd45ad15_ebc6716d",
         "filename": "src/preferences/input/MouseSettings.cpp",
         "patchSetId": 11
@@ -50,6 +86,24 @@
       "revId": "9240e1f018f1d89251ef6ed23da23a65139b8a84",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6511767a_8f01d24f",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-07-10T11:32:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "dd45ad15_ebc6716d",
+      "revId": "9240e1f018f1d89251ef6ed23da23a65139b8a84",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
