@@ -16,6 +16,24 @@
       "revId": "6a98cc8530eabe7288dbdae3f012b8fbb4c95425",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e16b91e2_af3e9975",
+        "filename": "src/system/boot/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-07-10T20:27:19Z",
+      "side": 1,
+      "message": "Sure it is :-)   Building bootloaders with debugging now gets you debug symbols in the loader so you can actually debug EFI issues in qemu with...\n\n$ gdb ./objects/haiku/x86_64/debug_1/system/boot/efi/haiku_loader.efi\n.\nReading symbols from ./objects/haiku/x86_64/debug_1/system/boot/efi/haiku_loader.efi...\n(gdb) break efi_main\nBreakpoint 1 at 0x1806c: file ../src/system/boot/platform/efi/start.cpp, line 181.\n(gdb) target remote localhost:1234\n\nI\u0027ve never gotten using the elf for the symbols, but booting from the Pe binary to \"work\".",
+      "parentUuid": "0fac22fb_89b2cdd4",
+      "revId": "6a98cc8530eabe7288dbdae3f012b8fbb4c95425",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
