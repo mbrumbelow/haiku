@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4008b841_b6847041",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-10T07:03:22Z",
+      "side": 1,
+      "message": "this function is not needed anymore. I think it\u0027s time to clean things a bit here (delete commented code, remove unused functions) so it\u0027s easier to see what we\u0027re doing",
+      "revId": "9240e1f018f1d89251ef6ed23da23a65139b8a84",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "306ea253_549f2f0e",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 682,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-10T07:03:22Z",
+      "side": 1,
+      "message": "This function can call GetMouseSettings to check if the settings are already there, instead of duplicating the code.\n\nThen only the last two lines are needed, in case the settings are not available yet.",
+      "revId": "9240e1f018f1d89251ef6ed23da23a65139b8a84",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd45ad15_ebc6716d",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-10T07:03:22Z",
+      "side": 1,
+      "message": "The idea of a map is that it is easy and fast to find settings from the key.\n\nThis whole function can be replaced with:\n\nreturn fMouseSettingsObject.at(mouse_name);",
+      "revId": "9240e1f018f1d89251ef6ed23da23a65139b8a84",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
