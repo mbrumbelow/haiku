@@ -34,6 +34,24 @@
       "revId": "6a98cc8530eabe7288dbdae3f012b8fbb4c95425",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ddfbc4bb_9f2caf6e",
+        "filename": "src/system/boot/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-11T08:39:44Z",
+      "side": 1,
+      "message": "This should work just as well:\n\ngdb ./objects/haiku/x86_64/debug_1/system/boot/efi/haiku_loader.elf\nbreak efi_main\ntarget remote localhost:1234\n\nUsing the elf for gdb, but loading the efi (of course) in qemu. Since they have the same memory map, that\u0027s just fine. And it avoids shipping the debug info into the released bootloader.\n\nAlso works for other platforms where the bootloader is in a simpler format (raw binary, a.out for sparc, ...).",
+      "parentUuid": "e16b91e2_af3e9975",
+      "revId": "6a98cc8530eabe7288dbdae3f012b8fbb4c95425",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
