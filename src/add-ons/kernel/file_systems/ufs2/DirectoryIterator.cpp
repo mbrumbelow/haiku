@@ -24,11 +24,10 @@ DirectoryIterator::DirectoryIterator(Inode* inode)
 	:
 	fInode(inode)
 {
+	fOffset = fInode->GetBlockPointer() * MINBSIZE + sizeof(dir_info);
 	TRACE("DirectoryIterator::DirectoryIterator() \n");
 }
 
-
-int DirectoryIterator::countDir = 0;
 
 DirectoryIterator::~DirectoryIterator()
 {
@@ -45,21 +44,17 @@ DirectoryIterator::InitCheck()
 status_t
 DirectoryIterator::Lookup(const char* name, size_t length, ino_t* _id)
 {
-	int count = 0;
 	if (strcmp(name, ".") == 0) {
 		*_id = fInode->ID();
 		return B_OK;
-	} else if (strcmp(name, "..") == 0) {
-		if (fInode->ID() == 1)
-			*_id = fInode->ID();
-
-	/*	else
-			*_id = fInode->Parent();*/
-
 	}
-	while(_GetNext(name, &length, _id, count) != B_OK) {
-		count++;
+	dir_info direct_info;
+	int64_t offset = fInode->GetBlockPointer() * MINBSIZE;
+
+	offset = offset + sizeof(dir_info);
+	while(_GetNext(name, &length, _id, &offset) != B_OK) {
 	}
+
 	return B_OK;
 }
 
@@ -67,44 +62,48 @@ DirectoryIterator::Lookup(const char* name, size_t length, ino_t* _id)
 status_t
 DirectoryIterator::GetNext(char* name, size_t* _nameLength, ino_t* _id)
 {
-	TRACE("In GetNext function\n");
-	int64_t offset = fInode->GetBlockPointer() * MINBSIZE;
+	TRACE("In GetNext function %ld\n", fOffset);
 	dir direct;
-	dir_info direct_info;
 	int fd = fInode->GetVolume()->Device();
-	if (read_pos(fd, offset, &direct_info,
-				sizeof(dir_info)) != sizeof(dir_info)) {
+	int remainder;
+	if (read_pos(fd, fOffset, &direct, sizeof(dir)) != sizeof(dir)) {
 		return B_BAD_DATA;
 	}
 
-	offset = offset + sizeof(dir_info) + 16 * countDir;
-	if (read_pos(fd, offset, &direct, sizeof(dir)) != sizeof(dir)) {
-		return B_BAD_DATA;
-	}
+		remainder = direct.namlen % 4;
+		if(remainder != 0) {
+			remainder = 4 - remainder;
+			remainder = direct.namlen + remainder;
+		}
+		else {
+			remainder = direct.namlen + 4;
+		}
+		fOffset = fOffset + 8 + remainder;
 
 	if (direct.next_ino != 0) {
-	strlcpy(name, direct.name, sizeof(name));
-	*_id = direct.next_ino;
-	*_nameLength = direct.namlen;
-	countDir++;
-	return B_OK;
+		TRACE("direct.next_ino %d\n",direct.next_ino);
+
+		strlcpy(name, direct.name, remainder);
+		*_id = direct.next_ino;
+		*_nameLength = direct.namlen;
+		return B_OK;
 	}
-	countDir = 0;
+
 	return B_ENTRY_NOT_FOUND;
 }
 
 
 status_t
 DirectoryIterator::_GetNext(const char* name, size_t* _nameLength,
-						ino_t* _id, int count)
+						ino_t* _id, int64_t* offset)
 {
-	TRACE("In GetNext function\n");
-	int64_t offset = fInode->GetBlockPointer() * MINBSIZE;
+	TRACE("In _GetNext function\n");
+
 	dir direct;
 	dir_info direct_info;
 	int fd = fInode->GetVolume()->Device();
-	if (read_pos(fd, offset, &direct_info,
-				sizeof(dir_info)) != sizeof(dir_info)) {
+	if (read_pos(fd, *offset - sizeof(dir_info), &direct_info,
+		sizeof(dir_info)) != sizeof(dir_info)) {
 		return B_BAD_DATA;
 	}
 	if(strcmp(name, "..") == 0)
@@ -113,18 +112,26 @@ DirectoryIterator::_GetNext(const char* name, size_t* _nameLength,
 		return B_OK;
 	}
 
-	offset = offset + sizeof(dir_info) + (16 * count);
-	if (read_pos(fd, offset, &direct, sizeof(dir)) != sizeof(dir)) {
+	if (read_pos(fd, *offset, &direct, sizeof(dir)) != sizeof(dir)) {
 		return B_BAD_DATA;
 	}
 
+	int remainder = direct.namlen % 4;
+	if(remainder != 0) {
+		remainder = 4-remainder;
+		remainder = direct.namlen + remainder;
+	}
+	else {
+		remainder = direct.namlen + 4;
+	}
+	*offset = *offset + 8 + remainder;
 	char getname;
-	strlcpy(&getname, direct.name, sizeof(name));
+	strlcpy(&getname, direct.name, remainder);
 	if(strcmp(name, &getname) == 0) {
 		*_id = direct.next_ino;
 		return B_OK;
 	}
 	else {
-	return B_ENTRY_NOT_FOUND;
+		return B_ENTRY_NOT_FOUND;
 	}
 }
