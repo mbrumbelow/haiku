@@ -15,6 +15,11 @@ Extent::Extent(Inode* inode)
 }
 
 
+Extent::~Extent()
+{
+}
+
+
 void
 Extent::FillMapEntry(void* pointerToMap)
 {
@@ -56,7 +61,7 @@ Extent::FillBlockBuffer()
 	xfs_fsblock_t blockToRead = FSBLOCKS_TO_BASICBLOCKS(volume->BlockLog(),
 		((uint64)(agNo * numberOfBlocksInAg) + agBlockNo));
 
-	xfs_daddr_t readPos = blockToRead * (BASICBLOCKSIZE) + fMap->br_startoff;
+	xfs_daddr_t readPos = blockToRead * (BASICBLOCKSIZE);
 
 	TRACE("blockToRead: (%ld), readPos: (%ld)\n", blockToRead, readPos);
 	if (read_pos(volume->Device(), readPos, fBlockBuffer, len) != len) {
