@@ -91,6 +91,24 @@
     },
     {
       "key": {
+        "uuid": "7339ae74_78881cc5",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-12T07:54:30Z",
+      "side": 1,
+      "message": "The only branch it creates is the test for size \u003c\u003d 2 at the start of their function. It is an attempt at optimization from them. size !\u003d 0 would work with the normal code as far as I can see, and that test is already there a line below your use of next_power_of_two.\n\nAlso, this is used in SetSize which does not look like a performance critical path here.\n\nI would prefer the more readable and more compact version. Depending on the CPU used, it could be optimized a lot better. Lockless does not say which machine they tried this one and there is no date on the article. The result could change a lot depending on the machine used. Also it doesn\u0027t properly take into account the function call overhead (they mention it but do nothing about it). In normal use this function would be inlined (especially the very short clz based variant) and then gcc can actually optimize depending on what is done with the value.",
+      "parentUuid": "d5162b72_1a13ed5c",
+      "revId": "6d51f744e3139795c0b84d550b56efa57857c1e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5b06eabd_127dc46f",
         "filename": "src/kits/support/MemoryRingIO.cpp",
         "patchSetId": 8
