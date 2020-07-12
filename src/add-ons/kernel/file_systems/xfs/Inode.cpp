@@ -124,6 +124,13 @@ xfs_inode_t::Format() const
 }
 
 
+xfs_extnum_t
+xfs_inode_t::NoOfDataExtents() const
+{
+	return di_nextents;
+}
+
+
 Inode::Inode(Volume* volume, xfs_ino_t id)
 	:
 	fVolume(volume),

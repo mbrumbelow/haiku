@@ -41,6 +41,7 @@ public:
 			uint8				BlockLog() const;
 			uint32				DirBlockSize() const;
 				// maximum 65536
+			uint32				DirBlockLog() const;
 			uint8				AgInodeBits() const;
 			uint8				InodesPerBlkLog() const;
 			uint8				AgBlocksLog() const;
