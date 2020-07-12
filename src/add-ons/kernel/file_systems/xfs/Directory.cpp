@@ -8,15 +8,20 @@
 
 
 DirectoryIterator::DirectoryIterator(Inode* inode)
+	:
+	fInode(inode),
+	fShortDir(NULL),
+	fExtentDir(NULL),
+	fLeafDir(NULL)
 {
-	fInode = inode;
-	fShortDir = NULL;
 }
 
 
 DirectoryIterator::~DirectoryIterator()
 {
 	delete fShortDir;
+	delete fLeafDir;
+	delete fExtentDir;
 }
 
 
@@ -35,8 +40,25 @@ DirectoryIterator::Init()
 		fExtentDir = new(std::nothrow) Extent(fInode);
 		if (fExtentDir == NULL)
 			return B_NO_MEMORY;
-		status_t status = fExtentDir->Init();
-		return status;
+		if (fExtentDir->BlockType() == true) {
+			status_t status = fExtentDir->Init();
+			return status;
+		} 
+		if (fExtentDir->BlockType() == false) {
+			delete fExtentDir;
+			fExtentDir = NULL;
+		}
+
+		fLeafDir = new(std::nothrow) LeafDirectory(fInode);
+		if (fLeafDir == NULL)
+			return B_NO_MEMORY;
+		status_t status = fLeafDir->Init();
+		if (status != B_OK)
+			return status;
+		if (fLeafDir->LeafType() == false) {
+			delete fLeafDir;
+			fLeafDir = NULL;
+		}
 	}
 
 	/* Return B_OK so even if the shortform directory has an extent directory
@@ -71,7 +93,10 @@ DirectoryIterator::GetNext(char* name, size_t* length, xfs_ino_t* ino)
 	//TODO: Reading from extent based directories
 	if (fInode->Format() == XFS_DINODE_FMT_EXTENTS) {
 		TRACE("Iterator:GetNext: EXTENTS");
-		status = fExtentDir->GetNext(name, length, ino);
+		if (fExtentDir != NULL)
+			status = fExtentDir->GetNext(name, length, ino);
+		if (fLeafDir != NULL)
+			status = fLeafDir->GetNext(name, length, ino);
 		return status;
 	}
 
@@ -98,7 +123,10 @@ DirectoryIterator::Lookup(const char* name, size_t length, xfs_ino_t* ino)
 	//TODO: Reading from extent based dirs
 	if (fInode->Format() == XFS_DINODE_FMT_EXTENTS) {
 		TRACE("Iterator:Lookup: EXTENTS");
-		status = fExtentDir->Lookup(name, length, ino);
+		if (fExtentDir != NULL)
+			status = fExtentDir->Lookup(name, length, ino);
+		if (fLeafDir != NULL)
+			status = fLeafDir->Lookup(name, length, ino);
 		return status;
 	}
 

@@ -15,6 +15,11 @@ Extent::Extent(Inode* inode)
 }
 
 
+Extent::~Extent()
+{
+}
+
+
 void
 Extent::FillMapEntry(void* pointerToMap)
 {
@@ -56,7 +61,7 @@ Extent::FillBlockBuffer()
 	xfs_fsblock_t blockToRead = FSBLOCKS_TO_BASICBLOCKS(volume->BlockLog(),
 		((uint64)(agNo * numberOfBlocksInAg) + agBlockNo));
 
-	xfs_daddr_t readPos = blockToRead * (BASICBLOCKSIZE) + fMap->br_startoff;
+	xfs_daddr_t readPos = blockToRead * BASICBLOCKSIZE;
 
 	TRACE("blockToRead: (%ld), readPos: (%ld)\n", blockToRead, readPos);
 	if (read_pos(volume->Device(), readPos, fBlockBuffer, len) != len) {
@@ -163,6 +168,7 @@ Extent::GetNext(char* name, size_t* length, xfs_ino_t* ino)
 
 		if (B_BENDIAN_TO_HOST_INT16(unusedEntry->freetag) == DIR2_FREE_TAG) {
 			TRACE("Unused entry found\n");
+			i--;
 			entry = (void*)
 				((char*)entry + B_BENDIAN_TO_HOST_INT16(unusedEntry->length));
 			continue;
