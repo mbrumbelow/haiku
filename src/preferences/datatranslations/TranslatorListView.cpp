@@ -14,15 +14,40 @@
 #include <string.h>
 
 #include <Application.h>
-
+#include <String.h>
+#include <TranslatorRoster.h>
 
 static int
 compare_items(const void* a, const void* b)
 {
-	const BStringItem* stringA = *(const BStringItem**)a;
-	const BStringItem* stringB = *(const BStringItem**)b;
+	const TranslatorItem* itemA = *(const TranslatorItem**)a;
+	const TranslatorItem* itemB = *(const TranslatorItem**)b;
 
-	return strcmp(stringA->Text(), stringB->Text());
+	// Get the first input MIME type
+	const translation_format* formatA;
+	const translation_format* formatB;
+	int32 numA;
+	int32 numB;
+
+	static BTranslatorRoster* roster = BTranslatorRoster::Default();
+	roster->GetInputFormats(itemA->ID(), &formatA, &numA);
+	roster->GetInputFormats(itemB->ID(), &formatB, &numB);
+
+	// Get the MIME supertype
+	BString typeA(formatA->MIME);
+	int32 slashA = typeA.FindFirst('/');
+	typeA.Truncate(slashA);
+
+	BString typeB(formatB->MIME);
+	int32 slashB = typeB.FindFirst('/');
+	typeB.Truncate(slashB);
+
+	// Compare by supertype, then by name
+	int typeDiff = typeA.Compare(typeB);
+	if (typeDiff != 0)
+		return typeDiff;
+
+	return strcmp(itemA->Text(), itemB->Text());
 }
 
 
