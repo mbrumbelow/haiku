@@ -14,15 +14,21 @@
 #include <string.h>
 
 #include <Application.h>
-
+#include <String.h>
+#include <TranslatorRoster.h>
 
 static int
 compare_items(const void* a, const void* b)
 {
-	const BStringItem* stringA = *(const BStringItem**)a;
-	const BStringItem* stringB = *(const BStringItem**)b;
+	const TranslatorItem* itemA = *(const TranslatorItem**)a;
+	const TranslatorItem* itemB = *(const TranslatorItem**)b;
 
-	return strcmp(stringA->Text(), stringB->Text());
+	// Compare by supertype, then by name
+	int typeDiff = itemA->Supertype().Compare(itemB->Supertype());
+	if (typeDiff != 0)
+		return typeDiff;
+
+	return strcmp(itemA->Text(), itemB->Text());
 }
 
 
@@ -34,6 +40,14 @@ TranslatorItem::TranslatorItem(translator_id id, const char* name)
 	BStringItem(name),
 	fID(id)
 {
+	static BTranslatorRoster* roster = BTranslatorRoster::Default();
+
+	const translation_format* format;
+	int32 count;
+	roster->GetInputFormats(id, &format, &count);
+	fSupertype = format->MIME;
+	int32 slash = fSupertype.FindFirst('/');
+	fSupertype.Truncate(slash);
 }
 
 
