@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "66b1ae2a_1ed8f424",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-13T19:31:52Z",
+      "side": 1,
+      "message": "Maybe you didn\u0027t understand me; what I meant was you should write:\nif (fExtentDir-\u003eBlockType())\n\treturn fExtentDir-\u003eInit();\n\ndelete fExtentDir;\nfExtentDir \u003d NULL;\n\nIf BlockType() returns a boolean, please follow the convention, and rename it to IsBlockType() to make that clear.",
+      "parentUuid": "2f387d83_14efb801",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7a162380_b0d876ab",
         "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
         "patchSetId": 2
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "Because I think in a previous patch Adrien suggested not to return boolean from a function that returns status_t",
       "parentUuid": "7a162380_b0d876ab",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1cd2511_29c50ed6",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-13T19:31:52Z",
+      "side": 1,
+      "message": "Huh? If Init() returns a boolean (which would be relatively surprising when you look at other code), then the code above is plain wrong. false \u003d\u003d 0, ie. \u003d\u003d B_OK, true \u003d\u003d 1 which should be regarded as an error in the code calling this function.",
+      "parentUuid": "9d56add4_07dba4ea",
       "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -142,6 +178,24 @@
     },
     {
       "key": {
+        "uuid": "991df925_c79933aa",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-13T19:31:52Z",
+      "side": 1,
+      "message": "I don\u0027t understand what you\u0027re saying, sorry. Just do something like:\nif (fExtentDir !\u003d NULL)\n\t...\nelse if (fLeafDir !\u003d NULL)\n\t...\nelse\n\t...\n\nor even:\nelse if (third way)\n\t...\nelse\n\treturn error;",
+      "parentUuid": "e49fe070_205f07b8",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "639f6d70_befcb5a7",
         "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
         "patchSetId": 2
@@ -212,6 +266,24 @@
     },
     {
       "key": {
+        "uuid": "cb203c63_1c2bcdd6",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-13T19:31:52Z",
+      "side": 1,
+      "message": "If the macro requires parentheses, then please fix the macro.",
+      "parentUuid": "db8e3ce3_c564fa5e",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "04eda772_fe33a5bc",
         "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
         "patchSetId": 2
@@ -241,6 +313,24 @@
       "side": 1,
       "message": "Checking for NULL should fix this am I right?",
       "parentUuid": "04eda772_fe33a5bc",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a80720f_d279df25",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-13T19:31:52Z",
+      "side": 1,
+      "message": "Nope. Not initialized means they have simply garbage in them. You can delete on a NULL object, there is no harm, but not on garbage.\n\nYou have to initialize the fields in your constructor, as you do with the buffer fields.",
+      "parentUuid": "de219ca6_97ec52c2",
       "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -279,6 +369,23 @@
       "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa10f203_9349fd2b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-13T19:31:52Z",
+      "side": 1,
+      "message": "A better name would be IsLeafType().",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     },
     {
       "key": {
@@ -489,6 +596,24 @@
       "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e749834_89cc4088",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-13T19:31:52Z",
+      "side": 1,
+      "message": "Yep, that\u0027s perfectly fine then. I just thought I\u0027ve seen it before in a patch from yours :-)",
+      "parentUuid": "d400ea2a_0c1dbaaa",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
