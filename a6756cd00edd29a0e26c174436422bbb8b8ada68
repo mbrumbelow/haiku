@@ -1,0 +1,310 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d7b61bfa_c3995774",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-13T13:14:35Z",
+      "side": 1,
+      "message": "The \u0027else\u0027 is misleading and superfluous. Please remove (that\u0027s also part of our coding style guidelines, BTW). Just never use else after return.",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a162380_b0d876ab",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-13T13:14:35Z",
+      "side": 1,
+      "message": "Why not \"return fLeafDir-\u003eInit();\" directly?",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7172be1c_6b21eea0",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-13T13:14:35Z",
+      "side": 1,
+      "message": "Same thing again here.",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4db35f91_4e843ea4",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-13T13:14:35Z",
+      "side": 1,
+      "message": "If this isn\u0027t either/or, then status will be overwritten here. If it\u0027s either/or, then please use \u0027else\u0027 here.",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "639f6d70_befcb5a7",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-13T13:14:35Z",
+      "side": 1,
+      "message": "Same here.",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b211bc9_921d9247",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-13T13:14:35Z",
+      "side": 1,
+      "message": "Superfluous parentheses.",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04eda772_fe33a5bc",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-13T13:14:35Z",
+      "side": 1,
+      "message": "fDataMap, and fLeafMap may not be initialized in the constructor, but definitely should be here.",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eca043c3_13e094c7",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-13T13:14:35Z",
+      "side": 1,
+      "message": "Ie. if this allocation fails, destructing the object will likely crash.",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b7ceca5_cfe899dc",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-13T13:14:35Z",
+      "side": 1,
+      "message": "\"status\" is superfluous, and the whole statement has a lot of cruft; just use:\nreturn fInode-\u003eNoOfBlocks() !\u003d 1\n\t|| fInode-\u003eSize() \u003d\u003d ...\n\t|| fInode-\u003eNoOfDataExtents() !\u003d 1;",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66baad57_a9b4485e",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-13T13:14:35Z",
+      "side": 1,
+      "message": "Why the superfluous parentheses?",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "530d875f_467363f5",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-13T13:14:35Z",
+      "side": 1,
+      "message": "Please don\u0027t use a single line per argument, especially for something unimportant like debug output.",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28c5f739_75302f7a",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-13T13:14:35Z",
+      "side": 1,
+      "message": "We do omit \u0027{\u0027/\u0027}\u0027 for single line statements.",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3361512_d54b5d60",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-13T13:14:35Z",
+      "side": 1,
+      "message": "That\u0027s the same thing twice!",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cacf2c9_70b02382",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-13T13:14:35Z",
+      "side": 1,
+      "message": "If you need a comment everytime you write this, you should consider moving it into a macro or function.",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20a23cc5_ee51ec31",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-13T13:14:35Z",
+      "side": 1,
+      "message": "Never put the statement in the same line as the \u0027if\u0027. Use a new line for this.",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf262e47_0bfda29d",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-13T13:14:35Z",
+      "side": 1,
+      "message": "Wrong indentation.",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42f97f53_f7e4a138",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-13T13:14:35Z",
+      "side": 1,
+      "message": "We usually only indent a single tab in structs; if you want to make them consistent with the class below (which is also okay), then there is one tab too many, it seems.",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8407f05_31663e87",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-13T13:14:35Z",
+      "side": 1,
+      "message": "The \u0027{\u0027 goes to the end of the previous line.",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
