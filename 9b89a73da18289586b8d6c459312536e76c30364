@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2db543fb_d8cc3c35",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-13T19:32:54Z",
+      "side": 1,
+      "message": "these two lines are longer than 80 columns",
+      "revId": "9b89a73da18289586b8d6c459312536e76c30364",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2908d76_b04f9630",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-13T19:32:54Z",
+      "side": 1,
+      "message": "no empty lines needed here",
+      "revId": "9b89a73da18289586b8d6c459312536e76c30364",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17d3bec4_08adbba3",
+        "filename": "src/preferences/input/MouseSettings.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-13T19:32:54Z",
+      "side": 1,
+      "message": "are these still needed?",
+      "revId": "9b89a73da18289586b8d6c459312536e76c30364",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
