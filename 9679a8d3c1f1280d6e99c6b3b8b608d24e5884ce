@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "831776ae_60e6a6ee",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-13T13:34:09Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "9679a8d3c1f1280d6e99c6b3b8b608d24e5884ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d7ac1a0_bc3e844e",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-13T13:34:09Z",
+      "side": 1,
+      "message": "mouse_name is never set, so this will store settings for a mouse called \"\" (empty string). But the mouses will search their settings by name, and will not find it.\n\nWe need to insert settings matching all mouse names here. So we need a loop calling insert() multiple time with different names and the same settings.",
+      "revId": "9679a8d3c1f1280d6e99c6b3b8b608d24e5884ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fa49dd3_e69f7652",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-13T13:34:09Z",
+      "side": 1,
+      "message": "retrieve the settings before inserting them in the map",
+      "revId": "9679a8d3c1f1280d6e99c6b3b8b608d24e5884ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2dcd62d0_4de5918d",
+        "filename": "src/preferences/input/MouseSettings.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-13T13:34:09Z",
+      "side": 1,
+      "message": "We don\u0027t want to save these. Only _RetrieveSettings is useful",
+      "revId": "9679a8d3c1f1280d6e99c6b3b8b608d24e5884ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}

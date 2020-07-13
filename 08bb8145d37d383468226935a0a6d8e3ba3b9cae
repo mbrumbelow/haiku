@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "710bac10_bccb6c22",
+        "filename": "src/preferences/input/InputMouse.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-13T13:34:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e880a23_799f2f95",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcc90cab_f4087da7",
         "filename": "src/preferences/input/InputMouse.cpp",
         "patchSetId": 14
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "19962481_339a8008",
+        "filename": "src/preferences/input/InputMouse.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-13T13:34:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dcc90cab_f4087da7",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ef229ec_ac2ed8f5",
         "filename": "src/preferences/input/InputMouse.h",
         "patchSetId": 14
@@ -50,6 +86,24 @@
       "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72289bcf_24e4c7d8",
+        "filename": "src/preferences/input/InputMouse.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-13T13:34:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ef229ec_ac2ed8f5",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +141,24 @@
     },
     {
       "key": {
+        "uuid": "a7b4409c_195b5123",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-13T13:34:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc160662_a282abd1",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8c396e59_3ed0b0a5",
         "filename": "src/preferences/input/InputWindow.h",
         "patchSetId": 14
@@ -101,6 +173,24 @@
       "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9cd98efc_af16333b",
+        "filename": "src/preferences/input/InputWindow.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-13T13:34:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c396e59_3ed0b0a5",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -121,6 +211,24 @@
     },
     {
       "key": {
+        "uuid": "7aae31bf_1ad25f0a",
+        "filename": "src/preferences/input/InputWindow.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-13T13:34:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2bbb222_44f8292c",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b3606a6f_e80c647b",
         "filename": "src/preferences/input/MouseSettings.cpp",
         "patchSetId": 14
@@ -135,6 +243,24 @@
       "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97f011bb_a3fea44d",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-13T13:34:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3606a6f_e80c647b",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -189,6 +315,24 @@
     },
     {
       "key": {
+        "uuid": "48d9046e_d0c82584",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-13T13:34:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76bef91a_a37a54c6",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2127302_2b054b78",
         "filename": "src/preferences/input/MouseSettings.cpp",
         "patchSetId": 14
@@ -203,6 +347,24 @@
       "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce385e18_49b1217c",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-13T13:34:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2127302_2b054b78",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -291,6 +453,24 @@
     },
     {
       "key": {
+        "uuid": "5f9c8236_2dc12dc1",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-13T13:34:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "075ead51_a0c42b36",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e6e05bb8_ef473d17",
         "filename": "src/preferences/input/MouseSettings.cpp",
         "patchSetId": 14
@@ -305,6 +485,24 @@
       "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "adb37ccb_760f23b3",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-13T13:34:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6e05bb8_ef473d17",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -342,6 +540,24 @@
     },
     {
       "key": {
+        "uuid": "a1905380_2e962564",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-13T13:34:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0a3d47e_4968401c",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dd06e379_38374758",
         "filename": "src/preferences/input/MouseSettings.cpp",
         "patchSetId": 14
@@ -356,6 +572,24 @@
       "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b40a3616_cd7dddee",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-13T13:34:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd06e379_38374758",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -376,6 +610,24 @@
     },
     {
       "key": {
+        "uuid": "b20c04f8_6cb08282",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-13T13:34:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef0a2464_5d70ec1e",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aecc781d_34f6460c",
         "filename": "src/preferences/input/MouseSettings.cpp",
         "patchSetId": 14
@@ -390,6 +642,24 @@
       "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2cc9610f_65a57f21",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-13T13:34:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aecc781d_34f6460c",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -424,6 +694,24 @@
       "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f548c27f_2cb1f138",
+        "filename": "src/preferences/input/MouseSettings.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-13T13:34:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2577ac09_2481da7b",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
