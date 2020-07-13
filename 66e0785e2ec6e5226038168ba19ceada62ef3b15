@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15d47958_e8db3720",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/DirectoryIterator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-13T13:37:36Z",
+      "side": 1,
+      "message": "This will still be slow. Why not store the offset into the iterator object as well (as fOffset)? This way the function can just resume at the position it last used?",
+      "revId": "66e0785e2ec6e5226038168ba19ceada62ef3b15",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
