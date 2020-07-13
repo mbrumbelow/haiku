@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2f387d83_14efb801",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-07-13T14:53:47Z",
+      "side": 1,
+      "message": "fExtentDir-\u003eBlockType() returns a boolean. It didn\u0027t feel right to write the way you suggested. Anyway, see if this works.",
+      "parentUuid": "d7b61bfa_c3995774",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7a162380_b0d876ab",
         "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2020-07-13T13:14:35Z",
       "side": 1,
       "message": "Why not \"return fLeafDir-\u003eInit();\" directly?",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d56add4_07dba4ea",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-07-13T14:53:47Z",
+      "side": 1,
+      "message": "Because I think in a previous patch Adrien suggested not to return boolean from a function that returns status_t",
+      "parentUuid": "7a162380_b0d876ab",
       "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "3097e1d0_876a36db",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-07-13T14:53:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7172be1c_6b21eea0",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4db35f91_4e843ea4",
         "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
         "patchSetId": 2
@@ -64,6 +118,24 @@
       "writtenOn": "2020-07-13T13:14:35Z",
       "side": 1,
       "message": "If this isn\u0027t either/or, then status will be overwritten here. If it\u0027s either/or, then please use \u0027else\u0027 here.",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e49fe070_205f07b8",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-07-13T14:53:47Z",
+      "side": 1,
+      "message": "Well, there is 1 more type that I will add over here in future so else doesn\u0027t seem like the way to go. But the Init() for the Directory class makes sure that there is only 1 non-NULL instance. Do overriding won\u0027t take place right?",
+      "parentUuid": "4db35f91_4e843ea4",
       "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "2faaafef_66e39e89",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-07-13T14:53:47Z",
+      "side": 1,
+      "message": "Please read above comment",
+      "parentUuid": "639f6d70_befcb5a7",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0b211bc9_921d9247",
         "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
         "patchSetId": 2
@@ -98,6 +188,24 @@
       "writtenOn": "2020-07-13T13:14:35Z",
       "side": 1,
       "message": "Superfluous parentheses.",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db8e3ce3_c564fa5e",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-07-13T14:53:47Z",
+      "side": 1,
+      "message": "Actually it was for precedence but I\u0027ve added parentheses to the original MACRO BASICBLOCKSIZE",
+      "parentUuid": "0b211bc9_921d9247",
       "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "de219ca6_97ec52c2",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-07-13T14:53:47Z",
+      "side": 1,
+      "message": "Checking for NULL should fix this am I right?",
+      "parentUuid": "04eda772_fe33a5bc",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "eca043c3_13e094c7",
         "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
         "patchSetId": 2
@@ -138,6 +264,24 @@
     },
     {
       "key": {
+        "uuid": "bbbaaead_930d6aa4",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-07-13T14:53:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eca043c3_13e094c7",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9b7ceca5_cfe899dc",
         "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
         "patchSetId": 2
@@ -149,6 +293,24 @@
       "writtenOn": "2020-07-13T13:14:35Z",
       "side": 1,
       "message": "\"status\" is superfluous, and the whole statement has a lot of cruft; just use:\nreturn fInode-\u003eNoOfBlocks() !\u003d 1\n\t|| fInode-\u003eSize() \u003d\u003d ...\n\t|| fInode-\u003eNoOfDataExtents() !\u003d 1;",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6dd691b_6af6cb0b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-07-13T14:53:47Z",
+      "side": 1,
+      "message": "I\u0027ve added more conditions now. I hope this is okay now.",
+      "parentUuid": "9b7ceca5_cfe899dc",
       "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -172,6 +334,24 @@
     },
     {
       "key": {
+        "uuid": "6b52643e_6f803aad",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-07-13T14:53:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66baad57_a9b4485e",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "530d875f_467363f5",
         "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
         "patchSetId": 2
@@ -189,6 +369,24 @@
     },
     {
       "key": {
+        "uuid": "9f628452_142e6d81",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-07-13T14:53:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "530d875f_467363f5",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28c5f739_75302f7a",
         "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
         "patchSetId": 2
@@ -200,6 +398,24 @@
       "writtenOn": "2020-07-13T13:14:35Z",
       "side": 1,
       "message": "We do omit \u0027{\u0027/\u0027}\u0027 for single line statements.",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50f18937_b89fb514",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-07-13T14:53:47Z",
+      "side": 1,
+      "message": "Aaaah I\u0027m sorry. I had more stuff in there before",
+      "parentUuid": "28c5f739_75302f7a",
       "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -223,6 +439,24 @@
     },
     {
       "key": {
+        "uuid": "5a795790_73fc3093",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-07-13T14:53:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3361512_d54b5d60",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6cacf2c9_70b02382",
         "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
         "patchSetId": 2
@@ -234,6 +468,24 @@
       "writtenOn": "2020-07-13T13:14:35Z",
       "side": 1,
       "message": "If you need a comment everytime you write this, you should consider moving it into a macro or function.",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d400ea2a_0c1dbaaa",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-07-13T14:53:47Z",
+      "side": 1,
+      "message": "Actually this rounding is used only in one place. So macro seems unnecessary right?",
+      "parentUuid": "6cacf2c9_70b02382",
       "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -257,6 +509,24 @@
     },
     {
       "key": {
+        "uuid": "bba2ae72_f471576b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-07-13T14:53:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20a23cc5_ee51ec31",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf262e47_0bfda29d",
         "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
         "patchSetId": 2
@@ -271,6 +541,24 @@
       "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1521276e_b75cfa30",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-07-13T14:53:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf262e47_0bfda29d",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -291,6 +579,24 @@
     },
     {
       "key": {
+        "uuid": "90276616_a0c7d203",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-07-13T14:53:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42f97f53_f7e4a138",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b8407f05_31663e87",
         "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.h",
         "patchSetId": 2
@@ -305,6 +611,24 @@
       "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6aa777ca_a8b0e244",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-07-13T14:53:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8407f05_31663e87",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
