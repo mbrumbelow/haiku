@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7800e101_0c33d754",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-07-14T08:02:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2db543fb_d8cc3c35",
+      "revId": "9b89a73da18289586b8d6c459312536e76c30364",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a2908d76_b04f9630",
         "filename": "src/preferences/input/MouseSettings.cpp",
         "patchSetId": 19
@@ -33,6 +51,24 @@
       "revId": "9b89a73da18289586b8d6c459312536e76c30364",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6074ddff_6b1dbd9a",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-07-14T08:02:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a2908d76_b04f9630",
+      "revId": "9b89a73da18289586b8d6c459312536e76c30364",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
