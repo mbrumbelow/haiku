@@ -86,6 +86,24 @@
       "revId": "9b89a73da18289586b8d6c459312536e76c30364",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbae5c5e_1ba3a934",
+        "filename": "src/preferences/input/MouseSettings.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-07-14T11:55:32Z",
+      "side": 1,
+      "message": "Yes, these are needed because we are using fSettings while Retrieveing the settings.And in the other functions present in the MouseSettings.h, eg. Defaults(), IsDefaultable(), Revert(), IsRevertable()......",
+      "parentUuid": "17d3bec4_08adbba3",
+      "revId": "9b89a73da18289586b8d6c459312536e76c30364",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
