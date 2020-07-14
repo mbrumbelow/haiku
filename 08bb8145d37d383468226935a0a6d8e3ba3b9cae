@@ -822,6 +822,24 @@
     },
     {
       "key": {
+        "uuid": "2f3aee02_3d83f2a3",
+        "filename": "src/servers/input/InputServer.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-07-14T11:52:04Z",
+      "side": 1,
+      "message": "Needed we are using these in the InputServer.cpp. Under the status_t of this functions void HandleSetMethod(BMessage* message);\nWhile settings the mouse Settings.",
+      "parentUuid": "09690fb2_393450b5",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1755753c_237dca8b",
         "filename": "src/servers/input/MouseSettings.h",
         "patchSetId": 14
