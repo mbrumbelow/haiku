@@ -316,6 +316,24 @@
     },
     {
       "key": {
+        "uuid": "b5634b27_10f64590",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-07-14T12:09:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fec6eb22_85e57554",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76bef91a_a37a54c6",
         "filename": "src/preferences/input/MouseSettings.cpp",
         "patchSetId": 14
@@ -438,6 +456,24 @@
     },
     {
       "key": {
+        "uuid": "5dc4ab43_71e0727c",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-07-14T12:09:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "56935b8e_a379ef0c",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91f28427_51c724ef",
         "filename": "src/preferences/input/MouseSettings.cpp",
         "patchSetId": 14
@@ -452,6 +488,24 @@
       "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83065d10_27fa3b95",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-07-14T12:09:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "91f28427_51c724ef",
+      "revId": "08bb8145d37d383468226935a0a6d8e3ba3b9cae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
