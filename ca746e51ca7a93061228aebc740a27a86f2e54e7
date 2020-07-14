@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f3b8b82_abae1f34",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 526,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-14T08:40:30Z",
+      "side": 1,
+      "message": "Handling of allocations failure is still missing here.\n\nEither use new(std::nothrow) and check that RetrievedSettings is not NULL, or use new and catch the std::bad_alloc exception. Usually in Haiku the \"nothrow\" version is preferred.",
+      "revId": "ca746e51ca7a93061228aebc740a27a86f2e54e7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17e76cec_beff1ae9",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-14T08:40:30Z",
+      "side": 1,
+      "message": "this line is still too long",
+      "revId": "ca746e51ca7a93061228aebc740a27a86f2e54e7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b629f5d_7fd336c0",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-14T08:40:30Z",
+      "side": 1,
+      "message": "use std::nothrow and check that settings is not NULL.",
+      "revId": "ca746e51ca7a93061228aebc740a27a86f2e54e7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}

@@ -121,6 +121,24 @@
       "revId": "9679a8d3c1f1280d6e99c6b3b8b608d24e5884ce",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2141c62c_19156420",
+        "filename": "src/preferences/input/MouseSettings.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-14T08:40:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2dcd62d0_4de5918d",
+      "revId": "9679a8d3c1f1280d6e99c6b3b8b608d24e5884ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
