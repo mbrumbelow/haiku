@@ -34,6 +34,24 @@
       "revId": "d4cceb1f07b8401f2f9057a6969213e6b13107ed",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92cae1d9_fb4739f1",
+        "filename": "build/jam/ArchitectureRules",
+        "patchSetId": 1
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2020-07-15T01:29:00Z",
+      "side": 1,
+      "message": "Actually I\u0027d still have a switch on cpu in the *_m68k platform case, if I ever want to support coldfire (for the firebee)…",
+      "parentUuid": "f7e9e350_f383b5bc",
+      "revId": "d4cceb1f07b8401f2f9057a6969213e6b13107ed",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
