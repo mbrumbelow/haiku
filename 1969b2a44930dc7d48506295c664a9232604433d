@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9fe5298c_e52e6e0a",
+        "filename": "src/apps/mediaplayer/media_node_framework/video/VideoProducer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-15T07:27:41Z",
+      "side": 1,
+      "message": "this line is over 80 columns. And fixing that will require adding {} (same for the other tests below)",
+      "revId": "1969b2a44930dc7d48506295c664a9232604433d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
