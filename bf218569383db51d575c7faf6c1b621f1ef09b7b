@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "683aaf69_98798a49",
+        "filename": "src/add-ons/media/media-add-ons/video_mixer/VideoMixerNode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-15T07:26:30Z",
+      "side": 1,
+      "message": "this line is over 80 columns (other ones below too)",
+      "revId": "bf218569383db51d575c7faf6c1b621f1ef09b7b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "510214d0_04ecd587",
+        "filename": "src/add-ons/media/media-add-ons/video_mixer/VideoMixerNode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-15T07:26:30Z",
+      "side": 1,
+      "message": "is strdup needed here? just \u003d would work?",
+      "revId": "bf218569383db51d575c7faf6c1b621f1ef09b7b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dddfe91b_73e1986d",
+        "filename": "src/add-ons/media/media-add-ons/video_mixer/VideoMixerNodeConsumer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-15T07:26:30Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "bf218569383db51d575c7faf6c1b621f1ef09b7b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27d1c700_5e9d14bc",
+        "filename": "src/add-ons/media/media-add-ons/video_mixer/VideoMixerNodeEventLooper.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-15T07:26:30Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "bf218569383db51d575c7faf6c1b621f1ef09b7b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58a37a15_0be1b55a",
+        "filename": "src/add-ons/media/media-add-ons/video_mixer/VideoMixerNodeProducer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-15T07:26:30Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "bf218569383db51d575c7faf6c1b621f1ef09b7b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
