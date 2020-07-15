@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "504dac23_02f5b8e1",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-07-15T06:00:38Z",
+      "side": 1,
+      "message": "Got it. Done.",
+      "parentUuid": "66b1ae2a_1ed8f424",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7a162380_b0d876ab",
         "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
         "patchSetId": 2
@@ -102,6 +120,24 @@
       "side": 1,
       "message": "Huh? If Init() returns a boolean (which would be relatively surprising when you look at other code), then the code above is plain wrong. false \u003d\u003d 0, ie. \u003d\u003d B_OK, true \u003d\u003d 1 which should be regarded as an error in the code calling this function.",
       "parentUuid": "9d56add4_07dba4ea",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "773cdd5d_14296f8d",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-07-15T06:00:38Z",
+      "side": 1,
+      "message": "I\u0027m sorry I misunderstood what you said earlier. fLeafDir-\u003eInit() doesn\u0027t return boolean. I thought you wanted me to do it. Anyway see if this is okay.",
+      "parentUuid": "d1cd2511_29c50ed6",
       "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -196,6 +232,24 @@
     },
     {
       "key": {
+        "uuid": "d39132a4_786c75bc",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-07-15T06:00:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "991df925_c79933aa",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "639f6d70_befcb5a7",
         "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
         "patchSetId": 2
@@ -228,6 +282,24 @@
       "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78b7721e_952f6f71",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-07-15T06:00:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2faaafef_66e39e89",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -284,6 +356,24 @@
     },
     {
       "key": {
+        "uuid": "c663a22e_201a536f",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-07-15T06:00:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb203c63_1c2bcdd6",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04eda772_fe33a5bc",
         "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
         "patchSetId": 2
@@ -337,6 +427,24 @@
     },
     {
       "key": {
+        "uuid": "c8ccc30e_5f6314b5",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-07-15T06:00:38Z",
+      "side": 1,
+      "message": "Aaah okay I missed it somehow. Fixed.",
+      "parentUuid": "8a80720f_d279df25",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "eca043c3_13e094c7",
         "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
         "patchSetId": 2
@@ -372,6 +480,24 @@
     },
     {
       "key": {
+        "uuid": "1175cd6c_7b3b6d65",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-07-15T06:00:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bbbaaead_930d6aa4",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa10f203_9349fd2b",
         "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
         "patchSetId": 2
@@ -386,6 +512,24 @@
       "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d460aca_2dd32c20",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-07-15T06:00:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa10f203_9349fd2b",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -424,6 +568,24 @@
     },
     {
       "key": {
+        "uuid": "08b4a2d6_c7657267",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-07-15T06:00:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6dd691b_6af6cb0b",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "66baad57_a9b4485e",
         "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
         "patchSetId": 2
@@ -453,6 +615,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "66baad57_a9b4485e",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6df4f4ef_883c1aaa",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-07-15T06:00:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b52643e_6f803aad",
       "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
@@ -494,6 +674,24 @@
     },
     {
       "key": {
+        "uuid": "9d5fe702_80eb734d",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-07-15T06:00:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f628452_142e6d81",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28c5f739_75302f7a",
         "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
         "patchSetId": 2
@@ -529,6 +727,24 @@
     },
     {
       "key": {
+        "uuid": "1ce62d7f_5cbd4207",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-07-15T06:00:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50f18937_b89fb514",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b3361512_d54b5d60",
         "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
         "patchSetId": 2
@@ -558,6 +774,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "b3361512_d54b5d60",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8314dc25_33295094",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-07-15T06:00:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a795790_73fc3093",
       "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
@@ -617,6 +851,24 @@
     },
     {
       "key": {
+        "uuid": "dd53a02a_2698c172",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-07-15T06:00:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e749834_89cc4088",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "20a23cc5_ee51ec31",
         "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
         "patchSetId": 2
@@ -652,6 +904,24 @@
     },
     {
       "key": {
+        "uuid": "a513b046_0542d403",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-07-15T06:00:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bba2ae72_f471576b",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf262e47_0bfda29d",
         "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
         "patchSetId": 2
@@ -681,6 +951,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "bf262e47_0bfda29d",
+      "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c6b8e7d9_4bcef098",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-07-15T06:00:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1521276e_b75cfa30",
       "revId": "a6756cd00edd29a0e26c174436422bbb8b8ada68",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
