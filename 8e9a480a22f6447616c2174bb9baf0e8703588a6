@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d225f37d_3dfd053a",
+        "filename": "src/servers/print/PrintServerApp.Scripting.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-15T06:45:08Z",
+      "side": 1,
+      "message": "For some reason, we put the \u0027{\u0027 on the next line (like in functions) after a case.",
+      "revId": "8e9a480a22f6447616c2174bb9baf0e8703588a6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
