@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "611201e5_9947c46b",
+        "filename": "src/add-ons/media/media-add-ons/video_mixer/VideoMixerNode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-07-15T11:19:12Z",
+      "side": 1,
+      "message": "Assignment cause crash of media_addon_server. strdup is used in other addons.",
+      "parentUuid": "510214d0_04ecd587",
+      "revId": "bf218569383db51d575c7faf6c1b621f1ef09b7b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dddfe91b_73e1986d",
         "filename": "src/add-ons/media/media-add-ons/video_mixer/VideoMixerNodeConsumer.cpp",
         "patchSetId": 1
