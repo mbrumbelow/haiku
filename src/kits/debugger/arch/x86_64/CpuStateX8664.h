@@ -148,7 +148,7 @@ private:
 			uint64				fIntRegisters[X86_64_INT_REGISTER_COUNT];
 			double				fFloatRegisters[X86_64_FP_REGISTER_COUNT];
 			x86_64_fp_register	fMMXRegisters[X86_64_MMX_REGISTER_COUNT];
-			x86_64_xmm_register	fXMMRegisters[X86_64_XMM_REGISTER_COUNT];
+			x86_64_ymm_register	fXMMRegisters[X86_64_XMM_REGISTER_COUNT];
 			RegisterBitSet		fSetRegisters;
 			uint64				fInterruptVector;
 };

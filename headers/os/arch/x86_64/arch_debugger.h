@@ -16,6 +16,14 @@ typedef struct x86_64_xmm_register {
 	uint8		value[16];
 } x86_64_xmm_register;
 
+typedef struct x86_64_ymm_register {
+	uint8		value[32];
+} x86_64_ymm_register;
+
+typedef struct x86_64_zmm_register {
+	uint8		value[64];
+} x86_64_zmm_register;
+
 
 typedef struct x86_64_extended_registers {
 	uint16					control;
@@ -31,8 +39,8 @@ typedef struct x86_64_extended_registers {
 		x86_64_fp_register	fp_registers[8];	// st0-st7
 		x86_64_fp_register	mmx_registers[8];	// mm0-mm7
 	};
-	x86_64_xmm_register		xmm_registers[16];	// xmm0-xmm15
-	uint8					reserved2[96];		// 416 - 512
+	x86_64_zmm_register		zmm_registers[32];	// zmm0-zmm31
+	uint8					reserved2[1888];	// 2208 - 4096
 } x86_64_extended_registers;
 
 

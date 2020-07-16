@@ -98,7 +98,7 @@ struct xstate_hdr {
 struct savefpu {
 	struct fpu_state	fp_fxsave;
 	struct xstate_hdr	fp_xstate;
-	unsigned long		fp_ymm[16][2];
+	unsigned long		fp_zmm[32][8];
 };
 
 struct vregs {
