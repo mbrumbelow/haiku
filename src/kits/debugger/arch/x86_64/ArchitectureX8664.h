@@ -14,6 +14,13 @@
 #include "Register.h"
 
 
+enum {
+	X86_CPU_FEATURE_FLAG_NONE = 0,
+	X86_CPU_FEATURE_FLAG_AVX = 1,
+	X86_CPU_FEATURE_FLAG_AVX512 = 2
+};
+
+
 class SourceLanguage;
 
 
