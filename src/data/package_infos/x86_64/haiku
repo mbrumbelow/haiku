@@ -95,6 +95,9 @@ requires {
 #ifdef HAIKU_BUILD_FEATURE_X86_64_LIBWEBP_ENABLED
 	lib:libwebp
 #endif
+#ifdef HAIKU_BUILD_FEATURE_X86_64_LIBAVIF_ENABLED
+	lib:libavif >= 12
+#endif
 #ifdef HAIKU_BUILD_FEATURE_X86_64_OPENEXR_ENABLED
 	lib:libilmimf_2_4
 	lib:libilmimfutil_2_4
