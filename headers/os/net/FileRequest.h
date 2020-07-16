@@ -10,19 +10,22 @@
 
 
 #include <UrlRequest.h>
+#include <UrlProtocolRoster.h>
 
 
 class BFileRequest : public BUrlRequest {
+	friend class BUrlProtocolRoster;
 public:
-								BFileRequest(const BUrl& url,
-									BUrlProtocolListener* listener = NULL,
-									BUrlContext* context = NULL);
 	virtual						~BFileRequest();
 
 	const 	BUrlResult&			Result() const;
-            void                SetDisableListener(bool disable);
+			void				SetDisableListener(bool disable);
 
 private:
+								BFileRequest(const BUrl& url,
+									BUrlProtocolListener* listener = NULL,
+									BUrlContext* context = NULL);
+
 			status_t			_ProtocolLoop();
 private:
 			BUrlResult			fResult;

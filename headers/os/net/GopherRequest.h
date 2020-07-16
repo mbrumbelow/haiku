@@ -9,13 +9,12 @@
 #include <deque>
 
 #include <NetworkRequest.h>
+#include <UrlProtocolRoster.h>
 
 
 class BGopherRequest : public BNetworkRequest {
+	friend class BUrlProtocolRoster;
 public:
-								BGopherRequest(const BUrl& url,
-									BUrlProtocolListener* listener = NULL,
-									BUrlContext* context = NULL);
 	virtual						~BGopherRequest();
 
 			status_t			Stop();
@@ -23,6 +22,10 @@ public:
             void                SetDisableListener(bool disable);
 
 private:
+								BGopherRequest(const BUrl& url,
+									BUrlProtocolListener* listener = NULL,
+									BUrlContext* context = NULL);
+
 			status_t			_ProtocolLoop();
 			void				_SendRequest();
 
