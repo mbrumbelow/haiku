@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "93633434_be78642c",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/DirectoryIterator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-07-17T19:34:45Z",
+      "side": 1,
+      "message": "Actually the lookup() gets a const char* as argument and argument required by GetNext() is a char*. I have tried to change const char* to char* but while running code when I try to change directory(from root directory) it shows \"fssh\u003e\" instead of \"fssh /myfs/directory_name\u003e\". I am not able to figure out the cause of this problem.",
+      "parentUuid": "c149cd16_abfd4364",
+      "revId": "26c02f63fcbad6217fd7d74621b4a2f4eb11006d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b6b78c67_2bf6cdf0",
         "filename": "src/add-ons/kernel/file_systems/ufs2/DirectoryIterator.cpp",
         "patchSetId": 2
