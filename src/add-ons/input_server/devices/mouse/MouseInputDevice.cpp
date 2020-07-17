@@ -32,6 +32,7 @@
 
 #include <kb_mouse_settings.h>
 #include <keyboard_mouse_driver.h>
+#include <MouseSettings.h>
 #include <touchpad_settings.h>
 
 
@@ -88,6 +89,7 @@
 #	define MID_CALLED(x...) TRACE(x)
 #	define LOG_ERR(x...) debug_printf(x)
 #	define LOG_EVENT(x...) TRACE(x)
+#	define LOG_CRIT(x...) debug_printf(x)
 #endif
 
 
@@ -176,6 +178,8 @@ MouseDevice::MouseDevice(MouseInputDevice& target, const char* driverPath)
 	fTouchpadSettingsMessage(NULL),
 	fTouchpadSettingsLock("Touchpad settings lock")
 {
+	LOG_CRIT("MYLOG: MouseDevice\n");
+
 	MD_CALLED();
 
 	fDeviceRef.name = _BuildShortName();
@@ -191,6 +195,9 @@ MouseDevice::MouseDevice(MouseInputDevice& target, const char* driverPath)
 
 MouseDevice::~MouseDevice()
 {
+	LOG_CRIT("MYLOG: ~MouseDevice\n");
+
+
 	MD_CALLED();
 	TRACE("delete\n");
 
@@ -205,6 +212,9 @@ MouseDevice::~MouseDevice()
 status_t
 MouseDevice::Start()
 {
+	LOG_CRIT("MYLOG: Start\n");
+
+
 	MD_CALLED();
 
 	fDevice = open(fPath.String(), O_RDWR);
@@ -240,6 +250,9 @@ MouseDevice::Start()
 void
 MouseDevice::Stop()
 {
+	LOG_CRIT("MYLOG: Stop\n");
+
+
 	MD_CALLED();
 
 	fActive = false;
@@ -262,6 +275,9 @@ MouseDevice::Stop()
 status_t
 MouseDevice::UpdateSettings()
 {
+	LOG_CRIT("MYLOG: UpdateSettings\n");
+
+
 	MD_CALLED();
 
 	if (fThread < 0)
@@ -299,6 +315,9 @@ MouseDevice::UpdateTouchpadSettings(const BMessage* message)
 char*
 MouseDevice::_BuildShortName() const
 {
+	LOG_CRIT("MYLOG: _BuildShortName(\n");
+
+
 	// TODO It would be simpler and better to use B_GET_DEVICE_NAME, but...
 	// - This is currently called before the device is open
 	// - We need to implement that in our input drivers first
@@ -349,6 +368,8 @@ MouseDevice::_BuildShortName() const
 status_t
 MouseDevice::_ControlThreadEntry(void* arg)
 {
+	LOG_CRIT("MYLOG: _ControlThreadEntry\n");
+
 	MouseDevice* device = (MouseDevice*)arg;
 	device->_ControlThread();
 	return B_OK;
@@ -358,6 +379,8 @@ MouseDevice::_ControlThreadEntry(void* arg)
 void
 MouseDevice::_ControlThread()
 {
+	LOG_CRIT("MYLOG: _ControlThread\n");
+
 	MD_CALLED();
 
 	if (fDevice < 0) {
@@ -495,6 +518,8 @@ MouseDevice::_ControlThread()
 void
 MouseDevice::_ControlThreadCleanup()
 {
+	LOG_CRIT("MYLOG: _ControlThreadCleanUp\n");
+
 	// NOTE: Only executed when the control thread detected an error
 	// and from within the control thread!
 
@@ -514,40 +539,80 @@ MouseDevice::_ControlThreadCleanup()
 void
 MouseDevice::_UpdateSettings()
 {
+	LOG_CRIT("MYLOG: _UpdateSettings\n");
+
+	LOG_CRIT("MYLOG: %d  Mouse Type Before update:  \n", get_mouse_type(fDeviceRef.name, &fSettings.type) );
+
 	MD_CALLED();
+
+	LOG_CRIT("MYLOG: %d  After MD_CALLED Before update:  \n", get_mouse_type(fDeviceRef.name , &fSettings.type) );
+
 
 	// retrieve current values
 
 	if (get_mouse_map(&fSettings.map) != B_OK)
+	{
 		LOG_ERR("error when get_mouse_map\n");
-	else {
+		LOG_CRIT("MYLOG:  %s: %d  (IF) MAP update \n", _BuildShortName(),fSettings.type);
+
+	}
+	else
+	{
 		fDeviceRemapsButtons
 			= ioctl(fDevice, MS_SET_MAP, &fSettings.map) == B_OK;
+		LOG_CRIT("MYLOG:  %s: %d (ELSE) MAP update \n", _BuildShortName(),fSettings.type);
 	}
 
 	if (get_click_speed(&fSettings.click_speed) != B_OK)
+	{
 		LOG_ERR("error when get_click_speed\n");
+		LOG_CRIT("MYLOG:  %s: %d (IF) CLICK_SPEED update \n", _BuildShortName(),fSettings.type);
+	}
 	else
+	{
 		ioctl(fDevice, MS_SET_CLICKSPEED, &fSettings.click_speed);
 
+		LOG_CRIT("MYLOG:  %s: %d (ELSE) CLICK_SPEED update \n", _BuildShortName(),fSettings.type);
+
+	}
 	if (get_mouse_speed(&fSettings.accel.speed) != B_OK)
+	{
 		LOG_ERR("error when get_mouse_speed\n");
-	else {
+		LOG_CRIT("MYLOG:  %s: %d (IF) SPEED update \n", _BuildShortName(),fSettings.type);
+	}
+	else
+	{
 		if (get_mouse_acceleration(&fSettings.accel.accel_factor) != B_OK)
+		{
 			LOG_ERR("error when get_mouse_acceleration\n");
-		else {
+			LOG_CRIT("MYLOG:  %s: %d (ELSE) (IF) ACCEL FACTOR update \n", _BuildShortName(),fSettings.type);
+		}
+		else
+		{
 			mouse_accel accel;
 			ioctl(fDevice, MS_GET_ACCEL, &accel);
 			accel.speed = fSettings.accel.speed;
 			accel.accel_factor = fSettings.accel.accel_factor;
 			ioctl(fDevice, MS_SET_ACCEL, &fSettings.accel);
+
+			LOG_CRIT("MYLOG:  %s: %d (ELSE) (IF) (ELSE) ACCEL FACTOR update \n", _BuildShortName(),fSettings.type);
+
 		}
 	}
+	LOG_CRIT("MYLOG:  %s: %d Before update \n", _BuildShortName(),fSettings.type );
 
-	if (get_mouse_type(&fSettings.type) != B_OK)
+	if (get_mouse_type(fDeviceRef.name , &fSettings.type) != B_OK)
+	{
+			LOG_CRIT("MYLOG:  %s: %d (IF) TYPE update \n", _BuildShortName(),fSettings.type );
+
 		LOG_ERR("error when get_mouse_type\n");
+	}
 	else
+	{
 		ioctl(fDevice, MS_SET_TYPE, &fSettings.type);
+			LOG_CRIT("MYLOG:  %s: %d (ELSE) TYPE update \n", _BuildShortName(),fSettings.type );
+
+	}
 }
 
 
@@ -600,6 +665,9 @@ BMessage*
 MouseDevice::_BuildMouseMessage(uint32 what, uint64 when, uint32 buttons,
 	int32 deltaX, int32 deltaY) const
 {
+		LOG_CRIT("MYLOG: _BuildMessage\n");
+
+
 	BMessage* message = new BMessage(what);
 	if (message == NULL)
 		return NULL;
@@ -687,6 +755,9 @@ MouseInputDevice::MouseInputDevice()
 	fDevices(2, true),
 	fDeviceListLock("MouseInputDevice list")
 {
+	LOG_CRIT("MYLOG: MouseInputDevices\n");
+
+
 	MID_CALLED();
 
 	StartMonitoringDevice(kMouseDevicesDirectory);
@@ -698,6 +769,9 @@ MouseInputDevice::MouseInputDevice()
 
 MouseInputDevice::~MouseInputDevice()
 {
+	LOG_CRIT("MYLOG: ~MouseInputDevices\n");
+
+
 	MID_CALLED();
 
 	StopMonitoringDevice(kTouchpadDevicesDirectory);
@@ -709,6 +783,9 @@ MouseInputDevice::~MouseInputDevice()
 status_t
 MouseInputDevice::InitCheck()
 {
+	LOG_CRIT("MYLOG: InitCheck\n");
+
+
 	MID_CALLED();
 
 	return BInputServerDevice::InitCheck();
@@ -718,6 +795,9 @@ MouseInputDevice::InitCheck()
 status_t
 MouseInputDevice::Start(const char* name, void* cookie)
 {
+	LOG_CRIT("MYLOG: Start\n");
+
+
 	MID_CALLED();
 
 	MouseDevice* device = (MouseDevice*)cookie;
@@ -729,6 +809,9 @@ MouseInputDevice::Start(const char* name, void* cookie)
 status_t
 MouseInputDevice::Stop(const char* name, void* cookie)
 {
+
+	LOG_CRIT("MYLOG: Stop\n");
+
 	TRACE("%s(%s)\n", __PRETTY_FUNCTION__, name);
 
 	MouseDevice* device = (MouseDevice*)cookie;
@@ -742,6 +825,10 @@ status_t
 MouseInputDevice::Control(const char* name, void* cookie,
 	uint32 command, BMessage* message)
 {
+	LOG_CRIT("MYLOG: Control\n");
+
+	LOG_CRIT("MYLOG: %s: NAME\n", name);
+
 	TRACE("%s(%s, code: %lu)\n", __PRETTY_FUNCTION__, name, command);
 
 	MouseDevice* device = (MouseDevice*)cookie;
@@ -763,6 +850,8 @@ MouseInputDevice::Control(const char* name, void* cookie,
 status_t
 MouseInputDevice::_HandleMonitor(BMessage* message)
 {
+	LOG_CRIT("MYLOG: _HandleMonitor\n");
+
 	MID_CALLED();
 
 	const char* path;
@@ -787,6 +876,9 @@ MouseInputDevice::_HandleMonitor(BMessage* message)
 void
 MouseInputDevice::_RecursiveScan(const char* directory)
 {
+	LOG_CRIT("MYLOG: _RecursiveScan\n");
+
+
 	MID_CALLED();
 
 	BEntry entry;
@@ -811,6 +903,9 @@ MouseInputDevice::_RecursiveScan(const char* directory)
 MouseDevice*
 MouseInputDevice::_FindDevice(const char* path) const
 {
+	LOG_CRIT("MYLOG: _FindDevice\n");
+
+
 	MID_CALLED();
 
 	for (int32 i = fDevices.CountItems() - 1; i >= 0; i--) {
@@ -826,6 +921,8 @@ MouseInputDevice::_FindDevice(const char* path) const
 status_t
 MouseInputDevice::_AddDevice(const char* path)
 {
+	LOG_CRIT("MYLOG: _AddDevice\n");
+
 	MID_CALLED();
 
 	BAutolock _(fDeviceListLock);
@@ -848,6 +945,8 @@ MouseInputDevice::_AddDevice(const char* path)
 	devices[0] = device->DeviceRef();
 	devices[1] = NULL;
 
+//	LOG_CRIT("MYLOG: %c \n DEVICES: ", device->DeviceRef());
+
 	TRACE("adding path: %s, name: %s\n", path, devices[0]->name);
 
 	return RegisterDevices(devices);
@@ -857,6 +956,8 @@ MouseInputDevice::_AddDevice(const char* path)
 status_t
 MouseInputDevice::_RemoveDevice(const char* path)
 {
+	LOG_CRIT("MYLOG: _RemoveDevice\n");
+
 	MID_CALLED();
 
 	BAutolock _(fDeviceListLock);
