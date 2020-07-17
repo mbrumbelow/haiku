@@ -77,6 +77,13 @@ InputMouse::MessageReceived(BMessage* message)
 
 			fDefaultsButton->SetEnabled(false);
 			fRevertButton->SetEnabled(fSettings->IsRevertable());
+
+/*            message->AddString("mouse_name",fSettings->fname);
+            fprintf(stderr, "DEBIG_MOUSE->InputMouse->MessageReceived(AddSting)->Default: MOUSE NAME  %s: \n", fSettings->fname.String());
+
+            message->FindString( fSettings->fname);
+            fprintf(stderr, "DEBIG_MOUSE->InputMouse->MessageReceived(FIndString)->Default: MOUSE NAME  %s: \n", fSettings->fname.String());
+*/
 			break;
 		}
 

@@ -515,27 +515,27 @@ void
 MouseDevice::_UpdateSettings()
 {
 	MD_CALLED();
-
 	// retrieve current values
 
 	if (get_mouse_map(&fSettings.map) != B_OK)
 		LOG_ERR("error when get_mouse_map\n");
-	else {
+	else
 		fDeviceRemapsButtons
 			= ioctl(fDevice, MS_SET_MAP, &fSettings.map) == B_OK;
-	}
 
 	if (get_click_speed(&fSettings.click_speed) != B_OK)
 		LOG_ERR("error when get_click_speed\n");
 	else
 		ioctl(fDevice, MS_SET_CLICKSPEED, &fSettings.click_speed);
-
-	if (get_mouse_speed(&fSettings.accel.speed) != B_OK)
+	
+	if (get_multiple_mouse_speed(fDeviceRef.name, &fSettings.accel.speed) != B_OK)
 		LOG_ERR("error when get_mouse_speed\n");
-	else {
+	else
+	{
 		if (get_mouse_acceleration(&fSettings.accel.accel_factor) != B_OK)
 			LOG_ERR("error when get_mouse_acceleration\n");
-		else {
+		else
+		{
 			mouse_accel accel;
 			ioctl(fDevice, MS_GET_ACCEL, &accel);
 			accel.speed = fSettings.accel.speed;
@@ -543,8 +543,7 @@ MouseDevice::_UpdateSettings()
 			ioctl(fDevice, MS_SET_ACCEL, &fSettings.accel);
 		}
 	}
-
-	if (get_mouse_type(&fSettings.type) != B_OK)
+	if (get_multiple_mouse_type(fDeviceRef.name , &fSettings.type) != B_OK)
 		LOG_ERR("error when get_mouse_type\n");
 	else
 		ioctl(fDevice, MS_SET_TYPE, &fSettings.type);
@@ -847,7 +846,6 @@ MouseInputDevice::_AddDevice(const char* path)
 	input_device_ref* devices[2];
 	devices[0] = device->DeviceRef();
 	devices[1] = NULL;
-
 	TRACE("adding path: %s, name: %s\n", path, devices[0]->name);
 
 	return RegisterDevices(devices);

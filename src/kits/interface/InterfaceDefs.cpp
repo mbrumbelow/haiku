@@ -21,6 +21,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <cstring>
+
 
 #include <Bitmap.h>
 #include <Clipboard.h>
@@ -54,6 +56,7 @@
 #include <WidthBuffer.h>
 #include <WindowInfo.h>
 
+#include <syslog.h>
 
 using namespace BPrivate;
 
@@ -481,12 +484,14 @@ set_scroll_bar_info(scroll_bar_info *info)
 status_t
 get_mouse_type(int32 *type)
 {
+	fprintf(stderr, "DEBUG_MOUSE->INTERFACE->get_mouse_type: \n");
 	BMessage command(IS_GET_MOUSE_TYPE);
 	BMessage reply;
 
 	status_t err = _control_input_server_(&command, &reply);
 	if (err != B_OK)
 		return err;
+
 	return reply.FindInt32("mouse_type", type);
 }
 
@@ -494,11 +499,63 @@ get_mouse_type(int32 *type)
 status_t
 set_mouse_type(int32 type)
 {
+	fprintf(stderr, "DEBUG_MOUSE->INTERFACE->set_mouse_type: \t%" B_PRId32 " \n", type);
 	BMessage command(IS_SET_MOUSE_TYPE);
 	BMessage reply;
 
 	status_t err = command.AddInt32("mouse_type", type);
 	if (err != B_OK)
+		return err;
+	return _control_input_server_(&command, &reply);
+}
+
+
+status_t
+get_multiple_mouse_type(BString mouse_name, int32 *type)
+{
+	fprintf(stderr, "DEBUG_MOUSE->INTERFACE->get_multiple_mouse_type: \n");
+	BMessage command(IS_GET_MOUSE_TYPE);
+	BMessage reply;
+
+	status_t err = _control_input_server_(&command, &reply);
+	if (err != B_OK)
+		return err;
+
+	return reply.FindInt32("mouse_type", type);
+}
+
+
+status_t
+set_multiple_mouse_type(BString mouse_name, int32 type)
+{
+   // BString fName;
+   // fName = mouse_name;
+	fprintf(stderr, "DEBUG_MOUSE->INTERFACE->set_multiple_mouse_type: \t%" B_PRId32 "\n", type);
+    fprintf(stderr, "DEBUG_MOUSE->INTERFACE->set_multiple_mouse_type-> MOUSE NAME: %s \n", mouse_name.String());
+//    fprintf(stderr, "DEBUG_MOUSE->INTERFACE->set_multiple_mouse_type: MOUSE NAME: %s MOUSE TYPE: %d \n", mouse_name.String(), type);
+	BMessage command(IS_SET_MOUSE_TYPE);
+	BMessage reply;
+
+    status_t err_mouse_name = command.AddString("mouse_name", mouse_name.String());
+    if (err_mouse_name != B_OK) {
+    fprintf(stderr, "\n\n\nDEBUG_MOUSE->INTERFACE->set_multiple_mouse_type: If (err_mouse_name) \n");
+        return err_mouse_name;
+	}
+    
+    BString get_mouse_name;
+	command.FindString("mouse_name", &get_mouse_name);
+
+  //  fprintf(stderr, "chal pa, %s\n", c);
+  //  BString get_mouse_name;
+    if (mouse_name == get_mouse_name) {
+        fprintf(stderr, "Matched!!!!!!\n");
+    }
+
+    status_t err = command.AddInt32("mouse_type", type);
+	fprintf(stderr, "DEBUG_MOUSE->INTERFACE->set_multiple_mouse_type->command.ADD \t%" B_PRId32 "\n", type);
+    fprintf(stderr, "DEBUG_MOUSE->INTERFACE->set_multiple_mouse_type->commmand.Add: MOUSE NAME: %s MOUSE_TYPE: %d \n", mouse_name.String(), type);
+	if (err != B_OK)
+	fprintf(stderr, "DEBUG_MOUSE->INTERFACE->set_multiple_mouse_type->ERR \t%" B_PRId32 "\n", type);
 		return err;
 	return _control_input_server_(&command, &reply);
 }
@@ -517,6 +574,13 @@ get_mouse_map(mouse_map *map)
 		err = reply.FindData("mousemap", B_RAW_TYPE, &data, &count);
 	if (err != B_OK)
 		return err;
+
+	int i = 0;
+	BString deviceName;
+	while (reply.FindString("mouseDevice", i, &deviceName) == B_OK) {
+	fprintf(stderr, "DEBUG_MOUSE->INTERFACE->get_mouse_map: %s \n", deviceName.String());
+		i++;
+	}
 
 	memcpy(map, data, count);
 
@@ -588,6 +652,42 @@ set_mouse_speed(int32 speed)
 	BMessage command(IS_SET_MOUSE_SPEED);
 	BMessage reply;
 	command.AddInt32("speed", speed);
+	return _control_input_server_(&command, &reply);
+}
+
+
+status_t
+get_multiple_mouse_speed(const char* mouse_name,int32 *speed)
+{
+	BMessage command(IS_GET_MOUSE_SPEED);
+	BMessage reply;
+
+	status_t err = _control_input_server_(&command, &reply);
+	if (err != B_OK)
+		return err;
+
+	char s[200];
+	std::strcpy(s, mouse_name);
+	std::strcat(s, ":speed");
+
+	if (reply.FindInt32(s, speed) != B_OK)
+		*speed = 65536;
+
+	return B_OK;
+}
+
+
+status_t
+set_multiple_mouse_speed(const char* mouse_name, int32 speed)
+{
+	BMessage command(IS_SET_MOUSE_SPEED);
+	BMessage reply;
+
+	char s[200];
+	std::strcpy(s, mouse_name);
+	std::strcat(s, ":speed");
+
+	command.AddInt32(s, speed);
 	return _control_input_server_(&command, &reply);
 }
 
