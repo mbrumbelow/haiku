@@ -19,16 +19,18 @@
 #include <InterfaceDefs.h>
 #include <Point.h>
 #include <SupportDefs.h>
+#include <String.h>
 
 #include "kb_mouse_settings.h"
-
 
 class BPath;
 
 class MouseSettings {
 public:
+		// TODO: declare in fname in private and define its method
+		BString fname;
 		MouseSettings();
-		MouseSettings(mouse_settings settings);
+		MouseSettings(mouse_settings settings, BString name);
 		~MouseSettings();
 
 		void Revert();
@@ -104,7 +106,6 @@ class MultipleMouseSettings: public BArchivable {
 		static status_t GetSettingsPath(BPath &path);
 		void RetrieveSettings();
 
-		bool IsRetrievedSettingsDeprecated = false;
 		MouseSettings*	fDeprecatedMouseSettings;
 
 		typedef std::map<BString, MouseSettings*> mouse_settings_object;
