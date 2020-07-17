@@ -564,6 +564,7 @@ BHttpRequest::_MakeRequest()
 
 
 	// Receive loop
+	bool disableListener = false;
 	bool receiveEnd = false;
 	bool parseEnd = false;
 	bool readByChunks = false;
@@ -602,8 +603,13 @@ BHttpRequest::_MakeRequest()
 		if (fRequestStatus < kRequestStatusReceived) {
 			_ParseStatus();
 
+			if (fOptFollowLocation
+					&& IsRedirectionStatusCode(fResult.StatusCode()))
+				disableListener = true;
+
 			//! ProtocolHook:ResponseStarted
-			if (fRequestStatus >= kRequestStatusReceived && fListener != NULL)
+			if (fRequestStatus >= kRequestStatusReceived && fListener != NULL
+					&& !disableListener)
 				fListener->ResponseStarted(this);
 		}
 
@@ -624,7 +630,7 @@ BHttpRequest::_MakeRequest()
 				}
 
 				//! ProtocolHook:HeadersReceived
-				if (fListener != NULL)
+				if (fListener != NULL && !disableListener)
 					fListener->HeadersReceived(this, fResult);
 
 
@@ -730,7 +736,7 @@ BHttpRequest::_MakeRequest()
 			if (bytesRead >= 0) {
 				bytesReceived += bytesRead;
 
-				if (fListener != NULL) {
+				if (fListener != NULL && !disableListener) {
 					if (decompress) {
 						readError = decompressingStream->WriteExactly(
 							inputTempBuffer, bytesRead);
@@ -768,7 +774,7 @@ BHttpRequest::_MakeRequest()
 					ssize_t size = decompressorStorage.Size();
 					BStackOrHeapArray<char, 4096> buffer(size);
 					size = decompressorStorage.Read(buffer, size);
-					if (fListener != NULL && size > 0) {
+					if (fListener != NULL && size > 0 && !disableListener) {
 						fListener->DataReceived(this, buffer,
 							bytesUnpacked, size);
 						bytesUnpacked += size;
