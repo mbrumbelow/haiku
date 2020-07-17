@@ -34,6 +34,7 @@
 
 #include <stdio.h>
 #include <strings.h>
+#include <syslog.h>
 
 #include "SystemKeymap.h"
 	// this is an automatically generated file
@@ -69,6 +70,7 @@ InputDeviceListItem::InputDeviceListItem(BInputServerDevice& serverDevice,
 	fDevice(),
 	fRunning(false)
 {
+   syslog(LOG_CRIT,"MY SERVER LOG; InputDeviceListItem \n");
 	fDevice.name = strdup(device.name);
 	fDevice.type = device.type;
 	fDevice.cookie = device.cookie;
@@ -77,6 +79,7 @@ InputDeviceListItem::InputDeviceListItem(BInputServerDevice& serverDevice,
 
 InputDeviceListItem::~InputDeviceListItem()
 {
+    syslog(LOG_CRIT,"MY SERVER LOG: ~InputDeviceListItem \n");
 	free(fDevice.name);
 }
 
@@ -84,6 +87,7 @@ InputDeviceListItem::~InputDeviceListItem()
 void
 InputDeviceListItem::Start()
 {
+    syslog(LOG_CRIT,"MY SERVER LOG: Start \n");
 	PRINT(("  Starting: %s\n", fDevice.name));
 	status_t err = fServerDevice->Start(fDevice.name, fDevice.cookie);
 	if (err != B_OK) {
@@ -96,6 +100,7 @@ InputDeviceListItem::Start()
 void
 InputDeviceListItem::Stop()
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; Stop \n");
 	PRINT(("  Stopping: %s\n", fDevice.name));
 	fServerDevice->Stop(fDevice.name, fDevice.cookie);
 	fRunning = false;
@@ -105,6 +110,8 @@ InputDeviceListItem::Stop()
 void
 InputDeviceListItem::Control(uint32 code, BMessage* message)
 {
+
+    syslog(LOG_CRIT,"MY SERVER LOG; COntrol \n");
 	fServerDevice->Control(fDevice.name, fDevice.cookie, code, message);
 }
 
@@ -112,6 +119,7 @@ InputDeviceListItem::Control(uint32 code, BMessage* message)
 bool
 InputDeviceListItem::HasName(const char* name) const
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; HasName \n");
 	if (name == NULL)
 		return false;
 
@@ -122,13 +130,16 @@ InputDeviceListItem::HasName(const char* name) const
 bool
 InputDeviceListItem::HasType(input_device_type type) const
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; HasType \n");
 	return type == fDevice.type;
+    
 }
 
 
 bool
 InputDeviceListItem::Matches(const char* name, input_device_type type) const
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; Matches \n");
 	if (name != NULL)
 		return HasName(name);
 
@@ -157,6 +168,7 @@ InputServer::InputServer()
 	fAppServerTeam(-1),
 	fCursorArea(-1)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; InputServer \n");
 	CALLED();
 	gInputServer = this;
 
@@ -188,6 +200,7 @@ InputServer::InputServer()
 
 InputServer::~InputServer()
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; ~InputServer \n");
 	CALLED();
 	if (fAddOnManager->Lock())
 		fAddOnManager->Quit();
@@ -199,6 +212,7 @@ InputServer::~InputServer()
 void
 InputServer::ArgvReceived(int32 argc, char** argv)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; ArgvReceived \n");
 	CALLED();
 
 	if (argc == 2 && strcmp(argv[1], "-q") == 0) {
@@ -211,6 +225,7 @@ InputServer::ArgvReceived(int32 argc, char** argv)
 void
 InputServer::_InitKeyboardMouseStates()
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; _InitKeyboardMouseStated \n");
 	CALLED();
 	// This is where we determine the screen resolution from the app_server and
 	// find the center of the screen
@@ -237,6 +252,7 @@ InputServer::_InitKeyboardMouseStates()
 status_t
 InputServer::_LoadKeymap()
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; _LoadKeymap \n");
 	BPath path;
 	if (find_directory(B_USER_SETTINGS_DIRECTORY, &path) != B_OK)
 		return B_BAD_VALUE;
@@ -277,6 +293,7 @@ InputServer::_LoadKeymap()
 status_t
 InputServer::_LoadSystemKeymap()
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; _LoadSystemKeymap \n");
 	delete[] fChars;
 	fKeys = kSystemKeymap;
 	fCharsSize = kSystemKeyCharsSize;
@@ -294,6 +311,7 @@ InputServer::_LoadSystemKeymap()
 status_t
 InputServer::_SaveKeymap(bool isDefault)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; _SaveKeymap \n");
 	// we save this keymap to file
 	BPath path;
 	if (find_directory(B_USER_SETTINGS_DIRECTORY, &path) != B_OK)
@@ -342,6 +360,7 @@ InputServer::_SaveKeymap(bool isDefault)
 bool
 InputServer::QuitRequested()
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; Quit Requested \n");
 	CALLED();
 	if (!BApplication::QuitRequested())
 		return false;
@@ -368,6 +387,7 @@ InputServer::QuitRequested()
 void
 InputServer::ReadyToRun()
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; RaedyTo RUn \n");
 	CALLED();
 
 	// say hello to the app_server
@@ -381,6 +401,7 @@ InputServer::ReadyToRun()
 status_t
 InputServer::_AcquireInput(BMessage& message, BMessage& reply)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; _AcquireInput \n");
 	// TODO: it currently just gets everything we have
 	area_id area;
 	if (message.FindInt32("cursor area", &area) == B_OK) {
@@ -419,6 +440,7 @@ InputServer::_AcquireInput(BMessage& message, BMessage& reply)
 void
 InputServer::_ReleaseInput(BMessage* /*message*/)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; _ReleaseInput \n");
 	if (fCursorBuffer != NULL) {
 		fCursorBuffer = NULL;
 		delete_sem(fCursorSem);
@@ -435,6 +457,7 @@ InputServer::_ReleaseInput(BMessage* /*message*/)
 void
 InputServer::MessageReceived(BMessage* message)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; MessageReceived \n");
 	CALLED();
 
 	BMessage reply;
@@ -609,6 +632,7 @@ InputServer::MessageReceived(BMessage* message)
 void
 InputServer::HandleSetMethod(BMessage* message)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; HandleSetMethod \n");
 	CALLED();
 	int32 cookie;
 	if (message->FindInt32("cookie", &cookie) != B_OK)
@@ -634,7 +658,9 @@ InputServer::HandleSetMethod(BMessage* message)
 status_t
 InputServer::HandleGetSetMouseType(BMessage* message, BMessage* reply)
 {
-	int32 type;
+    syslog(LOG_CRIT,"MY SERVER LOG; HandleGetSetMouseType \n");
+	fprintf(stderr, "MOUSE TYPE");
+    int32 type;
 	if (message->FindInt32("mouse_type", &type) == B_OK) {
 		fMouseSettings.SetMouseType(type);
 		be_app_messenger.SendMessage(IS_SAVE_SETTINGS);
@@ -653,6 +679,7 @@ status_t
 InputServer::HandleGetSetMouseAcceleration(BMessage* message,
 	BMessage* reply)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; HandleGetSetMouseAcceleration \n");
 	int32 factor;
 	if (message->FindInt32("speed", &factor) == B_OK) {
 		fMouseSettings.SetAccelerationFactor(factor);
@@ -671,6 +698,7 @@ InputServer::HandleGetSetMouseAcceleration(BMessage* message,
 status_t
 InputServer::HandleGetSetKeyRepeatDelay(BMessage* message, BMessage* reply)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; HandleGetSetRepeatDelay \n");
 	bigtime_t delay;
 	if (message->FindInt64("delay", &delay) == B_OK) {
 		fKeyboardSettings.SetKeyboardRepeatDelay(delay);
@@ -689,13 +717,14 @@ InputServer::HandleGetSetKeyRepeatDelay(BMessage* message, BMessage* reply)
 status_t
 InputServer::HandleGetKeyInfo(BMessage* message, BMessage* reply)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; HandleGetKeyInfo \n");
 	return reply->AddData("key_info", B_ANY_TYPE, &fKeyInfo, sizeof(fKeyInfo));
 }
-
 
 status_t
 InputServer::HandleGetModifiers(BMessage* message, BMessage* reply)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; HandleGetModifiers \n");
 	return reply->AddInt32("modifiers", fKeyInfo.modifiers);
 }
 
@@ -703,6 +732,7 @@ InputServer::HandleGetModifiers(BMessage* message, BMessage* reply)
 status_t
 InputServer::HandleGetModifierKey(BMessage* message, BMessage* reply)
 {
+   syslog(LOG_CRIT,"MY SERVER LOG; HandleGetModifierKey \n");
 	int32 modifier;
 
 	if (message->FindInt32("modifier", &modifier) == B_OK) {
@@ -740,6 +770,7 @@ InputServer::HandleGetModifierKey(BMessage* message, BMessage* reply)
 status_t
 InputServer::HandleSetModifierKey(BMessage* message, BMessage* reply)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; HandleSetModifierKey \n");
 	int32 modifier, key;
 	if (message->FindInt32("modifier", &modifier) == B_OK
 		&& message->FindInt32("key", &key) == B_OK) {
@@ -801,6 +832,7 @@ InputServer::HandleSetModifierKey(BMessage* message, BMessage* reply)
 status_t
 InputServer::HandleSetKeyboardLocks(BMessage* message, BMessage* reply)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; HandleSetKeyboardLocks \n");
 	if (message->FindInt32("locks", (int32*)&fKeys.lock_settings) == B_OK) {
 		be_app_messenger.SendMessage(IS_SAVE_KEYMAP);
 
@@ -817,6 +849,7 @@ InputServer::HandleSetKeyboardLocks(BMessage* message, BMessage* reply)
 status_t
 InputServer::HandleGetSetMouseSpeed(BMessage* message, BMessage* reply)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; HandleGetSetMouseSpeed \n");
 	int32 speed;
 	if (message->FindInt32("speed", &speed) == B_OK) {
 		fMouseSettings.SetMouseSpeed(speed);
@@ -835,6 +868,7 @@ InputServer::HandleGetSetMouseSpeed(BMessage* message, BMessage* reply)
 status_t
 InputServer::HandleSetMousePosition(BMessage* message, BMessage* reply)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; HandleSetMousePosition \n");
 	CALLED();
 
 	BPoint where;
@@ -861,6 +895,7 @@ InputServer::HandleSetMousePosition(BMessage* message, BMessage* reply)
 status_t
 InputServer::HandleGetSetMouseMap(BMessage* message, BMessage* reply)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; HandleGetSetMouseMap \n");
 	mouse_map *map;
 	ssize_t size;
 	if (message->FindData("mousemap", B_RAW_TYPE, (const void**)&map, &size) == B_OK) {
@@ -882,6 +917,7 @@ InputServer::HandleGetSetMouseMap(BMessage* message, BMessage* reply)
 status_t
 InputServer::HandleGetSetKeyboardID(BMessage* message, BMessage* reply)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; HandleGetSetKeyboardID \n");
 	int16 id;
 	if (message->FindInt16("id", &id) == B_OK) {
 		fKeyboardID = (uint16)id;
@@ -894,6 +930,7 @@ InputServer::HandleGetSetKeyboardID(BMessage* message, BMessage* reply)
 status_t
 InputServer::HandleGetSetClickSpeed(BMessage* message, BMessage* reply)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; HandleGetSetClickSpeed \n");
 	bigtime_t clickSpeed;
 	if (message->FindInt64("speed", &clickSpeed) == B_OK) {
 		fMouseSettings.SetClickSpeed(clickSpeed);
@@ -912,6 +949,7 @@ InputServer::HandleGetSetClickSpeed(BMessage* message, BMessage* reply)
 status_t
 InputServer::HandleGetSetKeyRepeatRate(BMessage* message, BMessage* reply)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG;HandleGetSetKeyRepeatRate \n");
 	int32 keyRepeatRate;
 	if (message->FindInt32("rate", &keyRepeatRate) == B_OK) {
 		fKeyboardSettings.SetKeyboardRepeatRate(keyRepeatRate);
@@ -930,6 +968,7 @@ InputServer::HandleGetSetKeyRepeatRate(BMessage* message, BMessage* reply)
 status_t
 InputServer::HandleGetSetKeyMap(BMessage* message, BMessage* reply)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; HandleGetSetKeyMap \n");
 	CALLED();
 
 	status_t status;
@@ -966,6 +1005,7 @@ status_t
 InputServer::HandleFocusUnfocusIMAwareView(BMessage* message,
 	BMessage* reply)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; HandleFocusUnfocusIMAwareView \n");
 	CALLED();
 
 	BMessenger messenger;
@@ -993,6 +1033,7 @@ InputServer::HandleFocusUnfocusIMAwareView(BMessage* message,
 status_t
 InputServer::EnqueueDeviceMessage(BMessage* message)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; EnqueueDeviceMessage \n");
 	CALLED();
 
 	BAutolock _(fEventQueueLock);
@@ -1013,6 +1054,7 @@ InputServer::EnqueueDeviceMessage(BMessage* message)
 status_t
 InputServer::EnqueueMethodMessage(BMessage* message)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; EnqueueMethodMessage \n");
 	CALLED();
 	PRINT(("%s what:%c%c%c%c\n", __PRETTY_FUNCTION__, (char)(message->what >> 24),
 		(char)(message->what >> 16), (char)(message->what >> 8), (char)message->what));
@@ -1040,6 +1082,7 @@ InputServer::EnqueueMethodMessage(BMessage* message)
 status_t
 InputServer::SetNextMethod(bool direction)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; SetNextMethod \n ");
 	gInputMethodListLocker.Lock();
 
 	int32 index = gInputMethodList.IndexOf(fActiveMethod);
@@ -1070,6 +1113,7 @@ InputServer::SetNextMethod(bool direction)
 void
 InputServer::SetActiveMethod(BInputServerMethod* method)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; SetActiveMethod \n ");
 	CALLED();
 	if (fActiveMethod)
 		fActiveMethod->fOwner->MethodActivated(false);
@@ -1084,6 +1128,7 @@ InputServer::SetActiveMethod(BInputServerMethod* method)
 const BMessenger*
 InputServer::MethodReplicant()
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; MetodReplicant \n ");
 	return fReplicantMessenger;
 }
 
@@ -1091,6 +1136,7 @@ InputServer::MethodReplicant()
 void
 InputServer::SetMethodReplicant(const BMessenger* messenger)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; SetMethosReplicant \n");
 	fReplicantMessenger = messenger;
 }
 
@@ -1098,6 +1144,7 @@ InputServer::SetMethodReplicant(const BMessenger* messenger)
 bool
 InputServer::EventLoopRunning()
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; EventLoopRunning \n");
 	return fEventLooperPort >= B_OK;
 }
 
@@ -1106,6 +1153,7 @@ status_t
 InputServer::GetDeviceInfo(const char* name, input_device_type *_type,
 	bool *_isRunning)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; GetDeviceInfo \n");
     BAutolock lock(fInputDeviceListLocker);
 
 	for (int32 i = fInputDeviceList.CountItems() - 1; i >= 0; i--) {
@@ -1128,6 +1176,7 @@ InputServer::GetDeviceInfo(const char* name, input_device_type *_type,
 status_t
 InputServer::GetDeviceInfos(BMessage *msg)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; GetDeviceInfos \n ");
 	CALLED();
 	BAutolock lock(fInputDeviceListLocker);
 
@@ -1144,6 +1193,7 @@ status_t
 InputServer::UnregisterDevices(BInputServerDevice& serverDevice,
 	input_device_ref **devices)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; UnRegisterDevces \n");
     CALLED();
     BAutolock lock(fInputDeviceListLocker);
 
@@ -1188,6 +1238,7 @@ status_t
 InputServer::RegisterDevices(BInputServerDevice& serverDevice,
 	input_device_ref** devices)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; RegisterDevices \n");
 	if (devices == NULL)
 		return B_BAD_VALUE;
 
@@ -1239,6 +1290,7 @@ status_t
 InputServer::StartStopDevices(const char* name, input_device_type type,
 	bool doStart)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; StartStopDevices 1 \n");
 	CALLED();
 	BAutolock lock(fInputDeviceListLocker);
 
@@ -1279,6 +1331,7 @@ InputServer::StartStopDevices(const char* name, input_device_type type,
 status_t
 InputServer::StartStopDevices(BInputServerDevice& serverDevice, bool doStart)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; StartStopDevices \n");
 	CALLED();
 	BAutolock lock(fInputDeviceListLocker);
 
@@ -1305,6 +1358,7 @@ status_t
 InputServer::ControlDevices(const char* name, input_device_type type,
 	uint32 code, BMessage* message)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; ControlDevices \n");
 	CALLED();
 	BAutolock lock(fInputDeviceListLocker);
 
@@ -1331,6 +1385,7 @@ InputServer::ControlDevices(const char* name, input_device_type type,
 bool
 InputServer::SafeMode()
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; SafeMode \n");
 	char parameter[32];
 	size_t parameterLength = sizeof(parameter);
 
@@ -1359,6 +1414,7 @@ InputServer::SafeMode()
 status_t
 InputServer::_StartEventLoop()
 {
+   syslog(LOG_CRIT,"MY SERVER LOG; _StartEventLoop \n");
 	CALLED();
 	fEventLooperPort = create_port(100, "input server events");
 	if (fEventLooperPort < 0) {
@@ -1384,6 +1440,7 @@ InputServer::_StartEventLoop()
 status_t
 InputServer::_EventLooper(void* arg)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; _EventLooper \n ");
 	InputServer* self = (InputServer*)arg;
 	self->_EventLoop();
 
@@ -1394,6 +1451,7 @@ InputServer::_EventLooper(void* arg)
 void
 InputServer::_EventLoop()
 {
+   syslog(LOG_CRIT,"MY SERVER LOG; _EventLoop \n ");
 	while (true) {
 		// Block until we find the size of the next message
 		ssize_t length = port_buffer_size(fEventLooperPort);
@@ -1452,6 +1510,7 @@ InputServer::_EventLoop()
 void
 InputServer::_UpdateMouseAndKeys(EventList& events)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; _UpdateMouseAndKeys \n");
 	for (int32 index = 0;BMessage* event = (BMessage*)events.ItemAt(index);
 			index++) {
 		switch (event->what) {
@@ -1516,6 +1575,7 @@ InputServer::_UpdateMouseAndKeys(EventList& events)
 bool
 InputServer::_SanitizeEvents(EventList& events)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; _SantizeEvents \n");
 	CALLED();
 
 	for (int32 index = 0; BMessage* event = (BMessage*)events.ItemAt(index);
@@ -1604,6 +1664,7 @@ InputServer::_SanitizeEvents(EventList& events)
 bool
 InputServer::_MethodizeEvents(EventList& events)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; _MethodizeEvents \n");
 	CALLED();
 
 	if (fActiveMethod == NULL)
@@ -1698,6 +1759,7 @@ InputServer::_MethodizeEvents(EventList& events)
 bool
 InputServer::_FilterEvents(EventList& events)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; _FilterEvent \n");
 	CALLED();
 	BAutolock _(gInputFilterListLocker);
 
@@ -1721,6 +1783,7 @@ InputServer::_FilterEvents(EventList& events)
 void
 InputServer::_DispatchEvents(EventList& events)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; InputServer:: Dispatch Eevnt \n");
 	CALLED();
 
 	int32 count = events.CountItems();
@@ -1745,6 +1808,7 @@ void
 InputServer::_FilterEvent(BInputServerFilter* filter, EventList& events,
 	int32& index, int32& count)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; _FilterEvent \n ");
 	BMessage* event = events.ItemAt(index);
 
 	BList newEvents;
@@ -1773,6 +1837,7 @@ InputServer::_FilterEvent(BInputServerFilter* filter, EventList& events,
 status_t
 InputServer::_DispatchEvent(BMessage* event)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; _DispatchEvent \n ");
 	CALLED();
 
    	switch (event->what) {
@@ -1833,6 +1898,7 @@ InputServer::_DispatchEvent(BMessage* event)
 extern "C" void
 RegisterDevices(input_device_ref** devices)
 {
+    syslog(LOG_CRIT,"MY SERVER LOG; Register Devices \n");
 	CALLED();
 }
 
@@ -1840,6 +1906,7 @@ RegisterDevices(input_device_ref** devices)
 BView *
 instantiate_deskbar_item()
 {
+   syslog(LOG_CRIT,"MY SERVER LOG; instantiate_deskbar_item \n");
 	return new MethodReplicant(INPUTSERVER_SIGNATURE);
 }
 
@@ -1850,6 +1917,7 @@ instantiate_deskbar_item()
 int
 main(int /*argc*/, char** /*argv*/)
 {
+   syslog (LOG_CRIT,"MY SERVER LOG; int main \n");
 	InputServer	*inputServer = new InputServer;
 
 	inputServer->Run();
