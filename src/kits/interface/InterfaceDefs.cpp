@@ -21,6 +21,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <cstring>
+
 
 #include <Bitmap.h>
 #include <Clipboard.h>
@@ -54,6 +56,7 @@
 #include <WidthBuffer.h>
 #include <WindowInfo.h>
 
+#include <syslog.h>
 
 using namespace BPrivate;
 
@@ -481,12 +484,19 @@ set_scroll_bar_info(scroll_bar_info *info)
 status_t
 get_mouse_type(int32 *type)
 {
+	fprintf(stderr, "MYLOG_SEE: get working\n");
 	BMessage command(IS_GET_MOUSE_TYPE);
 	BMessage reply;
 
 	status_t err = _control_input_server_(&command, &reply);
 	if (err != B_OK)
 		return err;
+
+	// TODO: Find some better way for concate
+//	char s[200];
+//	std::strcpy(s, mouse_name);
+//	std::strcat(s, ":mouse_type");
+//
 	return reply.FindInt32("mouse_type", type);
 }
 
@@ -494,8 +504,14 @@ get_mouse_type(int32 *type)
 status_t
 set_mouse_type(int32 type)
 {
+	fprintf(stderr, "MYLOG_SEE: set working type: %d\n", type);
 	BMessage command(IS_SET_MOUSE_TYPE);
 	BMessage reply;
+
+	// TODO: Find some better way for concate
+//	char s[200];
+//	std::strcpy(s, mouse_name);
+//	std::strcat(s, ":mouse_type");
 
 	status_t err = command.AddInt32("mouse_type", type);
 	if (err != B_OK)
@@ -505,8 +521,49 @@ set_mouse_type(int32 type)
 
 
 status_t
+get_multiple_mouse_type(const char* mouse_name, int32 *type)
+{
+	fprintf(stderr, "MYLOG_SEE: get working\n");
+	BMessage command(IS_GET_MOUSE_TYPE);
+	BMessage reply;
+
+	status_t err = _control_input_server_(&command, &reply);
+	if (err != B_OK)
+		return err;
+
+	// TODO: Find some better way for concate
+	char s[200];
+	std::strcpy(s, mouse_name);
+	std::strcat(s, ":mouse_type");
+
+	return reply.FindInt32(s, type);
+}
+
+
+status_t
+set_multiple_mouse_type(const char* mouse_name, int32 type)
+{
+	fprintf(stderr, "MYLOG_SEE: set working type: %d\n", type);
+	BMessage command(IS_SET_MOUSE_TYPE);
+	BMessage reply;
+
+	// TODO: Find some better way for concate
+	char s[200];
+	std::strcpy(s, mouse_name);
+	std::strcat(s, ":mouse_type");
+
+	status_t err = command.AddInt32(s, type);
+	if (err != B_OK)
+		return err;
+	return _control_input_server_(&command, &reply);
+}
+
+
+status_t
 get_mouse_map(mouse_map *map)
 {
+	fprintf(stderr, "MYLOG_SEE: working\n");
+	syslog(LOG_CRIT, "MYLOG_SEE: working\n");
 	BMessage command(IS_GET_MOUSE_MAP);
 	BMessage reply;
 	const void *data = 0;
@@ -517,6 +574,13 @@ get_mouse_map(mouse_map *map)
 		err = reply.FindData("mousemap", B_RAW_TYPE, &data, &count);
 	if (err != B_OK)
 		return err;
+
+	int i = 0;
+	BString deviceName;
+	while (reply.FindString("mouseDevice", i, &deviceName) == B_OK) {
+		syslog(LOG_CRIT, "MYLOG_SEE: %s\n", deviceName);
+		i++;
+	}
 
 	memcpy(map, data, count);
 
@@ -568,6 +632,7 @@ set_click_speed(bigtime_t speed)
 status_t
 get_mouse_speed(int32 *speed)
 {
+	syslog(LOG_CRIT, "MYLOG_SEE: get speed\n");
 	BMessage command(IS_GET_MOUSE_SPEED);
 	BMessage reply;
 
@@ -585,9 +650,46 @@ get_mouse_speed(int32 *speed)
 status_t
 set_mouse_speed(int32 speed)
 {
+	syslog(LOG_CRIT, "MYLOG_SEE: set speed\n");
 	BMessage command(IS_SET_MOUSE_SPEED);
 	BMessage reply;
 	command.AddInt32("speed", speed);
+	return _control_input_server_(&command, &reply);
+}
+
+
+status_t
+get_multiple_mouse_speed(const char* mouse_name,int32 *speed)
+{
+	BMessage command(IS_GET_MOUSE_SPEED);
+	BMessage reply;
+
+	status_t err = _control_input_server_(&command, &reply);
+	if (err != B_OK)
+		return err;
+
+	char s[200];
+	std::strcpy(s, mouse_name);
+	std::strcat(s, ":speed");
+
+	if (reply.FindInt32(s, speed) != B_OK)
+		*speed = 65536;
+
+	return B_OK;
+}
+
+
+status_t
+set_multiple_mouse_speed(const char* mouse_name, int32 speed)
+{
+	BMessage command(IS_SET_MOUSE_SPEED);
+	BMessage reply;
+
+	char s[200];
+	std::strcpy(s, mouse_name);
+	std::strcat(s, ":speed");
+
+	command.AddInt32(s, speed);
 	return _control_input_server_(&command, &reply);
 }
 
