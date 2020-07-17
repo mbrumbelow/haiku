@@ -204,6 +204,7 @@ class InputServer : public BApplication {
 
 		status_t _AcquireInput(BMessage& message, BMessage& reply);
 		void _ReleaseInput(BMessage* message);
+        MouseSettings*  GetMouseSettings(BString mouse_name);
 
 	private:
 		uint16			fKeyboardID;
