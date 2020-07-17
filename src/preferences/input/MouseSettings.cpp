@@ -29,10 +29,12 @@ static const int32 kDefaultAccelerationFactor = 65536;
 static const bool kDefaultAcceptFirstClick = true;
 
 
-MouseSettings::MouseSettings()
+MouseSettings::MouseSettings(BString name)
 	:
 	fWindowPosition(-1, -1)
 {
+	fname = name;
+	fprintf(stderr, "DEBUG_MOUSE->PREF->MouseSettings constructor: %s \n", fname.String());
 	_RetrieveSettings();
 
 	fOriginalSettings = fSettings;
@@ -41,10 +43,11 @@ MouseSettings::MouseSettings()
 	fOriginalAcceptFirstClick = fAcceptFirstClick;
 }
 
-MouseSettings::MouseSettings(mouse_settings settings)
+MouseSettings::MouseSettings(mouse_settings settings, BString name)
 	:
 	fSettings(settings)
 {
+	fname = name;
 
 #ifdef DEBUG
     Dump();
@@ -59,6 +62,7 @@ MouseSettings::MouseSettings(mouse_settings settings)
 
 MouseSettings::~MouseSettings()
 {
+	fprintf(stderr, "DEBUG_MOUSE->PREF->~MouseSettings deconstructor: %s \n", fname.String());
 }
 
 
@@ -84,11 +88,11 @@ MouseSettings::_RetrieveSettings()
 	if (get_click_speed(&fSettings.click_speed) != B_OK)
 		fprintf(stderr, "error when get_click_speed\n");
 	if (get_mouse_speed(&fSettings.accel.speed) != B_OK)
-		fprintf(stderr, "error when get_mouse_speed\n");
+		fprintf(stderr, "error when get_multiple_mouse_speed\n");
 	if (get_mouse_acceleration(&fSettings.accel.accel_factor) != B_OK)
 		fprintf(stderr, "error when get_mouse_acceleration\n");
-	if (get_mouse_type(&fSettings.type) != B_OK)
-		fprintf(stderr, "error when get_mouse_type\n");
+	if (get_multiple_mouse_type(fname, &fSettings.type) != B_OK)
+		fprintf(stderr, "error when get_multiple_mouse_type\n");
 
 	fMode = mouse_mode();
 	fFocusFollowsMouseMode = focus_follows_mouse_mode();
@@ -265,10 +269,12 @@ MouseSettings::SetWindowPosition(BPoint corner)
 void
 MouseSettings::SetMouseType(int32 type)
 {
-	if (set_mouse_type(type) == B_OK)
+	fprintf(stderr, "DEBUG_MOUSE->PREF->SetMouseType: \t%" B_PRId32 "\n", type);
+	if (set_multiple_mouse_type(fname, type) == B_OK)
 		fSettings.type = type;
 	else
 		fprintf(stderr, "error when set_mouse_type\n");
+	    fprintf(stderr, "DEBUG_MOUSE->PREF->SetMouseType: error when set_mouse_tye \n");
 }
 
 
@@ -377,6 +383,7 @@ MouseSettings::GetSettings() {
 
 MultipleMouseSettings::MultipleMouseSettings()
 {
+    fDeprecatedMouseSettings = NULL;
 	RetrieveSettings();
 
 #ifdef DEBUG
@@ -439,7 +446,7 @@ MultipleMouseSettings::RetrieveSettings()
 		while (message.FindString("mouseDevice", i, &deviceName) == B_OK) {
 			message.FindData("mouseSettings", B_ANY_TYPE, i,
 				(const void**)&settings, &size);
-			MouseSettings* mouseSettings = new MouseSettings(*settings);
+			MouseSettings* mouseSettings = new MouseSettings(*settings, deviceName);
 			fMouseSettingsObject.insert(std::pair<BString, MouseSettings*>
 				(deviceName, mouseSettings));
 			i++;
@@ -447,9 +454,8 @@ MultipleMouseSettings::RetrieveSettings()
 	}
 
 	else {
-		IsRetrievedSettingsDeprecated = true;
-
-		fDeprecatedMouseSettings = new MouseSettings();
+		BString* s = new BString("");
+		fDeprecatedMouseSettings = new MouseSettings(*s);
 		fDeprecatedMouseSettings->_RetrieveSettings();
 	}
 }
@@ -523,11 +529,12 @@ MultipleMouseSettings::Dump()
 MouseSettings*
 MultipleMouseSettings::AddMouseSettings(BString mouse_name)
 {
-	if(IsRetrievedSettingsDeprecated == true) {
+	if(fDeprecatedMouseSettings != NULL) {
 		MouseSettings* RetrievedSettings = new (std::nothrow) MouseSettings
 			(*fDeprecatedMouseSettings);
 
 		if (RetrievedSettings != NULL) {
+			RetrievedSettings->fname = mouse_name;   //TODO
 			fMouseSettingsObject.insert(std::pair<BString, MouseSettings*>
 				(mouse_name, RetrievedSettings));
 
@@ -541,7 +548,7 @@ MultipleMouseSettings::AddMouseSettings(BString mouse_name)
 	if (itr != fMouseSettingsObject.end())
 		return GetMouseSettings(mouse_name);
 
-	MouseSettings* settings = new (std::nothrow) MouseSettings();
+	MouseSettings* settings = new (std::nothrow) MouseSettings(mouse_name);
 
 	if(settings !=NULL) {
 		fMouseSettingsObject.insert(std::pair<BString, MouseSettings*>
@@ -554,5 +561,10 @@ MultipleMouseSettings::AddMouseSettings(BString mouse_name)
 MouseSettings*
 MultipleMouseSettings::GetMouseSettings(BString mouse_name)
 {
-	return fMouseSettingsObject.at(mouse_name);
+	std::map<BString, MouseSettings*>::iterator itr;
+	itr = fMouseSettingsObject.find(mouse_name);
+
+	if (itr != fMouseSettingsObject.end())
+		return itr->second;
+	return NULL;
 }

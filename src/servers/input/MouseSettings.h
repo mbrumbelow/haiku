@@ -1,14 +1,22 @@
-/*
- * Copyright 2019, Haiku, Inc.
- * Distributed under the terms of the MIT License.
- *
- * Author:
- *		Preetpal Kaur <preetpalok123@gmail.com>
- */
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+//
+//	Copyright (c) 2004, Haiku
+//
+//  This software is part of the Haiku distribution and is covered 
+//  by the Haiku license.
+//
+//
+//  File:			MouseSettings.h
+//  Authors:		Jérôme Duval,
+//					Andrew McCall (mccall@digitalparadise.co.uk),
+//					Axel Dörfler (axeld@pinc-software.de)
+//  Description:	Input Server
+//  Created:		August 29, 2004
+//
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-
-#ifndef MOUSE_SETTINGS_H
-#define MOUSE_SETTINGS_H
+#ifndef MOUSE_SETTINGS_H_
+#define MOUSE_SETTINGS_H_
 
 
 #include <map>
@@ -17,30 +25,22 @@
 #include <Archivable.h>
 #include <Input.h>
 #include <InterfaceDefs.h>
-#include <Point.h>
+#include <kb_mouse_settings.h>
+#include <Path.h>
 #include <SupportDefs.h>
 #include <String.h>
 
-#include "kb_mouse_settings.h"
 
-class BPath;
 
 class MouseSettings {
-public:
-		// TODO: declare in fname in private and define its method
+	public:
 		BString fname;
 		MouseSettings(BString name);
 		MouseSettings(mouse_settings settings, BString name);
 		~MouseSettings();
 
-		void Revert();
-		bool IsRevertable();
 		void Defaults();
-		bool IsDefaultable();
 		void Dump();
-
-		BPoint WindowPosition() const { return fWindowPosition; }
-		void SetWindowPosition(BPoint corner);
 
 		int32 MouseType() const { return fSettings.type; }
 		void SetMouseType(int32 type);
@@ -51,7 +51,8 @@ public:
 		int32 MouseSpeed() const { return fSettings.accel.speed; }
 		void SetMouseSpeed(int32 speed);
 
-		int32 AccelerationFactor() const { return fSettings.accel.accel_factor; }
+		int32 AccelerationFactor() const
+			{ return fSettings.accel.accel_factor; }
 		void SetAccelerationFactor(int32 factor);
 
 		uint32 Mapping(int32 index) const;
@@ -62,36 +63,35 @@ public:
 		mode_mouse MouseMode() const { return fMode; }
 		void SetMouseMode(mode_mouse mode);
 
-		mode_focus_follows_mouse FocusFollowsMouseMode() const {
-			return fFocusFollowsMouseMode;
-		}
+		mode_focus_follows_mouse FocusFollowsMouseMode() const
+			{ return fFocusFollowsMouseMode; }
 		void SetFocusFollowsMouseMode(mode_focus_follows_mouse mode);
 
 		bool AcceptFirstClick() const { return fAcceptFirstClick; }
-		void SetAcceptFirstClick(bool accept_first_click);
-		void _RetrieveSettings();
+		void SetAcceptFirstClick(bool acceptFirstClick);
+
+		void RetrieveSettings();
 
 		mouse_settings* GetSettings();
+		mouse_settings	fSettings, fOriginalSettings;
 
-private:
-		static status_t _GetSettingsPath(BPath &path);
+	private:
+		static status_t GetSettingsPath(BPath &path);
 
+//		mouse_settings	fSettings, fOriginalSettings;
 		mode_mouse		fMode, fOriginalMode;
 		mode_focus_follows_mouse	fFocusFollowsMouseMode;
 		mode_focus_follows_mouse	fOriginalFocusFollowsMouseMode;
-		bool			fAcceptFirstClick, fOriginalAcceptFirstClick;
-		BPoint                  fWindowPosition;
-
-		mouse_settings	fSettings, fOriginalSettings;
+		bool			fAcceptFirstClick;
+		bool			fOriginalAcceptFirstClick;
 };
 
 
-// We want the settings to be stored in a BMessage
 class MultipleMouseSettings: public BArchivable {
 	public:
 		MultipleMouseSettings();
 		~MultipleMouseSettings();
-
+		
 		status_t Archive(BMessage* into, bool deep = false) const;
 
 		void Defaults();
@@ -101,15 +101,18 @@ class MultipleMouseSettings: public BArchivable {
 
 		MouseSettings* AddMouseSettings(BString mouse_name);
 		MouseSettings* GetMouseSettings(BString mouse_name);
+		
+		typedef std::map<BString, MouseSettings*> mouse_settings_object;
+		mouse_settings_object  fMouseSettingsObject;
 
 	private:
 		static status_t GetSettingsPath(BPath &path);
 		void RetrieveSettings();
-
+		
 		MouseSettings*	fDeprecatedMouseSettings;
 
-		typedef std::map<BString, MouseSettings*> mouse_settings_object;
-		mouse_settings_object  fMouseSettingsObject;
+//		typedef std::map<BString, MouseSettings*> mouse_settings_object;
+//		mouse_settings_object  fMouseSettingsObject;
 };
 
-#endif	// MOUSE_SETTINGS_H
+#endif

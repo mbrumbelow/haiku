@@ -35,3 +35,6 @@ DoCatalogs Input :
 	MouseSettings.cpp
 	SettingsView.cpp
 ;
+
+SEARCH on [ FGristFiles MouseSettings.h ]
+	+= [ FDirName $(SUBDIR) $(DOTDOT) $(DOTDOT) $(DOTDOT) headers private input ] ;
