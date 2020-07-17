@@ -19,18 +19,16 @@
 #include <InterfaceDefs.h>
 #include <Point.h>
 #include <SupportDefs.h>
-#include <String.h>
 
 #include "kb_mouse_settings.h"
+
 
 class BPath;
 
 class MouseSettings {
 public:
-		// TODO: declare in fname in private and define its method
-		BString fname;
 		MouseSettings();
-		MouseSettings(mouse_settings settings, BString name);
+		MouseSettings(mouse_settings settings);
 		~MouseSettings();
 
 		void Revert();
