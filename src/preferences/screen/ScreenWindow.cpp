@@ -262,11 +262,13 @@ ScreenWindow::ScreenWindow(ScreenSettings* settings)
 		new BMessage(kMsgWorkspaceColumnsChanged));
 	fColumnsControl->SetAlignment(B_ALIGN_RIGHT);
 	fColumnsControl->SetRange(1, 32);
+	fColumnsControl->TextView()->SetMaxBytes(2);
 
 	fRowsControl = new BSpinner("rows", B_TRANSLATE("Rows:"),
 		new BMessage(kMsgWorkspaceRowsChanged));
 	fRowsControl->SetAlignment(B_ALIGN_RIGHT);
 	fRowsControl->SetRange(1, 32);
+	fRowsControl->TextView()->SetMaxBytes(2);
 
 	uint32 columns;
 	uint32 rows;
