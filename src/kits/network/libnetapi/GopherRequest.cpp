@@ -345,7 +345,7 @@ BGopherRequest::_ProtocolLoop()
 			// we don't really have headers but well...
 			//! ProtocolHook:HeadersReceived
 			if (fListener != NULL)
-				fListener->HeadersReceived(this, fResult);
+				fListener->HeadersReceived(this);
 		}
 
 		if (_NeedsParsing())

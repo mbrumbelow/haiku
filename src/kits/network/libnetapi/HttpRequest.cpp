@@ -631,7 +631,7 @@ BHttpRequest::_MakeRequest()
 
 				//! ProtocolHook:HeadersReceived
 				if (fListener != NULL && !disableListener)
-					fListener->HeadersReceived(this, fResult);
+					fListener->HeadersReceived(this);
 
 
 				if (BString(fHeaders["Transfer-Encoding"]) == "chunked")

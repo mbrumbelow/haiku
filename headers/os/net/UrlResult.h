@@ -6,25 +6,19 @@
 #define _B_URL_RESULT_H_
 
 
-#include <Archivable.h>
 #include <String.h>
 
 
-class BUrlResult: public BArchivable {
+class BUrlResult {
 public:
 							BUrlResult();
-							BUrlResult(BMessage*);
 	virtual					~BUrlResult();
-
-	virtual	status_t		Archive(BMessage*, bool) const;
 
 			void			SetContentType(BString contentType);
 			void			SetLength(size_t length);
 
 	virtual	BString			ContentType() const;
-	virtual size_t			Length() const;
-
-	static	BArchivable*	Instantiate(BMessage*);
+	virtual	size_t			Length() const;
 
 private:
 			BString			fContentType;
