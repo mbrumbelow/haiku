@@ -118,7 +118,7 @@ BDataRequest::_ProtocolLoop()
 	fResult.SetLength(length);
 
 	if (fListener != NULL) {
-		fListener->HeadersReceived(this, fResult);
+		fListener->HeadersReceived(this);
 		if (length > 0) {
 			fListener->DataReceived(this, payload, 0, length);
 			fListener->DownloadProgress(this, length, length);

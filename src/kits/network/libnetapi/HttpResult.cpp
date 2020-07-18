@@ -25,21 +25,6 @@ BHttpResult::BHttpResult(const BUrl& url)
 }
 
 
-BHttpResult::BHttpResult(BMessage* archive)
-	:
-	BUrlResult(archive),
-	fUrl(archive->FindString("http:url")),
-	fHeaders(),
-	fStatusCode(archive->FindInt32("http:statusCode"))
-{
-	fStatusString = archive->FindString("http:statusString");
-
-	BMessage headers;
-	archive->FindMessage("http:headers", &headers);
-	fHeaders.PopulateFromArchive(&headers);
-}
-
-
 BHttpResult::BHttpResult(const BHttpResult& other)
 	:
 	fUrl(other.fUrl),
@@ -158,33 +143,4 @@ BHttpResult::operator=(const BHttpResult& other)
 	fStatusString = other.fStatusString;
 
 	return *this;
-}
-
-
-status_t
-BHttpResult::Archive(BMessage* target, bool deep) const
-{
-	status_t result = BUrlResult::Archive(target, deep);
-	if (result != B_OK)
-		return result;
-
-	target->AddString("http:url", fUrl);
-	target->AddInt32("http:statusCode", fStatusCode);
-	target->AddString("http:statusString", fStatusString);
-
-	BMessage headers;
-	fHeaders.Archive(&headers);
-	target->AddMessage("http:headers", &headers);
-
-	return B_OK;
-}
-
-
-/*static*/ BArchivable*
-BHttpResult::Instantiate(BMessage* archive)
-{
-	if (!validate_instantiation(archive, "BHttpResult"))
-		return NULL;
-
-	return new BHttpResult(archive);
 }

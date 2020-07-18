@@ -19,10 +19,9 @@ class BUrlRequest;
 
 class BHttpResult: public BUrlResult {
 			friend class 				BHttpRequest;
-			
+
 public:
 										BHttpResult(const BUrl& url);
-										BHttpResult(BMessage*);
 										BHttpResult(const BHttpResult& other);
 										~BHttpResult();
 
@@ -44,12 +43,9 @@ public:
 
 	// Overloaded members
 			BHttpResult&				operator=(const BHttpResult& other);
-
-	virtual	status_t					Archive(BMessage*, bool) const;
-	static	BArchivable*				Instantiate(BMessage*);
 private:
 			BUrl						fUrl;
-			
+
 			BHttpHeaders 				fHeaders;
 			int32						fStatusCode;
 			BString						fStatusString;

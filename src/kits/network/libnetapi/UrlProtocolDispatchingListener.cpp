@@ -69,17 +69,9 @@ BUrlProtocolDispatchingListener::ResponseStarted(BUrlRequest* caller)
 
 
 void
-BUrlProtocolDispatchingListener::HeadersReceived(BUrlRequest* caller,
-	const BUrlResult& result)
+BUrlProtocolDispatchingListener::HeadersReceived(BUrlRequest* caller)
 {
-	/* The URL request does not keep the headers valid after calling this
-	 * method. For asynchronous delivery to work, we need to archive them
-	 * into the message. */
 	BMessage message(B_URL_PROTOCOL_NOTIFICATION);
-	BMessage archive;
-	result.Archive(&archive, true);
-	message.AddMessage("url:result", &archive);
-
 	_SendMessage(&message, B_URL_PROTOCOL_HEADERS_RECEIVED, caller);
 }
 

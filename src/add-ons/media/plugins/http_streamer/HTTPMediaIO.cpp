@@ -47,7 +47,7 @@ public:
 			fRunning = true;
 		}
 
-		void HeadersReceived(BUrlRequest* request, const BUrlResult& result)
+		void HeadersReceived(BUrlRequest* request)
 		{
 			fAdapterIO->UpdateSize();
 		}

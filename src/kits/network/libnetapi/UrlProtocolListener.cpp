@@ -43,7 +43,7 @@ BUrlProtocolListener::ResponseStarted(BUrlRequest*)
 
 
 void
-BUrlProtocolListener::HeadersReceived(BUrlRequest*, const BUrlResult& result)
+BUrlProtocolListener::HeadersReceived(BUrlRequest*)
 {
 }
 
