@@ -14,6 +14,8 @@
 using namespace BPrivate::Network;
 #endif
 
+
+#ifdef LIBNETAPI_DEPRECATED
 BUrlResult::BUrlResult()
 	:
 	BArchivable(),
@@ -32,11 +34,6 @@ BUrlResult::BUrlResult(BMessage* archive)
 }
 
 
-BUrlResult::~BUrlResult()
-{
-}
-
-
 status_t
 BUrlResult::Archive(BMessage* archive, bool deep) const
 {
@@ -49,6 +46,34 @@ BUrlResult::Archive(BMessage* archive, bool deep) const
 	archive->AddInt32("Length", fLength);
 
 	return B_OK;
+}
+
+
+/*static*/ BArchivable*
+BUrlResult::Instantiate(BMessage* archive)
+{
+	if (!validate_instantiation(archive, "BUrlResult"))
+		return NULL;
+	return new BUrlResult(archive);
+}
+
+
+#else
+
+
+BUrlResult::BUrlResult()
+	:
+	fContentType(),
+	fLength(0)
+{
+}
+
+
+#endif // LIBNETAPI_DEPRECATED
+
+
+BUrlResult::~BUrlResult()
+{
 }
 
 
@@ -77,13 +102,4 @@ size_t
 BUrlResult::Length() const
 {
 	return fLength;
-}
-
-
-/*static*/ BArchivable*
-BUrlResult::Instantiate(BMessage* archive)
-{
-	if (!validate_instantiation(archive, "BUrlResult"))
-		return NULL;
-	return new BUrlResult(archive);
 }

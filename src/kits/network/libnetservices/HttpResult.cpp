@@ -29,6 +29,7 @@ BHttpResult::BHttpResult(const BUrl& url)
 }
 
 
+#ifdef LIBNETAPI_DEPRECATED
 BHttpResult::BHttpResult(BMessage* archive)
 	:
 	BUrlResult(archive),
@@ -42,6 +43,7 @@ BHttpResult::BHttpResult(BMessage* archive)
 	archive->FindMessage("http:headers", &headers);
 	fHeaders.PopulateFromArchive(&headers);
 }
+#endif
 
 
 BHttpResult::BHttpResult(const BHttpResult& other)
@@ -165,6 +167,7 @@ BHttpResult::operator=(const BHttpResult& other)
 }
 
 
+#ifdef LIBNETAPI_DEPRECATED
 status_t
 BHttpResult::Archive(BMessage* target, bool deep) const
 {
@@ -192,3 +195,4 @@ BHttpResult::Instantiate(BMessage* archive)
 
 	return new BHttpResult(archive);
 }
+#endif

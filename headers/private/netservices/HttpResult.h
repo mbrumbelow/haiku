@@ -25,10 +25,12 @@ class BUrlRequest;
 
 class BHttpResult: public BUrlResult {
 			friend class 				BHttpRequest;
-			
+
 public:
 										BHttpResult(const BUrl& url);
+#ifdef LIBNETAPI_DEPRECATED
 										BHttpResult(BMessage*);
+#endif
 										BHttpResult(const BHttpResult& other);
 										~BHttpResult();
 
@@ -51,11 +53,13 @@ public:
 	// Overloaded members
 			BHttpResult&				operator=(const BHttpResult& other);
 
+#ifdef LIBNETAPI_DEPRECATED
 	virtual	status_t					Archive(BMessage*, bool) const;
 	static	BArchivable*				Instantiate(BMessage*);
+#endif
 private:
 			BUrl						fUrl;
-			
+
 			BHttpHeaders 				fHeaders;
 			int32						fStatusCode;
 			BString						fStatusString;
