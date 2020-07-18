@@ -98,18 +98,7 @@ BUrlProtocolAsynchronousListener::MessageReceived(BMessage* message)
 			break;
 
 		case B_URL_PROTOCOL_HEADERS_RECEIVED:
-			{
-				BMessage archive;
-				message->FindMessage("url:result", &archive);
-				BUrlResult* result = dynamic_cast<BUrlResult*>(
-					instantiate_object(&archive));
-				if (result == NULL) {
-					debugger("Failed to unarchive BUrlResult");
-					result = new BUrlResult();
-				}
-				HeadersReceived(caller, *result);
-				delete result;
-			}
+			HeadersReceived(caller);
 			break;
 
 		case B_URL_PROTOCOL_DATA_RECEIVED:
