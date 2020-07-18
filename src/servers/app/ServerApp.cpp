@@ -3110,7 +3110,7 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 			float brightness;
 			link.Read<float>(&brightness);
 
-			status_t status = fDesktop->HWInterface()->SetBrightness(brightness);
+			status_t status = fDesktop->SetBrightness(brightness);
 			fLink.StartMessage(status);
 
 			fLink.Flush();

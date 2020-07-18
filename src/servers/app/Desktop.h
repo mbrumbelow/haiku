@@ -125,6 +125,8 @@ public:
 									BRect& frame);
 			void				RevertScreenModes(uint32 workspaces);
 
+			status_t			SetBrightness(float brightness);
+
 			MultiLocker&		ScreenLocker() { return fScreenLock; }
 
 			status_t			LockDirectScreen(team_id team);
@@ -342,6 +344,9 @@ private:
 			team_id				fDirectScreenTeam;
 			int32				fCurrentWorkspace;
 			int32				fPreviousWorkspace;
+
+			float				fBrightness;
+			bool				fBrightnessChanged;
 
 			WindowList			fAllWindows;
 			WindowList			fSubsetWindows;

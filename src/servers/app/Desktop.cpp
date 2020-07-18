@@ -423,6 +423,8 @@ Desktop::Desktop(uid_t userID, const char* targetScreen)
 	fDirectScreenTeam(-1),
 	fCurrentWorkspace(0),
 	fPreviousWorkspace(0),
+	fBrightness(1.0f),
+	fBrightnessChanged(false),
 	fAllWindows(kAllWindowList),
 	fSubsetWindows(kSubsetList),
 	fFocusList(kFocusList),
@@ -760,10 +762,10 @@ Desktop::SetScreenMode(int32 workspace, int32 id, const display_mode& mode,
 	bool hasInfo = screen->GetMonitorInfo(info) == B_OK;
 
 	fWorkspaces[workspace].CurrentScreenConfiguration().Set(id,
-		hasInfo ? &info : NULL, screen->Frame(), mode);
+		hasInfo ? &info : NULL, screen->Frame(), mode, fBrightness);
 	if (makeDefault) {
 		fWorkspaces[workspace].StoredScreenConfiguration().Set(id,
-			hasInfo ? &info : NULL, screen->Frame(), mode);
+			hasInfo ? &info : NULL, screen->Frame(), mode, fBrightness);
 		StoreWorkspaceConfiguration(workspace);
 	}
 
@@ -884,6 +886,15 @@ Desktop::RevertScreenModes(uint32 workspaces)
 				SetScreenMode(workspace, screen->ID(), stored->mode, false);
 		}
 	}
+}
+
+
+status_t
+Desktop::SetBrightness(float brightness)
+{
+	fBrightness = brightness;
+	fBrightnessChanged = true;
+	return HWInterface()->SetBrightness(brightness);
 }
 
 
@@ -1018,6 +1029,7 @@ Desktop::StoreWorkspaceConfiguration(int32 index)
 
 	fSettings->SetWorkspacesMessage(index, settings);
 	fSettings->Save(kWorkspacesSettings);
+	fBrightnessChanged = false;
 }
 
 
@@ -2489,6 +2501,10 @@ Desktop::_GetLooperName(char* name, size_t length)
 void
 Desktop::_PrepareQuit()
 {
+	// Save brightness for next boot
+	if (fBrightnessChanged)
+		StoreWorkspaceConfiguration(0);
+
 	// let's kill all remaining applications
 
 	fApplicationsLock.Lock();
