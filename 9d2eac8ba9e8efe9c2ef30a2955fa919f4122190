@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "60b751bf_93b51f6d",
+        "filename": "src/system/boot/platform/next_m68k/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2020-07-18T00:22:46Z",
+      "side": 1,
+      "message": "I added a comment to make this clearer.",
+      "parentUuid": "1493f621_c8950a5f",
+      "revId": "9d2eac8ba9e8efe9c2ef30a2955fa919f4122190",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9e29ccb6_bb04edc5",
         "filename": "src/system/boot/platform/next_m68k/devices.cpp",
         "patchSetId": 1
@@ -327,6 +345,24 @@
       "writtenOn": "2020-02-05T19:32:42Z",
       "side": 1,
       "message": "They are defined by the linker script, not by gcc.",
+      "revId": "9d2eac8ba9e8efe9c2ef30a2955fa919f4122190",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f923d813_044c5c7f",
+        "filename": "src/system/boot/platform/next_m68k/start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2020-07-18T00:22:46Z",
+      "side": 1,
+      "message": "You mean like on all other platforms including bios? :D",
+      "parentUuid": "22b71e80_31d7a428",
       "revId": "9d2eac8ba9e8efe9c2ef30a2955fa919f4122190",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
