@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6624ca48_cd3c9544",
+        "filename": "src/add-ons/translators/avif/AVIFTranslator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-18T11:03:47Z",
+      "side": 1,
+      "message": "Our coding guidelines say 2 empty lines between things",
+      "revId": "f4866d10c0d19575db87ea1f88c494de16c3c78c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f4dfd1c_89dc9ae7",
+        "filename": "src/add-ons/translators/avif/AVIFTranslator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-18T11:03:47Z",
+      "side": 1,
+      "message": "2 empty lines",
+      "revId": "f4866d10c0d19575db87ea1f88c494de16c3c78c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec4c462d_5add1764",
+        "filename": "src/add-ons/translators/avif/AVIFTranslator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-18T11:03:47Z",
+      "side": 1,
+      "message": "Our coding guidelines say no more than 80 columns, this line is too long by 1 char",
+      "revId": "f4866d10c0d19575db87ea1f88c494de16c3c78c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "776db820_7e0b0afb",
+        "filename": "src/add-ons/translators/avif/AVIFTranslator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-18T11:03:47Z",
+      "side": 1,
+      "message": "Why not handle some YUV color spaces as well? You can find them in https://git.haiku-os.org/haiku/tree/headers/os/interface/GraphicsDefs.h#n148",
+      "revId": "f4866d10c0d19575db87ea1f88c494de16c3c78c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9886f0d3_9b2ca72e",
+        "filename": "src/add-ons/translators/avif/AVIFTranslator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-18T11:03:47Z",
+      "side": 1,
+      "message": "use get_system_info to get the system CPU count?\nhttps://git.haiku-os.org/haiku/tree/headers/os/kernel/OS.h#n532",
+      "revId": "f4866d10c0d19575db87ea1f88c494de16c3c78c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fcc21db7_3a6c246f",
+        "filename": "src/add-ons/translators/avif/AVIFTranslator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-18T11:03:47Z",
+      "side": 1,
+      "message": "this line is larger than 80 columns",
+      "revId": "f4866d10c0d19575db87ea1f88c494de16c3c78c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
