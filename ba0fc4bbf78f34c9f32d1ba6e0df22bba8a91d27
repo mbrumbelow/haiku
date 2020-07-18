@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64b03f27_244d8136",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/DirectoryIterator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-18T20:02:19Z",
+      "side": 1,
+      "message": "this should be inside the next if, it is useful only for getting the parent directory",
+      "revId": "ba0fc4bbf78f34c9f32d1ba6e0df22bba8a91d27",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1cf3529b_71cf71a8",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/DirectoryIterator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-18T20:02:19Z",
+      "side": 1,
+      "message": "if you do it like this you need to delete[] this memory when done\n\nBut you can allocate it statically as there is a limit to the length of a filename:\n\nchar getname[B_FILE_NAME_LENGTH];",
+      "revId": "ba0fc4bbf78f34c9f32d1ba6e0df22bba8a91d27",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
