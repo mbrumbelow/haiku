@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ea7d42a7_ae444935",
+        "filename": "headers/compatibility/gnu/stdlib.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-19T07:49:26Z",
+      "side": 1,
+      "message": "\"reentrant\" makes no sense here. qsort can be used in reentrant way, it has no static context that would prevent it.\n\nWhile the addition of a parameter (and the naming, even?) is similar to the convention used for reentrant functions, it\u0027s a different use cases here.\n\nI think we can use _compare_function_qsort_r, or maybe it\u0027s better to not have a typedef at all for it in the header:\n\nvoid qsort_r(void *base, size_t numElements, size_t sizeOfElement,\n    int (*)(const void *, const void *, void *), void *cookie);",
+      "revId": "2a2707eace802180e05607691b4c41f0e2058263",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4f0d52a_bc760e06",
+        "filename": "headers/compatibility/gnu/stdlib.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-19T07:49:26Z",
+      "side": 1,
+      "message": "only a space between void and qsort_r",
+      "revId": "2a2707eace802180e05607691b4c41f0e2058263",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18976d1f_17499908",
+        "filename": "headers/compatibility/gnu/stdlib.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-19T07:49:26Z",
+      "side": 1,
+      "message": "This line should be indented a single tab",
+      "revId": "2a2707eace802180e05607691b4c41f0e2058263",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "decbd48c_05e6bf61",
+        "filename": "src/libs/gnu/qsort.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-19T07:49:26Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "2a2707eace802180e05607691b4c41f0e2058263",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d4296bb_174689c2",
+        "filename": "src/libs/gnu/qsort.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-19T07:49:26Z",
+      "side": 1,
+      "message": "this comment is useless (and wrong, it\u0027s not about machines, but compilers). Also I think it is not available in gcc2.",
+      "revId": "2a2707eace802180e05607691b4c41f0e2058263",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f8c7fc7_d302d083",
+        "filename": "src/libs/gnu/qsort.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-19T07:49:26Z",
+      "side": 1,
+      "message": "name it \u0027compare\u0027 not \u0027compar\u0027",
+      "revId": "2a2707eace802180e05607691b4c41f0e2058263",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71e28cd3_09839bee",
+        "filename": "src/libs/gnu/qsort.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-19T07:49:26Z",
+      "side": 1,
+      "message": "avoid multiple declaration/initializations on the same line",
+      "revId": "2a2707eace802180e05607691b4c41f0e2058263",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c18605d5_4a46eec4",
+        "filename": "src/libs/gnu/qsort.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-19T07:49:26Z",
+      "side": 1,
+      "message": "don\u0027t leave commented code in. Use a #if DEBUG if needed (probably not needed here)",
+      "revId": "2a2707eace802180e05607691b4c41f0e2058263",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d33c4498_2f140c11",
+        "filename": "src/libs/gnu/qsort.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-19T07:49:26Z",
+      "side": 1,
+      "message": "\u003e\u003d 10...",
+      "revId": "2a2707eace802180e05607691b4c41f0e2058263",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "edb12732_a8022c1f",
+        "filename": "src/libs/gnu/qsort.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-19T07:49:26Z",
+      "side": 1,
+      "message": "if you use better variable names, you will not need to explain their meaning in comments",
+      "revId": "2a2707eace802180e05607691b4c41f0e2058263",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
