@@ -127,6 +127,7 @@ GrepWindow::GrepWindow(BMessage* message)
 
 	_SetWindowTitle();
 	_CreateMenus();
+	_UpdateMenus();
 	_CreateViews();
 	_LayoutViews();
 	_LoadPrefs();
@@ -192,6 +193,10 @@ void GrepWindow::MessageReceived(BMessage* message)
 
 		case MSG_REFS_RECEIVED:
 			_OnRefsReceived(message);
+			break;
+
+		case MSG_GO_TO_PARENT:
+			_OnGoToParent();
 			break;
 
 		case B_CANCEL:
@@ -417,6 +422,10 @@ GrepWindow::_CreateMenus()
 	fOpen = new BMenuItem(
 		B_TRANSLATE("Set target" B_UTF8_ELLIPSIS), new BMessage(MSG_OPEN_PANEL), 'F');
 
+	fGoToParent= new BMenuItem(
+		B_TRANSLATE("Go to parent directory"), new BMessage(MSG_GO_TO_PARENT),
+		B_UP_ARROW);
+
 	fClose = new BMenuItem(
 		B_TRANSLATE("Close"), new BMessage(B_QUIT_REQUESTED), 'W');
 
@@ -472,6 +481,7 @@ GrepWindow::_CreateMenus()
 	fFileMenu->AddItem(fNew);
 	fFileMenu->AddSeparatorItem();
 	fFileMenu->AddItem(fOpen);
+	fFileMenu->AddItem(fGoToParent);
 	fFileMenu->AddItem(fClose);
 	fFileMenu->AddSeparatorItem();
 	fFileMenu->AddItem(fQuit);
@@ -510,6 +520,15 @@ GrepWindow::_CreateMenus()
 	fMenuBar->AddItem(fEncodingMenu);
 
 	fSearch->SetEnabled(false);
+}
+
+
+void
+GrepWindow::_UpdateMenus()
+{
+	bool targetIsSingleDirectory =
+		BEntry(&(fModel->fDirectory)).InitCheck() == B_OK;
+	fGoToParent->SetEnabled(targetIsSingleDirectory);
 }
 
 
@@ -1430,6 +1449,7 @@ GrepWindow::_OnFileDrop(BMessage* message)
 	fSearchResults->MakeEmpty();
 	fOldPattern = "";
 
+	_UpdateMenus();
 	_SetWindowTitle();
 }
 
@@ -1500,6 +1520,23 @@ GrepWindow::_OnNewWindow()
 	cloneRefs.AddRef("dir_ref", &(fModel->fDirectory));
 
 	new GrepWindow(&cloneRefs);
+}
+
+
+void
+GrepWindow::_OnGoToParent()
+{
+	BEntry entry(&(fModel->fDirectory));
+	BEntry parent;
+
+	if (entry.GetParent(&parent) == B_OK) {
+		entry_ref parent_ref;
+		parent.GetRef(&parent_ref);
+
+		BMessage parentRefs;
+		parentRefs.AddRef("dir_ref", &parent_ref);
+		_OnFileDrop(&parentRefs);
+	}
 }
 
 
