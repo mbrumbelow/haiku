@@ -1,5 +1,5 @@
 /*
- * Copyright 2001-2015 Haiku, Inc. All rights reserved.
+ * Copyright 2001-2020 Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -25,6 +25,7 @@
 
 #include <TextView.h>
 
+#include <algorithm>
 #include <new>
 
 #include <stdio.h>
@@ -34,6 +35,7 @@
 #include <Beep.h>
 #include <Bitmap.h>
 #include <Clipboard.h>
+#include <ControlLook.h>
 #include <Debug.h>
 #include <Entry.h>
 #include <Input.h>
@@ -155,26 +157,9 @@ struct BTextView::LayoutData {
 		  topInset(0),
 		  rightInset(0),
 		  bottomInset(0),
-		  valid(false)
+		  valid(false),
+		  overridden(false)
 	{
-	}
-
-	void UpdateInsets(const BRect& bounds, const BRect& textRect)
-	{
-		// we disallow negative insets, as they would cause parts of the
-		// text to be hidden
-		leftInset = textRect.left >= bounds.left
-			? textRect.left - bounds.left
-			: 0;
-		topInset = textRect.top >= bounds.top
-			? textRect.top - bounds.top
-			: 0;
-		rightInset = bounds.right >= textRect.right
-			? bounds.right - textRect.right
-			: leftInset;
-		bottomInset = bounds.bottom >= textRect.bottom
-			? bounds.bottom - textRect.bottom
-			: topInset;
 	}
 
 	float				leftInset;
@@ -184,7 +169,8 @@ struct BTextView::LayoutData {
 
 	BSize				min;
 	BSize				preferred;
-	bool				valid;
+	bool				valid : 1;
+	bool				overridden : 1;
 };
 
 
@@ -260,7 +246,15 @@ BTextView::BTextView(BRect frame, const char* name, BRect textRect,
 	uint32 resizeMask, uint32 flags)
 	:
 	BView(frame, name, resizeMask,
-		flags | B_FRAME_EVENTS | B_PULSE_NEEDED | B_INPUT_METHOD_AWARE)
+		flags | B_FRAME_EVENTS | B_PULSE_NEEDED | B_INPUT_METHOD_AWARE),
+	fText(NULL),
+	fLines(NULL),
+	fStyles(NULL),
+	fDisallowedChars(NULL),
+	fUndo(NULL),
+	fDragRunner(NULL),
+	fClickRunner(NULL),
+	fLayoutData(NULL)
 {
 	_InitObject(textRect, NULL, NULL);
 	SetViewUIColor(B_DOCUMENT_BACKGROUND_COLOR);
@@ -272,7 +266,15 @@ BTextView::BTextView(BRect frame, const char* name, BRect textRect,
 	uint32 resizeMask, uint32 flags)
 	:
 	BView(frame, name, resizeMask,
-		flags | B_FRAME_EVENTS | B_PULSE_NEEDED | B_INPUT_METHOD_AWARE)
+		flags | B_FRAME_EVENTS | B_PULSE_NEEDED | B_INPUT_METHOD_AWARE),
+	fText(NULL),
+	fLines(NULL),
+	fStyles(NULL),
+	fDisallowedChars(NULL),
+	fUndo(NULL),
+	fDragRunner(NULL),
+	fClickRunner(NULL),
+	fLayoutData(NULL)
 {
 	_InitObject(textRect, initialFont, initialColor);
 	SetViewUIColor(B_DOCUMENT_BACKGROUND_COLOR);
@@ -282,7 +284,15 @@ BTextView::BTextView(BRect frame, const char* name, BRect textRect,
 BTextView::BTextView(const char* name, uint32 flags)
 	:
 	BView(name,
-		flags | B_FRAME_EVENTS | B_PULSE_NEEDED | B_INPUT_METHOD_AWARE)
+		flags | B_FRAME_EVENTS | B_PULSE_NEEDED | B_INPUT_METHOD_AWARE),
+	fText(NULL),
+	fLines(NULL),
+	fStyles(NULL),
+	fDisallowedChars(NULL),
+	fUndo(NULL),
+	fDragRunner(NULL),
+	fClickRunner(NULL),
+	fLayoutData(NULL)
 {
 	_InitObject(Bounds(), NULL, NULL);
 	SetViewUIColor(B_DOCUMENT_BACKGROUND_COLOR);
@@ -293,7 +303,15 @@ BTextView::BTextView(const char* name, const BFont* initialFont,
 	const rgb_color* initialColor, uint32 flags)
 	:
 	BView(name,
-		flags | B_FRAME_EVENTS | B_PULSE_NEEDED | B_INPUT_METHOD_AWARE)
+		flags | B_FRAME_EVENTS | B_PULSE_NEEDED | B_INPUT_METHOD_AWARE),
+	fText(NULL),
+	fLines(NULL),
+	fStyles(NULL),
+	fDisallowedChars(NULL),
+	fUndo(NULL),
+	fDragRunner(NULL),
+	fClickRunner(NULL),
+	fLayoutData(NULL)
 {
 	_InitObject(Bounds(), initialFont, initialColor);
 	SetViewUIColor(B_DOCUMENT_BACKGROUND_COLOR);
@@ -302,7 +320,15 @@ BTextView::BTextView(const char* name, const BFont* initialFont,
 
 BTextView::BTextView(BMessage* archive)
 	:
-	BView(archive)
+	BView(archive),
+	fText(NULL),
+	fLines(NULL),
+	fStyles(NULL),
+	fDisallowedChars(NULL),
+	fUndo(NULL),
+	fDragRunner(NULL),
+	fClickRunner(NULL),
+	fLayoutData(NULL)
 {
 	CALLED();
 	BRect rect;
@@ -394,8 +420,8 @@ BTextView::~BTextView()
 	delete fStyles;
 	delete fDisallowedChars;
 	delete fUndo;
-	delete fClickRunner;
 	delete fDragRunner;
+	delete fClickRunner;
 	delete fLayoutData;
 }
 
@@ -1106,7 +1132,6 @@ BTextView::SetText(const char* text, int32 length, const text_run_array* runs)
 	// recalculate line breaks and draw the text
 	_Refresh(0, length, false);
 	fCaretOffset = fSelStart = fSelEnd = 0;
-	ScrollTo(B_ORIGIN);
 
 	// draw the caret
 	_ShowCaret();
@@ -1201,6 +1226,7 @@ BTextView::Delete(int32 startOffset, int32 endOffset)
 		startOffset = 0;
 	else if (startOffset > fText->Length())
 		startOffset = fText->Length();
+
 	if (endOffset < 0)
 		endOffset = 0;
 	else if (endOffset > fText->Length())
@@ -1740,7 +1766,7 @@ BTextView::PointAt(int32 offset, float* _height) const
 		float lineWidth = onEmptyLastLine ? 0.0 : LineWidth(lineNum);
 		float alignmentOffset = fTextRect.Width() - lineWidth;
 		if (fAlignment == B_ALIGN_CENTER)
-			alignmentOffset /= 2;
+			alignmentOffset = floorf(alignmentOffset / 2);
 		result.x += alignmentOffset;
 	}
 
@@ -1788,12 +1814,12 @@ BTextView::OffsetAt(BPoint point) const
 	if (fAlignment != B_ALIGN_LEFT) {
 		float alignmentOffset = fTextRect.Width() - LineWidth(lineNum);
 		if (fAlignment == B_ALIGN_CENTER)
-			alignmentOffset /= 2;
+			alignmentOffset = floorf(alignmentOffset / 2);
 		point.x -= alignmentOffset;
 	}
 
 	point.x -= fTextRect.left;
-	point.x = max_c(point.x, 0.0);
+	point.x = std::max(point.x, 0.0f);
 
 	// ToDo: The following code isn't very efficient, because it always starts
 	// from the left end, so when the point is near the right end it's very
@@ -2041,14 +2067,14 @@ BTextView::GetTextRegion(int32 startOffset, int32 endOffset,
 
 	if (startPt.y == endPt.y) {
 		// this is a one-line region
-		selRect.left = max_c(startPt.x, fTextRect.left);
+		selRect.left = std::max(startPt.x, fTextRect.left);
 		selRect.top = startPt.y;
 		selRect.right = endPt.x - 1.0;
 		selRect.bottom = endPt.y + endLineHeight - 1.0;
 		outRegion->Include(selRect);
 	} else {
 		// more than one line in the specified offset range
-		selRect.left = max_c(startPt.x, fTextRect.left);
+		selRect.left = std::max(startPt.x, fTextRect.left);
 		selRect.top = startPt.y;
 		selRect.right = fTextRect.right;
 		selRect.bottom = startPt.y + startLineHeight - 1.0;
@@ -2082,13 +2108,10 @@ BTextView::ScrollToOffset(int32 offset)
 	BPoint point = PointAt(offset, &lineHeight);
 
 	// horizontal
-	float extraSpace = fAlignment == B_ALIGN_LEFT ?
-		ceilf(bounds.IntegerWidth() / 2) : 0.0;
-
 	if (point.x < bounds.left)
-		xDiff = point.x - bounds.left - extraSpace;
+		xDiff = point.x - bounds.right;
 	else if (point.x > bounds.right)
-		xDiff = point.x - bounds.right + extraSpace;
+		xDiff = point.x - bounds.left;
 
 	// vertical
 	if (point.y < bounds.top)
@@ -2154,7 +2177,9 @@ BTextView::SetTextRect(BRect rect)
 		rect.bottom = Bounds().bottom - fLayoutData->bottomInset;
 	}
 
-	fLayoutData->UpdateInsets(Bounds().OffsetToCopy(B_ORIGIN), rect);
+	_UpdateInsets(rect);
+
+	fTextRect = rect;
 
 	_ResetTextRect();
 }
@@ -2202,6 +2227,8 @@ BTextView::SetInsets(float left, float top, float right, float bottom)
 	fLayoutData->topInset = top;
 	fLayoutData->rightInset = right;
 	fLayoutData->bottomInset = bottom;
+
+	fLayoutData->overridden = true;
 
 	InvalidateLayout();
 	Invalidate();
@@ -2324,8 +2351,9 @@ BTextView::SetWordWrap(bool wrap)
 
 	fWrap = wrap;
 	if (wrap)
-		_ResetTextRect();
-	_Refresh(0, fText->Length(), false);
+		_ResetTextRect(); // calls _Refresh
+	else
+		_Refresh(0, fText->Length(), false);
 
 	if (updateOnScreen) {
 		// show the caret, hilite the selection
@@ -2662,6 +2690,12 @@ BTextView::DoLayout()
 	if (size.height < fLayoutData->min.height)
 		size.height = fLayoutData->min.height;
 
+	// reset insets to 0 unless SetInsets() was called
+	BRect bounds(Bounds());
+	_UpdateInsets(bounds);
+
+	// reset text rect to Bounds()
+	fTextRect = bounds;
 	_ResetTextRect();
 }
 
@@ -3130,7 +3164,7 @@ BTextView::_InitObject(BRect textRect, const BFont* initialFont,
 	fTrackingMouse = NULL;
 
 	fLayoutData = new LayoutData;
-	fLayoutData->UpdateInsets(Bounds().OffsetToCopy(B_ORIGIN), fTextRect);
+	_UpdateInsets(textRect);
 
 	fLastClickOffset = -1;
 
@@ -3160,8 +3194,7 @@ BTextView::_HandleBackspace(int32 modifiers)
 	}
 
 	if (fUndo) {
-		TypingUndoBuffer* undoBuffer = dynamic_cast<TypingUndoBuffer*>(
-			fUndo);
+		TypingUndoBuffer* undoBuffer = dynamic_cast<TypingUndoBuffer*>(fUndo);
 		if (!undoBuffer) {
 			delete fUndo;
 			fUndo = undoBuffer = new TypingUndoBuffer(this);
@@ -3382,8 +3415,7 @@ BTextView::_HandleDelete(int32 modifiers)
 	}
 
 	if (fUndo) {
-		TypingUndoBuffer* undoBuffer = dynamic_cast<TypingUndoBuffer*>(
-			fUndo);
+		TypingUndoBuffer* undoBuffer = dynamic_cast<TypingUndoBuffer*>(fUndo);
 		if (!undoBuffer) {
 			delete fUndo;
 			fUndo = undoBuffer = new TypingUndoBuffer(this);
@@ -3671,8 +3703,8 @@ BTextView::_Refresh(int32 fromOffset, int32 toOffset, bool scroll)
 	// draw only those lines that are visible
 	int32 fromVisible = _LineAt(BPoint(0.0f, bounds.top));
 	int32 toVisible = _LineAt(BPoint(0.0f, bounds.bottom));
-	fromLine = max_c(fromVisible, fromLine);
-	toLine = min_c(toLine, toVisible);
+	fromLine = std::max(fromVisible, fromLine);
+	toLine = std::min(toLine, toVisible);
 
 	_AutoResize(false);
 
@@ -3781,15 +3813,46 @@ BTextView::_RecalculateLineBreaks(int32* startLine, int32* endLine)
 	(*fLines)[fLines->NumLines()]->width = 0;
 
 	// update the text rect
+	fTextRect = Bounds();
+
+	// adjust insets
+	fTextRect.left += fLayoutData->leftInset;
+	fTextRect.top += fLayoutData->topInset;
+	fTextRect.right -= fLayoutData->rightInset;
+	// except for bottom
+
 	float newHeight = TextHeight(0, fLines->NumLines() - 1);
 	fTextRect.bottom = fTextRect.top + newHeight;
 	if (!fWrap) {
 		fMinTextRectWidth = fLines->MaxWidth();
-		fTextRect.right = ceilf(fTextRect.left + fMinTextRectWidth);
+
+		// expand width if needed
+		switch (fAlignment) {
+			default:
+			case B_ALIGN_LEFT:
+				// grow right
+				fTextRect.right = std::max(fTextRect.right,
+					fTextRect.left + fMinTextRectWidth);
+				break;
+
+			case B_ALIGN_RIGHT:
+				// grow left
+				fTextRect.left = std::min(fTextRect.left,
+					fTextRect.right - fMinTextRectWidth);
+				break;
+
+			case B_ALIGN_CENTER:
+				// grow out
+				if (fMinTextRectWidth > fTextRect.Width()) {
+					fTextRect.InsetBy(ceilf((fTextRect.Width()
+						- fMinTextRectWidth) / 2.0f), 0);
+				}
+				break;
+		}
 	}
 
 	*endLine = lineIndex - 1;
-	*startLine = min_c(*startLine, *endLine);
+	*startLine = std::min(*startLine, *endLine);
 }
 
 
@@ -3880,7 +3943,7 @@ BTextView::_FindLineBreak(int32 fromOffset, float* _ascent, float* _descent,
 			}
 		}
 
-		delta = max_c(delta, 1);
+		delta = std::max(delta, (int32)1);
 
 		// do not include B_ENTER-terminator into width & height calculations
 		deltaWidth = _TabExpandedStyledWidth(offset,
@@ -3911,8 +3974,8 @@ BTextView::_FindLineBreak(int32 fromOffset, float* _ascent, float* _descent,
 			}
 		}
 
-		*_ascent = max_c(ascent, *_ascent);
-		*_descent = max_c(descent, *_descent);
+		*_ascent = std::max(ascent, *_ascent);
+		*_descent = std::max(descent, *_descent);
 
 		offset += delta;
 		delta = 0;
@@ -3935,12 +3998,12 @@ BTextView::_FindLineBreak(int32 fromOffset, float* _ascent, float* _descent,
 				break;
 			}
 
-			*_ascent = max_c(ascent, *_ascent);
-			*_descent = max_c(descent, *_descent);
+			*_ascent = std::max(ascent, *_ascent);
+			*_descent = std::max(descent, *_descent);
 		}
 	}
 
-	return min_c(offset, limit);
+	return std::min(offset, limit);
 }
 
 
@@ -4137,8 +4200,8 @@ BTextView::_StyledWidth(int32 fromOffset, int32 length, float* _ascent,
 	int32 numBytes;
 	while ((numBytes = fStyles->Iterate(fromOffset, length, fInline, &font,
 			NULL, &ascent, &descent)) != 0) {
-		maxAscent = max_c(ascent, maxAscent);
-		maxDescent = max_c(descent, maxDescent);
+		maxAscent = std::max(ascent, maxAscent);
+		maxDescent = std::max(descent, maxDescent);
 
 #if USE_WIDTHBUFFER
 		// Use _BWidthBuffer_ if possible
@@ -4223,11 +4286,10 @@ BTextView::_DrawLine(BView* view, const int32 &lineNum,
 			startLeft = PointAt(line->offset).x;
 		} else
 			startLeft = PointAt(startOffset).x;
-	}
-	else if (fAlignment != B_ALIGN_LEFT) {
+	} else if (fAlignment != B_ALIGN_LEFT) {
 		float alignmentOffset = fTextRect.Width() - LineWidth(lineNum);
 		if (fAlignment == B_ALIGN_CENTER)
-			alignmentOffset /= 2;
+			alignmentOffset = floorf(alignmentOffset / 2);
 		startLeft = fTextRect.left + alignmentOffset;
 	}
 
@@ -4267,7 +4329,7 @@ BTextView::_DrawLine(BView* view, const int32 &lineNum,
 		view->SetFont(font);
 		view->SetHighColor(*color);
 
-		tabChars = min_c(numBytes, length);
+		tabChars = std::min(numBytes, length);
 		do {
 			foundTab = fText->FindChar(B_TAB, offset, &tabChars);
 			if (foundTab) {
@@ -4316,7 +4378,8 @@ BTextView::_DrawLine(BView* view, const int32 &lineNum,
 			}
 
 			int32 returnedBytes = tabChars;
-			const char* stringToDraw = fText->GetString(offset, &returnedBytes);
+			const char* stringToDraw
+				= fText->GetString(offset, &returnedBytes);
 			view->SetDrawingMode(textRenderingMode);
 			view->DrawString(stringToDraw, returnedBytes);
 			if (foundTab) {
@@ -4332,7 +4395,7 @@ BTextView::_DrawLine(BView* view, const int32 &lineNum,
 			offset += tabChars;
 			length -= tabChars;
 			numBytes -= tabChars;
-			tabChars = min_c(numBytes, length);
+			tabChars = std::min(numBytes, length);
 			numTabs = 0;
 		} while (foundTab && tabChars > 0);
 	}
@@ -4348,8 +4411,8 @@ BTextView::_DrawLines(int32 startLine, int32 endLine, int32 startOffset,
 
 	// clip the text
 	BRect textRect(fTextRect);
-	float minWidth
-		= Bounds().Width() - fLayoutData->leftInset - fLayoutData->rightInset;
+	float minWidth = Bounds().Width() - fLayoutData->leftInset
+		- fLayoutData->rightInset;
 	if (textRect.Width() < minWidth)
 		textRect.right = textRect.left + minWidth;
 	BRect clipRect = Bounds() & textRect;
@@ -4463,7 +4526,7 @@ BTextView::_DrawCaret(int32 offset, bool visible)
 {
 	float lineHeight;
 	BPoint caretPoint = PointAt(offset, &lineHeight);
-	caretPoint.x = min_c(caretPoint.x, fTextRect.right);
+	caretPoint.x = std::min(caretPoint.x, fTextRect.right);
 
 	BRect caretRect;
 	caretRect.left = caretRect.right = caretPoint.x;
@@ -4794,11 +4857,10 @@ BTextView::_PerformAutoScrolling()
 
 	// R5 does a pretty soft auto-scroll, we try to do the same by
 	// simply scrolling the distance between cursor and border
-	if (fWhere.x > bounds.right) {
+	if (fWhere.x > bounds.right)
 		scrollBy.x = fWhere.x - bounds.right;
-	} else if (fWhere.x < bounds.left) {
+	else if (fWhere.x < bounds.left)
 		scrollBy.x = fWhere.x - bounds.left; // negative value
-	}
 
 	// prevent from scrolling out of view
 	if (scrollBy.x != 0.0) {
@@ -4811,11 +4873,10 @@ BTextView::_PerformAutoScrolling()
 
 	if (CountLines() > 1) {
 		// scroll in Y only if multiple lines!
-		if (fWhere.y > bounds.bottom) {
+		if (fWhere.y > bounds.bottom)
 			scrollBy.y = fWhere.y - bounds.bottom;
-		} else if (fWhere.y < bounds.top) {
+		else if (fWhere.y < bounds.top)
 			scrollBy.y = fWhere.y - bounds.top; // negative value
-		}
 
 		// prevent from scrolling out of view
 		if (scrollBy.y != 0.0) {
@@ -4848,7 +4909,7 @@ BTextView::_UpdateScrollbars()
 			+ fLayoutData->leftInset + fLayoutData->rightInset);
 
 		long maxRange = dataWidth - viewWidth;
-		maxRange = max_c(maxRange, 0);
+		maxRange = std::max(maxRange, 0l);
 
 		horizontalScrollBar->SetRange(0, (float)maxRange);
 		horizontalScrollBar->SetProportion((float)viewWidth / (float)dataWidth);
@@ -4858,11 +4919,11 @@ BTextView::_UpdateScrollbars()
 	// how about a vertical scroll bar?
 	if (verticalScrollBar != NULL) {
 		long viewHeight = bounds.IntegerHeight();
-		long dataHeight = (long)ceilf(fTextRect.IntegerHeight()
-			+ fLayoutData->topInset + fLayoutData->bottomInset);
+		long dataHeight = (long)ceilf(fLayoutData->topInset
+			+ fTextRect.IntegerHeight() + fLayoutData->bottomInset);
 
 		long maxRange = dataHeight - viewHeight;
-		maxRange = max_c(maxRange, 0);
+		maxRange = std::max(maxRange, 0l);
 
 		verticalScrollBar->SetRange(0, maxRange);
 		verticalScrollBar->SetProportion((float)viewHeight / (float)dataHeight);
@@ -4910,13 +4971,13 @@ BTextView::_AutoResize(bool redraw)
 		return;
 
 	BRect bounds = Bounds();
-	float oldWidth = bounds.Width();
-	float newWidth = ceilf(fLayoutData->leftInset + fTextRect.Width()
-		+ fLayoutData->rightInset);
 
 	if (fContainerView != NULL) {
 		// NOTE: This container view thing is only used by Tracker.
 		// move container view if not left aligned
+		float oldWidth = bounds.Width();
+		float newWidth = ceilf(fLayoutData->leftInset
+			+ fTextRect.Width() + fLayoutData->rightInset);
 		if (fAlignment == B_ALIGN_CENTER) {
 			if (fmod(ceilf(newWidth - oldWidth), 2.0) != 0.0)
 				newWidth += 1;
@@ -5799,6 +5860,38 @@ BTextView::_FilterDisallowedChars(char* text, ssize_t& length,
 			length--;
 		} else
 			stringIndex++;
+	}
+}
+
+
+void
+BTextView::_UpdateInsets(const BRect& rect)
+{
+	// do not update insets if SetInsets() was called
+	if (fLayoutData->overridden)
+		return;
+
+	const BRect& bounds = Bounds().OffsetToCopy(B_ORIGIN);
+
+	// we disallow negative insets, as they would cause parts of the
+	// text to be hidden
+	fLayoutData->leftInset = rect.left >= bounds.left
+		? rect.left - bounds.left : 0;
+	fLayoutData->topInset = rect.top >= bounds.top
+		? rect.top - bounds.top : 0;
+	fLayoutData->rightInset = bounds.right >= rect.right
+		? bounds.right - rect.right : 0;
+	fLayoutData->bottomInset = bounds.bottom >= rect.bottom
+		? bounds.bottom - rect.bottom : 0;
+
+	if (fEditable || fSelectable) {
+		float hPadding = be_control_look->DefaultLabelSpacing();
+		float hInset = floorf(hPadding / 2.0f);
+		float vInset = 1;
+		fLayoutData->leftInset += hInset;
+		fLayoutData->topInset += vInset;
+		fLayoutData->rightInset += hInset;
+		fLayoutData->bottomInset += vInset;
 	}
 }
 
