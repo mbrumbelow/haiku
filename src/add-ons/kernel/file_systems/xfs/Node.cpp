@@ -4,10 +4,10 @@
  */
 
 
-#include "LeafDirectory.h"
+#include "Node.h"
 
 
-LeafDirectory::LeafDirectory(Inode* inode)
+NodeDirectory::NodeDirectory(Inode* inode)
 	:
 	fInode(inode),
 	fOffset(0),
@@ -20,7 +20,7 @@ LeafDirectory::LeafDirectory(Inode* inode)
 }
 
 
-LeafDirectory::~LeafDirectory()
+NodeDirectory::~NodeDirectory()
 {
 	delete fDataMap;
 	delete fLeafMap;
@@ -30,7 +30,7 @@ LeafDirectory::~LeafDirectory()
 
 
 status_t
-LeafDirectory::Init()
+NodeDirectory::Init()
 {
 	fLeafMap = new(std::nothrow) ExtentMapEntry;
 	if (fLeafMap == NULL)
@@ -40,35 +40,26 @@ LeafDirectory::Init()
 	if (fDataMap == NULL)
 		return B_NO_MEMORY;
 
-	FillMapEntry(fInode->NoOfDataExtents()-1, fLeafMap);
+	FillMapEntry(fInode->NoOfDataExtents()-3, fLeafMap);
+	fCurLeafMapNumber = 1;
 	FillMapEntry(0, fDataMap);
 	return B_OK;
 }
 
 
 bool
-LeafDirectory::IsLeafType()
+NodeDirectory::IsNodeType()
 {
-	bool status = true;
-	if (fInode->NoOfBlocks() == 1
-		|| fInode->NoOfDataExtents() == 1
-		|| fInode->Size() != (fInode->NoOfBlocks() - 1) * fInode->DirBlockSize())
-		status = false;
-
-	if (status == false)
-		return status;
-
-	FillMapEntry(fInode->NoOfDataExtents() - 1, fLeafMap);
-	TRACE("leaf_Startoffset:(%ld)\n", LEAF_STARTOFFSET(fInode->GetVolume()->BlockLog()));
-	if (fLeafMap->br_startoff != LEAF_STARTOFFSET(fInode->GetVolume()->BlockLog()))
-		status = false;
-
-	return status;
+	if (fCurLeafMapNumber != 1) {
+		FillMapEntry(fInode->NoOfDataExtents() - 3, fLeafMap);
+		fCurLeafMapNumber = 1;
+	}
+	return fLeafMap->br_startoff == LEAF_STARTOFFSET(fInode->GetVolume()->BlockLog());
 }
 
 
 void
-LeafDirectory::FillMapEntry(int num, ExtentMapEntry* fMap)
+NodeDirectory::FillMapEntry(int num, ExtentMapEntry* fMap)
 {
 	void* directoryFork = DIR_DFORK_PTR(fInode->Buffer());
 	void* pointerToMap = (void*)((char*)directoryFork + num * EXTENT_SIZE);
@@ -83,13 +74,13 @@ LeafDirectory::FillMapEntry(int num, ExtentMapEntry* fMap)
 	fMap->br_startblock = ((firstHalf & MASK(9)) << 43) | (secondHalf >> 21);
 	fMap->br_blockcount = secondHalf & MASK(21);
 	TRACE("FillMapEntry: startoff:(%ld), startblock:(%ld), blockcount:(%ld),"
-			"state:(%d)\n", fMap->br_startoff, fMap->br_startblock,
-			fMap->br_blockcount, fMap->br_state);
+		"state:(%d)\n", fMap->br_startoff, fMap->br_startblock,
+		fMap->br_blockcount, fMap->br_state);
 }
 
 
 status_t
-LeafDirectory::FillBuffer(int type, char* blockBuffer, int howManyBlocksFurthur)
+NodeDirectory::FillBuffer(int type, char* blockBuffer, int howManyBlocksFurthur)
 {
 	TRACE("FILLBUFFER\n");
 	ExtentMapEntry* map;
@@ -103,7 +94,7 @@ LeafDirectory::FillBuffer(int type, char* blockBuffer, int howManyBlocksFurthur)
 	if (map->br_state !=0)
 		return B_BAD_VALUE;
 
-	int len = fInode->DirBlockSize();
+	size_t len = fInode->DirBlockSize();
 	if (blockBuffer == NULL) {
 		blockBuffer = new(std::nothrow) char[len];
 		if (blockBuffer == NULL)
@@ -113,10 +104,10 @@ LeafDirectory::FillBuffer(int type, char* blockBuffer, int howManyBlocksFurthur)
 	Volume* volume = fInode->GetVolume();
 	xfs_agblock_t numberOfBlocksInAg = volume->AgBlocks();
 
-	uint64 agNo =
-		FSBLOCKS_TO_AGNO(map->br_startblock + howManyBlocksFurthur, volume);
-	uint64 agBlockNo =
-		FSBLOCKS_TO_AGBLOCKNO(map->br_startblock + howManyBlocksFurthur, volume);
+	uint64 agNo
+		= FSBLOCKS_TO_AGNO(map->br_startblock + howManyBlocksFurthur, volume);
+	uint64 agBlockNo
+		= FSBLOCKS_TO_AGBLOCKNO(map->br_startblock + howManyBlocksFurthur, volume);
 
 	xfs_fsblock_t blockToRead = FSBLOCKS_TO_BASICBLOCKS(volume->BlockLog(),
 		((uint64)(agNo * numberOfBlocksInAg) + agBlockNo));
@@ -141,14 +132,14 @@ LeafDirectory::FillBuffer(int type, char* blockBuffer, int howManyBlocksFurthur)
 	} else if (type == LEAF) {
 		fLeafBuffer = blockBuffer;
 		ExtentLeafHeader* header = (ExtentLeafHeader*) fLeafBuffer;
-		TRACE("NumberOfEntries in leaf: (%d)\n", B_BENDIAN_TO_HOST_INT16(header->count));
 	}
+
 	return B_OK;
 }
 
 
 uint32
-LeafDirectory::GetOffsetFromAddress(uint32 address)
+NodeDirectory::GetOffsetFromAddress(uint32 address)
 {
 	address = address * 8;
 		// block offset in eight bytes, hence multiple with 8
@@ -156,22 +147,24 @@ LeafDirectory::GetOffsetFromAddress(uint32 address)
 }
 
 
-ExtentLeafEntry*
-LeafDirectory::FirstLeaf()
+uint32
+NodeDirectory::FindHashInNode(uint32 hashVal)
 {
-	TRACE("LeafDirectory: FirstLeaf\n");
-	if (fLeafBuffer == NULL) {
-		ASSERT(fLeafMap != NULL);
-		status_t status = FillBuffer(LEAF, fLeafBuffer, 0);
-		if (status != B_OK)
-			return NULL;
+	NodeHeader* header = (NodeHeader*)(void*)(fLeafBuffer);
+	NodeEntry* entry = (NodeEntry*)(void*)(fLeafBuffer + sizeof(NodeHeader));
+	int count = B_BENDIAN_TO_HOST_INT16(header->count);
+
+	for (int i = 0; i < count; i++) {
+		if (hashVal <= B_BENDIAN_TO_HOST_INT32(entry[i].hashval))
+			return B_BENDIAN_TO_HOST_INT32(entry[i].before);
 	}
-	return (ExtentLeafEntry*)((char*)fLeafBuffer + sizeof(ExtentLeafHeader));
+
+	return 1;
 }
 
 
 int
-LeafDirectory::EntrySize(int len) const
+NodeDirectory::EntrySize(int len) const
 {
 	int entrySize= sizeof(xfs_ino_t) + sizeof(uint8) + len + sizeof(uint16);
 			// uint16 is for the tag
@@ -184,11 +177,11 @@ LeafDirectory::EntrySize(int len) const
 
 
 void
-LeafDirectory::SearchAndFillDataMap(int blockNo)
+NodeDirectory::SearchAndFillDataMap(int blockNo)
 {
 	int len = fInode->NoOfDataExtents();
 
-	for(int i = 0; i < len - 1; i++) {
+	for (int i = 0; i < len - 3; i++) {
 		FillMapEntry(i, fDataMap);
 		if (fDataMap->br_startoff <= blockNo
 			&& (blockNo <= fDataMap->br_startoff + fDataMap->br_blockcount - 1))
@@ -199,9 +192,9 @@ LeafDirectory::SearchAndFillDataMap(int blockNo)
 
 
 status_t
-LeafDirectory::GetNext(char* name, size_t* length, xfs_ino_t* ino)
+NodeDirectory::GetNext(char* name, size_t* length, xfs_ino_t* ino)
 {
-	TRACE("LeafDirectory::GetNext\n");
+	TRACE("NodeDirectory::GetNext\n");
 	status_t status;
 
 	if (fDataBuffer == NULL) {
@@ -290,21 +283,43 @@ LeafDirectory::GetNext(char* name, size_t* length, xfs_ino_t* ino)
 
 
 status_t
-LeafDirectory::Lookup(const char* name, size_t length, xfs_ino_t* ino)
+NodeDirectory::Lookup(const char* name, size_t length, xfs_ino_t* ino)
 {
-	TRACE("LeafDirectory: Lookup\n");
+	TRACE("NodeDirectory: Lookup\n");
 	TRACE("Name: %s\n", name);
 	uint32 hashValueOfRequest = hashfunction(name, length);
 	TRACE("Hashval:(%ld)\n", hashValueOfRequest);
 
 	status_t status;
-	if (fLeafBuffer == NULL)
+	if (fCurLeafBufferNumber != 1) {
+		if (fCurLeafMapNumber != 1) {
+			FillMapEntry(fInode->NoOfDataExtents() - 3, fLeafMap);
+			fCurLeafMapNumber = 1;
+		}
 		status = FillBuffer(LEAF, fLeafBuffer, 0);
+		if (status != B_OK)
+			return status;
+		fCurLeafBufferNumber = 1;
+	}
+	/* Leaf now has the nodes. */
+	uint32 rightMapOffset = FindHashInNode(hashValueOfRequest);
+	if (rightMapOffset == 1){
+		TRACE("Not in this dir\n");
+		return B_ENTRY_NOT_FOUND;
+	}
+
+	TRACE("rightMapOffset:(%d)\n", rightMapOffset);
+
+	FillMapEntry(fInode->NoOfDataExtents() - 2, fLeafMap);
+	fCurLeafMapNumber = 2;
+	status = FillBuffer(LEAF, fLeafBuffer, rightMapOffset - fLeafMap->br_startoff);
 	if (status != B_OK)
 		return status;
+	fCurLeafBufferNumber = 2;
 
 	ExtentLeafHeader* leafHeader = (ExtentLeafHeader*)(void*)fLeafBuffer;
-	ExtentLeafEntry* leafEntry = FirstLeaf();
+	ExtentLeafEntry* leafEntry =
+		(ExtentLeafEntry*)(void*)(fLeafBuffer + sizeof(ExtentLeafHeader));
 	if (leafEntry == NULL)
 		return B_NO_MEMORY;
 
