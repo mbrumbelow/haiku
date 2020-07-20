@@ -1,0 +1,259 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "87d5f3da_ce57e57a",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-20T15:32:37Z",
+      "side": 1,
+      "message": "Superfluous brackets.",
+      "revId": "cd6d2ce8fa2fad48030dd3a8749b6f3552847d85",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc729377_19fee2f7",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-20T15:32:37Z",
+      "side": 1,
+      "message": "At this point you leak fNodeDir.",
+      "revId": "cd6d2ce8fa2fad48030dd3a8749b6f3552847d85",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e0f0576_3b1bcd2a",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Node.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-20T15:32:37Z",
+      "side": 1,
+      "message": "I think a:\nreturn fLeafMap-\u003ebr_startoff \u003d\u003d LEAF_STARTOFFSET(...);\n\nwould be easier to read.",
+      "revId": "cd6d2ce8fa2fad48030dd3a8749b6f3552847d85",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa1d755e_445aa0d8",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Node.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-20T15:32:37Z",
+      "side": 1,
+      "message": "Spacing around \u0027*\u0027.",
+      "revId": "cd6d2ce8fa2fad48030dd3a8749b6f3552847d85",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6924e92_d00b8905",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Node.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-20T15:32:37Z",
+      "side": 1,
+      "message": "Indentation is one tab too many.",
+      "revId": "cd6d2ce8fa2fad48030dd3a8749b6f3552847d85",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bdf998a1_d1faff49",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Node.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-20T15:32:37Z",
+      "side": 1,
+      "message": "\"type\" is an int. If it\u0027s neither LEAF nor DATA, you crash here.\nBetter would be to use \"else if (type \u003d\u003d LEAF)\" and another else returning an error.",
+      "revId": "cd6d2ce8fa2fad48030dd3a8749b6f3552847d85",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0cee4060_69585898",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Node.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-20T15:32:37Z",
+      "side": 1,
+      "message": "That looks like a use case for size_t.",
+      "revId": "cd6d2ce8fa2fad48030dd3a8749b6f3552847d85",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a65eabcf_9205ed0f",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Node.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-20T15:32:37Z",
+      "side": 1,
+      "message": "\u0027\u003d\u0027 goes to the next line.",
+      "revId": "cd6d2ce8fa2fad48030dd3a8749b6f3552847d85",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d41cc081_1d7c914b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Node.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-20T15:32:37Z",
+      "side": 1,
+      "message": "else if ...",
+      "revId": "cd6d2ce8fa2fad48030dd3a8749b6f3552847d85",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1248d5a_a5b127d2",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Node.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-20T15:32:37Z",
+      "side": 1,
+      "message": "Is some error checking here possible? Can this data be corrupted?",
+      "revId": "cd6d2ce8fa2fad48030dd3a8749b6f3552847d85",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11ce948c_c6cccee6",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Node.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-20T15:32:37Z",
+      "side": 1,
+      "message": "Space after for.",
+      "revId": "cd6d2ce8fa2fad48030dd3a8749b6f3552847d85",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a14eabd5_84dfd029",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Node.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-20T15:32:37Z",
+      "side": 1,
+      "message": "Spacing around \u0027-\u0027; if count \u003d\u003d 0, you crash.",
+      "revId": "cd6d2ce8fa2fad48030dd3a8749b6f3552847d85",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ab00e1e_20611813",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Node.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-20T15:32:37Z",
+      "side": 1,
+      "message": "Space after for.",
+      "revId": "cd6d2ce8fa2fad48030dd3a8749b6f3552847d85",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc97ea23_b729cac6",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Node.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-20T15:32:37Z",
+      "side": 1,
+      "message": "What does this mean? The method does not return anything.",
+      "revId": "cd6d2ce8fa2fad48030dd3a8749b6f3552847d85",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c172ce45_c0803067",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Node.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-20T15:32:37Z",
+      "side": 1,
+      "message": "You don\u0027t account for the extra \u0027\\0\u0027 in the length test above; this might be an out of buffer write.",
+      "revId": "cd6d2ce8fa2fad48030dd3a8749b6f3552847d85",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
