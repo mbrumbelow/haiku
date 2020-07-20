@@ -58,7 +58,6 @@ TextInputValueView::FrameResized(float width, float height)
 	TextView()->MoveTo(b.LeftTop());
 	TextView()->ResizeTo(b.Width(), b.Height());
 	BRect tr(TextView()->Bounds());
-	tr.InsetBy(4.0, 1.0);
 	TextView()->SetTextRect(tr);
 }
 
@@ -102,5 +101,3 @@ TextInputValueView::IsFocused() const
 {
 	return TextView()->IsFocus();
 }
-
-

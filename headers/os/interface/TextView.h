@@ -1,5 +1,5 @@
 /*
- * Copyright 2007-2009, Haiku, Inc. All rights reserved.
+ * Copyright 2007-2020 Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  */
 #ifndef _TEXTVIEW_H
@@ -410,6 +410,8 @@ private:
 
 			void				_FilterDisallowedChars(char* text,
 									ssize_t& length, text_run_array* runArray);
+
+			void				_UpdateInsets(const BRect& rect);
 
 private:
 			BPrivate::TextGapBuffer*	fText;
