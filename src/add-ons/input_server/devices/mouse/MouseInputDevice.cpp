@@ -541,11 +541,11 @@ MouseDevice::_UpdateSettings()
 {
 	LOG_CRIT("MYLOG: _UpdateSettings\n");
 
-	LOG_CRIT("MYLOG: %d  Mouse Type Before update:  \n", get_multiple_mouse_type(fDeviceRef.name, &fSettings.type) );
+	LOG_CRIT("MYLOG: %" B_PRId32 "  Mouse Type Before update:  \n", get_multiple_mouse_type(fDeviceRef.name, &fSettings.type) );
 
 	MD_CALLED();
 
-	LOG_CRIT("MYLOG: %d  After MD_CALLED Before update:  \n", get_multiple_mouse_type(fDeviceRef.name , &fSettings.type) );
+	LOG_CRIT("MYLOG: %" B_PRId32 "  After MD_CALLED Before update:  \n", get_multiple_mouse_type(fDeviceRef.name , &fSettings.type) );
 
 
 	// retrieve current values
@@ -553,39 +553,39 @@ MouseDevice::_UpdateSettings()
 	if (get_mouse_map(&fSettings.map) != B_OK)
 	{
 		LOG_ERR("error when get_mouse_map\n");
-		LOG_CRIT("MYLOG:  %s: %d  (IF) MAP update \n", _BuildShortName(),fSettings.type);
+		LOG_CRIT("MYLOG:  %s: %" B_PRId32 "  (IF) MAP update \n", _BuildShortName(),fSettings.type);
 
 	}
 	else
 	{
 		fDeviceRemapsButtons
 			= ioctl(fDevice, MS_SET_MAP, &fSettings.map) == B_OK;
-		LOG_CRIT("MYLOG:  %s: %d (ELSE) MAP update \n", _BuildShortName(),fSettings.type);
+		LOG_CRIT("MYLOG:  %s: %" B_PRId32 " (ELSE) MAP update \n", _BuildShortName(),fSettings.type);
 	}
 
 	if (get_click_speed(&fSettings.click_speed) != B_OK)
 	{
 		LOG_ERR("error when get_click_speed\n");
-		LOG_CRIT("MYLOG:  %s: %d (IF) CLICK_SPEED update \n", _BuildShortName(),fSettings.type);
+		LOG_CRIT("MYLOG:  %s: %" B_PRId32 " (IF) CLICK_SPEED update \n", _BuildShortName(),fSettings.type);
 	}
 	else
 	{
 		ioctl(fDevice, MS_SET_CLICKSPEED, &fSettings.click_speed);
 
-		LOG_CRIT("MYLOG:  %s: %d (ELSE) CLICK_SPEED update \n", _BuildShortName(),fSettings.type);
+		LOG_CRIT("MYLOG:  %s: %" B_PRId32 " (ELSE) CLICK_SPEED update \n", _BuildShortName(),fSettings.type);
 
 	}
 	if (get_multiple_mouse_speed(fDeviceRef.name, &fSettings.accel.speed) != B_OK)
 	{
 		LOG_ERR("error when get_mouse_speed\n");
-		LOG_CRIT("MYLOG:  %s: %d (IF) SPEED update \n", _BuildShortName(),fSettings.type);
+		LOG_CRIT("MYLOG:  %s: %" B_PRId32 " (IF) SPEED update \n", _BuildShortName(),fSettings.type);
 	}
 	else
 	{
 		if (get_mouse_acceleration(&fSettings.accel.accel_factor) != B_OK)
 		{
 			LOG_ERR("error when get_mouse_acceleration\n");
-			LOG_CRIT("MYLOG:  %s: %d (ELSE) (IF) ACCEL FACTOR update \n", _BuildShortName(),fSettings.type);
+			LOG_CRIT("MYLOG:  %s: %" B_PRId32 " (ELSE) (IF) ACCEL FACTOR update \n", _BuildShortName(),fSettings.type);
 		}
 		else
 		{
@@ -595,22 +595,22 @@ MouseDevice::_UpdateSettings()
 			accel.accel_factor = fSettings.accel.accel_factor;
 			ioctl(fDevice, MS_SET_ACCEL, &fSettings.accel);
 
-			LOG_CRIT("MYLOG:  %s: %d (ELSE) (IF) (ELSE) ACCEL FACTOR update \n", _BuildShortName(),fSettings.type);
+			LOG_CRIT("MYLOG:  %s: %" B_PRId32 " (ELSE) (IF) (ELSE) ACCEL FACTOR update \n", _BuildShortName(),fSettings.type);
 
 		}
 	}
-	LOG_CRIT("MYLOG:  %s: %d Before update \n", _BuildShortName(),fSettings.type );
+	LOG_CRIT("MYLOG:  %s: %" B_PRId32 " Before update \n", _BuildShortName(),fSettings.type );
 
 	if (get_multiple_mouse_type(fDeviceRef.name , &fSettings.type) != B_OK)
 	{
-			LOG_CRIT("MYLOG:  %s: %d (IF) TYPE update \n", _BuildShortName(),fSettings.type );
+			LOG_CRIT("MYLOG:  %s: %" B_PRId32 " (IF) TYPE update \n", _BuildShortName(),fSettings.type );
 
 		LOG_ERR("error when get_mouse_type\n");
 	}
 	else
 	{
 		ioctl(fDevice, MS_SET_TYPE, &fSettings.type);
-			LOG_CRIT("MYLOG:  %s: %d (ELSE) TYPE update \n", _BuildShortName(),fSettings.type );
+			LOG_CRIT("MYLOG:  %s: %" B_PRId32 " (ELSE) TYPE update \n", _BuildShortName(),fSettings.type );
 
 	}
 }

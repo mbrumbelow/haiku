@@ -29,7 +29,7 @@ class MouseSettings {
 public:
 		// TODO: declare in fname in private and define its method
 		BString fname;
-		MouseSettings();
+		MouseSettings(BString name);
 		MouseSettings(mouse_settings settings, BString name);
 		~MouseSettings();
 
