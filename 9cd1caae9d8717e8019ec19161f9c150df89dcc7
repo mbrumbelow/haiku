@@ -46,6 +46,30 @@
       "revId": "9cd1caae9d8717e8019ec19161f9c150df89dcc7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b01acdf1_57f04688",
+        "filename": "src/apps/text_search/GrepWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2020-07-20T15:21:54Z",
+      "side": 1,
+      "message": "As TextSearch doesn\u0027t automatically search when changing target, and there\u0027s already \"Set target...\", maybe \"Set target to parent\".",
+      "parentUuid": "3ae36a95_18c5b9a3",
+      "range": {
+        "startLine": 426,
+        "startChar": 15,
+        "endLine": 426,
+        "endChar": 37
+      },
+      "revId": "9cd1caae9d8717e8019ec19161f9c150df89dcc7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
