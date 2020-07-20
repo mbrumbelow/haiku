@@ -492,11 +492,6 @@ get_mouse_type(int32 *type)
 	if (err != B_OK)
 		return err;
 
-	// TODO: Find some better way for concate
-//	char s[200];
-//	std::strcpy(s, mouse_name);
-//	std::strcat(s, ":mouse_type");
-//
 	return reply.FindInt32("mouse_type", type);
 }
 
@@ -507,11 +502,6 @@ set_mouse_type(int32 type)
 	fprintf(stderr, "MYLOG_SEE: set working type: \t%" B_PRId32 "\n", type);
 	BMessage command(IS_SET_MOUSE_TYPE);
 	BMessage reply;
-
-	// TODO: Find some better way for concate
-//	char s[200];
-//	std::strcpy(s, mouse_name);
-//	std::strcat(s, ":mouse_type");
 
 	status_t err = command.AddInt32("mouse_type", type);
 	if (err != B_OK)
@@ -531,12 +521,7 @@ get_multiple_mouse_type(const char* mouse_name, int32 *type)
 	if (err != B_OK)
 		return err;
 
-	// TODO: Find some better way for concate
-	char s[200];
-	std::strcpy(s, mouse_name);
-	std::strcat(s, ":mouse_type");
-
-	return reply.FindInt32(s, type);
+	return reply.FindInt32("mouse_type", type);
 }
 
 
@@ -547,12 +532,12 @@ set_multiple_mouse_type(const char* mouse_name, int32 type)
 	BMessage command(IS_SET_MOUSE_TYPE);
 	BMessage reply;
 
-	// TODO: Find some better way for concate
-	char s[200];
-	std::strcpy(s, mouse_name);
-	std::strcat(s, ":mouse_type");
+    status_t err_mouse_name = command.AddString("mouse_name", mouse_name);
+    if (err_mouse_name != B_OK) {
+        return err_mouse_name;
+	}
 
-	status_t err = command.AddInt32(s, type);
+	status_t err = command.AddInt32("mouse_type", type);
 	if (err != B_OK)
 		return err;
 	return _control_input_server_(&command, &reply);
