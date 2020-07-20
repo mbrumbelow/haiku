@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24d8707f_bb161dbb",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/DirectoryIterator.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-20T06:59:24Z",
+      "side": 1,
+      "message": "this copies name into getname, but getname is then erased in the first call to GetNext in the loop below. What are you trying to do here?",
+      "revId": "bd5a8fd5461082661c3358aaf5853b72f3848207",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "888363a4_dbb2eba8",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/DirectoryIterator.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-20T06:59:24Z",
+      "side": 1,
+      "message": "This will result in an infinite loop if any error other than B_ENTRY_NOT_FOUND is returned. Also, if GetNext returns an error, it is not known if getname contains a valid value at all.\n\nSo, we cqn write this in a simpler way:\n\nwhile (true) {\n    status \u003d GetNext(...);\n    if (status !\u003d B_OK)\n        return status;\n    if (strcmp(getname, name) \u003d\u003d 0)\n        return B_OK;\n}",
+      "revId": "bd5a8fd5461082661c3358aaf5853b72f3848207",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2fa9d566_cc281459",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/DirectoryIterator.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-20T06:59:24Z",
+      "side": 1,
+      "message": "} else {",
+      "revId": "bd5a8fd5461082661c3358aaf5853b72f3848207",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
