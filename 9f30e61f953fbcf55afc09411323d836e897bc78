@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b31cae0c_a97d590b",
+        "filename": "src/system/boot/platform/efi/mmu.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-21T20:04:22Z",
+      "side": 1,
+      "message": "This would need to be indented one tab further.",
+      "revId": "9f30e61f953fbcf55afc09411323d836e897bc78",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74fe89d4_09e7be11",
+        "filename": "src/system/boot/platform/efi/mmu.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-21T20:04:22Z",
+      "side": 1,
+      "message": "Same here.",
+      "revId": "9f30e61f953fbcf55afc09411323d836e897bc78",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58970181_7a4021d3",
+        "filename": "src/system/boot/platform/efi/mmu.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-21T20:04:22Z",
+      "side": 1,
+      "message": "And here.",
+      "revId": "9f30e61f953fbcf55afc09411323d836e897bc78",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9fcb93b_0191b882",
+        "filename": "src/system/boot/platform/efi/mmu.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-21T20:04:22Z",
+      "side": 1,
+      "message": "And here.",
+      "revId": "9f30e61f953fbcf55afc09411323d836e897bc78",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
