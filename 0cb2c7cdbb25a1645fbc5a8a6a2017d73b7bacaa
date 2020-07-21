@@ -16,6 +16,24 @@
       "revId": "0cb2c7cdbb25a1645fbc5a8a6a2017d73b7bacaa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98a15344_88582c56",
+        "filename": "src/apps/text_search/GrepWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2020-07-21T16:24:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c1d82e1_ee6089cf",
+      "revId": "0cb2c7cdbb25a1645fbc5a8a6a2017d73b7bacaa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
