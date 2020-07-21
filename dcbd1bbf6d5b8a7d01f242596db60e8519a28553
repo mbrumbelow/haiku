@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "d3faf9a2_45166a2d",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-07-21T08:53:53Z",
+      "side": 1,
+      "message": "The patch marked as WIP. I will clean all that log stuff when the work will be done. It\u0027s just to understand the flow of code in input_server.",
+      "parentUuid": "8776fb98_12aedcc2",
+      "revId": "dcbd1bbf6d5b8a7d01f242596db60e8519a28553",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6b7b85c9_49869357",
         "filename": "src/servers/input/InputServer.cpp",
         "patchSetId": 10
