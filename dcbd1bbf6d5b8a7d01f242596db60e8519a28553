@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e9734f78_2841d7fa",
+        "filename": "headers/private/input/MouseSettings.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-07-21T01:23:18Z",
+      "side": 1,
+      "message": "why not do the todo?",
+      "revId": "dcbd1bbf6d5b8a7d01f242596db60e8519a28553",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8776fb98_12aedcc2",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-07-21T01:23:18Z",
+      "side": 1,
+      "message": "what\u0027s MYLOG?",
+      "revId": "dcbd1bbf6d5b8a7d01f242596db60e8519a28553",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b7b85c9_49869357",
+        "filename": "src/servers/input/InputServer.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-07-21T01:23:18Z",
+      "side": 1,
+      "message": "What\u0027s \"MY SERVER LOG\"?",
+      "revId": "dcbd1bbf6d5b8a7d01f242596db60e8519a28553",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2674b303_cae9ee0b",
+        "filename": "src/servers/input/InputServer.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-07-21T01:23:18Z",
+      "side": 1,
+      "message": "all of these need cleaned up... and made optional.  We generally enable / disable tracing within sources.\n\n\nHere\u0027s an example nice MACRO that is getting popular with our code:\n\n//#define TRACE_INPUT\n#ifdef TRACE_INPUT\t\n#   define TRACE(x...) syslog(LOG_CRIT, \"sever/input: \" x)\n#else\n#   define TRACE(x...) ;\n#endif\n\nThen, call   TRACE(\"%s: called\\n\", __func__);  within your functions.",
+      "revId": "dcbd1bbf6d5b8a7d01f242596db60e8519a28553",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
