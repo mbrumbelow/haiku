@@ -33,6 +33,91 @@
       "revId": "f51671264df95c068d78164ab63bf3673eef0824",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6972ae9_772d03f8",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-22T09:34:19Z",
+      "side": 1,
+      "message": "algorithm comes before new",
+      "revId": "f51671264df95c068d78164ab63bf3673eef0824",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a8ae38c_b9d70a14",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1119,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-22T09:34:19Z",
+      "side": 1,
+      "message": "this can be completely removed then?",
+      "revId": "f51671264df95c068d78164ab63bf3673eef0824",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2861d09a_1255eda6",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3342,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-22T09:34:19Z",
+      "side": 1,
+      "message": "80 columns (also several other places below)",
+      "revId": "f51671264df95c068d78164ab63bf3673eef0824",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6bbb7524_05f73750",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3702,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-22T09:34:19Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "f51671264df95c068d78164ab63bf3673eef0824",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fa33c46_05c905f5",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 4918,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-22T09:34:19Z",
+      "side": 1,
+      "message": "I think it should be a lowercase l?",
+      "revId": "f51671264df95c068d78164ab63bf3673eef0824",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
