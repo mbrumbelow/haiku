@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "41119988_a045780b",
+        "filename": "headers/os/interface/TextView.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2020-07-22T05:35:55Z",
+      "side": 1,
+      "message": "Here you add a BRect (16 bytes)",
+      "revId": "f51671264df95c068d78164ab63bf3673eef0824",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51fb94f7_9600ed88",
+        "filename": "headers/os/interface/TextView.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2020-07-22T05:35:55Z",
+      "side": 1,
+      "message": "Here you remove an uint32 (4 bytes)",
+      "revId": "f51671264df95c068d78164ab63bf3673eef0824",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
