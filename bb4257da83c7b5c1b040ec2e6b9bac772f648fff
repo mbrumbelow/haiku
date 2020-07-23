@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3052a595_a5270b30",
+        "filename": "src/apps/installer/InstallerApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-23T12:46:43Z",
+      "side": 1,
+      "message": "use \"installer\" here (no uppercase for variable names)",
+      "revId": "bb4257da83c7b5c1b040ec2e6b9bac772f648fff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
