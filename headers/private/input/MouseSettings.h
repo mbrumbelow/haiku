@@ -69,7 +69,7 @@ public:
 
 		bool AcceptFirstClick() const { return fAcceptFirstClick; }
 		void SetAcceptFirstClick(bool accept_first_click);
-		void _RetrieveSettings();
+		status_t _RetrieveSettings();
 
 		mouse_settings* GetSettings();
 

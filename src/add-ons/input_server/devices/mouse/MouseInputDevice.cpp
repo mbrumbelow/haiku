@@ -541,11 +541,11 @@ MouseDevice::_UpdateSettings()
 {
 	LOG_CRIT("MYLOG: _UpdateSettings\n");
 
-	LOG_CRIT("MYLOG: %" B_PRId32 "  Mouse Type Before update:  \n", get_multiple_mouse_type(fDeviceRef.name, &fSettings.type) );
+	//LOG_CRIT("MYLOG: %" B_PRId32 "  Mouse Type Before update:  \n", get_multiple_mouse_type(fDeviceRef.name, &fSettings.type) );
 
 	MD_CALLED();
 
-	LOG_CRIT("MYLOG: %" B_PRId32 "  After MD_CALLED Before update:  \n", get_multiple_mouse_type(fDeviceRef.name , &fSettings.type) );
+	//LOG_CRIT("MYLOG: %" B_PRId32 "  After MD_CALLED Before update:  \n", get_multiple_mouse_type(fDeviceRef.name , &fSettings.type) );
 
 
 	// retrieve current values

@@ -35,7 +35,8 @@ MouseSettings::MouseSettings(BString name)
 {
 	fname = name;
 	fprintf(stderr, "MYLOG_PREF: name %s\n", fname.String());
-	_RetrieveSettings();
+	if (_RetrieveSettings() != B_OK)
+		Defaults();
 
 	fOriginalSettings = fSettings;
 	fOriginalMode = fMode;
@@ -78,21 +79,13 @@ MouseSettings::_GetSettingsPath(BPath &path)
 }
 
 
-void
+status_t
 MouseSettings::_RetrieveSettings()
 {
-	// retrieve current values
-
-	if (get_mouse_map(&fSettings.map) != B_OK)
-		fprintf(stderr, "error when get_mouse_map\n");
-	if (get_click_speed(&fSettings.click_speed) != B_OK)
-		fprintf(stderr, "error when get_click_speed\n");
-	if (get_mouse_speed(&fSettings.accel.speed) != B_OK)
-		fprintf(stderr, "error when get_multiple_mouse_speed\n");
-	if (get_mouse_acceleration(&fSettings.accel.accel_factor) != B_OK)
-		fprintf(stderr, "error when get_mouse_acceleration\n");
-	if (get_multiple_mouse_type(fname.String(), &fSettings.type) != B_OK)
-		fprintf(stderr, "error when get_multiple_mouse_type\n");
+	// Retrieve legacy settings from the file in old settings format.
+	// Do not get the values from input_server as it was done before,
+	// because we now use this file also in input_server and it can't ask itself
+	// for the settings.
 
 	fMode = mouse_mode();
 	fFocusFollowsMouseMode = focus_follows_mouse_mode();
@@ -102,20 +95,18 @@ MouseSettings::_RetrieveSettings()
 
 	BPath path;
 	if (_GetSettingsPath(path) < B_OK)
-		return;
+		return B_ERROR;
 
 	BFile file(path.Path(), B_READ_ONLY);
 	if (file.InitCheck() < B_OK)
-		return;
+		return B_ERROR;
 
-#if R5_COMPATIBLE
-	const off_t kOffset = sizeof(mouse_settings) - sizeof(mouse_map)
-		+ sizeof(int32) * 3;
-		// we have to do this because mouse_map counts 16 buttons in OBOS
-#else
+	// Read the settings from the file
+	file.Read((void*)&fSettings, sizeof(mouse_settings));
+
+	// FIXME: the window position in the legacy settings file is now useless.
+	// We can remove this code and the fWindowPosition variable.
 	const off_t kOffset = sizeof(mouse_settings);
-#endif
-
 	if (file.ReadAt(kOffset, &fWindowPosition, sizeof(BPoint))
 		!= sizeof(BPoint)) {
 		// set default window position (invalid positions will be
@@ -128,6 +119,8 @@ MouseSettings::_RetrieveSettings()
 #ifdef DEBUG
 	Dump();
 #endif
+
+	return B_OK;
 }
 
 
@@ -136,10 +129,9 @@ void
 MouseSettings::Dump()
 {
 	printf("type:\t\t%" B_PRId32 " button mouse\n", fSettings.type);
-	printf("map:\t\tleft = %" B_PRIu32 " : middle = %" B_PRIu32 " : right = %"
-		B_PRIu32 "\n", fSettings.map.button[0], fSettings.map.button[2],
-		fSettings.map.button[1], fSettings.map.button[3],
-		fSettings.map.button[4]);
+	for (int i = 0; i < 5; i++) {
+		printf("button[%d]: %" B_PRId32 "\n", i, fSettings.map.button[i]);
+	}
 	printf("click speed:\t%" B_PRId64 "\n", fSettings.click_speed);
 	printf("accel:\t\t%s\n", fSettings.accel.enabled ? "enabled" : "disabled");
 	printf("accel factor:\t%" B_PRId32 "\n", fSettings.accel.accel_factor);
@@ -451,12 +443,11 @@ MultipleMouseSettings::RetrieveSettings()
 				(deviceName, mouseSettings));
 			i++;
 		}
-	}
-
-	else {
+	} else {
 		BString* s = new BString("");
 		fDeprecatedMouseSettings = new MouseSettings(*s);
-		fDeprecatedMouseSettings->_RetrieveSettings();
+		if (fDeprecatedMouseSettings->_RetrieveSettings() != B_OK)
+			fDeprecatedMouseSettings->Defaults();
 	}
 }
 
@@ -538,7 +529,7 @@ MultipleMouseSettings::AddMouseSettings(BString mouse_name)
 			fMouseSettingsObject.insert(std::pair<BString, MouseSettings*>
 				(mouse_name, RetrievedSettings));
 
-		return RetrievedSettings;
+			return RetrievedSettings;
 		}
 	}
 
