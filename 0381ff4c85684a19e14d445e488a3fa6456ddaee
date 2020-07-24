@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a0f49cdd_42830ca0",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-24T15:22:09Z",
+      "side": 1,
+      "message": "public: should not be indented.",
+      "revId": "0381ff4c85684a19e14d445e488a3fa6456ddaee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53f74997_d70a04db",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-24T15:22:09Z",
+      "side": 1,
+      "message": "I\u0027d prefer to use std::min() instead. Where is MIN() coming from? I only remember min_c() as a BeOS legacy.",
+      "revId": "0381ff4c85684a19e14d445e488a3fa6456ddaee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d02c570_d7caa61e",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-24T15:22:09Z",
+      "side": 1,
+      "message": "Superfluous else",
+      "revId": "0381ff4c85684a19e14d445e488a3fa6456ddaee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e78fea88_fba9cff9",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-24T15:22:09Z",
+      "side": 1,
+      "message": "Still not a fan of this name. How can a ring have an end? :-)",
+      "revId": "0381ff4c85684a19e14d445e488a3fa6456ddaee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
