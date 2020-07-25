@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a250dd0b_0ae35045",
+        "filename": "src/add-ons/translators/avif/AVIFTranslator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-25T20:51:26Z",
+      "side": 1,
+      "message": "it should be \u003d\u003d B_OK",
+      "revId": "1feda2383a64150f61c2b972a7118c605ba6e0bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e0cd7d1_61cec6c7",
+        "filename": "src/add-ons/translators/avif/AVIFTranslator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-25T20:51:26Z",
+      "side": 1,
+      "message": "the \u003d (or any operator on a linebreak) goes on the next line according to our coding guidelines (also other places below)",
+      "revId": "1feda2383a64150f61c2b972a7118c605ba6e0bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08665271_703ee46c",
+        "filename": "src/add-ons/translators/avif/AVIFTranslator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-25T20:51:26Z",
+      "side": 1,
+      "message": "indent with 1 tab rather than aligning with the (",
+      "revId": "1feda2383a64150f61c2b972a7118c605ba6e0bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6c26828_787698a7",
+        "filename": "src/add-ons/translators/avif/AVIFTranslator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-25T20:51:26Z",
+      "side": 1,
+      "message": "indent by one tab rather than aligning with the (",
+      "revId": "1feda2383a64150f61c2b972a7118c605ba6e0bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8907607_4398b101",
+        "filename": "src/add-ons/translators/avif/AVIFTranslator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-25T20:51:26Z",
+      "side": 1,
+      "message": "why not simply return target-\u003eWrite(pixels, dataSize); ?",
+      "revId": "1feda2383a64150f61c2b972a7118c605ba6e0bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
