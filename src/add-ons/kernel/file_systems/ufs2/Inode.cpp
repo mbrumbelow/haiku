@@ -36,6 +36,7 @@ Inode::Inode(Volume* volume, ino_t id)
 	int64_t offset_in_block = ino_to_fsbo(superblock, id);
 	int64_t offset = fs_block * MINBSIZE + offset_in_block * 256;
 
+	ERROR("%ld\n\n",offset);
 	if (read_pos(fd, offset, (void*)&fNode, sizeof(fNode)) != sizeof(fNode))
 		ERROR("Inode::Inode(): IO Error\n");
 
@@ -84,4 +85,26 @@ status_t
 Inode::InitCheck()
 {
 	return fInitStatus;
+}
+
+
+status_t
+Inode::ReadAt(off_t pos, uint8* buffer, size_t* _length)
+{
+	int fd = fVolume->Device();
+	ufs2_super_block super_block = fVolume->SuperBlock();
+	int32_t block_size = super_block.fs_bsize;
+	pos = GetBlockPointer(0) * 4096;
+	int64_t size = Size();
+
+	if (size > 0 && size < block_size) {
+		//data of file is in first direct block only
+		return read_pos(fd, pos, buffer, 40);
+	}
+	else if (size <= (block_size * 12))
+	{
+		//data of file is in two or more direct blocks and
+		//data is present in first 12 blocks
+	}
+	//return file_cache_read(FileCache(), NULL, pos, buffer, _length);
 }
