@@ -10,7 +10,7 @@
 
 #include "Inode.h"
 
-//#define TRACE_UFS2
+#define TRACE_UFS2
 #ifdef TRACE_UFS2
 #	define TRACE(x...) dprintf("\33[34mufs2:\33[0m " x)
 #else
@@ -24,8 +24,7 @@ DirectoryIterator::DirectoryIterator(Inode* inode)
 	:
 	fInode(inode)
 {
-	fOffset = fInode->GetBlockPointer() * MINBSIZE;
-	TRACE("DirectoryIterator::DirectoryIterator() \n");
+	fOffset = 0;
 }
 
 
@@ -67,11 +66,9 @@ status_t
 DirectoryIterator::GetNext(char* name, size_t* _nameLength, ino_t* _id)
 {
 	dir direct;
-	int fd = fInode->GetVolume()->Device();
-
-	if (read_pos(fd, fOffset, &direct, sizeof(dir)) != sizeof(dir)) {
-		return B_BAD_DATA;
-	}
+	size_t size = sizeof(dir);
+	status_t status = fInode->ReadAt(fOffset, (uint8_t*)&direct, &size);
+	direct = (dir) direct;
 
 	int remainder = direct.namlen % 4;
 	if(remainder != 0) {
@@ -84,7 +81,6 @@ DirectoryIterator::GetNext(char* name, size_t* _nameLength, ino_t* _id)
 	fOffset = fOffset + 8 + remainder;
 
 	if (direct.next_ino > 0) {
-		TRACE("direct.next_ino %d\n",direct.next_ino);
 
 		strlcpy(name, direct.name, remainder);
 		*_id = direct.next_ino;
