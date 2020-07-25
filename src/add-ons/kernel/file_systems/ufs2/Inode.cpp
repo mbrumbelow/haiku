@@ -5,8 +5,9 @@
  */
 
 #include "Inode.h"
-
-#ifdef TRACE_ufs2
+#include <string.h>
+#define TRACE_UFS2
+#ifdef TRACE_UFS2
 #define TRACE(x...) dprintf("\33[34mufs2:\33[0m " x)
 #else
 #define TRACE(x...) ;
@@ -35,7 +36,9 @@ Inode::Inode(Volume* volume, ino_t id)
 	int64_t fs_block = ino_to_fsba(superblock, id);
 	int64_t offset_in_block = ino_to_fsbo(superblock, id);
 	int64_t offset = fs_block * MINBSIZE + offset_in_block * 256;
+	size_already_read = 0;
 
+//	ERROR("%ld\n\n",offset);
 	if (read_pos(fd, offset, (void*)&fNode, sizeof(fNode)) != sizeof(fNode))
 		ERROR("Inode::Inode(): IO Error\n");
 
@@ -84,4 +87,42 @@ status_t
 Inode::InitCheck()
 {
 	return fInitStatus;
+}
+
+
+status_t
+Inode::ReadAt(off_t file_offset, uint8* buffer, size_t* _length)
+{
+	int fd = fVolume->Device();
+	ufs2_super_block super_block = fVolume->SuperBlock();
+	int32_t block_size = super_block.fs_bsize;
+	int64_t size = Size();
+	//TRACE("\noffset in file: %" B_PRIdOFF " - pos %" B_PRIdOFF " size %" B_PRIdOFF "\n",
+		//file_offset, pos, size);
+
+	off_t block_number = file_offset / block_size;
+	if (size > 0 && block_number < 12) {
+		//data of file is in first twelve direct block only
+		off_t block_offset = file_offset % block_size;
+		off_t pos = GetBlockPointer(block_number) * 4096 + block_offset;
+		ssize_t length;
+		off_t size_to_read = size - size_already_read;
+		if (size_to_read < 512) {
+			length = read_pos(fd, pos, buffer, size_to_read);
+			//buffer[size_to_read] = '\0';
+			*_length = length;
+			return B_OK;
+		}
+		else {
+			length = read_pos(fd, pos, buffer, *_length);
+			if (length > 0) {
+				*_length = length;
+				size_already_read += length;
+				return B_OK;
+			}
+		}
+		return length;
+	}
+
+	return B_NOT_SUPPORTED;
 }
