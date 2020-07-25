@@ -732,7 +732,6 @@ command_cat(int argc, const char* const* argv)
 		printf("%s\n", buffer);
 	}
 
-	return FSSH_B_OK;
 }
 
 
