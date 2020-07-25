@@ -691,7 +691,7 @@ command_chmod(int argc, const char* const* argv)
 static fssh_status_t
 command_cat(int argc, const char* const* argv)
 {
-	size_t numBytes = 10;
+	size_t numBytes = 512;
 	int fileStart = 1;
 	if (argc < 2 || strcmp(argv[1], "--help") == 0) {
 		printf("Usage: %s [ -n ] [FILE]...\n"
@@ -714,25 +714,39 @@ command_cat(int argc, const char* const* argv)
 			return FSSH_B_BAD_VALUE;
 		}
 
-		char buffer[numBytes + 1];
+		char buffer[numBytes + 1] = {0};
 		if (buffer == NULL) {
 			fprintf(stderr, "error: No memory\n");
 			_kern_close(fd);
 			return FSSH_B_NO_MEMORY;
 		}
 
-		if (_kern_read(fd, 0, buffer, numBytes) != (ssize_t)numBytes) {
-			fprintf(stderr, "error reading: %s\n", fssh_strerror(fd));
-			_kern_close(fd);
-			return FSSH_B_BAD_VALUE;
+		fssh_off_t pos = 0;
+		size_t bytesRead;
+		while (true) {
+			bytesRead = _kern_read(fd, pos, buffer, numBytes);
+			if (bytesRead == (ssize_t)numBytes) {
+				pos = numBytes + pos;
+				buffer[numBytes] = '\0';
+				printf("%s", buffer);
+			}
+			else if(bytesRead > 0 && bytesRead < numBytes){
+				buffer[bytesRead] = '\0';
+				printf("%s\n", buffer);
+				_kern_close(fd);
+				return FSSH_B_OK;
+			}
+			else {
+
+				fprintf(stderr, "error reading: %s\n", fssh_strerror(fd));
+				_kern_close(fd);
+				printf("\n");
+				return FSSH_B_BAD_VALUE;
+			}
 		}
 
-		_kern_close(fd);
-		buffer[numBytes] = '\0';
-		printf("%s\n", buffer);
 	}
 
-	return FSSH_B_OK;
 }
 
 
