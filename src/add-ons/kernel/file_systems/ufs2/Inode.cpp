@@ -5,8 +5,12 @@
  */
 
 #include "Inode.h"
+#include <string.h>
+#include<cmath>
 
-#ifdef TRACE_ufs2
+
+#define TRACE_UFS2
+#ifdef TRACE_UFS2
 #define TRACE(x...) dprintf("\33[34mufs2:\33[0m " x)
 #else
 #define TRACE(x...) ;
@@ -34,8 +38,9 @@ Inode::Inode(Volume* volume, ino_t id)
 	ufs2_super_block* superblock = (ufs2_super_block* )&fVolume->SuperBlock();
 	int64_t fs_block = ino_to_fsba(superblock, id);
 	int64_t offset_in_block = ino_to_fsbo(superblock, id);
-	int64_t offset = fs_block * MINBSIZE + offset_in_block * 256;
+	int64_t offset = fs_block * MINBSIZE + offset_in_block * sizeof(fNode);
 
+//	ERROR("%ld\n\n",offset);
 	if (read_pos(fd, offset, (void*)&fNode, sizeof(fNode)) != sizeof(fNode))
 		ERROR("Inode::Inode(): IO Error\n");
 
@@ -84,4 +89,135 @@ status_t
 Inode::InitCheck()
 {
 	return fInitStatus;
+}
+
+
+status_t
+Inode::ReadAt(off_t file_offset, uint8* buffer, size_t* _length)
+{
+	int fd = fVolume->Device();
+	ufs2_super_block super_block = fVolume->SuperBlock();
+	int32_t block_size = super_block.fs_bsize;
+	int64_t size = Size();
+	off_t block_number = file_offset / block_size;
+	off_t block_offset = file_offset % block_size;
+	off_t pos = FindBlock(block_number, block_offset);
+	off_t total_block_size = (block_number + 1) * block_size;
+	ssize_t remaining_length = total_block_size - file_offset;
+	ssize_t length = 0;
+	if (file_offset + *_length > (block_number + 1) * block_size) {
+		while (true) {
+			//code for reading multiple blocks
+			length += read_pos(fd, pos, buffer, remaining_length);
+			if (*_length == length)
+			{
+				return B_OK;
+			}
+			block_number++;
+			pos = FindBlock(block_number, 0);
+			remaining_length = *_length - length;
+			if (remaining_length > block_size)
+				remaining_length = block_size;
+		}
+	}
+	length = read_pos(fd, pos, buffer, *_length);
+	*_length = length;
+	return B_OK;
+
+}
+
+
+off_t
+Inode::FindBlock(off_t block_number, off_t block_offset)
+{
+	int fd = fVolume->Device();
+	ufs2_super_block super_block = fVolume->SuperBlock();
+	int32_t block_size = super_block.fs_bsize;
+	int32_t fragment_size = super_block.fs_fsize;
+	off_t indirect_offset;
+	int64_t direct_block;
+	off_t number_of_block_pointers = block_size / 8;
+	if (block_number < 12) {
+		// read from direct block
+		return GetBlockPointer(block_number) * fragment_size + block_offset;
+
+	} else if (block_number >= 12
+		&& block_number < number_of_block_pointers + 12) {
+		//read from indirect block
+		block_number = block_number - 12;
+		indirect_offset = GetIndirectBlockPointer() *
+			fragment_size + (8 * block_number);
+		read_pos(fd, indirect_offset,
+			(void*)&direct_block, sizeof(direct_block));
+
+		return direct_block * fragment_size + block_offset;
+
+	} else if (block_number >= number_of_block_pointers + 12
+		&& block_number < number_of_block_pointers * number_of_block_pointers
+		+ number_of_block_pointers + 12) {
+		// Data is in double indirect block
+		// Subract the already read blocks
+		block_number = block_number - number_of_block_pointers - 12;
+		// Calculate indirect block inside double indirect block
+		off_t indirect_block_no = block_number / number_of_block_pointers;
+		indirect_offset = GetDoubleIndirectBlockPtr() *
+			fragment_size + (8 * indirect_block_no);
+
+		int64_t indirect_ptr;
+		read_pos(fd, indirect_offset,
+			(void*)&indirect_ptr, sizeof(direct_block));
+
+		indirect_offset = indirect_ptr * fragment_size
+			+ (8 * (block_number % number_of_block_pointers));
+
+		read_pos(fd, indirect_offset,
+			(void*)&direct_block, sizeof(direct_block));
+
+		return direct_block * fragment_size + block_offset;
+
+	} else if (block_number > (number_of_block_pointers
+				* number_of_block_pointers + number_of_block_pointers + 12)
+			&& block_number < (number_of_block_pointers
+				* number_of_block_pointers * number_of_block_pointers
+				+ (number_of_block_pointers * number_of_block_pointers)
+				+ number_of_block_pointers + 12)) {
+		// Reading from triple indirect block
+		off_t block_ptrs = number_of_block_pointers * number_of_block_pointers;
+		block_number = block_number - block_ptrs
+			- number_of_block_pointers - 12;
+
+		// Get double indirect block
+		// Double indirect block no
+		off_t indirect_block_no = block_number / block_ptrs;
+
+		// offset to double indirect block ptr
+		indirect_offset = GetTripleIndirectBlockPtr() *
+			fragment_size + (8 * indirect_block_no);
+
+		int64_t indirect_ptr;
+		// Get the double indirect block ptr
+		read_pos(fd, indirect_offset,
+			(void*)&indirect_ptr, sizeof(direct_block));
+
+		// Get the indirect block
+		// number of indirect block ptr
+		indirect_block_no = block_number / number_of_block_pointers;
+		// Indirect block ptr offset
+		indirect_offset = indirect_ptr * fragment_size
+			+ (8 * indirect_block_no);
+
+		read_pos(fd, indirect_offset,
+			(void*)&indirect_ptr, sizeof(direct_block));
+
+		// Get direct block pointer
+		indirect_offset = indirect_ptr * fragment_size
+			+ (8 * (block_number % number_of_block_pointers));
+
+		read_pos(fd, indirect_offset,
+			(void*)&direct_block, sizeof(direct_block));
+
+		return direct_block * fragment_size + block_offset;
+	}
+
+	return B_BAD_VALUE;
 }
