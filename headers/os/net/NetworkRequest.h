@@ -18,6 +18,7 @@ class BNetworkRequest: public BUrlRequest
 {
 public:
 								BNetworkRequest(const BUrl& url,
+									BDataIO* output,
 									BUrlProtocolListener* listener,
 									BUrlContext* context,
 									const char* threadName,

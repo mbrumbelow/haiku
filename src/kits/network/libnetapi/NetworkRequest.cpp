@@ -14,10 +14,11 @@
 #include <AbstractSocket.h>
 
 
-BNetworkRequest::BNetworkRequest(const BUrl& url, BUrlProtocolListener* listener,
-		BUrlContext* context, const char* threadName, const char* protocolName)
+BNetworkRequest::BNetworkRequest(const BUrl& url, BDataIO* output,
+	BUrlProtocolListener* listener, BUrlContext* context,
+	const char* threadName, const char* protocolName)
 	:
-	BUrlRequest(url, listener, context, threadName, protocolName),
+	BUrlRequest(url, output, listener, context, threadName, protocolName),
 	fSocket(NULL)
 {
 }

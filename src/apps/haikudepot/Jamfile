@@ -186,7 +186,7 @@ local applicationSources =
 	LocaleUtils.cpp
 	RepositoryUrlUtils.cpp
 	StorageUtils.cpp
-	ToFileUrlProtocolListener.cpp
+	LoggingUrlProtocolListener.cpp
 
 	# package_daemon
 	ProblemWindow.cpp

@@ -22,6 +22,7 @@ private:
 		friend class BUrlProtocolRoster;
 
 							BDataRequest(const BUrl& url,
+								BDataIO* output,
 								BUrlProtocolListener* listener = NULL,
 								BUrlContext* context = NULL);
 

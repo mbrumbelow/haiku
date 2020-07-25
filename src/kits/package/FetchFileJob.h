@@ -46,8 +46,6 @@ public:
 			off_t				DownloadTotalBytes() const;
 
 #ifdef HAIKU_TARGET_PLATFORM_HAIKU
-	virtual void	DataReceived(BUrlRequest*, const char* data,
-						off_t position, ssize_t size);
 	virtual void	DownloadProgress(BUrlRequest*, ssize_t bytesReceived,
 						ssize_t bytesTotal);
 	virtual void 	RequestCompleted(BUrlRequest* request, bool success);

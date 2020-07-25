@@ -35,8 +35,6 @@
 class ProtocolListener : public BUrlProtocolListener {
 public:
 	ProtocolListener()
-		:
-		fDownloadIO(NULL)
 	{
 	}
 
@@ -60,11 +58,8 @@ public:
 	{
 	}
 
-	virtual void DataReceived(BUrlRequest* caller, const char* data,
-		off_t position, ssize_t size)
+	virtual void BytesWritten(BUrlRequest* caller, size_t bytesWritten)
 	{
-		if (fDownloadIO != NULL)
-			fDownloadIO->Write(data, size);
 	}
 
 	virtual	void DownloadProgress(BUrlRequest* caller, ssize_t bytesReceived,
@@ -86,23 +81,16 @@ public:
 	{
 		HDTRACE("jrpc: %s", text);
 	}
-
-	void SetDownloadIO(BDataIO* downloadIO)
-	{
-		fDownloadIO = downloadIO;
-	}
-
-private:
-	BDataIO*		fDownloadIO;
 };
 
 
 static BHttpRequest*
-make_http_request(const BUrl& url, BUrlProtocolListener* listener = NULL,
+make_http_request(const BUrl& url, BDataIO* output,
+	BUrlProtocolListener* listener = NULL,
 	BUrlContext* context = NULL)
 {
-	BUrlRequest* request = BUrlProtocolRoster::MakeRequest(url, listener,
-		context);
+	BUrlRequest* request = BUrlProtocolRoster::MakeRequest(url, output,
+		listener, context);
 	BHttpRequest* httpRequest = dynamic_cast<BHttpRequest*>(request);
 	if (httpRequest == NULL) {
 		delete request;
@@ -861,7 +849,7 @@ WebAppInterface::_SendJsonRequest(const char* domain,
 	headers.AddHeader("Content-Type", "application/json");
 	ServerSettings::AugmentHeaders(headers);
 
-	BHttpRequest* request = make_http_request(url, &listener, &context);
+	BHttpRequest* request = make_http_request(url, NULL, &listener, &context);
 	ObjectDeleter<BHttpRequest> _(request);
 	if (request == NULL)
 		return B_ERROR;
@@ -881,7 +869,7 @@ WebAppInterface::_SendJsonRequest(const char* domain,
 	request->AdoptInputData(requestData, requestDataSize);
 
 	BMallocIO replyData;
-	listener.SetDownloadIO(&replyData);
+	request->SetOutput(&replyData);
 
 	thread_id thread = request->Run();
 	wait_for_thread(thread, NULL);
@@ -950,12 +938,11 @@ WebAppInterface::_SendRawGetRequest(const BString urlPathComponents,
 	BUrl url = ServerSettings::CreateFullUrl(urlPathComponents);
 
 	ProtocolListener listener;
-	listener.SetDownloadIO(stream);
 
 	BHttpHeaders headers;
 	ServerSettings::AugmentHeaders(headers);
 
-	BHttpRequest *request = make_http_request(url, &listener);
+	BHttpRequest *request = make_http_request(url, stream, &listener);
 	ObjectDeleter<BHttpRequest> _(request);
 	if (request == NULL)
 		return B_ERROR;
