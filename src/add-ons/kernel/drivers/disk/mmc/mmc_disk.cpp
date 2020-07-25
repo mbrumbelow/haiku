@@ -41,6 +41,16 @@
 static device_manager_info* sDeviceManager;
 
 
+struct mmc_disk_csd {
+	uint64 bits[2];
+
+	uint8_t structure_version() { return bits[1] >> 60; }
+	uint8_t read_bl_len() { return (bits[1] >> 8) & 0xF; }
+	uint16_t c_size() { return ((bits[0] >> 54) & 0x3FF) | ((bits[1] & 0x3) << 10); }
+	uint8_t c_size_mult() { return (bits[0] >> 39) & 0x7; }
+};
+
+
 static float
 mmc_disk_supports_device(device_node* parent)
 {
@@ -102,6 +112,32 @@ mmc_disk_init_driver(device_node* node, void** cookie)
 
 	info->node = node;
 
+	device_node* parent = sDeviceManager->get_parent_node(info->node);
+	// FIXME we get directly to the sdhci driver here. Instead, mmc_bus should
+	// provide a way to send commands (and forward them to the sdhci device).
+	// Also there are way too many intermediate nodes...
+	device_node* grandparent = sDeviceManager->get_parent_node(parent);
+	device_node* grandgrandparent = sDeviceManager->get_parent_node(grandparent);
+	sDeviceManager->get_driver(grandgrandparent, (driver_module_info **)&info->mmc,
+		&info->mmc_device);
+	sDeviceManager->put_node(grandgrandparent);
+	sDeviceManager->put_node(grandparent);
+	sDeviceManager->put_node(parent);
+
+	if (info->mmc == NULL || info->mmc_device == NULL) {
+		panic("Failed to get MMC bus handles %p %s %p", info->mmc,
+			info->mmc->info.info.name, info->mmc_device);
+	}
+
+	if (sDeviceManager->get_attr_uint16(node, "mmc/rca", &info->rca, true)
+		!= B_OK) {
+		TRACE("MMC card node has no RCA attribute\n");
+		free(info);
+		return B_BAD_DATA;
+	}
+
+	TRACE("MMC card device initialized for RCA %x\n", info->rca);
+
 	*cookie = info;
 	return B_OK;
 }
@@ -144,17 +180,12 @@ static status_t
 mmc_block_init_device(void* _info, void** _cookie)
 {
 	CALLED();
+
+	// No additional context, so just reuse the same data as the disk device
 	mmc_disk_driver_info* info = (mmc_disk_driver_info*)_info;
+	*_cookie = info;
 
-	device_node* parent = sDeviceManager->get_parent_node(info->node);
-	sDeviceManager->get_driver(parent, (driver_module_info **)&info->mmc,
-		(void **)&info->mmc_device);
-	sDeviceManager->put_node(parent);
-
-	status_t status = B_OK;
-	// TODO Get capacity
-
-	return status;
+	return B_OK;
 }
 
 
@@ -208,6 +239,32 @@ mmc_block_free(void* cookie)
 
 
 static status_t
+mmc_block_get_geometry(mmc_disk_handle* handle, device_geometry* geometry)
+{
+	struct mmc_disk_csd csd;
+	handle->info->mmc->execute_command(handle->info->mmc_device, 9,
+		handle->info->rca << 16, (uint32_t*)&csd);
+
+	TRACE("CSD: %lx %lx\n", csd.bits[0], csd.bits[1]);
+
+	if (csd.structure_version() == 0) {
+		geometry->bytes_per_sector = 1 << csd.read_bl_len();
+		geometry->sectors_per_track = csd.c_size() + 1;
+		geometry->cylinder_count = 1 << (csd.c_size_mult() + 2);
+		geometry->head_count = 1;
+		geometry->device_type = B_DISK;
+		geometry->removable = true; // TODO detect eMMC which isn't
+		geometry->read_only = true; // TODO add write support
+		geometry->write_once = false;
+		return B_OK;
+	}
+
+	TRACE("unknown CSD version %d\n", csd.structure_version());
+	return B_NOT_SUPPORTED;
+}
+
+
+static status_t
 mmc_block_ioctl(void* cookie, uint32 op, void* buffer, size_t length)
 {
 	CALLED();
@@ -230,8 +287,9 @@ mmc_block_ioctl(void* cookie, uint32 op, void* buffer, size_t length)
 
 		case B_GET_DEVICE_SIZE:
 		{
-			size_t size = info->capacity * info->block_size;
-			return user_memcpy(buffer, &size, sizeof(size_t));
+			//size_t size = info->capacity * info->block_size;
+			//return user_memcpy(buffer, &size, sizeof(size_t));
+			return B_NOT_SUPPORTED;
 		}
 
 		case B_GET_GEOMETRY:
@@ -240,8 +298,7 @@ mmc_block_ioctl(void* cookie, uint32 op, void* buffer, size_t length)
 				return B_BAD_VALUE;
 
 		 	device_geometry geometry;
-			// TODO status_t status = get_geometry(handle, &geometry);
-			status_t status = B_ERROR;
+			status_t status = mmc_block_get_geometry(handle, &geometry);
 			if (status != B_OK)
 				return status;
 

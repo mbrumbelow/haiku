@@ -15,16 +15,13 @@
 
 #include <stdint.h>
 
-typedef struct {
-	driver_module_info stdops;
-
-	// TODO specific ops provided by MMC bus go here (for sending commands, etc)
-} mmc_driver_interface;
+#include <mmc.h>
 
 typedef struct {
 	device_node* 	node;
-	mmc_driver_interface* mmc;
+	mmc_bus_interface* mmc;
 	void* mmc_device;
+	uint16_t rca;
 
 	size_t block_size;
 	uint32_t capacity;
