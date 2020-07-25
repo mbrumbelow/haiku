@@ -123,7 +123,7 @@ class Inode {
 
 //			status_t	FindBlock(off_t logical, off_t& physical,
 //							off_t* _length = NULL);
-//			status_t	ReadAt(off_t pos, uint8* buffer, size_t* length);
+			status_t	ReadAt(off_t pos, uint8* buffer, size_t* length);
 //			status_t	FillGapWithZeros(off_t start, off_t end);
 
 			void*		FileCache() const { return fCache; }

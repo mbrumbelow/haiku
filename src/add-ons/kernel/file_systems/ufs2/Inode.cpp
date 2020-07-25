@@ -36,6 +36,7 @@ Inode::Inode(Volume* volume, ino_t id)
 	int64_t offset_in_block = ino_to_fsbo(superblock, id);
 	int64_t offset = fs_block * MINBSIZE + offset_in_block * 256;
 
+	ERROR("%ld\n\n",offset);
 	if (read_pos(fd, offset, (void*)&fNode, sizeof(fNode)) != sizeof(fNode))
 		ERROR("Inode::Inode(): IO Error\n");
 
@@ -84,4 +85,13 @@ status_t
 Inode::InitCheck()
 {
 	return fInitStatus;
+}
+
+
+status_t
+Inode::ReadAt(off_t pos, uint8* buffer, size_t* _length)
+{
+	int fd = fVolume->Device();
+	return read_pos(fd, pos, buffer, *_length);
+	//return file_cache_read(FileCache(), NULL, pos, buffer, _length);
 }

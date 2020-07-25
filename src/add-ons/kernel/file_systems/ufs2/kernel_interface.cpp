@@ -3,7 +3,6 @@
  * All rights reserved. Distributed under the terms of the MIT License.
  */
 
-
 #include "DirectoryIterator.h"
 #include "Inode.h"
 #include "system_dependencies.h"
@@ -251,10 +250,27 @@ ufs2_read_stat(fs_volume *_volume, fs_vnode *_node, struct stat *stat)
 
 
 static status_t
-ufs2_open(fs_volume * /*_volume*/, fs_vnode *_node, int openMode,
+ufs2_open(fs_volume * _volume, fs_vnode *_node, int openMode,
 		 void **_cookie)
 {
-	return B_NOT_SUPPORTED;
+	Volume* volume = (Volume*)_volume->private_volume;
+	Inode* inode = (Inode*)_node->private_node;
+	TRACE("in open %d \n", openMode);
+	if (inode->IsDirectory())
+		return B_IS_A_DIRECTORY;
+
+	file_cookie* cookie = new(std::nothrow) file_cookie;
+	if (cookie == NULL)
+		return B_NO_MEMORY;
+	ObjectDeleter<file_cookie> cookieDeleter(cookie);
+
+	cookie->last_size = inode->Size();
+	cookie->last_notification = system_time();
+
+//	fileCacheEnabler.Detach();
+	cookieDeleter.Detach();
+	*_cookie = cookie;
+	return B_OK;
 }
 
 
@@ -262,7 +278,15 @@ static status_t
 ufs2_read(fs_volume *_volume, fs_vnode *_node, void *_cookie, off_t pos,
 		 void *buffer, size_t *_length)
 {
-	return B_NOT_SUPPORTED;
+	Inode* inode = (Inode*)_node->private_node;
+
+	if (!inode->IsFile()) {
+		*_length = 0;
+		return inode->IsDirectory() ? B_IS_A_DIRECTORY : B_BAD_VALUE;
+	}
+
+	pos = inode->GetBlockPointer() * MINBSIZE;
+	return inode->ReadAt(pos, (uint8*)buffer, _length);
 }
 
 

@@ -354,6 +354,12 @@ struct ufs2_super_block {
 	bool		IsValid();
 };
 
+struct file_cookie {
+	bigtime_t	last_notification;
+	off_t		last_size;
+	int 		open_mode;
+};
+
 /* Sanity checking. */
 #ifdef CTASSERT
 CTASSERT(sizeof(struct fs) == 1376);
