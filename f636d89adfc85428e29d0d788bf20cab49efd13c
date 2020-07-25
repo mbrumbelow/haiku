@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "604d8363_955cb217",
+        "filename": "headers/os/net/HttpRequest.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-07-25T18:14:57Z",
+      "side": 1,
+      "message": "This belongs in the \"private\" section. See how other classes in the tree do it. Same on your other changes.",
+      "revId": "f636d89adfc85428e29d0d788bf20cab49efd13c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
