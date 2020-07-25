@@ -10,6 +10,7 @@
 #include <stdlib.h>
 
 
+class BDataIO;
 class BUrl;
 class BUrlContext;
 class BUrlProtocolListener;
@@ -17,9 +18,9 @@ class BUrlRequest;
 
 class BUrlProtocolRoster {
 public:
-    static  BUrlRequest*    MakeRequest(const BUrl& url,
-		                        BUrlProtocolListener* listener = NULL,
-                                BUrlContext* context = NULL);
+	static	BUrlRequest*	MakeRequest(const BUrl& url, BDataIO* output,
+								BUrlProtocolListener* listener = NULL,
+								BUrlContext* context = NULL);
 };
 
 #endif

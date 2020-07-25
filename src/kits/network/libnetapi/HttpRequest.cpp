@@ -95,10 +95,12 @@ namespace BPrivate {
 };
 
 
-BHttpRequest::BHttpRequest(const BUrl& url, bool ssl, const char* protocolName,
-	BUrlProtocolListener* listener, BUrlContext* context)
+BHttpRequest::BHttpRequest(const BUrl& url, BDataIO* output, bool ssl,
+	const char* protocolName, BUrlProtocolListener* listener,
+	BUrlContext* context)
 	:
-	BNetworkRequest(url, listener, context, "BUrlProtocol.HTTP", protocolName),
+	BNetworkRequest(url, output, listener, context, "BUrlProtocol.HTTP",
+		protocolName),
 	fSSL(ssl),
 	fRequestMethod(B_HTTP_GET),
 	fHttpVersion(B_HTTP_11),
@@ -119,8 +121,8 @@ BHttpRequest::BHttpRequest(const BUrl& url, bool ssl, const char* protocolName,
 
 BHttpRequest::BHttpRequest(const BHttpRequest& other)
 	:
-	BNetworkRequest(other.Url(), other.fListener, other.fContext,
-		"BUrlProtocol.HTTP", other.fSSL ? "HTTPS" : "HTTP"),
+	BNetworkRequest(other.Url(), other.Output(), other.fListener,
+		other.fContext, "BUrlProtocol.HTTP", other.fSSL ? "HTTPS" : "HTTP"),
 	fSSL(other.fSSL),
 	fRequestMethod(other.fRequestMethod),
 	fHttpVersion(other.fHttpVersion),
@@ -205,6 +207,13 @@ void
 BHttpRequest::SetAutoReferrer(bool enable)
 {
 	fOptAutoReferer = enable;
+}
+
+
+void
+BHttpRequest::SetStopOnError(bool stop)
+{
+	fOptStopOnError = stop;
 }
 
 
@@ -607,6 +616,13 @@ BHttpRequest::_MakeRequest()
 					&& IsRedirectionStatusCode(fResult.StatusCode()))
 				disableListener = true;
 
+			if (fOptStopOnError
+					&& fResult.StatusCode() >= B_HTTP_STATUS_CLASS_CLIENT_ERROR)
+			{
+				fQuit = true;
+				break;
+			}
+
 			//! ProtocolHook:ResponseStarted
 			if (fRequestStatus >= kRequestStatusReceived && fListener != NULL
 					&& !disableListener)
@@ -736,7 +752,7 @@ BHttpRequest::_MakeRequest()
 			if (bytesRead >= 0) {
 				bytesReceived += bytesRead;
 
-				if (fListener != NULL && !disableListener) {
+				if (fOutput != NULL && !disableListener) {
 					if (decompress) {
 						readError = decompressingStream->WriteExactly(
 							inputTempBuffer, bytesRead);
@@ -747,17 +763,29 @@ BHttpRequest::_MakeRequest()
 						BStackOrHeapArray<char, 4096> buffer(size);
 						size = decompressorStorage.Read(buffer, size);
 						if (size > 0) {
-							fListener->DataReceived(this, buffer, bytesUnpacked,
-								size);
+							size_t written = 0;
+							readError = fOutput->WriteExactly(buffer,
+								size, &written);
+							if (fListener != NULL && written > 0)
+								fListener->BytesWritten(this, written);
+							if (readError != B_OK)
+								break;
 							bytesUnpacked += size;
 						}
 					} else if (bytesRead > 0) {
-						fListener->DataReceived(this, inputTempBuffer,
-							bytesReceived - bytesRead, bytesRead);
+						size_t written = 0;
+						readError = fOutput->WriteExactly(inputTempBuffer,
+							bytesRead, &written);
+						if (fListener != NULL && written > 0)
+							fListener->BytesWritten(this, written);
+						if (readError != B_OK)
+							break;
 					}
+				}
+
+				if (fListener != NULL && !disableListener)
 					fListener->DownloadProgress(this, bytesReceived,
 						std::max((off_t)0, bytesTotal));
-				}
 
 				if (bytesTotal >= 0 && bytesReceived >= bytesTotal)
 					receiveEnd = true;
@@ -774,9 +802,14 @@ BHttpRequest::_MakeRequest()
 					ssize_t size = decompressorStorage.Size();
 					BStackOrHeapArray<char, 4096> buffer(size);
 					size = decompressorStorage.Read(buffer, size);
-					if (fListener != NULL && size > 0 && !disableListener) {
-						fListener->DataReceived(this, buffer,
-							bytesUnpacked, size);
+					if (fOutput != NULL && size > 0 && !disableListener) {
+						size_t written = 0;
+						readError = fOutput->WriteExactly(buffer, size,
+							&written);
+						if (fListener != NULL && written > 0)
+							fListener->BytesWritten(this, written);
+						if (readError != B_OK)
+							break;
 						bytesUnpacked += size;
 					}
 				}

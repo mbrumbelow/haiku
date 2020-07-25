@@ -24,6 +24,7 @@ private:
 			friend class BUrlProtocolRoster;
 
 								BGopherRequest(const BUrl& url,
+									BDataIO* output,
 									BUrlProtocolListener* listener = NULL,
 									BUrlContext* context = NULL);
 
@@ -32,7 +33,7 @@ private:
 
 			bool				_NeedsParsing();
 			bool				_NeedsLastDotStrip();
-			void				_ParseInput(bool last);
+			status_t			_ParseInput(bool last);
 
 			BString&			_HTMLEscapeString(BString &str);
 

@@ -101,20 +101,11 @@ BUrlProtocolAsynchronousListener::MessageReceived(BMessage* message)
 			HeadersReceived(caller);
 			break;
 
-		case B_URL_PROTOCOL_DATA_RECEIVED:
+		case B_URL_PROTOCOL_BYTES_WRITTEN:
 			{
-				const char* data;
-				ssize_t		size = 0;
-				if (message->FindData("url:data", B_STRING_TYPE,
-					reinterpret_cast<const void**>(&data), &size) != B_OK) {
-					printf("BOGUS DATA MESSAGE\n");
-					message->PrintToStream();
-					return;
-				}
+				size_t bytesWritten = message->FindInt32("url:bytesWritten");
 
-				off_t position = message->FindInt32("url:position");
-
-				DataReceived(caller, data, position, size);
+				BytesWritten(caller, bytesWritten);
 			}
 			break;
 

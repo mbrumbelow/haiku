@@ -15,7 +15,7 @@
 
 BUrlSynchronousRequest::BUrlSynchronousRequest(BUrlRequest& request)
 	:
-	BUrlRequest(request.Url(), NULL, request.Context(),
+	BUrlRequest(request.Url(), request.Output(), NULL, request.Context(),
 		"BUrlSynchronousRequest", request.Protocol()),
 	fRequestComplete(false),
 	fWrappedRequest(request)

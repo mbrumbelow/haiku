@@ -15,12 +15,14 @@
 static BReference<BUrlContext> gDefaultContext = new(std::nothrow) BUrlContext();
 
 
-BUrlRequest::BUrlRequest(const BUrl& url, BUrlProtocolListener* listener,
-	BUrlContext* context, const char* threadName, const char* protocolName)
+BUrlRequest::BUrlRequest(const BUrl& url, BDataIO* output,
+	BUrlProtocolListener* listener, BUrlContext* context,
+	const char* threadName, const char* protocolName)
 	:
 	fUrl(url),
 	fContext(context),
 	fListener(listener),
+	fOutput(output),
 	fQuit(false),
 	fRunning(false),
 	fThreadStatus(B_NO_INIT),
@@ -135,6 +137,17 @@ BUrlRequest::SetListener(BUrlProtocolListener* listener)
 }
 
 
+status_t
+BUrlRequest::SetOutput(BDataIO* output)
+{
+	if (IsRunning())
+		return B_ERROR;
+
+	fOutput = output;
+	return B_OK;
+}
+
+
 // #pragma mark URL protocol parameters access
 
 
@@ -163,6 +176,13 @@ const BString&
 BUrlRequest::Protocol() const
 {
 	return fProtocol;
+}
+
+
+BDataIO*
+BUrlRequest::Output() const
+{
+	return fOutput;
 }
 
 

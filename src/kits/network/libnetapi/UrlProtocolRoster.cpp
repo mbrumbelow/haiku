@@ -20,22 +20,22 @@
 
 
 /* static */ BUrlRequest*
-BUrlProtocolRoster::MakeRequest(const BUrl& url,
+BUrlProtocolRoster::MakeRequest(const BUrl& url, BDataIO* output,
 	BUrlProtocolListener* listener, BUrlContext* context)
 {
 	// TODO: instanciate the correct BUrlProtocol using add-on interface
 	if (url.Protocol() == "http") {
-		return new(std::nothrow) BHttpRequest(url, false, "HTTP", listener,
-			context);
+		return new(std::nothrow) BHttpRequest(url, output, false, "HTTP",
+			listener, context);
 	} else if (url.Protocol() == "https") {
-		return new(std::nothrow) BHttpRequest(url, true, "HTTPS", listener,
-			context);
+		return new(std::nothrow) BHttpRequest(url, output, true, "HTTPS",
+			listener, context);
 	} else if (url.Protocol() == "file") {
-		return new(std::nothrow) BFileRequest(url, listener, context);
+		return new(std::nothrow) BFileRequest(url, output, listener, context);
 	} else if (url.Protocol() == "data") {
-		return new(std::nothrow) BDataRequest(url, listener, context);
+		return new(std::nothrow) BDataRequest(url, output, listener, context);
 	} else if (url.Protocol() == "gopher") {
-		return new(std::nothrow) BGopherRequest(url, listener, context);
+		return new(std::nothrow) BGopherRequest(url, output, listener, context);
 	}
 
 	return NULL;
