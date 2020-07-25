@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c8d5e717_fd082218",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/ufs2.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-25T20:42:53Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "8fa656ac76453e7940110e2fbd92c1e87f67be61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9329b62a_8a997648",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/ufs2.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-25T20:42:53Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "8fa656ac76453e7940110e2fbd92c1e87f67be61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0f801c4_877d91f6",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/ufs2.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-25T20:42:53Z",
+      "side": 1,
+      "message": "this check should stay near struct fs, and there should be a comment explaining what we are checking (the struct is mapped to on-disk data so its size must match what\u0027s on disk)",
+      "revId": "8fa656ac76453e7940110e2fbd92c1e87f67be61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
