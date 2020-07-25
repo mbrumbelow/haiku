@@ -1,5 +1,5 @@
 /*
- * Copyright 2018-2019 Haiku, Inc. All rights reserved.
+ * Copyright 2018-2020 Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -15,16 +15,13 @@
 
 #include <stdint.h>
 
-typedef struct {
-	driver_module_info stdops;
-
-	// TODO specific ops provided by MMC bus go here (for sending commands, etc)
-} mmc_driver_interface;
+#include <mmc.h>
 
 typedef struct {
-	device_node* 	node;
-	mmc_driver_interface* mmc;
-	void* mmc_device;
+	device_node* node;
+	device_node* parent;
+	mmc_device_interface* mmc;
+	uint16_t rca;
 
 	size_t block_size;
 	uint32_t capacity;

@@ -1,5 +1,5 @@
 /*
- * Copyright 2019, Haiku, Inc. All Rights Reserved.
+ * Copyright 2019-2020, Haiku, Inc. All Rights Reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -25,7 +25,8 @@ enum {
 };
 
 
-// Interface between mmc_bus and underlying implementation
+// Interface between mmc_bus and underlying implementation (sdhci_pci or any
+// other thing that can execute mmc commands)
 typedef struct mmc_bus_interface {
 	driver_module_info info;
 
