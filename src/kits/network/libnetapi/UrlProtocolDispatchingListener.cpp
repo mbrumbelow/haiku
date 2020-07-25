@@ -22,16 +22,16 @@ const char* kUrlProtocolCaller = "be:urlProtocolCaller";
 
 BUrlProtocolDispatchingListener::BUrlProtocolDispatchingListener
 	(BHandler* handler)
-		:
-		fMessenger(handler)
+	:
+	fMessenger(handler)
 {
 }
 
 
 BUrlProtocolDispatchingListener::BUrlProtocolDispatchingListener
 	(const BMessenger& messenger)
-		:
-		fMessenger(messenger)
+	:
+	fMessenger(messenger)
 {
 }
 
@@ -55,7 +55,7 @@ BUrlProtocolDispatchingListener::HostnameResolved(BUrlRequest* caller,
 {
 	BMessage message(B_URL_PROTOCOL_NOTIFICATION);
 	message.AddString("url:hostIp", ip);
-	
+
 	_SendMessage(&message, B_URL_PROTOCOL_HOSTNAME_RESOLVED, caller);
 }
 
@@ -77,18 +77,13 @@ BUrlProtocolDispatchingListener::HeadersReceived(BUrlRequest* caller)
 
 
 void
-BUrlProtocolDispatchingListener::DataReceived(BUrlRequest* caller,
-	const char* data, off_t position, ssize_t size)
+BUrlProtocolDispatchingListener::BytesWritten(BUrlRequest* caller,
+	size_t bytesWritten)
 {
 	BMessage message(B_URL_PROTOCOL_NOTIFICATION);
-	status_t result = message.AddData("url:data", B_STRING_TYPE, data, size,
-		true, 1);
-	assert(result == B_OK);
+	message.AddInt32("url:bytesWritten", bytesWritten);
 
-	result = message.AddInt32("url:position", position);
-	assert(result == B_OK);
-	
-	_SendMessage(&message, B_URL_PROTOCOL_DATA_RECEIVED, caller);
+	_SendMessage(&message, B_URL_PROTOCOL_BYTES_WRITTEN, caller);
 }
 
 
@@ -99,7 +94,7 @@ BUrlProtocolDispatchingListener::DownloadProgress(BUrlRequest* caller,
 	BMessage message(B_URL_PROTOCOL_NOTIFICATION);
 	message.AddInt32("url:bytesReceived", bytesReceived);
 	message.AddInt32("url:bytesTotal", bytesTotal);
-	
+
 	_SendMessage(&message, B_URL_PROTOCOL_DOWNLOAD_PROGRESS, caller);
 }
 
@@ -111,7 +106,7 @@ BUrlProtocolDispatchingListener::UploadProgress(BUrlRequest* caller,
 	BMessage message(B_URL_PROTOCOL_NOTIFICATION);
 	message.AddInt32("url:bytesSent", bytesSent);
 	message.AddInt32("url:bytesTotal", bytesTotal);
-	
+
 	_SendMessage(&message, B_URL_PROTOCOL_UPLOAD_PROGRESS, caller);
 }
 
@@ -123,7 +118,7 @@ BUrlProtocolDispatchingListener::RequestCompleted(BUrlRequest* caller,
 {
 	BMessage message(B_URL_PROTOCOL_NOTIFICATION);
 	message.AddBool("url:success", success);
-	
+
 	_SendMessage(&message, B_URL_PROTOCOL_REQUEST_COMPLETED, caller);
 }
 

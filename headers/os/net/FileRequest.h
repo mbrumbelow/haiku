@@ -23,6 +23,7 @@ public:
 
 private:
 								BFileRequest(const BUrl& url,
+									BDataIO* output,
 									BUrlProtocolListener* listener = NULL,
 									BUrlContext* context = NULL);
 

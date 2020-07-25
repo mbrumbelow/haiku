@@ -21,6 +21,7 @@ public:
 		const BUrlResult&	Result() const;
 private:
 							BDataRequest(const BUrl& url,
+								BDataIO* output,
 								BUrlProtocolListener* listener = NULL,
 								BUrlContext* context = NULL);
 

@@ -36,6 +36,7 @@ public:
 			void				SetDiscardData(bool discard);
 			void				SetDisableListener(bool disable);
 			void				SetAutoReferrer(bool enable);
+			void				SetStopOnError(bool stop);
 			void				SetUserName(const BString& name);
 			void				SetPassword(const BString& password);
 			void				SetRangeStart(off_t position);
@@ -61,6 +62,7 @@ public:
 
 private:
 								BHttpRequest(const BUrl& url,
+									BDataIO* output,
 									bool ssl = false,
 									const char* protocolName = "HTTP",
 									BUrlProtocolListener* listener = NULL,
@@ -134,6 +136,7 @@ private:
 			bool				fOptDiscardData : 1;
 			bool				fOptDisableListener : 1;
 			bool				fOptAutoReferer : 1;
+			bool				fOptStopOnError : 1;
 };
 
 // Request method

@@ -22,7 +22,7 @@ public:
 			BUrlProtocolListener* SynchronousListener();
 									
 	// BHandler interface
-	virtual void				MessageReceived(BMessage* message);
+	virtual	void				MessageReceived(BMessage* message);
 
 private:
 			BUrlProtocolDispatchingListener*

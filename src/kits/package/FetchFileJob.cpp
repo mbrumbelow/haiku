@@ -91,7 +91,7 @@ FetchFileJob::Execute()
 		return result;
 
 	BUrlRequest* request = BUrlProtocolRoster::MakeRequest(fFileURL.String(),
-		this);
+		&fTargetFile, this);
 	if (request == NULL)
 		return B_BAD_VALUE;
 
@@ -99,14 +99,6 @@ FetchFileJob::Execute()
 	wait_for_thread(thread, NULL);
 
 	return fError;
-}
-
-
-void
-FetchFileJob::DataReceived(BUrlRequest*, const char* data, off_t position,
-	ssize_t size)
-{
-	fTargetFile.WriteAt(position, data, size);
 }
 
 
