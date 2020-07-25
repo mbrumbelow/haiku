@@ -67,6 +67,24 @@
       "revId": "0381ff4c85684a19e14d445e488a3fa6456ddaee",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "119342dc_4e935d59",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1000035
+      },
+      "writtenOn": "2020-07-25T09:46:36Z",
+      "side": 1,
+      "message": "Hmm, how about SetNoWrite() or SetWriteDisabled()?",
+      "parentUuid": "e78fea88_fba9cff9",
+      "revId": "0381ff4c85684a19e14d445e488a3fa6456ddaee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
