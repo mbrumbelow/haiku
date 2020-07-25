@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6f257730_0e6a7479",
+        "filename": "headers/compatibility/gnu/stdlib.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2020-07-25T05:19:15Z",
+      "side": 1,
+      "message": "Done - I decided to match the normal qsort function and go with \"_compare_function_qsort_r\". This also avoids repetition by not having to declare the comparison function everywhere.",
+      "parentUuid": "ea7d42a7_ae444935",
+      "revId": "2a2707eace802180e05607691b4c41f0e2058263",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c4f0d52a_bc760e06",
         "filename": "headers/compatibility/gnu/stdlib.h",
         "patchSetId": 5
@@ -33,6 +51,24 @@
       "revId": "2a2707eace802180e05607691b4c41f0e2058263",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a0df05c_147096b5",
+        "filename": "headers/compatibility/gnu/stdlib.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2020-07-25T05:19:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4f0d52a_bc760e06",
+      "revId": "2a2707eace802180e05607691b4c41f0e2058263",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "5d2838fc_1b9391ef",
+        "filename": "headers/compatibility/gnu/stdlib.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2020-07-25T05:19:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18976d1f_17499908",
+      "revId": "2a2707eace802180e05607691b4c41f0e2058263",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "decbd48c_05e6bf61",
         "filename": "src/libs/gnu/qsort.c",
         "patchSetId": 5
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "193079f6_ee6b0232",
+        "filename": "src/libs/gnu/qsort.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2020-07-25T05:19:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "decbd48c_05e6bf61",
+      "revId": "2a2707eace802180e05607691b4c41f0e2058263",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d4296bb_174689c2",
         "filename": "src/libs/gnu/qsort.c",
         "patchSetId": 5
@@ -81,6 +153,24 @@
       "writtenOn": "2020-07-19T07:49:26Z",
       "side": 1,
       "message": "this comment is useless (and wrong, it\u0027s not about machines, but compilers). Also I think it is not available in gcc2.",
+      "revId": "2a2707eace802180e05607691b4c41f0e2058263",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25c94cb4_b00516e7",
+        "filename": "src/libs/gnu/qsort.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2020-07-25T05:19:15Z",
+      "side": 1,
+      "message": "Done - I double checked, and __restrict is part of C99. (It builds of course) Though yes, this comment is wrong. (It came from the original creator of this code)",
+      "parentUuid": "8d4296bb_174689c2",
       "revId": "2a2707eace802180e05607691b4c41f0e2058263",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "62c857d2_4a209b31",
+        "filename": "src/libs/gnu/qsort.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2020-07-25T05:19:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f8c7fc7_d302d083",
+      "revId": "2a2707eace802180e05607691b4c41f0e2058263",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71e28cd3_09839bee",
         "filename": "src/libs/gnu/qsort.c",
         "patchSetId": 5
@@ -118,6 +226,24 @@
       "revId": "2a2707eace802180e05607691b4c41f0e2058263",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73e8da79_3f584f0d",
+        "filename": "src/libs/gnu/qsort.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2020-07-25T05:19:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71e28cd3_09839bee",
+      "revId": "2a2707eace802180e05607691b4c41f0e2058263",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -138,6 +264,24 @@
     },
     {
       "key": {
+        "uuid": "011b3c60_e18db8d5",
+        "filename": "src/libs/gnu/qsort.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2020-07-25T05:19:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c18605d5_4a46eec4",
+      "revId": "2a2707eace802180e05607691b4c41f0e2058263",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d33c4498_2f140c11",
         "filename": "src/libs/gnu/qsort.c",
         "patchSetId": 5
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "54a89b46_28bfa810",
+        "filename": "src/libs/gnu/qsort.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2020-07-25T05:19:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d33c4498_2f140c11",
+      "revId": "2a2707eace802180e05607691b4c41f0e2058263",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "edb12732_a8022c1f",
         "filename": "src/libs/gnu/qsort.c",
         "patchSetId": 5
@@ -169,6 +331,24 @@
       "revId": "2a2707eace802180e05607691b4c41f0e2058263",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41bda3aa_e3c8ece5",
+        "filename": "src/libs/gnu/qsort.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2020-07-25T05:19:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "edb12732_a8022c1f",
+      "revId": "2a2707eace802180e05607691b4c41f0e2058263",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
