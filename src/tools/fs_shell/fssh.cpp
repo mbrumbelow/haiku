@@ -746,7 +746,6 @@ command_cat(int argc, const char* const* argv)
 		_kern_close(fd);
 	}
 
-	return FSSH_B_OK;
 }
 
 
