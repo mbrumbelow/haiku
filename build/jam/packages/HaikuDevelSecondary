@@ -36,6 +36,7 @@ for lib in [ HaikuImageGetSystemLibs ] $(developmentLibs) {
 AddFilesToPackage develop lib $(architecture) :
 	<$(architecture)>libcolumnlistview.a
 	<$(architecture)>liblocalestub.a
+	<$(architecture)>libc.a
 	<$(architecture)>libm.a
 	<$(architecture)>libpthread.a
 	<$(architecture)>libshared.a ;
