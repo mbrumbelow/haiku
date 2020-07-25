@@ -61,8 +61,9 @@ AbstractProcess::Run()
 
 	status_t runResult = RunInternal();
 
-	if (runResult != B_OK)
+	if (runResult != B_OK) {
 		HDERROR("[%s] an error has arisen; %s", Name(), strerror(runResult))
+	}
 
 	BReference<AbstractProcessListener> listener;
 

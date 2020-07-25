@@ -165,8 +165,9 @@ TarArchiveService::_UnpackItemData(BDataIO& tarDataIo,
 		remainingInItem -= writeFromBuffer;
 	}
 
-	if (result != B_OK)
+	if (result != B_OK) {
 		HDERROR("unable to unpack item data to; [%s]", targetFilePath.Path())
+	}
 
 	return result;
 }

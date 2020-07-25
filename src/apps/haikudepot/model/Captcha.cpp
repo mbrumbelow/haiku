@@ -1,6 +1,5 @@
 /*
  * Copyright 2019-2020, Andrew Lindesay <apl@lindesay.co.nz>.
- *
  * All rights reserved. Distributed under the terms of the MIT License.
  */
 #include "Captcha.h"
@@ -29,8 +28,9 @@ Captcha::Captcha(BMessage* from)
 	const void* data;
 	ssize_t len;
 
-	if (from->FindData(KEY_PNG_IMAGE_DATA, B_ANY_TYPE, &data, &len) != B_OK)
+	if (from->FindData(KEY_PNG_IMAGE_DATA, B_ANY_TYPE, &data, &len) != B_OK) {
 		HDERROR("expected key [%s] in the message data", KEY_PNG_IMAGE_DATA)
+	}
 	else
 		SetPngImageData(data, len);
 }

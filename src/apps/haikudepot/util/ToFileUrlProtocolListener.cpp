@@ -82,8 +82,9 @@ ToFileUrlProtocolListener::DataReceived(BUrlRequest* caller, const char* data,
 			remaining -= written;
 		} while (remaining > 0 && written > 0);
 
-		if (remaining > 0)
+		if (remaining > 0) {
 			HDERROR("unable to write all of the data to the file")
+		}
 	}
 }
 

@@ -247,16 +247,14 @@ RatePackageWindow::RatePackageWindow(BWindow* parent, BRect frame,
 
 	{
 		AutoLocker<BLocker> locker(fModel.Lock());
-		fCommentLanguageCode = fModel.Language().PreferredLanguage()->Code();
+		fCommentLanguageCode = fModel.Language()->PreferredLanguage()->Code();
 
 		// Construct languages popup
 		BPopUpMenu* languagesMenu = new BPopUpMenu(B_TRANSLATE("Language"));
 		fCommentLanguageField = new BMenuField("language",
 			B_TRANSLATE("Comment language:"), languagesMenu);
 
-		LanguageMenuUtils::AddLanguagesToMenu(
-			fModel.Language().SupportedLanguages(),
-			languagesMenu);
+		LanguageMenuUtils::AddLanguagesToMenu(fModel.Language(), languagesMenu);
 		languagesMenu->SetTargetForItems(this);
 		LanguageMenuUtils::MarkLanguageInMenu(fCommentLanguageCode,
 			languagesMenu);

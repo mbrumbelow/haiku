@@ -133,8 +133,9 @@ UserDetailVerifierProcess::_TryFetchUserDetail(UserDetail& userDetail)
 		// to the most recent user-usage conditions.
 
 		result = interface.UnpackUserDetail(userDetailResponse, userDetail);
-		if (result != B_OK)
+		if (result != B_OK) {
 			HDERROR("it was not possible to unpack the user details.")
+		}
 	}
 
 	return result;

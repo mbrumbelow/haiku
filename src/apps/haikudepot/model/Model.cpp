@@ -334,10 +334,10 @@ Model::~Model()
 }
 
 
-LanguageModel&
+LanguageModel*
 Model::Language()
 {
-	return fLanguageModel;
+	return &fLanguageModel;
 }
 
 
@@ -884,11 +884,11 @@ Model::SetAuthorization(const BString& nickname, const BString& passwordClear,
 */
 
 status_t
-Model::DumpExportRepositoryDataPath(BPath& path) const
+Model::DumpExportRepositoryDataPath(BPath& path)
 {
 	BString leaf;
 	leaf.SetToFormat("repository-all_%s.json.gz",
-		LanguageModel().PreferredLanguage()->Code());
+		Language()->PreferredLanguage()->Code());
 	return StorageUtils::LocalWorkingFilesPath(leaf, path);
 }
 
@@ -899,17 +899,17 @@ Model::DumpExportRepositoryDataPath(BPath& path) const
 */
 
 status_t
-Model::DumpExportReferenceDataPath(BPath& path) const
+Model::DumpExportReferenceDataPath(BPath& path)
 {
 	BString leaf;
 	leaf.SetToFormat("reference-all_%s.json.gz",
-		LanguageModel().PreferredLanguage()->Code());
+		Language()->PreferredLanguage()->Code());
 	return StorageUtils::LocalWorkingFilesPath(leaf, path);
 }
 
 
 status_t
-Model::IconStoragePath(BPath& path) const
+Model::IconStoragePath(BPath& path)
 {
 	return StorageUtils::LocalWorkingDirectoryPath("__allicons", path);
 }
@@ -917,11 +917,11 @@ Model::IconStoragePath(BPath& path) const
 
 status_t
 Model::DumpExportPkgDataPath(BPath& path,
-	const BString& repositorySourceCode) const
+	const BString& repositorySourceCode)
 {
 	BString leaf;
 	leaf.SetToFormat("pkg-all-%s-%s.json.gz", repositorySourceCode.String(),
-		LanguageModel().PreferredLanguage()->Code());
+		Language()->PreferredLanguage()->Code());
 	return StorageUtils::LocalWorkingFilesPath(leaf, path);
 }
 

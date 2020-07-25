@@ -146,15 +146,14 @@ UserLoginWindow::UserLoginWindow(BWindow* parent, BRect frame, Model& model)
 
 	{
 		AutoLocker<BLocker> locker(fModel.Lock());
-		fPreferredLanguageCode = fModel.Language().PreferredLanguage()->Code();
+		fPreferredLanguageCode = fModel.Language()->PreferredLanguage()->Code();
 		// Construct languages popup
 		BPopUpMenu* languagesMenu = new BPopUpMenu(B_TRANSLATE("Language"));
 		fLanguageCodeField = new BMenuField("language",
 			B_TRANSLATE("Preferred language:"), languagesMenu);
 
 		LanguageMenuUtils::AddLanguagesToMenu(
-			fModel.Language().SupportedLanguages(),
-			languagesMenu);
+			fModel.Language(), languagesMenu);
 		languagesMenu->SetTargetForItems(this);
 
 		HDINFO("using preferred language code [%s]",
@@ -369,9 +368,8 @@ UserLoginWindow::QuitRequested()
 	BAutolock locker(&fLock);
 
 	if (fWorkerThread >= 0) {
-		if (Logger::IsDebugEnabled())
-			HDINFO("quit requested while worker thread is operating -- will "
-				"try again once the worker thread has completed")
+		HDDEBUG("quit requested while worker thread is operating -- will "
+			"try again once the worker thread has completed")
 		fQuitRequestedDuringWorkerThread = true;
 		return false;
 	}
@@ -529,10 +527,12 @@ UserLoginWindow::_AuthenticateThread(UserCredentials& userCredentials)
 		userCredentials.SetIsSuccessful(!token.IsEmpty());
 
 		if (Logger::IsDebugEnabled()) {
-			if (token.IsEmpty())
+			if (token.IsEmpty()) {
 				HDINFO("authentication failed")
-			else
+			}
+			else {
 				HDINFO("authentication successful")
+			}
 		}
 
 		BMessenger messenger(this);
@@ -862,6 +862,9 @@ UserLoginWindow::_UnpackCaptcha(BMessage& responsePayload, Captcha& captcha)
 		if (decodedSize <= 0)
 			result = B_ERROR;
 	}
+	else {
+		HDERROR("obtained a captcha with no image data")
+	}
 
 	char* buffer = NULL;
 	if (result == B_OK) {
@@ -876,6 +879,9 @@ UserLoginWindow::_UnpackCaptcha(BMessage& responsePayload, Captcha& captcha)
 			captcha.SetPngImageData(buffer, decodedSize);
 		}
 		delete[] buffer;
+
+		HDDEBUG("did obtain a captcha image of size %" B_PRIuSIZE " bytes",
+			decodedSize)
 	}
 
 	return result;

@@ -202,7 +202,6 @@ ServerIconExportUpdateProcess::_DownloadAndUnpack()
 		case HD_ERR_NOT_MODIFIED:
 			HDINFO("[%s] icons not modified - will use existing", Name())
 			return result;
-			break;
 		case B_OK:
 			return _Unpack(tarGzFilePath);
 		default:

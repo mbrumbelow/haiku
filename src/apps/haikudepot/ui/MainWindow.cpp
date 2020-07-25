@@ -301,8 +301,9 @@ MainWindow::MessageReceived(BMessage* message)
 			int64 errorStatus64;
 			if (message->FindInt64(KEY_ERROR_STATUS, &errorStatus64) == B_OK)
 				_BulkLoadCompleteReceived((status_t) errorStatus64);
-			else
+			else {
 				HDERROR("expected [%s] value in message", KEY_ERROR_STATUS)
+			}
 			break;
 		}
 		case B_SIMPLE_DATA:
