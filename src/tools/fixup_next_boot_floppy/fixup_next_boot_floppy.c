@@ -41,7 +41,9 @@ int main(int argc, char **argv)
 	int fd;
 	uint16_t sum;
 	int labelOffsets[] = { 0, 15, 30, 45 };
-	int numLabels = sizeof(labelOffsets) / sizeof(int);
+	// HACK: for now we force a single label + bootlock at 8kb (min offset the ROM allows) to fit before the tgz
+	int numLabels = 1; //sizeof(labelOffsets) / sizeof(int);
+	uint32_t bootBlockStart = 0x8; // usually 0x20
 
 	struct disk_label disklabel = {
 		H2B32(DL_V3),
@@ -63,7 +65,7 @@ int main(int argc, char **argv)
 		H2B16(0),
 		H2B16(0),
 		H2B16(0),
-		H2B32(0x20),H2B32(0xffffffff),	// boot blocks in 1024 bytes sectors
+		H2B32(bootBlockStart),H2B32(0xffffffff),	// boot blocks in 1024 bytes sectors
 		// XXX: move it closer to start?
 		"haiku_loader",//"fdmach"
 		"schredder",//"silly"
@@ -97,7 +99,7 @@ int main(int argc, char **argv)
 	}
 	*/
 
-	// TODO: update boot block offsets!
+	// TODO: take boot block offsets as arg?
 
 	sum = checksum_16((uint16_t *)&disklabel, SUM_CNT);
 	fprintf(stderr, "checksum: 0x%04x\n", sum);
