@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "0ab9dbbf_3222b8f6",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-26T09:57:00Z",
+      "side": 1,
+      "message": "This function is supposed to read at position \"pos\" in the file data. But you are reading at position \"pos\" from the disk start.\n\nThe handling is similar to that of fOffset in directories, using the direct, indirect, double indirect and triple indirect pointers from the inode to find where the data is on disk.",
+      "revId": "8fa656ac76453e7940110e2fbd92c1e87f67be61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c8d5e717_fd082218",
         "filename": "src/add-ons/kernel/file_systems/ufs2/ufs2.h",
         "patchSetId": 1
