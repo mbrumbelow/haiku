@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "15f5403a_b52ad028",
+        "filename": "src/add-ons/translators/avif/AVIFTranslator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1000233
+      },
+      "writtenOn": "2020-07-26T13:36:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a250dd0b_0ae35045",
+      "revId": "1feda2383a64150f61c2b972a7118c605ba6e0bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9e0cd7d1_61cec6c7",
         "filename": "src/add-ons/translators/avif/AVIFTranslator.cpp",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "1feda2383a64150f61c2b972a7118c605ba6e0bd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3564876_e5177f2c",
+        "filename": "src/add-ons/translators/avif/AVIFTranslator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1000233
+      },
+      "writtenOn": "2020-07-26T13:36:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e0cd7d1_61cec6c7",
+      "revId": "1feda2383a64150f61c2b972a7118c605ba6e0bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "cc7b5139_7695eaad",
+        "filename": "src/add-ons/translators/avif/AVIFTranslator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1000233
+      },
+      "writtenOn": "2020-07-26T13:36:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08665271_703ee46c",
+      "revId": "1feda2383a64150f61c2b972a7118c605ba6e0bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6c26828_787698a7",
         "filename": "src/add-ons/translators/avif/AVIFTranslator.cpp",
         "patchSetId": 2
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "4d388377_c85a73ff",
+        "filename": "src/add-ons/translators/avif/AVIFTranslator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1000233
+      },
+      "writtenOn": "2020-07-26T13:36:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6c26828_787698a7",
+      "revId": "1feda2383a64150f61c2b972a7118c605ba6e0bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a8907607_4398b101",
         "filename": "src/add-ons/translators/avif/AVIFTranslator.cpp",
         "patchSetId": 2
@@ -84,6 +156,24 @@
       "revId": "1feda2383a64150f61c2b972a7118c605ba6e0bd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31725863_54f8ac78",
+        "filename": "src/add-ons/translators/avif/AVIFTranslator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1000233
+      },
+      "writtenOn": "2020-07-26T13:36:58Z",
+      "side": 1,
+      "message": "The return value of BPositionIO::Write() will be (up to) dataSize in this case, so I replaced it with a check instead but functionally that’s the same.",
+      "parentUuid": "a8907607_4398b101",
+      "revId": "1feda2383a64150f61c2b972a7118c605ba6e0bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
