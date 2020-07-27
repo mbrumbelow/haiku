@@ -16,6 +16,23 @@
       "revId": "f636d89adfc85428e29d0d788bf20cab49efd13c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1b49b12_28a22e5b",
+        "filename": "src/apps/haikudepot/server/WebAppInterface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-27T09:20:51Z",
+      "side": 1,
+      "message": "should be if (httpRequest \u003d\u003d NULL)",
+      "revId": "f636d89adfc85428e29d0d788bf20cab49efd13c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
