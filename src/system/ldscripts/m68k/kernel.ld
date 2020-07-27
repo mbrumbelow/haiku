@@ -43,14 +43,14 @@ SECTIONS
 	.plt : { *(.plt) }
 
 	/* text/read-only data */
-	.text :	{ *(.text .gnu.linkonce.t.*) } :text =0x9090
+	.text :	{ *(.text .text.* .gnu.linkonce.t.*) } :text =0x9090
 
-	.rodata : { *(.rodata) }
+	.rodata : { *(.rodata .rodata.*) }
 
 	/* writable data  */
 	. = ALIGN(0x1000);
 	__data_start = .;
-	.data : { *(.data .gnu.linkonce.d.*) } :data
+	.data : { *(.data .data.* .gnu.linkonce.d.*) } :data
 
 	. = ALIGN(0x4);
 	__ctor_list = .;
@@ -64,7 +64,7 @@ SECTIONS
 	
 	/* uninitialized data (in same segment as writable data) */
 	__bss_start = .;
-	.bss : { *(.bss) } :data
+	.bss : { *(.bss .bss.*) } :data
 
 	. = ALIGN(0x1000);
 	_end = . ;
