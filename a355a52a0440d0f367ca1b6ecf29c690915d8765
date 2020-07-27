@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "144f6eef_bdab95c0",
+        "filename": "src/system/boot/platform/next_m68k/video.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-27T09:06:31Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "a355a52a0440d0f367ca1b6ecf29c690915d8765",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
