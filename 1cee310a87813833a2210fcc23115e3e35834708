@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "262c18af_e110da62",
+        "filename": "src/system/ldscripts/m68k/kernel.ld",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-27T07:08:48Z",
+      "side": 1,
+      "message": "All of this can be put in the .data section too\n\nThe sparc ld script does this for example:\nhttps://git.haiku-os.org/haiku/tree/src/system/ldscripts/sparc/boot_loader_openfirmware.ld\n\nIt\u0027s also dropping the destructors because we never cleanly exit from the bootloader anyways so they will not be called.",
+      "revId": "1cee310a87813833a2210fcc23115e3e35834708",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
