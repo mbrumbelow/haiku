@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97dc4027_c9b38348",
+        "filename": "src/add-ons/kernel/network/protocols/tcp/TCPEndpoint.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2083,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-07-27T18:29:11Z",
+      "side": 1,
+      "message": "There\u0027s a typo: \"cna\" instead of \"can\".",
+      "revId": "d140db4ef8eba4a83970f01ea5eb435a46283fb7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
