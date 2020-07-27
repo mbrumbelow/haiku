@@ -2075,7 +2075,13 @@ TCPEndpoint::_SendQueued(bool force, uint32 sendWindow)
 
 	if (consumedWindow > sendWindow) {
 		sendWindow = 0;
-		// TODO: enter persist state? try to get a window update.
+		// There are too many bytes in flight, so we should stop for a while
+		// and wait for an ACK or a window update.
+		if (!gStackModule->is_timer_active(&fPersistTimer)
+			&& !gStackModule->is_timer_active(&fRetransmitTimer))
+			_StartPersistTimer();
+		// We cna still continue with the code below. It won't send any more
+		// data but it may do window probing and other useful things.
 	} else
 		sendWindow -= consumedWindow;
 
@@ -2084,7 +2090,8 @@ TCPEndpoint::_SendQueued(bool force, uint32 sendWindow)
 	bool retransmit = fSendNext < fSendMax;
 
 	if (fDuplicateAcknowledgeCount != 0) {
-		// send at most 1 SMSS of data when under limited transmit, fast transmit/recovery
+		// send at most 1 SMSS of data when under limited transmit,
+		// fast transmit/recovery
 		length = min_c(length, fSendMaxSegmentSize);
 	}
 
