@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f3006391_02451dbe",
+        "filename": "src/apps/haikudepot/model/LanguageModel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-27T12:58:09Z",
+      "side": 1,
+      "message": "two blank lines between functions",
+      "revId": "41372d8751948ccb46bd66b5f510dfa6ce33ca1b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0686fb93_130f4cb3",
+        "filename": "src/apps/haikudepot/model/Model.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-27T12:58:09Z",
+      "side": 1,
+      "message": "why is the constness lost here?",
+      "revId": "41372d8751948ccb46bd66b5f510dfa6ce33ca1b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d07b087_b65571c7",
+        "filename": "src/apps/haikudepot/model/UserUsageConditions.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-27T12:58:09Z",
+      "side": 1,
+      "message": "There should be no braces here according to the coding guidelines.\n\nProbably your macros should be of the form \"do { ... } while(0)\" which allows using them as single statements and with a ; at the end of the line.",
+      "revId": "41372d8751948ccb46bd66b5f510dfa6ce33ca1b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
