@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d141e8e8_df68c0af",
+        "filename": "src/tools/fixup_next_boot_floppy/fixup_next_boot_floppy.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-27T09:09:09Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "1635cb98f432076eca87bf6423af56a8996222e3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0fbd3b4_a6f0b4c3",
+        "filename": "src/tools/fixup_next_boot_floppy/fixup_next_boot_floppy.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-27T09:09:09Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "1635cb98f432076eca87bf6423af56a8996222e3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
