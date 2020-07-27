@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9be573ec_59522c63",
+        "filename": "src/system/boot/platform/next_m68k/start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-27T09:06:06Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "473371a262b357a2785c5281d40ec2925a7f86e6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9eee9a4_f2927be7",
+        "filename": "src/system/boot/platform/next_m68k/start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-27T09:06:06Z",
+      "side": 1,
+      "message": "use #if 0",
+      "revId": "473371a262b357a2785c5281d40ec2925a7f86e6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06001e9c_05b3c029",
+        "filename": "src/system/boot/platform/next_m68k/start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-27T09:06:06Z",
+      "side": 1,
+      "message": "two blqnk lines between functions",
+      "revId": "473371a262b357a2785c5281d40ec2925a7f86e6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
