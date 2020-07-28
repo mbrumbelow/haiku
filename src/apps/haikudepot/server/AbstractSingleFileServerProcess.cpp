@@ -42,7 +42,7 @@ AbstractSingleFileServerProcess::RunInternal()
 		result = DeleteLocalFile(localPath);
 
 	bool hasData = false;
-	off_t size;
+	size_t size;
 
 	if (IsSuccess(result))
 		result = StorageUtils::ExistsObject(localPath, &hasData, NULL, &size);

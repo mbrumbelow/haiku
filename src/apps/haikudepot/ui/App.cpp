@@ -24,6 +24,7 @@
 #include "support.h"
 
 #include "FeaturedPackagesView.h"
+#include "PackageIconTarRepository.h"
 #include "Logger.h"
 #include "MainWindow.h"
 #include "ServerHelper.h"
@@ -54,7 +55,7 @@ App::~App()
 	// We cannot let global destructors cleanup static BitmapRef objects,
 	// since calling BBitmap destructors needs a valid BApplication still
 	// around. That's why we do it here.
-	PackageInfo::CleanupDefaultIcon();
+	PackageIconTarRepository::CleanupDefaultIcon();
 	FeaturedPackagesView::CleanupIcons();
 	ScreenshotWindow::CleanupIcons();
 }

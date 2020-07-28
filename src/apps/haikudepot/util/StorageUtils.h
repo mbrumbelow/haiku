@@ -27,7 +27,13 @@ public:
 	static status_t			ExistsObject(const BPath& path,
 								bool* exists,
 								bool* isDirectory,
-								off_t* size);
+								size_t* size);
+
+	static	status_t		SwapExtensionOnPath(BPath& path,
+								const char* extension);
+	static	BString			SwapExtensionOnPathComponent(
+								const char* pathComponent,
+								const char* extension);
 };
 
 #endif // PATH_UTILS_H
