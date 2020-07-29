@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1dc83774_9dd4d5c6",
+        "filename": "headers/os/interface/TextView.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-07-29T15:31:36Z",
+      "side": 1,
+      "message": "Changed to BRect pointer in patch set 3",
+      "parentUuid": "41119988_a045780b",
+      "revId": "f51671264df95c068d78164ab63bf3673eef0824",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "51fb94f7_9600ed88",
         "filename": "headers/os/interface/TextView.h",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "f51671264df95c068d78164ab63bf3673eef0824",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7fc6a15b_280f65dc",
+        "filename": "headers/os/interface/TextView.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-07-29T15:31:36Z",
+      "side": 1,
+      "message": "BRect pointer takes 4 bytes so this is now correct.",
+      "parentUuid": "51fb94f7_9600ed88",
+      "revId": "f51671264df95c068d78164ab63bf3673eef0824",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "b6cd0c51_5f3b63e5",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-07-29T15:31:36Z",
+      "side": 1,
+      "message": "fixed in patch set 3",
+      "parentUuid": "b6972ae9_772d03f8",
+      "revId": "f51671264df95c068d78164ab63bf3673eef0824",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a8ae38c_b9d70a14",
         "filename": "src/kits/interface/TextView.cpp",
         "patchSetId": 2
@@ -67,6 +121,24 @@
       "revId": "f51671264df95c068d78164ab63bf3673eef0824",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07aa5ec1_25467e36",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1119,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-07-29T15:31:36Z",
+      "side": 1,
+      "message": "Removed in patch set 3",
+      "parentUuid": "8a8ae38c_b9d70a14",
+      "revId": "f51671264df95c068d78164ab63bf3673eef0824",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "4f07ae28_23fba946",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3342,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-07-29T15:31:36Z",
+      "side": 1,
+      "message": "Fixed this and a few more below 80 char limit violations.",
+      "parentUuid": "2861d09a_1255eda6",
+      "revId": "f51671264df95c068d78164ab63bf3673eef0824",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6bbb7524_05f73750",
         "filename": "src/kits/interface/TextView.cpp",
         "patchSetId": 2
@@ -101,6 +191,24 @@
       "revId": "f51671264df95c068d78164ab63bf3673eef0824",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf034310_cda1f9c2",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3702,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-07-29T15:31:36Z",
+      "side": 1,
+      "message": "Fixed in patch set 3",
+      "parentUuid": "6bbb7524_05f73750",
+      "revId": "f51671264df95c068d78164ab63bf3673eef0824",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
