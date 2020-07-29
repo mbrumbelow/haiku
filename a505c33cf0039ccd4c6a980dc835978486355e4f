@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "35f64e94_f54df09a",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 2488,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-07-29T16:57:08Z",
+      "side": 1,
+      "message": "Setting should be read from config file.",
+      "revId": "a505c33cf0039ccd4c6a980dc835978486355e4f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
