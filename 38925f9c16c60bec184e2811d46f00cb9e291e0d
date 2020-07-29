@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "08483b4e_d9d53074",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 2531,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-29T06:53:25Z",
+      "side": 1,
+      "message": "trailing tabs",
+      "revId": "38925f9c16c60bec184e2811d46f00cb9e291e0d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49e2868f_be6a363a",
+        "filename": "src/apps/webpositive/BrowserWindow.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-29T06:53:25Z",
+      "side": 1,
+      "message": "This needs to be adjusted to the current number of search engines",
+      "revId": "38925f9c16c60bec184e2811d46f00cb9e291e0d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
