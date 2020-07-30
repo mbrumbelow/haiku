@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8a542746_fbe9fc60",
+        "filename": "headers/os/interface/InterfaceDefs.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-07-30T10:09:14Z",
+      "side": 1,
+      "message": "I totally agreed with you but, for now, I just want to continue with less code. If I try this it makes things more complex for me. We can do refactoring when it starts working as we want.\nFor now, can you please find where the code crashes and the debugger window comes as I explain it in the commit message.",
+      "parentUuid": "2c667810_3482f15e",
+      "revId": "7b627172bed2992b4f7a3090840c17b6abe0112f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "37af7794_e25ede98",
         "filename": "src/add-ons/input_server/devices/mouse/MouseInputDevice.cpp",
         "patchSetId": 12
