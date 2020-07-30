@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9bb85eb7_9b6b19c9",
+        "filename": "src/system/boot/platform/efi/arch/arm/arch_start.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-30T07:06:12Z",
+      "side": 1,
+      "message": "Is this different from the x86 version? Or could we move this out of the arch/ directories?",
+      "revId": "7df69aa003490ea8c7db9c91d96a2bc18ff66e54",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8e7da2e_c42fabf3",
+        "filename": "src/system/boot/platform/efi/arch/arm/arch_start.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-30T07:06:12Z",
+      "side": 1,
+      "message": "can we use B_PAGE_SIZE instead of 4096?",
+      "revId": "7df69aa003490ea8c7db9c91d96a2bc18ff66e54",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
