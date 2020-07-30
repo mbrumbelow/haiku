@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2c667810_3482f15e",
+        "filename": "headers/os/interface/InterfaceDefs.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-30T07:46:46Z",
+      "side": 1,
+      "message": "since we are adding a new API, I think we could make it simpler. Have a single get_mouse_settings(BString mouse_name, mouse_settings* settings)\nand set_mouse_settings() with the same parameters.\n\nIt will be simpler and faster than getting each setting one by one.",
+      "revId": "7b627172bed2992b4f7a3090840c17b6abe0112f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37af7794_e25ede98",
+        "filename": "src/add-ons/input_server/devices/mouse/MouseInputDevice.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-30T07:46:46Z",
+      "side": 1,
+      "message": "the {} are needed here. In our coding guidelines, they are needed when the body of the else is more than one line, independently of wether it\u0027s a single statement or not.",
+      "revId": "7b627172bed2992b4f7a3090840c17b6abe0112f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6434a59e_92fe0be4",
+        "filename": "src/add-ons/input_server/devices/mouse/MouseInputDevice.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-30T07:46:46Z",
+      "side": 1,
+      "message": "this line is too long now",
+      "revId": "7b627172bed2992b4f7a3090840c17b6abe0112f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "149f334e_1bb25913",
+        "filename": "src/add-ons/input_server/devices/mouse/MouseInputDevice.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-30T07:46:46Z",
+      "side": 1,
+      "message": "the { goes on the same line as else, why change that?",
+      "revId": "7b627172bed2992b4f7a3090840c17b6abe0112f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbdb6ccb_72abf406",
+        "filename": "src/kits/interface/InterfaceDefs.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-30T07:46:46Z",
+      "side": 1,
+      "message": "that\u0027s the same as string.h which is already included",
+      "revId": "7b627172bed2992b4f7a3090840c17b6abe0112f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fbf377b2_7eab9080",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-30T07:46:46Z",
+      "side": 1,
+      "message": "now this log is confusing, since it\u0027s still the old get_mouse_speed here",
+      "revId": "7b627172bed2992b4f7a3090840c17b6abe0112f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf2c8f45_6bd0ddc6",
+        "filename": "src/preferences/input/MouseSettings.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-30T07:46:46Z",
+      "side": 1,
+      "message": "String goes before SupportDefs",
+      "revId": "7b627172bed2992b4f7a3090840c17b6abe0112f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0474d6e3_0d521b1e",
+        "filename": "src/servers/input/InputServer.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 657,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-30T07:46:46Z",
+      "side": 1,
+      "message": "missing {}\n\nEven if the logs are temporary, take the time to write the code cleanly and indent it properly, it will help avoid problems like this",
+      "revId": "7b627172bed2992b4f7a3090840c17b6abe0112f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eaf8b733_a6dd77b6",
+        "filename": "src/servers/input/InputServer.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1866,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-30T07:46:46Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "7b627172bed2992b4f7a3090840c17b6abe0112f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6990aa52_b3463271",
+        "filename": "src/servers/input/InputServer.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1867,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-30T07:46:46Z",
+      "side": 1,
+      "message": "no {} needed here",
+      "revId": "7b627172bed2992b4f7a3090840c17b6abe0112f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3b0435b5_f31e0dce",
+        "filename": "src/preferences/input/MouseSettings.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-30T07:46:46Z",
+      "side": 0,
+      "message": "two blank lines was correct here",
+      "revId": "0e7f882b12744cdaef7e58a7f7bbf7a326a999a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5d25864_e33b210a",
+        "filename": "src/servers/input/InputServer.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-30T07:46:46Z",
+      "side": 0,
+      "message": "two blank lines was correct here",
+      "revId": "0e7f882b12744cdaef7e58a7f7bbf7a326a999a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
