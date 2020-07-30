@@ -37,6 +37,40 @@
     },
     {
       "key": {
+        "uuid": "929f928a_476ce694",
+        "filename": "src/system/boot/platform/efi/arch/arm/arch_start.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-30T19:37:10Z",
+      "side": 1,
+      "message": "There needs to be one more tab.",
+      "revId": "7df69aa003490ea8c7db9c91d96a2bc18ff66e54",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65704efa_9e755f90",
+        "filename": "src/system/boot/platform/efi/arch/arm/arch_start.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-30T19:37:10Z",
+      "side": 1,
+      "message": "Here as well.",
+      "revId": "7df69aa003490ea8c7db9c91d96a2bc18ff66e54",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a8e7da2e_c42fabf3",
         "filename": "src/system/boot/platform/efi/arch/arm/arch_start.cpp",
         "patchSetId": 2
@@ -66,6 +100,40 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "a8e7da2e_c42fabf3",
+      "revId": "7df69aa003490ea8c7db9c91d96a2bc18ff66e54",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47333c48_ae16f17c",
+        "filename": "src/system/boot/platform/efi/arch/arm/arch_start.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-30T19:37:10Z",
+      "side": 1,
+      "message": "It\u0027s one tab too many here for a change :-)",
+      "revId": "7df69aa003490ea8c7db9c91d96a2bc18ff66e54",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6aa48de2_99bc95fb",
+        "filename": "src/system/boot/platform/efi/arch/arm/arch_start.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-07-30T19:37:10Z",
+      "side": 1,
+      "message": "And here again.",
       "revId": "7df69aa003490ea8c7db9c91d96a2bc18ff66e54",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
