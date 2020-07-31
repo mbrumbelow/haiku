@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b66c5a57_0554cbd4",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-31T07:06:41Z",
+      "side": 1,
+      "message": "The \"pos\" passed as a parameter tells you where you should read in the file. Here you are ignoring it and resetting it to the beginning of the file everytime.\n\nInstead you should compute the first block to read from depending on the position (probably position / block_size), then determine if that is a direct or indirect block.",
+      "revId": "c7a91e409175936bf7dd01edc10a143f53506142",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca4b2f0c_739f2f25",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-31T07:06:41Z",
+      "side": 1,
+      "message": "You are not expected to read the whole file here. The _length parameter is used as both input and output. As input, it tells you the size of the buffer, that is the maximum number of bytes you are allowed to read. As output, you have to set it to the number of bytes actually read (that may be less than the buffer size, for example if you reach the end of the file, but it should never be more).",
+      "revId": "c7a91e409175936bf7dd01edc10a143f53506142",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "659dda44_1cc6483a",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-07-31T07:06:41Z",
+      "side": 1,
+      "message": "I think it makes more sense to use while (size \u003e 0) here and read from multiple blocks?",
+      "revId": "c7a91e409175936bf7dd01edc10a143f53506142",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
