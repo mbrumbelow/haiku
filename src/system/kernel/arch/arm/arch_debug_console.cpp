@@ -18,6 +18,7 @@
 #include <vm/vm.h>
 #include <string.h>
 
+#include <arch_uart_pl011.h>
 
 // TODO: Declare this in some header
 DebugUART *gArchDebugUART;
@@ -95,9 +96,12 @@ status_t
 arch_debug_console_init(kernel_args *args)
 {
 	// first try with hints from the FDT
-	// TODO: Use UEFI somehow
 
 	//gArchDebugUART = debug_uart_from_fdt(args->platform_args.fdt);
+
+	// TODO: Get debug console from EFI platform_args?
+	// Based on qemu-system-arm -M virt,dumpdtb=file.dtb
+	gArchDebugUART = arch_get_uart_pl011(0x9000000, 0x16e3600);
 
 	// Do we can some kind of direct fallback here
 	// (aka, guess arch_get_uart_pl011 or arch_get_uart_8250?)
@@ -105,6 +109,7 @@ arch_debug_console_init(kernel_args *args)
 		return B_ERROR;
 
 	gArchDebugUART->InitEarly();
+	gArchDebugUART->InitPort(115200);
 
 	return B_OK;
 }
