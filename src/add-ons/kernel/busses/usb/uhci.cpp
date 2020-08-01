@@ -215,11 +215,14 @@ Queue::AppendTransfer(uhci_qh *transfer, bool lock)
 	} else {
 		// append the transfer queue to the list
 		uhci_qh *element = fQueueTop;
-		while (element && element->link_log)
+		while (element != NULL && element->link_log != NULL)
 			element = (uhci_qh *)element->link_log;
 
-		element->link_log = transfer;
-		element->link_phy = transfer->this_phy | QH_NEXT_IS_QH;
+		if (element != NULL) {
+			if (element->link_log != NULL)
+				element->link_log = transfer;
+			element->link_phy = transfer->this_phy | QH_NEXT_IS_QH;
+		}
 	}
 
 	if (lock)
