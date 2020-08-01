@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9529310_0bcc7599",
+        "filename": "src/data/keyboard_layouts/X-Bows_Nature",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-01T08:17:41Z",
+      "side": 1,
+      "message": "if it\u0027s not needed it can be removed?",
+      "revId": "dfcb43b38eb681c1f47cb75973204db222f1f123",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
