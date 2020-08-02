@@ -5,7 +5,7 @@ RemotePackageRepository HaikuPorts
 	# architecture "any" packages
 	be_book-2008_10_26-3
 	ca_root_certificates-2020_01_01-1
-	gnu_efi_kernel-3.0.10-1
+	gnu_efi_kernel-3.0.9-1
 	haikuporter-1.2.3-2
 	noto-20170920-4
 	noto_sans_cjk_jp-1.004-2
@@ -60,7 +60,7 @@ RemotePackageRepository HaikuPorts
 	groff-1.20.1-4
 	gutenprint8-5.3.1-1
 	gutenprint8_devel-5.3.1-1
-	gzip-1.10-1
+	gzip-1.8-2
 	icu-57.2-2
 	icu_devel-57.2-2
 	jam-2.5_2018_11_21-7
@@ -101,8 +101,8 @@ RemotePackageRepository HaikuPorts
 	libvpx-1.0.0-2
 	libwebp-1.1.0-2
 	libwebp_devel-1.1.0-2
-	libxml2-2.9.10-1
-	libxml2_devel-2.9.10-1
+	libxml2-2.9.9-4
+	libxml2_devel-2.9.9-4
 	live555-2016.06.22-5
 	live555_devel-2016.06.22-5
 	m4-1.4.18-3
@@ -127,7 +127,7 @@ RemotePackageRepository HaikuPorts
 	openssh-8.3p1-1
 	openssl-1.1.1g-2
 	openssl_devel-1.1.1g-2
-	p7zip-16.02-1
+	p7zip-9.20.1-7
 	patch-2.7.5-3
 	pdflib-5.0.3-3
 	pdfwriter-1.0-3
@@ -190,8 +190,8 @@ RemotePackageRepository HaikuPorts
 	gmp_x86-6.1.2-3
 	haikuwebkit_x86-1.7.0-1
 	haikuwebkit_x86_devel-1.7.0-1
-	icu_x86-57.2-2
-	icu_x86_devel-57.2-2
+	icu66_x86-66.1-1
+	icu66_x86_devel-66.1-1
 	jasper_x86-2.0.16-4
 	jasper_x86_devel-2.0.16-4
 	lame_x86-3.100-3
@@ -212,8 +212,8 @@ RemotePackageRepository HaikuPorts
 	libmodplug_x86-0.8.9.0-1
 	libogg_x86-1.3.4-1
 	libogg_x86_devel-1.3.4-1
-	libopenmpt_x86-0.4.11-1
-	libopenmpt_x86_devel-0.4.11-1
+	libopenmpt_x86-0.4.6-1
+	libopenmpt_x86_devel-0.4.6-1
 	libpng16_x86-1.6.37-1
 	libpng16_x86_devel-1.6.37-1
 	libsolv_x86-0.3.0_haiku_2014_12_22-3
@@ -223,24 +223,24 @@ RemotePackageRepository HaikuPorts
 	libtheora_x86_devel-1.1.1-7
 	libtool_x86-2.4.6-2
 	libtool_x86_libltdl-2.4.6-2
-	libunistring_x86-0.9.10-1
+	libunistring_x86-0.9.9-2
 	libvorbis_x86-1.3.6-1
 	libvorbis_x86_devel-1.3.6-1
 	libvpx_x86-1.7.0-3
 	libvpx_x86_devel-1.7.0-3
 	libwebp_x86-1.1.0-2
 	libwebp_x86_devel-1.1.0-2
-	libxml2_x86-2.9.10-1
-	libxml2_x86_devel-2.9.10-1
+	libxml2_x86-2.9.9-4
+	libxml2_x86_devel-2.9.9-4
 	libxslt_x86-1.1.34-1
 	live555_x86-2016.06.22-5
 	live555_x86_devel-2016.06.22-5
 	llvm_x86-5.0.0-3
 	llvm_x86_libs-5.0.0-3
 	llvm7_x86_libs-7.0.1-2
-	mesa_x86-17.1.10-6
-	mesa_x86_devel-17.1.10-6
-	mesa_x86_swpipe-17.1.10-6
+	mesa_x86-17.1.7-8
+	mesa_x86_devel-17.1.7-8
+	mesa_x86_swpipe-17.1.7-8
 	ncurses6_x86-6.2-1
 	ncurses6_x86_devel-6.2-1
 	mpc_x86-1.1.0-2
