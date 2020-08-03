@@ -101,6 +101,9 @@ public:
 			status_t			GetAllExtents();
 			size_t				MaxRecordsPossible(size_t len);
 			status_t			UnWrapExtents();
+			int					SearchAndFillMap(int blockNo);
+			status_t			FillBuffer(int type, char* blockBuffer,
+									int howManyBlocksFurthur);
 private:
 			Inode*				fInode;
 			BlockInDataFork*	fRoot;
@@ -109,6 +112,9 @@ private:
 			ExtentMapEntry*		fExtents;
 			uint32				fCountOfFilledExtents;
 			char*				fSingleDirBlock;
+			uint32				fCurMapIndex;
+			uint64				fOffset;
+			uint32				fCurBlockNumber;
 };
 
 
