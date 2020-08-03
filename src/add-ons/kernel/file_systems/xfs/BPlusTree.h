@@ -100,7 +100,9 @@ public:
 			TreePointer*		GetPtr(int pos, LongBlock* pointer); // get the pos'th pointer
 			status_t			GetAllExtents();
 			size_t				MaxRecordsPossible(size_t len);
-
+			int					SearchAndFillMap(int blockNo);
+			status_t			FillBuffer(int type, char* blockBuffer,
+									int howManyBlocksFurthur);
 private:
 	inline	status_t			UnWrapExtents();
 
@@ -111,6 +113,9 @@ private:
 			ExtentMapEntry*		fExtents;
 			uint32				fCountOfFilledExtents;
 			char*				fSingleDirBlock;
+			uint32				fCurMapIndex;
+			uint64				fOffset;
+			uint32				fCurBlockNumber;
 };
 
 
