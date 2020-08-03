@@ -12,6 +12,7 @@
 
 #include "fssh_api_wrapper.h"
 #include "fssh_auto_deleter.h"
+#include "fssh_kernel_priv.h"
 #include "Debug.h"
 
 #ifdef __cplusplus
@@ -38,6 +39,7 @@ extern "C"
 
 #include <tracing.h>
 #include <driver_settings.h>
+#include <kernel.h>
 #include <fs_attr.h>
 #include <fs_cache.h>
 #include <fs_index.h>
