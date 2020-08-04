@@ -544,7 +544,7 @@ MouseDevice::_UpdateSettings()
 		}
 	}
 
-	if (get_mouse_type(&fSettings.type) != B_OK)
+	if (get_multiple_mouse_type(fDeviceRef.name, &fSettings.type) != B_OK)
 		LOG_ERR("error when get_mouse_type\n");
 	else
 		ioctl(fDevice, MS_SET_TYPE, &fSettings.type);
