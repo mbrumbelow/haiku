@@ -87,8 +87,8 @@ MouseSettings::_RetrieveSettings()
 		fprintf(stderr, "error when get_mouse_speed\n");
 	if (get_mouse_acceleration(&fSettings.accel.accel_factor) != B_OK)
 		fprintf(stderr, "error when get_mouse_acceleration\n");
-	if (get_mouse_type(&fSettings.type) != B_OK)
-		fprintf(stderr, "error when get_mouse_type\n");
+	if (get_multiple_mouse_type(fname, &fSettings.type) != B_OK)
+		fprintf(stderr, "error when get_multiple_mouse_type\n");
 
 	fMode = mouse_mode();
 	fFocusFollowsMouseMode = focus_follows_mouse_mode();
@@ -264,10 +264,15 @@ MouseSettings::SetWindowPosition(BPoint corner)
 void
 MouseSettings::SetMouseType(int32 type)
 {
-	if (set_mouse_type(type) == B_OK)
-		fSettings.type = type;
+	fprintf(stderr, "DEBUG_MOUSE->PREF->SetMouseType:\t%" B_PRId32 "\n", type);
+	if (set_multiple_mouse_type(fname, type) == B_OK) {
+	fprintf(stderr, "DEBUG_MOUSE->PREF->SetMouseType:"
+		"Mouse Name: %s MouseType: %d \n", fname.String(), type);
+    fSettings.type = type; }
 	else
 		fprintf(stderr, "error when set_mouse_type\n");
+	    fprintf(stderr, "DEBUG_MOUSE->PREF->SetMouseType:"
+			"error when set_mouse_tye \n");
 }
 
 
