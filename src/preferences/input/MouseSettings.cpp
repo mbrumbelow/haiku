@@ -29,10 +29,11 @@ static const int32 kDefaultAccelerationFactor = 65536;
 static const bool kDefaultAcceptFirstClick = true;
 
 
-MouseSettings::MouseSettings()
+MouseSettings::MouseSettings(BString name)
 	:
 	fWindowPosition(-1, -1)
 {
+	fname = name;
 	_RetrieveSettings();
 
 	fOriginalSettings = fSettings;
@@ -41,10 +42,11 @@ MouseSettings::MouseSettings()
 	fOriginalAcceptFirstClick = fAcceptFirstClick;
 }
 
-MouseSettings::MouseSettings(mouse_settings settings)
+MouseSettings::MouseSettings(mouse_settings settings, BString name)
 	:
 	fSettings(settings)
 {
+	fname = name;
 
 #ifdef DEBUG
     Dump();
@@ -444,14 +446,14 @@ MultipleMouseSettings::RetrieveSettings()
 		while (message.FindString("mouseDevice", i, &deviceName) == B_OK) {
 			message.FindData("mouseSettings", B_ANY_TYPE, i,
 				(const void**)&settings, &size);
-			MouseSettings* mouseSettings = new MouseSettings(*settings);
+			MouseSettings* mouseSettings = new MouseSettings(*settings, deviceName);
 			fMouseSettingsObject.insert(std::pair<BString, MouseSettings*>
 				(deviceName, mouseSettings));
 			i++;
 		}
 	} if (message.Unflatten(&file) != B_OK) {
 		// Does not look like a BMessage, try loading using the old format
-		fDeprecatedMouseSettings = new MouseSettings();
+		fDeprecatedMouseSettings = new MouseSettings("");
 		fDeprecatedMouseSettings->_RetrieveSettings();
 	}
 }
@@ -530,6 +532,7 @@ MultipleMouseSettings::AddMouseSettings(BString mouse_name)
 			(*fDeprecatedMouseSettings);
 
 		if (RetrievedSettings != NULL) {
+			RetrievedSettings->fname = mouse_name;
 			fMouseSettingsObject.insert(std::pair<BString, MouseSettings*>
 				(mouse_name, RetrievedSettings));
 
@@ -543,7 +546,7 @@ MultipleMouseSettings::AddMouseSettings(BString mouse_name)
 	if (itr != fMouseSettingsObject.end())
 		return GetMouseSettings(mouse_name);
 
-	MouseSettings* settings = new (std::nothrow) MouseSettings();
+	MouseSettings* settings = new (std::nothrow) MouseSettings(mouse_name);
 
 	if(settings !=NULL) {
 		fMouseSettingsObject.insert(std::pair<BString, MouseSettings*>
