@@ -21,6 +21,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <syslog.h>
 
 #include <Bitmap.h>
 #include <Clipboard.h>
@@ -483,6 +484,15 @@ get_mouse_type(int32 *type)
 {
 	BMessage command(IS_GET_MOUSE_TYPE);
 	BMessage reply;
+
+	BString* name = new BString("ABC");
+
+	command.AddString("debug_mousename", name->String());
+	syslog(LOG_CRIT, "DEBUG_MOUSE->INTERFACEDEFS->Add get_mouse_type: %s \n", name->String());
+
+	BString retrive_name;
+	command.FindString("debug_mousename", &retrive_name);
+	syslog(LOG_CRIT, "DEBUG_MOUSE->INTERFACEDEFS->Find get_mouse_type: %s \n", retrive_name.String());
 
 	status_t err = _control_input_server_(&command, &reply);
 	if (err != B_OK)
