@@ -87,8 +87,8 @@ MouseSettings::_RetrieveSettings()
 		fprintf(stderr, "error when get_mouse_speed\n");
 	if (get_mouse_acceleration(&fSettings.accel.accel_factor) != B_OK)
 		fprintf(stderr, "error when get_mouse_acceleration\n");
-	if (get_mouse_type(&fSettings.type) != B_OK)
-		fprintf(stderr, "error when get_mouse_type\n");
+	if (get_multiple_mouse_type(fname, &fSettings.type) != B_OK)
+		fprintf(stderr, "error when get_multiple_mouse_type\n");
 
 	fMode = mouse_mode();
 	fFocusFollowsMouseMode = focus_follows_mouse_mode();
@@ -264,10 +264,8 @@ MouseSettings::SetWindowPosition(BPoint corner)
 void
 MouseSettings::SetMouseType(int32 type)
 {
-	if (set_mouse_type(type) == B_OK)
+	if (set_multiple_mouse_type(fname, type) == B_OK)
 		fSettings.type = type;
-	else
-		fprintf(stderr, "error when set_mouse_type\n");
 }
 
 
@@ -286,8 +284,6 @@ MouseSettings::SetClickSpeed(bigtime_t clickSpeed)
 
 	if (set_click_speed(clickSpeed) == B_OK)
 		fSettings.click_speed = clickSpeed;
-	else
-		fprintf(stderr, "error when set_click_speed\n");
 }
 
 
@@ -296,8 +292,6 @@ MouseSettings::SetMouseSpeed(int32 speed)
 {
 	if (set_mouse_speed(speed) == B_OK)
 		fSettings.accel.speed = speed;
-	else
-		fprintf(stderr, "error when set_mouse_speed\n");
 }
 
 
@@ -306,8 +300,6 @@ MouseSettings::SetAccelerationFactor(int32 factor)
 {
 	if (set_mouse_acceleration(factor) == B_OK)
 		fSettings.accel.accel_factor = factor;
-	else
-		fprintf(stderr, "error when set_mouse_acceleration\n");
 }
 
 
@@ -329,8 +321,7 @@ void
 MouseSettings::SetMapping(int32 index, uint32 button)
 {
 	fSettings.map.button[index] = button;
-	if (set_mouse_map(&fSettings.map) != B_OK)
-		fprintf(stderr, "error when set_mouse_map\n");
+	set_mouse_map(&fSettings.map);
 }
 
 
@@ -339,8 +330,6 @@ MouseSettings::SetMapping(mouse_map &map)
 {
 	if (set_mouse_map(&map) == B_OK)
 		fSettings.map = map;
-	else
-		fprintf(stderr, "error when set_mouse_map\n");
 }
 
 
@@ -380,9 +369,8 @@ MultipleMouseSettings::MultipleMouseSettings()
 	RetrieveSettings();
 
 #ifdef DEBUG
-    Dump();
+	Dump();
 #endif
-
 }
 
 
@@ -391,7 +379,7 @@ MultipleMouseSettings::~MultipleMouseSettings()
 	SaveSettings();
 
 #ifdef DEBUG
-    Dump();
+	Dump();
 #endif
 
 	std::map<BString, MouseSettings*>::iterator itr;
