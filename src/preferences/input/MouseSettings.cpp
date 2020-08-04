@@ -376,6 +376,7 @@ MouseSettings::GetSettings() {
 
 MultipleMouseSettings::MultipleMouseSettings()
 {
+	fDeprecatedMouseSettings = NULL;
 	RetrieveSettings();
 
 #ifdef DEBUG
@@ -443,11 +444,8 @@ MultipleMouseSettings::RetrieveSettings()
 				(deviceName, mouseSettings));
 			i++;
 		}
-	}
-
-	else {
-		IsRetrievedSettingsDeprecated = true;
-
+	} else {
+		// Does not look like a BMessage, try loading using the old format
 		fDeprecatedMouseSettings = new MouseSettings();
 		fDeprecatedMouseSettings->_RetrieveSettings();
 	}
@@ -522,7 +520,7 @@ MultipleMouseSettings::Dump()
 MouseSettings*
 MultipleMouseSettings::AddMouseSettings(BString mouse_name)
 {
-	if(IsRetrievedSettingsDeprecated == true) {
+	if(fDeprecatedMouseSettings != NULL) {
 		MouseSettings* RetrievedSettings = new (std::nothrow) MouseSettings
 			(*fDeprecatedMouseSettings);
 
