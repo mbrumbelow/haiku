@@ -83,7 +83,8 @@ private:
 };
 
 
-class MultipleMouseSettings: public BArchivable {
+class MultipleMouseSettings: public BArchivable
+{
 	public:
 		MultipleMouseSettings();
 		~MultipleMouseSettings();
@@ -94,7 +95,6 @@ class MultipleMouseSettings: public BArchivable {
 		void Dump();
 		status_t SaveSettings();
 
-
 		/** Get or create settings for the given mouse */
 		MouseSettings* AddMouseSettings(BString mouse_name);
 		/** Get the existing settings, or return NULL */
@@ -104,7 +104,7 @@ class MultipleMouseSettings: public BArchivable {
 		static status_t GetSettingsPath(BPath &path);
 		void RetrieveSettings();
 
-		bool IsRetrievedSettingsDeprecated;
+	private:
 		MouseSettings*	fDeprecatedMouseSettings;
 
 		typedef std::map<BString, MouseSettings*> mouse_settings_object;
