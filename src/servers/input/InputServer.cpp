@@ -34,6 +34,7 @@
 
 #include <stdio.h>
 #include <strings.h>
+#include <syslog.h>
 
 #include "SystemKeymap.h"
 	// this is an automatically generated file
@@ -634,6 +635,10 @@ InputServer::HandleSetMethod(BMessage* message)
 status_t
 InputServer::HandleGetSetMouseType(BMessage* message, BMessage* reply)
 {
+	BString name;
+	message->FindString("debug_mousename", &name);
+	syslog(LOG_CRIT, "DEBUG_MOUSE->INPUTSERVER->HandleGetSetMouseType: %s \n", name.String());
+
 	int32 type;
 	if (message->FindInt32("mouse_type", &type) == B_OK) {
 		fMouseSettings.SetMouseType(type);
