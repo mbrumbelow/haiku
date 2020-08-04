@@ -84,8 +84,8 @@ private:
 };
 
 
-// We want the settings to be stored in a BMessage
-class MultipleMouseSettings: public BArchivable {
+class MultipleMouseSettings: public BArchivable
+{
 	public:
 		MultipleMouseSettings();
 		~MultipleMouseSettings();
@@ -96,7 +96,6 @@ class MultipleMouseSettings: public BArchivable {
 		void Dump();
 		status_t SaveSettings();
 
-
 		MouseSettings* AddMouseSettings(BString mouse_name);
 		MouseSettings* GetMouseSettings(BString mouse_name);
 
@@ -104,7 +103,7 @@ class MultipleMouseSettings: public BArchivable {
 		static status_t GetSettingsPath(BPath &path);
 		void RetrieveSettings();
 
-		bool IsRetrievedSettingsDeprecated;
+	private:
 		MouseSettings*	fDeprecatedMouseSettings;
 
 		typedef std::map<BString, MouseSettings*> mouse_settings_object;
