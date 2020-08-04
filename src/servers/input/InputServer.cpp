@@ -34,6 +34,7 @@
 
 #include <stdio.h>
 #include <strings.h>
+#include <syslog.h>
 
 #include "SystemKeymap.h"
 	// this is an automatically generated file
@@ -145,7 +146,8 @@ InputServer::InputServer()
 	fKeyboardID(0),
 	fInputDeviceListLocker("input server device list"),
 	fKeyboardSettings(),
-	fMouseSettings(),
+	fMouseSettings(""),
+	fMultipleMouseSettings(),
 	fChars(NULL),
 	fScreen(B_MAIN_SCREEN_ID),
 	fEventQueueLock("input server event queue"),
@@ -381,6 +383,7 @@ InputServer::ReadyToRun()
 status_t
 InputServer::_AcquireInput(BMessage& message, BMessage& reply)
 {
+	syslog(LOG_CRIT, "DEBUG_MOUSE->SERVER->_AcquireInput: \n");
 	// TODO: it currently just gets everything we have
 	area_id area;
 	if (message.FindInt32("cursor area", &area) == B_OK) {
@@ -419,6 +422,7 @@ InputServer::_AcquireInput(BMessage& message, BMessage& reply)
 void
 InputServer::_ReleaseInput(BMessage* /*message*/)
 {
+	syslog(LOG_CRIT, "DEBUG_MOUSE->SERVER->_ReleaseInput: \n");
 	if (fCursorBuffer != NULL) {
 		fCursorBuffer = NULL;
 		delete_sem(fCursorSem);
@@ -435,6 +439,7 @@ InputServer::_ReleaseInput(BMessage* /*message*/)
 void
 InputServer::MessageReceived(BMessage* message)
 {
+	syslog(LOG_CRIT, "DEBUG_MOUSE->SERVER->_MessageReveived: \n");
 	CALLED();
 
 	BMessage reply;
@@ -448,10 +453,14 @@ InputServer::MessageReceived(BMessage* message)
 			HandleSetMethod(message);
 			break;
 		case IS_GET_MOUSE_TYPE:
+		syslog(LOG_CRIT, "DEBUG_MOUSE->SERVER->IS_GET_MOUSE_TYPE:before status \n");
 			status = HandleGetSetMouseType(message, &reply);
+		syslog(LOG_CRIT, "DEBUG_MOUSE->SERVER->IS_GET_MOUSE_TYPE:after status \n");
 			break;
 		case IS_SET_MOUSE_TYPE:
+		syslog(LOG_CRIT, "DEBUG_MOUSE->SERVER->IS_SET_MOUSE_TYPE:before status \n");
 			status = HandleGetSetMouseType(message, &reply);
+		syslog(LOG_CRIT, "DEBUG_MOUSE->SERVER->IS_SET_MOUSE_TYPE:before status \n");
 			break;
 		case IS_GET_MOUSE_ACCELERATION:
 			status = HandleGetSetMouseAcceleration(message, &reply);
@@ -609,6 +618,7 @@ InputServer::MessageReceived(BMessage* message)
 void
 InputServer::HandleSetMethod(BMessage* message)
 {
+	syslog(LOG_CRIT, "DEBUG_MOUSE->SERVER->_ReleaseInput: \n");
 	CALLED();
 	int32 cookie;
 	if (message->FindInt32("cookie", &cookie) != B_OK)
@@ -634,17 +644,51 @@ InputServer::HandleSetMethod(BMessage* message)
 status_t
 InputServer::HandleGetSetMouseType(BMessage* message, BMessage* reply)
 {
-	int32 type;
-	if (message->FindInt32("mouse_type", &type) == B_OK) {
-		fMouseSettings.SetMouseType(type);
-		be_app_messenger.SendMessage(IS_SAVE_SETTINGS);
+	syslog(LOG_CRIT, "DEBUG_MOUSE->SERVER->HandleGetSetMouseType: \n");
+	fprintf(stderr, "MOUSE TYPE");
 
-		BMessage msg(IS_CONTROL_DEVICES);
-		msg.AddInt32("type", B_POINTING_DEVICE);
-		msg.AddInt32("code", B_MOUSE_TYPE_CHANGED);
-		return fAddOnManager->PostMessage(&msg);
-	}
+    // int32 type;
+	BString mouse_name;
 
+    message->FindString("mouse_name", &mouse_name);
+    syslog(LOG_CRIT, "DEBUG->SERVER->HandleGetSetMouseType: MOUSE NAMEe %s \n",
+         mouse_name.String());
+
+	BString name;
+    message->FindString("palo",  &name);
+    syslog(LOG_CRIT, "DEBUG->SERVER->HandleGetSetMousetype: DEBUG NAME: %s \n", name.String());  
+
+
+   // BString trick = BString(mouse_name);
+   // syslog(LOG_CRIT, "DEBUG->SERVER->HandleGetSetMouseType: MOUSE NAME trick vala: %s \n", trick.String());
+
+/*
+	if (message->FindString("mouse_name", &mouse_name) == B_OK)
+        syslog(LOG_CRIT, "DEBUG_MOUSE->SERVER->HandleGetSetMouseType: Inside IF loop \n");
+		MouseSettings* mouse_settings = GetMouseSettings(mouse_name);
+		if (message->FindInt32("mouse_type", &type) == B_OK) {
+            syslog(LOG_CRIT, "DEBUG_MOUSE->SERVER->HandleGetSetMouseType: multiplemouse works \n");
+	        mouse_settings->SetMouseType(type);
+			be_app_messenger.SendMessage(IS_SAVE_SETTINGS);
+
+			BMessage msg(IS_CONTROL_DEVICES);
+			msg.AddInt32("type", B_POINTING_DEVICE);
+			msg.AddInt32("code", B_MOUSE_TYPE_CHANGED);
+			return fAddOnManager->PostMessage(&msg);
+
+    std::map<BString, MouseSettings*>::iterator itr;
+         for (itr = fMultipleMouseSettings.fMouseSettingsObject.begin();
+             itr != fMultipleMouseSettings.fMouseSettingsObject.end();
+        ++itr) {
+             syslog(LOG_CRIT,"DEBUG_MOUSE_SERVER->HandleGetSetMouseType:
+                 MOUSE NAME:%s  TYPE: %d \n ", itr->first.String(),
+                 itr->second->fname.String(), itr->second->fSettings.type);
+       }
+		}
+}*/
+
+	syslog(LOG_CRIT, "DEBUG_MOUSE->SERVER->HandleGetSetMouseType: multiplemouse NOT works \n");
+	// TODO change below line use mouse_settings somehow
 	return reply->AddInt32("mouse_type", fMouseSettings.MouseType());
 }
 
@@ -1831,6 +1875,16 @@ InputServer::_DispatchEvent(BMessage* event)
 		false, reply);
 }
 
+
+MouseSettings*
+InputServer::GetMouseSettings(BString mouse_name)
+{
+	MouseSettings* settings = fMultipleMouseSettings.GetMouseSettings(mouse_name);
+    if (settings != NULL) {
+        return settings;
+	}
+	return fMultipleMouseSettings.AddMouseSettings(mouse_name);
+}
 
 //	#pragma mark -
 
