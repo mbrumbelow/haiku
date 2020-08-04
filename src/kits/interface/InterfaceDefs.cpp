@@ -509,6 +509,8 @@ get_mouse_type_by_name(BString mouse_name, int32 *type)
 {
 	BMessage command(IS_GET_MOUSE_TYPE);
 	BMessage reply;
+	command.AddString("mouse_name", mouse_name.String());
+
 
 	status_t err = _control_input_server_(&command, &reply);
 	if (err != B_OK)
@@ -620,6 +622,37 @@ set_mouse_speed(int32 speed)
 	BMessage command(IS_SET_MOUSE_SPEED);
 	BMessage reply;
 	command.AddInt32("speed", speed);
+	return _control_input_server_(&command, &reply);
+}
+
+
+status_t
+get_mouse_speed_by_name(BString mouse_name, int32 *speed)
+{
+	BMessage command(IS_GET_MOUSE_SPEED);
+	BMessage reply;
+	command.AddString("mouse_name", mouse_name.String());
+
+	status_t err = _control_input_server_(&command, &reply);
+	if (err != B_OK)
+		return err;
+
+	if (reply.FindInt32("speed", speed) != B_OK)
+		*speed = 65536;
+
+	return B_OK;
+}
+
+
+status_t
+set_mouse_speed_by_name(BString mouse_name, int32 speed)
+{
+	BMessage command(IS_SET_MOUSE_SPEED);
+	BMessage reply;
+	command.AddString("mouse_name", mouse_name.String());
+
+	command.AddInt32("speed", speed);
+
 	return _control_input_server_(&command, &reply);
 }
 
