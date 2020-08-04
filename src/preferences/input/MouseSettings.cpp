@@ -382,6 +382,7 @@ MouseSettings::GetSettings() {
 
 MultipleMouseSettings::MultipleMouseSettings()
 {
+	fDeprecatedMouseSettings = NULL;
 	RetrieveSettings();
 
 #ifdef DEBUG
@@ -452,11 +453,9 @@ MultipleMouseSettings::RetrieveSettings()
 	}
 
 	else {
-		IsRetrievedSettingsDeprecated = true;
-
 		BString* s = new BString("");
-
 		fDeprecatedMouseSettings = new MouseSettings(*s);
+
 		fDeprecatedMouseSettings->_RetrieveSettings();
 	}
 }
@@ -530,7 +529,7 @@ MultipleMouseSettings::Dump()
 MouseSettings*
 MultipleMouseSettings::AddMouseSettings(BString mouse_name)
 {
-	if(IsRetrievedSettingsDeprecated == true) {
+	if(fDeprecatedMouseSettings != NULL) {
 		MouseSettings* RetrievedSettings = new (std::nothrow) MouseSettings
 			(*fDeprecatedMouseSettings);
 
@@ -562,5 +561,10 @@ MultipleMouseSettings::AddMouseSettings(BString mouse_name)
 MouseSettings*
 MultipleMouseSettings::GetMouseSettings(BString mouse_name)
 {
-	return fMouseSettingsObject.at(mouse_name);
+	std::map<BString, MouseSettings*>::iterator itr;
+	itr = fMouseSettingsObject.find(mouse_name);
+
+	if (itr != fMouseSettingsObject.end())
+		return itr->second;
+	return NULL;
 }

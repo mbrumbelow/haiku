@@ -106,7 +106,6 @@ class MultipleMouseSettings: public BArchivable {
 		static status_t GetSettingsPath(BPath &path);
 		void RetrieveSettings();
 
-		bool IsRetrievedSettingsDeprecated = false;
 		MouseSettings*	fDeprecatedMouseSettings;
 
 		typedef std::map<BString, MouseSettings*> mouse_settings_object;
