@@ -565,7 +565,8 @@ set_multiple_mouse_type(BString mouse_name, int32 type)
 	fprintf(stderr, "DEBUG_MOUSE->INTERFACE->set_multiple_mouse_type->"
 		"command.ADD \t%" B_PRId32 "\n", type);
     fprintf(stderr, "DEBUG_MOUSE->INTERFACE->set_multiple_mouse_type->commmand."
-			"Add: MOUSE NAME: %s MOUSE_TYPE: %d \n", mouse_name.String(), type);
+		"Add: MOUSE NAME: %s MOUSE_TYPE: %" B_PRId32 " \n",
+		mouse_name.String(), type);
 	if (err != B_OK)
 	fprintf(stderr, "DEBUG_MOUSE->INTERFACE->set_multiple_mouse_type->"
 		"ERR \t%" B_PRId32 "\n", type);

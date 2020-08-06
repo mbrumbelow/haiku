@@ -273,7 +273,7 @@ MouseSettings::SetMouseType(int32 type)
 	fprintf(stderr, "DEBUG_MOUSE->PREF->SetMouseType:\t%" B_PRId32 "\n", type);
 	if (set_multiple_mouse_type(fname, type) == B_OK) {
 	fprintf(stderr, "DEBUG_MOUSE->PREF->SetMouseType:"
-		"Mouse Name: %s MouseType: %d \n", fname.String(), type);
+		"Mouse Name: %s MouseType: %" B_PRId32 "\n", fname.String(), type);
     fSettings.type = type; }
 	else
 		fprintf(stderr, "error when set_mouse_type\n");
