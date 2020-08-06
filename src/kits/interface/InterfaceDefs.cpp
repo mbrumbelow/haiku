@@ -660,7 +660,7 @@ set_mouse_speed_by_name(BString mouse_name, int32 speed)
 	command.AddInt32("speed", speed);
 
 	fprintf(stderr, "DEBUG_MOUSE->INTERFACE->set_multiple_mouse_speed:"
-		"Add: MOUSE NAME: %s MOUSE_SPEED: %d \n", mouse_name.String(), speed);
+		"Add: MOUSE NAME: %s MOUSE_SPEED: %" B_PRId32 " \n", mouse_name.String(), speed);
 
 	return _control_input_server_(&command, &reply);
 }

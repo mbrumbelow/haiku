@@ -517,8 +517,9 @@ MouseDevice::_UpdateSettings()
 	MD_CALLED();
 	// retrieve current values
 
-	if (get_mouse_map(&fSettings.map) != B_OK)
-		LOG_ERR("error when get_mouse_map\n");
+	status_t error = get_mouse_map(&fSettings.map);
+	if (error != B_OK)
+		LOG_ERR("error when get_mouse_map: %s\n", strerror(error));
 	else {
 		fDeviceRemapsButtons
 			= ioctl(fDevice, MS_SET_MAP, &fSettings.map) == B_OK;
