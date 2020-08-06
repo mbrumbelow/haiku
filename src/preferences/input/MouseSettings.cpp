@@ -269,7 +269,7 @@ MouseSettings::SetMouseType(int32 type)
 	fprintf(stderr, "DEBUG_MOUSE->PREF->SetMouseType:\t%" B_PRId32 "\n", type);
 	if (set_mouse_type_by_name(fname, type) == B_OK) {
 	fprintf(stderr, "DEBUG_MOUSE->PREF->SetMouseType:"
-		"Mouse Name: %s MouseType: %d \n", fname.String(), type);
+		"Mouse Name: %s MouseType: %" B_PRId32 "\n", fname.String(), type);
     fSettings.type = type; }
 	else
 		fprintf(stderr, "error when set_mouse_type_by_name\n");
@@ -302,7 +302,7 @@ MouseSettings::SetMouseSpeed(int32 speed)
 	fprintf(stderr, "DEBUG_MOUSE->PREF->SetMouseSpeed:\t%" B_PRId32 "\n", speed);
 	if (set_mouse_speed_by_name(fname, speed) == B_OK) {
 		fprintf(stderr, "DEBUG_MOUSE->PREF->SetMouseSepeed:"
-			"Mouse Name: %s MouseSpeed: %d \n", fname.String(), speed);
+			"Mouse Name: %s MouseSpeed: %" B_PRId32 " \n", fname.String(), speed);
 		fSettings.accel.speed = speed;
 	} else
 		fprintf(stderr, "error when set_mouse_speed_by_name\n");
