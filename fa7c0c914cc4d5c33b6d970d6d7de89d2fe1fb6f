@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6ff58cbe_04cf0c6f",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/DirectoryIterator.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-07T11:57:59Z",
+      "side": 1,
+      "message": "I think directories with many entries could need more than one block pointer, right? Since directories are in fact just a special case of files, could Inode::ReadAt be used to implement a directory iterator?",
+      "revId": "fa7c0c914cc4d5c33b6d970d6d7de89d2fe1fb6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30f4a297_b9222f68",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-07T11:57:59Z",
+      "side": 1,
+      "message": "this code is not correct because it uses only the first block pointer.\nThis works with the freebsd disk image we are testing with because it is generated in one go and with no fragmentation, so that the block pointers point to successive blocks. On a disk where files have been used for some time, have grown, shrunk, been created and deleted, etc, there is no guarantee that all direct blocks for a file will follow each other on disk.\n\nWhat should be done is as follows:\n- Compute the block number from the file_offset (file_offset / block_size)\n- If the block number is \u003c 12, it\u0027s a direct block. Otherwise, it\u0027s an indirect block (we don\u0027t handle these yet, we will have to test with some larger files)\n- Compute the offset in the block (file_offset % block size)\n- Add the offset to the block pointer to find the position on disk\n- Finally, read the data at that position\n\nDepending on the length and offset, you may need to access more than one block.",
+      "revId": "fa7c0c914cc4d5c33b6d970d6d7de89d2fe1fb6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e4ff1bd_15189517",
+        "filename": "src/tools/fs_shell/fssh.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 694,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-07T11:57:59Z",
+      "side": 1,
+      "message": "numBytes is used for two things now:\n- The size of the buffer\n- The number of bytes to read with the -n option\n\nIf we want to preserve the behavior of -n, we should use two different variables. Otherwise, the documentation of -n should be updated to describe the new behavior.",
+      "revId": "fa7c0c914cc4d5c33b6d970d6d7de89d2fe1fb6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fed775ea_d1f2a3e7",
+        "filename": "src/tools/fs_shell/fssh.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-07T11:57:59Z",
+      "side": 1,
+      "message": "there is no guarantee that the buffer is NULL terminated here. You should initialize buffer[numBytes] to 0 to make sure of that.",
+      "revId": "fa7c0c914cc4d5c33b6d970d6d7de89d2fe1fb6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
