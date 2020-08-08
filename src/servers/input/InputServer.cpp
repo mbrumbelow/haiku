@@ -34,6 +34,7 @@
 
 #include <stdio.h>
 #include <strings.h>
+#include <syslog.h>
 
 #include "SystemKeymap.h"
 	// this is an automatically generated file
@@ -649,7 +650,7 @@ InputServer::HandleGetSetMouseType(BMessage* message, BMessage* reply)
 		else {
 			// TODO if no mouse_name was specified, apply the setting to
 			// all mouses
-			return B_NOT_SUPPORTED;
+			return B_OK;
 		}
 		be_app_messenger.SendMessage(IS_SAVE_SETTINGS);
 
@@ -664,7 +665,7 @@ InputServer::HandleGetSetMouseType(BMessage* message, BMessage* reply)
 			settings->MouseType());
 	} else {
 		// TODO return type of the "first" mouse?
-		return B_NOT_SUPPORTED;
+		return B_OK;
 	}
 }
 
@@ -688,7 +689,7 @@ InputServer::HandleGetSetMouseAcceleration(BMessage* message,
 		else {
 			// TODO if no mouse_name was specified, apply the setting to
 			// all mouses
-			return B_NOT_SUPPORTED;
+			return B_OK;
 		}
 		be_app_messenger.SendMessage(IS_SAVE_SETTINGS);
 
@@ -702,7 +703,7 @@ InputServer::HandleGetSetMouseAcceleration(BMessage* message,
 		return reply->AddInt32("speed", settings->AccelerationFactor());
 	else {
 		// TODO return type of the "first" mouse?
-		return B_NOT_SUPPORTED;
+		return B_OK;
 	}
 }
 
@@ -857,11 +858,18 @@ status_t
 InputServer::HandleGetSetMouseSpeed(BMessage* message, BMessage* reply)
 {
 	BString mouseName;
+
 	MouseSettings* settings = NULL;
 	if (message->FindString("mouse_name", &mouseName) == B_OK) {
+		syslog(LOG_CRIT, "DEBUG->INPUTSERVER->HandleGetSetMouseSpeed: %s\n",
+			mouseName.String());
+
 		settings = fMouseSettings.GetMouseSettings(mouseName);
 		if (settings == NULL)
 			return B_NAME_NOT_FOUND;
+	} else {
+		syslog(LOG_CRIT, "DEBUG->INPUTSERVER->HandleGetSetMouseSpeed "
+			"with no name\n");
 	}
 
 	int32 speed;
@@ -869,9 +877,12 @@ InputServer::HandleGetSetMouseSpeed(BMessage* message, BMessage* reply)
 		if (settings != NULL)
 			settings->SetMouseSpeed(speed);
 		else {
-			// TODO if no mouse_name was specified, apply the setting to
-			// all mouses
-			return B_NOT_SUPPORTED;
+			std::map<BString, MouseSettings*>::iterator itr;
+			for (itr = fMouseSettingsObject.begin();
+				itr != fMouseSettingsObject.end(); ++itr) {
+				itr->second->SetMouseSpeed(speed);
+			return B_OK;
+			}
 		}
 		be_app_messenger.SendMessage(IS_SAVE_SETTINGS);
 
@@ -884,8 +895,17 @@ InputServer::HandleGetSetMouseSpeed(BMessage* message, BMessage* reply)
 	if (settings != NULL)
 		return reply->AddInt32("speed", settings->MouseSpeed());
 	else {
-		// TODO return type of the "first" mouse?
-		return B_NOT_SUPPORTED;
+		std::map<BString, MouseSettings*>::iterator itr
+			= fMouseSettingsObject.begin();
+		if (itr != fMouseSettingsObject.end()) {
+			// Return the speed of the first mouse
+			return reply->AddInt32("speed",
+				fMouseSettingsObject.begin()->second->MouseSpeed());
+		} else {
+			syslog(LOG_CRIT,
+				"HandleGetSetMouseSpeed: No mouse settings found!\n");
+			return B_NAME_NOT_FOUND;
+		}
 	}
 }
 
@@ -935,7 +955,7 @@ InputServer::HandleGetSetMouseMap(BMessage* message, BMessage* reply)
 		else {
 			// TODO if no mouse_name was specified, apply the setting to
 			// all mouses
-			return B_NOT_SUPPORTED;
+			return B_OK;
 		}
 		be_app_messenger.SendMessage(IS_SAVE_SETTINGS);
 
@@ -951,7 +971,7 @@ InputServer::HandleGetSetMouseMap(BMessage* message, BMessage* reply)
 		return reply->AddData("mousemap", B_RAW_TYPE, &map, sizeof(mouse_map));
 	} else {
 		// TODO return type of the "first" mouse?
-		return B_NOT_SUPPORTED;
+		return B_OK;
 	}
 }
 
@@ -986,7 +1006,7 @@ InputServer::HandleGetSetClickSpeed(BMessage* message, BMessage* reply)
 		else {
 			// TODO if no mouse_name was specified, apply the setting to
 			// all mouses
-			return B_NOT_SUPPORTED;
+			return B_OK;
 		}
 		be_app_messenger.SendMessage(IS_SAVE_SETTINGS);
 
@@ -1000,7 +1020,7 @@ InputServer::HandleGetSetClickSpeed(BMessage* message, BMessage* reply)
 		return reply->AddInt64("speed", settings->ClickSpeed());
 	} else {
 		// TODO return type of the "first" mouse?
-		return B_NOT_SUPPORTED;
+		return B_OK;
 	}
 }
 
