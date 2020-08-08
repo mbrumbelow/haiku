@@ -213,6 +213,7 @@ class InputServer : public BApplication {
 
 		KeyboardSettings fKeyboardSettings;
 		MultipleMouseSettings	fMouseSettings;
+		MouseSettings			fSettings;
 
 		BPoint			fMousePos;		// current mouse position
 		key_info		fKeyInfo;		// current key info
