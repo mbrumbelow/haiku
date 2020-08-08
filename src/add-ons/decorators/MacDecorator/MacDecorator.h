@@ -1,5 +1,5 @@
 /*
- * Copyright 2009-2014 Haiku, Inc. All rights reserved.
+ * Copyright 2009-2020 Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -43,6 +43,13 @@ public:
 
 protected:
 			void				_DoLayout();
+			void				_DoTabLayout();
+			void				_DistributeTabSize(float delta);
+			void				_LayoutTabItems(Decorator::Tab* _tab,
+									const BRect& tabRect);
+			void				_GetButtonSizeAndOffset(const BRect& tabRect,
+									float* _offset, float* _size,
+									float* _inset) const;
 
 	virtual	void				_DrawFrame(BRect invalid);
 
@@ -60,6 +67,8 @@ protected:
 
 	virtual	void				_SetTitle(Tab* tab, const char* string,
 									BRegion* updateRegion = NULL);
+
+	virtual	void				_SetFocus(Decorator::Tab* _tab);
 
 	virtual	void				_MoveBy(BPoint offset);
 	virtual	void				_ResizeBy(BPoint offset, BRegion* dirty);

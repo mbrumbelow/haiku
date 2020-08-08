@@ -1,5 +1,5 @@
 /*
- * Copyright 2009-2013 Haiku, Inc. All rights reserved.
+ * Copyright 2009-2020 Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -14,6 +14,7 @@
 
 #include "MacDecorator.h"
 
+#include <cmath>
 #include <new>
 #include <stdio.h>
 
@@ -33,6 +34,13 @@
 #else
 #	define STRACE(x) ;
 #endif
+
+
+static bool
+int_equal(float x, float y)
+{
+	return abs(x - y) <= 1;
+}
 
 
 MacDecorAddOn::MacDecorAddOn(image_id id, const char* name)
@@ -214,57 +222,7 @@ MacDecorator::_DoLayout()
 	// calculate our tab rect
 	if (hasTab) {
 		fBorderRect.top += 3;
-
-		font_height fontHeight;
-		fDrawState.Font().GetHeight(fontHeight);
-
-		// TODO the tab is drawn in a fixed height for now
-		fTitleBarRect.Set(fFrame.left - fBorderWidth,
-			fFrame.top - 22,
-			((fFrame.right - fFrame.left) < 32.0 ?
-				fFrame.left + 32.0 : fFrame.right) + fBorderWidth,
-			fFrame.top - 3);
-
-		for (int32 i = 0; i < fTabList.CountItems(); i++) {
-			Decorator::Tab* tab = fTabList.ItemAt(i);
-
-			tab->tabRect = fTitleBarRect;
-				// TODO actually handle multiple tabs
-
-			tab->zoomRect = fTitleBarRect;
-			tab->zoomRect.left = tab->zoomRect.right - 12;
-			tab->zoomRect.bottom = tab->zoomRect.top + 12;
-			tab->zoomRect.OffsetBy(-4, 4);
-
-			tab->closeRect = tab->zoomRect;
-			tab->minimizeRect = tab->zoomRect;
-
-			tab->closeRect.OffsetTo(fTitleBarRect.left + 4,
-				fTitleBarRect.top + 4);
-
-			tab->zoomRect.OffsetBy(0 - (tab->zoomRect.Width() + 4), 0);
-			if (Title(tab) != NULL && fDrawingEngine != NULL) {
-				tab->truncatedTitle = Title(tab);
-				fDrawingEngine->SetFont(fDrawState.Font());
-				tab->truncatedTitleLength
-					= (int32)fDrawingEngine->StringWidth(Title(tab),
-						strlen(Title(tab)));
-
-				if (tab->truncatedTitleLength < (tab->zoomRect.left
-						- tab->closeRect.right - 10)) {
-					// start with offset from closerect.right
-					tab->textOffset = int(((tab->zoomRect.left - 5)
-						- (tab->closeRect.right + 5)) / 2);
-					tab->textOffset -= int(tab->truncatedTitleLength / 2);
-
-					// now make it the offset from fTabRect.left
-					tab->textOffset += int(tab->closeRect.right + 5
-						- fTitleBarRect.left);
-				} else
-					tab->textOffset = int(tab->closeRect.right) + 5;
-			} else
-				tab->textOffset = 0;
-		}
+		_DoTabLayout();
 	} else {
 		for (int32 i = 0; i < fTabList.CountItems(); i++) {
 			Decorator::Tab* tab = fTabList.ItemAt(i);
@@ -275,6 +233,228 @@ MacDecorator::_DoLayout()
 			tab->minimizeRect.Set(0.0, 0.0, -1.0, -1.0);
 		}
 	}
+}
+
+
+void
+MacDecorator::_DoTabLayout()
+{
+	float tabOffset = 0;
+
+	float sumTabWidth = 0;
+	// calculate our tab rect
+	for (int32 i = 0; i < fTabList.CountItems(); i++) {
+		Decorator::Tab* tab = _TabAt(i);
+
+		BRect& tabRect = tab->tabRect;
+
+		font_height fontHeight;
+		fDrawState.Font().GetHeight(fontHeight);
+
+		// TODO the tab is drawn in a fixed height for now
+		tabRect.Set(fFrame.left - fBorderWidth, fFrame.top - 22,
+			((fFrame.right - fFrame.left) < 32.0 ?
+				fFrame.left + 32.0 : fFrame.right) + fBorderWidth,
+			fFrame.top - 3);
+
+		// format tab rect for a floating window - make the rect smaller
+		if (tab->look == B_FLOATING_WINDOW_LOOK) {
+			tabRect.InsetBy(0, 2);
+			tabRect.OffsetBy(0, 2);
+		}
+
+		float offset;
+		float size;
+		float inset;
+		_GetButtonSizeAndOffset(tabRect, &offset, &size, &inset);
+
+		// min tab size contains just the room for the buttons
+		tab->minTabSize = inset * 2 + tab->textOffset;
+		if ((tab->flags & B_NOT_CLOSABLE) == 0)
+			tab->minTabSize += offset + size;
+		if ((tab->flags & B_NOT_ZOOMABLE) == 0)
+			tab->minTabSize += offset + size;
+		if ((tab->flags & B_NOT_MINIMIZABLE) == 0)
+			tab->minTabSize += offset + size;
+
+		// tab max size is whole window
+		float windowWidth = fFrame.Width() + 2 * fBorderWidth;
+		tab->maxTabSize = windowWidth;
+
+		float tabSize = windowWidth;
+		if (tabSize < tab->minTabSize)
+			tabSize = tab->minTabSize;
+		if (tabSize > tab->maxTabSize)
+			tabSize = tab->maxTabSize;
+
+		// layout buttons and truncate text
+		tabRect.right = tabRect.left + tabSize;
+
+		// make sure fTabOffset is within limits and apply it to
+		// the tabRect
+		tab->tabOffset = (uint32)tabOffset;
+		if (tab->tabLocation != 0.0 && fTabList.CountItems() == 1
+			&& tab->tabOffset > (fRightBorder.right - fLeftBorder.left
+				- tabRect.Width())) {
+			tab->tabOffset = uint32(fRightBorder.right - fLeftBorder.left
+				- tabRect.Width());
+		}
+		tabRect.OffsetBy(tab->tabOffset, 0);
+		tabOffset += tabRect.Width();
+
+		sumTabWidth += tabRect.Width();
+	}
+
+	float windowWidth = fFrame.Width() + 2 * fBorderWidth;
+	if (CountTabs() > 1 && sumTabWidth > windowWidth)
+		_DistributeTabSize(sumTabWidth - windowWidth);
+
+	// finally, layout the buttons and text within the tab rect
+	for (int32 i = 0; i < fTabList.CountItems(); i++) {
+		Decorator::Tab* tab = fTabList.ItemAt(i);
+
+		if (i == 0)
+			fTitleBarRect = tab->tabRect;
+		else
+			fTitleBarRect = fTitleBarRect | tab->tabRect;
+
+		_LayoutTabItems(tab, tab->tabRect);
+	}
+
+	fTabsRegion = fTitleBarRect;
+}
+
+
+void
+MacDecorator::_DistributeTabSize(float delta)
+{
+	int32 tabCount = fTabList.CountItems();
+
+	float maxTabSize = 0;
+	float secMaxTabSize = 0;
+	int32 nTabsWithMaxSize = 0;
+	for (int32 i = 0; i < tabCount; i++) {
+		Decorator::Tab* tab = fTabList.ItemAt(i);
+		if (tab == NULL)
+			continue;
+
+		float tabWidth = tab->tabRect.Width();
+		if (int_equal(maxTabSize, tabWidth)) {
+			nTabsWithMaxSize++;
+			continue;
+		}
+		if (maxTabSize < tabWidth) {
+			secMaxTabSize = maxTabSize;
+			maxTabSize = tabWidth;
+			nTabsWithMaxSize = 1;
+		} else if (secMaxTabSize <= tabWidth)
+			secMaxTabSize = tabWidth;
+	}
+
+	float minus = ceilf(std::min(maxTabSize - secMaxTabSize, delta));
+	if (minus < 1.0)
+		return;
+	delta -= minus;
+	minus /= nTabsWithMaxSize;
+
+	Decorator::Tab* previousTab = NULL;
+	for (int32 i = 0; i < tabCount; i++) {
+		Decorator::Tab* tab = fTabList.ItemAt(i);
+		if (tab == NULL)
+			continue;
+
+		if (int_equal(maxTabSize, tab->tabRect.Width()))
+			tab->tabRect.right -= minus;
+
+		if (previousTab != NULL) {
+			float offsetX = previousTab->tabRect.right - tab->tabRect.left;
+			tab->tabRect.OffsetBy(offsetX, 0);
+		}
+
+		previousTab = tab;
+	}
+
+	if (delta > 0) {
+		_DistributeTabSize(delta);
+		return;
+	}
+
+	// done
+	if (previousTab != NULL)
+		previousTab->tabRect.right = floorf(fFrame.right + fBorderWidth);
+
+	for (int32 i = 0; i < tabCount; i++) {
+		Decorator::Tab* tab = fTabList.ItemAt(i);
+		if (tab == NULL)
+			continue;
+
+		tab->tabOffset = uint32(tab->tabRect.left - fLeftBorder.left);
+	}
+}
+
+
+void
+MacDecorator::_LayoutTabItems(Decorator::Tab* _tab, const BRect& tabRect)
+{
+	Decorator::Tab* tab = static_cast<Decorator::Tab*>(_tab);
+
+	float offset;
+	float size;
+	float inset;
+	_GetButtonSizeAndOffset(tabRect, &offset, &size, &inset);
+
+	tab->zoomRect = tabRect;
+	tab->zoomRect.left = tab->zoomRect.right - 12;
+	tab->zoomRect.bottom = tab->zoomRect.top + 12;
+	tab->zoomRect.OffsetBy(-4, 4);
+
+	tab->closeRect = tab->zoomRect;
+	tab->closeRect.OffsetTo(tabRect.left + 4, tabRect.top + 4);
+
+	tab->minimizeRect = tab->zoomRect;
+
+	tab->zoomRect.OffsetBy(0 - (tab->zoomRect.Width() + 4), 0);
+
+	if (Title(tab) != NULL && fDrawingEngine != NULL) {
+		tab->truncatedTitle = Title(tab);
+		fDrawingEngine->SetFont(fDrawState.Font());
+		tab->truncatedTitleLength
+			= (int32)fDrawingEngine->StringWidth(Title(tab),
+				strlen(Title(tab)));
+
+		if (tab->truncatedTitleLength < (tab->zoomRect.left
+				- tab->closeRect.right - 10)) {
+			// start with offset from closeRect.right
+			tab->textOffset = int(((tab->zoomRect.left - 5)
+				- (tab->closeRect.right + 5)) / 2);
+			tab->textOffset -= int(tab->truncatedTitleLength / 2);
+
+			// now make it the offset from tabRect.left
+			tab->textOffset += int(tab->closeRect.right + 5
+				- tabRect.left);
+		} else
+			tab->textOffset = int(tab->closeRect.right) + 5;
+	} else
+		tab->textOffset = 0;
+}
+
+
+void
+MacDecorator::_GetButtonSizeAndOffset(const BRect& tabRect, float* _offset,
+	float* _size, float* _inset) const
+{
+	float tabSize = tabRect.Height();
+
+	bool smallTab = fTopTab->look == B_FLOATING_WINDOW_LOOK;
+
+	*_offset = smallTab ? floorf(fDrawState.Font().Size() / 2.6)
+		: floorf(fDrawState.Font().Size() / 2.3);
+	*_inset = smallTab ? floorf(fDrawState.Font().Size() / 5.0)
+		: floorf(fDrawState.Font().Size() / 6.0);
+
+	// "+ 2" so that the rects are centered within the solid area
+	// (without the 2 pixels for the top border)
+	*_size = tabSize - 2 * *_offset + *_inset;
 }
 
 
@@ -639,9 +819,9 @@ MacDecorator::_DrawTitle(Decorator::Tab* tab, BRect rect)
 		(tab->zoomRect.left - 5) - (tab->closeRect.right + 5));
 	fDrawingEngine->SetFont(fDrawState.Font());
 
-	fDrawingEngine->DrawString(tab->truncatedTitle, tab->truncatedTitle.Length(),
-		BPoint(fTitleBarRect.left + tab->textOffset,
-			tab->closeRect.bottom - 1));
+	fDrawingEngine->DrawString(tab->truncatedTitle,
+		tab->truncatedTitle.Length(),
+		BPoint(rect.left + tab->textOffset, tab->closeRect.bottom - 1));
 }
 
 
@@ -702,7 +882,17 @@ MacDecorator::_SetTitle(Tab* tab, const char* string, BRegion* updateRegion)
 }
 
 
-// TODO : _SetFocus
+void
+MacDecorator::_SetFocus(Decorator::Tab* _tab)
+{
+	Decorator::Tab* tab = static_cast<Decorator::Tab*>(_tab);
+
+	tab->buttonFocus = IsFocus(tab)
+		|| ((tab->look == B_FLOATING_WINDOW_LOOK)
+			&& (tab->flags & B_AVOID_FOCUS) != 0);
+	if (CountTabs() > 1)
+		_LayoutTabItems(tab, tab->tabRect);
+}
 
 
 void
