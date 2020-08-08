@@ -137,18 +137,6 @@ public:
 		return true;
 	}
 
-	virtual bool ShouldClobberFolder(const BEntry& entry, const char* path,
-		const struct stat& statInfo) const
-	{
-		if (S_ISDIR(statInfo.st_mode) && strncmp("system/", path, 7) == 0
-				&& strcmp("system/settings", path) != 0) {
-			// Replace everything in "system" besides "settings"
-			printf("clobbering '%s'.\n", path);
-			return true;
-		}
-		return false;
-	}
-
 private:
 	typedef std::set<std::string> StringSet;
 
@@ -460,12 +448,20 @@ WorkerThread::_PerformInstall(partition_id sourcePartitionID,
 
 	if (entries != 0) {
 		BAlert* alert = new BAlert("", B_TRANSLATE("The target volume is not "
-			"empty. Are you sure you want to install anyway?\n\nNote: The "
-			"'system' folder will be a clean copy from the source volume while "
-			"the existing 'settings' folder is retained. All other folders "
-			"will be merged, in which files and links that exist on both the "
-			"source and target volume will be overwritten with the source "
-			"volume version."),
+			"empty. Note that you cannot use this Installer to upgrade an "
+			"existing installation. See the guides on Haiku's website for "
+			"ways to upgrade your system.\n\n"
+			"You are able to use this Installer to perform a clean install. "
+			"This means that all files and folders in your existing 'system' "
+			"folder will be deleted, except for the settings. Any "
+			"installed packages, including third party software, will be "
+			"deleted. All other folders will be merged, in which files "
+			"and links that exist on both the source and target volume will "
+			"be overwritten with the source volume version.\n\n"
+			"It is only advisable to use this type of installation when your "
+			"system is unbootable or has major issues, and you were unable to "
+			"solve it in another way.\n\n"
+			"Are you sure you want to perform this operation?"),
 			B_TRANSLATE("Install anyway"), B_TRANSLATE("Cancel"), 0,
 			B_WIDTH_AS_USUAL, B_STOP_ALERT);
 		alert->SetShortcut(1, B_ESCAPE);
@@ -474,6 +470,9 @@ WorkerThread::_PerformInstall(partition_id sourcePartitionID,
 		// folders at the user's choice.
 			return _InstallationError(B_CANCELED);
 		}
+		err = _PrepareCleanInstall(targetDirectory);
+		if (err != B_OK)
+			return _InstallationError(err);
 	}
 
 	// Begin actual installation
@@ -578,6 +577,57 @@ WorkerThread::_PerformInstall(partition_id sourcePartitionID,
 		return _InstallationError(err);
 
 	fOwner.SendMessage(MSG_INSTALL_FINISHED);
+	return B_OK;
+}
+
+
+status_t
+WorkerThread::_PrepareCleanInstall(const BPath& targetDirectory) const
+{
+	// When a target volume has files (other than the trash), the /system
+	// folder will be purged, except for the /system/settings subdirectory.
+	BPath systemPath(targetDirectory.Path(), "system", true);
+	status_t ret = systemPath.InitCheck();
+	if (ret != B_OK)
+		return ret;
+
+	BEntry systemEntry(systemPath.Path());
+	ret = systemEntry.InitCheck();
+	if (ret != B_OK)
+		return ret;
+	if (!systemEntry.Exists())
+		// target does not exist, done
+		return B_OK;
+	if (!systemEntry.IsDirectory())
+		// the system entry is a file or a symlink
+		return systemEntry.Remove();
+
+	BDirectory systemDirectory(&systemEntry);
+	ret = systemDirectory.InitCheck();
+	if (ret != B_OK)
+		return ret;
+
+	BEntry subEntry;
+	char fileName[B_FILE_NAME_LENGTH];
+	while (systemDirectory.GetNextEntry(&subEntry) == B_OK) {
+		ret = subEntry.GetName(fileName);
+		if (ret != B_OK)
+			return ret;
+
+		if (subEntry.IsDirectory() && strcmp(fileName, "settings") == 0) {
+			// Keep the settings folder
+			continue;
+		} else if (subEntry.IsDirectory()) {
+			ret = CopyEngine::RemoveFolder(subEntry);
+			if (ret != B_OK)
+				return ret;
+		} else {
+			ret = subEntry.Remove();
+			if (ret != B_OK)
+				return ret;
+		}
+	}
+
 	return B_OK;
 }
 
