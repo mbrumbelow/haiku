@@ -530,7 +530,7 @@ MouseDevice::_UpdateSettings()
 	else
 		ioctl(fDevice, MS_SET_CLICKSPEED, &fSettings.click_speed);
 
-	if (get_mouse_speed(&fSettings.accel.speed) != B_OK)
+	if (get_multiple_mouse_speed(fDeviceRef.name, &fSettings.accel.speed) != B_OK)
 		LOG_ERR("error when get_mouse_speed\n");
 	else {
 		if (get_mouse_acceleration(&fSettings.accel.accel_factor) != B_OK)
