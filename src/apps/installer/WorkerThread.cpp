@@ -141,7 +141,7 @@ public:
 		const struct stat& statInfo) const
 	{
 		if (S_ISDIR(statInfo.st_mode) && strncmp("system/", path, 7) == 0
-				&& strcmp("system/settings", path) != 0) {
+				&& strncmp("system/settings", path, 15) != 0 ) {
 			// Replace everything in "system" besides "settings"
 			printf("clobbering '%s'.\n", path);
 			return true;

@@ -354,13 +354,15 @@ CopyEngine::_Copy(BEntry &source, BEntry &destination,
 					"%s\n", sourcePath.Path(), strerror(ret));
 				return ret;
 			}
-		} else {
-			ret = create_directory(destPath.Path(), 0777);
-			if (ret != B_OK && ret != B_FILE_EXISTS) {
-				fprintf(stderr, "Could not create '%s': %s\n", destPath.Path(),
-					strerror(ret));
-				return ret;
-			}
+		}
+
+		ret = create_directory(destPath.Path(), 0777);
+			// Make sure the target path exists, it may have been deleted if
+			// it was marked as to be clobbered above
+		if (ret != B_OK && ret != B_FILE_EXISTS) {
+			fprintf(stderr, "Could not create '%s': %s\n", destPath.Path(),
+				strerror(ret));
+			return ret;
 		}
 
 		BDirectory destDirectory(&destination);
