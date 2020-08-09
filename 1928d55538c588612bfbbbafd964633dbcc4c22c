@@ -1,0 +1,124 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7cb04023_7e5acf4c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2020-08-09T18:05:28Z",
+      "side": 1,
+      "message": "Please comment using // inside function scope",
+      "range": {
+        "startLine": 124,
+        "startChar": 1,
+        "endLine": 126,
+        "endChar": 4
+      },
+      "revId": "1928d55538c588612bfbbbafd964633dbcc4c22c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "313b68e9_89af8996",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2020-08-09T18:05:28Z",
+      "side": 1,
+      "message": "This returns the size of poiner which is 4 or 8 bytes, depending on the arch, because \u0027node\u0027 type is \u0027char*\u0027",
+      "revId": "1928d55538c588612bfbbbafd964633dbcc4c22c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bd02efd_63b91a31",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2020-08-09T18:05:28Z",
+      "side": 1,
+      "message": "why not make the loop condition as levelsInTree !\u003d 1 ?",
+      "revId": "1928d55538c588612bfbbbafd964633dbcc4c22c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ce8de96_9702da82",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2020-08-09T18:05:28Z",
+      "side": 1,
+      "message": "This is not a good way to write function, I was confused when checking GetPtr(1), you call it on every iteration with fixed argument `1`. I didn\u0027t know how every iteration is different until figuring out the change on `fCurLongBlock` which affect the output of GetPtr func. You can pass one more argument to GetPtr func, is there any reason to use fCurLongBlock as a member attribute ?",
+      "range": {
+        "startLine": 148,
+        "startChar": 1,
+        "endLine": 150,
+        "endChar": 23
+      },
+      "revId": "1928d55538c588612bfbbbafd964633dbcc4c22c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b36fdca_3c0b51c7",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2020-08-09T18:05:28Z",
+      "side": 1,
+      "message": "comment use //",
+      "range": {
+        "startLine": 154,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 4
+      },
+      "revId": "1928d55538c588612bfbbbafd964633dbcc4c22c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3df20a85_913a7183",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2020-08-09T18:05:28Z",
+      "side": 1,
+      "message": "Make this function private because it depends on GetAllExtents(), or you can just inline it.",
+      "revId": "1928d55538c588612bfbbbafd964633dbcc4c22c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
