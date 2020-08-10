@@ -16,6 +16,24 @@
       "revId": "d5bce98d3bab98813f4aef297a3dd2a2c12c77a1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a35ba21_9c1dd215",
+        "filename": "src/apps/installer/WorkerThread.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-08-10T19:49:09Z",
+      "side": 1,
+      "message": "I understand the note about the system/settings_backup case, but we cannot rely on that, because the path contains \"system/settings\" for the settings directory itself, and obviously we don\u0027t want to clobber (\u003ddelete) that directory. \n\nSo a more correct fix would be to test:\n   S_ISDIR(statInfo.st_mode) \n   \u0026\u0026 strncmp(\"system/\", path, 7) \u003d\u003d 0\n   \u0026\u0026 strcmp(\"system/settings\", path) \u003d! 0\n   \u0026\u0026 strncmp(\"system/settings/\", path, 16) !\u003d 0\n\nso this would filter out the /system/setttings/ folder and everything underneath it, but it would delete directories like /system/settings_backup\n\nHaving said that, your comment also triggered the fact that the current logic only deletes directories; any files under /system/ will not be touched. I am thinking whether it would make sense that instead of using this clobbering logic during file copying, it is just better to as a separate step clear out the /system/ folder except for the /system/settings/.",
+      "parentUuid": "b04e2fb0_087ca247",
+      "revId": "d5bce98d3bab98813f4aef297a3dd2a2c12c77a1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
