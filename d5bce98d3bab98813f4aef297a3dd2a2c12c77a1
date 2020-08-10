@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b04e2fb0_087ca247",
+        "filename": "src/apps/installer/WorkerThread.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-10T13:20:28Z",
+      "side": 1,
+      "message": "there\u0027s an extra space after the 0 here.\n\nAlso, I would do a startwith(const char* string, const char* prefix) function doing strncmp(prefix, string, strlen(prefix)) to avoid hardcoding the string lengths.\n\nTo be completely right the prefix should be system/settings/, otherwise if there is a system/settings_backup file or directory, it would be preserved as well.",
+      "revId": "d5bce98d3bab98813f4aef297a3dd2a2c12c77a1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
