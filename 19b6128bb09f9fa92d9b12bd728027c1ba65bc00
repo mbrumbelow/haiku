@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f92d0223_30bd74b6",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-10T13:07:03Z",
+      "side": 1,
+      "message": "this is still not working if the blocks allocated to the file are not contiguous.\n\nEven if it is the case with the FreeBSD install image you are testing with, it is not the case in other filesystems.\n\nFor example if the function is called with file_offset \u003d 4000 and *_length \u003d 256, with a block_size of 4096, you have to read 96 bytes from the first block, and then the remaining 160 bytes from the second block.\n\nSo you need a loop here to read from multiple blocks until either you have filled the buffer, or you have reached the end of the file.",
+      "revId": "19b6128bb09f9fa92d9b12bd728027c1ba65bc00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "680c5f00_61280cc5",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-10T13:07:03Z",
+      "side": 1,
+      "message": "what are you trying to do here?\n\nThe ReadAt function should read at most *_length bytes at position file_offset. It doesn\u0027t matter what has been read before.\n\nThe only special case is if file_offset + *_length \u003e Size(), which happens when the end of the file is reached. In this case, you have to read Size() - file_offset bytes.\n\nThere is no need to track what has happened in the previous read attempts. The parameters to ReadAt already give you all the info you need.\n\nWhat you did works for the simple test of the fs_shell with the cat command, but it wouldn\u0027t work for anything more complex (for example, the less/more commands which allow moving back and forth in the file).",
+      "revId": "19b6128bb09f9fa92d9b12bd728027c1ba65bc00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ed3254a_2cc13a7e",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-10T13:07:03Z",
+      "side": 1,
+      "message": "} else {",
+      "revId": "19b6128bb09f9fa92d9b12bd728027c1ba65bc00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60c5bef3_1453e291",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-10T13:07:03Z",
+      "side": 1,
+      "message": "this shouldn\u0027t go here. You can have multiple file descriptors operating on the same file. So, everything specific to a file descriptor should be stored inside its cookie, and not in the inode.",
+      "revId": "19b6128bb09f9fa92d9b12bd728027c1ba65bc00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0fdaadf_2dcaf3f2",
+        "filename": "src/tools/fs_shell/fssh.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 733,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-10T13:07:03Z",
+      "side": 1,
+      "message": "this won\u0027t work if using \"-n 513\" or if the file size is an exact multiple of 512.",
+      "revId": "19b6128bb09f9fa92d9b12bd728027c1ba65bc00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
