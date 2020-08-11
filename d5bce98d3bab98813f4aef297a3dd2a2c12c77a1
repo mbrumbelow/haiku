@@ -34,6 +34,24 @@
       "revId": "d5bce98d3bab98813f4aef297a3dd2a2c12c77a1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "564538c5_05887cfa",
+        "filename": "src/apps/installer/WorkerThread.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-11T09:59:39Z",
+      "side": 1,
+      "message": "Maybe it would be better to use BPath to decide if a file/dir is inside system/settings or not.\n\nAs for the wider problem, I\u0027m still unconvinced that Installer should allow this way of update at all. It will cause other problems, for example if settings file change format, this would be normally handled by the package kit, but here we are bypassing it.\n\nAlso, any installed apps and packages will be removed, if we actually delete the directories. But we can\u0027t keep them either unless we can check thut dependencies are still ok.\n\nSo, this is not a system update. It\u0027s a wipe-everything-but-not-quite. Useful maybe as a rescue mode when your install is unbootable, but not something I\u0027d recommend as a normal way to update the system. I\u0027d rather make SoftwareUpdater able to pull updates from a dvd and apply them to the running system?\n\nSo, we need to be clear about what we\u0027re trying to do here, and what should or should not be preserved. What about non-packaged? What about things in home/config, are the settings and packages there preserved too? Why is there no special handling for these?",
+      "parentUuid": "7a35ba21_9c1dd215",
+      "revId": "d5bce98d3bab98813f4aef297a3dd2a2c12c77a1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
