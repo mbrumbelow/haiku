@@ -148,6 +148,8 @@ DirectoryIterator::Lookup(const char* name, size_t length, xfs_ino_t* ino)
 	//TODO: Reading from B+Tree based dirs
 	if (fInode->Format() == XFS_DINODE_FMT_BTREE) {
 		TRACE("Iterator:Lookup: B+TREE\n");
+		if (fTreeDir != NULL)
+			return fTreeDir->Lookup(name, length, ino);
 		return B_NOT_SUPPORTED;
 	}
 
