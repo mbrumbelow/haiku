@@ -40,7 +40,7 @@ NodeDirectory::Init()
 	if (fDataMap == NULL)
 		return B_NO_MEMORY;
 
-	FillMapEntry(fInode->DataExtentsCount()-3, fLeafMap);
+	FillMapEntry(fInode->DataExtentsCount() - 3, fLeafMap);
 	fCurLeafMapNumber = 1;
 	FillMapEntry(0, fDataMap);
 	return B_OK;
@@ -92,7 +92,7 @@ NodeDirectory::FillBuffer(int type, char* blockBuffer, int howManyBlocksFurthur)
 	else
 		return B_BAD_VALUE;
 
-	if (map->br_state !=0)
+	if (map->br_state != 0)
 		return B_BAD_VALUE;
 
 	size_t len = fInode->DirBlockSize();
@@ -107,14 +107,14 @@ NodeDirectory::FillBuffer(int type, char* blockBuffer, int howManyBlocksFurthur)
 
 	if (read_pos(fInode->GetVolume()->Device(), readPos, blockBuffer, len)
 		!= len) {
-		ERROR("Extent::FillBlockBuffer(): IO Error");
+		ERROR("NodeDirectory::FillBlockBuffer(): IO Error");
 		return B_IO_ERROR;
 	}
 
 	if (type == DATA) {
 		fDataBuffer = blockBuffer;
 		ExtentDataHeader* header = (ExtentDataHeader*) fDataBuffer;
-		if (B_BENDIAN_TO_HOST_INT32(header->magic) == HEADER_MAGIC) {
+		if (B_BENDIAN_TO_HOST_INT32(header->magic) == DATA_HEADER_MAGIC) {
 			TRACE("DATA BLOCK VALID\n");
 		} else {
 			TRACE("DATA BLOCK INVALID\n");
@@ -144,6 +144,10 @@ NodeDirectory::FindHashInNode(uint32 hashVal)
 	NodeHeader* header = (NodeHeader*)(void*)(fLeafBuffer);
 	NodeEntry* entry = (NodeEntry*)(void*)(fLeafBuffer + sizeof(NodeHeader));
 	int count = B_BENDIAN_TO_HOST_INT16(header->count);
+	if ((NodeEntry*)(void*)fLeafBuffer + fInode->DirBlockSize()
+		< &entry[count]) {
+			return B_BAD_VALUE;
+	}
 
 	for (int i = 0; i < count; i++) {
 		if (hashVal <= B_BENDIAN_TO_HOST_INT32(entry[i].hashval))
