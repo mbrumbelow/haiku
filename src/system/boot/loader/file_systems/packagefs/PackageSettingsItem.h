@@ -27,7 +27,7 @@ public:
 					:
 					fParent(parent),
 					fName(NULL),
-					fIsBlackListed(false),
+					fIsBlockListed(false),
 					fHashNext(NULL)
 				{
 				}
@@ -58,14 +58,14 @@ public:
 					return fName;
 				}
 
-				bool IsBlackListed() const
+				bool IsBlockListed() const
 				{
-					return fIsBlackListed;
+					return fIsBlockListed;
 				}
 
-				void SetBlackListed(bool blackListed)
+				void SetBlockListed(bool blockListed)
 				{
-					fIsBlackListed = blackListed;
+					fIsBlockListed = blockListed;
 				}
 
 				Entry*& HashNext()
@@ -76,7 +76,7 @@ public:
 			private:
 				Entry*	fParent;
 				char*	fName;
-				bool	fIsBlackListed;
+				bool	fIsBlockListed;
 				Entry*	fHashNext;
 			};
 
@@ -176,7 +176,7 @@ private:
 			typedef BOpenHashTable<EntryHashDefinition> EntryTable;
 
 private:
-			status_t			_AddBlackListedEntries(
+			status_t			_AddBlockListedEntries(
 									const driver_parameter& parameter);
 
 private:

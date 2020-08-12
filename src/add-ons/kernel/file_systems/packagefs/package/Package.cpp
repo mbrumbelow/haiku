@@ -108,7 +108,7 @@ struct Package::LoaderContentHandler : BPackageContentHandler {
 	{
 		if (fErrorOccurred
 			|| (fLastSettingsEntry != NULL
-				&& fLastSettingsEntry->IsBlackListed())) {
+				&& fLastSettingsEntry->IsBlockListed())) {
 			return B_OK;
 		}
 
@@ -128,7 +128,7 @@ struct Package::LoaderContentHandler : BPackageContentHandler {
 			if (settingsEntry != NULL) {
 				fLastSettingsEntry = settingsEntry;
 				fLastSettingsEntryEntry = entry;
-				if (fLastSettingsEntry->IsBlackListed())
+				if (fLastSettingsEntry->IsBlockListed())
 					return B_OK;
 			}
 		}
@@ -191,7 +191,7 @@ struct Package::LoaderContentHandler : BPackageContentHandler {
 	{
 		if (fErrorOccurred
 			|| (fLastSettingsEntry != NULL
-				&& fLastSettingsEntry->IsBlackListed())) {
+				&& fLastSettingsEntry->IsBlockListed())) {
 			return B_OK;
 		}
 
