@@ -52,6 +52,24 @@
       "revId": "d5bce98d3bab98813f4aef297a3dd2a2c12c77a1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "984730ce_0d6a6ee4",
+        "filename": "src/apps/installer/WorkerThread.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-08-12T05:23:29Z",
+      "side": 1,
+      "message": "BPath is not feasible within this context, as the entry that is passed is the source entry and not the destination entry. This method has no context to decide where it is installing to.\n\nI will post a message to haiku-development to discuss the other aspects of installing.",
+      "parentUuid": "564538c5_05887cfa",
+      "revId": "d5bce98d3bab98813f4aef297a3dd2a2c12c77a1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
