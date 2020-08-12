@@ -88,10 +88,10 @@ PackageSettingsItem::Init(const driver_parameter& parameter)
 
 	for (int i = 0; i < parameter.parameter_count; i++) {
 		const driver_parameter& subParameter = parameter.parameters[i];
-		if (strcmp(subParameter.name, "EntryBlacklist") != 0)
+		if (strcmp(subParameter.name, "EntryBlocklist") != 0)
 			continue;
 
-		status_t error = _AddBlackListedEntries(subParameter);
+		status_t error = _AddBlockListedEntries(subParameter);
 		// abort only in case of serious issues (memory shortage)
 		if (error == B_NO_MEMORY)
 			return error;
@@ -164,7 +164,7 @@ PackageSettingsItem::FindEntry(Entry* parent, const char* name,
 
 
 status_t
-PackageSettingsItem::_AddBlackListedEntries(const driver_parameter& parameter)
+PackageSettingsItem::_AddBlockListedEntries(const driver_parameter& parameter)
 {
 	for (int i = 0; i < parameter.parameter_count; i++) {
 		Entry* entry;
@@ -173,7 +173,7 @@ PackageSettingsItem::_AddBlackListedEntries(const driver_parameter& parameter)
 		if (error == B_NO_MEMORY)
 			return error;
 
-		entry->SetBlackListed(true);
+		entry->SetBlockListed(true);
 	}
 
 	return B_OK;

@@ -16,7 +16,7 @@
 #include "DebugSupport.h"
 
 
-static const char* const kEntryBlacklistParameterName = "EntryBlacklist";
+static const char* const kEntryBlocklistParameterName = "EntryBlocklist";
 
 
 // #pragma mark - PackageSettingsItem
@@ -56,10 +56,10 @@ PackageSettingsItem::ApplySettings(const driver_parameter* parameters,
 {
 	for (int i = 0; i < parameterCount; i++) {
 		const driver_parameter& subParameter = parameters[i];
-		if (strcmp(subParameter.name, kEntryBlacklistParameterName) != 0)
+		if (strcmp(subParameter.name, kEntryBlocklistParameterName) != 0)
 			continue;
 
-		status_t error = _AddBlackListedEntries(subParameter);
+		status_t error = _AddBlockListedEntries(subParameter);
 		// abort only in case of serious issues (memory shortage)
 		if (error == B_NO_MEMORY)
 			return error;
@@ -130,7 +130,7 @@ PackageSettingsItem::FindEntry(Entry* parent, const char* name) const
 
 
 status_t
-PackageSettingsItem::_AddBlackListedEntries(const driver_parameter& parameter)
+PackageSettingsItem::_AddBlockListedEntries(const driver_parameter& parameter)
 {
 	for (int i = 0; i < parameter.parameter_count; i++) {
 		Entry* entry;
@@ -139,7 +139,7 @@ PackageSettingsItem::_AddBlackListedEntries(const driver_parameter& parameter)
 		if (error == B_NO_MEMORY)
 			return error;
 
-		entry->SetBlackListed(true);
+		entry->SetBlockListed(true);
 	}
 
 	return B_OK;

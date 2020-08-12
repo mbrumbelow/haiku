@@ -2,8 +2,8 @@
  * Copyright 2013, Ingo Weinhold, ingo_weinhold@gmx.de.
  * Distributed under the terms of the MIT License.
  */
-#ifndef KERNEL_BOOT_PATH_BLACKLIST_H
-#define KERNEL_BOOT_PATH_BLACKLIST_H
+#ifndef KERNEL_BOOT_PATH_BLOCKLIST_H
+#define KERNEL_BOOT_PATH_BLOCKLIST_H
 
 
 #include <string.h>
@@ -11,10 +11,10 @@
 #include <util/SinglyLinkedList.h>
 
 
-class BlacklistedPath : public SinglyLinkedListLinkImpl<BlacklistedPath> {
+class BlocklistedPath : public SinglyLinkedListLinkImpl<BlocklistedPath> {
 public:
-								BlacklistedPath();
-								~BlacklistedPath();
+								BlocklistedPath();
+								~BlocklistedPath();
 
 			bool				SetTo(const char* path);
 
@@ -39,13 +39,13 @@ private:
 };
 
 
-class PathBlacklist {
+class PathBlocklist {
 public:
-			typedef SinglyLinkedList<BlacklistedPath>::Iterator Iterator;
+			typedef SinglyLinkedList<BlocklistedPath>::Iterator Iterator;
 
 public:
-								PathBlacklist();
-								~PathBlacklist();
+								PathBlocklist();
+								~PathBlocklist();
 
 			bool				Add(const char* path);
 			void				Remove(const char* path);
@@ -59,14 +59,14 @@ public:
 									{ return fPaths.GetIterator(); }
 
 private:
-			BlacklistedPath*	_FindPath(const char* path) const;
+			BlocklistedPath*	_FindPath(const char* path) const;
 
 private:
-			typedef SinglyLinkedList<BlacklistedPath> PathList;
+			typedef SinglyLinkedList<BlocklistedPath> PathList;
 
 private:
 			PathList			fPaths;
 };
 
 
-#endif	// KERNEL_BOOT_PATH_BLACKLIST_H
+#endif	// KERNEL_BOOT_PATH_BLOCKLIST_H
