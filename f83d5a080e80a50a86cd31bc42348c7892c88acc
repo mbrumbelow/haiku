@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4af290fd_7c2645ca",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2020-08-12T18:42:56Z",
+      "side": 1,
+      "message": "Why use this variable as a member attribute ? You allocate it and free it in UnWrapExtents()). Is there any methods will use this attribute except the UnWrapExtents()) ?",
+      "revId": "f83d5a080e80a50a86cd31bc42348c7892c88acc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea3f2849_2cdc6d2f",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2020-08-12T18:42:56Z",
+      "side": 1,
+      "message": "better move above the node allocation in order to not repeat using the size.",
+      "revId": "f83d5a080e80a50a86cd31bc42348c7892c88acc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
