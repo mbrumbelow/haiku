@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5dd18472_61f803fa",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-13T09:03:32Z",
+      "side": 1,
+      "message": "This is still incorrect. It works when you test with fs_shell with a single file descriptor at a time and only sequential reads. It doesn\u0027t work in other cases.\n\n- You can have multiple programs opening the same file and accessing it at different offsets\n- Even if there is a single file descriptor open, the program using it does not have to read the file in order from start to end. It can seek to various places and read chunks as it wants\n\nSo;\n- This should not be stored in the inode, because then, multiple file descriptors accessing the same file will erase each other\u0027s data\n- This should not be stored in the file cookie either, because there is no guarantee that a call to read() will access data where the previous access stopped.\n\nJust compute the block_number from the position in the read() function everytime.",
+      "revId": "0433389203b7bb22b8cc3e6038ebec201f13f22d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
