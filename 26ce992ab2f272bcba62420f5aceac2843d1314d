@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "160eba2f_575bc75f",
+        "filename": "headers/private/kernel/boot/PathBlocklist.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-13T08:57:06Z",
+      "side": 1,
+      "message": "BlockedPath would be better",
+      "revId": "26ce992ab2f272bcba62420f5aceac2843d1314d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca686e5b_f88b954f",
+        "filename": "src/add-ons/kernel/file_systems/packagefs/volume/PackageSettings.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-13T08:57:06Z",
+      "side": 1,
+      "message": "This breaks compatibility between old bootloader/new kernel and vice versa. I think the simplest solution is to keep the parameter name (the string) as it was.",
+      "revId": "26ce992ab2f272bcba62420f5aceac2843d1314d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "811f0157_c068a045",
+        "filename": "src/system/boot/loader/menu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1550,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-13T08:57:06Z",
+      "side": 1,
+      "message": "here as well, changing the setting name will create bootloader/kernel incompatibilities. Let\u0027s keep the old name for now. We can make the kernel accept both names if we want to change it later.",
+      "revId": "26ce992ab2f272bcba62420f5aceac2843d1314d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ca6bcdb_4c81b4b3",
+        "filename": "src/system/boot/loader/menu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1562,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-13T08:57:06Z",
+      "side": 1,
+      "message": "typo",
+      "revId": "26ce992ab2f272bcba62420f5aceac2843d1314d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
