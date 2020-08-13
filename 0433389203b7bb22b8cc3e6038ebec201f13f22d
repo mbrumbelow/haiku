@@ -16,6 +16,24 @@
       "revId": "0433389203b7bb22b8cc3e6038ebec201f13f22d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c55ec08_667620d1",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-08-13T13:35:47Z",
+      "side": 1,
+      "message": "I think we can compute block_number by file_offset/block_size, as you told earlier, and keeping rest of the code same.",
+      "parentUuid": "5dd18472_61f803fa",
+      "revId": "0433389203b7bb22b8cc3e6038ebec201f13f22d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }

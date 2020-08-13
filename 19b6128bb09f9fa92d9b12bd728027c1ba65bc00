@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5f61ea0a_ff2aa8e3",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-08-13T13:35:47Z",
+      "side": 1,
+      "message": "I have used a if condition in which I compute value of file_offset + *_length and if it is greater than (block_number + 1) * block_size then it must first read from one block and rest from second block. I think it should work well.",
+      "parentUuid": "f92d0223_30bd74b6",
+      "revId": "19b6128bb09f9fa92d9b12bd728027c1ba65bc00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "680c5f00_61280cc5",
         "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
         "patchSetId": 7
@@ -30,6 +48,24 @@
       "writtenOn": "2020-08-10T13:07:03Z",
       "side": 1,
       "message": "what are you trying to do here?\n\nThe ReadAt function should read at most *_length bytes at position file_offset. It doesn\u0027t matter what has been read before.\n\nThe only special case is if file_offset + *_length \u003e Size(), which happens when the end of the file is reached. In this case, you have to read Size() - file_offset bytes.\n\nThere is no need to track what has happened in the previous read attempts. The parameters to ReadAt already give you all the info you need.\n\nWhat you did works for the simple test of the fs_shell with the cat command, but it wouldn\u0027t work for anything more complex (for example, the less/more commands which allow moving back and forth in the file).",
+      "revId": "19b6128bb09f9fa92d9b12bd728027c1ba65bc00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52fbc0aa_0899ba6a",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-08-13T13:35:47Z",
+      "side": 1,
+      "message": "I have added, file_offset + *_length \u003e Size(), condition and made changes as per requirement. Please let me know if still there is a need to change.",
+      "parentUuid": "680c5f00_61280cc5",
       "revId": "19b6128bb09f9fa92d9b12bd728027c1ba65bc00",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true

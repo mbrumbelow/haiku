@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4431d03f_bfbf0c5a",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-08-13T13:35:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b66c5a57_0554cbd4",
+      "revId": "c7a91e409175936bf7dd01edc10a143f53506142",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca4b2f0c_739f2f25",
         "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
         "patchSetId": 2
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "08b00c98_aaae9f40",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-08-13T13:35:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca4b2f0c_739f2f25",
+      "revId": "c7a91e409175936bf7dd01edc10a143f53506142",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "659dda44_1cc6483a",
         "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
         "patchSetId": 2
@@ -50,6 +86,24 @@
       "revId": "c7a91e409175936bf7dd01edc10a143f53506142",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3a51479_efbdd6c4",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-08-13T13:35:47Z",
+      "side": 1,
+      "message": "Maybe I have used different approach but it is reading from multiple blocks.",
+      "parentUuid": "659dda44_1cc6483a",
+      "revId": "c7a91e409175936bf7dd01edc10a143f53506142",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
