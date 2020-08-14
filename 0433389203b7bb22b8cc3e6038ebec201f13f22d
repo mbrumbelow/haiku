@@ -34,6 +34,24 @@
       "revId": "0433389203b7bb22b8cc3e6038ebec201f13f22d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afb7dc99_aa2e6b7d",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-14T09:35:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c55ec08_667620d1",
+      "revId": "0433389203b7bb22b8cc3e6038ebec201f13f22d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
