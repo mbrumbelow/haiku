@@ -16,6 +16,24 @@
       "revId": "1bae069b9decc8d3d8ad695832d9b11ef2064354",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54a089dd_b1d9fafb",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-08-14T12:42:37Z",
+      "side": 1,
+      "message": "I think fragment size in superblock(fs_fsize) will be used here because blocks are made up of fragments.",
+      "parentUuid": "9028c2ea_28eb84cb",
+      "revId": "1bae069b9decc8d3d8ad695832d9b11ef2064354",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
