@@ -22,6 +22,7 @@
 #include <Button.h>
 #include <Catalog.h>
 #include <CheckBox.h>
+#include <DecoratorPrivate.h>
 #include <File.h>
 #include <InterfaceDefs.h>
 #include <InterfacePrivate.h>
@@ -83,7 +84,7 @@ LookAndFeelSettingsView::LookAndFeelSettingsView(const char* name)
 	fCurrentControlLook(NULL),
 	fSavedDoubleArrowsValue(_DoubleScrollBarArrows())
 {
-	fCurrentDecor = fDecorUtility.CurrentDecorator()->Name();
+	BPrivate::get_decorator(fCurrentDecor);
 	fSavedDecor = fCurrentDecor;
 
 	// Decorator menu
@@ -187,9 +188,9 @@ LookAndFeelSettingsView::MessageReceived(BMessage* message)
 	switch (message->what) {
 		case kMsgSetDecor:
 		{
-			BString newDecor;
-			if (message->FindString("decor", &newDecor) == B_OK)
-				_SetDecor(newDecor);
+			BString decorPath;
+			if (message->FindString("decor", &decorPath) == B_OK)
+				_SetDecor(decorPath);
 			break;
 		}
 
@@ -280,18 +281,22 @@ LookAndFeelSettingsView::MessageReceived(BMessage* message)
 
 
 void
-LookAndFeelSettingsView::_SetDecor(const BString& name)
+LookAndFeelSettingsView::_SetDecor(const BString& path)
 {
-	_SetDecor(fDecorUtility.FindDecorator(name));
+	_SetDecor(fDecorUtility.FindDecorator(path));
 }
 
 
 void
-LookAndFeelSettingsView::_SetDecor(DecorInfo* decorInfo)
+LookAndFeelSettingsView::_SetDecor(DecorInfo* decor)
 {
-	if (fDecorUtility.SetDecorator(decorInfo) == B_OK) {
-		fCurrentDecor = fDecorUtility.CurrentDecorator()->Name();
-		fDecorMenu->FindItem(_DecorLabel(fCurrentDecor))->SetMarked(true);
+	if (decor != NULL && fDecorUtility.SetDecorator(decor) == B_OK) {
+		fCurrentDecor = decor->Path();
+		BMenuItem* decorItem = fDecorMenu->FindItem(
+			_DecorLabel(decor->Name()));
+		if (decorItem != NULL)
+			decorItem->SetMarked(true);
+
 		Window()->PostMessage(kMsgUpdate);
 	}
 }
@@ -305,20 +310,20 @@ LookAndFeelSettingsView::_BuildDecorMenu()
 	// collect the current system decor settings
 	int32 count = fDecorUtility.CountDecorators();
 	for (int32 i = 0; i < count; ++i) {
-		DecorInfo* decorator = fDecorUtility.DecoratorAt(i);
-		if (decorator == NULL) {
+		DecorInfo* decor = fDecorUtility.DecoratorAt(i);
+		if (decor == NULL) {
 			fprintf(stderr, "Decorator : error NULL entry @ %" B_PRId32
 				" / %" B_PRId32 "\n", i, count);
 			continue;
 		}
 
-		BString decorName = decorator->Name();
+		BString decorPath = decor->Path();
 		BMessage* message = new BMessage(kMsgSetDecor);
-		message->AddString("decor", decorName);
+		message->AddString("decor", decorPath);
 
-		BMenuItem* item = new BMenuItem(_DecorLabel(decorName), message);
+		BMenuItem* item = new BMenuItem(_DecorLabel(decor->Name()), message);
 		fDecorMenu->AddItem(item);
-		if (decorName == fCurrentDecor)
+		if (decorPath == fCurrentDecor)
 			item->SetMarked(true);
 	}
 }
@@ -431,7 +436,7 @@ LookAndFeelSettingsView::_SetDoubleScrollBarArrows(bool doubleArrows)
 bool
 LookAndFeelSettingsView::IsDefaultable()
 {
-	return fCurrentDecor != fDecorUtility.DefaultDecorator()->Name()
+	return fCurrentDecor != fDecorUtility.DefaultDecorator()->Path()
 		|| fCurrentControlLook.Length() != 0
 		|| _DoubleScrollBarArrows() != false;
 }

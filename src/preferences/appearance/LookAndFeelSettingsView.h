@@ -38,7 +38,7 @@ public:
 			void				Revert();
 
 private:
-			void				_SetDecor(const BString& name);
+			void				_SetDecor(const BString& path);
 			void				_SetDecor(BPrivate::DecorInfo* decorInfo);
 			void				_BuildDecorMenu();
 			const char*			_DecorLabel(const BString& name);
