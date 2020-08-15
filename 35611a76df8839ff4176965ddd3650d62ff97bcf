@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffe56af7_818f7c9a",
+        "filename": "src/servers/input/InputServer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 652,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-08-15T20:12:46Z",
+      "side": 1,
+      "message": "Are you sure that you want to return B_OK here? According to the TODO the setting should be applied to all mouses (mice???), but it looks like nothing is applied here and also the message in the lines below are not applied.",
+      "revId": "35611a76df8839ff4176965ddd3650d62ff97bcf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d28fb28_01d08fec",
+        "filename": "src/servers/input/InputServer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 691,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-08-15T20:12:46Z",
+      "side": 1,
+      "message": "Same here: are you sure nothing needs to be actually done here?",
+      "revId": "35611a76df8839ff4176965ddd3650d62ff97bcf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
