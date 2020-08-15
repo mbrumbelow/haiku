@@ -669,8 +669,7 @@ gethostbyname_internal(const char *name, int af, res_state res)
 }
 
 struct hostent *
-gethostbyaddr(const char *addr,	/* XXX should have been def'd as u_char! */
-    socklen_t len, int af)
+gethostbyaddr(const void *addr, socklen_t len, int af)
 {
 	const u_char *uaddr = (const u_char *)addr;
 	socklen_t size;
