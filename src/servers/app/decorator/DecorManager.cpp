@@ -30,8 +30,9 @@
 typedef float get_version(void);
 typedef DecorAddOn* create_decor_addon(image_id id, const char* name);
 
-// Globals
-DecorManager gDecorManager;
+
+//! The one and only decor manager for the server, created by AppServer
+DecorManager* gDecorManager = NULL;
 
 
 DecorAddOn::DecorAddOn(image_id id, const char* name)
@@ -260,8 +261,8 @@ DecorManager::SetDecorator(BString path, Desktop* desktop)
 		return B_OK;
 	}
 
-	// TODO: unloading the newDecor and its image
-	// problem is we don't know how many windows failed... or why they failed...
+	// TODO unloading the newDecor and its image the problem is we don't
+	// know how many windows failed... or why they failed...
 	syslog(LOG_WARNING,
 		"app_server:DecorManager:SetDecorator:\"%s\" *partly* failed\n",
 		fCurrentDecorPath.String());
@@ -273,21 +274,21 @@ DecorManager::SetDecorator(BString path, Desktop* desktop)
 
 
 DecorAddOn*
-DecorManager::_LoadDecor(BString _path, status_t& error )
+DecorManager::_LoadDecor(BString path, status_t& error)
 {
-	if (_path == "Default") {
+	if (path.ICompare("Default") == 0) {
 		error = B_OK;
 		return &fDefaultDecor;
 	}
 
-	BEntry entry(_path.String(), true);
+	BEntry entry(path.String(), true);
 	if (!entry.Exists()) {
 		error = B_ENTRY_NOT_FOUND;
 		return NULL;
 	}
 
-	BPath path(&entry);
-	image_id image = load_add_on(path.Path());
+	BPath entryPath(&entry);
+	image_id image = load_add_on(entryPath.Path());
 	if (image < 0) {
 		error = B_BAD_IMAGE_ID;
 		return NULL;
@@ -343,7 +344,9 @@ DecorManager::_LoadSettingsFromDisk()
 				fCurrentDecor = decor;
 				return true;
 			} else {
-				//TODO: do something with the reported error
+				syslog(LOG_ERR, "app_server:DecorManager:DecorManager:"
+					" failed to load \"%s\": %s", itemPath.String(),
+					strerror(error));
 			}
 		}
 	}

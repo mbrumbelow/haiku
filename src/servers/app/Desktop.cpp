@@ -457,7 +457,7 @@ Desktop::Desktop(uid_t userID, const char* targetScreen)
 	RegisterListener(&fStackAndTile);
 
 	const DesktopListenerList& newListeners
-		= gDecorManager.GetDesktopListeners();
+		= gDecorManager->GetDesktopListeners();
 	for (int i = 0; i < newListeners.CountItems(); i++)
  		RegisterListener(newListeners.ItemAt(i));
 }
@@ -2184,7 +2184,7 @@ Desktop::ReloadDecor(DecorAddOn* oldDecor)
 
 	// register new listeners
 	const DesktopListenerList& newListeners
-		= gDecorManager.GetDesktopListeners();
+		= gDecorManager->GetDesktopListeners();
 	for (int i = 0; i < newListeners.CountItems(); i++)
  		RegisterListener(newListeners.ItemAt(i));
 

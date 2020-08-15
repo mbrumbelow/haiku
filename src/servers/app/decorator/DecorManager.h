@@ -93,6 +93,6 @@ private:
 			BString				fCurrentDecorPath;
 };
 
-extern DecorManager gDecorManager;
+extern DecorManager* gDecorManager;
 
 #endif	/* DECOR_MANAGER_H */

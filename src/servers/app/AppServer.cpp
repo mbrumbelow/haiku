@@ -1,12 +1,13 @@
 /*
- * Copyright 2001-2016, Haiku, Inc.
+ * Copyright 2001-2020 Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT license.
  *
  * Authors:
  *		DarkWyrm <bpmagic@columbus.rr.com>
  *		Axel Dörfler, axeld@pinc-software.de
  *		Stephan Aßmus <superstippi@gmx.de>
- * 		Christian Packmann
+ *		Christian Packmann
+ *		John Scipione <jscipione@gmail.com>
  */
 
 
@@ -18,6 +19,7 @@
 #include <PortLink.h>
 
 #include "BitmapManager.h"
+#include "DecorManager.h"
 #include "Desktop.h"
 #include "FontManager.h"
 #include "InputManager.h"
@@ -69,6 +71,9 @@ AppServer::AppServer(status_t* status)
 	// Create the bitmap allocator. Object declared in BitmapManager.cpp
 	gBitmapManager = new BitmapManager();
 
+	// Create the decor manager. Object declared in DecorManager.cpp
+	gDecorManager = new DecorManager();
+
 #ifndef HAIKU_TARGET_PLATFORM_LIBBE_TEST
 	// TODO: check the attached displays, and launch login session for them
 	BMessage data;
@@ -84,6 +89,7 @@ AppServer::AppServer(status_t* status)
 */
 AppServer::~AppServer()
 {
+	delete gDecorManager;
 	delete gBitmapManager;
 
 	gScreenManager->Lock();

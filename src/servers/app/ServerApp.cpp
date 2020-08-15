@@ -679,7 +679,7 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 			BString path;
 			link.ReadString(path);
 
-			status_t error = gDecorManager.SetDecorator(path, fDesktop);
+			status_t error = gDecorManager->SetDecorator(path, fDesktop);
 
 			fLink.Attach<status_t>(error);
 			fLink.Flush();
@@ -692,7 +692,7 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 		case AS_GET_DECORATOR:
 		{
 			fLink.StartMessage(B_OK);
-			fLink.AttachString(gDecorManager.GetCurrentDecorator().String());
+			fLink.AttachString(gDecorManager->GetCurrentDecorator().String());
 			fLink.Flush();
 			break;
 		}

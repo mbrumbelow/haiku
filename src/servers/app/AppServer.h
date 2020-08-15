@@ -33,6 +33,7 @@
 
 class ServerApp;
 class BitmapManager;
+class DecorManager;
 class Desktop;
 
 
@@ -58,7 +59,8 @@ private:
 };
 
 
-extern BitmapManager *gBitmapManager;
+extern BitmapManager* gBitmapManager;
+extern DecorManager* gDecorManager;
 extern port_id gAppServerPort;
 
 

@@ -140,7 +140,7 @@ Window::Window(const BRect& frame, const char *name,
 		}
 	}
 	if (fFeel != kOffscreenWindowFeel)
-		fWindowBehaviour = gDecorManager.AllocateWindowBehaviour(this);
+		fWindowBehaviour = gDecorManager->AllocateWindowBehaviour(this);
 
 	// do we need to change our size to let the decorator fit?
 	// _ResizeBy() will adapt the frame for validity before resizing
@@ -179,7 +179,7 @@ Window::~Window()
 	delete fWindowBehaviour;
 	delete fDrawingEngine;
 
-	gDecorManager.CleanupForWindow(this);
+	gDecorManager->CleanupForWindow(this);
 }
 
 
@@ -595,7 +595,7 @@ Window::ReloadDecor()
 
 	if (fLook != B_NO_BORDER_WINDOW_LOOK) {
 		// we need a new decorator
-		decorator = gDecorManager.AllocateDecorator(this);
+		decorator = gDecorManager->AllocateDecorator(this);
 		if (decorator == NULL)
 			return false;
 
@@ -613,7 +613,7 @@ Window::ReloadDecor()
 	} else
 		return true;
 
-	windowBehaviour = gDecorManager.AllocateWindowBehaviour(this);
+	windowBehaviour = gDecorManager->AllocateWindowBehaviour(this);
 	if (windowBehaviour == NULL) {
 		delete decorator;
 		return false;
@@ -1205,7 +1205,7 @@ Window::SetDecoratorSettings(const BMessage& settings, BRegion& dirty)
 		// 'prVu' == preview a decorator!
 		BString path;
 		if (settings.FindString("preview", &path) == B_OK)
-			return gDecorManager.PreviewDecorator(path, this) == B_OK;
+			return gDecorManager->PreviewDecorator(path, this) == B_OK;
 		return false;
 	}
 
@@ -1272,7 +1272,7 @@ Window::SetLook(window_look look, BRegion* updateRegion)
 	::Decorator* decorator = Decorator();
 	if (decorator == NULL && look != B_NO_BORDER_WINDOW_LOOK) {
 		// we need a new decorator
-		decorator = gDecorManager.AllocateDecorator(this);
+		decorator = gDecorManager->AllocateDecorator(this);
 		fCurrentStack->SetDecorator(decorator);
 		if (IsFocus())
 			decorator->SetFocus(stackPosition, true);
@@ -2252,7 +2252,7 @@ Window::_InitWindowStack()
 	fCurrentStack = NULL;
 	::Decorator* decorator = NULL;
 	if (fLook != B_NO_BORDER_WINDOW_LOOK)
-		decorator = gDecorManager.AllocateDecorator(this);
+		decorator = gDecorManager->AllocateDecorator(this);
 
 	WindowStack* stack = new(std::nothrow) WindowStack(decorator);
 	if (stack == NULL)
