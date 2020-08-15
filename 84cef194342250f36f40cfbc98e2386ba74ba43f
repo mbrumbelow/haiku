@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "32716a82_2f387730",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-08-15T08:31:57Z",
+      "side": 1,
+      "message": "You’ll need to call a setter method SetName() to set fName here. Also the mouse_name variable name should be mouseName.",
+      "revId": "84cef194342250f36f40cfbc98e2386ba74ba43f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "498ea7fa_ac71277a",
+        "filename": "src/preferences/input/MouseSettings.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-08-15T08:31:57Z",
+      "side": 1,
+      "message": "This should be a private member variable and it should be named fName with a capital N.",
+      "revId": "84cef194342250f36f40cfbc98e2386ba74ba43f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
