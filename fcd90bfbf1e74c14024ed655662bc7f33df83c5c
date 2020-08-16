@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ddc9b24d_ee1869d1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-08-16T12:18:15Z",
+      "side": 1,
+      "message": "This misattributes the change. Please use the original commit from the pull request as a basis so that authorship is properly retained. This also removes the need for the odd prefix to the commit message and the explanation in the body.",
+      "revId": "fcd90bfbf1e74c14024ed655662bc7f33df83c5c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8becf761_4383dbaa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-08-16T12:18:15Z",
+      "side": 1,
+      "message": "The reasoning IMO shouldn\u0027t be that others have it as \u0027const void *\u0027, but that it was specified as that in POSIX once (it has been removed from later versions, but here\u0027s a reference in issue 6: https://pubs.opengroup.org/onlinepubs/009695399/functions/gethostbyaddr.html).\n\nAlso the commit message is in a wrong format, causing the message here to be part of the subject (missing blank line between subject and body).",
+      "revId": "fcd90bfbf1e74c14024ed655662bc7f33df83c5c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1cc583ad_bb64fdb5",
+        "filename": "headers/posix/netdb.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-08-16T12:18:15Z",
+      "side": 1,
+      "message": "Why did you change the argument names? They were fine as they were.",
+      "revId": "fcd90bfbf1e74c14024ed655662bc7f33df83c5c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1ccb19b_1a43033e",
+        "filename": "src/system/libnetwork/netresolv/irs/gethnamaddr.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 672,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-08-16T12:18:15Z",
+      "side": 1,
+      "message": "If at all, I\u0027d change the argument names here to match the ones from the prototype as those are less abbreviated. But as this looks like importet code it\u0027s best to leave it as it is and only change the \u0027char\u0027 to \u0027void\u0027. It does not matter whether the names match as long as the types are correct.",
+      "revId": "fcd90bfbf1e74c14024ed655662bc7f33df83c5c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
