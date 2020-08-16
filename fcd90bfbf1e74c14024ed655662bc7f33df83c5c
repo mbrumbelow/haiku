@@ -71,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "213275c1_6a9dac0f",
+        "filename": "headers/posix/netdb.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000246
+      },
+      "writtenOn": "2020-08-16T13:09:53Z",
+      "side": 1,
+      "message": "my original patch https://0x0.st/iYLN.patch was already perfect. only minimal changes to make the prototype and definition correct, while removing the resolved FIXME item.\n\n(of course the commit message is another topic)",
+      "parentUuid": "1cc583ad_bb64fdb5",
+      "revId": "fcd90bfbf1e74c14024ed655662bc7f33df83c5c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e1ccb19b_1a43033e",
         "filename": "src/system/libnetwork/netresolv/irs/gethnamaddr.c",
         "patchSetId": 3
