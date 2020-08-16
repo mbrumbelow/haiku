@@ -190,6 +190,7 @@ public:
 			void				GetAccessTime(struct timespec& timestamp) const
 								{ fNode->GetAccessTime(timestamp); }
 
+			status_t			CheckPermissions(int accessMode) const;
 			uint32				UserId() const { return fNode->UserId(); }
 			uint32				GroupId() const { return fNode->GroupId(); }
 			bool				HasFileTypeField() const;
