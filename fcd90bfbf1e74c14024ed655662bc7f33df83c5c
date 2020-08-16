@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "464567a3_a248149f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000246
+      },
+      "writtenOn": "2020-08-16T13:05:39Z",
+      "side": 1,
+      "message": "i suppose the reason for that is that gerrit refuses to accept a push when the committer email address isn\u0027t registered, the exact reason why i couldn\u0027t upload the patch myself (noreply address can\u0027t be registered in gerrit as a confirmation mail is required) and asked ethan to do it for me, assuming he already got an account.\n\nbut maybe this can be fixed via git commit --amend --author\u003d\"rofl0r \u003cemail@here\u003e\", so ethan\u0027s email is preserved as committer while authorship is properly attributed.",
+      "parentUuid": "ddc9b24d_ee1869d1",
+      "revId": "fcd90bfbf1e74c14024ed655662bc7f33df83c5c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8becf761_4383dbaa",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
