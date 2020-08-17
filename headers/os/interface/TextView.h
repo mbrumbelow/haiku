@@ -411,12 +411,13 @@ private:
 			void				_FilterDisallowedChars(char* text,
 									ssize_t& length, text_run_array* runArray);
 
+			void				_UpdateInsets(const BRect& rect);
+
 private:
 			BPrivate::TextGapBuffer*	fText;
 			LineBuffer*			fLines;
 			StyleBuffer*		fStyles;
 			BRect				fTextRect;
-			BRect				fAlignedTextRect;
 			int32				fSelStart;
 			int32				fSelEnd;
 			bool				fCaretVisible;
@@ -464,7 +465,7 @@ private:
 			bool				fInstalledRemoveCommandWordwiseShortcuts : 1;
 			bool				fInstalledRemoveOptionWordwiseShortcuts : 1;
 
-			uint32				_reserved[2];
+			uint32				_reserved[6];
 };
 
 #endif	// _TEXTVIEW_H
