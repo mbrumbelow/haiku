@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c1d405d_71e84170",
+        "filename": "src/tools/fs_shell/fssh.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 722,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2020-08-17T19:32:15Z",
+      "side": 1,
+      "message": "Add up one more point here. The check here seems does not work with stack allocation (I thought it did..). Should we change to heap allocation instead ?",
+      "range": {
+        "startLine": 718,
+        "startChar": 1,
+        "endLine": 722,
+        "endChar": 3
+      },
+      "revId": "54c0be9c64f138593bcbfa59f1bdda3ffb9cf6d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
