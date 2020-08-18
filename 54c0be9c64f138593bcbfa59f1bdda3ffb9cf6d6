@@ -2,6 +2,91 @@
   "comments": [
     {
       "key": {
+        "uuid": "ae324499_0fe16e31",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/DirectoryIterator.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-18T09:08:41Z",
+      "side": 1,
+      "message": "You should check that status \u003d\u003d B_OK and size \u003d\u003d sizeof(dir) after this call (and return status, or return B_ERROR respectively, if it\u0027s not the case)",
+      "revId": "54c0be9c64f138593bcbfa59f1bdda3ffb9cf6d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "695669f7_0f693512",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/DirectoryIterator.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-18T09:08:41Z",
+      "side": 1,
+      "message": "this line is useless, you are setting the variable to itself",
+      "revId": "54c0be9c64f138593bcbfa59f1bdda3ffb9cf6d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28dba097_4a844eeb",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/DirectoryIterator.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-18T09:08:41Z",
+      "side": 1,
+      "message": "this should use direct.namlen (there is no need to copy the padding bytes)",
+      "revId": "54c0be9c64f138593bcbfa59f1bdda3ffb9cf6d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93f7b994_a3458637",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-18T09:08:41Z",
+      "side": 1,
+      "message": "this function is getting quite complicated because it\u0027s handling too many things. I think it would be a better idea to move some of the logic in another function. It\u0027s time to implement Inode::FindBlock. Its job is to manage the direct and indirect blocks.\n\nThe idea is:\n- In ReadAt, you compute the block_number\n- Then you call FindBlock(block_number), it returns you the pos (no matter if it\u0027s a direct or indirect block, FindBlock will take care of the details)\n- Then you can read at that position\n\nThis will allow to simplify this function, because you will not need to check the block_number to decide if you must use GetBlockPointer or GetIndirectBlockPointer here anymore. You can just ask FindBlock to do that part of the work.\n\nThis way, you will avoid repeating very similar code multiple times.",
+      "revId": "54c0be9c64f138593bcbfa59f1bdda3ffb9cf6d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a0e286f_4bcf64ff",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-18T09:08:41Z",
+      "side": 1,
+      "message": "use of strcat here is not appropriate. It stops at the first NULL byte found in the file. For ASCII files that\u0027s fine, but for binary files, it won\u0027t work.\n\nIn fact you don\u0027t need the \"data\" at all. You can just read directly into the buffer:\n\nread_pos(fd, pos, buffer, remaining_length);",
+      "revId": "54c0be9c64f138593bcbfa59f1bdda3ffb9cf6d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9c1d405d_71e84170",
         "filename": "src/tools/fs_shell/fssh.cpp",
         "patchSetId": 12
@@ -13,6 +98,30 @@
       "writtenOn": "2020-08-17T19:32:15Z",
       "side": 1,
       "message": "Add up one more point here. The check here seems does not work with stack allocation (I thought it did..). Should we change to heap allocation instead ?",
+      "range": {
+        "startLine": 718,
+        "startChar": 1,
+        "endLine": 722,
+        "endChar": 3
+      },
+      "revId": "54c0be9c64f138593bcbfa59f1bdda3ffb9cf6d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0530261_d82356f4",
+        "filename": "src/tools/fs_shell/fssh.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 722,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-18T09:08:41Z",
+      "side": 1,
+      "message": "I think the right thing to do is to use a fixed size buffer (4096 bytes for example) and read in multiple iterations until numBytes bytes have been read.\n\nWith a fixed and small size, there will be no allocation failure to check.",
+      "parentUuid": "9c1d405d_71e84170",
       "range": {
         "startLine": 718,
         "startChar": 1,
