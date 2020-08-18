@@ -142,7 +142,9 @@ static const char* kHandledProtocols[] = {
 	"file",
 	"about",
 	"data",
-	"gopher"
+	"gopher",
+	"ipfs",
+	"ipns",
 };
 
 

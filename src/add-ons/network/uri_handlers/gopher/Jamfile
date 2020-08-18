@@ -1,0 +1,13 @@
+SubDir HAIKU_TOP src add-ons network uri_handlers gopher ;
+
+UsePrivateKernelHeaders ;
+UsePrivateHeaders net ;
+
+Addon gopher :
+	GopherRequest.cpp
+	: be network bnetapi [ TargetLibstdc++ ] shared
+;
+
+# Installation
+HaikuInstall install-networking : /boot/home/config/add-ons/network/uri_handlers
+        : tcp ;

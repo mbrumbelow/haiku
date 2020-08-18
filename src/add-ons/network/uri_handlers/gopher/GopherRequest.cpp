@@ -7,6 +7,8 @@
  */
 
 
+#include "GopherRequest.h"
+
 #include <assert.h>
 #include <ctype.h>
 #include <stdlib.h>
@@ -15,7 +17,6 @@
 #include <Directory.h>
 #include <DynamicBuffer.h>
 #include <File.h>
-#include <GopherRequest.h>
 #include <NodeInfo.h>
 #include <Path.h>
 #include <Socket.h>
@@ -718,4 +719,15 @@ BGopherRequest::_HTMLEscapeString(BString &str)
 	str.ReplaceAll("<", "&lt;");
 	str.ReplaceAll(">", "&gt;");
 	return str;
+}
+
+
+// #pragma mark - BNetworkRequest
+
+
+extern "C" BNetworkRequest*
+instantiate_uri_addon(const BUrl& url, BUrlProtocolListener* listener,
+	BUrlContext* context)
+{
+	return new (std::nothrow) BGopherRequest(url, listener, context);
 }
