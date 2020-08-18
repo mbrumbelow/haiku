@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4178d578_d63ce1fd",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-08-18T06:39:42Z",
+      "side": 1,
+      "message": "There is a problem with the way we retrieve block number from address and also the block offset. The issue was seen when we had multi-level node (Note: not multi level tree). We don\u0027t get what is expected. I don\u0027t have an explanation for why it worked till when the nodes were of 1 level. We have to look into this.",
+      "revId": "5c6b01ec2e6cd6b24244111602602df925427164",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
