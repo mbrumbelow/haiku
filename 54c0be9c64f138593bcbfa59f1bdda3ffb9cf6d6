@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "78cac204_29da630c",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/DirectoryIterator.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-08-18T14:01:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ae324499_0fe16e31",
+      "revId": "54c0be9c64f138593bcbfa59f1bdda3ffb9cf6d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "695669f7_0f693512",
         "filename": "src/add-ons/kernel/file_systems/ufs2/DirectoryIterator.cpp",
         "patchSetId": 12
@@ -30,6 +48,24 @@
       "writtenOn": "2020-08-18T09:08:41Z",
       "side": 1,
       "message": "this line is useless, you are setting the variable to itself",
+      "revId": "54c0be9c64f138593bcbfa59f1bdda3ffb9cf6d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64702614_068cbd93",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/DirectoryIterator.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-08-18T14:01:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "695669f7_0f693512",
       "revId": "54c0be9c64f138593bcbfa59f1bdda3ffb9cf6d6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "76589477_b27b905d",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/DirectoryIterator.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-08-18T14:01:22Z",
+      "side": 1,
+      "message": "I think direct.namlen + 1 will work better.",
+      "parentUuid": "28dba097_4a844eeb",
+      "revId": "54c0be9c64f138593bcbfa59f1bdda3ffb9cf6d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "93f7b994_a3458637",
         "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
         "patchSetId": 12
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "709b2255_74eeae34",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-08-18T14:01:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "93f7b994_a3458637",
+      "revId": "54c0be9c64f138593bcbfa59f1bdda3ffb9cf6d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8a0e286f_4bcf64ff",
         "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
         "patchSetId": 12
@@ -81,6 +153,24 @@
       "writtenOn": "2020-08-18T09:08:41Z",
       "side": 1,
       "message": "use of strcat here is not appropriate. It stops at the first NULL byte found in the file. For ASCII files that\u0027s fine, but for binary files, it won\u0027t work.\n\nIn fact you don\u0027t need the \"data\" at all. You can just read directly into the buffer:\n\nread_pos(fd, pos, buffer, remaining_length);",
+      "revId": "54c0be9c64f138593bcbfa59f1bdda3ffb9cf6d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0189ae45_95d90381",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-08-18T14:01:22Z",
+      "side": 1,
+      "message": "Yes, it is not reading the binary file. I will make the necessary changes in code.",
+      "parentUuid": "8a0e286f_4bcf64ff",
       "revId": "54c0be9c64f138593bcbfa59f1bdda3ffb9cf6d6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
