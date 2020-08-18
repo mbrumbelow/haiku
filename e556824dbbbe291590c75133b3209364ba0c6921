@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "edfd86cf_17335678",
+        "filename": "src/tools/fs_shell/fssh.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 741,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2020-08-18T19:05:36Z",
+      "side": 1,
+      "message": "This condition is always true if we\u0027ve made it this far (the preceding check on the result of _kern_read guarantees it), and is consequently unnecessary.",
+      "revId": "e556824dbbbe291590c75133b3209364ba0c6921",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
