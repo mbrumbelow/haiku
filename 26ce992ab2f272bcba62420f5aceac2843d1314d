@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3ecada10_25f036f5",
+        "filename": "headers/private/kernel/boot/PathBlocklist.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-18T09:12:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "160eba2f_575bc75f",
+      "revId": "26ce992ab2f272bcba62420f5aceac2843d1314d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca686e5b_f88b954f",
         "filename": "src/add-ons/kernel/file_systems/packagefs/volume/PackageSettings.cpp",
         "patchSetId": 1
@@ -67,6 +85,24 @@
       "revId": "26ce992ab2f272bcba62420f5aceac2843d1314d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a31a110_1e483c3e",
+        "filename": "src/system/boot/loader/menu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1562,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-18T09:12:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ca6bcdb_4c81b4b3",
+      "revId": "26ce992ab2f272bcba62420f5aceac2843d1314d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
