@@ -126,6 +126,7 @@ PreferencesWindow::PreferencesWindow(BRect frame)
 	msg->AddBool("expand", false);
 	fWindowLocationMenu->AddItem(new BMenuItem(B_TRANSLATE("Right-Bottom"), msg));
 	fWindowLocation = new BMenuField(B_TRANSLATE("Location"), fWindowLocationMenu);
+	fWindowLocation->SetToolTip(B_TRANSLATE("You can also move the Deskbar by dragging the dotted area at the right of the clock."));
 	fWindowAlwaysOnTop = new BCheckBox(B_TRANSLATE("Always on top"),
 		new BMessage(kAlwaysTop));
 	fWindowAutoRaise = new BCheckBox(B_TRANSLATE("Auto-raise"),
