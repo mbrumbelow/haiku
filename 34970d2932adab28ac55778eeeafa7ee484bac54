@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7e9f0054_ac1bbdfd",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Debug.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2020-08-19T17:12:44Z",
+      "side": 1,
+      "message": "This shouldn\u0027t be left enabled in the checked in code.",
+      "revId": "34970d2932adab28ac55778eeeafa7ee484bac54",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3265839d_60c3efcd",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2020-08-19T17:12:44Z",
+      "side": 1,
+      "message": "Is this buffer actually necessary? As far as I can tell, it\u0027s only ever used during GetFromDisk(), and then (partially) copied into fNode. Unless the inode size has the potential to be very large, the buffer could just be allocated on the stack in GetFromDisk() directly, or alternatively, read_pos() in ReadFromDisk() can read into fNode directly, assuming len is constrained to INODE_CORE_UNLINKED_BYTES first. This would eliminate both the need to new/delete it, and the memcpy.",
+      "revId": "34970d2932adab28ac55778eeeafa7ee484bac54",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87a5d108_e8b476f9",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2020-08-19T17:12:44Z",
+      "side": 1,
+      "message": "Missing implementation? This should be freeing the cookie at least.",
+      "revId": "34970d2932adab28ac55778eeeafa7ee484bac54",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ade968f_99275549",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2020-08-19T17:12:44Z",
+      "side": 1,
+      "message": "Same.",
+      "revId": "34970d2932adab28ac55778eeeafa7ee484bac54",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
