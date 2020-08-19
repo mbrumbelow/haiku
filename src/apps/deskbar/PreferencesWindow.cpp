@@ -23,6 +23,7 @@
 #include <LayoutBuilder.h>
 #include <OpenWithTracker.h>
 #include <Path.h>
+#include <PopUpMenu.h>
 #include <RadioButton.h>
 #include <Roster.h>
 #include <SeparatorView.h>
@@ -31,6 +32,8 @@
 #include <SpaceLayoutItem.h>
 #include <Spinner.h>
 #include <View.h>
+
+#include <DeskbarPrivate.h>
 
 #include "BarApp.h"
 #include "DeskbarUtils.h"
@@ -89,6 +92,40 @@ PreferencesWindow::PreferencesWindow(BRect frame)
 	fAppsIconSizeSlider->SetModificationMessage(new BMessage(kResizeTeamIcons));
 
 	// Window controls
+	fWindowLocationMenu = new BPopUpMenu(B_TRANSLATE("Deskbar Location Menu"));
+	BMessage *msg = new BMessage(kMsgSetLocation);
+	msg->AddInt32("location", B_DESKBAR_TOP);
+	msg->AddBool("expand", false);
+	fWindowLocationMenu->AddItem(new BMenuItem(B_TRANSLATE("Top"), msg));
+	msg = new BMessage(kMsgSetLocation);
+	msg->AddInt32("location", B_DESKBAR_BOTTOM);
+	msg->AddBool("expand", false);
+	fWindowLocationMenu->AddItem(new BMenuItem(B_TRANSLATE("Bottom"), msg));
+	msg = new BMessage(kMsgSetLocation);
+	msg->AddInt32("location", B_DESKBAR_LEFT_TOP);
+	msg->AddBool("expand", false);
+	fWindowLocationMenu->AddItem(new BMenuItem(B_TRANSLATE("Left-Top"), msg));
+	msg = new BMessage(kMsgSetLocation);
+	msg->AddInt32("location", B_DESKBAR_LEFT_TOP);
+	msg->AddBool("expand", true);
+	fWindowLocationMenu->AddItem(new BMenuItem(B_TRANSLATE("Left-Top (Expanded)"), msg));
+	msg = new BMessage(kMsgSetLocation);
+	msg->AddInt32("location", B_DESKBAR_RIGHT_TOP);
+	msg->AddBool("expand", false);
+	fWindowLocationMenu->AddItem(new BMenuItem(B_TRANSLATE("Right-Top"), msg));
+	msg = new BMessage(kMsgSetLocation);
+	msg->AddInt32("location", B_DESKBAR_RIGHT_TOP);
+	msg->AddBool("expand", true);
+	fWindowLocationMenu->AddItem(new BMenuItem(B_TRANSLATE("Right-Top (Expanded)"), msg));
+	msg = new BMessage(kMsgSetLocation);
+	msg->AddInt32("location", B_DESKBAR_LEFT_BOTTOM);
+	msg->AddBool("expand", false);
+	fWindowLocationMenu->AddItem(new BMenuItem(B_TRANSLATE("Left-Bottom"), msg));
+	msg = new BMessage(kMsgSetLocation);
+	msg->AddInt32("location", B_DESKBAR_RIGHT_BOTTOM);
+	msg->AddBool("expand", false);
+	fWindowLocationMenu->AddItem(new BMenuItem(B_TRANSLATE("Right-Bottom"), msg));
+	fWindowLocation = new BMenuField(B_TRANSLATE("Location"), fWindowLocationMenu);
 	fWindowAlwaysOnTop = new BCheckBox(B_TRANSLATE("Always on top"),
 		new BMessage(kAlwaysTop));
 	fWindowAutoRaise = new BCheckBox(B_TRANSLATE("Auto-raise"),
@@ -136,6 +173,7 @@ PreferencesWindow::PreferencesWindow(BRect frame)
 	fAppsHideLabels->SetTarget(be_app);
 	fAppsIconSizeSlider->SetTarget(be_app);
 
+	fWindowLocationMenu->SetTargetForItems(be_app);
 	fWindowAlwaysOnTop->SetTarget(be_app);
 	fWindowAutoRaise->SetTarget(be_app);
 	fWindowAutoHide->SetTarget(be_app);
@@ -194,6 +232,7 @@ PreferencesWindow::PreferencesWindow(BRect frame)
 	windowSettingsBox->AddChild(BLayoutBuilder::Group<>()
 		.SetExplicitMaxSize(BSize(B_SIZE_UNLIMITED, B_SIZE_UNSET))
 		.AddGroup(B_VERTICAL, 0)
+			.Add(fWindowLocation)
 			.Add(fWindowAlwaysOnTop)
 			.Add(fWindowAutoRaise)
 			.Add(fWindowAutoHide)
