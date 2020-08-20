@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa0d73e2_250d9b96",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2020-08-20T21:07:37Z",
+      "side": 1,
+      "message": "Small spelling error. :)",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 14
+      },
+      "revId": "fa28930961d7b27051614480ca21ae8644a73ea7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60f48123_b581d5df",
+        "filename": "src/kits/tracker/Attributes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2020-08-20T21:07:37Z",
+      "side": 1,
+      "message": "I notice that you are using time_t to keep track of when a thumbnail was last generated and needs to be generated again. As a suggestion (and I may have no idea what I\u0027m talking about ;D), to avoid having to to deal with time_t being different sizes on different platforms, why not cast \"time_t\" to be a bigtime_t?",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 61
+      },
+      "revId": "fa28930961d7b27051614480ca21ae8644a73ea7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8f66189_9f5674d7",
+        "filename": "src/kits/tracker/Utilities.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2020-08-20T21:07:37Z",
+      "side": 1,
+      "message": "While I understand that these avoid \"bad_alloc\" exceptions, I don\u0027t see any other corresponding NULL checks to avoid NULL pointer exceptions in other parts of the code.",
+      "range": {
+        "startLine": 181,
+        "startChar": 12,
+        "endLine": 181,
+        "endChar": 26
+      },
+      "revId": "fa28930961d7b27051614480ca21ae8644a73ea7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57141a29_a9ac14cd",
+        "filename": "src/kits/tracker/Utilities.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1599,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2020-08-20T21:07:37Z",
+      "side": 1,
+      "message": "Is there a reason for using these image types in particular? Or are these just \"known test cases\"?",
+      "range": {
+        "startLine": 1590,
+        "startChar": 1,
+        "endLine": 1599,
+        "endChar": 2
+      },
+      "revId": "fa28930961d7b27051614480ca21ae8644a73ea7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
