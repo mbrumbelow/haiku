@@ -52,6 +52,24 @@
       "revId": "d65e23cafda0a717b115ae0bda4b454e740dd562",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16c0e8bc_f5c5795d",
+        "filename": "src/tools/fs_shell/fssh.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1029,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-08-21T22:32:17Z",
+      "side": 1,
+      "message": "I think when I used cherry pick command to get patchset 2 of this commit, at that time for resolving conflict, I accidentally merged this code and that changed the fssh.cpp to the old version of haiku.",
+      "parentUuid": "0ae8ad78_437f54ba",
+      "revId": "d65e23cafda0a717b115ae0bda4b454e740dd562",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
