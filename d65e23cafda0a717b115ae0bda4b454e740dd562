@@ -16,6 +16,24 @@
       "revId": "d65e23cafda0a717b115ae0bda4b454e740dd562",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1840c752_25b0da27",
+        "filename": "src/tools/fs_shell/fssh.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1029,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-08-21T17:16:43Z",
+      "side": 1,
+      "message": "When I see changes from patch 2 to patch 3 then it shows that the file is unchanged but from patch 1 to patch 3 it shows these changes. Moreover I haven\u0027t made any changes in this file, it\u0027s strange :-/",
+      "parentUuid": "d77ab607_720e9004",
+      "revId": "d65e23cafda0a717b115ae0bda4b454e740dd562",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
