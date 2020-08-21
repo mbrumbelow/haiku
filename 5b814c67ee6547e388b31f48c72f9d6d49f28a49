@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "a2726c93_4e87faf0",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2020-08-21T19:16:19Z",
+      "side": 1,
+      "message": "That depends, how large can the number of extents be? Unless the number is guaranteed to be limited to a relatively small number, allocating on the stack is unwise.",
+      "parentUuid": "b281e911_b82df212",
+      "revId": "5b814c67ee6547e388b31f48c72f9d6d49f28a49",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2a490507_ff2889a2",
         "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
         "patchSetId": 5
