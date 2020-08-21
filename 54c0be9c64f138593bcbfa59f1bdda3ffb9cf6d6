@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "22545133_326521e3",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/DirectoryIterator.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-08-21T13:41:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78cac204_29da630c",
+      "revId": "54c0be9c64f138593bcbfa59f1bdda3ffb9cf6d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "695669f7_0f693512",
         "filename": "src/add-ons/kernel/file_systems/ufs2/DirectoryIterator.cpp",
         "patchSetId": 12
@@ -69,6 +87,24 @@
       "revId": "54c0be9c64f138593bcbfa59f1bdda3ffb9cf6d6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ddb3e3f_047057c1",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/DirectoryIterator.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-08-21T13:41:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64702614_068cbd93",
+      "revId": "54c0be9c64f138593bcbfa59f1bdda3ffb9cf6d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -107,6 +143,24 @@
     },
     {
       "key": {
+        "uuid": "1f25b7fd_504b882e",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/DirectoryIterator.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-08-21T13:41:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76589477_b27b905d",
+      "revId": "54c0be9c64f138593bcbfa59f1bdda3ffb9cf6d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "93f7b994_a3458637",
         "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
         "patchSetId": 12
@@ -136,6 +190,24 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "93f7b994_a3458637",
+      "revId": "54c0be9c64f138593bcbfa59f1bdda3ffb9cf6d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e7fa145_08eeff6b",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-08-21T13:41:34Z",
+      "side": 1,
+      "message": "I think FindBlock() is working fine for indirect block but need to check it for double and triple indirect block.",
+      "parentUuid": "709b2255_74eeae34",
       "revId": "54c0be9c64f138593bcbfa59f1bdda3ffb9cf6d6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -174,6 +246,24 @@
       "revId": "54c0be9c64f138593bcbfa59f1bdda3ffb9cf6d6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6857bec7_398235e9",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-08-21T13:41:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0189ae45_95d90381",
+      "revId": "54c0be9c64f138593bcbfa59f1bdda3ffb9cf6d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
