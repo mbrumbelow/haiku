@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10ad36d5_cf9b15a0",
+        "filename": "src/kits/interface/InterfaceDefs.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2020-08-22T14:46:09Z",
+      "side": 1,
+      "message": "You will also want to add the line I mentioned below here too. This should allow this function to retrieve a specific mouse’s settings.",
+      "revId": "ce26dbb25121513a95d391481b669064f8ebbb30",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9962adc1_d981e10b",
+        "filename": "src/kits/interface/InterfaceDefs.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 647,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2020-08-22T14:46:09Z",
+      "side": 1,
+      "message": "I believe your code isn’t trying to retrieve settings from a specific mouse at the moment, though I think you’re really close! Below “BMessage reply” on line 646, you will want to attach the “mouse_name” to the message with this line of code: “command.AddString(“mouse_name”, mouse_name.String());”",
+      "revId": "ce26dbb25121513a95d391481b669064f8ebbb30",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
