@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6cd18966_0845fc21",
+        "filename": "src/apps/deskbar/PreferencesWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2020-08-23T13:13:25Z",
+      "side": 1,
+      "message": "Well there is another ctor with separate internal name also.\nIt\u0027s displayed because it\u0027s not checking which location is used yet.",
+      "parentUuid": "79329f34_6947c925",
+      "revId": "ea6d2aaf6a78c08e1ac30168c2a67b52a07cd146",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2b802849_bfef7a53",
         "filename": "src/apps/deskbar/PreferencesWindow.cpp",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "c2fbd95c_7f8c753a",
+        "filename": "src/apps/deskbar/PreferencesWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2020-08-23T13:13:25Z",
+      "side": 1,
+      "message": "The user guide uses once \"located\" and once \"position\", so I think either should do.",
+      "parentUuid": "2b802849_bfef7a53",
+      "revId": "ea6d2aaf6a78c08e1ac30168c2a67b52a07cd146",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "587349cc_96dca244",
         "filename": "src/apps/deskbar/PreferencesWindow.cpp",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2020-08-22T12:59:40Z",
       "side": 1,
       "message": "IMO, it\u0027d look a bit better below the 3 checkboxes. Looks more symmetrical compared to the Menu box above with its 3 checkboxes and the \"Edit in Tracker...\" button below.",
+      "revId": "ea6d2aaf6a78c08e1ac30168c2a67b52a07cd146",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "410627ad_af550282",
+        "filename": "src/apps/deskbar/PreferencesWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2020-08-23T13:13:25Z",
+      "side": 1,
+      "message": "Yeah but logically it\u0027s more important than the options the checkboxes represent, I think.",
+      "parentUuid": "587349cc_96dca244",
       "revId": "ea6d2aaf6a78c08e1ac30168c2a67b52a07cd146",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
