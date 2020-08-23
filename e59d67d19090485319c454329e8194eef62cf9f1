@@ -57,6 +57,30 @@
       "revId": "e59d67d19090485319c454329e8194eef62cf9f1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bfb9dec9_27d537d6",
+        "filename": "src/tools/fs_shell/fssh.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 746,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-23T12:57:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5314ef4e_758417b8",
+      "range": {
+        "startLine": 746,
+        "startChar": 2,
+        "endLine": 746,
+        "endChar": 18
+      },
+      "revId": "e59d67d19090485319c454329e8194eef62cf9f1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
