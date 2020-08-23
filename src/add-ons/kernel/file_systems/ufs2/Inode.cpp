@@ -216,3 +216,11 @@ Inode::FindBlock(off_t block_number, off_t block_offset)
 		return direct_block * fragment_size + block_offset;
 	}
 }
+
+
+status_t
+Inode::ReadLink(char* buffer, size_t *_bufferSize)
+{
+	strlcpy(buffer, fNode._blocks.symlinkpath, *_bufferSize);
+	return B_OK;
+}
