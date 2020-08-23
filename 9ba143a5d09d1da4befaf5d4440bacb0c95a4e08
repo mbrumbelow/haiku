@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5e8275e4_a74b192e",
+        "filename": "src/tools/fs_shell/fssh.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 735,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-23T12:42:52Z",
+      "side": 0,
+      "message": "why was this removed?",
+      "revId": "9ba143a5d09d1da4befaf5d4440bacb0c95a4e08",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
