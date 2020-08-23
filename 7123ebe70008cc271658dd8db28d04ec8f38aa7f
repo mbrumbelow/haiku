@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "52439421_3b834ad5",
+        "filename": "build/jam/images/MMCImage",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-23T13:08:25Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "7123ebe70008cc271658dd8db28d04ec8f38aa7f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1650492_cc787d52",
+        "filename": "src/add-ons/kernel/bus_managers/pci/arch/riscv64/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-23T13:08:25Z",
+      "side": 1,
+      "message": "trailing whitespace",
+      "revId": "7123ebe70008cc271658dd8db28d04ec8f38aa7f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "530d5d53_6118346a",
+        "filename": "src/add-ons/kernel/bus_managers/pci/arch/riscv64/pci_io.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-23T13:08:25Z",
+      "side": 1,
+      "message": "s/ARM/RISCV64",
+      "revId": "7123ebe70008cc271658dd8db28d04ec8f38aa7f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
