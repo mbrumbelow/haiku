@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "e43720c8_d224986d",
+        "filename": "src/apps/deskbar/PreferencesWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2020-08-23T14:57:48Z",
+      "side": 1,
+      "message": "Actually, all the other controls are constructed alike, without an internal name set…\nYou\u0027re probably referring to the BMenuField anyway.",
+      "parentUuid": "6cd18966_0845fc21",
+      "revId": "ea6d2aaf6a78c08e1ac30168c2a67b52a07cd146",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2b802849_bfef7a53",
         "filename": "src/apps/deskbar/PreferencesWindow.cpp",
         "patchSetId": 1
