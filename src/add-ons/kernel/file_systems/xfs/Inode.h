@@ -45,6 +45,19 @@
 #define BLOCKOFFSET_FROM_POSITION(n, inode) ((n) & (inode->BlockSize() - 1))
 
 
+// xfs_bmdr_block
+struct BlockInDataFork {
+			uint16				Levels()
+									{ return
+										B_BENDIAN_TO_HOST_INT16(bb_level); }
+			uint16				NumRecords()
+									{ return
+										B_BENDIAN_TO_HOST_INT16(bb_numrecs); }
+			uint16				bb_level;
+			uint16				bb_numrecs;
+};
+
+
 // xfs_da_blkinfo_t
 struct BlockInfo {
 			uint32				forw;
@@ -221,6 +234,17 @@ public:
 			int					SearchMapInAllExtent(int blockNo);
 			void				UnWrapExtentFromWrappedEntry(
 									uint64 wrappedExtent[2], ExtentMapEntry* entry);
+			status_t			ReadExtentsFromExtentBasedInode();
+			status_t			ReadExtentsFromTreeInode();
+			size_t				MaxRecordsPossibleInTreeRoot();
+			size_t				MaxRecordsPossibleNode();
+			size_t				PtrSize() { return XFS_PTR_SIZE; }
+			size_t				KeySize() { return XFS_KEY_SIZE; }
+			int					BlockLen() { return XFS_BTREE_LBLOCK_SIZE; }
+			TreePointer*		GetPtrFromRoot(int pos);
+			TreePointer*		GetPtrFromNode(int pos, void* buffer);
+			size_t				GetPtrOffsetIntoRoot(int pos);
+			size_t				GetPtrOffsetIntoNode(int pos);
 private:
 			status_t			GetFromDisk();
 			xfs_inode_t*		fNode;
