@@ -86,6 +86,41 @@
       "revId": "5b814c67ee6547e388b31f48c72f9d6d49f28a49",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5aa1acee_b1855fbf",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2020-08-23T07:39:57Z",
+      "side": 1,
+      "message": "also missing free memory if using new",
+      "parentUuid": "2a490507_ff2889a2",
+      "revId": "5b814c67ee6547e388b31f48c72f9d6d49f28a49",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9afec806_3c4d1bec",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2020-08-23T07:39:57Z",
+      "side": 1,
+      "message": "unused variable after new assignment",
+      "revId": "5b814c67ee6547e388b31f48c72f9d6d49f28a49",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
