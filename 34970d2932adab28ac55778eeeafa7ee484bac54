@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "2e6a9479_9b0277ff",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-08-23T09:08:44Z",
+      "side": 1,
+      "message": "This buffer is quite important. inodeSize is always larger than the INODE_CORE as there is always information that is present after di_next_unlinked.\nfNode is only a part of the inode. It basically stores the metadata of the Inode (basically xfs_ino_t). The data of the inode comes really from what is after fNode.\nWe can\u0027t have this in stack because this is used a lot by the directory classes. It needs to be a member attribute.",
+      "parentUuid": "3265839d_60c3efcd",
+      "revId": "34970d2932adab28ac55778eeeafa7ee484bac54",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "87a5d108_e8b476f9",
         "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
         "patchSetId": 4
@@ -47,6 +65,24 @@
       "writtenOn": "2020-08-19T17:12:44Z",
       "side": 1,
       "message": "Missing implementation? This should be freeing the cookie at least.",
+      "revId": "34970d2932adab28ac55778eeeafa7ee484bac54",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b579379_6341edbb",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-08-23T09:08:44Z",
+      "side": 1,
+      "message": "freeing the cookie is handled by another hook that we have, \"xfs_free_cookie\".\nI looked up what BFS, ext2, btrfs do. They simply return B_OK.",
+      "parentUuid": "87a5d108_e8b476f9",
       "revId": "34970d2932adab28ac55778eeeafa7ee484bac54",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -67,6 +103,24 @@
       "revId": "34970d2932adab28ac55778eeeafa7ee484bac54",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b045838e_3eb0aa37",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-08-23T09:08:44Z",
+      "side": 1,
+      "message": "Same as above.",
+      "parentUuid": "6ade968f_99275549",
+      "revId": "34970d2932adab28ac55778eeeafa7ee484bac54",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
