@@ -44,6 +44,9 @@ Inode::Inode(Volume* volume, ino_t id)
 	if (read_pos(fd, offset, (void*)&fNode, sizeof(fNode)) != sizeof(fNode))
 		ERROR("Inode::Inode(): IO Error\n");
 
+	if (IsSymLink()) {
+		read_pos(fd, offset + 112, (void*)&symlinkdata, 120);
+	}
 
 }
 
@@ -215,4 +218,12 @@ Inode::FindBlock(off_t block_number, off_t block_offset)
 
 		return direct_block * fragment_size + block_offset;
 	}
+}
+
+
+status_t
+Inode::ReadLink(char* buffer, size_t *_bufferSize)
+{
+	strlcpy(buffer, symlinkdata, *_bufferSize);
+	return B_OK;
 }

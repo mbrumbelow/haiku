@@ -123,6 +123,7 @@ class Inode {
 
 			off_t   	FindBlock(off_t block_number, off_t block_offset);
 			status_t	ReadAt(off_t pos, uint8* buffer, size_t* length);
+			status_t	ReadLink(char* buffer, size_t *_bufferSize);
 //			status_t	FillGapWithZeros(off_t start, off_t end);
 
 			void*		FileCache() const { return fCache; }
@@ -145,6 +146,7 @@ private:
 			void*		fMap;
 			status_t	fInitStatus;
 			ufs2_inode	fNode;
+			char		symlinkdata[256];
 };
 
 #endif	// INODE_H
