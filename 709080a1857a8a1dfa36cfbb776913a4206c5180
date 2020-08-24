@@ -1,0 +1,372 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "841c82af_b5de7245",
+        "filename": "src/apps/cortex/MediaRoutingView/MediaRoutingView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1766,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2020-08-24T16:43:02Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 1766,
+        "startChar": 24,
+        "endLine": 1766,
+        "endChar": 31
+      },
+      "revId": "709080a1857a8a1dfa36cfbb776913a4206c5180",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9e8bd90_ca10f79f",
+        "filename": "src/apps/cortex/ParameterView/ParameterWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2020-08-24T16:43:02Z",
+      "side": 1,
+      "message": "missing ) ?",
+      "range": {
+        "startLine": 165,
+        "startChar": 67,
+        "endLine": 165,
+        "endChar": 68
+      },
+      "revId": "709080a1857a8a1dfa36cfbb776913a4206c5180",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e429af06_f5fda42a",
+        "filename": "src/apps/cortex/RouteApp/RouteAppNodeManager.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2020-08-24T16:43:02Z",
+      "side": 1,
+      "message": "+\u003d",
+      "range": {
+        "startLine": 279,
+        "startChar": 6,
+        "endLine": 279,
+        "endChar": 8
+      },
+      "revId": "709080a1857a8a1dfa36cfbb776913a4206c5180",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "890cade4_bc123e90",
+        "filename": "src/apps/cortex/RouteApp/RouteAppNodeManager.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2020-08-24T16:43:02Z",
+      "side": 1,
+      "message": "+\u003d",
+      "range": {
+        "startLine": 293,
+        "startChar": 11,
+        "endLine": 293,
+        "endChar": 13
+      },
+      "revId": "709080a1857a8a1dfa36cfbb776913a4206c5180",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a01a12c7_317254da",
+        "filename": "src/apps/cortex/RouteApp/RouteAppNodeManager.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2020-08-24T16:43:02Z",
+      "side": 1,
+      "message": "+\u003d",
+      "range": {
+        "startLine": 387,
+        "startChar": 6,
+        "endLine": 387,
+        "endChar": 8
+      },
+      "revId": "709080a1857a8a1dfa36cfbb776913a4206c5180",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03f9f79a_0d06dc68",
+        "filename": "src/apps/cortex/RouteApp/RouteAppNodeManager.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2020-08-24T16:43:02Z",
+      "side": 1,
+      "message": "+\u003d",
+      "range": {
+        "startLine": 434,
+        "startChar": 6,
+        "endLine": 434,
+        "endChar": 8
+      },
+      "revId": "709080a1857a8a1dfa36cfbb776913a4206c5180",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7bdca70_eb7a27d6",
+        "filename": "src/apps/cortex/support/MediaString.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2020-08-24T16:43:02Z",
+      "side": 1,
+      "message": "BStringFormat?",
+      "range": {
+        "startLine": 550,
+        "startChar": 30,
+        "endLine": 550,
+        "endChar": 52
+      },
+      "revId": "709080a1857a8a1dfa36cfbb776913a4206c5180",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b80cfe36_e0120cac",
+        "filename": "src/apps/cortex/support/MediaString.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2020-08-24T16:43:02Z",
+      "side": 1,
+      "message": "BStringFormat should be used here",
+      "range": {
+        "startLine": 634,
+        "startChar": 27,
+        "endLine": 634,
+        "endChar": 54
+      },
+      "revId": "709080a1857a8a1dfa36cfbb776913a4206c5180",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd7e9a49_65e4d48b",
+        "filename": "src/apps/cortex/support/MediaString.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 889,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2020-08-24T16:43:02Z",
+      "side": 1,
+      "message": "BStringFormat should be used here",
+      "range": {
+        "startLine": 889,
+        "startChar": 15,
+        "endLine": 889,
+        "endChar": 53
+      },
+      "revId": "709080a1857a8a1dfa36cfbb776913a4206c5180",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9594707a_5b55ce81",
+        "filename": "src/apps/cortex/support/MediaString.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2020-08-24T16:43:02Z",
+      "side": 1,
+      "message": "Should be translated too (in Russian it would be Гц)",
+      "range": {
+        "startLine": 991,
+        "startChar": 26,
+        "endLine": 991,
+        "endChar": 31
+      },
+      "revId": "709080a1857a8a1dfa36cfbb776913a4206c5180",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a36dcdb_0dbaaac3",
+        "filename": "src/apps/cortex/support/MediaString.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 993,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2020-08-24T16:43:02Z",
+      "side": 1,
+      "message": "B_TRANSLATE",
+      "range": {
+        "startLine": 993,
+        "startChar": 7,
+        "endLine": 993,
+        "endChar": 15
+      },
+      "revId": "709080a1857a8a1dfa36cfbb776913a4206c5180",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca8b180c_c4a16c07",
+        "filename": "src/apps/cortex/support/MediaString.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 997,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2020-08-24T16:43:02Z",
+      "side": 1,
+      "message": "B_TRANSLATE",
+      "range": {
+        "startLine": 997,
+        "startChar": 7,
+        "endLine": 997,
+        "endChar": 16
+      },
+      "revId": "709080a1857a8a1dfa36cfbb776913a4206c5180",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d909fe3e_8d3651f3",
+        "filename": "src/apps/cortex/support/MediaString.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1069,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2020-08-24T16:43:02Z",
+      "side": 1,
+      "message": "BStringFormat",
+      "range": {
+        "startLine": 1069,
+        "startChar": 15,
+        "endLine": 1069,
+        "endChar": 51
+      },
+      "revId": "709080a1857a8a1dfa36cfbb776913a4206c5180",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "913ce3ad_aa691d56",
+        "filename": "src/apps/cortex/support/MediaString.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1140,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2020-08-24T16:43:02Z",
+      "side": 1,
+      "message": "BStringFormat",
+      "range": {
+        "startLine": 1140,
+        "startChar": 27,
+        "endLine": 1140,
+        "endChar": 53
+      },
+      "revId": "709080a1857a8a1dfa36cfbb776913a4206c5180",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b901c21_e9258e6c",
+        "filename": "src/apps/cortex/support/MediaString.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1228,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2020-08-24T16:43:02Z",
+      "side": 1,
+      "message": "BStringFormat",
+      "range": {
+        "startLine": 1228,
+        "startChar": 7,
+        "endLine": 1228,
+        "endChar": 56
+      },
+      "revId": "709080a1857a8a1dfa36cfbb776913a4206c5180",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3eeeb072_4d8c37fb",
+        "filename": "src/apps/cortex/support/MediaString.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1234,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2020-08-24T16:43:02Z",
+      "side": 1,
+      "message": "BStringFormat",
+      "range": {
+        "startLine": 1234,
+        "startChar": 7,
+        "endLine": 1234,
+        "endChar": 56
+      },
+      "revId": "709080a1857a8a1dfa36cfbb776913a4206c5180",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
