@@ -16,6 +16,24 @@
       "revId": "4c25c8b915d01f2da939a96d5710fdb1a6f93a4a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75de85ea_92277849",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-24T09:17:16Z",
+      "side": 1,
+      "message": "Actually, I think the data is stored inside the inode directly. So, this should be part of ufs2_inode, maybe using a union {} to make it overlap with the data structures used for files and directories.",
+      "parentUuid": "dc50aa56_7e7eba39",
+      "revId": "4c25c8b915d01f2da939a96d5710fdb1a6f93a4a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
