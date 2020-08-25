@@ -16,6 +16,7 @@
 #include <Autolock.h>
 #include <Catalog.h>
 #include <CatalogData.h>
+#include <DefaultCatalog.h>
 #include <Debug.h>
 #include <Entry.h>
 #include <FormattingConventions.h>
@@ -233,6 +234,108 @@ MutableLocaleRoster::LoadCatalog(const entry_ref& catalogOwner,
 				return catalog;
 		}
 		info->UnloadIfPossible();
+	}
+
+	return NULL;
+}
+
+
+/*
+ * Loads a catalog for the given signature and language.
+ *
+ * Only the default catalog type is searched, and only the standard system
+ * directories.
+ *
+ * If a catalog depends on another language (as 'english-british' depends
+ * on 'english') the dependant catalogs are automatically loaded, too.
+ * So it is perfectly possible that this method returns a catalog-chain
+ * instead of a single catalog.
+ * NULL is returned if no matching catalog could be found.
+ */
+BCatalogData*
+MutableLocaleRoster::LoadCatalog(const char* signature,
+	const char* language) const
+{
+	BAutolock lock(fData->fLock);
+	if (!lock.IsLocked())
+		return NULL;
+
+	BMessage languages;
+	if (language)
+		// try to load catalogs for the given language:
+		languages.AddString("language", language);
+	else
+		// try to load catalogs for one of the preferred languages:
+		GetPreferredLanguages(&languages);
+
+
+	int32 count = fData->fCatalogAddOnInfos.CountItems();
+	CatalogAddOnInfo* defaultCatalogInfo = NULL;
+	for (int32 i = 0; i < count; ++i) {
+		CatalogAddOnInfo* info = (CatalogAddOnInfo*)
+			fData->fCatalogAddOnInfos.ItemAt(i);
+		if (info->MakeSureItsLoaded()
+			&& info->fInstantiateFunc == BPrivate::DefaultCatalog::Instantiate) {
+			defaultCatalogInfo = info;
+			break;
+		}
+	}
+
+	if (defaultCatalogInfo == NULL)
+		return NULL;
+
+	BPrivate::DefaultCatalog* catalog = NULL;
+	const char* lang;
+	for (int32 l=0; languages.FindString("language", l, &lang)==B_OK; ++l) {
+		catalog = new (std::nothrow) BPrivate::DefaultCatalog(NULL, signature,
+			lang);
+		if (catalog == NULL)
+			continue;
+
+		if (catalog->InitCheck() != B_OK
+			|| catalog->ReadFromStandardLocations() != B_OK) {
+			delete catalog;
+			continue;
+		}
+
+		defaultCatalogInfo->fLoadedCatalogs.AddItem(catalog);
+
+		// Chain-load catalogs for languages that depend on
+		// other languages.
+		// The current implementation uses the filename in order to
+		// detect dependencies (parenthood) between languages (it
+		// traverses from "english_british_oxford" to "english_british"
+		// to "english"):
+		int32 pos;
+		BString langName(lang);
+		BCatalogData* currCatalog = catalog;
+		BPrivate::DefaultCatalog* nextCatalog = NULL;
+		while ((pos = langName.FindLast('_')) >= 0) {
+			// language is based on parent, so we load that, too:
+			// (even if the parent catalog was not found)
+			langName.Truncate(pos);
+			nextCatalog = new (std::nothrow) BPrivate::DefaultCatalog(NULL,
+				signature, langName.String());
+
+			if (nextCatalog == NULL)
+				continue;
+
+			if (nextCatalog->InitCheck() != B_OK
+				|| nextCatalog->ReadFromStandardLocations() != B_OK) {
+				delete nextCatalog;
+				continue;
+			}
+
+			defaultCatalogInfo->fLoadedCatalogs.AddItem(nextCatalog);
+	
+			if(currCatalog)
+				currCatalog->SetNext(nextCatalog);
+			else
+				catalog = nextCatalog;
+			currCatalog = nextCatalog;
+		}
+		if (catalog != NULL)
+			return catalog;
 	}
 
 	return NULL;
