@@ -193,6 +193,24 @@
       "revId": "5b814c67ee6547e388b31f48c72f9d6d49f28a49",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ccb6e5f9_f2241b7c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2020-08-25T12:28:21Z",
+      "side": 1,
+      "message": "What is the purpose of levelsInTree after reassigning it to 0 ? There is no code using it below, so this line is useless.",
+      "parentUuid": "25087dc2_8f355edf",
+      "revId": "5b814c67ee6547e388b31f48c72f9d6d49f28a49",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
