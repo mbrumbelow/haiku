@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57fa2014_f1c4412d",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/DirectoryIterator.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-25T08:52:41Z",
+      "side": 1,
+      "message": "indentation is incorrect here",
+      "revId": "63ee96e12f1d5a446b7bb0fe72629de1d32ae6f2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a66c0b5_ce762035",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-25T08:52:41Z",
+      "side": 1,
+      "message": "You can split the read operation as follows:\n- The first block is read with a block_offset (we start reading possibly in the middle of the block, until its end)\n- Then, 0 or more full blocks (all with offset 0 and reading the complete block)\n- Finally, one last partial read with block_offset \u003d 0 and a smaller size to match _length exactly\n\nCurrently, you have the first one here, but then the block_offset is never set to 0 for the other blocks, which seems strange to me. It should now be possible to test this with the fixed fs_shell cat command by using non multiple of two block sizes (4097 bytes, for example).",
+      "revId": "63ee96e12f1d5a446b7bb0fe72629de1d32ae6f2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f62b9ff_1f53ad5e",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-25T08:52:41Z",
+      "side": 1,
+      "message": "indentation is incorrect here",
+      "revId": "63ee96e12f1d5a446b7bb0fe72629de1d32ae6f2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84293ed6_7ff18352",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-25T08:52:41Z",
+      "side": 1,
+      "message": "this comment is incorrect now",
+      "revId": "63ee96e12f1d5a446b7bb0fe72629de1d32ae6f2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3826646c_1a0243b0",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-25T08:52:41Z",
+      "side": 1,
+      "message": "this should be block_number \u003c number_of_block_pointers + 12\n\nThe layout is (number_of_block_pointers \u003d 512):\nblocks 0 to 11 are direct blocks (12 blocks)\nblocks 12 to 524 are indirect (512 blocks)\nand so on.\n\nAlso, it should be } else (...) { according to the coding guidelines, so you\u0027ll need a linebreak before the \u0026\u0026",
+      "revId": "63ee96e12f1d5a446b7bb0fe72629de1d32ae6f2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "befeef69_918fbbc8",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-25T08:52:41Z",
+      "side": 1,
+      "message": "no space after (\n} and else go on the same line",
+      "revId": "63ee96e12f1d5a446b7bb0fe72629de1d32ae6f2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b0e83a9_dc111287",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-25T08:52:41Z",
+      "side": 1,
+      "message": "use number_of_block_pointers * number_of_block_pointers here. pow converts to floating point and may lose some precision while doing so, and is also slower.",
+      "revId": "63ee96e12f1d5a446b7bb0fe72629de1d32ae6f2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf07fbce_2845a322",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-25T08:52:41Z",
+      "side": 1,
+      "message": "this is incorrect, it should be - 524",
+      "revId": "63ee96e12f1d5a446b7bb0fe72629de1d32ae6f2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0cb4f8aa_e5ddb011",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-25T08:52:41Z",
+      "side": 1,
+      "message": "we should check that it fits in the triple indirect block, in case someone tries to read past the maximal file size (and return B_BAD_VALUE in that case)",
+      "revId": "63ee96e12f1d5a446b7bb0fe72629de1d32ae6f2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03d77693_35e8c032",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-25T08:52:41Z",
+      "side": 1,
+      "message": "shouldn\u0027t it be ^ 3 and not ^ 2 for triple indirects?",
+      "revId": "63ee96e12f1d5a446b7bb0fe72629de1d32ae6f2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
