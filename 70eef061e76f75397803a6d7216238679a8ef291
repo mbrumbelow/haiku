@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "91cfd20d_063a1a41",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2020-08-25T12:38:21Z",
+      "side": 1,
+      "message": "This looks like a piece of code for tree traversing inside BPlusTree::GetAllExtents(), try to do a general tree traversing in future patches for all XFS BPlusTree to prevent from duplication.",
+      "range": {
+        "startLine": 306,
+        "startChar": 1,
+        "endLine": 335,
+        "endChar": 18
+      },
+      "revId": "70eef061e76f75397803a6d7216238679a8ef291",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2cf0edb4_88a869d3",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2020-08-25T12:38:21Z",
+      "side": 1,
+      "message": "why use function to return and not these macros directly ?",
+      "range": {
+        "startLine": 242,
+        "startChar": 0,
+        "endLine": 244,
+        "endChar": 13
+      },
+      "revId": "70eef061e76f75397803a6d7216238679a8ef291",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
