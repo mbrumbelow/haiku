@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "810f3afd_f9c485af",
+        "filename": "src/servers/input/InputServer.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-26T12:00:16Z",
+      "side": 1,
+      "message": "you are just hiding a problem here. Either implement the function and fix the TODO, or handle the error correctly where the function is called.",
+      "revId": "4320882fc9f716d1bd8a37c8a4c392ee0c3d8aed",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3515669c_0a21463b",
+        "filename": "src/servers/input/InputServer.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 874,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-26T12:00:16Z",
+      "side": 1,
+      "message": "you are not saving the settings to the MultipleMouseSettings anymore here. So, how will this work for multiple mouses?",
+      "revId": "4320882fc9f716d1bd8a37c8a4c392ee0c3d8aed",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80cc3884_3056c000",
+        "filename": "src/servers/input/InputServer.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-26T12:00:16Z",
+      "side": 1,
+      "message": "Don\u0027t re-add this. There is a MultipleMouseSettings woth all the settings in it, and it should be used. If you store the settings elsewhere instead, they will not be used for anything.",
+      "revId": "4320882fc9f716d1bd8a37c8a4c392ee0c3d8aed",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
