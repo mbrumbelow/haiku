@@ -19,6 +19,40 @@
     },
     {
       "key": {
+        "uuid": "6f7d420b_8f5d9257",
+        "filename": "src/servers/app/Window.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-08-26T18:47:12Z",
+      "side": 1,
+      "message": "if (stack !\u003d NULL) {",
+      "revId": "3673c368ae69888c334affaac6bc74b3e3477f40",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d49a8c82_afb00e70",
+        "filename": "src/servers/app/Window.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-08-26T18:47:12Z",
+      "side": 1,
+      "message": "if (decorator !\u003d NULL)",
+      "revId": "3673c368ae69888c334affaac6bc74b3e3477f40",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "30f3c1c7_d761335b",
         "filename": "src/servers/app/decorator/Decorator.cpp",
         "patchSetId": 6
@@ -36,6 +70,23 @@
     },
     {
       "key": {
+        "uuid": "9dbc358a_510bf821",
+        "filename": "src/servers/app/decorator/DefaultDecorator.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-08-26T18:47:12Z",
+      "side": 1,
+      "message": "r is a bad variable name, I realize that you didn’t actually name this variable. But change r to rect.",
+      "revId": "3673c368ae69888c334affaac6bc74b3e3477f40",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8d73eabf_8694412c",
         "filename": "src/servers/app/decorator/DefaultDecorator.cpp",
         "patchSetId": 6
@@ -47,6 +98,142 @@
       "writtenOn": "2020-08-26T17:14:39Z",
       "side": 1,
       "message": "this line is too long",
+      "revId": "3673c368ae69888c334affaac6bc74b3e3477f40",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9d03fe5_f4226817",
+        "filename": "src/servers/app/decorator/DefaultDecorator.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-08-26T18:47:12Z",
+      "side": 1,
+      "message": "Here you did choose r. Change to rect.",
+      "revId": "3673c368ae69888c334affaac6bc74b3e3477f40",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee8f2627_443d8be5",
+        "filename": "src/servers/app/decorator/DefaultWindowBehaviour.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-08-26T18:47:12Z",
+      "side": 1,
+      "message": "No newline here.",
+      "revId": "3673c368ae69888c334affaac6bc74b3e3477f40",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4435f4a2_df33f519",
+        "filename": "src/servers/app/decorator/DefaultWindowBehaviour.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-08-26T18:47:12Z",
+      "side": 1,
+      "message": "if ((fWindow-\u003eFlags() \u0026 B_OUTLINE_RESIZE) !\u003d 0) {",
+      "revId": "3673c368ae69888c334affaac6bc74b3e3477f40",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c33a620_c37f136a",
+        "filename": "src/servers/app/decorator/DefaultWindowBehaviour.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-08-26T18:47:12Z",
+      "side": 1,
+      "message": "Same here.",
+      "revId": "3673c368ae69888c334affaac6bc74b3e3477f40",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a05dc5c4_4fa1bc48",
+        "filename": "src/servers/app/decorator/DefaultWindowBehaviour.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-08-26T18:47:12Z",
+      "side": 1,
+      "message": "Use B_ORIGIN here.",
+      "revId": "3673c368ae69888c334affaac6bc74b3e3477f40",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8c47e5f_f92d4501",
+        "filename": "src/servers/app/decorator/DefaultWindowBehaviour.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-08-26T18:47:12Z",
+      "side": 1,
+      "message": "Use B_ORIGIN here.",
+      "revId": "3673c368ae69888c334affaac6bc74b3e3477f40",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d21f2d37_78aefa58",
+        "filename": "src/servers/app/decorator/DefaultWindowBehaviour.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-08-26T18:47:12Z",
+      "side": 1,
+      "message": "Same here.",
+      "revId": "3673c368ae69888c334affaac6bc74b3e3477f40",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b6a0ab8_5b7db9ec",
+        "filename": "src/servers/app/decorator/DefaultWindowBehaviour.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-08-26T18:47:12Z",
+      "side": 1,
+      "message": "Same here.",
       "revId": "3673c368ae69888c334affaac6bc74b3e3477f40",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
