@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5730ee28_6c533565",
+        "filename": "src/servers/input/InputServer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 932,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-26T10:28:05Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "8d7c49d62610ce67091ae156884e9d4e66e12bef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
