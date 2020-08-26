@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f2d0e7e_6f593cbb",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 2403,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-26T14:15:17Z",
+      "side": 1,
+      "message": "Does this always make sense? For a non-editable text view the caret is not really an important place in the text view. I think in that case you\u0027d rather want to scroll the view so that the line at the top of the visible area remains the same or something like that?\n\nWhile in StyledEdit it makes sense to insist on focusing on the caret, it doesn\u0027t for example in AboutSystem.",
+      "revId": "a3f3e3cfad39ad41ec9415a2074c64267af4394e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
