@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9175f3e3_49f90739",
+        "filename": "src/kits/locale/MutableLocaleRoster.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-08-26T18:35:36Z",
+      "side": 1,
+      "message": "Need spaces between l\u003d0 binary \u003d operator still.",
+      "revId": "c15ead043a2718533b7aa2430f79c38f9b1e44d0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2fb943c_4e641be9",
+        "filename": "src/kits/locale/MutableLocaleRoster.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-08-26T18:35:36Z",
+      "side": 1,
+      "message": "if (nextCatalog !\u003d NULL)",
+      "revId": "c15ead043a2718533b7aa2430f79c38f9b1e44d0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce5233d7_c0635bde",
+        "filename": "src/kits/locale/MutableLocaleRoster.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-08-26T18:35:36Z",
+      "side": 1,
+      "message": "if (currentCatalog !\u003d NULL)",
+      "revId": "c15ead043a2718533b7aa2430f79c38f9b1e44d0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e9540c8_e9a5feea",
+        "filename": "src/kits/locale/MutableLocaleRoster.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-08-26T18:35:36Z",
+      "side": 1,
+      "message": "Remove trailing tab.",
+      "revId": "c15ead043a2718533b7aa2430f79c38f9b1e44d0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
