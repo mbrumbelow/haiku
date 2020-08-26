@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2f6d370b_2f1a9aff",
+        "filename": "src/servers/app/Desktop.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1529,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-26T17:14:39Z",
+      "side": 1,
+      "message": "ourselves (while we\u0027re at it...)",
+      "revId": "3673c368ae69888c334affaac6bc74b3e3477f40",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30f3c1c7_d761335b",
+        "filename": "src/servers/app/decorator/Decorator.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-26T17:14:39Z",
+      "side": 1,
+      "message": "why is _DoOutlineLayout not called inside _DoLayout? and similarly for _MoveBy/_MoveOutlineBy, _ResizeBy/_ResizeOutlineBy. If there is a reason for it, that should be documented somewhere so we know when to call and not to call these new methods when changing the code.",
+      "revId": "3673c368ae69888c334affaac6bc74b3e3477f40",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d73eabf_8694412c",
+        "filename": "src/servers/app/decorator/DefaultDecorator.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-26T17:14:39Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "3673c368ae69888c334affaac6bc74b3e3477f40",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "804fa26b_4e68c6be",
+        "filename": "src/servers/app/decorator/TabDecorator.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-26T17:14:39Z",
+      "side": 1,
+      "message": "two empty lines between functions",
+      "revId": "3673c368ae69888c334affaac6bc74b3e3477f40",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b2d4422_3ab91c7c",
+        "filename": "src/servers/app/decorator/TabDecorator.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-26T17:14:39Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "3673c368ae69888c334affaac6bc74b3e3477f40",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06337e0c_1f088617",
+        "filename": "src/servers/app/decorator/TabDecorator.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-26T17:14:39Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "3673c368ae69888c334affaac6bc74b3e3477f40",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
