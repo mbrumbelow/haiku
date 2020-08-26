@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ceffd72d_2a843a69",
+        "filename": "src/kits/locale/MutableLocaleRoster.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-08-26T07:24:39Z",
+      "side": 1,
+      "message": "if (language !\u003d NULL \u0026\u0026 *language !\u003d ‘0’)",
+      "revId": "32cbc65492ced6c80b40b1db068a77b3ab025133",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ade5d36_d4692cae",
+        "filename": "src/kits/locale/MutableLocaleRoster.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-08-26T07:24:39Z",
+      "side": 1,
+      "message": "spaces around \u003d and \u003d\u003d operators, use two lines if you have to.",
+      "revId": "32cbc65492ced6c80b40b1db068a77b3ab025133",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8adb910d_6e23f955",
+        "filename": "src/kits/locale/MutableLocaleRoster.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-08-26T07:24:39Z",
+      "side": 1,
+      "message": "if (currCatalog !\u003d NULL)\n\nAlso rename variable to currentCatalog. If you want a 4 letter name to match next I’d use this.",
+      "revId": "32cbc65492ced6c80b40b1db068a77b3ab025133",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
