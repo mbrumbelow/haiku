@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1849d871_cec943ec",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 29
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-26T10:23:52Z",
+      "side": 1,
+      "message": "else goes on the same line as }",
+      "revId": "9f855617faa0e02b1bf62fc6200351ebfcf53c47",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f65a01e_04d9badf",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 29
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-26T10:23:52Z",
+      "side": 1,
+      "message": "missing space after !\u003d",
+      "revId": "9f855617faa0e02b1bf62fc6200351ebfcf53c47",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc986f89_4ef29a54",
+        "filename": "src/preferences/input/MouseSettings.h",
+        "patchSetId": 29
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-26T10:23:52Z",
+      "side": 1,
+      "message": "indent with tabs instead of spaces between BPoint and fWindowPosition",
+      "revId": "9f855617faa0e02b1bf62fc6200351ebfcf53c47",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
