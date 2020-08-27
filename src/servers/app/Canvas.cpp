@@ -57,7 +57,7 @@ Canvas::~Canvas()
 status_t
 Canvas::InitCheck() const
 {
-	if (fDrawState == NULL)
+	if (fDrawState.Get() == NULL)
 		return B_NO_MEMORY;
 
 	return B_OK;
@@ -67,9 +67,12 @@ Canvas::InitCheck() const
 void
 Canvas::PushState()
 {
-	DrawState* newState = fDrawState->PushState();
-	if (newState)
-		fDrawState = newState;
+	DrawState* previousState = fDrawState.Detach();
+	DrawState* newState = previousState->PushState();
+	if (newState == NULL)
+		newState = previousState;
+
+	fDrawState.SetTo(newState);
 }
 
 
@@ -81,7 +84,7 @@ Canvas::PopState()
 
 	bool rebuildClipping = fDrawState->HasAdditionalClipping();
 
-	fDrawState = fDrawState->PopState();
+	fDrawState.SetTo(fDrawState->PopState());
 
 	// rebuild clipping
 	// (the clipping from the popped state is not effective anymore)
@@ -93,7 +96,7 @@ Canvas::PopState()
 void
 Canvas::SetDrawState(DrawState* newState)
 {
-	fDrawState = newState;
+	fDrawState.SetTo(newState);
 }
 
 
@@ -299,14 +302,13 @@ OffscreenCanvas::OffscreenCanvas(DrawingEngine* engine,
 
 OffscreenCanvas::~OffscreenCanvas()
 {
-	delete fDrawState;
 }
 
 
 void
 OffscreenCanvas::ResyncDrawState()
 {
-	fDrawingEngine->SetDrawState(fDrawState);
+	fDrawingEngine->SetDrawState(fDrawState.Get());
 }
 
 
