@@ -59,6 +59,7 @@ FontFamily::FontFamily(const char *name, uint16 id)
 	fNextID(0),
 	fFlags(kInvalidFamilyFlags)
 {
+	printf("+FontFamily(%p, \"%s\", %d)\n", this, name, id);
 	fName.Truncate(B_FONT_FAMILY_LENGTH);
 		// make sure this family can be found using the Be API
 }
@@ -72,13 +73,13 @@ FontFamily::FontFamily(const char *name, uint16 id)
 */
 FontFamily::~FontFamily()
 {
+	printf("-FontFamily(%p)\n", this);
 	for (int32 i = fStyles.CountItems(); i-- > 0;) {
 		FontStyle* style = fStyles.RemoveItemAt(i);
 
 		// we remove us before deleting the style, so that the font manager
 		// is not contacted to remove the style from us
 		style->_SetFontFamily(NULL, -1);
-		delete style;
 	}
 }
 
