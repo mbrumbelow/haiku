@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "345ffa29_3b895e2a",
+        "filename": "src/system/boot/platform/efi/mmu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-27T14:25:13Z",
+      "side": 1,
+      "message": "Does EFI support PAE or similar cases where phys_addr_t and addr_t have different sizes? This should be a phys_addr_t in that case.",
+      "revId": "c646d435e7ff59d61f1ff3617ba85384d9639320",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbad8388_816f52b8",
+        "filename": "src/system/boot/platform/efi/mmu.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-27T14:25:13Z",
+      "side": 1,
+      "message": "It looks like this should return a phys_addr_t then? Not sure what\u0027s going on exactly, but we should be clear about what\u0027s physical and what\u0027s MMU address here.",
+      "revId": "c646d435e7ff59d61f1ff3617ba85384d9639320",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
