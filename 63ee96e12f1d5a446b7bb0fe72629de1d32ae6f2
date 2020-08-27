@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c5d54f12_e2bd632b",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/DirectoryIterator.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-08-27T17:35:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57fa2014_f1c4412d",
+      "revId": "63ee96e12f1d5a446b7bb0fe72629de1d32ae6f2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a66c0b5_ce762035",
         "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
         "patchSetId": 16
@@ -30,6 +48,24 @@
       "writtenOn": "2020-08-25T08:52:41Z",
       "side": 1,
       "message": "You can split the read operation as follows:\n- The first block is read with a block_offset (we start reading possibly in the middle of the block, until its end)\n- Then, 0 or more full blocks (all with offset 0 and reading the complete block)\n- Finally, one last partial read with block_offset \u003d 0 and a smaller size to match _length exactly\n\nCurrently, you have the first one here, but then the block_offset is never set to 0 for the other blocks, which seems strange to me. It should now be possible to test this with the fixed fs_shell cat command by using non multiple of two block sizes (4097 bytes, for example).",
+      "revId": "63ee96e12f1d5a446b7bb0fe72629de1d32ae6f2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "954cd9ef_2d0a13da",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-08-27T17:35:49Z",
+      "side": 1,
+      "message": "I have made some changes in patch 17. Hope that it will work correctly :)",
+      "parentUuid": "1a66c0b5_ce762035",
       "revId": "63ee96e12f1d5a446b7bb0fe72629de1d32ae6f2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "0bb6bc61_51c66ffe",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-08-27T17:35:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f62b9ff_1f53ad5e",
+      "revId": "63ee96e12f1d5a446b7bb0fe72629de1d32ae6f2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84293ed6_7ff18352",
         "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
         "patchSetId": 16
@@ -67,6 +121,24 @@
       "revId": "63ee96e12f1d5a446b7bb0fe72629de1d32ae6f2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b075a271_7a339d4a",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-08-27T17:35:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84293ed6_7ff18352",
+      "revId": "63ee96e12f1d5a446b7bb0fe72629de1d32ae6f2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "c9697624_feb7df52",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-08-27T17:35:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3826646c_1a0243b0",
+      "revId": "63ee96e12f1d5a446b7bb0fe72629de1d32ae6f2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "befeef69_918fbbc8",
         "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
         "patchSetId": 16
@@ -101,6 +191,24 @@
       "revId": "63ee96e12f1d5a446b7bb0fe72629de1d32ae6f2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78578c95_31c81772",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-08-27T17:35:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "befeef69_918fbbc8",
+      "revId": "63ee96e12f1d5a446b7bb0fe72629de1d32ae6f2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "bafce7af_813fee13",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-08-27T17:35:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b0e83a9_dc111287",
+      "revId": "63ee96e12f1d5a446b7bb0fe72629de1d32ae6f2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf07fbce_2845a322",
         "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
         "patchSetId": 16
@@ -132,6 +258,24 @@
       "writtenOn": "2020-08-25T08:52:41Z",
       "side": 1,
       "message": "this is incorrect, it should be - 524",
+      "revId": "63ee96e12f1d5a446b7bb0fe72629de1d32ae6f2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99e50473_74660a56",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-08-27T17:35:49Z",
+      "side": 1,
+      "message": "Considering the above comment, number_of_block_pointers \u003d 512, so I think it is working correctly.",
+      "parentUuid": "bf07fbce_2845a322",
       "revId": "63ee96e12f1d5a446b7bb0fe72629de1d32ae6f2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "71851d19_acb9e764",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-08-27T17:35:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0cb4f8aa_e5ddb011",
+      "revId": "63ee96e12f1d5a446b7bb0fe72629de1d32ae6f2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03d77693_35e8c032",
         "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
         "patchSetId": 16
@@ -166,6 +328,24 @@
       "writtenOn": "2020-08-25T08:52:41Z",
       "side": 1,
       "message": "shouldn\u0027t it be ^ 3 and not ^ 2 for triple indirects?",
+      "revId": "63ee96e12f1d5a446b7bb0fe72629de1d32ae6f2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b2be10b_57d73290",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-08-27T17:35:49Z",
+      "side": 1,
+      "message": "Here I am trying to calculate the number of direct blocks in double indirect block and then subtract it from block_number.",
+      "parentUuid": "03d77693_35e8c032",
       "revId": "63ee96e12f1d5a446b7bb0fe72629de1d32ae6f2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
