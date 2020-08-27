@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2600c556_d0227168",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 945,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-08-27T15:19:24Z",
+      "side": 1,
+      "message": "No, it should be \"BReference\u003cServerPicture\u003e cloned(CreatePicture(original), true);\".",
+      "parentUuid": "1bf6effe_3139161e",
+      "revId": "4e43fcfdb43cbcba2d6a02ec8fc357fce78a5fcf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fee629e3_1b65b9be",
         "filename": "src/servers/app/drawing/AlphaMask.cpp",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2020-08-27T14:02:34Z",
       "side": 1,
       "message": "This change appears to be unrelated?",
+      "revId": "4e43fcfdb43cbcba2d6a02ec8fc357fce78a5fcf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2744df2_3a7b7db0",
+        "filename": "src/servers/app/drawing/AlphaMask.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-08-27T15:19:24Z",
+      "side": 1,
+      "message": "Yes. This is part of fix of rendering glitch. Clipping is not working as expected.",
+      "parentUuid": "fee629e3_1b65b9be",
       "revId": "4e43fcfdb43cbcba2d6a02ec8fc357fce78a5fcf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
