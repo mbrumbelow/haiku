@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "52de9921_f24d23c0",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-28T08:14:01Z",
+      "side": 1,
+      "message": "the test for block_number \u003e\u003d 12 is useless here (it was checked by the first \"if\" above already)",
+      "revId": "474f42bf192a5020416bc1b85868ca2f5427aa6b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf170af0_aed5bb5d",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-28T08:14:01Z",
+      "side": 1,
+      "message": "now it\u0027s a bit difficult to read. I suggest adding some variables computed at the start of the function:\n\nconst off_t number_of_direct_blocks \u003d 12;\nconst off_t number_of_indirect_blocks \u003d number_of_block_pointers;\nconst off_t number_of_double_indirect_blocks \u003d number_of_block_pointers * number_of_block_pointers;\n...\n\nconst off_t first_direct_block \u003d 0;\nconst off_t first_indirect_block \u003d first_direct_block + number_of_direct_blocks;\n...\n\nAnd use them in the code. It will be a lot clearer then.\n\nAlso, I didn\u0027t notice it earlier but normally in Haiku coding style, all local variables should use camel case so it should be numberOfBlockPointers, numberOfIndirectBlocks, etc. We had made an exception for the ufs2_super_block and inode structures to make it easier to match these with the existing litterature about UFS, but it should not be the case for the other parts of the code.",
+      "revId": "474f42bf192a5020416bc1b85868ca2f5427aa6b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
