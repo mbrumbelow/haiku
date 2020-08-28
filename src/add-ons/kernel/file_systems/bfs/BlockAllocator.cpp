@@ -49,8 +49,8 @@ public:
 
 	virtual void AddDump(TraceOutput& out)
 	{
-		out.Print("bfs:alloc %lu.%u.%u", fRun.AllocationGroup(),
-			fRun.Start(), fRun.Length());
+		out.Print("bfs:alloc %" B_PRIi32 ".%" B_PRIu16 ".%" B_PRIu16,
+			fRun.AllocationGroup(), fRun.Start(), fRun.Length());
 	}
 
 	const block_run& Run() const { return fRun; }
@@ -71,8 +71,8 @@ public:
 
 	virtual void AddDump(TraceOutput& out)
 	{
-		out.Print("bfs:free %lu.%u.%u", fRun.AllocationGroup(),
-			fRun.Start(), fRun.Length());
+		out.Print("bfs:free %" B_PRIi32 ".%" B_PRIu16 ".%" B_PRIu16,
+			fRun.AllocationGroup(), fRun.Start(), fRun.Length());
 	}
 
 	const block_run& Run() const { return fRun; }
@@ -1275,8 +1275,9 @@ BlockAllocator::IsValidBlockRun(block_run run)
 		|| uint32(run.Start() + run.Length())
 				> fGroups[run.AllocationGroup()].fNumBits
 		|| run.length == 0) {
-		PRINT(("%s: block_run(%ld, %u, %u) is invalid!\n", type,
-			run.AllocationGroup(), run.Start(), run.Length()));
+		PRINT(("block_run(%" B_PRIi32 ".%" B_PRIu16 ".%" B_PRIu16")"
+			" is invalid!\n", run.AllocationGroup(), run.Start(),
+			run.Length()));
 		return false;
 	}
 	return true;
