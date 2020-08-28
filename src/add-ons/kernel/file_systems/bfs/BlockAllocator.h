@@ -52,7 +52,7 @@ public:
 			status_t		CheckBlockRun(block_run run,
 								const char* type = NULL,
 								bool allocated = true);
-			bool			IsValidBlockRun(block_run run);
+			bool			IsValidBlockRun(block_run run, const char* type);
 
 			recursive_lock&	Lock() { return fLock; }
 
