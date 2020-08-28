@@ -16,6 +16,24 @@
       "revId": "842496e11adf3c2025116831567c1de9821d30cf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b25306a6_73a79c88",
+        "filename": "data/boot/u-boot/boot-riscv64.scr.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-08-28T13:24:58Z",
+      "side": 1,
+      "message": "They\u0027re going to potentially differ per architecture. For example the arm version has code around loading a .ub instead of an .efi. \n\nalso, someone making modifications to the u-boot script may not be able to test on \"all potential architectures\" changes impact before committing.\n\nI agree in theory though.  Maybe once these ports get more stabilized we\u0027ll move to a single unified u-boot script?",
+      "parentUuid": "0a21f9c9_b4a821b9",
+      "revId": "842496e11adf3c2025116831567c1de9821d30cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
