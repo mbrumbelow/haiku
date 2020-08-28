@@ -2144,7 +2144,16 @@ thread_exit(void)
 				team->dead_threads_count++;
 				threadDeathEntry = NULL;
 
-				if (team->dead_threads_count > MAX_DEAD_THREADS) {
+				if (team->dead_threads_count > sMaxThreads) {
+					// There is a soft limit for the number of dead threads
+					// that will be stored. This is currently set to the
+					// maximum number of threads that can coexist within a
+					// team.
+					dprintf("thread_exit(): there are more than the maximum of "
+						"%" B_PRId32 " dead threads for team %" B_PRId32 ". "
+						"The oldest dead thread will be forgotten. In order "
+						"to prevent this warning, join or detach the "
+						"threads.\n", sMaxThreads, team->id);
 					threadDeathEntry
 						= (thread_death_entry*)list_remove_head_item(
 							&team->dead_threads);
