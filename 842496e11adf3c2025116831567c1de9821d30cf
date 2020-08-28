@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a21f9c9_b4a821b9",
+        "filename": "data/boot/u-boot/boot-riscv64.scr.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-28T08:04:27Z",
+      "side": 1,
+      "message": "it\u0027s identical to the ARM version, right? So why not have just a single copy of it?",
+      "revId": "842496e11adf3c2025116831567c1de9821d30cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
