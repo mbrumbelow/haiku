@@ -96,8 +96,6 @@ struct team_watcher {
 
 #define MAX_DEAD_CHILDREN	32
 	// this is a soft limit for the number of child death entries in a team
-#define MAX_DEAD_THREADS	32
-	// this is a soft limit for the number of thread death entries in a team
 
 
 struct job_control_entry : DoublyLinkedListLinkImpl<job_control_entry> {
