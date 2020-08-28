@@ -608,7 +608,7 @@ CheckVisitor::_CheckAllocated(block_run run, const char* type)
 	BlockAllocator& allocator = GetVolume()->Allocator();
 
 	// make sure the block run is valid
-	if (!allocator.IsValidBlockRun(run)) {
+	if (!allocator.IsValidBlockRun(run, type)) {
 		Control().errors |= BFS_INVALID_BLOCK_RUN;
 		return B_OK;
 	}
