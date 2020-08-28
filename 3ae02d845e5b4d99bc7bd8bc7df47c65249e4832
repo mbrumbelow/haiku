@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8103f67f_065c7bad",
+        "filename": "src/system/kernel/thread.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2151,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-08-28T20:51:00Z",
+      "side": 1,
+      "message": "This comment seems to just describe what the code does, and there is already one above saying \"remove an old one if we hit the limit\", so I\u0027m not sure it\u0027s really needed.",
+      "revId": "3ae02d845e5b4d99bc7bd8bc7df47c65249e4832",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e642581d_d1d12383",
+        "filename": "src/system/kernel/thread.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2156,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-08-28T20:51:00Z",
+      "side": 1,
+      "message": "I think this message is too verbose. Much better IMO would be:\n\nthread_exit(): there are too many dead threads for team %{team}; discarding oldest (%{thread id})",
+      "revId": "3ae02d845e5b4d99bc7bd8bc7df47c65249e4832",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
