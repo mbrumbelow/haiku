@@ -1356,8 +1356,13 @@ bfs_open(fs_volume* _volume, fs_vnode* _node, int openMode, void** _cookie)
 
 	status_t status = inode->CheckPermissions(open_mode_to_access(openMode)
 		| ((openMode & O_TRUNC) != 0 ? W_OK : 0));
-	if (status != B_OK)
-		RETURN_ERROR(status);
+	if (status != B_OK) {
+		// silence syslog error messages on read-only device
+		if (status == B_READ_ONLY_DEVICE)
+			return status;
+		else
+			RETURN_ERROR(status);
+	}
 
 	file_cookie* cookie = new(std::nothrow) file_cookie;
 	if (cookie == NULL)
