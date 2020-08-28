@@ -2139,16 +2139,22 @@ thread_exit(void)
 				threadDeathEntry->thread = thread->id;
 				threadDeathEntry->status = thread->exit.status;
 
-				// add entry -- remove an old one, if we hit the limit
+				// add entry -- remove an old one, if we hit the soft limit
+				// of the maximum number of threads that can coexist within a
+				// team
 				list_add_item(&team->dead_threads, threadDeathEntry);
 				team->dead_threads_count++;
 				threadDeathEntry = NULL;
 
-				if (team->dead_threads_count > MAX_DEAD_THREADS) {
+				if (team->dead_threads_count > sMaxThreads) {
 					threadDeathEntry
 						= (thread_death_entry*)list_remove_head_item(
 							&team->dead_threads);
 					team->dead_threads_count--;
+					dprintf("thread_exit(): there are more than the maximum of "
+						"%" B_PRId32 " dead threads for team %" B_PRId32 ". "
+						"Discarding the oldest thread %" B_PRId32 ".\n",
+						sMaxThreads, team->id, threadDeathEntry->thread);
 				}
 			}
 
