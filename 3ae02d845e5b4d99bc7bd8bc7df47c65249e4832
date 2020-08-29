@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c68815d8_087f6491",
+        "filename": "src/system/kernel/thread.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2151,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-08-29T05:20:38Z",
+      "side": 1,
+      "message": "Merged the comments into one.",
+      "parentUuid": "8103f67f_065c7bad",
+      "revId": "3ae02d845e5b4d99bc7bd8bc7df47c65249e4832",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e642581d_d1d12383",
         "filename": "src/system/kernel/thread.cpp",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "3ae02d845e5b4d99bc7bd8bc7df47c65249e4832",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a1f8fa2_10bfdec5",
+        "filename": "src/system/kernel/thread.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2156,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-08-29T05:20:38Z",
+      "side": 1,
+      "message": "Thanks for the suggestion, I did struggle slightly with the wording so this helps. I did decide to keep the maximum number of threads in there as an indication to whoever sees the message, that they probably are on the wrong side if they have more than 4096 dead threads lingering around.",
+      "parentUuid": "e642581d_d1d12383",
+      "revId": "3ae02d845e5b4d99bc7bd8bc7df47c65249e4832",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
