@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cfafb5dc_d707def2",
+        "filename": "headers/private/kernel/thread_types.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-08-29T08:58:20Z",
+      "side": 0,
+      "message": "I would keep the #define\n\n#define MAX_DEAD_THREADS sMaxThreads\n\nWith a comment here explaining more clearly what we mean by \"soft limit\" (the meaning wasn\u0027t very clear for any of us and we had to look at the code to understand it), making it clear that the limit is arbitrary and can be changed again if an app has a valid need for it.\n\nWith your changes, that knowledge is now less easy to find in the code, I think.",
+      "revId": "5889cb5e7e8e7bfea6072ddfe881f55d364a0cf0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
