@@ -258,6 +258,9 @@ TabletDevice::DetectDevice(const DeviceReader* reader)
 		case 0xDD:	// Wacom Bamboo Pen/Connect (CTL-470) (from Linux Wacom Project)
 			SetDevice(14720.0, 9200.0, DEVICE_BAMBOO_PT);
 			break;
+		case 0x374:
+			SetDevice(12700.0, 10600.0, DEVICE_INTUOS_S);
+			break;
 		default:
 			status = B_BAD_VALUE;
 			break;
@@ -358,6 +361,7 @@ TabletDevice::ReadData(const uchar* data, int dataBytes, bool& hasContact,
 		}
 		case DEVICE_INTUOS:
 		case DEVICE_INTUOS3:
+		case DEVICE_INTUOS_S:
 		case DEVICE_CINTIQ:
 			if ((data[0] == 0x02) && !(((data[1] >> 5) & 0x03) == 0x02)) {
 				if (fDeviceMode == DEVICE_INTUOS3) {
@@ -704,6 +708,7 @@ TabletDevice::_DeviceSupportsTilt() const
 	switch (fDeviceMode) {
 		case DEVICE_INTUOS:
 		case DEVICE_INTUOS3:
+		case DEVICE_INTUOS_S:
 		case DEVICE_CINTIQ:
 			tilt = true;
 			break;
@@ -868,7 +873,8 @@ TabletDevice::_GetName(uint16 productID, const char** name) const
 		case 0xDD:
 			*name = "Wacom Bamboo Pen/Connect (CTL-470)";
 			break;
-
+		case 0x374:
+			*name = "Wacom Intuos S (CTL -4100)";
 		default:
 			*name = "<unkown wacom tablet>";
 			break;
