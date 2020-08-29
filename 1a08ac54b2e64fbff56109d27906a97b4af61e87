@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8ea0092c_331f4f45",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-08-29T12:31:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1bc00eaa_51bb5191",
+      "revId": "1a08ac54b2e64fbff56109d27906a97b4af61e87",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55b0f504_acf647c3",
         "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.h",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2020-08-28T08:18:33Z",
       "side": 1,
       "message": "you can use an anonymous union here:\n\nunion {\n   struct {\n   ...\n   };\n   char symlinkpath[120];\n};\n\nThis way you can still use fNode.directBlockPointer instead of fNode._blocks.get_blocks.directBlkPtr\n\nAlso, did you check the maximal length of symlink path? Is it not allowed to use some of the \"unused\" bytes at the end.",
+      "revId": "1a08ac54b2e64fbff56109d27906a97b4af61e87",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d25fcbfb_783cfa32",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-08-29T12:31:26Z",
+      "side": 1,
+      "message": "Maximum length of symlink path is written in super block fs_maxsymlinklen and most probably it is 15 * size_of(direct block pointers)",
+      "parentUuid": "55b0f504_acf647c3",
       "revId": "1a08ac54b2e64fbff56109d27906a97b4af61e87",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -50,6 +86,24 @@
       "revId": "1a08ac54b2e64fbff56109d27906a97b4af61e87",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c11130e8_1da0e368",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-08-29T12:31:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "118ff58d_9d73c13e",
+      "revId": "1a08ac54b2e64fbff56109d27906a97b4af61e87",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
