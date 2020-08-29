@@ -1,0 +1,17 @@
+SubDir HAIKU_TOP src preferences joystick2 ;
+
+UsePrivateHeaders joystick2 ;
+Preference  Joystick :
+	Joystick.cpp
+	JoystickWindow.cpp
+	JoystickView.cpp
+	: be [ TargetLibsupc++ ] localestub
+	;
+	
+DoCatalogs Joystick :
+	x-vnd.Haiku-Joystick
+	:
+	Joystick.cpp
+	JoystickWindow.cpp
+	JoystickView.cpp
+;
