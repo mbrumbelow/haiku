@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30d67810_48229a05",
+        "filename": "src/add-ons/kernel/file_systems/bfs/Journal.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1180,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-08-30T18:22:41Z",
+      "side": 1,
+      "message": "Remove trailing tabs",
+      "revId": "4b87aaa6ccba6ec85da9135366a5938fbd4cead8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60e52c7b_51fa07fa",
+        "filename": "src/add-ons/kernel/file_systems/bfs/Journal.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1195,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-08-30T18:22:41Z",
+      "side": 1,
+      "message": "... and here.",
+      "revId": "4b87aaa6ccba6ec85da9135366a5938fbd4cead8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
