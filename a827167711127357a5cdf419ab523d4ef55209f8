@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "70328423_e34a9c75",
+        "filename": "src/add-ons/kernel/file_systems/bfs/BlockAllocator.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 992,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-08-30T18:28:18Z",
+      "side": 1,
+      "message": "Remove trailing space.",
+      "revId": "a827167711127357a5cdf419ab523d4ef55209f8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20dff09a_9052f668",
+        "filename": "src/add-ons/kernel/file_systems/bfs/Journal.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1160,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-08-30T18:28:18Z",
+      "side": 1,
+      "message": "Remove trailing tabs.",
+      "revId": "a827167711127357a5cdf419ab523d4ef55209f8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f317992_19339b6d",
+        "filename": "src/add-ons/kernel/file_systems/bfs/Journal.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1175,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-08-30T18:28:18Z",
+      "side": 1,
+      "message": "... and here.",
+      "revId": "a827167711127357a5cdf419ab523d4ef55209f8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
