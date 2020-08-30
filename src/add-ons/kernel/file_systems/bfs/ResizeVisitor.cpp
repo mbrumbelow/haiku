@@ -306,6 +306,11 @@ ResizeVisitor::_ResizeVolume()
 	if (status != B_OK)
 		return status;
 
+	// change size of block cache
+	status = GetVolume()->ResizeBlockCache(fNumBlocks);
+	if (status != B_OK)
+		return status;
+
 	// we flush the log before updating file system size, so nothing
 	// on the disk remains unmoved 
 	status = GetVolume()->GetJournal(0)->FlushLogAndBlocks();
