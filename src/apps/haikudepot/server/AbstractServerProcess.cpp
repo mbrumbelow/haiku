@@ -14,7 +14,7 @@
 #include <File.h>
 #include <FileIO.h>
 #include <HttpTime.h>
-#include <UrlProtocolRoster.h>
+#include <UrlSession.h>
 
 #include <support/ZlibCompressionAlgorithm.h>
 
@@ -256,6 +256,10 @@ status_t
 AbstractServerProcess::DownloadToLocalFile(const BPath& targetFilePath,
 	const BUrl& url, uint32 redirects, uint32 failures)
 {
+	status_t err = fSession.InitCheck();
+	if (err != B_OK)
+		return err;
+
 	if (WasStopped())
 		return B_CANCELED;
 
@@ -275,7 +279,7 @@ AbstractServerProcess::DownloadToLocalFile(const BPath& targetFilePath,
 
 	LoggingUrlProtocolListener listener(Name(), Logger::IsTraceEnabled());
 	BFile targetFile(targetFilePath.Path(), O_WRONLY | O_CREAT);
-	status_t err = targetFile.InitCheck();
+	err = targetFile.InitCheck();
 	if (err != B_OK)
 		return err;
 
@@ -293,7 +297,7 @@ AbstractServerProcess::DownloadToLocalFile(const BPath& targetFilePath,
 
 	thread_id thread;
 
-	BUrlRequest* request = BUrlProtocolRoster::MakeRequest(url, &targetFile,
+	BUrlRequest* request = fSession.MakeRequest(url, &targetFile,
 		&listener);
 	if (request == NULL)
 		return B_NO_MEMORY;
@@ -308,6 +312,11 @@ AbstractServerProcess::DownloadToLocalFile(const BPath& targetFilePath,
 	fRequest->SetTimeout(TIMEOUT_MICROSECONDS);
 	fRequest->SetStopOnError(true);
 	thread = fRequest->Run();
+	if (thread < B_OK) {
+		delete fRequest;
+		fRequest = NULL;
+		return thread;
+	}
 
 	wait_for_thread(thread, NULL);
 

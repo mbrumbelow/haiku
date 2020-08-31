@@ -10,7 +10,7 @@
 
 
 #include <UrlRequest.h>
-#include <UrlProtocolRoster.h>
+#include <UrlSession.h>
 
 
 class BFileRequest : public BUrlRequest {
@@ -21,12 +21,12 @@ public:
 			void				SetDisableListener(bool disable);
 
 private:
-			friend class BUrlProtocolRoster;
+			friend class BUrlSession;
 
-								BFileRequest(const BUrl& url,
+								BFileRequest(BUrlSession& session,
+									const BUrl& url,
 									BDataIO* output,
-									BUrlProtocolListener* listener = NULL,
-									BUrlContext* context = NULL);
+									BUrlProtocolListener* listener = NULL);
 
 			status_t			_ProtocolLoop();
 private:

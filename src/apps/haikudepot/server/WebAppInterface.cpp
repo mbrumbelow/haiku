@@ -15,9 +15,7 @@
 #include <JsonMessageWriter.h>
 #include <Message.h>
 #include <Url.h>
-#include <UrlContext.h>
 #include <UrlProtocolListener.h>
-#include <UrlProtocolRoster.h>
 
 #include "DataIOUtils.h"
 #include "HaikuDepotConstants.h"
@@ -82,22 +80,6 @@ public:
 		HDTRACE("jrpc: %s", text);
 	}
 };
-
-
-static BHttpRequest*
-make_http_request(const BUrl& url, BDataIO* output,
-	BUrlProtocolListener* listener = NULL,
-	BUrlContext* context = NULL)
-{
-	BUrlRequest* request = BUrlProtocolRoster::MakeRequest(url, output,
-		listener, context);
-	BHttpRequest* httpRequest = dynamic_cast<BHttpRequest*>(request);
-	if (httpRequest == NULL) {
-		delete request;
-		return NULL;
-	}
-	return httpRequest;
-}
 
 
 int
@@ -468,6 +450,26 @@ WebAppInterface::AgreeUserUsageConditions(const BString& code,
 
 
 status_t
+WebAppInterface::_MakeHttpRequest(BHttpRequest*& httpRequest, const BUrl& url,
+	BDataIO* output, BUrlProtocolListener* listener)
+{
+	status_t err = fSession.InitCheck();
+	if (err != B_OK)
+		return err;
+
+	BUrlRequest* request = fSession.MakeRequest(url, output, listener);
+	BHttpRequest* httpReq = dynamic_cast<BHttpRequest*>(request);
+	if (httpReq == NULL) {
+		delete request;
+		return B_NO_MEMORY;
+	}
+
+	httpRequest = httpReq;
+	return B_OK;
+}
+
+
+status_t
 WebAppInterface::_RetrieveUserUsageConditionsMeta(const BString& code,
 	BMessage& message)
 {
@@ -797,7 +799,7 @@ WebAppInterface::_WriteStandardJsonRpcEnvelopeValues(BJsonWriter& writer,
 
 status_t
 WebAppInterface::_SendJsonRequest(const char* domain, BPositionIO* requestData,
-	size_t requestDataSize, uint32 flags, BMessage& reply) const
+	size_t requestDataSize, uint32 flags, BMessage& reply)
 {
 	return _SendJsonRequest(domain, fCredentials, requestData, requestDataSize,
 		flags, reply);
@@ -807,7 +809,7 @@ WebAppInterface::_SendJsonRequest(const char* domain, BPositionIO* requestData,
 status_t
 WebAppInterface::_SendJsonRequest(const char* domain,
 	UserCredentials credentials, BPositionIO* requestData,
-	size_t requestDataSize, uint32 flags, BMessage& reply) const
+	size_t requestDataSize, uint32 flags, BMessage& reply)
 {
 	if (requestDataSize == 0) {
 		HDINFO("jrpc; empty request payload");
@@ -843,13 +845,13 @@ WebAppInterface::_SendJsonRequest(const char* domain,
 	}
 
 	ProtocolListener listener;
-	BUrlContext context;
 
 	BHttpHeaders headers;
 	headers.AddHeader("Content-Type", "application/json");
 	ServerSettings::AugmentHeaders(headers);
 
-	BHttpRequest* request = make_http_request(url, NULL, &listener, &context);
+	BHttpRequest* request;
+	status_t status = _MakeHttpRequest(request, url, NULL, &listener);
 	ObjectDeleter<BHttpRequest> _(request);
 	if (request == NULL)
 		return B_ERROR;
@@ -863,7 +865,7 @@ WebAppInterface::_SendJsonRequest(const char* domain,
 		BHttpAuthentication authentication(credentials.Nickname(),
 			credentials.PasswordClear());
 		authentication.SetMethod(B_HTTP_AUTHENTICATION_BASIC);
-		context.AddAuthentication(url, authentication);
+		fSession.AddAuthentication(url, authentication);
 	}
 
 	request->AdoptInputData(requestData, requestDataSize);
@@ -872,7 +874,10 @@ WebAppInterface::_SendJsonRequest(const char* domain,
 	request->SetOutput(&replyData);
 
 	thread_id thread = request->Run();
-	wait_for_thread(thread, NULL);
+	if (thread < B_OK)
+		return thread;
+
+	request->WaitForCompletion();
 
 	const BHttpResult& result = dynamic_cast<const BHttpResult&>(
 		request->Result());
@@ -907,7 +912,7 @@ WebAppInterface::_SendJsonRequest(const char* domain,
 
 	BJsonMessageWriter jsonMessageWriter(reply);
 	BJson::Parse(&replyData, &jsonMessageWriter);
-	status_t status = jsonMessageWriter.ErrorStatus();
+	status = jsonMessageWriter.ErrorStatus();
 
 	if (Logger::IsTraceEnabled() && status == B_BAD_DATA) {
 		BString resultString(static_cast<const char *>(replyData.Buffer()),
@@ -920,7 +925,7 @@ WebAppInterface::_SendJsonRequest(const char* domain,
 
 status_t
 WebAppInterface::_SendJsonRequest(const char* domain, const BString& jsonString,
-	uint32 flags, BMessage& reply) const
+	uint32 flags, BMessage& reply)
 {
 	// gets 'adopted' by the subsequent http request.
 	BMemoryIO* data = new BMemoryIO(jsonString.String(),
@@ -942,7 +947,11 @@ WebAppInterface::_SendRawGetRequest(const BString urlPathComponents,
 	BHttpHeaders headers;
 	ServerSettings::AugmentHeaders(headers);
 
-	BHttpRequest *request = make_http_request(url, stream, &listener);
+	BHttpRequest *request;
+	status_t status = _MakeHttpRequest(request, url, stream, &listener);
+	if (status != B_OK)
+		return status;
+
 	ObjectDeleter<BHttpRequest> _(request);
 	if (request == NULL)
 		return B_ERROR;
@@ -950,7 +959,10 @@ WebAppInterface::_SendRawGetRequest(const BString urlPathComponents,
 	request->SetHeaders(headers);
 
 	thread_id thread = request->Run();
-	wait_for_thread(thread, NULL);
+	if (thread < B_OK)
+		return thread;
+
+	request->WaitForCompletion();
 
 	const BHttpResult& result = dynamic_cast<const BHttpResult&>(
 		request->Result());

@@ -74,6 +74,7 @@ protected:
 private:
 			uint32				fOptions;
 
+			BUrlSession			fSession;
 			BHttpRequest*		fRequest;
 
 			status_t			DownloadToLocalFile(

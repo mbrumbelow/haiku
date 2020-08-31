@@ -13,7 +13,6 @@
 #include <NetworkInterface.h>
 #include <NetworkRoster.h>
 #include <String.h>
-#include <UrlProtocolRoster.h>
 #include <UrlRequest.h>
 
 
@@ -50,7 +49,9 @@ class GeolocationListener: public BUrlProtocolListener
 
 
 BGeolocation::BGeolocation()
-	: fGeolocationService(kDefaultGeolocationService),
+	:
+	fSession(),
+	fGeolocationService(kDefaultGeolocationService),
 	fGeocodingService(kDefaultGeocodingService)
 {
 }
@@ -58,7 +59,9 @@ BGeolocation::BGeolocation()
 
 BGeolocation::BGeolocation(const BUrl& geolocationService,
 	const BUrl& geocodingService)
-	: fGeolocationService(geolocationService),
+	:
+	fSession(),
+	fGeolocationService(geolocationService),
 	fGeocodingService(geocodingService)
 {
 	if (!fGeolocationService.IsValid())
@@ -113,7 +116,7 @@ BGeolocation::LocateSelf(float& latitude, float& longitude)
 	BMallocIO resultBuffer;
 
 	// Send Request (POST JSON message)
-	BUrlRequest* request = BUrlProtocolRoster::MakeRequest(fGeolocationService,
+	BUrlRequest* request = fSession.MakeRequest(fGeolocationService,
 		&resultBuffer, &listener);
 	if (request == NULL)
 		return B_BAD_DATA;
@@ -187,7 +190,7 @@ BGeolocation::Country(const float latitude, const float longitude,
 
 	GeolocationListener listener;
 	BMallocIO resultBuffer;
-	BUrlRequest* request = BUrlProtocolRoster::MakeRequest(url,
+	BUrlRequest* request = fSession.MakeRequest(url,
 		&resultBuffer, &listener);
 	if (request == NULL)
 		return B_BAD_DATA;

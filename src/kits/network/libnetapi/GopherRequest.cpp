@@ -178,10 +178,10 @@ static const int32 kGopherBufferSize = 4096;
 static const bool kInlineImages = true;
 
 
-BGopherRequest::BGopherRequest(const BUrl& url, BDataIO* output,
-	BUrlProtocolListener* listener, BUrlContext* context)
+BGopherRequest::BGopherRequest(BUrlSession& session, const BUrl& url,
+	BDataIO* output, BUrlProtocolListener* listener)
 	:
-	BNetworkRequest(url, output, listener, context, "BUrlProtocol.Gopher",
+	BNetworkRequest(session, url, output, listener, "BUrlProtocol.Gopher",
 		"gopher"),
 	fItemType(GOPHER_TYPE_NONE),
 	fPosition(0),

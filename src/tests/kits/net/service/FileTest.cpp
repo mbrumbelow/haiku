@@ -10,8 +10,8 @@
 #include <File.h>
 #include <FileRequest.h>
 #include <Url.h>
-#include <UrlProtocolRoster.h>
 #include <UrlProtocolListener.h>
+#include <UrlSession.h>
 
 #include <ThreadedTestCaller.h>
 #include <TestUtils.h>
@@ -46,6 +46,10 @@ void
 FileTest::StopTest()
 {
 	StopTestListener listener;
+
+	BUrlSession session;
+	CHK(session.InitCheck() == B_OK);
+
 	char tmpl[] = "/tmp/filestoptestXXXXXX";
 	int fd = mkstemp(tmpl);
 	CHK(fd != -1);
@@ -61,7 +65,7 @@ FileTest::StopTest()
 
 	BUrl url("file://");
 	url.SetPath(tmpl);
-	BUrlRequest *request = BUrlProtocolRoster::MakeRequest(url, &listener);
+	BUrlRequest *request = session.MakeRequest(url, &listener);
 	CHK(request != NULL);
 
 	listener.SetRequest(request);
@@ -73,7 +77,7 @@ FileTest::StopTest()
 
 	delete request;
 
-	request = BUrlProtocolRoster::MakeRequest("file:///", &listener);
+	request = session.MakeRequest("file:///", &listener);
 	CHK(request != NULL);
 
 	listener.SetRequest(request);

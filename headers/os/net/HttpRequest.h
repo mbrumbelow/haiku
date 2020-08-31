@@ -14,7 +14,7 @@
 #include <HttpResult.h>
 #include <NetworkAddress.h>
 #include <NetworkRequest.h>
-#include <UrlProtocolRoster.h>
+#include <UrlSession.h>
 
 
 namespace BPrivate {
@@ -60,14 +60,14 @@ public:
 	static	int16				StatusCodeClass(int16 code);
 
 private:
-			friend class BUrlProtocolRoster;
+			friend class BUrlSession;
 
-								BHttpRequest(const BUrl& url,
+								BHttpRequest(BUrlSession& session,
+									const BUrl& url,
 									BDataIO* output,
 									bool ssl = false,
 									const char* protocolName = "HTTP",
-									BUrlProtocolListener* listener = NULL,
-									BUrlContext* context = NULL);
+									BUrlProtocolListener* listener = NULL);
 								BHttpRequest(const BHttpRequest& other);
 
 			void				_ResetOptions();

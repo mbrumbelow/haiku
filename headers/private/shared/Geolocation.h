@@ -8,6 +8,7 @@
 
 #include <Country.h>
 #include <Url.h>
+#include <UrlSession.h>
 
 
 namespace BPrivate {
@@ -29,11 +30,13 @@ public:
 					BCountry& country);
 
 private:
-					BUrl	fGeolocationService;
-					BUrl	fGeocodingService;
+					BUrlSession	fSession;
 
-	static const	char*	kDefaultGeolocationService;
-	static const	char*	kDefaultGeocodingService;
+					BUrl		fGeolocationService;
+					BUrl		fGeocodingService;
+
+	static const	char*		kDefaultGeolocationService;
+	static const	char*		kDefaultGeocodingService;
 };
 
 

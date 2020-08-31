@@ -59,6 +59,7 @@ private:
 			BString				fFileURL;
 			BEntry				fTargetEntry;
 			BFile				fTargetFile;
+
 			status_t			fError;
 			float				fDownloadProgress;
 			off_t				fBytes;

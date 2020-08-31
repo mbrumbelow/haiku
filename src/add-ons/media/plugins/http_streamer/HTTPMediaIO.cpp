@@ -8,7 +8,6 @@
 
 #include <Handler.h>
 #include <HttpRequest.h>
-#include <UrlProtocolRoster.h>
 
 #include "MediaDebug.h"
 
@@ -105,6 +104,7 @@ private:
 HTTPMediaIO::HTTPMediaIO(BUrl url)
 	:
 	BAdapterIO(B_MEDIA_STREAMING | B_MEDIA_SEEKABLE, HTTP_TIMEOUT),
+	fSession(),
 	fReq(NULL),
 	fListener(NULL),
 	fReqThread(-1),
@@ -157,9 +157,13 @@ HTTPMediaIO::Open()
 {
 	CALLED();
 
+	status_t ret = fSession.InitCheck();
+	if (ret != B_OK)
+		return ret;
+
 	fListener = new FileListener(this);
 
-	fReq = BUrlProtocolRoster::MakeRequest(fUrl, fListener, fListener);
+	fReq = fSession.MakeRequest(fUrl, fListener, fListener);
 
 	if (fReq == NULL)
 		return B_ERROR;
@@ -170,9 +174,9 @@ HTTPMediaIO::Open()
 
 	fReqThread = fReq->Run();
 	if (fReqThread < 0)
-		return B_ERROR;
+		return fReqThread;
 
-	status_t ret = fListener->LockOnInit(HTTP_TIMEOUT);
+	ret = fListener->LockOnInit(HTTP_TIMEOUT);
 	if (ret != B_OK)
 		return ret;
 

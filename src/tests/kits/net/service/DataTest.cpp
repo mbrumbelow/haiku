@@ -9,7 +9,6 @@
 #include <AutoDeleter.h>
 #include <DataIO.h>
 #include <DataRequest.h>
-#include <UrlProtocolRoster.h>
 
 #include <cppunit/TestCaller.h>
 
@@ -18,6 +17,8 @@
 
 
 DataTest::DataTest()
+	:
+	fSession()
 {
 }
 
@@ -150,10 +151,12 @@ DataTest::_RunTest(BString url, const char* expected, size_t expectedLength)
 {
 	NextSubTest();
 
+	CPPUNIT_ASSERT_EQUAL(fSession.InitCheck(), B_OK);
+
 	BUrl testUrl(url);
 	BMallocIO buffer;
 	ObjectDeleter<BUrlRequest> requestDeleter(
-		BUrlProtocolRoster::MakeRequest(testUrl, &buffer));
+		fSession.MakeRequest(testUrl, &buffer));
 	BDataRequest* request = dynamic_cast<BDataRequest*>(requestDeleter.Get());
 	CPPUNIT_ASSERT(request != NULL);
 	request->Run();

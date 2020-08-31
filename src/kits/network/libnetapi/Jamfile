@@ -76,14 +76,12 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 			notifications.cpp
 
 			NetworkRequest.cpp
-			UrlContext.cpp
 			UrlProtocolAsynchronousListener.cpp
 			UrlProtocolDispatchingListener.cpp
 			UrlProtocolListener.cpp
-			UrlProtocolRoster.cpp
 			UrlRequest.cpp
 			UrlResult.cpp
-			UrlSynchronousRequest.cpp
+			UrlSession.cpp
 
 			:
 			be shared $(TARGET_NETWORK_LIBS) [ TargetLibstdc++ ]

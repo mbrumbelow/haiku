@@ -19,7 +19,6 @@
 #ifdef HAIKU_TARGET_PLATFORM_HAIKU
 #	include <HttpRequest.h>
 #	include <UrlRequest.h>
-#	include <UrlProtocolRoster.h>
 #endif
 
 
@@ -90,13 +89,23 @@ FetchFileJob::Execute()
 	if (result != B_OK)
 		return result;
 
-	BUrlRequest* request = BUrlProtocolRoster::MakeRequest(fFileURL.String(),
+	BUrlSession session;
+	result = session.InitCheck();
+	if (result != B_OK)
+		return result;
+
+	BUrlRequest* request = session.MakeRequest(fFileURL.String(),
 		&fTargetFile, this);
 	if (request == NULL)
 		return B_BAD_VALUE;
 
 	thread_id thread = request->Run();
-	wait_for_thread(thread, NULL);
+	if (thread < B_OK) {
+		delete request;
+		return thread;
+	}
+
+	request->WaitForCompletion();
 
 	return fError;
 }

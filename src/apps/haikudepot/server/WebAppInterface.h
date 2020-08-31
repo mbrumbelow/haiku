@@ -10,6 +10,7 @@
 #include <Application.h>
 #include <JsonWriter.h>
 #include <String.h>
+#include <UrlSession.h>
 #include <package/PackageVersion.h>
 
 #include "List.h"
@@ -20,6 +21,7 @@
 
 class BDataIO;
 class BMessage;
+class BHttpRequest;
 using BPackageKit::BPackageVersion;
 
 typedef List<BString, false>	StringList;
@@ -130,7 +132,10 @@ public:
 									BMessage& responseEnvelopeMessage,
 									UserDetail& userDetail);
 private:
-
+			status_t			_MakeHttpRequest(BHttpRequest*& httpRequest,
+									const BUrl& url,
+									BDataIO* output,
+									BUrlProtocolListener* listener = NULL);
 
 			status_t			_RetrieveUserUsageConditionsMeta(
 									const BString& code, BMessage& message);
@@ -142,16 +147,16 @@ private:
 									const char* methodName);
 			status_t			_SendJsonRequest(const char* domain,
 									const BString& jsonString, uint32 flags,
-									BMessage& reply) const;
+									BMessage& reply);
 			status_t			_SendJsonRequest(const char* domain,
 									UserCredentials credentials,
 									BPositionIO* requestData,
 									size_t requestDataSize, uint32 flags,
-									BMessage& reply) const;
+									BMessage& reply);
 			status_t			_SendJsonRequest(const char* domain,
 									BPositionIO* requestData,
 									size_t requestDataSize, uint32 flags,
-									BMessage& reply) const;
+									BMessage& reply);
 
 			status_t			_SendRawGetRequest(
 									const BString urlPathComponents,
@@ -161,6 +166,8 @@ private:
 	static	off_t				_LengthAndSeekToZero(BPositionIO* data);
 
 private:
+			BUrlSession			fSession;
+
 			UserCredentials		fCredentials;
 	static	int					fRequestIndex;
 };

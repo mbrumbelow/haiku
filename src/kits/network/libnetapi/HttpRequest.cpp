@@ -95,11 +95,11 @@ namespace BPrivate {
 };
 
 
-BHttpRequest::BHttpRequest(const BUrl& url, BDataIO* output, bool ssl,
-	const char* protocolName, BUrlProtocolListener* listener,
-	BUrlContext* context)
+BHttpRequest::BHttpRequest(BUrlSession& session, const BUrl& url,
+	BDataIO* output, bool ssl, const char* protocolName,
+	BUrlProtocolListener* listener)
 	:
-	BNetworkRequest(url, output, listener, context, "BUrlProtocol.HTTP",
+	BNetworkRequest(session, url, output, listener, "BUrlProtocol.HTTP",
 		protocolName),
 	fSSL(ssl),
 	fRequestMethod(B_HTTP_GET),
@@ -121,8 +121,8 @@ BHttpRequest::BHttpRequest(const BUrl& url, BDataIO* output, bool ssl,
 
 BHttpRequest::BHttpRequest(const BHttpRequest& other)
 	:
-	BNetworkRequest(other.Url(), other.Output(), other.fListener,
-		other.fContext, "BUrlProtocol.HTTP", other.fSSL ? "HTTPS" : "HTTP"),
+	BNetworkRequest(other.Session(), other.Url(), other.Output(),
+		other.fListener, "BUrlProtocol.HTTP", other.fSSL ? "HTTPS" : "HTTP"),
 	fSSL(other.fSSL),
 	fRequestMethod(other.fRequestMethod),
 	fHttpVersion(other.fHttpVersion),
@@ -392,9 +392,9 @@ BHttpRequest::_ProtocolLoop()
 		if (fUrl.HasPort())
 			port = fUrl.Port();
 
-		if (fContext->UseProxy()) {
-			host = fContext->GetProxyHost();
-			port = fContext->GetProxyPort();
+		if (fSession->UseProxy()) {
+			host = fSession->GetProxyHost();
+			port = fSession->GetProxyPort();
 		}
 
 		status_t result = fInputBuffer.InitCheck();
@@ -473,7 +473,7 @@ BHttpRequest::_ProtocolLoop()
 			case B_HTTP_STATUS_CLASS_CLIENT_ERROR:
 				if (fResult.StatusCode() == B_HTTP_STATUS_UNAUTHORIZED) {
 					BHttpAuthentication* authentication
-						= &fContext->GetAuthentication(fUrl);
+						= &fSession->GetAuthentication(fUrl);
 					status_t status = B_OK;
 
 					if (authentication->Method() == B_HTTP_AUTHENTICATION_NONE) {
@@ -481,12 +481,14 @@ BHttpRequest::_ProtocolLoop()
 						// url yet, so let's create one.
 						BHttpAuthentication newAuth;
 						newAuth.Initialize(fHeaders["WWW-Authenticate"]);
-						fContext->AddAuthentication(fUrl, newAuth);
+						status = fSession->AddAuthentication(fUrl, newAuth);
+						if (status != B_OK)
+							return status;
 
 						// Get the copy of the authentication we just added.
 						// That copy is owned by the BUrlContext and won't be
 						// deleted (unlike the temporary object above)
-						authentication = &fContext->GetAuthentication(fUrl);
+						authentication = &fSession->GetAuthentication(fUrl);
 					}
 
 					newRequest = false;
@@ -532,8 +534,8 @@ BHttpRequest::_MakeRequest()
 	delete fSocket;
 
 	if (fSSL) {
-		if (fContext->UseProxy()) {
-			BNetworkAddress proxy(fContext->GetProxyHost(), fContext->GetProxyPort());
+		if (fSession->UseProxy()) {
+			BNetworkAddress proxy(fSession->GetProxyHost(), fSession->GetProxyPort());
 			fSocket = new(std::nothrow) BPrivate::CheckedProxySecureSocket(proxy, this);
 		} else
 			fSocket = new(std::nothrow) BPrivate::CheckedSecureSocket(this);
@@ -636,12 +638,13 @@ BHttpRequest::_MakeRequest()
 				_ResultHeaders() = fHeaders;
 
 				// Parse received cookies
-				if (fContext != NULL) {
-					for (int32 i = 0;  i < fHeaders.CountHeaders(); i++) {
-						if (fHeaders.HeaderAt(i).NameIs("Set-Cookie")) {
-							fContext->GetCookieJar().AddCookie(
-								fHeaders.HeaderAt(i).Value(), fUrl);
-						}
+				for (int32 i = 0;  i < fHeaders.CountHeaders(); i++) {
+					if (fHeaders.HeaderAt(i).NameIs("Set-Cookie")) {
+						readError = fSession->GetCookieJar().AddCookie(
+							fHeaders.HeaderAt(i).Value(), fUrl);
+
+						if (readError != B_OK)
+							break;
 					}
 				}
 
@@ -881,7 +884,7 @@ BHttpRequest::_SerializeRequest()
 	BString request(fRequestMethod);
 	request << ' ';
 
-	if (fContext->UseProxy()) {
+	if (fSession->UseProxy()) {
 		// When there is a proxy, the request must include the host and port so
 		// the proxy knows where to send the request.
 		request << Url().Protocol() << "://" << Url().Host();
@@ -948,18 +951,16 @@ BHttpRequest::_SerializeHeaders()
 		outputHeaders.AddHeader("Referer", fOptReferer.String());
 
 	// Authentication
-	if (fContext != NULL) {
-		BHttpAuthentication& authentication = fContext->GetAuthentication(fUrl);
-		if (authentication.Method() != B_HTTP_AUTHENTICATION_NONE) {
-			if (fOptUsername.Length() > 0) {
-				authentication.SetUserName(fOptUsername);
-				authentication.SetPassword(fOptPassword);
-			}
-
-			BString request(fRequestMethod);
-			outputHeaders.AddHeader("Authorization",
-				authentication.Authorization(fUrl, request));
+	BHttpAuthentication& authentication = fSession->GetAuthentication(fUrl);
+	if (authentication.Method() != B_HTTP_AUTHENTICATION_NONE) {
+		if (fOptUsername.Length() > 0) {
+			authentication.SetUserName(fOptUsername);
+			authentication.SetPassword(fOptPassword);
 		}
+
+		BString request(fRequestMethod);
+		outputHeaders.AddHeader("Authorization",
+			authentication.Authorization(fUrl, request));
 	}
 
 	// Required headers for POST data
@@ -1006,11 +1007,11 @@ BHttpRequest::_SerializeHeaders()
 	}
 
 	// Context cookies
-	if (fOptSetCookies && fContext != NULL) {
+	if (fOptSetCookies) {
 		BString cookieString;
 
 		BNetworkCookieJar::UrlIterator iterator
-			= fContext->GetCookieJar().GetUrlIterator(fUrl);
+			= fSession->GetCookieJar().GetUrlIterator(fUrl);
 		const BNetworkCookie* cookie = iterator.Next();
 		if (cookie != NULL) {
 			while (true) {
@@ -1166,13 +1167,13 @@ bool
 BHttpRequest::_CertificateVerificationFailed(BCertificate& certificate,
 	const char* message)
 {
-	if (fContext->HasCertificateException(certificate))
+	if (fSession->HasCertificateException(certificate))
 		return true;
 
 	if (fListener != NULL
 		&& fListener->CertificateVerificationFailed(this, certificate, message)) {
 		// User asked us to continue anyway, let's add a temporary exception for this certificate
-		fContext->AddCertificateException(certificate);
+		fSession->AddCertificateException(certificate);
 		return true;
 	}
 

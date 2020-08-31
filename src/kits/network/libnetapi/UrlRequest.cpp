@@ -12,15 +12,12 @@
 #include <stdio.h>
 
 
-static BReference<BUrlContext> gDefaultContext = new(std::nothrow) BUrlContext();
-
-
-BUrlRequest::BUrlRequest(const BUrl& url, BDataIO* output,
-	BUrlProtocolListener* listener, BUrlContext* context,
-	const char* threadName, const char* protocolName)
+BUrlRequest::BUrlRequest(BUrlSession& session, const BUrl& url, BDataIO* output,
+	BUrlProtocolListener* listener, const char* threadName,
+	const char* protocolName)
 	:
 	fUrl(url),
-	fContext(context),
+	fSession(&session),
 	fListener(listener),
 	fOutput(output),
 	fQuit(false),
@@ -30,8 +27,6 @@ BUrlRequest::BUrlRequest(const BUrl& url, BDataIO* output,
 	fThreadName(threadName),
 	fProtocol(protocolName)
 {
-	if (fContext == NULL)
-		fContext = gDefaultContext;
 }
 
 
@@ -100,6 +95,20 @@ BUrlRequest::Stop()
 }
 
 
+status_t
+BUrlRequest::WaitForCompletion(uint32 flags, bigtime_t timeout)
+{
+	if (fRunning) {
+		object_wait_info waitInfo = {fThreadId, B_OBJECT_TYPE_THREAD, 0};
+		ssize_t ret = wait_for_objects_etc(&waitInfo, 1, flags, timeout);
+		if (ret < B_OK)
+			return ret;
+	}
+
+	return Status();
+}
+
+
 // #pragma mark URL protocol parameters modification
 
 
@@ -111,17 +120,6 @@ BUrlRequest::SetUrl(const BUrl& url)
 		return B_ERROR;
 
 	fUrl = url;
-	return B_OK;
-}
-
-
-status_t
-BUrlRequest::SetContext(BUrlContext* context)
-{
-	if (IsRunning())
-		return B_ERROR;
-
-	fContext = context;
 	return B_OK;
 }
 
@@ -158,10 +156,10 @@ BUrlRequest::Url() const
 }
 
 
-BUrlContext*
-BUrlRequest::Context() const
+BUrlSession&
+BUrlRequest::Session() const
 {
-	return fContext;
+	return *fSession;
 }
 
 

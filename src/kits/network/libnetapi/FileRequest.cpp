@@ -17,10 +17,10 @@
 #include <Path.h>
 
 
-BFileRequest::BFileRequest(const BUrl& url, BDataIO* output,
-	BUrlProtocolListener* listener, BUrlContext* context)
+BFileRequest::BFileRequest(BUrlSession& session, const BUrl& url,
+	BDataIO* output, BUrlProtocolListener* listener)
 	:
-	BUrlRequest(url, output, listener, context, "BUrlProtocol.File", "file"),
+	BUrlRequest(session, url, output, listener, "BUrlProtocol.File", "file"),
 	fResult()
 {
 	fUrl.UrlDecode(true);

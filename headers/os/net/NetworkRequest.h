@@ -17,10 +17,10 @@ class BAbstractSocket;
 class BNetworkRequest: public BUrlRequest
 {
 public:
-								BNetworkRequest(const BUrl& url,
+								BNetworkRequest(BUrlSession& session,
+									const BUrl& url,
 									BDataIO* output,
 									BUrlProtocolListener* listener,
-									BUrlContext* context,
 									const char* threadName,
 									const char* protocolName);
 

@@ -15,11 +15,10 @@
 #include <stdio.h>
 
 
-BDataRequest::BDataRequest(const BUrl& url, BDataIO* output,
-	BUrlProtocolListener* listener,
-	BUrlContext* context)
+BDataRequest::BDataRequest(BUrlSession& session, const BUrl& url,
+	BDataIO* output, BUrlProtocolListener* listener)
 	:
-	BUrlRequest(url, output, listener, context, "data URL parser", "data"),
+	BUrlRequest(session, url, output, listener, "data URL parser", "data"),
 	fResult()
 {
 	fResult.SetContentType("text/plain");

@@ -20,7 +20,6 @@
 #include <HttpRequest.h>
 #include <NetworkKit.h>
 #include <UrlProtocolListener.h>
-#include <UrlProtocolRoster.h>
 
 #include <tools/cppunit/ThreadedTestCaller.h>
 
@@ -77,7 +76,7 @@ public:
 		//
 		// At the moment there doesn't seem to be any public API for providing
 		// an alternate certificate authority, or for constructing a
-		// BCertificate to be sent to BUrlContext::AddCertificateException().
+		// BCertificate to be sent to BUrlSession::AddCertificateException().
 		// Once we have such a public API then it will be useful to create
 		// test scenarios that exercize the validation performed by the
 		// undrelying TLS implementaiton to verify that it is configured
@@ -117,7 +116,7 @@ private:
 
 
 void SendAuthenticatedRequest(
-	BUrlContext &context,
+	BUrlSession &session,
 	BUrl &testUrl,
 	const std::string& expectedResponseBody,
 	const HttpHeaderMap &expectedResponseHeaders)
@@ -125,8 +124,7 @@ void SendAuthenticatedRequest(
 	TestListener listener(expectedResponseBody, expectedResponseHeaders);
 
 	ObjectDeleter<BUrlRequest> requestDeleter(
-		BUrlProtocolRoster::MakeRequest(testUrl, &listener, &listener,
-			&context));
+		session.MakeRequest(testUrl, &listener, &listener));
 	BHttpRequest* request = dynamic_cast<BHttpRequest*>(requestDeleter.Get());
 	CPPUNIT_ASSERT(request != NULL);
 
@@ -214,9 +212,9 @@ HttpTest::ProxyTest()
 		B_OK,
 		proxy.Start());
 
-	BUrlContext* context = new BUrlContext();
-	context->AcquireReference();
-	context->SetProxy("127.0.0.1", proxy.Port());
+	BUrlSession* session = new BUrlSession();
+	CPPUNIT_ASSERT_EQUAL(B_OK, session->InitCheck());
+	session->SetProxy("127.0.0.1", proxy.Port());
 
 	std::string expectedResponseBody(
 		"Path: /\r\n"
@@ -240,8 +238,7 @@ HttpTest::ProxyTest()
 	TestListener listener(expectedResponseBody, expectedResponseHeaders);
 
 	ObjectDeleter<BUrlRequest> requestDeleter(
-		BUrlProtocolRoster::MakeRequest(testUrl, &listener, &listener,
-			context));
+		session->MakeRequest(testUrl, &listener, &listener));
 	BHttpRequest* request = dynamic_cast<BHttpRequest*>(requestDeleter.Get());
 	CPPUNIT_ASSERT(request != NULL);
 
@@ -258,12 +255,10 @@ HttpTest::ProxyTest()
 	CPPUNIT_ASSERT_EQUAL(BString("OK"), response.StatusText());
 	CPPUNIT_ASSERT_EQUAL(169, response.Length());
 		// Fixed size as we know the response format.
-	CPPUNIT_ASSERT(!context->GetCookieJar().GetIterator().HasNext());
+	CPPUNIT_ASSERT(!session->GetCookieJar().GetIterator().HasNext());
 		// This page should not set cookies
 
 	listener.Verify();
-
-	context->ReleaseReference();
 }
 
 
@@ -330,11 +325,11 @@ HttpTest::UploadTest()
 
 	BUrl testUrl(fTestServer.BaseUrl(), "/post");
 
-	BUrlContext context;
+	BUrlSession session;
+	CPPUNIT_ASSERT_EQUAL(B_OK, session.InitCheck());
 
 	ObjectDeleter<BUrlRequest> requestDeleter(
-		BUrlProtocolRoster::MakeRequest(testUrl, &listener, &listener,
-			&context));
+		session.MakeRequest(testUrl, &listener, &listener));
 	BHttpRequest* request = dynamic_cast<BHttpRequest*>(requestDeleter.Get());
 	CPPUNIT_ASSERT(request != NULL);
 
@@ -366,7 +361,8 @@ HttpTest::UploadTest()
 void
 HttpTest::AuthBasicTest()
 {
-	BUrlContext context;
+	BUrlSession session;
+	CPPUNIT_ASSERT_EQUAL(B_OK, session.InitCheck());
 
 	BUrl testUrl(fTestServer.BaseUrl(), "/auth/basic/walter/secret");
 
@@ -391,10 +387,10 @@ HttpTest::AuthBasicTest()
 	expectedResponseHeaders["Server"] = "Test HTTP Server for Haiku";
 	expectedResponseHeaders["Www-Authenticate"] = "Basic realm=\"Fake Realm\"";
 
-	SendAuthenticatedRequest(context, testUrl, expectedResponseBody,
+	SendAuthenticatedRequest(session, testUrl, expectedResponseBody,
 		expectedResponseHeaders);
 
-	CPPUNIT_ASSERT(!context.GetCookieJar().GetIterator().HasNext());
+	CPPUNIT_ASSERT(!session.GetCookieJar().GetIterator().HasNext());
 		// This page should not set cookies
 }
 
@@ -402,7 +398,8 @@ HttpTest::AuthBasicTest()
 void
 HttpTest::AuthDigestTest()
 {
-	BUrlContext context;
+	BUrlSession session;
+	CPPUNIT_ASSERT_EQUAL(B_OK, session.InitCheck());
 
 	BUrl testUrl(fTestServer.BaseUrl(), "/auth/digest/walter/secret");
 
@@ -444,12 +441,12 @@ HttpTest::AuthDigestTest()
 		"algorithm=MD5, "
 		"stale=FALSE";
 
-	SendAuthenticatedRequest(context, testUrl, expectedResponseBody,
+	SendAuthenticatedRequest(session, testUrl, expectedResponseBody,
 		expectedResponseHeaders);
 
 	std::map<BString, BString> cookies;
 	BNetworkCookieJar::Iterator iter
-		= context.GetCookieJar().GetIterator();
+		= session.GetCookieJar().GetIterator();
 	while (iter.HasNext()) {
 		const BNetworkCookie* cookie = iter.Next();
 		cookies[cookie->Name()] = cookie->Value();
@@ -506,8 +503,8 @@ void
 HttpTest::_GetTest(const BString& path)
 {
 	BUrl testUrl(fTestServer.BaseUrl(), path);
-	BUrlContext* context = new BUrlContext();
-	context->AcquireReference();
+	BUrlSession* session = new BUrlSession();
+	CPPUNIT_ASSERT_EQUAL(B_OK, session->InitCheck());
 
 	std::string expectedResponseBody(
 		"Path: /\r\n"
@@ -529,8 +526,7 @@ HttpTest::_GetTest(const BString& path)
 	TestListener listener(expectedResponseBody, expectedResponseHeaders);
 
 	ObjectDeleter<BUrlRequest> requestDeleter(
-		BUrlProtocolRoster::MakeRequest(testUrl, &listener, &listener,
-			context));
+		session->MakeRequest(testUrl, &listener, &listener));
 	BHttpRequest* request = dynamic_cast<BHttpRequest*>(requestDeleter.Get());
 	CPPUNIT_ASSERT(request != NULL);
 
@@ -551,10 +547,8 @@ HttpTest::_GetTest(const BString& path)
 
 	listener.Verify();
 
-	CPPUNIT_ASSERT(!context->GetCookieJar().GetIterator().HasNext());
+	CPPUNIT_ASSERT(!session->GetCookieJar().GetIterator().HasNext());
 		// This page should not set cookies
-
-	context->ReleaseReference();
 }
 
 

@@ -12,6 +12,7 @@
 
 #include <TestCase.h>
 #include <TestSuite.h>
+#include <UrlSession.h>
 
 #include <cppunit/TestSuite.h>
 
@@ -33,6 +34,9 @@ public:
 private:
 			void				_RunTest(BString url, const char* expected,
 									size_t expectedLength);
+
+private:
+			BUrlSession			fSession;
 };
 
 
