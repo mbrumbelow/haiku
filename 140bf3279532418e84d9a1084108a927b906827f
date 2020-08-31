@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c33a7e3e_639d9eff",
+        "filename": "src/add-ons/input_server/devices/mouse/MouseInputDevice.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-08-31T17:50:27Z",
+      "side": 1,
+      "message": "Add {\u0027s around multi-line if blocks per our style guidelines.",
+      "revId": "140bf3279532418e84d9a1084108a927b906827f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1acb26c_5bfa9704",
+        "filename": "src/add-ons/input_server/devices/mouse/MouseInputDevice.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-08-31T17:50:27Z",
+      "side": 1,
+      "message": "inline {\u0027s are our style",
+      "revId": "140bf3279532418e84d9a1084108a927b906827f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e944448_be3b250c",
+        "filename": "src/add-ons/input_server/devices/mouse/MouseInputDevice.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-08-31T17:50:27Z",
+      "side": 1,
+      "message": "inline {\u0027s are our style",
+      "revId": "140bf3279532418e84d9a1084108a927b906827f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
