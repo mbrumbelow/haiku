@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5988265f_3b81a2e0",
+        "filename": "headers/private/kernel/thread_types.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-01T18:17:29Z",
+      "side": 0,
+      "message": "Strictly speaking this is an ABI change, but given it\u0027s a private header and unlikely to be used, I think it\u0027s ok.",
+      "revId": "5c5a5dbbcca6f8bb3d61d33885bdcbe7f5918a3a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
