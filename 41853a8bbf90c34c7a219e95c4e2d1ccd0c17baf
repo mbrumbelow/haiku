@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "44e5784f_49012b3f",
+        "filename": "docs/user/locale/Catalog.dox",
+        "patchSetId": 8
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2020-09-01T18:21:10Z",
+      "side": 1,
+      "message": "Should be: \"signature\"",
+      "range": {
+        "startLine": 126,
+        "startChar": 65,
+        "endLine": 126,
+        "endChar": 74
+      },
+      "revId": "41853a8bbf90c34c7a219e95c4e2d1ccd0c17baf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
