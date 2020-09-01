@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d761ce94_0ca54f2d",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-01T18:02:41Z",
+      "side": 1,
+      "message": "please remove this",
+      "revId": "82824465365bc57c931f339091edf5189c926083",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4d9ca46_e53d1f74",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-01T18:02:41Z",
+      "side": 1,
+      "message": "The remainingLength should be computed from Size() instead of totalBlockSize. Otherwise it would be possible to read past the end of the file if it doesn\u0027t end exactly at the end of a block.",
+      "revId": "82824465365bc57c931f339091edf5189c926083",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "734b4782_991fa1d0",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-01T18:02:41Z",
+      "side": 1,
+      "message": "I don\u0027t understand what you are checking here.\n\nFirst you can replace (blockNumber + 1) * blockSize with remainingLength (they are the same thing).\n\nSo, this is checking if we are trying to read past the file end. I think it will never be the case? And even if we are, why should that result in skipping the while loop below?",
+      "revId": "82824465365bc57c931f339091edf5189c926083",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1731342a_24ed4812",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-01T18:02:41Z",
+      "side": 1,
+      "message": "It is not correct to read more than 1 block of data at a time here. You need to read at most blockSize bytes, and never more than that. You could even need to read less than that if the initial file_offset is not at the start of a block.\n\nBasically there are only 4 ways you can read from disk with read_pos that make sense:\n- Read a complete block,\n- Read the end of a block,\n- Read the start of a block,\n- Read the middle of a block.\n\nThey are used this way:\n\nIf reading a complete file:\n- Read several (possibly 0, if the file is small) complete blocks until remainingLength \u003c blockSize\n- Read the start of the last block\n\nIf reading a file starting from somewhere in the middle:\n- Read the end of a block\n- Read several (again, possibly 0) complete blocks until remainingLength \u003c blockSize)\n- Read the start of the last block if needed\n\nReading a small part of a file from somewhere in the middle (when *_length passed to the function is smaller than blockSize):\n- Read the middle of a block\n\nSo, what you have to check:\n- Does our read start and end in the same block, or do we need a loop?\n- Does our read start at the start of a block (blockOffset \u003d\u003d 0), or do we need to read only the end of the block?\n- Does our read go until the end of the block, or does it stop before?\n\nThe simplest way to do this seems to be:\n- compute the blockNumber and blockOffset for the start of the read (from file_offset)\n- compute the blockNumber and blockOffset for the end of the read (from file_offset + *_length)\n\n- If the two blockNumbers are equal: you only need to read one block\n  - In that case, read *_length bytes starting from your computed start blockNumber and blockOffset.\n- If they are different: you need to read multiple blocks\n  - In that case, read the first block from its blockNumber and blockOffset, you need to read until the end of the block, so the read size should be blockSize - blockOffset\n  - Then, loop to read more blocks, always reading from the start of the block. Read blockSize bytes each time until remainingLength becomes less than blockSize\n  - Finally, read the last block. Read blockSize bytes from the start of the block.\n\nI hope it is clear now. Make some drawings if needed to better understand the way it works.",
+      "revId": "82824465365bc57c931f339091edf5189c926083",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
