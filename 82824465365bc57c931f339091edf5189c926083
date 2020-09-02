@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "79fbbf13_8d84d0a3",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-09-02T20:43:34Z",
+      "side": 1,
+      "message": "I am trying to read the file according to blocks, so for that I have used totalBlockSize in which I store the size of file that can be stored in a block e.g. blockSize \u003d 512, file_offset \u003d 513, *_length \u003d 4096 and if blockNumber is 1 i.e. it is the second block then (1 + 1) * 512 \u003d 1024 which means till second block 1024 bytes can be stored. Now remainingLength \u003d 511(1024 - 513) means in the current block I have to read 511 bytes.\n\nIn case of EOF there will be two conditions (According to fixed cat command the *_length can be less than 4096 depending upon size of file and file_offset)\n1. If we need to read from multiple blocks(Execution of if condition).\n2. If we need to only read in the current block(Execution of line 122).\n\nThere can one condition that the only bytes left to read are less than *_length, which might occur when cat command does not call this function and tries to read more than size of file.",
+      "parentUuid": "a4d9ca46_e53d1f74",
+      "revId": "82824465365bc57c931f339091edf5189c926083",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "734b4782_991fa1d0",
         "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
         "patchSetId": 19
@@ -53,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "23ede08f_7debc300",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-09-02T20:43:34Z",
+      "side": 1,
+      "message": "Here, I am checking that if file_offset + *_length covers more than one block now 513 + 4096 exceeds 1024, hence we need to run a while loop and read multiple blocks till it has read the 4096 bytes. Now in the line 110 only 511 bytes will be read.",
+      "parentUuid": "734b4782_991fa1d0",
+      "revId": "82824465365bc57c931f339091edf5189c926083",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1731342a_24ed4812",
         "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
         "patchSetId": 19
@@ -64,6 +100,41 @@
       "writtenOn": "2020-09-01T18:02:41Z",
       "side": 1,
       "message": "It is not correct to read more than 1 block of data at a time here. You need to read at most blockSize bytes, and never more than that. You could even need to read less than that if the initial file_offset is not at the start of a block.\n\nBasically there are only 4 ways you can read from disk with read_pos that make sense:\n- Read a complete block,\n- Read the end of a block,\n- Read the start of a block,\n- Read the middle of a block.\n\nThey are used this way:\n\nIf reading a complete file:\n- Read several (possibly 0, if the file is small) complete blocks until remainingLength \u003c blockSize\n- Read the start of the last block\n\nIf reading a file starting from somewhere in the middle:\n- Read the end of a block\n- Read several (again, possibly 0) complete blocks until remainingLength \u003c blockSize)\n- Read the start of the last block if needed\n\nReading a small part of a file from somewhere in the middle (when *_length passed to the function is smaller than blockSize):\n- Read the middle of a block\n\nSo, what you have to check:\n- Does our read start and end in the same block, or do we need a loop?\n- Does our read start at the start of a block (blockOffset \u003d\u003d 0), or do we need to read only the end of the block?\n- Does our read go until the end of the block, or does it stop before?\n\nThe simplest way to do this seems to be:\n- compute the blockNumber and blockOffset for the start of the read (from file_offset)\n- compute the blockNumber and blockOffset for the end of the read (from file_offset + *_length)\n\n- If the two blockNumbers are equal: you only need to read one block\n  - In that case, read *_length bytes starting from your computed start blockNumber and blockOffset.\n- If they are different: you need to read multiple blocks\n  - In that case, read the first block from its blockNumber and blockOffset, you need to read until the end of the block, so the read size should be blockSize - blockOffset\n  - Then, loop to read more blocks, always reading from the start of the block. Read blockSize bytes each time until remainingLength becomes less than blockSize\n  - Finally, read the last block. Read blockSize bytes from the start of the block.\n\nI hope it is clear now. Make some drawings if needed to better understand the way it works.",
+      "revId": "82824465365bc57c931f339091edf5189c926083",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c4050c0_f33a9c40",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-09-02T20:43:34Z",
+      "side": 1,
+      "message": "Considering the example given in the above comment, to reading the complete block I have recalculated the remainingLength(4096 - 511 \u003d 3585, in line 117) and if it is greater than blockSize means that we need to read the next block completely so assigning remainingLength as blockSIze i.e. 512.\n\nAt the end when the remainingLength will be 1 then it will read only one byte and then line 111 condition will be checked and the it will return.",
+      "parentUuid": "1731342a_24ed4812",
+      "revId": "82824465365bc57c931f339091edf5189c926083",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "412b0be7_5f0e6550",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-09-02T20:43:34Z",
+      "side": 1,
+      "message": "If we do not need to read from the multiple blocks then it means we need to read *_length bytes in same block. In case of EOF the cat command will set the value of *_length to the remaining bytes and if those bytes are covered in the single block then this line will be executed.",
       "revId": "82824465365bc57c931f339091edf5189c926083",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
