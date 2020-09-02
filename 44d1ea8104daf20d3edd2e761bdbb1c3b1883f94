@@ -1,0 +1,259 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a3896d1_f7ea61f5",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-02T17:32:20Z",
+      "side": 1,
+      "message": "the {} are not needed here",
+      "revId": "44d1ea8104daf20d3edd2e761bdbb1c3b1883f94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c675971_871a300b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-02T17:32:20Z",
+      "side": 1,
+      "message": "that\u0027s not a great trace. Remember that once used in production these messages will get to the syslog (if built with tracing enabled) so at the very least they should be eay to grep for",
+      "revId": "44d1ea8104daf20d3edd2e761bdbb1c3b1883f94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08d5f441_355d055f",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-02T17:32:20Z",
+      "side": 1,
+      "message": "NumberOfDataExtents (avoid abbreviations) or DataExtentsCount",
+      "revId": "44d1ea8104daf20d3edd2e761bdbb1c3b1883f94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79ccc23c_f6333d2d",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-02T17:32:20Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "44d1ea8104daf20d3edd2e761bdbb1c3b1883f94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e805f683_e4e8c825",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-02T17:32:20Z",
+      "side": 1,
+      "message": "this line and the next one are too long",
+      "revId": "44d1ea8104daf20d3edd2e761bdbb1c3b1883f94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "658abb39_28c2a4cb",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-02T17:32:20Z",
+      "side": 1,
+      "message": "spaces around *",
+      "revId": "44d1ea8104daf20d3edd2e761bdbb1c3b1883f94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1808084f_b37a5cd2",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-02T17:32:20Z",
+      "side": 1,
+      "message": "why not declare the pointer as uint64* directly? It would save some casting?\n\nalso you can use pointerToMap[0] and pointerToMap[1] to access the values then.",
+      "revId": "44d1ea8104daf20d3edd2e761bdbb1c3b1883f94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ec60111_21b81083",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-02T17:32:20Z",
+      "side": 1,
+      "message": "useless cast to uint64, since agNo is already 64bit the multiplication result will also be.",
+      "revId": "44d1ea8104daf20d3edd2e761bdbb1c3b1883f94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c76aa35_15e1de38",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-02T17:32:20Z",
+      "side": 1,
+      "message": "useless parentheses.",
+      "revId": "44d1ea8104daf20d3edd2e761bdbb1c3b1883f94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d676b39f_167d0159",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-02T17:32:20Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "44d1ea8104daf20d3edd2e761bdbb1c3b1883f94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f04f0992_4b3c782b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-02T17:32:20Z",
+      "side": 1,
+      "message": "no {} needed here",
+      "revId": "44d1ea8104daf20d3edd2e761bdbb1c3b1883f94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0697869a_fe024603",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-02T17:32:20Z",
+      "side": 1,
+      "message": "\"multiply by 8\" sounds more english to me?",
+      "revId": "44d1ea8104daf20d3edd2e761bdbb1c3b1883f94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6484e464_ae7a5bad",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-02T17:32:20Z",
+      "side": 1,
+      "message": "this is indented 1 tab too far",
+      "revId": "44d1ea8104daf20d3edd2e761bdbb1c3b1883f94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2eed06e_bae1b673",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-02T17:32:20Z",
+      "side": 1,
+      "message": "this is indented 1 tab too far",
+      "revId": "44d1ea8104daf20d3edd2e761bdbb1c3b1883f94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8800c60a_be02185b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-02T17:32:20Z",
+      "side": 1,
+      "message": "this line and the next one are too long",
+      "revId": "44d1ea8104daf20d3edd2e761bdbb1c3b1883f94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
