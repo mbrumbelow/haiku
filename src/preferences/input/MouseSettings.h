@@ -39,9 +39,6 @@ public:
 		bool IsDefaultable();
 		void Dump();
 
-		BPoint WindowPosition() const { return fWindowPosition; }
-		void SetWindowPosition(BPoint corner);
-
 		int32 MouseType() const { return fSettings.type; }
 		void SetMouseType(int32 type);
 
@@ -80,7 +77,6 @@ private:
 		mode_focus_follows_mouse	fFocusFollowsMouseMode;
 		mode_focus_follows_mouse	fOriginalFocusFollowsMouseMode;
 		bool			fAcceptFirstClick, fOriginalAcceptFirstClick;
-		BPoint                  fWindowPosition;
 
 		mouse_settings	fSettings, fOriginalSettings;
 };
