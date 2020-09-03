@@ -859,14 +859,17 @@ InputServer::HandleGetSetMouseSpeed(BMessage* message, BMessage* reply)
 {
 	BString mouseName;
 
-	syslog(LOG_CRIT, "DEBUG->INPUTSERVER->HandleGetSetMouseSpeed: %s \n",
-		mouseName.String());
-
 	MouseSettings* settings = NULL;
 	if (message->FindString("mouse_name", &mouseName) == B_OK) {
+		syslog(LOG_CRIT, "DEBUG->INPUTSERVER->HandleGetSetMouseSpeed: %s\n",
+			mouseName.String());
+
 		settings = fMouseSettings.GetMouseSettings(mouseName);
 		if (settings == NULL)
 			return B_NAME_NOT_FOUND;
+	} else {
+		syslog(LOG_CRIT, "DEBUG->INPUTSERVER->HandleGetSetMouseSpeed "
+			"with no name\n");
 	}
 
 	int32 speed;
@@ -892,7 +895,17 @@ InputServer::HandleGetSetMouseSpeed(BMessage* message, BMessage* reply)
 	if (settings != NULL)
 		return reply->AddInt32("speed", settings->MouseSpeed());
 	else {
-		return B_OK;
+		std::map<BString, MouseSettings*>::iterator itr
+			= fMouseSettingsObject.begin();
+		if (itr != fMouseSettingsObject.end()) {
+			// Return the speed of the first mouse
+			return reply->AddInt32("speed",
+				fMouseSettingsObject.begin()->second->MouseSpeed());
+		} else {
+			syslog(LOG_CRIT,
+				"HandleGetSetMouseSpeed: No mouse settings found!\n");
+			return B_NAME_NOT_FOUND;
+		}
 	}
 }
 
