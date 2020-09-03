@@ -531,7 +531,7 @@ set_mouse_type_by_name(BString mouse_name, int32 type)
 	if (err_mouse_name != B_OK)
 		return err_mouse_name;
 
-    status_t err = command.AddInt32("mouse_type", type);
+	status_t err = command.AddInt32("mouse_type", type);
 	if (err != B_OK)
 		return err;
 	return _control_input_server_(&command, &reply);
@@ -658,9 +658,6 @@ set_mouse_speed_by_name(BString mouse_name, int32 speed)
 		fprintf(stderr, "Name Matched \n");
 
 	command.AddInt32("speed", speed);
-
-	fprintf(stderr, "DEBUG_MOUSE->INTERFACE->set_multiple_mouse_speed:"
-		"Add: MOUSE NAME: %s MOUSE_SPEED: %" B_PRId32 " \n", mouse_name.String(), speed);
 
 	return _control_input_server_(&command, &reply);
 }
