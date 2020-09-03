@@ -407,7 +407,7 @@ BPath path;
 	if (status < B_OK)
 		return status;
 
-	BFile file(path.Path(), B_READ_WRITE | B_CREATE_FILE);
+	BFile file(path.Path(), B_WRITE_ONLY | B_CREATE_FILE | B_ERASE_FILE);
 	status = file.InitCheck();
 	if (status != B_OK)
 		return status;
