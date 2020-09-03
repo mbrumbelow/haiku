@@ -30,11 +30,14 @@ static const bool kDefaultAcceptFirstClick = true;
 
 
 MouseSettings::MouseSettings(BString name)
-	:
-	fWindowPosition(-1, -1)
 {
 	fname = name;
-	_RetrieveSettings();
+	if (_RetrieveSettings() != B_OK) {
+		Defaults();
+		fprintf(stderr, "MouseSetings: created with defaulted setings\n");
+	} else {
+		fprintf(stderr, "MouseSetings: created with retrieved setings\n");
+	}
 
 	fOriginalSettings = fSettings;
 	fOriginalMode = fMode;
@@ -80,24 +83,28 @@ status_t
 MouseSettings::_RetrieveSettings()
 {
 	// retrieve current values
-
 	if (get_mouse_map(&fSettings.map) != B_OK)
-		fprintf(stderr, "error when get_mouse_map\n");
+		return B_ERROR;
 	if (get_click_speed(&fSettings.click_speed) != B_OK)
-		fprintf(stderr, "error when get_click_speed\n");
+		return B_ERROR;
 	if (get_mouse_speed_by_name(fname, &fSettings.accel.speed) != B_OK)
-		fprintf(stderr, "error when get_multiple_mouse_speed\n");
+		return B_ERROR;
 	if (get_mouse_acceleration(&fSettings.accel.accel_factor) != B_OK)
-		fprintf(stderr, "error when get_mouse_acceleration\n");
+		return B_ERROR;
 	if (get_mouse_type_by_name(fname, &fSettings.type) != B_OK)
-		fprintf(stderr, "error when get_multiple_mouse_type\n");
+		return B_ERROR;
 
 	fMode = mouse_mode();
 	fFocusFollowsMouseMode = focus_follows_mouse_mode();
 	fAcceptFirstClick = accept_first_click();
 
-	// also try to load the window position from disk
+	return B_OK;
+}
 
+
+status_t
+MouseSettings::_LoadLegacySettings()
+{
 	BPath path;
 	if (_GetSettingsPath(path) < B_OK)
 		return B_ERROR;
@@ -108,18 +115,6 @@ MouseSettings::_RetrieveSettings()
 
 	// Read the settings from the file
 	file.Read((void*)&fSettings, sizeof(mouse_settings));
-
-	// FIXME: the window position in the legacy settings file is now useless.
-	// We can remove this code and the fWindowPosition variable.
-	const off_t kOffset = sizeof(mouse_settings);
-	if (file.ReadAt(kOffset, &fWindowPosition, sizeof(BPoint))
-		!= sizeof(BPoint)) {
-		// set default window position (invalid positions will be
-		// corrected by the application; the window will be centered
-		// in this case)
-		fWindowPosition.x = -1;
-		fWindowPosition.y = -1;
-	}
 
 #ifdef DEBUG
 	Dump();
@@ -188,15 +183,16 @@ MouseSettings::Defaults()
 	SetAcceptFirstClick(kDefaultAcceptFirstClick);
 
 	mouse_map map;
-	if (get_mouse_map(&map) == B_OK) {
+	if (get_mouse_map(&map) != B_OK) {
+		// Set some default values
 		map.button[0] = B_PRIMARY_MOUSE_BUTTON;
 		map.button[1] = B_SECONDARY_MOUSE_BUTTON;
 		map.button[2] = B_TERTIARY_MOUSE_BUTTON;
 		map.button[3] = B_MOUSE_BUTTON(4);
 		map.button[4] = B_MOUSE_BUTTON(5);
 		map.button[5] = B_MOUSE_BUTTON(6);
-		SetMapping(map);
 	}
+	SetMapping(map);
 }
 
 
@@ -253,13 +249,6 @@ MouseSettings::IsRevertable()
 		|| fSettings.map.button[3] != fOriginalSettings.map.button[3]
 		|| fSettings.map.button[4] != fOriginalSettings.map.button[4]
 		|| fSettings.map.button[5] != fOriginalSettings.map.button[5];
-}
-
-
-void
-MouseSettings::SetWindowPosition(BPoint corner)
-{
-	fWindowPosition = corner;
 }
 
 
@@ -455,7 +444,10 @@ MultipleMouseSettings::RetrieveSettings()
 	} else {
 		// Does not look like a BMessage, try loading using the old format
 		fDeprecatedMouseSettings = new MouseSettings("");
-		fDeprecatedMouseSettings->_RetrieveSettings();
+		if (fDeprecatedMouseSettings->_LoadLegacySettings() != B_OK) {
+			delete fDeprecatedMouseSettings;
+			fDeprecatedMouseSettings = NULL;
+		}
 	}
 }
 
@@ -484,7 +476,7 @@ MultipleMouseSettings::SaveSettings()
 	if (status < B_OK)
 		return status;
 
-	BFile file(path.Path(), B_READ_WRITE | B_CREATE_FILE);
+	BFile file(path.Path(), B_WRITE_ONLY | B_CREATE_FILE | B_ERASE_FILE);
 	status = file.InitCheck();
 	if (status != B_OK)
 		return status;
@@ -537,24 +529,27 @@ MultipleMouseSettings::AddMouseSettings(BString mouse_name)
 			fMouseSettingsObject.insert(std::pair<BString, MouseSettings*>
 				(mouse_name, RetrievedSettings));
 
+			fprintf(stderr, "AddMouseSettings: Using deprecated settings\n");
 			return RetrievedSettings;
 		}
 	}
 
-	std::map<BString, MouseSettings*>::iterator itr;
-	itr = fMouseSettingsObject.find(mouse_name);
-
-	if (itr != fMouseSettingsObject.end())
-		return GetMouseSettings(mouse_name);
-
-	MouseSettings* settings = new (std::nothrow) MouseSettings(mouse_name);
-
-	if(settings !=NULL) {
-		fMouseSettingsObject.insert(std::pair<BString, MouseSettings*>
-			(mouse_name, settings));
-			return settings;
+	MouseSettings* settings = GetMouseSettings(mouse_name);
+	if (settings) {
+		fprintf(stderr, "AddMouseSettings: using found settings\n");
+		return settings;
 	}
-	return B_OK;
+
+	settings = new (std::nothrow) MouseSettings(mouse_name);
+	if (settings == NULL) {
+		fprintf(stderr, "AddMouseSettings: allocation failure\n");
+		return NULL;
+	}
+
+	fMouseSettingsObject.insert(std::pair<BString, MouseSettings*>
+		(mouse_name, settings));
+	fprintf(stderr, "AddMouseSettings: using new settings\n");
+	return settings;
 }
 
 
