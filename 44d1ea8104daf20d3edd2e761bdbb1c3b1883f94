@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9d9f22f5_ef5c3000",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-09-03T08:36:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a3896d1_f7ea61f5",
+      "revId": "44d1ea8104daf20d3edd2e761bdbb1c3b1883f94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0c675971_871a300b",
         "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2020-09-02T17:32:20Z",
       "side": 1,
       "message": "that\u0027s not a great trace. Remember that once used in production these messages will get to the syslog (if built with tracing enabled) so at the very least they should be eay to grep for",
+      "revId": "44d1ea8104daf20d3edd2e761bdbb1c3b1883f94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7433b7bb_cbe3854f",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-09-03T08:36:25Z",
+      "side": 1,
+      "message": "Fixed. Does this sound good?",
+      "parentUuid": "0c675971_871a300b",
       "revId": "44d1ea8104daf20d3edd2e761bdbb1c3b1883f94",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "dacda72a_aa3101f6",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-09-03T08:36:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08d5f441_355d055f",
+      "revId": "44d1ea8104daf20d3edd2e761bdbb1c3b1883f94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79ccc23c_f6333d2d",
         "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
         "patchSetId": 4
@@ -67,6 +121,24 @@
       "revId": "44d1ea8104daf20d3edd2e761bdbb1c3b1883f94",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "682b8e62_6a5db6bf",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-09-03T08:36:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79ccc23c_f6333d2d",
+      "revId": "44d1ea8104daf20d3edd2e761bdbb1c3b1883f94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "a370fd40_f2b491ee",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-09-03T08:36:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e805f683_e4e8c825",
+      "revId": "44d1ea8104daf20d3edd2e761bdbb1c3b1883f94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "658abb39_28c2a4cb",
         "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
         "patchSetId": 4
@@ -101,6 +191,24 @@
       "revId": "44d1ea8104daf20d3edd2e761bdbb1c3b1883f94",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a677a6f9_f0fb8ebe",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-09-03T08:36:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "658abb39_28c2a4cb",
+      "revId": "44d1ea8104daf20d3edd2e761bdbb1c3b1883f94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "8072aa52_c83a5444",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-09-03T08:36:25Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "1808084f_b37a5cd2",
+      "revId": "44d1ea8104daf20d3edd2e761bdbb1c3b1883f94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2ec60111_21b81083",
         "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
         "patchSetId": 4
@@ -135,6 +261,24 @@
       "revId": "44d1ea8104daf20d3edd2e761bdbb1c3b1883f94",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61c8cad6_f2ad02f0",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-09-03T08:36:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ec60111_21b81083",
+      "revId": "44d1ea8104daf20d3edd2e761bdbb1c3b1883f94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -155,6 +299,41 @@
     },
     {
       "key": {
+        "uuid": "8cebb94c_8143af5d",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-09-03T08:36:25Z",
+      "side": 1,
+      "message": "Done. There was some precedence issue which I later fixed but forgot to remove parantheses here.",
+      "parentUuid": "1c76aa35_15e1de38",
+      "revId": "44d1ea8104daf20d3edd2e761bdbb1c3b1883f94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0950ec95_1b7caaba",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-09-03T08:36:25Z",
+      "side": 1,
+      "message": "No one mentioned this but repeated if statements here was fixed in a later patch.",
+      "revId": "44d1ea8104daf20d3edd2e761bdbb1c3b1883f94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d676b39f_167d0159",
         "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
         "patchSetId": 4
@@ -169,6 +348,24 @@
       "revId": "44d1ea8104daf20d3edd2e761bdbb1c3b1883f94",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4a601b1_307cc19a",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-09-03T08:36:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d676b39f_167d0159",
+      "revId": "44d1ea8104daf20d3edd2e761bdbb1c3b1883f94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -189,6 +386,24 @@
     },
     {
       "key": {
+        "uuid": "f0f0cabc_02ef5544",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-09-03T08:36:25Z",
+      "side": 1,
+      "message": "I remember I had to put it because removing it gave me an error.\n\u0027expected } before else\u0027\nNot sure why?",
+      "parentUuid": "f04f0992_4b3c782b",
+      "revId": "44d1ea8104daf20d3edd2e761bdbb1c3b1883f94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0697869a_fe024603",
         "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
         "patchSetId": 4
@@ -203,6 +418,24 @@
       "revId": "44d1ea8104daf20d3edd2e761bdbb1c3b1883f94",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "252570f3_85872fb2",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-09-03T08:36:25Z",
+      "side": 1,
+      "message": "Sorry, typo.",
+      "parentUuid": "0697869a_fe024603",
+      "revId": "44d1ea8104daf20d3edd2e761bdbb1c3b1883f94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -223,6 +456,24 @@
     },
     {
       "key": {
+        "uuid": "52cb84f2_65460226",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-09-03T08:36:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6484e464_ae7a5bad",
+      "revId": "44d1ea8104daf20d3edd2e761bdbb1c3b1883f94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d2eed06e_bae1b673",
         "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
         "patchSetId": 4
@@ -240,6 +491,24 @@
     },
     {
       "key": {
+        "uuid": "df888787_d11ceedc",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-09-03T08:36:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d2eed06e_bae1b673",
+      "revId": "44d1ea8104daf20d3edd2e761bdbb1c3b1883f94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8800c60a_be02185b",
         "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
         "patchSetId": 4
@@ -254,6 +523,24 @@
       "revId": "44d1ea8104daf20d3edd2e761bdbb1c3b1883f94",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c57a04e2_67baea92",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-09-03T08:36:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8800c60a_be02185b",
+      "revId": "44d1ea8104daf20d3edd2e761bdbb1c3b1883f94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
