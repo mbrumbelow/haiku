@@ -507,7 +507,6 @@ set_mouse_type(int32 type)
 status_t
 get_mouse_type_by_name(BString mouse_name, int32 *type)
 {
-	fprintf(stderr, "DEBUG_MOUSE->INTERFACE->get_multiple_mouse_type: \n");
 	BMessage command(IS_GET_MOUSE_TYPE);
 	BMessage reply;
 	command.AddString("mouse_name", mouse_name.String());
@@ -530,8 +529,6 @@ set_mouse_type_by_name(BString mouse_name, int32 type)
     status_t err_mouse_name = command.AddString("mouse_name",
 		mouse_name.String());
     if (err_mouse_name != B_OK) {
-    fprintf(stderr, "\n DEBUG_MOUSE->INTERFACE->set_multiple_mouse_type:"
-		"If (err_mouse_name) \n");
         return err_mouse_name;
 	}
 
@@ -543,11 +540,7 @@ set_mouse_type_by_name(BString mouse_name, int32 type)
     }
 
     status_t err = command.AddInt32("mouse_type", type);
-    fprintf(stderr, "DEBUG_MOUSE->INTERFACE->Ending->set_multiple_mouse_type->commmand."
-			"MOUSE NAME: %s MOUSE_TYPE: %" B_PRId32 " \n", mouse_name.String(), type);
 	if (err != B_OK)
-	fprintf(stderr, "DEBUG_MOUSE->INTERFACE->set_multiple_mouse_type->"
-		"ERR \t%" B_PRId32 "\n", type);
 		return err;
 	return _control_input_server_(&command, &reply);
 }
@@ -673,9 +666,6 @@ set_mouse_speed_by_name(BString mouse_name, int32 speed)
 		fprintf(stderr, "Name Matched \n");
 
 	command.AddInt32("speed", speed);
-
-	fprintf(stderr, "DEBUG_MOUSE->INTERFACE->set_multiple_mouse_speed:"
-		"Add: MOUSE NAME: %s MOUSE_SPEED: %" B_PRId32 " \n", mouse_name.String(), speed);
 
 	return _control_input_server_(&command, &reply);
 }

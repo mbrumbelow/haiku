@@ -171,10 +171,8 @@ MouseSettings::Defaults()
 	SetFocusFollowsMouseMode(B_NORMAL_FOCUS_FOLLOWS_MOUSE);
 	SetAcceptFirstClick(kDefaultAcceptFirstClick);
 
-	fSettings.map.button[0] = B_PRIMARY_MOUSE_BUTTON;
-	fSettings.map.button[1] = B_SECONDARY_MOUSE_BUTTON;
-	fSettings.map.button[2] = B_TERTIARY_MOUSE_BUTTON;
-
+	for (int i = 0; i < B_MAX_MOUSE_BUTTONS; i++)
+		fSettings.map.button[i] = B_MOUSE_BUTTON(i + 1);
 }
 
 
@@ -304,36 +302,6 @@ MultipleMouseSettings::GetSettingsPath(BPath &path)
 void
 MultipleMouseSettings::RetrieveSettings()
 {
-	// retrieve current values
-	// also try to load the window position from disk
-
-//	BPath path;
-//	if (GetSettingsPath(path) < B_OK)
-//		return;
-//
-//	BFile file(path.Path(), B_READ_ONLY);
-//	if (file.InitCheck() < B_OK)
-//		return;
-//
-//	if (file.ReadAt(0, &fMultipleMouseSettings, sizeof(multiple_mouse_settings))
-//			!= sizeof(multiple_mouse_settings)) {
-//		Defaults();
-//	}
-//
-//#if 0
-//	// FIXME it is not possible to load a map from disk this way because it uses pointers and is
-//	// a complex object. We need to use a BMessage instead
-//	std::map<const char*, mouse_settings>::iterator itr1;
-//	for (itr1 = fMultipleMouseSettings.begin(); itr1 != fMultipleMouseSettings.end(); ++itr1) {
-//		MouseSettings settings = MouseSettings(itr1->second);
-//		fMouseSettingsObject.insert(std::pair<const char*, MouseSettings>(itr1->first, settings));
-//	}
-//
-//	std::map<const char*, MouseSettings>::iterator itr2;
-//	for (itr2 = fMouseSettingsObject.begin(); itr2 != fMouseSettingsObject.end(); ++itr2) {
-//		itr2->second.RetrieveSettings();
-//	}
-//#endif
 BPath path;
 	if (GetSettingsPath(path) < B_OK)
 		return;
@@ -383,31 +351,12 @@ MultipleMouseSettings::Archive(BMessage* into, bool deep) const
 status_t
 MultipleMouseSettings::SaveSettings()
 {
-//#ifdef DEBUG
-//	Dump();
-//#endif
-//
-//	BPath path;
-//	status_t status = GetSettingsPath(path);
-//	if (status < B_OK)
-//		return status;
-//
-//	BFile file(path.Path(), B_READ_WRITE | B_CREATE_FILE);
-//	status = file.InitCheck();
-//	if (status != B_OK)
-//		return status;
-//
-//	file.Write(&fMultipleMouseSettings, sizeof(fMultipleMouseSettings));
-//
-//	// who is responsible for saving the mouse mode and accept_first_click?
-//
-//	return B_OK;
-BPath path;
+	BPath path;
 	status_t status = GetSettingsPath(path);
 	if (status < B_OK)
 		return status;
 
-	BFile file(path.Path(), B_READ_WRITE | B_CREATE_FILE);
+	BFile file(path.Path(), B_WRITE_ONLY | B_CREATE_FILE | B_ERASE_FILE);
 	status = file.InitCheck();
 	if (status != B_OK)
 		return status;
@@ -456,7 +405,6 @@ if(fDeprecatedMouseSettings != NULL) {
 		if (RetrievedSettings != NULL) {
 			fMouseSettingsObject.insert(std::pair<BString, MouseSettings*>
 				(mouse_name, RetrievedSettings));
-
 		return RetrievedSettings;
 		}
 	}
