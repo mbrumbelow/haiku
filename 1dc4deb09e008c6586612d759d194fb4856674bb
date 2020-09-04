@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "92aa18cc_a0d99825",
+        "filename": "src/kits/app/MessageUtils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-04T11:34:55Z",
+      "side": 1,
+      "message": "that\u0027s true, but I\u0027d say only by accident (it happens that the two structs have some common layout). This could easily break if someone changes the entry_ref format someday and doesn\u0027t change the node_ref one.\n\nAlso, the whole thing is probably not really needed anyway, because what would you do with the node_ref on a different machine (that\u0027s the only case we need to swap endianness)?",
+      "revId": "1dc4deb09e008c6586612d759d194fb4856674bb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
