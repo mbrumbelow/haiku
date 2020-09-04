@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "fa92f796_feb592fd",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-09-04T20:40:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d761ce94_0ca54f2d",
+      "revId": "82824465365bc57c931f339091edf5189c926083",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a4d9ca46_e53d1f74",
         "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
         "patchSetId": 19
@@ -51,6 +69,24 @@
       "revId": "82824465365bc57c931f339091edf5189c926083",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95190551_1683cf8b",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-09-04T20:40:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79fbbf13_8d84d0a3",
+      "revId": "82824465365bc57c931f339091edf5189c926083",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -89,6 +125,24 @@
     },
     {
       "key": {
+        "uuid": "e08d1310_3af5ac4e",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-09-04T20:40:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23ede08f_7debc300",
+      "revId": "82824465365bc57c931f339091edf5189c926083",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1731342a_24ed4812",
         "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
         "patchSetId": 19
@@ -124,6 +178,24 @@
     },
     {
       "key": {
+        "uuid": "767dfb28_97e2569d",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-09-04T20:40:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c4050c0_f33a9c40",
+      "revId": "82824465365bc57c931f339091edf5189c926083",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "412b0be7_5f0e6550",
         "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
         "patchSetId": 19
@@ -138,6 +210,24 @@
       "revId": "82824465365bc57c931f339091edf5189c926083",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07f1fd5b_9cb8af22",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/Inode.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2020-09-04T20:40:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "412b0be7_5f0e6550",
+      "revId": "82824465365bc57c931f339091edf5189c926083",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
