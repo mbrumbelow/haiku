@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b24c97d5_ceaf9cb2",
+        "filename": "src/add-ons/kernel/file_systems/bfs/Journal.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1180,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-05T14:35:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30d67810_48229a05",
+      "revId": "4b87aaa6ccba6ec85da9135366a5938fbd4cead8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "60e52c7b_51fa07fa",
         "filename": "src/add-ons/kernel/file_systems/bfs/Journal.cpp",
         "patchSetId": 6
@@ -33,6 +51,24 @@
       "revId": "4b87aaa6ccba6ec85da9135366a5938fbd4cead8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6752abe_8e9bbc02",
+        "filename": "src/add-ons/kernel/file_systems/bfs/Journal.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1195,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-05T14:35:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60e52c7b_51fa07fa",
+      "revId": "4b87aaa6ccba6ec85da9135366a5938fbd4cead8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
