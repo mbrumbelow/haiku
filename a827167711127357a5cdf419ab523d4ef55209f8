@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "86e42707_8a72b047",
+        "filename": "src/add-ons/kernel/file_systems/bfs/BlockAllocator.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 992,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-05T14:34:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70328423_e34a9c75",
+      "revId": "a827167711127357a5cdf419ab523d4ef55209f8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "20dff09a_9052f668",
         "filename": "src/add-ons/kernel/file_systems/bfs/Journal.cpp",
         "patchSetId": 6
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "e98e3dd3_da6bc805",
+        "filename": "src/add-ons/kernel/file_systems/bfs/Journal.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1160,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-05T14:34:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20dff09a_9052f668",
+      "revId": "a827167711127357a5cdf419ab523d4ef55209f8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f317992_19339b6d",
         "filename": "src/add-ons/kernel/file_systems/bfs/Journal.cpp",
         "patchSetId": 6
@@ -50,6 +86,24 @@
       "revId": "a827167711127357a5cdf419ab523d4ef55209f8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b989d91_a3215cc2",
+        "filename": "src/add-ons/kernel/file_systems/bfs/Journal.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1175,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-05T14:34:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f317992_19339b6d",
+      "revId": "a827167711127357a5cdf419ab523d4ef55209f8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
