@@ -16,6 +16,24 @@
       "revId": "1dc4deb09e008c6586612d759d194fb4856674bb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca3f1d58_b877431c",
+        "filename": "src/kits/app/MessageUtils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-09-07T22:52:44Z",
+      "side": 1,
+      "message": "OK made node_ref_swap a copy of entry_ref_swap instead of calling it. I\u0027m not sure we\u0027ll ever actually need to use this function, so it is included only for completeness sake.",
+      "parentUuid": "92aa18cc_a0d99825",
+      "revId": "1dc4deb09e008c6586612d759d194fb4856674bb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
