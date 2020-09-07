@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "66a4679c_27ebc6ab",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-07T19:51:59Z",
+      "side": 1,
+      "message": "Then it would return B_BUFFER_OVERFLOW. We need to return B_OK which tells the caller function \"there are more entries, call this function again\" (whereas B_BUFFER_OVERFLOW means \"you have given me a buffer that\u0027s too small for even one entry\")",
+      "parentUuid": "ce5411fa_dd5d5ea2",
+      "revId": "669440842347835f54d70d18b4637bde3d2e7963",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "921b2557_0b5c5326",
         "filename": "src/add-ons/kernel/file_systems/ufs2/kernel_interface.cpp",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2020-09-07T19:30:36Z",
       "side": 1,
       "message": "Can\u0027t \"dirent\" and \"struct dirent\" be used interchangeably in C++?",
+      "revId": "669440842347835f54d70d18b4637bde3d2e7963",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79bb6ff6_17d40d11",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-07T19:51:59Z",
+      "side": 1,
+      "message": "Here dirent refers to the function parameter (struct dirent *dirent) and so it ends up being the size of the pointer.",
+      "parentUuid": "921b2557_0b5c5326",
       "revId": "669440842347835f54d70d18b4637bde3d2e7963",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
