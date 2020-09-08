@@ -105,6 +105,24 @@
       "revId": "669440842347835f54d70d18b4637bde3d2e7963",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b42b39b_e1831118",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-08T09:45:45Z",
+      "side": 1,
+      "message": "Our coding style usually avoids the problem because classes start with uppercase and variables with lowercase. But in this specific place we have to follow POSIX style. So, yes, maybe renaming the variable would be better.",
+      "parentUuid": "a79157c8_7c766ccb",
+      "revId": "669440842347835f54d70d18b4637bde3d2e7963",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
