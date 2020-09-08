@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "837d3efb_f8947c74",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-09-08T09:40:52Z",
+      "side": 1,
+      "message": "B_BUFFER_OVERFLOW means \"you have given me a buffer that\u0027s too small for the next entry\". It would then recall read_dir with a larger buffer which seems like the right thing to do. This is how we have dealt with it in ext2, xfs, etc.",
+      "parentUuid": "66a4679c_27ebc6ab",
+      "revId": "669440842347835f54d70d18b4637bde3d2e7963",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "921b2557_0b5c5326",
         "filename": "src/add-ons/kernel/file_systems/ufs2/kernel_interface.cpp",
         "patchSetId": 1
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "Here dirent refers to the function parameter (struct dirent *dirent) and so it ends up being the size of the pointer.",
       "parentUuid": "921b2557_0b5c5326",
+      "revId": "669440842347835f54d70d18b4637bde3d2e7963",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a79157c8_7c766ccb",
+        "filename": "src/add-ons/kernel/file_systems/ufs2/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2020-09-08T09:40:52Z",
+      "side": 1,
+      "message": "Yes that makes sense. \nI will have a look and see if I missed this while implementing xfs as well.\nShouldn\u0027t we change the name to \"struct dirent* buffer\" then? That\u0027s what is in the docs anyway and makes it less prone to human errors?",
+      "parentUuid": "79bb6ff6_17d40d11",
       "revId": "669440842347835f54d70d18b4637bde3d2e7963",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
