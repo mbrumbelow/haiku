@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f07e3955_01b4f9c1",
+        "filename": "headers/os/interface/InterfaceDefs.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-09T19:53:05Z",
+      "side": 1,
+      "message": "we need to update the documentation (docs/user/kit/interface/) to mention that the old functions are deprecated and now the settings are different for each mouse.",
+      "revId": "d5318aec111fb9724694dcde349d384a289142fb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
