@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc80bcfe_b4413831",
+        "filename": "src/apps/installer/InstallerApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-09T14:52:36Z",
+      "side": 1,
+      "message": "Please read the comment :)\n\nIf you eject the CD that the install was booted from, this will crash. So we now need a way to get that done.\n\nThat\u0027s why when we discussed this I said the \"return to firstbootprompt\" must be done only when installation is not complete. Otherwise, we need to assist the user into finishing the install process, and that includes ejecting the CD and then rebooting to start the newly installed OS. Getting them in a loop of firstbootprompt -\u003e Installer -\u003e FirstBootPrompt with the only way to escape being to start a live desktop session is not OK.\n\nI appreciate your intention to improve other use cases (user changing their mind in the middle of the installation) but please let\u0027s not break the main path to improve alternative ones.",
+      "revId": "57344d87f3b5b52fc5a6d38f91527e2b43ec5999",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
