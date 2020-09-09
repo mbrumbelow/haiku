@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c99521b7_7f1fc89c",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-09T20:00:20Z",
+      "side": 1,
+      "message": "remove the traces now that everything works",
+      "revId": "a27923a02cad569cd45156fcfb2fe21b651bf430",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90dd2eca_4ae1edac",
+        "filename": "src/servers/input/InputServer.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 864,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-09T20:00:20Z",
+      "side": 1,
+      "message": "this solution is not perfect, it will always return some settings, but when using the legacy get/set function (without a mouse name specified) it will just pick the first mouse found. Is that acceptable, or should we make sure all mouses are affected by the legacy functions (set_mouse_speed, etc)?",
+      "revId": "a27923a02cad569cd45156fcfb2fe21b651bf430",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
