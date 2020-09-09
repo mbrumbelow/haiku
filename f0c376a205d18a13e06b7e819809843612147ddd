@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63390cad_646368e3",
+        "filename": "src/servers/input/MouseSettings.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-09T19:50:45Z",
+      "side": 1,
+      "message": "two blank lines needed here (same thing for other functions below)",
+      "revId": "f0c376a205d18a13e06b7e819809843612147ddd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba31aa96_d9342c14",
+        "filename": "src/servers/input/MouseSettings.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-09T19:50:45Z",
+      "side": 1,
+      "message": "We need to fix this both in the input_server and in the preferences. These settings are global to all mouses and should be set and stored only once. So we need to modify the GUI to make this clear (visually separate the global settings, from the one specific to a device), and modify the code to make sure there is no copy of these settings (probably we need to move them to MultipleMouseSettings instead of MouseSettings) in both the preference panel and the input server.",
+      "revId": "f0c376a205d18a13e06b7e819809843612147ddd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
