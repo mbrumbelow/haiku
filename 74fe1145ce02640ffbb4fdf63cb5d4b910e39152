@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e35deb0d_dd188520",
+        "filename": "src/kits/tracker/IconCache.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 786,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-09T11:23:23Z",
+      "side": 1,
+      "message": "I think an if/else would be better to avoid this 4 line expression",
+      "revId": "74fe1145ce02640ffbb4fdf63cb5d4b910e39152",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7fddd82_581e1b47",
+        "filename": "src/kits/tracker/SettingsViews.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-09T11:23:23Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "74fe1145ce02640ffbb4fdf63cb5d4b910e39152",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7b256f4_7c5c60c7",
+        "filename": "src/kits/tracker/Tracker.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-09T11:23:23Z",
+      "side": 1,
+      "message": "why use new here? Can\u0027t this be allocated on the stack?\n\nconst node_ref node(device, inode);\n\nIf new is needed you will need to add std::nothrow as well.",
+      "revId": "74fe1145ce02640ffbb4fdf63cb5d4b910e39152",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de461a69_394554d3",
+        "filename": "src/kits/tracker/Utilities.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 1532,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-09T11:23:23Z",
+      "side": 1,
+      "message": "I think we should remove this check here. In apps I\u0027m maintaining I will probably be generating icons myself for non-image types (the case I\u0027m thinking of in particular is emulator savestates which will get a screenshot of the running emulated code as a thumbnail). Ideally we\u0027d ahve a private API to easily do it following the format chosen by Tracker, but maybe this usage is a bit too specific to justify this?\n\nSo it\u0027s fine to test this when generating the thumbnails, but not when searching for them, I think.",
+      "revId": "74fe1145ce02640ffbb4fdf63cb5d4b910e39152",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "141c8d88_a9be1a00",
+        "filename": "src/kits/tracker/Utilities.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 1569,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-09T11:23:23Z",
+      "side": 1,
+      "message": "these allocations need std::nothrow and NULL check, or you should document where the std::bad_alloc exception will be caught if you want to handle the error with an exception",
+      "revId": "74fe1145ce02640ffbb4fdf63cb5d4b910e39152",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dcdb379a_2d710f86",
+        "filename": "src/kits/tracker/Utilities.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 1674,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-09T11:23:23Z",
+      "side": 1,
+      "message": "does the colorspace support alpha? Should the view drawing mode be set to B_OP_ALPHA for that to work properly? (for bilinear scaling this will be needed, but possibly also for images that already have an alpha channel if we want to preserve it)",
+      "revId": "74fe1145ce02640ffbb4fdf63cb5d4b910e39152",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a08408f3_fa2770b2",
+        "filename": "src/libs/icon/IconUtils.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-09T11:23:23Z",
+      "side": 1,
+      "message": "Do we still need to do this? At this point there are so many things that assume Haiku (layout kit, localization, ...) that it seems not really needed anymore.",
+      "revId": "74fe1145ce02640ffbb4fdf63cb5d4b910e39152",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
