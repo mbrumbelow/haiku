@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "60a863f6_73763965",
+        "filename": "src/kits/interface/InterfaceDefs.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 641,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-09T19:57:10Z",
+      "side": 1,
+      "message": "I think this is not a good speed. Why not return an error instead?",
+      "revId": "f1361f140307f27f184075c4e8620971ec846111",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8003fd59_fbf1691f",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-09T19:57:10Z",
+      "side": 1,
+      "message": "this should not be changed back",
+      "revId": "f1361f140307f27f184075c4e8620971ec846111",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd546533_889080c4",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-09T19:57:10Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "f1361f140307f27f184075c4e8620971ec846111",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "549841db_0b6fbc1f",
+        "filename": "src/servers/input/InputServer.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 891,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-09T19:57:10Z",
+      "side": 1,
+      "message": "this should remain B_NOT_SUPPORTED (later on in another commit the method is rewritten anyway)",
+      "revId": "f1361f140307f27f184075c4e8620971ec846111",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
