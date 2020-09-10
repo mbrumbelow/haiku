@@ -581,6 +581,13 @@ dump_cpu(enum cpu_vendor vendor, uint32 model, int32 cpu)
 			return;
 	}
 
+	cpu_info frequencyInfo;
+	if (get_cpu_info(cpu, 1, &frequencyInfo) == B_OK
+		&& frequencyInfo.frequency != 0) {
+		printf("\tFrequency: %u.%03u\n", frequencyInfo.frequency / 1000000,
+			(frequencyInfo.frequency % 1000000) / 1000);
+	}
+
 	get_cpuid(&cpuInfo, 1, cpu);
 	print_processor_signature(vendor, &cpuInfo);
 	printf("\tFeatures: 0x%08" B_PRIx32 "\n", cpuInfo.eax_1.features);
