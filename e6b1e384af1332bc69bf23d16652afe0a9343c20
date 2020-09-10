@@ -1,0 +1,378 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b42130c4_33a33b57",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 6904,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-10T20:04:46Z",
+      "side": 1,
+      "message": "all variables should be renamed to use camelCase instead of underscores",
+      "revId": "e6b1e384af1332bc69bf23d16652afe0a9343c20",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2779723b_12b2456b",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 6917,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-10T20:04:46Z",
+      "side": 1,
+      "message": "this if needs braces",
+      "revId": "e6b1e384af1332bc69bf23d16652afe0a9343c20",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81f8de6a_bbfd14d7",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 6971,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-10T20:04:46Z",
+      "side": 1,
+      "message": "else goes on the same line as }",
+      "revId": "e6b1e384af1332bc69bf23d16652afe0a9343c20",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e16a4878_3794c362",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 6976,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-10T20:04:46Z",
+      "side": 1,
+      "message": "else goes on the same line as }",
+      "revId": "e6b1e384af1332bc69bf23d16652afe0a9343c20",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e331065f_7b409991",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 7034,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-10T20:04:46Z",
+      "side": 1,
+      "message": "use camelCase for variable names",
+      "revId": "e6b1e384af1332bc69bf23d16652afe0a9343c20",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b83eaeab_4b59488c",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 7048,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-10T20:04:46Z",
+      "side": 1,
+      "message": "this if needs {}",
+      "revId": "e6b1e384af1332bc69bf23d16652afe0a9343c20",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e473f4cb_b0f2a318",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 7049,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-10T20:04:46Z",
+      "side": 1,
+      "message": "this block is indented one level too deep",
+      "revId": "e6b1e384af1332bc69bf23d16652afe0a9343c20",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8dbfcbce_67cb9886",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 7084,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-10T20:04:46Z",
+      "side": 1,
+      "message": "delete goes on a separate line",
+      "revId": "e6b1e384af1332bc69bf23d16652afe0a9343c20",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f2f3d14_759b9e20",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 7088,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-10T20:04:46Z",
+      "side": 1,
+      "message": "else goes on same line as }",
+      "revId": "e6b1e384af1332bc69bf23d16652afe0a9343c20",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5153212_178efe05",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 7103,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-10T20:04:46Z",
+      "side": 1,
+      "message": "else goes on same line as }",
+      "revId": "e6b1e384af1332bc69bf23d16652afe0a9343c20",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b798bcc3_f9bbfe3a",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 7113,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-10T20:04:46Z",
+      "side": 1,
+      "message": "else goes on same line as }",
+      "revId": "e6b1e384af1332bc69bf23d16652afe0a9343c20",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fe7619f_b99d76e2",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 7125,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-10T20:04:46Z",
+      "side": 1,
+      "message": "else goes on same line as }",
+      "revId": "e6b1e384af1332bc69bf23d16652afe0a9343c20",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02c2e1d3_8a4ad498",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 7135,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-10T20:04:46Z",
+      "side": 1,
+      "message": "else goes on same line as }",
+      "revId": "e6b1e384af1332bc69bf23d16652afe0a9343c20",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b195fb17_b623a84a",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 7140,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-10T20:04:46Z",
+      "side": 1,
+      "message": "else goes on same line as }",
+      "revId": "e6b1e384af1332bc69bf23d16652afe0a9343c20",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "264aae00_e318a87d",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 7153,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-10T20:04:46Z",
+      "side": 1,
+      "message": "else goes on same line as }",
+      "revId": "e6b1e384af1332bc69bf23d16652afe0a9343c20",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7d93796_653cce7f",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 7165,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-10T20:04:46Z",
+      "side": 1,
+      "message": "else goes on same line as }",
+      "revId": "e6b1e384af1332bc69bf23d16652afe0a9343c20",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52a20dbb_8ae4c53a",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 7175,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-10T20:04:46Z",
+      "side": 1,
+      "message": "the code would be simpler by using \"if (error !\u003d B_OK) ... return error;\" and have the main code outside of an else block to limit levels of indentation.",
+      "revId": "e6b1e384af1332bc69bf23d16652afe0a9343c20",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7ec8b15_2b6bee26",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 7180,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-10T20:04:46Z",
+      "side": 1,
+      "message": "else goes on same line as }",
+      "revId": "e6b1e384af1332bc69bf23d16652afe0a9343c20",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ebe5deb_2531902d",
+        "filename": "src/system/libroot/posix/sys/mman.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-10T20:04:46Z",
+      "side": 1,
+      "message": "{ goes on a separate line (same below)",
+      "revId": "e6b1e384af1332bc69bf23d16652afe0a9343c20",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19f82067_86cf4a5b",
+        "filename": "src/tests/system/kernel/mlock_test.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-10T20:04:46Z",
+      "side": 1,
+      "message": "{ goes on a sepatate line",
+      "revId": "e6b1e384af1332bc69bf23d16652afe0a9343c20",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7687a3d4_37754eb8",
+        "filename": "src/tests/system/kernel/mlock_test.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-10T20:04:46Z",
+      "side": 1,
+      "message": "this malloc is useless, the pointer is erased by create_area",
+      "revId": "e6b1e384af1332bc69bf23d16652afe0a9343c20",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c355233_60d1668b",
+        "filename": "src/tests/system/kernel/mlock_test.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-10T20:04:46Z",
+      "side": 1,
+      "message": "use cppunit to allow automating the test instead of this",
+      "revId": "e6b1e384af1332bc69bf23d16652afe0a9343c20",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
