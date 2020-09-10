@@ -490,11 +490,32 @@ get_system_info(system_info* info)
 }
 
 
+typedef struct {
+	bigtime_t	active_time;
+	bool		enabled;
+} beta2_cpu_info;
+
+
+extern "C" status_t
+__get_cpu_info(uint32 firstCPU, uint32 cpuCount, beta2_cpu_info* beta2_info)
+{
+	cpu_info info;
+	status_t err = _get_cpu_info_etc(firstCPU, cpuCount, &info, sizeof(info));
+	if (err == B_OK) {
+		beta2_info->active_time = info.active_time;
+		beta2_info->enabled = info.enabled;
+	}
+	return err;
+}
+
+
 status_t
-get_cpu_info(uint32 firstCPU, uint32 cpuCount, cpu_info* info)
+_get_cpu_info_etc(uint32 firstCPU, uint32 cpuCount, cpu_info* info, size_t size)
 {
 	if (cpuCount == 0)
 		return B_OK;
+	if (size != sizeof(cpu_info))
+		return B_BAD_VALUE;
 	if (firstCPU >= (uint32)smp_get_num_cpus())
 		return B_BAD_VALUE;
 
@@ -516,6 +537,7 @@ get_cpu_info(uint32 firstCPU, uint32 cpuCount, cpu_info* info)
 	for (uint32 i = 0; i < count; i++) {
 		info[i].active_time = cpu_get_active_time(firstCPU + i);
 		info[i].enabled = !gCPU[firstCPU + i].disabled;
+		info[i].current_frequency = cpu_frequency(i);
 	}
 
 	if (IS_USER_ADDRESS(info)) {
@@ -578,7 +600,7 @@ _user_get_cpu_info(uint32 firstCPU, uint32 cpuCount, cpu_info* userInfo)
 	if (userInfo == NULL || !IS_USER_ADDRESS(userInfo))
 		return B_BAD_ADDRESS;
 
-	return get_cpu_info(firstCPU, cpuCount, userInfo);
+	return _get_cpu_info_etc(firstCPU, cpuCount, userInfo, sizeof(cpu_info));
 }
 
 
