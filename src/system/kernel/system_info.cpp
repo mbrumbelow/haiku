@@ -491,10 +491,12 @@ get_system_info(system_info* info)
 
 
 status_t
-get_cpu_info(uint32 firstCPU, uint32 cpuCount, cpu_info* info)
+_get_cpu_info_etc(uint32 firstCPU, uint32 cpuCount, cpu_info* info, size_t size)
 {
 	if (cpuCount == 0)
 		return B_OK;
+	if (size != sizeof(cpu_info))
+		return B_BAD_VALUE;
 	if (firstCPU >= (uint32)smp_get_num_cpus())
 		return B_BAD_VALUE;
 
@@ -516,6 +518,7 @@ get_cpu_info(uint32 firstCPU, uint32 cpuCount, cpu_info* info)
 	for (uint32 i = 0; i < count; i++) {
 		info[i].active_time = cpu_get_active_time(firstCPU + i);
 		info[i].enabled = !gCPU[firstCPU + i].disabled;
+		info[i].current_frequency = cpu_frequency(i);
 	}
 
 	if (IS_USER_ADDRESS(info)) {
