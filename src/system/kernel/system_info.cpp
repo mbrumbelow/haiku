@@ -516,6 +516,7 @@ get_cpu_info(uint32 firstCPU, uint32 cpuCount, cpu_info* info)
 	for (uint32 i = 0; i < count; i++) {
 		info[i].active_time = cpu_get_active_time(firstCPU + i);
 		info[i].enabled = !gCPU[firstCPU + i].disabled;
+		info[i].frequency = cpu_frequency(i);
 	}
 
 	if (IS_USER_ADDRESS(info)) {
