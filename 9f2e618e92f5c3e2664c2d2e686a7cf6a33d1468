@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b1801b06_402bd13f",
+        "filename": "src/apps/firstbootprompt/BootPrompt.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-10T19:42:48Z",
+      "side": 1,
+      "message": "it should be newMessage (or quitMessage).",
+      "revId": "9f2e618e92f5c3e2664c2d2e686a7cf6a33d1468",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bdcfc745_53c7ce10",
+        "filename": "src/apps/firstbootprompt/BootPromptWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-10T19:42:48Z",
+      "side": 1,
+      "message": "I\u0027m not sure about this. Since the main goal of running firstBootPrompt with the desktop running is for testing and development, I would try to keep the behavior as close as possible to \"real\" usage.",
+      "revId": "9f2e618e92f5c3e2664c2d2e686a7cf6a33d1468",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e33f901f_b4566bec",
+        "filename": "src/apps/firstbootprompt/BootPromptWindow.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-10T19:42:48Z",
+      "side": 1,
+      "message": "the \"bool\" should be aligned with the \"void\" below and the QuitRequested with the other methods",
+      "revId": "9f2e618e92f5c3e2664c2d2e686a7cf6a33d1468",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
