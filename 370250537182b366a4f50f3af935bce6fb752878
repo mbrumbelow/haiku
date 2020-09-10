@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c0d80ebf_7b0d8f54",
+        "filename": "src/apps/installer/InstallerApp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-10T19:44:36Z",
+      "side": 1,
+      "message": "else goes on the same line as }",
+      "revId": "370250537182b366a4f50f3af935bce6fb752878",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
