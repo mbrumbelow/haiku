@@ -70,6 +70,24 @@
     },
     {
       "key": {
+        "uuid": "2dcf8a29_51d54671",
+        "filename": "src/kits/tracker/Utilities.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 1532,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-09-10T09:24:35Z",
+      "side": 1,
+      "message": "That\u0027s actually a strong argument for only storing a single size, and make it completely independent from the resolution: Tracker might not be able to create a thumbnail by itself, and this would let 3rd party apps conveniently store them with the file.\n\nAs I mentioned previously, using BEOS:ICON for this would not be too bad either, as the original plan was to add PNG support for icons at some point down the road, too.",
+      "parentUuid": "de461a69_394554d3",
+      "revId": "74fe1145ce02640ffbb4fdf63cb5d4b910e39152",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "141c8d88_a9be1a00",
         "filename": "src/kits/tracker/Utilities.cpp",
         "patchSetId": 16
