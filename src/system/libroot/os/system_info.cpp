@@ -11,6 +11,7 @@
 
 #include <algorithm>
 
+#include <symbol_versioning.h>
 #include <syscalls.h>
 #include <system_info.h>
 
@@ -153,6 +154,25 @@ __get_system_info(system_info* info)
 }
 
 
+typedef struct {
+	bigtime_t	active_time;
+	bool		enabled;
+} beta2_cpu_info;
+
+
+extern "C" status_t
+__get_cpu_info_beta2(uint32 firstCPU, uint32 cpuCount, beta2_cpu_info* beta2_info)
+{
+	cpu_info info;
+	status_t err = __get_cpu_info(firstCPU, cpuCount, &info);
+	if (err == B_OK) {
+		beta2_info->active_time = info.active_time;
+		beta2_info->enabled = info.enabled;
+	}
+	return err;
+}
+
+
 status_t
 __get_cpu_info(uint32 firstCPU, uint32 cpuCount, cpu_info* info)
 {
@@ -197,6 +217,8 @@ is_computer_on_fire(void)
 
 
 B_DEFINE_WEAK_ALIAS(__get_system_info, get_system_info);
-B_DEFINE_WEAK_ALIAS(__get_cpu_info, get_cpu_info);
+DEFINE_LIBROOT_KERNEL_SYMBOL_VERSION("__get_cpu_info_beta2", "get_cpu_info@", "BASE");
+DEFINE_LIBROOT_KERNEL_SYMBOL_VERSION("__get_cpu_info", "get_cpu_info@@",
+       "1_BETA3");
 B_DEFINE_WEAK_ALIAS(__get_cpu_topology_info, get_cpu_topology_info);
 
