@@ -16,6 +16,24 @@
       "revId": "fca47ca20f231dcd242437ba9e33dc8901e00048",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32213537_fc68293b",
+        "filename": "src/apps/firstbootprompt/BootPromptWindow.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-11T14:26:50Z",
+      "side": 1,
+      "message": "There still is one extra tab for the constructor...",
+      "parentUuid": "36b98adc_a955ca49",
+      "revId": "fca47ca20f231dcd242437ba9e33dc8901e00048",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
