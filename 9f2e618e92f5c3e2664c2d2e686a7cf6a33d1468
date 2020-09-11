@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "1ccc1fbc_32942df7",
+        "filename": "src/apps/firstbootprompt/BootPromptWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2020-09-11T00:36:56Z",
+      "side": 1,
+      "message": "I\u0027m not sure that polishing the app for Desktop usage, despite how hypothetical it is, is a bad thing. If creating special cases in order to make sure that closing the window in the Desktop won\u0027t result in a reboot is alright, making it minimizable just makes sense to me.",
+      "parentUuid": "bdcfc745_53c7ce10",
+      "revId": "9f2e618e92f5c3e2664c2d2e686a7cf6a33d1468",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e33f901f_b4566bec",
         "filename": "src/apps/firstbootprompt/BootPromptWindow.h",
         "patchSetId": 2
