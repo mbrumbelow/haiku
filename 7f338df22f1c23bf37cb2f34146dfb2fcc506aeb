@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8d8abc3a_63ae92db",
+        "filename": "src/apps/haikudepot/model/PackageIconTarRepository.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-11T14:25:48Z",
+      "side": 1,
+      "message": "where does 22 comes from? I\u0027d have expected 24?",
+      "revId": "7f338df22f1c23bf37cb2f34146dfb2fcc506aeb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0739d140_1bd621c6",
+        "filename": "src/apps/haikudepot/server/AbstractServerProcess.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-11T14:25:48Z",
+      "side": 1,
+      "message": "off_t would be better for file sizes (in case it grows over 4GB), I would rather improve StorageUtils for that if possible?",
+      "revId": "7f338df22f1c23bf37cb2f34146dfb2fcc506aeb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "154fa556_93c93946",
+        "filename": "src/apps/haikudepot/server/ServerIconExportUpdateProcess.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-11T14:25:48Z",
+      "side": 1,
+      "message": "else goes on the same line as }",
+      "revId": "7f338df22f1c23bf37cb2f34146dfb2fcc506aeb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e16418f0_b8437245",
+        "filename": "src/apps/haikudepot/server/ServerIconExportUpdateProcess.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-11T14:25:48Z",
+      "side": 1,
+      "message": "else goes on the same line as }",
+      "revId": "7f338df22f1c23bf37cb2f34146dfb2fcc506aeb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a158ccd_c620424d",
+        "filename": "src/apps/haikudepot/ui/App.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-11T14:25:48Z",
+      "side": 1,
+      "message": "keep includes in alphabetical order",
+      "revId": "7f338df22f1c23bf37cb2f34146dfb2fcc506aeb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
