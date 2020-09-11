@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "36b98adc_a955ca49",
+        "filename": "src/apps/firstbootprompt/BootPromptWindow.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-11T06:51:33Z",
+      "side": 1,
+      "message": "the alignment is still wrong here. Are you using 4 tabs per space in your editor?",
+      "revId": "fca47ca20f231dcd242437ba9e33dc8901e00048",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
