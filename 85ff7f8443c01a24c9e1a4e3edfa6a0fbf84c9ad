@@ -1,0 +1,208 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f715cf7c_391e9246",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 6904,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-09-12T03:32:14Z",
+      "side": 1,
+      "message": "The memory is leaked in all the early returns. The allocation should either be done where it\u0027s actually needed (leading to possibly failing at a point where lock_memory has to be undone) or a deleter should be used.",
+      "revId": "85ff7f8443c01a24c9e1a4e3edfa6a0fbf84c9ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ab61eac_7075ca8b",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 6925,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-09-12T03:32:14Z",
+      "side": 1,
+      "message": "It looks like there is no list order maintained, i.e. entries are always appended. Given that, this seems suspicious as the current and next entry have no relation to each other.",
+      "revId": "85ff7f8443c01a24c9e1a4e3edfa6a0fbf84c9ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aab60323_4da4d001",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 6931,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-09-12T03:32:14Z",
+      "side": 1,
+      "message": "This seems risky as the list that is operated on will be changed. This should probanly start over instead.",
+      "revId": "85ff7f8443c01a24c9e1a4e3edfa6a0fbf84c9ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cac106f0_8e72a5f3",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 6933,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-09-12T03:32:14Z",
+      "side": 1,
+      "message": "Manually unlocking the locker before return everywhere defeats the porpose of the locker. All of those can be removed.",
+      "revId": "85ff7f8443c01a24c9e1a4e3edfa6a0fbf84c9ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19b89ddf_b338c1b9",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 6947,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-09-12T03:32:14Z",
+      "side": 1,
+      "message": "I always find it more obvious to explicitly return B_OK in cases like this. It is guaranteed to be that value, but by writing it like that you always have to backtrack while reading to make sure you didn\u0027t miss anything.",
+      "revId": "85ff7f8443c01a24c9e1a4e3edfa6a0fbf84c9ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7805336b_84d2b45d",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 6960,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-09-12T03:32:14Z",
+      "side": 1,
+      "message": "It feels to me like a lot of casts could be saved by having everything as addr_t, the fields in the struct and the argument.",
+      "revId": "85ff7f8443c01a24c9e1a4e3edfa6a0fbf84c9ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09ce51b4_a2266358",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 6969,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-09-12T03:32:14Z",
+      "side": 1,
+      "message": "That seems bogus, if it did fail, one of the early returns above would have triggered and this is not reached.",
+      "revId": "85ff7f8443c01a24c9e1a4e3edfa6a0fbf84c9ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25edec09_3c80972b",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 6974,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-09-12T03:32:14Z",
+      "side": 1,
+      "message": "Explicitly return B_OK here again.",
+      "revId": "85ff7f8443c01a24c9e1a4e3edfa6a0fbf84c9ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a48b263_2f508e29",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 6988,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-09-12T03:32:14Z",
+      "side": 1,
+      "message": "Is the unconditional B_READ_DEVICE here and in the other places correct? It implies write access to the memory, but the area may be read only.",
+      "revId": "85ff7f8443c01a24c9e1a4e3edfa6a0fbf84c9ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb8f3b85_690b0ed4",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 6990,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-09-12T03:32:14Z",
+      "side": 1,
+      "message": "An early return in the error case would be more obvious.",
+      "revId": "85ff7f8443c01a24c9e1a4e3edfa6a0fbf84c9ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6079cb2c_317c1ca8",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 6992,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-09-12T03:32:14Z",
+      "side": 1,
+      "message": "I fear the entire range combinations here and in the above special cases cannot actually work. The documentation of lock_memory (and the actual implementation) requires that the lock and unlock calles are balanced with the exact same arguments. So locking an adjacent range needs to unlock with the original two ranges, not a combined one. This also implies that partial unlocks cannot be done and it is required to instead create new locks for the remaining ranges and then unlock the original.",
+      "revId": "85ff7f8443c01a24c9e1a4e3edfa6a0fbf84c9ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c9ef041_f1b25826",
+        "filename": "src/tests/system/kernel/mlock_test.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-09-12T03:32:14Z",
+      "side": 1,
+      "message": "This test seems pretty simplistic and does not exercise any of the possible special cases like overlapping ranges, partial unlocks, locks across multiple areas, etc. To actually validate this change, all cases should be tested here.",
+      "revId": "85ff7f8443c01a24c9e1a4e3edfa6a0fbf84c9ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
