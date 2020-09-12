@@ -126,6 +126,9 @@ pstates_decrease_performance(int delta)
 }
 
 
+// Models that support PLATFORM_INFO and TURBO_RATIO_LIMIT MSR as we use
+// them, extracted from Intel's SDM Volume 4, version 072, 2020-05-27:
+// http://software.intel.com/content/www/us/en/develop/articles/intel-sdm.html
 static bool
 is_cpu_model_supported(cpu_ent* cpu)
 {
@@ -138,7 +141,12 @@ is_cpu_model_supported(cpu_ent* cpu)
 		return false;
 
 	const uint8 kSupportedFamily6Models[] = {
-		0x2a, 0x2d, 0x2e, 0x3a, 0x3c, 0x3e, 0x3f, 0x45, 0x46,
+		0x1a, 0x1e, 0x1f,
+		0x25, 0x2a, 0x2c, 0x2d, 0x3a, 0x3c, 0x3d, 0x3e, 0x3f,
+		0x45, 0x46, 0x47, 0x4e, 0x4f, 0x55, 0x56, 0x5c, 0x5e,
+		0x66, 0x7a, 0x7d, 0x7e,
+		0x86, 0x8e, 0x9e,
+		0xa5, 0xa6,
 	};
 	const int kSupportedFamily6ModelsCount
 		= sizeof(kSupportedFamily6Models) / sizeof(uint8);
