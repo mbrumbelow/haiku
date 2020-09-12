@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "989ac7ac_af9941bd",
+        "filename": "configure",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-12T19:46:23Z",
+      "side": 1,
+      "message": "the \"They\" here does not refer to anything anymore.\n\nBuildtool sources (located from the --cross-tools-source option) will be compiled and...",
+      "revId": "442f00d46095c06a27d9c8cb82cdb65489e03626",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
