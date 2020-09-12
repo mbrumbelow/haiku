@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b73a463e_0d5a69ca",
+        "filename": "src/apps/haikudepot/model/PackageIconTarRepository.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-09-12T08:28:44Z",
+      "side": 1,
+      "message": "Yes it is an unexpected size.  This comes from the as-built logic in `SharedBitmap`.  The `SharedBitmap` is used for package icons and also for GUI icons such as arrows.  Some of the GUI icons are 22x22px and so this constant was honored here for completeness.  In essence it should not arise from the tar-ball as the only sizes supported are 16, 32, 64 --\u003e I think I will remove this case statement.",
+      "parentUuid": "8d8abc3a_63ae92db",
+      "revId": "7f338df22f1c23bf37cb2f34146dfb2fcc506aeb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0739d140_1bd621c6",
         "filename": "src/apps/haikudepot/server/AbstractServerProcess.cpp",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "7f338df22f1c23bf37cb2f34146dfb2fcc506aeb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c4337d2_e07dc495",
+        "filename": "src/apps/haikudepot/server/AbstractServerProcess.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-09-12T08:28:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0739d140_1bd621c6",
+      "revId": "7f338df22f1c23bf37cb2f34146dfb2fcc506aeb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "d6ddd0cc_4fc7c3c0",
+        "filename": "src/apps/haikudepot/server/ServerIconExportUpdateProcess.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-09-12T08:28:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "154fa556_93c93946",
+      "revId": "7f338df22f1c23bf37cb2f34146dfb2fcc506aeb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e16418f0_b8437245",
         "filename": "src/apps/haikudepot/server/ServerIconExportUpdateProcess.cpp",
         "patchSetId": 1
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "4173cc15_91a7684a",
+        "filename": "src/apps/haikudepot/server/ServerIconExportUpdateProcess.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-09-12T08:28:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e16418f0_b8437245",
+      "revId": "7f338df22f1c23bf37cb2f34146dfb2fcc506aeb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a158ccd_c620424d",
         "filename": "src/apps/haikudepot/ui/App.cpp",
         "patchSetId": 1
@@ -84,6 +156,24 @@
       "revId": "7f338df22f1c23bf37cb2f34146dfb2fcc506aeb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c0d13b4_ed1ee990",
+        "filename": "src/apps/haikudepot/ui/App.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-09-12T08:28:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a158ccd_c620424d",
+      "revId": "7f338df22f1c23bf37cb2f34146dfb2fcc506aeb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
