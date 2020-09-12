@@ -86,7 +86,8 @@ set_pstate(uint16 pstate)
 		entry->fLastUpdate = system_time();
 		entry->fCurrentPState = pstate;
 
-		x86_write_msr(IA32_MSR_PERF_CTL, pstate << 8);
+		uint64 perf = x86_read_msr(IA32_MSR_PERF_CTL) & 0xffffffffffff0000;
+		x86_write_msr(IA32_MSR_PERF_CTL, perf | pstate);
 	}
 }
 
