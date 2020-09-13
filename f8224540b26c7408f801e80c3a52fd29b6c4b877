@@ -16,6 +16,24 @@
       "revId": "f8224540b26c7408f801e80c3a52fd29b6c4b877",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06e13a4b_8422506f",
+        "filename": "src/add-ons/kernel/power/cpufreq/intel_pstates/intel_pstates.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2020-09-13T08:55:36Z",
+      "side": 1,
+      "message": "Removing the displacement is the main point of the change.\n\nI cannot assess the correctness of the target state calculation, but this should be enough: right or wrong, the delta is 0..kCPUPerformanceScaleMax, and that makes the target state between the minimum and maximum read from PLATFORM_INFO and TURBO_RATIO_LIMIT.\n\nI added my cpu model to the supported list and some dprintf for tracing and internal info, including the reading of the current performance status from PERF_STATUS. Then changed and abused pstates_set_scheduler_mode to set the values I wanted between the limits.\n\nWith current code, whatever the value I set it didn\u0027t change the reading from PERF_STATUS, even after having set it several times for all cpus. A simple test[0] showed the performance hadn\u0027t changed.\n\nWithout the shift, the reading from PERF_STATUS did in fact change to the new values (after having set the value in both threads sharing core) and the test showed constant pstate * user_time.\n\nSo, if by whatever magic a target of 12 is calculated, PERF_CTL should be set to 0xc, not 0xc00.\n\nThat said, I have only done all that in my Intel(R) Core(TM) i3 CPU M 330, model 06_25H, and I only have a degree in swearing, no PhD in black arts, both of which seem to be a requirement to correctly decipher Intel docs. Maybe this should wait for confirmation from someone with one of the currently listed as supported models?\n\n[0] time for i in $(seq 1000); do factor some_big_number \u003e /dev/null; done",
+      "parentUuid": "01e93684_72e0efd3",
+      "revId": "f8224540b26c7408f801e80c3a52fd29b6c4b877",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
