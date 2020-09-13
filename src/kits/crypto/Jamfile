@@ -1,0 +1,23 @@
+SubDir HAIKU_TOP src kits crypto ;
+
+SetSubDirSupportedPlatformsBeOSCompatible ;
+SubDirCcFlags -std=c99 ;
+
+UsePrivateHeaders crypto ;
+
+local architectureObject ;
+for architectureObject in [ MultiArchSubDirSetup ] {
+	on $(architectureObject) {
+		SEARCH_SOURCE += [ FDirName $(SUBDIR) hash blake2 ] ;
+
+		SharedLibrary [ MultiArchDefaultGristFiles libbcrypto.so ] :
+			CryptoHash.cpp
+
+			# BLAKE2 Hash Functions
+			Blake2.cpp
+			blake2b-ref.c
+
+			: be [ TargetLibsupc++ ]
+			;
+	}
+}
