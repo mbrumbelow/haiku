@@ -1,0 +1,18 @@
+SubDir HAIKU_TOP src tests kits crypto ;
+
+AddSubDirSupportedPlatforms libbe_test ;
+
+UsePrivateHeaders crypto ;
+
+# Let Jam know where to find some of our source files
+SEARCH_SOURCE += [ FDirName $(SUBDIR) cryptohash ] ;
+
+UnitTestLib libcryptotest.so
+	: CryptoKitTestAddon.cpp
+
+	# CryptoHash
+	CryptoHashTest.cpp
+
+	CryptoHashBlake2Tester.cpp
+	# TODO: Add rest of hashing algo
+	;
