@@ -1,0 +1,23 @@
+SubDir HAIKU_TOP src tests kits crypto ;
+
+AddSubDirSupportedPlatforms libbe_test ;
+
+local cryptokit = CryptoKit ;
+
+if $(TARGET_PLATFORM) = libbe_test {
+	UsePublicHeaders crypto ;
+	cryptokit = <tests!unittests>libCryptoKit.so ;
+}
+
+UsePrivateHeaders crypto ;
+
+# Let Jam know where to find some of our source files
+SEARCH_SOURCE += [ FDirName $(SUBDIR) cryptohash ] ;
+
+UnitTestLib libcryptotest.so
+	: CryptoKitTestAddon.cpp
+
+	# CryptoHash
+	CryptoHashTest.cpp
+	: $(cryptokit) be [ TargetLibstdc++ ]
+	;
