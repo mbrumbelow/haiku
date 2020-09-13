@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7b8a22e2_29c54735",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 6904,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-13T12:31:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f715cf7c_391e9246",
+      "revId": "85ff7f8443c01a24c9e1a4e3edfa6a0fbf84c9ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ab61eac_7075ca8b",
         "filename": "src/system/kernel/vm/vm.cpp",
         "patchSetId": 19
@@ -33,6 +51,24 @@
       "revId": "85ff7f8443c01a24c9e1a4e3edfa6a0fbf84c9ad",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c8f17c3_1bdf0159",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 6925,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-13T12:31:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ab61eac_7075ca8b",
+      "revId": "85ff7f8443c01a24c9e1a4e3edfa6a0fbf84c9ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "20b003f1_7e9c26f9",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 6931,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-13T12:31:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aab60323_4da4d001",
+      "revId": "85ff7f8443c01a24c9e1a4e3edfa6a0fbf84c9ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cac106f0_8e72a5f3",
         "filename": "src/system/kernel/vm/vm.cpp",
         "patchSetId": 19
@@ -67,6 +121,24 @@
       "revId": "85ff7f8443c01a24c9e1a4e3edfa6a0fbf84c9ad",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b112193_a9dab750",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 6933,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-13T12:31:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cac106f0_8e72a5f3",
+      "revId": "85ff7f8443c01a24c9e1a4e3edfa6a0fbf84c9ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "6ce05f2b_8ea90d09",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 6947,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-13T12:31:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19b89ddf_b338c1b9",
+      "revId": "85ff7f8443c01a24c9e1a4e3edfa6a0fbf84c9ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7805336b_84d2b45d",
         "filename": "src/system/kernel/vm/vm.cpp",
         "patchSetId": 19
@@ -101,6 +191,24 @@
       "revId": "85ff7f8443c01a24c9e1a4e3edfa6a0fbf84c9ad",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47b915c1_f9b96675",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 6960,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-13T12:31:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7805336b_84d2b45d",
+      "revId": "85ff7f8443c01a24c9e1a4e3edfa6a0fbf84c9ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "968d942d_21a05575",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 6969,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-13T12:31:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09ce51b4_a2266358",
+      "revId": "85ff7f8443c01a24c9e1a4e3edfa6a0fbf84c9ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25edec09_3c80972b",
         "filename": "src/system/kernel/vm/vm.cpp",
         "patchSetId": 19
@@ -138,6 +264,24 @@
     },
     {
       "key": {
+        "uuid": "9cfbeb0c_f95515f4",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 6974,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-13T12:31:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25edec09_3c80972b",
+      "revId": "85ff7f8443c01a24c9e1a4e3edfa6a0fbf84c9ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a48b263_2f508e29",
         "filename": "src/system/kernel/vm/vm.cpp",
         "patchSetId": 19
@@ -149,6 +293,24 @@
       "writtenOn": "2020-09-12T03:32:14Z",
       "side": 1,
       "message": "Is the unconditional B_READ_DEVICE here and in the other places correct? It implies write access to the memory, but the area may be read only.",
+      "revId": "85ff7f8443c01a24c9e1a4e3edfa6a0fbf84c9ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bd09d27_b9f33563",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 6988,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-13T12:31:58Z",
+      "side": 1,
+      "message": "What should we do then? Check the area flags to know if write is allowed, and set the flag then? Or not use the flag at all?",
+      "parentUuid": "4a48b263_2f508e29",
       "revId": "85ff7f8443c01a24c9e1a4e3edfa6a0fbf84c9ad",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -172,6 +334,24 @@
     },
     {
       "key": {
+        "uuid": "65af1254_1a8d4bb5",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 6990,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-13T12:31:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb8f3b85_690b0ed4",
+      "revId": "85ff7f8443c01a24c9e1a4e3edfa6a0fbf84c9ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6079cb2c_317c1ca8",
         "filename": "src/system/kernel/vm/vm.cpp",
         "patchSetId": 19
@@ -186,6 +366,24 @@
       "revId": "85ff7f8443c01a24c9e1a4e3edfa6a0fbf84c9ad",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c81882c6_09a92fcd",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 6992,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-13T12:31:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6079cb2c_317c1ca8",
+      "revId": "85ff7f8443c01a24c9e1a4e3edfa6a0fbf84c9ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
