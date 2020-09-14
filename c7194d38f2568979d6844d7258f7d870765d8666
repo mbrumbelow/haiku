@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7e21ed69_a2c4e2c6",
+        "filename": "src/system/kernel/arch/x86/arch_system_info.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-14T14:45:10Z",
+      "side": 1,
+      "message": "if I read the specs correctly, mperf and aperf are both reset to 0 on overflow of either one. This creates a discontinuity.\n\nSo maybe we need to check ((mperf2 \u003c mperf) || (aperf2 \u003c aperf)) here to cover that case.\n\nMoreover the intel_pstate module resets them to 0: https://git.haiku-os.org/haiku/tree/src/add-ons/kernel/power/cpufreq/intel_pstates/intel_pstates.cpp#n64\n\nWouldn\u0027t that interfere with this code?",
+      "revId": "c7194d38f2568979d6844d7258f7d870765d8666",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
