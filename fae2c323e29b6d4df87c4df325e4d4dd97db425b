@@ -34,6 +34,24 @@
       "revId": "fae2c323e29b6d4df87c4df325e4d4dd97db425b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "efb0e5f2_812d121a",
+        "filename": "src/system/kernel/arch/x86/arch_system_info.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-09-14T15:38:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e41e11c5_5ca44ac6",
+      "revId": "fae2c323e29b6d4df87c4df325e4d4dd97db425b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
