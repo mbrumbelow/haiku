@@ -16,6 +16,24 @@
       "revId": "fae2c323e29b6d4df87c4df325e4d4dd97db425b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e41e11c5_5ca44ac6",
+        "filename": "src/system/kernel/arch/x86/arch_system_info.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-09-14T15:25:18Z",
+      "side": 1,
+      "message": "I used get_cpuid at the top of this file as example. it\u0027s possible but cpu_frequency() should be used, right.",
+      "parentUuid": "d5fc4628_c8c70256",
+      "revId": "fae2c323e29b6d4df87c4df325e4d4dd97db425b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
