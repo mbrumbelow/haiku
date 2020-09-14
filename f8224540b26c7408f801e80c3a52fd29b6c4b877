@@ -34,6 +34,24 @@
       "revId": "f8224540b26c7408f801e80c3a52fd29b6c4b877",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee9ecc14_33faeb05",
+        "filename": "src/add-ons/kernel/power/cpufreq/intel_pstates/intel_pstates.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-09-14T18:28:22Z",
+      "side": 1,
+      "message": "My reasonably recent copy of the Intel Software Developer\u0027s Manual has the PERF_CTL MSR listed as architectural in table 2-2 of section 2.1 in volume 4 of the SDM. This means that the MSR is in fact not model specific anymore but architecturally guaranteed to be there and work as described, at least since 0F_03H / Pentium 4. It has the mentioned layout with the desired P-STATE value in bits 15:0.\n\nThe original shifted version of the 16 bit pstate argument definitely seems wrong in that case. If the values are calculated so that they never go beyond 8 bits, then the argument type should be changed to reflect that.\n\nThis change, including the masked write, looks more correct to me. If it was tested that the status register actually changes to the requested value, this lends even more credence to it.",
+      "parentUuid": "06e13a4b_8422506f",
+      "revId": "f8224540b26c7408f801e80c3a52fd29b6c4b877",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
