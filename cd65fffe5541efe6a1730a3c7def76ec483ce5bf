@@ -1,0 +1,225 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e90f7a54_f49ab71d",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 6888,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-09-14T14:27:53Z",
+      "side": 1,
+      "message": "Typo in \"Howeve r\".",
+      "revId": "cd65fffe5541efe6a1730a3c7def76ec483ce5bf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f1a4797_1ce0f670",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 6952,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-09-14T14:27:53Z",
+      "side": 1,
+      "message": "This still only appends. If currentRange is not NULL it needs to use InsertBefore.",
+      "revId": "cd65fffe5541efe6a1730a3c7def76ec483ce5bf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74fbd3b1_446c7496",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 6966,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-09-14T14:27:53Z",
+      "side": 1,
+      "message": "This should be \u003c\u003d as matching the start exactly also produces a start overlap.",
+      "revId": "cd65fffe5541efe6a1730a3c7def76ec483ce5bf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "396a179a_8313e98a",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 6976,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-09-14T14:27:53Z",
+      "side": 1,
+      "message": "The unlock should only happen once the locking is done. The wired count that is used for memory locking is indeed a count, so it is ok to have multiple locks at any given time. Having the memory go fully unlocked, even temporarily, might have some unidentified implications. At least it would be possible for things to get swapped out and then locked again which would be inefficient, or could then fail due to low memory.",
+      "revId": "cd65fffe5541efe6a1730a3c7def76ec483ce5bf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e640e7c8_231ed432",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 6977,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-09-14T14:27:53Z",
+      "side": 1,
+      "message": "If it is \"\u003d\u003d endAddress\" I would leave the range, as it will otherwise needlessly get unlocked/locked.",
+      "revId": "cd65fffe5541efe6a1730a3c7def76ec483ce5bf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72816869_c5b64a38",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 6993,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-09-14T14:27:53Z",
+      "side": 1,
+      "message": "This check isn\u0027t enough as the next range may be way beyond and not overlap at all.",
+      "revId": "cd65fffe5541efe6a1730a3c7def76ec483ce5bf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "202dccf4_70bf0de1",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 7003,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-09-14T14:27:53Z",
+      "side": 1,
+      "message": "This should be moved just above. Then the comment above also makes sense.",
+      "revId": "cd65fffe5541efe6a1730a3c7def76ec483ce5bf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60d4b0f7_96069502",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 7045,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-09-14T14:27:53Z",
+      "side": 1,
+      "message": "Not sure this optimization is worth it. The expected case does not have an empty list and this only saves one NULL comparison to the normal flow below.",
+      "revId": "cd65fffe5541efe6a1730a3c7def76ec483ce5bf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c6c5615_da9ccc48",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 7062,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-09-14T14:27:53Z",
+      "side": 1,
+      "message": "\"fully\"",
+      "revId": "cd65fffe5541efe6a1730a3c7def76ec483ce5bf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2423f4f5_c20fe036",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 7077,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-09-14T14:27:53Z",
+      "side": 1,
+      "message": "Here I\u0027d again do the locks first. Especially in the unlock case we don\u0027t want to unlock more than we\u0027re told. Also in the error case it\u0027s unproblematic to return.",
+      "revId": "cd65fffe5541efe6a1730a3c7def76ec483ce5bf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72d2c89d_815975fa",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 7083,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-09-14T14:27:53Z",
+      "side": 1,
+      "message": "Looks like trailing whitespace.",
+      "revId": "cd65fffe5541efe6a1730a3c7def76ec483ce5bf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ba5cb65_551befb6",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 7092,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-09-14T14:27:53Z",
+      "side": 1,
+      "message": "Doesn\u0027t the above case eventually become this one and they could be handled the same?",
+      "revId": "cd65fffe5541efe6a1730a3c7def76ec483ce5bf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9610af5_40a64b0c",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 7119,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-09-14T14:27:53Z",
+      "side": 1,
+      "message": "This doesn\u0027t handle the case where the next range is fully outside.",
+      "revId": "cd65fffe5541efe6a1730a3c7def76ec483ce5bf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
