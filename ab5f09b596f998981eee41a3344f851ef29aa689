@@ -16,6 +16,24 @@
       "revId": "ab5f09b596f998981eee41a3344f851ef29aa689",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d291493c_294952cf",
+        "filename": "src/system/kernel/smp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1504,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-09-14T14:34:16Z",
+      "side": 1,
+      "message": "Indeed, thanks for the suggestion. A panic is added, this should be more correct.",
+      "parentUuid": "637ee200_790c917f",
+      "revId": "ab5f09b596f998981eee41a3344f851ef29aa689",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
