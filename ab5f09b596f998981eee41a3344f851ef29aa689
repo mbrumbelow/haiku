@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "637ee200_790c917f",
+        "filename": "src/system/kernel/smp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1504,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-09-14T13:31:36Z",
+      "side": 1,
+      "message": "The wording irritates me. It should be \"Not available early\", but it actually means: \"Early mechanism not available\".\n\nAlso, wouldn\u0027t a panic be more appropriate than failing silently?",
+      "revId": "ab5f09b596f998981eee41a3344f851ef29aa689",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
