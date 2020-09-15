@@ -13,6 +13,7 @@
 
 class BFile;
 class MainWindow;
+class GuideWindow;
 
 	
 class DriveSetup : public BApplication {	
@@ -23,13 +24,18 @@ public:
 	virtual	void				ReadyToRun();
 	virtual	bool				QuitRequested();
 
+	virtual void				ArgvReceived(int32 agrc, char** argv);
+
 private:
 			status_t			_StoreSettings();
 			status_t			_RestoreSettings();
 			status_t			_GetSettingsFile(BFile& file,
 									bool forWriting) const;
 
+			bool				fGuided;
+
 			MainWindow*			fWindow;
+			GuideWindow*			fGuideWindow;
 
 			BMessage			fSettings;
 };

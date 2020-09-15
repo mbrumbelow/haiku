@@ -37,8 +37,6 @@ enum {
 	MSG_SIZE_TEXTCONTROL		= 'stct'
 };
 
-static const uint32 kMegaByte = 0x100000;
-
 
 CreateParametersPanel::CreateParametersPanel(BWindow* window,
 	BPartition* partition, off_t offset, off_t size)
