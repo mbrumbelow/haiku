@@ -17,6 +17,9 @@
 class BPartition;
 
 
+static const uint32 kMegaByte = 0x100000;
+
+
 void dump_partition_info(const BPartition* partition);
 
 bool is_valid_partitionable_space(size_t size);
