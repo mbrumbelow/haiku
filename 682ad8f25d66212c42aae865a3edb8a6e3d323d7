@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3e1593bd_b1f70ef1",
+        "filename": "src/apps/installer/InstallerWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-15T14:04:12Z",
+      "side": 1,
+      "message": "the {} are not needed here and for the else",
+      "revId": "682ad8f25d66212c42aae865a3edb8a6e3d323d7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
