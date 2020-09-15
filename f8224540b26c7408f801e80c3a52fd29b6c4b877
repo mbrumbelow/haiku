@@ -70,6 +70,24 @@
       "revId": "f8224540b26c7408f801e80c3a52fd29b6c4b877",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30c15588_86637d40",
+        "filename": "src/add-ons/kernel/power/cpufreq/intel_pstates/intel_pstates.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-15T09:31:28Z",
+      "side": 1,
+      "message": "Yes, the P-STATE value in bits 15:0 is indeed standardized. What doesn\u0027t seem to be is the meaning of different values.\n\nI agree that this change seems better for this part of the code but it raises questions on how we compute the pstate value we try to write here in the first place. So maybe there\u0027s more to it.\n\nApparently on Intel Atom the PSTATE is split in two 8bit values according to\nhttps://forum.osdev.org/viewtopic.php?f\u003d15\u0026t\u003d26703 but it\u0027s quite possible that this doesn\u0027t work the same for newer CPUs.",
+      "parentUuid": "ff593824_f028fd29",
+      "revId": "f8224540b26c7408f801e80c3a52fd29b6c4b877",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
