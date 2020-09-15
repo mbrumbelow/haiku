@@ -52,6 +52,24 @@
       "revId": "f8224540b26c7408f801e80c3a52fd29b6c4b877",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff593824_f028fd29",
+        "filename": "src/add-ons/kernel/power/cpufreq/intel_pstates/intel_pstates.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2020-09-15T09:15:49Z",
+      "side": 1,
+      "message": "It\u0027s architectural, it\u0027s there and it\u0027s been tested without the shift *in my machine*.\n\nThe shift looked wrong to me too, all the registers used were defined for my cpu and it didn\u0027t work for me. I removed the shift, tested, it worked and got carried away. If you look closely, the format of the value is not defined in the SDM. The values from PLATFORM_INFO and TURBO_RATIO_LIMIT are defined as frequency ratios, but the ones in PERF_CTL and PERF_STATUS are \"performance state values\", and you are directed to section 14.1.1, “Software Interface For Initiating Performance State Transitions”, where they say \"The 16-bit encoding that defines valid operating points is model-specific\".\n\nThat doesn\u0027t mean the current implementation is right, but it surely means my change is not, even if it works for me. That Intel\u0027s own driver for Linux does tests some ACPI among other things, makes the shift and my cpu model is not listed there just adds more evidence.",
+      "parentUuid": "ee9ecc14_33faeb05",
+      "revId": "f8224540b26c7408f801e80c3a52fd29b6c4b877",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
