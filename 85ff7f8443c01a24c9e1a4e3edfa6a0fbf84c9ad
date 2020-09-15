@@ -317,6 +317,24 @@
     },
     {
       "key": {
+        "uuid": "5ea20f1c_62caf040",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 6988,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-15T19:26:52Z",
+      "side": 1,
+      "message": "I have checked what this flag does and it\u0027s enabling B_WRITE_AREA if it\u0027s not already there. If the flag is missing the area permissions are not touched, which is what we want.",
+      "parentUuid": "2bd09d27_b9f33563",
+      "revId": "85ff7f8443c01a24c9e1a4e3edfa6a0fbf84c9ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb8f3b85_690b0ed4",
         "filename": "src/system/kernel/vm/vm.cpp",
         "patchSetId": 19
