@@ -16,6 +16,24 @@
       "revId": "c33d64810379118cad6745a805f382148e3ff75c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f58557c_1884f18f",
+        "filename": "src/system/kernel/cpu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-09-15T15:03:06Z",
+      "side": 1,
+      "message": "Indeed the header was missing in the patch.",
+      "parentUuid": "749a7f48_9391aaa7",
+      "revId": "c33d64810379118cad6745a805f382148e3ff75c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
