@@ -27,6 +27,14 @@ enum {
 	MSG_LOG_OUT								= 'lgot',
 };
 
+enum BitmapSize {
+	BITMAP_SIZE_16							= 0,
+	BITMAP_SIZE_22							= 1,
+	BITMAP_SIZE_32							= 2,
+	BITMAP_SIZE_64							= 3,
+	BITMAP_SIZE_ANY							= 4
+};
+
 // when somebody rates a package, there is a numerical
 // rating which is expressed in a float 0 --> 5.  This
 // is visualized by a series of colored stars.  These

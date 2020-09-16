@@ -123,6 +123,34 @@
 // K8 MSR registers
 #define K8_MSR_IPM						0xc0010055
 
+// Hardware P-States MSR registers §14.4.1
+// reference https://software.intel.com/content/dam/develop/public/us/en/documents/253669-sdm-vol-3b.pdf
+#define IA32_MSR_PM_ENABLE				0x00000770
+#define IA32_MSR_HWP_CAPABILITIES		0x00000771
+#define IA32_MSR_HWP_REQUEST_PKG		0x00000772
+#define IA32_MSR_HWP_INTERRUPT			0x00000773
+#define IA32_MSR_HWP_REQUEST			0x00000774
+#define IA32_MSR_HWP_STATUS				0x00000777
+
+// IA32_MSR_HWP_CAPABILITIES bits §14.4.3
+#define	IA32_HWP_CAPS_HIGHEST_PERFORMANCE(x)	(((x) >> 0) & 0xff)
+#define	IA32_HWP_CAPS_GUARANTEED_PERFORMANCE(x)	(((x) >> 8) & 0xff)
+#define	IA32_HWP_CAPS_EFFICIENT_PERFORMANCE(x)	(((x) >> 16) & 0xff)
+#define	IA32_HWP_CAPS_LOWEST_PERFORMANCE(x)		(((x) >> 24) & 0xff)
+
+// IA32_MSR_HWP_REQUEST bits §14.4.4.1
+#define	IA32_HWP_REQUEST_MINIMUM_PERFORMANCE			(0xffULL << 0)
+#define	IA32_HWP_REQUEST_MAXIMUM_PERFORMANCE			(0xffULL << 8)
+#define	IA32_HWP_REQUEST_DESIRED_PERFORMANCE			(0xffULL << 16)
+#define	IA32_HWP_REQUEST_ENERGY_PERFORMANCE_PREFERENCE	(0xffULL << 24)
+#define	IA32_HWP_REQUEST_ACTIVITY_WINDOW				(0x3ffULL << 32)
+#define	IA32_HWP_REQUEST_PACKAGE_CONTROL				(1ULL << 42)
+#define	IA32_HWP_REQUEST_ACTIVITY_WINDOW_VALID			(1ULL << 59)
+#define	IA32_HWP_REQUEST_EPP_VALID 						(1ULL << 60)
+#define	IA32_HWP_REQUEST_DESIRED_VALID					(1ULL << 61)
+#define	IA32_HWP_REQUEST_MAXIMUM_VALID					(1ULL << 62)
+#define	IA32_HWP_REQUEST_MINIMUM_VALID					(1ULL << 63)
+
 // x86 features from cpuid eax 1, edx register
 // reference http://www.intel.com/Assets/en_US/PDF/appnote/241618.pdf (Table 5-5)
 #define IA32_FEATURE_FPU	(1 << 0) // x87 fpu
@@ -222,13 +250,26 @@
 #define IA32_FEATURE_INTERRUPT_MWAIT	(1 << 1)
 
 // x86 defined features from cpuid eax 6, eax register
-// reference http://www.intel.com/Assets/en_US/PDF/appnote/241618.pdf (Table 5-11)
+// reference https://software.intel.com/content/dam/develop/public/us/en/documents/253666-sdm-vol-2a.pdf (Table 3-8)
 #define IA32_FEATURE_DTS	(1 << 0) // Digital Thermal Sensor
 #define IA32_FEATURE_ITB	(1 << 1) // Intel Turbo Boost Technology
 #define IA32_FEATURE_ARAT	(1 << 2) // Always running APIC Timer
 #define IA32_FEATURE_PLN	(1 << 4) // Power Limit Notification
 #define IA32_FEATURE_ECMD	(1 << 5) // Extended Clock Modulation Duty
 #define IA32_FEATURE_PTM	(1 << 6) // Package Thermal Management
+#define IA32_FEATURE_HWP	(1 << 7) // Hardware P-states
+#define IA32_FEATURE_HWP_NOTIFY	(1 << 8) // HWP Notification
+#define IA32_FEATURE_HWP_ACTWIN	(1 << 9) // HWP Activity Window
+#define IA32_FEATURE_HWP_EPP	(1 << 10) // HWP Energy Performance Preference
+#define IA32_FEATURE_HWP_PLR	(1 << 11) // HWP Package Level Request
+#define IA32_FEATURE_HDC	(1 << 13) // Hardware Duty Cycling
+#define IA32_FEATURE_TBMT3	(1 << 14) // Turbo Boost Max Technology 3.0
+#define IA32_FEATURE_HWP_CAP	(1 << 15) // HWP Capabilities
+#define IA32_FEATURE_HWP_PECI	(1 << 16) // HWP PECI override
+#define IA32_FEATURE_HWP_FLEX	(1 << 17) // Flexible HWP
+#define IA32_FEATURE_HWP_FAST	(1 << 18) // Fast access for HWP_REQUEST MSR
+#define IA32_FEATURE_HW_FEEDBACK	(1 << 19) // HW_FEEDBACK*, PACKAGE_THERM*
+#define IA32_FEATURE_HWP_IGNIDL	(1 << 20) // Ignore Idle Logical Processor HWP
 
 // x86 defined features from cpuid eax 6, ecx register
 // reference http://www.intel.com/Assets/en_US/PDF/appnote/241618.pdf (Table 5-11)
@@ -360,10 +401,18 @@
 #define IA32_CR4_SMEP			(1UL << 20)
 #define IA32_CR4_SMAP			(1UL << 21)
 
-// Extended Control Register XCR0 flags
+// Extended Control Register XCR0 flags §13.3
+// https://software.intel.com/content/dam/develop/public/us/en/documents/253665-sdm-vol-1.pdf
 #define IA32_XCR0_X87			(1UL << 0)
 #define IA32_XCR0_SSE			(1UL << 1)
 #define IA32_XCR0_AVX			(1UL << 2)
+#define IA32_XCR0_BNDREG		(1UL << 3)
+#define IA32_XCR0_BNDCSR		(1UL << 4)
+#define IA32_XCR0_OPMASK		(1UL << 5)
+#define IA32_XCR0_ZMM_HI256		(1UL << 6)
+#define IA32_XCR0_HI16_ZMM		(1UL << 7)
+#define IA32_XCR0_PT			(1UL << 8)
+#define IA32_XCR0_PKRU			(1UL << 9)
 
 // page fault error codes (http://wiki.osdev.org/Page_Fault)
 #define PGFAULT_P						0x01	// Protection violation
@@ -432,6 +481,7 @@ enum x86_vendors {
 	VENDOR_RISE,
 	VENDOR_TRANSMETA,
 	VENDOR_NSC,
+	VENDOR_HYGON,
 
 	VENDOR_NUM,
 	VENDOR_UNKNOWN,
