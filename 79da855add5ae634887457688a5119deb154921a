@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a6cddd4_be92897f",
+        "filename": "src/apps/haikudepot/server/LocalPkgDataLoadProcess.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-16T14:08:56Z",
+      "side": 1,
+      "message": "use new(std::nothrow) and check for NULL, or document where the std::bad_alloc exception is catched",
+      "revId": "79da855add5ae634887457688a5119deb154921a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef1993b9_214c8c4d",
+        "filename": "src/apps/haikudepot/server/LocalPkgDataLoadProcess.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-16T14:08:56Z",
+      "side": 1,
+      "message": "also here, check for allocation errors",
+      "revId": "79da855add5ae634887457688a5119deb154921a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1152e399_38f591c4",
+        "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1157,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-16T14:08:56Z",
+      "side": 1,
+      "message": "check for allocation errors (for the BMessage and the BMenuItem)",
+      "revId": "79da855add5ae634887457688a5119deb154921a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
