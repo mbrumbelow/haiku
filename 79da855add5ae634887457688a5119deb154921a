@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "9bae1457_d9cae175",
+        "filename": "src/apps/haikudepot/server/LocalPkgDataLoadProcess.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2020-09-16T14:14:00Z",
+      "side": 1,
+      "message": "Also, this leaks a reference if I\u0027m not mistaken. BReference will acquire a new ref, unless true is passed as a second parameter, so at the end of this statement, the newly created DepotInfoRef will already have a ref count of 2.",
+      "revId": "79da855add5ae634887457688a5119deb154921a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ef1993b9_214c8c4d",
         "filename": "src/apps/haikudepot/server/LocalPkgDataLoadProcess.cpp",
         "patchSetId": 1
@@ -30,6 +47,23 @@
       "writtenOn": "2020-09-16T14:08:56Z",
       "side": 1,
       "message": "also here, check for allocation errors",
+      "revId": "79da855add5ae634887457688a5119deb154921a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b7456f7_eb730514",
+        "filename": "src/apps/haikudepot/server/LocalPkgDataLoadProcess.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2020-09-16T14:14:00Z",
+      "side": 1,
+      "message": "Same comment as above applies here.",
       "revId": "79da855add5ae634887457688a5119deb154921a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
