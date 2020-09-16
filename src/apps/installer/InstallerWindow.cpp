@@ -1,4 +1,5 @@
 /*
+ * Copyright 2020, Panagiotis Vasilopoulos <hello@alwayslivid.com>
  * Copyright 2009-2010, Stephan Aßmus <superstippi@gmx.de>
  * Copyright 2005-2008, Jérôme DUVAL
  * All rights reserved. Distributed under the terms of the MIT License.
@@ -515,6 +516,7 @@ InstallerWindow::MessageReceived(BMessage *msg)
 
 			_SetStatusMessage(status.String());
 			fInstallStatus = kFinished;
+
 			_DisableInterface(false);
 			fProgressLayoutItem->SetVisible(false);
 			fPkgSwitchLayoutItem->SetVisible(true);
@@ -618,9 +620,8 @@ InstallerWindow::QuitRequested()
 		}
 		if (fInstallStatus != kFinished) {
 			BAlert* alert = new BAlert(B_TRANSLATE_SYSTEM_NAME("Installer"),
-				B_TRANSLATE("Are you sure you want to abort the "
-					"installation and restart the system?"),
-				B_TRANSLATE("Cancel"), B_TRANSLATE("Restart system"), NULL,
+				B_TRANSLATE("Are you sure you want to stop the installation?"),
+				B_TRANSLATE("Cancel"), B_TRANSLATE("Stop"), NULL,
 				B_WIDTH_AS_USUAL, B_STOP_ALERT);
 			alert->SetShortcut(0, B_ESCAPE);
 			if (alert->Go() == 0)
@@ -628,8 +629,9 @@ InstallerWindow::QuitRequested()
 		}
 	} else if (fInstallStatus == kInstalling) {
 			BAlert* alert = new BAlert(B_TRANSLATE_SYSTEM_NAME("Installer"),
-				B_TRANSLATE("Are you sure you want to abort the installation?"),
-				B_TRANSLATE("Cancel"), B_TRANSLATE("Abort"), NULL,
+				B_TRANSLATE("The installation is not complete yet!"
+                                "Are you sure you want to stop it?"),
+				B_TRANSLATE("Cancel"), B_TRANSLATE("Stop"), NULL,
 				B_WIDTH_AS_USUAL, B_STOP_ALERT);
 			alert->SetShortcut(0, B_ESCAPE);
 			if (alert->Go() == 0)
@@ -637,8 +639,13 @@ InstallerWindow::QuitRequested()
 	}
 
 	_QuitCopyEngine(false);
-	fWorkerThread->PostMessage(B_QUIT_REQUESTED);
-	be_app->PostMessage(B_QUIT_REQUESTED);
+
+	BMessage quitWithInstallStatus(B_QUIT_REQUESTED);
+	quitWithInstallStatus.AddBool("install_complete",
+		fInstallStatus == kFinished);
+
+	fWorkerThread->PostMessage(&quitWithInstallStatus);
+	be_app->PostMessage(&quitWithInstallStatus);
 	return true;
 }
 

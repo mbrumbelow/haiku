@@ -60,6 +60,7 @@ static const struct cpu_vendor_info vendor_info[VENDOR_NUM] = {
 	{ "Rise", { "RiseRiseRise" } },
 	{ "Transmeta", { "GenuineTMx86", "TransmetaCPU" } },
 	{ "NSC", { "Geode by NSC" } },
+	{ "Hygon", { "HygonGenuine" } },
 };
 
 #define K8_SMIONCMPHALT			(1ULL << 27)
@@ -495,6 +496,32 @@ dump_feature_string(int currentCPU, cpu_ent* cpu)
 		strlcat(features, "ecmd ", sizeof(features));
 	if (cpu->arch.feature[FEATURE_6_EAX] & IA32_FEATURE_PTM)
 		strlcat(features, "ptm ", sizeof(features));
+	if (cpu->arch.feature[FEATURE_6_EAX] & IA32_FEATURE_HWP)
+		strlcat(features, "hwp ", sizeof(features));
+	if (cpu->arch.feature[FEATURE_6_EAX] & IA32_FEATURE_HWP_NOTIFY)
+		strlcat(features, "hwp_notify ", sizeof(features));
+	if (cpu->arch.feature[FEATURE_6_EAX] & IA32_FEATURE_HWP_ACTWIN)
+		strlcat(features, "hwp_actwin ", sizeof(features));
+	if (cpu->arch.feature[FEATURE_6_EAX] & IA32_FEATURE_HWP_EPP)
+		strlcat(features, "hwp_epp ", sizeof(features));
+	if (cpu->arch.feature[FEATURE_6_EAX] & IA32_FEATURE_HWP_PLR)
+		strlcat(features, "hwp_plr ", sizeof(features));
+	if (cpu->arch.feature[FEATURE_6_EAX] & IA32_FEATURE_HDC)
+		strlcat(features, "hdc ", sizeof(features));
+	if (cpu->arch.feature[FEATURE_6_EAX] & IA32_FEATURE_TBMT3)
+		strlcat(features, "tbmt3 ", sizeof(features));
+	if (cpu->arch.feature[FEATURE_6_EAX] & IA32_FEATURE_HWP_CAP)
+		strlcat(features, "hwp_cap ", sizeof(features));
+	if (cpu->arch.feature[FEATURE_6_EAX] & IA32_FEATURE_HWP_PECI)
+		strlcat(features, "hwp_peci ", sizeof(features));
+	if (cpu->arch.feature[FEATURE_6_EAX] & IA32_FEATURE_HWP_FLEX)
+		strlcat(features, "hwp_flex ", sizeof(features));
+	if (cpu->arch.feature[FEATURE_6_EAX] & IA32_FEATURE_HWP_FAST)
+		strlcat(features, "hwp_fast ", sizeof(features));
+	if (cpu->arch.feature[FEATURE_6_EAX] & IA32_FEATURE_HW_FEEDBACK)
+		strlcat(features, "hw_feedback ", sizeof(features));
+	if (cpu->arch.feature[FEATURE_6_EAX] & IA32_FEATURE_HWP_IGNIDL)
+		strlcat(features, "hwp_ignidl ", sizeof(features));
 	if (cpu->arch.feature[FEATURE_6_ECX] & IA32_FEATURE_APERFMPERF)
 		strlcat(features, "aperfmperf ", sizeof(features));
 	if (cpu->arch.feature[FEATURE_6_ECX] & IA32_FEATURE_EPB)
@@ -834,7 +861,8 @@ detect_cpu_topology(int currentCPU, cpu_ent* cpu, uint32 maxBasicLeaf,
 
 		status_t result = B_UNSUPPORTED;
 		if (x86_check_feature(IA32_FEATURE_HTT, FEATURE_COMMON)) {
-			if (cpu->arch.vendor == VENDOR_AMD) {
+			if (cpu->arch.vendor == VENDOR_AMD
+				|| cpu->arch.vendor == VENDOR_HYGON) {
 				result = detect_amd_cpu_topology(maxBasicLeaf, maxExtendedLeaf);
 
 				if (result == B_OK)
