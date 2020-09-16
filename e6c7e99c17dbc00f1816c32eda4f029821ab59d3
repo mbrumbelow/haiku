@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f331c4cb_831db4a9",
+        "filename": "docs/user/interface/TabView.dox",
+        "patchSetId": 10
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-16T19:31:04Z",
+      "side": 1,
+      "message": "typo: differene -\u003e different",
+      "revId": "e6c7e99c17dbc00f1816c32eda4f029821ab59d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
