@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6fe31ed0_0e38b4d2",
+        "filename": "src/kits/tracker/IconCache.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 786,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-09-16T06:50:00Z",
+      "side": 1,
+      "message": "I realize that I\u0027m a terrible style-violating person for assigning in a conditional here. By doing so I have made the code more compact. If I were to split this up into an an if else statement it would ruin this. The status_t always gets assigned one time.",
+      "parentUuid": "e35deb0d_dd188520",
+      "revId": "74fe1145ce02640ffbb4fdf63cb5d4b910e39152",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d7fddd82_581e1b47",
         "filename": "src/kits/tracker/SettingsViews.cpp",
         "patchSetId": 16
@@ -82,6 +100,24 @@
       "side": 1,
       "message": "That\u0027s actually a strong argument for only storing a single size, and make it completely independent from the resolution: Tracker might not be able to create a thumbnail by itself, and this would let 3rd party apps conveniently store them with the file.\n\nAs I mentioned previously, using BEOS:ICON for this would not be too bad either, as the original plan was to add PNG support for icons at some point down the road, too.",
       "parentUuid": "de461a69_394554d3",
+      "revId": "74fe1145ce02640ffbb4fdf63cb5d4b910e39152",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d213c408_1555b61e",
+        "filename": "src/kits/tracker/Utilities.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 1532,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-09-16T06:50:00Z",
+      "side": 1,
+      "message": "This feature only works with image files, if I were to remove this check, it would spawn a thread for non-image files and then exit almost immediately once the translator fails. Is that what you want me to do? Are you ok with threads being spawned and exiting immediately every time you open a folder on each non-image file?\n\nI have a question about the BEOS:ICON attribute. Is this attribute meant for icons of difference sizes? Tracker additionally defines BEOS:L:STD_ICON and BEOS:M:STD_ICON attributes for 32x32 and 16x16 icons respectively. Is the idea that I create a single 128x128 thumbnail and fill it into the BEOS:ICON attribute? Should I also create 32x32 and 16x16 icons and fill those into the BEOS:L:STD_ICON and BEOS:M:STD_ICON attributes respectively?",
+      "parentUuid": "2dcf8a29_51d54671",
       "revId": "74fe1145ce02640ffbb4fdf63cb5d4b910e39152",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
