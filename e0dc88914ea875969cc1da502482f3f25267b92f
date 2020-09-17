@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1ebcd9f2_c78696b8",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/ATKeymap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-17T14:06:38Z",
+      "side": 1,
+      "message": "trailing whitespace, please clean it",
+      "revId": "e0dc88914ea875969cc1da502482f3f25267b92f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "348b4380_fa36cf44",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_keyboard.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-17T14:06:38Z",
+      "side": 1,
+      "message": "declare it \"static const\"",
+      "revId": "e0dc88914ea875969cc1da502482f3f25267b92f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "185ff615_8bb3c69f",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_keyboard.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-17T14:06:38Z",
+      "side": 1,
+      "message": "this TODO can be removed",
+      "revId": "e0dc88914ea875969cc1da502482f3f25267b92f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6422519b_519072d8",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_keyboard.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-17T14:06:38Z",
+      "side": 1,
+      "message": "trailing whitespace, please clean it",
+      "revId": "e0dc88914ea875969cc1da502482f3f25267b92f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bf5dfb8_e4cc8e25",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_keyboard.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-17T14:06:38Z",
+      "side": 1,
+      "message": "mixed tabs/spaces (use tabs to indent)",
+      "revId": "e0dc88914ea875969cc1da502482f3f25267b92f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
