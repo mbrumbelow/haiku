@@ -28,6 +28,10 @@ actions GenerateKeyboardLayoutLocalizationHeader1
 	for name in "$(HAIKU_THINKPAD_KEYBOARD_LAYOUT_FILES)" ; do
 		echo "B_TRANSLATE_MARK_VOID(\"$name\")" >> $(1)
 	done
+	echo "B_TRANSLATE_MARK_VOID(\"Fizzbook\")" >> $(1)
+	for name in "$(HAIKU_FIZZBOOK_KEYBOARD_LAYOUT_FILES)" ; do
+		echo "B_TRANSLATE_MARK_VOID(\"$name\")" >> $(1)
+	done
 }
 
 
@@ -76,5 +80,15 @@ HAIKU_THINKPAD_KEYBOARD_LAYOUT_FILES
 	= $(HAIKU_THINKPAD_KEYBOARD_LAYOUT_FILES) ;
 SEARCH on $(HAIKU_THINKPAD_KEYBOARD_LAYOUT_FILES) = $(thinkpadDir) ;
 
+# Add Fizzbook keyboard layout files to the image in a Zoostorm
+# subdirectory. The subdirectory is turned into a submenu in the Layout menu
+# of the Keymap preference app.
+local zoostormDir
+	= [ FDirName $(HAIKU_TOP) data system data KeyboardLayouts Zoostorm ] ;
+HAIKU_ZOOSTORM_KEYBOARD_LAYOUT_FILES =
+	"Fizzbook NL2" ;
+HAIKU_ZOOSTORM_KEYBOARD_LAYOUT_FILES
+	= $(HAIKU_ZOOSTORM_KEYBOARD_LAYOUT_FILES) ;
+SEARCH on $(HAIKU_ZOOSTORM_KEYBOARD_LAYOUT_FILES) = $(zoostormDir) ;
 
 GenerateKeyboardLayoutLocalizationHeader ;
