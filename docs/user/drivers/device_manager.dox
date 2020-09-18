@@ -1,0 +1,14 @@
+/*
+ * Copyright 2020 Haiku, Inc. All rights reserved.
+ * Distributed under the terms of the MIT License.
+ *
+ * Authors:
+ *      Sylvain Kerjean, sylvain_kerjean@hotmail.com
+ *
+ * Proofreaders:
+ *      
+ *
+ * Corresponds to:
+ *      docs/develop/kernel/device_manager_introduction.html hrev54571
+ *      headers/os/drivers/device_manager.h hrev54571
+ */

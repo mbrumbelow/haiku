@@ -2,6 +2,7 @@
 	\page drivers Drivers
 
 	\section topics Topics
+	-\ref device_manager
 	- \ref fs_modules
 	- \ref usb_modules
 */
