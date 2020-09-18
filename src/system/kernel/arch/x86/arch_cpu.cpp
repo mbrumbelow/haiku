@@ -1415,6 +1415,10 @@ arch_cpu_init_percpu(kernel_args* args, int cpu)
 		x86_write_msr(IA32_MSR_TSC_AUX, cpu);
 #endif
 
+	if (x86_check_feature(IA32_FEATURE_APERFMPERF, FEATURE_6_ECX)) {
+		gCPU[cpu].arch.mperf_prev = x86_read_msr(IA32_MSR_MPERF);
+		gCPU[cpu].arch.aperf_prev = x86_read_msr(IA32_MSR_APERF);
+	}
 	return __x86_patch_errata_percpu(cpu);
 }
 
