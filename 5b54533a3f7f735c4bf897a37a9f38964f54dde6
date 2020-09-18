@@ -16,6 +16,24 @@
       "revId": "5b54533a3f7f735c4bf897a37a9f38964f54dde6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de64b4d7_51216bc4",
+        "filename": "src/servers/app/EventStream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-18T06:24:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cded5e05_369a810e",
+      "revId": "5b54533a3f7f735c4bf897a37a9f38964f54dde6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
