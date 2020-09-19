@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e54c672f_6bc17fe6",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/ATKeymap.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-19T16:05:54Z",
+      "side": 1,
+      "message": "It\u0027s SysReq or SysRq, not SystReq.",
+      "revId": "5004a4c3f6c544cb0572d313d4884abbfb543cda",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
