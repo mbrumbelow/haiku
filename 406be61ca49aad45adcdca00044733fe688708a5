@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ac7319be_3ed54f2c",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 7024,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-09-19T23:42:25Z",
+      "side": 1,
+      "message": "Trailing whitespace.",
+      "revId": "406be61ca49aad45adcdca00044733fe688708a5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc76f352_311a02f1",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 7099,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-09-19T23:42:25Z",
+      "side": 1,
+      "message": "No we haven\u0027t.",
+      "revId": "406be61ca49aad45adcdca00044733fe688708a5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94047bc9_5c74eda8",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 7128,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-09-19T23:42:25Z",
+      "side": 1,
+      "message": "This would be cleaner by using the existing Iterator of DoublyLinkedList as it already supports removal without invalidating the iterator. It would become iterator.Remove() and currentRange \u003d iterator.Next(). Sorry for not bringing this up earlier. In any case not a showstopper.",
+      "revId": "406be61ca49aad45adcdca00044733fe688708a5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e9354b0_2a603016",
+        "filename": "src/tests/system/kernel/mlock_test.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-09-19T23:42:25Z",
+      "side": 1,
+      "message": "B_EXACT_ADDRESS and NULL? Does that get ignored or is it actually honored? An error check would also be nice.",
+      "revId": "406be61ca49aad45adcdca00044733fe688708a5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51a0b447_dc204817",
+        "filename": "src/tests/system/kernel/mlock_test.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2020-09-19T23:42:25Z",
+      "side": 1,
+      "message": "Have you tested what happens when you delete the area earlier, i.e. when still having some range locked?\n\nAlso does mlock fail if given an unallocated address? Should it? Assert it does if so. Same for partial overlaps with allocated memory.\n\nUnaligned address should also be tested to fail, and that the size is rounded up.",
+      "revId": "406be61ca49aad45adcdca00044733fe688708a5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
