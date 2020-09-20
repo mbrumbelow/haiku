@@ -84,6 +84,24 @@
       "revId": "406be61ca49aad45adcdca00044733fe688708a5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9907540c_1693f9ad",
+        "filename": "src/tests/system/kernel/mlock_test.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-20T14:03:46Z",
+      "side": 1,
+      "message": "According to POSIX spec:\n- mlock on an address space range containing unallocated addresses (even partially) should fail with ENOMEM. However it is not so easy to test this, how can we make sure some address range is unallocated?\n\n- deleting an area without unlocking it will result in the attempt to unlock  the affected range to fail. I think the range will not be removed from the list then, and subsequent mlock/munlock on the same addresses will likely fail. What should we do to avoid this? Not allow deleting the area? Remove or resize affected ranges in the list when deleting it?\n\n- unaligned addresses are not specified in POSIX. We could round down the address to the nearest page start and lock/unlock that range. But we can add a test for what we implemented (that is not too hard to do).\n\nIn general, this test is not very helpful because besides checking the return code of mlock/munlock, there isn\u0027t much to do. Is there a way to check which pages are actually locked/unlocked? That would allow for a more interesting test.",
+      "parentUuid": "51a0b447_dc204817",
+      "revId": "406be61ca49aad45adcdca00044733fe688708a5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
