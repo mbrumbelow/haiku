@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "93bb042a_3d784485",
+        "filename": "src/apps/haikudepot/model/Model.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2020-09-21T12:04:48Z",
+      "side": 1,
+      "message": "Sorry, just noticed this: the C++ STL headers should be in their own group separate from the POSIX headers, i.e.\n\n\n#include \u003cctime\u003e\n#include \u003cvector\u003e\n\n#include \u003cstdarg.h\u003e\n#include \u003ctime.h\u003e",
+      "revId": "2350985819249e3d8e9ea78c74b3582f59f1f759",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39cb5c06_df2b275f",
+        "filename": "src/apps/haikudepot/server/ServerRepositoryDataUpdateProcess.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2020-09-21T12:04:48Z",
+      "side": 1,
+      "message": "These seem to be out of order.",
+      "revId": "2350985819249e3d8e9ea78c74b3582f59f1f759",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41fe6804_47247944",
+        "filename": "src/apps/haikudepot/util/LocaleUtils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2020-09-21T12:04:48Z",
+      "side": 1,
+      "message": "-\u003e if (locale-\u003eGetCollator(collator) !\u003d B_OK)",
+      "revId": "2350985819249e3d8e9ea78c74b3582f59f1f759",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
