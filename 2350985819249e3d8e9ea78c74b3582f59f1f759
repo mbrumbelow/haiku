@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b321426e_97a99934",
+        "filename": "src/apps/haikudepot/model/Model.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-09-21T20:35:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93bb042a_3d784485",
+      "revId": "2350985819249e3d8e9ea78c74b3582f59f1f759",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39cb5c06_df2b275f",
         "filename": "src/apps/haikudepot/server/ServerRepositoryDataUpdateProcess.cpp",
         "patchSetId": 2
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "b0579e18_187e7032",
+        "filename": "src/apps/haikudepot/server/ServerRepositoryDataUpdateProcess.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-09-21T20:35:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39cb5c06_df2b275f",
+      "revId": "2350985819249e3d8e9ea78c74b3582f59f1f759",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "41fe6804_47247944",
         "filename": "src/apps/haikudepot/util/LocaleUtils.cpp",
         "patchSetId": 2
@@ -50,6 +86,24 @@
       "revId": "2350985819249e3d8e9ea78c74b3582f59f1f759",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7712377e_e93ffaa6",
+        "filename": "src/apps/haikudepot/util/LocaleUtils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2020-09-21T20:35:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41fe6804_47247944",
+      "revId": "2350985819249e3d8e9ea78c74b3582f59f1f759",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
