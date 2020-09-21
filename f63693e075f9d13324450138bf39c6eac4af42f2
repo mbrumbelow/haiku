@@ -16,6 +16,24 @@
       "revId": "f63693e075f9d13324450138bf39c6eac4af42f2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7d78dbc_e9f0be04",
+        "filename": "src/add-ons/kernel/busses/usb/uhci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-09-21T17:43:57Z",
+      "side": 1,
+      "message": "This check is incorrect, should be removed.",
+      "parentUuid": "38cad5a7_55250940",
+      "revId": "f63693e075f9d13324450138bf39c6eac4af42f2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
