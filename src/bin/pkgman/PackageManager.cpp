@@ -59,6 +59,26 @@ PackageManager::SetInteractive(bool interactive)
 
 
 void
+PackageManager::AddPackageDirectory(const char *path) {
+	BDirectory directory(path);
+	status_t status = directory.InitCheck();
+	if (status != B_OK)
+		DIE(status, "cannot load packages from directory %s", path);
+
+	BEntry currentEntry;
+	BPath packagePath;
+	int count = 0;
+	while (directory.GetNextEntry(&currentEntry, false) == B_OK) {
+		currentEntry.GetPath(&packagePath);
+		if (currentEntry.IsFile())
+			// ignore subdirectories
+			fLocalRepository->AddLocalPackage(packagePath.Path());
+		count++;
+	}
+}
+
+
+void
 PackageManager::JobFailed(BSupportKit::BJob* job)
 {
 	BString error = job->ErrorString();
