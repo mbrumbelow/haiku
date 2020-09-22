@@ -33,6 +33,8 @@ public:
 
 	virtual	void				JobFailed(BSupportKit::BJob* job);
 
+			void				AddPackageDirectory(const char *path);
+
 private:
 	// UserInteractionHandler
 	virtual	void				HandleProblems();
