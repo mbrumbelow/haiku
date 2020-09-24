@@ -16,6 +16,24 @@
       "revId": "b8bd451e9f2f17e0441e718aa340ca394c086568",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4714d88_700a323b",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-24T06:33:50Z",
+      "side": 1,
+      "message": "These colors are used to create text runs in a BTextView. So, it would be more complex than that, we\u0027d need to iterate over all text runs and replace the color of each or something like that.",
+      "parentUuid": "6f157d12_7b80fc99",
+      "revId": "b8bd451e9f2f17e0441e718aa340ca394c086568",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
