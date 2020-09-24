@@ -34,6 +34,24 @@
       "revId": "b8bd451e9f2f17e0441e718aa340ca394c086568",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d5d2cca_26402939",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-09-24T06:59:20Z",
+      "side": 1,
+      "message": "Oh, yes, you\u0027re right, I didn\u0027t think of that!",
+      "parentUuid": "d4714d88_700a323b",
+      "revId": "b8bd451e9f2f17e0441e718aa340ca394c086568",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
