@@ -684,8 +684,6 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 			fLink.Attach<status_t>(error);
 			fLink.Flush();
 
-			if (error == B_OK)
-				fDesktop->BroadcastToAllApps(AS_UPDATE_DECORATOR);
 			break;
 		}
 
