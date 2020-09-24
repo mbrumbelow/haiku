@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3ef1b72_aae1ea16",
+        "filename": "src/add-ons/input_server/devices/keyboard/TeamListItem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-09-24T06:20:39Z",
+      "side": 1,
+      "message": "Technically, those are not const, and should therefore not have a \u0027k\u0027 prefix. Or you could simply make them const.",
+      "revId": "4b1f514b08ec4ee5c082a7907358c60be537d418",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c026aab6_68f2910a",
+        "filename": "src/add-ons/input_server/devices/keyboard/TeamListItem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-09-24T06:20:39Z",
+      "side": 1,
+      "message": "This does not look correct. It\u0027s now always selected if \"complete\" is true. Am I missing something?\n\nAlso, setting the low color is needed to fix possible artifacts when rendering the font in copy mode.",
+      "revId": "4b1f514b08ec4ee5c082a7907358c60be537d418",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
