@@ -54,6 +54,7 @@ enum {
 	kActiveWindow,
 	kIncludeBorder,
 	kIncludeCursor,
+	kOpenFolder,
 	kNewScreenshot,
 	kImageFormat,
 	kLocationChanged,
@@ -123,6 +124,7 @@ ScreenshotWindow::ScreenshotWindow(const Utility& utility, bool silent,
 	fDelay(0),
 	fIncludeBorder(false),
 	fIncludeCursor(false),
+	fOpenFolder(false),
 	fGrabActiveWindow(false),
 	fOutputFilename(NULL),
 	fExtension(""),
@@ -145,7 +147,7 @@ ScreenshotWindow::ScreenshotWindow(const Utility& utility, bool silent,
 	}
 
 	fScreenshot = fUtility.MakeScreenshot(fIncludeCursor, fGrabActiveWindow,
-		fIncludeBorder);
+		fIncludeBorder, fOpenFolder);
 
 	fActiveWindow = new BCheckBox(B_TRANSLATE("Capture active window"),
 		new BMessage(kActiveWindow));
@@ -163,6 +165,13 @@ ScreenshotWindow::ScreenshotWindow(const Utility& utility, bool silent,
 		new BMessage(kIncludeCursor));
 	if (fIncludeCursor)
 		fShowCursor->SetValue(B_CONTROL_ON);
+
+	fOpenContainingFolder = new BCheckBox(B_TRANSLATE("Open containing folder"),
+		new BMessage(kOpenFolder));
+	if (fOpenFolder) {
+		fOpenContainingFolder->SetValue(B_CONTROL_ON);
+		fOpenContainingFolder->SetEnabled(true);
+	}
 
 	BString delay;
 	delay << fDelay / 1000000;
@@ -209,6 +218,7 @@ ScreenshotWindow::ScreenshotWindow(const Utility& utility, bool silent,
 				.Add(fActiveWindow)
 				.Add(fWindowBorder)
 				.Add(fShowCursor)
+				.Add(fOpenContainingFolder)
 				.AddStrut(kSpacing)
 				.AddGrid(0.0, kSpacing / 2)
 					.Add(fDelayControl->CreateLabelLayoutItem(), 0, 0)
@@ -260,6 +270,32 @@ ScreenshotWindow::~ScreenshotWindow()
 
 
 void
+ScreenshotWindow::_OpenContainingFolder()
+{
+	BPath path;
+	entry_ref ref;
+	status_t status = _GetDirectory();
+	if (status == B_OK)
+		status = get_ref_for_path(path.Path(), &ref);
+	if (status == B_OK)
+		status = be_roster->Launch(&ref);
+
+	if (status != B_OK && status != B_ALREADY_RUNNING) {
+		BString message(B_TRANSLATE_COMMENT("There was an error trying "
+			"to open the containing folder.\n\nError: %error",
+			"Don't translate variable %error"));
+		message.ReplaceFirst("%error", strerror(status));
+		BAlert* alert = new BAlert(B_TRANSLATE("Open error"),
+			message.String(), B_TRANSLATE("OK"), NULL, NULL,
+			B_WIDTH_AS_USUAL, B_STOP_ALERT);
+		alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
+		alert->Go();
+		return;
+	}
+}
+
+
+void
 ScreenshotWindow::MessageReceived(BMessage* message)
 {
 	switch (message->what) {
@@ -272,7 +308,7 @@ ScreenshotWindow::MessageReceived(BMessage* message)
 
 			delete fScreenshot;
 			fScreenshot = fUtility.MakeScreenshot(fIncludeCursor,
-				fGrabActiveWindow, fIncludeBorder);
+				fGrabActiveWindow, fIncludeBorder, fOpenFolder);
 			_UpdatePreviewPanel();
 			break;
 
@@ -280,7 +316,7 @@ ScreenshotWindow::MessageReceived(BMessage* message)
 			fIncludeBorder = (fWindowBorder->Value() == B_CONTROL_ON);
 			delete fScreenshot;
 			fScreenshot = fUtility.MakeScreenshot(fIncludeCursor,
-				fGrabActiveWindow, fIncludeBorder);
+				fGrabActiveWindow, fIncludeBorder, fOpenFolder);
 			_UpdatePreviewPanel();
 			break;
 
@@ -288,8 +324,13 @@ ScreenshotWindow::MessageReceived(BMessage* message)
 			fIncludeCursor = (fShowCursor->Value() == B_CONTROL_ON);
 			delete fScreenshot;
 			fScreenshot = fUtility.MakeScreenshot(fIncludeCursor,
-				fGrabActiveWindow, fIncludeBorder);
+				fGrabActiveWindow, fIncludeBorder, fOpenFolder);
 			_UpdatePreviewPanel();
+			break;
+
+		case kOpenFolder:
+			fOpenFolder = (fOpenContainingFolder->Value() == B_CONTROL_ON);
+			_OpenContainingFolder();
 			break;
 
 		case kNewScreenshot:
@@ -421,6 +462,10 @@ ScreenshotWindow::_NewScreenshot(bool silent, bool clipboard, bool ignoreDelay)
 		if (fIncludeCursor) {
 			argc++;
 			message.AddString("argv", "--mouse-pointer");
+		}
+		if (fOpenFolder) {
+			argc++;
+			message.AddString("argv", "--open-folder");
 		}
 		if (fGrabActiveWindow) {
 			argc++;
@@ -807,6 +852,7 @@ ScreenshotWindow::_ReadSettings()
 		fImageFileType = B_PNG_FORMAT;
 	settings.FindBool("includeBorder", &fIncludeBorder);
 	settings.FindBool("includeCursor", &fIncludeCursor);
+	settings.FindBool("openFolder", &fOpenFolder);
 	settings.FindBool("grabActiveWindow", &fGrabActiveWindow);
 	settings.FindInt64("delay", &fDelay);
 	settings.FindString("outputFilename", &fOutputFilename);
@@ -826,6 +872,7 @@ ScreenshotWindow::_WriteSettings()
 	settings.AddInt32("type", fImageFileType);
 	settings.AddBool("includeBorder", fIncludeBorder);
 	settings.AddBool("includeCursor", fIncludeCursor);
+	settings.AddBool("openFolder", fOpenFolder);
 	settings.AddBool("grabActiveWindow", fGrabActiveWindow);
 	settings.AddInt64("delay", fDelay);
 	settings.AddString("outputFilename", fOutputFilename);

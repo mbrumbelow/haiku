@@ -26,7 +26,7 @@ public:
 			status_t	Save(BBitmap* screenshot, const char* fileName,
 							uint32 imageType) const;
 			BBitmap*	MakeScreenshot(bool includeCursor, bool activeWindow,
-							bool includeBorder) const;
+							bool includeBorder, bool openFolder) const;
 			BString		FileNameExtension(uint32 imageType) const;
 			status_t	FindTranslator(uint32 imageType, translator_id& id,
 							BString* _mimeType = NULL) const;

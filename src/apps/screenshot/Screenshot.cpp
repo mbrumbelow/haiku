@@ -57,6 +57,7 @@ Screenshot::ArgvReceived(int32 argc, char** argv)
 	const char* outputFilename = NULL;
 	bool includeBorder = false;
 	bool includeCursor = false;
+	bool openFolder = false;
 	bool grabActiveWindow = false;
 	bool saveScreenshotSilent = false;
 	bool copyToClipboard = false;
@@ -70,6 +71,9 @@ Screenshot::ArgvReceived(int32 argc, char** argv)
 		else if (strcmp(argv[i], "-m") == 0
 			|| strcmp(argv[i], "--mouse-pointer") == 0)
 			includeCursor = true;
+		else if (strcmp(argv[i], "-o") == 0
+			|| strcmp(argv[i], "--open-folder") == 0)
+			openFolder = true;
 		else if (strcmp(argv[i], "-w") == 0
 			|| strcmp(argv[i], "--window") == 0)
 			grabActiveWindow = true;
@@ -108,7 +112,7 @@ Screenshot::ArgvReceived(int32 argc, char** argv)
 		fLaunchGui = false;
 
 		BBitmap* screenshot = fUtility->MakeScreenshot(includeCursor,
-			grabActiveWindow, includeBorder);
+			grabActiveWindow, includeBorder, openFolder);
 
 		if (screenshot == NULL)
 			return;

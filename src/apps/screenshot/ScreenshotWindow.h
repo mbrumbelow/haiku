@@ -55,6 +55,7 @@ private:
 			void			_ShowSettings(bool activate);
 			BString			_FindValidFileName(const char* name);
 			BPath			_GetDirectory();
+			void			_OpenContainingFolder();
 			void			_ReadSettings();
 			void			_WriteSettings();
 
@@ -65,6 +66,7 @@ private:
 			BTextControl*	fDelayControl;
 			BCheckBox*		fWindowBorder;
 			BCheckBox*		fShowCursor;
+			BCheckBox*		fOpenContainingFolder;
 			BTextControl*	fNameControl;
 			BMenu*			fTranslatorMenu;
 			BMenu*			fOutputPathMenu;
@@ -77,6 +79,7 @@ private:
 			bool			fIncludeBorder;
 			bool			fIncludeCursor;
 			bool			fGrabActiveWindow;
+			bool			fOpenFolder;
 			BString			fOutputFilename;
 			BString			fExtension;
 			int32			fImageFileType;

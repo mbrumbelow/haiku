@@ -134,7 +134,7 @@ Utility::Save(BBitmap* screenshot, const char* fileName, uint32 imageType)
 
 BBitmap*
 Utility::MakeScreenshot(bool includeMouse, bool activeWindow,
-	bool includeBorder) const
+	bool includeBorder, bool openFolder) const
 {
 	if (wholeScreen == NULL)
 		return NULL;
