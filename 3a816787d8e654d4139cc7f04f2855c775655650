@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1792fb92_7a637fa3",
+        "filename": "docs/user/book.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-27T10:57:44Z",
+      "side": 1,
+      "message": "should it be \"Noto Sans Mono\" instead? (there is no \"Deja Vu Mono\", but there is a \"Deja Vu Sans Mono\")",
+      "revId": "3a816787d8e654d4139cc7f04f2855c775655650",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e633810_b635816c",
+        "filename": "docs/user/book.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-27T10:57:44Z",
+      "side": 1,
+      "message": "do we need to use !important to make sure overrides are working? (not really up to speed on modern css but I think it works this way?)",
+      "revId": "3a816787d8e654d4139cc7f04f2855c775655650",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
