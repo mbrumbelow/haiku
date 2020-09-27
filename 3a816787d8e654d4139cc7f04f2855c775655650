@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e9e69431_8851be38",
+        "filename": "docs/user/book.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-09-27T17:40:51Z",
+      "side": 1,
+      "message": "Deja Vu Mono is the existing Font for monospace in book.css. The main Haiku website uses Menlo,Monaco,Consolas,\"Courier New\",monospace;, but that is the bootstrap default, so I think nobody thought of changing that.\n\nI see that we are now using Noto Sans Mono as the default Haiku monospace. It makes sense to choose this one as the monospace font here as well. What do you think?",
+      "parentUuid": "1792fb92_7a637fa3",
+      "revId": "3a816787d8e654d4139cc7f04f2855c775655650",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7e633810_b635816c",
         "filename": "docs/user/book.css",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2020-09-27T10:57:44Z",
       "side": 1,
       "message": "do we need to use !important to make sure overrides are working? (not really up to speed on modern css but I think it works this way?)",
+      "revId": "3a816787d8e654d4139cc7f04f2855c775655650",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f88cc2df_7165c09c",
+        "filename": "docs/user/book.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-09-27T17:40:51Z",
+      "side": 1,
+      "message": "This file is loaded after the doxygen.css file, so by web standards this should override anything in the doxygen.css file. The comments are superfluous and could/should be removed.",
+      "parentUuid": "7e633810_b635816c",
       "revId": "3a816787d8e654d4139cc7f04f2855c775655650",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
