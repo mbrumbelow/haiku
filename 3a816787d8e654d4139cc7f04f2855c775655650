@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "e2f74c93_25fdae2f",
+        "filename": "docs/user/book.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-28T07:08:01Z",
+      "side": 1,
+      "message": "yes, Noto Sans Mono would make sense to match the OS here.",
+      "parentUuid": "e9e69431_8851be38",
+      "revId": "3a816787d8e654d4139cc7f04f2855c775655650",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7e633810_b635816c",
         "filename": "docs/user/book.css",
         "patchSetId": 1
