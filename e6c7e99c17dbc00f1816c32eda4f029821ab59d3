@@ -33,6 +33,24 @@
       "revId": "e6c7e99c17dbc00f1816c32eda4f029821ab59d3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fa88fd5_d4d87355",
+        "filename": "headers/os/interface/TabView.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-09-29T19:13:51Z",
+      "side": 1,
+      "message": "I don\u0027t see a case where having this virtual would be useful? We can always change that later anyway if we decide to.",
+      "parentUuid": "a5d54062_cfe60abf",
+      "revId": "e6c7e99c17dbc00f1816c32eda4f029821ab59d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
