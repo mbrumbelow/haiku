@@ -16,6 +16,24 @@
       "revId": "4ab6585a39df020d23aa116b7e1d0a0f64974f47",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb248258_0bd66e74",
+        "filename": "src/servers/app/font/GlyphLayoutEngine.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2020-10-01T19:12:04Z",
+      "side": 1,
+      "message": "Done, though I\u0027m sure someone can come up with even better names (there are quite a few \"fallback\" ones and I don\u0027t know if they are specific enough)",
+      "parentUuid": "114e59b8_7bb5f8e0",
+      "revId": "4ab6585a39df020d23aa116b7e1d0a0f64974f47",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
