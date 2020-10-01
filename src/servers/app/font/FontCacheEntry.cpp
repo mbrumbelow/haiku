@@ -277,7 +277,7 @@ FontCacheEntry::CanCreateGlyph(uint32 glyphCode)
 
 
 const GlyphCache*
-FontCacheEntry::CreateGlyph(uint32 glyphCode, FontCacheEntry* fallbackEntry)
+FontCacheEntry::CreateGlyph(uint32 glyphCode, FontCacheEntry** fallbackEntries)
 {
 	// We cache the glyph by the requested glyphCode. The FontEngine of this
 	// FontCacheEntry may not contain a glyph for the given code, in which case
@@ -285,7 +285,7 @@ FontCacheEntry::CreateGlyph(uint32 glyphCode, FontCacheEntry* fallbackEntry)
 	// generate the glyph data. We will still use our own cache for storing the
 	// glyph. The next time it will be found (by glyphCode).
 
-	// NOTE: Both this and the fallback FontCacheEntry are expected to be
+	// NOTE: Both this and the fallback FontCacheEntries are expected to be
 	// write-locked!
 
 	const GlyphCache* glyph = fGlyphCache->FindGlyph(glyphCode);
@@ -294,11 +294,12 @@ FontCacheEntry::CreateGlyph(uint32 glyphCode, FontCacheEntry* fallbackEntry)
 
 	FontEngine* engine = &fEngine;
 	uint32 glyphIndex = engine->GlyphIndexForGlyphCode(glyphCode);
-	if (glyphIndex == 0 && fallbackEntry != NULL) {
+	while (glyphIndex == 0 && fallbackEntries != NULL && (*fallbackEntries) != NULL) {
 		// Our FontEngine does not contain this glyph, but we can retry with
-		// the fallbackEntry.
-		engine = &fallbackEntry->fEngine;
+		// the next fallbackEntry.
+		engine = &((*fallbackEntries)->fEngine);
 		glyphIndex = engine->GlyphIndexForGlyphCode(glyphCode);
+		fallbackEntries++;
 	}
 
 	if (glyphIndex == 0) {
