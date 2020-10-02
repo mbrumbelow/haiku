@@ -731,7 +731,7 @@ common_close(int fd, bool kernel)
 static ssize_t
 common_user_io(int fd, off_t pos, void* buffer, size_t length, bool write)
 {
-	if (!IS_USER_ADDRESS(buffer))
+	if (length > 0 && buffer != NULL && !IS_USER_ADDRESS(buffer))
 		return B_BAD_ADDRESS;
 
 	if (pos < -1)
@@ -757,6 +757,9 @@ common_user_io(int fd, off_t pos, void* buffer, size_t length, bool write)
 			: descriptor->ops->fd_read == NULL) {
 		return B_BAD_VALUE;
 	}
+
+	if (length == 0)
+		return 0;
 
 	SyscallRestartWrapper<status_t> status;
 
