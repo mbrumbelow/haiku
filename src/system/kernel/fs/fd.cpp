@@ -731,8 +731,9 @@ common_close(int fd, bool kernel)
 static ssize_t
 common_user_io(int fd, off_t pos, void* buffer, size_t length, bool write)
 {
-	if (!IS_USER_ADDRESS(buffer))
-		return B_BAD_ADDRESS;
+	if (length > 0 && buffer != NULL)
+		if (!IS_USER_ADDRESS(buffer))
+			return B_BAD_ADDRESS;
 
 	if (pos < -1)
 		return B_BAD_VALUE;
