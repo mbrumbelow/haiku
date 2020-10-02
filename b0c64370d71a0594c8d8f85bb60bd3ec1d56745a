@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cf08d713_ec39ff23",
+        "filename": "src/system/kernel/cache/block_cache.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1289,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-10-02T18:03:16Z",
+      "side": 1,
+      "message": "while we\u0027re at it, 80 columns limit",
+      "revId": "b0c64370d71a0594c8d8f85bb60bd3ec1d56745a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6a62786_df1a5c71",
+        "filename": "src/system/kernel/cache/block_cache.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1957,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-10-02T18:03:16Z",
+      "side": 1,
+      "message": "80 columns here as well",
+      "revId": "b0c64370d71a0594c8d8f85bb60bd3ec1d56745a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
