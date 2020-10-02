@@ -58,6 +58,7 @@ public:
 			fCacheEntry->ReadUnlock();
 
 		FontCache::Default()->Recycle(fCacheEntry);
+		fCacheEntry = NULL;
 	}
 
 	inline FontCacheEntry* Entry() const
@@ -245,14 +246,14 @@ GlyphLayoutEngine::LayoutGlyphs(GlyphConsumer& consumer,
 			// acquire the fallback entry and create the glyph. Note that
 			// the write lock will persist (in the cacheReference) so that
 			// we only have to do this switch once for the whole string.
-			if (!writeLocked) {
-				writeLocked = _WriteLockAndAcquireFallbackEntry(cacheReference,
-					entry, font, consumer.NeedsVector(), charCode,
-					fallbackCacheReference, fallbackEntry);
-			}
+			writeLocked = _WriteLockAndAcquireFallbackEntry(cacheReference,
+				entry, font, consumer.NeedsVector(), charCode,
+				fallbackCacheReference, fallbackEntry);
 
-			if (writeLocked)
+			if (writeLocked) {
 				glyph = entry->CreateGlyph(charCode, fallbackEntry);
+				fallbackCacheReference.Unset();
+			}
 		}
 
 		if (glyph == NULL) {
