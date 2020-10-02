@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4b81148_7a1409d6",
+        "filename": "src/system/kernel/fs/fd.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 735,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-10-02T20:25:27Z",
+      "side": 1,
+      "message": "Coding style: please just use a single \u0027if\u0027 for this. Otherwise, parentheses would be needed... but please, don\u0027t ;-)",
+      "revId": "14bdbbd282488a60d1290085e6cfa0e0ea6a02f4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
