@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a763371c_448805d5",
+        "filename": "src/add-ons/kernel/file_systems/udf/Icb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-10-04T08:41:17Z",
+      "side": 1,
+      "message": "missing space after B_PRIdOFF",
+      "revId": "daefa73173e7a1b0068075525b91e96a7e53ed96",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53e97a30_74be0f7c",
+        "filename": "src/add-ons/kernel/file_systems/udf/Recognition.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-10-04T08:41:17Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "daefa73173e7a1b0068075525b91e96a7e53ed96",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b25cb204_445c0fa6",
+        "filename": "src/add-ons/kernel/file_systems/udf/Recognition.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-10-04T08:41:17Z",
+      "side": 1,
+      "message": "this code is getting a lot of indentation levels and becomes unreadable as it packs near the 80 column limit. We should consider extracting it in a separate function (off-topic for this patch, do it if you want but we can also keep it in mind for later)",
+      "revId": "daefa73173e7a1b0068075525b91e96a7e53ed96",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "431c5723_cacb7ae9",
+        "filename": "src/add-ons/kernel/file_systems/udf/UdfString.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-10-04T08:41:17Z",
+      "side": 1,
+      "message": "B_PRId32",
+      "revId": "daefa73173e7a1b0068075525b91e96a7e53ed96",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fc99cd1_39be7cce",
+        "filename": "src/add-ons/kernel/file_systems/udf/UdfString.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-10-04T08:41:17Z",
+      "side": 1,
+      "message": "B_PRId32",
+      "revId": "daefa73173e7a1b0068075525b91e96a7e53ed96",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9668dc89_a69fdc1f",
+        "filename": "src/add-ons/kernel/file_systems/udf/UdfString.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-10-04T08:41:17Z",
+      "side": 1,
+      "message": "80 columns and it should be B_PRId32",
+      "revId": "daefa73173e7a1b0068075525b91e96a7e53ed96",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e60e79b_7623fd83",
+        "filename": "src/add-ons/kernel/file_systems/udf/UdfString.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-10-04T08:41:17Z",
+      "side": 1,
+      "message": "80 columns.\nYou need B_PRId32 here (B_PRId32 is for int32, PRId32 is for int32_t, they are unfortunately different types for legacy reasons).",
+      "revId": "daefa73173e7a1b0068075525b91e96a7e53ed96",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7afe662c_01fc9d87",
+        "filename": "src/add-ons/kernel/file_systems/udf/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-10-04T08:41:17Z",
+      "side": 1,
+      "message": "this needs the same fix as below",
+      "revId": "daefa73173e7a1b0068075525b91e96a7e53ed96",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
