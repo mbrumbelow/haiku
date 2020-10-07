@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "73dcfa3e_9b6726c1",
+        "filename": "build/jam/ArchitectureRules",
+        "patchSetId": 1
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-10-07T08:34:27Z",
+      "side": 1,
+      "message": "This line is too long.",
+      "revId": "49cb352a1d7d7bed2a112edbae5308da96a91014",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb227093_136c4373",
+        "filename": "build/jam/BuildFeatureRules",
+        "patchSetId": 1
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-10-07T08:34:27Z",
+      "side": 1,
+      "message": "Why not $(TARGET_CC_IS_LEGACY_GCC_$(architecture)) ?",
+      "revId": "49cb352a1d7d7bed2a112edbae5308da96a91014",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09c4c88f_c00eb338",
+        "filename": "build/jam/OptionalPackages",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-10-07T08:34:27Z",
+      "side": 1,
+      "message": "This line is too long.",
+      "revId": "49cb352a1d7d7bed2a112edbae5308da96a91014",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89725ac0_2f49e616",
+        "filename": "configure",
+        "patchSetId": 1
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-10-07T08:34:27Z",
+      "side": 1,
+      "message": "This line is too long.",
+      "revId": "49cb352a1d7d7bed2a112edbae5308da96a91014",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69e1a865_35150d94",
+        "filename": "src/system/libroot/os/arch/x86/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-10-07T08:34:27Z",
+      "side": 1,
+      "message": "more consistent with: if $(TARGET_CC_IS_LEGACY_GCC_$(architecture)) \u003d 1 {",
+      "revId": "49cb352a1d7d7bed2a112edbae5308da96a91014",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
