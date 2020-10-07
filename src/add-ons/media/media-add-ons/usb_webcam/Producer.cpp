@@ -913,13 +913,14 @@ VideoProducer::FrameGenerator()
 						((fFrame - fFrameBase) *
 						(1000000 / fConnectedFormat.field_rate)) -
 				fProcessingLatency;
-PRINT(("PS: %Ld\n", fProcessingLatency));
+		PRINT(("PS: %" B_PRId64 "\n", fProcessingLatency));
 
 		/* Drop frame if it's at least a frame late */
 		if (wait_until < system_time())
 			continue;
 
-		PRINTF(1, ("FrameGenerator: wait until %Ld, %ctimed out, %crunning, %cenabled.\n",
+		PRINTF(1, ("FrameGenerator: wait until %" B_PRId64 ", %ctimed out, "
+						"%crunning, %cenabled.\n",
 					wait_until,
 					(err == B_OK)?'!':' ',
 					(fRunning)?' ':'!',
