@@ -16,6 +16,24 @@
       "revId": "f199f5d07348119574bed8e8ed069e8f1f5f30ae",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00f21dc7_104091d9",
+        "filename": "src/servers/app/CursorManager.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-10-07T18:47:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15b374c3_f3e02003",
+      "revId": "f199f5d07348119574bed8e8ed069e8f1f5f30ae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
