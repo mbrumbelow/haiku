@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0282274f_8ca4dae0",
+        "filename": "src/add-ons/kernel/file_systems/udf/Recognition.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-10-08T08:33:56Z",
+      "side": 1,
+      "message": "code style: \"static status_t\"",
+      "revId": "d3e7ab87800bffb58e419fd6236417062e7cbf59",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0090c50a_543e37df",
+        "filename": "src/add-ons/kernel/file_systems/udf/Recognition.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-10-08T08:33:56Z",
+      "side": 1,
+      "message": "uniquePartitions is changed by this method, it should be a reference.",
+      "revId": "d3e7ab87800bffb58e419fd6236417062e7cbf59",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "822cf5c3_aaa8be9b",
+        "filename": "src/add-ons/kernel/file_systems/udf/Recognition.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-10-08T08:33:56Z",
+      "side": 1,
+      "message": "Please add braces for multiline if.",
+      "revId": "d3e7ab87800bffb58e419fd6236417062e7cbf59",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
