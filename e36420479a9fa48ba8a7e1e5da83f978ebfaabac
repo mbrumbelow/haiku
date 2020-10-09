@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f3a54278_06c1293b",
+        "filename": "docs/interface_guidelines/index.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 635,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-10-09T06:27:42Z",
+      "side": 1,
+      "message": "Don\u0027t know how strict we are with the 80 chars limit in documentation, but this one breaks it.",
+      "revId": "e36420479a9fa48ba8a7e1e5da83f978ebfaabac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02ea4cdf_c0e25f2a",
+        "filename": "docs/interface_guidelines/index.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 797,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-10-09T06:27:42Z",
+      "side": 1,
+      "message": "80 chars",
+      "revId": "e36420479a9fa48ba8a7e1e5da83f978ebfaabac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
