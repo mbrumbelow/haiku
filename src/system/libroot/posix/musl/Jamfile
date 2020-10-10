@@ -19,5 +19,6 @@ for arch in $(TARGET_ARCHS) {
 	HaikuSubInclude math $(arch) ;
 }
 
+HaikuSubInclude malloc ;
 HaikuSubInclude regex ;
 HaikuSubInclude string ;

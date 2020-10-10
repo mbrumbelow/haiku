@@ -1,0 +1,43 @@
+SubDir HAIKU_TOP src system libroot posix musl malloc ;
+
+SubDirSysHdrs [ FDirName $(SUBDIR) .. include ] ;
+UseHeaders [ FDirName $(SUBDIR) .. internal ] ;
+
+local arch ;
+for arch in $(TARGET_ARCHS) {
+	UseHeaders [ FDirName $(SUBDIR) .. arch $(arch) ] ;
+}
+UseHeaders [ FDirName $(SUBDIR) .. arch generic ] ;
+
+SubDirCcFlags -Wno-sign-compare -O0 -g ;
+
+local architectureObject ;
+for architectureObject in [ MultiArchSubDirSetup ] {
+	on $(architectureObject) {
+		local architecture = $(TARGET_PACKAGING_ARCH) ;
+
+		if $(architecture) = x86_gcc2 {
+			# GCC 2 miscompiles some of the files in here, so we use GCC 8.
+			original_TARGET_CC_x86_gcc2 = $(TARGET_CC_x86_gcc2) ;
+			TARGET_CC_x86_gcc2 = $(TARGET_CC_x86) -Wa,-mrelax-relocations=no -Wno-unused-but-set-variable ;
+		}
+
+		MergeObject <$(architecture)>posix_malloc.o :
+			glue.c
+
+			aligned_alloc.c
+			calloc.c
+			donate.c
+			free.c
+			malloc_usable_size.c
+			malloc.c
+			memalign.c
+			posix_memalign.c
+			realloc.c
+			;
+
+		if $(architecture) = x86_gcc2 {
+			TARGET_CC_x86_gcc2 = $(original_TARGET_CC_x86_gcc2) ;
+		}
+	}
+}
