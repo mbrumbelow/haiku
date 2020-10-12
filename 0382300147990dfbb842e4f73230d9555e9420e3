@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d395a7ed_2af35ceb",
+        "filename": "src/kits/support/Jamfile",
+        "patchSetId": 13
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-10-12T06:48:51Z",
+      "side": 1,
+      "message": "keep files in alphabetical order",
+      "revId": "0382300147990dfbb842e4f73230d9555e9420e3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8169733d_a0c2a8fc",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-10-12T06:48:51Z",
+      "side": 1,
+      "message": "We avoid using _ as a variable name because it is too easy to forget it and write \"PThreadAutoLocker (fLock);\", making the locker deleted immediately, and then wonder why you still get locking problems. Name it \"locker\" or something like that instead.",
+      "revId": "0382300147990dfbb842e4f73230d9555e9420e3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2c00093_ef34e723",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-10-12T06:48:51Z",
+      "side": 1,
+      "message": "I would prefer two different variable names. The _ notation is ok when the two things are essentially the same (for example just casting to a different type), but here, I think they are not. Use roundedSize or something like that?",
+      "revId": "0382300147990dfbb842e4f73230d9555e9420e3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45aadcf5_f48c8699",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-10-12T06:48:51Z",
+      "side": 1,
+      "message": "does pthread_cond_*_wait guarantee us that fLock is still locked in all cases of errors? Or can we end up trying to unlock twice here?",
+      "revId": "0382300147990dfbb842e4f73230d9555e9420e3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2840b5b4_2fa02cbd",
+        "filename": "src/tests/kits/support/bmemoryio/MemoryRingIOTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-10-12T06:48:51Z",
+      "side": 1,
+      "message": "this is missing all allocation error checks? (maybe the simplest thing is to use the std::bad_alloc exception here)",
+      "revId": "0382300147990dfbb842e4f73230d9555e9420e3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "916eda88_1c000015",
+        "filename": "src/tests/kits/support/bmemoryio/MemoryRingIOTest.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-10-12T06:48:51Z",
+      "side": 1,
+      "message": "missing copyright header",
+      "revId": "0382300147990dfbb842e4f73230d9555e9420e3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1289b7ab_9c267026",
+        "filename": "src/tests/kits/support/bmemoryio/MemoryRingIOTest.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-10-12T06:48:51Z",
+      "side": 1,
+      "message": "{ goes on the next line here",
+      "revId": "0382300147990dfbb842e4f73230d9555e9420e3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
