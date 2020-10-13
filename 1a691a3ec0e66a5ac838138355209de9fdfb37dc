@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "95f78d18_d4c33796",
+        "filename": "src/tools/locale/DefaultCatalog.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-10-13T15:21:18Z",
+      "side": 1,
+      "message": "this shouldn\u0027t be indented.",
+      "revId": "1a691a3ec0e66a5ac838138355209de9fdfb37dc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63ee2ed9_60e05005",
+        "filename": "src/tools/locale/collectcatkeys.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-10-13T15:21:18Z",
+      "side": 1,
+      "message": "this shouldn\u0027t be indented.",
+      "revId": "1a691a3ec0e66a5ac838138355209de9fdfb37dc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
