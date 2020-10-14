@@ -392,7 +392,11 @@ extern "C"
 void
 debugger(const char *message)
 {
+// Use #pragma to supress "-Wformat-security".
+// It is not needed here.
+#pragma GCC diagnostic ignored "-Wformat-security"
 	kernel_debugger(message);
+#pragma GCC diagnostic pop
 }
 
 #endif	// #ifndef _BOOT_MODE
