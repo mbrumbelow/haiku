@@ -97,36 +97,36 @@ FilePanelApp::RefsReceived(BMessage *message)
 int
 usage(char *pname, int error)
 {
-	fprintf(stderr, B_TRANSLATE("display a load/save file panel\n"));
+	fprintf(stderr, "%s", B_TRANSLATE("display a load/save file panel\n"));
 	fprintf(stderr, B_TRANSLATE("usage: %s [--help] [--directory folder] "
 		"[--load|--save] [--title ttl] [--single] [--modal] [--allow pattern] "
 		"[--forbid pattern]\n"), pname);
 	fprintf(stderr, B_TRANSLATE("usage: %s [-h]     [-d folder]              "
 		"[-l|-s]     [-t ttl]      [-1]       [-m]      [-a pattern]      "
 		"[-f pattern]\n"), pname);
-	fprintf(stderr, B_TRANSLATE("options:\n"));
-	fprintf(stderr, B_TRANSLATE("short\tlong\tdescription\n"));
-	fprintf(stderr, B_TRANSLATE("-h\t--help\tdisplay usage\n"));
-	fprintf(stderr, B_TRANSLATE("-d\t--directory\topen at <folder>\n"));
-	fprintf(stderr, B_TRANSLATE("-l\t--load\tuse a load FilePanel "
+	fprintf(stderr, "%s", B_TRANSLATE("options:\n"));
+	fprintf(stderr, "%s", B_TRANSLATE("short\tlong\tdescription\n"));
+	fprintf(stderr, "%s", B_TRANSLATE("-h\t--help\tdisplay usage\n"));
+	fprintf(stderr, "%s", B_TRANSLATE("-d\t--directory\topen at <folder>\n"));
+	fprintf(stderr, "%s", B_TRANSLATE("-l\t--load\tuse a load FilePanel "
 		"(default)\n"));
-	fprintf(stderr, B_TRANSLATE("-s\t--save\tuse a save FilePanel\n"));
-	fprintf(stderr, B_TRANSLATE("-n\t--name\tset the default name for "
+	fprintf(stderr, "%s", B_TRANSLATE("-s\t--save\tuse a save FilePanel\n"));
+	fprintf(stderr, "%s", B_TRANSLATE("-n\t--name\tset the default name for "
 		"saving\n"));
-	fprintf(stderr, B_TRANSLATE("-k\t--kind\tkind of entries that can be "
+	fprintf(stderr, "%s", B_TRANSLATE("-k\t--kind\tkind of entries that can be "
 		"opened (flavour): any combination of f, d, s (file (default), "
 		"directory, symlink)\n"));
-	fprintf(stderr, B_TRANSLATE("-t\t--title\tset the FilePanel window "
+	fprintf(stderr, "%s", B_TRANSLATE("-t\t--title\tset the FilePanel window "
 		"title\n"));
-	fprintf(stderr, B_TRANSLATE("-1\t--single\tallow only 1 file to be "
+	fprintf(stderr, "%s", B_TRANSLATE("-1\t--single\tallow only 1 file to be "
 		"selected\n"));
-	fprintf(stderr, B_TRANSLATE("-m\t--modal\tmakes the FilePanel modal\n"));
+	fprintf(stderr, "%s", B_TRANSLATE("-m\t--modal\tmakes the FilePanel modal\n"));
 #ifndef USE_FNMATCH
-	fprintf(stderr, B_TRANSLATE("-a\t--allow\tunimplemented\n"));
-	fprintf(stderr, B_TRANSLATE("-f\t--forbid\tunimplemented\n"));
+	fprintf(stderr, "%s", B_TRANSLATE("-a\t--allow\tunimplemented\n"));
+	fprintf(stderr, "%s", B_TRANSLATE("-f\t--forbid\tunimplemented\n"));
 #else
-	fprintf(stderr, B_TRANSLATE("-a\t--allow\tunimplemented\n"));
-	fprintf(stderr, B_TRANSLATE("-f\t--forbid\tunimplemented\n"));
+	fprintf(stderr, "%s", B_TRANSLATE("-a\t--allow\tunimplemented\n"));
+	fprintf(stderr, "%s", B_TRANSLATE("-f\t--forbid\tunimplemented\n"));
 #endif
 	return error;
 }
