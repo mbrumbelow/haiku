@@ -29,7 +29,14 @@ if $(TARGET_ARCH) = x86_64 {
 		signals.cpp
 		signals_asm.S
 		syscalls.cpp
+		syscalls_asm.S
 		thread.cpp
+
+		# Hybrid Support
+		signals_compat.cpp
+		signals_compat_asm.S
+		syscalls_compat.cpp
+		entry_compat.S
 
 		# paging
 		x86_physical_page_mapper_mapped.cpp
@@ -77,6 +84,7 @@ local archGenericSources =
 	arch_altcodepatch.cpp
 	arch_cpu.cpp
 	arch_commpage.cpp
+	arch_commpage_compat.cpp
 	arch_debug.cpp
 	arch_debug_console.cpp
 	arch_elf.cpp
