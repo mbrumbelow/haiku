@@ -359,25 +359,53 @@ BootPromptWindow::_InitCatalog(bool saveSettings)
 void
 BootPromptWindow::_UpdateStrings()
 {
-	SetTitle(B_TRANSLATE("Welcome to Haiku!"));
+	BString text(B_TRANSLATE("Welcome to %distroname%!"));
 
-	fInfoTextView->SetText(B_TRANSLATE_COMMENT(
-		"Thank you for trying out Haiku! We hope you'll like it!\n\n"
+#ifdef HAIKU_DISTRO_COMPATIBILITY_OFFICIAL
+	text.ReplaceFirst("%distroname%", "Haiku");
+#else
+	text.ReplaceFirst("%distroname%", "*Distroname*");
+#endif
+	SetTitle(text);
+
+	text = B_TRANSLATE_COMMENT(
+		"Thank you for trying out %distroname%! We hope you'll like it!\n\n"
 		"Select your preferred language and keymap from the list on "
 		"the left which will then be used instantly. Both settings can be "
 		"changed from the Desktop later on on the fly.\n\n"
 
-		"Do you wish to run the Installer or continue booting to the "
-		"Desktop?",
+		"Do you wish to install %distroname% now, or try it out first?",
 
 		"For other languages, a note could be added: \""
 		"Note: Localization of Haiku applications and other components is "
 		"an on-going effort. You will frequently encounter untranslated "
 		"strings, but if you like, you can join in the work at "
-		"<www.haiku-os.org>.\""));
+		"<www.haiku-os.org>.\"");
 
-	fDesktopButton->SetLabel(B_TRANSLATE("Boot to Desktop"));
-	fInstallerButton->SetLabel(B_TRANSLATE("Run Installer"));
+#ifdef HAIKU_DISTRO_COMPATIBILITY_OFFICIAL
+	text.ReplaceAll("%distroname%", "Haiku");
+#else
+	text.ReplaceAll("%distroname%", "*Distroname*");
+#endif
+	fInfoTextView->SetText(text);
+
+	text = B_TRANSLATE("Try out %distroname%");
+
+#ifdef HAIKU_DISTRO_COMPATIBILITY_OFFICIAL
+	text.ReplaceFirst("%distroname%", "Haiku");
+#else
+	text.ReplaceFirst("%distroname%", "*Distroname*");
+#endif
+	fDesktopButton->SetLabel(text);
+
+	text = B_TRANSLATE("Install %distroname%");
+
+#ifdef HAIKU_DISTRO_COMPATIBILITY_OFFICIAL
+	text.ReplaceFirst("%distroname%", "Haiku");
+#else
+	text.ReplaceFirst("%distroname%", "*Distroname*");
+#endif
+	fInstallerButton->SetLabel(text);
 
 	fLanguagesLabelView->SetText(B_TRANSLATE("Language"));
 	fKeymapsMenuLabel->SetText(B_TRANSLATE("Keymap"));
