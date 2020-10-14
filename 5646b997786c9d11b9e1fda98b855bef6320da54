@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5bd18ff4_15f18f10",
+        "filename": "src/servers/input/MouseSettings.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-10-14T07:49:08Z",
+      "side": 1,
+      "message": "Code style: Space after if.",
+      "revId": "5646b997786c9d11b9e1fda98b855bef6320da54",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
