@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "85443bc3_651ba6e5",
+        "filename": "src/apps/installer/WorkerThread.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-10-14T07:09:53Z",
+      "side": 1,
+      "message": "How much information is too much information?\n\nOn one side it is nice to tell exactly what will happen, on the other, the message is quite long and maybe too much details for the user, which can be confusing.\n\n\"There is already an Haiku installation on the target volume. Are you sure you want to overwrite it? All installed software will be removed. If you want to upgrade your system without removing installed software, see the Haiku user guide for updating instructions.\"\n\nThis focuses on what will be removed (the destructive part) and not what will be kept.",
+      "revId": "50324446ca59a9f12d52a0cac473c2fb44299d86",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
