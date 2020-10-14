@@ -392,7 +392,11 @@ extern "C"
 void
 debugger(const char *message)
 {
+#ifdef _LOADER_MODE
+	kernel_debugger("%s", message);
+#else
 	kernel_debugger(message);
+#endif
 }
 
 #endif	// #ifndef _BOOT_MODE
