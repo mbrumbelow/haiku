@@ -181,7 +181,7 @@ list_entry(arp_control &control)
 					first = false;
 				} else
 					putchar(' ');
-				printf(kFlags[i].name);
+				printf("%s", kFlags[i].name);
 			}
 		}
 	}
