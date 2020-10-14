@@ -87,7 +87,7 @@ MMCBus::WorkerThread(void* cookie)
 	// cards.
 	
 	// Reset all cards on the bus
-	bus->ExecuteCommand(0, 0, NULL);
+	bus->ExecuteCommand(GO_IDLE_STATE, 0, NULL);
 
 	while (bus->fStatus != B_SHUTTING_DOWN) {
 		// wait for bus to signal a card is inserted
@@ -98,9 +98,9 @@ MMCBus::WorkerThread(void* cookie)
 		// FIXME MMC cards will not reply to this! They expect CMD1 instead
 		// SD v1 cards will also not reply, but we can proceed to ACMD41
 		// If ACMD41 also does not work, it may be an SDIO card, too
-		uint32_t probe = (1 << 8) | 0xAA;
+		uint32_t probe = (HOST_27_36V << 8) | VOLTAGE_CHECK_PATTERN;
 		uint32_t hcs = 1 << 30;
-		if (bus->ExecuteCommand(8, probe, &response) != B_OK) {
+		if (bus->ExecuteCommand(SEND_IF_COND, probe, &response) != B_OK) {
 			TRACE("Card does not implement CMD8, may be a V1 SD card\n");
 			// Do not check for SDHC support in this case
 			hcs = 0;
@@ -114,7 +114,7 @@ MMCBus::WorkerThread(void* cookie)
 		uint32_t ocr;
 		do {
 			uint32_t cardStatus;
-			while (bus->ExecuteCommand(55, 0, &cardStatus)
+			while (bus->ExecuteCommand(APP_CMD, 0, &cardStatus)
 					== B_BUSY) {
 				ERROR("Card locked after CMD8...\n");
 				snooze(1000000);
@@ -124,7 +124,7 @@ MMCBus::WorkerThread(void* cookie)
 			if ((cardStatus & (1 << 5)) == 0)
 				ERROR("Card did not enter ACMD mode\n");
 
-			bus->ExecuteCommand(41, hcs | 0xFF8000, &ocr);
+			bus->ExecuteCommand(SD_SEND_OP_COND, hcs | 0xFF8000, &ocr);
 
 			if ((ocr & (1 << 31)) == 0) {
 				TRACE("Card is busy\n");
@@ -146,11 +146,17 @@ MMCBus::WorkerThread(void* cookie)
 
 		// TODO send CMD11 to switch to low voltage mode if card supports it?
 
-		// iterate CMD2/CMD3 to assign an RCA to all cards and publish devices
-		// for each of them
+		// We use CMD2 (ALL_SEND_CID) and CMD3 (SEND_RELATIVE_ADDR) to assign
+		// an RCA to all cards. Initially all cards have an RCA of 0 and will
+		// all receive CMD2. But only ne of them will reply (they do collision
+		// detection while sending the CID in reply). We assign a new RCA to
+		// that first card, and repeat the process with the remaining ones
+		// until no one answers to CMD2. Then we know all cards have an RCA
+		// (and a matching published device on our side).
 		uint32_t cid[4];
-		while (bus->ExecuteCommand(2, 0, cid) == B_OK) {
-			bus->ExecuteCommand(3, 0, &response);
+		
+		while (bus->ExecuteCommand(ALL_SEND_CID, 0, cid) == B_OK) {
+			bus->ExecuteCommand(SEND_RELATIVE_ADDR, 0, &response);
 
 			TRACE("RCA: %x Status: %x\n", response >> 16, response & 0xFFFF);
 
@@ -175,7 +181,7 @@ MMCBus::WorkerThread(void* cookie)
 			uint8_t month = cid[0] & 0xF;
 			uint16_t year = 2000 + ((cid[0] >> 4) & 0xFF);
 			uint16_t rca = response >> 16;
-			
+				
 			device_attr attrs[] = {
 				{ B_DEVICE_BUS, B_STRING_TYPE, {string: "mmc" }},
 				{ B_DEVICE_PRETTY_NAME, B_STRING_TYPE, {string: "mmc device" }},
