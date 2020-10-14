@@ -83,7 +83,7 @@ local generics =
 	;
 
 local architectureObject ;
-for architectureObject in [ MultiArchSubDirSetup ] {
+for architectureObject in [ MultiArchSubDirSetup m68k ] {
 	on $(architectureObject) {
 		local architecture = $(TARGET_PACKAGING_ARCH) ;
 
