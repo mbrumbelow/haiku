@@ -41,9 +41,12 @@ public:
 				status_t		InitCheck();
 				void			Rescan();
 
-private:
 				status_t		ExecuteCommand(uint8_t command,
 									uint32_t argument, uint32_t* response);
+				status_t		Read(uint16_t rca, off_t position, void* buffer,
+									size_t* length);
+private:
+				status_t		ActivateDevice(uint16_t rca);
 		static	status_t		WorkerThread(void*);
 
 private:
@@ -54,6 +57,7 @@ private:
 		status_t				fStatus;
 		thread_id				fWorkerThread;
 		sem_id					fSemaphore;
+		uint16_t				fActiveDevice;
 };
 
 
