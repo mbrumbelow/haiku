@@ -342,7 +342,7 @@ TermApp::_Usage(char *name)
 		"\n"
 		"Usage: %s [OPTION] [SHELL]\n"), name);
 
-	fprintf(stderr, B_TRANSLATE(
+	fprintf(stderr, "%s", B_TRANSLATE(
 			"  -h,     --help               print this help\n"
 			//"  -p,     --preference         load preference file\n"
 			"  -t,     --title              set window title\n"
