@@ -151,7 +151,7 @@ WebPTranslator::DerivedIdentify(BPositionIO* stream,
 	info->group = B_TRANSLATOR_BITMAP;
 	info->quality = WEBP_IN_QUALITY;
 	info->capability = WEBP_IN_CAPABILITY;
-	snprintf(info->name, sizeof(info->name), B_TRANSLATE("WebP image"));
+	snprintf(info->name, sizeof(info->name), "%s", B_TRANSLATE("WebP image"));
 	strcpy(info->MIME, "image/webp");
 
 	return B_OK;
