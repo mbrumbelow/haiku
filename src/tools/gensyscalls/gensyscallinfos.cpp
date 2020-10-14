@@ -42,13 +42,13 @@ const char* kUsage =
 	"  <syscall types sizes>  - Output: A source file that will by another "
 		"build\n"
 	"                           step turned into a header file included by\n"
-	"                           <syscall infos>.\n";
+	"                           <syscall infos>.";
 
 
 static void
 print_usage(bool error)
 {
-	fprintf((error ? stderr : stdout), kUsage);
+	fputs(kUsage, (error ? stderr : stdout));
 }
 
 
