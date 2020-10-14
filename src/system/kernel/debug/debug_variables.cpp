@@ -180,10 +180,10 @@ get_variable(const char* variableName, bool create)
 static int
 cmd_unset_variable(int argc, char **argv)
 {
-	static const char* usage = "usage: unset <variable>\n"
+	static const char* const usage = "usage: unset <variable>\n"
 		"Unsets the given variable, if it exists.\n";
 	if (argc != 2 || strcmp(argv[1], "--help") == 0) {
-		kprintf(usage);
+		kprintf("%s", usage);
 		return 0;
 	}
 
@@ -199,7 +199,7 @@ cmd_unset_variable(int argc, char **argv)
 static int
 cmd_unset_all_variables(int argc, char **argv)
 {
-	static const char* usage = "usage: %s\n"
+	static const char* const usage = "usage: %s\n"
 		"Unsets all variables.\n";
 	if (argc == 2 && strcmp(argv[1], "--help") == 0) {
 		kprintf(usage, argv[0]);
@@ -215,10 +215,10 @@ cmd_unset_all_variables(int argc, char **argv)
 static int
 cmd_variables(int argc, char **argv)
 {
-	static const char* usage = "usage: vars\n"
+	static const char* const usage = "usage: vars\n"
 		"Unsets the given variable, if it exists.\n";
 	if (argc != 1) {
-		kprintf(usage);
+		kprintf("%s", usage);
 		return 0;
 	}
 
