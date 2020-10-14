@@ -16,6 +16,24 @@
       "revId": "50324446ca59a9f12d52a0cac473c2fb44299d86",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "599c8d35_2d6cd3e8",
+        "filename": "src/apps/installer/WorkerThread.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-10-14T07:28:20Z",
+      "side": 1,
+      "message": "I guess this is too much information, but you know this from my emails :-)",
+      "parentUuid": "85443bc3_651ba6e5",
+      "revId": "50324446ca59a9f12d52a0cac473c2fb44299d86",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
