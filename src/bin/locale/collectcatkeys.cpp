@@ -56,7 +56,7 @@ usage()
 		"  -r <regex>\t\tchanges the regex used by the key-scanner to the one "
 		"given,\n"
 		"      \t\t\tthe default is:   ");
-		fprintf(stderr, rxString.String());
+		fputs(rxString.String(), stderr);
 		fprintf(stderr,"\n  -s <catalogSig>\tsignature of the target-catalog\n"
 		"  -v\t\t\tbe verbose, show summary\n"
 		"  -w\t\t\tshow warnings about catalog-accesses that couldn't be "
