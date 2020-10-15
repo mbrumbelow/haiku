@@ -51,7 +51,7 @@ void AutoRaiseApp::ArgvReceived(int32 argc, char ** argv)
 				"\nUsage: " APP_NAME " [options]\n\t--deskbar\twill not open "
 				"window, will just put " APP_NAME " into tray\n\t--persist (default) will put "
 				APP_NAME " into tray such that it remains across reboots\n";
-			printf(usageNote);
+			printf("%s", usageNote.String());
 			fDone = true;
 			be_app_messenger.SendMessage(B_QUIT_REQUESTED);
 		}
