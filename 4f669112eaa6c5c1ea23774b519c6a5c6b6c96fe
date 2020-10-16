@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a048830_71d76f1a",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-10-16T07:04:03Z",
+      "side": 1,
+      "message": "we could use strlcpy",
+      "revId": "4f669112eaa6c5c1ea23774b519c6a5c6b6c96fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4691a96b_a55b394d",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 992,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-10-16T07:04:03Z",
+      "side": 1,
+      "message": "was the %s here meant to be replaced with something? I guess it was supposed to be diskSystemName?",
+      "revId": "4f669112eaa6c5c1ea23774b519c6a5c6b6c96fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "513c4619_560528a0",
+        "filename": "src/apps/drivesetup/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1000,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-10-16T07:04:03Z",
+      "side": 1,
+      "message": "all of these could use strlcpy instead. Or even better, \"message\" could be a BString and then we could simply use message \u003d B_TRANSLATE(...)",
+      "revId": "4f669112eaa6c5c1ea23774b519c6a5c6b6c96fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
