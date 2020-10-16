@@ -6,9 +6,11 @@
 #
 # Copyright 2017-2020 Augustin Cavalier <waddlesplash>
 # Distributed under the terms of the MIT License.
+#
+# pip3 install packaging
 
 import sys, os, subprocess, re, hashlib
-from distutils.version import LooseVersion
+from pkg_resources import parse_version
 
 if len(sys.argv) != 5:
 	print("usage: hardlink_packages.py [arch] [jam RemotePackageRepository file] "
@@ -68,10 +70,10 @@ with open(args_jamf) as f:
 
 		greatestVersion = None
 		for pkgVersion in packageVersions:
-			if (pkgVersion.startswith(pkgname + '-') and
-					((greatestVersion == None)
-						or (LooseVersion(pkgVersion) > LooseVersion(greatestVersion)))):
-				greatestVersion = pkgVersion
+			if (pkgVersion.startswith(pkgname + '-')):
+				#print(pkgVersion + " > " + str(greatestVersion) + "?")
+				if ((greatestVersion == None) or parse_version(pkgVersion) > parse_version(greatestVersion)):
+					greatestVersion = pkgVersion
 		if (greatestVersion == None):
 			print("not found: " + pkg)
 			newFileForJam.append(line)
