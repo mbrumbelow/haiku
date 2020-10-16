@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7b720fba_8d6b803f",
+        "filename": "src/apps/autoraise/AutoRaiseApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-10-16T07:05:23Z",
+      "side": 1,
+      "message": "this could use puts. The \\n at the end of usageNote needs to be removed because puts adds one automatically.",
+      "revId": "c64169802656c668dd6934edd9a80e7a6301ada9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
