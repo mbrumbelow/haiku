@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b64b779_ea312569",
+        "filename": "src/apps/terminal/TermApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-10-16T07:00:09Z",
+      "side": 1,
+      "message": "we could use fputs instead:\n\nfputs(B_TRANSLATE(...), stderr);",
+      "revId": "0bea31141db546ecb7cd0a404a91d2900758779c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
