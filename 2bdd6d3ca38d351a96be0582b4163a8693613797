@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad70c223_35296bab",
+        "filename": "src/add-ons/translators/webp/WebPTranslator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-10-16T07:00:52Z",
+      "side": 1,
+      "message": "we could use strlcpy",
+      "revId": "2bdd6d3ca38d351a96be0582b4163a8693613797",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
