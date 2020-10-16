@@ -16,6 +16,24 @@
       "revId": "c64169802656c668dd6934edd9a80e7a6301ada9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d968181a_5b03e173",
+        "filename": "src/apps/autoraise/AutoRaiseApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000055
+      },
+      "writtenOn": "2020-10-16T23:34:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b720fba_8d6b803f",
+      "revId": "c64169802656c668dd6934edd9a80e7a6301ada9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
