@@ -16,6 +16,24 @@
       "revId": "2bdd6d3ca38d351a96be0582b4163a8693613797",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d777a63f_9cd654f2",
+        "filename": "src/add-ons/translators/webp/WebPTranslator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000055
+      },
+      "writtenOn": "2020-10-17T00:56:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad70c223_35296bab",
+      "revId": "2bdd6d3ca38d351a96be0582b4163a8693613797",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
