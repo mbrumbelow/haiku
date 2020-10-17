@@ -16,6 +16,24 @@
       "revId": "0bea31141db546ecb7cd0a404a91d2900758779c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "005349f4_66516027",
+        "filename": "src/apps/terminal/TermApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1000055
+      },
+      "writtenOn": "2020-10-17T01:21:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b64b779_ea312569",
+      "revId": "0bea31141db546ecb7cd0a404a91d2900758779c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
