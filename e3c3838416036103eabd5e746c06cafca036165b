@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "000798da_ade82364",
+        "filename": "src/add-ons/translators/tiff/TIFFTranslator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-10-18T07:53:40Z",
+      "side": 1,
+      "message": "for fputs you need to keep the \\n (yes, it\u0027s confusing, it doesn\u0027t work like puts)",
+      "revId": "e3c3838416036103eabd5e746c06cafca036165b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
