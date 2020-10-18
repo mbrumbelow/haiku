@@ -57,8 +57,8 @@ UrlWrapper::_Warn(const char* url)
 	message << "\n" << url << "\n\n";
 	message << "This type of URL has a potential security risk.\n";
 	message << "Proceed anyway?";
-	BAlert* alert = new BAlert("Warning", message.String(), "Proceed", "Stop", NULL,
-		B_WIDTH_AS_USUAL, B_WARNING_ALERT);
+	BAlert* alert = new BAlert("Warning", message.String(), "Proceed", "Stop",
+		NULL, B_WIDTH_AS_USUAL, B_WARNING_ALERT);
 	alert->SetShortcut(1, B_ESCAPE);
 	int32 button;
 	button = alert->Go();
@@ -139,9 +139,10 @@ UrlWrapper::RefsReceived(BMessage* msg)
 				const char bplist_match[] = "bplist00\xd1\x01\x02SURL_\x10";
 				if (f.ReadAt(0LL, buffer, size) < B_OK)
 					continue;
-					printf("webloc\n");
+				printf("webloc\n");
 				if (size > (sizeof(bplist_match) + 2)
-					&& !strncmp(buffer, bplist_match, sizeof(bplist_match) - 1)) {
+					&& !strncmp(buffer, bplist_match,
+					sizeof(bplist_match) - 1)) {
 					// binary plist, let's be crude
 					uint8 len = buffer[sizeof(bplist_match) - 1];
 					url.SetTo(buffer + sizeof(bplist_match), len);
