@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2dfefd71_ab5eaf50",
+        "filename": "src/bin/filepanel.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-10-18T07:41:28Z",
+      "side": 1,
+      "message": "this is useless since both sides say \"unimplemented\". I\u0027d rather remove these options from the help if they don\u0027t exist.",
+      "revId": "d9366f455d365092d9b17d23bbe0d30a4ff53627",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
