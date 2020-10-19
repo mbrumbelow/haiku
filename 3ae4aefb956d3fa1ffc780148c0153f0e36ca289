@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "98487b0b_20f4d035",
+        "filename": "src/tools/hardlink_packages.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-10-19T00:04:20Z",
+      "side": 1,
+      "message": "remove",
+      "revId": "3ae4aefb956d3fa1ffc780148c0153f0e36ca289",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
