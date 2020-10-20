@@ -16,6 +16,24 @@
       "revId": "8042a642ad86743c0d3af21d995a290c3e68279e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ace6fb4b_3c4a0034",
+        "filename": "src/bin/safemode.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000055
+      },
+      "writtenOn": "2020-10-20T10:29:21Z",
+      "side": 1,
+      "message": "I think strings.h need not to be added, since it is included in string.h.",
+      "parentUuid": "7cd0026a_d1cd6643",
+      "revId": "8042a642ad86743c0d3af21d995a290c3e68279e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
