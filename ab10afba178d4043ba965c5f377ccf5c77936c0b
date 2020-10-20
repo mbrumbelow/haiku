@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6bad9fff_b64adb51",
+        "filename": "src/apps/haikudepot/model/Model.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-10-20T05:54:56Z",
+      "side": 1,
+      "message": "Why not a const reference like category?",
+      "revId": "ab10afba178d4043ba965c5f377ccf5c77936c0b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3454aac9_046772cc",
+        "filename": "src/apps/haikudepot/model/RatingStability.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-10-20T05:54:56Z",
+      "side": 1,
+      "message": "\"After the copyright header (including the header guard in header files), there are exactly two blank lines before the rest contents.\"",
+      "revId": "ab10afba178d4043ba965c5f377ccf5c77936c0b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cfcbf642_052ed1e9",
+        "filename": "src/apps/haikudepot/model/RatingStability.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-10-20T05:54:56Z",
+      "side": 1,
+      "message": "const before int64 is useless.",
+      "revId": "ab10afba178d4043ba965c5f377ccf5c77936c0b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ffb1e881_fd27bfa3",
+        "filename": "src/apps/haikudepot/ui/RatePackageWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-10-20T05:54:56Z",
+      "side": 1,
+      "message": "it\u0027s a refactoring, then SetTargetForItems() should also be called when countStabilities is zero.",
+      "revId": "ab10afba178d4043ba965c5f377ccf5c77936c0b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b090bab_d2a019ae",
+        "filename": "src/apps/haikudepot/util/AppUtils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-10-20T05:54:56Z",
+      "side": 1,
+      "message": "\"After the copyright header (including the header guard in header files), there are exactly two blank lines before the rest contents.\"",
+      "revId": "ab10afba178d4043ba965c5f377ccf5c77936c0b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}

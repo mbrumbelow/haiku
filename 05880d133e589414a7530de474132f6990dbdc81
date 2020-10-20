@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7dbb35b2_0ca19c83",
+        "filename": "src/apps/haikudepot/model/PackageInfo.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-10-20T05:54:56Z",
+      "side": 0,
+      "message": "Shouldn\u0027t be removed.\n\n\"After the copyright header (including the header guard in header files), there are exactly two blank lines before the rest contents.\"",
+      "revId": "05880d133e589414a7530de474132f6990dbdc81",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
