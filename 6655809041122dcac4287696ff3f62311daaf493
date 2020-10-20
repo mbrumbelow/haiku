@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "516147cd_f1c7ca1e",
+        "filename": "src/apps/codycam/FtpClient.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1000055
+      },
+      "writtenOn": "2020-10-20T10:44:54Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "a7a856f4_bfc65b6e",
+      "revId": "6655809041122dcac4287696ff3f62311daaf493",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca1a0b16_e4c9347b",
         "filename": "src/apps/codycam/FtpClient.cpp",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "6655809041122dcac4287696ff3f62311daaf493",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ae1de13_296650cf",
+        "filename": "src/apps/codycam/FtpClient.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1000055
+      },
+      "writtenOn": "2020-10-20T10:44:54Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "ca1a0b16_e4c9347b",
+      "revId": "6655809041122dcac4287696ff3f62311daaf493",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
