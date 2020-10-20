@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a7a856f4_bfc65b6e",
+        "filename": "src/apps/codycam/FtpClient.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-10-20T05:34:49Z",
+      "side": 0,
+      "message": "To be entirely correct, \"outString +\u003d \u0027\\n\u0027;\" should be kept after puts().",
+      "revId": "6655809041122dcac4287696ff3f62311daaf493",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca1a0b16_e4c9347b",
+        "filename": "src/apps/codycam/FtpClient.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-10-20T05:34:49Z",
+      "side": 0,
+      "message": "Ditto",
+      "revId": "6655809041122dcac4287696ff3f62311daaf493",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
