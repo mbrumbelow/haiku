@@ -52,6 +52,24 @@
       "revId": "8042a642ad86743c0d3af21d995a290c3e68279e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f554abbf_40137a34",
+        "filename": "src/bin/safemode.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000055
+      },
+      "writtenOn": "2020-10-20T21:22:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68c66b14_14bf29c9",
+      "revId": "8042a642ad86743c0d3af21d995a290c3e68279e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
