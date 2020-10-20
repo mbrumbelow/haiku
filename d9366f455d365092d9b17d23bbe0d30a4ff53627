@@ -16,6 +16,24 @@
       "revId": "d9366f455d365092d9b17d23bbe0d30a4ff53627",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6693c71f_bcb98462",
+        "filename": "src/bin/filepanel.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-10-20T05:36:45Z",
+      "side": 1,
+      "message": "\u003e this is useless since both sides say \"unimplemented\". I\u0027d rather remove these options from the help if they don\u0027t exist.\n\nDoes filepanel exist in R5? Maybe this was kept for compatibility reasons.",
+      "parentUuid": "2dfefd71_ab5eaf50",
+      "revId": "d9366f455d365092d9b17d23bbe0d30a4ff53627",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
