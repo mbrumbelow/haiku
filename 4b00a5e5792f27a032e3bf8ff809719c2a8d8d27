@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "605bccf6_82b0a88b",
+        "filename": "src/add-ons/kernel/file_systems/reiserfs/BlockCache.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-10-20T05:22:56Z",
+      "side": 1,
+      "message": "see https://www.haiku-os.org/development/coding-guidelines/ one tab is enough.",
+      "revId": "4b00a5e5792f27a032e3bf8ff809719c2a8d8d27",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ce75e02_350cf338",
+        "filename": "src/add-ons/kernel/file_systems/reiserfs/Settings.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-10-20T05:22:56Z",
+      "side": 1,
+      "message": "One tab is enough.",
+      "revId": "4b00a5e5792f27a032e3bf8ff809719c2a8d8d27",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
