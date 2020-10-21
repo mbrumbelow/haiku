@@ -68,13 +68,13 @@ public:
 	ConnectionReference(ClientConnection* connection)
 		: fConnection(connection)
 	{
-		if (!fConnection || !fConnection->GetReference())
+		if (fConnection == NULL || !fConnection->GetReference())
 			fConnection = NULL;
 	}
 
 	~ConnectionReference()
 	{
-		if (fConnection)
+		if (fConnection != NULL)
 			fConnection->PutReference();
 	}
 
@@ -103,7 +103,7 @@ public:
 
 	~ClientVolumePutter()
 	{
-		if (fConnection && fVolume)
+		if (fConnection != NULL && fVolume != NULL)
 			fConnection->_PutVolume(fVolume);
 	}
 
@@ -213,7 +213,7 @@ ClientConnection::ClientConnection(Connection* connection,
 	  fInverseClientEndianess(false)
 {
 	fConnection = new(std::nothrow) RequestConnection(connection, this);
-	if (!fConnection)
+	if (fConnection == NULL)
 		delete connection;
 }
 
@@ -238,7 +238,7 @@ ClientConnection::Init()
 {
 	// create a client volume map
 	fVolumes = new(std::nothrow) VolumeMap;
-	if (!fVolumes)
+	if (fVolumes == NULL)
 		return B_NO_MEMORY;
 	status_t error = fVolumes->InitCheck();
 	if (error != B_OK)
@@ -246,7 +246,7 @@ ClientConnection::Init()
 
 	// create the query handle map
 	fQueryHandles = new(std::nothrow) NodeHandleMap("query handles");
-	if (!fQueryHandles)
+	if (fQueryHandles == NULL)
 		return B_NO_MEMORY;
 	error = fQueryHandles->Init();
 	if (error != B_OK)
@@ -254,7 +254,7 @@ ClientConnection::Init()
 
 	// create the node monitoring event queue
 	fNodeMonitoringEvents = new(std::nothrow) NodeMonitoringEventQueue;
-	if (!fNodeMonitoringEvents)
+	if (fNodeMonitoringEvents == NULL)
 		return B_NO_MEMORY;
 	error = fNodeMonitoringEvents->InitCheck();
 	if (error != B_OK)
@@ -335,7 +335,7 @@ ClientConnection::UserRemoved(User* user)
 	int32 volumeCount = 0;
 	AutoLocker<VolumeMap> volumesLocker(fVolumes);
 	volumes = new(std::nothrow) ClientVolume*[fVolumes->Size()];
-	if (!volumes) {
+	if (volumes == NULL) {
 		ERROR(("ClientConnection::UserRemoved(): ERROR: Failed to "
 			"allocate memory for volume array.\n"));
 		volumesLocker.Unlock();
@@ -375,7 +375,7 @@ ClientConnection::ShareRemoved(Share* share)
 	int32 volumeCount = 0;
 	AutoLocker<VolumeMap> volumesLocker(fVolumes);
 	volumes = new(std::nothrow) ClientVolume*[fVolumes->Size()];
-	if (!volumes) {
+	if (volumes == NULL) {
 		ERROR(("ClientConnection::ShareRemoved(): ERROR: Failed to "
 			"allocate memory for volume array.\n"));
 		volumesLocker.Unlock();
@@ -418,7 +418,7 @@ ClientConnection::UserPermissionsChanged(Share* share, User* user,
 	int32 volumeCount = 0;
 	AutoLocker<VolumeMap> volumesLocker(fVolumes);
 	volumes = new(std::nothrow) ClientVolume*[fVolumes->Size()];
-	if (!volumes) {
+	if (volumes == NULL) {
 		ERROR(("ClientConnection::ShareRemoved(): ERROR: Failed to "
 			"allocate memory for volume array.\n"));
 		volumesLocker.Unlock();
@@ -529,7 +529,7 @@ ClientConnection::VisitMountRequest(MountRequest* request)
 
 	status_t result = B_OK;
 	const char* shareName = request->share.GetString();
-	if (!shareName)
+	if (shareName == NULL)
 		SET_ERROR(result, B_BAD_DATA);
 
 	// create a volume
@@ -547,7 +547,7 @@ ClientConnection::VisitMountRequest(MountRequest* request)
 	BReference<User> userReference(user);
 	bool noPermission = false;
 	if (result == B_OK && !user) {
-		if (userName) {
+		if (userName != NULL) {
 			SET_ERROR(result, fSecurityContext->AuthenticateUser(userName,
 				request->password.GetString(), &user));
 			if (result == B_OK)
@@ -562,7 +562,7 @@ ClientConnection::VisitMountRequest(MountRequest* request)
 	UserSecurityContext* securityContext = NULL;
 	if (result == B_OK) {
 		securityContext = new(std::nothrow) UserSecurityContext;
-		if (securityContext) {
+		if (securityContext != NULL) {
 			SET_ERROR(result, fSecurityContext->GetUserSecurityContext(user,
 				securityContext));
 		} else
@@ -577,7 +577,7 @@ ClientConnection::VisitMountRequest(MountRequest* request)
 	if (result == B_OK) {
 		AutoLocker<SecurityContext> _(fSecurityContext);
 		share = fSecurityContext->FindShare(shareName);
-		if (share) {
+		if (share != NULL) {
 			mountPoint = share->GetNodeRef();
 			sharePermissions = securityContext->GetNodePermissions(
 				mountPoint);
@@ -644,7 +644,7 @@ ClientConnection::VisitReadVNodeRequest(ReadVNodeRequest* request)
 	// get the volume
 	status_t result = B_OK;
 	ClientVolume* volume = _GetVolume(request->volumeID);
-	if (!volume)
+	if (volume == NULL)
 		result = B_BAD_VALUE;
 	ClientVolumePutter volumePutter(this, volume);
 
@@ -654,7 +654,7 @@ ClientConnection::VisitReadVNodeRequest(ReadVNodeRequest* request)
 	Node* node = NULL;
 	if (result == B_OK) {
 		node = volume->GetNode(request->nodeID);
-		if (!node)
+		if (node == NULL)
 			result = B_ENTRY_NOT_FOUND;
 	}
 
@@ -681,7 +681,7 @@ ClientConnection::VisitWriteStatRequest(WriteStatRequest* request)
 	// get the volume
 	status_t result = B_OK;
 	ClientVolume* volume = _GetVolume(request->volumeID);
-	if (!volume)
+	if (volume == NULL)
 		result = B_BAD_VALUE;
 	ClientVolumePutter volumePutter(this, volume);
 
@@ -691,7 +691,7 @@ ClientConnection::VisitWriteStatRequest(WriteStatRequest* request)
 	Node* node = NULL;
 	if (result == B_OK) {
 		node = volume->GetNode(request->nodeID);
-		if (!node)
+		if (node == NULL)
 			result = B_ENTRY_NOT_FOUND;
 	}
 
@@ -736,7 +736,7 @@ ClientConnection::VisitWriteStatRequest(WriteStatRequest* request)
 	WriteStatReply reply;
 	// update the node stat
 	reply.nodeInfoValid = false;
-	if (node) {
+	if (node != NULL) {
 		if (node->UpdateStat() == B_OK) {
 			_GetNodeInfo(node, &reply.nodeInfo);
 			reply.nodeInfoValid = true;
@@ -761,7 +761,7 @@ ClientConnection::VisitCreateFileRequest(CreateFileRequest* request)
 	// get the volume
 	status_t result = B_OK;
 	ClientVolume* volume = _GetVolume(request->volumeID);
-	if (!volume)
+	if (volume == NULL)
 		result = B_BAD_VALUE;
 	ClientVolumePutter volumePutter(this, volume);
 
@@ -771,9 +771,9 @@ ClientConnection::VisitCreateFileRequest(CreateFileRequest* request)
 	Directory* directory = NULL;
 	if (result == B_OK) {
 		Node* node = volume->GetNode(request->directoryID);
-		if (node) {
+		if (node != NULL) {
 			directory = dynamic_cast<Directory*>(node);
-			if (!directory)
+			if (directory == NULL)
 				result = B_NOT_A_DIRECTORY;
 		} else
 			result = B_ENTRY_NOT_FOUND;
@@ -860,7 +860,7 @@ ClientConnection::VisitOpenRequest(OpenRequest* request)
 	// get the volume
 	status_t result = B_OK;
 	ClientVolume* volume = _GetVolume(request->volumeID);
-	if (!volume)
+	if (volume == NULL)
 		result = B_BAD_VALUE;
 	ClientVolumePutter volumePutter(this, volume);
 
@@ -870,7 +870,7 @@ ClientConnection::VisitOpenRequest(OpenRequest* request)
 	Node* node = NULL;
 	if (result == B_OK) {
 		node = volume->GetNode(request->nodeID);
-		if (!node)
+		if (node == NULL)
 			result = B_ENTRY_NOT_FOUND;
 	}
 
@@ -934,7 +934,7 @@ ClientConnection::VisitCloseRequest(CloseRequest* request)
 	if (request->volumeID >= 0) {
 		// get the volume
 		ClientVolume* volume = _GetVolume(request->volumeID);
-		if (!volume)
+		if (volume == NULL)
 			SET_ERROR(result, B_BAD_VALUE);
 		ClientVolumePutter volumePutter(this, volume);
 
@@ -980,7 +980,7 @@ ClientConnection::VisitReadRequest(ReadRequest* request)
 	// get the volume
 	status_t result = B_OK;
 	ClientVolume* volume = _GetVolume(request->volumeID);
-	if (!volume)
+	if (volume == NULL)
 		result = B_BAD_VALUE;
 	ClientVolumePutter volumePutter(this, volume);
 
@@ -994,7 +994,7 @@ ClientConnection::VisitReadRequest(ReadRequest* request)
 	FileHandle* fileHandle = NULL;
 	if (result == B_OK) {
 		fileHandle = dynamic_cast<FileHandle*>(handle);
-		if (!fileHandle)
+		if (fileHandle == NULL)
 			result = B_BAD_VALUE;
 	}
 
@@ -1003,7 +1003,8 @@ ClientConnection::VisitReadRequest(ReadRequest* request)
 	// check read permission
 	if (result == B_OK) {
 		Node* node = volume->GetNode(fileHandle->GetNodeRef());
-		if (!node || !volume->GetNodePermissions(node).ImpliesReadPermission())
+		if (node == NULL ||
+			!volume->GetNodePermissions(node).ImpliesReadPermission())
 			result = B_PERMISSION_DENIED;
 	}
 
@@ -1016,7 +1017,7 @@ ClientConnection::VisitReadRequest(ReadRequest* request)
 	uint8* buffer = NULL;
 	if (result == B_OK) {
 		buffer = (uint8*)malloc(bufferSize);
-		if (!buffer)
+		if (buffer == NULL)
 			result = B_NO_MEMORY;
 	}
 	MemoryDeleter bufferDeleter(buffer);
@@ -1062,7 +1063,7 @@ ClientConnection::VisitWriteRequest(WriteRequest* request)
 	// get the volume
 	status_t result = B_OK;
 	ClientVolume* volume = _GetVolume(request->volumeID);
-	if (!volume)
+	if (volume == NULL)
 		result = B_BAD_VALUE;
 	ClientVolumePutter volumePutter(this, volume);
 
@@ -1076,7 +1077,7 @@ ClientConnection::VisitWriteRequest(WriteRequest* request)
 	FileHandle* fileHandle = NULL;
 	if (result == B_OK) {
 		fileHandle = dynamic_cast<FileHandle*>(handle);
-		if (!fileHandle)
+		if (fileHandle == NULL)
 			result = B_BAD_VALUE;
 	}
 
@@ -1085,7 +1086,8 @@ ClientConnection::VisitWriteRequest(WriteRequest* request)
 	// check read permission
 	if (result == B_OK) {
 		Node* node = volume->GetNode(fileHandle->GetNodeRef());
-		if (!node || !volume->GetNodePermissions(node).ImpliesWritePermission())
+		if (node == NULL ||
+			!volume->GetNodePermissions(node).ImpliesWritePermission())
 			result = B_PERMISSION_DENIED;
 	}
 
@@ -1123,7 +1125,7 @@ ClientConnection::VisitCreateLinkRequest(CreateLinkRequest* request)
 	// get the volume
 	status_t result = B_OK;
 	ClientVolume* volume = _GetVolume(request->volumeID);
-	if (!volume)
+	if (volume == NULL)
 		result = B_BAD_VALUE;
 	ClientVolumePutter volumePutter(this, volume);
 
@@ -1133,7 +1135,7 @@ ClientConnection::VisitCreateLinkRequest(CreateLinkRequest* request)
 	Node* node = NULL;
 	if (result == B_OK) {
 		node = volume->GetNode(request->nodeID);
-		if (!node)
+		if (node == NULL)
 			result = B_ENTRY_NOT_FOUND;
 	}
 
@@ -1146,9 +1148,9 @@ ClientConnection::VisitCreateLinkRequest(CreateLinkRequest* request)
 	Directory* directory = NULL;
 	if (result == B_OK) {
 		Node* node = volume->GetNode(request->directoryID);
-		if (node) {
+		if (node != NULL) {
 			directory = dynamic_cast<Directory*>(node);
-			if (!directory)
+			if (directory == NULL)
 				result = B_NOT_A_DIRECTORY;
 		} else
 			result = B_ENTRY_NOT_FOUND;
@@ -1194,7 +1196,7 @@ ClientConnection::VisitUnlinkRequest(UnlinkRequest* request)
 	// get the volume
 	status_t result = B_OK;
 	ClientVolume* volume = _GetVolume(request->volumeID);
-	if (!volume)
+	if (volume == NULL)
 		result = B_BAD_VALUE;
 	ClientVolumePutter volumePutter(this, volume);
 
@@ -1204,9 +1206,9 @@ ClientConnection::VisitUnlinkRequest(UnlinkRequest* request)
 	Directory* directory = NULL;
 	if (result == B_OK) {
 		Node* node = volume->GetNode(request->directoryID);
-		if (node) {
+		if (node != NULL) {
 			directory = dynamic_cast<Directory*>(node);
-			if (!directory)
+			if (directory == NULL)
 				result = B_NOT_A_DIRECTORY;
 		} else
 			result = B_ENTRY_NOT_FOUND;
@@ -1252,7 +1254,7 @@ ClientConnection::VisitCreateSymlinkRequest(CreateSymlinkRequest* request)
 	// get the volume
 	status_t result = B_OK;
 	ClientVolume* volume = _GetVolume(request->volumeID);
-	if (!volume)
+	if (volume == NULL)
 		result = B_BAD_VALUE;
 	ClientVolumePutter volumePutter(this, volume);
 
@@ -1262,9 +1264,9 @@ ClientConnection::VisitCreateSymlinkRequest(CreateSymlinkRequest* request)
 	Directory* directory = NULL;
 	if (result == B_OK) {
 		Node* node = volume->GetNode(request->directoryID);
-		if (node) {
+		if (node != NULL) {
 			directory = dynamic_cast<Directory*>(node);
-			if (!directory)
+			if (directory == NULL)
 				result = B_NOT_A_DIRECTORY;
 		} else
 			result = B_ENTRY_NOT_FOUND;
@@ -1310,7 +1312,7 @@ ClientConnection::VisitReadLinkRequest(ReadLinkRequest* request)
 	// get the volume
 	status_t result = B_OK;
 	ClientVolume* volume = _GetVolume(request->volumeID);
-	if (!volume)
+	if (volume == NULL)
 		result = B_BAD_VALUE;
 	ClientVolumePutter volumePutter(this, volume);
 
@@ -1320,7 +1322,7 @@ ClientConnection::VisitReadLinkRequest(ReadLinkRequest* request)
 	Node* node = NULL;
 	if (result == B_OK) {
 		node = volume->GetNode(request->nodeID);
-		if (!node)
+		if (node == NULL)
 			result = B_ENTRY_NOT_FOUND;
 	}
 
@@ -1340,7 +1342,7 @@ ClientConnection::VisitReadLinkRequest(ReadLinkRequest* request)
 	}
 	if (result == B_OK) {
 		buffer = malloc(bufferSize);
-		if (!buffer)
+		if (buffer == NULL)
 			result = B_NO_MEMORY;
 	}
 	MemoryDeleter bufferDeleter(buffer);
@@ -1373,7 +1375,7 @@ ClientConnection::VisitRenameRequest(RenameRequest* request)
 	// get the volume
 	status_t result = B_OK;
 	ClientVolume* volume = _GetVolume(request->volumeID);
-	if (!volume)
+	if (volume == NULL)
 		result = B_BAD_VALUE;
 	ClientVolumePutter volumePutter(this, volume);
 
@@ -1383,9 +1385,9 @@ ClientConnection::VisitRenameRequest(RenameRequest* request)
 	Directory* newDirectory = NULL;
 	if (result == B_OK) {
 		Node* node = volume->GetNode(request->newDirectoryID);
-		if (node) {
+		if (node != NULL) {
 			newDirectory = dynamic_cast<Directory*>(node);
-			if (!newDirectory)
+			if (newDirectory == NULL)
 				result = B_NOT_A_DIRECTORY;
 		} else
 			result = B_ENTRY_NOT_FOUND;
@@ -1409,9 +1411,9 @@ ClientConnection::VisitRenameRequest(RenameRequest* request)
 	Directory* oldDirectory = NULL;
 	if (result == B_OK) {
 		Node* node = volume->GetNode(request->oldDirectoryID);
-		if (node) {
+		if (node != NULL) {
 			oldDirectory = dynamic_cast<Directory*>(node);
-			if (!oldDirectory)
+			if (oldDirectory == NULL)
 				result = B_NOT_A_DIRECTORY;
 		} else
 			result = B_ENTRY_NOT_FOUND;
@@ -1457,7 +1459,7 @@ ClientConnection::VisitMakeDirRequest(MakeDirRequest* request)
 	// get the volume
 	status_t result = B_OK;
 	ClientVolume* volume = _GetVolume(request->volumeID);
-	if (!volume)
+	if (volume == NULL)
 		result = B_BAD_VALUE;
 	ClientVolumePutter volumePutter(this, volume);
 
@@ -1467,9 +1469,9 @@ ClientConnection::VisitMakeDirRequest(MakeDirRequest* request)
 	Directory* directory = NULL;
 	if (result == B_OK) {
 		Node* node = volume->GetNode(request->directoryID);
-		if (node) {
+		if (node != NULL) {
 			directory = dynamic_cast<Directory*>(node);
-			if (!directory)
+			if (directory == NULL)
 				result = B_NOT_A_DIRECTORY;
 		} else
 			result = B_ENTRY_NOT_FOUND;
@@ -1515,7 +1517,7 @@ ClientConnection::VisitRemoveDirRequest(RemoveDirRequest* request)
 	// get the volume
 	status_t result = B_OK;
 	ClientVolume* volume = _GetVolume(request->volumeID);
-	if (!volume)
+	if (volume == NULL)
 		result = B_BAD_VALUE;
 	ClientVolumePutter volumePutter(this, volume);
 
@@ -1525,9 +1527,9 @@ ClientConnection::VisitRemoveDirRequest(RemoveDirRequest* request)
 	Directory* directory = NULL;
 	if (result == B_OK) {
 		Node* node = volume->GetNode(request->directoryID);
-		if (node) {
+		if (node != NULL) {
 			directory = dynamic_cast<Directory*>(node);
-			if (!directory)
+			if (directory == NULL)
 				result = B_NOT_A_DIRECTORY;
 		} else
 			result = B_ENTRY_NOT_FOUND;
@@ -1573,7 +1575,7 @@ ClientConnection::VisitOpenDirRequest(OpenDirRequest* request)
 	// get the volume
 	status_t result = B_OK;
 	ClientVolume* volume = _GetVolume(request->volumeID);
-	if (!volume)
+	if (volume == NULL)
 		result = B_BAD_VALUE;
 	ClientVolumePutter volumePutter(this, volume);
 
@@ -1583,9 +1585,9 @@ ClientConnection::VisitOpenDirRequest(OpenDirRequest* request)
 	Directory* directory = NULL;
 	if (result == B_OK) {
 		Node* node = volume->GetNode(request->nodeID);
-		if (node) {
+		if (node != NULL) {
 			directory = dynamic_cast<Directory*>(node);
-			if (!directory)
+			if (directory == NULL)
 				result = B_NOT_A_DIRECTORY;
 		} else
 			result = B_ENTRY_NOT_FOUND;
@@ -1608,12 +1610,13 @@ ClientConnection::VisitOpenDirRequest(OpenDirRequest* request)
 	if (result == B_OK) {
 		_GetNodeInfo(directory, &reply.nodeInfo);
 		reply.cookie = handle->GetCookie();
+	} else {
+		if (directory != NULL) {
+			PRINT("OpenDir() failed: client volume: %" B_PRId32 ", "
+				"node: (%" B_PRIdDEV ", %" B_PRIdINO ")\n",
+				volume->GetID(), directory->GetVolumeID(), directory->GetID());
+		}
 	}
-else {
-if (directory)
-PRINT("OpenDir() failed: client volume: %ld, node: (%ld, %lld)\n",
-volume->GetID(), directory->GetVolumeID(), directory->GetID());
-}
 
 	managerLocker.Unlock();
 
@@ -1639,7 +1642,7 @@ ClientConnection::VisitReadDirRequest(ReadDirRequest* request)
 	// get the volume
 	status_t result = B_OK;
 	ClientVolume* volume = _GetVolume(request->volumeID);
-	if (!volume)
+	if (volume == NULL)
 		result = B_BAD_VALUE;
 	ClientVolumePutter volumePutter(this, volume);
 
@@ -1653,7 +1656,7 @@ ClientConnection::VisitReadDirRequest(ReadDirRequest* request)
 	DirIterator* iterator = NULL;
 	if (result == B_OK) {
 		iterator = dynamic_cast<DirIterator*>(handle);
-		if (!iterator)
+		if (iterator == NULL)
 			result = B_BAD_VALUE;
 	}
 
@@ -1663,9 +1666,9 @@ ClientConnection::VisitReadDirRequest(ReadDirRequest* request)
 	Directory* directory = NULL;
 	if (result == B_OK) {
 		Node* node = volume->GetNode(iterator->GetNodeRef());
-		if (node) {
+		if (node != NULL) {
 			directory = dynamic_cast<Directory*>(node);
-			if (!directory)
+			if (directory == NULL)
 				result = B_NOT_A_DIRECTORY;
 		} else
 			result = B_ENTRY_NOT_FOUND;
@@ -1677,9 +1680,10 @@ ClientConnection::VisitReadDirRequest(ReadDirRequest* request)
 			result = B_PERMISSION_DENIED;
 	}
 
-if (result == B_OK) {
-	PRINT("ReadDir: (%ld, %lld)\n", request->volumeID, directory->GetID());
-}
+	if (result == B_OK) {
+		PRINT("ReadDir: (%" B_PRId32 ", %" B_PRIdINO ")\n", request->volumeID,
+			directory->GetID());
+	}
 
 	// rewind, if requested
 	if (result == B_OK && request->rewind)
@@ -1692,7 +1696,7 @@ if (result == B_OK) {
 	while (result == B_OK && toRead > 0) {
 		// get the next entry
 		Entry* entry = iterator->NextEntry();
-		if (!entry) {
+		if (entry == NULL) {
 			done = true;
 			break;
 		}
@@ -1711,11 +1715,13 @@ if (result == B_OK) {
 //directoryID, reply.error, reply.entryInfos.CountElements(),
 //reply.entryInfo.directoryID,
 //reply.entryInfo.nodeID, reply.entryInfo.name.GetString()));
-if (directory) {
-PRINT("ReadDir done: volume: %ld, (%ld, %lld) -> (%lx, %ld)\n",
-volume->GetID(), directory->GetVolumeID(), directory->GetID(), result,
-reply.entryInfos.CountElements());
-}
+	if (directory != NULL) {
+		PRINT("ReadDir done: volume: %" B_PRId32 ", "
+			"(%" B_PRIdDEV ", %" B_PRIdINO ") -> "
+			"(%" B_PRIx32 ", %" B_PRId32 ")\n",
+			volume->GetID(), directory->GetVolumeID(), directory->GetID(),
+			result, reply.entryInfos.CountElements());
+	}
 
 	managerLocker.Unlock();
 
@@ -1736,7 +1742,7 @@ ClientConnection::VisitWalkRequest(WalkRequest* request)
 	// get the volume
 	status_t result = B_OK;
 	ClientVolume* volume = _GetVolume(request->volumeID);
-	if (!volume)
+	if (volume == NULL)
 		result = B_BAD_VALUE;
 	ClientVolumePutter volumePutter(this, volume);
 
@@ -1746,9 +1752,9 @@ ClientConnection::VisitWalkRequest(WalkRequest* request)
 	Directory* directory = NULL;
 	if (result == B_OK) {
 		Node* node = volume->GetNode(request->nodeID);
-		if (node) {
+		if (node != NULL) {
 			directory = dynamic_cast<Directory*>(node);
-			if (!directory)
+			if (directory == NULL)
 				result = B_NOT_A_DIRECTORY;
 		} else
 			result = B_ENTRY_NOT_FOUND;
@@ -1788,7 +1794,8 @@ ClientConnection::VisitWalkRequest(WalkRequest* request)
 
 	// send the reply
 	reply.error = result;
-	PRINT("Walk: (%ld, %lld, `%s') -> (%lx, (%ld, %lld), `%s')\n",
+	PRINT("Walk: (%" B_PRIdDEV ", %" B_PRIdINO ", `%s') -> "
+		"(%" B_PRIx32 ", (%" B_PRIdDEV ", %" B_PRIdINO "), `%s')\n",
 		request->nodeID.volumeID, request->nodeID.nodeID,
 		request->name.GetString(), result,
 		reply.entryInfo.nodeInfo.st.st_dev,
@@ -1807,7 +1814,7 @@ ClientConnection::VisitMultiWalkRequest(MultiWalkRequest* request)
 	// get the volume
 	status_t result = B_OK;
 	ClientVolume* volume = _GetVolume(request->volumeID);
-	if (!volume)
+	if (volume == NULL)
 		result = B_BAD_VALUE;
 	ClientVolumePutter volumePutter(this, volume);
 
@@ -1817,9 +1824,9 @@ ClientConnection::VisitMultiWalkRequest(MultiWalkRequest* request)
 	Directory* directory = NULL;
 	if (result == B_OK) {
 		Node* node = volume->GetNode(request->nodeID);
-		if (node) {
+		if (node != NULL) {
 			directory = dynamic_cast<Directory*>(node);
-			if (!directory)
+			if (directory == NULL)
 				result = B_NOT_A_DIRECTORY;
 		} else
 			result = B_ENTRY_NOT_FOUND;
@@ -1854,7 +1861,8 @@ ClientConnection::VisitMultiWalkRequest(MultiWalkRequest* request)
 
 	// send the reply
 	reply.error = result;
-	PRINT("MultiWalk: (%ld, %lld, %ld) -> (%lx, %ld)\n",
+	PRINT("MultiWalk: (%" B_PRIdDEV ", %" B_PRIdINO ", %" B_PRId32 ") -> "
+		"(%" B_PRIx32 ", %" B_PRId32 ")\n",
 		request->nodeID.volumeID, request->nodeID.nodeID, count,
 		result, reply.entryInfos.CountElements());
 	return GetChannel()->SendRequest(&reply);
@@ -1871,7 +1879,7 @@ ClientConnection::VisitOpenAttrDirRequest(OpenAttrDirRequest* request)
 	// get the volume
 	status_t result = B_OK;
 	ClientVolume* volume = _GetVolume(request->volumeID);
-	if (!volume)
+	if (volume == NULL)
 		result = B_BAD_VALUE;
 	ClientVolumePutter volumePutter(this, volume);
 
@@ -1881,7 +1889,7 @@ ClientConnection::VisitOpenAttrDirRequest(OpenAttrDirRequest* request)
 	Node* node = NULL;
 	if (result == B_OK) {
 		node = volume->GetNode(request->nodeID);
-		if (!node)
+		if (node == NULL)
 			result = B_ENTRY_NOT_FOUND;
 	}
 
@@ -1936,7 +1944,7 @@ ClientConnection::VisitReadAttrDirRequest(ReadAttrDirRequest* request)
 	// get the volume
 	status_t result = B_OK;
 	ClientVolume* volume = _GetVolume(request->volumeID);
-	if (!volume)
+	if (volume == NULL)
 		result = B_BAD_VALUE;
 	ClientVolumePutter volumePutter(this, volume);
 
@@ -1950,7 +1958,7 @@ ClientConnection::VisitReadAttrDirRequest(ReadAttrDirRequest* request)
 	AttrDirIterator* iterator = NULL;
 	if (result == B_OK) {
 		iterator = dynamic_cast<AttrDirIterator*>(handle);
-		if (!iterator)
+		if (iterator == NULL)
 			result = B_BAD_VALUE;
 	}
 
@@ -1960,7 +1968,7 @@ ClientConnection::VisitReadAttrDirRequest(ReadAttrDirRequest* request)
 	Node* node = NULL;
 	if (result == B_OK) {
 		node = volume->GetNode(iterator->GetNodeRef());
-		if (!node)
+		if (node == NULL)
 			result = B_ENTRY_NOT_FOUND;
 	}
 
@@ -2007,7 +2015,7 @@ ClientConnection::VisitReadAttrRequest(ReadAttrRequest* request)
 	// get the volume
 	status_t result = B_OK;
 	ClientVolume* volume = _GetVolume(request->volumeID);
-	if (!volume)
+	if (volume == NULL)
 		result = B_BAD_VALUE;
 	ClientVolumePutter volumePutter(this, volume);
 
@@ -2017,7 +2025,7 @@ ClientConnection::VisitReadAttrRequest(ReadAttrRequest* request)
 	Node* node = NULL;
 	if (result == B_OK) {
 		node = volume->GetNode(request->nodeID);
-		if (!node)
+		if (node == NULL)
 			result = B_ENTRY_NOT_FOUND;
 	}
 
@@ -2073,7 +2081,7 @@ ClientConnection::VisitReadAttrRequest(ReadAttrRequest* request)
 		uint8* buffer = NULL;
 		if (result == B_OK) {
 			buffer = (uint8*)malloc(bufferSize);
-			if (!buffer)
+			if (buffer == NULL)
 				result = B_NO_MEMORY;
 		}
 		MemoryDeleter bufferDeleter(buffer);
@@ -2163,7 +2171,7 @@ ClientConnection::VisitWriteAttrRequest(WriteAttrRequest* request)
 	// get the volume
 	status_t result = B_OK;
 	ClientVolume* volume = _GetVolume(request->volumeID);
-	if (!volume)
+	if (volume == NULL)
 		result = B_BAD_VALUE;
 	ClientVolumePutter volumePutter(this, volume);
 
@@ -2173,7 +2181,7 @@ ClientConnection::VisitWriteAttrRequest(WriteAttrRequest* request)
 	Node* node = NULL;
 	if (result == B_OK) {
 		node = volume->GetNode(request->nodeID);
-		if (!node)
+		if (node == NULL)
 			result = B_ENTRY_NOT_FOUND;
 	}
 
@@ -2245,7 +2253,7 @@ ClientConnection::VisitRemoveAttrRequest(RemoveAttrRequest* request)
 	// get the volume
 	status_t result = B_OK;
 	ClientVolume* volume = _GetVolume(request->volumeID);
-	if (!volume)
+	if (volume == NULL)
 		result = B_BAD_VALUE;
 	ClientVolumePutter volumePutter(this, volume);
 
@@ -2255,7 +2263,7 @@ ClientConnection::VisitRemoveAttrRequest(RemoveAttrRequest* request)
 	Node* node = NULL;
 	if (result == B_OK) {
 		node = volume->GetNode(request->nodeID);
-		if (!node)
+		if (node == NULL)
 			result = B_ENTRY_NOT_FOUND;
 	}
 
@@ -2307,7 +2315,7 @@ ClientConnection::VisitStatAttrRequest(StatAttrRequest* request)
 	// get the volume
 	status_t result = B_OK;
 	ClientVolume* volume = _GetVolume(request->volumeID);
-	if (!volume)
+	if (volume == NULL)
 		result = B_BAD_VALUE;
 	ClientVolumePutter volumePutter(this, volume);
 
@@ -2317,7 +2325,7 @@ ClientConnection::VisitStatAttrRequest(StatAttrRequest* request)
 	Node* node = NULL;
 	if (result == B_OK) {
 		node = volume->GetNode(request->nodeID);
-		if (!node)
+		if (node == NULL)
 			result = B_ENTRY_NOT_FOUND;
 	}
 
@@ -2402,7 +2410,7 @@ ClientConnection::VisitReadQueryRequest(ReadQueryRequest* request)
 	status_t result = B_OK;
 	int32 volumeCount = fVolumes->Size();
 	int32* volumeIDs = new(std::nothrow) int32[volumeCount];
-	if (!volumeIDs)
+	if (volumeIDs == NULL)
 		result = B_NO_MEMORY;
 	ArrayDeleter<int32> volumeIDsDeleter(volumeIDs);
 
@@ -2416,7 +2424,7 @@ ClientConnection::VisitReadQueryRequest(ReadQueryRequest* request)
 	QueryHandle* queryHandle = NULL;
 	if (result == B_OK) {
 		queryHandle = dynamic_cast<QueryHandle*>(handle);
-		if (!queryHandle)
+		if (queryHandle == NULL)
 			result = B_BAD_VALUE;
 	}
 
@@ -2432,7 +2440,7 @@ ClientConnection::VisitReadQueryRequest(ReadQueryRequest* request)
 			break;
 		if (countRead == 0)
 			break;
-		PRINT("  query entry: %ld, %lld, \"%s\"\n",
+		PRINT("  query entry: %" B_PRIdDEV ", %" B_PRIdINO ", \"%s\"\n",
 			dirEntry->d_pdev, dirEntry->d_pino, dirEntry->d_name);
 
 		VolumeManagerLocker managerLocker;
@@ -2461,8 +2469,8 @@ ClientConnection::VisitReadQueryRequest(ReadQueryRequest* request)
 				_GetEntryInfo(entry, &reply.entryInfo);
 				break;
 			}
-else
-PRINT(("  -> no client volumes\n"));
+		else
+			PRINT(("  -> no client volumes\n"));
 		}
 
 		// entry is not in the volume: next round...
@@ -2472,8 +2480,10 @@ PRINT(("  -> no client volumes\n"));
 	// send the reply
 	reply.error = result;
 	reply.count = countRead;
-	PRINT("ReadQuery: (%lx, %ld, dir: (%ld, %lld), node: (%ld, %lld, `%s')"
-		"\n", reply.error, reply.count,
+	PRINT("ReadQuery: (%" B_PRIx32 ", %" B_PRId32 ", "
+		"dir: (%" B_PRIdDEV ", %" B_PRIdINO "), "
+		"node: (%" B_PRIdDEV ", %" B_PRIdINO ", `%s')\n",
+		reply.error, reply.count,
 		reply.entryInfo.directoryID.volumeID,
 		reply.entryInfo.directoryID.nodeID,
 		reply.entryInfo.nodeInfo.st.st_dev,
@@ -2551,7 +2561,7 @@ ClientConnection::ProcessQueryEvent(NodeMonitoringEvent* event)
 		// "entry created" event
 		EntryCreatedEvent* createdEvent
 			= dynamic_cast<EntryCreatedEvent*>(event);
-		if (!createdEvent)
+		if (createdEvent == NULL)
 			return;
 		volumeID = createdEvent->volumeID;
 		directoryID = createdEvent->directoryID;
@@ -2560,7 +2570,7 @@ ClientConnection::ProcessQueryEvent(NodeMonitoringEvent* event)
 		// "entry removed" event
 		EntryRemovedEvent* removedEvent
 			= dynamic_cast<EntryRemovedEvent*>(event);
-		if (!removedEvent)
+		if (removedEvent == NULL)
 			return;
 		volumeID = removedEvent->volumeID;
 		directoryID = removedEvent->directoryID;
@@ -2573,15 +2583,15 @@ ClientConnection::ProcessQueryEvent(NodeMonitoringEvent* event)
 		return;
 	}
 	PRINT("ClientConnection::ProcessQueryEvent(): event: %p, type: %s:"
-		" directory: (%ld, %lld)\n", event, typeid(event).name(),
-		volumeID, directoryID);
+		" directory: (%" B_PRIdDEV ", %" B_PRIdINO ")\n",
+		event, typeid(event).name(), volumeID, directoryID);
 
 	// create an array for the IDs of the client volumes a found entry may
 	// reside on
 	status_t result = B_OK;
 	int32 volumeCount = fVolumes->Size();
 	int32* volumeIDs = new(std::nothrow) int32[volumeCount];
-	if (!volumeIDs)
+	if (volumeIDs == NULL)
 		result = B_NO_MEMORY;
 	ArrayDeleter<int32> volumeIDsDeleter(volumeIDs);
 
@@ -2680,7 +2690,7 @@ status_t
 ClientConnection::_GetAttrInfo(Request* request, const char* name,
 	const attr_info& attrInfo, const void* data, AttributeInfo* info)
 {
-	if (!request || !name || !info)
+	if (request == NULL || name == NULL || info == NULL)
 		return B_BAD_VALUE;
 
 	info->name.SetTo(name);
@@ -2696,7 +2706,7 @@ ClientConnection::_GetAttrInfo(Request* request, const char* name,
 			if (data) {
 				// allocate a buffer
 				RequestBuffer* requestBuffer = RequestBuffer::Create(dataSize);
-				if (!requestBuffer)
+				if (requestBuffer == NULL)
 					return B_NO_MEMORY;
 
 				// convert the data
@@ -2715,7 +2725,8 @@ status_t
 ClientConnection::_GetAttrDirInfo(Request* request, AttributeDirectory* attrDir,
 	AttrDirInfo* info)
 {
-	if (!request || !attrDir || !info || !attrDir->IsAttrDirValid())
+	if (request == NULL || attrDir == NULL || info == NULL
+		|| !attrDir->IsAttrDirValid())
 		return B_BAD_VALUE;
 
 	// add the attribute infos
@@ -2749,7 +2760,7 @@ ClientConnection::_CreateVolume(ClientVolume** _volume)
 	// create and init the volume
 	ClientVolume* volume = new(std::nothrow) ClientVolume(fSecurityContextLock,
 		this);
-	if (!volume)
+	if (volume == NULL)
 		return B_NO_MEMORY;
 	status_t error = volume->Init();
 	if (error != B_OK) {
@@ -2776,7 +2787,7 @@ ClientConnection::_GetVolume(int32 id)
 {
 	AutoLocker<VolumeMap> _(fVolumes);
 	ClientVolume* volume = fVolumes->Get(id);
-	if (!volume || volume->IsRemoved())
+	if (volume == NULL || volume->IsRemoved())
 		return NULL;
 	volume->AcquireReference();
 	return volume;
@@ -2788,7 +2799,7 @@ ClientConnection::_GetVolume(int32 id)
 void
 ClientConnection::_PutVolume(ClientVolume* volume)
 {
-	if (!volume)
+	if (volume == NULL)
 		return;
 
 	// decrement reference counter and remove the volume, if 0
@@ -2810,7 +2821,7 @@ ClientConnection::_PutVolume(ClientVolume* volume)
 void
 ClientConnection::_UnmountVolume(ClientVolume* volume)
 {
-	if (!volume)
+	if (volume == NULL)
 		return;
 	AutoLocker<VolumeMap> locker(fVolumes);
 	volume->MarkRemoved();
@@ -2905,12 +2916,12 @@ status_t
 ClientConnection::_PushNodeMonitoringEvent(int32 volumeID,
 	NodeMonitoringEvent* event)
 {
-	if (!event)
+	if (event == NULL)
 		return B_BAD_VALUE;
 
 	// get the volume
 	ClientVolume* volume = _GetVolume(volumeID);
-	if (!volume && event->opcode != B_DEVICE_UNMOUNTED)
+	if (volume == NULL && event->opcode != B_DEVICE_UNMOUNTED)
 		return B_BAD_VALUE;
 	ClientVolumePutter volumePutter(this, volume);
 
@@ -2970,7 +2981,7 @@ ClientConnection::_EntryCreated(ClientVolume* volume, EntryCreatedEvent* event,
 {
 	// allocate the request
 	EntryCreatedRequest* request = new(std::nothrow) EntryCreatedRequest;
-	if (!request)
+	if (request == NULL)
 		return B_NO_MEMORY;
 	ObjectDeleter<NodeMonitoringRequest> requestDeleter(request);
 
@@ -3025,7 +3036,7 @@ ClientConnection::_EntryRemoved(ClientVolume* volume, EntryRemovedEvent* event,
 
 	// allocate the request
 	EntryRemovedRequest* request = new(std::nothrow) EntryRemovedRequest;
-	if (!request)
+	if (request == NULL)
 		return B_NO_MEMORY;
 	ObjectDeleter<NodeMonitoringRequest> requestDeleter(request);
 
@@ -3055,7 +3066,7 @@ ClientConnection::_EntryMoved(ClientVolume* volume, EntryMovedEvent* event,
 {
 	// allocate the request
 	EntryMovedRequest* request = new(std::nothrow) EntryMovedRequest;
-	if (!request)
+	if (request == NULL)
 		return B_NO_MEMORY;
 	ObjectDeleter<NodeMonitoringRequest> requestDeleter(request);
 
@@ -3096,12 +3107,12 @@ ClientConnection::_NodeStatChanged(ClientVolume* volume,
 {
 	// get the node
 	Node* node = volume->GetNode(event->volumeID, event->nodeID);
-	if (!node)
+	if (node == NULL)
 		return B_ENTRY_NOT_FOUND;
 
 	// allocate the request
 	StatChangedRequest* request = new(std::nothrow) StatChangedRequest;
-	if (!request)
+	if (request == NULL)
 		return B_NO_MEMORY;
 	ObjectDeleter<NodeMonitoringRequest> requestDeleter(request);
 
@@ -3122,7 +3133,7 @@ ClientConnection::_NodeAttributeChanged(ClientVolume* volume,
 {
 	// get the node
 	Node* node = volume->GetNode(event->volumeID, event->nodeID);
-	if (!node)
+	if (node == NULL)
 		return B_ENTRY_NOT_FOUND;
 
 	// update the attribute directory
@@ -3136,7 +3147,7 @@ ClientConnection::_NodeAttributeChanged(ClientVolume* volume,
 
 	// allocate the request
 	AttributeChangedRequest* request = new(std::nothrow) AttributeChangedRequest;
-	if (!request)
+	if (request == NULL)
 		return B_NO_MEMORY;
 	ObjectDeleter<NodeMonitoringRequest> requestDeleter(request);
 
@@ -3228,7 +3239,7 @@ status_t
 ClientConnection::_OpenQuery(const char* queryString, uint32 flags,
 	port_id remotePort, int32 remoteToken, QueryHandle** _handle)
 {
-	if (!queryString || !_handle)
+	if (queryString == NULL || _handle == NULL)
 		return B_BAD_VALUE;
 
 	// open query
@@ -3256,7 +3267,7 @@ ClientConnection::_OpenQuery(const char* queryString, uint32 flags,
 status_t
 ClientConnection::_CloseQuery(QueryHandle* handle)
 {
-	if (!handle || !fQueryHandles->RemoveNodeHandle(handle))
+	if (handle == NULL || !fQueryHandles->RemoveNodeHandle(handle))
 		return B_BAD_VALUE;
 
 	return B_OK;
@@ -3297,7 +3308,7 @@ ClientConnection::_GetAllClientVolumeIDs(int32* volumeIDs, int32 arraySize,
 	for (VolumeMap::Iterator it = fVolumes->GetIterator();
 		 it.HasNext() && arraySize > count;) {
 		ClientVolume* clientVolume = it.Next().value;
-		if (!filter || filter->FilterVolume(this, clientVolume))
+		if (filter == NULL || filter->FilterVolume(this, clientVolume))
 			volumeIDs[count++] = clientVolume->GetID();
 	}
 
@@ -3317,7 +3328,7 @@ ClientConnection::_GetContainingClientVolumes(Directory* directory,
 		ClientVolume* clientVolume = it.Next().value;
 		Directory* clientVolumeRoot = clientVolume->GetRootDirectory();
 		if (volumeManager->DirectoryContains(clientVolumeRoot, directory, true)
-			&& (!filter || filter->FilterVolume(this, clientVolume))) {
+			&& (filter == NULL|| filter->FilterVolume(this, clientVolume))) {
 			volumeIDs[count++] = clientVolume->GetID();
 		}
 	}

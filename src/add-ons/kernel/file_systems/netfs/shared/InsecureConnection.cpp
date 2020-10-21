@@ -82,7 +82,7 @@ InsecureConnection::Init(int fd)
 	}
 	// create the initial channel
 	Channel* channel = new(std::nothrow) InsecureChannel(fd);
-	if (!channel) {
+	if (channel == NULL) {
 		closesocket(fd);
 		return B_NO_MEMORY;
 	}
@@ -100,7 +100,7 @@ status_t
 InsecureConnection::Init(const char* parameters)
 {
 PRINT(("InsecureConnection::Init\n"));
-	if (!parameters)
+	if (parameters == NULL)
 		return B_BAD_VALUE;
 	status_t error = AbstractConnection::Init();
 	if (error != B_OK)
@@ -161,7 +161,7 @@ PRINT(("InsecureConnection::Init\n"));
 	// open the remaining channels
 	int32 allChannels = upStreamChannels + downStreamChannels;
 	for (int32 i = 1; i < allChannels; i++) {
-		PRINT("  creating channel %ld\n", i);
+		PRINT("  creating channel %" B_PRId32 "\n", i);
 		// open the channel
 		error = _OpenClientChannel(serverAddr, port, &channel);
 		if (error != B_OK)
@@ -187,7 +187,7 @@ PRINT(("InsecureConnection::FinishInitialization()\n"));
 	// get the down stream channel
 	InsecureChannel* channel
 		= dynamic_cast<InsecureChannel*>(DownStreamChannelAt(0));
-	if (!channel)
+	if (channel == NULL)
 		return B_BAD_VALUE;
 	// receive the connect request
 	ConnectRequest request;
@@ -292,10 +292,10 @@ PRINT(("InsecureConnection::FinishInitialization()\n"));
 			}
 			RETURN_ERROR(error);
 		}
-		PRINT("  accepting channel %ld\n", i);
+		PRINT("  accepting channel %" B_PRId32 "\n", i);
 		// create a channel
 		channel = new(std::nothrow) InsecureChannel(channelFD);
-		if (!channel) {
+		if (channel == NULL) {
 			closesocket(channelFD);
 			return B_NO_MEMORY;
 		}
@@ -335,7 +335,7 @@ InsecureConnection::_OpenClientChannel(in_addr serverAddr, uint16 port,
 	}
 	// create the channel
 	Channel* channel = new(std::nothrow) InsecureChannel(fd);
-	if (!channel) {
+	if (channel == NULL) {
 		closesocket(fd);
 		return B_NO_MEMORY;
 	}

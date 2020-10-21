@@ -215,7 +215,7 @@ VolumeManager::~VolumeManager()
 {
 	// terminate the node monitor and the node monitoring processor
 	fTerminating = true;
-	if (fNodeMonitor && fNodeMonitor->Lock())
+	if (fNodeMonitor != NULL && fNodeMonitor->Lock())
 		fNodeMonitor->Quit();
 	fNodeMonitoringEvents.Close(true);
 	if (fNodeMonitoringProcessor >= 0) {
@@ -282,44 +282,44 @@ VolumeManager::Init()
 
 	// entry created event map
 	fEntryCreatedEvents = new(std::nothrow) EntryCreatedEventMap;
-	if (!fEntryCreatedEvents)
+	if (fEntryCreatedEvents == NULL)
 		return B_NO_MEMORY;
 
 	// entry removed event map
 	fEntryRemovedEvents = new(std::nothrow) EntryRemovedEventMap;
-	if (!fEntryRemovedEvents)
+	if (fEntryRemovedEvents == NULL)
 		return B_NO_MEMORY;
 
 	// entry moved event map
 	fEntryMovedEvents = new(std::nothrow) EntryMovedEventMap;
-	if (!fEntryMovedEvents)
+	if (fEntryMovedEvents == NULL)
 		return B_NO_MEMORY;
 
 	// node stat changed event map
 	fNodeStatChangedEvents = new(std::nothrow) NodeStatChangedEventMap;
-	if (!fNodeStatChangedEvents)
+	if (fNodeStatChangedEvents == NULL)
 		return B_NO_MEMORY;
 
 	// node attribute changed event map
 	fNodeAttributeChangedEvents = new(std::nothrow) NodeAttributeChangedEventMap;
-	if (!fNodeAttributeChangedEvents)
+	if (fNodeAttributeChangedEvents == NULL)
 		return B_NO_MEMORY;
 
 	// create the node monitor
 	fNodeMonitor = new(std::nothrow) NodeMonitor(this);
-	if (!fNodeMonitor)
+	if (fNodeMonitor == NULL)
 		return B_NO_MEMORY;
 
 	// create the volume map
 	fVolumes = new(std::nothrow) VolumeMap;
-	if (!fVolumes)
+	if (fVolumes == NULL)
 		return B_NO_MEMORY;
 	if (fVolumes->InitCheck() != B_OK)
 		return fVolumes->InitCheck();
 
 	// create the client volume map
 	fClientVolumes = new(std::nothrow) ClientVolumeMap;
-	if (!fClientVolumes)
+	if (fClientVolumes == NULL)
 		return B_NO_MEMORY;
 	if (fClientVolumes->InitCheck() != B_OK)
 		return fClientVolumes->InitCheck();
@@ -343,7 +343,7 @@ VolumeManager::Init()
 	if (volumeID < 0)
 		return volumeID;
 	fRootVolume = GetVolume(volumeID, true);
-	if (!fRootVolume)
+	if (fRootVolume == NULL)
 		return B_ERROR;
 
 	// spawn the node monitoring message processor
@@ -367,7 +367,7 @@ VolumeManager::GetRootVolume() const
 status_t
 VolumeManager::AddClientVolume(ClientVolume* clientVolume)
 {
-	if (!clientVolume)
+	if (clientVolume == NULL)
 		return B_BAD_VALUE;
 
 	return fClientVolumes->Put(clientVolume->GetID(), clientVolume);
@@ -377,7 +377,7 @@ VolumeManager::AddClientVolume(ClientVolume* clientVolume)
 void
 VolumeManager::RemoveClientVolume(ClientVolume* clientVolume)
 {
-	if (!clientVolume)
+	if (clientVolume == NULL)
 		return;
 
 	fClientVolumes->Remove(clientVolume->GetID());
@@ -387,11 +387,11 @@ VolumeManager::RemoveClientVolume(ClientVolume* clientVolume)
 status_t
 VolumeManager::CreateDefault()
 {
-	if (sManager)
+	if (sManager != NULL)
 		return B_OK;
 
 	VolumeManager* manager = new(std::nothrow) VolumeManager;
-	if (!manager)
+	if (manager == NULL)
 		return B_NO_MEMORY;
 
 	status_t error = manager->Init();
@@ -408,7 +408,7 @@ VolumeManager::CreateDefault()
 void
 VolumeManager::DeleteDefault()
 {
-	if (sManager) {
+	if (sManager != NULL) {
 		delete sManager;
 		sManager = NULL;
 	}
@@ -456,7 +456,7 @@ Volume*
 VolumeManager::GetVolume(dev_t volumeID, bool add)
 {
 	Volume* volume = fVolumes->Get(volumeID);
-	if (!volume && add)
+	if (volume == NULL && add)
 		_AddVolume(volumeID, &volume);
 
 	return volume;
@@ -469,7 +469,7 @@ VolumeManager::GetVolume(dev_t volumeID, bool add)
 status_t
 VolumeManager::AddNode(Node* node)
 {
-	if (!node || !node->GetVolume())
+	if (node == NULL || node->GetVolume() == NULL)
 		return B_BAD_VALUE;
 
 	status_t error = node->GetVolume()->AddNode(node);
@@ -485,7 +485,7 @@ VolumeManager::AddNode(Node* node)
 void
 VolumeManager::RemoveNode(Node* node)
 {
-	if (!node)
+	if (node == NULL)
 		return;
 
 	// if the node is a directory, we remove all its entries first
@@ -522,12 +522,12 @@ status_t
 VolumeManager::LoadNode(const struct stat& st, Node** _node)
 {
 	Node* node = GetNode(st.st_dev, st.st_ino);
-	if (!node) {
+	if (node == NULL) {
 		// node not known yet: create it
 
 		// get the volume
 		Volume* volume = GetVolume(st.st_dev, true);
-		if (!volume)
+		if (volume == NULL)
 			return B_BAD_VALUE;
 
 		// create the node
@@ -535,7 +535,7 @@ VolumeManager::LoadNode(const struct stat& st, Node** _node)
 			node = new(std::nothrow) Directory(volume, st);
 		else
 			node = new(std::nothrow) Node(volume, st);
-		if (!node)
+		if (node == NULL)
 			return B_NO_MEMORY;
 
 		// add it
@@ -572,7 +572,7 @@ VolumeManager::GetRootDirectory() const
 Directory*
 VolumeManager::GetParentDirectory(Directory* directory)
 {
-	if (!directory)
+	if (directory == NULL)
 		return NULL;
 
 	// get ".." entry
@@ -593,7 +593,7 @@ VolumeManager::LoadDirectory(dev_t volumeID, ino_t directoryID,
 	// try to get the node
 	Node* node = GetNode(volumeID, directoryID);
 	bool newNode = false;
-	if (!node) {
+	if (node == NULL) {
 		// directory not yet loaded: stat it
 		NoAllocEntryRef entryRef(volumeID, directoryID, ".");
 		struct stat st;
@@ -614,13 +614,13 @@ VolumeManager::LoadDirectory(dev_t volumeID, ino_t directoryID,
 
 	// check, if the node is a directory
 	Directory* directory = dynamic_cast<Directory*>(node);
-	if (!directory)
+	if (directory == NULL)
 		return B_NOT_A_DIRECTORY;
 
 	if (newNode)
 		CompletePathToRoot(directory);
 
-	if (_directory)
+	if (_directory != NULL)
 		*_directory = directory;
 	return B_OK;
 }
@@ -632,8 +632,8 @@ VolumeManager::LoadDirectory(dev_t volumeID, ino_t directoryID,
 status_t
 VolumeManager::AddEntry(Entry* entry)
 {
-	if (!entry || !entry->GetVolume() || !entry->GetDirectory()
-		|| ! entry->GetNode()) {
+	if (entry == NULL || entry->GetVolume() == NULL
+		|| entry->GetDirectory() == NULL || entry->GetNode() == NULL) {
 		return B_BAD_VALUE;
 	}
 
@@ -678,7 +678,7 @@ VolumeManager::RemoveEntry(Entry* entry)
 void
 VolumeManager::DeleteEntry(Entry* entry, bool keepNode)
 {
-	if (!entry)
+	if (entry == NULL)
 		return;
 
 	Node* node = entry->GetNode();
@@ -717,20 +717,20 @@ VolumeManager::LoadEntry(dev_t volumeID, ino_t directoryID, const char* name,
 	bool loadDir, Entry** _entry)
 {
 	Entry* entry = GetEntry(volumeID, directoryID, name);
-	if (!entry) {
+	if (entry == NULL) {
 		// entry not known yet: create it
-		PRINT("VolumeManager::LoadEntry(%ld, %lld, `%s')\n", volumeID,
-			directoryID, name);
+		PRINT("VolumeManager::LoadEntry(%" B_PRIdDEV ", "
+			"%" B_PRIdINO ", `%s')\n", volumeID, directoryID, name);
 
 		// get the volume
 		Volume* volume = GetVolume(volumeID, true);
-		if (!volume)
+		if (volume == NULL)
 			return B_BAD_VALUE;
 
 		// get the directory
 		status_t error = B_OK;
 		Directory* directory = GetDirectory(volumeID, directoryID);
-		if (!directory) {
+		if (directory == NULL) {
 			if (!loadDir)
 				return B_ENTRY_NOT_FOUND;
 
@@ -763,7 +763,7 @@ VolumeManager::LoadEntry(dev_t volumeID, ino_t directoryID, const char* name,
 //PRINT(("  creating and adding entry...\n"));
 		// create the entry
 		entry = new(std::nothrow) Entry(volume, directory, name, node);
-		if (!entry)
+		if (entry == NULL)
 			return B_NO_MEMORY;
 
 		// add it
@@ -775,7 +775,7 @@ VolumeManager::LoadEntry(dev_t volumeID, ino_t directoryID, const char* name,
 //PRINT(("  adding entry done\n"));
 	}
 
-	if (_entry)
+	if (_entry != NULL)
 		*_entry = entry;
 	return B_OK;
 }
@@ -788,16 +788,17 @@ status_t
 VolumeManager::OpenQuery(QueryDomain* queryDomain, const char* queryString,
 	uint32 flags, port_id remotePort, int32 remoteToken, QueryHandle** handle)
 {
-	if (!queryDomain || !queryString || !handle)
+	if (queryDomain == NULL || queryString == NULL || handle == NULL)
 		return B_BAD_VALUE;
 	bool liveQuery = (flags & B_LIVE_QUERY);
-	PRINT("VolumeManager::OpenQuery(%p, \"%s\", 0x%lx, %ld, %ld)\n",
+	PRINT("VolumeManager::OpenQuery(%p, \"%s\", 0x%" B_PRIx32 ", "
+		"%" B_PRId32 ", %" B_PRId32 ")\n",
 		queryDomain, queryString, flags, remotePort, remoteToken);
 
 	// allocate the handle
 	QueryHandle* queryHandle = new(std::nothrow) QueryHandle(remotePort,
 		remoteToken);
-	if (!queryHandle)
+	if (queryHandle == NULL)
 		return B_NO_MEMORY;
 	ObjectDeleter<QueryHandle> handleDeleter(queryHandle);
 
@@ -806,7 +807,7 @@ VolumeManager::OpenQuery(QueryDomain* queryDomain, const char* queryString,
 	if (liveQuery) {
 		queryHandler = new(std::nothrow) QueryHandler(this, queryDomain,
 			queryHandle);
-		if (!queryHandler)
+		if (queryHandler == NULL)
 			return B_NO_MEMORY;
 
 		fNodeMonitor->Lock();
@@ -827,13 +828,13 @@ VolumeManager::OpenQuery(QueryDomain* queryDomain, const char* queryString,
 		// branches of the FS tree and don't have common nodes.
 		if (!queryDomain->QueryDomainIntersectsWith(volume))
 			continue;
-		PRINT("VolumeManager::OpenQuery(): adding Query for volume %ld"
-			"\n", volume->GetID());
+		PRINT("VolumeManager::OpenQuery(): adding Query for volume "
+			"%" B_PRIdDEV "\n", volume->GetID());
 
 		// create the query for this volume
 		BVolume bVolume(volume->GetID());
 		Query* query = new(std::nothrow) Query;
-		if (!query)
+		if (query == NULL)
 			return B_NO_MEMORY;
 
 		// init the query
@@ -868,7 +869,7 @@ VolumeManager::OpenQuery(QueryDomain* queryDomain, const char* queryString,
 status_t
 VolumeManager::CompletePathToRoot(Directory* directory)
 {
-	if (!directory)
+	if (directory == NULL)
 		return B_BAD_VALUE;
 
 	while (directory != GetRootDirectory()) {
@@ -925,7 +926,7 @@ VolumeManager::GetPath(Node* node, Path* path)
 
 	// get an entry referring to the node
 	Entry* entry = node->GetActualReferringEntry();
-	if (!entry) {
+	if (entry == NULL) {
 		// if the node is a directory, we complete the path to the root and
 		// try again
 		if (Directory* directory = dynamic_cast<Directory*>(node)) {
@@ -933,7 +934,7 @@ VolumeManager::GetPath(Node* node, Path* path)
 			entry = node->GetActualReferringEntry();
 		}
 
-		if (!entry)
+		if (entry == NULL)
 			return B_ERROR;
 	}
 
@@ -944,7 +945,7 @@ VolumeManager::GetPath(Node* node, Path* path)
 bool
 VolumeManager::DirectoryContains(Directory* directory, Entry* entry)
 {
-	if (!directory || !entry)
+	if (directory == NULL || entry == NULL)
 		return false;
 
 	return DirectoryContains(directory, entry->GetDirectory(), true);
@@ -955,7 +956,7 @@ bool
 VolumeManager::DirectoryContains(Directory* directory, Directory* descendant,
 	bool reflexive)
 {
-	if (!directory || !descendant)
+	if (directory == NULL || descendant == NULL)
 		return false;
 
 	// a directory contains itself, just as defined by the caller
@@ -971,7 +972,7 @@ VolumeManager::DirectoryContains(Directory* directory, Directory* descendant,
 	// or the given dir
 	while (descendant != rootDir) {
 		descendant = GetParentDirectory(descendant);
-		if (!descendant)
+		if (descendant == NULL)
 			return false;
 
 		if (descendant == directory)
@@ -986,7 +987,7 @@ bool
 VolumeManager::DirectoryContains(Directory* directory, Node* descendant,
 	bool reflexive)
 {
-	if (!directory || !descendant)
+	if (directory == NULL || descendant == NULL)
 		return false;
 
 	// if the node is a directory, let the other version do the job
@@ -1025,7 +1026,7 @@ VolumeManager::_AddVolume(dev_t volumeID, Volume** _volume)
 
 	// create the volume
 	Volume* volume = new(std::nothrow) Volume(volumeID);
-	if (!volume)
+	if (volume == NULL)
 		RETURN_ERROR(B_NO_MEMORY);
 	ObjectDeleter<Volume> volumeDeleter(volume);
 	status_t error = volume->Init();
@@ -1059,7 +1060,7 @@ VolumeManager::_EntryCreated(EntryCreatedEvent* event)
 {
 	// get the directory
 	Directory* directory = GetDirectory(event->volumeID, event->directoryID);
-	if (!directory)
+	if (directory == NULL)
 		return;
 
 	// check, if there is an earlier similar event
@@ -1069,7 +1070,7 @@ VolumeManager::_EntryCreated(EntryCreatedEvent* event)
 	EntryCreatedEvent* oldEvent = fEntryCreatedEvents->Get(ref);
 
 	// remove the old event
-	if (oldEvent) {
+	if (oldEvent != NULL) {
 		fEntryCreatedEvents->Remove(ref);
 		fRecentNodeMonitoringEvents.Remove(oldEvent);
 		notify = !_IsRecentEvent(oldEvent);
@@ -1109,12 +1110,12 @@ VolumeManager::_EntryRemoved(EntryRemovedEvent* event, bool keepNode)
 	// get node and directory
 	Node* node = GetNode(event->nodeVolumeID, event->nodeID);
 	Directory* directory = GetDirectory(event->volumeID, event->directoryID);
-	if (!directory)
+	if (directory == NULL)
 		return;
 
 	// find the entry
 	Entry* entry = NULL;
-	if (node) {
+	if (node != NULL) {
 		if (event->name.GetLength() == 0) {
 			for (entry = node->GetFirstReferringEntry();
 				 entry;
@@ -1146,7 +1147,7 @@ VolumeManager::_EntryRemoved(EntryRemovedEvent* event, bool keepNode)
 		// fall back to using a NodeRef as key under BeOS R5.
 
 	// remove the old event
-	if (oldEvent) {
+	if (oldEvent != NULL) {
 		fEntryRemovedEvents->Remove(ref);
 		fRecentNodeMonitoringEvents.Remove(oldEvent);
 		notify = !_IsRecentEvent(oldEvent);
@@ -1204,12 +1205,12 @@ VolumeManager::_EntryMoved(EntryMovedEvent* event)
 	Node* node = GetNode(event->nodeVolumeID, event->nodeID);
 
 	// we should at least have one of the directories
-	if (!fromDirectory && !toDirectory)
+	if (fromDirectory == NULL && toDirectory == NULL)
 		return;
 
 	// find the old entry
 	Entry* oldEntry = NULL;
-	if (node) {
+	if (node != NULL) {
 		if (event->fromName.GetLength() == 0) {
 			for (oldEntry = node->GetFirstReferringEntry();
 				 oldEntry;
@@ -1234,7 +1235,7 @@ VolumeManager::_EntryMoved(EntryMovedEvent* event)
 		EntryMovedEvent* oldEvent = fEntryMovedEvents->Get(key);
 
 		// remove the old event
-		if (oldEvent) {
+		if (oldEvent != NULL) {
 			fEntryMovedEvents->Remove(key);
 			fRecentNodeMonitoringEvents.Remove(oldEvent);
 			notify = !_IsRecentEvent(oldEvent);
@@ -1249,7 +1250,7 @@ VolumeManager::_EntryMoved(EntryMovedEvent* event)
 	}
 
 	// remove the old entry
-	if (oldEntry) {
+	if (oldEntry != NULL) {
 		RemoveEntry(oldEntry);
 		delete oldEntry;
 	}
@@ -1257,7 +1258,7 @@ VolumeManager::_EntryMoved(EntryMovedEvent* event)
 	// If the to directory is complete or at least has iterators attached to it,
 	// we load the new entry. We also load it, if the node is the root of a
 	// volume.
-	if (toDirectory
+	if (toDirectory != NULL
 		&& (toDirectory->IsComplete() || toDirectory->HasDirIterators()
 			|| (node && node == node->GetVolume()->GetRootDirectory()))) {
 		Entry* newEntry;
@@ -1266,7 +1267,7 @@ VolumeManager::_EntryMoved(EntryMovedEvent* event)
 	}
 
 	// remove the node, if it doesn't have any more actual referring entries
-	if (node && !node->GetActualReferringEntry()) {
+	if (node != NULL && !node->GetActualReferringEntry()) {
 		RemoveNode(node);
 		if (node != node->GetVolume()->GetRootDirectory())
 			delete node;
@@ -1292,7 +1293,7 @@ VolumeManager::_EntryMoved(EntryMovedEvent* event)
 					// event
 					EntryRemovedEvent *removedEvent
 						= new(std::nothrow) EntryRemovedEvent;
-					if (!removedEvent)
+					if (removedEvent == NULL)
 						continue;
 					removedEvent->opcode = B_ENTRY_REMOVED;
 					removedEvent->time = event->time;
@@ -1310,7 +1311,7 @@ VolumeManager::_EntryMoved(EntryMovedEvent* event)
 				// "entry created" event
 				EntryCreatedEvent *createdEvent
 					= new(std::nothrow) EntryCreatedEvent;
-				if (!createdEvent)
+				if (createdEvent == NULL)
 					continue;
 				createdEvent->opcode = B_ENTRY_CREATED;
 				createdEvent->time = event->time;
@@ -1330,7 +1331,7 @@ VolumeManager::_NodeStatChanged(StatChangedEvent* event)
 {
 	// get the node
 	Node* node = GetNode(event->volumeID, event->nodeID);
-	if (!node)
+	if (node == NULL)
 		return;
 
 	// check, if there is an earlier similar event
@@ -1339,7 +1340,7 @@ VolumeManager::_NodeStatChanged(StatChangedEvent* event)
 	StatChangedEvent* oldEvent = fNodeStatChangedEvents->Get(ref);
 
 	// remove the old event
-	if (oldEvent) {
+	if (oldEvent != NULL) {
 		fNodeStatChangedEvents->Remove(ref);
 		fRecentNodeMonitoringEvents.Remove(oldEvent);
 		notify = !_IsRecentEvent(oldEvent);
@@ -1372,7 +1373,7 @@ VolumeManager::_NodeAttributeChanged(AttributeChangedEvent* event)
 {
 	// get the node
 	Node* node = GetNode(event->volumeID, event->nodeID);
-	if (!node)
+	if (node == NULL)
 		return;
 
 	// check, if there is an earlier similar event
@@ -1382,7 +1383,7 @@ VolumeManager::_NodeAttributeChanged(AttributeChangedEvent* event)
 	AttributeChangedEvent* oldEvent = fNodeAttributeChangedEvents->Get(ref);
 
 	// remove the old event
-	if (oldEvent) {
+	if (oldEvent != NULL) {
 		fNodeAttributeChangedEvents->Remove(ref);
 		fRecentNodeMonitoringEvents.Remove(oldEvent);
 		notify = !_IsRecentEvent(oldEvent);
@@ -1416,7 +1417,7 @@ VolumeManager::_VolumeMounted(VolumeMountedEvent* event)
 	// remove the entry referring to the covered directory
 	Directory* coveredDirectory = GetDirectory(event->volumeID,
 		event->directoryID);
-	if (coveredDirectory) {
+	if (coveredDirectory != NULL) {
 		if (Entry* entry = coveredDirectory->GetActualReferringEntry()) {
 			// get an entry for later
 			rootRef = entry->GetEntryRef();
@@ -1449,7 +1450,7 @@ VolumeManager::_VolumeUnmounted(VolumeUnmountedEvent* event)
 {
 	// get the volume
 	Volume* volume = GetVolume(event->volumeID);
-	if (!volume)
+	if (volume == NULL)
 		return;
 
 	entry_ref rootRef;
@@ -1465,7 +1466,7 @@ VolumeManager::_VolumeUnmounted(VolumeUnmountedEvent* event)
 		}
 
 		Entry* entry = rootDir->GetFirstReferringEntry();
-		while (entry) {
+		while (entry != NULL) {
 			Entry* nextEntry = rootDir->GetNextReferringEntry(entry);
 
 			if (entry->IsActualEntry()) {
@@ -1521,7 +1522,7 @@ VolumeManager::_QueryEntryCreated(EntryCreatedEvent* event)
 	// get the query handler
 	QueryHandler* queryHandler
 		= dynamic_cast<QueryHandler*>(event->queryHandler);
-	if (!queryHandler)
+	if (queryHandler == NULL)
 		return;
 
 	// load the entry (just to make sure that it really exists)
@@ -1551,7 +1552,7 @@ VolumeManager::_QueryEntryRemoved(EntryRemovedEvent* event)
 	// get the query handler
 	QueryHandler* queryHandler
 		= dynamic_cast<QueryHandler*>(event->queryHandler);
-	if (!queryHandler)
+	if (queryHandler == NULL)
 		return;
 
 	// load the directory (just to make sure that it really exists)
@@ -1582,7 +1583,7 @@ VolumeManager::_QueryEntryMoved(EntryMovedEvent* event)
 	// allocate the events
 	EntryRemovedEvent* removedEvent = new(std::nothrow) EntryRemovedEvent;
 	EntryCreatedEvent* createdEvent = new(std::nothrow) EntryCreatedEvent;
-	if (!removedEvent || !createdEvent) {
+	if (removedEvent == NULL || createdEvent == NULL) {
 		delete removedEvent;
 		delete createdEvent;
 		return;
@@ -1637,7 +1638,7 @@ VolumeManager::_GenerateEntryCreatedEvent(const entry_ref& ref, bigtime_t time,
 
 	// create the event
 	EntryCreatedEvent* event = new(std::nothrow) EntryCreatedEvent;
-	if (!event)
+	if (event == NULL)
 		return B_NO_MEMORY;
 
 	// fill in the fields
@@ -1663,12 +1664,12 @@ status_t
 VolumeManager::_GenerateEntryRemovedEvent(Entry* entry, bigtime_t time,
 	EntryRemovedEvent** _event)
 {
-	if (!entry)
+	if (entry == NULL)
 		return B_BAD_VALUE;
 
 	// create the event
 	EntryRemovedEvent* event = new(std::nothrow) EntryRemovedEvent;
-	if (!event)
+	if (event == NULL)
 		return B_NO_MEMORY;
 
 	// fill in the fields
@@ -1710,7 +1711,7 @@ VolumeManager::_CheckVolumeRootMoved(EntryMovedEvent* event)
 		event->nodeID = st.st_ino;
 		if (Volume* volume = GetVolume(st.st_dev)) {
 			if (volume->GetRootID() == st.st_ino) {
-				PRINT("Mount point for volume %ld renamed\n",
+				PRINT("Mount point for volume %" B_PRIdDEV " renamed\n",
 					volume->GetID());
 			}
 		}
