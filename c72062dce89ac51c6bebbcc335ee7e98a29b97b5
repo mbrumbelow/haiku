@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4fbac729_3cefa1ec",
+        "filename": "src/system/kernel/debug/debug_variables.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000055
+      },
+      "writtenOn": "2020-10-22T21:18:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7740c8b_38345eaf",
+      "revId": "c72062dce89ac51c6bebbcc335ee7e98a29b97b5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ce5ed30_fc097240",
         "filename": "src/system/kernel/debug/debug_variables.cpp",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "96ec59ac_67f21e6b",
+        "filename": "src/system/kernel/debug/debug_variables.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000055
+      },
+      "writtenOn": "2020-10-22T21:18:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ce5ed30_fc097240",
+      "revId": "c72062dce89ac51c6bebbcc335ee7e98a29b97b5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f9fb7fe6_9cd9b0f7",
         "filename": "src/system/kernel/util/kernel_cpp.cpp",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2020-10-22T06:28:16Z",
       "side": 1,
       "message": "I don\u0027t think this is desirable.",
+      "revId": "c72062dce89ac51c6bebbcc335ee7e98a29b97b5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4950d5a_63f6729e",
+        "filename": "src/system/kernel/util/kernel_cpp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1000055
+      },
+      "writtenOn": "2020-10-22T21:18:33Z",
+      "side": 1,
+      "message": "Use printf(\"%s\", message) in _LOADER_MODE ?",
+      "parentUuid": "f9fb7fe6_9cd9b0f7",
       "revId": "c72062dce89ac51c6bebbcc335ee7e98a29b97b5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
