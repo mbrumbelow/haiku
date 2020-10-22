@@ -39,7 +39,7 @@
 	printf("{!} (failed @ %s:%d) ", __FILE__, __LINE__); \
 	printf(M); \
 	putchar('\n'); \
-	exit(EXIT_FAILURE); \
+	exit(1); \
 } while (0)
 
 typedef enum log_level {
