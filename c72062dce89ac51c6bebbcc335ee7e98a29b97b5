@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c7740c8b_38345eaf",
+        "filename": "src/system/kernel/debug/debug_variables.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-10-22T06:28:16Z",
+      "side": 1,
+      "message": "Instead use \"static const char* const\"",
+      "revId": "c72062dce89ac51c6bebbcc335ee7e98a29b97b5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ce5ed30_fc097240",
+        "filename": "src/system/kernel/debug/debug_variables.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-10-22T06:28:16Z",
+      "side": 1,
+      "message": "Instead use \"static const char* const\"",
+      "revId": "c72062dce89ac51c6bebbcc335ee7e98a29b97b5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9fb7fe6_9cd9b0f7",
+        "filename": "src/system/kernel/util/kernel_cpp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-10-22T06:28:16Z",
+      "side": 1,
+      "message": "I don\u0027t think this is desirable.",
+      "revId": "c72062dce89ac51c6bebbcc335ee7e98a29b97b5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
