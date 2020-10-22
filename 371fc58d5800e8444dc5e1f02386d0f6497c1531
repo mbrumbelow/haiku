@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9d3ce973_d4a04a60",
+        "filename": "src/apps/autoraise/AutoRaiseIcon.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-10-22T17:23:10Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0cfdf2d9_275e5704",
+      "revId": "371fc58d5800e8444dc5e1f02386d0f6497c1531",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3bec5810_9b347c67",
         "filename": "src/apps/autoraise/AutoRaiseIcon.cpp",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "371fc58d5800e8444dc5e1f02386d0f6497c1531",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d04329d3_32c968ba",
+        "filename": "src/apps/autoraise/AutoRaiseIcon.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-10-22T17:23:10Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3bec5810_9b347c67",
+      "revId": "371fc58d5800e8444dc5e1f02386d0f6497c1531",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "b3a8275b_0fecdbfa",
+        "filename": "src/apps/autoraise/AutoRaiseIcon.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-10-22T17:23:10Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ab9f723a_83744d6d",
+      "revId": "371fc58d5800e8444dc5e1f02386d0f6497c1531",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed47992b_7630d97a",
         "filename": "src/apps/autoraise/AutoRaiseIcon.cpp",
         "patchSetId": 1
@@ -67,6 +121,24 @@
       "revId": "371fc58d5800e8444dc5e1f02386d0f6497c1531",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f058352_88bb267c",
+        "filename": "src/apps/autoraise/AutoRaiseIcon.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2020-10-22T17:23:10Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ed47992b_7630d97a",
+      "revId": "371fc58d5800e8444dc5e1f02386d0f6497c1531",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
