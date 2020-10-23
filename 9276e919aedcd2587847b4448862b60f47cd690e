@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "86e8ad29_d15c8bbc",
+        "filename": "src/system/kernel/debug/debug_variables.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-10-23T07:07:41Z",
+      "side": 1,
+      "message": "it shouldn\u0027t be necessary, given the usage is const",
+      "revId": "9276e919aedcd2587847b4448862b60f47cd690e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4494286c_d8a72788",
+        "filename": "src/system/kernel/debug/debug_variables.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-10-23T07:07:41Z",
+      "side": 1,
+      "message": "it shouldn\u0027t be necessary, given the usage is const",
+      "revId": "9276e919aedcd2587847b4448862b60f47cd690e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
