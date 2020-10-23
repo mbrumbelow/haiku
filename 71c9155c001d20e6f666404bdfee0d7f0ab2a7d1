@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "09ad170a_e1437e43",
+        "filename": "src/add-ons/kernel/file_systems/netfs/server/ClientConnection.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1612,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-10-23T10:43:41Z",
+      "side": 1,
+      "message": "directory !\u003d NULL",
+      "revId": "71c9155c001d20e6f666404bdfee0d7f0ab2a7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc92b1a1_b7db9b62",
+        "filename": "src/add-ons/kernel/file_systems/netfs/server/ClientConnection.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1716,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-10-23T10:43:41Z",
+      "side": 1,
+      "message": "directory !\u003d NULL",
+      "revId": "71c9155c001d20e6f666404bdfee0d7f0ab2a7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d68e95ef_7a8b8361",
+        "filename": "src/add-ons/kernel/file_systems/netfs/server/VolumeManager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 722,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-10-23T10:43:41Z",
+      "side": 1,
+      "message": "This line is too long",
+      "revId": "71c9155c001d20e6f666404bdfee0d7f0ab2a7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
