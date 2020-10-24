@@ -122,6 +122,24 @@
       "revId": "c72062dce89ac51c6bebbcc335ee7e98a29b97b5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1316518e_0f5456e4",
+        "filename": "src/system/kernel/util/kernel_cpp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1000055
+      },
+      "writtenOn": "2020-10-24T10:43:20Z",
+      "side": 1,
+      "message": "I add #pragma, comment need to be modified.",
+      "parentUuid": "dfd80524_07e0d75b",
+      "revId": "c72062dce89ac51c6bebbcc335ee7e98a29b97b5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
