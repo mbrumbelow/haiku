@@ -44,11 +44,11 @@
 
 #include <sys/cdefs.h>
 #include <sys/param.h>
+#include <stdint.h>
 #ifdef __HAIKU__
 #define	rounddown(x, y)	(((x)/(y))*(y))
 #include <endian.h>
 #include <size_t.h>
-#include <stdint.h>
 uint32_t calculate_crc32c(uint32_t crc32c, const unsigned char *buffer,
 	unsigned int length);
 #endif

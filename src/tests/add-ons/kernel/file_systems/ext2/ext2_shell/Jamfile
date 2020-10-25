@@ -1,0 +1,77 @@
+SubDir HAIKU_TOP src tests add-ons kernel file_systems ext2 ext2_shell ;
+
+SEARCH_SOURCE += [ FDirName $(HAIKU_TOP) src add-ons kernel file_systems ext2 ] ;
+
+# prevent inclusion of HaikuBuildCompatibility.h and _BSD_SOURCE headers
+DEFINES += HAIKU_BUILD_COMPATIBILITY_H __STRICT_ANSI__ ;
+
+# set some additional defines
+{
+	local defines =
+		FS_SHELL
+		Z_SOLO # prevent inclusion of system headers from zlib.h
+		TRACE_ext2 # ENABLE DEBUGGING
+		USER=1
+		;
+
+	defines = [ FDefines $(defines) ] ;
+	SubDirCcFlags $(defines) -Wno-multichar ;
+	SubDirC++Flags $(defines) -Wno-multichar -fno-rtti ;
+	HOST_LINKFLAGS += -lz ;	# zlib link
+}
+
+
+# platform specific libraries
+local fsShellCommandLibs ;
+if ! $(HOST_PLATFORM_HAIKU_COMPATIBLE) {
+	fsShellCommandLibs = $(HOST_NETWORK_LIBS) ;
+}
+
+
+UseHeaders [ FDirName $(HAIKU_TOP) headers build ] : true ;
+UseHeaders [ FDirName $(HAIKU_TOP) headers build os ] : true ;
+UseHeaders [ FDirName $(HAIKU_TOP) headers build os kernel ] : true ;
+UseHeaders [ FDirName $(HAIKU_TOP) headers build os storage ] : true ;
+UseHeaders [ FDirName $(HAIKU_TOP) headers build os support ] : true ;
+
+UsePrivateKernelHeaders ;
+UsePrivateHeaders shared storage fs_shell ;
+UsePrivateHeaders file_systems ;
+UseHeaders [ FDirName $(HAIKU_TOP) headers private ] : true ;
+UseHeaders [ FDirName $(HAIKU_TOP) headers private kernel util ] : true ;
+UseHeaders [ FDirName $(HAIKU_TOP) headers os drivers ] : true ;
+UseHeaders [ FDirName $(HAIKU_TOP) src tools fs_shell ] ;
+
+BuildPlatformMain <build>ext2_shell
+	:
+	Attribute.cpp
+	BitmapBlock.cpp
+	BlockAllocator.cpp
+	crc32.c
+	CRCTable.cpp
+	DataStream.cpp
+	DeviceOpener.cpp
+	DirectoryIterator.cpp
+	ExtentStream.cpp
+	HashRevokeManager.cpp
+	HTree.cpp
+	HTreeEntryIterator.cpp
+	Inode.cpp
+	InodeAllocator.cpp
+	InodeJournal.cpp
+	Journal.cpp
+	kernel_interface.cpp
+	NoJournal.cpp
+	RevokeManager.cpp
+	Transaction.cpp
+	Volume.cpp
+	:
+	<build>fs_shell.a $(HOST_LIBSUPC++) $(HOST_LIBSTDC++)
+	$(HOST_LIBROOT) $(fsShellCommandLibs)
+;
+
+SEARCH on [ FGristFiles DebugSupport.cpp ]
+	+= [ FDirName $(HAIKU_TOP) src add-ons kernel file_systems shared ] ;
+
+SEARCH on [ FGristFiles DeviceOpener.cpp ]
+	+= [ FDirName $(HAIKU_TOP) src add-ons kernel file_systems shared ] ;
