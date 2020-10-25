@@ -249,6 +249,14 @@ SettingsWindow::Show()
 BView*
 SettingsWindow::_CreateGeneralPage(float spacing)
 {
+	fDownloadFolderControl = new BTextControl("download folder",
+		B_TRANSLATE("Download folder:"), "",
+		new BMessage(MSG_DOWNLOAD_FOLDER_CHANGED));
+	fDownloadFolderControl->SetModificationMessage(
+		new BMessage(MSG_DOWNLOAD_FOLDER_CHANGED));
+	fDownloadFolderControl->SetText(
+		fSettings->GetValue(kSettingsKeyDownloadPath, kDefaultDownloadPath));
+
 	fStartPageControl = new BTextControl("start page",
 		B_TRANSLATE("Start page:"), "", new BMessage(MSG_START_PAGE_CHANGED));
 	fStartPageControl->SetModificationMessage(
@@ -270,14 +278,6 @@ SettingsWindow::_CreateGeneralPage(float spacing)
 		fSettings->SetValue(kSettingsKeySearchPageURL, kDefaultSearchPageURL);
 	}
 	fSearchPageControl->SetText(searchURL);
-
-	fDownloadFolderControl = new BTextControl("download folder",
-		B_TRANSLATE("Download folder:"), "",
-		new BMessage(MSG_DOWNLOAD_FOLDER_CHANGED));
-	fDownloadFolderControl->SetModificationMessage(
-		new BMessage(MSG_DOWNLOAD_FOLDER_CHANGED));
-	fDownloadFolderControl->SetText(
-		fSettings->GetValue(kSettingsKeyDownloadPath, kDefaultDownloadPath));
 
 	fStartUpBehaviorResumePriorSession = new BMenuItem(
 		B_TRANSLATE("Resume prior session"),
@@ -366,24 +366,24 @@ SettingsWindow::_CreateGeneralPage(float spacing)
 
 	BView* view = BGroupLayoutBuilder(B_VERTICAL, 0)
 		.Add(BGridLayoutBuilder(spacing / 2, spacing / 2)
-			.Add(fStartPageControl->CreateLabelLayoutItem(), 0, 0)
-			.Add(fStartPageControl->CreateTextViewLayoutItem(), 1, 0)
+			.Add(fStartUpBehaviorMenu->CreateLabelLayoutItem(), 0, 0)
+			.Add(fStartUpBehaviorMenu->CreateMenuBarLayoutItem(), 1, 0)
 
-			.Add(fSearchPageControl->CreateLabelLayoutItem(), 0, 1)
-			.Add(fSearchPageControl->CreateTextViewLayoutItem(), 1, 1)
+			.Add(fNewWindowBehaviorMenu->CreateLabelLayoutItem(), 0, 1)
+			.Add(fNewWindowBehaviorMenu->CreateMenuBarLayoutItem(), 1, 1)
 
-			.Add(fStartUpBehaviorMenu->CreateLabelLayoutItem(), 0, 2)
-			.Add(fStartUpBehaviorMenu->CreateMenuBarLayoutItem(), 1, 2)
+			.Add(fNewTabBehaviorMenu->CreateLabelLayoutItem(), 0, 2)
+			.Add(fNewTabBehaviorMenu->CreateMenuBarLayoutItem(), 1, 2)
 
-			.Add(fNewWindowBehaviorMenu->CreateLabelLayoutItem(), 0, 3)
-			.Add(fNewWindowBehaviorMenu->CreateMenuBarLayoutItem(), 1, 3)
+			.Add(fDownloadFolderControl->CreateLabelLayoutItem(), 0, 3)
+			.Add(fDownloadFolderControl->CreateTextViewLayoutItem(), 1, 3)
+			.Add(fChooseButton, 2, 3)
 
-			.Add(fNewTabBehaviorMenu->CreateLabelLayoutItem(), 0, 4)
-			.Add(fNewTabBehaviorMenu->CreateMenuBarLayoutItem(), 1, 4)
+			.Add(fStartPageControl->CreateLabelLayoutItem(), 0, 4)
+			.Add(fStartPageControl->CreateTextViewLayoutItem(), 1, 4)
 
-			.Add(fDownloadFolderControl->CreateLabelLayoutItem(), 0, 5)
-			.Add(fDownloadFolderControl->CreateTextViewLayoutItem(), 1, 5)
-			.Add(fChooseButton, 2, 5)
+			.Add(fSearchPageControl->CreateLabelLayoutItem(), 0, 5)
+			.Add(fSearchPageControl->CreateTextViewLayoutItem(), 1, 5)
 		)
 		.Add(BSpaceLayoutItem::CreateVerticalStrut(spacing))
 		.Add(new BSeparatorView(B_HORIZONTAL, B_PLAIN_BORDER))
