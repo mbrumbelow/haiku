@@ -7,7 +7,7 @@ RemotePackageRepository HaikuPorts
 	ca_root_certificates-2020_01_01-1
 	gnu_efi_kernel-3.0.10-1
 	haikuporter-1.2.3-2
-	noto-20170920-4
+	noto-2.7-1
 	noto_sans_cjk_jp-1.004-2
 	timgmsoundfont-fixed-5
 	wqy_microhei-0.2.0~beta-4
@@ -33,27 +33,27 @@ RemotePackageRepository HaikuPorts
 	expat-2.2.9-1
 	expat_devel-2.2.9-1
 	findutils-4.6.0-1
-	ffmpeg-4.2.2-3
-	ffmpeg_devel-4.2.2-3
-	flex-2.6.4-1
+	ffmpeg-4.2.2-6
+	ffmpeg_devel-4.2.2-6
+	flex-2.6.4-2
 	fluidlite_devel-1.0.0-3
 	fontconfig-2.13.92-1
 	fontconfig_devel-2.13.92-1
 	freetype-2.9.1-2
 	freetype_devel-2.9.1-2
-	gawk-4.1.4-2
+	gawk_x86-5.1.0-1
 	gettext_libintl-0.19.8.1-7
 	gcc-2.95.3_2017_07_20-2
 	gcc_syslibs_devel-2.95.3_2017_07_20-2
 	giflib6-5.0.5-5
 	giflib-5.1.4-2
 	giflib_devel-5.1.4-2
-	git-2.26.0-2
-	git_arch-2.26.0-2
-	git_cvs-2.26.0-2
-	git_daemon-2.26.0-2
-	git_email-2.26.0-2
-	git_svn-2.26.0-2
+	git-2.28.0-1
+	git_arch-2.28.0-1
+	git_cvs-2.28.0-1
+	git_daemon-2.28.0-1
+	git_email-2.28.0-1
+	git_svn-2.28.0-1
 	glu-9.0.0-7
 	glu_devel-9.0.0-7
 	grep-2.24-1
@@ -61,9 +61,9 @@ RemotePackageRepository HaikuPorts
 	gutenprint8-5.3.1-1
 	gutenprint8_devel-5.3.1-1
 	gzip-1.10-1
-	icu-57.2-2
-	icu_devel-57.2-2
-	jam-2.5_2018_11_21-7
+	icu-57.2-3
+	icu_devel-57.2-3
+	jam-2.5_2018_11_21-8
 	jasper-2.0.16-4
 	jasper_devel-2.0.16-4
 	keymapswitcher-1.2.7.15-1
@@ -72,7 +72,7 @@ RemotePackageRepository HaikuPorts
 	less-551-1
 	libedit-20180525_3.1-2
 	libedit_devel-20180525_3.1-2
-	libffi-3.0.13-2
+	libffi-3.0.13-3
 	libiconv-1.16-1
 	libicns-0.8.1-8
 	libicns_devel-0.8.1-8
@@ -82,8 +82,8 @@ RemotePackageRepository HaikuPorts
 	libmodplug-0.8.9.0-1
 	libogg-1.3.4-1
 	libogg_devel-1.3.4-1
-	libpcap-1.8.1-3
-	libpcap_devel-1.8.1-3
+	libpcap-1.8.1-4
+	libpcap_devel-1.8.1-4
 	libpcre-8.44-1
 	libpcre2-10.34-2
 	libpng16-1.6.37-1
@@ -101,8 +101,8 @@ RemotePackageRepository HaikuPorts
 	libvpx-1.0.0-2
 	libwebp-1.1.0-2
 	libwebp_devel-1.1.0-2
-	libxml2-2.9.10-1
-	libxml2_devel-2.9.10-1
+	libxml2-2.9.10-4
+	libxml2_devel-2.9.10-4
 	live555-2016.06.22-5
 	live555_devel-2016.06.22-5
 	m4-1.4.18-3
@@ -113,8 +113,8 @@ RemotePackageRepository HaikuPorts
 	mesa_devel-7.9.2-11
 	mesa_swrast-7.9.2-11
 	mkdepend-1.7-5
-	nano-2.9.8-3
-	nasm-2.12.02-1
+	nano_x86-5.0-1
+	nasm_x86-2.14.02-2
 	ncurses6-6.2-1
 	ncurses6_devel-6.2-1
 	netcat-1.10-4
@@ -124,7 +124,7 @@ RemotePackageRepository HaikuPorts
 	openexr_devel-2.2.1-3
 	openjpeg-2.1.2-3
 	openjpeg_devel-2.1.2-3
-	openssh-8.3p1-1
+	openssh-8.3p1-2
 	openssl-1.1.1g-2
 	openssl_devel-1.1.1g-2
 	p7zip-16.02-1
@@ -142,8 +142,8 @@ RemotePackageRepository HaikuPorts
 	speex-1.2.0-4
 	speex_devel-1.2.0-4
 	sqlite-3.31.1.0-1
-	subversion-1.9.7-1
-	subversion_devel-1.9.7-1
+	subversion-1.14.0-3
+	subversion_devel-1.14.0-3
 	taglib-1.7.2-3
 	taglib_devel-1.7.2-3
 	tar-1.32-1
@@ -171,8 +171,8 @@ RemotePackageRepository HaikuPorts
 	curl_x86_devel-7.70.0-2
 	expat_x86-2.2.9-1
 	expat_x86_devel-2.2.9-1
-	ffmpeg_x86-4.2.2-3
-	ffmpeg_x86_devel-4.2.2-3
+	ffmpeg_x86-4.2.2-6
+	ffmpeg_x86_devel-4.2.2-6
 	fluidlite_x86_devel-1.0.0-3
 	fontconfig_x86-2.13.92-1
 	fontconfig_x86_devel-2.13.92-1
@@ -188,10 +188,8 @@ RemotePackageRepository HaikuPorts
 	glu_x86-9.0.0-7
 	glu_x86_devel-9.0.0-7
 	gmp_x86-6.1.2-3
-	haikuwebkit_x86-1.7.0-1
-	haikuwebkit_x86_devel-1.7.0-1
-	icu_x86-57.2-2
-	icu_x86_devel-57.2-2
+	haikuwebkit_x86-1.7.1-1
+	haikuwebkit_x86_devel-1.7.1-1
 	icu66_x86-66.1-1
 	icu66_x86_devel-66.1-1
 	jasper_x86-2.0.16-4
@@ -228,12 +226,12 @@ RemotePackageRepository HaikuPorts
 	libunistring_x86-0.9.10-1
 	libvorbis_x86-1.3.6-1
 	libvorbis_x86_devel-1.3.6-1
-	libvpx_x86-1.7.0-3
-	libvpx_x86_devel-1.7.0-3
+	libvpx_x86-1.8.2-1
+	libvpx_x86_devel-1.8.2-1
 	libwebp_x86-1.1.0-2
 	libwebp_x86_devel-1.1.0-2
-	libxml2_x86-2.9.10-1
-	libxml2_x86_devel-2.9.10-1
+	libxml2_x86-2.9.10-4
+	libxml2_x86_devel-2.9.10-4
 	libxslt_x86-1.1.34-1
 	live555_x86-2016.06.22-5
 	live555_x86_devel-2016.06.22-5
@@ -295,7 +293,7 @@ RemotePackageRepository HaikuPorts
 	fluidlite
 	fontconfig
 	freetype
-	gawk
+	gawk_x86
 	gcc
 	gcc_x86
 	giflib6
@@ -362,8 +360,8 @@ RemotePackageRepository HaikuPorts
 	mpc
 	mpfr
 	nghttp2
-	nano
-	nasm
+	nano_x86
+	nasm_x86
 	ncurses6
 	netcat
 	nettle
@@ -409,7 +407,7 @@ RemotePackageRepository HaikuPorts
 	ctags
 	diffutils
 	findutils
-	gawk
+	gawk_x86
 	glu
 	grep
 	m4
