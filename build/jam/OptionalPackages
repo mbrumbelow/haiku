@@ -65,8 +65,8 @@ if [ IsOptionalHaikuImagePackageAdded BeOSCompatibility ] {
 # Development
 if [ IsOptionalHaikuImagePackageAdded Development ] {
 	# autotools
-	AddHaikuImageDisabledPackages autoconf automake texinfo ;
-	AddHaikuImageSourcePackages autoconf automake texinfo ;
+	AddHaikuImageDisabledPackages autoconf automake texinfo gawk@!gcc2 @{ gawk_x86@secondary_x86 }@ ;
+	AddHaikuImageSourcePackages autoconf automake texinfo gawk ;
 
 	# some other build tools
 	AddHaikuImageDisabledPackages pkgconfig ;
