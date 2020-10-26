@@ -187,7 +187,7 @@ rule DefineDefaultBuildProfiles
 				bison
 				expat
 				flex
-				gawk
+				gawk@!gcc2 @{ gawk_x86@secondary_x86 }@
 				gcc
 				grep
 				haikuporter
