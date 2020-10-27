@@ -183,6 +183,12 @@ extern int		symlinkat(const char *toPath, int fd, const char *symlinkPath);
 
 extern int      ftruncate(int fd, off_t newSize);
 extern int      truncate(const char *path, off_t newSize);
+
+#ifndef _KERNEL_MODE
+#define GET_MACRO(_1,_2,_3,_4,NAME,...) NAME
+#define ioctl(...) GET_MACRO(__VA_ARGS__, ioctl, ioctl, __ioctl3)(__VA_ARGS__)
+extern int		__ioctl3(int fd, unsigned long op, ...);
+#endif
 extern int		ioctl(int fd, unsigned long op, ...);
 
 extern ssize_t	read(int fd, void *buffer, size_t count);

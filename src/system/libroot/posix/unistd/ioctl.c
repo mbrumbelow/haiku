@@ -13,6 +13,27 @@
 #include <syscall_utils.h>
 
 
+#ifndef _KERNEL_MODE
+
+int
+__ioctl3(int fd, ulong cmd, ...)
+{
+	va_list args;
+	void* argument;
+	int status;
+
+	va_start(args, cmd);
+	argument = va_arg(args, void*);
+	va_end(args);
+
+	status = _kern_ioctl(fd, cmd, argument, 0);
+
+	RETURN_AND_SET_ERRNO(status);
+}
+
+#endif
+
+
 int
 ioctl(int fd, ulong cmd, ...)
 {
