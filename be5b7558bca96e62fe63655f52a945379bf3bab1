@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dfb35b7e_e4476396",
+        "filename": "data/develop/makefile-engine",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-10-27T23:05:06Z",
+      "side": 1,
+      "message": "Please add a space after the comma. Otherwise ifeq, endif can be left unindented it seems.",
+      "revId": "be5b7558bca96e62fe63655f52a945379bf3bab1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
