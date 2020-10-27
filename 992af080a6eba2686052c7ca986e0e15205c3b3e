@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dec793ab_2c69c32f",
+        "filename": "src/system/kernel/util/kernel_cpp.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-10-27T10:28:39Z",
+      "side": 1,
+      "message": "// this is a wrapper, disable format diagnostics",
+      "revId": "992af080a6eba2686052c7ca986e0e15205c3b3e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
