@@ -501,6 +501,7 @@ HaikuKernelVolume::IOCtl(void* _node, void* cookie, uint32 command,
 {
 	HaikuKernelNode* node = (HaikuKernelNode*)_node;
 
+#undef ioctl
 	if (!node->ops->ioctl)
 		return B_BAD_VALUE;
 	return node->ops->ioctl(&fVolume, node, cookie, command, buffer,
