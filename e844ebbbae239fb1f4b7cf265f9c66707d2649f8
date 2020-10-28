@@ -16,6 +16,24 @@
       "revId": "e844ebbbae239fb1f4b7cf265f9c66707d2649f8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ddc729cb_d7dc3210",
+        "filename": "src/system/libroot/posix/malloc_hoard2/arch-specific.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000055
+      },
+      "writtenOn": "2020-10-28T10:10:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "014664ec_6f564a3e",
+      "revId": "e844ebbbae239fb1f4b7cf265f9c66707d2649f8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
