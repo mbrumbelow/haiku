@@ -16,6 +16,24 @@
       "revId": "42c35c1e3d6054b08dcb8e288ae38ebd144cb738",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "391495ff_4a0ca2c1",
+        "filename": "src/add-ons/kernel/file_systems/netfs/server/ClientConnection.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2470,
+      "author": {
+        "id": 1000055
+      },
+      "writtenOn": "2020-10-29T09:58:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "048ee825_43ec0e1b",
+      "revId": "42c35c1e3d6054b08dcb8e288ae38ebd144cb738",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
