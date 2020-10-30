@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0265848c_b5c14598",
+        "filename": "src/bin/top.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-10-30T11:49:07Z",
+      "side": 1,
+      "message": "The idiom (for every string from tgetstr) is: tputs(save_cursor, 1, putchar);",
+      "revId": "5f2fb14738b39cf66d146d43bf21e58dcf1d0c9c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
