@@ -60,3 +60,16 @@ tcgetpgrp(int fd)
 
 	return -1;
 }
+
+
+pid_t
+tcgetsid(int fd)
+{
+	int sid;
+
+	if (ioctl(fd, TIOCGSID, &sid) == 0)
+		return sid;
+
+	return -1;
+}
+
