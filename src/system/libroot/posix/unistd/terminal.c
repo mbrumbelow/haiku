@@ -4,6 +4,7 @@
  */
 
 
+#include <errno.h>
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
@@ -71,5 +72,17 @@ tcgetsid(int fd)
 		return sid;
 
 	return -1;
+}
+
+
+int
+tcsetsid(int fd, pid_t pid)
+{
+	if (pid != getsid(0)) {
+		errno = EINVAL;
+		return -1;
+	}
+
+	return ioctl(fd, TIOCSCTTY, NULL);
 }
 
