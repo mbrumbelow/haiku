@@ -16,6 +16,7 @@
 #include <MediaAddOn.h>
 #include <MediaRoster.h>
 #include <scheduler.h>
+#include <StackOrHeapArray.h>
 #include <String.h>
 
 #include <new>
@@ -2232,7 +2233,9 @@ OpenSoundNode::_PlayThread(NodeInput* input)
 	}
 
 	// cache a silence buffer
-	uint8 silenceBuffer[bufferSize];
+	BStackOrHeapArray<uint8, 0> silenceBuffer(bufferSize);
+	if (!silenceBuffer.IsValid())
+		return B_NO_MEMORY;
 	uint8 formatSilence = 0;
 	if (input->fInput.format.u.raw_audio.format
 			== media_raw_audio_format::B_AUDIO_UCHAR)
