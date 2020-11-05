@@ -451,31 +451,38 @@ Response::~Response()
 
 void
 Response::Parse(BDataIO& stream, LiteralHandler* handler)
-	throw(ParseException, StreamException)
 {
-	MakeEmpty();
-	fLiteralHandler = handler;
-	fTag = 0;
-	fContinuation = false;
-	fHasNextChar = false;
+	try {
+		MakeEmpty();
+		fLiteralHandler = handler;
+		fTag = 0;
+		fContinuation = false;
+		fHasNextChar = false;
 
-	char begin = Next(stream);
-	if (begin == '*') {
-		// Untagged response
-		Consume(stream, ' ');
-	} else if (begin == '+') {
-		// Continuation
-		fContinuation = true;
-	} else if (begin == 'A') {
-		// Tagged response
-		fTag = ExtractNumber(stream);
-		Consume(stream, ' ');
-	} else
-		throw ParseException("Unexpected response begin");
+		char begin = Next(stream);
+		if (begin == '*') {
+			// Untagged response
+			Consume(stream, ' ');
+		} else if (begin == '+') {
+			// Continuation
+			fContinuation = true;
+		} else if (begin == 'A') {
+			// Tagged response
+			fTag = ExtractNumber(stream);
+			Consume(stream, ' ');
+		} else
+			throw ParseException("Unexpected response begin");
 
-	char c = ParseLine(*this, stream);
-	if (c != '\0')
-		throw ExpectedParseException('\0', c);
+		char c = ParseLine(*this, stream);
+		if (c != '\0')
+			throw ExpectedParseException('\0', c);
+	}
+	catch(const ParseException&) {
+		throw;
+	}
+	catch(const StreamException&) {
+		throw;
+	}
 }
 
 
@@ -763,10 +770,17 @@ ResponseParser::SetLiteralHandler(LiteralHandler* handler)
 
 status_t
 ResponseParser::NextResponse(Response& response, bigtime_t timeout)
-	throw(ParseException, StreamException)
 {
-	response.Parse(*fStream, fLiteralHandler);
-	return B_OK;
+	try {
+		response.Parse(*fStream, fLiteralHandler);
+		return B_OK;
+	}
+	catch(const ParseException&) {
+		throw;
+	}
+	catch(const StreamException&) {
+		throw;
+	}
 }
 
 
