@@ -17,7 +17,8 @@
 
 class KeyboardSettings{
 public :
-	KeyboardSettings();
+	KeyboardSettings(BString name);
+	KeyboardSettings(kb_settings settings, BString name);
 	~KeyboardSettings();
 
 	void Revert();
@@ -33,8 +34,9 @@ public :
 	void SetKeyboardRepeatDelay(bigtime_t delay);
 
 private:
-	kb_settings			fSettings;
-	kb_settings			fOriginalSettings;
+//	kb_settings			fSettings;
+	kb_settings			fSettings, fOriginalSettings;
+	BString				fName;
 };
 
 #endif

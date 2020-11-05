@@ -17,7 +17,9 @@
 #include <stdio.h>
 
 
-KeyboardSettings::KeyboardSettings()
+KeyboardSettings::KeyboardSettings(BString name)
+	:
+	fName(name)
 {
 	if (get_key_repeat_rate(&fSettings.key_repeat_rate) != B_OK)
 		fSettings.key_repeat_rate = kb_default_key_repeat_rate;
@@ -39,6 +41,30 @@ KeyboardSettings::KeyboardSettings()
 			}
 }
 
+KeyboardSettings::KeyboardSettings(kb_settings settings, BString name)
+	:
+	fSettings(settings)
+{
+	fName = name;
+	if (get_key_repeat_rate(&fSettings.key_repeat_rate) != B_OK)
+		fSettings.key_repeat_rate = kb_default_key_repeat_rate;
+
+	if (get_key_repeat_delay(&fSettings.key_repeat_delay) != B_OK)
+		fSettings.key_repeat_delay = kb_default_key_repeat_delay;
+
+	fOriginalSettings = fSettings;
+
+	BPath path;
+	BFile file;
+
+	status_t status = find_directory(B_USER_SETTINGS_DIRECTORY, &path);
+	if (status == B_OK) {
+		status = path.Append(kb_settings_file);
+		if (status == B_OK) {
+			status = file.SetTo(path.Path(), B_READ_ONLY);
+				}
+			}
+}
 
 KeyboardSettings::~KeyboardSettings()
 {

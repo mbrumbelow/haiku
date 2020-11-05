@@ -25,12 +25,14 @@
 #undef B_TRANSLATION_CONTEXT
 #define B_TRANSLATION_CONTEXT "InputKeyboard"
 
-InputKeyboard::InputKeyboard(BInputDevice* dev)
+InputKeyboard::InputKeyboard(BInputDevice* dev, KeyboardSettings* settings)
 	:
 	BView("InputKeyboard", B_WILL_DRAW)
 {
+	fSettings = settings;
+
 	// Add the main settings view
-	fSettingsView = new KeyboardView();
+	fSettingsView = new KeyboardView(*fSettings);
 
 	// Add the "Default" button..
 	fDefaultsButton = new BButton(B_TRANSLATE("Defaults"),
@@ -57,13 +59,13 @@ InputKeyboard::InputKeyboard(BInputDevice* dev)
 
 	BSlider* slider = (BSlider* )FindView("key_repeat_rate");
 	if (slider !=NULL)
-		slider->SetValue(fSettings.KeyboardRepeatRate());
+		slider->SetValue(fSettings->KeyboardRepeatRate());
 
 	slider = (BSlider* )FindView("delay_until_key_repeat");
 	if (slider !=NULL)
-		slider->SetValue(fSettings.KeyboardRepeatDelay());
+		slider->SetValue(fSettings->KeyboardRepeatDelay());
 
-	fDefaultsButton->SetEnabled(fSettings.IsDefaultable());
+	fDefaultsButton->SetEnabled(fSettings->IsDefaultable());
 }
 
 void
@@ -74,15 +76,15 @@ InputKeyboard::MessageReceived(BMessage* message)
 	switch (message->what) {
 		case kMsgDefaults:
 		{
-			fSettings.Defaults();
+			fSettings->Defaults();
 
 			slider = (BSlider* )FindView("key_repeat_rate");
 			if (slider !=NULL)
-				slider->SetValue(fSettings.KeyboardRepeatRate());
+				slider->SetValue(fSettings->KeyboardRepeatRate());
 
 			slider = (BSlider* )FindView("delay_until_key_repeat");
 			if (slider !=NULL)
-				slider->SetValue(fSettings.KeyboardRepeatDelay());
+				slider->SetValue(fSettings->KeyboardRepeatDelay());
 
 			fDefaultsButton->SetEnabled(false);
 
@@ -91,17 +93,17 @@ InputKeyboard::MessageReceived(BMessage* message)
 		}
 		case kMsgRevert:
 		{
-			fSettings.Revert();
+			fSettings->Revert();
 
 			slider = (BSlider* )FindView("key_repeat_rate");
 			if (slider !=NULL)
-				slider->SetValue(fSettings.KeyboardRepeatRate());
+				slider->SetValue(fSettings->KeyboardRepeatRate());
 
 			slider = (BSlider* )FindView("delay_until_key_repeat");
 			if (slider !=NULL)
-				slider->SetValue(fSettings.KeyboardRepeatDelay());
+				slider->SetValue(fSettings->KeyboardRepeatDelay());
 
-			fDefaultsButton->SetEnabled(fSettings.IsDefaultable());
+			fDefaultsButton->SetEnabled(fSettings->IsDefaultable());
 
 			fRevertButton->SetEnabled(false);
 			break;
@@ -111,9 +113,9 @@ InputKeyboard::MessageReceived(BMessage* message)
 			int32 rate;
 			if (message->FindInt32("be:value", &rate) != B_OK)
 				break;
-			fSettings.SetKeyboardRepeatRate(rate);
+			fSettings->SetKeyboardRepeatRate(rate);
 
-			fDefaultsButton->SetEnabled(fSettings.IsDefaultable());
+			fDefaultsButton->SetEnabled(fSettings->IsDefaultable());
 
 			fRevertButton->SetEnabled(true);
 			break;
@@ -136,13 +138,13 @@ InputKeyboard::MessageReceived(BMessage* message)
 			if (delay >= 875000)
 				delay = 1000000;
 
-			fSettings.SetKeyboardRepeatDelay(delay);
+			fSettings->SetKeyboardRepeatDelay(delay);
 
 			slider = (BSlider* )FindView("delay_until_key_repeat");
 			if (slider != NULL)
 				slider->SetValue(delay);
 
-			fDefaultsButton->SetEnabled(fSettings.IsDefaultable());
+			fDefaultsButton->SetEnabled(fSettings->IsDefaultable());
 
 			fRevertButton->SetEnabled(true);
 			break;

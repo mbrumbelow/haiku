@@ -202,7 +202,7 @@ InputWindow::AddDevice(BInputDevice* dev)
 			name, MOUSE_TYPE);
 		fDeviceListView->AddItem(mouse);
 	} else if (dev->Type() == B_KEYBOARD_DEVICE) {
-		InputKeyboard* view = new InputKeyboard(dev);
+		InputKeyboard* view = new InputKeyboard(dev, settings);
 		fCardView->AddChild(view);
 
 		DeviceListItemView* keyboard = new DeviceListItemView(

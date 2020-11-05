@@ -20,14 +20,19 @@
 #include <Application.h>
 
 
+class KeyboardSettings;
+
+
 class KeyboardView : public BGroupView
 {
 public:
-	KeyboardView();
+	KeyboardView(const KeyboardSettings& settings);
 	virtual ~KeyboardView();
 	void	Draw(BRect frame);
 
 private:
+	const	KeyboardSettings&	fSettings;
+
 	BBitmap		*fIconBitmap;
 	BBitmap		*fClockBitmap;
 	BSlider		*fDelaySlider;

@@ -27,8 +27,9 @@
 #undef B_TRANSLATION_CONTEXT
 #define B_TRANSLATION_CONTEXT "KeyboardView"
 
-KeyboardView::KeyboardView()
- :	BGroupView()
+KeyboardView::KeyboardView(const KeyboardSettings &settings)
+ :	BGroupView(),
+	fSettings(settings)
 {
 	// Create the "Key repeat rate" slider...
 	fRepeatSlider = new BSlider("key_repeat_rate",
