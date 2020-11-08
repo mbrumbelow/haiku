@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "400173b7_512bd873",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-11-08T11:55:43Z",
+      "side": 1,
+      "message": "Does this compile? settings isn\u0027t to be found here.",
+      "revId": "feeccdef72ff80f211637ac22d4f63281c46443e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
