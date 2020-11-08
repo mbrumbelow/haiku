@@ -26,19 +26,23 @@ XDRInPacketGetInt32(struct XDRInPacket *packet)
 	return val;
 }
 
-extern void 
+extern int32
 XDRInPacketGetFixed(struct XDRInPacket *packet, void *buffer, size_t len)
 {
-	memcpy (buffer,&packet->fBuffer[packet->fOffset],len);
-	packet->fOffset+=(len+3)&~3;
+	if (user_memcpy(buffer, &packet->fBuffer[packet->fOffset], len)
+		!= B_OK) {
+		return NFSERR_IO;
+	}
+
+	packet->fOffset += (len + 3) & ~3;
+	return NFS_OK;
 }
 
 extern size_t 
 XDRInPacketGetDynamic(struct XDRInPacket *packet, void *buffer)
 {
 	size_t size=XDRInPacketGetInt32(packet);
-	XDRInPacketGetFixed (packet,buffer,size);
-	
+	XDRInPacketGetFixed(packet,buffer,size);
 	return size;
 }
 
@@ -48,7 +52,7 @@ XDRInPacketGetString(struct XDRInPacket *packet)
 	int32 size=XDRInPacketGetInt32(packet);
 	char *string=(char *)malloc(size+1);
 	string[size]=0;
-	XDRInPacketGetFixed (packet,string,size);
+	XDRInPacketGetFixed(packet,string,size);
 	
 	return string;
 }
