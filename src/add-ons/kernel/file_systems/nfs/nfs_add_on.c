@@ -490,7 +490,8 @@ nfs_mount(fs_nspace *ns, const char *path, nfs_fhandle *fhandle)
 		return map_nfs_to_system_error(fhstatus);
 	}
 
-	XDRInPacketGetFixed(&reply, fhandle->opaque, NFS_FHSIZE);
+	if (XDRInPacketGetFixed(&reply, fhandle->opaque, NFS_FHSIZE) != B_OK)
+		return B_BAD_ADDRESS;
 
 	XDRInPacketDestroy(&reply);
 	XDROutPacketDestroy(&call);
@@ -538,7 +539,8 @@ nfs_lookup (fs_nspace *ns, const nfs_fhandle *dir, const char *filename,
 		return map_nfs_to_system_error(status);
 	}
 
-	XDRInPacketGetFixed(&reply, fhandle->opaque, NFS_FHSIZE);
+	if (XDRInPacketGetFixed(&reply, fhandle->opaque, NFS_FHSIZE) != B_OK)
+		return B_BAD_ADDRESS;
 
 	if (st)
 		get_nfs_attr(&reply, st);
@@ -1002,7 +1004,8 @@ fs_readdir(fs_volume *_volume, fs_vnode *_node, void *_cookie,
 			vnid=XDRInPacketGetInt32(&reply);
 			filename=XDRInPacketGetString(&reply);
 
-			XDRInPacketGetFixed(&reply, newCookie.opaque, NFS_COOKIESIZE);
+			if (XDRInPacketGetFixed(&reply, newCookie.opaque, NFS_COOKIESIZE) != B_OK)
+				return B_BAD_ADDRESS;
 
 			//if (strcmp(".",filename)&&strcmp("..",filename))
 			//if ((ns->rootid != node->vnid) || (strcmp(".",filename)&&strcmp("..",filename)))
@@ -1810,7 +1813,8 @@ fs_create(fs_volume *_volume, fs_vnode *_dir, const char *name, int omode,
 			return map_nfs_to_system_error(status);
 		}
 
-		XDRInPacketGetFixed(&reply, fhandle.opaque, NFS_FHSIZE);
+		if (XDRInPacketGetFixed(&reply, fhandle.opaque, NFS_FHSIZE) != B_OK)
+			return B_BAD_ADDRESS;
 
 		get_nfs_attr(&reply,&st);
 
@@ -2041,7 +2045,8 @@ fs_mkdir(fs_volume *_volume, fs_vnode *_dir, const char *name, int perms)
 		return map_nfs_to_system_error(status);
 	}
 
-	XDRInPacketGetFixed(&reply, fhandle.opaque, NFS_FHSIZE);
+	if (XDRInPacketGetFixed(&reply, fhandle.opaque, NFS_FHSIZE) != B_OK)
+		return B_BAD_ADDRESS;
 
 	get_nfs_attr(&reply, &st);
 

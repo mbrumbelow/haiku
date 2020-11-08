@@ -26,11 +26,17 @@ XDRInPacketGetInt32(struct XDRInPacket *packet)
 	return val;
 }
 
-extern void 
+extern status_t
 XDRInPacketGetFixed(struct XDRInPacket *packet, void *buffer, size_t len)
 {
-	memcpy (buffer,&packet->fBuffer[packet->fOffset],len);
-	packet->fOffset+=(len+3)&~3;
+	status_t status = B_OK;
+
+	status = user_memcpy(buffer, &packet->fBuffer[packet->fOffset], len);
+	if (status != B_OK)
+		return status;
+
+	packet->fOffset += (len + 3) & ~3;
+	return status;
 }
 
 extern size_t 
