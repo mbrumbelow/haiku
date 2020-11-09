@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af3a6376_8e3ae015",
+        "filename": "src/add-ons/mail_daemon/inbound_protocols/imap/imap_lib/Response.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-11-09T07:19:02Z",
+      "side": 1,
+      "message": "Missing space after catch, \u0027}\u0027 and catch are supposed to be on the same line.",
+      "revId": "602b5c3903fd44312f1549a616731b6683390fa0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
