@@ -121,3 +121,8 @@ KeyboardSettings::IsDefaultable()
 	return fSettings.key_repeat_delay != kb_default_key_repeat_delay
 		|| fSettings.key_repeat_rate != kb_default_key_repeat_rate;
 }
+
+kb_settings*
+KeyboardSettings::GetSettings() {
+	return &fSettings;
+}

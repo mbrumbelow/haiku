@@ -33,6 +33,8 @@ public :
 		{ return fSettings.key_repeat_delay; }
 	void SetKeyboardRepeatDelay(bigtime_t delay);
 
+	kb_settings* GetSettings();
+
 private:
 //	kb_settings			fSettings;
 	kb_settings			fSettings, fOriginalSettings;
