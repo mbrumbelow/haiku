@@ -66,6 +66,9 @@ BNetBuffer::BNetBuffer(BMessage* archive) :
 BNetBuffer&
 BNetBuffer::operator=(const BNetBuffer& buffer)
 {
+	if (this == &buffer)
+		return *this;
+
 	delete fImpl;
 
 	fImpl = new (std::nothrow) DynamicBuffer(*buffer.GetImpl());
