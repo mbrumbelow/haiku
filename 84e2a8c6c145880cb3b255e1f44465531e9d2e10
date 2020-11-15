@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2c11381c_20aed1a6",
+        "filename": "headers/private/shared/LRUCache.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2020-11-15T02:56:23Z",
+      "side": 1,
+      "message": "A code style nitpick:\n\nfOldestNode \u003d\u003d NULL",
+      "revId": "84e2a8c6c145880cb3b255e1f44465531e9d2e10",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
