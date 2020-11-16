@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6cca7f96_5d5f634d",
+        "filename": "src/kits/support/Jamfile",
+        "patchSetId": 13
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-11-16T20:19:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d395a7ed_2af35ceb",
+      "revId": "0382300147990dfbb842e4f73230d9555e9420e3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8169733d_a0c2a8fc",
         "filename": "src/kits/support/MemoryRingIO.cpp",
         "patchSetId": 13
@@ -33,6 +51,24 @@
       "revId": "0382300147990dfbb842e4f73230d9555e9420e3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e94c350f_6d604922",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-11-16T20:19:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8169733d_a0c2a8fc",
+      "revId": "0382300147990dfbb842e4f73230d9555e9420e3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "a42e7ae8_48248c23",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-11-16T20:19:13Z",
+      "side": 1,
+      "message": "It\u0027s not too important after all.",
+      "parentUuid": "e2c00093_ef34e723",
+      "revId": "0382300147990dfbb842e4f73230d9555e9420e3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45aadcf5_f48c8699",
         "filename": "src/kits/support/MemoryRingIO.cpp",
         "patchSetId": 13
@@ -67,6 +121,24 @@
       "revId": "0382300147990dfbb842e4f73230d9555e9420e3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78de1786_dab701cb",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-11-16T20:19:13Z",
+      "side": 1,
+      "message": "Checked the docs: yes, they do, all possible errors are checked before unlocking the mutex.",
+      "parentUuid": "45aadcf5_f48c8699",
+      "revId": "0382300147990dfbb842e4f73230d9555e9420e3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "144f6f6c_6a1b6f85",
+        "filename": "src/tests/kits/support/bmemoryio/MemoryRingIOTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-11-16T20:19:13Z",
+      "side": 1,
+      "message": "Not too important in test code.",
+      "parentUuid": "2840b5b4_2fa02cbd",
+      "revId": "0382300147990dfbb842e4f73230d9555e9420e3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "916eda88_1c000015",
         "filename": "src/tests/kits/support/bmemoryio/MemoryRingIOTest.h",
         "patchSetId": 13
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "0bd3dee9_f78b3d58",
+        "filename": "src/tests/kits/support/bmemoryio/MemoryRingIOTest.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-11-16T20:19:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "916eda88_1c000015",
+      "revId": "0382300147990dfbb842e4f73230d9555e9420e3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1289b7ab_9c267026",
         "filename": "src/tests/kits/support/bmemoryio/MemoryRingIOTest.h",
         "patchSetId": 13
@@ -118,6 +226,24 @@
       "revId": "0382300147990dfbb842e4f73230d9555e9420e3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "174df145_6875c92a",
+        "filename": "src/tests/kits/support/bmemoryio/MemoryRingIOTest.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-11-16T20:19:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1289b7ab_9c267026",
+      "revId": "0382300147990dfbb842e4f73230d9555e9420e3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
