@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "b9c2f8e3_354db5d1",
+        "filename": "src/servers/app/font/GlyphLayoutEngine.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2020-11-16T18:57:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e5984f1_9b27e407",
+      "revId": "97c0078bb75660dabbe202507a728bdf5a85504f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c799fd01_5d9f8c68",
         "filename": "src/servers/app/font/GlyphLayoutEngine.h",
         "patchSetId": 6
@@ -86,6 +104,24 @@
       "revId": "97c0078bb75660dabbe202507a728bdf5a85504f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f59543f_e70907e4",
+        "filename": "src/servers/app/font/GlyphLayoutEngine.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2020-11-16T18:57:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c799fd01_5d9f8c68",
+      "revId": "97c0078bb75660dabbe202507a728bdf5a85504f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
