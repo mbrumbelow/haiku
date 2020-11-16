@@ -3857,13 +3857,40 @@ getpid(void)
 
 
 pid_t
-getppid(void)
+getppid(pid_t id)
 {
-	Team* team = thread_get_current_thread()->team;
+	if (id < 0) {
+		errno = EINVAL;
+		return -1;
+	}
 
-	TeamLocker teamLocker(team);
+	if (id == 0) {
+		Team* team = thread_get_current_thread()->team;
+		TeamLocker teamLocker(team);
+		if (team->parent == NULL) {
+			errno = EINVAL;
+			return -1;
+		}
+		return team->parent->id;
+	}
 
-	return team->parent->id;
+	Team* team = Team::GetAndLock(id);
+	if (team == NULL) {
+		errno = ESRCH;
+		return -1;
+	}
+
+	pid_t parentID = team->parent->id;
+
+	if (team->parent == NULL) {
+		errno = EINVAL;
+		parentID = -1;
+	} else
+		parentID = team->parent->id;
+
+	team->UnlockAndReleaseReference();
+
+	return parentID;
 }
 
 
@@ -3998,11 +4025,6 @@ _user_wait_for_child(thread_id child, uint32 flags, siginfo_t* userInfo,
 pid_t
 _user_process_info(pid_t process, int32 which)
 {
-	// we only allow to return the parent of the current process
-	if (which == PARENT_ID
-		&& process != 0 && process != thread_get_current_thread()->team->id)
-		return B_BAD_VALUE;
-
 	pid_t result;
 	switch (which) {
 		case SESSION_ID:
@@ -4012,7 +4034,7 @@ _user_process_info(pid_t process, int32 which)
 			result = getpgid(process);
 			break;
 		case PARENT_ID:
-			result = getppid();
+			result = getppid(process);
 			break;
 		default:
 			return B_BAD_VALUE;
