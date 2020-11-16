@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "06458c32_c5559c21",
+        "filename": "src/servers/app/font/GlyphLayoutEngine.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-11-16T13:06:42Z",
+      "side": 1,
+      "message": "The list will grow itself as needed, anyway, so it isn\u0027t too important. This is just an initial allocation for better performance. The value seemed oddly specific to me, but now it makes sense that it is a multiple of 3.",
+      "parentUuid": "e6e67dc1_79e26aad",
+      "revId": "97c0078bb75660dabbe202507a728bdf5a85504f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5e5984f1_9b27e407",
         "filename": "src/servers/app/font/GlyphLayoutEngine.h",
         "patchSetId": 6
