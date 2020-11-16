@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e6e67dc1_79e26aad",
+        "filename": "src/servers/app/font/GlyphLayoutEngine.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2020-11-16T12:50:28Z",
+      "side": 1,
+      "message": "Quasirandom. A multiple of 3 (styles) that is near the default and bigger than current needs.\n\nWould it be too much to add another lifecycle wrapper class and allocate the BObjectList on the heap in _PopulateAndLockFallbacks, where we know the elements we may need?",
+      "parentUuid": "a0ba34e3_bd4a9942",
+      "revId": "97c0078bb75660dabbe202507a728bdf5a85504f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5e5984f1_9b27e407",
         "filename": "src/servers/app/font/GlyphLayoutEngine.h",
         "patchSetId": 6
