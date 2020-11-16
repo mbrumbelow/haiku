@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a0ba34e3_bd4a9942",
+        "filename": "src/servers/app/font/GlyphLayoutEngine.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-11-16T07:23:25Z",
+      "side": 1,
+      "message": "why 21? Is there a specific reason or is it just picked at random?",
+      "revId": "97c0078bb75660dabbe202507a728bdf5a85504f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e5984f1_9b27e407",
+        "filename": "src/servers/app/font/GlyphLayoutEngine.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-11-16T07:23:25Z",
+      "side": 1,
+      "message": "you can use B_COUNT_OF to get the number of items in an array. Also, if we\u0027re using B_COUNT_OF, the NULL at the end of the array can be removed (and the - 1 here)",
+      "revId": "97c0078bb75660dabbe202507a728bdf5a85504f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c799fd01_5d9f8c68",
+        "filename": "src/servers/app/font/GlyphLayoutEngine.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-11-16T07:23:25Z",
+      "side": 1,
+      "message": "use new(std::nothrow) if you check for errors by checking for a NULL pointer. By default, new throws an exception when there is no memory.",
+      "revId": "97c0078bb75660dabbe202507a728bdf5a85504f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
