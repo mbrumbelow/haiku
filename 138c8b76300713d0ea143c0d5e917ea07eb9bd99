@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "26caf5e7_981da2a5",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-11-17T21:19:28Z",
+      "side": 1,
+      "message": "This line broke drawing for me (black screen) so I reverted back to the previous version.",
+      "revId": "138c8b76300713d0ea143c0d5e917ea07eb9bd99",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0c3dfe45_fb9301a5",
         "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
         "patchSetId": 2
@@ -19,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "ee7223a2_f7481f08",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-11-17T21:19:28Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0c3dfe45_fb9301a5",
+      "revId": "138c8b76300713d0ea143c0d5e917ea07eb9bd99",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7b379aee_cae38536",
         "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
         "patchSetId": 2
@@ -33,6 +68,24 @@
       "revId": "138c8b76300713d0ea143c0d5e917ea07eb9bd99",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b560f15_54858a1f",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-11-17T21:19:28Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7b379aee_cae38536",
+      "revId": "138c8b76300713d0ea143c0d5e917ea07eb9bd99",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
