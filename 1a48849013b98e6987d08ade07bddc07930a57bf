@@ -16,6 +16,24 @@
       "revId": "1a48849013b98e6987d08ade07bddc07930a57bf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24e65822_f4a53b91",
+        "filename": "src/system/kernel/team.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3860,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-11-19T21:04:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f188c5ef_d85719c5",
+      "revId": "1a48849013b98e6987d08ade07bddc07930a57bf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
