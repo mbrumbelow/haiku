@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "177f769e_18a94753",
+        "filename": "headers/os/support/MemoryRingIO.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-11-19T07:20:46Z",
+      "side": 1,
+      "message": "This should be Size() without the Get-prefix.",
+      "revId": "9f5e55bf814287d29ce41fdad0c4656964090f8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9277ab7d_0f910219",
+        "filename": "headers/os/support/MemoryRingIO.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-11-19T07:20:46Z",
+      "side": 1,
+      "message": "Is there any use case to make this reversible? Maybe call it CloseForWriting() and make it a final state?",
+      "revId": "9f5e55bf814287d29ce41fdad0c4656964090f8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
