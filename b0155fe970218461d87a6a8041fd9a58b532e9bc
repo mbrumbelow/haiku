@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e1301dbb_dbbcabdd",
+        "filename": "src/system/boot/platform/efi/mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2020-11-19T18:28:02Z",
+      "side": 1,
+      "message": "This can presumably either be removed or converted to some form of TRACE if there are circumstances where it might be useful after this is pushed.",
+      "revId": "b0155fe970218461d87a6a8041fd9a58b532e9bc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
