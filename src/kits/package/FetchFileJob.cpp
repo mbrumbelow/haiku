@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2015, Haiku, Inc. All Rights Reserved.
+ * Copyright 2011-2020, Haiku, Inc. All Rights Reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -21,6 +21,8 @@
 #	include <UrlRequest.h>
 #	include <UrlProtocolRoster.h>
 #endif
+
+#include "FetchUtils.h"
 
 
 namespace BPackageKit {
@@ -90,13 +92,42 @@ FetchFileJob::Execute()
 	if (result != B_OK)
 		return result;
 
-	BUrlRequest* request = BUrlProtocolRoster::MakeRequest(fFileURL.String(),
-		this);
-	if (request == NULL)
-		return B_BAD_VALUE;
+	result = FetchUtils::SetFileType(fTargetFile,
+		"application/x-vnd.haiku-package");
+	if (result != B_OK) {
+		fprintf(stderr, "failed to set file type for '%s': %s\n",
+			DownloadFileName(), strerror(result));
+	}
 
-	thread_id thread = request->Run();
-	wait_for_thread(thread, NULL);
+	do {
+		BUrlRequest* request = BUrlProtocolRoster::MakeRequest(DownloadURL(),
+			this);
+		if (request == NULL)
+			return B_BAD_VALUE;
+
+		// Try to resume the download where we left off
+		/* TODO: Range-requests don't seem to be supported as of 2021-01-07
+		off_t currentPosition;
+		BHttpRequest* http= dynamic_cast<BHttpRequest*>(request);
+		if (fTargetFile.GetSize(&currentPosition) == B_OK && http != NULL) {
+			BHttpHeaders headers;
+			BString range;
+			range.SetToFormat("bytes=%" B_PRIdOFF "-", currentPosition);
+			headers.AddHeader("Range", range);
+			http->SetHeaders(headers);
+		}*/
+
+		thread_id thread = request->Run();
+		wait_for_thread(thread, NULL);
+	} while (fError == B_IO_ERROR || fError == B_DEV_TIMEOUT);
+
+	if (fError == B_OK) {
+		result = FetchUtils::MarkDownloadComplete(fTargetFile);
+		if (result != B_OK) {
+			fprintf(stderr, "failed to mark download '%s' as complete: %s\n",
+				DownloadFileName(), strerror(result));
+		}
+	}
 
 	return fError;
 }
