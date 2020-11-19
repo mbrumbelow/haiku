@@ -33,6 +33,24 @@
       "revId": "b0155fe970218461d87a6a8041fd9a58b532e9bc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f597dcc_85779cf8",
+        "filename": "src/system/boot/platform/efi/mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2020-11-19T18:43:20Z",
+      "side": 1,
+      "message": "It\u0027s function on the struct, which makes it more hassle than keeping it as this. And having it in the struct removes all region-\u003evar things. So I think it is a good enough compromise.",
+      "parentUuid": "e1301dbb_dbbcabdd",
+      "revId": "b0155fe970218461d87a6a8041fd9a58b532e9bc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
