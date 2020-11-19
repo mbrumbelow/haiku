@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "53cb4769_a3d7ee69",
+        "filename": "src/system/boot/platform/efi/mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-11-19T18:42:37Z",
+      "side": 1,
+      "message": "this line is \u003e 80 columns",
+      "revId": "b0155fe970218461d87a6a8041fd9a58b532e9bc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e1301dbb_dbbcabdd",
         "filename": "src/system/boot/platform/efi/mmu.cpp",
         "patchSetId": 1
