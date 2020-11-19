@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2015, Haiku, Inc. All Rights Reserved.
+ * Copyright 2011-2020, Haiku, Inc. All Rights Reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -90,13 +90,26 @@ FetchFileJob::Execute()
 	if (result != B_OK)
 		return result;
 
-	BUrlRequest* request = BUrlProtocolRoster::MakeRequest(fFileURL.String(),
-		this);
-	if (request == NULL)
-		return B_BAD_VALUE;
+	do {
+		BUrlRequest* request = BUrlProtocolRoster::MakeRequest(fFileURL.String(),
+			this);
+		if (request == NULL)
+			return B_BAD_VALUE;
 
-	thread_id thread = request->Run();
-	wait_for_thread(thread, NULL);
+		// Try to resume the download where we left off
+		off_t currentPosition;
+		BHttpRequest* http= dynamic_cast<BHttpRequest*>(request);
+		if (fTargetFile.GetSize(&currentPosition) == B_OK && http != NULL) {
+			BHttpHeaders headers;
+			BString range;
+			range.SetToFormat("bytes=%" B_PRIdOFF "-", currentPosition);
+			headers.AddHeader("Range", range);
+			http->SetHeaders(headers);
+		}
+
+		thread_id thread = request->Run();
+		wait_for_thread(thread, NULL);
+	} while (fError == B_IO_ERROR || fError == B_DEV_TIMEOUT);
 
 	return fError;
 }
