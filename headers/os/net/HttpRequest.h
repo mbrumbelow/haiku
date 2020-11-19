@@ -95,6 +95,11 @@ private:
 	// Utility methods
 			bool				_IsDefaultPort();
 
+	// Listener notification
+			void				_NotifyDataReceived(const char* data,
+									off_t pos, ssize_t length,
+									off_t bytesReceived, ssize_t bytesTotal);
+
 private:
 			bool				fSSL;
 
