@@ -384,7 +384,7 @@ BackgroundImage::Refresh(BackgroundImage* oldBackgroundImage,
 	}
 
 	BackgroundImage* backgroundImage = GetBackgroundImage(fromNode, desktop);
-	if (backgroundImage != NULL && poseView->ViewMode() != kListMode)
+	if (backgroundImage != NULL)
 		backgroundImage->Show(poseView, current_workspace());
 
 	return backgroundImage;
