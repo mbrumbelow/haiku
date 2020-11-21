@@ -9034,20 +9034,28 @@ BPoseView::DrawPose(BPose* pose, int32 index, bool fullDraw)
 rgb_color
 BPoseView::DeskTextColor() const
 {
+	rgb_color fg_color = ui_color(B_DOCUMENT_TEXT_COLOR);
 	rgb_color color = ViewColor();
-	float thresh = color.red + (color.green * 1.25f) + (color.blue * 0.45f);
+	float color_thresh = abs(fg_color.red - color.red)
+		+ abs(fg_color.green - color.green)
+		+ abs(fg_color.blue - color.blue);
+	if (color_thresh > 120) {
+		return fg_color;
+	} else {
+		float thresh = color.red + (color.green * 1.25f) + (color.blue * 0.45f);
 
-	if (thresh >= 360) {
-		color.red = 0;
-		color.green = 0;
-		color.blue = 0;
- 	} else {
-		color.red = 255;
-		color.green = 255;
-		color.blue = 255;
+		if (thresh >= 360) {
+			color.red = 0;
+			color.green = 0;
+			color.blue = 0;
+		} else {
+			color.red = 255;
+			color.green = 255;
+			color.blue = 255;
+		}
+
+		return color;
 	}
-
-	return color;
 }
 
 
