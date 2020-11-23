@@ -254,7 +254,8 @@ BFileGameSound::FillBuffer(void* inBuffer, size_t inByteCount)
 	while (inByteCount > 0 && !fPaused) {
 		if (!fPaused || fPausing) {
 			if (fPlayPosition == 0 || fPlayPosition >= fBufferSize) {
-				Load();
+				if (!Load())
+					break;
 			}
 
 			if (fPausing) {
@@ -478,6 +479,7 @@ BFileGameSound::Load()
 			fAudioStream->stream->SeekToFrame(&frame);
 		} else {
 			StopPlaying();
+			return false;
 		}
 	}
 
