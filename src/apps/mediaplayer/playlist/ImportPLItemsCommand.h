@@ -15,7 +15,8 @@ public:
 								ImportPLItemsCommand(
 									Playlist* playlist,
 									const BMessage* refsMessage,
-									int32 toIndex);
+									int32 toIndex,
+									bool sortItems);
 	virtual						~ImportPLItemsCommand();
 
 	virtual	status_t			InitCheck();
@@ -33,6 +34,7 @@ private:
 			int32				fNewCount;
 			int32				fToIndex;
 			int32				fPlaylingIndex;
+			bool				fSortItems;
 			bool				fItemsAdded;
 };
 

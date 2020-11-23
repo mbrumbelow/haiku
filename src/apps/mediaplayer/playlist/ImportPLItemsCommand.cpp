@@ -25,7 +25,7 @@ using std::nothrow;
 
 
 ImportPLItemsCommand::ImportPLItemsCommand(Playlist* playlist,
-		 const BMessage* refsMessage, int32 toIndex)
+		const BMessage* refsMessage, int32 toIndex, bool sortItems)
 	:
 	PLItemsCommand(),
 	fPlaylist(playlist),
@@ -39,13 +39,14 @@ ImportPLItemsCommand::ImportPLItemsCommand(Playlist* playlist,
 	fToIndex(toIndex),
 	fPlaylingIndex(0),
 
+	fSortItems(sortItems),
 	fItemsAdded(false)
 {
 	if (!fPlaylist)
 		return;
 
 	Playlist temp;
-	temp.AppendItems(refsMessage);
+	temp.AppendItems(refsMessage, APPEND_INDEX_REPLACE_PLAYLIST, fSortItems);
 
 	fNewCount = temp.CountItems();
 	if (fNewCount <= 0)
