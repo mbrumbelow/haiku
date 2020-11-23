@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0f45a04f_797aea92",
+        "filename": "src/apps/installer/WorkerThread.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-11-23T20:22:42Z",
+      "side": 1,
+      "message": "The link on the Desktop is called the User Guide. Maybe better to refer to it by this name?",
+      "range": {
+        "startLine": 454,
+        "startChar": 22,
+        "endLine": 454,
+        "endChar": 34
+      },
+      "revId": "afa2a8f0342ddb340e62ca4aa8a3d34ad3d8d87a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
