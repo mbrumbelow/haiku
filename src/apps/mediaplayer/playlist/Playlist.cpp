@@ -34,6 +34,7 @@
 #include "FilePlaylistItem.h"
 #include "FileReadWrite.h"
 #include "MainApp.h"
+#include "Settings.h"
 
 using std::nothrow;
 
@@ -91,6 +92,7 @@ Playlist::Playlist()
 	fItems(),
  	fCurrentIndex(-1)
 {
+	_AdoptGlobalSettings();
 }
 
 
@@ -247,7 +249,9 @@ Playlist::IsEmpty() const
 void
 Playlist::Sort()
 {
-	fItems.SortItems(playlist_item_compare);
+	if (fSortPlaylist == true)
+		fItems.SortItems(playlist_item_compare);
+
 	_NotifyItemsSorted();
 }
 
@@ -644,6 +648,16 @@ Playlist::ExtraMediaExists(Playlist* playlist, PlaylistItem* item)
 
 
 // #pragma mark - private
+
+
+void
+Playlist::_AdoptGlobalSettings()
+{
+	mpSettings settings;
+	Settings::Default()->Get(settings);
+
+	fSortPlaylist = settings.sortPlaylist;
+}
 
 
 /*static*/ bool

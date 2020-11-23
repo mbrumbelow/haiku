@@ -88,6 +88,10 @@ SettingsWindow::SettingsWindow(BRect frame)
 		B_TRANSLATE("Loop audio"),
 		new BMessage(M_SETTINGS_CHANGED));
 
+	fSortPlaylistCB = new BCheckBox("chkBoxSortPlaylist",
+		B_TRANSLATE("Auto-sort playlist"),
+		new BMessage(M_SETTINGS_CHANGED));
+
 	fUseOverlaysCB = new BCheckBox("chkBoxUseOverlays",
 		B_TRANSLATE("Use hardware video overlays if available"),
 		new BMessage(M_SETTINGS_CHANGED));
@@ -166,6 +170,7 @@ SettingsWindow::SettingsWindow(BRect frame)
 					.End()
 					.Add(fLoopMoviesCB)
 					.Add(fLoopSoundsCB)
+					.Add(fSortPlaylistCB)
 					.Add(fResumeOP)
 				.End()
 			.End()
@@ -277,6 +282,7 @@ SettingsWindow::AdoptSettings()
 	fCloseWindowSoundsCB->SetValue(fSettings.closeWhenDonePlayingSound);
 	fLoopMoviesCB->SetValue(fSettings.loopMovie);
 	fLoopSoundsCB->SetValue(fSettings.loopSound);
+	fSortPlaylistCB->SetValue(fSettings.sortPlaylist);
 
 	fUseOverlaysCB->SetValue(fSettings.useOverlays);
 	fScaleBilinearCB->SetValue(fSettings.scaleBilinear);
@@ -307,6 +313,7 @@ SettingsWindow::ApplySettings()
 		= fCloseWindowSoundsCB->Value() == B_CONTROL_ON;
 	fSettings.loopMovie = fLoopMoviesCB->Value() == B_CONTROL_ON;
 	fSettings.loopSound = fLoopSoundsCB->Value() == B_CONTROL_ON;
+	fSettings.sortPlaylist = fSortPlaylistCB->Value() == B_CONTROL_ON;
 
 	fSettings.useOverlays = fUseOverlaysCB->Value() == B_CONTROL_ON;
 	fSettings.scaleBilinear = fScaleBilinearCB->Value() == B_CONTROL_ON;

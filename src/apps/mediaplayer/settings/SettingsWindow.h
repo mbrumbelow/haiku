@@ -42,6 +42,7 @@ private:
 		BCheckBox*				fCloseWindowSoundsCB; 
 		BCheckBox*				fLoopMoviesCB;
 		BCheckBox*				fLoopSoundsCB;
+		BCheckBox*				fSortPlaylistCB;
 
 		BCheckBox*				fUseOverlaysCB;
 		BCheckBox*				fScaleBilinearCB;

@@ -23,6 +23,7 @@ mpSettings::operator!=(const mpSettings& other) const
 		|| closeWhenDonePlayingSound != other.closeWhenDonePlayingSound
 		|| loopMovie != other.loopMovie
 		|| loopSound != other.loopSound
+		|| sortPlaylist != other.sortPlaylist
 		|| useOverlays != other.useOverlays
 		|| scaleBilinear != other.scaleBilinear
 		|| scaleFullscreenControls != other.scaleFullscreenControls
@@ -56,6 +57,8 @@ Settings::Get(mpSettings& settings) const
 		= fSettingsMessage.GetValue("closeWhenDonePlayingSound", false);
 	settings.loopMovie = fSettingsMessage.GetValue("loopMovie", false);
 	settings.loopSound = fSettingsMessage.GetValue("loopSound", false);
+	settings.sortPlaylist
+		= fSettingsMessage.GetValue("sortPlaylist", true);
 
 	settings.useOverlays = fSettingsMessage.GetValue("useOverlays", true);
 	settings.scaleBilinear = fSettingsMessage.GetValue("scaleBilinear", true);
@@ -93,6 +96,7 @@ Settings::Update(const mpSettings& settings)
 		settings.closeWhenDonePlayingSound);
 	fSettingsMessage.SetValue("loopMovie", settings.loopMovie);
 	fSettingsMessage.SetValue("loopSound", settings.loopSound);
+	fSettingsMessage.SetValue("sortPlaylist", settings.sortPlaylist);
 
 	fSettingsMessage.SetValue("useOverlays", settings.useOverlays);
 	fSettingsMessage.SetValue("scaleBilinear", settings.scaleBilinear);
