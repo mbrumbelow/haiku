@@ -116,6 +116,7 @@ private:
 			Playlist&			operator=(const Playlist& other);
 									// unimplemented
 
+		void				_AdoptGlobalSettings();
 	static	bool				_ExtraMediaExists(Playlist* playlist,
 									const entry_ref& ref);
 	static	bool				_ExtraMediaExists(Playlist* playlist,
@@ -147,6 +148,8 @@ private:
 			BList				fListeners;
 
 			int32				fCurrentIndex;
+			
+			bool				fSortPlaylist;
 };
 
 #endif

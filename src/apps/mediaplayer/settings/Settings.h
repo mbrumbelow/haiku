@@ -45,6 +45,7 @@ struct mpSettings {
 			bool				closeWhenDonePlayingSound;
 			bool				loopMovie;
 			bool				loopSound;
+			bool				sortPlaylist;
 			bool				useOverlays;
 			bool				scaleBilinear;
 			bool				scaleFullscreenControls;
