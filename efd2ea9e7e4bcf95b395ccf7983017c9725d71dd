@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "891df4bb_1f88380c",
+        "filename": "src/add-ons/kernel/file_systems/nfs/XDRInPacket.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-11-24T15:30:24Z",
+      "side": 1,
+      "message": "Changed to native NFS error type to align to other functions",
+      "parentUuid": "311d6da1_54e9728f",
+      "revId": "efd2ea9e7e4bcf95b395ccf7983017c9725d71dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "677234af_a2921630",
         "filename": "src/add-ons/kernel/file_systems/nfs/nfs_add_on.c",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2020-11-08T17:36:38Z",
       "side": 1,
       "message": "should return the failure status from XDRInPacketGetFixed.",
+      "revId": "efd2ea9e7e4bcf95b395ccf7983017c9725d71dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed5b8984_b6ba5932",
+        "filename": "src/add-ons/kernel/file_systems/nfs/nfs_add_on.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-11-24T15:30:24Z",
+      "side": 1,
+      "message": "failure returned and mapped",
+      "parentUuid": "677234af_a2921630",
       "revId": "efd2ea9e7e4bcf95b395ccf7983017c9725d71dd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "0d4cc218_77204c9c",
+        "filename": "src/add-ons/kernel/file_systems/nfs/nfs_add_on.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-11-24T15:30:24Z",
+      "side": 1,
+      "message": "failure returned and mapped",
+      "parentUuid": "22aabb68_03bbe098",
+      "revId": "efd2ea9e7e4bcf95b395ccf7983017c9725d71dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f813ca98_9d62dc49",
         "filename": "src/add-ons/kernel/file_systems/nfs/nfs_add_on.c",
         "patchSetId": 1
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "7245268e_b44dd888",
+        "filename": "src/add-ons/kernel/file_systems/nfs/nfs_add_on.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1007,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-11-24T15:30:24Z",
+      "side": 1,
+      "message": "failure returned and mapped",
+      "parentUuid": "f813ca98_9d62dc49",
+      "revId": "efd2ea9e7e4bcf95b395ccf7983017c9725d71dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "03a915a7_94c95634",
         "filename": "src/add-ons/kernel/file_systems/nfs/nfs_add_on.c",
         "patchSetId": 1
@@ -81,6 +153,24 @@
       "writtenOn": "2020-11-08T17:36:38Z",
       "side": 1,
       "message": "Ditto",
+      "revId": "efd2ea9e7e4bcf95b395ccf7983017c9725d71dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "749c307e_f20c1451",
+        "filename": "src/add-ons/kernel/file_systems/nfs/nfs_add_on.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1817,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-11-24T15:30:24Z",
+      "side": 1,
+      "message": "failure returned and mapped",
+      "parentUuid": "03a915a7_94c95634",
       "revId": "efd2ea9e7e4bcf95b395ccf7983017c9725d71dd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
