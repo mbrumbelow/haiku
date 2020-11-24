@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "01e231b0_02e69544",
+        "filename": "src/add-ons/kernel/file_systems/nfs/XDRInPacket.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-11-24T16:04:54Z",
+      "side": 1,
+      "message": "Should be status_t (according to the signture of map_nfs_to_system_error)",
+      "revId": "b7468ce3cd0408563140aa8c35ff5df9bbca16b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c1605b2a_f77e3a36",
         "filename": "src/add-ons/kernel/file_systems/nfs/XDRInPacket.h",
         "patchSetId": 5
@@ -30,6 +47,23 @@
       "writtenOn": "2020-11-24T15:51:11Z",
       "side": 1,
       "message": "80 columns",
+      "revId": "b7468ce3cd0408563140aa8c35ff5df9bbca16b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4900e746_dd6cd156",
+        "filename": "src/add-ons/kernel/file_systems/nfs/nfs_add_on.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-11-24T16:04:54Z",
+      "side": 1,
+      "message": "The check is not needed.",
       "revId": "b7468ce3cd0408563140aa8c35ff5df9bbca16b9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
