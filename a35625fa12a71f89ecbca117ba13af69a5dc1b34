@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1826cc8e_fb912920",
+        "filename": "src/kits/game/FileGameSound.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-11-24T07:44:31Z",
+      "side": 1,
+      "message": "no {} needed here as the body is a single line (the other parts of the file are not following the coding style perfectly, but let\u0027s make the new code clean at least)",
+      "revId": "a35625fa12a71f89ecbca117ba13af69a5dc1b34",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
