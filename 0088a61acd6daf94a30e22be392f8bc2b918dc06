@@ -1,0 +1,277 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6c5fbd03_02628cfa",
+        "filename": "src/data/package_infos/any/haiku_userguide",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-11-24T19:02:12Z",
+      "side": 1,
+      "message": "Unfortunately this exceeds 80 characters, as with all the other package descriptors.",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 80
+      },
+      "revId": "0088a61acd6daf94a30e22be392f8bc2b918dc06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e80188a1_ee908c5e",
+        "filename": "src/data/package_infos/any/haiku_userguide_es",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-11-24T19:02:12Z",
+      "side": 1,
+      "message": "80 chars",
+      "range": {
+        "startLine": 14,
+        "startChar": 5,
+        "endLine": 14,
+        "endChar": 81
+      },
+      "revId": "0088a61acd6daf94a30e22be392f8bc2b918dc06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "910c7411_5d6b7cc6",
+        "filename": "src/data/package_infos/any/haiku_userguide_fur",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-11-24T19:02:12Z",
+      "side": 1,
+      "message": "80 characters",
+      "range": {
+        "startLine": 14,
+        "startChar": 14,
+        "endLine": 14,
+        "endChar": 82
+      },
+      "revId": "0088a61acd6daf94a30e22be392f8bc2b918dc06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf7053ac_5ba537ae",
+        "filename": "src/data/package_infos/any/haiku_userguide_hu",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-11-24T19:02:12Z",
+      "side": 1,
+      "message": "80 characters",
+      "revId": "0088a61acd6daf94a30e22be392f8bc2b918dc06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5727322_fb7cdf3b",
+        "filename": "src/data/package_infos/any/haiku_userguide_id",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-11-24T19:02:12Z",
+      "side": 1,
+      "message": "80 characters",
+      "revId": "0088a61acd6daf94a30e22be392f8bc2b918dc06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "454fc094_6b6d25b4",
+        "filename": "src/data/package_infos/any/haiku_userguide_it",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-11-24T19:02:12Z",
+      "side": 1,
+      "message": "80 characters",
+      "revId": "0088a61acd6daf94a30e22be392f8bc2b918dc06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c62cbd3_88842f8f",
+        "filename": "src/data/package_infos/any/haiku_userguide_jp",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-11-24T19:02:12Z",
+      "side": 1,
+      "message": "80 characters",
+      "revId": "0088a61acd6daf94a30e22be392f8bc2b918dc06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16f4dc88_00476f2d",
+        "filename": "src/data/package_infos/any/haiku_userguide_pt_BR",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-11-24T19:02:12Z",
+      "side": 1,
+      "message": "80 characters",
+      "revId": "0088a61acd6daf94a30e22be392f8bc2b918dc06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e7f4c59_d8e5abab",
+        "filename": "src/data/package_infos/any/haiku_userguide_pt_PT",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-11-24T19:02:12Z",
+      "side": 1,
+      "message": "80 characters",
+      "revId": "0088a61acd6daf94a30e22be392f8bc2b918dc06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95d0e8a0_a7828f82",
+        "filename": "src/data/package_infos/any/haiku_userguide_ro",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-11-24T19:02:12Z",
+      "side": 1,
+      "message": "80 characters",
+      "revId": "0088a61acd6daf94a30e22be392f8bc2b918dc06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f90c96db_d6e22cfd",
+        "filename": "src/data/package_infos/any/haiku_userguide_ru",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-11-24T19:02:12Z",
+      "side": 1,
+      "message": "80 characters",
+      "revId": "0088a61acd6daf94a30e22be392f8bc2b918dc06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e00e7ffe_11f8f856",
+        "filename": "src/data/package_infos/any/haiku_userguide_sv_SE",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-11-24T19:02:12Z",
+      "side": 1,
+      "message": "80 characters",
+      "revId": "0088a61acd6daf94a30e22be392f8bc2b918dc06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63a799f3_edb48906",
+        "filename": "src/data/package_infos/any/haiku_userguide_tr",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-11-24T19:02:12Z",
+      "side": 1,
+      "message": "80 characters",
+      "revId": "0088a61acd6daf94a30e22be392f8bc2b918dc06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c3963fc_568e3155",
+        "filename": "src/data/package_infos/any/haiku_userguide_uk",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-11-24T19:02:12Z",
+      "side": 1,
+      "message": "80 characters",
+      "revId": "0088a61acd6daf94a30e22be392f8bc2b918dc06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e9d320a_3b72577e",
+        "filename": "src/data/package_infos/any/haiku_userguide_zh_CN",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-11-24T19:02:12Z",
+      "side": 1,
+      "message": "80 characters",
+      "revId": "0088a61acd6daf94a30e22be392f8bc2b918dc06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
