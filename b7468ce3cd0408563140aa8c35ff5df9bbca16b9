@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f3207aa3_79608fae",
+        "filename": "src/add-ons/kernel/file_systems/nfs/XDRInPacket.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-11-24T15:51:11Z",
+      "side": 1,
+      "message": "2 blank lines",
+      "revId": "b7468ce3cd0408563140aa8c35ff5df9bbca16b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1605b2a_f77e3a36",
+        "filename": "src/add-ons/kernel/file_systems/nfs/XDRInPacket.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-11-24T15:51:11Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "b7468ce3cd0408563140aa8c35ff5df9bbca16b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b90a3a73_e80e2549",
+        "filename": "src/add-ons/kernel/file_systems/nfs/nfs_add_on.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 1015,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-11-24T15:51:11Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "b7468ce3cd0408563140aa8c35ff5df9bbca16b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
