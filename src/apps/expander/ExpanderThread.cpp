@@ -54,15 +54,16 @@ ExpanderThread::ThreadStartup()
 	if ((status = GetDataStore()->FindRef("srcRef", &srcRef)) != B_OK)
 		return status;
 
-	if ((status = GetDataStore()->FindRef("destRef", &destRef)) == B_OK) {
-		BPath path(&destRef);
-		chdir(path.Path());
-	}
+	if ((status = GetDataStore()->FindRef("destRef", &destRef)) != B_OK)
+		return status;
 
 	if ((status = GetDataStore()->FindString("cmd", &cmd)) != B_OK)
 		return status;
 
-	BPath path(&srcRef);
+	BPath path(&destRef);
+	chdir(path.Path());
+
+	path.SetTo(&srcRef);
 	BString pathString(path.Path());
 	pathString.CharacterEscape("\\\"$`", '\\');
 	pathString.Prepend("\"");
@@ -213,7 +214,7 @@ ExpanderThread::PipeCommand(int argc, const char** argv, int& in, int& out,
 	int old_err = dup(2);
 
 	int filedes[2];
-	
+
 	// create new pipe FDs as stdout, stderr
 	pipe(filedes);  dup2(filedes[1], 1); close(filedes[1]);
 	out = filedes[0]; // Read from out, taken from cmd's stdout
@@ -250,7 +251,7 @@ ExpanderThread::PipeCommand(int argc, const char** argv, int& in, int& out,
 		if (ioctl(slave, TIOCSCTTY, NULL) != 0)
 			return -1;
 
-		dup2(slave, 0); 
+		dup2(slave, 0);
 		close(slave);
 
 		// "load" command.
