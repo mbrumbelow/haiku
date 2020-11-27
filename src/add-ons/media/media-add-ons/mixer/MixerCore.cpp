@@ -557,7 +557,11 @@ MixerCore::_MixThread()
 			BBuffer* buffer = fBufferGroup->RequestBuffer(size,
 				bufferRequestTimeout);
 			if (buffer != NULL) {
-				memset(buffer->Data(), 0, size);
+				if (fOutput->MediaOutput().format.u.raw_audio.format
+						!= media_raw_audio_format::B_AUDIO_UCHAR)
+					memset(buffer->Data(), 0, size);
+				else
+					memset(buffer->Data(), 128, size);
 				// fill in the buffer header
 				media_header* hdr = buffer->Header();
 				hdr->type = B_MEDIA_RAW_AUDIO;

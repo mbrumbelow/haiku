@@ -42,14 +42,14 @@
 #include "StreamingGameSound.h"
 #include "GSUtility.h"
 
-
 // Sound Buffer Utility functions ----------------------------------------
-template<typename T>
+template<typename T, int zero>
 static inline void
 ApplyMod(T* data, T* buffer, int64 index, float * pan)
 {
-	data[index * 2] += T(float(buffer[index * 2]) * pan[0]);
-	data[index * 2 + 1] += T(float(buffer[index * 2 + 1]) * pan[1]);
+	data[index * 2] += T(float(buffer[index * 2] - zero) * pan[0] + zero);
+	data[index * 2 + 1] += T(float(buffer[index * 2 + 1] - zero) * pan[1]
+							+ zero);
 }
 
 
@@ -264,7 +264,7 @@ GameSoundBuffer::Play(void * data, int64 frames)
 			case gs_audio_format::B_GS_U8:
 			{
 				for (int64 i = 0; i < frames; i++) {
-					ApplyMod((uint8*)data, (uint8*)buffer, i, pan);
+					ApplyMod<uint8, 128>((uint8*)data, (uint8*)buffer, i, pan);
 					UpdateMods();
 				}
 
@@ -274,7 +274,7 @@ GameSoundBuffer::Play(void * data, int64 frames)
 			case gs_audio_format::B_GS_S16:
 			{
 				for (int64 i = 0; i < frames; i++) {
-					ApplyMod((int16*)data, (int16*)buffer, i, pan);
+					ApplyMod<int16, 0>((int16*)data, (int16*)buffer, i, pan);
 					UpdateMods();
 				}
 
@@ -284,7 +284,7 @@ GameSoundBuffer::Play(void * data, int64 frames)
 			case gs_audio_format::B_GS_S32:
 			{
 				for (int64 i = 0; i < frames; i++) {
-					ApplyMod((int32*)data, (int32*)buffer, i, pan);
+					ApplyMod<int32, 0>((int32*)data, (int32*)buffer, i, pan);
 					UpdateMods();
 				}
 
@@ -294,7 +294,7 @@ GameSoundBuffer::Play(void * data, int64 frames)
 			case gs_audio_format::B_GS_F:
 			{
 				for (int64 i = 0; i < frames; i++) {
-					ApplyMod((float*)data, (float*)buffer, i, pan);
+					ApplyMod<float, 0>((float*)data, (float*)buffer, i, pan);
 					UpdateMods();
 				}
 
@@ -516,11 +516,21 @@ SimpleSoundBuffer::FillBuffer(void * data, int64 frames)
 				// restart the sound from the begging
 				memcpy(&buffer[remainder], fBuffer, bytes - remainder);
 				fPosition = bytes - remainder;
-			} else
+			} else {
+				// Fill the rest with silence
+				if (fFormat.format != gs_audio_format::B_GS_U8)
+					memset(&buffer[remainder], 0, bytes - remainder);
+				else
+					memset(&buffer[remainder], 128, bytes - remainder);
 				fPosition = fBufferSize;
-		} else
-			memset(data, 0, bytes);
+			}
+		} else {
 			// there is nothing left to play
+			if (fFormat.format != gs_audio_format::B_GS_U8)
+				memset(data, 0, bytes);
+			else
+				memset(data, 128, bytes);
+		}
 	} else {
 		memcpy(buffer, &fBuffer[fPosition], bytes);
 		fPosition += bytes;

@@ -39,7 +39,7 @@ FillBuffer(_gs_ramp* ramp, uint8* data, uint8* buffer, size_t* bytes)
 
 	for (int32 byte = 0; byte < samples; byte++) {
 		float gain = *ramp->value;
-		data[byte] = uint8(float(buffer[byte]) * gain);
+		data[byte] = uint8(float(buffer[byte] - 128) * gain + 128);
 
 		if (ChangeRamp(ramp)) {
 			*bytes = byte * sizeof(uint8);
@@ -328,8 +328,12 @@ BFileGameSound::FillBuffer(void* inBuffer, size_t inByteCount)
 	}
 
 	// Fill the rest with silence
-	if (inByteCount > 0)
-		memset(&buffer[out_offset], 0, inByteCount);
+	if (inByteCount > 0) {
+		if (Format().format != gs_audio_format::B_GS_U8)
+			memset(&buffer[out_offset], 0, inByteCount);
+		else
+			memset(&buffer[out_offset], 128, inByteCount);
+	}
 }
 
 
@@ -446,7 +450,10 @@ BFileGameSound::Init(BDataIO* data)
 
 	// create the buffer
 	fBuffer = new char[fBufferSize * 2];
-	memset(fBuffer, 0, fBufferSize * 2);
+	if (gsformat.format != gs_audio_format::B_GS_U8)
+		memset(fBuffer, 0, fBufferSize * 2);
+	else
+		memset(fBuffer, 128, fBufferSize * 2);
 
 	fFrameSize = gsformat.channel_count * get_sample_size(gsformat.format);
 	fAudioStream->frames = fAudioStream->stream->CountFrames();
