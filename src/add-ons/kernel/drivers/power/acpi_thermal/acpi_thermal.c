@@ -55,15 +55,13 @@ acpi_thermal_read(void* _cookie, off_t position, void *buf, size_t* num_bytes)
 {
 	acpi_thermal_device_info* device = (acpi_thermal_device_info*)_cookie;
 	acpi_thermal_type therm_info;
+
 	if (*num_bytes < 1)
 		return B_IO_ERROR;
 
-	dprintf("acpi_thermal read %lu %lu\n",position,*num_bytes);
-	
 	if (position == 0) {
 		size_t max_len = *num_bytes;
 		char *str = (char *)buf;
-		dprintf("acpi_thermal: read()\n");
 		acpi_thermal_control(device, drvOpGetThermalType, &therm_info, 0);
 			
 		snprintf(str, max_len, "  Critical Temperature: %lu.%lu K\n", 
@@ -130,7 +128,6 @@ acpi_thermal_control(void* _cookie, uint32 op, void* arg, size_t len)
 	
 	switch (op) {
 		case drvOpGetThermalType: {
-			dprintf("acpi_thermal: GetThermalType()\n");
 			att = (acpi_thermal_type *)arg;
 			
 			// Read basic temperature thresholds.
@@ -142,14 +139,6 @@ acpi_thermal_control(void* _cookie, uint32 op, void* arg, size_t len)
 			
 			err = device->acpi->evaluate_method(device->acpi_cookie, "_HOT", NULL, &buffer);
 			att->hot_temp = (err == B_OK && object.object_type == ACPI_TYPE_INTEGER) ? object.integer.integer : 0;
-			
-			//att->critical_temp = (err == B_OK) ? integer : 0;
-			// err = device->acpi->evaluate_method(device->acpi_cookie, "_TMP", NULL, &buffer);
-			//att->current_temp = (err == B_OK) ? integer : 0;
-			//err = device->acpi->evaluate_method(device->acpi_cookie, "_HOT", NULL, &buffer);
-			//att->hot_temp = (err == B_OK) ? integer : 0;
-			
-			dprintf("acpi_thermal: GotBasicTemperatures()\n");
 			
 			// Read Passive Cooling devices
 			att->passive_package = NULL;
@@ -202,11 +191,6 @@ acpi_thermal_support(device_node *parent)
 		return 0.0;
 	}
 
-	const char *name;
-	if (sDeviceManager->get_attr_string(parent, ACPI_DEVICE_HID_ITEM, &name,
-		false) == B_OK ) {
-			dprintf("acpi thermal:%s\n",name);
-		}
 	// TODO check there are _CRT and _TMP ?
 
 	return 0.6;
