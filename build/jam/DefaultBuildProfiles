@@ -187,7 +187,6 @@ rule DefineDefaultBuildProfiles
 				bison
 				expat
 				flex
-				gawk
 				gcc
 				grep
 				haikuporter
@@ -195,6 +194,7 @@ rule DefineDefaultBuildProfiles
 				libedit
 				m4
 				make
+				mawk
 				ncurses6
 				noto
 				python
