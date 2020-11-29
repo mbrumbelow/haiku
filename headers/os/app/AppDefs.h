@@ -81,6 +81,7 @@ enum system_message_code {
 	_MESSAGE_DROPPED_			= '_MDP',
 	_DISPOSE_DRAG_				= '_DPD',
 	_MENUS_DONE_				= '_MND',
+	_POP_UP_MENUS_DONE_			= '_PMD',
 	_SHOW_DRAG_HANDLES_			= '_SDH',
 	_EVENTS_PENDING_			= '_EVP',
 	_UPDATE_					= '_UPD',
