@@ -80,6 +80,7 @@ All rights reserved.
 #include "FSUndoRedo.h"
 #include "FSUtils.h"
 #include "IconMenuItem.h"
+#include "LiveMenu.h"
 #include "OpenWithWindow.h"
 #include "MimeTypes.h"
 #include "Model.h"
@@ -669,13 +670,13 @@ void
 BContainerWindow::AddContextMenus()
 {
 	// create context sensitive menus
-	fPoseContextMenu = new BPopUpMenu("PoseContext", false, false);
+	fPoseContextMenu = new TLivePosePopUpMenu("PoseContext", false, false);
 	AddPoseContextMenu(fPoseContextMenu);
 
 	fVolumeContextMenu = new BPopUpMenu("VolumeContext", false, false);
 	AddVolumeContextMenu(fVolumeContextMenu);
 
-	fWindowContextMenu = new BPopUpMenu("WindowContext", false, false);
+	fWindowContextMenu = new TLiveWindowPopUpMenu("WindowContext", false, false);
 	AddWindowContextMenu(fWindowContextMenu);
 
 	fDropContextMenu = new BPopUpMenu("DropContext", false, false);
@@ -760,12 +761,12 @@ BContainerWindow::RepopulateMenus()
 	}
 
 	delete fPoseContextMenu;
-	fPoseContextMenu = new BPopUpMenu("PoseContext", false, false);
+	fPoseContextMenu = new TLivePosePopUpMenu("PoseContext", false, false);
 	fPoseContextMenu->SetFont(be_plain_font);
 	AddPoseContextMenu(fPoseContextMenu);
 
 	delete fWindowContextMenu;
-	fWindowContextMenu = new BPopUpMenu("WindowContext", false, false);
+	fWindowContextMenu = new TLiveWindowPopUpMenu("WindowContext", false, false);
 	fWindowContextMenu->SetFont(be_plain_font);
 	AddWindowContextMenu(fWindowContextMenu);
 }
@@ -1755,11 +1756,11 @@ BContainerWindow::IsShowing(const entry_ref* entry) const
 void
 BContainerWindow::AddMenus()
 {
-	fFileMenu = new BMenu(B_TRANSLATE("File"));
+	fFileMenu = new TLiveFileMenu(B_TRANSLATE("File"));
 	AddFileMenu(fFileMenu);
 	fMenuBar->AddItem(fFileMenu);
 
-	fWindowMenu = new BMenu(B_TRANSLATE("Window"));
+	fWindowMenu = new TLiveWindowMenu(B_TRANSLATE("Window"));
 	fMenuBar->AddItem(fWindowMenu);
 	AddWindowMenu(fWindowMenu);
 
@@ -3640,7 +3641,7 @@ BContainerWindow::NewArrangeByMenu()
 	if (fArrangeByMenu != NULL)
 		delete fArrangeByMenu;
 
-	fArrangeByMenu = new BMenu(B_TRANSLATE("Arrange by"));
+	fArrangeByMenu = new TLiveArrangeByMenu(B_TRANSLATE("Arrange by"));
 
 	NewArrangeByMenu(fArrangeByMenu);
 	return fArrangeByMenu;
