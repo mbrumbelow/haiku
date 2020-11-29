@@ -14,6 +14,7 @@ class BCheckBox;
 class BMenu;
 class BMenuField;
 class BMenuItem;
+class BSeparatorItem;
 class BSpinner;
 class BTextControl;
 class FontSelectionView;
@@ -63,6 +64,14 @@ private:
 			BTextControl*		fStartPageControl;
 			BTextControl*		fSearchPageControl;
 			BTextControl*		fDownloadFolderControl;
+
+			BMenuField*			fSearchPageMenu;
+			BMenuItem*			fSearchPageMenuGoogle;
+			BMenuItem*			fSearchPageMenuBing;
+			BMenuItem*			fSearchPageMenuYahoo;
+			BMenuItem*			fSearchPageMenuDuckduckgo;
+			BSeparatorItem*		fSearchPageMenuSeparator;
+			BMenuItem*			fSearchPageMenuCustom;
 
 			BMenuField*			fNewWindowBehaviorMenu;
 			BMenuItem*			fNewWindowBehaviorOpenHomeItem;
