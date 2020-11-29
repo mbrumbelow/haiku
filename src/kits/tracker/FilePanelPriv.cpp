@@ -75,6 +75,7 @@ All rights reserved.
 #include "FSClipboard.h"
 #include "FavoritesMenu.h"
 #include "IconMenuItem.h"
+#include "LiveMenu.h"
 #include "MimeTypes.h"
 #include "NavMenu.h"
 #include "Shortcuts.h"
@@ -850,7 +851,7 @@ TFilePanel::AddMenus()
 {
 	// File
 
-	fFileMenu = new BMenu(B_TRANSLATE("File"));
+	fFileMenu = new TLiveFileMenu(B_TRANSLATE("File"));
 	AddFileMenu(fFileMenu);
 	fMenuBar->AddItem(fFileMenu);
 
@@ -1111,7 +1112,7 @@ TFilePanel::RepopulateMenus()
 		fMenuBar->RemoveItem(fFileMenu);
 		delete fFileMenu;
 		if (ShouldAddMenus()) {
-			fFileMenu = new BMenu(B_TRANSLATE("File"));
+			fFileMenu = new TLiveFileMenu(B_TRANSLATE("File"));
 			AddFileMenu(fFileMenu);
 			fMenuBar->AddItem(fFileMenu, 0);
 			UpdateFileMenu(fFileMenu);
@@ -1119,12 +1120,12 @@ TFilePanel::RepopulateMenus()
 	}
 
 	delete fPoseContextMenu;
-	fPoseContextMenu = new BPopUpMenu("PoseContext", false, false);
+	fPoseContextMenu = new TLivePosePopUpMenu("PoseContext", false, false);
 	fPoseContextMenu->SetFont(be_plain_font);
 	AddPoseContextMenu(fPoseContextMenu);
 
 	delete fWindowContextMenu;
-	fWindowContextMenu = new BPopUpMenu("WindowContext", false, false);
+	fWindowContextMenu = new TLiveWindowPopUpMenu("WindowContext", false, false);
 	fWindowContextMenu->SetFont(be_plain_font);
 	AddWindowContextMenu(fWindowContextMenu);
 }
