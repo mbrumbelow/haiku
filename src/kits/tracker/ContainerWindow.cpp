@@ -590,6 +590,7 @@ BContainerWindow::BContainerWindow(LockingList<BWindow>* list,
 	fIsDesktop(isDeskWindow),
 	fContainerWindowFlags(containerWindowFlags),
 	fBackgroundImage(NULL),
+	fInitStatus(B_NO_INIT),
 	fSavedZoomRect(0, 0, -1, -1),
 	fContextMenu(NULL),
 	fDragMessage(NULL),
@@ -1041,6 +1042,8 @@ BContainerWindow::Init(const BMessage* message)
 	// done showing, turn the B_NO_WORKSPACE_ACTIVATION flag off;
 	// it was on to prevent workspace jerking during boot
 	SetFlags(Flags() & ~B_NO_WORKSPACE_ACTIVATION);
+
+	fInitStatus = B_OK;
 }
 
 void
@@ -2605,9 +2608,8 @@ BContainerWindow::PopulateMoveCopyNavMenu(BNavMenu* navMenu, uint32 what,
 void
 BContainerWindow::SetupMoveCopyMenus(const entry_ref* item_ref, BMenu* parent)
 {
-	if (IsTrash() || InTrash() || IsPrintersDir() || fMoveToItem == NULL
-		|| fCopyToItem == NULL || fCreateLinkItem == NULL
-		|| TargetModel()->IsRoot()) {
+	if (IsTrash() || InTrash() || IsPrintersDir() || TargetModel()->IsRoot()
+		|| parent == NULL || fInitStatus != B_OK) {
 		return;
 	}
 
@@ -2734,6 +2736,10 @@ BContainerWindow::ShowDropContextMenu(BPoint loc)
 void
 BContainerWindow::ShowContextMenu(BPoint loc, const entry_ref* ref, BView*)
 {
+	// ensure that the context menus have already been created
+	if (fInitStatus != B_OK)
+		return;
+
 	ASSERT(IsLocked());
 	BPoint global(loc);
 	PoseView()->ConvertToScreen(&global);
@@ -2755,7 +2761,8 @@ BContainerWindow::ShowContextMenu(BPoint loc, const entry_ref* ref, BView*)
 				static_cast<TTracker*>(be_app)->TrashFull());
 
 			SetupNavigationMenu(ref, fTrashContextMenu);
-			fTrashContextMenu->Go(global, true, true, true);
+
+			fContextMenu = fTrashContextMenu;
 		} else {
 			bool showAsVolume = false;
 			bool isFilePanel = PoseView()->IsFilePanel();
@@ -2817,67 +2824,72 @@ BContainerWindow::ShowContextMenu(BPoint loc, const entry_ref* ref, BView*)
 			} else
 				fContextMenu = fFileContextMenu;
 
+			if (fContextMenu == NULL)
+				return;
+
 			// clean up items from last context menu
+			MenusEnded();
 
-			if (fContextMenu != NULL) {
-				if (fContextMenu->Window())
-					return;
-				else
-					MenusEnded();
+			if (fContextMenu == fFileContextMenu) {
+				// Update "Identify" item
+				fFileContextMenu->UpdateIdentifyMenuItem(fIdentifyItem);
 
-				if (model.InitCheck() == B_OK) { // ??? Do I need this ???
-					if (showAsVolume) {
-						// non-volume enable/disable copy, move, identify
-						EnableNamedMenuItem(fContextMenu, kDuplicateSelection,
-							false);
-						EnableNamedMenuItem(fContextMenu, kMoveToTrash, false);
-						EnableNamedMenuItem(fContextMenu, kIdentifyEntry,
-							false);
+				// Update "Create link" item
+				fFileContextMenu->UpdateCreateLinkMenuItem(fCreateLinkItem);
 
-						// volume model, enable/disable the Unmount item
-						bool ejectableVolumeSelected = false;
+				// Add all mounted volumes (except the one this item lives on.)
+				BNavMenu* navMenu = dynamic_cast<BNavMenu*>(
+					fCreateLinkItem->Submenu());
+				PopulateMoveCopyNavMenu(navMenu,
+				fCreateLinkItem->Message()->what, ref, false);
+			} else if (model.InitCheck() == B_OK // TODO do we need this?
+				&& showAsVolume) {
+				// non-volume enable/disable copy, move, identify
+				EnableNamedMenuItem(fContextMenu, kDuplicateSelection,
+					false);
+				EnableNamedMenuItem(fContextMenu, kMoveToTrash, false);
+				EnableNamedMenuItem(fContextMenu, kIdentifyEntry, false);
 
-						BVolume boot;
-						BVolumeRoster().GetBootVolume(&boot);
-						BVolume volume;
-						volume.SetTo(model.NodeRef()->device);
-						if (volume != boot)
-							ejectableVolumeSelected = true;
+				// volume model, enable/disable the Unmount item
+				bool ejectableVolumeSelected = false;
 
-						EnableNamedMenuItem(fContextMenu,
-							B_TRANSLATE("Unmount"),	ejectableVolumeSelected);
-					}
-				}
+				BVolume boot;
+				BVolumeRoster().GetBootVolume(&boot);
+				BVolume volume;
+				volume.SetTo(model.NodeRef()->device);
+				if (volume != boot)
+					ejectableVolumeSelected = true;
 
-				SetupNavigationMenu(ref, fContextMenu);
-				if (!showAsVolume && !isFilePanel) {
-					SetupMoveCopyMenus(ref, fContextMenu);
-					SetupOpenWithMenu(fContextMenu);
-				}
-
-				UpdateMenu(fContextMenu, kPosePopUpContext);
-
-				fContextMenu->Go(global, true, true, true);
+				EnableNamedMenuItem(fContextMenu,
+					B_TRANSLATE("Unmount"),	ejectableVolumeSelected);
 			}
+
+			SetupNavigationMenu(ref, fContextMenu);
+			if (!showAsVolume && !isFilePanel) {
+				SetupMoveCopyMenus(ref, fContextMenu);
+				SetupOpenWithMenu(fContextMenu);
+			}
+
+			UpdateMenu(fContextMenu, kPosePopUpContext);
 		}
 	} else if (fWindowContextMenu != NULL) {
-		if (fWindowContextMenu->Window())
-			return;
-
 		// Repopulate desktop menu if IsDesktop
 		if (fIsDesktop)
 			RepopulateMenus();
-
-		MenusEnded();
 
 		// clicked on a window, show window context menu
 
 		SetupNavigationMenu(ref, fWindowContextMenu);
 		UpdateMenu(fWindowContextMenu, kWindowPopUpContext);
 
-		fWindowContextMenu->Go(global, true, true, true);
+		fContextMenu = fWindowContextMenu;
 	}
 
+	// context menu invalid or popup window is already open
+	if (fContextMenu == NULL || fContextMenu->Window() != NULL)
+		return;
+
+	fContextMenu->Go(global, true, true, true);
 	fContextMenu = NULL;
 }
 

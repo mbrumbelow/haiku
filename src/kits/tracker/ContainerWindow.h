@@ -324,6 +324,8 @@ protected:
 	static LockingList<struct AddonShortcut>* fAddonsList;
 
 private:
+	status_t fInitStatus;
+
 	BRect fSavedZoomRect;
 	BRect fPreviousBounds;
 
