@@ -273,10 +273,12 @@ public:
 			void				InvalidateLayout(bool descendants = false);
 			void				Layout(bool force);
 			bool				IsOffscreenWindow() const;
+
+	virtual	void				PopUpMenusBeginning();
+	virtual	void				PopUpMenusEnded();
+
 private:
 	// FBC padding and forbidden methods
-	virtual	void				_ReservedWindow2();
-	virtual	void				_ReservedWindow3();
 	virtual	void				_ReservedWindow4();
 	virtual	void				_ReservedWindow5();
 	virtual	void				_ReservedWindow6();

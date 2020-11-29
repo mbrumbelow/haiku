@@ -115,8 +115,8 @@ public:
 
 	virtual void ShowContextMenu(BPoint, const entry_ref*, BView*);
 	virtual uint32 ShowDropContextMenu(BPoint);
-	virtual void MenusBeginning();
-	virtual void MenusEnded();
+	virtual void PopUpMenusBeginning();
+	virtual void PopUpMenusEnded();
 	virtual void MessageReceived(BMessage*);
 	virtual void FrameResized(float, float);
 	virtual void FrameMoved(BPoint);

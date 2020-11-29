@@ -74,6 +74,8 @@ private:
 
 	static	int32				_thread_entry(void* menuData);
 
+	static	bool				_HasMenuBar(BPopUpMenu* popUpMenu);
+
 private:
 			BPoint				fWhere;
 			bool				fUseWhere;

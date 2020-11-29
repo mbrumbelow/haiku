@@ -1276,6 +1276,10 @@ FrameMoved(origin);
 			MenusEnded();
 			break;
 
+		case _POP_UP_MENUS_DONE_:
+			PopUpMenusEnded();
+			break;
+
 		// These two are obviously some kind of old scripting messages
 		// this is NOT an app_server message and we have to be cautious
 		case B_WINDOW_MOVE_BY:
@@ -1368,6 +1372,22 @@ BWindow::MenusBeginning()
 
 void
 BWindow::MenusEnded()
+{
+	// does nothing
+	// Hook function
+}
+
+
+void
+BWindow::PopUpMenusBeginning()
+{
+	// does nothing
+	// Hook function
+}
+
+
+void
+BWindow::PopUpMenusEnded()
 {
 	// does nothing
 	// Hook function
@@ -4098,8 +4118,22 @@ _ReservedWindow1__7BWindow(BWindow* window, BLayout* layout)
 }
 
 
-void BWindow::_ReservedWindow2() {}
-void BWindow::_ReservedWindow3() {}
+extern "C" void
+B_IF_GCC_2(_ReservedWindow2__7BWindow, _ZN7BWindow16_ReservedWindow2Ev)
+	(BWindow* window)
+{
+	window->PopUpMenusBeginning();
+}
+
+
+extern "C" void
+B_IF_GCC_2(_ReservedWindow3__7BWindow, _ZN7BWindow16_ReservedWindow3Ev)
+	(BWindow* window)
+{
+	window->PopUpMenusEnded();
+}
+
+
 void BWindow::_ReservedWindow4() {}
 void BWindow::_ReservedWindow5() {}
 void BWindow::_ReservedWindow6() {}

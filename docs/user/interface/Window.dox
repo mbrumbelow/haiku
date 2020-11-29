@@ -1046,11 +1046,15 @@
 
 /*!
 	\fn void BWindow::MenusBeginning()
-	\brief Hook method that gets called just before a menu owned by the window is
-	       shown.
+	\brief Hook method that gets called just before a menu attached to a menu
+	       bar owned by the window is opened.
 
-	\note This method is not invoked by a message, there is no
-	      \c B_MENUS_BEGINNING flag.
+	\note This method is not invoked by a message.
+
+	\deprecated This method is does not get called by a pop up menu unless it
+	            is attached to a menu bar. Use PopUpMenusBeginning().
+
+	\see PopUpMenusBeginning()
 
 	\since BeOS R3
 */
@@ -1058,13 +1062,41 @@
 
 /*!
 	\fn void BWindow::MenusEnded()
-	\brief Hook method that gets called just before a menu owned by the window is
-	       hidden.
+	\brief Hook method that gets called just after a menu attached to a menu
+	       bar owned by the window is closed.
 
-	\note This method is not invoked by a message, there is no
-	      \c B_MENUS_ENDED flag.
+	\note This method is not invoked by a message.
+
+	\deprecated This method is does not get called by a pop up menu unless it
+	            is attached to a menu bar. Use PopUpMenusEnded().
+
+	\see PopUpMenusEnded()
 
 	\since BeOS R3
+*/
+
+
+/*!
+	\fn void BWindow::PopUpMenusBeginning()
+	\brief Hook method that gets called just before an asynchronous pop-up
+	       menu or a menu attached to a menu bar owned by the window is
+	       opened.
+
+	\note This method is not invoked by a message.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\fn void BWindow::PopUpMenusEnded()
+	\brief Hook method that gets called just after an asynchronous pop-up
+	       menu or a menu attached to a menu bar owned by the window is
+	       closed.
+
+	\note This method is not invoked by a message.
+
+	\since Haiku R1
 */
 
 

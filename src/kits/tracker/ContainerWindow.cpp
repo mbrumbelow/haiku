@@ -2263,7 +2263,7 @@ BContainerWindow::AddShortcuts()
 
 
 void
-BContainerWindow::MenusBeginning()
+BContainerWindow::PopUpMenusBeginning()
 {
 	if (fMenuBar == NULL)
 		return;
@@ -2318,7 +2318,7 @@ BContainerWindow::MenusBeginning()
 
 
 void
-BContainerWindow::MenusEnded()
+BContainerWindow::PopUpMenusEnded()
 {
 	// when we're done we want to clear nav menus for next time
 	DeleteSubmenu(fNavigationItem);
