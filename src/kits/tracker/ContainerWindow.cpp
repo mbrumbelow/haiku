@@ -79,6 +79,7 @@ All rights reserved.
 #include "FSUndoRedo.h"
 #include "FSUtils.h"
 #include "IconMenuItem.h"
+#include "LiveMenu.h"
 #include "OpenWithWindow.h"
 #include "MimeTypes.h"
 #include "MountMenu.h"
@@ -858,7 +859,7 @@ void
 BContainerWindow::AddContextMenus()
 {
 	// create context sensitive menus
-	fFileContextMenu = new BPopUpMenu("FileContext", false, false);
+	fFileContextMenu = new TLiveFilePopUpMenu("FileContext", false, false);
 	AddFileContextMenus(fFileContextMenu);
 
 	fRootContextMenu = new BPopUpMenu("RootContext", false, false);
@@ -867,7 +868,7 @@ BContainerWindow::AddContextMenus()
 	fVolumeContextMenu = new BPopUpMenu("VolumeContext", false, false);
 	AddVolumeContextMenus(fVolumeContextMenu);
 
-	fWindowContextMenu = new BPopUpMenu("WindowContext", false, false);
+	fWindowContextMenu = new TLiveWindowPopUpMenu("WindowContext", false, false);
 	AddWindowContextMenus(fWindowContextMenu);
 
 	fDropContextMenu = new BPopUpMenu("DropContext", false, false);
@@ -911,25 +912,25 @@ BContainerWindow::RepopulateMenus()
 	}
 
 	delete fFileContextMenu;
-	fFileContextMenu = new BPopUpMenu("FileContext", false, false);
+	fFileContextMenu = new TLiveFilePopUpMenu("FileContext", false, false);
 	fFileContextMenu->SetFont(be_plain_font);
 	AddFileContextMenus(fFileContextMenu);
 
 	delete fWindowContextMenu;
-	fWindowContextMenu = new BPopUpMenu("WindowContext", false, false);
+	fWindowContextMenu = new TLiveWindowPopUpMenu("WindowContext", false, false);
 	fWindowContextMenu->SetFont(be_plain_font);
 	AddWindowContextMenus(fWindowContextMenu);
 
 	if (fMenuBar != NULL) {
 		fMenuBar->RemoveItem(fFileMenu);
 		delete fFileMenu;
-		fFileMenu = new BMenu(B_TRANSLATE("File"));
+		fFileMenu = new TLiveFileMenu(B_TRANSLATE("File"));
 		AddFileMenu(fFileMenu);
 		fMenuBar->AddItem(fFileMenu);
 
 		fMenuBar->RemoveItem(fWindowMenu);
 		delete fWindowMenu;
-		fWindowMenu = new BMenu(B_TRANSLATE("Window"));
+		fWindowMenu = new TLiveWindowMenu(B_TRANSLATE("Window"));
 		fMenuBar->AddItem(fWindowMenu);
 		AddWindowMenu(fWindowMenu);
 
@@ -1985,10 +1986,10 @@ BContainerWindow::IsShowing(const entry_ref* entry) const
 void
 BContainerWindow::AddMenus()
 {
-	fFileMenu = new BMenu(B_TRANSLATE("File"));
+	fFileMenu = new TLiveFileMenu(B_TRANSLATE("File"));
 	AddFileMenu(fFileMenu);
 	fMenuBar->AddItem(fFileMenu);
-	fWindowMenu = new BMenu(B_TRANSLATE("Window"));
+	fWindowMenu = new TLiveWindowMenu(B_TRANSLATE("Window"));
 	fMenuBar->AddItem(fWindowMenu);
 	AddWindowMenu(fWindowMenu);
 	// just create the attribute, decide to add it later
@@ -2108,7 +2109,7 @@ BContainerWindow::AddWindowMenu(BMenu* menu)
 	item->SetTarget(this);
 	menu->AddItem(item);
 
-	fArrangeByMenu = new BMenu(B_TRANSLATE("Arrange by"));
+	fArrangeByMenu = new TLiveArrangeByMenu(B_TRANSLATE("Arrange by"));
 	menu->AddItem(fArrangeByMenu);
 
 	item = Shortcuts().SelectItem();
