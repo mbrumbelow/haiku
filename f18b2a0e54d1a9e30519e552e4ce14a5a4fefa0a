@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fe2feae6_7f5051d3",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 9037,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-11-29T08:04:14Z",
+      "side": 1,
+      "message": "We do not use _\u0027s for variable names, so it should be fgColor not fg_color",
+      "revId": "f18b2a0e54d1a9e30519e552e4ce14a5a4fefa0a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a318638f_171526e4",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 9039,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-11-29T08:04:14Z",
+      "side": 1,
+      "message": "we do not use _\u0027s or abbreviations for variable names so it should be colorThreshold no color_thresh",
+      "revId": "f18b2a0e54d1a9e30519e552e4ce14a5a4fefa0a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8de7795e_a9fc6c68",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 9042,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-11-29T08:04:14Z",
+      "side": 1,
+      "message": "why 120? half way would be 127 perhaps I misunderstand",
+      "revId": "f18b2a0e54d1a9e30519e552e4ce14a5a4fefa0a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9ee7d7a_85a42041",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 9045,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2020-11-29T08:04:14Z",
+      "side": 1,
+      "message": "generally do not use abbreviations, maybe this one is ok.",
+      "revId": "f18b2a0e54d1a9e30519e552e4ce14a5a4fefa0a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
