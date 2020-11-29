@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "d7202d41_c8a2895c",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 945,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-11-29T11:38:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2600c556_d0227168",
+      "revId": "4e43fcfdb43cbcba2d6a02ec8fc357fce78a5fcf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fee629e3_1b65b9be",
         "filename": "src/servers/app/drawing/AlphaMask.cpp",
         "patchSetId": 1
@@ -69,6 +87,24 @@
       "revId": "4e43fcfdb43cbcba2d6a02ec8fc357fce78a5fcf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f18614e_e14a38a9",
+        "filename": "src/servers/app/drawing/AlphaMask.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-11-29T11:38:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2744df2_3a7b7db0",
+      "revId": "4e43fcfdb43cbcba2d6a02ec8fc357fce78a5fcf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
