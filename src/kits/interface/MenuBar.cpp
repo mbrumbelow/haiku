@@ -491,6 +491,8 @@ BMenuBar::StartMenuBar(int32 menuIndex, bool sticky, bool showMenu,
 	// We are called from the window's thread,
 	// so let's call MenusBeginning() directly
 	window->MenusBeginning();
+	// Also call PopUpMenusBeginning() directly
+	window->PopUpMenusBeginning();
 
 	fMenuSem = create_sem(0, "window close sem");
 	_set_menu_sem_(window, fMenuSem);
@@ -538,6 +540,8 @@ BMenuBar::_TrackTask(void* arg)
 	// We aren't the BWindow thread, so don't call MenusEnded() directly
 	BWindow* window = menuBar->Window();
 	window->PostMessage(_MENUS_DONE_);
+	// Don't call PopUpMenusEnded() directly either
+	window->PostMessage(_POP_UP_MENUS_DONE_);
 
 	_set_menu_sem_(window, B_BAD_SEM_ID);
 	delete_sem(menuBar->fMenuSem);
