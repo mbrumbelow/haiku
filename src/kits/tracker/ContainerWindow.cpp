@@ -79,6 +79,7 @@ All rights reserved.
 #include "FSUndoRedo.h"
 #include "FSUtils.h"
 #include "IconMenuItem.h"
+#include "LiveUpdatingMenu.h"
 #include "OpenWithWindow.h"
 #include "MimeTypes.h"
 #include "MountMenu.h"
@@ -571,6 +572,7 @@ BContainerWindow::BContainerWindow(LockingList<BWindow>* list,
 	fMoveToItem(NULL),
 	fCopyToItem(NULL),
 	fCreateLinkItem(NULL),
+	fIdentifyItem(NULL),
 	fOpenWithItem(NULL),
 	fNavigationItem(NULL),
 	fMenuBar(NULL),
@@ -839,7 +841,8 @@ void
 BContainerWindow::AddContextMenus()
 {
 	// create context sensitive menus
-	fFileContextMenu = new BPopUpMenu("FileContext", false, false);
+	fFileContextMenu = new TLiveUpdatingFilePopUpMenu("FileContext", false,
+		false);
 	fFileContextMenu->SetFont(be_plain_font);
 	AddFileContextMenus(fFileContextMenu);
 
@@ -894,7 +897,8 @@ BContainerWindow::RepopulateMenus()
 	}
 
 	delete fFileContextMenu;
-	fFileContextMenu = new BPopUpMenu("FileContext", false, false);
+	fFileContextMenu = new TLiveUpdatingFilePopUpMenu("FileContext", false,
+		false);
 	fFileContextMenu->SetFont(be_plain_font);
 	AddFileContextMenus(fFileContextMenu);
 
@@ -906,13 +910,13 @@ BContainerWindow::RepopulateMenus()
 	if (fMenuBar != NULL) {
 		fMenuBar->RemoveItem(fFileMenu);
 		delete fFileMenu;
-		fFileMenu = new BMenu(B_TRANSLATE("File"));
+		fFileMenu = new TLiveUpdatingFileMenu(B_TRANSLATE("File"));
 		AddFileMenu(fFileMenu);
 		fMenuBar->AddItem(fFileMenu);
 
 		fMenuBar->RemoveItem(fWindowMenu);
 		delete fWindowMenu;
-		fWindowMenu = new BMenu(B_TRANSLATE("Window"));
+		fWindowMenu = new TLiveUpdatingWindowMenu(B_TRANSLATE("Window"));
 		fMenuBar->AddItem(fWindowMenu);
 		AddWindowMenu(fWindowMenu);
 
@@ -958,6 +962,9 @@ BContainerWindow::Init(const BMessage* message)
 		kCopySelectionTo, this));
 	fCreateLinkItem = new BMenuItem(new BNavMenu(B_TRANSLATE("Create link"),
 		kCreateLink, this), new BMessage(kCreateLink));
+	fIdentifyItem = new BMenuItem(B_TRANSLATE("Identify"),
+		new BMessage(kIdentifyEntry));
+	fIdentifyItem->Message()->SetBool("force", false);
 
 	TrackerSettings settings;
 
@@ -1970,10 +1977,10 @@ BContainerWindow::IsShowing(const entry_ref* entry) const
 void
 BContainerWindow::AddMenus()
 {
-	fFileMenu = new BMenu(B_TRANSLATE("File"));
+	fFileMenu = new TLiveUpdatingFileMenu(B_TRANSLATE("File"));
 	AddFileMenu(fFileMenu);
 	fMenuBar->AddItem(fFileMenu);
-	fWindowMenu = new BMenu(B_TRANSLATE("Window"));
+	fWindowMenu = new TLiveUpdatingWindowMenu(B_TRANSLATE("Window"));
 	fMenuBar->AddItem(fWindowMenu);
 	AddWindowMenu(fWindowMenu);
 	// just create the attribute, decide to add it later
@@ -2165,7 +2172,7 @@ BContainerWindow::AddWindowMenu(BMenu* menu)
 	item->SetTarget(this);
 	menu->AddItem(item);
 
-	fArrangeByMenu = new BMenu(B_TRANSLATE("Arrange by"));
+	fArrangeByMenu = new TLiveUpdatingArrangeByMenu(B_TRANSLATE("Arrange by"));
 	menu->AddItem(fArrangeByMenu);
 
 	item = new BMenuItem(B_TRANSLATE("Select" B_UTF8_ELLIPSIS),
@@ -2268,6 +2275,13 @@ BContainerWindow::AddShortcuts()
 void
 BContainerWindow::PopUpMenusBeginning()
 {
+	// allow live-updating menus to receive B_MODIFIERS_CHANGED messages
+	TurnOnMenuKeyboardEvents();
+
+	if (fContextMenu != NULL)
+		return;
+
+	// the rest is for non-context menus
 	if (fMenuBar == NULL)
 		return;
 
@@ -2329,6 +2343,9 @@ BContainerWindow::PopUpMenusEnded()
 	DeleteSubmenu(fCopyToItem);
 	DeleteSubmenu(fCreateLinkItem);
 	DeleteSubmenu(fOpenWithItem);
+
+	// turn off live updating on menu close
+	TurnOffMenuKeyboardEvents();
 }
 
 
@@ -2635,7 +2652,7 @@ BContainerWindow::SetupMoveCopyMenus(const entry_ref* item_ref, BMenu* parent)
 		if (fCreateLinkItem->Menu() != NULL)
 			fCreateLinkItem->Menu()->RemoveItem(fCreateLinkItem);
 
-		parent->AddItem(fCreateLinkItem, index);
+		parent->AddItem(fCreateLinkItem, index++);
 	}
 
 	// Set the "Create Link" item label here so it
@@ -3376,6 +3393,70 @@ BContainerWindow::LoadAddOn(BMessage* message)
 
 	LaunchInNewThread("Add-on", B_NORMAL_PRIORITY, &AddOnThread, refs,
 		addonRef, *TargetModel()->EntryRef());
+}
+
+
+bool
+BContainerWindow::TurnOnMenuKeyboardEvents()
+{
+	// ensure that menus have been created
+	if (fInitStatus != B_OK)
+		return false;
+
+	if (fFileMenu->LockLooper()) {
+		fFileMenu->SetEventMask(
+			fFileMenu->EventMask() | B_KEYBOARD_EVENTS);
+		fFileMenu->UnlockLooper();
+	}
+	if (fFileContextMenu->LockLooper()) {
+		fFileContextMenu->SetEventMask(
+			fFileContextMenu->EventMask() | B_KEYBOARD_EVENTS);
+		fFileContextMenu->UnlockLooper();
+	}
+	if (fWindowMenu->LockLooper()) {
+		fWindowMenu->SetEventMask(
+			fWindowMenu->EventMask() | B_KEYBOARD_EVENTS);
+		fWindowMenu->UnlockLooper();
+	}
+	if (fArrangeByMenu->LockLooper()) {
+		fArrangeByMenu->SetEventMask(
+			fArrangeByMenu->EventMask() | B_KEYBOARD_EVENTS);
+		fArrangeByMenu->UnlockLooper();
+	}
+
+	return true;
+}
+
+
+bool
+BContainerWindow::TurnOffMenuKeyboardEvents()
+{
+	// ensure that menus have been created
+	if (fInitStatus != B_OK)
+		return false;
+
+	if (fFileMenu->LockLooper()) {
+		fFileMenu->SetEventMask(
+			fFileMenu->EventMask() & ~B_KEYBOARD_EVENTS);
+		fFileMenu->UnlockLooper();
+	}
+	if (fFileContextMenu->LockLooper()) {
+		fFileContextMenu->SetEventMask(
+			fFileContextMenu->EventMask() & ~B_KEYBOARD_EVENTS);
+		fFileContextMenu->UnlockLooper();
+	}
+	if (fWindowMenu->LockLooper()) {
+		fWindowMenu->SetEventMask(
+			fWindowMenu->EventMask() & ~B_KEYBOARD_EVENTS);
+		fWindowMenu->UnlockLooper();
+	}
+	if (fArrangeByMenu->LockLooper()) {
+		fArrangeByMenu->SetEventMask(
+			fArrangeByMenu->EventMask() & ~B_KEYBOARD_EVENTS);
+		fArrangeByMenu->UnlockLooper();
+	}
+
+	return true;
 }
 
 
