@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "35d2112b_9e77b499",
+        "filename": "src/servers/app/font/FontCache.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-11-29T10:00:19Z",
+      "side": 0,
+      "message": "This is actually required for now. Removing it cause memory leak. Reference is owned by GlyphLayoutEngine. FontCacheReference can be adjusted to use BRerefence to avoid manual dereferencing.",
+      "revId": "55f4d3dbee75156a3142416c582a385db26fad07",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
