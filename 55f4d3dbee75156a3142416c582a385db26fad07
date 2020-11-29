@@ -16,6 +16,24 @@
       "revId": "55f4d3dbee75156a3142416c582a385db26fad07",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ef9810f_2bace1b7",
+        "filename": "src/servers/app/font/FontCache.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-11-29T11:19:59Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "35d2112b_9e77b499",
+      "revId": "55f4d3dbee75156a3142416c582a385db26fad07",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
