@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e6146c72_ab33d2bd",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-11-30T07:36:52Z",
+      "side": 1,
+      "message": "Coding style: space between \u0027if\u0027 and \u0027(\u0027, no {} when there is only a single line.",
+      "revId": "037840132f340636eb2827c643628c2fb977e9ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afefa61d_c05274b3",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-11-30T07:36:52Z",
+      "side": 1,
+      "message": "-",
+      "revId": "037840132f340636eb2827c643628c2fb977e9ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fedbffb3_19807657",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-11-30T07:36:52Z",
+      "side": 0,
+      "message": "Why don\u0027t you keep that around?",
+      "revId": "7377c398550edc1fc8176ee4dbcd09d70f80d454",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
