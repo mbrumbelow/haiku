@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ee77103a_55a799ff",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000265
+      },
+      "writtenOn": "2020-11-30T09:28:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6146c72_ab33d2bd",
+      "revId": "037840132f340636eb2827c643628c2fb977e9ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "afefa61d_c05274b3",
         "filename": "src/apps/webpositive/SettingsWindow.cpp",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2020-11-30T07:36:52Z",
       "side": 1,
       "message": "-",
+      "revId": "037840132f340636eb2827c643628c2fb977e9ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e7a3e94_cc2895ae",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1000265
+      },
+      "writtenOn": "2020-11-30T09:28:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afefa61d_c05274b3",
       "revId": "037840132f340636eb2827c643628c2fb977e9ca",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false

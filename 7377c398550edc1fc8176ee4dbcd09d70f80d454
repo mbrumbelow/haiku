@@ -16,6 +16,24 @@
       "revId": "7377c398550edc1fc8176ee4dbcd09d70f80d454",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a028dfde_d2f2cd2b",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000265
+      },
+      "writtenOn": "2020-11-30T09:28:43Z",
+      "side": 0,
+      "message": "Dropdown is above the URL textbox, label is moved to there with the tooltip.",
+      "parentUuid": "fedbffb3_19807657",
+      "revId": "7377c398550edc1fc8176ee4dbcd09d70f80d454",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
