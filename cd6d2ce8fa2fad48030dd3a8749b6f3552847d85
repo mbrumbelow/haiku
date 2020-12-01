@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "224af92b_24956047",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-01T18:56:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87d5f3da_ce57e57a",
+      "revId": "cd6d2ce8fa2fad48030dd3a8749b6f3552847d85",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cc729377_19fee2f7",
         "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
         "patchSetId": 2
@@ -453,6 +471,24 @@
       "revId": "cd6d2ce8fa2fad48030dd3a8749b6f3552847d85",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94ba7173_d6eb3e3e",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Node.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-01T18:56:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d3efa32_8f9e9b62",
+      "revId": "cd6d2ce8fa2fad48030dd3a8749b6f3552847d85",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
