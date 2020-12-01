@@ -86,6 +86,24 @@
       "revId": "037840132f340636eb2827c643628c2fb977e9ca",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5b0a3ec_26c02fee",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1000265
+      },
+      "writtenOn": "2020-12-01T13:27:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06c80bf4_3cde1c92",
+      "revId": "037840132f340636eb2827c643628c2fb977e9ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
