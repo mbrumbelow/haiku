@@ -16,6 +16,24 @@
       "revId": "153946f6a511ee5e2bd48367dbc1b71aaaa81077",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33a60d94_004a91d5",
+        "filename": "src/add-ons/kernel/drivers/power/acpi_thermal/acpi_thermal.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-01T12:02:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b887d2a2_1bc202eb",
+      "revId": "153946f6a511ee5e2bd48367dbc1b71aaaa81077",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
