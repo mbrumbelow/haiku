@@ -45,6 +45,13 @@ if [ $# -gt 0 ]; then
 	shift
 fi
 
+# TODO: Better detection here? Maybe a @sysroot profile?
+if [ ! $isCD ] && [ ! $isImage ] && [ ! $(uname -s) == "Haiku" ]; then
+	# If we're doing an @install from Linux, the only goal is likely
+	# getting a "Haiku sysroot" for cross-compiling or something
+	isSysroot=1
+fi
+
 if [ ! $isCD ]; then
 	# If the haiku image path is a symlink resolve it now (makebootable needs the
 	# path of the actual device path under Linux).
@@ -135,6 +142,18 @@ elif [ $isImage ]; then
 	mkdir="$fsShellCommand mkdir"
 	rm="$fsShellCommand rm"
 	mkindex="$fsShellCommand mkindex"
+elif [ $isSysroot ]; then
+	# Just build a sysroot, attrs be damned
+	sPrefix=
+	tPrefix="$installDir/"
+	cd=cd
+	scd=:
+	cp="cp"
+	copyAttrs="$cp"
+	ln=ln
+	mkdir=mkdir
+	rm=rm
+	mkindex=""
 else
 	sPrefix=
 	# TODO: This should come from the environment.
@@ -292,7 +311,7 @@ if [ -n "$updateAllPackages" ]; then
 	$mkdir -p "${tPrefix}system/packages"
 fi
 
-if [ ! $updateOnly ] && [ ! $isCD ]; then
+if [ ! $updateOnly ] && [ ! $isCD ] && [ ! -z $mkindex ]; then
 echo "Creating filesystem indices..."
 	$mkindex -t string Audio:Album
 	$mkindex -t string Audio:Artist
@@ -379,6 +398,16 @@ for packageFile in $systemPackages; do
 	fi
 done
 
+if [ $isSysroot ]; then
+	echo "Inflating packages (for sysroot) ..."
+	for packageFile in $systemPackages; do
+		extractFile $packageFile
+	done
+	for packageFile in $otherPackages; do
+		extractFile $packageFile
+	done
+	rm -rf $installDir/system/packages/*
+fi
 
 if [ $isCD ]; then
 	# generate the attribute stores
