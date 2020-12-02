@@ -16,6 +16,24 @@
       "revId": "0e1070eee5de10c80e621d71c71c57ea8dde7287",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5587fc20_8615b621",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-02T12:53:20Z",
+      "side": 1,
+      "message": "Hi,\n\nSorry for the quite late review of your work, nice to see you\u0027re still watching here.\n\nThe +1 is there for taking the extra NULL-terminator character into account. I replaced it with a \u003e\u003d instead of \u003e, which does not change the behavior, but I find it more readable this way.",
+      "parentUuid": "c8e59bf0_cf935812",
+      "revId": "0e1070eee5de10c80e621d71c71c57ea8dde7287",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
