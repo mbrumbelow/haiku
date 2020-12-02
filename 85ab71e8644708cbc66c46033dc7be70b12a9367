@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a6f2428e_db91f246",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-12-02T11:54:57Z",
+      "side": 1,
+      "message": "ObjectDeleter can be used instead of repeated delete.",
+      "revId": "85ab71e8644708cbc66c46033dc7be70b12a9367",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
