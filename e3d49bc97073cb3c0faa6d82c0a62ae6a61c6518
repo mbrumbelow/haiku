@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eaf4e0f3_6d84d374",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-02T16:47:56Z",
+      "side": 1,
+      "message": "shouldn\u0027t the constructor call Init() automatically?",
+      "revId": "e3d49bc97073cb3c0faa6d82c0a62ae6a61c6518",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8846d95c_7731fd14",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-02T16:47:56Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "e3d49bc97073cb3c0faa6d82c0a62ae6a61c6518",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
