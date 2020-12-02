@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5123a33a_584c0f95",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-02T17:00:19Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "0e1f29eb8fa3e4817cda4cd2c01c107b3564373b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
