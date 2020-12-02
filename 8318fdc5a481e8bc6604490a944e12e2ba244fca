@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a8aaf428_36e4dee7",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-02T17:07:41Z",
+      "side": 1,
+      "message": "This memory is leaked.",
+      "revId": "8318fdc5a481e8bc6604490a944e12e2ba244fca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "549ebed0_cf8d777c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-02T17:07:41Z",
+      "side": 1,
+      "message": "Allocating this on the stack isn\u0027t great because the available space is limited. You could use BStackOrHeapArray or ArrayDeleter instead",
+      "revId": "8318fdc5a481e8bc6604490a944e12e2ba244fca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
