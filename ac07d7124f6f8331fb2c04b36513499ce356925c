@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "08882cc1_72e70c2b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-02T16:51:07Z",
+      "side": 1,
+      "message": "either delete the code or add a comment explaining why it\u0027s disabled",
+      "revId": "ac07d7124f6f8331fb2c04b36513499ce356925c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe45b5f0_9be9e2d1",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-02T16:51:07Z",
+      "side": 1,
+      "message": "trailing space",
+      "revId": "ac07d7124f6f8331fb2c04b36513499ce356925c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91d076ea_d52d455e",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-02T16:51:07Z",
+      "side": 1,
+      "message": "missing space before \u003d",
+      "revId": "ac07d7124f6f8331fb2c04b36513499ce356925c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e50624a_67995268",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-02T16:51:07Z",
+      "side": 1,
+      "message": "this line is too long, and since there is a comment under it, there should be braces around the if block",
+      "revId": "ac07d7124f6f8331fb2c04b36513499ce356925c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
