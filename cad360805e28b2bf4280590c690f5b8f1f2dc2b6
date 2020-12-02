@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "40594cdf_19594af8",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-02T17:03:51Z",
+      "side": 1,
+      "message": "when are these deleted? Shouldn\u0027t that be added to the destructor?",
+      "revId": "cad360805e28b2bf4280590c690f5b8f1f2dc2b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b766a538_82b755e5",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-02T17:03:51Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "cad360805e28b2bf4280590c690f5b8f1f2dc2b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f295c3da_cb71bedc",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-02T17:03:51Z",
+      "side": 1,
+      "message": "this if needs {}",
+      "revId": "cad360805e28b2bf4280590c690f5b8f1f2dc2b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78f8efe6_3f06216f",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-02T17:03:51Z",
+      "side": 1,
+      "message": "this should delete the DirectoryIterator cookie",
+      "revId": "cad360805e28b2bf4280590c690f5b8f1f2dc2b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
