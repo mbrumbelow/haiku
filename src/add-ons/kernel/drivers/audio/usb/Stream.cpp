@@ -213,9 +213,20 @@ Stream::_SetupBuffers()
 
 	// initialize descriptors array
 	for (size_t i = 0; i < fDescriptorsCount; i++) {
-		fDescriptors[i].request_length = fPacketSize;
-		fDescriptors[i].actual_length = 0;
-		fDescriptors[i].status = B_OK;
+		// We can't touch within fDescriptors directly because it's userspace
+
+		usb_iso_packet_descriptor newDescriptor;
+		memset(&newDescriptor, 0, sizeof(usb_iso_packet_descriptor));
+
+		newDescriptor.request_length = fPacketSize;
+		newDescriptor.actual_length = 0;
+		newDescriptor.status = B_OK;
+
+		if (user_memcpy(&fDescriptors[i], &newDescriptor,
+			sizeof(usb_iso_packet_descriptor)) != B_OK) {
+			TRACE(ERR, "Error setting up descriptor[%d]\n", i);
+			return B_BAD_ADDRESS;
+		}
 	}
 
 	return fStatus;
@@ -350,10 +361,15 @@ Stream::_DumpDescriptors()
 	//size_t packetsCount = fDescriptorsCount / kSamplesBufferCount;
 	size_t from = /*fCurrentBuffer > 0 ? packetsCount :*/ 0 ;
 	size_t to   = /*fCurrentBuffer > 0 ?*/ fDescriptorsCount /*: packetsCount*/ ;
-	for (size_t i = from; i < to; i++)
+	for (size_t i = from; i < to; i++) {
+		usb_iso_packet_descriptor descriptor;
+		user_memcpy(&descriptor, &fDescriptors[i],
+			sizeof(usb_iso_packet_descriptor));
+
 		TRACE(ISO, "%d:req_len:%d; act_len:%d; stat:%#010x\n", i,
-			fDescriptors[i].request_length,	fDescriptors[i].actual_length,
-			fDescriptors[i].status);
+			descriptor.request_length, descriptor.actual_length,
+			descriptor.status);
+	}
 }
 
 
