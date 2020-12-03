@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1eb8b18b_18b4f307",
+        "filename": "src/servers/app/Desktop.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 2563,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-03T11:51:21Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "707aec8f45efc69b03bd94d1b03934b444347ac2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e467afd_5680f226",
+        "filename": "src/servers/app/ServerBitmap.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-03T11:51:21Z",
+      "side": 1,
+      "message": "why is there a space before :: here?",
+      "revId": "707aec8f45efc69b03bd94d1b03934b444347ac2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
