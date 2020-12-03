@@ -33,6 +33,24 @@
       "revId": "707aec8f45efc69b03bd94d1b03934b444347ac2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abd5d9ea_3e86f713",
+        "filename": "src/servers/app/ServerBitmap.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-12-03T23:53:19Z",
+      "side": 1,
+      "message": "Without space GCC2 build fails.",
+      "parentUuid": "3e467afd_5680f226",
+      "revId": "707aec8f45efc69b03bd94d1b03934b444347ac2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
