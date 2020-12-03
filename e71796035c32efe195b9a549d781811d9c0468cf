@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9215e46_c7f2b06b",
+        "filename": "build/scripts/build_haiku_image",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-03T11:57:31Z",
+      "side": 1,
+      "message": "I\u0027m not a fan of doing everything with build profiles. Why not simply a different jam target instead? So you coud do \"jam -q sysroot\" and get it in generated/sysroot/ or something like that (or elsewhere if you set a specific path, but it should be possible to move it around easily anyway)?\n\nAt the very least, have an isSysroot variable generated from the argument-script (as documented above) rather than trying to guess from the other variables. What you did prevents from building a sysroot from inside Haiku, I don\u0027t see a reason for that.",
+      "revId": "e71796035c32efe195b9a549d781811d9c0468cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
