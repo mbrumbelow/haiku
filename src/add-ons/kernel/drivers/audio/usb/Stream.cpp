@@ -186,7 +186,7 @@ Stream::_SetupBuffers()
 	fArea = create_area( (fIsInput) ? DRIVER_NAME "_record_area"
 		: DRIVER_NAME "_playback_area", (void**)&fDescriptors,
 		B_ANY_KERNEL_ADDRESS, fAreaSize, B_CONTIGUOUS,
-		B_READ_AREA | B_WRITE_AREA);
+		B_KERNEL_READ_AREA | B_KERNEL_WRITE_AREA);
 
 	if (fArea < 0) {
 		TRACE(ERR, "Error of creating %#x - "
