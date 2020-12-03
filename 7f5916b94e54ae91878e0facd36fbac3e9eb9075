@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ecc51732_e6ff0bab",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-03T12:04:56Z",
+      "side": 1,
+      "message": "this needs to be after MSG_SEARCH_PAGE_CHANGED_MENU otherwise it will reset the search page.\n\nI think it\u0027s a better idea to have a break; in the handling of MSG_SEARCH_PAGE_CHANGED_MENU and duplicate the _ValidateControlsEnabledStatus(); call?",
+      "revId": "7f5916b94e54ae91878e0facd36fbac3e9eb9075",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
