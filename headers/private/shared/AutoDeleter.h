@@ -32,7 +32,7 @@ public:
 	{
 	}
 
-	inline AutoDeleter(C *object)
+	inline AutoDeleter(C object)
 		: fInt(object)
 	{
 	}
@@ -42,7 +42,7 @@ public:
 		fInt(fInt.fObject);
 	}
 
-	inline void SetTo(C *object)
+	inline void SetTo(C object)
 	{
 		if (object != fInt.fObject) {
 			fInt(fInt.fObject);
@@ -60,27 +60,27 @@ public:
 		SetTo(NULL);
 	}
 
-	inline C *Get() const
+	inline C Get() const
 	{
 		return fInt.fObject;
 	}
 
-	inline C *Detach()
+	inline C Detach()
 	{
-		C *object = fInt.fObject;
+		C object = fInt.fObject;
 		fInt.fObject = NULL;
 		return object;
 	}
 
-	inline C *operator->() const
+	inline C operator->() const
 	{
 		return fInt.fObject;
 	}
 
 protected:
 	struct Internal: DeleteFunc {
-		C* fObject;
-		inline Internal(C *object): fObject(object) {}
+		C fObject;
+		inline Internal(C object): fObject(object) {}
 	} fInt;
 
 private:
@@ -101,10 +101,10 @@ struct ObjectDelete
 };
 
 template<typename C>
-struct ObjectDeleter : AutoDeleter<C, ObjectDelete<C> >
+struct ObjectDeleter : AutoDeleter<C*, ObjectDelete<C> >
 {
-	ObjectDeleter() : AutoDeleter<C, ObjectDelete<C> >() {}
-	ObjectDeleter(C *object) : AutoDeleter<C, ObjectDelete<C> >(object) {}
+	ObjectDeleter() : AutoDeleter<C*, ObjectDelete<C> >() {}
+	ObjectDeleter(C *object) : AutoDeleter<C*, ObjectDelete<C> >(object) {}
 };
 
 
@@ -120,10 +120,10 @@ struct ArrayDelete
 };
 
 template<typename C>
-struct ArrayDeleter : AutoDeleter<C, ArrayDelete<C> >
+struct ArrayDeleter : AutoDeleter<C*, ArrayDelete<C> >
 {
-	ArrayDeleter() : AutoDeleter<C, ArrayDelete<C> >() {}
-	ArrayDeleter(C *array) : AutoDeleter<C, ArrayDelete<C> >(array) {}
+	ArrayDeleter() : AutoDeleter<C*, ArrayDelete<C> >() {}
+	ArrayDeleter(C *array) : AutoDeleter<C*, ArrayDelete<C> >(array) {}
 
 	inline C& operator[](size_t index) const
 	{
@@ -142,26 +142,26 @@ struct MemoryDelete
 	}
 };
 
-struct MemoryDeleter : AutoDeleter<void, MemoryDelete >
+struct MemoryDeleter : AutoDeleter<void*, MemoryDelete >
 {
-	MemoryDeleter() : AutoDeleter<void, MemoryDelete >() {}
-	MemoryDeleter(void *memory) : AutoDeleter<void, MemoryDelete >(memory) {}
+	MemoryDeleter() : AutoDeleter<void*, MemoryDelete >() {}
+	MemoryDeleter(void *memory) : AutoDeleter<void*, MemoryDelete >(memory) {}
 };
 
 
 // CObjectDeleter
 
-template<typename Type, typename DestructorReturnType, DestructorReturnType (*Destructor)(Type*)>
+template<typename Type, typename DestructorReturnType, DestructorReturnType (*Destructor)(Type)>
 struct CObjectDelete
 {
-	inline void operator()(Type *object)
+	inline void operator()(Type object)
 	{
 		if (object != NULL)
 			Destructor(object);
 	}
 };
 
-template<typename Type, typename DestructorReturnType, DestructorReturnType (*Destructor)(Type*)>
+template<typename Type, typename DestructorReturnType, DestructorReturnType (*Destructor)(Type)>
 struct CObjectDeleter
 	: AutoDeleter<Type, CObjectDelete<Type, DestructorReturnType, Destructor> >
 {
@@ -171,7 +171,7 @@ struct CObjectDeleter
 	{
 	}
 
-	CObjectDeleter(Type *object) : Base(object)
+	CObjectDeleter(Type object) : Base(object)
 	{
 	}
 };
@@ -192,9 +192,9 @@ struct MethodDelete
 
 template<typename Type, typename DestructorReturnType, DestructorReturnType (Type::*Destructor)()>
 struct MethodDeleter
-	: AutoDeleter<Type, MethodDelete<Type, DestructorReturnType, Destructor> >
+	: AutoDeleter<Type*, MethodDelete<Type, DestructorReturnType, Destructor> >
 {
-	typedef AutoDeleter<Type, MethodDelete<Type, DestructorReturnType, Destructor> > Base;
+	typedef AutoDeleter<Type*, MethodDelete<Type, DestructorReturnType, Destructor> > Base;
 
 	MethodDeleter() : Base()
 	{
