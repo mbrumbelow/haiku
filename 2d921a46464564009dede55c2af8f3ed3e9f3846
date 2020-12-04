@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "198027bd_eadfc72b",
+        "filename": "src/add-ons/kernel/network/protocols/ipv4/ipv4.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 688,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2020-12-04T17:59:07Z",
+      "side": 1,
+      "message": "Out of curiosity, why is this declared here? Is this decl not being included via a header?",
+      "revId": "2d921a46464564009dede55c2af8f3ed3e9f3846",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
