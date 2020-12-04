@@ -28,25 +28,25 @@ template<typename C, typename DeleteFunc>
 class AutoDeleter {
 public:
 	inline AutoDeleter()
-		: fObject(NULL)
+		: fInt(NULL)
 	{
 	}
 
 	inline AutoDeleter(C *object)
-		: fObject(object)
+		: fInt(object)
 	{
 	}
 
 	inline ~AutoDeleter()
 	{
-		fDelete(fObject);
+		fInt(fInt.fObject);
 	}
 
 	inline void SetTo(C *object)
 	{
-		if (object != fObject) {
-			fDelete(fObject);
-			fObject = object;
+		if (object != fInt.fObject) {
+			fInt(fInt.fObject);
+			fInt.fObject = object;
 		}
 	}
 
@@ -62,24 +62,26 @@ public:
 
 	inline C *Get() const
 	{
-		return fObject;
+		return fInt.fObject;
 	}
 
 	inline C *Detach()
 	{
-		C *object = fObject;
-		fObject = NULL;
+		C *object = fInt.fObject;
+		fInt.fObject = NULL;
 		return object;
 	}
 
 	inline C *operator->() const
 	{
-		return fObject;
+		return fInt.fObject;
 	}
 
 protected:
-	C			*fObject;
-	DeleteFunc	fDelete;
+	struct Internal: DeleteFunc {
+		C* fObject;
+		inline Internal(C *object): fObject(object) {}
+	} fInt;
 
 private:
 	AutoDeleter(const AutoDeleter&);
