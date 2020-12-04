@@ -73,20 +73,16 @@ FillBuffer(_gs_ramp* ramp, int16* data, int16* buffer, size_t* bytes)
 bool
 FillBuffer(_gs_ramp* ramp, int32* data, int32* buffer, size_t* bytes)
 {
-	size_t byte = 0;
-	bool bytesAreReady = (*bytes > 0);
+	int32 samples = *bytes / sizeof(int32);
 
-	while (bytesAreReady) {
+	for (int32 sample = 0; sample < samples; sample++) {
 		float gain = *ramp->value;
-		data[byte] = int32(float(buffer[byte]) * gain);
+		data[sample] = int32(float(buffer[sample]) * gain);
 
 		if (ChangeRamp(ramp)) {
-			*bytes = byte;
+			*bytes = sample * sizeof(int32);
 			return true;
 		}
-
-		byte++;
-		bytesAreReady = (byte >= *bytes);
 	}
 
 	return false;
@@ -96,20 +92,16 @@ FillBuffer(_gs_ramp* ramp, int32* data, int32* buffer, size_t* bytes)
 bool
 FillBuffer(_gs_ramp* ramp, float* data, float* buffer, size_t* bytes)
 {
-	size_t byte = 0;
-	bool bytesAreReady = (*bytes > 0);
+	int32 samples = *bytes / sizeof(float);
 
-	while (bytesAreReady) {
+	for (int32 sample = 0; sample < samples; sample++) {
 		float gain = *ramp->value;
-		data[byte] = buffer[byte] * gain;
+		data[sample] = buffer[sample] * gain;
 
 		if (ChangeRamp(ramp)) {
-			*bytes = byte;
+			*bytes = sample * sizeof(float);
 			return true;
 		}
-
-		byte++;
-		bytesAreReady = (byte >= *bytes);
 	}
 
 	return false;
