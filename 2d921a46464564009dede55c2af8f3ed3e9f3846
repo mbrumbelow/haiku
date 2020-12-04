@@ -16,6 +16,24 @@
       "revId": "2d921a46464564009dede55c2af8f3ed3e9f3846",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e8f678d_bbc20fc2",
+        "filename": "src/add-ons/kernel/network/protocols/ipv4/ipv4.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 688,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-04T18:08:07Z",
+      "side": 1,
+      "message": "such functions are not declared in any header: they are defined in the structure order and referenced only there.",
+      "parentUuid": "198027bd_eadfc72b",
+      "revId": "2d921a46464564009dede55c2af8f3ed3e9f3846",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
