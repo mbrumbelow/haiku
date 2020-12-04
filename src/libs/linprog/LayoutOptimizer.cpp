@@ -464,7 +464,7 @@ struct MatrixDelete {
 		free_matrix(matrix);
 	}
 };
-typedef BPrivate::AutoDeleter<double*, MatrixDelete> MatrixDeleter;
+typedef BPrivate::AutoDeleter<double**, MatrixDelete> MatrixDeleter;
 
 
 // #pragma mark - LayoutOptimizer

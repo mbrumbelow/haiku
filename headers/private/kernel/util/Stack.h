@@ -96,14 +96,14 @@ public:
 };
 
 template<typename T> class StackDeleter
-	: public BPrivate::AutoDeleter<Stack<T>, StackDelete<T> > {
+	: public BPrivate::AutoDeleter<Stack<T>*, StackDelete<T> > {
 public:
 	StackDeleter()
 	{
 	}
 
 	StackDeleter(Stack<T>* stack)
-		: BPrivate::AutoDeleter<Stack<T>, StackDelete<T> >(stack)
+		: BPrivate::AutoDeleter<Stack<T>*, StackDelete<T> >(stack)
 	{
 	}
 };

@@ -502,11 +502,11 @@ struct CommandDelete
 /*!	An auto deleter similar to ObjectDeleter that calls SyncCommandDone()
 	for all SyncCommands.
 */
-struct CommandDeleter : BPrivate::AutoDeleter<WorkerCommand, CommandDelete>
+struct CommandDeleter : BPrivate::AutoDeleter<WorkerCommand*, CommandDelete>
 {
 	CommandDeleter(IMAPConnectionWorker& worker, WorkerCommand* command)
 		:
-		BPrivate::AutoDeleter<WorkerCommand, CommandDelete>(command),
+		BPrivate::AutoDeleter<WorkerCommand*, CommandDelete>(command),
 		fWorker(worker)
 	{
 	}
