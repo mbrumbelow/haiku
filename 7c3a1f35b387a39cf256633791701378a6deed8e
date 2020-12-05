@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c3127b4_839cb88a",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-05T21:22:56Z",
+      "side": 1,
+      "message": "\"mmc/rca\" should be defined in drivers/mmc.h",
+      "revId": "7c3a1f35b387a39cf256633791701378a6deed8e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
