@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "37b362b9_e45a4c26",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-05T21:07:37Z",
+      "side": 1,
+      "message": "should be sdhci_pci",
+      "revId": "f735e9b2a9a8f777d529d665e7fe6840e6736bf4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
