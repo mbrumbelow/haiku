@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ae8e4126_87bbf94c",
+        "filename": "docs/develop/busses/sdhci/sdhci_mmc_driver.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-06T17:13:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6fc4ed8f_cd05dff2",
+      "revId": "8c434194a6f1b59cdfbfb014608290663a35fa98",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a25abd1_3256711c",
         "filename": "docs/develop/busses/sdhci/sdhci_mmc_driver.md",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "8c434194a6f1b59cdfbfb014608290663a35fa98",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8c3860d_1a768b8e",
+        "filename": "docs/develop/busses/sdhci/sdhci_mmc_driver.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-06T17:13:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a25abd1_3256711c",
+      "revId": "8c434194a6f1b59cdfbfb014608290663a35fa98",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
