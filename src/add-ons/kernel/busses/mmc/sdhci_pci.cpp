@@ -49,7 +49,8 @@ class SdhciBus {
 		status_t			InitCheck();
 		void				Reset();
 		void				SetClock(int kilohertz);
-		status_t			ReadNaive(off_t pos, void* buffer, size_t* _length);
+		status_t			ReadNaive(off_t pos, phys_addr_t buffer,
+								size_t* _length);
 		
 	private:
 		bool				PowerOn();
@@ -114,8 +115,8 @@ SdhciBus::SdhciBus(struct registers* registers, uint8_t irq)
 		return;
 	}
 
-	EnableInterrupts(SDHCI_INT_CMD_CMP
-		| SDHCI_INT_BUF_READ_READY | SDHCI_INT_CARD_INS | SDHCI_INT_CARD_REM);
+	EnableInterrupts(SDHCI_INT_CMD_CMP | SDHCI_INT_CARD_INS
+		| SDHCI_INT_CARD_REM | SDHCI_INT_TRANS_CMP);
 
 	// We want to see the error bits in the status register, but not have an
 	// interrupt trigger on them (we get a "command complete" interrupt on
@@ -328,55 +329,29 @@ SdhciBus::SetClock(int kilohertz)
 
 
 status_t
-SdhciBus::ReadNaive(off_t pos, void* buffer, size_t* _length)
+SdhciBus::ReadNaive(off_t pos, phys_addr_t buffer, size_t* _length)
 {
-	// TODO read multiple blocks at once (don't ignore _length)
-	fRegisters->block_size = 512;
-	fRegisters->block_count = 1;
+	fRegisters->system_address = buffer;
+	// fRegisters->adma_system_address = fDmaMemory;
+
+	// Must always be 512 (on SD cards it can be changed, but not on SDHC)
+	static const uint32 kBlockSize = 512;
+	fRegisters->block_size = kBlockSize;
+	fRegisters->block_count = *_length / kBlockSize;
+
 	fRegisters->transfer_mode = TransferMode::kSingle | TransferMode::kRead
-		| TransferMode::kAutoCmdDisabled | TransferMode::kNoDmaOrNoData;
+		| TransferMode::kAutoCmd12Enable | TransferMode::kDmaEnable;
 
 	uint32_t response;
 	status_t result;
-	result = ExecuteCommand(SD_READ_SINGLE_BLOCK, pos, &response);
+	result = ExecuteCommand(SD_READ_MULTIPLE_BLOCKS, pos, &response);
 
 	if (result != B_OK)
 		return result;
 
-	TRACE("Command response: %02x\n", response);
-
-	if (fCommandResult & SDHCI_INT_BUF_READ_READY == 0) {
-		TRACE("No data!\n");
-		return B_ERROR;
-	}
-
-	// We don't know how to read more than 512 bytes (CMD18 would be needed)
-	if (*_length > 512)
-		*_length = 512;
-
-	// read block data from Buffer Data Port register
-	// TODO use DMA instead
-	size_t to_read = *_length / sizeof(uint32_t);
-	size_t to_drop = 512 / sizeof(uint32_t) - to_read;
-	uint32_t* dest = (uint32_t*)buffer;
-	while(to_read > 0) {
-		*dest = fRegisters->buffer_data_port;
-		TRACE("read : 0x%x", *dest);
-		dest++;
-		to_read--;
-	}
-
-	// We cannot read less than one sector, so we have to drop the extra data.
-	// This will be fixed when we use DMA and the IO scheduler (since it makes
-	// sure to only ask for complete sectors).
-	// Currently the IO scheduler does not support bounce buffers for non-DMA
-	// transfers.
-	while(to_drop > 0) {
-		(void*)fRegisters->buffer_data_port;
-		to_drop--;
-	}
-
-	// wait for command complete interrupt
+	// Wait for DMA transfer to complete
+	// In theory we could go on and send other commands as long as they don't
+	// need the DAT lines, but it's overcomplicating things.
 	acquire_sem(fSemaphore);
 
 	return B_OK;
@@ -578,11 +553,8 @@ SdhciBus::HandleInterrupt()
 		TRACE("Command complete interrupt handled\n");
 	}
 
-	// handling data transfer interrupt
-	if (intmask & SDHCI_INT_BUF_READ_READY) {
-		TRACE("buffer read ready interrupt raised");
-		fRegisters->interrupt_status |= (intmask & SDHCI_INT_BUF_READ_READY);
-
+	if (intmask & SDHCI_INT_TRANS_CMP) {
+		fRegisters->interrupt_status |= SDHCI_INT_TRANS_CMP;
 		release_sem_etc(fSemaphore, 1, B_DO_NOT_RESCHEDULE);
 	}
 
@@ -755,9 +727,10 @@ execute_command(void* controller, uint8_t command, uint32_t argument,
 }
 
 
-//Very naive read protocol : non DMA, 32 bits at a time (size of Buffer Data Port)
+// Naive read protocol: can read only exactly one sector (we set appropriate
+// dma_restrictions to let the io_scheduler take care of the details)
 static status_t
-read_naive(void* controller, off_t pos, void* buffer, size_t* _length) 
+read_naive(void* controller, off_t pos, phys_addr_t buffer, size_t* _length)
 {
 	CALLED();
 	

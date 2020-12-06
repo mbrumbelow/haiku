@@ -82,7 +82,7 @@ MMCBus::ExecuteCommand(uint8_t command, uint32_t argument, uint32_t* response)
 
 
 status_t
-MMCBus::Read(uint16_t rca, off_t position, void* buffer, size_t* length)
+MMCBus::Read(uint16_t rca, off_t position, phys_addr_t buffer, size_t* length)
 {
 	status_t status = _ActivateDevice(rca);
 	if (status != B_OK)

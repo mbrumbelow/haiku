@@ -99,8 +99,8 @@ mmc_bus_execute_command(device_node* node, uint8_t command, uint32_t argument,
 
 
 static status_t
-mmc_bus_read_naive(device_node* node, uint16_t rca, off_t pos, void* buffer,
-	size_t* _length)
+mmc_bus_read_naive(device_node* node, uint16_t rca, off_t pos,
+	phys_addr_t buffer, size_t* _length)
 {
 	// FIXME store the parent cookie in the bus cookie or something instead of
 	// getting/putting the parent each time.
