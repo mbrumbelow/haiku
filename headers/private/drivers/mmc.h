@@ -65,7 +65,7 @@ typedef struct mmc_bus_interface {
 	status_t (*execute_command)(void* controller, uint8_t command,
 		uint32_t argument, uint32_t* result);
 	status_t (*read_naive)(void* controller, off_t pos,
-		void* buffer, size_t* _length);
+		phys_addr_t buffer, size_t* _length);
 } mmc_bus_interface;
 
 
@@ -75,7 +75,7 @@ typedef struct mmc_device_interface {
 	status_t (*execute_command)(device_node* node, uint8_t command,
 		uint32_t argument, uint32_t* result);
 	status_t (*read_naive)(device_node* controller, uint16_t rca, off_t pos,
-		void* buffer, size_t* _length);
+		phys_addr_t buffer, size_t* _length);
 } mmc_device_interface;
 
 
