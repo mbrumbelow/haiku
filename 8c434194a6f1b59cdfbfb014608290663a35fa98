@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6fc4ed8f_cd05dff2",
+        "filename": "docs/develop/busses/sdhci/sdhci_mmc_driver.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-06T11:53:43Z",
+      "side": 1,
+      "message": "\"reuse\"",
+      "revId": "8c434194a6f1b59cdfbfb014608290663a35fa98",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a25abd1_3256711c",
+        "filename": "docs/develop/busses/sdhci/sdhci_mmc_driver.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-06T11:53:43Z",
+      "side": 1,
+      "message": "Essentially",
+      "revId": "8c434194a6f1b59cdfbfb014608290663a35fa98",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
