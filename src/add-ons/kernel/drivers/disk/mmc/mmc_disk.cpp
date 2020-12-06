@@ -8,12 +8,13 @@
  *		Adrien Destugues, pulkomandy@pulkomandy.tk
  */
 
+#include <algorithm>
 #include <new>
 
-#include <string.h>
+#include <ctype.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <ctype.h>
+#include <string.h>
 
 #include "mmc_disk.h"
 #include "mmc_icon.h"
@@ -94,8 +95,63 @@ mmc_disk_register_device(device_node* node)
 		{ NULL }
 	};
 
-	return sDeviceManager->register_node(node
-		, MMC_DISK_DRIVER_MODULE_NAME, attrs, NULL, NULL);
+	return sDeviceManager->register_node(node, MMC_DISK_DRIVER_MODULE_NAME,
+		attrs, NULL, NULL);
+}
+
+
+static status_t
+mmc_disk_execute_iorequest(void* data, IOOperation* operation)
+{
+	mmc_disk_driver_info* info = (mmc_disk_driver_info*)data;
+	status_t error;
+
+	off_t offset = operation->Offset();
+	generic_size_t length = operation->Length();
+
+	TRACE("Reading %ld bytes from position %ld\n", length, offset);
+
+#if 0 // FIXME check against block_size
+	ASSERT(offset % B_PAGE_SIZE == 0);
+#endif
+
+	const generic_io_vec* vecs = operation->Vecs();
+	generic_size_t vecOffset = 0;
+	bool isWrite = operation->IsWrite();
+
+	if (isWrite)
+		return B_NOT_SUPPORTED;
+
+	while (length > 0) {
+		TRACE("Handling vec %p %d\n", vecs, operation->VecCount());
+		size_t toCopy = std::min((generic_size_t)length,
+			vecs->length - vecOffset);
+		TRACE("Reading loop %ld bytes from position %ld\n", toCopy, offset);
+
+		// If the current vec is empty, we can move to the next
+		if (toCopy == 0) {
+			vecs++;
+			vecOffset = 0;
+			continue;
+		}
+
+		error = info->mmc->read_naive(info->parent, info->rca, offset,
+			(void*)(vecs->base + vecOffset), &toCopy);
+		if (error != B_OK)
+			break;
+
+		length -= toCopy;
+		vecOffset += toCopy;
+		offset += toCopy;
+	}
+
+	if (error != B_OK) {
+		info->scheduler->OperationCompleted(operation, error, 0);
+		return error;
+	}
+
+	info->scheduler->OperationCompleted(operation, B_OK, operation->Length());
+	return B_OK;
 }
 
 
@@ -126,6 +182,50 @@ mmc_disk_init_driver(device_node* node, void** cookie)
 		return B_BAD_DATA;
 	}
 
+	static const uint32 kBlockSize = 512; // FIXME get it from the CSD
+	status_t error;
+
+#if 0
+	static const uint32 kDMAResourceBufferCount			= 16;
+	static const uint32 kDMAResourceBounceBufferCount	= 16;
+
+	// No restrictions
+	const dma_restrictions restrictions = {};
+
+	info->dmaResource = new(std::nothrow) DMAResource();
+	if (info->dmaResource == NULL) {
+		TRACE("Failed to alloc DMA resource");
+		free(info);
+		return B_NO_MEMORY;
+	}
+
+	error = info->dmaResource->Init(restrictions, kBlockSize,
+		kDMAResourceBufferCount, kDMAResourceBounceBufferCount);
+	if (error != B_OK) {
+		TRACE("Failed to init DMA resource");
+		free(info);
+		return error;
+	}
+#endif
+
+	info->scheduler = new(std::nothrow) IOSchedulerSimple(info->dmaResource);
+	if (info->scheduler == NULL) {
+		TRACE("Failed to alloc scheduler");
+		delete info->dmaResource;
+		free(info);
+		return B_NO_MEMORY;
+	}
+
+	error = info->scheduler->Init("mmc storage");
+	if (error != B_OK) {
+		TRACE("Failed to init scheduler");
+		delete info->dmaResource;
+		delete info->scheduler;
+		free(info);
+		return error;
+	}
+	info->scheduler->SetCallback(&mmc_disk_execute_iorequest, info);
+
 	TRACE("MMC card device initialized for RCA %x\n", info->rca);
 
 	*cookie = info;
@@ -138,6 +238,7 @@ mmc_disk_uninit_driver(void* _cookie)
 {
 	CALLED();
 	mmc_disk_driver_info* info = (mmc_disk_driver_info*)_cookie;
+	delete info->scheduler;
 	sDeviceManager->put_node(info->parent);
 	free(info);
 }
@@ -234,19 +335,62 @@ mmc_block_read(void* cookie, off_t pos, void* buffer, size_t* _length)
 {
 	CALLED();
 	mmc_disk_handle* handle = (mmc_disk_handle*)cookie;
-	TRACE("Ready to execute %p\n", handle->info->mmc->read_naive);
-	return handle->info->mmc->read_naive(handle->info->parent, handle->info->rca, pos, buffer, _length);
+
+	size_t length = *_length;
+
+#if 0 // FIXME the device capacity isn't set yet
+	if (pos >= device->DeviceSize())
+		return B_BAD_VALUE;
+	if (pos + (off_t)length > device->DeviceSize())
+		length = device->DeviceSize() - pos;
+#endif
+
+	IORequest request;
+	status_t status = request.Init(pos, (addr_t)buffer, length, false, 0);
+	if (status != B_OK)
+		return status;
+
+	status = handle->info->scheduler->ScheduleRequest(&request);
+	if (status != B_OK)
+		return status;
+
+	status = request.Wait(0, 0);
+	if (status == B_OK)
+		*_length = length;
+	return status;
 }
 
 
 static status_t
 mmc_block_write(void* cookie, off_t position, const void* buffer,
-	size_t* length)
+	size_t* _length)
 {
 	CALLED();
 	mmc_disk_handle* handle = (mmc_disk_handle*)cookie;
 
-	return B_NOT_SUPPORTED;
+	size_t length = *_length;
+
+#if 0 // FIXME the capacity isn't populated yet
+	if (position >= handle->info->capacity)
+		return B_BAD_VALUE;
+	if (position + (off_t)length > handle->info->capacity)
+		length = device->DeviceSize() - pos;
+#endif
+
+	IORequest request;
+	status_t status = request.Init(position, (addr_t)buffer, length, true, 0);
+	if (status != B_OK)
+		return status;
+
+	status = handle->info->scheduler->ScheduleRequest(&request);
+	if (status != B_OK)
+		return status;
+
+	status = request.Wait(0, 0);
+	if (status == B_OK)
+		*_length = length;
+
+	return status;
 }
 
 
@@ -256,7 +400,7 @@ mmc_block_io(void* cookie, io_request* request)
 	CALLED();
 	mmc_disk_handle* handle = (mmc_disk_handle*)cookie;
 
-	return B_NOT_SUPPORTED;
+	return handle->info->scheduler->ScheduleRequest(request);
 }
 
 

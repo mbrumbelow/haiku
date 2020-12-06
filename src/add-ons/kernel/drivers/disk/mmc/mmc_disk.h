@@ -17,6 +17,10 @@
 
 #include <mmc.h>
 
+#include "IOSchedulerSimple.h"
+
+
+// This is the device info structure, allocated once per device
 typedef struct {
 	device_node* node;
 	device_node* parent;
@@ -25,9 +29,14 @@ typedef struct {
 
 	size_t block_size;
 	uint32_t capacity;
+
+	DMAResource* dmaResource;
+	IOScheduler* scheduler;
 } mmc_disk_driver_info;
 
 
+// This is allocated once per open() call on the device (there can be multiple
+// open file descriptors for the same device)
 typedef struct {
 	mmc_disk_driver_info* info;
 } mmc_disk_handle;
