@@ -43,8 +43,8 @@ public:
 
 				status_t		ExecuteCommand(uint8_t command,
 									uint32_t argument, uint32_t* response);
-				status_t		Read(uint16_t rca, off_t position, void* buffer,
-									size_t* length);
+				status_t		Read(uint16_t rca, off_t position,
+									phys_addr_t buffer, size_t* length);
 private:
 				status_t		ActivateDevice(uint16_t rca);
 		static	status_t		WorkerThread(void*);
