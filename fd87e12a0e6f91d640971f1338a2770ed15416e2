@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fba6835e_4da503b4",
+        "filename": "src/kits/game/GameSoundBuffer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-07T20:04:10Z",
+      "side": 1,
+      "message": "middle could default to 0: template\u003ctypename T, int middle \u003d 0\u003e\nThis way, middle has only to be specified for uint8.",
+      "revId": "fd87e12a0e6f91d640971f1338a2770ed15416e2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
