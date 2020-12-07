@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "236b622b_b35f5a1a",
+        "filename": "src/apps/expander/ExpanderThread.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-07T11:34:56Z",
+      "side": 1,
+      "message": "I think this is incorrect. The idea in the previous code was that if there is no specified destRef, it just extracts to the current directory.\n\nA fix which preserves that would be simply removing the status \u003d:\n\nif (GetDataStore()-\u003eFindRef(\"destRef\", \u0026destRef) \u003d\u003d B_OK) {",
+      "revId": "cadcd5c7eaf0631d4dec9528e693ac0cfa79596e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
