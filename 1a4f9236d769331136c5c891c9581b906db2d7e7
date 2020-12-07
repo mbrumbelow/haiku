@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7e1b4865_a466e7ce",
+        "filename": "headers/private/shared/AutoDeleter.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-07T11:41:09Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "1a4f9236d769331136c5c891c9581b906db2d7e7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25730125_7dbcda1e",
+        "filename": "headers/private/shared/AutoDeleter.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-07T11:41:09Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "1a4f9236d769331136c5c891c9581b906db2d7e7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ecc385ef_56037558",
+        "filename": "headers/private/shared/AutoDeleter.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-07T11:41:09Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "1a4f9236d769331136c5c891c9581b906db2d7e7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
