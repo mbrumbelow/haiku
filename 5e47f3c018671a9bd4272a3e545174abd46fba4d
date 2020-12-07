@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c7053d9e_48dfa914",
+        "filename": "src/kits/game/FileGameSound.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-07T08:13:11Z",
+      "side": 1,
+      "message": "size_t samples",
+      "revId": "5e47f3c018671a9bd4272a3e545174abd46fba4d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e637c102_174326cc",
+        "filename": "src/kits/game/FileGameSound.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-07T08:13:11Z",
+      "side": 1,
+      "message": "size_t sample",
+      "revId": "5e47f3c018671a9bd4272a3e545174abd46fba4d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "269b74ca_927b5855",
+        "filename": "src/kits/game/FileGameSound.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-07T08:13:11Z",
+      "side": 1,
+      "message": "size_t samples",
+      "revId": "5e47f3c018671a9bd4272a3e545174abd46fba4d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cbc39b6d_606c21f5",
+        "filename": "src/kits/game/FileGameSound.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-07T08:13:11Z",
+      "side": 1,
+      "message": "size_t sample",
+      "revId": "5e47f3c018671a9bd4272a3e545174abd46fba4d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
