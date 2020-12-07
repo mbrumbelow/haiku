@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "76c25f29_3ac4b220",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-07T11:39:45Z",
+      "side": 1,
+      "message": "\"Store of destructor\"",
+      "revId": "fb204e350644eae19be98063edd05af9e7c9cfeb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa0857cd_04def7da",
+        "filename": "headers/private/shared/AutoDeleter.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-07T11:39:45Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "fb204e350644eae19be98063edd05af9e7c9cfeb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fc91f8f_d32f736d",
+        "filename": "headers/private/shared/AutoDeleter.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-07T11:39:45Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "fb204e350644eae19be98063edd05af9e7c9cfeb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a672e4f6_4b248b62",
+        "filename": "headers/private/shared/AutoDeleter.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-07T11:39:45Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "fb204e350644eae19be98063edd05af9e7c9cfeb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
