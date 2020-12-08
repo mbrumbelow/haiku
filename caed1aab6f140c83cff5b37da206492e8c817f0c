@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a346e91e_1402c9c4",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1355,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-08T12:48:55Z",
+      "side": 1,
+      "message": "VMAddressSpace::KernelID() is B_SYSTEM_TEAM according to https://git.haiku-os.org/haiku/tree/src/system/kernel/vm/VMAddressSpace.cpp#n132\nthis assignment looks superfluous to me.",
+      "revId": "caed1aab6f140c83cff5b37da206492e8c817f0c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
