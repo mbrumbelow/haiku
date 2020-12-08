@@ -111,6 +111,7 @@ PowerStatusView::_Init()
 	fShowLabel = true;
 	fShowTime = false;
 	fShowStatusIcon = true;
+	fUpdateFlag = true;
 
 	fPercent = 100;
 	fOnline = true;
@@ -479,8 +480,9 @@ PowerStatusView::Update(bool force)
 	}
 
 	if (!fOnline && fHasBattery && previousPercent > kLowBatteryPercentage
-			&& fPercent <= kLowBatteryPercentage) {
+			&& fPercent <= kLowBatteryPercentage && fUpdateFlag) {
 		_NotifyLowBattery();
+		fUpdateFlag=true;
 	}
 }
 
@@ -609,8 +611,10 @@ PowerStatusReplicant::PowerStatusReplicant(BRect frame, int32 resizingMode,
 		BDragger* dragger = new BDragger(frame, this,
 			B_FOLLOW_RIGHT | B_FOLLOW_BOTTOM);
 		AddChild(dragger);
-	} else
+	} else	{
+		fUpdateFlag=false;
 		Update();
+		}
 }
 
 
