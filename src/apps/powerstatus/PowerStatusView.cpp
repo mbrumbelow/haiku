@@ -609,8 +609,7 @@ PowerStatusReplicant::PowerStatusReplicant(BRect frame, int32 resizingMode,
 		BDragger* dragger = new BDragger(frame, this,
 			B_FOLLOW_RIGHT | B_FOLLOW_BOTTOM);
 		AddChild(dragger);
-	} else
-		Update();
+	}
 }
 
 
