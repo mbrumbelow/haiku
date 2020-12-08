@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "75719c5d_4fc51611",
+        "filename": "src/add-ons/kernel/drivers/audio/usb/Stream.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-12-08T00:24:50Z",
+      "side": 1,
+      "message": "?",
+      "revId": "0db849944b5a7c3f8199de3f213c8c3aafdfc4fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abf97698_d46cc38e",
+        "filename": "src/add-ons/kernel/drivers/audio/usb/Stream.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-12-08T00:24:50Z",
+      "side": 1,
+      "message": "The array of usb_iso_packet_descriptors should be allocated separately from the packet data, so that this is not necessary.",
+      "revId": "0db849944b5a7c3f8199de3f213c8c3aafdfc4fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
