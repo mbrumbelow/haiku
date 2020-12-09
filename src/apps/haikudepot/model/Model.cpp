@@ -104,12 +104,12 @@ public:
 
 	virtual bool AcceptsPackage(const PackageInfoRef& package) const
 	{
-		if (package.Get() == NULL)
+		if (!package.IsSet())
 			return false;
 
 		for (int i = package->CountCategories() - 1; i >= 0; i--) {
 			const CategoryRef& category = package->CategoryAtIndex(i);
-			if (category.Get() == NULL)
+			if (!category.IsSet())
 				continue;
 			if (category->Code() == fCategory)
 				return true;
@@ -184,7 +184,7 @@ public:
 
 	virtual bool AcceptsPackage(const PackageInfoRef& package) const
 	{
-		if (package.Get() == NULL)
+		if (!package.IsSet())
 			return false;
 
 		for (int32 i = 0; i < fPackageLists.CountItems(); i++) {
@@ -239,7 +239,7 @@ public:
 
 	virtual bool AcceptsPackage(const PackageInfoRef& package) const
 	{
-		if (package.Get() == NULL)
+		if (!package.IsSet())
 			return false;
 		// Every search term must be found in one of the package texts
 		for (int32 i = fSearchTerms.CountStrings() - 1; i >= 0; i--) {
@@ -1018,7 +1018,7 @@ Model::_NotifyAuthorizationChanged()
 {
 	for (int32 i = fListeners.CountItems() - 1; i >= 0; i--) {
 		const ModelListenerRef& listener = fListeners.ItemAtFast(i);
-		if (listener.Get() != NULL)
+		if (listener.IsSet())
 			listener->AuthorizationChanged();
 	}
 }
@@ -1029,7 +1029,7 @@ Model::_NotifyCategoryListChanged()
 {
 	for (int32 i = fListeners.CountItems() - 1; i >= 0; i--) {
 		const ModelListenerRef& listener = fListeners.ItemAtFast(i);
-		if (listener.Get() != NULL)
+		if (listener.IsSet())
 			listener->CategoryListChanged();
 	}
 }

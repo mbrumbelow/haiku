@@ -358,9 +358,9 @@ PackageCategory::Compare(const PackageCategory& other) const
 bool IsPackageCategoryBefore(const CategoryRef& c1,
 	const CategoryRef& c2)
 {
-	if (c1.Get() == NULL || c2.Get() == NULL)
+	if (!c1.IsSet() || !c2.IsSet())
 		HDFATAL("unexpected NULL reference in a referencable");
-	return c1.Get()->Compare(*(c2.Get())) < 0;
+	return c1->Compare(*c2) < 0;
 }
 
 
@@ -1017,7 +1017,7 @@ PackageInfo::_NotifyListenersImmediate(uint32 changes)
 
 	for (int i = 0; i < count; i++) {
 		const PackageInfoListenerRef& listener = listeners.ItemAtFast(i);
-		if (listener.Get() != NULL)
+		if (listener.IsSet())
 			listener->PackageChanged(event);
 	}
 }
