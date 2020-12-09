@@ -952,10 +952,3 @@ get_driver_settings(void *handle)
 
 	return &((settings_handle *)handle)->settings;
 }
-
-
-status_t
-delete_driver_settings(void *_handle)
-{
-	return unload_driver_settings(_handle);
-}
