@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5628e03f_aca07f44",
+        "filename": "headers/private/shared/AutoDeleter.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-09T18:10:34Z",
+      "side": 1,
+      "message": "local variable name should have lowercase name (destructor instead of Destructor)",
+      "revId": "903c5954261aa363b317232f0bf7c2b6620d14da",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
