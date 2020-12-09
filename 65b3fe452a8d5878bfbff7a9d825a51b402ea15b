@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9278c848_26504fec",
+        "filename": "src/apps/powerstatus/PowerStatusView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-09T07:52:40Z",
+      "side": 0,
+      "message": "the Update function does more than showing notifications, it also updates the battery status in the PowerStatus window, which I think should still be done?\n\nWhy not add a check for fInDeskbar in _NotifyLowBattery instead?",
+      "revId": "65b3fe452a8d5878bfbff7a9d825a51b402ea15b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
