@@ -11,6 +11,8 @@
 	ArrayDeleter   - deletes an array
 	MemoryDeleter  - free()s malloc()ed memory
 	CObjectDeleter - calls an arbitrary specified destructor function
+	FieldFunctionDeleter - calls an arbitrary field function in given struct
+		pointer
 	HandleDeleter  - use arbitrary handle type and destructor function
 	FileDescriptorCloser - closes a file descriptor, based on HandleDeleter
 */
@@ -100,6 +102,7 @@ struct ObjectDelete
 	}
 };
 
+
 template<typename C>
 struct ObjectDeleter : AutoDeleter<C, ObjectDelete<C> >
 {
@@ -118,6 +121,7 @@ struct ArrayDelete
 		delete[] array;
 	}
 };
+
 
 template<typename C>
 struct ArrayDeleter : AutoDeleter<C, ArrayDelete<C> >
@@ -142,6 +146,7 @@ struct MemoryDelete
 	}
 };
 
+
 struct MemoryDeleter : AutoDeleter<void, MemoryDelete >
 {
 	MemoryDeleter() : AutoDeleter<void, MemoryDelete >() {}
@@ -161,6 +166,7 @@ struct CObjectDelete
 			Destructor(object);
 	}
 };
+
 
 template<typename Type, typename DestructorReturnType,
 	DestructorReturnType (*Destructor)(Type*)>
@@ -209,6 +215,32 @@ struct MethodDeleter
 	MethodDeleter(Type *object) : Base(object)
 	{
 	}
+};
+
+
+// FieldFunctionDeleter
+
+template<typename Type, typename Table, Table **table,
+	void (*Table::*Deleter)(Type*)>
+struct FieldFunctionDelete {
+	inline void operator()(Type *object)
+	{
+		if (object != NULL)
+			((**table).*Deleter)(object);
+	}
+};
+
+
+template<typename Type, typename Table, Table **table,
+	typename DestructorResult, DestructorResult (*Table::*Deleter)(Type*)>
+struct FieldFunctionDeleter
+	: AutoDeleter<Type, FieldFunctionDelete<Type, Table, table, Deleter> >
+{
+	typedef AutoDeleter<Type,
+		FieldFunctionDelete<Type, Table, table, Deleter> > Base;
+
+	FieldFunctionDeleter() : Base() {}
+	FieldFunctionDeleter(Type *object) : Base(object) {}
 };
 
 
@@ -285,6 +317,7 @@ using ::BPrivate::ArrayDeleter;
 using ::BPrivate::MemoryDeleter;
 using ::BPrivate::CObjectDeleter;
 using ::BPrivate::MethodDeleter;
+using ::BPrivate::FieldFunctionDeleter;
 using ::BPrivate::HandleDeleter;
 using ::BPrivate::FileDescriptorCloser;
 
