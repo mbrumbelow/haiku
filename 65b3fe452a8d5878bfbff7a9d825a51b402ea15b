@@ -16,6 +16,24 @@
       "revId": "65b3fe452a8d5878bfbff7a9d825a51b402ea15b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11728fd0_ee56c2ce",
+        "filename": "src/apps/powerstatus/PowerStatusView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1000266
+      },
+      "writtenOn": "2020-12-09T18:20:58Z",
+      "side": 0,
+      "message": "update() on line 133 collides with this update()... If this update is removed then we have 1 update on line 133 when powerstatus is launched and n updates using MessageReceived on line 668. Having an update on both line 133 and 613 leads to redundancy as I tested...",
+      "parentUuid": "9278c848_26504fec",
+      "revId": "65b3fe452a8d5878bfbff7a9d825a51b402ea15b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
