@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6d94799a_74f6ade5",
+        "filename": "headers/private/shared/AutoDeleterDrivers.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-12-09T17:29:35Z",
+      "side": 1,
+      "message": "Leftover from not yet published ModulePutter and DeviceNodePutter.",
+      "revId": "2c87de38820a552c082ed991d12eb1083c09e7e7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
