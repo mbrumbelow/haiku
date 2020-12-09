@@ -172,7 +172,7 @@ ScreenshotWindow::SetPackage(const PackageInfoRef& package)
 	fPackage = package;
 
 	BString title = B_TRANSLATE("Screenshot");
-	if (package.Get() != NULL) {
+	if (package.IsSet()) {
 		title = package->Title();
 		_DownloadScreenshot();
 	}
@@ -262,7 +262,7 @@ ScreenshotWindow::_DownloadThread()
 	fScreenshotView->UnsetBitmap();
 
 	ScreenshotInfoList screenshotInfos;
-	if (fPackage.Get() != NULL)
+	if (fPackage.IsSet())
 		screenshotInfos = fPackage->ScreenshotInfos();
 
 	Unlock();
@@ -310,7 +310,7 @@ ScreenshotWindow::_ResizeToFitAndCenter()
 {
 	// Find out dimensions of the largest screenshot of this package
 	ScreenshotInfoList screenshotInfos;
-	if (fPackage.Get() != NULL)
+	if (fPackage.IsSet())
 		screenshotInfos = fPackage->ScreenshotInfos();
 
 	int32 largestScreenshotWidth = 0;
