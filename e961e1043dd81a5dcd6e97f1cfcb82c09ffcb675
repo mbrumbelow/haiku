@@ -16,6 +16,24 @@
       "revId": "e961e1043dd81a5dcd6e97f1cfcb82c09ffcb675",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c8a49c5_a9c356fa",
+        "filename": "headers/private/shared/AutoDeleter.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-12-10T09:13:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "497d58a8_7fa9c4bc",
+      "revId": "e961e1043dd81a5dcd6e97f1cfcb82c09ffcb675",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
