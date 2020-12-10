@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c0bc203a_21d68847",
+        "filename": "src/add-ons/media/media-add-ons/multi_audio/MultiAudioNode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2415,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-12-10T02:04:40Z",
+      "side": 1,
+      "message": "Just noticed this will never be a float... will correct.",
+      "revId": "654f8d88ac05265e8d7cf1243acdf60fee645f73",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1096edf4_5f7e20de",
+        "filename": "src/add-ons/media/media-add-ons/multi_audio/MultiAudioNode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2427,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-12-10T02:04:40Z",
+      "side": 1,
+      "message": "I don\u0027t really understand the units here. Only goal is to check for 0 on inputs without modifying the behaviour.",
+      "revId": "654f8d88ac05265e8d7cf1243acdf60fee645f73",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
