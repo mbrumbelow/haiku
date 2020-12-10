@@ -33,6 +33,24 @@
       "revId": "654f8d88ac05265e8d7cf1243acdf60fee645f73",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "acfb9143_c288ce59",
+        "filename": "src/add-ons/media/media-add-ons/multi_audio/MultiAudioNode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2427,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2020-12-10T11:57:48Z",
+      "side": 1,
+      "message": "In case you are still wondering:\n- The *10000 and the /(foo/100) in the original go together to turn seconds to microseconds.\n- frame_rate is in frames/second, so your audioFramerate becomes a funny hectoframes/s.\n- format \u0026 B_AUDIO_SIZE_MASK is, as you found out, the number of bytes for a sample. That makes your audioFormatSize (later renamed audioSampleSize) the size in bytes of a *frame*, a frame containing a sample per channel.\n\nIn the end you get half the number of microseconds the buffer stores.",
+      "parentUuid": "1096edf4_5f7e20de",
+      "revId": "654f8d88ac05265e8d7cf1243acdf60fee645f73",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
