@@ -22,6 +22,7 @@
 #include <Referenceable.h>
 
 #include "MultiAudioUtility.h"
+
 #ifdef DEBUG
 #	define PRINTING
 #endif
@@ -2410,12 +2411,22 @@ MultiAudioNode::_SetNodeOutputFrameRate(float frameRate)
 void
 MultiAudioNode::_UpdateInternalLatency(const media_format& format)
 {
-	// use half a buffer length latency
-	fInternalLatency = format.u.raw_audio.buffer_size * 10000 / 2
-		/ ((format.u.raw_audio.format
-				& media_raw_audio_format::B_AUDIO_SIZE_MASK)
-			* format.u.raw_audio.channel_count)
-		/ ((int32)(format.u.raw_audio.frame_rate / 100));
+	int32 audioFramerate = (int32)(format.u.raw_audio.frame_rate / 100);
+	float audioFormatSize = ((format.u.raw_audio.format
+		& media_raw_audio_format::B_AUDIO_SIZE_MASK)
+		* format.u.raw_audio.channel_count);
+
+	if (audioFramerate == 0 || audioFormatSize == 0) {
+		// This guards a division by zero when drivers have "issues"
+		PRINT(("%s: Unable to calculate internal latency due to 0 count!"
+			"Framerate(%d), Format(%f). Guessing 100ms\n", __FUNC__,
+			audioFramerate, audioFormatSize));
+		fInternalLatency = 100000;
+	} else {
+		// use half a buffer length latency
+		fInternalLatency = format.u.raw_audio.buffer_size * 10000 / 2
+			/ audioFormatSize / audioFramerate;
+	}
 
 	PRINT(("  internal latency = %" B_PRIdBIGTIME "\n", fInternalLatency));
 
