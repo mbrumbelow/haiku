@@ -40,7 +40,7 @@ FillBuffer(_gs_ramp* ramp, T* dest, const T* src, size_t* bytes)
 
 	for (size_t sample = 0; sample < samples; sample++) {
 		float gain = *ramp->value;
-		dest[sample] = T(float(src[sample] - middle) * gain + middle);
+		dest[sample] = T(double(src[sample] - middle) * gain + middle);
 
 		if (ChangeRamp(ramp)) {
 			*bytes = sample * sizeof(T);

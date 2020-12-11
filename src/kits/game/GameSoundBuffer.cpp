@@ -47,8 +47,8 @@ template<typename T, int middle>
 static inline void
 ApplyMod(T* data, int64 index, float* pan)
 {
-	data[index * 2] = T(float(data[index * 2] - middle) * pan[0] + middle);
-	data[index * 2 + 1] = T(float(data[index * 2 + 1] - middle) * pan[1]
+	data[index * 2] = T(double(data[index * 2] - middle) * pan[0] + middle);
+	data[index * 2 + 1] = T(double(data[index * 2 + 1] - middle) * pan[1]
 							+ middle);
 }
 
