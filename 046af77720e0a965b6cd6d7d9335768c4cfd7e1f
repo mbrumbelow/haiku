@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "04e4ed97_18a2768a",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-11T09:01:17Z",
+      "side": 1,
+      "message": "I don\u0027t see when fSearchPageMenuCustom is marked false anywhere. Is it correct?",
+      "revId": "046af77720e0a965b6cd6d7d9335768c4cfd7e1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a341d2b4_e9828911",
+        "filename": "src/apps/webpositive/SettingsWindow.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-11T09:01:17Z",
+      "side": 1,
+      "message": "fSearchPageMenuSeparator is not needed.",
+      "revId": "046af77720e0a965b6cd6d7d9335768c4cfd7e1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
