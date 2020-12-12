@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "af804790_f329ae1a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-12T20:34:25Z",
+      "side": 1,
+      "message": "Went with a simple lock here for now.",
+      "parentUuid": "4c86ac90_007c109f",
+      "revId": "b0826773800e772ad0baf68b329082e842558c9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03e71a59_53e20714",
         "filename": "headers/private/drivers/mmc.h",
         "patchSetId": 3
