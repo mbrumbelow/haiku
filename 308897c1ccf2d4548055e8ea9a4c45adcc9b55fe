@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "cce5bc4d_79535e6e",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-12T19:52:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd69b049_74c5c6b2",
+      "revId": "308897c1ccf2d4548055e8ea9a4c45adcc9b55fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6391f5db_2c629a8e",
         "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
         "patchSetId": 10
@@ -33,6 +51,24 @@
       "revId": "308897c1ccf2d4548055e8ea9a4c45adcc9b55fe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76930141_0acad0b4",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-12T19:52:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6391f5db_2c629a8e",
+      "revId": "308897c1ccf2d4548055e8ea9a4c45adcc9b55fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "4b5c1fce_c65aa890",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-12T19:52:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e884996d_462c0bec",
+      "revId": "308897c1ccf2d4548055e8ea9a4c45adcc9b55fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "27263a85_22c552dc",
         "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
         "patchSetId": 10
@@ -67,6 +121,24 @@
       "revId": "308897c1ccf2d4548055e8ea9a4c45adcc9b55fe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0e9af2c_84fb185e",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-12T19:52:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27263a85_22c552dc",
+      "revId": "308897c1ccf2d4548055e8ea9a4c45adcc9b55fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
