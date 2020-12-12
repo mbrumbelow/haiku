@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "73c40300_bf9f6bce",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-12T18:02:58Z",
+      "side": 1,
+      "message": "It would do a read back from the hardware register, which works, but adds more verbosity to debug logs in qemu (which can trace all register access).\n\nThe 512 should be defined as a constant anyway, the sector size for SDHC cards is fixed in the spec and can\u0027t change.\n\nThe length is a multiple of the block size currently because of the dma_restrictions used to initialize the IOScheduler, but I\u0027m not sure anymore if that\u0027s by design of the IO Scheduler as I thought it would, or more a side effect of how it\u0027s implemented.\n\nThis will be made simpler by using ADMA, where we can have a scatter-gather list allowing to write the data to several separate blocks. In that case the IO scheduler provides us with a scratch \"bounce buffer\" to store the extra data, I think, but I can\u0027t use that here with SDMA because it\u0027s not contiguous with the data buffer.",
+      "parentUuid": "e4d73dc8_09e077e0",
+      "revId": "5685f156ebed60cabf3a606e96a208167632d875",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "573c7125_aff0d7e0",
         "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
         "patchSetId": 2
