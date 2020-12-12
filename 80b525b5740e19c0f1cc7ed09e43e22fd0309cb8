@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf2b27df_99cd58a6",
+        "filename": "headers/private/drivers/mmc.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-12T17:48:59Z",
+      "side": 1,
+      "message": "Beware that _bus_interface usually means the bus interface for peripheral drivers. bus controller interface would be _sim_interface (used by SCSI, Virtio and I2C).",
+      "revId": "80b525b5740e19c0f1cc7ed09e43e22fd0309cb8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}

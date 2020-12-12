@@ -1,0 +1,191 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4c86ac90_007c109f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-12T17:48:59Z",
+      "side": 1,
+      "message": "For I2C I added acquire_bus and release_bus hooks.",
+      "revId": "b0826773800e772ad0baf68b329082e842558c9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03e71a59_53e20714",
+        "filename": "headers/private/drivers/mmc.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-12T17:48:59Z",
+      "side": 1,
+      "message": "This is actually MMC_COMMANDS, the commands should be prefixed with MMC_\nOr SD_COMMANDS and prefixed with SD_.\n\nThey could be found in the \"MultiMediaCard System Specification Version 3.31\" or \"SD Specifications Part 1 Physical Layer Simplified Specification Version 6.00\"",
+      "revId": "b0826773800e772ad0baf68b329082e842558c9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "816f1e49_db7b9afe",
+        "filename": "headers/private/drivers/mmc.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-12T17:48:59Z",
+      "side": 1,
+      "message": "trailing tab",
+      "revId": "b0826773800e772ad0baf68b329082e842558c9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bf78c67_05fdf0e6",
+        "filename": "headers/private/drivers/mmc.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-12T17:48:59Z",
+      "side": 1,
+      "message": "trailing tab",
+      "revId": "b0826773800e772ad0baf68b329082e842558c9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76d677de_834b0ee4",
+        "filename": "headers/private/drivers/mmc.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-12T17:48:59Z",
+      "side": 1,
+      "message": "trailing tab",
+      "revId": "b0826773800e772ad0baf68b329082e842558c9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d55c8c2_ff354bd0",
+        "filename": "headers/private/drivers/mmc.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-12T17:48:59Z",
+      "side": 1,
+      "message": "these two hooks are missing in the implementation",
+      "revId": "b0826773800e772ad0baf68b329082e842558c9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4148e905_188e2a54",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_bus.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-12T17:48:59Z",
+      "side": 1,
+      "message": "fWorkerThread(-1),",
+      "revId": "b0826773800e772ad0baf68b329082e842558c9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c5de03a_eb61b513",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_bus.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-12T17:48:59Z",
+      "side": 1,
+      "message": "rca should be casted to uint32 before left shifting.",
+      "revId": "b0826773800e772ad0baf68b329082e842558c9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57da61c0_aed39a63",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_bus.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-12T17:48:59Z",
+      "side": 1,
+      "message": "should be named _ActivateDevice",
+      "revId": "b0826773800e772ad0baf68b329082e842558c9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "caeb4054_f42d81a3",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_bus.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-12T17:48:59Z",
+      "side": 1,
+      "message": "uint16 would be fine",
+      "revId": "b0826773800e772ad0baf68b329082e842558c9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0425744b_504dfe72",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-12T17:48:59Z",
+      "side": 1,
+      "message": "is it needed? it\u0027s already defined.",
+      "revId": "b0826773800e772ad0baf68b329082e842558c9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
