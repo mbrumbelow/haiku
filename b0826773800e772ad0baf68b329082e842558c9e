@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "b54b126d_80856a2f",
+        "filename": "headers/private/drivers/mmc.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-12T19:57:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03e71a59_53e20714",
+      "revId": "b0826773800e772ad0baf68b329082e842558c9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "816f1e49_db7b9afe",
         "filename": "headers/private/drivers/mmc.h",
         "patchSetId": 3
@@ -50,6 +68,24 @@
       "revId": "b0826773800e772ad0baf68b329082e842558c9e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc2a92dc_5c01d223",
+        "filename": "headers/private/drivers/mmc.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-12T19:57:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "816f1e49_db7b9afe",
+      "revId": "b0826773800e772ad0baf68b329082e842558c9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -70,6 +106,24 @@
     },
     {
       "key": {
+        "uuid": "6c74d8e3_e2b0a7e2",
+        "filename": "headers/private/drivers/mmc.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-12T19:57:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5bf78c67_05fdf0e6",
+      "revId": "b0826773800e772ad0baf68b329082e842558c9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76d677de_834b0ee4",
         "filename": "headers/private/drivers/mmc.h",
         "patchSetId": 3
@@ -84,6 +138,24 @@
       "revId": "b0826773800e772ad0baf68b329082e842558c9e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02407190_0c1deebc",
+        "filename": "headers/private/drivers/mmc.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-12T19:57:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76d677de_834b0ee4",
+      "revId": "b0826773800e772ad0baf68b329082e842558c9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -121,6 +193,24 @@
     },
     {
       "key": {
+        "uuid": "916e2e6f_1dc34455",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_bus.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-12T19:57:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4148e905_188e2a54",
+      "revId": "b0826773800e772ad0baf68b329082e842558c9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c5de03a_eb61b513",
         "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_bus.cpp",
         "patchSetId": 3
@@ -135,6 +225,24 @@
       "revId": "b0826773800e772ad0baf68b329082e842558c9e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb42e484_acd8ba4b",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_bus.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-12T19:57:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c5de03a_eb61b513",
+      "revId": "b0826773800e772ad0baf68b329082e842558c9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -155,6 +263,24 @@
     },
     {
       "key": {
+        "uuid": "5bba6dc2_e1f175ab",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_bus.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-12T19:57:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57da61c0_aed39a63",
+      "revId": "b0826773800e772ad0baf68b329082e842558c9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "caeb4054_f42d81a3",
         "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_bus.h",
         "patchSetId": 3
@@ -172,6 +298,24 @@
     },
     {
       "key": {
+        "uuid": "d1fc4a77_1e95857f",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_bus.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-12T19:57:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "caeb4054_f42d81a3",
+      "revId": "b0826773800e772ad0baf68b329082e842558c9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0425744b_504dfe72",
         "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
         "patchSetId": 3
@@ -186,6 +330,24 @@
       "revId": "b0826773800e772ad0baf68b329082e842558c9e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97de1d13_1d1debc2",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-12T19:57:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0425744b_504dfe72",
+      "revId": "b0826773800e772ad0baf68b329082e842558c9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
