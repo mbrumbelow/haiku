@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6a3476d0_89c44f97",
+        "filename": "headers/private/shared/LRUCache.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2020-12-12T13:18:51Z",
+      "side": 1,
+      "message": "Is this leaking \"node\" here?",
+      "revId": "027d6086829ad7d939efaed7a578a8f63fcca073",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
