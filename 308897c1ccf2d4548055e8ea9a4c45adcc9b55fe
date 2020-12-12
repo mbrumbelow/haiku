@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fd69b049_74c5c6b2",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-12T18:14:24Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "308897c1ccf2d4548055e8ea9a4c45adcc9b55fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6391f5db_2c629a8e",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-12T18:14:24Z",
+      "side": 1,
+      "message": "uint8 and uint16  would be preferred.",
+      "revId": "308897c1ccf2d4548055e8ea9a4c45adcc9b55fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e884996d_462c0bec",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-12T18:14:24Z",
+      "side": 1,
+      "message": "\"SD Card device found\" or \"MMC Card device found\"",
+      "revId": "308897c1ccf2d4548055e8ea9a4c45adcc9b55fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27263a85_22c552dc",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-12T18:14:24Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "308897c1ccf2d4548055e8ea9a4c45adcc9b55fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
