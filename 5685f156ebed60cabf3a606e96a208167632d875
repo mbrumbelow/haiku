@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df47bdfe_8fde2b07",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2020-12-12T17:48:22Z",
+      "side": 1,
+      "message": "Stray newline.",
+      "revId": "5685f156ebed60cabf3a606e96a208167632d875",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4d73dc8_09e077e0",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2020-12-12T17:48:22Z",
+      "side": 1,
+      "message": "This could be rewritten as *_length / fRegisters-\u003eblock_size, assuming the latter can change in the future. Also, is it guaranteed that _length is always a multiple of block_size? If not, what happens to the remaining partial block?",
+      "revId": "5685f156ebed60cabf3a606e96a208167632d875",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "573c7125_aff0d7e0",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2020-12-12T17:48:22Z",
+      "side": 1,
+      "message": "Is the bitwise and actually needed here? Given that we\u0027ve passed the condition at this point, this appears equivalent to simply |\u003d SDHCI_INT_TRANSCMP unless I\u0027m missing something?",
+      "revId": "5685f156ebed60cabf3a606e96a208167632d875",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
