@@ -359,15 +359,20 @@ SdhciBus::DoIO(uint8_t command, IOOperation* operation)
 	const generic_io_vec* vecs = operation->Vecs();
 	generic_size_t vecOffset = 0;
 
-	// Must always be 512 (on SD cards it can be changed, but not on SDHC)
 	// FIXME can this be moved to the init function instead?
-	fRegisters->block_size = kBlockSize;
+	// For simplicity we use a transfer size equal to the sector size. We could
+	// go up to 2K here if the length to read in each individual vec is a
+	// multiple of 2K, but that's annoying to check.
+	// Additionnally, set SDMA buffer boundary aligment to 512K, so we don't
+	// need to worry too much about it.
+	fRegisters->block_size = kBlockSize | (7 << 12);
 	status_t result = B_OK;
 
 	while (length > 0) {
 		size_t toCopy = std::min((generic_size_t)length,
 			vecs->length - vecOffset);
-		TRACE("Reading loop %ld bytes from position %ld\n", toCopy, offset);
+		TRACE("Loop %ld bytes from position %ld to %p\n", toCopy, offset,
+			vecs->base + vecOffset);
 
 		// If the current vec is empty, we can move to the next
 		if (toCopy == 0) {
@@ -390,7 +395,8 @@ SdhciBus::DoIO(uint8_t command, IOOperation* operation)
 		else
 			direction = TransferMode::kRead;
 		fRegisters->transfer_mode = TransferMode::kMulti | direction
-			| TransferMode::kAutoCmd12Enable | TransferMode::kDmaEnable;
+			| TransferMode::kAutoCmd12Enable
+			| TransferMode::kBlockCountEnable | TransferMode::kDmaEnable;
 
 		uint32_t response;
 		result = ExecuteCommand(command, offset, &response);

@@ -166,8 +166,8 @@ mmc_disk_init_driver(device_node* node, void** cookie)
 	const dma_restrictions restrictions = {
 		0, UINT32_MAX, /* Only 32bit address space in SDMA mode */
 		512, /* Align requests on sectors start and end */
-		B_PAGE_SIZE, /* Do not cross pages (SDMA can't do it) */
-		512, 1, 512};
+		1 << 18, /* Do not cross 512K pages (max size for SDMA) */
+		0, 1, 1 << 18};
 
 	info->dmaResource = new(std::nothrow) DMAResource();
 	if (info->dmaResource == NULL) {
