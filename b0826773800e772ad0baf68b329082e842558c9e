@@ -284,6 +284,24 @@
     },
     {
       "key": {
+        "uuid": "80c8a19d_b78fefce",
+        "filename": "headers/private/drivers/mmc.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-13T17:01:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "091bc50a_0357d44d",
+      "revId": "b0826773800e772ad0baf68b329082e842558c9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4148e905_188e2a54",
         "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_bus.cpp",
         "patchSetId": 3
