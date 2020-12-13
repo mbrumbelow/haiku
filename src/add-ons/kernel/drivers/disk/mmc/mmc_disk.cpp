@@ -187,15 +187,6 @@ mmc_disk_init_driver(device_node* node, void** cookie)
 	static const uint32 kDMAResourceBufferCount			= 16;
 	static const uint32 kDMAResourceBounceBufferCount	= 16;
 
-	// TODO relax this when we have ADMA2
-	// TODO the restrictions depend on the SDHCI bus and should be read
-	// from there, not hardcoded in mmc_disk
-	const dma_restrictions restrictions = {
-		0, UINT32_MAX, /* Only 32bit address space in SDMA mode */
-		512, /* Align requests on sectors start and end */
-		B_PAGE_SIZE, /* Do not cross pages (SDMA can't do it) */
-		512, 1, 512};
-
 	error = info->dmaResource.Init(restrictions, kBlockSize,
 		kDMAResourceBufferCount, kDMAResourceBounceBufferCount);
 	if (error != B_OK) {
