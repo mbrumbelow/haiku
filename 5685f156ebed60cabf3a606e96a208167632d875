@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "343c9825_31c72f24",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-13T08:33:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df47bdfe_8fde2b07",
+      "revId": "5685f156ebed60cabf3a606e96a208167632d875",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4d73dc8_09e077e0",
         "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
         "patchSetId": 2
@@ -54,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "2bf6d435_035b3be3",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-13T08:33:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73c40300_bf9f6bce",
+      "revId": "5685f156ebed60cabf3a606e96a208167632d875",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "573c7125_aff0d7e0",
         "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
         "patchSetId": 2
@@ -68,6 +104,24 @@
       "revId": "5685f156ebed60cabf3a606e96a208167632d875",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e244d1b_3490b9d8",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-13T08:33:45Z",
+      "side": 1,
+      "message": "No, I copied it from the above code (which checks for two interrupt bits, but only acknowledges the one which is already set). Here there is only one bit so it\u0027s not needed.",
+      "parentUuid": "573c7125_aff0d7e0",
+      "revId": "5685f156ebed60cabf3a606e96a208167632d875",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
