@@ -729,8 +729,12 @@ AVCodecDecoder::_DecodeNextAudioFrame()
 		}
 
 		status_t decodeAudioChunkStatus = _DecodeNextAudioFrameChunk();
-		if (decodeAudioChunkStatus != B_OK)
+		if (decodeAudioChunkStatus != B_OK) {
+			if (decodeAudioChunkStatus == B_LAST_BUFFER_ERROR
+					&& fRawDecodedAudio->nb_samples > 0)
+				break;
 			return decodeAudioChunkStatus;
+		}
 	}
 
 	fFrame += fRawDecodedAudio->nb_samples;
