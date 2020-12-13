@@ -46,6 +46,9 @@ enum SD_COMMANDS {
 	SD_READ_SINGLE_BLOCK = 17,
 	SD_READ_MULTIPLE_BLOCKS = 18,
 
+	SD_WRITE_SINGLE_BLOCK = 24,
+	SD_WRITE_MULTIPLE_BLOCKS = 25,
+
 	// Application specific commands, class 8
 	SD_APP_CMD = 55,
 
@@ -67,7 +70,8 @@ typedef struct mmc_bus_interface {
 	status_t (*set_clock)(void* controller, uint32_t kilohertz);
 	status_t (*execute_command)(void* controller, uint8_t command,
 		uint32_t argument, uint32_t* result);
-	status_t (*do_io)(void* controller, IOOperation* operation);
+	status_t (*do_io)(void* controller, uint8_t command,
+		IOOperation* operation);
 } mmc_bus_interface;
 
 
@@ -77,7 +81,7 @@ typedef struct mmc_device_interface {
 	status_t (*execute_command)(device_node* node, uint8_t command,
 		uint32_t argument, uint32_t* result);
 	status_t (*do_io)(device_node* controller, uint16_t rca,
-		IOOperation* operation);
+		uint8_t command, IOOperation* operation);
 } mmc_device_interface;
 
 
