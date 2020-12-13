@@ -110,7 +110,12 @@ mmc_disk_execute_iorequest(void* data, IOOperation* operation)
 	mmc_disk_driver_info* info = (mmc_disk_driver_info*)data;
 	status_t error;
 
-	error = info->mmc->do_io(info->parent, info->rca, operation);
+	uint8_t command;
+	if (operation->IsWrite())
+		command = SD_WRITE_MULTIPLE_BLOCKS;
+	else
+		command = SD_READ_MULTIPLE_BLOCKS;
+	error = info->mmc->do_io(info->parent, info->rca, command, operation);
 
 	if (error != B_OK) {
 		info->scheduler->OperationCompleted(operation, error, 0);
@@ -392,7 +397,7 @@ mmc_block_get_geometry(mmc_disk_handle* handle, device_geometry* geometry)
 		geometry->head_count = 1;
 		geometry->device_type = B_DISK;
 		geometry->removable = true; // TODO detect eMMC which isn't
-		geometry->read_only = true; // TODO add write support
+		geometry->read_only = false; // TODO check write protect switch?
 		geometry->write_once = false;
 		return B_OK;
 	}
