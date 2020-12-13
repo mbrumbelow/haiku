@@ -1,36 +1,32 @@
-Haiku
-=======================
+# Haiku
 **[Homepage](https://www.haiku-os.org/)
 | [Mailing Lists](https://www.haiku-os.org/community/ml)
 | [IRC Channels](https://www.haiku-os.org/community/irc)
 | [Issue Tracker](https://dev.haiku-os.org/)
 | [API docs](https://api.haiku-os.org)**
 
-Haiku is an open-source operating system that specifically targets personal
+**Haiku** is an open-source operating system that specifically targets personal
 computing. Inspired by the BeOS, Haiku is fast, simple to use, easy to learn
 and yet very powerful.
 
-Goals
-------------
+## Goals
  * Sensible defaults with minimal configuration required.
  * Clean, clear, concise code.
  * Unified desktop environment.
 
-Trying Haiku
----------------
+## Trying Haiku
 Haiku provides pre-built [nightly images](http://download.haiku-os.org/) and
 [release images](https://www.haiku-os.org/get-haiku). Haiku is compatible
 with a large variety of hardware, but in case you don't want to "take the
 plunge" and install Haiku on bare metal, you can install it on a virtual
-machine (VM) instead. If you've never used a VM before, you can follow one of
-the ["Emulating Haiku"](https://www.haiku-os.org/guides/virtualizing/) guides.
+machine (VM) or a cloud computing provider instead. If you've never used a VM before, 
+you can follow one of the ["Emulating Haiku"](https://www.haiku-os.org/guides/virtualizing/)
+guides.
 
-Compiling Haiku
----------------
-See `ReadMe.Compiling`.
+## Compiling Haiku
+See `COMPILING.md`.
 
-Contributing
--------------------
+## Contributing
 Haiku is a meritocratic open source project with a large variety of tasks. Even
 if you can't write code, *you can still help*! Haiku needs designers,
 (technical) writers, translators, testers... Get involved and help out!
