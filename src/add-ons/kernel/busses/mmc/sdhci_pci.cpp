@@ -359,15 +359,20 @@ SdhciBus::DoIO(uint8_t command, IOOperation* operation)
 	const generic_io_vec* vecs = operation->Vecs();
 	generic_size_t vecOffset = 0;
 
-	// Must always be 512 (on SD cards it can be changed, but not on SDHC)
 	// FIXME can this be moved to the init function instead?
-	fRegisters->block_size = kBlockSize;
+	// For simplicity we use a transfer size equal to the sector size. We could
+	// go up to 2K here if the length to read in each individual vec is a
+	// multiple of 2K, but that's annoying to check.
+	// Additionnally, set SDMA buffer boundary aligment to 512K, so we don't
+	// need to worry too much about it.
+	fRegisters->block_size = kBlockSize | (7 << 12);
 	status_t result = B_OK;
 
 	while (length > 0) {
 		size_t toCopy = std::min((generic_size_t)length,
 			vecs->length - vecOffset);
-		TRACE("Reading loop %ld bytes from position %ld\n", toCopy, offset);
+		TRACE("Loop %ld bytes from position %ld to %p\n", toCopy, offset,
+			vecs->base + vecOffset);
 
 		// If the current vec is empty, we can move to the next
 		if (toCopy == 0) {
@@ -390,7 +395,8 @@ SdhciBus::DoIO(uint8_t command, IOOperation* operation)
 		else
 			direction = TransferMode::kRead;
 		fRegisters->transfer_mode = TransferMode::kMulti | direction
-			| TransferMode::kAutoCmd12Enable | TransferMode::kDmaEnable;
+			| TransferMode::kAutoCmd12Enable
+			| TransferMode::kBlockCountEnable | TransferMode::kDmaEnable;
 
 		uint32_t response;
 		result = ExecuteCommand(command, offset, &response);
@@ -668,11 +674,23 @@ register_child_devices(void* cookie)
 		bar = bar + slot;
 		sprintf(prettyName, "SDHC bus %" B_PRIu8, slot);
 		device_attr attrs[] = {
-			// properties of this controller for SDHCI bus manager
+			// properties of this controller for mmc bus manager
 			{ B_DEVICE_PRETTY_NAME, B_STRING_TYPE, { string: prettyName } },
 			{ B_DEVICE_FIXED_CHILD, B_STRING_TYPE,
 				{string: MMC_BUS_MODULE_NAME} },
 			{ B_DEVICE_BUS, B_STRING_TYPE, {string: "mmc"} },
+
+			// DMA properties
+			// The high alignment is to force access only to complete sectors
+			// These constraints could be removed by using ADMA which allows
+			// use of the full 64bit address space and can do scatter-gather.
+			{ B_DMA_ALIGNMENT, B_UINT32_TYPE, { ui32: 511 }},
+			{ B_DMA_HIGH_ADDRESS, B_UINT64_TYPE, { ui64: 0x100000000LL }},
+			{ B_DMA_BOUNDARY, B_UINT32_TYPE, { ui32: (1 << 19) - 1 }},
+			{ B_DMA_MAX_SEGMENT_COUNT, B_UINT32_TYPE, { ui32: 1 }},
+			{ B_DMA_MAX_SEGMENT_BLOCKS, B_UINT32_TYPE, { ui32: (1 << 10) - 1 }},
+
+			// private data to identify device
 			{ SLOT_NUMBER, B_UINT8_TYPE, { ui8: slot} },
 			{ BAR_INDEX, B_UINT8_TYPE, { ui8: bar} },
 			{ NULL }

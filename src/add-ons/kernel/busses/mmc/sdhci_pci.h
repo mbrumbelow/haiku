@@ -41,7 +41,7 @@ class TransferMode {
 		static const uint8_t kAutoCmdAutoSelect
 			= kAutoCmd23Enable | kAutoCmd12Enable;
 
-		// TODO block count enable
+		static const uint8_t kBlockCountEnable = 1 << 1;
 
 		static const uint8_t kDmaEnable = 1;
 		static const uint8_t kNoDmaOrNoData = 0;
@@ -210,6 +210,20 @@ class HostControllerVersion {
 		const uint8_t vendorVersion;
 } __attribute__((packed));
 
+
+class HostControl {
+	public:
+		void SetDMAMode(uint8_t dmaMode) { value = (value & ~kDmaMask) | dmaMode; }
+
+		static const uint8_t kDmaMask = 3 << 3;
+		static const uint8_t kSdma = 0 << 3;
+		static const uint8_t kAdma32 = 2 << 3;
+		static const uint8_t kAdma64 = 3 << 3;
+	private:
+		uint8_t value;
+} __attribute__((packed));
+
+
 // #pragma mark -
 struct registers {
 	// SD command generation
@@ -227,14 +241,14 @@ struct registers {
 	volatile uint32_t buffer_data_port;
 
 	// Host control 1
-	PresentState present_state;
-	volatile uint8_t host_control;
-	PowerControl power_control;
-	volatile uint8_t block_gap_control;
-	volatile uint8_t wakeup_control;
-	ClockControl clock_control;
-	volatile uint8_t timeout_control;
-	SoftwareReset software_reset;
+	PresentState		present_state;
+	HostControl			host_control;
+	PowerControl		power_control;
+	volatile uint8_t	block_gap_control;
+	volatile uint8_t	wakeup_control;
+	ClockControl		clock_control;
+	volatile uint8_t	timeout_control;
+	SoftwareReset		software_reset;
 
 	// Interrupt control
 	volatile uint32_t interrupt_status;
