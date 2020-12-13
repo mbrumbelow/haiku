@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e5a50e48_79f149ae",
+        "filename": "headers/private/shared/AutoDeleter.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-13T19:14:07Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "2adf4919a202ce428d7b0d3d50423137bb6114a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
