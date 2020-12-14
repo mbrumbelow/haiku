@@ -16,6 +16,24 @@
       "revId": "2adf4919a202ce428d7b0d3d50423137bb6114a3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a9017a7_1338133e",
+        "filename": "headers/private/shared/AutoDeleter.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-12-14T00:21:38Z",
+      "side": 1,
+      "message": "Other classes in this header also use one blank line.",
+      "parentUuid": "e5a50e48_79f149ae",
+      "revId": "2adf4919a202ce428d7b0d3d50423137bb6114a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
