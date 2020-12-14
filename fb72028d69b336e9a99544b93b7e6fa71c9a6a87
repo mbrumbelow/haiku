@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c724478b_867b3174",
+        "filename": "src/servers/app/drawing/DrawingEngine.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-12-14T00:49:23Z",
+      "side": 1,
+      "message": "Maybe simplify calculation for better speed when drawing on back buffer. But it some cases it can better clip not visible graphics...",
+      "revId": "fb72028d69b336e9a99544b93b7e6fa71c9a6a87",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
