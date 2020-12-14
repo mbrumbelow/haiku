@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63ffc523_2d42914a",
+        "filename": "src/servers/app/drawing/DrawingEngine.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-12-14T20:03:09Z",
+      "side": 1,
+      "message": "Coding style would be more like:\n\t:\n\tfEngine(engine),\n\tfOverlaysHidden(false)",
+      "revId": "d43215de55c31c224c3714ec8859821b7c5890f6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa6a2861_36644f8c",
+        "filename": "src/servers/app/drawing/DrawingEngine.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1001,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2020-12-14T20:03:09Z",
+      "side": 1,
+      "message": "I\u0027m not really familiar with the differences ATM, but was it intentional to replace TransformAndClipRect() with ClipRect()?",
+      "revId": "d43215de55c31c224c3714ec8859821b7c5890f6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
