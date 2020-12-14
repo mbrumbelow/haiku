@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f7a781cc_0ef2de5a",
+        "filename": "src/system/libroot/os/driver_settings.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-14T06:31:24Z",
+      "side": 1,
+      "message": "Should be HAIKU_TARGET_PLATFORM_HAIKU",
+      "revId": "d1fe594a47ebe8eb711ae269ae6c15b08b72e94e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a6d95b9_d4eb22c3",
+        "filename": "src/system/libroot/os/driver_settings.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 961,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-14T06:31:24Z",
+      "side": 1,
+      "message": "actually this shouldn\u0027t appear as a symbol for beta 3 binaries.\nDEFINE_LIBROOT_KERNEL_SYMBOL_VERSION should be used here.",
+      "revId": "d1fe594a47ebe8eb711ae269ae6c15b08b72e94e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
