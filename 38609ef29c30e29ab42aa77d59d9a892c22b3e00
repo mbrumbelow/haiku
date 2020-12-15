@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e9924d6_487e32e5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-15T12:47:03Z",
+      "side": 1,
+      "message": "actually SDMA can do more than that because its \"page size\" is configurable. In https://review.haiku-os.org/c/haiku/+/3505/2 I have set it to 512K which seems good enough.",
+      "revId": "38609ef29c30e29ab42aa77d59d9a892c22b3e00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6469c604_a7b91cd8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-15T12:47:03Z",
+      "side": 1,
+      "message": "done in https://review.haiku-os.org/c/haiku/+/3505/2",
+      "revId": "38609ef29c30e29ab42aa77d59d9a892c22b3e00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
