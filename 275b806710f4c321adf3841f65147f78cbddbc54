@@ -16,6 +16,24 @@
       "revId": "275b806710f4c321adf3841f65147f78cbddbc54",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36088851_fdd7ba0b",
+        "filename": "build/jam/images/definitions/minimum",
+        "patchSetId": 20
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-15T12:48:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b669123_f0ae7f6c",
+      "revId": "275b806710f4c321adf3841f65147f78cbddbc54",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
