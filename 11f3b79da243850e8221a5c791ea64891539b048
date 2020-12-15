@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "882fc688_dcb69b3f",
+        "filename": "src/add-ons/media/plugins/ffmpeg/AVCodecDecoder.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 733,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-15T16:42:19Z",
+      "side": 1,
+      "message": "I wpuld put it before the other if instead, I think it\u0027s easier to read this way:\n\nif (decodeAudioChunkStatus \u003d\u003d B_LAST_BUFFER_ERROR\n        \u0026\u0026 fRawDecodedAudio-\u003enb_samples \u003e 0)\n    break;\n\nif (decodeAudioChunkStatus !\u003d B_OK)\n    return decodeAudioChunkStatus;",
+      "revId": "11f3b79da243850e8221a5c791ea64891539b048",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76e3b78c_fefdcce8",
+        "filename": "src/add-ons/media/plugins/ffmpeg/AVCodecDecoder.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 752,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-15T16:42:19Z",
+      "side": 1,
+      "message": "This should be a return decodeAudioChunkStatus; so that the status is propagated to the caller",
+      "revId": "11f3b79da243850e8221a5c791ea64891539b048",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
