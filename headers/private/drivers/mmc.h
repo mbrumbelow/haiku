@@ -71,7 +71,7 @@ typedef struct mmc_bus_interface {
 	status_t (*execute_command)(void* controller, uint8_t command,
 		uint32_t argument, uint32_t* result);
 	status_t (*do_io)(void* controller, uint8_t command,
-		IOOperation* operation);
+		IOOperation* operation, bool offsetAsSectors);
 } mmc_bus_interface;
 
 
@@ -81,7 +81,7 @@ typedef struct mmc_device_interface {
 	status_t (*execute_command)(device_node* node, uint8_t command,
 		uint32_t argument, uint32_t* result);
 	status_t (*do_io)(device_node* controller, uint16_t rca,
-		uint8_t command, IOOperation* operation);
+		uint8_t command, IOOperation* operation, bool offsetAsSectors);
 } mmc_device_interface;
 
 

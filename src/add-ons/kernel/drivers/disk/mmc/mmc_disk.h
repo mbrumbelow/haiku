@@ -26,6 +26,7 @@ typedef struct {
 	device_node* parent;
 	mmc_device_interface* mmc;
 	uint16_t rca;
+	uint8_t deviceType;
 
 	size_t block_size;
 	uint64_t capacity;

@@ -43,15 +43,29 @@ static device_manager_info* sDeviceManager;
 
 
 struct mmc_disk_csd {
+	// The content of this register is described in Physical Layer Simplified
+	// Specification Version 8.00, section 5.3
 	uint64 bits[2];
 
-	uint8 structure_version() { return bits[1] >> 60; }
+	uint8 structure_version() { return bits[1] >> 54; }
 	uint8 read_bl_len() { return (bits[1] >> 8) & 0xF; }
-	uint16 c_size()
+	uint32 c_size()
 	{
-		return ((bits[0] >> 54) & 0x3FF) | ((bits[1] & 0x3) << 10);
+		if (structure_version() == 0)
+			return ((bits[0] >> 54) & 0x3FF) | ((bits[1] & 0x3) << 10);
+		if (structure_version() == 1)
+			return (bits[0] >> 40) & 0x3FFFFF;
+		return ((bits[0] >> 40) & 0xFFFFFF) | ((bits[1] & 0xF) << 24);
+
 	}
-	uint8 c_size_mult() { return (bits[0] >> 39) & 0x7; }
+	uint8 c_size_mult()
+	{
+		if (structure_version() == 0)
+			return (bits[0] >> 39) & 0x7;
+		// In later versions this field is not present in the structure and a
+		// fixed value is used.
+		return 8;
+	}
 };
 
 
@@ -115,7 +129,8 @@ mmc_disk_execute_iorequest(void* data, IOOperation* operation)
 		command = SD_WRITE_MULTIPLE_BLOCKS;
 	else
 		command = SD_READ_MULTIPLE_BLOCKS;
-	error = info->mmc->do_io(info->parent, info->rca, command, operation);
+	error = info->mmc->do_io(info->parent, info->rca, command, operation,
+		(info->deviceType != CARD_TYPE_SD) && (info->deviceType != CARD_TYPE_MMC));
 
 	if (error != B_OK) {
 		info->scheduler->OperationCompleted(operation, error, 0);
@@ -150,6 +165,14 @@ mmc_disk_init_driver(device_node* node, void** cookie)
 	if (sDeviceManager->get_attr_uint16(node, kMmcRcaAttribute, &info->rca,
 			true) != B_OK) {
 		TRACE("MMC card node has no RCA attribute\n");
+		free(info);
+		return B_BAD_DATA;
+	}
+
+	if (sDeviceManager->get_attr_uint8(info->parent, kMmcTypeAttribute,
+			&info->deviceType, true) != B_OK)
+	{
+		ERROR("Could not get device type\n");
 		free(info);
 		return B_BAD_DATA;
 	}
@@ -381,7 +404,7 @@ mmc_block_get_geometry(mmc_disk_handle* handle, device_geometry* geometry)
 
 	TRACE("CSD: %lx %lx\n", csd.bits[0], csd.bits[1]);
 
-	if (csd.structure_version() == 0) {
+	if (csd.structure_version() < 3) {
 		geometry->bytes_per_sector = 1 << csd.read_bl_len();
 		geometry->sectors_per_track = csd.c_size() + 1;
 		geometry->cylinder_count = 1 << (csd.c_size_mult() + 2);
