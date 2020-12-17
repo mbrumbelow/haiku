@@ -33,6 +33,24 @@
       "revId": "11f3b79da243850e8221a5c791ea64891539b048",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "107dfe93_07b80d24",
+        "filename": "src/add-ons/media/plugins/ffmpeg/AVCodecDecoder.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 752,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2020-12-17T18:28:26Z",
+      "side": 1,
+      "message": "I\u0027m not sure about this.\n\nOn the one hand, the documentation for the function says \"returns B_LAST_BUFFER_ERROR when there are no more audio frames available\", which can be interpreted as \"when the data for the last frame is returned\". On the other hand, the very same documentation says in the longer description you\u0027d get B_OK with less frames than expected and then B_LAST_BUFFER_ERROR for the next calls. The caller only copies data when this function returns OK. Other pieces also make it as if B_LAST_BUFFER_ERROR is not \"this is the last data, fetch it, all is well in the world\", but \"the stream had already finished, move on, nothing to see here\". Most places don\u0027t even check B_LAST_BUFFER_ERROR. Those that do seem to use it to flush what\u0027s in their own buffers without copying what the called function may have returned, which is what we are adding in this patch.\n\nI\u0027ve tried anyway, and returning B_LAST_BUFFER_ERROR here takes us back to the behaviour in master: B_OK when the last frame lies just at the end of a chunk, and B_LAST_BUFFER_ERROR without the data from the last chunk when not.\n\nIt may be because of lack of special handling in the callers, though. So I don\u0027t know. If that\u0027s the case, there may be a lot to change, not only in this plugin.",
+      "parentUuid": "76e3b78c_fefdcce8",
+      "revId": "11f3b79da243850e8221a5c791ea64891539b048",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
