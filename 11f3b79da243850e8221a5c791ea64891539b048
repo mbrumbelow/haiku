@@ -51,6 +51,24 @@
       "revId": "11f3b79da243850e8221a5c791ea64891539b048",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2761d88_adc508b0",
+        "filename": "src/add-ons/media/plugins/ffmpeg/AVCodecDecoder.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 752,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-17T18:47:00Z",
+      "side": 1,
+      "message": "Yes, makes sense, B_LAST_BUFFER_ERROR is an error and it\u0027s simpler to handle it separately from the last data (a bit like the \"end of file\" error on files).\n\nWe still need to make sure the next attempts to read return that error (and not something else). If that\u0027s the case, we\u0027re fine.",
+      "parentUuid": "107dfe93_07b80d24",
+      "revId": "11f3b79da243850e8221a5c791ea64891539b048",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
