@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f2576477_7d759a7b",
+        "filename": "src/add-ons/media/plugins/ffmpeg/AVCodecDecoder.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 733,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2020-12-17T21:12:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "882fc688_dcb69b3f",
+      "revId": "11f3b79da243850e8221a5c791ea64891539b048",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76e3b78c_fefdcce8",
         "filename": "src/add-ons/media/plugins/ffmpeg/AVCodecDecoder.cpp",
         "patchSetId": 1
@@ -84,6 +102,24 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "e2761d88_adc508b0",
+      "revId": "11f3b79da243850e8221a5c791ea64891539b048",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e34f3d40_cef4562d",
+        "filename": "src/add-ons/media/plugins/ffmpeg/AVCodecDecoder.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 752,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2020-12-17T21:12:53Z",
+      "side": 1,
+      "message": "\u003e We still need to make sure the next attempts to read return that error.\n\nYep. We get to the same place, but now the nb_frames would be 0 and we do return the error.",
+      "parentUuid": "da2f0468_6bab700d",
       "revId": "11f3b79da243850e8221a5c791ea64891539b048",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
