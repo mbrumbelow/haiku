@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a06a1345_b8b09d5d",
+        "filename": "src/kits/interface/MenuField.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-18T05:55:45Z",
+      "side": 1,
+      "message": "\"namespace {\"  would have been enough. This class is local to the unit.",
+      "revId": "f7a0ebd7a5416fe2b387ab4152df46afbb0ca221",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
