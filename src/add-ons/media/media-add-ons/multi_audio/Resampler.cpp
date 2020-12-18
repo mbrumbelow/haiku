@@ -215,7 +215,8 @@ Resampler::_CopyFloat2Int(const void *inputData, uint32 inputStride,
 	void *outputData, uint32 outputStride, uint32 sampleCount)
 {
 	while (sampleCount > 0) {
-		*(int32*)outputData = (int32)(*(const float*)inputData * 2147483647.0f);
+		*(int32*)outputData = (int32)(*(const float*)inputData
+			* (INT32_MAX & 0xffffff80));
 
 		outputData = (void*)((uint8*)outputData + outputStride);
 		inputData = (void*)((uint8*)inputData + inputStride);
@@ -304,7 +305,7 @@ Resampler::_CopyDouble2Int(const void *inputData, uint32 inputStride,
 	void *outputData, uint32 outputStride, uint32 sampleCount)
 {
 	while (sampleCount > 0) {
-		*(int32*)outputData = (int32)(*(const double*)inputData * 2147483647.0f);
+		*(int32*)outputData = (int32)(*(const double*)inputData * INT32_MAX);
 
 		outputData = (void*)((uint8*)outputData + outputStride);
 		inputData = (void*)((uint8*)inputData + inputStride);

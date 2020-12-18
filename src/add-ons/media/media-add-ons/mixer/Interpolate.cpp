@@ -107,7 +107,9 @@ Interpolate::Interpolate(uint32 src_format, uint32 dst_format)
 			// float=>float already handled above
 			case media_raw_audio_format::B_AUDIO_INT:
 				fFunc = &kernel<float, int32, INT32_MAX, 1, 0, 0,
-					INT32_MIN, INT32_MAX>;
+					INT32_MIN, INT32_MAX & 0xffffff80>;
+					// INT32_MAX & 0xffffff80 is the maximum int32
+					// exactly representable as float
 				return;
 			case media_raw_audio_format::B_AUDIO_SHORT:
 				fFunc = &kernel<float, int16, INT16_MAX, 1, 0, 0,
