@@ -16,6 +16,24 @@
       "revId": "10ca6259847a1fb140cc3530f70992ea36a2a810",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fe3bf70_b0e5d4ba",
+        "filename": "src/add-ons/media/media-add-ons/mixer/Resampler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2020-12-20T11:20:23Z",
+      "side": 1,
+      "message": "You are correct, but the point is that if you keep the float, you may later wrap the value instead of clamping it.\nI\u0027ve changed the patch to hopefully better reflect that this is not about sound precision, which is lost in the mix buffer anyway for int32.",
+      "parentUuid": "016ad341_13bc25e4",
+      "revId": "10ca6259847a1fb140cc3530f70992ea36a2a810",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
