@@ -115,9 +115,9 @@ InputWindow::MessageReceived(BMessage* message)
 			} else {
 				for (int i = 0; i < fDeviceListView->CountItems();
 					i++) {
-					BStringItem* item = dynamic_cast<BStringItem*>(
-						fDeviceListView->ItemAt(i));
-					if (item->Text() == name) {
+					const char* itemName = dynamic_cast<DeviceListItemView*>(
+						fDeviceListView->ItemAt(i))->Label();
+					if (itemName == name) {
 						fDeviceListView->RemoveItem(i);
 						BView* settings = fCardView->ChildAt(i);
 						fCardView->RemoveChild(settings);
