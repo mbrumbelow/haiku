@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "632940ea_eee75716",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2020-12-21T06:41:59Z",
+      "side": 1,
+      "message": "more correct would be to check that the dynamic_cast succeeded, aka the result isn\u0027t NULL.",
+      "revId": "4480c92d76f73c586405c47b98079c1a4ec77bb5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
