@@ -1,6 +1,9 @@
 SubDir HAIKU_TOP src system boot platform efi arch arm ;
 
 SubDirHdrs $(HAIKU_TOP) src system boot platform efi ;
+SubDirHdrs $(HAIKU_TOP) src add-ons kernel bus_managers fdt ;
+
+UseLibraryHeaders [ FDirName libfdt ] ;
 
 UsePrivateHeaders [ FDirName kernel platform ] ;
 UsePrivateHeaders [ FDirName kernel boot platform efi ] ;
@@ -27,6 +30,8 @@ for platform in [ MultiBootSubDirSetup efi ] {
 
 	BootMergeObject boot_platform_efi_arm.o :
 		$(arch_src)
+		: :
+		boot_fdt.a
 		;
 	}
 }

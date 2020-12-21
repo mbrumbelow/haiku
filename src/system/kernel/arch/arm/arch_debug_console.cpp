@@ -114,6 +114,7 @@ arch_debug_console_init(kernel_args *args)
 		return B_ERROR;
 
 	gArchDebugUART->InitEarly();
+	gArchDebugUART->InitPort(115200);
 
 	return B_OK;
 }

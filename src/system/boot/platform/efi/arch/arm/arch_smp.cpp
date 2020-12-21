@@ -16,6 +16,7 @@
 #include <boot/stage2.h>
 #include <boot/menu.h>
 
+#include "mmu.h"
 
 //#define TRACE_SMP
 #ifdef TRACE_SMP
@@ -36,9 +37,30 @@ arch_smp_get_current_cpu(void)
 void
 arch_smp_init_other_cpus(void)
 {
-	// One cpu for now.
+	// XXX: One cpu for now.
 	gKernelArgs.num_cpus = 1;
-	return;
+
+	if (get_safemode_boolean(B_SAFEMODE_DISABLE_SMP, false)) {
+		// SMP has been disabled!
+		TRACE(("smp disabled per safemode setting\n"));
+		gKernelArgs.num_cpus = 1;
+	}
+
+	TRACE(("smp: found %" B_PRId32 " cpu%s\n", gKernelArgs.num_cpus,
+		gKernelArgs.num_cpus != 1 ? "s" : ""));
+
+	for (uint32 i = 1; i < gKernelArgs.num_cpus; i++) {
+		// create a final stack the trampoline code will put the ap processor on
+		void* stack = NULL;
+		const size_t size = KERNEL_STACK_SIZE + KERNEL_STACK_GUARD_PAGES * B_PAGE_SIZE;
+		if (platform_allocate_region(&stack, size, 0, false) != B_OK) {
+			panic("Unable to allocate AP stack");
+		}
+		memset(stack, 0, size);
+		gKernelArgs.cpu_kstack[i].start = fix_address((uint64_t)stack);
+		gKernelArgs.cpu_kstack[i].size = size;
+	}
+
 }
 
 
