@@ -16,6 +16,24 @@
       "revId": "4480c92d76f73c586405c47b98079c1a4ec77bb5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e287d476_55f1fdaf",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2020-12-21T11:38:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "632940ea_eee75716",
+      "revId": "4480c92d76f73c586405c47b98079c1a4ec77bb5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
