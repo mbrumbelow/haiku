@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4bcf712a_0eefc3b2",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2020-12-21T20:56:57Z",
+      "side": 1,
+      "message": "I\u0027d consider removing trace block for just the dtb_init() call.",
+      "revId": "8775f68c56547e06ff45bc0c0095bc791e07a698",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
