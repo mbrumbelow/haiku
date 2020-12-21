@@ -5,7 +5,10 @@ UsePrivateHeaders [ FDirName kernel platform ] ;
 UsePrivateHeaders [ FDirName kernel boot platform efi ] ;
 UsePrivateHeaders [ FDirName kernel boot arch $(TARGET_KERNEL_ARCH) ] ;
 
+UseLibraryHeaders [ FDirName libfdt ] ;
+
 SubDirHdrs $(HAIKU_TOP) src add-ons kernel partitioning_systems gpt ;
+SubDirHdrs $(HAIKU_TOP) src add-ons kernel bus_managers fdt ;
 
 {
 	local defines = _BOOT_MODE _BOOT_PLATFORM_EFI ;
@@ -23,6 +26,7 @@ local platform_src =
 	mmu.cpp
 	heap.cpp
 	acpi.cpp
+	dtb.cpp
 	timer.cpp
 	menu.cpp
 	devices.cpp
@@ -41,6 +45,7 @@ for platform in [ MultiBootSubDirSetup efi ] {
 			$(platform_src)
 			: :
 			$(support_libs)
+			boot_fdt.a
 			boot_platform_generic_efi.a
 		;
 
