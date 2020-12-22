@@ -33,6 +33,24 @@
       "revId": "62be6cf1dcda3ddc3b3971d797300d925b2c6a27",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "008774a0_c96ca75c",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-12-22T00:18:40Z",
+      "side": 1,
+      "message": "This is pretty much 1:1 how acpi works.\n\nhttps://git.haiku-os.org/haiku/tree/src/system/boot/platform/efi/acpi.cpp#n212\n\nI\u0027m fine with future refactoring, but this is 100% working and been tested on multiple architectures.",
+      "parentUuid": "3c99da7e_b5ca5dfb",
+      "revId": "62be6cf1dcda3ddc3b3971d797300d925b2c6a27",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
