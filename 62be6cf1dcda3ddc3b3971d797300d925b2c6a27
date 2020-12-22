@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "26814bab_67e094b2",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-12-22T00:03:54Z",
+      "side": 1,
+      "message": "Any GUID compare function available? maybe use memcmp?",
+      "revId": "62be6cf1dcda3ddc3b3971d797300d925b2c6a27",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
