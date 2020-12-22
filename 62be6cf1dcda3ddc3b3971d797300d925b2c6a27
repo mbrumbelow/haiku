@@ -69,6 +69,24 @@
       "revId": "62be6cf1dcda3ddc3b3971d797300d925b2c6a27",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd425fd1_b226d4d2",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2020-12-22T08:02:57Z",
+      "side": 1,
+      "message": "Yes the strncmp there looks bad. I think we can add a compare function to efi_guid struct so it becomes less of a hassle.",
+      "parentUuid": "aa588671_6637b01d",
+      "revId": "62be6cf1dcda3ddc3b3971d797300d925b2c6a27",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
