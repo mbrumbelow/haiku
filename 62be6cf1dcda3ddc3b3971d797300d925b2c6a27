@@ -16,6 +16,23 @@
       "revId": "62be6cf1dcda3ddc3b3971d797300d925b2c6a27",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c99da7e_b5ca5dfb",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2020-12-22T00:08:53Z",
+      "side": 1,
+      "message": "This is just wrong. GUID data is not a string and can contain zero byte.",
+      "revId": "62be6cf1dcda3ddc3b3971d797300d925b2c6a27",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
