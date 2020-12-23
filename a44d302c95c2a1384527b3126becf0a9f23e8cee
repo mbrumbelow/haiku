@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "18f936b4_a736d97a",
+        "filename": "src/system/boot/platform/efi/Jamfile",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-23T10:57:27Z",
+      "side": 1,
+      "message": "shouldn\u0027t this be in alphabetical order?",
+      "revId": "a44d302c95c2a1384527b3126becf0a9f23e8cee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
