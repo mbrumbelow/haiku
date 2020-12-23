@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad4d25a1_23c98fea",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-23T10:54:06Z",
+      "side": 1,
+      "message": "if I understant what tqh said about EFI, we should be able to get this to work without any architecture-specific MMU code. So eventually this file should be removed.",
+      "revId": "6ccf06047e5972b22ae8a6353bf1c706f4544099",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f39bf05_da2d77af",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-23T10:54:06Z",
+      "side": 1,
+      "message": "why is this function arch-specific if we just copypaste it into all archs without changes?",
+      "revId": "6ccf06047e5972b22ae8a6353bf1c706f4544099",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76ae4493_c133f14f",
+        "filename": "src/system/boot/platform/efi/arch/arm64/entry.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-23T10:54:06Z",
+      "side": 1,
+      "message": "please set your own copyright :)",
+      "revId": "6ccf06047e5972b22ae8a6353bf1c706f4544099",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
