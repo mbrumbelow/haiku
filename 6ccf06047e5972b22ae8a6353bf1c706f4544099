@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "efa6a5f3_4168fc3d",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-12-23T13:55:21Z",
+      "side": 1,
+      "message": "hopefully!  The arch_mmu_init stub is still needed though since x86_64 uses it today.",
+      "parentUuid": "ad4d25a1_23c98fea",
+      "revId": "6ccf06047e5972b22ae8a6353bf1c706f4544099",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0f39bf05_da2d77af",
         "filename": "src/system/boot/platform/efi/arch/arm64/arch_start.cpp",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "58c8d639_071869e3",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-12-23T13:55:21Z",
+      "side": 1,
+      "message": "it\u0027s actually slightly different between arches since pml4 is an x86 thing.\n\nHowever yeah, if we can make the mmu code arch-agnostic this can likely go away as well and just lean on the assembly for each arch for kernel entry.",
+      "parentUuid": "0f39bf05_da2d77af",
+      "revId": "6ccf06047e5972b22ae8a6353bf1c706f4544099",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "76ae4493_c133f14f",
         "filename": "src/system/boot/platform/efi/arch/arm64/entry.S",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2020-12-23T10:54:06Z",
       "side": 1,
       "message": "please set your own copyright :)",
+      "revId": "6ccf06047e5972b22ae8a6353bf1c706f4544099",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf7a80b8_6737e840",
+        "filename": "src/system/boot/platform/efi/arch/arm64/entry.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-12-23T13:55:21Z",
+      "side": 1,
+      "message": "It\u0027s literally the arm source with r -\u003e x :-)  and a jmp changed to ret",
+      "parentUuid": "76ae4493_c133f14f",
       "revId": "6ccf06047e5972b22ae8a6353bf1c706f4544099",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
