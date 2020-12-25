@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e7130872_1b379665",
+        "filename": "src/apps/networkstatus/NetworkStatusView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1000268
+      },
+      "writtenOn": "2020-12-25T06:13:53Z",
+      "side": 1,
+      "message": "An alternative would be to separate the prefix length into a new line.\n\nThis code prints the address like this:\n\n  IPv6 Address: fe80::7285:c2ff:fea1:3514/64\n\nHowever, you could just as easily do:\n\n  IPv6 Address: fe80::7285:c2ff:fea1:3514\n  Prefix Length: 64\n\nAll in all it\u0027s a matter of taste. I prefer the former, but the latter may look more \"friendly\".",
+      "range": {
+        "startLine": 362,
+        "startChar": 0,
+        "endLine": 363,
+        "endChar": 49
+      },
+      "revId": "012d3a131f7aef8f65c0a811b581d83c3d9d31bc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
