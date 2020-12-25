@@ -16,6 +16,23 @@
       "revId": "cb755ef728aa50745b621cd494bd545cdaff76a3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39fc7085_75ff3083",
+        "filename": "src/kits/package/manager/PackageManager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2020-12-25T11:51:48Z",
+      "side": 1,
+      "message": "Here you would have to know whether the file is a partial download. It could be solved with attributes. The fetch-job could initially add a file-attribute which marks the download as incomplete, which is only removed in case of success. So here you could check for the presence of this attribute and then continue the download.",
+      "revId": "cb755ef728aa50745b621cd494bd545cdaff76a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
