@@ -482,8 +482,14 @@ PlaylistListView::_Wind(bigtime_t howMuch, int64 frames)
 void
 PlaylistListView::MoveItems(const BList& indices, int32 toIndex)
 {
+	int32 count = indices.CountItems();
+	int32 indiceVals[count];
+	addr_t* indiceAddrs = (addr_t*)indices.Items();
+	for (int32 i = 0; i < count; i++)
+		indiceVals[i] = (int32)indiceAddrs[i];
+
 	fCommandStack->Perform(new (nothrow) MovePLItemsCommand(fPlaylist,
-		(int32*)indices.Items(), indices.CountItems(), toIndex));
+		indiceVals, count, toIndex));
 }
 
 
@@ -562,8 +568,14 @@ PlaylistListView::Randomize()
 		}
 	}
 
+	count = indices.CountItems();
+	int32 indiceVals[count];
+	addr_t* indiceAddrs = (addr_t*)indices.Items();
+	for (int32 i = 0; i < count; i++)
+		indiceVals[i] = (int32)indiceAddrs[i];
+
 	fCommandStack->Perform(new (nothrow) RandomizePLItemsCommand(fPlaylist,
-		(int32*)indices.Items(), indices.CountItems()));
+		indiceVals, count));
 }
 
 
@@ -588,8 +600,14 @@ PlaylistListView::RemoveToTrash(int32 index)
 void
 PlaylistListView::RemoveItemList(const BList& indices, bool intoTrash)
 {
+	int32 count = indices.CountItems();
+	int32 indiceVals[count];
+	addr_t* indiceAddrs = (addr_t*)indices.Items();
+	for (int32 i = 0; i < count; i++)
+		indiceVals[i] = (int32)indiceAddrs[i];
+
 	fCommandStack->Perform(new (nothrow) RemovePLItemsCommand(fPlaylist,
-		(int32*)indices.Items(), indices.CountItems(), intoTrash));
+		indiceVals, count, intoTrash));
 }
 
 
