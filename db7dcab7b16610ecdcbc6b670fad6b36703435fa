@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "96fcdd57_47fafe0b",
+        "filename": "src/add-ons/kernel/file_systems/fat/dir.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-12-29T18:59:10Z",
+      "side": 0,
+      "message": "these were inconsistently used across the sources, moved to a header everyone used.",
+      "revId": "db7dcab7b16610ecdcbc6b670fad6b36703435fa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc9ab17b_82de92e8",
+        "filename": "src/add-ons/kernel/file_systems/fat/dosfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-12-29T18:59:10Z",
+      "side": 0,
+      "message": "I drop the SCSI locks since they\u0027re unavailable in FS_SHELL. I also think SCSI locks on mount are pretty outdated now-a-days since it was only really useful for WORM optical / Iomega ZIP?",
+      "revId": "db7dcab7b16610ecdcbc6b670fad6b36703435fa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "885945da_2ee6365a",
+        "filename": "src/add-ons/kernel/file_systems/fat/util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-12-29T18:59:10Z",
+      "side": 0,
+      "message": "Pulkomandy mentioned this was a bad idea.  I\u0027ll look for better solutions less destructive.  (maybe ignoring timezone offsets on fs_shell?)",
+      "revId": "db7dcab7b16610ecdcbc6b670fad6b36703435fa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f28ef0e1_9360e571",
+        "filename": "src/add-ons/kernel/file_systems/fat/attr.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-12-29T18:59:10Z",
+      "side": 1,
+      "message": "The mime stuff from common code creates a bunch of conflicts in fs_shell. It really isn\u0027t a \"requirement\" so I opted to disabled on FS_SHELL for now.\n\nfolks may feel otherwise, at minimum though it gives me space to herd the \"larger issues\".",
+      "revId": "fea2b0d5eea958f7abdc22e9283efd0793e72d04",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5af82edb_07b0756c",
+        "filename": "src/add-ons/kernel/file_systems/fat/dosfs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-12-29T18:59:10Z",
+      "side": 1,
+      "message": "oops. remove",
+      "revId": "fea2b0d5eea958f7abdc22e9283efd0793e72d04",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48cdb486_68fafd12",
+        "filename": "src/add-ons/kernel/file_systems/fat/mkdos.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-12-29T18:59:10Z",
+      "side": 1,
+      "message": "conflict.  \"fat dirent\" vs \"our dirent\" in fs_shell",
+      "revId": "fea2b0d5eea958f7abdc22e9283efd0793e72d04",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "484d3cdc_9582a091",
+        "filename": "src/tools/fs_shell/lock.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-12-29T18:59:10Z",
+      "side": 1,
+      "message": "straight up \"defined but missing\"\n\n_etc adds flags, however we really can\u0027t use them on fs_shell?",
+      "revId": "fea2b0d5eea958f7abdc22e9283efd0793e72d04",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
