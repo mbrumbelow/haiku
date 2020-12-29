@@ -4,20 +4,11 @@
 */
 
 
-#include <SupportDefs.h>
-#include <KernelExport.h>
-
-#include <real_time_clock.h>
-
-#include <ctype.h>
-#include <string.h>
-#include <time.h>
+#include "system_dependencies.h"
 
 #include "dosfs.h"
 #include "fat.h"
 #include "util.h"
-
-static int32 tzoffset = -1; /* in minutes */
 
 #ifdef DEBUG
 
@@ -67,16 +58,6 @@ dump_directory(uint8 *buffer)
 }
 
 
-static void
-get_tzoffset()
-{
-	if (tzoffset != -1)
-		return;
-
-	tzoffset = get_timezone_offset() / 60;
-}
-
-
 // If divisible by 4, but not divisible by 100, but divisible by 400, it's a leap year
 // 1996 is leap, 1900 is not, 2000 is, 2100 is not
 #define IS_LEAP_YEAR(y) ((((y) % 4) == 0) && (((y) % 100) || ((((y)) % 400) == 0)))
@@ -99,15 +80,13 @@ dos2time_t(uint32 t)
 {
 	time_t days;
 
-	get_tzoffset();
-
 	//dprintf("%d/%d/%d %d:%2.2d:%2.2d\n",
 	//	(t>>25)+1980,((t>>21)&15),((t>>16)&31),
 	//	(t>>11)&31,(t>>5)&63,2*(t&31));
 
 	days = daze[(t>>21)&15] + ((t>>25)+10)*365 + leaps((t>>25)+10,((t>>21)&15)-1)+((t>>16)&31)-1;
 
-	return (((days * 24) + ((t>>11)&31)) * 60 + ((t>>5)&63) - tzoffset) * 60 + 2*(t&31);
+	return (((days * 24) + ((t>>11)&31)) * 60 + ((t>>5)&63)) * 60 + 2*(t&31);
 }
 
 
@@ -117,9 +96,7 @@ time_t2dos(time_t s)
 	uint32 t, d, y;
 	int days;
 
-	get_tzoffset();
-
-	t = (s % 60) / 2;	s /= 60; s += tzoffset;
+	t = (s % 60) / 2;	s /= 60;
 	t += (s % 60) << 5;	s /= 60;
 	t += (s % 24) << 11;s /= 24;
 
