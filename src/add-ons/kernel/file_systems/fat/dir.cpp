@@ -5,15 +5,7 @@
 
 #include "dir.h"
 
-#include <dirent.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include <time.h>
-
-#include <fs_cache.h>
-#include <fs_info.h>
-#include <KernelExport.h>
+#include "system_dependencies.h"
 
 #include "iter.h"
 #include "dosfs.h"
@@ -28,9 +20,6 @@
 
 #define DPRINTF(a,b) if (debug_dir > (a)) dprintf b
 
-// used here and in encodings.cpp
-const char acceptable[]="!#$%&'()-0123456789@ABCDEFGHIJKLMNOPQRSTUVWXYZ^_`{}~";
-const char illegal[] = "\\/:*?\"<>|";
 
 typedef struct dircookie {
 	uint32		current_index;
@@ -826,7 +815,7 @@ is_filename_legal(const char *name)
 	for (i = 0; i < len; i++) {
 		if (name[i] & 0x80)
 			continue; //belongs to an utf8 char
-		if (strchr(illegal, name[i]))
+		if (strchr(sIllegal, name[i]))
 			return false;
 		if ((unsigned char)name[i] < 32)
 			return false;
@@ -1007,7 +996,7 @@ dosfs_read_vnode(fs_volume *_vol, ino_t vnid, fs_vnode *_node, int *_type,
 		}
 	}
 
-	if ((entry = calloc(sizeof(struct vnode), 1)) == NULL) {
+	if ((entry = (vnode *)calloc(sizeof(struct vnode), 1)) == NULL) {
 		DPRINTF(0, ("dosfs_read_vnode: out of memory\n"));
 		result = ENOMEM;
 		goto bi2;
@@ -1045,7 +1034,7 @@ dosfs_read_vnode(fs_volume *_vol, ino_t vnid, fs_vnode *_node, int *_type,
 	entry->st_time = dos2time_t(info.time);
 	entry->st_crtim = dos2time_t(info.creation_time);
 #if TRACK_FILENAME
-	entry->filename = malloc(sizeof(filename) + 1);
+	entry->filename = (char*)malloc(sizeof(filename) + 1);
 	if (entry->filename) strcpy(entry->filename, filename);
 #endif
 	entry->cache = file_cache_create(vol->id, vnid, entry->st_size);
@@ -1295,7 +1284,7 @@ dosfs_free_dircookie(fs_volume *_vol, fs_vnode *_node, void *_cookie)
 {
 	nspace *vol = (nspace *)_vol->private_volume;
 	vnode *node = (vnode *)_node->private_node;
-	dircookie *cookie = _cookie;
+	dircookie *cookie = (dircookie *)_cookie;
 
 	LOCK_VOL(vol);
 

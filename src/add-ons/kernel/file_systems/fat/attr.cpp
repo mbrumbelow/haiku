@@ -11,17 +11,10 @@
 
 #define MIME_STRING_TYPE 'MIMS'
 
-#include <SupportDefs.h>
-#include <KernelExport.h>
-
-#include <dirent.h>
-#include <file_systems/mime_ext_table.h>
-#include <fs_attr.h>
-#include <string.h>
-#include <malloc.h>
 
 #include "dosfs.h"
 #include "attr.h"
+
 
 int32 kBeOSTypeCookie = 0x1234;
 
@@ -29,7 +22,12 @@ int32 kBeOSTypeCookie = 0x1234;
 
 status_t set_mime_type(vnode *node, const char *filename)
 {
+	#if FS_SHELL
+	return B_ERROR;
+	#else
+	#include <file_systems/mime_ext_table.h>
 	return set_mime(&node->mime, filename);
+	#endif
 }
 
 
@@ -234,7 +232,7 @@ dosfs_read_attr(fs_volume *_vol, fs_vnode *_node, void *_cookie, off_t pos,
 		return EINVAL;
 	}
 
-	length = user_strlcpy(buffer, node->mime + pos, *_length);
+	length = user_strlcpy((char*)buffer, node->mime + pos, *_length);
 	if (length < B_OK) {
 		UNLOCK_VOL(vol);
 		return B_BAD_ADDRESS;

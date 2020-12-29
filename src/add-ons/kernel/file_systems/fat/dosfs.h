@@ -6,9 +6,8 @@
 #define _DOSFS_H_
 
 
-#include <KernelExport.h>
-#include <fs_interface.h>
-#include <lock.h>
+#include "system_dependencies.h"
+//#include <lock.h>
 
 
 //#define DEBUG 1
