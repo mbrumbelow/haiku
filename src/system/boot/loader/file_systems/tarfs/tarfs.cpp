@@ -741,10 +741,10 @@ status_t
 TarFS::Volume::_Inflate(boot::Partition* partition, void* cookie, off_t offset,
 	RegionDeleter& regionDeleter, size_t* inflatedBytes)
 {
-	char in[2048];
+	char* in = (char*)malloc(2048);
 	z_stream zStream = {
 		(Bytef*)in,		// next in
-		sizeof(in),		// avail in
+		2048,			// avail in
 		0,				// total in
 		NULL,			// next out
 		0,				// avail out
@@ -764,7 +764,7 @@ TarFS::Volume::_Inflate(boot::Partition* partition, void* cookie, off_t offset,
 	bool headerRead = false;
 
 	do {
-		ssize_t bytesRead = partition->ReadAt(cookie, offset, in, sizeof(in));
+		ssize_t bytesRead = partition->ReadAt(cookie, offset, in, 2048);
 		if (bytesRead != (ssize_t)sizeof(in)) {
 			if (bytesRead <= 0) {
 				status = Z_STREAM_ERROR;
@@ -777,8 +777,10 @@ TarFS::Volume::_Inflate(boot::Partition* partition, void* cookie, off_t offset,
 
 		if (!headerRead) {
 			// check and skip gzip header
-			if (!skip_gzip_header(&zStream))
+			if (!skip_gzip_header(&zStream)) {
+				free(in);
 				return B_BAD_DATA;
+			}
 			headerRead = true;
 
 			if (!out) {
@@ -786,6 +788,7 @@ TarFS::Volume::_Inflate(boot::Partition* partition, void* cookie, off_t offset,
 				if (platform_allocate_region((void**)&out, kTarRegionSize,
 						B_READ_AREA | B_WRITE_AREA, false) != B_OK) {
 					TRACE(("tarfs: allocating region failed!\n"));
+					free(in);
 					return B_NO_MEMORY;
 				}
 				regionDeleter.SetTo(out);
@@ -795,8 +798,10 @@ TarFS::Volume::_Inflate(boot::Partition* partition, void* cookie, off_t offset,
 			zStream.next_out = (Bytef*)out;
 
 			status = inflateInit2(&zStream, -15);
-			if (status != Z_OK)
+			if (status != Z_OK) {
+				free(in);
 				return B_ERROR;
+			}
 		}
 
 		status = inflate(&zStream, Z_SYNC_FLUSH);
@@ -807,6 +812,7 @@ TarFS::Volume::_Inflate(boot::Partition* partition, void* cookie, off_t offset,
 	} while (status == Z_OK);
 
 	inflateEnd(&zStream);
+	free(in);
 
 	if (status != Z_STREAM_END) {
 		TRACE(("tarfs: inflating failed: %d!\n", status));
