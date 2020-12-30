@@ -299,6 +299,12 @@ CalcView::MessageReceived(BMessage* message)
 		} else {
 			fExpressionTextColor = ui_color(B_DOCUMENT_TEXT_COLOR);
 			fButtonTextColor = ui_color(B_PANEL_TEXT_COLOR);
+
+			BFont expressionViewFont;
+			fExpressionTextView->GetFontAndColor(0, &expressionViewFont);
+			rgb_color fontColor = ui_color(B_DOCUMENT_TEXT_COLOR);
+			fExpressionTextView->SetFontAndColor(&expressionViewFont, B_FONT_ALL,
+				&fontColor);
 		}
 
 		return;
@@ -750,7 +756,7 @@ CalcView::FrameResized(float width, float height)
 		? fHeight : fHeight * kDisplayScaleY;
 	BFont font(be_bold_font);
 	font.SetSize(sizeDisp * kExpressionFontScaleY);
-	rgb_color fontColor = fExpressionTextView->HighColor();
+	rgb_color fontColor = ui_color(B_DOCUMENT_TEXT_COLOR);
 	fExpressionTextView->SetFontAndColor(&font, B_FONT_ALL, &fontColor);
 
 	expressionRect.OffsetTo(B_ORIGIN);
