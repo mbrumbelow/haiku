@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae1a39e4_8b88dbb1",
+        "filename": "headers/os/kernel/OS.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-12-30T17:35:32Z",
+      "side": 1,
+      "message": "Is it really OK to include limits.h here? The whole system still compiles, I presume? Maybe it would be better to just include the arch header...",
+      "revId": "6b17ab959a27aa5622c72aeb65e2020f233d9d08",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26578670_0ae4e72e",
+        "filename": "headers/os/kernel/OS.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-12-30T17:35:32Z",
+      "side": 1,
+      "message": "Since this is now defining it to another define, maybe it should be made a little separate?",
+      "revId": "6b17ab959a27aa5622c72aeb65e2020f233d9d08",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "292a30c2_ea6fcc01",
+        "filename": "headers/posix/arch/arm/limits.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2020-12-30T17:35:32Z",
+      "side": 1,
+      "message": "Old-style copyright header, please fix elsewhere too.",
+      "revId": "6b17ab959a27aa5622c72aeb65e2020f233d9d08",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
