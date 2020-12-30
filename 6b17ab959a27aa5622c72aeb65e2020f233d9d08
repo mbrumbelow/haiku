@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e5b630a9_21c4a770",
+        "filename": "headers/os/kernel/OS.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-30T17:41:55Z",
+      "side": 1,
+      "message": "The whole system builds.\n\nWhen building from Linux, we use the PAGESIZE defined by Linux. Or at least that\u0027s what I thought, it turns out Linux does not define one because it\u0027s configurable on some platforms, so you\u0027re expected to use sysconf to get the current one.\n\nI added a workaround for that in a new version of the patch which I\u0027ll push later with the next batch of sparc updates.\n\nIn any case, it\u0027s not really possible to use the arch header directly when we are building on a non-haiku host.\n\nGiven that we already include other things (stdarg.h and sys/types.h) I don\u0027t see why limits.h would be a problem here. The opposite solution (including Be headers from POSIX ones) would be a lot more problematic.",
+      "parentUuid": "ae1a39e4_8b88dbb1",
+      "revId": "6b17ab959a27aa5622c72aeb65e2020f233d9d08",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "26578670_0ae4e72e",
         "filename": "headers/os/kernel/OS.h",
         "patchSetId": 1
