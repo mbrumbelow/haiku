@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e6773cad_d46cf637",
+        "filename": "src/tools/mbrtool/mbrtool.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2020-12-30T20:28:34Z",
+      "side": 1,
+      "message": "I\u0027d stay away from floats in this kind of program even if it seems to work.",
+      "revId": "50f9f5656f5131b8a06e048ad5b0eef9b45d6f84",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c2ca87b_31cde2be",
+        "filename": "src/tools/mbrtool/mbrtool.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2020-12-30T20:28:34Z",
+      "side": 1,
+      "message": "These 4 bytes at 0x1B8 are, AFAIK, a disk signature. Mine certainly don\u0027t have these values. If I\u0027m right I guess they also shouldn\u0027t be overwritten in mbrWipe.",
+      "revId": "50f9f5656f5131b8a06e048ad5b0eef9b45d6f84",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7885670_bb3067a8",
+        "filename": "src/tools/mbrtool/mbrtool.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2020-12-30T20:28:34Z",
+      "side": 1,
+      "message": "As these are in bytes, make them bigger to not impose a 2GB limit? Or make them keep sectors and unsigned to go to 2TB.",
+      "revId": "50f9f5656f5131b8a06e048ad5b0eef9b45d6f84",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6b8d2f9_673d352d",
+        "filename": "src/tools/mbrtool/mbrtool.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2020-12-30T20:28:34Z",
+      "side": 1,
+      "message": "Aren\u0027t all three variables in bytes at this point?",
+      "revId": "50f9f5656f5131b8a06e048ad5b0eef9b45d6f84",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
