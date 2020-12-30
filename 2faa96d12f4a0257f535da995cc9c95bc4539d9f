@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "69d3379e_c7088393",
+        "filename": "src/add-ons/kernel/file_systems/fat/dosfs.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 919,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-30T13:41:39Z",
+      "side": 1,
+      "message": "an \u0026 went missing here",
+      "revId": "2faa96d12f4a0257f535da995cc9c95bc4539d9f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3daaa6fc_a756ef2d",
+        "filename": "src/add-ons/kernel/file_systems/fat/fat.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-30T13:41:39Z",
+      "side": 1,
+      "message": "an \u0026 went missing here",
+      "revId": "2faa96d12f4a0257f535da995cc9c95bc4539d9f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "666fe148_24683da2",
+        "filename": "src/add-ons/kernel/file_systems/fat/file.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 999,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-30T13:41:39Z",
+      "side": 1,
+      "message": "why not use strdup?",
+      "revId": "2faa96d12f4a0257f535da995cc9c95bc4539d9f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c24cdf1f_bc7031aa",
+        "filename": "src/add-ons/kernel/file_systems/fat/iter.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-30T13:41:39Z",
+      "side": 1,
+      "message": "an \u0026 went missing here",
+      "revId": "2faa96d12f4a0257f535da995cc9c95bc4539d9f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd230f7d_0d4ce7cc",
+        "filename": "src/add-ons/kernel/file_systems/fat/iter.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-30T13:41:39Z",
+      "side": 1,
+      "message": "an \u0026 went missing here",
+      "revId": "2faa96d12f4a0257f535da995cc9c95bc4539d9f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
