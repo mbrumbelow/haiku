@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1894aa75_ffc5cafa",
+        "filename": "src/apps/deskcalc/CalcView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-30T13:52:23Z",
+      "side": 1,
+      "message": "why not do this inside the _Colorize function instead?",
+      "revId": "2a8ae353b07631de7f1f0db02bfb9370c2959168",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
