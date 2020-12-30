@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d0348397_4a7f10d4",
+        "filename": "src/system/boot/loader/file_systems/tarfs/tarfs.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2020-12-30T18:43:42Z",
+      "side": 1,
+      "message": "Shouldn\u0027t `in` be freed before this and the next two return errors?",
+      "revId": "d4580ac16edf4c22029b9e29b62b943a8e60411f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
