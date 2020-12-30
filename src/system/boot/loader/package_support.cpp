@@ -274,16 +274,16 @@ PackageVolumeInfo::_InitState(Directory* packagesDirectory, DIR* dir,
 	PackageVolumeState* state)
 {
 	// find the system package
-	char systemPackageName[B_FILE_NAME_LENGTH];
+	char* systemPackageName = (char*)malloc(B_FILE_NAME_LENGTH);
 	status_t error = _ParseActivatedPackagesFile(packagesDirectory, state,
-		systemPackageName, sizeof(systemPackageName));
+		systemPackageName, B_FILE_NAME_LENGTH);
 	if (error == B_OK) {
 		// check, if package exists
+		char* packagePath = (char*)malloc(B_PATH_NAME_LENGTH);
 		for (PackageVolumeState* otherState = state; otherState != NULL;
 				otherState = fStates.GetPrevious(otherState)) {
-			char packagePath[B_PATH_NAME_LENGTH];
 			otherState->GetPackagePath(systemPackageName, packagePath,
-				sizeof(packagePath));
+				B_PATH_NAME_LENGTH);
 			struct stat st;
 			if (get_stat(packagesDirectory, packagePath, st) == B_OK
 				&& S_ISREG(st.st_mode)) {
@@ -291,6 +291,7 @@ PackageVolumeInfo::_InitState(Directory* packagesDirectory, DIR* dir,
 				break;
 			}
 		}
+		free(packagePath);
 	} else {
 		TRACE("PackageVolumeInfo::_InitState(): failed to parse "
 			"activated-packages: %s\n", strerror(error));
@@ -310,6 +311,7 @@ PackageVolumeInfo::_InitState(Directory* packagesDirectory, DIR* dir,
 		}
 	}
 
+	free(systemPackageName);
 	if (state->SystemPackage() == NULL)
 		return B_ENTRY_NOT_FOUND;
 
@@ -322,28 +324,37 @@ PackageVolumeInfo::_ParseActivatedPackagesFile(Directory* packagesDirectory,
 	PackageVolumeState* state, char* packageName, size_t packageNameSize)
 {
 	// open the activated-packages file
-	char path[3 * B_FILE_NAME_LENGTH + 2];
-	snprintf(path, sizeof(path), "%s/%s/%s",
+	static const size_t kBufferSize = 3 * B_FILE_NAME_LENGTH + 2;
+	char* path = (char*)malloc(kBufferSize);
+	snprintf(path, kBufferSize, "%s/%s/%s",
 		kAdministrativeDirectory, state->Name() != NULL ? state->Name() : "",
 		kActivatedPackagesFile);
 	int fd = open_from(packagesDirectory, path, O_RDONLY);
-	if (fd < 0)
+	if (fd < 0) {
+		free(path);
 		return fd;
+	}
 	FileDescriptorCloser fdCloser(fd);
 
 	struct stat st;
-	if (fstat(fd, &st) != 0)
+	if (fstat(fd, &st) != 0) {
+		free(path);
 		return errno;
-	if (!S_ISREG(st.st_mode))
+	}
+	if (!S_ISREG(st.st_mode)) {
+		free(path);
 		return B_ENTRY_NOT_FOUND;
+	}
 
 	// read the file until we find the system package line
 	size_t remainingBytes = 0;
 	for (;;) {
 		ssize_t bytesRead = read(fd, path + remainingBytes,
-			sizeof(path) - remainingBytes - 1);
-		if (bytesRead <= 0)
+			kBufferSize - remainingBytes - 1);
+		if (bytesRead <= 0) {
+			free(path);
 			return B_ENTRY_NOT_FOUND;
+		}
 
 		remainingBytes += bytesRead;
 		path[remainingBytes] = '\0';
@@ -352,9 +363,11 @@ PackageVolumeInfo::_ParseActivatedPackagesFile(Directory* packagesDirectory,
 		while (char* lineEnd = strchr(line, '\n')) {
 			*lineEnd = '\0';
 			if (is_system_package(line)) {
-				return strlcpy(packageName, line, packageNameSize)
+				status_t result = strlcpy(packageName, line, packageNameSize)
 						< packageNameSize
 					?  B_OK : B_NAME_TOO_LONG;
+				free(path);
+				return result;
 			}
 
 			line = lineEnd + 1;
@@ -369,5 +382,6 @@ PackageVolumeInfo::_ParseActivatedPackagesFile(Directory* packagesDirectory,
 			remainingBytes = 0;
 	}
 
+	free(path);
 	return B_ENTRY_NOT_FOUND;
 }

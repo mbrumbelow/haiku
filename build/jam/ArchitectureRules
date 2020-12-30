@@ -517,6 +517,9 @@ rule KernelArchitectureSetup architecture
 						HAIKU_BOOT_$(bootTarget:U)_C++FLAGS += -m68020-60 ;
 					# TODO: coldfire (FireBee)
 				}
+			case openfirmware :
+				HAIKU_BOOT_$(bootTarget:U)_CCFLAGS += -fno-pic -Wno-error=main -Wstack-usage=1023 ;
+				HAIKU_BOOT_$(bootTarget:U)_C++FLAGS += -fno-pic -Wno-error=main -Wstack-usage=1023 ;
 			case * :
 				# all other bootloaders are non-PIC
 				HAIKU_BOOT_$(bootTarget:U)_CCFLAGS += -fno-pic -Wno-error=main ;
