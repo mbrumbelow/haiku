@@ -9,7 +9,7 @@
 #include <arch/cpu.h>
 
 // memory layout
-#define KERNEL_LOAD_BASE_64_BIT 0xffffffff80000000ll
+#define KERNEL_LOAD_BASE_64_BIT 0x80000000ll
 
 // Base of the kernel address space.
 // KERNEL_BASE is the base of the kernel address space. This differs from the
