@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "336b69f5_f5ebde21",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2020-12-30T15:31:33Z",
+      "side": 1,
+      "message": "Why does this code have to be obscure? \"7 \u003c\u003c 12\" is a constant. So define it somewhere with meaningful name. Is it sector size? All the code above implies that \"kBlockSize\" /is/ \"sector size\". The comment mentions \"transfer size\", but we set \"block size\". The previous code made perfect sense. The new code begs questions which cannot be answered easily. So is \"fRegisters-\u003eblock_size\" badly named? Should it have been \"transfer_size\"? And what is the bit operation actually doing? How mush is \"worrying too much\" and would I agree? Maybe it is worrying too little?? I have no idea.",
+      "revId": "8fbe9c850866ace7e91fa5fbf7a455077427aec5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a362c72_d427ab22",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2020-12-30T15:31:33Z",
+      "side": 1,
+      "message": "This line is too long. I would prefer the parenthesis on their own lines anyway.",
+      "revId": "8fbe9c850866ace7e91fa5fbf7a455077427aec5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
