@@ -741,10 +741,10 @@ status_t
 TarFS::Volume::_Inflate(boot::Partition* partition, void* cookie, off_t offset,
 	RegionDeleter& regionDeleter, size_t* inflatedBytes)
 {
-	char in[2048];
+	char* in = (char*)malloc(2048);
 	z_stream zStream = {
 		(Bytef*)in,		// next in
-		sizeof(in),		// avail in
+		2048,			// avail in
 		0,				// total in
 		NULL,			// next out
 		0,				// avail out
@@ -764,7 +764,7 @@ TarFS::Volume::_Inflate(boot::Partition* partition, void* cookie, off_t offset,
 	bool headerRead = false;
 
 	do {
-		ssize_t bytesRead = partition->ReadAt(cookie, offset, in, sizeof(in));
+		ssize_t bytesRead = partition->ReadAt(cookie, offset, in, 2048);
 		if (bytesRead != (ssize_t)sizeof(in)) {
 			if (bytesRead <= 0) {
 				status = Z_STREAM_ERROR;
@@ -807,6 +807,7 @@ TarFS::Volume::_Inflate(boot::Partition* partition, void* cookie, off_t offset,
 	} while (status == Z_OK);
 
 	inflateEnd(&zStream);
+	free(in);
 
 	if (status != Z_STREAM_END) {
 		TRACE(("tarfs: inflating failed: %d!\n", status));
