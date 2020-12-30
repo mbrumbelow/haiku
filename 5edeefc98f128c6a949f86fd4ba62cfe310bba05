@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5150e361_19cb2db1",
+        "filename": "src/apps/deskcalc/CalcView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-30T13:53:39Z",
+      "side": 1,
+      "message": "I think you can pass NULL as the font and 0 instead of B_FONT_ALL to change just the color?",
+      "revId": "5edeefc98f128c6a949f86fd4ba62cfe310bba05",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
