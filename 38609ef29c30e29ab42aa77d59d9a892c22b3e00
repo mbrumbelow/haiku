@@ -33,6 +33,57 @@
       "revId": "38609ef29c30e29ab42aa77d59d9a892c22b3e00",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b87b4399_c0a0cc1a",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_module.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2020-12-30T17:06:52Z",
+      "side": 1,
+      "message": "2020",
+      "revId": "38609ef29c30e29ab42aa77d59d9a892c22b3e00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1415f165_6bb68a03",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2020-12-30T17:06:52Z",
+      "side": 1,
+      "message": "Ownership of \"info-\u003edmaResource\" is transferred to the scheduler? If so, it seems to contradict line 193.",
+      "revId": "38609ef29c30e29ab42aa77d59d9a892c22b3e00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d66c6d7_6345ba5e",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2020-12-30T17:06:52Z",
+      "side": 1,
+      "message": "Does \"DeviceSize()\" here have anything to do with partitions? Or would it be the hard size of the storage medium and \"nothing bad\" can really happen by having this TODO left in the code?",
+      "revId": "38609ef29c30e29ab42aa77d59d9a892c22b3e00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
