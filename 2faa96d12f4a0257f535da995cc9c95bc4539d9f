@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "607494ef_052c8cff",
+        "filename": "src/add-ons/kernel/file_systems/fat/dosfs.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 919,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-30T14:04:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69d3379e_c7088393",
+      "revId": "2faa96d12f4a0257f535da995cc9c95bc4539d9f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3daaa6fc_a756ef2d",
         "filename": "src/add-ons/kernel/file_systems/fat/fat.cpp",
         "patchSetId": 7
@@ -33,6 +51,24 @@
       "revId": "2faa96d12f4a0257f535da995cc9c95bc4539d9f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c238c3c7_9c9000e6",
+        "filename": "src/add-ons/kernel/file_systems/fat/fat.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-30T14:04:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3daaa6fc_a756ef2d",
+      "revId": "2faa96d12f4a0257f535da995cc9c95bc4539d9f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -70,6 +106,24 @@
     },
     {
       "key": {
+        "uuid": "7401c869_d0618167",
+        "filename": "src/add-ons/kernel/file_systems/fat/iter.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-30T14:04:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c24cdf1f_bc7031aa",
+      "revId": "2faa96d12f4a0257f535da995cc9c95bc4539d9f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fd230f7d_0d4ce7cc",
         "filename": "src/add-ons/kernel/file_systems/fat/iter.cpp",
         "patchSetId": 7
@@ -84,6 +138,24 @@
       "revId": "2faa96d12f4a0257f535da995cc9c95bc4539d9f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34735401_5dc85b7f",
+        "filename": "src/add-ons/kernel/file_systems/fat/iter.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2020-12-30T14:04:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd230f7d_0d4ce7cc",
+      "revId": "2faa96d12f4a0257f535da995cc9c95bc4539d9f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
