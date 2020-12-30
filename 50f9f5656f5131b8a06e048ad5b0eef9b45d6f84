@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "08363ef6_7a030e03",
+        "filename": "src/tools/mbrtool/mbrtool.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-12-30T21:27:08Z",
+      "side": 1,
+      "message": "Hm. I was having issues getting the disk to validate in fdisk without a disk signature here.. let me circle back and see if it was a temporary issue I can just ignore now.\n\nYou\u0027re correct it should be random however... so it definitely needs dropped from mbrValid.",
+      "parentUuid": "7c2ca87b_31cde2be",
+      "revId": "50f9f5656f5131b8a06e048ad5b0eef9b45d6f84",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c7885670_bb3067a8",
         "filename": "src/tools/mbrtool/mbrtool.cpp",
         "patchSetId": 1
@@ -53,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "014ef47f_1122380f",
+        "filename": "src/tools/mbrtool/mbrtool.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-12-30T21:27:08Z",
+      "side": 1,
+      "message": "They\u0027re KiB per the multiplier.  Essentially i\u0027m taking in 512-byte sectors and massaging them into KiB via the multiplier.\n\nThe current code functions as sane per fdisk, but yeah... it\u0027s weird and likely could use some refactoring.",
+      "parentUuid": "c7885670_bb3067a8",
+      "revId": "50f9f5656f5131b8a06e048ad5b0eef9b45d6f84",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f6b8d2f9_673d352d",
         "filename": "src/tools/mbrtool/mbrtool.cpp",
         "patchSetId": 1
@@ -64,6 +100,24 @@
       "writtenOn": "2020-12-30T20:28:34Z",
       "side": 1,
       "message": "Aren\u0027t all three variables in bytes at this point?",
+      "revId": "50f9f5656f5131b8a06e048ad5b0eef9b45d6f84",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f04f9780_addd27e6",
+        "filename": "src/tools/mbrtool/mbrtool.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-12-30T21:27:08Z",
+      "side": 1,
+      "message": "KiB",
+      "parentUuid": "f6b8d2f9_673d352d",
       "revId": "50f9f5656f5131b8a06e048ad5b0eef9b45d6f84",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
