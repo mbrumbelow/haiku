@@ -293,9 +293,12 @@ CalcView::MessageReceived(BMessage* message)
 {
 	if (message->what == B_COLORS_UPDATED && !fHasCustomBaseColor) {
 		const char* panelBgColorName = ui_color_name(B_PANEL_BACKGROUND_COLOR);
-		if (message->HasColor(panelBgColorName)) {
+		if (message->HasColor(panelBgColorName) && !fHasCustomBaseColor) {
 			fBaseColor = message->GetColor(panelBgColorName, fBaseColor);
 			_Colorize();
+		} else {
+			fExpressionTextColor = ui_color(B_DOCUMENT_TEXT_COLOR);
+			fButtonTextColor = ui_color(B_PANEL_TEXT_COLOR);
 		}
 
 		return;
@@ -1199,8 +1202,12 @@ CalcView::_LoadSettings(BMessage* archive)
 	_ParseCalcDesc(fKeypadDescription);
 
 	// colorize based on base color.
-	_Colorize();
-
+	if (fHasCustomBaseColor)
+		_Colorize();
+	else {
+		fExpressionTextColor = ui_color(B_DOCUMENT_TEXT_COLOR);
+		fButtonTextColor = ui_color(B_PANEL_TEXT_COLOR);
+	}
 	return B_OK;
 }
 
