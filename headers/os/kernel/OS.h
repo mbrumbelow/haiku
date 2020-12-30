@@ -7,6 +7,7 @@
 
 /** Kernel specific structures and functions */
 
+#include <limits.h>
 #include <stdarg.h>
 #include <sys/types.h>
 
@@ -21,7 +22,7 @@ extern "C" {
 /* System constants */
 
 #define B_OS_NAME_LENGTH	32
-#define B_PAGE_SIZE			4096
+#define B_PAGE_SIZE			PAGESIZE
 #define B_INFINITE_TIMEOUT	(9223372036854775807LL)
 
 enum {
