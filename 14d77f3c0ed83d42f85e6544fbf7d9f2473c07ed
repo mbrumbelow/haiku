@@ -16,6 +16,23 @@
       "revId": "14d77f3c0ed83d42f85e6544fbf7d9f2473c07ed",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd58fd05_9537a265",
+        "filename": "headers/posix/arch/x86/limits.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-01-01T22:08:04Z",
+      "side": 1,
+      "message": "Perhaps we should use _ARCH_LIMITS_H to block including of more than one arch header, just in case?",
+      "revId": "14d77f3c0ed83d42f85e6544fbf7d9f2473c07ed",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
