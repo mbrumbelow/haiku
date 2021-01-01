@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "975aa985_58094cdd",
+        "filename": "src/system/boot/loader/file_systems/tarfs/tarfs.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 744,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-01-01T06:54:09Z",
+      "side": 1,
+      "message": "Use \u0027MemoryDeleter in(malloc(2048));\u0027 or `ArrayDeleter\u003cchar\u003e in(new(std::nothrow) char[2048]);`.",
+      "revId": "9e0f06a39d63ad5d2e00f8b9049b26330a3f348c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f04dc8f_e6d2b47d",
+        "filename": "src/system/boot/loader/file_systems/tarfs/tarfs.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-01-01T06:54:09Z",
+      "side": 1,
+      "message": "To avoid this.",
+      "revId": "9e0f06a39d63ad5d2e00f8b9049b26330a3f348c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a06f5d29_95bf0da5",
+        "filename": "src/system/boot/loader/file_systems/tarfs/tarfs.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 791,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-01-01T06:54:09Z",
+      "side": 1,
+      "message": "And this.",
+      "revId": "9e0f06a39d63ad5d2e00f8b9049b26330a3f348c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4525bf4b_9ba7fa89",
+        "filename": "src/system/boot/loader/file_systems/tarfs/tarfs.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 802,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-01-01T06:54:09Z",
+      "side": 1,
+      "message": "And this.",
+      "revId": "9e0f06a39d63ad5d2e00f8b9049b26330a3f348c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eee7ea26_28f100e7",
+        "filename": "src/system/boot/loader/file_systems/tarfs/tarfs.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-01-01T06:54:09Z",
+      "side": 1,
+      "message": "And this.",
+      "revId": "9e0f06a39d63ad5d2e00f8b9049b26330a3f348c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
