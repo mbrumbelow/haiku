@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "198b7a5c_f2febd85",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-01T13:24:31Z",
+      "side": 1,
+      "message": "It\u0027s not very clear mainly because I discover things as I write the code and exepriment myself.\n\nThis register (named \"block size\" in the spec, I prefer to keep the names matching with the spec even if they are not always well chosen) does different things depending on the transfer mode (CPU-based, simple DMA or advanced DMA).\n\nIn the case of CPU based transfers (as it was used before), it defines how much data to transfer in an operation.\n\nIn the case of simple DMA (which is used here), it does two thing:\n- Define the size of a \"block\" for DMA transfers (unlike CPU transfers, DMA transfers can do multiple sequential \"blocks\", not just one). In theory it does not need to be equal to the sector size, and could be set to anything. But it is a lot easier to manage things when blocks and sectors have the same size, for two reasons:\n- we know the IO scheduler will set transfers up to access complete sectors, and we never need to cut a transfer in the middle of a DMA transfer, or similar tricks.\n- while it is possible to do a transfer of an arbitrary size using this register, it is not possible to start the transfer anywhere else than the start of a sector.\n\nBits from 12 upwards (where I write 7 here) in SDMA mode define the DMA boundary: the DMA transfers will stop if they reach an address that\u0027s multiple of some given value. We could for example configure it to stop every 4K (multiple of B_PAGE_SIZE), and feed it memory pages one by one.\n\nHowever, we don\u0027t really need this. We already manage the memory on the software side, and when we schedule a transfer, we already know that the memory is available for it. So, I just set the maximum size of 512K (\"magic\" value 7 defined in the spec). The B_DMA_BOUNDARY property of the bus is set accordingly, so that the IO scheduler knows that DMA transfers from the SD card must not be in between two 512K blocks.\n\nI have added a better interface to set the register and clarified the comment about what we are doing and why.",
+      "parentUuid": "336b69f5_f5ebde21",
+      "revId": "8fbe9c850866ace7e91fa5fbf7a455077427aec5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a362c72_d427ab22",
         "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.h",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "8fbe9c850866ace7e91fa5fbf7a455077427aec5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd6ea0ec_fc4a778d",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-01T13:24:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a362c72_d427ab22",
+      "revId": "8fbe9c850866ace7e91fa5fbf7a455077427aec5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
