@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3013b851_aa35c298",
+        "filename": "headers/private/drivers/mmc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-01T13:07:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17ac0a81_a6ce0571",
+      "revId": "c7f5531b90146d6ce828839a52fa6f4f2d0762ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "353a051a_83c6f7f6",
         "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "c7f5531b90146d6ce828839a52fa6f4f2d0762ce",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "571cb16e_856959c4",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-01T13:07:51Z",
+      "side": 1,
+      "message": "The lower layers are more generic this way, allowing other type of operations (\"secure\" read and write for SD cards with encryption, and other commands for SDIO cards that do things other than mass storage).\n\nThe SD_* commands are specific to SD cards only, and should not be hardcoded in the lower layers.\n\nFor example on ARM devices, it\u0027s possible that the wifi or bluetooth cards will be available on an SDIO bus. So the SD/MMC bus will be used by other drivers in the future.\n\nI added a coment to mmc.h to clarify how these functions are meant to be used.",
+      "parentUuid": "353a051a_83c6f7f6",
+      "revId": "c7f5531b90146d6ce828839a52fa6f4f2d0762ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
