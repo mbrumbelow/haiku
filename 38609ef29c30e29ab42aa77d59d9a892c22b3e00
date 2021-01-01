@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "e81703bc_9070f426",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_module.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-01T12:58:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b87b4399_c0a0cc1a",
+      "revId": "38609ef29c30e29ab42aa77d59d9a892c22b3e00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1415f165_6bb68a03",
         "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
         "patchSetId": 6
@@ -70,6 +88,41 @@
     },
     {
       "key": {
+        "uuid": "94c0ecee_d7e432f6",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-01T12:58:09Z",
+      "side": 1,
+      "message": "It isn\u0027t transferred, and it doesn\u0027t even need to be allocated dynamically, which makes this simpler.",
+      "parentUuid": "1415f165_6bb68a03",
+      "revId": "38609ef29c30e29ab42aa77d59d9a892c22b3e00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "38e035d1_0bacd16a",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-01T12:58:09Z",
+      "side": 1,
+      "message": "trailing whitespace",
+      "revId": "38609ef29c30e29ab42aa77d59d9a892c22b3e00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d66c6d7_6345ba5e",
         "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
         "patchSetId": 6
@@ -84,6 +137,24 @@
       "revId": "38609ef29c30e29ab42aa77d59d9a892c22b3e00",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "529dbe74_29b34872",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-01T12:58:09Z",
+      "side": 1,
+      "message": "It\u0027s the disk device size and is unrelated to partitions (which are handled in an upper layer).\n\nThis check is here to make sure we don\u0027t try to read or write past the device end (which would probably fail later on, but it\u0027s better to not have to handle this error at a lower level). Fixed by moving the device geometry in the info structure and initializing it when the device is created.",
+      "parentUuid": "8d66c6d7_6345ba5e",
+      "revId": "38609ef29c30e29ab42aa77d59d9a892c22b3e00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
