@@ -589,7 +589,7 @@ CommitTransactionHandler::_AddPackagesToActivate()
 		// move entry
 		fAddedPackages.insert(package);
 
-		error = entry.MoveTo(&packagesDirectory);
+		error = entry.MoveTo(&packagesDirectory, NULL, true);
 		if (error != B_OK) {
 			fAddedPackages.erase(package);
 			ERROR("Failed to move new package %s to packages directory: %s\n",
