@@ -34,6 +34,24 @@
       "revId": "08b73e1f06253aaae8611d3d3ffcc3a0975916b7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7850d1c1_2a267f54",
+        "filename": "src/servers/package/CommitTransactionHandler.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1957,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-03T16:40:34Z",
+      "side": 1,
+      "message": "Yes, you are correct, I did not think carefully enough.",
+      "parentUuid": "b639329a_ce8bf772",
+      "revId": "08b73e1f06253aaae8611d3d3ffcc3a0975916b7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
