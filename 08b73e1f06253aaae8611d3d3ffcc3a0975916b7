@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "18614d4e_784e403f",
+        "filename": "src/servers/package/CommitTransactionHandler.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1957,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-03T15:39:49Z",
+      "side": 1,
+      "message": "I think this should check bRead \u003c 0 instead of aRead \u003c 0, to cover the case where b is shorter than a?",
+      "revId": "08b73e1f06253aaae8611d3d3ffcc3a0975916b7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
