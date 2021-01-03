@@ -33,7 +33,6 @@ struct stream_info {
 	media_format	encodedFormat;
 };
 
-
 class MediaExtractor {
 public:
 								MediaExtractor(BDataIO* source, int32 flags);
@@ -79,6 +78,7 @@ private:
 			void				_RecycleLastChunk(stream_info& info);
 	static	int32				_ExtractorEntry(void* arg);
 			void				_ExtractorThread();
+			size_t				_CalculateChunkBuffer(int32 steeam);
 
 private:
 			status_t			fInitStatus;
