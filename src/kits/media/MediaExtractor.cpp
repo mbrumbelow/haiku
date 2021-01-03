@@ -17,6 +17,7 @@
 
 #include "ChunkCache.h"
 #include "MediaDebug.h"
+#include "MediaMisc.h"
 #include "PluginManager.h"
 
 
@@ -24,7 +25,59 @@
 #define DISABLE_CHUNK_CACHE 0
 
 
-static const size_t kMaxCacheBytes = 3 * 1024 * 1024;
+static inline int32
+get_bytes_per_row(color_space colorSpace, int32 width)
+{
+	int32 bpr = 0;
+	switch (colorSpace) {
+		// supported
+		case B_RGB32: case B_RGBA32:
+		case B_RGB32_BIG: case B_RGBA32_BIG:
+		case B_UVL32: case B_UVLA32:
+		case B_LAB32: case B_LABA32:
+		case B_HSI32: case B_HSIA32:
+		case B_HSV32: case B_HSVA32:
+		case B_HLS32: case B_HLSA32:
+		case B_CMY32: case B_CMYA32: case B_CMYK32:
+			bpr = 4 * width;
+			break;
+		case B_RGB24: case B_RGB24_BIG:
+		case B_UVL24: case B_LAB24: case B_HSI24:
+		case B_HSV24: case B_HLS24: case B_CMY24:
+			bpr = 3 * width;
+			break;
+		case B_RGB16:	   case B_RGB15:	   case B_RGBA15:
+		case B_RGB16_BIG:   case B_RGB15_BIG:   case B_RGBA15_BIG:
+			bpr = 2 * width;
+			break;
+		case B_CMAP8: case B_GRAY8:
+			bpr = width;
+			break;
+		case B_GRAY1:
+			bpr = (width + 7) / 8;
+			break;
+		case B_YCbCr422: case B_YUV422:
+			bpr = (width + 3) / 4 * 8;
+			break;
+		case B_YCbCr411: case B_YUV411:
+			bpr = (width + 3) / 4 * 6;
+			break;
+		case B_YCbCr444: case B_YUV444:
+			bpr = (width + 3) / 4 * 12;
+			break;
+		case B_YCbCr420: case B_YUV420:
+			bpr = (width + 3) / 4 * 6;
+			break;
+		case B_YUV9:
+			bpr = (width + 15) / 16 * 18;
+			break;
+		// unsupported
+		case B_NO_COLOR_SPACE:
+		case B_YUV12:
+			break;
+	}
+	return bpr;
+}
 
 
 class MediaExtractorChunkProvider : public ChunkProvider {
@@ -93,15 +146,9 @@ MediaExtractor::_Init(BDataIO* source, int32 flags)
 		fStreamInfo[i].hasCookie = false;
 		fStreamInfo[i].infoBuffer = 0;
 		fStreamInfo[i].infoBufferSize = 0;
-		fStreamInfo[i].chunkCache
-			= new ChunkCache(fExtractorWaitSem, kMaxCacheBytes);
 		fStreamInfo[i].lastChunk = NULL;
+		fStreamInfo[i].chunkCache = NULL;
 		fStreamInfo[i].encodedFormat.Clear();
-
-		if (fStreamInfo[i].chunkCache->InitCheck() != B_OK) {
-			fInitStatus = B_NO_MEMORY;
-			return;
-		}
 	}
 
 	// create all stream cookies
@@ -130,6 +177,15 @@ MediaExtractor::_Init(BDataIO* source, int32 flags)
 			fStreamInfo[i].status = B_ERROR;
 			ERROR("MediaExtractor::MediaExtractor: GetStreamInfo for "
 				"stream %" B_PRId32 " failed\n", i);
+		}
+
+		// Allocate our ChunkCache
+		size_t chunkCacheMaxBytes = _CalculateChunkBuffer(i);
+		fStreamInfo[i].chunkCache
+			= new ChunkCache(fExtractorWaitSem, chunkCacheMaxBytes);
+		if (fStreamInfo[i].chunkCache->InitCheck() != B_OK) {
+			fInitStatus = B_NO_MEMORY;
+			return;
 		}
 	}
 
@@ -430,6 +486,20 @@ MediaExtractor::_ExtractorEntry(void* extractor)
 {
 	static_cast<MediaExtractor*>(extractor)->_ExtractorThread();
 	return B_OK;
+}
+
+
+size_t
+MediaExtractor::_CalculateChunkBuffer(int32 stream)
+{
+	const media_format* format = EncodedFormat(stream);
+	size_t cacheSize = 3 * 1024 * 1024;
+	int32 rowSize = get_bytes_per_row(format->ColorSpace(), format->Width());
+	if (rowSize > 0) {
+		// Frame size, multipled by 2 for good measure
+		cacheSize = (rowSize * format->Height()) * 2;
+	}
+	return ROUND_UP_TO_PAGE(cacheSize);
 }
 
 
