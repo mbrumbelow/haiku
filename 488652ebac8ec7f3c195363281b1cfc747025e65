@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3363421b_407d4675",
+        "filename": "src/kits/media/MediaExtractor.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-01-03T16:05:46Z",
+      "side": 1,
+      "message": "This code can be shared and probably already present somewhere.",
+      "revId": "488652ebac8ec7f3c195363281b1cfc747025e65",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
