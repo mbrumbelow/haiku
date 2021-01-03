@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "b55923f6_b877f37e",
+        "filename": "headers/private/media/MediaExtractor.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2021-01-03T16:11:44Z",
+      "side": 1,
+      "message": "\"steeam\"?",
+      "revId": "488652ebac8ec7f3c195363281b1cfc747025e65",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3363421b_407d4675",
         "filename": "src/kits/media/MediaExtractor.cpp",
         "patchSetId": 1
@@ -31,6 +48,41 @@
       "side": 1,
       "message": "Nope.  Everyone seems to roll their own get_bytes_per_row.  Mesa does as well as BBitmap (which is where I got this static).\n\nI agree it needs to be made public somewhere, but that goes beyond this bugfix.",
       "parentUuid": "3363421b_407d4675",
+      "revId": "488652ebac8ec7f3c195363281b1cfc747025e65",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87658ba6_76bf53e7",
+        "filename": "src/kits/media/MediaExtractor.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2021-01-03T16:11:44Z",
+      "side": 1,
+      "message": "Yes. Please refactor.",
+      "parentUuid": "3363421b_407d4675",
+      "revId": "488652ebac8ec7f3c195363281b1cfc747025e65",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "541abcd6_3e1159e5",
+        "filename": "src/kits/media/MediaExtractor.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2021-01-03T16:11:44Z",
+      "side": 1,
+      "message": "Redundant parenthesis",
       "revId": "488652ebac8ec7f3c195363281b1cfc747025e65",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
