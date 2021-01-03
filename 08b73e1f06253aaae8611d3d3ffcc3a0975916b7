@@ -16,6 +16,24 @@
       "revId": "08b73e1f06253aaae8611d3d3ffcc3a0975916b7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b639329a_ce8bf772",
+        "filename": "src/servers/package/CommitTransactionHandler.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1957,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2021-01-03T15:47:21Z",
+      "side": 1,
+      "message": "In order to compare successfully, we require both values to be \u003e\u003d 0 AND be the same. This is assured by the condition. Maybe I don\u0027t understand what you are saying, but I don\u0027t see how \"b is shorter than a\" is not covered. We already know the files are the same size.",
+      "parentUuid": "18614d4e_784e403f",
+      "revId": "08b73e1f06253aaae8611d3d3ffcc3a0975916b7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
