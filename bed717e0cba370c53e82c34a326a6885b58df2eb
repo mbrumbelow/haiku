@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6614a268_3046fbb6",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_bus.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-01-04T09:20:02Z",
+      "side": 1,
+      "message": "This line is too long.",
+      "revId": "bed717e0cba370c53e82c34a326a6885b58df2eb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c049d8e8_0ca41dcb",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-01-04T09:20:02Z",
+      "side": 1,
+      "message": "I\u0027d add braces for readability.",
+      "revId": "bed717e0cba370c53e82c34a326a6885b58df2eb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f2c8686_efcea82f",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-01-04T09:20:02Z",
+      "side": 1,
+      "message": "Two blank lines before this enum.",
+      "revId": "bed717e0cba370c53e82c34a326a6885b58df2eb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
