@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f5ea1632_bc591843",
+        "filename": "src/kits/media/MediaExtractor.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-04T23:55:34Z",
+      "side": 1,
+      "message": "I just realized, this should check format-\u003eIsVideo and use format-\u003eFrameSize for audio streams. Width, oeight and colorspace will return garbage for audio streams.",
+      "revId": "b9f205c19d4cc6130e59f17f4907ef9d8a8e1915",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
