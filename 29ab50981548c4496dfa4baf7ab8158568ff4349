@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ac8b359_ae014fed",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-01-04T09:24:46Z",
+      "side": 1,
+      "message": "\"class\"",
+      "revId": "29ab50981548c4496dfa4baf7ab8158568ff4349",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c31c6b64_4e6cb618",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-01-04T09:24:46Z",
+      "side": 1,
+      "message": "\"value\"",
+      "revId": "29ab50981548c4496dfa4baf7ab8158568ff4349",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
