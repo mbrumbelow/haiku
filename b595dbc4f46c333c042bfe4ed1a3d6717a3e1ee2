@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f72186cc_f8cba8bd",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-04T20:59:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95cceb9d_ad4c16e7",
+      "revId": "b595dbc4f46c333c042bfe4ed1a3d6717a3e1ee2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4c73aead_ec4b22d9",
         "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "70175f79_89af5589",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-04T20:59:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c73aead_ec4b22d9",
+      "revId": "b595dbc4f46c333c042bfe4ed1a3d6717a3e1ee2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50d05e87_863dfa09",
         "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
         "patchSetId": 1
@@ -50,6 +86,24 @@
       "revId": "b595dbc4f46c333c042bfe4ed1a3d6717a3e1ee2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1bf8a0ab_b1e58a15",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-04T20:59:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50d05e87_863dfa09",
+      "revId": "b595dbc4f46c333c042bfe4ed1a3d6717a3e1ee2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
