@@ -16,6 +16,24 @@
       "revId": "c1bfccdab6a7aad2c4649a770562cf5073e30374",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62faf5fe_0905aaaa",
+        "filename": "src/system/boot/loader/file_systems/tarfs/tarfs.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 744,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-05T09:08:07Z",
+      "side": 1,
+      "message": "Yes. The bootloader has a fixed heap size (set to 512K currently for openfirmware, 64K for other platforms) and can run out of memory. malloc returns NULL in that case. I should check for that here.",
+      "parentUuid": "3dda12fb_26678634",
+      "revId": "c1bfccdab6a7aad2c4649a770562cf5073e30374",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
