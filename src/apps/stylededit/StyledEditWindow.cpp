@@ -1175,7 +1175,7 @@ StyledEditWindow::_InitWindow(uint32 encoding)
 		new BMessage(MENU_FIND_AGAIN), 'G');
 	fFindAgainItem->SetEnabled(false);
 
-	fReplaceItem = new BMenuItem(B_TRANSLATE(B_UTF8_ELLIPSIS),
+	fReplaceItem = new BMenuItem(B_TRANSLATE("Replace" B_UTF8_ELLIPSIS),
 		new BMessage(MENU_REPLACE), 'R');
 
 	fReplaceSameItem = new BMenuItem(B_TRANSLATE("Replace next"),
