@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "597898a8_39461a6e",
+        "filename": "src/apps/networkstatus/NetworkStatusView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-05T18:21:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50161051_030fb54d",
+      "revId": "012d3a131f7aef8f65c0a811b581d83c3d9d31bc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e7130872_1b379665",
         "filename": "src/apps/networkstatus/NetworkStatusView.cpp",
         "patchSetId": 1
