@@ -16,6 +16,24 @@
       "revId": "844c42f079d71e5673dffa2508820c1771ac5bfa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2451b2e0_c9093e09",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 821,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-05T12:18:46Z",
+      "side": 1,
+      "message": "actually it should be in init_device/uninit_device (done once per PCI device, not once per SD/MMC bus exposed by the device). Doing the init is easy, but doing the uninit requires some refactoring as we need to store the original value somewhere and the device until now had no own memory storage. I\u0027ll add something there.",
+      "parentUuid": "bc6f0bc1_8a033e70",
+      "revId": "844c42f079d71e5673dffa2508820c1771ac5bfa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
