@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3dda12fb_26678634",
+        "filename": "src/system/boot/loader/file_systems/tarfs/tarfs.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 744,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-01-05T08:55:48Z",
+      "side": 1,
+      "message": "can malloc fail?",
+      "revId": "c1bfccdab6a7aad2c4649a770562cf5073e30374",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
