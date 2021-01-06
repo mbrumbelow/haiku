@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "67517228_cdc649bb",
+        "filename": "src/kits/media/MediaExtractor.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-06T18:09:23Z",
+      "side": 1,
+      "message": "because I can\u0027t set my vim to do the right thing",
+      "parentUuid": "3c01b2d8_bd46b92c",
+      "revId": "5d4540d650e166cf4e756021774c6036e202dc34",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f71ae95_89def683",
         "filename": "src/kits/media/MediaExtractor.cpp",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2021-01-06T18:04:36Z",
       "side": 1,
       "message": "Too small?",
+      "revId": "5d4540d650e166cf4e756021774c6036e202dc34",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2253fabb_a0289a3d",
+        "filename": "src/kits/media/MediaExtractor.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-06T18:09:23Z",
+      "side": 1,
+      "message": "I don\u0027t know. As I said in the commit message, it should be tested to see how large a buffer we need. We can aim for 1 second, or 250ms, or whatever feels appropriate and works well.",
+      "parentUuid": "6f71ae95_89def683",
       "revId": "5d4540d650e166cf4e756021774c6036e202dc34",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
