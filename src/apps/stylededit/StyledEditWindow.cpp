@@ -1324,11 +1324,14 @@ StyledEditWindow::_InitWindow(uint32 encoding)
 	fSavePanel = NULL;
 	fSavePanelEncodingMenu = NULL;
 
-	BGroupLayout* layout = new BGroupLayout(B_VERTICAL, 0);
-	SetLayout(layout);
-	layout->AddView(mainMenu);
-	layout->AddView(fScrollView);
-	layout->SetInsets(0, 0, -1, -1);
+	BLayoutBuilder::Group<>(this, B_VERTICAL, 0)
+		.Add(mainMenu)
+		.AddGroup(B_VERTICAL, 0)
+			.SetInsets(-1)
+			.Add(fScrollView)
+		.End()
+	.End();
+
 	SetKeyMenuBar(mainMenu);
 
 }
