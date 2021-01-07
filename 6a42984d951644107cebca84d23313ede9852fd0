@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d4808425_3b0d6190",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-07T17:45:12Z",
+      "side": 1,
+      "message": "It\u0027s tested now",
+      "revId": "6a42984d951644107cebca84d23313ede9852fd0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e18d9426_1f227b41",
+        "filename": "src/kits/package/FetchFileJob.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-07T17:45:12Z",
+      "side": 1,
+      "message": "We may already change this to 2021",
+      "revId": "6a42984d951644107cebca84d23313ede9852fd0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e29af0e_40b0188e",
+        "filename": "src/kits/package/FetchUtils.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-07T17:45:12Z",
+      "side": 1,
+      "message": "two empty lines between functions",
+      "revId": "6a42984d951644107cebca84d23313ede9852fd0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
