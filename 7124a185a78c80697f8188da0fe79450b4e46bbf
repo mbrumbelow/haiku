@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ad4cab2_f7d8ed28",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_start.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-08T15:12:51Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "7124a185a78c80697f8188da0fe79450b4e46bbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c162643_c676a4ca",
+        "filename": "src/system/boot/platform/efi/arch/arm64/relocation_func.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-08T15:12:51Z",
+      "side": 1,
+      "message": "why does it say x86 here?",
+      "revId": "7124a185a78c80697f8188da0fe79450b4e46bbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f3a5e8a_ec9fc38f",
+        "filename": "src/system/boot/platform/efi/arch/arm64/relocation_func.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-08T15:12:51Z",
+      "side": 1,
+      "message": "two blank lines (but this is not our code so maybe we don\u0027t want to change it?)",
+      "revId": "7124a185a78c80697f8188da0fe79450b4e46bbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
