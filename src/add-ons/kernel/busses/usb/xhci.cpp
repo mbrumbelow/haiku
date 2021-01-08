@@ -815,6 +815,9 @@ XHCI::SubmitNormalRequest(Transfer *transfer)
 			return B_BAD_VALUE;
 	}
 
+	if (trbSize == 0)
+		return B_BAD_VALUE;
+
 	// Now that we know trbSize, compute the count.
 	const int32 trbCount = (transfer->DataLength() + trbSize - 1) / trbSize;
 
@@ -2045,6 +2048,10 @@ XHCI::ConfigureEndpoint(xhci_endpoint* ep, uint8 slot, uint8 number, uint8 type,
 	// The Max Burst Payload is the number of bytes moved by a
 	// maximum sized burst. (XHCI 1.2 § 4.11.7.1 p236.)
 	ep->max_burst_payload = (maxBurst + 1) * maxPacketSize;
+	if (ep->max_burst_payload == 0) {
+		TRACE_ERROR("ConfigureEndpoint() failed invalid max_burst_payload\n");
+		return B_BAD_VALUE;
+	}
 
 	// Assign average TRB length.
 	if ((type & USB_OBJECT_CONTROL_PIPE) != 0) {
