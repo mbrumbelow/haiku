@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d9e694ec_9cc15b25",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_start.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-01-08T18:00:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9ad4cab2_f7d8ed28",
+      "revId": "7124a185a78c80697f8188da0fe79450b4e46bbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9ebcea7b_93349f47",
         "filename": "src/system/boot/platform/efi/arch/arm64/arch_start.cpp",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2021-01-08T17:22:46Z",
       "side": 1,
       "message": "Is it really CPU-dependent?",
+      "revId": "7124a185a78c80697f8188da0fe79450b4e46bbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28965402_af7f510f",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_start.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-01-08T18:00:19Z",
+      "side": 1,
+      "message": "today it is.  the x86 code does pml4 which is x86-centric mmu mappings.\nOverall the x86 code needs cleaned up to be more generic",
+      "parentUuid": "9ebcea7b_93349f47",
       "revId": "7124a185a78c80697f8188da0fe79450b4e46bbf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
