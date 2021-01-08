@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9d3e30b3_9dd511c4",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-01-08T07:06:08Z",
+      "side": 1,
+      "message": "\u0026\u0026 goes on the next line.",
+      "revId": "fa1f5839be529bd1a55ec045d9ed03f775210900",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a64d120_05e3f5c7",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-01-08T07:06:08Z",
+      "side": 1,
+      "message": "\"(fCommandResult \u0026 SDHCI_INT_TRANS_CMP) \u003d\u003d 0\" would be correct",
+      "revId": "fa1f5839be529bd1a55ec045d9ed03f775210900",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
