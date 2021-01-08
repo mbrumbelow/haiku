@@ -815,6 +815,9 @@ XHCI::SubmitNormalRequest(Transfer *transfer)
 			return B_BAD_VALUE;
 	}
 
+	if (trbSize == 0)
+		return B_BAD_VALUE;
+
 	// Now that we know trbSize, compute the count.
 	const int32 trbCount = (transfer->DataLength() + trbSize - 1) / trbSize;
 
