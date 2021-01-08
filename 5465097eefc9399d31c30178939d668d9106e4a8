@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a62c5ea_5eb6d472",
+        "filename": "src/system/boot/loader/package_support.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2021-01-08T18:04:52Z",
+      "side": 1,
+      "message": "The free() needs to move outside the if-block, along with the malloc().",
+      "revId": "5465097eefc9399d31c30178939d668d9106e4a8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
