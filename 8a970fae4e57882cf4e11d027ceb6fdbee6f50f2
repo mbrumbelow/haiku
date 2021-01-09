@@ -34,6 +34,24 @@
       "revId": "8a970fae4e57882cf4e11d027ceb6fdbee6f50f2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14b00cee_fedbae6e",
+        "filename": "src/apps/processcontroller/PCWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-09T19:29:23Z",
+      "side": 1,
+      "message": "So it should be rect.Width() + 21, rect.Width() + 21, 15 + 21, 15 + 21) to have the same margin on all side (of 10 or 11 pixels)?\n\nWhen using Width() * 2 you would get wider margin on the side when adding more CPUs, right?",
+      "parentUuid": "f164e08d_b423412b",
+      "revId": "8a970fae4e57882cf4e11d027ceb6fdbee6f50f2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
