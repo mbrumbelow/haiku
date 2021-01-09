@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ccb177f_fe33606d",
+        "filename": "src/system/kernel/condition_variable.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2021-01-09T15:48:51Z",
+      "side": 1,
+      "message": "I don\u0027t understand what you thought here. Between the first and second if-clause, fVariable may become NULL? Why can\u0027t it become NULL between the second if and dereferencing fVariable for the SpinLocker constructor?",
+      "revId": "9dc67a1d961a2a9d7dea3df8969071f27350a0ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
