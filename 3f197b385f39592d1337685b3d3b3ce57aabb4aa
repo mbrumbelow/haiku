@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9bd2027d_61101eb3",
+        "filename": "src/system/kernel/thread.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2974,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-01-09T16:45:51Z",
+      "side": 1,
+      "message": "One tab missing.",
+      "revId": "3f197b385f39592d1337685b3d3b3ce57aabb4aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3231e03a_8d18c952",
+        "filename": "src/system/kernel/thread.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2979,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-01-09T16:45:51Z",
+      "side": 1,
+      "message": "Here as well, and at the other locations.",
+      "revId": "3f197b385f39592d1337685b3d3b3ce57aabb4aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
