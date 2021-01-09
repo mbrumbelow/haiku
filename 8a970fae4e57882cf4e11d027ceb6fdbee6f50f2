@@ -16,6 +16,24 @@
       "revId": "8a970fae4e57882cf4e11d027ceb6fdbee6f50f2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f164e08d_b423412b",
+        "filename": "src/apps/processcontroller/PCWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-01-09T19:26:56Z",
+      "side": 1,
+      "message": "This window is a vessel for the replicant.  The * 2 makes the full BView fit within the window, the 36 is the minimum window height to show the whole bview (15px high)",
+      "parentUuid": "8dd610b0_a377ff39",
+      "revId": "8a970fae4e57882cf4e11d027ceb6fdbee6f50f2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
