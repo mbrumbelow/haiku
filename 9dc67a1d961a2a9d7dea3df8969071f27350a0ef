@@ -16,6 +16,24 @@
       "revId": "9dc67a1d961a2a9d7dea3df8969071f27350a0ef",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5005c72c_7c88c0ef",
+        "filename": "src/system/kernel/condition_variable.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-01-09T18:10:30Z",
+      "side": 1,
+      "message": "Yes, it appears I copy-pasted some code wrong here. The second check is indeed unnecessary, as fVariable will not be modified while the entry lock is held. At any rate, I refactored this code again since, and the problem is no longer present in current master.",
+      "parentUuid": "3ccb177f_fe33606d",
+      "revId": "9dc67a1d961a2a9d7dea3df8969071f27350a0ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
