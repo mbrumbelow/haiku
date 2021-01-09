@@ -29,7 +29,14 @@ PCWindow::PCWindow()
 	preferences.SaveInt32(kCurrentVersion, kVersionName);
 	preferences.LoadWindowPosition(this, kPosPrefName);
 
-	SetSizeLimits(Bounds().Width(), Bounds().Width(), 31, 32767);
+	system_info info;
+	get_system_info(&info);
+
+	int width = 15;
+	// If we have over 12 cpus, we can't render within 15px width
+	if (info.cpu_count > 12)
+		width = (info.cpu_count * 2) + 8;
+
 	BRect rect = Bounds();
 
 	BView* topView = new BView(rect, NULL, B_FOLLOW_ALL, B_WILL_DRAW);
@@ -38,8 +45,11 @@ PCWindow::PCWindow()
 
 	// set up a rectangle && instantiate a new view
 	// view rect should be same size as window rect but with left top at (0, 0)
-	rect.Set(0, 0, 15, 15);
+	rect.Set(0, 0, width, 15);
 	rect.OffsetTo((Bounds().Width() - 16) / 2, (Bounds().Height() - 16) / 2);
+
+	SetSizeLimits(rect.Width() * 2, rect.Width() * 2, 36, 36);
+
 	topView->AddChild(new ProcessController(rect));
 
 	// make window visible

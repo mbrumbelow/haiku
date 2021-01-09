@@ -135,7 +135,18 @@ extern "C" _EXPORT BView*
 instantiate_deskbar_item(float maxWidth, float maxHeight)
 {
 	gInDeskbar = true;
-	return new ProcessController(maxHeight - 1, maxHeight - 1);
+
+	system_info info;
+	get_system_info(&info);
+	int width = 15;
+	if (info.cpu_count > 12)
+		width = (info.cpu_count * 2) + 8;
+
+	// Damn, you got a lot of CPU
+	if (width > maxWidth)
+		width = maxWidth;
+
+	return new ProcessController(width - 1, maxHeight - 1);
 }
 
 
