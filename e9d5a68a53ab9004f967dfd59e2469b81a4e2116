@@ -16,6 +16,24 @@
       "revId": "e9d5a68a53ab9004f967dfd59e2469b81a4e2116",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "893af0bd_ce66cd09",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_bus.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-10T17:24:10Z",
+      "side": 1,
+      "message": "The first thing the thread does is waiting on the semaphore.\n\nOn the controller side, either a card is already inserted at init, in which case the semaphore is released immediately and the thread can continue. Or, there is no card inserted yet, in that case the controller will release the semaphore when the \"card inserted\" interrupt happens.\n\nI don\u0027t see space for a race condition here, the controller will only release the semaphore and the worker thread will only acquire it.\n\nSetting the semaphore before starting the thread would maybe be a bit more optimal and avoid some context switches, however (since the worker thread is started, immediately locks, and is released again by this call).",
+      "parentUuid": "ea0564a1_ab68bdbf",
+      "revId": "e9d5a68a53ab9004f967dfd59e2469b81a4e2116",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
