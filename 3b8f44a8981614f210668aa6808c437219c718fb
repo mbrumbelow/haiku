@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "62f11eef_98aad21f",
+        "filename": "src/kits/network/libnetapi/HttpRequest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-10T18:04:38Z",
+      "side": 1,
+      "message": "I think the check needs to be a bit more complex.\n\nFor GET requests, this is correct, but there are other type of requests. For example I think HEAD requests will return the headers (so bytesTotal will be set) but transfer no data (so bytesReceived will be 0)\n\nI think this check should be disabled for HEAD requests",
+      "revId": "3b8f44a8981614f210668aa6808c437219c718fb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
