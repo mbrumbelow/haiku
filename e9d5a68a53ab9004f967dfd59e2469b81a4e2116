@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ea0564a1_ab68bdbf",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_bus.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2021-01-10T16:37:58Z",
+      "side": 1,
+      "message": "Not sure how fWorkerThread relates to fScanSemaphore. Does the controller need to know about the semaphore before the worker thread runs? If so, it should be set before resuming the thread. Otherwise there is a race condition where the worker thread could be doing something already until the controller knows the semaphore. Please ignore this comment if these things are unrelated.",
+      "revId": "e9d5a68a53ab9004f967dfd59e2469b81a4e2116",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
