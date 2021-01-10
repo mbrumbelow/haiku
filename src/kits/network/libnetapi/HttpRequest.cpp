@@ -611,8 +611,15 @@ BHttpRequest::_MakeRequest()
 			if (bytesRead < 0) {
 				readError = bytesRead;
 				break;
-			} else if (bytesRead == 0)
+			} else if (bytesRead == 0) {
+				if (bytesTotal > 0 && bytesReceived < bytesTotal) {
+					readError = B_IO_ERROR;
+					break;
+				}
+				// For the case where the content-length is not known,
+				// don't treat it as error.
 				receiveEnd = true;
+			}
 
 			fInputBuffer.AppendData(chunk, bytesRead);
 		} else
