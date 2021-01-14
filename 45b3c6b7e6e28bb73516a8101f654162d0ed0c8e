@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b2c8d395_e0770540",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-14T22:35:44Z",
+      "side": 1,
+      "message": "I don\u0027t understand what you mean. The bus width is defined by just these two bits, the second one for 8bit mode has been introduced in a later version of the standard and put in a formerly reserved bit not contiguous with the one used to switch between 1 and 4bit mode.\n\nI agree that it is not great, but I cannot change the hardware to have these two bits next to each other.",
+      "parentUuid": "4bef49be_862ceb7f",
+      "revId": "45b3c6b7e6e28bb73516a8101f654162d0ed0c8e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8e380bee_1acdd1dd",
         "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.h",
         "patchSetId": 1
