@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "5fd47249_911175e5",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-01-15T01:17:45Z",
+      "side": 1,
+      "message": "What is wrong with that? It don\u0027t seems speed-critical code. One of potential use cases of https://review.haiku-os.org/c/haiku/+/3484.",
+      "revId": "45b3c6b7e6e28bb73516a8101f654162d0ed0c8e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4bef49be_862ceb7f",
         "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.h",
         "patchSetId": 1
