@@ -16,6 +16,24 @@
       "revId": "26cf85b64d6146e79a882efbd4a4548c3ba531b6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6f21534_b5b97923",
+        "filename": "src/system/libroot/posix/arch/riscv64/fenv.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-01-15T15:31:37Z",
+      "side": 1,
+      "message": "the implementation is in the arch fenv.h header\nhttps://git.haiku-os.org/haiku/tree/headers/posix/arch/riscv64/fenv.h\n\nThis is pretty much filling fenv out with the FreeBSD code.\nhttps://github.com/freebsd/freebsd-src/blob/master/lib/msun/riscv/fenv.c\n\nMatching our other architectures:\nhttps://git.haiku-os.org/haiku/tree/src/system/libroot/posix/arch/arm64/fenv.c",
+      "parentUuid": "837fc577_64f9ae0a",
+      "revId": "26cf85b64d6146e79a882efbd4a4548c3ba531b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
