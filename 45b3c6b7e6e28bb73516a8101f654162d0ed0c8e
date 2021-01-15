@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a0262930_f639254f",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-15T07:22:31Z",
+      "side": 1,
+      "message": "This specific one isn\u0027t speed critical but I have the same FIXME in the function used for read and write operations.\n\nI don\u0027t know how expensive the device manager calls are, however. I wanted to run bonnie++ to do some performance tests to evaluate the changes, but currently it runs for several hours (vs a few seconds on sata ssd) which makes it difficult to benchmark things.",
+      "parentUuid": "5fd47249_911175e5",
+      "revId": "45b3c6b7e6e28bb73516a8101f654162d0ed0c8e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ef18efa4_8bee5566",
         "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
         "patchSetId": 1
