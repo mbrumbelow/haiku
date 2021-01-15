@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "73f14f33_c4a91c57",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-01-15T07:26:43Z",
+      "side": 1,
+      "message": "Then B_PRIu64 can be used. Also this patch change format from unsigned to signed.",
+      "parentUuid": "ec8ea01c_782a73e7",
+      "revId": "45b3c6b7e6e28bb73516a8101f654162d0ed0c8e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4bef49be_862ceb7f",
         "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.h",
         "patchSetId": 1
