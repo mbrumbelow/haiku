@@ -125,6 +125,24 @@
     },
     {
       "key": {
+        "uuid": "be84bfb6_52cbface",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-01-15T07:38:58Z",
+      "side": 1,
+      "message": "I mean: kDataTransfer4Bit | kDataTransfer8Bit",
+      "parentUuid": "b2c8d395_e0770540",
+      "revId": "45b3c6b7e6e28bb73516a8101f654162d0ed0c8e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8e380bee_1acdd1dd",
         "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.h",
         "patchSetId": 1
