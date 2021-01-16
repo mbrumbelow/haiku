@@ -173,7 +173,7 @@ MMCBus::_WorkerThread(void* cookie)
 	// command. With the default 400kHz clock that would be 20 microseconds,
 	// but we need to wait at least 20ms here, otherwise the next command times
 	// out
-	snooze(20000);
+	snooze(30000);
 
 	while (bus->fStatus != B_SHUTTING_DOWN) {
 		TRACE("Scanning the bus\n");

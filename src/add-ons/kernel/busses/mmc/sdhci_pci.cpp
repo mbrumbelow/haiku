@@ -575,7 +575,21 @@ SdhciBus::HandleInterrupt()
 
 	TRACE("interrupt function called %x\n", intmask);
 
-	// handling card presence interrupt
+	// handling card presence interrupts
+	// Note: when inserting a card, it's possible (due to insufficient
+	// debouncing on the hardware side) that both the "card removed" and
+	// "card inserted" interrupts trigger at the same time. We process the
+	// "card removed" first here, which should be enough to avoid problems with
+	// that. If it doesn't work well enough, we should add a software check of
+	// the actual card status in these interrupts to check that the interrupt
+	// is still up to date.
+	if ((intmask & SDHCI_INT_CARD_REM) != 0) {
+		fRegisters->power_control.PowerOff();
+
+		fRegisters->interrupt_status |= SDHCI_INT_CARD_REM;
+		TRACE("Card removal interrupt handled\n");
+	}
+
 	if ((intmask & SDHCI_INT_CARD_INS) != 0) {
 		PowerOn();
 
@@ -583,12 +597,6 @@ SdhciBus::HandleInterrupt()
 
 		fRegisters->interrupt_status |= SDHCI_INT_CARD_INS;
 		TRACE("Card presence interrupt handled\n");
-	}
-
-	if ((intmask & SDHCI_INT_CARD_REM) != 0) {
-		fRegisters->power_control.PowerOff();
-		fRegisters->interrupt_status |= SDHCI_INT_CARD_REM;
-		TRACE("Card removal interrupt handled\n");
 	}
 
 	// handling command interrupt
