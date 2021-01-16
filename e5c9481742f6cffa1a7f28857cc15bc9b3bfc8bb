@@ -2,6 +2,91 @@
   "comments": [
     {
       "key": {
+        "uuid": "8a254cbc_e4b77eb5",
+        "filename": "headers/os/kernel/OS.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-01-16T17:35:29Z",
+      "side": 1,
+      "message": "Bad naming (if I understand its meaning, that is), and it\u0027s usually called syscall.",
+      "revId": "e5c9481742f6cffa1a7f28857cc15bc9b3bfc8bb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "226dced5_55eb67e7",
+        "filename": "headers/private/kernel/thread_types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-01-16T17:35:29Z",
+      "side": 1,
+      "message": "Why not unsigned? If you need to use setter/getter methods, there is no need to use volatile.",
+      "revId": "e5c9481742f6cffa1a7f28857cc15bc9b3bfc8bb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50b21bb0_b6b6e1e0",
+        "filename": "headers/private/kernel/thread_types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-01-16T17:35:29Z",
+      "side": 1,
+      "message": "Not a fan of putting getters and setters there. Besides, the English is not correct; it should be something like get_bytes_written().",
+      "revId": "e5c9481742f6cffa1a7f28857cc15bc9b3bfc8bb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ae43c7e_b37ff58a",
+        "filename": "headers/private/kernel/thread_types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-01-16T17:35:29Z",
+      "side": 1,
+      "message": "No need for an abbreviation. And I\u0027d prefer the name \"statistics\" or even \"stats\" over accounting.",
+      "revId": "e5c9481742f6cffa1a7f28857cc15bc9b3bfc8bb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "596eeb2f_5c03614e",
+        "filename": "src/system/kernel/fs/fd.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 773,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-01-16T17:35:29Z",
+      "side": 1,
+      "message": "Asterisk style doesn\u0027t match the rest of the file.",
+      "revId": "e5c9481742f6cffa1a7f28857cc15bc9b3bfc8bb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c07636c4_c0fb17da",
         "filename": "src/system/kernel/team.cpp",
         "patchSetId": 1
@@ -13,6 +98,23 @@
       "writtenOn": "2021-01-16T08:04:44Z",
       "side": 1,
       "message": "This fields should be written only if size is big enough. Current implementation breaks BeOS compatibility and _get_team_info will return B_BAD_VALUE.",
+      "revId": "e5c9481742f6cffa1a7f28857cc15bc9b3bfc8bb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f4fbd71_8e5b8073",
+        "filename": "src/system/kernel/team.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2693,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-01-16T17:35:29Z",
+      "side": 1,
+      "message": "That, and space before \u0027\u003d\u0027, not tab.",
       "revId": "e5c9481742f6cffa1a7f28857cc15bc9b3bfc8bb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
