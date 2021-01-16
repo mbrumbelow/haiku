@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "986d22d1_94f2b87c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-16T13:28:03Z",
+      "side": 1,
+      "message": "What we do usually is that the constructor does the initialization and store the error code in a field variable (fInitStatus or similar).\n\nThen there is an InitCheck() method that just returns that status.\n\nThis makes sure the class is always initialized in a sane way when constructed.",
+      "parentUuid": "121ffa28_e24f8b29",
+      "revId": "e3d49bc97073cb3c0faa6d82c0a62ae6a61c6518",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8846d95c_7731fd14",
         "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.h",
         "patchSetId": 12
