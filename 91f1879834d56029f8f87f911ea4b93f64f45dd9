@@ -156,6 +156,24 @@
     },
     {
       "key": {
+        "uuid": "f35559c7_fe9e5b9d",
+        "filename": "src/system/kernel/device_manager/IOCache.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-01-16T18:31:57Z",
+      "side": 1,
+      "message": "Yes, but this is kernel internal API, there is no point in doing so, especially when there haven\u0027t been any size changes yet that it would have to support. And even then, it should not bother, but always fill the complete structure, while the syscall implementation makes sure that the size of the userland buffer is respected.\n\nIt\u0027s a different story for the external API, of course.",
+      "parentUuid": "79782da7_1b75976b",
+      "revId": "91f1879834d56029f8f87f911ea4b93f64f45dd9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b35ec504_580ad92e",
         "filename": "src/system/kernel/device_manager/IOCache.h",
         "patchSetId": 3
