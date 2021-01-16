@@ -107,6 +107,7 @@ enum {
 	B_GET_VECTOR_ICON,				/* retrieves the device's vector icon */
 	B_GET_DEVICE_NAME,				/* get name, string buffer */
 	B_TRIM_DEVICE,					/* trims blocks, see fs_trim_data */
+	B_GET_IO_STATS,
 
 	B_GET_NEXT_OPEN_DEVICE = 1000,	/* obsolete, will be removed */
 	B_ADD_FIXED_DRIVER,				/* obsolete, will be removed */
@@ -131,6 +132,10 @@ typedef struct {
 	bool	read_only;				/* non-zero if read only */
 	bool	write_once;				/* non-zero if write-once */
 } device_geometry;
+
+typedef struct {
+	uint64 readBytes, writeBytes;
+} device_io_stats;
 
 enum {
 	B_DISK = 0,						/* Hard disks, floppy disks, etc. */
