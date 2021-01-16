@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1da5de33_2b09d763",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2021-01-16T17:07:37Z",
+      "side": 1,
+      "message": "why not \"else\"? And parenthesis are missing, since the if-body is multi-line.",
+      "revId": "134fcc056954e9ec32c86bf96b29a7ca93029822",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d201005_ab93b28d",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2021-01-16T17:07:37Z",
+      "side": 1,
+      "message": "If this method is called more than once, it would leak \"fExtents\", no?",
+      "revId": "134fcc056954e9ec32c86bf96b29a7ca93029822",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4e9c35d_ec8bdef2",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2021-01-16T17:07:37Z",
+      "side": 1,
+      "message": "\"leftmost\"",
+      "revId": "134fcc056954e9ec32c86bf96b29a7ca93029822",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2b07da9_ff421b9c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2021-01-16T17:07:37Z",
+      "side": 1,
+      "message": "These two assignments are done 3 times after line 308. Isn\u0027t there a way to formulate the code in such a way that it is done only once? At least 308 and 309 can simply be removed without any change in semantics.",
+      "revId": "134fcc056954e9ec32c86bf96b29a7ca93029822",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e61af7fb_89b14a23",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2021-01-16T17:07:37Z",
+      "side": 1,
+      "message": "Not sure if using the stack for something which is at least in theory \"variable\", is a good idea.",
+      "revId": "134fcc056954e9ec32c86bf96b29a7ca93029822",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aeaf702a_faf6c4e3",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2021-01-16T17:07:37Z",
+      "side": 1,
+      "message": "This method seems to have parts which could be split up into separate methods. It seems too long to me.",
+      "revId": "134fcc056954e9ec32c86bf96b29a7ca93029822",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c8bd583_554df552",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2021-01-16T17:07:37Z",
+      "side": 1,
+      "message": "Why is the allocation check removed?",
+      "revId": "134fcc056954e9ec32c86bf96b29a7ca93029822",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
