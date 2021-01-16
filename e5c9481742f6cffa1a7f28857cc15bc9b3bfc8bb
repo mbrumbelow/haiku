@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c07636c4_c0fb17da",
+        "filename": "src/system/kernel/team.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2693,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-01-16T08:04:44Z",
+      "side": 1,
+      "message": "This fields should be written only if size is big enough. Current implementation breaks BeOS compatibility and _get_team_info will return B_BAD_VALUE.",
+      "revId": "e5c9481742f6cffa1a7f28857cc15bc9b3bfc8bb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
