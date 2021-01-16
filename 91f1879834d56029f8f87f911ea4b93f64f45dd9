@@ -174,6 +174,24 @@
     },
     {
       "key": {
+        "uuid": "70652277_815974a3",
+        "filename": "src/system/kernel/device_manager/IOCache.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-01-16T18:36:56Z",
+      "side": 1,
+      "message": "Not really internal, IOSchedulerSimple/IOCache are imported by driver modules. This change breaks IOScheduler ABI and old scsi_disk driver binary will not work.",
+      "parentUuid": "f35559c7_fe9e5b9d",
+      "revId": "91f1879834d56029f8f87f911ea4b93f64f45dd9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b35ec504_580ad92e",
         "filename": "src/system/kernel/device_manager/IOCache.h",
         "patchSetId": 3
