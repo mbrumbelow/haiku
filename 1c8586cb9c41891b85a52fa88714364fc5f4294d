@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7abd9950_0bb78708",
+        "filename": "build/scripts/build_cross_tools_gcc4",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-16T14:43:31Z",
+      "side": 1,
+      "message": "Is there OS-specific things to implement for TLS on Risc-V? For example on SPARC there simply is a register reserved for TLS usage and the compiler handles it all (we just need to initialize that register when creating a thread).\n\nI think on ARM and PPC there is no such thing in the standard ABI so the OS needs to be a bit more involved?",
+      "revId": "1c8586cb9c41891b85a52fa88714364fc5f4294d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
