@@ -18,6 +18,7 @@
 
 #include <kernel.h>
 #include <fs/devfs.h>
+#include <util/AutoLock.h>
 
 #include "scsi_sense.h"
 #include "usb_disk_scsi.h"
@@ -1402,6 +1403,9 @@ usb_disk_device_added(usb_device newDevice, void **cookie)
 		memset(lun->product_name, 0, sizeof(lun->product_name));
 		memset(lun->product_revision, 0, sizeof(lun->product_revision));
 
+		lun->read_bytes = 0;
+		lun->write_bytes = 0;
+
 		usb_disk_reset_capacity(lun);
 
 		// initialize this lun
@@ -1774,25 +1778,21 @@ usb_disk_ioctl(void *cookie, uint32 op, void *buffer, size_t length)
 {
 	device_lun *lun = (device_lun *)cookie;
 	disk_device *device = lun->device;
-	mutex_lock(&device->lock);
-	if (device->removed) {
-		mutex_unlock(&device->lock);
+	MutexLocker locker(&device->lock);
+	if (device->removed)
 		return B_DEV_NOT_READY;
-	}
 
-	status_t result = B_DEV_INVALID_IOCTL;
+	status_t result;
 	switch (op) {
 		case B_GET_DEVICE_SIZE: {
 			if (lun->media_changed) {
 				result = usb_disk_update_capacity(lun);
 				if (result != B_OK)
-					break;
+					return result;
 			}
 
 			size_t size = lun->block_size * lun->block_count;
-			result = user_memcpy(buffer, &size, sizeof(size));
-
-			break;
+			return user_memcpy(buffer, &size, sizeof(size));
 		}
 
 		case B_GET_MEDIA_STATUS:
@@ -1810,8 +1810,7 @@ usb_disk_ioctl(void *cookie, uint32 op, void *buffer, size_t length)
 			}
 			TRACE("B_GET_MEDIA_STATUS: 0x%08" B_PRIx32 "\n",
 				*(status_t *)buffer);
-			result = B_OK;
-			break;
+			return B_OK;
 		}
 
 		case B_GET_GEOMETRY:
@@ -1819,7 +1818,7 @@ usb_disk_ioctl(void *cookie, uint32 op, void *buffer, size_t length)
 			if (lun->media_changed) {
 				result = usb_disk_update_capacity(lun);
 				if (result != B_OK)
-					break;
+					return result;
 			}
 
 			device_geometry geometry;
@@ -1833,14 +1832,12 @@ usb_disk_ioctl(void *cookie, uint32 op, void *buffer, size_t length)
 			TRACE("B_GET_GEOMETRY: %" B_PRId32 " sectors at %" B_PRId32
 				" bytes per sector\n", geometry.cylinder_count,
 				geometry.bytes_per_sector);
-			result = user_memcpy(buffer, &geometry, sizeof(device_geometry));
-			break;
+			return user_memcpy(buffer, &geometry, sizeof(device_geometry));
 		}
 
 		case B_FLUSH_DRIVE_CACHE:
 			TRACE("B_FLUSH_DRIVE_CACHE\n");
-			result = usb_disk_synchronize(lun, true);
-			break;
+			return usb_disk_synchronize(lun, true);
 
 		case B_EJECT_DEVICE:
 		{
@@ -1851,9 +1848,8 @@ usb_disk_ioctl(void *cookie, uint32 op, void *buffer, size_t length)
 			commandBlock[1] = lun->logical_unit_number << 5;
 			commandBlock[4] = 2;
 
-			result = usb_disk_operation(lun, commandBlock, 6, NULL, NULL,
+			return usb_disk_operation(lun, commandBlock, 6, NULL, NULL,
 				false);
-			break;
 		}
 
 		case B_LOAD_MEDIA:
@@ -1865,9 +1861,8 @@ usb_disk_ioctl(void *cookie, uint32 op, void *buffer, size_t length)
 			commandBlock[1] = lun->logical_unit_number << 5;
 			commandBlock[4] = 3;
 
-			result = usb_disk_operation(lun, commandBlock, 6, NULL, NULL,
+			return usb_disk_operation(lun, commandBlock, 6, NULL, NULL,
 				false);
-			break;
 		}
 
 		case B_GET_ICON:
@@ -1907,9 +1902,8 @@ usb_disk_ioctl(void *cookie, uint32 op, void *buffer, size_t length)
 					}
 					break;
 			}
-			result = user_strlcpy((char *)buffer, iconName,
+			return user_strlcpy((char *)buffer, iconName,
 				B_FILE_NAME_LENGTH);
-			break;
 		}
 
 		case B_GET_VECTOR_ICON:
@@ -1918,10 +1912,8 @@ usb_disk_ioctl(void *cookie, uint32 op, void *buffer, size_t length)
 			char vendor[sizeof(lun->vendor_name)+1];
 			char product[sizeof(lun->product_name)+1];
 
-			if (length != sizeof(device_icon)) {
-				result = B_BAD_VALUE;
-				break;
-			}
+			if (length != sizeof(device_icon))
+				return B_BAD_VALUE;
 
 			if (device->is_ufi) {
 				// UFI is specific for floppy drives
@@ -1954,22 +1946,17 @@ usb_disk_ioctl(void *cookie, uint32 op, void *buffer, size_t length)
 			}
 
 			device_icon iconData;
-			if (user_memcpy(&iconData, buffer, sizeof(device_icon)) != B_OK) {
-				result = B_BAD_ADDRESS;
-				break;
-			}
+			if (user_memcpy(&iconData, buffer, sizeof(device_icon)) != B_OK)
+				return B_BAD_ADDRESS;
 
 			if (iconData.icon_size >= icon->icon_size) {
 				if (user_memcpy(iconData.icon_data, icon->icon_data,
-						(size_t)icon->icon_size) != B_OK) {
-					result = B_BAD_ADDRESS;
-					break;
-				}
+						(size_t)icon->icon_size) != B_OK)
+					return B_BAD_ADDRESS;
 			}
 
 			iconData.icon_size = icon->icon_size;
-			result = user_memcpy(buffer, &iconData, sizeof(device_icon));
-			break;
+			return user_memcpy(buffer, &iconData, sizeof(device_icon));
 		}
 
 		case B_GET_DEVICE_NAME:
@@ -1989,16 +1976,24 @@ usb_disk_ioctl(void *cookie, uint32 op, void *buffer, size_t length)
 
 			TRACE_ALWAYS("got device name \"%s\": %s\n", name,
 				strerror(result));
-			break;
+			return result;
 		}
 
-		default:
-			TRACE_ALWAYS("unhandled ioctl %" B_PRId32 "\n", op);
-			break;
+		case B_GET_IO_STATS:
+		{
+			if (length > sizeof(device_io_stats))
+				return B_BAD_VALUE;
+
+			device_io_stats stats;
+			stats.read_bytes = lun->read_bytes;
+			stats.write_bytes = lun->write_bytes;
+
+			return user_memcpy(buffer, &stats, length);
+		}
 	}
 
-	mutex_unlock(&device->lock);
-	return result;
+	TRACE_ALWAYS("unhandled ioctl %" B_PRId32 "\n", op);
+	return B_DEV_INVALID_IOCTL;
 }
 
 
@@ -2042,6 +2037,7 @@ usb_disk_read(void *cookie, off_t position, void *buffer, size_t *length)
 
 	mutex_unlock(&device->lock);
 	if (result == B_OK) {
+		lun->read_bytes += *length;
 		TRACE("read successful with %ld bytes\n", *length);
 		return B_OK;
 	}
@@ -2098,6 +2094,7 @@ usb_disk_write(void *cookie, off_t position, const void *buffer,
 
 	mutex_unlock(&device->lock);
 	if (result == B_OK) {
+		lun->write_bytes += *length;
 		TRACE("write successful with %ld bytes\n", *length);
 		return B_OK;
 	}
