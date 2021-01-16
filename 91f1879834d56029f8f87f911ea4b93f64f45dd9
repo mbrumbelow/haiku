@@ -16,6 +16,193 @@
       "revId": "91f1879834d56029f8f87f911ea4b93f64f45dd9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5dd35e63_10d7c3b5",
+        "filename": "headers/os/drivers/Drivers.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-01-16T17:24:19Z",
+      "side": 1,
+      "message": "Do we have camel case in other public kernel structure as well?",
+      "revId": "91f1879834d56029f8f87f911ea4b93f64f45dd9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6748a6f_51734fc8",
+        "filename": "src/add-ons/kernel/drivers/disk/scsi/scsi_disk/scsi_disk.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-01-16T17:24:19Z",
+      "side": 1,
+      "message": "\u0027{\u0027 goes to the next line here.",
+      "revId": "91f1879834d56029f8f87f911ea4b93f64f45dd9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15082935_2f3ac6f7",
+        "filename": "src/add-ons/kernel/drivers/disk/scsi/scsi_disk/scsi_disk.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-01-16T17:24:19Z",
+      "side": 1,
+      "message": "Why have those at the beginning; this is a C++ file, and the declaration should be as close to the usage as possible (as usual).",
+      "revId": "91f1879834d56029f8f87f911ea4b93f64f45dd9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b5c7ce8_e8e47137",
+        "filename": "src/add-ons/kernel/drivers/disk/scsi/scsi_disk/scsi_disk.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-01-16T17:24:19Z",
+      "side": 1,
+      "message": "Incorrect indentation.",
+      "revId": "91f1879834d56029f8f87f911ea4b93f64f45dd9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63333c40_7d1dd554",
+        "filename": "src/add-ons/kernel/drivers/disk/scsi/scsi_disk/scsi_disk.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-01-16T17:24:19Z",
+      "side": 1,
+      "message": "Missing newline after \u0027if\u0027.",
+      "revId": "91f1879834d56029f8f87f911ea4b93f64f45dd9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8bf5b78b_a6e02b99",
+        "filename": "src/system/kernel/device_manager/IOCache.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-01-16T17:24:19Z",
+      "side": 1,
+      "message": "Asterisk style does not match the rest of the file.",
+      "revId": "91f1879834d56029f8f87f911ea4b93f64f45dd9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "481faa26_5a1a6dcc",
+        "filename": "src/system/kernel/device_manager/IOCache.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-01-16T17:24:19Z",
+      "side": 1,
+      "message": "What\u0027s the point in passing the length here?",
+      "revId": "91f1879834d56029f8f87f911ea4b93f64f45dd9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b35ec504_580ad92e",
+        "filename": "src/system/kernel/device_manager/IOCache.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-01-16T17:24:19Z",
+      "side": 1,
+      "message": "Asterisk style doesn\u0027t match the rest of the file.",
+      "revId": "91f1879834d56029f8f87f911ea4b93f64f45dd9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1ba3628_0c84e020",
+        "filename": "src/system/kernel/device_manager/IOScheduler.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-01-16T17:24:19Z",
+      "side": 1,
+      "message": "\u0027*\u0027 goes to the type, as in the other places in this file.",
+      "revId": "91f1879834d56029f8f87f911ea4b93f64f45dd9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80e870f6_61c26375",
+        "filename": "src/system/kernel/device_manager/IOSchedulerSimple.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-01-16T17:24:19Z",
+      "side": 1,
+      "message": "Can\u0027t be both, can it? So you could save one check here, and use \u0027else\u0027.",
+      "revId": "91f1879834d56029f8f87f911ea4b93f64f45dd9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6de718a5_b133e3e9",
+        "filename": "src/system/kernel/device_manager/IOSchedulerSimple.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-01-16T17:24:19Z",
+      "side": 1,
+      "message": "Asterisk style doesn\u0027t match the rest of the file.",
+      "revId": "91f1879834d56029f8f87f911ea4b93f64f45dd9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
