@@ -108,6 +108,24 @@
     },
     {
       "key": {
+        "uuid": "2a268dc3_3b9c77a4",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-17T21:09:44Z",
+      "side": 1,
+      "message": "The idea of BStackOrHeap array is that it behaves like a stack allocation and automatically frees the memory when it goes out of scope (for example when the function returns). It also switches automatically between stack allocation (when only a small amount of data is needed) to heap allocation (when the data is large).",
+      "parentUuid": "432b9ab1_58a6bb86",
+      "revId": "5b814c67ee6547e388b31f48c72f9d6d49f28a49",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2a490507_ff2889a2",
         "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
         "patchSetId": 5
