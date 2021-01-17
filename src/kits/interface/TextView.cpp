@@ -2164,30 +2164,42 @@ BTextView::ScrollToOffset(int32 offset)
 {
 	BRect bounds = Bounds();
 	float lineHeight = 0.0;
-	float xDiff = 0.0;
-	float yDiff = 0.0;
 	BPoint point = PointAt(offset, &lineHeight);
+	BPoint scrollBy(B_ORIGIN);
 
 	// horizontal
-	float extraSpace = ceilf(bounds.IntegerWidth() / 2);
 	if (point.x < bounds.left)
-		xDiff = point.x - bounds.right + extraSpace;
+		scrollBy.x = point.x - bounds.right;
 	else if (point.x > bounds.right)
-		xDiff = point.x - bounds.left - extraSpace;
+		scrollBy.x = point.x - bounds.left;
 
-	// vertical
-	if (point.y < bounds.top)
-		yDiff = point.y - bounds.top;
-	else if (point.y + lineHeight > bounds.bottom
-		&& point.y - lineHeight > bounds.top) {
-		yDiff = point.y + lineHeight - bounds.bottom;
+	// prevent from scrolling out of view
+	if (scrollBy.x != 0.0) {
+		float rightMax = fTextRect.right + fLayoutData->rightInset;
+		if (bounds.right + scrollBy.x > rightMax)
+			scrollBy.x = rightMax - bounds.right;
+		float leftMin = fTextRect.left - fLayoutData->leftInset;
+		if (bounds.left + scrollBy.x < leftMin)
+			scrollBy.x = leftMin - bounds.left;
 	}
 
-	// prevent negative scroll offset in y
-	if (bounds.top + yDiff < 0.0)
-		yDiff = -bounds.top;
+	if (CountLines() > 1) {
+		// scroll in Y only if multiple lines!
 
-	ScrollBy(xDiff, yDiff);
+		// vertical
+		if (point.y < bounds.top)
+			scrollBy.y = point.y - bounds.top;
+		else if (point.y + lineHeight > bounds.bottom
+			&& point.y - lineHeight > bounds.top) {
+			scrollBy.y = point.y + lineHeight - bounds.bottom;
+		}
+
+		// prevent negative scroll offset in y
+		if (bounds.top + scrollBy.y < 0.0)
+			scrollBy.y = -bounds.top;
+	}
+
+	ScrollBy(scrollBy.x, scrollBy.y);
 }
 
 
@@ -4937,11 +4949,12 @@ BTextView::_PerformAutoScrolling()
 
 	// prevent from scrolling out of view
 	if (scrollBy.x != 0.0) {
-		float rightMax = floorf(fTextRect.right + fLayoutData->rightInset);
+		float rightMax = fTextRect.right + fLayoutData->rightInset;
 		if (bounds.right + scrollBy.x > rightMax)
 			scrollBy.x = rightMax - bounds.right;
-		if (bounds.left + scrollBy.x < 0)
-			scrollBy.x = -bounds.left;
+		float leftMin = fTextRect.left - fLayoutData->leftInset;
+		if (bounds.left + scrollBy.x < leftMin)
+			scrollBy.x = leftMin - bounds.left;
 	}
 
 	if (CountLines() > 1) {
@@ -4957,8 +4970,9 @@ BTextView::_PerformAutoScrolling()
 				+ fLayoutData->bottomInset);
 			if (bounds.bottom + scrollBy.y > bottomMax)
 				scrollBy.y = bottomMax - bounds.bottom;
-			if (bounds.top + scrollBy.y < 0)
-				scrollBy.y = -bounds.top;
+			float topMin = fTextRect.top - fLayoutData->topInset;
+			if (bounds.top + scrollBy.y < topMin)
+				scrollBy.y = topMin - bounds.top;
 		}
 	}
 
