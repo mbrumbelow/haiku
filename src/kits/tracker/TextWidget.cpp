@@ -334,18 +334,12 @@ TextViewFilter(BMessage* message, BHandler**, BMessageFilter* filter)
 		BTextView* textView = dynamic_cast<BTextView*>(
 			scrollView->FindView("WidgetTextView"));
 		if (textView != NULL) {
-			BRect textRect = textView->TextRect();
-			BRect rect = scrollView->Frame();
-
-			if (rect.right + 5 > poseView->Bounds().right
-				|| rect.left - 5 < 0)
-				textView->MakeResizable(true, NULL);
-
-			if (textRect.Width() + 10 < rect.Width()) {
+			// limit max width to 30em
+			float maxWidth = textView->StringWidth("M") * 30;
+			if (textView->TextRect().Width() > maxWidth)
+				textView->MakeResizable(false, NULL);
+			else
 				textView->MakeResizable(true, scrollView);
-				// make sure no empty white space stays on the right
-				textView->ScrollToOffset(0);
-			}
 		}
 	}
 
@@ -368,16 +362,9 @@ BTextWidget::StartEdit(BRect bounds, BPoseView* view, BPose* pose)
 
 	// TODO fix text rect being off by a pixel on some files
 
-	// get bounds with full text length
-	BRect rect(bounds);
-	BRect textRect(bounds);
-
-	// label offset
-	float hOffset = 0;
-	float vOffset = view->ViewMode() == kListMode ? -1 : -2;
-	rect.OffsetBy(hOffset, vOffset);
-
-	BTextView* textView = new BTextView(rect, "WidgetTextView", textRect,
+	bool listMode = view->ViewMode() == kListMode;
+	BRect rect(bounds.OffsetByCopy(listMode ? -1 : 1, -3));
+	BTextView* textView = new BTextView(rect, "WidgetTextView", rect,
 		be_plain_font, 0, B_FOLLOW_ALL, B_WILL_DRAW);
 
 	textView->SetWordWrap(false);
@@ -387,34 +374,18 @@ BTextWidget::StartEdit(BRect bounds, BPoseView* view, BPose* pose)
 
 	textView->AddFilter(new BMessageFilter(B_KEY_DOWN, TextViewFilter));
 
-	rect.right = rect.left + textView->LineWidth();
-	rect.bottom = rect.top + textView->LineHeight() - 1;
+	// get full text length, limit max width to 30em
+	float maxWidth = textView->StringWidth("M") * 30;
+	rect.right = rect.left + std::min(maxWidth, textView->LineWidth());
+	rect.bottom = rect.top + textView->LineHeight() + 3;
 
-	// enlarge rect by inset amount
-	rect.InsetBy(-2, -2);
-
-	// undo label offset
-	textRect = rect.OffsetToCopy(-hOffset, -vOffset);
-
-	textView->SetTextRect(textRect);
-
-	BPoint origin = view->LeftTop();
-	textRect = view->Bounds();
-
-	bool hitBorder = false;
-	if (rect.left <= origin.x)
-		rect.left = origin.x + 1, hitBorder = true;
-	if (rect.right >= textRect.right)
-		rect.right = textRect.right - 1, hitBorder = true;
-
+	// resize textView
 	textView->MoveTo(rect.LeftTop());
 	textView->ResizeTo(rect.Width(), rect.Height());
 
-	BScrollView* scrollView = new BScrollView("BorderView", textView, 0, 0,
-		false, false, B_PLAIN_BORDER);
-	view->AddChild(scrollView);
+	textView->SetTextRect(rect);
 
-	// configure text view
+	// set alignment before adding textView so it doesn't redraw
 	switch (view->ViewMode()) {
 		case kIconMode:
 			textView->SetAlignment(B_ALIGN_CENTER);
@@ -428,7 +399,15 @@ BTextWidget::StartEdit(BRect bounds, BPoseView* view, BPose* pose)
 			textView->SetAlignment(fAlignment);
 			break;
 	}
-	textView->MakeResizable(true, hitBorder ? NULL : scrollView);
+
+	BScrollView* scrollView = new BScrollView("BorderView", textView, 0, 0,
+		false, false, B_PLAIN_BORDER);
+	view->AddChild(scrollView);
+
+	if (textView->TextRect().Width() > maxWidth)
+		textView->MakeResizable(false, NULL);
+	else
+		textView->MakeResizable(true, scrollView);
 
 	view->SetActivePose(pose);
 		// tell view about pose
@@ -438,8 +417,6 @@ BTextWidget::StartEdit(BRect bounds, BPoseView* view, BPose* pose)
 	textView->SelectAll();
 	textView->ScrollToSelection();
 		// scroll to beginning so that text is visible
-	textView->ScrollBy(-1, -2);
-		// scroll in rect to center text
 	textView->MakeFocus();
 
 	// make this text widget invisible while we edit it
