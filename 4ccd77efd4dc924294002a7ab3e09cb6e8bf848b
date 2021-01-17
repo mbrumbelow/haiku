@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eaf1e165_cb35a8bd",
+        "filename": "src/system/kernel/device_manager/devfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1488,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-01-17T20:38:23Z",
+      "side": 1,
+      "message": "You can use IS_KERNEL_ADDRESS() or IS_USER_ADDRESS(), yes. Most drivers already do this.",
+      "revId": "4ccd77efd4dc924294002a7ab3e09cb6e8bf848b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
