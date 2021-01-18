@@ -52,6 +52,24 @@
       "revId": "4ccd77efd4dc924294002a7ab3e09cb6e8bf848b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f07e3af2_9b2efb21",
+        "filename": "src/system/kernel/device_manager/devfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1488,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-18T16:01:19Z",
+      "side": 1,
+      "message": "Is it guaranteed that the ioctl always goes through here even for the \"raw\" partition? If so, we could simply have the \"copy from userspace\" part here in devfs, and have the device driver code assume that the data is always already kernel-side?",
+      "parentUuid": "70dfe532_d9b91e6d",
+      "revId": "4ccd77efd4dc924294002a7ab3e09cb6e8bf848b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
