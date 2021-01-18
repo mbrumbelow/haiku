@@ -34,6 +34,24 @@
       "revId": "4ccd77efd4dc924294002a7ab3e09cb6e8bf848b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70dfe532_d9b91e6d",
+        "filename": "src/system/kernel/device_manager/devfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1488,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-01-18T15:42:41Z",
+      "side": 1,
+      "message": "_user_ioctl() already validates that the passed pointer is not in kernel space, and that is all you can do here. There is is_called_via_syscall(), but that would return true even if another driver was called first and that one called devfs, so that cannot be relied on in situations like this.",
+      "parentUuid": "6c33858b_d9444d2f",
+      "revId": "4ccd77efd4dc924294002a7ab3e09cb6e8bf848b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
