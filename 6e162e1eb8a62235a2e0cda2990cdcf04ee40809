@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c7edad4f_711eca4b",
+        "filename": "src/add-ons/kernel/drivers/disk/virtual/ram_disk/ram_disk.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1478,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-01-19T19:49:05Z",
+      "side": 1,
+      "message": "Why not just put in ASSERT(IS_KERNEL_ADDRESS(...)); and put the comment into B_TRIM_DEVICE documentation (if we have any?)",
+      "revId": "6e162e1eb8a62235a2e0cda2990cdcf04ee40809",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
