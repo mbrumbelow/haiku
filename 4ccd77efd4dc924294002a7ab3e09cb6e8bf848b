@@ -70,6 +70,24 @@
       "revId": "4ccd77efd4dc924294002a7ab3e09cb6e8bf848b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2f787da_64c5d6b8",
+        "filename": "src/system/kernel/device_manager/devfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1488,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-19T19:45:11Z",
+      "side": 1,
+      "message": "I have done that, it seems to be working fine.",
+      "parentUuid": "f07e3af2_9b2efb21",
+      "revId": "4ccd77efd4dc924294002a7ab3e09cb6e8bf848b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }

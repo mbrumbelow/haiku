@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f50cca83_0c5aec49",
+        "filename": "src/system/kernel/device_manager/devfs.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1473,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-19T19:45:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b53c89a_75310776",
+      "revId": "31e477ba0ce64f50f30f9d2a604d48a1ac7fbd86",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df285998_07f05c2a",
         "filename": "src/system/kernel/device_manager/devfs.cpp",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "31e477ba0ce64f50f30f9d2a604d48a1ac7fbd86",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9166303d_4737f3bf",
+        "filename": "src/system/kernel/device_manager/devfs.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1482,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-19T19:45:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df285998_07f05c2a",
+      "revId": "31e477ba0ce64f50f30f9d2a604d48a1ac7fbd86",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
