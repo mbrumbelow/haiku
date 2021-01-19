@@ -16,6 +16,24 @@
       "revId": "fc2d9a1667d6fddb79e3897030c972093b2f0e45",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f483e836_fae5c3fe",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-19T19:45:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4799fb5_4638c297",
+      "revId": "fc2d9a1667d6fddb79e3897030c972093b2f0e45",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
