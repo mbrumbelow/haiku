@@ -810,6 +810,7 @@ BTextView::FrameResized(float newWidth, float newHeight)
 
 	if (fWrap) {
 		// recalculate line breaks
+		// will update scroll bars if text rect changes
 		_ResetTextRect();
 	} else {
 		// don't recalculate line breaks,
@@ -846,15 +847,14 @@ BTextView::FrameResized(float newWidth, float newHeight)
 				break;
 		}
 
-		// only redraw if text rect changes
+		// only redraw and update scroll bars if text rect changes
 		if (fTextRect != oldTextRect) {
 			// Make sure that the dirty area outside the text is redrawn too.
 			BRegion dirty(oldTextRect | fTextRect);
 			Invalidate(&dirty);
+			_UpdateScrollbars();
 		}
 	}
-
-	_UpdateScrollbars();
 }
 
 
@@ -2196,6 +2196,10 @@ BTextView::ScrollToOffset(int32 offset)
 	}
 
 	ScrollBy(scrollBy.x, scrollBy.y);
+
+	// Update text rect position and scroll bars
+	if (CountLines() > 1 && !fWrap)
+		FrameResized(Bounds().Width(), Bounds().Height());
 }
 
 
@@ -2417,6 +2421,8 @@ BTextView::SetWordWrap(bool wrap)
 			_HideCaret();
 	}
 
+	BRect savedBounds = Bounds();
+
 	fWrap = wrap;
 	if (wrap)
 		_ResetTextRect(); // calls _Refresh
@@ -2425,6 +2431,10 @@ BTextView::SetWordWrap(bool wrap)
 
 	if (fEditable)
 		ScrollToOffset(fCaretOffset);
+
+	// redraw text rect and update scroll bars if bounds have changed
+	if (Bounds() != savedBounds)
+		FrameResized(Bounds().Width(), Bounds().Height());
 
 	if (updateOnScreen) {
 		// show the caret, hilite the selection
@@ -3266,6 +3276,10 @@ BTextView::_HandleBackspace(int32 modifiers)
 		undoBuffer->BackwardErase();
 	}
 
+	// we may draw twice, so turn updates off for now
+	if (Window() != NULL)
+		Window()->DisableUpdates();
+
 	if (fSelStart == fSelEnd) {
 		if (fSelStart == 0)
 			return;
@@ -3278,6 +3292,10 @@ BTextView::_HandleBackspace(int32 modifiers)
 	fCaretOffset = fSelEnd = fSelStart;
 
 	_Refresh(fSelStart, fSelEnd, fCaretOffset);
+
+	// turn drawing back on
+	if (Window() != NULL)
+		Window()->EnableUpdates();
 }
 
 
@@ -3487,6 +3505,10 @@ BTextView::_HandleDelete(int32 modifiers)
 		undoBuffer->ForwardErase();
 	}
 
+	// we may draw twice, so turn updates off for now
+	if (Window() != NULL)
+		Window()->DisableUpdates();
+
 	if (fSelStart == fSelEnd) {
 		if (fSelEnd == fText->Length())
 			return;
@@ -3499,6 +3521,10 @@ BTextView::_HandleDelete(int32 modifiers)
 	fCaretOffset = fSelEnd = fSelStart;
 
 	_Refresh(fSelStart, fSelEnd, fCaretOffset);
+
+	// turn updates back on
+	if (Window() != NULL)
+		Window()->EnableUpdates();
 }
 
 
@@ -3702,6 +3728,10 @@ BTextView::_HandleAlphaKey(const char* bytes, int32 numBytes)
 		DeleteText(fSelStart, fSelEnd);
 	}
 
+	// we may draw twice, so turn updates off for now
+	if (Window() != NULL)
+		Window()->DisableUpdates();
+
 	if (fAutoindent && numBytes == 1 && *bytes == B_ENTER) {
 		int32 start, offset;
 		start = offset = OffsetAt(_LineAt(fSelStart));
@@ -3718,8 +3748,11 @@ BTextView::_HandleAlphaKey(const char* bytes, int32 numBytes)
 		_DoInsertText(bytes, numBytes, fSelStart, NULL);
 
 	fCaretOffset = fSelEnd;
-
 	ScrollToOffset(fCaretOffset);
+
+	// turn update back on to draw
+	if (Window() != NULL)
+		Window()->EnableUpdates();
 }
 
 
@@ -4598,7 +4631,6 @@ BTextView::_RequestDrawLines(int32 startLine, int32 endLine)
 		Bounds().right,
 		to != NULL ? to->origin + fTextRect.top : fTextRect.bottom);
 	Invalidate(invalidRect);
-	Window()->UpdateIfNeeded();
 }
 
 
