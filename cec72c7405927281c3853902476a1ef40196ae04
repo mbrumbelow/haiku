@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f57a1484_71aa10a8",
+        "filename": "src/add-ons/kernel/drivers/disk/usb/usb_disk/usb_disk.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1689,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-01-20T18:52:51Z",
+      "side": 1,
+      "message": "Why not use MutexLocker here?",
+      "revId": "cec72c7405927281c3853902476a1ef40196ae04",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
