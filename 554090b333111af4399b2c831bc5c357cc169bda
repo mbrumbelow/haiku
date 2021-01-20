@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b1869bb_71001d54",
+        "filename": "src/preferences/network/InterfaceListItem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-01-20T14:12:55Z",
+      "side": 1,
+      "message": "This line needs to be indented one more tab (here, and at other places).",
+      "revId": "554090b333111af4399b2c831bc5c357cc169bda",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
