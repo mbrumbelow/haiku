@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "2731b5c9_dea68d6c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-01-20T07:55:44Z",
+      "side": 1,
+      "message": "Typo \"into\"",
+      "revId": "6e162e1eb8a62235a2e0cda2990cdcf04ee40809",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c7edad4f_711eca4b",
         "filename": "src/add-ons/kernel/drivers/disk/virtual/ram_disk/ram_disk.cpp",
         "patchSetId": 3
