@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "cfba38ab_27d9495e",
+        "filename": "src/apps/haikudepot/model/PackageInfo.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-21T20:24:20Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "e9612d0a3454cf112d28950b5c2c508ba994f4f4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4b1cc29c_9a710d0d",
         "filename": "src/apps/haikudepot/model/PackageInfo.h",
         "patchSetId": 1
@@ -31,6 +48,24 @@
       "side": 1,
       "message": "Hi Jerome; I quite like the `std::` prefix as it\u0027s reminding me where this is coming from.  Do you mind if I keep it?",
       "parentUuid": "4b1cc29c_9a710d0d",
+      "revId": "e9612d0a3454cf112d28950b5c2c508ba994f4f4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f2a7a6a_3c6d2505",
+        "filename": "src/apps/haikudepot/model/PackageInfo.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-21T20:24:20Z",
+      "side": 1,
+      "message": "I think it\u0027s better to explicitly spell out namespaces as you did, especially in .h files: you never know who else will include it and have problems because some of their code has name clashes with std::",
+      "parentUuid": "9c5e859f_f743f0e2",
       "revId": "e9612d0a3454cf112d28950b5c2c508ba994f4f4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
