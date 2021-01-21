@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9e8e4e9e_03de4681",
+        "filename": "src/preferences/network/InterfaceListItem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-21T20:27:00Z",
+      "side": 1,
+      "message": "shouldn\u0027t these bitmap allocations use std::nothrow and check for NULL as well?",
+      "revId": "c75ec2dbb7f0f27816f0995c14e9ece319d183a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
