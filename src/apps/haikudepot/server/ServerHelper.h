@@ -10,6 +10,8 @@
 #include "ValidationFailure.h"
 
 
+using HaikuExt::BHttpHeaders;
+
 class BMessage;
 
 

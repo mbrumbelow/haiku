@@ -6,6 +6,12 @@
 #include <UrlProtocolListener.h>
 #include <UrlRequest.h>
 
+
+using HaikuExt::BUrlProtocolDebugMessage;
+using HaikuExt::BUrlProtocolListener;
+using HaikuExt::BUrlRequest;
+using HaikuExt::BUrlResult;
+
 class ToFileUrlProtocolListener : public BUrlProtocolListener {
 public:
 								ToFileUrlProtocolListener(BPath path,

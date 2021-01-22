@@ -13,6 +13,8 @@
 #include <Url.h>
 
 
+using HaikuExt::BHttpHeaders;
+
 class ServerSettings {
 public:
 		static status_t					SetBaseUrl(const BUrl& baseUrl);
