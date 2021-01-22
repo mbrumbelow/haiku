@@ -9,7 +9,6 @@
 #include <AdapterIO.h>
 #include <FileRequest.h>
 #include <Url.h>
-#include <UrlContext.h>
 #include <UrlProtocolAsynchronousListener.h>
 
 
@@ -40,7 +39,7 @@ protected:
 
 	friend class FileListener;
 private:
-	BUrlRequest*						fReq;
+	HaikuExt::BUrlRequest*				fReq;
 	FileListener*						fListener;
 	thread_id							fReqThread;
 
