@@ -11,6 +11,10 @@
 #include <String.h>
 
 
+#ifndef LIBNETAPI_DEPRECATED
+namespace HaikuExt {
+#endif
+
 class BHttpHeader {
 public:
 								BHttpHeader();
@@ -86,5 +90,9 @@ private:
 private:
 			BList				fHeaderList;
 };
+
+#ifndef LIBNETAPI_DEPRECATED
+} // namespace HaikuExt
+#endif
 
 #endif // _B_HTTP_HEADERS_H_

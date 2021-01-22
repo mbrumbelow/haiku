@@ -10,6 +10,9 @@
 #include <Message.h>
 #include <UrlProtocolDispatchingListener.h>
 
+#ifndef LIBNETAPI_DEPRECATED
+namespace HaikuExt {
+#endif
 
 class BUrlProtocolAsynchronousListener : public BHandler,
 	public BUrlProtocolListener {
@@ -28,6 +31,10 @@ private:
 			BUrlProtocolDispatchingListener*
 						 		fSynchronousListener;
 };
+#ifndef LIBNETAPI_DEPRECATED
+} // namespace HaikuExt
+#endif
+
 
 #endif // _B_URL_PROTOCOL_ASYNCHRONOUS_LISTENER_H_
 

@@ -13,6 +13,10 @@
 #include <UrlProtocolRoster.h>
 
 
+#ifndef LIBNETAPI_DEPRECATED
+namespace HaikuExt {
+#endif
+
 class BFileRequest : public BUrlRequest {
 public:
 	virtual						~BFileRequest();
@@ -32,5 +36,8 @@ private:
 			BUrlResult			fResult;
 };
 
+#ifndef LIBNETAPI_DEPRECATED
+} // namespace HaikuExt
+#endif
 
 #endif // _B_FILE_REQUEST_H_

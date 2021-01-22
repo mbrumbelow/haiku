@@ -10,6 +10,11 @@
 #include <String.h>
 #include <Url.h>
 
+
+#ifndef LIBNETAPI_DEPRECATED
+namespace HaikuExt {
+#endif
+
 // HTTP authentication method
 enum BHttpAuthenticationMethod {
 	B_HTTP_AUTHENTICATION_NONE = 0,
@@ -97,5 +102,9 @@ private:
 
 	mutable	BLocker				fLock;
 };
+
+#ifndef LIBNETAPI_DEPRECATED
+} // namespace HaikuExt
+#endif
 
 #endif // _B_HTTP_AUTHENTICATION_H_

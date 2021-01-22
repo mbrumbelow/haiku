@@ -13,6 +13,10 @@
 #include <Url.h>
 
 
+#ifndef LIBNETAPI_DEPRECATED
+namespace HaikuExt {
+#endif
+
 class BNetworkCookie : public BArchivable {
 public:
 								BNetworkCookie(const char* name,
@@ -109,6 +113,10 @@ private:
 			bool				fHostOnly;
 			bool				fSessionCookie;
 };
+
+#ifndef LIBNETAPI_DEPRECATED
+} // namespace HaikuExt
+#endif
 
 #endif // _B_NETWORK_COOKIE_H_
 

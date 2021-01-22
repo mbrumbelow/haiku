@@ -16,6 +16,11 @@
 #include <Url.h>
 
 
+#ifndef LIBNETAPI_DEPRECATED
+namespace HaikuExt {
+#endif
+
+
 class BNetworkCookieList: public BObjectList<const BNetworkCookie> {
 public:
 								BNetworkCookieList();
@@ -157,5 +162,9 @@ private:
 
 			BUrl				fUrl;
 };
+
+#ifndef LIBNETAPI_DEPRECATED
+} // namespace HaikuExt
+#endif
 
 #endif // _B_NETWORK_COOKIE_JAR_

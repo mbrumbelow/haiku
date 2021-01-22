@@ -15,6 +15,10 @@
 #include <UrlRequest.h>
 
 
+#ifndef LIBNETAPI_DEPRECATED
+namespace HaikuExt {
+#endif
+
 class BDataRequest: public BUrlRequest {
 public:
 		const BUrlResult&	Result() const;
@@ -29,5 +33,9 @@ private:
 private:
 		BUrlResult			fResult;
 };
+
+#ifndef LIBNETAPI_DEPRECATED
+} // namespace HaikuExt
+#endif
 
 #endif

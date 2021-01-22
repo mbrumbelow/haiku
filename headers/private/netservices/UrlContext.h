@@ -14,6 +14,11 @@
 #include <Referenceable.h>
 
 
+#ifndef LIBNETAPI_DEPRECATED
+namespace HaikuExt {
+#endif
+
+
 class BUrlContext: public BReferenceable {
 public:
 								BUrlContext();
@@ -47,6 +52,11 @@ private:
 			BString				fProxyHost;
 			uint16				fProxyPort;
 };
+
+
+#ifndef LIBNETAPI_DEPRECATED
+} // namespace HaikuExt
+#endif
 
 
 #endif // _B_URL_CONTEXT_H_

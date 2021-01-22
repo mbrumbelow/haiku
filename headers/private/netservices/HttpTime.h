@@ -10,7 +10,11 @@
 #include <DateTime.h>
 #include <String.h>
 
+#ifdef LIBNETAPI_DEPRECATED
 namespace BPrivate {
+#else
+namespace HaikuExt {
+#endif
 
 enum {
 	B_HTTP_TIME_FORMAT_PARSED = -1,

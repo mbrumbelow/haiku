@@ -14,6 +14,10 @@
 class BAbstractSocket;
 
 
+#ifndef LIBNETAPI_DEPRECATED
+namespace HaikuExt {
+#endif
+
 class BNetworkRequest: public BUrlRequest
 {
 public:
@@ -39,5 +43,8 @@ protected:
 			BNetBuffer			fInputBuffer;
 };
 
+#ifndef LIBNETAPI_DEPRECATED
+} // namespace HaikuExt
+#endif
 
 #endif

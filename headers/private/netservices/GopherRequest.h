@@ -12,6 +12,10 @@
 #include <UrlProtocolRoster.h>
 
 
+#ifndef LIBNETAPI_DEPRECATED
+namespace HaikuExt {
+#endif
+
 class BGopherRequest : public BNetworkRequest {
 public:
 	virtual						~BGopherRequest();
@@ -45,5 +49,8 @@ private:
 			BUrlResult			fResult;
 };
 
+#ifndef LIBNETAPI_DEPRECATED
+} // namespace HaikuExt
+#endif
 
 #endif // _B_GOPHER_REQUEST_H_

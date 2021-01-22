@@ -12,6 +12,9 @@
 
 #define PRINT(x) printf x;
 
+#ifndef LIBNETAPI_DEPRECATED
+using namespace HaikuExt;
+#endif
 
 BUrlSynchronousRequest::BUrlSynchronousRequest(BUrlRequest& request)
 	:

@@ -10,6 +10,10 @@
 #include <UrlProtocolListener.h>
 
 
+#ifndef LIBNETAPI_DEPRECATED
+namespace HaikuExt {
+#endif
+
 class BUrlSynchronousRequest : public BUrlRequest, public BUrlProtocolListener {
 public:
 								BUrlSynchronousRequest(BUrlRequest& asynchronousRequest);
@@ -42,5 +46,9 @@ protected:
 			BUrlRequest&		fWrappedRequest;
 };
 
+
+#ifndef LIBNETAPI_DEPRECATED
+} // namespace HaikuExt
+#endif
 
 #endif // _B_URL_SYNCHRONOUS_REQUEST_H_

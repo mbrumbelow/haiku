@@ -11,6 +11,11 @@
 
 
 class BUrl;
+
+#ifndef LIBNETAPI_DEPRECATED
+namespace HaikuExt {
+#endif
+
 class BUrlContext;
 class BUrlProtocolListener;
 class BUrlRequest;
@@ -21,5 +26,9 @@ public:
 		                        BUrlProtocolListener* listener = NULL,
                                 BUrlContext* context = NULL);
 };
+
+#ifndef LIBNETAPI_DEPRECATED
+} // namespace HaikuExt
+#endif
 
 #endif

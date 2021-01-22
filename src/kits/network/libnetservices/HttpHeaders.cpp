@@ -15,6 +15,10 @@
 #include <HttpHeaders.h>
 
 
+#ifndef LIBNETAPI_DEPRECATED
+using namespace HaikuExt;
+#endif
+
 // #pragma mark -- BHttpHeader
 
 

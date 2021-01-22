@@ -12,6 +12,10 @@
 #include <map>
 
 
+#ifndef LIBNETAPI_DEPRECATED
+namespace HaikuExt {
+#endif
+
 enum form_type {
 	B_HTTP_FORM_URL_ENCODED,
 	B_HTTP_FORM_MULTIPART
@@ -187,5 +191,9 @@ private:
 			BHttpFormData*		fElement;
 			BHttpFormData*		fPrevElement;
 };
+
+#ifndef LIBNETAPI_DEPRECATED
+} // namespace HaikuExt
+#endif
 
 #endif // _B_HTTP_FORM_H_

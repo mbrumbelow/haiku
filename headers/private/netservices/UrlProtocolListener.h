@@ -13,6 +13,11 @@
 
 
 class BCertificate;
+
+#ifndef LIBNETAPI_DEPRECATED
+namespace HaikuExt {
+#endif
+
 class BUrlRequest;
 
 
@@ -51,5 +56,9 @@ public:
 									BCertificate& certificate,
 									const char* message);
 };
+
+#ifndef LIBNETAPI_DEPRECATED
+} // namespace HaikuExt
+#endif
 
 #endif // _B_URL_PROTOCOL_LISTENER_H_

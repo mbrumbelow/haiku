@@ -10,6 +10,10 @@
 #include <String.h>
 
 
+#ifndef LIBNETAPI_DEPRECATED
+namespace HaikuExt {
+#endif
+
 class BUrlResult: public BArchivable {
 public:
 							BUrlResult();
@@ -30,5 +34,9 @@ private:
 			BString			fContentType;
 			size_t			fLength;
 };
+
+#ifndef LIBNETAPI_DEPRECATED
+} // namespace HaikuExt
+#endif
 
 #endif

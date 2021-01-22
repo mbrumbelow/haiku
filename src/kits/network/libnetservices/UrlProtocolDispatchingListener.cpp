@@ -16,6 +16,10 @@
 #include <assert.h>
 
 
+#ifndef LIBNETAPI_DEPRECATED
+using namespace HaikuExt;
+#endif
+
 const char* kUrlProtocolMessageType = "be:urlProtocolMessageType";
 const char* kUrlProtocolCaller = "be:urlProtocolCaller";
 

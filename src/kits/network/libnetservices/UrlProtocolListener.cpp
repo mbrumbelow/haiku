@@ -15,6 +15,9 @@
 
 using namespace std;
 
+#ifndef LIBNETAPI_DEPRECATED
+using namespace HaikuExt;
+#endif
 
 void
 BUrlProtocolListener::ConnectionOpened(BUrlRequest*)

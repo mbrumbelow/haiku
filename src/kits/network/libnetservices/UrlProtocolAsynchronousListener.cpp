@@ -19,6 +19,11 @@
 #include <UrlResult.h>
 
 
+#ifndef LIBNETAPI_DEPRECATED
+using namespace HaikuExt;
+#endif
+
+
 extern const char* kUrlProtocolMessageType;
 extern const char* kUrlProtocolCaller;
 

@@ -10,6 +10,9 @@
 #include <Message.h>
 #include <UrlProtocolListener.h>
 
+#ifndef LIBNETAPI_DEPRECATED
+namespace HaikuExt {
+#endif
 
 //! To be in AppTypes.h
 enum {
@@ -70,6 +73,10 @@ private:
 private:
 			BMessenger	 		fMessenger;
 };
+
+#ifndef LIBNETAPI_DEPRECATED
+} // namespace HaikuExt
+#endif
 
 #endif // _B_URL_PROTOCOL_DISPATCHING_LISTENER_H_
 
