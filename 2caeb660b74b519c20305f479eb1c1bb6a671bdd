@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b13380fc_0d641817",
+        "filename": "src/add-ons/input_server/devices/tablet/TabletInputDevice.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-01-22T07:52:40Z",
+      "side": 1,
+      "message": "please declare eraser where it\u0027s first time defined.",
+      "revId": "2caeb660b74b519c20305f479eb1c1bb6a671bdd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a34819c0_0675b1c5",
+        "filename": "src/add-ons/input_server/devices/tablet/TabletInputDevice.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-01-22T07:52:40Z",
+      "side": 1,
+      "message": "trailing tabs",
+      "revId": "2caeb660b74b519c20305f479eb1c1bb6a671bdd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3c95888_f19bfb8c",
+        "filename": "src/add-ons/input_server/devices/tablet/TabletInputDevice.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-01-22T07:52:40Z",
+      "side": 1,
+      "message": "trailing tabs",
+      "revId": "2caeb660b74b519c20305f479eb1c1bb6a671bdd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37ee3a94_a5de23da",
+        "filename": "src/add-ons/kernel/drivers/input/usb_hid/TabletProtocolHandler.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-01-22T07:52:40Z",
+      "side": 1,
+      "message": "Trailing tabs",
+      "revId": "2caeb660b74b519c20305f479eb1c1bb6a671bdd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba72572f_3bc5d19f",
+        "filename": "src/add-ons/kernel/drivers/input/usb_hid/TabletProtocolHandler.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-01-22T07:52:40Z",
+      "side": 1,
+      "message": "Trailing space",
+      "revId": "2caeb660b74b519c20305f479eb1c1bb6a671bdd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
