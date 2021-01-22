@@ -17,6 +17,9 @@
 #include <UrlRequest.h>
 
 
+using namespace BPrivate::Network;
+
+
 namespace BPrivate {
 
 
