@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9ddf1020_07e869b2",
+        "filename": "src/add-ons/input_server/devices/tablet/TabletInputDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-22T07:12:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "434b8535_6a98d3da",
+      "revId": "9fbe3da9d61831b8fa1f1b108cab13e0cbef2fd2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1853619_c1341b74",
         "filename": "src/add-ons/kernel/drivers/input/usb_hid/TabletProtocolHandler.cpp",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "9fbe3da9d61831b8fa1f1b108cab13e0cbef2fd2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b3230cb_3bf11375",
+        "filename": "src/add-ons/kernel/drivers/input/usb_hid/TabletProtocolHandler.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-22T07:12:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1853619_c1341b74",
+      "revId": "9fbe3da9d61831b8fa1f1b108cab13e0cbef2fd2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
