@@ -16,6 +16,24 @@
       "revId": "c75ec2dbb7f0f27816f0995c14e9ece319d183a0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45e30cd0_c5f50cc3",
+        "filename": "src/preferences/network/InterfaceListItem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1000055
+      },
+      "writtenOn": "2021-01-22T09:46:29Z",
+      "side": 1,
+      "message": "I think we need not check bitmap \u003d\u003d NULL, since BIconUtils::GetVectorIcon() returns B_BAD_VALUE when bitmap is NULL.",
+      "parentUuid": "9e8e4e9e_03de4681",
+      "revId": "c75ec2dbb7f0f27816f0995c14e9ece319d183a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
