@@ -69,6 +69,24 @@
       "revId": "e9612d0a3454cf112d28950b5c2c508ba994f4f4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa1207e7_a2822c5b",
+        "filename": "src/apps/haikudepot/model/PackageInfo.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-01-22T08:04:51Z",
+      "side": 1,
+      "message": "Frankly when I see std::vector\u003cPackageInfoListenerRef\u003e::iterator for a type name it\u0027s getting long. For instance you could typedef std::vector\u003cDeskbarLink\u003e to the old list name DeskbarLinkList, typedef std::vector\u003cPackageInfoListenerRef\u003e  for PackageListenerList",
+      "parentUuid": "5f2a7a6a_3c6d2505",
+      "revId": "e9612d0a3454cf112d28950b5c2c508ba994f4f4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
