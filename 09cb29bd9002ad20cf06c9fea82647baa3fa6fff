@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9d5501a5_8a98b56c",
+        "filename": "src/kits/locale/LocaleRosterData.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-01-22T23:01:54Z",
+      "side": 1,
+      "message": "addOnInfo !\u003d NULL",
+      "revId": "09cb29bd9002ad20cf06c9fea82647baa3fa6fff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
