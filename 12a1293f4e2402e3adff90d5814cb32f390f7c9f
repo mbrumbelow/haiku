@@ -1,0 +1,310 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "322b50c7_82c0b350",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-23T11:03:21Z",
+      "side": 1,
+      "message": "strange indentation.\nalso I think using a few intermediate variables would make this code easier to read:\n\nint offset \u003d (pos - 1) * KeySize();\nchar* base \u003d (char*)DIR_DFORK_PTR(fInode-\u003eBuffer()) + sizeof(BlockInDataFork);\nreturn (TreeKey*)(base + offset);",
+      "revId": "12a1293f4e2402e3adff90d5814cb32f390f7c9f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a09438d_eb554062",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-23T11:03:21Z",
+      "side": 1,
+      "message": "spaces around +",
+      "revId": "12a1293f4e2402e3adff90d5814cb32f390f7c9f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78febcca_2dade2f3",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-23T11:03:21Z",
+      "side": 1,
+      "message": "spaces around +",
+      "revId": "12a1293f4e2402e3adff90d5814cb32f390f7c9f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bdcd0490_dd2f0665",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-23T11:03:21Z",
+      "side": 1,
+      "message": "strange indentation",
+      "revId": "12a1293f4e2402e3adff90d5814cb32f390f7c9f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10a06708_be6799e3",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-23T11:03:21Z",
+      "side": 1,
+      "message": "spaces around +",
+      "revId": "12a1293f4e2402e3adff90d5814cb32f390f7c9f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba8a6623_07de19b6",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-23T11:03:21Z",
+      "side": 1,
+      "message": "spaces around +",
+      "revId": "12a1293f4e2402e3adff90d5814cb32f390f7c9f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df5f0a5f_db171cf4",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-23T11:03:21Z",
+      "side": 1,
+      "message": "braces needed for this if (the body has multiple lines)",
+      "revId": "12a1293f4e2402e3adff90d5814cb32f390f7c9f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c76dbd49_ad8aec3f",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-23T11:03:21Z",
+      "side": 1,
+      "message": "spaces around -",
+      "revId": "12a1293f4e2402e3adff90d5814cb32f390f7c9f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "079b50cb_cfe95eeb",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-23T11:03:21Z",
+      "side": 1,
+      "message": "this line is too long.\n\nI think this should work:\n\nxfs_daddr_t readPos \u003d fInode-\u003eFileSystemBlockToAddr(\n    map.br_startblock + howManyBlocksFurther);",
+      "revId": "12a1293f4e2402e3adff90d5814cb32f390f7c9f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96db7c0a_7195891d",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-23T11:03:21Z",
+      "side": 1,
+      "message": "I think you can use the ROUNDUP macro? Is it really closest, or is it next highest multiple?",
+      "revId": "12a1293f4e2402e3adff90d5814cb32f390f7c9f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67faef6f_f91c2a39",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-23T11:03:21Z",
+      "side": 1,
+      "message": "this if and else need braces because the body spans multiple lines",
+      "revId": "12a1293f4e2402e3adff90d5814cb32f390f7c9f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f9f5763_bf002152",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-23T11:03:21Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "12a1293f4e2402e3adff90d5814cb32f390f7c9f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ea45644_7c0be09d",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-23T11:03:21Z",
+      "side": 1,
+      "message": "this if needs braces because the body spans multiple lines",
+      "revId": "12a1293f4e2402e3adff90d5814cb32f390f7c9f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06c812a3_d5cb18ec",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 704,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-23T11:03:21Z",
+      "side": 1,
+      "message": "spaces around + and /",
+      "revId": "12a1293f4e2402e3adff90d5814cb32f390f7c9f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b45fd47_fd5b9f2b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-23T11:03:21Z",
+      "side": 1,
+      "message": "spaces around +",
+      "revId": "12a1293f4e2402e3adff90d5814cb32f390f7c9f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59c3ac59_335aed03",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 717,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-23T11:03:21Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "12a1293f4e2402e3adff90d5814cb32f390f7c9f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7cf0d05e_2c2a7a1e",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 791,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-23T11:03:21Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "12a1293f4e2402e3adff90d5814cb32f390f7c9f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "623d84a6_19b77e7e",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-23T11:03:21Z",
+      "side": 1,
+      "message": "Indentation is incorrect",
+      "revId": "12a1293f4e2402e3adff90d5814cb32f390f7c9f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
