@@ -352,6 +352,24 @@
     },
     {
       "key": {
+        "uuid": "1462ac9f_63ae4228",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Node.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-23T10:48:24Z",
+      "side": 1,
+      "message": "I think the minimum thing to check here (to avoid crashes) is that we don\u0027t read past the end of fBlockBuffer. To do this we have to compare the address of the last entry (\u0026entry[count] with the last address of the buffer (fLeafBuffer + fInode-\u003eDirBlockSize()).\n\nIf the last entry is past the end of the buffer, the code below will crash, so it\u0027s better to return immediately with B_BAD_DATA.",
+      "parentUuid": "61514f54_3b4a6c37",
+      "revId": "cd6d2ce8fa2fad48030dd3a8749b6f3552847d85",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "11ce948c_c6cccee6",
         "filename": "src/add-ons/kernel/file_systems/xfs/Node.cpp",
         "patchSetId": 2
