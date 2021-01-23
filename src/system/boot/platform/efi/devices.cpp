@@ -63,16 +63,30 @@ EfiDevice::ReadAt(void *cookie, off_t pos, void *buffer, size_t bufferSize)
 
 	off_t offset = pos % BlockSize();
 	pos /= BlockSize();
+	uint32 numBlocks = (offset + bufferSize + BlockSize() - 1) / BlockSize();
 
-	uint32 numBlocks = (offset + bufferSize + BlockSize()) / BlockSize();
-	char readBuffer[numBlocks * BlockSize()];
-
-	if (fBlockIo->ReadBlocks(fBlockIo, fBlockIo->Media->MediaId,
-		pos, sizeof(readBuffer), readBuffer) != EFI_SUCCESS)
+	efi_physical_addr readBufferAddr;
+	uint32_t pages = EFI_SIZE_TO_PAGES(numBlocks * BlockSize());
+	if (kBootServices->AllocatePages(AllocateAnyPages, EfiLoaderData,
+			pages, &readBufferAddr) != EFI_SUCCESS) {
+		dprintf("%s: Unable to allocate pages!\n", __func__);
 		return B_ERROR;
+	}
+	char* readBuffer = (char*)(addr_t)readBufferAddr;
+
+	efi_status result = fBlockIo->ReadBlocks(fBlockIo,
+		fBlockIo->Media->MediaId, pos, numBlocks * BlockSize(),
+		(void*)readBuffer);
+
+	if (result != EFI_SUCCESS) {
+		dprintf("%s: ReadFailure from fBlockIo: %lx\n", __func__,
+			result);
+		kBootServices->FreePages(readBufferAddr, pages);
+		return B_ERROR;
+	}
 
 	memcpy(buffer, readBuffer + offset, bufferSize);
-
+	kBootServices->FreePages(readBufferAddr, pages);
 	return bufferSize;
 }
 
@@ -145,7 +159,7 @@ platform_add_boot_device(struct stage2_args *args, NodeList *devicesList)
 			panic("Cannot get block device handle!");
 
 		TRACE("%s: %p: present: %s, logical: %s, removeable: %s, "
-			"blocksize: %" B_PRIuSIZE ", lastblock: %" B_PRIu64 "\n",
+			"blocksize: %" B_PRIu32 ", lastblock: %" B_PRIu64 "\n",
 			__func__, blockIo,
 			blockIo->Media->MediaPresent ? "true" : "false",
 			blockIo->Media->LogicalPartition ? "true" : "false",

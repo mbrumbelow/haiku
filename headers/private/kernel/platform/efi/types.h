@@ -20,6 +20,11 @@
 #define EFI_ERROR_MASK 0x8000000000000000
 #endif
 
+#define EFI_PAGE_MASK  0xfff
+#define EFI_PAGE_SHIFT 12
+#define EFI_SIZE_TO_PAGES(size) (size >> EFI_PAGE_SHIFT) \
+	+ (((size) & EFI_PAGE_MASK) ? 1 : 0)
+
 #define EFI_ERR(x) (EFI_ERROR_MASK | x)
 #define EFI_ERROR(x) (((ssize_t)x) < 0)
 
