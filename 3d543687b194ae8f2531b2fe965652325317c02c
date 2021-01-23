@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2102f8f0_0220cfb7",
+        "filename": "src/add-ons/media/plugins/http_streamer/HTTPMediaIO.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-23T09:41:14Z",
+      "side": 1,
+      "message": "Why HaikuExt? The namespace for experimental APIs is usually BPrivate. The reason for that is that all namespaces and classes starting with B + another uppercase letter are reserved for the Be API. There is no such restriction for the \"Haiku\" prefix, so apps would be allowed to use \"HaikuExt\" for their own needs.\n\nI would prefer that we use the same BPrivate namespace for this.",
+      "revId": "3d543687b194ae8f2531b2fe965652325317c02c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
