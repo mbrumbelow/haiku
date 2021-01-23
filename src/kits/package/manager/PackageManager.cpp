@@ -573,16 +573,29 @@ BPackageManager::_PreparePackageChanges(
 				BString globPath = parent.Path();
 				globPath << "/*/" << fileName;
 				glob_t globbuf;
-				if (glob(globPath.String(), 0, NULL, &globbuf) == 0) {
+				if (glob(globPath.String(), GLOB_NOSORT, NULL, &globbuf) == 0) {
+					off_t size = 0;
+					off_t newSize = 0;
+					const char* bestFile = NULL;
+
+					for (size_t i = 0; i < globbuf.gl_pathc; i++) {
+						BNode node(globbuf.gl_pathv[i]);
+						if (node.GetSize(&newSize) == B_OK && newSize > size) {
+							size = newSize;
+							bestFile = globbuf.gl_pathv[i];
+						}
+					}
+
 					path.Append(fileName);
-					if (BCopyEngine().CopyEntry(globbuf.gl_pathv[0],
-							path.Path()) == B_OK) {
+					if (bestFile != NULL && BCopyEngine().CopyEntry(bestFile,
+						path.Path()) == B_OK) {
 						alreadyDownloaded = FetchUtils::IsDownloadCompleted(
 							path.Path());
 						printf("Re-using download '%s' from previous "
-							"transaction%s\n", globbuf.gl_pathv[0],
+							"transaction%s\n", bestFile,
 							alreadyDownloaded ? "" : " (partial)");
 					}
+					globfree(&globbuf);
 				}
 			}
 
