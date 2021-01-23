@@ -25,7 +25,7 @@ namespace BPrivate {
 
 
 #ifdef HAIKU_TARGET_PLATFORM_HAIKU
-class FetchFileJob : public BJob, public BUrlProtocolListener {
+class FetchFileJob : public BJob, public HaikuExt::BUrlProtocolListener {
 #else // HAIKU_TARGET_PLATFORM_HAIKU
 class FetchFileJob : public BJob {
 #endif // HAIKU_TARGET_PLATFORM_HAIKU
@@ -46,11 +46,12 @@ public:
 			off_t				DownloadTotalBytes() const;
 
 #ifdef HAIKU_TARGET_PLATFORM_HAIKU
-	virtual void	DataReceived(BUrlRequest*, const char* data,
+	virtual void	DataReceived(HaikuExt::BUrlRequest*, const char* data,
 						off_t position, ssize_t size);
-	virtual void	DownloadProgress(BUrlRequest*, ssize_t bytesReceived,
-						ssize_t bytesTotal);
-	virtual void 	RequestCompleted(BUrlRequest* request, bool success);
+	virtual void	DownloadProgress(HaikuExt::BUrlRequest*,
+						ssize_t bytesReceived, ssize_t bytesTotal);
+	virtual void 	RequestCompleted(HaikuExt::BUrlRequest* request,
+						bool success);
 #endif
 
 protected:
