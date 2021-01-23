@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d78e7f90_a3a7854a",
+        "filename": "src/kits/shared/Geolocation.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-23T09:42:08Z",
+      "side": 1,
+      "message": "Probably this class should be moved to the new library, so that libshared does not depend on it?",
+      "revId": "d0d6b5d134ac09f9f564f6a0eecbed0cb02e9d4f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
