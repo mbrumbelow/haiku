@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "00cdf697_9f456913",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-01-23T11:20:46Z",
+      "side": 1,
+      "message": "Please use \"usb_hid: \" as commit message prefix.",
+      "revId": "8dab1cb2fca8d67b30b3f94fb6445c2c0da508a7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41fbc1a5_d011320e",
+        "filename": "src/add-ons/kernel/drivers/input/usb_hid/TabletProtocolHandler.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-01-23T11:20:46Z",
+      "side": 1,
+      "message": "missing tab",
+      "revId": "8dab1cb2fca8d67b30b3f94fb6445c2c0da508a7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
