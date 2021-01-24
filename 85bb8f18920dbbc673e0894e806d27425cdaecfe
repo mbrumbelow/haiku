@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae48424c_5b03d3bc",
+        "filename": "docs/develop/kernel/boot/boot_process_specs.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2021-01-24T11:16:59Z",
+      "side": 1,
+      "message": "it is referred to as stage 1.5",
+      "revId": "85bb8f18920dbbc673e0894e806d27425cdaecfe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "786cca68_43a0fb46",
+        "filename": "docs/develop/kernel/boot/boot_process_specs.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2021-01-24T11:16:59Z",
+      "side": 1,
+      "message": "in the first 1024 bytes",
+      "revId": "85bb8f18920dbbc673e0894e806d27425cdaecfe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9985962_8f119331",
+        "filename": "docs/develop/kernel/boot/boot_process_specs.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2021-01-24T11:16:59Z",
+      "side": 1,
+      "message": "Contains both A and B. No comma, I think.",
+      "revId": "85bb8f18920dbbc673e0894e806d27425cdaecfe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62b9d71b_1297d42a",
+        "filename": "docs/develop/kernel/boot/boot_process_specs.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2021-01-24T11:16:59Z",
+      "side": 1,
+      "message": "firmware (too many \"r\")\nI\u0027m also leaning but not sure at all on \"EFI firmware only knows\" (singular use and no \"The\").",
+      "revId": "85bb8f18920dbbc673e0894e806d27425cdaecfe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
