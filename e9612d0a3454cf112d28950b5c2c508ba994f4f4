@@ -87,6 +87,24 @@
       "revId": "e9612d0a3454cf112d28950b5c2c508ba994f4f4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b29d429_1279acda",
+        "filename": "src/apps/haikudepot/model/PackageInfo.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2021-01-24T09:55:50Z",
+      "side": 1,
+      "message": "I agree that the type names are long.  I am not so concerned by this, but I accept that you are concerned and I (or somebody else) can make this change.  However I am part way through a series of changes over many months with #15534 and I don\u0027t want to change the code-style half way through and leave it inconsistent.  What I suggest is that I open a new ticket to change the use of std::vector to a defined type, but I (or somebody else) do that ticket after #15534 is taken to completion.",
+      "parentUuid": "fa1207e7_a2822c5b",
+      "revId": "e9612d0a3454cf112d28950b5c2c508ba994f4f4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
