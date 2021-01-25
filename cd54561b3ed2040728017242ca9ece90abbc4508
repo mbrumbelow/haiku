@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fed2a90_3b89f26d",
+        "filename": "src/add-ons/kernel/drivers/audio/hda/hda_controller.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-01-25T18:47:24Z",
+      "side": 1,
+      "message": "Do we really need 3 blank lines?",
+      "revId": "cd54561b3ed2040728017242ca9ece90abbc4508",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
