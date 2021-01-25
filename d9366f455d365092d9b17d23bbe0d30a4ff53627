@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e9b477e7_0ab4bd6c",
+        "filename": "src/bin/filepanel.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-01-25T08:23:46Z",
+      "side": 1,
+      "message": "Or maybe even better ... not pass the untranslatable part...\nfprintf(stderr, \"-h\\t--help\\t%s\\n\", B_TRANSLATE(\"display usage\"))",
+      "parentUuid": "03ea5f68_9b646d24",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 35
+      },
+      "revId": "d9366f455d365092d9b17d23bbe0d30a4ff53627",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2dfefd71_ab5eaf50",
         "filename": "src/bin/filepanel.cpp",
         "patchSetId": 2
