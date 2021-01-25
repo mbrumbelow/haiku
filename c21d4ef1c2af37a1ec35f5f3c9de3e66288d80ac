@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d7c26deb_cc4fb41d",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-01-25T15:48:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6db8ab4c_04af6044",
+      "revId": "c21d4ef1c2af37a1ec35f5f3c9de3e66288d80ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "18e3a7c5_4178bdbd",
         "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "c21d4ef1c2af37a1ec35f5f3c9de3e66288d80ac",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc357246_c4f168f0",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-01-25T15:48:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18e3a7c5_4178bdbd",
+      "revId": "c21d4ef1c2af37a1ec35f5f3c9de3e66288d80ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "1bf688ec_ffbbc937",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-01-25T15:48:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6cf76777_702f2b13",
+      "revId": "c21d4ef1c2af37a1ec35f5f3c9de3e66288d80ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dac6b721_dcd76b9e",
         "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
         "patchSetId": 1
@@ -67,6 +121,24 @@
       "revId": "c21d4ef1c2af37a1ec35f5f3c9de3e66288d80ac",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0827c3f_be91acca",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-01-25T15:48:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dac6b721_dcd76b9e",
+      "revId": "c21d4ef1c2af37a1ec35f5f3c9de3e66288d80ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "b752a656_09e7a861",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-01-25T15:48:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3328a347_ff6d84e4",
+      "revId": "c21d4ef1c2af37a1ec35f5f3c9de3e66288d80ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "858ed645_27e678de",
         "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
         "patchSetId": 1
@@ -101,6 +191,24 @@
       "revId": "c21d4ef1c2af37a1ec35f5f3c9de3e66288d80ac",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5653e8eb_84f7a38d",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-01-25T15:48:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "858ed645_27e678de",
+      "revId": "c21d4ef1c2af37a1ec35f5f3c9de3e66288d80ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "40d303fc_57eb7885",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-01-25T15:48:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a01ca83f_87a493c8",
+      "revId": "c21d4ef1c2af37a1ec35f5f3c9de3e66288d80ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5e35976d_b4fb804d",
         "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
         "patchSetId": 1
@@ -135,6 +261,42 @@
       "revId": "c21d4ef1c2af37a1ec35f5f3c9de3e66288d80ac",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "955336bf_d5f5c99e",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-01-25T15:48:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e35976d_b4fb804d",
+      "revId": "c21d4ef1c2af37a1ec35f5f3c9de3e66288d80ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e74780ed_7a2b0fea",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-01-25T15:48:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e35976d_b4fb804d",
+      "revId": "c21d4ef1c2af37a1ec35f5f3c9de3e66288d80ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -155,6 +317,42 @@
     },
     {
       "key": {
+        "uuid": "3d4e008d_b196f7d9",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-01-25T15:48:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c19a5f3e_8927a178",
+      "revId": "c21d4ef1c2af37a1ec35f5f3c9de3e66288d80ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d8150b4b_a7aa8a0f",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-01-25T15:48:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c19a5f3e_8927a178",
+      "revId": "c21d4ef1c2af37a1ec35f5f3c9de3e66288d80ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a5f3f2ec_68c4bec6",
         "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
         "patchSetId": 1
@@ -169,6 +367,24 @@
       "revId": "c21d4ef1c2af37a1ec35f5f3c9de3e66288d80ac",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b61868e_7f705c5c",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-01-25T15:48:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5f3f2ec_68c4bec6",
+      "revId": "c21d4ef1c2af37a1ec35f5f3c9de3e66288d80ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -189,6 +405,24 @@
     },
     {
       "key": {
+        "uuid": "74a22d7c_236a12c4",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-01-25T15:48:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba42908a_f7b4e500",
+      "revId": "c21d4ef1c2af37a1ec35f5f3c9de3e66288d80ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "67ab216a_15f14938",
         "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
         "patchSetId": 1
@@ -206,6 +440,24 @@
     },
     {
       "key": {
+        "uuid": "0cb8603e_b262c1cd",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-01-25T15:48:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67ab216a_15f14938",
+      "revId": "c21d4ef1c2af37a1ec35f5f3c9de3e66288d80ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9484c93d_3d68dd31",
         "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
         "patchSetId": 1
@@ -220,6 +472,24 @@
       "revId": "c21d4ef1c2af37a1ec35f5f3c9de3e66288d80ac",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c38f396d_9bd4c5af",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-01-25T15:48:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9484c93d_3d68dd31",
+      "revId": "c21d4ef1c2af37a1ec35f5f3c9de3e66288d80ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
