@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b7f1462e_9786921a",
+        "filename": "src/bin/pkgman/PackageManager.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-01-25T13:16:17Z",
+      "side": 1,
+      "message": "I was unsure about this, but the coding guidelines mention it there should not be braces for a single statement, and I considered a comment not to be a statement (though it is a line).",
+      "parentUuid": "a5828c8f_d81e5b76",
+      "revId": "f254b52d9f8510719b9a27a6f64739f4a72d9cbc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2b055ea4_6fbc4922",
         "filename": "src/bin/pkgman/command_medium_upgrade.cpp",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2021-01-25T12:26:38Z",
       "side": 1,
       "message": "this line is too long",
+      "revId": "f254b52d9f8510719b9a27a6f64739f4a72d9cbc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f532203_6b7fa542",
+        "filename": "src/bin/pkgman/command_medium_upgrade.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-01-25T13:16:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2b055ea4_6fbc4922",
       "revId": "f254b52d9f8510719b9a27a6f64739f4a72d9cbc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
