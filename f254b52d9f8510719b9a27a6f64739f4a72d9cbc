@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "413e6e3e_58140469",
+        "filename": "src/bin/pkgman/PackageManager.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-25T14:00:42Z",
+      "side": 1,
+      "message": "The coding guidelines says this:\n\n// Omit braces for single line statements, place statement on a new line\n// (but always use braces around multi-line statements)\n\nSo it is not about a single statement, but a \"single line statement\". It says it this way because multiple statements already need braces because of the C++ standard (otherwise the code wouldn\u0027t work).\n\nThe comment makes this multiple lines, so braces should be used.",
+      "parentUuid": "b7f1462e_9786921a",
+      "revId": "f254b52d9f8510719b9a27a6f64739f4a72d9cbc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2b055ea4_6fbc4922",
         "filename": "src/bin/pkgman/command_medium_upgrade.cpp",
         "patchSetId": 3
