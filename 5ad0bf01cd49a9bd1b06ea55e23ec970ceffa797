@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9be864b6_318e6985",
+        "filename": "src/kits/package/manager/PackageManager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-25T12:33:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "043f3e7d_ae6cf42f",
+      "revId": "5ad0bf01cd49a9bd1b06ea55e23ec970ceffa797",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c56e09d9_c6e1306b",
         "filename": "src/kits/package/manager/PackageManager.cpp",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "5ad0bf01cd49a9bd1b06ea55e23ec970ceffa797",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e82b5af5_a964e50a",
+        "filename": "src/kits/package/manager/PackageManager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-25T12:33:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c56e09d9_c6e1306b",
+      "revId": "5ad0bf01cd49a9bd1b06ea55e23ec970ceffa797",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
