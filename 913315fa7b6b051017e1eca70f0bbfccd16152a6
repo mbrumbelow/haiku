@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e966b659_bd43b334",
+        "filename": "src/apps/mandelbrot/Mandelbrot.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-01-26T16:12:10Z",
+      "side": 1,
+      "message": "Why adding 1 here to width/height?\nRemoving those saves a full-screen image in the correct sreen resolution. Otherwise the image is 1 pixel too big in both dimensions.",
+      "revId": "913315fa7b6b051017e1eca70f0bbfccd16152a6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
