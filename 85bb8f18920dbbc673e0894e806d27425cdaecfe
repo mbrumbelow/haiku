@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "378e964a_a8f410a7",
+        "filename": "docs/develop/kernel/boot/boot_process_specs.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-26T18:10:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae48424c_5b03d3bc",
+      "revId": "85bb8f18920dbbc673e0894e806d27425cdaecfe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "786cca68_43a0fb46",
         "filename": "docs/develop/kernel/boot/boot_process_specs.html",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "85bb8f18920dbbc673e0894e806d27425cdaecfe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dccb1d3f_0de53b60",
+        "filename": "docs/develop/kernel/boot/boot_process_specs.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-26T18:10:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "786cca68_43a0fb46",
+      "revId": "85bb8f18920dbbc673e0894e806d27425cdaecfe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "8203d435_c6aa9020",
+        "filename": "docs/develop/kernel/boot/boot_process_specs.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-26T18:10:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abd09e5c_2b4ba976",
+      "revId": "85bb8f18920dbbc673e0894e806d27425cdaecfe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "efa8bb75_58506157",
         "filename": "docs/develop/kernel/boot/boot_process_specs.html",
         "patchSetId": 1
@@ -88,6 +142,24 @@
     },
     {
       "key": {
+        "uuid": "da02f1d9_a6faddc9",
+        "filename": "docs/develop/kernel/boot/boot_process_specs.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-26T18:10:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "efa8bb75_58506157",
+      "revId": "85bb8f18920dbbc673e0894e806d27425cdaecfe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62b9d71b_1297d42a",
         "filename": "docs/develop/kernel/boot/boot_process_specs.html",
         "patchSetId": 1
@@ -102,6 +174,24 @@
       "revId": "85bb8f18920dbbc673e0894e806d27425cdaecfe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e9be599_5bdd6d77",
+        "filename": "docs/develop/kernel/boot/boot_process_specs.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-26T18:10:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62b9d71b_1297d42a",
+      "revId": "85bb8f18920dbbc673e0894e806d27425cdaecfe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
