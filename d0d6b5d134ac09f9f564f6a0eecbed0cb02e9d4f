@@ -34,6 +34,24 @@
       "revId": "d0d6b5d134ac09f9f564f6a0eecbed0cb02e9d4f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21812f1a_70effda4",
+        "filename": "src/kits/shared/Geolocation.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-26T21:03:33Z",
+      "side": 1,
+      "message": "Actually, this currently makes libshared depend on the new lib, and the new lib depend on libshared. This should be untangled.\n\nI\u0027m fine with moving it to the BPrivate::Network namespace as well.",
+      "parentUuid": "c5dbae7a_76474c3a",
+      "revId": "d0d6b5d134ac09f9f564f6a0eecbed0cb02e9d4f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
