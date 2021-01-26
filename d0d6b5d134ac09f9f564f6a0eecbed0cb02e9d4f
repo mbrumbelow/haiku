@@ -16,6 +16,24 @@
       "revId": "d0d6b5d134ac09f9f564f6a0eecbed0cb02e9d4f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5dbae7a_76474c3a",
+        "filename": "src/kits/shared/Geolocation.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-01-26T07:42:45Z",
+      "side": 1,
+      "message": "I was actually thinking the same thing, but I am slightly in doubt whether or not to move it into the BPrivate::Network namespace, or whether to keep it in the BPrivate namespace. For this symbol, there is no risk for clashes. But it does add make it slightly more confusing to have two namespaces in one static library.",
+      "parentUuid": "d78e7f90_a3a7854a",
+      "revId": "d0d6b5d134ac09f9f564f6a0eecbed0cb02e9d4f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
