@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c892ea39_ae2550ad",
+        "filename": "src/system/boot/platform/efi/console.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2021-01-29T02:14:27Z",
+      "side": 1,
+      "message": "You have a small spelling error here.",
+      "range": {
+        "startLine": 253,
+        "startChar": 4,
+        "endLine": 253,
+        "endChar": 15
+      },
+      "revId": "79e44c49c11fc2844ffba83193728b32c897ae86",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
