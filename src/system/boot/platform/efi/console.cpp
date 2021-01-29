@@ -249,7 +249,6 @@ console_control(bool graphics)
 status_t
 console_init(void)
 {
-	console_control(true);
 	update_screen_size();
 	console_hide_cursor();
 	console_clear_screen();
@@ -288,7 +287,10 @@ console_check_boot_keys(void)
 extern "C" void
 platform_switch_to_text_mode(void)
 {
+	// Solves video issues on Apple hardware. This is non-standard and
+	// deprecrated and should not be used for anything else!
 	console_control(false);
+
 	kSystemTable->ConOut->Reset(kSystemTable->ConOut, false);
 	kSystemTable->ConOut->SetMode(kSystemTable->ConOut, sScreenMode);
 }
