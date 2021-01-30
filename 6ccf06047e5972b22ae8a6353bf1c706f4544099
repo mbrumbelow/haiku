@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "52330c1a_5db5d076",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-30T20:19:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "efa6a5f3_4168fc3d",
+      "revId": "6ccf06047e5972b22ae8a6353bf1c706f4544099",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0f39bf05_da2d77af",
         "filename": "src/system/boot/platform/efi/arch/arm64/arch_start.cpp",
         "patchSetId": 1
@@ -72,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "dab9124a_5419056c",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-30T20:19:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "58c8d639_071869e3",
+      "revId": "6ccf06047e5972b22ae8a6353bf1c706f4544099",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76ae4493_c133f14f",
         "filename": "src/system/boot/platform/efi/arch/arm64/entry.S",
         "patchSetId": 1
@@ -104,6 +140,24 @@
       "revId": "6ccf06047e5972b22ae8a6353bf1c706f4544099",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7157de95_34b6e0da",
+        "filename": "src/system/boot/platform/efi/arch/arm64/entry.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-30T20:19:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "cf7a80b8_6737e840",
+      "revId": "6ccf06047e5972b22ae8a6353bf1c706f4544099",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }

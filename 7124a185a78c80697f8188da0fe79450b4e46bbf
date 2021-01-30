@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "462903cb_4ea480b5",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_start.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-30T20:19:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d9e694ec_9cc15b25",
+      "revId": "7124a185a78c80697f8188da0fe79450b4e46bbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ebcea7b_93349f47",
         "filename": "src/system/boot/platform/efi/arch/arm64/arch_start.cpp",
         "patchSetId": 2
@@ -72,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "e8f4d4fe_e37b8db2",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_start.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-30T20:19:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "28965402_af7f510f",
+      "revId": "7124a185a78c80697f8188da0fe79450b4e46bbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4c162643_c676a4ca",
         "filename": "src/system/boot/platform/efi/arch/arm64/relocation_func.cpp",
         "patchSetId": 2
@@ -89,6 +125,24 @@
     },
     {
       "key": {
+        "uuid": "4e1ae148_92197a53",
+        "filename": "src/system/boot/platform/efi/arch/arm64/relocation_func.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-30T20:19:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4c162643_c676a4ca",
+      "revId": "7124a185a78c80697f8188da0fe79450b4e46bbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f3a5e8a_ec9fc38f",
         "filename": "src/system/boot/platform/efi/arch/arm64/relocation_func.cpp",
         "patchSetId": 2
@@ -103,6 +157,24 @@
       "revId": "7124a185a78c80697f8188da0fe79450b4e46bbf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "405f9183_c4bdf7b8",
+        "filename": "src/system/boot/platform/efi/arch/arm64/relocation_func.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-01-30T20:19:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6f3a5e8a_ec9fc38f",
+      "revId": "7124a185a78c80697f8188da0fe79450b4e46bbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
