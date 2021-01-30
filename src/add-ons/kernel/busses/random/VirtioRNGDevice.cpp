@@ -117,7 +117,7 @@ VirtioRNGDevice::Read(void* _buffer, size_t* _numBytes)
 
 	if (fOffset < BUFFER_SIZE) {
 		size_t size = min_c(BUFFER_SIZE - fOffset, *_numBytes);
-		memcpy(_buffer, fBuffer + fOffset, size);
+		user_memcpy(_buffer, fBuffer + fOffset, size);
 		fOffset += size;
 		*_numBytes = size;
 	} else
