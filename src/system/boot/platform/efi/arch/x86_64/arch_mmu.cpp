@@ -26,6 +26,16 @@
 #define BOOT_GDT_SEGMENT_COUNT  (USER_DATA_SEGMENT + 1)
 
 
+static const uint32 kDefaultPageFlags = 0x3;
+    // present, R/W
+static const uint64 kTableMappingFlags = 0x7;
+    // present, R/W, user
+static const uint64 kLargePageMappingFlags = 0x183;
+    // present, R/W, user, global, large
+static const uint64 kPageMappingFlags = 0x103;
+    // present, R/W, user, global
+
+
 extern uint64 gLongGDT;
 extern uint64 gLongGDTR;
 segment_descriptor gBootGDT[BOOT_GDT_SEGMENT_COUNT];

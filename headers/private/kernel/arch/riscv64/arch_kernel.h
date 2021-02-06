@@ -7,12 +7,9 @@
 
 #include <arch/cpu.h>
 
-#warning Review arch_kernel.h
-
 // memory layout
 #define KERNEL_LOAD_BASE        0x80000000
 #define KERNEL_LOAD_BASE_64_BIT 0xffffffff80000000ll
-
 
 #if defined(__riscv64__)
 
