@@ -18,9 +18,6 @@
 extern segment_descriptor gBootGDT[BOOT_GDT_SEGMENT_COUNT];
 
 
-// For use with mmu_map_physical_memory()
-static const uint32 kDefaultPageFlags = 0x3;	// present, R/W
-
 #ifdef __cplusplus
 extern "C" {
 #endif

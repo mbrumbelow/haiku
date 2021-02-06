@@ -28,11 +28,6 @@
 #include "smp.h"
 
 
-static const uint64 kTableMappingFlags = 0x7;
-static const uint64 kLargePageMappingFlags = 0x183;
-static const uint64 kPageMappingFlags = 0x103;
-	// Global, R/W, Present
-
 extern "C" void long_enter_kernel(int currentCPU, uint64 stackTop);
 
 extern uint64 gLongGDT;
