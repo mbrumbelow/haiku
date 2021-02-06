@@ -34,6 +34,24 @@
       "revId": "e57f9b4df92d1a8744c0c5ae831e9b407cd3640f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "762b89b5_b492babe",
+        "filename": "src/apps/haikudepot/model/PackageInfo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1199,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-02-06T19:27:31Z",
+      "side": 1,
+      "message": "Right, you would need a \"fake\" PackageInfoRef that can be compared using _IsPackageBefore to the actual one. Not very convenient indeed.",
+      "parentUuid": "68e60c89_07af4043",
+      "revId": "e57f9b4df92d1a8744c0c5ae831e9b407cd3640f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
