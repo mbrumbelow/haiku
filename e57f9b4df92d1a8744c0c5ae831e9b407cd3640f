@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "89ea0cb7_0a3f5f15",
+        "filename": "src/apps/haikudepot/model/PackageInfo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1199,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-02-06T15:43:26Z",
+      "side": 1,
+      "message": "I think this is re-implementing std::binary_search?\nhttps://www.cplusplus.com/reference/algorithm/binary_search/",
+      "revId": "e57f9b4df92d1a8744c0c5ae831e9b407cd3640f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
