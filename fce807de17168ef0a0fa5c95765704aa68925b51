@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "591a5878_3d4c3462",
+        "filename": "data/system/boot/PostInstallScript",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-02-06T15:56:50Z",
+      "side": 1,
+      "message": "this script tries to set attributes to read-only directories and should really be done at build time. Why even try running it here? Shouldn\u0027t it be deleted?",
+      "revId": "fce807de17168ef0a0fa5c95765704aa68925b51",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a7ca2db_69b07c21",
+        "filename": "src/servers/package/CommitTransactionHandler.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-02-06T15:56:50Z",
+      "side": 1,
+      "message": "I think that this should not be done on first boot. Otherwise it means a fresh install already gets an \"old state\" dir.\n\nAny reason to keep it?\n\nAnd it seems this function is so different between first boot and normal mode that two separate functions may be simpler to manage? (I\u0027m not sure, but as it is now with an if block every two lines, it feels that way)",
+      "revId": "fce807de17168ef0a0fa5c95765704aa68925b51",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7091a65_77167f8b",
+        "filename": "src/servers/package/package_daemon.rdef",
+        "patchSetId": 6
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-02-06T15:56:50Z",
+      "side": 1,
+      "message": "shouldn\u0027t it become B_APPV_BETA and internal \u003d 3 (as we are getting ready for beta3?)",
+      "revId": "fce807de17168ef0a0fa5c95765704aa68925b51",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
