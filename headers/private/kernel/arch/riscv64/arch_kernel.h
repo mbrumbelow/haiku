@@ -7,23 +7,20 @@
 
 #include <arch/cpu.h>
 
-#warning Review arch_kernel.h
-
 // memory layout
-#define KERNEL_LOAD_BASE        0x80000000
-#define KERNEL_LOAD_BASE_64_BIT 0xffffffff80000000ll
+#define KERNEL_LOAD_BASE	0x80000000
+#define KERNEL_LOAD_BASE_64_BIT	0xffffffff80000000ll
 
-
-#if defined(__riscv64__)
+#if __riscv_xlen == 64
 
 // Base of the kernel address space.
-#define KERNEL_BASE             0xffffff0000000000
-#define KERNEL_SIZE             0x10000000000
-#define KERNEL_TOP              (KERNEL_BASE + (KERNEL_SIZE - 1))
+#define KERNEL_BASE		0xffffffc000000000
+#define KERNEL_SIZE		0x0000001000000000
+#define KERNEL_TOP		(KERNEL_BASE + (KERNEL_SIZE - 1))
 
 // Kernel physical memory map area.
-#define KERNEL_PMAP_BASE        0xffffff0000000000
-#define KERNEL_PMAP_SIZE        0x8000000000
+#define KERNEL_PMAP_BASE	0xffffffffc0000000
+#define KERNEL_PMAP_SIZE	0x0000000020000000
 
 // Userspace address space layout.
 // There is a 2MB hole just before the end of the bottom half of the address
@@ -38,7 +35,7 @@
 #define USER_STACK_REGION       0x7f0000000000
 #define USER_STACK_REGION_SIZE  ((USER_TOP - USER_STACK_REGION) + 1)
 
-#else /* ! __riscv64__ */
+#else /* ! _riscv_xlen == 64 */
 	#warning Unknown RISC-V Architecture!
 #endif
 

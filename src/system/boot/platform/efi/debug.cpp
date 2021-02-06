@@ -36,6 +36,11 @@ dprintf_args(const char *format, va_list args)
 	if (length == 0)
 		return;
 
+	#if DEBUG
+	// Show debug logs on stdout (handy for serial-only EFI)
+	printf("%s", buffer);
+	#endif
+
 	syslog_write(buffer, length);
 	serial_puts(buffer, length);
 }
