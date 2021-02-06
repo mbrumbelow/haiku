@@ -19,16 +19,6 @@
 extern "C" {
 #endif
 
-static const uint32 kDefaultPageFlags = 0x3;
-    // present, R/W
-static const uint64 kTableMappingFlags = 0x7;
-    // present, R/W, user
-static const uint64 kLargePageMappingFlags = 0x183;
-    // present, R/W, user, global, large
-static const uint64 kPageMappingFlags = 0x103;
-    // present, R/W, user, global
-
-
 extern addr_t get_next_virtual_address(size_t size);
 extern addr_t get_current_virtual_address();
 
