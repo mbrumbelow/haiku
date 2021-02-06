@@ -11,8 +11,18 @@
 #include "efi_platform.h"
 
 
-extern "C" void arch_enter_kernel(struct kernel_args *kernelArgs,
+extern "C" void arch_enter_kernel(uint64 satp, struct kernel_args *kernelArgs,
 	addr_t kernelEntry, addr_t kernelStackTop);
+
+// From arch_mmu.cpp
+extern void arch_mmu_post_efi_setup(size_t memory_map_size,
+	efi_memory_descriptor *memory_map, size_t descriptor_size,
+	uint32_t descriptor_version);
+extern uint64_t arch_mmu_generate_post_efi_page_tables(size_t memory_map_size,
+	efi_memory_descriptor *memory_map, size_t descriptor_size,
+	uint32_t descriptor_version);
+extern uint64_t arch_mmu_generate_satp(uint64_t pageDirAddr);
+
 
 void
 arch_start_kernel(addr_t kernelEntry)
@@ -57,6 +67,12 @@ arch_start_kernel(addr_t kernelEntry)
 			entry->VirtualStart, entry->Type, entry->Attribute);
 	}
 
+	// Generate page tables for use after ExitBootServices.
+	uint64_t finalPageDir = arch_mmu_generate_post_efi_page_tables(
+		memory_map_size, memory_map, descriptor_size, descriptor_version);
+	dprintf("Final page directory (Sv39) at %#lx\n", finalPageDir);
+	uint64_t satp = arch_mmu_generate_satp(finalPageDir);
+
 	// Attempt to fetch the memory map and exit boot services.
 	// This needs to be done in a loop, as ExitBootServices can change the
 	// memory map.
@@ -86,12 +102,12 @@ arch_start_kernel(addr_t kernelEntry)
 	}
 
 	// Update EFI, generate final kernel physical memory map, etc.
-	//arch_mmu_post_efi_setup(memory_map_size, memory_map,
-	//		descriptor_size, descriptor_version);
+	arch_mmu_post_efi_setup(memory_map_size, memory_map,
+			descriptor_size, descriptor_version);
 
-	//smp_boot_other_cpus(final_pml4, kernelEntry);
+	//smp_boot_other_cpus(finalPageDir, kernelEntry);
 
 	// Enter the kernel!
-	arch_enter_kernel(&gKernelArgs, kernelEntry,
+	arch_enter_kernel(satp, &gKernelArgs, kernelEntry,
 		gKernelArgs.cpu_kstack[0].start + gKernelArgs.cpu_kstack[0].size);
 }
