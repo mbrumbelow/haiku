@@ -16,6 +16,24 @@
       "revId": "e57f9b4df92d1a8744c0c5ae831e9b407cd3640f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68e60c89_07af4043",
+        "filename": "src/apps/haikudepot/model/PackageInfo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1199,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2021-02-06T19:01:05Z",
+      "side": 1,
+      "message": "Hi; yes, I tried to use `std:binary_search`, but it seems to me that the \"context type\" on the signature of the comparison function requires a type that can be converted to the type of the collection.  So this can\u0027t work in this case because the type `BString` is not able to be converted to the type `PackageInfoRef`.",
+      "parentUuid": "89ea0cb7_0a3f5f15",
+      "revId": "e57f9b4df92d1a8744c0c5ae831e9b407cd3640f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
