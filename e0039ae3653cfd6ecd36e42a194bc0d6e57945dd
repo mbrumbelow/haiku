@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d72bc42e_bcf2b37b",
+        "filename": "src/kits/network/libnetservices/HttpRequest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-02-07T08:51:50Z",
+      "side": 1,
+      "message": "The check at line 815 can be moved up here: there is no need to decompress the data if we are not doing anything with it.\n\nThis is probably important because the previous check (at line 780) skips the decompression, and we would be sending inconsistent data to the decompressor, probably resulting in some error.\n\nAlso check for fListener !\u003d NULL here for the same reason.",
+      "revId": "e0039ae3653cfd6ecd36e42a194bc0d6e57945dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
