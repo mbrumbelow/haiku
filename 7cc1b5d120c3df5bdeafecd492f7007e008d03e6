@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "95b7ab34_ce9ea19c",
+        "filename": "headers/private/netservices/UrlResult.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-02-07T08:56:06Z",
+      "side": 1,
+      "message": "This should use an off_t",
+      "revId": "7cc1b5d120c3df5bdeafecd492f7007e008d03e6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
