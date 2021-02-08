@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cf5d449c_0ca1e8ef",
+        "filename": "src/system/boot/platform/efi/start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2021-02-08T20:46:15Z",
+      "side": 1,
+      "message": "Format: space after commas.\n\nThe NULL for ResetData is probably ok as the arg is OPTIONAL, but the docs also say:\n\"For a ResetType of EfiResetCold, EfiResetWarm, or\nEfiResetShutdown the data buffer starts with a Null-\nterminated string, optionally followed by additional binary\ndata.\"",
+      "revId": "fc68307107433e2f77f2105e811c0e868aa7a2fa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
