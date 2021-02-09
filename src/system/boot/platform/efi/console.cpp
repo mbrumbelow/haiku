@@ -14,7 +14,6 @@
 
 #include <boot/stage2.h>
 #include <boot/platform.h>
-#include <efi/protocol/console-control.h>
 #include <util/kernel_cpp.h>
 
 #include "efi_platform.h"

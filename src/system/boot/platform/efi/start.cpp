@@ -167,9 +167,6 @@ platform_start_kernel(void)
 		+ KERNEL_STACK_GUARD_PAGES * B_PAGE_SIZE;
 	dprintf("Kernel stack at %#lx\n", gKernelArgs.cpu_kstack[0].start);
 
-	// Apply any weird EFI quirks
-	quirks_init();
-
 	// Begin architecture-centric kernel entry.
 	arch_start_kernel(kernelEntry);
 
@@ -203,6 +200,9 @@ efi_main(efi_handle image, efi_system_table *systemTable)
 	kRuntimeServices = systemTable->RuntimeServices;
 
 	call_ctors();
+
+	// Apply any weird EFI quirks
+	quirks_init();
 
 	console_init();
 	serial_init();
