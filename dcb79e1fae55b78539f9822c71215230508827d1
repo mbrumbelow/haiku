@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "46916635_5268ca7a",
+        "filename": "headers/private/kernel/arch/x86/descriptors.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2021-02-12T18:53:04Z",
+      "side": 1,
+      "message": "Ah the ancient magic values of the RISC-V tribe :)",
+      "revId": "dcb79e1fae55b78539f9822c71215230508827d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b390a181_a2a33b01",
+        "filename": "src/system/boot/platform/efi/debug.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2021-02-12T18:53:04Z",
+      "side": 1,
+      "message": "Why isn\u0027t syslog or serial enough?",
+      "revId": "dcb79e1fae55b78539f9822c71215230508827d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7bf915ff_3e235e27",
+        "filename": "src/system/ldscripts/riscv64/kernel.ld",
+        "patchSetId": 10
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2021-02-12T18:53:04Z",
+      "side": 1,
+      "message": "You probably want 16 for alignment, at least stack should be 16 byte aligned. So probably good to use everywhere:\n\"In the standard RISC-V calling convention, the stack\ngrows downward and the stack point is always kept 16-byte aligned.\"",
+      "revId": "dcb79e1fae55b78539f9822c71215230508827d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
