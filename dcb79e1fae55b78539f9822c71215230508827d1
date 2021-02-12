@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d129433f_14b707ce",
+        "filename": "headers/private/kernel/arch/x86/descriptors.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-02-12T19:05:04Z",
+      "side": 1,
+      "message": "that\u0027s x86 :-)\n\nPretty quickly realized that EFI assuming every architecture used the same page flags was incorrect.",
+      "parentUuid": "46916635_5268ca7a",
+      "revId": "dcb79e1fae55b78539f9822c71215230508827d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b390a181_a2a33b01",
         "filename": "src/system/boot/platform/efi/debug.cpp",
         "patchSetId": 10
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "cd7e4332_6a8f3774",
+        "filename": "src/system/boot/platform/efi/debug.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-02-12T19:05:04Z",
+      "side": 1,
+      "message": "Heh, so on risc-v and arm.. the serial \"is\" the display in efi. So the bootloader puts it\u0027s menu (you can interact with) on serial.\n\ndebug output (via dprintf) only go to the \"bootloader syslog\" that can be viewed via the bootloader menu \"bootloader log menu\"\n\nWell.. if you need to see the bootloader logs after you exit the bootloader menu (riscv64) or if your keyboard doesn\u0027t work (arm) you\u0027re outta luck.\n\nThis pretty much says \"if you\u0027re compiling with DEBUG macros, dump the bootloader log to the \"screen (aka serial)\" with the bootloader menu.\n\nI\u0027m open to alternatives, but this was the only way I could get any good debug info on serial.",
+      "parentUuid": "b390a181_a2a33b01",
+      "revId": "dcb79e1fae55b78539f9822c71215230508827d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7bf915ff_3e235e27",
         "filename": "src/system/ldscripts/riscv64/kernel.ld",
         "patchSetId": 10
@@ -47,6 +83,24 @@
       "writtenOn": "2021-02-12T18:53:04Z",
       "side": 1,
       "message": "You probably want 16 for alignment, at least stack should be 16 byte aligned. So probably good to use everywhere:\n\"In the standard RISC-V calling convention, the stack\ngrows downward and the stack point is always kept 16-byte aligned.\"",
+      "revId": "dcb79e1fae55b78539f9822c71215230508827d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f589c50c_7553de93",
+        "filename": "src/system/ldscripts/riscv64/kernel.ld",
+        "patchSetId": 10
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-02-12T19:05:04Z",
+      "side": 1,
+      "message": "good catch! yeah, I just borrowed sparc\u0027s kernel linker script. I used arm\u0027s for some reason as a base and realized the 0x80000000 really didn\u0027t align to our 64-bit kernel load base of 0xffffffff800...",
+      "parentUuid": "7bf915ff_3e235e27",
       "revId": "dcb79e1fae55b78539f9822c71215230508827d1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
