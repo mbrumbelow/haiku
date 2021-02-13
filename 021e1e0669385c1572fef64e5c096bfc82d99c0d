@@ -16,6 +16,24 @@
       "revId": "021e1e0669385c1572fef64e5c096bfc82d99c0d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05271332_4a1cebb5",
+        "filename": "src/add-ons/kernel/busses/random/VirtioRNGDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-02-13T19:41:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55032fcd_487326eb",
+      "revId": "021e1e0669385c1572fef64e5c096bfc82d99c0d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
