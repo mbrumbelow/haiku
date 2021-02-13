@@ -1,0 +1,265 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a7b6f7bb_aa9d399a",
+        "filename": "headers/private/kernel/arch/riscv64/arch_kernel.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-13T16:00:33Z",
+      "side": 1,
+      "message": "You must be using an ancient toolchain if this works. It\u0027s been `defined(__riscv) \u0026\u0026 __riscv_xlen \u003d\u003d 64` for years (though since this is already in a RISC-V header you can skip the first half), possibly even the entire time the GCC port has been upstream (i.e. it only was __riscv64__ in the fork), and Clang has never recognised __riscv64__.",
+      "revId": "3fb1ef6cb52c6b93980dc8e7ee342b12368cedc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fecf0783_094b28a7",
+        "filename": "src/system/boot/platform/efi/arch/arm/arch_mmu.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-13T16:00:33Z",
+      "side": 1,
+      "message": "This is wrong for arm; better to let it fail to build.",
+      "revId": "3fb1ef6cb52c6b93980dc8e7ee342b12368cedc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56915a8a_e5baac7f",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-13T16:00:33Z",
+      "side": 1,
+      "message": "You should mask out the non-PPN bits",
+      "revId": "3fb1ef6cb52c6b93980dc8e7ee342b12368cedc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae146204_8733dd45",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-13T16:00:33Z",
+      "side": 1,
+      "message": "Why is VALID spelled in full but R/W/X aren\u0027t? It\u0027d also be nicer to define VALID_RWX as the OR of all four, and separately from the individual bit positions (so \"architectural constants\" and \"helpful derived aliases\" are clearly separated).",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 0
+      },
+      "revId": "3fb1ef6cb52c6b93980dc8e7ee342b12368cedc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9db33345_823bca83",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-13T16:00:33Z",
+      "side": 1,
+      "message": "The architecture calls it X so print that.",
+      "revId": "3fb1ef6cb52c6b93980dc8e7ee342b12368cedc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57301a25_ee370437",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-13T16:00:33Z",
+      "side": 1,
+      "message": "That\u0027s not how it works; if megapages or gigapages are used then you have to stop early. Relatedly you should print out a giant error if you ever see a non-leaf when level is 0.",
+      "revId": "3fb1ef6cb52c6b93980dc8e7ee342b12368cedc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eaf186f1_d87b1ddd",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-13T16:00:33Z",
+      "side": 1,
+      "message": "Doesn\u0027t need to be volatile, the asm operands capture the effects. But also, this is stupid, you don\u0027t need to read SATP, just synthesise a new one from scratch, inheriting random bits makes no sense (in this case, the ASID). Besides, it\u0027ll always end up being all zeroes.",
+      "revId": "3fb1ef6cb52c6b93980dc8e7ee342b12368cedc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3473876f_c9251f5d",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-13T16:00:33Z",
+      "side": 1,
+      "message": "X86 code",
+      "revId": "3fb1ef6cb52c6b93980dc8e7ee342b12368cedc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff841690_2538f8e4",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-13T16:00:33Z",
+      "side": 1,
+      "message": "These are stupid names",
+      "revId": "3fb1ef6cb52c6b93980dc8e7ee342b12368cedc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b75a608f_653afa9f",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-13T16:00:33Z",
+      "side": 1,
+      "message": "These comments are inaccurate",
+      "revId": "3fb1ef6cb52c6b93980dc8e7ee342b12368cedc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7b37771_c12effd5",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-13T16:00:33Z",
+      "side": 1,
+      "message": "PTEs are bit patterns inside the page tables. You allocate page tables, not entries in page tables.",
+      "revId": "3fb1ef6cb52c6b93980dc8e7ee342b12368cedc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eca058bd_666656e1",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-13T16:00:33Z",
+      "side": 1,
+      "message": "Completely arbitrary.",
+      "revId": "3fb1ef6cb52c6b93980dc8e7ee342b12368cedc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "438386bd_8aac24a4",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-13T16:00:33Z",
+      "side": 1,
+      "message": "It\u0027s also not supported by most hardware.",
+      "revId": "3fb1ef6cb52c6b93980dc8e7ee342b12368cedc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "087447c2_dff74c80",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_start.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-13T16:00:33Z",
+      "side": 1,
+      "message": "Argument name needs updating to match the implementation",
+      "revId": "3fb1ef6cb52c6b93980dc8e7ee342b12368cedc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86fcba09_a980204c",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_start.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-13T16:00:33Z",
+      "side": 1,
+      "message": "Bad variable name",
+      "revId": "3fb1ef6cb52c6b93980dc8e7ee342b12368cedc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
