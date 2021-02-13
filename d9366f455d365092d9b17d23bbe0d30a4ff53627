@@ -116,6 +116,24 @@
       "revId": "d9366f455d365092d9b17d23bbe0d30a4ff53627",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57ffd404_ca2e197e",
+        "filename": "src/bin/filepanel.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-02-13T20:01:45Z",
+      "side": 1,
+      "message": "The problem is that usage of #if inside B_TRANSLATE (which is a macro) is undefined behavior (although it works in gcc): https://gcc.gnu.org/onlinedocs/gcc-8.4.0/cpp/Directives-Within-Macro-Arguments.html\n\nIt would be better to avoid that.\n\nI checked BeOS and there is no filepanel command there. So I think we should just remove these two options for now.",
+      "parentUuid": "bc60cdb8_c8f7a88d",
+      "revId": "d9366f455d365092d9b17d23bbe0d30a4ff53627",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
