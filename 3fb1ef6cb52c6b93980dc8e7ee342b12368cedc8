@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8bf054f6_54681b68",
+        "filename": "headers/private/kernel/arch/riscv64/arch_kernel.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-02-13T18:12:55Z",
+      "side": 1,
+      "message": "This is something we define. We have our own gcc 8.3 toolchain + defines. Our triplet is riscv64-unknown-haiku\n\n./buildtools/gcc/gcc/config/riscv/haiku.h:        builtin_define (\"__riscv64__\");\n\n./generated.riscv64/cross-tools-riscv64/bin/riscv64-unknown-haiku-gcc -dM -E - \u003c /dev/null | grep -i risc\n#define __riscv 1\n#define __riscv_atomic 1\n#define __riscv64__ 1\n#define __RISCV__ 1\n#define __riscv_fdiv 1\n#define __riscv_float_abi_double 1\n#define __riscv_flen 64\n#define __riscv_compressed 1\n#define __riscv_mul 1\n#define __riscv_muldiv 1\n#define __riscv_xlen 64\n#define __riscv_fsqrt 1\n#define __riscv__ 1\n#define __riscv_div 1\n#define __riscv_cmodel_pic 1\n\n./generated.riscv64/cross-tools-riscv64/bin/riscv64-unknown-haiku-gcc -dM -E - \u003c /dev/null | grep -i haiku\n#define __HAIKU__ 1\n\n\nHowever, yeah.. if we ever plan to use clang for our toolchain this is something we\u0027ll have to fix. (in all architectures)",
+      "parentUuid": "a7b6f7bb_aa9d399a",
+      "revId": "3fb1ef6cb52c6b93980dc8e7ee342b12368cedc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fecf0783_094b28a7",
         "filename": "src/system/boot/platform/efi/arch/arm/arch_mmu.cpp",
         "patchSetId": 11
@@ -76,6 +94,30 @@
     },
     {
       "key": {
+        "uuid": "9eb2d102_022b587d",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-02-13T18:12:55Z",
+      "side": 1,
+      "message": "easy fix",
+      "parentUuid": "ae146204_8733dd45",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 0
+      },
+      "revId": "3fb1ef6cb52c6b93980dc8e7ee342b12368cedc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9db33345_823bca83",
         "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
         "patchSetId": 11
@@ -87,6 +129,24 @@
       "writtenOn": "2021-02-13T16:00:33Z",
       "side": 1,
       "message": "The architecture calls it X so print that.",
+      "revId": "3fb1ef6cb52c6b93980dc8e7ee342b12368cedc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "118bc4fb_236f68d6",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-02-13T18:12:55Z",
+      "side": 1,
+      "message": "will fix",
+      "parentUuid": "9db33345_823bca83",
       "revId": "3fb1ef6cb52c6b93980dc8e7ee342b12368cedc8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -127,6 +187,24 @@
     },
     {
       "key": {
+        "uuid": "48b3a8ca_b9d141c9",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-02-13T18:12:55Z",
+      "side": 1,
+      "message": "will fix. I wasn\u0027t sure what state the cpu was in before calling our bootloader.  I wasn\u0027t sure what ASID would be, so was leaving it alone.",
+      "parentUuid": "eaf186f1_d87b1ddd",
+      "revId": "3fb1ef6cb52c6b93980dc8e7ee342b12368cedc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3473876f_c9251f5d",
         "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
         "patchSetId": 11
@@ -138,6 +216,24 @@
       "writtenOn": "2021-02-13T16:00:33Z",
       "side": 1,
       "message": "X86 code",
+      "revId": "3fb1ef6cb52c6b93980dc8e7ee342b12368cedc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8f70b75_66476d14",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-02-13T18:12:55Z",
+      "side": 1,
+      "message": "yeah.  I wasn\u0027t sure if something similar was needed on riscv64, but sounds like it isn\u0027t.\n\nwill drop",
+      "parentUuid": "3473876f_c9251f5d",
       "revId": "3fb1ef6cb52c6b93980dc8e7ee342b12368cedc8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -161,6 +257,24 @@
     },
     {
       "key": {
+        "uuid": "36cd45c4_3622d3c4",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-02-13T18:12:55Z",
+      "side": 1,
+      "message": "These are the best names :-)\n\nEveryone seems to get confused if i use megapage/terapage/etc. Everyone also gets confused if i say pageDirL0, pageDirL1, etc (since arm is backwards)\n\nsuggestions welcome",
+      "parentUuid": "ff841690_2538f8e4",
+      "revId": "3fb1ef6cb52c6b93980dc8e7ee342b12368cedc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b75a608f_653afa9f",
         "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
         "patchSetId": 11
@@ -178,6 +292,24 @@
     },
     {
       "key": {
+        "uuid": "b7dff32b_ad87cdce",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-02-13T18:12:55Z",
+      "side": 1,
+      "message": "L2 pages aren\u0027t 512GiB chunks?",
+      "parentUuid": "b75a608f_653afa9f",
+      "revId": "3fb1ef6cb52c6b93980dc8e7ee342b12368cedc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f7b37771_c12effd5",
         "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
         "patchSetId": 11
@@ -189,6 +321,24 @@
       "writtenOn": "2021-02-13T16:00:33Z",
       "side": 1,
       "message": "PTEs are bit patterns inside the page tables. You allocate page tables, not entries in page tables.",
+      "revId": "3fb1ef6cb52c6b93980dc8e7ee342b12368cedc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8bdfaffe_9e109fe7",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-02-13T18:12:55Z",
+      "side": 1,
+      "message": "will fix",
+      "parentUuid": "f7b37771_c12effd5",
       "revId": "3fb1ef6cb52c6b93980dc8e7ee342b12368cedc8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -246,6 +396,24 @@
     },
     {
       "key": {
+        "uuid": "e7e4ec28_022ddbb6",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_start.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-02-13T18:12:55Z",
+      "side": 1,
+      "message": "will fix",
+      "parentUuid": "087447c2_dff74c80",
+      "revId": "3fb1ef6cb52c6b93980dc8e7ee342b12368cedc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "86fcba09_a980204c",
         "filename": "src/system/boot/platform/efi/arch/riscv64/arch_start.cpp",
         "patchSetId": 11
@@ -257,6 +425,24 @@
       "writtenOn": "2021-02-13T16:00:33Z",
       "side": 1,
       "message": "Bad variable name",
+      "revId": "3fb1ef6cb52c6b93980dc8e7ee342b12368cedc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7b7bebb_c6f0bd16",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_start.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-02-13T18:12:55Z",
+      "side": 1,
+      "message": "finalPageDir?",
+      "parentUuid": "86fcba09_a980204c",
       "revId": "3fb1ef6cb52c6b93980dc8e7ee342b12368cedc8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
