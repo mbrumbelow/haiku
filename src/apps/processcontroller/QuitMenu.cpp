@@ -8,6 +8,7 @@
 #include "IconMenuItem.h"
 #include "ProcessController.h"
 
+#include <Bitmap.h>
 #include <Roster.h>
 #include <Window.h>
 #include <stdio.h>
@@ -105,10 +106,14 @@ QuitMenu::AddTeam(team_id tmid)
 			message);
 	else {
 		info_pack infos;
-		if (get_team_info(tmid, &infos.team_info) == B_OK
-			&& get_team_name_and_icon(infos, true))
-			item = new QuitMenuItem(tmid, infos.team_icon, infos.team_name,
-				message, true);
+		if (get_team_info(tmid, &infos.team_info) == B_OK) {
+			if (get_team_name_and_icon(infos, true)) {
+				item = new QuitMenuItem(tmid, infos.team_icon, infos.team_name,
+					message, true);
+			} else {
+				delete infos.team_icon;
+			}
+		}
 	}
 	if (item) {
 		item->SetTarget(gPCView);
