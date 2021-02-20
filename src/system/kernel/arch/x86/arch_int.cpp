@@ -335,9 +335,13 @@ x86_page_fault_exception(struct iframe* frame)
 
 		// If we are not running the kernel startup the page fault was not
 		// allowed to happen and we must panic.
-		panic("page fault, but interrupts were disabled. Touching address "
+		if (!IFRAME_IS_USER(frame)) {
+			panic("page fault, but interrupts were disabled. Touching address "
+				"%p from ip %p\n", (void*)cr2, (void*)frame->ip);
+			return;
+		}
+		dprintf("page fault, but interrupts were disabled. Touching address "
 			"%p from ip %p\n", (void*)cr2, (void*)frame->ip);
-		return;
 	} else if (thread != NULL && thread->page_faults_allowed < 1) {
 		panic("page fault not allowed at this place. Touching address "
 			"%p from ip %p\n", (void*)cr2, (void*)frame->ip);
