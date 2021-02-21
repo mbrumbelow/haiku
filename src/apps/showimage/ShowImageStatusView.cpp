@@ -41,7 +41,7 @@ void
 ShowImageStatusView::AttachedToWindow()
 {
 	SetFont(be_plain_font);
-	SetFontSize(10.0);
+	SetFontSize(10.0 * be_plain_font->Size() / 12.f);
 
 	BScrollBar* scrollBar = fScrollView->ScrollBar(B_HORIZONTAL);
 	MoveTo(0.0, scrollBar->Frame().top);
