@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "6571f08a_cc6873a7",
+        "filename": "data/system/boot/PostInstallScript",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000038
+      },
+      "writtenOn": "2021-02-23T00:29:21Z",
+      "side": 1,
+      "message": "You\u0027re right, it doesn\u0027t do anything extra.  A disk image before running that script and after have the same files with the SYS:NAME attribute.  Taking it out...",
+      "parentUuid": "c915f76c_df632565",
+      "revId": "fce807de17168ef0a0fa5c95765704aa68925b51",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7a7ca2db_69b07c21",
         "filename": "src/servers/package/CommitTransactionHandler.cpp",
         "patchSetId": 6
