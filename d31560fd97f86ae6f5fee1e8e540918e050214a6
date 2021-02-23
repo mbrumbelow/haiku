@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8de9b5ab_5446a0c7",
+        "filename": "src/apps/haikudepot/ui/App.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-02-23T05:59:15Z",
+      "side": 1,
+      "message": "this should be combined with the next if",
+      "revId": "d31560fd97f86ae6f5fee1e8e540918e050214a6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "255c5ddb_9d600e9a",
+        "filename": "src/apps/haikudepot/ui/App.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-02-23T05:59:15Z",
+      "side": 1,
+      "message": "should be } else {",
+      "revId": "d31560fd97f86ae6f5fee1e8e540918e050214a6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d517401f_b02e8a74",
+        "filename": "src/apps/haikudepot/util/StorageUtils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-02-23T05:59:15Z",
+      "side": 1,
+      "message": "wasRead is unused.",
+      "revId": "d31560fd97f86ae6f5fee1e8e540918e050214a6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c628ce2_5a800e41",
+        "filename": "src/apps/haikudepot/util/StorageUtils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-02-23T05:59:15Z",
+      "side": 1,
+      "message": "The cast to status_t is not needed, it\u0027s already the return type of WriteExactly.",
+      "revId": "d31560fd97f86ae6f5fee1e8e540918e050214a6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "631fc014_674d223f",
+        "filename": "src/apps/haikudepot/util/StorageUtils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-02-23T05:59:15Z",
+      "side": 1,
+      "message": "The curly braces can be dropped.",
+      "revId": "d31560fd97f86ae6f5fee1e8e540918e050214a6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61eeb393_ded18cdf",
+        "filename": "src/apps/haikudepot/util/StorageUtils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-02-23T05:59:15Z",
+      "side": 1,
+      "message": "This should be } else {",
+      "revId": "d31560fd97f86ae6f5fee1e8e540918e050214a6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
