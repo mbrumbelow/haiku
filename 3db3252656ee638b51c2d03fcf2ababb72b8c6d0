@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "86bdc8a8_2a9b1763",
+        "filename": "src/apps/processcontroller/QuitMenu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-02-23T06:02:38Z",
+      "side": 1,
+      "message": "The curly braces are needed on a multiline if.",
+      "revId": "3db3252656ee638b51c2d03fcf2ababb72b8c6d0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
