@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "ce17eb63_8b4810a5",
+        "filename": "data/system/boot/PostInstallScript",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000038
+      },
+      "writtenOn": "2021-02-24T16:11:18Z",
+      "side": 1,
+      "message": "Oops, looks like I was testing the wrong build, it\u0027s definitely different.  Same for both 32 and 64 bit builds.\n\nThese are the files with SYS:NAME attributes when the add_catalog_entry_attributes.sh is operating:\n/TestBFS/home/config/settings/deskbar/menu/Applications\n/TestBFS/home/config/settings/deskbar/menu/Demos\n/TestBFS/home/Desktop\n/TestBFS/home/config/settings/deskbar/menu/Desktop\\ applets\n/TestBFS/home/config/settings/deskbar/menu/Preferences\n/TestBFS/home/config/settings/Tracker/Tracker\\ New\\ Templates\n/TestBFS/home/mail/draft\n/TestBFS/home\n/TestBFS/home/mail/in\n/TestBFS/home/mail\n/TestBFS/home/mail/out\n/TestBFS/home/mail/queries\n/TestBFS/home/mail/sent\n/TestBFS/home/mail/spam\n/TestBFS/trash\n\nand without the script:\n/TestBFS/home\n\nI\u0027ll put the removal of the script into a different Gerrit change, for later when someone figures out how to do it during build.",
+      "parentUuid": "6571f08a_cc6873a7",
+      "revId": "fce807de17168ef0a0fa5c95765704aa68925b51",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7a7ca2db_69b07c21",
         "filename": "src/servers/package/CommitTransactionHandler.cpp",
         "patchSetId": 6
