@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "5e35c9bc_7a217068",
+        "filename": "headers/private/kernel/arch/riscv64/arch_kernel.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-02-25T01:31:07Z",
+      "side": 1,
+      "message": "I\u0027m fine with this. We have __riscv64__ scattered around our source code everywhere (out of scope of this change). After this commit is checked in, i\u0027ll update our sources globally and drop the __riscv64__ defines.",
+      "parentUuid": "f3ef3399_f81d0c65",
+      "revId": "3fb1ef6cb52c6b93980dc8e7ee342b12368cedc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fecf0783_094b28a7",
         "filename": "src/system/boot/platform/efi/arch/arm/arch_mmu.cpp",
         "patchSetId": 11

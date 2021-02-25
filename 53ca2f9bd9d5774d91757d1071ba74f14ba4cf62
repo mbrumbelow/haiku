@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "49d64ebd_92ee5024",
+        "filename": "headers/private/kernel/arch/riscv64/arch_kernel.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-02-25T01:31:07Z",
+      "side": 1,
+      "message": "using more standard riscv64 defines in this patchset.  These are riscv64 headers so all we need to check is len",
+      "revId": "53ca2f9bd9d5774d91757d1071ba74f14ba4cf62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a59806cf_c4365d90",
+        "filename": "headers/private/kernel/arch/riscv64/arch_kernel.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-02-25T01:31:07Z",
+      "side": 1,
+      "message": "adjusted addresses based on discussions around \"minimum\" virtual address range.",
+      "revId": "53ca2f9bd9d5774d91757d1071ba74f14ba4cf62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b23f2e9d_61979f54",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-02-25T01:31:07Z",
+      "side": 1,
+      "message": "fixed checking for leaf pages to \"halt\" page walking",
+      "revId": "53ca2f9bd9d5774d91757d1071ba74f14ba4cf62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e277da78_eced838a",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-02-25T01:31:07Z",
+      "side": 1,
+      "message": "I tried simplifying this since the kernel will take over the page tables / vm once we get into the kernel.\n\nThis code generates https://pastebin.com/0yg0wBAb",
+      "revId": "53ca2f9bd9d5774d91757d1071ba74f14ba4cf62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
