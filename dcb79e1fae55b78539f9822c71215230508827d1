@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "c83088c0_b46b8501",
+        "filename": "src/system/boot/platform/efi/debug.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2021-02-25T20:50:01Z",
+      "side": 1,
+      "message": "I think there is a mechanism for bootloader logs to go to ordinary log, but it has never been fully done for EFI. I know in the early days since UEFI has a 16 bit chars, I just ignored all but the basics.",
+      "parentUuid": "cd7e4332_6a8f3774",
+      "revId": "dcb79e1fae55b78539f9822c71215230508827d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7bf915ff_3e235e27",
         "filename": "src/system/ldscripts/riscv64/kernel.ld",
         "patchSetId": 10
