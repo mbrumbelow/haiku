@@ -72,10 +72,10 @@ static const char* kTrackerSignature = "application/x-vnd.Be-TRAK";
 // TODO: make configurable.
 // Current values taken from Pe's defaults.
 static rgb_color kSyntaxColors[] = {
-	{0, 0, 0, 255}, 			// SYNTAX_HIGHLIGHT_NONE
+	{200, 200, 200, 255}, 			// SYNTAX_HIGHLIGHT_NONE // normal text
 	{0x39, 0x74, 0x79, 255},	// SYNTAX_HIGHLIGHT_KEYWORD
 	{0, 0x64, 0, 255},			// SYNTAX_HIGHLIGHT_PREPROCESSOR_KEYWORD
-	{0, 0, 0, 255},				// SYNTAX_HIGHLIGHT_IDENTIFIER
+	{200, 200, 200, 255},				// SYNTAX_HIGHLIGHT_IDENTIFIER
 	{0x44, 0x8a, 0, 255},		// SYNTAX_HIGHLIGHT_OPERATOR
 	{0x70, 0x70, 0x70, 255},	// SYNTAX_HIGHLIGHT_TYPE
 	{0x85, 0x19, 0x19, 255},	// SYNTAX_HIGHLIGHT_NUMERIC_LITERAL
