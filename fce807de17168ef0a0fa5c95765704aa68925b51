@@ -108,6 +108,24 @@
     },
     {
       "key": {
+        "uuid": "508c73e0_eb016991",
+        "filename": "src/servers/package/CommitTransactionHandler.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1000038
+      },
+      "writtenOn": "2021-02-28T21:05:57Z",
+      "side": 1,
+      "message": "PatchSet 7 now doesn\u0027t create the unnecessary saved state, also code is easier to read.",
+      "parentUuid": "023875bb_e3a6725b",
+      "revId": "fce807de17168ef0a0fa5c95765704aa68925b51",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d7091a65_77167f8b",
         "filename": "src/servers/package/package_daemon.rdef",
         "patchSetId": 6
@@ -140,6 +158,24 @@
       "revId": "fce807de17168ef0a0fa5c95765704aa68925b51",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7514139e_2e65f0f6",
+        "filename": "src/servers/package/package_daemon.rdef",
+        "patchSetId": 6
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000038
+      },
+      "writtenOn": "2021-02-28T21:05:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "269fed82_a197592d",
+      "revId": "fce807de17168ef0a0fa5c95765704aa68925b51",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
