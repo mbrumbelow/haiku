@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "19412ea6_bc313318",
+        "filename": "headers/private/kernel/arch/riscv64/arch_kernel.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-03-01T01:59:30Z",
+      "side": 1,
+      "message": "matching the reported kernel space alloc\n  L2 ppn 0   0xffffffc\n  L2 ppn 510 0xffffffff8  (identity mapped)",
+      "revId": "9cf7903a1cf95977aaa63e73d3a9fd9c46585b78",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e899dca5_cb5fb737",
+        "filename": "headers/private/kernel/arch/riscv64/arch_kernel.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-03-01T01:59:30Z",
+      "side": 1,
+      "message": "matching L2 ppn 511 for physical memory",
+      "revId": "9cf7903a1cf95977aaa63e73d3a9fd9c46585b78",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "579655ca_91ab8037",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-03-01T01:59:30Z",
+      "side": 1,
+      "message": "VA base address",
+      "revId": "9cf7903a1cf95977aaa63e73d3a9fd9c46585b78",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e31f910_bbb9b9a8",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-03-01T01:59:30Z",
+      "side": 1,
+      "message": "factor in the va base address prefix for display purposes",
+      "revId": "9cf7903a1cf95977aaa63e73d3a9fd9c46585b78",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a912672_433a92a6",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-03-01T01:59:30Z",
+      "side": 1,
+      "message": "va_base + vpn (offset by page level) + 12 for final offset",
+      "revId": "9cf7903a1cf95977aaa63e73d3a9fd9c46585b78",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52b63042_6eab4bdf",
+        "filename": "src/system/ldscripts/riscv64/kernel.ld",
+        "patchSetId": 14
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-03-01T01:59:30Z",
+      "side": 1,
+      "message": "identity mapped ppn L2 510",
+      "revId": "9cf7903a1cf95977aaa63e73d3a9fd9c46585b78",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
