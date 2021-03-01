@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "e1f892d0_7c7eca32",
+        "filename": "headers/private/kernel/arch/riscv64/arch_kernel.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2021-03-01T06:56:18Z",
+      "side": 1,
+      "message": "Probably should override this in 64 bit, as x86_64 does it.",
+      "revId": "9cf7903a1cf95977aaa63e73d3a9fd9c46585b78",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "19412ea6_bc313318",
         "filename": "headers/private/kernel/arch/riscv64/arch_kernel.h",
         "patchSetId": 14
