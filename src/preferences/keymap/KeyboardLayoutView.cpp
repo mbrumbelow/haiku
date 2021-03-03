@@ -703,9 +703,9 @@ KeyboardLayoutView::_DrawKeyButton(BView* view, BRect& rect, BRect updateRect,
 	flags |= BControlLook::B_FLAT;
 
 	be_control_look->DrawButtonFrame(view, rect, updateRect, 4.0f, base,
-		background, pressed ? BControlLook::B_ACTIVATED : 0);
+		background, flags);
 	be_control_look->DrawButtonBackground(view, rect, updateRect, 4.0f,
-		base, pressed ? BControlLook::B_ACTIVATED : 0);
+		base, flags);
 }
 
 
