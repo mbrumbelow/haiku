@@ -755,11 +755,24 @@ AddOnManager::_HandleFindDevices(BMessage* message, BMessage* reply)
 status_t
 AddOnManager::_HandleWatchDevices(BMessage* message, BMessage* reply)
 {
-	// TODO handle multiple watchers at the same time
-	if (message->FindBool("start"))
-		message->FindMessenger("target", &fWatcherMessenger);
-	else
-		fWatcherMessenger = BMessenger();
+	BMessenger watcherMessenger;
+	if (message->FindMessenger("target", &watcherMessenger) != B_OK)
+		return B_ERROR;
+
+	bool startWatching;
+	if (message->FindBool("start", &startWatching) != B_OK)
+		return B_ERROR;
+
+	if (!fWatcherMessengerList.HasItem(&watcherMessenger)) {
+		if (startWatching)
+			fWatcherMessengerList.AddItem(&watcherMessenger);
+		else
+			return B_BAD_VALUE;
+	} else {
+		if (!startWatching)
+			fWatcherMessengerList.RemoveItem(&watcherMessenger);
+	}
+
 	return B_OK;
 }
 
@@ -767,9 +780,54 @@ AddOnManager::_HandleWatchDevices(BMessage* message, BMessage* reply)
 status_t
 AddOnManager::_HandleNotifyDevice(BMessage* message, BMessage* reply)
 {
-	// TODO handle multiple watchers at the same time
-	status_t result = fWatcherMessenger.SendMessage(message);
-	syslog(LOG_NOTICE, "Notify of added/removed device (%s)", strerror(result));
+	if (!message->HasBool("added") && !message->HasBool("started"))
+		return B_BAD_VALUE;
+
+	syslog(LOG_NOTICE, "Notify of added/removed/started/stopped device");
+
+	BMessage changeMessage(B_INPUT_DEVICES_CHANGED);
+
+	bool deviceAdded;
+	if (message->FindBool("added", &deviceAdded) == B_OK) {
+		if (deviceAdded)
+			changeMessage.AddInt32("be:opcode", B_INPUT_DEVICE_ADDED);
+		else
+			changeMessage.AddInt32("be:opcode", B_INPUT_DEVICE_REMOVED);
+	}
+
+	bool deviceStarted;
+	if (message->FindBool("started", &deviceStarted) == B_OK) {
+		if (deviceStarted)
+			changeMessage.AddInt32("be:opcode", B_INPUT_DEVICE_STARTED);
+		else
+			changeMessage.AddInt32("be:opcode", B_INPUT_DEVICE_STOPPED);
+	}
+
+	BString deviceName;
+	if (message->FindString("name", &deviceName) != B_OK)
+		return B_BAD_VALUE;
+
+	changeMessage.AddString("be:device_name", deviceName);
+
+	input_device_type deviceType = B_UNDEFINED_DEVICE;
+	if (message->FindInt32("type", deviceType) != B_OK)
+		return B_BAD_VALUE;
+
+	changeMessage.AddInt32("be:device_type", deviceType);
+
+	BMessenger* currentMessenger;
+	for (int32 index = 0; index < fWatcherMessengerList.CountItems(); index++) {
+		currentMessenger = fWatcherMessengerList.ItemAt(index);
+		if (currentMessenger == NULL) {
+			fWatcherMessengerList.RemoveItemAt(index);
+			continue;
+		}
+
+		status_t result = currentMessenger->SendMessage(&changeMessage);
+
+		if (result != B_OK && !currentMessenger->IsValid())
+			fWatcherMessengerList.RemoveItemAt(index);
+	}
 
 	return B_OK;
 }

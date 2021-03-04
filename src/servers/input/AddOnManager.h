@@ -125,7 +125,7 @@ private:
 			PathList			fDevicePaths;
 
 			MonitorHandler*		fHandler;
-			BMessenger			fWatcherMessenger;
+			BObjectList<BMessenger> fWatcherMessengerList;
 
 			bool				fSafeMode;
 };
