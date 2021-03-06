@@ -89,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "7cb6c41a_cac820b2",
+        "filename": "headers/private/kernel/thread_types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-06T21:41:43Z",
+      "side": 1,
+      "message": "it should be get_bytes_written as Axel said (since it returns the number of bytes written). And the other getter and setters should probably be renamed too (get_bytes_read, get_write_operations, etc)",
+      "parentUuid": "497cc844_43362e53",
+      "revId": "e5c9481742f6cffa1a7f28857cc15bc9b3bfc8bb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3ae43c7e_b37ff58a",
         "filename": "headers/private/kernel/thread_types.h",
         "patchSetId": 1

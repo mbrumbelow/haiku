@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "11db54d4_85704dd4",
+        "filename": "src/system/kernel/fs/fd.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 897,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-06T21:41:43Z",
+      "side": 1,
+      "message": "this asterisk is still on the wrong side",
+      "revId": "0013a1ed4c00bd99617ba14a4361d86fdf69a8b7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
