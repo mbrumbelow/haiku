@@ -194,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "6e67cd08_f94c805e",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-06T21:25:02Z",
+      "side": 1,
+      "message": "This line is too long. Our coding style says that lines should never use more than 80 columns (assuming 4 columns per tab character).\n\nDoing this makes it possible to view two files (or two versions of the same file) side by side, even on low resolution displays or when using large font sizes.",
+      "parentUuid": "26a82c7f_3d623ceb",
+      "revId": "d2644dc0c0621a7312fb37ad9e0d53b6253e05a9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ba519100_babe3140",
         "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
         "patchSetId": 11
@@ -379,6 +397,24 @@
       "writtenOn": "2020-12-02T16:58:48Z",
       "side": 1,
       "message": "fPathForLeaves / fPathForData",
+      "revId": "d2644dc0c0621a7312fb37ad9e0d53b6253e05a9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "024b98da_d7d83729",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-06T21:25:02Z",
+      "side": 1,
+      "message": "This should be renamed to fPathForLeaves and fPathForData (for the line below). Our coding style says that all class variables should start with an f (as in \"field\"). Of course all code using these variables should be adjusted to match the new naming.",
+      "parentUuid": "c990bf30_15577acc",
       "revId": "d2644dc0c0621a7312fb37ad9e0d53b6253e05a9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
