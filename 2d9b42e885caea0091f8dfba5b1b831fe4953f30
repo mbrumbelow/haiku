@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "54e66603_238516dd",
+        "filename": "src/apps/haikudepot/textview/ParagraphLayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-08T10:48:51Z",
+      "side": 1,
+      "message": "now can you use std::lower_bound ?",
+      "revId": "2d9b42e885caea0091f8dfba5b1b831fe4953f30",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
