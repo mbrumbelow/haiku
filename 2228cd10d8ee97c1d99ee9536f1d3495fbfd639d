@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0162bbb6_9e6d80d7",
+        "filename": "src/kits/storage/disk_device/Partition.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1039,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-03-08T22:31:55Z",
+      "side": 1,
+      "message": "shouldn\u0027t this be checking parent-\u003efdelegate?",
+      "revId": "2228cd10d8ee97c1d99ee9536f1d3495fbfd639d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
