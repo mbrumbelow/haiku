@@ -1035,10 +1035,11 @@ status_t
 BPartition::GetParameterEditor(B_PARAMETER_EDITOR_TYPE type,
 	BPartitionParameterEditor** editor)
 {
-	if (fDelegate == NULL)
+	BPartition* parent = Parent();
+	if (parent == NULL || fDelegate == NULL)
 		return B_NO_INIT;
 
-	return fDelegate->GetParameterEditor(type, editor);
+	return parent->fDelegate->GetParameterEditor(type, editor);
 }
 
 
