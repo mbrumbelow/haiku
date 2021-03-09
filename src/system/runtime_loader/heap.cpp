@@ -36,7 +36,11 @@
 	To ease list handling, the list anchor itself is a free chunk with
 	size 0 that can't be allocated.
 */
+#ifdef __x86_64__
+const static size_t kAlignment = 16;
+#else
 const static size_t kAlignment = 8;
+#endif
 	// all memory chunks will be a multiple of this
 
 const static size_t kInitialHeapSize = 64 * 1024;
