@@ -16,6 +16,24 @@
       "revId": "2d9b42e885caea0091f8dfba5b1b831fe4953f30",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc06315f_5672d745",
+        "filename": "src/apps/haikudepot/textview/ParagraphLayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2021-03-09T09:42:25Z",
+      "side": 1,
+      "message": "I does seem appealing, but I think I am better to do a like-for-like change in this case to reduce risk and then after the migration to `vector` has settled, come back to it.  Getting into this optimization now in a safe way would require understanding quite a large area of code.",
+      "parentUuid": "54e66603_238516dd",
+      "revId": "2d9b42e885caea0091f8dfba5b1b831fe4953f30",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
