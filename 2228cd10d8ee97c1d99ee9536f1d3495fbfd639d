@@ -34,6 +34,24 @@
       "revId": "2228cd10d8ee97c1d99ee9536f1d3495fbfd639d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ad4f33f_ade459e5",
+        "filename": "src/kits/storage/disk_device/Partition.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1039,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-03-10T09:03:31Z",
+      "side": 1,
+      "message": "IMO fDelegate isn\u0027t used, \"fDelegate \u003d\u003d NULL\" should be dropped.",
+      "parentUuid": "6b70f1d9_e9c897b2",
+      "revId": "2228cd10d8ee97c1d99ee9536f1d3495fbfd639d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
