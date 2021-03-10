@@ -70,6 +70,24 @@
       "revId": "2228cd10d8ee97c1d99ee9536f1d3495fbfd639d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09fb8dc4_2840d4b9",
+        "filename": "src/kits/storage/disk_device/Partition.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1039,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-10T21:50:39Z",
+      "side": 1,
+      "message": "Yes, understood, no need to repeat it a 3rd time :)\nI just mentionned that I copied this from existing code. Will fix in a later update to this patch.",
+      "parentUuid": "f5d69ca0_6be8af66",
+      "revId": "2228cd10d8ee97c1d99ee9536f1d3495fbfd639d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
