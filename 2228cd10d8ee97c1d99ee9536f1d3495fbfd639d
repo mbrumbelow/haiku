@@ -52,6 +52,24 @@
       "revId": "2228cd10d8ee97c1d99ee9536f1d3495fbfd639d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5d69ca0_6be8af66",
+        "filename": "src/kits/storage/disk_device/Partition.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1039,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-03-10T21:31:52Z",
+      "side": 1,
+      "message": "I think the issue that waddlesplash alludes to is that parent-\u003efDelegate is used, and looking from the BPartition code, this can indeed be NULL.",
+      "parentUuid": "2ad4f33f_ade459e5",
+      "revId": "2228cd10d8ee97c1d99ee9536f1d3495fbfd639d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
