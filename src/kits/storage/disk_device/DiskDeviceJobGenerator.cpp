@@ -410,9 +410,10 @@ DiskDeviceJobGenerator::_GenerateRemainingJobs(BPartition* parent,
 		}
 
 		// parameters
-		if ((changeFlags & B_PARTITION_CHANGED_PARAMETERS)
+		if ((partition->Parameters() != NULL)
+			&& ((changeFlags & B_PARTITION_CHANGED_PARAMETERS)
 			|| compare_string(partition->Parameters(),
-				partitionData->parameters)) {
+				partitionData->parameters))) {
 			if (!parent)
 				return B_BAD_VALUE;
 
@@ -441,9 +442,10 @@ DiskDeviceJobGenerator::_GenerateRemainingJobs(BPartition* parent,
 			}
 
 			// content parameters
-			if ((changeFlags & B_PARTITION_CHANGED_PARAMETERS)
+			if ((partition->ContentParameters())
+				&& ((changeFlags & B_PARTITION_CHANGED_PARAMETERS)
 				|| compare_string(partition->ContentParameters(),
-					partitionData->content_parameters)) {
+					partitionData->content_parameters))) {
 				status_t error = _GenerateSetContentParametersJob(partition);
 				if (error != B_OK)
 					return error;
