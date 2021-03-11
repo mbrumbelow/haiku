@@ -88,6 +88,24 @@
       "revId": "2228cd10d8ee97c1d99ee9536f1d3495fbfd639d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e9fcf13_a55e0479",
+        "filename": "src/kits/storage/disk_device/Partition.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1039,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-03-11T11:08:02Z",
+      "side": 1,
+      "message": "I also meant that \"parent-\u003efDelegate\" is never checked against NULL in this class, thereby the suggestion to drop the check altogether (see ValidateResize(), ValidateMove). It\u0027s confusing for sure.",
+      "parentUuid": "09fb8dc4_2840d4b9",
+      "revId": "2228cd10d8ee97c1d99ee9536f1d3495fbfd639d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
