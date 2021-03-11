@@ -14,8 +14,13 @@
 
 
 ssize_t
-readv(int fd, const struct iovec *vecs, size_t count)
+readv(int fd, const struct iovec *vecs, int count)
 {
+	if (count < 0) {
+		__set_errno(B_BAD_VALUE);
+		return -1;
+	}
+
 	ssize_t bytes = _kern_readv(fd, -1, vecs, count);
 
 	RETURN_AND_SET_ERRNO(bytes);
@@ -37,8 +42,13 @@ readv_pos(int fd, off_t pos, const struct iovec *vecs, size_t count)
 
 
 ssize_t
-writev(int fd, const struct iovec *vecs, size_t count)
+writev(int fd, const struct iovec *vecs, int count)
 {
+	if (count < 0) {
+		__set_errno(B_BAD_VALUE);
+		return -1;
+	}
+
 	ssize_t bytes = _kern_writev(fd, -1, vecs, count);
 
 	RETURN_AND_SET_ERRNO(bytes);
