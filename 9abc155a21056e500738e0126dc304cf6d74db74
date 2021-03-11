@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f702d41e_bbda4ec9",
+        "filename": "src/apps/webpositive/ConsoleWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-03-11T08:44:19Z",
+      "side": 1,
+      "message": "BStringItem* item \u003d ...",
+      "revId": "9abc155a21056e500738e0126dc304cf6d74db74",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87918c73_a6b8f288",
+        "filename": "src/apps/webpositive/ConsoleWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-03-11T08:44:19Z",
+      "side": 1,
+      "message": "BMessage* clip \u003d be_clipboard-\u003eData();\nif (clip !\u003d NULL) {",
+      "revId": "9abc155a21056e500738e0126dc304cf6d74db74",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
