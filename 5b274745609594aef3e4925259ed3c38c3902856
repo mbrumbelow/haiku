@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b6948a1_b4f1df6f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-11T18:59:23Z",
+      "side": 1,
+      "message": "This is not fully correct.\n\nSince these are C functions, the symbol name does not change.\n\nOn 32bit systems, size_t and int have the same size.\n\nOn 64bit the situation could be different, as the size of the parameter changes. However, it turns out the first function parameters are passed in registers, and this means they are implicitly converted to 64bit anyway.\n\nMoreover, IOV_MAX is set to 1024, which means code trying to use values outside the range 0..1024 would have failed anyways. This means we cannot get into issues because of too high values that would not fit the parameter range anymore.\n\nAs a result, the API changes, but I think the ABI remains the same.",
+      "revId": "5b274745609594aef3e4925259ed3c38c3902856",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
