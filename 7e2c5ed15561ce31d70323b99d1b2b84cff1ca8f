@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9dd9a572_50cf7288",
+        "filename": "src/kits/storage/disk_device/Partition.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1004,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-03-12T07:37:58Z",
+      "side": 1,
+      "message": "I think, here fDelegate should be checked too because it\u0027s used as parameter.",
+      "revId": "7e2c5ed15561ce31d70323b99d1b2b84cff1ca8f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d990fab1_054cef60",
+        "filename": "src/kits/storage/disk_device/Partition.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1015,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-03-12T07:37:58Z",
+      "side": 1,
+      "message": "Ditto",
+      "revId": "7e2c5ed15561ce31d70323b99d1b2b84cff1ca8f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71aff5ad_db617613",
+        "filename": "src/kits/storage/disk_device/Partition.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1050,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-03-12T07:37:58Z",
+      "side": 1,
+      "message": "Ditto",
+      "revId": "7e2c5ed15561ce31d70323b99d1b2b84cff1ca8f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
