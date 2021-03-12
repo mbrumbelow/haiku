@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a24a7b9_e8a57532",
+        "filename": "src/apps/cortex/addons/common/AudioFilterNode.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-12T10:12:23Z",
+      "side": 1,
+      "message": "you should use strlcpy instead. strncpy doesn\u0027t guarantee that the buffer will be NULL terminated",
+      "revId": "6d0759d165e6bdbc3e19d7bfb05576ecc423d556",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
