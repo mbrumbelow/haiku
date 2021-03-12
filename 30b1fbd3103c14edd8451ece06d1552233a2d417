@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "5d0af016_92942a8e",
+        "filename": "headers/os/interface/MenuItem.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-12T20:56:31Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "30b1fbd3103c14edd8451ece06d1552233a2d417",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2abaad01_47806915",
+        "filename": "headers/os/interface/Window.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-12T20:56:31Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "30b1fbd3103c14edd8451ece06d1552233a2d417",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c4178994_ce095aaf",
         "filename": "src/kits/interface/MenuItem.cpp",
         "patchSetId": 1
@@ -13,6 +47,24 @@
       "writtenOn": "2021-03-12T13:54:16Z",
       "side": 1,
       "message": "B_F1_KEY..B_F12_KEY collides with B_BACKSPACE and B_RETURN.",
+      "revId": "30b1fbd3103c14edd8451ece06d1552233a2d417",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b62d51ab_5b7bd450",
+        "filename": "src/kits/interface/MenuItem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-12T20:56:31Z",
+      "side": 1,
+      "message": "That\u0027s because B_F1_KEY to B_F12_KEY are keycodes and not characters.\n\nIt\u0027s not possible to use them as characters. They all map to the same character (B_FUNCTION_KEY)\n\nIf you want to allow function keys as shortcuts, more changes to the code will be needed.",
+      "parentUuid": "c4178994_ce095aaf",
       "revId": "30b1fbd3103c14edd8451ece06d1552233a2d417",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -118,6 +170,23 @@
       "side": 1,
       "message": "No, I don\u0027t think so. These still use CMD so the B_NO_MODIFIERS would not matter here. I don\u0027t know why BWindow is handling this. Obviously this has been here in the code for a long time.",
       "parentUuid": "cf615acc_0c83c31d",
+      "revId": "30b1fbd3103c14edd8451ece06d1552233a2d417",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ca096ae_02cd14c5",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3736,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-12T20:56:31Z",
+      "side": 1,
+      "message": "here is where the mixup between characters and keycodes happens. I think the simplest solution is to make _FindShortcut take two parameters (key and rawKey) and move this test inside it?",
       "revId": "30b1fbd3103c14edd8451ece06d1552233a2d417",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
