@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa14e1ba_c16016d1",
+        "filename": "src/apps/haikudepot/ui/PackageListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-12T11:26:05Z",
+      "side": 1,
+      "message": "you could use the SetToFormat call as a fallback here.\n\nOr rather, probably it should be done inside numberFormat, so that the method is failsafe.",
+      "revId": "eb513b3a8804f0bd53ecfc38bf816a6bbd911ffd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
