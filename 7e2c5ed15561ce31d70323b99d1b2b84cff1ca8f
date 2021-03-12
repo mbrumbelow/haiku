@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d2e2dc24_f56b3d97",
+        "filename": "src/kits/storage/disk_device/Partition.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1004,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-12T09:54:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9dd9a572_50cf7288",
+      "revId": "7e2c5ed15561ce31d70323b99d1b2b84cff1ca8f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d990fab1_054cef60",
         "filename": "src/kits/storage/disk_device/Partition.cpp",
         "patchSetId": 2
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "3ce1c0b9_bbabeb71",
+        "filename": "src/kits/storage/disk_device/Partition.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1015,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-12T09:54:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d990fab1_054cef60",
+      "revId": "7e2c5ed15561ce31d70323b99d1b2b84cff1ca8f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71aff5ad_db617613",
         "filename": "src/kits/storage/disk_device/Partition.cpp",
         "patchSetId": 2
@@ -50,6 +86,24 @@
       "revId": "7e2c5ed15561ce31d70323b99d1b2b84cff1ca8f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03c5d1b6_c99b7297",
+        "filename": "src/kits/storage/disk_device/Partition.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1050,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-12T09:54:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71aff5ad_db617613",
+      "revId": "7e2c5ed15561ce31d70323b99d1b2b84cff1ca8f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }

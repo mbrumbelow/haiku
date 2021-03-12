@@ -124,6 +124,24 @@
       "revId": "2228cd10d8ee97c1d99ee9536f1d3495fbfd639d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94fbb56a_992ff22b",
+        "filename": "src/kits/storage/disk_device/Partition.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1039,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-12T09:54:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45c58844_052da656",
+      "revId": "2228cd10d8ee97c1d99ee9536f1d3495fbfd639d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
