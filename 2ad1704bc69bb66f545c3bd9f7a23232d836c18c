@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4551883_6e70fae6",
+        "filename": "src/add-ons/disk_systems/intel/PartitionMapAddOn.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-03-12T07:55:54Z",
+      "side": 1,
+      "message": "return child-\u003eSetParameters(parameters); -- the status seems to get lost here.",
+      "revId": "2ad1704bc69bb66f545c3bd9f7a23232d836c18c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "edef5901_6b9b317f",
+        "filename": "src/add-ons/disk_systems/intel/PartitionMapAddOn.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-03-12T07:55:54Z",
+      "side": 1,
+      "message": "Your changes blend in nicely, but the complete file doesn\u0027t really follow our coding style. But that\u0027s probably nothing you should change in this patch.",
+      "revId": "2ad1704bc69bb66f545c3bd9f7a23232d836c18c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2be35026_1ee0d2b2",
+        "filename": "src/add-ons/disk_systems/intel/PrimaryParameterEditor.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-03-12T07:55:54Z",
+      "side": 1,
+      "message": "Extraneous {}.",
+      "revId": "2ad1704bc69bb66f545c3bd9f7a23232d836c18c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "590be66c_ededb384",
+        "filename": "src/add-ons/kernel/partitioning_systems/intel/write_support.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1263,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-03-12T07:55:54Z",
+      "side": 1,
+      "message": "\u003d\u003d NULL here, and at other places.",
+      "revId": "2ad1704bc69bb66f545c3bd9f7a23232d836c18c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "326c4fef_50bf12e8",
+        "filename": "src/add-ons/kernel/partitioning_systems/intel/write_support.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1288,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-03-12T07:55:54Z",
+      "side": 1,
+      "message": "Extraneous newline.",
+      "revId": "2ad1704bc69bb66f545c3bd9f7a23232d836c18c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed2de728_eade2faf",
+        "filename": "src/add-ons/kernel/partitioning_systems/intel/write_support.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1291,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-03-12T07:55:54Z",
+      "side": 1,
+      "message": "I would prefer a message like \"No MBR change required\" instead.",
+      "revId": "2ad1704bc69bb66f545c3bd9f7a23232d836c18c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "968f6e02_e4623c1e",
+        "filename": "src/kits/storage/disk_device/DiskDeviceJobGenerator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-03-12T07:55:54Z",
+      "side": 1,
+      "message": "!\u003d 0, and I would indent the line below one tab more to make it clearer that it\u0027s within extra parentheses.",
+      "revId": "2ad1704bc69bb66f545c3bd9f7a23232d836c18c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "874906e5_7693552a",
+        "filename": "src/kits/storage/disk_device/DiskDeviceJobGenerator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-03-12T07:55:54Z",
+      "side": 1,
+      "message": "Same here.",
+      "revId": "2ad1704bc69bb66f545c3bd9f7a23232d836c18c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
