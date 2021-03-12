@@ -49,8 +49,10 @@ MMCBus::~MMCBus()
 {
 	CALLED();
 
-	// stop worker thread
+	// ask the worker thread to stop. We release the scan semaphore because it
+	// could be locked on that
 	fStatus = B_SHUTTING_DOWN;
+	release_sem(fScanSemaphore);
 
 	status_t result;
 	if (fWorkerThread != 0)
@@ -158,6 +160,13 @@ MMCBus::_WorkerThread(void* cookie)
 	status_t result;
 	do {
 		bus->_AcquireScanSemaphore();
+
+		// Check if we need to exit early (possible if the parent device did
+		// not manage initialize itself correctly)
+		if (bus->fStatus == B_SHUTTING_DOWN) {
+			release_sem(bus->fLockSemaphore);
+			return B_OK;
+		}
 
 		TRACE("Reset the bus...\n");
 		result = bus->ExecuteCommand(0, SD_GO_IDLE_STATE, 0, NULL);
