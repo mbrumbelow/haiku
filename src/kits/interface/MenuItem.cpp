@@ -31,29 +31,6 @@
 
 static const float kMarkTint = 0.75f;
 
-// map control key shortcuts to drawable Unicode characters
-// cf. http://unicode.org/charts/PDF/U2190.pdf
-const char* kUTF8ControlMap[] = {
-	NULL,
-	"\xe2\x86\xb8", /* B_HOME U+21B8 */
-	NULL, NULL,
-	NULL, /* B_END */
-	NULL, /* B_INSERT */
-	NULL, NULL,
-	NULL, /* B_BACKSPACE */
-	"\xe2\x86\xb9", /* B_TAB U+21B9 */
-	"\xe2\x8f\x8e", /* B_ENTER, U+23CE */
-	NULL, /* B_PAGE_UP */
-	NULL, /* B_PAGE_DOWN */
-	NULL, NULL, NULL,
-	NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
-	NULL, NULL, NULL, NULL,
-	"\xe2\x86\x90", /* B_LEFT_ARROW */
-	"\xe2\x86\x92", /* B_RIGHT_ARROW */
-	"\xe2\x86\x91", /* B_UP_ARROW */
-	"\xe2\x86\x93", /* B_DOWN_ARROW */
-};
-
 
 using BPrivate::MenuPrivate;
 
@@ -66,11 +43,14 @@ BMenuItem::BMenuItem(const char* label, BMessage* message, char shortcut,
 
 	SetMessage(message);
 
-	fShortcutChar = shortcut;
+	fShortcutKey = shortcut;
 
-	if (shortcut != 0)
-		fModifiers = modifiers | B_COMMAND_KEY;
-	else
+	if (shortcut != 0) {
+		if (modifiers & B_NO_MODIFIERS)
+			fModifiers = B_NO_MODIFIERS;
+		else
+			fModifiers = modifiers | B_COMMAND_KEY;
+	} else
 		fModifiers = 0;
 }
 
@@ -160,8 +140,8 @@ BMenuItem::Archive(BMessage* data, bool deep) const
 	if (status == B_OK && fUserTrigger)
 		status = data->AddInt32("_user_trig", fUserTrigger);
 
-	if (status == B_OK && fShortcutChar) {
-		status = data->AddInt32("_shortcut", fShortcutChar);
+	if (status == B_OK && fShortcutKey) {
+		status = data->AddInt32("_shortcut", fShortcutKey);
 		if (status == B_OK)
 			status = data->AddInt32("_mods", fModifiers);
 	}
@@ -271,22 +251,24 @@ BMenuItem::SetTrigger(char trigger)
 
 
 void
-BMenuItem::SetShortcut(char shortcut, uint32 modifiers)
+BMenuItem::SetShortcutEx(uint32 shortcut, uint32 modifiers)
 {
-	if (fShortcutChar != 0 && (fModifiers & B_COMMAND_KEY) != 0
-		&& fWindow != NULL) {
-		fWindow->RemoveShortcut(fShortcutChar, fModifiers);
+	if (fShortcutKey != 0 && fWindow != NULL) {
+		fWindow->RemoveShortcut(fShortcutKey, fModifiers);
 	}
 
-	fShortcutChar = shortcut;
+	fShortcutKey = shortcut;
 
-	if (shortcut != 0)
-		fModifiers = modifiers | B_COMMAND_KEY;
-	else
+	if (shortcut != 0) {
+		if (modifiers & B_NO_MODIFIERS)
+			fModifiers = B_NO_MODIFIERS;
+		else
+			fModifiers = modifiers | B_COMMAND_KEY;
+	} else
 		fModifiers = 0;
 
-	if (fShortcutChar != 0 && (fModifiers & B_COMMAND_KEY) && fWindow)
-		fWindow->AddShortcut(fShortcutChar, fModifiers, this);
+	if (fShortcutKey != 0 && (fModifiers != 0) && fWindow)
+		fWindow->AddShortcut(fShortcutKey, fModifiers, this);
 
 	if (fSuper != NULL) {
 		fSuper->InvalidateLayout();
@@ -296,6 +278,13 @@ BMenuItem::SetShortcut(char shortcut, uint32 modifiers)
 			fSuper->UnlockLooper();
 		}
 	}
+}
+
+
+void
+BMenuItem::SetShortcut(char shortcut, uint32 modifiers)
+{
+	SetShortcutEx(shortcut, modifiers);
 }
 
 
@@ -333,13 +322,13 @@ BMenuItem::Trigger() const
 }
 
 
-char
+uint32
 BMenuItem::Shortcut(uint32* modifiers) const
 {
 	if (modifiers)
 		*modifiers = fModifiers;
 
-	return fShortcutChar;
+	return fShortcutKey;
 }
 
 
@@ -474,7 +463,7 @@ BMenuItem::Draw()
 		if (IsMarked())
 			_DrawMarkSymbol();
 
-		if (fShortcutChar)
+		if (fShortcutKey)
 			_DrawShortcutSymbol(privateAccessor.HasSubmenus());
 
 		if (Submenu() != NULL)
@@ -540,7 +529,7 @@ BMenuItem::_InitData()
 	fTriggerIndex = -1;
 	fUserTrigger = 0;
 	fTrigger = 0;
-	fShortcutChar = 0;
+	fShortcutKey = 0;
 	fMark = false;
 	fEnabled = true;
 	fSelected = false;
@@ -571,8 +560,8 @@ BMenuItem::Install(BWindow* window)
 
 	fWindow = window;
 
-	if (fShortcutChar != 0 && (fModifiers & B_COMMAND_KEY) && fWindow)
-		window->AddShortcut(fShortcutChar, fModifiers, this);
+	if (fShortcutKey != 0 && (fModifiers != 0) && fWindow)
+		window->AddShortcut(fShortcutKey, fModifiers, this);
 
 	if (!Messenger().IsValid())
 		SetTarget(window);
@@ -627,9 +616,9 @@ BMenuItem::Uninstall()
 	if (Target() == fWindow)
 		SetTarget(BMessenger());
 
-	if (fShortcutChar != 0 && (fModifiers & B_COMMAND_KEY) != 0
+	if (fShortcutKey != 0 && (fModifiers != 0) != 0
 		&& fWindow != NULL) {
-		fWindow->RemoveShortcut(fShortcutChar, fModifiers);
+		fWindow->RemoveShortcut(fShortcutKey, fModifiers);
 	}
 
 	fWindow = NULL;
@@ -759,10 +748,41 @@ BMenuItem::_DrawShortcutSymbol(bool submenus)
 		where.x -= fBounds.Height() / 2;
 
 	const float ascent = MenuPrivate(fSuper).Ascent();
-	if (fShortcutChar < B_SPACE && kUTF8ControlMap[(int)fShortcutChar])
-		_DrawControlChar(fShortcutChar, where + BPoint(0, ascent));
-	else
-		fSuper->DrawChar(fShortcutChar, where + BPoint(0, ascent));
+	if (fShortcutKey >= B_FUNCTION_KEY_BASE + B_F1_KEY
+		&& fShortcutKey <= B_FUNCTION_KEY_BASE + B_F12_KEY) {
+		BString str;
+		str.SetToFormat("F%" B_PRIu32,
+			fShortcutKey - (B_FUNCTION_KEY_BASE + B_F1_KEY) + 1);
+		fSuper->DrawString(str.String(), where + BPoint(0, ascent));
+	} else {
+		const char *str = "";
+
+		// map control key shortcuts to drawable Unicode characters
+		// cf. http://unicode.org/charts/PDF/U2190.pdf
+		switch (fShortcutKey) {
+			case B_HOME:		str = "\xe2\x86\xb8";	break; // U+21B8
+			case B_END:			str = "END";			break;
+			case B_INSERT:		str = "INS";			break;
+			case B_BACKSPACE:	str = "\xe2\x8c\xab";	break; // U+232B
+			case B_TAB:			str = "\xe2\x86\xb9";	break; // U+21B9
+			case B_ENTER:		str = "\xe2\x8f\x8e";	break; // U+23CE
+			case B_PAGE_UP:		str = "PG UP";			break;
+			case B_PAGE_DOWN:	str = "PG DN";			break;
+			case B_LEFT_ARROW:	str = "\xe2\x86\x90";	break;
+			case B_RIGHT_ARROW:	str = "\xe2\x86\x92";	break;
+			case B_UP_ARROW:	str = "\xe2\x86\x91";	break;
+			case B_DOWN_ARROW:	str = "\xe2\x86\x93";	break;
+			case B_DELETE:		str = "DEL";			break;
+			case B_SPACE:		str = "SPACE";			break;
+			default:
+				if (fShortcutKey > B_SPACE)
+					str = NULL;
+		}
+		if (str == NULL)
+			fSuper->DrawChar(fShortcutKey, where + BPoint(0, ascent));
+		else
+			fSuper->DrawString(str, where + BPoint(0, ascent));
+	}
 
 	where.y += (fBounds.Height() - 11) / 2 - 1;
 	where.x -= 4;
@@ -818,19 +838,6 @@ BMenuItem::_DrawSubmenuSymbol()
 		_HighColor(), BControlLook::B_RIGHT_ARROW, 0, kMarkTint);
 
 	fSuper->PopState();
-}
-
-
-void
-BMenuItem::_DrawControlChar(char shortcut, BPoint where)
-{
-	// TODO: If needed, take another font for the control characters
-	//	(or have font overlays in the app_server!)
-	const char* symbol = " ";
-	if (kUTF8ControlMap[(int)fShortcutChar])
-		symbol = kUTF8ControlMap[(int)fShortcutChar];
-
-	fSuper->DrawString(symbol, where);
 }
 
 

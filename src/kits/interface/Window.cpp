@@ -289,6 +289,8 @@ BWindow::Shortcut::AllowedModifiers()
 uint32
 BWindow::Shortcut::PrepareModifiers(uint32 modifiers)
 {
+	if (modifiers & B_NO_MODIFIERS)
+		return B_NO_MODIFIERS;
 	return (modifiers & AllowedModifiers()) | B_COMMAND_KEY;
 }
 
@@ -298,6 +300,15 @@ uint32
 BWindow::Shortcut::PrepareKey(uint32 key)
 {
 	return BUnicodeChar::ToLower(key);
+}
+
+
+static inline uint32 ShortcutForKey(const char* bytes, uint32 key)
+{
+	if (bytes[0] == B_FUNCTION_KEY)
+		return B_FUNCTION_KEY_BASE + key;
+	else
+		return BUnicodeChar::FromUTF8(&bytes);
 }
 
 
@@ -3627,7 +3638,11 @@ BWindow::_HandleKeyDown(BMessage* event)
 	if (event->FindString("bytes", &bytes) != B_OK)
 		return false;
 
-	char key = bytes[0];
+	int32 rawKey;
+	if (event->FindInt32("key", &rawKey) != B_OK)
+		rawKey = 0;
+
+	uint32 key = ShortcutForKey(bytes, rawKey);
 
 	uint32 modifiers;
 	if (event->FindInt32("modifiers", (int32*)&modifiers) != B_OK)
@@ -3648,9 +3663,6 @@ BWindow::_HandleKeyDown(BMessage* event)
 		return true;
 	}
 
-	int32 rawKey;
-	event->FindInt32("key", &rawKey);
-
 	// Deskbar's Switcher
 	if ((key == B_TAB || rawKey == 0x11) && (modifiers & B_CONTROL_KEY) != 0) {
 		_Switcher(rawKey, modifiers, event->HasInt32("be:key_repeat"));
@@ -3667,7 +3679,8 @@ BWindow::_HandleKeyDown(BMessage* event)
 	}
 
 	// PrtScr key takes a screenshot
-	if (key == B_FUNCTION_KEY && rawKey == B_PRINT_KEY) {
+	const char functionKeyBytes[] = {B_FUNCTION_KEY};
+	if (key == ShortcutForKey(functionKeyBytes, B_PRINT_KEY)) {
 		// With no modifier keys the best way to get a screenshot is by
 		// calling the screenshot CLI
 		if (modifiers == 0) {
@@ -3716,40 +3729,40 @@ BWindow::_HandleKeyDown(BMessage* event)
 				return true;
 			}
 		}
+	}
+	// Pretend that the user opened a menu, to give the subclass a
+	// chance to update it's menus. This may install new shortcuts,
+	// which is why we have to call it here, before trying to find
+	// a shortcut for the given key.
+	MenusBeginning();
 
-		// Pretend that the user opened a menu, to give the subclass a
-		// chance to update it's menus. This may install new shortcuts,
-		// which is why we have to call it here, before trying to find
-		// a shortcut for the given key.
-		MenusBeginning();
+	Shortcut* shortcut = _FindShortcut(key,
+		(modifiers != 0) ? modifiers : B_NO_MODIFIERS);
+	if (shortcut != NULL) {
+		// TODO: would be nice to move this functionality to
+		//	a Shortcut::Invoke() method - but since BMenu::InvokeItem()
+		//	(and BMenuItem::Invoke()) are private, I didn't want
+		//	to mess with them (BMenuItem::Invoke() is public in
+		//	Dano/Zeta, though, maybe we should just follow their
+		//	example)
+		if (shortcut->MenuItem() != NULL) {
+			BMenu* menu = shortcut->MenuItem()->Menu();
+			if (menu != NULL)
+				MenuPrivate(menu).InvokeItem(shortcut->MenuItem(), true);
+		} else {
+			BHandler* target = shortcut->Target();
+			if (target == NULL)
+				target = CurrentFocus();
 
-		Shortcut* shortcut = _FindShortcut(key, modifiers);
-		if (shortcut != NULL) {
-			// TODO: would be nice to move this functionality to
-			//	a Shortcut::Invoke() method - but since BMenu::InvokeItem()
-			//	(and BMenuItem::Invoke()) are private, I didn't want
-			//	to mess with them (BMenuItem::Invoke() is public in
-			//	Dano/Zeta, though, maybe we should just follow their
-			//	example)
-			if (shortcut->MenuItem() != NULL) {
-				BMenu* menu = shortcut->MenuItem()->Menu();
-				if (menu != NULL)
-					MenuPrivate(menu).InvokeItem(shortcut->MenuItem(), true);
-			} else {
-				BHandler* target = shortcut->Target();
-				if (target == NULL)
-					target = CurrentFocus();
+			if (shortcut->Message() != NULL) {
+				BMessage message(*shortcut->Message());
 
-				if (shortcut->Message() != NULL) {
-					BMessage message(*shortcut->Message());
+				if (message.ReplaceInt64("when", system_time()) != B_OK)
+					message.AddInt64("when", system_time());
+				if (message.ReplaceBool("shortcut", true) != B_OK)
+					message.AddBool("shortcut", true);
 
-					if (message.ReplaceInt64("when", system_time()) != B_OK)
-						message.AddInt64("when", system_time());
-					if (message.ReplaceBool("shortcut", true) != B_OK)
-						message.AddBool("shortcut", true);
-
-					PostMessage(&message, target);
-				}
+				PostMessage(&message, target);
 			}
 		}
 
