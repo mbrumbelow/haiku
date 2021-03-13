@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5d4e752b_3873d482",
+        "filename": "src/kits/interface/MenuItem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-03-13T13:50:47Z",
+      "side": 1,
+      "message": "Unneeded curly brackets.",
+      "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
