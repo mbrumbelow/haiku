@@ -67,7 +67,10 @@ enum {
 	B_KATAKANA_HIRAGANA	= 0xf2,
 	B_HANKAKU_ZENKAKU	= 0xf3,
 	B_HANGUL			= 0xf0,
-	B_HANGUL_HANJA		= 0xf1
+	B_HANGUL_HANJA		= 0xf1,
+
+	// Used to handle function key shortcuts
+	B_FUNCTION_KEY_BASE = 0xe000 // Unicode Private Use Area
 };
 
 enum {
@@ -153,7 +156,8 @@ enum {
 	B_LEFT_CONTROL_KEY	= 0x00001000,
 	B_RIGHT_CONTROL_KEY	= 0x00002000,
 	B_LEFT_OPTION_KEY	= 0x00004000,
-	B_RIGHT_OPTION_KEY	= 0x00008000
+	B_RIGHT_OPTION_KEY	= 0x00008000,
+	B_NO_COMMAND_KEY	= 0x00010000
 };
 
 
