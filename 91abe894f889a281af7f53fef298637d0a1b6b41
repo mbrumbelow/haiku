@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "249a4bd2_a4743e84",
+        "filename": "src/servers/app/ScreenManager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-03-13T02:45:29Z",
+      "side": 1,
+      "message": "Unset() will delete object so double free will be still present. item-\u003escreen.Detach() should be used.",
+      "revId": "91abe894f889a281af7f53fef298637d0a1b6b41",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
