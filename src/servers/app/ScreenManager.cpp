@@ -241,6 +241,7 @@ ScreenManager::_AddHWInterface(HWInterface* interface)
 
 				interface->RemoveListener(item->listener.Get());
 			}
+			item->screen.Unset();
 
 			delete item;
 		}
