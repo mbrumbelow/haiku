@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "73e5f812_d7829d1c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-14T14:16:49Z",
+      "side": 1,
+      "message": "see the comments below to understand why using plain \"new\" is a bad idea. You have 3 different memory leaks because you tried to manage memory manually and it is hard to do that correctly and handle all cases (and it only gets worse when someone changes the code and has to re-verify all cases).\n\nYou should use a BAutoDeleter or another similar mechanism that can make sure this memory is correctly released when the function exits.",
+      "revId": "0806cde542802d9e5266f165c5c3449d6801f296",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "463a264f_375f0548",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-14T14:16:49Z",
+      "side": 1,
+      "message": "missing space after !\u003d",
+      "revId": "0806cde542802d9e5266f165c5c3449d6801f296",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15c10142_2e8ec89f",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-14T14:16:49Z",
+      "side": 1,
+      "message": "here extentsWrapped is leaked",
+      "revId": "0806cde542802d9e5266f165c5c3449d6801f296",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c18f746_4dc1548f",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-14T14:16:49Z",
+      "side": 1,
+      "message": "here extentsWrapped is leaked",
+      "revId": "0806cde542802d9e5266f165c5c3449d6801f296",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8bd1a508_282dca7f",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-14T14:16:49Z",
+      "side": 1,
+      "message": "this memory is never released?\n\nAlso this does not need to be a class member since it is used only in this method. Make it a local variable, and use a BAutoDeleter to make sure it is not leaked.",
+      "revId": "0806cde542802d9e5266f165c5c3449d6801f296",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd2dfa0a_27600218",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-14T14:16:49Z",
+      "side": 1,
+      "message": "it was allocated with new[] so it should be released with delete[]\n\nAlso, the fact that it\u0027s allocated in one function and freed in another makes this code a bit difficult to follow. It would be better to move the delete in the caller function.",
+      "revId": "0806cde542802d9e5266f165c5c3449d6801f296",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
