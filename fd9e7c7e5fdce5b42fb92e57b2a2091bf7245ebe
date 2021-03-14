@@ -52,6 +52,24 @@
       "revId": "fd9e7c7e5fdce5b42fb92e57b2a2091bf7245ebe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c307815_1e757588",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_bus.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2021-03-14T13:48:48Z",
+      "side": 1,
+      "message": "Yes, signalling is for normal use. When you are done, delete the sem and wait for threads. You get status B_BAD_SEM_ID when woken to know that sem was deleted.\nThis is much better since if you signal, and you had more threads waiting this would just wake one, and it might still get blocked again.",
+      "parentUuid": "63eee2ef_8a2760d8",
+      "revId": "fd9e7c7e5fdce5b42fb92e57b2a2091bf7245ebe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
