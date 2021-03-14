@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "43de2fb3_5e2be76a",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_bus.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2021-03-14T13:20:34Z",
+      "side": 1,
+      "message": "Not sure I remember correctly, but doesn\u0027t delete_sem wake up all blocked threads. If so this seems like a bad thing to do?",
+      "revId": "fd9e7c7e5fdce5b42fb92e57b2a2091bf7245ebe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
