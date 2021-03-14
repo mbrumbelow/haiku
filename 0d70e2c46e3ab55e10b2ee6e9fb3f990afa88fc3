@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "7bb02d28_ae1b27b6",
+        "filename": "headers/os/interface/MenuItem.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-03-14T10:10:05Z",
+      "side": 1,
+      "message": "There is no constructor with uint32 shortcut. is it possible to add one?",
+      "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "97e0d0dd_8ba77e99",
         "filename": "headers/os/interface/MenuItem.h",
         "patchSetId": 1
@@ -47,6 +64,24 @@
       "writtenOn": "2021-03-14T10:07:24Z",
       "side": 1,
       "message": "Yes, but return value is not mangled and it is passed in register, so ABI should not change.",
+      "parentUuid": "5e0f1d20_6c0284e0",
+      "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c04bae39_a0917b8a",
+        "filename": "headers/os/interface/MenuItem.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-03-14T10:10:05Z",
+      "side": 1,
+      "message": "it doesn\u0027t change the signature, but I wonder whether this is wise: SetShortcut() uses char Shortcut() now uint32.",
       "parentUuid": "5e0f1d20_6c0284e0",
       "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
