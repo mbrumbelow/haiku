@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ba0b6068_8b6bb206",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-14T13:15:20Z",
+      "side": 1,
+      "message": "No, the values are stored in config/settings/system/app_server/mouse, and the functions (mouse_mode, etc) communicate with app_server to get them.\n\nThis makes sense: these settings are not really about mouse, they are about how app_server decides which window is focused.",
+      "parentUuid": "2ca0489f_7d63391c",
+      "revId": "c922644baddc49f10c765ccdcb59c462b554c4dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2f0d0ba5_e65cbe79",
         "filename": "src/preferences/input/SettingsView.cpp",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "c922644baddc49f10c765ccdcb59c462b554c4dd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d7158ce_0c032e6c",
+        "filename": "src/preferences/input/SettingsView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-14T13:15:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f0d0ba5_e65cbe79",
+      "revId": "c922644baddc49f10c765ccdcb59c462b554c4dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
