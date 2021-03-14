@@ -2,6 +2,74 @@
   "comments": [
     {
       "key": {
+        "uuid": "97e0d0dd_8ba77e99",
+        "filename": "headers/os/interface/MenuItem.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-03-14T09:56:25Z",
+      "side": 1,
+      "message": "the line is too long.",
+      "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e0f1d20_6c0284e0",
+        "filename": "headers/os/interface/MenuItem.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-03-14T09:56:25Z",
+      "side": 1,
+      "message": "Is the methode signature changed?",
+      "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60cba3ff_d83b23c4",
+        "filename": "src/kits/interface/Menu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2553,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-03-14T09:56:25Z",
+      "side": 1,
+      "message": "item-\u003efModifiers !\u003d 0 \u0026\u0026 item-\u003efShortcutKey !\u003d 0",
+      "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a939f9a_daefa72e",
+        "filename": "src/kits/interface/MenuItem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-03-14T09:56:25Z",
+      "side": 1,
+      "message": "fShortcutKey !\u003d 0",
+      "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5d4e752b_3873d482",
         "filename": "src/kits/interface/MenuItem.cpp",
         "patchSetId": 1
@@ -13,6 +81,74 @@
       "writtenOn": "2021-03-13T13:50:47Z",
       "side": 1,
       "message": "Unneeded curly brackets.",
+      "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b01aa188_fcdefc7e",
+        "filename": "src/kits/interface/MenuItem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-03-14T09:56:25Z",
+      "side": 1,
+      "message": "why is (fModifiers !\u003d 0) needed after all?",
+      "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c7dbb2d_67999429",
+        "filename": "src/kits/interface/MenuItem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-03-14T09:56:25Z",
+      "side": 1,
+      "message": "This should come before SetShortcutEx to keep the order of the header file.",
+      "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "446896b6_beb0cd03",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-03-14T09:56:25Z",
+      "side": 1,
+      "message": "(modifiers \u0026 B_NO_MODIFIERS) !\u003d 0",
+      "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9011703_a7225bcb",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3740,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-03-14T09:56:25Z",
+      "side": 1,
+      "message": "modifiers !\u003d 0 without braces",
       "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
