@@ -34,6 +34,24 @@
       "revId": "fd9e7c7e5fdce5b42fb92e57b2a2091bf7245ebe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63eee2ef_8a2760d8",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_bus.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-14T13:29:34Z",
+      "side": 1,
+      "message": "Correct, that behavior of delete_sem is documented here: https://www.haiku-os.org/legacy-docs/bebook/TheKernelKit_Semaphores_Overview.html\n\nIn this case, there will be only a single thread (the worker thread) using the semaphore.\n\nDo you mean I should rather do this:\n\ndelete_sem(fScanSemaphore); // This also unlocks the thread\nwait_for_thread(fWorkerThread);\n\n?",
+      "parentUuid": "43de2fb3_5e2be76a",
+      "revId": "fd9e7c7e5fdce5b42fb92e57b2a2091bf7245ebe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
