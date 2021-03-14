@@ -40,7 +40,7 @@ NodeDirectory::Init()
 	if (fDataMap == NULL)
 		return B_NO_MEMORY;
 
-	FillMapEntry(fInode->DataExtentsCount()-3, fLeafMap);
+	FillMapEntry(fInode->DataExtentsCount() - 3, fLeafMap);
 	fCurLeafMapNumber = 1;
 	FillMapEntry(0, fDataMap);
 	return B_OK;
@@ -91,7 +91,7 @@ NodeDirectory::FillBuffer(int type, char* blockBuffer, int howManyBlocksFurthur)
 	else
 		return B_BAD_VALUE;
 
-	if (map->br_state !=0)
+	if (map->br_state != 0)
 		return B_BAD_VALUE;
 
 	size_t len = fInode->DirBlockSize();
@@ -160,12 +160,12 @@ NodeDirectory::FindHashInNode(uint32 hashVal)
 int
 NodeDirectory::EntrySize(int len) const
 {
-	int entrySize= sizeof(xfs_ino_t) + sizeof(uint8) + len + sizeof(uint16);
+	int entrySize = sizeof(xfs_ino_t) + sizeof(uint8) + len + sizeof(uint16);
 			// uint16 is for the tag
 	if (fInode->HasFileTypeField())
 		entrySize += sizeof(uint8);
 
-	return (entrySize + 7) & -8;
+	return ROUNDUP(entrySize, 8);
 			// rounding off to closest multiple of 8
 }
 
@@ -330,14 +330,14 @@ NodeDirectory::Lookup(const char* name, size_t length, xfs_ino_t* ino)
 	* instance of hashValueOfRequest and not any instance.
 	*/
 	while (left < right) {
-		mid = (left+right)/2;
+		mid = (left + right) / 2;
 		uint32 hashval = B_BENDIAN_TO_HOST_INT32(leafEntry[mid].hashval);
 		if (hashval >= hashValueOfRequest) {
 			right = mid;
 			continue;
 		}
 		if (hashval < hashValueOfRequest) {
-			left = mid+1;
+			left = mid + 1;
 		}
 	}
 	TRACE("left:(%d), right:(%d)\n", left, right);
