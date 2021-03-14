@@ -16,6 +16,24 @@
       "revId": "fd9e7c7e5fdce5b42fb92e57b2a2091bf7245ebe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95370c79_75119d00",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_bus.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2021-03-14T13:24:42Z",
+      "side": 1,
+      "message": "Yes delete_sem unblocks threads. So the way I learnt is to delete_sem and then wait for any blocked threads.",
+      "parentUuid": "43de2fb3_5e2be76a",
+      "revId": "fd9e7c7e5fdce5b42fb92e57b2a2091bf7245ebe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
