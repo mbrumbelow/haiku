@@ -145,12 +145,12 @@ private:
 			uint32				fCountOfFilledExtents;
 			char*				fSingleDirBlock;
 			uint32				fOffsetOfSingleDirBlock;
-				// This is the offset of fSingleDirBlock
+
 			uint32				fCurMapIndex;
 			uint64				fOffset;
 			uint32				fCurBlockNumber;
-			PathNode			pathForLeaves[MAX_TREE_DEPTH];
-			PathNode			pathForData[MAX_TREE_DEPTH];
+			PathNode			fPathForLeaves[MAX_TREE_DEPTH];
+			PathNode			fPathForData[MAX_TREE_DEPTH];
 };
 
 

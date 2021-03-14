@@ -45,8 +45,8 @@ TreeDirectory::Init()
 		DIR_DFORK_PTR(fInode->Buffer()), sizeof(BlockInDataFork));
 
 	for (int i = 0; i < MAX_TREE_DEPTH; i++) {
-		pathForLeaves[i].blockData = NULL;
-		pathForData[i].blockData = NULL;
+		fPathForLeaves[i].blockData = NULL;
+		fPathForData[i].blockData = NULL;
 	}
 
 	return B_OK;
@@ -93,8 +93,8 @@ size_t
 TreeDirectory::GetPtrOffsetIntoRoot(int pos)
 {
 	size_t maxRecords = MaxRecordsPossibleRoot();
-	return (sizeof(BlockInDataFork)
-			+ maxRecords * KeySize() + (pos - 1) * PtrSize());
+	return sizeof(BlockInDataFork) + maxRecords * KeySize()
+		+ (pos - 1) * PtrSize();
 }
 
 
@@ -142,7 +142,7 @@ TreeKey*
 TreeDirectory::GetKeyFromRoot(int pos)
 {
 	return (TreeKey*) ((char*)DIR_DFORK_PTR(fInode->Buffer())
-						+ sizeof(BlockInDataFork) + (pos - 1) * KeySize());
+		+ sizeof(BlockInDataFork) + (pos - 1) * KeySize());
 }
 
 
@@ -157,9 +157,9 @@ TreeDirectory::SearchOffsetInTreeNode(uint32 offset,
 	size_t maxRecords = MaxRecordsPossibleNode();
 	for (int i = maxRecords - 1; i >= 0; i--) {
 		offsetKey
-			= GetKeyFromNode(i+1, (void*)pathForLeaves[pathIndex].blockData);
+			= GetKeyFromNode(i + 1, (void*)pathForLeaves[pathIndex].blockData);
 		if (B_BENDIAN_TO_HOST_INT64(*offsetKey) <= offset) {
-			*pointer = GetPtrFromNode(i+1,
+			*pointer = GetPtrFromNode(i + 1,
 						(void*)pathForLeaves[pathIndex].blockData);
 			break;
 		}
@@ -190,16 +190,17 @@ TreeDirectory::SearchAndFillPath(uint32 offset, int type)
 	for (int i = fRoot->NumRecords() - 1; i >= 0; i--) {
 		offsetKey = GetKeyFromRoot(i+1);
 		if (B_BENDIAN_TO_HOST_INT64(*offsetKey) <= offset) {
-			ptrToNode = GetPtrFromRoot(i+1);
+			ptrToNode = GetPtrFromRoot(i + 1);
 			break;
 		}
 	}
-	if (ptrToNode == NULL || offsetKey == NULL)
+	if (ptrToNode == NULL || offsetKey == NULL) {
 		//Corrupt tree
 		return B_BAD_VALUE;
+	}
 
 	// We now have gone down the root and save path if not saved.
-	int level = fRoot->Levels()-1;
+	int level = fRoot->Levels() - 1;
 	Volume* volume = fInode->GetVolume();
 	status_t status;
 	for (int i = 0; i < MAX_TREE_DEPTH && level >= 0; i++, level--) {
@@ -371,7 +372,8 @@ TreeDirectory::FillBuffer(char* blockBuffer, int howManyBlocksFurther,
 	}
 
 	xfs_daddr_t readPos
-		= fInode->FileSystemBlockToAddr(map.br_startblock + howManyBlocksFurther);
+		= fInode->FileSystemBlockToAddr(map.br_startblock 
+			+ howManyBlocksFurther);
 
 	if (read_pos(fInode->GetVolume()->Device(), readPos, blockBuffer, len)
 		!= len) {
@@ -561,12 +563,15 @@ TreeDirectory::FillMapEntry(int num, ExtentMapEntry** fMap,
 	int type, int pathIndex)
 {
 	void* pointerToMap;
-	if (type == DATA)
-		pointerToMap = (void*)
-			(pathForData[pathIndex].blockData + BlockLen() + num * EXTENT_SIZE);
-	else
-		pointerToMap = (void*)
-			(pathForLeaves[pathIndex].blockData + BlockLen() + num * EXTENT_SIZE);
+
+	if (type == DATA) {
+		pointerToMap = (void*)(fPathForData[pathIndex].blockData + BlockLen()
+			+ num * EXTENT_SIZE);
+	} else {
+		pointerToMap = (void*)(fPathForLeaves[pathIndex].blockData + BlockLen()
+			+ num * EXTENT_SIZE);
+	}
+
 	uint64 firstHalf = *((uint64*)pointerToMap);
 	uint64 secondHalf = *((uint64*)pointerToMap + 1);
 		//dividing the 128 bits into 2 parts.
@@ -643,20 +648,22 @@ TreeDirectory::Lookup(const char* name, size_t length, xfs_ino_t* ino)
 		// The path should now have the Tree Leaf at appropriate level
 		// Find the directory block in the path
 		for (int i = 0; i < MAX_TREE_DEPTH; i++) {
-			if (pathForLeaves[i].type == 2) {
+			if (fPathForLeaves[i].type == 2) {
 				pathIndex = i;
 				break;
 			}
 		}
-		if (pathIndex == -1)
+
+		if (pathIndex == -1) {
 			// corrupt tree
 			return B_BAD_VALUE;
+		}
 
 		// Get the node block from directory block
 		// If level is non-zero, reiterate with new "rightOffset"
 		// Else, we are at leaf block, then break
 		LongBlock* curDirBlock
-			= (LongBlock*)pathForLeaves[pathIndex].blockData;
+			= (LongBlock*)fPathForLeaves[pathIndex].blockData;
 
 		if (curDirBlock->Magic() != XFS_BMAP_MAGIC)
 			return B_BAD_VALUE;
@@ -701,7 +708,7 @@ TreeDirectory::Lookup(const char* name, size_t length, xfs_ino_t* ino)
 		// This is slightly different from bsearch(), as we want the first
 		// instance of hashValueOfRequest and not any instance.
 		while (left < right) {
-			mid = (left+right)/2;
+			mid = (left + right) / 2;
 			uint32 hashval = B_BENDIAN_TO_HOST_INT32(leafEntry[mid].hashval);
 			if (hashval >= hashValueOfRequest) {
 				right = mid;
@@ -732,7 +739,7 @@ TreeDirectory::Lookup(const char* name, size_t length, xfs_ino_t* ino)
 			status = SearchAndFillPath(dataBlockNumber, DATA);
 			int pathIndex = -1;
 			for (int i = 0; i < MAX_TREE_DEPTH; i++) {
-				if (pathForData[i].type == 2) {
+				if (fPathForData[i].type == 2) {
 					pathIndex = i;
 					break;
 				}
@@ -741,7 +748,7 @@ TreeDirectory::Lookup(const char* name, size_t length, xfs_ino_t* ino)
 				return B_BAD_VALUE;
 
 			LongBlock* curDirBlock
-				= (LongBlock*)pathForData[pathIndex].blockData;
+				= (LongBlock*)fPathForData[pathIndex].blockData;
 
 			SearchForMapInDirectoryBlock(dataBlockNumber,
 				curDirBlock->NumRecs(), &targetMap, DATA, pathIndex);
@@ -772,7 +779,7 @@ TreeDirectory::Lookup(const char* name, size_t length, xfs_ino_t* ino)
 
 			pathIndex = -1;
 			for (int i = 0; i < MAX_TREE_DEPTH; i++) {
-				if (pathForLeaves[i].type == 2) {
+				if (fPathForLeaves[i].type == 2) {
 					pathIndex = i;
 					break;
 				}
@@ -781,15 +788,19 @@ TreeDirectory::Lookup(const char* name, size_t length, xfs_ino_t* ino)
 				return B_BAD_VALUE;
 
 			LongBlock* curDirBlock
-				= (LongBlock*)pathForLeaves[pathIndex].blockData;
+				= (LongBlock*)fPathForLeaves[pathIndex].blockData;
 
 			SearchForMapInDirectoryBlock(nextLeaf, curDirBlock->NumRecs(),
 				&targetMap, LEAF, pathIndex);
+
 			if (targetMap == NULL)
 				return B_BAD_VALUE;
 
-			FillBuffer(fSingleDirBlock, nextLeaf - targetMap->br_startoff, targetMap);
+			FillBuffer(fSingleDirBlock, nextLeaf - targetMap->br_startoff,
+				targetMap);
+
 			fOffsetOfSingleDirBlock = nextLeaf;
+
 			continue;
 		} else {
 			break;

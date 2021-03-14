@@ -40,7 +40,7 @@ NodeDirectory::Init()
 	if (fDataMap == NULL)
 		return B_NO_MEMORY;
 
-	FillMapEntry(fInode->DataExtentsCount()-3, fLeafMap);
+	FillMapEntry(fInode->DataExtentsCount() - 3, fLeafMap);
 	fCurLeafMapNumber = 1;
 	FillMapEntry(0, fDataMap);
 	return B_OK;
@@ -91,7 +91,7 @@ NodeDirectory::FillBuffer(int type, char* blockBuffer, int howManyBlocksFurthur)
 	else
 		return B_BAD_VALUE;
 
-	if (map->br_state !=0)
+	if (map->br_state != 0)
 		return B_BAD_VALUE;
 
 	size_t len = fInode->DirBlockSize();

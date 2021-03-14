@@ -165,7 +165,7 @@ Extent::GetNext(char* name, size_t* length, xfs_ino_t* ino)
 			currentOffset += B_BENDIAN_TO_HOST_INT16(unusedEntry->length);
 			entry = (void*)
 				((char*)entry + B_BENDIAN_TO_HOST_INT16(unusedEntry->length));
-				i--;
+			i--;
 			continue;
 		}
 		ExtentDataEntry* dataEntry = (ExtentDataEntry*) entry;
