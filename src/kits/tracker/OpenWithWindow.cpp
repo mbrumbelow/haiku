@@ -73,7 +73,6 @@ const float kMaxMenuWidth = 150;
 
 const int32 kDocumentKnobWidth = 16;
 const int32 kOpenAndMakeDefault = 'OpDf';
-const rgb_color kOpenWithDefaultColor = { 0xFF, 0xFF, 0xCC, 255};
 
 
 //	#pragma mark - OpenWithContainerWindow
@@ -567,8 +566,8 @@ OpenWithPoseView::AttachedToWindow()
 {
 	_inherited::AttachedToWindow();
 
-	SetViewColor(kOpenWithDefaultColor);
-	SetLowColor(kOpenWithDefaultColor);
+	SetViewColor(ui_color(B_LIST_BACKGROUND_COLOR));
+	SetLowColor(ui_color(B_LIST_ITEM_TEXT_COLOR));
 }
 
 
