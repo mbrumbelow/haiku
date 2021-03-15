@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7b22d0ad_20fdf6fd",
+        "filename": "src/system/boot/loader/vfs.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 994,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-03-15T08:28:46Z",
+      "side": 1,
+      "message": "Should be B_BAD_VALUE. Equal to zero returns B_BAD_VALUE too.",
+      "revId": "cc44737f85c32e6976778739bcb9b0d6de3c17cd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03be81a3_41f55096",
+        "filename": "src/system/libroot/posix/sys/uio.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-03-15T08:28:46Z",
+      "side": 1,
+      "message": "count \u003c\u003d 0",
+      "revId": "cc44737f85c32e6976778739bcb9b0d6de3c17cd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc368a8b_9a7d41c2",
+        "filename": "src/system/libroot/posix/sys/uio.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-03-15T08:28:46Z",
+      "side": 1,
+      "message": "count \u003c\u003d 0",
+      "revId": "cc44737f85c32e6976778739bcb9b0d6de3c17cd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb5b7616_dfe49e15",
+        "filename": "src/system/libroot/posix/sys/uio.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-03-15T08:28:46Z",
+      "side": 1,
+      "message": "count \u003c\u003d 0",
+      "revId": "cc44737f85c32e6976778739bcb9b0d6de3c17cd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bcf25b5a_67e0c6dc",
+        "filename": "src/system/libroot/posix/sys/uio.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-03-15T08:28:46Z",
+      "side": 1,
+      "message": "count \u003c\u003d 0",
+      "revId": "cc44737f85c32e6976778739bcb9b0d6de3c17cd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
