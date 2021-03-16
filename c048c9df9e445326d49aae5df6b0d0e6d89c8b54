@@ -16,6 +16,24 @@
       "revId": "c048c9df9e445326d49aae5df6b0d0e6d89c8b54",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5d403fb_cb75d488",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-03-16T10:43:34Z",
+      "side": 1,
+      "message": "The _kern_readv() and _kern_writev() functions will still use a size_t as type for the count parameter (syscalls.h lines 319-20 and 323-4)). Internally _kern_writev() will translate the request in a number of write() requests to the driver, so there will also be no changes there.",
+      "parentUuid": "c5a7eb4d_cb621f1a",
+      "revId": "c048c9df9e445326d49aae5df6b0d0e6d89c8b54",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
