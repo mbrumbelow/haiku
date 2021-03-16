@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "963add29_f68b6493",
+        "filename": "src/system/runtime_loader/elf.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-03-16T18:26:11Z",
+      "side": 1,
+      "message": "Is regions[0] always text region? clang/lld generate different region layout and text region is not first.",
+      "revId": "365632a1cea1cdacf6ace6e83c50fd979179f97e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
