@@ -16,6 +16,24 @@
       "revId": "365632a1cea1cdacf6ace6e83c50fd979179f97e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b84ed841_2c008c47",
+        "filename": "src/system/runtime_loader/elf.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-03-16T20:03:29Z",
+      "side": 1,
+      "message": "I don\u0027t know, I took this from get_library_symbol()",
+      "parentUuid": "963add29_f68b6493",
+      "revId": "365632a1cea1cdacf6ace6e83c50fd979179f97e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
