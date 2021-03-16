@@ -52,6 +52,24 @@
       "revId": "c048c9df9e445326d49aae5df6b0d0e6d89c8b54",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5602c6bf_e3267550",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-03-16T11:15:44Z",
+      "side": 1,
+      "message": "Maybe simply replace \"The internal functions\" by \"_kern_readv() and _kern_writev()\". This should clarify things.",
+      "parentUuid": "9ea61ef0_d6559ebd",
+      "revId": "c048c9df9e445326d49aae5df6b0d0e6d89c8b54",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
