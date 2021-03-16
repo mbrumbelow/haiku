@@ -124,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "95c1f134_cc508751",
+        "filename": "src/servers/app/decorator/Decorator.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-16T19:37:35Z",
+      "side": 1,
+      "message": "Replying to myself: the outline methods are implemented in the generic class, while the others are implemented by subclasses. Doing it this way allows all decorators to get the (same) outline mode without needing to change all of them.",
+      "parentUuid": "30f3c1c7_d761335b",
+      "revId": "3673c368ae69888c334affaac6bc74b3e3477f40",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9dbc358a_510bf821",
         "filename": "src/servers/app/decorator/DefaultDecorator.cpp",
         "patchSetId": 6
