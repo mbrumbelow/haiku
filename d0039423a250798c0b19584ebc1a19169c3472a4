@@ -142,6 +142,24 @@
     },
     {
       "key": {
+        "uuid": "192f1baf_a415e998",
+        "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 929,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-03-17T17:14:24Z",
+      "side": 1,
+      "message": "Then the two times locking is ineffective. The lock should be held while checking and changing the flag.",
+      "parentUuid": "d8db8450_63b6eda6",
+      "revId": "d0039423a250798c0b19584ebc1a19169c3472a4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "416f815a_712159b0",
         "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
         "patchSetId": 1
@@ -174,6 +192,24 @@
       "revId": "d0039423a250798c0b19584ebc1a19169c3472a4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70beb864_33ea01d5",
+        "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1165,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-03-17T17:14:24Z",
+      "side": 1,
+      "message": "Indeed i searched for \"modal\" and overlooked it...",
+      "parentUuid": "f4882a23_70f0145b",
+      "revId": "d0039423a250798c0b19584ebc1a19169c3472a4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
