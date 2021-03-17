@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "abdcebef_6f609e10",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1546,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-03-17T17:26:23Z",
+      "side": 1,
+      "message": "Isn\u0027t it possible and OK for anonymous areas to be mapped read-only and then later read-write?",
+      "revId": "bcc16881e1bea6894e942b8364586c330ce27591",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb9d4087_70cdcc22",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1748,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-03-17T17:26:23Z",
+      "side": 1,
+      "message": "Same here.",
+      "revId": "bcc16881e1bea6894e942b8364586c330ce27591",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ecbcf235_e659bf34",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1864,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-03-17T17:26:23Z",
+      "side": 1,
+      "message": "And here.",
+      "revId": "bcc16881e1bea6894e942b8364586c330ce27591",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
