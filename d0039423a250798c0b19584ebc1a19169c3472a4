@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "08c36394_2cac5327",
+        "filename": "src/apps/haikudepot/server/IncrementViewCounterProcess.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2021-03-17T10:43:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "561ce96d_52c51213",
+      "revId": "d0039423a250798c0b19584ebc1a19169c3472a4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "65c6a10c_03f4286e",
         "filename": "src/apps/haikudepot/server/IncrementViewCounterProcess.cpp",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "d0039423a250798c0b19584ebc1a19169c3472a4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "504883a2_0ae84bfe",
+        "filename": "src/apps/haikudepot/server/IncrementViewCounterProcess.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2021-03-17T10:43:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65c6a10c_03f4286e",
+      "revId": "d0039423a250798c0b19584ebc1a19169c3472a4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "28a62717_e2ebd08d",
+        "filename": "src/apps/haikudepot/server/IncrementViewCounterProcess.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2021-03-17T10:43:06Z",
+      "side": 1,
+      "message": "Done - thanks!",
+      "parentUuid": "6939bc1a_a00b1d6e",
+      "revId": "d0039423a250798c0b19584ebc1a19169c3472a4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ebc8984a_4c5af178",
         "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
         "patchSetId": 1
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "d8db8450_63b6eda6",
+        "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 929,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2021-03-17T10:43:06Z",
+      "side": 1,
+      "message": "Most \"Setters\" are returning `void` so I would rather stick to the pattern.",
+      "parentUuid": "ebc8984a_4c5af178",
+      "revId": "d0039423a250798c0b19584ebc1a19169c3472a4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "416f815a_712159b0",
         "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
         "patchSetId": 1
@@ -81,6 +153,24 @@
       "writtenOn": "2021-03-17T10:20:57Z",
       "side": 1,
       "message": "It would seem one can open multiple settings windows, or am I mistasken?",
+      "revId": "d0039423a250798c0b19584ebc1a19169c3472a4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4882a23_70f0145b",
+        "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1165,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2021-03-17T10:43:06Z",
+      "side": 1,
+      "message": "The SettingsWindow opens modal so I presume this is not possible since they can only be created by the MainWindow?",
+      "parentUuid": "416f815a_712159b0",
       "revId": "d0039423a250798c0b19584ebc1a19169c3472a4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
