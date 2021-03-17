@@ -19,6 +19,29 @@
     },
     {
       "key": {
+        "uuid": "2fdf2b2d_d476459f",
+        "filename": "src/apps/cortex/AddOnHost/AddOnHostApp.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000169
+      },
+      "writtenOn": "2021-03-17T21:13:59Z",
+      "side": 1,
+      "message": "Extra space",
+      "range": {
+        "startLine": 179,
+        "startChar": 29,
+        "endLine": 179,
+        "endChar": 31
+      },
+      "revId": "8b17762ac1f4ee080c4030dee585ec723be98933",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f5956324_2cc41a7e",
         "filename": "src/apps/cortex/InfoView/AppNodeInfoView.cpp",
         "patchSetId": 6
