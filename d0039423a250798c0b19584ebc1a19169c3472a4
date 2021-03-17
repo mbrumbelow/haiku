@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "561ce96d_52c51213",
+        "filename": "src/apps/haikudepot/server/IncrementViewCounterProcess.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-03-17T10:20:57Z",
+      "side": 1,
+      "message": "one space after while",
+      "revId": "d0039423a250798c0b19584ebc1a19169c3472a4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65c6a10c_03f4286e",
+        "filename": "src/apps/haikudepot/server/IncrementViewCounterProcess.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-03-17T10:20:57Z",
+      "side": 1,
+      "message": "else goes on the previous line",
+      "revId": "d0039423a250798c0b19584ebc1a19169c3472a4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6939bc1a_a00b1d6e",
+        "filename": "src/apps/haikudepot/server/IncrementViewCounterProcess.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-03-17T10:20:57Z",
+      "side": 1,
+      "message": "\"SpinBetweenAttempts\"?",
+      "revId": "d0039423a250798c0b19584ebc1a19169c3472a4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebc8984a_4c5af178",
+        "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 929,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-03-17T10:20:57Z",
+      "side": 1,
+      "message": "Wouldn\u0027t it better to have SetViewed() returns the old boolean value, which should be checked to decide whether to add the package.",
+      "revId": "d0039423a250798c0b19584ebc1a19169c3472a4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "416f815a_712159b0",
+        "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1165,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-03-17T10:20:57Z",
+      "side": 1,
+      "message": "It would seem one can open multiple settings windows, or am I mistasken?",
+      "revId": "d0039423a250798c0b19584ebc1a19169c3472a4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}

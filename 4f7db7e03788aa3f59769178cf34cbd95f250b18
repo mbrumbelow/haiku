@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6934731a_1db798ff",
+        "filename": "src/apps/haikudepot/model/PackageInfo.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-03-17T10:20:57Z",
+      "side": 0,
+      "message": "Why remove this blank line?",
+      "revId": "4f7db7e03788aa3f59769178cf34cbd95f250b18",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
