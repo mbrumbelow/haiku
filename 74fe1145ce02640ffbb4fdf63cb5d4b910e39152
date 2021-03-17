@@ -124,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "c6520a55_61ac5183",
+        "filename": "src/kits/tracker/Utilities.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 1532,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-17T07:22:15Z",
+      "side": 1,
+      "message": "\u003e This feature only works with image files, if I were to remove this check, it would spawn a thread for non-image files and then exit almost immediately once the translator fails. Is that what you want me to do? Are you ok with threads being spawned and exiting immediately every time you open a folder on each non-image file?\n\nNo, what I mean is more like this:\n\n- First check if there is already an up to date thumbnail, if so, just display it\n- If there isn\u0027t a thumbnail already, then check it is a file with an image type, and in that case, run the thread to generate one.\n\nSo, rather than removing the check, it\u0027s indeed moving it just a bit later.",
+      "parentUuid": "d213c408_1555b61e",
+      "revId": "74fe1145ce02640ffbb4fdf63cb5d4b910e39152",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "141c8d88_a9be1a00",
         "filename": "src/kits/tracker/Utilities.cpp",
         "patchSetId": 16
@@ -172,6 +190,24 @@
       "revId": "74fe1145ce02640ffbb4fdf63cb5d4b910e39152",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d51054b1_2414ff59",
+        "filename": "src/libs/icon/IconUtils.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-17T07:22:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a08408f3_fa2770b2",
+      "revId": "74fe1145ce02640ffbb4fdf63cb5d4b910e39152",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
