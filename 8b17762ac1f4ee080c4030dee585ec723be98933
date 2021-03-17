@@ -1,0 +1,497 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f51f53cd_947a90ff",
+        "filename": "headers/os/locale/Catalog.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-17T21:13:56Z",
+      "side": 1,
+      "message": "having the -\u003e or . inside the macro makes this not very \"clean\" (an arbitrary notion, but...)\n\nMaybe try this:\n\nhere:\n#define B_CATALOG BLocaleRoster::Default()-\u003eGetCatalog()\n\nIn other files:\n\n#define B_CATALOG (\u0026sCatalog)\n\nThen the use of the macro in this file will be a bit more natural:\n\nB_CATALOG-\u003eGetString(...)",
+      "revId": "8b17762ac1f4ee080c4030dee585ec723be98933",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5956324_2cc41a7e",
+        "filename": "src/apps/cortex/InfoView/AppNodeInfoView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-17T21:13:56Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "8b17762ac1f4ee080c4030dee585ec723be98933",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c634783f_f66c9dc6",
+        "filename": "src/apps/cortex/InfoView/ConnectionInfoView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-17T21:13:56Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "8b17762ac1f4ee080c4030dee585ec723be98933",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e43132e0_2babb8e2",
+        "filename": "src/apps/cortex/InfoView/ConnectionInfoView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-17T21:13:56Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "8b17762ac1f4ee080c4030dee585ec723be98933",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a94593b8_d0da2394",
+        "filename": "src/apps/cortex/InfoView/ConnectionInfoView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-17T21:13:56Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "8b17762ac1f4ee080c4030dee585ec723be98933",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "638c921f_8e218e0f",
+        "filename": "src/apps/cortex/InfoView/ConnectionInfoView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-17T21:13:56Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "8b17762ac1f4ee080c4030dee585ec723be98933",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ce43ddd_ac438f96",
+        "filename": "src/apps/cortex/InfoView/ConnectionInfoView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-17T21:13:56Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "8b17762ac1f4ee080c4030dee585ec723be98933",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e37902f4_f34a3bfe",
+        "filename": "src/apps/cortex/InfoView/ConnectionInfoView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-17T21:13:56Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "8b17762ac1f4ee080c4030dee585ec723be98933",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02b17942_f04f74fb",
+        "filename": "src/apps/cortex/InfoView/DormantNodeInfoView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-17T21:13:56Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "8b17762ac1f4ee080c4030dee585ec723be98933",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d96e47d1_9a7058c6",
+        "filename": "src/apps/cortex/InfoView/DormantNodeInfoView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-17T21:13:56Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "8b17762ac1f4ee080c4030dee585ec723be98933",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13f0597c_c3065813",
+        "filename": "src/apps/cortex/InfoView/DormantNodeInfoView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-17T21:13:56Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "8b17762ac1f4ee080c4030dee585ec723be98933",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5935168b_dbdcf23b",
+        "filename": "src/apps/cortex/InfoView/DormantNodeInfoView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-17T21:13:56Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "8b17762ac1f4ee080c4030dee585ec723be98933",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f83fb5c_9780f49d",
+        "filename": "src/apps/cortex/InfoView/EndPointInfoView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-17T21:13:56Z",
+      "side": 1,
+      "message": "this line is too long (and others below)",
+      "revId": "8b17762ac1f4ee080c4030dee585ec723be98933",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0715b5a_28a34a49",
+        "filename": "src/apps/cortex/InfoView/FileNodeInfoView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-17T21:13:56Z",
+      "side": 1,
+      "message": "this line and other below are too long",
+      "revId": "8b17762ac1f4ee080c4030dee585ec723be98933",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8505b1bf_cae56b4f",
+        "filename": "src/apps/cortex/InfoView/LiveNodeInfoView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-17T21:13:56Z",
+      "side": 1,
+      "message": "this line is too long (and others below)",
+      "revId": "8b17762ac1f4ee080c4030dee585ec723be98933",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3eecfa5c_e9f04434",
+        "filename": "src/apps/cortex/MediaRoutingView/MediaNodePanel.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-17T21:13:56Z",
+      "side": 1,
+      "message": "this line is too long and others below",
+      "revId": "8b17762ac1f4ee080c4030dee585ec723be98933",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55c21b37_3c3cd8d6",
+        "filename": "src/apps/cortex/MediaRoutingView/MediaRoutingView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-17T21:13:56Z",
+      "side": 1,
+      "message": "this line is too long and others below",
+      "revId": "8b17762ac1f4ee080c4030dee585ec723be98933",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c5a7606_aba9b106",
+        "filename": "src/apps/cortex/MediaRoutingView/MediaWire.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-17T21:13:56Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "8b17762ac1f4ee080c4030dee585ec723be98933",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98ab2d8a_f097e715",
+        "filename": "src/apps/cortex/NodeManager/NodeManager.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-17T21:13:56Z",
+      "side": 1,
+      "message": "these lines are too long",
+      "revId": "8b17762ac1f4ee080c4030dee585ec723be98933",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e40d925_32b4b6d9",
+        "filename": "src/apps/cortex/ParameterView/ParameterWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-17T21:13:56Z",
+      "side": 1,
+      "message": "these lines are too long",
+      "revId": "8b17762ac1f4ee080c4030dee585ec723be98933",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1fa6565_625b1974",
+        "filename": "src/apps/cortex/RouteApp/RouteWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-17T21:13:56Z",
+      "side": 1,
+      "message": "this line is too long (and others below)",
+      "revId": "8b17762ac1f4ee080c4030dee585ec723be98933",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "faf86360_cf933643",
+        "filename": "src/apps/cortex/addons/Flanger/FlangerNode.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1258,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-17T21:13:56Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "8b17762ac1f4ee080c4030dee585ec723be98933",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "146a8aa9_29d94ea0",
+        "filename": "src/apps/cortex/addons/LoggingConsumer/LoggingConsumer.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-17T21:13:56Z",
+      "side": 1,
+      "message": "these 3 lines are too long, and more below",
+      "revId": "8b17762ac1f4ee080c4030dee585ec723be98933",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e77e224_3943f30a",
+        "filename": "src/apps/cortex/addons/LoggingConsumer/NodeHarnessApp.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-17T21:13:56Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "8b17762ac1f4ee080c4030dee585ec723be98933",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b73c19b_6ff7d8df",
+        "filename": "src/apps/cortex/addons/LoggingConsumer/NodeHarnessWin.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-17T21:13:56Z",
+      "side": 1,
+      "message": "these lines are too long",
+      "revId": "8b17762ac1f4ee080c4030dee585ec723be98933",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a7668d8_330d6ec8",
+        "filename": "src/apps/cortex/addons/common/MediaNodeControlApp.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-17T21:13:56Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "8b17762ac1f4ee080c4030dee585ec723be98933",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba18c311_627e82f8",
+        "filename": "src/apps/cortex/addons/common/MediaNodeControlApp.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-17T21:13:56Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "8b17762ac1f4ee080c4030dee585ec723be98933",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a0206fb_2ad1087a",
+        "filename": "src/apps/cortex/addons/common/MediaNodeControlApp.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-17T21:13:56Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "8b17762ac1f4ee080c4030dee585ec723be98933",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79ebecef_5ad1aafd",
+        "filename": "src/apps/cortex/addons/common/MediaNodeControlApp.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-17T21:13:56Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "8b17762ac1f4ee080c4030dee585ec723be98933",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
