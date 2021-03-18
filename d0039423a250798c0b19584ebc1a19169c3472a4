@@ -160,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "0d712259_4c054ff4",
+        "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 929,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2021-03-18T09:04:24Z",
+      "side": 1,
+      "message": "You are right; this isn\u0027t correct -- I have fixed that now.",
+      "parentUuid": "192f1baf_a415e998",
+      "revId": "d0039423a250798c0b19584ebc1a19169c3472a4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "416f815a_712159b0",
         "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
         "patchSetId": 1
