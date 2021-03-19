@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e83bc004_fcabded6",
+        "filename": "src/apps/cortex/RouteApp/RouteAppNodeManager.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-03-19T16:46:01Z",
+      "side": 1,
+      "message": "Should be:\ntitle \u003d B_TRANSLATE(\"Connection \u0027%name%\u0027 made\");",
+      "revId": "3a7af3955e62076907ae2b5df45a6e67e8cca4cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
