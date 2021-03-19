@@ -21,6 +21,8 @@
 #include <unicode/decimfmt.h>
 #include <unicode/numfmt.h>
 
+#include <binary_compatibility/Support.h>
+
 
 U_NAMESPACE_USE
 
@@ -193,10 +195,11 @@ BNumberFormat::BNumberFormat(const BLocale* locale)
 }
 
 
-BNumberFormat::BNumberFormat()
-	: BFormat()
+extern "C" void
+B_IF_GCC_2(__13BNumberFormat, _ZN13BNumberFormatC1Ev)(
+	BNumberFormat* numberFormat)
 {
-	fPrivateData = new BNumberFormatImpl();
+	numberFormat = new BNumberFormat(NULL);
 }
 
 
