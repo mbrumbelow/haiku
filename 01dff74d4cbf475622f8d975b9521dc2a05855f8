@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6648025d_a28d6657",
+        "filename": "build/jam/ArchitectureRules",
+        "patchSetId": 8
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-03-19T12:00:12Z",
+      "side": 1,
+      "message": "These lines are too long.",
+      "revId": "01dff74d4cbf475622f8d975b9521dc2a05855f8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f60a1a5f_d1e3f25c",
+        "filename": "src/system/boot/loader/file_systems/tarfs/tarfs.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 744,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-03-19T12:00:12Z",
+      "side": 1,
+      "message": "static is useless",
+      "revId": "01dff74d4cbf475622f8d975b9521dc2a05855f8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "acecfd24_dd61e107",
+        "filename": "src/system/boot/loader/package_support.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-03-19T12:00:12Z",
+      "side": 1,
+      "message": "this returns without freeing systemPackageName and packagePath",
+      "revId": "01dff74d4cbf475622f8d975b9521dc2a05855f8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5910268_e6e89a15",
+        "filename": "src/system/boot/loader/package_support.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-03-19T12:00:12Z",
+      "side": 1,
+      "message": "static is useless.",
+      "revId": "01dff74d4cbf475622f8d975b9521dc2a05855f8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "852e75b9_35e47d67",
+        "filename": "src/system/boot/loader/vfs.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-03-19T12:00:12Z",
+      "side": 1,
+      "message": "free(linkPath); can come before the if",
+      "revId": "01dff74d4cbf475622f8d975b9521dc2a05855f8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
