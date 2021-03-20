@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cbe90688_6d38e5d2",
+        "filename": "src/add-ons/kernel/network/protocols/unix/UnixEndpoint.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 656,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-20T12:22:36Z",
+      "side": 1,
+      "message": "why do we check IsWriteShutdown here?\n\nDoes this work like TCP sockets where the \"read\" (inbound) and \"write\" (outbound) side of a connection can be closed independently, making uni-directional sockets possible? Or is this something different?",
+      "revId": "414d2e9765ea91a16e7df7923b2deea13a9ab740",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
