@@ -16,6 +16,24 @@
       "revId": "414d2e9765ea91a16e7df7923b2deea13a9ab740",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fcc310e1_8ca859a6",
+        "filename": "src/add-ons/kernel/network/protocols/unix/UnixEndpoint.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 656,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-03-20T15:10:35Z",
+      "side": 1,
+      "message": "if one side shutdowns its side of the socket (read for the reader, write for the writer), once the internal buffer is empty, there is nothing left to read, it\u0027s end of stream. Actually it sounds like a bug in the user application to try to read or poll read, although the side has been read-shut down, nonetheless it is required to let the reader get the POLLIN event.\nSee https://www.greenend.org.uk/rjk/tech/poll.html it\u0027s a bit old but gives an good idea of what one can expect.",
+      "parentUuid": "cbe90688_6d38e5d2",
+      "revId": "414d2e9765ea91a16e7df7923b2deea13a9ab740",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
