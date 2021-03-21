@@ -26,7 +26,12 @@
 #include <edid.h>
 #endif
 
+#ifdef FRAME_BUFFER_CONSOLE_USE_SPLEEN
+#include "font_spleen.h"
+#else
 #include "font.h"
+#endif
+
 
 
 //#define TRACE_FB_CONSOLE
@@ -136,7 +141,7 @@ render_glyph(int32 x, int32 y, uint8 glyph, uint8 attr)
 
 		set_ac();
 		for (y = 0; y < CHAR_HEIGHT; y++) {
-			uint8 bits = FONT[CHAR_HEIGHT * glyph + y];
+			uint16 bits = FONT[CHAR_HEIGHT * glyph + y];
 			for (x = 0; x < CHAR_WIDTH; x++) {
 				for (int32 i = 0; i < sConsole.bytes_per_pixel; i++) {
 					if (bits & 1)
