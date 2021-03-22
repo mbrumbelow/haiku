@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c710579e_6eff9051",
+        "filename": "src/system/kernel/debug/font_spleen.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-03-22T01:16:21Z",
+      "side": 1,
+      "message": "It would be nice to generate this by build system or use *.S with incbin.",
+      "revId": "6364702d17622831adcee0a2506fb9e3de4f2189",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
