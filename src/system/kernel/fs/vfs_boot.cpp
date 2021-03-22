@@ -279,7 +279,7 @@ DiskBootMethod::IsBootPartition(KPartition* partition, bool& foundForSure)
 			// BFS, and the boot partition offset is 0.
 			KDiskDevice* device = partition->Device();
 			if (IsBootDevice(device, false) && bootPartitionOffset == 0
-				&& partition->Parent() == device && device->CountChildren() == 1
+				&& partition->Parent() == device && device->CountChildren() == 2
 				&& device->ContentType() != NULL
 				&& strcmp(device->ContentType(), kPartitionTypeIntel) == 0
 				&& partition->ContentType() != NULL
