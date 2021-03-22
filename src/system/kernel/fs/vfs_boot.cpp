@@ -275,11 +275,13 @@ DiskBootMethod::IsBootPartition(KPartition* partition, bool& foundForSure)
 
 		if (fMethod == BOOT_METHOD_CD) {
 			// Check for the boot partition of an anyboot CD. We identify it as
-			// such, if it is the only primary partition on the CD, has type
-			// BFS, and the boot partition offset is 0.
+			// such, if it is one of two primary partition on the CD, has type
+			// BFS, and the boot partition offset is correct (or 0 for BIOS)
 			KDiskDevice* device = partition->Device();
-			if (IsBootDevice(device, false) && bootPartitionOffset == 0
-				&& partition->Parent() == device && device->CountChildren() == 1
+			if (IsBootDevice(device, false)
+				&& (bootPartitionOffset == partition->Offset()
+					|| bootPartitionOffset == 0)
+				&& partition->Parent() == device && device->CountChildren() == 2
 				&& device->ContentType() != NULL
 				&& strcmp(device->ContentType(), kPartitionTypeIntel) == 0
 				&& partition->ContentType() != NULL
