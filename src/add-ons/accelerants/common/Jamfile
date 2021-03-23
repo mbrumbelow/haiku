@@ -1,6 +1,9 @@
 SubDir HAIKU_TOP src add-ons accelerants common ;
+SubDirSysHdrs $(HAIKU_TOP) headers os drivers drm ;
 
 SetSubDirSupportedPlatforms haiku haiku_host libbe_test ;
+
+UseHeaders [ FDirName $(HAIKU_TOP) headers compatibility bsd ] : true ;
 
 UsePrivateHeaders graphics ;
 UsePrivateHeaders [ FDirName graphics radeon ] ;
@@ -12,6 +15,7 @@ StaticLibrary libaccelerantscommon.a :
 	ddc.c
 	decode_edid.c
 	dp.cpp
+	drm_common.c
 	dump_edid.c
 	i2c.c
 	validate_display_mode.cpp

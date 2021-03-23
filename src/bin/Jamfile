@@ -23,8 +23,11 @@ AddResources notify : notify.rdef ;
 AddResources setmime : setmime.rdef ;
 AddResources urlwrapper : urlwrapper.rdef ;
 
-ObjectSysHdrs listimage.c :
+ObjectSysHdrs listimage.c drminfo.c :
 	[ FDirName $(HAIKU_TOP) headers compatibility bsd ] ;
+
+ObjectSysHdrs drminfo.c :
+	[ FDirName $(HAIKU_TOP) headers os drivers drm ] ;
 
 # standard commands that don't need any additional library
 StdBinCommands
@@ -32,6 +35,7 @@ StdBinCommands
 	chop.c
 	clear.c
 	driveinfo.c
+	drminfo.c
 	error.c
 	fortune.c
 	finddir.c

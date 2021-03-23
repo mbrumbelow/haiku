@@ -9,9 +9,13 @@
 extern "C" {
 #endif
 
+
+// Haiku / BeOS Graphics calls
 enum {
 	B_GET_ACCELERANT_SIGNATURE = B_GRAPHIC_DRIVER_BASE
 };
+// DRM IOCTL's start at 8400
+
 
 #ifdef __cplusplus
 }

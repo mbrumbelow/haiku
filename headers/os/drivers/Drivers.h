@@ -116,6 +116,8 @@ enum {
 	B_MIDI_DRIVER_BASE = 8100,		/* base for codes in midi_driver.h */
 	B_JOYSTICK_DRIVER_BASE = 8200,	/* base for codes in joystick.h */
 	B_GRAPHIC_DRIVER_BASE = 8300,	/* base for codes in graphic_driver.h */
+	B_GRAPHIC_DRMCTL_BASE = 8400,	/* base for drm ioctls in graphic_driver.h */
+	B_GRAPHIC_DRMCMD_BASE = 8464,	/* base for drm ioctls in graphic_driver.h */
 
 	B_DEVICE_OP_CODES_END = 9999	/* end of Be-defined control ids */
 };

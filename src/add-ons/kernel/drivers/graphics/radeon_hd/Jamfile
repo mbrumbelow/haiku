@@ -6,6 +6,9 @@ UsePrivateHeaders graphics kernel ;
 UsePrivateHeaders shared ;
 UsePrivateKernelHeaders ;
 
+UseHeaders [ FDirName $(HAIKU_TOP) headers compatibility bsd ] : true ;
+SubDirSysHdrs $(HAIKU_TOP) headers os drivers drm ;
+
 KernelAddon radeon_hd :
 	driver.cpp
 	device.cpp

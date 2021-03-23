@@ -1,0 +1,4 @@
+# DRM uapi from Linux
+
+These sources are the MIT-friendly DRM uapi (include/uapi/drm) from Linux.
+Try not to change these :-)

@@ -1,9 +1,10 @@
 /*
- * Copyright 2006-2009, Haiku, Inc. All Rights Reserved.
+ * Copyright 2006-2021, Haiku, Inc. All Rights Reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
  *		Axel Dörfler, axeld@pinc-software.de
+ *		Alexander von Gluck IV, kallisti5@unixzen.com
  */
 
 
@@ -11,6 +12,7 @@
 #include "device.h"
 #include "radeon_hd.h"
 #include "utility.h"
+#include "drm_common.h"
 
 #include <OS.h>
 #include <KernelExport.h>
@@ -181,6 +183,14 @@ static status_t
 device_ioctl(void* data, uint32 op, void* buffer, size_t bufferLength)
 {
 	struct radeon_info* info = (radeon_info*)data;
+
+	if (DRM_IS_CONTROL_IOCTL(op)) {
+		TRACE("%s: drm control %" B_PRIu32 " (length = %ld)\n",
+			__func__, op, bufferLength);
+		return drm_control_ioctl(op, buffer, bufferLength);
+	}
+
+	// TODO: DRM_IS_COMMAND_IOCTL(op)
 
 	switch (op) {
 		case B_GET_ACCELERANT_SIGNATURE:
