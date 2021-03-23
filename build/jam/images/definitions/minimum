@@ -5,7 +5,7 @@ SYSTEM_BIN = [ FFilterByBuildFeatures
 	beep bfsinfo
 	catattr checkfs checkitout chop clear collectcatkeys copyattr
 	desklink df diskimage draggers
-	driveinfo dstcheck dumpcatalog
+	driveinfo drminfo dstcheck dumpcatalog
 	eject error
 	fdinfo ffm filepanel finddir findpaths fortune fstrim
 	ftpd
