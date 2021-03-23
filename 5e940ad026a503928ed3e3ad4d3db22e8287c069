@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "779e3d95_04cece13",
+        "filename": "headers/os/drivers/Drivers.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-03-23T22:02:14Z",
+      "side": 1,
+      "message": "This seems anti-pattern to how DRM ioctl\u0027s work.\n\nThe \"official\" base seems to be \u0027d\u0027 (0x40), but that kind of collides with our other well defined ioctl\u0027s\n\nI think we can modify the base in our \"official\" drm.h headers however.. so it might be ok for upstream.",
+      "revId": "5e940ad026a503928ed3e3ad4d3db22e8287c069",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81ccb9a4_b45dba4c",
+        "filename": "headers/private/graphics/common/drm_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-03-23T22:02:14Z",
+      "side": 1,
+      "message": "generic function to dish out \"generic DRM calls\" from drivers. The idea is we can catch the universal drm control ioctl\u0027s and handle them here with only a few lines in each graphics card driver.",
+      "revId": "5e940ad026a503928ed3e3ad4d3db22e8287c069",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c53da64_9fffacae",
+        "filename": "src/add-ons/kernel/drivers/graphics/radeon_hd/device.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-03-23T22:02:14Z",
+      "side": 1,
+      "message": "Example handling the \"generic\" drm ioctl\u0027s",
+      "revId": "5e940ad026a503928ed3e3ad4d3db22e8287c069",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
