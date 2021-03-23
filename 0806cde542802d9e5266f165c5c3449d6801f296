@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "c7cbd35e_392984cf",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-23T17:35:35Z",
+      "side": 1,
+      "message": "\u003e Maybe I should do on this change and adapt other related changes later, right?\n\nYes, it\u0027s better to focus on these commits one at a time. Unfortunately the original author decided to move on and continued to add more changes on top, rather than finishing the work on each commit. This makes things a bit more difficult for us now, but I think by solving problems one at a time, it should be fine.\n\n\u003e And I think the definition of variables and functions are not concise enough, so it makes easy to write long line code. Should I do something to make it better if possible?\n\nYes, making the code clearer and better documented is a good idea. However, it could make it harder to reuse the next patches in this series.\n\nSo, the way I would handle this is:\n- First, fix the coding style problems and memory leaks that were identified in this patch (and in the next ones after that)\n- When this work is done and these patches are merged, we can move on to restructuring the code and making it easier to understand (if you are interested in going further with XFS work)",
+      "parentUuid": "664553cb_792ec773",
+      "revId": "0806cde542802d9e5266f165c5c3449d6801f296",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "463a264f_375f0548",
         "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
         "patchSetId": 15
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "463a264f_375f0548",
+      "revId": "0806cde542802d9e5266f165c5c3449d6801f296",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36f194b5_5be76f07",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-23T17:35:35Z",
+      "side": 1,
+      "message": "The space is still missing.\n\nIt should look like this:\n\nwhile (levelsInTree !\u003d 1) {",
+      "parentUuid": "3294af00_26cc887e",
       "revId": "0806cde542802d9e5266f165c5c3449d6801f296",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -137,6 +173,24 @@
       "revId": "0806cde542802d9e5266f165c5c3449d6801f296",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d023dd78_6e30e1b9",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-23T17:35:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd2dfa0a_27600218",
+      "revId": "0806cde542802d9e5266f165c5c3449d6801f296",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }

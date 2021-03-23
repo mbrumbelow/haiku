@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "bd60f201_b00a457b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-23T17:35:35Z",
+      "side": 1,
+      "message": "As I had tried to explain in my previous comment, what we would normally do is:\n\n- Add a \"status_t fStatus\" member to the class\n- In the constructor: initialize it:\n\n    fStatus \u003d B_OK;\n\n- In the constructor, check all allocations in this way:\n\nfRoot \u003d new(std::nothrow) BlockInDataFork;\nif (fRoot \u003d\u003d NULL) {\n    fStatus \u003d B_NO_MEMORY;\n    return;\n}\n\n- In InitCheck:\n\n    return fStatus;",
+      "parentUuid": "a7987f57_8de1eb58",
+      "revId": "33474670fa3ed2735f6c376f1dde9b381a445cc9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4f5897d5_12a9ffe2",
         "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
         "patchSetId": 16
@@ -30,6 +48,23 @@
       "writtenOn": "2021-03-23T14:48:51Z",
       "side": 1,
       "message": "We don\u0027t need these if(.) conditions. If something is NULL, delete does nothing to it. Likewise for the other two",
+      "revId": "33474670fa3ed2735f6c376f1dde9b381a445cc9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7ae2b73_ef95301e",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-23T17:35:35Z",
+      "side": 1,
+      "message": "it is allocated with new[] so it should be deleted with delete[]",
       "revId": "33474670fa3ed2735f6c376f1dde9b381a445cc9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -64,6 +99,24 @@
       "writtenOn": "2021-03-23T14:48:51Z",
       "side": 1,
       "message": "fExtents if not a member to the class hence the prefix of \u0027f\u0027 isn\u0027t required. Maybe call it unwrappedExtents or something?",
+      "revId": "33474670fa3ed2735f6c376f1dde9b381a445cc9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8306f9a_390bdd3a",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-23T17:35:35Z",
+      "side": 1,
+      "message": "It should remain a class member as it was before.\n\nBut:\n- It should be deleted in the class destructor\n- In this method, it should be deleted before allocating (in case the method is called multiple times)",
+      "parentUuid": "e894dca0_e8a94ce1",
       "revId": "33474670fa3ed2735f6c376f1dde9b381a445cc9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
