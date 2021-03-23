@@ -9,6 +9,8 @@
 extern "C" {
 #endif
 
+
+// Haiku / BeOS Graphics calls
 enum {
 	B_GET_ACCELERANT_SIGNATURE = B_GRAPHIC_DRIVER_BASE
 };

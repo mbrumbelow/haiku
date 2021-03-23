@@ -1,7 +1,10 @@
 SubDir HAIKU_TOP src add-ons accelerants radeon_hd ;
+SubDirSysHdrs $(HAIKU_TOP) headers os drivers drm ;
+
 SEARCH_SOURCE += [ FDirName $(HAIKU_TOP) src add-ons accelerants common ] ;
 SEARCH_SOURCE += [ FDirName $(HAIKU_TOP) src add-ons accelerants radeon_hd atombios ] ;
 
+UseHeaders [ FDirName $(HAIKU_TOP) headers compatibility bsd ] : true ;
 UseHeaders [ FDirName $(SUBDIR) atombios ] ;
 UsePrivateHeaders graphics ;
 UsePrivateHeaders [ FDirName graphics radeon_hd ] ;
