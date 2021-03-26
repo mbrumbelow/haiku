@@ -19,12 +19,18 @@ public:
 	static	void				GetDIEName(const DebugInfoEntry* entry,
 									BString& _name);
 	static	void				GetDIETypeName(const DebugInfoEntry* entry,
-									BString& _name);
+									BString& _name,
+									const DebugInfoEntry*
+										requestingEntry = NULL);
 	static	void				GetFullDIEName(const DebugInfoEntry* entry,
-									BString& _name);
+									BString& _name,
+									const DebugInfoEntry*
+										requestingEntry = NULL);
 	static	void				GetFullyQualifiedDIEName(
 									const DebugInfoEntry* entry,
-									BString& _name);
+									BString& _name,
+									const DebugInfoEntry*
+										requestingEntry = NULL);
 
 	static	bool				GetDeclarationLocation(DwarfFile* dwarfFile,
 									const DebugInfoEntry* entry,
