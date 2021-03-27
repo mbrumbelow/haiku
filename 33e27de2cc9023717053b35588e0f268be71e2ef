@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7e39a59e_8f97bf0c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-27T15:49:00Z",
+      "side": 1,
+      "message": "you have still removed the extra tabs on the left for all classes in this file. This is incorrect. The reason all this extra space is there is to allow for qualifiers (such as \"const\" or \"virtual\") to be separated from the types.",
+      "revId": "33e27de2cc9023717053b35588e0f268be71e2ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f9ecb56_38942a2b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-27T15:49:00Z",
+      "side": 1,
+      "message": "this should be put further down in the class, with the other fields (fInode, fRoot) and not mixed with the methods.",
+      "revId": "33e27de2cc9023717053b35588e0f268be71e2ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09a09397_5e76fde8",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-27T15:49:00Z",
+      "side": 1,
+      "message": "indentation is still incorrect here",
+      "revId": "33e27de2cc9023717053b35588e0f268be71e2ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82d447e6_0bd8eca0",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-27T15:49:00Z",
+      "side": 1,
+      "message": "indentation is still incorrect here",
+      "revId": "33e27de2cc9023717053b35588e0f268be71e2ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}

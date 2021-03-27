@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "a4757e40_ea84d4a8",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-27T15:49:00Z",
+      "side": 1,
+      "message": "fExtentsWrapped is still a member attribute in the current version of the patch. It looks like it could be allocated as a local variable in GetAllExtents(), and using a BAutoDeleter would make sure it is deleted automatically.",
+      "parentUuid": "93039ac0_7349bc64",
+      "revId": "f83d5a080e80a50a86cd31bc42348c7892c88acc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ea3f2849_2cdc6d2f",
         "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
         "patchSetId": 4
