@@ -14,16 +14,16 @@
 #include <Box.h>
 #include <Button.h>
 #include <Catalog.h>
+#include <CheckBox.h>
 #include <ControlLook.h>
 #include <Debug.h>
-#include <CheckBox.h>
+#include <LayoutBuilder.h>
+#include <Locale.h>
 #include <MenuField.h>
 #include <MenuItem.h>
 #include <PopUpMenu.h>
-#include <LayoutBuilder.h>
-#include <Locale.h>
-#include <Slider.h>
 #include <Screen.h>
+#include <Slider.h>
 #include <StringView.h>
 #include <TabView.h>
 
@@ -38,40 +38,44 @@
 
 
 InputMouse::InputMouse(BInputDevice* dev, MouseSettings* settings)
-	: BView("InputMouse", B_WILL_DRAW)
+	:
+	BView("InputMouse", B_WILL_DRAW)
 {
 	fSettings = settings;
 
 	fSettingsView = new SettingsView(*fSettings);
 
-	fDefaultsButton = new BButton(B_TRANSLATE("Defaults"),
-		new BMessage(kMsgDefaults));
+	fDefaultsButton
+		= new BButton(B_TRANSLATE("Defaults"), new BMessage(kMsgDefaults));
 	fDefaultsButton->SetEnabled(fSettings->IsDefaultable());
 
-	fRevertButton = new BButton(B_TRANSLATE("Revert"),
-		new BMessage(kMsgRevert));
+	fRevertButton
+		= new BButton(B_TRANSLATE("Revert"), new BMessage(kMsgRevert));
 	fRevertButton->SetEnabled(false);
 
 	BLayoutBuilder::Group<>(this, B_VERTICAL, B_USE_DEFAULT_SPACING)
 		.Add(fSettingsView)
-			.Add(new BSeparatorView(B_HORIZONTAL))
-				.AddGroup(B_HORIZONTAL)
-				.Add(fDefaultsButton)
-				.Add(fRevertButton)
-				.AddGlue()
-				.End()
+		.Add(new BSeparatorView(B_HORIZONTAL))
+		.AddGroup(B_HORIZONTAL)
+		.Add(fDefaultsButton)
+		.Add(fRevertButton)
+		.AddGlue()
+		.End()
 		.End();
 }
+
 
 InputMouse::~InputMouse()
 {
 }
 
+
 void
 InputMouse::MessageReceived(BMessage* message)
 {
 	switch (message->what) {
-		case kMsgDefaults: {
+		case kMsgDefaults:
+		{
 			fSettings->Defaults();
 			fSettingsView->UpdateFromSettings();
 
@@ -80,14 +84,14 @@ InputMouse::MessageReceived(BMessage* message)
 			break;
 		}
 
-		case kMsgRevert: {
+		case kMsgRevert:
+		{
 			fSettings->Revert();
 			fSettingsView->UpdateFromSettings();
 
 			fDefaultsButton->SetEnabled(fSettings->IsDefaultable());
 			fRevertButton->SetEnabled(false);
 			break;
-
 		}
 
 		case kMsgMouseType:
@@ -120,8 +124,7 @@ InputMouse::MessageReceived(BMessage* message)
 		case kMsgFollowsMouseMode:
 		{
 			int32 mode;
-			if (message->FindInt32("mode_focus_follows_mouse", &mode)
-				== B_OK) {
+			if (message->FindInt32("mode_focus_follows_mouse", &mode) == B_OK) {
 				fSettings->SetFocusFollowsMouseMode(
 					(mode_focus_follows_mouse)mode);
 				fDefaultsButton->SetEnabled(fSettings->IsDefaultable());
@@ -132,15 +135,16 @@ InputMouse::MessageReceived(BMessage* message)
 
 		case kMsgAcceptFirstClick:
 		{
-			BHandler *handler;
-			if (message->FindPointer("source",
-				reinterpret_cast<void**>(&handler)) == B_OK) {
+			BHandler* handler;
+			if (message->FindPointer(
+					"source", reinterpret_cast<void**>(&handler))
+				== B_OK) {
 				bool acceptFirstClick = true;
-				BCheckBox *acceptFirstClickBox =
-					dynamic_cast<BCheckBox*>(handler);
+				BCheckBox* acceptFirstClickBox
+					= dynamic_cast<BCheckBox*>(handler);
 				if (acceptFirstClickBox)
-					acceptFirstClick = acceptFirstClickBox->Value()
-						== B_CONTROL_ON;
+					acceptFirstClick
+						= acceptFirstClickBox->Value() == B_CONTROL_ON;
 				fSettings->SetAcceptFirstClick(acceptFirstClick);
 				fDefaultsButton->SetEnabled(fSettings->IsDefaultable());
 				fRevertButton->SetEnabled(fSettings->IsRevertable());
@@ -165,8 +169,8 @@ InputMouse::MessageReceived(BMessage* message)
 			int32 value;
 			if (message->FindInt32("be:value", &value) == B_OK) {
 				// slow = 8192, fast = 524287
-				fSettings->SetMouseSpeed((int32)pow(2,
-					value * 6.0 / 1000) * 8192);
+				fSettings->SetMouseSpeed(
+					(int32)pow(2, value * 6.0 / 1000) * 8192);
 				fDefaultsButton->SetEnabled(fSettings->IsDefaultable());
 				fRevertButton->SetEnabled(fSettings->IsRevertable());
 			}
@@ -178,8 +182,8 @@ InputMouse::MessageReceived(BMessage* message)
 			int32 value;
 			if (message->FindInt32("be:value", &value) == B_OK) {
 				// slow = 0, fast = 262144
-				fSettings->SetAccelerationFactor((int32)pow(
-					value * 4.0 / 1000, 2) * 16384);
+				fSettings->SetAccelerationFactor(
+					(int32)pow(value * 4.0 / 1000, 2) * 16384);
 				fDefaultsButton->SetEnabled(fSettings->IsDefaultable());
 				fRevertButton->SetEnabled(fSettings->IsRevertable());
 			}
