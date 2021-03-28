@@ -4,7 +4,7 @@
  *
  * Author:
  *		Preetpal Kaur <preetpalok123@gmail.com>
-*/
+ */
 
 
 #include "InputDeviceView.h"
@@ -36,14 +36,9 @@ DeviceListItemView::DeviceListItemView(BString title, input_type type)
 {
 }
 
-struct DeviceListItemView::Renderer {
-	Renderer()
-		:
-		fTitle(NULL),
-		fPrimaryIcon(NULL),
-		fSelected(false)
-	{
-	}
+struct DeviceListItemView::Renderer
+{
+	Renderer() : fTitle(NULL), fPrimaryIcon(NULL), fSelected(false) {}
 
 	void AddIcon(BBitmap* icon)
 	{
@@ -51,15 +46,9 @@ struct DeviceListItemView::Renderer {
 			fPrimaryIcon = icon;
 	}
 
-	void SetTitle(const char* title)
-	{
-		fTitle = title;
-	}
+	void SetTitle(const char* title) { fTitle = title; }
 
-	void SetSelected(bool selected)
-	{
-		fSelected = selected;
-	}
+	void SetSelected(bool selected) { fSelected = selected; }
 
 	void Render(BView* onto, BRect frame, bool complete = false)
 	{
@@ -86,13 +75,14 @@ struct DeviceListItemView::Renderer {
 		onto->SetDrawingMode(B_OP_COPY);
 
 		BFont font = be_plain_font;
-		font_height	fontInfo;
+		font_height fontInfo;
 		font.GetHeight(&fontInfo);
 
 		onto->SetFont(&font);
-		onto->MovePenTo(point.x + 8, frame.top
-			+ fontInfo.ascent + (frame.Height()
-			- ceilf(fontInfo.ascent + fontInfo.descent)) / 2.0f);
+		onto->MovePenTo(point.x + 8,
+			frame.top + fontInfo.ascent
+				+ (frame.Height() - ceilf(fontInfo.ascent + fontInfo.descent))
+					/ 2.0f);
 		onto->DrawString(fTitle);
 
 		onto->SetHighColor(highColor);
@@ -105,11 +95,11 @@ struct DeviceListItemView::Renderer {
 		width += be_plain_font->StringWidth(fTitle) + 16.0f;
 		return width;
 	}
-private:
 
-	BString		fTitle;
-	BBitmap*	fPrimaryIcon;
-	bool		fSelected;
+private:
+	BString fTitle;
+	BBitmap* fPrimaryIcon;
+	bool fSelected;
 };
 
 
@@ -119,9 +109,8 @@ DeviceListItemView::Update(BView* owner, const BFont* font)
 	BListItem::Update(owner, font);
 
 	float iconHeight = InputIcons::sBounds.Height() + 1;
-	if ((Height() < iconHeight + kITEM_MARGIN * 2)) {
+	if ((Height() < iconHeight + kITEM_MARGIN * 2))
 		SetHeight(iconHeight + kITEM_MARGIN * 2);
-	}
 
 	Renderer renderer;
 	renderer.SetTitle(Label());
