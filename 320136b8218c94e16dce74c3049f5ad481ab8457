@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "30184e13_80158373",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-03-28T11:26:22Z",
+      "side": 1,
+      "message": "The existing style seems to be correct, see the example on the coding guidelines: \n\nFoo::Foo(int32 param)\n\t:\n\tBar(int32* param),\n\tfMember(param),\n\tfPointerMember(NULL)",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "853eac2c_e9b3b60a",
         "filename": "src/preferences/input/InputDeviceView.cpp",
         "patchSetId": 1
@@ -30,6 +47,23 @@
       "writtenOn": "2021-03-28T11:21:20Z",
       "side": 1,
       "message": "we don\u0027t have examples of inline functions in the coding guidelines.\n\nIs this style ok?",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "859b815b_7ba0f9f0",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-03-28T11:26:22Z",
+      "side": 1,
+      "message": "Not sure about the style when adding the method body inside the class definition. It seems like our preferred style is to extract the method bodies outside of the definition.\n\nOpinions/previous work?",
       "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -53,6 +87,40 @@
     },
     {
       "key": {
+        "uuid": "26735140_9b3fbb84",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-03-28T11:26:22Z",
+      "side": 1,
+      "message": "I guess we are reaching the limits of our style guide and the extend to which you can do automated checking here.\n\nThere seems to be a preference for a very aligned, table-like structure of the class/struct definitions. I don\u0027t know if we can automatically check if the style is correct in the sense that types, specifiers and names are aligned in the table-structure. \n\nIt does seem to me that the style tool should not convert tabs into spaces.",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8131a6bc_11112a4a",
+        "filename": "src/preferences/input/InputKeyboard.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-03-28T11:26:22Z",
+      "side": 1,
+      "message": "This change is probably inconsistent with our style guide (even though I do like it better). The previous version is consistent with the example.",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "15439074_d92ccf91",
         "filename": "src/preferences/input/InputKeyboard.cpp",
         "patchSetId": 1
@@ -70,6 +138,23 @@
     },
     {
       "key": {
+        "uuid": "1d1266f7_59600ac3",
+        "filename": "src/preferences/input/InputKeyboard.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-03-28T11:26:22Z",
+      "side": 1,
+      "message": "This is probably also one where you reach the limits of what you can/should automatically correct. Technically, the suggested style is correct. The issue is that the AddGroup() calls of the layout builder match with the End() calls, and it is probably more clear to the user what\u0027s happening her if you keep the original indentation.",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7667852c_622f00e6",
         "filename": "src/preferences/input/InputMouse.cpp",
         "patchSetId": 1
@@ -81,6 +166,108 @@
       "writtenOn": "2021-03-28T11:21:20Z",
       "side": 1,
       "message": "this if should get {} because the statement inside it spans more than one line",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40819721_62024e70",
+        "filename": "src/preferences/input/InputMouse.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-03-28T11:26:22Z",
+      "side": 1,
+      "message": "Just want to double check with others whether this is the expected style. IMO it is, the rules are (a) max 80 chars (b) put as many arguments on the line as possible and (c) complex arguments should preferably not be broken up.\n\nThe alterative would be the previous style where the main rule is to put as much as possible on each line.",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60e3bdc6_2d31f8e6",
+        "filename": "src/preferences/input/InputTouchpadPref.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-03-28T11:26:22Z",
+      "side": 1,
+      "message": "This does seem to be against the style guide: we put as many arguments on one line as possible.",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0983169e_e87cecae",
+        "filename": "src/preferences/input/InputTouchpadPref.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-03-28T11:26:22Z",
+      "side": 1,
+      "message": "This change seems to be correct, though I am not sure I like it.",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "524d92b3_5dcb8894",
+        "filename": "src/preferences/input/InputTouchpadPrefView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-03-28T11:26:22Z",
+      "side": 1,
+      "message": "Again, don\u0027t think the new one is compliant to the style guide.",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc6cb629_d094b52b",
+        "filename": "src/preferences/input/InputTouchpadPrefView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-03-28T11:26:22Z",
+      "side": 1,
+      "message": "I don\u0027t know whether this change is compliant with the style guide.",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d9865ee_ba06c18c",
+        "filename": "src/preferences/input/InputTouchpadPrefView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-03-28T11:26:22Z",
+      "side": 1,
+      "message": "The changes on these lines are not compliant with the style guide, we generally use the indention based on the level of depth, not on a visual layout.",
       "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -121,6 +308,23 @@
     },
     {
       "key": {
+        "uuid": "c842ad33_d7a8b8cd",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-03-28T11:26:22Z",
+      "side": 1,
+      "message": "I don\u0027t think there is a style guide for this, but I prefer the previous style with these type of conditional pre-processor directives.",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ded767e7_376df80f",
         "filename": "src/preferences/input/MouseSettings.cpp",
         "patchSetId": 1
@@ -149,6 +353,23 @@
       "writtenOn": "2021-03-28T11:21:20Z",
       "side": 1,
       "message": "I don\u0027t understand why there is an extra space added here",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2edfe785_9438c99c",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-03-28T11:26:22Z",
+      "side": 1,
+      "message": "Not sure why the style checker insists on adding a space before the ++ operator in this case.",
       "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
