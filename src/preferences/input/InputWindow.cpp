@@ -113,7 +113,7 @@ InputWindow::MessageReceived(BMessage* message)
 				BInputDevice* device = find_input_device(name);
 				if (device)
 					AddDevice(device);
-			} else {
+			} else
 				for (int i = 0; i < fDeviceListView->CountItems(); i++) {
 					DeviceListItemView* item
 						= dynamic_cast<DeviceListItemView*>(
@@ -126,7 +126,6 @@ InputWindow::MessageReceived(BMessage* message)
 						break;
 					}
 				}
-			}
 
 			break;
 		}

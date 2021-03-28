@@ -87,7 +87,9 @@ MouseView::MouseView(const MouseSettings& settings)
 }
 
 
-MouseView::~MouseView() {}
+MouseView::~MouseView()
+{
+}
 
 
 void
@@ -158,7 +160,11 @@ MouseView::MouseDown(BPoint where)
 			fButtons = B_TERTIARY_MOUSE_BUTTON;
 		else
 			fButtons = B_SECONDARY_MOUSE_BUTTON;
+<<<<<<< HEAD
+	}
+=======
 
+>>>>>>> dd97023d9f... input preferences: Updates code according to Haiku guidelines
 	// Get the current clipping region before requesting any updates.
 	// Otherwise those parts would be excluded from the region.
 	BRegion clipping;

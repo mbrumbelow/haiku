@@ -38,13 +38,7 @@ DeviceListItemView::DeviceListItemView(BString title, input_type type)
 
 struct DeviceListItemView::Renderer
 {
-	Renderer()
-		:
-		fTitle(NULL),
-		fPrimaryIcon(NULL),
-		fSelected(false)
-	{
-	}
+	Renderer() : fTitle(NULL), fPrimaryIcon(NULL), fSelected(false) {}
 
 	void AddIcon(BBitmap* icon)
 	{
@@ -52,15 +46,9 @@ struct DeviceListItemView::Renderer
 			fPrimaryIcon = icon;
 	}
 
-	void SetTitle(const char* title)
-	{
-		fTitle = title;
-	}
+	void SetTitle(const char* title) { fTitle = title; }
 
-	void SetSelected(bool selected)
-	{
-		fSelected = selected;
-	}
+	void SetSelected(bool selected) { fSelected = selected; }
 
 	void Render(BView* onto, BRect frame, bool complete = false)
 	{
@@ -107,6 +95,11 @@ struct DeviceListItemView::Renderer
 		width += be_plain_font->StringWidth(fTitle) + 16.0f;
 		return width;
 	}
+<<<<<<< HEAD
+
+private:
+=======
+>>>>>>> dd97023d9f... input preferences: Updates code according to Haiku guidelines
 
 private:
 	BString fTitle;
