@@ -1,0 +1,208 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bedcc50b_a4c1af81",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-28T11:21:20Z",
+      "side": 1,
+      "message": "the previous format was correct here.\n\nclang-format settings that could be related:\n- BreakConstructorInitializers (should be BCIS_Haiku)\n- AllowAllConstructorInitializersOnNextLine (should be false)\n- ConstructorInitializerAllOnOneLineOrOnePerLine (should be false)\n\nIf that is not enough, code changes are needed in clang-format",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "853eac2c_e9b3b60a",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-28T11:21:20Z",
+      "side": 1,
+      "message": "we don\u0027t have examples of inline functions in the coding guidelines.\n\nIs this style ok?",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "381c6359_fa3ef994",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-28T11:21:20Z",
+      "side": 1,
+      "message": "The previous style was more correct here for fields of a class.\n\nIdeally there should be even more tabs, at the left, to leave space for qualifiers (\"volatile\", \"const\", ...) in a separate column.",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15439074_d92ccf91",
+        "filename": "src/preferences/input/InputKeyboard.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-28T11:21:20Z",
+      "side": 1,
+      "message": "These changes are incorrect. We use an unusual indentation style inside BLayoutBuilder to reflect the hierarchy of the controls being added in a window. So, for example, every call to .AddGroup results in an extra indentation level for all things that go inside the group, until the next call to .End().\n\nThis is specific to our APIs, so I don\u0027t know if it could be added to clang-format easily. What could be done about it?",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7667852c_622f00e6",
+        "filename": "src/preferences/input/InputMouse.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-28T11:21:20Z",
+      "side": 1,
+      "message": "this if should get {} because the statement inside it spans more than one line",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd3071e6_3bcdac62",
+        "filename": "src/preferences/input/InputTouchpadPrefView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-28T11:21:20Z",
+      "side": 1,
+      "message": "this is incorrect, we never align things this way",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9b1cf6f_0eb383d6",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-28T11:21:20Z",
+      "side": 1,
+      "message": "the braces for this else should not be removed",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ded767e7_376df80f",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-28T11:21:20Z",
+      "side": 1,
+      "message": "the previous style was correct here: the comment is indented one level more because it refers to the line above.\n\nHowever, I don\u0027t know if clang-format can be made to understand that. Maybe it should simply accept that some comments are indented one level more than others.",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "446076f1_b4164f1e",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-28T11:21:20Z",
+      "side": 1,
+      "message": "I don\u0027t understand why there is an extra space added here",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e7cc27b_c6f369a2",
+        "filename": "src/preferences/input/MouseView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-28T11:21:20Z",
+      "side": 1,
+      "message": "the previous version was better. But it is a special case here (there are several columns of values that should be kept aligned).\n\nMaybe the best option is to insert special comments around it to disable formatting here:\n\n// clang-format off\nstatic const int32 kButtonOffsets[][7] \u003d ...\n// clang-format on\n\nThese comments are detected by the formatting tool and will tell it to not touch this part of the code.",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b19dd623_9c328284",
+        "filename": "src/preferences/input/MouseView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-28T11:21:20Z",
+      "side": 1,
+      "message": "the previous format was correct here",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fbbcce3_66154295",
+        "filename": "src/preferences/input/MouseView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-28T11:21:20Z",
+      "side": 1,
+      "message": "the {} are required by our coding style here",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
