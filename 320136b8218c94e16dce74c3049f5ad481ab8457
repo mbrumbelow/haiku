@@ -189,6 +189,24 @@
     },
     {
       "key": {
+        "uuid": "5f5a1ff3_0fe77579",
+        "filename": "src/preferences/input/InputMouse.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-03-28T11:30:20Z",
+      "side": 1,
+      "message": "Just to reply to myself, the style guide seems to be of a differing opinion, i.e. the previous version is preferred:\n\nif (someVeryVeryLongConditionThatBarelyFitsOnALine\n\t\u0026\u0026 (someVeryLongNestedConditionPart1\n\t\t|| someVeryLongNestedConditionPart2)\n\t\u0026\u0026 lastPartOfSomeVeryVeryLongCondition\n\t\t!\u003d 0) {",
+      "parentUuid": "40819721_62024e70",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "60e3bdc6_2d31f8e6",
         "filename": "src/preferences/input/InputTouchpadPref.cpp",
         "patchSetId": 1
