@@ -404,6 +404,24 @@
     },
     {
       "key": {
+        "uuid": "b998f98d_e6752841",
+        "filename": "src/preferences/input/InputTouchpadPref.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-29T09:44:59Z",
+      "side": 1,
+      "message": "yes, but I think both versions are acceptable?",
+      "parentUuid": "d072da1c_3ad989d3",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0983169e_e87cecae",
         "filename": "src/preferences/input/InputTouchpadPref.cpp",
         "patchSetId": 1
@@ -678,6 +696,24 @@
       "side": 1,
       "message": "Can we somehow detect that the comment need to indent one level more or should we disable the indenting of comment by clang-format?",
       "parentUuid": "ded767e7_376df80f",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "812245bd_18e282ed",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-29T09:44:59Z",
+      "side": 1,
+      "message": "No, there is no way to detect this. I think the best we can do is have clang-format accept that sometimes comments are at the same level as the code, and sometimes they are one indentation level further, and keep them how they are.",
+      "parentUuid": "e29c73fd_06e51f90",
       "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
