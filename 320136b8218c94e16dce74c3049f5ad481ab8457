@@ -176,6 +176,24 @@
     },
     {
       "key": {
+        "uuid": "f40d6084_3a546b70",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000294
+      },
+      "writtenOn": "2021-03-29T09:36:45Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "26735140_9b3fbb84",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8131a6bc_11112a4a",
         "filename": "src/preferences/input/InputKeyboard.cpp",
         "patchSetId": 1
@@ -333,6 +351,24 @@
     },
     {
       "key": {
+        "uuid": "2926b651_bfdfc91a",
+        "filename": "src/preferences/input/InputMouse.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000294
+      },
+      "writtenOn": "2021-03-29T09:36:45Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5f5a1ff3_0fe77579",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "60e3bdc6_2d31f8e6",
         "filename": "src/preferences/input/InputTouchpadPref.cpp",
         "patchSetId": 1
@@ -344,6 +380,24 @@
       "writtenOn": "2021-03-28T11:26:22Z",
       "side": 1,
       "message": "This does seem to be against the style guide: we put as many arguments on one line as possible.",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d072da1c_3ad989d3",
+        "filename": "src/preferences/input/InputTouchpadPref.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000294
+      },
+      "writtenOn": "2021-03-29T09:36:45Z",
+      "side": 1,
+      "message": "Does the previous style follows our code guidelines?",
+      "parentUuid": "60e3bdc6_2d31f8e6",
       "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -364,6 +418,24 @@
       "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d0aeeb1_b1f53739",
+        "filename": "src/preferences/input/InputTouchpadPref.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000294
+      },
+      "writtenOn": "2021-03-29T09:36:45Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0983169e_e87cecae",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -454,6 +526,24 @@
     },
     {
       "key": {
+        "uuid": "d662bea9_c77851a1",
+        "filename": "src/preferences/input/InputTouchpadPrefView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1000294
+      },
+      "writtenOn": "2021-03-29T09:36:45Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7d9865ee_ba06c18c",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bd3071e6_3bcdac62",
         "filename": "src/preferences/input/InputTouchpadPrefView.cpp",
         "patchSetId": 1
@@ -465,6 +555,24 @@
       "writtenOn": "2021-03-28T11:21:20Z",
       "side": 1,
       "message": "this is incorrect, we never align things this way",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ca1daf9_c438953f",
+        "filename": "src/preferences/input/InputTouchpadPrefView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1000294
+      },
+      "writtenOn": "2021-03-29T09:36:45Z",
+      "side": 1,
+      "message": "I think there is a setting that will fufill our requirement. I will look into it.",
+      "parentUuid": "bd3071e6_3bcdac62",
       "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -552,6 +660,24 @@
       "writtenOn": "2021-03-28T11:21:20Z",
       "side": 1,
       "message": "the previous style was correct here: the comment is indented one level more because it refers to the line above.\n\nHowever, I don\u0027t know if clang-format can be made to understand that. Maybe it should simply accept that some comments are indented one level more than others.",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e29c73fd_06e51f90",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1000294
+      },
+      "writtenOn": "2021-03-29T09:36:45Z",
+      "side": 1,
+      "message": "Can we somehow detect that the comment need to indent one level more or should we disable the indenting of comment by clang-format?",
+      "parentUuid": "ded767e7_376df80f",
       "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -667,6 +793,24 @@
     },
     {
       "key": {
+        "uuid": "2272921b_cf8d29fd",
+        "filename": "src/preferences/input/MouseView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000294
+      },
+      "writtenOn": "2021-03-29T09:36:45Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b19dd623_9c328284",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3fbbcce3_66154295",
         "filename": "src/preferences/input/MouseView.cpp",
         "patchSetId": 1
@@ -678,6 +822,24 @@
       "writtenOn": "2021-03-28T11:21:20Z",
       "side": 1,
       "message": "the {} are required by our coding style here",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2dd4d084_e0d111ce",
+        "filename": "src/preferences/input/MouseView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000294
+      },
+      "writtenOn": "2021-03-29T09:36:45Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3fbbcce3_66154295",
       "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
