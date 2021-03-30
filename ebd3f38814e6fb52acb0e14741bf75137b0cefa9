@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c5068791_e5180c1c",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-30T20:39:21Z",
+      "side": 1,
+      "message": "this space should not be here",
+      "revId": "ebd3f38814e6fb52acb0e14741bf75137b0cefa9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2349c92_3e4158b1",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-03-30T20:39:21Z",
+      "side": 1,
+      "message": "this space should not be here",
+      "revId": "ebd3f38814e6fb52acb0e14741bf75137b0cefa9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
