@@ -124,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "863b61d9_75030243",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2021-03-31T19:56:17Z",
+      "side": 1,
+      "message": "If you are planning to change the code then maybe changing the behaviour of AllowShortFunctionsOnASingleLine will help.\n\nYou may look at its options in the below link.\nhttps://clang.llvm.org/docs/ClangFormatStyleOptions.html",
+      "parentUuid": "81ed151d_0091da20",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "381c6359_fa3ef994",
         "filename": "src/preferences/input/InputDeviceView.cpp",
         "patchSetId": 1
