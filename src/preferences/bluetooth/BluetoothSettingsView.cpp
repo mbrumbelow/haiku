@@ -1,8 +1,11 @@
 /*
  * Copyright 2008-2009, Oliver Ruiz Dorantes <oliver.ruiz.dorantes@gmail.com>
  * Copyright 2012-2013, Tri-Edge AI, <triedgeai@gmail.com>
+ * Copyright 2021, Haiku, Inc.
+ * Distributed under the terms of the MIT License.
  *
- * All rights reserved. Distributed under the terms of the MIT License.
+ * Authors:
+ * 		Fredrik Modéen <fredrik_at_modeen.se>
  */
 
 #include "BluetoothSettingsView.h"
@@ -60,14 +63,16 @@ BluetoothSettingsView::BluetoothSettingsView(const char* name)
 	fPolicyMenuField = new BMenuField("policy",
 		B_TRANSLATE("Incoming connections policy:"), fPolicyMenu);
 
-	fInquiryTimeControl = new BSlider("time",
-		B_TRANSLATE("Default inquiry time:"), new BMessage(kMsgSetInquiryTime),
-		0, 255, B_HORIZONTAL);
+	BString labl(B_TRANSLATE("Default inquiry time:"));
+	labl <<  " " << fSettings.Data.InquiryTime;
+	fInquiryTimeControl = new BSlider("time",labl.String()
+		, new BMessage(kMsgSetInquiryTime),15, 61, B_HORIZONTAL);
 	fInquiryTimeControl->SetLimitLabels(B_TRANSLATE("15 secs"),
 		B_TRANSLATE("61 secs"));
 	fInquiryTimeControl->SetHashMarks(B_HASH_MARKS_BOTTOM);
-	fInquiryTimeControl->SetHashMarkCount(255 / 15);
+	fInquiryTimeControl->SetHashMarkCount(20);
 	fInquiryTimeControl->SetEnabled(true);
+	fInquiryTimeControl->SetValue(fSettings.Data.InquiryTime);
 
 	fExtDeviceView = new ExtendedLocalDeviceView(NULL);
 
@@ -147,21 +152,25 @@ BluetoothSettingsView::MessageReceived(BMessage* message)
 
 			break;
 		}
-		// TODO: To be fixed. :)
 
-		/*
 		case kMsgSetConnectionPolicy:
 		{
-			//uint8 Policy;
-			//if (message->FindInt8("Policy", (int8*)&Policy) == B_OK)
+			int8 policy;
+			if (message->FindInt8("Policy", (int8*)&policy) == B_OK) {
+				fSettings.Data.Policy = policy;
+			}
 			break;
 		}
 
 		case kMsgSetInquiryTime:
 		{
+			fSettings.Data.InquiryTime = fInquiryTimeControl->Value();
+			BString labl(B_TRANSLATE("Default inquiry time:"));
+			labl <<  " " << fInquiryTimeControl->Value();
+			fInquiryTimeControl->SetLabel(labl.String());
 			break;
 		}
-		*/
+
 		case kMsgSetDeviceClass:
 		{
 			uint8 deviceClass;
@@ -221,16 +230,26 @@ BluetoothSettingsView::_BuildConnectionPolicy()
 	item = new BMenuItem(B_TRANSLATE_NOCOLLECT(kAllLabel), message);
 	fPolicyMenu->AddItem(item);
 
+	if (fSettings.Data.Policy == 1)
+		item->SetMarked(true);
+
 	message = new BMessage(kMsgSetConnectionPolicy);
 	message->AddInt8("Policy", 2);
 	item = new BMenuItem(B_TRANSLATE_NOCOLLECT(kTrustedLabel), message);
 	fPolicyMenu->AddItem(item);
 
+	if (fSettings.Data.Policy == 2)
+		item->SetMarked(true);
+
 	message = new BMessage(kMsgSetConnectionPolicy);
 	message->AddInt8("Policy", 3);
-	item = new BMenuItem(B_TRANSLATE_NOCOLLECT(kAlwaysLabel), NULL);
+	item = new BMenuItem(B_TRANSLATE_NOCOLLECT(kAlwaysLabel), message);
 	fPolicyMenu->AddItem(item);
+
+	if (fSettings.Data.Policy == 3)
+		item->SetMarked(true);
 }
+
 
 void
 BluetoothSettingsView::_BuildClassMenu()
