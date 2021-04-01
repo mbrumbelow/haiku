@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "b4a4fd6d_25f524af",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-04-01T22:14:38Z",
+      "side": 1,
+      "message": "Deindent the initialization list by one tab otherwise go back the original code. Original braces. Never combine into one line even if list is short.",
+      "parentUuid": "a25e019c_c0783aeb",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "853eac2c_e9b3b60a",
         "filename": "src/preferences/input/InputDeviceView.cpp",
         "patchSetId": 1
@@ -142,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "5ce6375a_66bfed66",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-04-01T22:14:38Z",
+      "side": 1,
+      "message": "This looks ok to me to put on one line. The reason there are no examples is because writing inline members inside a class definition is discouraged. The original code style was also fine.",
+      "parentUuid": "853eac2c_e9b3b60a",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "381c6359_fa3ef994",
         "filename": "src/preferences/input/InputDeviceView.cpp",
         "patchSetId": 1
@@ -206,6 +242,24 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "26735140_9b3fbb84",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ea9979e_38718cd7",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-04-01T22:14:38Z",
+      "side": 1,
+      "message": "Since there are no tabs in the rest of the class method definitions this seems ok to me to replace the tabs with spaces. Ideally the whole thing would be reworked to take all the method bodies out of the class and retab everything properly then. Assuming that is not done, I’m ok with the spaces for consistency here.",
+      "parentUuid": "9857c833_999dd430",
       "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
