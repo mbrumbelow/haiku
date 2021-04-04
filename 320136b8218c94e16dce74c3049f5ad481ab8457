@@ -90,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "d0236c47_9f1b8888",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000197
+      },
+      "writtenOn": "2021-04-04T14:26:18Z",
+      "side": 1,
+      "message": "Maybe changing the workflow of BreakConstructorInitializers for BCIS_Haiku might solve your problem.",
+      "parentUuid": "40e4c284_d645981e",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "853eac2c_e9b3b60a",
         "filename": "src/preferences/input/InputDeviceView.cpp",
         "patchSetId": 1
