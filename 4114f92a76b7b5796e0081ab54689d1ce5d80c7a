@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a109634a_03da130e",
+        "filename": "src/preferences/bluetooth/BluetoothSettingsView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-04T08:27:03Z",
+      "side": 1,
+      "message": "it should be \"label\"",
+      "revId": "4114f92a76b7b5796e0081ab54689d1ce5d80c7a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ded2a77_52a57a54",
+        "filename": "src/preferences/bluetooth/BluetoothSettingsView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-04T08:27:03Z",
+      "side": 1,
+      "message": "missing space after ,",
+      "revId": "4114f92a76b7b5796e0081ab54689d1ce5d80c7a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b46bc2ac_80e11d94",
+        "filename": "src/preferences/bluetooth/BluetoothSettingsView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-04T08:27:03Z",
+      "side": 1,
+      "message": "missing space after ,",
+      "revId": "4114f92a76b7b5796e0081ab54689d1ce5d80c7a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe178a6f_fda5962f",
+        "filename": "src/preferences/bluetooth/BluetoothSettingsView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-04T08:27:03Z",
+      "side": 1,
+      "message": "no braces needed here, the body of the if is in a single line",
+      "revId": "4114f92a76b7b5796e0081ab54689d1ce5d80c7a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c85a0d2_425a8386",
+        "filename": "src/preferences/bluetooth/BluetoothSettingsView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-04T08:27:03Z",
+      "side": 1,
+      "message": "should be \"label\"",
+      "revId": "4114f92a76b7b5796e0081ab54689d1ce5d80c7a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b31a967a_9960b078",
+        "filename": "src/preferences/bluetooth/BluetoothSettingsView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-04T08:27:03Z",
+      "side": 1,
+      "message": "it looks like this code could be simplified by using a BOptionPopUp instead of a BPopUpMenu",
+      "revId": "4114f92a76b7b5796e0081ab54689d1ce5d80c7a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f53b0872_2a2ee5cb",
+        "filename": "src/preferences/bluetooth/ExtendedLocalDeviceView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-04T08:27:03Z",
+      "side": 1,
+      "message": "it should be TODO in all uppercase.\n\nDisabled code should be in #if 0 / #endif instead of commented out",
+      "revId": "4114f92a76b7b5796e0081ab54689d1ce5d80c7a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
