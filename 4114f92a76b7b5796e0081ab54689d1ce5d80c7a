@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ca264163_af0611e6",
+        "filename": "src/preferences/bluetooth/BluetoothSettingsView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000282
+      },
+      "writtenOn": "2021-04-06T19:36:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a109634a_03da130e",
+      "revId": "4114f92a76b7b5796e0081ab54689d1ce5d80c7a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2ded2a77_52a57a54",
         "filename": "src/preferences/bluetooth/BluetoothSettingsView.cpp",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "4114f92a76b7b5796e0081ab54689d1ce5d80c7a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f9b4dd0_b541b0cb",
+        "filename": "src/preferences/bluetooth/BluetoothSettingsView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000282
+      },
+      "writtenOn": "2021-04-06T19:36:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ded2a77_52a57a54",
+      "revId": "4114f92a76b7b5796e0081ab54689d1ce5d80c7a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "050ac621_ebb88ccd",
+        "filename": "src/preferences/bluetooth/BluetoothSettingsView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000282
+      },
+      "writtenOn": "2021-04-06T19:36:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b46bc2ac_80e11d94",
+      "revId": "4114f92a76b7b5796e0081ab54689d1ce5d80c7a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fe178a6f_fda5962f",
         "filename": "src/preferences/bluetooth/BluetoothSettingsView.cpp",
         "patchSetId": 1
@@ -67,6 +121,24 @@
       "revId": "4114f92a76b7b5796e0081ab54689d1ce5d80c7a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f48b0ba_e8630ec1",
+        "filename": "src/preferences/bluetooth/BluetoothSettingsView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000282
+      },
+      "writtenOn": "2021-04-06T19:36:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe178a6f_fda5962f",
+      "revId": "4114f92a76b7b5796e0081ab54689d1ce5d80c7a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "cb4b9a4c_c23e8577",
+        "filename": "src/preferences/bluetooth/BluetoothSettingsView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000282
+      },
+      "writtenOn": "2021-04-06T19:36:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c85a0d2_425a8386",
+      "revId": "4114f92a76b7b5796e0081ab54689d1ce5d80c7a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b31a967a_9960b078",
         "filename": "src/preferences/bluetooth/BluetoothSettingsView.cpp",
         "patchSetId": 1
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "380e9e9f_61d6f147",
+        "filename": "src/preferences/bluetooth/BluetoothSettingsView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000282
+      },
+      "writtenOn": "2021-04-06T19:36:03Z",
+      "side": 1,
+      "message": "Done\n\nIt was alot off changes, don\u0027t know if it\u0027s done right.",
+      "parentUuid": "b31a967a_9960b078",
+      "revId": "4114f92a76b7b5796e0081ab54689d1ce5d80c7a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f53b0872_2a2ee5cb",
         "filename": "src/preferences/bluetooth/ExtendedLocalDeviceView.cpp",
         "patchSetId": 1
@@ -118,6 +226,24 @@
       "revId": "4114f92a76b7b5796e0081ab54689d1ce5d80c7a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee52bdf1_5b710cd6",
+        "filename": "src/preferences/bluetooth/ExtendedLocalDeviceView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000282
+      },
+      "writtenOn": "2021-04-06T19:36:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f53b0872_2a2ee5cb",
+      "revId": "4114f92a76b7b5796e0081ab54689d1ce5d80c7a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
