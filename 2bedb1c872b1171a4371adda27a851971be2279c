@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d38bd06_a153cc03",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000294
+      },
+      "writtenOn": "2021-04-07T20:17:46Z",
+      "side": 1,
+      "message": "These are the changes by using clang-format after solving bug (https://github.com/owenca/haiku-format/issues/18).",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 2
+      },
+      "revId": "2bedb1c872b1171a4371adda27a851971be2279c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "961fb309_97c8ada0",
+        "filename": "src/preferences/input/InputMouse.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000294
+      },
+      "writtenOn": "2021-04-07T20:17:46Z",
+      "side": 1,
+      "message": "These are the changes by using clang-format after solving bug (https://github.com/owenca/haiku-format/issues/23).",
+      "revId": "2bedb1c872b1171a4371adda27a851971be2279c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
