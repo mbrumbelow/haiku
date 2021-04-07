@@ -390,9 +390,10 @@ private:
 			int32				_PreviousWordStart(int32 offset);
 			int32				_NextWordEnd(int32 offset);
 
-			bool				_GetProperty(BMessage* specifier, int32 form,
+			bool				_GetProperty(BMessage* specifier,
 									const char* property, BMessage* reply);
-			bool				_SetProperty(BMessage* specifier, int32 form,
+			bool				_SetProperty(BMessage* message,
+									BMessage* specifier,
 									const char* property, BMessage* reply);
 			bool				_CountProperties(BMessage* specifier,
 									int32 form, const char* property,
