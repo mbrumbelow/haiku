@@ -108,6 +108,42 @@
     },
     {
       "key": {
+        "uuid": "931918b1_a0510bb1",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-09T10:32:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4a4fd6d_25f524af",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86bc75c0_b5a5eba2",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-09T10:32:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0236c47_9f1b8888",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "853eac2c_e9b3b60a",
         "filename": "src/preferences/input/InputDeviceView.cpp",
         "patchSetId": 1
@@ -193,6 +229,42 @@
       "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db4d2dfd_725644fe",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-09T10:32:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "863b61d9_75030243",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc90d59f_b87dacc5",
+        "filename": "src/preferences/input/InputDeviceView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-09T10:32:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ce6375a_66bfed66",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -509,6 +581,24 @@
       "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "269a5215_5cb70ab0",
+        "filename": "src/preferences/input/InputTouchpadPref.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-09T10:32:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b998f98d_e6752841",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
