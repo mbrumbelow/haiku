@@ -54,6 +54,7 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 			RWLocker.cpp
 			RWLockManager.cpp
 			SettingsHandler.cpp
+			SettingsMessage.cpp
 			ShakeTrackingFilter.cpp
 			StringForRate.cpp
 			StringForSize.cpp
@@ -62,6 +63,7 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 			Thread.cpp
 			ToolBar.cpp
 			Variant.cpp
+			SettingsHandler.cpp
 			;
 
 		Includes [ FGristFiles Keymap.cpp ]
