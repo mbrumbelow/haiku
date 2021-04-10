@@ -1240,6 +1240,7 @@ add_boot_volume_menu()
 	MenuItem* item;
 	void* cookie;
 	int32 count = 0;
+	Directory* first_volume = NULL;
 
 	if (gRoot->Open(&cookie, O_RDONLY) == B_OK) {
 		Directory* volume;
@@ -1251,7 +1252,8 @@ add_boot_volume_menu()
 			char name[B_FILE_NAME_LENGTH];
 			if (volume->GetName(name, sizeof(name)) == B_OK) {
 				add_boot_volume_item(menu, volume, name);
-
+				if(first_volume == NULL)
+					first_volume = volume;
 				count++;
 			}
 		}
@@ -1264,6 +1266,9 @@ add_boot_volume_menu()
 		item->SetType(MENU_ITEM_NO_CHOICE);
 		item->SetEnabled(false);
 	}
+
+	if(first_volume != NULL)
+		sBootVolume->SetTo(first_volume);
 
 	menu->AddSeparatorItem();
 
