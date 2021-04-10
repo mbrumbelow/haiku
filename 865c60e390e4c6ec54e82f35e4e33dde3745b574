@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c406b228_72cfa308",
+        "filename": "src/system/boot/loader/menu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1255,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2021-04-10T19:10:36Z",
+      "side": 1,
+      "message": "Incorrect indentation.\nUse explicit comparison to NULL.",
+      "revId": "865c60e390e4c6ec54e82f35e4e33dde3745b574",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04be1ead_b2da0870",
+        "filename": "src/system/boot/loader/menu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1270,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2021-04-10T19:10:36Z",
+      "side": 1,
+      "message": "When comparing a value with a constant don\u0027t place the constant on the left.",
+      "revId": "865c60e390e4c6ec54e82f35e4e33dde3745b574",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
