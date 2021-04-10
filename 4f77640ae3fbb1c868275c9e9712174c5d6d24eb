@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b5b0136f_78d093fd",
+        "filename": "src/preferences/bluetooth/BluetoothSettingsView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2021-04-10T15:05:09Z",
+      "side": 1,
+      "message": "Is this printf (and the other one in line 184) to stay in the final version? They look like remnants of developing helpers, and break x86_gcc2h build for me, with a format warning turned error.",
+      "revId": "4f77640ae3fbb1c868275c9e9712174c5d6d24eb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
