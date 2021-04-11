@@ -478,6 +478,24 @@
     },
     {
       "key": {
+        "uuid": "05966b99_14bdee7d",
+        "filename": "src/preferences/input/InputMouse.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000294
+      },
+      "writtenOn": "2021-04-11T10:19:48Z",
+      "side": 1,
+      "message": "I have searched and didn\u0027t found any way to add braces in such condition using clang-format. Then, I tried with clang-tidy by changing some settings of clang-tidy and it was giving the expected result, in this case. So can we use that?",
+      "parentUuid": "1eeaf6cd_c9f51b7e",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "40819721_62024e70",
         "filename": "src/preferences/input/InputMouse.cpp",
         "patchSetId": 1
