@@ -496,6 +496,24 @@
     },
     {
       "key": {
+        "uuid": "62376034_80c3ebe9",
+        "filename": "src/preferences/input/InputMouse.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-11T11:44:52Z",
+      "side": 1,
+      "message": "I think you mean https://clang.llvm.org/extra/clang-tidy/checks/readability-braces-around-statements.html which seems to better match our needs.\n\nWe could use that, but what about all the other formatting rules? It would be unconvenient to have to use two tools (clang-format + clang-tidy) instead of a single one. And it seems clang-tidy can do this specific check, but is missing several other ones.\n\nSince both tools are part of clang, is it possible to extract the code from clang-tidy and add it to clang-format? Or should we set up something that uses both clang-format and clang-tidy (for example, in a script) to find more problems with the code?",
+      "parentUuid": "05966b99_14bdee7d",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "40819721_62024e70",
         "filename": "src/preferences/input/InputMouse.cpp",
         "patchSetId": 1
