@@ -514,6 +514,24 @@
     },
     {
       "key": {
+        "uuid": "89c22915_11752190",
+        "filename": "src/preferences/input/InputMouse.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000294
+      },
+      "writtenOn": "2021-04-11T13:21:04Z",
+      "side": 1,
+      "message": "To be exact, I have used google-readability-braces-around-statements.ShortStatementLines with value \u00272\u0027 which means adding braces to if statement will only trigger when there will be 2 or more lines. \nSince I have not read clang-tidy code yet but I am planning to extract code from clang-tidy and add it to clang-format, if possible. But, the approach to use both the tools with the script seems much easier to me.",
+      "parentUuid": "62376034_80c3ebe9",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "40819721_62024e70",
         "filename": "src/preferences/input/InputMouse.cpp",
         "patchSetId": 1
