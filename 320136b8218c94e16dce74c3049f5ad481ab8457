@@ -1099,6 +1099,24 @@
     },
     {
       "key": {
+        "uuid": "04124cd7_bc51b889",
+        "filename": "src/preferences/input/MouseView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000294
+      },
+      "writtenOn": "2021-04-11T14:05:58Z",
+      "side": 1,
+      "message": "I have observed that when there are more than 1 argument in MouseUp then the haiku-format keeps the previous format. Any suggestions on how to solve this issue?",
+      "parentUuid": "2272921b_cf8d29fd",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3fbbcce3_66154295",
         "filename": "src/preferences/input/MouseView.cpp",
         "patchSetId": 1
