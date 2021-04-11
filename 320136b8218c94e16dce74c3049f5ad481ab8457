@@ -532,6 +532,24 @@
     },
     {
       "key": {
+        "uuid": "a43c13ab_4fe8a49f",
+        "filename": "src/preferences/input/InputMouse.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-11T13:47:53Z",
+      "side": 1,
+      "message": "It\u0027s easier to set up initially, but it will be harder to maintain and manage in the long run, especially in cases where the two tools don\u0027t agree on what the correct format is. We will have cases where clang-format removes the braces and then clang-tidy wants to re-add them.\n\nI think it would be better to put a bit more work in putting everything in a single tool if possible.",
+      "parentUuid": "89c22915_11752190",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "40819721_62024e70",
         "filename": "src/preferences/input/InputMouse.cpp",
         "patchSetId": 1
