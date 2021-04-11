@@ -16,6 +16,24 @@
       "revId": "c8dcafc1951fcfc882d506aef400ded37be2793b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4cb9934_7875a7c5",
+        "filename": "src/system/boot/loader/menu.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1271,
+      "author": {
+        "id": 1000301
+      },
+      "writtenOn": "2021-04-11T23:15:24Z",
+      "side": 1,
+      "message": "This patch is used to solving booting through efi for arm, I have not tried other platforms.\n\nFor arm with efi, when booting image with qemu, we have only one bootable volume, after all the menu setup, we have a check for boot volume before menu-\u003eRun():\n\n\tif (!_bootVolume.IsValid()) {\n\t\titem-\u003eSetLabel(\"Cannot continue booting (Boot volume is not valid)\");\n\t\titem-\u003eSetEnabled(false);\n\t\tmenu-\u003eItemAt(0)-\u003eSelect(true);\n\t} else\n\t\titem-\u003eSetShortcut(\u0027b\u0027);\n\n\tmenu-\u003eRun();\n\nBut this will failed when checking _bootVolume. But we do have one bootable volume, the only one. so it will failed and show \"Boot volume is not valid\".\n\nAs for the patch4, I made some carefull check for booting volume:\n\n\t// if we have the only one volume and set it as default\n\tif (first_volume !\u003d NULL \u0026\u0026 count \u003d\u003d 1)\n\t\tsBootVolume-\u003eSetTo(first_volume);\n\nif only 1 volume found, this could be activated, also this could fix the todo check in main.cpp:\n\n\t\t// ToDo: check if there is only one bootable volume!\n\n\t\tmountedAllVolumes \u003d true;\n\n\t\tif (user_menu(bootVolume, pathBlocklist) \u003c B_OK) {\n\t\t\t// user requested to quit the loader\n\t\t\tgoto out;\n\t\t}",
+      "parentUuid": "ce9d4379_63182278",
+      "revId": "c8dcafc1951fcfc882d506aef400ded37be2793b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
