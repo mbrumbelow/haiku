@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce9d4379_63182278",
+        "filename": "src/system/boot/loader/menu.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1271,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-11T08:50:23Z",
+      "side": 1,
+      "message": "Should we check somewhere if sBootVolume is already set? There is already some logic to pick the correct volume (trying to find the one we were booted from), and this code should be triggered only if that logic doesn\u0027t have a better pick.\n\nOtherwise, we just boot from the first thing and that just creates more confusion: for example, you try to boot from a CD, you load the bootloader from there, but it ends up using the boot partition on your hard disk, or inversely.\n\nSo, this is ok as a last try when everything else fails, but we should make sure it does not replace the existing code to pick a boot volume. Can you confirm that?\n\nIt would also be easier to check that if this code was grouped together with the other code that decides where the boot volume is, and not added here in a somewhat unrelated part of the code that is supposed to just fill the menu?",
+      "revId": "c8dcafc1951fcfc882d506aef400ded37be2793b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
