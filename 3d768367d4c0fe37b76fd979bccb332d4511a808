@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e20b59e_f969b884",
+        "filename": "src/add-ons/accelerants/intel_extreme/pll.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-16T16:35:41Z",
+      "side": 0,
+      "message": "I would have kept the booleans but set them to fixed values, so that the code to use the CK505 mode is still there when we need it.\n\nThere are valid reasons to both choices however.",
+      "revId": "3d768367d4c0fe37b76fd979bccb332d4511a808",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
