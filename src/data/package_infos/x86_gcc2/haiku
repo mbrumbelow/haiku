@@ -64,12 +64,12 @@ requires {
 	lib:libfontconfig
 #endif
 	lib:libfreetype
-	lib:libicudata >= 57
-	lib:libicui18n >= 57
-	lib:libicuio >= 57
-	lib:libicutest >= 57
-	lib:libicutu >= 57
-	lib:libicuuc >= 57
+	lib:libicudata >= 66
+	lib:libicui18n >= 66
+	lib:libicuio >= 66
+	lib:libicutest >= 66
+	lib:libicutu >= 66
+	lib:libicuuc >= 66
 	lib:libncurses >= 6.0
 #ifdef HAIKU_REGULAR_BUILD
 #ifdef HAIKU_BUILD_FEATURE_X86_GCC2_EXPAT_ENABLED
