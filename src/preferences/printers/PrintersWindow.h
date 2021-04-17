@@ -19,11 +19,13 @@ class JobListView;
 class Job;
 class SpoolFolder;
 class PrinterItem;
+class ScreenSettings;
 
 
 class PrintersWindow : public BWindow {
 public:
-	PrintersWindow(BRect frame);
+			PrintersWindow(ScreenSettings *settings);
+	virtual	~PrintersWindow();
 
 	void MessageReceived(BMessage* msg);
 	bool QuitRequested();
@@ -35,6 +37,7 @@ public:
 	void UpdateJob(SpoolFolder* folder, Job* job);
 
 private:
+	ScreenSettings*	fSettings;
 	void _BuildGUI();
 	bool _IsSelected(PrinterItem* printer);
 	void _UpdatePrinterButtons();
