@@ -14,13 +14,15 @@
 #include "pr_server.h"
 #include "Messages.h"
 #include "PrintersWindow.h"
+#include "ScreenSettings.h"
+
 
 
 int
 main()
 {
 	PrintersApp app;
-	app.Run();	
+	app.Run();
 	return 0;
 }
 
@@ -34,7 +36,7 @@ PrintersApp::PrintersApp()
 void
 PrintersApp::ReadyToRun()
 {
-	PrintersWindow* win = new PrintersWindow(BRect(78, 71, 561, 409));
+	PrintersWindow* win = new PrintersWindow(new ScreenSettings());
 	win->Show();
 }
 
