@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "89dac09b_275db40e",
+        "filename": "src/preferences/printers/Printers.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-17T16:47:25Z",
+      "side": 1,
+      "message": "two blank lines (not 3) are needed here",
+      "revId": "cd4d0790b51dfa8b7f0b1a39efc999ffe28e7e55",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c4f3714_1bdfcac6",
+        "filename": "src/preferences/printers/Printers.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-17T16:47:25Z",
+      "side": 1,
+      "message": "two blank lines are needed here",
+      "revId": "cd4d0790b51dfa8b7f0b1a39efc999ffe28e7e55",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4bde6527_12e62323",
+        "filename": "src/preferences/printers/PrintersWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-17T16:47:25Z",
+      "side": 1,
+      "message": "the previous indentation was correct here, there is one column for modifiers (virtual, const, ...) and another for types",
+      "revId": "cd4d0790b51dfa8b7f0b1a39efc999ffe28e7e55",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
