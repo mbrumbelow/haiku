@@ -1,5 +1,5 @@
 /*
- * Copyright 2019-2020, Haiku, Inc.
+ * Copyright 2019-2021, Haiku, Inc.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -20,8 +20,6 @@
 #include <LayoutBuilder.h>
 #include <SplitView.h>
 #include <Screen.h>
-
-#include <private/input/InputServerTypes.h>
 
 #include "InputConstants.h"
 #include "InputDeviceView.h"
@@ -103,14 +101,15 @@ InputWindow::MessageReceived(BMessage* message)
 			break;
 		}
 
-		case IS_NOTIFY_DEVICE:
+		case B_INPUT_DEVICE_ADDED:
+		case B_INPUT_DEVICE_REMOVED:
 		{
-			bool added = message->FindBool("added");
-			BString name = message->FindString("name");
+			bool added = message->what == B_INPUT_DEVICE_ADDED;
+			BString name = message->FindString("be:device_name");
 
 			if (added) {
 				BInputDevice* device = find_input_device(name);
-				if (device)
+				if (device != NULL)
 					AddDevice(device);
 			} else {
 				for (int i = 0; i < fDeviceListView->CountItems(); i++) {
