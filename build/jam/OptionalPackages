@@ -77,7 +77,8 @@ if [ IsOptionalHaikuImagePackageAdded Development ] {
 	for architectureObject in [ MultiArchSubDirSetup ] {
 		on $(architectureObject) {
 			AddHaikuImageDisabledPackages curl_devel openssl_devel nghttp2_devel
-				libjpeg_turbo_devel libpng16_devel zlib_devel ;
+				libjpeg_turbo_devel ;
+			AddHaikuImageSystemPackages libpng16_devel zlib_devel ;
 		}
 	}
 }
@@ -89,13 +90,15 @@ if [ IsOptionalHaikuImagePackageAdded DevelopmentBase ] {
 	local architectureObject ;
 	for architectureObject in [ MultiArchSubDirSetup ] {
 		on $(architectureObject) {
-			AddHaikuImageDisabledPackages binutils gcc mpc gmp mpfr ;
+			AddHaikuImageDisabledPackages binutils gcc mpc mpfr ;
+			AddHaikuImageSystemPackages gmp ;
 			AddHaikuImageSourcePackages binutils gcc mpc gmp mpfr ;
 		}
 	}
 
 	# other commonly used tools
-	AddHaikuImageDisabledPackages bison cdrtools flex jam m4 make mkdepend nasm patch ;
+	AddHaikuImageDisabledPackages bison cdrtools flex jam m4 make mawk mkdepend
+		nasm patch ;
 	AddHaikuImageSourcePackages bison cdrtools m4 make patch ;
 }
 

@@ -76,7 +76,7 @@ rule DefineDefaultBuildProfiles
 			if $(HAIKU_INCLUDE_SOURCES) = 1 {
 				HAIKU_IMAGE_SIZE ?= 1100 ;
 			} else {
-				HAIKU_IMAGE_SIZE ?= 690 ;
+				HAIKU_IMAGE_SIZE ?= 750 ;
 			}
 
 			AddHaikuImageSystemPackages
@@ -200,6 +200,7 @@ rule DefineDefaultBuildProfiles
 				python
 				sed
 				texinfo
+				zlib_devel
 				;
 
 			AddHaikuImageDisabledPackages
@@ -207,7 +208,6 @@ rule DefineDefaultBuildProfiles
 				freetype_devel
 				libedit_devel
 				ncurses6_devel
-				zlib_devel
 			;
 
 			# secondary architecture packages
@@ -226,13 +226,13 @@ rule DefineDefaultBuildProfiles
 						libedit
 						ncurses6
 						zlib
+						zlib_devel
 						;
 					AddHaikuImageDisabledPackages
 						curl_devel
 						freetype_devel
 						libedit_devel
 						ncurses6_devel
-						zlib_devel
 					;
 				}
 			}
