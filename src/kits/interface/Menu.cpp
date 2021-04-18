@@ -778,7 +778,10 @@ BMenu::AddItem(BMenuItem* item, BRect frame)
 bool
 BMenu::AddItem(BMenu* submenu)
 {
-	BMenuItem* item = new (nothrow) BMenuItem(submenu);
+	BMenuItem* item = submenu->Superitem();
+	if (item == NULL)
+		item = new (nothrow) BMenuItem(submenu);
+
 	if (item == NULL)
 		return false;
 
@@ -800,7 +803,10 @@ BMenu::AddItem(BMenu* submenu, int32 index)
 			"be called if the menu layout is not B_ITEMS_IN_MATRIX");
 	}
 
-	BMenuItem* item = new (nothrow) BMenuItem(submenu);
+	BMenuItem* item = submenu->Superitem();
+	if (item == NULL)
+		item = new (nothrow) BMenuItem(submenu);
+
 	if (item == NULL)
 		return false;
 
@@ -822,7 +828,10 @@ BMenu::AddItem(BMenu* submenu, BRect frame)
 			"be called if the menu layout is B_ITEMS_IN_MATRIX");
 	}
 
-	BMenuItem* item = new (nothrow) BMenuItem(submenu);
+	BMenuItem* item = submenu->Superitem();
+	if (item == NULL)
+		item = new (nothrow) BMenuItem(submenu);
+
 	if (item == NULL)
 		return false;
 
