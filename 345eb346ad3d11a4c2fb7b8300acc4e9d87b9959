@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4dfa1da_4c442c95",
+        "filename": "src/servers/input/AddOnManager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 766,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-18T07:40:13Z",
+      "side": 1,
+      "message": "This does not work. HasItem compares the pointer to pointers to objects in the list. Since your watcherMessenger is allocated on the stack, there is no way it can already be on the list.",
+      "revId": "345eb346ad3d11a4c2fb7b8300acc4e9d87b9959",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f20c2264_7fc4ec86",
+        "filename": "src/servers/input/AddOnManager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 768,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-18T07:40:13Z",
+      "side": 1,
+      "message": "And here you are adding a pointer to a stack-allocated object, which will be deleted once this function returns. So you just have a list pointing to random places on the stack now.",
+      "revId": "345eb346ad3d11a4c2fb7b8300acc4e9d87b9959",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
