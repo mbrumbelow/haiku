@@ -1,0 +1,242 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "46a2c46f_d133e67f",
+        "filename": "build/jam/repositories/HaikuPorts/x86_gcc2",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-19T19:48:12Z",
+      "side": 1,
+      "message": "I think we don\u0027t need mercurial here anymore?",
+      "revId": "1e0306d6fd6e63f1fcaaab20185389dd254381ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87ca75a6_5b6a878d",
+        "filename": "build/jam/repositories/HaikuPorts/x86_gcc2",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-19T19:48:12Z",
+      "side": 1,
+      "message": "do we switch to koder, or is it not ready yet?",
+      "revId": "1e0306d6fd6e63f1fcaaab20185389dd254381ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2748ee12_01e94183",
+        "filename": "build/jam/repositories/HaikuPorts/x86_gcc2",
+        "patchSetId": 2
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-19T19:48:12Z",
+      "side": 1,
+      "message": "do we still need subversion?",
+      "revId": "1e0306d6fd6e63f1fcaaab20185389dd254381ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a692f48_e4b7d879",
+        "filename": "build/jam/repositories/HaikuPorts/x86_gcc2",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-19T19:48:12Z",
+      "side": 1,
+      "message": "I think this comes from ffmpeg (for subtitles decoding), is it not possible to use ICU instead?",
+      "revId": "1e0306d6fd6e63f1fcaaab20185389dd254381ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed2a3fc7_e3ae4018",
+        "filename": "build/jam/repositories/HaikuPorts/x86_gcc2",
+        "patchSetId": 2
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-19T19:48:12Z",
+      "side": 1,
+      "message": "This should not be needed, discussion in progress at HaikuPorts to switch harfbuzz to use ICU instead of GLib for Unicode support: https://github.com/haikuports/haikuports/issues/5816",
+      "revId": "1e0306d6fd6e63f1fcaaab20185389dd254381ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3512a279_cd229cda",
+        "filename": "build/jam/repositories/HaikuPorts/x86_gcc2",
+        "patchSetId": 2
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-19T19:48:12Z",
+      "side": 1,
+      "message": "It would be nice to remove libiconv since similar functionality is provided in ICU. I don\u0027t know what depends on it.",
+      "revId": "1e0306d6fd6e63f1fcaaab20185389dd254381ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7b21b09_9757203f",
+        "filename": "build/jam/repositories/HaikuPorts/x86_gcc2",
+        "patchSetId": 2
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-19T19:48:12Z",
+      "side": 1,
+      "message": "Is this currently used?",
+      "revId": "1e0306d6fd6e63f1fcaaab20185389dd254381ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90c35af9_d9fe1bcf",
+        "filename": "build/jam/repositories/HaikuPorts/x86_gcc2",
+        "patchSetId": 2
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-19T19:48:12Z",
+      "side": 1,
+      "message": "can we remove this and keep only llvm7? Do we need a newer llvm for current mesa?",
+      "revId": "1e0306d6fd6e63f1fcaaab20185389dd254381ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f333473c_e174eff8",
+        "filename": "build/jam/repositories/HaikuPorts/x86_gcc2",
+        "patchSetId": 2
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-19T19:48:12Z",
+      "side": 1,
+      "message": "this is misplaced, it should be in the gcc2 section",
+      "revId": "1e0306d6fd6e63f1fcaaab20185389dd254381ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d891446_886c376b",
+        "filename": "build/jam/repositories/HaikuPorts/x86_gcc2",
+        "patchSetId": 2
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-19T19:48:12Z",
+      "side": 1,
+      "message": "we already have libedit, can we use that instead of readline? Don\u0027t know what depends on it.",
+      "revId": "1e0306d6fd6e63f1fcaaab20185389dd254381ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3719402_eee7e62e",
+        "filename": "build/jam/repositories/HaikuPorts/x86_gcc2",
+        "patchSetId": 2
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-19T19:48:12Z",
+      "side": 1,
+      "message": "this should be icu66, 67 is currently broken at haikuports",
+      "revId": "1e0306d6fd6e63f1fcaaab20185389dd254381ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eda7b059_dde1fc3d",
+        "filename": "src/libs/compat/freebsd_network/Jamfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-19T19:48:12Z",
+      "side": 1,
+      "message": "incorrect indentation",
+      "revId": "1e0306d6fd6e63f1fcaaab20185389dd254381ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23ef96d9_4d4168b4",
+        "filename": "src/libs/compat/freebsd_network/Jamfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-19T19:48:12Z",
+      "side": 1,
+      "message": "incorrect indentation",
+      "revId": "1e0306d6fd6e63f1fcaaab20185389dd254381ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98cea955_643c4855",
+        "filename": "src/libs/compat/freebsd_network/Jamfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-19T19:48:12Z",
+      "side": 1,
+      "message": "incorrect indentation",
+      "revId": "1e0306d6fd6e63f1fcaaab20185389dd254381ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
