@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "e4101311_11bac828",
+        "filename": "src/system/boot/loader/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2021-04-21T16:04:14Z",
+      "side": 1,
+      "message": "I originally attempted to fit this into the get_boot_file_system() and mount_file_systems() functions, but they both have issues that I think are related to the assumption that that the boot device contains the boot partition. I was afraid that I would break the BIOS boot code.",
+      "parentUuid": "faf8087a_cc8f8b4c",
+      "revId": "3e9a46fb06e63315c80579258e2edb9b2f16f838",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "321e9daf_f4c914c4",
         "filename": "src/system/boot/loader/main.cpp",
         "patchSetId": 1
