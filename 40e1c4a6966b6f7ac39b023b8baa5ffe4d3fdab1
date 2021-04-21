@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "455442e6_3e876ae4",
+        "filename": "build/jam/DefaultBuildProfiles",
+        "patchSetId": 3
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-04-21T20:39:24Z",
+      "side": 1,
+      "message": "You may be able to avoid this and just let icu get picked up automatically.",
+      "revId": "40e1c4a6966b6f7ac39b023b8baa5ffe4d3fdab1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
