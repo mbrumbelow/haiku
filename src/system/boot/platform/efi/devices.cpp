@@ -8,8 +8,13 @@
 #include <boot/platform.h>
 #include <boot/stage2.h>
 
+#include "../../loader/RootFileSystem.h"
+
 #include "efi_platform.h"
 #include <efi/protocol/block-io.h>
+#include <efi/protocol/device-path.h>
+#include <efi/protocol/loaded-image.h>
+#include <efi/protocol/simple-file-system.h>
 
 
 //#define TRACE_DEVICES
@@ -21,7 +26,14 @@
 
 
 static efi_guid BlockIoGUID = EFI_BLOCK_IO_PROTOCOL_GUID;
+static efi_guid LoadedImageGUID = EFI_LOADED_IMAGE_PROTOCOL_GUID;
+static efi_guid SimpleFsGUID = EFI_SIMPLE_FILE_SYSTEM_PROTOCOL_GUID;
 
+extern NodeList gPartitions;
+extern NodeList gBootDevices;
+extern bool allVolumesMounted;
+
+char gPartitionToBoot[B_OS_NAME_LENGTH] = "";
 
 class EfiDevice : public Node
 {
@@ -121,6 +133,209 @@ compute_check_sum(Node *device, off_t offset)
 }
 
 
+int c16_strlen(char16_t *in)
+{
+	char16_t *cptr = in;
+	int cnt = 0;
+
+	while (*cptr++ != 0) {
+		cnt++;
+	}
+	return cnt;
+}
+
+
+char* c16str_to_cstr(char* dest, char16_t *src)
+{
+	char *cptr = dest;
+	if (dest && src) {
+		while ((*cptr++  = (char)*src++) != u'\0') {
+			;
+		}
+	}
+	return dest;
+}
+
+
+char16_t*
+get_boot_partition_filename(char16_t *imagePath, char16_t *filename)
+{
+	TRACE("%s: called\n", __func__);
+	char16_t *_temp = imagePath;
+	int index = c16_strlen(imagePath);
+	while (index > 0) {
+		if (_temp[index--] == u'\\') {
+			// Undo the decrement
+			index++;
+
+			// step over the trailing slash,
+			index++;
+			break;
+		}
+	}
+	// now append the filename
+	while (*filename != u'\0') {
+			_temp[index++] = *filename++;
+	}
+	_temp[index++] =  u'\0';
+
+	return imagePath;
+}
+
+
+char16_t*
+parse_image_path_from_device_path(efi_device_path_protocol *handle,
+	char16_t *imagePath)
+{
+	TRACE("%s: called\n", __func__);
+
+	efi_device_path_protocol *devicePath = handle;
+	char16_t *image = imagePath;
+
+	unsigned char *byteptr = (unsigned char*)&image[1];
+	// Note: intentional use of subscript [1] above
+
+	size_t numBytes = 0;
+	unsigned char *ptr = NULL;
+	unsigned char *buf = (unsigned char*)devicePath;
+	do {
+		devicePath = (efi_device_path_protocol *)buf;
+		if (devicePath->Type == DEVICE_PATH_MEDIA
+			&& devicePath->SubType == MEDIA_FILEPATH_DP) {
+				// The devicePath->Length field contains the length of
+				// the data AND the size of the fixed portion of the
+				// structure (which is 4 bytes)
+				ptr = (buf + 4);
+				numBytes = devicePath->Length[0] - 4;
+
+				if (numBytes > 0 ) {
+					byteptr -= sizeof(image[0]);
+					// back up one to over write the previous NULL
+
+					memcpy(byteptr, ptr, numBytes);
+				}
+		}
+		buf += devicePath->Length[0];
+
+	} while (devicePath->Type != DEVICE_PATH_END);
+
+	return imagePath;
+}
+
+
+char16_t*
+get_image_path(char16_t *imagePath)
+{
+	TRACE("%s: called\n", __func__);
+
+	efi_loaded_image_protocol *loadedImage;
+
+	efi_status status = kBootServices->HandleProtocol(kImage,
+		&LoadedImageGUID, (void**)&loadedImage);
+
+	if (status != EFI_SUCCESS) {
+		TRACE("\t LoadedImageGUID failed: status = %lX \n", status);
+		return NULL;
+	}
+	// This efi_device_path_protocol handle has the filename
+	if (loadedImage->FilePath == NULL) {
+		imagePath = NULL;
+		return imagePath;
+	}
+	imagePath = parse_image_path_from_device_path(loadedImage->FilePath,
+		imagePath);
+
+	char buffer[512];
+	TRACE("imagePath = %s \n", c16str_to_cstr(buffer,imagePath));
+
+	return imagePath;
+}
+
+
+status_t
+read_boot_partition_file(char16_t *imagePath)
+{
+	TRACE("%s: called\n", __func__);
+
+	char raw[512];
+	memset(raw, 0 , sizeof(raw));
+
+	char16_t c16_filename[] = { u"partition.txt"};
+
+	get_boot_partition_filename(imagePath, c16_filename);
+
+	efi_loaded_image_protocol *loadedImage = NULL;
+	efi_status status = kBootServices->HandleProtocol(kImage,
+		&LoadedImageGUID, (void**)&loadedImage);
+	if (status != EFI_SUCCESS) {
+		TRACE("\t LoadedImageGUID failed: status = %lX \n", status);
+		return B_ERROR;
+	}
+
+	efi_simple_file_system_protocol *fsfHandle = NULL;
+	status = kBootServices->HandleProtocol(loadedImage->DeviceHandle,
+		&SimpleFsGUID, (void**)&fsfHandle);
+	if (status != EFI_SUCCESS) {
+		TRACE("\t SimpleFsGUID failed: status = %lX \n", status);
+		return B_ERROR;
+	}
+
+	efi_file_protocol *fsRoot = NULL;
+	status = fsfHandle->OpenVolume(fsfHandle, &fsRoot);
+	if (status != EFI_SUCCESS) {
+		TRACE("\t OpenVolume failed: status = %lX \n", status);
+		return B_ERROR;
+	}
+
+	efi_file_protocol *fsFile = NULL;
+	status = fsRoot->Open(fsRoot, &fsFile, imagePath, EFI_FILE_MODE_READ, 0);
+	if (status != EFI_SUCCESS) {
+		TRACE("\t fsRoot->Open failed: status = %lX \n", status);
+		return B_ERROR;
+	}
+
+	size_t bytesRead = sizeof(raw);
+	status = fsFile->Read(fsFile, &bytesRead, (void*)raw);
+	if (status != EFI_SUCCESS) {
+		TRACE("\t fsFile->Read failed: status = %lX \n", status);
+		fsFile->Close(fsFile);
+		return B_ERROR;
+	} else {
+		if (bytesRead < sizeof(gPartitionToBoot)) {
+			// NOTE: File content is NOT char16_t
+			memset(gPartitionToBoot, 0 , sizeof(gPartitionToBoot));
+			memcpy(gPartitionToBoot, raw , bytesRead);
+			TRACE("\t gPartitionToBoot = ----%s---- \n", gPartitionToBoot);
+		}
+		fsFile->Close(fsFile);
+	}
+
+	return B_OK;
+}
+
+
+status_t
+get_boot_partition_identifier()
+{
+	TRACE("%s: called\n", __func__);
+
+	char16_t imageBuffer[512] = u"\0";
+	memset(imageBuffer, 0 , sizeof(imageBuffer));
+
+	char16_t* imageName = imageBuffer;
+
+	imageName = get_image_path(imageBuffer);
+	if (imageName == NULL)
+		return B_ERROR;
+
+	status_t error = read_boot_partition_file(imageName);
+	if (error != B_OK)
+		return error;
+
+	return B_OK;
+}
+
+
 status_t
 platform_add_boot_device(struct stage2_args *args, NodeList *devicesList)
 {
@@ -128,6 +343,8 @@ platform_add_boot_device(struct stage2_args *args, NodeList *devicesList)
 
 	efi_block_io_protocol *blockIo;
 	size_t memSize = 0;
+
+	get_boot_partition_identifier();
 
 	// Read to zero sized buffer to get memory needed for handles
 	if (kBootServices->LocateHandle(ByProtocol, &BlockIoGUID, 0, &memSize, 0)
@@ -176,6 +393,7 @@ platform_add_boot_device(struct stage2_args *args, NodeList *devicesList)
 	return devicesList->Count() > 0 ? B_OK : B_ENTRY_NOT_FOUND;
 }
 
+
 status_t
 platform_add_block_devices(struct stage2_args *args, NodeList *devicesList)
 {
@@ -185,13 +403,71 @@ platform_add_block_devices(struct stage2_args *args, NodeList *devicesList)
 	return B_ENTRY_NOT_FOUND;
 }
 
+
+status_t
+mount_file_systems_efi()
+{
+	TRACE("%s: called\n", __func__);
+	static bool mounted = false;
+
+	// add all block devices the platform has for us
+	//status_t status = platform_add_block_devices(args, &gBootDevices);
+	//if (status < B_OK)
+	//	return status;
+
+	if (mounted == false) {
+		while (gPartitions.Count() > 0) {
+			Partition *partition = (boot::Partition*)gPartitions.RemoveHead();
+			delete partition;
+		}
+
+		NodeIterator deviceIterator = gBootDevices.GetIterator();
+		while (deviceIterator.HasNext()) {
+			Node *device = deviceIterator.Next();
+			add_partitions_for(device, true);
+		}
+
+		if (gPartitions.IsEmpty())
+			return B_ENTRY_NOT_FOUND;
+	}
+	allVolumesMounted = true;
+	mounted = true;
+
+	return B_OK;
+}
+
+
 status_t
 platform_get_boot_partition(struct stage2_args *args, Node *bootDevice,
 		NodeList *partitions, boot::Partition **_partition)
 {
 	TRACE("%s: called\n", __func__);
-	*_partition = (boot::Partition*)partitions->GetIterator().Next();
-	return *_partition != NULL ? B_OK : B_ENTRY_NOT_FOUND;
+
+	if (strlen(gPartitionToBoot) > 1) {
+		mount_file_systems_efi();
+		*_partition = NULL;
+		boot::Partition *partition = NULL;
+		Directory *fileSystem = 
+			(Directory*)gRoot->LookupDontTraverse(gPartitionToBoot);
+		
+		if (fileSystem != NULL) {
+			status_t status = gRoot->GetPartitionFor(fileSystem, &partition);
+			if (status != B_OK) {
+				TRACE("%s: GetPartitionFor error \n", __func__);
+				*_partition = NULL;
+				return B_ENTRY_NOT_FOUND;
+			} else {
+				*_partition = partition;
+				return B_OK;
+			}
+		} else {
+			TRACE("%s: returning B_ENTRY_NOT_FOUND \n", __func__);
+			return B_ENTRY_NOT_FOUND;
+		}
+	} else {
+		*_partition = (boot::Partition*)partitions->GetIterator().Next();
+		return *_partition != NULL ? B_OK : B_ENTRY_NOT_FOUND;
+	}
 }
 
 

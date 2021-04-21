@@ -132,6 +132,16 @@ RootFileSystem::IsEmpty()
 status_t
 RootFileSystem::AddVolume(Directory *volume, Partition *partition)
 {
+	EntryIterator iterator = fList.GetIterator();
+	struct entry *existingEntry;
+
+	while ((existingEntry = iterator.Next()) != NULL) {
+		if (existingEntry->partition == partition) {
+			fList.Remove(existingEntry);
+			break;
+		}
+	}
+
 	struct entry *entry = new (std::nothrow) RootFileSystem::entry();
 	if (entry == NULL)
 		return B_NO_MEMORY;

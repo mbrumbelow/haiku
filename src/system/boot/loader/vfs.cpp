@@ -80,6 +80,7 @@ class Descriptor {
 NodeList gBootDevices;
 NodeList gPartitions;
 RootFileSystem *gRoot;
+bool allVolumesMounted = false;
 static Descriptor *sDescriptors[MAX_VFS_DESCRIPTORS];
 static Node *sBootDevice;
 
@@ -694,6 +695,9 @@ get_boot_file_system(stage2_args* args, BootVolume& _bootVolume)
 status_t
 mount_file_systems(stage2_args *args)
 {
+	if (allVolumesMounted == true) {
+		return B_OK;
+	}
 	// mount other partitions on boot device (if any)
 	NodeIterator iterator = gPartitions.GetIterator();
 
