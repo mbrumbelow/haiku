@@ -1,0 +1,259 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "015d9a05_a13e16ac",
+        "filename": "src/system/boot/loader/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-21T15:45:17Z",
+      "side": 1,
+      "message": "This is incorrect for other architectures, for example sparc and ppc boot on openfirmware, not UEFI and not BIOS.\n\nAlso, this line and others below are too long.",
+      "revId": "3e9a46fb06e63315c80579258e2edb9b2f16f838",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "faf8087a_cc8f8b4c",
+        "filename": "src/system/boot/loader/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-21T15:45:17Z",
+      "side": 1,
+      "message": "if possible I would prefer that we don\u0027t do so much special casing for EFI. This codepath could be the same for everyone. Is it possible to add your code in get_boot_file_system instead of changing everything?",
+      "revId": "3e9a46fb06e63315c80579258e2edb9b2f16f838",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "321e9daf_f4c914c4",
+        "filename": "src/system/boot/loader/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-21T15:45:17Z",
+      "side": 1,
+      "message": "This was already printed above.",
+      "revId": "3e9a46fb06e63315c80579258e2edb9b2f16f838",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "845f75b1_968f8936",
+        "filename": "src/system/boot/loader/vfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-21T15:45:17Z",
+      "side": 1,
+      "message": "this line is too long (but it was already there in the existing version of this function)",
+      "revId": "3e9a46fb06e63315c80579258e2edb9b2f16f838",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d21c086_2d40fb5b",
+        "filename": "src/system/boot/loader/vfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-21T15:45:17Z",
+      "side": 1,
+      "message": "either the code is common to all platforms, or it should be moved outside of this cross-platform file in an EFI specific one.",
+      "revId": "3e9a46fb06e63315c80579258e2edb9b2f16f838",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d30cd954_8dbf9f91",
+        "filename": "src/system/boot/platform/efi/devices.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-21T15:45:17Z",
+      "side": 1,
+      "message": "two blank lines here",
+      "revId": "3e9a46fb06e63315c80579258e2edb9b2f16f838",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56eb4023_5de8a7e1",
+        "filename": "src/system/boot/platform/efi/devices.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-21T15:45:17Z",
+      "side": 1,
+      "message": "two blank lines here",
+      "revId": "3e9a46fb06e63315c80579258e2edb9b2f16f838",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f58d5493_7728980a",
+        "filename": "src/system/boot/platform/efi/devices.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-21T15:45:17Z",
+      "side": 1,
+      "message": "do we not have this somewhere already?",
+      "revId": "3e9a46fb06e63315c80579258e2edb9b2f16f838",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1e541d6_67187438",
+        "filename": "src/system/boot/platform/efi/devices.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-21T15:45:17Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "3e9a46fb06e63315c80579258e2edb9b2f16f838",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bdfbe680_7b35ca40",
+        "filename": "src/system/boot/platform/efi/devices.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-21T15:45:17Z",
+      "side": 1,
+      "message": "avoid abbreviations such as \"dp\", \"li\" (in the next function), etc. It obfuscates the code.",
+      "revId": "3e9a46fb06e63315c80579258e2edb9b2f16f838",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6fde6a40_90b97b16",
+        "filename": "src/system/boot/platform/efi/devices.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-21T15:45:17Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "3e9a46fb06e63315c80579258e2edb9b2f16f838",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98e545fd_2788f1da",
+        "filename": "src/system/boot/platform/efi/devices.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-21T15:45:17Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "3e9a46fb06e63315c80579258e2edb9b2f16f838",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21c7a18e_ee624d3e",
+        "filename": "src/system/boot/platform/efi/devices.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-21T15:45:17Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "3e9a46fb06e63315c80579258e2edb9b2f16f838",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85343d72_fc9c0f39",
+        "filename": "src/system/boot/platform/efi/devices.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-21T15:45:17Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "3e9a46fb06e63315c80579258e2edb9b2f16f838",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a79ef8da_043e4238",
+        "filename": "src/system/boot/platform/efi/start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-04-21T15:45:17Z",
+      "side": 1,
+      "message": "you don\u0027t need a boot option for this. A #define is probably already set, or we can add one. This is not going to change at runtime.",
+      "revId": "3e9a46fb06e63315c80579258e2edb9b2f16f838",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
