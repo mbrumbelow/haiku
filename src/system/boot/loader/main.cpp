@@ -57,31 +57,50 @@ main(stage2_args *args)
 	if (vfs_init(args) < B_OK)
 		panic("Could not initialize VFS!\n");
 
-	dprintf("Welcome to the Haiku boot loader!\n");
-
 	bool mountedAllVolumes = false;
+	bool efiBoot = ((platform_boot_options() & BOOT_OPTION_EFI) != 0);
 
 	BootVolume bootVolume;
 	PathBlocklist pathBlocklist;
 
-	if (get_boot_file_system(args, bootVolume) != B_OK
-		|| (platform_boot_options() & BOOT_OPTION_MENU) != 0) {
-		if (!bootVolume.IsValid())
-			puts("\tno boot path found, scan for all partitions...\n");
+	dprintf("Welcome to the Haiku %s boot loader!\n", efiBoot ? "UEFI" : "BIOS");
 
-		if (mount_file_systems(args) < B_OK) {
-			// That's unfortunate, but we still give the user the possibility
-			// to insert a CD-ROM or just rescan the available devices
-			puts("Could not locate any supported boot devices!\n");
+
+	if (efiBoot) {
+		bool userRequestedMenu = ((platform_boot_options() & BOOT_OPTION_MENU) != 0);
+		puts("Welcome to the Haiku UEFI boot loader!\n");
+
+		if (get_boot_file_system_efi(args, bootVolume) != B_OK) {
+			puts("UEFI boot configured incorrectly \n");
 		}
 
-		// ToDo: check if there is only one bootable volume!
-
+		if (userRequestedMenu) {
+			mount_file_systems_efi(args);
+			user_menu(bootVolume, pathBlocklist);
+		}
+		mount_file_systems_efi(args);
 		mountedAllVolumes = true;
 
-		if (user_menu(bootVolume, pathBlocklist) < B_OK) {
-			// user requested to quit the loader
-			goto out;
+	} else {
+		if (get_boot_file_system(args, bootVolume) != B_OK
+			|| (platform_boot_options() & BOOT_OPTION_MENU) != 0) {
+			if (!bootVolume.IsValid())
+				puts("\tno boot path found, scan for all partitions...\n");
+
+			if (mount_file_systems(args) < B_OK) {
+				// That's unfortunate, but we still give the user the possibility
+				// to insert a CD-ROM or just rescan the available devices
+				puts("Could not locate any supported boot devices!\n");
+			}
+
+			// ToDo: check if there is only one bootable volume!
+
+			mountedAllVolumes = true;
+
+			if (user_menu(bootVolume, pathBlocklist) < B_OK) {
+				// user requested to quit the loader
+				goto out;
+			}
 		}
 	}
 

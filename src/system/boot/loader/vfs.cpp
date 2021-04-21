@@ -38,6 +38,7 @@ using namespace boot;
 #	define TRACE(x) ;
 #endif
 
+char gPartitionToBoot[] = "";
 
 struct __DIR {
 	Directory*	directory;
@@ -167,7 +168,7 @@ status_t
 Node::Acquire()
 {
 	fRefCount++;
-	TRACE(("%p::Acquire(), fRefCount = %ld\n", this, fRefCount));
+	TRACE(("%p::Acquire(), fRefCount = %" B_PRIu32 "\n", this, fRefCount));
 	return B_OK;
 }
 
@@ -175,7 +176,7 @@ Node::Acquire()
 status_t
 Node::Release()
 {
-	TRACE(("%p::Release(), fRefCount = %ld\n", this, fRefCount));
+	TRACE(("%p::Release(), fRefCount = %" B_PRIu32 "\n", this, fRefCount));
 	if (--fRefCount == 0) {
 		TRACE(("delete node: %p\n", this));
 		delete this;
@@ -634,6 +635,75 @@ register_boot_file_system(BootVolume& bootVolume)
 	}
 
 	return platform_register_boot_device(device);
+}
+
+
+/*! Gets the boot device, scans all of its partitions, gets the
+	boot partition, and mounts its file system.
+
+	\param args The stage 2 arguments.
+	\param _bootVolume On success set to the boot volume.
+	\return \c B_OK on success, another error code otherwise.
+*/
+status_t
+get_boot_file_system_efi(stage2_args* args, BootVolume& _bootVolume)
+{
+	status_t error = platform_add_boot_device(args, &gBootDevices);
+	if (error != B_OK)
+		return error;
+
+	mount_file_systems_efi(args);
+
+	if(strlen(gPartitionToBoot) < 1) {
+		TRACE(("gPartitionToBoot too small \n"));
+		return B_ERROR;
+	}
+
+
+	Directory *fileSystem = (Directory*)gRoot->LookupDontTraverse(gPartitionToBoot);
+	if(fileSystem == NULL) {
+		TRACE(("LookupDontTraverse() failed \n"));
+		return B_ERROR;
+	}
+
+	// init the BootVolume
+	error = _bootVolume.SetTo(fileSystem);
+	if (error != B_OK) {
+		_bootVolume.Unset();
+		TRACE(("_bootVolume.SetTo() failed \n"));
+		return error;
+	}
+	return B_OK;
+}
+
+
+/** Mounts all file systems recognized on the given device by
+ *	calling the add_partitions_for() function on them.
+ */
+
+status_t
+mount_file_systems_efi(stage2_args *args)
+{
+	static bool mounted = false;
+
+	// add all block devices the platform has for us
+	//status_t status = platform_add_block_devices(args, &gBootDevices);
+	//if (status < B_OK)
+	//	return status;
+
+	if (mounted == false) {
+		NodeIterator iterator = gBootDevices.GetIterator();
+		while (iterator.HasNext()) {
+			Node *device = iterator.Next();
+			add_partitions_for(device, true);
+		}
+		mounted = true;
+	}
+
+	if (gPartitions.IsEmpty())
+		return B_ENTRY_NOT_FOUND;
+
+	return B_OK;
 }
 
 
