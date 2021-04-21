@@ -205,11 +205,14 @@ draw_menu(Menu *menu)
 	console_set_color(kTextColor, kBackgroundColor);
 	console_clear_screen();
 
+	bool efiBoot = ((platform_boot_options() & BOOT_OPTION_EFI) != 0);
+	char welcomeText[256];
+	sprintf(welcomeText, "Haiku %s Boot Loader", efiBoot ? "UEFI" : "BIOS");
 	print_centered(1, "Welcome to the");
-	print_centered(2, "Haiku Boot Loader");
+	print_centered(2, welcomeText);
 
 	console_set_color(kCopyrightColor, kBackgroundColor);
-	print_centered(4, "Copyright 2004-2020 Haiku, Inc.");
+	print_centered(4, "Copyright 2004-2021 Haiku, Inc.");
 
 	if (menu->Title()) {
 		console_set_cursor(kOffsetX, kFirstLine - 2);

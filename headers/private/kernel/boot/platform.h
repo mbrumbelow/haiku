@@ -34,6 +34,7 @@ extern status_t platform_kernel_address_to_bootloader_address(addr_t address, vo
 /* boot options */
 #define BOOT_OPTION_MENU			1
 #define BOOT_OPTION_DEBUG_OUTPUT	2
+#define BOOT_OPTION_EFI				4
 
 extern uint32 platform_boot_options(void);
 

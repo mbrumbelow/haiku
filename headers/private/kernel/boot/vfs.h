@@ -16,6 +16,8 @@
 
 #ifdef __cplusplus
 
+extern char gPartitionToBoot[B_OS_NAME_LENGTH];
+
 struct file_map_run;
 struct stat;
 class PackageVolumeInfo;
@@ -155,6 +157,9 @@ private:
 
 
 /* function prototypes */
+extern status_t get_boot_file_system_efi(stage2_args* args,
+			BootVolume& _bootVolume);
+extern status_t mount_file_systems_efi(stage2_args *args);
 
 extern status_t vfs_init(stage2_args *args);
 extern status_t register_boot_file_system(BootVolume& bootVolume);
