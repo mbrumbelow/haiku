@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "54bec8c1_05b79e25",
+        "filename": "src/system/boot/loader/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2021-04-21T16:40:21Z",
+      "side": 1,
+      "message": "I havn\u0027t looked at it in a while but I think we should do this in EFI devices.cpp code. Right now we do traditional way of picking boot partition, but I think we should add a new mode, similar to the NETBOOT flag. Also you can ask UEFI to find partition by partition UUID or partition type UUID directly, so if we get the loader to just use the partition directly it should be quite clean.",
+      "parentUuid": "e4101311_11bac828",
+      "revId": "3e9a46fb06e63315c80579258e2edb9b2f16f838",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "321e9daf_f4c914c4",
         "filename": "src/system/boot/loader/main.cpp",
         "patchSetId": 1
