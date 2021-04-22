@@ -290,6 +290,24 @@
       "revId": "3e9a46fb06e63315c80579258e2edb9b2f16f838",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7efa5ad0_84214898",
+        "filename": "src/system/boot/platform/efi/start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2021-04-22T12:02:26Z",
+      "side": 1,
+      "message": "I think that this does change at runtime. IIUC, the same loader and menu code is run whether booting the CD image from EFI or from BIOS. Eventually, this could be used by the Installer to choose installation type. There may be a better choice than a boot option though.",
+      "parentUuid": "a79ef8da_043e4238",
+      "revId": "3e9a46fb06e63315c80579258e2edb9b2f16f838",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
