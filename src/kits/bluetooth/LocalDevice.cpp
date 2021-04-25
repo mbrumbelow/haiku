@@ -149,10 +149,10 @@ LocalDevice::GetProperty(const char* property, uint32* value)
 
 int
 LocalDevice::GetDiscoverable()
-{	
+{
 	if (fMessenger == NULL)
 		return -1;
-	
+
 	size_t	size;
 	void* command = buildReadScan(&size);
 	if (command == NULL)
@@ -170,7 +170,7 @@ LocalDevice::GetDiscoverable()
 	if (fMessenger->SendMessage(&request, &reply) == B_OK
 		&& reply.FindInt8("scan_enable", &discoverable) == B_OK)
 		return discoverable;
-	
+
 	return -1;
 }
 

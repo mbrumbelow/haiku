@@ -17,7 +17,7 @@ class DeviceClass {
 public:
 
 	static const uint8 PixelsForIcon = 32;
-	static const uint8 IconInsets = 5; 
+	static const uint8 IconInsets = 5;
 
 	DeviceClass(uint8 record[3])
 	{
@@ -36,10 +36,18 @@ public:
 		fRecord = UNKNOWN_CLASS_OF_DEVICE;
 	}
 
+
+	DeviceClass(uint32 record)
+	{
+		fRecord = record;
+	}
+
+
 	void SetRecord(uint8 record[3])
 	{
 		fRecord = record[0]|record[1]<<8|record[2]<<16;
 	}
+
 
 	void SetRecord(uint8 major, uint8 minor, uint16 service)
 	{
@@ -54,20 +62,24 @@ public:
 		return (fRecord & 0x00FFE000) >> 13;
 	}
 
+
 	uint8 MajorDeviceClass()
-	{				
+	{
 		return (fRecord & 0x00001F00) >> 8;
 	}
+
 
 	uint8 MinorDeviceClass()
 	{
 		return (fRecord & 0x000000FF) >> 2;
 	}
-	
+
+
 	uint32 Record()
 	{
 		return fRecord;
 	}
+
 
 	bool IsUnknownDeviceClass()
 	{
@@ -77,9 +89,9 @@ public:
 	void GetServiceClass(BString&);
 	void GetMajorDeviceClass(BString&);
 	void GetMinorDeviceClass(BString&);
-	
+
 	void DumpDeviceClass(BString&);
-	
+
 	void Draw(BView* view, const BPoint& point);
 
 private:

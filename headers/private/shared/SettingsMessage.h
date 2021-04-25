@@ -40,6 +40,7 @@ public:
 
 			status_t			SetValue(const char* name, bool value);
 			status_t			SetValue(const char* name, int8 value);
+			status_t			SetValue(const char* name, uint8 value);
 			status_t			SetValue(const char* name, int16 value);
 			status_t			SetValue(const char* name, int32 value);
 			status_t			SetValue(const char* name, uint32 value);
@@ -61,11 +62,15 @@ public:
 									const BFlattenable* value);
 			status_t			SetValue(const char* name,
 									const BFont& value);
+			status_t			SetValue(const char* name, type_code type,
+									const void* data, ssize_t numBytes);
 
 			bool				GetValue(const char* name,
 									bool defaultValue) const;
 			int8				GetValue(const char* name,
 									int8 defaultValue) const;
+			uint8				GetValue(const char* name,
+									uint8 defaultValue) const;
 			int16				GetValue(const char* name,
 									int16 defaultValue) const;
 			int32				GetValue(const char* name,
@@ -92,6 +97,8 @@ public:
 									const BMessage& defaultValue) const;
 			BFont				GetValue(const char* name,
 									const BFont& defaultValue) const;
+			void*			GetValue(const char* name, type_code type,
+									ssize_t numBytes, const void** defaultValue);
 
 private:
 			void				_NotifyValueChanged(const char* name) const;
