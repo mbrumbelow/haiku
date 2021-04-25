@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa10d1a9_c8743208",
+        "filename": "src/preferences/bluetooth/BluetoothSettings.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-04-25T16:01:10Z",
+      "side": 1,
+      "message": "Why not use array? BMessage supports an array of values.",
+      "revId": "8c409cc58872cabb2e4b6488619bd15c0bb8bb33",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
