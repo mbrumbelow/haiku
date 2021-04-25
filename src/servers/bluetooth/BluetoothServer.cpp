@@ -471,7 +471,7 @@ BluetoothServer::SDPServerThread(void* data)
 	socketServer = socket(PF_BLUETOOTH, SOCK_STREAM, BLUETOOTH_PROTO_L2CAP);
 
 	if (socketServer < 0) {
-		TRACE_BT("SDP: Could not create server socket ...\n");
+		TRACE_BT("SDP: Could not create server socket... %s\n", strerror(socketServer));
 		return B_ERROR;
 	}
 
