@@ -53,7 +53,7 @@ BluetoothSettingsView::BluetoothSettingsView(const char* name)
 	BView(name, 0),
 	fLocalDevicesMenu(NULL)
 {
-	fSettings.Load();
+	fSettings.LoadSettings(fBluetoothSettingsData);
 
 	fPolicyMenu = new BOptionPopUp("policy",
 		B_TRANSLATE("Incoming connections policy:"),
@@ -62,10 +62,10 @@ BluetoothSettingsView::BluetoothSettingsView(const char* name)
 	fPolicyMenu->AddOption(B_TRANSLATE_NOCOLLECT(kTrustedLabel), 2);
 	fPolicyMenu->AddOption(B_TRANSLATE_NOCOLLECT(kAlwaysLabel), 3);
 
-	fPolicyMenu->SetValue(fSettings.Data.Policy);
+	fPolicyMenu->SetValue(fBluetoothSettingsData.Policy);
 
 	BString label(B_TRANSLATE("Default inquiry time:"));
-	label <<  " " << fSettings.Data.InquiryTime;
+	label <<  " " << fBluetoothSettingsData.InquiryTime;
 	fInquiryTimeControl = new BSlider("time", label.String()
 		, new BMessage(kMsgSetInquiryTime), 15, 61, B_HORIZONTAL);
 	fInquiryTimeControl->SetLimitLabels(B_TRANSLATE("15 secs"),
@@ -73,7 +73,7 @@ BluetoothSettingsView::BluetoothSettingsView(const char* name)
 	fInquiryTimeControl->SetHashMarks(B_HASH_MARKS_BOTTOM);
 	fInquiryTimeControl->SetHashMarkCount(20);
 	fInquiryTimeControl->SetEnabled(true);
-	fInquiryTimeControl->SetValue(fSettings.Data.InquiryTime);
+	fInquiryTimeControl->SetValue(fBluetoothSettingsData.InquiryTime);
 
 	fExtDeviceView = new ExtendedLocalDeviceView(NULL);
 
@@ -88,9 +88,8 @@ BluetoothSettingsView::BluetoothSettingsView(const char* name)
 		fExtDeviceView->SetEnabled(true);
 
 		DeviceClass rememberedClass = ActiveLocalDevice->GetDeviceClass();
-
 		if (!rememberedClass.IsUnknownDeviceClass())
-			fSettings.Data.LocalDeviceClass = rememberedClass;
+			fBluetoothSettingsData.LocalDeviceClass = rememberedClass;
 	}
 
 	fClassMenu = new BOptionPopUp("DeviceClass", B_TRANSLATE("Identify host as:"),
@@ -120,7 +119,7 @@ BluetoothSettingsView::BluetoothSettingsView(const char* name)
 
 BluetoothSettingsView::~BluetoothSettingsView()
 {
-	fSettings.Save();
+	fSettings.SaveSettings(fBluetoothSettingsData);
 }
 
 
@@ -160,14 +159,14 @@ BluetoothSettingsView::MessageReceived(BMessage* message)
 		{
 			int32 policy;
 			if (message->FindInt32("be:value", (int32*)&policy) == B_OK) {
-				fSettings.Data.Policy = policy;
+				fBluetoothSettingsData.Policy = policy;
 			}
 			break;
 		}
 
 		case kMsgSetInquiryTime:
 		{
-			fSettings.Data.InquiryTime = fInquiryTimeControl->Value();
+			fBluetoothSettingsData.InquiryTime = fInquiryTimeControl->Value();
 			BString label(B_TRANSLATE("Default inquiry time:"));
 			label <<  " " << fInquiryTimeControl->Value();
 			fInquiryTimeControl->SetLabel(label.String());
@@ -208,10 +207,11 @@ BluetoothSettingsView::_SetDeviceClass(uint8 major, uint8 minor,
 {
 	bool haveRun = true;
 
-	fSettings.Data.LocalDeviceClass.SetRecord(major, minor, service);
+	fBluetoothSettingsData.LocalDeviceClass.SetRecord(major, minor, service);
 
 	if (ActiveLocalDevice != NULL)
-		ActiveLocalDevice->SetDeviceClass(fSettings.Data.LocalDeviceClass);
+		ActiveLocalDevice->SetDeviceClass(
+				fBluetoothSettingsData.LocalDeviceClass);
 	else
 		haveRun = false;
 
@@ -249,7 +249,7 @@ BluetoothSettingsView::_BuildLocalDevicesMenu()
 				(lDevice->GetFriendlyName().String()), message);
 
 			if (bdaddrUtils::Compare(lDevice->GetBluetoothAddress(),
-				fSettings.Data.PickedDevice)) {
+				fBluetoothSettingsData.PickedDevice)) {
 
 				item->SetMarked(true);
 				ActiveLocalDevice = lDevice;
@@ -268,24 +268,22 @@ BluetoothSettingsView::_MarkLocalDevice(LocalDevice* lDevice)
 	fExtDeviceView->SetLocalDevice(lDevice);
 	fExtDeviceView->SetEnabled(true);
 	ActiveLocalDevice = lDevice;
-	fSettings.Data.PickedDevice = lDevice->GetBluetoothAddress();
+	fBluetoothSettingsData.PickedDevice = lDevice->GetBluetoothAddress();
 }
 
 
 int
 BluetoothSettingsView::_GetClassForMenu()
 {
-	int deviceClass = fSettings.Data.LocalDeviceClass.MajorDeviceClass() +
-		fSettings.Data.LocalDeviceClass.MinorDeviceClass()-1;
+	int deviceClass = fBluetoothSettingsData.LocalDeviceClass.MajorDeviceClass() +
+		fBluetoothSettingsData.LocalDeviceClass.MinorDeviceClass();
 
 	// As of now we only support MajorDeviceClass = 1 and MinorDeviceClass 1-4
 	// and MajorDeviceClass = 2 and MinorDeviceClass 3.
-	if ((fSettings.Data.LocalDeviceClass.MajorDeviceClass() == 1
-		&& (fSettings.Data.LocalDeviceClass.MinorDeviceClass() > 0
-			&& fSettings.Data.LocalDeviceClass.MinorDeviceClass() < 5))
-		|| (fSettings.Data.LocalDeviceClass.MajorDeviceClass() == 2 &&
-			fSettings.Data.LocalDeviceClass.MinorDeviceClass() == 3))
-			return deviceClass; //No other wil have the same number.
-	else
-		return 0;
+	if (fBluetoothSettingsData.LocalDeviceClass.MajorDeviceClass() == 1
+			&& (fBluetoothSettingsData.LocalDeviceClass.MinorDeviceClass() > 0
+			&& fBluetoothSettingsData.LocalDeviceClass.MinorDeviceClass() < 5))
+		deviceClass -= 1;
+
+	return deviceClass;
 }

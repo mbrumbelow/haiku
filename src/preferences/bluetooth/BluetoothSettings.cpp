@@ -9,10 +9,13 @@
  */
 #include "BluetoothSettings.h"
 
+#include <Debug.h>
+#include <SettingsMessage.h>
+
 BluetoothSettings::BluetoothSettings()
+	:
+	fSettingsMessage(B_USER_SETTINGS_DIRECTORY, "Bluetooth_settings")
 {
-	find_directory(B_USER_SETTINGS_DIRECTORY, &fPath);
-	fPath.Append("Bluetooth_settings", true);
 }
 
 
@@ -22,37 +25,39 @@ BluetoothSettings::~BluetoothSettings()
 
 
 void
-BluetoothSettings::Defaults()
+BluetoothSettings::LoadSettings(BluetoothSettingsData& settings) const
 {
-	Data.PickedDevice = bdaddrUtils::NullAddress();
-	Data.LocalDeviceClass = DeviceClass();
-	Data.Policy = 0;
-	Data.InquiryTime = 15;
+	bdaddr_t* addr;
+	ssize_t size;
+	status_t status = fSettingsMessage.FindData("BDAddress", B_RAW_TYPE,
+		(const void**)&addr, &size);
+	if (status == B_OK)
+		settings.PickedDevice = *addr;
+	else
+		settings.PickedDevice = bdaddrUtils::NullAddress();
+
+	DeviceClass* devclass;
+	status = fSettingsMessage.FindData("DeviceClass", B_RAW_TYPE,
+		(const void**)&devclass, &size);
+	if (status == B_OK)
+		settings.LocalDeviceClass = *devclass;
+	else
+		settings.LocalDeviceClass = DeviceClass();
+
+	settings.Policy = fSettingsMessage.GetValue("Policy", 0);
+	settings.InquiryTime = fSettingsMessage.GetValue("InquiryTime", 15);
 }
 
 
 void
-BluetoothSettings::Load()
+BluetoothSettings::SaveSettings(const BluetoothSettingsData& settings)
 {
-	fFile = new BFile(fPath.Path(), B_READ_ONLY);
+	fSettingsMessage.SetValue("DeviceClass", B_RAW_TYPE,
+		&settings.LocalDeviceClass, sizeof(DeviceClass));
+	fSettingsMessage.SetValue("BDAddress", B_RAW_TYPE, &settings.PickedDevice,
+		sizeof(bdaddr_t));
+	fSettingsMessage.SetValue("Policy", settings.Policy);
+	fSettingsMessage.SetValue("InquiryTime", settings.InquiryTime);
 
-	if (fFile->InitCheck() == B_OK) {
-		fFile->Read(&Data, sizeof(Data));
-	} else
-		Defaults();
-
-	delete fFile;
-}
-
-
-void
-BluetoothSettings::Save()
-{
-	fFile = new BFile(fPath.Path(), B_WRITE_ONLY | B_CREATE_FILE);
-
-	if (fFile->InitCheck() == B_OK) {
-		fFile->Write(&Data, sizeof(Data));
-	}
-
-	delete fFile;
+	fSettingsMessage.Save();
 }
