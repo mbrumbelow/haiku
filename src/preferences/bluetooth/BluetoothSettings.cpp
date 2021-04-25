@@ -9,10 +9,11 @@
  */
 #include "BluetoothSettings.h"
 
+#include <SettingsMessage.h>
+
 BluetoothSettings::BluetoothSettings()
+	: fSettingsMessage(B_USER_SETTINGS_DIRECTORY, "Bluetooth_settings")
 {
-	find_directory(B_USER_SETTINGS_DIRECTORY, &fPath);
-	fPath.Append("Bluetooth_settings", true);
 }
 
 
@@ -22,37 +23,42 @@ BluetoothSettings::~BluetoothSettings()
 
 
 void
-BluetoothSettings::Defaults()
+BluetoothSettings::LoadSettings(BluetoothSettingsData& settings) const
 {
-	Data.PickedDevice = bdaddrUtils::NullAddress();
-	Data.LocalDeviceClass = DeviceClass();
-	Data.Policy = 0;
-	Data.InquiryTime = 15;
+	bdaddr_t add = bdaddr_t();
+	add.b[0] = fSettingsMessage.GetValue("BDAdress0", (uint8)0);
+	add.b[1] = fSettingsMessage.GetValue("BDAdress1", (uint8)0);
+	add.b[2] = fSettingsMessage.GetValue("BDAdress2", (uint8)0);
+	add.b[3] = fSettingsMessage.GetValue("BDAdress3", (uint8)0);
+	add.b[4] = fSettingsMessage.GetValue("BDAdress4", (uint8)0);
+	add.b[5] = fSettingsMessage.GetValue("BDAdress5", (uint8)0);
+	settings.PickedDevice = add;
+
+	settings.Major = fSettingsMessage.GetValue("MajorClassValue", (uint8)0);
+	settings.Minor = fSettingsMessage.GetValue("MinorClassValue", (uint8)0);
+	settings.Service = fSettingsMessage.GetValue("ServiceClassValue", (uint16)0);
+
+	settings.Policy = fSettingsMessage.GetValue("Policy", 0);
+	settings.InquiryTime = fSettingsMessage.GetValue("InquiryTime", 15);
 }
 
 
 void
-BluetoothSettings::Load()
+BluetoothSettings::SaveSettings(const BluetoothSettingsData& settings)
 {
-	fFile = new BFile(fPath.Path(), B_READ_ONLY);
+	fSettingsMessage.SetValue("BDAdress0", (uint8)settings.PickedDevice.b[0]);
+	fSettingsMessage.SetValue("BDAdress1", (uint8)settings.PickedDevice.b[1]);
+	fSettingsMessage.SetValue("BDAdress2", (uint8)settings.PickedDevice.b[2]);
+	fSettingsMessage.SetValue("BDAdress3", (uint8)settings.PickedDevice.b[3]);
+	fSettingsMessage.SetValue("BDAdress4", (uint8)settings.PickedDevice.b[4]);
+	fSettingsMessage.SetValue("BDAdress5", (uint8)settings.PickedDevice.b[5]);
 
-	if (fFile->InitCheck() == B_OK) {
-		fFile->Read(&Data, sizeof(Data));
-	} else
-		Defaults();
+	fSettingsMessage.SetValue("MajorClassValue", (uint8)settings.Major);
+	fSettingsMessage.SetValue("MinorClassValue", (uint8)settings.Minor);
+	fSettingsMessage.SetValue("ServiceClassValue", (uint16)settings.Service);
 
-	delete fFile;
-}
+	fSettingsMessage.SetValue("Policy", settings.Policy);
+	fSettingsMessage.SetValue("InquiryTime", settings.InquiryTime);
 
-
-void
-BluetoothSettings::Save()
-{
-	fFile = new BFile(fPath.Path(), B_WRITE_ONLY | B_CREATE_FILE);
-
-	if (fFile->InitCheck() == B_OK) {
-		fFile->Write(&Data, sizeof(Data));
-	}
-
-	delete fFile;
+	fSettingsMessage.Save();
 }

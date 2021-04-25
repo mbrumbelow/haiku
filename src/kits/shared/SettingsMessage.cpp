@@ -10,6 +10,7 @@
 #include "SettingsMessage.h"
 
 #include <new>
+#include <stdio.h>
 
 #include <Autolock.h>
 #include <Entry.h>
@@ -131,6 +132,17 @@ SettingsMessage::SetValue(const char* name, int8 value)
 	status_t ret = ReplaceInt8(name, value);
 	if (ret != B_OK)
 		ret = AddInt8(name, value);
+	if (ret == B_OK)
+		_NotifyValueChanged(name);
+	return ret;
+}
+
+status_t
+SettingsMessage::SetValue(const char* name, uint8 value)
+{
+	status_t ret = ReplaceUInt8(name, value);
+	if (ret != B_OK)
+		ret = AddUInt8(name, value);
 	if (ret == B_OK)
 		_NotifyValueChanged(name);
 	return ret;
@@ -323,6 +335,19 @@ SettingsMessage::SetValue(const char* name, const BFlattenable* value)
 
 
 status_t
+SettingsMessage::SetValue(const char* name, type_code type, const void* data,
+	ssize_t numBytes)
+{
+	status_t ret = ReplaceData(name, type, &data, numBytes);
+	if (ret != B_OK)
+		ret = AddData(name, type, data, numBytes);
+	if (ret == B_OK)
+		_NotifyValueChanged(name);
+	return ret;
+}
+
+
+status_t
 SettingsMessage::SetValue(const char* name, const BFont& value)
 {
 	font_family family;
@@ -364,6 +389,16 @@ SettingsMessage::GetValue(const char* name, int8 defaultValue) const
 {
 	int8 value;
 	if (FindInt8(name, &value) != B_OK)
+		return defaultValue;
+	return value;
+}
+
+
+uint8
+SettingsMessage::GetValue(const char* name, uint8 defaultValue) const
+{
+	uint8 value;
+	if (FindUInt8(name, &value) != B_OK)
 		return defaultValue;
 	return value;
 }
@@ -538,6 +573,15 @@ SettingsMessage::GetValue(const char* name, const BFont& defaultValue) const
 	return value;
 }
 
+
+void*
+SettingsMessage::GetValue(const char* name, type_code type, ssize_t numBytes, const void** defaultValue)
+{
+	void* value;
+	if (FindData(name, type, (const void**)&value, &numBytes) != B_OK)
+		return defaultValue;
+	return value;
+}
 
 // #pragma mark - private
 
