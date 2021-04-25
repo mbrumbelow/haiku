@@ -109,7 +109,7 @@ void
 ExtendedLocalDeviceView::MessageReceived(BMessage* message)
 {
 	if (fDevice == NULL) {
-		printf("ExtendedLocalDeviceView::Device missing\n");
+//		printf("ExtendedLocalDeviceView::Device missing\n");
 		BView::MessageReceived(message);
 		return;
 	}
