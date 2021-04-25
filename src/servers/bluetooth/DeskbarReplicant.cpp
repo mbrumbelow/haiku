@@ -165,14 +165,7 @@ void
 DeskbarReplicant::MouseDown(BPoint where)
 {
 	BPoint point;
-	uint32 buttons;
-	GetMouse(&point, &buttons);
-	if (!(buttons & B_SECONDARY_MOUSE_BUTTON)) {
-		return;
-	}
-
 	BPopUpMenu* menu = new BPopUpMenu(B_EMPTY_STRING, false, false);
-
 	menu->AddItem(new BMenuItem(B_TRANSLATE("Settings" B_UTF8_ELLIPSIS),
 		new BMessage(kMsgOpenBluetoothPreferences)));
 

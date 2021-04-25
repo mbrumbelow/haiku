@@ -17,27 +17,26 @@
 #include <File.h>
 #include <FindDirectory.h>
 #include <Path.h>
+#include <SettingsMessage.h>
+
+struct BluetoothSettingsData {
+	bdaddr_t 			PickedDevice;
+	DeviceClass			LocalDeviceClass;
+	int32				Policy;
+	int32				InquiryTime;
+};
 
 class BluetoothSettings
 {
 public:
-	struct {
-		bdaddr_t 			PickedDevice;
-		DeviceClass			LocalDeviceClass;
-		int32				Policy;
-		int32				InquiryTime;
-	} Data;
-
 							BluetoothSettings();
 							~BluetoothSettings();
 
-	void 					Defaults();
-	void 					Load();
-	void 					Save();
+	void					LoadSettings(BluetoothSettingsData& settings) const;
+	void					SaveSettings(const BluetoothSettingsData& settings);
 
 private:
-	BPath 					fPath;
-	BFile* 					fFile;
+	SettingsMessage			fSettingsMessage;
 };
 
 #endif // BLUETOOTH_SETTINGS_H
