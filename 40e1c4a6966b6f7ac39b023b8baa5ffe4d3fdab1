@@ -16,6 +16,40 @@
       "revId": "40e1c4a6966b6f7ac39b023b8baa5ffe4d3fdab1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a10ba385_2e2f109d",
+        "filename": "build/jam/repositories/HaikuPorts/x86_64",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-04-25T11:09:40Z",
+      "side": 1,
+      "message": "Can be removed now.",
+      "revId": "40e1c4a6966b6f7ac39b023b8baa5ffe4d3fdab1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "024443ed_96f13f20",
+        "filename": "build/jam/repositories/HaikuPorts/x86_gcc2",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-04-25T11:09:40Z",
+      "side": 1,
+      "message": "Can be removed now.",
+      "revId": "40e1c4a6966b6f7ac39b023b8baa5ffe4d3fdab1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
