@@ -2,6 +2,57 @@
   "comments": [
     {
       "key": {
+        "uuid": "36513bf8_0b17955b",
+        "filename": "headers/private/shared/SettingsMessage.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-04-25T16:06:29Z",
+      "side": 1,
+      "message": "This should go to https://review.haiku-os.org/c/haiku/+/3888.",
+      "revId": "8c409cc58872cabb2e4b6488619bd15c0bb8bb33",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0edad8bb_4eb65781",
+        "filename": "src/kits/shared/SettingsMessage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-04-25T16:06:29Z",
+      "side": 1,
+      "message": "This should go to https://review.haiku-os.org/c/haiku/+/3888.",
+      "revId": "8c409cc58872cabb2e4b6488619bd15c0bb8bb33",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5d96d7c_ef2abe21",
+        "filename": "src/preferences/bluetooth/BluetoothSettings.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-04-25T16:06:29Z",
+      "side": 1,
+      "message": "Why not use strings directly?",
+      "revId": "8c409cc58872cabb2e4b6488619bd15c0bb8bb33",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aa10d1a9_c8743208",
         "filename": "src/preferences/bluetooth/BluetoothSettings.cpp",
         "patchSetId": 1
