@@ -42,7 +42,6 @@ DeviceClass::GetServiceClass(BString& serviceClass)
 				} else {
 					serviceClass << ", " << services[s];
 				}
-					
 			}
 		}
 
@@ -80,7 +79,7 @@ DeviceClass::GetMinorDeviceClass(BString& minorClass)
 	CALLED();
 	uint major = MajorDeviceClass();
 	uint minor = MinorDeviceClass();
-	
+
 	switch (major) {
 		case 0:	/* misc */
 			minorClass << " -";
@@ -89,10 +88,10 @@ DeviceClass::GetMinorDeviceClass(BString& minorClass)
 			switch(minor) {
 				case 0:
 					minorClass << B_TRANSLATE("Uncategorized");
-					break;	
+					break;
 				case 1:
 					minorClass << B_TRANSLATE("Desktop workstation");
-					break;	
+					break;
 				case 2:
 					minorClass << B_TRANSLATE("Server");
 					break;
@@ -103,7 +102,7 @@ DeviceClass::GetMinorDeviceClass(BString& minorClass)
 					minorClass << B_TRANSLATE("Handheld");
 					break;
 				case 5:
-					minorClass << B_TRANSLATE_COMMENT("Palm", 
+					minorClass << B_TRANSLATE_COMMENT("Palm",
 						"A palm-held device");
 					break;
 				case 6:
@@ -227,7 +226,7 @@ DeviceClass::GetMinorDeviceClass(BString& minorClass)
 			}
 			break;
 		case 5:	/* peripheral */
-		{		
+		{
 			switch(minor & 48) {
 				case 16:
 					minorClass << B_TRANSLATE("Keyboard");
@@ -242,10 +241,10 @@ DeviceClass::GetMinorDeviceClass(BString& minorClass)
 				case 48:
 					minorClass << B_TRANSLATE("Combo keyboard/pointing device");
 					if (minor & 15)
-						minorClass << "/";							
+						minorClass << "/";
 					break;
 			}
-			
+
 			switch(minor & 15) {
 				case 0:
 					break;
@@ -307,7 +306,7 @@ DeviceClass::GetMinorDeviceClass(BString& minorClass)
 			switch(minor) {
 				case 1:
 					minorClass << B_TRANSLATE("Robot");
-					break;	
+					break;
 				case 2:
 					minorClass << B_TRANSLATE("Vehicle");
 					break;
@@ -375,15 +374,15 @@ DeviceClass::Draw(BView* view, const BPoint& point)
 				 point.x + IconInsets + uint(PixelsForIcon*3/4) - 4,
 			 	 point.y + IconInsets + uint(PixelsForIcon*3/4)));
 			view->StrokeLine(BPoint(point.x + IconInsets + uint(PixelsForIcon/4) + 4,
-				 point.y + IconInsets + PixelsForIcon - 6), 
+				 point.y + IconInsets + PixelsForIcon - 6),
 				 BPoint(point.x + IconInsets + uint(PixelsForIcon*3/4) - 4,
 				 point.y + IconInsets + PixelsForIcon - 6));
 			view->StrokeLine(BPoint(point.x + IconInsets + uint(PixelsForIcon/4) + 4,
-				 point.y + IconInsets + PixelsForIcon - 4), 
+				 point.y + IconInsets + PixelsForIcon - 4),
 				 BPoint(point.x + IconInsets + uint(PixelsForIcon*3/4) - 4,
 				 point.y + IconInsets + PixelsForIcon - 4));
 			view->StrokeLine(BPoint(point.x + IconInsets + uint(PixelsForIcon/4) + 4,
-				 point.y + IconInsets + 2), 
+				 point.y + IconInsets + 2),
 				 BPoint(point.x + IconInsets + uint(PixelsForIcon/4) + 4,
 				 point.y + IconInsets + 6));
 			break;
@@ -393,7 +392,7 @@ DeviceClass::Draw(BView* view, const BPoint& point)
 				BPoint(point.x + IconInsets + uint(PixelsForIcon*3/4),
 				 point.y + IconInsets + uint(PixelsForIcon*3/8)));
 			view->StrokeLine(BPoint(point.x + IconInsets + uint(PixelsForIcon*5/8),
-				 point.y + IconInsets + uint(PixelsForIcon/8)));			
+				 point.y + IconInsets + uint(PixelsForIcon/8)));
 			view->StrokeLine(BPoint(point.x + IconInsets + uint(PixelsForIcon*3/4),
 				 point.y + IconInsets + uint(PixelsForIcon*5/8)),
 				BPoint(point.x + IconInsets + uint(PixelsForIcon/4),
@@ -414,7 +413,7 @@ DeviceClass::Draw(BView* view, const BPoint& point)
 				 point.y + IconInsets + uint(PixelsForIcon*7/8)));
 			view->StrokeLine(BPoint(point.x + IconInsets + uint(PixelsForIcon*3/8),
 				 point.y + IconInsets + uint(PixelsForIcon*5/8)));
-			break;			
+			break;
 		default: // Bluetooth Logo
 			view->StrokeLine(BPoint(point.x + IconInsets + uint(PixelsForIcon/4),
 				 point.y + IconInsets + uint(PixelsForIcon*3/4)),
@@ -426,11 +425,10 @@ DeviceClass::Draw(BView* view, const BPoint& point)
 				 point.y + IconInsets + PixelsForIcon - 2));
 			view->StrokeLine(BPoint(point.x + IconInsets + uint(PixelsForIcon*3/4),
 				 point.y + IconInsets + uint(PixelsForIcon*3/4)));
-			view->StrokeLine(BPoint(point.x + IconInsets + uint(PixelsForIcon/4), 
+			view->StrokeLine(BPoint(point.x + IconInsets + uint(PixelsForIcon/4),
 				point.y + IconInsets + uint(PixelsForIcon/4)));
 			break;
-	}	
+	}
 	view->SetHighColor(kBlack);
 }
-
 }

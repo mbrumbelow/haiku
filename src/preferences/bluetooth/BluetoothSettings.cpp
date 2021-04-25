@@ -9,10 +9,12 @@
  */
 #include "BluetoothSettings.h"
 
+#include <Debug.h>
+#include <SettingsMessage.h>
+
 BluetoothSettings::BluetoothSettings()
+	: fSettingsMessage(B_USER_SETTINGS_DIRECTORY, "Bluetooth_settings")
 {
-	find_directory(B_USER_SETTINGS_DIRECTORY, &fPath);
-	fPath.Append("Bluetooth_settings", true);
 }
 
 
@@ -22,37 +24,33 @@ BluetoothSettings::~BluetoothSettings()
 
 
 void
-BluetoothSettings::Defaults()
+BluetoothSettings::LoadSettings(BluetoothSettingsData& settings) const
 {
-	Data.PickedDevice = bdaddrUtils::NullAddress();
-	Data.LocalDeviceClass = DeviceClass();
-	Data.Policy = 0;
-	Data.InquiryTime = 15;
-}
-
-
-void
-BluetoothSettings::Load()
-{
-	fFile = new BFile(fPath.Path(), B_READ_ONLY);
-
-	if (fFile->InitCheck() == B_OK) {
-		fFile->Read(&Data, sizeof(Data));
-	} else
-		Defaults();
-
-	delete fFile;
-}
-
-
-void
-BluetoothSettings::Save()
-{
-	fFile = new BFile(fPath.Path(), B_WRITE_ONLY | B_CREATE_FILE);
-
-	if (fFile->InitCheck() == B_OK) {
-		fFile->Write(&Data, sizeof(Data));
+	bdaddr_t* tmp;
+	ssize_t size;
+	status_t status = fSettingsMessage.FindData("BDAddress", 'BTAD', (const void**)&tmp, &size);
+	if (status == B_OK) {
+		settings.PickedDevice = *tmp;
 	}
 
-	delete fFile;
+	DeviceClass* dcTmp;
+	status = fSettingsMessage.FindData("DeviceClass", 'DECL', (const void**)&dcTmp, &size);
+	if (status == B_OK) {
+		settings.LocalDeviceClass = *dcTmp;
+	}
+
+	settings.Policy = fSettingsMessage.GetValue("Policy", 0);
+	settings.InquiryTime = fSettingsMessage.GetValue("InquiryTime", 15);
+}
+
+
+void
+BluetoothSettings::SaveSettings(const BluetoothSettingsData& settings)
+{
+	fSettingsMessage.SetValue("DeviceClass", 'DECL', &settings.LocalDeviceClass, sizeof(DeviceClass));
+	fSettingsMessage.SetValue("BDAddress", 'BTAD', &settings.PickedDevice, sizeof(bdaddr_t));
+	fSettingsMessage.SetValue("Policy", settings.Policy);
+	fSettingsMessage.SetValue("InquiryTime", settings.InquiryTime);
+
+	fSettingsMessage.Save();
 }
