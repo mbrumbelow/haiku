@@ -16,6 +16,125 @@
       "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "104035ae_a05b89c0",
+        "filename": "src/system/boot/platform/riscv/console.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-04-26T19:39:08Z",
+      "side": 1,
+      "message": "Use size depending on framebuffer and font size. But malloc is not yet initialized at this step.",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5d6fe2a_9aa5e0eb",
+        "filename": "src/system/boot/platform/riscv/cpu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-04-26T19:39:08Z",
+      "side": 1,
+      "message": "Move to some common header and also use in kernel.",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b51eb40a_9870a5db",
+        "filename": "src/system/boot/platform/riscv/devices.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-04-26T19:39:08Z",
+      "side": 1,
+      "message": "Not relevant anymore, should be removed.",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80f616ce_657ef6c3",
+        "filename": "src/system/boot/platform/riscv/devices.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-04-26T19:39:08Z",
+      "side": 1,
+      "message": "Consider using buffer directly without additional buffer and copy.",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cfdb94f5_396ae638",
+        "filename": "src/system/boot/platform/riscv/fixed_font.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-04-26T19:39:08Z",
+      "side": 1,
+      "message": "Absolute path definitely should be not used, but using just \"fixed_font.bin\" don\u0027t work.",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b509300c_f89a119e",
+        "filename": "src/system/boot/platform/riscv/htif.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-04-26T19:39:08Z",
+      "side": 1,
+      "message": "Move this to common headers and reuse by kernel.",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "390dcf1e_77845044",
+        "filename": "src/system/boot/platform/riscv/virtio.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-04-26T19:39:08Z",
+      "side": 1,
+      "message": "Move this to common headers to share with kernel.",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
