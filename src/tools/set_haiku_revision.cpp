@@ -409,7 +409,7 @@ public:
 				throw Exception("%s Read too few bytes (%d/%d).",
 					errorMessage, (int)bytesRead, (int)size);
 			} else {
-				throw Exception("Read too few bytes (%ld/%lu).",
+				throw Exception("Read too few bytes (%d/%d).",
 					(int)bytesRead, (int)size);
 			}
 		}
@@ -430,7 +430,7 @@ public:
 				throw Exception("%s Wrote too few bytes (%d/%d).",
 					errorMessage, (int)bytesWritten, (int)size);
 			} else {
-				throw Exception("Wrote too few bytes (%ld/%lu).",
+				throw Exception("Wrote too few bytes (%d/%d).",
 					(int)bytesWritten, (int)size);
 			}
 		}
@@ -611,8 +611,8 @@ void ELFObject::_ParseELFHeader()
 		}
 	}
 }
-	
-	
+
+
 template<typename ShdrType>
 bool ELFObject::_ReadSectionHeader(int index, SectionInfo& info)
 {
@@ -650,7 +650,7 @@ bool ELFObject::_ReadSectionHeader(int index, SectionInfo& info)
 	if (fSectionHeaderStrings) {
 		if (nameIndex >= (uint32_t)fSectionHeaderStringsLength) {
 			throw Exception(EIO, "Invalid ELF section header: "
-							"invalid name index: %lu.", nameIndex);
+							"invalid name index: %" PRIu32, nameIndex);
 		}
 		info.name = fSectionHeaderStrings + nameIndex;
 	} else {
