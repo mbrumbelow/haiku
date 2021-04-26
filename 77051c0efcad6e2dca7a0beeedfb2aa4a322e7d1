@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba462c2b_a2c7d0c4",
+        "filename": "build/jam/ArchitectureRules",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-04-26T18:21:04Z",
+      "side": 1,
+      "message": "Interesting.. I\u0027m down with this.  If we can offer efi and a native OpenSBI loader it would make us portable to a wider range of hardware / emulation\n\n\nWould it be prudent to name this opensbi vs riscv?",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
