@@ -3832,6 +3832,38 @@ HaikuControlLook::_FillGlossyGradient(BView* view, const BRect& rect,
 }
 
 
+float
+HaikuControlLook::GetScrollBarScaleWidth()
+{
+	// HaikuControlLook does not make a destinction between the
+	// width and height of the scrollbars, but other controlloks might
+	if (be_plain_font->Size() <= 12.0f) { return 1.0f; }
+	return be_plain_font->Size() / 12.0f;
+}
+
+
+float
+HaikuControlLook::GetScrollBarWidth()
+{
+	return HaikuControlLook::GetScrollBarScaleWidth() * 14.0f;
+}
+
+
+float
+HaikuControlLook::GetScrollBarScaleHeight()
+{
+	if (be_plain_font->Size() <= 12.0f) { return 1.0f; }
+	return be_plain_font->Size() / 12.0f;
+}
+
+
+float
+HaikuControlLook::GetScrollBarHeight()
+{
+	return HaikuControlLook::GetScrollBarScaleHeight() * 14.0f;
+}
+
+
 void
 HaikuControlLook::_MakeGradient(BGradientLinear& gradient, const BRect& rect,
 	const rgb_color& base, float topTint, float bottomTint,

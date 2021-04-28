@@ -71,6 +71,34 @@ BControlLook::GetInsets(frame_type frameType, background_type backgroundType,
 }
 
 
+float
+BControlLook::GetScrollBarWidth()
+{
+	return 14.0f;
+}
+
+
+float
+BControlLook::GetScrollBarHeight()
+{
+	return 14.0f;
+}
+
+
+float
+BControlLook::GetScrollBarScaleWidth()
+{
+	return 1.0f;
+}
+
+
+float
+BControlLook::GetScrollBarScaleHeight()
+{
+	return 1.0f;
+}
+
+
 void
 BControlLook::SetBackgroundInfo(const BMessage& backgroundInfo)
 {

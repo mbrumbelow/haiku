@@ -426,6 +426,10 @@ public:
 									BRect rect, const BRect& updateRect,
 									const rgb_color& base, uint32 flags,
 									orientation orientation) = 0;
+	virtual float				GetScrollBarWidth();
+	virtual float				GetScrollBarHeight();
+	virtual float				GetScrollBarScaleWidth();
+	virtual float				GetScrollBarScaleHeight();
 
 private:
 	// FBC padding
