@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "381aba2c_2d0724ac",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1190,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-04-28T00:11:26Z",
+      "side": 1,
+      "message": "This is the line that resizes the text rect in Beezer. _Refresh() called below resizes the text rect the rest of the way. _RecalculateLineBreaks() returns if fTextRect is invalid or width is 0 and calling _ValidateTextRect() ensures that this does not happen.",
+      "revId": "4b682737b4e1f52298f8e2c6b288908bdd22407a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dfc4b977_436e47cb",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 3942,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-04-28T00:11:26Z",
+      "side": 1,
+      "message": "The above is a pretty big change in that the text rect grows and shrink instead of only growing. _ValidateTextRect() ensures that the text rect does not shrink below 0.",
+      "revId": "4b682737b4e1f52298f8e2c6b288908bdd22407a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1009f469_cb2d52cb",
+        "filename": "src/kits/tracker/TextWidget.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-04-28T00:11:26Z",
+      "side": 1,
+      "message": "Is there a better way to set the max width on the Edit name box? I feel like it needs a maximum and this was the value I picked. It is font sensitive.",
+      "revId": "4b682737b4e1f52298f8e2c6b288908bdd22407a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
