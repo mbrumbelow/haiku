@@ -1,4 +1,4 @@
-/*
+ /*
  * Copyright 2002-2012, Haiku, Inc. All Rights Reserved.
  * Distributed under the terms of the MIT License.
  *
@@ -63,7 +63,7 @@ void
 StatusView::AttachedToWindow()
 {
 	SetFont(be_plain_font);
-	SetFontSize(10. * be_plain_font->Size() / 12.f);
+	SetFontSize(10. * be_control_look->GetScrollBarScaleHeight());
 
 	BMessage message(UPDATE_STATUS);
 	message.AddInt32("line", 1);
