@@ -19,7 +19,7 @@
 #include <InterfaceDefs.h>
 
 
-#define NUM_KEYS 128
+#define NUM_KEYS 160
 #define MAX_UTF8_LENGTH 5
 	// up to 4 chars, plus a \0 terminator
 
@@ -91,6 +91,19 @@ static const struct KeyLabelMap keyLabels[] = {
 	{"R.Command",	103},
 	{"Menu",		104},
 	{"PowerOn",		107},
+	{"Play/Pause",	129},
+	{"Calculator",	135},
+	{"E-Mail",		137},
+	{"HomeBtn",		138},
+	{"Forward",		139},
+	{"Backward",	140},
+	{"Search",		141},
+	{"Favorite",	142},
+	{"Refresh",		143},
+	{"Volume+",		145},
+	{"Volume-",		146},
+	{"Mute",		147},
+	{"Power",		149}
 };
 
 
@@ -134,7 +147,13 @@ InitKeyIndices()
 			// default
 
 		const char* specialLabel = FindSpecialKeyLabelFor(j, nextSpecial);
-		int32 keyCode = map->normal_map[j];
+		int32 keyCode = -1;
+		if (j <= 128) {
+			keyCode = map->normal_map[j];
+		} else {
+			if (specialLabel == NULL) continue;
+			keyCode = j;
+		}
 
 		if (keyCode >= 0) {
 			const char* mapDesc = &keys[keyCode];
