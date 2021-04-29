@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10147863_17b818c9",
+        "filename": "src/tools/set_haiku_revision.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-04-29T07:23:00Z",
+      "side": 1,
+      "message": "B_PRIdSSIZE und B_PRIuSIZE",
+      "revId": "792802c51c6e76c1fade30524f6155b0bc379cbc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
