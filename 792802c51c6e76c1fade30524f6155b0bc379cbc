@@ -16,6 +16,24 @@
       "revId": "792802c51c6e76c1fade30524f6155b0bc379cbc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ceddf30_f73677ff",
+        "filename": "src/tools/set_haiku_revision.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1000055
+      },
+      "writtenOn": "2021-04-30T10:55:23Z",
+      "side": 1,
+      "message": "It seems SupportDefs.h cannot be included when cross-building.",
+      "parentUuid": "10147863_17b818c9",
+      "revId": "792802c51c6e76c1fade30524f6155b0bc379cbc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
