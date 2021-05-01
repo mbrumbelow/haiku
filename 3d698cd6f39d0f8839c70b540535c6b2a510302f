@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "557b6539_723a7582",
+        "filename": "headers/private/interface/HaikuControlLook.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-05-01T17:30:30Z",
+      "side": 1,
+      "message": "This breaks vtable ABI.",
+      "revId": "3d698cd6f39d0f8839c70b540535c6b2a510302f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
