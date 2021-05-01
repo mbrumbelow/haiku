@@ -19,6 +19,41 @@
     },
     {
       "key": {
+        "uuid": "6d954256_cb8e4bad",
+        "filename": "headers/os/interface/ControlLook.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-01T17:41:14Z",
+      "side": 1,
+      "message": "I agree, a method to get the width/height is enough, I don\u0027t understand why the scale should be exposed here",
+      "parentUuid": "4bc32b72_ff1bb520",
+      "revId": "3d698cd6f39d0f8839c70b540535c6b2a510302f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "704c6381_120c25cd",
+        "filename": "headers/os/interface/ControlLook.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-01T17:41:14Z",
+      "side": 1,
+      "message": "You need to remove one of these for each new virtual method you add here.\n\nIn order to limit the number of new methods (and avoid running out of empty spaces in the vtable), I suggest adding only one new method:\n\nGetScrollBarWidth(orientation);\n\nSee this article about binary compatibility explaining how to handle this (there is more to it than just removing one method here): https://www.haiku-os.org/documents/dev/binary_compatibility_3_easy_steps",
+      "revId": "3d698cd6f39d0f8839c70b540535c6b2a510302f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "557b6539_723a7582",
         "filename": "headers/private/interface/HaikuControlLook.h",
         "patchSetId": 1
@@ -30,6 +65,41 @@
       "writtenOn": "2021-05-01T17:30:30Z",
       "side": 1,
       "message": "This breaks vtable ABI.",
+      "revId": "3d698cd6f39d0f8839c70b540535c6b2a510302f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b5b1a67_13ca877e",
+        "filename": "headers/private/interface/HaikuControlLook.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-01T17:41:14Z",
+      "side": 1,
+      "message": "I added a comment in ControlLook.h explaining what to do",
+      "parentUuid": "557b6539_723a7582",
+      "revId": "3d698cd6f39d0f8839c70b540535c6b2a510302f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2a91a1c_29dfbca1",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3838,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-01T17:41:14Z",
+      "side": 1,
+      "message": "typo: distinction",
       "revId": "3d698cd6f39d0f8839c70b540535c6b2a510302f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
