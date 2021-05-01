@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "05632d5e_abf0b5cf",
+        "filename": "src/system/boot/platform/riscv/console.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-05-01T13:23:12Z",
+      "side": 1,
+      "message": "I plan to fix style issues after functional part is done. This patch also have another style problems and problem with copyright headers.",
+      "parentUuid": "220ddec7_ae38a9c7",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "104035ae_a05b89c0",
         "filename": "src/system/boot/platform/riscv/console.cpp",
         "patchSetId": 1
@@ -439,6 +457,24 @@
       "writtenOn": "2021-05-01T12:52:03Z",
       "side": 1,
       "message": "you are probably not affected by bochs problems.",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86ed6eab_57698a74",
+        "filename": "src/system/boot/platform/riscv/start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-05-01T13:23:12Z",
+      "side": 1,
+      "message": "Currently entering loader menu by shift or space key is not working at all. So boot menu is currently intentionally always displayed. Hitting enter key 3 times will boot system.",
+      "parentUuid": "f72da8e3_87c13770",
       "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
