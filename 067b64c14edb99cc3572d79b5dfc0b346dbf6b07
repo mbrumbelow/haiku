@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "55041f2f_db135de5",
+        "filename": "src/apps/stylededit/StatusView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-05-01T17:36:04Z",
+      "side": 1,
+      "message": "?",
+      "revId": "067b64c14edb99cc3572d79b5dfc0b346dbf6b07",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28e9ed66_ce2a5ab4",
+        "filename": "src/apps/stylededit/StatusView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-05-01T17:36:04Z",
+      "side": 1,
+      "message": "Why scroll bar can have different scale than other controls?",
+      "revId": "067b64c14edb99cc3572d79b5dfc0b346dbf6b07",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
