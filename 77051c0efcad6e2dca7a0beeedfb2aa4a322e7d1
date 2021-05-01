@@ -19,6 +19,40 @@
     },
     {
       "key": {
+        "uuid": "bb3418bd_75b2dc30",
+        "filename": "src/system/boot/loader/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-01T12:52:03Z",
+      "side": 1,
+      "message": "this should remain disabled by default?",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "220ddec7_ae38a9c7",
+        "filename": "src/system/boot/platform/riscv/console.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-01T12:52:03Z",
+      "side": 1,
+      "message": "this file has several lines \u003e 80 columns",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "104035ae_a05b89c0",
         "filename": "src/system/boot/platform/riscv/console.cpp",
         "patchSetId": 1
@@ -47,6 +81,40 @@
       "writtenOn": "2021-04-26T19:39:08Z",
       "side": 1,
       "message": "Move to some common header and also use in kernel.",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49ad7d3d_e126b722",
+        "filename": "src/system/boot/platform/riscv/devices.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-01T12:52:03Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e207621b_427eaac2",
+        "filename": "src/system/boot/platform/riscv/devices.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-01T12:52:03Z",
+      "side": 1,
+      "message": "this line is too long",
       "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -87,6 +155,57 @@
     },
     {
       "key": {
+        "uuid": "dfae8e1f_40b49699",
+        "filename": "src/system/boot/platform/riscv/devices.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-01T12:52:03Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e7a0fec_3810947a",
+        "filename": "src/system/boot/platform/riscv/devices.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-01T12:52:03Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d196e52_d96fac8d",
+        "filename": "src/system/boot/platform/riscv/devices.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-01T12:52:03Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cfdb94f5_396ae638",
         "filename": "src/system/boot/platform/riscv/fixed_font.S",
         "patchSetId": 1
@@ -98,6 +217,75 @@
       "writtenOn": "2021-04-26T19:39:08Z",
       "side": 1,
       "message": "Absolute path definitely should be not used, but using just \"fixed_font.bin\" don\u0027t work.",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4985a09_18cd989c",
+        "filename": "src/system/boot/platform/riscv/fixed_font.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-01T12:52:03Z",
+      "side": 1,
+      "message": "You can pass -I to the assembler to set the search path, as you would do for #include in the C compiler/preprocessor: https://sourceware.org/binutils/docs/as/Incbin.html\n\nBy default it searches the current working directory but not the directory where the sourcefile is located (this is different from C): https://sourceware.org/binutils/docs/as/I.html",
+      "parentUuid": "cfdb94f5_396ae638",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f27fc57b_f5c1b303",
+        "filename": "src/system/boot/platform/riscv/graphics.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-01T12:52:03Z",
+      "side": 1,
+      "message": "these lines are too long, and missing spaces around *",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6be8bab_e6032df4",
+        "filename": "src/system/boot/platform/riscv/htif.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-01T12:52:03Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8777bc5_e3ba1dd2",
+        "filename": "src/system/boot/platform/riscv/htif.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-01T12:52:03Z",
+      "side": 1,
+      "message": "this line is too long",
       "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -121,6 +309,227 @@
     },
     {
       "key": {
+        "uuid": "e2becfca_e9b9d4ea",
+        "filename": "src/system/boot/platform/riscv/menu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-01T12:52:03Z",
+      "side": 1,
+      "message": "several lines are too long here",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54e017c4_7ca871bf",
+        "filename": "src/system/boot/platform/riscv/mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-01T12:52:03Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e98203b_4b775c24",
+        "filename": "src/system/boot/platform/riscv/mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-01T12:52:03Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c91e0fa_7aed78a3",
+        "filename": "src/system/boot/platform/riscv/mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-01T12:52:03Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4fae6fc9_557e6bc5",
+        "filename": "src/system/boot/platform/riscv/mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-01T12:52:03Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6db692f_41c9effa",
+        "filename": "src/system/boot/platform/riscv/start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-01T12:52:03Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de4b79ca_f97fe437",
+        "filename": "src/system/boot/platform/riscv/start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-01T12:52:03Z",
+      "side": 1,
+      "message": "trailing whitespace",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f72da8e3_87c13770",
+        "filename": "src/system/boot/platform/riscv/start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-01T12:52:03Z",
+      "side": 1,
+      "message": "you are probably not affected by bochs problems.",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "437b2926_5643bedd",
+        "filename": "src/system/boot/platform/riscv/video.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-01T12:52:03Z",
+      "side": 1,
+      "message": "this line is too long and missing spaces around *",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11b93152_e26eb695",
+        "filename": "src/system/boot/platform/riscv/video.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-01T12:52:03Z",
+      "side": 1,
+      "message": "missing spaces around *",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d8ec301_5f328a7f",
+        "filename": "src/system/boot/platform/riscv/virtio.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-01T12:52:03Z",
+      "side": 1,
+      "message": "this line is too long, missing spaces around * for the multiplication",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "467c7bad_55f68445",
+        "filename": "src/system/boot/platform/riscv/virtio.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-01T12:52:03Z",
+      "side": 1,
+      "message": "too long lines and missing spaces around operators",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c8d085c_db2552d1",
+        "filename": "src/system/boot/platform/riscv/virtio.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-01T12:52:03Z",
+      "side": 1,
+      "message": "more too long lines here",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "390dcf1e_77845044",
         "filename": "src/system/boot/platform/riscv/virtio.h",
         "patchSetId": 1
@@ -132,6 +541,23 @@
       "writtenOn": "2021-04-26T19:39:08Z",
       "side": 1,
       "message": "Move this to common headers to share with kernel.",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4222c540_c86e6270",
+        "filename": "src/system/boot/platform/riscv/virtio.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-01T12:52:03Z",
+      "side": 1,
+      "message": "this line is too long",
       "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
