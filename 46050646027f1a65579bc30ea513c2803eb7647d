@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "06d9c49c_2f904b80",
+        "filename": "src/preferences/input/InputWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-01T11:27:39Z",
+      "side": 1,
+      "message": "This is in fact not correct.\n\nThe documentation you added in the previous commit matches what you implemented and also seems to match what is in BeOS headers (https://github.com/jscipione/r5headers/blob/658992e8119e594307a874dfd80f8c4a67f28bd0/headers/be/interface/Input.h#L34)\n\nSo it should be:\n\ncase B_INPUT_DEVICES_CHANGED\n\nand:\n\nint32 operation \u003d message-\u003eFindInt32(\"be:opcode\");\n\nif (operation \u003d\u003d B_INPUT_DEVICE_ADDED)\n    ...\nelse if (operation \u003d\u003d B_INPUT_DEVICE_REMOVED)\n    ...",
+      "revId": "46050646027f1a65579bc30ea513c2803eb7647d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
