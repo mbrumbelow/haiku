@@ -25,8 +25,7 @@ additionalMakeArgs=$*
 gdbSourceDir="$HAIKU_USE_GDB"
 
 ccFlags="-O2"
-#CLang needs c++14 to build ISL: https://dev.haiku-os.org/ticket/16434
-cxxFlags="-O2 -std=c++14"
+cxxFlags="-O2"
 binutilsTargets="$haikuMachine"
 gdbTarget="$haikuMachine"
 case $haikuMachine in
@@ -240,6 +239,8 @@ CFLAGS="$ccFlags" CXXFLAGS="$cxxFlags" "$gccSourceDir/configure" \
 	--with-default-libstdcxx-abi=gcc4-compatible \
 	--with-sysroot="$sysrootDir" \
 	--disable-maintainer-mode \
+	--disable-libgomp \
+	--disable-libatomic \
 	$gccConfigureArgs \
 	|| exit 1
 
