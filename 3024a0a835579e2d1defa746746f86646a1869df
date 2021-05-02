@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a0019854_fa885025",
+        "filename": "src/system/libroot/os/stack_protector.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2021-05-02T17:53:44Z",
+      "side": 1,
+      "message": "Did you mean ((unsigned char *)(void *)__stack_chk_guard)[0] or somesuch?",
+      "revId": "3024a0a835579e2d1defa746746f86646a1869df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
