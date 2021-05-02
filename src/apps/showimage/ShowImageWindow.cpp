@@ -171,7 +171,7 @@ ShowImageWindow::ShowImageWindow(BRect frame, const entry_ref& ref,
 
 	// Create the tool bar
 	BRect viewFrame = contentView->Bounds();
-	viewFrame.right -= B_V_SCROLL_BAR_WIDTH;
+	viewFrame.right -= be_control_look->GetScrollBarWidth(B_VERTICAL);
 	fToolBar = new BToolBar(viewFrame);
 
 	// Add the tool icons.
@@ -222,7 +222,7 @@ ShowImageWindow::ShowImageWindow(BRect frame, const entry_ref& ref,
 	fToolBarVisible = fShowToolBar;
 
 	viewFrame.bottom = contentView->Bounds().bottom;
-	viewFrame.bottom -= B_H_SCROLL_BAR_HEIGHT;
+	viewFrame.bottom -= be_control_look->GetScrollBarWidth(B_HORIZONTAL);
 
 	// create the image view
 	fImageView = new ShowImageView(viewFrame, "image_view", B_FOLLOW_ALL,
