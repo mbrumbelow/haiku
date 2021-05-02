@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "396980f8_0fc58bcf",
+        "filename": "headers/os/interface/ControlLook.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-02T15:24:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d954256_cb8e4bad",
+      "revId": "3d698cd6f39d0f8839c70b540535c6b2a510302f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "704c6381_120c25cd",
         "filename": "headers/os/interface/ControlLook.h",
         "patchSetId": 1
@@ -51,6 +69,24 @@
       "revId": "3d698cd6f39d0f8839c70b540535c6b2a510302f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "203ef217_b1e604f7",
+        "filename": "headers/os/interface/ControlLook.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-02T15:24:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "704c6381_120c25cd",
+      "revId": "3d698cd6f39d0f8839c70b540535c6b2a510302f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -89,6 +125,24 @@
     },
     {
       "key": {
+        "uuid": "6a1f371d_e0270f02",
+        "filename": "headers/private/interface/HaikuControlLook.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-02T15:24:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b5b1a67_13ca877e",
+      "revId": "3d698cd6f39d0f8839c70b540535c6b2a510302f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d2a91a1c_29dfbca1",
         "filename": "src/kits/interface/HaikuControlLook.cpp",
         "patchSetId": 1
@@ -103,6 +157,24 @@
       "revId": "3d698cd6f39d0f8839c70b540535c6b2a510302f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d3e09b2_78c24ad6",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3838,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-02T15:24:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d2a91a1c_29dfbca1",
+      "revId": "3d698cd6f39d0f8839c70b540535c6b2a510302f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }

@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a9c44e76_042cef10",
+        "filename": "headers/os/interface/ControlLook.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-02T15:24:36Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "97975fa502621e8339b6fea77b8fbcc107b51e34",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7745c050_272b45cc",
+        "filename": "src/kits/interface/ScrollBar.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1000,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-02T15:24:36Z",
+      "side": 1,
+      "message": "extra space should be removed",
+      "revId": "97975fa502621e8339b6fea77b8fbcc107b51e34",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
