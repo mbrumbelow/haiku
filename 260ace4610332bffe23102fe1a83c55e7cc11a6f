@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9779f617_7452dc90",
+        "filename": "headers/compatibility/bsd/features.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000032
+      },
+      "writtenOn": "2021-05-02T11:13:01Z",
+      "side": 1,
+      "message": "Both added section are from @korli originally.\nSee here: https://github.com/haikuports/haikuports/issues/5857",
+      "revId": "260ace4610332bffe23102fe1a83c55e7cc11a6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
