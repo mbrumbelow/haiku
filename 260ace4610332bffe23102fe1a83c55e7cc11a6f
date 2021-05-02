@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "0d992b3d_f4150765",
+        "filename": "headers/compatibility/bsd/features.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-02T16:58:16Z",
+      "side": 1,
+      "message": "Is it safe to enable it unconditionally when _GNU_SOURCE is defined? Even if another version of the standard was specified on the command line? Even for gcc2?\n\nThe other block of changes (to enable C11 when using C++17) should not create problems, but this one seems a bit too eager to enable C11 to me.\n\nWhat is the reason we end up needing to do this, exactly?",
+      "revId": "260ace4610332bffe23102fe1a83c55e7cc11a6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9779f617_7452dc90",
         "filename": "headers/compatibility/bsd/features.h",
         "patchSetId": 1
