@@ -16,6 +16,24 @@
       "revId": "3cd49ad6b845ff64225b1b101df428a47de99765",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "811617fe_61cb7362",
+        "filename": "src/system/kernel/stack_protector.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-03T16:43:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f3a00a5_e7517218",
+      "revId": "3cd49ad6b845ff64225b1b101df428a47de99765",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
