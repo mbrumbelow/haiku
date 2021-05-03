@@ -16,6 +16,24 @@
       "revId": "2bde55cb6cbc0b88fcbaae733c811a920bcb8f5b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a99bba39_1e713e48",
+        "filename": "src/servers/bluetooth/DeskbarReplicant.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000282
+      },
+      "writtenOn": "2021-05-03T19:24:46Z",
+      "side": 0,
+      "message": "When I fix the other one I can add this in the commit message",
+      "parentUuid": "6f5a6a2f_037733cf",
+      "revId": "2bde55cb6cbc0b88fcbaae733c811a920bcb8f5b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }

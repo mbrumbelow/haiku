@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "e8325d9d_d4106e8e",
+        "filename": "headers/os/bluetooth/DeviceClass.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000282
+      },
+      "writtenOn": "2021-05-03T19:24:46Z",
+      "side": 1,
+      "message": "Will fix",
+      "parentUuid": "3093efc5_82799078",
+      "revId": "8c409cc58872cabb2e4b6488619bd15c0bb8bb33",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36513bf8_0b17955b",
         "filename": "headers/private/shared/SettingsMessage.h",
         "patchSetId": 1
@@ -54,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "58add363_899aaf60",
+        "filename": "headers/private/shared/SettingsMessage.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000282
+      },
+      "writtenOn": "2021-05-03T19:24:46Z",
+      "side": 1,
+      "message": "3888 already merged",
+      "parentUuid": "36513bf8_0b17955b",
+      "revId": "8c409cc58872cabb2e4b6488619bd15c0bb8bb33",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0edad8bb_4eb65781",
         "filename": "src/kits/shared/SettingsMessage.cpp",
         "patchSetId": 1
@@ -68,6 +104,24 @@
       "revId": "8c409cc58872cabb2e4b6488619bd15c0bb8bb33",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8e4a846_86992bce",
+        "filename": "src/kits/shared/SettingsMessage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000282
+      },
+      "writtenOn": "2021-05-03T19:24:46Z",
+      "side": 1,
+      "message": "3888 already merged",
+      "parentUuid": "0edad8bb_4eb65781",
+      "revId": "8c409cc58872cabb2e4b6488619bd15c0bb8bb33",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -106,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "8fb99bcc_2efa3486",
+        "filename": "src/preferences/bluetooth/BluetoothSettings.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000282
+      },
+      "writtenOn": "2021-05-03T19:24:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5d96d7c_ef2abe21",
+      "revId": "8c409cc58872cabb2e4b6488619bd15c0bb8bb33",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa10d1a9_c8743208",
         "filename": "src/preferences/bluetooth/BluetoothSettings.cpp",
         "patchSetId": 1
@@ -134,6 +206,24 @@
       "writtenOn": "2021-05-03T16:49:27Z",
       "side": 1,
       "message": "It would make more sense to store this using AddData as a single value with a custom type, rather than 6 independant bytes.",
+      "parentUuid": "aa10d1a9_c8743208",
+      "revId": "8c409cc58872cabb2e4b6488619bd15c0bb8bb33",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24218f4d_3fd4e82c",
+        "filename": "src/preferences/bluetooth/BluetoothSettings.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000282
+      },
+      "writtenOn": "2021-05-03T19:24:46Z",
+      "side": 1,
+      "message": "Spent a day trying to save and restore the values in settings.PickedDevice.\nSo the I gave up and did the easer on. help on this would be appreciated.\n\nWhat? does BMessage support arrays? thought I looked at all the possible types, you are talking about xxData now right? That\u0027s the one I have tried to use..",
       "parentUuid": "aa10d1a9_c8743208",
       "revId": "8c409cc58872cabb2e4b6488619bd15c0bb8bb33",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",

@@ -16,6 +16,24 @@
       "revId": "8df753495ecb85171fe6e1310c946c4bca51b6a1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97d8216a_41eae7fd",
+        "filename": "src/preferences/bluetooth/BluetoothSettings.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000282
+      },
+      "writtenOn": "2021-05-03T19:24:46Z",
+      "side": 1,
+      "message": "So add (int32) and then on both?",
+      "parentUuid": "f89bb2cd_3060acc7",
+      "revId": "8df753495ecb85171fe6e1310c946c4bca51b6a1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
