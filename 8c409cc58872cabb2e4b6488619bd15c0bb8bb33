@@ -246,6 +246,24 @@
       "revId": "8c409cc58872cabb2e4b6488619bd15c0bb8bb33",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c68e5217_c451f7ed",
+        "filename": "src/preferences/bluetooth/BluetoothSettings.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-03T19:45:41Z",
+      "side": 1,
+      "message": "It supports arrays, which is different from AddData.\n\nYou can just use AddUInt8() several times and multiple values will be added.\nFindValue() has an index parameter which allows to get the multiple values for a given name (in the same order they were added).\n\nIn this case I still think AddData would be better:\n\nAdding data:\nbdaddr_t address \u003d ...;\nmessage.AddData(\"BDAddress\", \u0027BTAD\u0027, address, 6);\n\nbdaddr_t* tmp \u003d NULL;\nmessage.FindData(\"BDAddress\", \u0027BTAD\u0027, \u0026tmp, 6);\n// Now tmp points directly inside the message, which is a bit dangerous.\n// If the BMessage object is deleted, it would point nowhere.\n// Make a copy of the data to be safe:\nbdaddr_t address \u003d *tmp;\n\n(note that error checking is missing in these examples, make sure AddData and FindData return B_OK)\n\nThe API for FindData is not so great, but this would make more sense in the generated message and be a bit more efficient.",
+      "parentUuid": "24218f4d_3fd4e82c",
+      "revId": "8c409cc58872cabb2e4b6488619bd15c0bb8bb33",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
