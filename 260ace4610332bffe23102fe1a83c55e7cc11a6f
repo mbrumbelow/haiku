@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "cd1de1c5_455c1a59",
+        "filename": "headers/compatibility/bsd/features.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-05-03T07:32:44Z",
+      "side": 1,
+      "message": "glibc does the same: https://github.com/lattera/glibc/blob/master/include/features.h#L190",
+      "parentUuid": "0d992b3d_f4150765",
+      "revId": "260ace4610332bffe23102fe1a83c55e7cc11a6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9779f617_7452dc90",
         "filename": "headers/compatibility/bsd/features.h",
         "patchSetId": 1
