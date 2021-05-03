@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "bad3a756_65b468e6",
+        "filename": "headers/os/bluetooth/DeviceClass.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000282
+      },
+      "writtenOn": "2021-05-03T19:25:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8325d9d_d4106e8e",
+      "revId": "8c409cc58872cabb2e4b6488619bd15c0bb8bb33",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36513bf8_0b17955b",
         "filename": "headers/private/shared/SettingsMessage.h",
         "patchSetId": 1
