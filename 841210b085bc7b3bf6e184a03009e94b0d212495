@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a49af783_24c60c15",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_hid/HIDDevice.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-05-04T21:05:48Z",
+      "side": 1,
+      "message": "Trailing space.",
+      "revId": "841210b085bc7b3bf6e184a03009e94b0d212495",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
