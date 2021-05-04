@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "279782fe_8214d7cd",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 3840,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-05-04T15:10:20Z",
+      "side": 1,
+      "message": "Just in case this is ever touched again: following our coding style, this would look like this:\nif (be_plain_font-\u003eSize() \u003c\u003d 12.0f)\n\treturn 14.0f;",
+      "revId": "409d65c0d64212efc6882e81140647201c03c59d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
