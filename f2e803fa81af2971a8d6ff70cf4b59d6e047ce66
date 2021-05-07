@@ -16,6 +16,24 @@
       "revId": "f2e803fa81af2971a8d6ff70cf4b59d6e047ce66",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "251b1d88_37a74dab",
+        "filename": "src/system/kernel/debug/font.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-07T11:25:21Z",
+      "side": 1,
+      "message": "That is not equivalent and results in more pointer indirection.\n\nHave you tried uint16_t data[0]; instead of uint16_t data[]; ? This is the pre-C99 GCC extension to do the same: https://gcc.gnu.org/onlinedocs/gcc-2.95.3/gcc_4.html#SEC74",
+      "parentUuid": "1f076fec_49535a1c",
+      "revId": "f2e803fa81af2971a8d6ff70cf4b59d6e047ce66",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
