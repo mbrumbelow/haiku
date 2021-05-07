@@ -1,0 +1,242 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bda59e01_ed8e31fc",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-05-07T12:59:15Z",
+      "side": 1,
+      "message": "This is a more compact and reliable method to position the text rect inside the text view. The text rect can be narrower or wider than the text view. The highlight changes are a consequence of the text rect being narrower than the text view. We need to highlight to the edge of the window even if the text rect doesn’t extend that far.",
+      "revId": "5eb8dbe550d14037af25b9eaa7768f8b27f1930e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d164af7e_c8760fd5",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 834,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-05-07T12:59:15Z",
+      "side": 1,
+      "message": "We must invalidate beyond text rect bounds here because the highlighting area that extends past the text rect needs to be redrawn.",
+      "revId": "5eb8dbe550d14037af25b9eaa7768f8b27f1930e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "045acec7_8acca53a",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 2112,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-05-07T12:59:15Z",
+      "side": 1,
+      "message": "std::max here did nothing: startPt.x is always \u003e\u003d fTextRect.left.",
+      "revId": "5eb8dbe550d14037af25b9eaa7768f8b27f1930e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cdbbf7a8_ea2568ca",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 2124,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-05-07T12:59:15Z",
+      "side": 1,
+      "message": "std:max here handles highlighting extending past the text view margin when the width of the text rect is greater than the width of the text view.",
+      "revId": "5eb8dbe550d14037af25b9eaa7768f8b27f1930e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4dd201f3_3c404fdf",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 2132,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-05-07T12:59:15Z",
+      "side": 1,
+      "message": "Same here for text rect left \u003c text view left.",
+      "revId": "5eb8dbe550d14037af25b9eaa7768f8b27f1930e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42752149_a5aee7a4",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 2136,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-05-07T12:59:15Z",
+      "side": 1,
+      "message": "Same here for right edge for middle lines.",
+      "revId": "5eb8dbe550d14037af25b9eaa7768f8b27f1930e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ce4211f_a492aa89",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 2142,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-05-07T12:59:15Z",
+      "side": 1,
+      "message": "Same here for left edge on last line.",
+      "revId": "5eb8dbe550d14037af25b9eaa7768f8b27f1930e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ddf941a9_d2d786ca",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 4534,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-05-07T12:59:15Z",
+      "side": 1,
+      "message": "We need to extend the clip rect past the text rect here because highlighting extends past the text rect and needs to be redrawn when you scroll the selection up or down drawing new lines as you go.",
+      "revId": "5eb8dbe550d14037af25b9eaa7768f8b27f1930e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7d3d8b4_ceee3715",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 5111,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-05-07T12:59:15Z",
+      "side": 1,
+      "message": "This puts the text rect in the right place after resizing and repositioning the container text view.",
+      "revId": "5eb8dbe550d14037af25b9eaa7768f8b27f1930e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99e9e591_29d1bfc7",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 5114,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-05-07T12:59:15Z",
+      "side": 1,
+      "message": "When text rect width is greater than the max width we scroll the text rect. This scrolls the text rect back to start when the width is reduced below max width again. (This method is only called when width \u003c max width.)",
+      "revId": "5eb8dbe550d14037af25b9eaa7768f8b27f1930e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e6ca48b_daf3da2c",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 5118,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-05-07T12:59:15Z",
+      "side": 1,
+      "message": "The above erase code is now unnecessary, we redraw the whole text view.",
+      "revId": "5eb8dbe550d14037af25b9eaa7768f8b27f1930e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "759d8355_3cda02d3",
+        "filename": "src/kits/tracker/TextWidget.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-05-07T12:59:15Z",
+      "side": 1,
+      "message": "The old code limited max with to the width of the container window. This was not much of a limit on the Desktop unless the icon is near the edge of the screen. We don’t want this, the text view can extend off screen on Desktop but we do want to limit the text view so that it can’t become too wide. BeOS R5 allowed the text view to grow off screen during edit name.",
+      "revId": "5eb8dbe550d14037af25b9eaa7768f8b27f1930e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "528b78e2_e93b5230",
+        "filename": "src/kits/tracker/TextWidget.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-05-07T12:59:15Z",
+      "side": 1,
+      "message": "This is still not perfect. This code attempts to reposition the text view so that the text inside is positioned exactly on top of where the text was before the text view was added. Unfortunately this is still a pixel off on some files. This works perfectly with DejaVu Sans 12 but not always with Noto Sans 12. So there is something don’t dependent going on here that I don’t quite understand.",
+      "revId": "5eb8dbe550d14037af25b9eaa7768f8b27f1930e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc95ca8e_cf5d261c",
+        "filename": "src/kits/tracker/TextWidget.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-05-07T12:59:15Z",
+      "side": 1,
+      "message": "We limit to max width here instead of using container window width. Desktop width is not a good limit. This is triggered when the initial filename is greater than the max width. The left edge of the text view is shifted right by the inset amount (2px) here, so this is still not perfect. But this does limit the width of the text view for really long file names and is new to patch set 8.",
+      "revId": "5eb8dbe550d14037af25b9eaa7768f8b27f1930e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
