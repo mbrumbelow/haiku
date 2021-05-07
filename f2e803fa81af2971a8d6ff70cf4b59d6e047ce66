@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f076fec_49535a1c",
+        "filename": "src/system/kernel/debug/font.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2021-05-07T10:58:53Z",
+      "side": 1,
+      "message": "For some reason gcc2 doesn\u0027t like this. A different definition, more verbose initialization seems to work:\n\n struct FramebufferFont {\n \tint glyphWidth;\n \tint glyphHeight;\n \tuint16_t *data;\n };\n \n uint16_t fooFontData[] \u003d { ... };\n FramebufferFont fooFont \u003d { 6, 12, fooFontData };",
+      "revId": "f2e803fa81af2971a8d6ff70cf4b59d6e047ce66",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
