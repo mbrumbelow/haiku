@@ -16,6 +16,23 @@
       "revId": "9b7554d457ac8f27185847f3590d73d11cb1218b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c0ab1d3_6293dbe1",
+        "filename": "src/add-ons/kernel/file_systems/packagefs/package/CachedDataReader.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-08T11:44:23Z",
+      "side": 1,
+      "message": "incorrect indentation and this if needs braces",
+      "revId": "9b7554d457ac8f27185847f3590d73d11cb1218b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
