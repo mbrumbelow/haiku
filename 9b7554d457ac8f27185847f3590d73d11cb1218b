@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4fff9693_3f4b52da",
+        "filename": "src/add-ons/kernel/file_systems/packagefs/package/CachedDataReader.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2021-05-08T11:28:57Z",
+      "side": 1,
+      "message": "You don\u0027t want to enter the page allocation code with missingPages \u003d\u003d 0, so default to true here and the KDL disappears.",
+      "revId": "9b7554d457ac8f27185847f3590d73d11cb1218b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
