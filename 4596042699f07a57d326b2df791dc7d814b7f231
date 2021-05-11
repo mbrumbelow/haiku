@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e9035143_6b264a56",
+        "filename": "src/bin/network/telnetd/ext.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-05-11T18:33:06Z",
+      "side": 1,
+      "message": "if this becomes extern, it must exist somewhere else. But where?",
+      "revId": "4596042699f07a57d326b2df791dc7d814b7f231",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ee7dde4_7c2ce6fd",
+        "filename": "src/bin/network/telnetd/sys_term.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-05-11T18:33:06Z",
+      "side": 1,
+      "message": "extern here doesn\u0027t make sense.",
+      "revId": "4596042699f07a57d326b2df791dc7d814b7f231",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
