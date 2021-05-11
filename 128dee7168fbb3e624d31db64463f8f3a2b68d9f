@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad6936c6_c5e31916",
+        "filename": "src/add-ons/kernel/network/protocols/tcp/BufferQueue.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-05-11T16:10:15Z",
+      "side": 0,
+      "message": "Just noticed that you introduced this bug with change 53; maybe fix that one there instead?",
+      "revId": "128dee7168fbb3e624d31db64463f8f3a2b68d9f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
