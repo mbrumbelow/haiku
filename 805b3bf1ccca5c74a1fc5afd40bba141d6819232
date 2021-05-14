@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4dc9266b_f71b2331",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-14T18:34:38Z",
+      "side": 1,
+      "message": "two blank lines here.\n\nStatic variables should be prefixed with an s: sDtbTable and sDtbSize",
+      "revId": "805b3bf1ccca5c74a1fc5afd40bba141d6819232",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0834c69_5fa6c5d7",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-14T18:34:38Z",
+      "side": 1,
+      "message": "should this be a continue? in case we find another, valid fdt in the tree later?",
+      "revId": "805b3bf1ccca5c74a1fc5afd40bba141d6819232",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa5490bf_4af78c2e",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-14T18:34:38Z",
+      "side": 1,
+      "message": "missing break here (because the way this is done, this loop can only handle one device tree, there is no need to continue iterating once we found it)",
+      "revId": "805b3bf1ccca5c74a1fc5afd40bba141d6819232",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50ec3c34_de8e45ee",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-14T18:34:38Z",
+      "side": 1,
+      "message": "two blank lines between functions",
+      "revId": "805b3bf1ccca5c74a1fc5afd40bba141d6819232",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5938f8e7_2a01e1a0",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-14T18:34:38Z",
+      "side": 1,
+      "message": "this function name is not very clear about what the function is doing.\n\nMaybe dtb_set_kernel_args is more clear?",
+      "revId": "805b3bf1ccca5c74a1fc5afd40bba141d6819232",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
