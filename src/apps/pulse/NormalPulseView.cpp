@@ -115,6 +115,19 @@ NormalPulseView::DetermineVendorAndProcessor()
 	get_cpu_topology_info(topology, &topologyNodeCount);
 
 	for (uint32 i = 0; i < topologyNodeCount; i++) {
+		// Use less specific platform logo only if no vendor specific one is
+		// available
+		if (logo == NULL && topology[i].type == B_TOPOLOGY_ROOT) {
+			switch (topology[i].data.root.platform) {
+				case B_CPU_RISC_V:
+					logo = kRiscVLogo;
+					logoSize = sizeof(kRiscVLogo);
+					break;
+				default:
+					break;
+			}
+		}
+
 		if (topology[i].type == B_TOPOLOGY_PACKAGE) {
 			switch (topology[i].data.package.vendor) {
 				case B_CPU_VENDOR_AMD:
