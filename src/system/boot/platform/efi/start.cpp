@@ -146,6 +146,7 @@ extern "C" void
 platform_start_kernel(void)
 {
 	smp_init_other_cpus();
+	dtb_init_for_kernel();
 
 	addr_t kernelEntry = get_kernel_entry();
 
