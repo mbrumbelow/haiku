@@ -84,6 +84,24 @@
       "revId": "805b3bf1ccca5c74a1fc5afd40bba141d6819232",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "452d1a6c_49c6675f",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-14T21:00:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5938f8e7_2a01e1a0",
+      "revId": "805b3bf1ccca5c74a1fc5afd40bba141d6819232",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
