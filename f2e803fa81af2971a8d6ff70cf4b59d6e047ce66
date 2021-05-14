@@ -52,6 +52,24 @@
       "revId": "f2e803fa81af2971a8d6ff70cf4b59d6e047ce66",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c99c22b_8271de5b",
+        "filename": "src/system/kernel/debug/font.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-14T14:26:06Z",
+      "side": 1,
+      "message": "Now it works in gcc2. I just used two different structure definitions. This also allows to keep the original font in uint8 format, otherwise its size would have doubled and there was no reason to do that.",
+      "parentUuid": "b0ac8805_ce43e84b",
+      "revId": "f2e803fa81af2971a8d6ff70cf4b59d6e047ce66",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
