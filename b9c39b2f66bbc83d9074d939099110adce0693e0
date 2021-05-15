@@ -1,0 +1,208 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff810a50_73d895c9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-05-15T09:24:54Z",
+      "side": 1,
+      "message": "This is pretty unrelated to the rest, and would be better put in a separate commit as well.",
+      "revId": "b9c39b2f66bbc83d9074d939099110adce0693e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98be688d_3f6a47d3",
+        "filename": "src/preferences/bluetooth/BluetoothSettings.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-05-15T09:24:54Z",
+      "side": 1,
+      "message": "Coding style violation, the \u0027:\u0027 gets an extra line like this:\n    :\n    fSettingsMessage(B_USER_SETTINGS_DIRECTORY, \"Bluetooth_settings\")",
+      "revId": "b9c39b2f66bbc83d9074d939099110adce0693e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "280a5375_ce720ff6",
+        "filename": "src/preferences/bluetooth/BluetoothSettings.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-05-15T09:24:54Z",
+      "side": 1,
+      "message": "Bad variable naming, also like dcTmp below",
+      "revId": "b9c39b2f66bbc83d9074d939099110adce0693e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97a6b6d7_aee155a9",
+        "filename": "src/preferences/bluetooth/BluetoothSettings.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-05-15T09:24:54Z",
+      "side": 1,
+      "message": "Not sure, if it\u0027s a good idea to invent new types here. I would prefer the use of B_RAW_TYPE. Also, if you really want to create a new type, please use constants for this.",
+      "revId": "b9c39b2f66bbc83d9074d939099110adce0693e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "592e9b0d_0c9b797c",
+        "filename": "src/preferences/bluetooth/BluetoothSettings.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-05-15T09:24:54Z",
+      "side": 1,
+      "message": "Extraneous curly braces",
+      "revId": "b9c39b2f66bbc83d9074d939099110adce0693e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "845965a7_96ece0ac",
+        "filename": "src/preferences/bluetooth/BluetoothSettings.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-05-15T09:24:54Z",
+      "side": 1,
+      "message": "Comma never goes to the next line.",
+      "revId": "b9c39b2f66bbc83d9074d939099110adce0693e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f22bf67_c8611c2b",
+        "filename": "src/preferences/bluetooth/BluetoothSettings.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-05-15T09:24:54Z",
+      "side": 1,
+      "message": "What is your reasoning to move this out of the other class?\nBut you can also make the names coding style compliant when you do your separate coding style commit.\nAnd also, two blank lines after the header.\n\nI\u0027m not a fan of separating the settings out of the settings class. Can\u0027t we simply have private members here, and use Getters()/Setter() instead?",
+      "revId": "b9c39b2f66bbc83d9074d939099110adce0693e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1156530b_e66e2fd7",
+        "filename": "src/preferences/bluetooth/BluetoothSettingsView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-05-15T09:24:54Z",
+      "side": 1,
+      "message": "Extraneous curly braces.",
+      "revId": "b9c39b2f66bbc83d9074d939099110adce0693e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "252282c3_20cfced7",
+        "filename": "src/preferences/bluetooth/BluetoothSettingsView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-05-15T09:24:54Z",
+      "side": 1,
+      "message": "Only 80 characters per line.",
+      "revId": "b9c39b2f66bbc83d9074d939099110adce0693e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f5815df_8fbdf4d7",
+        "filename": "src/preferences/bluetooth/BluetoothSettingsView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-05-15T09:24:54Z",
+      "side": 1,
+      "message": "This needs to be indented an extra tab further.",
+      "revId": "b9c39b2f66bbc83d9074d939099110adce0693e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3015e36d_5010d749",
+        "filename": "src/preferences/bluetooth/BluetoothSettingsView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-05-15T09:24:54Z",
+      "side": 1,
+      "message": "80 character limit exceeded, plus \u0027+\u0027 goes to the next line.",
+      "revId": "b9c39b2f66bbc83d9074d939099110adce0693e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd2a5401_87a2997b",
+        "filename": "src/preferences/bluetooth/BluetoothSettingsView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-05-15T09:24:54Z",
+      "side": 1,
+      "message": "No else after \u0027return\u0027, spaces around \u0027-\u0027. Could you please explain this weird logic? It was better before, but also different.",
+      "revId": "b9c39b2f66bbc83d9074d939099110adce0693e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
