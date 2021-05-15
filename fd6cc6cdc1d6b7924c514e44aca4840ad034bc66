@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "70b07b6a_6744e610",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-15T12:07:34Z",
+      "side": 1,
+      "message": "two blank lines was correct here, you removed one",
+      "revId": "fd6cc6cdc1d6b7924c514e44aca4840ad034bc66",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fcac1af8_f14c6526",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-15T12:07:34Z",
+      "side": 1,
+      "message": "two blank lines are needed here",
+      "revId": "fd6cc6cdc1d6b7924c514e44aca4840ad034bc66",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81a3a8ab_bcf62416",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-15T12:07:34Z",
+      "side": 1,
+      "message": "two blank lines are needed here",
+      "revId": "fd6cc6cdc1d6b7924c514e44aca4840ad034bc66",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8291aed9_2305b5f3",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-15T12:07:34Z",
+      "side": 1,
+      "message": "two blank lines are needed here",
+      "revId": "fd6cc6cdc1d6b7924c514e44aca4840ad034bc66",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4c3826b_7d3d30ec",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-15T12:07:34Z",
+      "side": 1,
+      "message": "two blank lines are needed here",
+      "revId": "fd6cc6cdc1d6b7924c514e44aca4840ad034bc66",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
