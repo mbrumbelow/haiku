@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "42334e5b_a845c468",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-05-15T09:32:39Z",
+      "side": 1,
+      "message": "You move ACPI not UEFI args...?",
+      "revId": "2bec529521d5a785847d30a9d13400146ddb7311",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba6fd51d_a412a089",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-05-15T09:32:39Z",
+      "side": 1,
+      "message": "Since this patch implements this, it\u0027s not just a maybe, isn\u0027t it? :-)",
+      "revId": "2bec529521d5a785847d30a9d13400146ddb7311",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5116772d_5c83b9de",
+        "filename": "headers/private/kernel/boot/platform/efi/platform_kernel_args.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-05-15T09:32:39Z",
+      "side": 1,
+      "message": "I thought it\u0027s either ACPI/UEFI or FDT, not both at the same time?",
+      "revId": "2bec529521d5a785847d30a9d13400146ddb7311",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2feaf413_d28d3535",
+        "filename": "headers/private/kernel/arch/arm/arch_kernel_args.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-05-15T09:32:39Z",
+      "side": 0,
+      "message": "Is this set nowhere right now, or is the patch imcomplete?",
+      "revId": "4a65010128e591cef91d7ae10340ac5b018befe5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
