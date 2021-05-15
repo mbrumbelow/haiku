@@ -72,12 +72,10 @@ void dtb_set_kernel_args()
 {
 	// pack into proper location if the architecture cares
 	if (sDtbTable != NULL) {
-		#ifdef __ARM__
-		gKernelArgs.arch_args.fdt = kernel_args_malloc(sDtbSize);
-		if (gKernelArgs.arch_args.fdt != NULL) {
-			memcpy(gKernelArgs.arch_args.fdt, sDtbTable, sDtbSize);
+		gKernelArgs.platform_args.fdt = kernel_args_malloc(sDtbSize);
+		if (gKernelArgs.platform_args.fdt != NULL) {
+			memcpy(gKernelArgs.platform_args.fdt, sDtbTable, sDtbSize);
 		} else
 			ERROR("unable to malloc for fdt!\n");
-		#endif
 	}
 }

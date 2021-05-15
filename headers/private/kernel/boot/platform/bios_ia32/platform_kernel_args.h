@@ -30,6 +30,9 @@ typedef struct {
 		// this does not contain the boot drive
 
 	apm_info	apm;
+
+	// needed for x86, otherwise kernel acpi support can't find ACPI root
+	FixedWidthPointer<void> acpi_root;
 } _PACKED platform_kernel_args;
 
 #endif	/* KERNEL_BOOT_PLATFORM_BIOS_IA32_KERNEL_ARGS_H */
