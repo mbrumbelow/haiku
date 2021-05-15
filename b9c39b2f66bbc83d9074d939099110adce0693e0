@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f632b845_5162684b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000282
+      },
+      "writtenOn": "2021-05-15T21:14:19Z",
+      "side": 1,
+      "message": "I know. I slipped on this one. This one have tagged me along time but forgot it every time, so this time I fixed it before I forgot it again. Can I let it be?",
+      "parentUuid": "ff810a50_73d895c9",
+      "revId": "b9c39b2f66bbc83d9074d939099110adce0693e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "98be688d_3f6a47d3",
         "filename": "src/preferences/bluetooth/BluetoothSettings.cpp",
         "patchSetId": 5
@@ -30,6 +48,24 @@
       "writtenOn": "2021-05-15T09:24:54Z",
       "side": 1,
       "message": "Coding style violation, the \u0027:\u0027 gets an extra line like this:\n    :\n    fSettingsMessage(B_USER_SETTINGS_DIRECTORY, \"Bluetooth_settings\")",
+      "revId": "b9c39b2f66bbc83d9074d939099110adce0693e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b8a7593_e767ec68",
+        "filename": "src/preferences/bluetooth/BluetoothSettings.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000282
+      },
+      "writtenOn": "2021-05-15T21:14:19Z",
+      "side": 1,
+      "message": "Will fix",
+      "parentUuid": "98be688d_3f6a47d3",
       "revId": "b9c39b2f66bbc83d9074d939099110adce0693e0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "168652ca_30f44603",
+        "filename": "src/preferences/bluetooth/BluetoothSettings.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000282
+      },
+      "writtenOn": "2021-05-15T21:14:19Z",
+      "side": 1,
+      "message": "Will fix",
+      "parentUuid": "280a5375_ce720ff6",
+      "revId": "b9c39b2f66bbc83d9074d939099110adce0693e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "97a6b6d7_aee155a9",
         "filename": "src/preferences/bluetooth/BluetoothSettings.cpp",
         "patchSetId": 5
@@ -64,6 +118,24 @@
       "writtenOn": "2021-05-15T09:24:54Z",
       "side": 1,
       "message": "Not sure, if it\u0027s a good idea to invent new types here. I would prefer the use of B_RAW_TYPE. Also, if you really want to create a new type, please use constants for this.",
+      "revId": "b9c39b2f66bbc83d9074d939099110adce0693e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "849da9a8_40a4ecc3",
+        "filename": "src/preferences/bluetooth/BluetoothSettings.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000282
+      },
+      "writtenOn": "2021-05-15T21:14:19Z",
+      "side": 1,
+      "message": "Will use the RAW type. In both cases, I guess?",
+      "parentUuid": "97a6b6d7_aee155a9",
       "revId": "b9c39b2f66bbc83d9074d939099110adce0693e0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "40cee8d9_ebae554f",
+        "filename": "src/preferences/bluetooth/BluetoothSettings.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000282
+      },
+      "writtenOn": "2021-05-15T21:14:19Z",
+      "side": 1,
+      "message": "? A new word :). In Swedish that\u0027s same as foreign, am I missing something? Or did you ment that it was no need for them?",
+      "parentUuid": "592e9b0d_0c9b797c",
+      "revId": "b9c39b2f66bbc83d9074d939099110adce0693e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "845965a7_96ece0ac",
         "filename": "src/preferences/bluetooth/BluetoothSettings.cpp",
         "patchSetId": 5
@@ -98,6 +188,24 @@
       "writtenOn": "2021-05-15T09:24:54Z",
       "side": 1,
       "message": "Comma never goes to the next line.",
+      "revId": "b9c39b2f66bbc83d9074d939099110adce0693e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8cfa06e_fcf75fcd",
+        "filename": "src/preferences/bluetooth/BluetoothSettings.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000282
+      },
+      "writtenOn": "2021-05-15T21:14:19Z",
+      "side": 1,
+      "message": "Will fix",
+      "parentUuid": "845965a7_96ece0ac",
       "revId": "b9c39b2f66bbc83d9074d939099110adce0693e0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "ff20bd9a_93fd2be6",
+        "filename": "src/preferences/bluetooth/BluetoothSettings.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000282
+      },
+      "writtenOn": "2021-05-15T21:14:19Z",
+      "side": 1,
+      "message": "Will move it back. Have done a lot of testing and moved around code., and this one was missed.",
+      "parentUuid": "9f22bf67_c8611c2b",
+      "revId": "b9c39b2f66bbc83d9074d939099110adce0693e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1156530b_e66e2fd7",
         "filename": "src/preferences/bluetooth/BluetoothSettingsView.cpp",
         "patchSetId": 5
@@ -132,6 +258,24 @@
       "writtenOn": "2021-05-15T09:24:54Z",
       "side": 1,
       "message": "Extraneous curly braces.",
+      "revId": "b9c39b2f66bbc83d9074d939099110adce0693e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a03fccfa_98c381ed",
+        "filename": "src/preferences/bluetooth/BluetoothSettingsView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000282
+      },
+      "writtenOn": "2021-05-15T21:14:19Z",
+      "side": 1,
+      "message": "Ah must be that they are not need. lol At work they hate when I don\u0027t put those curly braces there, me I like clean code, will remove them.",
+      "parentUuid": "1156530b_e66e2fd7",
       "revId": "b9c39b2f66bbc83d9074d939099110adce0693e0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "6fe9d2f0_dff196ee",
+        "filename": "src/preferences/bluetooth/BluetoothSettingsView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000282
+      },
+      "writtenOn": "2021-05-15T21:14:19Z",
+      "side": 1,
+      "message": "Will fix",
+      "parentUuid": "252282c3_20cfced7",
+      "revId": "b9c39b2f66bbc83d9074d939099110adce0693e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2f5815df_8fbdf4d7",
         "filename": "src/preferences/bluetooth/BluetoothSettingsView.cpp",
         "patchSetId": 5
@@ -166,6 +328,24 @@
       "writtenOn": "2021-05-15T09:24:54Z",
       "side": 1,
       "message": "This needs to be indented an extra tab further.",
+      "revId": "b9c39b2f66bbc83d9074d939099110adce0693e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6fb4af9c_760c4548",
+        "filename": "src/preferences/bluetooth/BluetoothSettingsView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1000282
+      },
+      "writtenOn": "2021-05-15T21:14:19Z",
+      "side": 1,
+      "message": "Will fix",
+      "parentUuid": "2f5815df_8fbdf4d7",
       "revId": "b9c39b2f66bbc83d9074d939099110adce0693e0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -189,6 +369,24 @@
     },
     {
       "key": {
+        "uuid": "58b207a4_0a4fc8e4",
+        "filename": "src/preferences/bluetooth/BluetoothSettingsView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1000282
+      },
+      "writtenOn": "2021-05-15T21:14:19Z",
+      "side": 1,
+      "message": "Will fix",
+      "parentUuid": "3015e36d_5010d749",
+      "revId": "b9c39b2f66bbc83d9074d939099110adce0693e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bd2a5401_87a2997b",
         "filename": "src/preferences/bluetooth/BluetoothSettingsView.cpp",
         "patchSetId": 5
@@ -200,6 +398,24 @@
       "writtenOn": "2021-05-15T09:24:54Z",
       "side": 1,
       "message": "No else after \u0027return\u0027, spaces around \u0027-\u0027. Could you please explain this weird logic? It was better before, but also different.",
+      "revId": "b9c39b2f66bbc83d9074d939099110adce0693e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c52b662_6c61e38f",
+        "filename": "src/preferences/bluetooth/BluetoothSettingsView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1000282
+      },
+      "writtenOn": "2021-05-15T21:14:19Z",
+      "side": 1,
+      "message": "Let see if I can.\n\nAll these have MajorDeviceClass \u003d 1 and \nDesktop \u003d MinorDeviceClass \u003d 1\nServer \u003d MinorDeviceClass \u003d 2\nLaptop \u003d MinorDeviceClass \u003d 3\nHandheld \u003d MinorDeviceClass \u003d 4\n\nMajorDeviceClass \u003d 2\nSmart phone  \u003d MinorDeviceClass \u003d 3\n\nSo we have a drop down where you can choose what device your system are.\nSo to choose right item in the Dropbox I use this method.\nI noticed that I have a bug in the last commit. Thought I was smart to have them 1-5. But both \nSmart phone and Handheld will be 5 if you take MajorDeviceClass and add MinorDeviceClass\n\nfClassMenu-\u003eAddOption(B_TRANSLATE_NOCOLLECT(kDesktopLabel), 1);\nfClassMenu-\u003eAddOption(B_TRANSLATE_NOCOLLECT(kServerLabel), 2);\nfClassMenu-\u003eAddOption(B_TRANSLATE_NOCOLLECT(kLaptopLabel), 3);\nfClassMenu-\u003eAddOption(B_TRANSLATE_NOCOLLECT(kHandheldLabel), 4);\nfClassMenu-\u003eAddOption(B_TRANSLATE_NOCOLLECT(kPhoneLabel), 5);\n\nThere are more types and If we where to add more the this would probably need to change more.\n\nWas it understandable?\n\nWill change so the if don\u0027t has any returns.",
+      "parentUuid": "bd2a5401_87a2997b",
       "revId": "b9c39b2f66bbc83d9074d939099110adce0693e0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
