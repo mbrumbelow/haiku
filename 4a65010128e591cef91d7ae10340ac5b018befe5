@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f97c0498_4b7635d5",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-05-15T09:36:19Z",
+      "side": 1,
+      "message": "Two blank lines before and after",
+      "revId": "4a65010128e591cef91d7ae10340ac5b018befe5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7893359f_03cd14eb",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-05-15T09:36:19Z",
+      "side": 1,
+      "message": "Extraneous curly braces.",
+      "revId": "4a65010128e591cef91d7ae10340ac5b018befe5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
