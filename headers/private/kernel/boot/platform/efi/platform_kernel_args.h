@@ -40,6 +40,10 @@ typedef struct {
 	// seems to be ignored entirely?
 
 	apm_info	apm;
+	
+	// needed for UEFI, otherwise kernel acpi support can't find ACPI root
+	FixedWidthPointer<void> acpi_root;
+	FixedWidthPointer<void> fdt;
 } _PACKED platform_kernel_args;
 
 

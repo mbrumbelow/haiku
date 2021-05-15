@@ -27,10 +27,6 @@ typedef struct {
 	uint32	phys_pgdir;
 	uint32	vir_pgdir;
 	uint32	next_pagetable;
-
-	// needed for UEFI, otherwise kernel acpi support can't find ACPI root
-	FixedWidthPointer<void> acpi_root;
-	FixedWidthPointer<void> fdt;
 } _PACKED arch_kernel_args;
 
 #endif	/* KERNEL_ARCH_ARM_KERNEL_ARGS_H */
