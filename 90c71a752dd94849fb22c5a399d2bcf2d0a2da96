@@ -34,6 +34,24 @@
       "revId": "90c71a752dd94849fb22c5a399d2bcf2d0a2da96",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "448b9109_b91d6b7d",
+        "filename": "src/preferences/bluetooth/BluetoothSettingsView.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-05-16T17:30:59Z",
+      "side": 1,
+      "message": "To me there is no point in using a struct like this. Just add getters/setters to the Settings class, and let the class handle the backend work. It\u0027s called separation of concerns.",
+      "parentUuid": "7d5524f6_214dbf7b",
+      "revId": "90c71a752dd94849fb22c5a399d2bcf2d0a2da96",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
