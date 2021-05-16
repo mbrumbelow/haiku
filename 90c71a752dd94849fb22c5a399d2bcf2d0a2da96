@@ -16,6 +16,24 @@
       "revId": "90c71a752dd94849fb22c5a399d2bcf2d0a2da96",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d5524f6_214dbf7b",
+        "filename": "src/preferences/bluetooth/BluetoothSettingsView.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000282
+      },
+      "writtenOn": "2021-05-16T14:14:28Z",
+      "side": 1,
+      "message": "Depends how you do it I guess. Mediaplayer store the data like this, they also have two of them to track the old values but then they have a static method in there version of Bluetooth Settings to access that one instead of this. \n\nWebPostive also uses the SettingsMessage but they don\u0027t even have a struct. They read direct from the file on Revert but then they don\u0027t have a \"Bluetooth Settings\" but uses SettingsMessage direct in the viewclass. I think that how Webpostive does it without a struct are really neat. \n\nNow this commit are only to get my \"ducks in order\". \n\nI hade a long mail discussion with looncraz about where setting should be. \n\nWhen I implement saving the device you find in with Bluetooth Pref the server needs that information without you need to start the pref app. So now it\u0027s the server that need to have that information. So moving all settings handling to the server side would be better chose? Also it\u0027s nagging me that you can\u0027t set the name that you see on your device when Paring, that would also be on the server side. So now the Bluetooth Pref would as the server for settings.\n\nPerhaps better in a mail dissuasion :)",
+      "parentUuid": "55e52e5d_eb366396",
+      "revId": "90c71a752dd94849fb22c5a399d2bcf2d0a2da96",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
