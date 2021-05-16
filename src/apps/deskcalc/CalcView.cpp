@@ -747,7 +747,7 @@ CalcView::FrameResized(float width, float height)
 		? fHeight : fHeight * kDisplayScaleY;
 	BFont font(be_bold_font);
 	font.SetSize(sizeDisp * kExpressionFontScaleY);
-	rgb_color fontColor = fExpressionTextView->HighColor();
+	rgb_color fontColor = ui_color(B_DOCUMENT_TEXT_COLOR);
 	fExpressionTextView->SetFontAndColor(&font, B_FONT_ALL, &fontColor);
 
 	expressionRect.OffsetTo(B_ORIGIN);
@@ -1361,6 +1361,15 @@ CalcView::_FlashKey(int32 key, uint32 flashFlags)
 void
 CalcView::_Colorize()
 {
+	if (!fHasCustomBaseColor) {
+		fExpressionTextColor = ui_color(B_DOCUMENT_TEXT_COLOR);
+		fButtonTextColor = ui_color(B_PANEL_TEXT_COLOR);
+
+		rgb_color fontColor = ui_color(B_DOCUMENT_TEXT_COLOR);
+		fExpressionTextView->SetFontAndColor(NULL, 0, &fontColor);
+		return;
+	}
+
 	// calculate light and dark color from base color
 	fLightColor.red		= (uint8)(fBaseColor.red * 1.25);
 	fLightColor.green	= (uint8)(fBaseColor.green * 1.25);
