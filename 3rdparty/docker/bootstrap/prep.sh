@@ -19,7 +19,7 @@ fi
 if [ ! -d $WORKPATH/src/haikuporter ]; then
 	git clone $GIT_HAIKUPORTER $WORKPATH/src/haikuporter
 else
-	git -C $WORKPATH/src/buildtools pull --rebase
+	git -C $WORKPATH/src/haikuporter pull --rebase
 fi
 
 if [ ! -d $WORKPATH/src/haikuports ]; then

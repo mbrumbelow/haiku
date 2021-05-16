@@ -13,10 +13,26 @@ clean:
 	${ENGINE} ps -a -q --filter=ancestor=docker.io/haiku/bootstrap | xargs -I {} ${ENGINE} rm {}
 	${ENGINE} volume rm bootstrap_work
 prep:
+    ifeq ($(ENGINE), podman)
 	${ENGINE} run -v bootstrap_work:/work:exec ${EXTRA} docker.io/haiku/bootstrap prep
+    else
+	${ENGINE} run -v bootstrap_work:/work ${EXTRA} docker.io/haiku/bootstrap prep
+    endif
 crosstools:
+    ifeq ($(ENGINE), podman)
 	${ENGINE} run -e TARGET_ARCH=$(TARGET_ARCH) -v bootstrap_work:/work:exec ${EXTRA} docker.io/haiku/bootstrap crosstools
+    else
+	${ENGINE} run -e TARGET_ARCH=$(TARGET_ARCH) -v bootstrap_work:/work ${EXTRA} docker.io/haiku/bootstrap crosstools
+    endif
 bootstrap:
+    ifeq ($(ENGINE), podman)
 	${ENGINE} run -e TARGET_ARCH=$(TARGET_ARCH) -v bootstrap_work:/work:exec ${EXTRA} docker.io/haiku/bootstrap bootstrap
+    else
+	${ENGINE} run -e TARGET_ARCH=$(TARGET_ARCH) -v bootstrap_work:/work ${EXTRA} docker.io/haiku/bootstrap bootstrap
+    endif
 enter:
+    ifeq ($(ENGINE), podman)
 	${ENGINE} run -it -e TARGET_ARCH=$(TARGET_ARCH) -v bootstrap_work:/work:exec ${EXTRA} docker.io/haiku/bootstrap /bin/bash -l
+    else
+	${ENGINE} run -it -e TARGET_ARCH=$(TARGET_ARCH) -v bootstrap_work:/work ${EXTRA} docker.io/haiku/bootstrap /bin/bash -l
+    endif
