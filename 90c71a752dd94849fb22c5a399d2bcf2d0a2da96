@@ -70,6 +70,24 @@
       "revId": "90c71a752dd94849fb22c5a399d2bcf2d0a2da96",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5b2a713_fbd18339",
+        "filename": "src/preferences/bluetooth/BluetoothSettingsView.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000282
+      },
+      "writtenOn": "2021-05-16T20:19:49Z",
+      "side": 1,
+      "message": "I also agree, but the we need to rewrite a lot of apps.\n\nPerhaps this are something we would need to have in our \"how we write our programs\"? Does any of our apps follow this pattern? Or did the original use of struct better?",
+      "parentUuid": "804f7d3c_dfcdb6ab",
+      "revId": "90c71a752dd94849fb22c5a399d2bcf2d0a2da96",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
