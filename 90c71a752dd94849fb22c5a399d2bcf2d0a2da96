@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "55e52e5d_eb366396",
+        "filename": "src/preferences/bluetooth/BluetoothSettingsView.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-05-16T08:27:46Z",
+      "side": 1,
+      "message": "Settings should be contained in the Settings class, not duplicated in the view class.",
+      "revId": "90c71a752dd94849fb22c5a399d2bcf2d0a2da96",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
