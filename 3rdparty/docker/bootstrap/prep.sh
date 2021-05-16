@@ -1,7 +1,6 @@
 #!/bin/bash
 
 if [ ! -d $WORKPATH ]; then
-	echo "$WORKPATH is not available!"
 	exit 1
 fi
 
@@ -10,22 +9,22 @@ if [ ! -d $WORKPATH/src ]; then
 fi
 
 # These we clone or pull updates on
-if [ ! -d $WORKPATH/src/buildtools ]; then
-	git clone $GIT_BUILDTOOLS $WORKPATH/src/buildtools
-else
-	git -C $WORKPATH/src/buildtools pull --rebase
-fi
-
 if [ ! -d $WORKPATH/src/haikuporter ]; then
-	git clone $GIT_HAIKUPORTER $WORKPATH/src/haikuporter
+	git clone $GIT_HAIKUPORTER $WORKPATH/src/haikuporter --head=50
 else
-	git -C $WORKPATH/src/buildtools pull --rebase
+	git -C $WORKPATH/src/haikuporter pull --rebase
 fi
 
 if [ ! -d $WORKPATH/src/haikuports ]; then
-	git clone $GIT_HAIKUPORTS $WORKPATH/src/haikuports
+	git clone $GIT_HAIKUPORTS $WORKPATH/src/haikuports --head=50
 else
 	git -C $WORKPATH/src/haikuports pull --rebase
+fi
+
+if [ ! -d $WORKPATH/src/buildtools ]; then
+	git clone $GIT_BUILDTOOLS $WORKPATH/src/buildtools --head=50
+else
+	git -C $WORKPATH/src/buildtools pull --rebase
 fi
 
 
