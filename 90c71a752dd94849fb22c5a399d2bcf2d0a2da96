@@ -88,6 +88,24 @@
       "revId": "90c71a752dd94849fb22c5a399d2bcf2d0a2da96",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b673ba0_7c719c19",
+        "filename": "src/preferences/bluetooth/BluetoothSettingsView.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-05-17T07:26:33Z",
+      "side": 1,
+      "message": "In Mediaplayer I see it uses the Settings class as a singleton, which avoids having to load the settings for every user of the settings. The point is to have a copy of the settings in a view class. Here we have \"fSettings\" and \"fBluetoothSettingsData\" for the same purpose. This is confusing. I would keep the data in fSettings.\n\nSure we could use a pattern among preferences, but it shouldn\u0027t be so complex. A good example is https://git.haiku-os.org/haiku/tree/src/preferences/virtualmemory/Settings.h",
+      "parentUuid": "d5b2a713_fbd18339",
+      "revId": "90c71a752dd94849fb22c5a399d2bcf2d0a2da96",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
