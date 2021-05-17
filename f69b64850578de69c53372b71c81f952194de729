@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2139bce0_4d5476fc",
+        "filename": "3rdparty/docker/bootstrap/prep.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-05-17T06:46:02Z",
+      "side": 0,
+      "message": "Why removing this message?",
+      "revId": "f69b64850578de69c53372b71c81f952194de729",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
