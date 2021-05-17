@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "02aebcf9_d068b4ec",
+        "filename": "3rdparty/docker/bootstrap/prep.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-05-17T09:51:57Z",
+      "side": 1,
+      "message": "https://git-scm.com/docs/git-clone doesn\u0027t seem to document --head\nDid you mean --depth?",
+      "parentUuid": "16b9843c_f598dd07",
+      "revId": "6635eb2d6df4883c5a55d32d1814ee0a1f0b75d7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8b4a5c30_7f226897",
         "filename": "3rdparty/docker/bootstrap/prep.sh",
         "patchSetId": 3
