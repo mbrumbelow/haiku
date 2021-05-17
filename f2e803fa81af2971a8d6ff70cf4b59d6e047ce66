@@ -70,6 +70,24 @@
       "revId": "f2e803fa81af2971a8d6ff70cf4b59d6e047ce66",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94542fe0_9255a990",
+        "filename": "src/system/kernel/debug/font.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-17T09:12:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c99c22b_8271de5b",
+      "revId": "f2e803fa81af2971a8d6ff70cf4b59d6e047ce66",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
