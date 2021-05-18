@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6921b8ab_c6127b93",
+        "filename": "src/apps/pulse/NormalPulseView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-05-18T18:18:39Z",
+      "side": 1,
+      "message": "error: enumeration value \u0027B_CPU_UNKNOWN\u0027 not handled in switch [-Werror\u003dswitch]\n\n`default:` is needed.",
+      "revId": "56030ce70b8ba1edc0e5af6c1e752a2b4ff2718d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
