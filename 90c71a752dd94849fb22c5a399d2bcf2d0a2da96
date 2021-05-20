@@ -106,6 +106,24 @@
       "revId": "90c71a752dd94849fb22c5a399d2bcf2d0a2da96",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ec3d55a_1e844ad0",
+        "filename": "src/preferences/bluetooth/BluetoothSettingsView.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000282
+      },
+      "writtenOn": "2021-05-20T12:27:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b673ba0_7c719c19",
+      "revId": "90c71a752dd94849fb22c5a399d2bcf2d0a2da96",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
