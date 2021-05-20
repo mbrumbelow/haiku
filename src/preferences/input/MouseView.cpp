@@ -36,14 +36,10 @@ static const int32 kMouseDownWidth = 72;
 static const int32 kMouseDownHeight = 35;
 
 #define W kMouseDownWidth / 100
-static const int32 kButtonOffsets[][7] = {
-	{ 0, 100 * W },
-	{ 0, 50 * W, 100 * W },
-	{ 0, 35 * W, 65 * W, 100 * W },
-	{ 0, 25 * W, 50 * W, 75 * W, 100 * W },
-	{ 0, 20 * W, 40 * W, 60 * W, 80 * W, 100 * W },
-	{ 0, 19 * W, 34 * W, 50 * W, 66 * W, 82 * W, 100 * W }
-};
+static const int32 kButtonOffsets[][7] = {{0, 100 * W}, {0, 50 * W, 100 * W},
+	{0, 35 * W, 65 * W, 100 * W}, {0, 25 * W, 50 * W, 75 * W, 100 * W},
+	{0, 20 * W, 40 * W, 60 * W, 80 * W, 100 * W},
+	{0, 19 * W, 34 * W, 50 * W, 66 * W, 82 * W, 100 * W}};
 #undef W
 
 static const rgb_color kButtonTextColor = {0, 0, 0, 255};
@@ -91,9 +87,7 @@ MouseView::MouseView(const MouseSettings& settings)
 }
 
 
-MouseView::~MouseView()
-{
-}
+MouseView::~MouseView() {}
 
 
 void
@@ -145,8 +139,7 @@ MouseView::AttachedToWindow()
 }
 
 
-void
-MouseView::MouseUp(BPoint)
+void MouseView::MouseUp(BPoint)
 {
 	fButtons = 0;
 	Invalidate(_ButtonsRect());
@@ -160,12 +153,11 @@ MouseView::MouseDown(BPoint where)
 	BMessage* mouseMsg = Window()->CurrentMessage();
 	fButtons = mouseMsg->FindInt32("buttons");
 	int32 modifiers = mouseMsg->FindInt32("modifiers");
-	if (modifiers & B_CONTROL_KEY) {
+	if (modifiers & B_CONTROL_KEY)
 		if (modifiers & B_COMMAND_KEY)
 			fButtons = B_TERTIARY_MOUSE_BUTTON;
 		else
 			fButtons = B_SECONDARY_MOUSE_BUTTON;
-	}
 	// Get the current clipping region before requesting any updates.
 	// Otherwise those parts would be excluded from the region.
 	BRegion clipping;
