@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9ce96871_fccac841",
+        "filename": "src/add-ons/kernel/busses/usb/xhci.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2693,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-05-21T20:00:42Z",
+      "side": 1,
+      "message": "Yeah it should. That\u0027s verbose from the specification.. it\u0027s likely not needed as used today.  However if something else ends up calling ResetEndpoint down the road we might need to check\n\nThe todo is because it may not be obvious that calling ResetEndpoint is not allowed unless the endpoint is in a halted state.",
+      "parentUuid": "e8f76481_18e72292",
+      "revId": "c7f969514c01e90b5790a5e0819a543e278cb340",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3af99e82_80a40f1e",
         "filename": "src/add-ons/kernel/busses/usb/xhci.cpp",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2021-05-21T18:49:13Z",
       "side": 1,
       "message": "It would probably be better if you loaded this into a variable instead of putting it in the switch().",
+      "revId": "c7f969514c01e90b5790a5e0819a543e278cb340",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa7f0340_1c357d53",
+        "filename": "src/add-ons/kernel/busses/usb/xhci.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2714,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-05-21T20:00:42Z",
+      "side": 1,
+      "message": "for what it\u0027s worth, theres a TRACE statement somewhere above that does the same thing.  However, yeah... agree :-D\n\nLet me do some testing as-is to see if this change improves things, then i\u0027ll try to knock that down into another variable.",
+      "parentUuid": "3af99e82_80a40f1e",
       "revId": "c7f969514c01e90b5790a5e0819a543e278cb340",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
