@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "839b596b_4d104993",
+        "filename": "src/kits/storage/disk_device/DiskDeviceJobGenerator.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2021-05-21T14:45:14Z",
+      "side": 1,
+      "message": "Should this be partition?",
+      "revId": "3ef5aab6a162b633faa497a2152625186334a165",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6068e30a_a97cc1dd",
+        "filename": "src/kits/storage/disk_device/DiskDeviceJobGenerator.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2021-05-21T14:45:14Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "3ef5aab6a162b633faa497a2152625186334a165",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24755978_fbcdc4fd",
+        "filename": "src/kits/storage/disk_device/DiskDeviceJobGenerator.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 681,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2021-05-21T14:45:14Z",
+      "side": 1,
+      "message": "?",
+      "revId": "3ef5aab6a162b633faa497a2152625186334a165",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
