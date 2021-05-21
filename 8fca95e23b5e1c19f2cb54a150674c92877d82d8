@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d4abccb_d5abf527",
+        "filename": "src/add-ons/kernel/file_systems/bfs/Inode.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-21T15:09:26Z",
+      "side": 1,
+      "message": "In case you are wondering why this is renamed: there is a SetToWritable in the parent class CachedBlock with a different prototype. It should be possible to have it re-exposed alongside this one with an \"using\" declaration, but that doesn\u0027t work well in gcc2.",
+      "revId": "8fca95e23b5e1c19f2cb54a150674c92877d82d8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
