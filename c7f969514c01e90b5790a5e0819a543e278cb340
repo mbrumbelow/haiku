@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e8f76481_18e72292",
+        "filename": "src/add-ons/kernel/busses/usb/xhci.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2693,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-05-21T18:49:13Z",
+      "side": 1,
+      "message": "Won\u0027t the HC do this anyway? So this TODO may not be needed.",
+      "revId": "c7f969514c01e90b5790a5e0819a543e278cb340",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3af99e82_80a40f1e",
+        "filename": "src/add-ons/kernel/busses/usb/xhci.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2714,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-05-21T18:49:13Z",
+      "side": 1,
+      "message": "It would probably be better if you loaded this into a variable instead of putting it in the switch().",
+      "revId": "c7f969514c01e90b5790a5e0819a543e278cb340",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
