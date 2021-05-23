@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "25d62e93_a61cf7e5",
+        "filename": "build/jam/ArchitectureRules",
+        "patchSetId": 2
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-05-23T23:30:24Z",
+      "side": 1,
+      "message": "Done, not needed.",
+      "parentUuid": "c832fab8_b2d03881",
+      "revId": "af282664cf78ff8979776a882fc0619f998dcc8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db7b70e9_da44c060",
         "filename": "src/system/boot/loader/main.cpp",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "af282664cf78ff8979776a882fc0619f998dcc8d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4d76054_17b364d0",
+        "filename": "src/system/boot/loader/main.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-05-23T23:30:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db7b70e9_da44c060",
+      "revId": "af282664cf78ff8979776a882fc0619f998dcc8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
