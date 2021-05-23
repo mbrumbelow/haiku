@@ -1,0 +1,463 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c832fab8_b2d03881",
+        "filename": "build/jam/ArchitectureRules",
+        "patchSetId": 2
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-05-23T22:13:29Z",
+      "side": 1,
+      "message": "was this tested on all platform loaders? This touches a lot of things :-)",
+      "revId": "af282664cf78ff8979776a882fc0619f998dcc8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db7b70e9_da44c060",
+        "filename": "src/system/boot/loader/main.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-05-23T22:13:29Z",
+      "side": 1,
+      "message": "probably should leave this disabled in our repo :-)",
+      "revId": "af282664cf78ff8979776a882fc0619f998dcc8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b0d8423_4b596de1",
+        "filename": "src/system/boot/platform/riscv/console.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-05-23T22:13:29Z",
+      "side": 1,
+      "message": "line length issues \u003e 80 char",
+      "revId": "af282664cf78ff8979776a882fc0619f998dcc8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "533a8f75_2d2ab4c0",
+        "filename": "src/system/boot/platform/riscv/console.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-05-23T22:13:29Z",
+      "side": 1,
+      "message": "line length issues \u003e 80 char",
+      "revId": "af282664cf78ff8979776a882fc0619f998dcc8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c8a210e_5f9dce8e",
+        "filename": "src/system/boot/platform/riscv/debug.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-05-23T22:13:29Z",
+      "side": 1,
+      "message": "style, delete tab",
+      "revId": "af282664cf78ff8979776a882fc0619f998dcc8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f6ab384_0628a1ad",
+        "filename": "src/system/boot/platform/riscv/devices.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-05-23T22:13:29Z",
+      "side": 1,
+      "message": "line length issues \u003e 80 char",
+      "revId": "af282664cf78ff8979776a882fc0619f998dcc8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7d900c9_806ea171",
+        "filename": "src/system/boot/platform/riscv/devices.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-05-23T22:13:29Z",
+      "side": 1,
+      "message": "line length issues \u003e 80 char",
+      "revId": "af282664cf78ff8979776a882fc0619f998dcc8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b628af2f_98614d2a",
+        "filename": "src/system/boot/platform/riscv/devices.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-05-23T22:13:29Z",
+      "side": 1,
+      "message": "style, delete tab",
+      "revId": "af282664cf78ff8979776a882fc0619f998dcc8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "795b4003_597a94ab",
+        "filename": "src/system/boot/platform/riscv/devices.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-05-23T22:13:29Z",
+      "side": 1,
+      "message": "line length issues \u003e 80 char",
+      "revId": "af282664cf78ff8979776a882fc0619f998dcc8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97b7d651_56c1504c",
+        "filename": "src/system/boot/platform/riscv/devices.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-05-23T22:13:29Z",
+      "side": 1,
+      "message": "line length issues \u003e 80 char",
+      "revId": "af282664cf78ff8979776a882fc0619f998dcc8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7fce68c_b1c2e97f",
+        "filename": "src/system/boot/platform/riscv/fdt.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-05-23T22:13:29Z",
+      "side": 1,
+      "message": "line length issuess \u003e 80 char",
+      "revId": "af282664cf78ff8979776a882fc0619f998dcc8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "461aae68_d4b089aa",
+        "filename": "src/system/boot/platform/riscv/graphics.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-05-23T22:13:29Z",
+      "side": 1,
+      "message": "rogue tab",
+      "revId": "af282664cf78ff8979776a882fc0619f998dcc8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bea83eea_b5f9c7f4",
+        "filename": "src/system/boot/platform/riscv/graphics.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-05-23T22:13:29Z",
+      "side": 1,
+      "message": "line length issues \u003e 80 char",
+      "revId": "af282664cf78ff8979776a882fc0619f998dcc8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad27d448_7835aca9",
+        "filename": "src/system/boot/platform/riscv/graphics.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-05-23T22:13:29Z",
+      "side": 1,
+      "message": "rogue tabs",
+      "revId": "af282664cf78ff8979776a882fc0619f998dcc8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8459ce14_dbaacc8c",
+        "filename": "src/system/boot/platform/riscv/htif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-05-23T22:13:29Z",
+      "side": 1,
+      "message": "need header. If unsure, go with copyright to Haiku, Inc with yourself as author.",
+      "revId": "af282664cf78ff8979776a882fc0619f998dcc8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a49a54f7_fef1dd27",
+        "filename": "src/system/boot/platform/riscv/htif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-05-23T22:13:29Z",
+      "side": 1,
+      "message": "line length issues \u003e 80 char",
+      "revId": "af282664cf78ff8979776a882fc0619f998dcc8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98c6d731_82c25914",
+        "filename": "src/system/boot/platform/riscv/menu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-05-23T22:13:29Z",
+      "side": 1,
+      "message": "line length issues \u003e 80 char",
+      "revId": "af282664cf78ff8979776a882fc0619f998dcc8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b059e31a_726be00d",
+        "filename": "src/system/boot/platform/riscv/mmu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-05-23T22:13:29Z",
+      "side": 1,
+      "message": "line length issues \u003e 80 char",
+      "revId": "af282664cf78ff8979776a882fc0619f998dcc8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5d1e1a4_6a02972b",
+        "filename": "src/system/boot/platform/riscv/mmu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-05-23T22:13:29Z",
+      "side": 1,
+      "message": "two returns between functions",
+      "revId": "af282664cf78ff8979776a882fc0619f998dcc8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5d2ee1b_50efcdbd",
+        "filename": "src/system/boot/platform/riscv/start.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-05-23T22:13:29Z",
+      "side": 1,
+      "message": "rogue tab",
+      "revId": "af282664cf78ff8979776a882fc0619f998dcc8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4803040e_6d76afaf",
+        "filename": "src/system/boot/platform/riscv/video.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-05-23T22:13:29Z",
+      "side": 1,
+      "message": "line length issues \u003e 80 char",
+      "revId": "af282664cf78ff8979776a882fc0619f998dcc8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e37cd2cc_5d07c7f5",
+        "filename": "src/system/boot/platform/riscv/virtio.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-05-23T22:13:29Z",
+      "side": 1,
+      "message": "line length issues \u003e 80 char",
+      "revId": "af282664cf78ff8979776a882fc0619f998dcc8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "efbdfcd8_f43fd634",
+        "filename": "src/system/boot/platform/riscv/virtio.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-05-23T22:13:29Z",
+      "side": 1,
+      "message": "rogue tab",
+      "revId": "af282664cf78ff8979776a882fc0619f998dcc8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21b22b21_3d7d4925",
+        "filename": "src/system/boot/platform/riscv/virtio.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-05-23T22:13:29Z",
+      "side": 1,
+      "message": "style incorrect for all these functions. Should be:\n\nvoid\nVirtualDevice....\n{\n\nAlso, two returns between functions.",
+      "revId": "af282664cf78ff8979776a882fc0619f998dcc8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "975a8a1b_d051916b",
+        "filename": "src/system/boot/platform/riscv/virtio.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-05-23T22:13:29Z",
+      "side": 1,
+      "message": "rogue tab",
+      "revId": "af282664cf78ff8979776a882fc0619f998dcc8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1caf88b8_f861550b",
+        "filename": "src/system/boot/platform/riscv/virtio.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-05-23T22:13:29Z",
+      "side": 1,
+      "message": "rogue tab",
+      "revId": "af282664cf78ff8979776a882fc0619f998dcc8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0fdf22b6_a95a80b6",
+        "filename": "src/system/boot/platform/riscv/virtio.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-05-23T22:13:29Z",
+      "side": 1,
+      "message": "line length issues \u003e 80 char",
+      "revId": "af282664cf78ff8979776a882fc0619f998dcc8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
