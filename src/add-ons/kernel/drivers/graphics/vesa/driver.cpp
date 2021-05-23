@@ -68,9 +68,14 @@ init_driver(void)
 
 	memset(gDeviceInfo[0], 0, sizeof(vesa_info));
 
-	status_t status = get_module(B_ISA_MODULE_NAME, (module_info**)&gISA);
-	if (status != B_OK)
-		goto err1;
+	status_t status;
+
+	// ISA really only a target for x86
+	status = get_module(B_ISA_MODULE_NAME, (module_info**)&gISA);
+	if (status != B_OK) {
+		TRACE((DEVICE_NAME ": ISA bus unavailable\n"));
+		gISA = NULL;
+	}
 
 	gDeviceNames[0] = strdup("graphics/vesa");
 	if (gDeviceNames[0] == NULL) {
@@ -85,7 +90,6 @@ init_driver(void)
 
 err2:
 	put_module(B_ISA_MODULE_NAME);
-err1:
 	free(gDeviceInfo[0]);
 	return status;
 }
