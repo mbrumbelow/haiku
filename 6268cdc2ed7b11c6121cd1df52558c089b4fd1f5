@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "047f8b21_be6fdbdf",
+        "filename": "src/system/boot/platform/riscv/cpu.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-05-23T23:41:59Z",
+      "side": 1,
+      "message": "Header containing this definitions is not yet published.",
+      "revId": "6268cdc2ed7b11c6121cd1df52558c089b4fd1f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19a4e23e_32b85115",
+        "filename": "src/system/boot/platform/riscv/fdt.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-05-23T23:41:59Z",
+      "side": 1,
+      "message": "Adding `fdt` field to kernel args is not yet published.",
+      "revId": "6268cdc2ed7b11c6121cd1df52558c089b4fd1f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "63e25068_57c656da",
         "filename": "src/system/boot/platform/riscv/graphics.h",
         "patchSetId": 4
@@ -13,6 +47,40 @@
       "writtenOn": "2021-05-23T23:37:07Z",
       "side": 1,
       "message": "oops. missing header here as well :-)",
+      "revId": "6268cdc2ed7b11c6121cd1df52558c089b4fd1f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c68953c_ec728beb",
+        "filename": "src/system/boot/platform/riscv/htif.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-05-23T23:41:59Z",
+      "side": 1,
+      "message": "This header is currently not published.",
+      "revId": "6268cdc2ed7b11c6121cd1df52558c089b4fd1f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "711b61d7_73a97469",
+        "filename": "src/system/boot/platform/riscv/virtio.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-05-23T23:41:59Z",
+      "side": 1,
+      "message": "This header is currently not published.",
       "revId": "6268cdc2ed7b11c6121cd1df52558c089b4fd1f5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
