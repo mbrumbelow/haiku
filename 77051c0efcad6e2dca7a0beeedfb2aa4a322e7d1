@@ -456,6 +456,24 @@
     },
     {
       "key": {
+        "uuid": "6205eabb_0f8cef77",
+        "filename": "src/system/boot/platform/riscv/graphics.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-05-23T23:52:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f27fc57b_f5c1b303",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c6be8bab_e6032df4",
         "filename": "src/system/boot/platform/riscv/htif.cpp",
         "patchSetId": 1
@@ -876,6 +894,24 @@
     },
     {
       "key": {
+        "uuid": "ddc40fbd_c8594257",
+        "filename": "src/system/boot/platform/riscv/video.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-05-23T23:52:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "437b2926_5643bedd",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "11b93152_e26eb695",
         "filename": "src/system/boot/platform/riscv/video.cpp",
         "patchSetId": 1
@@ -890,6 +926,24 @@
       "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed6264cf_e3ede0ac",
+        "filename": "src/system/boot/platform/riscv/video.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-05-23T23:52:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11b93152_e26eb695",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -910,6 +964,24 @@
     },
     {
       "key": {
+        "uuid": "288b9167_3b035546",
+        "filename": "src/system/boot/platform/riscv/virtio.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-05-23T23:52:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d8ec301_5f328a7f",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "467c7bad_55f68445",
         "filename": "src/system/boot/platform/riscv/virtio.cpp",
         "patchSetId": 1
@@ -924,6 +996,24 @@
       "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f5f0168_73a79bc2",
+        "filename": "src/system/boot/platform/riscv/virtio.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-05-23T23:52:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "467c7bad_55f68445",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {

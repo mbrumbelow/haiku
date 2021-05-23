@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "1e2b5836_124335f5",
+        "filename": "src/system/boot/platform/riscv/graphics.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-05-23T23:52:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63e25068_57c656da",
+      "revId": "6268cdc2ed7b11c6121cd1df52558c089b4fd1f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0c68953c_ec728beb",
         "filename": "src/system/boot/platform/riscv/htif.cpp",
         "patchSetId": 4
