@@ -71,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "ca2ebb5e_8bd63fa6",
+        "filename": "src/system/boot/platform/riscv/console.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-05-23T22:00:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05632d5e_abf0b5cf",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "104035ae_a05b89c0",
         "filename": "src/system/boot/platform/riscv/console.cpp",
         "patchSetId": 1
@@ -327,6 +345,24 @@
     },
     {
       "key": {
+        "uuid": "5f7277d2_f7189be0",
+        "filename": "src/system/boot/platform/riscv/htif.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-05-23T22:00:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b509300c_f89a119e",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2becfca_e9b9d4ea",
         "filename": "src/system/boot/platform/riscv/menu.cpp",
         "patchSetId": 1
@@ -481,6 +517,24 @@
     },
     {
       "key": {
+        "uuid": "f4bdb694_fa8b7b15",
+        "filename": "src/system/boot/platform/riscv/start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-05-23T22:00:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86ed6eab_57698a74",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "437b2926_5643bedd",
         "filename": "src/system/boot/platform/riscv/video.cpp",
         "patchSetId": 1
@@ -580,6 +634,24 @@
       "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6168f628_f5bd3fa9",
+        "filename": "src/system/boot/platform/riscv/virtio.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-05-23T22:00:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "390dcf1e_77845044",
+      "revId": "77051c0efcad6e2dca7a0beeedfb2aa4a322e7d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
