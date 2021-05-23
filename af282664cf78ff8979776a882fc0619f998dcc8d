@@ -159,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "fc452f68_5bdc4a8a",
+        "filename": "src/system/boot/platform/riscv/debug.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-05-23T23:32:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c8a210e_5f9dce8e",
+      "revId": "af282664cf78ff8979776a882fc0619f998dcc8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f6ab384_0628a1ad",
         "filename": "src/system/boot/platform/riscv/devices.cpp",
         "patchSetId": 2
