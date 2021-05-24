@@ -68,6 +68,24 @@
       "revId": "ac22ed90d9d21232d31b5c92aee963aa114263d7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "380ef62d_9e0528f0",
+        "filename": "src/add-ons/kernel/drivers/graphics/vesa/vesa.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-05-24T12:52:01Z",
+      "side": 1,
+      "message": "Well, please make this change specifically for RISC-V then.",
+      "parentUuid": "f014b3ef_78d33919",
+      "revId": "ac22ed90d9d21232d31b5c92aee963aa114263d7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
