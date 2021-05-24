@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "75697480_122a765d",
+        "filename": "src/system/boot/platform/riscv/console.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-24T08:15:35Z",
+      "side": 1,
+      "message": "missing spaces around /",
+      "revId": "12f48bfc0efc963d72b234db80e74c9c6c9aae6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f247b513_0548e288",
+        "filename": "src/system/boot/platform/riscv/devices.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-24T08:15:35Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "12f48bfc0efc963d72b234db80e74c9c6c9aae6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5e63592_8be32eac",
+        "filename": "src/system/boot/platform/riscv/fixed_font.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-24T08:15:35Z",
+      "side": 1,
+      "message": "You still have an absolute path here. I have noted in a previous version of the patch that you should be able to add the -I option to assembler flags to tell it where to search for included files (including incbin)\n\nOne simple way to do this is using SubDirAsFlags in the Jamfile where this is built:\n\nSubDirAsFlags -I. ;",
+      "revId": "12f48bfc0efc963d72b234db80e74c9c6c9aae6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd220c93_f9c390e9",
+        "filename": "src/system/boot/platform/riscv/graphics.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-24T08:15:35Z",
+      "side": 1,
+      "message": "Please rename this to RasterBuffer or simply Bitmap. It took me some time to understand that \"Ras\" was short for \"Raster\".\n\nWe call these things Bitmap I think in all other places in Haiku, so that would be consistent (even if less specific).",
+      "revId": "12f48bfc0efc963d72b234db80e74c9c6c9aae6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61c94839_de403e86",
+        "filename": "src/system/boot/platform/riscv/menu.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-24T08:15:35Z",
+      "side": 1,
+      "message": "I think it is safe to completely delete the code for \"don\u0027t call the bios\" and \"disable APM\" here.\n\nMaybe ACPI and SMP will be available someday so we can keep that in #if 0 for now.",
+      "revId": "12f48bfc0efc963d72b234db80e74c9c6c9aae6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
