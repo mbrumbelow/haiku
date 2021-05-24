@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c370a650_6a2403ba",
+        "filename": "src/add-ons/kernel/drivers/graphics/vesa/driver.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-05-24T08:58:17Z",
+      "side": 1,
+      "message": "I would initialize to B_OK, and only keep the get_module() in the ifndef block.",
+      "revId": "ac22ed90d9d21232d31b5c92aee963aa114263d7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fd885b1_ecdcce4b",
+        "filename": "src/add-ons/kernel/drivers/graphics/vesa/driver.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-05-24T08:58:17Z",
+      "side": 1,
+      "message": "The put_module should be in the ifndef block.",
+      "revId": "ac22ed90d9d21232d31b5c92aee963aa114263d7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7341e64c_47621d60",
+        "filename": "src/add-ons/kernel/drivers/graphics/vesa/vesa.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-05-24T08:58:17Z",
+      "side": 1,
+      "message": "What\u0027s the reasoning here?",
+      "revId": "ac22ed90d9d21232d31b5c92aee963aa114263d7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
