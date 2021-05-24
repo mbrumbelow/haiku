@@ -70,6 +70,24 @@
     },
     {
       "key": {
+        "uuid": "a4bff022_1d99d9fb",
+        "filename": "src/system/boot/platform/riscv/graphics.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-05-24T09:00:51Z",
+      "side": 1,
+      "message": "This is actually not bitmap, but something like pointer to rectangular raster data. It don\u0027t own pointed data. Clip function reduce drawing area. So if you want to fill rectangle, you set RasBuf to framebuffer, clip it and then fill (Clear function).",
+      "parentUuid": "fd220c93_f9c390e9",
+      "revId": "12f48bfc0efc963d72b234db80e74c9c6c9aae6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "61c94839_de403e86",
         "filename": "src/system/boot/platform/riscv/menu.cpp",
         "patchSetId": 5
