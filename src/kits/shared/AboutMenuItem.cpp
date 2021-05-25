@@ -16,7 +16,6 @@
 
 using BPrivate::gSystemCatalog;
 
-
 #undef B_TRANSLATION_CONTEXT
 #define B_TRANSLATION_CONTEXT "AboutMenuItem"
 
