@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f77026fb_5b0716d4",
+        "filename": "src/system/libroot/os/arch/riscv64/tls.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-05-26T17:10:55Z",
+      "side": 1,
+      "message": "I see x86_64 uses std::atomic\u003c\u003e here. Wouldn\u0027t it be similar here?",
+      "revId": "da5428ed89fd5fe8e998b37fc7c09f923212784b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
