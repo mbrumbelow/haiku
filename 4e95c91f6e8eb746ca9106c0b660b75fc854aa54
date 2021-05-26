@@ -16,6 +16,40 @@
       "revId": "4e95c91f6e8eb746ca9106c0b660b75fc854aa54",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69b1e609_61f10139",
+        "filename": "headers/private/kernel/arch/riscv64/Htif.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:18:28Z",
+      "side": 1,
+      "message": "avoid multiple declarations on the same line",
+      "revId": "4e95c91f6e8eb746ca9106c0b660b75fc854aa54",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c46158cc_e27faba1",
+        "filename": "headers/private/system/arch/riscv64/arch_cpu_defs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:18:28Z",
+      "side": 1,
+      "message": "these lines are too long for the 80 column limit",
+      "revId": "4e95c91f6e8eb746ca9106c0b660b75fc854aa54",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
