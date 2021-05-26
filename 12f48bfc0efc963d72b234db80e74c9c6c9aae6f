@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "8289bf99_471ce86d",
+        "filename": "src/system/boot/platform/riscv/devices.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-05-26T04:29:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f247b513_0548e288",
+      "revId": "12f48bfc0efc963d72b234db80e74c9c6c9aae6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d5e63592_8be32eac",
         "filename": "src/system/boot/platform/riscv/fixed_font.S",
         "patchSetId": 5
@@ -50,6 +68,24 @@
       "revId": "12f48bfc0efc963d72b234db80e74c9c6c9aae6f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef2896a6_3320fd19",
+        "filename": "src/system/boot/platform/riscv/fixed_font.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-05-26T04:29:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5e63592_8be32eac",
+      "revId": "12f48bfc0efc963d72b234db80e74c9c6c9aae6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -102,6 +138,24 @@
       "revId": "12f48bfc0efc963d72b234db80e74c9c6c9aae6f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "453dbee5_0942a3a0",
+        "filename": "src/system/boot/platform/riscv/menu.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-05-26T04:29:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61c94839_de403e86",
+      "revId": "12f48bfc0efc963d72b234db80e74c9c6c9aae6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
