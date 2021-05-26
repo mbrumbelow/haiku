@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "19c8d1d5_3878e1c2",
+        "filename": "headers/private/system/arch/riscv64/arch_cpu_defs.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-05-26T14:29:38Z",
+      "side": 1,
+      "message": "It it still valid? Header is rewritten from scratch and based on Mini OS code.",
+      "revId": "5b998b9f96d6e9ae982e8ff0a8591d66c6e39ae3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
