@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "b74e8623_6e3151f3",
+        "filename": "headers/private/kernel/arch/riscv64/Htif.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-05-26T11:59:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69b1e609_61f10139",
+      "revId": "4e95c91f6e8eb746ca9106c0b660b75fc854aa54",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c46158cc_e27faba1",
         "filename": "headers/private/system/arch/riscv64/arch_cpu_defs.h",
         "patchSetId": 1
@@ -50,6 +68,24 @@
       "revId": "4e95c91f6e8eb746ca9106c0b660b75fc854aa54",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a35e7cc_06cbbe9a",
+        "filename": "headers/private/system/arch/riscv64/arch_cpu_defs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-05-26T11:59:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c46158cc_e27faba1",
+      "revId": "4e95c91f6e8eb746ca9106c0b660b75fc854aa54",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
