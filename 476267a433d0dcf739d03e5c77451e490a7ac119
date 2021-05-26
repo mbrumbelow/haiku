@@ -1,0 +1,837 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0a3d568_66a2e676",
+        "filename": "src/add-ons/input_server/devices/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "please keep these lines in alphabetical order (so virtio goes before virtualkeyboard)",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f375e3d0_6c0ad966",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "this line is too long.\n\nProbably empty lines between functions would be more readable.\n\nMaybe this could be moved to a shared header file, for example in https://git.haiku-os.org/haiku/tree/headers/private/shared/binary-utils.h ?",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0d8f7e6_9e68b609",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "use #if 0 for disabled code, and add a comment explaining why it is disabled but still kept in the sourcefile.",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e849535c_86c8b08b",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "two blank lines are needed here",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04b210a9_7010082f",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "990b4722_6d42914d",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "hardcoding the device number in the path here seems a bit unsafe, how can we make sure the devices are published in this order? Or should we identify the device using some ioctl to know if it is a keyboard or a pointing device?",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5fb9062b_2c66ae3d",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f125e573_754d6c76",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "two blank lines are needed here",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0681eaff_0905b9a4",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "two blank lines are needed here",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04551af4_ad67e4ec",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e088c216_646d7041",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a3541e2_91fd51f7",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "two blank lines are needed here",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e13eded5_806231c3",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "two blank lines are needed here",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6dfae85a_dc49a7fc",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "two blank lines are needed here",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "264a7dfd_c9dee981",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1d7fc1e_10c1fae3",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "two blank lines are needed here",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a6fd7d2_50883f18",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "two blank lines are needed here",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5addae6_424fd48a",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "two blank lines are needed here",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca988831_7e0d38f9",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd86d256_94c92faf",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "two blank lines are needed here",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3f7a7cd_9ef383fb",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "two blank lines are needed here",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c82968b0_d9d1f0ef",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "two blank lines are needed here",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b5edb71_309de6f4",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55ecfbbe_0af24f68",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f8d88fd_620d303f",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a285e75c_dbe1f039",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37ae5ba8_083acc6f",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "the \"return\" should be on a separate line\n(same thing for all the other tests below)",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15b01586_060f77fe",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83226f9c_80f1b864",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d867691e_dd96e29f",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "two blank lines are needed here",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8cb9959c_75aa03c9",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "two blank lines are needed here",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "671968e5_4dbfe3ea",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "two blank lines are needed here",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8e95353_7d7c539e",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "two blank lines are needed here",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d7c92ea_3f5b39e7",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "two blank lines are needed here",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88d7cdf5_141357d6",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4423655d_d1b6025d",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "two blank lines are needed here",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03d7c291_381e7b7c",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "several of these lines are too long",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "284f77fe_949bc7ee",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "two blank lines are needed here",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b21854a0_d3598abc",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33b69d93_0456c8bc",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "two blank lines are needed here",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8519654_198bd458",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "two blank lines are needed here",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d514dff5_add6d2a6",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49506bea_48781b10",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "474cb68f_d5ca28bc",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "two blank lines are needed here",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b4625c4_75f113df",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "these lines are too long",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0922c17d_3ff63ca8",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "missing spaces around / operator",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d22272e1_24e9ceaf",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "618e2f13_525818e9",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "two blank lines are needed between each class declaration",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "495621fe_7bdfe849",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-26T11:36:23Z",
+      "side": 1,
+      "message": "two blank lines are needed here as well",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
