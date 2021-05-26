@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4bd110a2_815bd88d",
+        "filename": "src/add-ons/tracker/openterminal/OpenTerminal.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-05-26T16:19:18Z",
+      "side": 1,
+      "message": "why not use BRoster().Launch()?",
+      "revId": "50eb4f8495c6a43bfaf02fa99642103f7052a36a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
