@@ -90,6 +90,7 @@
 #define B_DEFINE_SYMBOL_VERSION(function, versionedSymbol)	\
 	__asm__(".symver " function "," versionedSymbol)
 
+#define ALWAYS_INLINE __attribute__((always_inline)) inline
 
 #ifdef __cplusplus
 #	define B_DEFINE_WEAK_ALIAS(name, alias_name)	\
