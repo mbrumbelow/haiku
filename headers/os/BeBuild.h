@@ -82,10 +82,12 @@
 	__attribute__((format(__printf__, _format_, _args_)))
 #if __GNUC__ >= 4
 # define _EXPORT __attribute__((visibility("default")))
+# define B_ALWAYS_INLINE __attribute__((always_inline)) inline
 #else
 # define _EXPORT
 #endif
 #define _IMPORT
+
 
 #define B_DEFINE_SYMBOL_VERSION(function, versionedSymbol)	\
 	__asm__(".symver " function "," versionedSymbol)
