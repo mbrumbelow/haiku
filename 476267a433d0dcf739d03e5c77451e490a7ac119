@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "b902a824_23c213ea",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-05-26T17:04:05Z",
+      "side": 1,
+      "message": "I can\u0027t find in which change this header is included.",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f375e3d0_6c0ad966",
         "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
         "patchSetId": 1
@@ -767,6 +784,23 @@
     },
     {
       "key": {
+        "uuid": "12b9d5ef_66627bb3",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-05-26T17:04:05Z",
+      "side": 1,
+      "message": "A license header is missing, the guard should be updated.",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0922c17d_3ff63ca8",
         "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.h",
         "patchSetId": 1
@@ -778,6 +812,23 @@
       "writtenOn": "2021-05-26T11:36:23Z",
       "side": 1,
       "message": "missing spaces around / operator",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aad7b8af_dcec8b46",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-05-26T17:04:05Z",
+      "side": 1,
+      "message": "VirtioInputDevice would be a nicer name",
       "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
