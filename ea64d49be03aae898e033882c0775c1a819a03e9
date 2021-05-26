@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10f9c9eb_c89b499c",
+        "filename": "headers/private/virtio/Virtio.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-05-26T19:19:24Z",
+      "side": 1,
+      "message": "Constants starts with k then CamelCase, or all uppercase.",
+      "revId": "ea64d49be03aae898e033882c0775c1a819a03e9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
