@@ -16,6 +16,24 @@
       "revId": "50eb4f8495c6a43bfaf02fa99642103f7052a36a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4069edfd_4f87c060",
+        "filename": "src/add-ons/tracker/openterminal/OpenTerminal.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-05-26T17:10:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4bd110a2_815bd88d",
+      "revId": "50eb4f8495c6a43bfaf02fa99642103f7052a36a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
