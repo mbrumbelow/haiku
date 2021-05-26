@@ -1,0 +1,259 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "39bc8af5_c6ba5955",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-05-26T19:09:31Z",
+      "side": 1,
+      "message": "here two blank lines",
+      "revId": "b364e125fc57e8282d872d09c32061014f86860a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c857e1a9_c4b21b55",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-05-26T19:09:31Z",
+      "side": 1,
+      "message": "one tab more.",
+      "revId": "b364e125fc57e8282d872d09c32061014f86860a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9db05528_1adb4961",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-05-26T19:09:31Z",
+      "side": 1,
+      "message": "two tabs more.",
+      "revId": "b364e125fc57e8282d872d09c32061014f86860a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0e895a1_886c675b",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 571,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-05-26T19:09:31Z",
+      "side": 1,
+      "message": "Calling a member method might make this easier to read.",
+      "revId": "b364e125fc57e8282d872d09c32061014f86860a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e37408c1_d00e9f9a",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-05-26T19:09:31Z",
+      "side": 1,
+      "message": "No newline here.",
+      "revId": "b364e125fc57e8282d872d09c32061014f86860a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28e74926_3b58a178",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-05-26T19:09:31Z",
+      "side": 1,
+      "message": "Two blank lines here.",
+      "revId": "b364e125fc57e8282d872d09c32061014f86860a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a42d442a_da74201e",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-05-26T19:09:31Z",
+      "side": 1,
+      "message": "You might declare the struct in the KeyboardHandler class if you wish.",
+      "revId": "b364e125fc57e8282d872d09c32061014f86860a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "feba23f6_9370a607",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-05-26T19:09:31Z",
+      "side": 1,
+      "message": "This should be indented with 8 tabs.",
+      "revId": "b364e125fc57e8282d872d09c32061014f86860a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72041c16_0e1abe85",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-05-26T19:09:31Z",
+      "side": 1,
+      "message": "This should indented with 3 tabs for the return type, and 8 tabs for the name.",
+      "revId": "b364e125fc57e8282d872d09c32061014f86860a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32704899_b64d5055",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-05-26T19:09:31Z",
+      "side": 1,
+      "message": "Is it really needed here?",
+      "revId": "b364e125fc57e8282d872d09c32061014f86860a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a5146db_06f1be3d",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-05-26T19:09:31Z",
+      "side": 1,
+      "message": "VirtioInputHandler would probably fit better, it\u0027s your call though.",
+      "revId": "b364e125fc57e8282d872d09c32061014f86860a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f11b985b_d00c010e",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-05-26T19:09:31Z",
+      "side": 1,
+      "message": "missing space before return",
+      "revId": "b364e125fc57e8282d872d09c32061014f86860a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0cc9f57_628edb9b",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-05-26T19:09:31Z",
+      "side": 1,
+      "message": "Any reason for redeclaring fDev here?",
+      "revId": "b364e125fc57e8282d872d09c32061014f86860a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d726932f_fa89db7a",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-05-26T19:09:31Z",
+      "side": 1,
+      "message": "3 tabs for the type, 8 tabs for the name.",
+      "revId": "b364e125fc57e8282d872d09c32061014f86860a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08f13925_db4c2977",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-05-26T19:09:31Z",
+      "side": 1,
+      "message": "Usually private methods are prefixed with _",
+      "revId": "b364e125fc57e8282d872d09c32061014f86860a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
