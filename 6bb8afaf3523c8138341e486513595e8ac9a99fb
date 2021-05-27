@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b4fa712_47cc98a9",
+        "filename": "src/add-ons/kernel/drivers/input/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-05-27T05:28:50Z",
+      "side": 1,
+      "message": "virtio_input comes before wacom",
+      "revId": "6bb8afaf3523c8138341e486513595e8ac9a99fb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
