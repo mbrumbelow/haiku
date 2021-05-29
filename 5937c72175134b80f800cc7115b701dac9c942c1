@@ -16,6 +16,24 @@
       "revId": "5937c72175134b80f800cc7115b701dac9c942c1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afb567a9_a27231e3",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 987,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-05-29T12:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76871c80_13753386",
+      "revId": "5937c72175134b80f800cc7115b701dac9c942c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
