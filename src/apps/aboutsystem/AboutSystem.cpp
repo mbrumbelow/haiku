@@ -902,6 +902,12 @@ AboutView::_CreateLabel(const char* name, const char* label)
 BView*
 AboutView::_CreateCreditsView()
 {
+#ifdef HAIKU_DISTRO_COMPATIBILITY_OFFICIAL
+	BString name("Haiku");
+#else
+	BString name("");
+#endif
+
 	// Begin construction of the credits view
 	fCreditsView = new HyperTextView("credits");
 	fCreditsView->SetFlags(fCreditsView->Flags() | B_FRAME_EVENTS);
@@ -920,7 +926,19 @@ AboutView::_CreateCreditsView()
 	font.SetSize(font.Size() + 4);
 
 	fCreditsView->SetFontAndColor(&font, B_FONT_ALL, &fHaikuGreenColor);
-	fCreditsView->Insert("Haiku\n");
+
+#ifdef HAIKU_DISTRO_COMPATIBILITY_OFFICIAL
+	fCreditsView->Insert(name);
+	fCreditsView->Insert("\n");
+#else
+	if (name.Length() > 0) {
+		fCreditsView->Insert(name);
+		fCreditsView->Insert(B_TRANSLATE(" (based on Haiku)\n"));
+	}
+	else {
+		fCreditsView->Insert(B_TRANSLATE("Haiku (unofficial)\n"));
+	}
+#endif
 
 	char string[1024];
 	time_t time = ::time(NULL);
