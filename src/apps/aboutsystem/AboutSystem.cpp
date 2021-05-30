@@ -920,7 +920,12 @@ AboutView::_CreateCreditsView()
 	font.SetSize(font.Size() + 4);
 
 	fCreditsView->SetFontAndColor(&font, B_FONT_ALL, &fHaikuGreenColor);
+
+#ifdef HAIKU_DISTRO_COMPATIBILITY_OFFICIAL
 	fCreditsView->Insert("Haiku\n");
+#else
+	fCreditsView->Insert("Walter (unofficial Haiku distribution)\n");
+#endif
 
 	char string[1024];
 	time_t time = ::time(NULL);
@@ -936,6 +941,14 @@ AboutView::_CreateCreditsView()
 	fCreditsView->Insert(string);
 
 	fCreditsView->SetFontAndColor(be_plain_font, B_FONT_ALL, &fTextColor);
+
+#ifndef HAIKU_DISTRO_COMPATIBILITY_OFFICIAL
+	fCreditsView->Insert(B_TRANSLATE("This operating system is derived from "
+		"the code of the Haiku operating system, but it is not associated "
+		"with the Haiku Project. Please contact the developer of your "
+		"distribution to receive support. "));
+#endif
+
 	fCreditsView->Insert(B_TRANSLATE("The copyright to the Haiku code is "
 		"property of Haiku, Inc. or of the respective authors where expressly "
 		"noted in the source. Haiku" B_UTF8_REGISTERED
