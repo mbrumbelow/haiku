@@ -902,6 +902,12 @@ AboutView::_CreateLabel(const char* name, const char* label)
 BView*
 AboutView::_CreateCreditsView()
 {
+#ifdef HAIKU_DISTRO_COMPATIBILITY_OFFICIAL
+	BString name("Haiku");
+#else
+	BString name("");
+#endif
+
 	// Begin construction of the credits view
 	fCreditsView = new HyperTextView("credits");
 	fCreditsView->SetFlags(fCreditsView->Flags() | B_FRAME_EVENTS);
@@ -920,7 +926,19 @@ AboutView::_CreateCreditsView()
 	font.SetSize(font.Size() + 4);
 
 	fCreditsView->SetFontAndColor(&font, B_FONT_ALL, &fHaikuGreenColor);
-	fCreditsView->Insert("Haiku\n");
+
+#ifdef HAIKU_DISTRO_COMPATIBILITY_OFFICIAL
+	fCreditsView->Insert(name);
+	fCreditsView->Insert("\n");
+#else
+	if (name.Length() > 0) {
+		fCreditsView->Insert(name);
+		fCreditsView->Insert(B_TRANSLATE(" (based on Haiku)\n"));
+	}
+	else {
+		fCreditsView->Insert(B_TRANSLATE("Haiku (unofficial)\n"));
+	}
+#endif
 
 	char string[1024];
 	time_t time = ::time(NULL);
@@ -936,6 +954,7 @@ AboutView::_CreateCreditsView()
 	fCreditsView->Insert(string);
 
 	fCreditsView->SetFontAndColor(be_plain_font, B_FONT_ALL, &fTextColor);
+
 	fCreditsView->Insert(B_TRANSLATE("The copyright to the Haiku code is "
 		"property of Haiku, Inc. or of the respective authors where expressly "
 		"noted in the source. Haiku" B_UTF8_REGISTERED
@@ -947,6 +966,33 @@ AboutView::_CreateCreditsView()
 	fCreditsView->InsertHyperText("https://www.haiku-os.org",
 		new URLAction("https://www.haiku-os.org"));
 	fCreditsView->Insert("\n\n");
+
+#ifndef HAIKU_DISTRO_COMPATIBILITY_OFFICIAL
+	fCreditsView->SetFontAndColor(be_plain_font, B_FONT_ALL, &fTextColor);
+
+	fCreditsView->Insert(B_TRANSLATE("This operating system is derived from "
+		"the code of the Haiku operating system, but it is not associated "
+		"with the Haiku Project. Please contact the developer of your "
+		"distribution to receive support."));
+
+	if (name.Length() == 0) {
+		fCreditsView->Insert(B_TRANSLATE(" Third-party distributions must "
+			"conform to the "));
+		fCreditsView->SetFontAndColor(be_plain_font, B_FONT_ALL, &fLinkColor);
+		fCreditsView->InsertHyperText("Haiku Distro Guidelines",
+			new URLAction(
+				"https://www.haiku-os.org/community/guidelines_creating_haiku_distribution"
+			));
+
+		fCreditsView->SetFontAndColor(be_plain_font, B_FONT_ALL, &fTextColor);
+		fCreditsView->Insert(".\n\n");
+	}
+	else {
+		fCreditsView->Insert("\n\n");
+	}
+
+#endif
+
 
 	font.SetSize(be_bold_font->Size());
 	font.SetFace(B_BOLD_FACE | B_ITALIC_FACE);
