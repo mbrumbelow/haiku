@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d1fd2859_979b540f",
+        "filename": "src/system/libroot/os/driver_settings.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-05-30T16:33:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7a781cc_0ef2de5a",
+      "revId": "d1fe594a47ebe8eb711ae269ae6c15b08b72e94e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a6d95b9_d4eb22c3",
         "filename": "src/system/libroot/os/driver_settings.cpp",
         "patchSetId": 4
@@ -51,6 +69,24 @@
       "revId": "d1fe594a47ebe8eb711ae269ae6c15b08b72e94e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d5ee7a9_e4797ba4",
+        "filename": "src/system/libroot/os/driver_settings.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 961,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-05-30T16:33:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81c649f6_27b8ae69",
+      "revId": "d1fe594a47ebe8eb711ae269ae6c15b08b72e94e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
