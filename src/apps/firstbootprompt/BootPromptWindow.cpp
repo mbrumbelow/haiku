@@ -2,7 +2,7 @@
  * Copyright 2010, Stephan Aßmus <superstippi@gmx.de>
  * Copyright 2010, Adrien Destugues <pulkomandy@pulkomandy.ath.cx>
  * Copyright 2011, Axel Dörfler, axeld@pinc-software.de.
- * Copyright 2020, Panagiotis Vasilopoulos <hello@alwayslivid.com>
+ * Copyright 2020-2021, Panagiotis Vasilopoulos <hello@alwayslivid.com>
  * All rights reserved. Distributed under the terms of the MIT License.
  */
 
@@ -360,37 +360,47 @@ void
 BootPromptWindow::_UpdateStrings()
 {
 #ifdef HAIKU_DISTRO_COMPATIBILITY_OFFICIAL
-	BString name("Haiku");
-#else
-	BString name("*Distroname*");
-#endif
-
-	BString text(B_TRANSLATE("Welcome to %distroname%!"));
-	text.ReplaceFirst("%distroname%", name);
-	SetTitle(text);
-
-	text = B_TRANSLATE_COMMENT(
-		"Thank you for trying out %distroname%! We hope you'll like it!\n\n"
+	BString titleText = B_TRANSLATE("Welcome to Haiku!");
+	BString mainText = B_TRANSLATE_COMMENT(
+		"Thank you for trying out Haiku! We hope you'll like it!\n\n"
 		"Please select your preferred language and keymap. Both settings can "
-		"also be changed later when running %distroname%.\n\n"
+		"also be changed later when running Haiku.\n\n"
 
-		"Do you wish to install %distroname% now, or try it out first?",
+		"Do you wish to install Haiku now, or try it out first?",
 
 		"For other languages, a note could be added: \""
 		"Note: Localization of Haiku applications and other components is "
 		"an on-going effort. You will frequently encounter untranslated "
 		"strings, but if you like, you can join in the work at "
 		"<www.haiku-os.org>.\"");
-	text.ReplaceAll("%distroname%", name);
-	fInfoTextView->SetText(text);
+	BString desktopText = B_TRANSLATE("Try Haiku");
+	BString installText = B_TRANSLATE("Install Haiku");
+#else
+	BString titleText = B_TRANSLATE("Welcome!");
+	BString mainText = B_TRANSLATE_COMMENT(
+			"Thank you for trying out our operating system! We hope you'll "
+			"like it!\n\n"
+			"Please select your preferred language and keymap. Both settings "
+			"can also be changed later.\n\n"
 
-	text = B_TRANSLATE("Try out %distroname%");
-	text.ReplaceFirst("%distroname%", name);
-	fDesktopButton->SetLabel(text);
+			"Do you wish to install the operating system now, or try it out "
+			"first?",
 
-	text = B_TRANSLATE("Install %distroname%");
-	text.ReplaceFirst("%distroname%", name);
-	fInstallerButton->SetLabel(text);
+			"This notice appears when the build of Haiku that's currently "
+			"being used is unofficial, as in, not distributed by Haiku itself."
+			"For other languages, a note could be added: \""
+			"Note: Localization of Haiku applications and other components is "
+			"an on-going effort. You will frequently encounter untranslated "
+			"strings, but if you like, you can join in the work at "
+			"<www.haiku-os.org>.\"");
+	BString desktopText = B_TRANSLATE("Try it out");
+	BString installText = B_TRANSLATE("Install");
+#endif
+
+	SetTitle(titleText);
+	fInfoTextView->SetText(mainText);
+	fDesktopButton->SetLabel(desktopText);
+	fInstallerButton->SetLabel(installText);
 
 	fLanguagesLabelView->SetText(B_TRANSLATE("Language"));
 	fKeymapsMenuLabel->SetText(B_TRANSLATE("Keymap"));
