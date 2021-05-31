@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c67cea9f_fa3746a2",
+        "filename": "src/apps/firstbootprompt/BootPromptWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2021-05-31T13:42:47Z",
+      "side": 1,
+      "message": "Not the first time I\u0027m making this mistake, bit rusty, fixed.",
+      "parentUuid": "906ec67c_d8f74387",
+      "revId": "61fe9bf133190e2ebaaf3b29fd8848ef7edad3b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5529d20e_c6fa197e",
         "filename": "src/apps/firstbootprompt/BootPromptWindow.cpp",
         "patchSetId": 2
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "bdd3c5d3_51f54282",
+        "filename": "src/apps/firstbootprompt/BootPromptWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2021-05-31T13:42:47Z",
+      "side": 1,
+      "message": "Didn\u0027t know this applied to cases where the else block is larger than one line. Fixing this.",
+      "parentUuid": "5529d20e_c6fa197e",
+      "revId": "61fe9bf133190e2ebaaf3b29fd8848ef7edad3b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fb262308_a91c6040",
         "filename": "src/apps/firstbootprompt/BootPromptWindow.cpp",
         "patchSetId": 2
@@ -50,6 +86,24 @@
       "revId": "61fe9bf133190e2ebaaf3b29fd8848ef7edad3b6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2396d7f2_760ae245",
+        "filename": "src/apps/firstbootprompt/BootPromptWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2021-05-31T13:42:47Z",
+      "side": 1,
+      "message": "I\u0027m going to try using B_TRANSLATE and see if it compiles. (Update: It does.)",
+      "parentUuid": "fb262308_a91c6040",
+      "revId": "61fe9bf133190e2ebaaf3b29fd8848ef7edad3b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
