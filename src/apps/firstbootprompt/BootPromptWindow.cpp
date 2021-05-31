@@ -362,12 +362,19 @@ BootPromptWindow::_UpdateStrings()
 #ifdef HAIKU_DISTRO_COMPATIBILITY_OFFICIAL
 	BString name("Haiku");
 #else
-	BString name("*Distroname*");
+	BString name("");
 #endif
 
-	BString text(B_TRANSLATE("Welcome to %distroname%!"));
-	text.ReplaceFirst("%distroname%", name);
-	SetTitle(text);
+	BString text;
+
+ 	if (name.Length() > 0) {
+		text = B_TRANSLATE("Welcome to %distroname%!");
+		text.ReplaceFirst("%distroname%", name);
+		SetTitle(text);
+	} else {
+		BString text(B_TRANSLATE("Welcome!"));
+		SetTitle(text);
+	}
 
 	text = B_TRANSLATE_COMMENT(
 		"Thank you for trying out %distroname%! We hope you'll like it!\n\n"
@@ -381,15 +388,29 @@ BootPromptWindow::_UpdateStrings()
 		"an on-going effort. You will frequently encounter untranslated "
 		"strings, but if you like, you can join in the work at "
 		"<www.haiku-os.org>.\"");
-	text.ReplaceAll("%distroname%", name);
+
+	if (name.Length() > 0)
+		text.ReplaceAll("%distroname%", name);
+	else
+		text.ReplaceAll("%distroname%", B_TRANSLATE("this operating system"));
+
 	fInfoTextView->SetText(text);
 
-	text = B_TRANSLATE("Try out %distroname%");
-	text.ReplaceFirst("%distroname%", name);
+	if (name.Length() > 0)
+		text = B_TRANSLATE("Try it out");
+	else {
+		text = B_TRANSLATE("Try out %distroname%");
+		text.ReplaceFirst("%distroname%", name);
+	}
+
 	fDesktopButton->SetLabel(text);
 
-	text = B_TRANSLATE("Install %distroname%");
-	text.ReplaceFirst("%distroname%", name);
+	if (name.Length() > 0) {
+		text = B_TRANSLATE("Install %distroname%");
+		text.ReplaceFirst("%distroname%", name);
+	} else
+		text = B_TRANSLATE("Install");
+
 	fInstallerButton->SetLabel(text);
 
 	fLanguagesLabelView->SetText(B_TRANSLATE("Language"));
