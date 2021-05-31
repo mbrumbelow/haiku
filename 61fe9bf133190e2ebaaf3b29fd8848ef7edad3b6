@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "906ec67c_d8f74387",
+        "filename": "src/apps/firstbootprompt/BootPromptWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-05-31T13:32:04Z",
+      "side": 1,
+      "message": "\u0027else\u0027 goes on the same line as the previous \u0027}\u0027 (here and at other places).",
+      "revId": "61fe9bf133190e2ebaaf3b29fd8848ef7edad3b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5529d20e_c6fa197e",
+        "filename": "src/apps/firstbootprompt/BootPromptWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-05-31T13:32:04Z",
+      "side": 1,
+      "message": "We omit curly braces on single line statements.",
+      "revId": "61fe9bf133190e2ebaaf3b29fd8848ef7edad3b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb262308_a91c6040",
+        "filename": "src/apps/firstbootprompt/BootPromptWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-05-31T13:32:04Z",
+      "side": 1,
+      "message": "The text \"this operating system\" is not located. And I\u0027m also not sure it can be translated this way at all, at least I could invent a language that deals very different with names vs. things.",
+      "revId": "61fe9bf133190e2ebaaf3b29fd8848ef7edad3b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
