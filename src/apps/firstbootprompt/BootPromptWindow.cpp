@@ -2,7 +2,7 @@
  * Copyright 2010, Stephan Aßmus <superstippi@gmx.de>
  * Copyright 2010, Adrien Destugues <pulkomandy@pulkomandy.ath.cx>
  * Copyright 2011, Axel Dörfler, axeld@pinc-software.de.
- * Copyright 2020, Panagiotis Vasilopoulos <hello@alwayslivid.com>
+ * Copyright 2020-2021, Panagiotis Vasilopoulos <hello@alwayslivid.com>
  * All rights reserved. Distributed under the terms of the MIT License.
  */
 
@@ -360,36 +360,65 @@ void
 BootPromptWindow::_UpdateStrings()
 {
 #ifdef HAIKU_DISTRO_COMPATIBILITY_OFFICIAL
-	BString name("Haiku");
+    bool callItHaiku = true;
 #else
-	BString name("*Distroname*");
+    bool callItHaiku = false;
 #endif
 
-	BString text(B_TRANSLATE("Welcome to %distroname%!"));
-	text.ReplaceFirst("%distroname%", name);
-	SetTitle(text);
+	BString text;
 
-	text = B_TRANSLATE_COMMENT(
-		"Thank you for trying out %distroname%! We hope you'll like it!\n\n"
-		"Please select your preferred language and keymap. Both settings can "
-		"also be changed later when running %distroname%.\n\n"
+	if (callItHaiku) {
+		text = B_TRANSLATE("Welcome to Haiku!");
+		SetTitle(text);
+	} else {
+		BString text(B_TRANSLATE("Welcome!"));
+		SetTitle(text);
+	}
 
-		"Do you wish to install %distroname% now, or try it out first?",
+	if (callItHaiku) {
+		text = B_TRANSLATE_COMMENT(
+			"Thank you for trying out Haiku! We hope you'll like it!\n\n"
+			"Please select your preferred language and keymap. Both settings can "
+			"also be changed later when running Haiku.\n\n"
 
-		"For other languages, a note could be added: \""
-		"Note: Localization of Haiku applications and other components is "
-		"an on-going effort. You will frequently encounter untranslated "
-		"strings, but if you like, you can join in the work at "
-		"<www.haiku-os.org>.\"");
-	text.ReplaceAll("%distroname%", name);
+			"Do you wish to install Haiku now, or try it out first?",
+
+			"For other languages, a note could be added: \""
+			"Note: Localization of Haiku applications and other components is "
+			"an on-going effort. You will frequently encounter untranslated "
+			"strings, but if you like, you can join in the work at "
+			"<www.haiku-os.org>.\"");
+	} else {
+		text = B_TRANSLATE_COMMENT(
+			"Thank you for trying out our operating system! We hope you'll like it!\n\n"
+			"Please select your preferred language and keymap. Both settings can "
+			"also be changed later.\n\n"
+
+			"Do you wish to install the operating system now, or try it out first?",
+
+			"This notice appears when the build of Haiku that's currently "
+			"being used is unofficial, as in, not distributed by Haiku itself."
+			"For other languages, a note could be added: \""
+			"Note: Localization of Haiku applications and other components is "
+			"an on-going effort. You will frequently encounter untranslated "
+			"strings, but if you like, you can join in the work at "
+			"<www.haiku-os.org>.\"");
+	}
+
 	fInfoTextView->SetText(text);
 
-	text = B_TRANSLATE("Try out %distroname%");
-	text.ReplaceFirst("%distroname%", name);
+	if (callItHaiku) {
+		text = B_TRANSLATE("Try Haiku");
+	} else
+		text = B_TRANSLATE("Try it out");
+
 	fDesktopButton->SetLabel(text);
 
-	text = B_TRANSLATE("Install %distroname%");
-	text.ReplaceFirst("%distroname%", name);
+	if (callItHaiku) {
+		text = B_TRANSLATE("Install Haiku");
+	} else
+		text = B_TRANSLATE("Install");
+
 	fInstallerButton->SetLabel(text);
 
 	fLanguagesLabelView->SetText(B_TRANSLATE("Language"));
