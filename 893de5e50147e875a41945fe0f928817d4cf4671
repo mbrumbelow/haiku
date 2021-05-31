@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "44aea8bc_9f9c20ae",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-05-31T13:37:22Z",
+      "side": 1,
+      "message": "Two blank lines above this line.",
+      "revId": "893de5e50147e875a41945fe0f928817d4cf4671",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a1aab03_19a6eff2",
+        "filename": "src/apps/aboutsystem/AboutSystem.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-05-31T13:37:22Z",
+      "side": 1,
+      "message": "No blank line here.",
+      "revId": "893de5e50147e875a41945fe0f928817d4cf4671",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b36975a6_06333a3b",
+        "filename": "src/apps/aboutsystem/AboutSystem.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-05-31T13:37:22Z",
+      "side": 1,
+      "message": "Two blank lines above this one.",
+      "revId": "893de5e50147e875a41945fe0f928817d4cf4671",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9327c6a_3037d0f8",
+        "filename": "src/apps/aboutsystem/AboutSystem.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-05-31T13:37:22Z",
+      "side": 1,
+      "message": "Why should those defines be in this header? Are they supposed to be used from anywhere else?",
+      "revId": "893de5e50147e875a41945fe0f928817d4cf4671",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b529092_4602ac65",
+        "filename": "src/apps/aboutsystem/AboutSystem.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-05-31T13:37:22Z",
+      "side": 1,
+      "message": "Two blank lines here.",
+      "revId": "893de5e50147e875a41945fe0f928817d4cf4671",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e54cf6c_efa953fe",
+        "filename": "src/apps/aboutsystem/AboutSystem.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-05-31T13:37:22Z",
+      "side": 1,
+      "message": "That\u0027s not your fault, but names leading with an underscore are supposed to be private.",
+      "revId": "893de5e50147e875a41945fe0f928817d4cf4671",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3630972_6d0f9086",
+        "filename": "src/apps/aboutsystem/AboutSystem.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-05-31T13:37:22Z",
+      "side": 1,
+      "message": "Superfluous pragma mark comment.",
+      "revId": "893de5e50147e875a41945fe0f928817d4cf4671",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
