@@ -242,6 +242,7 @@ CFLAGS="$ccFlags" CXXFLAGS="$cxxFlags" "$gccSourceDir/configure" \
 	--disable-maintainer-mode \
 	--disable-libgomp \
 	--disable-libatomic \
+	--enable-initfini-array \
 	$gccConfigureArgs \
 	|| exit 1
 
