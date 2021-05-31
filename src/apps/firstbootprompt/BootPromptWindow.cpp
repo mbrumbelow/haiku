@@ -362,34 +362,64 @@ BootPromptWindow::_UpdateStrings()
 #ifdef HAIKU_DISTRO_COMPATIBILITY_OFFICIAL
 	BString name("Haiku");
 #else
-	BString name("*Distroname*");
+	BString name("");
 #endif
 
-	BString text(B_TRANSLATE("Welcome to %distroname%!"));
-	text.ReplaceFirst("%distroname%", name);
-	SetTitle(text);
+	BString text;
 
-	text = B_TRANSLATE_COMMENT(
-		"Thank you for trying out %distroname%! We hope you'll like it!\n\n"
-		"Please select your preferred language and keymap. Both settings can "
-		"also be changed later when running %distroname%.\n\n"
+ 	if (name.Length() > 0) {
+		text = B_TRANSLATE("Welcome to %distroname%!");
+		text.ReplaceFirst("%distroname%", name);
+		SetTitle(text);
+	} else {
+		BString text(B_TRANSLATE("Welcome!"));
+		SetTitle(text);
+	}
 
-		"Do you wish to install %distroname% now, or try it out first?",
+	if (name.Length() > 0) {
+		text = B_TRANSLATE_COMMENT(
+			"Thank you for trying out this operating system! We hope you'll like it!\n\n"
+			"Please select your preferred language and keymap. Both settings can "
+			"also be changed later.\n\n"
 
-		"For other languages, a note could be added: \""
-		"Note: Localization of Haiku applications and other components is "
-		"an on-going effort. You will frequently encounter untranslated "
-		"strings, but if you like, you can join in the work at "
-		"<www.haiku-os.org>.\"");
-	text.ReplaceAll("%distroname%", name);
+			"Do you wish to install %distroname% now, or try it out first?",
+
+			"This notice appears when the build of Haiku that's currently "
+			"being used is unofficial, as in, not distributed by Haiku itself."
+			"For other languages, a note could be added: \""
+			"Note: Localization of Haiku applications and other components is "
+			"an on-going effort. You will frequently encounter untranslated "
+			"strings, but if you like, you can join in the work at "
+			"<www.haiku-os.org>.\"");
+	} else {
+		text = B_TRANSLATE_COMMENT(
+			"Thank you for trying out %distroname%! We hope you'll like it!\n\n"
+			"Please select your preferred language and keymap. Both settings can "
+			"also be changed later when running %distroname%.\n\n"
+
+			"Do you wish to install %distroname% now, or try it out first?",
+
+
+		text.ReplaceAll("%distroname%", name);
+	}
+
 	fInfoTextView->SetText(text);
 
-	text = B_TRANSLATE("Try out %distroname%");
-	text.ReplaceFirst("%distroname%", name);
+	if (name.Length() > 0)
+		text = B_TRANSLATE("Try it out");
+	else {
+		text = B_TRANSLATE("Try out %distroname%");
+		text.ReplaceFirst("%distroname%", name);
+	}
+
 	fDesktopButton->SetLabel(text);
 
-	text = B_TRANSLATE("Install %distroname%");
-	text.ReplaceFirst("%distroname%", name);
+	if (name.Length() > 0) {
+		text = B_TRANSLATE("Install %distroname%");
+		text.ReplaceFirst("%distroname%", name);
+	} else
+		text = B_TRANSLATE("Install");
+
 	fInstallerButton->SetLabel(text);
 
 	fLanguagesLabelView->SetText(B_TRANSLATE("Language"));
