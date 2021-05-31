@@ -70,6 +70,24 @@
     },
     {
       "key": {
+        "uuid": "262a5454_f2b52db9",
+        "filename": "src/apps/aboutsystem/AboutSystem.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2021-05-31T17:00:07Z",
+      "side": 1,
+      "message": "I believe that LINE_MAX should stay there for the edge case where a developer ends up supplying a file with more than 2048 lines.",
+      "parentUuid": "b9327c6a_3037d0f8",
+      "revId": "893de5e50147e875a41945fe0f928817d4cf4671",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6b529092_4602ac65",
         "filename": "src/apps/aboutsystem/AboutSystem.h",
         "patchSetId": 3
