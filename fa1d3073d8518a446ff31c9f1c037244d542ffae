@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9bdd852f_09958544",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 3274,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-05-31T23:16:17Z",
+      "side": 1,
+      "message": "We must not return here because we have to turn updates back on below. The return was a short-circuit because there is no text to delete but it is ok if we try to delete and redraw an empty area of text.",
+      "revId": "fa1d3073d8518a446ff31c9f1c037244d542ffae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5a18a46_66a09cf7",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 1500,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-05-31T23:16:17Z",
+      "side": 1,
+      "message": "PostMessage() triggers the message filter, MessageReceived() does not.",
+      "revId": "fa1d3073d8518a446ff31c9f1c037244d542ffae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1796e53_7ab3f8a5",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-05-31T23:16:17Z",
+      "side": 1,
+      "message": "Keep track of the currently edited widget here. Used by message filter functions to get the max width allowed.",
+      "revId": "fa1d3073d8518a446ff31c9f1c037244d542ffae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f3310eb_4da9400e",
+        "filename": "src/kits/tracker/TextWidget.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-05-31T23:16:17Z",
+      "side": 1,
+      "message": "I renamed this because we now have an additional paste filter to contend with.",
+      "revId": "fa1d3073d8518a446ff31c9f1c037244d542ffae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37c323d4_9e2b8ce6",
+        "filename": "src/kits/tracker/TextWidget.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-05-31T23:16:17Z",
+      "side": 1,
+      "message": "I renamed this variable because we call pose view just view elsewhere and it is easier to copy paste more consistent code in this class/file.",
+      "revId": "fa1d3073d8518a446ff31c9f1c037244d542ffae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8659b6be_036646cf",
+        "filename": "src/kits/tracker/TextWidget.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-05-31T23:16:17Z",
+      "side": 1,
+      "message": "Here we filter pasted text messages limiting to max width.",
+      "revId": "fa1d3073d8518a446ff31c9f1c037244d542ffae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6fd84de_d2d0369e",
+        "filename": "src/kits/tracker/TextWidget.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-05-31T23:16:17Z",
+      "side": 1,
+      "message": "I added this to have access to the text widget in the message filter functions.",
+      "revId": "fa1d3073d8518a446ff31c9f1c037244d542ffae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47283dc9_361e1b5f",
+        "filename": "src/kits/tracker/TextWidget.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-05-31T23:16:17Z",
+      "side": 1,
+      "message": "We stash the max width here to either the column width in list mode or 30em in icon mode.",
+      "revId": "fa1d3073d8518a446ff31c9f1c037244d542ffae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
