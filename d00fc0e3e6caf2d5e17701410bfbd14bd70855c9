@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3d47dd4e_c747f623",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-05-31T12:01:08Z",
+      "side": 0,
+      "message": "do not remove these, they are used in text editors (Pe and someday Koder) to separate different sections of the file and allow easy navigation (they are visible in the function list menu).\n\nSome backstory: this was introduced in Objective-C by Apple. However it was not standardized in C and C++. So we reuse it, but we comment it out (and use it only for text editors and not for the compiler).",
+      "revId": "d00fc0e3e6caf2d5e17701410bfbd14bd70855c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
