@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "8465d522_ef5f9a64",
+        "filename": "src/servers/app/font/FontStyle.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-01T18:26:56Z",
+      "side": 1,
+      "message": "Why not simply use a divide by 64 instead of a bit shift here? That would be more readable.\nAlso a comment about why this scaling is needed would be nice.",
+      "parentUuid": "4b1db635_8d8115ba",
+      "revId": "716a5b046fe32f7ca4ecfc073995d3dcac792f2f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "84852d61_f789fe83",
         "filename": "src/servers/app/font/FontStyle.cpp",
         "patchSetId": 1
