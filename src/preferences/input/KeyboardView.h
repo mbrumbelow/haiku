@@ -25,13 +25,13 @@ class KeyboardView : public BGroupView
 public:
 	KeyboardView();
 	virtual ~KeyboardView();
-	void	Draw(BRect frame);
+	void Draw(BRect frame);
 
 private:
-	BBitmap		*fIconBitmap;
-	BBitmap		*fClockBitmap;
-	BSlider		*fDelaySlider;
-	BSlider		*fRepeatSlider;
+	BBitmap* fIconBitmap;
+	BBitmap* fClockBitmap;
+	BSlider* fDelaySlider;
+	BSlider* fRepeatSlider;
 };
 
 #endif

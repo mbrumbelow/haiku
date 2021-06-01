@@ -68,9 +68,7 @@ MouseSettings::MouseSettings(mouse_settings settings, BString name)
 }
 
 
-MouseSettings::~MouseSettings()
-{
-}
+MouseSettings::~MouseSettings() {}
 
 
 status_t
@@ -131,6 +129,8 @@ MouseSettings::_LoadLegacySettings()
 
 
 #ifdef DEBUG
+
+
 void
 MouseSettings::Dump()
 {
@@ -381,7 +381,7 @@ MultipleMouseSettings::~MultipleMouseSettings()
 
 	std::map<BString, MouseSettings*>::iterator itr;
 	for (itr = fMouseSettingsObject.begin(); itr != fMouseSettingsObject.end();
-		++itr)
+		 ++itr)
 		delete itr->second;
 
 	delete fDeprecatedMouseSettings;
@@ -447,7 +447,7 @@ MultipleMouseSettings::Archive(BMessage* into, bool deep) const
 {
 	std::map<BString, MouseSettings*>::const_iterator itr;
 	for (itr = fMouseSettingsObject.begin(); itr != fMouseSettingsObject.end();
-		++itr) {
+		 ++itr) {
 		into->AddString("mouseDevice", itr->first);
 		into->AddData("mouseSettings", B_ANY_TYPE, itr->second->GetSettings(),
 			sizeof(*(itr->second->GetSettings())));
@@ -483,20 +483,21 @@ MultipleMouseSettings::Defaults()
 {
 	std::map<BString, MouseSettings*>::iterator itr;
 	for (itr = fMouseSettingsObject.begin(); itr != fMouseSettingsObject.end();
-		++itr) {
+		 ++itr) {
 		itr->second->Defaults();
 	}
-
 }
 
 
 #ifdef DEBUG
+
+
 void
 MultipleMouseSettings::Dump()
 {
 	std::map<BString, MouseSettings*>::iterator itr;
 	for (itr = fMouseSettingsObject.begin(); itr != fMouseSettingsObject.end();
-		++itr) {
+		 ++itr) {
 		printf("mouse_name:\t%s\n", itr->first.String());
 		itr->second->Dump();
 		printf("\n");

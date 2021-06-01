@@ -16,8 +16,9 @@
 
 #include "kb_mouse_settings.h"
 
-class KeyboardSettings {
-public :
+class KeyboardSettings
+{
+public:
 	KeyboardSettings();
 	~KeyboardSettings();
 
@@ -26,16 +27,20 @@ public :
 	bool IsDefaultable();
 
 	int32 KeyboardRepeatRate() const
-		{ return fSettings.key_repeat_rate; }
+	{
+		return fSettings.key_repeat_rate;
+	}
 	void SetKeyboardRepeatRate(int32 rate);
 
 	bigtime_t KeyboardRepeatDelay() const
-		{ return fSettings.key_repeat_delay; }
+	{
+		return fSettings.key_repeat_delay;
+	}
 	void SetKeyboardRepeatDelay(bigtime_t delay);
 
 private:
-	kb_settings			fSettings;
-	kb_settings			fOriginalSettings;
+	kb_settings fSettings;
+	kb_settings fOriginalSettings;
 };
 
 #endif

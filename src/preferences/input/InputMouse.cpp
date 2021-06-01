@@ -45,29 +45,27 @@ InputMouse::InputMouse(BInputDevice* dev, MouseSettings* settings)
 
 	fSettingsView = new SettingsView(*fSettings);
 
-	fDefaultsButton = new BButton(B_TRANSLATE("Defaults"),
-		new BMessage(kMsgDefaults));
+	fDefaultsButton
+		= new BButton(B_TRANSLATE("Defaults"), new BMessage(kMsgDefaults));
 	fDefaultsButton->SetEnabled(fSettings->IsDefaultable());
 
-	fRevertButton = new BButton(B_TRANSLATE("Revert"),
-		new BMessage(kMsgRevert));
+	fRevertButton
+		= new BButton(B_TRANSLATE("Revert"), new BMessage(kMsgRevert));
 	fRevertButton->SetEnabled(false);
 
 	BLayoutBuilder::Group<>(this, B_VERTICAL, B_USE_DEFAULT_SPACING)
 		.Add(fSettingsView)
-			.Add(new BSeparatorView(B_HORIZONTAL))
-				.AddGroup(B_HORIZONTAL)
-				.Add(fDefaultsButton)
-				.Add(fRevertButton)
-				.AddGlue()
-				.End()
+		.Add(new BSeparatorView(B_HORIZONTAL))
+		.AddGroup(B_HORIZONTAL)
+		.Add(fDefaultsButton)
+		.Add(fRevertButton)
+		.AddGlue()
+		.End()
 		.End();
 }
 
 
-InputMouse::~InputMouse()
-{
-}
+InputMouse::~InputMouse() {}
 
 
 void

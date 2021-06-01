@@ -24,32 +24,33 @@ class MouseSettings;
 class MouseView;
 
 
-class SettingsView : public BBox {
-	public:
-								SettingsView(MouseSettings &settings);
-		virtual 				~SettingsView();
+class SettingsView : public BBox
+{
+public:
+	SettingsView(MouseSettings& settings);
+	virtual ~SettingsView();
 
-		virtual void 			AttachedToWindow();
+	virtual void AttachedToWindow();
 
-				void 			SetMouseType(int32 type);
-				void 			MouseMapUpdated();
-				void 			UpdateFromSettings();
+	void SetMouseType(int32 type);
+	void MouseMapUpdated();
+	void UpdateFromSettings();
 
-	public:
-				// FIXME use proper getters/setters for this?
-				BCheckBox*		fAcceptFirstClickBox;
+public:
+	// FIXME use proper getters/setters for this?
+	BCheckBox* fAcceptFirstClickBox;
 
-	private:
-		typedef	BBox			inherited;
+private:
+	typedef BBox inherited;
 
-		const	MouseSettings&	fSettings;
+	const MouseSettings& fSettings;
 
-				BOptionPopUp*	fTypeMenu;
-				BOptionPopUp*	fFocusMenu;
-				MouseView*		fMouseView;
-				BSlider*		fClickSpeedSlider;
-				BSlider*		fMouseSpeedSlider;
-				BSlider*		fAccelerationSlider;
+	BOptionPopUp* fTypeMenu;
+	BOptionPopUp* fFocusMenu;
+	MouseView* fMouseView;
+	BSlider* fClickSpeedSlider;
+	BSlider* fMouseSpeedSlider;
+	BSlider* fAccelerationSlider;
 };
 
-#endif	/* SETTINGS_VIEW_H */
+#endif /* SETTINGS_VIEW_H */
