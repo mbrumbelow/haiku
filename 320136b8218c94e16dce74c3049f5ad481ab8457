@@ -391,6 +391,24 @@
     },
     {
       "key": {
+        "uuid": "6ee280cc_8895a845",
+        "filename": "src/preferences/input/InputKeyboard.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-01T19:51:39Z",
+      "side": 1,
+      "message": "I think this is acceptable even if it is not strictly required by the coding guidelines. In this case, doing the line wrap earlier seems more readable.",
+      "parentUuid": "9a046cf3_cf9e88f0",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "15439074_d92ccf91",
         "filename": "src/preferences/input/InputKeyboard.cpp",
         "patchSetId": 1
@@ -437,6 +455,24 @@
       "side": 1,
       "message": "Yes, the previous code was much more readable and understandable at one go. I will try to find out the solution for this problem.",
       "parentUuid": "15439074_d92ccf91",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c570c1d_ba06a495",
+        "filename": "src/preferences/input/InputKeyboard.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-01T19:51:39Z",
+      "side": 1,
+      "message": "Yes, this will require some specific handling.\n\nOur options are:\n- Have some very specific code to detect the use of BLayoutBuilder and the specific indentation it needs\n- Annotate the sourcecode with some comments to tell clang-format to not touch this part of the code.",
+      "parentUuid": "1d1266f7_59600ac3",
       "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -550,6 +586,24 @@
     },
     {
       "key": {
+        "uuid": "971fbe91_0e9467c3",
+        "filename": "src/preferences/input/InputMouse.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-01T19:51:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a43c13ab_4fe8a49f",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "40819721_62024e70",
         "filename": "src/preferences/input/InputMouse.cpp",
         "patchSetId": 1
@@ -600,6 +654,24 @@
       "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ca09334_647c9288",
+        "filename": "src/preferences/input/InputMouse.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-01T19:51:39Z",
+      "side": 1,
+      "message": "I have decided that the way clang-format formats this is more readable and have merged that change in the master branch.",
+      "parentUuid": "2926b651_bfdfc91a",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -773,6 +845,24 @@
       "side": 1,
       "message": "May be disccusing it on mailing list might be helpful.",
       "parentUuid": "cc6cb629_d094b52b",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abcf94bb_fbdbf7c9",
+        "filename": "src/preferences/input/InputTouchpadPrefView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-01T19:51:39Z",
+      "side": 1,
+      "message": "I think the input was compliant, and the output is also compliant with the coding guideline.\n\nWe don\u0027t have a \"break lines as late as possible\" even if that\u0027s what we tend to do.\n\nSo, this at least does not make things worse. Ideally we would manage to not touch code that is already correct, but that is not a top priority thing at the moment.",
+      "parentUuid": "9a8bd320_56243c10",
       "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -972,6 +1062,24 @@
     },
     {
       "key": {
+        "uuid": "305e2370_a27f9650",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-01T19:51:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "812245bd_18e282ed",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "446076f1_b4164f1e",
         "filename": "src/preferences/input/MouseSettings.cpp",
         "patchSetId": 1
@@ -1149,6 +1257,24 @@
       "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b19d7eda_a560142c",
+        "filename": "src/preferences/input/MouseView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-01T19:51:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2dd4d084_e0d111ce",
+      "revId": "320136b8218c94e16dce74c3049f5ad481ab8457",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
