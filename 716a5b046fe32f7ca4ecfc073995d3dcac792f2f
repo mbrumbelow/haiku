@@ -54,6 +54,23 @@
     },
     {
       "key": {
+        "uuid": "b9f88c47_bbde4254",
+        "filename": "src/servers/app/font/FontStyle.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-06-01T18:32:37Z",
+      "side": 1,
+      "message": "There is a double semi-colon on this line.",
+      "revId": "716a5b046fe32f7ca4ecfc073995d3dcac792f2f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "84852d61_f789fe83",
         "filename": "src/servers/app/font/FontStyle.cpp",
         "patchSetId": 1
