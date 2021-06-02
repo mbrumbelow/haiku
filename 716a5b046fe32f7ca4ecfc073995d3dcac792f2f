@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "10f75209_adf92965",
+        "filename": "src/servers/app/font/FontEngine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2021-06-02T18:39:20Z",
+      "side": 1,
+      "message": "That\u0027s what the patch solves. Being the conversion factor between points and the font units used in the outlines, it doesn\u0027t make sense for fFace-\u003eunits_per_EM to be 0 (or negative) *for scalable fonts*. It is indeed 0 for bitmap fonts.",
+      "parentUuid": "5f8812d7_4acb2b7c",
+      "revId": "716a5b046fe32f7ca4ecfc073995d3dcac792f2f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4b1db635_8d8115ba",
         "filename": "src/servers/app/font/FontStyle.cpp",
         "patchSetId": 1
@@ -54,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "2e42aae2_18023ecb",
+        "filename": "src/servers/app/font/FontStyle.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2021-06-02T18:39:20Z",
+      "side": 1,
+      "message": "It doesn\u0027t make sense for this value to be negative. Changed to the library type anyway, even though it is signed too. The bit could theoretically be there, but that would mean you\u0027d have a bitmap that would extend for more than 2 kilometers with a resolution of 400 point per inch.\n\nI\u0027m also assuming num_fixed_sizes \u003e 0, thus available_sizes[0] existing. If it didn\u0027t, the font would have no bitmaps, and as we are in the no outlines path, you wouldn\u0027t have a font at all.\n\nNo excuse for the bit shift.",
+      "parentUuid": "8465d522_ef5f9a64",
+      "revId": "716a5b046fe32f7ca4ecfc073995d3dcac792f2f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b9f88c47_bbde4254",
         "filename": "src/servers/app/font/FontStyle.cpp",
         "patchSetId": 1
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "93ae72b9_8cd1644c",
+        "filename": "src/servers/app/font/FontStyle.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2021-06-02T18:39:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9f88c47_bbde4254",
+      "revId": "716a5b046fe32f7ca4ecfc073995d3dcac792f2f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84852d61_f789fe83",
         "filename": "src/servers/app/font/FontStyle.cpp",
         "patchSetId": 1
@@ -82,6 +136,24 @@
       "writtenOn": "2021-06-01T18:17:16Z",
       "side": 1,
       "message": "Can size be 0?",
+      "revId": "716a5b046fe32f7ca4ecfc073995d3dcac792f2f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e05fc590_91b934ee",
+        "filename": "src/servers/app/font/FontStyle.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2021-06-02T18:39:20Z",
+      "side": 1,
+      "message": "Being the font size, it shouldn\u0027t.",
+      "parentUuid": "84852d61_f789fe83",
       "revId": "716a5b046fe32f7ca4ecfc073995d3dcac792f2f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
