@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "20442153_ff611af8",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 3502,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-06-02T03:01:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d866f56_460af207",
+      "revId": "fa1d3073d8518a446ff31c9f1c037244d542ffae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5a18a46_66a09cf7",
         "filename": "src/kits/tracker/ContainerWindow.cpp",
         "patchSetId": 9
