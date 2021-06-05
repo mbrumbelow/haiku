@@ -388,6 +388,24 @@
     },
     {
       "key": {
+        "uuid": "9617414c_8331ad40",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-05T09:34:40Z",
+      "side": 1,
+      "message": "You already have \"UsePrivateKernelHeaders ;\" in the jamfile. So you just need to add the #include \u003ckernel.h\u003e in system_dependencies.h.\n\nFor building xfs_shell you will also need to include fssh_kernel_priv.h in the fs_shell section of system_dependencies.h",
+      "parentUuid": "1a47853b_860398fb",
+      "revId": "12a1293f4e2402e3adff90d5814cb32f390f7c9f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "67faef6f_f91c2a39",
         "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
         "patchSetId": 14
