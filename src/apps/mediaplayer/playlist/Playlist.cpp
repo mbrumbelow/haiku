@@ -587,12 +587,17 @@ Playlist::AppendM3uToPlaylist(const entry_ref& ref, Playlist* playlist)
 	while (lineReader.Next(line)) {
 		if (line.FindFirst("#") != 0) {
 			BPath path(line.String());
+			BUrl url(line.String());
 			entry_ref refPath;
 			status_t err;
 
 			if ((err = get_ref_for_path(path.Path(), &refPath)) == B_OK) {
 				PlaylistItem* item
 					= new (std::nothrow) FilePlaylistItem(refPath);
+				if (item == NULL || !playlist->AddItem(item))
+					delete item;
+			} else if (url.IsValid()) {
+				PlaylistItem* item = new (std::nothrow) UrlPlaylistItem(url);
 				if (item == NULL || !playlist->AddItem(item))
 					delete item;
 			} else {
