@@ -34,6 +34,23 @@
       "revId": "3745f4d7e8631e14fc16f252c8c7a1ba33ac1c04",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82884366_e02a4876",
+        "filename": "headers/private/kernel/arch/riscv64/arch_kernel.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-06-06T16:11:48Z",
+      "side": 1,
+      "message": "see https://review.haiku-os.org/c/haiku/+/3733\n\nThe addresses in this patch were based on chatting extensively with the risc-v folks about the kernel memory maps. There are some requirements around virtual addresses on platforms with a supervisor.",
+      "revId": "3745f4d7e8631e14fc16f252c8c7a1ba33ac1c04",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
