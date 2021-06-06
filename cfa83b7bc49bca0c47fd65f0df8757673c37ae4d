@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "87b74a64_6c771e62",
+        "filename": "headers/private/system/arch/riscv64/asm_defs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-06-06T14:50:30Z",
+      "side": 1,
+      "message": "Is this still needed?",
+      "revId": "cfa83b7bc49bca0c47fd65f0df8757673c37ae4d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
