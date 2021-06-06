@@ -2782,6 +2782,8 @@ ensure_debugger_installed()
 void
 _user_debugger(const char *userMessage)
 {
+	WriteTrapInfo();
+	DoStackTrace(Fp(), 0);
 	// install the default debugger, if there is none yet
 	status_t error = ensure_debugger_installed();
 	if (error != B_OK) {
