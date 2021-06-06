@@ -16,6 +16,24 @@
       "revId": "830db1095fd8d63cd6da571c810f65910ffdd10b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d09381f_34d585d7",
+        "filename": "src/system/kernel/arch/riscv64/arch_asm.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-06-06T16:09:00Z",
+      "side": 0,
+      "message": "It is implemented here: https://review.haiku-os.org/c/haiku/+/4052.",
+      "parentUuid": "2877b2c3_ba9133ff",
+      "revId": "830db1095fd8d63cd6da571c810f65910ffdd10b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
