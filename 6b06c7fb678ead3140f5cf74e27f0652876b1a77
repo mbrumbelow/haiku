@@ -16,6 +16,24 @@
       "revId": "6b06c7fb678ead3140f5cf74e27f0652876b1a77",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d33a76a5_a33ff43e",
+        "filename": "src/apps/haikudepot/packagemanagement/PackageManager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2021-06-06T05:09:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15b8c37b_6255bbd6",
+      "revId": "6b06c7fb678ead3140f5cf74e27f0652876b1a77",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
