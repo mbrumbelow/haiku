@@ -5,6 +5,7 @@
 
 
 #include <asm_defs.h>
+#include "syscall_numbers.h"
 
 
 .text
@@ -160,3 +161,10 @@ FUNCTION(arch_longjmp_iframe):
 	mv sp, a0
 	call SVecURet
 FUNCTION_END(arch_longjmp_iframe)
+
+
+FUNCTION(arch_user_thread_exit):
+	li t0, SYSCALL_EXIT_THREAD
+	ecall
+	ret
+FUNCTION_END(arch_user_thread_exit)
