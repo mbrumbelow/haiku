@@ -1686,7 +1686,6 @@ device_node::_GetNextDriverPath(void*& cookie, KPath& _path)
 					_AddPath(*stack, "busses/pci");
 					_AddPath(*stack, "bus_managers");
 				} else if (!generic) {
-					_AddPath(*stack, "busses", "virtio");
 					_AddPath(*stack, "drivers");
 				} else {
 					// For generic drivers, we only allow busses when the
@@ -1700,7 +1699,9 @@ device_node::_GetNextDriverPath(void*& cookie, KPath& _path)
 					_AddPath(*stack, "drivers", sGenericContextPath);
 					_AddPath(*stack, "busses/i2c");
 					_AddPath(*stack, "busses/scsi");
+					_AddPath(*stack, "busses", "virtio");
 					_AddPath(*stack, "busses/random");
+					_AddPath(*stack, "bus_managers/pci");
 				}
 				break;
 		}
@@ -1761,6 +1762,7 @@ device_node::_FindBestDriver(const char* path, driver_module_info*& bestDriver,
 	void* list = open_module_list_etc(path, "driver_v1");
 	driver_module_info* driver;
 	while (_GetNextDriver(list, driver) == B_OK) {
+//		dprintf("    candidate: \"%s\"\n", driver->info.name);
 		if (previous != NULL && driver == previous->DriverModule()) {
 			put_module(driver->info.name);
 			continue;
@@ -1825,6 +1827,7 @@ device_node::_AlwaysRegisterDynamic()
 status_t
 device_node::_RegisterDynamic(device_node* previous)
 {
+//	dprintf("%p._RegisterDynamic()\n", this);
 	// If this is not a bus, we don't have to scan it
 	if (find_attr(this, B_DEVICE_BUS, false, B_STRING_TYPE) == NULL)
 		return B_OK;
@@ -1844,6 +1847,7 @@ device_node::_RegisterDynamic(device_node* previous)
 		void* cookie = NULL;
 
 		while (_GetNextDriverPath(cookie, path) == B_OK) {
+//			dprintf("  candidate: \"%s\"\n", path.Path());
 			_FindBestDriver(path.Path(), bestDriver, bestSupport, previous);
 		}
 
