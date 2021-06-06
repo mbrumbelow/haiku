@@ -5,7 +5,6 @@
 
 
 #include <asm_defs.h>
-#include <arch_cpu_defs.h>
 
 
 .text

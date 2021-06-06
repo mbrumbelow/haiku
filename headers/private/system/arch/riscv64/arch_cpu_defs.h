@@ -1,10 +1,13 @@
 /*
- * Copyright 2021, Haiku, Inc.
+ * Copyright 2021, Haiku, Inc. All Rights Reserved.
  * Distributed under the terms of the MIT License.
+ *
+ * Authors:
+ *	Alexander von Gluck IV <kallisti5@unixzen.com>
  */
-
 #ifndef _SYSTEM_ARCH_RISCV64_DEFS_H
 #define _SYSTEM_ARCH_RISCV64_DEFS_H
+
 
 #include <SupportDefs.h>
 
@@ -327,4 +330,3 @@ static B_ALWAYS_INLINE void Sret() {asm volatile("sret");}
 
 
 #endif	/* _SYSTEM_ARCH_RISCV64_DEFS_H */
-

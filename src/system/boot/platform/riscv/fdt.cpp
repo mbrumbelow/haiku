@@ -1,5 +1,5 @@
 /*
- * Copyright 2021, Haiku, Inc.
+ * Copyright 2021, Haiku, Inc. All Rights Reserved.
  * Distributed under the terms of the MIT License.
  */
 
