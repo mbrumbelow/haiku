@@ -913,13 +913,13 @@ TeamDebugHandler::_LookupSymbolAddress(
 		// we were able to look something up
 		if (strlen(symbolName) > 0) {
 			// we even got a symbol
-			snprintf(buffer, bufferSize, "%s + %#lx%s", symbolName,
+			snprintf(buffer, bufferSize, "<%s> %s + %#lx%s", imageName, symbolName,
 				(addr_t)address - (addr_t)baseAddress,
 				(exactMatch ? "" : " (closest symbol)"));
 
 		} else {
 			// no symbol: image relative address
-			snprintf(buffer, bufferSize, "(%s + %#lx)", imageName,
+			snprintf(buffer, bufferSize, "<%s> %#lx", imageName,
 				(addr_t)address - (addr_t)baseAddress);
 		}
 
@@ -979,7 +979,7 @@ TeamDebugHandler::_PrintStackTrace(thread_id thread)
 				break;
 
 			// lookup the return address
-			_LookupSymbolAddress(lookupContext, stackFrameInfo.return_address,
+			_LookupSymbolAddress(lookupContext, (uint8*)stackFrameInfo.return_address - 1,
 				symbolBuffer, sizeof(symbolBuffer) - 1);
 
 			debug_printf("  (%p)  %p  %s\n", stackFrameInfo.frame,
