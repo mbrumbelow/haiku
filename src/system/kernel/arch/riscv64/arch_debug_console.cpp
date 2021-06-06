@@ -11,6 +11,7 @@
 #include <boot/kernel_args.h>
 #include <kernel.h>
 #include <vm/vm.h>
+#include <Htif.h>
 
 #include <string.h>
 
@@ -59,6 +60,7 @@ arch_debug_serial_getchar(void)
 void
 arch_debug_serial_putchar(const char c)
 {
+	HtifOutChar(c);
 }
 
 
@@ -75,7 +77,7 @@ arch_debug_serial_puts(const char *s)
 void
 arch_debug_serial_early_boot_message(const char *string)
 {
-	// this function will only be called in fatal situations
+	arch_debug_serial_puts(string);
 }
 
 
