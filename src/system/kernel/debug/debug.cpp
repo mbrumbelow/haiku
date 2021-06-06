@@ -1671,6 +1671,7 @@ debug_init(kernel_args* args)
 
 	debug_paranoia_init();
 	arch_debug_console_init(args);
+	arch_debug_init_early(args);
 }
 
 

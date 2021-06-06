@@ -64,7 +64,7 @@
 #include "vm/VMAnonymousCache.h"
 
 
-//#define TRACE_BOOT
+#define TRACE_BOOT
 #ifdef TRACE_BOOT
 #	define TRACE(x...) dprintf("INIT: " x)
 #else
@@ -97,6 +97,8 @@ non_boot_cpu_init(void* args, int currentCPU)
 extern "C" int
 _start(kernel_args *bootKernelArgs, int currentCPU)
 {
+	debug_early_boot_message("Kernel entry point\n");
+
 	if (bootKernelArgs->version == CURRENT_KERNEL_ARGS_VERSION
 		&& bootKernelArgs->kernel_args_size == kernel_args_size_v1) {
 		sKernelArgs.ucode_data = NULL;
@@ -372,7 +374,7 @@ main2(void* /*unused*/)
 	// The boot splash screen is the last user of the kernel args.
 	// Note: don't confuse the kernel_args structure (which is never freed)
 	// with the kernel args ranges it contains (and which are freed here).
-	vm_free_kernel_args(&sKernelArgs);
+	// vm_free_kernel_args(&sKernelArgs);
 
 	// start the init process
 	{
