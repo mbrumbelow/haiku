@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "72bd0d54_8f939f74",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/VirtioDevice.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-06T12:43:59Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "baa9ee652aac2e794341ad5d2f4fce3e15ee2bbb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4d89b1c_21419d80",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/VirtioDevice.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-06T12:43:59Z",
+      "side": 1,
+      "message": "this file also has too long lines and trailing whitespace in some lines",
+      "revId": "baa9ee652aac2e794341ad5d2f4fce3e15ee2bbb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9011aaa1_1159d796",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/VirtioDevice.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-06T12:43:59Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "baa9ee652aac2e794341ad5d2f4fce3e15ee2bbb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6b182ea_d27bba9b",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/VirtioDevice.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-06T12:43:59Z",
+      "side": 1,
+      "message": "two blank lines (also in several other places below)",
+      "revId": "baa9ee652aac2e794341ad5d2f4fce3e15ee2bbb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78319364_454b3224",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/VirtioDevice.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-06T12:43:59Z",
+      "side": 1,
+      "message": "missing copyright header",
+      "revId": "baa9ee652aac2e794341ad5d2f4fce3e15ee2bbb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "565edbb0_c1045b72",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/VirtioDevice.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-06T12:43:59Z",
+      "side": 1,
+      "message": "there should be two empty lines instead of just one here",
+      "revId": "baa9ee652aac2e794341ad5d2f4fce3e15ee2bbb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abf31759_5b3e0778",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/VirtioDevice.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-06T12:43:59Z",
+      "side": 1,
+      "message": "there should be two empty lines here",
+      "revId": "baa9ee652aac2e794341ad5d2f4fce3e15ee2bbb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "755c6abf_cf39a7ff",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/VirtioDevice.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-06T12:43:59Z",
+      "side": 1,
+      "message": "there should be two empty lines here",
+      "revId": "baa9ee652aac2e794341ad5d2f4fce3e15ee2bbb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20e20fff_2d8e8484",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/VirtioDevice.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-06T12:43:59Z",
+      "side": 1,
+      "message": "This is declaring a volatile pointer to the registers. Is that what you want? Normally the registers themselves would be volatile, but the pointer doesn\u0027t need to?",
+      "revId": "baa9ee652aac2e794341ad5d2f4fce3e15ee2bbb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa9883c5_1d252535",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/virtio_mmio.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-06T12:43:59Z",
+      "side": 1,
+      "message": "Several lines in this file are too long, and there is also trailing whitespace in several places",
+      "revId": "baa9ee652aac2e794341ad5d2f4fce3e15ee2bbb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
