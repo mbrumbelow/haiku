@@ -51,6 +51,24 @@
       "revId": "3745f4d7e8631e14fc16f252c8c7a1ba33ac1c04",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f40b11cc_ec35cd29",
+        "filename": "headers/private/kernel/arch/riscv64/arch_kernel.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-06-06T16:22:54Z",
+      "side": 1,
+      "message": "I know that kernel and user address ranges are currently swapped. It is done because kernel is currently starting in machine mode with MMU disabled and it expects identity mapping of kernel image (memory starts at 0x80000000). MMU initialization and memory remapping in haiku_loader is required to use regular address ranges. Anyway current address ranges don\u0027t hurt system operation. It can be changed later when adding SBI and MMU support in haiku_loader.",
+      "parentUuid": "82884366_e02a4876",
+      "revId": "3745f4d7e8631e14fc16f252c8c7a1ba33ac1c04",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
