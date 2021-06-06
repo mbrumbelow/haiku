@@ -2783,6 +2783,10 @@ ensure_debugger_installed()
 void
 _user_debugger(const char *userMessage)
 {
+#ifdef __riscv
+	WriteTrapInfo();
+	DoStackTrace(Fp(), 0);
+#endif
 	// install the default debugger, if there is none yet
 	status_t error = ensure_debugger_installed();
 	if (error != B_OK) {

@@ -64,7 +64,7 @@
 #include "vm/VMAnonymousCache.h"
 
 
-//#define TRACE_BOOT
+#define TRACE_BOOT
 #ifdef TRACE_BOOT
 #	define TRACE(x...) dprintf("INIT: " x)
 #else
@@ -94,9 +94,15 @@ non_boot_cpu_init(void* args, int currentCPU)
 }
 
 
+extern "C" status_t arch_debug_console_init(kernel_args *args);
+
+
 extern "C" int
 _start(kernel_args *bootKernelArgs, int currentCPU)
 {
+	arch_debug_console_init(bootKernelArgs);
+	debug_early_boot_message("Kernel entry point\n");
+
 	if (bootKernelArgs->version == CURRENT_KERNEL_ARGS_VERSION
 		&& bootKernelArgs->kernel_args_size == kernel_args_size_v1) {
 		sKernelArgs.ucode_data = NULL;

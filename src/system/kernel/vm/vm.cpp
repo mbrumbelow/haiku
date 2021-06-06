@@ -53,6 +53,7 @@
 #include <vm/VMAddressSpace.h>
 #include <vm/VMArea.h>
 #include <vm/VMCache.h>
+#include <arch_debug.h>
 
 #include "VMAddressSpaceLocking.h"
 #include "VMAnonymousCache.h"
@@ -3954,6 +3955,7 @@ static void
 unreserve_boot_loader_ranges(kernel_args* args)
 {
 	TRACE(("unreserve_boot_loader_ranges()\n"));
+	return; // !!!
 
 	for (uint32 i = 0; i < args->num_virtual_allocated_ranges; i++) {
 		vm_unreserve_address_range(VMAddressSpace::KernelID(),
@@ -4428,12 +4430,16 @@ vm_page_fault(addr_t address, addr_t faultAddress, bool isWrite, bool isExecute,
 				// modify the IP on the interrupt frame or whatever to return
 				// to this address
 				*newIP = reinterpret_cast<uintptr_t>(thread->fault_handler);
+				dprintf("*newIP = 0x%" B_PRIxADDR "\n", *newIP);
 			} else {
+				WriteTrapInfo();
 				// unhandled page fault in the kernel
 				panic("vm_page_fault: unhandled page fault in kernel space at "
 					"0x%lx, ip 0x%lx\n", address, faultAddress);
 			}
 		} else {
+			WriteTrapInfo();
+			DoStackTrace(Fp(), 0);
 			Thread* thread = thread_get_current_thread();
 
 #ifdef TRACE_FAULTS
