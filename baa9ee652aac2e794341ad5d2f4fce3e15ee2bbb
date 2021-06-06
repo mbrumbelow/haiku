@@ -173,6 +173,24 @@
     },
     {
       "key": {
+        "uuid": "dfda20ee_46d1c775",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/VirtioDevice.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-06T13:04:34Z",
+      "side": 1,
+      "message": "The way you have written it, the volatile is on the pointer itself, and will affect operations like \"pointer++\" or \"pointer \u003d \u0026someStruct\". It will not affect access to the pointed object.\n\nThis works similarly to const:\n\n\"const char* pointer\" is a pointer to a constant string. So you can do \"pointer++\", but you can\u0027t do \"*pointer \u003d \u0027a\u0027\".\n\n\"char* const pointer\" is a const pointer to a string. So you can\u0027t do \"pointer++\", but you can do \"*pointer \u003d \u0027a\u0027\"",
+      "parentUuid": "ea2de8e6_9007efa6",
+      "revId": "baa9ee652aac2e794341ad5d2f4fce3e15ee2bbb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aa9883c5_1d252535",
         "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/virtio_mmio.cpp",
         "patchSetId": 4
