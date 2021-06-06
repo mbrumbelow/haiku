@@ -8,6 +8,7 @@
 
 
 #include <arch/riscv64/arch_thread_types.h>
+#include <arch_cpu_defs.h>
 #include <kernel.h>
 
 
@@ -15,8 +16,30 @@
 #define CACHE_LINE_SIZE		64
 
 
-#define set_ac()
-#define clear_ac()
+static inline bool
+get_ac()
+{
+	SstatusReg status(Sstatus());
+	return status.sum != 0;
+}
+
+
+static inline void
+set_ac()
+{
+	SstatusReg status(Sstatus());
+	status.sum = 1;
+	SetSstatus(status.val);
+}
+
+
+static inline void
+clear_ac()
+{
+	SstatusReg status(Sstatus());
+	status.sum = 0;
+	SetSstatus(status.val);
+}
 
 
 typedef struct arch_cpu_info {
@@ -29,6 +52,9 @@ extern "C" {
 #endif
 
 
+void __riscv64_setup_system_time(uint64 conversionFactor);
+
+
 static inline void
 arch_cpu_pause(void)
 {
@@ -39,7 +65,7 @@ arch_cpu_pause(void)
 static inline void
 arch_cpu_idle(void)
 {
-	// TODO: CPU idle call
+	Wfi();
 }
 
 
