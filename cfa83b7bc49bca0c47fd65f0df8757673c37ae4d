@@ -34,6 +34,24 @@
       "revId": "cfa83b7bc49bca0c47fd65f0df8757673c37ae4d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52ea0c5f_10575a97",
+        "filename": "headers/private/system/arch/riscv64/asm_defs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-06-06T14:56:45Z",
+      "side": 1,
+      "message": "Removed in https://review.haiku-os.org/c/haiku/+/3883. That patch should be applied first.",
+      "parentUuid": "00306d0c_7112f93b",
+      "revId": "cfa83b7bc49bca0c47fd65f0df8757673c37ae4d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
