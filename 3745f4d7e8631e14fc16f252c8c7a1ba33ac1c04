@@ -69,6 +69,23 @@
       "revId": "3745f4d7e8631e14fc16f252c8c7a1ba33ac1c04",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b61406e_8945883e",
+        "filename": "headers/private/kernel/arch/user_memory.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2021-06-06T17:49:36Z",
+      "side": 1,
+      "message": "I think we probably want to make this the default for all platforms?\n\nNo need to do it in this change or related to riscv, just wanted to see what others think..",
+      "revId": "3745f4d7e8631e14fc16f252c8c7a1ba33ac1c04",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
