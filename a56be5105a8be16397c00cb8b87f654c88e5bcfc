@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d58da2c8_f301662f",
+        "filename": "src/preferences/keymap/KeyboardLayoutView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 703,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-09T11:12:53Z",
+      "side": 1,
+      "message": "this creates a change of behavior (it adds the B_FLAT flag). Is that intentional? Does it still look correct?",
+      "revId": "a56be5105a8be16397c00cb8b87f654c88e5bcfc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
