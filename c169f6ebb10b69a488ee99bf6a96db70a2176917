@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "20633cdf_bc1fbd47",
+        "filename": "headers/private/kernel/vm/vm_types.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-06-09T10:09:59Z",
+      "side": 1,
+      "message": "Something is broken with thread pinning so kernel crash if debug checks are enabled.",
+      "revId": "c169f6ebb10b69a488ee99bf6a96db70a2176917",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
