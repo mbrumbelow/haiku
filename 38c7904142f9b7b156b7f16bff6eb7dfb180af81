@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "033cffb9_03818ec8",
+        "filename": "src/kits/interface/Menu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3267,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-06-09T05:57:05Z",
+      "side": 1,
+      "message": "No curly brackets needed for the one-line instruction.",
+      "revId": "38c7904142f9b7b156b7f16bff6eb7dfb180af81",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
