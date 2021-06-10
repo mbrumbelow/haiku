@@ -16,6 +16,24 @@
       "revId": "daa45496e75f7e4407fddede1c4a6085112e8ce6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01f16f4d_476b27ed",
+        "filename": "src/system/kernel/arch/riscv64/arch_traps.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-06-10T20:15:34Z",
+      "side": 1,
+      "message": "Actually that part seems fine (user SP is saved to trap frame, context always use kernel SP), but some stack trace anomalies are observed when enabling set_ac()/clear_ac() and trapping on memset().",
+      "parentUuid": "62d4b789_3b2b88a8",
+      "revId": "daa45496e75f7e4407fddede1c4a6085112e8ce6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
