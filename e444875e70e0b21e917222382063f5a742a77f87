@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "8900b635_41e04780",
+        "filename": "src/servers/registrar/ShutdownProcess.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-06-11T12:19:06Z",
+      "side": 1,
+      "message": "in the header there is an email, here none.",
+      "revId": "e444875e70e0b21e917222382063f5a742a77f87",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77e7a9aa_9c9bd58b",
+        "filename": "src/servers/registrar/ShutdownProcess.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-06-11T12:19:06Z",
+      "side": 1,
+      "message": "Trailing tab",
+      "revId": "e444875e70e0b21e917222382063f5a742a77f87",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d6cb61e8_e16cb3ef",
         "filename": "src/servers/registrar/ShutdownProcess.cpp",
         "patchSetId": 1
@@ -102,6 +136,74 @@
       "side": 1,
       "message": "I see, while I can look into using the \"Message Pulse System\", it is a bit of a shame, as I put a lot of time into making sure my thread system was functional and reliable. Nonetheless, learning to simplify my own code doesn\u0027t hurt either. :)",
       "parentUuid": "bd654423_9eb94137",
+      "revId": "e444875e70e0b21e917222382063f5a742a77f87",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19637a71_6db3a1e7",
+        "filename": "src/servers/registrar/ShutdownProcess.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 724,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-06-11T12:19:06Z",
+      "side": 1,
+      "message": "this should be a private method and could return a status_t",
+      "revId": "e444875e70e0b21e917222382063f5a742a77f87",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3915457_3b158ad3",
+        "filename": "src/servers/registrar/ShutdownProcess.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 742,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-06-11T12:19:06Z",
+      "side": 1,
+      "message": "braces are superfluous",
+      "revId": "e444875e70e0b21e917222382063f5a742a77f87",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "799add81_4487c6ac",
+        "filename": "src/servers/registrar/ShutdownProcess.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 750,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-06-11T12:19:06Z",
+      "side": 1,
+      "message": "why not copy as a uint32?",
+      "revId": "e444875e70e0b21e917222382063f5a742a77f87",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c8982ee_1d7fe99f",
+        "filename": "src/servers/registrar/ShutdownProcess.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 759,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-06-11T12:19:06Z",
+      "side": 1,
+      "message": "snooze is preferred.",
       "revId": "e444875e70e0b21e917222382063f5a742a77f87",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
