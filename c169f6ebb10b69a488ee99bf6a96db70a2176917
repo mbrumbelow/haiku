@@ -16,6 +16,329 @@
       "revId": "c169f6ebb10b69a488ee99bf6a96db70a2176917",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "137d805e_3f0e9888",
+        "filename": "src/system/kernel/arch/riscv64/RISCV64VMTranslationMap.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-06-12T18:50:25Z",
+      "side": 1,
+      "message": "Licence missing",
+      "revId": "c169f6ebb10b69a488ee99bf6a96db70a2176917",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9f9d6be_7c36a320",
+        "filename": "src/system/kernel/arch/riscv64/RISCV64VMTranslationMap.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-06-12T18:50:25Z",
+      "side": 1,
+      "message": "this already exists in arch_vm_translation_map.cpp\nphys_addr_t physicalAddress would be better.",
+      "revId": "c169f6ebb10b69a488ee99bf6a96db70a2176917",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cbed342f_27ce4069",
+        "filename": "src/system/kernel/arch/riscv64/RISCV64VMTranslationMap.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-06-12T18:50:25Z",
+      "side": 1,
+      "message": "ditto, returns phys_addr_t",
+      "revId": "c169f6ebb10b69a488ee99bf6a96db70a2176917",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8358299e_34a53cc9",
+        "filename": "src/system/kernel/arch/riscv64/RISCV64VMTranslationMap.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-06-12T18:50:25Z",
+      "side": 1,
+      "message": "doesn\u0027t seem used anywhere",
+      "revId": "c169f6ebb10b69a488ee99bf6a96db70a2176917",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c12269cc_a90603cf",
+        "filename": "src/system/kernel/arch/riscv64/RISCV64VMTranslationMap.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-06-12T18:50:25Z",
+      "side": 1,
+      "message": "virtualAddress",
+      "revId": "c169f6ebb10b69a488ee99bf6a96db70a2176917",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a192773_2234ef24",
+        "filename": "src/system/kernel/arch/riscv64/RISCV64VMTranslationMap.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-06-12T18:50:25Z",
+      "side": 1,
+      "message": "\u003d\u003d 0",
+      "revId": "c169f6ebb10b69a488ee99bf6a96db70a2176917",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f973fdf_5f944f33",
+        "filename": "src/system/kernel/arch/riscv64/RISCV64VMTranslationMap.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-06-12T18:50:25Z",
+      "side": 1,
+      "message": "this should be aligned left with one tab.",
+      "revId": "c169f6ebb10b69a488ee99bf6a96db70a2176917",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bda19226_986b85e9",
+        "filename": "src/system/kernel/arch/riscv64/RISCV64VMTranslationMap.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-06-12T18:50:25Z",
+      "side": 1,
+      "message": "panic goes on the next line.",
+      "revId": "c169f6ebb10b69a488ee99bf6a96db70a2176917",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c284f384_8e2b75fa",
+        "filename": "src/system/kernel/arch/riscv64/RISCV64VMTranslationMap.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-06-12T18:50:25Z",
+      "side": 1,
+      "message": "newline before pte-\u003eflags",
+      "revId": "c169f6ebb10b69a488ee99bf6a96db70a2176917",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd975ee1_99d7fe50",
+        "filename": "src/system/kernel/arch/riscv64/RISCV64VMTranslationMap.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-06-12T18:50:25Z",
+      "side": 1,
+      "message": "should be aligned left with one tab.",
+      "revId": "c169f6ebb10b69a488ee99bf6a96db70a2176917",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3506019_ac9bd506",
+        "filename": "src/system/kernel/arch/riscv64/RISCV64VMTranslationMap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-06-12T18:50:25Z",
+      "side": 1,
+      "message": "License missing.",
+      "revId": "c169f6ebb10b69a488ee99bf6a96db70a2176917",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b289a45b_e00a443c",
+        "filename": "src/system/kernel/arch/riscv64/RISCV64VMTranslationMap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-06-12T18:50:25Z",
+      "side": 1,
+      "message": "two blank lines after the header guard.",
+      "revId": "c169f6ebb10b69a488ee99bf6a96db70a2176917",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91aa9fe8_af9e5ffb",
+        "filename": "src/system/kernel/arch/riscv64/RISCV64VMTranslationMap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-06-12T18:50:25Z",
+      "side": 1,
+      "message": "_LookupPte and _LookupAddr",
+      "revId": "c169f6ebb10b69a488ee99bf6a96db70a2176917",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f42929e_b7f61e57",
+        "filename": "src/system/kernel/arch/riscv64/RISCV64VMTranslationMap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-06-12T18:50:25Z",
+      "side": 1,
+      "message": "new line after the return type",
+      "revId": "c169f6ebb10b69a488ee99bf6a96db70a2176917",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c60c206_26a8a953",
+        "filename": "src/system/kernel/arch/riscv64/RISCV64VMTranslationMap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-06-12T18:50:25Z",
+      "side": 1,
+      "message": "new line after the return type",
+      "revId": "c169f6ebb10b69a488ee99bf6a96db70a2176917",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca9a342e_ee0abbaa",
+        "filename": "src/system/kernel/arch/riscv64/arch_vm_translation_map.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-06-12T18:50:25Z",
+      "side": 1,
+      "message": "the return type comes on the previous line. Why not phys_addr_t?",
+      "revId": "c169f6ebb10b69a488ee99bf6a96db70a2176917",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2252e0fe_5fd50858",
+        "filename": "src/system/kernel/arch/riscv64/arch_vm_translation_map.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-06-12T18:50:25Z",
+      "side": 1,
+      "message": "the return type comes on the previous line. why not phys_addr_t?",
+      "revId": "c169f6ebb10b69a488ee99bf6a96db70a2176917",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53dfffb4_46a35c08",
+        "filename": "src/system/kernel/arch/riscv64/arch_vm_translation_map.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-06-12T18:50:25Z",
+      "side": 1,
+      "message": "why not addr_t?",
+      "revId": "c169f6ebb10b69a488ee99bf6a96db70a2176917",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb4c2cd1_f41c4c15",
+        "filename": "src/system/kernel/arch/riscv64/arch_vm_translation_map.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-06-12T18:50:25Z",
+      "side": 1,
+      "message": "this goes on two lines. only one space before the operator.",
+      "revId": "c169f6ebb10b69a488ee99bf6a96db70a2176917",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
