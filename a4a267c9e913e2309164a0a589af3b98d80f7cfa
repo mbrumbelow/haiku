@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "82caa95e_bf1b68f8",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-12T08:36:14Z",
+      "side": 1,
+      "message": "Usually we have a CALLED() macro that prints the function name automatically without having to give it a parameter. No need to change this now I think, but it is good to know for future developments.",
+      "revId": "a4a267c9e913e2309164a0a589af3b98d80f7cfa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47deb42e_34860ab9",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-12T08:36:14Z",
+      "side": 1,
+      "message": "This comment should be indented 1 level more than the above line. Currently it is 2 levels more",
+      "revId": "a4a267c9e913e2309164a0a589af3b98d80f7cfa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56bdb183_b5101148",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-12T08:36:14Z",
+      "side": 1,
+      "message": "same here, the indentation is one level too much",
+      "revId": "a4a267c9e913e2309164a0a589af3b98d80f7cfa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69cb2b1f_4604edc9",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-12T08:36:14Z",
+      "side": 1,
+      "message": "I think returning -1 was better here? You could do that if you return an int64.\n\nOther options are:\n- return a status_t, and take an uint32\u0026 as a parameter to store the value (then you can return B_OK / B_ENTRY_NOT_FOUND)\n- use panic(\"Block not found\") which will stop the kernel when this happens.\n\nIn any case, since this way of doing things is a bit unusual, if it\u0027s needed to keep it that way, there should be a warning about it in a comment in the .h file next to the function prototype, so people calling it know that they need to handle this case in a specific way?",
+      "revId": "a4a267c9e913e2309164a0a589af3b98d80f7cfa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c0a75de_20e46c59",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-12T08:36:14Z",
+      "side": 1,
+      "message": "indentation for this one is one level too far?",
+      "revId": "a4a267c9e913e2309164a0a589af3b98d80f7cfa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
