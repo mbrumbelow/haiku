@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff3f4f8b_a80c77a8",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000287
+      },
+      "writtenOn": "2021-06-12T13:46:41Z",
+      "side": 1,
+      "message": "It was already pointed out in next patchset so I also changed pathForLeaves -\u003e fPathForLeaves. All related places in BPlusTree.cpp have been updated. And have been tested using jam -q xfs/\"\u003cbuild\u003exfs_shell\"",
+      "range": {
+        "startLine": 153,
+        "startChar": 3,
+        "endLine": 154,
+        "endChar": 43
+      },
+      "revId": "f3a7e863c9c40792ada4b57abd16e5dc55d39024",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
