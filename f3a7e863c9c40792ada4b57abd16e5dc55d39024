@@ -2,6 +2,57 @@
   "comments": [
     {
       "key": {
+        "uuid": "6c6db146_89a75659",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-12T15:12:38Z",
+      "side": 1,
+      "message": "I think you need an ArrayDeleter (which will use delete[] and not delete) here?",
+      "revId": "f3a7e863c9c40792ada4b57abd16e5dc55d39024",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7395b3d1_53b7e079",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-12T15:12:38Z",
+      "side": 1,
+      "message": "the previous code was deleting the extents here. Now it\u0027s not doing that. Is it intentional? Should they remain allocated in this case?",
+      "revId": "f3a7e863c9c40792ada4b57abd16e5dc55d39024",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "769c5dc5_67d4f03c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-12T15:12:38Z",
+      "side": 1,
+      "message": "now that the method returns a status_t, you should check it here\n\n    status \u003d SearchMapInAllExtent(...)\n    if (status !\u003d B_OK)\n        return status;",
+      "revId": "f3a7e863c9c40792ada4b57abd16e5dc55d39024",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ff3f4f8b_a80c77a8",
         "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.h",
         "patchSetId": 22
@@ -22,6 +73,30 @@
       "revId": "f3a7e863c9c40792ada4b57abd16e5dc55d39024",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc94e437_69179010",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-12T15:12:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff3f4f8b_a80c77a8",
+      "range": {
+        "startLine": 153,
+        "startChar": 3,
+        "endLine": 154,
+        "endChar": 43
+      },
+      "revId": "f3a7e863c9c40792ada4b57abd16e5dc55d39024",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
