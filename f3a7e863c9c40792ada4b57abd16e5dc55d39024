@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "62f587ae_0c7fc9fb",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2021-06-12T15:15:22Z",
+      "side": 1,
+      "message": "They should definitely be deleted.\n\nI think Yi thought that .Detach() would delete extents.",
+      "parentUuid": "7395b3d1_53b7e079",
+      "revId": "f3a7e863c9c40792ada4b57abd16e5dc55d39024",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "769c5dc5_67d4f03c",
         "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
         "patchSetId": 22
