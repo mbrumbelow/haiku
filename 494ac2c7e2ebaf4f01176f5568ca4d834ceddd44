@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "67427682_688e3a9b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2021-06-12T05:33:56Z",
+      "side": 1,
+      "message": "Did you try to build it using xfs_shell? Does adding AutoDeleter give you access to ROUNDUP macro?",
+      "revId": "494ac2c7e2ebaf4f01176f5568ca4d834ceddd44",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
