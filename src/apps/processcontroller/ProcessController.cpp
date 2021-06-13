@@ -21,11 +21,13 @@
 #include <Dragger.h>
 #include <File.h>
 #include <FindDirectory.h>
+#include <LaunchRoster.h>
 #include <MessageRunner.h>
 #include <Path.h>
 #include <PopUpMenu.h>
 #include <Roster.h>
 #include <Screen.h>
+#include <StringList.h>
 #include <TextView.h>
 
 #include <scheduler.h>
@@ -307,13 +309,31 @@ ProcessController::MessageReceived(BMessage *message)
 				info_pack infos;
 				if (get_team_info(team, &infos.team_info) == B_OK) {
 					get_team_name_and_icon(infos);
+					const char *action = B_TRANSLATE("Kill this team!");
+					BLaunchRoster launch_roster;
+					if (launch_roster.InitCheck() == B_OK) {
+						BString signature(infos.signature);
+						int32 index = signature.FindFirst('/');
+						if (index >= 0) {
+							signature.Remove(0, index + 1);
+						}
+						signature.ToLower();
+						BMessage job_info;
+						if (launch_roster.GetJobInfo(signature, job_info) == B_OK) {
+							bool job_is_service = false;
+							if (job_info.FindBool("service", &job_is_service) == B_OK) {
+								if (job_is_service) {
+									action = B_TRANSLATE("Restart this team!");
+								}
+							}
+						}
+					}
 					snprintf(question, sizeof(question),
 					B_TRANSLATE("What do you want to do with the team \"%s\"?"),
 					infos.team_name);
 					alert = new BAlert(B_TRANSLATE("Please confirm"), question,
 					B_TRANSLATE("Cancel"), B_TRANSLATE("Debug this team!"),
-					B_TRANSLATE("Kill this team!"), B_WIDTH_AS_USUAL,
-					B_STOP_ALERT);
+					action, B_WIDTH_AS_USUAL, B_STOP_ALERT);
 					alert->SetShortcut(0, B_ESCAPE);
 					int result = alert->Go();
 					switch (result) {
