@@ -312,7 +312,7 @@ ProcessController::MessageReceived(BMessage *message)
 					infos.team_name);
 					alert = new BAlert(B_TRANSLATE("Please confirm"), question,
 					B_TRANSLATE("Cancel"), B_TRANSLATE("Debug this team!"),
-					B_TRANSLATE("Kill this team!"), B_WIDTH_AS_USUAL,
+					B_TRANSLATE("Restart this team!"), B_WIDTH_AS_USUAL,
 					B_STOP_ALERT);
 					alert->SetShortcut(0, B_ESCAPE);
 					int result = alert->Go();
