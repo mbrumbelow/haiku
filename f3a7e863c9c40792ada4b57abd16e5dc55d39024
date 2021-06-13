@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5c7c8b59_5f302307",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1000287
+      },
+      "writtenOn": "2021-06-13T03:25:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c6db146_89a75659",
+      "revId": "f3a7e863c9c40792ada4b57abd16e5dc55d39024",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7395b3d1_53b7e079",
         "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
         "patchSetId": 22
@@ -54,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "94ddc372_301bdfc5",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1000287
+      },
+      "writtenOn": "2021-06-13T03:25:59Z",
+      "side": 1,
+      "message": "I know we have to delete extents here (totally 4 situations, 3 before error return, and 1 before normal return). But I am not sure if I should call .somefuction() or it really \u0027auto\u0027 delete. If I should call it before return, why it is said to be \u0027auto\u0027...? A little strange...",
+      "parentUuid": "62f587ae_0c7fc9fb",
+      "revId": "f3a7e863c9c40792ada4b57abd16e5dc55d39024",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "769c5dc5_67d4f03c",
         "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
         "patchSetId": 22
@@ -68,6 +104,24 @@
       "revId": "f3a7e863c9c40792ada4b57abd16e5dc55d39024",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59696066_4d5d6f77",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1000287
+      },
+      "writtenOn": "2021-06-13T03:25:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "769c5dc5_67d4f03c",
+      "revId": "f3a7e863c9c40792ada4b57abd16e5dc55d39024",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
