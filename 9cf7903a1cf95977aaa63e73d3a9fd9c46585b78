@@ -118,6 +118,23 @@
       "revId": "9cf7903a1cf95977aaa63e73d3a9fd9c46585b78",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b74b5eea_4805eaf0",
+        "filename": "src/system/ldscripts/riscv64/kernel.ld",
+        "patchSetId": 14
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-06-13T17:00:40Z",
+      "side": 1,
+      "message": "This fill pattern doesn\u0027t make sense, 0x90 is x86\u0027s NOP",
+      "revId": "9cf7903a1cf95977aaa63e73d3a9fd9c46585b78",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
