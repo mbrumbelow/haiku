@@ -21,6 +21,7 @@ typedef struct {
 	::team_info		team_info;
 	BBitmap*		team_icon;
 	char			team_name[B_PATH_NAME_LENGTH];
+	char			signature[B_MIME_TYPE_LENGTH];
 	::thread_info*	thread_info;
 } info_pack;
 
