@@ -108,6 +108,24 @@
     },
     {
       "key": {
+        "uuid": "9b4c1b3d_344c802e",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-13T13:41:36Z",
+      "side": 1,
+      "message": "It is auto delete. That\u0027s the point. You don\u0027t need to do anything if you want the memory to be released.\n\nWhat you did here is detach the pointer from the autodeleter, to tell the autodeleter \"don\u0027t delete the data after this, I want to keep it\". That\u0027s not what you want, so just remove this call.",
+      "parentUuid": "f679b4f0_c580fca6",
+      "revId": "f3a7e863c9c40792ada4b57abd16e5dc55d39024",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "769c5dc5_67d4f03c",
         "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
         "patchSetId": 22
