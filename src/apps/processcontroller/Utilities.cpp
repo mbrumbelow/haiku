@@ -41,6 +41,7 @@ get_team_name_and_icon(info_pack& infoPack, bool icon)
 	app_info info;
 	status_t status = be_roster->GetRunningAppInfo(infoPack.team_info.team, &info);
 	if (status != B_OK) {
+		infoPack.signature[0] = '\0';
 		if (infoPack.team_info.team == B_SYSTEM_TEAM) {
 			// Get icon and name from kernel image
 			system_info	systemInfo;
@@ -55,6 +56,9 @@ get_team_name_and_icon(info_pack& infoPack, bool icon)
 			nameFromArgs = true;
 			tryTrackerIcon = (status == B_OK);
 		}
+	} else {
+		strncpy(infoPack.signature, info.signature, B_MIME_TYPE_LENGTH);
+		infoPack.signature[B_MIME_TYPE_LENGTH - 1] = '\0';
 	}
 
 	strncpy(infoPack.team_name, nameFromArgs ? infoPack.team_info.args : info.ref.name,
