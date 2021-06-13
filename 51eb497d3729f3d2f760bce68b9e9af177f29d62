@@ -16,6 +16,24 @@
       "revId": "51eb497d3729f3d2f760bce68b9e9af177f29d62",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "404236a8_9437577d",
+        "filename": "src/add-ons/kernel/drivers/misc/poke.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-06-13T16:19:43Z",
+      "side": 1,
+      "message": "Honestly this is something to write in a bug report.",
+      "parentUuid": "1ba5e5ab_b4bf9f19",
+      "revId": "51eb497d3729f3d2f760bce68b9e9af177f29d62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
