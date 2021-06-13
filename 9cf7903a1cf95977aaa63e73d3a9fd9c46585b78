@@ -53,6 +53,40 @@
     },
     {
       "key": {
+        "uuid": "6b56792e_e9b583b5",
+        "filename": "headers/private/kernel/arch/x86/descriptors.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-06-13T18:31:18Z",
+      "side": 1,
+      "message": "Should be moved to separate change.",
+      "revId": "9cf7903a1cf95977aaa63e73d3a9fd9c46585b78",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97c81d32_b2ec3c94",
+        "filename": "src/system/boot/platform/efi/arch/arm/arch_mmu.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-06-13T18:31:18Z",
+      "side": 1,
+      "message": "Should be moved to separate change.",
+      "revId": "9cf7903a1cf95977aaa63e73d3a9fd9c46585b78",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "579655ca_91ab8037",
         "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
         "patchSetId": 14
