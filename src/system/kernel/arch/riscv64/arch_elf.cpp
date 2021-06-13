@@ -93,6 +93,7 @@ arch_elf_relocate_rela(struct elf_image_info *image,
 		switch (type) {
 			case R_RISCV_NONE:
 				continue;
+			case R_RISCV_JUMP_SLOT:
 			case R_RISCV_64:
 				relocValue = symAddr + rel[i].r_addend;
 				break;
