@@ -16,6 +16,24 @@
       "revId": "98587641d3f65aab640115053ba57b4591dc30a4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "952f4f0a_3e7aaabc",
+        "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_serial.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-06-14T21:48:49Z",
+      "side": 0,
+      "message": "UART register can be passed by kernel_args and identified by haiku_loader. I already did this for RISC-V PLIC and CLINT.",
+      "parentUuid": "a395b2c8_1e5bcc63",
+      "revId": "98587641d3f65aab640115053ba57b4591dc30a4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
