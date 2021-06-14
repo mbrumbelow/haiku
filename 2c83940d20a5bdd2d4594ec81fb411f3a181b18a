@@ -34,6 +34,24 @@
       "revId": "2c83940d20a5bdd2d4594ec81fb411f3a181b18a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "257e3e2c_577e49db",
+        "filename": "headers/os/drivers/bus/FDT.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-06-14T21:52:23Z",
+      "side": 1,
+      "message": "This is mostly rewrite. Very few original code is left.",
+      "parentUuid": "5de85d86_9f58e04e",
+      "revId": "2c83940d20a5bdd2d4594ec81fb411f3a181b18a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
