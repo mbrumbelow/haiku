@@ -370,6 +370,24 @@
     },
     {
       "key": {
+        "uuid": "9d553aa9_61df92de",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 717,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-14T07:08:35Z",
+      "side": 1,
+      "message": "Yes, our coding style requires 80 columns maximum. When that start becoming a problem, it probably means your functions have too many indentation levels and you should consider splitting them in smaller, less complex functions, to preserve readability.",
+      "parentUuid": "b3cce94b_9d627a22",
+      "revId": "d2644dc0c0621a7312fb37ad9e0d53b6253e05a9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9c55f3db_e3d295ba",
         "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
         "patchSetId": 11
