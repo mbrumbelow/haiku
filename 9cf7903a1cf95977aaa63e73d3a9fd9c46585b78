@@ -70,6 +70,24 @@
     },
     {
       "key": {
+        "uuid": "68c25ad5_61043a99",
+        "filename": "headers/private/kernel/arch/x86/descriptors.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-06-14T21:19:17Z",
+      "side": 1,
+      "message": "Eh. I disagree.\n\nThe page table flag defines are x86-centric, but only defined in src/system/boot/platform/efi/mmu.h \n\nAs i\u0027m transitioning to leveraging them in other architecture code, it makes sense in this commit.\n\nIf you\u0027re argument is the rest of this patchset is incorrect and these are the only valid changes... that\u0027s a different story. However you didn\u0027t say that and i\u0027m guessing to be honest.\n\nPlease provide a bit more detail (why) if you still think it should be in a separate patch.",
+      "parentUuid": "6b56792e_e9b583b5",
+      "revId": "9cf7903a1cf95977aaa63e73d3a9fd9c46585b78",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "97c81d32_b2ec3c94",
         "filename": "src/system/boot/platform/efi/arch/arm/arch_mmu.cpp",
         "patchSetId": 14
