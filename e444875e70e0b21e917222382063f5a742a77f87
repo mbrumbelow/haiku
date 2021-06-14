@@ -125,6 +125,24 @@
     },
     {
       "key": {
+        "uuid": "861249ea_9c463386",
+        "filename": "src/servers/registrar/ShutdownProcess.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 598,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-14T13:04:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ffcb7e9_ee203858",
+      "revId": "e444875e70e0b21e917222382063f5a742a77f87",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cdfe33c3_e7d827aa",
         "filename": "src/servers/registrar/ShutdownProcess.cpp",
         "patchSetId": 1
@@ -175,6 +193,24 @@
       "revId": "e444875e70e0b21e917222382063f5a742a77f87",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e215abad_36cb5ef7",
+        "filename": "src/servers/registrar/ShutdownProcess.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 703,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-14T13:04:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23f05df0_8b88f0f9",
+      "revId": "e444875e70e0b21e917222382063f5a742a77f87",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
