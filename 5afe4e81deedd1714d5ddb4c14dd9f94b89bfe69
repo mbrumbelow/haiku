@@ -69,6 +69,24 @@
       "revId": "5afe4e81deedd1714d5ddb4c14dd9f94b89bfe69",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a68cda72_4709e3da",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2021-06-15T16:21:04Z",
+      "side": 1,
+      "message": "I\u0027ve replied on one of the unresolved comments. Do check!",
+      "parentUuid": "44e955ee_a25b9c8d",
+      "revId": "5afe4e81deedd1714d5ddb4c14dd9f94b89bfe69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }

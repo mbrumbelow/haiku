@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "c1bf2c02_315fe2d3",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2021-06-15T16:21:04Z",
+      "side": 1,
+      "message": "Did I right this at 3AM? :P\nAnyway, to put it in short, I think BStackOrHeap could be used here. The reason why I used heap here is because in B+Tree dirs the size of the inode would be too large for the stack to hold.\nConsidering the fact that this function will be used by ALL types of directories, for smaller inode sizes (Short form, leaf, node dirs), need not be allocated on heap. Hence BStackOrHeap is the way to go imo.",
+      "parentUuid": "2e6a9479_9b0277ff",
+      "revId": "34970d2932adab28ac55778eeeafa7ee484bac54",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "87a5d108_e8b476f9",
         "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
         "patchSetId": 4
