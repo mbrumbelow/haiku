@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6725b210_b534f0e8",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000287
+      },
+      "writtenOn": "2021-06-15T03:20:46Z",
+      "side": 1,
+      "message": "Done.\nActually, Shubham has done it in the latest patchset. But it is an array, so it should be delete[], right?",
+      "parentUuid": "45d1c71a_6665a4fe",
+      "revId": "5afe4e81deedd1714d5ddb4c14dd9f94b89bfe69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "33ae3c15_816944bf",
         "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
         "patchSetId": 6
@@ -30,6 +48,24 @@
       "writtenOn": "2020-08-25T12:26:18Z",
       "side": 1,
       "message": "missing delete again, consider using stack allocation.",
+      "revId": "5afe4e81deedd1714d5ddb4c14dd9f94b89bfe69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44e955ee_a25b9c8d",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000287
+      },
+      "writtenOn": "2021-06-15T03:20:46Z",
+      "side": 1,
+      "message": "Let\u0027s solve this problem first 😊 Stack or heap allocation. \nIt seems the reason for why we need heap allocation is the size/length may be very large, and for why we may use stack allocation is missing delete/delete[] will cause memory leak? I am not sure about your views now. Which one is prefer?\nI guess we can do like:\n- use stack here, the easiest way, but I am not sure if it is acceptable for xfs\n- keep heap allocation, it will be consistent with other parts, and we should avoid memory leak, maybe AutoDeleter again\n- another choice, maybe BStackOrHeapArray?",
+      "parentUuid": "33ae3c15_816944bf",
       "revId": "5afe4e81deedd1714d5ddb4c14dd9f94b89bfe69",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
