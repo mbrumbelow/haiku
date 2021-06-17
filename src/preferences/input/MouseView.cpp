@@ -36,6 +36,8 @@ static const int32 kMouseDownWidth = 72;
 static const int32 kMouseDownHeight = 35;
 
 #define W kMouseDownWidth / 100
+
+// clang-format off
 static const int32 kButtonOffsets[][7] = {
 	{ 0, 100 * W },
 	{ 0, 50 * W, 100 * W },
@@ -43,10 +45,11 @@ static const int32 kButtonOffsets[][7] = {
 	{ 0, 25 * W, 50 * W, 75 * W, 100 * W },
 	{ 0, 20 * W, 40 * W, 60 * W, 80 * W, 100 * W },
 	{ 0, 19 * W, 34 * W, 50 * W, 66 * W, 82 * W, 100 * W }
-};
 #undef W
+	// clang-format on
 
-static const rgb_color kButtonTextColor = {0, 0, 0, 255};
+	static const rgb_color kButtonTextColor
+	= {0, 0, 0, 255};
 static const rgb_color kMouseShadowColor = {100, 100, 100, 128};
 static const rgb_color kMouseBodyTopColor = {0xed, 0xed, 0xed, 255};
 static const rgb_color kMouseBodyBottomColor = {0x85, 0x85, 0x85, 255};
@@ -91,9 +94,7 @@ MouseView::MouseView(const MouseSettings& settings)
 }
 
 
-MouseView::~MouseView()
-{
-}
+MouseView::~MouseView() {}
 
 
 void
@@ -145,8 +146,7 @@ MouseView::AttachedToWindow()
 }
 
 
-void
-MouseView::MouseUp(BPoint)
+void MouseView::MouseUp(BPoint)
 {
 	fButtons = 0;
 	Invalidate(_ButtonsRect());

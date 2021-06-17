@@ -68,9 +68,7 @@ MouseSettings::MouseSettings(mouse_settings settings, BString name)
 }
 
 
-MouseSettings::~MouseSettings()
-{
-}
+MouseSettings::~MouseSettings() {}
 
 
 status_t
@@ -131,6 +129,8 @@ MouseSettings::_LoadLegacySettings()
 
 
 #ifdef DEBUG
+
+
 void
 MouseSettings::Dump()
 {
@@ -486,11 +486,12 @@ MultipleMouseSettings::Defaults()
 		++itr) {
 		itr->second->Defaults();
 	}
-
 }
 
 
 #ifdef DEBUG
+
+
 void
 MultipleMouseSettings::Dump()
 {

@@ -12,7 +12,7 @@
 
 
 int
-main(int argc, char **argv)
+main(int argc, char** argv)
 {
 	B_TRANSLATE_MARK_SYSTEM_NAME_VOID("Tracker");
 	BApplication app("application/x-vnd.Haiku-TrackerPreferences");
