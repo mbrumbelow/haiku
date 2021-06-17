@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ebc2cfa9_5820e107",
+        "filename": "src/preferences/input/InputKeyboard.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-06-17T21:43:39Z",
+      "side": 1,
+      "message": "Line is too long.",
+      "revId": "c0c5ae9e343a0eff21c6bdf943888d44ecb0f842",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6e662a9_c98b09d1",
+        "filename": "src/preferences/input/InputTouchpadPrefView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-06-17T21:43:39Z",
+      "side": 1,
+      "message": "Why add a lot of tabs?",
+      "revId": "c0c5ae9e343a0eff21c6bdf943888d44ecb0f842",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "efef897e_e6b8825c",
+        "filename": "src/preferences/input/MouseView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-06-17T21:43:39Z",
+      "side": 1,
+      "message": "Wrong indentation.",
+      "revId": "c0c5ae9e343a0eff21c6bdf943888d44ecb0f842",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f91323de_0db03d9e",
+        "filename": "src/preferences/input/MouseView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-06-17T21:43:39Z",
+      "side": 1,
+      "message": "Previous variant was correct.",
+      "revId": "c0c5ae9e343a0eff21c6bdf943888d44ecb0f842",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
