@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "16981c6b_1e6e5882",
+        "filename": "src/preferences/input/MouseView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-06-18T11:28:37Z",
+      "side": 0,
+      "message": "Deleted by mistake. This breaks build.",
+      "revId": "324b426da9214ba77f4294b8b8e425cbb4055cc0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
