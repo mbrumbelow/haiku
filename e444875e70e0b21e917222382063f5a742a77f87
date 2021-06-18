@@ -319,6 +319,24 @@
     },
     {
       "key": {
+        "uuid": "57179dfe_a84ff3a4",
+        "filename": "src/servers/registrar/ShutdownProcess.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 750,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2021-06-18T04:06:48Z",
+      "side": 1,
+      "message": "So, would I want to use memcpy in that case? All other bitmap copying code that I\u0027ve found in Haiku\u0027s source tree copies the colors of a bitmap using uint8.",
+      "parentUuid": "1cd054a7_f8efd85e",
+      "revId": "e444875e70e0b21e917222382063f5a742a77f87",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5c8982ee_1d7fe99f",
         "filename": "src/servers/registrar/ShutdownProcess.cpp",
         "patchSetId": 1
