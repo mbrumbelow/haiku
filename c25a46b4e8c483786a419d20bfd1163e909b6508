@@ -16,6 +16,24 @@
       "revId": "c25a46b4e8c483786a419d20bfd1163e909b6508",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73c1f78d_f9b32e9f",
+        "filename": "src/kits/tracker/TextWidget.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-06-18T22:09:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2612a924_1e9c11ae",
+      "revId": "c25a46b4e8c483786a419d20bfd1163e909b6508",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
