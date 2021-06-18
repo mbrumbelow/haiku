@@ -87,6 +87,24 @@
       "revId": "5afe4e81deedd1714d5ddb4c14dd9f94b89bfe69",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82cbbba3_c7ff59e1",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000287
+      },
+      "writtenOn": "2021-06-18T05:07:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a68cda72_4709e3da",
+      "revId": "5afe4e81deedd1714d5ddb4c14dd9f94b89bfe69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }

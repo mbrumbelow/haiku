@@ -90,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "51f7d41a_645c8321",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000287
+      },
+      "writtenOn": "2021-06-18T05:07:32Z",
+      "side": 1,
+      "message": "Hi, \nI got problems here.\n- Actually, fBuffer was allocated in init(), and delete[] in ~Inode(), so when I use BStackOrHeapArray\u003cchar, StackSize\u003e fBuffer(inodeSize) here(the same place as before, in init()); I think I should not call delete[] fBuffer in ~Inode() anymore, but when will fBuffer be deleted, will it be what we need here?\n- How to set patameter \u0027StackSize\u0027, it depends what?\n- Besides, I do #include \u003cStackOrHeapArray.h\u003e in file system_dependencies.h but it seems things didn\u0027t work, jam reminds me ‘BStackOrHeapArray’ was not declared.",
+      "parentUuid": "c1bf2c02_315fe2d3",
+      "revId": "34970d2932adab28ac55778eeeafa7ee484bac54",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "87a5d108_e8b476f9",
         "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
         "patchSetId": 4
