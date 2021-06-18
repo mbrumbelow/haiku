@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2612a924_1e9c11ae",
+        "filename": "src/kits/tracker/TextWidget.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-06-18T20:08:34Z",
+      "side": 1,
+      "message": "This line should probably be on the outside of the if as it should apply to both icon mode and mini-icon mode.",
+      "revId": "c25a46b4e8c483786a419d20bfd1163e909b6508",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
