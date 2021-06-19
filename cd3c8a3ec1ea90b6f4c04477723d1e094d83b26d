@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7b225461_b2a17890",
+        "filename": "headers/os/kernel/OS.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-06-19T14:32:32Z",
+      "side": 1,
+      "message": "I know this is an internal name, but couldn\u0027t we drop the _etc postfix and just go for _get_cpu_info? This symbol should not clash with the existing get_cpu_info symbol.\n\nI think the _etc postfix is generally used when there is a basic function, and one that takes more parameters (mostly adding a timeout to an otherwise blocking call).",
+      "revId": "cd3c8a3ec1ea90b6f4c04477723d1e094d83b26d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b41b2593_8d13d7b5",
+        "filename": "src/system/kernel/system_info.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-06-19T14:32:32Z",
+      "side": 1,
+      "message": "Where is the backward compatible get_cpu_info() symbol going?",
+      "revId": "cd3c8a3ec1ea90b6f4c04477723d1e094d83b26d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
