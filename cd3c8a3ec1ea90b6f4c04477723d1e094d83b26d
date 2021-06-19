@@ -33,6 +33,24 @@
       "revId": "cd3c8a3ec1ea90b6f4c04477723d1e094d83b26d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0b61b85_53d2c325",
+        "filename": "src/system/kernel/system_info.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-06-19T14:49:36Z",
+      "side": 1,
+      "message": "it can\u0027t be defined because the name get_cpu_info is now a macro in the kernel too.",
+      "parentUuid": "b41b2593_8d13d7b5",
+      "revId": "cd3c8a3ec1ea90b6f4c04477723d1e094d83b26d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
