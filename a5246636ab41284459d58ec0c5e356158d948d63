@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3b41865f_ed889a90",
+        "filename": "src/system/kernel/system_info.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-06-19T10:59:01Z",
+      "side": 1,
+      "message": "This will not work with old structure size.",
+      "revId": "a5246636ab41284459d58ec0c5e356158d948d63",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc5488e3_32fe27fa",
+        "filename": "src/system/kernel/system_info.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-06-19T10:59:01Z",
+      "side": 1,
+      "message": "Following code can be used:\n\nif (size \u003e\u003d offsetof(cpu_info, current_frequency) + sizeof(info[i].current_frequency))",
+      "revId": "a5246636ab41284459d58ec0c5e356158d948d63",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
