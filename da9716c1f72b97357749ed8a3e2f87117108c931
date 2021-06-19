@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8bf73d5e_e85b7e53",
+        "filename": "headers/os/kernel/OS.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-19T09:14:26Z",
+      "side": 1,
+      "message": "I would name it current_frequency if that\u0027s what it is. get_cpu_topology_info has a default_frequency, it\u0027s nice to avoid any confusion between the two",
+      "revId": "da9716c1f72b97357749ed8a3e2f87117108c931",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2feef8d_3268a5f6",
+        "filename": "src/system/libroot/os/system_info.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-19T09:14:26Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "da9716c1f72b97357749ed8a3e2f87117108c931",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc574d99_8a4868f3",
+        "filename": "src/system/libroot/os/system_info.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-19T09:14:26Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "da9716c1f72b97357749ed8a3e2f87117108c931",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
