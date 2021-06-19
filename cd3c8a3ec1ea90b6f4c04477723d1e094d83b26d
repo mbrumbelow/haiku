@@ -51,6 +51,41 @@
       "revId": "cd3c8a3ec1ea90b6f4c04477723d1e094d83b26d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be92cc47_ff254c55",
+        "filename": "src/system/kernel/system_info.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-06-19T15:05:38Z",
+      "side": 1,
+      "message": "My bad, I did not realize this was in the kernel.\n\nThe code here can still be simplified more and shared with the __get_cpu_info above.\n\npseudocode (so untested!):\nminsize \u003d sizeof(cpu_info - offsetoff(cpu_info, frequency));\n\nif ((size \u003c minsize) || (size \u003e sizeof(cpu_info))\n    return B_BAD_VALUE;\n\nmemset(info, size*cpuCount);\n\nfor (uint32 i \u003d 0; i \u003c count; i++) {\n    info[i].active_time \u003d cpu_get_active_time(firstCPU + i);\n    info[i].enabled \u003d !gCPU[firstCPU + i].disabled;\n\n    if (size \u003e minsize)\n       info[i].current_frequency \u003d cpu_frequency(i);\n}",
+      "parentUuid": "b0b61b85_53d2c325",
+      "revId": "cd3c8a3ec1ea90b6f4c04477723d1e094d83b26d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dca4dda7_4cc0aac5",
+        "filename": "src/system/libroot/os/system_info.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-06-19T15:05:38Z",
+      "side": 1,
+      "message": "This can be simplified:\n\npseudo-code:\nstatus_t\nget_cpu_info(...)\n{ \n   return _get_cpu_info(..., sizeof(cpu_info - offsetof(cpu_info, frequency));\n}",
+      "revId": "cd3c8a3ec1ea90b6f4c04477723d1e094d83b26d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
