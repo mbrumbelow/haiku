@@ -72,6 +72,23 @@
     },
     {
       "key": {
+        "uuid": "0be703b2_5fe72e36",
+        "filename": "src/system/kernel/system_info.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 598,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-06-19T15:05:51Z",
+      "side": 1,
+      "message": "`size` argument should be added to syscall. Syscalls are not part of public API so changing it is fine.",
+      "revId": "cd3c8a3ec1ea90b6f4c04477723d1e094d83b26d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dca4dda7_4cc0aac5",
         "filename": "src/system/libroot/os/system_info.cpp",
         "patchSetId": 8
