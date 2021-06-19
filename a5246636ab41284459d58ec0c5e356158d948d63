@@ -33,6 +33,23 @@
       "revId": "a5246636ab41284459d58ec0c5e356158d948d63",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10300a1e_5ae4c9d1",
+        "filename": "src/system/libroot/os/system_info.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-06-19T11:02:22Z",
+      "side": 1,
+      "message": "Can be implemented as return _get_cpu_info_etc(firstCPU, cpuCount, info, sizeof(beta2_cpu_info));",
+      "revId": "a5246636ab41284459d58ec0c5e356158d948d63",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
