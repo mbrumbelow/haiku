@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ceccb2f_3f479a08",
+        "filename": "src/apps/haikudepot/packagemanagement/AbstractPackageProcess.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-06-20T12:39:30Z",
+      "side": 1,
+      "message": "Two blank lines",
+      "revId": "555a15449f2f940927a4f4e27733d230c188a253",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6bf17028_0fe2c08a",
+        "filename": "src/apps/haikudepot/packagemanagement/OpenPackageProcess.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-06-20T12:39:30Z",
+      "side": 1,
+      "message": "Are these comments necessary?",
+      "revId": "555a15449f2f940927a4f4e27733d230c188a253",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
