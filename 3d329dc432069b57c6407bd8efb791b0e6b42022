@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b9193b7a_6b63e5a7",
+        "filename": "src/apps/firstbootprompt/BootPromptWindow.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-20T19:55:08Z",
+      "side": 1,
+      "message": "This part is a comment for the original string and will be visible to translators in the translation app. So they know they can add the note.\n\nIt will not be visible to end-users.\n\nKnowing this, I think it makes more sense.",
+      "parentUuid": "26561185_e993f557",
+      "revId": "3d329dc432069b57c6407bd8efb791b0e6b42022",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ade7263c_90305f96",
         "filename": "src/apps/firstbootprompt/BootPromptWindow.cpp",
         "patchSetId": 9
@@ -51,6 +69,24 @@
       "revId": "3d329dc432069b57c6407bd8efb791b0e6b42022",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eeb344e1_493fc1a1",
+        "filename": "src/apps/firstbootprompt/BootPromptWindow.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-20T19:55:08Z",
+      "side": 1,
+      "message": "This note appears only to translators when translating the string. It is not visible in the UI at the end. So I don\u0027t think there is a problem here.",
+      "parentUuid": "ce0608cb_c6bce937",
+      "revId": "3d329dc432069b57c6407bd8efb791b0e6b42022",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
