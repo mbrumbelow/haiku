@@ -108,6 +108,24 @@
     },
     {
       "key": {
+        "uuid": "2154f680_99d465a2",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-20T20:03:48Z",
+      "side": 1,
+      "message": "Hi,\n\nBStackOrHeapArray will release the memory automatically when it goes out of scope (when the Inode is deleted) so you don\u0027t need to do anything special for that.\n\nStackSize defines the maximum size that can be allocated directly on the stack. The idea of BStackOrHeapArray is to reserve some space on the stack to do fast allocations, and switch to the heap if it turns out the allocation has to be larger than that space.\n\nAnyway, I think the existing code is fine here, I\u0027m not sure BStackOrHeapArray would be a very useful change here.",
+      "parentUuid": "51f7d41a_645c8321",
+      "revId": "34970d2932adab28ac55778eeeafa7ee484bac54",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "87a5d108_e8b476f9",
         "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
         "patchSetId": 4
