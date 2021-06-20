@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "26561185_e993f557",
+        "filename": "src/apps/firstbootprompt/BootPromptWindow.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2021-06-20T17:14:18Z",
+      "side": 1,
+      "message": "I know this was the original text here but I find this very awkward English. It almost looks like a TODO comment that was left as a string.\n\nWhile we are editing this I would change this to something like:\n\n\"For other languages, please take note:\"\n\nand then remove the \"Note: \" prefix from the next line.\n\nThis change also applies to the generic distro text below.",
+      "revId": "3d329dc432069b57c6407bd8efb791b0e6b42022",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ade7263c_90305f96",
         "filename": "src/apps/firstbootprompt/BootPromptWindow.cpp",
         "patchSetId": 9
@@ -13,6 +30,24 @@
       "writtenOn": "2021-06-20T16:58:11Z",
       "side": 1,
       "message": "Not sure this should mention \"Haiku\".  The idea behind the distroname stuff was to ensure any 3rd party \"unofficial\" versions could sidestep our trademarks.\n\nAdding a few Haiku, Inc. folks for feedback.",
+      "revId": "3d329dc432069b57c6407bd8efb791b0e6b42022",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce0608cb_c6bce937",
+        "filename": "src/apps/firstbootprompt/BootPromptWindow.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2021-06-20T17:14:18Z",
+      "side": 1,
+      "message": "I think this stuff can get a bit silly. In my opinion it is okay to mention the word Haiku in this context.",
+      "parentUuid": "ade7263c_90305f96",
       "revId": "3d329dc432069b57c6407bd8efb791b0e6b42022",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
