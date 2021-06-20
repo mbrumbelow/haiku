@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "36b2de47_5d156d4b",
+        "filename": "src/kits/media/AddOnManager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-06-20T15:00:27Z",
+      "side": 0,
+      "message": "Maybe a todo here?\n\n// TODO: We should check fileFormat.capabilities for B_WRITABLE, however\n// omitting any add-ons here removes them from read *in addition* to write\n// given the current media kit design\n\nThis logic actually makes technical sense, but given the poor design of the media kit it doesn\u0027t work as intended as you said.\n\nAdding this comment would help future versions of you to remember to re-add it :P",
+      "revId": "0d1016f023ef8fc62b8115e373af2cd9dba97063",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
