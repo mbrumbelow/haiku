@@ -33,6 +33,91 @@
       "revId": "555a15449f2f940927a4f4e27733d230c188a253",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e71d042_23610ab1",
+        "filename": "src/apps/haikudepot/packagemanagement/UninstallPackageProcess.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-06-20T12:49:13Z",
+      "side": 1,
+      "message": "the for should be on a single line.",
+      "revId": "555a15449f2f940927a4f4e27733d230c188a253",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f243db8f_28846d8f",
+        "filename": "src/apps/haikudepot/process/AbstractProcessNode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-06-20T12:49:13Z",
+      "side": 1,
+      "message": "real_time_clock() isn\u0027t the best idea here. why not system_time()?",
+      "revId": "555a15449f2f940927a4f4e27733d230c188a253",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16470302_bc5abd9c",
+        "filename": "src/apps/haikudepot/process/AbstractProcessNode.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-06-20T12:49:13Z",
+      "side": 1,
+      "message": "two blank lines.",
+      "revId": "555a15449f2f940927a4f4e27733d230c188a253",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e42dc45a_86c397a5",
+        "filename": "src/apps/haikudepot/process/AbstractProcessNode.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-06-20T12:49:13Z",
+      "side": 1,
+      "message": "should be ABSTRACT_PROCESS_NODE_H",
+      "revId": "555a15449f2f940927a4f4e27733d230c188a253",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ff70460_9d4c73df",
+        "filename": "src/apps/haikudepot/ui/App.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-06-20T12:49:13Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this set typeInt in case of error?",
+      "revId": "555a15449f2f940927a4f4e27733d230c188a253",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
