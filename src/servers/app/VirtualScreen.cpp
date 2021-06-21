@@ -136,6 +136,10 @@ VirtualScreen::AddScreen(Screen* screen, ScreenConfigurations& configurations)
 		}
 	}
 
+	// Turn on screen if this is not yet done by BIOS
+	if (status == B_OK)
+		screen->HWInterface()->SetDPMSMode(B_DPMS_ON);
+
 	// TODO: this works only for single screen configurations
 	fDrawingEngine = screen->GetDrawingEngine();
 	fHWInterface = screen->HWInterface();
@@ -143,6 +147,7 @@ VirtualScreen::AddScreen(Screen* screen, ScreenConfigurations& configurations)
 	item->frame = fFrame;
 
 	fScreenList.AddItem(item);
+
 
 	return B_OK;
 }
