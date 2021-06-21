@@ -211,9 +211,11 @@ SYSTEM_ADD_ONS_DRIVERS_GRAPHICS += [ FFilterByBuildFeatures
 		radeon radeon_hd
 		via
 	}@ # x86,x86_64
+	x86,x86_64,riscv64 @{
+		ati
+	}@ # x86,x86_64,riscv64
 	x86 @{
 		3dfx
-		ati
 		neomagic
 		s3
 	}@ # x86
