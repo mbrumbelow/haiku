@@ -117,8 +117,11 @@ SYSTEM_ADD_ONS_ACCELERANTS += [ FFilterByBuildFeatures
 		radeon.accelerant radeon_hd.accelerant
 		via.accelerant
 	}@ # x86,x86_64
+	x86,x86_64,riscv64 @{
+		ati.accelerant
+	}@ # x86,x86_64,riscv64
 	x86 @{
-		3dfx.accelerant ati.accelerant neomagic.accelerant s3.accelerant
+		3dfx.accelerant neomagic.accelerant s3.accelerant
 	}@ # x86
 ] ;
 
