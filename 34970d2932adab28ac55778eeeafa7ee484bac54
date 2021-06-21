@@ -126,6 +126,24 @@
     },
     {
       "key": {
+        "uuid": "458cd407_402a778a",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2021-06-21T17:37:58Z",
+      "side": 1,
+      "message": "I have a question here. How do you think a good StackSize could be decided?\nThere could be a lot of inodes not taking much space, like small directories and files. This is just a heuristic though. So I guess if Yi feels comfortable with the API he could go ahead? I am not familiar with this one so I can\u0027t comment on it.",
+      "parentUuid": "2154f680_99d465a2",
+      "revId": "34970d2932adab28ac55778eeeafa7ee484bac54",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "87a5d108_e8b476f9",
         "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
         "patchSetId": 4
