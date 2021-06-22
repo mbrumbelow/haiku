@@ -162,6 +162,24 @@
     },
     {
       "key": {
+        "uuid": "3e28cd1e_c9ef027c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000287
+      },
+      "writtenOn": "2021-06-22T15:26:00Z",
+      "side": 1,
+      "message": "Done\nI think now it has become a optimization issue, right?\nSo I guess we can consider this issue later. For one thing, if BStackOrheap will help a lot need to be tested/determined. For another, if indeed, we can wait a  chance to do the same work all at once. Because the other parts of xfs may also need to change to BStackOrHeap in this way.",
+      "parentUuid": "605fb57c_800837eb",
+      "revId": "34970d2932adab28ac55778eeeafa7ee484bac54",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "87a5d108_e8b476f9",
         "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
         "patchSetId": 4
