@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c12d3b6_0c324e36",
+        "filename": "src/system/libroot/posix/unistd/conf.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-06-23T17:12:28Z",
+      "side": 1,
+      "message": "although... is this correct?  The old code set errno when buffer was a NULL pointer. The new code sets errno when buffer *is* a NULL pointer.",
+      "range": {
+        "startLine": 389,
+        "startChar": 20,
+        "endLine": 389,
+        "endChar": 34
+      },
+      "revId": "cd414741171f67e80b3f90e87b3032d0e197537c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
