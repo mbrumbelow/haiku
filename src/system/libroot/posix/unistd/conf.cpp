@@ -384,10 +384,9 @@ pathconf(const char *path, int name)
 size_t
 confstr(int name, char *buffer, size_t length)
 {
-	size_t stringLength = 0;
 	const char *string = "";
 
-	if (!length || !buffer) {
+	if (length == 0 && buffer != NULL) {
 		__set_errno(EINVAL);
 		return 0;
 	}
@@ -402,13 +401,10 @@ confstr(int name, char *buffer, size_t length)
 			return 0;
 	}
 
-	if (buffer != NULL) {
-		stringLength = strlen(string) + 1;
-		strlcpy(buffer, string,
-			min_c(length - 1, stringLength));
-	}
+	if (buffer != NULL)
+		strlcpy(buffer, string, length);
 
-	return stringLength;
+	return strlen(string) + 1;
 }
 
 
