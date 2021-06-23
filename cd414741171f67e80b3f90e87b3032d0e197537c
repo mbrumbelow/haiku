@@ -46,6 +46,23 @@
       "revId": "cd414741171f67e80b3f90e87b3032d0e197537c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4908b38_311fca16",
+        "filename": "src/system/libroot/posix/unistd/conf.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-23T17:17:19Z",
+      "side": 1,
+      "message": "There are 4 ways to call this function:\n\n- length \u003d 0, buffer \u003d NULL -\u003e should return the needed bugger size\n- length \u003d 0, buffer !\u003d NULL -\u003e explicitly undefnied behavior (it seems we could do the same as above? why not)\n- length !\u003d 0, buffer !\u003d NULL -\u003e fill the buffer up to length bytes\n- length !\u003d 0, buffer \u003d NULL -\u003e POSIX does not say anything about this case\n\nThe new check only handles case 2 here. I\u0027m not sure why. We could remove this check and the code below would work fine in that case. Or if we want to catch all undefined/unspecified cases early, we should also check for case 4.\n\n(The previous test accidentally included case 1, which we don\u0027t want to intercept).",
+      "revId": "cd414741171f67e80b3f90e87b3032d0e197537c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
