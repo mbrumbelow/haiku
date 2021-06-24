@@ -1,5 +1,5 @@
 /*
- * Copyright 2002-2010, Haiku, Inc. All Rights Reserved.
+ * Copyright 2002-2021, Haiku, Inc. All Rights Reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -13,6 +13,7 @@
 
 #include <Application.h>
 #include <Catalog.h>
+#include <ObjectList.h>
 
 
 struct entry_ref;
@@ -29,6 +30,7 @@ public:
 								StyledEditApp();
 	virtual						~StyledEditApp();
 
+	virtual bool 				QuitRequested();
 	virtual void				MessageReceived(BMessage* message);
 	virtual void				ArgvReceived(int32 argc, char** argv);
 	virtual void				RefsReceived(BMessage* message);
@@ -38,17 +40,17 @@ public:
 			void				OpenDocument();
 			status_t			OpenDocument(entry_ref* ref,
 									BMessage* message = NULL);
-			void				CloseDocument();
+			void				CloseDocument(StyledEditWindow* documentWindow);
 
 private:
 			void				ArgvReceivedEx(int32 argc, const char* argv[],
 									const char* cwd);
 
 private:
+			BObjectList<StyledEditWindow>	fWindows;
 			BFilePanel*			fOpenPanel;
 			BMenu*				fOpenPanelEncodingMenu;
 			uint32				fOpenAsEncoding;
-			int32				fWindowCount;
 			int32				fNextUntitledWindow;
 			bool				fBadArguments;
 };

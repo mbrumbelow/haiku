@@ -1,15 +1,17 @@
 /*
- * Copyright 2002-2016, Haiku, Inc. All Rights Reserved.
+ * Copyright 2002-2021, Haiku, Inc. All Rights Reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
  *		Mattias Sundblad
  *		Andrew Bachmann
  *		Jonas Sundström
+ *		Jacob Secunda
  */
 
 
 #include "Constants.h"
+#include "SaveWindow.h"
 #include "StyledEditApp.h"
 #include "StyledEditWindow.h"
 
@@ -129,7 +131,6 @@ StyledEditApp::StyledEditApp()
 	} else
 		fOpenPanelEncodingMenu = NULL;
 
-	fWindowCount = 0;
 	fNextUntitledWindow = 1;
 	fBadArguments = false;
 
@@ -147,6 +148,49 @@ StyledEditApp::StyledEditApp()
 StyledEditApp::~StyledEditApp()
 {
 	delete fOpenPanel;
+}
+
+
+bool
+StyledEditApp::QuitRequested()
+{
+	BObjectList<StyledEditWindow> modifiedDocuments;
+	BStringList modifiedDocumentPaths;
+	StyledEditWindow* window;
+
+	for (int32 index = 0; (window = fWindows.ItemAt(index)); index++) {
+		if (window->IsDocumentModified()) {
+			modifiedDocuments.AddItem(window);
+
+			BString currDoc = window->DocumentPath();
+			if (currDoc.IsEmpty())
+				currDoc = window->DocumentName();
+
+			modifiedDocumentPaths.Add(currDoc);
+		}
+	}
+
+	if (modifiedDocuments.IsEmpty())
+		return true;
+
+	SaveWindow* saveWindow = new SaveWindow(modifiedDocumentPaths);
+	std::vector<bool> documentsToSave = saveWindow->Go();
+	if (documentsToSave.empty())
+		return false;
+
+	for (int32 index = 0; (window = modifiedDocuments.ItemAt(index)); ++index) {
+		if (documentsToSave[index] == false)
+			continue;
+
+		window->Activate();
+
+		BMessage replyMessage;
+		BMessage saveMessage(MENU_SAVE);
+		BMessenger windowMessenger(window);
+		windowMessenger.SendMessage(&saveMessage, &replyMessage);
+	}
+
+	return true;
 }
 
 
@@ -182,25 +226,32 @@ StyledEditApp::MessageReceived(BMessage* message)
 void
 StyledEditApp::OpenDocument()
 {
-	new StyledEditWindow(sWindowRect, fNextUntitledWindow++, fOpenAsEncoding);
+	StyledEditWindow* window = new StyledEditWindow(sWindowRect,
+		 fNextUntitledWindow++, fOpenAsEncoding);
+	fWindows.AddItem(window);
+
 	cascade();
-	fWindowCount++;
 }
 
 
 status_t
 StyledEditApp::OpenDocument(entry_ref* ref, BMessage* message)
 {
-	// traverse eventual symlink
+	// Double check if ref is valid and traverse a symlink if necessary.
 	BEntry entry(ref, true);
-	entry.GetRef(ref);
+
+	status_t result = entry.InitCheck();
+	if (result != B_OK) {
+		fprintf(stderr, "Can't open file. Error: %s", strerror(result));
+		return result;
+	}
 
 	if (entry.IsDirectory()) {
 		BPath path(&entry);
 		fprintf(stderr,
 			"Can't open directory \"%s\" for editing.\n",
 			path.Path());
-		return B_ERROR;
+		return B_IS_A_DIRECTORY;
 	}
 
 	BEntry parent;
@@ -209,50 +260,57 @@ StyledEditApp::OpenDocument(entry_ref* ref, BMessage* message)
 	if (!entry.Exists() && !parent.Exists()) {
 		fprintf(stderr,
 			"Can't create file. Missing parent directory.\n");
-		return B_ERROR;
+		return B_ENTRY_NOT_FOUND;
 	}
 
-	BWindow* window = NULL;
-	StyledEditWindow* document = NULL;
+	entry_ref traversedRef;
+	entry.GetRef(&traversedRef);
 
-	for (int32 index = 0; ; index++) {
-		window = WindowAt(index);
+	StyledEditWindow* window = NULL;
+
+	for (int32 index = 0; index < fWindows.CountItems(); index++) {
+		window = fWindows.ItemAt(index);
 		if (window == NULL)
 			break;
 
-		document = dynamic_cast<StyledEditWindow*>(window);
-		if (document == NULL)
-			continue;
+		{
+			BAutolock lock(window);
+			if (!lock.IsLocked())
+				continue;
 
-		if (document->IsDocumentEntryRef(ref)) {
-			if (document->Lock()) {
-				document->Activate();
-				document->Unlock();
+			if (window->IsDocumentEntryRef(&traversedRef)) {
+				window->Activate();
 				if (message != NULL)
-					document->PostMessage(message);
+					window->PostMessage(message);
+
 				return B_OK;
 			}
 		}
 	}
 
-	document = new StyledEditWindow(sWindowRect, ref, fOpenAsEncoding);
+	window = new StyledEditWindow(sWindowRect, &traversedRef, fOpenAsEncoding);
+	fWindows.AddItem(window);
+
 	cascade();
 
 	if (message != NULL)
-		document->PostMessage(message);
-
-	fWindowCount++;
+		window->PostMessage(message);
 
 	return B_OK;
 }
 
 
 void
-StyledEditApp::CloseDocument()
+StyledEditApp::CloseDocument(StyledEditWindow* documentWindow)
 {
+	if (documentWindow == NULL)
+		return;
+
+	fWindows.RemoveItem(documentWindow, false);
+
 	uncascade();
-	fWindowCount--;
-	if (fWindowCount == 0) {
+
+	if (fWindows.IsEmpty()) {
 		BAutolock lock(this);
 		Quit();
 	}
@@ -336,7 +394,7 @@ StyledEditApp::ArgvReceived(int32 argc, char* argv[])
 void
 StyledEditApp::ReadyToRun()
 {
-	if (fWindowCount > 0)
+	if (!fWindows.IsEmpty())
 		return;
 
 	if (fBadArguments)
@@ -349,7 +407,7 @@ StyledEditApp::ReadyToRun()
 int32
 StyledEditApp::NumberOfWindows()
 {
-	return fWindowCount;
+	return fWindows.CountItems();
 }
 
 
