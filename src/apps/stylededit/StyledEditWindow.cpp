@@ -1,5 +1,5 @@
 /*
- * Copyright 2002-2020, Haiku, Inc. All Rights Reserved.
+ * Copyright 2002-2021, Haiku, Inc. All Rights Reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -128,7 +128,8 @@ StyledEditWindow::Quit()
 
 	_SaveAttrs();
 	if (StyledEditApp* app = dynamic_cast<StyledEditApp*>(be_app))
-		app->CloseDocument();
+		app->CloseDocument(this);
+
 	BWindow::Quit();
 }
 
@@ -188,11 +189,19 @@ StyledEditWindow::MessageReceived(BMessage* message)
 			break;
 		// File menu
 		case MENU_SAVE:
+		{
+			status_t result = B_ERROR;
+
 			if (!fSaveMessage)
-				SaveAs();
+				result = SaveAs();
 			else
-				Save(fSaveMessage);
+				result = Save(fSaveMessage);
+
+			if (message->IsSourceWaiting())
+				message->SendReply(result);
+
 			break;
+		}
 
 		case MENU_SAVEAS:
 			SaveAs();
@@ -907,6 +916,12 @@ StyledEditWindow::SaveAs(BMessage* message)
 		fSavePanel->SetMessage(message);
 
 	fSavePanel->Show();
+	while (fSavePanel->IsShowing()) {
+		UpdateIfNeeded();
+		snooze(10000);
+			// 0.01 seconds
+	}
+
 	return B_OK;
 }
 
@@ -1089,9 +1104,47 @@ StyledEditWindow::IsDocumentEntryRef(const entry_ref* ref)
 	entry_ref documentRef;
 	BPath documentPath(&dir);
 	documentPath.Append(name);
-	get_ref_for_path(documentPath.Path(), &documentRef);
+
+	if (get_ref_for_path(documentPath.Path(), &documentRef) != B_OK)
+		return false;
 
 	return *ref == documentRef;
+}
+
+
+bool
+StyledEditWindow::IsDocumentModified() {
+	return !fClean;
+}
+
+
+BString
+StyledEditWindow::DocumentPath() {
+	entry_ref directoryRef;
+	BString name;
+	if (fSaveMessage != NULL
+		&& fSaveMessage->FindRef("directory", &directoryRef) == B_OK
+		&& fSaveMessage->FindString("name", &name) == B_OK
+		&& !name.IsEmpty()) {
+		BPath documentPath(&directoryRef);
+		documentPath.Append(name);
+
+		return BString(documentPath.Path());
+	}
+
+	return BString();
+}
+
+
+BString
+StyledEditWindow::DocumentName() {
+	BString name;
+	if (fSaveMessage != NULL
+		&& fSaveMessage->FindString("name", &name) == B_OK
+		&& !name.IsEmpty())
+		return name;
+
+	return BString(Title());
 }
 
 

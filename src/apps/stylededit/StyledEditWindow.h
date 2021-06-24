@@ -1,11 +1,12 @@
 /*
- * Copyright 2002-2012, Haiku, Inc. All Rights Reserved.
+ * Copyright 2002-2021, Haiku, Inc. All Rights Reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
  *		Mattias Sundblad
  *		Andrew Bachmann
  *		Jonas Sundström
+ *		Jacob Secunda
  */
 #ifndef STYLED_EDIT_WINDOW_H
 #define STYLED_EDIT_WINDOW_H
@@ -48,7 +49,12 @@ public:
 			void				Print(const char* documentName);
 			void				SearchAllWindows(BString find, BString replace,
 									bool caseSensitive);
+
 			bool				IsDocumentEntryRef(const entry_ref* ref);
+			bool 				IsDocumentModified();
+
+			BString				DocumentPath();
+			BString				DocumentName();
 
 private:
 			void				_InitWindow(uint32 encoding = 0);
