@@ -1,5 +1,5 @@
 /*
- * Copyright 2002-2020, Haiku, Inc. All Rights Reserved.
+ * Copyright 2002-2021, Haiku, Inc. All Rights Reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -129,6 +129,7 @@ StyledEditWindow::Quit()
 	_SaveAttrs();
 	if (StyledEditApp* app = dynamic_cast<StyledEditApp*>(be_app))
 		app->CloseDocument();
+
 	BWindow::Quit();
 }
 
@@ -188,11 +189,19 @@ StyledEditWindow::MessageReceived(BMessage* message)
 			break;
 		// File menu
 		case MENU_SAVE:
+		{
+			status_t result = B_ERROR;
+
 			if (!fSaveMessage)
-				SaveAs();
+				result = SaveAs();
 			else
-				Save(fSaveMessage);
+				result = Save(fSaveMessage);
+
+			if (message->IsSourceWaiting())
+				message->SendReply(result);
+
 			break;
+		}
 
 		case MENU_SAVEAS:
 			SaveAs();
@@ -907,6 +916,12 @@ StyledEditWindow::SaveAs(BMessage* message)
 		fSavePanel->SetMessage(message);
 
 	fSavePanel->Show();
+	while (fSavePanel->IsShowing()) {
+		UpdateIfNeeded();
+		snooze(10000);
+			// 0.01 seconds
+	}
+
 	return B_OK;
 }
 
@@ -1092,6 +1107,40 @@ StyledEditWindow::IsDocumentEntryRef(const entry_ref* ref)
 	get_ref_for_path(documentPath.Path(), &documentRef);
 
 	return *ref == documentRef;
+}
+
+
+bool
+StyledEditWindow::IsDocumentModified() {
+	return !fClean;
+}
+
+
+BString
+StyledEditWindow::DocumentPath() {
+	entry_ref directoryRef;
+	const char* name;
+	if (fSaveMessage != NULL
+		&& fSaveMessage->FindRef("directory", &directoryRef) == B_OK
+		&& fSaveMessage->FindString("name", &name) == B_OK) {
+		BPath documentPath(&directoryRef);
+		documentPath.Append(name);
+
+		return BString(documentPath.Path());
+	}
+
+	return BString("");
+}
+
+
+BString
+StyledEditWindow::DocumentName() {
+	const char* name;
+	if (fSaveMessage != NULL
+		&& fSaveMessage->FindString("name", &name) == B_OK)
+		return BString(name);
+
+	return BString(Title());
 }
 
 
