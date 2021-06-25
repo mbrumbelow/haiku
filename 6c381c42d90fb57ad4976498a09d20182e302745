@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce2b9cad_bc6a87fb",
+        "filename": "src/apps/showimage/ShowImageStatusView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-25T06:52:58Z",
+      "side": 1,
+      "message": "there should be a max(10, font size) here. Otherwise if the default font size is 10 or less, this will be unreadably small.",
+      "revId": "6c381c42d90fb57ad4976498a09d20182e302745",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
