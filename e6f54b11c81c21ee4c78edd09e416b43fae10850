@@ -33,6 +33,24 @@
       "revId": "e6f54b11c81c21ee4c78edd09e416b43fae10850",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e1858fe_cca77f19",
+        "filename": "src/add-ons/kernel/drivers/graphics/ati/driver.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-06-25T10:22:34Z",
+      "side": 1,
+      "message": "Comment above says that rom_base may be not set. I have no real hardware to test. QEMU correctly use rom_base register.",
+      "parentUuid": "76164789_35f365bb",
+      "revId": "e6f54b11c81c21ee4c78edd09e416b43fae10850",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
