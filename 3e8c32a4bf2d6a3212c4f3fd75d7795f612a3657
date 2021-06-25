@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0c9bc850_27ef6dde",
+        "filename": "build/jam/images/definitions/regular",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-25T06:55:13Z",
+      "side": 1,
+      "message": "the constraint on architectures can simply be removed. Let\u0027s have it for all architectures.",
+      "revId": "3e8c32a4bf2d6a3212c4f3fd75d7795f612a3657",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
