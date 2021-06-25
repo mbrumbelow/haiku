@@ -51,6 +51,24 @@
       "revId": "e6f54b11c81c21ee4c78edd09e416b43fae10850",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f04d61e_bbd3a728",
+        "filename": "src/add-ons/kernel/drivers/graphics/ati/driver.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-06-25T10:29:08Z",
+      "side": 1,
+      "message": "Maybe ROM size can tested and use fixed address as fallback if size is zero.",
+      "parentUuid": "0e1858fe_cca77f19",
+      "revId": "e6f54b11c81c21ee4c78edd09e416b43fae10850",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
