@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "53a7679a_c6137900",
+        "filename": "build/jam/images/definitions/regular",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-25T06:57:15Z",
+      "side": 1,
+      "message": "the architecture constraint can be completely removed",
+      "revId": "e6f54b11c81c21ee4c78edd09e416b43fae10850",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76164789_35f365bb",
+        "filename": "src/add-ons/kernel/drivers/graphics/ati/driver.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-25T06:57:15Z",
+      "side": 1,
+      "message": "can\u0027t x86 architectures also use the rom_base register? Why not?",
+      "revId": "e6f54b11c81c21ee4c78edd09e416b43fae10850",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
