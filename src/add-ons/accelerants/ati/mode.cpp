@@ -298,12 +298,32 @@ SetDisplayMode(display_mode* pMode)
 			(mode.timing.flags & B_POSITIVE_HSYNC) ? '+' : '-',
 			(mode.timing.flags & B_POSITIVE_VSYNC) ? '+' : '-');
 	}
-	
+
+	// QEMU need to reenable screen to apply new mode change.
+	struct ScopeExit {
+		uint32 oldDpms;
+
+		ScopeExit()
+		{
+			oldDpms = gInfo.GetDPMSMode();
+			gInfo.SetDPMSMode(B_DPMS_OFF);
+		}
+
+		~ScopeExit()
+		{
+			gInfo.SetDPMSMode(oldDpms);
+		}
+	} scopeExit;
+
 	status_t status = gInfo.SetDisplayMode(mode);
 	if (status != B_OK) {
 		TRACE("SetDisplayMode() failed;  status 0x%x\n", status);
 		return status;
 	}
+
+	// Clear framebuffer to avoid artifacts on mode change.
+	memset((void*)((addr_t)si.videoMemAddr + si.frameBufferOffset), 0,
+		mode.virtual_width * mode.virtual_height * bytesPerPixel);
 
 	si.displayMode = mode;
 
