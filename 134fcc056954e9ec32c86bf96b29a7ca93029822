@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "505b302c_962ad861",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-26T15:09:49Z",
+      "side": 1,
+      "message": "A simple thing to do is:\n\ndelete fExtents;\nfExtents \u003d new(...);\n\nAnother option, if the size of fExtents is never going to change for a single inode:\n\nif (fExtents \u003d\u003d NULL)\n    fExtents \u003d new(...);\n\nOr maybe, just allocate fExtents in the constructor (guaranteeing it is only done once in the object lifetime), instead of doing it later in various methods (other \"read\" methods also allocate it currently, making it difficult to track its lifetime). In general, allocating everything in the constructor and deleting everything in the destructor makes it easy to check that there are no memory leaks. Having allocations done all over the places in various methods make things complicated to follow, and in this case, I think there is no reason for this extra complexity (unless I\u0027m missing something).",
+      "parentUuid": "effd3f7a_2ebbab05",
+      "revId": "134fcc056954e9ec32c86bf96b29a7ca93029822",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d4e9c35d_ec8bdef2",
         "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
         "patchSetId": 13
