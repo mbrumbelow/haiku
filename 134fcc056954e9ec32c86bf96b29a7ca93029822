@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e79884b1_2882ff4a",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000287
+      },
+      "writtenOn": "2021-06-26T08:33:59Z",
+      "side": 1,
+      "message": "Done\nNot \u0027else\u0027, according to the guidelines, we should avoid \u0027else\u0027, right?\nParenthesis added.",
+      "parentUuid": "1da5de33_2b09d763",
+      "revId": "134fcc056954e9ec32c86bf96b29a7ca93029822",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d201005_ab93b28d",
         "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
         "patchSetId": 13
@@ -50,6 +68,24 @@
       "revId": "134fcc056954e9ec32c86bf96b29a7ca93029822",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5a653fc_840f999c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1000287
+      },
+      "writtenOn": "2021-06-26T08:33:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4e9c35d_ec8bdef2",
+      "revId": "134fcc056954e9ec32c86bf96b29a7ca93029822",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -118,6 +154,24 @@
       "revId": "134fcc056954e9ec32c86bf96b29a7ca93029822",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2fc488d0_53ae9430",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1000287
+      },
+      "writtenOn": "2021-06-26T08:33:59Z",
+      "side": 1,
+      "message": "Done\nAlso don\u0027t know why it was removed, I think it is needed.",
+      "parentUuid": "6c8bd583_554df552",
+      "revId": "134fcc056954e9ec32c86bf96b29a7ca93029822",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
