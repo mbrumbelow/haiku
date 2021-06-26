@@ -90,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "5a0ef779_450809b2",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-06-26T22:54:06Z",
+      "side": 1,
+      "message": "Good case for using ObjectDeleter. Just set it to new pointer and it will automatically delete old object.",
+      "parentUuid": "505b302c_962ad861",
+      "revId": "134fcc056954e9ec32c86bf96b29a7ca93029822",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d4e9c35d_ec8bdef2",
         "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
         "patchSetId": 13
