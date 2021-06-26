@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "effd3f7a_2ebbab05",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1000287
+      },
+      "writtenOn": "2021-06-26T15:03:07Z",
+      "side": 1,
+      "message": "It makes me confused. \nObiviously, if this method is called more than once, it would leak.\nSo to forbid this, we can use AutoDeleter, so how about other methods, should I also do this for them?",
+      "parentUuid": "4d201005_ab93b28d",
+      "revId": "134fcc056954e9ec32c86bf96b29a7ca93029822",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d4e9c35d_ec8bdef2",
         "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
         "patchSetId": 13
@@ -106,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "4d41b285_201d57c8",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1000287
+      },
+      "writtenOn": "2021-06-26T15:03:07Z",
+      "side": 1,
+      "message": "Done\nI think it could be like this: line 325 - 328 can be simply deleted, since we have got values of them in the \u0027while\u0027 loop.",
+      "parentUuid": "b2b07da9_ff421b9c",
+      "revId": "134fcc056954e9ec32c86bf96b29a7ca93029822",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e61af7fb_89b14a23",
         "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
         "patchSetId": 13
@@ -117,6 +153,24 @@
       "writtenOn": "2021-01-16T17:07:37Z",
       "side": 1,
       "message": "Not sure if using the stack for something which is at least in theory \"variable\", is a good idea.",
+      "revId": "134fcc056954e9ec32c86bf96b29a7ca93029822",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45499f93_bfa70837",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1000287
+      },
+      "writtenOn": "2021-06-26T15:03:07Z",
+      "side": 1,
+      "message": "I think it was allocated on the stack may be it would not be so big? In this way, if stack size is enough we should keep it here.\n\nBut in my mind, I prefer use heap now. Because I am not sure whether it is really can be keep in stack. But if we use heap, we can confirm it is safe at least.\n\nLater, we can do something to make sure we allocate each variable in a certain way, stack/heap/StackOrHeap.",
+      "parentUuid": "e61af7fb_89b14a23",
       "revId": "134fcc056954e9ec32c86bf96b29a7ca93029822",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
