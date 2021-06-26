@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "56d11d3c_d7f7b98a",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000287
+      },
+      "writtenOn": "2021-06-26T08:39:30Z",
+      "side": 1,
+      "message": "This line is too long.\nSorry, I will correct it later.",
+      "range": {
+        "startLine": 279,
+        "startChar": 1,
+        "endLine": 279,
+        "endChar": 11
+      },
+      "revId": "6708758825bbb1a9fd705a69a8f69e386fed7bef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
