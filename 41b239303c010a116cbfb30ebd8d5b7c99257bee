@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "22869203_17158292",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000287
+      },
+      "writtenOn": "2021-06-27T15:32:31Z",
+      "side": 1,
+      "message": "Hi,\n\nIf we delete before we allocate it, we don\u0027t need to check it, right?",
+      "parentUuid": "273916b9_2e4f76e3",
+      "revId": "41b239303c010a116cbfb30ebd8d5b7c99257bee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "140cfd35_d6ed7fec",
         "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
         "patchSetId": 17
