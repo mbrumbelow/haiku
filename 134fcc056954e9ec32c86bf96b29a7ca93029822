@@ -326,6 +326,24 @@
     },
     {
       "key": {
+        "uuid": "f0670835_37d15d63",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-27T09:58:31Z",
+      "side": 1,
+      "message": "Just always use the heap for large things, it\u0027s the easiest way. With ObjectDeleter it isn\u0027t so much of a problem.\n\nOr, for better performance, pre-allocate all needed buffers directly in the Inode object as fields.\n\nAnyway, I think the best course of action is:\n1) Fix the obvious problems (memory leaks, etc) in these patches and get them merged\n2) Evaluate the status of the XFS support: what works? what doesn\u0027t? How are performances? (in fs_shell, then in userlandfs, then running in kernel)\n3) Fix identified performance problems and crashes, as separate patches.\n\nProbably the write support will require some other architecture changes and different ways to manage the memory anyway.",
+      "parentUuid": "1731ffbf_4e96f717",
+      "revId": "134fcc056954e9ec32c86bf96b29a7ca93029822",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aeaf702a_faf6c4e3",
         "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
         "patchSetId": 13
