@@ -35,7 +35,7 @@ getpass(const char *prompt)
 	fflush(stdout);
 
 	// Read password
-	if (fgets(password, sizeof(password), stdin) != NULL) {
+	if (password != NULL) {
 		size_t length = strlen(password);
 
 		if (length > 0 && (password[length - 1] == '\n'))
