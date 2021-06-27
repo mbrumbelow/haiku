@@ -290,6 +290,24 @@
     },
     {
       "key": {
+        "uuid": "7036ecbe_81079504",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-27T08:51:10Z",
+      "side": 1,
+      "message": "64K is a lot for the stack. In userland threads, the default size is 256K so it would be 1/4 of the stack. In kernel threads, the stack is only 12 to 16K (it depends on the CPU architecture) and this would simply not fit in the stack at all.\n\nYou need to be very conservative about stack usage for code that is meant to run in the kernel.",
+      "parentUuid": "fbc1b365_4ebe4379",
+      "revId": "134fcc056954e9ec32c86bf96b29a7ca93029822",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aeaf702a_faf6c4e3",
         "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
         "patchSetId": 13
