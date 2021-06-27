@@ -126,6 +126,24 @@
     },
     {
       "key": {
+        "uuid": "9fee74a4_e190d3a8",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1000287
+      },
+      "writtenOn": "2021-06-27T15:05:54Z",
+      "side": 1,
+      "message": "Done\n\nThank you all!\n\nI tried to allocate it in the constructor, but I don\u0027t know why it failed test (use xfs_shell to get files).\n\nHowever, this one works,\ndelete fExtents;\nfExtents \u003d new(...);\nSo I used it.",
+      "parentUuid": "5a0ef779_450809b2",
+      "revId": "134fcc056954e9ec32c86bf96b29a7ca93029822",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1aecf2f9_fad253b0",
         "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
         "patchSetId": 13
@@ -146,6 +164,30 @@
       "revId": "134fcc056954e9ec32c86bf96b29a7ca93029822",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "873ed7ec_4683ead3",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1000287
+      },
+      "writtenOn": "2021-06-27T15:05:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1aecf2f9_fad253b0",
+      "range": {
+        "startLine": 286,
+        "startChar": 18,
+        "endLine": 286,
+        "endChar": 22
+      },
+      "revId": "134fcc056954e9ec32c86bf96b29a7ca93029822",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -234,6 +276,24 @@
       "revId": "134fcc056954e9ec32c86bf96b29a7ca93029822",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc68caf5_ed2edeb7",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1000287
+      },
+      "writtenOn": "2021-06-27T15:05:54Z",
+      "side": 1,
+      "message": "Done\nYes, it is a bug. So how about this now？",
+      "parentUuid": "515af411_ff094a8c",
+      "revId": "134fcc056954e9ec32c86bf96b29a7ca93029822",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -341,6 +401,24 @@
       "revId": "134fcc056954e9ec32c86bf96b29a7ca93029822",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f410391a_bc148467",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1000287
+      },
+      "writtenOn": "2021-06-27T15:05:54Z",
+      "side": 1,
+      "message": "Done\nI used heap here.",
+      "parentUuid": "45499f93_bfa70837",
+      "revId": "134fcc056954e9ec32c86bf96b29a7ca93029822",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
