@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "273916b9_2e4f76e3",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2021-06-27T15:19:26Z",
+      "side": 1,
+      "message": "Please read this again:\nOkay. I don\u0027t think this should be called twice? The goal is to fill up fExtents. If that is filled, we shouldn\u0027t come here. We should make a check in ReadExtents(). If fExtents !\u003d NULL, return something like B_OK.\n\nWe are not supposed to come here again. Make sure of that in ReadExtents(). The delete[] is not required...",
+      "revId": "41b239303c010a116cbfb30ebd8d5b7c99257bee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "140cfd35_d6ed7fec",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2021-06-27T15:19:26Z",
+      "side": 1,
+      "message": "Same as above comment.",
+      "revId": "41b239303c010a116cbfb30ebd8d5b7c99257bee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
