@@ -308,6 +308,24 @@
     },
     {
       "key": {
+        "uuid": "1731ffbf_4e96f717",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2021-06-27T09:49:26Z",
+      "side": 1,
+      "message": "Interesting. Wasn\u0027t aware of this.\nSince the kernel stack size is variable, it probably isn\u0027t a good idea to use BStackOrHeap? We do need to define a stack size there right.",
+      "parentUuid": "7036ecbe_81079504",
+      "revId": "134fcc056954e9ec32c86bf96b29a7ca93029822",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aeaf702a_faf6c4e3",
         "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
         "patchSetId": 13
