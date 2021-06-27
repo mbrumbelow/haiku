@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fc111a76_01a966e0",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1000183
+      },
+      "writtenOn": "2021-06-27T08:44:00Z",
+      "side": 1,
+      "message": "I think BlockSize isn\u0027t even as large as DirBlockSize. Can you check the docs, test the images you have and see what you get? I think stack should be fine.",
+      "range": {
+        "startLine": 434,
+        "startChar": 24,
+        "endLine": 434,
+        "endChar": 33
+      },
+      "revId": "16f8856a49b64a740687b773fd9b026b0e5bfe2b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
