@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2c8f7146_dfd0ce87",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1000287
+      },
+      "writtenOn": "2021-06-28T16:51:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91cfd20d_063a1a41",
+      "range": {
+        "startLine": 306,
+        "startChar": 1,
+        "endLine": 335,
+        "endChar": 18
+      },
+      "revId": "70eef061e76f75397803a6d7216238679a8ef291",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2cf0edb4_88a869d3",
         "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
         "patchSetId": 4
