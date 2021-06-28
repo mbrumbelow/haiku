@@ -17,7 +17,7 @@
 char *
 getpass(const char *prompt)
 {
-	static char password[128];
+	static char password[1024];
 	struct termios termios;
 	bool changed = false;
 
