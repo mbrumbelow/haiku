@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4c25f592_2f2ca28f",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-29T07:16:39Z",
+      "side": 1,
+      "message": "use \"else if\" here",
+      "revId": "22bd70fbdf941bf4c38f8facc3dc61b3fe365ac4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef3bba3a_6fc881ba",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-29T07:16:39Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "22bd70fbdf941bf4c38f8facc3dc61b3fe365ac4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbb161ae_66ec1a4d",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-29T07:16:39Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "22bd70fbdf941bf4c38f8facc3dc61b3fe365ac4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f027636_0ba5bbd9",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-29T07:16:39Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "22bd70fbdf941bf4c38f8facc3dc61b3fe365ac4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
