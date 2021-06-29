@@ -160,6 +160,8 @@ typedef struct stack_t {
 #define NSIG			(__MAX_SIGNO + 1)
 							/* BSD extension, size of the sys_siglist table,
 							   obsolete */
+#define _NSIG			NSIG /* OpenBSD-specific extension, also present
+					FreeBSD's OpenBSD compatibility layer */
 
 
 /* Signal code values appropriate for siginfo_t::si_code: */
