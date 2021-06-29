@@ -1,25 +1,10 @@
-/*	$OpenBSD: readpassphrase.c,v 1.20 2007/10/30 12:03:48 millert Exp $	*/
+ /*
+  * Copyright 2021, Panagiotis Vasilopoulos <hello@alwayslivid.com>
+  * All rights reserved. Distributed under the terms of the MIT License.
+  */
 
-/*
- * Copyright (c) 2000-2002, 2007 Todd C. Miller <Todd.Miller@courtesan.com>
- *
- * Permission to use, copy, modify, and distribute this software for any
- * purpose with or without fee is hereby granted, provided that the above
- * copyright notice and this permission notice appear in all copies.
- *
- * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
- * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
- * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
- * ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
- * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
- * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
- * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
- *
- * Sponsored in part by the Defense Advanced Research Projects
- * Agency (DARPA) and Air Force Research Laboratory, Air Force
- * Materiel Command, USAF, under agreement number F39502-99-1-0512.
- */
 
+#include <assert.h>
 #include <ctype.h>
 #include <errno.h>
 #include <fcntl.h>
@@ -31,144 +16,199 @@
 #include <unistd.h>
 #include <readpassphrase.h>
 
-#ifndef TCSASOFT
-#define TCSASOFT 0
-#endif
 
-static volatile sig_atomic_t signo;
+/*
+ * NSIG is equal to 128 in FreeBSD. It's also known as _NSIG in OpenBSD.
+ * FreeBSD asserts that NSIG and _NSIG are equal in its OpenBSD compatibility
+ * layer. In Haiku, however, the value of NSIG is defined in
+ * `headers/posix/signal.h` and is equal to the value of (__MAX_SIGNO + 1),
+ * where __MoutputAX_SIGNO is equal to 64. The discrepancy here stems from the fact
+ * that Haiku does not have as many signals as FreeBSD and OpenBSD.
+ */
+
+static volatile sig_atomic_t signo[NSIG];
 
 static void handler(int);
+
 
 char *
 readpassphrase(const char *prompt, char *buf, size_t bufsiz, int flags)
 {
 	ssize_t nr;
-	int input, output, save_errno;
-	char ch, *p, *end;
-	struct termios term, oterm;
-	struct sigaction sa, savealrm, saveint, savehup, savequit, saveterm;
-	struct sigaction savetstp, savettin, savettou, savepipe;
+	int input, output, loopedOnce, needRestart, errnoStore;
+	char chr, *p, *end;
+	struct termios currentTerm, oldTerm;
+	struct sigaction signal;
+	struct sigaction saveALRM, saveINT, saveHUP, saveQUIT, saveTERM;
+	struct sigaction saveTSTP, saveTTIN, saveTTOU, savePIPE;
 
-	/* I suppose we could alloc on demand in this case (XXX). */
+	loopedOnce = 0;
+	needRestart = 0;
+	errnoStore = 0;
+
+	// Can't do much if the buffer is equal to zero.
+	// Errors have to return a null pointer.
 	if (bufsiz == 0) {
 		errno = EINVAL;
-		return(NULL);
+		return NULL;
 	}
 
-restart:
-	signo = 0;
-	nr = -1;
-	save_errno = 0;
-	/*
-	 * Read and write to /dev/tty if available.  If not, read from
-	 * stdin and write to stderr unless a tty is required.
-	 */
-	if ((flags & RPP_STDIN) ||
-	    (input = output = open(_PATH_TTY, O_RDWR)) == -1) {
-		if (flags & RPP_REQUIRE_TTY) {
-			errno = ENOTTY;
-			return(NULL);
+	// Read from and write to /dev/tty. Crash if RPP_REQUIRE_TTY is
+	// enabled, otherwise read from stdin and write to stderr.
+	do {
+		needRestart = 0;
+		errnoStore = 0;
+		nr = -1;
+
+		// memset cannot be used here, because signo is volatile.
+		for (int i = 0; i < NSIG; i++)
+			signo[i] = 0;
+
+		input = open(_PATH_TTY, O_RDONLY);
+		output = open(_PATH_TTY, O_RDONLY);
+
+		if ((flags & RPP_STDIN) || (open(_PATH_TTY, O_RDONLY) == -1)) {
+			if (flags & RPP_REQUIRE_TTY) {
+				errno = ENOTTY;
+				return NULL;
+			}
+
+			input = fileno(stdin);
+			output = fileno(stdout);	
 		}
-		input = STDIN_FILENO;
-		output = STDERR_FILENO;
-	}
 
-	/*
-	 * Catch signals that would otherwise cause the user to end
-	 * up with echo turned off in the shell.  Don't worry about
-	 * things like SIGXCPU and SIGVTALRM for now.
-	 */
-	sigemptyset(&sa.sa_mask);
-	sa.sa_flags = 0;		/* don't restart system calls */
-	sa.sa_handler = handler;
-	(void)sigaction(SIGALRM, &sa, &savealrm);
-	(void)sigaction(SIGHUP, &sa, &savehup);
-	(void)sigaction(SIGINT, &sa, &saveint);
-	(void)sigaction(SIGPIPE, &sa, &savepipe);
-	(void)sigaction(SIGQUIT, &sa, &savequit);
-	(void)sigaction(SIGTERM, &sa, &saveterm);
-	(void)sigaction(SIGTSTP, &sa, &savetstp);
-	(void)sigaction(SIGTTIN, &sa, &savettin);
-	(void)sigaction(SIGTTOU, &sa, &savettou);
+		// Turns off echo. If a tty is being used but not in the foreground,
+		// this will generate a SIGTTOU signal, but we will not catch it yet.
+		if ((input != fileno(stdin)) && (tcgetattr(input, &oldTerm) == 0)) {
+			if (!(flags & RPP_ECHO_ON)) {
+				currentTerm.c_lflag &= ~(ECHO | ECHONL);
 
-	/* Turn off echo if possible. */
-	if (input != STDIN_FILENO && tcgetattr(input, &oterm) == 0) {
-		memcpy(&term, &oterm, sizeof(term));
-		if (!(flags & RPP_ECHO_ON))
-			term.c_lflag &= ~(ECHO | ECHONL);
-#ifdef VSTATUS
-		if (term.c_cc[VSTATUS] != _POSIX_VDISABLE)
-			term.c_cc[VSTATUS] = _POSIX_VDISABLE;
-#endif
-		(void)tcsetattr(input, TCSAFLUSH|TCSASOFT, &term);
-	} else {
-		memset(&term, 0, sizeof(term));
-		term.c_lflag |= ECHO;
-		memset(&oterm, 0, sizeof(oterm));
-		oterm.c_lflag |= ECHO;
-	}
+				/*
+				 * In other platforms, TCSAFLUSH|TCSASOFT is
+				 * used but TCSASOFT does not exist on Haiku.
+				 * There's a condition which makes TCSASOFT
+				 * equal to 0 if it does not exist, but it
+				 * isn't needed if we do not include it.
+				 */
 
-	/* No I/O if we are already backgrounded. */
-	if (signo != SIGTTOU && signo != SIGTTIN) {
-		if (!(flags & RPP_STDIN))
-			(void)write(output, prompt, strlen(prompt));
-		end = buf + bufsiz - 1;
-		p = buf;
-		while ((nr = read(input, &ch, 1)) == 1 && ch != '\n' && ch != '\r') {
-			if (p < end) {
-				if ((flags & RPP_SEVENBIT))
-					ch &= 0x7f;
-				if (isalpha(ch)) {
-					if ((flags & RPP_FORCELOWER))
-						ch = (char)tolower(ch);
-					if ((flags & RPP_FORCEUPPER))
-						ch = (char)toupper(ch);
-				}
-				*p++ = ch;
+				(void) tcsetattr(input, TCSAFLUSH, &currentTerm);
+			} else {
+				// Variables aren't volatile, so memset is used here.
+				// Echo is set to off by default.
+				memset(&currentTerm, 0, sizeof(currentTerm));
+				memset(&oldTerm, 0, sizeof(oldTerm));
+				currentTerm.c_lflag |= ECHO;
+				oldTerm.c_lflag |= ECHO;
 			}
 		}
+
+		/*
+		 * Like in FreeBSD/OpenBSD, signals that would cause the user
+		 * to end up with a shell prompt that has its echo turned off
+		 * are now being caught.
+		 */
+
+		sigemptyset(&signal.sa_mask);
+		signal.sa_flags = 0;
+		signal.sa_handler = handler;
+
+		(void) sigaction(SIGALRM, &signal, &saveALRM);
+		(void) sigaction(SIGHUP, &signal, &saveHUP);
+		(void) sigaction(SIGINT, &signal, &saveINT);
+		(void) sigaction(SIGPIPE, &signal, &savePIPE);
+		(void) sigaction(SIGQUIT, &signal, &saveQUIT);
+		(void) sigaction(SIGTERM, &signal, &saveTERM);
+
+		// The following signals will cause a "restart" later on.
+		(void) sigaction(SIGTSTP, &signal, &saveTSTP);
+		(void) sigaction(SIGTTIN, &signal, &saveTTIN);
+		(void) sigaction(SIGTTOU, &signal, &saveTTOU);
+
+		if (!(flags & RPP_STDIN))
+			(void) write(output, prompt, strlen(prompt));
+
+		end = buf + bufsiz - 1;
+		p = buf;
+
+		// Processes every character individually until they run out.
+		while ((nr = read(input, &chr, 1)) != 0
+				&& chr != '\n'
+				&& chr != '\r') {
+
+			if ((flags & RPP_SEVENBIT) && (p < end))
+				chr &= 0x7f;
+
+			if (isalpha((unsigned char) chr) && (p < end)) {
+				if ((flags & RPP_FORCELOWER))
+					chr = (char) tolower((unsigned char) chr);
+
+				if ((flags & RPP_FORCEUPPER))
+					chr = (char) toupper((unsigned char) chr);
+			}
+
+			if (p < end)
+				*p++ = chr;
+		}
+		
 		*p = '\0';
-		save_errno = errno;
-		if (!(term.c_lflag & ECHO))
-			(void)write(output, "\n", 1);
-	}
+		errnoStore = errno;
 
-	/* Restore old terminal settings and signals. */
-	if (memcmp(&term, &oterm, sizeof(term)) != 0) {
-		while (tcsetattr(input, TCSAFLUSH|TCSASOFT, &oterm) == -1 &&
-		    errno == EINTR)
-			continue;
-	}
-	(void)sigaction(SIGALRM, &savealrm, NULL);
-	(void)sigaction(SIGHUP, &savehup, NULL);
-	(void)sigaction(SIGINT, &saveint, NULL);
-	(void)sigaction(SIGQUIT, &savequit, NULL);
-	(void)sigaction(SIGPIPE, &savepipe, NULL);
-	(void)sigaction(SIGTERM, &saveterm, NULL);
-	(void)sigaction(SIGTSTP, &savetstp, NULL);
-	(void)sigaction(SIGTTIN, &savettin, NULL);
-	(void)sigaction(SIGTTOU, &savettou, NULL);
-	if (input != STDIN_FILENO)
-		(void)close(input);
+		// Manually move to the next line.
+		if (!(currentTerm.c_lflag & ECHO))
+			(void) write(output, "\n", 1);
 
-	/*
-	 * If we were interrupted by a signal, resend it to ourselves
-	 * now that we have restored the signal handlers.
-	 */
-	if (signo) {
-		kill(getpid(), signo);
-		switch (signo) {
-		case SIGTSTP:
-		case SIGTTIN:
-		case SIGTTOU:
-			goto restart;
+		// Restore old settings/signals from &oldTerm to &currentTerm.
+		if (memcmp(&currentTerm, &oldTerm, sizeof(currentTerm)) != 0)
+		{
+			const int kSigTTOU = signo[SIGTTOU];
+
+			// Ignores the generated SIGTTOU signal if the process
+			// is not in the foreground.
+			while (tcsetattr(input, TCSAFLUSH, &oldTerm) == -1 &&
+		    		errno == EINTR && !signo[SIGTTOU]) {
+					continue;
+			}
+
+			signo[SIGTTOU] = kSigTTOU;
+		}
+
+		(void) sigaction(SIGALRM, &saveALRM, NULL);
+		(void) sigaction(SIGHUP, &saveHUP, NULL);
+		(void) sigaction(SIGINT, &saveINT, NULL);
+		(void) sigaction(SIGQUIT, &saveQUIT, NULL);
+		(void) sigaction(SIGPIPE, &savePIPE, NULL);
+		(void) sigaction(SIGTERM, &saveTERM, NULL);
+
+		(void) sigaction(SIGTSTP, &saveTSTP, NULL);
+		(void) sigaction(SIGTTIN, &saveTTIN, NULL);
+		(void) sigaction(SIGTTOU, &saveTTOU, NULL);
+
+		(void) close(input);
+
+		for (int i = 0; i < NSIG; i++) {
+			if (signo[i]) {
+				kill(getpid(), i);
+				switch (i) {
+					case SIGTSTP:
+					case SIGTTIN:
+					case SIGTTOU:
+						needRestart = 1;
+				}
+			}
 		}
 	}
+	while (needRestart == 1);
 
-	if (save_errno)
-		errno = save_errno;
-	return(nr == -1 ? NULL : buf);
+	if (errnoStore)
+		errno = errnoStore;
+
+	if (nr != -1)
+		return buf; // Successful operation, pointer is NUL-terminated
+	else
+		return NULL; // Error encountered
+
 }
+
 
 #if 0
 char *
@@ -180,8 +220,10 @@ getpass(const char *prompt)
 }
 #endif
 
-static void handler(int s)
-{
 
-	signo = s;
-}
+static void
+handler(int i) {
+	assert(i <= __MAX_SIGNO);
+	signo[i] = 1;
+};
+
