@@ -5,6 +5,10 @@ UseHeaders [ FDirName $(HAIKU_TOP) headers compatibility bsd ] : true ;
 local architectureObject ;
 for architectureObject in [ MultiArchSubDirSetup ] {
 	on $(architectureObject) {
+		UsePrivateHeaders libroot ;
+
+		UsePrivateSystemHeaders ;
+
 		SetVersionScript [ MultiArchDefaultGristFiles libbsd.so ] :
 			libbsd_versions ;
 
