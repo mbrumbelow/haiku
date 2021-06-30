@@ -43,7 +43,7 @@ public:
 								int32 group, uint16 start, uint16 numBlocks,
 								uint16 minimum, block_run& run);
 
-			status_t		Trim(uint64 offset, uint64 size,
+			status_t		Trim(off_t offset, off_t size,
 								uint64& trimmedSize);
 
 			status_t		CheckBlocks(off_t start, off_t length,
@@ -68,10 +68,10 @@ private:
 #ifdef DEBUG_ALLOCATION_GROUPS
 			void			_CheckGroup(int32 group) const;
 #endif
-			status_t		_AddTrim(fs_trim_data& trimData, uint32 maxRanges,
-								uint64 offset, uint64 size);
+			bool			_AddTrim(fs_trim_data& trimData, uint32 maxRanges,
+								off_t offset, off_t size);
 			status_t		_TrimNext(fs_trim_data& trimData, uint32 maxRanges,
-								uint64 offset, uint64 size, bool force,
+								off_t offset, off_t size, bool force,
 								uint64& trimmedSize);
 
 	static	status_t		_Initialize(BlockAllocator* self);

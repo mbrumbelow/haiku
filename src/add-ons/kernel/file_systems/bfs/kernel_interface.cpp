@@ -651,6 +651,26 @@ bfs_ioctl(fs_volume* _volume, fs_vnode* _node, void* _cookie, uint32 cmd,
 			if (status != B_OK)
 				return status;
 
+			// Validate input
+			for (uint32 i = 0; i < trimData->range_count; i++) {
+				if (trimData->ranges[i].size < 0)
+					return B_BAD_VALUE;
+
+				// Would it make sense to have a negative offset?
+				if (trimData->ranges[i].offset < 0)
+					return B_BAD_VALUE;
+
+				// Ranges smaller than the whole file system
+				// are not supported yet
+				if (trimData->ranges[i].offset != 0
+					|| trimData->ranges[i].size
+						< volume->NumBlocks() * volume->BlockSize()) {
+					INFORM(("Trimming ranges smaller than the file system"
+						" size is not implemented.\n"));
+					return B_UNSUPPORTED;
+				}
+			}
+
 			trimData->trimmed_size = 0;
 
 			for (uint32 i = 0; i < trimData->range_count; i++) {

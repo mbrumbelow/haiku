@@ -1156,11 +1156,11 @@ BlockAllocator::_CheckGroup(int32 groupIndex) const
 
 
 status_t
-BlockAllocator::Trim(uint64 offset, uint64 size, uint64& trimmedSize)
+BlockAllocator::Trim(off_t offset, off_t size, uint64& trimmedSize)
 {
 	const uint32 kTrimRanges = 128;
 	fs_trim_data* trimData = (fs_trim_data*)malloc(sizeof(fs_trim_data)
-		+ sizeof(uint64) * kTrimRanges);
+		+ 2 * sizeof(off_t) * (kTrimRanges - 1));
 	if (trimData == NULL)
 		return B_NO_MEMORY;
 
@@ -1191,6 +1191,17 @@ BlockAllocator::Trim(uint64 offset, uint64 size, uint64& trimmedSize)
 				if (cached.IsUsed(i)) {
 					// Block is in use
 					if (freeLength > 0) {
+						// try to detect incompatible data types
+						if ((((uint64)(off_t)(firstFree << blockShift))
+								>> blockShift) != firstFree
+							|| (off_t)(firstFree << blockShift) < 0
+							|| (((size_t)(off_t)(freeLength << blockShift))
+								>> blockShift) != freeLength
+							|| (off_t)(freeLength << blockShift) < 0) {
+							FATAL(("BlockAllocator::Trim: Value does not fit"
+								" used data type!\n"));
+							return B_ERROR;
+						}
 						status_t status = _TrimNext(*trimData, kTrimRanges,
 							firstFree << blockShift, freeLength << blockShift,
 							false, trimmedSize);
@@ -1306,9 +1317,9 @@ BlockAllocator::CheckBlockRun(block_run run, const char* type, bool allocated)
 }
 
 
-status_t
+bool
 BlockAllocator::_AddTrim(fs_trim_data& trimData, uint32 maxRanges,
-	uint64 offset, uint64 size)
+	off_t offset, off_t size)
 {
 	if (trimData.range_count < maxRanges && size > 0) {
 		trimData.ranges[trimData.range_count].offset = offset;
@@ -1323,23 +1334,26 @@ BlockAllocator::_AddTrim(fs_trim_data& trimData, uint32 maxRanges,
 
 status_t
 BlockAllocator::_TrimNext(fs_trim_data& trimData, uint32 maxRanges,
-	uint64 offset, uint64 size, bool force, uint64& trimmedSize)
+	off_t offset, off_t size, bool force, uint64& trimmedSize)
 {
-	PRINT(("_TrimNext(index %" B_PRIu32 ", offset %" B_PRIu64 ", size %"
-		B_PRIu64 ")\n", trimData.range_count, offset, size));
+	PRINT(("_TrimNext(index %" B_PRIu32 ", offset %" B_PRIdOFF ", size %"
+		B_PRIdOFF ")\n", trimData.range_count, offset, size));
 
 	bool pushed = _AddTrim(trimData, maxRanges, offset, size);
 
 	if (!pushed || force) {
 		// Trim now
 		trimData.trimmed_size = 0;
-dprintf("TRIM FS:\n");
-for (uint32 i = 0; i < trimData.range_count; i++) {
-	dprintf("[%3" B_PRIu32 "] %" B_PRIu64 " : %" B_PRIu64 "\n", i,
-		trimData.ranges[i].offset, trimData.ranges[i].size);
-}
+		#ifdef DEBUG_TRIM
+		dprintf("TRIM: BFS: free ranges (bytes):\n");
+		for (uint32 i = 0; i < trimData.range_count; i++) {
+			dprintf("[%3" B_PRIu32 "] %" B_PRIdOFF " : %" B_PRIdOFF "\n", i,
+				trimData.ranges[i].offset, trimData.ranges[i].size);
+		}
+		#endif
 		if (ioctl(fVolume->Device(), B_TRIM_DEVICE, &trimData,
-				sizeof(fs_trim_data)) != 0) {
+				sizeof(fs_trim_data)
+				+ 2 * sizeof(off_t) * (trimData.range_count - 1)) != 0) {
 			return errno;
 		}
 
