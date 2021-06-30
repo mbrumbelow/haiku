@@ -157,7 +157,7 @@ typedef struct stack_t {
 
 #define __MAX_SIGNO		64	/* greatest possible signal number, can be used (+1)
 							   as size of static arrays */
-#define NSIG			(__MAX_SIGNO + 1)
+#define _NSIG			(__MAX_SIGNO + 1)
 							/* BSD extension, size of the sys_siglist table,
 							   obsolete */
 
@@ -215,7 +215,7 @@ typedef struct stack_t {
 
 
 /* the global table of text strings containing descriptions for each signal */
-extern const char* const sys_siglist[NSIG];
+extern const char* const sys_siglist[_NSIG];
 	/* BSD extension, obsolete, use strsignal() instead */
 
 

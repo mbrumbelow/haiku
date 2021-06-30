@@ -22,7 +22,7 @@ static const char* const kInvalidSignalNumberText = "Bogus signal number";
 
 
 const char * const
-sys_siglist[NSIG] = {
+sys_siglist[_NSIG] = {
 	/*  0 */				"Signal 0",
 	/*  1 - SIGHUP */		"Hangup",
 	/*  2 - SIGINT  */		"Interrupt",

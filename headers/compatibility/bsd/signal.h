@@ -14,7 +14,7 @@
 
 
 #define	sigmask(sig) (1 << ((sig) - 1))
-
+#define	NSIG _NSIG // for FreeBSD applications
 
 #ifdef __cplusplus
 extern "C" {
