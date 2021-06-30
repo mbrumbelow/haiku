@@ -32,7 +32,7 @@ get_trim_data_from_user(void* buffer, size_t size, MemoryDeleter& deleter,
 	if (user_memcpy(&count, buffer, sizeof(count)) != B_OK)
 		return B_BAD_ADDRESS;
 
-	size_t bytes = (count - 1) * sizeof(uint64) * 2 + sizeof(fs_trim_data);
+	size_t bytes = (count - 1) * sizeof(off_t) * 2 + sizeof(fs_trim_data);
 	if (bytes > size)
 		return B_BAD_VALUE;
 

@@ -218,8 +218,8 @@ typedef struct {
 	uint32_t	range_count;
 	uint64_t	trimmed_size;			/* filled on return */
 	struct range {
-		uint64_t	offset;				/* offset (in bytes) */
-		uint64_t	size;
+		int64_t	offset;					/* offset (in bytes) */
+		int64_t	size;
 	} ranges[1];
 } fssh_fs_trim_data;
 
