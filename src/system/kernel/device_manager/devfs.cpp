@@ -1475,14 +1475,53 @@ devfs_ioctl(fs_volume* _volume, fs_vnode* _vnode, void* _cookie, uint32 op,
 				if (status != B_OK)
 					return status;
 
+				// Validate input
+				for (uint32 i = 0; i < trimData->range_count; i++) {
+					if (trimData->ranges[i].size < 0)
+						return B_BAD_VALUE;
+
+					// Would it make sense to have a negative offset?
+					if (trimData->ranges[i].offset < 0)
+						return B_BAD_VALUE;
+				}
+
+				#ifdef DEBUG_TRIM
+				dprintf("TRIM: devfs: received TRIM ranges (bytes):\n");
+				for (uint32 i = 0; i < trimData->range_count; i++) {
+					dprintf("[%3" B_PRId32 "] %" B_PRIdOFF " : %"
+						B_PRIdOFF "\n", i,
+						trimData->ranges[i].offset,
+						trimData->ranges[i].size);
+				}
+				#endif
+
 				if (partition != NULL) {
 					// If there is a partition, offset all ranges according
 					// to the partition start.
+					// As a side effect, range size may be reduced to fit
+					// the partition size.
 					for (uint32 i = 0; i < trimData->range_count; i++) {
+						// avoid ASSERT failures in translate_partition_access
+						if (trimData->ranges[i].offset < 0
+							|| trimData->ranges[i].offset
+								>= partition->info.size)
+							return B_BAD_VALUE;
+
 						translate_partition_access(partition,
 							trimData->ranges[i].offset,
 							trimData->ranges[i].size);
 					}
+
+					#ifdef DEBUG_TRIM
+					dprintf("TRIM: devfs: TRIM ranges after partition"
+						" translation (bytes):\n");
+					for (uint32 i = 0; i < trimData->range_count; i++) {
+						dprintf("[%3" B_PRId32 "] %" B_PRIdOFF " : %"
+							B_PRIdOFF "\n", i,
+							trimData->ranges[i].offset,
+							trimData->ranges[i].size);
+					}
+					#endif
 				}
 
 				status = vnode->stream.u.dev.device->Control(
