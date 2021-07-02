@@ -16,6 +16,24 @@
       "revId": "39281b945c50f4e20be3f9730864336c0e25aba5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1015380_0eb9f44d",
+        "filename": "build/jam/ImageRules",
+        "patchSetId": 1
+      },
+      "lineNbr": 1715,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-07-02T03:58:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92d738de_704f0d9f",
+      "revId": "39281b945c50f4e20be3f9730864336c0e25aba5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
