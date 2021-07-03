@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7ecb3d45_b538e1c6",
+        "filename": "src/servers/midi/MidiServerApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2021-07-03T18:42:53Z",
+      "side": 1,
+      "message": "I had the same thought in the back of my head. I asked about this in the channel as I\u0027m not aware of the original author\u0027s contact details in order to see if I could get it removed. I\u0027ll add myself there. I\u0027m giving the right to every person that currently has permission to push commits to the official Haiku tree (the one hosted under \"haiku-os.org\") and board members of Haiku, Inc. to remove the notice and replace it with an equivalent \"Distributed under the terms of the MIT License.\", as long as the copy of the MIT license itself does not differ from the content of the notice in the source file (asterisks and extra spaces excluded). I want to keep the copyright assigned to me.",
+      "parentUuid": "69ebb430_68374eca",
+      "revId": "1879266e0db10f0d1db6a3b1541e6a6ba2f991d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3ba8f003_61a75a20",
         "filename": "src/servers/midi/MidiServerApp.cpp",
         "patchSetId": 1
