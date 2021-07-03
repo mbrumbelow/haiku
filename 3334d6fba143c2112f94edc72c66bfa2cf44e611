@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f84d0c61_e901baa1",
+        "filename": "src/kits/network/libnetservices/UrlProtocolListener.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-07-03T11:37:57Z",
+      "side": 0,
+      "message": "Probably removed by mistake.",
+      "revId": "3334d6fba143c2112f94edc72c66bfa2cf44e611",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
