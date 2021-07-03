@@ -16,6 +16,24 @@
       "revId": "3334d6fba143c2112f94edc72c66bfa2cf44e611",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eca8e1e1_12b70d3e",
+        "filename": "src/kits/network/libnetservices/UrlProtocolListener.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-07-03T11:38:35Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "f84d0c61_e901baa1",
+      "revId": "3334d6fba143c2112f94edc72c66bfa2cf44e611",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
