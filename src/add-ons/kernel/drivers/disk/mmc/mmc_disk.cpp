@@ -491,6 +491,8 @@ mmc_block_trim(mmc_disk_driver_info* info, fs_trim_data* trimData)
 	};
 	TRACE("trim_device()\n");
 
+	trimData->trimmed_size = 0;
+
 	uint64 trimmedSize = 0;
 	status_t result = B_OK;
 	for (uint32 i = 0; i < trimData->range_count; i++) {

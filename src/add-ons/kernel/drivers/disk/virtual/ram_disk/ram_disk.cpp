@@ -531,6 +531,8 @@ struct RawDevice : Device, DoublyLinkedListLinkImpl<RawDevice> {
 	{
 		TRACE("trim_device()\n");
 
+		trimData->trimmed_size = 0;
+
 		uint64 trimmedSize = 0;
 		for (uint32 i = 0; i < trimData->range_count; i++) {
 			trimmedSize += trimData->ranges[i].size;
