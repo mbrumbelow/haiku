@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1cd16a64_74b9b2e9",
+        "filename": "src/libs/bsd/readpassphrase.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-03T17:37:29Z",
+      "side": 1,
+      "message": "this line is too long and there is a typo in it (__MoutputAX_SIGNO instead of __MAX_SIGNO).\n\nAlso, I don\u0027t understand the purpose of this comment here. The point of having NSIG as a constant is that code can use it without worrying about the specific value, and it will work on all OS and adjust automatically. That seems quite obvious to me.",
+      "revId": "f8ac69b152db86ffe24a92c6eabd7b38e0e7df11",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3313187a_7cab5ce0",
+        "filename": "src/libs/bsd/readpassphrase.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-03T17:37:29Z",
+      "side": 1,
+      "message": "just use EINVAL. This is a POSIX function and it should set errno to POSIX errors, not BeOS ones.",
+      "revId": "f8ac69b152db86ffe24a92c6eabd7b38e0e7df11",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1568d090_2b695d67",
+        "filename": "src/libs/bsd/readpassphrase.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-03T17:37:29Z",
+      "side": 1,
+      "message": "this costs an extra syscall compared to the previous code using STDIN_FILENO which is just a constant, I think? If that\u0027s the case, I would prefer to keep the old code.",
+      "revId": "f8ac69b152db86ffe24a92c6eabd7b38e0e7df11",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83e28eb1_c2374c40",
+        "filename": "src/libs/bsd/readpassphrase.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-03T17:37:29Z",
+      "side": 1,
+      "message": "this (void) cast is useless and can be removed?\n\nAnd it\u0027s the same in several other places in this code. Ideally the possible errors from these functions should be caught and handled if needed.",
+      "revId": "f8ac69b152db86ffe24a92c6eabd7b38e0e7df11",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c4c9858_a0098dc6",
+        "filename": "src/libs/bsd/readpassphrase.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-03T17:37:29Z",
+      "side": 1,
+      "message": "why the test for p \u003c end here and in the next if? We only need to check that before actually putting the char in the string?",
+      "revId": "f8ac69b152db86ffe24a92c6eabd7b38e0e7df11",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "549aa758_150f6b2e",
+        "filename": "src/libs/bsd/readpassphrase.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-03T17:37:29Z",
+      "side": 1,
+      "message": "This deserves a comment.\n\nSomething like this:\n\nWe have intercepted various signals during the execution of this function. If any of these were triggered while we were running, we now re-send them after having restored the original signal handlers possibly set by the application.\n\n\nAlso, are we sure that kill(getpid()) is the right thing to do here? If I understnad correctly, this will always send the signals to the main thread. But what if the function is running in another thread, and the signal was initially sent specifically to that other thread? Wouldn\u0027t it make more sense to use pthread_kill(pthread_self()) instead here?",
+      "revId": "f8ac69b152db86ffe24a92c6eabd7b38e0e7df11",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
