@@ -181,6 +181,11 @@ private:
 									const PackageSet& packagesAlreadyRemoved,
 									BCommitTransactionResult& _result);
 
+	static	void				_CollectPackageNamesAdded(
+									const VolumeState* oldState,
+									const VolumeState* newState,
+									BStringList& addedPackageNames);
+
 private:
 			BString				fPath;
 			PackageFSMountType	fMountType;
