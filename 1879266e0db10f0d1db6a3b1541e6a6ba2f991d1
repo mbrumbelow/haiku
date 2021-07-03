@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "69ebb430_68374eca",
+        "filename": "src/servers/midi/MidiServerApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-03T18:16:10Z",
+      "side": 1,
+      "message": "If you want to keep copyright to yourself, please add yourself to the first section which just says \"distributed under the MIT license\". I don\u0027t know why there is a separate license block here (especially as the license terms look quite similar).\n\nAlso, either you keep your copyright to yourself, or you assign it to Haiku. Here you both added yourself, and updated Haiku\u0027s copyright year, why is that so?",
+      "revId": "1879266e0db10f0d1db6a3b1541e6a6ba2f991d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ba8f003_61a75a20",
+        "filename": "src/servers/midi/MidiServerApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-03T18:16:10Z",
+      "side": 1,
+      "message": "can Alert be removed? Was it used for anything besides the previous about window?",
+      "revId": "1879266e0db10f0d1db6a3b1541e6a6ba2f991d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
