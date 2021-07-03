@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e29309de_d899ea65",
+        "filename": "src/apps/firstbootprompt/BootPromptWindow.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-07-03T19:43:31Z",
+      "side": 1,
+      "message": "Does this extract all the catkeys though? I thought the source goes through the preprocessor before the catkeys are extracted...",
+      "revId": "d68e7b729e9872cd52aabbb2c03f3363132a1ef9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
