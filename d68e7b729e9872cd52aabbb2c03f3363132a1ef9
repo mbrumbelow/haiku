@@ -34,6 +34,24 @@
       "revId": "d68e7b729e9872cd52aabbb2c03f3363132a1ef9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d86141f_07fcabf5",
+        "filename": "src/apps/firstbootprompt/BootPromptWindow.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-04T08:02:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfe8e085_d5d6c9a5",
+      "revId": "d68e7b729e9872cd52aabbb2c03f3363132a1ef9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
