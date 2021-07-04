@@ -4,6 +4,8 @@ SubDirHdrs $(HAIKU_TOP) src tests add-ons print ppd model ;
 SubDirHdrs $(HAIKU_TOP) src tests add-ons print ppd parser ;
 SubDirHdrs $(HAIKU_TOP) src tests add-ons print ppd ui ;
 
+UsePrivateHeaders interface locale ;
+
 AddResources PPDConfig : PPDConfigApplication.rdef ;
 
 SimpleTest PPDConfig :

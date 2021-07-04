@@ -1,5 +1,6 @@
 /*
  * Copyright 2008, Haiku.
+ * Copyright 2021, Panagiotis Vasilopoulos <hello@alwayslivid.com>
  * Distributed under the terms of the MIT license.
  *
  * Authors:
@@ -14,9 +15,11 @@
 #include "PPDConfigView.h"
 #include "MsgConsts.h"
 
-#define APPLICATION "PPD Printer Selection and Configuration Prototype"
-#define SIGNATURE "application/x-vnd.mwp-ppd-prototype"
-#define VERSION "1.0"
+
+extern const char* kAppName;
+extern const char* kDescription;
+extern const char* kSignature;
+
 
 class AppWindow : public BWindow {
 public:
