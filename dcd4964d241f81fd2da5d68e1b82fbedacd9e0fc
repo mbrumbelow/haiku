@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e20ee8c_60545ce7",
+        "filename": "src/libs/bsd/readpassphrase.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-04T08:04:52Z",
+      "side": 1,
+      "message": "this condition is redundant.",
+      "revId": "dcd4964d241f81fd2da5d68e1b82fbedacd9e0fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
