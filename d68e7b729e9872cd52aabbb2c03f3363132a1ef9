@@ -16,6 +16,24 @@
       "revId": "d68e7b729e9872cd52aabbb2c03f3363132a1ef9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dfe8e085_d5d6c9a5",
+        "filename": "src/apps/firstbootprompt/BootPromptWindow.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2021-07-04T05:16:56Z",
+      "side": 1,
+      "message": "... Could setting a variable (`isOfficial \u003d 1`) then working my way around it later on possibly work?",
+      "parentUuid": "e29309de_d899ea65",
+      "revId": "d68e7b729e9872cd52aabbb2c03f3363132a1ef9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
