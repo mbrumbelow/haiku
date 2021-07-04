@@ -52,6 +52,24 @@
       "revId": "d68e7b729e9872cd52aabbb2c03f3363132a1ef9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3543b665_a7aaaf91",
+        "filename": "src/apps/firstbootprompt/BootPromptWindow.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-07-04T08:17:10Z",
+      "side": 1,
+      "message": "Not sure whether my original comment is resolved here. `collectcatkeys` will run over this file after it has run through the pre-processor, which means that the first branch (when HAIKU_DISTRO_COMPATIBILITY_OFFICIAL) will  not be present in that file. The `en.catkeys` will then only include the strings from the #else branch. \n\nAlwaysLivid\u0027s solution with a runtime check, does not suffer from this problem. If you are adamant about using conditional compiling instead of a runtime check, the alternative is that you define these texts as static translatable texts, and use conditional compiling to select which variant of the text to use. This means that text extraction will not depend on which variety of the build you are running.",
+      "parentUuid": "2d86141f_07fcabf5",
+      "revId": "d68e7b729e9872cd52aabbb2c03f3363132a1ef9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
