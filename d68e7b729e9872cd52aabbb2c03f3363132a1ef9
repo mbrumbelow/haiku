@@ -70,6 +70,24 @@
       "revId": "d68e7b729e9872cd52aabbb2c03f3363132a1ef9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1122234_a65d75dd",
+        "filename": "src/apps/firstbootprompt/BootPromptWindow.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-04T09:28:29Z",
+      "side": 1,
+      "message": "I have moved all the strings outside of the #if, so they will all be processed by collectcatkeys now. Are you sure you tried the latest version of the patch (new version submitted this morning just before I marked this comment as done)?",
+      "parentUuid": "3543b665_a7aaaf91",
+      "revId": "d68e7b729e9872cd52aabbb2c03f3363132a1ef9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
