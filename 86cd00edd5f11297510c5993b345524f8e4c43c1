@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "22e517f2_b0ccffb6",
+        "filename": "src/tests/add-ons/print/ppd/test/PPDConfigApplication.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-04T17:26:27Z",
+      "side": 1,
+      "message": "I think you cannot use B_TRANSLATE in the global context this way? You would need to use B_TRANSLATE_MARK here, and then B_TRANSLATE_NOCOLLECT in the code where the string is actually used. This is because B_TRANSLATE works only after initialization of BApplication is complete.\n\nAlso, this is missing a ; at the end of the line. Please test your changes before submitting them. Submitting non-compiling code makes a bad impression, it looks like you did not test your changes.",
+      "revId": "86cd00edd5f11297510c5993b345524f8e4c43c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96930a74_24f13d18",
+        "filename": "src/tests/add-ons/print/ppd/test/PPDConfigApplication.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-04T17:26:27Z",
+      "side": 1,
+      "message": "This line is too long.",
+      "revId": "86cd00edd5f11297510c5993b345524f8e4c43c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b385b078_2da45803",
+        "filename": "src/tests/add-ons/print/ppd/test/PPDConfigApplication.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-04T17:26:27Z",
+      "side": 1,
+      "message": "you cannot use a string constant in this way. Please test that your changes actually compile before submitting them, this is embarassing for you and wasting time for us.",
+      "revId": "86cd00edd5f11297510c5993b345524f8e4c43c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
