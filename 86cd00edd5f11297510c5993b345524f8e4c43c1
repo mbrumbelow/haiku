@@ -50,6 +50,24 @@
       "revId": "86cd00edd5f11297510c5993b345524f8e4c43c1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00444561_893b7818",
+        "filename": "src/tests/add-ons/print/ppd/test/PPDConfigApplication.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2021-07-04T17:42:08Z",
+      "side": 1,
+      "message": "I\u0027m very confused - I ran jam and this compiled properly and there are obviously issues there. Am I also supposed to clean the `generated` folder every single time?",
+      "parentUuid": "b385b078_2da45803",
+      "revId": "86cd00edd5f11297510c5993b345524f8e4c43c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
