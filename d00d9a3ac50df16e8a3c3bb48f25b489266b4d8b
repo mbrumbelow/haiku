@@ -16,6 +16,24 @@
       "revId": "d00d9a3ac50df16e8a3c3bb48f25b489266b4d8b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "585bfdd7_fa0b220b",
+        "filename": "headers/compatibility/bsd/signal.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2021-07-05T04:57:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5f039712_6351e75f",
+      "revId": "d00d9a3ac50df16e8a3c3bb48f25b489266b4d8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
