@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "98733859_9f4397f7",
+        "filename": "headers/private/fs_shell/fssh_drivers.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-07-06T06:13:15Z",
+      "side": 1,
+      "message": "This has apparently been missed by commit cef80a1fb7edf58f8050d2ac32c8c36e000c2163 (https://github.com/haiku/haiku/commit/cef80a1fb7edf58f8050d2ac32c8c36e000c2163).\nI\u0027m not sure why this was changed; I would have preferred to use uint64_t everywhere instead. I obviously missed this change; Adrien, could you shed some light on this, please?",
+      "revId": "d2d6bda10397d01ce846757138b25a78242ed9b0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3843e6e_25509470",
+        "filename": "src/add-ons/kernel/file_systems/bfs/BlockAllocator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1194,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-07-06T06:13:15Z",
+      "side": 1,
+      "message": "This seems only be necessary because of the switch to off_t, right? At least I would love to get rid of this, too.",
+      "revId": "d2d6bda10397d01ce846757138b25a78242ed9b0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8956865_bd20c5f8",
+        "filename": "src/add-ons/kernel/file_systems/bfs/BlockAllocator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1356,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-07-06T06:13:15Z",
+      "side": 1,
+      "message": "Good catch!",
+      "revId": "d2d6bda10397d01ce846757138b25a78242ed9b0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9dea0da0_154a2d04",
+        "filename": "src/add-ons/kernel/file_systems/bfs/kernel_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 656,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-07-06T06:13:15Z",
+      "side": 1,
+      "message": "Shouldn\u0027t these already be catched by the kernel, since it needs to look at these structures, anyway?\nAnd again, this is only necessary, because of the switch to off_t. It doesn\u0027t seem to have any advantages to me.",
+      "revId": "d2d6bda10397d01ce846757138b25a78242ed9b0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
