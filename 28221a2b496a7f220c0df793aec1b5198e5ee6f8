@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dcc82a37_1e1fbe22",
+        "filename": "src/add-ons/kernel/generic/scsi_periph/block.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-07-06T09:30:19Z",
+      "side": 1,
+      "message": "This is what we call a multi-line if statement, and therefore we use {} here.",
+      "revId": "28221a2b496a7f220c0df793aec1b5198e5ee6f8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20df90c9_2fba4ffe",
+        "filename": "src/add-ons/kernel/generic/scsi_periph/block.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-07-06T09:30:19Z",
+      "side": 1,
+      "message": "Can you please explain this code? data_length \u003d\u003d unmapListSize - 2, block_data_length \u003d\u003d unmapListSize - 8?",
+      "revId": "28221a2b496a7f220c0df793aec1b5198e5ee6f8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
