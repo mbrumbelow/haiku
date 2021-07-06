@@ -33,6 +33,24 @@
       "revId": "28221a2b496a7f220c0df793aec1b5198e5ee6f8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7cf3f6f5_854ad8f6",
+        "filename": "src/add-ons/kernel/generic/scsi_periph/block.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1000324
+      },
+      "writtenOn": "2021-07-06T14:12:36Z",
+      "side": 1,
+      "message": "Yes.\n\nThe data_length field (aka UNMAP DATA LENGTH) contains the length in bytes of the transferred data minus the size of the field itself (which is 2 bytes).\n\nThe block_data_length field (aka UNMAP BLOCK DESCRIPTOR DATA LENGTH) is the size in bytes of the UNMAP block descriptors (the unmapList-\u003eblocks[] array in our case), so subtract the header (8 bytes) from the total size to get this size. It is better described in the standard.",
+      "parentUuid": "20df90c9_2fba4ffe",
+      "revId": "28221a2b496a7f220c0df793aec1b5198e5ee6f8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
