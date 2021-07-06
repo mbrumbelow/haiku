@@ -12,6 +12,13 @@ if $(JAMBASEDATE) < 2018 {
 		"by updating Jam itself.)" ;
 }
 
+# allow for a separate UserProfileConfig per output directory
+local userProfileConfig
+	= [ GLOB $(HAIKU_OUTPUT_DIR) : UserProfileConfig ] ;
+if $(userProfileConfig) {
+	include $(userProfileConfig) ;
+}
+
 # Make sure HAIKU_TOP is a relative path (and prefer it to be the current or
 # parent directory.)
 #
