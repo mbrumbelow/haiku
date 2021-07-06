@@ -4,7 +4,7 @@ rule ProcessCommandLineArguments
 {
 	# analyze and optionally replace jam's target parameters
 	HAIKU_ORIGINAL_JAM_TARGETS = $(JAM_TARGETS) ;
-	HAIKU_BUILD_PROFILE = ;
+	HAIKU_BUILD_PROFILE ?= ;
 	if $(JAM_TARGETS) {
 		switch $(JAM_TARGETS[1]) {
 			# If the target to be built is "all" (i.e. the default) and we're in

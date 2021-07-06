@@ -17,7 +17,7 @@ local packages = [ FFilterByBuildFeatures
 	haiku_$(secondaryArchs)_devel
 	] ;
 
-if $(HAIKU_IS_BOOTSTRAP) != 1 && $(HAIKU_BUILD_TYPE) != minimum {
+if $(HAIKU_IS_BOOTSTRAP) != 1 && $(HAIKU_BUILD_TYPE) != minimum && $(HAIKU_BUILD_TYPE) != development {
 	packages += [ FFilterByBuildFeatures
 		haiku_extras
 		haiku_source
@@ -47,6 +47,15 @@ if $(HAIKU_IS_BOOTSTRAP) != 1 && $(HAIKU_BUILD_TYPE) != minimum {
 		netfs
 		userland_fs
 		] ;
+}
+
+if $(HAIKU_IS_BOOTSTRAP) != 1 && $(HAIKU_BUILD_TYPE) != minimum {
+	packages += [ FFilterByBuildFeatures
+		haiku_extras
+		makefile_engine
+		netfs
+		userland_fs
+	] ;
 }
 
 local webPositiveIsAvailable ;
