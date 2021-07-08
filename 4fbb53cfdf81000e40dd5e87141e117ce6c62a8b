@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0d51b969_6cd90dcc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-07-08T03:35:32Z",
+      "side": 1,
+      "message": "I guess it was done that way because we provide the nightly images to users.",
+      "parentUuid": "bcf25d4e_602fba4a",
+      "revId": "4fbb53cfdf81000e40dd5e87141e117ce6c62a8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2f3b423d_a1db6a1e",
         "filename": "build/jam/DefaultBuildProfiles",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2021-07-07T06:16:58Z",
       "side": 1,
       "message": "this should be haiku-development.image, right?",
+      "revId": "4fbb53cfdf81000e40dd5e87141e117ce6c62a8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "232cfca8_ffe8e793",
+        "filename": "build/jam/DefaultBuildProfiles",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-07-08T03:35:32Z",
+      "side": 1,
+      "message": "yep... whoops",
+      "parentUuid": "2f3b423d_a1db6a1e",
       "revId": "4fbb53cfdf81000e40dd5e87141e117ce6c62a8b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
