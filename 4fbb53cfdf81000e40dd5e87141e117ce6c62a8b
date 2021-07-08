@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "a19ab26e_9db0272f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-08T06:43:06Z",
+      "side": 1,
+      "message": "At least the source packages are needed only on the releases. The only reason we have them is for easier compliance with the GPL when distributing physical media (DVDs/USB sticks).\n\nGenerally I think we should not direct new users to the nightly images, and keep them mainly for developers, or existing users who know what they are doing?\n\nAlso, are these packages even included in the image? Or are they built and then ignored?",
+      "parentUuid": "0d51b969_6cd90dcc",
+      "revId": "4fbb53cfdf81000e40dd5e87141e117ce6c62a8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2f3b423d_a1db6a1e",
         "filename": "build/jam/DefaultBuildProfiles",
         "patchSetId": 1
