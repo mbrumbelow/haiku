@@ -1189,7 +1189,6 @@ add_boot_volume_item(Menu* menu, Directory* volume, const char* name)
 		else
 			volumeInfo.Unset();
 	}
-
 	BootVolumeMenuItem* item = new(nothrow) BootVolumeMenuItem(name);
 	menu->AddItem(item);
 
@@ -1207,7 +1206,6 @@ add_boot_volume_item(Menu* menu, Directory* volume, const char* name)
 			subMenu->AddItem(stateItem);
 			stateItem->SetTarget(user_menu_boot_volume_state);
 			stateItem->SetData(volume);
-
 			if (state == selectedState) {
 				stateItem->SetMarked(true);
 				stateItem->Select(true);
@@ -1215,7 +1213,6 @@ add_boot_volume_item(Menu* menu, Directory* volume, const char* name)
 			}
 		}
 	}
-
 	if (subMenu != NULL && subMenu->CountItems() > 1) {
 		item->SetHelpText(
 			"Enter to choose a different state to boot");
@@ -1256,6 +1253,16 @@ add_boot_volume_menu()
 			}
 		}
 		gRoot->Close(cookie);
+	}
+
+	if(count > 0) {
+		// Restore the ChoiceText in the menu
+		// because add_boot_volume_item() changes it
+		int32 indx = 0;
+		item = menu->FindSelected(&indx);
+		if (item) {
+			item->SetMarked(true);
+		}
 	}
 
 	if (count == 0) {
