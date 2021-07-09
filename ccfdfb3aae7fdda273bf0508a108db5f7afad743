@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "03da15ba_e94a41a1",
+        "filename": "headers/posix/signal.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-07-09T14:27:41Z",
+      "side": 1,
+      "message": "The comment isn\u0027t updated?",
+      "revId": "ccfdfb3aae7fdda273bf0508a108db5f7afad743",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
