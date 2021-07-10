@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d8dad2fe_9bd3936e",
+        "filename": "src/tests/system/boot/loader/platform_devices.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-07-10T00:49:03Z",
+      "side": 1,
+      "message": "err.. where did the type go",
+      "revId": "3242c3227f47f752820a60f884864ad07ec565da",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
