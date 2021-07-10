@@ -10,6 +10,7 @@
 
 #include <GroupView.h>
 #include <Messenger.h>
+#include <ObjectList.h>
 #include <String.h>
 
 
@@ -71,7 +72,7 @@ private:
 										const char* defaultItem);
 
 	static	BPopUpMenu*			_MakeColorSchemeMenu(uint32 msg,
-									const color_scheme** schemes,
+									BObjectList<const color_scheme> *items,
 									const color_scheme* defaultItemName);
 
 			void				_MarkSelectedFont(const char* family,

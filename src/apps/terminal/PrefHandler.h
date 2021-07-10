@@ -23,6 +23,8 @@ class BFont;
 class BPath;
 
 
+struct color_scheme;
+
 struct pref_defaults {
 	const char *key;
 	const char *item;
@@ -70,6 +72,9 @@ class PrefHandler {
 		bool        IsEmpty() const;
 
 		static status_t GetDefaultPath(BPath& path);
+
+		void LoadThemes();
+		void LoadColorScheme(color_scheme* scheme);
 
 	private:
 		void		_ConfirmFont(const BFont *fallbackFont);

@@ -232,6 +232,9 @@ const color_scheme* gPredefinedColorSchemes[] = {
 };
 
 
+BObjectList<const color_scheme>* gColorSchemes = NULL;
+
+
 bool
 ansi_color_scheme::operator==(const ansi_color_scheme& scheme)
 {

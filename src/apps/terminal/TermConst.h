@@ -90,6 +90,7 @@ static const uint32 MSG_SET_CURSOR_STYLE				= 'mscs';
 
 
 // Preference Read/Write Keys
+static const char* const PREF_THEME_NAME = "Theme name";
 static const char* const PREF_HALF_FONT_FAMILY = "Half Font Family";
 static const char* const PREF_HALF_FONT_STYLE = "Half Font Style";
 static const char* const PREF_HALF_FONT_SIZE = "Half Font Size";

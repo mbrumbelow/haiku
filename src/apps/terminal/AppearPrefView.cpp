@@ -112,7 +112,7 @@ AppearancePrefView::AppearancePrefView(const char* name,
 	fEncodingField = new BMenuField(B_TRANSLATE("Encoding:"), encodingMenu);
 
 	BPopUpMenu* schemesPopUp = _MakeColorSchemeMenu(MSG_COLOR_SCHEME_CHANGED,
-		gPredefinedColorSchemes, gPredefinedColorSchemes[0]);
+		gColorSchemes, gPredefinedColorSchemes[0]);
 	fColorSchemeField = new BMenuField(B_TRANSLATE("Color scheme:"),
 		schemesPopUp);
 
@@ -453,28 +453,7 @@ AppearancePrefView::_SetCurrentColorScheme()
 {
 	PrefHandler* pref = PrefHandler::Default();
 
-	gCustomColorScheme.text_fore_color = pref->getRGB(PREF_TEXT_FORE_COLOR);
-	gCustomColorScheme.text_back_color = pref->getRGB(PREF_TEXT_BACK_COLOR);
-	gCustomColorScheme.select_fore_color = pref->getRGB(PREF_SELECT_FORE_COLOR);
-	gCustomColorScheme.select_back_color = pref->getRGB(PREF_SELECT_BACK_COLOR);
-	gCustomColorScheme.cursor_fore_color = pref->getRGB(PREF_CURSOR_FORE_COLOR);
-	gCustomColorScheme.cursor_back_color = pref->getRGB(PREF_CURSOR_BACK_COLOR);
-	gCustomColorScheme.ansi_colors.black = pref->getRGB(PREF_ANSI_BLACK_COLOR);
-	gCustomColorScheme.ansi_colors.red = pref->getRGB(PREF_ANSI_RED_COLOR);
-	gCustomColorScheme.ansi_colors.green = pref->getRGB(PREF_ANSI_GREEN_COLOR);
-	gCustomColorScheme.ansi_colors.yellow = pref->getRGB(PREF_ANSI_YELLOW_COLOR);
-	gCustomColorScheme.ansi_colors.blue = pref->getRGB(PREF_ANSI_BLUE_COLOR);
-	gCustomColorScheme.ansi_colors.magenta = pref->getRGB(PREF_ANSI_MAGENTA_COLOR);
-	gCustomColorScheme.ansi_colors.cyan = pref->getRGB(PREF_ANSI_CYAN_COLOR);
-	gCustomColorScheme.ansi_colors.white = pref->getRGB(PREF_ANSI_WHITE_COLOR);
-	gCustomColorScheme.ansi_colors_h.black = pref->getRGB(PREF_ANSI_BLACK_HCOLOR);
-	gCustomColorScheme.ansi_colors_h.red = pref->getRGB(PREF_ANSI_RED_HCOLOR);
-	gCustomColorScheme.ansi_colors_h.green = pref->getRGB(PREF_ANSI_GREEN_HCOLOR);
-	gCustomColorScheme.ansi_colors_h.yellow = pref->getRGB(PREF_ANSI_YELLOW_HCOLOR);
-	gCustomColorScheme.ansi_colors_h.blue = pref->getRGB(PREF_ANSI_BLUE_HCOLOR);
-	gCustomColorScheme.ansi_colors_h.magenta = pref->getRGB(PREF_ANSI_MAGENTA_HCOLOR);
-	gCustomColorScheme.ansi_colors_h.cyan = pref->getRGB(PREF_ANSI_CYAN_HCOLOR);
-	gCustomColorScheme.ansi_colors_h.white = pref->getRGB(PREF_ANSI_WHITE_HCOLOR);
+	pref->LoadColorScheme(&gCustomColorScheme);
 
 	const char* currentSchemeName = NULL;
 
@@ -653,22 +632,22 @@ AppearancePrefView::_MakeMenu(uint32 msg, const char** items,
 
 
 /*static*/ BPopUpMenu*
-AppearancePrefView::_MakeColorSchemeMenu(uint32 msg, const color_scheme** items,
+AppearancePrefView::_MakeColorSchemeMenu(uint32 msg, BObjectList<const color_scheme> *items,
 	const color_scheme* defaultItemName)
 {
 	BPopUpMenu* menu = new BPopUpMenu("");
 
 	int32 i = 0;
-	while (*items) {
-		if (strcmp((*items)->name, "") == 0)
+	while (i < items->CountItems()) {
+		const color_scheme *item = items->ItemAt(i);
+		if (strcmp(item->name, "") == 0)
 			menu->AddSeparatorItem();
 		else {
 			BMessage* message = new BMessage(msg);
-			message->AddPointer("color_scheme", (const void*)*items);
-			menu->AddItem(new BMenuItem((*items)->name, message));
+			message->AddPointer("color_scheme", (const void*)item);
+			menu->AddItem(new BMenuItem(item->name, message));
 		}
 
-		items++;
 		i++;
 	}
 	return menu;

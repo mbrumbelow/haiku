@@ -21,6 +21,7 @@
 #include <string.h>
 #include <unistd.h>
 
+#include <AutoDeleter.h>
 #include <Catalog.h>
 #include <Directory.h>
 #include <Entry.h>
@@ -33,6 +34,7 @@
 #include <NodeInfo.h>
 #include <Path.h>
 
+#include "Colors.h"
 #include "Globals.h"
 #include "TermConst.h"
 
@@ -112,6 +114,17 @@ PrefHandler::PrefHandler(bool loadSettings)
 		BPath path;
 		GetDefaultPath(path);
 		OpenText(path.Path());
+
+		// Add the builtin schemes
+		if (gColorSchemes == NULL) {
+			gColorSchemes = new BObjectList<const color_scheme>(10, true);
+			const color_scheme **items = gPredefinedColorSchemes;
+			while (*items) {
+				gColorSchemes->AddItem(*items++);
+			}
+
+			LoadThemes();
+		}
 	}
 
 	// TODO: If no fixed font is available, be_fixed_font
@@ -252,6 +265,67 @@ PrefHandler::SaveAsText(const char *path, const char *mimetype,
 		info.SetType(mimetype);
 		info.SetPreferredApp(signature);
 	}
+}
+
+
+void
+PrefHandler::LoadThemes()
+{
+	status_t status;
+	BPath path;
+	status = find_directory(B_USER_SETTINGS_DIRECTORY, &path, true);
+	if (status != B_OK)
+		return;
+
+	status = path.Append("Terminal");
+	if (status != B_OK)
+		return;
+
+	// Just create the directory. Harmless if already there
+	status = create_directory(path.Path(), 0755);
+	if (status != B_OK)
+		return;
+
+	status = path.Append("Themes");
+	if (status != B_OK)
+		return;
+
+	BDirectory *themes = new BDirectory(path.Path());
+	if (themes == NULL)
+		return;
+
+	BEntry entry;
+	while (themes->GetNextEntry(&entry) == B_OK) {
+		if (entry.GetPath(&path) != B_OK)
+			continue;
+
+		PrefHandler *themeHandler = new PrefHandler(false);
+		ObjectDeleter<PrefHandler> themeHandlerDeleter(themeHandler);
+		fprintf(stderr, "reading settings from file\n");
+		themeHandler->_LoadFromTextFile(path.Path());
+
+		const char *name = themeHandler->fContainer.GetString(PREF_THEME_NAME, NULL);
+
+		if (name == NULL || strlen(name) == 0)
+			continue;
+
+		color_scheme *newScheme = new color_scheme();
+		newScheme->name = strdup(name);
+		themeHandler->LoadColorScheme(newScheme);
+		gColorSchemes->AddItem(newScheme);
+	}
+}
+
+
+void
+PrefHandler::LoadColorScheme(color_scheme* scheme)
+{
+	scheme->text_fore_color = getRGB(PREF_TEXT_FORE_COLOR);
+	scheme->text_back_color = getRGB(PREF_TEXT_BACK_COLOR);
+	scheme->select_fore_color = getRGB(PREF_SELECT_FORE_COLOR);
+	scheme->select_back_color = getRGB(PREF_SELECT_BACK_COLOR);
+	scheme->cursor_fore_color = getRGB(PREF_CURSOR_FORE_COLOR);
+	scheme->cursor_back_color = getRGB(PREF_CURSOR_BACK_COLOR);
 }
 
 
