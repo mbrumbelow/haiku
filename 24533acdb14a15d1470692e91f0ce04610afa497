@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "504dd2f3_07827353",
+        "filename": "src/system/boot/loader/menu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1258,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-07-10T01:17:05Z",
+      "side": 1,
+      "message": "This is not the right fix.\n\nPlease use:\n  if (state \u003d\u003d selectedState) {\n    ...\n    if (volume \u003d\u003d sBootVolume-\u003eRootDirectory()) {\n        item-\u003eUpdateStateName(stateItem-\u003eVolumeState());\n    }\n  }",
+      "revId": "24533acdb14a15d1470692e91f0ce04610afa497",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
