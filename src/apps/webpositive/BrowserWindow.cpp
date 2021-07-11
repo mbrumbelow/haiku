@@ -538,7 +538,8 @@ BrowserWindow::BrowserWindow(BRect frame, SettingsMessage* appSettings,
 	fStatusText->SetAlignment(B_ALIGN_LEFT);
 	fStatusText->SetExplicitMaxSize(BSize(B_SIZE_UNLIMITED, B_SIZE_UNSET));
 	fStatusText->SetExplicitMinSize(BSize(150, 12));
-		// Prevent the window from growing to fit a long status message...
+	
+	// Prevent the window from growing to fit a long status message...
 	BFont font(be_plain_font);
 	font.SetSize(ceilf(font.Size() * 0.8));
 	fStatusText->SetFont(&font, B_FONT_SIZE);
@@ -1333,7 +1334,7 @@ BrowserWindow::SetCurrentWebView(BWebView* webView)
 		}
 
 		fURLInputGroup->LockURLInput(state);
-			// Restore the state
+		// Restore the state
 
 		// Trigger update of the interface to the new page, by requesting
 		// to resend all notifications.
@@ -1503,7 +1504,7 @@ BrowserWindow::LoadCommitted(const BString& url, BWebView* view)
 	if (view != CurrentWebView())
 		return;
 
-	// This hook is invoked when the load is commited.
+	// This hook is invoked when the load is committed.
 	fURLInputGroup->SetText(url.String());
 
 	BString status(B_TRANSLATE("Loading %url"));
