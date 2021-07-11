@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "12e2a60a_344ec422",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-11T15:13:40Z",
+      "side": 1,
+      "message": "This change is incorrect. The comment is indented this way because it refers to the line above it.",
+      "revId": "6e6d754e44ffaf1b7746f46f5997992d842aa811",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e0b3840_055a5d45",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1337,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-11T15:13:40Z",
+      "side": 1,
+      "message": "Same here, the comment refers to the line above it, and that\u0027s why it\u0027s indented one extra level",
+      "revId": "6e6d754e44ffaf1b7746f46f5997992d842aa811",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
