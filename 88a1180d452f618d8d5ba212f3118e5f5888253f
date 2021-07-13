@@ -1,0 +1,225 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dbccaf7b_fad7d349",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-07-13T12:42:50Z",
+      "side": 1,
+      "message": "deviceSize should be outside of the loop",
+      "revId": "88a1180d452f618d8d5ba212f3118e5f5888253f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff73809a_02b1f654",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-07-13T12:42:50Z",
+      "side": 1,
+      "message": "why use a reference here?",
+      "revId": "88a1180d452f618d8d5ba212f3118e5f5888253f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "736a55f2_85c32a12",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-07-13T12:42:50Z",
+      "side": 1,
+      "message": "this check should happen outside of the loop.",
+      "revId": "88a1180d452f618d8d5ba212f3118e5f5888253f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17e449a9_b77f7a12",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-07-13T12:42:50Z",
+      "side": 1,
+      "message": "(info-\u003eflags \u0026 kIoCommandOffsetAsSectors) !\u003d 0",
+      "revId": "88a1180d452f618d8d5ba212f3118e5f5888253f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9df01be0_b0fd4fdb",
+        "filename": "src/add-ons/kernel/drivers/disk/virtual/ram_disk/ram_disk.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-07-13T12:42:50Z",
+      "side": 1,
+      "message": "should be outside of the loop",
+      "revId": "88a1180d452f618d8d5ba212f3118e5f5888253f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17896353_460023e0",
+        "filename": "src/add-ons/kernel/drivers/disk/virtual/ram_disk/ram_disk.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-07-13T12:42:50Z",
+      "side": 1,
+      "message": "why a reference here?",
+      "revId": "88a1180d452f618d8d5ba212f3118e5f5888253f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26ce5e61_c035107a",
+        "filename": "src/add-ons/kernel/drivers/disk/virtual/ram_disk/ram_disk.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-07-13T12:42:50Z",
+      "side": 1,
+      "message": "should be outside of the loop",
+      "revId": "88a1180d452f618d8d5ba212f3118e5f5888253f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cea9b53b_d225020a",
+        "filename": "src/add-ons/kernel/file_systems/bfs/BlockAllocator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1354,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-07-13T12:42:50Z",
+      "side": 1,
+      "message": "no tabulation for #ifdef and #endif",
+      "revId": "88a1180d452f618d8d5ba212f3118e5f5888253f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ddec8f6c_2bf71492",
+        "filename": "src/system/kernel/device_manager/devfs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-07-13T12:42:50Z",
+      "side": 1,
+      "message": "partition",
+      "revId": "88a1180d452f618d8d5ba212f3118e5f5888253f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f576076_4e5fe34b",
+        "filename": "src/system/kernel/device_manager/devfs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-07-13T12:42:50Z",
+      "side": 1,
+      "message": "1/ sounds like an assert will fit better. 2/ this should be a prerequisite to call this function.",
+      "revId": "88a1180d452f618d8d5ba212f3118e5f5888253f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8002a147_2c933889",
+        "filename": "src/system/kernel/device_manager/devfs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 520,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-07-13T12:42:50Z",
+      "side": 1,
+      "message": "this type of checks will be optimized away by the compiler. Please use STATIC_ASSERT instead.",
+      "revId": "88a1180d452f618d8d5ba212f3118e5f5888253f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90fbe349_a900c238",
+        "filename": "src/system/kernel/device_manager/devfs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1515,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-07-13T12:42:50Z",
+      "side": 1,
+      "message": "#ifdef and #endif should stay unindented.",
+      "revId": "88a1180d452f618d8d5ba212f3118e5f5888253f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b868d21_1824b104",
+        "filename": "src/system/kernel/device_manager/devfs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1540,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-07-13T12:42:50Z",
+      "side": 1,
+      "message": "this won\u0027t build with gcc2",
+      "revId": "88a1180d452f618d8d5ba212f3118e5f5888253f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
