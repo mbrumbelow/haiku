@@ -477,32 +477,26 @@ DrawState::ClipToRect(BRect rect, bool inverse)
 		return false;
 
 	if (!fCombinedTransform.IsIdentity()) {
-		if (fCombinedTransform.IsDilation()) {
-			BPoint points[2] = { rect.LeftTop(), rect.RightBottom() };
-			fCombinedTransform.Apply(&points[0], 2);
-			rect.Set(points[0].x, points[0].y, points[1].x, points[1].y);
-		} else {
-			uint32 ops[] = {
-				OP_MOVETO | OP_LINETO | 3,
-				OP_CLOSE
-			};
-			BPoint points[4] = {
-				BPoint(rect.left,  rect.top),
-				BPoint(rect.right, rect.top),
-				BPoint(rect.right, rect.bottom),
-				BPoint(rect.left,  rect.bottom)
-			};
-			shape_data rectShape;
-			rectShape.opList = &ops[0];
-			rectShape.opCount = 2;
-			rectShape.opSize = sizeof(uint32) * 2;
-			rectShape.ptList = &points[0];
-			rectShape.ptCount = 4;
-			rectShape.ptSize = sizeof(BPoint) * 4;
+		uint32 ops[] = {
+			OP_MOVETO | OP_LINETO | 3,
+			OP_CLOSE
+		};
+		BPoint points[4] = {
+			BPoint(rect.left,  rect.top),
+			BPoint(rect.right, rect.top),
+			BPoint(rect.right, rect.bottom),
+			BPoint(rect.left,  rect.bottom)
+		};
+		shape_data rectShape;
+		rectShape.opList = &ops[0];
+		rectShape.opCount = 2;
+		rectShape.opSize = sizeof(uint32) * 2;
+		rectShape.ptList = &points[0];
+		rectShape.ptCount = 4;
+		rectShape.ptSize = sizeof(BPoint) * 4;
 
-			ClipToShape(&rectShape, inverse);
-			return true;
-		}
+		ClipToShape(&rectShape, inverse);
+		return true;
 	}
 
 	if (inverse) {
