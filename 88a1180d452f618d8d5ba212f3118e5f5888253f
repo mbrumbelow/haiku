@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "bd065e9f_a98bed70",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-14T11:07:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbccaf7b_fad7d349",
+      "revId": "88a1180d452f618d8d5ba212f3118e5f5888253f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff73809a_02b1f654",
         "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
         "patchSetId": 3
@@ -33,6 +51,24 @@
       "revId": "88a1180d452f618d8d5ba212f3118e5f5888253f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83ab329e_d68257a3",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-14T11:07:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff73809a_02b1f654",
+      "revId": "88a1180d452f618d8d5ba212f3118e5f5888253f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "3d88cc50_fefaf1d3",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-14T11:07:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "736a55f2_85c32a12",
+      "revId": "88a1180d452f618d8d5ba212f3118e5f5888253f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17e449a9_b77f7a12",
         "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
         "patchSetId": 3
@@ -67,6 +121,24 @@
       "revId": "88a1180d452f618d8d5ba212f3118e5f5888253f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be589506_4511073c",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-14T11:07:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17e449a9_b77f7a12",
+      "revId": "88a1180d452f618d8d5ba212f3118e5f5888253f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "998b0720_aa521514",
+        "filename": "src/add-ons/kernel/drivers/disk/virtual/ram_disk/ram_disk.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-14T11:07:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9df01be0_b0fd4fdb",
+      "revId": "88a1180d452f618d8d5ba212f3118e5f5888253f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17896353_460023e0",
         "filename": "src/add-ons/kernel/drivers/disk/virtual/ram_disk/ram_disk.cpp",
         "patchSetId": 3
@@ -101,6 +191,24 @@
       "revId": "88a1180d452f618d8d5ba212f3118e5f5888253f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "deda34b6_4e9ac132",
+        "filename": "src/add-ons/kernel/drivers/disk/virtual/ram_disk/ram_disk.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-14T11:07:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17896353_460023e0",
+      "revId": "88a1180d452f618d8d5ba212f3118e5f5888253f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "ddf5d1f2_65ce73cd",
+        "filename": "src/add-ons/kernel/drivers/disk/virtual/ram_disk/ram_disk.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-14T11:07:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26ce5e61_c035107a",
+      "revId": "88a1180d452f618d8d5ba212f3118e5f5888253f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cea9b53b_d225020a",
         "filename": "src/add-ons/kernel/file_systems/bfs/BlockAllocator.cpp",
         "patchSetId": 3
@@ -135,6 +261,24 @@
       "revId": "88a1180d452f618d8d5ba212f3118e5f5888253f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b5775e1_ae1805e0",
+        "filename": "src/add-ons/kernel/file_systems/bfs/BlockAllocator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1354,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-14T11:07:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cea9b53b_d225020a",
+      "revId": "88a1180d452f618d8d5ba212f3118e5f5888253f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "2ab00b14_3a7f5e4e",
+        "filename": "src/system/kernel/device_manager/devfs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-14T11:07:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ddec8f6c_2bf71492",
+      "revId": "88a1180d452f618d8d5ba212f3118e5f5888253f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4f576076_4e5fe34b",
         "filename": "src/system/kernel/device_manager/devfs.cpp",
         "patchSetId": 3
@@ -169,6 +331,24 @@
       "revId": "88a1180d452f618d8d5ba212f3118e5f5888253f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fea1433a_12aa016e",
+        "filename": "src/system/kernel/device_manager/devfs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-14T11:07:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f576076_4e5fe34b",
+      "revId": "88a1180d452f618d8d5ba212f3118e5f5888253f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -189,6 +369,24 @@
     },
     {
       "key": {
+        "uuid": "1fda1bf8_1c8dcd91",
+        "filename": "src/system/kernel/device_manager/devfs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 520,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-14T11:07:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8002a147_2c933889",
+      "revId": "88a1180d452f618d8d5ba212f3118e5f5888253f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90fbe349_a900c238",
         "filename": "src/system/kernel/device_manager/devfs.cpp",
         "patchSetId": 3
@@ -206,6 +404,24 @@
     },
     {
       "key": {
+        "uuid": "3f66d08c_f2c07b71",
+        "filename": "src/system/kernel/device_manager/devfs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1515,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-14T11:07:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90fbe349_a900c238",
+      "revId": "88a1180d452f618d8d5ba212f3118e5f5888253f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b868d21_1824b104",
         "filename": "src/system/kernel/device_manager/devfs.cpp",
         "patchSetId": 3
@@ -220,6 +436,24 @@
       "revId": "88a1180d452f618d8d5ba212f3118e5f5888253f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4113442_75239e20",
+        "filename": "src/system/kernel/device_manager/devfs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1540,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-14T11:07:45Z",
+      "side": 1,
+      "message": "It will. gcc2 doesn\u0027t accept inline declaration of variables in for loops in C code, but it does in C++.",
+      "parentUuid": "4b868d21_1824b104",
+      "revId": "88a1180d452f618d8d5ba212f3118e5f5888253f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
