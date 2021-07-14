@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "36058728_40ff9660",
+        "filename": "src/tests/add-ons/print/ppd/parser/CharacterClasses.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-14T10:53:24Z",
+      "side": 1,
+      "message": "The coding guidelines explicitly says:\n\n\"Don’t put parentheses around return values:\"",
+      "revId": "ffb40e747b41f91ca06aad930de4399aab405159",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a688147_ae182ac4",
+        "filename": "src/tests/add-ons/print/ppd/parser/CharacterClasses.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-14T10:53:24Z",
+      "side": 1,
+      "message": "trailing whitespace",
+      "revId": "ffb40e747b41f91ca06aad930de4399aab405159",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17a09d91_afa62517",
+        "filename": "src/tests/add-ons/print/ppd/parser/CharacterClasses.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-14T10:53:24Z",
+      "side": 1,
+      "message": "trailing whitespace",
+      "revId": "ffb40e747b41f91ca06aad930de4399aab405159",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d923be1a_8311b21f",
+        "filename": "src/tests/add-ons/print/ppd/parser/CharacterClasses.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-14T10:53:24Z",
+      "side": 1,
+      "message": "this extra line is not needed",
+      "revId": "ffb40e747b41f91ca06aad930de4399aab405159",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
