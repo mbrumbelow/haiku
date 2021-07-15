@@ -243,7 +243,9 @@ InterfaceView::_Update(bool updateWirelessNetworks)
 	if (isWireless && updateWirelessNetworks) {
 		// Rebuild network menu
 		BMenu* menu = fNetworkMenuField->Menu();
-		menu->RemoveItems(0, menu->CountItems(), true);
+		// TODO Change to true to prevent leaking the menu items
+		// then fix crash described by #12024
+		menu->RemoveItems(0, menu->CountItems(), false);
 
 		std::set<BNetworkAddress> associated;
 		BNetworkAddress address;
