@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af8bec2f_48b7da2d",
+        "filename": "src/libs/bsd/readpassphrase.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-16T18:47:11Z",
+      "side": 1,
+      "message": "avoid cryptic variable names like these (nr, chr, p, bufsiz). Use complete words instead. \n\nIf you are going to make this function comply to Haiku standards, let\u0027s do it fully 😊",
+      "revId": "3e991f902b383f0423fe24235cae6688a73e2272",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3d469f0_a10d576d",
+        "filename": "src/libs/bsd/readpassphrase.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-16T18:47:11Z",
+      "side": 1,
+      "message": "why is this code indented two levels from the above if instead of one?",
+      "revId": "3e991f902b383f0423fe24235cae6688a73e2272",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5922c0c1_d992a2a7",
+        "filename": "src/libs/bsd/readpassphrase.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-16T18:47:11Z",
+      "side": 1,
+      "message": "\"{\" goes one the same line as \"if\"",
+      "revId": "3e991f902b383f0423fe24235cae6688a73e2272",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57950d93_ff3101b7",
+        "filename": "src/libs/bsd/readpassphrase.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-16T18:47:11Z",
+      "side": 1,
+      "message": "indentation is incorrect here. It should be 1 tab more than the while, not two",
+      "revId": "3e991f902b383f0423fe24235cae6688a73e2272",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17b70ac3_1641a7c7",
+        "filename": "src/libs/bsd/readpassphrase.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-16T18:47:11Z",
+      "side": 1,
+      "message": "\"while\" goes on the same line as \"}\"",
+      "revId": "3e991f902b383f0423fe24235cae6688a73e2272",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e404e8aa_a37b170a",
+        "filename": "src/libs/bsd/readpassphrase.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-16T18:47:11Z",
+      "side": 1,
+      "message": "a better variable name (such as signalNumber) could be used. It reduces the knowledge one needs to have about signal handlers to understand this code.",
+      "revId": "3e991f902b383f0423fe24235cae6688a73e2272",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
