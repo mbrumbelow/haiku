@@ -34,6 +34,41 @@
       "revId": "ccfdfb3aae7fdda273bf0508a108db5f7afad743",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e7b52564_5a349285",
+        "filename": "headers/posix/signal.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-16T19:26:42Z",
+      "side": 1,
+      "message": "The \"obsolete\" part should be removed from here (_NSIG is not obsolete) and possibly added to the NSIG definition",
+      "parentUuid": "1c2d6702_ea067a52",
+      "revId": "ccfdfb3aae7fdda273bf0508a108db5f7afad743",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f7f07cf_95588847",
+        "filename": "headers/posix/signal.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-16T19:26:42Z",
+      "side": 1,
+      "message": "Since this is a BSD extension, it should be moved to the BSD header. And keep using NSIG, since that\u0027s the documented purpose of NSIG.",
+      "revId": "ccfdfb3aae7fdda273bf0508a108db5f7afad743",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
