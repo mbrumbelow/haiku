@@ -5431,9 +5431,9 @@ validate_user_range(const void* addr, size_t size)
 
 	// Validate that the address does not cross the kernel/user boundary.
 	if (IS_USER_ADDRESS(address))
-		return IS_USER_ADDRESS(address + size);
+		return IS_USER_ADDRESS(address + size - 1);
 	else
-		return !IS_USER_ADDRESS(address + size);
+		return !IS_USER_ADDRESS(address + size - 1);
 }
 
 
@@ -6587,8 +6587,10 @@ _user_unmap_memory(void* _address, size_t size)
 		return B_BAD_VALUE;
 	}
 
-	if (!IS_USER_ADDRESS(address) || !IS_USER_ADDRESS((addr_t)address + size))
+	if (!IS_USER_ADDRESS(address)
+		|| !IS_USER_ADDRESS((addr_t)address + size - 1)) {
 		return B_BAD_ADDRESS;
+	}
 
 	// Write lock the address space and ensure the address range is not wired.
 	AddressSpaceWriteLocker locker;
@@ -6613,8 +6615,7 @@ _user_set_memory_protection(void* _address, size_t size, uint32 protection)
 
 	if ((address % B_PAGE_SIZE) != 0)
 		return B_BAD_VALUE;
-	if ((addr_t)address + size < (addr_t)address || !IS_USER_ADDRESS(address)
-		|| !IS_USER_ADDRESS((addr_t)address + size)) {
+	if (!IS_USER_ADDRESS(address) || !validate_user_range(_address, size)) {
 		// weird error code required by POSIX
 		return ENOMEM;
 	}
@@ -6758,8 +6759,7 @@ _user_sync_memory(void* _address, size_t size, uint32 flags)
 	// check params
 	if ((address % B_PAGE_SIZE) != 0)
 		return B_BAD_VALUE;
-	if ((addr_t)address + size < (addr_t)address || !IS_USER_ADDRESS(address)
-		|| !IS_USER_ADDRESS((addr_t)address + size)) {
+	if (!IS_USER_ADDRESS(address) || !validate_user_range(_address, size)) {
 		// weird error code required by POSIX
 		return ENOMEM;
 	}
@@ -6837,8 +6837,7 @@ _user_memory_advice(void* _address, size_t size, uint32 advice)
 		return B_BAD_VALUE;
 
 	size = PAGE_ALIGN(size);
-	if (address + size < address || !IS_USER_ADDRESS(address)
-		|| !IS_USER_ADDRESS(address + size)) {
+	if (!IS_USER_ADDRESS(address) || !validate_user_range(_address, size)) {
 		// weird error code required by POSIX
 		return B_NO_MEMORY;
 	}
