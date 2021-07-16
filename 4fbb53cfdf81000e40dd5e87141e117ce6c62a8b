@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "2e4a9741_9ecf9bfe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-16T19:01:10Z",
+      "side": 1,
+      "message": "I did some checks:\n\n- Source packages: are only included if HAIKU_INCLUDE_SOURCES is set. This is never set by default, and we set it manually when building release images.\n- UserGuide depends on the Welcome package. The Welcome package is not embedded in the nightly image.\n\nConclusion: your profile is in fact identical to the nightly one. The problem with building these packages is elsewhere.",
+      "parentUuid": "a19ab26e_9db0272f",
+      "revId": "4fbb53cfdf81000e40dd5e87141e117ce6c62a8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2f3b423d_a1db6a1e",
         "filename": "build/jam/DefaultBuildProfiles",
         "patchSetId": 1
@@ -84,6 +102,23 @@
       "side": 1,
       "message": "yep... whoops",
       "parentUuid": "2f3b423d_a1db6a1e",
+      "revId": "4fbb53cfdf81000e40dd5e87141e117ce6c62a8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9862c39_a181d9cc",
+        "filename": "build/jam/repositories/Haiku",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-16T19:01:10Z",
+      "side": 1,
+      "message": "This is the useful part of this fix.\n\nWhat happens is, during the build of the image, we always build this complete package repository, with all its packages, even if they end up not all being included in the built image.\n\nSo we end up building a lot of packages that are in fact not needed for the image itself.\n\nThis is required when building the repo that is published on our servers. But, I think we should not be building that full repository when we just need to build a disk image. I am not sure why the image depends on the repo and if that dependency can easily be cut.\n\nAs a short-term fix, we can indeed restrict what gets in the repo as you did here. Maybe instead (or in addition to) checking on specific profiles, we could check if the relevant packages and variables are set?",
       "revId": "4fbb53cfdf81000e40dd5e87141e117ce6c62a8b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
