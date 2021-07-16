@@ -6614,7 +6614,7 @@ _user_set_memory_protection(void* _address, size_t size, uint32 protection)
 	if ((address % B_PAGE_SIZE) != 0)
 		return B_BAD_VALUE;
 	if ((addr_t)address + size < (addr_t)address || !IS_USER_ADDRESS(address)
-		|| !IS_USER_ADDRESS((addr_t)address + size)) {
+		|| !IS_USER_ADDRESS((addr_t)address + size - 1)) {
 		// weird error code required by POSIX
 		return ENOMEM;
 	}
