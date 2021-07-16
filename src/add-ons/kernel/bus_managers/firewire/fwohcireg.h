@@ -379,7 +379,7 @@ struct fwohci_txpkthdr{
 				 srcbus:1,
 				 :8;
 #endif
-			BIT16x2(dst, );
+			BIT16x2(dst);
 		}asycomm;
 		struct {
 #if BYTE_ORDER == BIG_ENDIAN
@@ -395,7 +395,7 @@ struct fwohci_txpkthdr{
 			         spd:3,
 				 :13;
 #endif
-			BIT16x2(len, );
+			BIT16x2(len);
 		}stream;
 	}mode;
 };

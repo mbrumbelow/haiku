@@ -44,7 +44,7 @@ typedef struct fwohci_softc {
 	struct fwohci_dbch{
 		u_int ndb;
 		u_int ndesc;
-		STAILQ_HEAD(, fwohcidb_tr) db_trq;
+		STAILQ_HEAD(fwohcidb_tr) db_trq;
 		struct fwohcidb_tr *top, *bottom, *pdb_tr;
 		struct fw_xferq xferq;
 		int flags;

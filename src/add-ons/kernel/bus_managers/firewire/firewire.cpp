@@ -289,7 +289,7 @@ firewire_xfer_timeout(void *arg)
 //	struct timeval tv;
 //	struct timeval split_timeout;
 	bigtime_t tv;
-	STAILQ_HEAD(, fw_xfer) xfer_timeout;
+	STAILQ_HEAD(fw_xfer) xfer_timeout;
 	int i, s;
 
 //	split_timeout.tv_sec = 0;
@@ -591,7 +591,7 @@ void
 fw_drain_txq(struct firewire_comm *fc)
 {
 	struct fw_xfer *xfer, *txfer;
-	STAILQ_HEAD(, fw_xfer) xfer_drain;
+	STAILQ_HEAD(fw_xfer) xfer_drain;
 	int i;
 
 	STAILQ_INIT(&xfer_drain);
