@@ -1599,10 +1599,10 @@ output_data(const char *format, ...)
 
 	va_start(args, format);
 	if ((len = vasprintf(&buf, format, args)) == -1)
+	va_end(args);
 		return -1;
 	output_datalen(buf, len);
-	va_end(args);
-	free(buf);
+		free(buf);
 	return (len);
 }
 
