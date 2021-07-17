@@ -1599,9 +1599,9 @@ output_data(const char *format, ...)
 
 	va_start(args, format);
 	if ((len = vasprintf(&buf, format, args)) == -1)
-		return -1;
-	output_datalen(buf, len);
 	va_end(args);
+	return -1;
+	output_datalen(buf, len);
 	free(buf);
 	return (len);
 }
