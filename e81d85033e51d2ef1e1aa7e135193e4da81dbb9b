@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9210d9ea_87e22223",
+        "filename": "src/bin/network/telnetd/state.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1601,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2021-07-18T09:39:29Z",
+      "side": 1,
+      "message": "I think you forgot some braces here. But then, you\u0027ll want to va_end whatever the result of vasprintf is. So maybe take the call out of the conditional, close the varargs iterator and then check len?\nAlso watch out for tabs.",
+      "revId": "e81d85033e51d2ef1e1aa7e135193e4da81dbb9b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
