@@ -34,6 +34,24 @@
       "revId": "e81d85033e51d2ef1e1aa7e135193e4da81dbb9b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a79838c_604a85df",
+        "filename": "src/bin/network/telnetd/state.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1601,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2021-07-18T15:58:04Z",
+      "side": 1,
+      "message": "If va_end has to always be called for each va_start (and that\u0027s how I read the manual), it\u0027s not a false positive. It was only called when vasprintf did not fail.\n\nNow, with this change it is only called when vasprintf fails, and on top of that output_data is always returning failure and leaking the buffer as `return -1` is run unconditionally, with everything afterwards unreachable.",
+      "parentUuid": "860040e9_f8f85895",
+      "revId": "e81d85033e51d2ef1e1aa7e135193e4da81dbb9b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
