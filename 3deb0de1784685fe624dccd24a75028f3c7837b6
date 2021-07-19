@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d09c4d02_1066864f",
+        "filename": "src/servers/app/VirtualScreen.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-07-19T12:02:38Z",
+      "side": 0,
+      "message": "Maybe some flag should be added here so this code will be executed only once for object lifetime.",
+      "revId": "3deb0de1784685fe624dccd24a75028f3c7837b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
