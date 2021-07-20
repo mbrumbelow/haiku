@@ -111,7 +111,8 @@ SettingsView::SettingsView(MouseSettings& settings)
 	//   C
 
 	BLayoutBuilder::Group<>(this, B_VERTICAL, B_USE_DEFAULT_SPACING)
-		// Horizontal : A|B
+		// Horizontal :
+															  // A|B
 		.AddGroup(B_HORIZONTAL, B_USE_DEFAULT_SPACING)
 
 			// Vertical block A: mouse type/view/test
@@ -155,9 +156,7 @@ SettingsView::SettingsView(MouseSettings& settings)
 }
 
 
-SettingsView::~SettingsView()
-{
-}
+SettingsView::~SettingsView() {}
 
 
 void
