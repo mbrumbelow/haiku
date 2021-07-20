@@ -16,21 +16,23 @@
 #include <Locale.h>
 
 
-#include "MouseSettings.h"
 #include "InputMouse.h"
 #include "InputWindow.h"
+#include "MouseSettings.h"
 
 
 class SettingsView;
 class MouseSettings;
 
-class InputApplication : public BApplication {
+class InputApplication : public BApplication
+{
 public:
-				InputApplication();
-	void		MessageReceived(BMessage* message);
+								InputApplication();
+				void			MessageReceived(BMessage* message);
+
 private:
-	InputIcons	fIcons;
+	InputIcons		fIcons;
 	InputWindow*	fWindow;
 };
 
-#endif	/* INPUT_H */
+#endif /* INPUT_H */

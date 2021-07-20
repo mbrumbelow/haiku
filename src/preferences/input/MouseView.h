@@ -4,7 +4,7 @@
  *
  * Author:
  *		Preetpal Kaur <preetpalok123@gmail.com>
-*/
+ */
 
 
 #ifndef MOUSE_VIEW_H
@@ -19,45 +19,47 @@
 
 class MouseSettings;
 
-class MouseView : public BView {
+class MouseView : public BView
+{
 public:
 								MouseView(const MouseSettings& settings);
-		virtual					~MouseView();
+	virtual						~MouseView();
 
 				void			SetMouseType(int32 type);
 				void			MouseMapUpdated();
 				void			UpdateFromSettings();
 
-		virtual	void			GetPreferredSize(float* _width, float* _height);
-		virtual	void			AttachedToWindow();
-		virtual	void			MouseUp(BPoint where);
-		virtual	void			MouseDown(BPoint where);
-		virtual	void			Draw(BRect frame);
-		bool					IsMouseConnected()
-								{ return fConnected; }
+	virtual		void			GetPreferredSize(float* _width, float* _height);
+	virtual		void			AttachedToWindow();
+	virtual		void			MouseUp(BPoint where);
+	virtual		void			MouseDown(BPoint where);
+	virtual		void			Draw(BRect frame);
+				bool			IsMouseConnected()
+	{
+		return fConnected;
+	}
 
 private:
-				BRect			_ButtonsRect() const;
-				BRect			_ButtonRect(const int32* offsets,
-									int index) const;
+	BRect			_ButtonsRect() const;
+	BRect			_ButtonRect(const int32* offsets, int index) const;
 				int32			_ConvertFromVisualOrder(int32 button);
 				void			_CreateButtonsPicture();
 
 private:
-	typedef BView inherited;
+	typedef			BView inherited;
 
-		const	MouseSettings&	fSettings;
+	const			MouseSettings& fSettings;
 
-				BPicture		fButtonsPicture;
+	BPicture		fButtonsPicture;
 				int32			fDigitBaseline;
 				int32			fDigitHeight;
-				float			fScaling;
+	float			fScaling;
 
 				int32			fType;
-				uint32			fButtons;
-				uint32			fOldButtons;
+	uint32			fButtons;
+	uint32			fOldButtons;
 				bool			fConnected;
 };
 
 
-#endif	/* MOUSE_VIEW_H */
+#endif /* MOUSE_VIEW_H */

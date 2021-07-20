@@ -34,18 +34,19 @@ InputKeyboard::InputKeyboard(BInputDevice* dev)
 	fSettingsView = new KeyboardView();
 
 	// Add the "Default" button..
-	fDefaultsButton = new BButton(B_TRANSLATE("Defaults"),
-        new BMessage(kMsgDefaults));
+	fDefaultsButton
+		= new BButton(B_TRANSLATE("Defaults"), new BMessage(kMsgDefaults));
 
 	// Add the "Revert" button...
-	fRevertButton = new BButton(B_TRANSLATE("Revert"),
-        new BMessage(kMsgRevert));
+	fRevertButton
+		= new BButton(B_TRANSLATE("Revert"), new BMessage(kMsgRevert));
 	fRevertButton->SetEnabled(false);
 
 	// Build the layout
 	BLayoutBuilder::Group<>(this, B_VERTICAL)
 		.AddGroup(B_HORIZONTAL)
-			.SetInsets(B_USE_WINDOW_SPACING, B_USE_WINDOW_SPACING,
+			.SetInsets(
+				B_USE_WINDOW_SPACING, B_USE_WINDOW_SPACING,
 				B_USE_WINDOW_SPACING, 0)
 			.Add(fSettingsView)
 			.End()
