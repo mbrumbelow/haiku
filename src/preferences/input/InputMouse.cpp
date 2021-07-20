@@ -45,29 +45,27 @@ InputMouse::InputMouse(BInputDevice* dev, MouseSettings* settings)
 
 	fSettingsView = new SettingsView(*fSettings);
 
-	fDefaultsButton = new BButton(B_TRANSLATE("Defaults"),
-		new BMessage(kMsgDefaults));
+	fDefaultsButton
+		= new BButton(B_TRANSLATE("Defaults"), new BMessage(kMsgDefaults));
 	fDefaultsButton->SetEnabled(fSettings->IsDefaultable());
 
-	fRevertButton = new BButton(B_TRANSLATE("Revert"),
-		new BMessage(kMsgRevert));
+	fRevertButton
+		= new BButton(B_TRANSLATE("Revert"), new BMessage(kMsgRevert));
 	fRevertButton->SetEnabled(false);
 
 	BLayoutBuilder::Group<>(this, B_VERTICAL, B_USE_DEFAULT_SPACING)
 		.Add(fSettingsView)
-			.Add(new BSeparatorView(B_HORIZONTAL))
-				.AddGroup(B_HORIZONTAL)
-				.Add(fDefaultsButton)
-				.Add(fRevertButton)
-				.AddGlue()
-				.End()
+		.Add(new BSeparatorView(B_HORIZONTAL))
+		.AddGroup(B_HORIZONTAL)
+			.Add(fDefaultsButton)
+			.Add(fRevertButton)
+			.AddGlue()
+			.End()
 		.End();
 }
 
 
-InputMouse::~InputMouse()
-{
-}
+InputMouse::~InputMouse() {}
 
 
 void
@@ -142,9 +140,10 @@ InputMouse::MessageReceived(BMessage* message)
 				bool acceptFirstClick = true;
 				BCheckBox* acceptFirstClickBox
 					= dynamic_cast<BCheckBox*>(handler);
-				if (acceptFirstClickBox)
+				if (acceptFirstClickBox) {
 					acceptFirstClick
 						= acceptFirstClickBox->Value() == B_CONTROL_ON;
+				}
 				fSettings->SetAcceptFirstClick(acceptFirstClick);
 				fDefaultsButton->SetEnabled(fSettings->IsDefaultable());
 				fRevertButton->SetEnabled(fSettings->IsRevertable());
@@ -169,8 +168,8 @@ InputMouse::MessageReceived(BMessage* message)
 			int32 value;
 			if (message->FindInt32("be:value", &value) == B_OK) {
 				// slow = 8192, fast = 524287
-				fSettings->SetMouseSpeed((int32)pow(2,
-					value * 6.0 / 1000) * 8192);
+				fSettings->SetMouseSpeed(
+					(int32)pow(2, value * 6.0 / 1000) * 8192);
 				fDefaultsButton->SetEnabled(fSettings->IsDefaultable());
 				fRevertButton->SetEnabled(fSettings->IsRevertable());
 			}
@@ -182,8 +181,8 @@ InputMouse::MessageReceived(BMessage* message)
 			int32 value;
 			if (message->FindInt32("be:value", &value) == B_OK) {
 				// slow = 0, fast = 262144
-				fSettings->SetAccelerationFactor((int32)pow(
-					value * 4.0 / 1000, 2) * 16384);
+				fSettings->SetAccelerationFactor(
+					(int32)pow(value * 4.0 / 1000, 2) * 16384);
 				fDefaultsButton->SetEnabled(fSettings->IsDefaultable());
 				fRevertButton->SetEnabled(fSettings->IsRevertable());
 			}

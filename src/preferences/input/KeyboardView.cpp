@@ -67,9 +67,7 @@ KeyboardView::KeyboardView()
 }
 
 
-KeyboardView::~KeyboardView()
-{
-}
+KeyboardView::~KeyboardView() {}
 
 
 void

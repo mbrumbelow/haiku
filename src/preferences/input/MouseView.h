@@ -4,7 +4,7 @@
  *
  * Author:
  *		Preetpal Kaur <preetpalok123@gmail.com>
-*/
+ */
 
 
 #ifndef MOUSE_VIEW_H
@@ -19,22 +19,25 @@
 
 class MouseSettings;
 
-class MouseView : public BView {
+class MouseView : public BView
+{
 public:
 								MouseView(const MouseSettings& settings);
-		virtual					~MouseView();
+	virtual						~MouseView();
 
 				void			SetMouseType(int32 type);
 				void			MouseMapUpdated();
 				void			UpdateFromSettings();
 
-		virtual	void			GetPreferredSize(float* _width, float* _height);
-		virtual	void			AttachedToWindow();
-		virtual	void			MouseUp(BPoint where);
-		virtual	void			MouseDown(BPoint where);
-		virtual	void			Draw(BRect frame);
-		bool					IsMouseConnected()
-								{ return fConnected; }
+	virtual		void			GetPreferredSize(float* _width, float* _height);
+	virtual		void			AttachedToWindow();
+	virtual		void			MouseUp(BPoint where);
+	virtual		void			MouseDown(BPoint where);
+	virtual		void			Draw(BRect frame);
+				bool			IsMouseConnected()
+	{
+		return fConnected;
+	}
 
 private:
 				BRect			_ButtonsRect() const;
@@ -44,9 +47,9 @@ private:
 				void			_CreateButtonsPicture();
 
 private:
-	typedef BView inherited;
+	typedef		BView			inherited;
 
-		const	MouseSettings&	fSettings;
+	const		MouseSettings&	fSettings;
 
 				BPicture		fButtonsPicture;
 				int32			fDigitBaseline;
@@ -60,4 +63,4 @@ private:
 };
 
 
-#endif	/* MOUSE_VIEW_H */
+#endif /* MOUSE_VIEW_H */
