@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "26bd8e03_c97ac44d",
+        "filename": "src/preferences/input/Input.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-20T13:49:30Z",
+      "side": 1,
+      "message": "InputApplication() should be aligned on the right like other methods",
+      "revId": "0e1510ead011dab0865742812ad6295c424673ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "194fe17f_7fef03e0",
+        "filename": "src/preferences/input/InputDeviceView.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-20T13:49:30Z",
+      "side": 1,
+      "message": "something is incorrect here. Is it because of the * in the type? because of the function definition?\n\nDo we even want tabs in this case where the method is defined inline?",
+      "revId": "0e1510ead011dab0865742812ad6295c424673ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf9a31ec_8e6980b4",
+        "filename": "src/preferences/input/InputDeviceView.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-20T13:49:30Z",
+      "side": 1,
+      "message": "This is incorrect\n\nThe proper way would be (using spaces for the example but it should be tabs, of course):\n\n    static    InputIcons*          sIcons;\n              BString              fTitle;\n              input_type           fInputType;\n\n- Modifiers (static, virtual) go on a first column\n- Types go on a second one\n- Names go on a third",
+      "revId": "0e1510ead011dab0865742812ad6295c424673ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00228028_d655e68b",
+        "filename": "src/preferences/input/InputIcons.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-20T13:49:30Z",
+      "side": 1,
+      "message": "this should follow the same rules. I guess it doesn\u0027t because this is a struct and not a class?",
+      "revId": "0e1510ead011dab0865742812ad6295c424673ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1d14c85_ca807e41",
+        "filename": "src/preferences/input/InputMouse.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-20T13:49:30Z",
+      "side": 1,
+      "message": "the braces should be kept here, as the content of the if is on two lines",
+      "revId": "0e1510ead011dab0865742812ad6295c424673ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d499ef4_a6772794",
+        "filename": "src/preferences/input/InputTouchpadPrefView.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-20T13:49:30Z",
+      "side": 1,
+      "message": "something is incorrect here, spaces are used and the alignment is not correct.\n\nAlso, virtual should be in a separate column:\n\n\n    virtual    void           Draw(...);\n    ...\n               void           SetValues(...);",
+      "revId": "0e1510ead011dab0865742812ad6295c424673ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}

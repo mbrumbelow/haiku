@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b267650d_81a7c561",
+        "filename": "src/preferences/input/InputKeyboard.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-20T13:49:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebc2cfa9_5820e107",
+      "revId": "c0c5ae9e343a0eff21c6bdf943888d44ecb0f842",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a6e662a9_c98b09d1",
         "filename": "src/preferences/input/InputTouchpadPrefView.cpp",
         "patchSetId": 1
@@ -30,6 +48,23 @@
       "writtenOn": "2021-06-17T21:43:39Z",
       "side": 1,
       "message": "Why add a lot of tabs?",
+      "revId": "c0c5ae9e343a0eff21c6bdf943888d44ecb0f842",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63b89d34_77b8cefe",
+        "filename": "src/preferences/input/InputTouchpadPrefView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-20T13:49:30Z",
+      "side": 1,
+      "message": "the End() should be on the same indentation as the matching AddGroup()",
       "revId": "c0c5ae9e343a0eff21c6bdf943888d44ecb0f842",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -53,6 +88,24 @@
     },
     {
       "key": {
+        "uuid": "0d4a6f9c_025fdf70",
+        "filename": "src/preferences/input/MouseView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-20T13:49:30Z",
+      "side": 1,
+      "message": "This is because of the deleted \"};\" above",
+      "parentUuid": "efef897e_e6b8825c",
+      "revId": "c0c5ae9e343a0eff21c6bdf943888d44ecb0f842",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f91323de_0db03d9e",
         "filename": "src/preferences/input/MouseView.cpp",
         "patchSetId": 1
@@ -67,6 +120,24 @@
       "revId": "c0c5ae9e343a0eff21c6bdf943888d44ecb0f842",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9f9d833_c8d76102",
+        "filename": "src/preferences/input/MouseView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-20T13:49:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f91323de_0db03d9e",
+      "revId": "c0c5ae9e343a0eff21c6bdf943888d44ecb0f842",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
