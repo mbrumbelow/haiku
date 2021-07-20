@@ -155,9 +155,7 @@ SettingsView::SettingsView(MouseSettings& settings)
 }
 
 
-SettingsView::~SettingsView()
-{
-}
+SettingsView::~SettingsView() {}
 
 
 void

@@ -4,21 +4,21 @@
  *
  * Author:
  *		Preetpal Kaur <preetpalok123@gmail.com>
-*/
+ */
 
 
 #ifndef INPUT_MOUSE_H
 #define INPUT_MOUSE_H
 
 
-#include <Box.h>
 #include <Bitmap.h>
+#include <Box.h>
 #include <Button.h>
 #include <CheckBox.h>
-#include <Slider.h>
-#include <PopUpMenu.h>
-#include <MenuField.h>
 #include <ListView.h>
+#include <MenuField.h>
+#include <PopUpMenu.h>
+#include <Slider.h>
 #include <TabView.h>
 #include <View.h>
 
@@ -32,21 +32,23 @@
 class DeviceListView;
 
 
-class InputMouse : public BView {
+class InputMouse : public BView
+{
 public:
-					InputMouse(BInputDevice* dev, MouseSettings* settings);
-	virtual			~InputMouse();
-	void			SetMouseType(int32 type);
-	void			MessageReceived(BMessage* message);
+								InputMouse(BInputDevice* dev,
+									MouseSettings* settings);
+	virtual						~InputMouse();
+				void			SetMouseType(int32 type);
+				void			MessageReceived(BMessage* message);
+
 private:
+	typedef		BBox			inherited;
 
-	typedef BBox inherited;
-
-	SettingsView*		fSettingsView;
-	MouseView*			fMouseView;
-	BButton*			fDefaultsButton;
-	BButton*			fRevertButton;
-	MouseSettings*		fSettings;
+				SettingsView*	fSettingsView;
+				MouseView*		fMouseView;
+				BButton*		fDefaultsButton;
+				BButton*		fRevertButton;
+				MouseSettings*	fSettings;
 };
 
-#endif	/* INPUT_MOUSE_H */
+#endif /* INPUT_MOUSE_H */
