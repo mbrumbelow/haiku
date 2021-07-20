@@ -22,14 +22,15 @@ class DeviceListView;
 class InputKeyboard : public BView
 {
 public:
-			InputKeyboard(BInputDevice* dev);
+	InputKeyboard(BInputDevice* dev);
 
-	void	MessageReceived(BMessage* message);
+	void						MessageReceived(BMessage* message);
+
 private:
-	KeyboardView		*fSettingsView;
-	KeyboardSettings	fSettings;
-	BButton*			fDefaultsButton;
-	BButton*			fRevertButton;
+	KeyboardView*				fSettingsView;
+	KeyboardSettings			fSettings;
+	BButton*					fDefaultsButton;
+	BButton*					fRevertButton;
 };
 
 #endif

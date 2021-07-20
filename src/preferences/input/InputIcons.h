@@ -12,21 +12,20 @@
 class BResources;
 
 
-struct InputIcons {
-								InputIcons();
+struct InputIcons
+{
+	InputIcons();
 
-			BBitmap				mouseIcon;
-			BBitmap				touchpadIcon;
-			BBitmap				keyboardIcon;
+	BBitmap mouseIcon;
+	BBitmap touchpadIcon;
+	BBitmap keyboardIcon;
 
-	static	BRect				IconRectAt(const BPoint& topLeft);
+	static BRect IconRectAt(const BPoint& topLeft);
 
-	static	const BRect			sBounds;
+	static const BRect sBounds;
 
 private:
-
-			void				_LoadBitmap(BResources* resources);
+	void						_LoadBitmap(BResources* resources);
 };
 
 #endif
-
