@@ -49,20 +49,20 @@ class TouchpadView;
 class InputWindow : public BWindow
 {
 public:
-							InputWindow(BRect rect);
-		void				MessageReceived(BMessage* message);
-		void				Show();
-		void				Hide();
+								InputWindow(BRect rect);
+				void			MessageReceived(BMessage* message);
+				void			Show();
+				void			Hide();
 
 private:
-		status_t			FindDevice();
-		void				AddDevice(BInputDevice* device);
+				status_t		FindDevice();
+				void			AddDevice(BInputDevice* device);
 
 private:
-		BListView*			fDeviceListView;
-		BCardView*			fCardView;
+	BListView*		fDeviceListView;
+	BCardView*		fCardView;
 
-		MultipleMouseSettings 	fMultipleMouseSettings;
+	MultipleMouseSettingsfMultipleMouseSettings;
 };
 
 #endif /* INPUT_WINDOW_H */

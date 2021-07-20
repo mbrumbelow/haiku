@@ -4,7 +4,7 @@
  *
  * Author:
  *		Preetpal Kaur <preetpalok123@gmail.com>
-*/
+ */
 
 
 #ifndef TOUCHPAD_PREF_H
@@ -19,40 +19,47 @@
 
 
 #if DEBUG
-#	define LOG(text...) PRINT((text))
+#define LOG(text...) PRINT((text))
 #else
-#	define LOG(text...)
+#define LOG(text...)
 #endif
 
 
-class TouchpadPref {
+class TouchpadPref
+{
 public:
 								TouchpadPref(BInputDevice* device);
-			virtual				~TouchpadPref();
+	virtual						~TouchpadPref();
 
-			void				Revert();
-			void				Defaults();
+				void			Revert();
+				void			Defaults();
 
-			BPoint 				WindowPosition()
-									{ return fWindowPosition; }
-			void				SetWindowPosition(BPoint position)
-									{ fWindowPosition = position; }
+	BPoint			WindowPosition()
+	{
+		return fWindowPosition;
+	}
+	void SetWindowPosition(BPoint position)
+	{
+		fWindowPosition = position;
+	}
 
-			touchpad_settings&	Settings()
-									{ return fSettings; }
-			status_t			UpdateSettings();
+	touchpad_settings& Settings()
+	{
+		return fSettings;
+	}
+	status_t UpdateSettings();
 
 private:
-			status_t			GetSettingsPath(BPath& path);
-			status_t			LoadSettings();
-			status_t			SaveSettings();
+				status_t		GetSettingsPath(BPath& path);
+				status_t		LoadSettings();
+				status_t		SaveSettings();
 
-			BInputDevice* 		fTouchPad;
+	BInputDevice*	fTouchPad;
 
-			touchpad_settings	fSettings;
-			touchpad_settings	fStartSettings;
-			BPoint				fWindowPosition;
+	touchpad_settingsfSettings;
+	touchpad_settingsfStartSettings;
+	BPoint			fWindowPosition;
 };
 
 
-#endif	// TOUCHPAD_PREF_H
+#endif // TOUCHPAD_PREF_H

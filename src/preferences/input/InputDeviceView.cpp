@@ -36,7 +36,8 @@ DeviceListItemView::DeviceListItemView(BString title, input_type type)
 {
 }
 
-struct DeviceListItemView::Renderer {
+struct DeviceListItemView::Renderer
+{
 	Renderer()
 		:
 		fTitle(NULL),
@@ -108,10 +109,9 @@ struct DeviceListItemView::Renderer {
 	}
 
 private:
-
-	BString		fTitle;
-	BBitmap*	fPrimaryIcon;
-	bool		fSelected;
+	BString			fTitle;
+	BBitmap*		fPrimaryIcon;
+				bool			fSelected;
 };
 
 
