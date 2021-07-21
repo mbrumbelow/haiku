@@ -33,6 +33,7 @@
 #include <fs/devfs.h>
 #include <fs/KPath.h>
 #include <int.h>
+#include <kcov.h>
 #include <kdevice_manager.h>
 #include <kdriver_settings.h>
 #include <kernel_daemon.h>
@@ -253,6 +254,7 @@ _start(kernel_args *bootKernelArgs, int currentCPU)
 		TRACE("starting scheduler on cpu 0 and enabling interrupts\n");
 		scheduler_start();
 		enable_interrupts();
+
 	} else {
 		// lets make sure we're in sync with the main cpu
 		// the boot processor has probably been sending us
@@ -280,6 +282,9 @@ _start(kernel_args *bootKernelArgs, int currentCPU)
 	TRACE("main: done... begin idle loop on cpu %d\n", currentCPU);
 	enable_interrupts();
 #endif
+
+	TRACE("init kernel coverage\n");
+	kernel_coverage_init();
 
 	for (;;)
 		cpu_idle();

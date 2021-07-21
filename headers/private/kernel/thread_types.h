@@ -67,6 +67,7 @@ struct user_thread;				// defined in libroot/user_thread.h
 struct VMAddressSpace;
 struct xsi_sem_context;			// defined in xsi_semaphore.cpp
 struct LockedPages;
+struct kcov_info;				// defined in kernel/kcov.h
 
 typedef DoublyLinkedList<LockedPages> LockedPagesList;
 
@@ -518,6 +519,10 @@ struct Thread : TeamThreadIteratorEntry<thread_id>, KernelReferenceable {
 	struct select_info *select_infos;	// protected by fLock
 
 	struct thread_debug_info debug_info;
+
+	struct thread_kcov_info *kcov_info;	// set by the kcov driver
+
+	int32			interrupt_level;	// set by the interrupt handler
 
 	// stack
 	area_id			kernel_stack_area;	// immutable after thread creation

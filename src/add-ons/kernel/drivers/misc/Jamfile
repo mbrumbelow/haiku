@@ -19,6 +19,10 @@ KernelAddon <driver>kdl :
 	kdl.c
 	;
 
+KernelAddon <driver>kcov :
+	kcov.cpp
+	;
+
 KernelAddon <driver>test :
 	test.c
 	;

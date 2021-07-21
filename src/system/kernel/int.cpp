@@ -24,6 +24,7 @@
 #include <boot/kernel_args.h>
 #include <elf.h>
 #include <load_tracking.h>
+#include <thread_types.h>
 #include <util/AutoLock.h>
 #include <util/kqueue.h>
 #include <smp.h>
@@ -294,6 +295,10 @@ int_io_interrupt_handler(int vector, bool levelTriggered)
 	}
 #endif
 
+	Thread *thread = thread_get_current_thread();
+	if (thread != NULL)
+		atomic_add(&thread->interrupt_level, 1);
+
 	// For level-triggered interrupts, we actually handle the return
 	// value (ie. B_HANDLED_INTERRUPT) to decide whether or not we
 	// want to call another interrupt handler.
@@ -315,6 +320,9 @@ int_io_interrupt_handler(int vector, bool levelTriggered)
 		if (status == B_HANDLED_INTERRUPT || status == B_INVOKE_SCHEDULER)
 			handled = true;
 	}
+
+	if (thread != NULL)
+		atomic_add(&thread->interrupt_level, -1);
 
 #if DEBUG_INTERRUPTS
 	sVectors[vector].trigger_count++;

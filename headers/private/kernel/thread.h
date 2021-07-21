@@ -115,6 +115,12 @@ thread_is_idle_thread(Thread *thread)
 	return thread->priority == B_IDLE_PRIORITY;
 }
 
+static inline bool
+thread_is_in_interrupt(Thread *thread)
+{
+	return thread->interrupt_level > 0;
+}
+
 thread_id allocate_thread_id();
 thread_id peek_next_thread_id();
 

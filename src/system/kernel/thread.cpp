@@ -187,6 +187,8 @@ Thread::Thread(const char* name, thread_id threadID, struct cpu_ent* cpu)
 	page_faults_allowed(1),
 	team(NULL),
 	select_infos(NULL),
+	kcov_info(NULL),
+	interrupt_level(0),
 	kernel_stack_area(-1),
 	kernel_stack_base(0),
 	user_stack_area(-1),

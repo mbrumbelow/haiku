@@ -36,6 +36,7 @@ KernelMergeObject kernel_core.o :
 	image.cpp
 	int.cpp
 	kernel_daemon.cpp
+	kcov.cpp
 	linkhack.c
 	listeners.cpp
 	low_resource_manager.cpp
@@ -75,6 +76,24 @@ KernelMergeObject kernel_core.o :
 
 	: $(TARGET_KERNEL_PIC_CCFLAGS)
 ;
+
+
+if $(HAIKU_USE_KERNEL_COVERAGE) = 1 {
+	local kcovGristSources = [ FGristFiles
+		kcov.cpp
+		low_latency.cpp
+		main.cpp lock.cpp
+		power_saving.cpp
+		scheduler.cpp
+		scheduler_cpu.cpp
+		scheduler_profiler.cpp
+		scheduler_thread.cpp
+		scheduler_tracing.cpp
+		scheduling_analysis.cpp
+		smp.cpp ] ;
+	C++FLAGS on $(kcovGristSources:S=$(SUFOBJ)) +=
+		-fno-sanitize-coverage=trace-pc,trace-cmp ;
+}
 
 # Generate the header defining macros for C++ structure sizes.
 local kernelC++StructSizesHeader = [ FGristFiles kernel_c++_struct_sizes.h ] ;
