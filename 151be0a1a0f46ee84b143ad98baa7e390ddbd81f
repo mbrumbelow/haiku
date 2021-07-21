@@ -16,6 +16,24 @@
       "revId": "151be0a1a0f46ee84b143ad98baa7e390ddbd81f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2a26acb_433a3831",
+        "filename": "headers/os/locale/Country.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-21T07:20:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2df222d8_822283cb",
+      "revId": "151be0a1a0f46ee84b143ad98baa7e390ddbd81f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
