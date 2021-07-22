@@ -86,6 +86,8 @@ struct vregs {
 	unsigned long		rflags;
 
 	struct savefpu		fpu;
+
+	unsigned long		cs;
 };
 
 
