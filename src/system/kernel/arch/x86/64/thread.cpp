@@ -331,6 +331,7 @@ arch_setup_signal_frame(Thread* thread, struct sigaction* action,
 	signalFrameData->context.uc_mcontext.rsp = frame->user_sp;
 	signalFrameData->context.uc_mcontext.rip = frame->ip;
 	signalFrameData->context.uc_mcontext.rflags = frame->flags;
+	signalFrameData->context.uc_mcontext.cs = frame->cs;
 
 	if (frame->fpu != nullptr) {
 		memcpy((void*)&signalFrameData->context.uc_mcontext.fpu, frame->fpu,
@@ -406,6 +407,7 @@ arch_restore_signal_frame(struct signal_frame_data* signalFrameData)
 	frame->ip = signalFrameData->context.uc_mcontext.rip;
 	frame->flags = (frame->flags & ~(uint64)X86_EFLAGS_USER_FLAGS)
 		| (signalFrameData->context.uc_mcontext.rflags & X86_EFLAGS_USER_FLAGS);
+	frame->cs = signalFrameData->context.uc_mcontext.cs;
 
 	Thread* thread = thread_get_current_thread();
 
