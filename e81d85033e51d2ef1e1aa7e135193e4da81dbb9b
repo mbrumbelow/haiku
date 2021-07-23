@@ -52,6 +52,24 @@
       "revId": "e81d85033e51d2ef1e1aa7e135193e4da81dbb9b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "edf93c9c_a5d2f5e0",
+        "filename": "src/bin/network/telnetd/state.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1601,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-07-23T04:42:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a79838c_604a85df",
+      "revId": "e81d85033e51d2ef1e1aa7e135193e4da81dbb9b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
