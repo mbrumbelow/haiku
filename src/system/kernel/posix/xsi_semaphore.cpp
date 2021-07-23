@@ -760,7 +760,6 @@ _user_xsi_semget(key_t key, int numberOfSemaphores, int flags)
 					"for key %d\n",	(int)key));
 				return ENOMEM;
 			}
-			sIpcHashTable.Insert(ipcKey);
 		} else {
 			// The IPC key exist and it already has a semaphore
 			if ((flags & IPC_CREAT) && (flags & IPC_EXCL)) {
@@ -790,6 +789,8 @@ _user_xsi_semget(key_t key, int numberOfSemaphores, int flags)
 				return EINVAL;
 			}
 			create = false;
+
+			return semaphoreSet->ID();
 		}
 	}
 
@@ -798,12 +799,14 @@ _user_xsi_semget(key_t key, int numberOfSemaphores, int flags)
 		if (numberOfSemaphores <= 0
 			|| numberOfSemaphores >= MAX_XSI_SEMS_PER_TEAM) {
 			TRACE_ERROR(("xsi_semget: numberOfSemaphores out of range\n"));
+			delete ipcKey;
 			return EINVAL;
 		}
 		if (sXsiSemaphoreCount >= MAX_XSI_SEMAPHORE
 			|| sXsiSemaphoreSetCount >= MAX_XSI_SEMAPHORE_SET) {
 			TRACE_ERROR(("xsi_semget: reached limit of maximum number of "
 				"semaphores allowed\n"));
+			delete ipcKey;
 			return ENOSPC;
 		}
 
@@ -813,8 +816,10 @@ _user_xsi_semget(key_t key, int numberOfSemaphores, int flags)
 			TRACE_ERROR(("xsi_semget: failed to allocate a new xsi "
 				"semaphore set\n"));
 			delete semaphoreSet;
+			delete ipcKey;
 			return ENOMEM;
 		}
+
 		atomic_add(&sXsiSemaphoreCount, numberOfSemaphores);
 		atomic_add(&sXsiSemaphoreSetCount, 1);
 
@@ -823,6 +828,7 @@ _user_xsi_semget(key_t key, int numberOfSemaphores, int flags)
 		if (isPrivate) {
 			semaphoreSet->SetIpcKey((key_t)-1);
 		} else {
+			sIpcHashTable.Insert(ipcKey);
 			semaphoreSet->SetIpcKey(key);
 			ipcKey->SetSemaphoreSetID(semaphoreSet);
 		}
