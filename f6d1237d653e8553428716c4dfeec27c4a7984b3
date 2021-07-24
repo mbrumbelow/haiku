@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "38df07d8_ca72925f",
+        "filename": "src/system/kernel/posix/xsi_semaphore.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 797,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-07-24T19:22:41Z",
+      "side": 1,
+      "message": "create looks now superfluous.",
+      "revId": "f6d1237d653e8553428716c4dfeec27c4a7984b3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
