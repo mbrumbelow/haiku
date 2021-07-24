@@ -16,6 +16,24 @@
       "revId": "31acddc00e77a0da9257bf70f6f89e7ccce91b1a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2ea3779_f6e8e51f",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 6587,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-24T11:03:18Z",
+      "side": 0,
+      "message": "I think these are the cases where POSIX requires us to return EINVAL:\n\nhttps://pubs.opengroup.org/onlinepubs/9699919799/functions/munmap.html\n\nNot planning to change this in this patchset, in any case.",
+      "parentUuid": "4dbaee15_6119fc24",
+      "revId": "31acddc00e77a0da9257bf70f6f89e7ccce91b1a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
