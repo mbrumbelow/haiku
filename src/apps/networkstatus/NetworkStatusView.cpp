@@ -450,8 +450,7 @@ NetworkStatusView::MouseDown(BPoint point)
 			message->AddString("name", network.name);
 			message->AddFlat("address", &network.address);
 
-			BMenuItem* item = new WirelessNetworkMenuItem(network.name,
-				network.signal_strength, network.authentication_mode, message);
+			BMenuItem* item = new WirelessNetworkMenuItem(network, message);
 			menu->AddItem(item);
 			if (associated.find(network.address) != associated.end())
 				item->SetMarked(true);

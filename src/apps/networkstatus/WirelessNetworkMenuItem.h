@@ -7,18 +7,22 @@
 
 
 #include <MenuItem.h>
+#include <NetworkDevice.h>
 
 
 class WirelessNetworkMenuItem : public BMenuItem {
 public:
-								WirelessNetworkMenuItem(const char* name,
-									int32 signalQuality, int32 authenticationMode,
+								WirelessNetworkMenuItem(
+									wireless_network network,
 									BMessage* message);
 	virtual						~WirelessNetworkMenuItem();
+
+			wireless_network*	Network() const { return fNetwork; }
 
 			void				SetSignalQuality(int32 quality);
 			int32				SignalQuality() const
 									{ return fQuality; }
+
 			BString 			AuthenticationName(int32 mode);
 
 protected:
@@ -28,6 +32,7 @@ protected:
 			void				DrawRadioIcon();
 
 private:
+			wireless_network*	fNetwork;
 			int32				fQuality;
 };
 
