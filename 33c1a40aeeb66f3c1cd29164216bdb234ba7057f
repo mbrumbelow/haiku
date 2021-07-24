@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30b9351c_89cded6f",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 5433,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-07-24T07:24:32Z",
+      "side": 1,
+      "message": "I think, this can be factored: \nreturn IS_USER_ADDRESS(address) \u003d\u003d IS_USER_ADDRESS(address + size - 1)",
+      "revId": "33c1a40aeeb66f3c1cd29164216bdb234ba7057f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
