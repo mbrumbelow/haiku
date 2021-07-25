@@ -538,6 +538,9 @@ radeon_hd_init(radeon_info &info)
 		"Radeon %s 1002:%" B_PRIX32 "\n", __func__, info.id,
 		radeon_chip_name[info.chipsetID], info.pciID);
 
+	set_pci_config(info.pci, PCI_command, 2, get_pci_config(info.pci, PCI_command, 2)
+		| PCI_command_io | PCI_command_memory | PCI_command_master);
+
 	// *** Map shared info
 	AreaKeeper sharedCreator;
 	info.shared_area = sharedCreator.Create("radeon hd shared info",
@@ -629,9 +632,15 @@ radeon_hd_init(radeon_info &info)
 		info.shared_info->graphics_memory_size / 1024);
 
 	// *** Framebuffer mapping
+	phys_addr_t frambufferPhysAdr = info.pci->u.h0.base_registers[PCI_BAR_FB];
+	if ((info.pci->u.h0.base_register_flags[PCI_BAR_FB] & PCI_address_type)
+			== PCI_address_type_64) {
+		frambufferPhysAdr |= (uint64)info.pci->u.h0.base_registers[PCI_BAR_FB + 1] << 32;
+	}
+	TRACE("frambufferPhysAdr: %#" B_PRIxADDR "\n", frambufferPhysAdr);
 	AreaKeeper frambufferMapper;
 	info.framebuffer_area = frambufferMapper.Map("radeon hd frame buffer",
-		info.pci->u.h0.base_registers[PCI_BAR_FB],
+		frambufferPhysAdr,
 		info.shared_info->frame_buffer_size * 1024,
 		B_ANY_KERNEL_ADDRESS, B_READ_AREA | B_WRITE_AREA,
 		(void**)&info.shared_info->frame_buffer);
@@ -640,16 +649,18 @@ radeon_hd_init(radeon_info &info)
 			__func__, info.id);
 		return info.framebuffer_area;
 	}
+	TRACE("frambufferVirtAdr: %#" B_PRIxADDR "\n", (addr_t)info.shared_info->frame_buffer);
+	TRACE("frambufferSize: %#" B_PRIxSIZE "\n", (size_t)info.shared_info->frame_buffer_size * 1024);
 
 	// Turn on write combining for the frame buffer area
 	vm_set_area_memory_type(info.framebuffer_area,
-		info.pci->u.h0.base_registers[PCI_BAR_FB], B_MTR_WC);
+		frambufferPhysAdr, B_MTR_WC);
 
 	frambufferMapper.Detach();
 
 	info.shared_info->frame_buffer_area = info.framebuffer_area;
 	info.shared_info->frame_buffer_phys
-		= info.pci->u.h0.base_registers[PCI_BAR_FB];
+		= frambufferPhysAdr;
 
 	// Pass common information to accelerant
 	info.shared_info->deviceIndex = info.id;
