@@ -17,13 +17,13 @@
 #include <Path.h>
 #include <PopUpMenu.h>
 #include <ScrollView.h>
+#include <StatusView.h>
 
 #include <tracker_private.h>
 #include "DirMenu.h"
 
 #include "ShowImageView.h"
 #include "ShowImageWindow.h"
-
 const float kHorzSpacing = 5.f;
 
 
@@ -41,7 +41,7 @@ void
 ShowImageStatusView::AttachedToWindow()
 {
 	SetFont(be_plain_font);
-	SetFontSize(10.0);
+	BPrivate::AdoptScrollBarFontSize(this);
 
 	BScrollBar* scrollBar = fScrollView->ScrollBar(B_HORIZONTAL);
 	MoveTo(0.0, scrollBar->Frame().top);
