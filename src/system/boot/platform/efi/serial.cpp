@@ -12,6 +12,7 @@
 
 #include <boot/platform.h>
 #include <arch/cpu.h>
+#include <arch/generic/debug_uart.h>
 #include <boot/stage2.h>
 #include <boot/stdio.h>
 
@@ -41,6 +42,9 @@ enum serial_register_offsets {
 static uint16 sSerialBasePort = 0x3f8;
 
 
+DebugUART* gUART = NULL;
+
+
 static void
 serial_putc(char ch)
 {
@@ -48,8 +52,21 @@ serial_putc(char ch)
 		return;
 
 	if (sSerialUsesEFI) {
+		char16_t ucsBuffer[2];
+		ucsBuffer[0] = ch;
+		ucsBuffer[1] = 0;
+		kSystemTable->ConOut->OutputString(kSystemTable->ConOut, ucsBuffer);
+		return;
+	}
+
+	if (sSerialUsesEFI) {
 		size_t bufSize = 1;
 		sSerial->Write(sSerial, &bufSize, &ch);
+		return;
+	}
+
+	if (gUART != NULL) {
+		gUART->PutChar(ch);
 		return;
 	}
 
@@ -65,7 +82,7 @@ serial_putc(char ch)
 extern "C" void
 serial_puts(const char* string, size_t size)
 {
-	if (!sSerialEnabled || (sSerial == NULL && sSerialUsesEFI))
+	if (!sSerialEnabled /*|| (sSerial == NULL && sSerialUsesEFI)*/)
 		return;
 
 	while (size-- != 0) {
@@ -118,13 +135,13 @@ serial_init(void)
 }
 
 
-#if defined(__x86__) || defined(__x86_64__)
 extern "C" void
 serial_switch_to_legacy(void)
 {
 	sSerial = NULL;
 	sSerialUsesEFI = false;
 
+#if defined(__x86__) || defined(__x86_64__)
 	memset(gKernelArgs.platform_args.serial_base_ports, 0,
 		sizeof(uint16) * MAX_SERIAL_PORTS);
 
@@ -138,5 +155,5 @@ serial_switch_to_legacy(void)
 	out8(divisor >> 8, sSerialBasePort + SERIAL_DIVISOR_LATCH_HIGH);
 	out8(3, sSerialBasePort + SERIAL_LINE_CONTROL);
 		// 8N1
-}
 #endif
+}

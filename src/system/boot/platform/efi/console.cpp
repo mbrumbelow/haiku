@@ -165,6 +165,7 @@ console_wait_for_key(void)
 		kBootServices->WaitForEvent(1, &event, &index);
 		status = kSystemTable->ConIn->ReadKeyStroke(kSystemTable->ConIn, &key);
 	} while (status == EFI_NOT_READY);
+	// printf("key: (char: %d, code: %d)\n", key.UnicodeChar, key.ScanCode);
 
 	if (key.UnicodeChar > 0)
 		return (int) key.UnicodeChar;
