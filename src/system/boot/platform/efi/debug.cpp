@@ -47,7 +47,10 @@ dprintf(const char *format, ...)
 	va_list args;
 
 	va_start(args, format);
-	dprintf_args(format, args);
+	if (true)
+		dprintf_args(format, args);
+	else
+		vprintf(format, args);
 	va_end(args);
 }
 

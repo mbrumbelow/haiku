@@ -397,7 +397,7 @@ kernel_args_malloc(size_t size)
 			return NULL;
 		}
 
-#ifdef _BOOT_PLATFORM_EFI
+#if defined(_BOOT_PLATFORM_EFI) || defined(__riscv)
 		addr_t translated_block;
 		platform_bootloader_address_to_kernel_address(block, &translated_block);
 		if (add_kernel_args_range((void *)translated_block, size) != B_OK)
@@ -418,7 +418,7 @@ kernel_args_malloc(size_t size)
 	sFirstFree = (void*)((addr_t)block + size);
 	sLast = block;
 	sFree = kChunkSize - size;
-#ifdef _BOOT_PLATFORM_EFI
+#if defined(_BOOT_PLATFORM_EFI) || defined(__riscv)
 	addr_t translated_block;
 	platform_bootloader_address_to_kernel_address(block, &translated_block);
 	if (add_kernel_args_range((void *)translated_block, kChunkSize) != B_OK)
