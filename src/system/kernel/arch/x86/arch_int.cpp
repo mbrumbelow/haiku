@@ -350,6 +350,7 @@ x86_page_fault_exception(struct iframe* frame)
 		(frame->error_code & PGFAULT_W) != 0,		// write access
 		(frame->error_code & PGFAULT_I) != 0,		// instruction fetch
 		IFRAME_IS_USER(frame),						// userland
+		true,
 		&newip);
 	if (newip != 0) {
 		// the page fault handler wants us to modify the iframe to set the
