@@ -65,6 +65,12 @@ gfxcpy(uint8* dst, const uint8* src, int32 numBytes)
 static inline void
 gfxcpy32(uint8* dst, const uint8* src, int32 numBytes)
 {
+#ifdef __riscv
+	uint32* d32 = (uint32*)dst;
+	uint32* s32 = (uint32*)src;
+	for (; numBytes > 0; numBytes -= 4)
+		*d32++ = *s32++;
+#else
 	uint64* d64 = (uint64*)dst;
 	uint64* s64 = (uint64*)src;
 	int32 numBytesStart = numBytes;
@@ -89,6 +95,7 @@ gfxcpy32(uint8* dst, const uint8* src, int32 numBytes)
 		uint32* s32 = (uint32*)(src + numBytesStart - numBytes);
 		*d32 = *s32;
 	}
+#endif
 }
 
 // gfxset32
