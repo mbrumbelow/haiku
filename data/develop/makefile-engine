@@ -144,7 +144,7 @@ VPATH :=
 VPATH += $(addprefix :, $(subst  ,:, $(filter-out $($(subst, :, ,$(VPATH))), $(SRC_PATHS))))
 
 # Set up the local & system include paths and C++ stdlibs.
-ifneq (,$(filter $(CPU),x86 x86_64))
+ifneq (,$(filter $(CPU),x86 x86_64 riscv64))
 	LOC_INCLUDES = $(foreach path, $(SRC_PATHS) $(LOCAL_INCLUDE_PATHS), $(addprefix -I, $(path)))
  ifeq ($(CC_VER), 2)
 	INCLUDES = $(LOC_INCLUDES)
