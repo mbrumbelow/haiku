@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "69c963e9_82238b50",
+        "filename": "docs/user/net/UrlProtocolDispatchingListener.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-25T11:51:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad05c21d_001cc96a",
+      "revId": "fa396215f0baf8c97fde16c83a912d1ccf84c0c3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd3756bc_c2045df7",
         "filename": "docs/user/net/UrlProtocolDispatchingListener.dox",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "fa396215f0baf8c97fde16c83a912d1ccf84c0c3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "290e14bb_cbe6883f",
+        "filename": "docs/user/net/UrlProtocolDispatchingListener.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-25T11:51:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd3756bc_c2045df7",
+      "revId": "fa396215f0baf8c97fde16c83a912d1ccf84c0c3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "6385058f_a2650ccf",
+        "filename": "docs/user/net/UrlProtocolDispatchingListener.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-25T11:51:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e392afe_b2464138",
+      "revId": "fa396215f0baf8c97fde16c83a912d1ccf84c0c3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02e07600_23838f7e",
         "filename": "docs/user/net/UrlProtocolDispatchingListener.dox",
         "patchSetId": 1
@@ -67,6 +121,24 @@
       "revId": "fa396215f0baf8c97fde16c83a912d1ccf84c0c3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a21a2576_4f8dc4f3",
+        "filename": "docs/user/net/UrlProtocolDispatchingListener.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-25T11:51:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02e07600_23838f7e",
+      "revId": "fa396215f0baf8c97fde16c83a912d1ccf84c0c3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "16c37ce4_2ceb189d",
+        "filename": "docs/user/net/UrlProtocolDispatchingListener.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-25T11:51:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3cfdc42_544f804d",
+      "revId": "fa396215f0baf8c97fde16c83a912d1ccf84c0c3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9260f64a_34a60238",
         "filename": "docs/user/net/UrlProtocolDispatchingListener.dox",
         "patchSetId": 1
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "c931ce73_df48408a",
+        "filename": "docs/user/net/UrlProtocolDispatchingListener.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-25T11:51:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9260f64a_34a60238",
+      "revId": "fa396215f0baf8c97fde16c83a912d1ccf84c0c3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "310be777_b6acbd25",
         "filename": "docs/user/net/UrlProtocolDispatchingListener.dox",
         "patchSetId": 1
@@ -118,6 +226,24 @@
       "revId": "fa396215f0baf8c97fde16c83a912d1ccf84c0c3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cbad7d85_4a8b790b",
+        "filename": "docs/user/net/UrlProtocolDispatchingListener.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-25T11:51:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "310be777_b6acbd25",
+      "revId": "fa396215f0baf8c97fde16c83a912d1ccf84c0c3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
