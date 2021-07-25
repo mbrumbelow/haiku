@@ -895,9 +895,9 @@ virtio_net_register_device(device_node* node)
 {
 	CALLED();
 
-	// ready to register
 	device_attr attrs[] = {
-		{ NULL }
+		{B_DEVICE_PRETTY_NAME, B_STRING_TYPE, {string: "Virtio Network"}},
+		{}
 	};
 
 	return sDeviceManager->register_node(node, VIRTIO_NET_DRIVER_MODULE_NAME,
