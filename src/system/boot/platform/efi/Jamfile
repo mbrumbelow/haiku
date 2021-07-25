@@ -5,6 +5,10 @@ UsePrivateHeaders [ FDirName kernel platform ] ;
 UsePrivateHeaders [ FDirName kernel boot platform efi ] ;
 UsePrivateHeaders [ FDirName kernel boot arch $(TARGET_KERNEL_ARCH) ] ;
 
+if $(TARGET_ARCH) != x86 && $(TARGET_ARCH) != x86_64 {
+	UseLibraryHeaders [ FDirName libfdt ] ;
+}
+
 SubDirHdrs $(HAIKU_TOP) src add-ons kernel partitioning_systems gpt ;
 
 {
@@ -32,7 +36,10 @@ local platform_src =
 	serial.cpp
 	;
 
-local support_libs ;
+local support_libs = ;
+if $(TARGET_ARCH) != x86 && $(TARGET_ARCH) != x86_64 {
+	support_libs += boot_fdt.a ;
+}
 
 local platform ;
 for platform in [ MultiBootSubDirSetup efi ] {
