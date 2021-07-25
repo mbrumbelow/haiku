@@ -124,7 +124,7 @@ platform_allocate_region(void **_address, size_t size, uint8 /* protection */,
 
 	memory_region *region = new(std::nothrow) memory_region {
 		next: allocated_regions,
-		vaddr: *_address == NULL ? 0 : (addr_t)*_address,
+		vaddr: 0 /* *_address == NULL ? 0 : (addr_t)*_address */,
 		paddr: (phys_addr_t)addr,
 		size: size
 	};
@@ -133,6 +133,7 @@ platform_allocate_region(void **_address, size_t size, uint8 /* protection */,
 		kBootServices->FreePages(addr, pages);
 		return B_NO_MEMORY;
 	}
+
 	//region->dprint("Allocated");
 	allocated_regions = region;
 	*_address = (void *)region->paddr;
@@ -268,4 +269,26 @@ platform_free_region(void *address, size_t size)
 	}
 	panic("platform_free_region: Unknown region to free??");
 	return B_ERROR; // NOT Reached
+}
+
+
+bool
+mmu_next_region(void** cookie, addr_t* vaddr, phys_addr_t* paddr, size_t* size)
+{
+	if (*cookie == NULL)
+		*cookie = &allocated_regions;
+	else
+		*cookie = ((memory_region*)*cookie)->next;
+
+	memory_region* region = (memory_region*)*cookie;
+	if (region == NULL)
+		return false;
+
+	if (region->vaddr == 0)
+		region->vaddr = get_next_virtual_address(region->size);
+
+	*vaddr = region->vaddr;
+	*paddr = region->paddr;
+	*size = region->size;
+	return true;
 }
