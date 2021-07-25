@@ -11,6 +11,7 @@
 
 #include <SupportDefs.h>
 
+
 class BRect;
 
 
@@ -60,57 +61,28 @@ gfxcpy(uint8* dst, const uint8* src, int32 numBytes)
 	}
 }
 
+
 // gfxcpy32
-// * numBytes is expected to be a multiple of 4
 static inline void
 gfxcpy32(uint8* dst, const uint8* src, int32 numBytes)
 {
-	uint64* d64 = (uint64*)dst;
-	uint64* s64 = (uint64*)src;
-	int32 numBytesStart = numBytes;
-	while (numBytes >= 32) {
-		*d64++ = *s64++;
-		*d64++ = *s64++;
-		*d64++ = *s64++;
-		*d64++ = *s64++;
-		numBytes -= 32;
-	}
-	if (numBytes >= 16) {
-		*d64++ = *s64++;
-		*d64++ = *s64++;
-		numBytes -= 16;
-	}
-	if (numBytes >= 8) {
-		*d64++ = *s64++;
-		numBytes -= 8;
-	}
-	if (numBytes == 4) {
-		uint32* d32 = (uint32*)(dst + numBytesStart - numBytes);
-		uint32* s32 = (uint32*)(src + numBytesStart - numBytes);
-		*d32 = *s32;
-	}
+	memcpy(dst, src, numBytes);
 }
 
+
 // gfxset32
-// * numBytes is expected to be a multiple of 4
 static inline void
 gfxset32(uint8* dst, uint32 color, int32 numBytes)
 {
-	uint64 s64 = ((uint64)color << 32) | color;
-	while (numBytes >= 8) {
-		*(uint64*)dst = s64;
-		numBytes -= 8;
-		dst += 8;
-	}
-	if (numBytes == 4) {
-		*(uint32*)dst = color;
-	}
+	memset(dst, color, numBytes);
 }
+
 
 union pixel32 {
 	uint32	data32;
 	uint8	data8[4];
 };
+
 
 // blend_line32
 static inline void
