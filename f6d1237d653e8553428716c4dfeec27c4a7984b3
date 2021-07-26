@@ -16,6 +16,24 @@
       "revId": "f6d1237d653e8553428716c4dfeec27c4a7984b3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ce609b8_5e41c7ee",
+        "filename": "src/system/kernel/posix/xsi_semaphore.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 797,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-26T12:07:08Z",
+      "side": 1,
+      "message": "Yes, removed now.\n\nI had started removing it yesterday but somehow wrongly convinced myself it was useful in some case.",
+      "parentUuid": "38df07d8_ca72925f",
+      "revId": "f6d1237d653e8553428716c4dfeec27c4a7984b3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }

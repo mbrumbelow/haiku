@@ -34,6 +34,24 @@
       "revId": "c1de07b536469b32c54bb9bc6994234a3c78659a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b57528c_d392fd0d",
+        "filename": "src/system/kernel/posix/xsi_semaphore.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 824,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-26T12:07:08Z",
+      "side": 1,
+      "message": "The use of _ is not recommended anymore: it\u0027s too easy to forget it and write MutexLocker(sXsiSemaphoreSetLock); in which case the locker is immediately unlocked.\n\nSo I renamed the three lockers in this function.",
+      "parentUuid": "abbdfab7_d17baf63",
+      "revId": "c1de07b536469b32c54bb9bc6994234a3c78659a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
