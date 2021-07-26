@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "26275773_b5927009",
+        "filename": "src/apps/terminal/AppearPrefView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-07-26T02:42:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a27b21b_d9856a49",
+      "revId": "5efbe59e43660bf766dc61e661a7b0a7f08271ea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ab4938a_1b204aff",
         "filename": "src/apps/terminal/Colors.cpp",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "5efbe59e43660bf766dc61e661a7b0a7f08271ea",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "897eabba_93db0cda",
+        "filename": "src/apps/terminal/Colors.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-07-26T02:42:29Z",
+      "side": 1,
+      "message": "I used H to match the #defines and uses elsewhere in the codebase. I think it means bright?",
+      "parentUuid": "4ab4938a_1b204aff",
+      "revId": "5efbe59e43660bf766dc61e661a7b0a7f08271ea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
