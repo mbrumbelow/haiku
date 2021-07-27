@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e7160419_c104469f",
+        "filename": "src/preferences/input/InputDeviceView.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-27T12:25:47Z",
+      "side": 1,
+      "message": "I think the correct style is:\n\n\t\t\t\tvoid\t\t\tDrawItem(BView* owner, BRect frame,\n\t\t\t\t\t\t\t\t\tbool complete \u003d false);\n\nThat is, the extra parameter is indented one level more than the method name.\n\nSee \"FunctionLotsOfArguments\" in the coding guidelines document example: https://www.haiku-os.org/development/coding-guidelines/",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 70
+      },
+      "revId": "0b5f805bfdeee08945931527c67cb12aef477c52",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3edf799b_f3cd824a",
+        "filename": "src/preferences/input/InputKeyboard.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-27T12:25:47Z",
+      "side": 1,
+      "message": "You need one extra tab here, I think you can add one tab for all the declarations in this private section.\n\nThe coding style does not specify exactly the number of tabs to use, and generally the idea is that in each block, we put enough tabs so that the typename will fit. But that may be a bit more complicated to handle for clang-format?\n\nSometimes when one single type is very long, we allow ourselves to separate it with a space instead of a tab, and have it not aligned with other declarations.\n\nIn any case, clang-format should never allow 0 spaces here, because this results in code that does not compile.",
+      "revId": "0b5f805bfdeee08945931527c67cb12aef477c52",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
