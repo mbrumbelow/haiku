@@ -43,9 +43,9 @@ extern void platform_switch_to_logo(void);
 extern void platform_switch_to_text_mode(void);
 extern void platform_start_kernel(void);
 extern void platform_exit(void);
-extern void platform_load_ucode(BootVolume& volume);
 
 #ifdef __cplusplus
+extern void platform_load_ucode(BootVolume& volume);
 }
 
 // these functions have to be implemented in C++
