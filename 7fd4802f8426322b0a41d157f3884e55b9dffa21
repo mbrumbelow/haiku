@@ -16,6 +16,24 @@
       "revId": "7fd4802f8426322b0a41d157f3884e55b9dffa21",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ed957d9_e31f6b7d",
+        "filename": "headers/private/kernel/boot/platform.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2021-07-28T19:55:23Z",
+      "side": 1,
+      "message": "That was my original thought also, but it will require changing the function definition for each platform.",
+      "parentUuid": "3601f03d_12417de1",
+      "revId": "7fd4802f8426322b0a41d157f3884e55b9dffa21",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
