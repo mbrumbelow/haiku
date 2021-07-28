@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6f2f5e79_ffb9cad2",
+        "filename": "src/preferences/input/InputDeviceView.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-28T06:39:34Z",
+      "side": 1,
+      "message": "there is an extra space before \"type\"\n\nAlso, is it possible to cut this after a comma (before input_type) to avoid splitting one argument on two lines? I think in clang-format this is done using binpackarguments?",
+      "revId": "375b0050887c97f9fde44c6c3638bd269e2469fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "523d1841_ee0955df",
+        "filename": "src/preferences/input/InputDeviceView.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-28T06:39:34Z",
+      "side": 1,
+      "message": "indentation is too high here. It should be one level more than DrawItem, now it\u0027s 3 levels",
+      "revId": "375b0050887c97f9fde44c6c3638bd269e2469fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b095510_f1d045fd",
+        "filename": "src/preferences/input/InputDeviceView.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-28T06:39:34Z",
+      "side": 1,
+      "message": "this is incorrect still.\n\n\"static\" should be alone in the first column\n\"InputIcons*\", \"BString\" and \"input_type\" on the second column\nsIcons, fTitle and fInputType on the third",
+      "revId": "375b0050887c97f9fde44c6c3638bd269e2469fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
