@@ -1253,16 +1253,14 @@ void
 MainWin::Eject()
 {
 	status_t mediaStatus = B_DEV_NO_MEDIA;
-	// find the cd player device
-	int cdPlayerFd = FindCdPlayerDevice("/dev/disk");
 	// get the status first
-	ioctl(cdPlayerFd, B_GET_MEDIA_STATUS, &mediaStatus, sizeof(mediaStatus));
+	ioctl(fCdPlayerFd, B_GET_MEDIA_STATUS, &mediaStatus, sizeof(mediaStatus));
 	// if door open, load the media, else eject the cd
-	status_t result = ioctl(cdPlayerFd,
+	status_t result = ioctl(fCdPlayerFd,
 		mediaStatus == B_DEV_DOOR_OPEN ? B_LOAD_MEDIA : B_EJECT_DEVICE);
 	if (result != B_NO_ERROR)
 		printf("Error ejecting device");
-	close(cdPlayerFd);
+	close(fCdPlayerFd);
 }
 
 
@@ -1614,9 +1612,12 @@ MainWin::_CreateMenu()
 		new BMessage(M_NETWORK_STREAM_OPEN));
 	fFileMenu->AddItem(item);
 
-	item = new BMenuItem(B_TRANSLATE("Eject Device"),
-		new BMessage(M_EJECT_DEVICE));
-	fFileMenu->AddItem(item);
+	fCdPlayerFd = FindCdPlayerDevice("/dev/disk");
+	if (fCdPlayerFd >= 0) {
+		item = new BMenuItem(B_TRANSLATE("Eject disc"),
+			new BMessage(M_EJECT_DEVICE));
+		fFileMenu->AddItem(item);
+	}
 
 	fFileMenu->AddSeparatorItem();
 

@@ -189,6 +189,7 @@ private:
 			bool				fScaleFullscreenControls;
 			bigtime_t			fInitialSeekPosition;
 			bool				fAllowWinding;
+			int					fCdPlayerFd;
 
 	static	int					sNoVideoWidth;
 };
