@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee7645d5_762c2f88",
+        "filename": "src/apps/networkstatus/WirelessNetworkMenuItem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-07-28T19:57:08Z",
+      "side": 1,
+      "message": "You copy \"network\" on the stack, only to later...",
+      "revId": "3a74d9bad209c1eb98979cff1ab6084993e85186",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "095822a5_55c83a11",
+        "filename": "src/apps/networkstatus/WirelessNetworkMenuItem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-07-28T19:57:08Z",
+      "side": 1,
+      "message": "...store a pointer to it! How is that supposed to work?",
+      "revId": "3a74d9bad209c1eb98979cff1ab6084993e85186",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
