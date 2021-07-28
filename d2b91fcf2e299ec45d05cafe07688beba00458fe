@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "46a248cf_169b20cf",
+        "filename": "src/apps/firstbootprompt/BootPromptWindow.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-28T13:51:45Z",
+      "side": 1,
+      "message": "Currently only wifi was implemented.\n\nI have some hardware with a GPS receiver but it needs driver for the Oxford semi UART chips, which are almost compatible with standard 16C550 UARTs, but require extra clock configuration because they support high baudrate clocks. And then we need an NMEA frame parser to extract the position, too.",
+      "parentUuid": "91e69a9a_a1650a3e",
+      "revId": "d2b91fcf2e299ec45d05cafe07688beba00458fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9c86bfc3_e7fc21b1",
         "filename": "src/apps/firstbootprompt/Jamfile",
         "patchSetId": 5
