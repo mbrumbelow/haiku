@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3601f03d_12417de1",
+        "filename": "headers/private/kernel/boot/platform.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-28T18:44:28Z",
+      "side": 1,
+      "message": "move it outside of the extern \"C\" block, next to platform_cleanup_devices for example. There is no reason to put it into an extern \"C\" if it can\u0027t be used from C?",
+      "revId": "7fd4802f8426322b0a41d157f3884e55b9dffa21",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
