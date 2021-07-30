@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6def44bc_11312fa8",
+        "filename": "build/jam/ArchitectureRules",
+        "patchSetId": 1
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-07-30T18:43:53Z",
+      "side": 1,
+      "message": "Wouldn\u0027t it make more sense just to add these flags to the KERNEL_CC flags, etc. across the board? (This would also include some drivers, but as we have some functionality in drivers that is often found within many kernels, perhaps that makes more sense anyway.)",
+      "revId": "5010d9bfcb39985ecb4bd07ce71c0a725e806671",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d0f9022_b73bdf24",
+        "filename": "build/jam/packages/Haiku",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-07-30T18:43:53Z",
+      "side": 1,
+      "message": "`kcov` seems to be more of an abbreviation than we usually use; the GCC flag is \"coverage\" and the init routine is \"coverage\"; why not use \"kernel_coverage\"?",
+      "revId": "5010d9bfcb39985ecb4bd07ce71c0a725e806671",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1bac94b9_1dc277b6",
+        "filename": "headers/private/kernel/kcov.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-07-30T18:43:53Z",
+      "side": 1,
+      "message": "These should probably also be given Haiku-like names?",
+      "revId": "5010d9bfcb39985ecb4bd07ce71c0a725e806671",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f069134b_7d7b506b",
+        "filename": "src/system/kernel/int.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-07-30T18:43:53Z",
+      "side": 1,
+      "message": "Atomics are not as cheap as one might expect. Does this really need to be atomic; and if so, can we put it behind \"#if KDEBUG\" perhaps?",
+      "revId": "5010d9bfcb39985ecb4bd07ce71c0a725e806671",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
