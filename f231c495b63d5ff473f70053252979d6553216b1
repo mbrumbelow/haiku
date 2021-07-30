@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c351aa0b_eff28f35",
+        "filename": "src/preferences/input/InputTouchpadPref.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-30T21:40:47Z",
+      "side": 1,
+      "message": "This looks a bit strange. I think if the function has a definition (not just a declaration), we should not align it with the others?",
+      "revId": "f231c495b63d5ff473f70053252979d6553216b1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
