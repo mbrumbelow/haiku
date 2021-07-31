@@ -328,6 +328,7 @@ FolderConfigWindow::_LoadFolders()
 		alert->Go();
 
 		PostMessage(B_QUIT_REQUESTED);
+		delete alert;
 		return;
 	}
 
