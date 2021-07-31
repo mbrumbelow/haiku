@@ -163,6 +163,7 @@ PackageInstall::_Install()
 			if (err != B_OK) {
 				fprintf(stderr, "Error marking installation of package: "
 					"%s\n", strerror(err));
+				delete reinstall;
 				return P_MSG_I_ERROR;
 			}
 		} else {
