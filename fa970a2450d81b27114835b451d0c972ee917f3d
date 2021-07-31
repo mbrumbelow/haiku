@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f2d6d3e7_bd1d8461",
+        "filename": "src/add-ons/kernel/file_systems/packagefs/volume/Volume.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1392,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-07-31T11:27:25Z",
+      "side": 1,
+      "message": "Look at this line, ownership of the node has been handed over here.",
+      "revId": "fa970a2450d81b27114835b451d0c972ee917f3d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c29a228c_69522a33",
+        "filename": "src/add-ons/kernel/file_systems/packagefs/volume/Volume.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1396,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-07-31T11:27:25Z",
+      "side": 1,
+      "message": "now this is deleting something you do not own.",
+      "revId": "fa970a2450d81b27114835b451d0c972ee917f3d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
