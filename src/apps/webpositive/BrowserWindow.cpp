@@ -1788,6 +1788,7 @@ BrowserWindow::AuthenticationChallenge(BString message, BString& inOutUser,
 		else
 			sessionStorage->PutCredentials(key, credentials);
 	}
+	delete panel;
 	return success;
 }
 
