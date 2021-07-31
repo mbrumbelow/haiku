@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b2098184_7f999935",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1780,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-07-31T11:23:32Z",
+      "side": 1,
+      "message": "Look at this comment",
+      "revId": "f032bc661fe570bbbb81a16f815252df246d2144",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ee2a0a3_b1c49d31",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1791,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-07-31T11:23:32Z",
+      "side": 1,
+      "message": "This is wrong",
+      "revId": "f032bc661fe570bbbb81a16f815252df246d2144",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
