@@ -250,8 +250,10 @@ GraphicalUserInterface::NotifyUser(const char* title, const char* message,
 
 	BAlert* alert = new(std::nothrow) BAlert(title, message, "OK",
 		NULL, NULL, B_WIDTH_AS_USUAL, alertType);
-	if (alert != NULL)
+	if (alert != NULL) {
 		alert->Go(NULL);
+		delete alert;
+	}
 
 	// TODO: We need to let the alert run asynchronously, but we shouldn't just
 	// create it and don't care anymore. Maybe an error window, which can
