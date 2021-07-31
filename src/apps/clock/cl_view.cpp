@@ -354,6 +354,7 @@ TOnscreenView::MessageReceived(BMessage *msg)
 				"at Be.\n  Copyright 1991-1998, Be Inc."), B_TRANSLATE("OK"));
 			alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
 			alert->Go();
+			delete alert;
 		}	break;
 
 		default:
