@@ -1392,8 +1392,10 @@ Volume::_CreateUnpackingNode(mode_t mode, Directory* parent, const String& name,
 	BReference<Node> nodeReference(node, true);
 
 	status_t error = node->Init(parent, name);
-	if (error != B_OK)
+	if (error != B_OK) {
+		delete unpackingNode;
 		RETURN_ERROR(error);
+	}
 
 	parent->AddChild(node);
 
