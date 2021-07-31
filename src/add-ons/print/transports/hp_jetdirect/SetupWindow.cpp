@@ -141,6 +141,7 @@ SetupView::CheckSetup()
 				alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
 				alert->Go();
 				delete ep;
+				delete alert;
 				return false;
 			};
 
@@ -149,6 +150,7 @@ SetupView::CheckSetup()
 			fPrinterDirectory->WriteAttr("transport_address", B_STRING_TYPE,
 				0, str, strlen(str) + 1);
 			delete ep;
+			delete alert;
 			return true;
 		};
 		delete ep;
