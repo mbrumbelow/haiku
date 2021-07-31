@@ -1093,6 +1093,7 @@ EditorLooper::Find(off_t startAt, const uint8* data, size_t dataSize,
 				B_WARNING_ALERT);
 			alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
 			alert->Go(NULL);
+			delete alert;
 		} else
 			beep();
 	}
