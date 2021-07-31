@@ -179,7 +179,7 @@ BootManagerController::_HasSelectedPartitions()
 		B_TRANSLATE_COMMENT("OK", "Button"));
 	alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
 	alert->Go();
-
+	delete alert;
 	return false;
 }
 
@@ -193,8 +193,10 @@ BootManagerController::_WriteBootMenu()
 		B_TRANSLATE_COMMENT("Back", "Button"), NULL, B_WIDTH_AS_USUAL,
 		B_WARNING_ALERT);
 
-	if (alert->Go() == 1)
+	if (alert->Go() == 1) {
+		delete alert;
 		return false;
+	}
 
 	fWriteBootMenuStatus = fBootMenu->Install(*fBootDrive, fSettings);
 	return true;
@@ -231,8 +233,10 @@ BootManagerController::_RestoreMBR()
 		B_TRANSLATE_COMMENT("Restore MBR", "Button"),
 		B_TRANSLATE_COMMENT("Back", "Button"),
 		NULL, B_WIDTH_AS_USUAL, B_WARNING_ALERT);
-	if (alert->Go() == 1)
+	if (alert->Go() == 1) {
+		delete alert;
 		return false;
+	}
 
 	BFile file(path.String(), B_READ_ONLY);
 	fRestoreMBRStatus = fBootMenu->RestoreMasterBootRecord(&fSettings, &file);
