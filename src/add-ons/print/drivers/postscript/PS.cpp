@@ -338,6 +338,7 @@ PSDriver::NextBand(BBitmap* bitmap, BPoint* offset)
 		BAlert* alert = new BAlert("", err.What(), "OK");
 		alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
 		alert->Go();
+		delete alert;
 		return false;
 	} 
 }
