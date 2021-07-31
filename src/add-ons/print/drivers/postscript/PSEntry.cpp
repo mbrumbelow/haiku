@@ -53,8 +53,10 @@ public:
 						SelectPPDDlg* dialog =
 							new SelectPPDDlg(dynamic_cast<PSData*>
 								(GetPrinterData()));
-						if (dialog->Go() != B_OK)
+						if (dialog->Go() != B_OK) {
+							delete dialog;
 							return NULL;
+						}
 					}
 					return printerName;
 				}
