@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "509e36df_a64b4658",
+        "filename": "src/apps/packageinstaller/PackageInstall.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-07-31T11:22:09Z",
+      "side": 1,
+      "message": "Ownership of the reinstall object has been handed over here",
+      "revId": "63dad5063e04fce3d8513659d0b4e6250d805cef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96f20f72_775f81f4",
+        "filename": "src/apps/packageinstaller/PackageInstall.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-07-31T11:22:09Z",
+      "side": 1,
+      "message": "so we cannot delete here",
+      "revId": "63dad5063e04fce3d8513659d0b4e6250d805cef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
