@@ -94,6 +94,7 @@ MediaNodeControlApp::MediaNodeControlApp(
 		BAlert* alert = new BAlert("error", buffer, B_TRANSLATE("OK"));
 		alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
 		alert->Go();
+		delete alert;
 		return;
 	}
 	
@@ -108,6 +109,7 @@ MediaNodeControlApp::MediaNodeControlApp(
 		BAlert* alert = new BAlert("error", buffer, B_TRANSLATE("OK"));
 		alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
 		alert->Go();
+		delete alert;
 		return;
 	}
 	
@@ -126,6 +128,7 @@ MediaNodeControlApp::MediaNodeControlApp(
 		BAlert* alert = new BAlert("error", buffer, B_TRANSLATE("OK"));
 		alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
 		alert->Go();
+		delete alert;
 		return;
 	}
 	
