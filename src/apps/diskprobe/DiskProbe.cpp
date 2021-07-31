@@ -387,6 +387,7 @@ DiskProbe::RefsReceived(BMessage* message)
 				B_WIDTH_AS_USUAL, B_STOP_ALERT);
 			alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
 			alert->Go();
+			delete alert;
 		}
 	}
 }
