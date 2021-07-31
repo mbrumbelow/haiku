@@ -16,6 +16,24 @@
       "revId": "f231c495b63d5ff473f70053252979d6553216b1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d423e7b_93dbef6a",
+        "filename": "src/preferences/input/InputTouchpadPref.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000294
+      },
+      "writtenOn": "2021-07-31T19:19:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c351aa0b_eff28f35",
+      "revId": "f231c495b63d5ff473f70053252979d6553216b1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
