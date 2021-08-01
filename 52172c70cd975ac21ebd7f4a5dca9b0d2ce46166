@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d9fbe9aa_b272c3c8",
+        "filename": "headers/os/support/Url.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-08-01T15:49:52Z",
+      "side": 1,
+      "message": "I\u0027m not sure about this, it would preserve the existing ABI and existing apps would still run. But, if we make the existing constructor encode the URL, it is a change of behavior (the old version of the API did not do it automatically). And, if we make it not encode it, you can put yourself in a situation where your URL is essentially unusable, because it is not URL encoded and there is no function to encode it. Which is the thing we\u0027re trying to avoid with this change.\n\nI expect that all working applications did already call UrlEncode in some place (otherwise, non-ASCII characters will just fail to work). And so they would not run anyway because that method is removed. Unless we also add an ABI stub for it that just does nothing, maybe?",
+      "parentUuid": "6dfabfd4_01e05a37",
+      "revId": "52172c70cd975ac21ebd7f4a5dca9b0d2ce46166",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "112c1e3f_defa6be7",
         "filename": "headers/os/support/Url.h",
         "patchSetId": 4
@@ -53,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "e86c7432_e1c653fa",
+        "filename": "src/kits/network/libnetapi/FileRequest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-08-01T15:49:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2167590c_e74f0aca",
+      "revId": "52172c70cd975ac21ebd7f4a5dca9b0d2ce46166",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ed9ddd5_3a29f4b1",
         "filename": "src/kits/network/libnetapi/GopherRequest.cpp",
         "patchSetId": 4
@@ -67,6 +103,24 @@
       "revId": "52172c70cd975ac21ebd7f4a5dca9b0d2ce46166",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c46eca9d_196af58a",
+        "filename": "src/kits/network/libnetapi/GopherRequest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-08-01T15:49:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ed9ddd5_3a29f4b1",
+      "revId": "52172c70cd975ac21ebd7f4a5dca9b0d2ce46166",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
