@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "bb30e5ac_7116fad5",
+        "filename": "src/apps/networkstatus/WirelessNetworkMenuItem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-01T15:19:05Z",
+      "side": 1,
+      "message": "Add \u003d\u003d operator method to wireless_network structs instead of comparing pointers.",
+      "parentUuid": "ee7645d5_762c2f88",
+      "revId": "3a74d9bad209c1eb98979cff1ab6084993e85186",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "095822a5_55c83a11",
         "filename": "src/apps/networkstatus/WirelessNetworkMenuItem.cpp",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "3a74d9bad209c1eb98979cff1ab6084993e85186",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a410fb7_c2106ba5",
+        "filename": "src/apps/networkstatus/WirelessNetworkMenuItem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-01T15:19:05Z",
+      "side": 1,
+      "message": "Add \u003d\u003d operator method to wireless_network structs instead of comparing pointers.",
+      "parentUuid": "095822a5_55c83a11",
+      "revId": "3a74d9bad209c1eb98979cff1ab6084993e85186",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
