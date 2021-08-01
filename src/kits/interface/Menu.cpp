@@ -1439,6 +1439,30 @@ BMenu::SetTrackingHook(menu_tracking_hook func, void* state)
 }
 
 
+// #pragma mark - Reorder methods
+
+
+void
+BMenu::SortItems(int (*compare)(const void*, const void*))
+{
+	fItems.SortItems(compare);
+}
+
+
+bool
+BMenu::SwapItems(int32 indexA, int32 indexB)
+{
+	return fItems.SwapItems(indexA, indexB);
+}
+
+
+bool
+BMenu::MoveItem(int32 indexFrom, int32 indexTo)
+{
+	return fItems.MoveItem(indexFrom, indexTo);
+}
+
+
 void BMenu::_ReservedMenu3() {}
 void BMenu::_ReservedMenu4() {}
 void BMenu::_ReservedMenu5() {}
