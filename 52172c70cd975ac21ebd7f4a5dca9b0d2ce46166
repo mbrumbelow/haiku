@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "459cc920_c28d8d69",
+        "filename": "headers/os/support/Url.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-02T04:16:55Z",
+      "side": 1,
+      "message": "Symbol versioning should help here.",
+      "parentUuid": "d9fbe9aa_b272c3c8",
+      "revId": "52172c70cd975ac21ebd7f4a5dca9b0d2ce46166",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "112c1e3f_defa6be7",
         "filename": "headers/os/support/Url.h",
         "patchSetId": 4
