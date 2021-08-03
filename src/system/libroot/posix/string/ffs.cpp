@@ -8,5 +8,14 @@
 extern "C" int
 ffs(int value)
 {
+#ifdef __riscv
+	int bit;
+	if (value == 0)
+		return 0;
+	for (bit = 1; !(value & 1); bit++)
+		value >>= 1;
+	return bit;
+#else
 	return __builtin_ffs(value);
+#endif
 }
