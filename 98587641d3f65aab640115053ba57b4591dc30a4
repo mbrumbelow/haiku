@@ -87,6 +87,24 @@
       "revId": "98587641d3f65aab640115053ba57b4591dc30a4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b703e774_5a2ae7aa",
+        "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_serial.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-08-04T14:44:26Z",
+      "side": 0,
+      "message": "In Linux the UART to use would be received from the \"chosen/stdout-path\" node in the FDT. This would already be set in most FDTs for common hardware. It does not specify the baudrate, but we should be able to use a reasonable default value (say 115200 baud) which will work in pretty much all cases.\n\nhttps://www.kernel.org/doc/html/latest/devicetree/usage-model.html\n\nBut then in Linux this can also be changed from the kernel command line (bootargs). Which itself can be specified inside the fdt (\"chosen/bootargs\") or in some other way from a user specified command line.\n\nThe idea is that you can just run \"boot\" from uboot without any specific args, and something will happen because there are sane default values in the FDT. But you can customize from the bootargs without recompiling everything.\n\nIn our case, we already have all we need for customization in haiku_loader, so we don\u0027t really need u-boot bootargs. The FDT \"chosen\" could be useful if we want to run on a wide range of hardware, but since we need some output from haiku_loader (to show the menu, etc), it makes sense that this code to find info in the fdt is done in haiku_loader and the kernel gets the info it needs more directly, without having to parse the FDT by itself?",
+      "parentUuid": "04f97ce6_336476a8",
+      "revId": "98587641d3f65aab640115053ba57b4591dc30a4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
