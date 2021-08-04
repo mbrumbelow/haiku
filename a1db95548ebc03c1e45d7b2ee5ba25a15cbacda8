@@ -52,6 +52,24 @@
       "revId": "a1db95548ebc03c1e45d7b2ee5ba25a15cbacda8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a31827a4_0fe72842",
+        "filename": "headers/private/system/arch/riscv64/arch_cpu_defs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-04T23:06:08Z",
+      "side": 1,
+      "message": "I want to have lightweight firmware that can be used in virtual machines. u-boot and UEFI are bloated and slows down boot. It also hard to compile and maintain under Haiku. I do all development under Haiku, no Linux.\n\nBare metal boot loader also helps to learn how RISC-V and hardware initialization works.\n\nBare metal boot loader is currently not used on real hardware, only in emulators.",
+      "parentUuid": "4e7a1c11_7ef16b9a",
+      "revId": "a1db95548ebc03c1e45d7b2ee5ba25a15cbacda8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
