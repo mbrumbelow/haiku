@@ -16,6 +16,24 @@
       "revId": "a1db95548ebc03c1e45d7b2ee5ba25a15cbacda8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d491217d_540bb3b3",
+        "filename": "headers/private/system/arch/riscv64/arch_cpu_defs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-04T22:41:19Z",
+      "side": 1,
+      "message": "It is used in bare-metal boot loader haiku_loader.riscv that starts from machine mode. It is used in TinyEMU and QEMU virtual machines. It need to setup PMP to allow supervisor mode code to access memory.",
+      "parentUuid": "67cba67d_39a46cfc",
+      "revId": "a1db95548ebc03c1e45d7b2ee5ba25a15cbacda8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
