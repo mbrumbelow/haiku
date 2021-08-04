@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "67cba67d_39a46cfc",
+        "filename": "headers/private/system/arch/riscv64/arch_cpu_defs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-04T22:15:44Z",
+      "side": 1,
+      "message": "Why do you have M-mode stuff in your kernel? Operating systems should never be going anywhere near M-mode, that is reserved for platform firmware, with operating systems confined to S-mode (and above).",
+      "revId": "a1db95548ebc03c1e45d7b2ee5ba25a15cbacda8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
