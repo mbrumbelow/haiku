@@ -52,6 +52,24 @@
       "revId": "2c83940d20a5bdd2d4594ec81fb411f3a181b18a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab4be7d2_11119ec1",
+        "filename": "headers/os/drivers/bus/FDT.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-04T14:29:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "257e3e2c_577e49db",
+      "revId": "2c83940d20a5bdd2d4594ec81fb411f3a181b18a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }

@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "79eb3b61_c1e82077",
+        "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_serial.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-04T14:29:42Z",
+      "side": 0,
+      "message": "That\u0027s fine with me.\n\nTo be honest, with the FDT bus code we could start detecting the uart\u0027s better vs doing a bunch of one-off string comparisons.",
+      "parentUuid": "770481c8_ab9f90ba",
+      "revId": "98587641d3f65aab640115053ba57b4591dc30a4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a395b2c8_1e5bcc63",
         "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_serial.h",
         "patchSetId": 5
@@ -48,6 +66,24 @@
       "side": 0,
       "message": "UART register can be passed by kernel_args and identified by haiku_loader. I already did this for RISC-V PLIC and CLINT.",
       "parentUuid": "a395b2c8_1e5bcc63",
+      "revId": "98587641d3f65aab640115053ba57b4591dc30a4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04f97ce6_336476a8",
+        "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_serial.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-04T14:29:42Z",
+      "side": 0,
+      "message": "Hm.  sure, but that isn\u0027t part of the specification for the u-boot standard.\n\nWe could pass the register via kernel_args, but we would also need to pass the uart speed as well as device used.  Do we know if this data is available within the u-boot cli as a variable? Otherwise the boot.scr\u0027s would need modified per-board.",
+      "parentUuid": "952f4f0a_3e7aaabc",
       "revId": "98587641d3f65aab640115053ba57b4591dc30a4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
