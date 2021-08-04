@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fbe9ff98_b12255f8",
+        "filename": "src/system/kernel/arch/riscv64/RISCV64VMTranslationMap.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-04T22:38:44Z",
+      "side": 1,
+      "message": "Yet another copy of this loop?",
+      "revId": "f99dc96f84da008a1f85174cb950507443e2d308",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ed433cb_0bfd0a8c",
+        "filename": "src/system/kernel/arch/riscv64/arch_vm.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-04T22:38:44Z",
+      "side": 1,
+      "message": "This looks very non-atomic given all the dereferences of pte.",
+      "revId": "f99dc96f84da008a1f85174cb950507443e2d308",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23e6b2fd_fbee7d4b",
+        "filename": "src/system/kernel/arch/riscv64/arch_vm.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-04T22:38:44Z",
+      "side": 1,
+      "message": "This does not correctly handle superpages (RWX\u003d0 when not at the lowest level)",
+      "revId": "f99dc96f84da008a1f85174cb950507443e2d308",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67ef5867_5d44a6f3",
+        "filename": "src/system/kernel/arch/riscv64/arch_vm_translation_map.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-04T22:38:44Z",
+      "side": 1,
+      "message": "Why is there another copy of this function but with more options? The alloc option is a bit dubious, too...",
+      "revId": "f99dc96f84da008a1f85174cb950507443e2d308",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bf60e01_b8e3fc5a",
+        "filename": "src/system/kernel/arch/riscv64/arch_vm_translation_map.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-04T22:38:44Z",
+      "side": 1,
+      "message": "Is this AC as in the X86 AC bit repurposed for SMAP? If so it\u0027s called the SUM bit of SSTATUS in RISC-V, not AC...",
+      "revId": "f99dc96f84da008a1f85174cb950507443e2d308",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89280f57_079e66aa",
+        "filename": "src/system/kernel/arch/riscv64/arch_vm_translation_map.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-04T22:38:44Z",
+      "side": 1,
+      "message": "Are you sure every non-zero address is a kernel page?..",
+      "revId": "f99dc96f84da008a1f85174cb950507443e2d308",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
