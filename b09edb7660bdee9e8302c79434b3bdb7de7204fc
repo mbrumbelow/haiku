@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fbf516e6_0993fc90",
+        "filename": "src/add-ons/kernel/drivers/graphics/vesa/vesa.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-04T14:22:44Z",
+      "side": 1,
+      "message": "this needs corrected / guarded for riscv64.\n\n#if defined(__x86__) || defined(__x86_64__)\n  bool remap \u003d !initializing;\n#else\n  bool remap \u003d true;\n#endif\n\nOr remap \u003d !initialzing \u0026\u0026 !UEFI or something",
+      "revId": "b09edb7660bdee9e8302c79434b3bdb7de7204fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
