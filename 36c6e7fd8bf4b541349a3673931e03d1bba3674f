@@ -69,6 +69,24 @@
       "revId": "36c6e7fd8bf4b541349a3673931e03d1bba3674f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6334214_6deca47d",
+        "filename": "src/system/kernel/arch/riscv64/arch_platform.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-04T23:58:49Z",
+      "side": 1,
+      "message": "Shutting down is done by calling the SBI shutdown function (if you want to support legacy SBI) or SBI system reset function with the type set to shutdown (if you are happy only supporting modern SBI, i.e. just OpenSBI and not BBL). Behind the scenes that will use the HTIF if needed, or a GPIO driver on some boards, or a write to a syscon-poweroff device in the case of QEMU. This is why SBI exists.\n\nHaving to patch TinyEMU isn\u0027t a good idea, but if you do want to upstream a patch to expose the RTC then I suggest emulating a normal RTC device, such as the Goldfish RTC as used by QEMU\u0027s RISC-V virt machine, which was designed for the purpose of virtual machines and is simple to both implement and use.",
+      "parentUuid": "7b27c447_bcac6abc",
+      "revId": "36c6e7fd8bf4b541349a3673931e03d1bba3674f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
