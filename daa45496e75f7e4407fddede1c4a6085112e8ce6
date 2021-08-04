@@ -34,6 +34,24 @@
       "revId": "daa45496e75f7e4407fddede1c4a6085112e8ce6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "659cc468_1e9cbcd5",
+        "filename": "src/system/kernel/arch/riscv64/arch_traps.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-04T13:55:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "01f16f4d_476b27ed",
+      "revId": "daa45496e75f7e4407fddede1c4a6085112e8ce6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
