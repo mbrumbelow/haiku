@@ -34,6 +34,24 @@
       "revId": "a1db95548ebc03c1e45d7b2ee5ba25a15cbacda8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e7a1c11_7ef16b9a",
+        "filename": "headers/private/system/arch/riscv64/arch_cpu_defs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-04T22:50:23Z",
+      "side": 1,
+      "message": "Well, don\u0027t. That is not how RISC-V is designed. M-mode is for firmware. S-mode is for operating systems, including operating system boot loaders. BBL, OpenSBI or U-Boot SPL should be the only thing that touches M-mode. M-mode is the equivalent of EL3 on Arm and the various SMM etc modes of X86, not ring 0.",
+      "parentUuid": "d491217d_540bb3b3",
+      "revId": "a1db95548ebc03c1e45d7b2ee5ba25a15cbacda8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
