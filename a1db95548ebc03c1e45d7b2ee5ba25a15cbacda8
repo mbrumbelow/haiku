@@ -70,6 +70,24 @@
       "revId": "a1db95548ebc03c1e45d7b2ee5ba25a15cbacda8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0710197e_fb94f208",
+        "filename": "headers/private/system/arch/riscv64/arch_cpu_defs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-04T23:10:39Z",
+      "side": 1,
+      "message": "So use OpenSBI; QEMU even ships with pre-built blobs. It boots instantly and follows the exact same boot API as bare metal (a0 and a1 are the hart ID and DTB), except your kernel starts in S-mode with the hardware pre-programmed for you. And this works on real hardware too if you have an appropriate OpenSBI build (which U-Boot bundles in its SPL, and runs before jumping to the full U-Boot implementation).\n\nAnd writing your own for fun, fine, but that doesn\u0027t belong in an upstream OS, it adds code complexity that results in maintenance burden for something that shouldn\u0027t exist.",
+      "parentUuid": "a31827a4_0fe72842",
+      "revId": "a1db95548ebc03c1e45d7b2ee5ba25a15cbacda8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
