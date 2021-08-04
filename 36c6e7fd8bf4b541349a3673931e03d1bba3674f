@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b56226b6_c96c4d00",
+        "filename": "src/system/kernel/arch/riscv64/arch_platform.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-04T23:52:24Z",
+      "side": 1,
+      "message": "\u003e What does kPlatform1Riscv even mean? Everything is RISC-V.\n\nIt means bare metal boot loader haiku_loader.riscv machine mode interface (MSyscall). It is currenly used only for CLINT timers. It is not SBI compatible. Kernel currently supports both SBI and MSyscall.",
+      "parentUuid": "eeb1b9ea_ddfcf792",
+      "revId": "36c6e7fd8bf4b541349a3673931e03d1bba3674f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3023a9d8_32f5a88f",
         "filename": "src/system/kernel/arch/riscv64/arch_platform.cpp",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2021-08-04T22:23:58Z",
       "side": 1,
       "message": "HTIF makes no sense for a kernel. It\u0027s intended as a really crappy semihosting interface for bare-metal firmware. Haiku is not firmware. Depending on how your platform\u0027s HTIF support works (if it even exists), you may not even be able to use it from a kernel booted by firmware even if you wanted to, as some platforms (such as Spike) use the HTIF address specified by the tohost/fromhost symbols (or dot-prefixed sections?) in the firmware\u0027s ELF headers, which are completely unknown to an OS.",
+      "revId": "36c6e7fd8bf4b541349a3673931e03d1bba3674f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b27c447_bcac6abc",
+        "filename": "src/system/kernel/arch/riscv64/arch_platform.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-04T23:52:24Z",
+      "side": 1,
+      "message": "HTIF is the only way to shut down machine on TinyEMU. It is also used in my TinyEMU patch to access RTC clock.",
+      "parentUuid": "3023a9d8_32f5a88f",
       "revId": "36c6e7fd8bf4b541349a3673931e03d1bba3674f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
