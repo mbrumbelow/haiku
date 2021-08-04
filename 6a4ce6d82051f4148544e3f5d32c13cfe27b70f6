@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f9f6fd3_9cce53ca",
+        "filename": "src/system/kernel/arch/riscv64/arch_uart_sifive.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-04T22:48:25Z",
+      "side": 1,
+      "message": "This sequence isn\u0027t atomic, you will drop characters if there is one space left in the FIFO and two harts race. If you\u0027re avoiding locks you want an atomic_fetch_or of the register, retrying if the returned original value says it\u0027s full.",
+      "revId": "6a4ce6d82051f4148544e3f5d32c13cfe27b70f6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29e64774_1faf10c2",
+        "filename": "src/system/kernel/arch/riscv64/arch_uart_sifive.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-04T22:48:25Z",
+      "side": 1,
+      "message": "This is unnecessarily complicated. Just use:\n```\n    UARTSifiveRegs::Rxdata data;\n    do {\n        data \u003d {.val \u003d Regs()-\u003erxdata.val};\n    } while (!wait || data.isEmpty);\n    return data.isEmpty ? -1 : data.data;\n```\nno need for strange recursion.",
+      "revId": "6a4ce6d82051f4148544e3f5d32c13cfe27b70f6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
