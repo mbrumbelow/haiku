@@ -301,6 +301,24 @@
     },
     {
       "key": {
+        "uuid": "0b442e15_db2b23a7",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-04T14:37:27Z",
+      "side": 1,
+      "message": "I\u0027m fine with this.  It\u0027s a pretty obvious hack, but as a first iteration it seems fine.  This obviously needs improved in the future, but one virtio input device is better than one.\n\nAgile! :-)",
+      "parentUuid": "990b4722_6d42914d",
+      "revId": "476267a433d0dcf739d03e5c77451e490a7ac119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5fb9062b_2c66ae3d",
         "filename": "src/add-ons/input_server/devices/virtio/VirtioDevice.cpp",
         "patchSetId": 1

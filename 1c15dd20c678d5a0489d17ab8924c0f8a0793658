@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5212ff95_b4391006",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-04T14:37:27Z",
+      "side": 1,
+      "message": "pulkomandy mentioned these. I agree they need to be dynamic, however as a \"first iteration\" it seems fine.  one functional virtio input device is better than none.",
+      "revId": "1c15dd20c678d5a0489d17ab8924c0f8a0793658",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
