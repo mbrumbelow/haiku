@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d8df1165_13fc5cc2",
+        "filename": "src/add-ons/accelerants/radeon_hd/mode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-05T05:24:22Z",
+      "side": 1,
+      "message": "Did you mean (phys_addr_t)? These lines are too long.",
+      "revId": "242105f7f463b82476422fd554d2cff51e9bcca6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4e74bc6_ade5c4cc",
+        "filename": "src/add-ons/kernel/drivers/graphics/radeon_hd/radeon_hd.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 635,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-05T05:24:22Z",
+      "side": 1,
+      "message": "phys_addr_t physicalAddress",
+      "revId": "242105f7f463b82476422fd554d2cff51e9bcca6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
