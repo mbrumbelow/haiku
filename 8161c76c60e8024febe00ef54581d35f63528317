@@ -177,6 +177,24 @@
     },
     {
       "key": {
+        "uuid": "088b50ee_3320d7df",
+        "filename": "src/system/kernel/arch/riscv64/arch_int.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-05T03:29:13Z",
+      "side": 1,
+      "message": "Yes, that is how FreeBSD avoids such races. It could be made less granular, and there is even a fairly simple lock-free version you could write that I believe would be correct but haven\u0027t thought hard about, but it\u0027s not a hot path (or, if it is, it\u0027s already pretty slow) so such micro-optimisations aren\u0027t really necessary.",
+      "parentUuid": "a90029ae_e3ad8c0d",
+      "revId": "8161c76c60e8024febe00ef54581d35f63528317",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c1a04dcd_6016a0e0",
         "filename": "src/system/kernel/arch/riscv64/arch_int.cpp",
         "patchSetId": 4
