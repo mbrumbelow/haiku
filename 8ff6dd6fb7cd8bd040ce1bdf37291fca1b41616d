@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "39da09a7_108129ca",
+        "filename": "src/system/boot/loader/kernel_args.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-05T01:10:04Z",
+      "side": 1,
+      "message": "It is used by bare metal haiku_loader.riscv. It is probably should be always enabled and return the same address if identity mapping is used on specific platform.",
+      "parentUuid": "d0486f0c_3996422e",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "330c36ad_9e9f3783",
         "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2021-08-05T00:48:04Z",
       "side": 1,
       "message": "Another copy of all this stuff that you\u0027ve also put in the kernel. Can you not find a way to share the implementation between the kernel and your bootloader (or change your bootloader to be less abnormal and not set up paging, leaving that to the kernel)?",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4894dd18_365eab5c",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-05T01:10:04Z",
+      "side": 1,
+      "message": "Boot loader is supposed to setup kernel page table on Haiku. x86 version also do this. My earlier version of RISC-V port setup page table in kernel, but it cause using low addresses for kernel and high addresses for userland. Haiku kernel do not support relocation at runtime. Also my early version start kernel directly from machine mode and then kernel switched to supervisor mode when initializing interrupt handling.",
+      "parentUuid": "330c36ad_9e9f3783",
       "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -70,6 +106,24 @@
     },
     {
       "key": {
+        "uuid": "c8d5bd2e_565ce240",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-05T01:10:04Z",
+      "side": 1,
+      "message": "Debug leftover to investigate issue with freeze after setting SATP. Already solved and should be removed.",
+      "parentUuid": "49ac357f_ab2b19ca",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5a3d3921_9e6464df",
         "filename": "src/system/boot/platform/efi/arch/riscv64/arch_smp.cpp",
         "patchSetId": 1
@@ -81,6 +135,24 @@
       "writtenOn": "2021-08-05T00:48:04Z",
       "side": 1,
       "message": "Does your compiler not scream about this dead code?",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "680b9140_6cc3af69",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_smp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-05T01:10:04Z",
+      "side": 1,
+      "message": "SMP code is currently not working so it is disabled. There are no response from other HARTs after attempting to start them.",
+      "parentUuid": "5a3d3921_9e6464df",
       "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -121,6 +193,24 @@
     },
     {
       "key": {
+        "uuid": "6d5764bd_19c3b88e",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-05T01:10:04Z",
+      "side": 1,
+      "message": "It was used when SiFive UART was not yet implemented to get UEFI stdout. Not needed anymore.",
+      "parentUuid": "cef9a01f_f8e4ace8",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5ea5aac3_ce9ed45b",
         "filename": "src/system/boot/platform/efi/arch/riscv64/arch_start.cpp",
         "patchSetId": 1
@@ -138,6 +228,24 @@
     },
     {
       "key": {
+        "uuid": "3e5aa908_cd79e908",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-05T01:10:04Z",
+      "side": 1,
+      "message": "Used to investigate SATP freeze issue. Can be removed with MmuTest.",
+      "parentUuid": "5ea5aac3_ce9ed45b",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f7825ff7_fb41817f",
         "filename": "src/system/boot/platform/efi/debug.cpp",
         "patchSetId": 1
@@ -149,6 +257,24 @@
       "writtenOn": "2021-08-05T00:48:04Z",
       "side": 1,
       "message": "?",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1885aa89_44969aa7",
+        "filename": "src/system/boot/platform/efi/debug.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-05T01:10:04Z",
+      "side": 1,
+      "message": "Was used when SiFive UART was not yet implemented. Can be removed.",
+      "parentUuid": "f7825ff7_fb41817f",
       "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -206,6 +332,24 @@
     },
     {
       "key": {
+        "uuid": "ffe0d228_8be04a37",
+        "filename": "src/system/boot/platform/efi/serial.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-05T01:10:04Z",
+      "side": 1,
+      "message": "sSerial-\u003eWrite() do not work for me.",
+      "parentUuid": "2f2cda01_11cefa62",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8c211ac4_8340ab80",
         "filename": "src/system/boot/platform/efi/serial.cpp",
         "patchSetId": 1
@@ -217,6 +361,24 @@
       "writtenOn": "2021-08-05T00:48:04Z",
       "side": 1,
       "message": "?",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bad89cce_b58fb733",
+        "filename": "src/system/boot/platform/efi/serial.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-05T01:10:04Z",
+      "side": 1,
+      "message": "Used to avoid not working sSerial. Should be reworked or undone.",
+      "parentUuid": "8c211ac4_8340ab80",
       "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
