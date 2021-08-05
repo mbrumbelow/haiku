@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "74c82d84_633204aa",
+        "filename": "headers/private/kernel/arch/riscv64/arch_thread_types.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-05T00:07:42Z",
+      "side": 1,
+      "message": "What on earth is this order?",
+      "revId": "97e78c0b395d02bbd3b33729e28c0f42d6637cb0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7af6cce6_2817a03c",
+        "filename": "src/system/kernel/arch/riscv64/arch_asm.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-05T00:07:42Z",
+      "side": 1,
+      "message": "I\u0027ve never heard of a setjmp that saves satp or equivalent before, that seems crazy to me...",
+      "revId": "97e78c0b395d02bbd3b33729e28c0f42d6637cb0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5938dcdd_c2b0a552",
+        "filename": "src/system/kernel/arch/riscv64/arch_asm.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-05T00:07:42Z",
+      "side": 1,
+      "message": "Why the caps?",
+      "revId": "97e78c0b395d02bbd3b33729e28c0f42d6637cb0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
