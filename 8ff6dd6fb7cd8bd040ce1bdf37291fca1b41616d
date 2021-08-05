@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "57b1814a_2d8d90b5",
+        "filename": "src/system/boot/loader/elf.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2021-08-05T10:43:24Z",
+      "side": 1,
+      "message": "As regions that are executable are skipped with a continue above, I\u0027m not sure why it is needed?",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d0486f0c_3996422e",
         "filename": "src/system/boot/loader/kernel_args.cpp",
         "patchSetId": 1
@@ -31,6 +48,23 @@
       "side": 1,
       "message": "It is used by bare metal haiku_loader.riscv. It is probably should be always enabled and return the same address if identity mapping is used on specific platform.",
       "parentUuid": "d0486f0c_3996422e",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ac731f7_c61b9ccb",
+        "filename": "src/system/boot/platform/efi/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2021-08-05T10:43:24Z",
+      "side": 1,
+      "message": "Not a Jam expert, but I think you are supposed to set it in your arch, not here.",
       "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -379,6 +413,40 @@
       "side": 1,
       "message": "Used to avoid not working sSerial. Should be reworked or undone.",
       "parentUuid": "8c211ac4_8340ab80",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c971648_6cf83e61",
+        "filename": "src/system/boot/platform/efi/start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2021-08-05T10:43:24Z",
+      "side": 1,
+      "message": "This should be done in arch specific code. Try to avoid using the preprocessor and use arch specific functions. As you already has access to gKernelArgs from arch code I don\u0027t think we should even need another function for platform_init or such.",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01adfd56_66d0acb7",
+        "filename": "src/system/boot/platform/efi/start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2021-08-05T10:43:24Z",
+      "side": 1,
+      "message": "Can this be moved to arch code, avoiding preprocessor?",
       "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
