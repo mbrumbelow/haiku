@@ -1,0 +1,225 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d0486f0c_3996422e",
+        "filename": "src/system/boot/loader/kernel_args.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-05T00:48:04Z",
+      "side": 1,
+      "message": "This is declared in efi/mmu.h. Without moving the prototype this does not make sense to enable for RISC-V if EFI is disabled for some reason (which it also shouldn\u0027t be, EFI is how you should be booting... but direct booting from BBL/OpenSBI is ok too, if discouraged these days).",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "330c36ad_9e9f3783",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-05T00:48:04Z",
+      "side": 1,
+      "message": "Another copy of all this stuff that you\u0027ve also put in the kernel. Can you not find a way to share the implementation between the kernel and your bootloader (or change your bootloader to be less abnormal and not set up paging, leaving that to the kernel)?",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2562c077_7c19be46",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-05T00:48:04Z",
+      "side": 1,
+      "message": "Unlikely, that\u0027s normally for UEFI drivers to convert their own pointers after the kernel updates the address map, it\u0027d be weird for the kernel to then go and call the same thing (though I guess would technically work in certain specific circumstances)",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49ac357f_ab2b19ca",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-05T00:48:04Z",
+      "side": 1,
+      "message": "?",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a3d3921_9e6464df",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_smp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-05T00:48:04Z",
+      "side": 1,
+      "message": "Does your compiler not scream about this dead code?",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4f2efd1_fbd5c7c1",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_smp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-05T00:48:04Z",
+      "side": 1,
+      "message": "mhartid 0 may not exist, and even if it does it may not be a hart you\u0027re interested in (on the FU540 and FU740 hart 0 is the RV64IMAC management core, not one of the RV64IMAFDC application cores)",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cef9a01f_f8e4ace8",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-05T00:48:04Z",
+      "side": 1,
+      "message": "?",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ea5aac3_ce9ed45b",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-05T00:48:04Z",
+      "side": 1,
+      "message": "?",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7825ff7_fb41817f",
+        "filename": "src/system/boot/platform/efi/debug.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-05T00:48:04Z",
+      "side": 1,
+      "message": "?",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c214288d_08faad8a",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-05T00:48:04Z",
+      "side": 1,
+      "message": "This stuff all belongs in device driver files, not a generic efi/dtb.cpp. Separate your library/framework from its consumers.",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7247d366_c866fe04",
+        "filename": "src/system/boot/platform/efi/mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-05T00:48:04Z",
+      "side": 1,
+      "message": "?",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f2cda01_11cefa62",
+        "filename": "src/system/boot/platform/efi/serial.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-05T00:48:04Z",
+      "side": 1,
+      "message": "This code is dead given the above addition?",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c211ac4_8340ab80",
+        "filename": "src/system/boot/platform/efi/serial.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-05T00:48:04Z",
+      "side": 1,
+      "message": "?",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
