@@ -38,6 +38,7 @@
 #include <Slider.h>
 #include <SpaceLayoutItem.h>
 #include <StringView.h>
+#include <SystemCatalog.h>
 #include <TextView.h>
 
 #include "APRWindow.h"
@@ -47,6 +48,9 @@
 #undef B_TRANSLATION_CONTEXT
 #define B_TRANSLATION_CONTEXT "DecorSettingsView"
 	// This was not renamed to keep from breaking translations
+
+#define B_DECOR_INFO_TRANSLATION_CONTEXT "Default decorator about box"
+	// Copied from DecorInfo class
 
 
 static const int32 kMsgSetDecor = 'deco';
@@ -101,7 +105,8 @@ LookAndFeelSettingsView::LookAndFeelSettingsView(const char* name)
 	_BuildControlLookMenu();
 	fControlLookMenuField = new BMenuField("controllook",
 		B_TRANSLATE("ControlLook:"), fControlLookMenu);
-	fControlLookMenuField->SetToolTip(B_TRANSLATE("No effect on running applications"));
+	fControlLookMenuField->SetToolTip(
+		B_TRANSLATE("No effect on running applications"));
 
 	fControlLookInfoButton = new BButton(B_TRANSLATE("About"),
 		new BMessage(kMsgControlLookInfo));
@@ -328,7 +333,15 @@ const char*
 LookAndFeelSettingsView::_DecorLabel(const BString& name)
 {
 	BString label(name);
-	return label.RemoveLast("Decorator").Trim().String();
+	label.RemoveLast("Decorator").Trim();
+
+	// get the "Default" decorator translation from gSystemCatalog
+	if (label == "Default") {
+		return BPrivate::gSystemCatalog.GetString(B_TRANSLATE_MARK("Default"),
+			B_DECOR_INFO_TRANSLATION_CONTEXT);
+	}
+
+	return B_TRANSLATE(label.String());
 }
 
 
