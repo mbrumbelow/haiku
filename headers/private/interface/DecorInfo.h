@@ -45,6 +45,7 @@ public:
 				// SetTo or the constructor - we may have traversed a Symlink!
 
 			BString				Name() const;
+			BString				DefaultName() const;
 			BString				ShortcutName() const;
 
 			BString				Authors() const;

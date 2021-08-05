@@ -327,7 +327,12 @@ LookAndFeelSettingsView::_BuildDecorMenu()
 const char*
 LookAndFeelSettingsView::_DecorLabel(const BString& name)
 {
-	BString label(name);
+	BString label;
+	if (name == "Default")
+		label << fDecorUtility.CurrentDecorator()->DefaultName();
+	else
+		label << name;
+
 	return label.RemoveLast("Decorator").Trim().String();
 }
 
