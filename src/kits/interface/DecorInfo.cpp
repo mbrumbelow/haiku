@@ -149,9 +149,12 @@ DecorInfo::Name() const
 BString
 DecorInfo::ShortcutName() const
 {
-	if (Ref())
+	if (Ref() != NULL)
 		return fRef.name;
-	return Name();
+	else if (fInitStatus == B_OK)
+		return "Default";
+
+	return fName;
 }
 
 
@@ -263,7 +266,7 @@ DecorInfo::_Init(bool isUpdate)
 		}
 
 		fAuthors = "DarkWyrm, Stephan Aßmus, Clemens Zeidler, Ingo Weinhold";
-		fLongDescription = fShortDescription;
+		fLongDescription = "";
 		fLicenseURL = "http://";
 		fLicenseName = "MIT";
 		fSupportURL = "http://www.haiku-os.org/";
@@ -488,7 +491,7 @@ DecorInfoUtility::FindDecorator(const BString& string)
 	if (string.Length() == 0)
 		return CurrentDecorator();
 
-	if (string.ICompare("default") == 0)
+	if (string == "Default")
 		return DefaultDecorator();
 
 	BAutolock _(fLock);
@@ -500,13 +503,11 @@ DecorInfoUtility::FindDecorator(const BString& string)
 	if (decor != NULL)
 		return decor;
 
-	// search by name or short cut name
+	// search by name
 	for (int i = 1; i < fList.CountItems(); ++i) {
 		decor = fList.ItemAt(i);
-		if (string.ICompare(decor->ShortcutName()) == 0
-			|| string.ICompare(decor->Name()) == 0) {
+		if (string.ICompare(decor->Name()) == 0)
 			return decor;
-		}
 	}
 
 	return NULL;
