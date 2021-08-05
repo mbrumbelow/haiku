@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e5c927af_e10bd8ef",
+        "filename": "headers/private/kernel/arch/riscv64/arch_thread_types.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-05T00:27:29Z",
+      "side": 1,
+      "message": "It is based on register ordinal numbers and some registers were moved for stack frame compatibility (FP, PC pair on end of stack frame, needed for stack trace) and to reuse zero wired register.",
+      "parentUuid": "74c82d84_633204aa",
+      "revId": "97e78c0b395d02bbd3b33729e28c0f42d6637cb0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7af6cce6_2817a03c",
         "filename": "src/system/kernel/arch/riscv64/arch_asm.S",
         "patchSetId": 4
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "e570739d_3bb5fe41",
+        "filename": "src/system/kernel/arch/riscv64/arch_asm.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-05T00:27:29Z",
+      "side": 1,
+      "message": "It is special arch_setjmp that is only used for context switching. Regular setjmp is used everywhere else. Maybe function should be renamed.",
+      "parentUuid": "7af6cce6_2817a03c",
+      "revId": "97e78c0b395d02bbd3b33729e28c0f42d6637cb0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5938dcdd_c2b0a552",
         "filename": "src/system/kernel/arch/riscv64/arch_asm.S",
         "patchSetId": 4
@@ -47,6 +83,24 @@
       "writtenOn": "2021-08-05T00:07:42Z",
       "side": 1,
       "message": "Why the caps?",
+      "revId": "97e78c0b395d02bbd3b33729e28c0f42d6637cb0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c7d5571_aea38028",
+        "filename": "src/system/kernel/arch/riscv64/arch_asm.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-05T00:27:29Z",
+      "side": 1,
+      "message": "Mini OS code style leftover (all asm opcodes use caps).",
+      "parentUuid": "5938dcdd_c2b0a552",
       "revId": "97e78c0b395d02bbd3b33729e28c0f42d6637cb0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
