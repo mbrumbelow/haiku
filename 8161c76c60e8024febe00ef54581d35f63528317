@@ -141,6 +141,24 @@
     },
     {
       "key": {
+        "uuid": "7a8880c6_fcde3e6d",
+        "filename": "src/system/kernel/arch/riscv64/arch_int.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-05T01:20:40Z",
+      "side": 1,
+      "message": "I said \"other hart\"; interrupts being disabled on this hart (which is true because you\u0027re in a trap handler and haven\u0027t re-enabled them) has no bearing on other harts in the system.",
+      "parentUuid": "91df2578_7201da4f",
+      "revId": "8161c76c60e8024febe00ef54581d35f63528317",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c1a04dcd_6016a0e0",
         "filename": "src/system/kernel/arch/riscv64/arch_int.cpp",
         "patchSetId": 4
