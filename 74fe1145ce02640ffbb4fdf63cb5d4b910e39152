@@ -160,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "9440bff6_889d3644",
+        "filename": "src/kits/tracker/Utilities.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 1532,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-06T00:59:01Z",
+      "side": 1,
+      "message": "I have moved the thumbnail attribute check up into GetFileFromAttr() before checking if I should generate a new thumbnail in Patch Set 18.",
+      "parentUuid": "806847b7_889605d8",
+      "revId": "74fe1145ce02640ffbb4fdf63cb5d4b910e39152",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "141c8d88_a9be1a00",
         "filename": "src/kits/tracker/Utilities.cpp",
         "patchSetId": 16
@@ -177,6 +195,24 @@
     },
     {
       "key": {
+        "uuid": "e5c3f677_95c1e95c",
+        "filename": "src/kits/tracker/Utilities.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 1569,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-06T00:59:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "141c8d88_a9be1a00",
+      "revId": "74fe1145ce02640ffbb4fdf63cb5d4b910e39152",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcdb379a_2d710f86",
         "filename": "src/kits/tracker/Utilities.cpp",
         "patchSetId": 16
@@ -191,6 +227,24 @@
       "revId": "74fe1145ce02640ffbb4fdf63cb5d4b910e39152",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de5d44dc_c26c398b",
+        "filename": "src/kits/tracker/Utilities.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 1674,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-06T00:59:01Z",
+      "side": 1,
+      "message": "Colorspace is B_RGBA32 so yes it supports alpha. I am not drawing using B_ALPHA_COMPOSITE blending mode.",
+      "parentUuid": "dcdb379a_2d710f86",
+      "revId": "74fe1145ce02640ffbb4fdf63cb5d4b910e39152",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
