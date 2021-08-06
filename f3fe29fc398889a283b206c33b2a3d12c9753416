@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "61bc6387_e9b6e0c1",
+        "filename": "src/system/libroot/os/arch/riscv64/system_time.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-06T15:06:03Z",
+      "side": 1,
+      "message": "Timer units conversion really should be fixed. QEMU and HiFive unmatched use different timer frequency, this setting is currently for HiFive unmatched .",
+      "revId": "f3fe29fc398889a283b206c33b2a3d12c9753416",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
