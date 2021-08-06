@@ -107,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "f96807c9_0d460150",
+        "filename": "src/system/boot/platform/efi/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-06T22:00:42Z",
+      "side": 1,
+      "message": "I think this one is ok. The EFI spec allows for FDT being passed to bootloaders.  If the EFI loader (aka x86) doesn\u0027t use it, then it\u0027s just unused support code.\n\nNothing technically prevents x86 from using FDT... it just isn\u0027t needed very often.\n\nu-boot does the same thing.",
+      "parentUuid": "8ac731f7_c61b9ccb",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "330c36ad_9e9f3783",
         "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
         "patchSetId": 1
@@ -139,6 +157,24 @@
       "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c94459a_d8cf709b",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-06T22:00:42Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "4894dd18_365eab5c",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -509,6 +545,24 @@
       "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f97e250_2c48802d",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-06T22:00:42Z",
+      "side": 1,
+      "message": "I wholeheartedly agree.  Previously we had a \"mini-uart\" system which would detect the uart from fdt and attach the needed uart.\n\n*however* we also have a full fdt handling rewrite as part of these RV64 patches.\n(https://review.haiku-os.org/c/haiku/+/3977)\n\nI\u0027d rather take this one with some warts, and get it merged to get riscv64 compiling again.  Then we can review the fdt handling rewrite and fold these convenience functions back into it.",
+      "parentUuid": "c214288d_08faad8a",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
