@@ -16,6 +16,24 @@
       "revId": "da5428ed89fd5fe8e998b37fc7c09f923212784b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b6c02ae_c9c6d019",
+        "filename": "src/system/libroot/os/arch/riscv64/tls.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-06T16:03:06Z",
+      "side": 1,
+      "message": "added a comment to address this in the future. Since these changes are reported to be working as-is, I want to reach a baseline of functionality given the size of the outstanding patchset before circling back for improvements.",
+      "parentUuid": "f77026fb_5b0716d4",
+      "revId": "da5428ed89fd5fe8e998b37fc7c09f923212784b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }

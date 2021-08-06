@@ -16,6 +16,24 @@
       "revId": "f3fe29fc398889a283b206c33b2a3d12c9753416",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "743c9a6b_c7ca6fe5",
+        "filename": "src/system/libroot/os/arch/riscv64/system_time.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-06T16:03:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61bc6387_e9b6e0c1",
+      "revId": "f3fe29fc398889a283b206c33b2a3d12c9753416",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
