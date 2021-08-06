@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f7049537_954d5df7",
+        "filename": "src/add-ons/kernel/drivers/input/virtio_input/virtio_input.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-06T07:18:45Z",
+      "side": 1,
+      "message": "sDeviceManager was better in a previous patch.",
+      "revId": "6ac3f408147f6ba1e1f6344691e53e15eca9b5ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
