@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a57a604d_d8e194ef",
+        "filename": "src/system/boot/platform/riscv/FwCfg.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-06T23:38:36Z",
+      "side": 1,
+      "message": "Some GCC miscompilation problem, Clang is fine.",
+      "revId": "dae35af3ba5014a3f586d2293e90f49b2c8b6d4d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
