@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "9ca3180c_26bcfa23",
+        "filename": "src/system/kernel/arch/riscv64/arch_debug.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-06T15:25:30Z",
+      "side": 1,
+      "message": "Note that this is a dirty hack to fix stack trace of functions with broken stack frame structure (issue appears only on GCC, Clang is fine).",
+      "revId": "e7d7c0900392b2cc780ac6cd3651b911d8deddf0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fe1b798b_ee032df4",
         "filename": "src/system/kernel/arch/riscv64/arch_debug_console.cpp",
         "patchSetId": 3
