@@ -88,6 +88,24 @@
       "revId": "a1db95548ebc03c1e45d7b2ee5ba25a15cbacda8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bbb5f03_80634ba6",
+        "filename": "headers/private/system/arch/riscv64/arch_cpu_defs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-06T17:33:45Z",
+      "side": 1,
+      "message": "I agree with this, however it seems fine for a first iteration.  This is introducing the very first RV64 code into our kernel.  Iteration and refinement are fine for a brand new architecture.",
+      "parentUuid": "0710197e_fb94f208",
+      "revId": "a1db95548ebc03c1e45d7b2ee5ba25a15cbacda8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
