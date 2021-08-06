@@ -1488,7 +1488,7 @@ CopyFolder(BEntry* srcEntry, BDirectory* destDir,
 	srcEntry->GetRef(&ref);
 
 	char destName[B_FILE_NAME_LENGTH];
-	strlcpy(destName, ref.name, sizeof(destName));
+	strlcpy(destName, ref.name, sizeof(ref.name));
 
 	loopControl->UpdateStatus(ref.name, ref, 1024, true);
 
@@ -1657,7 +1657,7 @@ MoveItem(BEntry* entry, BDirectory* destDir, BPoint* loc, uint32 moveMode,
 		if (moveMode == kCreateLink || moveMode == kCreateRelativeLink) {
 			PoseInfo poseInfo;
 			char name[B_FILE_NAME_LENGTH];
-			strlcpy(name, ref.name, sizeof(name));
+			strlcpy(name, ref.name, sizeof(ref.name));
 
 			BSymLink link;
 			BString suffix(" ");
@@ -1994,7 +1994,7 @@ MoveEntryToTrash(BEntry* entry, BPoint* loc, Undo &undo)
 
 	// make sure name doesn't conflict with anything in trash already
 	char name[B_FILE_NAME_LENGTH];
-	strlcpy(name, ref.name, sizeof(name));
+	strlcpy(name, ref.name, sizeof(ref.name));
 	if (trash_dir.Contains(name)) {
 		BString suffix(" ");
 		suffix << B_TRANSLATE_COMMENT("copy", "filename copy"),
@@ -2360,7 +2360,7 @@ FSMakeOriginalName(char* name, BDirectory* destDir, const char* suffix)
 {
 	char		root[B_FILE_NAME_LENGTH];
 	char		copybase[B_FILE_NAME_LENGTH];
-	char		temp_name[B_FILE_NAME_LENGTH + 10];
+	char		tempName[B_FILE_NAME_LENGTH + 11];
 	int32		fnum;
 
 	// is this name already original?
@@ -2414,31 +2414,34 @@ FSMakeOriginalName(char* name, BDirectory* destDir, const char* suffix)
 			name[B_FILE_NAME_LENGTH - 8] = '\0';
 		}
 
-		strcpy(root, name);		// save root name
-		strcat(name, suffix);
+		strlcpy(root, name, sizeof(name));
+			// save root name
+		strlcat(name, suffix, sizeof(suffix));
 	}
 
-	strcpy(copybase, name);
+	strlcpy(copybase, name, sizeof(name));
 
 	// if name already exists then add a number
 	fnum = 1;
-	strcpy(temp_name, name);
-	while (destDir->Contains(temp_name)) {
-		snprintf(temp_name, sizeof(temp_name), "%s %" B_PRId32, copybase, ++fnum);
+	strlcpy(tempName, name, sizeof(name));
+	while (destDir->Contains(tempName)) {
+		snprintf(tempName, sizeof(tempName), "%s %" B_PRId32, copybase,
+			++fnum);
 
-		if (strlen(temp_name) > (B_FILE_NAME_LENGTH - 1)) {
+		if (strlen(tempName) > (B_FILE_NAME_LENGTH - 1)) {
 			// The name has grown too long. Maybe we just went from
 			// "<filename> copy 9" to "<filename> copy 10" and that extra
 			// character was too much. The solution is to further
 			// truncate the 'root' name and continue.
 			// ??? should we reset fnum or not ???
 			root[strlen(root) - 1] = '\0';
-			snprintf(temp_name, sizeof(temp_name), "%s%s %" B_PRId32, root, suffix, fnum);
+			snprintf(tempName, sizeof(tempName), "%s%s %" B_PRId32, root,
+				suffix, fnum);
 		}
 	}
 
-	ASSERT((strlen(temp_name) <= (B_FILE_NAME_LENGTH - 1)));
-	strcpy(name, temp_name);
+	ASSERT((strlen(tempName) <= (B_FILE_NAME_LENGTH - 1)));
+	strlcpy(name, tempName, sizeof(tempName));
 }
 
 
@@ -3132,8 +3135,7 @@ FSCreateNewFolderIn(const node_ref* dirNode, entry_ref* newRef,
 		int32 fnum = 1;
 		while (dir.Contains(name)) {
 			// if base name already exists then add a number
-			// ToDo:
-			// move this logic ot FSMakeOriginalName
+			// TODO: move this logic to FSMakeOriginalName
 			if (++fnum > 9) {
 				snprintf(name, sizeof(name), B_TRANSLATE("New folder%ld"),
 					fnum);
@@ -3165,6 +3167,7 @@ FSCreateNewFolderIn(const node_ref* dirNode, entry_ref* newRef,
 		B_TRANSLATE("Cancel"), 0, 0, B_WIDTH_AS_USUAL, B_WARNING_ALERT);
 	alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
 	alert->Go();
+
 	return result;
 }
 
@@ -3279,6 +3282,7 @@ FSGetParentVirtualDirectoryAware(const BEntry& entry, BNode& _node)
 	status_t error = FSGetParentVirtualDirectoryAware(entry, ref);
 	if (error == B_OK)
 		error = _node.SetTo(&ref);
+
 	return error;
 }
 
@@ -3410,8 +3414,8 @@ _TrackerLaunchAppWithDocuments(const entry_ref* appRef, const BMessage* refs,
 	}
 }
 
-extern "C" char** environ;
 
+extern "C" char** environ;
 
 static status_t
 LoaderErrorDetails(const entry_ref* app, BString &details)
