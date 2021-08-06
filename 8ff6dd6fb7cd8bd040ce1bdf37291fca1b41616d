@@ -666,6 +666,24 @@
       "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "525ae51f_6342ff86",
+        "filename": "src/system/boot/platform/efi/start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-06T20:50:23Z",
+      "side": 1,
+      "message": "Sp() is needed at the top of efi_main to find the Stack Pointer at the start of the EFI application\n\nWith that said however.. it was only referenced for debug printf later in the mmu code and not actually used for anything else.\n\nI ripped it out for now.  It can be added back later if needed for debugging :-)",
+      "parentUuid": "01adfd56_66d0acb7",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
