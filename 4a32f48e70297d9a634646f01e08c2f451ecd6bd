@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "956bcf40_d4eeee55",
+        "filename": "headers/posix/arch/riscv64/signal.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-06T15:43:12Z",
+      "side": 1,
+      "message": "Note that fcsr is always a 32-bit CSR even on RV64. There\u0027s nothing inherently wrong with making it a ulong, but might not be best.",
+      "revId": "4a32f48e70297d9a634646f01e08c2f451ecd6bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1de6225_168616a2",
+        "filename": "src/system/kernel/arch/riscv64/arch_thread.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-06T15:43:12Z",
+      "side": 1,
+      "message": "Lots of commented-out code, especially dprintf\u0027s, throughout",
+      "revId": "4a32f48e70297d9a634646f01e08c2f451ecd6bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
