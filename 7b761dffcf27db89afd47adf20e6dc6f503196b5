@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ecb8621f_cb1460c2",
+        "filename": "src/system/kernel/arch/riscv64/arch_vm.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-06T14:32:45Z",
+      "side": 1,
+      "message": "Original variant was more readable.",
+      "revId": "7b761dffcf27db89afd47adf20e6dc6f503196b5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
