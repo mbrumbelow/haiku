@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ae3a92e_e73b9402",
+        "filename": "headers/private/kernel/arch/riscv64/arch_cpu.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-06T15:36:23Z",
+      "side": 1,
+      "message": "Atomically, not automatically?",
+      "revId": "5d918936f1d1947d4a76a4e120d13809d886ab47",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
