@@ -16,6 +16,57 @@
       "revId": "dae35af3ba5014a3f586d2293e90f49b2c8b6d4d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6009f1e8_01204f30",
+        "filename": "src/system/boot/platform/riscv/fdt.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-06T23:46:26Z",
+      "side": 1,
+      "message": "This should be uncommented and hard coded constant should be removed. sTimerFrequrency value is valid.",
+      "revId": "dae35af3ba5014a3f586d2293e90f49b2c8b6d4d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1fa62002_73dc4e5f",
+        "filename": "src/system/boot/platform/riscv/mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-06T23:46:26Z",
+      "side": 1,
+      "message": "This is 5-th copy of page table lookup loop. EFI and RAW boot loader MMU setup code is very similar and it can be shared.",
+      "revId": "dae35af3ba5014a3f586d2293e90f49b2c8b6d4d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e087f93e_dcad334d",
+        "filename": "src/system/boot/platform/riscv/mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-06T23:46:26Z",
+      "side": 1,
+      "message": "Region allocator implementation can be shared with other platforms and moved to generic code.",
+      "revId": "dae35af3ba5014a3f586d2293e90f49b2c8b6d4d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
