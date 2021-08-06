@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6993ee3f_4deb925d",
+        "filename": "src/system/boot/loader/elf.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-06T18:55:44Z",
+      "side": 1,
+      "message": "X512, was there a reason for this one that you remember?",
+      "parentUuid": "57b1814a_2d8d90b5",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d0486f0c_3996422e",
         "filename": "src/system/boot/loader/kernel_args.cpp",
         "patchSetId": 1
@@ -209,6 +227,24 @@
       "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13a58a7e_e706af8b",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-06T18:55:44Z",
+      "side": 1,
+      "message": "Did a check of all patches. IdentityMap looks like purely a debug function setting up identity mapped memory.",
+      "parentUuid": "3953fd37_ccf48108",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -493,6 +529,24 @@
     },
     {
       "key": {
+        "uuid": "671a6b85_55d7bf6c",
+        "filename": "src/system/boot/platform/efi/mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-06T18:55:44Z",
+      "side": 1,
+      "message": "X512, is this needed?  Seems likely to impact other platforms.",
+      "parentUuid": "7247d366_c866fe04",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2f2cda01_11cefa62",
         "filename": "src/system/boot/platform/efi/serial.cpp",
         "patchSetId": 1
@@ -577,6 +631,24 @@
       "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "120f54b3_cc55fc13",
+        "filename": "src/system/boot/platform/efi/start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-06T18:55:44Z",
+      "side": 1,
+      "message": "Done. Moved into the top of arch_start_kernel. Nothing else within the EFI bootloader touches these.\n\nThey \"kinda\" make sense in arch_start_kernel as it is EFI preparing to jump into the kernel... thus defining what platform it came from.",
+      "parentUuid": "3c971648_6cf83e61",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
