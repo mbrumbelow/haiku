@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "09eb2520_2275ffb4",
+        "filename": "headers/private/kernel/arch/riscv64/arch_cpu.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-06T15:39:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6e405949_f8008216",
+      "revId": "f8e9946f1550b5fb99e28f28be08a17da840a1f9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "53f292d5_8214966b",
         "filename": "headers/private/kernel/arch/riscv64/arch_cpu.h",
         "patchSetId": 1
