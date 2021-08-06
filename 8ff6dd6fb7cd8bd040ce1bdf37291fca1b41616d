@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "8a93f0f9_28da8627",
+        "filename": "src/system/boot/loader/kernel_args.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-06T18:27:34Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "39da09a7_108129ca",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ac731f7_c61b9ccb",
         "filename": "src/system/boot/platform/efi/Jamfile",
         "patchSetId": 1
@@ -123,6 +141,24 @@
     },
     {
       "key": {
+        "uuid": "39f98e56_d03dd691",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-06T18:27:34Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2562c077_7c19be46",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "49ac357f_ab2b19ca",
         "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
         "patchSetId": 1
@@ -152,6 +188,24 @@
       "side": 1,
       "message": "Debug leftover to investigate issue with freeze after setting SATP. Already solved and should be removed.",
       "parentUuid": "49ac357f_ab2b19ca",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3953fd37_ccf48108",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-06T18:27:34Z",
+      "side": 1,
+      "message": "This is the only caller of \"IdentityMap\", does IdentityMap need removed as well?",
+      "parentUuid": "c8d5bd2e_565ce240",
       "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -193,6 +247,24 @@
     },
     {
       "key": {
+        "uuid": "21df2251_1a8df260",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_smp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-06T18:27:34Z",
+      "side": 1,
+      "message": "Ack.  Added comment",
+      "parentUuid": "680b9140_6cc3af69",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b4f2efd1_fbd5c7c1",
         "filename": "src/system/boot/platform/efi/arch/riscv64/arch_smp.cpp",
         "patchSetId": 1
@@ -207,6 +279,24 @@
       "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a2f406c_94ea547e",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_smp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-06T18:27:34Z",
+      "side": 1,
+      "message": "Ack.  Added comment / TODO",
+      "parentUuid": "b4f2efd1_fbd5c7c1",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -245,6 +335,24 @@
     },
     {
       "key": {
+        "uuid": "0f06ad93_e7b890a4",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-06T18:27:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d5764bd_19c3b88e",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ea5aac3_ce9ed45b",
         "filename": "src/system/boot/platform/efi/arch/riscv64/arch_start.cpp",
         "patchSetId": 1
@@ -280,6 +388,24 @@
     },
     {
       "key": {
+        "uuid": "4dc4fdcc_c2a3e407",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-06T18:27:34Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "3e5aa908_cd79e908",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f7825ff7_fb41817f",
         "filename": "src/system/boot/platform/efi/debug.cpp",
         "patchSetId": 1
@@ -312,6 +438,24 @@
       "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79b23bb0_717422d5",
+        "filename": "src/system/boot/platform/efi/debug.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-06T18:27:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1885aa89_44969aa7",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
