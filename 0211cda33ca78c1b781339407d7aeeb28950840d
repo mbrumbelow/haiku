@@ -16,6 +16,24 @@
       "revId": "0211cda33ca78c1b781339407d7aeeb28950840d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ce1de21_e3351ea4",
+        "filename": "data/develop/makefile-engine",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-07T13:29:24Z",
+      "side": 1,
+      "message": "nice catch on this one.  Agree... we should be looking for gcc2 or metrowerks.\n\nMan.. I have no idea on how to detect the BeOS PPC mwcc compiler.  I would need to try loading BeOS PPC onto my Mac Performa 6300 to find out lol. https://twitter.com/kallisti5/status/901524880780402688\n\nhttp://preserve.mactech.com/content/md1-beos-tools-metrowerks-0\n\nWe might want to just check for gcc2 for now :-)",
+      "parentUuid": "5a1816c0_29a1a92d",
+      "revId": "0211cda33ca78c1b781339407d7aeeb28950840d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
