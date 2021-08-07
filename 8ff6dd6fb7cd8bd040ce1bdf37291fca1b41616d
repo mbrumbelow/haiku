@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "6372e4f0_fb83f7cb",
+        "filename": "src/system/boot/loader/elf.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-07T00:23:01Z",
+      "side": 1,
+      "message": "Unlike EFI, haiku_loader.riscv takes region protection in account and set protection for allocated regions when building MMU page table. Missing executable protection cause kernel to crash.\n\nNote that this code allocates single region for both code and data.",
+      "parentUuid": "6993ee3f_4deb925d",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d0486f0c_3996422e",
         "filename": "src/system/boot/loader/kernel_args.cpp",
         "patchSetId": 1
