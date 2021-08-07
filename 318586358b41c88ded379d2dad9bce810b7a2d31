@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "eeafef8b_29963ffd",
+        "filename": "src/system/boot/loader/kernel_args.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-07T03:46:09Z",
+      "side": 1,
+      "message": "This is for the native (non-efi) riscv bootloader.  It seems fine to me.",
+      "parentUuid": "78affab0_2f42121d",
+      "revId": "318586358b41c88ded379d2dad9bce810b7a2d31",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "24fa1208_34d885be",
         "filename": "src/system/boot/loader/kernel_args.cpp",
         "patchSetId": 9
@@ -64,6 +82,24 @@
       "writtenOn": "2021-08-07T03:37:01Z",
       "side": 1,
       "message": "Same again",
+      "revId": "318586358b41c88ded379d2dad9bce810b7a2d31",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea14fba8_df9c4cca",
+        "filename": "src/system/boot/loader/kernel_args.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-07T03:46:09Z",
+      "side": 1,
+      "message": "This is for the native (non-efi) riscv bootloader.  It seems fine to me.",
+      "parentUuid": "24fa1208_34d885be",
       "revId": "318586358b41c88ded379d2dad9bce810b7a2d31",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -87,6 +123,24 @@
     },
     {
       "key": {
+        "uuid": "a3a1c39f_4e048484",
+        "filename": "src/system/boot/platform/efi/Jamfile",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-07T03:46:09Z",
+      "side": 1,
+      "message": "my thought was FDT is available within the EFI specification.. seems relevant to include it even if unused on x86?",
+      "parentUuid": "ee777457_cded4983",
+      "revId": "318586358b41c88ded379d2dad9bce810b7a2d31",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "01adb704_13cf9adc",
         "filename": "src/system/boot/platform/efi/Jamfile",
         "patchSetId": 9
@@ -98,6 +152,24 @@
       "writtenOn": "2021-08-07T03:37:01Z",
       "side": 1,
       "message": "Same as above",
+      "revId": "318586358b41c88ded379d2dad9bce810b7a2d31",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b802218_b13d40b4",
+        "filename": "src/system/boot/platform/efi/Jamfile",
+        "patchSetId": 9
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-07T03:46:09Z",
+      "side": 1,
+      "message": "my thought was FDT is available within the EFI specification.. seems relevant to include it even if unused on x86?",
+      "parentUuid": "01adb704_13cf9adc",
       "revId": "318586358b41c88ded379d2dad9bce810b7a2d31",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -138,6 +210,24 @@
     },
     {
       "key": {
+        "uuid": "163e527f_3ebab7a0",
+        "filename": "src/system/boot/platform/efi/serial.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-07T03:46:09Z",
+      "side": 1,
+      "message": "there are some buggy code paths here. I feel like sSerial is NULL, but sSerialUsesEFI is true?\n\nThe intent with how I wrote this was allowing for a fallback to get output at all costs in the event of an issue.\n\nI don\u0027t have a lot of skin in the game on this one though... so cool either way.",
+      "parentUuid": "59fb0339_cc4bbf29",
+      "revId": "318586358b41c88ded379d2dad9bce810b7a2d31",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0cc5dedc_c3645edc",
         "filename": "src/system/boot/platform/efi/serial.cpp",
         "patchSetId": 9
@@ -149,6 +239,24 @@
       "writtenOn": "2021-08-07T03:37:01Z",
       "side": 1,
       "message": "Please revert, NULL check existed for a reason",
+      "revId": "318586358b41c88ded379d2dad9bce810b7a2d31",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36864634_f75e6da0",
+        "filename": "src/system/boot/platform/efi/serial.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-07T03:46:09Z",
+      "side": 1,
+      "message": "This NULL check exists pretty far away from the usage of sSerial.  I think it might potentially allow a potential null pointer dereference as designed?",
+      "parentUuid": "0cc5dedc_c3645edc",
       "revId": "318586358b41c88ded379d2dad9bce810b7a2d31",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
