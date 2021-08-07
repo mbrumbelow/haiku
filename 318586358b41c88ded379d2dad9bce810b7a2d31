@@ -71,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "36b4a847_a2af9dde",
+        "filename": "src/system/boot/loader/kernel_args.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-07T03:48:37Z",
+      "side": 1,
+      "message": "#ifdef should just be removed and platform_bootloader_address_to_kernel_address should be implemented on all platforms, it may just return the same address if needed.",
+      "parentUuid": "eeafef8b_29963ffd",
+      "revId": "318586358b41c88ded379d2dad9bce810b7a2d31",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "24fa1208_34d885be",
         "filename": "src/system/boot/loader/kernel_args.cpp",
         "patchSetId": 9
