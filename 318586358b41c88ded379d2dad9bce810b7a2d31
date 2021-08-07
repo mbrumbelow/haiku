@@ -33,6 +33,125 @@
       "revId": "318586358b41c88ded379d2dad9bce810b7a2d31",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78affab0_2f42121d",
+        "filename": "src/system/boot/loader/kernel_args.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-08-07T03:37:01Z",
+      "side": 1,
+      "message": "Is there a reason `_BOOT_PLATFORM_EFI` is not sufficient?",
+      "revId": "318586358b41c88ded379d2dad9bce810b7a2d31",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24fa1208_34d885be",
+        "filename": "src/system/boot/loader/kernel_args.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-08-07T03:37:01Z",
+      "side": 1,
+      "message": "Same again",
+      "revId": "318586358b41c88ded379d2dad9bce810b7a2d31",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee777457_cded4983",
+        "filename": "src/system/boot/platform/efi/Jamfile",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-08-07T03:37:01Z",
+      "side": 1,
+      "message": "This should be within a platform specific test",
+      "revId": "318586358b41c88ded379d2dad9bce810b7a2d31",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01adb704_13cf9adc",
+        "filename": "src/system/boot/platform/efi/Jamfile",
+        "patchSetId": 9
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-08-07T03:37:01Z",
+      "side": 1,
+      "message": "Same as above",
+      "revId": "318586358b41c88ded379d2dad9bce810b7a2d31",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0cc00c1_a7122b18",
+        "filename": "src/system/boot/platform/efi/console.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-08-07T03:37:01Z",
+      "side": 1,
+      "message": "Please delete",
+      "revId": "318586358b41c88ded379d2dad9bce810b7a2d31",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59fb0339_cc4bbf29",
+        "filename": "src/system/boot/platform/efi/serial.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-08-07T03:37:01Z",
+      "side": 1,
+      "message": "You should not be writing to the console, please remove.",
+      "revId": "318586358b41c88ded379d2dad9bce810b7a2d31",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0cc5dedc_c3645edc",
+        "filename": "src/system/boot/platform/efi/serial.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-08-07T03:37:01Z",
+      "side": 1,
+      "message": "Please revert, NULL check existed for a reason",
+      "revId": "318586358b41c88ded379d2dad9bce810b7a2d31",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
