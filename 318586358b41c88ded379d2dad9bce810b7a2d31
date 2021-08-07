@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e64a494c_050de09b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-07T00:16:25Z",
+      "side": 1,
+      "message": "haiku_loader.efi",
+      "revId": "318586358b41c88ded379d2dad9bce810b7a2d31",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4960bbc4_660fa9ed",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-07T00:16:25Z",
+      "side": 1,
+      "message": "passing",
+      "revId": "318586358b41c88ded379d2dad9bce810b7a2d31",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
