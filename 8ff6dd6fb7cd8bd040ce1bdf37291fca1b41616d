@@ -619,6 +619,24 @@
     },
     {
       "key": {
+        "uuid": "67049b1c_d1d9e446",
+        "filename": "src/system/boot/platform/efi/mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-07T00:27:14Z",
+      "side": 1,
+      "message": "I think that it is better just to avoid allocating something at fixed addresses and lets region allocator to dynamically allocate all virtual addresses. I am not sure will RISC-V work without this change, need to test.",
+      "parentUuid": "671a6b85_55d7bf6c",
+      "revId": "8ff6dd6fb7cd8bd040ce1bdf37291fca1b41616d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2f2cda01_11cefa62",
         "filename": "src/system/boot/platform/efi/serial.cpp",
         "patchSetId": 1
