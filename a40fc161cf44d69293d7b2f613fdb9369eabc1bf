@@ -16,6 +16,24 @@
       "revId": "a40fc161cf44d69293d7b2f613fdb9369eabc1bf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f51ca60e_67604bac",
+        "filename": "src/kits/interface/DecorInfo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-08T15:16:57Z",
+      "side": 1,
+      "message": "I took the translation for name out because I needed to do so to fix #16412. To remain logically consistent I took the translation for short description out too. The proper place to translate this string is in Appearance, not DecorInfo, but we don\u0027t appear to actually use Short Description there.\n\nThat said, I don\u0027t have a strong opinion about this and I\u0027ll put it back if this change is deemed to be incorrect.",
+      "parentUuid": "cd5b5855_89d682bc",
+      "revId": "a40fc161cf44d69293d7b2f613fdb9369eabc1bf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
