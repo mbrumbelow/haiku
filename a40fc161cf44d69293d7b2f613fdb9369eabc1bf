@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cd5b5855_89d682bc",
+        "filename": "src/kits/interface/DecorInfo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-08-08T07:20:03Z",
+      "side": 1,
+      "message": "I don\u0027t understand why you removed the translation of the description here?",
+      "revId": "a40fc161cf44d69293d7b2f613fdb9369eabc1bf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
