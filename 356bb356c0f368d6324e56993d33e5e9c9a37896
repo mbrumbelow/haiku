@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b3c1bc9f_4c1a8701",
+        "filename": "src/kits/network/libnetservices/HttpRequest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-08-08T07:16:10Z",
+      "side": 1,
+      "message": "Why a blank line here?",
+      "revId": "356bb356c0f368d6324e56993d33e5e9c9a37896",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
