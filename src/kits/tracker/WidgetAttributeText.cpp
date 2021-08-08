@@ -794,9 +794,10 @@ NameAttributeText::FitValue(BString* outString, const BPoseView* view)
 {
 	if (fValueDirty)
 		ReadValue(&fFullValueText);
+
 	fOldWidth = fColumn->Width();
 	fTruncatedWidth = TruncString(outString, fFullValueText.String(),
-		fFullValueText.Length(), view, fOldWidth, B_TRUNCATE_END);
+		fFullValueText.Length(), view, fOldWidth, B_TRUNCATE_MIDDLE);
 	fDirty = false;
 }
 
@@ -929,9 +930,10 @@ RealNameAttributeText::FitValue(BString* outString, const BPoseView* view)
 {
 	if (fValueDirty)
 		ReadValue(&fFullValueText);
+
 	fOldWidth = fColumn->Width();
 	fTruncatedWidth = TruncString(outString, fFullValueText.String(),
-		fFullValueText.Length(), view, fOldWidth, B_TRUNCATE_END);
+		fFullValueText.Length(), view, fOldWidth, B_TRUNCATE_MIDDLE);
 	fDirty = false;
 }
 
@@ -2149,6 +2151,7 @@ OpenWithRelationAttributeText::PreferredWidth(const BPoseView* pose) const
 	BString widthString;
 	TruncString(&widthString, fRelationText.String(), fRelationText.Length(),
 		pose, 500, B_TRUNCATE_END);
+
 	return pose->StringWidth(widthString.String());
 }
 
