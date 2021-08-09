@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "05845527_74a2dbf6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-09T15:34:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e64a494c_050de09b",
+      "revId": "318586358b41c88ded379d2dad9bce810b7a2d31",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4960bbc4_660fa9ed",
         "filename": "/COMMIT_MSG",
         "patchSetId": 9
@@ -244,6 +262,24 @@
       "revId": "318586358b41c88ded379d2dad9bce810b7a2d31",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a7038df_70530136",
+        "filename": "src/system/boot/platform/efi/console.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-09T15:34:13Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "a0cc00c1_a7122b18",
+      "revId": "318586358b41c88ded379d2dad9bce810b7a2d31",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
