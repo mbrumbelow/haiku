@@ -89,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "5be9b42c_82aba39c",
+        "filename": "src/system/boot/loader/kernel_args.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-09T15:31:32Z",
+      "side": 1,
+      "message": "fixed.  stubs added to bios_ia32",
+      "parentUuid": "36b4a847_a2af9dde",
+      "revId": "318586358b41c88ded379d2dad9bce810b7a2d31",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24fa1208_34d885be",
         "filename": "src/system/boot/loader/kernel_args.cpp",
         "patchSetId": 9
@@ -121,6 +139,24 @@
       "revId": "318586358b41c88ded379d2dad9bce810b7a2d31",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c01ca970_646e6498",
+        "filename": "src/system/boot/loader/kernel_args.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-09T15:31:32Z",
+      "side": 1,
+      "message": "fixed.  stubs added to bios_ia32",
+      "parentUuid": "ea14fba8_df9c4cca",
+      "revId": "318586358b41c88ded379d2dad9bce810b7a2d31",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
