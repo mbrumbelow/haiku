@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d1416eae_87bff844",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-09T18:50:10Z",
+      "side": 1,
+      "message": "This is RISC-V specific.",
+      "revId": "68c96875c6910528f6320d6c918702df28705a2f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a4a516a_6e7638c2",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-09T18:50:10Z",
+      "side": 1,
+      "message": "This is RISC-V and ARM specific.",
+      "revId": "68c96875c6910528f6320d6c918702df28705a2f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee3ad837_1caaa32d",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-09T18:50:10Z",
+      "side": 1,
+      "message": "Mini OS compatibility code for FDT dumper. can be removed with FDT dumper.",
+      "revId": "68c96875c6910528f6320d6c918702df28705a2f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3c5b716_7d6cd630",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-09T18:50:10Z",
+      "side": 1,
+      "message": "Debugging code, can be removed.",
+      "revId": "68c96875c6910528f6320d6c918702df28705a2f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bee99c78_5282fec1",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-09T18:50:10Z",
+      "side": 1,
+      "message": "This is currently RISC-V specific. #ifdef __riscv can be used.",
+      "revId": "68c96875c6910528f6320d6c918702df28705a2f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
