@@ -6,6 +6,7 @@
 #define HID_REPORT_H
 
 #include "HIDParser.h"
+#include "util/Vector.h"
 
 #ifndef USERLAND_HID
 #include <condition_variable.h>
@@ -45,7 +46,7 @@ public:
 		status_t				SendReport();
 #endif
 
-		uint32					CountItems() { return fItemsUsed; };
+		uint32					CountItems() { return fItems.Count(); };
 		HIDReportItem *			ItemAt(uint32 index);
 		HIDReportItem *			FindItem(uint16 usagePage, uint16 usageID);
 
@@ -65,9 +66,7 @@ private:
 		uint8					fReportID;
 		uint32					fReportSize;
 
-		uint32					fItemsUsed;
-		uint32					fItemsAllocated;
-		HIDReportItem **		fItems;
+		Vector<HIDReportItem *>	fItems;
 
 		status_t				fReportStatus;
 		uint8 *					fCurrentReport;
