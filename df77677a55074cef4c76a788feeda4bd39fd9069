@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "3e8490a0_eb08534a",
+        "filename": "src/apps/stylededit/SaveWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-10T03:33:30Z",
+      "side": 1,
+      "message": "This may be a bit pedantic but comma usage here is questionable.",
+      "parentUuid": "892c0b79_b4d9ae61",
+      "revId": "df77677a55074cef4c76a788feeda4bd39fd9069",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "152ea485_f3e7d597",
         "filename": "src/apps/stylededit/SaveWindow.cpp",
         "patchSetId": 3
