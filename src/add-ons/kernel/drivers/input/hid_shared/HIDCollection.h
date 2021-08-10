@@ -6,6 +6,7 @@
 #define HID_COLLECTION_H
 
 #include "HIDParser.h"
+#include "util/Vector.h"
 
 class HIDReport;
 class HIDReportItem;
@@ -24,14 +25,14 @@ public:
 		HIDCollection *			Parent() { return fParent; };
 
 		status_t				AddChild(HIDCollection *child);
-		uint32					CountChildren() { return fChildCount; };
+		uint32					CountChildren() { return fChildren.Count(); };
 		HIDCollection *			ChildAt(uint32 index);
 
 		uint32					CountChildrenFlat(uint8 type);
 		HIDCollection *			ChildAtFlat(uint8 type, uint32 index);
 
 		void					AddItem(HIDReportItem *item);
-		uint32					CountItems() { return fItemCount; };
+		uint32					CountItems() { return fItems.Count(); };
 		HIDReportItem *			ItemAt(uint32 index);
 
 		uint32					CountItemsFlat();
@@ -54,12 +55,15 @@ private:
 		uint8					fStringID;
 		uint8					fPhysicalID;
 
-		uint32					fChildCount;
-		HIDCollection **		fChildren;
+		//uint32					fChildCount;
+		//HIDCollection **		fChildren;
+		Vector<HIDCollection *>	fChildren;
 
-		uint32					fItemCount;
-		uint32					fItemsAllocated;
-		HIDReportItem **		fItems;
+		//uint32					fItemCount;
+		//uint32					fItemsAllocated;
+		//HIDReportItem **		fItems;
+		Vector<HIDReportItem *>	fItems;
+		
 };
 
 #endif // HID_COLLECTION_H
