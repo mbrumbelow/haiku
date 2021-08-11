@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "1aceb55c_8b53ee96",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2021-08-11T18:23:38Z",
+      "side": 1,
+      "message": "Vector::Count being a signed int spreads some compiler warnings about signed vs unsigned operations :\\",
+      "parentUuid": "0b3d3c98_64b04a0b",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c85ecec1_6e91fb13",
         "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.cpp",
         "patchSetId": 1
