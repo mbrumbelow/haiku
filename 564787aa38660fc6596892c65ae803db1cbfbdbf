@@ -247,6 +247,24 @@
     },
     {
       "key": {
+        "uuid": "fd60f75e_e1fdca8b",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-08-11T12:47:54Z",
+      "side": 1,
+      "message": "It\u0027s not so much a coding style issue than a performance one, for the case where the \"count\" method does not have a O(1) complexity, that is, it actually loops to count the items.\n\nThis is not the case for Vector, where it just returns a stored value: https://git.haiku-os.org/haiku/tree/headers/private/kernel/util/Vector.h#n403\n\nIt would be the case, for example, if using a SinglyLinkedList: https://git.haiku-os.org/haiku/tree/headers/private/kernel/util/SinglyLinkedList.h#n303\n\nNote that it does not matter if the method is inline or not. What matters is if the method is doing an iteration on the data structure or not (in theory the compiler could detect that the data structure does not change, to not re-count the items at every iteration, but with gcc2, I don\u0027t think we can rely on smart things like this happening)\n\nAn argument could be made to always put the call outside the loop, for future proofing (if someone replaces the vector with a list, they will then not risk accidentally introducing a performance regression by forgetting to move the call outside of the loop). But, if you use a list, chances are you will need to change other things in the loop anyway (probably, use an iterator or something similar).",
+      "parentUuid": "63c6913d_6297c475",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3cbd9b6c_921862c1",
         "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.cpp",
         "patchSetId": 1
