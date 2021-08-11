@@ -229,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "0eec1fbe_0b416ff5",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:45:13Z",
+      "side": 1,
+      "message": "Since this: https://www.freelists.org/post/haiku-commits/haiku-hrev45452-srcappsdeskbar,1\n\nPlease enlighten me on state of Haiku best practice recommendations with regards to calling Count() method inside loop conditional.",
+      "parentUuid": "63c6913d_6297c475",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3cbd9b6c_921862c1",
         "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.cpp",
         "patchSetId": 1
