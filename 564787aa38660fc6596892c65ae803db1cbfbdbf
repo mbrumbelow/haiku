@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "4d9569e0_2df1b703",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:38:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b3d3c98_64b04a0b",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c85ecec1_6e91fb13",
         "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.cpp",
         "patchSetId": 1
@@ -103,6 +121,24 @@
       "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e83cf2a_d19591f6",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:38:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3269ebb5_5401e100",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -175,6 +211,24 @@
     },
     {
       "key": {
+        "uuid": "63c6913d_6297c475",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:38:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fadc503d_6da32209",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3cbd9b6c_921862c1",
         "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.cpp",
         "patchSetId": 1
@@ -189,6 +243,24 @@
       "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "286000aa_db3628a4",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:38:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3cbd9b6c_921862c1",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -209,6 +281,24 @@
     },
     {
       "key": {
+        "uuid": "e4433853_6e42c001",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:38:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "593440d3_0349bc1a",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed8a13b0_a497af50",
         "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.cpp",
         "patchSetId": 1
@@ -223,6 +313,24 @@
       "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7e6e1f6_749df3df",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:38:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed8a13b0_a497af50",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -243,6 +351,24 @@
     },
     {
       "key": {
+        "uuid": "74df64c6_d4d9f485",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:38:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3e01f2c_da2d9bc3",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "68f65762_0c2f4e02",
         "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.cpp",
         "patchSetId": 1
@@ -260,6 +386,24 @@
     },
     {
       "key": {
+        "uuid": "b3cd2b4d_669897e6",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:38:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68f65762_0c2f4e02",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c12c928c_fd774f63",
         "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.cpp",
         "patchSetId": 1
@@ -274,6 +418,24 @@
       "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a614cf6_ab9e1c2e",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:38:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c12c928c_fd774f63",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -325,6 +487,24 @@
       "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b45e08cf_f50b7ed7",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDParser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:38:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4fb90274_9c03af53",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -380,6 +560,24 @@
     },
     {
       "key": {
+        "uuid": "7c405686_efd02940",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDParser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:38:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9383b90b_60939e9e",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "80a8ae3e_02166b41",
         "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDParser.cpp",
         "patchSetId": 1
@@ -394,6 +592,24 @@
       "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1eb7d117_6e131fc5",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDParser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:38:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80a8ae3e_02166b41",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -414,6 +630,24 @@
     },
     {
       "key": {
+        "uuid": "9932f8c8_8e8373ab",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDParser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:38:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66cc1fb5_59b0b8fb",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a42e5310_13d29cd2",
         "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDParser.cpp",
         "patchSetId": 1
@@ -428,6 +662,24 @@
       "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99fd3ae6_fc8d6b85",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDParser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:38:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a42e5310_13d29cd2",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -448,6 +700,24 @@
     },
     {
       "key": {
+        "uuid": "d21e7c0d_3adbd5a8",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDParser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:38:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "acc8a688_12687fc9",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "937b1714_669469dd",
         "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDParser.cpp",
         "patchSetId": 1
@@ -462,6 +732,24 @@
       "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "460d26c3_456af947",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDParser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:38:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "937b1714_669469dd",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -516,6 +804,24 @@
     },
     {
       "key": {
+        "uuid": "55bd70cd_6091480b",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDParser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:38:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a42c8196_ecd263c0",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9eef8de7_809b5b6b",
         "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDParser.h",
         "patchSetId": 1
@@ -550,6 +856,24 @@
     },
     {
       "key": {
+        "uuid": "f4f6b007_d9b21835",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDReport.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:38:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d39f9b09_ef21c64d",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0987a13_279a9717",
         "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDReport.cpp",
         "patchSetId": 1
@@ -564,6 +888,24 @@
       "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f533996_8e0133cf",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDReport.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:38:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0987a13_279a9717",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -584,6 +926,24 @@
     },
     {
       "key": {
+        "uuid": "9a1e6c25_e40136eb",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDReport.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:38:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "847bf8e4_efbd0895",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "685b467a_13126204",
         "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDReport.cpp",
         "patchSetId": 1
@@ -598,6 +958,24 @@
       "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81f4b938_aee6a17c",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDReport.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:38:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "685b467a_13126204",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
