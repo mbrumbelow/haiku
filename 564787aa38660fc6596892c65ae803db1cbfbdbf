@@ -16,6 +16,24 @@
       "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87e9a1bf_ecea572c",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDParser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2021-08-11T12:01:21Z",
+      "side": 1,
+      "message": "That I forgot to mention. local_item_state and all types defined at HIDDataTypes.h are C style structures managed in a C like fashion (with its malloc, memset, free cycle). I didn\u0027t want to touch that, not sure if those structures are used on some ioctl and it is preferred to keep it in that C style. However, I can refactor it too, if you told me to do. In fact I will have to modify local_item_state in order to accept multiple usage min-max ranges (ticket #16647).\n\nIn my opinion, should be safe to assume Vector container is a contiguous memory region (array) and safely decay Vector to a pointer. In C++11 std::vector there is even a vector::data() which must be equal to \u0026v[0];",
+      "parentUuid": "80f164c3_6bb9a3a2",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
