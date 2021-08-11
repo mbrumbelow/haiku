@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "8f5888bf_f571abaa",
+        "filename": "src/apps/stylededit/SaveWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:53:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcb6b325_a8cedc2d",
+      "revId": "df77677a55074cef4c76a788feeda4bd39fd9069",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "892c0b79_b4d9ae61",
         "filename": "src/apps/stylededit/SaveWindow.cpp",
         "patchSetId": 3
@@ -153,6 +171,24 @@
       "revId": "df77677a55074cef4c76a788feeda4bd39fd9069",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56ae1152_8bef9e73",
+        "filename": "src/apps/stylededit/StyledEditApp.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:53:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41157a32_56f23fc5",
+      "revId": "df77677a55074cef4c76a788feeda4bd39fd9069",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
