@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6f103c58_c6dbe7a1",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-11T12:27:29Z",
+      "side": 1,
+      "message": "If Count() is inline, this is fine.",
+      "parentUuid": "089d706f_543edba4",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c85ecec1_6e91fb13",
         "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.cpp",
         "patchSetId": 1
