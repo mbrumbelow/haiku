@@ -157,6 +157,24 @@
     },
     {
       "key": {
+        "uuid": "6edc68bf_5ec805c7",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2021-08-11T12:37:39Z",
+      "side": 1,
+      "message": "Since when? There\u0027s nothing in our guidelines that says to avoid using the container size directly.",
+      "parentUuid": "fadc503d_6da32209",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3cbd9b6c_921862c1",
         "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.cpp",
         "patchSetId": 1
