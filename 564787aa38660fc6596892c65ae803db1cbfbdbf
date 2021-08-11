@@ -2,6 +2,278 @@
   "comments": [
     {
       "key": {
+        "uuid": "089d706f_543edba4",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:24:34Z",
+      "side": 1,
+      "message": "You should assign the count outside the loop.",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c85ecec1_6e91fb13",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:24:34Z",
+      "side": 1,
+      "message": "Should be spaces around \u003d\u003d binary operator.",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c1de401_fe1a9bba",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:24:34Z",
+      "side": 1,
+      "message": "Stray tab should be removed.",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3269ebb5_5401e100",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:24:34Z",
+      "side": 1,
+      "message": "Assign count to variable outside loop",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "462a3cd0_830d337b",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:24:34Z",
+      "side": 1,
+      "message": "spaces around \u003d\u003d binary operator",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89cb5e45_79f9d10a",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:24:34Z",
+      "side": 1,
+      "message": "Stray tab should be removed.",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fadc503d_6da32209",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:24:34Z",
+      "side": 1,
+      "message": "Assign count variable outside loop.",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3cbd9b6c_921862c1",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:24:34Z",
+      "side": 1,
+      "message": "Count should be assigned outside loop.",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "593440d3_0349bc1a",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:24:34Z",
+      "side": 1,
+      "message": "Count should be assigned outside loop.",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed8a13b0_a497af50",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:24:34Z",
+      "side": 1,
+      "message": "Count should be assigned outside loop.",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3e01f2c_da2d9bc3",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:24:34Z",
+      "side": 1,
+      "message": "Count should be assigned outside loop.",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68f65762_0c2f4e02",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:24:34Z",
+      "side": 1,
+      "message": "Count should be assigned outside loop.",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c12c928c_fd774f63",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:24:34Z",
+      "side": 1,
+      "message": "Count should be assigned outside loop.",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae3cf5b1_56d61e5f",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:24:34Z",
+      "side": 1,
+      "message": "There should be 2 new lines between #include and class declaration",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c801afa_a27f6ddf",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:24:34Z",
+      "side": 1,
+      "message": "You should delete these lines instead of commenting them out.",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4fb90274_9c03af53",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDParser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:24:34Z",
+      "side": 1,
+      "message": "Count should be assigned outside loop.",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "80f164c3_6bb9a3a2",
         "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDParser.cpp",
         "patchSetId": 1
@@ -31,6 +303,261 @@
       "side": 1,
       "message": "That I forgot to mention. local_item_state and all types defined at HIDDataTypes.h are C style structures managed in a C like fashion (with its malloc, memset, free cycle). I didn\u0027t want to touch that, not sure if those structures are used on some ioctl and it is preferred to keep it in that C style. However, I can refactor it too, if you told me to do. In fact I will have to modify local_item_state in order to accept multiple usage min-max ranges (ticket #16647).\n\nIn my opinion, should be safe to assume Vector container is a contiguous memory region (array) and safely decay Vector to a pointer. In C++11 std::vector there is even a vector::data() which must be equal to \u0026v[0];",
       "parentUuid": "80f164c3_6bb9a3a2",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9383b90b_60939e9e",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDParser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:24:34Z",
+      "side": 1,
+      "message": "Count should be assigned outside loop.",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80a8ae3e_02166b41",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDParser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:24:34Z",
+      "side": 1,
+      "message": "Count should be assigned outside loop.",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66cc1fb5_59b0b8fb",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDParser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:24:34Z",
+      "side": 1,
+      "message": "Count should be assigned outside loop.",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a42e5310_13d29cd2",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDParser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:24:34Z",
+      "side": 1,
+      "message": "Count should be assigned outside loop.",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "acc8a688_12687fc9",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDParser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:24:34Z",
+      "side": 1,
+      "message": "Count should be assigned outside loop.",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "937b1714_669469dd",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDParser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:24:34Z",
+      "side": 1,
+      "message": "Count should be assigned outside loop.",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "daaf7e51_561ca5d4",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDParser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:24:34Z",
+      "side": 1,
+      "message": "Spaces around \u003d\u003d binary operator",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "528ffb43_717122fe",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDParser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:24:34Z",
+      "side": 1,
+      "message": "Stray tab should be removed.",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a42c8196_ecd263c0",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDParser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:24:34Z",
+      "side": 1,
+      "message": "Count should be assigned outside loop.",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9eef8de7_809b5b6b",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDParser.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:24:34Z",
+      "side": 1,
+      "message": "2 newlines between #includes and class declaration",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d39f9b09_ef21c64d",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDReport.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:24:34Z",
+      "side": 1,
+      "message": "Spaces around \u003d\u003d binary operator.",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0987a13_279a9717",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDReport.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:24:34Z",
+      "side": 1,
+      "message": "Assign count variable outside loop.",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "847bf8e4_efbd0895",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDReport.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:24:34Z",
+      "side": 1,
+      "message": "Assign count variable outside loop.",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "685b467a_13126204",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDReport.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:24:34Z",
+      "side": 1,
+      "message": "Assign count variable outside loop.",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d3b790b_92c37de0",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDReport.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-11T12:24:34Z",
+      "side": 1,
+      "message": "Delete these lines instead of commenting them out.",
       "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
