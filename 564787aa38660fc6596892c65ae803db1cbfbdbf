@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "80f164c3_6bb9a3a2",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDParser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-11T06:50:23Z",
+      "side": 1,
+      "message": "it looks like localState.usage_stack should be a reference to a Vector\u003cusage_value\u003e",
+      "revId": "564787aa38660fc6596892c65ae803db1cbfbdbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
