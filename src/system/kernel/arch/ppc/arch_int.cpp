@@ -168,6 +168,7 @@ ppc_exception_entry(int vector, struct iframe *iframe)
 				iframe->dsisr & (1 << 25), // store or load
 				false,
 				iframe->srr1 & (1 << 14), // was the system in user or supervisor
+				true, // allow user page access
 				&newip);
 			if (newip != 0) {
 				// the page fault handler wants us to modify the iframe to set the

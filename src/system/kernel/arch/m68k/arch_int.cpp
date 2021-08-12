@@ -247,6 +247,7 @@ m68k_exception_entry(struct iframe *iframe)
 				fault_was_write(iframe), // store or load
 				false,
 				iframe->cpu.sr & SR_S, // was the system in user or supervisor
+				true, // allow user page access
 				&newip);
 			if (newip != 0) {
 				// the page fault handler wants us to modify the iframe to set the
