@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3b897245_ac17dc8c",
+        "filename": "src/add-ons/kernel/drivers/disk/nvme/compat/libnvme_haiku.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-12T17:16:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "cb52ec69_f0ca820f",
+      "revId": "a462ed2fecf2ab70b4090241c0435d6c3e575f67",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b43c090_5dd1c8e2",
         "filename": "src/add-ons/kernel/drivers/disk/nvme/nvme_disk.cpp",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "124720c4_e48eb5d3",
+        "filename": "src/add-ons/kernel/drivers/disk/nvme/nvme_disk.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 954,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-12T17:16:12Z",
+      "side": 1,
+      "message": "*technically* module_dependencies also did this. But i\u0027ll update both :P",
+      "parentUuid": "8b43c090_5dd1c8e2",
+      "revId": "a462ed2fecf2ab70b4090241c0435d6c3e575f67",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff8fd8f0_0d174ced",
         "filename": "src/add-ons/kernel/drivers/disk/nvme/nvme_disk.cpp",
         "patchSetId": 1
@@ -50,6 +86,24 @@
       "revId": "a462ed2fecf2ab70b4090241c0435d6c3e575f67",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f0926e6_f70f14a7",
+        "filename": "src/add-ons/kernel/drivers/disk/nvme/nvme_disk.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 955,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-12T17:16:12Z",
+      "side": 1,
+      "message": "Ack. *technically* module_dependencies also did this. But i\u0027ll update both :P",
+      "parentUuid": "ff8fd8f0_0d174ced",
+      "revId": "a462ed2fecf2ab70b4090241c0435d6c3e575f67",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
