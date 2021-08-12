@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7f6244a2_90ac339a",
+        "filename": "src/add-ons/kernel/drivers/graphics/vesa/driver.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-12T17:29:20Z",
+      "side": 1,
+      "message": "reworded",
+      "parentUuid": "931f007a_ee615f2d",
+      "revId": "2bdb23b03ee767ba644aea53febefb10fb47c9bf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c2b7885d_10251833",
         "filename": "src/add-ons/kernel/drivers/graphics/vesa/vesa.cpp",
         "patchSetId": 4
@@ -33,6 +51,24 @@
       "revId": "2bdb23b03ee767ba644aea53febefb10fb47c9bf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29186792_8a877575",
+        "filename": "src/add-ons/kernel/drivers/graphics/vesa/vesa.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-12T17:29:20Z",
+      "side": 1,
+      "message": "fixed",
+      "parentUuid": "c2b7885d_10251833",
+      "revId": "2bdb23b03ee767ba644aea53febefb10fb47c9bf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -67,6 +103,24 @@
       "revId": "2bdb23b03ee767ba644aea53febefb10fb47c9bf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1e1a4f4_cb16e9b8",
+        "filename": "src/add-ons/kernel/drivers/graphics/vesa/vga.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-12T17:29:20Z",
+      "side": 1,
+      "message": "just matching the comment two lines down :-)",
+      "parentUuid": "09a93416_b78d64f7",
+      "revId": "2bdb23b03ee767ba644aea53febefb10fb47c9bf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
