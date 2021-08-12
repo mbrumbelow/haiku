@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a1cc91f6_7feb688c",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_traps.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-12T10:28:35Z",
+      "side": 1,
+      "message": "Would have been nice to include a license header.",
+      "revId": "f1fa58bfbc7578fd0c8ac2c974dd2c7f3be7bec4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
