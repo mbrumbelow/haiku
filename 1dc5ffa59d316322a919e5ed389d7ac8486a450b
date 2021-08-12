@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8aa00d30_3c1dc175",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 4434,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-12T19:29:39Z",
+      "side": 1,
+      "message": "is it really needed?",
+      "revId": "1dc5ffa59d316322a919e5ed389d7ac8486a450b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c72e57d3_06524c1a",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 4443,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-12T19:29:39Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "1dc5ffa59d316322a919e5ed389d7ac8486a450b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
