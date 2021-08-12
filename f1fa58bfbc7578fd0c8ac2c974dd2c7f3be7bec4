@@ -16,6 +16,24 @@
       "revId": "f1fa58bfbc7578fd0c8ac2c974dd2c7f3be7bec4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a213891_feac9aca",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_traps.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-12T11:03:47Z",
+      "side": 1,
+      "message": "Or just remove this code. It is used only to debug boot loader crashes. But BIOS boot loader also has similar feature (boot loader death land with scary red text).\n\nEFI also have some kind of crash debug output, but it can\u0027t show stack traces.",
+      "parentUuid": "a1cc91f6_7feb688c",
+      "revId": "f1fa58bfbc7578fd0c8ac2c974dd2c7f3be7bec4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
