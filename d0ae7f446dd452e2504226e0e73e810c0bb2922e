@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f2b0c631_8793cbe1",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDCollection.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-12T17:09:25Z",
+      "side": 1,
+      "message": "stray tabs here",
+      "revId": "d0ae7f446dd452e2504226e0e73e810c0bb2922e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d8008fd_1afb5135",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDReport.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-12T17:09:25Z",
+      "side": 1,
+      "message": "Should be 2 newlines between #includ elines and #ifndef here.",
+      "revId": "d0ae7f446dd452e2504226e0e73e810c0bb2922e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
