@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5cd5a7c2_c3f3269d",
+        "filename": "src/system/boot/platform/efi/mmu.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-08-12T00:02:12Z",
+      "side": 1,
+      "message": "This looks broken. I\u0027ve reverted this, but if it actually is needed, you\u0027ll need to use an #ifdef, as this completely bricks x86_64.",
+      "revId": "0fad485b221c45379924ec9ee38e95372d6d61a8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
