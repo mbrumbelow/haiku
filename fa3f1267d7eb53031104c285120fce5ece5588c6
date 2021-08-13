@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "22a66af7_8d885b5b",
+        "filename": "src/system/libroot/os/thread.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-13T09:56:25Z",
+      "side": 1,
+      "message": "Looks OK, but should be factorized calling exit_thread(returnCode)",
+      "revId": "fa3f1267d7eb53031104c285120fce5ece5588c6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
