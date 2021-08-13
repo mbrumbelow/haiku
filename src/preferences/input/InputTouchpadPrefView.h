@@ -25,9 +25,9 @@
 #include <Debug.h>
 
 #if DEBUG
-#	define LOG(text...) PRINT((text))
+#define LOG(text...) PRINT((text))
 #else
-#	define LOG(text...)
+#define LOG(text...)
 #endif
 
 const uint SCROLL_AREA_CHANGED = '&sac';
@@ -41,66 +41,70 @@ class DeviceListView;
 
 
 //! Shows a touchpad
-class TouchpadView : public BView, public BInvoker {
+class TouchpadView : public BView, public BInvoker
+{
 public:
-							TouchpadView(BRect frame);
-	virtual					~TouchpadView();
-	virtual void			Draw(BRect updateRect);
-	virtual void			MouseDown(BPoint point);
-	virtual void			MouseUp(BPoint point);
-	virtual void			MouseMoved(BPoint point, uint32 transit,
-								const BMessage* dragMessage);
+	TouchpadView(BRect frame);
+	virtual ~TouchpadView();
+	virtual void Draw(BRect updateRect);
+	virtual void MouseDown(BPoint point);
+	virtual void MouseUp(BPoint point);
+	virtual void MouseMoved(
+		BPoint point, uint32 transit, const BMessage* dragMessage);
 
-	virtual void			AttachedToWindow();
-	virtual void			GetPreferredSize(float* width, float* height);
+	virtual void AttachedToWindow();
+	virtual void GetPreferredSize(float* width, float* height);
 
-			void			SetValues(float rightRange, float bottomRange);
-			float			GetRightScrollRatio()
-								{ return 1 - fXScrollRange / fPadRect.Width(); }
-			float			GetBottomScrollRatio()
-								{ return 1
-									- fYScrollRange / fPadRect.Height(); }
+	void SetValues(float rightRange, float bottomRange);
+	float GetRightScrollRatio() { return 1 - fXScrollRange / fPadRect.Width(); }
+	float GetBottomScrollRatio()
+	{
+		return 1 - fYScrollRange / fPadRect.Height();
+	}
+
 private:
-	virtual void 			DrawSliders();
+	virtual void DrawSliders();
 
-			BRect			fPrefRect;
-			BRect			fPadRect;
-			BRect			fXScrollDragZone;
-			float			fXScrollRange;
-			float			fOldXScrollRange;
-			BRect			fYScrollDragZone;
-			float			fYScrollRange;
-			float			fOldYScrollRange;
+	BRect fPrefRect;
+	BRect fPadRect;
+	BRect fXScrollDragZone;
+	float fXScrollRange;
+	float fOldXScrollRange;
+	BRect fYScrollDragZone;
+	float fYScrollRange;
+	float fOldYScrollRange;
 
-			bool			fXTracking;
-			bool			fYTracking;
-			BView*			fOffScreenView;
-			BBitmap*		fOffScreenBitmap;
+	bool fXTracking;
+	bool fYTracking;
+	BView* fOffScreenView;
+	BBitmap* fOffScreenBitmap;
 };
 
 
-class TouchpadPrefView : public BGroupView {
+class TouchpadPrefView : public BGroupView
+{
 public:
-							TouchpadPrefView(BInputDevice* dev);
-	virtual					~TouchpadPrefView();
-	virtual	void			MessageReceived(BMessage* message);
-	virtual	void			AttachedToWindow();
-	virtual	void			DetachedFromWindow();
-			void			SetupView();
+	TouchpadPrefView(BInputDevice* dev);
+	virtual ~TouchpadPrefView();
+	virtual void MessageReceived(BMessage* message);
+	virtual void AttachedToWindow();
+	virtual void DetachedFromWindow();
+	void SetupView();
 
-			void			SetValues(touchpad_settings *settings);
+	void SetValues(touchpad_settings* settings);
+
 private:
-			TouchpadPref	fTouchpadPref;
-			TouchpadView*	fTouchpadView;
-			BCheckBox*		fTwoFingerBox;
-			BCheckBox*		fTwoFingerHorizontalBox;
-			BSlider*		fScrollStepXSlider;
-			BSlider*		fScrollStepYSlider;
-			BSlider*		fScrollAccelSlider;
-			BSlider*		fPadBlockerSlider;
-			BSlider*		fTapSlider;
-			BButton*		fDefaultButton;
-			BButton*		fRevertButton;
+	TouchpadPref fTouchpadPref;
+	TouchpadView* fTouchpadView;
+	BCheckBox* fTwoFingerBox;
+	BCheckBox* fTwoFingerHorizontalBox;
+	BSlider* fScrollStepXSlider;
+	BSlider* fScrollStepYSlider;
+	BSlider* fScrollAccelSlider;
+	BSlider* fPadBlockerSlider;
+	BSlider* fTapSlider;
+	BButton* fDefaultButton;
+	BButton* fRevertButton;
 };
 
-#endif	// TOUCHPAD_PREF_VIEW_H
+#endif // TOUCHPAD_PREF_VIEW_H

@@ -30,7 +30,7 @@ InputIcons* DeviceListItemView::sIcons = NULL;
 
 DeviceListItemView::DeviceListItemView(BString title, input_type type)
 	:
-	BListItem((uint32)0),
+	BListItem((uint32) 0),
 	fTitle(title),
 	fInputType(type)
 {
@@ -51,15 +51,9 @@ struct DeviceListItemView::Renderer {
 			fPrimaryIcon = icon;
 	}
 
-	void SetTitle(const char* title)
-	{
-		fTitle = title;
-	}
+	void SetTitle(const char* title) { fTitle = title; }
 
-	void SetSelected(bool selected)
-	{
-		fSelected = selected;
-	}
+	void SetSelected(bool selected) { fSelected = selected; }
 
 	void Render(BView* onto, BRect frame, bool complete = false)
 	{
@@ -108,10 +102,9 @@ struct DeviceListItemView::Renderer {
 	}
 
 private:
-
-	BString		fTitle;
-	BBitmap*	fPrimaryIcon;
-	bool		fSelected;
+	BString fTitle;
+	BBitmap* fPrimaryIcon;
+	bool fSelected;
 };
 
 

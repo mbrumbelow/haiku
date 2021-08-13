@@ -166,7 +166,7 @@ InputWindow::FindDevice()
 	int32 i = 0;
 
 	while (true) {
-		BInputDevice* dev = (BInputDevice*)devList.ItemAt(i);
+		BInputDevice* dev = (BInputDevice*) devList.ItemAt(i);
 		if (dev == NULL)
 			break;
 		i++;

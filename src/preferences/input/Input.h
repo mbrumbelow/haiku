@@ -23,13 +23,15 @@
 class SettingsView;
 class MouseSettings;
 
-class InputApplication : public BApplication {
+class InputApplication : public BApplication
+{
 public:
-				InputApplication();
-	void		MessageReceived(BMessage* message);
+	InputApplication();
+	void MessageReceived(BMessage* message);
+
 private:
-	InputIcons	fIcons;
-	InputWindow*	fWindow;
+	InputIcons fIcons;
+	InputWindow* fWindow;
 };
 
-#endif	/* INPUT_H */
+#endif /* INPUT_H */

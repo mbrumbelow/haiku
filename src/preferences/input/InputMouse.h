@@ -32,21 +32,22 @@
 class DeviceListView;
 
 
-class InputMouse : public BView {
+class InputMouse : public BView
+{
 public:
-					InputMouse(BInputDevice* dev, MouseSettings* settings);
-	virtual			~InputMouse();
-	void			SetMouseType(int32 type);
-	void			MessageReceived(BMessage* message);
-private:
+	InputMouse(BInputDevice* dev, MouseSettings* settings);
+	virtual ~InputMouse();
+	void SetMouseType(int32 type);
+	void MessageReceived(BMessage* message);
 
+private:
 	typedef BBox inherited;
 
-	SettingsView*		fSettingsView;
-	MouseView*			fMouseView;
-	BButton*			fDefaultsButton;
-	BButton*			fRevertButton;
-	MouseSettings*		fSettings;
+	SettingsView* fSettingsView;
+	MouseView* fMouseView;
+	BButton* fDefaultsButton;
+	BButton* fRevertButton;
+	MouseSettings* fSettings;
 };
 
-#endif	/* INPUT_MOUSE_H */
+#endif /* INPUT_MOUSE_H */

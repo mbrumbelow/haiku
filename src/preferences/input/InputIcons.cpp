@@ -44,21 +44,21 @@ InputIcons::_LoadBitmap(BResources* resources)
 
 	size_t size;
 
-	mouse = (const uint8*)resources->LoadResource(
+	mouse = (const uint8*) resources->LoadResource(
 		B_VECTOR_ICON_TYPE, "mouse_icon", &size);
 	if (mouse) {
 		mouseIcon = new BBitmap(sBounds, 0, B_RGBA32);
 		BIconUtils::GetVectorIcon(mouse, size, &mouseIcon);
 	}
 
-	touchpad = (const uint8*)resources->LoadResource(
+	touchpad = (const uint8*) resources->LoadResource(
 		B_VECTOR_ICON_TYPE, "touchpad_icon", &size);
 	if (touchpad) {
 		touchpadIcon = new BBitmap(sBounds, 0, B_RGBA32);
 		BIconUtils::GetVectorIcon(touchpad, size, &touchpadIcon);
 	}
 
-	keyboard = (const uint8*)resources->LoadResource(
+	keyboard = (const uint8*) resources->LoadResource(
 		B_VECTOR_ICON_TYPE, "keyboard_icon", &size);
 	if (keyboard) {
 		keyboardIcon = new BBitmap(sBounds, 0, B_RGBA32);

@@ -380,9 +380,9 @@ TouchpadPrefView::SetupView()
 	fTouchpadView->SetExplicitMaxSize(BSize(130, 120));
 
 	// Create the "Mouse Speed" slider...
-	fScrollAccelSlider = new BSlider("scroll_accel",
-		B_TRANSLATE("Acceleration"),
-		new BMessage(SCROLL_CONTROL_CHANGED), 0, 20, B_HORIZONTAL);
+	fScrollAccelSlider
+		= new BSlider("scroll_accel", B_TRANSLATE("Acceleration"),
+			new BMessage(SCROLL_CONTROL_CHANGED), 0, 20, B_HORIZONTAL);
 	fScrollAccelSlider->SetHashMarks(B_HASH_MARKS_BOTTOM);
 	fScrollAccelSlider->SetHashMarkCount(7);
 	fScrollAccelSlider->SetLimitLabels(
@@ -418,17 +418,16 @@ TouchpadPrefView::SetupView()
 
 	float spacing = be_control_look->DefaultItemSpacing();
 
-	BView* scrollPrefLeftLayout
-		= BLayoutBuilder::Group<>(B_VERTICAL, 0)
-		.Add(fTouchpadView)
-		.AddStrut(spacing)
-		.Add(fTwoFingerBox)
-		.AddGroup(B_HORIZONTAL, 0)
-			.AddStrut(spacing * 2)
-			.Add(fTwoFingerHorizontalBox)
-			.End()
-		.AddGlue()
-		.View();
+	BView* scrollPrefLeftLayout = BLayoutBuilder::Group<>(B_VERTICAL, 0)
+									  .Add(fTouchpadView)
+									  .AddStrut(spacing)
+									  .Add(fTwoFingerBox)
+									  .AddGroup(B_HORIZONTAL, 0)
+									  .AddStrut(spacing * 2)
+									  .Add(fTwoFingerHorizontalBox)
+									  .End()
+									  .AddGlue()
+									  .View();
 
 	BGroupView* scrollPrefRightLayout = new BGroupView(B_VERTICAL);
 	scrollPrefRightLayout->AddChild(fScrollAccelSlider);
@@ -466,12 +465,12 @@ TouchpadPrefView::SetupView()
 		.Add(fTapSlider)
 		.Add(fPadBlockerSlider)
 		.Add(new BSeparatorView(B_HORIZONTAL))
-			.AddGroup(B_HORIZONTAL)
-			.Add(fDefaultButton)
-			.Add(fRevertButton)
-			.AddGlue()
+		.AddGroup(B_HORIZONTAL)
+		.Add(fDefaultButton)
+		.Add(fRevertButton)
+		.AddGlue()
 		.End()
-	.End();
+		.End();
 }
 
 

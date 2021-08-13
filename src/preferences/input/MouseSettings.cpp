@@ -120,7 +120,7 @@ MouseSettings::_LoadLegacySettings()
 		return B_ERROR;
 
 	// Read the settings from the file
-	file.Read((void*)&fSettings, sizeof(mouse_settings));
+	file.Read((void*) &fSettings, sizeof(mouse_settings));
 
 #ifdef DEBUG
 	Dump();
@@ -131,6 +131,8 @@ MouseSettings::_LoadLegacySettings()
 
 
 #ifdef DEBUG
+
+
 void
 MouseSettings::Dump()
 {
@@ -423,8 +425,8 @@ MultipleMouseSettings::RetrieveSettings()
 		ssize_t size = 0;
 
 		while (message.FindString("mouseDevice", i, &deviceName) == B_OK) {
-			message.FindData(
-				"mouseSettings", B_ANY_TYPE, i, (const void**)&settings, &size);
+			message.FindData("mouseSettings", B_ANY_TYPE, i,
+				(const void**) &settings, &size);
 			MouseSettings* mouseSettings
 				= new MouseSettings(*settings, deviceName);
 			fMouseSettingsObject.insert(
@@ -486,11 +488,12 @@ MultipleMouseSettings::Defaults()
 		++itr) {
 		itr->second->Defaults();
 	}
-
 }
 
 
 #ifdef DEBUG
+
+
 void
 MultipleMouseSettings::Dump()
 {
@@ -509,7 +512,7 @@ MouseSettings*
 MultipleMouseSettings::AddMouseSettings(BString mouse_name)
 {
 	if (fDeprecatedMouseSettings != NULL) {
-		MouseSettings* RetrievedSettings = new(std::nothrow) MouseSettings(
+		MouseSettings* RetrievedSettings = new (std::nothrow) MouseSettings(
 			*(fDeprecatedMouseSettings->GetSettings()), mouse_name);
 
 		if (RetrievedSettings != NULL) {
@@ -524,7 +527,7 @@ MultipleMouseSettings::AddMouseSettings(BString mouse_name)
 	if (settings)
 		return settings;
 
-	settings = new(std::nothrow) MouseSettings(mouse_name);
+	settings = new (std::nothrow) MouseSettings(mouse_name);
 	if (settings == NULL)
 		return NULL;
 

@@ -114,42 +114,42 @@ SettingsView::SettingsView(MouseSettings& settings)
 		// Horizontal : A|B
 		.AddGroup(B_HORIZONTAL, B_USE_DEFAULT_SPACING)
 
-			// Vertical block A: mouse type/view/test
-			.AddGroup(B_VERTICAL, B_USE_DEFAULT_SPACING)
-				.Add(fTypeMenu)
-				.AddGroup(B_HORIZONTAL, 0)
-					.AddGlue()
-					.Add(fMouseView)
-					.AddGlue()
-					.End()
-				.AddGlue()
-				.Add(doubleClickTextControl)
-				.End()
-			.Add(new BSeparatorView(B_VERTICAL))
+		// Vertical block A: mouse type/view/test
+		.AddGroup(B_VERTICAL, B_USE_DEFAULT_SPACING)
+		.Add(fTypeMenu)
+		.AddGroup(B_HORIZONTAL, 0)
+		.AddGlue()
+		.Add(fMouseView)
+		.AddGlue()
+		.End()
+		.AddGlue()
+		.Add(doubleClickTextControl)
+		.End()
+		.Add(new BSeparatorView(B_VERTICAL))
 
-			// Vertical block B: speed settings
-			.AddGroup(B_VERTICAL, B_USE_DEFAULT_SPACING, 3)
-				.AddGroup(B_HORIZONTAL, 0)
-					.Add(fClickSpeedSlider)
-					.End()
-				.AddGroup(B_HORIZONTAL, 0)
-					.Add(fMouseSpeedSlider)
-					.End()
-				.AddGroup(B_HORIZONTAL, 0)
-					.Add(fAccelerationSlider)
-					.End()
-				.End()
-			.End()
+		// Vertical block B: speed settings
+		.AddGroup(B_VERTICAL, B_USE_DEFAULT_SPACING, 3)
+		.AddGroup(B_HORIZONTAL, 0)
+		.Add(fClickSpeedSlider)
+		.End()
+		.AddGroup(B_HORIZONTAL, 0)
+		.Add(fMouseSpeedSlider)
+		.End()
+		.AddGroup(B_HORIZONTAL, 0)
+		.Add(fAccelerationSlider)
+		.End()
+		.End()
+		.End()
 		.AddStrut(B_USE_DEFAULT_SPACING)
 
 		// Horizontal Block C: focus mode
 		.AddGroup(B_HORIZONTAL, B_USE_SMALL_SPACING)
-			.Add(fFocusMenu)
-			.AddGlue()
-			.AddGroup(B_VERTICAL, 0)
-				.Add(fAcceptFirstClickBox)
-				.End()
-			.End();
+		.Add(fFocusMenu)
+		.AddGlue()
+		.AddGroup(B_VERTICAL, 0)
+		.Add(fAcceptFirstClickBox)
+		.End()
+		.End();
 
 	SetBorder(B_NO_BORDER);
 }
