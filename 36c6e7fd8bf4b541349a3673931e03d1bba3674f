@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "51e06d2a_92c77f11",
+        "filename": "src/system/kernel/arch/riscv64/arch_platform.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-13T17:06:57Z",
+      "side": 1,
+      "message": "This seems fine.  kPlatform1Riscv is an identifier that the system was booted via the native machine loader that X512 created to get this port going.  kPlatform1Sbi is the standard supervisor booted method.\n\nThese vary based on the (haiku) platform loader used.  The naming could be better, but overall it fills a need while the architecture port is maturing.",
+      "parentUuid": "b56226b6_c96c4d00",
+      "revId": "36c6e7fd8bf4b541349a3673931e03d1bba3674f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3023a9d8_32f5a88f",
         "filename": "src/system/kernel/arch/riscv64/arch_platform.cpp",
         "patchSetId": 3
@@ -87,6 +105,24 @@
       "revId": "36c6e7fd8bf4b541349a3673931e03d1bba3674f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5a1e362_d214535f",
+        "filename": "src/system/kernel/arch/riscv64/arch_platform.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-13T17:06:57Z",
+      "side": 1,
+      "message": "The riscv64 machine code was a tool X512 leveraged to mature the Haiku riscv port.   Ideally as the ecosystem stability matures (cough sbi -\u003e efi cough) these machine level platform loaders will no longer be needed.\n\nHaiku is not linux or FreeBSD.  We have zero functional non-x86 architecture ports. Thus lots of pointy bits.",
+      "parentUuid": "f6334214_6deca47d",
+      "revId": "36c6e7fd8bf4b541349a3673931e03d1bba3674f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
