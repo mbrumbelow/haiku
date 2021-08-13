@@ -16,6 +16,24 @@
       "revId": "48385c7005d68bed2d9d68fc50ec6d50b63765ae",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a0cb1ae_a83eb6d8",
+        "filename": "src/kits/debug/arch/riscv64/arch_debug_support.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-13T13:24:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca73a1b8_c95c2601",
+      "revId": "48385c7005d68bed2d9d68fc50ec6d50b63765ae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
