@@ -89,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "92f05a27_9d90dd86",
+        "filename": "src/add-ons/kernel/drivers/graphics/vesa/vga.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-13T13:03:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "597f3970_b6ec917d",
+      "revId": "2bdb23b03ee767ba644aea53febefb10fb47c9bf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "09a93416_b78d64f7",
         "filename": "src/add-ons/kernel/drivers/graphics/vesa/vga.cpp",
         "patchSetId": 4
