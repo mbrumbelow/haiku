@@ -6,7 +6,11 @@
 #include <KernelExport.h>
 
 #include <ctype.h>
+#ifdef HAIKU_HOST_PLATFORM_DARWIN
+#include <stdlib.h>
+#else
 #include <malloc.h>
+#endif
 #include <stdio.h>
 #include <string.h>
 

@@ -1546,14 +1546,19 @@ rule BuildFloppyBootImage image : haikuLoader : archive
 
 actions BuildFloppyBootImage1
 {
-	haiku_loader_size=`stat -c %s "$(>[1])"`
-	drivers_tgz_size=`stat -c %s "$(>[2])"`
-	if [ $? -ne 0 ] ; then
-		# FreeBSD's stat command don't support -c/--format option
-		# and use %z specifier for file size
-		haiku_loader_size=`stat -f %z "$(>[1])"`
-		drivers_tgz_size=`stat -f %z "$(>[2])"`
-	fi
+	# FreeBSD's stat command don't support -c/--format option
+	# and use %z specifier for file size
+	case $HOST_PLATFORM in
+		darwin|freebsd|openbsd)
+			haiku_loader_size=`stat -f %z "$(>[1])"`
+			drivers_tgz_size=`stat -f %z "$(>[2])"`
+			;;
+		*)
+			haiku_loader_size=`stat -c %s "$(>[1])"`
+			drivers_tgz_size=`stat -c %s "$(>[2])"`
+			;;
+	esac
+
 	archive_image_offset=`echo "$(ARCHIVE_IMAGE_OFFSET) * 1024" | bc`
 	floppy_tgz_size=\
 		`echo "($(FLOPPY_IMAGE_SIZE) - $(ARCHIVE_IMAGE_OFFSET)) * 1024" | bc`
