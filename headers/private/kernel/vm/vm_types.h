@@ -25,6 +25,10 @@
 
 #include "kernel_debug_config.h"
 
+// TODO: fix page access on RISC-V
+#ifdef __riscv
+#undef DEBUG_PAGE_ACCESS
+#endif
 
 #define VM_PAGE_ALLOCATION_TRACKING_AVAILABLE \
 	(VM_PAGE_ALLOCATION_TRACKING && PAGE_ALLOCATION_TRACING != 0 \
