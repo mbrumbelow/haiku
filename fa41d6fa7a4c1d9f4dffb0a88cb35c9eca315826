@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "08bb518d_bc1ee52d",
+        "filename": "headers/private/kernel/arch/riscv64/arch_kernel_args.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-14T00:24:44Z",
+      "side": 1,
+      "message": "Platform 2 may be needed if other non EFI boot loaders will be used (u-boot native format, openfirmware etc.).",
+      "revId": "fa41d6fa7a4c1d9f4dffb0a88cb35c9eca315826",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
