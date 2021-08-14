@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "353298e9_d9cd62fc",
+        "filename": "build/jam/ImageRules",
+        "patchSetId": 1
+      },
+      "lineNbr": 1551,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-08-14T18:42:41Z",
+      "side": 1,
+      "message": "It might be better to add a jam conditional to set STAT_GET_SIZE or something like that instead of putting this inside `actions`... I\u0027m not sure.",
+      "revId": "a647918918c0afb71a6592ee98f00e731e38c2fd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ca6a793_b62facae",
+        "filename": "src/add-ons/kernel/file_systems/fat/encodings.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-08-14T18:42:41Z",
+      "side": 1,
+      "message": "Can we just use stdlib.h everywhere?",
+      "revId": "a647918918c0afb71a6592ee98f00e731e38c2fd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
