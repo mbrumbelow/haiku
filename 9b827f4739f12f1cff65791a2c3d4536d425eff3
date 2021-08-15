@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce0d32fe_778b3131",
+        "filename": "src/add-ons/accelerants/radeon_hd/gpu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-15T00:26:45Z",
+      "side": 1,
+      "message": "also.. confirmed frame_buffer_size is uint32.   vramSize is uint64, so an overflow condition definitely exists here.",
+      "revId": "9b827f4739f12f1cff65791a2c3d4536d425eff3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
