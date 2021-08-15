@@ -16,6 +16,24 @@
       "revId": "6f197682f064ddb74794b025038ac9809712f9b6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6df2748_0edbc25e",
+        "filename": "src/system/kernel/arch/arm/arch_uart_8250_omap.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-15T22:10:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3bc732a7_4a0d5435",
+      "revId": "6f197682f064ddb74794b025038ac9809712f9b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
