@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6a2cdcde_1622c1b7",
+        "filename": "src/add-ons/accelerants/radeon_hd/mode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-15T00:25:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8df1165_13fc5cc2",
+      "revId": "242105f7f463b82476422fd554d2cff51e9bcca6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4e74bc6_ade5c4cc",
         "filename": "src/add-ons/kernel/drivers/graphics/radeon_hd/radeon_hd.cpp",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "242105f7f463b82476422fd554d2cff51e9bcca6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86b0149a_293b6f3e",
+        "filename": "src/add-ons/kernel/drivers/graphics/radeon_hd/radeon_hd.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 635,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-15T00:25:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4e74bc6_ade5c4cc",
+      "revId": "242105f7f463b82476422fd554d2cff51e9bcca6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
