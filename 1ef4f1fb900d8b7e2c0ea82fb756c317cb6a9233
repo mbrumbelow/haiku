@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e18fd0b8_d542fc3d",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/VirtioDevice.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-15T06:19:48Z",
+      "side": 1,
+      "message": "Not a C function (use argument references). What is wrong with usage? Should be moved to some common header? Or removed and inlined by hand?",
+      "parentUuid": "26de269e_f2244f98",
+      "revId": "1ef4f1fb900d8b7e2c0ea82fb756c317cb6a9233",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7fa746e3_434ec3ee",
         "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/VirtioDevice.cpp",
         "patchSetId": 8
@@ -104,6 +122,24 @@
     },
     {
       "key": {
+        "uuid": "03483158_d9f21882",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/virtio_mmio.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-15T06:19:48Z",
+      "side": 1,
+      "message": "32 is traversing 32 bits in uint32.",
+      "parentUuid": "40831d96_1e08ba8f",
+      "revId": "1ef4f1fb900d8b7e2c0ea82fb756c317cb6a9233",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3d42e944_804714d9",
         "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/virtio_mmio.cpp",
         "patchSetId": 8
@@ -115,6 +151,24 @@
       "writtenOn": "2021-08-15T03:21:52Z",
       "side": 1,
       "message": "Bitflags should probably be an enum?",
+      "revId": "1ef4f1fb900d8b7e2c0ea82fb756c317cb6a9233",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "efa18112_546a7edc",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/virtio_mmio.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-15T06:19:48Z",
+      "side": 1,
+      "message": "What do you mean? Adjust to (1 \u003c\u003c kVirtioConfigSFeaturesOk)?",
+      "parentUuid": "3d42e944_804714d9",
       "revId": "1ef4f1fb900d8b7e2c0ea82fb756c317cb6a9233",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -138,6 +192,41 @@
     },
     {
       "key": {
+        "uuid": "8ec3478e_0856ad5d",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/virtio_mmio.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-15T06:19:48Z",
+      "side": 1,
+      "message": "Can be removed.",
+      "parentUuid": "0a90ff9f_9b5b1ae9",
+      "revId": "1ef4f1fb900d8b7e2c0ea82fb756c317cb6a9233",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bcaeaf00_692f09e1",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/virtio_mmio.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-15T06:19:48Z",
+      "side": 1,
+      "message": "Interrupts are working fine, not TRACE_ALWAYS is needed.",
+      "revId": "1ef4f1fb900d8b7e2c0ea82fb756c317cb6a9233",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d87138c4_5f374863",
         "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/virtio_mmio.cpp",
         "patchSetId": 8
@@ -149,6 +238,24 @@
       "writtenOn": "2021-08-15T03:21:52Z",
       "side": 1,
       "message": "probably belongs in the commit message, if anywhere",
+      "revId": "1ef4f1fb900d8b7e2c0ea82fb756c317cb6a9233",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bea6ca1c_aac69807",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/virtio_mmio.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-15T06:19:48Z",
+      "side": 1,
+      "message": "Can be removed.",
+      "parentUuid": "d87138c4_5f374863",
       "revId": "1ef4f1fb900d8b7e2c0ea82fb756c317cb6a9233",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
