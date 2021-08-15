@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "641dc9b8_8f2e19a3",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/VirtioDevice.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-15T01:00:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72bd0d54_8f939f74",
+      "revId": "baa9ee652aac2e794341ad5d2f4fce3e15ee2bbb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b4d89b1c_21419d80",
         "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/VirtioDevice.cpp",
         "patchSetId": 4
@@ -33,6 +51,24 @@
       "revId": "baa9ee652aac2e794341ad5d2f4fce3e15ee2bbb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b96727e8_c728cf49",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/VirtioDevice.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-15T01:00:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4d89b1c_21419d80",
+      "revId": "baa9ee652aac2e794341ad5d2f4fce3e15ee2bbb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "002617d1_684a82a2",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/VirtioDevice.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-15T01:00:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9011aaa1_1159d796",
+      "revId": "baa9ee652aac2e794341ad5d2f4fce3e15ee2bbb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6b182ea_d27bba9b",
         "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/VirtioDevice.cpp",
         "patchSetId": 4
@@ -67,6 +121,24 @@
       "revId": "baa9ee652aac2e794341ad5d2f4fce3e15ee2bbb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5804538f_562a6253",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/VirtioDevice.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-15T01:00:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6b182ea_d27bba9b",
+      "revId": "baa9ee652aac2e794341ad5d2f4fce3e15ee2bbb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "60d21937_9e9fa8a3",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/VirtioDevice.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-15T01:00:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78319364_454b3224",
+      "revId": "baa9ee652aac2e794341ad5d2f4fce3e15ee2bbb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "565edbb0_c1045b72",
         "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/VirtioDevice.h",
         "patchSetId": 4
@@ -101,6 +191,24 @@
       "revId": "baa9ee652aac2e794341ad5d2f4fce3e15ee2bbb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3043679_90c1d11f",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/VirtioDevice.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-15T01:00:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "565edbb0_c1045b72",
+      "revId": "baa9ee652aac2e794341ad5d2f4fce3e15ee2bbb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "8767d592_a7726fde",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/VirtioDevice.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-15T01:00:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abf31759_5b3e0778",
+      "revId": "baa9ee652aac2e794341ad5d2f4fce3e15ee2bbb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "755c6abf_cf39a7ff",
         "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/VirtioDevice.h",
         "patchSetId": 4
@@ -135,6 +261,24 @@
       "revId": "baa9ee652aac2e794341ad5d2f4fce3e15ee2bbb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57e2e8f2_7c887db2",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/VirtioDevice.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-15T01:00:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "755c6abf_cf39a7ff",
+      "revId": "baa9ee652aac2e794341ad5d2f4fce3e15ee2bbb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -205,6 +349,24 @@
       "revId": "baa9ee652aac2e794341ad5d2f4fce3e15ee2bbb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c77ad7e0_1d73360b",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/virtio_mmio.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-15T01:00:10Z",
+      "side": 1,
+      "message": "Done. I think I fixed all of them.",
+      "parentUuid": "aa9883c5_1d252535",
+      "revId": "baa9ee652aac2e794341ad5d2f4fce3e15ee2bbb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
