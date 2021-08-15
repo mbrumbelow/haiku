@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "26de269e_f2244f98",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/VirtioDevice.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-08-15T03:21:52Z",
+      "side": 1,
+      "message": "naming? usage?",
+      "revId": "1ef4f1fb900d8b7e2c0ea82fb756c317cb6a9233",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7fa746e3_434ec3ee",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/VirtioDevice.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-08-15T03:21:52Z",
+      "side": 1,
+      "message": "space after //, - after \"mark\"",
+      "revId": "1ef4f1fb900d8b7e2c0ea82fb756c317cb6a9233",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5574efe8_adbb0a2e",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/VirtioDevice.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-08-15T03:21:52Z",
+      "side": 1,
+      "message": "TRACE() or remove entirely, same below",
+      "revId": "1ef4f1fb900d8b7e2c0ea82fb756c317cb6a9233",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0ab3e62_9c07365a",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/VirtioDevice.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-08-15T03:21:52Z",
+      "side": 1,
+      "message": "same as above",
+      "revId": "1ef4f1fb900d8b7e2c0ea82fb756c317cb6a9233",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2018180_eb2c6537",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/virtio_mmio.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-08-15T03:21:52Z",
+      "side": 1,
+      "message": "naming",
+      "revId": "1ef4f1fb900d8b7e2c0ea82fb756c317cb6a9233",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40831d96_1e08ba8f",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/virtio_mmio.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-08-15T03:21:52Z",
+      "side": 1,
+      "message": "512 and 32 seem like magic constants. Do we have them defined anywhere?",
+      "revId": "1ef4f1fb900d8b7e2c0ea82fb756c317cb6a9233",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d42e944_804714d9",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/virtio_mmio.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-08-15T03:21:52Z",
+      "side": 1,
+      "message": "Bitflags should probably be an enum?",
+      "revId": "1ef4f1fb900d8b7e2c0ea82fb756c317cb6a9233",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a90ff9f_9b5b1ae9",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/virtio_mmio.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-08-15T03:21:52Z",
+      "side": 1,
+      "message": "Appears to be unnecessary debug helper, can be removed along with accompanying usages, or consolidated into proper TRACE statements?",
+      "revId": "1ef4f1fb900d8b7e2c0ea82fb756c317cb6a9233",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d87138c4_5f374863",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/virtio_mmio.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-08-15T03:21:52Z",
+      "side": 1,
+      "message": "probably belongs in the commit message, if anywhere",
+      "revId": "1ef4f1fb900d8b7e2c0ea82fb756c317cb6a9233",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
