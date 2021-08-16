@@ -335,6 +335,24 @@
     },
     {
       "key": {
+        "uuid": "33201ed2_2b0e208e",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/VirtioDevice.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-16T12:23:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfda20ee_46d1c775",
+      "revId": "baa9ee652aac2e794341ad5d2f4fce3e15ee2bbb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa9883c5_1d252535",
         "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/virtio_mmio.cpp",
         "patchSetId": 4
