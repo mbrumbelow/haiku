@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "95a3578e_d327f904",
+        "filename": "build/jam/packages/Haiku",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-16T07:16:47Z",
+      "side": 1,
+      "message": "virtio_mmio comes before virtio_pci.",
+      "revId": "44c0454a851bdf96acfc3007a64c2bc1c6be5cff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f511a5bd_bcf2edc1",
+        "filename": "build/jam/packages/Haiku",
+        "patchSetId": 3
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-16T07:16:47Z",
+      "side": 1,
+      "message": "virtio_mmio comes before virtio_pci",
+      "revId": "44c0454a851bdf96acfc3007a64c2bc1c6be5cff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "646c2e9a_f20d09ba",
+        "filename": "build/jam/packages/Haiku",
+        "patchSetId": 3
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-16T07:16:47Z",
+      "side": 1,
+      "message": "virtio comes before wacom",
+      "revId": "44c0454a851bdf96acfc3007a64c2bc1c6be5cff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
