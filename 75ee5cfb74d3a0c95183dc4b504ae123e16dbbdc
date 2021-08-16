@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c79ba39d_bcb44b7d",
+        "filename": "build/jam/ImageRules",
+        "patchSetId": 2
+      },
+      "lineNbr": 1562,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-16T11:17:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8b1857f_858271f2",
+      "revId": "75ee5cfb74d3a0c95183dc4b504ae123e16dbbdc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "87bc4067_f9086eae",
         "filename": "src/add-ons/kernel/file_systems/fat/encodings.cpp",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "75ee5cfb74d3a0c95183dc4b504ae123e16dbbdc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5638c1ec_558479fc",
+        "filename": "src/add-ons/kernel/file_systems/fat/encodings.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-16T11:17:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87bc4067_f9086eae",
+      "revId": "75ee5cfb74d3a0c95183dc4b504ae123e16dbbdc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
