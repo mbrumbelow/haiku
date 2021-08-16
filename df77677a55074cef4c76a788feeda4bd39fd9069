@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "109234a9_b523f0d8",
+        "filename": "src/apps/stylededit/SaveWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2021-08-16T01:48:13Z",
+      "side": 1,
+      "message": "I was just following an alternate license header style found in the Haiku Coding Style Guidelines. If wanted, I can change this.",
+      "parentUuid": "f522563e_3de9847c",
+      "revId": "df77677a55074cef4c76a788feeda4bd39fd9069",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bcb6b325_a8cedc2d",
         "filename": "src/apps/stylededit/SaveWindow.cpp",
         "patchSetId": 3
@@ -48,6 +66,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "bcb6b325_a8cedc2d",
+      "revId": "df77677a55074cef4c76a788feeda4bd39fd9069",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c082e4e2_6a3981cc",
+        "filename": "src/apps/stylededit/SaveWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2021-08-16T01:48:13Z",
+      "side": 1,
+      "message": "Truly done. :)",
+      "parentUuid": "8f5888bf_f571abaa",
       "revId": "df77677a55074cef4c76a788feeda4bd39fd9069",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
@@ -89,6 +125,24 @@
     },
     {
       "key": {
+        "uuid": "1cb022e8_b4d42dd0",
+        "filename": "src/apps/stylededit/SaveWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2021-08-16T01:48:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e8490a0_eb08534a",
+      "revId": "df77677a55074cef4c76a788feeda4bd39fd9069",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "152ea485_f3e7d597",
         "filename": "src/apps/stylededit/SaveWindow.cpp",
         "patchSetId": 3
@@ -100,6 +154,24 @@
       "writtenOn": "2021-08-10T03:08:55Z",
       "side": 1,
       "message": "Why loop is needed? Why asynchronous message sending can\u0027t be used?",
+      "revId": "df77677a55074cef4c76a788feeda4bd39fd9069",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c545938a_e5d99f9f",
+        "filename": "src/apps/stylededit/SaveWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2021-08-16T01:48:13Z",
+      "side": 1,
+      "message": "This is due to this code being modeled after BAlert. Specifically, since this window is only being used in the case that the application is quitting, the blocking nature of this function is so that the application doesn\u0027t end up quitting due to a window just allowing QuitRequested() to return.",
+      "parentUuid": "152ea485_f3e7d597",
       "revId": "df77677a55074cef4c76a788feeda4bd39fd9069",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -123,6 +195,24 @@
     },
     {
       "key": {
+        "uuid": "305c58c4_dd14b533",
+        "filename": "src/apps/stylededit/SaveWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2021-08-16T01:48:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80410a7c_c247272e",
+      "revId": "df77677a55074cef4c76a788feeda4bd39fd9069",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6af0ef0a_8ce567d8",
         "filename": "src/apps/stylededit/StyledEditApp.cpp",
         "patchSetId": 3
@@ -140,6 +230,24 @@
     },
     {
       "key": {
+        "uuid": "25873a4c_1412fa6b",
+        "filename": "src/apps/stylededit/StyledEditApp.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2021-08-16T01:48:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6af0ef0a_8ce567d8",
+      "revId": "df77677a55074cef4c76a788feeda4bd39fd9069",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1d562f9f_f07cd04c",
         "filename": "src/apps/stylededit/StyledEditApp.cpp",
         "patchSetId": 3
@@ -154,6 +262,24 @@
       "revId": "df77677a55074cef4c76a788feeda4bd39fd9069",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4170224c_424be082",
+        "filename": "src/apps/stylededit/StyledEditApp.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2021-08-16T01:48:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d562f9f_f07cd04c",
+      "revId": "df77677a55074cef4c76a788feeda4bd39fd9069",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -186,6 +312,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "41157a32_56f23fc5",
+      "revId": "df77677a55074cef4c76a788feeda4bd39fd9069",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d5deadb_77a536cf",
+        "filename": "src/apps/stylededit/StyledEditApp.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2021-08-16T01:48:13Z",
+      "side": 1,
+      "message": "Truly done too! :)",
+      "parentUuid": "56ae1152_8bef9e73",
       "revId": "df77677a55074cef4c76a788feeda4bd39fd9069",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
