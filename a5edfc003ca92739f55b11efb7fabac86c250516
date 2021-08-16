@@ -87,6 +87,24 @@
       "revId": "a5edfc003ca92739f55b11efb7fabac86c250516",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e1aa139_ace6f707",
+        "filename": "src/system/kernel/team.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-16T13:59:12Z",
+      "side": 1,
+      "message": "Why does it work better with this patch than without?",
+      "parentUuid": "7258980c_f6ec5403",
+      "revId": "a5edfc003ca92739f55b11efb7fabac86c250516",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
