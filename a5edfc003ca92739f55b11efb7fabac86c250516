@@ -105,6 +105,24 @@
       "revId": "a5edfc003ca92739f55b11efb7fabac86c250516",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e2441d0_38c2638d",
+        "filename": "src/system/kernel/team.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-16T14:03:31Z",
+      "side": 1,
+      "message": "Needed here: https://git.haiku-os.org/haiku/tree/src/system/kernel/arch/riscv64/arch_thread.cpp#n80. GetThreadAddressSpace is already removed in my branch.",
+      "parentUuid": "8e1aa139_ace6f707",
+      "revId": "a5edfc003ca92739f55b11efb7fabac86c250516",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
