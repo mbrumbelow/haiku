@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "823d7d04_463abb53",
+        "filename": "src/apps/stylededit/SaveWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-16T13:14:03Z",
+      "side": 1,
+      "message": "Put \u0027All rights reserved.\u0027 on line above",
+      "revId": "0982e2707659357d15b6c0cf33468590103d8f03",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3f74b695_8d33cb60",
         "filename": "src/apps/stylededit/SaveWindow.cpp",
         "patchSetId": 4
@@ -13,6 +30,23 @@
       "writtenOn": "2021-08-16T12:24:56Z",
       "side": 1,
       "message": "? operator should go at the beginning of next line.",
+      "revId": "0982e2707659357d15b6c0cf33468590103d8f03",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef1e0afb_14c577a1",
+        "filename": "src/apps/stylededit/SaveWindow.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-16T13:14:03Z",
+      "side": 1,
+      "message": "Put \u0027All rights reserved.\u0027 on line above",
       "revId": "0982e2707659357d15b6c0cf33468590103d8f03",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
