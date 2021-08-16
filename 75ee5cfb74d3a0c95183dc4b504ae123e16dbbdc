@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b8b1857f_858271f2",
+        "filename": "build/jam/ImageRules",
+        "patchSetId": 2
+      },
+      "lineNbr": 1562,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-16T07:10:42Z",
+      "side": 1,
+      "message": "Trailing tabs.",
+      "revId": "75ee5cfb74d3a0c95183dc4b504ae123e16dbbdc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87bc4067_f9086eae",
+        "filename": "src/add-ons/kernel/file_systems/fat/encodings.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-16T07:10:42Z",
+      "side": 1,
+      "message": "stdlib.h comes after stdio.h",
+      "revId": "75ee5cfb74d3a0c95183dc4b504ae123e16dbbdc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
