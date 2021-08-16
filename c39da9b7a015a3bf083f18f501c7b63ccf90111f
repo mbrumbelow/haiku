@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "08c9ca57_515b498d",
+        "filename": "src/preferences/time/DateTimeEdit.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-16T17:10:13Z",
+      "side": 0,
+      "message": "Remove this newline as well.",
+      "revId": "c39da9b7a015a3bf083f18f501c7b63ccf90111f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}

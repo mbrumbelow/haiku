@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0c6b518_5a34dab0",
+        "filename": "src/preferences/time/BaseView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-16T17:10:13Z",
+      "side": 1,
+      "message": "Remove this newline as well.",
+      "revId": "094498bf0d40165ed998108c1c74e5b6aeed8128",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
