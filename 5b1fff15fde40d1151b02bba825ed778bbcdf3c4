@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ec1c1eb_e023f387",
+        "filename": "src/system/kernel/arch/generic/debug_uart_8250.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-16T21:15:46Z",
+      "side": 1,
+      "message": "this might be \"good enough\" for arm64 as well?",
+      "revId": "5b1fff15fde40d1151b02bba825ed778bbcdf3c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
