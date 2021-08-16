@@ -69,6 +69,24 @@
       "revId": "a5edfc003ca92739f55b11efb7fabac86c250516",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7258980c_f6ec5403",
+        "filename": "src/system/kernel/team.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-16T13:50:55Z",
+      "side": 1,
+      "message": "No. VMAddressSpace::Kernel() is a wrapper over global variable.",
+      "parentUuid": "41a481cd_885bd3a4",
+      "revId": "a5edfc003ca92739f55b11efb7fabac86c250516",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
