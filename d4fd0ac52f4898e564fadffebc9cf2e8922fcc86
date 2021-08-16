@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "44a6f67a_aed48886",
+        "filename": "build/jam/packages/Haiku",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-16T13:58:04Z",
+      "side": 1,
+      "message": "I would prefer to add !gcc2 to virtio_mmio.",
+      "revId": "d4fd0ac52f4898e564fadffebc9cf2e8922fcc86",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
