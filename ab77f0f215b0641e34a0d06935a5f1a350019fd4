@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3d586a87_7be9d8d3",
+        "filename": "src/add-ons/kernel/busses/virtio/Jamfile",
+        "patchSetId": 9
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-16T07:38:53Z",
+      "side": 1,
+      "message": "virtio_mmio comes before virtio_pci",
+      "revId": "ab77f0f215b0641e34a0d06935a5f1a350019fd4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8084b77d_bd42d01f",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/VirtioDevice.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-16T07:38:53Z",
+      "side": 1,
+      "message": ": goes on the next line.",
+      "revId": "ab77f0f215b0641e34a0d06935a5f1a350019fd4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37b53f00_dd55b5b1",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/VirtioDevice.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-16T07:38:53Z",
+      "side": 1,
+      "message": "usually it\u0027s one initializer per line.",
+      "revId": "ab77f0f215b0641e34a0d06935a5f1a350019fd4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74b7b9af_581125cd",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/VirtioDevice.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-16T07:38:53Z",
+      "side": 1,
+      "message": "it should be addr_t instead of size_t (three times).",
+      "revId": "ab77f0f215b0641e34a0d06935a5f1a350019fd4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80ffaed5_17320ac5",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/VirtioDevice.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-16T07:38:53Z",
+      "side": 1,
+      "message": "space around /",
+      "revId": "ab77f0f215b0641e34a0d06935a5f1a350019fd4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a7df088_617183c2",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/VirtioDevice.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-16T07:38:53Z",
+      "side": 1,
+      "message": "space around * and /",
+      "revId": "ab77f0f215b0641e34a0d06935a5f1a350019fd4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "025c69e1_a2843260",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/virtio_mmio.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-16T07:38:53Z",
+      "side": 1,
+      "message": "from the style guide: \"Don’t assign in if and while statements:\"",
+      "revId": "ab77f0f215b0641e34a0d06935a5f1a350019fd4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24b9b43a_fb70bc69",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/virtio_mmio.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-16T07:38:53Z",
+      "side": 1,
+      "message": "missing newline",
+      "revId": "ab77f0f215b0641e34a0d06935a5f1a350019fd4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f305ec52_0c3c1f1f",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/virtio_mmio.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-16T07:38:53Z",
+      "side": 1,
+      "message": "missing newline",
+      "revId": "ab77f0f215b0641e34a0d06935a5f1a350019fd4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c62160b6_078ce75f",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/virtio_mmio.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-16T07:38:53Z",
+      "side": 1,
+      "message": "no need to break arguments on newlines.",
+      "revId": "ab77f0f215b0641e34a0d06935a5f1a350019fd4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
