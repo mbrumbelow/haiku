@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "2e6bfcc0_e89510b0",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/VirtioDevice.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-16T13:34:53Z",
+      "side": 1,
+      "message": "It could be included as private class method. Still allowed in our style guide.",
+      "parentUuid": "e18fd0b8_d542fc3d",
+      "revId": "1ef4f1fb900d8b7e2c0ea82fb756c317cb6a9233",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7fa746e3_434ec3ee",
         "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/VirtioDevice.cpp",
         "patchSetId": 8
@@ -212,6 +230,24 @@
     },
     {
       "key": {
+        "uuid": "4e10a2de_1002f542",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/virtio_mmio.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-16T13:34:53Z",
+      "side": 1,
+      "message": "This function is a copy of _DumpFeatures. https://git.haiku-os.org/haiku/tree/src/add-ons/kernel/bus_managers/virtio/VirtioDevice.cpp#n279\n\nThis would gain to be a private static method, and/or could be factorized somehow.",
+      "parentUuid": "03483158_d9f21882",
+      "revId": "1ef4f1fb900d8b7e2c0ea82fb756c317cb6a9233",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3d42e944_804714d9",
         "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/virtio_mmio.cpp",
         "patchSetId": 8
@@ -241,6 +277,24 @@
       "side": 1,
       "message": "What do you mean? Adjust to (1 \u003c\u003c kVirtioConfigSFeaturesOk)?",
       "parentUuid": "3d42e944_804714d9",
+      "revId": "1ef4f1fb900d8b7e2c0ea82fb756c317cb6a9233",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b17e1bd_6814f160",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/virtio_mmio.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-16T13:34:53Z",
+      "side": 1,
+      "message": "not sure what waddlesplash means, maybe the type of status in the struct.",
+      "parentUuid": "efa18112_546a7edc",
       "revId": "1ef4f1fb900d8b7e2c0ea82fb756c317cb6a9233",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
