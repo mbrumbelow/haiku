@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "a11f8265_22220d9a",
+        "filename": "src/apps/stylededit/SaveWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-16T12:24:56Z",
+      "side": 1,
+      "message": "This still looks funny to me but I can live with it. If our guidelines don\u0027t match what we\u0027ve been doing in code that may be a problem... Same inconsistency in header file.",
+      "parentUuid": "109234a9_b523f0d8",
+      "revId": "df77677a55074cef4c76a788feeda4bd39fd9069",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bcb6b325_a8cedc2d",
         "filename": "src/apps/stylededit/SaveWindow.cpp",
         "patchSetId": 3
