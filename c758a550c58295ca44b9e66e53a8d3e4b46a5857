@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a5efdaa_93678ed1",
+        "filename": "src/preferences/time/Time.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-17T07:47:13Z",
+      "side": 1,
+      "message": "Julun  and Philippe Saint-Pierre are two different people",
+      "revId": "c758a550c58295ca44b9e66e53a8d3e4b46a5857",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
