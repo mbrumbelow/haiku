@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "8b1bd5e7_9af8e9b3",
+        "filename": "src/servers/debug/DebugServer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-08-17T18:34:54Z",
+      "side": 1,
+      "message": "this line is larger than 80 columns",
+      "revId": "cd7fbf2a950c367d3ec7c7e543fd6890aebb387c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "734ad489_ecc521bd",
         "filename": "src/servers/debug/DebugServer.cpp",
         "patchSetId": 2
@@ -13,6 +30,24 @@
       "writtenOn": "2021-08-12T21:21:17Z",
       "side": 1,
       "message": "line length \u003e 80.  I also don\u0027t fully understand the change on this one.. Someone more familiar with our DebugServer will need to review",
+      "revId": "cd7fbf2a950c367d3ec7c7e543fd6890aebb387c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc8bdbbb_e053eeae",
+        "filename": "src/servers/debug/DebugServer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 982,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-08-17T18:34:54Z",
+      "side": 1,
+      "message": "Indeed I do not understand this without further explanation. If it\u0027s really needed, please explain why in a comment.",
+      "parentUuid": "734ad489_ecc521bd",
       "revId": "cd7fbf2a950c367d3ec7c7e543fd6890aebb387c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
