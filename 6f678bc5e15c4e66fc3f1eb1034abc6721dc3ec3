@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d805ea0b_28991183",
+        "filename": "src/preferences/time/Time.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2021-08-17T15:38:42Z",
+      "side": 1,
+      "message": "Maybe a comma to separate items? :-)\nAnd they seemed to be in lexicographical order (the guidelines say by last name in the copyright headers, not sure if that applies here and how strong that rule is, especially when all you have is \"Julun\" and originally \"McCall\" was before \"Berg\").",
+      "revId": "6f678bc5e15c4e66fc3f1eb1034abc6721dc3ec3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
