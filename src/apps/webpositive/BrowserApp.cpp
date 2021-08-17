@@ -375,6 +375,8 @@ BrowserApp::RefsReceived(BMessage* message)
 bool
 BrowserApp::QuitRequested()
 {
+	/* _RemoveFinishedDownloads(); */
+	
 	if (fDownloadWindow->DownloadsInProgress()) {
 		BAlert* alert = new BAlert(B_TRANSLATE("Downloads in progress"),
 			B_TRANSLATE("There are still downloads in progress, do you really "

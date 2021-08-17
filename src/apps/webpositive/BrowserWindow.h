@@ -203,6 +203,7 @@ private:
 			void				_ToggleFullscreen();
 			void				_ResizeToScreen();
 			void				_SetAutoHideInterfaceInFullscreen(bool doIt);
+			void				_SetRemoveFinishedDownloadsOnExit(bool doIt);
 			void				_CheckAutoHideInterface();
 			void				_ShowInterface(bool show);
 			void				_ShowProgressBar(bool);
