@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "da207868_20713468",
+        "filename": "src/kits/tracker/IconCache.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 786,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-08-17T18:29:47Z",
+      "side": 1,
+      "message": "I prefer the \"ruined\" version on multiple lines, really. There is no coding style violation here but this is just unreadable.\n\nPlease consider something like this which would be much better:\n\n    status_t result;\n    \n    if (model-\u003eIsExecutable() \u0026\u0026 (file \u003d dynamic_cast\u003cBFile*\u003e(model-\u003eNode()) !\u003d NULL)\n        result \u003d GetAppIconFromAttr(file, lazyBitmap-\u003eGet(), size);\n    else\n        result \u003d GetFileIconFromAttr(model, lazyBitmap-\u003eGet(), size));\n\nOr if you really want to use a ternary:\n\n    bool isApp \u003d (model-\u003eIsExecutable() \u0026\u0026 (file \u003d dynamic_cast\u003cBFile*\u003e(model-\u003eNode()) !\u003d NULL);\n    \n    status_t result \u003d isApp? GetAppIconFromAttr(file, \nlazyBitmap-\u003eGet(), size) : GetFileIconFromAttr(model, lazyBitmap-\u003eGet(), size));",
+      "parentUuid": "6fe31ed0_0e38b4d2",
+      "revId": "74fe1145ce02640ffbb4fdf63cb5d4b910e39152",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d7fddd82_581e1b47",
         "filename": "src/kits/tracker/SettingsViews.cpp",
         "patchSetId": 16
@@ -54,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "887f7986_7934b0ef",
+        "filename": "src/kits/tracker/SettingsViews.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-08-17T18:29:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7fddd82_581e1b47",
+      "revId": "74fe1145ce02640ffbb4fdf63cb5d4b910e39152",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c7b256f4_7c5c60c7",
         "filename": "src/kits/tracker/Tracker.cpp",
         "patchSetId": 16
@@ -68,6 +104,24 @@
       "revId": "74fe1145ce02640ffbb4fdf63cb5d4b910e39152",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a775aa52_b5d928de",
+        "filename": "src/kits/tracker/Tracker.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-08-17T18:29:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7b256f4_7c5c60c7",
+      "revId": "74fe1145ce02640ffbb4fdf63cb5d4b910e39152",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
