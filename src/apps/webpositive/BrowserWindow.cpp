@@ -1156,6 +1156,9 @@ BrowserWindow::MessageReceived(BMessage* message)
 			} else if (name == kSettingsKeyAutoHideInterfaceInFullscreenMode
 				&& message->FindBool("value", &flag) == B_OK) {
 				_SetAutoHideInterfaceInFullscreen(flag);
+			} else if (name == kSettingsKeyRemoveFinishedDownloadsOnExit
+				&& message->FindBool("value", &flag) == B_OK) {
+				_SetRemoveFinishedDownloadsOnExit(flag);				
 			} else if (name == kSettingsKeyShowHomeButton
 				&& message->FindBool("value", &flag) == B_OK) {
 				if (flag)
@@ -2345,6 +2348,12 @@ BrowserWindow::_SetAutoHideInterfaceInFullscreen(bool doIt)
 		fPulseRunner = NULL;
 		_ShowInterface(true);
 	}
+}
+
+
+void
+BrowserWindow::_SetRemoveFinishedDownloadsOnExit(bool doIt)
+{
 }
 
 
