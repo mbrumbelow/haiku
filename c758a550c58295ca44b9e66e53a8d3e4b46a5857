@@ -34,6 +34,24 @@
       "revId": "c758a550c58295ca44b9e66e53a8d3e4b46a5857",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a04df8c_09169bb0",
+        "filename": "src/preferences/time/Time.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2021-08-17T15:21:34Z",
+      "side": 1,
+      "message": "You also want to end the array with a NULL item.",
+      "parentUuid": "ae51c6c3_e78c823d",
+      "revId": "c758a550c58295ca44b9e66e53a8d3e4b46a5857",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
