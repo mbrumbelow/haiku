@@ -16,6 +16,24 @@
       "revId": "6f678bc5e15c4e66fc3f1eb1034abc6721dc3ec3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "208a4229_8f45d1f0",
+        "filename": "src/preferences/time/Time.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2021-08-17T15:42:26Z",
+      "side": 1,
+      "message": "I kept getting mixed responses when I asked about the copyright headers in source files. I probably missed this in the guidelines. Seems to be by last name here, I\u0027ll go by it:\n\n- https://github.com/haiku/haiku/blob/8f16317a5b6db5c672f331814273e5857555020f/src/preferences/locale/LocalePreflet.cpp#L79\n\nAs far as commas between the names are concerned, that\u0027s definitely not a thing.",
+      "parentUuid": "d805ea0b_28991183",
+      "revId": "6f678bc5e15c4e66fc3f1eb1034abc6721dc3ec3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
