@@ -34,6 +34,24 @@
       "revId": "a40fc161cf44d69293d7b2f613fdb9369eabc1bf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f0491d4_f74302b1",
+        "filename": "src/kits/interface/DecorInfo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-08-17T18:13:03Z",
+      "side": 1,
+      "message": "Well, it doesn\u0027t make a lot of sense to have it in Appearance but then it doesn\u0027t make a lot of sense to have it in the global gSystemCatalog either. So I guess either are fine.\n\nHowever, it is now completely untranslated, since Appearance was not adjusted to translate it. So that\u0027s a regression we should fix before merging this.",
+      "parentUuid": "f51ca60e_67604bac",
+      "revId": "a40fc161cf44d69293d7b2f613fdb9369eabc1bf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
