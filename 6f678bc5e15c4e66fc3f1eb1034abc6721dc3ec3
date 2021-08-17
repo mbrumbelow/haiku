@@ -34,6 +34,24 @@
       "revId": "6f678bc5e15c4e66fc3f1eb1034abc6721dc3ec3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc5cd969_d6fde530",
+        "filename": "src/preferences/time/Time.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2021-08-17T15:51:22Z",
+      "side": 1,
+      "message": "Not between the names, but the items of the array. Currently one item is \"Philippe Saint-PierreJulun\", as the two strings are concatenated.",
+      "parentUuid": "208a4229_8f45d1f0",
+      "revId": "6f678bc5e15c4e66fc3f1eb1034abc6721dc3ec3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
