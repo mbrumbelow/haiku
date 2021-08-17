@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6574b2ad_30a7b022",
+        "filename": "src/system/kernel/arch/ppc/arch_platform.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-17T11:40:27Z",
+      "side": 1,
+      "message": "Why keep only this comment?",
+      "revId": "950f68e3b2b5322eab76e73ece031b08039d4b80",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
