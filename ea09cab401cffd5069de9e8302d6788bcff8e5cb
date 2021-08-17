@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "172d8d01_d336f97e",
+        "filename": "headers/private/kernel/arch/riscv64/arch_kernel_args.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-17T23:04:13Z",
+      "side": 1,
+      "message": "This struct can be moved to some common header and shared with ARM, PPC or even x86.",
+      "revId": "ea09cab401cffd5069de9e8302d6788bcff8e5cb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8e4b915_9b36cbb9",
+        "filename": "headers/private/kernel/arch/riscv64/arch_kernel_args.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-17T23:04:13Z",
+      "side": 1,
+      "message": "Why 32? Does FDT documentation says something about maximum \"compatible\" string length?",
+      "revId": "ea09cab401cffd5069de9e8302d6788bcff8e5cb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d2a4be9c_9bea3217",
         "filename": "src/system/boot/platform/efi/dtb.cpp",
         "patchSetId": 1

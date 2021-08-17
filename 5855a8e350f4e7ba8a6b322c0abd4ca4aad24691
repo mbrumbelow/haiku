@@ -16,6 +16,23 @@
       "revId": "5855a8e350f4e7ba8a6b322c0abd4ca4aad24691",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1ac450d_fae60bb4",
+        "filename": "src/system/kernel/arch/riscv64/arch_debug_console.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-17T23:04:13Z",
+      "side": 0,
+      "message": "This code can be moved in separate common function and be shared between RISC-V, ARM and PPC. It can be used like old UART from FDT function.",
+      "revId": "5855a8e350f4e7ba8a6b322c0abd4ca4aad24691",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
