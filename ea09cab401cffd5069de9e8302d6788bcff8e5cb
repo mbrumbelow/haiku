@@ -71,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "29991492_434b277b",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-08-17T23:35:16Z",
+      "side": 1,
+      "message": "In addition, I\u0027d invert this condition to reduce unnecessary indentation:\nif (sUart.kind !\u003d NULL)\n  return;",
+      "parentUuid": "e6e9b0a9_7d070444",
+      "revId": "ea09cab401cffd5069de9e8302d6788bcff8e5cb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "daff5e61_925dc8f7",
         "filename": "src/system/kernel/arch/riscv64/arch_debug_console.cpp",
         "patchSetId": 1
