@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "333cc4bb_036c357c",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 827,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-08-17T07:20:06Z",
+      "side": 1,
+      "message": "Doesn\u0027t that make the dot off-center by 1 pixel?\n\nDo you happen to have before/after screenshots?",
+      "revId": "a0900ac53094a10b5c0cc6faf304274a4d9c7560",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
