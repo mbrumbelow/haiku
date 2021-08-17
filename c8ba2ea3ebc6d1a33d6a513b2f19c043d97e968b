@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "33d2b689_ae373aef",
+        "filename": "src/tools/fs_shell/vfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3728,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-08-17T18:46:48Z",
+      "side": 0,
+      "message": "can we use #if (INTPTR_WIDTH \u003d\u003d 64) here instead? Then it would work for all 64bit architectures.",
+      "revId": "c8ba2ea3ebc6d1a33d6a513b2f19c043d97e968b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
