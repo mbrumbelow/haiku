@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d2a4be9c_9bea3217",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-17T18:27:26Z",
+      "side": 1,
+      "message": "maybe gUART \u003d\u003d NULL would be better here?",
+      "revId": "ea09cab401cffd5069de9e8302d6788bcff8e5cb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "daff5e61_925dc8f7",
+        "filename": "src/system/kernel/arch/riscv64/arch_debug_console.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-17T18:27:26Z",
+      "side": 1,
+      "message": "I chose not to use the logic in the bootloader here since the bootloader code is \"all architectures\" while the kernel debug console is \"one architecture\"\n\nThe logic may change around which uarts are available once we get into the kernel.\n\nThe dtb.cpp in efi doesn\u0027t need any architecture macros today.. but it may in the future.",
+      "revId": "ea09cab401cffd5069de9e8302d6788bcff8e5cb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}

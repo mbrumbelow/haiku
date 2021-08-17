@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57dd888a_7f4636ea",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-17T18:27:26Z",
+      "side": 0,
+      "message": "Hm. I don\u0027t handle the undefined/none case well here.",
+      "revId": "5855a8e350f4e7ba8a6b322c0abd4ca4aad24691",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
