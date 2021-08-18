@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "742235f8_4d1ac072",
+        "filename": "src/apps/webpositive/BrowserApp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-18T05:22:45Z",
+      "side": 1,
+      "message": "Is it actually implemented?",
+      "revId": "215027a7d3aea36ec8a14875f33b73c88741d19d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de78c7c4_0c955344",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1161,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-18T05:22:45Z",
+      "side": 1,
+      "message": "Trailing tabs",
+      "revId": "215027a7d3aea36ec8a14875f33b73c88741d19d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c09811ae_ff238350",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2356,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-18T05:22:45Z",
+      "side": 1,
+      "message": "It looks unimplemented.",
+      "revId": "215027a7d3aea36ec8a14875f33b73c88741d19d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30fd1311_e671a651",
+        "filename": "src/apps/webpositive/SettingsKeys.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-18T05:22:45Z",
+      "side": 1,
+      "message": "Trailing space",
+      "revId": "215027a7d3aea36ec8a14875f33b73c88741d19d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
