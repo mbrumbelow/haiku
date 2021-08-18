@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "1b1b2592_98755178",
+        "filename": "headers/private/kernel/arch/riscv64/arch_kernel_args.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-18T00:21:38Z",
+      "side": 1,
+      "message": "It can be applied not only for EFI, but to u-boot, openfirmware, riscv as well.",
+      "parentUuid": "92c177c5_8fd7719b",
+      "revId": "ea09cab401cffd5069de9e8302d6788bcff8e5cb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e8e4b915_9b36cbb9",
         "filename": "headers/private/kernel/arch/riscv64/arch_kernel_args.h",
         "patchSetId": 1
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "I just chose a length \"big enough\" for all the uart compats I could find. We could choose anything here.  Open to alternatives if it seems too small.\n\nI don\u0027t think there\u0027s any limit on uart compat length, however i\u0027m also trying to keep arch_args slim.\n\n*ALSO* we don\u0027t have to put the fdt compat here at all.  We could turn arm,pl011 into a shortened + abstract  \"pl011\", \"8250\", etc stored in kSupportedUarts (kSupportUarts[0].name?)",
       "parentUuid": "e8e4b915_9b36cbb9",
+      "revId": "ea09cab401cffd5069de9e8302d6788bcff8e5cb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66d5e6f5_f9d878f2",
+        "filename": "headers/private/kernel/arch/riscv64/arch_kernel_args.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-18T00:21:38Z",
+      "side": 1,
+      "message": "\u003e *ALSO* we don\u0027t have to put the fdt compat here at all.  We could turn arm,pl011 into a shortened + abstract  \"pl011\", \"8250\"\n\nThat would be probably better.",
+      "parentUuid": "d76f904e_69d7d16e",
       "revId": "ea09cab401cffd5069de9e8302d6788bcff8e5cb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
