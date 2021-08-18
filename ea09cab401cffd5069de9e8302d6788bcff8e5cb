@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "92c177c5_8fd7719b",
+        "filename": "headers/private/kernel/arch/riscv64/arch_kernel_args.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-18T00:15:36Z",
+      "side": 1,
+      "message": "I actually agree. I could standardize this into a \"platform_uart_info\"? for efi?  The fields seem pretty architecture agnostic.",
+      "parentUuid": "172d8d01_d336f97e",
+      "revId": "ea09cab401cffd5069de9e8302d6788bcff8e5cb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e8e4b915_9b36cbb9",
         "filename": "headers/private/kernel/arch/riscv64/arch_kernel_args.h",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2021-08-17T23:04:13Z",
       "side": 1,
       "message": "Why 32? Does FDT documentation says something about maximum \"compatible\" string length?",
+      "revId": "ea09cab401cffd5069de9e8302d6788bcff8e5cb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d76f904e_69d7d16e",
+        "filename": "headers/private/kernel/arch/riscv64/arch_kernel_args.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-18T00:15:36Z",
+      "side": 1,
+      "message": "I just chose a length \"big enough\" for all the uart compats I could find. We could choose anything here.  Open to alternatives if it seems too small.\n\nI don\u0027t think there\u0027s any limit on uart compat length, however i\u0027m also trying to keep arch_args slim.\n\n*ALSO* we don\u0027t have to put the fdt compat here at all.  We could turn arm,pl011 into a shortened + abstract  \"pl011\", \"8250\", etc stored in kSupportedUarts (kSupportUarts[0].name?)",
+      "parentUuid": "e8e4b915_9b36cbb9",
       "revId": "ea09cab401cffd5069de9e8302d6788bcff8e5cb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -50,6 +86,24 @@
       "revId": "ea09cab401cffd5069de9e8302d6788bcff8e5cb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afe4a2a2_4e849ff6",
+        "filename": "headers/private/kernel/boot/platform/efi/arch_smp.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-18T00:15:36Z",
+      "side": 1,
+      "message": "I broke these changes off into another patch.   If you\u0027re actively working on SMP i\u0027ll hold off on pushing them up.\n\nJust an idea though.. the \"individual cpu id struct\" could be made an efi-universal thing instead of a riscv64 only thing (arm and arm64 could use something similar)",
+      "parentUuid": "93f0064d_0f232661",
+      "revId": "ea09cab401cffd5069de9e8302d6788bcff8e5cb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
