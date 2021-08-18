@@ -248,6 +248,24 @@
     },
     {
       "key": {
+        "uuid": "c26d26b9_4cf57bd2",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/virtio_mmio.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-18T06:16:52Z",
+      "side": 1,
+      "message": "UINT_WIDTH might work",
+      "parentUuid": "4e10a2de_1002f542",
+      "revId": "1ef4f1fb900d8b7e2c0ea82fb756c317cb6a9233",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3d42e944_804714d9",
         "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/virtio_mmio.cpp",
         "patchSetId": 8
