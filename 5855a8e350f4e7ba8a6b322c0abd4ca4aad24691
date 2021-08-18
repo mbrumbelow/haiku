@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "a23abb7e_d1b733f2",
+        "filename": "headers/private/kernel/arch/riscv64/arch_kernel_args.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-18T01:02:30Z",
+      "side": 0,
+      "message": "This can be converted to #define UART_KIND_SIFIVE \"sifive\" to avoid ordinal misalignment.",
+      "parentUuid": "7c4bab37_29d3c7a1",
+      "revId": "5855a8e350f4e7ba8a6b322c0abd4ca4aad24691",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "57dd888a_7f4636ea",
         "filename": "src/system/boot/platform/efi/dtb.cpp",
         "patchSetId": 1
