@@ -103,17 +103,12 @@ arch_debug_serial_early_boot_message(const char *string)
 status_t
 arch_debug_console_init(kernel_args *args)
 {
-	switch (args->arch_args.uart.kind) {
-		case kUartKind8250:
-			sArchDebugUART = arch_get_uart_8250(args->arch_args.uart.regs.start,
-				args->arch_args.uart.clock);
-			break;
-		case kUartKindSifive:
-			sArchDebugUART = arch_get_uart_sifive(args->arch_args.uart.regs.start,
-				args->arch_args.uart.clock);
-			break;
-		default:
-			;
+	if (strcmp(args->arch_args.uart.kind, UART_DRIVER_8250) == 0) {
+		sArchDebugUART = arch_get_uart_8250(args->arch_args.uart.regs.start,
+			args->arch_args.uart.clock);
+	} else if (strcmp(args->arch_args.uart.kind, UART_DRIVER_SIFIVE) == 0) {
+		sArchDebugUART = arch_get_uart_sifive(args->arch_args.uart.regs.start,
+			args->arch_args.uart.clock);
 	}
 
 	if (sArchDebugUART != NULL)
