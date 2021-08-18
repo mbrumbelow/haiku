@@ -36,6 +36,23 @@
     },
     {
       "key": {
+        "uuid": "93f0064d_0f232661",
+        "filename": "headers/private/kernel/boot/platform/efi/arch_smp.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-18T00:04:32Z",
+      "side": 1,
+      "message": "For RISC-V HART ID comes here in my SMP branch.",
+      "revId": "ea09cab401cffd5069de9e8302d6788bcff8e5cb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d2a4be9c_9bea3217",
         "filename": "src/system/boot/platform/efi/dtb.cpp",
         "patchSetId": 1
