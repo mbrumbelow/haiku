@@ -15,6 +15,15 @@
 
 #define _PACKED __attribute__((packed))
 
+
+typedef struct {
+        char kind[32];
+        addr_range regs;
+        uint32 irq;
+        int64 clock;
+} _PACKED arch_uart_info;
+
+
 // kernel args
 typedef struct {
 	int		cpu_type; 
@@ -31,6 +40,8 @@ typedef struct {
 	// needed for UEFI, otherwise kernel acpi support can't find ACPI root
 	FixedWidthPointer<void> acpi_root;
 	FixedWidthPointer<void> fdt;
+
+	arch_uart_info	uart;
 } _PACKED arch_kernel_args;
 
 #endif	/* KERNEL_ARCH_ARM_KERNEL_ARGS_H */

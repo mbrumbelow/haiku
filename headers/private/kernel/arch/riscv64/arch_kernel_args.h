@@ -24,20 +24,13 @@ enum {
 	kPlatformSbi,
 };
 
-enum {
-	kUartKindNone,
-	kUartKind8250,
-	kUartKindSifive,
-	kUartKindPl011,
-};
-
 
 typedef struct {
-	uint32 kind;
+	char kind[32];
 	addr_range regs;
 	uint32 irq;
 	int64 clock;
-} _PACKED ArchUart;
+} _PACKED arch_uart_info;
 
 
 // kernel args
@@ -62,7 +55,8 @@ typedef struct {
 	addr_range	htif;
 	addr_range	plic;
 	addr_range	clint;
-	ArchUart    uart;
+
+	arch_uart_info	uart;
 } _PACKED arch_kernel_args;
 
 #endif	/* KERNEL_ARCH_RISCV64_KERNEL_ARGS_H */
