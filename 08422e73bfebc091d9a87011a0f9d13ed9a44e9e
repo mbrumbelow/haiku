@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1194756e_ac62edbd",
+        "filename": "headers/private/kernel/boot/uart.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-19T17:23:17Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "32d4315d_84e5b556",
+      "revId": "08422e73bfebc091d9a87011a0f9d13ed9a44e9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5b8aad8b_19f6ced1",
         "filename": "src/system/boot/platform/efi/dtb.cpp",
         "patchSetId": 12
@@ -51,6 +69,24 @@
       "revId": "08422e73bfebc091d9a87011a0f9d13ed9a44e9e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef86895a_5624202a",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-19T17:23:17Z",
+      "side": 1,
+      "message": "done.  I think checking for gUART would be more reliable potentially, but it\u0027s the same result either way.",
+      "parentUuid": "e17dfb58_4c7fecb8",
+      "revId": "08422e73bfebc091d9a87011a0f9d13ed9a44e9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
