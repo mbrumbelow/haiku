@@ -108,6 +108,24 @@
     },
     {
       "key": {
+        "uuid": "af10d119_99258b83",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-19T14:32:46Z",
+      "side": 0,
+      "message": "it\u0027ll just be blank.  which actually should be good enough since nothing will match it later on.",
+      "parentUuid": "57dd888a_7f4636ea",
+      "revId": "5855a8e350f4e7ba8a6b322c0abd4ca4aad24691",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c1ac450d_fae60bb4",
         "filename": "src/system/kernel/arch/riscv64/arch_debug_console.cpp",
         "patchSetId": 1
@@ -137,6 +155,24 @@
       "side": 0,
       "message": "Good eye!   yeah, I had the same thought. (see my comment above)\n\nThe it\u0027s a bit weird to share code here since the uart is \"efi all architectures\" while the kernel is \"per-arch uart\"",
       "parentUuid": "c1ac450d_fae60bb4",
+      "revId": "5855a8e350f4e7ba8a6b322c0abd4ca4aad24691",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf2588f5_6a6f2c4c",
+        "filename": "src/system/kernel/arch/riscv64/arch_debug_console.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-19T14:32:46Z",
+      "side": 0,
+      "message": "I think some of this logic could be moved to some new higher level kernel \"src/system/kernel/boot_uart.cpp\",  but I\u0027d argue that is a good candidate for a separate change since a lot is already happening in this one.",
+      "parentUuid": "4ce6866a_985bc60e",
       "revId": "5855a8e350f4e7ba8a6b322c0abd4ca4aad24691",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
