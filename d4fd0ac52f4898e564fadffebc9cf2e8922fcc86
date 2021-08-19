@@ -16,6 +16,24 @@
       "revId": "d4fd0ac52f4898e564fadffebc9cf2e8922fcc86",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4db48be_3e49a74e",
+        "filename": "build/jam/packages/Haiku",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-19T22:39:54Z",
+      "side": 1,
+      "message": "virtio_mmio / fdt now targets arm,arm64,riscv64",
+      "parentUuid": "44a6f67a_aed48886",
+      "revId": "d4fd0ac52f4898e564fadffebc9cf2e8922fcc86",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
