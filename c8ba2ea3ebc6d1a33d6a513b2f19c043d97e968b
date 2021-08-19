@@ -16,6 +16,24 @@
       "revId": "c8ba2ea3ebc6d1a33d6a513b2f19c043d97e968b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63f1b47b_804ec80a",
+        "filename": "src/tools/fs_shell/vfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3728,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-19T19:00:10Z",
+      "side": 0,
+      "message": "#if defined(__x86_64__) || defined(__aarch64__) || defined (__APPLE__)\n\nStarts to get a little crazy once you start adding in all the different 64-bit architectures we might some day support. I thought about this earlier but I lost track of the patch set.",
+      "parentUuid": "33d2b689_ae373aef",
+      "revId": "c8ba2ea3ebc6d1a33d6a513b2f19c043d97e968b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
