@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a264ab86_bf4ac454",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-08-19T23:55:33Z",
+      "side": 1,
+      "message": "Given your uses of `strcmp` with the empty string, this needs an initializer, else your strcmp tests are invalid.",
+      "revId": "de00918be154488872e13f4a7a474d0efb634d2a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
