@@ -16,6 +16,24 @@
       "revId": "8334cd19c4b37ac7abc043f05322fa2543180812",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1357b3f3_a0c19a13",
+        "filename": "src/system/kernel/arch/riscv64/arch_debug_console.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-19T19:33:50Z",
+      "side": 1,
+      "message": "yeah..  I was questioning that a little. I think strcmp actually internally guards going over \\0.  *ALSO* strlen just counts characters until \\0 and not the size of the buffer which means you\u0027re essentially checking for the same thing unneededly.\n\nI\u0027ve updated strlen to sizeof so it actually guards the edge case of an unterminated string.",
+      "parentUuid": "82ef798e_fb050756",
+      "revId": "8334cd19c4b37ac7abc043f05322fa2543180812",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
