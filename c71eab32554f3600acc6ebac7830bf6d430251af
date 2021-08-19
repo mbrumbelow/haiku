@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "09cc3a6f_3a9d4ef3",
+        "filename": "headers/private/kernel/boot/uart.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-19T18:50:40Z",
+      "side": 1,
+      "message": "#endif // KERNEL_BOOT_UART_H",
+      "revId": "c71eab32554f3600acc6ebac7830bf6d430251af",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "267b9010_25c7a689",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-19T18:50:40Z",
+      "side": 1,
+      "message": "goodbye string.h with below change",
+      "revId": "c71eab32554f3600acc6ebac7830bf6d430251af",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24f9540e_8f88a3f5",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-19T18:50:40Z",
+      "side": 1,
+      "message": "if (*gKernelArgs.arch_args.uart.kind !\u003d \u0027\\0\u0027) {",
+      "revId": "c71eab32554f3600acc6ebac7830bf6d430251af",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2495cbae_81f615b1",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-19T18:50:40Z",
+      "side": 1,
+      "message": "#    include \u003carch/riscv64/arch_uart_sifive.h\u003e\n\n^ four spaces is really 1 hard tab \\t",
+      "revId": "c71eab32554f3600acc6ebac7830bf6d430251af",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a13a091_3b5dd7d8",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-19T18:50:40Z",
+      "side": 1,
+      "message": "#    include \u003carch/arm/arch_uart_pl011.h\u003e\n\n^ four spaces is really 1 hard tab \\t",
+      "revId": "c71eab32554f3600acc6ebac7830bf6d430251af",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4101cd6a_c1a70609",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-19T18:50:40Z",
+      "side": 1,
+      "message": "if (*sUart.kind !\u003d \u0027\\0\u0027)",
+      "revId": "c71eab32554f3600acc6ebac7830bf6d430251af",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ba10f85_46a0561a",
+        "filename": "src/system/kernel/arch/riscv64/arch_debug_console.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-19T18:50:40Z",
+      "side": 1,
+      "message": "if (strncmp(args-\u003earch_args.uart.kind, UART_KIND_8250,\n        strlen(UART_KIND_8250)) \u003d\u003d 0) {\n\n^ 2 hard tabs instead of spaces",
+      "revId": "c71eab32554f3600acc6ebac7830bf6d430251af",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dff48d66_68ff6205",
+        "filename": "src/system/kernel/arch/riscv64/arch_debug_console.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-08-19T18:50:40Z",
+      "side": 1,
+      "message": "} else if (strncmp(args-\u003earch_args.uart.kind, UART_KIND_SIFIVE,\n        strlen(UART_KIND_SIFIVE)) \u003d\u003d 0) {\n\n^ 2 hard tabs instead of spaces",
+      "revId": "c71eab32554f3600acc6ebac7830bf6d430251af",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
