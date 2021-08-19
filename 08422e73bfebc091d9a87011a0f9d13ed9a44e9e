@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "c1d4bf8e_4f6a1596",
+        "filename": "headers/private/kernel/arch/arm/arch_kernel_args.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2021-08-19T17:25:38Z",
+      "side": 1,
+      "message": "Not sure what the pink squares at end of line are. Probably should not be there?",
+      "revId": "08422e73bfebc091d9a87011a0f9d13ed9a44e9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "32d4315d_84e5b556",
         "filename": "headers/private/kernel/boot/uart.h",
         "patchSetId": 12
