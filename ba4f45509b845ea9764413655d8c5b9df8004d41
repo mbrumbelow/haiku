@@ -16,6 +16,24 @@
       "revId": "ba4f45509b845ea9764413655d8c5b9df8004d41",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c67caff3_9ca880ad",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-08-19T13:52:10Z",
+      "side": 1,
+      "message": "Use the B_COUNT_OF macro instead of creating your own",
+      "parentUuid": "f49dff5b_a6883204",
+      "revId": "ba4f45509b845ea9764413655d8c5b9df8004d41",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
