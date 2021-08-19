@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "32d4315d_84e5b556",
+        "filename": "headers/private/kernel/boot/uart.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-19T16:06:59Z",
+      "side": 1,
+      "message": "Why this dates? This code was initially written in 2021 as part of my RISC-V port.",
+      "revId": "08422e73bfebc091d9a87011a0f9d13ed9a44e9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
