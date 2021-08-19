@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f49dff5b_a6883204",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-19T13:46:45Z",
+      "side": 1,
+      "message": "Define value should be inside () to avoid operator priority mess up.",
+      "revId": "ba4f45509b845ea9764413655d8c5b9df8004d41",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
