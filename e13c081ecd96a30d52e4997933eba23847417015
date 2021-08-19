@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30bbf381_43d242ee",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-19T17:28:57Z",
+      "side": 1,
+      "message": "strcmp(gKernelArgs.arch_args.uart.kind, \"\") !\u003d 0",
+      "revId": "e13c081ecd96a30d52e4997933eba23847417015",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
