@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "5fa1c11f_07edb18e",
+        "filename": "headers/private/kernel/arch/riscv64/arch_kernel_args.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-19T02:36:05Z",
+      "side": 1,
+      "message": "Agree.  I Setup a kernel \"uart_info\"",
+      "parentUuid": "1b1b2592_98755178",
+      "revId": "ea09cab401cffd5069de9e8302d6788bcff8e5cb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e8e4b915_9b36cbb9",
         "filename": "headers/private/kernel/arch/riscv64/arch_kernel_args.h",
         "patchSetId": 1
@@ -105,6 +123,24 @@
       "revId": "ea09cab401cffd5069de9e8302d6788bcff8e5cb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24f05e08_b69be500",
+        "filename": "headers/private/kernel/arch/riscv64/arch_kernel_args.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-19T02:36:05Z",
+      "side": 1,
+      "message": "done.  we have control of the kind name length now, and the code guards against overflows.",
+      "parentUuid": "66d5e6f5_f9d878f2",
+      "revId": "ea09cab401cffd5069de9e8302d6788bcff8e5cb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
