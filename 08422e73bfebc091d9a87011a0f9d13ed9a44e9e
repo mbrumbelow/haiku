@@ -33,6 +33,24 @@
       "revId": "08422e73bfebc091d9a87011a0f9d13ed9a44e9e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e17dfb58_4c7fecb8",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-19T16:12:02Z",
+      "side": 1,
+      "message": "Fix: `strcmp(sUart.kind, \"\") !\u003d 0`",
+      "parentUuid": "5b8aad8b_19f6ced1",
+      "revId": "08422e73bfebc091d9a87011a0f9d13ed9a44e9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
