@@ -16,6 +16,23 @@
       "revId": "08422e73bfebc091d9a87011a0f9d13ed9a44e9e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b8aad8b_19f6ced1",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-19T16:10:47Z",
+      "side": 1,
+      "message": "I think that `strcmp(sUart.kind, \"\") \u003d\u003d 0` would be better. Main code purpose is UART detection for the kernel, not boot loader. gUART is only used after exit EFI boot services.\n\nAlso it would be nice to add TODO about reading FDT \"chosen\" property for preferred UART, as it can be many UART and first one may be unusable for debug output.",
+      "revId": "08422e73bfebc091d9a87011a0f9d13ed9a44e9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
