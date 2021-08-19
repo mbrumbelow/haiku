@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "88cb813c_201fcc4d",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-19T17:39:17Z",
+      "side": 1,
+      "message": "I agree.  I\u0027d like to move get_uart and supported_uarts into a kernel header / source consumable by the bootloader.  It\u0027s a larger change though with some additional reorganization which we could step into in a future commit.",
+      "parentUuid": "2f4c3a27_a8780e48",
+      "revId": "1b2a6368cfc8c75364d7e2df753536dd4d1c7dee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b28da6f3_12298f79",
         "filename": "src/system/boot/platform/efi/dtb.cpp",
         "patchSetId": 11
