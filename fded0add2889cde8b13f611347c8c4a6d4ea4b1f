@@ -1,0 +1,531 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df28a4a8_e396c0e2",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-20T14:18:20Z",
+      "side": 1,
+      "message": "Missing new line",
+      "revId": "fded0add2889cde8b13f611347c8c4a6d4ea4b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98f4b7e9_676c0f21",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-20T14:18:20Z",
+      "side": 1,
+      "message": "space after if",
+      "revId": "fded0add2889cde8b13f611347c8c4a6d4ea4b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e374fe5f_e962b03a",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-20T14:18:20Z",
+      "side": 1,
+      "message": "an else for errors could be nice",
+      "revId": "fded0add2889cde8b13f611347c8c4a6d4ea4b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57a9f6d2_36d6c9b3",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-20T14:18:20Z",
+      "side": 1,
+      "message": "space after if",
+      "revId": "fded0add2889cde8b13f611347c8c4a6d4ea4b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67742d28_9ca5579b",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-20T14:18:20Z",
+      "side": 1,
+      "message": "an else for errors could be nice",
+      "revId": "fded0add2889cde8b13f611347c8c4a6d4ea4b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25ff6ba3_38a5cd6c",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-20T14:18:20Z",
+      "side": 1,
+      "message": "missing newline",
+      "revId": "fded0add2889cde8b13f611347c8c4a6d4ea4b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f434e0d_9e558282",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-20T14:18:20Z",
+      "side": 1,
+      "message": "} goes on the next line.",
+      "revId": "fded0add2889cde8b13f611347c8c4a6d4ea4b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b27a22f_6790f1a4",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-20T14:18:20Z",
+      "side": 1,
+      "message": "isn\u0027t resume_thread needed?",
+      "revId": "fded0add2889cde8b13f611347c8c4a6d4ea4b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60ee0cd8_178b4f04",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-20T14:18:20Z",
+      "side": 1,
+      "message": "continue; goes on the next line.",
+      "revId": "fded0add2889cde8b13f611347c8c4a6d4ea4b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bcf4485f_b9100368",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-20T14:18:20Z",
+      "side": 1,
+      "message": "missing newline",
+      "revId": "fded0add2889cde8b13f611347c8c4a6d4ea4b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6851207_a023a408",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-20T14:18:20Z",
+      "side": 1,
+      "message": ": on the next line, one initializer per line.",
+      "revId": "fded0add2889cde8b13f611347c8c4a6d4ea4b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d57ad307_f12e85e6",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-20T14:18:20Z",
+      "side": 1,
+      "message": "these few lines look like B_KEY_MAP_CHANGED",
+      "revId": "fded0add2889cde8b13f611347c8c4a6d4ea4b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a797a6cf_0f6a3f6c",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-20T14:18:20Z",
+      "side": 1,
+      "message": "missing newline",
+      "revId": "fded0add2889cde8b13f611347c8c4a6d4ea4b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "822af03c_b5761b15",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-20T14:18:20Z",
+      "side": 1,
+      "message": "i should be declared in the relevant block.",
+      "revId": "fded0add2889cde8b13f611347c8c4a6d4ea4b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "174afbca_18fd4bc8",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-20T14:18:20Z",
+      "side": 1,
+      "message": "(fNewState.modifiers \u0026 B_CONTROL_KEY) !\u003d 0",
+      "revId": "fded0add2889cde8b13f611347c8c4a6d4ea4b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eeeac76c_eb0b6fc8",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-20T14:18:20Z",
+      "side": 1,
+      "message": "\"len - 1\"",
+      "revId": "fded0add2889cde8b13f611347c8c4a6d4ea4b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "864ca906_5decd7c9",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-20T14:18:20Z",
+      "side": 1,
+      "message": "i + 1",
+      "revId": "fded0add2889cde8b13f611347c8c4a6d4ea4b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32e87d2b_99212f07",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-20T14:18:20Z",
+      "side": 1,
+      "message": "_StopRepeating goes on the next line.",
+      "revId": "fded0add2889cde8b13f611347c8c4a6d4ea4b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "322670af_8808794d",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-20T14:18:20Z",
+      "side": 1,
+      "message": "fRepeatThread should be checked. (B_REAL_TIME_DISPLAY_PRIORITY + 4) is what\u0027s in use by other input devices.",
+      "revId": "fded0add2889cde8b13f611347c8c4a6d4ea4b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6bad71c_244e8036",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-20T14:18:20Z",
+      "side": 1,
+      "message": "missing newline",
+      "revId": "fded0add2889cde8b13f611347c8c4a6d4ea4b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03fa5d14_757f5e62",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-20T14:18:20Z",
+      "side": 1,
+      "message": "missing newline",
+      "revId": "fded0add2889cde8b13f611347c8c4a6d4ea4b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2431f220_4711f35d",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-20T14:18:20Z",
+      "side": 1,
+      "message": "count could be declared in the while loop.",
+      "revId": "fded0add2889cde8b13f611347c8c4a6d4ea4b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ecaa5b07_ea3fd9bb",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-20T14:18:20Z",
+      "side": 1,
+      "message": "This means the repeater thread is started after each key press, and stopped after each key unpress?",
+      "revId": "fded0add2889cde8b13f611347c8c4a6d4ea4b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "126bbb27_f0073ea1",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-20T14:18:20Z",
+      "side": 1,
+      "message": ": goes on the next line",
+      "revId": "fded0add2889cde8b13f611347c8c4a6d4ea4b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c11218d8_2f19c541",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-20T14:18:20Z",
+      "side": 1,
+      "message": "missing new line.",
+      "revId": "fded0add2889cde8b13f611347c8c4a6d4ea4b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32c92766_81f2a193",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 642,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-20T14:18:20Z",
+      "side": 1,
+      "message": "spaces around /",
+      "revId": "fded0add2889cde8b13f611347c8c4a6d4ea4b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8044a70c_fd92c38f",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-20T14:18:20Z",
+      "side": 1,
+      "message": "spaces around /",
+      "revId": "fded0add2889cde8b13f611347c8c4a6d4ea4b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1013062_118de873",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-20T14:18:20Z",
+      "side": 1,
+      "message": "With this loop it\u0027s a new B_MOUSE_DOWN for every button clicked together. It doesn\u0027t look like what\u0027s done in other input devices.",
+      "revId": "fded0add2889cde8b13f611347c8c4a6d4ea4b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "befa36fe_de06ea61",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 722,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-20T14:18:20Z",
+      "side": 1,
+      "message": "why the new line?",
+      "revId": "fded0add2889cde8b13f611347c8c4a6d4ea4b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f5a74b2_a80ebee5",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-20T14:18:20Z",
+      "side": 1,
+      "message": "missing { } in a multiline if",
+      "revId": "fded0add2889cde8b13f611347c8c4a6d4ea4b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02acacca_c356d5f6",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-20T14:18:20Z",
+      "side": 1,
+      "message": "The order of includes should be alphabetical.",
+      "revId": "fded0add2889cde8b13f611347c8c4a6d4ea4b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
