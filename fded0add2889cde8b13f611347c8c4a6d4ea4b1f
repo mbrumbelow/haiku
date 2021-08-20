@@ -300,6 +300,24 @@
     },
     {
       "key": {
+        "uuid": "e8521627_cc2a2620",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-20T15:57:51Z",
+      "side": 1,
+      "message": "Actually it is probably better to use condition variable to synchronize access. Can be done later.",
+      "parentUuid": "334e2ef3_97d3c162",
+      "revId": "fded0add2889cde8b13f611347c8c4a6d4ea4b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "60ee0cd8_178b4f04",
         "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
         "patchSetId": 7
