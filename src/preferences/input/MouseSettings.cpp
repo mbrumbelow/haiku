@@ -18,7 +18,7 @@
 #include <stdio.h>
 
 
-// The R5 settings file differs from that of OpenBeOS;
+// The R5 settings file differs from that of Haiku;
 // the latter maps 16 different mouse buttons
 #define R5_COMPATIBLE 1
 
