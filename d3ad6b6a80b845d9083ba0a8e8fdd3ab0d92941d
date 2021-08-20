@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6915643a_d9c39bc3",
+        "filename": "build/jam/packages/Haiku",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-20T12:48:44Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "d3ad6b6a80b845d9083ba0a8e8fdd3ab0d92941d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
