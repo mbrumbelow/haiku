@@ -16,6 +16,24 @@
       "revId": "482a661c0e4efc560e3d747a8fce06759854099a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b985d71_27eb2238",
+        "filename": "build/config_headers/kernel_debug_config.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-20T21:08:03Z",
+      "side": 1,
+      "message": "RISCV64VMTranslationMap.cpp should be filled. It is already done in my branch.",
+      "parentUuid": "86ad0404_efe554e0",
+      "revId": "482a661c0e4efc560e3d747a8fce06759854099a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
