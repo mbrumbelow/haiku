@@ -356,7 +356,7 @@ HandleFdt(const void* fdt, int node, uint32 addressCells, uint32 sizeCells,
 
 	if (deviceType != NULL) {
 		if (strcmp(deviceType, "cpu") == 0) {
-			CpuInfo* info;
+			platform_cpu_info* info;
 			arch_smp_register_cpu(&info);
 			if (info == NULL)
 				return;
