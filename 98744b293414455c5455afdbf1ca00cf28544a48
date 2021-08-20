@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "505c5d5b_c6e83ef1",
+        "filename": "src/add-ons/kernel/drivers/input/virtio_input/virtio_input.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-08-20T12:25:56Z",
+      "side": 1,
+      "message": "That\u0027s not a matter of coding style.\n\nASSERT in drivers will result in a KDL. With a cryptic message (probably just \"assert failed\").\n\nHere, if create_area fails, you probably want to just not initialize this driver, log something to syslog, and let the system still run.",
+      "parentUuid": "bf847401_84a6df7f",
+      "revId": "98744b293414455c5455afdbf1ca00cf28544a48",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c5905757_52ed34fe",
         "filename": "src/add-ons/kernel/drivers/input/virtio_input/virtio_input.cpp",
         "patchSetId": 8
