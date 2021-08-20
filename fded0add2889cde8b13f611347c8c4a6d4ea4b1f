@@ -667,6 +667,24 @@
     },
     {
       "key": {
+        "uuid": "58766532_5c99c864",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-20T16:12:01Z",
+      "side": 1,
+      "message": "Can be adjusted to use the same priority as in other places.",
+      "parentUuid": "322670af_8808794d",
+      "revId": "fded0add2889cde8b13f611347c8c4a6d4ea4b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c6bad71c_244e8036",
         "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
         "patchSetId": 7
