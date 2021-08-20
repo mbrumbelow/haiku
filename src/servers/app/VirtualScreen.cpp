@@ -125,7 +125,7 @@ VirtualScreen::AddScreen(Screen* screen, ScreenConfigurations& configurations)
 		status = screen->SetMode(mode);
 	}
 	if (status != B_OK) {
-		status_t status = screen->SetPreferredMode();
+		status = screen->SetPreferredMode();
 		if (status != B_OK)
 			status = screen->SetBestMode(1024, 768, B_RGB32, 60.f);
 		if (status != B_OK)
@@ -135,6 +135,10 @@ VirtualScreen::AddScreen(Screen* screen, ScreenConfigurations& configurations)
 				strerror(status));
 		}
 	}
+
+	// Turn on screen if this is not yet done by BIOS
+	if (status == B_OK)
+		screen->HWInterface()->SetDPMSMode(B_DPMS_ON);
 
 	// TODO: this works only for single screen configurations
 	fDrawingEngine = screen->GetDrawingEngine();
