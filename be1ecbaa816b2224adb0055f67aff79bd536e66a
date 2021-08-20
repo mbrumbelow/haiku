@@ -16,6 +16,24 @@
       "revId": "be1ecbaa816b2224adb0055f67aff79bd536e66a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1829387_ff783b74",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-20T18:46:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "828dbb25_769668d0",
+      "revId": "be1ecbaa816b2224adb0055f67aff79bd536e66a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
