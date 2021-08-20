@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "78d9b2b9_c6b16adb",
+        "filename": "headers/private/kernel/boot/platform/efi/arch_smp.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-20T16:03:19Z",
+      "side": 1,
+      "message": "pml4 is x86-specific thing and it should be not used in generic code.",
+      "revId": "a03687553be31d3d7b6dd6ba7818853f8cd073e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
