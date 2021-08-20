@@ -2,7 +2,7 @@
 
 Preview printer driver.
 
-Copyright (c) 2001, 2002 OpenBeOS.
+Copyright (c) 2001, 2002 Haiku.
 Copyright (c) 2005 - 2008 Haiku.
 
 Authors:

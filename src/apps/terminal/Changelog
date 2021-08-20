@@ -1,5 +1,5 @@
 Changed licence from GPL to BSD, as allowed by original authors.
-Removed multi-language support. This will need to be rebuilt to whatever system OpenBeOS uses.
+Removed multi-language support. This will need to be rebuilt to whatever system Haiku uses.
 Moved Carachter Encodings menu to the "Right Place" for BeOS 5
 Started re-building the colours menu in the "Right Place"
 Silenced all build warnings on R5
