@@ -138,6 +138,24 @@
     },
     {
       "key": {
+        "uuid": "7e94ce6a_b764010a",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-20T15:44:40Z",
+      "side": 1,
+      "message": "wait_for_thread will resume it. suspend_thread is used to avoid race condition so thread will not exit before wait_for_thread.",
+      "parentUuid": "7b27a22f_6790f1a4",
+      "revId": "fded0add2889cde8b13f611347c8c4a6d4ea4b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "60ee0cd8_178b4f04",
         "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
         "patchSetId": 7
@@ -393,6 +411,24 @@
     },
     {
       "key": {
+        "uuid": "7deca5d0_ce6be5d2",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-20T15:44:40Z",
+      "side": 1,
+      "message": "Yes. And that seems work fine.",
+      "parentUuid": "ecaa5b07_ea3fd9bb",
+      "revId": "fded0add2889cde8b13f611347c8c4a6d4ea4b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "126bbb27_f0073ea1",
         "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
         "patchSetId": 7
@@ -489,6 +525,24 @@
       "writtenOn": "2021-08-20T14:18:20Z",
       "side": 1,
       "message": "why the new line?",
+      "revId": "fded0add2889cde8b13f611347c8c4a6d4ea4b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "756716bc_ed1baf5e",
+        "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 722,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-20T15:44:40Z",
+      "side": 1,
+      "message": "Leftover of my code style (opening and closing elements must have the same indent level).",
+      "parentUuid": "befa36fe_de06ea61",
       "revId": "fded0add2889cde8b13f611347c8c4a6d4ea4b1f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
