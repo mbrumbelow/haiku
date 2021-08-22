@@ -34,6 +34,23 @@
       "revId": "482a661c0e4efc560e3d747a8fce06759854099a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a31a569e_aee6ccaa",
+        "filename": "src/system/kernel/team.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-22T22:37:00Z",
+      "side": 1,
+      "message": "so.. this change *looks* really good, and it looks like it is the way it should be.\nHowever, I have questions on why it wasn\u0027t already like this 😄",
+      "revId": "482a661c0e4efc560e3d747a8fce06759854099a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
