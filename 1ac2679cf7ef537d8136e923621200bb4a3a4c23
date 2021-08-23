@@ -16,6 +16,24 @@
       "revId": "1ac2679cf7ef537d8136e923621200bb4a3a4c23",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c62359d_c3d5778c",
+        "filename": "src/add-ons/translators/avif/Jamfile",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000233
+      },
+      "writtenOn": "2021-08-23T15:54:42Z",
+      "side": 1,
+      "message": "Woops, I forgot to add it, should be good now.",
+      "parentUuid": "ba074f6a_c351b00a",
+      "revId": "1ac2679cf7ef537d8136e923621200bb4a3a4c23",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
