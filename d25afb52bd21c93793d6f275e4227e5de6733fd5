@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8d0d00c1_a058b2a7",
+        "filename": "headers/os/interface/Bitmap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-24T09:17:09Z",
+      "side": 1,
+      "message": "It may be useful to provide other process area without cloning (currently not implemented). Cloned is needed only by app_server, cloning by application may be not needed if it don\u0027t use Bits() and access by pointer.\n\nCloning large area like heap may cause app_server out of free address space on 32 bits.",
+      "parentUuid": "95407b4b_aaa49ed3",
+      "revId": "d25afb52bd21c93793d6f275e4227e5de6733fd5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ec564457_84767603",
         "filename": "src/kits/interface/Bitmap.cpp",
         "patchSetId": 1
