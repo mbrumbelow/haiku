@@ -352,6 +352,24 @@
     },
     {
       "key": {
+        "uuid": "8d6f4b79_4334a15a",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000316
+      },
+      "writtenOn": "2021-08-24T21:22:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca32b005_24aa6c0a",
+      "revId": "0f3916ba0ff418016e4bd8c37be5553602f76414",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "38697888_83fd1fad",
         "filename": "src/system/boot/platform/efi/dtb.cpp",
         "patchSetId": 3
@@ -384,6 +402,24 @@
       "revId": "0f3916ba0ff418016e4bd8c37be5553602f76414",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "432454a0_3770fec7",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000316
+      },
+      "writtenOn": "2021-08-24T21:22:25Z",
+      "side": 1,
+      "message": "Looks like I had an old copy.  Reverted.",
+      "parentUuid": "daf26df1_01e066d6",
+      "revId": "0f3916ba0ff418016e4bd8c37be5553602f76414",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
