@@ -19,6 +19,91 @@
     },
     {
       "key": {
+        "uuid": "27c4455b_fba1fbac",
+        "filename": "src/system/kernel/debug/frame_buffer_console.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-24T21:56:48Z",
+      "side": 1,
+      "message": "why would we move the lock before the basic input validation?",
+      "revId": "6be70985c678f43cdff987abd789e6649fb62f7a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72a9e7e9_f1ba644a",
+        "filename": "src/system/kernel/debug/user_debugger.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2785,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-24T21:56:48Z",
+      "side": 1,
+      "message": "It feels like most of these WriteTrapInfo additions are ment purely for debugging an issue and shouldn\u0027t be upstreamed?",
+      "revId": "6be70985c678f43cdff987abd789e6649fb62f7a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2039c73_9230baa0",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1765,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-24T21:56:48Z",
+      "side": 1,
+      "message": "remove commented out code",
+      "revId": "6be70985c678f43cdff987abd789e6649fb62f7a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87473e24_b5eb6703",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1830,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-24T21:56:48Z",
+      "side": 1,
+      "message": "remove commented out code / make a TRACE call instead?",
+      "revId": "6be70985c678f43cdff987abd789e6649fb62f7a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95eb0d35_67dde650",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1850,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-24T21:56:48Z",
+      "side": 1,
+      "message": "remove commented out code / make a TRACE call instead?",
+      "revId": "6be70985c678f43cdff987abd789e6649fb62f7a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6f2cd2e7_4b1c7915",
         "filename": "src/system/kernel/elf.cpp",
         "patchSetId": 3
@@ -53,6 +138,23 @@
     },
     {
       "key": {
+        "uuid": "87123881_9d47cc4f",
+        "filename": "src/system/kernel/team.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-24T21:56:48Z",
+      "side": 1,
+      "message": "committed in previous change... needs dropped from this patchset. https://git.haiku-os.org/haiku/commit/?id\u003da267f17ca645ceae1728e10680c6d1377589eef1",
+      "revId": "6be70985c678f43cdff987abd789e6649fb62f7a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "de396953_17a5828e",
         "filename": "src/system/kernel/vm/vm.cpp",
         "patchSetId": 3
@@ -64,6 +166,40 @@
       "writtenOn": "2021-08-04T14:15:29Z",
       "side": 1,
       "message": "a temporary hack that needs reverted?",
+      "revId": "6be70985c678f43cdff987abd789e6649fb62f7a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6bd0ac2b_1f2faaa4",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 4434,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-24T21:56:48Z",
+      "side": 1,
+      "message": "It feels like most of these WriteTrapInfo additions are ment purely for debugging an issue and shouldn\u0027t be upstreamed?",
+      "revId": "6be70985c678f43cdff987abd789e6649fb62f7a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07898fc3_ed0e71ee",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 4440,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-24T21:56:48Z",
+      "side": 1,
+      "message": "It feels like most of these WriteTrapInfo additions are ment purely for debugging an issue and shouldn\u0027t be upstreamed?",
       "revId": "6be70985c678f43cdff987abd789e6649fb62f7a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
