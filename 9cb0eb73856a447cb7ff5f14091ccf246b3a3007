@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4af04ff0_93a00d49",
+        "filename": "src/add-ons/accelerants/ati/mode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-08-24T06:48:54Z",
+      "side": 1,
+      "message": "Can this be fixed in QEMU? Turning DPMS off results in black screen for a second or so. In Haiku/BeOS this is very annoying if you use worspaces with different resolutions and it happens everytime you switch to a different workspace.\n\nSince this code works fine in real hardware, I think QEMU should be fixed to behave more like the real hardware instead.",
+      "revId": "9cb0eb73856a447cb7ff5f14091ccf246b3a3007",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
