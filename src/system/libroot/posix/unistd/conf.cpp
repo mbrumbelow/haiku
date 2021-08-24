@@ -69,20 +69,12 @@ __sysconf(int name)
 			return CHILD_MAX;
 		case _SC_CLK_TCK:
 			return CLK_TCK;
-		case _SC_JOB_CONTROL:
-			return 1;
 		case _SC_HOST_NAME_MAX:
 			return _POSIX_HOST_NAME_MAX;
 		case _SC_NGROUPS_MAX:
 			return NGROUPS_MAX;
 		case _SC_OPEN_MAX:
 			return getdtablesize();
-		case _SC_REGEXP:
-			return 1;
-		case _SC_SAVED_IDS:
-			return 1;
-		case _SC_SHELL:
-			return 1;
 		case _SC_STREAM_MAX:
 			return STREAM_MAX;
 		case _SC_SYMLOOP_MAX:
@@ -103,10 +95,6 @@ __sysconf(int name)
 			return _POSIX_SEM_NSEMS_MAX;
 		case _SC_SEM_VALUE_MAX:
 			return _POSIX_SEM_VALUE_MAX;
-		case _SC_SEMAPHORES:
-			return _POSIX_SEMAPHORES;
-		case _SC_THREADS:
-			return _POSIX_THREADS;
 		case _SC_IOV_MAX:
 			return IOV_MAX;
 		case _SC_NPROCESSORS_CONF:
@@ -159,38 +147,104 @@ __sysconf(int name)
 			}
 			return info.max_pages - info.used_pages;
 		}
-		case _SC_MAPPED_FILES:
-			return _POSIX_MAPPED_FILES;
-		case _SC_THREAD_PROCESS_SHARED:
-			return _POSIX_THREAD_PROCESS_SHARED;
 		case _SC_THREAD_STACK_MIN:
 			return MIN_USER_STACK_SIZE;
-		case _SC_THREAD_ATTR_STACKADDR:
-			return _POSIX_THREAD_ATTR_STACKADDR;
-		case _SC_THREAD_ATTR_STACKSIZE:
-			return _POSIX_THREAD_ATTR_STACKSIZE;
-		case _SC_THREAD_PRIORITY_SCHEDULING:
-			return _POSIX_THREAD_PRIORITY_SCHEDULING;
-		case _SC_REALTIME_SIGNALS:
-			return _POSIX_REALTIME_SIGNALS;
-		case _SC_MEMORY_PROTECTION:
-			return _POSIX_MEMORY_PROTECTION;
 		case _SC_SIGQUEUE_MAX:
 			return MAX_QUEUED_SIGNALS;
 		case _SC_RTSIG_MAX:
 			return SIGRTMAX - SIGRTMIN + 1;
-		case _SC_MONOTONIC_CLOCK:
-			return _POSIX_MONOTONIC_CLOCK;
 		case _SC_DELAYTIMER_MAX:
 			return MAX_USER_TIMER_OVERRUN_COUNT;
 		case _SC_TIMER_MAX:
 			return MAX_USER_TIMERS_PER_TEAM;
-		case _SC_TIMERS:
-			return _POSIX_TIMERS;
+
+		/* posix options */
+		case _SC_ADVISORY_INFO:
+			return _POSIX_ADVISORY_INFO;
+		case _SC_BARRIERS:
+			return _POSIX_BARRIERS;
+		case _SC_CLOCK_SELECTION:
+			return _POSIX_CLOCK_SELECTION;
 		case _SC_CPUTIME:
 			return _POSIX_CPUTIME;
+		case _SC_FSYNC:
+			return _POSIX_FSYNC;
+		case _SC_IPV6:
+			return _POSIX_IPV6;
+		case _SC_JOB_CONTROL:
+			return _POSIX_JOB_CONTROL;
+		case _SC_MAPPED_FILES:
+			return _POSIX_MAPPED_FILES;
+		case _SC_MEMLOCK:
+			return _POSIX_MEMLOCK;
+		case _SC_MEMORY_PROTECTION:
+			return _POSIX_MEMORY_PROTECTION;
+		case _SC_MESSAGE_PASSING:
+			return _POSIX_MESSAGE_PASSING;
+		case _SC_MONOTONIC_CLOCK:
+			return _POSIX_MONOTONIC_CLOCK;
+		case _SC_PRIORITIZED_IO:
+			return _POSIX_PRIORITIZED_IO;
+		case _SC_PRIORITY_SCHEDULING:
+			return _POSIX_PRIORITY_SCHEDULING;
+		case _SC_READER_WRITER_LOCKS:
+			return _POSIX_READER_WRITER_LOCKS;
+		case _SC_REALTIME_SIGNALS:
+			return _POSIX_REALTIME_SIGNALS;
+		case _SC_REGEXP:
+			return _POSIX_REGEXP;
+		case _SC_SAVED_IDS:
+			return _POSIX_SAVED_IDS;
+		case _SC_SEMAPHORES:
+			return _POSIX_SEMAPHORES;
+		case _SC_SHARED_MEMORY_OBJECTS:
+			return _POSIX_SHARED_MEMORY_OBJECTS;
+		case _SC_SHELL:
+			return _POSIX_SHELL;
+		case _SC_SPAWN:
+			return _POSIX_SPAWN;
+		case _SC_SPIN_LOCKS:
+			return _POSIX_SPIN_LOCKS;
+		case _SC_SPORADIC_SERVER:
+			return _POSIX_SPORADIC_SERVER;
+		case _SC_SYNCHRONIZED_IO:
+			return _POSIX_SYNCHRONIZED_IO;
+		case _SC_THREAD_ATTR_STACKADDR:
+			return _POSIX_THREAD_ATTR_STACKADDR;
+		case _SC_THREAD_ATTR_STACKSIZE:
+			return _POSIX_THREAD_ATTR_STACKSIZE;
 		case _SC_THREAD_CPUTIME:
 			return _POSIX_THREAD_CPUTIME;
+		case _SC_THREAD_PRIO_INHERIT:
+			return _POSIX_THREAD_PRIO_INHERIT;
+		case _SC_THREAD_PRIO_PROTECT:
+			return _POSIX_THREAD_PRIO_PROTECT;
+		case _SC_THREAD_PRIORITY_SCHEDULING:
+			return _POSIX_THREAD_PRIORITY_SCHEDULING;
+		case _SC_THREAD_PROCESS_SHARED:
+			return _POSIX_THREAD_PROCESS_SHARED;
+		case _SC_THREAD_ROBUST_PRIO_INHERIT:
+			return _POSIX_THREAD_ROBUST_PRIO_INHERIT;
+		case _SC_THREAD_ROBUST_PRIO_PROTECT:
+			return _POSIX_THREAD_ROBUST_PRIO_PROTECT;
+		case _SC_THREAD_SAFE_FUNCTIONS:
+			return _POSIX_THREAD_SAFE_FUNCTIONS;
+		case _SC_THREADS:
+			return _POSIX_THREADS;
+		case _SC_TIMEOUTS:
+			return _POSIX_TIMEOUTS;
+		case _SC_TIMERS:
+			return _POSIX_TIMERS;
+		case _SC_TRACE:
+			return _POSIX_TRACE;
+		case _SC_TRACE_EVENT_FILTER:
+			return _POSIX_TRACE_EVENT_FILTER;
+		case _SC_TRACE_INHERIT:
+			return _POSIX_TRACE_INHERIT;
+		case _SC_TRACE_LOG:
+			return _POSIX_TRACE_LOG;
+		case _SC_TYPED_MEMORY_OBJECTS:
+			return _POSIX_TYPED_MEMORY_OBJECTS;
 
 		// not POSIX (anymore)
 		case _SC_PIPE:

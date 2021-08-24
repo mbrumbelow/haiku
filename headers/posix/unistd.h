@@ -31,29 +31,61 @@
 /* POSIX version support */
 #define _POSIX_VERSION			(199009L)	/* TODO: Update! */
 
-#define _POSIX_CHOWN_RESTRICTED	1
-#define _POSIX_JOB_CONTROL		1
-#define _POSIX_NO_TRUNC			0
-#define _POSIX_SAVED_IDS		1
 #define _POSIX_VDISABLE			((unsigned char)-2)
-	/* TODO: Check this! */
-/* TODO: Update these to the current POSIX version! Ideally after actually
-	supporting the features. */
+
+/*
+ * POSIX options and options groups.
+ * Please keep this list in the same order as the applicable standard.
+ */
+#define _POSIX_ADVISORY_INFO				(200809L)
+#define _POSIX_ASYNCHRONOUS_IO				(-1)
 #define _POSIX_BARRIERS						(200112L)
-#define _POSIX_SEMAPHORES					(200112L)
-#define _POSIX_THREADS						(200112L)
+#define _POSIX_CHOWN_RESTRICTED				(1)
+#define _POSIX_CLOCK_SELECTION				(200809L)
+#define _POSIX_CPUTIME						(200809L)
+#define _POSIX_FSYNC						(200809L)
+#define _POSIX_IPV6							(200809L)
+#define _POSIX_JOB_CONTROL					(1)
 #define _POSIX_MAPPED_FILES					(200809L)
-#define _POSIX_THREAD_PROCESS_SHARED		(200809L)
+#define _POSIX_MEMLOCK						(-1)
+#define _POSIX_MEMLOCK_RANGE				(200809L)
+#define _POSIX_MEMORY_PROTECTION			(200809L)
+#define _POSIX_MESSAGE_PASSING				(-1)
+#define _POSIX_MONOTONIC_CLOCK				(200809L) /* aio_suspend() is missing in Haiku1 */
+#define _POSIX_NO_TRUNC						(0)
+#define _POSIX_PRIORITIZED_IO				(-1)
+#define _POSIX_PRIORITY_SCHEDULING			(-1)
+#define _POSIX_RAW_SOCKETS					(-1)
+#define _POSIX_READER_WRITER_LOCKS			(200809L)
+#define _POSIX_REALTIME_SIGNALS				(200809L)
+#define _POSIX_REGEXP						(200809L)
+#define _POSIX_SAVED_IDS					(1)
+#define _POSIX_SEMAPHORES					(200112L)
+#define _POSIX_SHARED_MEMORY_OBJECTS		(200809L)
+#define _POSIX_SHELL						(200809L)
+#define _POSIX_SPAWN						(200809L)
+#define _POSIX_SPIN_LOCKS					(-1)
+#define _POSIX_SPORADIC_SERVER				(-1)
+#define _POSIX_SYNCHRONIZED_IO				(-1) /* missing fdatasync() */
 #define _POSIX_THREAD_ATTR_STACKADDR		(200809L)
 #define _POSIX_THREAD_ATTR_STACKSIZE		(200809L)
-#define _POSIX_THREAD_PRIORITY_SCHEDULING	(-1)	/* currently unsupported */
-#define _POSIX_REALTIME_SIGNALS				(200809L)
-#define _POSIX_MEMORY_PROTECTION			(200809L)
-#define _POSIX_MONOTONIC_CLOCK				(200809L)
-#define _POSIX_TIMERS						(200809L)
-#define _POSIX_CPUTIME						(200809L)
 #define _POSIX_THREAD_CPUTIME				(200809L)
-
+#define _POSIX_THREAD_PRIO_INHERIT			(-1) /* not inplemented */
+#define _POSIX_THREAD_PRIO_PROTECT          (-1)
+#define _POSIX_THREAD_PRIORITY_SCHEDULING	(-1)
+#define _POSIX_THREAD_PROCESS_SHARED		(200809L)
+#define _POSIX_THREAD_ROBUST_PRIO_INHERIT	(-1)
+#define _POSIX_THREAD_ROBUST_PRIO_PROTECT	(-1)
+#define _POSIX_THREAD_SAFE_FUNCTIONS		(200809L)
+#define _POSIX_THREAD_SPORADIC_SERVER		(-1)
+#define _POSIX_THREADS						(200112L)
+#define _POSIX_TIMEOUTS						(-1)
+#define _POSIX_TIMERS						(200809L)
+#define _POSIX_TRACE						(-1)
+#define _POSIX_TRACE_EVENT_FILTER			(-1)
+#define _POSIX_TRACE_INHERIT				(-1)
+#define _POSIX_TRACE_LOG					(-1)
+#define _POSIX_TYPED_MEMORY_OBJECTS			(-1)
 
 /* pathconf() constants */
 /* BeOS supported values, do not touch */
@@ -136,7 +168,34 @@
 #define _SC_SYMLOOP_MAX					63
 #define _SC_SHELL						64
 #define _SC_TTY_NAME_MAX				65
-
+#define _SC_ADVISORY_INFO				66
+#define _SC_BARRIERS					67
+#define _SC_CLOCK_SELECTION				68
+#define _SC_FSYNC						69
+#define _SC_IPV6                        70
+#define _SC_MEMLOCK                     71
+#define _SC_MEMLOCK_RANGE               72
+#define _SC_MESSAGE_PASSING             73
+#define _SC_PRIORITIZED_IO              74
+#define _SC_PRIORITY_SCHEDULING         75
+#define _SC_READER_WRITER_LOCKS         76
+#define _SC_SHARED_MEMORY_OBJECTS       77
+#define _SC_SPAWN                       78
+#define _SC_SPIN_LOCKS                  79
+#define _SC_SPORADIC_SERVER             80
+#define _SC_SYNCHRONIZED_IO				81
+#define _SC_THREAD_PRIO_INHERIT			82
+#define _SC_THREAD_PRIO_PROTECT			83
+#define _SC_THREAD_ROBUST_PRIO_INHERIT	84
+#define _SC_THREAD_ROBUST_PRIO_PROTECT	85
+#define _SC_THREAD_SAFE_FUNCTIONS		86
+#define _SC_THREAD_SPORADIC_SERVER		87
+#define _SC_TIMEOUTS					88
+#define _SC_TRACE						89
+#define _SC_TRACE_EVENT_FILTER			90
+#define _SC_TRACE_INHERIT				91
+#define _SC_TRACE_LOG					92
+#define _SC_TYPED_MEMORY_OBJECTS		93
 
 /* confstr() constants */
 #define _CS_PATH				1
