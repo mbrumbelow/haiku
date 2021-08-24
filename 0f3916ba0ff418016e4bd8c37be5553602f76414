@@ -1,0 +1,208 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fb180c51_ae43365b",
+        "filename": "src/add-ons/kernel/drivers/audio/ac97/ich/Jamfile",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-08-24T07:13:39Z",
+      "side": 1,
+      "message": "This commentted thing can be deleted, since obviously the above uncommented version is correct for Haiku.",
+      "revId": "0f3916ba0ff418016e4bd8c37be5553602f76414",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19fa6067_03e7c69b",
+        "filename": "src/apps/terminal/Changelog",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-08-24T07:13:39Z",
+      "side": 1,
+      "message": "Terminal was updated to use Locale Kit, so this could be updated accordingly.",
+      "revId": "0f3916ba0ff418016e4bd8c37be5553602f76414",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de29fe62_21818b5d",
+        "filename": "src/apps/terminal/Changelog",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-08-24T07:13:39Z",
+      "side": 1,
+      "message": "This is also completed and now using Haiku layout kit.",
+      "revId": "0f3916ba0ff418016e4bd8c37be5553602f76414",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "faa46846_c4c8f2b6",
+        "filename": "src/kits/storage/mime/database_support.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-08-24T07:13:39Z",
+      "side": 1,
+      "message": "Pretty sure we have a BBitmap implementation now?",
+      "revId": "0f3916ba0ff418016e4bd8c37be5553602f76414",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b9805ae_d1302b61",
+        "filename": "src/kits/translation/README.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-08-24T07:13:39Z",
+      "side": 1,
+      "message": "This file is obsolete and should be deleted.",
+      "revId": "0f3916ba0ff418016e4bd8c37be5553602f76414",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf44ca7b_1294de74",
+        "filename": "src/libs/print/libprint/PrintUtils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-08-24T07:13:39Z",
+      "side": 1,
+      "message": "group it with the next line",
+      "revId": "0f3916ba0ff418016e4bd8c37be5553602f76414",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f4322ff_8c015b51",
+        "filename": "src/preferences/appearance/ColorWhichItem.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-08-24T07:13:39Z",
+      "side": 1,
+      "message": "group it with the next line",
+      "revId": "0f3916ba0ff418016e4bd8c37be5553602f76414",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44d0cbf2_42ba05f4",
+        "filename": "src/preferences/appearance/ColorWhichItem.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-08-24T07:13:39Z",
+      "side": 1,
+      "message": "group it with the next line",
+      "revId": "0f3916ba0ff418016e4bd8c37be5553602f76414",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4045e773_696827ba",
+        "filename": "src/preferences/input/MouseSettings.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-08-24T07:13:39Z",
+      "side": 1,
+      "message": "This should be set to 0 (we don\u0027t want to use the old BeOS R5 format). Is this used anywhere?",
+      "revId": "0f3916ba0ff418016e4bd8c37be5553602f76414",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ccab6b8_6828ac1a",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-08-24T07:13:39Z",
+      "side": 1,
+      "message": "This should not be here?",
+      "revId": "0f3916ba0ff418016e4bd8c37be5553602f76414",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38697888_83fd1fad",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-08-24T07:13:39Z",
+      "side": 1,
+      "message": "This should not be here?",
+      "revId": "0f3916ba0ff418016e4bd8c37be5553602f76414",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91fea5fd_61c02bf9",
+        "filename": "src/tests/kits/app/messaging/first_light/Jamfile",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-08-24T07:13:39Z",
+      "side": 1,
+      "message": "What\u0027s this? There is no libopenbeos and there is no libHaiku either.",
+      "revId": "0f3916ba0ff418016e4bd8c37be5553602f76414",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
