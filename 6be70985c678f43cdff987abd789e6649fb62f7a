@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "ff32563f_bef1da8d",
+        "filename": "src/system/kernel/debug/frame_buffer_console.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-24T22:11:22Z",
+      "side": 1,
+      "message": "Because lock should be always initialized. Otherwise kernel will crash when no kernel framebuffer is provided by boot loader (the case of HiFive Unmatched).",
+      "parentUuid": "27c4455b_fba1fbac",
+      "revId": "6be70985c678f43cdff987abd789e6649fb62f7a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "72a9e7e9_f1ba644a",
         "filename": "src/system/kernel/debug/user_debugger.cpp",
         "patchSetId": 3
