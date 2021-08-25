@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "95b121a7_deb2b406",
+        "filename": "headers/posix/unistd.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2021-08-25T11:11:26Z",
+      "side": 1,
+      "message": "typo ?",
+      "range": {
+        "startLine": 54,
+        "startChar": 75,
+        "endLine": 54,
+        "endChar": 81
+      },
+      "revId": "ece080f56c1539074c6024f0744c392ed7e6e6e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
