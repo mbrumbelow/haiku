@@ -104,6 +104,24 @@
     },
     {
       "key": {
+        "uuid": "2abc8549_be0e8397",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1406,
+      "author": {
+        "id": 1000233
+      },
+      "writtenOn": "2021-08-26T15:12:12Z",
+      "side": 1,
+      "message": "I probably got mistaken by the line just above, this and your other comments are now fixed.",
+      "parentUuid": "65c095aa_3eade128",
+      "revId": "4604b978117640558b9f30d3ac0c0edca10802d9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ecc8d613_ad6f271c",
         "filename": "src/data/package_infos/x86_64/haiku",
         "patchSetId": 7
