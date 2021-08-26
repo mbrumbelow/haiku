@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "26baecf4_16f67678",
+        "filename": "Jamfile",
+        "patchSetId": 7
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-26T10:01:06Z",
+      "side": 1,
+      "message": "libavif comes before libicns",
+      "revId": "4604b978117640558b9f30d3ac0c0edca10802d9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2cfcbaf_05217341",
+        "filename": "src/add-ons/translators/avif/AVIFTranslator.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-26T10:01:06Z",
+      "side": 1,
+      "message": "This and the following lines should be indented with one more tab.",
+      "revId": "4604b978117640558b9f30d3ac0c0edca10802d9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca3b7656_02094760",
+        "filename": "src/add-ons/translators/avif/AVIFTranslator.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-26T10:01:06Z",
+      "side": 1,
+      "message": "This line is too long.",
+      "revId": "4604b978117640558b9f30d3ac0c0edca10802d9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c2dd7eb_9d0ff55e",
+        "filename": "src/add-ons/translators/avif/ConfigView.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-26T10:01:06Z",
+      "side": 1,
+      "message": "This line is too long",
+      "revId": "4604b978117640558b9f30d3ac0c0edca10802d9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b950a9ae_9c0bd3bd",
+        "filename": "src/add-ons/translators/avif/ConfigView.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-26T10:01:06Z",
+      "side": 1,
+      "message": "This line is too long",
+      "revId": "4604b978117640558b9f30d3ac0c0edca10802d9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65c095aa_3eade128",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1406,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-26T10:01:06Z",
+      "side": 1,
+      "message": "This line is too long. Why linking to the license here?",
+      "revId": "4604b978117640558b9f30d3ac0c0edca10802d9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ecc8d613_ad6f271c",
+        "filename": "src/data/package_infos/x86_64/haiku",
+        "patchSetId": 7
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-08-26T10:01:06Z",
+      "side": 1,
+      "message": "Should be \u003e\u003d 12",
+      "revId": "4604b978117640558b9f30d3ac0c0edca10802d9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
