@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d3f2832f_f2f8ce02",
+        "filename": "src/kits/shared/StatusView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-27T17:04:21Z",
+      "side": 1,
+      "message": "Is this logic really needed? Just multiply looks too bad?",
+      "revId": "7d93f0e76ba46ecd630723c3f95de43274ad017b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
