@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "8d264950_b1f601d3",
+        "filename": "headers/posix/unistd.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-08-27T11:25:14Z",
+      "side": 1,
+      "message": "A link to the standard would be nice.\n\nThe current version is at https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/unistd.h.html\n\nIt appears to include more values, from _POSIX_V6_ILP32_OFF32 and onwards. Why are these not included here?",
+      "revId": "ece080f56c1539074c6024f0744c392ed7e6e6e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "95b121a7_deb2b406",
         "filename": "headers/posix/unistd.h",
         "patchSetId": 1
@@ -19,6 +36,57 @@
         "endLine": 54,
         "endChar": 81
       },
+      "revId": "ece080f56c1539074c6024f0744c392ed7e6e6e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d697dd8d_cd559130",
+        "filename": "headers/posix/unistd.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-08-27T11:25:14Z",
+      "side": 1,
+      "message": "This list is still not in sync with https://pubs.opengroup.org/onlinepubs/9699919799/functions/sysconf.html which has more values, why is that?\n\nAt least _SC_AIO_* and _SC_XOPEN_* are missing (I checked the first and last items of the list, and found neither)",
+      "revId": "ece080f56c1539074c6024f0744c392ed7e6e6e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dda7eae8_b8315238",
+        "filename": "headers/posix/unistd.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-08-27T11:25:14Z",
+      "side": 1,
+      "message": "this and the next few lines use spaces instead of tabs to indent the value",
+      "revId": "ece080f56c1539074c6024f0744c392ed7e6e6e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ec62a5b_84fa6e3a",
+        "filename": "src/system/libroot/posix/unistd/conf.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-08-27T11:25:14Z",
+      "side": 1,
+      "message": "this comment can be removed now? Or if not, what\u0027s still missing?",
       "revId": "ece080f56c1539074c6024f0744c392ed7e6e6e5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
