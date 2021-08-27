@@ -67,6 +67,57 @@
       "revId": "215027a7d3aea36ec8a14875f33b73c88741d19d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc845488_8027e731",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-08-27T11:38:36Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "215027a7d3aea36ec8a14875f33b73c88741d19d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca485490_0a5c6022",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-08-27T11:38:36Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "215027a7d3aea36ec8a14875f33b73c88741d19d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4cdfa56_daa6dc1a",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-08-27T11:38:36Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "215027a7d3aea36ec8a14875f33b73c88741d19d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
