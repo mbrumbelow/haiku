@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1cef5b8a_3cdfc85b",
+        "filename": "src/apps/cortex/DormantNodeView/DormantNodeListItem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-29T10:58:49Z",
+      "side": 0,
+      "message": "Why remove selection effect?",
+      "revId": "caa2b52eaa9dc42c9ec0ea01363915c6f14ff497",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
