@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5d25a4ce_dc5bc559",
+        "filename": "src/apps/cortex/MediaRoutingView/MediaNodePanel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 894,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-08-29T13:23:26Z",
+      "side": 1,
+      "message": "This line exceeds 80 characters (and did so before, but while you\u0027re at it...)",
+      "revId": "614791a2312ef50286fd027791cc358463f335b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3997a606_1f3d57da",
+        "filename": "src/apps/cortex/support/MediaIcon.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-08-29T13:23:26Z",
+      "side": 1,
+      "message": "The second line needs one tab more, same as in the other cases below.",
+      "revId": "614791a2312ef50286fd027791cc358463f335b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
