@@ -128,6 +128,7 @@ KernelLd kernel_$(TARGET_ARCH) :
 	: $(HAIKU_TOP)/src/system/ldscripts/$(TARGET_ARCH)/kernel.ld
 	: -Bdynamic -export-dynamic -dynamic-linker /foo/bar
 	  $(TARGET_KERNEL_PIC_LINKFLAGS)
+	  -Map=$(HAIKU_OUTPUT_DIR)/kernel_$(TARGET_ARCH).map
 	:
 ;
 
@@ -168,6 +169,7 @@ if $(HAIKU_ARCH) in x86_64 arm {
 		: $(HAIKU_TOP)/src/system/ldscripts/$(TARGET_ARCH)/kernel.ld
 		: -Bdynamic -shared -export-dynamic -dynamic-linker /foo/bar
 		  $(TARGET_KERNEL_PIC_LINKFLAGS)
+		  -Map=$(HAIKU_OUTPUT_DIR)/kernel.so.map
 	;
 }
 
