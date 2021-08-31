@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb648afc_dc4f0a13",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-08-31T19:33:53Z",
+      "side": 1,
+      "message": "Commit name is misleading. Driver name is set from device manager, not VFS. VFS is unrelated to driver name.",
+      "revId": "5e93213e52511352a61e751248d0b9f294fe0dc5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
