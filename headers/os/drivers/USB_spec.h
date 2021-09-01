@@ -51,6 +51,8 @@
 #define USB_DESCRIPTOR_CS_STRING			0x23
 #define USB_DESCRIPTOR_CS_INTERFACE			0x24
 #define USB_DESCRIPTOR_CS_ENDPOINT			0x25
+/* speed-specific descriptors */
+#define USB_DESCRIPTOR_ENDPOINT_SS_COMPANION 0x30
 
 /* Used by {set|clear}_feature() */
 #define USB_FEATURE_DEVICE_REMOTE_WAKEUP	1
@@ -130,6 +132,14 @@ typedef struct usb_endpoint_descriptor {
 	uint8	interval;
 } _PACKED usb_endpoint_descriptor;
 
+typedef struct usb_endpoint_ss_companion_descriptor {
+	uint8	length;
+	uint8	descriptor_type;
+	uint8	max_burst;
+	uint8	attributes;
+	uint16	bytes_per_interval;
+} _PACKED usb_endpoint_ss_companion_descriptor;
+
 typedef struct usb_string_descriptor {
 	uint8	length;
 	uint8	descriptor_type;
@@ -147,6 +157,7 @@ typedef union usb_descriptor {
 	usb_device_descriptor			device;
 	usb_interface_descriptor		interface;
 	usb_endpoint_descriptor			endpoint;
+	usb_endpoint_ss_companion_descriptor endpoint_ss_companion;
 	usb_configuration_descriptor	configuration;
 	usb_string_descriptor			string;
 } usb_descriptor;

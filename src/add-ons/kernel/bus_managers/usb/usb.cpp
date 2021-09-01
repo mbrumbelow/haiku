@@ -871,7 +871,9 @@ struct usb_module_info_v2 gModuleInfoV2 = {
 
 
 module_info *modules[] = {
+#if 0 /* no longer ABI compatible */
 	(module_info *)&gModuleInfoV2,
+#endif
 	(module_info *)&gModuleInfoV3,
 	NULL
 };

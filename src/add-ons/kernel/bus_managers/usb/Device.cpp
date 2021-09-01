@@ -250,26 +250,29 @@ Device::Device(Object* parent, int8 hubAddress, uint8 hubPort,
 					usb_endpoint_info* endpointInfo = &currentInterface
 						->endpoint[currentInterface->endpoint_count - 1];
 					endpointInfo->descr = endpointDescriptor;
+					endpointInfo->ss_comp_descr = NULL;
 					endpointInfo->handle = 0;
 					break;
 				}
 
 				case USB_DESCRIPTOR_ENDPOINT_SS_COMPANION: {
 					if (currentInterface != NULL) {
-						usb_endpoint_descriptor* desc
-							= currentInterface->endpoint[
-								currentInterface->endpoint_count - 1].descr;
-						if ((uint8*)desc != (&configData[descriptorStart
-								- desc->length])) {
+						usb_endpoint_info* endpointInfo
+							= &currentInterface->endpoint[
+								currentInterface->endpoint_count - 1];
+						if ((uint8*)endpointInfo->descr !=
+								(&configData[descriptorStart
+									- endpointInfo->descr->length])) {
 							TRACE_ERROR("found endpoint companion descriptor "
 								"not immediately following endpoint "
 								"descriptor, ignoring!\n");
 							break;
 						}
-						// TODO: It'd be nicer if we could store the endpoint
-						// companion descriptor along with the endpoint
-						// descriptor, but as the interface struct is public
-						// API, that would be an ABI break.
+
+						usb_endpoint_ss_companion_descriptor* compDescr
+							= (usb_endpoint_ss_companion_descriptor*)
+								&configData[descriptorStart];
+						endpointInfo->ss_comp_descr = compDescr;
 					}
 
 					// fall through
@@ -496,30 +499,6 @@ Device::InitEndpoints(int32 interfaceIndex)
 			usb_endpoint_info* endpoint = &interfaceInfo->endpoint[i];
 			Pipe* pipe = NULL;
 
-			usb_endpoint_ss_companion_descriptor* comp_descr = NULL;
-			if (fSpeed == USB_SPEED_SUPERSPEED) {
-				// We should have a companion descriptor for this device.
-				// Let's find it: it'll be the "i"th one.
-				size_t k = 0;
-				for (size_t j = 0; j < interfaceInfo->generic_count; j++) {
-					usb_descriptor* desc = interfaceInfo->generic[j];
-					if (desc->endpoint.descriptor_type
-							!= USB_DESCRIPTOR_ENDPOINT_SS_COMPANION) {
-						continue;
-					}
-					if (k == i) {
-						comp_descr =
-							(usb_endpoint_ss_companion_descriptor*)desc;
-						break;
-					}
-					k++;
-				}
-				if (comp_descr == NULL) {
-					TRACE_ERROR("SuperSpeed device without an endpoint companion "
-						"descriptor!");
-				}
-			}
-
 			Pipe::pipeDirection direction = Pipe::Out;
 			if ((endpoint->descr->endpoint_address & 0x80) != 0)
 				direction = Pipe::In;
@@ -553,9 +532,9 @@ Device::InitEndpoints(int32 interfaceIndex)
 				endpoint->descr->endpoint_address & 0x0f,
 				fSpeed, direction, endpoint->descr->max_packet_size,
 				endpoint->descr->interval, fHubAddress, fHubPort);
-			if (comp_descr != NULL) {
-				pipe->InitSuperSpeed(comp_descr->max_burst,
-					comp_descr->bytes_per_interval);
+			if (endpoint->ss_comp_descr != NULL) {
+				pipe->InitSuperSpeed(endpoint->ss_comp_descr->max_burst,
+					endpoint->ss_comp_descr->bytes_per_interval);
 			}
 			endpoint->handle = pipe->USBID();
 		}

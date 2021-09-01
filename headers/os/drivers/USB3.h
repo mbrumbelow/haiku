@@ -44,8 +44,9 @@ typedef struct usb_support_descriptor {
 } usb_support_descriptor;
 
 struct usb_endpoint_info {
-	usb_endpoint_descriptor		*descr;			/* descriptor and handle */
-	usb_pipe					handle;			/* of this endpoint/pipe */
+	usb_endpoint_descriptor		*descr;					 /* descriptor and handle */
+	usb_endpoint_ss_companion_descriptor *ss_comp_descr; /* (optionally for superspeed) */
+	usb_pipe					handle;					 /* of this endpoint/pipe */
 };
 
 struct usb_interface_info {

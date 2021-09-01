@@ -71,17 +71,6 @@ struct usb_hub_descriptor {
 #define USB_DESCRIPTOR_HUB 0x29
 
 
-struct usb_endpoint_ss_companion_descriptor {
-	uint8	length;
-	uint8	descriptor_type;
-	uint8	max_burst;
-	uint8	attributes;
-	uint16	bytes_per_interval;
-} _PACKED;
-
-#define USB_DESCRIPTOR_ENDPOINT_SS_COMPANION 0x30
-
-
 // USB Spec 1.1 page 273
 struct usb_port_status {
 	uint16 status;
