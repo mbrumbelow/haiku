@@ -16,6 +16,24 @@
       "revId": "5e93213e52511352a61e751248d0b9f294fe0dc5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04e4cffd_c45bbc28",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-09-01T01:36:28Z",
+      "side": 1,
+      "message": "You can edit the commit message directly.\n\nHow does something like below sound:\ndevice_manager: add path and module name attributes\n\n* Set driver module name of device_node\n* Set device module name and path for published devices\n\nThis helps to understand what driver is used, and it\u0027s /dev path in the Devices app.",
+      "parentUuid": "eb648afc_dc4f0a13",
+      "revId": "5e93213e52511352a61e751248d0b9f294fe0dc5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
