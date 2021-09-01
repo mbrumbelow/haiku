@@ -38,6 +38,7 @@ Table of contents
    :maxdepth: 2
    :caption: Contents:
 
+   /moderncppguidelines
    /build/repositories/README
    /apps/haikudepot/server
    /midi/index
