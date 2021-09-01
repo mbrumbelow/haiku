@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e9a30128_c312f798",
+        "filename": "docs/develop/moderncppguidelines.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-09-01T20:04:16Z",
+      "side": 1,
+      "message": "I would be interested to see where, precisely, movable types make sense to use. If we promote ObjectDeleter et al. to be a proper unique_ptr, then that is a case, for sure. But at least some of the examples you have given for this elsewhere do not seem to make sense to me (e.g. adding cookies to a HTTP request) -- we almost always use copies for this kind of thing. So, I think we should be much clearer here about where move semantics are appropriate.",
+      "revId": "fcb5d7ed8ab11357a478e523c8d5ad22e26fc2cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "036fc1c6_fa1d9e34",
+        "filename": "docs/develop/moderncppguidelines.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-09-01T20:04:16Z",
+      "side": 1,
+      "message": "Haiku already has BReference and BReferenceable. Whatever advantages shared_ptr has over these, can we just implement those and keep BReference[able], instead? That will also retain compatibility with GCC2, even, as well as avoid STL usage.",
+      "revId": "fcb5d7ed8ab11357a478e523c8d5ad22e26fc2cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "063c62f2_01318170",
+        "filename": "docs/develop/moderncppguidelines.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-09-01T20:04:16Z",
+      "side": 1,
+      "message": "Haiku already has a \"BStringView\" which is a BView and part of the Interface Kit. Can we NIH this class if we do actually need it (thus also making it part of the GCC2 API, as well) and give it a slightly different name, perhaps?",
+      "revId": "fcb5d7ed8ab11357a478e523c8d5ad22e26fc2cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
