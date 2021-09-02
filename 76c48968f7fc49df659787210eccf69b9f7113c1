@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a15823a_849ce16b",
+        "filename": "headers/os/drivers/USB3.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-09-02T15:48:36Z",
+      "side": 1,
+      "message": "these lines are too long",
+      "revId": "76c48968f7fc49df659787210eccf69b9f7113c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
