@@ -25,6 +25,10 @@
 #define ERROR(x...)			dprintf("\33[33mvirtio_pci:\33[0m " x)
 #define CALLED(x...)		TRACE("CALLED %s\n", __PRETTY_FUNCTION__)
 
+#define VIRTIO_BUS_IS_V1(deviceID) \
+	(deviceID >= VIRTIO_PCI_DEVICEID_MIN || deviceID <= VIRTIO_PCI_DEVICEID_V1_MAX)
+#define VIRTIO_BUS_IS_V2(deviceID) \
+	(deviceID >= VIRTIO_PCI_DEVICEID_V2_MIN || deviceID <= VIRTIO_PCI_DEVICEID_V2_MAX)
 
 #define VIRTIO_PCI_DEVICE_MODULE_NAME "busses/virtio/virtio_pci/driver_v1"
 #define VIRTIO_PCI_SIM_MODULE_NAME "busses/virtio/virtio_pci/device/v1"
@@ -613,10 +617,8 @@ supports_device(device_node* parent)
 		return 0.0f;
 
 	if (vendorID == VIRTIO_PCI_VENDORID) {
-		if (deviceID < VIRTIO_PCI_DEVICEID_MIN
-			|| deviceID > VIRTIO_PCI_DEVICEID_MAX) {
+		if (!VIRTIO_BUS_IS_V1(deviceID) && !VIRTIO_BUS_IS_V2(deviceID))
 			return 0.0f;
-		}
 
 		pci_device_module_info* pci;
 		pci_device* device;
