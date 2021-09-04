@@ -34,6 +34,24 @@
       "revId": "a3a329df08bd80969cfab4101852b4f3aaeb856f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6fca8fd5_1551f43a",
+        "filename": "src/add-ons/kernel/bus_managers/usb/Object.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-09-04T18:33:50Z",
+      "side": 1,
+      "message": "If this code run with interrupts enabled, switching to another thread (even realtime thread) may be performed with unpredictable time to come back.",
+      "parentUuid": "3121ced6_8ef01261",
+      "revId": "a3a329df08bd80969cfab4101852b4f3aaeb856f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
