@@ -27,6 +27,8 @@ KernelMergeObject kernel_arch_riscv64.o :
         Htif.cpp
         sbi_syscalls.S
 
+	# Serial UART drivers
+	debug_uart.cpp
         debug_uart_8250.cpp
         arch_uart_sifive.cpp
         :
