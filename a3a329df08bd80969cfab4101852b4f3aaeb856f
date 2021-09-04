@@ -16,6 +16,24 @@
       "revId": "a3a329df08bd80969cfab4101852b4f3aaeb856f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3121ced6_8ef01261",
+        "filename": "src/add-ons/kernel/bus_managers/usb/Object.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-09-04T18:30:19Z",
+      "side": 1,
+      "message": "Queuing a USB transfer should never take more than a few dozen microseconds, and in the case where the objects are being torn down, all transfers should already have been cancelled and nothing should be waiting on anything either way, so there should be no reason that 2ms is too low of a timeout.\n\nSingle-core devices should probably never hit this code, really, as CancelQueuedTransfers and friends should have cleared out any stragglers long before we get here.",
+      "parentUuid": "97ab5971_c448cf11",
+      "revId": "a3a329df08bd80969cfab4101852b4f3aaeb856f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
