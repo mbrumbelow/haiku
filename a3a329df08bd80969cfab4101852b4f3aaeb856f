@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97ab5971_c448cf11",
+        "filename": "src/add-ons/kernel/bus_managers/usb/Object.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-09-04T18:27:29Z",
+      "side": 1,
+      "message": "Is this really safe? It may fail on slow PC and on virtual machines.",
+      "revId": "a3a329df08bd80969cfab4101852b4f3aaeb856f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
