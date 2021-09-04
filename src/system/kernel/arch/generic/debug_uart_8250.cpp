@@ -124,6 +124,9 @@ DebugUART8250::InitPort(uint32 baud)
 void
 DebugUART8250::InitEarly()
 {
+	// Old SoC's like the OMAP3 might need some
+	// registers tickeled here. We should potentially
+	// pick-up something in fdt and pass it in if needed
 }
 
 
@@ -174,18 +177,6 @@ DebugUART8250::FlushRx()
 		volatile char c = In8(UART_RHR);
 		(void)c;
 	}
-}
-
-
-void
-DebugUART8250::Barrier()
-{
-	// Simple memory barriers
-#if defined(__POWERPC__)
-	asm volatile("eieio; sync");
-#elif defined(__ARM__)
-	asm volatile ("" : : : "memory");
-#endif
 }
 
 
