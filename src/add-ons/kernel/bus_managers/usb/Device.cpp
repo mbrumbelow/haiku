@@ -326,8 +326,7 @@ Device::Device(Object* parent, int8 hubAddress, uint8 hubPort,
 
 Device::~Device()
 {
-	// Unset fInitOK to indicate we are tearing down.
-	fInitOK = false;
+	PutUSBID();
 
 	delete fDefaultPipe;
 
@@ -358,7 +357,11 @@ Device::~Device()
 
 			for (size_t k = 0; k < interfaceList->alt_count; k++) {
 				usb_interface_info* interface = &interfaceList->alt[k];
-				delete (Interface*)GetStack()->GetObject(interface->handle);
+				Interface* interfaceObject =
+					(Interface*)GetStack()->GetObject(interface->handle);
+				if (interfaceObject != NULL)
+					interfaceObject->SetBusy(false);
+				delete interfaceObject;
 				free(interface->endpoint);
 				free(interface->generic);
 			}
@@ -607,7 +610,10 @@ Device::ClearEndpoints(int32 interfaceIndex)
 
 		for (size_t i = 0; i < interfaceInfo->endpoint_count; i++) {
 			usb_endpoint_info* endpoint = &interfaceInfo->endpoint[i];
-			delete (Pipe*)GetStack()->GetObject(endpoint->handle);
+			Pipe* pipe = (Pipe*)GetStack()->GetObject(endpoint->handle);
+			if (pipe != NULL)
+				pipe->SetBusy(false);
+			delete pipe;
 			endpoint->handle = 0;
 		}
 	}

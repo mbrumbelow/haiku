@@ -215,6 +215,9 @@ Stack::GetObject(usb_id id)
 
 	Object *result = fObjectArray[id];
 
+	if (result != NULL)
+		result->SetBusy(true);
+
 	Unlock();
 	return result;
 }
