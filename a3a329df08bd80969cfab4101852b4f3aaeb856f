@@ -52,6 +52,24 @@
       "revId": "a3a329df08bd80969cfab4101852b4f3aaeb856f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7bfbf4d5_1ae8b4e8",
+        "filename": "src/add-ons/kernel/bus_managers/usb/Object.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-09-04T18:35:34Z",
+      "side": 1,
+      "message": "Theoretically this runs inside the \"usb explore\" thread, which has LOW_PRIORITY. I guess we can see in testing if 2ms is just not enough here. The tickets involved are rare enough that I think the while () will not be hit except a rare amount of the time.",
+      "parentUuid": "6fca8fd5_1551f43a",
+      "revId": "a3a329df08bd80969cfab4101852b4f3aaeb856f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
