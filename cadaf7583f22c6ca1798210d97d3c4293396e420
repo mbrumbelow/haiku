@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84768e8c_2c668e0a",
+        "filename": "src/add-ons/kernel/bus_managers/usb/Pipe.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-09-05T04:42:12Z",
+      "side": 0,
+      "message": "Thinking more about it, I think there is still a case where these checks are needed: during Device teardown, the DefaultPipe is still destroyed first, and before the fConfigurations are destroyed which removes all child pipes. So, these checks do still serve a purpose, and should be kept.",
+      "revId": "cadaf7583f22c6ca1798210d97d3c4293396e420",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
