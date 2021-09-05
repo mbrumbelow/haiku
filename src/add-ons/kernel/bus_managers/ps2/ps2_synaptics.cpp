@@ -45,6 +45,13 @@
 #define REAL_MAX_PRESSURE		100
 #define MAX_PRESSURE			200
 
+// Synaptics modes
+#define SYN_ABSOLUTE_MODE		0x80
+// Absolute plus w mode
+#define SYN_ABSOLUTE_W_MODE		0x81
+#define SYN_MULTITOUCH_MODE		0xC8
+#define SYN_FOUR_BYTE_CHILD		(1 << 1)
+
 enum {
 	kIdentify = 0x00,
 	kReadModes = 0x01,
@@ -62,6 +69,26 @@ enum {
 };
 
 static touchpad_specs gHardwareSpecs;
+
+
+typedef struct {
+	uint8 majorVersion;
+	uint8 minorVersion;
+
+	uint8 nExtendedButtons;
+	uint8 firstExtendedButton;
+	uint8 extendedButtonsState;
+
+	bool capExtended : 1;
+	bool capMiddleButton : 1;
+	bool capSleep : 1;
+	bool capFourButtons : 1;
+	bool capMultiFinger : 1;
+	bool capPalmDetection : 1;
+	bool capPassThrough : 1;
+	bool capClickPad : 1;
+	bool capMultiTouch : 1;
+} touchpad_info;
 
 
 const char* kSynapticsPath[4] = {
@@ -203,6 +230,27 @@ get_synaptics_movment(synaptics_cookie *cookie, touchpad_movement *_event, bigti
 			event.buttons |= sTouchpadInfo.extendedButtonsState
 				<< sTouchpadInfo.firstExtendedButton;
 		}
+
+		if (sTouchpadInfo.capMultiTouch && event.fingerWidth == 2) {
+			// Multi-touch events use a different format
+			event.xPosition = event_buffer[1];
+			event.yPosition = event_buffer[2];
+
+			val32 = event_buffer[4] & 0x0F;
+			event.xPosition += val32 << 8;
+			val32 = event_buffer[4] & 0xF0;
+			event.xPosition += val32 << 4;
+
+			event.xPosition *= 2;
+			event.yPosition *= 2;
+
+			event.zPressure = event_buffer[5] & 0x0F;
+			event.zPressure += event_buffer[3] & 0x30;
+
+			*_event = event;
+
+			return status;
+		}
  	} else {
  		bool finger = event_buffer[0] >> 5 & 1;
  		if (finger) {
@@ -255,6 +303,16 @@ query_capability(ps2_dev *dev)
 	sTouchpadInfo.capPalmDetection = val[2] & 1;
 	TRACE("SYNAPTICS: pass through %2x\n", val[2] >> 7 & 1);
 	sTouchpadInfo.capPassThrough = val[2] >> 7 & 1;
+
+	if (get_information_query(dev, nExtendedQueries, kContinuedCapabilities,
+			val) == B_OK) {
+		bool multiTouch1 = val[0] >> 3 & 1;
+		bool multiTouch2 = val[1] >> 4 & 1;
+		sTouchpadInfo.capMultiTouch = multiTouch1 | multiTouch2;
+	} else {
+		sTouchpadInfo.capMultiTouch = false;
+	}
+	TRACE("SYNAPTICS: multitouch %x\n", sTouchpadInfo.capMultiTouch);
 
 	if (get_information_query(dev, nExtendedQueries, kExtendedModelId, val)
 			!= B_OK) {
@@ -507,7 +565,10 @@ synaptics_open(const char *name, uint32 flags, void **_cookie)
 	}
 
 	// Set Mode
-	if (sTouchpadInfo.capExtended)
+	if (sTouchpadInfo.capMultiTouch) {
+		cookie->mode = SYN_MULTITOUCH_MODE;
+		send_touchpad_arg(dev, kReadModelId);
+	} else if (sTouchpadInfo.capExtended)
 		cookie->mode = SYN_ABSOLUTE_W_MODE;
 	else
 		cookie->mode = SYN_ABSOLUTE_MODE;

@@ -76,6 +76,8 @@ private:
 									mouse_movement *movement);
 	inline	void				_MoveToMovement(const touchpad_movement *event,
 									mouse_movement *movement);
+	inline	void				_MultiTouchMovement(const touchpad_movement *event,
+									mouse_movement *movement);
 	inline	bool				_CheckScrollingToMovement(const touchpad_movement *event,
 									mouse_movement *movement);
 
