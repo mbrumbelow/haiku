@@ -19,11 +19,6 @@
 
 
 #define SYN_TOUCHPAD			0x47
-// Synaptics modes
-#define SYN_ABSOLUTE_MODE		0x80
-// Absolute plus w mode
-#define SYN_ABSOLUTE_W_MODE		0x81
-#define SYN_FOUR_BYTE_CHILD		(1 << 1)
 // Low power sleep mode
 #define SYN_SLEEP_MODE			0x0C
 // Synaptics Passthrough port
@@ -36,25 +31,6 @@
 // no touchpad / left / right button pressed
 #define IS_SYN_PT_PACKAGE(val) ((val[0] & 0xFC) == 0x84 \
 	&& (val[3] & 0xCC) == 0xc4)
-
-
-typedef struct {
-	uint8 majorVersion;
-	uint8 minorVersion;
-
-	bool capExtended;
-	bool capMiddleButton;
-	bool capSleep;
-	bool capFourButtons;
-	bool capMultiFinger;
-	bool capPalmDetection;
-	bool capPassThrough;
-	bool capClickPad;
-
-	uint8 nExtendedButtons;
-	uint8 firstExtendedButton;
-	uint8 extendedButtonsState;
-} touchpad_info;
 
 
 typedef struct {

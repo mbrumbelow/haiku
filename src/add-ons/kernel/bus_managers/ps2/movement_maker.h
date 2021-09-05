@@ -120,6 +120,8 @@ private:
 									mouse_movement *movement);
 	inline	void				_MoveToMovement(touch_event *event,
 									mouse_movement *movement);
+	inline	void				_MultiTouchMovement(touch_event *event,
+									mouse_movement *movement);
 	inline	bool				_CheckScrollingToMovement(touch_event *event,
 									mouse_movement *movement);
 
