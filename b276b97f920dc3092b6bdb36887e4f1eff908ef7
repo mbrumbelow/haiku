@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "26559213_718f9713",
+        "filename": "src/system/kernel/arch/generic/debug_uart_8250.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-09-05T00:56:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d7e528a_ba048e41",
+      "revId": "b276b97f920dc3092b6bdb36887e4f1eff908ef7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c9cdd63_7ed1a41e",
         "filename": "src/system/kernel/arch/riscv64/Jamfile",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "de5e6e18_964c2b2e",
+        "filename": "src/system/kernel/arch/riscv64/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-09-05T00:56:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c9cdd63_7ed1a41e",
+      "revId": "b276b97f920dc3092b6bdb36887e4f1eff908ef7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "de2790fa_aa5da97a",
         "filename": "src/system/kernel/arch/riscv64/Jamfile",
         "patchSetId": 1
@@ -50,6 +86,24 @@
       "revId": "b276b97f920dc3092b6bdb36887e4f1eff908ef7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5cfd3ac7_1912c101",
+        "filename": "src/system/kernel/arch/riscv64/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-09-05T00:56:15Z",
+      "side": 1,
+      "message": "fixed",
+      "parentUuid": "de2790fa_aa5da97a",
+      "revId": "b276b97f920dc3092b6bdb36887e4f1eff908ef7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
