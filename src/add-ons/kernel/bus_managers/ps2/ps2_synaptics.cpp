@@ -64,6 +64,26 @@ enum {
 static touchpad_specs gHardwareSpecs;
 
 
+typedef struct {
+	uint8 majorVersion;
+	uint8 minorVersion;
+
+	uint8 nExtendedButtons;
+	uint8 firstExtendedButton;
+	uint8 extendedButtonsState;
+
+	bool capExtended : 1;
+	bool capMiddleButton : 1;
+	bool capSleep : 1;
+	bool capFourButtons : 1;
+	bool capMultiFinger : 1;
+	bool capPalmDetection : 1;
+	bool capPassThrough : 1;
+	bool capClickPad : 1;
+	bool capMultiTouch : 1;
+} touchpad_info;
+
+
 const char* kSynapticsPath[4] = {
 	"input/touchpad/ps2/synaptics_0",
 	"input/touchpad/ps2/synaptics_1",
@@ -153,6 +173,9 @@ get_synaptics_movment(synaptics_cookie *cookie, touchpad_movement *_event, bigti
 		return B_ERROR;
 	}
 
+	TRACE("SYNAPTICS: received packet %02x %02x %02x %02x %02x %02x\n", event_buffer[0],
+		event_buffer[1], event_buffer[2], event_buffer[3], event_buffer[4], event_buffer[5]);
+
 	event.buttons = event_buffer[0] & 3;
  	event.zPressure = event_buffer[2];
 
@@ -202,6 +225,27 @@ get_synaptics_movment(synaptics_cookie *cookie, touchpad_movement *_event, bigti
 
 			event.buttons |= sTouchpadInfo.extendedButtonsState
 				<< sTouchpadInfo.firstExtendedButton;
+		}
+
+		if (sTouchpadInfo.capMultiTouch && wValue == 2) {
+			// Multi-touch events use a different format
+			event.xPosition = event_buffer[1];
+			event.yPosition = event_buffer[2];
+
+			val32 = event_buffer[4] & 0x0F;
+			event.xPosition += val32 << 8;
+			val32 = event_buffer[4] & 0xF0;
+			event.yPosition += val32 << 4;
+
+			event.xPosition *= 2;
+			event.yPosition *= 2;
+
+			event.zPressure = event_buffer[5] & 0x0F;
+			event.zPressure += event_buffer[3] & 0x30;
+
+			*_event = event;
+
+			return status;
 		}
  	} else {
  		bool finger = event_buffer[0] >> 5 & 1;
@@ -255,6 +299,16 @@ query_capability(ps2_dev *dev)
 	sTouchpadInfo.capPalmDetection = val[2] & 1;
 	TRACE("SYNAPTICS: pass through %2x\n", val[2] >> 7 & 1);
 	sTouchpadInfo.capPassThrough = val[2] >> 7 & 1;
+
+	if (get_information_query(dev, nExtendedQueries, kContinuedCapabilities,
+			val) == B_OK) {
+		bool multiTouch1 = val[0] >> 3 & 1;
+		bool multiTouch2 = val[1] >> 4 & 1;
+		sTouchpadInfo.capMultiTouch = multiTouch1 | multiTouch2;
+	} else {
+		sTouchpadInfo.capMultiTouch = false;
+	}
+	TRACE("SYNAPTICS: multitouch %x\n", sTouchpadInfo.capMultiTouch);
 
 	if (get_information_query(dev, nExtendedQueries, kExtendedModelId, val)
 			!= B_OK) {
@@ -507,7 +561,10 @@ synaptics_open(const char *name, uint32 flags, void **_cookie)
 	}
 
 	// Set Mode
-	if (sTouchpadInfo.capExtended)
+	if (sTouchpadInfo.capMultiTouch) {
+		cookie->mode = SYN_MULTITOUCH_MODE;
+		send_touchpad_arg(dev, kReadModelId);
+	} else if (sTouchpadInfo.capExtended)
 		cookie->mode = SYN_ABSOLUTE_W_MODE;
 	else
 		cookie->mode = SYN_ABSOLUTE_MODE;
@@ -638,22 +695,22 @@ synaptics_handle_int(ps2_dev *dev)
 
 	val = cookie->dev->history[0].data;
 
-	if ((cookie->packet_index == 0 || cookie->packet_index == 3)
-		&& (val & 8) != 0) {
-		INFO("SYNAPTICS: bad mouse data, trying resync\n");
+	if (cookie->mode != SYN_MULTITOUCH_MODE
+		&& (cookie->packet_index == 0 || cookie->packet_index == 3) && (val & 8) != 0) {
+		INFO("SYNAPTICS: bad mouse data %#02x, trying resync\n", val);
 		cookie->packet_index = 0;
 		return B_UNHANDLED_INTERRUPT;
 	}
 	if (cookie->packet_index == 0 && val >> 6 != 0x02) {
-	 	TRACE("SYNAPTICS: first package begins not with bit 1, 0\n");
+		TRACE("SYNAPTICS: first package %#02x begins not with bit 1, 0\n", val);
 		return B_UNHANDLED_INTERRUPT;
- 	}
- 	if (cookie->packet_index == 3 && val >> 6 != 0x03) {
-	 	TRACE("SYNAPTICS: third package begins not with bit 1, 1\n");
-	 	cookie->packet_index = 0;
+	}
+	if (cookie->packet_index == 3 && val >> 6 != 0x03) {
+		TRACE("SYNAPTICS: third package %#02x begins not with bit 1, 1\n", val);
+		cookie->packet_index = 0;
 		return B_UNHANDLED_INTERRUPT;
- 	}
- 	cookie->buffer[cookie->packet_index] = val;
+	}
+	cookie->buffer[cookie->packet_index] = val;
 
 	cookie->packet_index++;
 	if (cookie->packet_index >= 6) {
@@ -664,6 +721,7 @@ synaptics_handle_int(ps2_dev *dev)
 		if (sPassthroughDevice->active
 			&& sPassthroughDevice->handle_int != NULL
 			&& IS_SYN_PT_PACKAGE(cookie->buffer)) {
+			TRACE("SYNAPTICS: forward packet to passthrough device\n");
 			status_t status;
 
 			sPassthroughDevice->history[0].data = cookie->buffer[1];

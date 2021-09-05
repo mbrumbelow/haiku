@@ -16,11 +16,17 @@
 
 
 #define SYN_TOUCHPAD			0x47
-// Synaptics modes
+
+// Synaptics modes (values of the "mode" field in synaptics_cookie)
 #define SYN_ABSOLUTE_MODE		0x80
-// Absolute plus w mode
+	// Absolute mode reports the absolute X/Y position of the finger,
+	// instead of relative X/Y movement
 #define SYN_ABSOLUTE_W_MODE		0x81
+	// Adds finger width (W) value in addition to absolute X/Y
+#define SYN_MULTITOUCH_MODE		0xC8
+	// Supports tracking for multiple fingers
 #define SYN_FOUR_BYTE_CHILD		(1 << 1)
+
 // Low power sleep mode
 #define SYN_SLEEP_MODE			0x0C
 // Synaptics Passthrough port
@@ -33,25 +39,6 @@
 // no touchpad / left / right button pressed
 #define IS_SYN_PT_PACKAGE(val) ((val[0] & 0xFC) == 0x84 \
 	&& (val[3] & 0xCC) == 0xc4)
-
-
-typedef struct {
-	uint8 majorVersion;
-	uint8 minorVersion;
-
-	bool capExtended;
-	bool capMiddleButton;
-	bool capSleep;
-	bool capFourButtons;
-	bool capMultiFinger;
-	bool capPalmDetection;
-	bool capPassThrough;
-	bool capClickPad;
-
-	uint8 nExtendedButtons;
-	uint8 firstExtendedButton;
-	uint8 extendedButtonsState;
-} touchpad_info;
 
 
 typedef struct {
