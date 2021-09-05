@@ -16,6 +16,24 @@
       "revId": "22ccc15b3c99e5c7f5f9baf0b307cebee6d36e0d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "957be35e_bc2c5e9f",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/movement_maker.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-09-05T17:19:10Z",
+      "side": 1,
+      "message": "It\u0027s applied to the ; at the end of the line, so that still does the right thing.\n\nDidn\u0027t we have a patch or at least some discussion on centralizing the definition of trace macros in a single place? I can\u0027t find it anymore.",
+      "parentUuid": "ef0e5b8b_7069d154",
+      "revId": "22ccc15b3c99e5c7f5f9baf0b307cebee6d36e0d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
