@@ -237,7 +237,7 @@ TouchpadMovement::EventToMovement(const touchpad_movement* event, mouse_movement
 		}
 	}
 
-	if (event->buttons & kLeftButton) {
+	if (event->fingerWidth != 2 && (event->buttons & kLeftButton) != 0) {
 		fTapClicks = 0;
 		fTapdragStarted = false;
 		fTapStarted = false;
@@ -252,7 +252,9 @@ TouchpadMovement::EventToMovement(const touchpad_movement* event, mouse_movement
 		// The touch pad is in touch with at least one finger
 		if (!_CheckScrollingToMovement(event, movement))
 			_MoveToMovement(event, movement);
-	} else
+	} else if (event->fingerWidth == 2)
+		_MultiTouchMovement(event, movement);
+	else
 		_NoTouchToMovement(event, movement);
 
 
@@ -348,6 +350,26 @@ TouchpadMovement::_UpdateButtons(mouse_movement *movement)
 		movement->clicks = fClickCount;
 
 	fButtonsState = movement->buttons;
+}
+
+
+void
+TouchpadMovement::_MultiTouchMovement(const touchpad_movement *event,
+	mouse_movement *movement)
+{
+	uint32 buttons = event->buttons;
+
+	TRACE("TouchpadMovement: multitouch event (position %" B_PRId32 " width %d)\n",
+		event->xPosition, fAreaWidth);
+
+	if (buttons != 0) {
+		if (event->xPosition < (uint32)fAreaWidth / 2)
+			movement->buttons = kLeftButton;
+		else
+			movement->buttons = kRightButton;
+	}
+
+	_UpdateButtons(movement);
 }
 
 
