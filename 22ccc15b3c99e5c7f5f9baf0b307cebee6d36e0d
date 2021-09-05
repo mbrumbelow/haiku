@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ef0e5b8b_7069d154",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/movement_maker.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-09-05T16:50:57Z",
+      "side": 1,
+      "message": "When trace isn\u0027t enabled, the if is applied to the next statement.",
+      "revId": "22ccc15b3c99e5c7f5f9baf0b307cebee6d36e0d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
