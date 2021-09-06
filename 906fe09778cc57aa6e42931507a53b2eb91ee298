@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4cda501e_8314409d",
+        "filename": "src/build/libroot/fs.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-09-06T20:55:56Z",
+      "side": 1,
+      "message": "This should still be operator\u003d. It makes no sense to append a CWD to an existing path.",
+      "revId": "906fe09778cc57aa6e42931507a53b2eb91ee298",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
