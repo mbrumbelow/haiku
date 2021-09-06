@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "77186e77_58f2f1fc",
+        "filename": "src/build/libroot/fs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-09-06T03:59:19Z",
+      "side": 1,
+      "message": "Why can\u0027t this go at the beginning, after `strlen`?\n\n```\n    if (path_len \u003d\u003d 0) {\n        normalizedPath \u003d \u0027/\u0027;\n        return B_OK;\n    } else if (path[0] !\u003d \u0027/\u0027) {\n       ...\n    }\n```",
+      "revId": "0873ad664cc1b673e7a1ba4e8b33dfa2e2a19225",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bbe42410_450f0b10",
         "filename": "src/build/libroot/fs.cpp",
         "patchSetId": 3
