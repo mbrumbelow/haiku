@@ -24,7 +24,7 @@
 
 #include <bluetoothserver_p.h>
 
-extern "C" _EXPORT BView *instantiate_deskbar_item(void);
+extern "C" _EXPORT BView *instantiate_deskbar_item(float maxWidth, float maxHeight);
 status_t our_image(image_info& image);
 
 const uint32 kMsgOpenBluetoothPreferences = 'obtp';
@@ -224,9 +224,9 @@ DeskbarReplicant::_ShowErrorAlert(BString msg, status_t status)
 
 
 extern "C" _EXPORT BView *
-instantiate_deskbar_item(void)
+instantiate_deskbar_item(float maxWidth, float maxHeight)
 {
-	return new DeskbarReplicant(BRect(0, 0, 15, 15),
+	return new DeskbarReplicant(BRect(0, 0, maxWidth - 1 , maxHeight - 1),
 		B_FOLLOW_LEFT | B_FOLLOW_TOP);
 }
 
