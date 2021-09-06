@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "36f59f4b_07f75346",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/movement_maker.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-09-06T07:57:59Z",
+      "side": 1,
+      "message": "Both parentheses around the operators are superfluous, and should be removed.",
+      "revId": "fe09f78acc828d3315c86ae0ceb1d77ef9982b65",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
