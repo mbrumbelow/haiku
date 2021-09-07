@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5b5279ad_616b1498",
+        "filename": "src/add-ons/kernel/bus_managers/pci/arch/riscv64/arch_pci_controller.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-09-07T18:52:54Z",
+      "side": 1,
+      "message": "ATU is fu740(Designware) host controller specific thing.",
+      "revId": "77dd8318b386876dc95f187639bb3ecd3bbfa054",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7058a58d_9a0c24ce",
+        "filename": "src/add-ons/kernel/bus_managers/pci/arch/riscv64/ecam/pci_ecam.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-09-07T18:52:54Z",
+      "side": 1,
+      "message": "DBI is fu740(Designware) host controller specific thing.",
+      "revId": "77dd8318b386876dc95f187639bb3ecd3bbfa054",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
