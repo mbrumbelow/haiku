@@ -465,7 +465,8 @@ allocate_area_page_protections(VMArea* area)
 	// so we use 4 bits per page.
 	size_t bytes = (area->Size() / B_PAGE_SIZE + 1) / 2;
 	area->page_protections = (uint8*)malloc_etc(bytes,
-		HEAP_DONT_LOCK_KERNEL_SPACE);
+		area->address_space == VMAddressSpace::Kernel() ?
+			HEAP_DONT_LOCK_KERNEL_SPACE : 0);
 	if (area->page_protections == NULL)
 		return B_NO_MEMORY;
 
