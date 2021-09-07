@@ -33,6 +33,23 @@
       "revId": "77dd8318b386876dc95f187639bb3ecd3bbfa054",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21019ad7_8b62e848",
+        "filename": "src/add-ons/kernel/bus_managers/pci/arch/riscv64/pci_msi.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-09-07T18:55:07Z",
+      "side": 1,
+      "message": "This is MSI support code for fu740(Designware) host controller. Unrelated to ECAM.",
+      "revId": "77dd8318b386876dc95f187639bb3ecd3bbfa054",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
