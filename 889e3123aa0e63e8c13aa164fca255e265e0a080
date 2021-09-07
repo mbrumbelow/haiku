@@ -16,6 +16,24 @@
       "revId": "889e3123aa0e63e8c13aa164fca255e265e0a080",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2fbb6aa_e729ee8e",
+        "filename": "docs/user/Doxyfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 2166,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-09-07T05:37:10Z",
+      "side": 1,
+      "message": "Both entries that are for modern GCC or higher, explicitly mention that they only work on modern C++.",
+      "parentUuid": "7847a563_7062d5f9",
+      "revId": "889e3123aa0e63e8c13aa164fca255e265e0a080",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
