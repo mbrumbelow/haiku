@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "00a566cf_56bcd0cd",
+        "filename": "src/kits/support/String.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-09-07T07:46:50Z",
+      "side": 1,
+      "message": "I assume you\u0027d want:\n\nif (this !\u003d \u0026string) {\n    if (!_IsShareable() || atomic_add(\u0026_ReferenceCount(), -1) \u003d\u003d 1)\n\t\t_FreePrivateData();\n    fPrivateData \u003d string.fPrivateData;\n    string.fPrivateData \u003d NULL;\n}\nreturn *this;",
+      "revId": "06cc52993e6da976ef09d990d204c8dae896212b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
