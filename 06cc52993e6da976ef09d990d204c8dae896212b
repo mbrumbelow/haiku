@@ -16,6 +16,24 @@
       "revId": "06cc52993e6da976ef09d990d204c8dae896212b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc4bacd2_67786639",
+        "filename": "src/kits/support/String.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-09-07T10:42:59Z",
+      "side": 1,
+      "message": "Correct. Because of the shared state, this is one of the rare cases where you actually have to check if you are not moving to yourself. I went with a slightly different solution to decrementing and conditionally freeing the object, I just call the destructor on this.",
+      "parentUuid": "00a566cf_56bcd0cd",
+      "revId": "06cc52993e6da976ef09d990d204c8dae896212b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
