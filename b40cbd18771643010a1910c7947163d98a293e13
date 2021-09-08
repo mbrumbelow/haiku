@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9678e804_4fc4d674",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDParser.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-09-08T16:33:47Z",
+      "side": 1,
+      "message": "trailing whitespace",
+      "revId": "b40cbd18771643010a1910c7947163d98a293e13",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f15d144_505789ba",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDParser.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-09-08T16:33:47Z",
+      "side": 1,
+      "message": "trailing whitespace (after the \u003d)",
+      "revId": "b40cbd18771643010a1910c7947163d98a293e13",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb00f477_bc1d8e31",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/KeyboardProtocolHandler.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 801,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-09-08T16:33:47Z",
+      "side": 1,
+      "message": "please remove the old code. We have the git historyif we need it back.",
+      "revId": "b40cbd18771643010a1910c7947163d98a293e13",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9552f91c_2b5391ec",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_hid/KeyboardProtocolHandler.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 707,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-09-08T16:33:47Z",
+      "side": 1,
+      "message": "please remove the old code. We have the git historyif we need it back.",
+      "revId": "b40cbd18771643010a1910c7947163d98a293e13",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
