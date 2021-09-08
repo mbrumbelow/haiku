@@ -36,6 +36,57 @@
     },
     {
       "key": {
+        "uuid": "26a7eb4c_8fd29371",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDParser.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-09-08T19:10:43Z",
+      "side": 1,
+      "message": "And, in addition, the \u0027\u003d\u0027 always goes to the next line.",
+      "revId": "b40cbd18771643010a1910c7947163d98a293e13",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b34a16ee_497b8264",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/KeyboardProtocolHandler.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-09-08T19:10:43Z",
+      "side": 1,
+      "message": "\u0027} else {\u0027 on a single line, or, even better in this case:\n} else if () {\n    ....\n}",
+      "revId": "b40cbd18771643010a1910c7947163d98a293e13",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9aacccf5_ad769b2e",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/KeyboardProtocolHandler.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-09-08T19:10:43Z",
+      "side": 1,
+      "message": "We don\u0027t use {} for single line blocks.",
+      "revId": "b40cbd18771643010a1910c7947163d98a293e13",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bb00f477_bc1d8e31",
         "filename": "src/add-ons/kernel/drivers/input/hid_shared/KeyboardProtocolHandler.cpp",
         "patchSetId": 3
