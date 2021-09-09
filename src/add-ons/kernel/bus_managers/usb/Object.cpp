@@ -32,6 +32,7 @@ Object::Object(Object *parent)
 Object::~Object()
 {
 	PutUSBID();
+	fStack->PutObject(this);
 }
 
 

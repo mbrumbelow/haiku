@@ -201,6 +201,27 @@ Stack::PutUSBID(Object *object)
 }
 
 
+void
+Stack::PutObject(Object *object)
+{
+#if KDEBUG
+	if (!Lock())
+		return;
+
+	// Validate that no children of this object are still in the stack.
+	for (usb_id i = 0; i < fObjectMaxCount; i++) {
+		if (fObjectArray[i] == NULL)
+			continue;
+
+		ASSERT_PRINT(fObjectArray[i]->Parent() != object,
+			"%s", object->TypeName());
+	}
+
+	Unlock();
+#endif
+}
+
+
 Object *
 Stack::GetObject(usb_id id)
 {

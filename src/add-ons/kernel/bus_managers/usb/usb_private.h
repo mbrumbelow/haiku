@@ -124,6 +124,7 @@ public:
 
 		usb_id							GetUSBID(Object *object);
 		void							PutUSBID(Object *object);
+		void							PutObject(Object *object);
 
 		// This sets the object as busy; the caller must set it un-busy.
 		Object *						GetObject(usb_id id);
