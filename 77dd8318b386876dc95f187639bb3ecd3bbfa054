@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "17478612_b466a984",
+        "filename": "src/add-ons/kernel/bus_managers/pci/arch/riscv64/arch_pci_controller.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-09-09T20:40:26Z",
+      "side": 1,
+      "message": "moved to fu740",
+      "parentUuid": "5b5279ad_616b1498",
+      "revId": "77dd8318b386876dc95f187639bb3ecd3bbfa054",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7058a58d_9a0c24ce",
         "filename": "src/add-ons/kernel/bus_managers/pci/arch/riscv64/ecam/pci_ecam.cpp",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "c2926920_583d3cfe",
+        "filename": "src/add-ons/kernel/bus_managers/pci/arch/riscv64/ecam/pci_ecam.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-09-09T20:40:26Z",
+      "side": 1,
+      "message": "dropped from ecam",
+      "parentUuid": "7058a58d_9a0c24ce",
+      "revId": "77dd8318b386876dc95f187639bb3ecd3bbfa054",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "21019ad7_8b62e848",
         "filename": "src/add-ons/kernel/bus_managers/pci/arch/riscv64/pci_msi.cpp",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2021-09-07T18:55:07Z",
       "side": 1,
       "message": "This is MSI support code for fu740(Designware) host controller. Unrelated to ECAM.",
+      "revId": "77dd8318b386876dc95f187639bb3ecd3bbfa054",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98929707_c5be1e2b",
+        "filename": "src/add-ons/kernel/bus_managers/pci/arch/riscv64/pci_msi.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-09-09T20:40:26Z",
+      "side": 1,
+      "message": "I plan on moving this next",
+      "parentUuid": "21019ad7_8b62e848",
       "revId": "77dd8318b386876dc95f187639bb3ecd3bbfa054",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
