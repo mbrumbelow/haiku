@@ -347,7 +347,11 @@ Device::~Device()
 
 			for (size_t k = 0; k < interfaceList->alt_count; k++) {
 				usb_interface_info* interface = &interfaceList->alt[k];
-				delete (Interface*)GetStack()->GetObject(interface->handle);
+				Interface* interfaceObject =
+					(Interface*)GetStack()->GetObject(interface->handle);
+				if (interfaceObject != NULL)
+					interfaceObject->SetBusy(false);
+				delete interfaceObject;
 				interface->handle = 0;
 			}
 		}
@@ -629,7 +633,10 @@ Device::ClearEndpoints(int32 interfaceIndex)
 
 		for (size_t i = 0; i < interfaceInfo->endpoint_count; i++) {
 			usb_endpoint_info* endpoint = &interfaceInfo->endpoint[i];
-			delete (Pipe*)GetStack()->GetObject(endpoint->handle);
+			Pipe* pipe = (Pipe*)GetStack()->GetObject(endpoint->handle);
+			if (pipe != NULL)
+				pipe->SetBusy(false);
+			delete pipe;
 			endpoint->handle = 0;
 		}
 	}
