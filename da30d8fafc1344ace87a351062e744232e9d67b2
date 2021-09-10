@@ -52,6 +52,24 @@
       "revId": "da30d8fafc1344ace87a351062e744232e9d67b2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3d7edfa_775633fd",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 688,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-09-10T14:12:54Z",
+      "side": 0,
+      "message": "Nothing uses it yet, but maybe we should use it more, instead of removing it?",
+      "parentUuid": "545c0d97_948ae033",
+      "revId": "da30d8fafc1344ace87a351062e744232e9d67b2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
