@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eebdc944_e11685bc",
+        "filename": "src/system/kernel/vm/VMArea.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-09-10T06:48:12Z",
+      "side": 1,
+      "message": "All operators (besides \u0027,\u0027) go to the beginning of the next line.",
+      "revId": "4897c7320292334a1b0b8d786a2f99403873a970",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
