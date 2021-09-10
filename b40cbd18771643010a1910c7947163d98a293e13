@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c2035c19_1e0d956e",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDParser.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-09-10T11:33:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9678e804_4fc4d674",
+      "revId": "b40cbd18771643010a1910c7947163d98a293e13",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0f15d144_505789ba",
         "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDParser.cpp",
         "patchSetId": 3
@@ -33,6 +51,24 @@
       "revId": "b40cbd18771643010a1910c7947163d98a293e13",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9cd76b42_c6000b09",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDParser.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-09-10T11:33:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f15d144_505789ba",
+      "revId": "b40cbd18771643010a1910c7947163d98a293e13",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "2067dde6_86b8ec74",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDParser.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-09-10T11:33:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26a7eb4c_8fd29371",
+      "revId": "b40cbd18771643010a1910c7947163d98a293e13",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b34a16ee_497b8264",
         "filename": "src/add-ons/kernel/drivers/input/hid_shared/KeyboardProtocolHandler.cpp",
         "patchSetId": 3
@@ -67,6 +121,24 @@
       "revId": "b40cbd18771643010a1910c7947163d98a293e13",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85299e85_e9da3a5d",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/KeyboardProtocolHandler.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-09-10T11:33:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b34a16ee_497b8264",
+      "revId": "b40cbd18771643010a1910c7947163d98a293e13",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "08443e95_71b15de4",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/KeyboardProtocolHandler.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-09-10T11:33:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9aacccf5_ad769b2e",
+      "revId": "b40cbd18771643010a1910c7947163d98a293e13",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bb00f477_bc1d8e31",
         "filename": "src/add-ons/kernel/drivers/input/hid_shared/KeyboardProtocolHandler.cpp",
         "patchSetId": 3
@@ -101,6 +191,24 @@
       "revId": "b40cbd18771643010a1910c7947163d98a293e13",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8abfe56_e1cae4c5",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/KeyboardProtocolHandler.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 801,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-09-10T11:33:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb00f477_bc1d8e31",
+      "revId": "b40cbd18771643010a1910c7947163d98a293e13",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
