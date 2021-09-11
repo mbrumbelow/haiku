@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "757df20c_a45599e9",
+        "filename": "src/kits/network/libnetapi/NetDebug.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-09-11T11:11:32Z",
+      "side": 1,
+      "message": "this one could also be changed",
+      "revId": "0ad064ca8234d44ff7393d13d1bb5480acc5ee50",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
