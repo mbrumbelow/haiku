@@ -34,6 +34,24 @@
       "revId": "0ad064ca8234d44ff7393d13d1bb5480acc5ee50",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "526c08c7_fdd91c40",
+        "filename": "src/kits/network/libnetapi/NetDebug.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-09-11T12:35:00Z",
+      "side": 1,
+      "message": "Don\u0027t remove the \\n. It\u0027s a bit confusing, but puts automatically adds a newline, while fputs doesn\u0027t, so you need to do it manually.",
+      "parentUuid": "ffdf4e42_2c4cb9ae",
+      "revId": "0ad064ca8234d44ff7393d13d1bb5480acc5ee50",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
