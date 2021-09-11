@@ -135,7 +135,6 @@ ThreadModelLoader::_Load()
 
 	// filter the events
 	thread_id threadID = fThread->ID();
-	bool done = false;
 	uint32 count = 0;
 
 	system_profiler_event_header** events = fModel->Events();
@@ -152,8 +151,6 @@ ThreadModelLoader::_Load()
 			{
 				system_profiler_thread_removed* event
 					= (system_profiler_thread_removed*)buffer;
-				if (event->thread == threadID)
-					done = true;
 				break;
 			}
 
