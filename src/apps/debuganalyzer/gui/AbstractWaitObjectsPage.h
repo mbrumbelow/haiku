@@ -378,7 +378,6 @@ private:
 				int32 nodeCount = children.CountItems();
 				BObjectList<Node> nameGroup;
 				Node* previousNode = children.ItemAt(0);
-				int32 groupNodeIndex = 0;
 				for (int32 i = 1; i < nodeCount; i++) {
 					Node* node = children.ItemAt(i);
 					if (strcmp(node->Name(), previousNode->Name())) {
@@ -391,7 +390,6 @@ private:
 							NodeContainerNode::fChildren.AddItem(previousNode);
 
 						nameGroup.MakeEmpty();
-						groupNodeIndex = i;
 					}
 
 					// add the node
