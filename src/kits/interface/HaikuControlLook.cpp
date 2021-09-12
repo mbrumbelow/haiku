@@ -568,9 +568,8 @@ HaikuControlLook::DrawScrollBarBorder(BView* view, BRect rect,
 
 	view->PushState();
 
-	// set clipping constraints to updateRect
-	BRegion clipping(updateRect);
-	view->ConstrainClippingRegion(&clipping);
+	// set clipping constraints to rect
+	view->ClipToRect(rect);
 
 	bool isEnabled = (flags & B_DISABLED) == 0;
 	bool isFocused = (flags & B_FOCUSED) != 0;
@@ -622,9 +621,10 @@ HaikuControlLook::DrawScrollBarButton(BView* view, BRect rect,
 	if (!rect.IsValid() || !rect.Intersects(updateRect))
 		return;
 
+	view->PushState();
+
 	// clip to button
-	BRegion buttonRegion(rect);
-	view->ConstrainClippingRegion(&buttonRegion);
+	view->ClipToRect(rect);
 
 	bool isEnabled = (flags & B_DISABLED) == 0;
 
@@ -638,8 +638,7 @@ HaikuControlLook::DrawScrollBarButton(BView* view, BRect rect,
 		// almost but not quite B_DARKEN_MAX_TINT
 
 	// revert clipping constraints
-	BRegion clipping(updateRect);
-	view->ConstrainClippingRegion(&clipping);
+	view->PopState();
 }
 
 void
@@ -662,9 +661,8 @@ HaikuControlLook::DrawScrollBarBackground(BView* view, BRect& rect,
 
 	view->PushState();
 
-	// set clipping constraints to updateRect
-	BRegion clipping(updateRect);
-	view->ConstrainClippingRegion(&clipping);
+	// set clipping constraints to rect
+	view->ClipToRect(rect);
 
 	bool isEnabled = (flags & B_DISABLED) == 0;
 
@@ -759,9 +757,8 @@ HaikuControlLook::DrawScrollBarThumb(BView* view, BRect& rect,
 
 	view->PushState();
 
-	// set clipping constraints to updateRect
-	BRegion clipping(updateRect);
-	view->ConstrainClippingRegion(&clipping);
+	// set clipping constraints to rect
+	view->ClipToRect(rect);
 
 	// flags
 	bool isEnabled = (flags & B_DISABLED) == 0;
@@ -2521,9 +2518,8 @@ HaikuControlLook::_DrawButtonFrame(BView* view, BRect& rect,
 	// save the clipping constraints of the view
 	view->PushState();
 
-	// set clipping constraints to updateRect
-	BRegion clipping(updateRect);
-	view->ConstrainClippingRegion(&clipping);
+	// set clipping constraints to rect
+	view->ClipToRect(rect);
 
 	// If the button is flat and neither activated nor otherwise highlighted
 	// (mouse hovering or focussed), draw it flat.
@@ -2596,13 +2592,15 @@ HaikuControlLook::_DrawButtonFrame(BView* view, BRect& rect,
 
 	// rounded corners
 
+	BRegion corners;
+
 	if ((borders & B_LEFT_BORDER) != 0 && (borders & B_TOP_BORDER) != 0
 		&& leftTopRadius > 0) {
 		// draw left top rounded corner
 		BRect leftTopCorner(floorf(rect.left), floorf(rect.top),
 			floorf(rect.left + leftTopRadius),
 			floorf(rect.top + leftTopRadius));
-		clipping.Exclude(leftTopCorner);
+		corners.Include(leftTopCorner);
 		_DrawRoundCornerFrameLeftTop(view, leftTopCorner, updateRect,
 			cornerBgColor, edgeShadowColor, frameLightColor);
 	}
@@ -2613,7 +2611,7 @@ HaikuControlLook::_DrawButtonFrame(BView* view, BRect& rect,
 		BRect rightTopCorner(floorf(rect.right - rightTopRadius),
 			floorf(rect.top), floorf(rect.right),
 			floorf(rect.top + rightTopRadius));
-		clipping.Exclude(rightTopCorner);
+		corners.Include(rightTopCorner);
 		_DrawRoundCornerFrameRightTop(view, rightTopCorner, updateRect,
 			cornerBgColor, edgeShadowColor, edgeLightColor,
 			frameLightColor, frameShadowColor);
@@ -2625,7 +2623,7 @@ HaikuControlLook::_DrawButtonFrame(BView* view, BRect& rect,
 		BRect leftBottomCorner(floorf(rect.left),
 			floorf(rect.bottom - leftBottomRadius),
 			floorf(rect.left + leftBottomRadius), floorf(rect.bottom));
-		clipping.Exclude(leftBottomCorner);
+		corners.Include(leftBottomCorner);
 		_DrawRoundCornerFrameLeftBottom(view, leftBottomCorner, updateRect,
 			cornerBgColor, edgeShadowColor, edgeLightColor,
 			frameLightColor, frameShadowColor);
@@ -2637,13 +2635,15 @@ HaikuControlLook::_DrawButtonFrame(BView* view, BRect& rect,
 		BRect rightBottomCorner(floorf(rect.right - rightBottomRadius),
 			floorf(rect.bottom - rightBottomRadius), floorf(rect.right),
 			floorf(rect.bottom));
-		clipping.Exclude(rightBottomCorner);
+		corners.Include(rightBottomCorner);
 		_DrawRoundCornerFrameRightBottom(view, rightBottomCorner,
 			updateRect, cornerBgColor, edgeLightColor, frameShadowColor);
 	}
 
 	// clip out the corners
-	view->ConstrainClippingRegion(&clipping);
+	int rects = corners.CountRects();
+	for (int i = 0; i < rects; i++)
+		view->ClipToInverseRect(corners.RectAt(i));
 
 	// draw outer edge
 	if ((flags & B_DEFAULT_BUTTON) != 0) {
@@ -2803,9 +2803,8 @@ HaikuControlLook::_DrawButtonBackground(BView* view, BRect& rect,
 	// save the clipping constraints of the view
 	view->PushState();
 
-	// set clipping constraints to updateRect
-	BRegion clipping(updateRect);
-	view->ConstrainClippingRegion(&clipping);
+	// set clipping constraints to rect
+	view->ClipToRect(rect);
 
 	// If the button is flat and neither activated nor otherwise highlighted
 	// (mouse hovering or focussed), draw it flat.
@@ -2816,6 +2815,7 @@ HaikuControlLook::_DrawButtonBackground(BView* view, BRect& rect,
 		_DrawFlatButtonBackground(view, rect, updateRect, base, popupIndicator,
 			flags, borders, orientation);
 	} else {
+		BRegion clipping(updateRect);
 		_DrawNonFlatButtonBackground(view, rect, updateRect, clipping,
 			leftTopRadius, rightTopRadius, leftBottomRadius, rightBottomRadius,
 			base, popupIndicator, flags, borders, orientation);
@@ -2875,13 +2875,15 @@ HaikuControlLook::_DrawNonFlatButtonBackground(BView* view, BRect& rect,
 
 	// rounded corners
 
+	BRegion corners;
+
 	if ((borders & B_LEFT_BORDER) != 0 && (borders & B_TOP_BORDER) != 0
 		&& leftTopRadius > 0) {
 		// draw left top rounded corner
 		BRect leftTopCorner(floorf(rect.left), floorf(rect.top),
 			floorf(rect.left + leftTopRadius - 2.0),
 			floorf(rect.top + leftTopRadius - 2.0));
-		clipping.Exclude(leftTopCorner);
+		corners.Include(leftTopCorner);
 		_DrawRoundCornerBackgroundLeftTop(view, leftTopCorner, updateRect,
 			bevelLightColor, fillGradient);
 	}
@@ -2892,7 +2894,7 @@ HaikuControlLook::_DrawNonFlatButtonBackground(BView* view, BRect& rect,
 		BRect rightTopCorner(floorf(rect.right - rightTopRadius + 2.0),
 			floorf(rect.top), floorf(rect.right),
 			floorf(rect.top + rightTopRadius - 2.0));
-		clipping.Exclude(rightTopCorner);
+		corners.Include(rightTopCorner);
 		_DrawRoundCornerBackgroundRightTop(view, rightTopCorner,
 			updateRect, bevelLightColor, bevelShadowColor, fillGradient);
 	}
@@ -2904,7 +2906,7 @@ HaikuControlLook::_DrawNonFlatButtonBackground(BView* view, BRect& rect,
 			floorf(rect.bottom - leftBottomRadius + 2.0),
 			floorf(rect.left + leftBottomRadius - 2.0),
 			floorf(rect.bottom));
-		clipping.Exclude(leftBottomCorner);
+		corners.Include(leftBottomCorner);
 		_DrawRoundCornerBackgroundLeftBottom(view, leftBottomCorner,
 			updateRect, bevelLightColor, bevelShadowColor, fillGradient);
 	}
@@ -2915,13 +2917,16 @@ HaikuControlLook::_DrawNonFlatButtonBackground(BView* view, BRect& rect,
 		BRect rightBottomCorner(floorf(rect.right - rightBottomRadius + 2.0),
 			floorf(rect.bottom - rightBottomRadius + 2.0), floorf(rect.right),
 			floorf(rect.bottom));
-		clipping.Exclude(rightBottomCorner);
+		corners.Include(rightBottomCorner);
 		_DrawRoundCornerBackgroundRightBottom(view, rightBottomCorner,
 			updateRect, bevelShadowColor, fillGradient);
 	}
 
 	// clip out the corners
-	view->ConstrainClippingRegion(&clipping);
+	int rects = corners.CountRects();
+	for (int i = 0; i < rects; i++)
+		view->ClipToInverseRect(corners.RectAt(i));
+	clipping.Exclude(&corners);
 
 	// draw inner bevel
 
@@ -3287,9 +3292,10 @@ HaikuControlLook::_DrawRoundCornerFrameLeftTop(BView* view, BRect& cornerRect,
 	const BRect& updateRect, const rgb_color& background,
 	const rgb_color& edgeColor, const rgb_color& frameColor)
 {
+	view->PushState();
+
 	// constrain clipping region to corner
-	BRegion clipping(cornerRect);
-	view->ConstrainClippingRegion(&clipping);
+	view->ClipToRect(cornerRect);
 
 	// background
 	view->SetHighColor(background);
@@ -3313,6 +3319,8 @@ HaikuControlLook::_DrawRoundCornerFrameLeftTop(BView* view, BRect& cornerRect,
 	// prepare for bevel
 	cornerRect.left++;
 	cornerRect.top++;
+
+	view->PopState();
 }
 
 
@@ -3321,9 +3329,10 @@ HaikuControlLook::_DrawRoundCornerBackgroundLeftTop(BView* view, BRect& cornerRe
 	const BRect& updateRect, const rgb_color& bevelColor,
 	const BGradientLinear& fillGradient)
 {
+	view->PushState();
+
 	// constrain clipping region to corner
-	BRegion clipping(cornerRect);
-	view->ConstrainClippingRegion(&clipping);
+	view->ClipToRect(cornerRect);
 
 	BRect ellipseRect(cornerRect);
 	ellipseRect.right = ellipseRect.left + ellipseRect.Width() * 2;
@@ -3336,6 +3345,8 @@ HaikuControlLook::_DrawRoundCornerBackgroundLeftTop(BView* view, BRect& cornerRe
 	// gradient
 	ellipseRect.InsetBy(1, 1);
 	view->FillEllipse(ellipseRect, fillGradient);
+
+	view->PopState();
 }
 
 
@@ -3361,9 +3372,10 @@ HaikuControlLook::_DrawRoundCornerFrameRightTop(BView* view, BRect& cornerRect,
 	const rgb_color& edgeTopColor, const rgb_color& edgeRightColor,
 	const rgb_color& frameTopColor, const rgb_color& frameRightColor)
 {
+	view->PushState();
+
 	// constrain clipping region to corner
-	BRegion clipping(cornerRect);
-	view->ConstrainClippingRegion(&clipping);
+	view->ClipToRect(cornerRect);
 
 	// background
 	view->SetHighColor(background);
@@ -3399,6 +3411,8 @@ HaikuControlLook::_DrawRoundCornerFrameRightTop(BView* view, BRect& cornerRect,
 	// prepare for bevel
 	cornerRect.right--;
 	cornerRect.top++;
+
+	view->PopState();
 }
 
 
@@ -3407,9 +3421,10 @@ HaikuControlLook::_DrawRoundCornerBackgroundRightTop(BView* view, BRect& cornerR
 	const BRect& updateRect, const rgb_color& bevelTopColor,
 	const rgb_color& bevelRightColor, const BGradientLinear& fillGradient)
 {
+	view->PushState();
+
 	// constrain clipping region to corner
-	BRegion clipping(cornerRect);
-	view->ConstrainClippingRegion(&clipping);
+	view->ClipToRect(cornerRect);
 
 	BRect ellipseRect(cornerRect);
 	ellipseRect.left = ellipseRect.right - ellipseRect.Width() * 2;
@@ -3426,6 +3441,8 @@ HaikuControlLook::_DrawRoundCornerBackgroundRightTop(BView* view, BRect& cornerR
 	// gradient
 	ellipseRect.InsetBy(1, 1);
 	view->FillEllipse(ellipseRect, fillGradient);
+
+	view->PopState();
 }
 
 
@@ -3451,9 +3468,10 @@ HaikuControlLook::_DrawRoundCornerFrameLeftBottom(BView* view, BRect& cornerRect
 	const rgb_color& edgeLeftColor, const rgb_color& edgeBottomColor,
 	const rgb_color& frameLeftColor, const rgb_color& frameBottomColor)
 {
+	view->PushState();
+
 	// constrain clipping region to corner
-	BRegion clipping(cornerRect);
-	view->ConstrainClippingRegion(&clipping);
+	view->ClipToRect(cornerRect);
 
 	// background
 	view->SetHighColor(background);
@@ -3489,6 +3507,8 @@ HaikuControlLook::_DrawRoundCornerFrameLeftBottom(BView* view, BRect& cornerRect
 	// prepare for bevel
 	cornerRect.left++;
 	cornerRect.bottom--;
+
+	view->PopState();
 }
 
 
@@ -3497,9 +3517,10 @@ HaikuControlLook::_DrawRoundCornerBackgroundLeftBottom(BView* view, BRect& corne
 	const BRect& updateRect, const rgb_color& bevelLeftColor,
 	const rgb_color& bevelBottomColor, const BGradientLinear& fillGradient)
 {
+	view->PushState();
+
 	// constrain clipping region to corner
-	BRegion clipping(cornerRect);
-	view->ConstrainClippingRegion(&clipping);
+	view->ClipToRect(cornerRect);
 
 	BRect ellipseRect(cornerRect);
 	ellipseRect.right = ellipseRect.left + ellipseRect.Width() * 2;
@@ -3516,6 +3537,8 @@ HaikuControlLook::_DrawRoundCornerBackgroundLeftBottom(BView* view, BRect& corne
 	// gradient
 	ellipseRect.InsetBy(1, 1);
 	view->FillEllipse(ellipseRect, fillGradient);
+
+	view->PopState();
 }
 
 
@@ -3537,9 +3560,10 @@ HaikuControlLook::_DrawRoundCornerFrameRightBottom(BView* view, BRect& cornerRec
 	const BRect& updateRect, const rgb_color& background,
 	const rgb_color& edgeColor, const rgb_color& frameColor)
 {
+	view->PushState();
+
 	// constrain clipping region to corner
-	BRegion clipping(cornerRect);
-	view->ConstrainClippingRegion(&clipping);
+	view->ClipToRect(cornerRect);
 
 	// background
 	view->SetHighColor(background);
@@ -3563,6 +3587,8 @@ HaikuControlLook::_DrawRoundCornerFrameRightBottom(BView* view, BRect& cornerRec
 	// prepare for bevel
 	cornerRect.right--;
 	cornerRect.bottom--;
+
+	view->PopState();
 }
 
 
@@ -3571,9 +3597,10 @@ HaikuControlLook::_DrawRoundCornerBackgroundRightBottom(BView* view,
 	BRect& cornerRect, const BRect& updateRect, const rgb_color& bevelColor,
 	const BGradientLinear& fillGradient)
 {
+	view->PushState();
+
 	// constrain clipping region to corner
-	BRegion clipping(cornerRect);
-	view->ConstrainClippingRegion(&clipping);
+	view->ClipToRect(cornerRect);
 
 	BRect ellipseRect(cornerRect);
 	ellipseRect.left = ellipseRect.right - ellipseRect.Width() * 2;
@@ -3586,6 +3613,8 @@ HaikuControlLook::_DrawRoundCornerBackgroundRightBottom(BView* view,
 	// gradient
 	ellipseRect.InsetBy(1, 1);
 	view->FillEllipse(ellipseRect, fillGradient);
+
+	view->PopState();
 }
 
 
