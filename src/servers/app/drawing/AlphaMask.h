@@ -71,7 +71,11 @@ private:
 
 			IntPoint			fCanvasOrigin;
 			IntRect				fCanvasBounds;
+
+protected:
 			const bool			fInverse;
+
+private:
 			uint8				fBackgroundOpacity;
 
 			int32				fNextMaskCount;

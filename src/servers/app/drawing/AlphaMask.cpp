@@ -318,7 +318,10 @@ template<class VectorMaskType>
 ServerBitmap*
 VectorAlphaMask<VectorMaskType>::_RenderSource(const IntRect& canvasBounds)
 {
-	fBounds = static_cast<VectorMaskType*>(this)->DetermineBoundingBox();
+	if (!fInverse)
+		fBounds = static_cast<VectorMaskType*>(this)->DetermineBoundingBox();
+	else
+		fBounds = canvasBounds;
 
 	if (fBounds.Width() > canvasBounds.Width()
 		|| fBounds.Height() > canvasBounds.Height()) {
