@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "32d69ee8_0cd7aa46",
+        "filename": "src/servers/app/drawing/AlphaMask.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-09-12T20:11:01Z",
+      "side": 1,
+      "message": "I think inverse alpha masks intentionally have a smaller bound.\n\nThe reason is the implementation, where we need to render the mask to a bitmap to use it. The bitmap needs to be as small as possible in order to save memory. Allocating a mask of the view bounds size will waste several megabytes of memory (even if only temporarily). So the idea was to have small bounds, and change the behavior of what\u0027s outside the bounds. In an inverse alpha mask, everything outside the bounds should not be masked, and bounds are additive (a later mask can mask what was visible in a previous one, and make the bounds larger). In non-inversed masks, the bounds can only shrink, since anything outside them is not drawn at all.\n\nThis of course creates some complications when mixing the two types of masks together.",
+      "revId": "796e6dfdea0e242d4c2641e30fed450e573babe5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
