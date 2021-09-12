@@ -19,11 +19,11 @@
 
 //#define TRACE_EXT2
 #ifdef TRACE_EXT2
-#	define TRACE(x...) dprintf("\33[34mext2:\33[0m " x)
-#	define ASSERT(x) { if (!(x)) kernel_debugger("ext2: assert failed: " #x "\n"); }
+#	define EXT2_TRACE(x...) dprintf("\33[34mext2:\33[0m " x)
+#	define EXT2_ASSERT(x) { if (!(x)) kernel_debugger("ext2: assert failed: " #x "\n"); }
 #else
-#	define TRACE(x...) ;
-#	define ASSERT(x) ;
+#	define EXT2_TRACE(x...) ;
+#	define EXT2_ASSERT(x) ;
 #endif
 
 
@@ -59,7 +59,7 @@ DirectoryIterator::DirectoryIterator(Inode* directory, off_t start,
 	fStartLogicalBlock(fLogicalBlock),
 	fStartDisplacement(fDisplacement)
 {
-	TRACE("DirectoryIterator::DirectoryIterator() %" B_PRIdINO ": num blocks: "
+	EXT2_TRACE("DirectoryIterator::DirectoryIterator() %" B_PRIdINO ": num blocks: "
 		"%" B_PRIu32 "\n", fDirectory->ID(), fNumBlocks);
 	fIndexing = parent != NULL;
 	fInitStatus = fDirectory->FindBlock(start, fPhysicalBlock);
@@ -69,10 +69,10 @@ DirectoryIterator::DirectoryIterator(Inode* directory, off_t start,
 
 DirectoryIterator::~DirectoryIterator()
 {
-	TRACE("DirectoryIterator::~DirectoryIterator(): %p, parent: %p\n", this,
+	EXT2_TRACE("DirectoryIterator::~DirectoryIterator(): %p, parent: %p\n", this,
 		fParent);
 	delete fParent;
-	TRACE("DirectoryIterator::~DirectoryIterator(): Deleted the parent\n");
+	EXT2_TRACE("DirectoryIterator::~DirectoryIterator(): Deleted the parent\n");
 }
 
 
@@ -86,9 +86,9 @@ DirectoryIterator::InitCheck()
 status_t
 DirectoryIterator::Get(char* name, size_t* _nameLength, ino_t* _id)
 {
-	TRACE("DirectoryIterator::Get() ID %" B_PRIdINO "\n", fDirectory->ID());
+	EXT2_TRACE("DirectoryIterator::Get() ID %" B_PRIdINO "\n", fDirectory->ID());
 	if (_Offset() >= fDirectory->Size()) {
-		TRACE("DirectoryIterator::Get() out of entries\n");
+		EXT2_TRACE("DirectoryIterator::Get() out of entries\n");
 		return B_ENTRY_NOT_FOUND;
 	}
 
@@ -97,9 +97,9 @@ DirectoryIterator::Get(char* name, size_t* _nameLength, ino_t* _id)
 	if (block == NULL)
 		return B_IO_ERROR;
 
-	ASSERT(_CheckBlock(block));
+	EXT2_ASSERT(_CheckBlock(block));
 
-	TRACE("DirectoryIterator::Get(): Displacement: %" B_PRIu32 "\n",
+	EXT2_TRACE("DirectoryIterator::Get(): Displacement: %" B_PRIu32 "\n",
 		fDisplacement);
 	const ext2_dir_entry* entry = (const ext2_dir_entry*)&block[fDisplacement];
 
@@ -109,7 +109,7 @@ DirectoryIterator::Get(char* name, size_t* _nameLength, ino_t* _id)
 	if (entry->NameLength() != 0) {
 		size_t length = entry->NameLength();
 
-		TRACE("block %" B_PRIu32 ", displacement %" B_PRIu32 ": entry ino %"
+		EXT2_TRACE("block %" B_PRIu32 ", displacement %" B_PRIu32 ": entry ino %"
 			B_PRIu32 ", length %u, name length %" B_PRIuSIZE ", type %u\n",
 			fLogicalBlock, fDisplacement, entry->InodeID(), entry->Length(),
 			length,	entry->FileType());
@@ -148,37 +148,37 @@ DirectoryIterator::GetNext(char* name, size_t* _nameLength, ino_t* _id)
 status_t
 DirectoryIterator::Next()
 {
-	TRACE("DirectoryIterator::Next() fDirectory->ID() %" B_PRIdINO "\n",
+	EXT2_TRACE("DirectoryIterator::Next() fDirectory->ID() %" B_PRIdINO "\n",
 		fDirectory->ID());
 
 	if (_Offset() >= fDirectory->Size()) {
-		TRACE("DirectoryIterator::Next() out of entries\n");
+		EXT2_TRACE("DirectoryIterator::Next() out of entries\n");
 		return B_ENTRY_NOT_FOUND;
 	}
 
-	TRACE("DirectoryIterator::Next(): Creating cached block\n");
+	EXT2_TRACE("DirectoryIterator::Next(): Creating cached block\n");
 
 	CachedBlock cached(fVolume);
 	ext2_dir_entry* entry;
 
-	TRACE("DirectoryIterator::Next(): Loading cached block\n");
+	EXT2_TRACE("DirectoryIterator::Next(): Loading cached block\n");
 	const uint8* block = cached.SetTo(fPhysicalBlock);
 	if (block == NULL)
 		return B_IO_ERROR;
 
-	ASSERT(_CheckBlock(block));
+	EXT2_ASSERT(_CheckBlock(block));
 	uint32 maxSize = _MaxSize();
 
 	entry = (ext2_dir_entry*)(block + fDisplacement);
 
 	do {
-		TRACE("Checking entry at block %" B_PRIu64 ", displacement %" B_PRIu32
+		EXT2_TRACE("Checking entry at block %" B_PRIu64 ", displacement %" B_PRIu32
 			" entry inodeid %" B_PRIu32 "\n", fPhysicalBlock, fDisplacement,
 			entry->InodeID());
 
 		if (entry->Length() != 0) {
 			if (!entry->IsValid()) {
-				TRACE("invalid entry.\n");
+				EXT2_TRACE("invalid entry.\n");
 				return B_BAD_DATA;
 			}
 			fPreviousDisplacement = fDisplacement;
@@ -187,7 +187,7 @@ DirectoryIterator::Next()
 			fDisplacement = maxSize;
 
 		if (fDisplacement == maxSize) {
-			TRACE("Reached end of block\n");
+			EXT2_TRACE("Reached end of block\n");
 
 			fDisplacement = 0;
 
@@ -197,7 +197,7 @@ DirectoryIterator::Next()
 						
 			if ((off_t)(_Offset() + ext2_dir_entry::MinimumSize())
 					>= fDirectory->Size()) {
-				TRACE("DirectoryIterator::Next() end of directory file\n");
+				EXT2_TRACE("DirectoryIterator::Next() end of directory file\n");
 				return B_ENTRY_NOT_FOUND;
 			}
 			status = fDirectory->FindBlock(_Offset(), fPhysicalBlock);
@@ -207,21 +207,21 @@ DirectoryIterator::Next()
 			block = cached.SetTo(fPhysicalBlock);
 			if (block == NULL)
 				return B_IO_ERROR;
-			ASSERT(_CheckBlock(block));
+			EXT2_ASSERT(_CheckBlock(block));
 
 		} else if (fDisplacement > maxSize) {
-			TRACE("The entry isn't block aligned.\n");
+			EXT2_TRACE("The entry isn't block aligned.\n");
 			// TODO: Is block alignment obligatory?
 			return B_BAD_DATA;
 		}
 
 		entry = (ext2_dir_entry*)(block + fDisplacement);
 
-		TRACE("DirectoryIterator::Next() skipping entry %d %" B_PRIu32 "\n",
+		EXT2_TRACE("DirectoryIterator::Next() skipping entry %d %" B_PRIu32 "\n",
 			entry->Length(), entry->InodeID());
 	} while (entry->Length() == 0 || entry->InodeID() == 0);
 
-	TRACE("DirectoryIterator::Next() entry->Length() %d entry->name %*s\n",
+	EXT2_TRACE("DirectoryIterator::Next() entry->Length() %d entry->name %*s\n",
 			entry->Length(), entry->NameLength(), entry->name);
 
 	return B_OK;
@@ -242,7 +242,7 @@ DirectoryIterator::Rewind()
 void
 DirectoryIterator::Restart()
 {
-	TRACE("DirectoryIterator::Restart(): (logical, physical, displacement): "
+	EXT2_TRACE("DirectoryIterator::Restart(): (logical, physical, displacement): "
 		"current: (%" B_PRIu32 ", %" B_PRIu64 ", %" B_PRIu32 "), start: (%"
 		B_PRIu32 ", %" B_PRIu64 ", %" B_PRIu32 ")\n", fLogicalBlock,
 		fPhysicalBlock, fDisplacement, fStartLogicalBlock, fStartPhysicalBlock,
@@ -257,7 +257,7 @@ status_t
 DirectoryIterator::AddEntry(Transaction& transaction, const char* name,
 	size_t _nameLength, ino_t id, uint8 type)
 {
-	TRACE("DirectoryIterator::AddEntry(%s, ...)\n", name);
+	EXT2_TRACE("DirectoryIterator::AddEntry(%s, ...)\n", name);
 
 	uint8 nameLength = _nameLength > EXT2_NAME_LENGTH ? EXT2_NAME_LENGTH
 		: _nameLength;
@@ -288,14 +288,14 @@ DirectoryIterator::AddEntry(Transaction& transaction, const char* name,
 	fNumBlocks++;
 
 	if (fIndexing) {
-		TRACE("DirectoryIterator::AddEntry(): Adding another HTree leaf\n");
+		EXT2_TRACE("DirectoryIterator::AddEntry(): Adding another HTree leaf\n");
 		fNumBlocks += fParent->BlocksNeededForNewEntry();
 	} else if (firstSplit) {
 		// Allocate another block (fNumBlocks should become 3)
-		TRACE("DirectoryIterator::AddEntry(): Creating index for directory\n");
+		EXT2_TRACE("DirectoryIterator::AddEntry(): Creating index for directory\n");
 		fNumBlocks++;
 	} else
-		TRACE("DirectoryIterator::AddEntry(): Enlarging directory\n");
+		EXT2_TRACE("DirectoryIterator::AddEntry(): Enlarging directory\n");
 
 	status = fDirectory->Resize(transaction, fNumBlocks * fBlockSize);
 	if (status != B_OK)
@@ -320,7 +320,7 @@ DirectoryIterator::AddEntry(Transaction& transaction, const char* name,
 status_t
 DirectoryIterator::FindEntry(const char* name, ino_t* _id)
 {
-	TRACE("DirectoryIterator::FindEntry(): %p %p\n", this, name);
+	EXT2_TRACE("DirectoryIterator::FindEntry(): %p %p\n", this, name);
 	char buffer[EXT2_NAME_LENGTH + 1];
 	ino_t id;
 
@@ -348,7 +348,7 @@ DirectoryIterator::FindEntry(const char* name, ino_t* _id)
 status_t
 DirectoryIterator::RemoveEntry(Transaction& transaction)
 {
-	TRACE("DirectoryIterator::RemoveEntry()\n");
+	EXT2_TRACE("DirectoryIterator::RemoveEntry()\n");
 	ext2_dir_entry* previousEntry;
 	ext2_dir_entry* dirEntry;
 	CachedBlock cached(fVolume);
@@ -367,7 +367,7 @@ DirectoryIterator::RemoveEntry(Transaction& transaction)
 			fDisplacement = 0;
 			return B_OK;
 		} else if (fDisplacement > maxSize) {
-			TRACE("DirectoryIterator::RemoveEntry(): Entry isn't aligned to "
+			EXT2_TRACE("DirectoryIterator::RemoveEntry(): Entry isn't aligned to "
 				"block entry.");
 			return B_BAD_DATA;
 		}
@@ -381,12 +381,12 @@ DirectoryIterator::RemoveEntry(Transaction& transaction)
 
 		fDirectory->SetDirEntryChecksum(block);
 
-		ASSERT(_CheckBlock(block));
+		EXT2_ASSERT(_CheckBlock(block));
 
 		return B_OK;
 	}
 
-	TRACE("DirectoryIterator::RemoveEntry() fDisplacement %" B_PRIu32 "\n",
+	EXT2_TRACE("DirectoryIterator::RemoveEntry() fDisplacement %" B_PRIu32 "\n",
 		fDisplacement);
 
 	if (fPreviousDisplacement == fDisplacement) {
@@ -414,7 +414,7 @@ DirectoryIterator::RemoveEntry(Transaction& transaction)
 
 	fDirectory->SetDirEntryChecksum(block);
 
-	ASSERT(_CheckBlock(block));
+	EXT2_ASSERT(_CheckBlock(block));
 
 	return B_OK;
 }
@@ -436,7 +436,7 @@ DirectoryIterator::ChangeEntry(Transaction& transaction, ino_t id,
 
 	fDirectory->SetDirEntryChecksum(block);
 
-	ASSERT(_CheckBlock(block));
+	EXT2_ASSERT(_CheckBlock(block));
 
 	return B_OK;
 }
@@ -446,11 +446,11 @@ status_t
 DirectoryIterator::_AllocateBestEntryInBlock(uint8 nameLength, uint16& pos,
 	uint16& newLength)
 {
-	TRACE("DirectoryIterator::_AllocateBestEntryInBlock()\n");
+	EXT2_TRACE("DirectoryIterator::_AllocateBestEntryInBlock()\n");
 	CachedBlock cached(fVolume);
 	const uint8* block = cached.SetTo(fPhysicalBlock);
 
-	ASSERT(_CheckBlock(block));
+	EXT2_ASSERT(_CheckBlock(block));
 
 	uint16 requiredLength = EXT2_DIR_REC_LEN(nameLength);
 	uint32 maxSize = _MaxSize();
@@ -463,7 +463,7 @@ DirectoryIterator::_AllocateBestEntryInBlock(uint8 nameLength, uint16& pos,
 	while (pos < maxSize) {
 		dirEntry = (ext2_dir_entry*)&block[pos];
 		if (!_CheckDirEntry(dirEntry, block)) {
-			TRACE("DirectoryIterator::_AllocateBestEntryInBlock(): invalid "
+			EXT2_TRACE("DirectoryIterator::_AllocateBestEntryInBlock(): invalid "
 				"dirEntry->Length() pos %d\n", pos);
 			return B_BAD_DATA;
 		}
@@ -474,7 +474,7 @@ DirectoryIterator::_AllocateBestEntryInBlock(uint8 nameLength, uint16& pos,
 			emptySpace -= realLength;
 		if (emptySpace == requiredLength) {
 			// Found an exact match
-			TRACE("DirectoryIterator::_AllocateBestEntryInBlock(): Found an "
+			EXT2_TRACE("DirectoryIterator::_AllocateBestEntryInBlock(): Found an "
 				"exact length match\n");
 			newLength = realLength;
 
@@ -491,7 +491,7 @@ DirectoryIterator::_AllocateBestEntryInBlock(uint8 nameLength, uint16& pos,
 	if (bestPos == maxSize)
 		return B_DEVICE_FULL;
 
-	TRACE("DirectoryIterator::_AllocateBestEntryInBlock(): Found a suitable "
+	EXT2_TRACE("DirectoryIterator::_AllocateBestEntryInBlock(): Found a suitable "
 		"location: %u\n", bestPos);
 	pos = bestPos;
 	newLength = bestRealLength;
@@ -505,7 +505,7 @@ DirectoryIterator::_AddEntry(Transaction& transaction, const char* name,
 	uint8 nameLength, ino_t id, uint8 type, uint16 newLength, uint16 pos,
 	bool hasPrevious)
 {
-	TRACE("DirectoryIterator::_AddEntry(%s, %d, %" B_PRIdINO ", %d, %d, %d, "
+	EXT2_TRACE("DirectoryIterator::_AddEntry(%s, %d, %" B_PRIdINO ", %d, %d, %d, "
 		"%c)\n", name, nameLength, id, type, newLength, pos,
 		hasPrevious ? 't' : 'f');
 	CachedBlock cached(fVolume);
@@ -532,9 +532,9 @@ DirectoryIterator::_AddEntry(Transaction& transaction, const char* name,
 
 	fDirectory->SetDirEntryChecksum(block);
 
-	ASSERT(_CheckBlock(block));
+	EXT2_ASSERT(_CheckBlock(block));
 
-	TRACE("DirectoryIterator::_AddEntry(): Done\n");
+	EXT2_TRACE("DirectoryIterator::_AddEntry(): Done\n");
 
 	return B_OK;
 }
@@ -546,7 +546,7 @@ DirectoryIterator::_SplitIndexedBlock(Transaction& transaction,
 	uint32 newBlocksPos, bool firstSplit)
 {
 	// Block is full, split required
-	TRACE("DirectoryIterator::_SplitIndexedBlock(.., %s, %u, %" B_PRIdINO ", %"
+	EXT2_TRACE("DirectoryIterator::_SplitIndexedBlock(.., %s, %u, %" B_PRIdINO ", %"
 		B_PRIu32 ", %c)\n", name, nameLength, id, newBlocksPos,
 		firstSplit ? 't' : 'f');
 
@@ -636,7 +636,7 @@ DirectoryIterator::_SplitIndexedBlock(Transaction& transaction,
 		entry.position = &buffer[displacement];
 		dirEntry = (ext2_dir_entry*)entry.position;
 
-		TRACE("DirectoryIterator::_SplitIndexedBlock(): pos: %p, name "
+		EXT2_TRACE("DirectoryIterator::_SplitIndexedBlock(): pos: %p, name "
 			"length: %u, entry length: %u\n", entry.position,
 			dirEntry->name_length,
 			dirEntry->Length());
@@ -645,7 +645,7 @@ DirectoryIterator::_SplitIndexedBlock(Transaction& transaction,
 		memcpy(cbuffer, dirEntry->name, dirEntry->name_length);
 		cbuffer[dirEntry->name_length] = '\0';
 		entry.hash = htree.Hash(dirEntry->name, dirEntry->name_length);
-		TRACE("DirectoryIterator::_SplitIndexedBlock(): %s -> %" B_PRIu32 "\n",
+		EXT2_TRACE("DirectoryIterator::_SplitIndexedBlock(): %s -> %" B_PRIu32 "\n",
 			cbuffer, entry.hash);
 
 		status = entrySet.Insert(entry);
@@ -668,7 +668,7 @@ DirectoryIterator::_SplitIndexedBlock(Transaction& transaction,
 
 	entry.position = (uint8*)&newEntry;
 	entry.hash = htree.Hash(name, nameLength);
-	TRACE("DirectoryIterator::_SplitIndexedBlock(): %s -> %" B_PRIu32 "\n",
+	EXT2_TRACE("DirectoryIterator::_SplitIndexedBlock(): %s -> %" B_PRIu32 "\n",
 		name, entry.hash);
 
 	entrySet.Insert(entry);
@@ -677,7 +677,7 @@ DirectoryIterator::_SplitIndexedBlock(Transaction& transaction,
 	VectorSet<HashedEntry>::Iterator iterator = entrySet.Begin();
 	int32 median = entrySet.Count() / 2;
 	displacement = 0;
-	TRACE("DirectoryIterator::_SplitIndexedBlock(): Count: %" B_PRId32
+	EXT2_TRACE("DirectoryIterator::_SplitIndexedBlock(): Count: %" B_PRId32
 		", median: %" B_PRId32 "\n", entrySet.Count(), median);
 
 	uint32 previousHash = (*iterator).hash;
@@ -706,7 +706,7 @@ DirectoryIterator::_SplitIndexedBlock(Transaction& transaction,
 
 	while (iterator != entrySet.End() && (*iterator).hash == previousHash) {
 		// Keep collisions on the same block
-		TRACE("DirectoryIterator::_SplitIndexedBlock(): Handling collisions\n");
+		EXT2_TRACE("DirectoryIterator::_SplitIndexedBlock(): Handling collisions\n");
 
 		// This isn't the ideal solution, but it is a rare occurance
 		dirEntry = (ext2_dir_entry*)(*iterator).position;
@@ -728,7 +728,7 @@ DirectoryIterator::_SplitIndexedBlock(Transaction& transaction,
 
 	// Update parent
 	if (firstSplit) {
-		TRACE("DirectoryIterator::_SplitIndexedBlock(): Updating root\n");
+		EXT2_TRACE("DirectoryIterator::_SplitIndexedBlock(): Updating root\n");
 		HTreeRoot* root = (HTreeRoot*)secondBlock;
 		HTreeEntry* htreeEntry = (HTreeEntry*)root->count_limit;
 		htreeEntry->SetBlock(1);
@@ -761,7 +761,7 @@ DirectoryIterator::_SplitIndexedBlock(Transaction& transaction,
 		return status;
 
 	// Prepare last block to hold the second half of the entries
-	TRACE("DirectoryIterator::_SplitIndexedBlock(): Preparing second leaf "
+	EXT2_TRACE("DirectoryIterator::_SplitIndexedBlock(): Preparing second leaf "
 		"block\n");
 	fDisplacement = 0;
 
@@ -798,10 +798,10 @@ DirectoryIterator::_SplitIndexedBlock(Transaction& transaction,
 
 	fDirectory->SetDirEntryChecksum(secondBlock);
 
-	ASSERT(_CheckBlock(firstBlock));
-	ASSERT(_CheckBlock(secondBlock));
+	EXT2_ASSERT(_CheckBlock(firstBlock));
+	EXT2_ASSERT(_CheckBlock(secondBlock));
 
-	TRACE("DirectoryIterator::_SplitIndexedBlock(): Done\n");
+	EXT2_TRACE("DirectoryIterator::_SplitIndexedBlock(): Done\n");
 	return B_OK;
 }
 
@@ -809,11 +809,11 @@ DirectoryIterator::_SplitIndexedBlock(Transaction& transaction,
 status_t
 DirectoryIterator::_NextBlock()
 {
-	TRACE("DirectoryIterator::_NextBlock()\n");
+	EXT2_TRACE("DirectoryIterator::_NextBlock()\n");
 	if (fIndexing) {
-		TRACE("DirectoryIterator::_NextBlock(): Indexing\n");
+		EXT2_TRACE("DirectoryIterator::_NextBlock(): Indexing\n");
 		if (!fParent->HasCollision()) {
-			TRACE("DirectoryIterator::_NextBlock(): next block doesn't "
+			EXT2_TRACE("DirectoryIterator::_NextBlock(): next block doesn't "
 				"contain collisions from previous block\n");
 #ifndef COLLISION_TEST
 			return B_ENTRY_NOT_FOUND;
@@ -840,10 +840,10 @@ DirectoryIterator::_CheckDirEntry(const ext2_dir_entry* dirEntry, const uint8* b
 		errmsg = "Length is not a multiple of 4";
 	else if (dirEntry->Length() < EXT2_DIR_REC_LEN(dirEntry->NameLength()))
 		errmsg = "Length is too short for the name";
-	else if (((uint8*)dirEntry - buffer) + dirEntry->Length() > fBlockSize)
+	else if ((uint32)(((uint8*)dirEntry - buffer) + dirEntry->Length()) > fBlockSize)
 		errmsg = "Length is too big for the blocksize";
 
-	TRACE("DirectoryIterator::_CheckDirEntry() %s\n", errmsg);
+	EXT2_TRACE("DirectoryIterator::_CheckDirEntry() %s\n", errmsg);
 	return errmsg == NULL;
 }
 
@@ -861,7 +861,7 @@ DirectoryIterator::_CheckBlock(const uint8* buffer)
 		const ext2_dir_entry *dirEntry = (const ext2_dir_entry*)&buffer[pos];
 
 		if (!_CheckDirEntry(dirEntry, buffer)) {
-			TRACE("DirectoryIterator::_CheckBlock(): invalid "
+			EXT2_TRACE("DirectoryIterator::_CheckBlock(): invalid "
 				"dirEntry pos %d\n", pos);
 			err = B_BAD_DATA;
 		}
@@ -879,7 +879,7 @@ DirectoryIterator::_HTreeEntryTail(uint8* block, uint16 offset) const
 	uint16 firstEntry = offset % fBlockSize / sizeof(HTreeEntry);
 	HTreeCountLimit* countLimit = (HTreeCountLimit*)&entries[firstEntry];
 	uint16 limit = countLimit->Limit();
-	TRACE("HTreeEntryIterator::_HTreeEntryTail() %p %p\n", block, &entries[firstEntry + limit]);
+	EXT2_TRACE("HTreeEntryIterator::_HTreeEntryTail() %p %p\n", block, &entries[firstEntry + limit]);
 	return (ext2_htree_tail*)(&entries[firstEntry + limit]);
 }
 
@@ -894,7 +894,7 @@ DirectoryIterator::_HTreeRootChecksum(uint8* block, uint16 offset, uint16 count)
 	checksum = calculate_crc32c(checksum, (uint8*)&gen, sizeof(gen));
 	checksum = calculate_crc32c(checksum, block,
 		offset + count * sizeof(HTreeEntry));
-	TRACE("HTreeEntryIterator::_HTreeRootChecksum() size %u\n", offset + count * sizeof(HTreeEntry));
+	EXT2_TRACE("HTreeEntryIterator::_HTreeRootChecksum() size %u\n", offset + count * sizeof(HTreeEntry));
 	ext2_htree_tail dummy;
 	dummy.reserved = 0;
 	checksum = calculate_crc32c(checksum, (uint8*)&dummy, sizeof(dummy));
@@ -905,7 +905,7 @@ DirectoryIterator::_HTreeRootChecksum(uint8* block, uint16 offset, uint16 count)
 void
 DirectoryIterator::_SetHTreeEntryChecksum(uint8* block, uint16 offset, uint16 count)
 {
-	TRACE("DirectoryIterator::_SetHTreeEntryChecksum()\n");
+	EXT2_TRACE("DirectoryIterator::_SetHTreeEntryChecksum()\n");
 	if (fVolume->HasMetaGroupChecksumFeature()) {
 		ext2_htree_tail* tail = _HTreeEntryTail(block, offset);
 		tail->reserved = 0x0;

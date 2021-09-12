@@ -44,7 +44,7 @@ struct identify_cookie {
 	ext2_super_block super_block;
 };
 
-
+/* Temporarily commented out to fix build warning: unused function
 //!	ext2_io() callback hook
 static status_t
 iterative_io_get_vecs_hook(void* cookie, io_request* request, off_t offset,
@@ -55,8 +55,9 @@ iterative_io_get_vecs_hook(void* cookie, io_request* request, off_t offset,
 	return file_map_translate(inode->Map(), offset, size, vecs, _count,
 		inode->GetVolume()->BlockSize());
 }
+*/
 
-
+/* Temporarily commented out to fix build warning: unused function
 //!	ext2_io() callback hook
 static status_t
 iterative_io_finished_hook(void* cookie, io_request* request, status_t status,
@@ -66,7 +67,7 @@ iterative_io_finished_hook(void* cookie, io_request* request, status_t status,
 	rw_lock_read_unlock(inode->Lock());
 	return B_OK;
 }
-
+*/
 
 //	#pragma mark - Scanning
 
@@ -401,6 +402,7 @@ ext2_write_pages(fs_volume* _volume, fs_vnode* _node, void* _cookie,
 }
 
 
+/* Temporarily commented out to fix build warning: unused function
 static status_t
 ext2_io(fs_volume* _volume, fs_vnode* _node, void* _cookie, io_request* request)
 {
@@ -427,7 +429,7 @@ ext2_io(fs_volume* _volume, fs_vnode* _node, void* _cookie, io_request* request)
 	return do_iterative_fd_io(volume->Device(), request,
 		iterative_io_get_vecs_hook, iterative_io_finished_hook, inode);
 }
-
+*/
 
 static status_t
 ext2_get_file_map(fs_volume* _volume, fs_vnode* _node, off_t offset,
@@ -1634,13 +1636,14 @@ ext2_rewind_attr_dir(fs_volume* _volume, fs_vnode* _node, void* _cookie)
 
 
 	/* attribute operations */
+/* Temporarily commented out to fix build warning: unused function
 static status_t
 ext2_create_attr(fs_volume* _volume, fs_vnode* _node,
 	const char* name, uint32 type, int openMode, void** _cookie)
 {
 	return EROFS;
 }
-
+*/
 
 static status_t
 ext2_open_attr(fs_volume* _volume, fs_vnode* _node, const char* name,
@@ -1691,13 +1694,14 @@ ext2_read_attr(fs_volume* _volume, fs_vnode* _node, void* _cookie,
 }
 
 
+/* Temporarily commented out to fix build warning: unused function
 static status_t
 ext2_write_attr(fs_volume* _volume, fs_vnode* _node, void* cookie,
 	off_t pos, const void* buffer, size_t* length)
 {
 	return EROFS;
 }
-
+*/
 
 
 static status_t
@@ -1712,30 +1716,33 @@ ext2_read_attr_stat(fs_volume* _volume, fs_vnode* _node,
 	return attribute.Stat(*stat);
 }
 
-
+/* Temporarily commented out to fix build warning: unused function
 static status_t
 ext2_write_attr_stat(fs_volume* _volume, fs_vnode* _node,
 	void* cookie, const struct stat* stat, int statMask)
 {
 	return EROFS;
 }
+*/
 
-
+/* Temporarily commented out to fix build warning: unused function
 static status_t
 ext2_rename_attr(fs_volume* _volume, fs_vnode* fromVnode,
 	const char* fromName, fs_vnode* toVnode, const char* toName)
 {
 	return ENOSYS;
 }
+*/
 
 
+/* Temporarily commented out to fix build warning: unused function
 static status_t
 ext2_remove_attr(fs_volume* _volume, fs_vnode* vnode,
 	const char* name)
 {
 	return ENOSYS;
 }
-
+*/
 
 fs_volume_ops gExt2VolumeOps = {
 	&ext2_unmount,
@@ -1806,16 +1813,16 @@ fs_vnode_ops gExt2VnodeOps = {
 	&ext2_rewind_attr_dir,
 
 	/* attribute operations */
-	NULL, //&ext2_create_attr,
+	NULL, //&ext2_create_attr, // corresponding code commented out
 	&ext2_open_attr,
 	&ext2_close_attr,
 	&ext2_free_attr_cookie,
 	&ext2_read_attr,
-	NULL, //&ext2_write_attr,
+	NULL, //&ext2_write_attr, // corresponding code commented out
 	&ext2_read_attr_stat,
-	NULL, //&ext2_write_attr_stat,
-	NULL, //&ext2_rename_attr,
-	NULL, //&ext2_remove_attr,
+	NULL, //&ext2_write_attr_stat, // corresponding code commented out
+	NULL, //&ext2_rename_attr, // corresponding code commented out
+	NULL, //&ext2_remove_attr, // corresponding code commented out
 };
 
 
