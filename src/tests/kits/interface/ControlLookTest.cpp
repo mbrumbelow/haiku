@@ -4,6 +4,9 @@
  */
 
 
+#include <algorithm>
+
+#include <AffineTransform.h>
 #include <Application.h>
 #include <ControlLook.h>
 #include <View.h>
@@ -15,6 +18,7 @@ class View : public BView {
 						View(BRect r);
 				void	Draw(BRect update);
 				void	DrawButtonFrames(BRect r, BRect update);
+				BRect	BoundingBoxOfUntransformed(BRect r);
 
 };
 
@@ -27,6 +31,29 @@ View::View(BRect r)
 }
 
 
+// Get a BRect in the current coordinate system that will contain the
+// parameter given in untransformed cooordinates.
+BRect
+View::BoundingBoxOfUntransformed(BRect r)
+{
+	BPoint points[] = { r.LeftTop(), r.RightBottom(), r.LeftBottom(),
+		r.RightTop() };
+	BAffineTransform transform = Transform();
+	transform.ApplyInverse(points, 4);
+
+	BPoint leftTop = points[0];
+	BPoint rightBottom = points[0];
+	for (int i = 1; i < 4; i++) {
+		leftTop.Set(std::min(leftTop.x, points[i].x),
+			std::min(leftTop.y, points[i].y));
+		rightBottom.Set(std::max(rightBottom.x, points[i].x),
+			std::max(rightBottom.y, points[i].y));
+	}
+
+	return BRect(leftTop, rightBottom);
+}
+
+
 void
 View::Draw(BRect update)
 {
@@ -34,6 +61,8 @@ View::Draw(BRect update)
 	// - DrawMenuFieldFrame + Background
 	// - DrawActiveTab
 	// - DrawSliderBar
+
+	BRect viewUpdate(update);
 	
 	MovePenTo(20, 20);
 	DrawString("TEST");
@@ -46,13 +75,13 @@ View::Draw(BRect update)
 
 	// Positive translation
 	TranslateBy(0, 35);
-	DrawButtonFrames(r, update);
+	DrawButtonFrames(r, update.OffsetBySelf(0, -35));
 
 	// Null, then negative translations
 	for (int i = 0; i < 10; i++) {
 		r.OffsetBy(0, 70);
 		TranslateBy(0, -35);
-		DrawButtonFrames(r, update);
+		DrawButtonFrames(r, update.OffsetBySelf(0, 35));
 	}
 
 	PopState();
@@ -62,14 +91,14 @@ View::Draw(BRect update)
 	PushState();
 	ScaleBy(2, 2);
 	TranslateBy(350 / 2, 0);
-	DrawButtonFrames(r, update);
+	DrawButtonFrames(r, BoundingBoxOfUntransformed(viewUpdate));
 
 	PopState();
 
 	// Rotation
 	TranslateBy(420, 110);
 	RotateBy(M_PI / 4);
-	DrawButtonFrames(r, update);
+	DrawButtonFrames(r, BoundingBoxOfUntransformed(viewUpdate));
 }
 
 
