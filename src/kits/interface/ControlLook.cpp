@@ -62,6 +62,30 @@ BControlLook::ComposeIconSize(int32 size)
 }
 
 
+bool
+BControlLook::CanAvoidDrawing(BView* view, const BRect& rect, const BRect& updateRect)
+{
+	if (!rect.IsValid())
+		return true;
+
+	BPoint points[4];
+	points[0] = rect.LeftTop();
+	points[1] = rect.RightBottom();
+	points[2] = rect.LeftBottom();
+	points[3] = rect.RightTop();
+
+	view->TransformTo(B_VIEW_COORDINATES).Apply(points, 4);
+
+	BRect dest;
+	dest.left   = floorf(std::min({points[0].x, points[1].x, points[2].x, points[3].x}));
+	dest.right  = ceilf(std::max({points[0].x, points[1].x, points[2].x, points[3].x}));
+	dest.top    = floorf(std::min({points[0].y, points[1].y, points[2].y, points[3].y}));
+	dest.bottom = ceilf(std::max({points[0].y, points[1].y, points[2].y, points[3].y}));
+
+	return !dest.Intersects(updateRect);
+}
+
+
 void
 BControlLook::DrawLabel(BView* view, const char* label, const BBitmap* icon,
 	BRect rect, const BRect& updateRect, const rgb_color& base, uint32 flags,

@@ -104,6 +104,9 @@ public:
 	static	float				ComposeSpacing(float spacing);
 	static	BSize				ComposeIconSize(int32 size);
 
+	static	bool				CanAvoidDrawing(BView* view, const BRect& rect,
+									const BRect& updateRect);
+
 	virtual uint32				Flags(BControl* control) const = 0;
 
 	virtual	void				DrawButtonFrame(BView* view, BRect& rect,
