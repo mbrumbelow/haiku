@@ -1,0 +1,65 @@
+/*
+ * Copyright 2021 Haiku, Inc. All rights reserved.
+ * Distributed under the terms of the MIT License.
+ *
+ * Authors:
+ *		Niels Sascha Reedijk, niels.reedijk@gmail.com
+ *
+ * Corresponds to:
+ *		headers/private/netservices2/NetServicesDefs.h	hrev?????
+ */
+
+
+#if __cplusplus >= 201703L
+
+namespace BPrivate {
+
+namespace Network {
+
+
+/*!
+	\struct unsupported_protocol_exception
+	\ingroup netservices
+	\brief Exception that indicates that the protocol is not supported.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var unsupported_protocol_exception::url
+	\brief The url that was passed.
+*/
+
+
+/*!
+	\var unsupported_protocol_exception::supportedProtocols
+	\brief A list of protocols that are supported by the call.
+*/
+
+
+/*!
+	\struct invalid_url_exception
+	\ingroup netservices
+	\brief Exception that indicates that the URL is not valid
+
+	This exception is raised when the caller tries to pass a \ref BUrl object
+	that does not contain a valid URL.
+
+	\see \ref BUrl::IsValid()
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var invalid_url_exception::url
+	\brief The url that was passed.
+*/
+
+
+} // namespace Network
+
+} // namespace BPrivate
+
+#endif
