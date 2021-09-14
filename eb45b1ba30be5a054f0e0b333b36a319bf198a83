@@ -33,6 +33,24 @@
       "revId": "eb45b1ba30be5a054f0e0b333b36a319bf198a83",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb54337a_b9096394",
+        "filename": "src/add-ons/accelerants/radeon_hd/mode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-09-14T14:36:51Z",
+      "side": 1,
+      "message": "see radeon_set_display_mode.\n\nI think you *might* need:\n\n\nencoder_output_lock(true);\ndisplay_crtc_lock(crtcID, ATOM_ENABLE);\n//radeon_dpms_set(crtcID, B_DPMS_OFF); // Maybe not needed\n\ndisplay_crtc_fb_set(crtcID, mode);\n\n//radeon_dpms_set(crtcID, B_DPMS_ON); // maybe not needed\ndisplay_crtc_lock(crtcID, ATOM_DISABLE);\nencoder_output_lock(false);\n\n\n\n\n\ndisplay_crtc_fb_set then should set the new viewportStart via:\nWrite32(CRT, regs-\u003eviewportStart, (mode.h_display_start \u003c\u003c 16) | mode.v_display_start);\n\nInstead of the current:\nWrite32(CRT, regs-\u003eviewportStart, 0);",
+      "parentUuid": "26f7f365_31bc0b76",
+      "revId": "eb45b1ba30be5a054f0e0b333b36a319bf198a83",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
