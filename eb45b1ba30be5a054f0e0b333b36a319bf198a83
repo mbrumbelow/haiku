@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da3b4d13_e882fceb",
+        "filename": "src/add-ons/accelerants/radeon_hd/accelerant.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-09-14T13:33:34Z",
+      "side": 1,
+      "message": "detect_displays() and maybe other initialization is needed here.",
+      "revId": "eb45b1ba30be5a054f0e0b333b36a319bf198a83",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26f7f365_31bc0b76",
+        "filename": "src/add-ons/accelerants/radeon_hd/mode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-09-14T13:33:34Z",
+      "side": 1,
+      "message": "Is this correct?",
+      "revId": "eb45b1ba30be5a054f0e0b333b36a319bf198a83",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
