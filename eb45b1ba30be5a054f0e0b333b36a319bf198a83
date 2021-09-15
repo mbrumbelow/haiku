@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "88db2ace_5f302e18",
+        "filename": "src/add-ons/accelerants/radeon_hd/accelerant.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-09-15T14:52:31Z",
+      "side": 1,
+      "message": "Ah, okay, makes sense.",
+      "parentUuid": "8cfb4e26_b1126ffa",
+      "revId": "eb45b1ba30be5a054f0e0b333b36a319bf198a83",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "886a9a3e_948bf4d0",
         "filename": "src/add-ons/accelerants/radeon_hd/mode.cpp",
         "patchSetId": 1
