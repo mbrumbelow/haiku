@@ -16,6 +16,24 @@
       "revId": "7e7e54bd7c7c745d5af4d4fc0cf3d7b3953e5bcb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f19d75da_825fe97f",
+        "filename": "src/add-ons/kernel/file_systems/ext2/DirectoryIterator.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 845,
+      "author": {
+        "id": 1000336
+      },
+      "writtenOn": "2021-09-15T17:18:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ff6e062_4d2f81fa",
+      "revId": "7e7e54bd7c7c745d5af4d4fc0cf3d7b3953e5bcb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
