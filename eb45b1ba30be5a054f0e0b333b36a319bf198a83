@@ -89,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "b619d37d_32663b25",
+        "filename": "src/add-ons/accelerants/radeon_hd/mode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-09-15T14:58:45Z",
+      "side": 1,
+      "message": "Hm. I kinda disagree.  Aren\u0027t moving the display and clone are tightly related?",
+      "parentUuid": "886a9a3e_948bf4d0",
+      "revId": "eb45b1ba30be5a054f0e0b333b36a319bf198a83",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "26f7f365_31bc0b76",
         "filename": "src/add-ons/accelerants/radeon_hd/mode.cpp",
         "patchSetId": 1
