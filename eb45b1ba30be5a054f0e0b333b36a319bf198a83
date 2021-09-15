@@ -125,6 +125,24 @@
     },
     {
       "key": {
+        "uuid": "e30af956_d11cdcbc",
+        "filename": "src/add-ons/accelerants/radeon_hd/mode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-09-15T15:56:11Z",
+      "side": 1,
+      "message": "This changes are made as part of VideoStreams project (https://discuss.haiku-os.org/t/videostreams-media-kit-like-3d-hardware-acceleration-kit-for-haiku/11139). B_MOVE_DISPLAY is used for double buffering and buffer swapping, it helps to avoid tearing and prepares for hardware 3D acceleration support. Currently BWindowScreen is used for testing to avoid interference with app_server.\n\nI plan to integrate app_server with VideoStreams node system and compositor and use BDirectWindow to integrate compositor surfaces with app_server graphics. app_server will use separate compositor surface with screen size to its software 2D rendering.",
+      "parentUuid": "72552432_e6d8b1da",
+      "revId": "eb45b1ba30be5a054f0e0b333b36a319bf198a83",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "26f7f365_31bc0b76",
         "filename": "src/add-ons/accelerants/radeon_hd/mode.cpp",
         "patchSetId": 1
