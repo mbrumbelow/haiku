@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ff6e062_4d2f81fa",
+        "filename": "src/add-ons/kernel/file_systems/ext2/DirectoryIterator.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 845,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-09-15T07:09:47Z",
+      "side": 1,
+      "message": "A difference between two pointers is of type ptrdiff_t. Just cast fBlockSize to ptrdiff_t. Theorically it could be negative, so the cast to uint32 isn\u0027t safe.\n\nPlease note that the line is too long",
+      "revId": "7e7e54bd7c7c745d5af4d4fc0cf3d7b3953e5bcb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
