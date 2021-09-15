@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5cf944cf_78dacf3c",
+        "filename": "docs/user/netservices/HttpSession.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-09-15T06:53:12Z",
+      "side": 1,
+      "message": "I still don\u0027t agree with the use of BHttpSession for storing these things.\n\nIt should be named BHttpContext as in the previous iterations of the API.\n\nThe idea of a \"session\", for example for cookies, is very specific, and session cookies are non-persistent and never saved to disk. So, using BHttpSession as a name here is confusing.",
+      "revId": "2b104d3cc1e3ccd11805ae0bd7854f74a0e923b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a932c3a_dae39db1",
+        "filename": "docs/user/netservices/HttpSession.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-09-15T06:53:12Z",
+      "side": 1,
+      "message": "Why not use the copy constructor to achieve the same?",
+      "revId": "2b104d3cc1e3ccd11805ae0bd7854f74a0e923b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca763309_ae6f6de2",
+        "filename": "headers/private/netservices2/NetServicesDefs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-09-15T06:53:12Z",
+      "side": 1,
+      "message": "I think that exceptions should all inherit from a base class (std::exception or a custom one, maybe one specific to each kit).\n\nThe reason for this is the ability to do a general \"catch all exceptions\" case in an useful way.\n\nTypically code would look like this\n\ntry {\n    // do something\n} catch (const unsupported_protocol_exception\u0026 e) {\n    BAlert(B_TRANSLATE(\"Unsupported protocol\"));\n} catch (const Exception\u0026 e) {\n    BAlert(B_TRANSLATE(\"Something unexpected happened: %s\", e.what));\n}\n\nWithout a common base class, the second catch clause has no info at all to give, which will lead to a very uninformative error message, even worse than the strerror based ones we have now.",
+      "revId": "2b104d3cc1e3ccd11805ae0bd7854f74a0e923b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
