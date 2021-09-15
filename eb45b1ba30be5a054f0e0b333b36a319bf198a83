@@ -19,6 +19,40 @@
     },
     {
       "key": {
+        "uuid": "598a4d09_53186373",
+        "filename": "src/add-ons/accelerants/radeon_hd/accelerant.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-09-15T06:51:21Z",
+      "side": 1,
+      "message": "This seems to happen too early; if you bail out below, the file descriptor is never closed.",
+      "revId": "eb45b1ba30be5a054f0e0b333b36a319bf198a83",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "886a9a3e_948bf4d0",
+        "filename": "src/add-ons/accelerants/radeon_hd/mode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-09-15T06:51:21Z",
+      "side": 1,
+      "message": "I think this best belongs into a different commit. At least mentioning it in the commit message should be mandatory, though.",
+      "revId": "eb45b1ba30be5a054f0e0b333b36a319bf198a83",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "26f7f365_31bc0b76",
         "filename": "src/add-ons/accelerants/radeon_hd/mode.cpp",
         "patchSetId": 1
