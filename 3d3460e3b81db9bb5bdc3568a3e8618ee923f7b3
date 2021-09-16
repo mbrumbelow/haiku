@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b51f1259_c96b8709",
+        "filename": "src/add-ons/kernel/file_systems/ext2/DirectoryIterator.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 847,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-09-16T06:51:05Z",
+      "side": 1,
+      "message": "sorry I should have said, that we add braces for such multiline if statements.",
+      "revId": "3d3460e3b81db9bb5bdc3568a3e8618ee923f7b3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    }
+  ]
+}
