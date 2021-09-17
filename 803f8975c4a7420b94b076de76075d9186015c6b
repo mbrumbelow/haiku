@@ -16,6 +16,24 @@
       "revId": "803f8975c4a7420b94b076de76075d9186015c6b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2cd4d5d_70d9c1bb",
+        "filename": "src/add-ons/translators/jpeg2000/JPEG2000Translator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1248,
+      "author": {
+        "id": 1000336
+      },
+      "writtenOn": "2021-09-17T15:22:32Z",
+      "side": 1,
+      "message": "Almost, it is non-standard and does not fill up with zeroes.\nNevertheless, it is used exactly for this purpose at other code places and therefore sufficient.\n\nThanks for the hint!",
+      "parentUuid": "29203c85_d4a72a63",
+      "revId": "803f8975c4a7420b94b076de76075d9186015c6b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
