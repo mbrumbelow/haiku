@@ -1,0 +1,321 @@
+/*
+ * Copyright 2021 Haiku, Inc. All rights reserved.
+ * Distributed under the terms of the MIT License.
+ *
+ * Authors:
+ *		Niels Sascha Reedijk, niels.reedijk@gmail.com
+ *
+ * Corresponds to:
+ *		headers/os/support/ErrorsExt.h	hrev?????
+ */
+
+
+/*!
+	\file ErrorsExt.h
+	\ingroup support
+	\ingroup libbe
+	\brief Defines advanced error types and error functions for the Haiku API.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\class BError
+	\ingroup support
+	\ingroup libbe
+	\brief Abstract base class for advanced error objects.
+
+	This class defines the minimum interface for advanced error objects in
+	modern parts of the Haiku API.
+
+	The minimum definition of an error is that it contains an \em origin and
+	a \em message. The origin should contain a string that helps a developer
+	identify the origin of the error. Common practise is to pass the
+	\c __PRETTY_FUNCTION__ from the place where the error is constructed, but
+	subclasses can have their own definitions for the origin.
+
+	The message is a freeform message that describes the exact error condition.
+	While it is not meant as a user-facing message, when creating custom error
+	objects, take into account that a user may be confronted with a message in
+	situations where an application presents it to a user as a final resort.
+
+	\note The advanced error objects are not used in the existing legacy Haiku
+	Kits. They do form the basis for modern APIs and are therefore included in
+	the core libraries.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\fn virtual BError::~BError() noexcept
+	\brief Standard destructor.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\fn virtual const char* BError::Message() const noexcept = 0
+	\brief Access the string representation of the message.
+
+	Implementations should return a meaningful description of the error that
+	occured. The primary target audience of these messages are developers, who
+	(hopefully) see them during development, testing or in bug reports.
+	However, if it makes sense to have the error messages be instructive to
+	users too, then do not hesitate to do so.
+
+	Implementations of this function should never return \c NULL.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\fn virtual const char* BError::Origin() const noexcept = 0
+	\brief Access the string representation of the origin of the error.
+
+	Implementations should return a meaningful description of the origin of
+	the error. The most concrete example would be when the error object is
+	constructed with the exact occurence in the code, like
+	\c __PRETTY_FUNCTION__. But other descriptions may be more suitable
+	depending on the code path.
+
+	Implementations of this function should never return \c NULL.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\fn virtual void BError::WriteToStream(std::ostream& stream) const
+	\brief Write the error description to an output stream.
+
+	The default implementation will write the output the following format:
+	\code
+	[Origin] Message of error\n
+	\endcode
+
+	\exception std::ios_base::failure Any error that is forwarded when writing
+		to the \a stream.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\fn virtual size_t BError::WriteToOutput(BDataIO* output) const
+	\brief Write the error description to an output.
+
+	The default implementation will use the output from \ref WriteToStream()
+	and write it to the \a output.
+
+	\exception std::ios_base::failure Any error that occurs when serializing
+		the contents of the message.
+	\exception BSystemError For any error that occurs when calling
+		\ref BDataIO::Write()
+
+	\returns The number of bytes that was written to \a output.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\class BRuntimeError
+	\ingroup support
+	\ingroup libbe
+	\brief Advanced error object for runtime errors.
+
+	A \ref BRuntimeError is a concrete advanced error object that is used for
+	errors that happen during a program's execution and that by their nature
+	are outside of the scope of the control of the program.
+
+	Objects of this class store strings to the \em origin and the error
+	\em message. This class can be used as an error class or as a base to
+	create more specialized error types.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\fn BRuntimeError::BRuntimeError(const char* origin, const char* message)
+	\brief Constructor for a new error object.
+
+	\param origin A string representing where this error occured. It is advised
+		to initialize it to \c __PRETTY_FUNCTION__ by default.
+	\param message A string explaining the contents for the error. While it is
+		generally geared towards the developer, it may be useful to make the
+		error understandable by a user, as they may sometimes see it.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\fn BRuntimeError::BRuntimeError(const char* origin, BString message)
+	\copydoc BRuntimeError::BRuntimeError(const char* origin, const char* message)
+*/
+
+
+/*!
+	\fn BRuntimeError::BRuntimeError(BString origin, BString message)
+	\copydoc BRuntimeError::BRuntimeError(const char* origin, const char* message)
+*/
+
+
+/*!
+	\fn BRuntimeError::BRuntimeError(const BRuntimeError& other)
+	\brief Copy constructor.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\fn BRuntimeError& BRuntimeError::operator=(const BRuntimeError& other)
+	\brief Copy assignment operator.
+
+	\since Haiku R1
+*/
+
+
+#if __cplusplus >= 201103L
+/*!
+	\fn BRuntimeError::BRuntimeError(BRuntimeError&& other)
+	\brief Move constructor.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\fn BRuntimeError& BRuntimeError::operator=(BRuntimeError&& other)
+	\brief Move assignment operator.
+
+	\since Haiku R1
+*/
+#endif
+
+
+/*!
+	\fn virtual	const char* BRuntimeError::Message() const B_CXX_NOEXCEPT B_CXX_OVERRIDE
+	\brief Get a pointer to the message describing the runtime error.
+*/
+
+
+/*!
+	\fn virtual const char* BRuntimeError::Origin() const B_CXX_NOEXCEPT B_CXX_OVERRIDE
+	\brief Get a pointer to the description of the origin of this error.
+*/
+
+
+/*!
+	\class BSystemError
+	\ingroup support
+	\ingroup libbe
+	\brief Advanced error object that wrap low-level system errors.
+
+	A \ref BSystemError is a concrete advanced error object that is used to
+	wrap tradition errors that are usually returned as a \c status_t. This type
+	takes the system error, and adds an \em origin specifier.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\fn BSystemError::BSystemError(status_t error, const char* origin)
+	\brief Create an object for \a error code with a specified \a origin.
+
+	\param error The error code.
+	\param origin A string representing where this error occured. As this
+		object usually wraps around a lower level API call, this should
+		usually be the call that the error code originated from.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\fn BSystemError::BSystemError(status_t error, BString origin)
+	\copydoc BSystemError::BSystemError(status_t error, const char* origin)
+*/
+
+
+/*!
+	\fn BSystemError::BSystemError(const BSystemError& other)
+	\brief Copy constructor.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\fn BSystemError& BSystemError::operator=(const BSystemError& other)
+	\brief Copy assignment.
+
+	\since Haiku R1
+*/
+
+
+#if __cplusplus >= 201103L
+/*!
+	\fn BSystemError::BSystemError(BSystemError&& other)
+	\brief Move constructor.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\fn BSystemError& BSystemError::operator=(BSystemError&& other)
+	\brief Move assignment operator.
+
+	\since Haiku R1
+*/
+#endif
+
+
+/*!
+	\fn virtual const char* BSystemError::Message() const B_CXX_NOEXCEPT B_CXX_OVERRIDE
+	\brief Access the string representation of the message.
+
+	This returns the value of \c strerror() for the error code.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\fn virtual const char* BSystemError::Origin() const B_CXX_NOEXCEPT B_CXX_OVERRIDE
+	\brief Get a pointer to the description of the origin of this error.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\fn status_t BSystemError::Error() B_CXX_NOEXCEPT
+	\brief Get the error code for this error.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\fn virtual void BSystemError::WriteToStream(std::ostream& stream) const B_CXX_OVERRIDE
+	\brief Write the error description to an output stream.
+
+	This implementation will write the output the following format:
+	\code
+	[Origin] Message of error (error code)\n
+	\endcode
+
+	\exception std::ios_base::failure Any error that is forwarded when writing
+		to the \a stream.
+
+	\since Haiku R1
+*/
