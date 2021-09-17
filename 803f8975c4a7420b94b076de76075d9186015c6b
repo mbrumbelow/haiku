@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "29203c85_d4a72a63",
+        "filename": "src/add-ons/translators/jpeg2000/JPEG2000Translator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1248,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-09-17T09:31:18Z",
+      "side": 1,
+      "message": "strlcpy would do the same.",
+      "revId": "803f8975c4a7420b94b076de76075d9186015c6b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
