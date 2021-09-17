@@ -40,6 +40,7 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 			DataIO.cpp
 			DataPositionIOWrapper.cpp
 			DateTime.cpp
+			ErrorsExt.cpp
 			Flattenable.cpp
 			Job.cpp
 			JobQueue.cpp

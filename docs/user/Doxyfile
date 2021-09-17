@@ -2165,6 +2165,8 @@ INCLUDE_FILE_PATTERNS  =
 
 PREDEFINED             = __cplusplus=201703L \
                          _SYS_TYPES_H \
+                         B_CXX_NOEXCEPT=noexcept \
+                         B_CXX_OVERRIDE=override \
                          __attribute__(x)=
 
 # If the MACRO_EXPANSION and EXPAND_ONLY_PREDEF tags are set to YES then this
