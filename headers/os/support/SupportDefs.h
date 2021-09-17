@@ -388,5 +388,19 @@ extern int64	atomic_get64(int64 *value);
 
 #endif
 
+/* Conditional support for modern language features (C++11 and up) */
+#ifdef __cplusplus
+#	if __cplusplus >= 201103L
+#		define B_CXX_NOEXCEPT noexcept
+#		define B_CXX_CONSTEXPR constexpr
+#		define B_CXX_OVERRIDE override
+#		define B_CXX_MOVE(x) std::move(x)
+#	else
+#		define B_CXX_NOEXCEPT throw()
+#		define B_CXX_CONSTEXPR
+#		define B_CXX_OVERRIDE
+#		define B_CXX_MOVE(x) x
+#	endif
+#endif
 
 #endif	/* _SUPPORT_DEFS_H */
