@@ -198,8 +198,8 @@ AuthenticationPanel::GetAuthentication(const char* server,
 	// window wants to quit
 	Lock();
 
-	sprintf(user, fNameTC->Text());
-	sprintf(pass, fPassTC->Text());
+	sprintf(user, "%s", fNameTC->Text());
+	sprintf(pass, "%s", fPassTC->Text());
 	*keep = fKeepUsingCB->Value() == B_CONTROL_ON;
 
 	Quit();
