@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "bf4ce0dc_fa41805c",
+        "filename": "docs/user/netservices/HttpSession.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-09-18T07:15:56Z",
+      "side": 1,
+      "message": "The new way HTTP requests will be scheduled and executed will be on two separate threads (a control and a data thread). As part of the scheduling, the number of concurrent overall requests and the number of concurrent requests to a single server will be limited, much like libsoup. For now, this executor is named a HttpSession. It made sense to me to have the HttpSession own a CookieJar, a list of additionally accepted certificates and auth information.\n\nThe session name seemed apt because (1) it was not used in the old kit other than the patches on Gerrit and (2) all requests scheduled in a session share the same context, but when the session ends, the requests ends and the context disappears (unless it is stored in a persistent storage).\n\nAre you issues with the naming? Or with the design itself?",
+      "parentUuid": "5cf944cf_78dacf3c",
+      "revId": "2b104d3cc1e3ccd11805ae0bd7854f74a0e923b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9a932c3a_dae39db1",
         "filename": "docs/user/netservices/HttpSession.dox",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "2b104d3cc1e3ccd11805ae0bd7854f74a0e923b6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3f3197c_3f5d9cda",
+        "filename": "docs/user/netservices/HttpSession.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-09-18T07:15:56Z",
+      "side": 1,
+      "message": "Yeah this does not make any sense.",
+      "parentUuid": "9a932c3a_dae39db1",
+      "revId": "2b104d3cc1e3ccd11805ae0bd7854f74a0e923b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +101,24 @@
       "side": 1,
       "message": "Seconded.",
       "parentUuid": "ca763309_ae6f6de2",
+      "revId": "2b104d3cc1e3ccd11805ae0bd7854f74a0e923b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b83cd2ce_29e82e7e",
+        "filename": "headers/private/netservices2/NetServicesDefs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-09-18T07:15:56Z",
+      "side": 1,
+      "message": "I will post an update with a base type/interface for objects (BError) with support for Origin and Messages, and a standard derived BRuntimeError and BSystemError.",
+      "parentUuid": "fd1acaf7_54dbc627",
       "revId": "2b104d3cc1e3ccd11805ae0bd7854f74a0e923b6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
