@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b3e72f84_fe8e1770",
+        "filename": "headers/os/support/ErrorsExt.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-09-18T16:36:23Z",
+      "side": 1,
+      "message": "IMHO, we are going to convert between BError and other errors enough that we should just have a status_t value directly in BError. If for some reason errors cannot provide a status_t other than B_ERROR, oh well, but I would expect the vast majority of errors to at least have something more specific, even if the error message is what has most of the information.",
+      "revId": "ecac1772c88a7e846cd5b46c708becadea906852",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09c120a2_cbdb5f73",
+        "filename": "headers/os/support/ErrorsExt.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-09-18T16:36:23Z",
+      "side": 1,
+      "message": "So far we have avoided any use of the STL in public headers. IHMO we should keep it that way; I don\u0027t see much use for this at present.",
+      "revId": "ecac1772c88a7e846cd5b46c708becadea906852",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
