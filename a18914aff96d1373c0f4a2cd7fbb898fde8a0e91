@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a37df69_88fe7d22",
+        "filename": "headers/os/support/SupportDefs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-09-18T16:33:46Z",
+      "side": 1,
+      "message": "I don\u0027t think we even need B_CXX here, I think we should just \"#define noexcept\", etc. and should start using these directly all over the source code, without any macros, as GCC2 is the only thing we have to think about here. (We may as well start using \"override\" across the entire tree.)",
+      "revId": "a18914aff96d1373c0f4a2cd7fbb898fde8a0e91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e2bc8dc_d783ef34",
+        "filename": "headers/os/support/SupportDefs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-09-18T16:33:46Z",
+      "side": 1,
+      "message": "We absolutely should not put MOVE in here as it will behave totally differently on C++11 vs. non-C++11; seems like a major footgun potential.",
+      "revId": "a18914aff96d1373c0f4a2cd7fbb898fde8a0e91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
