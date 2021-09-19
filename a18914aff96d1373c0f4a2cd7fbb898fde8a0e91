@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "272e1461_b4c3cdfe",
+        "filename": "headers/os/support/SupportDefs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-09-19T14:21:54Z",
+      "side": 1,
+      "message": "The issue you may run into there, is that these keywords may be used in other places (like variable names). Especially override may be problematic and outright wrong, as it is not a reserved keyword, so it may be used as a variable name.",
+      "parentUuid": "8a37df69_88fe7d22",
+      "revId": "a18914aff96d1373c0f4a2cd7fbb898fde8a0e91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9e2bc8dc_d783ef34",
         "filename": "headers/os/support/SupportDefs.h",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2021-09-18T16:33:46Z",
       "side": 1,
       "message": "We absolutely should not put MOVE in here as it will behave totally differently on C++11 vs. non-C++11; seems like a major footgun potential.",
+      "revId": "a18914aff96d1373c0f4a2cd7fbb898fde8a0e91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75afcd75_b9763ea5",
+        "filename": "headers/os/support/SupportDefs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-09-19T14:21:54Z",
+      "side": 1,
+      "message": "std::move() is a cast of an object to its r-value reference (\u0026\u0026). This then allows the compiler to pick the overloaded method that supports r-value references. Pre C++ 11, there are no r-value parameters or r-value references, so making this a no-op will merely mean that it will use copy constructors, which should be a sensible fallback.",
+      "parentUuid": "9e2bc8dc_d783ef34",
       "revId": "a18914aff96d1373c0f4a2cd7fbb898fde8a0e91",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
