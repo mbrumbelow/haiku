@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "fdb0461f_58fd2d7d",
+        "filename": "headers/os/support/ErrorsExt.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-09-19T08:08:37Z",
+      "side": 1,
+      "message": "That might be better. Initially I was trying to integrate it into Errors.h, but since that one actually is used in libroot/POSIX, that would cause problems when putting it in the support kit.\n\nThat does trigger the thought now that maybe the best place for this would be libroot?",
+      "parentUuid": "5f2d699d_648ffa90",
+      "revId": "ecac1772c88a7e846cd5b46c708becadea906852",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b3e72f84_fe8e1770",
         "filename": "headers/os/support/ErrorsExt.h",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "7bcaf8a8_50531274",
+        "filename": "headers/os/support/ErrorsExt.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-09-19T08:08:37Z",
+      "side": 1,
+      "message": "That\u0027s what BSystemError is for. It wraps the traditional status_t and presents it as an error.",
+      "parentUuid": "b3e72f84_fe8e1770",
+      "revId": "ecac1772c88a7e846cd5b46c708becadea906852",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "09c120a2_cbdb5f73",
         "filename": "headers/os/support/ErrorsExt.h",
         "patchSetId": 1
@@ -47,6 +83,41 @@
       "writtenOn": "2021-09-18T16:36:23Z",
       "side": 1,
       "message": "So far we have avoided any use of the STL in public headers. IHMO we should keep it that way; I don\u0027t see much use for this at present.",
+      "revId": "ecac1772c88a7e846cd5b46c708becadea906852",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57c8f0a5_93d35cbb",
+        "filename": "headers/os/support/ErrorsExt.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-09-19T08:08:37Z",
+      "side": 1,
+      "message": "Since publishing the patches, I have had some evolving thoughts. I think there now should be a DebugMessage() method which returns a BString with the debug message. The user can then do with this string what they want.\n\nI am still inclined to keep WriteToStream and WriteToOutput (and rename them DebugTo*) as regular non-virtual utility methods, so that one can easily write to std::cerr, or a BFile.",
+      "parentUuid": "09c120a2_cbdb5f73",
+      "revId": "ecac1772c88a7e846cd5b46c708becadea906852",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69543c65_14558d1c",
+        "filename": "headers/os/support/ErrorsExt.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-09-19T08:08:37Z",
+      "side": 1,
+      "message": "I am actually thinking about moving this to the base class, since I cannot imagine any subclass actually having a custom way of determining the error other than a string representation on where the error was raised.",
       "revId": "ecac1772c88a7e846cd5b46c708becadea906852",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
