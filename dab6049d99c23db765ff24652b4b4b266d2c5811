@@ -16,6 +16,24 @@
       "revId": "dab6049d99c23db765ff24652b4b4b266d2c5811",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed6ce7c1_4a4d0b04",
+        "filename": "build/jam/PackageRules",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-09-20T13:19:21Z",
+      "side": 1,
+      "message": "The #ifdef HAIKU_PACKAGING_ARCH_x86_gcc2 in haiku_translators. The C preprocessor does not support string comparisons, so the prior definition is insufficient.",
+      "parentUuid": "772978c1_1c8e336c",
+      "revId": "dab6049d99c23db765ff24652b4b4b266d2c5811",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
