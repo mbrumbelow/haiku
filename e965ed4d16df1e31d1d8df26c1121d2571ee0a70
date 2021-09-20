@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed6d1d21_be4d3871",
+        "filename": "src/kits/interface/GraphicsDefs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-09-20T11:14:07Z",
+      "side": 1,
+      "message": "indentation is different from the other cases below",
+      "revId": "e965ed4d16df1e31d1d8df26c1121d2571ee0a70",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
