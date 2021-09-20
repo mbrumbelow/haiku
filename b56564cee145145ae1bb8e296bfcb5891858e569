@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc104289_25ebbfbb",
+        "filename": "src/add-ons/translators/jpeg2000/JPEG2000Translator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1245,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-09-20T11:18:07Z",
+      "side": 1,
+      "message": "why not use strcmp here? If the length given is just the length of one of the two strings, you can just use strcmp for the same result.",
+      "revId": "b56564cee145145ae1bb8e296bfcb5891858e569",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
