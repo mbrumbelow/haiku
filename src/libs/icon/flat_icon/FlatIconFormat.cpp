@@ -11,6 +11,7 @@
 
 #include "LittleEndianBuffer.h"
 
+#include <string.h>
 
 _BEGIN_ICON_NAMESPACE
 
@@ -91,7 +92,7 @@ read_float_24(LittleEndianBuffer& buffer, float& _value)
 	else {
 		uint32 value = (sign << 31) | ((exponent + 127) << 23) | mantissa;
 
-		_value = (float&)value;
+		memcpy(&_value, &value, sizeof(_value));
 	}
 
 	return true;
@@ -105,7 +106,8 @@ write_float_24(LittleEndianBuffer& buffer, float _value)
 	// 6 bit exponent
 	// 17 bit mantissa
 	// TODO: fixme for non-IEEE 754 architectures
-	uint32 value = (uint32&)_value;
+	uint32 value;
+	memcpy(&value, &_value, sizeof(value));
 
 	int sign = (value & 0x80000000) >> 31;
 	int exponent = ((value & 0x7f800000) >> 23) - 127;
