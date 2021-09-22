@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "937acb4b_674d1236",
+        "filename": "src/libs/icon/flat_icon/FlatIconFormat.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-09-22T16:01:19Z",
+      "side": 1,
+      "message": "\u003cstring.h\u003e",
+      "revId": "2f462f8c19729b9900e110ec5eb434df081d4c2a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
