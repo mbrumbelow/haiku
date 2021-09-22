@@ -16,6 +16,24 @@
       "revId": "2f462f8c19729b9900e110ec5eb434df081d4c2a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4b35b3c_2f21a061",
+        "filename": "src/libs/icon/flat_icon/FlatIconFormat.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000336
+      },
+      "writtenOn": "2021-09-22T17:21:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "937acb4b_674d1236",
+      "revId": "2f462f8c19729b9900e110ec5eb434df081d4c2a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
