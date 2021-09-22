@@ -16,6 +16,24 @@
       "revId": "e965ed4d16df1e31d1d8df26c1121d2571ee0a70",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9307a32_71d19649",
+        "filename": "src/kits/interface/GraphicsDefs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-09-22T18:13:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed6d1d21_be4d3871",
+      "revId": "e965ed4d16df1e31d1d8df26c1121d2571ee0a70",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
