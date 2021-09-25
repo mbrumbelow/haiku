@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5b83c0ef_b04d83ff",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2646,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-09-25T09:00:52Z",
+      "side": 1,
+      "message": "it would be simpler to remove the region altogether and have the 4 calls to ClipToInverseRect directly in the if conditions above (where corners.Include is called currently)",
+      "revId": "79b63cd0c4fdeb23fbacbc95f79c31afcb0a6350",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
