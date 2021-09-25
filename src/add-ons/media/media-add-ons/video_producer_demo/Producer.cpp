@@ -726,7 +726,8 @@ VideoProducer::FrameGenerator()
 			uint32 *p = (uint32 *)buffer->Data();
 			for (int y = 0; y < (int)fConnectedFormat.display.line_count; y++)
 				for (int x = 0; x < (int)fConnectedFormat.display.line_width; x++) {
-					if (x > (fFrame & 0xff) && x < (fFrame & 0xff) + 60 && y > 90 && y < 150) {
+					if (x > (int)(fFrame & 0xff) && x < (int)(fFrame & 0xff) + 60
+						&& y > 90 && y < 150) {
 						*(p++) = 0xff777777;
 					} else {
 						*(p++) = 0x00000000;
