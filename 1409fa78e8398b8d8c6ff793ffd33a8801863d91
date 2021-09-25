@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9b95d2de_acbeca95",
+        "filename": "src/add-ons/kernel/file_systems/netfs/authentication_server/AuthenticationPanel.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-09-25T08:56:08Z",
+      "side": 1,
+      "message": "sizeof doesn\u0027t work here because \"user\" is a pointer and the sizeof just returns the size of the pointer. All usernames and passwords will be truncated to 4 or 8 bytes.\n\nAgain, I appreciate that you are trying to fix compiler warnings, but please test your changes, otherwise you\u0027re just introducing new bugs.",
+      "revId": "1409fa78e8398b8d8c6ff793ffd33a8801863d91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
