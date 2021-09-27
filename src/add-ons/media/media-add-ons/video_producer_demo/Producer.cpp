@@ -724,8 +724,8 @@ VideoProducer::FrameGenerator()
 		if (fColor == 0xff000000) {
 			// display a gray block that moves
 			uint32 *p = (uint32 *)buffer->Data();
-			for (int y = 0; y < (int)fConnectedFormat.display.line_count; y++)
-				for (int x = 0; x < (int)fConnectedFormat.display.line_width; x++) {
+			for (uint32 y = 0; y < fConnectedFormat.display.line_count; y++)
+				for (uint32 x = 0; x < fConnectedFormat.display.line_width; x++) {
 					if (x > (fFrame & 0xff) && x < (fFrame & 0xff) + 60 && y > 90 && y < 150) {
 						*(p++) = 0xff777777;
 					} else {
