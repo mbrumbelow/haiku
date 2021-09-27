@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "401dbc18_c52c15a9",
+        "filename": "src/add-ons/kernel/drivers/disk/usb/usb_disk/usb_disk.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1798,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-09-27T14:28:38Z",
+      "side": 1,
+      "message": "It seems possible for status to be used without being assigned.",
+      "revId": "86514b9b2671fe3ccab2f7d37fc1c7ba9e08f6f0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
