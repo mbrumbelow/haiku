@@ -704,7 +704,7 @@ Events::AddOnDemand(const BMessenger& target, Event* event)
 
 
 /*static*/ bool
-Events::ResolveExternalEvent(Event* event, const char* name, uint32 flags)
+Events::ResolveExternalEvent(Event*& event, const char* name, uint32 flags)
 {
 	if (event == NULL)
 		return false;
@@ -713,64 +713,45 @@ Events::ResolveExternalEvent(Event* event, const char* name, uint32 flags)
 		for (int32 index = 0; index < container->Events().CountItems();
 				index++) {
 			Event* event = container->Events().ItemAt(index);
-			if (ExternalEvent* external = dynamic_cast<ExternalEvent*>(event)) {
-				if (external->Name() == name && external->Resolve(flags))
-					return true;
-			} else if (dynamic_cast<EventContainer*>(event) != NULL) {
-				if (ResolveExternalEvent(event, name, flags))
-					return true;
-			}
+			if (ResolveExternalEvent(event, name, flags))
+				return true;
+		}
+	} else if (ExternalEvent* external = dynamic_cast<ExternalEvent*>(event)) {
+		if (external->Name() == name && external->Resolve(flags)) {
+			event = external;
+			return true;
 		}
 	}
+
 	return false;
 }
 
 
 /*static*/ void
-Events::TriggerExternalEvent(Event* event, const char* name)
+Events::TriggerExternalEvent(Event* event)
 {
 	if (event == NULL)
 		return;
 
-	if (EventContainer* container = dynamic_cast<EventContainer*>(event)) {
-		for (int32 index = 0; index < container->Events().CountItems();
-				index++) {
-			Event* event = container->Events().ItemAt(index);
-			if (ExternalEvent* external = dynamic_cast<ExternalEvent*>(event)) {
-				if (external->Name() == name) {
-					external->Trigger(container);
-					return;
-				}
-			} else if (dynamic_cast<EventContainer*>(event) != NULL) {
-				TriggerExternalEvent(event, name);
-			}
-		}
-	}
-	return;
+	ExternalEvent* external = dynamic_cast<ExternalEvent*>(event);
+	if (external == NULL)
+		return;
+
+	external->Trigger(external);
 }
 
 
 /*static*/ void
-Events::ResetStickyExternalEvent(Event* event, const char* name)
+Events::ResetStickyExternalEvent(Event* event)
 {
 	if (event == NULL)
 		return;
 
-	if (EventContainer* container = dynamic_cast<EventContainer*>(event)) {
-		for (int32 index = 0; index < container->Events().CountItems();
-				index++) {
-			Event* event = container->Events().ItemAt(index);
-			if (ExternalEvent* external = dynamic_cast<ExternalEvent*>(event)) {
-				if (external->Name() == name) {
-					external->ResetSticky();
-					return;
-				}
-			} else if (dynamic_cast<EventContainer*>(event) != NULL) {
-				ResetStickyExternalEvent(event, name);
-			}
-		}
-	}
-	return;
+	ExternalEvent* external = dynamic_cast<ExternalEvent*>(event);
+	if (external == NULL)
+		return;
+
+	external->ResetSticky();
 }
 
 
