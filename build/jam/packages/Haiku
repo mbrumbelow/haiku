@@ -270,6 +270,7 @@ AddFilesToPackage add-ons kernel bluetooth : $(SYSTEM_BT_STACK) ;
 
 # decorators
 AddFilesToPackage add-ons decorators : BeDecorator ;
+AddFilesToPackage add-ons decorators : FlatDecorator ;
 	# MacDecorator WinDecorator
 
 # the MIME DB
