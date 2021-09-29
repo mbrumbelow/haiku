@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8df2ba06_be14c307",
+        "filename": "src/servers/launch/LaunchDaemon.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-09-29T05:40:28Z",
+      "side": 1,
+      "message": "What are name and arguments used for?",
+      "revId": "349adc79109f973862a482ca292950572887f07a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3f8f0da_7bc8a27b",
+        "filename": "src/servers/launch/LaunchDaemon.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-09-29T05:40:28Z",
+      "side": 1,
+      "message": "I think the style would require curly braces",
+      "revId": "349adc79109f973862a482ca292950572887f07a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e54f0b0_8da3e913",
+        "filename": "src/servers/launch/LaunchDaemon.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-09-29T05:40:28Z",
+      "side": 1,
+      "message": "this check only would make sense in the previous if block. But I don\u0027t know if continuying the loop in wise if adding failed.",
+      "revId": "349adc79109f973862a482ca292950572887f07a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "044b2dfd_9e5ae82b",
+        "filename": "src/servers/launch/LaunchDaemon.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-09-29T05:40:28Z",
+      "side": 1,
+      "message": "What is the name used for?",
+      "revId": "349adc79109f973862a482ca292950572887f07a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "227e1036_22e58db6",
+        "filename": "src/servers/launch/LaunchDaemon.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-09-29T05:40:28Z",
+      "side": 1,
+      "message": "I think the style would require curly braces",
+      "revId": "349adc79109f973862a482ca292950572887f07a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2d30b31_884d66be",
+        "filename": "src/servers/launch/LaunchDaemon.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-09-29T05:40:28Z",
+      "side": 1,
+      "message": "Wouldn\u0027t it make sense to break the loop when it\u0027s removed?",
+      "revId": "349adc79109f973862a482ca292950572887f07a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
