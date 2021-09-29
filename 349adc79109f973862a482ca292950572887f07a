@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "b08eef13_012b3856",
+        "filename": "src/servers/launch/LaunchDaemon.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-09-29T15:04:05Z",
+      "side": 1,
+      "message": "\"name\" is usually used to resolve the event, and \"arguments\" is presently unused (but could be in the future.) ResolveExternalEvent re-fetches Name so we do not pass it in there, otherwise it would be used.",
+      "parentUuid": "8df2ba06_be14c307",
+      "revId": "349adc79109f973862a482ca292950572887f07a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3f8f0da_7bc8a27b",
         "filename": "src/servers/launch/LaunchDaemon.cpp",
         "patchSetId": 2
@@ -70,6 +88,24 @@
     },
     {
       "key": {
+        "uuid": "651a54e9_f9d0ee8d",
+        "filename": "src/servers/launch/LaunchDaemon.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-09-29T15:04:05Z",
+      "side": 1,
+      "message": "Indeed.",
+      "parentUuid": "0e54f0b0_8da3e913",
+      "revId": "349adc79109f973862a482ca292950572887f07a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "044b2dfd_9e5ae82b",
         "filename": "src/servers/launch/LaunchDaemon.cpp",
         "patchSetId": 2
@@ -81,6 +117,24 @@
       "writtenOn": "2021-09-29T05:40:28Z",
       "side": 1,
       "message": "What is the name used for?",
+      "revId": "349adc79109f973862a482ca292950572887f07a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32e4ecfb_18ebc640",
+        "filename": "src/servers/launch/LaunchDaemon.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-09-29T15:04:05Z",
+      "side": 1,
+      "message": "Resolving the event, same as above. But ResolveExternalEvent fetches the Name from the Event object directly as above.",
+      "parentUuid": "044b2dfd_9e5ae82b",
       "revId": "349adc79109f973862a482ca292950572887f07a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -115,6 +169,24 @@
       "writtenOn": "2021-09-29T05:40:28Z",
       "side": 1,
       "message": "Wouldn\u0027t it make sense to break the loop when it\u0027s removed?",
+      "revId": "349adc79109f973862a482ca292950572887f07a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31c9151f_c85a879c",
+        "filename": "src/servers/launch/LaunchDaemon.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-09-29T15:04:05Z",
+      "side": 1,
+      "message": "I suppose so.",
+      "parentUuid": "b2d30b31_884d66be",
       "revId": "349adc79109f973862a482ca292950572887f07a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
