@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e967af13_470a0dab",
+        "filename": "src/add-ons/kernel/drivers/audio/ac97/ich/Jamfile",
+        "patchSetId": 7
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-09-29T15:43:26Z",
+      "side": 0,
+      "message": "if you remove the comment, remove also the following lines?",
+      "revId": "1c88f77dccc78e8a59d74f767cfc28d69bc52f2c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}

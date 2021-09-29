@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "92e0d1b8_f0a99578",
+        "filename": "src/add-ons/kernel/file_systems/udf/UdfStructures.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-09-29T15:43:26Z",
+      "side": 1,
+      "message": "please also patch src/add-ons/kernel/file_systems/udf/UdfStructures.h BEOS_OPENBEOS to BEOS_HAIKU",
+      "revId": "5b47daf75963caab00d041fa77f1913afb490d6b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
