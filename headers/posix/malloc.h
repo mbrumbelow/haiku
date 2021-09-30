@@ -1,5 +1,5 @@
 /*
- * Copyright 2002-2012 Haiku, Inc. All Rights Reserved.
+ * Copyright 2002-2021 Haiku, Inc. All Rights Reserved.
  * Distributed under the terms of the MIT License.
  */
 #ifndef _MALLOC_H
@@ -17,8 +17,8 @@ extern void *malloc(size_t numBytes);
 extern void *realloc(void *oldPointer, size_t newSize);
 extern void *calloc(size_t numElements, size_t size);
 extern void free(void *pointer);
-extern void *memalign(size_t alignment, size_t numBytes);
-extern void *valloc(size_t numBytes);
+extern void *memalign(size_t alignment, size_t numBytes) __attribute__ ((alloc_align (1)));
+extern void *valloc(size_t numBytes) __attribute__ ((alloc_align (1)));
 
 #ifdef _GNU_SOURCE
 size_t malloc_usable_size(void *ptr);
