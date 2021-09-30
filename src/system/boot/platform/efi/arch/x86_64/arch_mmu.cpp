@@ -22,10 +22,6 @@
 #include "efi_platform.h"
 
 
-#undef BOOT_GDT_SEGMENT_COUNT
-#define BOOT_GDT_SEGMENT_COUNT  (USER_DATA_SEGMENT + 1)
-
-
 extern uint64 gLongGDT;
 extern uint64 gLongGDTR;
 segment_descriptor gBootGDT[BOOT_GDT_SEGMENT_COUNT];
