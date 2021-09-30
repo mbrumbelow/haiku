@@ -34,6 +34,24 @@
       "revId": "86514b9b2671fe3ccab2f7d37fc1c7ba9e08f6f0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da0010d3_eaf0e7ff",
+        "filename": "src/add-ons/kernel/drivers/disk/usb/usb_disk/usb_disk.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1798,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-09-30T13:48:17Z",
+      "side": 1,
+      "message": "Move the status_t ready into the for loop.\n\naka...   status_t ready \u003d usb_disk_test_unit_ready(lun, \u0026action);",
+      "parentUuid": "965aa827_70fa9d0a",
+      "revId": "86514b9b2671fe3ccab2f7d37fc1c7ba9e08f6f0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
