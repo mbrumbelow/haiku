@@ -1,6 +1,6 @@
 SubDir HAIKU_TOP src system kernel arch x86 ;
 
-SubDirHdrs [ FDirName $(TARGET_COMMON_DEBUG_OBJECT_DIR_$(TARGET_PACKAGING_ARCH))
+SubDirHdrs [ FDirName $(TARGET_COMMON_DEBUG_OBJECT_DIR_$(TARGET_KERNEL_ARCH))
 	system kernel ] ;
 	# for syscall_numbers.h
 SubDirHdrs $(HAIKU_TOP) src add-ons kernel bus_managers ps2 ;
@@ -114,10 +114,10 @@ KernelMergeObject kernel_arch_x86.o :
 	$(TARGET_KERNEL_PIC_CCFLAGS)
 ;
 
-CreateAsmStructOffsetsHeader asm_offsets.h : asm_offsets.cpp ;
+CreateAsmStructOffsetsHeader asm_offsets.h : asm_offsets.cpp : $(TARGET_KERNEL_ARCH) ;
 
 # We need to specify the dependency on the generated syscalls file explicitly.
 Includes [ FGristFiles interrupts.S arch.S signals.cpp signals_asm.S ]
-	: <syscalls!$(TARGET_PACKAGING_ARCH)>syscall_numbers.h ;
+	: <syscalls!$(TARGET_KERNEL_ARCH)>syscall_numbers.h ;
 Includes [ FGristFiles interrupts.S ]
-	: <syscalls!$(TARGET_PACKAGING_ARCH)>syscall_table.h ;
+	: <syscalls!$(TARGET_KERNEL_ARCH)>syscall_table.h ;

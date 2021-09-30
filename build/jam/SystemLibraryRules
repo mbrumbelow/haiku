@@ -103,7 +103,7 @@ rule TargetKernelLibsupc++ asPath
 			flags += path ;
 		}
 		return [
-			BuildFeatureAttribute gcc_syslibs_devel
+			BuildFeatureAttribute QUALIFIED $(TARGET_KERNEL_ARCH):gcc_syslibs_devel
 				: libsupc++-kernel.a : $(flags)
 		] ;
 	} else {
@@ -215,7 +215,7 @@ rule TargetKernelLibgcc asPath
 			flags += path ;
 		}
 		return [
-			BuildFeatureAttribute gcc_syslibs_devel
+			BuildFeatureAttribute QUALIFIED $(TARGET_KERNEL_ARCH):gcc_syslibs_devel
 				: libgcc-kernel.a : $(flags)
 		] ;
 	} else {
@@ -292,7 +292,7 @@ rule TargetKernelLibgcceh asPath
 			flags += path ;
 		}
 		return [
-			BuildFeatureAttribute gcc_syslibs_devel
+			BuildFeatureAttribute QUALIFIED $(TARGET_KERNEL_ARCH):gcc_syslibs_devel
 				: libgcc_eh-kernel.a : $(flags)
 		] ;
 	} else {
