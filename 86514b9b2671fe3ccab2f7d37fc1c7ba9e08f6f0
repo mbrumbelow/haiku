@@ -52,6 +52,24 @@
       "revId": "86514b9b2671fe3ccab2f7d37fc1c7ba9e08f6f0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87272379_7f5cb0b1",
+        "filename": "src/add-ons/kernel/drivers/disk/usb/usb_disk/usb_disk.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1798,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-09-30T13:51:21Z",
+      "side": 1,
+      "message": "oop. missed the trace usage after the for.\n\nat minimum lets status_t ready \u003d B_ERROR?  setting status_t to a defined state is good practice (even if it should always be set later on)",
+      "parentUuid": "da0010d3_eaf0e7ff",
+      "revId": "86514b9b2671fe3ccab2f7d37fc1c7ba9e08f6f0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
