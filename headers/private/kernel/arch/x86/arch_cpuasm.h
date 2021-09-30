@@ -28,14 +28,19 @@
 	_v; \
 })
 
-#define x86_read_cr3() ({ \
-	size_t _v; \
-	__asm__("mov    %%cr3,%0" : "=r" (_v)); \
-	_v; \
-})
+static inline size_t
+x86_read_cr3()
+{
+	uint32 v;
+	__asm__ __volatile__("mov %%cr3,%0" : "=r" (v));
+	return v;
+}
 
-#define x86_write_cr3(value) \
-	__asm__("mov    %0,%%cr3" : : "r" (value))
+static inline void
+x86_write_cr3(size_t value)
+{
+	__asm__ __volatile__("mov %0,%%cr3" : : "r" (value) : "memory");
+}
 
 #define x86_read_cr4() ({ \
 	size_t _v; \
