@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed79edb5_9d8252a2",
+        "filename": "build/jam/packages/HaikuExtras",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-10-01T09:31:12Z",
+      "side": 1,
+      "message": "AddFilesToPackage add-ons control_look : BeControlLook FlatControlLook ;",
+      "revId": "bdf2386910a57550d42e0d2fb7e962fa2c467047",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51368fe4_a839b421",
+        "filename": "build/jam/packages/HaikuExtras",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-10-01T09:31:12Z",
+      "side": 1,
+      "message": "AddFilesToPackage add-ons decorators : BeDecorator FlatDecorator ;",
+      "revId": "bdf2386910a57550d42e0d2fb7e962fa2c467047",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4ed3fa7_238a2910",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-10-01T09:31:12Z",
+      "side": 1,
+      "message": "should come before Region.h",
+      "revId": "bdf2386910a57550d42e0d2fb7e962fa2c467047",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4298c4b_844b1daa",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-10-01T09:31:12Z",
+      "side": 1,
+      "message": "please replace spaces with tabs (the whole method is affected).",
+      "revId": "bdf2386910a57550d42e0d2fb7e962fa2c467047",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6fa48c7_cbb3e8ac",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-10-01T09:31:12Z",
+      "side": 1,
+      "message": "FLAT_CONTROL_LOOK_H",
+      "revId": "bdf2386910a57550d42e0d2fb7e962fa2c467047",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc1cb40c_b2fa9920",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-10-01T09:31:12Z",
+      "side": 1,
+      "message": "Looks like a few lines are longer than 100 characters.",
+      "revId": "bdf2386910a57550d42e0d2fb7e962fa2c467047",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd121575_9568ec85",
+        "filename": "src/add-ons/decorators/FlatDecorator/FlatDecorator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-10-01T09:31:12Z",
+      "side": 1,
+      "message": "FLAT_DECORATOR_H",
+      "revId": "bdf2386910a57550d42e0d2fb7e962fa2c467047",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
