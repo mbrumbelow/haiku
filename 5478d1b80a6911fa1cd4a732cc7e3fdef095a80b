@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6a788b1e_f1a6136a",
+        "filename": "headers/private/kernel/heap.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-10-01T09:22:37Z",
+      "side": 1,
+      "message": "I would add a #define _ALLOC_ALIGN_1 __attribute__((alloc_align (1))) in BeBuild.h or _ALLOC_ALIGN(x).",
+      "revId": "5478d1b80a6911fa1cd4a732cc7e3fdef095a80b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
