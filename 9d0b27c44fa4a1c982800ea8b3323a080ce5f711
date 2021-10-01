@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "66b35b34_283df4c5",
+        "filename": "build/jam/OverriddenJamRules",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-10-01T18:46:54Z",
+      "side": 1,
+      "message": "yeah it might work only to read the value, not set it.\n\nsearching for jam led me to https://github.com/jamplus/jamplus, didn\u0027t know this new version.",
+      "parentUuid": "ade79370_1fb1c8ff",
+      "revId": "9d0b27c44fa4a1c982800ea8b3323a080ce5f711",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24fe6788_67ed3390",
         "filename": "headers/private/kernel/arch/x86/arch_cpuasm.h",
         "patchSetId": 2
@@ -104,6 +122,24 @@
       "revId": "9d0b27c44fa4a1c982800ea8b3323a080ce5f711",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eeef9ddb_91618b26",
+        "filename": "headers/private/kernel/arch/x86/arch_cpuasm.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-10-01T18:46:54Z",
+      "side": 1,
+      "message": "If we don\u0027t care about GCC2 in the kernel, this can be done.",
+      "parentUuid": "51eaf7fd_53811a65",
+      "revId": "9d0b27c44fa4a1c982800ea8b3323a080ce5f711",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
