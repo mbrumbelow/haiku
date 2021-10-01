@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e6a16078_43549c48",
+        "filename": "src/add-ons/kernel/file_systems/bfs/JamCommon",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-10-01T00:56:06Z",
+      "side": 1,
+      "message": "Yes, but there are other places throughout the kernel with #if __GNUC__ \u003c 3, and potentially other places in Jamfiles that can be simplified (e.g. -Wno-error) now that we are dropping GCC2 for the kernel, so it makes sense to clean this up all at once in a later commit rather than doing everything now, in case we have to revert later or something like that.",
+      "parentUuid": "2dd3a09c_7dae4fae",
+      "revId": "9d0b27c44fa4a1c982800ea8b3323a080ce5f711",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ea82d8fd_c8f83b35",
         "filename": "src/add-ons/kernel/file_systems/udf/drive_setup_addon/Jamfile",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2021-10-01T00:53:54Z",
       "side": 1,
       "message": "Same as BFS comment, also, this isn\u0027t BFS ;-)",
+      "revId": "9d0b27c44fa4a1c982800ea8b3323a080ce5f711",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "175eb209_09fef6e0",
+        "filename": "src/add-ons/kernel/file_systems/udf/drive_setup_addon/Jamfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-10-01T00:56:06Z",
+      "side": 1,
+      "message": "Indeed it was probably copy-pasted from there $long_time ago.",
+      "parentUuid": "ea82d8fd_c8f83b35",
       "revId": "9d0b27c44fa4a1c982800ea8b3323a080ce5f711",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
