@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "62e4d000_510059c6",
+        "filename": "src/add-ons/kernel/file_systems/bfs/JamCommon",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-10-01T01:20:39Z",
+      "side": 1,
+      "message": "I just figured that since you were already touching this part of the Jamfile, it makes sense to do that change now. But sure, further commits will be fine too.",
+      "parentUuid": "e6a16078_43549c48",
+      "revId": "9d0b27c44fa4a1c982800ea8b3323a080ce5f711",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea82d8fd_c8f83b35",
         "filename": "src/add-ons/kernel/file_systems/udf/drive_setup_addon/Jamfile",
         "patchSetId": 2
@@ -69,6 +87,24 @@
       "revId": "9d0b27c44fa4a1c982800ea8b3323a080ce5f711",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "490db728_646cb660",
+        "filename": "src/add-ons/kernel/file_systems/udf/drive_setup_addon/Jamfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-10-01T01:20:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "175eb209_09fef6e0",
+      "revId": "9d0b27c44fa4a1c982800ea8b3323a080ce5f711",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
