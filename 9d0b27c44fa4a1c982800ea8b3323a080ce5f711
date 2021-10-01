@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2dd3a09c_7dae4fae",
+        "filename": "src/add-ons/kernel/file_systems/bfs/JamCommon",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-10-01T00:53:54Z",
+      "side": 1,
+      "message": "Won\u0027t kernel add-ons be compiled with the x86 compiler, making this irrelevant?",
+      "revId": "9d0b27c44fa4a1c982800ea8b3323a080ce5f711",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea82d8fd_c8f83b35",
+        "filename": "src/add-ons/kernel/file_systems/udf/drive_setup_addon/Jamfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-10-01T00:53:54Z",
+      "side": 1,
+      "message": "Same as BFS comment, also, this isn\u0027t BFS ;-)",
+      "revId": "9d0b27c44fa4a1c982800ea8b3323a080ce5f711",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
