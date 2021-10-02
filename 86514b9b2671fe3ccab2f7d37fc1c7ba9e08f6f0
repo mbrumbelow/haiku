@@ -88,6 +88,24 @@
       "revId": "86514b9b2671fe3ccab2f7d37fc1c7ba9e08f6f0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62ae4df4_d704f628",
+        "filename": "src/add-ons/kernel/drivers/disk/usb/usb_disk/usb_disk.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1798,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-10-02T15:06:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e9e7b6b6_f5846965",
+      "revId": "86514b9b2671fe3ccab2f7d37fc1c7ba9e08f6f0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
