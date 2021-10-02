@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9605d958_626b7aaa",
+        "filename": "headers/os/drivers/Drivers.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-10-02T17:05:12Z",
+      "side": 1,
+      "message": "This is wrong. DRM ioctls use _IOC coding scheme from ioccom.h with following format: dir\u00273 len\u002713 group\u00278 num\u00278. Base corresponds to `group` and it is only 8 bits long.",
+      "revId": "5aae832cf380c4d4d257f49df787b32234c0235d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
