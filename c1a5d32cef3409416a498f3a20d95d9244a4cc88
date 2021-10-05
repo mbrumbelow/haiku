@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15ae79f6_4fe3c017",
+        "filename": "src/system/boot/platform/riscv/FwCfg.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-10-05T21:10:08Z",
+      "side": 1,
+      "message": "two lines between functions",
+      "revId": "c1a5d32cef3409416a498f3a20d95d9244a4cc88",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3fa01a8_e1715478",
+        "filename": "src/system/boot/platform/riscv/FwCfg.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-10-05T21:10:08Z",
+      "side": 1,
+      "message": "missing license header",
+      "revId": "c1a5d32cef3409416a498f3a20d95d9244a4cc88",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d909e19e_2e4c8d27",
+        "filename": "src/system/boot/platform/riscv/FwCfg.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-10-05T21:10:08Z",
+      "side": 1,
+      "message": "line too long",
+      "revId": "c1a5d32cef3409416a498f3a20d95d9244a4cc88",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea010c2e_8a35b308",
+        "filename": "src/system/boot/platform/riscv/smp.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-10-05T21:10:08Z",
+      "side": 1,
+      "message": "delete these two newlines",
+      "revId": "c1a5d32cef3409416a498f3a20d95d9244a4cc88",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "261fe731_e1377a12",
+        "filename": "src/system/boot/platform/riscv/traps.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-10-05T21:10:08Z",
+      "side": 1,
+      "message": "missing license header",
+      "revId": "c1a5d32cef3409416a498f3a20d95d9244a4cc88",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
