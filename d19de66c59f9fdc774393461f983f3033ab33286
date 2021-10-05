@@ -16,6 +16,24 @@
       "revId": "d19de66c59f9fdc774393461f983f3033ab33286",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a7d07aa_208feb9e",
+        "filename": "src/add-ons/kernel/drivers/audio/hda/hda_controller.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1239,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-10-05T13:19:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26f28d65_3fca225a",
+      "revId": "d19de66c59f9fdc774393461f983f3033ab33286",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
