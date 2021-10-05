@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dba4a34b_c0adf2dd",
+        "filename": "headers/os/BeBuild.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-05T13:15:02Z",
+      "side": 1,
+      "message": "I think you want to do #define _ALIGNED_BY_ARG(arg), so that the macro expansion removes the argument.",
+      "revId": "1c1e0bfc95fc9b2535941ffca1c92141a2b4eac6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
