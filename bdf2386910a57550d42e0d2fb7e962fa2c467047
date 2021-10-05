@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "e8dd2f0d_6944961e",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-10-05T19:54:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4ed3fa7_238a2910",
+      "revId": "bdf2386910a57550d42e0d2fb7e962fa2c467047",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a4298c4b_844b1daa",
         "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
         "patchSetId": 3
@@ -67,6 +85,24 @@
       "revId": "bdf2386910a57550d42e0d2fb7e962fa2c467047",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a512fdeb_d95bbb08",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-10-05T19:54:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4298c4b_844b1daa",
+      "revId": "bdf2386910a57550d42e0d2fb7e962fa2c467047",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +123,24 @@
     },
     {
       "key": {
+        "uuid": "54dc79aa_155d5a9a",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-10-05T19:54:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6fa48c7_cbb3e8ac",
+      "revId": "bdf2386910a57550d42e0d2fb7e962fa2c467047",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc1cb40c_b2fa9920",
         "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.h",
         "patchSetId": 3
@@ -104,6 +158,24 @@
     },
     {
       "key": {
+        "uuid": "45ac526f_a237b823",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-10-05T19:54:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc1cb40c_b2fa9920",
+      "revId": "bdf2386910a57550d42e0d2fb7e962fa2c467047",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dd121575_9568ec85",
         "filename": "src/add-ons/decorators/FlatDecorator/FlatDecorator.h",
         "patchSetId": 3
@@ -118,6 +190,24 @@
       "revId": "bdf2386910a57550d42e0d2fb7e962fa2c467047",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8a05ab1_62b5d985",
+        "filename": "src/add-ons/decorators/FlatDecorator/FlatDecorator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-10-05T19:54:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd121575_9568ec85",
+      "revId": "bdf2386910a57550d42e0d2fb7e962fa2c467047",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
