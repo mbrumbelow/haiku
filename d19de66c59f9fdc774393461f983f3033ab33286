@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "26f28d65_3fca225a",
+        "filename": "src/add-ons/kernel/drivers/audio/hda/hda_controller.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1239,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-10-05T13:17:39Z",
+      "side": 1,
+      "message": "these masks look weird, but that\u0027s how update_pci_register works.\n\nHere\u0027s some test code to confirm it:\n\n```\n#include \u003cstdio.h\u003e\n#include \u003cinttypes.h\u003e\n\nstatic inline void\nupdate_pci_register(uint32_t mask, uint32_t value)\n{\n        uint32_t originalValue \u003d 0x801;\n        printf(\"0x%X\\n\", (originalValue \u0026 mask) | value);\n}\n\nint main(void)\n{\n        update_pci_register(~0x800, 0);         // Correct 0x1\n        update_pci_register(0x800, 0);          // Incorrect 0x800\n        update_pci_register(0x800, 1);          // Correct 0x801\n        update_pci_register(0x800, 0x800);      // Incorrect 0x800\n        update_pci_register(~0x800, 0x800);     // Correct 0x801\n}\n```",
+      "revId": "d19de66c59f9fdc774393461f983f3033ab33286",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
