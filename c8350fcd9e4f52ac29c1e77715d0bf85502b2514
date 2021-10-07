@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "0990b759_2181ca7b",
+        "filename": "src/add-ons/media/media-add-ons/usb_webcam/CamStreamingDeframer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000336
+      },
+      "writtenOn": "2021-10-07T22:27:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57678dff_f9f36c77",
+      "revId": "c8350fcd9e4f52ac29c1e77715d0bf85502b2514",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9cf78c03_7847b1b0",
         "filename": "src/add-ons/media/media-add-ons/usb_webcam/CamStreamingDeframer.cpp",
         "patchSetId": 2
@@ -50,6 +68,24 @@
       "revId": "c8350fcd9e4f52ac29c1e77715d0bf85502b2514",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff87b3bc_c7e8891f",
+        "filename": "src/add-ons/media/media-add-ons/usb_webcam/CamStreamingDeframer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000336
+      },
+      "writtenOn": "2021-10-07T22:27:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9cf78c03_7847b1b0",
+      "revId": "c8350fcd9e4f52ac29c1e77715d0bf85502b2514",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
