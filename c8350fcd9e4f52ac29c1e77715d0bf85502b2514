@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "40125ef6_8f8b512c",
+        "filename": "src/add-ons/media/media-add-ons/usb_webcam/AddOn.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-07T11:22:16Z",
+      "side": 1,
+      "message": "Is this correct? I don\u0027t think the passed flavor_info will have a valid pointer and buffer to copy into here.\n\nI think the proper fix is assing the missing const in headers/os/media/MediaAddOn.h to the declaration of the name and info fields?",
+      "revId": "c8350fcd9e4f52ac29c1e77715d0bf85502b2514",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57678dff_f9f36c77",
+        "filename": "src/add-ons/media/media-add-ons/usb_webcam/CamStreamingDeframer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-07T11:22:16Z",
+      "side": 1,
+      "message": "else goes on the same line as the closing brace",
+      "revId": "c8350fcd9e4f52ac29c1e77715d0bf85502b2514",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9cf78c03_7847b1b0",
+        "filename": "src/add-ons/media/media-add-ons/usb_webcam/CamStreamingDeframer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-07T11:22:16Z",
+      "side": 1,
+      "message": "braces are not needed here since the else body is a single line",
+      "revId": "c8350fcd9e4f52ac29c1e77715d0bf85502b2514",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
