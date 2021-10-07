@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "56d1e972_15a14d9f",
+        "filename": "src/add-ons/media/media-add-ons/usb_webcam/AddOn.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000336
+      },
+      "writtenOn": "2021-10-07T23:49:54Z",
+      "side": 1,
+      "message": "I agree with your reasoning why strcpy does not work here. Unfortunately, this pattern is used  in some other add-ons as well. Nevertheless, to me, it looks like the missing constants should be managed in the individual add-ons and not at a central place.",
+      "parentUuid": "40125ef6_8f8b512c",
+      "revId": "c8350fcd9e4f52ac29c1e77715d0bf85502b2514",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "57678dff_f9f36c77",
         "filename": "src/add-ons/media/media-add-ons/usb_webcam/CamStreamingDeframer.cpp",
         "patchSetId": 2
