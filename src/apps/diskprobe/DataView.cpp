@@ -398,13 +398,44 @@ DataView::Draw(BRect updateRect)
 
 	char line[255];
 	BPoint location(kHorizontalSpace, kVerticalSpace + fAscent);
+	const rgb_color defaultHighColor = HighColor();
+	const float tintDarkenTouch = (B_NO_TINT + B_DARKEN_1_TINT) / 2.0f;
 
-	for (uint32 i = 0; i < fSizeInView; i += kBlockSize) {
+	for (uint32 lineNum = 0, i = 0; i < fSizeInView; lineNum++, i += kBlockSize) {
+		// Tint every 2nd line to create a striped background
+
+		if (lineNum % 2 == 0) {
+			SetHighUIColor(B_DOCUMENT_BACKGROUND_COLOR, B_NO_TINT);
+		} else {
+			SetHighUIColor(B_DOCUMENT_BACKGROUND_COLOR, tintDarkenTouch);
+		}
+		FillRect(BRect(location.x - kHorizontalSpace,
+			kVerticalSpace + lineNum * fFontHeight,
+			location.x - kHorizontalSpace / 2 + Bounds().right,
+			kVerticalSpace + (lineNum + 1) * fFontHeight));
+
+		SetHighColor(defaultHighColor);
+
 		ConvertLine(line, i, fData + i, fSizeInView - i);
 		DrawString(line, location);
 
 		location.y += fFontHeight;
 	}
+
+	// Draw first vertical line after 18 chars ("0000: xx xx xx xx")
+	// Next three vertical lines require an offset of 12 chars ("xx xx xx xx")
+
+	BPoint line_start(kHorizontalSpace + fCharWidth * 18 + fCharWidth / 2, 0);
+	BPoint line_end(line_start.x, Bounds().bottom);
+
+	SetHighUIColor(B_DOCUMENT_BACKGROUND_COLOR, B_DARKEN_2_TINT);
+
+	for (int i = 0; i < 3; i++) {
+		StrokeLine(line_start, line_end, B_SOLID_HIGH);
+		line_start.x = line_end.x += fCharWidth * 12;
+	}
+
+	SetHighColor(defaultHighColor);
 
 	DrawSelection();
 }
