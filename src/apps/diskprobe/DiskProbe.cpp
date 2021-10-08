@@ -46,6 +46,7 @@ struct disk_probe_settings {
 	BRect	window_frame;
 	int32	base_type;
 	int32	font_size;
+	int32	theme_id;
 	int32	flags;
 };
 
@@ -119,6 +120,7 @@ Settings::Settings()
 		BSize(windowWidth, windowWidth),
 		BAlignment(B_ALIGN_HORIZONTAL_CENTER, B_ALIGN_VERTICAL_CENTER)));
 	fMessage.AddInt32("base_type", kHexBase);
+	fMessage.AddInt8("theme", kHaikuTheme);
 	fMessage.AddFloat("font_size", fontSize);
 	fMessage.AddBool("case_sensitive", true);
 	fMessage.AddInt8("find_mode", kAsciiMode);
@@ -154,6 +156,9 @@ Settings::Settings()
 			|| settings.base_type == kDecimalBase)
 			fMessage.ReplaceInt32("base_type",
 				B_LENDIAN_TO_HOST_INT32(settings.base_type));
+		if (settings.theme_id == kClassicTheme
+			|| settings.theme_id == kHaikuTheme)
+			fMessage.ReplaceInt8("theme", settings.theme_id);
 		if (settings.font_size >= 0 && settings.font_size <= 72)
 			fMessage.ReplaceFloat("font_size",
 				float(B_LENDIAN_TO_HOST_INT32(settings.font_size)));
@@ -193,6 +198,7 @@ Settings::~Settings()
 
 	settings.base_type = B_HOST_TO_LENDIAN_INT32(
 		fMessage.FindInt32("base_type"));
+	settings.theme_id = fMessage.FindInt8("theme");
 	settings.font_size = B_HOST_TO_LENDIAN_INT32(
 		int32(fMessage.FindFloat("font_size") + 0.5f));
 	settings.flags = B_HOST_TO_LENDIAN_INT32(
@@ -230,6 +236,11 @@ Settings::UpdateFrom(BMessage* message)
 	float fontSize;
 	if (message->FindFloat("font_size", &fontSize) == B_OK)
 		fMessage.ReplaceFloat("font_size", fontSize);
+
+	int8 themeId;
+	if (message->FindInt8("theme", &themeId) == B_OK) {
+		fMessage.ReplaceInt8("theme", themeId);
+	}
 
 	bool caseSensitive;
 	if (message->FindBool("case_sensitive", &caseSensitive) == B_OK)

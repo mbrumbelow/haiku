@@ -98,6 +98,7 @@ DataView::DataView(DataEditor &editor)
 	fEditor(editor),
 	fFocus(kHexFocus),
 	fBase(kHexBase),
+	fTheme(kHaikuTheme),
 	fIsActive(true),
 	fMouseSelectionStart(-1),
 	fKeySelectionStart(-1),
@@ -245,6 +246,16 @@ DataView::MessageReceived(BMessage *message)
 				break;
 
 			SetBase((base_type)type);
+			break;
+		}
+
+		case kMsgTheme:
+		{
+			int8 themeId;
+			if (message->FindInt8("theme", &themeId) != B_OK)
+				break;
+
+			SetTheme((theme_id)themeId);
 			break;
 		}
 
@@ -398,12 +409,33 @@ DataView::Draw(BRect updateRect)
 
 	char line[255];
 	BPoint location(kHorizontalSpace, kVerticalSpace + fAscent);
+	const rgb_color default_highcolor = HighColor();
 
-	for (uint32 i = 0; i < fSizeInView; i += kBlockSize) {
+	for (uint32 n = 0, i = 0; i < fSizeInView; n++, i += kBlockSize) {
 		ConvertLine(line, i, fData + i, fSizeInView - i);
+		if (fTheme == kHaikuTheme) {
+			(n % 2 == 0) ? SetHighColor(255, 255, 255) : SetHighColor(232, 232, 232);
+			FillRect(BRect(location.x - kHorizontalSpace, kVerticalSpace + n * fFontHeight,
+				location.x - kHorizontalSpace / 2 + Bounds().right,
+				kVerticalSpace + (n + 1) * fFontHeight));
+			SetHighColor(default_highcolor);
+		}
 		DrawString(line, location);
-
 		location.y += fFontHeight;
+	}
+
+	if (fTheme == kHaikuTheme) {
+		SetHighColor(168, 168, 168);
+
+		BPoint line_start(kHorizontalSpace + fCharWidth * 18 + fCharWidth / 2, 0);
+		BPoint line_end(line_start.x, Bounds().bottom);
+
+		for (int i = 0; i < 3; i++) {
+			StrokeLine(line_start, line_end, B_SOLID_HIGH);
+			line_start.x = line_end.x += fCharWidth * 12;
+		}
+
+		SetHighColor(default_highcolor);
 	}
 
 	DrawSelection();
@@ -1389,6 +1421,13 @@ DataView::SetFontSize(float point)
 	Invalidate();
 
 	SendNotices(kDataViewPreferredSize);
+}
+
+void
+DataView::SetTheme(theme_id themeId)
+{
+	fTheme = themeId;
+	Invalidate();
 }
 
 

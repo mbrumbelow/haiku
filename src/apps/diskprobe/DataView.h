@@ -26,6 +26,10 @@ enum view_focus {
 	kAsciiFocus
 };
 
+enum theme_id {
+	kClassicTheme,
+	kHaikuTheme
+};
 
 class DataView : public BView {
 public:
@@ -67,6 +71,9 @@ public:
 			base_type			Base() const { return fBase; }
 			void				SetBase(base_type type);
 
+			theme_id			Theme() const { return fTheme; }
+			void				SetTheme(theme_id themeId);
+
 			const uint8*		DataAt(int32 start);
 
 	static	int32				WidthForFontSize(float size);
@@ -107,6 +114,7 @@ private:
 			float				fCharWidth;
 			view_focus			fFocus;
 			base_type			fBase;
+			theme_id			fTheme;
 			bool				fIsActive;
 			int32				fStart;
 			int32				fEnd;
@@ -123,6 +131,7 @@ private:
 static const uint32 kMsgBaseType = 'base';
 static const uint32 kMsgUpdateData = 'updt';
 static const uint32 kMsgSetSelection = 'ssel';
+static const uint32 kMsgTheme = 'them';
 
 // observer notices
 static const uint32 kDataViewCursorPosition = 'curs';

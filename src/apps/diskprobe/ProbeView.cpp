@@ -48,7 +48,6 @@
 #include "DiskProbe.h"
 #include "TypeEditors.h"
 
-
 #ifndef __HAIKU__
 #	define DRAW_SLIDER_BAR
 	// if this is defined, the standard slider bar is replaced with
@@ -119,7 +118,6 @@ private:
 			off_t				fSize;
 			uint32				fBlockSize;
 };
-
 
 class HeaderView : public BGridView, public BInvoker {
 public:
@@ -1177,8 +1175,10 @@ ProbeView::ProbeView(entry_ref* ref, const char* attribute,
 
 	int32 baseType = kHexBase;
 	float fontSize = 12.0f;
+	int8  themeId = kHaikuTheme;
 	if (settings != NULL) {
 		settings->FindInt32("base_type", &baseType);
+		settings->FindInt8("theme", &themeId);
 		settings->FindFloat("font_size", &fontSize);
 	}
 
@@ -1189,6 +1189,7 @@ ProbeView::ProbeView(entry_ref* ref, const char* attribute,
 	fDataView = new DataView(fEditor);
 	fDataView->SetBase((base_type)baseType);
 	fDataView->SetFontSize(fontSize);
+	fDataView->SetTheme((theme_id)themeId);
 
 	fScrollView = new BScrollView("scroller", fDataView, B_WILL_DRAW, true,
 		true);
@@ -1519,6 +1520,27 @@ ProbeView::AttachedToWindow()
 		message->AddInt32("block_size", fEditor.BlockSize());
 		item->SetMarked(true);
 	}
+	subMenu->SetTargetForItems(this);
+	menu->AddItem(new BMenuItem(subMenu));
+	menu->AddSeparatorItem();
+
+	// Theme
+
+	subMenu = new BMenu("Theme");
+	subMenu->SetRadioMode(true);
+
+	subMenu->AddItem(item = new BMenuItem("Classic", message = new BMessage(kMsgTheme)));
+	message->AddInt8("theme", kClassicTheme);
+	item->SetTarget(this);
+	if (fDataView->Theme() == kClassicTheme)
+		item->SetMarked(true);
+
+	subMenu->AddItem(item = new BMenuItem("Haiku", message = new BMessage(kMsgTheme)));
+	message->AddInt8("theme", kHaikuTheme);
+	item->SetTarget(this);
+	if (fDataView->Theme() == kHaikuTheme)
+		item->SetMarked(true);
+
 	subMenu->SetTargetForItems(this);
 	menu->AddItem(new BMenuItem(subMenu));
 	menu->AddSeparatorItem();
@@ -1904,6 +1926,21 @@ ProbeView::MessageReceived(BMessage* message)
 			_UpdateSelectionMenuItems(start, end);
 
 			_UpdateBookmarkMenuItems();
+
+			// update the application's settings
+			BMessage update(*message);
+			update.what = kMsgSettingsChanged;
+			be_app_messenger.SendMessage(&update);
+			break;
+		}
+
+		case kMsgTheme:
+		{
+			int8 themeId;
+			if (message->FindInt8("theme", &themeId) != B_OK)
+				break;
+
+			fDataView->SetTheme((theme_id)themeId);
 
 			// update the application's settings
 			BMessage update(*message);
