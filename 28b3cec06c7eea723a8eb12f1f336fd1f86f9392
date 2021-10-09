@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "749ce95f_452b175a",
+        "filename": "src/libs/compat/freebsd_network/compat/machine/riscv64/bus.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-09T13:43:17Z",
+      "side": 1,
+      "message": "Should this be in the RISC-V header?",
+      "revId": "28b3cec06c7eea723a8eb12f1f336fd1f86f9392",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b39ecaa_0afedef9",
+        "filename": "src/libs/compat/freebsd_network/compat/machine/riscv64/bus.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-09T13:43:17Z",
+      "side": 1,
+      "message": "comments need to be updated",
+      "revId": "28b3cec06c7eea723a8eb12f1f336fd1f86f9392",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "572465cc_010cd7a0",
+        "filename": "src/libs/compat/freebsd_network/compat/machine/riscv64/cpufunc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-09T13:43:17Z",
+      "side": 1,
+      "message": "these defines do not seem to be used anywhere?",
+      "revId": "28b3cec06c7eea723a8eb12f1f336fd1f86f9392",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
