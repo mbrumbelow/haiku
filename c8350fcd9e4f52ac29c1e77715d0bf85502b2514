@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "2817410e_2bb6bc42",
+        "filename": "src/add-ons/media/media-add-ons/usb_webcam/AddOn.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000336
+      },
+      "writtenOn": "2021-10-09T14:17:27Z",
+      "side": 1,
+      "message": "I will remove the strcpy, i.e. use your cast proposal.\n\nOther wrong usage examples are:\nhttps://git.haiku-os.org/haiku/tree/src/add-ons/media/media-add-ons/video_mixer/VideoMixerNode.cpp line 308,309\n\nhttps://git.haiku-os.org/haiku/tree/src/add-ons/media/media-add-ons/writer/MediaWriter.cpp line 503,504",
+      "parentUuid": "8a0f0912_6ecf9ac3",
+      "revId": "c8350fcd9e4f52ac29c1e77715d0bf85502b2514",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "57678dff_f9f36c77",
         "filename": "src/add-ons/media/media-add-ons/usb_webcam/CamStreamingDeframer.cpp",
         "patchSetId": 2
