@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "1e0f8c5e_fde50eb7",
+        "filename": "src/add-ons/media/media-add-ons/usb_webcam/AddOn.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000336
+      },
+      "writtenOn": "2021-10-09T23:19:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2817410e_2bb6bc42",
+      "revId": "c8350fcd9e4f52ac29c1e77715d0bf85502b2514",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "57678dff_f9f36c77",
         "filename": "src/add-ons/media/media-add-ons/usb_webcam/CamStreamingDeframer.cpp",
         "patchSetId": 2
