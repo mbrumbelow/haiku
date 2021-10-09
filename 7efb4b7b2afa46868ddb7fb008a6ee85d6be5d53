@@ -1,0 +1,412 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f9ad9e6_8c760d3e",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-09T18:18:00Z",
+      "side": 0,
+      "message": "This intersection check uses rects in two different spaces so it should be adjusted",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6ba2669_72f04da3",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-09T18:18:00Z",
+      "side": 0,
+      "message": "This intersection check uses rects in two different spaces so it should be adjusted",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d56a2dd2_f162bcc2",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-09T18:18:00Z",
+      "side": 0,
+      "message": "This intersection check uses rects in two different spaces so it should be adjusted",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad73d43f_5ba54ede",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-09T18:18:00Z",
+      "side": 0,
+      "message": "This intersection check uses rects in two different spaces so it should be adjusted",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8522517_836af7ba",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-09T18:18:00Z",
+      "side": 0,
+      "message": "This intersection check uses rects in two different spaces so it should be adjusted",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f6175d8_160d77aa",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-09T18:18:00Z",
+      "side": 0,
+      "message": "This intersection check uses rects in two different spaces so it should be adjusted",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f36be62c_4af75b7d",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-09T18:18:00Z",
+      "side": 0,
+      "message": "This intersection check uses rects in two different spaces so it should be adjusted",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35b84361_871703e7",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-09T18:18:00Z",
+      "side": 0,
+      "message": "This intersection check uses rects in two different spaces so it should be adjusted",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "326a2fc3_084d8271",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 660,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-09T18:18:00Z",
+      "side": 0,
+      "message": "This intersection check uses rects in two different spaces so it should be adjusted",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c149155_af48cf5d",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 757,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-09T18:18:00Z",
+      "side": 0,
+      "message": "This intersection check uses rects in two different spaces so it should be adjusted",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c080a66f_1f0c1de2",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1120,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-09T18:18:00Z",
+      "side": 0,
+      "message": "This intersection check uses rects in two different spaces so it should be adjusted",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a40f032_e0e7a511",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1177,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-09T18:18:00Z",
+      "side": 0,
+      "message": "This intersection check uses rects in two different spaces so it should be adjusted",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4654f68b_976f5911",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1327,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-09T18:18:00Z",
+      "side": 0,
+      "message": "This intersection check uses rects in two different spaces so it should be adjusted",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7bc618d_73f876ee",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1421,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-09T18:18:00Z",
+      "side": 0,
+      "message": "This intersection check uses rects in two different spaces so it should be adjusted",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9701fbc_9a2e5ef4",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1539,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-09T18:18:00Z",
+      "side": 0,
+      "message": "This intersection check uses rects in two different spaces so it should be adjusted",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce6b04b8_8aa7e411",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1629,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-09T18:18:00Z",
+      "side": 0,
+      "message": "This intersection check uses rects in two different spaces so it should be adjusted",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ed9c434_d31ee70a",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1663,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-09T18:18:00Z",
+      "side": 0,
+      "message": "This intersection check uses rects in two different spaces so it should be adjusted",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5115cde1_3479e122",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1843,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-09T18:18:00Z",
+      "side": 0,
+      "message": "This intersection check uses rects in two different spaces so it should be adjusted",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08be325e_f924b9b6",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1945,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-09T18:18:00Z",
+      "side": 0,
+      "message": "This intersection check uses rects in two different spaces so it should be adjusted",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fed93ab3_bfa55aa8",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2105,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-09T18:18:00Z",
+      "side": 0,
+      "message": "This intersection check uses rects in two different spaces so it should be adjusted",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f83dc9dd_567eca9a",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2336,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-09T18:18:00Z",
+      "side": 0,
+      "message": "This intersection check uses rects in two different spaces so it should be adjusted",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79053e3d_cc651d01",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3043,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-09T18:18:00Z",
+      "side": 0,
+      "message": "This intersection check uses rects in two different spaces so it should be adjusted",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1fde3d7_ba8152f2",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3086,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-09T18:18:00Z",
+      "side": 0,
+      "message": "This intersection check uses rects in two different spaces so it should be adjusted",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f98b5447_d809a61f",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3601,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-09T18:18:00Z",
+      "side": 0,
+      "message": "This intersection check uses rects in two different spaces so it should be adjusted",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
