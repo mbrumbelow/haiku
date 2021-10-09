@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "80554641_d52c2a44",
+        "filename": "src/apps/diskprobe/DataView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-09T12:56:12Z",
+      "side": 1,
+      "message": "variable names use camel case, so this should be defaultHighColor",
+      "revId": "72663eba20fb25c134af4e81ed123d290aba691b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "617d3f4a_756d27a7",
+        "filename": "src/apps/diskprobe/DataView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-09T12:56:12Z",
+      "side": 1,
+      "message": "Use descriptive variable names (something like \"line\" and \"byteOffset\") here, to make it easier to understand what\u0027s happening and why two variables are used in this loop",
+      "revId": "72663eba20fb25c134af4e81ed123d290aba691b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39fc0910_2ab1d5d2",
+        "filename": "src/apps/diskprobe/DataView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-09T12:56:12Z",
+      "side": 1,
+      "message": "I think an if() would be more readable here.\n\nAlso, avoid hardcoded colors because it won\u0027t work well with people customizing their system. For example here, people using \"dark mode\" settings will end up with white text on white background.\n\nInstead, it\u0027s recommended to use SetHighUiColor(B_DOCUMENT_BACKGROUND_COLOR, tint) and adjust the \"tint\" parameter to get darker or lighter versions of the base color. This additionally allows the colors to update live when modified in appearance preferences.",
+      "revId": "72663eba20fb25c134af4e81ed123d290aba691b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ffe18a12_cd98b66f",
+        "filename": "src/apps/diskprobe/DataView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-09T12:56:12Z",
+      "side": 1,
+      "message": "A comment explaining why 18 characters here and 12 below would be nice. I guess 12 chars is the width of 4 bytes rendered as hex, and 18 is for the first byte plus the address/offset?",
+      "revId": "72663eba20fb25c134af4e81ed123d290aba691b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
