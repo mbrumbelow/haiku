@@ -171,6 +171,9 @@ rule TargetLibgcc asPath
 				BuildFeatureAttribute gcc_syslibs : libgcc_s.so.1 : $(flags)
 			] [
 				BuildFeatureAttribute gcc_syslibs_devel : libgcc.a : $(flags)
+			] [
+				BuildFeatureAttribute gcc_syslibs_devel : libssp_nonshared.a
+					: $(flags)
 			] ;
 		}
 	} else {

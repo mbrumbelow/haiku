@@ -78,6 +78,7 @@ if [ IsPackageAvailable gcc_syslibs_devel ] {
 				libgcc_eh.a: $(developLibDir)/libgcc_eh.a
 				libgcc-kernel.a: $(developLibDir)/libgcc-kernel.a
 				libgcc_eh-kernel.a: $(developLibDir)/libgcc_eh.a
+				libssp_nonshared.a: $(developLibDir)/libssp_nonshared.a
 				libstdc++.a: $(developLibDir)/libstdc++.a
 				libsupc++.a: $(developLibDir)/libsupc++.a
 				libsupc++-kernel.a: $(developLibDir)/libsupc++-kernel.a
