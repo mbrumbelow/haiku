@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "8a0f0912_6ecf9ac3",
+        "filename": "src/add-ons/media/media-add-ons/usb_webcam/AddOn.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-09T13:48:26Z",
+      "side": 1,
+      "message": "This code with strcpy will just try to copy the name to un-initialized memory, and will crash.\n\nJust do what is done in other addons, cast away the const (I did not see strcpy used elsewhere, if you have examples, please give links):\n\ninfo-\u003einfo \u003d (char*)\"USB Web Camera\";\n\nThis will at least not crash.",
+      "parentUuid": "56d1e972_15a14d9f",
+      "revId": "c8350fcd9e4f52ac29c1e77715d0bf85502b2514",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "57678dff_f9f36c77",
         "filename": "src/add-ons/media/media-add-ons/usb_webcam/CamStreamingDeframer.cpp",
         "patchSetId": 2
