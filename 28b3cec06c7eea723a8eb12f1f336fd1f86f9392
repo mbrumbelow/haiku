@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "c71cf96e_72740bfe",
+        "filename": "src/libs/compat/freebsd_network/compat/machine/riscv64/bus.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-12T13:41:38Z",
+      "side": 1,
+      "message": "Yes, these constants are specific to x86. On x86 there are two ways to access hardware:\n- Memory mapped (just use normal volatile pointers)\n- I/O space (using the dedicated inb, outb, ... instructions)\n\nOther CPUs do not have this distinction and only use memory mapped access. I don\u0027t know how FreeBSD handles this, and I also don\u0027t know how PCI hardware on non-x86 machines handles this. Maybe we should ask someone from FreeBSD to explain what they did here?",
+      "parentUuid": "fff9a741_21131a12",
+      "revId": "28b3cec06c7eea723a8eb12f1f336fd1f86f9392",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2b39ecaa_0afedef9",
         "filename": "src/libs/compat/freebsd_network/compat/machine/riscv64/bus.h",
         "patchSetId": 2
