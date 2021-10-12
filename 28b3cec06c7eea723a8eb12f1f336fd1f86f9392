@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "fff9a741_21131a12",
+        "filename": "src/libs/compat/freebsd_network/compat/machine/riscv64/bus.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-10-12T13:37:34Z",
+      "side": 1,
+      "message": "hm..\n\nsrc/libs/compat/freebsd_network/bus.cpp:\tres-\u003er_bustag \u003d X86_BUS_SPACE_IO;\nsrc/add-ons/kernel/drivers/network/sis900/dev/sis/if_sis.c:\tbtag \u003d X86_BUS_SPACE_IO;\n\n\nIt looks like even FreeBSD passes this through a compat layer for non-x86 exclusive code...\n\nsys/compat/ndis/hal_var.h:#define NDIS_BUS_SPACE_IO\tX86_BUS_SPACE_IO\n\nalso FreeBSD sis driver:\n\nstatic void\nsis_read_cmos(struct sis_softc *sc, device_t dev, caddr_t dest, int off, int cnt)\n{\n .\n\n        reg \u003d pci_read_config(bridge, 0x48, 1);\n        pci_write_config(bridge, 0x48, reg|0x40, 1);\n\n        /* XXX */\n#if defined(__amd64__) || defined(__i386__)\n        btag \u003d X86_BUS_SPACE_IO;\n#endif\n\n .\n}\n\n\nso, it looks like we should guard bustag on non-x86 and drop X86_BUS_SPACE* from riscv64?\n\nFreeBSD doesn\u0027t have a set of RISCV64_BUS_SPACE* defines.",
+      "parentUuid": "749ce95f_452b175a",
+      "revId": "28b3cec06c7eea723a8eb12f1f336fd1f86f9392",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2b39ecaa_0afedef9",
         "filename": "src/libs/compat/freebsd_network/compat/machine/riscv64/bus.h",
         "patchSetId": 2
