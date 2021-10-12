@@ -1,5 +1,5 @@
 /*
- * Copyright 2006, Haiku, Inc.
+ * Copyright 2006-2022, Haiku, Inc.
  * Distributed under the terms of the MIT License.
  */
 #ifndef _DEFAULT_COLORS_H
@@ -12,6 +12,7 @@
 namespace BPrivate {
 
 extern const rgb_color* kDefaultColors;
+extern const rgb_color* kDefaultColorsDark;
 
 }	// namespace BPrivate
 
