@@ -12,6 +12,7 @@
 namespace BPrivate {
 
 extern const rgb_color* kDefaultColors;
+extern const rgb_color* kDefaultColorsDark;
 
 }	// namespace BPrivate
 
