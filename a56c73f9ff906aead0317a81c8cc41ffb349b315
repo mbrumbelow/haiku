@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a2e4cde_143db52f",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-10-14T16:27:50Z",
+      "side": 1,
+      "message": "I just noticed that this is \"HaikuControlLook\" and not \"FlatControlLook.\" Is this an oversight from a copy/paste error? Probably it should be deleted (because it likely is not used at present?) or renamed?",
+      "revId": "a56c73f9ff906aead0317a81c8cc41ffb349b315",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
