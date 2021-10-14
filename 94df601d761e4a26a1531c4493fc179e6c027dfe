@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90c137a8_cc49e499",
+        "filename": "src/apps/diskprobe/DataView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-10-14T16:43:38Z",
+      "side": 1,
+      "message": "I think this `if` can be consolidated to 1 line using a ternary operator.",
+      "revId": "94df601d761e4a26a1531c4493fc179e6c027dfe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f3dbbc8_73d5bf35",
+        "filename": "src/apps/diskprobe/DataView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-10-14T16:43:38Z",
+      "side": 1,
+      "message": "This line deserves some parentheses.",
+      "revId": "94df601d761e4a26a1531c4493fc179e6c027dfe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
