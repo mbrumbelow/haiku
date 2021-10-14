@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "43df6ac3_cf643da0",
+        "filename": "src/add-ons/kernel/drivers/input/virtio_input/virtio_input.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-10-14T16:12:25Z",
+      "side": 0,
+      "message": "2 blank lines between functions is the style guide.",
+      "revId": "4a850ca730d8282b5b924e49e09b4ba4d6db7f54",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a535dfd0_5a7cc532",
+        "filename": "src/add-ons/kernel/drivers/input/virtio_input/virtio_input.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-10-14T16:12:25Z",
+      "side": 0,
+      "message": "Why did these functions exist if they are unused? cc korli",
+      "revId": "4a850ca730d8282b5b924e49e09b4ba4d6db7f54",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
