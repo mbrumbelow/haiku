@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9d66b519_cbc87302",
+        "filename": "src/system/boot/platform/riscv/FwCfg.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-10-14T16:32:09Z",
+      "side": 1,
+      "message": "We already have B_SWAP... macros, we should use these instead.",
+      "revId": "cb84c256aaf9b708e7acc1916c45f5bbdaba547f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
