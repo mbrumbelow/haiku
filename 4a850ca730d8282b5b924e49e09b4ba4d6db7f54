@@ -51,6 +51,24 @@
       "revId": "4a850ca730d8282b5b924e49e09b4ba4d6db7f54",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "071f8296_b144f98d",
+        "filename": "src/add-ons/kernel/drivers/input/virtio_input/virtio_input.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-10-15T20:43:40Z",
+      "side": 0,
+      "message": "VirtIO packet management was changed. Now it schedule all packets to VirtIO queue and also schedule packet when received and done processing. Free packet list is not longer used.",
+      "parentUuid": "a535dfd0_5a7cc532",
+      "revId": "4a850ca730d8282b5b924e49e09b4ba4d6db7f54",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
