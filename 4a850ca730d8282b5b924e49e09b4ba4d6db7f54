@@ -69,6 +69,24 @@
       "revId": "4a850ca730d8282b5b924e49e09b4ba4d6db7f54",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f25f18ba_34cdd7ad",
+        "filename": "src/add-ons/kernel/drivers/input/virtio_input/virtio_input.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1000336
+      },
+      "writtenOn": "2021-10-15T20:46:24Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "071f8296_b144f98d",
+      "revId": "4a850ca730d8282b5b924e49e09b4ba4d6db7f54",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
