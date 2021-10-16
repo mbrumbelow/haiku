@@ -102,7 +102,6 @@ status_t PenInputServerMethod::InitCheck()
 
 filter_result PenInputServerMethod::Filter(BMessage *message, BList *outList)
 {
-	status_t err;
 	filter_result res = B_DISPATCH_MESSAGE;
 
 	if (!IsEnabled())
@@ -151,8 +150,6 @@ filter_result PenInputServerMethod::Filter(BMessage *message, BList *outList)
 #endif
 	if (message->what == B_MOUSE_DOWN) {
 	  int32 buttons;
-	  int32 modifiers;
-	  BPoint where;
 	  if (message->FindInt32("buttons", &buttons) == B_OK) {
 	    /* replace first with a button that likely won't exist,
 	     * and so shouldn't cause any side effect (hmm err...) */
@@ -163,6 +160,8 @@ filter_result PenInputServerMethod::Filter(BMessage *message, BList *outList)
 	  }
 	  
 #if 0
+	  int32 modifiers;
+	  BPoint where;
 	  outList->AddItem(new BMessage(*message));
 	  BMessage *m = new BMessage(B_MOUSE_MOVED);
 	  if (message->FindInt32("buttons", &buttons) == B_OK)

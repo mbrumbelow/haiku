@@ -130,7 +130,6 @@ void PenInputLooper::DispatchMessage(BMessage *message, BHandler *handler)
 
 void PenInputLooper::MessageReceived(BMessage *message)
 {
-	int32 v;
 	int32 buttons;
 	bool b;
 #if 1

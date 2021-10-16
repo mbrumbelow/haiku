@@ -68,7 +68,6 @@ bool LookUpFieldName(const char **name, const char *field_name, BMessage *names)
 status_t DumpMessageToStream(BMessage *message, BDataIO &stream, int tabCount, BMessage *names)
 {
 	int32 index;
-	void *cookie = NULL;
 	const char *field_name;
 	type_code field_code;
 	int32 field_count;
@@ -103,12 +102,13 @@ status_t DumpMessageToStream(BMessage *message, BDataIO &stream, int tabCount, B
 	stream.Write(buffer, strlen(buffer));
 
 #ifdef B_BEOS_VERSION_DANO
+	void *cookie = NULL;
 	while (message->GetNextName(&cookie, 
 				&field_name, 
 				&field_code, 
 				&field_count) == B_OK) {
 #else
-#warning mem leak likely! (name=char *)
+// TODO: #warning mem leak likely! (name=char *)
 	for (int which=0; message->GetInfo(B_ANY_TYPE, which, 
 			(char **)&field_name, &field_code, &field_count) == B_OK; which++) {
 #endif
@@ -157,7 +157,7 @@ status_t DumpMessageToStream(BMessage *message, BDataIO &stream, int tabCount, B
 				}
 				break;
 #else
-#warning IMPLEMENT ME
+// TODO: #warning IMPLEMENT ME
 #endif
 			case B_BOOL_TYPE:
 				{
