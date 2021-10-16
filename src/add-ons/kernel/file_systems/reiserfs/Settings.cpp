@@ -147,8 +147,8 @@ Settings::Dump()
 	PRINT(("  volume name:           `%s'\n", GetVolumeName()));
 	PRINT(("  hide esoteric entries: %d\n", GetHideEsoteric()));
 	PRINT(("  %" B_PRId32 " hidden entries:\n", fHiddenEntries.CountItems()));
-	for (int32 i = 0; const char *entry = HiddenEntryAt(i); i++)
-		PRINT(("    `%s'\n", entry));
+	for (int32 i = 0; HiddenEntryAt(i); i++)
+		PRINT(("    `%s'\n", HiddenEntryAt(i)));
 }
 
 // _Init
