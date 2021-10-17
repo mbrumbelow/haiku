@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a3fdb7ec_0bcaa9ff",
+        "filename": "src/apps/diskprobe/DataView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1000337
+      },
+      "writtenOn": "2021-10-17T21:19:52Z",
+      "side": 1,
+      "message": "Ack - good hint.",
+      "parentUuid": "a3dd36a2_9bbb45de",
+      "revId": "94df601d761e4a26a1531c4493fc179e6c027dfe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90c137a8_cc49e499",
         "filename": "src/apps/diskprobe/DataView.cpp",
         "patchSetId": 4
@@ -72,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "ba2cf8fd_5550c42c",
+        "filename": "src/apps/diskprobe/DataView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1000337
+      },
+      "writtenOn": "2021-10-17T21:19:52Z",
+      "side": 1,
+      "message": "Okay, I also prefer the ternary version because it seems cleaner to me with this two-liner:\n\nfloat tint \u003d (lineNum % 2 \u003d\u003d 0) ? B_NO_TINT : kTintDarkenTouch;\nSetLowUIColor(B_DOCUMENT_BACKGROUND_COLOR, tint);",
+      "parentUuid": "c28a8016_54ec0dd8",
+      "revId": "94df601d761e4a26a1531c4493fc179e6c027dfe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8f3dbbc8_73d5bf35",
         "filename": "src/apps/diskprobe/DataView.cpp",
         "patchSetId": 4
@@ -122,6 +158,24 @@
       "revId": "94df601d761e4a26a1531c4493fc179e6c027dfe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f83f900f_82ce067d",
+        "filename": "src/apps/diskprobe/DataView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1000337
+      },
+      "writtenOn": "2021-10-17T21:19:52Z",
+      "side": 1,
+      "message": "Ack - good hint.",
+      "parentUuid": "0215e5d1_1c1ce37f",
+      "revId": "94df601d761e4a26a1531c4493fc179e6c027dfe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
