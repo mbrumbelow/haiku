@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1b6959ce_a5168f05",
+        "filename": "src/apps/diskprobe/DataView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1000337
+      },
+      "writtenOn": "2021-10-17T17:25:05Z",
+      "side": 1,
+      "message": "This \u0027if\u0027 was a ternary before and I followed PulkoMandy\u0027s advice to write it out. Who\u0027s right?",
+      "parentUuid": "90c137a8_cc49e499",
+      "revId": "94df601d761e4a26a1531c4493fc179e6c027dfe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8f3dbbc8_73d5bf35",
         "filename": "src/apps/diskprobe/DataView.cpp",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2021-10-14T16:43:38Z",
       "side": 1,
       "message": "This line deserves some parentheses.",
+      "revId": "94df601d761e4a26a1531c4493fc179e6c027dfe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01f65576_42ea6a37",
+        "filename": "src/apps/diskprobe/DataView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1000337
+      },
+      "writtenOn": "2021-10-17T17:25:05Z",
+      "side": 1,
+      "message": "You mean like this?\nline_start.x \u003d (line_end.x +\u003d fCharWidth * 12);\nAlternatively, this could be written on two lines to make the two assignments clear?",
+      "parentUuid": "8f3dbbc8_73d5bf35",
       "revId": "94df601d761e4a26a1531c4493fc179e6c027dfe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
