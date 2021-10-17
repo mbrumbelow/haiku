@@ -300,7 +300,7 @@ intel_propose_display_mode(display_mode* target, const display_mode* low,
 		target->virtual_height = VirtualHeight;
 		// retain requested refreshrate
 		target->timing.pixel_clock =
-			target->timing.h_total * target->timing.v_total * RefreshRate;
+			(uint32)(target->timing.h_total * target->timing.v_total * RefreshRate);
 
 		// (most) modeflags are outputs from us (the driver). So we should
 		// set them depending on the mode and the current hardware config
