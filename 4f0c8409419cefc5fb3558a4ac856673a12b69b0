@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee0e6997_782374a3",
+        "filename": "src/apps/mediaplayer/playlist/PlaylistItem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-10-17T13:26:00Z",
+      "side": 1,
+      "message": "your commit message doesn\u0027t tell why it could fail here. read-only media maybe?",
+      "revId": "4f0c8409419cefc5fb3558a4ac856673a12b69b0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
