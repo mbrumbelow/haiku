@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e6313a57_b4b5901a",
+        "filename": "src/add-ons/input_server/methods/pen/DumpMessage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-18T16:22:22Z",
+      "side": 1,
+      "message": "I think we should keep these, or maybe remove the #ifdef B_BEOS_VERSION_DANO if we implement the corresponding Dano (BeOS R6) APIs already, and use that version.",
+      "revId": "b9f5d2d6bcf4cd03fc08994a89a545efd74716e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
