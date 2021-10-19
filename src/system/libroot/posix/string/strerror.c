@@ -220,8 +220,10 @@ error_description(int error)
 		case B_BUSTED_PIPE:
 			// EPIPE
 			return "Broken pipe";
+#if B_UNSUPPORTED != B_NOT_SUPPORTED
 		case B_UNSUPPORTED:
 			return "Operation not supported";
+#endif
 		case B_PARTITION_TOO_SMALL:
 			return "Partition too small to contain filesystem";
 		case B_PARTIAL_READ:
