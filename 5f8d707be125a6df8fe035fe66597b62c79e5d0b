@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1786abfc_9405e7c2",
+        "filename": "src/add-ons/kernel/drivers/tty/tty_driver.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-19T08:19:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc77c537_45dcc122",
+      "revId": "5f8d707be125a6df8fe035fe66597b62c79e5d0b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a082edf2_f60eca38",
         "filename": "src/add-ons/kernel/drivers/tty/tty_driver.h",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "5f8d707be125a6df8fe035fe66597b62c79e5d0b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc660d76_bd2e3b05",
+        "filename": "src/add-ons/kernel/drivers/tty/tty_driver.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-19T08:19:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a082edf2_f60eca38",
+      "revId": "5f8d707be125a6df8fe035fe66597b62c79e5d0b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
