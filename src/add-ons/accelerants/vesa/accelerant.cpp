@@ -1,6 +1,5 @@
 /*
  * Copyright 2005-2008, Axel Dörfler, axeld@pinc-software.de. All rights reserved.
- * Copyright 2016-207, Jessica Hamilton, jessica.l.hamilton@gmail.com.
  * Distributed under the terms of the MIT License.
  */
 
@@ -67,11 +66,8 @@ init_common(int device, bool isClone)
 	if (status < B_OK)
 		return status;
 
-	if (gInfo->shared_info->vesa_mode_count == 0)
-		gInfo->vesa_modes = NULL;
-	else
-		gInfo->vesa_modes = (vesa_mode *)((uint8 *)gInfo->shared_info
-			+ gInfo->shared_info->vesa_mode_offset);
+	gInfo->vesa_modes = (vesa_mode *)((uint8 *)gInfo->shared_info
+		+ gInfo->shared_info->vesa_mode_offset);
 
 	infoDeleter.Detach();
 	sharedDeleter.Detach();
@@ -106,7 +102,7 @@ vesa_init_accelerant(int device)
 	TRACE(("vesa_init_accelerant()\n"));
 
 	status_t status = init_common(device, false);
-	if (status != B_OK)
+	if (status != B_OK) 
 		return status;
 
 	status = create_mode_list();
@@ -158,7 +154,7 @@ vesa_clone_accelerant(void *info)
 	status = gInfo->mode_list_area = clone_area(
 		"vesa cloned modes", (void **)&gInfo->mode_list,
 		B_ANY_ADDRESS, B_READ_AREA, gInfo->shared_info->mode_list_area);
-	if (status < B_OK)
+	if (status < B_OK) 
 		goto err2;
 
 	return B_OK;
@@ -191,16 +187,9 @@ status_t
 vesa_get_accelerant_device_info(accelerant_device_info *info)
 {
 	info->version = B_ACCELERANT_VERSION;
-
-	// TODO: provide some more insight here...
-	if (gInfo->vesa_modes != NULL) {
-		strcpy(info->name, "VESA driver");
-		strcpy(info->chipset, "VESA");
-	} else {
-		strcpy(info->name, "Framebuffer");
-		strcpy(info->chipset, "");
-	}
-
+	strcpy(info->name, "VESA Driver");
+	strcpy(info->chipset, "VESA");
+		// ToDo: provide some more insight here...
 	strcpy(info->serial_no, "None");
 
 #if 0

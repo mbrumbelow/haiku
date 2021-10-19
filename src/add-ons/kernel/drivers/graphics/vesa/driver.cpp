@@ -53,7 +53,12 @@ init_hardware(void)
 {
 	TRACE((DEVICE_NAME ": init_hardware()\n"));
 
-	return get_boot_item(FRAME_BUFFER_BOOT_INFO, NULL) != NULL ? B_OK : B_ERROR;
+	// If we don't have the VESA mode info, then we have a
+	// dumb framebuffer, in which case we bail, and leave it
+	// up to the framebuffer driver to handle.
+	return (get_boot_item(VESA_MODES_BOOT_INFO, NULL) != NULL
+			&& get_boot_item(FRAME_BUFFER_BOOT_INFO, NULL) != NULL)
+		? B_OK : B_ERROR;
 }
 
 
@@ -68,19 +73,14 @@ init_driver(void)
 
 	memset(gDeviceInfo[0], 0, sizeof(vesa_info));
 
-	status_t status;
-
-	// ISA may not be available on all architectures
-	status = get_module(B_ISA_MODULE_NAME, (module_info**)&gISA);
-	if (status != B_OK) {
-		TRACE((DEVICE_NAME ": ISA bus unavailable\n"));
-		gISA = NULL;
-	}
+	status_t status = get_module(B_ISA_MODULE_NAME, (module_info**)&gISA);
+	if (status != B_OK)
+		goto err1;
 
 	gDeviceNames[0] = strdup("graphics/vesa");
 	if (gDeviceNames[0] == NULL) {
 		status = B_NO_MEMORY;
-		goto err;
+		goto err2;
 	}
 
 	gDeviceNames[1] = NULL;
@@ -88,8 +88,9 @@ init_driver(void)
 	mutex_init(&gLock, "vesa lock");
 	return B_OK;
 
-err:
+err2:
 	put_module(B_ISA_MODULE_NAME);
+err1:
 	free(gDeviceInfo[0]);
 	return status;
 }
