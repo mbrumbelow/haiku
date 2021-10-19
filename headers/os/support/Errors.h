@@ -112,7 +112,11 @@
 #define B_CROSS_DEVICE_LINK					(B_STORAGE_ERROR_BASE + 11)
 #define B_LINK_LIMIT						(B_STORAGE_ERROR_BASE + 12)
 #define B_BUSTED_PIPE						(B_STORAGE_ERROR_BASE + 13)
+#if defined(__i386__) && !defined(__x86_64__)
 #define B_UNSUPPORTED						(B_STORAGE_ERROR_BASE + 14)
+#else
+#define B_UNSUPPORTED						B_NOT_SUPPORTED
+#endif
 #define B_PARTITION_TOO_SMALL				(B_STORAGE_ERROR_BASE + 15)
 #define B_PARTIAL_READ						(B_STORAGE_ERROR_BASE + 16)
 #define B_PARTIAL_WRITE						(B_STORAGE_ERROR_BASE + 17)
