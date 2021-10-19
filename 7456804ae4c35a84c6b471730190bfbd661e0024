@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "34ea7242_4f33509e",
+        "filename": "src/add-ons/kernel/generic/tty/tty.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1306,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-10-19T15:31:37Z",
+      "side": 1,
+      "message": "Maybe the order of the destructions was important somehow?",
+      "revId": "7456804ae4c35a84c6b471730190bfbd661e0024",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
