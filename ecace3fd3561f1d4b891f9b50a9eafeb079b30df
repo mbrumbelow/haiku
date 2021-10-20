@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "4b26fe8a_003ee752",
+        "filename": "src/add-ons/accelerants/vesa/mode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-10-20T14:01:15Z",
+      "side": 1,
+      "message": "This is just moving code around (you can see this block comes from the deletions just above); I would prefer not to introduce unnecessary changes here.",
+      "parentUuid": "dab84b4b_d91e6be1",
+      "revId": "ecace3fd3561f1d4b891f9b50a9eafeb079b30df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91dfd886_5e12ba13",
         "filename": "src/add-ons/kernel/drivers/graphics/framebuffer/framebuffer.cpp",
         "patchSetId": 1
@@ -67,6 +85,24 @@
       "revId": "ecace3fd3561f1d4b891f9b50a9eafeb079b30df",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f6d10e0_b8246ebf",
+        "filename": "src/add-ons/kernel/drivers/graphics/framebuffer/framebuffer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-10-20T14:01:15Z",
+      "side": 1,
+      "message": "Yes. B_USER_CLONEABLE_AREA was renamed to B_CLONEABLE_AREA, so this is the same as before.",
+      "parentUuid": "91dfd886_5e12ba13",
+      "revId": "ecace3fd3561f1d4b891f9b50a9eafeb079b30df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
