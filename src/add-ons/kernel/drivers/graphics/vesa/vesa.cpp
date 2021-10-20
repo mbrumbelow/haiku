@@ -831,6 +831,7 @@ vbe_patch_atom2_bios(vesa_info& info, bios_state* state, display_mode& mode)
 status_t
 vesa_set_custom_display_mode(vesa_info& info, display_mode& mode)
 {
+	int32 modeIndex = -1;
 	if (info.shared_info->bios_type == kUnknownBiosType)
 		return B_NOT_SUPPORTED;
 
@@ -840,8 +841,6 @@ vesa_set_custom_display_mode(vesa_info& info, display_mode& mode)
 	if (status != B_OK)
 		return status;
 
-	int32 modeIndex; // Index of the mode that will be patched
-
 	// Patch bios to inject custom video mode
 	switch (info.shared_info->bios_type) {
 		case kIntelBiosType:
@@ -849,24 +848,15 @@ vesa_set_custom_display_mode(vesa_info& info, display_mode& mode)
 			// The patch replaces the 1024x768 modes with our custom resolution. We can then use
 			// mode 0x118 which is the standard VBE2 mode for 1024x768 at 32 bits per pixel, and
 			// know it will use our new timings.
-			// TODO use modes 105 (256 colors), 116 (15 bit) and 117 (16 bit) depending on the
-			// requested colorspace. They should work too.
-			// TODO ideally locate the 1024x768 modes from the mode list in info.modes[], instead
-			// of hardcoding its number, in case the BIOS does not use VBE2 standard numbering.
-			modeIndex = 0x118;
 			break;
-#if 0
 		case kNVidiaBiosType:
 			status = vbe_patch_nvidia_bios(state, mode);
 			break;
-#endif
 		case kAtomBiosType1:
 			status = vbe_patch_atom1_bios(info, state, mode);
-			modeIndex = 0; // TODO how does this work? Is it 100 (first VBE2 mode)?
 			break;
 		case kAtomBiosType2:
 			status = vbe_patch_atom2_bios(info, state, mode);
-			modeIndex = 0; // TODO how does this work? Is it 100 (first VBE2 mode)?
 			break;
 		default:
 			status = B_NOT_SUPPORTED;
@@ -876,7 +866,8 @@ vesa_set_custom_display_mode(vesa_info& info, display_mode& mode)
 	if (status != B_OK)
 		goto out;
 
-	// Get mode information
+	// The patching modified some mode, but we don't know which one. So we need to rescan the mode
+	// list to find the correct one.
 	struct vbe_mode_info modeInfo;
 	for (int i = 0; i < info.shared_info->mode_count; i++) {
 		status = vbe_get_mode_info(state, info.modes[i].mode, &modeInfo);
@@ -896,14 +887,12 @@ vesa_set_custom_display_mode(vesa_info& info, display_mode& mode)
 	}
 
 	if (modeIndex >= 0) {
-		dprintf(DEVICE_NAME ": custom mode resolution %dx%d succesfully patched at index %"
-			B_PRIx32 "\n", modeInfo.width, modeInfo.height, modeIndex);
+		dprintf(DEVICE_NAME ": custom mode resolution %dx%d succesfully patched at index %x\n",
+			modeInfo.width, modeInfo.height, modeIndex);
 	} else {
 		dprintf(DEVICE_NAME ": video mode patching failed!\n");
 		goto out;
 	}
-
-	dprintf(DEVICE_NAME ": custom mode resolution %dx%d\n", modeInfo.width, modeInfo.height);
 
 	// Set mode
 	status = vbe_set_mode(state, modeIndex);
