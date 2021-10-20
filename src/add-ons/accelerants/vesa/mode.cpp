@@ -25,6 +25,26 @@ extern "C" void _sPrintf(const char* format, ...);
 #endif
 
 
+struct nvidia_resolution {
+	int width;
+	int height;
+};
+
+static const nvidia_resolution kNVidiaAllowedResolutions[] = {
+	{ 1280, 720 },
+	{ 1280, 800 },
+	{ 1360, 768 },
+	{ 1400, 1050 },
+	{ 1440, 900 },
+	{ 1600, 900 },
+	{ 1600, 1200 },
+	{ 1680, 1050 },
+	{ 1920, 1080 },
+	{ 1920, 1200 },
+	{ 2048, 1536 },
+};
+
+
 static uint32
 get_color_space_for_depth(uint32 depth)
 {
@@ -68,6 +88,14 @@ is_mode_supported(display_mode* mode)
 			&& get_color_space_for_depth(modes[i].bits_per_pixel)
 				== mode->space)
 			return true;
+	}
+
+	if (type == kNVidiaBiosType) {
+		for (size_t i = 0; i < B_COUNT_OF(kNVidiaAllowedResolutions); i++) {
+			if (mode->virtual_width == kNVidiaAllowedResolutions[i].width
+				&& mode->virtual_height == kNVidiaAllowedResolutions[i].height)
+				return true;
+		}
 	}
 
 	return false;
@@ -161,12 +189,17 @@ vesa_propose_display_mode(display_mode* target, const display_mode* low,
 	bios_type_enum type = gInfo->shared_info->bios_type;
 	if (type == kIntelBiosType || type == kAtomBiosType1 || type == kAtomBiosType2) {
 		// The driver says it knows the BIOS type, and therefore how to patch it to apply custom
-		// modes. However, it only knows how to do so for 32bit modes.
-		// TODO: for nVidia there is actually an hardcoded list of possible modes (because no one
-		// figured out how to generate the required values for an arbitrary mode), so we should
-		// check against that.
-		if (target->space == B_RGB32)
-			return B_OK;
+		// modes.
+		return B_OK;
+	}
+
+	if (type == kNVidiaBiosType) {
+		// For NVidia there is only a limited set of extra resolutions we know how to set
+		for (size_t i = 0; i < B_COUNT_OF(kNVidiaAllowedResolutions); i++) {
+			if (target->virtual_width == kNVidiaAllowedResolutions[i].width
+				&& target->virtual_height == kNVidiaAllowedResolutions[i].height)
+				return B_OK;
+		}
 	}
 
 	return B_BAD_VALUE;
