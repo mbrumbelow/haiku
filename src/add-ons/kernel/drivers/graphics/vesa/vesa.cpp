@@ -322,13 +322,14 @@ vbe_identify_bios(bios_state* state, vesa_shared_info* sharedInfo)
 		ATOM_ANALOG_TV_INFO* standardVesaTable = (ATOM_ANALOG_TV_INFO*)(bios
 			+ masterDataTable->ListOfDataTables.StandardVESA_Timing);
 		dprintf(DEVICE_NAME ": std_vesa: %p", standardVesaTable);
-		if (standardVesaTable->aModeTimings == NULL) {
-			dprintf(DEVICE_NAME ": unable to locate the mode table\n");
-		} else {
+		sharedInfo->mode_table_offset = (uint8*)&standardVesaTable->aModeTimings - bios;
+
+		size_t tableSize = standardVesaTable->sHeader.usStructureSize 
+			- sizeof(ATOM_COMMON_TABLE_HEADER);
+		if (tableSize % sizeof(ATOM_MODE_TIMING) == 0)
+			sharedInfo->bios_type = kAtomBiosType2;
+		else
 			sharedInfo->bios_type = kAtomBiosType1;
-			// TODO detect kAtomBiosType2
-			// TODO set sharedInfo->mode_table_offset
-		}
 	} else if (memmem(bios, 512, "NVID", 4) != NULL) {
 		dprintf(DEVICE_NAME ": detected nVidia BIOS\n");
 
@@ -857,13 +858,15 @@ vesa_set_custom_display_mode(vesa_info& info, display_mode& mode)
 		case kNVidiaBiosType:
 			status = vbe_patch_nvidia_bios(state, mode);
 			break;
+#endif
 		case kAtomBiosType1:
-			status = vbe_patch_atom1_bios(state, mode);
+			status = vbe_patch_atom1_bios(info, state, mode);
+			modeIndex = 0; // TODO how does this work? Is it 100 (first VBE2 mode)?
 			break;
 		case kAtomBiosType2:
-			status = vbe_patch_atom2_bios(state, mode);
+			status = vbe_patch_atom2_bios(info, state, mode);
+			modeIndex = 0; // TODO how does this work? Is it 100 (first VBE2 mode)?
 			break;
-#endif
 		default:
 			status = B_NOT_SUPPORTED;
 			break;
