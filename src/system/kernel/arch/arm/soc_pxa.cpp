@@ -40,15 +40,15 @@ PXAInterruptController::HandleInterrupt()
 }
 
 
-PXAInterruptController::PXAInterruptController(fdt_module_info *fdt, fdt_device_node node)
-	: InterruptController(fdt, node) {
-	fRegArea = fFDT->map_reg_range(node, 0, (void**)&fRegBase);
-	if (fRegArea < 0)
-		panic("PXAInterruptController: cannot map registers!");
-
-	fRegBase[PXA_ICMR] = 0;
-	fRegBase[PXA_ICMR2] = 0;
-}
+//PXAInterruptController::PXAInterruptController(fdt_module_info *fdt, fdt_device_node node)
+//	: InterruptController(fdt, node) {
+//	fRegArea = fFDT->map_reg_range(node, 0, (void**)&fRegBase);
+//	if (fRegArea < 0)
+//		panic("PXAInterruptController: cannot map registers!");
+//
+//	fRegBase[PXA_ICMR] = 0;
+//	fRegBase[PXA_ICMR2] = 0;
+//}
 
 #define PXA_TIMERS_INTERRUPT	7 /* OST_4_11 */
 
@@ -138,17 +138,17 @@ PXATimer::HandleInterrupt()
 }
 
 
-PXATimer::PXATimer(fdt_module_info *fdt, fdt_device_node node)
-	: HardwareTimer(fdt, node)
-{
-	fRegArea = fFDT->map_reg_range(node, 0, (void**)&fRegBase);
-	if (fRegArea < 0)
-		panic("Cannot map PXATimer registers!");
-
-	fRegBase[PXA_OIER] |= (1 << 5); // enable timekeeping timer
-	fRegBase[PXA_OMCR5] = PXA_RES_US | (1 << 7);
-	fRegBase[PXA_OSMR5] = UINT_MAX;
-	fRegBase[PXA_OSCR5] = 0;
-
-	install_io_interrupt_handler(PXA_TIMERS_INTERRUPT, &PXATimer::_InterruptWrapper, NULL, 0);
-}
+//PXATimer::PXATimer(fdt_module_info *fdt, fdt_device_node node)
+//	: HardwareTimer(fdt, node)
+//{
+//	fRegArea = fFDT->map_reg_range(node, 0, (void**)&fRegBase);
+//	if (fRegArea < 0)
+//		panic("Cannot map PXATimer registers!");
+//
+//	fRegBase[PXA_OIER] |= (1 << 5); // enable timekeeping timer
+//	fRegBase[PXA_OMCR5] = PXA_RES_US | (1 << 7);
+//	fRegBase[PXA_OSMR5] = UINT_MAX;
+//	fRegBase[PXA_OSCR5] = 0;
+//
+//	install_io_interrupt_handler(PXA_TIMERS_INTERRUPT, &PXATimer::_InterruptWrapper, NULL, 0);
+//}

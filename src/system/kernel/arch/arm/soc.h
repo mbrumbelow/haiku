@@ -21,17 +21,17 @@ public:
 	}
 
 protected:
-	InterruptController(fdt_module_info *fdtModule, fdt_device_node node)
-		: fFDT(fdtModule), fNode(node) {
-		if (sInstance) {
-			panic("Multiple InterruptController objects created; that is currently unsupported!");
-		}
-		sInstance = this;
-	}
+	//InterruptController(fdt_module_info *fdtModule, fdt_device_node node)
+	//	: fFDT(fdtModule), fNode(node) {
+	//	if (sInstance) {
+	//		panic("Multiple InterruptController objects created; that is currently unsupported!");
+	//	}
+	//	sInstance = this;
+	//}
 
 	// Keep our node around as we might want to grab attributes from it
-	fdt_module_info *fFDT;
-	fdt_device_node fNode;
+	//fdt_module_info *fFDT;
+	//fdt_device_node fNode;
 
 	static InterruptController *sInstance;
 };
@@ -50,17 +50,17 @@ public:
 	}
 
 protected:
-	HardwareTimer(fdt_module_info *fdtModule, fdt_device_node node)
-		: fFDT(fdtModule), fNode(node) {
-		if (sInstance) {
-			panic("Multiple HardwareTimer objects created; that is currently unsupported!");
-		}
-		sInstance = this;
-	}
+	//HardwareTimer(fdt_module_info *fdtModule, fdt_device_node node)
+	//	: fFDT(fdtModule), fNode(node) {
+	//	if (sInstance) {
+	//		panic("Multiple HardwareTimer objects created; that is currently unsupported!");
+	//	}
+	//	sInstance = this;
+	//}
 
 	// Keep our node around as we might want to grab attributes from it
-	fdt_module_info *fFDT;
-	fdt_device_node fNode;
+	//fdt_module_info *fFDT;
+	//fdt_device_node fNode;
 
 	static HardwareTimer *sInstance;
 };

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2012, Haiku Inc. All rights reserved.
+ * Copyright 2003-2021, Haiku Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -54,7 +54,7 @@ static area_id sVectorPageArea;
 static void *sVectorPageAddress;
 static area_id sUserVectorPageArea;
 static void *sUserVectorPageAddress;
-static fdt_module_info *sFdtModule;
+//static fdt_module_info *sFdtModule;
 
 // An iframe stack used in the early boot process when we don't have
 // threads yet.
@@ -115,17 +115,17 @@ arch_int_init(kernel_args *args)
 
 extern "C" void arm_vector_init(void);
 
+//static struct fdt_device_info intc_table[] = {
+//	{
+//		.compatible = "marvell,pxa-intc",
+//		.init = PXAInterruptController::Init,
+//	}, {
+//		.compatible = "ti,omap3-intc",
+//		.init = OMAP3InterruptController::Init,
+//	}
+//};
+//static int intc_count = sizeof(intc_table) / sizeof(struct fdt_device_info);
 
-static struct fdt_device_info intc_table[] = {
-	{
-		.compatible = "marvell,pxa-intc",
-		.init = PXAInterruptController::Init,
-	}, {
-		.compatible = "ti,omap3-intc",
-		.init = OMAP3InterruptController::Init,
-	}
-};
-static int intc_count = sizeof(intc_table) / sizeof(struct fdt_device_info);
 
 
 status_t
@@ -165,13 +165,13 @@ arch_int_init_post_vm(kernel_args *args)
 			dprintf("Enabled high vectors\n");
 	}
 
-	status_t rc = get_module(B_FDT_MODULE_NAME, (module_info**)&sFdtModule);
-	if (rc != B_OK)
-		panic("Unable to get FDT module: %08lx!\n", rc);
+//	status_t rc = get_module(B_FDT_MODULE_NAME, (module_info**)&sFdtModule);
+//	if (rc != B_OK)
+//		panic("Unable to get FDT module: %08lx!\n", rc);
 
-	rc = sFdtModule->setup_devices(intc_table, intc_count, NULL);
-	if (rc != B_OK)
-		panic("No interrupt controllers found!\n");
+//	rc = sFdtModule->setup_devices(intc_table, intc_count, NULL);
+//	if (rc != B_OK)
+//		panic("No interrupt controllers found!\n");
 
 	return B_OK;
 }

@@ -92,19 +92,19 @@ OMAP3InterruptController::SoftReset()
 }
 
 
-OMAP3InterruptController::OMAP3InterruptController(fdt_module_info *fdt, fdt_device_node node)
-	: InterruptController(fdt, node),
-	fNumPending(3)
-{
-	fRegArea = fFDT->map_reg_range(node, 0, (void**)&fRegBase);
-	if (fRegArea < 0)
-		panic("OMAP3InterruptController: cannot map registers!");
-
-	SoftReset();
-
-	// Enable protection (MPU registers only available in privileged mode)
-	fRegBase[INTCPS_PROTECTION] |= 1;
-}
+//OMAP3InterruptController::OMAP3InterruptController(fdt_module_info *fdt, fdt_device_node node)
+//	: InterruptController(fdt, node),
+//	fNumPending(3)
+//{
+//	fRegArea = fFDT->map_reg_range(node, 0, (void**)&fRegBase);
+//	if (fRegArea < 0)
+//		panic("OMAP3InterruptController: cannot map registers!");
+//
+//	SoftReset();
+//
+//	// Enable protection (MPU registers only available in privileged mode)
+//	fRegBase[INTCPS_PROTECTION] |= 1;
+//}
 
 
 enum {
@@ -181,24 +181,24 @@ OMAP3Timer::Clear()
 }
 
 
-OMAP3Timer::OMAP3Timer(fdt_module_info *fdtModule, fdt_device_node node)
-	: HardwareTimer(fdtModule, node),
-	fSystemTime(0)
-{
-	fRegArea = fFDT->map_reg_range(node, 0, (void**)&fRegBase);
-	if (fRegArea < 0)
-		panic("Cannot map OMAP3Timer registers!");
-
-	fInterrupt = fFDT->get_interrupt(node, 0);
-	if (fInterrupt < 0)
-		panic("Cannot get OMAP3Timer interrupt!");
-
-	uint32 rev = fRegBase[TIDR];
-	dprintf("OMAP: Found timer @ 0x%p, IRQ %d (rev %ld.%ld)\n", fRegBase, fInterrupt, (rev >> 4) & 0xf, rev & 0xf);
-
-	// Let the timer run (so we can use it as clocksource)
-	fRegBase[TCLR] |= 1;
-	fRegBase[TIER] = 2; // Enable overflow interrupt
-
-	install_io_interrupt_handler(fInterrupt, &OMAP3Timer::_InterruptWrapper, this, 0);
-}
+//OMAP3Timer::OMAP3Timer(fdt_module_info *fdtModule, fdt_device_node node)
+//	: HardwareTimer(fdtModule, node),
+//	fSystemTime(0)
+//{
+//	fRegArea = fFDT->map_reg_range(node, 0, (void**)&fRegBase);
+//	if (fRegArea < 0)
+//		panic("Cannot map OMAP3Timer registers!");
+//
+//	fInterrupt = fFDT->get_interrupt(node, 0);
+//	if (fInterrupt < 0)
+//		panic("Cannot get OMAP3Timer interrupt!");
+//
+//	uint32 rev = fRegBase[TIDR];
+//	dprintf("OMAP: Found timer @ 0x%p, IRQ %d (rev %ld.%ld)\n", fRegBase, fInterrupt, (rev >> 4) & 0xf, rev & 0xf);
+//
+//	// Let the timer run (so we can use it as clocksource)
+//	fRegBase[TCLR] |= 1;
+//	fRegBase[TIER] = 2; // Enable overflow interrupt
+//
+//	install_io_interrupt_handler(fInterrupt, &OMAP3Timer::_InterruptWrapper, this, 0);
+//}
