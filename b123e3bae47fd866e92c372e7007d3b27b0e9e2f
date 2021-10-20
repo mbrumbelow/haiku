@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "4e794210_470fcb76",
+        "filename": "src/add-ons/accelerants/framebuffer/accelerant.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-10-20T17:23:17Z",
+      "side": 1,
+      "message": "It\u0027s just B_DEVICE_OP_CODES_END+1,+2, etc. We could make ones for framebuffer itself but that may not really be needed.",
+      "parentUuid": "71dbef54_20446b67",
+      "revId": "b123e3bae47fd866e92c372e7007d3b27b0e9e2f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4c7479d5_546bbd19",
         "filename": "src/add-ons/accelerants/framebuffer/accelerant.cpp",
         "patchSetId": 1
@@ -50,6 +68,24 @@
       "revId": "b123e3bae47fd866e92c372e7007d3b27b0e9e2f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "123ec0b8_29fd2d23",
+        "filename": "src/add-ons/accelerants/framebuffer/accelerant.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-10-20T17:23:17Z",
+      "side": 1,
+      "message": "VESA does the same thing here.",
+      "parentUuid": "4c7479d5_546bbd19",
+      "revId": "b123e3bae47fd866e92c372e7007d3b27b0e9e2f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -84,6 +120,24 @@
       "revId": "b123e3bae47fd866e92c372e7007d3b27b0e9e2f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "635df937_223439c8",
+        "filename": "src/add-ons/accelerants/framebuffer/engine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-10-20T17:23:17Z",
+      "side": 1,
+      "message": "VESA has this too. The hooks may be required for some things to work properly.",
+      "parentUuid": "f7e858f2_5618aa72",
+      "revId": "b123e3bae47fd866e92c372e7007d3b27b0e9e2f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
