@@ -13,6 +13,7 @@
 #include "accelerant_protos.h"
 #include "accelerant.h"
 #include "utility.h"
+#include "vesa_info.h"
 
 
 //#define TRACE_MODE
@@ -61,6 +62,11 @@ is_mode_supported(display_mode* mode)
 			&& mode->h_display_start == current.h_display_start
 			&& mode->v_display_start == current.v_display_start
 			&& mode->space == current.space;
+	}
+
+	if (gInfo->shared_info->bios_type == kIntelBiosType) {
+		// We know how to patch the BIOS, so we can set any mode we want
+		return true;
 	}
 
 	for (uint32 i = gInfo->shared_info->vesa_mode_count; i-- > 0;) {
@@ -170,7 +176,8 @@ vesa_propose_display_mode(display_mode* target, const display_mode* low,
 {
 	TRACE(("vesa_propose_display_mode()\n"));
 
-	// just search for the specified mode in the list
+	// Search for the specified mode in the list. If it's in there, we don't need a custom mode and
+	// we just normalize it to the info provided by the VESA BIOS.
 
 	for (uint32 i = 0; i < gInfo->shared_info->mode_count; i++) {
 		display_mode* current = &gInfo->mode_list[i];
@@ -183,6 +190,17 @@ vesa_propose_display_mode(display_mode* target, const display_mode* low,
 		*target = *current;
 		return B_OK;
 	}
+
+	if (gInfo->shared_info->bios_type == kIntelBiosType) {
+		// The driver says it knows the BIOS type, and therefore how to patch it to apply custom
+		// modes. However, it only knows how to do so for 32bit modes.
+		// TODO: for nVidia there is actually an hardcoded list of possible modes (because no one
+		// figured out how to generate the required values for an arbitrary mode), so we should
+		// check against that.
+		if (target->space == B_RGB32)
+			return B_OK;
+	}
+
 	return B_BAD_VALUE;
 }
 
@@ -201,7 +219,7 @@ vesa_set_display_mode(display_mode* _mode)
 		return B_UNSUPPORTED;
 			// UEFI has no VESA modes
 
-	for (uint32 i = gInfo->shared_info->vesa_mode_count; i-- > 0;) {
+	for (int32 i = gInfo->shared_info->vesa_mode_count; i-- > 0;) {
 		// search mode in VESA mode list
 		// TODO: list is ordered, we could use binary search
 		if (modes[i].width == mode.virtual_width
@@ -217,7 +235,14 @@ vesa_set_display_mode(display_mode* _mode)
 		}
 	}
 
-	return B_UNSUPPORTED;
+	// If the mode is not found in the list of standard mode, live patch the BIOS to get it anyway
+	status_t result = ioctl(gInfo->device, VESA_SET_CUSTOM_DISPLAY_MODE,
+		&mode, sizeof(display_mode));
+	if (result == B_OK) {
+		gInfo->current_mode = -1;
+	}
+
+	return result;
 }
 
 
