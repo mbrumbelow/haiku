@@ -318,13 +318,14 @@ vbe_identify_bios(vesa_shared_info* sharedInfo)
 		ATOM_ANALOG_TV_INFO* standardVesaTable = (ATOM_ANALOG_TV_INFO*)(bios
 			+ masterDataTable->ListOfDataTables.StandardVESA_Timing);
 		dprintf(DEVICE_NAME ": std_vesa: %p", standardVesaTable);
-		if (standardVesaTable->aModeTimings == NULL) {
-			dprintf(DEVICE_NAME ": unable to locate the mode table\n");
-		} else {
+		sharedInfo->mode_table_offset = (uint8*)&standardVesaTable->aModeTimings - bios;
+
+		size_t tableSize = standardVesaTable->sHeader.usStructureSize 
+			- sizeof(ATOM_COMMON_TABLE_HEADER);
+		if (tableSize % sizeof(ATOM_MODE_TIMING) == 0)
+			sharedInfo->bios_type = kAtomBiosType2;
+		else
 			sharedInfo->bios_type = kAtomBiosType1;
-			// TODO detect kAtomBiosType2
-			// TODO set sharedInfo->mode_table_offset
-		}
 	} else if (memmem(bios, 512, "NVID", 4) != NULL) {
 		dprintf(DEVICE_NAME ": detected nVidia BIOS\n");
 
@@ -614,6 +615,56 @@ vbe_patch_intel_bios(bios_state* state, display_mode& mode)
 
 
 status_t
+vbe_patch_atom1_bios(vesa_info& info, bios_state* state, display_mode& mode)
+{
+	// Get a pointer to the BIOS
+	const uintptr_t kBiosBase = 0xc0000;
+	uint8_t* bios = (uint8_t*)sBIOSModule->virtual_address(state, kBiosBase);
+
+	ATOM_MODE_TIMING* timing = (ATOM_MODE_TIMING*)(bios + info.shared_info->mode_table_offset);
+	dprintf(DEVICE_NAME ": patching ATOM mode timing (overwriting mode %dx%d)\n",
+		timing->usCRTC_H_Disp, timing->usCRTC_V_Disp);
+
+	timing->usCRTC_H_Total = mode.timing.h_total;
+	timing->usCRTC_H_Disp = mode.timing.h_display;
+	timing->usCRTC_H_SyncStart = mode.timing.h_sync_start;
+	timing->usCRTC_H_SyncWidth = mode.timing.h_sync_end - mode.timing.h_sync_start;
+
+	timing->usCRTC_V_Total = mode.timing.v_total;
+	timing->usCRTC_V_Disp = mode.timing.v_display;
+	timing->usCRTC_V_SyncStart = mode.timing.v_sync_start;
+	timing->usCRTC_V_SyncWidth = mode.timing.v_sync_end - mode.timing.v_sync_start;
+
+	timing->usPixelClock = mode.timing.pixel_clock / 10;
+}
+
+
+status_t
+vbe_patch_atom2_bios(vesa_info& info, bios_state* state, display_mode& mode)
+{
+	// Get a pointer to the BIOS
+	const uintptr_t kBiosBase = 0xc0000;
+	uint8_t* bios = (uint8_t*)sBIOSModule->virtual_address(state, kBiosBase);
+
+	ATOM_DTD_FORMAT* timing = (ATOM_DTD_FORMAT*)(bios + info.shared_info->mode_table_offset);
+	dprintf(DEVICE_NAME ": patching ATOM DTD format (overwriting mode %dx%d)\n",
+		timing->usHActive, timing->usVActive);
+
+	timing->usHBlanking_Time = mode.timing.h_total - mode.timing.h_display;
+	timing->usHActive = mode.timing.h_display;
+	timing->usHSyncOffset = mode.timing.h_sync_start;
+	timing->usHSyncWidth = mode.timing.h_sync_end - mode.timing.h_sync_start;
+
+	timing->usVBlanking_Time = mode.timing.v_total - mode.timing.v_display;
+	timing->usVActive = mode.timing.v_display;
+	timing->usVSyncOffset = mode.timing.v_sync_start;
+	timing->usVSyncWidth = mode.timing.v_sync_end - mode.timing.v_sync_start;
+
+	timing->usPixClk = mode.timing.pixel_clock / 10;
+}
+
+
+status_t
 vesa_set_custom_display_mode(vesa_info& info, display_mode& mode)
 {
 	if (info.shared_info->bios_type == kUnknownBiosType)
@@ -644,13 +695,15 @@ vesa_set_custom_display_mode(vesa_info& info, display_mode& mode)
 		case kNVidiaBiosType:
 			status = vbe_patch_nvidia_bios(state, mode);
 			break;
+#endif
 		case kAtomBiosType1:
-			status = vbe_patch_atom1_bios(state, mode);
+			status = vbe_patch_atom1_bios(info, state, mode);
+			modeIndex = 0; // TODO how does this work? Is it 100 (first VBE2 mode)?
 			break;
 		case kAtomBiosType2:
-			status = vbe_patch_atom2_bios(state, mode);
+			status = vbe_patch_atom2_bios(info, state, mode);
+			modeIndex = 0; // TODO how does this work? Is it 100 (first VBE2 mode)?
 			break;
-#endif
 		default:
 			status = B_NOT_SUPPORTED;
 			break;
