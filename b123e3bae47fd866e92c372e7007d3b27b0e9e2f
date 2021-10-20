@@ -19,6 +19,40 @@
     },
     {
       "key": {
+        "uuid": "71dbef54_20446b67",
+        "filename": "src/add-ons/accelerants/framebuffer/accelerant.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-10-20T11:30:16Z",
+      "side": 1,
+      "message": "Why VESA?",
+      "revId": "b123e3bae47fd866e92c372e7007d3b27b0e9e2f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c7479d5_546bbd19",
+        "filename": "src/add-ons/accelerants/framebuffer/accelerant.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-10-20T11:30:16Z",
+      "side": 1,
+      "message": "memset(info, 0, sizeof(*info))?",
+      "revId": "b123e3bae47fd866e92c372e7007d3b27b0e9e2f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6c217ee7_6c23c726",
         "filename": "src/add-ons/accelerants/framebuffer/accelerant.h",
         "patchSetId": 1
