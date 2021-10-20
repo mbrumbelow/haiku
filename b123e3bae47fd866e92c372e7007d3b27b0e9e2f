@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "89c0cbd7_10820d3c",
+        "filename": "src/add-ons/accelerants/framebuffer/accelerant.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-10-20T11:27:39Z",
+      "side": 1,
+      "message": "This can be replaced by AreaDeleter.",
+      "revId": "b123e3bae47fd866e92c372e7007d3b27b0e9e2f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c217ee7_6c23c726",
+        "filename": "src/add-ons/accelerants/framebuffer/accelerant.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-10-20T11:27:39Z",
+      "side": 1,
+      "message": "Why VESA?",
+      "revId": "b123e3bae47fd866e92c372e7007d3b27b0e9e2f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7e858f2_5618aa72",
+        "filename": "src/add-ons/accelerants/framebuffer/engine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-10-20T11:27:39Z",
+      "side": 1,
+      "message": "Framebuffer have no acceleration, can be removed.",
+      "revId": "b123e3bae47fd866e92c372e7007d3b27b0e9e2f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bad9be8c_ce5e554b",
+        "filename": "src/add-ons/kernel/drivers/graphics/framebuffer/device.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-10-20T11:27:39Z",
+      "side": 1,
+      "message": "Why VESA?",
+      "revId": "b123e3bae47fd866e92c372e7007d3b27b0e9e2f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
