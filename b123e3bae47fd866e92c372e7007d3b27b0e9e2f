@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7eaa276f_961dec7e",
+        "filename": "src/add-ons/kernel/drivers/graphics/vesa/driver.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-20T08:49:33Z",
+      "side": 0,
+      "message": "I think we should preserve this. The ISA module is only used to set the palette using the VGA registers directly. It is not required in most cases, and we may see cards/computers with VESA but no VGA compatibility in the future?",
+      "revId": "b123e3bae47fd866e92c372e7007d3b27b0e9e2f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ed23ee6_a163dcd9",
+        "filename": "src/add-ons/kernel/drivers/graphics/vesa/vga.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-20T08:49:33Z",
+      "side": 0,
+      "message": "we can keep this change",
+      "revId": "b123e3bae47fd866e92c372e7007d3b27b0e9e2f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
