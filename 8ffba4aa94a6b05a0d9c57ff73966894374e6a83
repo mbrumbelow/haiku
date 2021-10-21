@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "335ac087_b020dacd",
+        "filename": "src/system/boot/platform/efi/arch/arm/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-21T09:22:50Z",
+      "side": 1,
+      "message": "the arguments go on the same line as the function name. But the return type goes on a separate line",
+      "revId": "8ffba4aa94a6b05a0d9c57ff73966894374e6a83",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4f1677a_fcacea9a",
+        "filename": "src/system/boot/platform/efi/arch/arm/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-21T09:22:50Z",
+      "side": 1,
+      "message": "use a longer name, maybe directoryEntry?",
+      "revId": "8ffba4aa94a6b05a0d9c57ff73966894374e6a83",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "487ca3f4_308328e0",
+        "filename": "src/system/boot/platform/efi/arch/arm/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-21T09:22:50Z",
+      "side": 1,
+      "message": "same here, use tableEntry for example",
+      "revId": "8ffba4aa94a6b05a0d9c57ff73966894374e6a83",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c111a4e_f7fd95d8",
+        "filename": "src/system/boot/platform/efi/arch/arm/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-21T09:22:50Z",
+      "side": 1,
+      "message": "this line is too long (use no more than 100 columns)",
+      "revId": "8ffba4aa94a6b05a0d9c57ff73966894374e6a83",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5fdecaa1_9ecb6dc8",
+        "filename": "src/system/boot/platform/efi/arch/arm/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-21T09:22:50Z",
+      "side": 1,
+      "message": "missing spaces around + operators",
+      "revId": "8ffba4aa94a6b05a0d9c57ff73966894374e6a83",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5871a7a6_bd98ae13",
+        "filename": "src/system/boot/platform/efi/arch/arm/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-21T09:22:50Z",
+      "side": 1,
+      "message": "this line is too long\nalso missing spaces around * operator",
+      "revId": "8ffba4aa94a6b05a0d9c57ff73966894374e6a83",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ddab3175_6a61aa65",
+        "filename": "src/system/boot/platform/efi/arch/arm/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-21T09:22:50Z",
+      "side": 1,
+      "message": "it would be nice to have constants for these values so people don\u0027t need to look them up in ARM documentation. Also you have 0x400 twice, which is useless.",
+      "revId": "8ffba4aa94a6b05a0d9c57ff73966894374e6a83",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2dc351c9_fd8702b1",
+        "filename": "src/system/boot/platform/efi/arch/arm/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-21T09:22:50Z",
+      "side": 1,
+      "message": "this line os too long, also missing spaces around *",
+      "revId": "8ffba4aa94a6b05a0d9c57ff73966894374e6a83",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
