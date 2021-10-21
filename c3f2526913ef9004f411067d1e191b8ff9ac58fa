@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d8537cb3_b123ca6e",
+        "filename": "src/system/boot/platform/efi/arch/arm/entry.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-21T09:25:27Z",
+      "side": 1,
+      "message": "some more comments about the special registers, what they do, and why we need to do all of this would be useful.\n\nAlso, is it really needed to do this in assembler code, can\u0027t we do it in c++ either in the bootloader before calling this, or in the kernel just after it starts?",
+      "revId": "c3f2526913ef9004f411067d1e191b8ff9ac58fa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
