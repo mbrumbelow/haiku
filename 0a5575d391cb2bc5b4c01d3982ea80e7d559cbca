@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5aa8235e_0534cb79",
+        "filename": "src/system/boot/platform/efi/arch/arm/arch_start.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-10-21T11:05:12Z",
+      "side": 1,
+      "message": "For those wondering: TTBR is translation table base register, stores the physical address of the page directory.",
+      "revId": "0a5575d391cb2bc5b4c01d3982ea80e7d559cbca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
