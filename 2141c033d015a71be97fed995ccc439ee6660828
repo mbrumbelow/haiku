@@ -16,6 +16,24 @@
       "revId": "2141c033d015a71be97fed995ccc439ee6660828",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2da2cfd1_83d95d68",
+        "filename": "src/system/boot/platform/efi/arch/arm/arch_mmu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-10-21T12:46:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c9ae212_6effdc17",
+      "revId": "2141c033d015a71be97fed995ccc439ee6660828",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
