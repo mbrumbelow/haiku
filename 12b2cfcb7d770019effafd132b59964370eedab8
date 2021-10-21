@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8084275b_b727ec79",
+        "filename": "src/apps/networkstatus/WirelessNetworkMenuItem.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-10-21T20:15:19Z",
+      "side": 1,
+      "message": "Why do you store the quality separately? You only use it for drawing -- and it\u0027s just stored twice, it\u0027s not faster or anything. Why don\u0027t you just add a getter for the quality instead, and use it for comparison as well?",
+      "revId": "12b2cfcb7d770019effafd132b59964370eedab8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
