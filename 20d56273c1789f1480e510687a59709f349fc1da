@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ac9d3a1d_c2a1550d",
+        "filename": "src/add-ons/kernel/drivers/graphics/vesa/vesa.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 666,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-10-21T10:41:27Z",
+      "side": 1,
+      "message": "vesa_set_custom_display_mode",
+      "revId": "20d56273c1789f1480e510687a59709f349fc1da",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c10cff98_61c9d941",
+        "filename": "src/add-ons/kernel/drivers/graphics/vesa/vesa.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-10-21T10:41:27Z",
+      "side": 1,
+      "message": "vesa_set_custom_display_mode",
+      "revId": "20d56273c1789f1480e510687a59709f349fc1da",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
