@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "09fc6043_f008ffa1",
+        "filename": "src/servers/app/drawing/DrawingEngine.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 1590,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-21T16:16:58Z",
+      "side": 1,
+      "message": "You can constrain it further, if xOffset is larger than width, there is no overlap between the two areas, so the memcpy code path can be used.\n\nconst bool needMemmove \u003d (yOffset \u003d\u003d 0 \u0026\u0026 xOffset \u003e 0 \u0026\u0026 xOffset \u003c\u003d width);",
+      "revId": "5f6b3c3acdf4c3ac4f084601bcb897b59a31f850",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
