@@ -16,6 +16,24 @@
       "revId": "238ed05c7d44589233b5be339f35c27d465ab527",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1dea23f4_0ebf1dd9",
+        "filename": "src/add-ons/accelerants/vesa/mode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-21T10:50:35Z",
+      "side": 1,
+      "message": "do you mean something like this?\n\n    switch (gInfo-\u003eshared_info-\u003ebios_type) {\n        case kIntelBiosType:\n        case kAtomBiosType1:\n        case kAtomBiosType2:\n            return true;\n        default:\n            break;\n    }\n\nThat does not look easier to read to me.\n\nIn a later commit I add the nvidia case, which needs to run the code from the default case and then adds its own extra checks. Which make this not really work well as a switch.",
+      "parentUuid": "1aeebf67_44e9b0c1",
+      "revId": "238ed05c7d44589233b5be339f35c27d465ab527",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
