@@ -16,6 +16,24 @@
       "revId": "b9f5d2d6bcf4cd03fc08994a89a545efd74716e0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e051bb4a_6dd0eee0",
+        "filename": "src/add-ons/input_server/methods/pen/DumpMessage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000336
+      },
+      "writtenOn": "2021-10-21T15:31:33Z",
+      "side": 1,
+      "message": "I do not think it is helpful to have these warning pragmas in the code as they prevent enabling Werror. The latter is to me more important than have two more warnings among 2000.\n\nI\u0027ll check if the Dano code can be activated.",
+      "parentUuid": "e6313a57_b4b5901a",
+      "revId": "b9f5d2d6bcf4cd03fc08994a89a545efd74716e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
