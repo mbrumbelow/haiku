@@ -16,6 +16,24 @@
       "revId": "5f6b3c3acdf4c3ac4f084601bcb897b59a31f850",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9cf41318_55821e74",
+        "filename": "src/servers/app/drawing/DrawingEngine.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 1590,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-10-21T17:12:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09fc6043_f008ffa1",
+      "revId": "5f6b3c3acdf4c3ac4f084601bcb897b59a31f850",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
