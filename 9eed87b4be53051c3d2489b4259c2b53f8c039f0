@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4527aca8_876b601d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-10-21T10:52:22Z",
+      "side": 1,
+      "message": "Looks unrelated, already closed, are you sure?",
+      "revId": "9eed87b4be53051c3d2489b4259c2b53f8c039f0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bff13775_6ddbea32",
+        "filename": "src/add-ons/accelerants/vesa/mode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-10-21T10:52:22Z",
+      "side": 1,
+      "message": "any colorspace is OK?",
+      "revId": "9eed87b4be53051c3d2489b4259c2b53f8c039f0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
