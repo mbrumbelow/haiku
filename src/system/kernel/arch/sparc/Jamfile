@@ -2,6 +2,8 @@ SubDir HAIKU_TOP src system kernel arch sparc ;
 
 UsePrivateKernelHeaders ;
 
+SEARCH_SOURCE += [ FDirName $(SUBDIR) paging ultrasparcII ] ;
+
 KernelMergeObject kernel_arch_sparc.o :
 	arch_asm.S
 	arch_commpage.cpp
@@ -20,6 +22,9 @@ KernelMergeObject kernel_arch_sparc.o :
 	arch_user_debugger.cpp
 	arch_vm.cpp
 	arch_vm_translation_map.cpp
+
+	# paging
+	SparcPagingMethodUltrasparcII.cpp
 	:
 	$(TARGET_KERNEL_PIC_CCFLAGS) -Wno-unused
 	:
