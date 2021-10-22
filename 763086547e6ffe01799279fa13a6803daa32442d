@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "d9914a00_4c3bc7b4",
+        "filename": "src/add-ons/kernel/file_systems/reiserfs/Iterators.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1327,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-10-22T10:27:04Z",
+      "side": 1,
+      "message": "casting bufferSize to off_t would be correct.",
+      "parentUuid": "e21178d1_daf9c933",
+      "revId": "763086547e6ffe01799279fa13a6803daa32442d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e6f35ed7_b98f5022",
         "filename": "src/add-ons/kernel/file_systems/reiserfs/Settings.cpp",
         "patchSetId": 3
