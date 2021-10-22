@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d06beb17_f93df595",
+        "filename": "src/system/boot/platform/efi/arch/arm/arch_mmu.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-22T08:40:53Z",
+      "side": 1,
+      "message": "missing spaces around \u0026 and \u003c\u003c",
+      "revId": "e9c53a532b269a53318fa2368f7e5416672e7a25",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71b145bf_5d794574",
+        "filename": "src/system/boot/platform/efi/arch/arm/arch_mmu.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-22T08:40:53Z",
+      "side": 1,
+      "message": "missing spaces around \u003c\u003c",
+      "revId": "e9c53a532b269a53318fa2368f7e5416672e7a25",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92fbbc3e_1f5fefef",
+        "filename": "src/system/boot/platform/efi/arch/arm/arch_mmu.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-22T08:40:53Z",
+      "side": 1,
+      "message": "this line is still too long (more than 100 columns).\n\nIt looks like a constant for MAX_PAGE_TABLES * ARM_MMU_L2_COARSE_TABLE_SIZE could make this easier",
+      "revId": "e9c53a532b269a53318fa2368f7e5416672e7a25",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4057a50c_70b1ac9a",
+        "filename": "src/system/boot/platform/efi/arch/arm/arch_mmu.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-22T08:40:53Z",
+      "side": 1,
+      "message": "this lins is too long",
+      "revId": "e9c53a532b269a53318fa2368f7e5416672e7a25",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
