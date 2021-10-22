@@ -46,14 +46,10 @@ Table of contents
    /packages/README
    /servers/app_server/toc
    /servers/registrar/Protocols
+   /kernel/arch/index
    /kernel/device_manager_introduction
    /kernel/obsolete_pnp_manager
    /kernel/vm/swap_file_support
-   /kernel/arch/long_double
-   /kernel/arch/arm/overview
-   /kernel/arch/m68k/overview
-   /kernel/arch/ppc/overview
-   /kernel/arch/sparc/overview
    /kernel/fs/node_monitoring
    /file_systems/overview
    /partitioning_systems/sun
