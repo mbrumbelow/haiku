@@ -209,7 +209,11 @@ virtio_device_init_device(device_node* node, void** cookie)
 		return B_ERROR;
 	}
 
+#ifdef __ARM__
+	if (!parentModule->get_interrupt(parentDev, 1, &interruptController,
+#else
 	if (!parentModule->get_interrupt(parentDev, 0, &interruptController,
+#endif
 			&interrupt)) {
 		dprintf("  no interrupts\n");
 		return B_ERROR;
