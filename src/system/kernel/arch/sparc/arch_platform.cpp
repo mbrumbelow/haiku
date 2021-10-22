@@ -122,7 +122,10 @@ SparcOpenFirmware::InitSerialDebug(struct kernel_args *kernelArgs)
 {
 	if (of_getprop(gChosen, "stdin", &fInput, sizeof(int)) == OF_FAILED)
 		return B_ERROR;
-	if (!kernelArgs->frame_buffer.enabled) {
+#if 0
+	if (!kernelArgs->frame_buffer.enabled)
+#endif
+	{
 		if (of_getprop(gChosen, "stdout", &fOutput, sizeof(int)) == OF_FAILED)
 			return B_ERROR;
 	}

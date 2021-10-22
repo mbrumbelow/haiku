@@ -102,10 +102,13 @@ Console::WriteAt(void */*cookie*/, off_t /*pos*/, const void *buffer,
 {
 	const char *string = (const char *)buffer;
 
+#ifndef __sparc__
 	// If the frame buffer is enabled, don't write to the chosen stdout.
 	// On Apple's OpenFirmware this would overwrite parts of the frame buffer.
+	// But the output could be redirected to a serial port instead
 	if (gKernelArgs.frame_buffer.enabled)
 		return bufferSize;
+#endif
 
 	// be nice to our audience and replace single "\n" with "\r\n"
 
