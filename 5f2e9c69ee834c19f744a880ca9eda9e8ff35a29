@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a3f52e1_ce206656",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-10-22T05:53:33Z",
+      "side": 1,
+      "message": "The information about the sigal_strength_compare() function is pretty much superfluous IMO. Of course it returned a boolean value, as it used STL to sort a vector, and that\u0027s just how the STL works.",
+      "revId": "5f2e9c69ee834c19f744a880ca9eda9e8ff35a29",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
