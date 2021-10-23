@@ -34,6 +34,24 @@
       "revId": "bf786117cd964477430a8c0c7f1028767566dc20",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9709d68_fba8cc60",
+        "filename": "src/add-ons/accelerants/vesa/accelerant.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-23T13:02:16Z",
+      "side": 1,
+      "message": "Now it uses the string from the BIOS if it\u0027s not empty.",
+      "parentUuid": "5a3c29b8_7af1251c",
+      "revId": "bf786117cd964477430a8c0c7f1028767566dc20",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
