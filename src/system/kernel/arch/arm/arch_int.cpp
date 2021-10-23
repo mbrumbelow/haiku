@@ -31,6 +31,7 @@
 #include <string.h>
 
 #include <drivers/bus/FDT.h>
+#include "gic.h"
 #include "soc.h"
 
 #include "soc_pxa.h"
@@ -176,6 +177,10 @@ arch_int_init_post_vm(kernel_args *args)
 	if (rc != B_OK)
 		panic("No interrupt controllers found!\n");
 #endif
+	InterruptController *ic = new(std::nothrow) GICv2InterruptController();
+	if (ic == NULL) {
+		return B_NO_MEMORY;
+	}
 
 	return B_OK;
 }
