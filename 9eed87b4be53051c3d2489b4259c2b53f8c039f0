@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "958dc26f_1059cb33",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-23T13:01:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7dd6f199_27292ce4",
+      "revId": "9eed87b4be53051c3d2489b4259c2b53f8c039f0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bff13775_6ddbea32",
         "filename": "src/add-ons/accelerants/vesa/mode.cpp",
         "patchSetId": 2
@@ -69,6 +87,24 @@
       "revId": "9eed87b4be53051c3d2489b4259c2b53f8c039f0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60721ed9_ec47e865",
+        "filename": "src/add-ons/accelerants/vesa/mode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-23T13:01:38Z",
+      "side": 1,
+      "message": "Modified to filter only available colorspaces.",
+      "parentUuid": "c424b8b5_e33db33b",
+      "revId": "9eed87b4be53051c3d2489b4259c2b53f8c039f0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
