@@ -104,7 +104,13 @@ VirtioQueue::Init()
 	if (!fCookies.IsSet())
 		return B_NO_MEMORY;
 
-	fDev->fRegs->queueReady = 1;
+	if (fDev->fRegs->version == 1) {
+		uint32_t pfn = descsPhys / B_PAGE_SIZE;
+		fDev->fRegs->queueAlign = B_PAGE_SIZE;
+		fDev->fRegs->queuePfn = pfn;
+	} else {
+		fDev->fRegs->queueReady = 1;
+	}
 
 	return B_OK;
 }
