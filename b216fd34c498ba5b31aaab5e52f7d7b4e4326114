@@ -16,6 +16,24 @@
       "revId": "b216fd34c498ba5b31aaab5e52f7d7b4e4326114",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5d0daab_d59940cf",
+        "filename": "src/add-ons/kernel/drivers/graphics/vesa/patch.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-24T09:22:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89bbe3ae_f149e3d2",
+      "revId": "b216fd34c498ba5b31aaab5e52f7d7b4e4326114",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
