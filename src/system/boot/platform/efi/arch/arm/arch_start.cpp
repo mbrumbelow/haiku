@@ -4,6 +4,7 @@
  */
 
 
+#include <kernel.h>
 #include <boot/platform.h>
 #include <boot/stage2.h>
 #include <boot/stdio.h>
@@ -86,6 +87,10 @@ arch_start_kernel(addr_t kernelEntry)
 	size_t actual_memory_map_size = memory_map_size * 2;
 	memory_map
 		= (efi_memory_descriptor *)kernel_args_malloc(actual_memory_map_size);
+
+	// align memory_map to 4-byte boundary
+	// otherwise we get alignment exception when calling GetMemoryMap below
+	memory_map = (efi_memory_descriptor *)ROUNDUP((uint32_t)memory_map, 4);
 
 	if (memory_map == NULL)
 		panic("Unable to allocate memory map.");
