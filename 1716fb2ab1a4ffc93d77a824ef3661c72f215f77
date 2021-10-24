@@ -34,6 +34,23 @@
       "revId": "1716fb2ab1a4ffc93d77a824ef3661c72f215f77",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b3c75a6_235afecf",
+        "filename": "src/apps/haikudepot/ui/PackageListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 900,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-10-24T07:57:12Z",
+      "side": 1,
+      "message": "\"Published\" may lead people to think it\u0027s the date it was first published, not last updated... Maybe a simple \"Date\" would be better.",
+      "revId": "1716fb2ab1a4ffc93d77a824ef3661c72f215f77",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
