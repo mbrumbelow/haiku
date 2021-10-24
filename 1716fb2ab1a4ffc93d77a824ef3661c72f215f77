@@ -51,6 +51,24 @@
       "revId": "1716fb2ab1a4ffc93d77a824ef3661c72f215f77",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "657fca08_f98f9a8b",
+        "filename": "src/apps/haikudepot/ui/PackageListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 900,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2021-10-24T09:43:07Z",
+      "side": 1,
+      "message": "OK; done -- this will also remove the word \"Published\" from the featured package list as well.",
+      "parentUuid": "5b3c75a6_235afecf",
+      "revId": "1716fb2ab1a4ffc93d77a824ef3661c72f215f77",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
