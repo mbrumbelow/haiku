@@ -16,6 +16,24 @@
       "revId": "30a5e27c5173193ba70ab64fd8cc9f70de7abd07",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f5486f8_bf029926",
+        "filename": "src/system/boot/platform/efi/arch/arm/arch_start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-10-24T14:10:16Z",
+      "side": 1,
+      "message": "Done, also I moved the \"4\" magic constant to #define ALIGN_MEMORY_MAP",
+      "parentUuid": "7db4d374_cbc6698d",
+      "revId": "30a5e27c5173193ba70ab64fd8cc9f70de7abd07",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
