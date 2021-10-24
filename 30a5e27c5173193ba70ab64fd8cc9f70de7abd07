@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7db4d374_cbc6698d",
+        "filename": "src/system/boot/platform/efi/arch/arm/arch_start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-24T11:21:44Z",
+      "side": 1,
+      "message": "actual_memory_map_size needs to be adjusted to compensate for the (up to 3) bytes that will be skipped by this alignment.",
+      "revId": "30a5e27c5173193ba70ab64fd8cc9f70de7abd07",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
