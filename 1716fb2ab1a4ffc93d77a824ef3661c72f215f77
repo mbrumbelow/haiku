@@ -16,6 +16,24 @@
       "revId": "1716fb2ab1a4ffc93d77a824ef3661c72f215f77",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7100919_8894f7a0",
+        "filename": "docs/userguide/en/applications/haikudepot.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2021-10-24T00:14:53Z",
+      "side": 1,
+      "message": "Hi; Do you want me to remove this from here or, does it not matter anyway and Humdinger can pick it up and add it to wherever the user guide source is stored?",
+      "parentUuid": "3a6b4cba_3cb4e309",
+      "revId": "1716fb2ab1a4ffc93d77a824ef3661c72f215f77",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
