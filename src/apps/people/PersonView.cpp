@@ -56,9 +56,9 @@ PersonView::PersonView(const char* name, const char* categoryAttribute,
 	SetFlags(Flags() | B_WILL_DRAW);
 
 	fRef = ref;
-	BFile* file = NULL;
+	BNode* node = NULL;
 	if (fRef != NULL)
-		file = new BFile(fRef, B_READ_ONLY);
+		node = new BNode(fRef);
 
 	// Add picture "field", using ID photo 35mm x 45mm ratio
 	fPictureView = new PictureView(70, 90, ref);
@@ -72,9 +72,9 @@ PersonView::PersonView(const char* name, const char* categoryAttribute,
 	layout->ItemAt(0, 0)->SetExplicitAlignment(
 		BAlignment(B_ALIGN_CENTER, B_ALIGN_TOP));
 
-	if (file != NULL)
-		file->GetModificationTime(&fLastModificationTime);
-	delete file;
+	if (node != NULL)
+		node->GetModificationTime(&fLastModificationTime);
+	delete node;
 }
 
 
@@ -293,8 +293,9 @@ PersonView::IsSaved() const
 void
 PersonView::Save()
 {
+	BNode node(fRef);
 	BFile file(fRef, B_READ_WRITE);
-	if (file.InitCheck() != B_NO_ERROR)
+	if (node.InitCheck() != B_NO_ERROR)
 		return;
 
 	fSaving = true;
@@ -303,13 +304,13 @@ PersonView::Save()
 	for (int32 i = 0; i < count; i++) {
 		AttributeTextControl* control = fControls.ItemAt(i);
 		const char* value = control->Text();
-		file.WriteAttr(control->Attribute().String(), B_STRING_TYPE, 0,
+		node.WriteAttr(control->Attribute().String(), B_STRING_TYPE, 0,
 			value, strlen(value) + 1);
 		control->Update();
 	}
 
 	// Write the picture, if any, in the person file content
-	if (fPictureView) {
+	if (fPictureView && file.InitCheck() == B_OK) {
 		// Trim any previous content
 		file.Seek(0, SEEK_SET);
 		file.SetSize(0);
@@ -331,7 +332,7 @@ PersonView::Save()
 		fPictureView->Update();
 	}
 
-	file.GetModificationTime(&fLastModificationTime);
+	node.GetModificationTime(&fLastModificationTime);
 
 	fSaving = false;
 }
@@ -354,20 +355,20 @@ PersonView::SetAttribute(const char* attribute, bool update)
 {
 	char* value = NULL;
 	attr_info info;
-	BFile* file = NULL;
+	BNode* node = NULL;
 
 	if (fRef != NULL)
-		file = new(std::nothrow) BFile(fRef, B_READ_ONLY);
+		node = new(std::nothrow) BNode(fRef);
 
-	if (file != NULL && file->GetAttrInfo(attribute, &info) == B_OK) {
+	if (node != NULL && node->GetAttrInfo(attribute, &info) == B_OK) {
 		value = (char*)calloc(info.size, 1);
-		file->ReadAttr(attribute, B_STRING_TYPE, 0, value, info.size);
+		node->ReadAttr(attribute, B_STRING_TYPE, 0, value, info.size);
 	}
 
 	SetAttribute(attribute, value, update);
 
 	free(value);
-	delete file;
+	delete node;
 }
 
 
