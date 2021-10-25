@@ -2249,7 +2249,7 @@ load_kernel_add_on(const char *path)
 
 	// Check whether the segments have an unreasonable amount of unused space
 	// inbetween.
-	if ((ssize_t)reservedSize > length + 8 * 1024) {
+	if ((ssize_t)reservedSize > length + 32 * 1024) {
 		status = B_BAD_DATA;
 		goto error1;
 	}
@@ -2285,6 +2285,8 @@ load_kernel_add_on(const char *path)
 				continue;
 			case PT_EH_FRAME:
 				// not implemented yet, but can be ignored
+				continue;
+			case PT_ARM_UNWIND:
 				continue;
 			default:
 				dprintf("%s: unhandled pheader type %#" B_PRIx32 "\n", fileName,
