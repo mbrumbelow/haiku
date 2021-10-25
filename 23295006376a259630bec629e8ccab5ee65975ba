@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8748ee70_b4420aae",
+        "filename": "src/system/kernel/elf.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2289,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2021-10-25T12:41:53Z",
+      "side": 1,
+      "message": "An explanatory comment as to why this one is being ignored (as is the case for the other ignored section types) would be helpful.",
+      "revId": "23295006376a259630bec629e8ccab5ee65975ba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
