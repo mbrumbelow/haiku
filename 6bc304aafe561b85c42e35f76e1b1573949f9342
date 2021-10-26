@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d0396722_b58dbe33",
+        "filename": "src/apps/people/PersonView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-26T07:59:27Z",
+      "side": 1,
+      "message": "I don\u0027t see why you would do this here, if you still need to open the file anyway. It might be interesting if you move the BFile operations completely inside the check for fPictureView. Then you get slightly faster operations when there is no picture, maybe.\n\nHowever, it can also result in inconsistencies, if, for some reason, the BNode operations work, but not the BFile ones. Then you end up with updated attributes, but keep the old picture.\n\nI think I would keep this method as it was before.",
+      "revId": "6bc304aafe561b85c42e35f76e1b1573949f9342",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
