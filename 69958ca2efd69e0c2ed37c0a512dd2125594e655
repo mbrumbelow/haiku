@@ -16,6 +16,24 @@
       "revId": "69958ca2efd69e0c2ed37c0a512dd2125594e655",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ddef0d5_ed1b19e2",
+        "filename": "src/system/kernel/elf.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2252,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-10-26T14:45:33Z",
+      "side": 0,
+      "message": "You\u0027re right, it\u0027s probably not needed any more.",
+      "parentUuid": "57a7d604_5af26c1a",
+      "revId": "69958ca2efd69e0c2ed37c0a512dd2125594e655",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
