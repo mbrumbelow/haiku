@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57a7d604_5af26c1a",
+        "filename": "src/system/kernel/elf.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2252,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-10-26T14:40:20Z",
+      "side": 0,
+      "message": "Is this still needed after btrev43182?",
+      "revId": "69958ca2efd69e0c2ed37c0a512dd2125594e655",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
