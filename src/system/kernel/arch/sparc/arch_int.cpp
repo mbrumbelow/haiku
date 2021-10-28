@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2011, Haiku, Inc. All rights reserved.
+ * Copyright 2019-2021, Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -9,10 +9,15 @@
 
 #include <int.h>
 
+#include <platform/openfirmware/openfirmware.h>
+
 
 status_t
 arch_int_init(kernel_args *args)
 {
+	// Take over fault handling from openfirmware
+	extern uint32 gTrapHandler;
+	of_call_client_function("SUNW,set-trap-table", 1, 0, &gTrapHandler);
 	return B_OK;
 }
 
