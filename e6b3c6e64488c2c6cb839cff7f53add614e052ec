@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce0e8d37_1de66d37",
+        "filename": "src/add-ons/kernel/drivers/graphics/vesa/vesa.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-10-28T17:47:11Z",
+      "side": 1,
+      "message": "Trailing space",
+      "revId": "e6b3c6e64488c2c6cb839cff7f53add614e052ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7db59a6_5eaa725a",
+        "filename": "src/add-ons/kernel/drivers/graphics/vesa/vesa.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-10-28T17:47:11Z",
+      "side": 1,
+      "message": "Not sure about the two tabs here.",
+      "revId": "e6b3c6e64488c2c6cb839cff7f53add614e052ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
