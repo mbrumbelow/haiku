@@ -25,6 +25,7 @@ KernelMergeObject kernel_arch_sparc.o :
 
 	# paging
 	SparcPagingMethodUltrasparcII.cpp
+
 	:
 	$(TARGET_KERNEL_PIC_CCFLAGS) -Wno-unused
 	:
