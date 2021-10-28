@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7645c39b_eec20aa3",
+        "filename": "src/add-ons/accelerants/vesa/mode.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-10-28T18:10:12Z",
+      "side": 1,
+      "message": "Missing curly braces in a multi-line if.",
+      "revId": "ca0e48e06e4745fc8fa65ad143401cde5d066a2c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
