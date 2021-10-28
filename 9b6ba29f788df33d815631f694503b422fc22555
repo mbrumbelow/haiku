@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ad2a9dfc_56b3fd93",
+        "filename": "src/add-ons/kernel/drivers/graphics/vesa/vesa.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 598,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-28T11:05:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03916b75_f15dad8b",
+      "revId": "9b6ba29f788df33d815631f694503b422fc22555",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1fd6282c_71c6e2ec",
         "filename": "src/add-ons/kernel/drivers/graphics/vesa/vesa.cpp",
         "patchSetId": 4
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "61848187_e11057cb",
+        "filename": "src/add-ons/kernel/drivers/graphics/vesa/vesa.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 599,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-28T11:05:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1fd6282c_71c6e2ec",
+      "revId": "9b6ba29f788df33d815631f694503b422fc22555",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1ebdcd3_d6899ad8",
         "filename": "src/add-ons/kernel/drivers/graphics/vesa/vesa.cpp",
         "patchSetId": 4
@@ -50,6 +86,24 @@
       "revId": "9b6ba29f788df33d815631f694503b422fc22555",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abf71d65_598042ac",
+        "filename": "src/add-ons/kernel/drivers/graphics/vesa/vesa.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-28T11:05:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1ebdcd3_d6899ad8",
+      "revId": "9b6ba29f788df33d815631f694503b422fc22555",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
