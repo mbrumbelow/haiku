@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "55651bf6_62928faf",
+        "filename": "src/add-ons/kernel/drivers/graphics/vesa/patch.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-28T11:04:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "404a930c_29de7d9d",
+      "revId": "c59fd91309f20465c90861e22a8ad0f414f8afcc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "65112539_fba1c669",
         "filename": "src/add-ons/kernel/drivers/graphics/vesa/patch.cpp",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "c59fd91309f20465c90861e22a8ad0f414f8afcc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f67c78ad_d20d372d",
+        "filename": "src/add-ons/kernel/drivers/graphics/vesa/patch.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-28T11:04:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65112539_fba1c669",
+      "revId": "c59fd91309f20465c90861e22a8ad0f414f8afcc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
