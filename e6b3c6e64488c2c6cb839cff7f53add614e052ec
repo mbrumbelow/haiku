@@ -33,6 +33,24 @@
       "revId": "e6b3c6e64488c2c6cb839cff7f53add614e052ec",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c9f8a40_1bf1b6b7",
+        "filename": "src/add-ons/kernel/drivers/graphics/vesa/vesa.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-29T19:24:36Z",
+      "side": 1,
+      "message": "one indentation level per logical level: here one for strlcpy(, and one for virtual_address(.",
+      "parentUuid": "b7db59a6_5eaa725a",
+      "revId": "e6b3c6e64488c2c6cb839cff7f53add614e052ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
