@@ -16,6 +16,24 @@
       "revId": "fb5ee319a17e0c2335a656086c633ff1d1e06773",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22246b44_9af1b261",
+        "filename": "src/kits/interface/DecorInfo.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2021-10-31T21:56:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a88e3dbe_40fd1a46",
+      "revId": "fb5ee319a17e0c2335a656086c633ff1d1e06773",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
