@@ -33,6 +33,16 @@ arch_smp_send_ici(int32 target_cpu)
 
 
 void
+arch_smp_send_multicast_ici(CPUSet& cpuSet)
+{
+#if KDEBUG
+        if (are_interrupts_enabled())
+                panic("arch_smp_send_multicast_ici: called with interrupts enabled");
+#endif
+}
+
+
+void
 arch_smp_send_broadcast_ici()
 {
 	panic("called arch_smp_send_broadcast_ici\n");
