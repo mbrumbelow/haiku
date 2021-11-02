@@ -1,9 +1,6 @@
 # This file defines what ends up in the CD boot image and it executes the
 # rules building the image.
 
-#HAIKU_BOOT_FLOPPY = haiku-boot-floppy.image ;
-#MakeLocate $(HAIKU_BOOT_FLOPPY) : $(HAIKU_OUTPUT_DIR) ;
-
 # CD image target
 HAIKU_CD_BOOT_IMAGE = haiku-boot-cd.iso ;
 MakeLocate $(HAIKU_CD_BOOT_IMAGE) : $(HAIKU_OUTPUT_DIR) ;
@@ -15,39 +12,46 @@ NotFile $(HAIKU_CD_BOOT_IMAGE_CONTAINER_NAME) ;
 local extras = README.html ;
 SEARCH on $(extras) = [ FDirName $(HAIKU_TOP) data boot extras ] ;
 
-if $(TARGET_ARCH) = ppc {
-	local elfloader = boot_loader_openfirmware ;
-	local coffloader = haiku_loader.openfirmware ;
+# Check which bootloader is used, and generate our CD based on it.
+# There can be multiple ones, making this a bit confusing.
+for platform in [ MultiBootSubDirSetup ] {
+	on $(platform) {
+		if $(TARGET_BOOT_PLATFORM) = efi {
+			# if EFI, Efi partition + normal CD
+			local efiLoader = haiku_loader.efi ;
+			local efiPartition = esp.image ;
+			MakeLocate $(efiPartition) : $(HAIKU_OUTPUT_DIR) ;
+			BuildEfiSystemPartition $(efiPartition) : $(efiLoader) ;
 
-	# OpenFirmware / Mac boot support files:
-	# CHRP script
-	local chrpscript = ofboot.chrp ;
-	# HFS creator and application type mapping for mkisofs
-	local hfsmaps = hfs.map ;
-
-	BuildCDBootPPCImage $(HAIKU_CD_BOOT_IMAGE) : $(hfsmaps)
-		: $(elfloader) : $(coffloader) : $(chrpscript) : $(extras) ;
-} else {
-	# For other platforms, we have to check which bootloader is used. There
-	# can be multiple ones, making this a bit confusing.
-	for platform in [ MultiBootSubDirSetup ] {
-		on $(platform) {
-			if $(TARGET_BOOT_PLATFORM) = efi {
-				local efiLoader = haiku_loader.efi ;
-				local efiPartition = esp.image ;
-				MakeLocate $(efiPartition) : $(HAIKU_OUTPUT_DIR) ;
-				BuildEfiSystemPartition $(efiPartition) : $(efiLoader) ;
-
+			if ( $(TARGET_ARCH) = x86 || $(TARGET_ARCH) = x86_64 ) {
 				BuildCDBootImage $(HAIKU_CD_BOOT_IMAGE) : $(HAIKU_BOOT_FLOPPY)
 					: $(efiPartition) : $(extras) ;
-
-			} else if $(HAIKU_ANYBOOT_LEGACY) = 1 {
-				BuildCDBootImage $(HAIKU_CD_BOOT_IMAGE) : $(HAIKU_BOOT_FLOPPY) : 
-					: $(extras) ;
+			} else {
+				BuildCDBootImage $(HAIKU_CD_BOOT_IMAGE) : : $(efiPartition) : $(extras) ;
 			}
+		} else if $(TARGET_BOOT_PLATFORM) = openfirmware {
+			# if openfirmware, just an openfirmware cd
+			local elfloader = boot_loader_openfirmware ;
+			local coffloader = haiku_loader.openfirmware ;
+
+			# OpenFirmware / Mac boot support files:
+			# CHRP script
+			local chrpscript = ofboot.chrp ;
+			# HFS creator and application type mapping for mkisofs
+			local hfsmaps = hfs.map ;
+
+			SEARCH on $(chrpscript) = [ FDirName $(HAIKU_TOP) data boot openfirmware ] ;
+			SEARCH on $(hfsmaps) = [ FDirName $(HAIKU_TOP) data boot openfirmware ] ;
+
+			BuildCDBootPPCImage $(HAIKU_CD_BOOT_IMAGE) : $(hfsmaps)
+				: $(elfloader) : $(coffloader) : $(chrpscript) : $(extras) ;
+		} else if $(HAIKU_ANYBOOT_LEGACY) = 1 {
+			# if not efi, but HAIKU_ANYBOOT_LEGACY, make a "legacy" cd without efi
+			BuildCDBootImage $(HAIKU_CD_BOOT_IMAGE) : $(HAIKU_BOOT_FLOPPY) : : $(extras) ;
 		}
 	}
 }
+
 
 NotFile haiku-boot-cd ;
 Depends haiku-boot-cd : $(HAIKU_CD_BOOT_IMAGE) ;

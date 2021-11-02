@@ -6,6 +6,7 @@ HAIKU_CD_NAME ?= $(HAIKU_DEFAULT_CD_NAME) ;
 HAIKU_CD_DIR ?= $(HAIKU_DEFAULT_CD_DIR) ;
 HAIKU_CD = $(HAIKU_CD_NAME) ;
 HAIKU_CD_LABEL ?= $(HAIKU_DEFAULT_CD_LABEL) ;
+
 MakeLocate $(HAIKU_CD) : $(HAIKU_CD_DIR) ;
 
 # prepare the script that initializes the shell variables
@@ -37,15 +38,15 @@ AddPackagesAndRepositoryVariablesToContainerScript $(script)
 	: $(HAIKU_IMAGE_CONTAINER_NAME) ;
 
 # Convenience wrapper rule around BuildHaikuCD.
-rule _BuildHaikuCD haikuCD : bootFloppy
+rule _BuildHaikuCD haikuCD : elTorito
 {
-	# _BuildHaikuCD <cd target> : <bootFloppy> ;
+	# _BuildHaikuCD <cd target> : <elTorito> ;
 	#
 
 	# build the cd
 	# HAIKU_IMAGE_EARLY_USER_SCRIPTS, HAIKU_IMAGE_LATE_USER_SCRIPTS can be
 	# specified by the user.
-	BuildHaikuCD $(haikuCD) : $(bootFloppy) :
+	BuildHaikuCD $(haikuCD) : $(elTorito) :
 		$(HAIKU_CD_INIT_VARIABLES_SCRIPT)
 		$(HAIKU_IMAGE_EARLY_USER_SCRIPTS)
 		$(HAIKU_IMAGE_MAKE_DIRS_SCRIPT)
@@ -63,12 +64,17 @@ rule _BuildHaikuCD haikuCD : bootFloppy
 	;
 }
 
-# build the cd
-_BuildHaikuCD $(HAIKU_CD) : $(HAIKU_BOOT_FLOPPY) ;
+# Legacy x86 needs an "El Torito" image (aka our boot Floppy)
+if ( $(TARGET_ARCH) = x86 || $(TARGET_ARCH) = x86_64 ) {
+	echo "El Torito Strikes again" ;
+	_BuildHaikuCD $(HAIKU_CD) : $(HAIKU_BOOT_FLOPPY) ;
+} else {
+	echo "El Torito MIA" ;
+	_BuildHaikuCD $(HAIKU_CD) : ;
+}
+
 NotFile haiku-cd ;
 Depends haiku-cd : $(HAIKU_CD) ;
-
-RmTemps $(HAIKU_CD) : $(HAIKU_BOOT_FLOPPY) ;
 
 # Execute post-image user config rules.
 UserBuildConfigRulePostImage ;

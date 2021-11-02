@@ -1589,12 +1589,12 @@ actions BuildFloppyBootImageFixupM68K
 
 #pragma mark - CD Boot Image rules
 
-rule BuildCDBootImage image : bootfloppy : bootefi : extrafiles
+rule BuildCDBootImage image : elTorito : bootefi : extrafiles
 {
 	Depends $(image) : $(bootfloppy) ;
 	Depends $(image) : $(bootefi) ;
 	Depends $(image) : $(extrafiles) ;
-	BOOTIMG on $(image) = $(bootfloppy) ;
+	BOOTIMG on $(image) = $(elTorito) ;
 
 	if $(HAIKU_NIGHTLY_BUILD) = 1 {
 		VOLID on $(image) = haiku-nightly-$(TARGET_ARCH) ;
@@ -1603,24 +1603,33 @@ rule BuildCDBootImage image : bootfloppy : bootefi : extrafiles
 	}
 
 	if $(HAIKU_ANYBOOT_LEGACY) = 1 {
-		BuildCDBootImageMBR $(image) : $(bootfloppy) $(extrafiles) ;
+		BuildCDBootImageMBR $(image) : $(elTorito) $(extrafiles) ;
 	} else {
 		BOOTEFI on $(image) = $(bootefi) ;
-		BuildCDBootImageEFI $(image) : $(bootfloppy) $(bootefi) $(extrafiles) ;
+		BuildCDBootImageEFI $(image) : $(elTorito) $(bootefi) $(extrafiles) ;
 	}
 }
 
 actions BuildCDBootImageMBR
 {
 	$(RM) $(<)
-	xorriso -as mkisofs -b $(BOOTIMG) -r -J -V $(VOLID) -o $(<) $(>[1]) $(>[2-])
+	if [ -z "$(BOOTIMG)" ]; then
+		xorriso -as mkisofs -r -J -V $(VOLID) -o $(<) $(>[1-])
+	else
+		xorriso -as mkisofs -b $(BOOTIMG) -r -J -V $(VOLID) -o $(<) $(>[1-])
+	fi
 }
 
 actions BuildCDBootImageEFI
 {
 	$(RM) $(<)
-	xorriso -as mkisofs -b $(BOOTIMG) -eltorito-alt-boot -no-emul-boot -e $(BOOTEFI) \
-		-r -J -V $(VOLID) -o $(<) $(>[1]) $(>[2]) $(>[3-])
+	if [ -z "$(BOOTIMG)" ]; then
+		xorriso -as mkisofs -no-emul-boot -e $(BOOTEFI) \
+			-r -J -V $(VOLID) -o $(<) $(>[1-])
+	else
+		xorriso -as mkisofs -b $(BOOTIMG) -eltorito-alt-boot -no-emul-boot -e $(BOOTEFI) \
+			-r -J -V $(VOLID) -o $(<) $(>[1-])
+	fi
 }
 
 

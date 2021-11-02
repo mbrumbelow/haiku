@@ -1,19 +1,23 @@
-rule BuildHaikuCD haikuCD : bootFloppy : scripts
+rule BuildHaikuCD haikuCD : elTorito : scripts
 {
-	# BuildHaikuCD <haiku cd> : <bootFloppy> : <scripts> ;
+	# BuildHaikuCD <haiku cd> : <elTorito> : <scripts> ;
 
 	local mainScript = build_haiku_image ;
 	SEARCH on $(mainScript) = [ FDirName $(HAIKU_TOP) build scripts ] ;
 
+	# x86 uses an "El Torito" boot sector (our bootFloppy in most cases)
+	EL_TORITO on $(haikuCD) = $(elTorito) ;
+
 	Depends $(haikuCD) : $(mainScript) $(scripts) ;
-	Depends $(haikuCD) : $(bootFloppy) ;
-	BuildHaikuCD1 $(haikuCD) : $(bootFloppy) $(mainScript)
-		$(scripts:R=$(HAIKU_ABSOLUTE_OUTPUT_DIR)) ;
+	Depends $(haikuCD) : $(elTorito) ;
+
+	BuildHaikuCD1 $(haikuCD) : $(mainScript) $(scripts:R=$(HAIKU_ABSOLUTE_OUTPUT_DIR)) ;
 }
 
 actions BuildHaikuCD1
 {
 	export cdImagePath="$(1)"
-	export cdBootFloppy="$(2[1])"
-	$(2[2]) $(2[3-])
+	export cdElTorito="$(EL_TORITO)"
+
+	$(2[1]) $(2[2-])
 }
