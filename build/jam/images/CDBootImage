@@ -26,7 +26,7 @@ if $(TARGET_ARCH) = ppc {
 	local hfsmaps = hfs.map ;
 
 	SEARCH on $(chrpscript) $(hfsmaps) $(extras)
-		= [ FDirName $(HAIKU_TOP) data boot_cd ] ;
+		= [ FDirName $(HAIKU_TOP) data boot openfirmware ] ;
 
 	BuildCDBootPPCImage $(HAIKU_CD_BOOT_IMAGE) : $(hfsmaps)
 		: $(elfloader) : $(coffloader) : $(chrpscript) : $(extras) ;
