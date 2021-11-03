@@ -1887,6 +1887,23 @@ TermView::MessageReceived(BMessage *message)
 				fCursorHidden = hidden;
 			break;
 		}
+		case MSG_SET_CLIPBOARD:
+		{
+			const char* string;
+			if (message->FindString("string", &string) == B_OK
+				&& be_clipboard->Lock()) {
+				BMessage *clipMsg = NULL;
+				be_clipboard->Clear();
+
+				if ((clipMsg = be_clipboard->Data()) != NULL) {
+					clipMsg->AddData("text/plain", B_MIME_TYPE, string,
+						strlen(string));
+					be_clipboard->Commit();
+				}
+				be_clipboard->Unlock();
+			}
+			break;
+		}
 		case MSG_ENABLE_META_KEY:
 		{
 			bool enable;
