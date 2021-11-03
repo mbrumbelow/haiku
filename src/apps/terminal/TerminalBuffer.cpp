@@ -263,6 +263,17 @@ TerminalBuffer::SetCursorHidden(bool hidden)
 
 
 void
+TerminalBuffer::SetClipboard(const char* string)
+{
+	if (fListenerValid) {
+		BMessage message(MSG_SET_CLIPBOARD);
+		message.AddString("string", string);
+		fListener.SendMessage(&message);
+	}
+}
+
+
+void
 TerminalBuffer::SetPaletteColor(uint8 index, rgb_color color)
 {
 	fColorsPalette[index] = color;

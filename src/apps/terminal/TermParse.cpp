@@ -24,10 +24,12 @@
 #include <string.h>
 #include <unistd.h>
 
+#include <AutoDeleter.h>
 #include <Autolock.h>
 #include <Beep.h>
 #include <Catalog.h>
 #include <Locale.h>
+#include <mail_encoding.h>
 #include <Message.h>
 #include <UTF8.h>
 
@@ -1586,6 +1588,22 @@ TermParse::_ProcessOperatingSystemControls(uchar* params)
 
 				if (count > 0) {
 					fBuffer->SetColors(indexes, colors, count, true);
+				}
+			}
+			break;
+		// set clipboard
+		case 52:
+			{
+				char* p = strtok((char*)params, ";");
+				if (p != NULL) {
+					p = strtok(NULL, ";");
+					if (p != NULL) {
+						ArrayDeleter<char> buffer;
+						int length = strlen(p);
+						buffer.SetTo(new char[length * 3 / 4]);
+						decode_base64(buffer.Get(), p, length);
+						fBuffer->SetClipboard(buffer.Get());
+					}
 				}
 			}
 			break;
