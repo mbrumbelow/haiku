@@ -136,7 +136,7 @@ rule TargetBootLibsupc++ asPath
 		}
 		return [
 			BuildFeatureAttribute gcc_syslibs_devel
-				: libsupc++-kernel.a : $(flags)
+				: libsupc++-boot.a : $(flags)
 		] ;
 	} else {
 		# There is no libsupc++-boot.a for non-Haiku target platform
@@ -248,7 +248,7 @@ rule TargetBootLibgcc architecture : asPath
 		}
 		return [
 			BuildFeatureAttribute QUALIFIED $(architecture):gcc_syslibs_devel
-				: libgcc-kernel.a : $(flags)
+				: libgcc-boot.a : $(flags)
 		] ;
 	} else {
 		# there is no libgcc-boot.a for non-Haiku target platform
