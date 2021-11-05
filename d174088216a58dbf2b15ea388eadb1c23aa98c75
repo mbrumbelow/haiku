@@ -52,6 +52,24 @@
       "revId": "d174088216a58dbf2b15ea388eadb1c23aa98c75",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e682db6_3d3bd18f",
+        "filename": "build/jam/repositories/HaikuPortsCross/arm",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-11-05T09:31:01Z",
+      "side": 1,
+      "message": "updated to libffi_bootstrap-3.3 and python_bootstrap-3.9.1",
+      "parentUuid": "947f2784_baab06bd",
+      "revId": "d174088216a58dbf2b15ea388eadb1c23aa98c75",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
