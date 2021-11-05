@@ -1,0 +1,25 @@
+SubDir HAIKU_TOP src system boot platform efi libs ;
+
+local libFDTSourceDirectory = [ FDirName $(HAIKU_TOP) src libs libfdt ] ;
+
+UseLibraryHeaders [ FDirName libfdt ] ;
+
+local libFDTSources =
+	fdt.c
+	fdt_ro.c
+	fdt_rw.c
+	fdt_strerror.c
+	fdt_sw.c
+	fdt_wip.c
+	;
+
+local platform ;
+for platform in [ MultiBootSubDirSetup ] {
+	on $(platform) {
+		BootStaticLibrary [ MultiBootGristFiles boot_fdt ] :
+			$(libFDTSources)
+			;
+
+		SEARCH on [ FGristFiles $(libFDTSources) ] = $(libFDTSourceDirectory) ;
+	}
+}
