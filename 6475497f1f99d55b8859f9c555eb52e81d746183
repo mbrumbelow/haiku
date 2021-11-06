@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e514a32e_3be1e86b",
+        "filename": "src/add-ons/kernel/file_systems/ntfs/kernel_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-11-06T17:43:12Z",
+      "side": 1,
+      "message": "Some of these logs could be removed, yes. But this one at least probably should be left in ... if a partition has less than 512 bytes, or we fail to read it, that would be strange.",
+      "parentUuid": "fb8acbad_59a8f2f4",
+      "revId": "6475497f1f99d55b8859f9c555eb52e81d746183",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "33d2743f_65a94d4c",
         "filename": "src/add-ons/kernel/file_systems/ntfs/kernel_interface.cpp",
         "patchSetId": 4
