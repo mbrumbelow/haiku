@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c97f7291_3f948fde",
+        "filename": "src/add-ons/kernel/file_systems/ntfs/lowntfs.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-11-06T05:24:04Z",
+      "side": 1,
+      "message": "What is this?",
+      "revId": "628b72a70f3572026194c36c08d9ea63eb6304ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
