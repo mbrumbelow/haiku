@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "98bd8d77_02efd46e",
+        "filename": "src/add-ons/kernel/file_systems/ntfs/kernel_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-11-06T17:43:44Z",
+      "side": 1,
+      "message": "I think we do? At least I\u0027ve seen some before, I think...",
+      "parentUuid": "33d2743f_65a94d4c",
+      "revId": "6475497f1f99d55b8859f9c555eb52e81d746183",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "84e5adf8_68ee45e7",
         "filename": "src/add-ons/kernel/file_systems/ntfs/kernel_interface.cpp",
         "patchSetId": 4
