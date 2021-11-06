@@ -19,7 +19,7 @@ extern KMessage gBootVolume;
 extern "C" {
 #endif
 
-extern void *kernel_args_malloc(size_t size);
+extern void *kernel_args_malloc(size_t size, uint8 alignment = 1);
 extern char *kernel_args_strdup(const char *string);
 extern void kernel_args_free(void *address);
 

@@ -369,31 +369,34 @@ ignore_physical_memory_ranges_beyond_4gb()
 // #pragma mark - kernel_args allocations
 
 
-/*!	This function can be used to allocate memory that is going
-	to be passed over to the kernel. For example, the preloaded_image
+/*!	This function can be used to allocate (optionally aligned) memory that
+	is going to be passed over to the kernel. For example, the preloaded_image
 	structures are allocated this way.
 	The boot loader heap doesn't make it into the kernel!
 */
 extern "C" void*
-kernel_args_malloc(size_t size)
+kernel_args_malloc(size_t size, uint8 alignment)
 {
 	//dprintf("kernel_args_malloc(): %ld bytes (%ld bytes left)\n", size, sFree);
 
-	if (sFirstFree != NULL && size <= sFree) {
+	#define ALIGN(addr, align) (((addr) + align - 1) & ~(align - 1))
+	size_t alignedSize = size + alignment - 1;
+
+	if (sFirstFree != NULL && alignedSize <= sFree) {
 		// there is enough space in the current buffer
-		void* address = sFirstFree;
-		sFirstFree = (void*)((addr_t)sFirstFree + size);
+		void* address = (void*)ALIGN((addr_t)sFirstFree, alignment);
+		sFirstFree = (void*)((addr_t)sFirstFree + alignedSize);
 		sLast = address;
-		sFree -= size;
+		sFree -= alignedSize;
 
 		return address;
 	}
 
-	if (size > kChunkSize / 2 && sFree < size) {
+	if (alignedSize > kChunkSize / 2 && sFree < alignedSize) {
 		// the block is so large, we'll allocate a new block for it
 		void* block = NULL;
-		if (platform_allocate_region(&block, size, B_READ_AREA | B_WRITE_AREA,
-				false) != B_OK) {
+		if (platform_allocate_region(&block, alignedSize,
+				B_READ_AREA | B_WRITE_AREA, false) != B_OK) {
 			return NULL;
 		}
 
@@ -403,7 +406,7 @@ kernel_args_malloc(size_t size)
 		if (add_kernel_args_range((void *)translated_block, size) != B_OK)
 			panic("kernel_args max range too low!\n");
 
-		return block;
+		return (void*)ALIGN((addr_t)block, alignment);
 	}
 
 	// just allocate a new block and "close" the old one
@@ -413,9 +416,9 @@ kernel_args_malloc(size_t size)
 		return NULL;
 	}
 
-	sFirstFree = (void*)((addr_t)block + size);
+	sFirstFree = (void*)((addr_t)block + alignedSize);
 	sLast = block;
-	sFree = kChunkSize - size;
+	sFree = kChunkSize - alignedSize;
 
 	// Translate the address if needed on the current platform
 	addr_t translated_block;
@@ -423,7 +426,7 @@ kernel_args_malloc(size_t size)
 	if (add_kernel_args_range((void *)translated_block, kChunkSize) != B_OK)
 		panic("kernel_args max range too low!\n");
 
-	return block;
+	return (void*)ALIGN((addr_t)block, alignment);
 }
 
 
