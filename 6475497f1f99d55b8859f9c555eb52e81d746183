@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fb8acbad_59a8f2f4",
+        "filename": "src/add-ons/kernel/file_systems/ntfs/kernel_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-11-06T13:10:36Z",
+      "side": 1,
+      "message": "just a side thing: I find these logs in the syslog a bit annoying, since they will always pop up for all partitions x all filesystems except when there is a match.\n\nI think it would be more useful to log when there is a match, and say nothing when there isn\u0027t.\n\nProbably soñething to be discussed in a separate change.",
+      "revId": "6475497f1f99d55b8859f9c555eb52e81d746183",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33d2743f_65a94d4c",
+        "filename": "src/add-ons/kernel/file_systems/ntfs/kernel_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-11-06T13:10:36Z",
+      "side": 1,
+      "message": "do we allow multiple declarations on the same line?",
+      "revId": "6475497f1f99d55b8859f9c555eb52e81d746183",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84e5adf8_68ee45e7",
+        "filename": "src/add-ons/kernel/file_systems/ntfs/kernel_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-11-06T13:10:36Z",
+      "side": 1,
+      "message": "it would make more sense to initialize *_numBytes to 0 here and increment it in the loop?",
+      "revId": "6475497f1f99d55b8859f9c555eb52e81d746183",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5aee99dc_8378ebc2",
+        "filename": "src/add-ons/kernel/file_systems/ntfs/kernel_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-11-06T13:10:36Z",
+      "side": 1,
+      "message": "can ntfs_fuse_read return a positive value less than ioSize (partial read)? This does not look to be handled properly here.",
+      "revId": "6475497f1f99d55b8859f9c555eb52e81d746183",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b00d52a7_58e3333b",
+        "filename": "src/add-ons/kernel/file_systems/ntfs/kernel_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-11-06T13:10:36Z",
+      "side": 1,
+      "message": "this should be *_numBytes otherwise you are corrupting memory, right?\n\nUsing \"size* const _numBytes\" in the function prototype would avoid this kind of error (the pointer will be const so attempting to make it point elsewhere will fail at compile time)",
+      "revId": "6475497f1f99d55b8859f9c555eb52e81d746183",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5abf5c57_0c95ea32",
+        "filename": "src/add-ons/kernel/file_systems/ntfs/kernel_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-11-06T13:10:36Z",
+      "side": 1,
+      "message": "missing std::nothrow? It may not be needed when building with -fno-exceptions (?) but we may want to build this code in userspace for testing (with userlandfs or fs_shell) someday?",
+      "revId": "6475497f1f99d55b8859f9c555eb52e81d746183",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
