@@ -16,6 +16,24 @@
       "revId": "36185217003594660df79049fe68bf1f763f6cee",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ffd43b1_e86c81f5",
+        "filename": "src/apps/terminal/Colors.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-11-06T20:02:52Z",
+      "side": 1,
+      "message": "good idea, which names would fit? set_to_cmyk and get_as_cmyk?",
+      "parentUuid": "48036e21_16d72efa",
+      "revId": "36185217003594660df79049fe68bf1f763f6cee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
