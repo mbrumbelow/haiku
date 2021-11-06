@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "13b0c290_101e02cc",
+        "filename": "headers/private/kernel/boot/stage2.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-11-06T20:37:25Z",
+      "side": 1,
+      "message": "Default argument values are not supported in C. But \"extern \"C\" {\" probably can be dropped.",
+      "revId": "8b744b3aa98a5e2534519719810658c93bba5d6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
