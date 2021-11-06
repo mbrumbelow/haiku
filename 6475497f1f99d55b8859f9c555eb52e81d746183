@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "f342bb33_3cbc131f",
+        "filename": "src/add-ons/kernel/file_systems/ntfs/kernel_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-11-06T19:17:58Z",
+      "side": 1,
+      "message": "Well that just leads to another annoyance I have with the way we do this: each filesystem reads a few blocks from the partition, and there is no caching, so this results in a lot of reads of each partition. Having some kind of cache here would probably speed up boot time especially if you have some slow storage connected (USB1 or CD-ROM for example). Our boot CD/DVD is probably the worst case: it\u0027s slow and it has multiple partitions, which will all be scanned by all filesystems and all partitioning systems, resulting in a few dozen small reads from the CD at roughly the same place. Let\u0027s hope DVD-ROM drives do some internal caching?\n\nAgain, something to fix sometime later...",
+      "parentUuid": "e514a32e_3be1e86b",
+      "revId": "6475497f1f99d55b8859f9c555eb52e81d746183",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "33d2743f_65a94d4c",
         "filename": "src/add-ons/kernel/file_systems/ntfs/kernel_interface.cpp",
         "patchSetId": 4
