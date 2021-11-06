@@ -16,6 +16,24 @@
       "revId": "628b72a70f3572026194c36c08d9ea63eb6304ef",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98895c35_85812f5a",
+        "filename": "src/add-ons/kernel/file_systems/ntfs/lowntfs.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-11-06T17:42:07Z",
+      "side": 1,
+      "message": "How ntfs3g handles unlinking a file that you don\u0027t want to fully delete. (It seems NTFS does not support having a file with no (hard)links to it, so we have to create one when unlinking it before it is deleted.)",
+      "parentUuid": "c97f7291_3f948fde",
+      "revId": "628b72a70f3572026194c36c08d9ea63eb6304ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
