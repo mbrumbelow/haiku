@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "36513bde_dc4d2cd6",
+        "filename": "src/add-ons/kernel/file_systems/ntfs/kernel_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-11-06T20:13:25Z",
+      "side": 1,
+      "message": "might a good idea to extend this a bit to match BFS, B_FS_SUPPORTS_MONITOR_CHILDREN?",
+      "revId": "0a0bb0f27a1e712a69d6d6ffc57ac75480aea739",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
