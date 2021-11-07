@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3bec4454_616d6bbd",
+        "filename": "src/system/boot/platform/efi/arch/arm/entry.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-11-07T10:54:36Z",
+      "side": 1,
+      "message": "this needs to be done from assembly, as I get a compile error if I try to do it in an \"asm volatile\" block\n\nalso probably this should be one of the last steps before jumping to the kernel",
+      "range": {
+        "startLine": 40,
+        "startChar": 1,
+        "endLine": 40,
+        "endChar": 15
+      },
+      "revId": "ebfdc0f2c70c46a9523be9c808c605b906bcdbe8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
