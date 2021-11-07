@@ -81,6 +81,7 @@ check_cpu_features()
 			break;
 	}
 
+#if 0
 	// We could check for VFP/NEON support here, but for the moment we only
 	// really target ARM CPU's with VFP/NEON built-in (cortex-a7+)
 	if (arch >= ARCH_ARM_v7)
@@ -99,7 +100,7 @@ check_cpu_features()
 		"	FMXR FPEXC, r0" //FPEXC = r0
 		:::"r0", "r1");
 	}
-
+#endif
 
 	TRACE(("%s: implementor=0x%x('%c'), arch=%d, variant=0x%x, part=0x%x, revision=0x%x\n",
 		__func__, implementor, implementor, arch, variant, part, revision));
