@@ -33,6 +33,24 @@
       "revId": "0a0bb0f27a1e712a69d6d6ffc57ac75480aea739",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f825eab_8712b910",
+        "filename": "src/add-ons/kernel/file_systems/ntfs/kernel_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 864,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-11-07T19:54:50Z",
+      "side": 1,
+      "message": "\u003e lock.Unlock() missing before file_cache_write. Cause double lock KDL.\n\nand lock.Lock() after file_cache_write.",
+      "parentUuid": "8df47758_6bb03e08",
+      "revId": "0a0bb0f27a1e712a69d6d6ffc57ac75480aea739",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
