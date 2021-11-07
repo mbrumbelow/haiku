@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c46fac8_c505f0ad",
+        "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-11-07T10:47:20Z",
+      "side": 1,
+      "message": "shouldn\u0027t this be checked in fdt_bus_init instead, to completely disable the FDT bus if it\u0027s not available?",
+      "revId": "3311ca5b4440a7caca576c53e0fb091a875d4b9c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
