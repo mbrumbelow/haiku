@@ -16,6 +16,23 @@
       "revId": "0a0bb0f27a1e712a69d6d6ffc57ac75480aea739",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8df47758_6bb03e08",
+        "filename": "src/add-ons/kernel/file_systems/ntfs/kernel_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 864,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-11-07T18:31:00Z",
+      "side": 1,
+      "message": "lock.Unlock() missing before file_cache_write. Cause double lock KDL.",
+      "revId": "0a0bb0f27a1e712a69d6d6ffc57ac75480aea739",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
