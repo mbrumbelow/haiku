@@ -86,13 +86,30 @@ struct ELF32Class {
 			return status;
 
 		*_mappedAddress = (void*)*_address;
+
+#ifndef _BOOT_PLATFORM_BIOS
+		addr_t res;
+		platform_bootloader_address_to_kernel_address((void*)*_address, &res);
+
+		*_address = res;
+#endif
+
 		return B_OK;
 	}
 
 	static inline void*
 	Map(AddrType address)
 	{
+#ifdef _BOOT_PLATFORM_BIOS
 		return (void*)address;
+#else
+		void *result = NULL;
+		if (platform_kernel_address_to_bootloader_address(address, &result) != B_OK) {
+			panic("Couldn't convert address 0x%08x", (uint32_t)address);
+		}
+
+		return result;
+#endif
 	}
 };
 
@@ -743,6 +760,20 @@ boot_elf_resolve_symbol(preloaded_elf32_image* image, Elf32_Sym* symbol,
 	Elf32_Addr* symbolAddress)
 {
 	return ELF32Loader::Resolve(image, symbol, symbolAddress);
+}
+
+Elf32_Addr
+boot_elf32_get_relocation(Elf32_Addr resolveAddress)
+{
+	Elf32_Addr* src = (Elf32_Addr*)ELF32Class::Map(resolveAddress);
+	return *src;
+}
+
+void
+boot_elf32_set_relocation(Elf32_Addr resolveAddress, Elf32_Addr finalAddress)
+{
+	Elf32_Addr* dest = (Elf32_Addr*)ELF32Class::Map(resolveAddress);
+	*dest = finalAddress;
 }
 #endif
 
