@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c1107ffa_08d4c6f1",
+        "filename": "build/jam/SystemLibraryRules",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-11-07T10:52:57Z",
+      "side": 1,
+      "message": "maybe we want to do this only for arm, i\u0027m not sure",
+      "range": {
+        "startLine": 137,
+        "startChar": 2,
+        "endLine": 140,
+        "endChar": 5
+      },
+      "revId": "15c6c2b6bbdf05afca4cfcbbed18e03f5147fc42",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8ac5aab_3ec07a95",
+        "filename": "build/jam/SystemLibraryRules",
+        "patchSetId": 1
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-11-07T10:52:57Z",
+      "side": 1,
+      "message": "similarly",
+      "range": {
+        "startLine": 249,
+        "startChar": 2,
+        "endLine": 252,
+        "endChar": 5
+      },
+      "revId": "15c6c2b6bbdf05afca4cfcbbed18e03f5147fc42",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
