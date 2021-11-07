@@ -206,6 +206,11 @@ fdt_bus_register_child_devices(void* cookie)
 {
 	TRACE("fdt_bus_register_child_devices\n");
 
+	if (gFDT == NULL) {
+		TRACE("FDT is NULL!\n");
+		return B_ERROR;
+	}
+
 	fdt_bus* bus = (fdt_bus*)cookie;
 
 	int node = -1, depth = -1;
