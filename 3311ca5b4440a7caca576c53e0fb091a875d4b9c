@@ -16,6 +16,24 @@
       "revId": "3311ca5b4440a7caca576c53e0fb091a875d4b9c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5993e9ae_38c908eb",
+        "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-11-08T15:54:42Z",
+      "side": 1,
+      "message": "makes sense",
+      "parentUuid": "9c46fac8_c505f0ad",
+      "revId": "3311ca5b4440a7caca576c53e0fb091a875d4b9c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
