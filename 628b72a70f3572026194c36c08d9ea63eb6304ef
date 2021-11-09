@@ -34,6 +34,24 @@
       "revId": "628b72a70f3572026194c36c08d9ea63eb6304ef",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbd1a9e5_3db236e0",
+        "filename": "src/add-ons/kernel/file_systems/ntfs/lowntfs.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-11-09T20:13:39Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "98895c35_85812f5a",
+      "revId": "628b72a70f3572026194c36c08d9ea63eb6304ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
