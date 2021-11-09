@@ -12,9 +12,20 @@
 #if defined(__riscv) || defined(__ARM__) || defined(__aarch64__)
 // These platforms take inventory of cpu cores from fdt
 
+// TODO: arch_cpu_info?
 struct platform_cpu_info {
+#if defined(__ARM__) || defined(__aarch64__)
 	uint32 id;
+#elif defined(__riscv)
+	uint32 hartId;
+	uint32 phandle;
+	uint32 plicContext;
+#endif
 };
+
+#if defined(__riscv)
+extern uint32 gBootHart;
+#endif
 
 void arch_smp_register_cpu(platform_cpu_info** cpu);
 #endif

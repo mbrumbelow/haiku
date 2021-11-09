@@ -8,6 +8,7 @@
 
 #include <SupportDefs.h>
 
+#ifdef __cplusplus
 
 enum {
 	modeU = 0,
@@ -349,6 +350,8 @@ static B_ALWAYS_INLINE void Wfi() {asm volatile("wfi");}
 
 static B_ALWAYS_INLINE void Mret() {asm volatile("mret");}
 static B_ALWAYS_INLINE void Sret() {asm volatile("sret");}
+
+#endif // __cplusplus
 
 
 #define SPINLOCK_PAUSE()	do {} while (false)
