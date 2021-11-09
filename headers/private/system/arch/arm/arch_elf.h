@@ -50,9 +50,7 @@
 #define R_ARM_RPC24             254
 #define R_ARM_RBASE             255
 
-
-
-
+#define TLS_DTV_OFFSET 0
 
 
 #endif	/* _KERNEL_ARCH_M68K_ELF_H */

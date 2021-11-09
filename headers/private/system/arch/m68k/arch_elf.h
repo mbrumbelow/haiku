@@ -5,8 +5,8 @@
 #ifndef _KERNEL_ARCH_M68K_ELF_H
 #define _KERNEL_ARCH_M68K_ELF_H
 
-/* relocation types */
 
+/* relocation types */
 #define	R_68K_NONE				0
 #define	R_68K_32 1            /* Direct 32 bit  */
 #define	R_68K_16 2            /* Direct 16 bit  */
@@ -33,5 +33,8 @@
 /* These are GNU extensions to enable C++ vtable garbage collection.  */
 #define	R_68K_GNU_VTINHERIT 23
 #define	R_68K_GNU_VTENTRY 24
+
+#define TLS_DTV_OFFSET 0
+
 
 #endif	/* _KERNEL_ARCH_M68K_ELF_H */
