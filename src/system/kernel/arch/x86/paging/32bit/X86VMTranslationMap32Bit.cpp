@@ -874,6 +874,10 @@ X86VMTranslationMap32Bit::ClearAccessedAndModified(VMArea* area, addr_t address,
 
 	// We have unmapped the address. Do the "high level" stuff.
 
+	dprintf("X86VMPhysicalPageMapper::ClearAccessedAndModified(0x%" B_PRIxADDR
+		"(%s), 0x%" B_PRIxADDR ", %d): unmapped\n", (addr_t)area, area->name, address,
+		unmapIfUnaccessed);
+
 	fMapCount--;
 
 	locker.Detach();
