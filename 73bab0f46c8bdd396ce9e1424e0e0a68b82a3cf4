@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2faebdec_5872c511",
+        "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-11-09T16:25:38Z",
+      "side": 1,
+      "message": "B_NO_INIT would probably be better than just B_ERROR.",
+      "revId": "73bab0f46c8bdd396ce9e1424e0e0a68b82a3cf4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
