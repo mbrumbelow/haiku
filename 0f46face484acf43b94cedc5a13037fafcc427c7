@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d344aa31_84c76da3",
+        "filename": "src/system/kernel/cpu.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-11-09T21:06:01Z",
+      "side": 1,
+      "message": "This could actually be split apart.  It came from the riscv64 smp patches, but I moved the code to kernel/cpu since it\u0027s handy output on all systems.",
+      "revId": "0f46face484acf43b94cedc5a13037fafcc427c7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e86806e2_dbf36c81",
+        "filename": "src/system/kernel/debug/debug.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1517,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-11-09T21:06:01Z",
+      "side": 1,
+      "message": "this needs removed",
+      "revId": "0f46face484acf43b94cedc5a13037fafcc427c7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}

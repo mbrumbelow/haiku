@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bae3b348_076c9fc8",
+        "filename": "src/system/kernel/device_manager/legacy_drivers.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-11-09T21:06:01Z",
+      "side": 0,
+      "message": "remove",
+      "revId": "2ca1376080f866aafba1edc95eaa036b92ed2078",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
