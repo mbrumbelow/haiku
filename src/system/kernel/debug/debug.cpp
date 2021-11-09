@@ -1514,7 +1514,7 @@ debug_output(const char* string, int32 length, bool notifySyslog)
 	if (length >= OUTPUT_BUFFER_SIZE)
 		length = OUTPUT_BUFFER_SIZE - 1;
 
-	if (length > 1 && string[length - 1] == '\n'
+	if (false && /* !!! */ length > 1 && string[length - 1] == '\n'
 		&& strncmp(string, sLastOutputBuffer, length) == 0) {
 		sMessageRepeatCount++;
 		sMessageRepeatLastTime = system_time();
