@@ -60,6 +60,52 @@ cpu_init_post_vm(kernel_args *args)
 
 
 static void
+cpu_topology_trace_level(cpu_topology_level level)
+{
+        switch (level) {
+		case CPU_TOPOLOGY_SMT:
+			dprintf("smt");
+			break;
+		case CPU_TOPOLOGY_CORE:
+			dprintf("core");
+			break;
+		case CPU_TOPOLOGY_PACKAGE:
+			dprintf("package");
+			break;
+		case CPU_TOPOLOGY_LEVELS:
+			dprintf("levels");
+			break;
+		default:
+			dprintf("?(%d)", level);
+        }
+}
+
+
+static void
+cpu_topology_trace_node(const cpu_topology_node* node, int indent)
+{
+	for (int i = 0; i < indent; i++)
+		dprintf("  ");
+
+	dprintf("node(%d, ", node->id);
+	cpu_topology_trace_level(node->level);
+	dprintf(")\n");
+
+	for (int i = 0; i < node->children_count; i++)
+		cpu_topology_trace_node(node->children[i], indent + 1);
+}
+
+
+// TODO: Maybe kdl hook?
+static void
+cpu_topology_dump(cpu_topology_node* parent)
+{
+	dprintf("CPU topology:\n");
+	cpu_topology_trace_node(parent, 1);
+}
+
+
+static void
 load_cpufreq_module()
 {
 	void* cookie = open_module_list(CPUFREQ_MODULES_PREFIX);
@@ -292,6 +338,8 @@ cpu_build_topology_tree(void)
 	int32 lastID[CPU_TOPOLOGY_LEVELS];
 	memset(&lastID, 0, sizeof(lastID));
 	cpu_rebuild_topology_tree(&sCPUTopology, lastID);
+
+	cpu_topology_dump(&sCPUTopology);
 
 	return B_OK;
 }
