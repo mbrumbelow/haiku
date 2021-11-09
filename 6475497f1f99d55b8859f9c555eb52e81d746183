@@ -124,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "22814606_d96160b0",
+        "filename": "src/add-ons/kernel/file_systems/ntfs/kernel_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-11-09T22:20:05Z",
+      "side": 1,
+      "message": "May as well handle that case I suppose, though reading the code, I\u0027m not sure it can.",
+      "parentUuid": "5aee99dc_8378ebc2",
+      "revId": "6475497f1f99d55b8859f9c555eb52e81d746183",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b00d52a7_58e3333b",
         "filename": "src/add-ons/kernel/file_systems/ntfs/kernel_interface.cpp",
         "patchSetId": 4
@@ -138,6 +156,24 @@
       "revId": "6475497f1f99d55b8859f9c555eb52e81d746183",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22542705_2d1f9be6",
+        "filename": "src/add-ons/kernel/file_systems/ntfs/kernel_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-11-09T22:20:05Z",
+      "side": 1,
+      "message": "Unfortunately we cannot use a different prototype here as this function is stored as a pointer in the VnOps table I believe.",
+      "parentUuid": "b00d52a7_58e3333b",
+      "revId": "6475497f1f99d55b8859f9c555eb52e81d746183",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
