@@ -376,7 +376,10 @@ vm_page::IncrementWiredCount()
 inline void
 vm_page::DecrementWiredCount()
 {
-	ASSERT(fWiredCount > 0);
+	// ASSERT(fWiredCount > 0);
+	if (!(fWiredCount > 0)) {
+		panic("[!] fWiredCount > 0, page: %#" B_PRIx64, physical_page_number * B_PAGE_SIZE);
+	}
 
 	if (--fWiredCount == 0)
 		cache_ref->cache->DecrementWiredPagesCount();
