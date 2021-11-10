@@ -64,14 +64,8 @@ void
 PadView::Draw(BRect updateRect)
 {
 	rgb_color background = LowColor();
-
-#ifdef HAIKU_TARGET_PLATFORM_BEOS
-	rgb_color light = tint_color(background, B_LIGHTEN_MAX_TINT);
-	rgb_color shadow = tint_color(background, B_DARKEN_2_TINT);
-#else
 	rgb_color light = ui_color(B_SHINE_COLOR);
 	rgb_color shadow = ui_color(B_SHADOW_COLOR);
-#endif
 
 	BRect r(Bounds());
 	BeginLineArray(4);
