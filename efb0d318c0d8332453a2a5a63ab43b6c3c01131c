@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "de3dd415_3bc6bc25",
+        "filename": "headers/private/kernel/boot/platform/efi/arch_smp.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-11-10T21:54:49Z",
+      "side": 1,
+      "message": "Fixing this one would require touching every arch.  I\u0027d like to do this in a follow up commit.",
+      "parentUuid": "310219e8_bbe32b79",
+      "revId": "efb0d318c0d8332453a2a5a63ab43b6c3c01131c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "23931a0d_92888cf3",
         "filename": "headers/private/kernel/vm/vm_types.h",
         "patchSetId": 8
