@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "445e064e_d0c0a273",
+        "filename": "src/bin/setlocale.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-11-10T08:08:31Z",
+      "side": 1,
+      "message": "I still don\u0027t understand why we have this shorter help message instead of printing the full one.",
+      "revId": "e3bb1d27246334cb2173855f70c6c9a2f43d1491",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
