@@ -49,13 +49,6 @@
 #include "TypeEditors.h"
 
 
-#ifndef __HAIKU__
-#	define DRAW_SLIDER_BAR
-	// if this is defined, the standard slider bar is replaced with
-	// one that looks exactly like the one in the original DiskProbe
-	// (even in Dano/Zeta)
-#endif
-
 #undef B_TRANSLATION_CONTEXT
 #define B_TRANSLATION_CONTEXT "ProbeView"
 
@@ -96,9 +89,7 @@ public:
 									uint32 blockSize);
 	virtual						~PositionSlider();
 
-#ifdef DRAW_SLIDER_BAR
 	virtual	void				DrawBar();
-#endif
 
 			off_t				Position() const;
 			off_t				Size() const { return fSize; }
@@ -281,22 +272,14 @@ void
 IconView::UpdateIcon()
 {
 	if (fBitmap == NULL)
-#ifdef HAIKU_TARGET_PLATFORM_HAIKU
 		fBitmap = new BBitmap(BRect(0, 0, 31, 31), B_RGBA32);
-#else
-		fBitmap = new BBitmap(BRect(0, 0, 31, 31), B_CMAP8);
-#endif
 
 	if (fBitmap != NULL) {
 		status_t status = B_ERROR;
 
 		if (fIsDevice) {
 			BPath path(&fRef);
-#ifdef __HAIKU__
 			status = get_device_icon(path.Path(), fBitmap, B_LARGE_ICON);
-#else
-			status = get_device_icon(path.Path(), fBitmap->Bits(), B_LARGE_ICON);
-#endif
 		} else
 			status = BNodeInfo::GetTrackerIcon(&fRef, fBitmap);
 
@@ -329,10 +312,8 @@ PositionSlider::PositionSlider(const char* name, BMessage* message,
 {
 	Reset();
 
-#ifndef DRAW_SLIDER_BAR
 	rgb_color color = ui_color(B_CONTROL_HIGHLIGHT_COLOR);
 	UseFillColor(true, &color);
-#endif
 }
 
 
@@ -341,7 +322,6 @@ PositionSlider::~PositionSlider()
 }
 
 
-#ifdef DRAW_SLIDER_BAR
 void
 PositionSlider::DrawBar()
 {
@@ -352,15 +332,9 @@ PositionSlider::DrawBar()
 	frame.top++;
 	frame.left++;
 	frame.right = ThumbFrame().left + ThumbFrame().Width() / 2;
-#ifdef HAIKU_TARGET_PLATFORM_BEOS
-	if (IsEnabled())
-		view->SetHighColor(102, 152, 203);
-	else
-		view->SetHighColor(92, 102, 160);
-#else
+
 	view->SetHighColor(IsEnabled() ? ui_color(B_CONTROL_HIGHLIGHT_COLOR)
 		: tint_color(ui_color(B_CONTROL_HIGHLIGHT_COLOR), B_DARKEN_1_TINT));
-#endif
 	view->FillRect(frame);
 
 	frame.left = frame.right + 1;
@@ -370,13 +344,9 @@ PositionSlider::DrawBar()
 
 	rgb_color cornerColor = tint_color(ViewColor(), B_DARKEN_1_TINT);
 	rgb_color darkColor = tint_color(ViewColor(), B_DARKEN_3_TINT);
-#ifdef HAIKU_TARGET_PLATFORM_BEOS
-	rgb_color shineColor = {255, 255, 255};
-	rgb_color shadowColor = {0, 0, 0};
-#else
 	rgb_color shineColor = ui_color(B_SHINE_COLOR);
 	rgb_color shadowColor = ui_color(B_SHADOW_COLOR);
-#endif
+
 	if (!IsEnabled()) {
 		darkColor = tint_color(ViewColor(), B_DARKEN_1_TINT);
 		shineColor = tint_color(shineColor, B_DARKEN_2_TINT);
@@ -409,7 +379,6 @@ PositionSlider::DrawBar()
 
 	view->EndLineArray();
 }
-#endif	// DRAW_SLIDER_BAR
 
 
 void
@@ -954,10 +923,7 @@ TypeMenuItem::DrawContent()
 	point.x = Frame().right - 4 - Menu()->StringWidth(fType.String());
 	point.y += fontHeight.ascent;
 
-#ifdef HAIKU_TARGET_PLATFORM_BEOS
 	Menu()->SetDrawingMode(B_OP_ALPHA);
-#endif
-
 	Menu()->DrawString(fType.String(), point);
 }
 
