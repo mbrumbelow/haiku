@@ -142,6 +142,24 @@
     },
     {
       "key": {
+        "uuid": "10034178_43a9064d",
+        "filename": "src/system/kernel/int.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-11-10T22:57:47Z",
+      "side": 1,
+      "message": "If I remember correctly this function assume that arch function will assign interrupt to CPU and interrupts handling become broken if it processes, but arch function doesn\u0027t. There are also a problem with nested PCI MSI interrupt controller, that register interrupt numbers, but actually working over single CPU interrupt, so arbitrary assigning is not possible.",
+      "parentUuid": "0e5c829b_f697829f",
+      "revId": "8fe61730279d2f2440ef36e03c0978afb8c43435",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "967c6b2d_b4cbe119",
         "filename": "src/system/kernel/vm/vm.cpp",
         "patchSetId": 12
