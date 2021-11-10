@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "920720be_1754318b",
+        "filename": "headers/private/kernel/boot/platform/efi/arch_smp.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-11-10T21:51:02Z",
+      "side": 1,
+      "message": "Done.  Originally id was hartID on riscv64 and id on x86. I merged them since it was only a name difference making that comment indeed invalid,",
+      "parentUuid": "7bd452cf_c427953a",
+      "revId": "8fe61730279d2f2440ef36e03c0978afb8c43435",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "57299489_86dcc5d2",
         "filename": "headers/private/kernel/vm/VMCache.h",
         "patchSetId": 12
@@ -33,6 +51,24 @@
       "revId": "8fe61730279d2f2440ef36e03c0978afb8c43435",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b70d8aa0_d64ae264",
+        "filename": "headers/private/kernel/vm/VMCache.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-11-10T21:51:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57299489_86dcc5d2",
+      "revId": "8fe61730279d2f2440ef36e03c0978afb8c43435",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "54bbfc14_d46d9ae8",
+        "filename": "headers/private/kernel/vm/vm_types.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-11-10T21:51:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96cbc00f_a0d3b842",
+      "revId": "8fe61730279d2f2440ef36e03c0978afb8c43435",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5335ea5f_aa6f0b9a",
         "filename": "src/system/kernel/int.cpp",
         "patchSetId": 12
@@ -64,6 +118,24 @@
       "writtenOn": "2021-11-10T21:15:30Z",
       "side": 1,
       "message": "It probably isn\u0027t for other architectures either. Can\u0027t we be more generic here?",
+      "revId": "8fe61730279d2f2440ef36e03c0978afb8c43435",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e5c829b_f697829f",
+        "filename": "src/system/kernel/int.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-11-10T21:51:02Z",
+      "side": 1,
+      "message": "I\u0027m tempted to just drop it.  That code doesn\u0027t directly get called via assign_cpu.  I\u0027m assuming arch_int_assign_to_cpu gets called later?",
+      "parentUuid": "5335ea5f_aa6f0b9a",
       "revId": "8fe61730279d2f2440ef36e03c0978afb8c43435",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -84,6 +156,24 @@
       "revId": "8fe61730279d2f2440ef36e03c0978afb8c43435",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94af8ea6_b74aa186",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 4429,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-11-10T21:51:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "967c6b2d_b4cbe119",
+      "revId": "8fe61730279d2f2440ef36e03c0978afb8c43435",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
