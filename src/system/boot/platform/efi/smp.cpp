@@ -48,7 +48,11 @@ smp_init_other_cpus(void)
 
 
 void
+#ifdef __riscv
+smp_boot_other_cpus(uint64 pageTable, uint64 kernel_entry)
+#else
 smp_boot_other_cpus(uint32 pageTable, uint64 kernel_entry)
+#endif
 {
 	if (gKernelArgs.num_cpus < 2)
 		return;

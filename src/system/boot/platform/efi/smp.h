@@ -19,7 +19,11 @@ extern "C" {
 
 extern void smp_init(void);
 extern void smp_init_other_cpus(void);
+#ifdef __riscv
+extern void smp_boot_other_cpus(uint64 pageTable, uint64 kernel_entry);
+#else
 extern void smp_boot_other_cpus(uint32 pageTable, uint64 kernel_entry);
+#endif
 extern int smp_get_current_cpu(void);
 
 #ifdef __cplusplus
