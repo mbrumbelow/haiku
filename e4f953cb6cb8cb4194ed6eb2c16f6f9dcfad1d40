@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f8aa3865_7926a612",
+        "filename": "src/system/boot/platform/efi/smp.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-11-10T18:26:11Z",
+      "side": 1,
+      "message": "Mixed case style in arguments.",
+      "revId": "e4f953cb6cb8cb4194ed6eb2c16f6f9dcfad1d40",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
