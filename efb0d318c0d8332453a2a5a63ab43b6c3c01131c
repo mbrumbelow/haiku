@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "310219e8_bbe32b79",
+        "filename": "headers/private/kernel/boot/platform/efi/arch_smp.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-11-10T12:43:16Z",
+      "side": 1,
+      "message": "should be merged into arch_smp_boot_other_cpus(uint64 pageTable ?   Potentially x86 impacting though.. so care needed.",
+      "revId": "efb0d318c0d8332453a2a5a63ab43b6c3c01131c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23931a0d_92888cf3",
+        "filename": "headers/private/kernel/vm/vm_types.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-11-10T12:43:16Z",
+      "side": 1,
+      "message": "too long",
+      "revId": "efb0d318c0d8332453a2a5a63ab43b6c3c01131c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72a9e4df_bfc563ca",
+        "filename": "headers/private/kernel/vm/vm_types.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-11-10T12:43:16Z",
+      "side": 1,
+      "message": "too long",
+      "revId": "efb0d318c0d8332453a2a5a63ab43b6c3c01131c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ded8ae5e_0bffcf95",
+        "filename": "headers/private/kernel/vm/vm_types.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-11-10T12:43:16Z",
+      "side": 1,
+      "message": "too long",
+      "revId": "efb0d318c0d8332453a2a5a63ab43b6c3c01131c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a52bc3e0_cd958559",
+        "filename": "src/system/kernel/arch/riscv64/arch_thread.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-11-10T12:43:16Z",
+      "side": 1,
+      "message": "FIX:    frame.status \u003d status.val; !",
+      "revId": "efb0d318c0d8332453a2a5a63ab43b6c3c01131c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
