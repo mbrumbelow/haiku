@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7bd452cf_c427953a",
+        "filename": "headers/private/kernel/boot/platform/efi/arch_smp.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-11-10T21:15:30Z",
+      "side": 1,
+      "message": "comment seems unnecessary...",
+      "revId": "8fe61730279d2f2440ef36e03c0978afb8c43435",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57299489_86dcc5d2",
+        "filename": "headers/private/kernel/vm/VMCache.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-11-10T21:15:30Z",
+      "side": 1,
+      "message": "This should be changed into an ASSERT_PRINT, i.e. ASSERT(..., \"page: %\" B_PRIx64\" etc.",
+      "revId": "8fe61730279d2f2440ef36e03c0978afb8c43435",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96cbc00f_a0d3b842",
+        "filename": "headers/private/kernel/vm/vm_types.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-11-10T21:15:30Z",
+      "side": 1,
+      "message": "%# looks wrong?\n\nThese and the other things in this file should probably print both %p and % BPRIx64",
+      "revId": "8fe61730279d2f2440ef36e03c0978afb8c43435",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5335ea5f_aa6f0b9a",
+        "filename": "src/system/kernel/int.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-11-10T21:15:30Z",
+      "side": 1,
+      "message": "It probably isn\u0027t for other architectures either. Can\u0027t we be more generic here?",
+      "revId": "8fe61730279d2f2440ef36e03c0978afb8c43435",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "967c6b2d_b4cbe119",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 4429,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-11-10T21:15:30Z",
+      "side": 1,
+      "message": "IMHO the changes to this dprintf are not really needed, aside from maybe the execute indicator. I think we should leave this out.",
+      "revId": "8fe61730279d2f2440ef36e03c0978afb8c43435",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
