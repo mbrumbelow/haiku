@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "7acb4bcb_7216861f",
+        "filename": "headers/private/kernel/boot/platform/efi/arch_smp.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-11-11T22:50:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de3dd415_3bc6bc25",
+      "revId": "efb0d318c0d8332453a2a5a63ab43b6c3c01131c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23931a0d_92888cf3",
         "filename": "headers/private/kernel/vm/vm_types.h",
         "patchSetId": 8

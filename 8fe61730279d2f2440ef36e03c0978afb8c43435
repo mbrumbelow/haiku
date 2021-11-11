@@ -178,6 +178,24 @@
     },
     {
       "key": {
+        "uuid": "583f3316_81603c63",
+        "filename": "src/system/kernel/int.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-11-11T22:50:54Z",
+      "side": 1,
+      "message": "This seems perfectly reasonable to me.  @waddlesplash i\u0027d like to leave this in place for now since it\u0027s not really a clear cut \"empty arch_*\"",
+      "parentUuid": "10034178_43a9064d",
+      "revId": "8fe61730279d2f2440ef36e03c0978afb8c43435",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "967c6b2d_b4cbe119",
         "filename": "src/system/kernel/vm/vm.cpp",
         "patchSetId": 12

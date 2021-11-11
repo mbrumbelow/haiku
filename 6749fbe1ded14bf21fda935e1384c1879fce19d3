@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "867ebae5_d693be12",
+        "filename": "headers/private/kernel/vm/VMCache.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-11-11T22:50:54Z",
+      "side": 1,
+      "message": "Ack.   Leaving %# since it\u0027s valid and i\u0027ve had way too much input over two characters :-)",
+      "parentUuid": "2203235f_8f986ac7",
+      "revId": "6749fbe1ded14bf21fda935e1384c1879fce19d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a4febe8_137ef064",
         "filename": "headers/private/kernel/vm/vm_types.h",
         "patchSetId": 13
@@ -33,6 +51,24 @@
       "revId": "6749fbe1ded14bf21fda935e1384c1879fce19d3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4f787ce_946f9797",
+        "filename": "headers/private/kernel/vm/vm_types.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-11-11T22:50:54Z",
+      "side": 1,
+      "message": "Ack.   Leaving %# since it\u0027s valid and i\u0027ve had way too much input on two characters :-)",
+      "parentUuid": "1a4febe8_137ef064",
+      "revId": "6749fbe1ded14bf21fda935e1384c1879fce19d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "e7d635c8_30b2e722",
+        "filename": "headers/private/system/arch/riscv64/arch_cpu_defs.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-11-11T22:50:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7a7cd19_fca6f690",
+      "revId": "6749fbe1ded14bf21fda935e1384c1879fce19d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6aafa5f5_8fd838db",
         "filename": "src/system/boot/platform/efi/arch/riscv64/arch_smp.cpp",
         "patchSetId": 13
@@ -67,6 +121,24 @@
       "revId": "6749fbe1ded14bf21fda935e1384c1879fce19d3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "018fdaf9_76607f68",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_smp.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-11-11T22:50:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6aafa5f5_8fd838db",
+      "revId": "6749fbe1ded14bf21fda935e1384c1879fce19d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
