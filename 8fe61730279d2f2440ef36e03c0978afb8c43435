@@ -107,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "b5d6cda9_09c4bba2",
+        "filename": "headers/private/kernel/vm/vm_types.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-11-11T12:04:45Z",
+      "side": 1,
+      "message": "%#x is the correct way to print an hex number with the 0x prefix (when it\u0027s not a pointer, for %p that is already the default), there is nothing wrong with that?",
+      "parentUuid": "54bbfc14_d46d9ae8",
+      "revId": "8fe61730279d2f2440ef36e03c0978afb8c43435",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5335ea5f_aa6f0b9a",
         "filename": "src/system/kernel/int.cpp",
         "patchSetId": 12
