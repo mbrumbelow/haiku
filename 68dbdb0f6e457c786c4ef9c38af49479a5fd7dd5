@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4becc95f_bc2f63e9",
+        "filename": "src/apps/diskprobe/ProbeView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-11-12T11:40:35Z",
+      "side": 0,
+      "message": "this method was previously disabled and this patch re-enables it. Is it intentional?",
+      "revId": "68dbdb0f6e457c786c4ef9c38af49479a5fd7dd5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
