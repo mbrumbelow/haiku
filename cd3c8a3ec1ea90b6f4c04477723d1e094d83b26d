@@ -103,6 +103,24 @@
       "revId": "cd3c8a3ec1ea90b6f4c04477723d1e094d83b26d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "adf2440f_802144d6",
+        "filename": "src/system/libroot/os/system_info.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-11-12T12:03:13Z",
+      "side": 1,
+      "message": "I don\u0027t find offsetof hacks really simpler than the current implementation. It also makes things more likely to break if the new structure is changed again later and diverges further from this one, where this code would either still work, or have a compile error.\n\nAlso, padding and packing may make the use of offsetof problematic:\nThe old structure has a bigtime_t (8 bytes) and a bool. It will probably be padded to a total of 12 bytes (with 3 padding bytes after the bool).\nIn the new structure, the frequency could be aligned to 8 bytes since it is a 64bit values, resulting in 4 extra padding bytes after the bool.\n\nIn that case, your computation is incorrect.",
+      "parentUuid": "dca4dda7_4cc0aac5",
+      "revId": "cd3c8a3ec1ea90b6f4c04477723d1e094d83b26d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
