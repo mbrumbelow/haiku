@@ -654,11 +654,11 @@ arch_int_disable_io_interrupt(int irq)
 }
 
 
-void
+status_t
 arch_int_assign_to_cpu(int32 irq, int32 cpu)
 {
-	if (cpu != 0)
-		panic("arch_int_assign_to_cpu: not implemented");
+	// TODO: Improve SMP support
+	return B_UNSUPPORTED;
 }
 
 

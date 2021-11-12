@@ -571,7 +571,9 @@ ppc_set_current_cpu_exception_context(struct ppc_cpu_exception_context *context)
 }
 
 
-void
+status_t
 arch_int_assign_to_cpu(int32 irq, int32 cpu)
 {
+	// No SMP support (yet)
+	return B_UNSUPPORTED;
 }

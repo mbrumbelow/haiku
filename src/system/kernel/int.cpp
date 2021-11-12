@@ -411,11 +411,6 @@ restore_interrupts(cpu_status status)
 static
 uint32 assign_cpu(void)
 {
-// arch_int_assign_to_cpu is not yet implemented for riscv
-#ifdef __riscv
-	return 0;
-#endif
-
 	const cpu_topology_node* node;
 	do {
 		int32 nextID = atomic_add(&sLastCPU, 1);
@@ -473,7 +468,13 @@ install_io_interrupt_handler(long vector, interrupt_handler handler, void *data,
 		&& sVectors[vector].assigned_cpu->cpu == -1) {
 
 		int32 cpuID = assign_cpu();
-		arch_int_assign_to_cpu(vector, cpuID);
+		status_t result = arch_int_assign_to_cpu(vector, cpuID);
+		if (result != B_OK) {
+			// This can happen on incomplete SMP implementations
+			// and is a bit messy
+			dprintf("int: arch_int_assign_to_cpu failure. Squashing to CPU 0\n");
+			cpuID = 0;
+		}
 		sVectors[vector].assigned_cpu->cpu = cpuID;
 
 		cpu_ent* cpu = &gCPU[cpuID];
