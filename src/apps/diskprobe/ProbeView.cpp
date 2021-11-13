@@ -89,8 +89,6 @@ public:
 									uint32 blockSize);
 	virtual						~PositionSlider();
 
-	virtual	void				DrawBar();
-
 			off_t				Position() const;
 			off_t				Size() const { return fSize; }
 			uint32				BlockSize() const { return fBlockSize; }
@@ -320,66 +318,6 @@ PositionSlider::PositionSlider(const char* name, BMessage* message,
 PositionSlider::~PositionSlider()
 {
 }
-
-
-void
-PositionSlider::DrawBar()
-{
-	BView* view = OffscreenView();
-
-	BRect barFrame = BarFrame();
-	BRect frame = barFrame.InsetByCopy(1, 1);
-	frame.top++;
-	frame.left++;
-	frame.right = ThumbFrame().left + ThumbFrame().Width() / 2;
-
-	view->SetHighColor(IsEnabled() ? ui_color(B_CONTROL_HIGHLIGHT_COLOR)
-		: tint_color(ui_color(B_CONTROL_HIGHLIGHT_COLOR), B_DARKEN_1_TINT));
-	view->FillRect(frame);
-
-	frame.left = frame.right + 1;
-	frame.right = barFrame.right - 1;
-	view->SetHighColor(tint_color(ViewColor(), IsEnabled() ? B_DARKEN_1_TINT : B_LIGHTEN_1_TINT));
-	view->FillRect(frame);
-
-	rgb_color cornerColor = tint_color(ViewColor(), B_DARKEN_1_TINT);
-	rgb_color darkColor = tint_color(ViewColor(), B_DARKEN_3_TINT);
-	rgb_color shineColor = ui_color(B_SHINE_COLOR);
-	rgb_color shadowColor = ui_color(B_SHADOW_COLOR);
-
-	if (!IsEnabled()) {
-		darkColor = tint_color(ViewColor(), B_DARKEN_1_TINT);
-		shineColor = tint_color(shineColor, B_DARKEN_2_TINT);
-		shadowColor = tint_color(shadowColor, B_LIGHTEN_2_TINT);
-	}
-
-	view->BeginLineArray(9);
-
-	// the corners
-	view->AddLine(barFrame.LeftTop(), barFrame.LeftTop(), cornerColor);
-	view->AddLine(barFrame.LeftBottom(), barFrame.LeftBottom(), cornerColor);
-	view->AddLine(barFrame.RightTop(), barFrame.RightTop(), cornerColor);
-
-	// the edges
-	view->AddLine(BPoint(barFrame.left, barFrame.top + 1),
-		BPoint(barFrame.left, barFrame.bottom - 1), darkColor);
-	view->AddLine(BPoint(barFrame.right, barFrame.top + 1),
-		BPoint(barFrame.right, barFrame.bottom), shineColor);
-
-	barFrame.left++;
-	barFrame.right--;
-	view->AddLine(barFrame.LeftTop(), barFrame.RightTop(), darkColor);
-	view->AddLine(barFrame.LeftBottom(), barFrame.RightBottom(), shineColor);
-
-	// the inner edges
-	barFrame.top++;
-	view->AddLine(barFrame.LeftTop(), barFrame.RightTop(), shadowColor);
-	view->AddLine(BPoint(barFrame.left, barFrame.top + 1),
-		BPoint(barFrame.left, barFrame.bottom - 1), shadowColor);
-
-	view->EndLineArray();
-}
-
 
 void
 PositionSlider::Reset()

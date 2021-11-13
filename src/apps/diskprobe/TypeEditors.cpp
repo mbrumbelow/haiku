@@ -853,10 +853,10 @@ ImageView::ImageView(DataEditor &editor)
 {
 	if (editor.Type() == B_MINI_ICON_TYPE
 		|| editor.Type() == B_LARGE_ICON_TYPE
-		|| editor.Type() == B_VECTOR_ICON_TYPE
-	)
+		|| editor.Type() == B_VECTOR_ICON_TYPE) {
+		SetName(B_TRANSLATE("Icon view"));
+	}
 
-	SetName(B_TRANSLATE("Icon view"));
 
 	fDescriptionView = new BStringView("",
 		B_TRANSLATE_COMMENT("Could not read image", "Image means "
