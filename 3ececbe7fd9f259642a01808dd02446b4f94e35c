@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f9a4aed_e8a2a962",
+        "filename": "src/system/kernel/int.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-11-13T00:44:30Z",
+      "side": 1,
+      "message": "It can also happen with nested interrupt controllers. For example Unmatched PCI host MSI interrupt controller works over single PLIC interrupt so all MSI interrupts can be assigned only to the same CPU. GPIO pins are also often registered as nested interrupt controller.",
+      "revId": "3ececbe7fd9f259642a01808dd02446b4f94e35c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
