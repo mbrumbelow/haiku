@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "66b62ca8_bae92bbb",
+        "filename": "src/add-ons/kernel/file_systems/fat/attr.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-11-16T19:21:53Z",
+      "side": 1,
+      "message": "Indeed, but I didn\u0027t want to make any functional changes in this commit, so I\u0027ll make that change in the next commit(s).",
+      "parentUuid": "38ad8e45_687c6358",
+      "revId": "0ff3b11794bea6cfe82226e82fa635f53344f6cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ae1a3faf_184f247a",
         "filename": "src/add-ons/kernel/file_systems/fat/attr.cpp",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "0ff3b11794bea6cfe82226e82fa635f53344f6cf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5df872a_1c8049f6",
+        "filename": "src/add-ons/kernel/file_systems/fat/attr.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-11-16T19:21:53Z",
+      "side": 1,
+      "message": "Indeed, but I didn\u0027t want to make any functional changes in this commit, so I\u0027ll make that change in the next commit(s).",
+      "parentUuid": "ae1a3faf_184f247a",
+      "revId": "0ff3b11794bea6cfe82226e82fa635f53344f6cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -70,6 +106,24 @@
     },
     {
       "key": {
+        "uuid": "f336e763_1186e3c4",
+        "filename": "src/add-ons/kernel/file_systems/fat/dosfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1151,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-11-16T19:21:53Z",
+      "side": 1,
+      "message": "Not sure. Yeah, I can fix the weird indentation.",
+      "parentUuid": "2ee1094a_fc8cfbae",
+      "revId": "0ff3b11794bea6cfe82226e82fa635f53344f6cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4ed8df60_62199e93",
         "filename": "src/add-ons/kernel/file_systems/fat/file.cpp",
         "patchSetId": 1
@@ -98,6 +152,24 @@
       "writtenOn": "2021-11-16T13:02:19Z",
       "side": 1,
       "message": "Why is this one not using a RecursiveLocker like the others?",
+      "revId": "0ff3b11794bea6cfe82226e82fa635f53344f6cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a308e2e_43b3c7a0",
+        "filename": "src/add-ons/kernel/file_systems/fat/file.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-11-16T19:21:53Z",
+      "side": 1,
+      "message": "Because there are still \"goto\"s in this function, I didn\u0027t see an easy way to eliminate them (we don\u0027t have a generic VnodePutter, only one for VFS.) That will require some more work.",
+      "parentUuid": "f699c972_9fdc9f7b",
       "revId": "0ff3b11794bea6cfe82226e82fa635f53344f6cf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
@@ -183,6 +255,24 @@
       "writtenOn": "2021-11-16T13:02:19Z",
       "side": 1,
       "message": "these should probably be converted to methods in the diri struct",
+      "revId": "0ff3b11794bea6cfe82226e82fa635f53344f6cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3571e732_dd5e7c5b",
+        "filename": "src/add-ons/kernel/file_systems/fat/iter.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-11-16T19:21:53Z",
+      "side": 1,
+      "message": "Probably, but I figured that can wait for a later change also.",
+      "parentUuid": "6b912304_f42ea463",
       "revId": "0ff3b11794bea6cfe82226e82fa635f53344f6cf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
