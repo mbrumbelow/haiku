@@ -124,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "43886242_eba60277",
+        "filename": "src/add-ons/kernel/file_systems/fat/dosfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1151,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-11-16T20:56:47Z",
+      "side": 1,
+      "message": "KDL commands can\u0027t be called without freezing system and by program from userland if I am correct. Freezing system may be undesirable when debugging and it can break system because of timeouts.",
+      "parentUuid": "f336e763_1186e3c4",
+      "revId": "0ff3b11794bea6cfe82226e82fa635f53344f6cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4ed8df60_62199e93",
         "filename": "src/add-ons/kernel/file_systems/fat/file.cpp",
         "patchSetId": 1
