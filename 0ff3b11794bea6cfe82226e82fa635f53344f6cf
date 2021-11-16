@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "38ad8e45_687c6358",
+        "filename": "src/add-ons/kernel/file_systems/fat/attr.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-11-16T13:02:19Z",
+      "side": 1,
+      "message": "locking does not seem needed here (this function does not access the filesystem at all)",
+      "revId": "0ff3b11794bea6cfe82226e82fa635f53344f6cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae1a3faf_184f247a",
+        "filename": "src/add-ons/kernel/file_systems/fat/attr.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-11-16T13:02:19Z",
+      "side": 1,
+      "message": "locking does not seem needed here (this function does not access the filesystem at all)",
+      "revId": "0ff3b11794bea6cfe82226e82fa635f53344f6cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6c35660_3e500b2b",
+        "filename": "src/add-ons/kernel/file_systems/fat/dosfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-11-16T13:02:19Z",
+      "side": 1,
+      "message": "vol \u003d new nspace() ?",
+      "revId": "0ff3b11794bea6cfe82226e82fa635f53344f6cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ee1094a_fc8cfbae",
+        "filename": "src/add-ons/kernel/file_systems/fat/dosfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1151,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-11-16T13:02:19Z",
+      "side": 1,
+      "message": "maybe fix the weird indentation here?\n\nAlso, this code is in a #if 0 anyway, do we need it? What are these ioctls? Looks like debug stuff that would be more appropriate as KDL commands?",
+      "revId": "0ff3b11794bea6cfe82226e82fa635f53344f6cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ed8df60_62199e93",
+        "filename": "src/add-ons/kernel/file_systems/fat/file.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-11-16T13:02:19Z",
+      "side": 1,
+      "message": "cookie \u003d new filecookie() ?",
+      "revId": "0ff3b11794bea6cfe82226e82fa635f53344f6cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f699c972_9fdc9f7b",
+        "filename": "src/add-ons/kernel/file_systems/fat/file.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-11-16T13:02:19Z",
+      "side": 1,
+      "message": "Why is this one not using a RecursiveLocker like the others?",
+      "revId": "0ff3b11794bea6cfe82226e82fa635f53344f6cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "316ca5eb_07c1ea01",
+        "filename": "src/add-ons/kernel/file_systems/fat/file.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 960,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-11-16T13:02:19Z",
+      "side": 1,
+      "message": "the label can be removed I think",
+      "revId": "0ff3b11794bea6cfe82226e82fa635f53344f6cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d86c7141_09fd4d9d",
+        "filename": "src/add-ons/kernel/file_systems/fat/file.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1107,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-11-16T13:02:19Z",
+      "side": 1,
+      "message": "the label can be removed",
+      "revId": "0ff3b11794bea6cfe82226e82fa635f53344f6cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b912304_f42ea463",
+        "filename": "src/add-ons/kernel/file_systems/fat/iter.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-11-16T13:02:19Z",
+      "side": 1,
+      "message": "these should probably be converted to methods in the diri struct",
+      "revId": "0ff3b11794bea6cfe82226e82fa635f53344f6cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
