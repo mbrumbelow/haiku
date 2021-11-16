@@ -138,6 +138,40 @@
     },
     {
       "key": {
+        "uuid": "7bc4345b_5858e4ee",
+        "filename": "src/add-ons/kernel/file_systems/fat/iter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-11-16T16:15:50Z",
+      "side": 1,
+      "message": "should be current_block !\u003d NULL",
+      "revId": "0ff3b11794bea6cfe82226e82fa635f53344f6cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80a8afd1_34fc2138",
+        "filename": "src/add-ons/kernel/file_systems/fat/iter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-11-16T16:15:50Z",
+      "side": 1,
+      "message": "should be current_block !\u003d NULL",
+      "revId": "0ff3b11794bea6cfe82226e82fa635f53344f6cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6b912304_f42ea463",
         "filename": "src/add-ons/kernel/file_systems/fat/iter.h",
         "patchSetId": 1
