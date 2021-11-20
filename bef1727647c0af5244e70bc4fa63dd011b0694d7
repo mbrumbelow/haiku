@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "74c1be86_dde93274",
+        "filename": "src/system/boot/arch/arm/arch_cpu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-11-20T13:11:56Z",
+      "side": 1,
+      "message": "If this code is not needed, it should be deleted, not just disabled.\n\nIf it is needed sometime later but can\u0027t be enabled now, there should be a comment here explaining why that\u0027s so, and what needs to be done before enabling this code back.",
+      "revId": "bef1727647c0af5244e70bc4fa63dd011b0694d7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
