@@ -125,6 +125,24 @@
     },
     {
       "key": {
+        "uuid": "274607d2_94d5bf17",
+        "filename": "src/system/kernel/system_info.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 598,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-11-20T13:03:42Z",
+      "side": 1,
+      "message": "it makes it easier to add fields to the structure later on. Kernel can detect that the size is different and handle older versions of the structure this way in case you run an old userland on a new kernel.\n\nHowever, our main use case for this currently is haikuports builders, which are running a newer userland on top of an older kernel. And in that case the kernel would just reply with \"I don\u0027t understand what you\u0027re trying to do\" so there is little point in doing it.",
+      "parentUuid": "8b4f143e_8c989444",
+      "revId": "cd3c8a3ec1ea90b6f4c04477723d1e094d83b26d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dca4dda7_4cc0aac5",
         "filename": "src/system/libroot/os/system_info.cpp",
         "patchSetId": 8
