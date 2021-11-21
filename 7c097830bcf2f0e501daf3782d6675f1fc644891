@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "454fc750_c9354e75",
+        "filename": "headers/private/kernel/condition_variable.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-11-21T22:37:43Z",
+      "side": 1,
+      "message": "needless change",
+      "revId": "7c097830bcf2f0e501daf3782d6675f1fc644891",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c026e145_50ed8061",
+        "filename": "src/system/kernel/condition_variable.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-11-21T22:37:43Z",
+      "side": 1,
+      "message": "probably can be non-atomic, and update comment",
+      "revId": "7c097830bcf2f0e501daf3782d6675f1fc644891",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
