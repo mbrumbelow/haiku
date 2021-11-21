@@ -40,10 +40,9 @@ private:
 			void				_RemoveFromVariable();
 
 private:
-			spinlock			fLock;
 			ConditionVariable*	fVariable;
-			Thread*				fThread;
 			status_t			fWaitStatus;
+			Thread*				fThread;
 
 			friend struct ConditionVariable;
 };
@@ -92,6 +91,8 @@ protected:
 
 			spinlock			fLock;
 			EntryList			fEntries;
+			int32				fEntriesCount;
+
 			ConditionVariable*	fNext;
 
 			friend struct ConditionVariableEntry;
