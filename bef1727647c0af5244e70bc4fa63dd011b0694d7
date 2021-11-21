@@ -16,6 +16,24 @@
       "revId": "bef1727647c0af5244e70bc4fa63dd011b0694d7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a2bc7ec_24edb5a3",
+        "filename": "src/system/boot/arch/arm/arch_cpu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-11-21T20:52:15Z",
+      "side": 1,
+      "message": "The FPU initialization code should probably be in some other place, not here in the common (platform-independent) boot_arch_cpu_init for ARM.\n\nFor the EFI loader, we initialize the FPU before jumping to the kernel entry.S seems to be a better choice.\n\nFor the u-boot based bootloader I\u0027m not quite sure, it could be either in u-boot specific bootloader start code or before jumping to the kernel. If we want to keep the u-boot loader at all.",
+      "parentUuid": "74c1be86_dde93274",
+      "revId": "bef1727647c0af5244e70bc4fa63dd011b0694d7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
