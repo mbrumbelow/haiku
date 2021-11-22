@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "148096c3_f9b9408d",
+        "filename": "headers/os/kernel/OS.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-11-22T07:20:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7b225461_b2a17890",
+      "revId": "cd3c8a3ec1ea90b6f4c04477723d1e094d83b26d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b41b2593_8d13d7b5",
         "filename": "src/system/kernel/system_info.cpp",
         "patchSetId": 8
@@ -90,6 +108,24 @@
     },
     {
       "key": {
+        "uuid": "256b4834_930c536b",
+        "filename": "src/system/kernel/system_info.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-11-22T07:20:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "762c4af5_988620e4",
+      "revId": "cd3c8a3ec1ea90b6f4c04477723d1e094d83b26d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0be703b2_5fe72e36",
         "filename": "src/system/kernel/system_info.cpp",
         "patchSetId": 8
@@ -143,6 +179,24 @@
     },
     {
       "key": {
+        "uuid": "df57f1db_c353eac0",
+        "filename": "src/system/kernel/system_info.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 598,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-11-22T07:20:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "274607d2_94d5bf17",
+      "revId": "cd3c8a3ec1ea90b6f4c04477723d1e094d83b26d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dca4dda7_4cc0aac5",
         "filename": "src/system/libroot/os/system_info.cpp",
         "patchSetId": 8
@@ -175,6 +229,24 @@
       "revId": "cd3c8a3ec1ea90b6f4c04477723d1e094d83b26d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f5c8995_ff5e71e5",
+        "filename": "src/system/libroot/os/system_info.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-11-22T07:20:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "adf2440f_802144d6",
+      "revId": "cd3c8a3ec1ea90b6f4c04477723d1e094d83b26d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
