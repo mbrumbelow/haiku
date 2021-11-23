@@ -107,6 +107,41 @@
     },
     {
       "key": {
+        "uuid": "bd850a5b_be8e8e48",
+        "filename": "headers/private/kernel/kcov.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-11-23T15:14:36Z",
+      "side": 1,
+      "message": "Makes sense. Probably we should add a note that these names are used other than on Haiku, then.",
+      "parentUuid": "2bc68a0f_7a19e13a",
+      "revId": "5010d9bfcb39985ecb4bd07ce71c0a725e806671",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a0bda39_575f2dff",
+        "filename": "src/add-ons/kernel/drivers/misc/kcov.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-11-23T15:14:36Z",
+      "side": 1,
+      "message": "Thought: Perhaps we can avoid having a driver at all, and instead have the kernel feature register a generic_syscall instead? Perhaps that makes more sense?",
+      "revId": "5010d9bfcb39985ecb4bd07ce71c0a725e806671",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f069134b_7d7b506b",
         "filename": "src/system/kernel/int.cpp",
         "patchSetId": 1

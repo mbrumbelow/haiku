@@ -34,6 +34,24 @@
       "revId": "68c3f45dfb5653b45e2336d76752e10524453f83",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24636c9d_82df7c0f",
+        "filename": "src/system/kernel/kcov.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-11-23T15:14:36Z",
+      "side": 0,
+      "message": "kernel_coverage, yeah. I guess we can keep the \"kcov\" for API naming if that\u0027s shared.\n\nNot sure about what the subdirectory name should be. If possible we should add one that we can use for all the analyzers/sanitizers, that way I could likely convert my KUBsan port and put it in here too, and maybe in the future we will get KASan and KThreadSan, too.",
+      "parentUuid": "f4fa9caa_65302cab",
+      "revId": "68c3f45dfb5653b45e2336d76752e10524453f83",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
