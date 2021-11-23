@@ -16,6 +16,24 @@
       "revId": "68c3f45dfb5653b45e2336d76752e10524453f83",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4fa9caa_65302cab",
+        "filename": "src/system/kernel/kcov.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-11-23T14:19:31Z",
+      "side": 0,
+      "message": "which name? kernel_coverage? which subdirectory?",
+      "parentUuid": "c033f4ff_7a494ce9",
+      "revId": "68c3f45dfb5653b45e2336d76752e10524453f83",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
