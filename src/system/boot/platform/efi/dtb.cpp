@@ -335,6 +335,30 @@ GetInterrupt(const void* fdt, int node, uint32 interruptCells)
 }
 
 
+static int64
+GetClockFrequency(const void* fdt, int node)
+{
+	int len = 0;
+
+	if (uint32* prop = (uint32*)fdt_getprop(fdt, node, "clock-frequency", NULL)) {
+		return fdt32_to_cpu(*prop);
+	}
+
+	if (uint32* prop = (uint32*)fdt_getprop(fdt, node, "clocks", &len)) {
+		uint32_t phandle = fdt32_to_cpu(*prop);
+		int offset = fdt_node_offset_by_phandle(fdt, phandle);
+		if (offset > 0) {
+			if (uint32* prop2 = (uint32*)fdt_getprop(fdt, offset, "clock-frequency", NULL)) {
+				int res = fdt32_to_cpu(*prop2);
+				return res;
+			}
+		}
+	}
+
+	return 0;
+}
+
+
 static void
 HandleFdt(const void* fdt, int node, uint32 addressCells, uint32 sizeCells,
 	uint32 interruptCells /* from parent node */)
@@ -400,9 +424,7 @@ HandleFdt(const void* fdt, int node, uint32 addressCells, uint32 sizeCells,
 
 			GetReg(fdt, node, addressCells, sizeCells, 0, uart.regs);
 			uart.irq = GetInterrupt(fdt, node, interruptCells);
-			const void* prop = fdt_getprop(fdt, node, "clock-frequency", NULL);
-
-			uart.clock = (prop == NULL) ? 0 : fdt32_to_cpu(*(uint32*)prop);
+			uart.clock = GetClockFrequency(fdt, node);
 
 			gUART = kSupportedUarts[i].uart_driver_init(uart.regs.start,
 				uart.clock);
