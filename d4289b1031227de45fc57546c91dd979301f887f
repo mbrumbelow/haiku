@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dd6cbd4c_ffabb59f",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-11-25T19:03:03Z",
+      "side": 1,
+      "message": "should:\n\"Always use boolean conditions\"\n\"Don’t assign in if and while statements\"",
+      "revId": "d4289b1031227de45fc57546c91dd979301f887f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80210a6d_718bdaad",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-11-25T19:03:03Z",
+      "side": 1,
+      "message": "can return without assignment",
+      "revId": "d4289b1031227de45fc57546c91dd979301f887f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
