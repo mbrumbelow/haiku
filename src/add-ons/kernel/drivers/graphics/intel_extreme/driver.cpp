@@ -134,6 +134,8 @@ const struct supported_device {
 	{0x192a, INTEL_MODEL_SKYS, "Skylake GT3"},
 	{0x192b, INTEL_MODEL_SKY,  "Skylake GT3"},
 
+	{0x5917, INTEL_MODEL_KBYM,  "Kabylake Mobile GT2"},
+
 	{0x3e92, INTEL_MODEL_CFL,  "CoffeeLake GT2"}
 };
 
