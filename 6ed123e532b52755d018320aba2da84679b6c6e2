@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5d8a4f09_7309cb77",
+        "filename": "src/add-ons/kernel/busses/agp_gart/intel_gart.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2021-11-28T04:59:10Z",
+      "side": 0,
+      "message": "I don\u0027t think this should break anything, because I changed this according to the manuals.\n\nI only tested with my IvyBridge laptop though.\n\nStill, SOC0 here is definitely wrong, ValleyView seems to follow IvyBridge, and Broxton follows Broadwell.",
+      "revId": "6ed123e532b52755d018320aba2da84679b6c6e2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
