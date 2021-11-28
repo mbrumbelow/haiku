@@ -142,6 +142,8 @@ const struct supported_device {
 	{0x1904, 0x1926, INTEL_MODEL_SKYM, "Skylake GT3"},
 	{0x1904, 0x192a, INTEL_MODEL_SKYS, "Skylake GT3"},
 	{0x1904, 0x192b, INTEL_MODEL_SKY,  "Skylake GT3"},
+
+	{0x3ec2, 0x3e92, INTEL_MODEL_CFL,  "CoffeeLake GT2"}
 };
 
 struct intel_info {
