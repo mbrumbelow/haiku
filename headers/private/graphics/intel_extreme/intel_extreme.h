@@ -51,6 +51,8 @@
 #define INTEL_GROUP_BDW		(INTEL_FAMILY_SOC0 | 0x0040)  // Broadwell
 #define INTEL_GROUP_SKY		(INTEL_FAMILY_LAKE | 0x0010)  // SkyLake
 #define INTEL_GROUP_KBY		(INTEL_FAMILY_LAKE | 0x0020)  // KabyLake
+#define INTEL_GROUP_CFL		(INTEL_FAMILY_LAKE | 0x0040)  // CoffeeLake
+#define INTEL_GROUP_CML		(INTEL_FAMILY_LAKE | 0x0080)  // CometLake
 // models
 #define INTEL_TYPE_SERVER	0x0004
 #define INTEL_TYPE_MOBILE	0x0008
@@ -82,6 +84,8 @@
 #define INTEL_MODEL_SKY		(INTEL_GROUP_SKY)
 #define INTEL_MODEL_SKYM	(INTEL_GROUP_SKY | INTEL_TYPE_MOBILE)
 #define INTEL_MODEL_SKYS	(INTEL_GROUP_SKY | INTEL_TYPE_SERVER)
+#define INTEL_MODEL_CFL		(INTEL_GROUP_CFL)
+#define INTEL_MODEL_CML		(INTEL_GROUP_CML)
 
 #define INTEL_PCH_DEVICE_ID_MASK	0xff80
 #define INTEL_PCH_IBX_DEVICE_ID		0x3b00
@@ -419,6 +423,38 @@ struct intel_free_graphics_memory {
 #define SNB_GTT_SIZE_NONE				(0 << 8)
 #define SNB_GTT_SIZE_1MB				(1 << 8)
 #define SNB_GTT_SIZE_2MB				(2 << 8)
+
+// BDW+ (GGC_0_0_0_PCI)
+
+#define BDW_GRAPHICS_MEMORY_CONTROL		0x50
+
+#define BDW_STOLEN_MEMORY_MASK			0xff00
+#define BDW_STOLEN_MEMORY_32MB			(1 << 16)
+#define BDW_STOLEN_MEMORY_64MB			(2 << 16)
+#define BDW_STOLEN_MEMORY_96MB			(3 << 16)
+#define BDW_STOLEN_MEMORY_128MB			(4 << 16)
+#define BDW_STOLEN_MEMORY_160MB			(5 << 16)
+#define BDW_STOLEN_MEMORY_192MB			(6 << 16)
+#define BDW_STOLEN_MEMORY_224MB			(7 << 16)
+#define BDW_STOLEN_MEMORY_256MB			(8 << 16)
+#define BDW_STOLEN_MEMORY_288MB			(9 << 16)
+#define BDW_STOLEN_MEMORY_320MB			(10 << 16)
+#define BDW_STOLEN_MEMORY_352MB			(11 << 16)
+#define BDW_STOLEN_MEMORY_384MB			(12 << 16)
+#define BDW_STOLEN_MEMORY_416MB			(13 << 16)
+#define BDW_STOLEN_MEMORY_448MB			(14 << 16)
+#define BDW_STOLEN_MEMORY_480MB			(15 << 16)
+#define BDW_STOLEN_MEMORY_512MB			(16 << 16)
+#define BDW_STOLEN_MEMORY_1024MB		(32 << 16)
+#define BDW_STOLEN_MEMORY_1536MB		(48 << 16)
+#define BDW_STOLEN_MEMORY_2016MB		(63 << 16)
+#define SKL_STOLEN_MEMORY_2048MB		(64 << 16)
+
+#define BDW_GTT_SIZE_MASK				(3 << 6)
+#define BDW_GTT_SIZE_NONE				(0 << 6)
+#define BDW_GTT_SIZE_2MB				(1 << 6)
+#define BDW_GTT_SIZE_4MB				(2 << 6)
+#define BDW_GTT_SIZE_8MB				(3 << 6)
 
 // graphics page translation table
 #define INTEL_PAGE_TABLE_CONTROL		0x02020
