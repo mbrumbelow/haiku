@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a26ad5e_7957d447",
+        "filename": "src/system/boot/platform/efi/acpi.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-01T13:19:51Z",
+      "side": 1,
+      "message": "I think it should be PRIx32 (and PRIu32 below) if the structure uses int32_t. B_PRIx32 and B_PRIu32 should be used for the BeOS type int32.\n\nUnfortunately the two are not equivalent (on 32bit systems, int32 is a long int, and int32_t is an int)",
+      "revId": "1ce0bd21aa55c126ca10f9bf885719a69258b061",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
