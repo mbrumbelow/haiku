@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cc406ba5_088f02d5",
+        "filename": "headers/private/kernel/boot/platform/efi/arch_smp.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2021-12-01T19:44:42Z",
+      "side": 1,
+      "message": "I don\u0027t think you should have riscv be part of this, and then add riscv ifdefs inside. riscv needs to have its own stuct in its own ifdef instead.",
+      "revId": "d1e029f3ad679a663377b2cc0b0b6a05913f57d8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c48aefc_8af37d2c",
+        "filename": "headers/private/kernel/vm/vm_types.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2021-12-01T19:44:42Z",
+      "side": 1,
+      "message": "Is page always 64 bit, seems like it should be an B_PRIxADDR?",
+      "revId": "d1e029f3ad679a663377b2cc0b0b6a05913f57d8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f50b1ce6_1d594e1b",
+        "filename": "src/system/kernel/arch/x86/paging/32bit/X86VMTranslationMap32Bit.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 877,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2021-12-01T19:44:42Z",
+      "side": 1,
+      "message": "Probably shouldn\u0027t be in this PR?",
+      "revId": "d1e029f3ad679a663377b2cc0b0b6a05913f57d8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16fe587f_24b19641",
+        "filename": "src/system/kernel/int.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2021-12-01T19:44:42Z",
+      "side": 1,
+      "message": "Mark with a TODO?",
+      "revId": "d1e029f3ad679a663377b2cc0b0b6a05913f57d8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
