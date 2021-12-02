@@ -4,10 +4,42 @@
  */
 
 
+#include <kernel.h>
 #include <boot/platform.h>
 #include <boot/stage2.h>
+#include <boot/stdio.h>
 
+#include "efi_platform.h"
 #include "mmu.h"
+#include "serial.h"
+#include "smp.h"
+
+
+struct gdt_idt_descr {
+	uint16  limit;
+	void*   base;
+} _PACKED;
+
+
+extern gdt_idt_descr gBootGDTDescriptor;
+
+
+extern "C" typedef void (*enter_kernel_t)(uint32_t, addr_t, addr_t, addr_t,
+	struct gdt_idt_descr *);
+
+
+// From entry.S
+extern "C" void arch_enter_kernel(uint32_t pageDirectory, addr_t kernelArgs,
+	addr_t kernelEntry, addr_t kernelStackTop, struct gdt_idt_descr *gdtDescriptor);
+
+// From arch_mmu.cpp
+extern void arch_mmu_post_efi_setup(size_t memory_map_size,
+	efi_memory_descriptor *memory_map, size_t descriptor_size,
+	uint32_t descriptor_version);
+
+extern uint32_t arch_mmu_generate_post_efi_page_tables(size_t memory_map_size,
+	efi_memory_descriptor *memory_map, size_t descriptor_size,
+	uint32_t descriptor_version);
 
 
 void
@@ -19,7 +51,158 @@ arch_convert_kernel_args(void)
 }
 
 
+static const char*
+memory_region_type_str(int type)
+{
+	switch (type)	{
+		case EfiReservedMemoryType:
+			return "ReservedMemoryType";
+		case EfiLoaderCode:
+			return "LoaderCode";
+		case EfiLoaderData:
+			return "LoaderData";
+		case EfiBootServicesCode:
+			return "BootServicesCode";
+		case EfiBootServicesData:
+			return "BootServicesData";
+		case EfiRuntimeServicesCode:
+			return "RuntimeServicesCode";
+		case EfiRuntimeServicesData:
+			return "RuntimeServicesData";
+		case EfiConventionalMemory:
+			return "ConventionalMemory";
+		case EfiUnusableMemory:
+			return "UnusableMemory";
+		case EfiACPIReclaimMemory:
+			return "ACPIReclaimMemory";
+		case EfiACPIMemoryNVS:
+			return "ACPIMemoryNVS";
+		case EfiMemoryMappedIO:
+			return "MMIO";
+		case EfiMemoryMappedIOPortSpace:
+			return "MMIOPortSpace";
+		case EfiPalCode:
+			return "PalCode";
+		case EfiPersistentMemory:
+			return "PersistentMemory";
+		default:
+			return "unknown";
+	}
+}
+
+
 void
 arch_start_kernel(addr_t kernelEntry)
 {
+	// Copy entry.S trampoline to lower 1M
+	enter_kernel_t enter_kernel = (enter_kernel_t)0xa000;
+	memcpy((void *)enter_kernel, (void *)arch_enter_kernel, B_PAGE_SIZE);
+
+	// Allocate virtual memory for kernel args
+	struct kernel_args *kernelArgs = NULL;
+	if (platform_allocate_region((void **)&kernelArgs,
+			sizeof(struct kernel_args), 0, false) != B_OK)
+		panic("Failed to allocate kernel args.");
+	addr_t virtKernelArgs;
+	platform_bootloader_address_to_kernel_address((void*)kernelArgs,
+		&virtKernelArgs);
+
+	// Prepare to exit EFI boot services.
+	// Read the memory map.
+	// First call is to determine the buffer size.
+	size_t memory_map_size = 0;
+	efi_memory_descriptor dummy;
+	size_t map_key;
+	size_t descriptor_size;
+	uint32_t descriptor_version;
+	if (kBootServices->GetMemoryMap(&memory_map_size, &dummy, &map_key,
+		&descriptor_size, &descriptor_version) != EFI_BUFFER_TOO_SMALL) {
+		panic("Unable to determine size of system memory map");
+	}
+
+	// Allocate a buffer twice as large as needed just in case it gets bigger
+	// between calls to ExitBootServices.
+	size_t actual_memory_map_size = memory_map_size * 2;
+	efi_memory_descriptor *memory_map
+		= (efi_memory_descriptor *)kernel_args_malloc(actual_memory_map_size);
+
+	if (memory_map == NULL)
+		panic("Unable to allocate memory map.");
+
+	// Read (and print) the memory map.
+	memory_map_size = actual_memory_map_size;
+	if (kBootServices->GetMemoryMap(&memory_map_size, memory_map, &map_key,
+		&descriptor_size, &descriptor_version) != EFI_SUCCESS) {
+		panic("Unable to fetch system memory map.");
+	}
+
+	addr_t addr = (addr_t)memory_map;
+	dprintf("System provided memory map:\n");
+	for (size_t i = 0; i < memory_map_size / descriptor_size; i++) {
+		efi_memory_descriptor *entry
+			= (efi_memory_descriptor *)(addr + i * descriptor_size);
+		dprintf("  phys: 0x%08llx-0x%08llx, virt: 0x%08llx-0x%08llx, type: %s (%#x), attr: %#llx\n",
+			entry->PhysicalStart,
+			entry->PhysicalStart + entry->NumberOfPages * B_PAGE_SIZE,
+			entry->VirtualStart,
+			entry->VirtualStart + entry->NumberOfPages * B_PAGE_SIZE,
+			memory_region_type_str(entry->Type), entry->Type,
+			entry->Attribute);
+	}
+
+	// Generate page tables for use after ExitBootServices.
+	uint32_t final_cr3 = arch_mmu_generate_post_efi_page_tables(
+		memory_map_size, memory_map, descriptor_size, descriptor_version);
+
+	// Attempt to fetch the memory map and exit boot services.
+	// This needs to be done in a loop, as ExitBootServices can change the
+	// memory map.
+	// Even better: Only GetMemoryMap and ExitBootServices can be called after
+	// the first call to ExitBootServices, as the firmware is permitted to
+	// partially exit. This is why twice as much space was allocated for the
+	// memory map, as it's impossible to allocate more now.
+	// A changing memory map shouldn't affect the generated page tables, as
+	// they only needed to know about the maximum address, not any specific
+	// entry.
+	dprintf("Calling ExitBootServices. So long, EFI!\n");
+	while (true) {
+		if (kBootServices->ExitBootServices(kImage, map_key) == EFI_SUCCESS) {
+			// The console was provided by boot services, disable it.
+			stdout = NULL;
+			stderr = NULL;
+			// Also switch to legacy serial output
+			// (may not work on all systems)
+			serial_switch_to_legacy();
+			dprintf("Switched to legacy serial output\n");
+			break;
+		}
+
+		memory_map_size = actual_memory_map_size;
+		if (kBootServices->GetMemoryMap(&memory_map_size, memory_map, &map_key,
+			&descriptor_size, &descriptor_version) != EFI_SUCCESS) {
+			panic("Unable to fetch system memory map.");
+		}
+	}
+
+	// Update EFI, generate final kernel physical memory map, etc.
+	arch_mmu_post_efi_setup(memory_map_size, memory_map,
+		descriptor_size, descriptor_version);
+
+	// Copy final kernel args
+	// This should be the last step before jumping to the kernel
+	// as there are some fixups happening to kernel_args even in the last minute
+	memcpy(kernelArgs, &gKernelArgs, sizeof(struct kernel_args));
+
+	smp_boot_other_cpus(final_cr3, kernelEntry);
+
+	// Enter the kernel!
+	dprintf("enter_kernel(cr3: 0x%08x, kernelArgs: 0x%08x, "
+		"kernelEntry: 0x%08x, sp: 0x%08x, gBootGDTDescriptor: 0x%08x)\n",
+		final_cr3, (uint32_t)virtKernelArgs, (uint32_t)kernelEntry,
+		(uint32_t)(gKernelArgs.cpu_kstack[0].start + gKernelArgs.cpu_kstack[0].size),
+		(uint32_t)&gBootGDTDescriptor);
+
+	enter_kernel(final_cr3, virtKernelArgs, kernelEntry,
+		gKernelArgs.cpu_kstack[0].start + gKernelArgs.cpu_kstack[0].size,
+		&gBootGDTDescriptor);
 }
