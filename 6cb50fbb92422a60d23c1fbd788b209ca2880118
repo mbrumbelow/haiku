@@ -16,6 +16,24 @@
       "revId": "6cb50fbb92422a60d23c1fbd788b209ca2880118",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3a7de91_ac4ac00a",
+        "filename": "src/system/kernel/arch/x86/arch_int.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-02T13:40:33Z",
+      "side": 1,
+      "message": "The call to assign_cpu which gets made shortly before arch_int_assign_to_cpu chooses a processor and reserves it.  If the architecture-specific assign_to_cpu function wants to undo that it has to do one of the following:\n\n1) fail with a B_ERROR and let the main code revert the action of assign_to_cpu\n2) fail, and return a differing cpu to what was provided to undo the act of assign_to_cpu",
+      "parentUuid": "2729ae9d_dd2789c9",
+      "revId": "6cb50fbb92422a60d23c1fbd788b209ca2880118",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
