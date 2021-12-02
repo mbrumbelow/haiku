@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d2aa966_97665b60",
+        "filename": "src/system/ldscripts/x86/boot_loader_efi.ld",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-02T12:49:53Z",
+      "side": 1,
+      "message": "it would be nice to fix that someday... It results in the file having a rather large area just filled with 0 bytes, that is loaded from disk. Instead it should be possible to have the loader clear it for us.\n\nThis problem exists on all other platforms, so, it\u0027s fine to merge this as it is, for now...",
+      "revId": "78260b1abb80976c498adfd8822aa96655c457b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
