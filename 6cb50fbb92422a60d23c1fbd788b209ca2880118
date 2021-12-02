@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2729ae9d_dd2789c9",
+        "filename": "src/system/kernel/arch/x86/arch_int.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-12-02T08:22:03Z",
+      "side": 1,
+      "message": "default obviously did nothing with the irq, why returning cpu then?",
+      "revId": "6cb50fbb92422a60d23c1fbd788b209ca2880118",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
