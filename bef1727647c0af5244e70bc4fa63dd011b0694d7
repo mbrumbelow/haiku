@@ -34,6 +34,24 @@
       "revId": "bef1727647c0af5244e70bc4fa63dd011b0694d7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8964edb1_3d51c219",
+        "filename": "src/system/boot/arch/arm/arch_cpu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-02T08:07:22Z",
+      "side": 1,
+      "message": "I don\u0027t think we need to keep the plain u-boot loader if EFI is working. EFI makes our life simpler, so let\u0027s just use that.",
+      "parentUuid": "4a2bc7ec_24edb5a3",
+      "revId": "bef1727647c0af5244e70bc4fa63dd011b0694d7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
