@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7bf0e0bb_86bfa5a8",
+        "filename": "src/system/kernel/arch/arm/soc_pxa.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-12-03T19:10:47Z",
+      "side": 1,
+      "message": "The \u0027{\u0027 goes to the beginning of the next line; and the \u0027:\u0027 should be on a single line like this:\nPXAInterruptController::...()\n    :\n    InterruptController()\n{\n}\n\nIn any case, it looks like the explicit super constructor call is completely superfluous here, and should be removed.",
+      "revId": "dd37777199211e014324acc1025659ad36bf3b55",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
