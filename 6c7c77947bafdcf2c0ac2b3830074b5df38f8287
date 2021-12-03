@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1da6b0c8_dddf57dc",
+        "filename": "headers/private/kernel/boot/intc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-12-03T23:01:31Z",
+      "side": 1,
+      "message": "Why not regs[2]? Are always 2 ranges for any interrupt controller?",
+      "revId": "6c7c77947bafdcf2c0ac2b3830074b5df38f8287",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
