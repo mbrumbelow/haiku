@@ -35,10 +35,11 @@
 
 #if KEYBOARD_SUPPORTS_KDL
 static bool sDebugKeyboardFound = false;
-static usb_id sDebugKeyboardPipe = 0;
 static size_t sDebugKeyboardReportSize = 0;
 static int32 sDebuggerCommandAdded = 0;
 
+#if USB_KDL
+static usb_id sDebugKeyboardPipe = 0;
 
 static int
 debug_get_keyboard_config(int argc, char **argv)
@@ -47,6 +48,7 @@ debug_get_keyboard_config(int argc, char **argv)
 	set_debug_variable("_usbReportSize", (uint64)sDebugKeyboardReportSize);
 	return 0;
 }
+#endif
 #endif
 
 
@@ -72,7 +74,7 @@ KeyboardProtocolHandler::KeyboardProtocolHandler(HIDReport &inputReport,
 	fHasReader(0),
 	fHasDebugReader(false)
 {
-	mutex_init(&fLock, "usb keyboard");
+	mutex_init(&fLock, DEVICE_PATH_SUFFIX " keyboard");
 
 	// find modifiers and keys
 	bool debugUsable = false;
@@ -105,7 +107,9 @@ KeyboardProtocolHandler::KeyboardProtocolHandler(HIDReport &inputReport,
 		// debugger info here so that it is ready on panics or crashes that
 		// don't go through the emergency keys. If we also found LEDs we assume
 		// it is a full sized keyboard and discourage further setting the info.
+#if USB_KDL
 		sDebugKeyboardPipe = fInputReport.Device()->InterruptPipe();
+#endif
 		sDebugKeyboardReportSize = fInputReport.Parser()->MaxReportSize();
 		if (outputReport != NULL)
 			sDebugKeyboardFound = true;
@@ -156,9 +160,11 @@ KeyboardProtocolHandler::KeyboardProtocolHandler(HIDReport &inputReport,
 
 #if KEYBOARD_SUPPORTS_KDL
 	if (atomic_add(&sDebuggerCommandAdded, 1) == 0) {
+#if USB_KDL
 		add_debugger_command("get_usb_keyboard_config",
 			&debug_get_keyboard_config,
 			"Gets the required config of the USB keyboard");
+#endif
 	}
 #endif
 }
@@ -170,8 +176,10 @@ KeyboardProtocolHandler::~KeyboardProtocolHandler()
 
 #if KEYBOARD_SUPPORTS_KDL
 	if (atomic_add(&sDebuggerCommandAdded, -1) == 1) {
+#if USB_KDL
 		remove_debugger_command("get_usb_keyboard_config",
 			&debug_get_keyboard_config);
+#endif
 	}
 #endif
 
@@ -775,8 +783,10 @@ KeyboardProtocolHandler::_ReadReport(bigtime_t timeout, uint32 *cookie)
 					&& (fLastModifiers & ALT_KEYS) != 0) {
 					// Alt-SysReq+letter was pressed
 #if KEYBOARD_SUPPORTS_KDL
+#if USB_KDL
 					sDebugKeyboardPipe
 						= fInputReport.Device()->InterruptPipe();
+#endif
 					sDebugKeyboardReportSize
 						= fInputReport.Parser()->MaxReportSize();
 #endif
