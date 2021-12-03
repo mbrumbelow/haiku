@@ -176,6 +176,18 @@ arch_int_init_post_vm(kernel_args *args)
 			args->arch_args.intc.regs2.start);
 		if (ic == NULL)
 			return B_NO_MEMORY;
+	} else if (strncmp(args->arch_args.intc.kind, INTC_KIND_OMAP3,
+		sizeof(args->arch_args.intc.kind)) == 0) {
+		InterruptController *ic = new(std::nothrow) OMAP3InterruptController(
+			args->arch_args.intc.regs1.start);
+		if (ic == NULL)
+			return B_NO_MEMORY;
+	} else if (strncmp(args->arch_args.intc.kind, INTC_KIND_PXA,
+		sizeof(args->arch_args.intc.kind)) == 0) {
+		InterruptController *ic = new(std::nothrow) PXAInterruptController(
+			args->arch_args.intc.regs1.start);
+		if (ic == NULL)
+			return B_NO_MEMORY;
 	} else {
 		panic("No interrupt controllers found!\n");
 	}
