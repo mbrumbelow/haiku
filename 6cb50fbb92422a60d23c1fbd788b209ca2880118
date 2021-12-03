@@ -34,6 +34,24 @@
       "revId": "6cb50fbb92422a60d23c1fbd788b209ca2880118",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57d4a896_4764f8df",
+        "filename": "src/system/kernel/arch/x86/arch_int.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-12-03T22:03:01Z",
+      "side": 1,
+      "message": "korli: Well, the code obviously works as-is, so this merely preserves that behavior.\n\nAnyway I wasn\u0027t intending this function would support failures i.e. negative error codes.",
+      "parentUuid": "f3a7de91_ac4ac00a",
+      "revId": "6cb50fbb92422a60d23c1fbd788b209ca2880118",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
