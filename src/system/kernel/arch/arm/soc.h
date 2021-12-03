@@ -21,6 +21,14 @@ public:
 	}
 
 protected:
+	InterruptController()
+	{
+		if (sInstance) {
+			panic("Multiple InterruptController objects created; that is currently unsupported!");
+		}
+		sInstance = this;
+	}
+
 #if 0
 	InterruptController(fdt_module_info *fdtModule, fdt_device_node node)
 		: fFDT(fdtModule), fNode(node) {

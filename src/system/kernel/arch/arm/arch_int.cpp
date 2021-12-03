@@ -32,6 +32,7 @@
 #include <string.h>
 
 #include <drivers/bus/FDT.h>
+#include "arch_intc_gicv2.h"
 #include "soc.h"
 
 #include "soc_pxa.h"
@@ -168,15 +169,16 @@ arch_int_init_post_vm(kernel_args *args)
 			dprintf("Enabled high vectors\n");
 	}
 
-#if 0
-	status_t rc = get_module(B_FDT_MODULE_NAME, (module_info**)&sFdtModule);
-	if (rc != B_OK)
-		panic("Unable to get FDT module: %08lx!\n", rc);
-
-	rc = sFdtModule->setup_devices(intc_table, intc_count, NULL);
-	if (rc != B_OK)
+	if (strncmp(args->arch_args.intc.kind, INTC_KIND_GICV2,
+		sizeof(args->arch_args.intc.kind)) == 0) {
+		InterruptController *ic = new(std::nothrow) GICv2InterruptController(
+			args->arch_args.intc.regs1.start,
+			args->arch_args.intc.regs2.start);
+		if (ic == NULL)
+			return B_NO_MEMORY;
+	} else {
 		panic("No interrupt controllers found!\n");
-#endif
+	}
 
 	return B_OK;
 }
