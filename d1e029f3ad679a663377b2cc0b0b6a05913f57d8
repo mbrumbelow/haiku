@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e6ca19b5_6ddafc8e",
+        "filename": "headers/private/kernel/boot/platform/efi/arch_smp.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-03T22:30:41Z",
+      "side": 1,
+      "message": "so, given the size and complexity of this change, i\u0027d really like to hold on this.  I don\u0027t disagree, but there\u0027s also a lot of outstanding arm work such a change would potentially conflict with.\n\nThis change didn\u0027t introduce the problem, just not making it better.",
+      "parentUuid": "cc406ba5_088f02d5",
+      "revId": "d1e029f3ad679a663377b2cc0b0b6a05913f57d8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3c48aefc_8af37d2c",
         "filename": "headers/private/kernel/vm/vm_types.h",
         "patchSetId": 16
@@ -33,6 +51,24 @@
       "revId": "d1e029f3ad679a663377b2cc0b0b6a05913f57d8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f43fd014_ba71515c",
+        "filename": "headers/private/kernel/vm/vm_types.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-03T22:30:41Z",
+      "side": 1,
+      "message": "the ppn is a page_num_t, which is phys_addr_t.  so I guess B_PRIXPHYSADDR would make the most sense here.  I\u0027ll do away with the (perfectly valid) %# as well since it seems to trip everyone up 😊",
+      "parentUuid": "3c48aefc_8af37d2c",
+      "revId": "d1e029f3ad679a663377b2cc0b0b6a05913f57d8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "f70a1d1a_891202d5",
+        "filename": "src/system/kernel/arch/x86/paging/32bit/X86VMTranslationMap32Bit.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 877,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-03T22:30:41Z",
+      "side": 1,
+      "message": "agree.  removing",
+      "parentUuid": "f50b1ce6_1d594e1b",
+      "revId": "d1e029f3ad679a663377b2cc0b0b6a05913f57d8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16fe587f_24b19641",
         "filename": "src/system/kernel/int.cpp",
         "patchSetId": 16
@@ -67,6 +121,24 @@
       "revId": "d1e029f3ad679a663377b2cc0b0b6a05913f57d8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5cefd500_22abf117",
+        "filename": "src/system/kernel/int.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-03T22:30:41Z",
+      "side": 1,
+      "message": "already done via 4721 :-)",
+      "parentUuid": "16fe587f_24b19641",
+      "revId": "d1e029f3ad679a663377b2cc0b0b6a05913f57d8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
