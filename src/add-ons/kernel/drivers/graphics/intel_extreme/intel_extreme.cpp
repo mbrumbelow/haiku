@@ -95,7 +95,7 @@ release_vblank_sem(intel_info &info)
  *               the mask for testing them.
  */
 static uint32
-intel_get_interrupt_mask(intel_info& info, int pipes, bool enable)
+intel_get_interrupt_mask(intel_info& info, pipe_index pipe, bool enable)
 {
 	uint32 mask = 0;
 	bool hasPCH = info.pch_info != INTEL_PCH_NONE;
@@ -105,7 +105,7 @@ intel_get_interrupt_mask(intel_info& info, int pipes, bool enable)
 	// The PCH register itself does not exist in pre-PCH platforms, and the
 	// previous interrupt register of course also had a different mapping.
 
-	if ((pipes & INTEL_PIPE_A) != 0) {
+	if (pipe == INTEL_PIPE_A) {
 		if (info.device_type.InGroup(INTEL_GROUP_SNB)
 				|| info.device_type.InGroup(INTEL_GROUP_ILK))
 			mask |= PCH_INTERRUPT_VBLANK_PIPEA_SNB;
@@ -115,7 +115,7 @@ intel_get_interrupt_mask(intel_info& info, int pipes, bool enable)
 			mask |= INTERRUPT_VBLANK_PIPEA;
 	}
 
-	if ((pipes & INTEL_PIPE_B) != 0) {
+	if (pipe == INTEL_PIPE_B) {
 		if (info.device_type.InGroup(INTEL_GROUP_SNB)
 				|| info.device_type.InGroup(INTEL_GROUP_ILK))
 			mask |= PCH_INTERRUPT_VBLANK_PIPEB_SNB;
@@ -126,7 +126,7 @@ intel_get_interrupt_mask(intel_info& info, int pipes, bool enable)
 	}
 
 #if 0 // FIXME enable when we support the 3rd pipe
-	if ((pipes & INTEL_PIPE_C) != 0) {
+	if (pipe == INTEL_PIPE_C) {
 		// Older generations only had two pipes
 		if (hasPCH && info.device_type.Generation() > 6)
 			mask |= PCH_INTERRUPT_VBLANK_PIPEC;
@@ -142,39 +142,208 @@ intel_get_interrupt_mask(intel_info& info, int pipes, bool enable)
 }
 
 
+static void
+g35_enable_interrupts(intel_info& info, pipe_index pipe, bool enable)
+{
+	if (info.device_type.Generation() > 4)
+		return;
+
+	const uint32 value = enable ?
+		DISPLAY_PIPE_VBLANK_STATUS | DISPLAY_PIPE_VBLANK_ENABLED : 0;
+	switch (pipe) {
+		case INTEL_PIPE_A:
+			write32(info, INTEL_DISPLAY_A_PIPE_STATUS, value);
+			break;
+		case INTEL_PIPE_B:
+			write32(info, INTEL_DISPLAY_B_PIPE_STATUS, value);
+			break;
+		default:
+			break;
+	}
+}
+
+
+static void
+snb_enable_interrupts(intel_info& info, pipes which, bool enable)
+{
+	const int generation = info.device_type.Generation();
+	if (generation < 5 || generation > 7)
+		return;
+
+	uint32 final_mask = 0;
+	const uint32 pipe_a_mask = intel_get_interrupt_mask(info, INTEL_PIPE_A, true);
+	const uint32 pipe_b_mask = intel_get_interrupt_mask(info, INTEL_PIPE_B, true);
+	if ((which & INTEL_PIPE_A) != 0)
+		final_mask |= pipe_a_mask;
+	if ((which & INTEL_PIPE_B) != 0)
+		final_mask |= pipe_b_mask;
+
+	const uint32 value = enable ? final_mask : 0;
+
+	// Clear all the interrupts
+	write32(info, find_reg(info, INTEL_INTERRUPT_IDENTITY), ~0);
+
+	// enable interrupts - we only want VBLANK interrupts
+	write32(info, find_reg(info, INTEL_INTERRUPT_ENABLED), value);
+	write32(info, find_reg(info, INTEL_INTERRUPT_MASK), ~value);
+}
+
+
+static void
+bdw_enable_interrupts(intel_info& info, pipe_index pipe, bool enable)
+{
+	if (info.device_type.Generation() < 8)
+		return;
+
+	uint32 reg_mask, reg_enabled, reg_identity;
+	switch (pipe) {
+		case INTEL_PIPE_A:
+			reg_mask = PCH_INTERRUPT_PIPE_A_MASK_BDW;
+			reg_enabled = PCH_INTERRUPT_PIPE_A_ENABLED_BDW;
+			reg_identity = PCH_INTERRUPT_PIPE_A_IDENTITY_BDW;
+			break;
+		case INTEL_PIPE_B:
+			reg_mask = PCH_INTERRUPT_PIPE_B_MASK_BDW;
+			reg_enabled = PCH_INTERRUPT_PIPE_B_ENABLED_BDW;
+			reg_identity = PCH_INTERRUPT_PIPE_B_IDENTITY_BDW;
+			break;
+		case INTEL_PIPE_C:
+			reg_mask = PCH_INTERRUPT_PIPE_C_MASK_BDW;
+			reg_enabled = PCH_INTERRUPT_PIPE_C_ENABLED_BDW;
+			reg_identity = PCH_INTERRUPT_PIPE_C_IDENTITY_BDW;
+			break;
+		default:
+			return;
+	}
+	const uint32 value = enable ? PCH_INTERRUPT_VBLANK_BDW : 0;
+	write32(info, reg_identity, ~0);
+	write32(info, reg_enabled, value);
+	write32(info, reg_mask, ~value);
+}
+
+
+static void
+bdw_enable_global_interrupts(intel_info& info, bool enable)
+{
+	if (info.device_type.Generation() < 8)
+		return;
+
+	const uint32 bit = PCH_MASTER_INT_CTL_GLOBAL_BDW;
+	const uint32 mask = enable ? bit : 0;
+	const uint32 value = read32(info, PCH_MASTER_INT_CTL_BDW);
+	write32(info, PCH_MASTER_INT_CTL_BDW, (value & ~bit) | mask);
+}
+
+
+static bool
+intel_check_interrupt(intel_info& info, pipes& which)
+{
+	which = 0;
+	if (info.device_type.Generation() >= 8) {
+		const uint32 interrupt = read32(info, PCH_MASTER_INT_CTL_BDW);
+		if ((interrupt & PCH_MASTER_INT_CTL_PIPE_A_PENDING_BDW) != 0)
+			which |= INTEL_PIPE_A;
+		if ((interrupt & PCH_MASTER_INT_CTL_PIPE_B_PENDING_BDW) != 0)
+			which |= INTEL_PIPE_B;
+		if ((interrupt & PCH_MASTER_INT_CTL_PIPE_C_PENDING_BDW) != 0)
+			which |= INTEL_PIPE_C;
+	} else {
+		const uint32 pipe_a_mask = intel_get_interrupt_mask(info, INTEL_PIPE_A, false);
+		const uint32 pipe_b_mask = intel_get_interrupt_mask(info, INTEL_PIPE_B, false);
+		const uint32 reg_identity = find_reg(info, INTEL_INTERRUPT_IDENTITY);
+		const uint32 interrupt = read32(info, reg_identity);
+		if ((interrupt & pipe_a_mask) != 0)
+			which |= INTEL_PIPE_A;
+		if ((interrupt & pipe_b_mask) != 0)
+			which |= INTEL_PIPE_B;
+	}
+	return which != 0;
+}
+
+
+static bool
+bdw_check_pipe_interrupt(intel_info& info, pipe_index pipe)
+{
+	if (info.device_type.Generation() < 8)
+		return true; // will be used with && in ifs for other generations
+
+	uint32 reg_identity;
+	switch (pipe) {
+		case INTEL_PIPE_A:
+			reg_identity = PCH_INTERRUPT_PIPE_A_IDENTITY_BDW;
+			break;
+		case INTEL_PIPE_B:
+			reg_identity = PCH_INTERRUPT_PIPE_B_IDENTITY_BDW;
+			break;
+		case INTEL_PIPE_C:
+			reg_identity = PCH_INTERRUPT_PIPE_C_IDENTITY_BDW;
+			break;
+		default:
+			return false;
+	}
+	uint32 identity = read32(info, reg_identity);
+	return (identity & PCH_INTERRUPT_VBLANK_BDW) != 0;
+}
+
+
+static void
+intel_clear_pipe_interrupt(intel_info& info, pipe_index pipe)
+{
+	if (info.device_type.Generation() >= 8) {
+		uint32 reg_identity;
+		switch (pipe) {
+			case INTEL_PIPE_A:
+				reg_identity = PCH_INTERRUPT_PIPE_A_IDENTITY_BDW;
+				break;
+			case INTEL_PIPE_B:
+				reg_identity = PCH_INTERRUPT_PIPE_B_IDENTITY_BDW;
+				break;
+			case INTEL_PIPE_C:
+				reg_identity = PCH_INTERRUPT_PIPE_C_IDENTITY_BDW;
+				break;
+			default:
+				return;
+		}
+		const uint32 bit = PCH_INTERRUPT_VBLANK_BDW;
+		const uint32 identity = read32(info, reg_identity);
+		write32(info, reg_identity, (identity & ~bit) | bit);
+	} else {
+		const uint32 reg_identity = find_reg(info, INTEL_INTERRUPT_IDENTITY);
+		const uint32 bit = intel_get_interrupt_mask(info, pipe, false);
+		const uint32 identity = read32(info, reg_identity);
+		write32(info, reg_identity, (identity & ~bit) | bit);
+	}
+}
+
+
 static int32
 intel_interrupt_handler(void* data)
 {
 	intel_info &info = *(intel_info*)data;
-	uint32 reg = find_reg(info, INTEL_INTERRUPT_IDENTITY);
-	uint32 identity;
 
-	identity = read32(info, reg);
+	bdw_enable_global_interrupts(info, false);
 
-	if (identity == 0)
+	pipes which = 0;
+	bool do_handle = intel_check_interrupt(info, which);
+
+	if (do_handle == false)
 		return B_UNHANDLED_INTERRUPT;
 
 	int32 handled = B_HANDLED_INTERRUPT;
 
-	while (identity != 0) {
-
-		uint32 mask = intel_get_interrupt_mask(info, INTEL_PIPE_A, false);
-
-		if ((identity & mask) != 0) {
+	while (do_handle == true) {
+		if ((which & INTEL_PIPE_A) != 0 && bdw_check_pipe_interrupt(info, INTEL_PIPE_A)) {
 			handled = release_vblank_sem(info);
 
 			// make sure we'll get another one of those
-			write32(info, INTEL_DISPLAY_A_PIPE_STATUS,
-				DISPLAY_PIPE_VBLANK_STATUS | DISPLAY_PIPE_VBLANK_ENABLED);
+			g35_enable_interrupts(info, INTEL_PIPE_A, true);
 		}
 
-		mask = intel_get_interrupt_mask(info, INTEL_PIPE_B, false);
-		if ((identity & mask) != 0) {
+		if ((which & INTEL_PIPE_B) != 0 && bdw_check_pipe_interrupt(info, INTEL_PIPE_B)) {
 			handled = release_vblank_sem(info);
 
 			// make sure we'll get another one of those
-			write32(info, INTEL_DISPLAY_B_PIPE_STATUS,
-				DISPLAY_PIPE_VBLANK_STATUS | DISPLAY_PIPE_VBLANK_ENABLED);
+			g35_enable_interrupts(info, INTEL_PIPE_B, true);
 		}
 
 #if 0
@@ -190,11 +359,13 @@ intel_interrupt_handler(void* data)
 		}
 #endif
 
-		// setting the bit clears it!
-		write32(info, reg, identity);
-		// update our identity register with the remaining interupts
-		identity = read32(info, reg);
+		intel_clear_pipe_interrupt(info, INTEL_PIPE_A);
+		intel_clear_pipe_interrupt(info, INTEL_PIPE_B);
+
+		do_handle = intel_check_interrupt(info, which);
 	}
+
+	bdw_enable_global_interrupts(info, true);
 
 	return handled;
 }
@@ -245,20 +416,14 @@ init_interrupt_handler(intel_info &info)
 		status = install_io_interrupt_handler(info.irq,
 			&intel_interrupt_handler, (void*)&info, 0);
 		if (status == B_OK) {
-			write32(info, INTEL_DISPLAY_A_PIPE_STATUS,
-				DISPLAY_PIPE_VBLANK_STATUS | DISPLAY_PIPE_VBLANK_ENABLED);
-			write32(info, INTEL_DISPLAY_B_PIPE_STATUS,
-				DISPLAY_PIPE_VBLANK_STATUS | DISPLAY_PIPE_VBLANK_ENABLED);
+			g35_enable_interrupts(info, INTEL_PIPE_A, true);
+			g35_enable_interrupts(info, INTEL_PIPE_B, true);
 
-			uint32 enable = intel_get_interrupt_mask(info,
-				INTEL_PIPE_A | INTEL_PIPE_B, true);
+			snb_enable_interrupts(info, INTEL_PIPE_A | INTEL_PIPE_B, true);
 
-			// Clear all the interrupts
-			write32(info, find_reg(info, INTEL_INTERRUPT_IDENTITY), ~0);
-
-			// enable interrupts - we only want VBLANK interrupts
-			write32(info, find_reg(info, INTEL_INTERRUPT_ENABLED), enable);
-			write32(info, find_reg(info, INTEL_INTERRUPT_MASK), ~enable);
+			bdw_enable_global_interrupts(info, true);
+			bdw_enable_interrupts(info, INTEL_PIPE_A, true);
+			bdw_enable_interrupts(info, INTEL_PIPE_B, true);
 		}
 	}
 	if (status < B_OK) {
