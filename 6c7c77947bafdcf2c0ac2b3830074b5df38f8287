@@ -16,6 +16,24 @@
       "revId": "6c7c77947bafdcf2c0ac2b3830074b5df38f8287",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c71636dc_17c0a53e",
+        "filename": "headers/private/kernel/boot/intc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-12-04T11:15:12Z",
+      "side": 1,
+      "message": "It\u0027s enough for now: GICv2 has 2 ranges, OMAP3 and PXA have 1 range. But your observation is valid if we think of newer hardware, e.g. GICv3 seems to have at least 3 ranges but maybe even more in case of virtualization extensions.",
+      "parentUuid": "1da6b0c8_dddf57dc",
+      "revId": "6c7c77947bafdcf2c0ac2b3830074b5df38f8287",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
