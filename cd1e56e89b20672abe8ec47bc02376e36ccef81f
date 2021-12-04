@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4875df15_02ed24e4",
+        "filename": "src/add-ons/kernel/drivers/graphics/intel_extreme/intel_extreme.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-12-04T22:39:42Z",
+      "side": 1,
+      "message": "isn\u0027t this equivalent to \"write32(info, reg_identity, identity | bit);\" ?",
+      "revId": "cd1e56e89b20672abe8ec47bc02376e36ccef81f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
