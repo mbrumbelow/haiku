@@ -16,6 +16,24 @@
       "revId": "dd37777199211e014324acc1025659ad36bf3b55",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13cb2786_dcefcaa1",
+        "filename": "src/system/kernel/arch/arm/soc_pxa.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-12-04T11:26:59Z",
+      "side": 1,
+      "message": "OK makes sense.",
+      "parentUuid": "7bf0e0bb_86bfa5a8",
+      "revId": "dd37777199211e014324acc1025659ad36bf3b55",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
