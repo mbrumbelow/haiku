@@ -320,12 +320,14 @@ struct intel_shared_info {
 };
 
 enum pipe_index {
-    INTEL_PIPE_ANY,
-    INTEL_PIPE_A,
-    INTEL_PIPE_B,
-    INTEL_PIPE_C,
-    INTEL_PIPE_D
+    INTEL_PIPE_A = 0x01,
+    INTEL_PIPE_B = 0x02,
+    INTEL_PIPE_C = 0x04,
+    INTEL_PIPE_D = 0x08,
+    INTEL_PIPE_ANY = 0xff,
 };
+
+typedef uint8 pipes;
 
 //----------------- ioctl() interface ----------------
 
@@ -539,6 +541,30 @@ struct intel_free_graphics_memory {
 #define PCH_INTERRUPT_VBLANK_PIPEA_SNB		(1 << 7)
 #define PCH_INTERRUPT_VBLANK_PIPEB_SNB		(1 << 15)
 #define PCH_INTERRUPT_GLOBAL_SNB			(1 << 31)
+
+#define PCH_MASTER_INT_CTL_BDW					0x44200
+
+#define PCH_MASTER_INT_CTL_PIPE_A_PENDING_BDW	(1 << 16)
+#define PCH_MASTER_INT_CTL_PIPE_B_PENDING_BDW	(1 << 17)
+#define PCH_MASTER_INT_CTL_PIPE_C_PENDING_BDW	(1 << 18)
+#define PCH_MASTER_INT_CTL_GLOBAL_BDW			(1 << 31)
+
+#define PCH_INTERRUPT_PIPE_A_STATUS_BDW			0x44400
+#define PCH_INTERRUPT_PIPE_A_MASK_BDW			0x44404
+#define PCH_INTERRUPT_PIPE_A_IDENTITY_BDW		0x44408
+#define PCH_INTERRUPT_PIPE_A_ENABLED_BDW		0x4440c
+
+#define PCH_INTERRUPT_PIPE_B_STATUS_BDW			0x44410
+#define PCH_INTERRUPT_PIPE_B_MASK_BDW			0x44414
+#define PCH_INTERRUPT_PIPE_B_IDENTITY_BDW		0x44418
+#define PCH_INTERRUPT_PIPE_B_ENABLED_BDW		0x4441c
+
+#define PCH_INTERRUPT_PIPE_C_STATUS_BDW			0x44420
+#define PCH_INTERRUPT_PIPE_C_MASK_BDW			0x44424
+#define PCH_INTERRUPT_PIPE_C_IDENTITY_BDW		0x44428
+#define PCH_INTERRUPT_PIPE_C_ENABLED_BDW		0x4442c
+
+#define PCH_INTERRUPT_VBLANK_BDW				(1 << 0)
 
 // graphics port control (i.e. G45)
 #define DISPLAY_MONITOR_PORT_ENABLED	(1UL << 31)
