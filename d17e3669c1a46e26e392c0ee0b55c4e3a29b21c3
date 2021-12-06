@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9e0373d3_7982697f",
+        "filename": "src/system/kernel/arch/arm/arch_intc_gicv2.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-12-06T20:42:38Z",
+      "side": 1,
+      "message": "sure\n\nalso the functions below.",
+      "parentUuid": "02d5f1b8_b419670a",
+      "revId": "d17e3669c1a46e26e392c0ee0b55c4e3a29b21c3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c953a785_4c907444",
         "filename": "src/system/kernel/arch/arm/soc.h",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2021-12-06T19:55:18Z",
       "side": 1,
       "message": "can we remove old unused code?",
+      "revId": "d17e3669c1a46e26e392c0ee0b55c4e3a29b21c3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73284ef5_d67ce225",
+        "filename": "src/system/kernel/arch/arm/soc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-12-06T20:42:38Z",
+      "side": 1,
+      "message": "Absolutely happy to do so 😊",
+      "parentUuid": "c953a785_4c907444",
       "revId": "d17e3669c1a46e26e392c0ee0b55c4e3a29b21c3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
