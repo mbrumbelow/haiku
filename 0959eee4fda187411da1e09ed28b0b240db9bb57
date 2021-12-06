@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "9bd81a05_067c603b",
+        "filename": "headers/private/graphics/intel_extreme/intel_extreme.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-06T07:24:17Z",
+      "side": 1,
+      "message": "Yes, I made it work that way because at the time it was not clear which pipe was being used.\n\nIdeally we need wait_for_retrace to specify which display (BScreen instance) it is interested in, and probably a separate semaphore for each display?\n\nThere is a change somewhere in Gerrit adding the BScreen parameter to all accelerant hooks, then from there we can forward the info to the driver",
+      "parentUuid": "9a700610_5b6b35ee",
+      "range": {
+        "startLine": 323,
+        "startChar": 0,
+        "endLine": 328,
+        "endChar": 0
+      },
+      "revId": "0959eee4fda187411da1e09ed28b0b240db9bb57",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fbab1d5b_c9c2872d",
         "filename": "src/add-ons/kernel/drivers/graphics/intel_extreme/intel_extreme.cpp",
         "patchSetId": 5
