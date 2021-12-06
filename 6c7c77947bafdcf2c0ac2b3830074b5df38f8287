@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "8449c421_51964fde",
+        "filename": "headers/private/kernel/arch/arm/arch_kernel_args.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-12-06T21:47:48Z",
+      "side": 1,
+      "message": "Done (mostly)",
+      "parentUuid": "52027772_7ec631d7",
+      "revId": "6c7c77947bafdcf2c0ac2b3830074b5df38f8287",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1da6b0c8_dddf57dc",
         "filename": "headers/private/kernel/boot/intc.h",
         "patchSetId": 1
@@ -140,6 +158,24 @@
       "revId": "6c7c77947bafdcf2c0ac2b3830074b5df38f8287",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2db258e_ef01b9b2",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-12-06T21:47:48Z",
+      "side": 1,
+      "message": "Done\n\nBut maybe I just broke the riscv64 build? I\u0027ll check tomorrow.",
+      "parentUuid": "24cdb278_98090259",
+      "revId": "6c7c77947bafdcf2c0ac2b3830074b5df38f8287",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
