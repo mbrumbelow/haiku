@@ -138,6 +138,40 @@
       "revId": "0959eee4fda187411da1e09ed28b0b240db9bb57",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f025e92d_e7df7cfd",
+        "filename": "src/add-ons/kernel/drivers/graphics/intel_extreme/intel_extreme.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-12-06T07:46:53Z",
+      "side": 1,
+      "message": "if (!do_handle)",
+      "revId": "0959eee4fda187411da1e09ed28b0b240db9bb57",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fbc3ec0_de6cbe01",
+        "filename": "src/add-ons/kernel/drivers/graphics/intel_extreme/intel_extreme.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-12-06T07:46:53Z",
+      "side": 1,
+      "message": "while (do_handle)",
+      "revId": "0959eee4fda187411da1e09ed28b0b240db9bb57",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
