@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9a700610_5b6b35ee",
+        "filename": "headers/private/graphics/intel_extreme/intel_extreme.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-12-06T05:35:29Z",
+      "side": 1,
+      "message": "From intel_interrupt_handler(), my understanding is that the doubling was already the case before this change.",
+      "parentUuid": "80ac0daf_251ac77e",
+      "range": {
+        "startLine": 323,
+        "startChar": 0,
+        "endLine": 328,
+        "endChar": 0
+      },
+      "revId": "0959eee4fda187411da1e09ed28b0b240db9bb57",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fbab1d5b_c9c2872d",
         "filename": "src/add-ons/kernel/drivers/graphics/intel_extreme/intel_extreme.cpp",
         "patchSetId": 5
