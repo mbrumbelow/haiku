@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "82312218_a8756275",
+        "filename": "src/kits/device/USBDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-12-06T19:50:38Z",
+      "side": 1,
+      "message": "The things I found seemed to indicate UCS-2.",
+      "parentUuid": "e70c8471_a95b37d4",
+      "revId": "9085b743afad99ae8655ec46e8b8dc050f64fbb7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0dc7648c_d4a9905c",
         "filename": "src/kits/device/USBDevice.cpp",
         "patchSetId": 1
@@ -47,6 +65,24 @@
       "writtenOn": "2021-12-06T19:39:35Z",
       "side": 1,
       "message": "convert_to_utf8 is known to leak memory and this is not fixable without breaking the API. It should be deprecated and not used in new code (see #976).\n\nIt should be possible to use BUnicodeChar::ToUTF8 (not very convenient here) or BTextEncoding::Decode (https://git.haiku-os.org/haiku/tree/headers/os/locale/TextEncoding.h#n34) and BTextEncoding::Flush instead.",
+      "revId": "9085b743afad99ae8655ec46e8b8dc050f64fbb7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05b59f1f_308b45b2",
+        "filename": "src/kits/device/USBDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-12-06T19:50:38Z",
+      "side": 1,
+      "message": "I think that\u0027s only convert_*from*, not to? And furthermore it isn\u0027t apparent to me that it actually does leak memory.",
+      "parentUuid": "0dc7648c_d4a9905c",
       "revId": "9085b743afad99ae8655ec46e8b8dc050f64fbb7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
