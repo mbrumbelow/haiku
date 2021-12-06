@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "7aca39db_49b848bf",
+        "filename": "src/kits/device/USBDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-06T20:02:28Z",
+      "side": 1,
+      "message": "Ok. No emoji in usb descriptors then 😞",
+      "parentUuid": "82312218_a8756275",
+      "revId": "9085b743afad99ae8655ec46e8b8dc050f64fbb7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0dc7648c_d4a9905c",
         "filename": "src/kits/device/USBDevice.cpp",
         "patchSetId": 1
@@ -83,6 +101,24 @@
       "side": 1,
       "message": "I think that\u0027s only convert_*from*, not to? And furthermore it isn\u0027t apparent to me that it actually does leak memory.",
       "parentUuid": "0dc7648c_d4a9905c",
+      "revId": "9085b743afad99ae8655ec46e8b8dc050f64fbb7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5858b099_671223db",
+        "filename": "src/kits/device/USBDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-06T20:02:28Z",
+      "side": 1,
+      "message": "Right, currently it doesn\u0027t (iconv_close is called at the end). You can get into problem if calling it with an odd number of bytes (the last byte won\u0027t be used).\n\nIn any case I\u0027d prefer we generally move to BTextEncoding which is usable in more cases (you can do a stream conversion, adding bytes as you receive them), and uses ICU. Currently convert_to/from_utf8 is implemented on top of iconv and that\u0027s one dependency we should get rid of.\n\nBut this can probably be solved by rewriting the functions to use BTextEncoding. It probably means moving a few things around from libbe to libtextencoding, however.",
+      "parentUuid": "05b59f1f_308b45b2",
       "revId": "9085b743afad99ae8655ec46e8b8dc050f64fbb7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
