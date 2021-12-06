@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "575cd15d_e9ddc736",
+        "filename": "src/system/kernel/arch/arm/arch_intc_gicv2.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-12-06T21:45:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e0373d3_7982697f",
+      "revId": "d17e3669c1a46e26e392c0ee0b55c4e3a29b21c3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c953a785_4c907444",
         "filename": "src/system/kernel/arch/arm/soc.h",
         "patchSetId": 2
@@ -69,6 +87,24 @@
       "revId": "d17e3669c1a46e26e392c0ee0b55c4e3a29b21c3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ccbea19_ccb1968e",
+        "filename": "src/system/kernel/arch/arm/soc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-12-06T21:45:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73284ef5_d67ce225",
+      "revId": "d17e3669c1a46e26e392c0ee0b55c4e3a29b21c3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
