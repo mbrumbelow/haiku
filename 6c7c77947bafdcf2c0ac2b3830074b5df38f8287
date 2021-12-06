@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "52027772_7ec631d7",
+        "filename": "headers/private/kernel/arch/arm/arch_kernel_args.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-12-06T20:41:03Z",
+      "side": 1,
+      "message": "I think I got this naming from arch/arm/arch_int.cpp e.g. intc_table, intc_count. But surely we can find something more easily understandable.",
+      "parentUuid": "fa686680_9260434e",
+      "revId": "6c7c77947bafdcf2c0ac2b3830074b5df38f8287",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1da6b0c8_dddf57dc",
         "filename": "headers/private/kernel/boot/intc.h",
         "patchSetId": 1
@@ -83,6 +101,24 @@
       "writtenOn": "2021-12-06T19:51:52Z",
       "side": 1,
       "message": "I would prefer having the arch specific code in a separate file somewhere in an arch/arm/ directory if possible. For structures like this, maybe just a .h file that can be included here?\n\nFor other parts of the code it could be fine to leave them enabled for all architectures (with an empty array of supported controllers?)",
+      "revId": "6c7c77947bafdcf2c0ac2b3830074b5df38f8287",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b92fc3b7_538c6224",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-12-06T20:41:03Z",
+      "side": 1,
+      "message": "OK that can work... then probably we need to add an uart field to riscv64 arch_args as well? (and any other architectures that have EFI boot with FDT, but as I see that\u0027s only arm and riscv64)",
+      "parentUuid": "45ff0acb_eb4f738a",
       "revId": "6c7c77947bafdcf2c0ac2b3830074b5df38f8287",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
