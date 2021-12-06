@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa161bf3_5d1eb04c",
+        "filename": "src/kits/device/USBDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-06T19:39:35Z",
+      "side": 1,
+      "message": "This may not always be long enough, characters near the end of the UCS2 range (close to FFFF) might need 3 bytes).",
+      "revId": "9085b743afad99ae8655ec46e8b8dc050f64fbb7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e70c8471_a95b37d4",
+        "filename": "src/kits/device/USBDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-06T19:39:35Z",
+      "side": 1,
+      "message": "Is it UCS-2, or UTF-16? The latter would allow characters to be decomposed as two 16-bit words (working similar to UTF8), while UCS-2 can only encode unicode chars 0000 to FFFF.\n\nWhich one is used in USB?",
+      "revId": "9085b743afad99ae8655ec46e8b8dc050f64fbb7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0dc7648c_d4a9905c",
+        "filename": "src/kits/device/USBDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-06T19:39:35Z",
+      "side": 1,
+      "message": "convert_to_utf8 is known to leak memory and this is not fixable without breaking the API. It should be deprecated and not used in new code (see #976).\n\nIt should be possible to use BUnicodeChar::ToUTF8 (not very convenient here) or BTextEncoding::Decode (https://git.haiku-os.org/haiku/tree/headers/os/locale/TextEncoding.h#n34) and BTextEncoding::Flush instead.",
+      "revId": "9085b743afad99ae8655ec46e8b8dc050f64fbb7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
