@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "fa686680_9260434e",
+        "filename": "headers/private/kernel/arch/arm/arch_kernel_args.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-06T19:51:52Z",
+      "side": 1,
+      "message": "intc (both here and in filenames) isn\u0027t a well known abbreviation. I would prefer at least int_controller",
+      "revId": "6c7c77947bafdcf2c0ac2b3830074b5df38f8287",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1da6b0c8_dddf57dc",
         "filename": "headers/private/kernel/boot/intc.h",
         "patchSetId": 1
@@ -31,6 +48,41 @@
       "side": 1,
       "message": "It\u0027s enough for now: GICv2 has 2 ranges, OMAP3 and PXA have 1 range. But your observation is valid if we think of newer hardware, e.g. GICv3 seems to have at least 3 ranges but maybe even more in case of virtualization extensions.",
       "parentUuid": "1da6b0c8_dddf57dc",
+      "revId": "6c7c77947bafdcf2c0ac2b3830074b5df38f8287",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be246cd8_ed503218",
+        "filename": "headers/private/kernel/boot/intc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-06T19:51:52Z",
+      "side": 1,
+      "message": "This could evolve into a union so that each family can have properly named fields here later.",
+      "parentUuid": "c71636dc_17c0a53e",
+      "revId": "6c7c77947bafdcf2c0ac2b3830074b5df38f8287",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45ff0acb_eb4f738a",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-06T19:51:52Z",
+      "side": 1,
+      "message": "I would prefer having the arch specific code in a separate file somewhere in an arch/arm/ directory if possible. For structures like this, maybe just a .h file that can be included here?\n\nFor other parts of the code it could be fine to leave them enabled for all architectures (with an empty array of supported controllers?)",
       "revId": "6c7c77947bafdcf2c0ac2b3830074b5df38f8287",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
