@@ -31,6 +31,7 @@
 #endif
 
 const uint SCROLL_AREA_CHANGED = '&sac';
+const uint CURSOR_SPEED_CHANGED = '&cpc';
 const uint SCROLL_CONTROL_CHANGED = '&scc';
 const uint TAP_CONTROL_CHANGED = '&tcc';
 const uint DEFAULT_SETTINGS = '&dse';
@@ -97,6 +98,8 @@ private:
 			BSlider*		fScrollStepXSlider;
 			BSlider*		fScrollStepYSlider;
 			BSlider*		fScrollAccelSlider;
+			BSlider*		fAccelSlider;
+			BSlider*		fSpeedSlider;
 			BSlider*		fPadBlockerSlider;
 			BSlider*		fTapSlider;
 			BButton*		fDefaultButton;

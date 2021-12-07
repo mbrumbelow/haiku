@@ -20,7 +20,8 @@
 
 TouchpadPref::TouchpadPref(BInputDevice* device)
 	:
-	fTouchPad(device)
+	fTouchPad(device),
+	fName(device->Name())
 {
 	// default center position
 	fWindowPosition.x = -1;
@@ -62,6 +63,10 @@ TouchpadPref::UpdateSettings()
 	msg.AddInt8("scroll_acceleration", fSettings.scroll_acceleration);
 	msg.AddInt8("tapgesture_sensibility", fSettings.tapgesture_sensibility);
 	msg.AddInt32("padblocker_threshold", fSettings.padblocker_threshold);
+
+	// also set the "normal cursor" speed settings
+	set_mouse_speed_by_name(fName, fSettings.accel.speed);
+	set_mouse_acceleration(fSettings.accel.accel_factor);
 
 	return fTouchPad->Control(MS_SET_TOUCHPAD_SETTINGS, &msg);
 }
