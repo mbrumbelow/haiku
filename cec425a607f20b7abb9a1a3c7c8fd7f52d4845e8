@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb527d51_f7fdb136",
+        "filename": "headers/private/graphics/intel_extreme/intel_extreme.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-12-07T21:57:04Z",
+      "side": 1,
+      "message": "Something like this would simplify things (if pipe is 0-index based)\n#define PCH_INTERRUPT_PIPE_STATUS_BDW\t\t\t(0x44400 + (pipe) * 0x10)",
+      "revId": "cec425a607f20b7abb9a1a3c7c8fd7f52d4845e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f79ccda4_855b52c9",
+        "filename": "src/add-ons/kernel/drivers/graphics/intel_extreme/intel_extreme.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-12-07T21:57:04Z",
+      "side": 1,
+      "message": "bdw_enable_global_interrupts(info, true); is missing",
+      "revId": "cec425a607f20b7abb9a1a3c7c8fd7f52d4845e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
