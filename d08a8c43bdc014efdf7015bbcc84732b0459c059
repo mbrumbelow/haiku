@@ -16,6 +16,24 @@
       "revId": "d08a8c43bdc014efdf7015bbcc84732b0459c059",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55cc7ef6_5b3ef83f",
+        "filename": "src/preferences/input/InputTouchpadPrefView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-07T10:55:15Z",
+      "side": 1,
+      "message": "This is copied from the mouse settings.\n\nBefore the introduction of Input preferences, you could adjust the touchpad settings from Mouse preferences. However, now, if you have a touchpad and no mouse, you cannot reach that anymore.\n\nIt would be nice to refactor the code (and maybe also the UI?) to not duplicate all this logic, however.\n\nThere is a similar problem for the focus follows mouse setting, which is currently not visible anywhere if you only have a touchpad.",
+      "parentUuid": "bfe4bb20_67b990e6",
+      "revId": "d08a8c43bdc014efdf7015bbcc84732b0459c059",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
