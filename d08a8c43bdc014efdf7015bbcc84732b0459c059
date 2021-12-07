@@ -34,6 +34,24 @@
       "revId": "d08a8c43bdc014efdf7015bbcc84732b0459c059",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "baeae490_73477907",
+        "filename": "src/preferences/input/InputTouchpadPrefView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-07T15:37:53Z",
+      "side": 1,
+      "message": "\u003e This is copied from the mouse settings.\n\nCorrect :-)  I keep the math the 1:1 from mouse settings to try and make things a bit simpler.\n\n\u003e It would be nice to refactor the code (and maybe also the UI?) to not duplicate all this logic, however.\n\nAt face value, technically acceleration is global across all mice. (the input server call doesn\u0027t accept any device name). Speed however seems tied to individual mouse devices. (it wants the input device name along with the speed)\n\nOverall, the touchpad on my XPS 13 isn\u0027t really usable since an edge to edge swipe on the touchpad moves the cursor ~50mm on my screen",
+      "parentUuid": "55cc7ef6_5b3ef83f",
+      "revId": "d08a8c43bdc014efdf7015bbcc84732b0459c059",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
