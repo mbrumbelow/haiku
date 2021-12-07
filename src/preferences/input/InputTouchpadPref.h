@@ -14,6 +14,7 @@
 #include <Debug.h>
 #include <Input.h>
 #include <Path.h>
+#include <String.h>
 
 #include "touchpad_settings.h"
 
@@ -48,6 +49,7 @@ private:
 			status_t			SaveSettings();
 
 			BInputDevice* 		fTouchPad;
+			BString			fName;
 
 			touchpad_settings	fSettings;
 			touchpad_settings	fStartSettings;

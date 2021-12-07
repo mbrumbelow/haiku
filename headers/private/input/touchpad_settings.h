@@ -1,11 +1,14 @@
 /*
- * Copyright 2001-2009, Haiku, Inc. All Rights Reserved.
+ * Copyright 2001-2021, Haiku, Inc. All Rights Reserved.
  * Distributed under the terms of the MIT License.
  */
 #ifndef TOUCHPAD_SETTINGS_H
 #define TOUCHPAD_SETTINGS_H
 
+
 #include <SupportDefs.h>
+
+#include "kb_mouse_settings.h"
 
 
 typedef struct {
@@ -20,6 +23,8 @@ typedef struct {
 	uint8	tapgesture_sensibility;	// 0 : no tapgesture
 									// 20: very light tip is enough (default)
 	uint16  padblocker_threshold;	//0 to 100
+
+	mouse_accel	accel;				// standard acceleration
 } touchpad_settings;
 
 
@@ -32,7 +37,12 @@ const static touchpad_settings kDefaultTouchpadSettings = {
 	10,
 	10,
 	20,
-	30
+	30,
+	{
+		true,
+		65536,
+		65536,
+	}
 };
 
 #define TOUCHPAD_SETTINGS_FILE "Touchpad_settings"

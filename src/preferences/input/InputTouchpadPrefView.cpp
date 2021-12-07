@@ -1,5 +1,5 @@
 /*
- * Copyright 2019, Haiku, Inc.
+ * Copyright 2019-2021, Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  *
  * Author:
@@ -298,6 +298,14 @@ TouchpadPrefView::MessageReceived(BMessage* message)
 			settings.scroll_xstepsize = (20 - fScrollStepXSlider->Value()) * 3;
 			settings.scroll_ystepsize = (20 - fScrollStepYSlider->Value()) * 3;
 			fTwoFingerHorizontalBox->SetEnabled(settings.scroll_twofinger);
+
+			// Speed 8192 - 524287
+			settings.accel.speed
+				= (int32)pow(2, fSpeedSlider->Value() * 6.0 / 1000 * 8192);
+			// Acceleration 0 - 262144
+			settings.accel.accel_factor
+				= (int32)pow(fAccelSlider->Value() * 4.0 / 1000, 2) * 16384;
+
 			fTouchpadPref.UpdateSettings();
 			break;
 
@@ -345,6 +353,8 @@ TouchpadPrefView::AttachedToWindow()
 	fScrollStepXSlider->SetTarget(this);
 	fScrollStepYSlider->SetTarget(this);
 	fScrollAccelSlider->SetTarget(this);
+	fAccelSlider->SetTarget(this);
+	fSpeedSlider->SetTarget(this);
 	fPadBlockerSlider->SetTarget(this);
 	fTapSlider->SetTarget(this);
 	fDefaultButton->SetTarget(this);
@@ -379,7 +389,7 @@ TouchpadPrefView::SetupView()
 	fTouchpadView = new TouchpadView(BRect(0, 0, 130, 120));
 	fTouchpadView->SetExplicitMaxSize(BSize(130, 120));
 
-	// Create the "Mouse Speed" slider...
+	// Create the "Scroll Speed" sliders...
 	fScrollAccelSlider = new BSlider("scroll_accel",
 		B_TRANSLATE("Acceleration"),
 		new BMessage(SCROLL_CONTROL_CHANGED), 0, 20, B_HORIZONTAL);
@@ -452,6 +462,22 @@ TouchpadPrefView::SetupView()
 	fTapSlider->SetHashMarkCount(7);
 	fTapSlider->SetLimitLabels(B_TRANSLATE("Off"), B_TRANSLATE("High"));
 
+	// Mouse Accel_factor (this is global, but relevant here as well as mice)
+	fAccelSlider = new BSlider("accel_factor", B_TRANSLATE("Acceleration"),
+		new BMessage(SCROLL_CONTROL_CHANGED), 0, 1000, B_HORIZONTAL);
+	fAccelSlider->SetHashMarks(B_HASH_MARKS_BOTTOM);
+	fAccelSlider->SetHashMarkCount(7);
+	fAccelSlider->SetLimitLabels(
+		B_TRANSLATE("Slow"), B_TRANSLATE("Fast"));
+
+	// Go go speed slider (this is mouse speed (aka touchpad cursor speed))
+	fSpeedSlider = new BSlider("speed", B_TRANSLATE("Speed"),
+		new BMessage(SCROLL_CONTROL_CHANGED), 0, 1000, B_HORIZONTAL);
+	fSpeedSlider->SetHashMarks(B_HASH_MARKS_BOTTOM);
+	fSpeedSlider->SetHashMarkCount(7);
+	fSpeedSlider->SetLimitLabels(
+		B_TRANSLATE("Slow"), B_TRANSLATE("Fast"));
+
 	fDefaultButton
 		= new BButton(B_TRANSLATE("Defaults"), new BMessage(DEFAULT_SETTINGS));
 
@@ -463,6 +489,8 @@ TouchpadPrefView::SetupView()
 	BLayoutBuilder::Group<>(this, B_VERTICAL)
 		.SetInsets(B_USE_WINDOW_SPACING)
 		.Add(scrollBox)
+		.Add(fSpeedSlider)
+		.Add(fAccelSlider)
 		.Add(fTapSlider)
 		.Add(fPadBlockerSlider)
 		.Add(new BSeparatorView(B_HORIZONTAL))
@@ -478,6 +506,11 @@ TouchpadPrefView::SetupView()
 void
 TouchpadPrefView::SetValues(touchpad_settings* settings)
 {
+	int32 value = int32((log(settings->accel.speed / 8192.0) / log(2)) * 1000 / 6);
+	fSpeedSlider->SetValue(value);
+	value = int32(sqrt(settings->accel.accel_factor / 16384.0) * 1000 / 4);
+	fAccelSlider->SetValue(value);
+
 	fTouchpadView->SetValues(
 		settings->scroll_rightrange, settings->scroll_bottomrange);
 	fTwoFingerBox->SetValue(

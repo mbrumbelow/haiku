@@ -97,6 +97,8 @@ private:
 			BSlider*		fScrollStepXSlider;
 			BSlider*		fScrollStepYSlider;
 			BSlider*		fScrollAccelSlider;
+			BSlider*		fAccelSlider;
+			BSlider*		fSpeedSlider;
 			BSlider*		fPadBlockerSlider;
 			BSlider*		fTapSlider;
 			BButton*		fDefaultButton;
