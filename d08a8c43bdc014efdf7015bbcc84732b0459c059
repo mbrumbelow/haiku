@@ -52,6 +52,24 @@
       "revId": "d08a8c43bdc014efdf7015bbcc84732b0459c059",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f289230_790eb3e4",
+        "filename": "src/preferences/input/InputTouchpadPrefView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-07T16:01:39Z",
+      "side": 1,
+      "message": "There was some work in progress to make the speed and acceleration settings work per device during Preetpal\u0027s GSoC but it was not finished. That\u0027s why the acceleration is still global (the speed also used to be).",
+      "parentUuid": "baeae490_73477907",
+      "revId": "d08a8c43bdc014efdf7015bbcc84732b0459c059",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
