@@ -457,6 +457,15 @@ TFilePanel::PoseView() const
 }
 
 
+void
+TFilePanel::Quit()
+{
+	SaveState();
+
+	return _inherited::Quit();
+}
+
+
 bool
 TFilePanel::QuitRequested()
 {

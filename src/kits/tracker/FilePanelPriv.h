@@ -70,6 +70,7 @@ public:
 
 	BFilePanelPoseView* PoseView() const;
 
+	virtual void Quit();
 	virtual bool QuitRequested();
 	virtual void MenusBeginning();
 	virtual void MenusEnded();
