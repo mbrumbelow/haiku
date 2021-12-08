@@ -457,6 +457,17 @@ TFilePanel::PoseView() const
 }
 
 
+void
+TFilePanel::Quit()
+{
+	SaveState();
+	// Stop calling BContainerWindow::SaveState().
+	SetSaveStateEnabled(false);
+
+	return _inherited::Quit();
+}
+
+
 bool
 TFilePanel::QuitRequested()
 {
