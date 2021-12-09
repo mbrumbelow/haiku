@@ -42,6 +42,7 @@
 #include <StringFormat.h>
 #include <StringList.h>
 #include <StringView.h>
+#include <TabView.h>
 #include <TranslationUtils.h>
 #include <TranslatorFormats.h>
 #include <View.h>
@@ -221,16 +222,19 @@ private:
 private:
 			BView*			_CreateLabel(const char* name, const char* label);
 			BView*			_CreateCreditsView();
+			BView*			_CreateLicensesView();
 			status_t		_GetLicensePath(const char* license,
 								BPath& path);
 			void			_AddCopyrightsFromAttribute();
 			void			_AddPackageCredit(const PackageCredit& package);
 			void			_AddPackageCreditEntries();
 
+			BTabView*		fTabView;
 			BStringView*	fMemView;
 			BStringView*	fUptimeView;
 			BView*			fInfoView;
 			HyperTextView*	fCreditsView;
+			HyperTextView*	fLicensesView;
 
 			BObjectList<BView> fTextViews;
 			BObjectList<BView> fSubTextViews;
@@ -589,6 +593,8 @@ AboutView::AboutView()
 	SetLayout(new BGroupLayout(B_HORIZONTAL, 0));
 	SetViewUIColor(B_PANEL_BACKGROUND_COLOR);
 
+	fTabView = new BTabView("Credits", B_WIDTH_FROM_LABEL);
+
 	BLayoutBuilder::Group<>((BGroupLayout*)GetLayout())
 		.AddGroup(B_VERTICAL, 0)
 			.Add(new LogoView())
@@ -617,7 +623,16 @@ AboutView::AboutView()
 			// TODO: investigate: adding this causes the time to be cut
 			//.AddGlue()
 		.End()
-		.Add(_CreateCreditsView());
+		.Add(fTabView);
+
+	BTab* creditsTab = new BTab();
+	BTab* thirdPartyTab = new BTab();
+
+	fTabView->AddTab(_CreateCreditsView(), creditsTab);
+	creditsTab->SetLabel(B_TRANSLATE("Credits"));
+
+	fTabView->AddTab(_CreateLicensesView(), thirdPartyTab);
+	thirdPartyTab->SetLabel(B_TRANSLATE("Third-Party"));
 
 	float min = fMemView->MinSize().width * 1.1f;
 	fCreditsView->SetExplicitMinSize(BSize(min * 3, min));
@@ -698,14 +713,31 @@ AboutView::MessageReceived(BMessage* msg)
 		}
 		case SCROLL_CREDITS_VIEW:
 		{
+			HyperTextView** activeView;
+
+			switch (fTabView->FocusTab()) {
+				case 0:
+					activeView = &fCreditsView;
+					break;
+				case 1:
+					activeView = &fLicensesView;
+					break;
+				default:
+					activeView = &fCreditsView;
+					break;
+			}
+
 			BScrollBar* scrollBar =
-				fCreditsView->ScrollBar(B_VERTICAL);
+				(*activeView)->ScrollBar(B_VERTICAL);
+
 			if (scrollBar == NULL)
 				break;
+
 			float max, min;
 			scrollBar->GetRange(&min, &max);
+
 			if (scrollBar->Value() < max)
-				fCreditsView->ScrollBy(0, 1);
+				(*activeView)->ScrollBy(0, 1);
 
 			break;
 		}
@@ -741,24 +773,24 @@ AboutView::AddCopyrightEntry(const char* name, const char* text,
 	//font.SetSize(be_bold_font->Size());
 	font.SetFace(B_BOLD_FACE | B_ITALIC_FACE);
 
-	fCreditsView->SetFontAndColor(&font, B_FONT_ALL, &fHaikuYellowColor);
-	fCreditsView->Insert(name);
-	fCreditsView->Insert("\n");
-	fCreditsView->SetFontAndColor(be_plain_font, B_FONT_ALL, &fTextColor);
-	fCreditsView->Insert(text);
-	fCreditsView->Insert("\n");
+	fLicensesView->SetFontAndColor(&font, B_FONT_ALL, &fHaikuYellowColor);
+	fLicensesView->Insert(name);
+	fLicensesView->Insert("\n");
+	fLicensesView->SetFontAndColor(be_plain_font, B_FONT_ALL, &fTextColor);
+	fLicensesView->Insert(text);
+	fLicensesView->Insert("\n");
 
 	if (licenses.CountStrings() > 0) {
 		if (licenses.CountStrings() > 1)
-			fCreditsView->Insert(B_TRANSLATE("Licenses: "));
+			fLicensesView->Insert(B_TRANSLATE("Licenses: "));
 		else
-			fCreditsView->Insert(B_TRANSLATE("License: "));
+			fLicensesView->Insert(B_TRANSLATE("License: "));
 
 		for (int32 i = 0; i < licenses.CountStrings(); i++) {
 			const char* license = licenses.StringAt(i);
 
 			if (i > 0)
-				fCreditsView->Insert(", ");
+				fLicensesView->Insert(", ");
 
 			BString licenseName;
 			BString licenseURL;
@@ -766,35 +798,35 @@ AboutView::AddCopyrightEntry(const char* name, const char* text,
 
 			BPath licensePath;
 			if (_GetLicensePath(licenseURL, licensePath) == B_OK) {
-				fCreditsView->InsertHyperText(B_TRANSLATE_NOCOLLECT(licenseName),
+				fLicensesView->InsertHyperText(B_TRANSLATE_NOCOLLECT(licenseName),
 					new OpenFileAction(licensePath.Path()));
 			} else
-				fCreditsView->Insert(licenseName);
+				fLicensesView->Insert(licenseName);
 		}
 
-		fCreditsView->Insert("\n");
+		fLicensesView->Insert("\n");
 	}
 
 	if (sources.CountStrings() > 0) {
-		fCreditsView->Insert(B_TRANSLATE("Source Code: "));
+		fLicensesView->Insert(B_TRANSLATE("Source Code: "));
 
 		for (int32 i = 0; i < sources.CountStrings(); i++) {
 			const char* source = sources.StringAt(i);
 
 			if (i > 0)
-				fCreditsView->Insert(", ");
+				fLicensesView->Insert(", ");
 
 			BString urlName;
 			BString urlAddress;
 			parse_named_url(source, urlName, urlAddress);
 
-			fCreditsView->SetFontAndColor(be_plain_font, B_FONT_ALL,
+			fLicensesView->SetFontAndColor(be_plain_font, B_FONT_ALL,
 				&fLinkColor);
-			fCreditsView->InsertHyperText(urlName,
+			fLicensesView->InsertHyperText(urlName,
 				new URLAction(urlAddress));
 		}
 
-		fCreditsView->Insert("\n");
+		fLicensesView->Insert("\n");
 	}
 
 	if (url) {
@@ -802,13 +834,13 @@ AboutView::AddCopyrightEntry(const char* name, const char* text,
 		BString urlAddress;
 		parse_named_url(url, urlName, urlAddress);
 
-		fCreditsView->SetFontAndColor(be_plain_font, B_FONT_ALL,
+		fLicensesView->SetFontAndColor(be_plain_font, B_FONT_ALL,
 			&fLinkColor);
-		fCreditsView->InsertHyperText(urlName,
+		fLicensesView->InsertHyperText(urlName,
 			new URLAction(urlAddress));
-		fCreditsView->Insert("\n");
+		fLicensesView->Insert("\n");
 	}
-	fCreditsView->Insert("\n");
+	fLicensesView->Insert("\n");
 }
 
 
@@ -903,7 +935,7 @@ BView*
 AboutView::_CreateCreditsView()
 {
 	// Begin construction of the credits view
-	fCreditsView = new HyperTextView("credits");
+	fCreditsView = new HyperTextView("credits view");
 	fCreditsView->SetFlags(fCreditsView->Flags() | B_FRAME_EVENTS);
 	fCreditsView->SetStylable(true);
 	fCreditsView->MakeEditable(false);
@@ -1063,6 +1095,28 @@ AboutView::_CreateCreditsView()
 	fCreditsView->Insert(
 		B_TRANSLATE(B_UTF8_ELLIPSIS "and the many people making donations!\n\n"));
 
+	return new CropView(creditsScroller, 0, 1, 1, 1);
+}
+
+BView*
+AboutView::_CreateLicensesView()
+{
+	// Begin construction of the licenses view
+	fLicensesView = new HyperTextView("licenses view");
+	fLicensesView->SetFlags(fLicensesView->Flags() | B_FRAME_EVENTS);
+	fLicensesView->SetStylable(true);
+	fLicensesView->MakeEditable(false);
+	fLicensesView->SetWordWrap(true);
+	fLicensesView->SetInsets(5, 5, 5, 5);
+	fLicensesView->SetViewUIColor(B_DOCUMENT_BACKGROUND_COLOR);
+
+	// Haiku copyright
+	BFont font(be_bold_font);
+
+	BScrollView* creditsScroller = new BScrollView("creditsScroller",
+		fLicensesView, B_WILL_DRAW | B_FRAME_EVENTS, false, true,
+		B_PLAIN_BORDER);
+
 	// copyrights for various projects we use
 
 	BPath mitPath;
@@ -1072,8 +1126,8 @@ AboutView::_CreateCreditsView()
 
 	font.SetSize(be_bold_font->Size() + 4);
 	font.SetFace(B_BOLD_FACE);
-	fCreditsView->SetFontAndColor(&font, B_FONT_ALL, &fHaikuGreenColor);
-	fCreditsView->Insert(B_TRANSLATE("\nCopyrights\n\n"));
+	fLicensesView->SetFontAndColor(&font, B_FONT_ALL, &fHaikuGreenColor);
+	fLicensesView->Insert(B_TRANSLATE("Third-Party Credits\n"));
 
 
 	// Haiku license
@@ -1091,32 +1145,32 @@ AboutView::_CreateCreditsView()
 	int32 licensePart4 = haikuLicense.FindLast(">");
 	BString part;
 	haikuLicense.CopyInto(part, 0, licensePart1);
-	fCreditsView->SetFontAndColor(be_plain_font, B_FONT_ALL, &fTextColor);
-	fCreditsView->Insert(part);
+	fLicensesView->SetFontAndColor(be_plain_font, B_FONT_ALL, &fTextColor);
+	fLicensesView->Insert(part);
 
 	part.Truncate(0);
 	haikuLicense.CopyInto(part, licensePart1 + 1, licensePart2 - 1
 		- licensePart1);
-	fCreditsView->SetFontAndColor(be_plain_font, B_FONT_ALL, &fLinkColor);
-	fCreditsView->InsertHyperText(part, new OpenFileAction(mitPath.Path()));
+	fLicensesView->SetFontAndColor(be_plain_font, B_FONT_ALL, &fLinkColor);
+	fLicensesView->InsertHyperText(part, new OpenFileAction(mitPath.Path()));
 
 	part.Truncate(0);
 	haikuLicense.CopyInto(part, licensePart2 + 1, licensePart3 - 1
 		- licensePart2);
-	fCreditsView->SetFontAndColor(be_plain_font, B_FONT_ALL, &fTextColor);
-	fCreditsView->Insert(part);
+	fLicensesView->SetFontAndColor(be_plain_font, B_FONT_ALL, &fTextColor);
+	fLicensesView->Insert(part);
 
 	part.Truncate(0);
 	haikuLicense.CopyInto(part, licensePart3 + 1, licensePart4 - 1
 		- licensePart3);
-	fCreditsView->SetFontAndColor(be_plain_font, B_FONT_ALL, &fLinkColor);
-	fCreditsView->InsertHyperText(part, new OpenFileAction(lgplPath.Path()));
+	fLicensesView->SetFontAndColor(be_plain_font, B_FONT_ALL, &fLinkColor);
+	fLicensesView->InsertHyperText(part, new OpenFileAction(lgplPath.Path()));
 
 	part.Truncate(0);
 	haikuLicense.CopyInto(part, licensePart4 + 1, haikuLicense.Length() - 1
 		- licensePart4);
-	fCreditsView->SetFontAndColor(be_plain_font, B_FONT_ALL, &fTextColor);
-	fCreditsView->Insert(part);
+	fLicensesView->SetFontAndColor(be_plain_font, B_FONT_ALL, &fTextColor);
+	fLicensesView->Insert(part);
 
 	// GNU copyrights
 	AddCopyrightEntry("The GNU Project",
@@ -1429,7 +1483,6 @@ AboutView::_CreateCreditsView()
 
 	return new CropView(creditsScroller, 0, 1, 1, 1);
 }
-
 
 status_t
 AboutView::_GetLicensePath(const char* license, BPath& path)
