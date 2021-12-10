@@ -6,7 +6,6 @@
  *		Axel Dörfler, axeld@pinc-software.de
  */
 
-
 #include "PowerStatus.h"
 
 #include <Alert.h>
@@ -23,24 +22,8 @@
 #include "APMDriverInterface.h"
 #include "PowerStatusWindow.h"
 
-
 #undef B_TRANSLATION_CONTEXT
 #define B_TRANSLATION_CONTEXT "PowerStatus"
-
-
-class PowerStatus : public BApplication {
-	public:
-		PowerStatus();
-		virtual	~PowerStatus();
-
-		virtual	void	ReadyToRun();
-		virtual void	AboutRequested();
-};
-
-
-const char* kSignature = "application/x-vnd.Haiku-PowerStatus";
-const char* kDeskbarSignature = "application/x-vnd.Be-TSKB";
-const char* kDeskbarItemName = "PowerStatus";
 
 
 status_t
