@@ -22,6 +22,30 @@
       "revId": "ebfdc0f2c70c46a9523be9c808c605b906bcdbe8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8aecdd8_c32b77e8",
+        "filename": "src/system/boot/platform/efi/arch/arm/entry.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2021-12-10T17:51:49Z",
+      "side": 1,
+      "message": "Is this still an issue with latest patch set?",
+      "parentUuid": "3bec4454_616d6bbd",
+      "range": {
+        "startLine": 40,
+        "startChar": 1,
+        "endLine": 40,
+        "endChar": 15
+      },
+      "revId": "ebfdc0f2c70c46a9523be9c808c605b906bcdbe8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
