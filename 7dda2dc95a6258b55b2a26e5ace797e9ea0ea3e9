@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f746feb_867ab2a5",
+        "filename": "src/add-ons/accelerants/common/decode_edid.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-11T21:22:00Z",
+      "side": 1,
+      "message": "we could further decode the bit_depth here... go from the native edid mask to the actual number. (8,12,16,etc)  same for the other fields (bools, etc)\n\nI don\u0027t think any of our kernel graphics drivers have historically cared enough to dig into these... so now would be the time to correct.",
+      "revId": "7dda2dc95a6258b55b2a26e5ace797e9ea0ea3e9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
