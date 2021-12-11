@@ -43,20 +43,52 @@ static void
 decode_version(edid1_version *version, const edid1_version_raw *raw)
 {
 	version->version = raw->version;
-	version->revision = raw->revision;	
+	version->revision = raw->revision;
 }
 
 
 static void
 decode_display(edid1_display *display, const edid1_display_raw *raw)
-{	
-	display->input_type = raw->input_type;
-	display->input_voltage = raw->input_voltage;
-	display->setup = raw->setup;
-	display->sep_sync = raw->sep_sync;
-	display->comp_sync = raw->comp_sync;
-	display->sync_on_green = raw->sync_on_green;
-	display->sync_serr = raw->sync_serr;
+{
+	// The we need to dig into one of the union to get the first
+	// bit.. then we can pick the right one.
+	display->input_type = raw->analog_params.input_type;
+
+	if (display->input_type) {
+		// digital
+		switch(raw->digital_params.bit_depth) {
+			default:
+				display->digital_params.bit_depth = 0;
+				break;
+			case 1:
+				display->digital_params.bit_depth = 6;
+				break;
+			case 2:
+				display->digital_params.bit_depth = 8;
+				break;
+			case 3:
+				display->digital_params.bit_depth = 10;
+				break;
+			case 4:
+				display->digital_params.bit_depth = 12;
+				break;
+			case 5:
+				display->digital_params.bit_depth = 14;
+				break;
+			case 6:
+				display->digital_params.bit_depth = 16;
+				break;
+		}
+		display->digital_params.interface = raw->digital_params.interface;
+	} else {
+		// analog
+		display->analog_params.input_voltage = raw->analog_params.input_voltage;
+		display->analog_params.setup = raw->analog_params.setup;
+		display->analog_params.sep_sync = raw->analog_params.sep_sync;
+		display->analog_params.comp_sync = raw->analog_params.comp_sync;
+		display->analog_params.sync_on_green = raw->analog_params.sync_on_green;
+		display->analog_params.sync_serr = raw->analog_params.sync_serr;
+	}
 
 	display->h_size = raw->h_size;
 	display->v_size = raw->v_size;
