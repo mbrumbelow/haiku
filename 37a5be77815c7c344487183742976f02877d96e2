@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "684bebe3_7a79248a",
+        "filename": "src/kits/debugger/controllers/DebugReportGenerator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-12T20:37:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "279ba121_501e15f5",
+      "revId": "37a5be77815c7c344487183742976f02877d96e2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2642a2e2_52d4343c",
         "filename": "src/kits/debugger/controllers/DebugReportGenerator.cpp",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "37a5be77815c7c344487183742976f02877d96e2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "282fc309_8be81d42",
+        "filename": "src/kits/debugger/controllers/DebugReportGenerator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-12T20:37:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2642a2e2_52d4343c",
+      "revId": "37a5be77815c7c344487183742976f02877d96e2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
