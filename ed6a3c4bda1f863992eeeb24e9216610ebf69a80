@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eee72818_f887a84f",
+        "filename": "src/add-ons/accelerants/common/decode_edid.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-12-12T16:16:50Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "ed6a3c4bda1f863992eeeb24e9216610ebf69a80",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0641aa83_19b929c9",
+        "filename": "src/add-ons/accelerants/common/decode_edid.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-12-12T16:16:50Z",
+      "side": 1,
+      "message": "space after switch",
+      "revId": "ed6a3c4bda1f863992eeeb24e9216610ebf69a80",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9de02828_d452aad5",
+        "filename": "src/add-ons/accelerants/common/decode_edid.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-12-12T16:16:50Z",
+      "side": 1,
+      "message": "Would also be defined as \u00274 + 2 * raw-\u003edigital_params.bit_depth\u0027",
+      "revId": "ed6a3c4bda1f863992eeeb24e9216610ebf69a80",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f5c79a4_8486ff51",
+        "filename": "src/add-ons/accelerants/common/dump_edid.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-12-12T16:16:50Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "ed6a3c4bda1f863992eeeb24e9216610ebf69a80",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44b303b3_830591af",
+        "filename": "src/add-ons/accelerants/common/dump_edid.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-12-12T16:16:50Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "revId": "ed6a3c4bda1f863992eeeb24e9216610ebf69a80",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
