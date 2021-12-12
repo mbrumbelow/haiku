@@ -36,8 +36,6 @@ using std::nothrow;
 
 static const char* kAppSig = "application/x-vnd.haiku-icon_o_matic";
 
-static const float kWindowOffset = 20;
-
 
 IconEditorApp::IconEditorApp()
 	:
@@ -115,8 +113,12 @@ IconEditorApp::MessageReceived(BMessage* message)
 {
 	switch (message->what) {
 		case MSG_NEW:
-			_NewWindow()->Show();
+		{
+			MainWindow* window = _NewWindow();
+			fWindowStack->AddWindow(window);
+			window->Show();
 			break;
+		}
 		case MSG_OPEN:
 		{
 			BMessage openMessage(B_REFS_RECEIVED);
@@ -142,19 +144,24 @@ IconEditorApp::MessageReceived(BMessage* message)
 		case B_EDIT_ICON_DATA:
 		{
 			BMessenger messenger;
+
 			if (message->FindMessenger("reply to", &messenger) < B_OK) {
 				// required
 				break;
 			}
+
 			const uint8* data;
 			ssize_t size;
+
 			if (message->FindData("icon data", B_VECTOR_ICON_TYPE,
 				(const void**)&data, &size) < B_OK) {
 				// optional (new icon will be created)
 				data = NULL;
 				size = 0;
 			}
+
 			MainWindow* window = _NewWindow();
+			fWindowStack->AddWindow(window);
 			window->Open(messenger, data, size);
 			window->Show();
 			break;
@@ -184,11 +191,7 @@ IconEditorApp::MessageReceived(BMessage* message)
 			BMessage settings;
 			if (message->FindMessage("settings", &settings) == B_OK)
 				fLastWindowSettings = settings;
-			BRect frame;
-			if (message->FindRect("window frame", &frame) == B_OK) {
-				fLastWindowFrame = frame;
-				fLastWindowFrame.OffsetBy(-kWindowOffset, -kWindowOffset);
-			}
+
 			break;
 		}
 
@@ -203,8 +206,11 @@ void
 IconEditorApp::ReadyToRun()
 {
 	// create main window
-	if (fWindowCount == 0)
-		_NewWindow()->Show();
+	if (fWindowCount == 0) {
+		MainWindow* window = _NewWindow();
+		fWindowStack = new BWindowStack(window);
+		window->Show();
+	}
 
 	_InstallDocumentMimeType();
 }
@@ -238,6 +244,7 @@ IconEditorApp::RefsReceived(BMessage* message)
 			} else {
 				window = _NewWindow();
 				window->Open(ref, false);
+				fWindowStack->AddWindow(window);
 				window->Show();
 			}
 		}
@@ -260,6 +267,7 @@ IconEditorApp::ArgvReceived(int32 argc, char** argv)
 		if (get_ref_for_path(argv[i], &ref) == B_OK) {
 		 	MainWindow* window = _NewWindow();
 			window->Open(ref);
+			fWindowStack->AddWindow(window);
 			window->Show();
 		}
 	}
@@ -272,9 +280,9 @@ IconEditorApp::ArgvReceived(int32 argc, char** argv)
 MainWindow*
 IconEditorApp::_NewWindow()
 {
-	fLastWindowFrame.OffsetBy(kWindowOffset, kWindowOffset);
 	MainWindow* window = new MainWindow(fLastWindowFrame, this,
 		&fLastWindowSettings);
+
 	fWindowCount++;
 	return window;
 }
@@ -364,15 +372,9 @@ void
 IconEditorApp::_RestoreSettings()
 {
 	BMessage settings('stns');
+	BMessage lastSettings;
 	load_settings(&settings, "Icon-O-Matic");
 
-	BRect frame;
-	if (settings.FindRect("window frame", &frame) == B_OK) {
-		fLastWindowFrame = frame;
-		// Compensate offset for next window...
-		fLastWindowFrame.OffsetBy(-kWindowOffset, -kWindowOffset);
-	}
-	BMessage lastSettings;
 	if (settings.FindMessage("window settings", &lastSettings)
 		== B_OK) {
 		fLastWindowSettings = lastSettings;

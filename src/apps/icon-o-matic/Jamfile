@@ -63,7 +63,7 @@ for sourceDir in $(sourceDirs) {
 # system headers
 UseBuildFeatureHeaders expat ;
 UseLibraryHeaders agg icon ;
-UsePrivateHeaders shared ;
+UsePrivateHeaders shared interface ;
 
 
 

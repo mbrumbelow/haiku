@@ -8,6 +8,7 @@
 
 #include <Application.h>
 #include <String.h>
+#include <WindowStack.h>
 
 
 class BFilePanel;
@@ -75,6 +76,7 @@ private:
 			int32				fWindowCount;
 			BMessage			fLastWindowSettings;
 			BRect				fLastWindowFrame;
+			BWindowStack*		fWindowStack;
 
 			BFilePanel*			fOpenPanel;
 			SavePanel*			fSavePanel;
