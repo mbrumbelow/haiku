@@ -16,6 +16,24 @@
       "revId": "7b5a952b125c79142c2425219234d40206be1d6e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42997b40_2a91e70d",
+        "filename": "src/system/kernel/arch/arm/arch_real_time_clock.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-12-13T12:49:10Z",
+      "side": 1,
+      "message": "I think it doesn\u0027t really matter as it\u0027s invoked only from 2 places in real_time_clock.cpp and in both places the return value is ignored. So it wouldn\u0027t make any difference. (unless we add some code in real_time_clock to handle arch_rtc_init()\u0027s return value)",
+      "parentUuid": "4b5c4b86_03320569",
+      "revId": "7b5a952b125c79142c2425219234d40206be1d6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
