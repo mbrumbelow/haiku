@@ -85,13 +85,24 @@ convert_preloaded_image(preloaded_elf64_image* image)
 }
 
 
-/*!	Convert all addresses in kernel_args to 64-bit addresses. */
+static void
+convert_preloaded_image(preloaded_elf32_image* image)
+{
+	fix_address(image->next);
+	fix_address(image->name);
+	fix_address(image->debug_string_table);
+	fix_address(image->syms);
+	fix_address(image->rel);
+	fix_address(image->rela);
+	fix_address(image->pltrel);
+	fix_address(image->debug_symbols);
+}
+
+
+/*!	Convert all addresses in kernel_args to virtual addresses. */
 static void
 convert_kernel_args()
 {
-	if (gKernelArgs.kernel_image->elf_class != ELFCLASS64)
-		return;
-
 	fix_address(gKernelArgs.boot_volume);
 	fix_address(gKernelArgs.vesa_modes);
 	fix_address(gKernelArgs.edid_info);
@@ -100,8 +111,13 @@ convert_kernel_args()
 
 	arch_convert_kernel_args();
 
-	convert_preloaded_image(static_cast<preloaded_elf64_image*>(
-		gKernelArgs.kernel_image.Pointer()));
+	if (gKernelArgs.kernel_image->elf_class == ELFCLASS64) {
+		convert_preloaded_image(static_cast<preloaded_elf64_image*>(
+			gKernelArgs.kernel_image.Pointer()));
+	} else {
+		convert_preloaded_image(static_cast<preloaded_elf32_image*>(
+			gKernelArgs.kernel_image.Pointer()));
+	}
 	fix_address(gKernelArgs.kernel_image);
 
 	// Iterate over the preloaded images. Must save the next address before
@@ -110,7 +126,11 @@ convert_kernel_args()
 	fix_address(gKernelArgs.preloaded_images);
 	while (image != NULL) {
 		preloaded_image* next = image->next;
-		convert_preloaded_image(static_cast<preloaded_elf64_image*>(image));
+		if (image->elf_class == ELFCLASS64) {
+			convert_preloaded_image(static_cast<preloaded_elf64_image*>(image));
+		} else {
+			convert_preloaded_image(static_cast<preloaded_elf32_image*>(image));
+		}
 		image = next;
 	}
 
