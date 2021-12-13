@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d173d445_18a7c423",
+        "filename": "src/apps/icon-o-matic/IconEditorApp.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-13T14:46:56Z",
+      "side": 1,
+      "message": "Have you checked what happens if you detach a window, maybe reattach it to another stack, and then use it to create a new window?\n\nI think in that case the new window should be stacked in that other stack?",
+      "revId": "54fd33537d62dc4b323bf15f544afba672d3ed3d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb8a3d2b_04fb5e80",
+        "filename": "src/apps/icon-o-matic/Jamfile",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-13T14:46:56Z",
+      "side": 1,
+      "message": "sort alphabetically:\n\nUsePrivateHeaders interface shared ;",
+      "revId": "54fd33537d62dc4b323bf15f544afba672d3ed3d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
