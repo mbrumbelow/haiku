@@ -435,9 +435,11 @@ HandleFdt(const void* fdt, int node, uint32 addressCells, uint32 sizeCells)
 
 	if (deviceType != NULL) {
 		if (strcmp(deviceType, "cpu") == 0) {
+#ifdef __riscv
 			// TODO: improve incompatible CPU detection
 			if (!(fdt_getprop(fdt, node, "mmu-type", NULL) != NULL))
 				return;
+#endif
 			platform_cpu_info* info;
 			arch_smp_register_cpu(&info);
 			if (info == NULL)
@@ -447,6 +449,7 @@ HandleFdt(const void* fdt, int node, uint32 addressCells, uint32 sizeCells)
 			dprintf("cpu\n");
 			dprintf("  id: %" B_PRIu32 "\n", info->id);
 
+#ifdef __riscv
 			int subNode = fdt_subnode_offset(fdt, node, "interrupt-controller");
 			if (subNode < 0) {
 				dprintf("  [!] no interrupt controller\n");
@@ -454,6 +457,7 @@ HandleFdt(const void* fdt, int node, uint32 addressCells, uint32 sizeCells)
 				info->phandle = fdt_get_phandle(fdt, subNode);
 				dprintf("  phandle: %" B_PRIu32 "\n", info->phandle);
 			}
+#endif
 		}
 	}
 
@@ -469,6 +473,7 @@ HandleFdt(const void* fdt, int node, uint32 addressCells, uint32 sizeCells)
 		return;
 	}
 
+#ifdef __riscv
 	if (HasFdtString(compatible, compatibleLen, "riscv,plic0")
 		|| HasFdtString(compatible, compatibleLen, "sifive,plic-1.0.0")) {
 		GetReg(fdt, node, addressCells, sizeCells, 0, sPlic);
@@ -492,6 +497,7 @@ HandleFdt(const void* fdt, int node, uint32 addressCells, uint32 sizeCells)
 		}
 		return;
 	}
+#endif
 
 	// TODO: We should check for the "chosen" uart and prioritize that one
 
