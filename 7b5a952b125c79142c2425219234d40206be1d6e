@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4b5c4b86_03320569",
+        "filename": "src/system/kernel/arch/arm/arch_real_time_clock.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-13T12:46:22Z",
+      "side": 1,
+      "message": "should this return B_NOT_SUPPORTED?",
+      "revId": "7b5a952b125c79142c2425219234d40206be1d6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
