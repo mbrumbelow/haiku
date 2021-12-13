@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7cecf743_94f8c69f",
+        "filename": "src/system/boot/platform/efi/start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-12-13T18:59:55Z",
+      "side": 1,
+      "message": "Template can be used to avoid code duplication.",
+      "revId": "d9c01c6e71bccd4f29d9de29c22086c383b6f9f9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
+    }
+  ]
+}
