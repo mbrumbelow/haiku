@@ -366,6 +366,43 @@ fdt_device_get_reg(fdt_device* dev, uint32 ord, uint64* regs, uint64* len)
 }
 
 
+static uint32
+fdt_get_interrupt_parent(fdt_device* dev, int node)
+{
+
+	while (node >= 0) {
+		uint32* prop;
+		int propLen;
+		prop = (uint32*)fdt_getprop(gFDT, node, "interrupt-parent", &propLen);
+		if (prop != NULL && propLen == 4) {
+			return fdt32_to_cpu(*prop);
+		}
+
+		node = fdt_parent_offset(gFDT, node);
+	}
+
+	return 0;
+}
+
+
+static uint32
+fdt_get_interrupt_cells(uint32 interrupt_parent_phandle)
+{
+	if (interrupt_parent_phandle > 0) {
+		int node = fdt_node_offset_by_phandle(gFDT, interrupt_parent_phandle);
+		if (node >= 0) {
+			uint32* prop;
+			int propLen;
+			prop  = (uint32*)fdt_getprop(gFDT, node, "#interrupt-cells", &propLen);
+			if (prop != NULL && propLen == 4) {
+				return fdt32_to_cpu(*prop);
+			}
+		}
+	}
+	return 1;
+}
+
+
 static bool
 fdt_device_get_interrupt(fdt_device* dev, uint32 ord,
 	device_node** interruptController, uint64* interrupt)
@@ -381,34 +418,35 @@ fdt_device_get_interrupt(fdt_device* dev, uint32 ord,
 	const void* prop = fdt_getprop(gFDT, (int)fdtNode, "interrupts-extended",
 		&propLen);
 	if (prop == NULL) {
+		uint32 interrupt_parent = fdt_get_interrupt_parent(dev, fdtNode);
+		uint32 interrupt_cells = fdt_get_interrupt_cells(interrupt_parent);
+
 		prop = fdt_getprop(gFDT, (int)fdtNode, "interrupts",
 			&propLen);
 		if (prop == NULL)
 			return false;
 
-		if ((ord + 1)*4 > (uint32)propLen)
+		if ((ord + 1)*interrupt_cells*4 > (uint32)propLen)
 			return false;
 
-		if (interrupt != NULL)
-			*interrupt = fdt32_to_cpu(*(((uint32*)prop) + ord));
-
-		if (interruptController != NULL) {
-			prop = fdt_getprop(gFDT, (int)fdtNode, "interrupt-parent",
-				&propLen);
-			if (prop != NULL && propLen == 4) {
-				uint32 phandle = fdt32_to_cpu(*(uint32*)prop);
-
-				fdt_bus* bus;
-				ASSERT(gDeviceManager->get_driver(
-					dev->bus, NULL, (void**)&bus) >= B_OK);
-
-				*interruptController = fdt_bus_node_by_phandle(bus, phandle);
-			}
+		uint32 offs;
+		if (interrupt_cells == 3) {
+			offs = 3 * ord + 1;
+		} else {
+			offs = interrupt_cells * ord;
 		}
+
+		if (interrupt != NULL)
+			*interrupt = fdt32_to_cpu(*(((uint32*)prop) + offs));
+
+		if (interruptController != NULL && interrupt_parent != 0) {
+			fdt_bus* bus;
+			ASSERT(gDeviceManager->get_driver(dev->bus, NULL, (void**)&bus) >= B_OK);
+			*interruptController = fdt_bus_node_by_phandle(bus, interrupt_parent);
+		}
+
 		return true;
 	}
-
-	// TODO: use '#interrupt-cells' to identify field sizes
 
 	if ((ord + 1)*8 > (uint32)propLen)
 		return false;
