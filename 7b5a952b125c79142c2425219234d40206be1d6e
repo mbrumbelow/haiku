@@ -34,6 +34,24 @@
       "revId": "7b5a952b125c79142c2425219234d40206be1d6e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4aef857_649da36e",
+        "filename": "src/system/kernel/arch/arm/arch_real_time_clock.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-13T13:48:52Z",
+      "side": 1,
+      "message": "Yes, it\u0027s just for doing things \"properly\", there will be no impact for now.",
+      "parentUuid": "42997b40_2a91e70d",
+      "revId": "7b5a952b125c79142c2425219234d40206be1d6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
