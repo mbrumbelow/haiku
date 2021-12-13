@@ -52,6 +52,24 @@
       "revId": "7b5a952b125c79142c2425219234d40206be1d6e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2261ca6_a02f9f9d",
+        "filename": "src/system/kernel/arch/arm/arch_real_time_clock.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-12-13T13:57:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4aef857_649da36e",
+      "revId": "7b5a952b125c79142c2425219234d40206be1d6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": false
     }
   ]
 }
