@@ -25,6 +25,7 @@ arch_rtc_init(kernel_args *args, struct real_time_data *data)
 uint32
 arch_rtc_get_hw_time(void)
 {
+	return 0;
 }
 
 
