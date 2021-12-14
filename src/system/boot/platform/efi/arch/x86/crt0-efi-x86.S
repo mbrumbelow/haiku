@@ -65,12 +65,11 @@ _start:
   	ret
  
  	// hand-craft a dummy .reloc section so EFI knows it's a relocatable executable:
+	// we're using relocation type IMAGE_REL_BASED_ABSOLUTE which is ignored
  
- 	.data
-dummy:	.long	0
-
 #define IMAGE_REL_ABSOLUTE	0
- 	.section .reloc
- 	.long	dummy					// Page RVA
- 	.long	10					// Block Size (2*4+2)
- 	.word	(IMAGE_REL_ABSOLUTE<<12) +  0		// reloc for dummy
+	.section .reloc
+	.long	0					// Page RVA
+	.long	12					// Block Size (2*4+2*2)
+	.word	(IMAGE_REL_ABSOLUTE<<12) +  0
+	.word	(IMAGE_REL_ABSOLUTE<<12) +  0
