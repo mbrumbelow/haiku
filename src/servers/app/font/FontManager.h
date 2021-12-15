@@ -74,6 +74,9 @@ public:
 			void				AttachUser(uid_t userID);
 			void				DetachUser(uid_t userID);
 
+			status_t			LoadFont(const char *path, uint16* familyID, 
+									uint16* styleID, uint16* face);
+
 private:
 			struct font_directory;
 			struct font_mapping;
@@ -94,9 +97,9 @@ private:
 			font_directory*		_FindDirectory(node_ref& nodeRef);
 			void				_RemoveDirectory(font_directory* directory);
 			status_t			_CreateDirectories(const char* path);
-			status_t			_AddPath(const char* path);
+			status_t			_AddPath(const char* path, bool watch = true);
 			status_t			_AddPath(BEntry& entry,
-									font_directory** _newDirectory = NULL);
+									font_directory** _newDirectory = NULL, bool watch = true);
 
 			void				_RemoveStyle(font_directory& directory,
 									FontStyle* style);

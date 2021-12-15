@@ -658,19 +658,19 @@ FontManager::_RemoveDirectory(font_directory* directory)
 
 
 status_t
-FontManager::_AddPath(const char* path)
+FontManager::_AddPath(const char* path, bool watch)
 {
 	BEntry entry;
 	status_t status = entry.SetTo(path);
 	if (status != B_OK)
 		return status;
 
-	return _AddPath(entry);
+	return _AddPath(entry, NULL, watch);
 }
 
 
 status_t
-FontManager::_AddPath(BEntry& entry, font_directory** _newDirectory)
+FontManager::_AddPath(BEntry& entry, font_directory** _newDirectory, bool watch)
 {
 	node_ref nodeRef;
 	status_t status = entry.GetNodeRef(&nodeRef);
@@ -704,16 +704,18 @@ FontManager::_AddPath(BEntry& entry, font_directory** _newDirectory)
 	directory->group = stat.st_gid;
 	directory->revision = 0;
 
-	status = watch_node(&nodeRef, B_WATCH_DIRECTORY, this);
-	if (status != B_OK) {
-		// we cannot watch this directory - while this is unfortunate,
-		// it's not a critical error
-		printf("could not watch directory %" B_PRIdDEV ":%" B_PRIdINO "\n",
-			nodeRef.device, nodeRef.node);
-			// TODO: should go into syslog()
-	} else {
-		BPath path(&entry);
-		FTRACE(("FontManager: now watching: %s\n", path.Path()));
+	if (watch) {
+		status = watch_node(&nodeRef, B_WATCH_DIRECTORY, this);
+		if (status != B_OK) {
+			// we cannot watch this directory - while this is unfortunate,
+			// it's not a critical error
+			printf("could not watch directory %" B_PRIdDEV ":%" B_PRIdINO "\n",
+				nodeRef.device, nodeRef.node);
+				// TODO: should go into syslog()
+		} else {
+			BPath path(&entry);
+			FTRACE(("FontManager: now watching: %s\n", path.Path()));
+		}
 	}
 
 	fDirectories.AddItem(directory);
@@ -1166,3 +1168,34 @@ FontManager::DetachUser(uid_t userID)
 	// TODO!
 }
 
+status_t
+FontManager::LoadFont(const char* path, uint16* familyID, uint16* styleID, uint16* face)
+{
+	BEntry entry;
+	status_t status = entry.SetTo(path);
+	if (status != B_OK)
+		return status;
+	
+	BEntry parentPath;
+	entry.GetParent(&parentPath);
+	font_directory* newDirectory;
+	if (_AddPath(parentPath, &newDirectory, false) == B_OK && newDirectory != NULL) {
+		_AddFont(*newDirectory, entry);
+		node_ref nodeRef;
+		status_t status = entry.GetNodeRef(&nodeRef);
+		if (status < B_OK)
+			return status;
+
+		FontStyle* style = newDirectory->FindStyle(nodeRef);
+		if (style == NULL) 
+			return B_ERROR;
+		
+		*familyID = style->Family()->ID();
+		*styleID = style->ID();
+		*face = style->Face();
+	} else {
+		return B_ERROR;
+	}
+
+	return B_OK;	
+}
