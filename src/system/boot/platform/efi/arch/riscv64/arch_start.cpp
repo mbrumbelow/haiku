@@ -35,6 +35,13 @@ extern uint64_t arch_mmu_generate_post_efi_page_tables(size_t memory_map_size,
 
 
 void
+arch_convert_kernel_args(void)
+{
+	// empty
+}
+
+
+void
 arch_start_kernel(addr_t kernelEntry)
 {
 	// EFI assumed to be SBI booted

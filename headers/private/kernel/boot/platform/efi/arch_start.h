@@ -6,6 +6,7 @@
 #define __ARCH_START_H
 
 
+void arch_convert_kernel_args(void);
 void arch_start_kernel(addr_t kernelEntry);
 
 

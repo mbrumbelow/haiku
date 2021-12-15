@@ -35,6 +35,15 @@ extern uint64_t arch_mmu_generate_post_efi_page_tables(size_t memory_map_size,
 
 
 void
+arch_convert_kernel_args(void)
+{
+	fix_address(gKernelArgs.ucode_data);
+	fix_address(gKernelArgs.arch_args.apic);
+	fix_address(gKernelArgs.arch_args.hpet);
+}
+
+
+void
 arch_start_kernel(addr_t kernelEntry)
 {
 	// Prepare to exit EFI boot services.
