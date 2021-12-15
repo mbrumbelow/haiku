@@ -2658,6 +2658,27 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 			break;
 		}
 
+		case AS_LOAD_FONT:
+		{
+			char* fontPath;
+			uint16 familyID, styleID, face;
+
+			link.ReadString(&fontPath);
+
+			gFontManager->Lock();
+
+			status_t status = gFontManager->LoadFont(fontPath, &familyID, &styleID, &face);
+
+			gFontManager->Unlock();
+
+			fLink.StartMessage(status);
+			fLink.Attach<uint16>(familyID);
+			fLink.Attach<uint16>(styleID);
+			fLink.Attach<uint16>(face);
+			fLink.Flush();
+			break;
+		}
+		
 		// Screen commands
 
 		case AS_VALID_SCREEN_ID:
