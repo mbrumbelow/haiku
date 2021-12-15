@@ -12,7 +12,10 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 			continue ;
 		}
 
+		SubDirC++Flags -std=gnu++17 ;
+
 		StaticLibrary [ MultiArchDefaultGristFiles libnetservices2.a ] :
+			HttpHeaders.cpp
 			HttpSession.cpp
 			NetServicesMisc.cpp
 			;
