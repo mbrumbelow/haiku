@@ -16,6 +16,23 @@
       "message": "x86_64, riscv64 still builds\narm still builds if i patch dtb.cpp\n\nx86_64 bootup checked in qemu",
       "revId": "fdf8adb85565fd99788faf848697a7dbc9eab416",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9167d122_e0eda8e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-12-15T21:24:22Z",
+      "side": 1,
+      "message": "Looks good to me!",
+      "revId": "fdf8adb85565fd99788faf848697a7dbc9eab416",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
