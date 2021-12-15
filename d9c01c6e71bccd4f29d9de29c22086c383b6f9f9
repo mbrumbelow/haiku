@@ -33,6 +33,24 @@
       "revId": "d9c01c6e71bccd4f29d9de29c22086c383b6f9f9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a992ade_70fc582b",
+        "filename": "src/system/boot/platform/efi/start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-12-15T08:41:36Z",
+      "side": 1,
+      "message": "ok that makes sense\n\nthen we can have a separate arch_convert_kernel_args() for x86_64, x86, arm, and probably an empty one for riscv64 as it doesn\u0027t seem to require any arch-specific kernel argument fixup.",
+      "parentUuid": "f6e666b2_a16b7520",
+      "revId": "d9c01c6e71bccd4f29d9de29c22086c383b6f9f9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
+      "unresolved": true
     }
   ]
 }
