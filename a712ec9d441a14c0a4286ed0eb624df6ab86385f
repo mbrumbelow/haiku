@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cde595e_d093e768",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-12-15T21:23:19Z",
+      "side": 1,
+      "message": "Nice catch!",
+      "revId": "a712ec9d441a14c0a4286ed0eb624df6ab86385f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09fad914_c9a6320f",
+        "filename": "src/add-ons/kernel/network/protocols/udp/udp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 933,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-12-15T21:23:19Z",
+      "side": 1,
+      "message": "No need for the variable at all.",
+      "revId": "a712ec9d441a14c0a4286ed0eb624df6ab86385f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
