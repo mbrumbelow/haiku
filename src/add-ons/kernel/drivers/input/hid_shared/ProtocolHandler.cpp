@@ -6,6 +6,7 @@
 
 #include <stdlib.h>
 #include <ring_buffer.h>
+#include <kernel.h>
 
 #include "Driver.h"
 #include "HIDCollection.h"
@@ -186,4 +187,20 @@ void
 ProtocolHandler::SetNextHandler(ProtocolHandler *nextHandler)
 {
 	fNextHandler = nextHandler;
+}
+
+status_t
+ProtocolHandler::IOGetDeviceName(const char *name, void *buffer, size_t length)
+{
+	size_t nameLength = min_c(strlen(name) + 1,length);
+
+	if (!IS_USER_ADDRESS(buffer)) {
+		return B_BAD_ADDRESS;
+	}
+
+	status_t result = user_strlcpy((char *)buffer, name, nameLength);
+	if (result > 0)
+		result = B_OK;
+
+	return result;
 }
