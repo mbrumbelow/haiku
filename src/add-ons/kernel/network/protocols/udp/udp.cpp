@@ -930,8 +930,6 @@ UdpEndpointManager::_GetDomainSupport(net_buffer* buffer)
 	MutexLocker _(fLock);
 
 	UdpDomainSupport* support = _GetDomainSupport(_GetDomain(buffer), false);
-	if (support != NULL)
-		support->Ref();
 	return support;
 }
 
