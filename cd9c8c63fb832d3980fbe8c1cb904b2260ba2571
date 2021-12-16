@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8077285c_5d1f17b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2021-12-16T11:16:51Z",
+      "side": 1,
+      "message": "What is the use case of retrieving a vendor/product id from a device? Specific device workarounds? Specific device settings?",
+      "parentUuid": "c95adf3c_c8ba50b2",
+      "revId": "cd9c8c63fb832d3980fbe8c1cb904b2260ba2571",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "81bde68f_ee93b7f5",
         "filename": "src/add-ons/kernel/drivers/input/hid_shared/JoystickProtocolHandler.cpp",
         "patchSetId": 1
