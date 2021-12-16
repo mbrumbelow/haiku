@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f46450eb_a7a9520b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-16T13:08:01Z",
+      "side": 1,
+      "message": "The keymap preferences could use it to select one of the possible physical keyboard layouts. Likewise the joystick preferences could show a picture of the joystick and pre-configure mapping of the buttons (possibly reuse the data from https://github.com/gabomdq/SDL_GameControllerDB).\n\n\nDevice specific settings would be nice, we already do this for displays in app_server (we remember the video mode for each display, mapped by its EDID data which include a model number and possibly a serial number).\n\nWorkarounds would normally be implemented as \"quirks\" directly in the driver.\n\nAnother use case is simply identifying the device for the user. If you just have \"mouse 1\", \"mouse 2\" and \"mouse 3\", it\u0027s hard to tell which is which. If you have \"Logitech Mouse\", \"Microsoft Mouse\" and \"IBM TrackPoint\", already you have a much better idea.",
+      "parentUuid": "8077285c_5d1f17b3",
+      "revId": "cd9c8c63fb832d3980fbe8c1cb904b2260ba2571",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "81bde68f_ee93b7f5",
         "filename": "src/add-ons/kernel/drivers/input/hid_shared/JoystickProtocolHandler.cpp",
         "patchSetId": 1
