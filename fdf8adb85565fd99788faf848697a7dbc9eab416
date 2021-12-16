@@ -50,6 +50,24 @@
       "message": "Just one minor thing: you could update the copyright year of the files you change.",
       "revId": "fdf8adb85565fd99788faf848697a7dbc9eab416",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e98231cb_400831de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-12-16T09:41:15Z",
+      "side": 1,
+      "message": "ok makes sense",
+      "parentUuid": "f002c49e_57d30184",
+      "revId": "fdf8adb85565fd99788faf848697a7dbc9eab416",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
