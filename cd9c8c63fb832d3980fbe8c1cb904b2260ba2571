@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c95adf3c_c8ba50b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-16T10:23:09Z",
+      "side": 1,
+      "message": "In the case of PS/2, there isn\u0027t an unified vendor/product ID as is the case for USB. Instead, the device type is detected by sending various commands and checking how the device handles them. Currently we know about:\n- IBM/Lenovo trackpoint for Thinkpad laptops\n- Synaptics touchpad\n- Mouse implementing the extended Microsoft or Logitech (I don\u0027t remember who invented it) to support 3 buttons and a scroll wheel\n- Work in progress for ALPS and ELAN touchpads (but I think the drivers are not complete?)\n- Everything else is used a standard 2 button PS/2 mouse\n\nThe approach is a bit different from HID:\n- The PS2 device just represents the PS/2 mouse port, independant of whatever is connected to it,\n- Then there is a PS2 bus manager, which is responsible for detecting devices\n- The PS2 bus manager detects the device type using \"probe\" functions like https://git.haiku-os.org/haiku/tree/src/add-ons/kernel/bus_managers/ps2/ps2_trackpoint.cpp#n35\n- The device types are hardcoded in the bus manager and the probing functions called in order (https://git.haiku-os.org/haiku/tree/src/add-ons/kernel/bus_managers/ps2/ps2_dev.cpp) - We could modify this to have fully separate drivers for each PS/2 device, but it is probably not worth the effort\n- Eventually each PS2 device node can have a different ioctl hook (for example for synaptics: https://git.haiku-os.org/haiku/tree/src/add-ons/kernel/bus_managers/ps2/ps2_synaptics.cpp#n607) and the hook can simply be hardcoded to handle the ioctl and return a different name for each device type.",
+      "parentUuid": "89f996c2_4b991780",
+      "revId": "cd9c8c63fb832d3980fbe8c1cb904b2260ba2571",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "81bde68f_ee93b7f5",
         "filename": "src/add-ons/kernel/drivers/input/hid_shared/JoystickProtocolHandler.cpp",
         "patchSetId": 1
