@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6586331d_bd382537",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-16T08:06:39Z",
+      "side": 1,
+      "message": "Ideally I would put a bit more info there. For example in USB we could have the vendor and device name, or data extracted from USB string descriptors.\n\nBut this can be added later, I\u0027m fine with merging this first version already 😊",
+      "revId": "cd9c8c63fb832d3980fbe8c1cb904b2260ba2571",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
