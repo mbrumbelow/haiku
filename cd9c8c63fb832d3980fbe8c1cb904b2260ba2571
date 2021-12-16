@@ -16,6 +16,74 @@
       "message": "Ideally I would put a bit more info there. For example in USB we could have the vendor and device name, or data extracted from USB string descriptors.\n\nBut this can be added later, I\u0027m fine with merging this first version already 😊",
       "revId": "cd9c8c63fb832d3980fbe8c1cb904b2260ba2571",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be9c43a4_22ddadb0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-12-16T08:54:31Z",
+      "side": 1,
+      "message": "Thanks! Just pointing out coding style issues.",
+      "revId": "cd9c8c63fb832d3980fbe8c1cb904b2260ba2571",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81bde68f_ee93b7f5",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/JoystickProtocolHandler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-12-16T08:54:31Z",
+      "side": 1,
+      "message": "Space after comma, here and at other places.",
+      "revId": "cd9c8c63fb832d3980fbe8c1cb904b2260ba2571",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db70bd0e_fcfdc330",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/ProtocolHandler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-12-16T08:54:31Z",
+      "side": 1,
+      "message": "Superfluous curly braces.",
+      "revId": "cd9c8c63fb832d3980fbe8c1cb904b2260ba2571",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52162731_88673100",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/ProtocolHandler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-12-16T08:54:31Z",
+      "side": 1,
+      "message": "Why not directly return B_OK?",
+      "revId": "cd9c8c63fb832d3980fbe8c1cb904b2260ba2571",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
