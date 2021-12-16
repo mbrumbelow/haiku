@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "89f996c2_4b991780",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2021-12-16T09:23:27Z",
+      "side": 1,
+      "message": "Yes, I am working on it. At least for i2c/usb we could have some ioctl B_GET_PRODUCT_ID/B_GET_VENDOR_ID. I\u0027ve already have sketched on my notes.\n\nThere are more ioctl\u0027s that come to my mind, dump report descriptor on demand (and not doing always on tmp) or USB name, as you mention. Thing is, they are usb specific, perhaps i2c too.\n\nI also have to implement B_GET_DEVICE_NAME on ps2/at input devices, so InputServer doesn\u0027t need to guess names based on device path.\n\nHave ps2/at some sort of vendor/product id?",
+      "parentUuid": "6586331d_bd382537",
+      "revId": "cd9c8c63fb832d3980fbe8c1cb904b2260ba2571",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "81bde68f_ee93b7f5",
         "filename": "src/add-ons/kernel/drivers/input/hid_shared/JoystickProtocolHandler.cpp",
         "patchSetId": 1
