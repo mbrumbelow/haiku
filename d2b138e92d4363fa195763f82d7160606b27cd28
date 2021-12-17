@@ -34,6 +34,24 @@
       "parentUuid": "711f907e_f22d03da",
       "revId": "d2b138e92d4363fa195763f82d7160606b27cd28",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa19abf4_37ee4a47",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-12-17T14:15:09Z",
+      "side": 1,
+      "message": "I can see it\u0027s used mostly in bios_ia32/long.cpp\nWhich makes it a bit difficult case, as I understand the BIOS loader for x86_64 is actually compiled in with 32-bit mode.\n\nApart from that it doesn\u0027t seem that much difficult to get rid of KERNEL_LOAD_BASE_64_BIT and use a unified KERNEL_LOAD_BASE. (or maybe I\u0027m missing out one more problematic area?)",
+      "parentUuid": "dc107fa6_6cf82e3f",
+      "revId": "d2b138e92d4363fa195763f82d7160606b27cd28",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
