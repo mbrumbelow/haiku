@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b743352b_6b2504bf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-17T13:40:42Z",
+      "side": 1,
+      "message": "there should be one empty line between the first line of the commit and the others.\n\nthis way our tools (gerrit, cgit, and also git log) know where to cut the message when they want a short version of it.",
+      "revId": "90497dfe2534cfb34cf084c5ebfee53adcccb139",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d2c6bdf_6a634376",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-17T13:40:42Z",
+      "side": 1,
+      "message": "you are missing a . in your address (should be hotmail.com).\n\nPlease check this in home/config/settings/.gitconfig",
+      "revId": "90497dfe2534cfb34cf084c5ebfee53adcccb139",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
