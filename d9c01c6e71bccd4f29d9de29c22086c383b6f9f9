@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f92d32f1_23895f84",
+        "filename": "src/system/boot/platform/efi/start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-17T07:57:29Z",
+      "side": 1,
+      "message": "This comment was not taken into account yet. It should be possible to do something like this this:\n\n    template\u003cclass T\u003e static void\n    convert_preloaded_image(void* _image)\n    {\n    \tT* image \u003d static_cast\u003cT*\u003e(_image);\n    \tfix_address(image-\u003enext);\n    \tfix_address(image-\u003ename);\n    \tfix_address(image-\u003edebug_string_table);\n    \tfix_address(image-\u003esyms);\n    \tfix_address(image-\u003erel);\n    \tfix_address(image-\u003erela);\n    \tfix_address(image-\u003epltrel);\n    \tfix_address(image-\u003edebug_symbols);\n    }\n\nAnd then call it in this way:\n\n    convert_preloaded_image\u003cpreloaded_elf64_image\u003e(image);\n\nor:\n\n    convert_preloaded_image\u003cpreloaded_elf32_image\u003e(image);",
+      "parentUuid": "7cecf743_94f8c69f",
+      "revId": "d9c01c6e71bccd4f29d9de29c22086c383b6f9f9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f6e666b2_a16b7520",
         "filename": "src/system/boot/platform/efi/start.cpp",
         "patchSetId": 1
