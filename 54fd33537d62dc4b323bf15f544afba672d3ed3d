@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d2dcade9_8d5f0196",
+        "filename": "src/apps/icon-o-matic/IconEditorApp.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-17T07:51:33Z",
+      "side": 1,
+      "message": "I think it is much simpler than that: just re-create a BWindowStack object from your BWindow whenever you want to create a new window. It will then attach the new window to whatever stack the current window is in.",
+      "parentUuid": "250cf954_fbf7f60d",
+      "revId": "54fd33537d62dc4b323bf15f544afba672d3ed3d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bb8a3d2b_04fb5e80",
         "filename": "src/apps/icon-o-matic/Jamfile",
         "patchSetId": 3
