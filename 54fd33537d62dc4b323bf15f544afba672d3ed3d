@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "d173d445_18a7c423",
         "filename": "src/apps/icon-o-matic/IconEditorApp.h",
@@ -14,10 +15,28 @@
       "side": 1,
       "message": "Have you checked what happens if you detach a window, maybe reattach it to another stack, and then use it to create a new window?\n\nI think in that case the new window should be stacked in that other stack?",
       "revId": "54fd33537d62dc4b323bf15f544afba672d3ed3d",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "250cf954_fbf7f60d",
+        "filename": "src/apps/icon-o-matic/IconEditorApp.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2021-12-17T00:10:30Z",
+      "side": 1,
+      "message": "I have a problem with this. Windows aren\u0027t aware of stacks, and while one would argue that changes like \"window minimized\", \"window maximized\", etc., the BWindow class does have functions for when a window is resized, for example.\n\nWould it best to just modify the behavior of the new window button, or would it be more beneficial for Haiku to either introduce a BMessage that would be sent to a window as it gets stacked/unstacked, just as an FYI for the application? :)\n\nI\u0027m slightly afraid that if I am to implement something like this straight into the application itself, then other app developers that wish to take a similar approach (which we are not only establishing as possible, but also *validating* by using it on our own) will have to reuse code or come up with janky hacks.",
+      "parentUuid": "d173d445_18a7c423",
+      "revId": "54fd33537d62dc4b323bf15f544afba672d3ed3d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "bb8a3d2b_04fb5e80",
         "filename": "src/apps/icon-o-matic/Jamfile",
@@ -31,8 +50,7 @@
       "side": 1,
       "message": "sort alphabetically:\n\nUsePrivateHeaders interface shared ;",
       "revId": "54fd33537d62dc4b323bf15f544afba672d3ed3d",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
