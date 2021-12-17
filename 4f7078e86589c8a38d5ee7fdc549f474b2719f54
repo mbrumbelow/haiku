@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70b3cf9f_b50a68a9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-17T00:52:55Z",
+      "side": 1,
+      "message": "... cleanup mentioned in patchset 7 still needed :-)",
+      "revId": "4f7078e86589c8a38d5ee7fdc549f474b2719f54",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
