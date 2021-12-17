@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbb08de0_1b1212f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-12-17T16:25:30Z",
+      "side": 1,
+      "message": "Similar to the one for arch_elf.\n\nOld logic was:\nbuild both 32-bit and 64-bit for BIOS - OK\nbuild 64-bit only for EFI x86_64 - OK\nBUT\nit was trying to build 64-bit only for EFI x86 32-bit as well, which does not sound like a good idea.\n\nThis patch intends to change the last part, i.e. build only 32-bit ELF for 32-bit EFI loader.",
+      "revId": "6a63834bc2bceb223ee0159b67cc9f451f09eb02",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
