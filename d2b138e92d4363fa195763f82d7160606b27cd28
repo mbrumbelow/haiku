@@ -70,6 +70,24 @@
       "parentUuid": "fa19abf4_37ee4a47",
       "revId": "d2b138e92d4363fa195763f82d7160606b27cd28",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "abcaacb5_afa15137",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-12-17T15:27:30Z",
+      "side": 1,
+      "message": "Yes, I checked it, BIOS is always built with both 32-bit and 64-bit support.\nEFI-x86_64 can only load 64-bit kernel. (as it\u0027s trying to use KERNEL_LOAD_BASE_64BIT, see above in my patch attempt)\n\nSo first I\u0027d like to target the following:\nBIOS can load either 32-bit or 64-bit (no change)\nEFI-x86_64 can load 64-bit (no change)\nEFI-x86 can load 32-bit (some Jamfile and #ifdefs need to be changed as currently the build system tries to use various incompatible 32-bit and 64-bit code paths when attempting to build the 32-bit x86 EFI loader)\n\nAnd then later we can think about making the EFI loaders more versatile.\n\nWhat do you think?",
+      "parentUuid": "678a2b7a_8131dbec",
+      "revId": "d2b138e92d4363fa195763f82d7160606b27cd28",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
