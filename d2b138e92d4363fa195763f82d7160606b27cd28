@@ -16,6 +16,24 @@
       "message": "I know that this is not a nice and clean patch but somehow we need to tackle the following situation:\n* there\u0027s different kernel load base for 32-bit and 64-bit architectures\n* the current EFI implementation uses whichever is defined in the arch headers\n* but on the x86 both of them are defined\n* we need to use KERNEL_LOAD_BASE on x86 32-bit, KERNEL_LOAD_BASE_64_BIT on x86_64. So we can\u0027t say either one takes precedence.\n\nWhat could be a better way of achieving this, without introducing arch-dependent ifdefs in the code?",
       "revId": "d2b138e92d4363fa195763f82d7160606b27cd28",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc107fa6_6cf82e3f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-17T13:48:58Z",
+      "side": 1,
+      "message": "KERNEL_LOAD_BASE_64BIT is already a hack to support 32 and 64bit booting in x86_64, it was already annoying, and this is making it worse.\n\nI would prefer that all architectures have only KERNEL_LOAD_BASE (no matter if they are 32 or 64bit) and the special case to handle 32 and 64bit in the same architecture is limited to __x86_64__ or __i386__ where it is needed (and with a comment explaining why it is needed).",
+      "parentUuid": "711f907e_f22d03da",
+      "revId": "d2b138e92d4363fa195763f82d7160606b27cd28",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
