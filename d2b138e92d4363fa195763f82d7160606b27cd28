@@ -52,6 +52,24 @@
       "parentUuid": "dc107fa6_6cf82e3f",
       "revId": "d2b138e92d4363fa195763f82d7160606b27cd28",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "678a2b7a_8131dbec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-17T14:24:02Z",
+      "side": 1,
+      "message": "I think that\u0027s it. The BIOS loader is special in that it can boot both the 64bit and the 32bit version of Haiku, I think. Not sure if it can do so from the same binary or if it needs to be compiled in two different ways.\n\nThis is a special case, in all other architectures we don\u0027t have to do something like that. We may extend that support to EFI as well (so you can boot a 64bit system using a 32bit loader on a machine with a 64bit CPU but 32bit only EFI implementation; or maybe boot a 32bit haiku from a 64bit-only EFI).\n\nOn non-x86 I hope we can avoid such problems, and have either full-64 or full-32 architectures, but not a mix of both. For RISC-V and SPARC we didn\u0027t do a 32bit version at all, and for PPC we are 32bit only at the moment. I don\u0027t know what the plans are for ARM.",
+      "parentUuid": "fa19abf4_37ee4a47",
+      "revId": "d2b138e92d4363fa195763f82d7160606b27cd28",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
