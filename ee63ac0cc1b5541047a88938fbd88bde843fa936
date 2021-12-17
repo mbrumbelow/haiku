@@ -16,6 +16,23 @@
       "message": "I hope you like this one better than my previous review 😊\n\nI\u0027m trying to use a more explicit define BOOT_SUPPORT_xx to control which bitness gets built. Something similar might be needed for loader/elf.cpp as well.\n\nI also had to adjust the Jamfile to restart the DEFINES from a clean slate when compiling a new set of arch/x86 files, otherwise the defines would be carried over from one platform to the next.\n\n",
       "revId": "ee63ac0cc1b5541047a88938fbd88bde843fa936",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c355d64_64c630f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-12-17T15:49:37Z",
+      "side": 1,
+      "message": "oops wrong version\nlet me update.",
+      "revId": "ee63ac0cc1b5541047a88938fbd88bde843fa936",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
