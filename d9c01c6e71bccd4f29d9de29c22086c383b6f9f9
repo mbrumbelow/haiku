@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f58bf1d_5c1261db",
+        "filename": "src/system/boot/platform/efi/start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-12-17T08:54:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f92d32f1_23895f84",
+      "revId": "d9c01c6e71bccd4f29d9de29c22086c383b6f9f9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f6e666b2_a16b7520",
