@@ -42,9 +42,9 @@ struct memory_region {
 };
 
 
-#if defined(KERNEL_LOAD_BASE_64_BIT)
+#if defined(__x86_64__) || defined(__riscv) || defined(__arm64__)
 static addr_t sNextVirtualAddress = KERNEL_LOAD_BASE_64_BIT + 32 * 1024 * 1024;
-#elif defined(KERNEL_LOAD_BASE)
+#elif defined(__i386__) || defined(__arm__)
 static addr_t sNextVirtualAddress = KERNEL_LOAD_BASE + 32 * 1024 * 1024;
 #else
 #error Unable to find kernel load base on this architecture!
