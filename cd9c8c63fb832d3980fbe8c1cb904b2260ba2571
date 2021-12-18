@@ -143,6 +143,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "04a1c542_584b015e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-18T14:44:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d234626c_2efc2ad5",
+      "revId": "cd9c8c63fb832d3980fbe8c1cb904b2260ba2571",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "81bde68f_ee93b7f5",
@@ -280,6 +298,24 @@
       "side": 1,
       "message": "But does this still apply to Patchset 2?",
       "parentUuid": "26520449_473f92a0",
+      "revId": "cd9c8c63fb832d3980fbe8c1cb904b2260ba2571",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a36a2ee4_1ea731d9",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/ProtocolHandler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-18T14:44:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4a02a1e_ab4addc5",
       "revId": "cd9c8c63fb832d3980fbe8c1cb904b2260ba2571",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
