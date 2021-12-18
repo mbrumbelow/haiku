@@ -264,6 +264,24 @@
       "parentUuid": "aae35096_a3d2341a",
       "revId": "cd9c8c63fb832d3980fbe8c1cb904b2260ba2571",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4a02a1e_ab4addc5",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/ProtocolHandler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2021-12-18T12:30:05Z",
+      "side": 1,
+      "message": "But does this still apply to Patchset 2?",
+      "parentUuid": "26520449_473f92a0",
+      "revId": "cd9c8c63fb832d3980fbe8c1cb904b2260ba2571",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
