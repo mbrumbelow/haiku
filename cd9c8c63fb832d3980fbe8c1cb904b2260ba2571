@@ -210,6 +210,24 @@
       "parentUuid": "52162731_88673100",
       "revId": "cd9c8c63fb832d3980fbe8c1cb904b2260ba2571",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26520449_473f92a0",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/ProtocolHandler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-18T11:53:47Z",
+      "side": 1,
+      "message": "I think what Axel meant is you can do this:\n\n    if (result \u003e 0)\n        return B_OK;\n    \n    return result;\n\nWhich is a slightly simpler code flow to follow.",
+      "parentUuid": "aae35096_a3d2341a",
+      "revId": "cd9c8c63fb832d3980fbe8c1cb904b2260ba2571",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
