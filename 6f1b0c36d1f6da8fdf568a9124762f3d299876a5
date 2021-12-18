@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b54d9200_b35ad41d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-18T12:07:37Z",
+      "side": 1,
+      "message": "I think this is more clear about what\u0027s happening 😊",
+      "revId": "6f1b0c36d1f6da8fdf568a9124762f3d299876a5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
