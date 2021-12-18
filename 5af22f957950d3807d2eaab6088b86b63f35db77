@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e755efb_ac1e1bb4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-18T13:10:14Z",
+      "side": 1,
+      "message": "Looks ok to me, I will let the RISC-V people check that part of it.",
+      "revId": "5af22f957950d3807d2eaab6088b86b63f35db77",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5dfa3dae_faa846e5",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/Jamfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-18T13:10:14Z",
+      "side": 1,
+      "message": "mmu goes before start\nsmp goes before start\n\narch_* goes before at least relocation_func.cpp (not sure if .S files need to be first or should be in alphabetical order too)",
+      "revId": "5af22f957950d3807d2eaab6088b86b63f35db77",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
