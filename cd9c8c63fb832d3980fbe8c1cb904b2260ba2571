@@ -160,6 +160,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3851ed9e_069c8b74",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/JoystickProtocolHandler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2021-12-18T12:24:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81bde68f_ee93b7f5",
+      "revId": "cd9c8c63fb832d3980fbe8c1cb904b2260ba2571",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "db70bd0e_fcfdc330",
@@ -173,6 +191,24 @@
       "writtenOn": "2021-12-16T08:54:31Z",
       "side": 1,
       "message": "Superfluous curly braces.",
+      "revId": "cd9c8c63fb832d3980fbe8c1cb904b2260ba2571",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a6a77e7_610a3dae",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/ProtocolHandler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2021-12-18T12:24:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db70bd0e_fcfdc330",
       "revId": "cd9c8c63fb832d3980fbe8c1cb904b2260ba2571",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
