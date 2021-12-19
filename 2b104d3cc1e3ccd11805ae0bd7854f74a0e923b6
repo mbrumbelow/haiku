@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "db8ade35_e65aff23",
+        "filename": "docs/user/netservices/HttpSession.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-12-19T13:02:43Z",
+      "side": 1,
+      "message": "It is mostly a design question I have not figured out. There are HTTP requests, which for all intents and purposes are singletons. But these requests are executed in a context. This context consists of:\n - Cookies\n - Authentication information\n - Http 1+ Keepalive\n - Http 1.1 Persistent connections\n - Http 2+3 request multiplexing\n - Non-protocol properties of the way requests are build and connected to stay performant, e.g. a max number of parallel requests in total and/or per server. \n\nThe \u0027session\u0027 design models modern browser design where the browser has a standard browsing mode and private windows or tabs. All standard browsing requests would go through a shared context that has all the elements above. When the web browser exits, it will store the cookies and/or authentication information in a persistent storage and load it on next instances. A private browsing window/tab would have its own private context that does not share any of the information above.\n\nWhat the current design does not allow for is to share parts of the context between multiple contexts, for example sharing a cookie store between several contexts. That obviously is a limitation, but in top of my mind I cannot currently imagine what kind of usage patterns that would limit.\n\nHaving said that, I see how the use of the word session would potentially confuse an API user, so I am now leaning towards \u0027BHttpContext\u0027 objects as the point where one would run their requests.",
+      "parentUuid": "8cdfb91f_462eadc2",
+      "revId": "2b104d3cc1e3ccd11805ae0bd7854f74a0e923b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9a932c3a_dae39db1",
         "filename": "docs/user/netservices/HttpSession.dox",
         "patchSetId": 1
