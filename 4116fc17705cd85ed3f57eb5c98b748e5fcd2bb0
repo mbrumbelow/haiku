@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51d4c463_1ae8117e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-12-19T11:11:32Z",
+      "side": 1,
+      "message": "second attempt.. not sure if you\u0027ll like it better than the first one but let\u0027s give it a try 😊\n\nwhat I\u0027m trying to achieve here:\n* if platform is not BIOS then the loader has to know about KERNEL_LOAD_BASE which is the actual place where the kernel is loaded\n* the BIOS loader can load both 32-bit and 64-bit kernel so in the BIOS parts we should explicitly specify which kernel we are talking about. So it does not seem to be a great idea to use a KERNEL_LOAD_BASE in the BIOS loader, as it\u0027s ambiguous. Instead I\u0027m trying to introduce KERNEL_LOAD_BASE_32_BIT/KERNEL_LOAD_BASE_64_BIT so it will be explicitly stated when to use which load address.\n\nThis way we have arch-specific ifdef only in the arch-specific header.\n\nDisclaimer:\nRISC-V still builds, I did not check if it still boots after this change.\nNo idea about SPARC at all.\n\n",
+      "revId": "4116fc17705cd85ed3f57eb5c98b748e5fcd2bb0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
