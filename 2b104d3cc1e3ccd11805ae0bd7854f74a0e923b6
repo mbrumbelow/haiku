@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "5cf944cf_78dacf3c",
         "filename": "docs/user/netservices/HttpSession.dox",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "I still don\u0027t agree with the use of BHttpSession for storing these things.\n\nIt should be named BHttpContext as in the previous iterations of the API.\n\nThe idea of a \"session\", for example for cookies, is very specific, and session cookies are non-persistent and never saved to disk. So, using BHttpSession as a name here is confusing.",
       "revId": "2b104d3cc1e3ccd11805ae0bd7854f74a0e923b6",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "bf4ce0dc_fa41805c",
         "filename": "docs/user/netservices/HttpSession.dox",
@@ -32,10 +33,28 @@
       "message": "The new way HTTP requests will be scheduled and executed will be on two separate threads (a control and a data thread). As part of the scheduling, the number of concurrent overall requests and the number of concurrent requests to a single server will be limited, much like libsoup. For now, this executor is named a HttpSession. It made sense to me to have the HttpSession own a CookieJar, a list of additionally accepted certificates and auth information.\n\nThe session name seemed apt because (1) it was not used in the old kit other than the patches on Gerrit and (2) all requests scheduled in a session share the same context, but when the session ends, the requests ends and the context disappears (unless it is stored in a persistent storage).\n\nAre you issues with the naming? Or with the design itself?",
       "parentUuid": "5cf944cf_78dacf3c",
       "revId": "2b104d3cc1e3ccd11805ae0bd7854f74a0e923b6",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "84982127_343e9a09",
+        "filename": "docs/user/netservices/HttpSession.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-12-19T09:08:31Z",
+      "side": 1,
+      "message": "Any more thoughts on BHttpSession versus BHttpContext? I still prefer BHttpSession, but it is really a semantic preference. Running a request as part of a session rather than running it with a context feels better metaphorically. Especially when we are going to add support for HTTP2 or 3 where connections are really being kept open like a session.",
+      "parentUuid": "bf4ce0dc_fa41805c",
+      "revId": "2b104d3cc1e3ccd11805ae0bd7854f74a0e923b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "9a932c3a_dae39db1",
         "filename": "docs/user/netservices/HttpSession.dox",
@@ -49,10 +68,10 @@
       "side": 1,
       "message": "Why not use the copy constructor to achieve the same?",
       "revId": "2b104d3cc1e3ccd11805ae0bd7854f74a0e923b6",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "e3f3197c_3f5d9cda",
         "filename": "docs/user/netservices/HttpSession.dox",
@@ -67,10 +86,10 @@
       "message": "Yeah this does not make any sense.",
       "parentUuid": "9a932c3a_dae39db1",
       "revId": "2b104d3cc1e3ccd11805ae0bd7854f74a0e923b6",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": false
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "ca763309_ae6f6de2",
         "filename": "headers/private/netservices2/NetServicesDefs.h",
@@ -84,10 +103,10 @@
       "side": 1,
       "message": "I think that exceptions should all inherit from a base class (std::exception or a custom one, maybe one specific to each kit).\n\nThe reason for this is the ability to do a general \"catch all exceptions\" case in an useful way.\n\nTypically code would look like this\n\ntry {\n    // do something\n} catch (const unsupported_protocol_exception\u0026 e) {\n    BAlert(B_TRANSLATE(\"Unsupported protocol\"));\n} catch (const Exception\u0026 e) {\n    BAlert(B_TRANSLATE(\"Something unexpected happened: %s\", e.what));\n}\n\nWithout a common base class, the second catch clause has no info at all to give, which will lead to a very uninformative error message, even worse than the strerror based ones we have now.",
       "revId": "2b104d3cc1e3ccd11805ae0bd7854f74a0e923b6",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "fd1acaf7_54dbc627",
         "filename": "headers/private/netservices2/NetServicesDefs.h",
@@ -102,10 +121,10 @@
       "message": "Seconded.",
       "parentUuid": "ca763309_ae6f6de2",
       "revId": "2b104d3cc1e3ccd11805ae0bd7854f74a0e923b6",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "b83cd2ce_29e82e7e",
         "filename": "headers/private/netservices2/NetServicesDefs.h",
@@ -120,8 +139,25 @@
       "message": "I will post an update with a base type/interface for objects (BError) with support for Origin and Messages, and a standard derived BRuntimeError and BSystemError.",
       "parentUuid": "fd1acaf7_54dbc627",
       "revId": "2b104d3cc1e3ccd11805ae0bd7854f74a0e923b6",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79ef0c0b_f4bd812e",
+        "filename": "headers/private/netservices2/NetServicesDefs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-12-19T09:08:31Z",
+      "side": 1,
+      "message": "The library now contains a BError base class in ErrorsExt.h/cpp.",
+      "parentUuid": "b83cd2ce_29e82e7e",
+      "revId": "2b104d3cc1e3ccd11805ae0bd7854f74a0e923b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
