@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6261760c_53aaaa91",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-12-19T10:11:16Z",
+      "side": 1,
+      "message": "The loading bar height uses the size of the status text font, right?",
+      "revId": "e562123b409e5cb990f3791b24c0b3471a3b3a49",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
