@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b254e351_ab3fecd3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-12-19T11:28:34Z",
+      "side": 1,
+      "message": "Now on both arm and x86.\n\nx86 still builds and boots up with BIOS loader on qemu. (really this should not mean any change in the BIOS loader\u0027s behavior as the platform address space conversion functions are implemented as identity mapping)",
+      "revId": "ad4ef084bc9ccf50c0c4079ab5e1a156b12b8024",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
