@@ -65,11 +65,19 @@ enum {
 	MS_IS_TOUCHPAD,
 	MS_SET_TOUCHPAD_SETTINGS,
 	
-	IIC_WRITE = B_DEVICE_OP_CODES_END + 200, 
+	IIC_WRITE = B_DEVICE_OP_CODES_END + 200,
+	HID_GET_DEVICE_INFO,
 	RESTART_SYSTEM,
 	SHUTDOWN_SYSTEM
 };
 
+
+typedef struct {
+	uint8 type; /* USB, I2C, BLUETOOTH, VIRTUAL,... */
+	uint8 pad;
+	uint16 vendor;
+	uint16 product;
+} device_info;
 
 typedef struct {
 	bigtime_t	timestamp;

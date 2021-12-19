@@ -203,6 +203,20 @@ HIDDevice::ProtocolHandlerAt(uint32 index) const
 }
 
 
+uint16
+HIDDevice::GetVendorID()
+{
+	return fDescriptor.wVendorID;
+}
+
+
+uint16
+HIDDevice::GetProductID()
+{
+	return fDescriptor.wProductID;
+}
+
+
 void
 HIDDevice::_UnstallCallback(void *cookie, status_t status, void *data,
 	size_t actualLength)

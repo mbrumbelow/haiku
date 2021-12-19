@@ -39,6 +39,9 @@ MouseProtocolHandler::MouseProtocolHandler(HIDReport &report,
 	fLastClickTime(0),
 	fClickSpeed(250000)
 {
+
+	SetName(DEVICE_NAME" Mouse");
+
 	uint32 buttonCount = 0;
 	for (uint32 i = 0; i < report.CountItems(); i++) {
 		HIDReportItem *item = report.ItemAt(i);
@@ -132,12 +135,6 @@ MouseProtocolHandler::Control(uint32 *cookie, uint32 op, void *buffer,
 {
 	switch (op) {
 
-		case B_GET_DEVICE_NAME:
-		{
-			const char name[] = DEVICE_NAME" Mouse";
-			return IOGetDeviceName(name,buffer,length);
-		}
-
 		case MS_READ:
 		{
 			if (length < sizeof(mouse_movement))
@@ -176,6 +173,9 @@ MouseProtocolHandler::Control(uint32 *cookie, uint32 op, void *buffer,
 			}
 
 			return B_OK;
+
+		default:
+			return ProtocolHandler::Control(cookie, op, buffer, length);
 	}
 
 	return B_ERROR;

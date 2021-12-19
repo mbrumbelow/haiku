@@ -10,7 +10,7 @@
 
 
 #define PROTOCOL_HANDLER_COOKIE_FLAG_CLOSED		0x80000000
-
+#define PROTOCOL_HANDLER_MAX_NAME	64
 
 class HIDDevice;
 class HIDReport;
@@ -54,8 +54,8 @@ public:
 			void				SetNextHandler(ProtocolHandler *next);
 			ProtocolHandler *	NextHandler() { return fNextHandler; };
 
-			status_t			IOGetDeviceName(const char *name, void *buffer,
-									size_t length);
+			void				SetName(const char *name);
+			const char *		Name() { return fName; }
 
 protected:
 			status_t			fStatus;
@@ -65,6 +65,7 @@ private:
 			const char *		fBasePath;
 			char *				fPublishPath;
 			struct ring_buffer *fRingBuffer;
+			char				fName[PROTOCOL_HANDLER_MAX_NAME];
 
 			ProtocolHandler *	fNextHandler;
 };

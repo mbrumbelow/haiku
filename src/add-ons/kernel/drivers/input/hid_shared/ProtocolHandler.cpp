@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <ring_buffer.h>
 #include <kernel.h>
+#include <keyboard_mouse_driver.h>
 
 #include "Driver.h"
 #include "HIDCollection.h"
@@ -155,6 +156,33 @@ ProtocolHandler::Write(uint32 *cookie, off_t position, const void *buffer,
 status_t
 ProtocolHandler::Control(uint32 *cookie, uint32 op, void *buffer, size_t length)
 {
+	switch (op) {
+
+		case B_GET_DEVICE_NAME:
+		{
+			if (!IS_USER_ADDRESS(buffer))
+				return B_BAD_ADDRESS;
+
+			if (user_strlcpy((char *)buffer, fName, length) > 0)
+				return B_OK;
+
+			return B_ERROR;
+		}
+
+		case HID_GET_DEVICE_INFO:
+		{
+			if (!IS_USER_ADDRESS(buffer))
+				return B_BAD_ADDRESS;
+
+			device_info info;
+			info.type = 0; /* ToDo */
+			info.vendor = fDevice->GetVendorID();
+			info.product = fDevice->GetProductID();
+
+			return user_memcpy(buffer, &info, sizeof(device_info));
+		}
+	}
+
 	TRACE_ALWAYS("unhandled control on protocol handler\n");
 	return B_ERROR;
 }
@@ -189,15 +217,9 @@ ProtocolHandler::SetNextHandler(ProtocolHandler *nextHandler)
 	fNextHandler = nextHandler;
 }
 
-status_t
-ProtocolHandler::IOGetDeviceName(const char *name, void *buffer, size_t length)
+
+void
+ProtocolHandler::SetName(const char *name)
 {
-
-	if (!IS_USER_ADDRESS(buffer))
-		return B_BAD_ADDRESS;
-
-	if (user_strlcpy((char *)buffer, name, length) > 0)
-		return B_OK;
-
-	return B_ERROR;
+	strlcpy(fName,name,PROTOCOL_HANDLER_MAX_NAME);
 }

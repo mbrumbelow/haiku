@@ -76,6 +76,8 @@ KeyboardProtocolHandler::KeyboardProtocolHandler(HIDReport &inputReport,
 {
 	mutex_init(&fLock, DEVICE_PATH_SUFFIX " keyboard");
 
+	SetName(DEVICE_NAME" Keyboard");
+
 	// find modifiers and keys
 	bool debugUsable = false;
 
@@ -343,11 +345,6 @@ KeyboardProtocolHandler::Control(uint32 *cookie, uint32 op, void *buffer,
 	size_t length)
 {
 	switch (op) {
-		case B_GET_DEVICE_NAME:
-		{
-			const char name[] = DEVICE_NAME" Keyboard";
-			return IOGetDeviceName(name,buffer,length);
-		}
 
 		case KB_READ:
 		{
@@ -467,6 +464,8 @@ KeyboardProtocolHandler::Control(uint32 *cookie, uint32 op, void *buffer,
 #else
 			return B_NOT_SUPPORTED;
 #endif
+		default:
+			return ProtocolHandler::Control(cookie, op, buffer, length);
 	}
 
 	TRACE_ALWAYS("keyboard device unhandled control 0x%08" B_PRIx32 "\n", op);

@@ -44,6 +44,9 @@ public:
 			// only to be used for the kernel debugger information
 			usb_pipe			InterruptPipe() const { return fInterruptPipe; }
 
+			uint16				GetVendorID();
+			uint16				GetProductID();
+
 private:
 	static	void				_TransferCallback(void *cookie,
 									status_t status, void *data,

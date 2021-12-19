@@ -41,6 +41,8 @@ JoystickProtocolHandler::JoystickProtocolHandler(HIDReport &report)
 	memset(&fJoystickModuleInfo, 0, sizeof(joystick_module_info));
 	memset(&fCurrentValues, 0, sizeof(variable_joystick));
 
+	SetName(DEVICE_NAME" Joystick");
+
 	for (uint32 i = 0; i < report.CountItems(); i++) {
 		HIDReportItem *item = report.ItemAt(i);
 		if (!item->HasData())
@@ -267,11 +269,6 @@ JoystickProtocolHandler::Control(uint32 *cookie, uint32 op, void *buffer,
 	size_t length)
 {
 	switch (op) {
-		case B_GET_DEVICE_NAME:
-		{
-			const char name[] = DEVICE_NAME" Joystick";
-			return IOGetDeviceName(name, buffer, length);
-		}
 
 		case B_JOYSTICK_SET_DEVICE_MODULE:
 		{
@@ -326,6 +323,9 @@ JoystickProtocolHandler::Control(uint32 *cookie, uint32 op, void *buffer,
 				return B_BAD_ADDRESS;
 			}
 			return B_OK;
+
+		default:
+			return ProtocolHandler::Control(cookie, op, buffer, length);
 	}
 
 	return B_ERROR;

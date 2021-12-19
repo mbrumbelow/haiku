@@ -50,6 +50,8 @@ TabletProtocolHandler::TabletProtocolHandler(HIDReport &report,
 	uint32 buttonCount = 0;
 	uint32 switchCount = 0;
 
+	SetName(DEVICE_NAME" Tablet");
+
 	for (uint32 i = 0; i < report.CountItems(); i++) {
 		HIDReportItem *item = report.ItemAt(i);
 		if (!item->HasData())
@@ -183,12 +185,6 @@ TabletProtocolHandler::Control(uint32 *cookie, uint32 op, void *buffer,
 {
 	switch (op) {
 
-		case B_GET_DEVICE_NAME:
-		{
-			const char name[] = DEVICE_NAME" Tablet";
-			return IOGetDeviceName(name,buffer,length);
-		}
-
 		case MS_READ:
 		{
 			if (length < sizeof(tablet_movement))
@@ -226,6 +222,9 @@ TabletProtocolHandler::Control(uint32 *cookie, uint32 op, void *buffer,
 				}
 
 				return B_OK;
+
+		default:
+			return ProtocolHandler::Control(cookie, op, buffer, length);
 	}
 
 	return B_ERROR;
