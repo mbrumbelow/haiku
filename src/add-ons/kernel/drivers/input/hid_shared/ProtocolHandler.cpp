@@ -189,6 +189,7 @@ ProtocolHandler::SetNextHandler(ProtocolHandler *nextHandler)
 	fNextHandler = nextHandler;
 }
 
+
 status_t
 ProtocolHandler::IOGetDeviceName(const char *name, void *buffer, size_t length)
 {
@@ -200,4 +201,28 @@ ProtocolHandler::IOGetDeviceName(const char *name, void *buffer, size_t length)
 		return B_OK;
 
 	return B_ERROR;
+}
+
+
+status_t
+ProtocolHandler::IOGetVendorID(void *buffer, size_t length)
+{
+	if (!IS_USER_ADDRESS(buffer))
+		return B_BAD_ADDRESS;
+
+	uint16 id = fDevice->GetVendorID();
+
+	return user_memcpy(buffer, &id, sizeof(uint16));
+}
+
+
+status_t
+ProtocolHandler::IOGetProductID(void *buffer, size_t length)
+{
+	if (!IS_USER_ADDRESS(buffer))
+		return B_BAD_ADDRESS;
+
+	uint16 id = fDevice->GetProductID();
+
+	return user_memcpy(buffer, &id, sizeof(uint16));
 }

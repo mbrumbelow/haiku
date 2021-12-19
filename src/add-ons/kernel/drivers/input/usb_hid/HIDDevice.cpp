@@ -313,6 +313,26 @@ HIDDevice::ProtocolHandlerAt(uint32 index) const
 }
 
 
+uint16
+HIDDevice::GetVendorID()
+{
+	const usb_device_descriptor *deviceDescriptor
+		= gUSBModule->get_device_descriptor(fDevice);
+
+	return deviceDescriptor->vendor_id;
+}
+
+
+uint16
+HIDDevice::GetProductID()
+{
+	const usb_device_descriptor *deviceDescriptor
+		= gUSBModule->get_device_descriptor(fDevice);
+
+	return deviceDescriptor->product_id;
+}
+
+
 void
 HIDDevice::_UnstallCallback(void *cookie, status_t status, void *data,
 	size_t actualLength)

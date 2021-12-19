@@ -74,6 +74,10 @@ public:
 			HIDParser &			Parser() { return fParser; }
 			ProtocolHandler *	ProtocolHandlerAt(uint32 index) const;
 
+			uint16				GetVendorID();
+			uint16				GetProductID();
+
+
 private:
 	static	void				_TransferCallback(void *cookie,
 									status_t status, void *data,

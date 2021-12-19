@@ -267,6 +267,16 @@ JoystickProtocolHandler::Control(uint32 *cookie, uint32 op, void *buffer,
 	size_t length)
 {
 	switch (op) {
+		case B_GET_VENDOR_ID:
+		{
+			return IOGetVendorID(buffer, length);
+		}
+
+		case B_GET_PRODUCT_ID:
+		{
+			return IOGetProductID(buffer, length);
+		}
+
 		case B_GET_DEVICE_NAME:
 		{
 			const char name[] = DEVICE_NAME" Joystick";

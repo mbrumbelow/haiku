@@ -107,6 +107,8 @@ enum {
 	B_GET_VECTOR_ICON,				/* retrieves the device's vector icon */
 	B_GET_DEVICE_NAME,				/* get name, string buffer */
 	B_TRIM_DEVICE,					/* trims blocks, see fs_trim_data */
+	B_GET_VENDOR_ID = 500,
+	B_GET_PRODUCT_ID,
 
 	B_GET_NEXT_OPEN_DEVICE = 1000,	/* obsolete, will be removed */
 	B_ADD_FIXED_DRIVER,				/* obsolete, will be removed */

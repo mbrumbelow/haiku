@@ -56,6 +56,8 @@ public:
 
 			status_t			IOGetDeviceName(const char *name, void *buffer,
 									size_t length);
+			status_t			IOGetVendorID(void *buffer, size_t length);
+			status_t			IOGetProductID(void *buffer, size_t length);
 
 protected:
 			status_t			fStatus;
