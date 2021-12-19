@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "45baaa1b_108df03e",
         "filename": "src/system/boot/loader/elf.cpp",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "isn\u0027t it possible to implement platform_bootloader_address_to_kernel_address to a no-op in BIOS-specific files? This way we could keep this code generic.",
       "revId": "6b209201f69bfaebe1295d8838da0591f7ed5448",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "9a565553_8df18a90",
         "filename": "src/system/boot/loader/elf.cpp",
@@ -32,8 +33,25 @@
       "message": "Now that I checked platform/bios_ia32/mmu.cpp: it turns out that it really has a platform_bootloader_address_to_kernel_address and platform_kernel_address_to_bootloader_address function.",
       "parentUuid": "45baaa1b_108df03e",
       "revId": "6b209201f69bfaebe1295d8838da0591f7ed5448",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6727df4_6ab8d9a9",
+        "filename": "src/system/boot/loader/elf.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-12-19T11:19:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a565553_8df18a90",
+      "revId": "6b209201f69bfaebe1295d8838da0591f7ed5448",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
