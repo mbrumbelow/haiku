@@ -34,6 +34,24 @@
       "parentUuid": "3262b09b_6b659663",
       "revId": "27b527c86e5123d810b12957f7241179d8b1ce80",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52098258_08c13fc8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2021-12-20T16:00:44Z",
+      "side": 1,
+      "message": "No. Full rebuild sorted it out. IvyBridge and CoffeeLake work.",
+      "parentUuid": "6c3f2bea_e0ddfaee",
+      "revId": "27b527c86e5123d810b12957f7241179d8b1ce80",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
