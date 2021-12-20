@@ -50,6 +50,24 @@
       "message": "Nice classes, but not quite what I was hoping for in a more modern Error capture system.  It\u0027s missing the nesting of errors, or can you put these objects into a stack?\n\nI\u0027d start with a basic kernel C system and build the convenience access classes on that.  The basic system is limited by the bottleneck of having to store the data in a dead thread status record, which is of fixed size (currently holds the final status code and a few other things).  I\u0027d just add a fixed size string (say one or two 4K pages long), which given that a typical Haiku system has around 300 threads, with 8K per string, that\u0027s 2400K, or 2.4 megabytes.\n\nThe kernel level system just sees it as a string associated with a thread.  The error reporting layer on top sees it as lines and fields.  A typical format would be to have the location of the error (program/library and subroutine names, maybe line numbers too, colon separated), a tab character, and a Human readable explanation of the error (possibly including related values, like a web server address in a failed connection), and a line feed at the end.  To keep it stack-like, higher levels append their explanatory line to the existing thread error string.\n\nThe usual kernel functions for retrieving the final status code can be extended to also get the error string.  Same for getting the error string of a running thread, appending to it (truncated with \"...\" when the fixed size limit is reached), and clearing it.\n\nThen you can build your fancy error object system on this, to expand the string into a stack of error objects, display them in a list view, etc.",
       "revId": "ec7d71e6129ca5c518a6ffe4c451b7432c7b4d7e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "482b2173_f3f4ce47",
+        "filename": "docs/user/netservices/ErrorsExt.dox",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-12-20T08:52:42Z",
+      "side": 1,
+      "message": "I get what you are aiming for, but I am struggling to find the use cases that it would really work for, other than the incidental bug report of weird bugs where it might shine a light on something that was not known before.\n\nI think the general principle of exceptions, namely the fact that they can wind up the stack until they are handled (or until the program terminates) is a feature, not a nuisance. For example, I do not think it is necessary that every call to a function that can throw an exception should be wrapped by a try/catch (...) statement, so that a layer of additional errors can be added. The example I have, is that a complex API like the package kit does not necessarily have to catch and rethrow all file system related errors; they can just be unwinded up the stack.\n\nThere are two exceptions IMO:\n- I think there are cases where unexpected errors are caught and then repackaged as a BRuntimeError. I might be open to the fact that BRuntimeErrors may contain a pointer to a previous exception. For example, the BHttpSession object tries to create threads and semaphores, and those fail. The original failure would be caught as a BSystemError, and this would be wrapped in a BRuntimeError that explains that there was an unexpected failure.\n- A different case is where there is a list of errors in sequential operations, where individual steps may fail, but they do not cancel the execution of the entire chain. For examples in parsers of file types that can recover from errors. We would introduce a BErrorList type for that. But this is distinct for the case you make above.\n\nCould you share your use cases of extending the stacked errors to other situations?",
+      "parentUuid": "7ec57937_87d2eabe",
+      "revId": "ec7d71e6129ca5c518a6ffe4c451b7432c7b4d7e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
