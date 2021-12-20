@@ -204,6 +204,9 @@ ServerApp::~ServerApp()
 	while (!fPictureMap.empty())
 		fPictureMap.begin()->second->SetOwner(NULL);
 
+	while (!fFontMap.empty())
+		_DeleteFont(fFontMap.begin()->second);
+
 	fDesktop->GetCursorManager().DeleteCursors(fClientTeam);
 
 	STRACE(("ServerApp %s::~ServerApp(): Exiting\n", Signature()));
@@ -2142,6 +2145,38 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 			break;
 		}
 
+		case AS_ADD_FONT:
+		{
+			STRACE(("ServerApp %s: Received Font add request\n",
+				Signature()));
+
+			char* fontPath;
+			uint16 familyID, styleID;
+			link.ReadString(&fontPath);
+			gFontManager->Lock();
+			status_t status = gFontManager->AddUserFont(fontPath, familyID, styleID);
+			gFontManager->Unlock();
+
+			if (status == B_OK) {
+				ServerFont font;
+				status = font.SetFamilyAndStyle(familyID, styleID);
+
+				if (status == B_OK && _AddFont(&font)) {
+					fLink.StartMessage(B_OK);
+					fLink.Attach<uint16>(familyID);
+					fLink.Attach<uint16>(styleID);
+					fLink.Attach<uint16>(font.Face());
+				} else {
+					fLink.StartMessage(status);
+				}
+			} else {
+				fLink.StartMessage(status);
+			}
+
+			fLink.Flush();
+			break;
+		}
+
 		case AS_GET_GLYPH_SHAPES:
 		{
 			FTRACE(("ServerApp %s: AS_GET_GLYPH_SHAPES\n", Signature()));
@@ -3558,4 +3593,30 @@ ServerApp::_FindPicture(int32 token) const
 		return NULL;
 
 	return iterator->second;
+}
+
+bool
+ServerApp::_AddFont(ServerFont* font)
+{
+	BAutolock _(fMapLocker);
+
+	try {
+		fFontMap.insert(std::make_pair(font->GetFamilyAndStyle(), BReference<ServerFont>(font, false)));
+	} catch (std::bad_alloc& exception) {
+		return false;
+	}
+
+	font->SetOwner(this);
+	return true;
+}
+
+void
+ServerApp::_DeleteFont(ServerFont* font)
+{
+	ASSERT(fMapLocker.IsLocked());
+
+	fFontMap.erase(font->GetFamilyAndStyle());
+
+	font->SetOwner(NULL);
+	gFontManager->RemoveUserFont(font->FamilyID(), font->StyleID());
 }

@@ -701,6 +701,19 @@ ServerFont::GetHasGlyphs(const char* string, int32 numBytes, int32 numChars,
 }
 
 
+void
+ServerFont::SetOwner(ServerApp* owner)
+{
+	fOwner = owner;
+}
+
+
+ServerApp*
+ServerFont::Owner() const
+{
+	return fOwner;
+}
+
 class EdgesConsumer {
  public:
 	EdgesConsumer(edge_info* edges, float size)

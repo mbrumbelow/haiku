@@ -1166,3 +1166,58 @@ FontManager::DetachUser(uid_t userID)
 	// TODO!
 }
 
+
+status_t
+FontManager::AddUserFont(const char* path, uint16& familyID, uint16& styleID)
+{
+	BEntry entry;
+	status_t status = entry.SetTo(path);
+	if (status != B_OK)
+		return status;
+
+	node_ref nodeRef;
+	status = entry.GetNodeRef(&nodeRef);
+	if (status < B_OK)
+		return status;
+
+	FT_Face face;
+	FT_Error error = FT_New_Face(gFreeTypeLibrary, path, 0, &face);
+	if (error != 0)
+		return B_ERROR;
+
+	FontFamily* family = new (std::nothrow) FontFamily(face->family_name, fNextID++);
+	if (family == NULL) {
+		delete family;
+		FT_Done_Face(face);
+		return B_NO_MEMORY;
+	}
+
+	FTRACE(("\tadd style: %s, %s\n", face->family_name, face->style_name));
+
+	// the FontStyle takes over ownership of the FT_Face object
+	FontStyle* style = new (std::nothrow) FontStyle(nodeRef, path, face);
+	if (style == NULL || !family->AddStyle(style)) {
+		delete style;
+		delete family;
+		return B_NO_MEMORY;
+	}
+
+	familyID = style->Family()->ID();
+	styleID = style->ID();
+
+	fStyleHashTable.Put(FontKey(style->Family()->ID(), style->ID()), style);
+
+	return B_OK;
+}
+
+
+status_t
+FontManager::RemoveUserFont(uint16 familyID, uint16 styleID)
+{
+	FontStyle* style = fStyleHashTable.Get(FontKey(familyID, styleID));
+	fStyleHashTable.Remove(FontKey(familyID, styleID));
+
+	style->ReleaseReference();
+
+	return B_OK;
+}

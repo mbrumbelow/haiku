@@ -74,6 +74,12 @@ public:
 			void				AttachUser(uid_t userID);
 			void				DetachUser(uid_t userID);
 
+			status_t			AddUserFont(const char* path,
+											uint16& familyID,
+											uint16& styleID);
+
+			status_t  			RemoveUserFont(uint16 familyID, uint16 styleID);
+
 private:
 			struct font_directory;
 			struct font_mapping;

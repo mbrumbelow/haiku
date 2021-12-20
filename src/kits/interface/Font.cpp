@@ -1451,3 +1451,23 @@ BFont::_GetExtraFlags() const
 
 	link.Read<uint32>(&fExtraFlags);
 }
+
+
+void
+BFont::LoadUserFont(const char* path)
+{
+	BPrivate::AppServerLink link;
+	link.StartMessage(AS_ADD_FONT);
+	link.AttachString(path);
+	status_t status = B_ERROR;
+	if (link.FlushWithReply(status) != B_OK || status != B_OK) {
+		// if font loading fails, don't change font family/style
+		return;
+	}
+
+	link.Read<uint16>(&fFamilyID);
+	link.Read<uint16>(&fStyleID);
+	link.Read<uint16>(&fFace);
+	fHeight.ascent = kUninitializedAscent;
+	fExtraFlags = kUninitializedExtraFlags;
+}

@@ -29,9 +29,10 @@ class BMessage;
 class BList;
 class Desktop;
 class DrawingEngine;
-class ServerPicture;
-class ServerCursor;
 class ServerBitmap;
+class ServerCursor;
+class ServerFont;
+class ServerPicture;
 class ServerWindow;
 
 namespace BPrivate {
@@ -113,10 +114,13 @@ private:
 			ServerBitmap*		_FindBitmap(int32 token) const;
 
 			ServerPicture*		_FindPicture(int32 token) const;
+			bool  				_AddFont(ServerFont* font);
+			void   				_DeleteFont(ServerFont* font);
 
 private:
 	typedef std::map<int32, BReference<ServerBitmap> > BitmapMap;
 	typedef std::map<int32, BReference<ServerPicture> > PictureMap;
+	typedef std::map<int32, BReference<ServerFont> > FontMap;
 
 			port_id				fMessagePort;
 			port_id				fClientReplyPort;
@@ -143,12 +147,13 @@ private:
 			int32				fInitialWorkspace;
 			uint32				fTemporaryDisplayModeChange;
 
-			// NOTE: Bitmaps and Pictures are stored globally, but ServerApps
+			// NOTE: Bitmaps, Pictures, and Fonts are stored globally, but ServerApps
 			// remember which ones they own so that they can destroy them when
 			// they quit.
 	mutable	BLocker				fMapLocker;
 			BitmapMap			fBitmapMap;
 			PictureMap			fPictureMap;
+			FontMap 			fFontMap;
 
 			BReference<ServerCursor>
 								fAppCursor;

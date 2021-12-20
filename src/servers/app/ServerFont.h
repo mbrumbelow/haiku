@@ -21,9 +21,10 @@
 
 class BShape;
 class BString;
+class ServerApp;
 
 
-class ServerFont {
+class ServerFont : public BReferenceable {
  public:
 								ServerFont();
 								ServerFont(FontStyle& style,
@@ -167,6 +168,9 @@ class ServerFont {
 			status_t			IncludesUnicodeBlock(uint32 start, uint32 end,
 									bool &hasBlock);
 
+			void				SetOwner(ServerApp* owner);
+			ServerApp*			Owner() const;
+
 protected:
 	friend class FontStyle;
 			FT_Face				GetTransformedFace(bool rotate,
@@ -185,6 +189,7 @@ protected:
 			font_direction		fDirection;
 			uint16				fFace;
 			uint32				fEncoding;
+			ServerApp*   		fOwner;
 };
 
 inline bool ServerFont::Hinting() const

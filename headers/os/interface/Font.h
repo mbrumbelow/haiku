@@ -281,6 +281,7 @@ public:
 			bool				operator!=(const BFont& font) const;
 
 			void				PrintToStream() const;
+			void 				LoadUserFont(const char* path);
 
 private:
 		friend void _init_global_fonts_();
