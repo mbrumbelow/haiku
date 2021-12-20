@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "200b388d_c2437a86",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2021-12-20T08:03:30Z",
+      "side": 1,
+      "message": "\u003e * adding a ioctl call for each info isn\u0027t optimal (subsystem vendor and product could come also). The fact that the same methods are added in each device for each information is a sign that this could be simplified.\n\u003e * a vendor id without the type of device is useless. Or it is only used as a kind of identifier, then the field should be that, a unique identifier.\n\u003e \n\nSomething like this?:\n\nB_GET_DEVICE_ID\n\ntypedef struct {\n    uint16 type; //usb-hid,i2c-hid, ps2, serial,...\n    uint16 vendor;\n    uint16 product;\n} device_info_t;",
+      "parentUuid": "9461b093_0351d4c6",
+      "revId": "d09038900acd43a90f76ff08823558e055457c05",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "71015b0d_24d4e389",
         "filename": "headers/os/drivers/Drivers.h",
         "patchSetId": 1
@@ -48,6 +66,24 @@
       "writtenOn": "2021-12-20T07:41:56Z",
       "side": 1,
       "message": "Why not implementing Control() in the super class and calling it for default ?",
+      "revId": "d09038900acd43a90f76ff08823558e055457c05",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6892ae68_2191937b",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/JoystickProtocolHandler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2021-12-20T08:03:30Z",
+      "side": 1,
+      "message": "\u003e Why not implementing Control() in the super class and calling it for default ?\n\n100% Agree! I came to that conclusion once already had the commit done. I\u0027ll do it.",
+      "parentUuid": "83a815a2_0104e098",
       "revId": "d09038900acd43a90f76ff08823558e055457c05",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
