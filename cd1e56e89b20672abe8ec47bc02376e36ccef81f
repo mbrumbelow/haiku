@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "4875df15_02ed24e4",
         "filename": "src/add-ons/kernel/drivers/graphics/intel_extreme/intel_extreme.cpp",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "isn\u0027t this equivalent to \"write32(info, reg_identity, identity | bit);\" ?",
       "revId": "cd1e56e89b20672abe8ec47bc02376e36ccef81f",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "0633e2a0_9d2ed5a1",
         "filename": "src/add-ons/kernel/drivers/graphics/intel_extreme/intel_extreme.cpp",
@@ -32,8 +33,25 @@
       "message": "ah, yes, in this case it is, I copied it mindlessly from global interrupt setter, where enable parameter changes behavior, but here it doesn\u0027t matter, will fix",
       "parentUuid": "4875df15_02ed24e4",
       "revId": "cd1e56e89b20672abe8ec47bc02376e36ccef81f",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fd7f707_e2918839",
+        "filename": "src/add-ons/kernel/drivers/graphics/intel_extreme/intel_extreme.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2021-12-20T17:38:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0633e2a0_9d2ed5a1",
+      "revId": "cd1e56e89b20672abe8ec47bc02376e36ccef81f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

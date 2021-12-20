@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "80ac0daf_251ac77e",
         "filename": "headers/private/graphics/intel_extreme/intel_extreme.h",
@@ -20,10 +21,10 @@
         "endChar": 0
       },
       "revId": "0959eee4fda187411da1e09ed28b0b240db9bb57",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "9a700610_5b6b35ee",
         "filename": "headers/private/graphics/intel_extreme/intel_extreme.h",
@@ -44,10 +45,10 @@
         "endChar": 0
       },
       "revId": "0959eee4fda187411da1e09ed28b0b240db9bb57",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "9bd81a05_067c603b",
         "filename": "headers/private/graphics/intel_extreme/intel_extreme.h",
@@ -68,10 +69,10 @@
         "endChar": 0
       },
       "revId": "0959eee4fda187411da1e09ed28b0b240db9bb57",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "e6e093ef_135b0550",
         "filename": "headers/private/graphics/intel_extreme/intel_extreme.h",
@@ -92,10 +93,34 @@
         "endChar": 0
       },
       "revId": "0959eee4fda187411da1e09ed28b0b240db9bb57",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b46805ab_3d44e71c",
+        "filename": "headers/private/graphics/intel_extreme/intel_extreme.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2021-12-20T17:38:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6e093ef_135b0550",
+      "range": {
+        "startLine": 323,
+        "startChar": 0,
+        "endLine": 328,
+        "endChar": 0
+      },
+      "revId": "0959eee4fda187411da1e09ed28b0b240db9bb57",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "eb4aca6f_49bb6e11",
         "filename": "src/add-ons/kernel/drivers/graphics/intel_extreme/intel_extreme.cpp",
@@ -109,10 +134,10 @@
       "side": 1,
       "message": "The \u0027?\u0027 goes to the beginning of the next line, too.",
       "revId": "0959eee4fda187411da1e09ed28b0b240db9bb57",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "0b1ec42e_4da94fb4",
         "filename": "src/add-ons/kernel/drivers/graphics/intel_extreme/intel_extreme.cpp",
@@ -127,10 +152,10 @@
       "message": "Done",
       "parentUuid": "eb4aca6f_49bb6e11",
       "revId": "0959eee4fda187411da1e09ed28b0b240db9bb57",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": false
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "fbab1d5b_c9c2872d",
         "filename": "src/add-ons/kernel/drivers/graphics/intel_extreme/intel_extreme.cpp",
@@ -144,10 +169,10 @@
       "side": 1,
       "message": "I\u0027ve looked in the docs and this should be enabled on G35/G45 too. Will fix.",
       "revId": "0959eee4fda187411da1e09ed28b0b240db9bb57",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "81d7f989_a2c908a5",
         "filename": "src/add-ons/kernel/drivers/graphics/intel_extreme/intel_extreme.cpp",
@@ -162,10 +187,10 @@
       "message": "Done",
       "parentUuid": "fbab1d5b_c9c2872d",
       "revId": "0959eee4fda187411da1e09ed28b0b240db9bb57",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": false
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "ec06e4ff_5d3801b5",
         "filename": "src/add-ons/kernel/drivers/graphics/intel_extreme/intel_extreme.cpp",
@@ -179,10 +204,10 @@
       "side": 1,
       "message": "I don\u0027t understand this comment.",
       "revId": "0959eee4fda187411da1e09ed28b0b240db9bb57",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "2d53903f_be071828",
         "filename": "src/add-ons/kernel/drivers/graphics/intel_extreme/intel_extreme.cpp",
@@ -197,10 +222,28 @@
       "message": "I have rephrased it to the best of my ability. Quick look at the way it\u0027s used should make it clear though.",
       "parentUuid": "ec06e4ff_5d3801b5",
       "revId": "0959eee4fda187411da1e09ed28b0b240db9bb57",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a3fa162_ba534f6b",
+        "filename": "src/add-ons/kernel/drivers/graphics/intel_extreme/intel_extreme.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2021-12-20T17:38:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d53903f_be071828",
+      "revId": "0959eee4fda187411da1e09ed28b0b240db9bb57",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "4a416151_ee81ddcb",
         "filename": "src/add-ons/kernel/drivers/graphics/intel_extreme/intel_extreme.cpp",
@@ -214,10 +257,10 @@
       "side": 1,
       "message": "do_handle -\u003e doHandle. Maybe shouldHandle or mustHandle would be a better name?",
       "revId": "0959eee4fda187411da1e09ed28b0b240db9bb57",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "51841757_9f7afe07",
         "filename": "src/add-ons/kernel/drivers/graphics/intel_extreme/intel_extreme.cpp",
@@ -232,10 +275,10 @@
       "message": "Done",
       "parentUuid": "4a416151_ee81ddcb",
       "revId": "0959eee4fda187411da1e09ed28b0b240db9bb57",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": false
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "f025e92d_e7df7cfd",
         "filename": "src/add-ons/kernel/drivers/graphics/intel_extreme/intel_extreme.cpp",
@@ -249,10 +292,10 @@
       "side": 1,
       "message": "if (!do_handle)",
       "revId": "0959eee4fda187411da1e09ed28b0b240db9bb57",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "7eda77f9_4d0999e5",
         "filename": "src/add-ons/kernel/drivers/graphics/intel_extreme/intel_extreme.cpp",
@@ -267,10 +310,10 @@
       "message": "Done",
       "parentUuid": "f025e92d_e7df7cfd",
       "revId": "0959eee4fda187411da1e09ed28b0b240db9bb57",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": false
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "3fbc3ec0_de6cbe01",
         "filename": "src/add-ons/kernel/drivers/graphics/intel_extreme/intel_extreme.cpp",
@@ -284,10 +327,10 @@
       "side": 1,
       "message": "while (do_handle)",
       "revId": "0959eee4fda187411da1e09ed28b0b240db9bb57",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "b1f568e9_63536f99",
         "filename": "src/add-ons/kernel/drivers/graphics/intel_extreme/intel_extreme.cpp",
@@ -302,8 +345,7 @@
       "message": "Done",
       "parentUuid": "3fbc3ec0_de6cbe01",
       "revId": "0959eee4fda187411da1e09ed28b0b240db9bb57",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": false
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
