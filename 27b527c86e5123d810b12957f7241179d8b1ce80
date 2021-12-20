@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3262b09b_6b659663",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2021-12-20T15:03:13Z",
+      "side": 1,
+      "message": "Not tested at all, because Haiku has decided, for whatever reason, to get stuck at the blue screen when booted from USB drive (tried two different drives). Moving the cursor and modeset works, and it doesn\u0027t work even without this change.",
+      "revId": "27b527c86e5123d810b12957f7241179d8b1ce80",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
