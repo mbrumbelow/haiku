@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9461b093_0351d4c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-12-20T07:41:56Z",
+      "side": 1,
+      "message": "* adding a ioctl call for each info isn\u0027t optimal (subsystem vendor and product could come also). The fact that the same methods are added in each device for each information is a sign that this could be simplified.\n* a vendor id without the type of device is useless. Or it is only used as a kind of identifier, then the field should be that, a unique identifier.\n",
+      "revId": "d09038900acd43a90f76ff08823558e055457c05",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71015b0d_24d4e389",
+        "filename": "headers/os/drivers/Drivers.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-12-20T07:41:56Z",
+      "side": 1,
+      "message": "Please keep these two private, they aren\u0027t ready for a public header.",
+      "revId": "d09038900acd43a90f76ff08823558e055457c05",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83a815a2_0104e098",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/JoystickProtocolHandler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-12-20T07:41:56Z",
+      "side": 1,
+      "message": "Why not implementing Control() in the super class and calling it for default ?",
+      "revId": "d09038900acd43a90f76ff08823558e055457c05",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
