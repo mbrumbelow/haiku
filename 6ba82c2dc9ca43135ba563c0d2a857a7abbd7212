@@ -38,6 +38,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d90f88b6_9089072f",
+        "filename": "src/add-ons/kernel/drivers/graphics/radeon_hd/radeon_hd.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-12-21T20:26:22Z",
+      "side": 1,
+      "message": "Maybe original version with complete release can be used, but need n\\more testing.",
+      "revId": "6ba82c2dc9ca43135ba563c0d2a857a7abbd7212",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "95286db9_ced6d750",
         "filename": "src/add-ons/kernel/drivers/graphics/radeon_hd/radeon_hd.cpp",
         "patchSetId": 1
