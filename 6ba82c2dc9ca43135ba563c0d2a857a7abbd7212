@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec9ca052_b6b0ee62",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-12-21T20:03:10Z",
+      "side": 1,
+      "message": "I suppose interrupts should be enabled somewhere.",
+      "revId": "6ba82c2dc9ca43135ba563c0d2a857a7abbd7212",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95286db9_ced6d750",
+        "filename": "src/add-ons/kernel/drivers/graphics/radeon_hd/radeon_hd.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-12-21T20:03:10Z",
+      "side": 1,
+      "message": "There is surely a register to indicate pending interrupts? In the case of shared interrupts, this is really needed.",
+      "revId": "6ba82c2dc9ca43135ba563c0d2a857a7abbd7212",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
