@@ -50,6 +50,9 @@ BRect(0, 0, 31, 31);
 BRect(0, 0, width - 1, height -1);
 \endcode
 
+	In other words, the width and height values refer to the number of spanned
+	pixels, not the count of pixels included.
+
 	\since BeOS R3
 */
 

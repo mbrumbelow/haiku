@@ -44,6 +44,9 @@
 	\ingroup libbe
 	\brief A two-dimensional size.
 
+	\note Note that just like BRect, the width and height values are pixel spans,
+		not pixel counts. That is, a width and height of 0 means a size of 1 pixel.
+
 	\since Haiku R1
 */
 
