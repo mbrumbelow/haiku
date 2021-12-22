@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb5ceb43_824e0e3b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2021-12-22T14:22:07Z",
+      "side": 1,
+      "message": "\u003e Also, I don\u0027t understand why sometimes all pipes are taken into account, sometimes only A \u0026 B, and sometimes A - C. Is there a logic behind this?\n\nYes, there is - mostly hardware support, but also what was there before. My main goal here was to add support for Gen8 and Gen9 which support pipes A-C. Pipe D is supported only in Gen12, and that is reflected in asserts. I\u0027ve added that code because I found out that interrupt handling is mostly the same. Less work for someone trying to work on this after me. I don\u0027t have hardware to test this, though.\n\nWhere there are pipes A and B, it\u0027s just refactoring of previously existing code. I had no intention of doing that, but if I didn\u0027t the code would be a total mess. (I guess I could enable interrupts for pipe C on Gen8 and 9, but the comments say there is no support for pipe C in the driver?)\n\nIn general what is in the code is tested and should work. What was not tested, is not there at all, so someone else doesn\u0027t assume it should work.\nThere might be exceptions from this rule, and there I\u0027ve added comments and TODOs trying to capture what I have pieced together while reading the docs.\n\n\u003e And finally, it would be nice to find a solution for the therefore repetitive code to be more compact, and less error prone (for instance by forgetting about a pipe, or updating the code for a pipe, or introducing copy\u0026paste errors when handling them in duplicating code).\n\nI don\u0027t believe this to be beneficial for this type of code. Each Gen supports different things, and verbosity aids readability IMO. Trying to fold too much into generic code would create more bugs than copy-paste does. At least copy-paste bugs are easy to spot.",
+      "parentUuid": "c3727d49_091eaf00",
+      "revId": "974725fdba7736ab09fe4ccd7dcacabf6c54f39b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aa6c6a25_9f34c198",
