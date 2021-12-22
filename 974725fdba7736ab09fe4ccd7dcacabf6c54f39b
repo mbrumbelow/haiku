@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eda75999_caf4aa65",
+        "filename": "headers/private/graphics/intel_extreme/intel_extreme.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2021-12-22T14:40:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa6c6a25_9f34c198",
+      "revId": "974725fdba7736ab09fe4ccd7dcacabf6c54f39b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ad53650_11af308a",
@@ -66,6 +84,24 @@
       "writtenOn": "2021-12-22T13:31:49Z",
       "side": 1,
       "message": "Same here (but not in SetPipe(), as the comment makes it a multi-line block).",
+      "revId": "974725fdba7736ab09fe4ccd7dcacabf6c54f39b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ca1c175_90f749de",
+        "filename": "headers/private/graphics/intel_extreme/intel_extreme.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2021-12-22T14:40:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ad53650_11af308a",
       "revId": "974725fdba7736ab09fe4ccd7dcacabf6c54f39b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -87,6 +123,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cca6bfc_342a5a62",
+        "filename": "src/add-ons/kernel/drivers/graphics/intel_extreme/intel_extreme.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2021-12-22T14:40:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e403b06_135ccf94",
+      "revId": "974725fdba7736ab09fe4ccd7dcacabf6c54f39b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7cca40f3_2103a1c2",
@@ -104,6 +158,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a252748d_40c67468",
+        "filename": "src/add-ons/kernel/drivers/graphics/intel_extreme/intel_extreme.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2021-12-22T14:40:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7cca40f3_2103a1c2",
+      "revId": "974725fdba7736ab09fe4ccd7dcacabf6c54f39b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1a95cb03_51e8e5f1",
@@ -117,6 +189,24 @@
       "writtenOn": "2021-12-22T13:31:49Z",
       "side": 1,
       "message": "Missing \u0027 \u0027 between if and parenthesis.",
+      "revId": "974725fdba7736ab09fe4ccd7dcacabf6c54f39b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4474daf7_239c6bb6",
+        "filename": "src/add-ons/kernel/drivers/graphics/intel_extreme/intel_extreme.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2021-12-22T14:40:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a95cb03_51e8e5f1",
       "revId": "974725fdba7736ab09fe4ccd7dcacabf6c54f39b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
