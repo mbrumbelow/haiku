@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3727d49_091eaf00",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-12-22T13:31:49Z",
+      "side": 1,
+      "message": "Thanks! Your latest patch introduces a couple of new minor coding style issues, though.\n\nAlso, I don\u0027t understand why sometimes all pipes are taken into account, sometimes only A \u0026 B, and sometimes A - C. Is there a logic behind this? If so, comments explaining that would be nice.\n\nAnd finally, it would be nice to find a solution for the therefore repetitive code to be more compact, and less error prone (for instance by forgetting about a pipe, or updating the code for a pipe, or introducing copy\u0026paste errors when handling them in duplicating code).",
+      "revId": "974725fdba7736ab09fe4ccd7dcacabf6c54f39b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa6c6a25_9f34c198",
+        "filename": "headers/private/graphics/intel_extreme/intel_extreme.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-12-22T13:31:49Z",
+      "side": 1,
+      "message": "We don\u0027t use curly braces for one line blocks.",
+      "revId": "974725fdba7736ab09fe4ccd7dcacabf6c54f39b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ad53650_11af308a",
+        "filename": "headers/private/graphics/intel_extreme/intel_extreme.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-12-22T13:31:49Z",
+      "side": 1,
+      "message": "Same here (but not in SetPipe(), as the comment makes it a multi-line block).",
+      "revId": "974725fdba7736ab09fe4ccd7dcacabf6c54f39b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e403b06_135ccf94",
+        "filename": "src/add-ons/kernel/drivers/graphics/intel_extreme/intel_extreme.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-12-22T13:31:49Z",
+      "side": 1,
+      "message": "reg_mask -\u003e regMask, ... (here, and at many other places)",
+      "revId": "974725fdba7736ab09fe4ccd7dcacabf6c54f39b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cca40f3_2103a1c2",
+        "filename": "src/add-ons/kernel/drivers/graphics/intel_extreme/intel_extreme.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-12-22T13:31:49Z",
+      "side": 1,
+      "message": "No space after cast.",
+      "revId": "974725fdba7736ab09fe4ccd7dcacabf6c54f39b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a95cb03_51e8e5f1",
+        "filename": "src/add-ons/kernel/drivers/graphics/intel_extreme/intel_extreme.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-12-22T13:31:49Z",
+      "side": 1,
+      "message": "Missing \u0027 \u0027 between if and parenthesis.",
+      "revId": "974725fdba7736ab09fe4ccd7dcacabf6c54f39b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
