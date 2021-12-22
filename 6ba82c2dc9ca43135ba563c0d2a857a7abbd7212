@@ -36,6 +36,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2877b523_5f009224",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-12-22T06:04:20Z",
+      "side": 1,
+      "message": "Interrupts are supposed to be handled effectively, meaning removing the interrupt condition. In the case of a ring (see virtio), it\u0027s moving the read pointer to the write pointer. Without this, the hardware could trigger again an interrupt.",
+      "revId": "6ba82c2dc9ca43135ba563c0d2a857a7abbd7212",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d90f88b6_9089072f",
@@ -84,6 +101,24 @@
       "side": 1,
       "message": "Radeon GPU has interrupt ring that is currently processes in userland. Not sure about register, there are a lot of them for various events. Maybe some generic PCI configuration space register can be used?\n\nAnyway GPU is connected by PCIe where MSI is mandatory.",
       "parentUuid": "95286db9_ced6d750",
+      "revId": "6ba82c2dc9ca43135ba563c0d2a857a7abbd7212",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61fd264c_778f3b51",
+        "filename": "src/add-ons/kernel/drivers/graphics/radeon_hd/radeon_hd.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-12-22T06:04:20Z",
+      "side": 1,
+      "message": "There is a register with the device write location on the ring, the driver knows the last read location. When they differ, there is an interrupt in the ring.\n\nMSI can be disabled obviously.",
+      "parentUuid": "97f0b605_3c7bf555",
       "revId": "6ba82c2dc9ca43135ba563c0d2a857a7abbd7212",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
