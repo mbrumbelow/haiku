@@ -90,6 +90,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b23407a3_8cfb2b64",
+        "filename": "docs/user/netservices/HttpSession.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2021-12-22T08:13:49Z",
+      "side": 1,
+      "message": "I have given it more thought, and I have also floated some alternatives on IRC yesterday (BHttpScheduler, BHttpRunner). I think I am going back to BHttpSession as the best way of encapsulating what it does. \n\nThe description of BHttpSession is: Schedules and runs one or more BHttpRequests within a shared context of cookies and authentication credentials.\n\nI also refer to [Apple\u0027s URLSession](https://developer.apple.com/documentation/foundation/urlsession) and [libsoup\u0027s SoupSession](https://libsoup.org/libsoup-3.0/ch01s02.html#id-1.2.2.3.3).\n\nI will dive more into the question of persistent cookies and persistent cookie jars when I work on BCookieJar.",
+      "parentUuid": "db8ade35_e65aff23",
+      "revId": "2b104d3cc1e3ccd11805ae0bd7854f74a0e923b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a932c3a_dae39db1",
