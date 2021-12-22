@@ -16,6 +16,74 @@
       "message": "Ok, I changed the patch to use a similar method as Pictures and Bitmaps. If this patchset looks ok then I\u0027ll look into the BDataIO/memory loading aspect.  \n\nAlso if I have a small test app / unit test for this, would it be appropriate to put it into the repo under tests/servers/apps/ ?  \n",
       "revId": "d8e2977f21d324b1b13b11cd091be9444f394188",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33a7056c_d4ca01d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-12-22T06:34:54Z",
+      "side": 1,
+      "message": "I\u0027m afraid the user font will still be globally available. Did you check in the Fonts preferences? It shouldn\u0027t be found there.",
+      "revId": "d8e2977f21d324b1b13b11cd091be9444f394188",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef75de8a_7bbbdb64",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 3604,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-12-22T06:34:54Z",
+      "side": 1,
+      "message": "this line is too long.",
+      "revId": "d8e2977f21d324b1b13b11cd091be9444f394188",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3817410_2c86d3d1",
+        "filename": "src/servers/app/ServerFont.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-12-22T06:34:54Z",
+      "side": 1,
+      "message": "fOwner(NULL) is missing",
+      "revId": "d8e2977f21d324b1b13b11cd091be9444f394188",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71b2d603_07567832",
+        "filename": "src/servers/app/font/FontManager.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1188,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-12-22T06:34:54Z",
+      "side": 1,
+      "message": "Looks like the family reference gets lost. There shouldn\u0027t be a new FontFamily for each font (style).",
+      "revId": "d8e2977f21d324b1b13b11cd091be9444f394188",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
