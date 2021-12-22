@@ -54,6 +54,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3afafa37_32169e77",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2021-12-22T16:47:32Z",
+      "side": 1,
+      "message": "There are two places I see where for loops could be useful: bdw_check_interrupt and bdw_interrupt_handler.\n\nIn bdw_interrupt_handler for loop would reduce readability:\n\n  case A\n  case B\n  case C\n  if(Gen12) case D\n\nis easier to parse than\n\n  for(A-D)\n    if(not Gen12 and D) skip\n    case\n\nIn bdw_check_interrupt it doesn\u0027t save much space anyway.\n\nUnrolled code also makes experimenting easier (disabling one case in the middle, etc.).\nIf someone wants to use for loops later, I won\u0027t object. I just don\u0027t think it\u0027s worth it at this moment. If we were talking about 20 pipes, then yes. In case of 4, no.",
+      "parentUuid": "dc6a2805_1feaf155",
+      "revId": "974725fdba7736ab09fe4ccd7dcacabf6c54f39b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aa6c6a25_9f34c198",
