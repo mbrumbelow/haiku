@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc6a2805_1feaf155",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2021-12-22T16:23:58Z",
+      "side": 1,
+      "message": "Fair enough on the A-D part, but I can\u0027t follow your arguments for code repetition. If pipe A-D are handled in the same way, and they usually are from looking at the code, why should it be written out each time? It does make sense to code that differs between generations, but other code would IMO benefit from this a lot.",
+      "parentUuid": "fb5ceb43_824e0e3b",
+      "revId": "974725fdba7736ab09fe4ccd7dcacabf6c54f39b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aa6c6a25_9f34c198",
