@@ -54,6 +54,42 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8daa4cfd_a6611275",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2021-12-23T00:34:07Z",
+      "side": 1,
+      "message": "No problem. I don\u0027t know anything about Areas/area_ids - and since BDataIO was mentioned it seemed like either one was a possibility.  That said, I was thinking that since this change is supposed to enable webfonts, and I believe BUrlRequests return BDataIOs, that\u0027s a highly likely way the data could arrive. \n\nI don\u0027t know enough about BDataIO nor Areas yet to have input either way. I defer to whatever the best method is.",
+      "parentUuid": "88968669_3670636b",
+      "revId": "d8e2977f21d324b1b13b11cd091be9444f394188",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9faa39d9_d2f20c6a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2021-12-23T00:34:07Z",
+      "side": 1,
+      "message": "The user fonts are *technically* globally available but don\u0027t show up in any interface kit queries.  In Appearance-\u003eFont preferences, they don\u0027t appear, nor any app that queries font directories (CharacterMap, StyledEdit, etc.).  However any app can probably try to reference a user font via the styleID/familyID but that would be odd for an app to try to set a BFont to a random user font. \n\nThe reason they are not available is because of the lost family reference.",
+      "parentUuid": "33a7056c_d4ca01d9",
+      "revId": "d8e2977f21d324b1b13b11cd091be9444f394188",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ef75de8a_7bbbdb64",
         "filename": "src/servers/app/ServerApp.cpp",
         "patchSetId": 3
@@ -99,6 +135,24 @@
       "writtenOn": "2021-12-22T06:34:54Z",
       "side": 1,
       "message": "Looks like the family reference gets lost. There shouldn\u0027t be a new FontFamily for each font (style).",
+      "revId": "d8e2977f21d324b1b13b11cd091be9444f394188",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcf31b8e_c9ea6315",
+        "filename": "src/servers/app/font/FontManager.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1188,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2021-12-23T00:34:07Z",
+      "side": 1,
+      "message": "This was on purpose so that the font doesn\u0027t get added to the global font list.  The family reference still exists via the FontStyle but no other way.  I know it creates a new Family for every user font but that was a tradeoff.  If this is a bad idea then I need to figure out a better way to keep the user fonts separate from the system fonts.\n\nRelated question: should a user font be able to be added to a system font family?  Like if Noto Sans -\u003e Regular is a system font, and I add Noto Sans -\u003e Super Italic Bold as a user font, should that be accessible within the app under Noto Sans?  Or do we keep user families separate from system families?",
+      "parentUuid": "71b2d603_07567832",
       "revId": "d8e2977f21d324b1b13b11cd091be9444f394188",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
