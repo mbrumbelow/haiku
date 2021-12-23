@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2cb966ae_80019aa6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-23T10:39:29Z",
+      "side": 1,
+      "message": "BDataIO is an abstract class that has a Read method to allow reading data from it. Implementation could be anything (BFile to read from a file, BMemoryIO to read from a buffer in memory, …)\n\nThis would be convenient from the API side (giving maximum flexibility to applications) but not easily possible to forward to app_server (app_server would need to call backeinto the application to read the data)\n\nSo I think we need code to load a font from a file, and from a memory buffer in an application. In the memory buffer case, to avoid having to write the whole buffer into the app_server link, using an area would allow to share memory between the application and app_server directly. This is what we do for BBitmap, for example, but in the opposite direction: memory is allocated in app_server and shared with the application.",
+      "parentUuid": "8daa4cfd_a6611275",
+      "revId": "d8e2977f21d324b1b13b11cd091be9444f394188",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ef75de8a_7bbbdb64",
         "filename": "src/servers/app/ServerApp.cpp",
         "patchSetId": 3
@@ -171,6 +189,24 @@
       "side": 1,
       "message": "I realized this is a bad idea. There\u0027s potential for memory leaking. I will figure out a better way.",
       "parentUuid": "dcf31b8e_c9ea6315",
+      "revId": "d8e2977f21d324b1b13b11cd091be9444f394188",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd9f291e_8d9b5109",
+        "filename": "src/servers/app/font/FontManager.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1188,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-23T10:39:29Z",
+      "side": 1,
+      "message": "Fonts loaded this way should not be accessible in any other place than the BFont object that caused the loading, I think.\n\nAnd they should be deleted from app_server when the BFont object is destroyed.",
+      "parentUuid": "f6c4734d_2f0ba43f",
       "revId": "d8e2977f21d324b1b13b11cd091be9444f394188",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
