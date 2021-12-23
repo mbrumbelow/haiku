@@ -16,6 +16,176 @@
       "message": "this might not be merged as it is now, but I\u0027m trying to keep it up to date at least to have a base plate. some more content to come later.",
       "revId": "b31d9ce344e64e68872a595dab3d29edd1377c6f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db3e2cd5_d190dd79",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-23T20:24:05Z",
+      "side": 1,
+      "message": "just some style things to work on.  We really don\u0027t plan on releasing a 32-bit x86 image.. what\u0027s the use case for a 32-bit x86 EFI loader?",
+      "revId": "b31d9ce344e64e68872a595dab3d29edd1377c6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb79a241_2c6f371b",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_mmu.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-23T20:24:05Z",
+      "side": 1,
+      "message": "two new lines",
+      "revId": "b31d9ce344e64e68872a595dab3d29edd1377c6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9f0291f_99984284",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_smp.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-23T20:24:05Z",
+      "side": 1,
+      "message": "two new lines between functions",
+      "revId": "b31d9ce344e64e68872a595dab3d29edd1377c6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4667b4e4_4d200d55",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_smp.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-23T20:24:05Z",
+      "side": 1,
+      "message": "#warning todo here?  Seems important",
+      "revId": "b31d9ce344e64e68872a595dab3d29edd1377c6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e991903_185b737c",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_smp.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-23T20:24:05Z",
+      "side": 1,
+      "message": "two new lines between functions",
+      "revId": "b31d9ce344e64e68872a595dab3d29edd1377c6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "416d8511_df64f2f7",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_smp.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-23T20:24:05Z",
+      "side": 1,
+      "message": "two new lines between functions",
+      "revId": "b31d9ce344e64e68872a595dab3d29edd1377c6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db1da21c_20556f98",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_start.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-23T20:24:05Z",
+      "side": 1,
+      "message": "two new lines between functions",
+      "revId": "b31d9ce344e64e68872a595dab3d29edd1377c6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "861bcb7d_4917d59b",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_start.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-23T20:24:05Z",
+      "side": 1,
+      "message": "two new lines between functions",
+      "revId": "b31d9ce344e64e68872a595dab3d29edd1377c6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fa22a43_2c6be2f4",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_timer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-23T20:24:05Z",
+      "side": 1,
+      "message": "two new lines between functions",
+      "revId": "b31d9ce344e64e68872a595dab3d29edd1377c6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bac0968_774250a8",
+        "filename": "src/system/boot/platform/efi/arch/x86/relocation_func.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-23T20:24:05Z",
+      "side": 1,
+      "message": "two new lines between functions",
+      "revId": "b31d9ce344e64e68872a595dab3d29edd1377c6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
