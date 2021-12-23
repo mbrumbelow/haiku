@@ -155,6 +155,24 @@
       "parentUuid": "71b2d603_07567832",
       "revId": "d8e2977f21d324b1b13b11cd091be9444f394188",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6c4734d_2f0ba43f",
+        "filename": "src/servers/app/font/FontManager.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1188,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2021-12-23T00:59:32Z",
+      "side": 1,
+      "message": "I realized this is a bad idea. There\u0027s potential for memory leaking. I will figure out a better way.",
+      "parentUuid": "dcf31b8e_c9ea6315",
+      "revId": "d8e2977f21d324b1b13b11cd091be9444f394188",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
