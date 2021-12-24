@@ -553,7 +553,7 @@ const float kDraggerSize = 7;
 ActivityView::ActivityView(BRect frame, const char* name,
 		const BMessage* settings, uint32 resizingMode)
 	: BView(frame, name, resizingMode,
-		B_WILL_DRAW | B_SUBPIXEL_PRECISE | B_FULL_UPDATE_ON_RESIZE | B_FRAME_EVENTS),
+		B_WILL_DRAW | B_FULL_UPDATE_ON_RESIZE | B_FRAME_EVENTS),
 	fSourcesLock("data sources")
 {
 	_Init(settings);
@@ -598,6 +598,7 @@ ActivityView::ActivityView(BMessage* archive)
 
 ActivityView::~ActivityView()
 {
+	delete fOffscreen;
 	delete fSystemInfoHandler;
 }
 
@@ -608,6 +609,7 @@ ActivityView::_Init(const BMessage* settings)
 	fHistoryBackgroundColor = (rgb_color){255, 255, 240};
 	fLegendBackgroundColor = LowColor();
 		// the low color is restored by the BView unarchiving
+	fOffscreen = NULL;
 #ifdef __HAIKU__
 	fHistoryLayoutItem = NULL;
 	fLegendLayoutItem = NULL;
@@ -922,6 +924,51 @@ ActivityView::MinSize()
 	return size;
 }
 #endif
+
+
+void
+ActivityView::FrameResized(float /*width*/, float /*height*/)
+{
+	_UpdateOffscreenBitmap();
+}
+
+
+void
+ActivityView::_UpdateOffscreenBitmap()
+{
+	BRect frame = _HistoryFrame();
+	frame.OffsetTo(B_ORIGIN);
+
+	if (fOffscreen != NULL && frame == fOffscreen->Bounds())
+		return;
+
+	delete fOffscreen;
+
+	// create offscreen bitmap
+
+	fOffscreen = new(std::nothrow) BBitmap(frame, B_BITMAP_ACCEPTS_VIEWS,
+		B_RGB32);
+	if (fOffscreen == NULL || fOffscreen->InitCheck() != B_OK) {
+		delete fOffscreen;
+		fOffscreen = NULL;
+		return;
+	}
+
+	BView* view = new BView(frame, NULL, B_FOLLOW_NONE, B_SUBPIXEL_PRECISE);
+	view->SetViewColor(fHistoryBackgroundColor);
+	view->SetLowColor(view->ViewColor());
+	fOffscreen->AddChild(view);
+}
+
+
+BView*
+ActivityView::_OffscreenView()
+{
+	if (fOffscreen == NULL)
+		return NULL;
+
+	return fOffscreen->ChildAt(0);
+}
 
 
 void
@@ -1277,15 +1324,23 @@ ActivityView::_PositionForValue(DataSource* source, DataHistory* values,
 
 
 void
-ActivityView::_DrawHistory()
+ActivityView::_DrawHistory(bool drawBackground)
 {
+	_UpdateOffscreenBitmap();
+
 	BView* view = this;
+	if (fOffscreen != NULL) {
+		fOffscreen->Lock();
+		view = _OffscreenView();
+	}
 
 	BRect frame = _HistoryFrame();
 	BRect outerFrame = frame.InsetByCopy(-2, -2);
 
 	// draw the outer frame
-	uint32 flags = BControlLook::B_BLEND_FRAME;
+	uint32 flags = 0;
+	if (!drawBackground)
+		flags |= BControlLook::B_BLEND_FRAME;
 	be_control_look->DrawTextControlBorder(this, outerFrame,
 		outerFrame, fLegendBackgroundColor, flags);
 
@@ -1378,9 +1433,12 @@ ActivityView::_DrawHistory()
 		view->EndLineArray();
 	}
 
-	view->SetPenSize(1);
-
 	// TODO: add marks when an app started or quit
+	view->Sync();
+	if (fOffscreen != NULL) {
+		fOffscreen->Unlock();
+		DrawBitmap(fOffscreen, outerFrame.LeftTop());
+	}
 }
 
 
@@ -1410,7 +1468,11 @@ ActivityView::_UpdateResolution(int32 resolution, bool broadcast)
 void
 ActivityView::Draw(BRect updateRect)
 {
-	_DrawHistory();
+	bool drawBackground = true;
+	if (Parent() && (Parent()->Flags() & B_DRAW_ON_CHILDREN) != 0)
+		drawBackground = false;
+
+	_DrawHistory(drawBackground);
 
 	if (!fShowLegend)
 		return;
@@ -1419,6 +1481,12 @@ ActivityView::Draw(BRect updateRect)
 	BRect legendFrame = _LegendFrame();
 	if (LowUIColor() == B_NO_COLOR)
 		SetLowColor(fLegendBackgroundColor);
+
+	if (drawBackground) {
+		BRect backgroundFrame(legendFrame);
+		backgroundFrame.bottom += kDraggerSize;
+		FillRect(backgroundFrame, B_SOLID_LOW);
+	}
 
 	BAutolock _(fSourcesLock);
 
@@ -1451,6 +1519,9 @@ ActivityView::Draw(BRect updateRect)
 		if (ceilf(StringWidth(label.String())) > possibleLabelWidth)
 			label = source->ShortLabel();
 		TruncateString(&label, B_TRUNCATE_MIDDLE, possibleLabelWidth);
+
+		if (drawBackground)
+			SetHighColor(ui_color(B_PANEL_TEXT_COLOR));
 
 		if (be_control_look == NULL) {
 			DrawString(label.String(), BPoint(6 + colorBox.right, y));
