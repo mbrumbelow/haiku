@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cace45bc_5d6ef7da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-12-24T16:59:26Z",
+      "side": 1,
+      "message": "I think we can get rid of the custom background drawing, no? The double buffering should probably be brought back indeed, though.",
+      "revId": "78d92d060ac4132d055c01cdf24ea9e3ee056f89",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
