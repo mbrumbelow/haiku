@@ -50,6 +50,42 @@
       "message": "\u003e Removing this means all the curves are fully redrawn at each update,\nresulting in higher CPU usage\n\nYou can shift graph with https://www.haiku-os.org/legacy-docs/bebook/BView.html#BView_CopyBits.",
       "revId": "78d92d060ac4132d055c01cdf24ea9e3ee056f89",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2355403_93a9f988",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-27T15:07:22Z",
+      "side": 1,
+      "message": "That works only if the view is fully visible. If it is partially under another window (which will be often the case for the replicant) it is not so simple (because the parts to copy may not be on screen at all). Then it becomes quite complicated to determine what can be copied, and what can be redrawn (and it\u0027s not even always possible to copy a part and redraw another).\n\nWe can change this again if someday we have systematic compositing (allowing each window to have its own backbuffer without implementing it with offscreen bitmaps). Until then, bitmaps seems to be the best way to handle complex drawing.",
+      "parentUuid": "32b92346_90bb6595",
+      "revId": "78d92d060ac4132d055c01cdf24ea9e3ee056f89",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fd14bb9_f91c091d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-27T15:07:22Z",
+      "side": 1,
+      "message": "Done, that part of the code is now preserved in the change.",
+      "parentUuid": "cace45bc_5d6ef7da",
+      "revId": "78d92d060ac4132d055c01cdf24ea9e3ee056f89",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
