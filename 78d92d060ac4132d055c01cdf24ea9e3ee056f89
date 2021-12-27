@@ -16,6 +16,23 @@
       "message": "I think we can get rid of the custom background drawing, no? The double buffering should probably be brought back indeed, though.",
       "revId": "78d92d060ac4132d055c01cdf24ea9e3ee056f89",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fc8dbba_be0b6c0f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-12-27T13:23:36Z",
+      "side": 1,
+      "message": "It should not update more then refresh rate without custom double buffer unless you are dragging a window on top of it or resize ActivityMonitor window (in this case it will update with custom double buffer too).",
+      "revId": "78d92d060ac4132d055c01cdf24ea9e3ee056f89",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
