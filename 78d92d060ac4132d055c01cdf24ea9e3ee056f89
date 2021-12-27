@@ -33,6 +33,23 @@
       "message": "It should not update more then refresh rate without custom double buffer unless you are dragging a window on top of it or resize ActivityMonitor window (in this case it will update with custom double buffer too).",
       "revId": "78d92d060ac4132d055c01cdf24ea9e3ee056f89",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32b92346_90bb6595",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-12-27T13:49:14Z",
+      "side": 1,
+      "message": "\u003e Removing this means all the curves are fully redrawn at each update,\nresulting in higher CPU usage\n\nYou can shift graph with https://www.haiku-os.org/legacy-docs/bebook/BView.html#BView_CopyBits.",
+      "revId": "78d92d060ac4132d055c01cdf24ea9e3ee056f89",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
