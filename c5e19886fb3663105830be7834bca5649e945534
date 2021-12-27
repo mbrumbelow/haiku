@@ -33,6 +33,24 @@
       "message": "\"count of pixels included\" sounds a bit puzzling to me, I had to read the examples above to understand what you mean. Would a drawing make it clearer?",
       "revId": "c5e19886fb3663105830be7834bca5649e945534",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7450159_3215392e",
+        "filename": "docs/user/interface/Rect.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-27T15:33:21Z",
+      "side": 1,
+      "message": "The previous existing paragraph is already confusing: \"A gotcha of using BRect\u0027s is that the starting point is 0, not 1\" (which isn\u0027t quite the reason why you need a -1).\n\nI think we should rewrite this all to very clearly explain what\u0027s really happening:\n\n- The origin is the center of the top left pixel, not the top-left of the top left pixel\n- Rectangles with integer coordinates start in the middle of a pixel and end in the middle of another\n- The default pen has a width of exactly 1px, so when stroking a rectangle it will draw 0.5px outside it and 0.5px inside it (exactly covering all the pixels that intersect the rectangle border)\n- As a result, the total pixel coverage is 1px more than the rectangle width/height (now we have a quite clear definition of \"coverage\")\n\nI think this explanation is easier to visualize. Talking about \"count of pixels\" and \"spans\" is not really helpful if these terms have not been precisely defined first.",
+      "parentUuid": "0dbbe3f9_1cf61a34",
+      "revId": "c5e19886fb3663105830be7834bca5649e945534",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
