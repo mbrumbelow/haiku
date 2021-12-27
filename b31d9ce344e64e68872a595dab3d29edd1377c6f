@@ -71,6 +71,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d360e23_06a735c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-27T15:22:33Z",
+      "side": 1,
+      "message": "Marking as reviewed/-1 since Kallisti5 changes are not addressed yet",
+      "revId": "b31d9ce344e64e68872a595dab3d29edd1377c6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fb79a241_2c6f371b",
