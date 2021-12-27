@@ -105,6 +105,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "03c9cf32_d28bc400",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_mmu.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-12-27T19:05:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb79a241_2c6f371b",
+      "revId": "b31d9ce344e64e68872a595dab3d29edd1377c6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d9f0291f_99984284",
@@ -118,6 +136,24 @@
       "writtenOn": "2021-12-23T20:24:05Z",
       "side": 1,
       "message": "two new lines between functions",
+      "revId": "b31d9ce344e64e68872a595dab3d29edd1377c6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2196b32_206de8bd",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_smp.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-12-27T19:05:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9f0291f_99984284",
       "revId": "b31d9ce344e64e68872a595dab3d29edd1377c6f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -156,6 +192,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d93ca76_6100599a",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_smp.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-12-27T19:05:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e991903_185b737c",
+      "revId": "b31d9ce344e64e68872a595dab3d29edd1377c6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "416d8511_df64f2f7",
@@ -169,6 +223,24 @@
       "writtenOn": "2021-12-23T20:24:05Z",
       "side": 1,
       "message": "two new lines between functions",
+      "revId": "b31d9ce344e64e68872a595dab3d29edd1377c6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55dec1f8_c1b6e352",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_smp.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-12-27T19:05:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "416d8511_df64f2f7",
       "revId": "b31d9ce344e64e68872a595dab3d29edd1377c6f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -190,6 +262,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8dc3e671_c43800ea",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_start.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-12-27T19:05:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db1da21c_20556f98",
+      "revId": "b31d9ce344e64e68872a595dab3d29edd1377c6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "861bcb7d_4917d59b",
@@ -203,6 +293,24 @@
       "writtenOn": "2021-12-23T20:24:05Z",
       "side": 1,
       "message": "two new lines between functions",
+      "revId": "b31d9ce344e64e68872a595dab3d29edd1377c6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "068ac680_6660aaa1",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_start.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-12-27T19:05:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "861bcb7d_4917d59b",
       "revId": "b31d9ce344e64e68872a595dab3d29edd1377c6f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -224,6 +332,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dff5b35f_e2fe4ed8",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_timer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-12-27T19:05:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4fa22a43_2c6be2f4",
+      "revId": "b31d9ce344e64e68872a595dab3d29edd1377c6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8bac0968_774250a8",
@@ -237,6 +363,24 @@
       "writtenOn": "2021-12-23T20:24:05Z",
       "side": 1,
       "message": "two new lines between functions",
+      "revId": "b31d9ce344e64e68872a595dab3d29edd1377c6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0258a5a5_5f3505e3",
+        "filename": "src/system/boot/platform/efi/arch/x86/relocation_func.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-12-27T19:05:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8bac0968_774250a8",
       "revId": "b31d9ce344e64e68872a595dab3d29edd1377c6f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
