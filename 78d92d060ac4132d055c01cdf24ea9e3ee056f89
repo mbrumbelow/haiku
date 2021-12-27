@@ -86,6 +86,24 @@
       "parentUuid": "cace45bc_5d6ef7da",
       "revId": "78d92d060ac4132d055c01cdf24ea9e3ee056f89",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f411b25f_18d64a7b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-12-27T18:30:46Z",
+      "side": 1,
+      "message": "Well, raster shifting will not work if background is transparent. It will shift background too causing glitches.\n\nCustom back buffer currently cause significant performance problems with remote desktop.",
+      "parentUuid": "a2355403_93a9f988",
+      "revId": "78d92d060ac4132d055c01cdf24ea9e3ee056f89",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
