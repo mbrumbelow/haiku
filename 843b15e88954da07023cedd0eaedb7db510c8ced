@@ -16,6 +16,24 @@
       "message": "B_COUNT_OF",
       "revId": "843b15e88954da07023cedd0eaedb7db510c8ced",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04f7c8cf_a7cdfddc",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-27T15:03:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66f8720c_c965439f",
+      "revId": "843b15e88954da07023cedd0eaedb7db510c8ced",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
