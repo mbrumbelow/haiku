@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "19649df7_5e7d9cf3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-12-27T12:21:30Z",
+      "side": 1,
+      "message": "To clarify, we don\u0027t plan to release a 32bit gcc11-only image (I think that\u0027s what kallisti5 means). But this bootloader can be added to both the existing 32 and 64bit x86 images, for machines without bios, or with 32bit only efi but 64bit cpu (I think some early intel apple hardware)",
+      "parentUuid": "5634ca5c_edf32c24",
+      "revId": "b31d9ce344e64e68872a595dab3d29edd1377c6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fb79a241_2c6f371b",
