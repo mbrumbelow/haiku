@@ -195,6 +195,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0a286152_90fb8540",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_smp.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-12-28T20:45:49Z",
+      "side": 1,
+      "message": "On HiFive Unmatched RISC-V board UEFI boots on random core. Getting core ID (HART ID) is privileged machine mode instruction that is not available to OS, boot loader and OS is supposed to keep core ID by itself. On Haiku CPU hardware core IDs are mapped to logical CPU core IDs to boot core ID always become no. 0.",
+      "parentUuid": "0315e6e5_2ffee848",
+      "revId": "b31d9ce344e64e68872a595dab3d29edd1377c6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4e991903_185b737c",
         "filename": "src/system/boot/platform/efi/arch/x86/arch_smp.cpp",
         "patchSetId": 4
