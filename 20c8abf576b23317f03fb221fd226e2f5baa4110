@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a86366e8_c3a3056c",
+        "filename": "src/apps/screenshot/Utility.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2021-12-29T00:00:09Z",
+      "side": 1,
+      "message": "B_ORIGIN can be used instead of BPoint(0, 0).",
+      "revId": "20c8abf576b23317f03fb221fd226e2f5baa4110",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
