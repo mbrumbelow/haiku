@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "a57a604d_d8e194ef",
         "filename": "src/system/boot/platform/riscv/FwCfg.cpp",
@@ -14,10 +15,28 @@
       "side": 1,
       "message": "Some GCC miscompilation problem, Clang is fine.",
       "revId": "dae35af3ba5014a3f586d2293e90f49b2c8b6d4d",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "836a61cd_1faca1bf",
+        "filename": "src/system/boot/platform/riscv/FwCfg.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-29T20:07:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a57a604d_d8e194ef",
+      "revId": "dae35af3ba5014a3f586d2293e90f49b2c8b6d4d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "6009f1e8_01204f30",
         "filename": "src/system/boot/platform/riscv/fdt.cpp",
@@ -31,10 +50,10 @@
       "side": 1,
       "message": "This should be uncommented and hard coded constant should be removed. sTimerFrequrency value is valid.",
       "revId": "dae35af3ba5014a3f586d2293e90f49b2c8b6d4d",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "408f562f_0abd037a",
         "filename": "src/system/boot/platform/riscv/fdt.cpp",
@@ -49,10 +68,10 @@
       "message": "done",
       "parentUuid": "6009f1e8_01204f30",
       "revId": "dae35af3ba5014a3f586d2293e90f49b2c8b6d4d",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": false
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "1fa62002_73dc4e5f",
         "filename": "src/system/boot/platform/riscv/mmu.cpp",
@@ -66,10 +85,28 @@
       "side": 1,
       "message": "This is 5-th copy of page table lookup loop. EFI and RAW boot loader MMU setup code is very similar and it can be shared.",
       "revId": "dae35af3ba5014a3f586d2293e90f49b2c8b6d4d",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddd7e5d3_eb9e41b1",
+        "filename": "src/system/boot/platform/riscv/mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-29T20:07:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1fa62002_73dc4e5f",
+      "revId": "dae35af3ba5014a3f586d2293e90f49b2c8b6d4d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "e087f93e_dcad334d",
         "filename": "src/system/boot/platform/riscv/mmu.cpp",
@@ -83,8 +120,25 @@
       "side": 1,
       "message": "Region allocator implementation can be shared with other platforms and moved to generic code.",
       "revId": "dae35af3ba5014a3f586d2293e90f49b2c8b6d4d",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75428750_3ffb7046",
+        "filename": "src/system/boot/platform/riscv/mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-29T20:07:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e087f93e_dcad334d",
+      "revId": "dae35af3ba5014a3f586d2293e90f49b2c8b6d4d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
