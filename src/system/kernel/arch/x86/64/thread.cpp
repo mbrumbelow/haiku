@@ -16,6 +16,7 @@
 #include <commpage.h>
 #include <cpu.h>
 #include <debug.h>
+#include <generic_syscall.h>
 #include <kernel.h>
 #include <ksignal.h>
 #include <int.h>
@@ -96,6 +97,7 @@ x86_set_tls_context(Thread* thread)
 {
 	// Set FS segment base address to the TLS segment.
 	x86_write_msr(IA32_MSR_FS_BASE, thread->user_local_storage);
+	x86_write_msr(IA32_MSR_GS_BASE, thread->arch_info.gs_base);
 }
 
 
@@ -135,6 +137,25 @@ get_signal_stack(Thread* thread, iframe* frame, struct sigaction* action,
 }
 
 
+enum {
+	THREAD_SET_GS_BASE = 1,
+};
+
+
+static status_t
+arch_thread_control(const char* subsystem, uint32 function, void* buffer,
+	size_t bufferSize)
+{
+	switch (function) {
+		case THREAD_SET_GS_BASE: {
+			Thread* thread = thread_get_current_thread();
+			thread->arch_info.gs_base = (addr_t)buffer;
+			return B_OK;
+		}
+	}
+	return B_BAD_HANDLER;
+}
+
 //	#pragma mark -
 
 
@@ -172,6 +193,9 @@ arch_thread_init(kernel_args* args)
 			"fxsaveq %0"
 			:: "m" (sInitialState.fpu_state));
 	}
+
+	register_generic_syscall("thread", arch_thread_control, 1, 0);
+
 	return B_OK;
 }
 
