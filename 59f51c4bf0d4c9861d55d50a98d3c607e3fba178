@@ -33,6 +33,23 @@
       "message": "I think we want to do the same as https://review.haiku-os.org/c/haiku/+/3875 which adds a padding field, and also tries to stay in sync with Zircon where the headers originally came from.",
       "revId": "59f51c4bf0d4c9861d55d50a98d3c607e3fba178",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3a06b3e_37edf0af",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-12-31T11:39:20Z",
+      "side": 1,
+      "message": "Strangely enough I haven\u0027t found an analogue of this in any of Zircon, GNUEFI, FreeBSD, NetBSD.\nBut it seems to be there in u-boot at least:\nhttps://elixir.bootlin.com/u-boot/latest/source/include/efi_api.h#L638",
+      "revId": "59f51c4bf0d4c9861d55d50a98d3c607e3fba178",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
