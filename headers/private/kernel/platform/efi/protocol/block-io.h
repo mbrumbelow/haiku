@@ -45,7 +45,7 @@ struct efi_block_io_media {
     bool WriteCaching;
     uint32_t BlockSize;
     uint32_t IoAlign;
-    uint64_t LastBlock;
+    uint64_t LastBlock __attribute__((aligned(8)));
 
     // present in rev2
     uint64_t LowestAlignedLba;
