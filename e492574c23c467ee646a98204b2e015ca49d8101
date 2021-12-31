@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f35d580_9ef2cb0d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-12-31T17:47:31Z",
+      "side": 1,
+      "message": "Perhaps what we should do instead is implement fallbacks for the WRGSBASE instruction. This is only supported on AMD 17H and Intel Ivy Bridge and up, but I think we can implement a fallback in the unknown opcode exception handler?",
+      "revId": "e492574c23c467ee646a98204b2e015ca49d8101",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
