@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58b5e045_2a6143aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2021-12-31T16:03:07Z",
+      "side": 1,
+      "message": "It\u0027s ARM only, so lets just apply, and if needed we change again.",
+      "revId": "c284ffed7102ab0557d76552535d4a51fbca6536",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
