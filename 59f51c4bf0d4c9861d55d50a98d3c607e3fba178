@@ -50,6 +50,23 @@
       "message": "Strangely enough I haven\u0027t found an analogue of this in any of Zircon, GNUEFI, FreeBSD, NetBSD.\nBut it seems to be there in u-boot at least:\nhttps://elixir.bootlin.com/u-boot/latest/source/include/efi_api.h#L638",
       "revId": "59f51c4bf0d4c9861d55d50a98d3c607e3fba178",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6f1947f_92e6e27d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2021-12-31T13:21:17Z",
+      "side": 1,
+      "message": "see also: https://www.illumos.org/issues/8420 and https://github.com/illumos/illumos-gate/commit/feff18a41e45afb02478e67d56fad5027334f115",
+      "revId": "59f51c4bf0d4c9861d55d50a98d3c607e3fba178",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
