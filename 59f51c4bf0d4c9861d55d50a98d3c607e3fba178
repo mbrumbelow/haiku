@@ -67,6 +67,23 @@
       "message": "see also: https://www.illumos.org/issues/8420 and https://github.com/illumos/illumos-gate/commit/feff18a41e45afb02478e67d56fad5027334f115",
       "revId": "59f51c4bf0d4c9861d55d50a98d3c607e3fba178",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32802a96_cfc2b66e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2021-12-31T16:01:18Z",
+      "side": 1,
+      "message": "I think most use an alignment of 8? And I guess this is why this struct isn\u0027t packed while many others are? I am not sure Zircon cares about 32 bit either.",
+      "revId": "59f51c4bf0d4c9861d55d50a98d3c607e3fba178",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
