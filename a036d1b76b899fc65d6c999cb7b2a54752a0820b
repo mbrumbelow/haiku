@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6abce8de_ea7eba25",
+        "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-01T11:50:01Z",
+      "side": 1,
+      "message": "remove this blank line",
+      "revId": "a036d1b76b899fc65d6c999cb7b2a54752a0820b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd148386_90f446c9",
+        "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-01T11:50:01Z",
+      "side": 1,
+      "message": "maybe panic() if proplen is not 4?",
+      "revId": "a036d1b76b899fc65d6c999cb7b2a54752a0820b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b72ffc0b_e68af2d9",
+        "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-01T11:50:01Z",
+      "side": 1,
+      "message": "is this TODO solved?",
+      "revId": "a036d1b76b899fc65d6c999cb7b2a54752a0820b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a08bdce9_ea77a741",
+        "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-01T11:50:01Z",
+      "side": 1,
+      "message": "- missing space around *\n- maybe use sizeof(uint32) instead of 4?",
+      "revId": "a036d1b76b899fc65d6c999cb7b2a54752a0820b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3847e1c_5f1110c2",
+        "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-01T11:50:01Z",
+      "side": 1,
+      "message": "why is a + 1 needed in this case?",
+      "revId": "a036d1b76b899fc65d6c999cb7b2a54752a0820b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e47626fe_1a204d36",
+        "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-01T11:50:01Z",
+      "side": 1,
+      "message": "missing spaces around *",
+      "revId": "a036d1b76b899fc65d6c999cb7b2a54752a0820b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea919a30_ec8a3b33",
+        "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-01T11:50:01Z",
+      "side": 1,
+      "message": "missing spaces around *",
+      "revId": "a036d1b76b899fc65d6c999cb7b2a54752a0820b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
