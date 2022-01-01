@@ -33,6 +33,40 @@
       "message": "That would probably require scaling support. For now I\u0027ll leave thing as-is.",
       "revId": "95841e55afe421386f297ab5946430abc1356ece",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fc20960_e6bbe151",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-01T12:01:29Z",
+      "side": 1,
+      "message": "Maybe squash this with the next commit, to avoid merging a commit that breaks the build?",
+      "revId": "95841e55afe421386f297ab5946430abc1356ece",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c4d84c0_fdb49622",
+        "filename": "src/kits/interface/Bitmap.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 762,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-01T12:01:29Z",
+      "side": 1,
+      "message": "These API documentations should be moved to docs/user/\n\nAlso, is \\briefly a valid doxygen tag, shouldn\u0027t it be \\brief?",
+      "revId": "95841e55afe421386f297ab5946430abc1356ece",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
