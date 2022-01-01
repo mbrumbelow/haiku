@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6183a64d_4aab8190",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-01T11:38:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b743352b_6b2504bf",
+      "revId": "90497dfe2534cfb34cf084c5ebfee53adcccb139",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4d2c6bdf_6a634376",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-12-17T13:40:42Z",
       "side": 1,
       "message": "you are missing a . in your address (should be hotmail.com).\n\nPlease check this in home/config/settings/.gitconfig",
+      "revId": "90497dfe2534cfb34cf084c5ebfee53adcccb139",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fd6a57b_dc3e2b1f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-01T11:38:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d2c6bdf_6a634376",
       "revId": "90497dfe2534cfb34cf084c5ebfee53adcccb139",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }

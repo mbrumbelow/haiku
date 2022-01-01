@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fecd656_1de7cadb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-01T11:38:01Z",
+      "side": 1,
+      "message": "Several changes were requested in a previous review and as far as I can see were not addressed yet, marking as -1 to know this was reviewed.",
+      "revId": "6a01aea891296b5b1be740457c42d08b94321a3c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
