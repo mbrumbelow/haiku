@@ -54,6 +54,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "85eeef21_398cd322",
+        "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-01-01T16:58:12Z",
+      "side": 1,
+      "message": "Inconsistent identifier style (interruptParent?).",
+      "revId": "a036d1b76b899fc65d6c999cb7b2a54752a0820b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a08bdce9_ea77a741",
         "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_module.cpp",
         "patchSetId": 2
