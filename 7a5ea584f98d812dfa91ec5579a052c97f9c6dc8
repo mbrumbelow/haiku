@@ -70,6 +70,24 @@
       "parentUuid": "7f082d01_e014473e",
       "revId": "7a5ea584f98d812dfa91ec5579a052c97f9c6dc8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4524f15a_4e2e6740",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2022-01-02T23:34:01Z",
+      "side": 1,
+      "message": "I find VID/PID exposed on user space quite interesting. Some use cases (some of them we discussed a couple of days):\n\n- Display better device names, instead of \"Mouse 1\" something like \"Logitech Mouse 1\"\n- Detect joystick model\n- Detect keyboard layout based on model\n- Store input preferences using a less generic name\n- Cli input device tools (listinput?) \n\nIf you want, I can try to provide one of those use cases. I have left ioctl as HID_GET_DEVICE_INFO so perhaps we can left only vid/pid and grow it with extra fields we find interesting.",
+      "parentUuid": "a11243f8_600d4af4",
+      "revId": "7a5ea584f98d812dfa91ec5579a052c97f9c6dc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
