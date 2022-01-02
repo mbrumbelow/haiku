@@ -34,6 +34,24 @@
       "parentUuid": "5382202b_a5d372fb",
       "revId": "7a5ea584f98d812dfa91ec5579a052c97f9c6dc8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f082d01_e014473e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2022-01-02T20:54:13Z",
+      "side": 1,
+      "message": "I was inspired from code and comments on MouseDevice::_BuildShortName from input server mouse device add-on.\n\nThat method builds a human friendly device description using only /dev path, ie: Extended PS/2 Mouse 1. It is commented there that would be better asking device for name or special characteristics, like is_touchpad.\n\nI also prefer querying device instead of building the name using a device path heuristic. But it is only my point of view, of course.\n\nWhat about getting vid/pid in a single structure/ioctl? is that ok? Shall I submit another patch with only those two values on ioctl?",
+      "parentUuid": "803a20c6_f79ac800",
+      "revId": "7a5ea584f98d812dfa91ec5579a052c97f9c6dc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
