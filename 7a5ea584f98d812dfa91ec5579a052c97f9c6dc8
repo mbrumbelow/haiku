@@ -52,6 +52,24 @@
       "parentUuid": "803a20c6_f79ac800",
       "revId": "7a5ea584f98d812dfa91ec5579a052c97f9c6dc8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a11243f8_600d4af4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-02T21:46:25Z",
+      "side": 1,
+      "message": "\u003e What about getting vid/pid in a single structure/ioctl? \n\nI don\u0027t know. I think in this case, smaller patches will not help review. I find it hard to see where this is going, and probably a larger patch (or multiple patches) including usage of the ioctls by userspace tools would help more. Then we can more easily think about how to design the ioctls around what we need, and see that all parts fit well together.\n\nWhereas here, we can discuss a thousand ways we could implement these ioctls, with no actual example of their usage by userspace, it is very hard to agree on something. The real question is \"what does userspace need to know about a device, exactly?\" and we can answer that only by doing the userspace side?",
+      "parentUuid": "7f082d01_e014473e",
+      "revId": "7a5ea584f98d812dfa91ec5579a052c97f9c6dc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
