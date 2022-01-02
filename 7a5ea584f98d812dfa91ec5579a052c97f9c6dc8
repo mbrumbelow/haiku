@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5382202b_a5d372fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2022-01-02T00:08:08Z",
+      "side": 1,
+      "message": "I\u0027ve created a device_info structure so in a single ioctl user gets device bus type (usb, i2c,...) unused right now, a vendor id and product id. While writing this I realize that would be useful to add device type (keyboard, mice, ...).\n",
+      "revId": "7a5ea584f98d812dfa91ec5579a052c97f9c6dc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
