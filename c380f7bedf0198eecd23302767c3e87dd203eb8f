@@ -16,6 +16,24 @@
       "message": "Just wanted to mention that the behavior re-introduced by this change is documented in the Be Book:\n\nhttps://www.haiku-os.org/legacy-docs/bebook/TheApplicationKit_Messaging.html\n\n\u003e As described above, a BLooper passes a BMessage to a BHandler by invoking the latter\u0027s MessageReceived() function. This is true of all messages that you create yourself, but it isn\u0027t true of certain messages that the system defines and sends. These system-generated messages (or system messages)—particularly those that report user events such as B_MOUSE_DOWN or B_APP_ACTIVATED - invoke specific hook functions.\n\u003e For example, when the user presses a key, a B_KEY_DOWN message is sent to the active BWindow object.. From within its DispatchMessage() function, BWindow invokes the MouseDown() function of the BView that currently holds keyboard focus. (When a BView is made the focus of keyboard events, its window promotes it to preferred handler.)\n\u003e So the question of \"which function\" is fairly simple: If the BMessage is a system message that\u0027s mapped to a hook function, the hook function is invoked. If it\u0027s not mapped to a hook function, the BHandler\u0027s MessageReceived() function is invoked.\n\u003e Each chapter contains a list of system messages and the hook functions that they\u0027re mapped to. Note that not all system messages are mapped to hook functions; some of them do show up in MessageReceived().\n\nI still don\u0027t understand why we should deviate from the BeOS implemented and documented behavior for this.",
       "revId": "c380f7bedf0198eecd23302767c3e87dd203eb8f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84be7707_fb2d69b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-01-03T09:56:58Z",
+      "side": 1,
+      "message": "To allow fine control of input message handing in BView? For example to forward it to another handler. Overriding input hooks may be not possible because it are not declared in base class (BMenu for example).",
+      "parentUuid": "2d94abf0_ed62a0a0",
+      "revId": "c380f7bedf0198eecd23302767c3e87dd203eb8f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
