@@ -140,7 +140,10 @@ ServerFont::ServerFont(FontStyle& style, float size, float rotation,
 	fSpacing(spacing),
 	fDirection(style.Direction()),
 	fFace(style.Face()),
-	fEncoding(B_UNICODE_UTF8)
+	fEncoding(B_UNICODE_UTF8),
+	fOwner(NULL),
+	fToken(-1),
+	fArea(-1)
 {
 }
 
@@ -150,6 +153,8 @@ ServerFont::ServerFont()
 	fStyle(NULL)
 {
 	*this = *gFontManager->DefaultPlainFont();
+	fArea = -1;
+	fToken = -1;
 }
 
 
@@ -165,11 +170,14 @@ ServerFont::ServerFont(const ServerFont &font)
 }
 
 
+
 /*!
 	\brief Removes itself as a dependency of its owning style.
 */
 ServerFont::~ServerFont()
 {
+	if (fArea > -1)
+		delete_area(fArea);
 }
 
 
@@ -189,6 +197,9 @@ ServerFont::operator=(const ServerFont& font)
 	fSpacing = font.fSpacing;
 	fEncoding = font.fEncoding;
 	fBounds = font.fBounds;
+	fOwner = font.fOwner;
+	fArea = font.fArea;
+	fToken = font.fToken;
 
 	SetStyle(font.fStyle);
 
@@ -260,6 +271,47 @@ ServerFont::SetStyle(FontStyle* style)
 }
 
 
+void
+ServerFont::RemoveStyle()
+{
+	if (fStyle && fStyle->CountReferences()) {
+		fStyle->ReleaseReference();
+	}
+
+	fStyle = NULL;
+}
+
+
+/*!
+	\brief Sets the ServerFont instance to whatever font is specified
+	This method will lock the font manager.
+
+	\param family The name of the family to set
+	\param style The name of the style to set
+	\return B_OK if successful, B_ERROR if not
+*/
+status_t
+ServerFont::SetFamilyAndStyle(font_family familyName, font_style styleName,
+	uint16 familyID, uint16 styleID, uint16 face, ServerApp* owner)
+{
+	BReference<FontStyle> style;
+
+	if (gFontManager->Lock()) {
+		style.SetTo(gFontManager->GetStyle(familyName, styleName,
+			familyID, styleID, face, owner), false);
+
+		gFontManager->Unlock();
+	}
+
+	if (style == NULL)
+		return B_ERROR;
+
+	SetStyle(style);
+
+	return B_OK;
+}
+
+
 /*!
 	\brief Sets the ServerFont instance to whatever font is specified
 	This method will lock the font manager.
@@ -269,12 +321,12 @@ ServerFont::SetStyle(FontStyle* style)
 	\return B_OK if successful, B_ERROR if not
 */
 status_t
-ServerFont::SetFamilyAndStyle(uint16 familyID, uint16 styleID)
+ServerFont::SetFamilyAndStyle(uint16 familyID, uint16 styleID, ServerApp* owner)
 {
 	BReference<FontStyle> style;
 
 	if (gFontManager->Lock()) {
-		style.SetTo(gFontManager->GetStyle(familyID, styleID), false);
+		style.SetTo(gFontManager->GetStyle(familyID, styleID, owner), false);
 
 		gFontManager->Unlock();
 	}
@@ -294,12 +346,12 @@ ServerFont::SetFamilyAndStyle(uint16 familyID, uint16 styleID)
 	\return B_OK if successful, B_ERROR if not
 */
 status_t
-ServerFont::SetFamilyAndStyle(uint32 fontID)
+ServerFont::SetFamilyAndStyle(uint32 fontID, ServerApp* owner)
 {
 	uint16 style = fontID & 0xFFFF;
 	uint16 family = (fontID & 0xFFFF0000) >> 16;
 
-	return SetFamilyAndStyle(family, style);
+	return SetFamilyAndStyle(family, style, owner);
 }
 
 
@@ -1074,7 +1126,17 @@ ServerFont::StringWidth(const char *string, int32 numBytes,
 BRect
 ServerFont::BoundingBox()
 {
-	// TODO: fBounds is nowhere calculated!
+	if (fStyle->IsScalable()) {
+		FT_Face face = fStyle->FreeTypeFace();
+
+		FT_BBox bounds = face->bbox;
+
+		fBounds.left = (float)bounds.xMin / (float)face->units_per_EM;
+		fBounds.right = (float)bounds.xMax / (float)face->units_per_EM;
+		fBounds.top = (float)bounds.yMax / (float)face->units_per_EM;
+		fBounds.bottom = (float)bounds.yMin / (float)face->units_per_EM;
+	}
+
 	return fBounds;
 }
 
@@ -1130,3 +1192,23 @@ ServerFont::EmbeddedTransformation() const
 	return transform;
 }
 
+
+void
+ServerFont::SetOwner(ServerApp* owner)
+{
+	fOwner = owner;
+}
+
+
+ServerApp*
+ServerFont::Owner() const
+{
+	return fOwner;
+}
+
+
+void
+ServerFont::SetArea(const area_id areaID)
+{
+	fArea = areaID;
+}

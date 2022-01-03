@@ -33,6 +33,7 @@ class ServerPicture;
 class ServerCursor;
 class ServerBitmap;
 class ServerWindow;
+class ServerFont;
 
 namespace BPrivate {
 	class PortLink;
@@ -91,6 +92,8 @@ public:
 
 			Desktop*			GetDesktop() const { return fDesktop; }
 
+			ServerFont*			GetFont(int32 token) const;
+
 			const ServerFont&	PlainFont() const { return fPlainFont; }
 
 			BPrivate::BTokenSpace& ViewTokens() { return fViewTokens; }
@@ -114,9 +117,15 @@ private:
 
 			ServerPicture*		_FindPicture(int32 token) const;
 
+			bool				_AddFont(ServerFont* font);
+			void				_DeleteFont(int32 token);
+			ServerFont*			_FindFont(int32 token) const;
+			int32				_FindFont(ServerFont* font);
+
 private:
 	typedef std::map<int32, BReference<ServerBitmap> > BitmapMap;
 	typedef std::map<int32, BReference<ServerPicture> > PictureMap;
+	typedef std::map<int32, BReference<ServerFont> > UserFontMap;
 
 			port_id				fMessagePort;
 			port_id				fClientReplyPort;
@@ -149,6 +158,7 @@ private:
 	mutable	BLocker				fMapLocker;
 			BitmapMap			fBitmapMap;
 			PictureMap			fPictureMap;
+			UserFontMap			fUserFontMap;
 
 			BReference<ServerCursor>
 								fAppCursor;

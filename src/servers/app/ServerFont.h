@@ -21,9 +21,10 @@
 
 class BShape;
 class BString;
+class ServerApp;
 
 
-class ServerFont {
+class ServerFont : public BReferenceable {
  public:
 								ServerFont();
 								ServerFont(FontStyle& style,
@@ -33,11 +34,14 @@ class ServerFont {
 									uint16 flags = 0,
 									uint8 spacing = B_BITMAP_SPACING);
 								ServerFont(const ServerFont& font);
+
 	virtual						~ServerFont();
 
 			ServerFont			&operator=(const ServerFont& font);
 			bool				operator==(const ServerFont& other) const;
 
+			area_id				Area() const
+									{ return fArea; }
 			font_direction		Direction() const
 									{ return fDirection; }
 			uint32				Encoding() const
@@ -68,9 +72,17 @@ class ServerFont {
 									{ return fStyle->Path(); }
 
 			void				SetStyle(FontStyle* style);
+			void				RemoveStyle();
+			status_t			SetFamilyAndStyle(font_family family,
+									font_style style,
+									uint16 familyID = 0xffff,
+									uint16 styleID = 0xffff, uint16 face = 0,
+									ServerApp* owner=NULL);
 			status_t			SetFamilyAndStyle(uint16 familyID,
-									uint16 styleID);
-			status_t			SetFamilyAndStyle(uint32 fontID);
+									uint16 styleID,
+									ServerApp* owner=NULL);
+			status_t			SetFamilyAndStyle(uint32 fontID,
+									ServerApp* owner=NULL);
 
 			uint16				StyleID() const
 									{ return fStyle->ID(); }
@@ -166,9 +178,20 @@ class ServerFont {
 			status_t			GetUnicodeBlocks(unicode_block &blocksForFont);
 			status_t			IncludesUnicodeBlock(uint32 start, uint32 end,
 									bool &hasBlock);
+			//! Returns the identifier token for the font
+	inline	int32				Token() const
+									{ return fToken; }
+			void				SetToken(int32 token)
+									{ fToken = token; }
+
+			void				SetOwner(ServerApp* owner);
+			ServerApp*			Owner() const;
+
+			void				SetArea(const area_id areaID);
 
 protected:
 	friend class FontStyle;
+
 			FT_Face				GetTransformedFace(bool rotate,
 									bool shear) const;
 			void				PutTransformedFace(FT_Face face) const;
@@ -185,6 +208,11 @@ protected:
 			font_direction		fDirection;
 			uint16				fFace;
 			uint32				fEncoding;
+
+			ServerApp*			fOwner;
+			int32               fToken;
+
+			area_id				fArea;
 };
 
 inline bool ServerFont::Hinting() const

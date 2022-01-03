@@ -242,8 +242,12 @@ FontList::_Update()
 
 		int32 status;
 		if (link.FlushWithReply(status) != B_OK
-			|| status != B_OK)
+			|| status != B_OK) {
+			if (status == B_ENTRY_NOT_FOUND)
+				continue;
+
 			break;
+		}
 
 		::family* family = new (nothrow) ::family;
 		if (family == NULL)
@@ -370,6 +374,7 @@ _init_global_fonts_()
 
 		font->fHeight.ascent = kUninitializedAscent;
 		font->fExtraFlags = kUninitializedExtraFlags;
+		font->fToken = -1;
 	}
 }
 
@@ -509,7 +514,8 @@ BFont::BFont()
 	fEncoding(B_UNICODE_UTF8),
 	fFace(0),
 	fFlags(0),
-	fExtraFlags(kUninitializedExtraFlags)
+	fExtraFlags(kUninitializedExtraFlags),
+	fToken(-1)
 {
 	if (be_plain_font != NULL && this != &sPlainFont)
 		*this = *be_plain_font;
@@ -531,8 +537,10 @@ BFont::BFont(const BFont* font)
 {
 	if (font != NULL)
 		*this = *font;
-	else
+	else {
 		*this = *be_plain_font;
+		fToken = -1;
+	}
 }
 
 
@@ -559,6 +567,8 @@ BFont::SetFamilyAndStyle(const font_family family, const font_style style)
 	link.Read<uint16>(&fFamilyID);
 	link.Read<uint16>(&fStyleID);
 	link.Read<uint16>(&fFace);
+	link.Read<int32>(&fToken);
+
 	fHeight.ascent = kUninitializedAscent;
 	fExtraFlags = kUninitializedExtraFlags;
 
@@ -595,6 +605,7 @@ BFont::SetFamilyAndStyle(uint32 code)
 	link.Read<uint16>(&fFamilyID);
 	link.Read<uint16>(&fStyleID);
 	link.Read<uint16>(&fFace);
+	link.Read<int32>(&fToken);
 	fHeight.ascent = kUninitializedAscent;
 	fExtraFlags = kUninitializedExtraFlags;
 }
@@ -624,6 +635,7 @@ BFont::SetFamilyAndFace(const font_family family, uint16 face)
 	link.Read<uint16>(&fFamilyID);
 	link.Read<uint16>(&fStyleID);
 	link.Read<uint16>(&fFace);
+	link.Read<int32>(&fToken);
 	fHeight.ascent = kUninitializedAscent;
 	fExtraFlags = kUninitializedExtraFlags;
 
@@ -713,6 +725,7 @@ BFont::GetFamilyAndStyle(font_family* family, font_style* style) const
 	link.StartMessage(AS_GET_FAMILY_AND_STYLE);
 	link.Attach<uint16>(fFamilyID);
 	link.Attach<uint16>(fStyleID);
+	link.Attach<int32>(fToken);
 
 	int32 code;
 	if (link.FlushWithReply(code) != B_OK || code != B_OK) {
@@ -826,6 +839,7 @@ BFont::BoundingBox() const
 	link.StartMessage(AS_GET_FONT_BOUNDING_BOX);
 	link.Attach<uint16>(fFamilyID);
 	link.Attach<uint16>(fStyleID);
+	link.Attach<int32>(fToken);
 
 	int32 code;
 	if (link.FlushWithReply(code) != B_OK
@@ -845,6 +859,7 @@ BFont::Blocks() const
 	link.StartMessage(AS_GET_UNICODE_BLOCKS);
 	link.Attach<uint16>(fFamilyID);
 	link.Attach<uint16>(fStyleID);
+	link.Attach<int32>(fToken);
 
 	int32 status;
 	if (link.FlushWithReply(status) != B_OK
@@ -867,6 +882,7 @@ BFont::IncludesBlock(uint32 start, uint32 end) const
 	link.Attach<uint16>(fStyleID);
 	link.Attach<uint32>(start);
 	link.Attach<uint32>(end);
+	link.Attach<int32>(fToken);
 
 	int32 status;
 	if (link.FlushWithReply(status) != B_OK
@@ -888,6 +904,7 @@ BFont::FileFormat() const
 	link.StartMessage(AS_GET_FONT_FILE_FORMAT);
 	link.Attach<uint16>(fFamilyID);
 	link.Attach<uint16>(fStyleID);
+	link.Attach<int32>(fToken);
 
 	int32 status;
 	if (link.FlushWithReply(status) != B_OK
@@ -910,6 +927,7 @@ BFont::CountTuned() const
 	link.StartMessage(AS_GET_TUNED_COUNT);
 	link.Attach<uint16>(fFamilyID);
 	link.Attach<uint16>(fStyleID);
+	link.Attach<int32>(fToken);
 
 	int32 code;
 	if (link.FlushWithReply(code) != B_OK
@@ -933,6 +951,7 @@ BFont::GetTunedInfo(int32 index, tuned_font_info* info) const
 	link.Attach<uint16>(fFamilyID);
 	link.Attach<uint16>(fStyleID);
 	link.Attach<uint32>(index);
+	link.Attach<int32>(fToken);
 
 	int32 code;
 	if (link.FlushWithReply(code) != B_OK || code != B_OK)
@@ -942,6 +961,7 @@ BFont::GetTunedInfo(int32 index, tuned_font_info* info) const
 }
 
 
+// Truncates a string to a given _pixel_ width based on the font and size
 void
 BFont::TruncateString(BString* inOut, uint32 mode, float width) const
 {
@@ -1049,6 +1069,8 @@ BFont::GetStringWidths(const char* stringArray[], const int32 lengthArray[],
 	for (int32 i = 0; i < numStrings; i++)
 		link.AttachString(stringArray[i], lengthArray[i]);
 
+	link.Attach<int32>(fToken);
+
 	status_t status;
 	if (link.FlushWithReply(status) != B_OK || status != B_OK)
 		return;
@@ -1089,6 +1111,7 @@ BFont::GetEscapements(const char charArray[], int32 numChars,
 	uint32 bytesInBuffer = UTF8CountBytes(charArray, numChars);
 	link.Attach<int32>(bytesInBuffer);
 	link.Attach(charArray, bytesInBuffer);
+	link.Attach<int32>(fToken);
 
 	int32 code;
 	if (link.FlushWithReply(code) != B_OK || code != B_OK)
@@ -1132,6 +1155,7 @@ BFont::GetEscapements(const char charArray[], int32 numChars,
 	uint32 bytesInBuffer = UTF8CountBytes(charArray, numChars);
 	link.Attach<int32>(bytesInBuffer);
 	link.Attach(charArray, bytesInBuffer);
+	link.Attach<int32>(fToken);
 
 	int32 code;
 	if (link.FlushWithReply(code) != B_OK || code != B_OK)
@@ -1161,6 +1185,7 @@ BFont::GetEdges(const char charArray[], int32 numChars,
 	uint32 bytesInBuffer = UTF8CountBytes(charArray, numChars);
 	link.Attach<int32>(bytesInBuffer);
 	link.Attach(charArray, bytesInBuffer);
+	link.Attach<int32>(fToken);
 
 	if (link.FlushWithReply(code) != B_OK || code != B_OK)
 		return;
@@ -1183,6 +1208,7 @@ BFont::GetHeight(font_height* _height) const
 		link.Attach<uint16>(fFamilyID);
 		link.Attach<uint16>(fStyleID);
 		link.Attach<float>(fSize);
+		link.Attach<int32>(fToken);
 
 		int32 code;
 		if (link.FlushWithReply(code) != B_OK || code != B_OK)
@@ -1253,6 +1279,7 @@ BFont::_GetBoundingBoxes(const char charArray[], int32 numChars,
 	uint32 bytesInBuffer = UTF8CountBytes(charArray, numChars);
 	link.Attach<int32>(bytesInBuffer);
 	link.Attach(charArray, bytesInBuffer);
+	link.Attach<int32>(fToken);
 
 	if (link.FlushWithReply(code) != B_OK || code != B_OK)
 		return;
@@ -1298,6 +1325,8 @@ BFont::GetBoundingBoxesForStrings(const char* stringArray[], int32 numStrings,
 		}
 	}
 
+	link.Attach<int32>(fToken);
+
 	if (link.FlushWithReply(code) != B_OK || code != B_OK)
 		return;
 
@@ -1331,6 +1360,8 @@ BFont::GetGlyphShapes(const char charArray[], int32 numChars,
 	link.Attach<int32>(bytesInBuffer);
 	link.Attach(charArray, bytesInBuffer);
 
+	link.Attach<int32>(fToken);
+
 	if (link.FlushWithReply(code) != B_OK || code != B_OK)
 		return;
 
@@ -1357,6 +1388,7 @@ BFont::GetHasGlyphs(const char charArray[], int32 numChars,
 	uint32 bytesInBuffer = UTF8CountBytes(charArray, numChars);
 	link.Attach<int32>(bytesInBuffer);
 	link.Attach(charArray, bytesInBuffer);
+	link.Attach<int32>(fToken);
 
 	if (link.FlushWithReply(code) != B_OK || code != B_OK)
 		return;
@@ -1380,6 +1412,7 @@ BFont::operator=(const BFont& font)
 	fHeight = font.fHeight;
 	fFlags = font.fFlags;
 	fExtraFlags = font.fExtraFlags;
+	fToken = font.fToken;
 
 	return *this;
 }
@@ -1440,6 +1473,7 @@ BFont::_GetExtraFlags() const
 	link.StartMessage(AS_GET_EXTRA_FONT_FLAGS);
 	link.Attach<uint16>(fFamilyID);
 	link.Attach<uint16>(fStyleID);
+	link.Attach<int32>(fToken);
 
 	status_t status = B_ERROR;
 	if (link.FlushWithReply(status) != B_OK || status != B_OK) {
@@ -1450,4 +1484,50 @@ BFont::_GetExtraFlags() const
 	}
 
 	link.Read<uint32>(&fExtraFlags);
+}
+
+
+status_t
+BFont::LoadUserFont(const char* path)
+{
+	BPrivate::AppServerLink link;
+	link.StartMessage(AS_ADD_FONT_FILE);
+	link.AttachString(path);
+	status_t status = B_ERROR;
+	if (link.FlushWithReply(status) != B_OK || status != B_OK) {
+		return status;
+	}
+
+	link.Read<uint16>(&fFamilyID);
+	link.Read<uint16>(&fStyleID);
+	link.Read<uint16>(&fFace);
+	link.Read<int32>(&fToken);
+	fHeight.ascent = kUninitializedAscent;
+	fExtraFlags = kUninitializedExtraFlags;
+
+	return B_OK;
+}
+
+
+status_t
+BFont::LoadUserFont(const area_id fontAreaID)
+{
+	BPrivate::AppServerLink link;
+
+	link.StartMessage(AS_ADD_FONT_MEMORY);
+
+	link.Attach<int32>(fontAreaID);
+	status_t status = B_ERROR;
+	if (link.FlushWithReply(status) != B_OK || status != B_OK) {
+		return status;
+	}
+
+	link.Read<uint16>(&fFamilyID);
+	link.Read<uint16>(&fStyleID);
+	link.Read<uint16>(&fFace);
+	link.Read<int32>(&fToken);
+	fHeight.ascent = kUninitializedAscent;
+	fExtraFlags = kUninitializedExtraFlags;
+
+	return B_OK;
 }

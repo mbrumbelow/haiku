@@ -2828,6 +2828,7 @@ BView::SetFont(const BFont* font, uint32 mask)
 			fState->font.SetFlags(font->Flags());
 	}
 
+	fState->font.SetToken(font->Token());
 	fState->font_flags |= mask;
 
 	if (fOwner) {

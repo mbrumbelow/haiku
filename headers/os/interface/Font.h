@@ -282,6 +282,14 @@ public:
 
 			void				PrintToStream() const;
 
+			status_t			LoadUserFont(const char* path);
+			status_t			LoadUserFont(const area_id fontAreaID);
+
+			int32				Token() const
+									{ return fToken; }
+			void				SetToken(int32 token)
+									{ fToken = token; }
+
 private:
 		friend void _init_global_fonts_();
 
@@ -306,6 +314,7 @@ private:
 			uint32				fFlags;
 	mutable	font_height			fHeight;
 	mutable	uint32				fExtraFlags;
+			int32				fToken;
 
 			uint32				_reserved[1];
 };
