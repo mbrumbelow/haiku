@@ -88,6 +88,24 @@
       "parentUuid": "a11243f8_600d4af4",
       "revId": "7a5ea584f98d812dfa91ec5579a052c97f9c6dc8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f3dea44_624523cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-03T00:35:26Z",
+      "side": 1,
+      "message": "Yes, we already discussed that, but the devil is in the details.\n\nFor example, usb vendor/product ids are a different namespace than bluetooth vendor/product ids and i2c vendor/product ids. So if the ioctl only returns a vid/pid pair, userspace will have to guess which namespace to search in.\n\nAnd we discussed about ps/2 where there is no notion of vid/pid at all.\n\nSo I don\u0027t think this ioctl as suggested here is satisfying. I can imagine various ways to handle it:\n\n- Add an info about the bus type (an enum with usb, bluetooth, i2c) so we know which namespace to use. I have linked to the SDL gamepad database, it would need something like this and can\u0027t do much from the vid/pid if it doesn\u0027t know the bus used (bluetooth or usb)\n- For ps2, make the ioctl unsupported, or come up with our own internal vid/pid to make it behave similarly to other devices?\n- vid/pid may not be enough to uniquely identify a device, for example look at the shared \"VOTI USB IDs\" for many devices using the V-USB usb stack, or the similar scheme used for the LUFA usb stack. In these case, many device manufacturers agree to share a single id, and USB string descriptors are needed to uniquely identify a device\n- If the goal is just to have a nice user-readable name, wouldn\u0027t it be better to improve the value from B_GET_DEVICE_NAME? This would let each driver have control on the name. Ps/2 can generate it. USB could read it from the device if a name is included in usb string descriptors, or could generate it from the vid/pid database. Bluetooth would get the device name that\u0027s always present in bluetooth devices and used to identify a device when pairing. And so on.\n\nThere are many points to balance here:\n- Have something generic that works for all/most bus types (including specific/obsolete ones like ps2, and future ones like bluetooth),\n- Have something useful and easy to parse for applications (SDL really wants the vid/pid, not just a name),\n- Do not put huge amounts of code in the kernel (some of the work can be done in input_server and/or BJoystick instead)\n\nI think all of these things really need an implementation of the whole thing to be sure we get it right: the ioctl, the input_server and Pjoystick changes, the input preferences, maybe patches to SDL as well. So I think this patch will be reworked as we find issues while working on the next steps. But it\u0027s better to start work on the next step than spend a lot of time talking about them.",
+      "parentUuid": "4524f15a_4e2e6740",
+      "revId": "7a5ea584f98d812dfa91ec5579a052c97f9c6dc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
