@@ -50,6 +50,23 @@
       "message": "has anyone tested these?",
       "revId": "6a01aea891296b5b1be740457c42d08b94321a3c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "047c1f3e_96f8b529",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-03T22:38:54Z",
+      "side": 1,
+      "message": "I just merged an ACPI change for Radeon HD cards.  Lets let that one bake for 24 hours or so before merging this one.\n\nWe\u0027re still waiting on Pulkomandy to remove his -1 anyway :-)",
+      "revId": "6a01aea891296b5b1be740457c42d08b94321a3c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
