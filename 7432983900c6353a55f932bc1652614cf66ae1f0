@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "877860b7_8ee32d89",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-01-03T21:42:04Z",
+      "side": 1,
+      "message": "Nice, is ACPI rom fetching something that might be usable as a module?\n\nThere is a very old ticket related to this which can be closed if merged: https://dev.haiku-os.org/ticket/10505 . Not sure if comments in ticket still applies. ",
+      "revId": "7432983900c6353a55f932bc1652614cf66ae1f0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
