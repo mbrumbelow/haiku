@@ -34,6 +34,23 @@
       "parentUuid": "877860b7_8ee32d89",
       "revId": "7432983900c6353a55f932bc1652614cf66ae1f0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17bcaa31_4ce5e0e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-03T22:35:09Z",
+      "side": 1,
+      "message": "Overall looks good to me.   This has been something that has been badly needed for a while. Should greatly improve the detection of AtomBIOS and ensure the correct AtomBIOS is found for the card we\u0027re attached to.\n\nI think some cleanup might be possible (reusing mapAtomBIOS calls, reducing duplicated code), but if this is working lets roll with it for now since it impacts the radeon_hd driver on every card.",
+      "revId": "7432983900c6353a55f932bc1652614cf66ae1f0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
