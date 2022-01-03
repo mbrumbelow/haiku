@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ab43168_24f27833",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-01-03T16:40:14Z",
+      "side": 1,
+      "message": "Adding jscipione to CC as this seems up his alley.\n\nI\u0027m not so good with making diagrams, so if the reworded explanations are going to rely on those, I\u0027ll happily turn this change over to one of you for revision.",
+      "revId": "c5e19886fb3663105830be7834bca5649e945534",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0dbbe3f9_1cf61a34",
