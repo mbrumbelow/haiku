@@ -19,7 +19,6 @@ const int32 kBitmapToken = 4;
 const int32 kPictureToken = 5;
 const int32 kRemoteDrawingEngineToken = 6;
 
-
 extern BTokenSpace gTokenSpace;
 
 #endif	/* SERVER_TOKEN_SPACE_H */
