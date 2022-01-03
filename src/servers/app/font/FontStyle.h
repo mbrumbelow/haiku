@@ -25,6 +25,7 @@
 
 struct node_ref;
 class FontFamily;
+class ServerApp;
 class ServerFont;
 
 
@@ -120,7 +121,7 @@ class FontStyle : public BReferenceable {
 		const char*		Path() const;
 		void			UpdatePath(const node_ref& parentNodeRef);
 
-		void			GetHeight(float size, font_height &heigth) const;
+		void			GetHeight(float size, font_height &height) const;
 		font_direction	Direction() const
 							{ return B_FONT_LEFT_TO_RIGHT; }
 		font_file_format FileFormat() const
@@ -130,6 +131,9 @@ class FontStyle : public BReferenceable {
 							{ return fFreeTypeFace; }
 
 		status_t		UpdateFace(FT_Face face);
+
+		void			SetOwner(ServerApp* owner);
+		ServerApp*		Owner() const;
 
 	private:
 		friend class FontFamily;
@@ -150,6 +154,7 @@ class FontStyle : public BReferenceable {
 		font_height		fHeight;
 		uint16			fFace;
 		bool			fFullAndHalfFixed;
+		ServerApp*		fOwner;
 };
 
 #endif	// FONT_STYLE_H_

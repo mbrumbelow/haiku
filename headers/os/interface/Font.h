@@ -282,6 +282,9 @@ public:
 
 			void				PrintToStream() const;
 
+			status_t			LoadUserFont(const char* path);
+			status_t			LoadUserFont(const area_id fontAreaID);
+
 private:
 		friend void _init_global_fonts_();
 
@@ -294,6 +297,7 @@ private:
 									bool asString) const;
 
 private:
+	friend  class BView;
 			uint16				fFamilyID;
 			uint16				fStyleID;
 			float				fSize;
