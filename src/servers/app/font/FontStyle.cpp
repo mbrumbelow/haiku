@@ -38,7 +38,8 @@ FontStyle::FontStyle(node_ref& nodeRef, const char* path, FT_Face face)
 	fID(0),
 	fBounds(0, 0, 0, 0),
 	fFace(_TranslateStyleToFace(face->style_name)),
-	fFullAndHalfFixed(false)
+	fFullAndHalfFixed(false),
+	fOwner(NULL)
 {
 	fName.Truncate(B_FONT_STYLE_LENGTH);
 		// make sure this style can be found using the Be API
@@ -94,7 +95,7 @@ FontStyle::~FontStyle()
 {
 	// make sure the font server is ours
 	if (fFamily != NULL && gFontManager->Lock()) {
-		gFontManager->RemoveStyle(this);
+		gFontManager->RemoveStyle(this, fOwner);
 		gFontManager->Unlock();
 	}
 
@@ -260,3 +261,15 @@ FontStyle::_TranslateStyleToFace(const char* name) const
 }
 
 
+void
+FontStyle::SetOwner(ServerApp* owner)
+{
+	fOwner = owner;
+}
+
+
+ServerApp*
+FontStyle::Owner() const
+{
+	return fOwner;
+}

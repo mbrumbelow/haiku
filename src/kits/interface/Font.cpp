@@ -242,8 +242,12 @@ FontList::_Update()
 
 		int32 status;
 		if (link.FlushWithReply(status) != B_OK
-			|| status != B_OK)
+			|| status != B_OK) {
+			if (status == B_ENTRY_NOT_FOUND)
+				continue;
+
 			break;
+		}
 
 		::family* family = new (nothrow) ::family;
 		if (family == NULL)
@@ -1450,4 +1454,25 @@ BFont::_GetExtraFlags() const
 	}
 
 	link.Read<uint32>(&fExtraFlags);
+}
+
+
+status_t
+BFont::LoadUserFont(const char* path)
+{
+	BPrivate::AppServerLink link;
+	link.StartMessage(AS_ADD_FONT);
+	link.AttachString(path);
+	status_t status = B_ERROR;
+	if (link.FlushWithReply(status) != B_OK || status != B_OK) {
+		return status;
+	}
+
+	link.Read<uint16>(&fFamilyID);
+	link.Read<uint16>(&fStyleID);
+	link.Read<uint16>(&fFace);
+	fHeight.ascent = kUninitializedAscent;
+	fExtraFlags = kUninitializedExtraFlags;
+
+	return B_OK;
 }

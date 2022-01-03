@@ -140,7 +140,8 @@ ServerFont::ServerFont(FontStyle& style, float size, float rotation,
 	fSpacing(spacing),
 	fDirection(style.Direction()),
 	fFace(style.Face()),
-	fEncoding(B_UNICODE_UTF8)
+	fEncoding(B_UNICODE_UTF8),
+	fOwner(NULL)
 {
 }
 
@@ -163,6 +164,7 @@ ServerFont::ServerFont(const ServerFont &font)
 {
 	*this = font;
 }
+
 
 
 /*!
@@ -274,7 +276,13 @@ ServerFont::SetFamilyAndStyle(uint16 familyID, uint16 styleID)
 	BReference<FontStyle> style;
 
 	if (gFontManager->Lock()) {
-		style.SetTo(gFontManager->GetStyle(familyID, styleID), false);
+
+		FontStyle* styleTemp = gFontManager->GetStyle(familyID, styleID, fOwner);
+
+		if (styleTemp == NULL)
+			return B_ERROR;
+
+		style.SetTo(styleTemp, false);
 
 		gFontManager->Unlock();
 	}
@@ -1130,3 +1138,16 @@ ServerFont::EmbeddedTransformation() const
 	return transform;
 }
 
+
+void
+ServerFont::SetOwner(ServerApp* owner)
+{
+	fOwner = owner;
+}
+
+
+ServerApp*
+ServerFont::Owner() const
+{
+	return fOwner;
+}

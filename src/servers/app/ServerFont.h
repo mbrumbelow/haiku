@@ -21,9 +21,10 @@
 
 class BShape;
 class BString;
+class ServerApp;
 
 
-class ServerFont {
+class ServerFont : public BReferenceable {
  public:
 								ServerFont();
 								ServerFont(FontStyle& style,
@@ -33,6 +34,7 @@ class ServerFont {
 									uint16 flags = 0,
 									uint8 spacing = B_BITMAP_SPACING);
 								ServerFont(const ServerFont& font);
+
 	virtual						~ServerFont();
 
 			ServerFont			&operator=(const ServerFont& font);
@@ -166,9 +168,17 @@ class ServerFont {
 			status_t			GetUnicodeBlocks(unicode_block &blocksForFont);
 			status_t			IncludesUnicodeBlock(uint32 start, uint32 end,
 									bool &hasBlock);
+			//! Returns the identifier token for the font
+	inline	int32			Token() const
+								{ return fToken; }
+
+			void			SetOwner(ServerApp* owner);
+			ServerApp*		Owner() const;
+
 
 protected:
 	friend class FontStyle;
+
 			FT_Face				GetTransformedFace(bool rotate,
 									bool shear) const;
 			void				PutTransformedFace(FT_Face face) const;
@@ -185,6 +195,9 @@ protected:
 			font_direction		fDirection;
 			uint16				fFace;
 			uint32				fEncoding;
+
+			ServerApp*			fOwner;
+			int32               fToken;
 };
 
 inline bool ServerFont::Hinting() const

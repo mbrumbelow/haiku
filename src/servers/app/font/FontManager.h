@@ -25,6 +25,7 @@ struct node_ref;
 
 class FontFamily;
 class FontStyle;
+class ServerApp;
 class ServerFont;
 
 
@@ -49,21 +50,22 @@ public:
 			int32				CountStyles(uint16 familyID);
 			FontFamily*			FamilyAt(int32 index) const;
 
-			FontFamily*			GetFamily(uint16 familyID) const;
-			FontFamily*			GetFamily(const char* name);
+			FontFamily*			GetFamily(uint16 familyID, ServerApp* owner=NULL) const;
+			FontFamily*			GetFamily(const char* name, ServerApp* owner=NULL);
 
 			FontStyle*			GetStyleByIndex(const char* family,
 									int32 index);
 			FontStyle*			GetStyleByIndex(uint16 familyID, int32 index);
 			FontStyle*			GetStyle(const char* family, const char* style,
 									uint16 familyID = 0xffff,
-									uint16 styleID = 0xffff, uint16 face = 0);
+									uint16 styleID = 0xffff, uint16 face = 0,
+									ServerApp* owner=NULL);
 			FontStyle*			GetStyle(const char *family, uint16 styleID);
 			FontStyle*			GetStyle(uint16 familyID,
-									uint16 styleID) const;
+									uint16 styleID, ServerApp* owner=NULL) const;
 			FontStyle*			FindStyleMatchingFace(uint16 face) const;
 
-			void				RemoveStyle(FontStyle* style);
+			void				RemoveStyle(FontStyle* style, ServerApp* owner=NULL);
 				// This call must not be used by anything else than class
 				// FontStyle.
 
@@ -73,6 +75,11 @@ public:
 
 			void				AttachUser(uid_t userID);
 			void				DetachUser(uid_t userID);
+			status_t			AddUserFont(const char* path,
+									uint16& familyID, uint16& styleID,
+									ServerApp* owner=NULL);
+			status_t			RemoveUserFont(uint16 familyID, uint16 styleID,
+									ServerApp* owner);
 
 private:
 			struct font_directory;
@@ -114,8 +121,8 @@ private:
 
 private:
 			struct FontKey {
-				FontKey(uint16 family, uint16 style)
-					: familyID(family), styleID(style) {}
+				FontKey(uint16 family, uint16 style, ServerApp* owner=NULL)
+					: familyID(family), styleID(style), fOwner(owner) {}
 
 				uint32 GetHashCode() const
 				{
@@ -128,7 +135,8 @@ private:
 						&& styleID == other.styleID;
 				}
 
-				uint16 familyID, styleID;
+				uint16 		familyID, styleID;
+				ServerApp*	fOwner;
 			};
 
 private:

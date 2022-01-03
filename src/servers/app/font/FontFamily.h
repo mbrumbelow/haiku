@@ -15,6 +15,7 @@
 
 #include "FontStyle.h"
 
+class ServerApp;
 
 /*!
 	\class FontFamily FontFamily.h
@@ -30,29 +31,33 @@ public:
 
 			const char*	Name() const;
 
-			bool		AddStyle(FontStyle* style);
-			bool		RemoveStyle(FontStyle* style);
+			bool		AddStyle(FontStyle* style, ServerApp* owner=NULL);
+			bool		RemoveStyle(FontStyle* style, ServerApp* owner=NULL);
 
-			FontStyle*	GetStyle(const char* style) const;
-			FontStyle*	GetStyleMatchingFace(uint16 face) const;
-			FontStyle*	GetStyleByID(uint16 face) const;
+			FontStyle*	GetStyle(const char* style, ServerApp* owner=NULL) const;
+			FontStyle*	GetStyleMatchingFace(uint16 face, ServerApp* owner=NULL) const;
+			FontStyle*	GetStyleByID(uint16 face, ServerApp* owner=NULL) const;
 
 			uint16		ID() const
 							{ return fID; }
 			uint32		Flags();
 
-			bool		HasStyle(const char* style) const;
+			bool		HasStyle(const char* style, ServerApp* owner=NULL) const;
 			int32		CountStyles() const;
-			FontStyle*	StyleAt(int32 index) const;
+			FontStyle*	StyleAt(int32 index, ServerApp* owner=NULL) const;
+
+			void		SetOwner(ServerApp* owner);
+			ServerApp*	Owner() const;
 
 private:
-			FontStyle*	_FindStyle(const char* name) const;
+			FontStyle*	_FindStyle(const char* name, ServerApp* owner=NULL) const;
 
 			BString		fName;
 			BObjectList<FontStyle> fStyles;
 			uint16		fID;
 			uint16		fNextID;
 			uint32		fFlags;
+			ServerApp*	fOwner;
 };
 
 #endif	// FONT_FAMILY_H_

@@ -25,6 +25,7 @@
 
 struct node_ref;
 class FontFamily;
+class ServerApp;
 class ServerFont;
 
 
@@ -131,6 +132,9 @@ class FontStyle : public BReferenceable {
 
 		status_t		UpdateFace(FT_Face face);
 
+		void			SetOwner(ServerApp* owner);
+		ServerApp*		Owner() const;
+
 	private:
 		friend class FontFamily;
 		uint16			_TranslateStyleToFace(const char *name) const;
@@ -150,6 +154,7 @@ class FontStyle : public BReferenceable {
 		font_height		fHeight;
 		uint16			fFace;
 		bool			fFullAndHalfFixed;
+		ServerApp*		fOwner;
 };
 
 #endif	// FONT_STYLE_H_

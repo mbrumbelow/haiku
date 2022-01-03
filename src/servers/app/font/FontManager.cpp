@@ -93,7 +93,16 @@ set_entry(node_ref& nodeRef, const char* name, BEntry& entry)
 static int
 compare_font_families(const FontFamily* a, const FontFamily* b)
 {
-	return strcmp(a->Name(), b->Name());
+	int result = strcmp(a->Name(), b->Name());
+
+	if (result == 0) {
+		if (a->Owner() == b->Owner())
+			return 0;
+
+		return (a->Owner() < b->Owner()) ? -1 : 1;
+	}
+
+	return result;
 }
 
 
@@ -956,16 +965,16 @@ FontManager::_FindFamily(const char* name) const
 	\return Pointer to the specified family or NULL if not found.
 */
 FontFamily*
-FontManager::GetFamily(const char* name)
+FontManager::GetFamily(const char* name, ServerApp* owner)
 {
 	if (name == NULL)
 		return NULL;
 
 	FontFamily* family = _FindFamily(name);
-	if (family != NULL)
+	if ((family != NULL) && ((family->Owner() == NULL) || (family->Owner() == owner)))
 		return family;
 
-	if (fScanned)
+	if ((fScanned) || (owner != NULL))
 		return NULL;
 
 	// try font mappings before failing
@@ -978,9 +987,9 @@ FontManager::GetFamily(const char* name)
 
 
 FontFamily*
-FontManager::GetFamily(uint16 familyID) const
+FontManager::GetFamily(uint16 familyID, ServerApp* owner) const
 {
-	FontKey key(familyID, 0);
+	FontKey key(familyID, 0, owner);
 	FontStyle* style = fStyleHashTable.Get(key);
 	if (style != NULL)
 		return style->Family();
@@ -1025,16 +1034,16 @@ FontManager::GetStyleByIndex(uint16 familyID, int32 index)
 */
 FontStyle*
 FontManager::GetStyle(const char* familyName, const char* styleName,
-	uint16 familyID, uint16 styleID, uint16 face)
+	uint16 familyID, uint16 styleID, uint16 face, ServerApp* owner)
 {
 	FontFamily* family;
 
 	// find family
 
 	if (familyName != NULL && familyName[0])
-		family = GetFamily(familyName);
+		family = GetFamily(familyName, owner);
 	else
-		family = GetFamily(familyID);
+		family = GetFamily(familyID, owner);
 
 	if (family == NULL)
 		return NULL;
@@ -1042,26 +1051,26 @@ FontManager::GetStyle(const char* familyName, const char* styleName,
 	// find style
 
 	if (styleName != NULL && styleName[0]) {
-		FontStyle* fontStyle = family->GetStyle(styleName);
+		FontStyle* fontStyle = family->GetStyle(styleName, owner);
 		if (fontStyle != NULL)
 			return fontStyle;
 
 		// before we fail, we try the mappings for a match
 		if (_AddMappedFont(family->Name(), styleName) == B_OK) {
-			fontStyle = family->GetStyle(styleName);
+			fontStyle = family->GetStyle(styleName, owner);
 			if (fontStyle != NULL)
 				return fontStyle;
 		}
 
 		_ScanFonts();
-		return family->GetStyle(styleName);
+		return family->GetStyle(styleName, owner);
 	}
 
 	if (styleID != 0xffff)
-		return family->GetStyleByID(styleID);
+		return family->GetStyleByID(styleID, owner);
 
 	// try to get from face
-	return family->GetStyleMatchingFace(face);
+	return family->GetStyleMatchingFace(face, owner);
 }
 
 
@@ -1071,9 +1080,9 @@ FontManager::GetStyle(const char* familyName, const char* styleName,
 	\return The FontStyle having those attributes or NULL if not available
 */
 FontStyle*
-FontManager::GetStyle(uint16 familyID, uint16 styleID) const
+FontManager::GetStyle(uint16 familyID, uint16 styleID, ServerApp* owner) const
 {
-	FontKey key(familyID, styleID);
+	FontKey key(familyID, styleID, owner);
 	return fStyleHashTable.Get(key);
 }
 
@@ -1102,7 +1111,7 @@ FontManager::FindStyleMatchingFace(uint16 face) const
 	At this point, the style is already no longer available to the user.
 */
 void
-FontManager::RemoveStyle(FontStyle* style)
+FontManager::RemoveStyle(FontStyle* style, ServerApp* owner)
 {
 	FontFamily* family = style->Family();
 	if (family == NULL)
@@ -1112,7 +1121,7 @@ FontManager::RemoveStyle(FontStyle* style)
 	if (check != NULL)
 		debugger("style removed but still available!");
 
-	if (family->RemoveStyle(style)
+	if (family->RemoveStyle(style, owner)
 		&& family->CountStyles() == 0)
 		fFamilies.RemoveItem(family);
 }
@@ -1166,3 +1175,80 @@ FontManager::DetachUser(uid_t userID)
 	// TODO!
 }
 
+/*!	\brief Adds the FontFamily/FontStyle that is represented by this path.
+*/
+status_t
+FontManager::AddUserFont(const char* path, uint16& familyID, uint16& styleID, ServerApp* owner)
+{
+	BEntry entry;
+	status_t status = entry.SetTo(path);
+	if (status != B_OK)
+		return status;
+
+	node_ref nodeRef;
+	status = entry.GetNodeRef(&nodeRef);
+	if (status < B_OK)
+		return status;
+
+	FT_Face face;
+	FT_Error error = FT_New_Face(gFreeTypeLibrary, path, 0, &face);
+	if (error != 0)
+		return B_ERROR;
+
+	FontFamily* family = _FindFamily(face->family_name);
+	if (family != NULL && family->Owner() == owner && family->HasStyle(face->style_name, owner)) {
+		// prevent adding the same style twice
+		// (this indicates a problem with the installed fonts maybe?)
+		FT_Done_Face(face);
+		return B_NAME_IN_USE;
+	}
+
+	if ((family == NULL) || (family->Owner() != owner)) {
+		family = new (std::nothrow) FontFamily(face->family_name, fNextID++);
+		if (family != NULL)
+			family->SetOwner(owner);
+
+		if (family == NULL
+			|| !fFamilies.BinaryInsert(family, compare_font_families)) {
+			delete family;
+			FT_Done_Face(face);
+			return B_NO_MEMORY;
+		}
+	}
+
+	FTRACE(("\tadd style: %s, %s\n", face->family_name, face->style_name));
+
+	// the FontStyle takes over ownership of the FT_Face object
+	FontStyle* style = new (std::nothrow) FontStyle(nodeRef, path, face);
+	if (style != NULL)
+		style->SetOwner(owner);
+
+	if (style == NULL || !family->AddStyle(style, owner)) {
+		delete style;
+		delete family;
+		return B_NO_MEMORY;
+	}
+
+	familyID = style->Family()->ID();
+	styleID = style->ID();
+
+	fStyleHashTable.Put(FontKey(familyID, styleID, owner), style);
+
+	return B_OK;
+}
+
+
+status_t
+FontManager::RemoveUserFont(uint16 familyID, uint16 styleID, ServerApp* owner)
+{
+	FontStyle* style = GetStyle(familyID, styleID, owner);
+
+	if ((style == NULL) || (style->Owner() != owner))
+		return B_ERROR;
+
+	fStyleHashTable.Remove(FontKey(familyID, styleID, owner));
+
+	style->ReleaseReference();
+
+	return B_OK;
+}

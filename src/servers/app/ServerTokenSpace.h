@@ -18,7 +18,7 @@ const int32 kCursorToken = 3;
 const int32 kBitmapToken = 4;
 const int32 kPictureToken = 5;
 const int32 kRemoteDrawingEngineToken = 6;
-
+const int32 kFontToken = 7;
 
 extern BTokenSpace gTokenSpace;
 

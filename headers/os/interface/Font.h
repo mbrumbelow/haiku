@@ -282,6 +282,8 @@ public:
 
 			void				PrintToStream() const;
 
+			status_t			LoadUserFont(const char* path);
+
 private:
 		friend void _init_global_fonts_();
 

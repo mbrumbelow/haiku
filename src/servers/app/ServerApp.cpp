@@ -204,6 +204,9 @@ ServerApp::~ServerApp()
 	while (!fPictureMap.empty())
 		fPictureMap.begin()->second->SetOwner(NULL);
 
+	while (!fUserFontMap.empty())
+		_DeleteFont(fUserFontMap.begin()->second);
+
 	fDesktop->GetCursorManager().DeleteCursors(fClientTeam);
 
 	STRACE(("ServerApp %s::~ServerApp(): Exiting\n", Signature()));
@@ -401,6 +404,24 @@ ServerApp::GetBitmap(int32 token) const
 	bitmap->AcquireReference();
 
 	return bitmap;
+}
+
+
+ServerFont*
+ServerApp::GetFont(int32 token) const
+{
+	if (token < 1)
+		return NULL;
+
+	BAutolock _(fMapLocker);
+
+	ServerFont* font = _FindFont(token);
+	if (font == NULL)
+		return NULL;
+
+	font->AcquireReference();
+
+	return font;
 }
 
 
@@ -714,6 +735,48 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 				fDesktop->UnlockSingleWindow();
 			} else
 				fLink.StartMessage(B_ERROR);
+
+			fLink.Flush();
+			break;
+		}
+
+		case AS_ADD_FONT:
+		{
+			STRACE(("ServerApp %s: Received BFont creation request\n",
+				Signature()));
+
+			//area_id fontArea;
+
+			//link.Read<area_id>(&fontArea);
+			uint16 familyID, styleID;
+			char* fontPath;
+			link.ReadString(&fontPath);
+
+			STRACE(("font path: %s\n", fontPath));
+
+			gFontManager->Lock();
+
+			status_t status = gFontManager->AddUserFont(fontPath, familyID, styleID, this);
+
+			gFontManager->Unlock();
+
+			if (status != B_OK) {
+				fLink.StartMessage(status);
+			} else {
+
+				ServerFont* font = new ServerFont();
+				font->SetOwner(this);
+				status = font->SetFamilyAndStyle(familyID, styleID);
+
+				if (status == B_OK && _AddFont(font)) {
+					fLink.StartMessage(B_OK);
+					fLink.Attach<uint16>(familyID);
+					fLink.Attach<uint16>(styleID);
+					fLink.Attach<uint16>(font->Face());
+				} else {
+					fLink.StartMessage(100+status);
+				}
+			}
 
 			fLink.Flush();
 			break;
@@ -1741,19 +1804,27 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 
 			FontFamily* family = gFontManager->FamilyAt(index);
 			if (family) {
-				fLink.StartMessage(B_OK);
-				fLink.AttachString(family->Name());
-				fLink.Attach<uint32>(family->Flags());
+				if (family->Owner() != this && family->Owner() != NULL)
+					fLink.StartMessage(B_ENTRY_NOT_FOUND);
+				else {
+					fLink.StartMessage(B_OK);
+					fLink.AttachString(family->Name());
+					fLink.Attach<uint32>(family->Flags());
 
-				int32 count = family->CountStyles();
-				fLink.Attach<int32>(count);
+					int32 count = family->CountStyles();
 
-				for (int32 i = 0; i < count; i++) {
-					FontStyle* style = family->StyleAt(i);
+					fLink.Attach<int32>(count);
 
-					fLink.AttachString(style->Name());
-					fLink.Attach<uint16>(style->Face());
-					fLink.Attach<uint32>(style->Flags());
+					for (int32 i = 0; i < count; i++) {
+						FontStyle* style = family->StyleAt(i);
+
+						if (style == NULL)
+							continue;
+
+						fLink.AttachString(style->Name());
+						fLink.Attach<uint16>(style->Face());
+						fLink.Attach<uint32>(style->Flags());
+					}
 				}
 			} else
 				fLink.StartMessage(B_BAD_VALUE);
@@ -3555,6 +3626,51 @@ ServerApp::_FindPicture(int32 token) const
 
 	PictureMap::const_iterator iterator = fPictureMap.find(token);
 	if (iterator == fPictureMap.end())
+		return NULL;
+
+	return iterator->second;
+}
+
+
+
+bool
+ServerApp::_AddFont(ServerFont* font)
+{
+	BAutolock _(fMapLocker);
+
+	try {
+		fUserFontMap.insert(std::make_pair(font->Token(), BReference<ServerFont>(font, false)));
+	} catch (std::bad_alloc& exception) {
+		return false;
+	}
+
+	font->SetOwner(this);
+	return true;
+}
+
+
+void
+ServerApp::_DeleteFont(ServerFont* font)
+{
+	ASSERT(fMapLocker.IsLocked());
+
+	fUserFontMap.erase(font->Token());
+
+	gFontManager->Lock();
+	gFontManager->RemoveUserFont(font->FamilyID(), font->StyleID(), this);
+	gFontManager->Unlock();
+
+	delete font;
+}
+
+
+ServerFont*
+ServerApp::_FindFont(int32 token) const
+{
+	ASSERT(fMapLocker.IsLocked());
+
+	UserFontMap::const_iterator iterator = fUserFontMap.find(token);
+	if (iterator == fUserFontMap.end())
 		return NULL;
 
 	return iterator->second;
