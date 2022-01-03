@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "ad7d94cd_cbad6cbf",
         "filename": "src/add-ons/accelerants/radeon_hd/mode.cpp",
@@ -14,10 +15,28 @@
       "side": 1,
       "message": "drop this change",
       "revId": "6ea5b9342340dd065914cb9d56d3facbde72e0ec",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "08124ed1_6071c507",
+        "filename": "src/add-ons/accelerants/radeon_hd/mode.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-03T01:30:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad7d94cd_cbad6cbf",
+      "revId": "6ea5b9342340dd065914cb9d56d3facbde72e0ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "49825468_fab60e9a",
         "filename": "src/add-ons/accelerants/radeon_hd/mode.cpp",
@@ -31,10 +50,28 @@
       "side": 1,
       "message": "extra space after else.\nActually, that else can be dropped. Just return at the end of the function.",
       "revId": "6ea5b9342340dd065914cb9d56d3facbde72e0ec",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a264221e_af3bda99",
+        "filename": "src/add-ons/accelerants/radeon_hd/mode.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-03T01:30:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49825468_fab60e9a",
+      "revId": "6ea5b9342340dd065914cb9d56d3facbde72e0ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "db82035b_914a1b7a",
         "filename": "src/add-ons/accelerants/radeon_hd/mode.cpp",
@@ -48,10 +85,28 @@
       "side": 1,
       "message": "backlightReg",
       "revId": "6ea5b9342340dd065914cb9d56d3facbde72e0ec",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "02498775_8eac575b",
+        "filename": "src/add-ons/accelerants/radeon_hd/mode.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-03T01:30:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db82035b_914a1b7a",
+      "revId": "6ea5b9342340dd065914cb9d56d3facbde72e0ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "044936ba_224d239d",
         "filename": "src/add-ons/accelerants/radeon_hd/mode.cpp",
@@ -65,10 +120,28 @@
       "side": 1,
       "message": "brightnessRaw",
       "revId": "6ea5b9342340dd065914cb9d56d3facbde72e0ec",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7be3a21_0a4d59c0",
+        "filename": "src/add-ons/accelerants/radeon_hd/mode.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-03T01:30:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "044936ba_224d239d",
+      "revId": "6ea5b9342340dd065914cb9d56d3facbde72e0ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "07751647_c624c4c1",
         "filename": "src/add-ons/accelerants/radeon_hd/mode.cpp",
@@ -82,10 +155,28 @@
       "side": 1,
       "message": "extra tabs after the end of line",
       "revId": "6ea5b9342340dd065914cb9d56d3facbde72e0ec",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e3275bd_35f259a2",
+        "filename": "src/add-ons/accelerants/radeon_hd/mode.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-03T01:30:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07751647_c624c4c1",
+      "revId": "6ea5b9342340dd065914cb9d56d3facbde72e0ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "de52cf33_14a577c4",
         "filename": "src/add-ons/accelerants/radeon_hd/mode.cpp",
@@ -99,10 +190,28 @@
       "side": 1,
       "message": "extra tab / space",
       "revId": "6ea5b9342340dd065914cb9d56d3facbde72e0ec",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbc7501b_a3e9c47d",
+        "filename": "src/add-ons/accelerants/radeon_hd/mode.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-03T01:30:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de52cf33_14a577c4",
+      "revId": "6ea5b9342340dd065914cb9d56d3facbde72e0ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "17c9516e_a2bcd766",
         "filename": "src/add-ons/accelerants/radeon_hd/mode.cpp",
@@ -116,10 +225,28 @@
       "side": 1,
       "message": "backlightReg to be consistent",
       "revId": "6ea5b9342340dd065914cb9d56d3facbde72e0ec",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb4cd2aa_5fc0508a",
+        "filename": "src/add-ons/accelerants/radeon_hd/mode.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-03T01:30:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17c9516e_a2bcd766",
+      "revId": "6ea5b9342340dd065914cb9d56d3facbde72e0ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "bfe77625_5d58e90f",
         "filename": "src/add-ons/accelerants/radeon_hd/mode.cpp",
@@ -133,8 +260,25 @@
       "side": 1,
       "message": "brightnessRaw",
       "revId": "6ea5b9342340dd065914cb9d56d3facbde72e0ec",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65ce22ae_569e4b58",
+        "filename": "src/add-ons/accelerants/radeon_hd/mode.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-03T01:30:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bfe77625_5d58e90f",
+      "revId": "6ea5b9342340dd065914cb9d56d3facbde72e0ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
