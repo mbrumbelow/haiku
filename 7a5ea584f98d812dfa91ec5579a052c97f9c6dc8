@@ -106,6 +106,24 @@
       "parentUuid": "4524f15a_4e2e6740",
       "revId": "7a5ea584f98d812dfa91ec5579a052c97f9c6dc8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9371103a_a8e2f5d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2022-01-03T10:08:44Z",
+      "side": 1,
+      "message": "\u003e For example, usb vendor/product ids are a different namespace than bluetooth\n\u003e vendor/product ids and i2c vendor/product ids. So if the ioctl only returns a\n\u003e vid/pid pair, userspace will have to guess which namespace to search in.\n\n\u003e And we discussed about ps/2 where there is no notion of vid/pid at all.\n\nI am aware that PS/2 have not reliable identifier, but even USB haven\u0027t. As you said, there are all sort of vid/pid messes out there. The point here is to provide user space with a tool to make a guess of what device is connected, but always assuming this guess can return nothing or even worse, mislead. On the other hand, it is not common to have multiple ps/2 devices, not even in the good ps/2 times.\n\n\u003e Add an info about the bus type (an enum with usb, bluetooth, i2c) so we know \n\u003e which namespace to use\n\nI\u0027ve left room for the bus type on the structure on uint8 type. I also think would be handy a device_type (mice/keyb/tablet...). As you point, bus and device types can be extracted from /dev path. I am uncomfortable parsing strings to get info. This is of course very personal, perhaps biased by my Linux background.\n\nHowever, I find /dev/input/mouse/usb/0 acceptable, it is quite solid for the programmer and enough descriptive for the user, things like /dev/input/mouse/ps2/ibm_trackpoint_0 is going too far, imho.\n\n\n\u003e USB string descriptors are needed to uniquely identify a device\n\nI don\u0027t know about Win/Osx, but Linux desktops do not go so far, just trust the guessed name and apply its settings. I like the idea of having unique device identification, but wasn\u0027t my point (in fact, it is out of my skills right now).\n\n\u003e If the goal is just to have a nice user-readable name, wouldn\u0027t it be better to improve the value from B_GET_DEVICE_NAME\n\nI have been thinking a lot about this and I am not sure. It would improve actual status by having better device names and simplify input server device code. Perhaps, It would be harder to translate on input preferences...\n\n\u003e Have something useful and easy to parse for applications (SDL really wants the vid/pid, not just a name),\n\nI have no idea! \n\n\u003e Do not put huge amounts of code in the kernel \n\nThe patch is very small and factorized on ProtocolHandler right now. Those extra fields we may add on ioctl struct like bus type is almost for free. I do not expect to grow more.\n\n\u003e I think all of these things really need an implementation of the whole thing to be sure we get it right: the ioctl, the input_server and Pjoystick changes, the input preferences, maybe patches to SDL as well.\n\nI can try patch one of them in order to have a better picture.",
+      "parentUuid": "9f3dea44_624523cd",
+      "revId": "7a5ea584f98d812dfa91ec5579a052c97f9c6dc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
