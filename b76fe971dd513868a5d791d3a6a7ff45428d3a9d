@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbbe8e34_dfe48062",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-01-03T04:28:28Z",
+      "side": 1,
+      "message": "Ok, I redid the patch to match more like how Bitmaps behave, and spent time making the ownership of fonts functions.  I didn\u0027t test all of the FontFamily/FontStyle and FontManager calls explicitly so I probably need to write some comprehensive unit tests to make sure things work as expected and nothing is broken.  That said, I can run multiple instances of my test app, loading custom fonts for each one, and also run CharacterMap and FontDemo (with cycling) at the same time and all function properly with no bad interactions.  CharacterMap and FontDemo cannot see the user fonts as they shouldn\u0027t.  \n\nIf this looks good I will go for the memory option, but wanted to make sure i had all the ownership stuff working properly first.  It\u0027s a bit more complicated than my previous patches in this review.\n\nSide note; I think it might be a neat feature for CharacterMap to be able to load a user font to examine. \n\n",
+      "revId": "b76fe971dd513868a5d791d3a6a7ff45428d3a9d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
