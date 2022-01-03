@@ -67,6 +67,23 @@
       "message": "I just merged an ACPI change for Radeon HD cards.  Lets let that one bake for 24 hours or so before merging this one.\n\nWe\u0027re still waiting on Pulkomandy to remove his -1 anyway :-)",
       "revId": "6a01aea891296b5b1be740457c42d08b94321a3c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8aad4380_be96d965",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-03T22:45:20Z",
+      "side": 1,
+      "message": "Here you go (not really needed, a patch can be submitted even if it has -1 votes)",
+      "revId": "6a01aea891296b5b1be740457c42d08b94321a3c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
