@@ -34,8 +34,7 @@ DebugWindow::DebugWindow(const char* appName)
 {
 	BString buffer(B_TRANSLATE(
 		"The application:\n\n      %app\n\n"
-		"has encountered an error which prevents it from continuing. Haiku "
-		"will terminate the application and clean up."));
+		"has encountered an error which may prevent it from continuing to function properly.")
 	buffer.ReplaceFirst("%app", appName);
 
 	BResources resources;
@@ -62,6 +61,8 @@ DebugWindow::DebugWindow(const char* appName)
 
 	BRadioButton *terminate = new BRadioButton("terminate",
 		B_TRANSLATE("Terminate"), new BMessage(kActionKillTeam));
+	BRadioButton *keepgoing = new BRadioButton("continue",
+		B_TRANSLATE("Continue"), new BMessage(kActionContinueTeam));
 #ifdef HANDOVER_USE_DEBUGGER
 	BRadioButton *report = new BRadioButton("report",
 		B_TRANSLATE("Save report"), new BMessage(kActionSaveReportTeam));
@@ -88,6 +89,7 @@ DebugWindow::DebugWindow(const char* appName)
 					.Add(debug)
 					.Add(report)
 					.Add(core)
+					.Add(keepgoing)
 				.End()
 				.AddGroup(B_HORIZONTAL)
 					.AddGlue()
@@ -119,10 +121,25 @@ DebugWindow::MessageReceived(BMessage* message)
 		case kActionDebugTeam:
 		case kActionWriteCoreFile:
 		case kActionSaveReportTeam:
+		case kActionContinueTeam:
 			fAction = message->what;
 			fOKButton->SetLabel(fAction == kActionDebugTeam
 				? B_TRANSLATE("Oh yeah!") : B_TRANSLATE("Oh no!"));
 			return;
+	}
+
+	switch(fAction) {
+		case kActionDebugTeam:
+			fOKButton->SetLabel(B_TRANSLATE("Oh yeah!"));
+			break;
+		case kActionKillTeam:
+		case kActionWriteCoreFile:
+		case kActionSaveReportTeam:
+			fOKButton->SetLabel(B_TRANSLATE("Oh no!"));
+			break;
+		case kActionContinueTeam:
+			fOKButton->SetLabel(B_TRANSLATE("Good luck!"));
+			break;
 	}
 
 	BWindow::MessageReceived(message);

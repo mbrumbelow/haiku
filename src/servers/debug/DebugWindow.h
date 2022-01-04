@@ -15,6 +15,7 @@ enum {
 	kActionDebugTeam,
 	kActionWriteCoreFile,
 	kActionSaveReportTeam,
+	kActionContinueTeam,
 	kActionPromptUser
 };
 
