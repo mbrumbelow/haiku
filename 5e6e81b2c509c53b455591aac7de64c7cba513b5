@@ -16,6 +16,24 @@
       "message": "The whole point of debugger() calls is that they are fatal unless otherwise dealt with, they\u0027re basically an \"assert not reachable\". Adding a \"steamroll\" option is not at all what we want to do.",
       "revId": "5e6e81b2c509c53b455591aac7de64c7cba513b5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5732e2c9_46d1e9a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-04T19:30:24Z",
+      "side": 1,
+      "message": "Technically we don\u0027t document that debugger calls are required fatal. I could be wrong, but initial examination found:\n\nhttps://www.haiku-os.org/legacy-docs/bebook/TheSupportKit_Debugging.html",
+      "parentUuid": "5ed0ba7f_5f7df4e4",
+      "revId": "5e6e81b2c509c53b455591aac7de64c7cba513b5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
