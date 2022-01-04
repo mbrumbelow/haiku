@@ -65,7 +65,9 @@ action_for_string(const char* action, int32& _action)
 	else if (strcmp(action, "log") == 0
 		|| strcmp(action, "report") == 0) {
 		_action = kActionSaveReportTeam;
-	} else if (strcasecmp(action, "core") == 0)
+	} else if (strcmp(action, "continue") == 0)
+		_action = kActionContinueTeam;
+	else if (strcasecmp(action, "core") == 0)
 		_action = kActionWriteCoreFile;
 	else if (strcasecmp(action, "user") == 0)
 		_action = kActionPromptUser;
@@ -1064,6 +1066,8 @@ TeamDebugHandler::_HandlerThread()
 		// The team shall be killed. Since that is also the handling in case
 		// an error occurs while handing over the team to the debugger, we do
 		// nothing here.
+	} else if (debugAction == kActionContinueTeam) {
+		// Nothing here since this will cause us to ignore the debugger call
 	} else if (debugAction == kActionWriteCoreFile) {
 		_WriteCoreFile();
 		debugAction = kActionKillTeam;
