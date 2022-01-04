@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26d69094_5b8877d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-01-04T07:18:17Z",
+      "side": 1,
+      "message": "on one laptop I could test this on: before this patch the bios wasn\u0027t found, the EFI framebuffer driver is loaded. with this patch, the radeon_hd driver is loaded, but crashes in the accelerant, and looks like a regression for the end user.",
+      "revId": "80753344fe5b1e9d03b934e64b6b999287741ba5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
