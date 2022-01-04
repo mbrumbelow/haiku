@@ -34,6 +34,23 @@
       "parentUuid": "601bd1ed_16c546d2",
       "revId": "4dca55fac969b09799a70ec90e935773d02fad42",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9448bd83_47157181",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2022-01-04T23:21:10Z",
+      "side": 1,
+      "message": "Media keys are on a different usage page than regular keys and also they are spread on the table, where 90% of usages are very rare to see on keyboards. It can be done but a list of what keys we want to map would help.",
+      "revId": "4dca55fac969b09799a70ec90e935773d02fad42",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
