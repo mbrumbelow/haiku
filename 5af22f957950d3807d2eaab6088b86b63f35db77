@@ -68,6 +68,24 @@
       "parentUuid": "5dfa3dae_faa846e5",
       "revId": "5af22f957950d3807d2eaab6088b86b63f35db77",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "574707c7_34180ca8",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/Jamfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-04T09:40:25Z",
+      "side": 1,
+      "message": "All the other architectures (arm, arm64, x86_64) have crt0, entry, relocation_func before the arch_*.cpps. So I reordered them here similarly. arch_* are now in alphabetical order.",
+      "parentUuid": "ee2fb52b_fa3caca8",
+      "revId": "5af22f957950d3807d2eaab6088b86b63f35db77",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
