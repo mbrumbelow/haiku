@@ -68,6 +68,23 @@
       "message": "If you\u0027re doing so from within the debugger, chances are you know what you\u0027re doing (e.g. you\u0027ve added an extra one by hand while working on some code). Most of the ones we leave in the official tree are in \"you should not be here\" situations, which I don\u0027t think are something we should easily allow an end user to bypass. This just opens up getting less bug reports.",
       "revId": "7827523dd7993e1599b74e3e082f3fcc4a80f1d2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c90e143_5591c860",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-01-04T20:58:13Z",
+      "side": 1,
+      "message": "Wouldn\u0027t the \"disable_debugger()\" call be usable in this case? As long as the application has a signal handler of its own, it could catch any TERM, KILL, etc signals if the app programmer wishes for special debugging purposes.\n\nDocumentation here: https://www.haiku-os.org/legacy-docs/bebook/TheKernelKit_Miscellaneous.html",
+      "revId": "7827523dd7993e1599b74e3e082f3fcc4a80f1d2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
