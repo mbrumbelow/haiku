@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62ccfc8f_c7bc1ed4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-04T17:43:03Z",
+      "side": 1,
+      "message": "I\u0027ve added the padding as suggested, no regression on x86_64 (tried with qemu), successful bootup on x86 (using work-in progress arch/x86 code)",
+      "revId": "bc69f291b76da1b783966573426870451501ee4d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
