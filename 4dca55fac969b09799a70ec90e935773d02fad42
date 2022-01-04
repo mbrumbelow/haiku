@@ -16,6 +16,24 @@
       "message": "Why not merged yet?",
       "revId": "4dca55fac969b09799a70ec90e935773d02fad42",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c53224a9_da7df4eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-04T21:13:06Z",
+      "side": 1,
+      "message": "It is useless without the other patches in the series, which are not finished.\n\nThe current keymap structure can only store mapping for 127 keys. So we can add more keys, but we couldn\u0027t map them to anything. Which is ok, they could still be used with B_UNMAPPED_KEY_DOWN and in input_server filters. But ideally we would introduce a new keymap format. Which needs some thinking because there are public APIs for applications to access the keymap, probably we need to make sure BeOS apps only get the old 127-key keymap, and only Haiku one get the new version?\n\nAlso, the drivers (PS2 and HID/USB) need to be updated to actually produce these keycodes, otherwise this change is useless since the keys can\u0027t be triggered. So we would be adding constants that are not used by anything, which is just confusing.\n\nThis can be merged when at least the driver side is ready to produce the keycodes.",
+      "parentUuid": "601bd1ed_16c546d2",
+      "revId": "4dca55fac969b09799a70ec90e935773d02fad42",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
