@@ -104,6 +104,24 @@
       "parentUuid": "e09dea4a_21cad860",
       "revId": "5bab194a3e9bc82ec3193edbfe0da0c5cf9160f8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c423c133_5265737c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2022-01-05T15:42:01Z",
+      "side": 1,
+      "message": "I would still want to try and finish some of that someday… I was thinking of writing custom U-Boot commands built to patch the FDT from from the script before loading. That would at least remove all the code trying to find framebuffer variables in memory.",
+      "parentUuid": "36e4fef4_ec588a79",
+      "revId": "5bab194a3e9bc82ec3193edbfe0da0c5cf9160f8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
