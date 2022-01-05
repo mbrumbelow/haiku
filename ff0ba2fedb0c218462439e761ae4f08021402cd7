@@ -16,6 +16,24 @@
       "message": "I see a lot of ppc boards in u-boot upstream, but not the sam440.\n\nDid ACube no upstream any work to u-boot?",
       "revId": "ff0ba2fedb0c218462439e761ae4f08021402cd7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "452beb9f_df941487",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2022-01-05T15:29:33Z",
+      "side": 1,
+      "message": "Not that I know of. As I said, they basically rewrote half of it, moving things around, to support both internal and PCI video cards and other things, so I don\u0027t see how this could be upstreamed anyway.",
+      "parentUuid": "22804186_9716c23c",
+      "revId": "ff0ba2fedb0c218462439e761ae4f08021402cd7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
