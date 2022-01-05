@@ -51,6 +51,41 @@
       "parentUuid": "0cc85761_51335abf",
       "revId": "5bab194a3e9bc82ec3193edbfe0da0c5cf9160f8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e09dea4a_21cad860",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2022-01-05T15:24:17Z",
+      "side": 1,
+      "message": "Hmm do we really have a way to use EFI on all those antique things from U-Boot??",
+      "revId": "5bab194a3e9bc82ec3193edbfe0da0c5cf9160f8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1742310c_9a3f87e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2022-01-05T15:24:17Z",
+      "side": 1,
+      "message": "Well they never upstreamed their changes, although they did publish them, but they basically rewrote half of U-Boot just to do about the same thing differently, so I don\u0027t see them ever making it into upstream.",
+      "parentUuid": "303daedd_5a0fd4f0",
+      "revId": "5bab194a3e9bc82ec3193edbfe0da0c5cf9160f8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
