@@ -159,6 +159,24 @@
       "parentUuid": "0487030c_bb1adbbd",
       "revId": "7a5ea584f98d812dfa91ec5579a052c97f9c6dc8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bc422e9_02bd2481",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2022-01-05T17:26:31Z",
+      "side": 1,
+      "message": "\u003e Possibly needs a second copy of the usb.ids database? Currently we have that only in userspace (for listusb and the Devices app)\n\nCan we build a single header file with that database shared with both user space code and kernel one?\n\n\u003e The bus-type/vid/pid ioctl seems fine, knowing that it will be optional (PS/2 will likely not implement it).\n\nAgree!\n\n\u003e For input devices, indeed I don\u0027t expect people to use the devices directly (the interface is not really documented anyway). So it seems fine to do things in input_server and BJoystick. The code can be shared between the two as a private API initally and later made public?\n\nAgree too! Any suggestion where to drop that private code?\n\n\u003e It may not be needed, for example in Input preferences there is an icon next to each device that already identifies if it\u0027s a mouse or keyboard. So if you see \"(mouse icon) Logitech G71\", this seems good enough.\n\nAgree on that, get rid of \"Mouse, Keyboard, ...\" text prone to translation issues. Also, input settings are stored using this name, changing language will broke it \n\nI suggest something like:\n\nVendor + Product + bus + number\n\nexamples:\nLogitech G71 USB 1\nMicrosoft Wireless Keyboard 800 USB 1\nAnalog Devices AD7879 I2C 1\n\n\n\u003e Is this too complicated just to avoid moving the VID/PID database handling inside the kernel?\n\nWe are on the edge of my kernel programming skills. 😄\n\nCan a driver load a file? My bet is yes, but seems ugly. isn\u0027t it? If not, id database would need a recompilation where an user space solution can load it from a file and receive hot upgrades.\n\nOn the other hand, if we put usb ids on a header, generating the name on the drivers seems quite easy. Lookup + strcpy.\n\nAnother benefit from kernel generated names, is we already have it on early syslog before input_server starts up, even on KDL.\n\nSummary, I can\u0027t have a strong opinion where to place this name resolution, kernel or userspace, but at least I think this is already taking shape.",
+      "parentUuid": "138789c8_29fd82b4",
+      "revId": "7a5ea584f98d812dfa91ec5579a052c97f9c6dc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
