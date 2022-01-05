@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0b5ace2_b3d74d32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-05T20:07:15Z",
+      "side": 1,
+      "message": "This should give the sdhci driver some functionality on non-x86 where sdhci is attached to pci.\n\nThere are multiple sdhci compat strings in fdt, but to even begin thinking about supporting them we\u0027ll need to split sdhci_pci into sdhci (generic bus code) and sdhci_pci (pci attachment).\n\nThen add a sdhci_fdt to scan the fdt bus for compat devices like the examples below from freebsd...\n\n\t{ \"marvell,armada-380-sdhci\",\tSDHCI_FDT_ARMADA38X },\n\t{ \"sdhci_generic\",\t\tSDHCI_FDT_GENERIC },\n\t{ \"qcom,sdhci-msm-v4\",\t\tSDHCI_FDT_QUALCOMM },\n\t{ \"xlnx,zy7_sdhci\",\t\tSDHCI_FDT_XLNX_ZY7 },\n\t{ \"arasan,sdhci-5.1\",\t\tSDHCI_FDT_ARASAN },",
+      "revId": "bfb98691e9df8d51e655762f5e353fb07901ea47",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
