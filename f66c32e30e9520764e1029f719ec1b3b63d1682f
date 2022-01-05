@@ -34,6 +34,24 @@
       "parentUuid": "46dc8260_d19e8005",
       "revId": "f66c32e30e9520764e1029f719ec1b3b63d1682f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8b63db8_69857139",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-05T17:57:45Z",
+      "side": 1,
+      "message": "The requirement is keeping binary compatibility. To achieve this, a function must exist with this prototype:\n\n    void get_key_map(struct key_map*);\n\nThis function must fill the passed struct with the v1 keymap format, always.\n\nThe idea is to add a new function:\n\n    void get_key_map(int version, struct key_map*);\n\nThis function can return a keymap using up to the version passed as a parameter (but not a newer one).\n\nSo new apps would do:\n\n    struct key_map myKeymap;\n    get_key_map(2, \u0026myKeymap);\n\nWe can implement the old function as:\n\n\n    void get_key_map(struct key_map* map)\n    {\n        get_key_map(1, map);\n\n    }\n\n\nLater on if we ever introduce yet another keymap format, already compiled apps will all specifiy they expect version 1 or 2 so no new function needs to be introduced.\n\nWe can add a B_CURRENT_KEYMAP_VERSION define:\n\n    #define B_CURRENT_KEYMAP_VERSION 2\n\n\nAnd we could also decide to hide this from application developers, by having this in InterfaceDefs.h:\n\n\n    #define get_key_map(x) get_key_map(B_CURRENT_KEYMAP_VERSION, x)\n\nThis way, developers don\u0027t need to know what tricks we are doing. They just call get_key_map(myKeys) and get the latest keymap version at the time of compiling.",
+      "parentUuid": "525686a2_f3349d5a",
+      "revId": "f66c32e30e9520764e1029f719ec1b3b63d1682f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
