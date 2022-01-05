@@ -16,6 +16,24 @@
       "message": "\u003e Noob question here. keymap structure is the one found at InterfaceDefs.h?\n\nYes,\n\nAs you can see, the struct key_map starts with a \"version\" field so we need to increase that, and enlarge the tables.\n\nWe probably need to keep the previous version of the structure for old BeOS apps, and give them a truncated keymap? And have the new version only for new Haiku apps? There are several ways to do this, probably the easiest one is to add a get_key_map variant that takes a max_version as a parameter, and return a keympa of a version lower or equal.\n\nThe old get_key_map function can then be implemented by calling the new one and setting that parameter to 1 to ask for the old BeOS style keymap. And later on if we introduce more keymap versions, we will have a little less work to do.",
       "revId": "f66c32e30e9520764e1029f719ec1b3b63d1682f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "525686a2_f3349d5a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2022-01-05T17:47:34Z",
+      "side": 1,
+      "message": "The requirement is keeping binary and source compatibility with BeOS apps or just binary?\n\nIf binary only, we can safely grow arrays from 128 to... 256? And then, using version field control how many scancodes we copy. Am I right?",
+      "parentUuid": "46dc8260_d19e8005",
+      "revId": "f66c32e30e9520764e1029f719ec1b3b63d1682f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
