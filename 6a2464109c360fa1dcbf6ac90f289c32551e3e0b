@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9262664b_8ba0cca0",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-01-05T22:46:30Z",
+      "side": 1,
+      "message": "2022 now...",
+      "revId": "6a2464109c360fa1dcbf6ac90f289c32551e3e0b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
