@@ -177,6 +177,24 @@
       "parentUuid": "138789c8_29fd82b4",
       "revId": "7a5ea584f98d812dfa91ec5579a052c97f9c6dc8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97d814b2_844d0048",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-05T18:10:41Z",
+      "side": 1,
+      "message": "\u003e Can we build a single header file with that database shared with both user space code and kernel one?\n\nYes, but it will be compiled twice so at the end we still have two copies of the database in the Haiku image (I think we already have multiple copies embedded in listusb and the Devices app, so, if we solve that at the same time, it evens out).\n\n\u003e Agree too! Any suggestion where to drop that private code?\n\nThis is a private API not exposed to applications, so:\n\n- Put it in the BPrivate namespace\n- Put it in libbe (normally this should go into libshared but then we have to link libshared into libbe, which makes the idea of libshared a bit useless)\n- Put the headers somewhere in the src/ directory so they are only available when compiling Haiku (for example src/kits/devices)\n\n\n\u003e Can a driver load a file? My bet is yes, but seems ugly. isn\u0027t it?\n\nYes, and I don\u0027t see anything ugly about it. We use it routinely: driver have settings files, firmware loading, ...\n\nThe main thing to worry about is error handling, for example if someone tries to use the API before the filesystem is mounted, or if for whatever reason the file is not where you expect it.",
+      "parentUuid": "5bc422e9_02bd2481",
+      "revId": "7a5ea584f98d812dfa91ec5579a052c97f9c6dc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
