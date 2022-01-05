@@ -1,11 +1,12 @@
 /*
- * Copyright 2018-2020 Haiku, Inc. All rights reserved.
+ * Copyright 2018-2021 Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
  *		B Krishnan Iyer, krishnaniyer97@gmail.com
  *		Adrien Destugues, pulkomandy@pulkomandy.tk
  */
+
 #include <algorithm>
 #include <new>
 #include <stdio.h>
@@ -23,7 +24,7 @@
 
 #define TRACE_SDHCI
 #ifdef TRACE_SDHCI
-#	define TRACE(x...) dprintf("\33[33msdhci_pci:\33[0m " x)
+#	define TRACE(x...)		dprintf("\33[33msdhci_pci:\33[0m " x)
 #else
 #	define TRACE(x...) ;
 #endif
@@ -80,6 +81,7 @@ class SdhciDevice {
 
 device_manager_info* gDeviceManager;
 device_module_info* gMMCBusController;
+
 static pci_x86_module_info* sPCIx86Module;
 
 
@@ -656,12 +658,10 @@ init_bus(device_node* node, void** bus_cookie)
 	gDeviceManager->put_node(pciParent);
 	gDeviceManager->put_node(parent);
 
-	if (get_module(B_PCI_X86_MODULE_NAME, (module_info**)&sPCIx86Module)
-	    != B_OK) {
-	    sPCIx86Module = NULL;
-		ERROR("PCIx86Module not loaded\n");
-		// FIXME try probing FDT as well
-		return B_NO_MEMORY;
+	// Get PCI x86 bus (MSI)
+	if (get_module(B_PCI_X86_MODULE_NAME, (module_info**)&sPCIx86Module) != B_OK) {
+		sPCIx86Module = NULL;
+		ERROR("PCIx86Module not loaded. MSI unavailable\n");
 	}
 
 	uint8_t bar, slot;
@@ -680,10 +680,12 @@ init_bus(device_node* node, void** bus_cookie)
 		return B_IO_ERROR;
 	}
 
-	int msiCount = sPCIx86Module->get_msi_count(pciInfo.bus,
-		pciInfo.device, pciInfo.function);
-	TRACE("interrupts count: %d\n",msiCount);
-	// FIXME if available, use MSI rather than good old IRQ...
+	if (sPCIx86Module != NULL) {
+		// FIXME if available, use MSI rather than good old IRQ...
+		int msiCount = sPCIx86Module->get_msi_count(pciInfo.bus,
+			pciInfo.device, pciInfo.function);
+		TRACE("interrupts count: %d\n", msiCount);
+	}
 
 	// enable bus master and io
 	uint16 pcicmd = pci->read_pci_config(device, PCI_command, 2);
@@ -742,9 +744,13 @@ static void
 uninit_bus(void* bus_cookie)
 {
 	SdhciBus* bus = (SdhciBus*)bus_cookie;
-	delete bus;
 
-	// FIXME do we need to put() the PCI module here?
+	if (sPCIx86Module != NULL) {
+		put_module(B_PCI_X86_MODULE_NAME);
+		sPCIx86Module = NULL;
+	}
+
+	delete bus;
 }
 
 
