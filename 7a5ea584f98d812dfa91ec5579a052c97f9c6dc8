@@ -124,6 +124,23 @@
       "parentUuid": "9f3dea44_624523cd",
       "revId": "7a5ea584f98d812dfa91ec5579a052c97f9c6dc8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0487030c_bb1adbbd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2022-01-05T00:17:58Z",
+      "side": 1,
+      "message": "After a pair of days thinking and analyzing user space side I see you are right. Let\u0027s see.\n\n- I think we all agree that we need better device names. \"USB Mouse 1\" sucks, we want to see \"Logitech G71\". Or perhaps, some mix, \"USB Mouse: Logitech G71\".\n- Retrieve bus/vid/pid from a device have some handy use cases, like default device settings (keymaps, gamepads layouts...)\n\n\nThe second point is clear to me, whoever need to probe a device, just ioctl it. Just what this patch already does, without adding more complexity in any place.\n\nThe human friendly name is what now I don\u0027t have clear. The patch I submitted the other day generates a basic name on kernel side: \"USB Tablet\", \"I2C Keyboard\". I though that the input server device was the place to generate a friendly name, using vid/pid ioctl and a usb.id database. But there is a Mouse, Keyboard, Tablet and Wacom Add-on, joysticks are handled at device kit. So we would have duplicated code and that name wouldn\u0027t be available for those who read directly from device. I don\u0027t have a use case for them... cli tools? logging?\n\nOne solution is trying to build friendly names on kernel side and retrieve them with B_GET_DEVICE_NAME. ( Linux does it :D )\n\nI am not comfortable with this idea, but I can\u0027t argue why. Perhaps I am making a drama and it is straightforward.\n\nSo, what about this?:\n\n- Have a vid/pid ioctl (+bus_type?)\n- Make B_GET_DEVICE_NAME return friendly names (Logitech G71, Saitek gamepad)\n",
+      "revId": "7a5ea584f98d812dfa91ec5579a052c97f9c6dc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
