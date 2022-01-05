@@ -34,6 +34,24 @@
       "parentUuid": "73752389_39b6e727",
       "revId": "c50591139b229dfb3ca0b4c43f855add57797359",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1614087_5d5a7bc6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-05T14:52:22Z",
+      "side": 1,
+      "message": "\u003e Also, do we still want to preserve the bootm version? Or are we switching to EFI-only? That would allow to simplify this script a bit more.\n\nGood question.  I think we should get rid of the native u-boot loader.\n\nUpstream u-boot pretends to be an EFI bios on every useful board / platform i\u0027ve seen in recent history.  The big potential breakage of this is older arm devices (or any devices without upstream u-boot support (aka, xyz company makes their own u-boot binaries in 2012, it\u0027s never upstreamed.  No EFI support).\n\nThe reason I left the native u-boot loader in tree was to grab any needed fdt , etc code out of it while developing the arm EFI bootloader.\n\nEFI kinda sucks in a lot of ways... but with arm,arm64,riscv64,x86 support it\u0027s too easy of an entry target to ignore.",
+      "parentUuid": "4a8ebddd_015c5d92",
+      "revId": "c50591139b229dfb3ca0b4c43f855add57797359",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
