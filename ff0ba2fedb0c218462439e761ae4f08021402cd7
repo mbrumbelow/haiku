@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22804186_9716c23c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-05T15:26:26Z",
+      "side": 1,
+      "message": "I see a lot of ppc boards in u-boot upstream, but not the sam440.\n\nDid ACube no upstream any work to u-boot?",
+      "revId": "ff0ba2fedb0c218462439e761ae4f08021402cd7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
