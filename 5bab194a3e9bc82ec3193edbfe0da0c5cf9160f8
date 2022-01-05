@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cc85761_51335abf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-05T15:06:32Z",
+      "side": 1,
+      "message": "I need to do some testing on this one before we merge.\n\nThis leaves the u-boot scripts untouched since we still need them for starting on various platforms.\n\nI think I might have erased the scripts to make u-boot .scr files.  let me check",
+      "revId": "5bab194a3e9bc82ec3193edbfe0da0c5cf9160f8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
