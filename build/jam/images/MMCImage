@@ -38,8 +38,6 @@ rule BuildSDImage image : files
 				Exit "Error: Unknown EFI architecture!" ;
 		}
 		BuildEfiSDImage1 $(image) : $(mbrtool) $(fatshell) $(files) ;
-	} else if $(TARGET_BOOT_PLATFORM) = u-boot {
-		BuildUBootSDImage1 $(image) : $(mbrtool) $(fatshell) $(files) ;
 	} else {
 		# TODO: For now we do nothing. Maybe we want a "AddSDImage" to
 		# append additional loaders like the raw riscv one?
@@ -47,66 +45,6 @@ rule BuildSDImage image : files
 		echo "Unknown path to handle adding to image" ;
 	}
 }
-
-# Usage:
-#  out : mbrtool fatshell os_image loader floppyboot everything_else
-actions BuildUBootSDImage1
-{
-	$(RM) $(1)
-
-	export $(HOST_ADD_BUILD_COMPATIBILITY_LIB_DIR)
-
-	# in KiB
-	EFI_SIZE=32768
-	BOOT_SIZE=`expr ${EFI_SIZE} + $(SDIMAGE_BEGIN)`
-	MMC_SIZE=`expr $(SDIMAGE_OS_SIZE) \* 1024 + ${BOOT_SIZE}`
-
-	# Build "boot" disk
-	dd if=/dev/zero of=$(1) bs=1K count=${BOOT_SIZE}
-
-	# generate u-boot environment variables
-	echo 'os=haiku' > uEnv.txt
-	echo 'platform=u-boot' >> uEnv.txt
-	echo "loader=haiku_loader.ub" >> uEnv.txt
-
-	# Lay down partition map
-	OS_LENGTH=`expr ${MMC_SIZE} - ${BOOT_SIZE}`
-
-	# EFI System Partition
-	$(2[1]) $(1) 0 0xef $(SDIMAGE_BEGIN) ${EFI_SIZE}
-	# OS Partition
-	$(2[1]) $(1) 1 0xeb ${BOOT_SIZE} ${OS_LENGTH}
-
-	FATFS="$(2[2]) --start-offset `expr $(SDIMAGE_BEGIN) \* 1024`"
-
-	# format the image
-	${FATFS} --end-offset `expr ${BOOT_SIZE} \* 1024` \
-		--initialize "$(1)" 'Haiku Boot'
-
-	# populate
-	for i in $(2[4-]) ; do
-		echo "cp :${i} myfs/" | ${FATFS} $(1)
-	done
-
-	echo "cp :uEnv.txt myfs/" | ${FATFS} $(1)
-
-	# lay down FDT's
-	echo "mkdir myfs/fdt" | ${FATFS} $(1)
-	for i in $(TARGET_DEVICE_TREES[1-]) ; do
-		echo "cp :${i} myfs/fdt/" | ${FATFS} $(1)
-	done
-
-	# list content
-	echo "ls myfs" | ${FATFS} $(1)
-
-	# cleanup
-	$(RM) uEnv.txt
-	$(RM) boot.scr
-
-	# Add haiku partition to MMC image
-	cat $(2[3-3]) >> $(1)
-}
-
 
 # Usage:
 #  out : mbrtool fatshell os_image loader floppyboot everything_else
@@ -183,9 +121,6 @@ for platform in [ MultiBootSubDirSetup ] {
 				BuildSDImage $(HAIKU_MMC_NAME) : $(HAIKU_IMAGE)
 					haiku_loader.$(TARGET_BOOT_PLATFORM) ;
 			}
-		} else if $(TARGET_BOOT_PLATFORM) = u-boot {
-			BuildSDImage $(HAIKU_MMC_NAME) :
-				$(HAIKU_IMAGE) haiku_loader.$(TARGET_BOOT_PLATFORM) haiku-floppyboot.tgz.$(TARGET_BOOT_PLATFORM) boot.scr ;
 		} else {
 			BuildSDImage $(HAIKU_MMC_NAME) :
 				$(HAIKU_IMAGE) haiku_loader.$(TARGET_BOOT_PLATFORM) boot.scr ;
