@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73752389_39b6e727",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-05T14:17:08Z",
+      "side": 1,
+      "message": "hm. ok so instead of setting the fdt to fdtcontroladdr, you\u0027re adjusting the fdt_addr_r variable to point to the fdtcontroladdr pointer.\n\nI get it now.   I\u0027m assuming u-boot\u0027s fdt command automatically assumes the pointer value in fdt_addr_r at boot? (I don\u0027t see you calling it)",
+      "revId": "c50591139b229dfb3ca0b4c43f855add57797359",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
