@@ -51,6 +51,23 @@
       "message": "Media keys are on a different usage page than regular keys and also they are spread on the table, where 90% of usages are very rare to see on keyboards. It can be done but a list of what keys we want to map would help.",
       "revId": "4dca55fac969b09799a70ec90e935773d02fad42",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16c2dfa4_5a7c0b03",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2022-01-05T09:32:04Z",
+      "side": 1,
+      "message": "I\u0027ve taken a look at keyboard hid code. It already eats consumer usages but sends them unmapped in the form of usage_page + usage_id, so volume up is 0x0C + 0x00E9.\n\nSo it only lacks a mapping array the way it is already done with general keys. I can give it a try.",
+      "revId": "4dca55fac969b09799a70ec90e935773d02fad42",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
