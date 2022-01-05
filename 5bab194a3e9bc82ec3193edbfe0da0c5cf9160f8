@@ -86,6 +86,24 @@
       "parentUuid": "303daedd_5a0fd4f0",
       "revId": "5bab194a3e9bc82ec3193edbfe0da0c5cf9160f8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36e4fef4_ec588a79",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-05T15:32:26Z",
+      "side": 1,
+      "message": "All of the recent arm boards are covered upstream.   There are devices like the gumstick (which we even invested in) we\u0027re losing.. but the gumstick doesn\u0027t even have an MMU.\n\n* Apple powerpc is Openfirmware or their custom EFI\n* riscv64 boards are all upstream u-boot\n* m68k isn\u0027t u-boot\n* sh4 isn\u0027t u-boot\n\nIt honestly looks like the only potential board we would be dropping would be sam440.\n\nI\u0027m not happy about that (especially given your hardware + work mmu_man), but given the lack of upstream u-boot support it feels like an inevitability since it\u0027s a lot of code to support one board.",
+      "parentUuid": "e09dea4a_21cad860",
+      "revId": "5bab194a3e9bc82ec3193edbfe0da0c5cf9160f8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
