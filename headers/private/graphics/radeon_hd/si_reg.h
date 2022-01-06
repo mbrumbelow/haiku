@@ -218,6 +218,7 @@
 #define 	SI_MC_VMID(x)						((x) << 25)
 
 #define	SI_CONFIG_MEMSIZE						0x5428
+#define SI_CONFIG_MEMSIZE_TAHITI					0x0de3	// or 0x378c?
 
 #define SI_INTERRUPT_CNTL						0x5468
 #define 	SI_IH_DUMMY_RD_OVERRIDE				(1 << 0)

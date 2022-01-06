@@ -696,7 +696,12 @@ radeon_hd_init(radeon_info &info)
 	mmioMapper.Detach();
 
 	// *** Populate frame buffer information
-	if (info.chipsetID >= RADEON_CEDAR) {
+	if (info.chipsetID == RADEON_TAHITI || info.dceMajor >= 6 && info.dceMinor >= 1) {
+		// bytes I think?
+		info.shared_info->graphics_memory_size
+			= (uint32)(((uint64)read32(info.registers
+				+ SI_CONFIG_MEMSIZE_TAHITI) << 20) / 1024);
+	} else if (info.chipsetID >= RADEON_CEDAR) {
 		if ((info.chipsetFlags & CHIP_APU) != 0
 			|| (info.chipsetFlags & CHIP_IGP) != 0) {
 			// Evergreen+ fusion in bytes
