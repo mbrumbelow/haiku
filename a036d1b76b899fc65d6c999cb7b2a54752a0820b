@@ -124,6 +124,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4580026_25c49165",
+        "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-06T11:04:47Z",
+      "side": 1,
+      "message": "Fair enough, I can remove this TODO comment then.",
+      "parentUuid": "0df62ae5_42cd8dc5",
+      "revId": "a036d1b76b899fc65d6c999cb7b2a54752a0820b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "85eeef21_398cd322",
@@ -243,6 +261,24 @@
       "side": 1,
       "message": "Ok so this is to ignore the interrupt type cell?\n\nIt may be better to get the 3 cells here, pass them to the ARM/GIC-specific code, and then ignore it there, to avoid having a special case here?",
       "parentUuid": "498a74ea_93820dd1",
+      "revId": "a036d1b76b899fc65d6c999cb7b2a54752a0820b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf93c74f_32c82453",
+        "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-06T11:04:47Z",
+      "side": 1,
+      "message": "I think we should go back to a more basic question: what is the purpose of fdt_device_get_interrupt()\n- is it to retrieve interrupt number\n- or is it to retrieve whatever info is encoded in FDT for the interrupt.\n\nIn case of interruptCells\u003d\u003d1 these two are the same.\nIn case of interruptCells\u003d\u003d2, the first cell is the interrupt number which will be returned, the second cell usually contains the interrupt flags (active-high/active-low etc) which will be silently ignored.\nIn case of interruptCells\u003d\u003d3, the 1st and 3rd are ignored and we return the 2nd one. (but here it\u0027s more explicitly ignored than in the case of interruptCells\u003d\u003d2)\n\nAlso the caller (e.g. virtio-mmio driver) doesn\u0027t seem to be aware of the interrupt controller type so I\u0027m not really sure where the GIC-specific code could go.",
+      "parentUuid": "07e2f315_5b271747",
       "revId": "a036d1b76b899fc65d6c999cb7b2a54752a0820b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
