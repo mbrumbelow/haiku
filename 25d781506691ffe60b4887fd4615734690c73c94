@@ -1,6 +1,142 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "89896980_ea2c9c2d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2022-01-06T15:49:04Z",
+      "side": 1,
+      "message": "Just pointing out some coding style issues.",
+      "revId": "25d781506691ffe60b4887fd4615734690c73c94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58cdbec4_776f1d91",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2022-01-06T15:49:04Z",
+      "side": 1,
+      "message": "The second line of the if needs to be indented one more, as this is a parameter list (this adds one level of indentation).",
+      "revId": "25d781506691ffe60b4887fd4615734690c73c94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49463547_f5ef6cea",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2022-01-06T15:49:04Z",
+      "side": 1,
+      "message": "vir_gdt -\u003e virtualGDT",
+      "revId": "25d781506691ffe60b4887fd4615734690c73c94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c33e1bce_e91aa454",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2022-01-06T15:49:04Z",
+      "side": 1,
+      "message": "virt_addr -\u003e virtAddr or virtualAddress, phys_addr -\u003e physAddr or physicalAddress",
+      "revId": "25d781506691ffe60b4887fd4615734690c73c94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "041aa935_f2d2be9c",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2022-01-06T15:49:04Z",
+      "side": 1,
+      "message": "Same here",
+      "revId": "25d781506691ffe60b4887fd4615734690c73c94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "400d33ce_c56c5b9c",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2022-01-06T15:49:04Z",
+      "side": 1,
+      "message": "etc.",
+      "revId": "25d781506691ffe60b4887fd4615734690c73c94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8bb7b7e_a9296bab",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2022-01-06T15:49:04Z",
+      "side": 1,
+      "message": "One level of indentation missing",
+      "revId": "25d781506691ffe60b4887fd4615734690c73c94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce0779df_3576eeb4",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2022-01-06T15:49:04Z",
+      "side": 1,
+      "message": "Same here.",
+      "revId": "25d781506691ffe60b4887fd4615734690c73c94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8062b19b_115ecf08",
@@ -43,6 +179,47 @@
         "endLine": 343,
         "endChar": 106
       },
+      "revId": "25d781506691ffe60b4887fd4615734690c73c94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5d55dc6_4bf1b5f3",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2022-01-06T15:49:04Z",
+      "side": 1,
+      "message": "Not sure if you can make use of, but I seem to remember that we pass on some initial mappings to the kernel that it can then reuse (recreate) to access data within the boot loader.",
+      "parentUuid": "487f64dd_e9d8679a",
+      "range": {
+        "startLine": 336,
+        "startChar": 2,
+        "endLine": 343,
+        "endChar": 106
+      },
+      "revId": "25d781506691ffe60b4887fd4615734690c73c94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b46ece43_0a574920",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2022-01-06T15:49:04Z",
+      "side": 1,
+      "message": "\u003d and + go to the beginning of the line.",
       "revId": "25d781506691ffe60b4887fd4615734690c73c94",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
