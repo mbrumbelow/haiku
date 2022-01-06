@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "273df99d_fce3df38",
+        "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-06T10:27:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6abce8de_ea7eba25",
+      "revId": "a036d1b76b899fc65d6c999cb7b2a54752a0820b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd148386_90f446c9",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-01-01T11:50:01Z",
       "side": 1,
       "message": "maybe panic() if proplen is not 4?",
+      "revId": "a036d1b76b899fc65d6c999cb7b2a54752a0820b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "780d9805_e65042bf",
+        "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-06T10:27:58Z",
+      "side": 1,
+      "message": "Not quite sure. The original code seemed to work good enough so I didn\u0027t change it.",
+      "parentUuid": "dd148386_90f446c9",
       "revId": "a036d1b76b899fc65d6c999cb7b2a54752a0820b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -52,6 +88,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d9ece36_b136ae93",
+        "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-06T10:27:58Z",
+      "side": 1,
+      "message": "I\u0027ve added the code to handle one additional interrupt encoding but there might be other ones. So probably the TODO comment is still valid.",
+      "parentUuid": "b72ffc0b_e68af2d9",
+      "revId": "a036d1b76b899fc65d6c999cb7b2a54752a0820b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "85eeef21_398cd322",
@@ -69,6 +123,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8fb044f_e7c07bab",
+        "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-06T10:27:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85eeef21_398cd322",
+      "revId": "a036d1b76b899fc65d6c999cb7b2a54752a0820b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a08bdce9_ea77a741",
@@ -82,6 +154,24 @@
       "writtenOn": "2022-01-01T11:50:01Z",
       "side": 1,
       "message": "- missing space around *\n- maybe use sizeof(uint32) instead of 4?",
+      "revId": "a036d1b76b899fc65d6c999cb7b2a54752a0820b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "afadcce7_7bdd400a",
+        "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-06T10:27:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a08bdce9_ea77a741",
       "revId": "a036d1b76b899fc65d6c999cb7b2a54752a0820b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -105,6 +195,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "498a74ea_93820dd1",
+        "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-06T10:27:58Z",
+      "side": 1,
+      "message": "This is ARM GIC interrupt encoding, see e.g.: https://www.kernel.org/doc/Documentation/devicetree/bindings/interrupt-controller/arm%2Cgic.txt\n\nThe 1st cell is the interrupt type\nThe 2nd cell contains the interrupt number\nThe 3rd cell is the flags (trigger type and level flags; PPI interrupt cpu mask)",
+      "parentUuid": "b3847e1c_5f1110c2",
+      "revId": "a036d1b76b899fc65d6c999cb7b2a54752a0820b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e47626fe_1a204d36",
         "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_module.cpp",
         "patchSetId": 2
@@ -116,6 +224,24 @@
       "writtenOn": "2022-01-01T11:50:01Z",
       "side": 1,
       "message": "missing spaces around *",
+      "revId": "a036d1b76b899fc65d6c999cb7b2a54752a0820b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7534d067_ea3aa166",
+        "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-06T10:27:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e47626fe_1a204d36",
       "revId": "a036d1b76b899fc65d6c999cb7b2a54752a0820b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -133,6 +259,24 @@
       "writtenOn": "2022-01-01T11:50:01Z",
       "side": 1,
       "message": "missing spaces around *",
+      "revId": "a036d1b76b899fc65d6c999cb7b2a54752a0820b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6b2d164_aee18a4d",
+        "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-06T10:27:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea919a30_ec8a3b33",
       "revId": "a036d1b76b899fc65d6c999cb7b2a54752a0820b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
