@@ -106,6 +106,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0df62ae5_42cd8dc5",
+        "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-06T10:37:54Z",
+      "side": 1,
+      "message": "Well we won\u0027t ever handle everything (new hardware will come with new needs). But the code is in place to handle multiple types, so I think we\u0027re done.\n\nMaybe add a panic() or make sure we return an error if we encounter something we don\u0027t know how to parse, but that\u0027s all we can do here.",
+      "parentUuid": "5d9ece36_b136ae93",
+      "revId": "a036d1b76b899fc65d6c999cb7b2a54752a0820b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "85eeef21_398cd322",
@@ -207,6 +225,24 @@
       "side": 1,
       "message": "This is ARM GIC interrupt encoding, see e.g.: https://www.kernel.org/doc/Documentation/devicetree/bindings/interrupt-controller/arm%2Cgic.txt\n\nThe 1st cell is the interrupt type\nThe 2nd cell contains the interrupt number\nThe 3rd cell is the flags (trigger type and level flags; PPI interrupt cpu mask)",
       "parentUuid": "b3847e1c_5f1110c2",
+      "revId": "a036d1b76b899fc65d6c999cb7b2a54752a0820b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07e2f315_5b271747",
+        "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-06T10:37:54Z",
+      "side": 1,
+      "message": "Ok so this is to ignore the interrupt type cell?\n\nIt may be better to get the 3 cells here, pass them to the ARM/GIC-specific code, and then ignore it there, to avoid having a special case here?",
+      "parentUuid": "498a74ea_93820dd1",
       "revId": "a036d1b76b899fc65d6c999cb7b2a54752a0820b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
