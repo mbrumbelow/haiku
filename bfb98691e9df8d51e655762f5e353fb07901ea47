@@ -16,6 +16,24 @@
       "message": "This should give the sdhci driver some functionality on non-x86 where sdhci is attached to pci.\n\nThere are multiple sdhci compat strings in fdt, but to even begin thinking about supporting them we\u0027ll need to split sdhci_pci into sdhci (generic bus code) and sdhci_pci (pci attachment).\n\nThen add a sdhci_fdt to scan the fdt bus for compat devices like the examples below from freebsd...\n\n\t{ \"marvell,armada-380-sdhci\",\tSDHCI_FDT_ARMADA38X },\n\t{ \"sdhci_generic\",\t\tSDHCI_FDT_GENERIC },\n\t{ \"qcom,sdhci-msm-v4\",\t\tSDHCI_FDT_QUALCOMM },\n\t{ \"xlnx,zy7_sdhci\",\t\tSDHCI_FDT_XLNX_ZY7 },\n\t{ \"arasan,sdhci-5.1\",\t\tSDHCI_FDT_ARASAN },",
       "revId": "bfb98691e9df8d51e655762f5e353fb07901ea47",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c94d1ea_5770b59c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-06T07:58:56Z",
+      "side": 1,
+      "message": "The code is already split, the part that is common between different MMC implementations is in the bus manager. There will not be much things to further split here. Maybe some things can be moved up into the bus manager if the register layout of all FDT MMC controllers is sufficiently similar to PCI SDHCI interface (they don\u0027t have to, SDHCI is normally a PCI specific thing, but several ARM device happen to have a very similar register set).\n\nAnd yes, one or more sdhci_fdt busses need to be added for the FDT version of this (one if all controllers are sufficiently identical, more if they are too different).",
+      "parentUuid": "b0b5ace2_b3d74d32",
+      "revId": "bfb98691e9df8d51e655762f5e353fb07901ea47",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

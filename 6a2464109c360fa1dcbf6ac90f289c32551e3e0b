@@ -16,6 +16,23 @@
       "message": "2022 now...",
       "revId": "6a2464109c360fa1dcbf6ac90f289c32551e3e0b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d48b9d9f_c6768697",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 683,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-06T07:58:56Z",
+      "side": 1,
+      "message": "If that\u0027s the only place where the module is used (to log a message with an interrupt count we don\u0027t use), why even bother? Can we just remove it completely from the driver?",
+      "revId": "6a2464109c360fa1dcbf6ac90f289c32551e3e0b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
