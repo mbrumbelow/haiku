@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57360ea7_1af72653",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-06T01:36:48Z",
+      "side": 1,
+      "message": "This is a test patch for https://dev.haiku-os.org/ticket/17377\n\ndo not merge.  it\u0027s all kinda sketchy until tested",
+      "revId": "04a4a077c3cdab23369376499e05ad200f60ec8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
