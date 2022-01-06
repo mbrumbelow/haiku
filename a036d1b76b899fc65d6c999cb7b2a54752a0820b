@@ -285,6 +285,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "605cda80_4c1a6358",
+        "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-06T11:32:03Z",
+      "side": 1,
+      "message": "Ok, makes sense now, thanks.\n\nMaybe it would be clearer if the function was named something like fdt_device_get_interrupt_id then?",
+      "parentUuid": "bf93c74f_32c82453",
+      "revId": "a036d1b76b899fc65d6c999cb7b2a54752a0820b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e47626fe_1a204d36",
         "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_module.cpp",
         "patchSetId": 2
