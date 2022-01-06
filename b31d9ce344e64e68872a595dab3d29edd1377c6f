@@ -213,6 +213,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ac905f3d_af467da0",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_smp.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-06T17:16:25Z",
+      "side": 1,
+      "message": "Based on this, I\u0027m now thinking that returning zero is a good default implementation when SMP is not active.",
+      "parentUuid": "0a286152_90fb8540",
+      "revId": "b31d9ce344e64e68872a595dab3d29edd1377c6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4e991903_185b737c",
         "filename": "src/system/boot/platform/efi/arch/x86/arch_smp.cpp",
         "patchSetId": 4
