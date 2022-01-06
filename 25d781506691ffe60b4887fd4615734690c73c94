@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8062b19b_115ecf08",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-06T14:33:49Z",
+      "side": 1,
+      "message": "The SMP tranpolines (coming soon) rely on identity mapping for the first 1MB. This is done the same way in BIOS and EFI-x86_64 so I guess it should be good enough here.",
+      "range": {
+        "startLine": 333,
+        "startChar": 1,
+        "endLine": 334,
+        "endChar": 68
+      },
+      "revId": "25d781506691ffe60b4887fd4615734690c73c94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "487f64dd_e9d8679a",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-06T14:33:49Z",
+      "side": 1,
+      "message": "These are not very good on the other hand, I\u0027m not quite sure how to handle these:\n* then entry.S trampoline seems to require identity mapping but perhaps can we copy it to lower 1M like the SMP trampoline?\n* kernel args and initial GDT should really not have an identity mapping requirement but I still have to figure out a better way...",
+      "range": {
+        "startLine": 336,
+        "startChar": 2,
+        "endLine": 343,
+        "endChar": 106
+      },
+      "revId": "25d781506691ffe60b4887fd4615734690c73c94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
