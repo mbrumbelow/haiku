@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "aa161bf3_5d1eb04c",
         "filename": "src/kits/device/USBDevice.cpp",
@@ -14,10 +15,28 @@
       "side": 1,
       "message": "This may not always be long enough, characters near the end of the UCS2 range (close to FFFF) might need 3 bytes).",
       "revId": "9085b743afad99ae8655ec46e8b8dc050f64fbb7",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "de45b4b8_d733d6df",
+        "filename": "src/kits/device/USBDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-01-08T03:25:07Z",
+      "side": 1,
+      "message": "Do we really not have any APIs for \"allocate me a buffer and convert this string to a specified encoding\"? I looked around and couldn\u0027t see a way to do this.\n\nHow should I deal with this? Actually check during the byteswap whether the characters are out of 2-byte range?",
+      "parentUuid": "aa161bf3_5d1eb04c",
+      "revId": "9085b743afad99ae8655ec46e8b8dc050f64fbb7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "e70c8471_a95b37d4",
         "filename": "src/kits/device/USBDevice.cpp",
@@ -31,10 +50,10 @@
       "side": 1,
       "message": "Is it UCS-2, or UTF-16? The latter would allow characters to be decomposed as two 16-bit words (working similar to UTF8), while UCS-2 can only encode unicode chars 0000 to FFFF.\n\nWhich one is used in USB?",
       "revId": "9085b743afad99ae8655ec46e8b8dc050f64fbb7",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "82312218_a8756275",
         "filename": "src/kits/device/USBDevice.cpp",
@@ -49,10 +68,10 @@
       "message": "The things I found seemed to indicate UCS-2.",
       "parentUuid": "e70c8471_a95b37d4",
       "revId": "9085b743afad99ae8655ec46e8b8dc050f64fbb7",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "7aca39db_49b848bf",
         "filename": "src/kits/device/USBDevice.cpp",
@@ -67,10 +86,10 @@
       "message": "Ok. No emoji in usb descriptors then 😞",
       "parentUuid": "82312218_a8756275",
       "revId": "9085b743afad99ae8655ec46e8b8dc050f64fbb7",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": false
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "0dc7648c_d4a9905c",
         "filename": "src/kits/device/USBDevice.cpp",
@@ -84,10 +103,10 @@
       "side": 1,
       "message": "convert_to_utf8 is known to leak memory and this is not fixable without breaking the API. It should be deprecated and not used in new code (see #976).\n\nIt should be possible to use BUnicodeChar::ToUTF8 (not very convenient here) or BTextEncoding::Decode (https://git.haiku-os.org/haiku/tree/headers/os/locale/TextEncoding.h#n34) and BTextEncoding::Flush instead.",
       "revId": "9085b743afad99ae8655ec46e8b8dc050f64fbb7",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "05b59f1f_308b45b2",
         "filename": "src/kits/device/USBDevice.cpp",
@@ -102,10 +121,10 @@
       "message": "I think that\u0027s only convert_*from*, not to? And furthermore it isn\u0027t apparent to me that it actually does leak memory.",
       "parentUuid": "0dc7648c_d4a9905c",
       "revId": "9085b743afad99ae8655ec46e8b8dc050f64fbb7",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "5858b099_671223db",
         "filename": "src/kits/device/USBDevice.cpp",
@@ -120,10 +139,10 @@
       "message": "Right, currently it doesn\u0027t (iconv_close is called at the end). You can get into problem if calling it with an odd number of bytes (the last byte won\u0027t be used).\n\nIn any case I\u0027d prefer we generally move to BTextEncoding which is usable in more cases (you can do a stream conversion, adding bytes as you receive them), and uses ICU. Currently convert_to/from_utf8 is implemented on top of iconv and that\u0027s one dependency we should get rid of.\n\nBut this can probably be solved by rewriting the functions to use BTextEncoding. It probably means moving a few things around from libbe to libtextencoding, however.",
       "parentUuid": "05b59f1f_308b45b2",
       "revId": "9085b743afad99ae8655ec46e8b8dc050f64fbb7",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "1856652f_55baf8c2",
         "filename": "src/kits/device/USBDevice.cpp",
@@ -138,8 +157,7 @@
       "message": "Done",
       "parentUuid": "5858b099_671223db",
       "revId": "9085b743afad99ae8655ec46e8b8dc050f64fbb7",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": false
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
