@@ -268,6 +268,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ed9b029_50ad56d4",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-08T10:21:45Z",
+      "side": 1,
+      "message": "probably this should not be considered a TODO item, just something I noted - so let\u0027s set this comment to resolved.",
+      "parentUuid": "8062b19b_115ecf08",
+      "range": {
+        "startLine": 333,
+        "startChar": 1,
+        "endLine": 334,
+        "endChar": 68
+      },
+      "revId": "25d781506691ffe60b4887fd4615734690c73c94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "487f64dd_e9d8679a",
@@ -305,6 +329,30 @@
       "side": 1,
       "message": "Not sure if you can make use of, but I seem to remember that we pass on some initial mappings to the kernel that it can then reuse (recreate) to access data within the boot loader.",
       "parentUuid": "487f64dd_e9d8679a",
+      "range": {
+        "startLine": 336,
+        "startChar": 2,
+        "endLine": 343,
+        "endChar": 106
+      },
+      "revId": "25d781506691ffe60b4887fd4615734690c73c94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7473aa5e_842f7710",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-08T10:21:45Z",
+      "side": 1,
+      "message": "Thinking about it a bit more, I can remove the identity mapping for the GDT descriptor by loading GDTR before enabling paging.\n\nThis still leaves us with identity mapping for the entry.S trampoline code and the kernel args.",
+      "parentUuid": "e5d55dc6_4bf1b5f3",
       "range": {
         "startLine": 336,
         "startChar": 2,
