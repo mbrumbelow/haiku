@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c537ef2a_d2091e73",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_start.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-01-09T09:49:31Z",
+      "side": 1,
+      "message": "efi_platform.h would come before mmu.h",
+      "revId": "03477d3e342a2b039db4251cf3ca86bbd7a92f60",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77564d06_14ed78f6",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_start.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-01-09T09:49:31Z",
+      "side": 1,
+      "message": "the cases should be indented one more tab.",
+      "revId": "03477d3e342a2b039db4251cf3ca86bbd7a92f60",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71dce804_180290a7",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_start.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-01-09T09:49:31Z",
+      "side": 1,
+      "message": "memory_map declaration belongs a bit later.",
+      "revId": "03477d3e342a2b039db4251cf3ca86bbd7a92f60",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "947435a2_fb195882",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_start.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-01-09T09:49:31Z",
+      "side": 1,
+      "message": "i++",
+      "revId": "03477d3e342a2b039db4251cf3ca86bbd7a92f60",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad181155_46a1e1d6",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_start.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-01-09T09:49:31Z",
+      "side": 1,
+      "message": "what about this?",
+      "revId": "03477d3e342a2b039db4251cf3ca86bbd7a92f60",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "779d4b13_a1cd4903",
+        "filename": "src/system/boot/platform/efi/arch/x86/entry.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-01-09T09:49:31Z",
+      "side": 1,
+      "message": "two blank lines after the copyright header",
+      "revId": "03477d3e342a2b039db4251cf3ca86bbd7a92f60",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
