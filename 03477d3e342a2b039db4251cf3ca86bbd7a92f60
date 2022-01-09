@@ -176,6 +176,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "22a95bd5_c4bae5c1",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_start.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-09T15:03:22Z",
+      "side": 1,
+      "message": "Actually I can already invoke it as the stub is already there.",
+      "parentUuid": "756f8ea7_f39c5b49",
+      "revId": "03477d3e342a2b039db4251cf3ca86bbd7a92f60",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "779d4b13_a1cd4903",
