@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4a9ff21_da6d44a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-01-09T09:34:08Z",
+      "side": 1,
+      "message": "some coding style remarks",
+      "revId": "a0570710ded39fdf0ea2ada59d937dcb8fddc6dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3dfa846_6a4d5b40",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_timer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-01-09T09:34:08Z",
+      "side": 1,
+      "message": "two blank lines after the copyright header.",
+      "revId": "a0570710ded39fdf0ea2ada59d937dcb8fddc6dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "931dc318_2950c828",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_timer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-01-09T09:34:08Z",
+      "side": 1,
+      "message": "acpi.h would come before mmu.h",
+      "revId": "a0570710ded39fdf0ea2ada59d937dcb8fddc6dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "999f0074_b9c88f8f",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_timer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-01-09T09:34:08Z",
+      "side": 1,
+      "message": "two blank lines after the includes",
+      "revId": "a0570710ded39fdf0ea2ada59d937dcb8fddc6dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "730a9899_db0d282d",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_timer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-01-09T09:34:08Z",
+      "side": 1,
+      "message": "using the style with one brace is preferred.",
+      "revId": "a0570710ded39fdf0ea2ada59d937dcb8fddc6dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
