@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64b068d8_16b96113",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-01-10T16:21:22Z",
+      "side": 1,
+      "message": "I second PulkoMandy\u0027s suggestion.",
+      "revId": "fe901ebfb052b3dd6d07e754d59486f3237d9c13",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
