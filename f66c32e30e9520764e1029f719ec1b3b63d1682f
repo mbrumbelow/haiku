@@ -106,6 +106,24 @@
       "parentUuid": "0fe76299_a01fba13",
       "revId": "f66c32e30e9520764e1029f719ec1b3b63d1682f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd8eb1e2_d468de32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-10T17:32:48Z",
+      "side": 1,
+      "message": "I wrote it so that newly compiled code access the fields without any extra effort. Really the older version is there mainly for ABI compatibility, which is only for already compiled code. So it\u0027s ok if writing new code using that path is complicated (or even impossible), as long as already compiled apps continue to run.\n\nSo I tend to make the new version easier to use, as it helps ensuring newly written apps quickly migrate to it.\n\nYou are right that anonymous structs in unions was standardized only in C11 and not yet in C++. I think this is fine as long as gcc accepts it, and I think we already use it in other places. If it doesn\u0027t, we will have to name both inner structures and the union, making code using this a bit more verbose.",
+      "parentUuid": "5bc762f1_526e64be",
+      "revId": "f66c32e30e9520764e1029f719ec1b3b63d1682f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
