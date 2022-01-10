@@ -52,6 +52,24 @@
       "parentUuid": "525686a2_f3349d5a",
       "revId": "f66c32e30e9520764e1029f719ec1b3b63d1682f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16b6ef26_2e00134a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2022-01-10T12:32:15Z",
+      "side": 1,
+      "message": "I did some research this days, and I really wanted to push a patch to have some code to speak about, but I am afraid it is not on a good shape yet. Anyway, I told you what we have:\n\n- Public prototype is this void get_key_map(key_map **map, char **key_buffer). Function is responsible of allocating the space (and I guess, client is to free them)\n- There is a private function prototyped as void _get_key_map(key_map **map, char **key_buffer, ssize_t *key_buffer_size). It returns also the key buffer size. Public one is wrapped on top of this one. This private function is already used at on the input kit.\n\nSo I understand api already diverged and initial prototype is only there for backwards compatibility. Will _get_key_map remain private forever? Will move to something public in the form of get_key_map_ext? or perhaps, being C++ we can just use overload feature and use the same function name (with different arguments).\n\nNow, the struct key_map. As the memory is allocated on function, I though about using some union trick to keep a single structure but that is not allowed on C++. I see no other solution but a new structure, key_map_ext with key arrays increased from 128 to 256 or whatever we need.\n\nIn summary:\n\nstruct key_map {...}\nstruct key_map_ext {...}\n\nget_key_map(key_map **map, char **key_buffer)\nget_key_map(key_map_ext **map, char **key_buffer, ssize_t *key_buffer_size)\n\nWhat do you think?",
+      "parentUuid": "d8b63db8_69857139",
+      "revId": "f66c32e30e9520764e1029f719ec1b3b63d1682f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
