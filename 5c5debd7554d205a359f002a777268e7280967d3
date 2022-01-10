@@ -16,6 +16,24 @@
       "message": "I would somehow keep the copyright for Dustin Howett from  src/system/boot/platform/bios_ia32/hpet.cpp, I assume this code was copied from there? ",
       "revId": "5c5debd7554d205a359f002a777268e7280967d3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50dde529_1f1a187c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-10T13:19:47Z",
+      "side": 1,
+      "message": "Yes, actually it\u0027s almost the same code in bios_ia32/hpet.cpp and efi/arch/x86_64/arch_timer.cpp (and now in efi/arch/x86/arch_timer.cpp)",
+      "parentUuid": "14977597_45443beb",
+      "revId": "5c5debd7554d205a359f002a777268e7280967d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
