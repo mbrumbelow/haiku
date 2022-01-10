@@ -16,6 +16,23 @@
       "message": "I second PulkoMandy\u0027s suggestion.",
       "revId": "fe901ebfb052b3dd6d07e754d59486f3237d9c13",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce9ab6bb_52a63d21",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-10T16:56:56Z",
+      "side": 1,
+      "message": "OK it shouldn\u0027t be so difficult to do that.\n\nWe need to change one thing in the build env though, the following will be needed in boot/arch/x86/Jamfile:\n\nSubDirHdrs $(HAIKU_TOP) src system boot platform $(TARGET_BOOT_PLATFORM) ;",
+      "revId": "fe901ebfb052b3dd6d07e754d59486f3237d9c13",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
