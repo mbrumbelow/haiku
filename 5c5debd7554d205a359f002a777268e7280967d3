@@ -34,6 +34,24 @@
       "parentUuid": "14977597_45443beb",
       "revId": "5c5debd7554d205a359f002a777268e7280967d3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef97036f_a8ac39d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-10T13:45:20Z",
+      "side": 1,
+      "message": "Rather than just copying the copyright, could we avoid having 3 copies of the same code? Is it possible to move the common parts in boot/arch/x86 since it is used by every bootloader for that architecture?\n\nIf that\u0027s not possible, there should be a comment explaining why and cross referencing the other copies, so we can avoid them diverging if changes are made.",
+      "parentUuid": "50dde529_1f1a187c",
+      "revId": "5c5debd7554d205a359f002a777268e7280967d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
