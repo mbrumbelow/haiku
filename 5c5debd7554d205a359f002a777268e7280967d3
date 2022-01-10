@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14977597_45443beb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-01-10T11:37:43Z",
+      "side": 1,
+      "message": "I would somehow keep the copyright for Dustin Howett from  src/system/boot/platform/bios_ia32/hpet.cpp, I assume this code was copied from there? ",
+      "revId": "5c5debd7554d205a359f002a777268e7280967d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
