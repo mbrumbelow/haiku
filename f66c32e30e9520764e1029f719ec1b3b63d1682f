@@ -88,6 +88,24 @@
       "parentUuid": "16b6ef26_2e00134a",
       "revId": "f66c32e30e9520764e1029f719ec1b3b63d1682f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bc762f1_526e64be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2022-01-10T16:52:41Z",
+      "side": 1,
+      "message": "\u003e I\u0027m not sure what problem you got with unions, they are allowed in C++.\n\nAnonymous structs and unions?\n\nI had to double check that. Yes, the example we have in mind works. I\u0027ve been reading and It is not very clear to me. Some sites says there are supported by gcc but disallowed. I even had the impression of Microsoft doing lobby against it. Wikipedia says there are some limitations (on C++). Anyway, using this trick, wouldn\u0027t be better this:\n\nstruct key_map {\n    union {\n        struct {\n            ...\n        };\n        struct {\n            ...\n        } extended;\n    };\n};\n\nSo binary and legacy code access key_map members as usual and new one access through extended member.\n\nOk, so we have at least two approaches to solve keep a single key_map struct. Let me a pair of days and I will try to submit a proof of concept.",
+      "parentUuid": "0fe76299_a01fba13",
+      "revId": "f66c32e30e9520764e1029f719ec1b3b63d1682f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
