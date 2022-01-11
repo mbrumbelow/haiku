@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "486dbee4_fc2a622e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-11T17:14:44Z",
+      "side": 1,
+      "message": "I stumbled on this issue while investigating the misaligned HPET ACPI tables.",
+      "revId": "0a191247c9ec5e680d200d96dad66a7d1fa3760d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
