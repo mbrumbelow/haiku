@@ -16,6 +16,23 @@
       "message": "I stumbled on this issue while trying to refactor the HPET initialization code.\n\non hrev55775 I see the following:\nBIOS loader is able to detect HPET base address but vendor_id shows up as 0xa201 which looks more like the hw_version and the next bitfield.\nUEFI loader detects HPET base address as 0 (and the garbled vendor_id same as the BIOS)\n\nAfter applying the patch, both BIOS and 64-bit UEFI can detect the correct HPET base address and vendor_id field shows 0x8086.",
       "revId": "221df17c4c899403bd5058daf48a508772434793",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5013bb8e_9bdac0f8",
+        "filename": "headers/private/kernel/arch/x86/arch_hpet.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-01-11T17:18:19Z",
+      "side": 1,
+      "message": "looks different to https://wiki.osdev.org/HPET . any ideas?",
+      "revId": "221df17c4c899403bd5058daf48a508772434793",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
