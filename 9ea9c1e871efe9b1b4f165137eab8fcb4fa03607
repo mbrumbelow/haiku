@@ -16,6 +16,23 @@
       "message": "some more memory cleanup...",
       "revId": "9ea9c1e871efe9b1b4f165137eab8fcb4fa03607",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aeebae2b_ba835260",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-01-12T20:24:48Z",
+      "side": 1,
+      "message": "I wonder if this is where you need to call UEFI\u0027s ConvertPointer with the new virtual address? It seems to modify references in the runtime if I read the spec correctly.",
+      "revId": "9ea9c1e871efe9b1b4f165137eab8fcb4fa03607",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
