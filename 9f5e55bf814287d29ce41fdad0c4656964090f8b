@@ -1,6 +1,24 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "444292bb_acaa6a9b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-01-12T17:51:02Z",
+      "side": 1,
+      "message": "By chance, could I take a look at this? I feel that this class could come in handy in terms of implementing an efficient and reliable event monitoring system as described in ticket #16846. I think I think I have a great idea about how we can take the concept of Linux\u0027s io_uring system and make it a lot more \"Haiku and C++ friendly\".😉",
+      "revId": "9f5e55bf814287d29ce41fdad0c4656964090f8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "177f769e_18a94753",
         "filename": "headers/os/support/MemoryRingIO.h",
@@ -14,10 +32,10 @@
       "side": 1,
       "message": "This should be Size() without the Get-prefix.",
       "revId": "9f5e55bf814287d29ce41fdad0c4656964090f8b",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "9277ab7d_0f910219",
         "filename": "headers/os/support/MemoryRingIO.h",
@@ -31,8 +49,7 @@
       "side": 1,
       "message": "Is there any use case to make this reversible? Maybe call it CloseForWriting() and make it a final state?",
       "revId": "9f5e55bf814287d29ce41fdad0c4656964090f8b",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
