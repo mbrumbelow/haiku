@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7d695ac_6a1874c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2022-01-12T01:19:08Z",
+      "side": 1,
+      "message": "I don\u0027t really know jam, just copied it from other jamfiles. Isn\u0027t there a way to specify these dependencies in a way that we don\u0027t have to remember to add each source file that uses them?",
+      "revId": "8444016fed55380c090a12f31ea963ac4e26fdf1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
