@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d0eaa83e_dfad2a6a",
+        "filename": "src/kits/device/USBDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-12T12:40:59Z",
+      "side": 1,
+      "message": "We don\u0027t have one yet.\n\nICU has ucnv_convert, which we could use directly here, or wrap into a BeAPI style thing: https://unicode-org.github.io/icu-docs/apidoc/dev/icu4c/ucnv_8h.html#ab281edb8941c4f19786c786f0d1e6d10\n\nIt returns the needed output size.\n\nSo this would be (omitting error checking):\n\nUErrorCode errorCode \u003d 0;\nsize_t neededSize \u003d ucnv_convert(\"utf-8\", \"utf-16\", NULL, 0, input, inputLength, errorCode);\nvoid* output \u003d malloc(neededSize);\nucnv_convert(\"utf-8\", \"utf-16\", output, neededSize, input, inputLength, errorCode);\n\nBy using the proper encoding names you can maybe get this function to do the endian-swapping for you.\n\nThis is not very efficient because each call to ucnv_convert creates two converters (from input to utf16, then from utf16 to output) and closes them at the end. By calling lower level functions directly (ucnv_open, ucnv_toUnicode, ucnv_fromUnicode) it may be possible to open and close the converters only once.\n\nThis API should also be used to implement libtextencoding, that would remove our dependency on libiconv (the ucnv and iconv APIs are quite similar).",
+      "parentUuid": "de45b4b8_d733d6df",
+      "revId": "9085b743afad99ae8655ec46e8b8dc050f64fbb7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e70c8471_a95b37d4",
         "filename": "src/kits/device/USBDevice.cpp",
         "patchSetId": 1
