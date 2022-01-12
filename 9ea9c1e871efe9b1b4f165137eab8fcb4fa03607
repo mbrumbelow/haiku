@@ -33,6 +33,24 @@
       "message": "I wonder if this is where you need to call UEFI\u0027s ConvertPointer with the new virtual address? It seems to modify references in the runtime if I read the spec correctly.",
       "revId": "9ea9c1e871efe9b1b4f165137eab8fcb4fa03607",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "602ce4da_c960d6ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-12T20:33:03Z",
+      "side": 1,
+      "message": "I\u0027m not entirely sure ConvertPointer() is needed... SetVirtualAddressMap() is already called from arch_mmu_post_efi_setup and that might be enough.\n\nrefer to UEFI specification section 8.4 Virtual Memory Services (page 339):\n\n* SetVirtualAddressMap: Used by an OS loader to convert from physical addressing to virtual addressing.\n* ConvertPointer: Used by EFI components to convert internal pointers when switching to virtual addressing. also later in the description of ConvertPointer on page 342: \"The ConvertPointer() function is used by an EFI component during the SetVirtualAddressMap() operation\"\n\nso probably we need to invoke ConvertPointer() only if we\u0027re developing an EFI driver",
+      "parentUuid": "aeebae2b_ba835260",
+      "revId": "9ea9c1e871efe9b1b4f165137eab8fcb4fa03607",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
