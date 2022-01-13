@@ -51,6 +51,24 @@
       "parentUuid": "aeebae2b_ba835260",
       "revId": "9ea9c1e871efe9b1b4f165137eab8fcb4fa03607",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41e175b5_23c885e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-01-13T19:23:27Z",
+      "side": 1,
+      "message": "Yes seems so, from SetVirtualAddressMap(): \"When this function is called, all events that were registered to be signaled on an address map change are notified. Each component that is notified must update any internal pointers for their new addresses. This\ncan be done with the ConvertPointer() function.\"",
+      "parentUuid": "602ce4da_c960d6ae",
+      "revId": "9ea9c1e871efe9b1b4f165137eab8fcb4fa03607",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
