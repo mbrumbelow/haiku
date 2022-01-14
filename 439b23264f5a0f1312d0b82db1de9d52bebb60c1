@@ -147,6 +147,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "409d3704_8bd6223d",
+        "filename": "docs/user/support/MemoryRingIO.dox",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-14T07:50:40Z",
+      "side": 1,
+      "message": "You can use B_READ_ONLY instead of introducing a new error code specifically for this.",
+      "parentUuid": "122c6e92_06f3cfdb",
+      "revId": "439b23264f5a0f1312d0b82db1de9d52bebb60c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bf3293eb_483566b7",
         "filename": "docs/user/support/MemoryRingIO.dox",
         "patchSetId": 4

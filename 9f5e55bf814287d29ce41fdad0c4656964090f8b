@@ -112,6 +112,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "322e54de_1b760ad0",
+        "filename": "headers/os/support/MemoryRingIO.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-14T07:50:40Z",
+      "side": 1,
+      "message": "It is GetSize in all other BPositionIO classes because it returns a status_t and the size is a parameter of the function: https://git.haiku-os.org/haiku/tree/headers/os/support/DataIO.h#n73\n\nBut this is different since it only returns the buffer size, not the full size of the data.",
+      "parentUuid": "565fdd35_f585a324",
+      "revId": "9f5e55bf814287d29ce41fdad0c4656964090f8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9277ab7d_0f910219",
         "filename": "headers/os/support/MemoryRingIO.h",
         "patchSetId": 14
@@ -164,6 +182,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "aa5a00e5_c144bcac",
+        "filename": "headers/os/support/MemoryRingIO.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-14T07:50:40Z",
+      "side": 1,
+      "message": "The class should probably be first introduced in libshared and inside the BPrivate namespace. When we are confident that the API is ready, we can move it to libbe, outside of the namespace, and add FBC padding.",
+      "parentUuid": "ca130a2a_404048c1",
+      "revId": "9f5e55bf814287d29ce41fdad0c4656964090f8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a57019ad_12038805",
         "filename": "headers/os/support/MemoryRingIO.h",
         "patchSetId": 14
@@ -175,6 +211,30 @@
       "writtenOn": "2022-01-14T00:32:09Z",
       "side": 1,
       "message": "I think this shows that we\u0027re lacking native APIs. :) This shouldn\u0027t block this review for the moment, but shows instead that we need a replacement for \"pthread_cond_t\" and its associated functionalities. We already have the \"ConditionVariable\" class in the kernel, so making a userspace counterpart shouldn\u0027t involve writing a lot of code from scratch at least.",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 26
+      },
+      "revId": "9f5e55bf814287d29ce41fdad0c4656964090f8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a487d675_5b76019b",
+        "filename": "headers/os/support/MemoryRingIO.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-14T07:50:40Z",
+      "side": 1,
+      "message": "What\u0027s wrong with using the pthread version?\nIn modern C++ there is also a standard API for this.\nI don\u0027t see any value in introducing a third one.",
+      "parentUuid": "a57019ad_12038805",
       "range": {
         "startLine": 42,
         "startChar": 0,
@@ -221,6 +281,30 @@
       "writtenOn": "2022-01-14T00:32:09Z",
       "side": 1,
       "message": "I feel like the method name \"Clear()\" is deceiving, as fBuffer is not truly \"cleared\". While an average user of BMemoryRingIO would never know that fBuffer still contains previously written data, this could pose a security risk in the case that BMemoryRingIO is being used for transferring sensitive data and a hacker finds a way to access the memory fBuffer points to.\n\nSimply put, maybe a \"zeroOut\" boolean parameter should be added for those more concerned about security?",
+      "range": {
+        "startLine": 219,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 22
+      },
+      "revId": "9f5e55bf814287d29ce41fdad0c4656964090f8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94a1a167_8934576b",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-14T07:50:40Z",
+      "side": 1,
+      "message": "Sounds like over-engineering things to me, but it depends on the usecase.",
+      "parentUuid": "9cabc283_490831ed",
       "range": {
         "startLine": 219,
         "startChar": 0,
