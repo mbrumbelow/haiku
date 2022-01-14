@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8667129_f5e23140",
+        "filename": "src/system/boot/platform/efi/arch/arm/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-14T15:15:31Z",
+      "side": 1,
+      "message": "this is our last hidden assumption on the memory layout i.e. arch_enter_kernel should be outside of the range 0x80000000..0x88000000 otherwise it might collide with the kernel and its initial data areas",
+      "range": {
+        "startLine": 331,
+        "startChar": 4,
+        "endLine": 331,
+        "endChar": 43
+      },
+      "revId": "61112afeb267aa4e6e7693547b9701b5accbb0a6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
