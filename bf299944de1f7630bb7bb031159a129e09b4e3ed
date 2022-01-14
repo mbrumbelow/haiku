@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6acaa0a2_95bf3a93",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-01-14T11:50:12Z",
+      "side": 1,
+      "message": "Maybe timer handling can be moved to BLooper event loop (use read massage with timeout)?",
+      "revId": "bf299944de1f7630bb7bb031159a129e09b4e3ed",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
