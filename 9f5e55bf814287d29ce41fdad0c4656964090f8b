@@ -52,6 +52,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "15e0b32c_dd83ef52",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-01-14T18:58:23Z",
+      "side": 1,
+      "message": "Some responses:",
+      "revId": "9f5e55bf814287d29ce41fdad0c4656964090f8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8745f592_3a2a9ef9",
@@ -130,6 +147,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2e5acd93_4bedbd82",
+        "filename": "headers/os/support/MemoryRingIO.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-01-14T18:58:23Z",
+      "side": 1,
+      "message": "In that case, should this be renamed to BufferSize() to be more clear?",
+      "parentUuid": "322e54de_1b760ad0",
+      "revId": "9f5e55bf814287d29ce41fdad0c4656964090f8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9277ab7d_0f910219",
         "filename": "headers/os/support/MemoryRingIO.h",
         "patchSetId": 14
@@ -200,6 +235,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "24f95114_1fd15d76",
+        "filename": "headers/os/support/MemoryRingIO.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-01-14T18:58:23Z",
+      "side": 1,
+      "message": "I am tempted to introduce an experimental support library (something like libexpsupport.so\"), as I am afraid that libshared is getting a bit bulky... \n\nMy question is, are classes that aren\u0027t used by an application removable by stripping unneeded symbols after compilation?",
+      "parentUuid": "aa5a00e5_c144bcac",
+      "revId": "9f5e55bf814287d29ce41fdad0c4656964090f8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a57019ad_12038805",
         "filename": "headers/os/support/MemoryRingIO.h",
         "patchSetId": 14
@@ -235,6 +288,30 @@
       "side": 1,
       "message": "What\u0027s wrong with using the pthread version?\nIn modern C++ there is also a standard API for this.\nI don\u0027t see any value in introducing a third one.",
       "parentUuid": "a57019ad_12038805",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 26
+      },
+      "revId": "9f5e55bf814287d29ce41fdad0c4656964090f8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bebb38b9_3859fffa",
+        "filename": "headers/os/support/MemoryRingIO.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-01-14T18:58:23Z",
+      "side": 1,
+      "message": "There\u0027s nothing particularly wrong. I suppose this is a topic for another time.😉",
+      "parentUuid": "a487d675_5b76019b",
       "range": {
         "startLine": 42,
         "startChar": 0,
@@ -305,6 +382,30 @@
       "side": 1,
       "message": "Sounds like over-engineering things to me, but it depends on the usecase.",
       "parentUuid": "9cabc283_490831ed",
+      "range": {
+        "startLine": 219,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 22
+      },
+      "revId": "9f5e55bf814287d29ce41fdad0c4656964090f8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62604607_7e7fed90",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-01-14T18:58:23Z",
+      "side": 1,
+      "message": "I suppose it could be interpreted in that way, but I think it doesn\u0027t hurt to provide the option. :) I\u0027ll just have the parameter default to false.",
+      "parentUuid": "94a1a167_8934576b",
       "range": {
         "startLine": 219,
         "startChar": 0,

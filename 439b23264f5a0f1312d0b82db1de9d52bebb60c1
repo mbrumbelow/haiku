@@ -165,6 +165,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "86bfa24d_817e12e2",
+        "filename": "docs/user/support/MemoryRingIO.dox",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-01-14T18:58:23Z",
+      "side": 1,
+      "message": "I see B_READ_ONLY is a flag to open a BFile/file descriptor with. Did you mean \"B_READ_ONLY_DEVICE\", or did I miss something?",
+      "parentUuid": "409d3704_8bd6223d",
+      "revId": "439b23264f5a0f1312d0b82db1de9d52bebb60c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bf3293eb_483566b7",
         "filename": "docs/user/support/MemoryRingIO.dox",
         "patchSetId": 4
