@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "3cbe10a3_9af3478c",
         "filename": "src/kits/support/MemoryRingIO.cpp",
@@ -14,8 +15,25 @@
       "side": 1,
       "message": "Should I use a timeout for locking fLock too? There\u0027s also the lack of tests for timeouts which I\u0027ll add in the next revision.",
       "revId": "922928f753baa52332d7f7a619e666b5ed365716",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e443c58a_8226ae4d",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-01-14T00:32:09Z",
+      "side": 1,
+      "message": "This was already fixed when _WaitForCondition() was introduced.",
+      "parentUuid": "3cbe10a3_9af3478c",
+      "revId": "922928f753baa52332d7f7a619e666b5ed365716",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

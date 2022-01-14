@@ -35,6 +35,46 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85425ad9_1cbb6529",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-01-14T00:32:09Z",
+      "side": 1,
+      "message": "Sorry for the excess of comments in advance... Nonetheless, I just want to get the details down before I start changing the structure of the class.",
+      "revId": "9f5e55bf814287d29ce41fdad0c4656964090f8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8745f592_3a2a9ef9",
+        "filename": "headers/os/support/MemoryRingIO.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-01-14T00:32:09Z",
+      "side": 1,
+      "message": "Mark as \"const\"?",
+      "range": {
+        "startLine": 20,
+        "startChar": 3,
+        "endLine": 20,
+        "endChar": 26
+      },
+      "revId": "9f5e55bf814287d29ce41fdad0c4656964090f8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "177f769e_18a94753",
@@ -54,6 +94,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "565fdd35_f585a324",
+        "filename": "headers/os/support/MemoryRingIO.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-01-14T00:32:09Z",
+      "side": 1,
+      "message": "I agree and will change this.",
+      "parentUuid": "177f769e_18a94753",
+      "revId": "9f5e55bf814287d29ce41fdad0c4656964090f8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9277ab7d_0f910219",
         "filename": "headers/os/support/MemoryRingIO.h",
         "patchSetId": 14
@@ -65,6 +123,110 @@
       "writtenOn": "2020-11-19T07:20:46Z",
       "side": 1,
       "message": "Is there any use case to make this reversible? Maybe call it CloseForWriting() and make it a final state?",
+      "revId": "9f5e55bf814287d29ce41fdad0c4656964090f8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43755348_b431f01f",
+        "filename": "headers/os/support/MemoryRingIO.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-01-14T00:32:09Z",
+      "side": 1,
+      "message": "I could see a possible case for temporarily disabling write functionality, along with even disabling read functionality for making sure a whole chunk of data is written to the buffer. (Though this could go along with a  future idea I have of allowing external buffers and areas being passed in.)\n\nI would instead prefer a function like this: \"status_t SetState(uint32 flags)\" \nwhere \"flags\" is a bit-mask that can accept the flags B_NOT_WRITABLE, B_NOT_READABLE, and B_FINAL_STATE. However, B_BAD_VALUE would be returned if B_DISABLE_READ and B_FINAL_STATE are both detected in \"flags\" or any other unknown values are detected in \"flags\".\n\nHaving \"(B_NOT_WRITABLE \u0026 B_FINAL_STATE)\" within the \"flags\" input will permanently disable writing into the ring-buffer. Trying to clear \"(B_NOT_WRITABLE \u0026 B_FINAL_STATE)\" from \"flags\" afterwards will lead to a B_NOT_ALLOWED error and nothing will change.  (I can\u0027t see any case for permanently disabling reading for now at least, am I forgetting something?) Also, there would be a corresponding \"uint32 const State()\" function too.\n\nFurthermore, I could see the SetState() function as a great way for avoiding future ABI breakages in the future.😉\n\nFor example:\nuint32 flags \u003d (B_NOT_READABLE \u0026 B_WHEN_EMPTY) | (B_NOT_WRITABLE \u0026 B_FINAL_STATE);\nSetState(flags);\n\nPlease let me know if I might have missed something though! I\u0027m open to input! :)",
+      "parentUuid": "9277ab7d_0f910219",
+      "revId": "9f5e55bf814287d29ce41fdad0c4656964090f8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca130a2a_404048c1",
+        "filename": "headers/os/support/MemoryRingIO.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-01-14T00:32:09Z",
+      "side": 1,
+      "message": "Add some FBC padding for future proofing?",
+      "revId": "9f5e55bf814287d29ce41fdad0c4656964090f8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a57019ad_12038805",
+        "filename": "headers/os/support/MemoryRingIO.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-01-14T00:32:09Z",
+      "side": 1,
+      "message": "I think this shows that we\u0027re lacking native APIs. :) This shouldn\u0027t block this review for the moment, but shows instead that we need a replacement for \"pthread_cond_t\" and its associated functionalities. We already have the \"ConditionVariable\" class in the kernel, so making a userspace counterpart shouldn\u0027t involve writing a lot of code from scratch at least.",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 26
+      },
+      "revId": "9f5e55bf814287d29ce41fdad0c4656964090f8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78e472a1_00179455",
+        "filename": "headers/os/support/MemoryRingIO.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-01-14T00:32:09Z",
+      "side": 1,
+      "message": "Maybe a bit more reserved space wouldn\u0027t hurt?",
+      "range": {
+        "startLine": 54,
+        "startChar": 13,
+        "endLine": 54,
+        "endChar": 22
+      },
+      "revId": "9f5e55bf814287d29ce41fdad0c4656964090f8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cabc283_490831ed",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-01-14T00:32:09Z",
+      "side": 1,
+      "message": "I feel like the method name \"Clear()\" is deceiving, as fBuffer is not truly \"cleared\". While an average user of BMemoryRingIO would never know that fBuffer still contains previously written data, this could pose a security risk in the case that BMemoryRingIO is being used for transferring sensitive data and a hacker finds a way to access the memory fBuffer points to.\n\nSimply put, maybe a \"zeroOut\" boolean parameter should be added for those more concerned about security?",
+      "range": {
+        "startLine": 219,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 22
+      },
       "revId": "9f5e55bf814287d29ce41fdad0c4656964090f8b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
