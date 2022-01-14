@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59553038_306569f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-14T15:08:17Z",
+      "side": 1,
+      "message": "Once the lower part of the virtual address space is cleared out (see #4865) we can uncomment this code block to initialize the lower part of new page tables to all zeroes.",
+      "revId": "e937c061b3122425652fcbdbde8c23113a25af1b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
