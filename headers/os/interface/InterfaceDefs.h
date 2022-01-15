@@ -122,6 +122,20 @@ struct key_map {
 	uint32	circumflex_tables;
 	uint32	dieresis_tables;
 	uint32	tilde_tables;
+
+	struct {
+		int32	control_map[128];
+		int32	option_caps_shift_map[128];
+		int32	option_caps_map[128];
+		int32	option_shift_map[128];
+		int32	option_map[128];
+		int32	caps_shift_map[128];
+		int32	caps_map[128];
+		int32	shift_map[128];
+		int32	normal_map[128];
+	} extended;
+
+	int32 GetCharForKey(int32 key, int32 modifier);
 };
 
 enum {

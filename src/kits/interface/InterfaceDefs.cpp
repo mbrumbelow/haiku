@@ -774,6 +774,58 @@ get_key_info(key_info *info)
 }
 
 
+int32
+key_map::GetCharForKey(int32 key, int32 modifier)
+{
+	int32 *map = control_map;
+
+	if (key > 127) {
+		map = extended.control_map;
+		key = key - 128;
+	}
+
+	switch (modifier) {
+		case B_CONTROL_TABLE:
+			/* nothing to do here */
+		break;
+
+		case B_OPTION_CAPS_SHIFT_TABLE:
+			map += 128;
+		break;
+
+		case B_OPTION_CAPS_TABLE:
+			map += (128 * 2);
+		break;
+
+		case B_OPTION_SHIFT_TABLE:
+			map += (128 * 3);
+		break;
+
+		case B_OPTION_TABLE:
+			map += (128 * 4);
+		break;
+
+		case B_CAPS_SHIFT_TABLE:
+			map += (128 * 5);
+		break;
+
+		case B_CAPS_TABLE:
+			map += (128 * 6);
+		break;
+
+		case B_SHIFT_TABLE:
+			map += (128 * 7);
+		break;
+
+		case B_NORMAL_TABLE:
+			map += (128 * 8);
+		break;
+	}
+	
+	return map[key];
+}
+
+
 void
 get_key_map(key_map **map, char **key_buffer)
 {
