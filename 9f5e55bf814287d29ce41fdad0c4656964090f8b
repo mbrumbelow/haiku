@@ -165,6 +165,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0ff20a02_906a8b23",
+        "filename": "headers/os/support/MemoryRingIO.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-15T11:09:15Z",
+      "side": 1,
+      "message": "Sounds good to me",
+      "parentUuid": "2e5acd93_4bedbd82",
+      "revId": "9f5e55bf814287d29ce41fdad0c4656964090f8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9277ab7d_0f910219",
         "filename": "headers/os/support/MemoryRingIO.h",
         "patchSetId": 14
@@ -247,6 +265,24 @@
       "side": 1,
       "message": "I am tempted to introduce an experimental support library (something like libexpsupport.so\"), as I am afraid that libshared is getting a bit bulky... \n\nMy question is, are classes that aren\u0027t used by an application removable by stripping unneeded symbols after compilation?",
       "parentUuid": "aa5a00e5_c144bcac",
+      "revId": "9f5e55bf814287d29ce41fdad0c4656964090f8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66fc4896_929accac",
+        "filename": "headers/os/support/MemoryRingIO.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-15T11:09:15Z",
+      "side": 1,
+      "message": "libshared is where these things should go. And it should be a static library to allow ABI changes. Since the code from the static library is copied in each app, we can change the ABI and code compiled against a previous version is not changed. If you put things in a .so, this does not work, change to the .so immediately affect all apps linked to it.\n\nIt doesn\u0027t matter that there is a lot of things in libshared, since it is a static library, each app only pulls from it exactly what it needs.",
+      "parentUuid": "24f95114_1fd15d76",
       "revId": "9f5e55bf814287d29ce41fdad0c4656964090f8b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },

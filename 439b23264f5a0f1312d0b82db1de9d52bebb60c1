@@ -183,6 +183,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b7239790_d258b586",
+        "filename": "docs/user/support/MemoryRingIO.dox",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-15T11:09:15Z",
+      "side": 1,
+      "message": "Yes, or actually I was thinking of posix errno ERDONLY buy I don\u0027t know if we have a B_* error code for that (but the POSIX one could be used directly if we don\u0027t).",
+      "parentUuid": "86bfa24d_817e12e2",
+      "revId": "439b23264f5a0f1312d0b82db1de9d52bebb60c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bf3293eb_483566b7",
         "filename": "docs/user/support/MemoryRingIO.dox",
         "patchSetId": 4
