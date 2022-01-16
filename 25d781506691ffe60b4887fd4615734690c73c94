@@ -383,6 +383,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "98541eab_cba53609",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-16T18:28:35Z",
+      "side": 1,
+      "message": "Kernel args: I copy them to a dynamically allocated region, just like on the ARM.\n\nentry.S trampoline is still to be sorted out. I\u0027d like to copy it to lower 1M, similarly to the SMP trampolines.",
+      "parentUuid": "7473aa5e_842f7710",
+      "range": {
+        "startLine": 336,
+        "startChar": 2,
+        "endLine": 343,
+        "endChar": 106
+      },
+      "revId": "25d781506691ffe60b4887fd4615734690c73c94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b46ece43_0a574920",
         "filename": "src/system/boot/platform/efi/arch/x86/arch_mmu.cpp",
         "patchSetId": 1
