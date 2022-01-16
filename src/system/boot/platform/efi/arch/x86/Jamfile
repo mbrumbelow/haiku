@@ -18,6 +18,7 @@ for platform in [ MultiBootSubDirSetup efi ] {
 		local arch_src =
 			crt0-efi-$(TARGET_ARCH).S
 			entry.S
+			support.S
 			relocation_func.cpp
 			arch_mmu.cpp
 			arch_smp.cpp
