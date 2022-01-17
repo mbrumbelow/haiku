@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b871937_0727e288",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-01-17T16:03:37Z",
+      "side": 1,
+      "message": "If possible the common code between x86 and x86_64 should be factorized (in x86?)",
+      "revId": "ae38884220af09002162c5f6cff55586b6867c30",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c08773fe_2f9203b1",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_smp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-01-17T16:03:37Z",
+      "side": 1,
+      "message": "boot/menu.h comes before boot/platform.h",
+      "revId": "ae38884220af09002162c5f6cff55586b6867c30",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
