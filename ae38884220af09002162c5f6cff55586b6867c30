@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e00ae2a_bbbc331a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-17T16:53:13Z",
+      "side": 1,
+      "message": "That would definitely make sense, but I\u0027m not sure where to put the common code:\nshould it go in platform/efi/arch/x86/?\nor in arch/x86/\nor in some completely different place...",
+      "parentUuid": "8b871937_0727e288",
+      "revId": "ae38884220af09002162c5f6cff55586b6867c30",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c08773fe_2f9203b1",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-01-17T16:03:37Z",
       "side": 1,
       "message": "boot/menu.h comes before boot/platform.h",
+      "revId": "ae38884220af09002162c5f6cff55586b6867c30",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c18a052_aadf22d9",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_smp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-17T16:53:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c08773fe_2f9203b1",
       "revId": "ae38884220af09002162c5f6cff55586b6867c30",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
