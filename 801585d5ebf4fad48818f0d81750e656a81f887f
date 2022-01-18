@@ -50,6 +50,23 @@
       "message": "If we need to do the double cast after Axels suggestion, I think it deserves a code comment. Otherwise someone will probably \u0027fix the double cast\u0027 later.",
       "revId": "801585d5ebf4fad48818f0d81750e656a81f887f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e046e56d_d0e168f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-18T18:18:47Z",
+      "side": 1,
+      "message": "Changing the parameter types might be not very straightforward.\n\nThese functions come in pairs and void* seems to be the right choice:\n\nplatform_allocate_region()/platform_free_region() are used in the bootloader for allocating dynamic memory areas\n\nplatform_kernel_address_to_bootloader_address()/platform_bootloader_address_to_kernel_address() translate between the bootloader\u0027s (identity mapped) address space and the kernel\u0027s virtual address space, they consistently use void* in bootloader and addr_t in kernel space.\n\nSo I\u0027d rather just add a comment to the double casts.\n",
+      "revId": "801585d5ebf4fad48818f0d81750e656a81f887f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
