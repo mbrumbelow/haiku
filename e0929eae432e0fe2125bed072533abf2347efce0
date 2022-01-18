@@ -16,6 +16,41 @@
       "message": "Hm.. converting to addr_t might be desirable.  It would definitely help the code smell a little.\n\n```\ngrep -R \"platform_bootloader_address_to_kernel_address\" src/\nsrc/system/boot/loader/kernel_args.cpp:\t\tplatform_bootloader_address_to_kernel_address(block, \u0026translated_block);\nsrc/system/boot/loader/kernel_args.cpp:\tplatform_bootloader_address_to_kernel_address(block, \u0026translated_block);\nsrc/system/boot/loader/elf.cpp:\t\tplatform_bootloader_address_to_kernel_address((void*)*_address, \u0026res);\nsrc/system/boot/loader/elf.cpp:\t\tplatform_bootloader_address_to_kernel_address(address, _address);\nsrc/system/boot/platform/bios_ia32/mmu.cpp:platform_bootloader_address_to_kernel_address(void *address, addr_t *_result)\nsrc/system/boot/platform/efi/arch/arm/arch_mmu.cpp:\tplatform_bootloader_address_to_kernel_address((void*)sPageDirectory, \u0026vir_pgdir);\nsrc/system/boot/platform/efi/arch/x86_64/arch_mmu.cpp:\tplatform_bootloader_address_to_kernel_address(pml4,\nsrc/system/boot/platform/efi/mmu.h:extern status_t platform_bootloader_address_to_kernel_address(void *address,\nsrc/system/boot/platform/efi/mmu.h:\tif (platform_bootloader_address_to_kernel_address((void *)address, \u0026result)\nsrc/system/boot/platform/efi/mmu.cpp:platform_bootloader_address_to_kernel_address(void *address, addr_t *_result)\nsrc/system/boot/platform/openfirmware/mmu.cpp:platform_bootloader_address_to_kernel_address(void *address, addr_t *_result)\nsrc/system/boot/platform/riscv/mmu.h:\tif (platform_bootloader_address_to_kernel_address((void *)address, \u0026result)\nsrc/system/boot/platform/riscv/mmu.cpp:platform_bootloader_address_to_kernel_address(void* address, addr_t* result)\nsrc/system/boot/platform/riscv/start.cpp:\t// platform_bootloader_address_to_kernel_address(\u0026gKernelArgs, (addr_t*)\u0026args);\n```\n\nmost of those look like simple void* -\u003e addr_t* typedef conversions\n\n*however*, given this is a bug fix... and I get not wanting to rewrite every bootloader and every architecture in a bugfix commit.\n\n+1\u0027ing because the fix is good.. leaving the final call to someone else :-)",
       "revId": "e0929eae432e0fe2125bed072533abf2347efce0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "842f852a_c1516591",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-01-18T22:15:58Z",
+      "side": 1,
+      "message": "I don\u0027t like void *, but probably it should be its own PR?",
+      "parentUuid": "b1290c61_22073820",
+      "revId": "e0929eae432e0fe2125bed072533abf2347efce0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2793095f_6ab5daab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-01-18T22:15:58Z",
+      "side": 1,
+      "message": "Looks good.",
+      "revId": "e0929eae432e0fe2125bed072533abf2347efce0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
