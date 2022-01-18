@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "959b9890_8d6c36e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-01-18T07:44:05Z",
+      "side": 1,
+      "message": "src/system/boot/platform/efi/arch/x86 seems correct.",
+      "parentUuid": "5e00ae2a_bbbc331a",
+      "revId": "ae38884220af09002162c5f6cff55586b6867c30",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c08773fe_2f9203b1",
