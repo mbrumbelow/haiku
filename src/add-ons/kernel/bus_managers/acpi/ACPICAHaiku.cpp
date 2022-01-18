@@ -237,13 +237,14 @@ AcpiOsGetRootPointer()
 	ACPI_STATUS status = AE_OK;
 	DEBUG_FUNCTION();
 	if (sACPIRoot == 0) {
-		sACPIRoot = (ACPI_PHYSICAL_ADDRESS)get_boot_item("ACPI_ROOT_POINTER", NULL);
+		sACPIRoot = (ACPI_PHYSICAL_ADDRESS)(addr_t)get_boot_item("ACPI_ROOT_POINTER", NULL);
 		if (sACPIRoot == 0) {
 			status = AcpiFindRootPointer(&address);
 			if (status == AE_OK)
 				sACPIRoot = address;
 		}
 	}
+
 	return sACPIRoot;
 #else
 	return AeLocalGetRootPointer();
