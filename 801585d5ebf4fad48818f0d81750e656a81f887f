@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffd94708_92f9c13a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-18T15:39:37Z",
+      "side": 1,
+      "message": "No change expected on 64-bit architectures.\nx86_64:  EFI bootup still works in qemu.\nRISC-V: haven\u0027t tried.",
+      "revId": "801585d5ebf4fad48818f0d81750e656a81f887f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
