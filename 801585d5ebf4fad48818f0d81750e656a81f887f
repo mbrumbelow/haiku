@@ -33,6 +33,23 @@
       "message": "Nice catch! Maybe change the parameter type directly to addr_t instead?",
       "revId": "801585d5ebf4fad48818f0d81750e656a81f887f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b06dad5_9928d23d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-01-18T16:49:51Z",
+      "side": 1,
+      "message": "If we need to do the double cast after Axels suggestion, I think it deserves a code comment. Otherwise someone will probably \u0027fix the double cast\u0027 later.",
+      "revId": "801585d5ebf4fad48818f0d81750e656a81f887f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
