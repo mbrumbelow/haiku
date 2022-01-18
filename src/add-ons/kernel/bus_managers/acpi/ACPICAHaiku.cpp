@@ -237,7 +237,8 @@ AcpiOsGetRootPointer()
 	ACPI_STATUS status = AE_OK;
 	DEBUG_FUNCTION();
 	if (sACPIRoot == 0) {
-		sACPIRoot = (ACPI_PHYSICAL_ADDRESS)get_boot_item("ACPI_ROOT_POINTER", NULL);
+		// Double cast needed to avoid sign extension issues on 32-bit architecture
+		sACPIRoot = (ACPI_PHYSICAL_ADDRESS)(addr_t)get_boot_item("ACPI_ROOT_POINTER", NULL);
 		if (sACPIRoot == 0) {
 			status = AcpiFindRootPointer(&address);
 			if (status == AE_OK)
