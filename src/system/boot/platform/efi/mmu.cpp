@@ -207,7 +207,7 @@ platform_bootloader_address_to_kernel_address(void *address, addr_t *_result)
 	// Convert any physical ranges prior to looking up address
 	convert_physical_ranges();
 
-	phys_addr_t addr = (phys_addr_t)address;
+	phys_addr_t addr = (phys_addr_t)(addr_t)address;
 
 	for (memory_region *region = allocated_regions; region;
 			region = region->next) {
@@ -255,7 +255,7 @@ platform_free_region(void *address, size_t size)
 
 	for (memory_region **ref = &allocated_regions; *ref;
 			ref = &(*ref)->next) {
-		if ((*ref)->matches((phys_addr_t)address, size)) {
+		if ((*ref)->matches((phys_addr_t)(addr_t)address, size)) {
 			kBootServices->FreePages((efi_physical_addr)address,
 				ROUNDUP(size, B_PAGE_SIZE) / B_PAGE_SIZE);
 			memory_region* old = *ref;
