@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1df76ded_30ddeda9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-19T15:15:29Z",
+      "side": 1,
+      "message": "https://review.haiku-os.org/c/buildtools/+/4368 is a much extended version of this one.\n\nAsking around, the feeling that adding frame-pointers *EVERYWHERE* might have substantial performance impacts.\n\nGCC sets no-omit-frame-pointer on -O0.   Our kernel / bootloader should never be -O0 unless someone is building DEBUG.\n\nSince backtraces in kernels + bootloaders are always useful... only enable for these components.",
+      "revId": "41a772bee7b8cce66b936babd8a2fbe83cd283a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
