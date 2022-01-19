@@ -33,6 +33,24 @@
       "message": "Current riscv problem is crash in early userland so this change will not help. It should be at least applied to haikuports.cross.",
       "revId": "41a772bee7b8cce66b936babd8a2fbe83cd283a0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1ebdb2c_2178b8b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-19T17:10:12Z",
+      "side": 1,
+      "message": "actually, upstream haiku in qemu is crashing in early kernel load from the bootloader.\n\nThis one actually fixes that early crash (booted 4 times without seeing it).  As for why I have no idea lol.\n\nYou are correct though, this doesn\u0027t solve the issue in user space. We likely need some kind of custom exception unwinder?",
+      "parentUuid": "7476974e_a7b879c2",
+      "revId": "41a772bee7b8cce66b936babd8a2fbe83cd283a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
