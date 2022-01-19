@@ -33,6 +33,23 @@
       "message": "the ids are marked as SUBVENDOR in this file. HDA_INTEL_MACBOOKPRO92 is also a subsystem id.\nthe real list is in the C file https://github.com/freebsd/freebsd-src/blob/main/sys/dev/sound/pci/hda/hdac.c#L80\n\nMoreover none of this ids exist in the pcidevs database.",
       "revId": "c7bf87ed3f94ee029aecdaa5eca1eabd5fe3cfb2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44223c75_da322924",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-19T19:51:22Z",
+      "side": 1,
+      "message": "These were added via https://review.haiku-os.org/c/haiku/+/4500\n\nTo be clear, you\u0027re not removing *all* of the PCIID\u0027s added in 71dc2, only a subset which were added incorrectly.\n\nhttps://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/sound/pci/hda/hda_intel.c#n2393  indeed shows while multiple of the ID\u0027s added in 71dc2 were missing. \n\nWhen I scanned the change, I checked several PCI ID\u0027s against linux\u0027s source driver for hda and confirmed they were missing.  I didn\u0027t check every ID however.\n\nWith that, +2",
+      "revId": "c7bf87ed3f94ee029aecdaa5eca1eabd5fe3cfb2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
