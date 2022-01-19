@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ec7ea1f_fd06bcba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-19T17:22:50Z",
+      "side": 1,
+      "message": "one more round of updates as i found a few things\n* there was still a 4096 magic number in one place\n* use B_PRI format strings so we don\u0027t have to cast everything to uint32_t\n* don\u0027t add virtual addresses below 2G to the list of allocated ranges",
+      "revId": "d7d406efb7e38bb2233099d85e46f8fe555db143",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
