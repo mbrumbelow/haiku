@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6de4670a_409be1aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000359
+      },
+      "writtenOn": "2022-01-20T13:16:09Z",
+      "side": 1,
+      "message": "Thanks, needed something simple to start getting used to Gerrit.",
+      "revId": "54ffc00e1143294c6543504a6d9f828a3f0d7b7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
