@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e54e69a9_b463bcfc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-01-20T06:36:32Z",
+      "side": 1,
+      "message": "I agree, this makes everything easier!",
+      "revId": "e53f4d14cde3e17936111123fb2cde2f51ac7862",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7a442853_467fcade",
