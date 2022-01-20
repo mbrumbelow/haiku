@@ -68,6 +68,24 @@
       "message": "I couldn\u0027t find good sources on the performance impact (admittedly, I didn\u0027t search long), but at least on x86, the extra register could definitely come in handy. Therefore, I think that should only be done in debug builds, not in release builds. Or we could adopt it now, and switch to dropping the frame pointer later on all architectures. Having a variety of test cases on different architectures would make this change more welcome, anyway :-)",
       "revId": "41a772bee7b8cce66b936babd8a2fbe83cd283a0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "757fe0ce_9d3c6a7f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-20T14:49:08Z",
+      "side": 1,
+      "message": "I think on x86 it is still possible to have stacktraces even without a frame pointer (they may be missing some functions but generally it can still be done). And there are not a lot of registers, so the frame pointer is disabled by default, I think.\n\nOn ARM it is a lot more complicated due to the calling convention making it difficult to find function call boundaries in the stack.\n\nOn SPARC it is not possible to do anything without a frame pointer because the frame pointer and stack pointer are handled in hardware (with the SAVE/RESTORE instructions and the shifting register window). So it is enabled by default.\n\nI don\u0027t know about other architectures.",
+      "parentUuid": "af57e4b5_3e39993f",
+      "revId": "41a772bee7b8cce66b936babd8a2fbe83cd283a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
