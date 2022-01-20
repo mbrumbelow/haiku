@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a442853_467fcade",
+        "filename": "src/system/boot/arch/riscv64/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-01-20T05:46:01Z",
+      "side": 1,
+      "message": "librootArchSources should come before librootGenericSources  to be consistent with the ordering of kernelArchDriverSources / kernelGenericDriverSources",
+      "revId": "e53f4d14cde3e17936111123fb2cde2f51ac7862",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee824f6d_8fed1c9a",
+        "filename": "src/system/boot/arch/riscv64/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-01-20T05:46:01Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "e53f4d14cde3e17936111123fb2cde2f51ac7862",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c95270e_89e50ef8",
+        "filename": "src/system/boot/arch/riscv64/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-01-20T05:46:01Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "e53f4d14cde3e17936111123fb2cde2f51ac7862",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
