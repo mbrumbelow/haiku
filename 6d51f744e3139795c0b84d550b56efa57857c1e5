@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "61bb63af_59f8d6bc",
+        "filename": "headers/os/support/MemoryRingIO.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-01-21T21:43:01Z",
+      "side": 1,
+      "message": "I added a WriteDisabled() method that works like the IsClosed() method described above.",
+      "parentUuid": "763cad6b_c01b4062",
+      "revId": "6d51f744e3139795c0b84d550b56efa57857c1e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "28bb27d0_bf490c67",
         "filename": "src/kits/support/MemoryRingIO.cpp",
         "patchSetId": 8
@@ -270,6 +288,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "95569f72_2e07144c",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-01-21T21:43:01Z",
+      "side": 1,
+      "message": "B_READ_ONLY_DEVICE used instead.",
+      "parentUuid": "6e3cc0c7_38d0d3c3",
+      "revId": "6d51f744e3139795c0b84d550b56efa57857c1e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b339b850_506341b2",
@@ -283,6 +319,30 @@
       "writtenOn": "2022-01-14T00:32:09Z",
       "side": 1,
       "message": "I would use a \"B_WRITE_DISABLED\" error code explained above.",
+      "range": {
+        "startLine": 291,
+        "startChar": 3,
+        "endLine": 291,
+        "endChar": 24
+      },
+      "revId": "6d51f744e3139795c0b84d550b56efa57857c1e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70aa639d_cbf65505",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-01-21T21:43:01Z",
+      "side": 1,
+      "message": "B_READ_ONLY_DEVICE used instead.",
+      "parentUuid": "b339b850_506341b2",
       "range": {
         "startLine": 291,
         "startChar": 3,

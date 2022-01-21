@@ -92,6 +92,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f631471d_dbbe295d",
+        "filename": "headers/os/support/MemoryRingIO.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-01-21T21:43:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8745f592_3a2a9ef9",
+      "range": {
+        "startLine": 20,
+        "startChar": 3,
+        "endLine": 20,
+        "endChar": 26
+      },
+      "revId": "9f5e55bf814287d29ce41fdad0c4656964090f8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "177f769e_18a94753",
@@ -181,6 +205,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b806cc1f_5f464613",
+        "filename": "headers/os/support/MemoryRingIO.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-01-21T21:43:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ff20a02_906a8b23",
+      "revId": "9f5e55bf814287d29ce41fdad0c4656964090f8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9277ab7d_0f910219",
@@ -212,6 +254,24 @@
       "side": 1,
       "message": "I could see a possible case for temporarily disabling write functionality, along with even disabling read functionality for making sure a whole chunk of data is written to the buffer. (Though this could go along with a  future idea I have of allowing external buffers and areas being passed in.)\n\nI would instead prefer a function like this: \"status_t SetState(uint32 flags)\" \nwhere \"flags\" is a bit-mask that can accept the flags B_NOT_WRITABLE, B_NOT_READABLE, and B_FINAL_STATE. However, B_BAD_VALUE would be returned if B_DISABLE_READ and B_FINAL_STATE are both detected in \"flags\" or any other unknown values are detected in \"flags\".\n\nHaving \"(B_NOT_WRITABLE \u0026 B_FINAL_STATE)\" within the \"flags\" input will permanently disable writing into the ring-buffer. Trying to clear \"(B_NOT_WRITABLE \u0026 B_FINAL_STATE)\" from \"flags\" afterwards will lead to a B_NOT_ALLOWED error and nothing will change.  (I can\u0027t see any case for permanently disabling reading for now at least, am I forgetting something?) Also, there would be a corresponding \"uint32 const State()\" function too.\n\nFurthermore, I could see the SetState() function as a great way for avoiding future ABI breakages in the future.😉\n\nFor example:\nuint32 flags \u003d (B_NOT_READABLE \u0026 B_WHEN_EMPTY) | (B_NOT_WRITABLE \u0026 B_FINAL_STATE);\nSetState(flags);\n\nPlease let me know if I might have missed something though! I\u0027m open to input! :)",
       "parentUuid": "9277ab7d_0f910219",
+      "revId": "9f5e55bf814287d29ce41fdad0c4656964090f8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b0d4be0_d87f6a8f",
+        "filename": "headers/os/support/MemoryRingIO.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-01-21T21:43:01Z",
+      "side": 1,
+      "message": "For now, this seems to be something I\u0027d look into another time, my time is running short again unfortunately. :(",
+      "parentUuid": "43755348_b431f01f",
       "revId": "9f5e55bf814287d29ce41fdad0c4656964090f8b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -283,6 +343,24 @@
       "side": 1,
       "message": "libshared is where these things should go. And it should be a static library to allow ABI changes. Since the code from the static library is copied in each app, we can change the ABI and code compiled against a previous version is not changed. If you put things in a .so, this does not work, change to the .so immediately affect all apps linked to it.\n\nIt doesn\u0027t matter that there is a lot of things in libshared, since it is a static library, each app only pulls from it exactly what it needs.",
       "parentUuid": "24f95114_1fd15d76",
+      "revId": "9f5e55bf814287d29ce41fdad0c4656964090f8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c7fb833_d28f3dc2",
+        "filename": "headers/os/support/MemoryRingIO.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-01-21T21:43:01Z",
+      "side": 1,
+      "message": "Ah, I assumed linking a static library involved the entire static library being copied into the application. In that case, I\u0027ll move the class to libshared.",
+      "parentUuid": "66fc4896_929accac",
       "revId": "9f5e55bf814287d29ce41fdad0c4656964090f8b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -381,6 +459,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb7dd194_6ebd3d91",
+        "filename": "headers/os/support/MemoryRingIO.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-01-21T21:43:01Z",
+      "side": 1,
+      "message": "No worries for now, given this class will be in libshared for now.",
+      "parentUuid": "78e472a1_00179455",
+      "range": {
+        "startLine": 54,
+        "startChar": 13,
+        "endLine": 54,
+        "endChar": 22
+      },
+      "revId": "9f5e55bf814287d29ce41fdad0c4656964090f8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9cabc283_490831ed",
@@ -442,6 +544,30 @@
       "side": 1,
       "message": "I suppose it could be interpreted in that way, but I think it doesn\u0027t hurt to provide the option. :) I\u0027ll just have the parameter default to false.",
       "parentUuid": "94a1a167_8934576b",
+      "range": {
+        "startLine": 219,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 22
+      },
+      "revId": "9f5e55bf814287d29ce41fdad0c4656964090f8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7accdb65_15820815",
+        "filename": "src/kits/support/MemoryRingIO.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-01-21T21:43:01Z",
+      "side": 1,
+      "message": "On second thought, I see how I might be going a bit far to consider this. Seeing what complications would be involved when looking into compiler dead store optimizations, I think it may not be worth it after all. :)",
+      "parentUuid": "62604607_7e7fed90",
       "range": {
         "startLine": 219,
         "startChar": 0,

@@ -91,6 +91,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d41b1ff_0d152b8e",
+        "filename": "docs/user/support/MemoryRingIO.dox",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-01-21T21:43:01Z",
+      "side": 1,
+      "message": "And...I just noticed that BDataIO implements this method itself, whoops.",
+      "parentUuid": "48e33885_909d9001",
+      "revId": "439b23264f5a0f1312d0b82db1de9d52bebb60c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "896519ca_749d28dc",
@@ -195,6 +213,24 @@
       "side": 1,
       "message": "Yes, or actually I was thinking of posix errno ERDONLY buy I don\u0027t know if we have a B_* error code for that (but the POSIX one could be used directly if we don\u0027t).",
       "parentUuid": "86bfa24d_817e12e2",
+      "revId": "439b23264f5a0f1312d0b82db1de9d52bebb60c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2c08bba_aa09894e",
+        "filename": "docs/user/support/MemoryRingIO.dox",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-01-21T21:43:01Z",
+      "side": 1,
+      "message": "As there is only EROFS, I used the equivalent B_READ_ONLY_DEVICE.",
+      "parentUuid": "b7239790_d258b586",
       "revId": "439b23264f5a0f1312d0b82db1de9d52bebb60c1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
