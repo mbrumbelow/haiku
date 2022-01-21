@@ -47,6 +47,8 @@ extern status_t platform_kernel_address_to_bootloader_address(addr_t address,
 extern status_t platform_bootloader_address_to_kernel_address(void *address,
 	addr_t *_result);
 
+extern status_t platform_allocate_lomem(void **_address, size_t size);
+
 #ifdef __cplusplus
 }
 #endif

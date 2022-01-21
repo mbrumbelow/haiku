@@ -27,10 +27,6 @@ static uint32_t *sNextPageTable = NULL;
 static uint32_t *sLastPageTable = NULL;
 
 
-extern "C" void arch_enter_kernel(uint32_t ttbr, struct kernel_args *kernelArgs,
-	addr_t kernelEntry, addr_t kernelStackTop);
-
-
 static void
 dump_page_dir(void)
 {
@@ -327,10 +323,6 @@ arch_mmu_generate_post_efi_page_tables(size_t memory_map_size,
 		map_range(vaddr, paddr, size,
 			ARM_MMU_L2_FLAG_B | ARM_MMU_L2_FLAG_C | ARM_MMU_L2_FLAG_AP_RW);
 	}
-
-	// identity mapping for entry.S trampoline
-	map_range((uint32_t)arch_enter_kernel, (uint32_t)arch_enter_kernel, B_PAGE_SIZE,
-		ARM_MMU_L2_FLAG_B | ARM_MMU_L2_FLAG_C | ARM_MMU_L2_FLAG_AP_RW);
 
 	map_range_to_new_area(gKernelArgs.arch_args.uart.regs, ARM_MMU_L2_FLAG_B);
 
