@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08a6838d_1027b189",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2022-01-21T15:46:58Z",
+      "side": 1,
+      "message": "Does that +2 include \"tested in beta3\"? This may need parts of https://review.haiku-os.org/c/haiku/+/3041, I\u0027ll try to setup a vm and test it myself tonight or in the weekend if no one has already.",
+      "revId": "9a5108f0c3c86d15be5ffa2f84b3aba0cf678094",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
