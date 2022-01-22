@@ -16,6 +16,41 @@
       "message": "Talk about code smell...\nfirst we try the Gruyere Vieux\nthen the natto\nfinally the surstromming\n",
       "revId": "9d84516e3b04417518f3412a9c1fc512b160fb58",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c48303b5_4dfdcbf6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-22T02:29:46Z",
+      "side": 1,
+      "message": "lol, no disagreements.\n\nMost of this code was cobbled together as quick as possible to get the EFI bootloader compiling on arm :-)",
+      "parentUuid": "ef9a65a4_4b0b6390",
+      "revId": "9d84516e3b04417518f3412a9c1fc512b160fb58",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d6c040a_ef745f92",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-22T02:29:46Z",
+      "side": 1,
+      "message": "looks fine.  an improvement for sure",
+      "revId": "9d84516e3b04417518f3412a9c1fc512b160fb58",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
