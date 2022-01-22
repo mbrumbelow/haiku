@@ -16,6 +16,24 @@
       "message": "this changes the alignment and entry counts to 256. \n\n#define ARM_MMU_L2_COARSE_ENTRY_COUNT\t256\n\nSeemingly makes sense by name.. assuming this stuff was tested?",
       "revId": "61112afeb267aa4e6e7693547b9701b5accbb0a6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6068bc4a_a97f5523",
+        "filename": "src/system/kernel/arch/arm/paging/32bit/paging.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-22T08:20:06Z",
+      "side": 0,
+      "message": "Yes, this is absolutely necessary.\nThe original code was probably copied from the x86, assuming that one page table is 4KB and contains 4-byte entries \u003d 1024 entries, therefore one page table (on the x86) defines the mapping of a 4MB region.\nHowever, on the ARM one page table contains 256 entries of 4-byte \u003d 1KB. So in this case one page table defines the mapping of an 1MB region. (cf. functions dump_page_dir() and get_next_page_table() in arch_mmu.cpp)\n\nTesting:\n* If I enable the memset in ARMPagingStructures32Bit but leave this define as original, then I get a crash as it\u0027s trying to clear out too many entries at startup.\n* If I add this change, I get the expected behavior of zeroing only the mapping for the lower 2G. (usual bootup icons light up, i.e. 4th icon on master, rocket icon on my local dev branch)",
+      "parentUuid": "48a592f6_39bb73b0",
+      "revId": "61112afeb267aa4e6e7693547b9701b5accbb0a6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
