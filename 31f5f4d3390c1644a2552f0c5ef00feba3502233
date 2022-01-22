@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1456e20b_795c7bb2",
+        "filename": "src/system/boot/platform/efi/arch/arm/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-22T02:34:26Z",
+      "side": 0,
+      "message": "ah yeah, dropping the identity mapping. yup.",
+      "revId": "31f5f4d3390c1644a2552f0c5ef00feba3502233",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
