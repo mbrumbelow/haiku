@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48a592f6_39bb73b0",
+        "filename": "src/system/kernel/arch/arm/paging/32bit/paging.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-22T02:32:35Z",
+      "side": 0,
+      "message": "this changes the alignment and entry counts to 256. \n\n#define ARM_MMU_L2_COARSE_ENTRY_COUNT\t256\n\nSeemingly makes sense by name.. assuming this stuff was tested?",
+      "revId": "61112afeb267aa4e6e7693547b9701b5accbb0a6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
