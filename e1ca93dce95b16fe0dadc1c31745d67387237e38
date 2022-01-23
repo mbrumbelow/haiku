@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "229aaad7_27164bea",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/ACPICAHaiku.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-23T13:47:36Z",
+      "side": 1,
+      "message": "I moved the declaration of address and status inside this block as they are not used anywhere else.",
+      "range": {
+        "startLine": 243,
+        "startChar": 3,
+        "endLine": 244,
+        "endChar": 21
+      },
+      "revId": "e1ca93dce95b16fe0dadc1c31745d67387237e38",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
