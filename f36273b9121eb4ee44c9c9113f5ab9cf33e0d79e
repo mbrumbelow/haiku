@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e902a044_0f17318c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-01-23T14:06:17Z",
+      "side": 1,
+      "message": "Does anyone know why it is doing sign extension? Seems to me it shouldn\u0027t if pointers are unsigned?",
+      "revId": "f36273b9121eb4ee44c9c9113f5ab9cf33e0d79e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
