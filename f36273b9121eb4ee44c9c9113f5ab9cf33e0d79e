@@ -34,6 +34,24 @@
       "parentUuid": "e902a044_0f17318c",
       "revId": "f36273b9121eb4ee44c9c9113f5ab9cf33e0d79e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16f4a6d5_f5828b09",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-23T19:15:09Z",
+      "side": 1,
+      "message": "There isn\u0027t really a rationale for this, but if you really want one, you can consider that \"positive\" pointers are in userspace, and \"negative\" pointers are in kernel space.\n\nAlso on 64-bit systems, usually the pointer does not use the full 64bit (physical addresses have only 40 to 48 usable bits, depending on the architecture and CPU generation). In this case, it is usually required that the extra bits match the last significant one, which is a kind of sign extension in some way. Basically this allows to put things at \"start\" or \"end\" of the physical address space, and have them remain there even if the number of significant bits in a physical pointer is changed.",
+      "parentUuid": "bacba1ee_1618f29f",
+      "revId": "f36273b9121eb4ee44c9c9113f5ab9cf33e0d79e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
