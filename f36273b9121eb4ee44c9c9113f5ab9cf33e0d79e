@@ -16,6 +16,24 @@
       "message": "Does anyone know why it is doing sign extension? Seems to me it shouldn\u0027t if pointers are unsigned?",
       "revId": "f36273b9121eb4ee44c9c9113f5ab9cf33e0d79e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bacba1ee_1618f29f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-23T14:15:15Z",
+      "side": 1,
+      "message": "this one seems to give us an answer (but not a rationale on why it is done like this):\nhttps://gcc.gnu.org/onlinedocs/gcc/Arrays-and-pointers-implementation.html\n\nA cast from pointer to integer discards most-significant bits if the pointer representation is larger than the integer type, sign-extends5 if the pointer representation is smaller than the integer type, otherwise the bits are unchanged.\n\n\nit gets even better in the footnotes:\n\n\nFootnotes\n(5)\n\nFuture versions of GCC may zero-extend, or use a target-defined ptr_extend pattern. Do not rely on sign extension.",
+      "parentUuid": "e902a044_0f17318c",
+      "revId": "f36273b9121eb4ee44c9c9113f5ab9cf33e0d79e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
