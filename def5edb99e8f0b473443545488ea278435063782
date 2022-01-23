@@ -52,6 +52,24 @@
       "parentUuid": "74fd4788_27756d69",
       "revId": "def5edb99e8f0b473443545488ea278435063782",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cded05e2_4d7249f5",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/ACPICAHaiku.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-23T13:44:37Z",
+      "side": 1,
+      "message": "Fair enough.\nI\u0027ll try to tackle this issue in a separate commit.",
+      "parentUuid": "76c07dca_ca3e6b42",
+      "revId": "def5edb99e8f0b473443545488ea278435063782",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
