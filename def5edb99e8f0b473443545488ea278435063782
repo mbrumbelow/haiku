@@ -16,6 +16,24 @@
       "message": "I think in the kernel, if we do things right, we should never need to cast a void* to a phys_addr_t. This would create (or rather, would not solve) problems on PAE systems (32bit x86), where void* and addr_t are 32bit, but phys_addr_t is 64bit. It may still work OK as long as the table is actually located in the first 4GB of RAM, but it\u0027s not very safe.\n\nSo it looks like a level of indirection is missing here, and this code should be something like:\n\n    ACPI_PHYSICAL_ADDRESS* address \u003d (ACPI_PHYSICAL_ADDRESS*)get_boot_item(\"ACPI_ROOT_POINTER\", NULL);\n    if (address !\u003d NULL)\n        sACPIRoot \u003d *address;\n\nAnd the boot side code should be adjusted accordingly.\n\nIn the bootloader, I can understand casts from void* to phys_addr_t under controlled conditions (when there is identity mapping). But in the kernel there really shouldn\u0027t be any place where we need to do that.",
       "revId": "def5edb99e8f0b473443545488ea278435063782",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74fd4788_27756d69",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/ACPICAHaiku.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-23T09:33:06Z",
+      "side": 1,
+      "message": "This is exactly what\u0027s happening here (in the original code)\nThere\u0027s a cast from void* to phys_addr_t, and the probelm is exactly what you described: it doesn\u0027t work on x86 with PAE.\n\nAdding an extra level of indirection could be a way forward but then it will break the compatibility with old (e.g. beta3) bootloader - also for the x86_64 as it uses the same field.\n\nHowever, maybe we don\u0027t need to change the bootloader after all as ACPI root pointer is passed to the kernel in a FixedWidthPointer field of arch_kernel_args and I believe FixedWidthPointer is always 64-bits. So it might be enough to change how ACPI_ROOT_POINTER is populated in kernel/arch/x86/arch_platform.cpp",
+      "parentUuid": "ea559584_e1657e1f",
+      "revId": "def5edb99e8f0b473443545488ea278435063782",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
