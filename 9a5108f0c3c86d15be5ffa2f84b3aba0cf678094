@@ -68,6 +68,24 @@
       "message": "we can push this change, but I don\u0027t know if the infrastructure is setup to build changes on the beta3 branch ATM",
       "revId": "9a5108f0c3c86d15be5ffa2f84b3aba0cf678094",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60a7063b_ee8fa01e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-23T08:46:49Z",
+      "side": 1,
+      "message": "Why wouldn\u0027t it be? There already were some updates to the branch after release (and likewise for beta2).\n\nWe are just not really good at selecting which changes to backport...",
+      "parentUuid": "55f70405_b537568f",
+      "revId": "9a5108f0c3c86d15be5ffa2f84b3aba0cf678094",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
