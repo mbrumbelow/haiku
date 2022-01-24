@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ff1909ff_66ea6f56",
+        "filename": "headers/os/interface/Font.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-01-24T17:03:03Z",
+      "side": 1,
+      "message": "Indeed. Furthermore, if all fonts are going to have tokens now, why not remove the other mechanisms for identifying the fonts (family/face/etc. IDs) and just use the Token, saving a bunch of space in the class?",
+      "parentUuid": "fde07e28_ef66fb4f",
+      "revId": "6e1134df4971de9d21332aeba9cb7b26f3060dd3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "241a8353_128ba39a",
         "filename": "headers/os/interface/Font.h",
         "patchSetId": 5
