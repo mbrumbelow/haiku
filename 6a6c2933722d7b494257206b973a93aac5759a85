@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5ca458d_d700b263",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-24T17:56:26Z",
+      "side": 1,
+      "message": "I did something not very wise in commit 19960ba / review 4742:\ndtb_get_interrupt_parent returns a node offset so it\u0027s type should be int otherwise returning -1 as an error status is not a good idea.\n\nAlso the loop condition in dtb_get_interrupt_cells should be adjusted accordingly as 0 is a valid node offset.",
+      "revId": "6a6c2933722d7b494257206b973a93aac5759a85",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
