@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "cc6f1ab2_81b9b393",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-24T13:16:13Z",
+      "side": 1,
+      "message": "I think this version is better. It will however need everyone to update their bootloader if this is used, otherwise the result is incorrectly dereferencing a pointer.",
+      "revId": "e1ca93dce95b16fe0dadc1c31745d67387237e38",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "229aaad7_27164bea",
         "filename": "src/add-ons/kernel/bus_managers/acpi/ACPICAHaiku.cpp",
         "patchSetId": 1
