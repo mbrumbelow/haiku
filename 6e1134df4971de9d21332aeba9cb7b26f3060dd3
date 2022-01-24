@@ -16,6 +16,40 @@
       "message": "This ended up being more challenging than expected and I ended up touching a lot more code - but this now works with both area_id and disk files.\n\nI did end up doing work to \u0027normalize\u0027 almost all of the app server font operations so they consistently use ServerFonts instead of directly accessing the FontManager, and I\u0027ve made sure that no current font functionality was broken along the way - CharacterMap, FontDemo, WebPositive, StyledEdit etc all behave exactly as before.  \n\nI also implemented BFont::BoundingBox while I was in there since it seemed trivial with the bbox struct inside of FT_Face.  \n\nI know it\u0027s a large patch, but it actually was a non-trivial issue to solve properly. I don\u0027t think it could be done simpler and still maintain proper separation between user fonts and system fonts - but I could be wrong.\n\n",
       "revId": "6e1134df4971de9d21332aeba9cb7b26f3060dd3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fde07e28_ef66fb4f",
+        "filename": "headers/os/interface/Font.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-01-24T08:35:29Z",
+      "side": 1,
+      "message": "should be private I think (then an underscore prefix can be added).",
+      "revId": "6e1134df4971de9d21332aeba9cb7b26f3060dd3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "241a8353_128ba39a",
+        "filename": "headers/os/interface/Font.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-01-24T08:35:29Z",
+      "side": 1,
+      "message": "adding a field without removing something else changes the size of the class.",
+      "revId": "6e1134df4971de9d21332aeba9cb7b26f3060dd3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
