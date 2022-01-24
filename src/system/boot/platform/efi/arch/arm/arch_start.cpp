@@ -19,17 +19,18 @@
 extern "C" typedef void (*arch_enter_kernel_t)(uint32_t, addr_t, addr_t, addr_t);
 
 
+// From entry.S
 extern "C" void arch_enter_kernel(uint32_t ttbr, addr_t kernelArgs,
 	addr_t kernelEntry, addr_t kernelStackTop);
 
 // From arch_mmu.cpp
-extern void arch_mmu_post_efi_setup(size_t memory_map_size,
-	efi_memory_descriptor *memory_map, size_t descriptor_size,
-	uint32_t descriptor_version);
+extern void arch_mmu_post_efi_setup(size_t memoryMapSize,
+	efi_memory_descriptor *memoryMap, size_t descriptorSize,
+	uint32_t descriptorVersion);
 
-extern uint32_t arch_mmu_generate_post_efi_page_tables(size_t memory_map_size,
-	efi_memory_descriptor *memory_map, size_t descriptor_size,
-	uint32_t descriptor_version);
+extern uint32_t arch_mmu_generate_post_efi_page_tables(size_t memoryMapSize,
+	efi_memory_descriptor *memoryMap, size_t descriptorSize,
+	uint32_t descriptorVersion);
 
 
 void
@@ -43,38 +44,38 @@ static const char*
 memory_region_type_str(int type)
 {
 	switch (type)	{
-	case EfiReservedMemoryType:
-		return "ReservedMemoryType";
-	case EfiLoaderCode:
-		return "LoaderCode";
-	case EfiLoaderData:
-		return "LoaderData";
-	case EfiBootServicesCode:
-		return "BootServicesCode";
-	case EfiBootServicesData:
-		return "BootServicesData";
-	case EfiRuntimeServicesCode:
-		return "RuntimeServicesCode";
-	case EfiRuntimeServicesData:
-		return "RuntimeServicesData";
-	case EfiConventionalMemory:
-		return "ConventionalMemory";
-	case EfiUnusableMemory:
-		return "UnusableMemory";
-	case EfiACPIReclaimMemory:
-		return "ACPIReclaimMemory";
-	case EfiACPIMemoryNVS:
-		return "ACPIMemoryNVS";
-	case EfiMemoryMappedIO:
-		return "MMIO";
-	case EfiMemoryMappedIOPortSpace:
-		return "MMIOPortSpace";
-	case EfiPalCode:
-		return "PalCode";
-	case EfiPersistentMemory:
-		return "PersistentMemory";
-	default:
-		return "unknown";
+		case EfiReservedMemoryType:
+			return "ReservedMemoryType";
+		case EfiLoaderCode:
+			return "LoaderCode";
+		case EfiLoaderData:
+			return "LoaderData";
+		case EfiBootServicesCode:
+			return "BootServicesCode";
+		case EfiBootServicesData:
+			return "BootServicesData";
+		case EfiRuntimeServicesCode:
+			return "RuntimeServicesCode";
+		case EfiRuntimeServicesData:
+			return "RuntimeServicesData";
+		case EfiConventionalMemory:
+			return "ConventionalMemory";
+		case EfiUnusableMemory:
+			return "UnusableMemory";
+		case EfiACPIReclaimMemory:
+			return "ACPIReclaimMemory";
+		case EfiACPIMemoryNVS:
+			return "ACPIMemoryNVS";
+		case EfiMemoryMappedIO:
+			return "MMIO";
+		case EfiMemoryMappedIOPortSpace:
+			return "MMIOPortSpace";
+		case EfiPalCode:
+			return "PalCode";
+		case EfiPersistentMemory:
+			return "PersistentMemory";
+		default:
+			return "unknown";
 	}
 }
 
