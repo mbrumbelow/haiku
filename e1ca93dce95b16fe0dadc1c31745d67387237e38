@@ -92,6 +92,24 @@
       "message": "Why do we need a static variable here?",
       "revId": "e1ca93dce95b16fe0dadc1c31745d67387237e38",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e33d804c_59e213e1",
+        "filename": "src/system/kernel/arch/x86/arch_platform.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-24T17:10:00Z",
+      "side": 1,
+      "message": "the boot item is now a pointer to this variable. Obviously for this to work, the variable itself must remain allocated. add_boot_item does not make a copy of the data pointed data.",
+      "parentUuid": "5e1033a3_08c4677a",
+      "revId": "e1ca93dce95b16fe0dadc1c31745d67387237e38",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
