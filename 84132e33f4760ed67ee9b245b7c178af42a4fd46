@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5980c81_8d3067eb",
+        "filename": "src/system/boot/platform/efi/arch/arm/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-25T13:41:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ffd310a_98646bed",
+      "revId": "84132e33f4760ed67ee9b245b7c178af42a4fd46",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "da25062f_3be4cafb",
@@ -66,6 +84,24 @@
       "writtenOn": "2022-01-25T11:36:06Z",
       "side": 1,
       "message": "normally this should be virtualPageDirectory. Let\u0027s at least be consistent with other places where we use abbreviations and use virtPageDirectory?",
+      "revId": "84132e33f4760ed67ee9b245b7c178af42a4fd46",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9c5f30c_11703ae3",
+        "filename": "src/system/boot/platform/efi/arch/arm/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-25T13:41:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da25062f_3be4cafb",
       "revId": "84132e33f4760ed67ee9b245b7c178af42a4fd46",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
