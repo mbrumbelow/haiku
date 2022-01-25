@@ -16,6 +16,23 @@
       "message": "one more round of updates as i found a few things\n* there was still a 4096 magic number in one place\n* use B_PRI format strings so we don\u0027t have to cast everything to uint32_t\n* don\u0027t add virtual addresses below 2G to the list of allocated ranges",
       "revId": "d7d406efb7e38bb2233099d85e46f8fe555db143",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aea26aab_5a5e1774",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_mmu.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-25T11:46:15Z",
+      "side": 1,
+      "message": "it was discussed in the ARM patches that this comment should now be removed, I guess that applies here as well",
+      "revId": "d7d406efb7e38bb2233099d85e46f8fe555db143",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
