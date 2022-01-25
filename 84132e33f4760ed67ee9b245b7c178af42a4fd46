@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "083cfccc_fe63de9f",
+        "filename": "src/system/boot/platform/efi/arch/arm/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-25T11:36:06Z",
+      "side": 1,
+      "message": "just pointing out there are some small changes in behavior and not just code cleanup here. I assume this is intentional but usually we try to separate those from large renaming/reformatting commits if possible.",
+      "revId": "84132e33f4760ed67ee9b245b7c178af42a4fd46",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c023f16f_ee478441",
         "filename": "src/system/boot/platform/efi/arch/arm/arch_mmu.cpp",
         "patchSetId": 1
@@ -32,6 +49,23 @@
       "side": 1,
       "message": "Ah yes, you\u0027re right. I\u0027ll update tomorrow.",
       "parentUuid": "c023f16f_ee478441",
+      "revId": "84132e33f4760ed67ee9b245b7c178af42a4fd46",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da25062f_3be4cafb",
+        "filename": "src/system/boot/platform/efi/arch/arm/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-25T11:36:06Z",
+      "side": 1,
+      "message": "normally this should be virtualPageDirectory. Let\u0027s at least be consistent with other places where we use abbreviations and use virtPageDirectory?",
       "revId": "84132e33f4760ed67ee9b245b7c178af42a4fd46",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }

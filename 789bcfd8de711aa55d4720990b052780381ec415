@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc3b5a16_8c9bf6d3",
+        "filename": "src/system/boot/platform/efi/arch/arm/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-25T11:36:06Z",
+      "side": 0,
+      "message": "just pointing out there are some small changes in behavior and not just code cleanup here. I assume this is intentional but usually we try to separate those from large renaming/reformatting commits if possible.",
+      "revId": "789bcfd8de711aa55d4720990b052780381ec415",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
