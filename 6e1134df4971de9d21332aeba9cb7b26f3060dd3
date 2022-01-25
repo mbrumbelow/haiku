@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "616cacfd_a0792ac7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-01-25T20:36:59Z",
+      "side": 1,
+      "message": "Waddlesplash, you raise a very good point. I added the token to make it similar to other user-added types (BBitmap for example) but BFont has a perfectly good \u0027token\u0027 already via `(family \u003c\u003c 16) | style`. It doesn\u0027t make sense to waste another 32 bits with a separate token. I *think* I can change/revert everything to work with the family and style and I think it should even decrease the amount of code change.",
+      "revId": "6e1134df4971de9d21332aeba9cb7b26f3060dd3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fde07e28_ef66fb4f",
