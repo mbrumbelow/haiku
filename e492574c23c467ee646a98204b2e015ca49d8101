@@ -33,6 +33,23 @@
       "message": "korli, axeld: Any thoughts on this change? WINE is ready to be built at HaikuPorts once this is merged.",
       "revId": "e492574c23c467ee646a98204b2e015ca49d8101",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96848370_c9717353",
+        "filename": "src/system/kernel/arch/x86/64/thread.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-01-25T18:42:50Z",
+      "side": 1,
+      "message": "Is KERNEL_GS_BASE correct? Shouldn\u0027t this be just GS_BASE for userland GS base?",
+      "revId": "e492574c23c467ee646a98204b2e015ca49d8101",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
