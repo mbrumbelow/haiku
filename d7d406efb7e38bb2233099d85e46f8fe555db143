@@ -33,6 +33,24 @@
       "message": "it was discussed in the ARM patches that this comment should now be removed, I guess that applies here as well",
       "revId": "d7d406efb7e38bb2233099d85e46f8fe555db143",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc338dd5_1c11e402",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_mmu.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-25T12:57:32Z",
+      "side": 1,
+      "message": "yes i think so",
+      "parentUuid": "aea26aab_5a5e1774",
+      "revId": "d7d406efb7e38bb2233099d85e46f8fe555db143",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
