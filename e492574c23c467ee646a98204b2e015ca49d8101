@@ -68,6 +68,24 @@
       "parentUuid": "96848370_c9717353",
       "revId": "e492574c23c467ee646a98204b2e015ca49d8101",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65a12eab_e2d69ca4",
+        "filename": "src/system/kernel/arch/x86/64/thread.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-01-26T03:42:31Z",
+      "side": 1,
+      "message": "Registers are swapped when entering kernel. GS_BASE is used by kernel TLS and KERNEL_GS_BASE have saved user GS_BASE value.",
+      "parentUuid": "264316ef_ede1f0ca",
+      "revId": "e492574c23c467ee646a98204b2e015ca49d8101",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
