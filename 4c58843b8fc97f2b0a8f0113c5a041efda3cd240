@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f2e6966_a42baabf",
+        "filename": "src/system/boot/arch/x86/arch_hpet.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-01-26T17:15:45Z",
+      "side": 1,
+      "message": "Are storing physical address really needed in addition to virtual? On RISC-V I only passed virtual addresses. Kernel can walk page table and get physical address if needed.",
+      "revId": "4c58843b8fc97f2b0a8f0113c5a041efda3cd240",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
