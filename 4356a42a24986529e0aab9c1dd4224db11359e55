@@ -33,6 +33,24 @@
       "message": "What does \"2\" mean?",
       "revId": "4356a42a24986529e0aab9c1dd4224db11359e55",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8268ee6e_ddd7bd1a",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_timer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-26T17:47:50Z",
+      "side": 1,
+      "message": "It is the hardware timer channel to use. On BIOS systems we use channel 0. But on EFI, timer channel 0 is reserved for the firmware which can use it to run its own timers. So we use channel 2, which is the one connected to the PC speaker (and we disable the output to the PC speaker so this function can work without making any noise).\n\nThis is just copied over from the x86_64 version of this code.",
+      "parentUuid": "36259b6f_d678a024",
+      "revId": "4356a42a24986529e0aab9c1dd4224db11359e55",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
