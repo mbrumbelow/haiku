@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17989016_0298e4e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000359
+      },
+      "writtenOn": "2022-01-26T12:45:00Z",
+      "side": 1,
+      "message": "Hi, have added some of the people active in the forum topic, and other present in this kind of patches.\n\nSome comments:\n\n- Reused from ARM port:\n    - Existing var identifiers that don\u0027t comply with the identifier convention. Kept due consistence with rest of files reused\n    - There are KernelArgs incorporations just to cope with the build. This and other possible interfaces with the Kernel are WIP\n\n- Reused from Jaroslaw Pelczar ARM64 port\n    - Most of reused code(https://github.com/korli/haiku-jarek/tree/master/src/system/kernel/arch/aarch64) is seen also in freeBSD\n\n- EL2\n    - Use case covered: EFI is passing the control in EL2 and existing MMU configuration covers the physical map.\n    - Additional logging has been placed to be able to elaborate other scenarios\n\n- arch_mmu_post_efi_setup -\u003e SetVirtualAddressMap: Comments needed here. This part of code is commented out. It is not clear if Uboot implements properly the service, even not clear to me what is it actually doing, as memory mapping is previously done...\n\n- aarch64.h: Most of definitions here should be shared with the kernel. As the port advances file should dissapear.\n\n- platform_allocate_region() vs mmu_allocate_page(): The first gave me a memory range which has been already at loading binaries stage...\n",
+      "revId": "ada565cb352dd5ce02d8bcef58ff70e958ad115d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
