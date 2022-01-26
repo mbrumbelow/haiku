@@ -51,6 +51,24 @@
       "parentUuid": "36259b6f_d678a024",
       "revId": "4356a42a24986529e0aab9c1dd4224db11359e55",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8029e2a_af9bfa90",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_timer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-01-26T18:07:39Z",
+      "side": 1,
+      "message": "Maybe this explain should be added as code comment?",
+      "parentUuid": "8268ee6e_ddd7bd1a",
+      "revId": "4356a42a24986529e0aab9c1dd4224db11359e55",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
