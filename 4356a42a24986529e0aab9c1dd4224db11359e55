@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8f28b78_e86c981d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-26T17:19:45Z",
+      "side": 1,
+      "message": "If I rebase this on top of review 4864, arch_timer.cpp becomes trivial.\n\nActually we might take this one step further: as now arch_timer.cpp for x86 and x86_64 are identical, maybe we can have just one of these and patch the Jamfiles... but I\u0027m not sure if that step is really needed as arch_timer.cpp is only 10 lines anyway. (and most of it is the copyright header and boilerplate)",
+      "revId": "4356a42a24986529e0aab9c1dd4224db11359e55",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
