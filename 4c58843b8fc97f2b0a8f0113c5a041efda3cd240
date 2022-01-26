@@ -16,6 +16,24 @@
       "message": "Are storing physical address really needed in addition to virtual? On RISC-V I only passed virtual addresses. Kernel can walk page table and get physical address if needed.",
       "revId": "4c58843b8fc97f2b0a8f0113c5a041efda3cd240",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67a6b867_d1cb4ce8",
+        "filename": "src/system/boot/arch/x86/arch_hpet.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-26T17:31:04Z",
+      "side": 1,
+      "message": "As I can see these fields are accessed only in function hpet_init() in file x86_hpet.cpp which is not active in most cases. But looking at the code, hpet_init() calls vm_map_physical_memory with alreadyWired set to true.\n\nI guess this is not strictly necessary but I was trying not to break things, i.e. not modifying the way how kernel_args and arch_args are filled in so people don\u0027t need to upgrade the bootloader.",
+      "parentUuid": "0f2e6966_a42baabf",
+      "revId": "4c58843b8fc97f2b0a8f0113c5a041efda3cd240",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
