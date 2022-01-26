@@ -33,6 +33,24 @@
       "message": "Wow yeah! This looks impressive.\n\nBefore any review comments... I noticed that this change is based off a commit from last October, so perhaps can you rebase and check that it still works as expected? Quite a few things changed since then, including the toolchain moving from gcc 8.3 to 11.2",
       "revId": "ada565cb352dd5ce02d8bcef58ff70e958ad115d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d1ebf3f_cd99fd27",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000359
+      },
+      "writtenOn": "2022-01-26T14:41:12Z",
+      "side": 1,
+      "message": "Thanks David,\n\nTrue, and I am also not happy with that. The reason I sticked there is that there were build problems for ARM64:\n\n    https://discuss.haiku-os.org/t/arm64-port-status/11224/137\n\nLooks I was lucky enough to clone at a point where I managed to get the minimal artifacs to be able to progress.\n\nHas the situation improved? (feel my fear)\n\nI would need only the EFI loader(haiku_loader.efi) and the kernel (kernel_arm64).",
+      "parentUuid": "8e71d536_5772dcf5",
+      "revId": "ada565cb352dd5ce02d8bcef58ff70e958ad115d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
