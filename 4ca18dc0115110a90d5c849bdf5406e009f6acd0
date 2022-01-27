@@ -33,6 +33,23 @@
       "message": "Actually, while this may fix the hangs, I think I see what the real race is, and it may be resolvable without having to resort to \"borrowing\" the scheduler_lock. I\u0027ll attempt a second patch later...",
       "revId": "4ca18dc0115110a90d5c849bdf5406e009f6acd0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d68383be_b8ba3fc0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-01-27T16:16:40Z",
+      "side": 1,
+      "message": "CC\u0027ing korli and axeld also, I guess there is a further question, given how troublesome this API has been, as to whether we even need such an advanced API. Most other OSes (e.g. the BSDs) seem to have a condvars API *without* an \"entry\" system; instead the \"wait\" functions just take various kinds of locks, and so the critical section for condvars there is basically identical to \"mutex_switch_from_*\" for us (i.e. radically simpler.)\n\nAs fun as it has been to work on this code, maybe that makes more sense in the long term?",
+      "revId": "4ca18dc0115110a90d5c849bdf5406e009f6acd0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
