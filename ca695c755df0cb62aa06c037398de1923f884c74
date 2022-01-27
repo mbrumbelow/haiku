@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d98d101c_00c0bbc9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-27T02:07:29Z",
+      "side": 1,
+      "message": "overall this one looks like a great improvement.  It would be ideal if the remaining functional changes Pulkomandy pointed out were moved into a separate commit.",
+      "revId": "ca695c755df0cb62aa06c037398de1923f884c74",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
