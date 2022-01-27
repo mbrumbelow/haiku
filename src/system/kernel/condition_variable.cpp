@@ -203,25 +203,23 @@ ConditionVariableEntry::Wait(uint32 flags, bigtime_t timeout)
 	}
 #endif
 
-	// The race in-between get_and_set and (re)set is irrelevant, because
-	// if the status really is <= 0, we have already been or are about to
-	// be removed from the variable, and nothing else is going to set the status.
+	ConditionVariable* variable = atomic_pointer_get(&fVariable);
+	if (variable == NULL)
+		return fWaitStatus;
+
+	InterruptsLocker _;
+	SpinLocker schedulerLocker(thread_get_current_thread()->scheduler_lock);
+
 	status_t waitStatus = atomic_get_and_set(&fWaitStatus, STATUS_WAITING);
 	if (waitStatus <= 0) {
 		fWaitStatus = waitStatus;
 		return waitStatus;
 	}
 
-	InterruptsLocker _;
-
 	thread_prepare_to_block(thread_get_current_thread(), flags,
-		THREAD_BLOCK_TYPE_CONDITION_VARIABLE, atomic_pointer_get(&fVariable));
+		THREAD_BLOCK_TYPE_CONDITION_VARIABLE, variable);
 
-	waitStatus = atomic_get(&fWaitStatus);
-	if (waitStatus <= 0) {
-		// We were just woken up! Unblock ourselves immediately.
-		thread_unblock(thread_get_current_thread(), waitStatus);
-	}
+	schedulerLocker.Unlock();
 
 	status_t error;
 	if ((flags & (B_RELATIVE_TIMEOUT | B_ABSOLUTE_TIMEOUT)) != 0)
@@ -400,9 +398,8 @@ ConditionVariable::_NotifyLocked(bool all, status_t result)
 				cpu_pause();
 			}
 		} else {
+			SpinLocker schedulerLocker(thread->scheduler_lock);
 			status_t waitStatus = atomic_get_and_set(&entry->fWaitStatus, result);
-
-			SpinLocker threadLocker(thread->scheduler_lock);
 			if (waitStatus == STATUS_WAITING && thread->state != B_THREAD_WAITING) {
 				// The thread is not in B_THREAD_WAITING state, so we must unblock it early,
 				// in case it tries to re-block itself immediately after we unset fVariable.
