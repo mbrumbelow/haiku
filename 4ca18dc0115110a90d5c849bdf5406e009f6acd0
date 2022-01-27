@@ -16,6 +16,23 @@
       "message": "3dEyes: See if this helps with your hangs.",
       "revId": "4ca18dc0115110a90d5c849bdf5406e009f6acd0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba1189e5_4f665e90",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-01-27T15:23:26Z",
+      "side": 1,
+      "message": "Actually, while this may fix the hangs, I think I see what the real race is, and it may be resolvable without having to resort to \"borrowing\" the scheduler_lock. I\u0027ll attempt a second patch later...",
+      "revId": "4ca18dc0115110a90d5c849bdf5406e009f6acd0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
