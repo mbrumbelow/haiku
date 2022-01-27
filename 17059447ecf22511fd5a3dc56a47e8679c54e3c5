@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e9d953e_af72769a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-01-27T04:30:58Z",
+      "side": 1,
+      "message": "I changed the patch to use the existing family and style IDs for the token and it works just fine. I thought this route seemed better as it maintains the class size and interface for BFont, only adding the methods to load the user font but otherwise keeping it the same. ",
+      "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
