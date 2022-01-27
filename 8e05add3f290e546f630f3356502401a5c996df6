@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7f2ce74_7b061c34",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-27T16:23:07Z",
+      "side": 1,
+      "message": "After the effort and code cleanup that went into arm/arch_mmu.cpp I think memory range handling in the bootloader is now in a good shape so perhaps we don\u0027t need this TODO item any more.\n\nPlease let me know if you think otherwise - is there anything I might have missed etc.",
+      "revId": "8e05add3f290e546f630f3356502401a5c996df6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
