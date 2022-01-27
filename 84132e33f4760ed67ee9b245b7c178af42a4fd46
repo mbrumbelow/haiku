@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "928d8744_4ba5045f",
+        "filename": "src/system/boot/platform/efi/arch/arm/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-27T09:30:52Z",
+      "side": 1,
+      "message": "ok then i\u0027ll address this in a separate review.",
+      "parentUuid": "083cfccc_fe63de9f",
+      "revId": "84132e33f4760ed67ee9b245b7c178af42a4fd46",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c023f16f_ee478441",
