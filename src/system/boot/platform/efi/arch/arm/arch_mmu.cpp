@@ -93,7 +93,8 @@ map_range(addr_t virt_addr, phys_addr_t phys_addr, size_t size, uint32_t flags)
 		map_page(virt_addr + offset, phys_addr + offset, flags);
 	}
 
-	ASSERT_ALWAYS(insert_virtual_allocated_range(virt_addr, size) >= B_OK);
+	if (virtAddr >= KERNEL_LOAD_BASE)
+		ASSERT_ALWAYS(insert_virtual_allocated_range(virt_addr, size) >= B_OK);
 }
 
 
