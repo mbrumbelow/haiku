@@ -87,6 +87,24 @@
       "parentUuid": "2b94f78d_3d383559",
       "revId": "ada565cb352dd5ce02d8bcef58ff70e958ad115d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b5a5019_570de65e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000359
+      },
+      "writtenOn": "2022-01-28T16:40:56Z",
+      "side": 1,
+      "message": "\u003e I was not able to try out this MMU initialization patch though, as the bootup fails for me at an earlier stage, right after the \"Welcome to the Haiku boot loader!\" printout. (I tried it in qemu).\n\nTested on my side and unfortunatelly I also reproduced this, quite behind compared with \"jumping \u0026 executing the kernel\" :(\n\n    --\u003e exception\n    boot::Partition::Partition\n    add_partitions_for\n    add_partitions_for\n    get_boot_file_system\n    main\n    efi_main\n\nMaybe not the place for addressing the topic but any hint on which commit to look based on the stackframe?",
+      "parentUuid": "759e2c2a_f7f06c25",
+      "revId": "ada565cb352dd5ce02d8bcef58ff70e958ad115d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
