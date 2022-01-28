@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ac0a122_7be6cdef",
+        "filename": "headers/private/kernel/arch/arm64/arch_kernel_args.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-28T15:32:56Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "740c6942_c157229c",
+      "revId": "d67d161b169bd8847a6db43a0104e9ef9d539205",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "257893d1_0c8596b3",
@@ -124,6 +142,42 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b52338d_e0806b62",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_mmu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-28T15:32:56Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "03817e30_9f3b88f3",
+      "revId": "d67d161b169bd8847a6db43a0104e9ef9d539205",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c46343a_44a91e4e",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_mmu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-28T15:32:56Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "03817e30_9f3b88f3",
+      "revId": "d67d161b169bd8847a6db43a0104e9ef9d539205",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7909e0f5_8d9541b5",
@@ -155,6 +209,24 @@
       "side": 1,
       "message": "Memory Attribute Indirection(Register), yes totally agree",
       "parentUuid": "7909e0f5_8d9541b5",
+      "revId": "d67d161b169bd8847a6db43a0104e9ef9d539205",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80542573_dccd9fb6",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_mmu.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-28T15:32:56Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ed04fba2_0f26f344",
       "revId": "d67d161b169bd8847a6db43a0104e9ef9d539205",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
