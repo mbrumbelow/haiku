@@ -105,6 +105,24 @@
       "parentUuid": "759e2c2a_f7f06c25",
       "revId": "ada565cb352dd5ce02d8bcef58ff70e958ad115d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a120035_9f8ab760",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-28T16:59:03Z",
+      "side": 1,
+      "message": "Not sure if it is related to any specific commit, it could also be the change from gcc 8.3 to 11.2.\n\nAs I see now in loader/partitions.cpp there are calls to memset and atomic_add in Partition::Partition. The arm64 port seems to use a generic memset implementation so atomic_add might be a more likely suspect.\n\nUnfortunately the Exception Syndrome Register is not very helpful, I get the following printout in TianoCore:\n\nESR : EC 0x00  IL 0x1  ISS 0x00000000\n\nEC \u003d 00 means unknown reason.",
+      "parentUuid": "0b5a5019_570de65e",
+      "revId": "ada565cb352dd5ce02d8bcef58ff70e958ad115d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
