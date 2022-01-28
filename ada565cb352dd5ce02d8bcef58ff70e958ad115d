@@ -141,6 +141,24 @@
       "parentUuid": "9a120035_9f8ab760",
       "revId": "ada565cb352dd5ce02d8bcef58ff70e958ad115d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7efc18b0_abf525e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-28T18:41:55Z",
+      "side": 1,
+      "message": "ARM documentation says LDADDAL is supported in ARMv8.1 and later.\n\nThis explains why I got an exception when I tried it in qemu with Cortex-A57 (i.e. ARMv8) emulation.\n\nThe compile flags in build/jam/ArchitectureRules might be a bit too ambitious:\n\ncase arm64 : archFlags +\u003d -march\u003darmv8.2-a+fp16 ;",
+      "parentUuid": "04bd7b83_1268eeb3",
+      "revId": "ada565cb352dd5ce02d8bcef58ff70e958ad115d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
