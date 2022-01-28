@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c2c1cf7_a7b30a42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-28T10:24:51Z",
+      "side": 1,
+      "message": "Some minor comments about naming and format strings, but overall I think it makes sense to merge this and improve on it later in follow-up patches?",
+      "revId": "d67d161b169bd8847a6db43a0104e9ef9d539205",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57e27e03_144d5365",
+        "filename": "headers/private/kernel/arch/arm64/arch_kernel_args.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-28T10:24:51Z",
+      "side": 1,
+      "message": "virt_pagedir would be nicer",
+      "revId": "d67d161b169bd8847a6db43a0104e9ef9d539205",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "257893d1_0c8596b3",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_mmu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-28T10:24:51Z",
+      "side": 1,
+      "message": "aren\u0027t the addresses 64bit? it looks like instead of casts, this should use format macros in the printf statement.",
+      "revId": "d67d161b169bd8847a6db43a0104e9ef9d539205",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7909e0f5_8d9541b5",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_mmu.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-28T10:24:51Z",
+      "side": 1,
+      "message": "is this an acronym? Maybe use the full wording for the class name, because it is not very clear what this does?",
+      "revId": "d67d161b169bd8847a6db43a0104e9ef9d539205",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
