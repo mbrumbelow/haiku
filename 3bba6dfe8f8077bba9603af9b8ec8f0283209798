@@ -1,6 +1,24 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ecde557_b5e897d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-28T15:49:02Z",
+      "side": 1,
+      "message": "This one is technically preventing arm64 from compiling.\n\nI don\u0027t disagree we should consider dropping config_manager and the whole bus, but that is seemingly is a conversation that should happen separately (not in a way preventing arm64 from compiling)",
+      "revId": "3bba6dfe8f8077bba9603af9b8ec8f0283209798",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "193efa57_468c66e8",
         "filename": "src/add-ons/kernel/bus_managers/config_manager/arch/arm64/config_manager_arch.c",
@@ -14,8 +32,7 @@
       "side": 1,
       "message": "This header is not correct at all.",
       "revId": "3bba6dfe8f8077bba9603af9b8ec8f0283209798",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
