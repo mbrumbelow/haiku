@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98c2556e_4e886b05",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-28T09:54:10Z",
+      "side": 1,
+      "message": "Unfortunately I missed out the arm64 back in December when introducing arch_convert_kernel_args.\n\nThe correct implementation is empty for now as we don\u0027t have any arch-specific argument that needs any fixup on the arm64.",
+      "revId": "d7d8642f81bb45d08fcfb00c53367c524b9dc289",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
