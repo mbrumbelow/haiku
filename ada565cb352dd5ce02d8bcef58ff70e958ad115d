@@ -69,6 +69,24 @@
       "parentUuid": "8d1ebf3f_cd99fd27",
       "revId": "ada565cb352dd5ce02d8bcef58ff70e958ad115d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "759e2c2a_f7f06c25",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000359
+      },
+      "writtenOn": "2022-01-28T12:21:23Z",
+      "side": 1,
+      "message": "\u003e I tried a build on latest master hrev55814. I had to add a stub for arch_convert_kernel_args() in arch_start.cpp (my bad, I haven\u0027t implemented it for arm64 in commit af90bfd3b back in December)\n\u003e I also had to stub config_manager_arch.c\n\u003e \n\u003e Once that\u0027s done, I get a successful build.\n\nOk thanks, same here, I will test again",
+      "parentUuid": "2b94f78d_3d383559",
+      "revId": "ada565cb352dd5ce02d8bcef58ff70e958ad115d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

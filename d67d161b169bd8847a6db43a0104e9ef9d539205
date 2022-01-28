@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "740c6942_c157229c",
+        "filename": "headers/private/kernel/arch/arm64/arch_kernel_args.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000359
+      },
+      "writtenOn": "2022-01-28T12:21:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "57e27e03_144d5365",
+      "revId": "d67d161b169bd8847a6db43a0104e9ef9d539205",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "257893d1_0c8596b3",
         "filename": "src/system/boot/platform/efi/arch/arm64/arch_mmu.cpp",
         "patchSetId": 2
@@ -54,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fa781a62_548491ae",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_mmu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1000359
+      },
+      "writtenOn": "2022-01-28T12:21:23Z",
+      "side": 1,
+      "message": "This code belonged to the ARM port, specificaly this part has not been worked. In  general I would need to align all the reused parts with the current ARM port status.",
+      "parentUuid": "257893d1_0c8596b3",
+      "revId": "d67d161b169bd8847a6db43a0104e9ef9d539205",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7909e0f5_8d9541b5",
         "filename": "src/system/boot/platform/efi/arch/arm64/arch_mmu.h",
         "patchSetId": 2
@@ -65,6 +101,24 @@
       "writtenOn": "2022-01-28T10:24:51Z",
       "side": 1,
       "message": "is this an acronym? Maybe use the full wording for the class name, because it is not very clear what this does?",
+      "revId": "d67d161b169bd8847a6db43a0104e9ef9d539205",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed04fba2_0f26f344",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_mmu.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000359
+      },
+      "writtenOn": "2022-01-28T12:21:23Z",
+      "side": 1,
+      "message": "Memory Attribute Indirection(Register), yes totally agree",
+      "parentUuid": "7909e0f5_8d9541b5",
       "revId": "d67d161b169bd8847a6db43a0104e9ef9d539205",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
