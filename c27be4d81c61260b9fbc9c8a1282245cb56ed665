@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1da428ea_05e78150",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-28T15:19:43Z",
+      "side": 1,
+      "message": "Fixes newlines in qemu-system-arm serial output once in kernel",
+      "revId": "c27be4d81c61260b9fbc9c8a1282245cb56ed665",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
