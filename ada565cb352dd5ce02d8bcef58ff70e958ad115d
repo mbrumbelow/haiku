@@ -123,6 +123,24 @@
       "parentUuid": "0b5a5019_570de65e",
       "revId": "ada565cb352dd5ce02d8bcef58ff70e958ad115d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04bd7b83_1268eeb3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000359
+      },
+      "writtenOn": "2022-01-28T18:26:03Z",
+      "side": 1,
+      "message": "Great suspicion:\n\nin boot::Partition::Partition: \n\n 14998:       97ffc9f2        bl      7160 \u003cmemset\u003e\n 1499c:       f00001a2        adrp    x2, 4b000 \u003cgKernelArgs+0x838\u003e\n 149a0:       52800020        mov     w0, #0x1                        // #1\n 149a4:       9119c042        add     x2, x2, #0x670\n 149a8:       b8e00040        ldaddal w0, w0, [x2]\n 149ac:       b9002260        str     w0, [x19, #32]\n 149b0:       2a1403e0        mov     w0, w20\n 149b4:       97ffe73f        bl      e6b0 \u003cdup\u003e\n\nHe does not like ldaddal instruction(pattern b8e00040), my ELR points right in this instruction, X2 value has proper memory in my case.\n\nldaddal \u003d\u003e Atomic add on word or doubleword in memory.",
+      "parentUuid": "9a120035_9f8ab760",
+      "revId": "ada565cb352dd5ce02d8bcef58ff70e958ad115d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
