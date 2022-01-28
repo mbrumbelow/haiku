@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8f36fb95_7c10ce4c",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_mmu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-28T12:26:30Z",
+      "side": 1,
+      "message": "Ideally we should see if more code can be shared instead of duplicated, either between all EFI platforms, or between ARM and ARM64 (not sure how similar they are). It looks like some functions are identical for all architectures.\n\nBut it may be still a bit early for this if both ARM and ARM64 are work in progress and being changed often.",
+      "parentUuid": "fa781a62_548491ae",
+      "revId": "d67d161b169bd8847a6db43a0104e9ef9d539205",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7909e0f5_8d9541b5",
         "filename": "src/system/boot/platform/efi/arch/arm64/arch_mmu.h",
         "patchSetId": 2
