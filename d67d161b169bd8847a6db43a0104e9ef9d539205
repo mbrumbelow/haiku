@@ -108,6 +108,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "03817e30_9f3b88f3",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_mmu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-28T12:41:36Z",
+      "side": 1,
+      "message": "Recently I did some code reformatting in the 32-bit ARM code, now it should align better with the coding style.\nSome code could also be shared, like e.g. build_physical_memory_list and build_physical_allocated_list - these are mostly the same on arm, arm64, x86.\n\nThere\u0027s also a better version of memory map printouts (incl. B_PRI formatting) that could be reused here",
+      "parentUuid": "8f36fb95_7c10ce4c",
+      "revId": "d67d161b169bd8847a6db43a0104e9ef9d539205",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7909e0f5_8d9541b5",
         "filename": "src/system/boot/platform/efi/arch/arm64/arch_mmu.h",
         "patchSetId": 2
