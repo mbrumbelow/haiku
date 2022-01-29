@@ -195,6 +195,24 @@
       "parentUuid": "26044f55_a7ac4173",
       "revId": "ada565cb352dd5ce02d8bcef58ff70e958ad115d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33eae453_2d665cc4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000359
+      },
+      "writtenOn": "2022-01-29T15:34:37Z",
+      "side": 1,
+      "message": "\u003e I compiled on my side with \n\u003e \n\u003e     -march\u003darmv8-a -mno-outline-atomics\n\u003e \n\u003e I see the LDADDAL instruction replaced by a pair of ldaxr \u0026 stlxr instructions, as well being able to reach the end of the build. \n\u003e Will test in the target later on.\n\nConfirmed, I reach the same point where I was(reaching kernel) with this options.",
+      "parentUuid": "141684ec_ac7c3454",
+      "revId": "ada565cb352dd5ce02d8bcef58ff70e958ad115d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
