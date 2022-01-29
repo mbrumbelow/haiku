@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad293fd1_a645e869",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-29T09:27:27Z",
+      "side": 1,
+      "message": "most of the code is already there, so it might be a good time to enable building the 32-bit EFI loader",
+      "revId": "1936f2f34ea65e8dde7e4b9fa8285666b784d1ff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
