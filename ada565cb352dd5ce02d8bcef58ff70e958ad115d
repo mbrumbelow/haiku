@@ -177,6 +177,24 @@
       "parentUuid": "7efc18b0_abf525e6",
       "revId": "ada565cb352dd5ce02d8bcef58ff70e958ad115d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "141684ec_ac7c3454",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000359
+      },
+      "writtenOn": "2022-01-29T13:31:45Z",
+      "side": 1,
+      "message": "\u003e The compile flags in build/jam/ArchitectureRules might be a bit too ambitious:\n\u003e \n\u003e case arm64 : archFlags +\u003d -march\u003darmv8.2-a+fp16 ;\n\nI am using currently a real A53 planning A72(like the one used RPI4?) later on (both ARMv8.0) \n\nAfter looking at this list, I think armv8.2 would be too restrictive:\n\n   https://en.wikipedia.org/wiki/Comparison_of_ARMv8-A_cores\n\n\u003e case arm64 : archFlags +\u003d -march\u003darmv8-a+fp16 -mno-outline-atomics ;\n\n   https://www.rowleydownload.co.uk/arm/documentation/gnu/as/AArch64-Extensions.html\n\nAccording to this, fp16 also reguires armv8.2\n\n\u003e (don\u0027t ask me why we need no-outline-atomics, I just did some googling)\n\nI also could not build without it (missing __aarch64_ldadd4_acq_rel).\nI think it has sense by the description:\n\n    https://gcc.gnu.org/onlinedocs/gcc/AArch64-Options.html\n\n\"\"if not, they will use the load/store-exclusive instructions that are present in the base ARMv8.0 ISA\"\"\n\nI compiled in my side then with \n\n    -march\u003darmv8-a -mno-outline-atomics\n\nAnd I see the LDADDAL instruction replaced by a pair of ldaxr \u0026 stlxr instructions, as well being able to reach the end of the build. \nWill test in the target later on.\n\nIn the commit this was introduced @Fredrik comments about problems relating FP \u0026 POSIX ...",
+      "parentUuid": "26044f55_a7ac4173",
+      "revId": "ada565cb352dd5ce02d8bcef58ff70e958ad115d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
