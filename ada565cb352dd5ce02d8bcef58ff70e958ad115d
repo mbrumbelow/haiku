@@ -159,6 +159,24 @@
       "parentUuid": "04bd7b83_1268eeb3",
       "revId": "ada565cb352dd5ce02d8bcef58ff70e958ad115d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26044f55_a7ac4173",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-29T09:22:48Z",
+      "side": 1,
+      "message": "If I modify archFlags like this, I get a bootloader menu:\n\ncase arm64 : archFlags +\u003d -march\u003darmv8-a+fp16 -mno-outline-atomics ;\n\n(don\u0027t ask me why we need no-outline-atomics, I just did some googling)\n\n\nHowever, kernel loading fails with \"Couldn\u0027t find both text and data segment!\"",
+      "parentUuid": "7efc18b0_abf525e6",
+      "revId": "ada565cb352dd5ce02d8bcef58ff70e958ad115d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
