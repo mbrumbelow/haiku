@@ -38,6 +38,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "44b701a9_675b69c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-01-29T15:56:44Z",
+      "side": 1,
+      "message": "Yes, adding cruft to all new arches because of a component that has never been used in a running arch seems very bad way to go.",
+      "revId": "3bba6dfe8f8077bba9603af9b8ec8f0283209798",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "193efa57_468c66e8",
         "filename": "src/add-ons/kernel/bus_managers/config_manager/arch/arm64/config_manager_arch.c",
         "patchSetId": 1
