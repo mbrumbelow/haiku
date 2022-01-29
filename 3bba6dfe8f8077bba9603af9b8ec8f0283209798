@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4ae8048_c7a623c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-29T13:39:45Z",
+      "side": 1,
+      "message": "But we say that everytime we add a new arch and then it never happens. Just kill it, and mmu_man can make the m68k machines use an FDT instead. It should not be so hard to remove since it is not actually used for anything yet, even on m68k it\u0027s just a stub.",
+      "parentUuid": "3ecde557_b5e897d3",
+      "revId": "3bba6dfe8f8077bba9603af9b8ec8f0283209798",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "193efa57_468c66e8",
