@@ -72,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "261c8ee8_3007f08d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-30T01:28:52Z",
+      "side": 1,
+      "message": "Looking through these things, it looks like config_manager is used to detect and configure ISA devices.  So as part of this are we dropping ISA support too?",
+      "parentUuid": "2cc114f7_1be8f8a3",
+      "revId": "3bba6dfe8f8077bba9603af9b8ec8f0283209798",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "193efa57_468c66e8",
         "filename": "src/add-ons/kernel/bus_managers/config_manager/arch/arm64/config_manager_arch.c",
         "patchSetId": 1
