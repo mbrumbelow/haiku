@@ -71,6 +71,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a76030b0_2a0c1610",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-01-30T19:47:01Z",
+      "side": 1,
+      "message": "no wrapper function is needed. but calling the syscall with B_SYSCALL_INFO first should say whether the subsystem is supported.",
+      "parentUuid": "ad044a3d_2ab03a5e",
+      "revId": "e492574c23c467ee646a98204b2e015ca49d8101",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7c134679_4cf12836",
         "filename": "headers/private/kernel/arch/x86/arch_thread_types.h",
         "patchSetId": 2
