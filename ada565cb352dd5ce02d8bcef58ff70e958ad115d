@@ -231,6 +231,24 @@
       "parentUuid": "33eae453_2d665cc4",
       "revId": "ada565cb352dd5ce02d8bcef58ff70e958ad115d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55e51f6d_7825e2b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000359
+      },
+      "writtenOn": "2022-01-30T00:27:32Z",
+      "side": 1,
+      "message": "\u003e The problem is zstd (and I think some other lib) for ARM64 needs to be reimplemented if you don\u0027t enable fp16. Once you update your tree to where zstd is needed you will hit this.\n\nMy build(@minimum-mmc) is fresh \u0026 up to date: https://pastebin.com/08V2M4RS \n\nI\u0027d like to reproduce the zstd problem to have the complete picture, otherwise, these libs(core to haiku?) are forcing us to discard a whole set of popular armv8 processors(A53/A57/A72/...).\n\nWhich components core and non-core depend on that lib?\n\nThe topic gets complex, is it ok to go on here?",
+      "parentUuid": "0b8765de_b3b86a49",
+      "revId": "ada565cb352dd5ce02d8bcef58ff70e958ad115d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
