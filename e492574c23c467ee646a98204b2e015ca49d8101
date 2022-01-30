@@ -52,6 +52,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad044a3d_2ab03a5e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-01-30T19:13:03Z",
+      "side": 1,
+      "message": "Is libroot wrapper function needed or calling generic syscall directly in Wine code is OK? If wrapper function is needed, in what header it needed to be located?",
+      "revId": "e492574c23c467ee646a98204b2e015ca49d8101",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7c134679_4cf12836",
