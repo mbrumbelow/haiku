@@ -144,6 +144,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "aa5c845e_17e830ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-01-30T18:07:25Z",
+      "side": 1,
+      "message": "The only thing drivers do is get the config-manager, after that it does nothing. \nThe getting of the config-manager can just be removed everywhere instead of adding even more empty logic, jamfiles and dependencies.",
+      "parentUuid": "218d3756_44440c3a",
+      "revId": "3bba6dfe8f8077bba9603af9b8ec8f0283209798",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "193efa57_468c66e8",
         "filename": "src/add-ons/kernel/bus_managers/config_manager/arch/arm64/config_manager_arch.c",
         "patchSetId": 1
