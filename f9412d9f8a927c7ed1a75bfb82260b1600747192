@@ -33,6 +33,24 @@
       "message": "It is easier to discuss on IRC.\nI guess I uploaded a full bootstrap of all packages needed including zstd. Bootstrapping and porting all packages needs to be redone if you want these packages to not use fp16. It\u0027s a a lot of work to bootstrap and one of the reasons I lost all energy, I did start with lower specs but this was the lowest that I could get working and I\u0027m unlikely to touch bootstrapping again..\n\nI\u0027d recommend getting a arm8.2 version fully booting first, as it is a much lower hanging fruit.\n\nDon\u0027t get me wrong, you can go which way you want, I am just explaining why we ended up with those specs in the first place.",
       "revId": "f9412d9f8a927c7ed1a75bfb82260b1600747192",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c94fc7f4_5492762b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000359
+      },
+      "writtenOn": "2022-01-30T15:04:37Z",
+      "side": 1,
+      "message": "\u003e I\u0027d recommend getting a arm8.2 version fully booting first, as it is a much lower hanging fruit.\n\nI think the issue is underestimated. Armv8.2 means compiler generates incorrect  opcodes for Armv8(A53/A57/A72/...). Therefore the arm64 port cannot progress, if the targets that are used for development(looks QEMU too) just became unsupported as they don\u0027t support armv8.2 instructions.",
+      "parentUuid": "0e460fbd_3b9475c9",
+      "revId": "f9412d9f8a927c7ed1a75bfb82260b1600747192",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
