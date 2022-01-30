@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47a39198_acdcc55c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000057
+      },
+      "writtenOn": "2022-01-30T20:26:54Z",
+      "side": 1,
+      "message": "Hi there,\nDon\u0027t know if this is the right route, but I seem to encounter problems with VESA info being relayed wrong from the kernel to accelerants via \u0027get_boot_item(VESA_EDID_BOOT_INFO,)\u0027. \n\nThe information for VESA 1.2, items EDID1_NUM_DETAILED_MONITOR_DESC are corrupted. It\u0027s there, but it\u0027s shifted by 8 bytes (in common it\u0027s 8 bytes early). Also an analog connected screen reported as analog by the kernel is reported as digital at this common accelerant time. Also, the first listed KERN: Supported Future Video Modes: is missing, and the info reported for the digital screen (Which is in fact analog) is nonsense info.\n\nAlso there\u0027s a small typing error in common code: digital is spelled \u0027Digtial Bit Depth: 2\u0027. \n\nI can\u0027t still seem to find teh root cause, but could it be there\u0027s a packed error or varying variable size interpretation between kernel code and accelerant code? Looks like right at the start of the info block generated there is already a difference causing everything to shift..\n\nBackground is that I am dumping the EDID info (BOOT_INFO) from inside the intel_extreme accelerant now (will commit that asap) and I see this happening, preventing correct use. Working on 32bit atm.\n\nThanks for reading, I hope this triggers someone with more knowledge :-)",
+      "revId": "65ed50c7139d752f764fa90219bacbe02b414f94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
