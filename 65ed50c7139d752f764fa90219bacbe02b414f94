@@ -16,6 +16,24 @@
       "message": "Hi there,\nDon\u0027t know if this is the right route, but I seem to encounter problems with VESA info being relayed wrong from the kernel to accelerants via \u0027get_boot_item(VESA_EDID_BOOT_INFO,)\u0027. \n\nThe information for VESA 1.2, items EDID1_NUM_DETAILED_MONITOR_DESC are corrupted. It\u0027s there, but it\u0027s shifted by 8 bytes (in common it\u0027s 8 bytes early). Also an analog connected screen reported as analog by the kernel is reported as digital at this common accelerant time. Also, the first listed KERN: Supported Future Video Modes: is missing, and the info reported for the digital screen (Which is in fact analog) is nonsense info.\n\nAlso there\u0027s a small typing error in common code: digital is spelled \u0027Digtial Bit Depth: 2\u0027. \n\nI can\u0027t still seem to find teh root cause, but could it be there\u0027s a packed error or varying variable size interpretation between kernel code and accelerant code? Looks like right at the start of the info block generated there is already a difference causing everything to shift..\n\nBackground is that I am dumping the EDID info (BOOT_INFO) from inside the intel_extreme accelerant now (will commit that asap) and I see this happening, preventing correct use. Working on 32bit atm.\n\nThanks for reading, I hope this triggers someone with more knowledge :-)",
       "revId": "65ed50c7139d752f764fa90219bacbe02b414f94",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "baadd62e_008d65a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-30T20:39:01Z",
+      "side": 1,
+      "message": "The layout of edid1_display did change with this commit indeed.\n\nThe type (digital/analog) was previously a single bit, now it is a byte (8 bits).\n\nIs this structure supposed to match one from the VESA BIOS? My understanding was that it wasn\u0027t, and we were free to change it. The structure that matches VESA is edid_raw. Is this correct?\n\nThe second place where this can possibly go wrong is if your kernel and bootloader don\u0027t match. This can happen especially on EFI systems, because the bootloader is not updated automatically. Could it be that your bootloader is currently an older version from before this change, and your kernel is a newer version? This could explain the mismatch between the two: the bootloader is still using the old version of the structure, but the kernel expects the new one.",
+      "parentUuid": "47a39198_acdcc55c",
+      "revId": "65ed50c7139d752f764fa90219bacbe02b414f94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
