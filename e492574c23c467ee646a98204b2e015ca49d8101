@@ -35,6 +35,40 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1deff452_86fd7d90",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-01-30T18:28:58Z",
+      "side": 1,
+      "message": "this should probably be denied for compat32 threads.",
+      "revId": "e492574c23c467ee646a98204b2e015ca49d8101",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c134679_4cf12836",
+        "filename": "headers/private/kernel/arch/x86/arch_thread_types.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-01-30T18:28:58Z",
+      "side": 1,
+      "message": "should be user_gs_base",
+      "revId": "e492574c23c467ee646a98204b2e015ca49d8101",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "96848370_c9717353",
@@ -84,6 +118,74 @@
       "side": 1,
       "message": "Registers are swapped when entering kernel. GS_BASE is used by kernel TLS and KERNEL_GS_BASE have saved user GS_BASE value.",
       "parentUuid": "264316ef_ede1f0ca",
+      "revId": "e492574c23c467ee646a98204b2e015ca49d8101",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c36879f_62944523",
+        "filename": "src/system/kernel/arch/x86/64/thread.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-01-30T18:28:58Z",
+      "side": 1,
+      "message": "should be in headers/private/system/arch/x86/thread_defs.h",
+      "revId": "e492574c23c467ee646a98204b2e015ca49d8101",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1418b282_fb3871e2",
+        "filename": "src/system/kernel/arch/x86/64/thread.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-01-30T18:28:58Z",
+      "side": 1,
+      "message": "{ goes on the next line",
+      "revId": "e492574c23c467ee646a98204b2e015ca49d8101",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40be641e_2c8553c5",
+        "filename": "src/system/kernel/arch/x86/64/thread.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-01-30T18:28:58Z",
+      "side": 1,
+      "message": "should a user buffer containing the requested value",
+      "revId": "e492574c23c467ee646a98204b2e015ca49d8101",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e2fa33b_bebeaf27",
+        "filename": "src/system/kernel/arch/x86/64/thread.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-01-30T18:28:58Z",
+      "side": 1,
+      "message": "\"thread\" should be in headers/private/system/arch/x86/thread_defs.h",
       "revId": "e492574c23c467ee646a98204b2e015ca49d8101",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
