@@ -54,6 +54,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "94ee725f_cf3d716c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-01-30T13:50:39Z",
+      "side": 1,
+      "message": "I think this is ok.\n\nNit: I think we only use ACPICA in kernel mode so the #ifdef in existing code is not useful. Perhaps we should remove it?\n\n(You can build ACPICA as a userland lib, but nothing in this code is prepared for it, and would be better to be done in its own package.)\n\n",
+      "revId": "e1ca93dce95b16fe0dadc1c31745d67387237e38",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "229aaad7_27164bea",
