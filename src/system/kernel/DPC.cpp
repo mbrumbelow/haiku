@@ -234,13 +234,8 @@ DPCQueue::Cancel(DPCCallback* callback)
 	if (fCallbackDoneCondition == NULL)
 		fCallbackDoneCondition = &condition;
 
-	// add our wait entry
-	ConditionVariableEntry waitEntry;
-	fCallbackDoneCondition->Add(&waitEntry);
-
 	// wait
-	locker.Unlock();
-	waitEntry.Wait();
+	fCallbackDoneCondition->Wait(locker.Get());
 
 	return false;
 }
@@ -274,12 +269,7 @@ DPCQueue::_Thread()
 			if (_IsClosed())
 				break;
 
-			ConditionVariableEntry waitEntry;
-			fPendingCallbacksCondition.Add(&waitEntry);
-
-			locker.Unlock();
-			waitEntry.Wait();
-
+			fPendingCallbacksCondition.Wait(locker.Get());
 			continue;
 		}
 

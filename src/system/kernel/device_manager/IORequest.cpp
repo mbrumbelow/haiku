@@ -897,12 +897,7 @@ IORequest::Wait(uint32 flags, bigtime_t timeout)
 	if (IsFinished() && fIsNotified)
 		return Status();
 
-	ConditionVariableEntry entry;
-	fFinishedCondition.Add(&entry);
-
-	locker.Unlock();
-
-	status_t error = entry.Wait(flags, timeout);
+	status_t error = fFinishedCondition.Wait(locker.Get(), flags, timeout);
 	if (error != B_OK)
 		return error;
 

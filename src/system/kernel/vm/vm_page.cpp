@@ -222,12 +222,7 @@ struct DaemonCondition {
 		else if (fActivated)
 			return true;
 
-		ConditionVariableEntry entry;
-		fCondition.Add(&entry);
-
-		locker.Unlock();
-
-		return entry.Wait(B_RELATIVE_TIMEOUT, timeout) == B_OK;
+		return fCondition.Wait(&fLock, B_RELATIVE_TIMEOUT, timeout) == B_OK;
 	}
 
 	void WakeUp()

@@ -1086,13 +1086,7 @@ undertaker(void* /*args*/)
 		InterruptsSpinLocker locker(sUndertakerLock);
 
 		while (sUndertakerEntries.IsEmpty()) {
-			ConditionVariableEntry conditionEntry;
-			sUndertakerCondition.Add(&conditionEntry);
-			locker.Unlock();
-
-			conditionEntry.Wait();
-
-			locker.Lock();
+			sUndertakerCondition.Wait(&sUndertakerLock);
 		}
 
 		UndertakerEntry* _entry = sUndertakerEntries.RemoveHead();

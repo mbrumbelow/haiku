@@ -333,15 +333,8 @@ public:
 
 		while (cache->busy_writing_count != 0) {
 			// wait for all blocks to be written
-			ConditionVariableEntry entry;
-			cache->busy_writing_condition.Add(&entry);
 			cache->busy_writing_waiters = true;
-
-			mutex_unlock(&cache->lock);
-
-			entry.Wait();
-
-			mutex_lock(&cache->lock);
+			cache->busy_writing_condition.Wait(&cache->lock);
 		}
 
 		return true;
@@ -1752,15 +1745,8 @@ wait_for_busy_reading_block(block_cache* cache, cached_block* block)
 {
 	while (block->busy_reading) {
 		// wait for at least the specified block to be read in
-		ConditionVariableEntry entry;
-		cache->busy_reading_condition.Add(&entry);
 		block->busy_reading_waiters = true;
-
-		mutex_unlock(&cache->lock);
-
-		entry.Wait();
-
-		mutex_lock(&cache->lock);
+		cache->busy_reading_condition.Wait(&cache->lock);
 	}
 }
 
@@ -1772,15 +1758,8 @@ wait_for_busy_reading_blocks(block_cache* cache)
 {
 	while (cache->busy_reading_count != 0) {
 		// wait for all blocks to be read in
-		ConditionVariableEntry entry;
-		cache->busy_reading_condition.Add(&entry);
 		cache->busy_reading_waiters = true;
-
-		mutex_unlock(&cache->lock);
-
-		entry.Wait();
-
-		mutex_lock(&cache->lock);
+		cache->busy_reading_condition.Wait(&cache->lock);
 	}
 }
 
@@ -1792,15 +1771,8 @@ wait_for_busy_writing_block(block_cache* cache, cached_block* block)
 {
 	while (block->busy_writing) {
 		// wait for all blocks to be written back
-		ConditionVariableEntry entry;
-		cache->busy_writing_condition.Add(&entry);
 		block->busy_writing_waiters = true;
-
-		mutex_unlock(&cache->lock);
-
-		entry.Wait();
-
-		mutex_lock(&cache->lock);
+		cache->busy_writing_condition.Wait(&cache->lock);
 	}
 }
 
@@ -1812,15 +1784,8 @@ wait_for_busy_writing_blocks(block_cache* cache)
 {
 	while (cache->busy_writing_count != 0) {
 		// wait for all blocks to be written back
-		ConditionVariableEntry entry;
-		cache->busy_writing_condition.Add(&entry);
 		cache->busy_writing_waiters = true;
-
-		mutex_unlock(&cache->lock);
-
-		entry.Wait();
-
-		mutex_lock(&cache->lock);
+		cache->busy_writing_condition.Wait(&cache->lock);
 	}
 }
 
@@ -2718,14 +2683,9 @@ wait_for_notifications(block_cache* cache)
 	set_notification(NULL, notification, TRANSACTION_WRITTEN, notify_sync,
 		cache);
 
-	ConditionVariableEntry entry;
-	cache->condition_variable.Add(&entry);
-
-	add_notification(cache, &notification, TRANSACTION_WRITTEN, false);
-	locker.Unlock();
-
 	// wait for notification hook to be called
-	entry.Wait();
+	add_notification(cache, &notification, TRANSACTION_WRITTEN, false);
+	cache->condition_variable.Wait(locker.Get());
 }
 
 

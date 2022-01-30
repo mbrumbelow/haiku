@@ -298,12 +298,7 @@ unregister_generic_syscall(const char* subsystem, uint32 version)
 
 		if (syscall->use_count != 0) {
 			// Wait until the syscall isn't in use anymore
-			ConditionVariableEntry entry;
-			syscall->unused_condition.Add(&entry);
-
-			locker.Unlock();
-
-			entry.Wait();
+			syscall->unused_condition.Wait(&sGenericSyscallLock);
 			continue;
 		}
 
