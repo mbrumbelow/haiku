@@ -519,13 +519,8 @@ IOSchedulerSimple::_NextActiveRequestOwner(IORequestOwner*& owner,
 		}
 
 		// Wait for new requests.
-		ConditionVariableEntry entry;
-		fNewRequestCondition.Add(&entry);
-
-		finisherLocker.Unlock();
+		fNewRequestCondition.Wait(&fLock, B_CAN_INTERRUPT);
 		mutex_unlock(&fLock);
-
-		entry.Wait(B_CAN_INTERRUPT);
 		_Finisher();
 		mutex_lock(&fLock);
 	}
@@ -727,14 +722,11 @@ panic("no more requests for owner %p (thread %" B_PRId32 ")", owner, owner->thre
 			}
 
 			// wait for finished operations
-			ConditionVariableEntry entry;
-			fFinishedOperationCondition.Add(&entry);
-
 			finisherLocker.Unlock();
-			locker.Unlock();
-
-			entry.Wait(B_CAN_INTERRUPT);
+			fFinishedOperationCondition.Wait(&fLock, B_CAN_INTERRUPT);
+			mutex_unlock(&fLock);
 			_Finisher();
+			mutex_lock(&fLock);
 		}
 	}
 
@@ -763,12 +755,7 @@ IOSchedulerSimple::_RequestNotifier()
 			if (fTerminating)
 				return B_OK;
 
-			ConditionVariableEntry entry;
-			fFinishedRequestCondition.Add(&entry);
-
-			locker.Unlock();
-
-			entry.Wait();
+			fFinishedRequestCondition.Wait(locker.Get());
 			continue;
 		}
 

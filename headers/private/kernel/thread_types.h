@@ -311,6 +311,8 @@ public:
 	static	Team*				Get(team_id id);
 	static	Team*				GetAndLock(team_id id);
 
+			mutex*				GetLock()
+									{ return &fLock; }
 			bool				Lock()
 									{ mutex_lock(&fLock); return true; }
 			bool				TryLock()

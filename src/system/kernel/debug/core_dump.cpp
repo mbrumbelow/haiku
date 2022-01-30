@@ -1605,14 +1605,10 @@ void
 core_dump_trap_thread()
 {
 	Thread* thread = thread_get_current_thread();
-	ConditionVariableEntry conditionVariableEntry;
-	TeamLocker teamLocker(thread->team);
+	MutexLocker teamLocker(thread->team->GetLock());
 
 	while ((atomic_get(&thread->flags) & THREAD_FLAGS_TRAP_FOR_CORE_DUMP)
 			!= 0) {
-		thread->team->CoreDumpCondition()->Add(&conditionVariableEntry);
-		teamLocker.Unlock();
-		conditionVariableEntry.Wait();
-		teamLocker.Lock();
+		thread->team->CoreDumpCondition()->Wait(teamLocker.Get());
 	}
 }
