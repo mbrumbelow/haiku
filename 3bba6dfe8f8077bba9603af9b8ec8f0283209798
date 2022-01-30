@@ -126,6 +126,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "218d3756_44440c3a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-30T16:34:36Z",
+      "side": 1,
+      "message": "This calls config_manager-\u003eget_device_info. That function in config_manager just returns B_ENTRY_NOT_FOUND, and so the loop is never executed.\n\nAgain, if this config manager helps with anything, I don\u0027t see by what magic, because there is no code whatsoever in it.\n\nRemoving it will, if anything, save people some confusion if they think it helps with isa and legacy peripherals, because clearly, it can\u0027t help, as it does not do anything at all.\n\nWhat we need to do instead is:\n- implement an isa plug and play device detection\n- use an fdt to describe legacy peripherals that live at fixed addresses (floppy controllers, serial ports, …)\n\nIn the case of pc_serial, ports will be discovered by scan_isa_hardcoded (using the well-known addresses for serial ports on pc hardware) and scan_pci_alt (detecting pci ones). In fact scan_bus (the one that uses the config manager) is not even called at all. Please just kill all this dead code, and suddenly the life of people writing drivers will be a lot easier!",
+      "parentUuid": "da441daa_fe83e5d9",
+      "revId": "3bba6dfe8f8077bba9603af9b8ec8f0283209798",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "193efa57_468c66e8",
         "filename": "src/add-ons/kernel/bus_managers/config_manager/arch/arm64/config_manager_arch.c",
         "patchSetId": 1
