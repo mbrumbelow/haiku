@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "738b68c4_88f1f8b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-30T09:40:28Z",
+      "side": 1,
+      "message": "Every function in config_manager returns either B_OK or B_ENTRY_NOT_FOUND and does nothing else. How does that get us any closer to supporting ISA devices?\n\nWe\u0027re not dropping anything, we already never wrote the code to support ISA devices and now does not seem the right time to worry about it.",
+      "parentUuid": "261c8ee8_3007f08d",
+      "revId": "3bba6dfe8f8077bba9603af9b8ec8f0283209798",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "193efa57_468c66e8",
         "filename": "src/add-ons/kernel/bus_managers/config_manager/arch/arm64/config_manager_arch.c",
         "patchSetId": 1
