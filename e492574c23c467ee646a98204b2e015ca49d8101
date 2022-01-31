@@ -87,6 +87,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "94299cb5_096e316f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-01-31T16:10:39Z",
+      "side": 1,
+      "message": "B_SYSCALL_INFO is handled by the generic syscall layer itself: https://xref.landonf.org/source/xref/haiku/src/system/kernel/syscalls.cpp#130\n\nSo we don\u0027t need to do that here.",
+      "parentUuid": "a76030b0_2a0c1610",
+      "revId": "e492574c23c467ee646a98204b2e015ca49d8101",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7c134679_4cf12836",
