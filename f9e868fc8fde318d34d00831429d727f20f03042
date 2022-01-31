@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97f65506_58bc05d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-01-31T18:04:01Z",
+      "side": 1,
+      "message": "thanks, but it seems I was a bit optimistic with slot count greater as one. Will try to patch.",
+      "revId": "f9e868fc8fde318d34d00831429d727f20f03042",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
