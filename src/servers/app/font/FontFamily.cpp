@@ -52,12 +52,13 @@ compare_font_styles(const FontStyle* a, const FontStyle* b)
 	\brief Constructor
 	\param namestr Name of the family
 */
-FontFamily::FontFamily(const char *name, uint16 id)
+FontFamily::FontFamily(const char *name, uint16 id, ServerApp* owner)
 	:
 	fName(name),
 	fID(id),
 	fNextID(0),
-	fFlags(kInvalidFamilyFlags)
+	fFlags(kInvalidFamilyFlags),
+	fOwner(owner)
 {
 	fName.Truncate(B_FONT_FAMILY_LENGTH);
 		// make sure this family can be found using the Be API
@@ -98,7 +99,7 @@ FontFamily::Name() const
 	\param style pointer to FontStyle object to be added
 */
 bool
-FontFamily::AddStyle(FontStyle *style)
+FontFamily::AddStyle(FontStyle *style, ServerApp* owner)
 {
 	if (!style)
 		return false;
@@ -108,7 +109,9 @@ FontFamily::AddStyle(FontStyle *style)
 	for (int32 i = 0; i < count; i++) {
 		FontStyle *item = fStyles.ItemAt(i);
 		if (!strcmp(item->Name(), style->Name()))
-			return false;
+			if (item->Owner() == owner || item->Owner() == NULL) {
+				return false;
+			}
 	}
 
 	if (!fStyles.BinaryInsert(style, compare_font_styles))
@@ -129,12 +132,15 @@ FontFamily::AddStyle(FontStyle *style)
 	The font style will not be deleted.
 */
 bool
-FontFamily::RemoveStyle(FontStyle* style)
+FontFamily::RemoveStyle(FontStyle* style, ServerApp* owner)
 {
 	if (!gFontManager->IsLocked()) {
 		debugger("FontFamily::RemoveStyle() called without having the font manager locked!");
 		return false;
 	}
+
+	if (style->Owner() != owner)
+		return false;
 
 	if (!fStyles.RemoveItem(style))
 		return false;
@@ -159,7 +165,7 @@ FontFamily::CountStyles() const
 
 
 FontStyle*
-FontFamily::_FindStyle(const char* name) const
+FontFamily::_FindStyle(const char* name, ServerApp* owner) const
 {
 	int32 count = fStyles.CountItems();
 	if (!name || count < 1)
@@ -167,8 +173,10 @@ FontFamily::_FindStyle(const char* name) const
 
 	for (int32 i = 0; i < count; i++) {
 		FontStyle *style = fStyles.ItemAt(i);
-		if (!strcmp(style->Name(), name))
-			return style;
+		if (!strcmp(style->Name(), name)) {
+			if (style->Owner() == owner || style->Owner() == NULL)
+				return style;
+		}
 	}
 
 	return NULL;
@@ -181,9 +189,9 @@ FontFamily::_FindStyle(const char* name) const
 	\return True if it belongs, false if not
 */
 bool
-FontFamily::HasStyle(const char *styleName) const
+FontFamily::HasStyle(const char *styleName, ServerApp* owner) const
 {
-	return _FindStyle(styleName) != NULL;
+	return _FindStyle(styleName, owner) != NULL;
 }
 
 
@@ -193,9 +201,16 @@ FontFamily::HasStyle(const char *styleName) const
 	\return name of the style or NULL if the index is not valid
 */
 FontStyle*
-FontFamily::StyleAt(int32 index) const
+FontFamily::StyleAt(int32 index, ServerApp* owner) const
 {
-	return fStyles.ItemAt(index);
+	FontStyle* styleAt = fStyles.ItemAt(index);
+
+	if ((styleAt != NULL) && 
+		(styleAt->Owner() != NULL && styleAt->Owner() != owner)) {
+		return NULL;
+	}
+
+	return styleAt;
 }
 
 
@@ -207,12 +222,12 @@ FontFamily::StyleAt(int32 index) const
 	The object returned belongs to the family and must not be deleted.
 */
 FontStyle*
-FontFamily::GetStyle(const char *name) const
+FontFamily::GetStyle(const char *name, ServerApp* owner) const
 {
 	if (name == NULL || !name[0])
 		return NULL;
 
-	FontStyle* style = _FindStyle(name);
+	FontStyle* style = _FindStyle(name, owner);
 	if (style != NULL)
 		return style;
 
@@ -220,11 +235,11 @@ FontFamily::GetStyle(const char *name) const
 
 	if (!strcmp(name, "Roman") || !strcmp(name, "Regular")
 		|| !strcmp(name, "Book")) {
-		style = _FindStyle("Roman");
+		style = _FindStyle("Roman", owner);
 		if (style == NULL) {
-			style = _FindStyle("Regular");
+			style = _FindStyle("Regular", owner);
 			if (style == NULL)
-				style = _FindStyle("Book");
+				style = _FindStyle("Book", owner);
 		}
 		return style;
 	}
@@ -232,11 +247,11 @@ FontFamily::GetStyle(const char *name) const
 	BString alternative = name;
 	if (alternative.FindFirst("Italic") >= 0) {
 		alternative.ReplaceFirst("Italic", "Oblique");
-		return _FindStyle(alternative.String());
+		return _FindStyle(alternative.String(), owner);
 	}
 	if (alternative.FindFirst("Oblique") >= 0) {
 		alternative.ReplaceFirst("Oblique", "Italic");
-		return _FindStyle(alternative.String());
+		return _FindStyle(alternative.String(), owner);
 	}
 
 	return NULL;
@@ -244,13 +259,18 @@ FontFamily::GetStyle(const char *name) const
 
 
 FontStyle*
-FontFamily::GetStyleByID(uint16 id) const
+FontFamily::GetStyleByID(uint16 id, ServerApp* owner) const
 {
 	int32 count = fStyles.CountItems();
 	for (int32 i = 0; i < count; i++) {
 		FontStyle* style = fStyles.ItemAt(i);
-		if (style->ID() == id)
+
+
+		if ((style != NULL)
+			&& (style->ID() == id)
+			&& (style->Owner() == NULL || style->Owner() == owner)) {
 			return style;
+		}
 	}
 
 	return NULL;
@@ -258,7 +278,7 @@ FontFamily::GetStyleByID(uint16 id) const
 
 
 FontStyle*
-FontFamily::GetStyleMatchingFace(uint16 face) const
+FontFamily::GetStyleMatchingFace(uint16 face, ServerApp* owner) const
 {
 	// Other face flags do not impact the font selection (they are applied
 	// during drawing)
@@ -271,8 +291,11 @@ FontFamily::GetStyleMatchingFace(uint16 face) const
 	for (int32 i = 0; i < count; i++) {
 		FontStyle* style = fStyles.ItemAt(i);
 
-		if (style->Face() == face)
+		if ((style != NULL)
+			&& (style->Face() == face)
+			&& (style->Owner() == NULL || style->Owner() == owner)) {
 			return style;
+		}
 	}
 
 	return NULL;
@@ -299,4 +322,18 @@ FontFamily::Flags()
 	}
 
 	return fFlags;
+}
+
+
+void
+FontFamily::SetOwner(ServerApp* owner)
+{
+	fOwner = owner;
+}
+
+
+ServerApp*
+FontFamily::Owner() const
+{
+	return fOwner;
 }
