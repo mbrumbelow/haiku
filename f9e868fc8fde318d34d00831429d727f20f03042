@@ -16,6 +16,24 @@
       "message": "thanks, but it seems I was a bit optimistic with slot count greater as one. Will try to patch.",
       "revId": "f9e868fc8fde318d34d00831429d727f20f03042",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "875c4172_ad5cc22f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-01-31T18:08:53Z",
+      "side": 1,
+      "message": "Yes, I was about to comment, some things looked suspicious, but I forgot how this was all supposed to work. And the patch was already merged before I could even start to read it...",
+      "parentUuid": "97f65506_58bc05d5",
+      "revId": "f9e868fc8fde318d34d00831429d727f20f03042",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
