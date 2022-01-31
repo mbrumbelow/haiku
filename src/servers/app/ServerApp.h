@@ -32,12 +32,15 @@ class DrawingEngine;
 class ServerPicture;
 class ServerCursor;
 class ServerBitmap;
+class ServerFont;
 class ServerWindow;
 
 namespace BPrivate {
 	class PortLink;
 };
 
+#define MAX_FONT_DATA_SIZE_BYTES	20 * 1024 * 1024 // font areas should be less than 20MB
+#define MAX_USER_FONTS				128
 
 class ServerApp : public MessageLooper {
 public:
@@ -91,6 +94,8 @@ public:
 
 			Desktop*			GetDesktop() const { return fDesktop; }
 
+			ServerFont*			GetFont(int32 token) const;
+
 			const ServerFont&	PlainFont() const { return fPlainFont; }
 
 			BPrivate::BTokenSpace& ViewTokens() { return fViewTokens; }
@@ -114,9 +119,14 @@ private:
 
 			ServerPicture*		_FindPicture(int32 token) const;
 
+			bool				_AddFont(ServerFont* font);
+			void				_DeleteFont(uint32 token);
+			ServerFont*			_FindFont(uint32 token) const;
+
 private:
 	typedef std::map<int32, BReference<ServerBitmap> > BitmapMap;
 	typedef std::map<int32, BReference<ServerPicture> > PictureMap;
+	typedef std::map<uint32, BReference<ServerFont> > UserFontMap;
 
 			port_id				fMessagePort;
 			port_id				fClientReplyPort;
@@ -149,6 +159,7 @@ private:
 	mutable	BLocker				fMapLocker;
 			BitmapMap			fBitmapMap;
 			PictureMap			fPictureMap;
+			UserFontMap			fUserFontMap;
 
 			BReference<ServerCursor>
 								fAppCursor;
