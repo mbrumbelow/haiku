@@ -34,6 +34,24 @@
       "parentUuid": "97f65506_58bc05d5",
       "revId": "f9e868fc8fde318d34d00831429d727f20f03042",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f763bb8b_a7b83da9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-01-31T19:28:47Z",
+      "side": 1,
+      "message": "I read again, and it seems OK actually... Please review. BAR_INDEX is the starting BAR index. SLOT_NUMBER is the slot index. To find the correct BAR, we loop on the slot index while checking for 64-bit BARs.",
+      "parentUuid": "875c4172_ad5cc22f",
+      "revId": "f9e868fc8fde318d34d00831429d727f20f03042",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
