@@ -81,6 +81,7 @@
 #	define FTRACE(x) ;
 #endif
 
+
 using std::nothrow;
 
 static const uint32 kMsgUpdateShowAllDraggers = '_adg';
@@ -204,11 +205,13 @@ ServerApp::~ServerApp()
 	while (!fPictureMap.empty())
 		fPictureMap.begin()->second->SetOwner(NULL);
 
+	while (!fUserFontMap.empty())
+		_DeleteFont(fUserFontMap.begin()->first);
+
 	fDesktop->GetCursorManager().DeleteCursors(fClientTeam);
 
 	STRACE(("ServerApp %s::~ServerApp(): Exiting\n", Signature()));
 }
-
 
 /*!	\brief Checks if the application was initialized correctly
 */
@@ -401,6 +404,24 @@ ServerApp::GetBitmap(int32 token) const
 	bitmap->AcquireReference();
 
 	return bitmap;
+}
+
+
+ServerFont*
+ServerApp::GetFont(int32 token) const
+{
+	if (token < 0)
+		return NULL;
+
+	BAutolock _(fMapLocker);
+
+	ServerFont* font = _FindFont(token);
+	if (font == NULL)
+		return NULL;
+
+	font->AcquireReference();
+
+	return font;
 }
 
 
@@ -714,6 +735,138 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 				fDesktop->UnlockSingleWindow();
 			} else
 				fLink.StartMessage(B_ERROR);
+
+			fLink.Flush();
+			break;
+		}
+
+		case AS_ADD_FONT_FILE:
+		{
+			STRACE(("ServerApp %s: Received BFont creation request\n",
+				Signature()));
+
+			if (fUserFontMap.size() > MAX_USER_FONTS) {
+				fLink.StartMessage(B_NOT_ALLOWED);
+				fLink.Flush();
+				break;
+			}
+
+			uint16 familyID, styleID;
+			char* fontPath;
+			link.ReadString(&fontPath);
+
+			gFontManager->Lock();
+
+			status_t status = gFontManager->AddUserFontFromFile(fontPath,
+				familyID, styleID, this);
+
+			gFontManager->Unlock();
+
+			if (status != B_OK) {
+				fLink.StartMessage(status);
+			} else {
+				ServerFont* font = new(std::nothrow) ServerFont();
+				if (font == NULL) {
+					fLink.StartMessage(B_NO_MEMORY);
+					fLink.Flush();
+					break;
+				}
+
+				font->SetOwner(this);
+				status = font->SetFamilyAndStyle(familyID, styleID);
+
+				if (status == B_OK && _AddFont(font)) {
+					fLink.StartMessage(B_OK);
+					fLink.Attach<uint16>(font->FamilyID());
+					fLink.Attach<uint16>(font->StyleID());
+					fLink.Attach<uint16>(font->Face());
+				} else {
+					fLink.StartMessage(status);
+					delete font;
+				}
+			}
+
+			fLink.Flush();
+			break;
+		}
+
+		case AS_ADD_FONT_MEMORY:
+		{
+			STRACE(("ServerApp %s: Received BFont memory creation request\n",
+				Signature()));
+
+			if (fUserFontMap.size() > MAX_USER_FONTS) {
+				fLink.StartMessage(B_NOT_ALLOWED);
+				fLink.Flush();
+				break;
+			}
+
+			area_id fontAreaID, fontAreaCloneID;
+			area_info fontAreaCloneInfo;
+			char* area_addr;
+
+			link.Read<int32>(&fontAreaID);
+			fontAreaCloneID = clone_area("user font",
+				(void **)&area_addr,
+				B_ANY_ADDRESS,
+				B_READ_AREA,
+				fontAreaID);
+
+			if (fontAreaCloneID < B_OK) {
+				fLink.StartMessage(fontAreaCloneID);
+				fLink.Flush();
+				break;
+			}
+
+			status_t status = get_area_info(fontAreaCloneID, &fontAreaCloneInfo);
+			if (status != B_OK) {
+				fLink.StartMessage(status);
+				fLink.Flush();
+				delete_area(fontAreaCloneID);
+				break;
+			}
+
+			// Check size of font area and reject if it's too large
+			if (fontAreaCloneInfo.size > MAX_FONT_DATA_SIZE_BYTES) {
+				fLink.StartMessage(B_BAD_DATA);
+				fLink.Flush();
+				delete_area(fontAreaCloneID);
+				break;
+			}
+
+			uint16 familyID, styleID;
+
+			gFontManager->Lock();
+			status = gFontManager->AddUserFontFromMemory(&fontAreaCloneInfo,
+				familyID, styleID, this);
+			gFontManager->Unlock();
+
+			if (status != B_OK) {
+				fLink.StartMessage(status);
+				delete_area(fontAreaCloneID);
+			} else {
+				ServerFont* font = new(std::nothrow) ServerFont();
+				if (font == NULL) {
+					fLink.StartMessage(B_NO_MEMORY);
+					fLink.Flush();
+					break;
+				}
+
+				font->SetOwner(this);
+				font->SetArea(fontAreaCloneID);
+
+				status = font->SetFamilyAndStyle(familyID, styleID);
+
+				if (status == B_OK && _AddFont(font)) {
+					fLink.StartMessage(B_OK);
+					fLink.Attach<uint16>(font->FamilyID());
+					fLink.Attach<uint16>(font->StyleID());
+					fLink.Attach<uint16>(font->Face());
+				} else {
+					fLink.StartMessage(status);
+					delete font;
+				}
+			}
 
 			fLink.Flush();
 			break;
@@ -1741,19 +1894,30 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 
 			FontFamily* family = gFontManager->FamilyAt(index);
 			if (family) {
-				fLink.StartMessage(B_OK);
-				fLink.AttachString(family->Name());
-				fLink.Attach<uint32>(family->Flags());
+				// this can return B_PERMISSION_DENIED for a valid family
+				// if the family is not owned by this ServerApp.
+				// System font families have an owner of NULL.
+				if (family->Owner() != this && family->Owner() != NULL)
+					fLink.StartMessage(B_PERMISSION_DENIED);
+				else {
+					fLink.StartMessage(B_OK);
+					fLink.AttachString(family->Name());
+					fLink.Attach<uint32>(family->Flags());
 
-				int32 count = family->CountStyles();
-				fLink.Attach<int32>(count);
+					int32 count = family->CountStyles();
 
-				for (int32 i = 0; i < count; i++) {
-					FontStyle* style = family->StyleAt(i);
+					fLink.Attach<int32>(count);
 
-					fLink.AttachString(style->Name());
-					fLink.Attach<uint16>(style->Face());
-					fLink.Attach<uint32>(style->Flags());
+					for (int32 i = 0; i < count; i++) {
+						FontStyle* style = family->StyleAt(i);
+
+						if (style == NULL)
+							continue;
+
+						fLink.AttachString(style->Name());
+						fLink.Attach<uint16>(style->Face());
+						fLink.Attach<uint32>(style->Flags());
+					}
 				}
 			} else
 				fLink.StartMessage(B_BAD_VALUE);
@@ -1779,18 +1943,25 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 			link.Read<uint16>(&familyID);
 			link.Read<uint16>(&styleID);
 
-			gFontManager->Lock();
+			status_t status = B_OK;
+			uint32 token = (familyID << 16) | styleID;
+			ServerFont* font = _FindFont(token);
+			ServerFont fontInstance;
 
-			FontStyle *fontStyle = gFontManager->GetStyle(familyID, styleID);
-			if (fontStyle != NULL) {
+			if (font == NULL) {
+				font = &fontInstance;
+				status = font->SetFamilyAndStyle(familyID, styleID);
+			}
+
+			if (status == B_OK) {
 				fLink.StartMessage(B_OK);
-				fLink.AttachString(fontStyle->Family()->Name());
-				fLink.AttachString(fontStyle->Name());
-			} else
+				fLink.AttachString(font->Family());
+				fLink.AttachString(font->Style());
+			} else {
 				fLink.StartMessage(B_BAD_VALUE);
+			}
 
 			fLink.Flush();
-			gFontManager->Unlock();
 			break;
 		}
 
@@ -1815,30 +1986,33 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 			font_style style;
 			uint16 familyID, styleID;
 			uint16 face;
+
 			if (link.ReadString(family, sizeof(font_family)) == B_OK
 				&& link.ReadString(style, sizeof(font_style)) == B_OK
 				&& link.Read<uint16>(&familyID) == B_OK
 				&& link.Read<uint16>(&styleID) == B_OK
 				&& link.Read<uint16>(&face) == B_OK) {
 				// get the font and return IDs and face
-				gFontManager->Lock();
 
-				FontStyle *fontStyle = gFontManager->GetStyle(family, style,
-					familyID, styleID, face);
+				ServerFont* font = new ServerFont();
 
-				if (fontStyle != NULL) {
-					fLink.StartMessage(B_OK);
-					fLink.Attach<uint16>(fontStyle->Family()->ID());
-					fLink.Attach<uint16>(fontStyle->ID());
+				status_t status;
+				status = font->SetFamilyAndStyle(family, style,
+					familyID, styleID, face, this);
 
-					// we try to keep the font face close to what we got
-					face = fontStyle->PreservedFace(face);
+				if (status != B_OK)
+					status = font->SetFamilyAndStyle(family, style,
+						familyID, styleID, face, NULL);
 
-					fLink.Attach<uint16>(face);
+				if (status == B_OK) {
+					fLink.StartMessage(status);
+					fLink.Attach<uint16>(font->FamilyID());
+					fLink.Attach<uint16>(font->StyleID());
+					fLink.Attach<uint16>(font->Face());
 				} else
 					fLink.StartMessage(B_NAME_NOT_FOUND);
 
-				gFontManager->Unlock();
+				delete font;
 			} else
 				fLink.StartMessage(B_BAD_VALUE);
 
@@ -1857,20 +2031,26 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 			// Returns:
 			// 1) uint16 font_file_format of font
 
-			int32 familyID, styleID;
-			link.Read<int32>(&familyID);
-			link.Read<int32>(&styleID);
+			uint16 familyID, styleID;
+			link.Read<uint16>(&familyID);
+			link.Read<uint16>(&styleID);
 
-			gFontManager->Lock();
+			status_t status = B_OK;
+			uint32 token = (familyID << 16) | styleID;
+			ServerFont* font = _FindFont(token);
+			ServerFont fontInstance;
 
-			FontStyle *fontStyle = gFontManager->GetStyle(familyID, styleID);
-			if (fontStyle) {
+			if (font == NULL) {
+				font = &fontInstance;
+				status = font->SetFamilyAndStyle(familyID, styleID);
+			}
+
+			if (status == B_OK) {
 				fLink.StartMessage(B_OK);
-				fLink.Attach<uint16>((uint16)fontStyle->FileFormat());
+				fLink.Attach<uint32>(font->FileFormat());
 			} else
 				fLink.StartMessage(B_BAD_VALUE);
 
-			gFontManager->Unlock();
 			fLink.Flush();
 			break;
 		}
@@ -1891,12 +2071,12 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 			// Returns:
 			// 1) float - width of the string in pixels (numStrings times)
 
-			uint16 family, style;
+			uint16 familyID, styleID;
 			float size;
 			uint8 spacing;
 
-			link.Read<uint16>(&family);
-			link.Read<uint16>(&style);
+			link.Read<uint16>(&familyID);
+			link.Read<uint16>(&styleID);
 			link.Read<float>(&size);
 			link.Read<uint8>(&spacing);
 			int32 numStrings;
@@ -1922,17 +2102,25 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 				link.ReadString(&stringArray[i], (size_t *)&lengthArray[i]);
 			}
 
-			ServerFont font;
+			status_t status = B_OK;
+			uint32 token = (familyID << 16) | styleID;
+			ServerFont* font = _FindFont(token);
+			ServerFont fontInstance;
 
-			if (font.SetFamilyAndStyle(family, style) == B_OK && size > 0) {
-				font.SetSize(size);
-				font.SetSpacing(spacing);
+			if (font == NULL) {
+				font = &fontInstance;
+				status = font->SetFamilyAndStyle(familyID, styleID);
+			}
+
+			if (status == B_OK && size > 0) {
+				font->SetSize(size);
+				font->SetSpacing(spacing);
 
 				for (int32 i = 0; i < numStrings; i++) {
 					if (!stringArray[i] || lengthArray[i] <= 0)
 						widthArray[i] = 0.0;
 					else {
-						widthArray[i] = font.StringWidth(stringArray[i],
+						widthArray[i] = font->StringWidth(stringArray[i],
 							lengthArray[i]);
 					}
 				}
@@ -1961,8 +2149,27 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 			// Returns:
 			// 1) BRect - box holding entire font
 
-			// ToDo: implement me!
-			fLink.StartMessage(B_ERROR);
+			uint16 familyID, styleID;
+			link.Read<uint16>(&familyID);
+			link.Read<uint16>(&styleID);
+
+			status_t status = B_OK;
+			uint32 token = (familyID << 16) | styleID;
+			ServerFont* font = _FindFont(token);
+			ServerFont fontInstance;
+
+			if (font == NULL) {
+				font = &fontInstance;
+				status = font->SetFamilyAndStyle(familyID, styleID);
+			}
+
+			if (status == B_OK) {
+				BRect fontBoundRect = font->BoundingBox();
+				fLink.StartMessage(B_OK);
+				fLink.Attach<BRect>(fontBoundRect);
+			} else
+				fLink.StartMessage(B_ERROR);
+
 			fLink.Flush();
 			break;
 		}
@@ -1982,16 +2189,22 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 			link.Read<uint16>(&familyID);
 			link.Read<uint16>(&styleID);
 
-			gFontManager->Lock();
+			status_t status = B_OK;
+			uint32 token = (familyID << 16) | styleID;
+			ServerFont* font = _FindFont(token);
+			ServerFont fontInstance;
 
-			FontStyle *fontStyle = gFontManager->GetStyle(familyID, styleID);
-			if (fontStyle != NULL) {
+			if (font == NULL) {
+				font = &fontInstance;
+				status = font->SetFamilyAndStyle(familyID, styleID);
+			}
+
+			if (status == B_OK) {
 				fLink.StartMessage(B_OK);
-				fLink.Attach<int32>(fontStyle->TunedCount());
+				fLink.Attach<uint32>(font->CountTuned());
 			} else
 				fLink.StartMessage(B_BAD_VALUE);
 
-			gFontManager->Unlock();
 			fLink.Flush();
 			break;
 		}
@@ -2031,16 +2244,22 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 			link.Read<uint16>(&familyID);
 			link.Read<uint16>(&styleID);
 
-			gFontManager->Lock();
+			status_t status = B_OK;
+			uint32 token = (familyID << 16) | styleID;
+			ServerFont* font = _FindFont(token);
+			ServerFont fontInstance;
 
-			FontStyle *fontStyle = gFontManager->GetStyle(familyID, styleID);
-			if (fontStyle != NULL) {
+			if (font == NULL) {
+				font = &fontInstance;
+				status = font->SetFamilyAndStyle(familyID, styleID);
+			}
+
+			if (status == B_OK) {
 				fLink.StartMessage(B_OK);
-				fLink.Attach<uint32>(fontStyle->Flags());
+				fLink.Attach<uint32>(font->Flags());
 			} else
 				fLink.StartMessage(B_BAD_VALUE);
 
-			gFontManager->Unlock();
 			fLink.Flush();
 			break;
 		}
@@ -2056,23 +2275,30 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 
 			uint16 familyID, styleID;
 			float size;
+
 			link.Read<uint16>(&familyID);
 			link.Read<uint16>(&styleID);
 			link.Read<float>(&size);
 
-			gFontManager->Lock();
+			status_t status = B_OK;
+			uint32 token = (familyID << 16) | styleID;
+			ServerFont* font = _FindFont(token);
+			ServerFont fontInstance;
 
-			FontStyle *fontStyle = gFontManager->GetStyle(familyID, styleID);
-			if (fontStyle != NULL) {
+			if (font == NULL) {
+				font = &fontInstance;
+				status = font->SetFamilyAndStyle(familyID, styleID);
+			}
+
+			if (status == B_OK) {
 				font_height height;
-				fontStyle->GetHeight(size, height);
-
+				font->SetSize(size);
+				font->GetHeight(height);
 				fLink.StartMessage(B_OK);
 				fLink.Attach<font_height>(height);
 			} else
 				fLink.StartMessage(B_BAD_VALUE);
 
-			gFontManager->Unlock();
 			fLink.Flush();
 			break;
 		}
@@ -2092,11 +2318,19 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 			link.Read<uint16>(&familyID);
 			link.Read<uint16>(&styleID);
 
-			ServerFont font;
-			status_t status = font.SetFamilyAndStyle(familyID, styleID);
+			status_t status = B_OK;
+			uint32 token = (familyID << 16) | styleID;
+			ServerFont* font = _FindFont(token);
+			ServerFont fontInstance;
+
+			if (font == NULL) {
+				font = &fontInstance;
+				status = font->SetFamilyAndStyle(familyID, styleID);
+			}
+
 			if (status == B_OK) {
 				unicode_block blocksForFont;
-				font.GetUnicodeBlocks(blocksForFont);
+				font->GetUnicodeBlocks(blocksForFont);
 
 				fLink.StartMessage(B_OK);
 				fLink.Attach<unicode_block>(blocksForFont);
@@ -2125,14 +2359,22 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 			link.Read<uint16>(&familyID);
 			link.Read<uint16>(&styleID);
 			link.Read<uint32>(&start);
-			link.Read<uint32>(&end);
+			link.Read<uint32>(&end);;
 
-			ServerFont font;
-			status_t status = font.SetFamilyAndStyle(familyID, styleID);
+			status_t status = B_OK;
+			uint32 token = (familyID << 16) | styleID;
+			ServerFont* font = _FindFont(token);
+			ServerFont fontInstance;
+
+			if (font == NULL) {
+				font = &fontInstance;
+				status = font->SetFamilyAndStyle(familyID, styleID);
+			}
+
 			if (status == B_OK) {
 				bool hasBlock;
 
-				status = font.IncludesUnicodeBlock(start, end, hasBlock);
+				status = font->IncludesUnicodeBlock(start, end, hasBlock);
 				fLink.StartMessage(status);
 				fLink.Attach<bool>(hasBlock);
 			} else
@@ -2188,16 +2430,24 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 
 			link.Read(charArray, numBytes);
 
-			ServerFont font;
-			status_t status = font.SetFamilyAndStyle(familyID, styleID);
-			if (status == B_OK) {
-				font.SetSize(size);
-				font.SetShear(shear);
-				font.SetRotation(rotation);
-				font.SetFalseBoldWidth(falseBoldWidth);
-				font.SetFlags(flags);
+			status_t status = B_OK;
+			uint32 token = (familyID << 16) | styleID;
+			ServerFont* font = _FindFont(token);
+			ServerFont fontInstance;
 
-				status = font.GetGlyphShapes(charArray, numChars, shapes);
+			if (font == NULL) {
+				font = &fontInstance;
+				status = font->SetFamilyAndStyle(familyID, styleID);
+			}
+
+			if (status == B_OK) {
+				font->SetSize(size);
+				font->SetShear(shear);
+				font->SetRotation(rotation);
+				font->SetFalseBoldWidth(falseBoldWidth);
+				font->SetFlags(flags);
+
+				status = font->GetGlyphShapes(charArray, numChars, shapes);
 				if (status == B_OK) {
 					fLink.StartMessage(B_OK);
 					for (int32 i = 0; i < numChars; i++) {
@@ -2243,10 +2493,18 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 
 			link.Read(charArray, numBytes);
 
-			ServerFont font;
-			status_t status = font.SetFamilyAndStyle(familyID, styleID);
+			status_t status = B_OK;
+			uint32 token = (familyID << 16) | styleID;
+			ServerFont* font = _FindFont(token);
+			ServerFont fontInstance;
+
+			if (font == NULL) {
+				font = &fontInstance;
+				status = font->SetFamilyAndStyle(familyID, styleID);
+			}
+
 			if (status == B_OK) {
-				status = font.GetHasGlyphs(charArray, numBytes, numChars,
+				status = font->GetHasGlyphs(charArray, numBytes, numChars,
 					hasArray);
 				if (status == B_OK) {
 					fLink.StartMessage(B_OK);
@@ -2292,10 +2550,18 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 
 			link.Read(charArray, numBytes);
 
-			ServerFont font;
-			status_t status = font.SetFamilyAndStyle(familyID, styleID);
+			status_t status = B_OK;
+			uint32 token = (familyID << 16) | styleID;
+			ServerFont* font = _FindFont(token);
+			ServerFont fontInstance;
+
+			if (font == NULL) {
+				font = &fontInstance;
+				status = font->SetFamilyAndStyle(familyID, styleID);
+			}
+
 			if (status == B_OK) {
-				status = font.GetEdges(charArray, numBytes, numChars,
+				status = font->GetEdges(charArray, numBytes, numChars,
 					edgeArray);
 				if (status == B_OK) {
 					fLink.StartMessage(B_OK);
@@ -2370,15 +2636,23 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 
 			link.Read(charArray, numBytes);
 
-			ServerFont font;
-			status_t status = font.SetFamilyAndStyle(familyID, styleID);
-			if (status == B_OK) {
-				font.SetSize(size);
-				font.SetSpacing(spacing);
-				font.SetRotation(rotation);
-				font.SetFlags(flags);
+			status_t status = B_OK;
+			uint32 token = (familyID << 16) | styleID;
+			ServerFont* font = _FindFont(token);
+			ServerFont fontInstance;
 
-				status = font.GetEscapements(charArray, numBytes, numChars,
+			if (font == NULL) {
+				font = &fontInstance;
+				status = font->SetFamilyAndStyle(familyID, styleID);
+			}
+
+			if (status == B_OK) {
+				font->SetSize(size);
+				font->SetSpacing(spacing);
+				font->SetRotation(rotation);
+				font->SetFlags(flags);
+
+				status = font->GetEscapements(charArray, numBytes, numChars,
 					delta, escapements, offsets);
 
 				if (status == B_OK) {
@@ -2455,15 +2729,23 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 
 			// figure out escapements
 
-			ServerFont font;
-			status_t status = font.SetFamilyAndStyle(familyID, styleID);
-			if (status == B_OK) {
-				font.SetSize(size);
-				font.SetSpacing(spacing);
-				font.SetRotation(rotation);
-				font.SetFlags(flags);
+			status_t status = B_OK;
+			uint32 token = (familyID << 16) | styleID;
+			ServerFont* font = _FindFont(token);
+			ServerFont fontInstance;
 
-				status = font.GetEscapements(charArray, numBytes, numChars,
+			if (font == NULL) {
+				font = &fontInstance;
+				status = font->SetFamilyAndStyle(familyID, styleID);
+			}
+
+			if (status == B_OK) {
+				font->SetSize(size);
+				font->SetSpacing(spacing);
+				font->SetRotation(rotation);
+				font->SetFlags(flags);
+
+				status = font->GetEscapements(charArray, numBytes, numChars,
 					delta, escapements);
 
 				if (status == B_OK) {
@@ -2542,18 +2824,26 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 
 			// figure out escapements
 
-			ServerFont font;
-			status_t status = font.SetFamilyAndStyle(familyID, styleID);
+			status_t status = B_OK;
+			uint32 token = (familyID << 16) | styleID;
+			ServerFont* font = _FindFont(token);
+			ServerFont fontInstance;
+
+			if (font == NULL) {
+				font = &fontInstance;
+				status = font->SetFamilyAndStyle(familyID, styleID);
+			}
+
 			if (status == B_OK) {
-				font.SetSize(size);
-				font.SetRotation(rotation);
-				font.SetShear(shear);
-				font.SetFalseBoldWidth(falseBoldWidth);
-				font.SetSpacing(spacing);
-				font.SetFlags(flags);
+				font->SetSize(size);
+				font->SetRotation(rotation);
+				font->SetShear(shear);
+				font->SetFalseBoldWidth(falseBoldWidth);
+				font->SetSpacing(spacing);
+				font->SetFlags(flags);
 
 				// TODO: implement for real
-				status = font.GetBoundingBoxes(charArray, numBytes,
+				status = font->GetBoundingBoxes(charArray, numBytes,
 					numChars, rectArray, stringEscapement, mode, delta,
 					code == AS_GET_BOUNDINGBOXES_STRING);
 				if (status == B_OK) {
@@ -2630,17 +2920,25 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 				link.Read<escapement_delta>(&deltaArray[i]);
 			}
 
-			ServerFont font;
-			status_t status = font.SetFamilyAndStyle(familyID, styleID);
-			if (status == B_OK) {
-				font.SetSize(ptsize);
-				font.SetRotation(rotation);
-				font.SetShear(shear);
-				font.SetFalseBoldWidth(falseBoldWidth);
-				font.SetSpacing(spacing);
-				font.SetFlags(flags);
+			status_t status = B_OK;
+			uint32 token = (familyID << 16) | styleID;
+			ServerFont* font = _FindFont(token);
+			ServerFont fontInstance;
 
-				status = font.GetBoundingBoxesForStrings(stringArray,
+			if (font == NULL) {
+				font = &fontInstance;
+				status = font->SetFamilyAndStyle(familyID, styleID);
+			}
+
+			if (status == B_OK) {
+				font->SetSize(ptsize);
+				font->SetRotation(rotation);
+				font->SetShear(shear);
+				font->SetFalseBoldWidth(falseBoldWidth);
+				font->SetSpacing(spacing);
+				font->SetFlags(flags);
+
+				status = font->GetBoundingBoxesForStrings(stringArray,
 					lengthArray, numStrings, rectArray, mode, deltaArray);
 				if (status == B_OK) {
 					fLink.StartMessage(B_OK);
@@ -3555,6 +3853,57 @@ ServerApp::_FindPicture(int32 token) const
 
 	PictureMap::const_iterator iterator = fPictureMap.find(token);
 	if (iterator == fPictureMap.end())
+		return NULL;
+
+	return iterator->second;
+}
+
+
+bool
+ServerApp::_AddFont(ServerFont* font)
+{
+	BAutolock _(fMapLocker);
+
+	try {
+		fUserFontMap.insert(std::make_pair(font->GetFamilyAndStyle(),
+			BReference<ServerFont>(font, false)));
+	} catch (std::bad_alloc& exception) {
+		return false;
+	}
+
+	font->SetOwner(this);
+	return true;
+}
+
+
+void
+ServerApp::_DeleteFont(uint32 token)
+{
+	ASSERT(fMapLocker.IsLocked());
+
+	ServerFont* fontRef = _FindFont(token);
+	fUserFontMap.erase(token);
+
+	fontRef->ReleaseReference();
+
+	uint16 familyID = fontRef->FamilyID();
+	uint16 styleID = fontRef->StyleID();
+
+	gFontManager->Lock();
+	gFontManager->RemoveUserFont(familyID, styleID, this);
+	gFontManager->Unlock();
+
+	fontRef->RemoveStyle();
+}
+
+
+ServerFont*
+ServerApp::_FindFont(uint32 token) const
+{
+	ASSERT(fMapLocker.IsLocked());
+
+	UserFontMap::const_iterator iterator = fUserFontMap.find(token);
+	if (iterator == fUserFontMap.end())
 		return NULL;
 
 	return iterator->second;
