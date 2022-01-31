@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d867e80_2e35d78c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-01-31T04:23:37Z",
+      "side": 1,
+      "message": "Thanks for all the comments!  I updated most of them, but missed a few so I will fix those.  \n\nRegarding this one:\n\"this looks weird, means the family exists, but can\u0027t be accessed. B_ENTRY_NOT_FOUND isn\u0027t correct.\" and the similar comment around style, I agree it looks weird.  Here\u0027s the use-case I\u0027m trying to support:\n\nSystem contains installed font: \"Times New Roman\", \"Regular\"\n\nApp \"A\" adds user font: \"Times New Roman\", \"SemiBold\"\n- we don\u0027t want to add family \"Times New Roman\" again, so we just add the style \"SemiBold\" with an owner of \"A\"\n\nApp \"B\" adds user font: \"Times New Roman\", \"ExtraBold\"\n- again we don\u0027t want to add the family again, so the style \"ExtraBold\" is added with an owner of \"B\"\n\nIf another app queries \"Times New Roman\" for all the styles, we want it to return ONLY \"Regular\"\nSimilarly app \"A\" should only see \"Regular\" and \"SemiBold\", and app \"B\" should only see \"Regular\" and \"ExtraBold\"\n\nThis is why I have families and styles that exist but cannot be accessed. I hope this makes sense, and I can add comments to explain this. If you still think it\u0027s too weird I can try to come up with a more elegant solution. ",
+      "revId": "fb01f3fe3349a2750348bb3398a290e12a4309c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
