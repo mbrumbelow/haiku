@@ -73,6 +73,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "151ac0e5_958579b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-31T14:15:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "94ee725f_cf3d716c",
+      "revId": "e1ca93dce95b16fe0dadc1c31745d67387237e38",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "229aaad7_27164bea",
         "filename": "src/add-ons/kernel/bus_managers/acpi/ACPICAHaiku.cpp",
         "patchSetId": 1
@@ -125,6 +143,24 @@
       "side": 1,
       "message": "the boot item is now a pointer to this variable. Obviously for this to work, the variable itself must remain allocated. add_boot_item does not make a copy of the data pointed data.",
       "parentUuid": "5e1033a3_08c4677a",
+      "revId": "e1ca93dce95b16fe0dadc1c31745d67387237e38",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13ff4e6b_ec43c455",
+        "filename": "src/system/kernel/arch/x86/arch_platform.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-31T14:15:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e33d804c_59e213e1",
       "revId": "e1ca93dce95b16fe0dadc1c31745d67387237e38",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
