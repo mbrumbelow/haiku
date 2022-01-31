@@ -242,8 +242,16 @@ FontList::_Update()
 
 		int32 status;
 		if (link.FlushWithReply(status) != B_OK
-			|| status != B_OK)
+			|| status != B_OK) {
+			// if a user font family is not owned by this app instance, the
+			// server will return B_PERMISSION_DENIED - continue loop instead
+			// of breaking out because there can still be more families in the
+			// font list
+			if (status == B_PERMISSION_DENIED)
+				continue;
+
 			break;
+		}
 
 		::family* family = new (nothrow) ::family;
 		if (family == NULL)
@@ -559,6 +567,7 @@ BFont::SetFamilyAndStyle(const font_family family, const font_style style)
 	link.Read<uint16>(&fFamilyID);
 	link.Read<uint16>(&fStyleID);
 	link.Read<uint16>(&fFace);
+
 	fHeight.ascent = kUninitializedAscent;
 	fExtraFlags = kUninitializedExtraFlags;
 
@@ -942,6 +951,7 @@ BFont::GetTunedInfo(int32 index, tuned_font_info* info) const
 }
 
 
+// Truncates a string to a given _pixel_ width based on the font and size
 void
 BFont::TruncateString(BString* inOut, uint32 mode, float width) const
 {
@@ -1450,4 +1460,77 @@ BFont::_GetExtraFlags() const
 	}
 
 	link.Read<uint32>(&fExtraFlags);
+}
+
+
+status_t
+BFont::LoadFont(const char* path)
+{
+	BPrivate::AppServerLink link;
+	link.StartMessage(AS_ADD_FONT_FILE);
+	link.AttachString(path);
+	status_t status = B_ERROR;
+	if (link.FlushWithReply(status) != B_OK || status != B_OK) {
+		return status;
+	}
+
+	link.Read<uint16>(&fFamilyID);
+	link.Read<uint16>(&fStyleID);
+	link.Read<uint16>(&fFace);
+	fHeight.ascent = kUninitializedAscent;
+	fExtraFlags = kUninitializedExtraFlags;
+
+	return B_OK;
+}
+
+
+status_t
+BFont::LoadFont(const area_id fontAreaID, uint32 size, uint32 offset)
+{
+	BPrivate::AppServerLink link;
+
+	link.StartMessage(AS_ADD_FONT_MEMORY);
+
+	link.Attach<int32>(fontAreaID);
+	link.Attach<uint32>(size);
+	link.Attach<uint32>(offset);
+
+	status_t status = B_ERROR;
+	if (link.FlushWithReply(status) != B_OK || status != B_OK) {
+		return status;
+	}
+
+	link.Read<uint16>(&fFamilyID);
+	link.Read<uint16>(&fStyleID);
+	link.Read<uint16>(&fFace);
+	fHeight.ascent = kUninitializedAscent;
+	fExtraFlags = kUninitializedExtraFlags;
+
+	return B_OK;
+}
+
+
+status_t
+BFont::UnloadFont()
+{
+	BPrivate::AppServerLink link;
+
+	link.StartMessage(AS_REMOVE_FONT);
+
+	link.Attach<uint16>(fFamilyID);
+	link.Attach<uint16>(fStyleID);
+
+	status_t status = B_ERROR;
+	if (link.FlushWithReply(status) != B_OK || status != B_OK) {
+		return status;
+	}
+
+	// reset to plain font
+	fFamilyID = 0;
+	fStyleID = 0;
+	fFace = 0;
+	fHeight.ascent = kUninitializedAscent;
+	fExtraFlags = kUninitializedExtraFlags;
+
+	return B_OK;
 }
