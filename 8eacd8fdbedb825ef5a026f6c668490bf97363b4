@@ -16,6 +16,23 @@
       "message": "This patch is required for Mesa Vulkan driver. I used it for several months without problems.",
       "revId": "8eacd8fdbedb825ef5a026f6c668490bf97363b4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ae44938_699f7e70",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-31T14:19:29Z",
+      "side": 1,
+      "message": "This one has been idle for a few months now.\n\nI see nothing wrong with it, and can commiserate we have had weak symbol issues ever since gcc 11 was merged.\n\nPlenty of time for nay-sayers, so lets just merge and find out. yolo",
+      "revId": "8eacd8fdbedb825ef5a026f6c668490bf97363b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
