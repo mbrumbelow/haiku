@@ -282,6 +282,10 @@ public:
 
 			void				PrintToStream() const;
 
+			status_t			LoadFont(const char* path);
+			status_t			LoadFont(const area_id fontAreaID,
+									uint32 size = 0, uint32 offset = 0);
+
 private:
 		friend void _init_global_fonts_();
 
