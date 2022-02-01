@@ -107,6 +107,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5938f6da_66b46bb7",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 770,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-02-01T06:44:16Z",
+      "side": 1,
+      "message": "When status is not B_OK, _AddFont won\u0027t be called.",
+      "parentUuid": "80fc5169_fe465967",
+      "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3ece3789_4f428cc0",
         "filename": "src/servers/app/ServerApp.cpp",
         "patchSetId": 7
@@ -317,6 +335,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e0c23550_d2d97efd",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 829,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-02-01T06:44:16Z",
+      "side": 1,
+      "message": "When status is not B_OK, _AddFont won\u0027t be called.",
+      "parentUuid": "4b0aac0a_bdf6a56f",
+      "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "70c4fe75_e4bd27ec",
         "filename": "src/servers/app/ServerApp.cpp",
         "patchSetId": 7
@@ -328,6 +364,24 @@
       "writtenOn": "2022-01-27T06:56:51Z",
       "side": 1,
       "message": "this looks weird, means the family exists, but can\u0027t be accessed. B_ENTRY_NOT_FOUND isn\u0027t correct.",
+      "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2675b8b_616cb06f",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1859,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-02-01T06:44:16Z",
+      "side": 1,
+      "message": "Maybe change to B_PERMISSION_DENIED?",
+      "parentUuid": "70c4fe75_e4bd27ec",
       "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -719,6 +773,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cd592a0e_f174f44e",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 3842,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-02-01T06:44:16Z",
+      "side": 1,
+      "message": "Trailing space",
+      "parentUuid": "8247709b_569024f5",
+      "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0393788f_4f742a82",
         "filename": "src/servers/app/ServerApp.h",
         "patchSetId": 7
@@ -859,6 +931,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "87b3b706_67a495a2",
+        "filename": "src/servers/app/font/FontCacheEntry.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-02-01T06:44:16Z",
+      "side": 1,
+      "message": "It should be NULL",
+      "parentUuid": "f789a9c3_b264026a",
+      "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "30a76229_a2cb6316",
         "filename": "src/servers/app/font/FontCacheEntry.cpp",
         "patchSetId": 7
@@ -894,6 +984,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1e626220_d0bf003c",
+        "filename": "src/servers/app/font/FontCacheEntry.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-02-01T06:44:16Z",
+      "side": 1,
+      "message": "I think fontFileBuffer could be changed to const void*",
+      "parentUuid": "bad788d2_543cb3ac",
+      "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cdaf583a_1e332812",
         "filename": "src/servers/app/font/FontFamily.cpp",
         "patchSetId": 7
@@ -923,6 +1031,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "cdaf583a_1e332812",
+      "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d2bc4dc_a914f1d2",
+        "filename": "src/servers/app/font/FontFamily.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-02-01T06:44:16Z",
+      "side": 1,
+      "message": "Actually I meant the other if.",
+      "parentUuid": "e27ae284_cf4098a9",
       "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -1156,6 +1282,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bf2bd171_da0d83a8",
+        "filename": "src/servers/app/font/FontManager.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1126,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-02-01T06:44:16Z",
+      "side": 1,
+      "message": "Trailing space",
+      "parentUuid": "77bcabdb_f01561a5",
+      "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "daf0e753_02b7bb89",
         "filename": "src/servers/app/font/FontManager.cpp",
         "patchSetId": 7
@@ -1185,6 +1329,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "daf0e753_02b7bb89",
+      "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e66b9258_6c24a0d9",
+        "filename": "src/servers/app/font/FontManager.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1188,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-02-01T06:44:16Z",
+      "side": 1,
+      "message": "Trailing space",
+      "parentUuid": "b369f8b7_6c368dad",
       "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -1226,6 +1388,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1b8ced79_09f7cbae",
+        "filename": "src/servers/app/font/FontManager.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1237,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-02-01T06:44:16Z",
+      "side": 1,
+      "message": "Trailing space",
+      "parentUuid": "c50d9e46_c46a0345",
+      "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "25afe7a0_abbabfd4",
         "filename": "src/servers/app/font/FontManager.cpp",
         "patchSetId": 7
@@ -1261,6 +1441,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c6c9875a_fb5c721d",
+        "filename": "src/servers/app/font/FontManager.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1265,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-02-01T06:44:16Z",
+      "side": 1,
+      "message": "Trailing space",
+      "parentUuid": "ee8de88b_f258bf6f",
+      "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7e36bc78_4b157b36",
         "filename": "src/servers/app/font/FontManager.cpp",
         "patchSetId": 7
@@ -1290,6 +1488,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "7e36bc78_4b157b36",
+      "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7297b49_a5d1a214",
+        "filename": "src/servers/app/font/FontManager.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1273,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-02-01T06:44:16Z",
+      "side": 1,
+      "message": "Trailing space",
+      "parentUuid": "b07df433_0da0c1f9",
       "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -1360,6 +1576,24 @@
       "side": 1,
       "message": "I added it to the constructor for both FontFamily and FontStyle, but I left the method SetOwner - do you think it\u0027s dangerous to have the owner be easily changed?",
       "parentUuid": "10917a51_c78eefb9",
+      "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ab75864_fd0a8b5a",
+        "filename": "src/servers/app/font/FontStyle.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-02-01T06:44:16Z",
+      "side": 1,
+      "message": "No, this is OK. It\u0027s good to challenge methods, which are unused in the end.",
+      "parentUuid": "9b1e31a5_f812c0b0",
       "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }

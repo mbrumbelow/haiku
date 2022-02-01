@@ -16,6 +16,159 @@
       "message": "Resolved last couple of issues, aside from open questions.\n\nAlso set max # of user fonts to 128 (don\u0027t know if this seems too big; I was thinking maybe with web fonts in a session it could add up)\n\nMax size of a font area is 20 MB. This was chosen because I found some Asian fonts at ~17-18 MB (Noto Sans CJK/Source Han Sans) with 65535 glyphs.\n\nThanks!",
       "revId": "2a518ec854c4592a4ac7f1b625cd4806af37e22e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f593be0f_b8e659ed",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-02-01T06:44:16Z",
+      "side": 1,
+      "message": "This could be an early exit: if (fUserFontMap.size() \u003e MAX_USER_FONTS) { fLink.StartMessage(B_NOT_ALLOWED); fLink.Flush(); break; }   so that the else can be dropped (and avoid the added tabs)",
+      "revId": "2a518ec854c4592a4ac7f1b625cd4806af37e22e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6849a26b_cee62750",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 755,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-02-01T06:44:16Z",
+      "side": 1,
+      "message": "Trailing space",
+      "revId": "2a518ec854c4592a4ac7f1b625cd4806af37e22e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2b66fc4_3acebeb5",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 1930,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-02-01T06:44:16Z",
+      "side": 1,
+      "message": "This actually doesn\u0027t help if new throws an exception. should be: new(std::nothrow) ServerFont().\n\nAnyway (I should have said before sorry) it\u0027s in this case better to have the ServerFont on the stack. Instead of \"bool cleanup \u003d false;\" declare: \"ServerFont fontInstance;\" then if (font \u003d\u003d NULL)  font \u003d \u0026fontInstance;",
+      "revId": "2a518ec854c4592a4ac7f1b625cd4806af37e22e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "271a97b3_98c46fa3",
+        "filename": "src/servers/app/ServerApp.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-02-01T06:44:16Z",
+      "side": 1,
+      "message": "two blank lines before and after",
+      "revId": "2a518ec854c4592a4ac7f1b625cd4806af37e22e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45ee1d80_9b247b0b",
+        "filename": "src/servers/app/ServerFont.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-02-01T06:44:16Z",
+      "side": 1,
+      "message": "fArea should be inited with -1",
+      "revId": "2a518ec854c4592a4ac7f1b625cd4806af37e22e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61a16f64_31cd81ca",
+        "filename": "src/servers/app/font/FontManager.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 959,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-02-01T06:44:16Z",
+      "side": 1,
+      "message": "Trailing tab",
+      "revId": "2a518ec854c4592a4ac7f1b625cd4806af37e22e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3233d11_95eca335",
+        "filename": "src/servers/app/font/FontManager.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 976,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-02-01T06:44:16Z",
+      "side": 1,
+      "message": "(family !\u003d NULL) doesn\u0027t need braces",
+      "revId": "2a518ec854c4592a4ac7f1b625cd4806af37e22e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "038eadbb_8cb6c197",
+        "filename": "src/servers/app/font/FontManager.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 1192,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-02-01T06:44:16Z",
+      "side": 1,
+      "message": "Trailing space",
+      "revId": "2a518ec854c4592a4ac7f1b625cd4806af37e22e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6cc0b93_da56ab76",
+        "filename": "src/servers/app/font/FontManager.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 1304,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-02-01T06:44:16Z",
+      "side": 1,
+      "message": "Trailing space",
+      "revId": "2a518ec854c4592a4ac7f1b625cd4806af37e22e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
