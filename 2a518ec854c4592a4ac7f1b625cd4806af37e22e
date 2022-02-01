@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18ab7de7_91647e28",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-02-01T04:47:40Z",
+      "side": 1,
+      "message": "Resolved last couple of issues, aside from open questions.\n\nAlso set max # of user fonts to 128 (don\u0027t know if this seems too big; I was thinking maybe with web fonts in a session it could add up)\n\nMax size of a font area is 20 MB. This was chosen because I found some Asian fonts at ~17-18 MB (Noto Sans CJK/Source Han Sans) with 65535 glyphs.\n\nThanks!",
+      "revId": "2a518ec854c4592a4ac7f1b625cd4806af37e22e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
