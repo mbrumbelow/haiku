@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f24480b9_0c4114e9",
+        "filename": "src/system/kernel/cache/block_cache.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2688,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-02-02T19:44:24Z",
+      "side": 1,
+      "message": "This one also is not equivalent, it adds the notification after the Add and before the unlock.",
+      "revId": "cf7bbb744dd7aa0f56c1eae016ac1308c582961e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e6e7188_acec7077",
+        "filename": "src/system/kernel/device_manager/IOSchedulerSimple.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 726,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-02-02T19:44:24Z",
+      "side": 1,
+      "message": "This one at least is not equivalent, the old code unlocks two things between Entry and Wait and relocks neither afterwards. Seems to be a legitimate use of the split Add/Wait.",
+      "revId": "cf7bbb744dd7aa0f56c1eae016ac1308c582961e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
