@@ -123,6 +123,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ab5b857_907c1360",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 770,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-02-02T04:57:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5938f6da_66b46bb7",
+      "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3ece3789_4f428cc0",
@@ -351,6 +369,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7956449_45db6cba",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 829,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-02-02T04:57:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0c23550_d2d97efd",
+      "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "70c4fe75_e4bd27ec",
@@ -382,6 +418,24 @@
       "side": 1,
       "message": "Maybe change to B_PERMISSION_DENIED?",
       "parentUuid": "70c4fe75_e4bd27ec",
+      "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c192d277_c5175e08",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1859,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-02-02T04:57:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2675b8b_616cb06f",
       "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -789,6 +843,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "46b8321a_c2a6956f",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 3842,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-02-02T04:57:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd592a0e_f174f44e",
+      "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0393788f_4f742a82",
@@ -947,6 +1019,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9dc583bd_00e98be0",
+        "filename": "src/servers/app/font/FontCacheEntry.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-02-02T04:57:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87b3b706_67a495a2",
+      "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "30a76229_a2cb6316",
@@ -996,6 +1086,24 @@
       "side": 1,
       "message": "I think fontFileBuffer could be changed to const void*",
       "parentUuid": "bad788d2_543cb3ac",
+      "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93916e0b_675c5a43",
+        "filename": "src/servers/app/font/FontCacheEntry.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-02-02T04:57:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e626220_d0bf003c",
       "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -1053,6 +1161,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "01421abf_bd8c6f10",
+        "filename": "src/servers/app/font/FontFamily.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-02-02T04:57:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d2bc4dc_a914f1d2",
+      "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5eac3592_c76552c9",
@@ -1101,6 +1227,24 @@
       "writtenOn": "2022-01-27T06:56:51Z",
       "side": 1,
       "message": "This doesn\u0027t look good: it means index 1 could return NULL, and index 2 returns not NULL?",
+      "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44ec51c3_66b0a556",
+        "filename": "src/servers/app/font/FontFamily.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-02-02T04:57:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4db1d01_10022b0f",
       "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -1298,6 +1442,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "151df460_d233106d",
+        "filename": "src/servers/app/font/FontManager.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1126,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-02-02T04:57:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf2bd171_da0d83a8",
+      "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "daf0e753_02b7bb89",
@@ -1347,6 +1509,24 @@
       "side": 1,
       "message": "Trailing space",
       "parentUuid": "b369f8b7_6c368dad",
+      "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92aa77b1_eee263c9",
+        "filename": "src/servers/app/font/FontManager.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1188,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-02-02T04:57:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e66b9258_6c24a0d9",
       "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -1404,6 +1584,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3143af2c_b7304e46",
+        "filename": "src/servers/app/font/FontManager.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1237,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-02-02T04:57:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b8ced79_09f7cbae",
+      "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "25afe7a0_abbabfd4",
@@ -1457,6 +1655,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8875bfa_87583994",
+        "filename": "src/servers/app/font/FontManager.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1265,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-02-02T04:57:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6c9875a_fb5c721d",
+      "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7e36bc78_4b157b36",
@@ -1506,6 +1722,24 @@
       "side": 1,
       "message": "Trailing space",
       "parentUuid": "b07df433_0da0c1f9",
+      "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3bc252e_b3388ad9",
+        "filename": "src/servers/app/font/FontManager.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1273,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-02-02T04:57:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7297b49_a5d1a214",
       "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -1594,6 +1828,24 @@
       "side": 1,
       "message": "No, this is OK. It\u0027s good to challenge methods, which are unused in the end.",
       "parentUuid": "9b1e31a5_f812c0b0",
+      "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f38d4a8_bd35ad8a",
+        "filename": "src/servers/app/font/FontStyle.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-02-02T04:57:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ab75864_fd0a8b5a",
       "revId": "17059447ecf22511fd5a3dc56a47e8679c54e3c5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
