@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07b2afe0_25997e6a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-02-02T16:33:40Z",
+      "side": 1,
+      "message": "as discussed on previous reviews, we don\u0027t need to call ConvertPointer",
+      "revId": "b169d0359659433a58dd1b27e0e3e23e91bbf6f1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
