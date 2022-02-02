@@ -52,6 +52,41 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7b7ccb9_531fd587",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-02-02T05:12:41Z",
+      "side": 1,
+      "message": "Sure, whatever makes sense.  In fact it could just be \u0027Load\u0027 since it\u0027s already in the font context - `BFont::Load()`",
+      "parentUuid": "69f758c1_81bc6eca",
+      "revId": "1f182027b40a75da2c3bcdc9c7118e3831366a00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d4e8630_41fd2fe2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-02-02T05:12:41Z",
+      "side": 1,
+      "message": "replied below",
+      "revId": "1f182027b40a75da2c3bcdc9c7118e3831366a00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "27fb35f4_4a63da27",
@@ -65,6 +100,24 @@
       "writtenOn": "2022-02-02T05:02:09Z",
       "side": 1,
       "message": "Maybe add `offset` and `size` parameters to allow to use area that may contain something else, not only font?",
+      "revId": "1f182027b40a75da2c3bcdc9c7118e3831366a00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e210151_f0dc5e22",
+        "filename": "headers/os/interface/Font.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-02-02T05:12:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "27fb35f4_4a63da27",
       "revId": "1f182027b40a75da2c3bcdc9c7118e3831366a00",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
