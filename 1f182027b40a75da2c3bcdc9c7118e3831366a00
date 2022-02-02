@@ -16,6 +16,23 @@
       "message": "Fixed latest set of comments",
       "revId": "1f182027b40a75da2c3bcdc9c7118e3831366a00",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e93d650_8d40d924",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-02-02T04:59:43Z",
+      "side": 1,
+      "message": "Resolved other outstanding comments.",
+      "revId": "1f182027b40a75da2c3bcdc9c7118e3831366a00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
