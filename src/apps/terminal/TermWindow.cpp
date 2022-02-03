@@ -491,7 +491,7 @@ TermWindow::_SetupMenu()
 		MakeWindowSizeMenu(windowSize);
 		windowSize->AddSeparatorItem();
 		windowSize->AddItem(new BMenuItem(B_TRANSLATE("Full screen"),
-			new BMessage(FULLSCREEN), B_ENTER));
+			new BMessage(FULLSCREEN)));
 	}
 
 	fEncodingMenu = new(std::nothrow) BMenu(B_TRANSLATE("Text encoding"));
@@ -504,11 +504,11 @@ TermWindow::_SetupMenu()
 				" menubar entry related to terminal sessions"))
 			.AddItem(B_TRANSLATE("Switch Terminals"), MENU_SWITCH_TERM, B_TAB)
 				.GetItem(fSwitchTerminalsMenuItem)
-			.AddItem(B_TRANSLATE("New Terminal"), MENU_NEW_TERM, 'N')
-			.AddItem(B_TRANSLATE("New tab"), kNewTab, 'T')
+			.AddItem(B_TRANSLATE("New Terminal"), MENU_NEW_TERM, 'N', B_SHIFT_KEY)
+			.AddItem(B_TRANSLATE("New tab"), kNewTab, 'T', B_SHIFT_KEY)
 			.AddSeparator()
 			.AddItem(B_TRANSLATE("Page setup" B_UTF8_ELLIPSIS), MENU_PAGE_SETUP)
-			.AddItem(B_TRANSLATE("Print"), MENU_PRINT, 'P')
+			.AddItem(B_TRANSLATE("Print"), MENU_PRINT)
 			.AddSeparator()
 			.AddItem(B_TRANSLATE("Close window"), B_QUIT_REQUESTED, 'W',
 				B_SHIFT_KEY)
@@ -518,18 +518,17 @@ TermWindow::_SetupMenu()
 
 		// Edit
 		.AddMenu(B_TRANSLATE("Edit"))
-			.AddItem(B_TRANSLATE("Copy"), B_COPY, 'C')
-			.AddItem(B_TRANSLATE("Paste"), B_PASTE, 'V')
+			.AddItem(B_TRANSLATE("Copy"), B_COPY, 'C', B_SHIFT_KEY)
+			.AddItem(B_TRANSLATE("Paste"), B_PASTE, 'V', B_SHIFT_KEY)
 			.AddSeparator()
-			.AddItem(B_TRANSLATE("Select all"), B_SELECT_ALL, 'A')
-			.AddItem(B_TRANSLATE("Clear all"), MENU_CLEAR_ALL, 'L')
+			.AddItem(B_TRANSLATE("Select all"), B_SELECT_ALL)
+			.AddItem(B_TRANSLATE("Clear all"), MENU_CLEAR_ALL)
 			.AddSeparator()
-			.AddItem(B_TRANSLATE("Find" B_UTF8_ELLIPSIS), MENU_FIND_STRING, 'F')
-			.AddItem(B_TRANSLATE("Find previous"), MENU_FIND_PREVIOUS, 'G',
-					B_SHIFT_KEY)
+			.AddItem(B_TRANSLATE("Find" B_UTF8_ELLIPSIS), MENU_FIND_STRING)
+			.AddItem(B_TRANSLATE("Find previous"), MENU_FIND_PREVIOUS)
 				.GetItem(fFindPreviousMenuItem)
 				.SetEnabled(false)
-			.AddItem(B_TRANSLATE("Find next"), MENU_FIND_NEXT, 'G')
+			.AddItem(B_TRANSLATE("Find next"), MENU_FIND_NEXT)
 				.GetItem(fFindNextMenuItem)
 				.SetEnabled(false)
 		.End()
@@ -543,8 +542,7 @@ TermWindow::_SetupMenu()
 			.AddItem(fFontSizeMenu)
 			.AddItem(B_TRANSLATE("Save as default"), MSG_SAVE_AS_DEFAULT)
 			.AddSeparator()
-			.AddItem(B_TRANSLATE("Settings" B_UTF8_ELLIPSIS), MENU_PREF_OPEN,
-				',')
+			.AddItem(B_TRANSLATE("Settings" B_UTF8_ELLIPSIS), MENU_PREF_OPEN)
 			.AddItem(B_TRANSLATE("Colors" B_UTF8_ELLIPSIS), MENU_THEME_OPEN)
 		.End();
 
