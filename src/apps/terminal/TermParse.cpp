@@ -1262,6 +1262,8 @@ TermParse::EscParse()
 				{
 					int repetitions = param[0];
 					int maxRepetitions = fBuffer->Width() * fBuffer->Height();
+					if (repetitions == 0)
+						break;
 					if (repetitions > maxRepetitions)
 						repetitions = maxRepetitions;
 					for (int i = 0; i < repetitions; i++)
