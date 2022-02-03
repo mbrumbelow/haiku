@@ -142,6 +142,7 @@ protected:
 	virtual void				WindowActivated(bool active);
 	virtual void				MakeFocus(bool focusState = true);
 	virtual void				KeyDown(const char* bytes, int32 numBytes);
+	virtual void				KeyUp(const char* bytes, int32 numBytes);
 
 	virtual void				MouseDown(BPoint where);
 	virtual void				MouseMoved(BPoint where, uint32 transit,

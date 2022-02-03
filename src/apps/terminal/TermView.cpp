@@ -1564,6 +1564,25 @@ TermView::KeyDown(const char *bytes, int32 numBytes)
 
 
 void
+TermView::KeyUp(const char *bytes, int32 numBytes)
+{
+	int32 mod;
+
+	BMessage* currentMessage = Looper()->CurrentMessage();
+	if (currentMessage == NULL)
+		return;
+
+	currentMessage->FindInt32("modifiers", &mod);
+
+	if (mod & B_COMMAND_KEY && (strspn(bytes, "ntqcv\t") < strlen(bytes))) {
+		_ScrollTo(0, true);
+		fShell->Write("\E", strlen("\E"));
+		fShell->Write(bytes, strlen(bytes));
+	}
+}
+
+
+void
 TermView::FrameResized(float width, float height)
 {
 //debug_printf("TermView::FrameResized(%f, %f)\n", width, height);
