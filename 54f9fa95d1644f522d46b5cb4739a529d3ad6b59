@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "141d5ff5_372db779",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-02-03T06:28:12Z",
+      "side": 1,
+      "message": "Realized I never added \"UnloadFont\" so if an app hit the max # of loaded fonts you\u0027d be out of luck! In the process refactored the _DeleteFont to look more like _DeleteBitmap and also added some comments to the ServerApp cases.",
+      "revId": "54f9fa95d1644f522d46b5cb4739a529d3ad6b59",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
