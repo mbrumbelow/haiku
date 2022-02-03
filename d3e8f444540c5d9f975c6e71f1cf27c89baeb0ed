@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c16aa1c_ac3f344f",
+        "filename": "headers/private/shared/DateTimeEdit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-02-03T20:51:44Z",
+      "side": 1,
+      "message": "trailing tab",
+      "revId": "d3e8f444540c5d9f975c6e71f1cf27c89baeb0ed",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d77a9e3_9ff52fcd",
+        "filename": "headers/private/shared/DateTimeEdit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-02-03T20:51:44Z",
+      "side": 1,
+      "message": "trailing tab",
+      "revId": "d3e8f444540c5d9f975c6e71f1cf27c89baeb0ed",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
