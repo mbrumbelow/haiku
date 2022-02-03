@@ -394,6 +394,7 @@ ApplicationTypeWindow::ApplicationTypeWindow(BPoint position,
 
 	BScrollView* scrollView = new BScrollView("type scrollview", fTypeListView,
 		B_FRAME_EVENTS | B_WILL_DRAW, false, true);
+	scrollView->SetExplicitMinSize(BSize(B_SIZE_UNSET, 75));
 
 	fAddTypeButton = new BButton("add type",
 		B_TRANSLATE("Add" B_UTF8_ELLIPSIS), new BMessage(kMsgAddType));
@@ -408,7 +409,7 @@ ApplicationTypeWindow::ApplicationTypeWindow(BPoint position,
 
 	BLayoutBuilder::Grid<>(typeBox, padding, padding)
 		.SetInsets(padding, padding * 2, padding, padding)
-		.Add(scrollView, 0, 0, 1, 4)
+		.Add(scrollView, 0, 0, 1, 5)
 		.Add(fAddTypeButton, 1, 0, 1, 2)
 		.Add(fRemoveTypeButton, 1, 2, 1, 2)
 		.Add(iconHolder, 2, 1, 1, 2)
@@ -504,6 +505,12 @@ ApplicationTypeWindow::ApplicationTypeWindow(BPoint position,
 		.Add(scrollView, 1, 2, 10, 3)
 		.SetRowWeight(3, 3);
 
+	// Splitter containing "Supported Types" and "Version Info"
+
+	BSplitView* fTypeVersionSplitView = new BSplitView(B_VERTICAL, B_USE_DEFAULT_SPACING);
+	fTypeVersionSplitView->SetExplicitMinSize(BSize(versionBox->MinSize().Width(), B_SIZE_UNSET));
+		//keeps the window width constant if user completely hides versionBox
+
 	// put it all together
 	BLayoutBuilder::Group<>(this, B_VERTICAL, 0)
 		.SetInsets(0, 0, 0, 0)
@@ -515,8 +522,9 @@ ApplicationTypeWindow::ApplicationTypeWindow(BPoint position,
 				.Add(flagsBox, 3)
 				.Add(iconBox, 1)
 				.End()
-			.Add(typeBox)
-			.Add(versionBox);
+			.AddSplit(fTypeVersionSplitView)
+				.Add(typeBox)
+				.Add(versionBox);
 
 	SetKeyMenuBar(menuBar);
 
