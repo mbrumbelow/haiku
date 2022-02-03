@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78ec1b6b_3d2bdb59",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-02-03T05:04:00Z",
+      "side": 1,
+      "message": "Changed API call to \u0027LoadFont\u0027. Added size and offset as optional arguments for area version of method.",
+      "revId": "ececd525b58ca96435b836d2702bae7dc5022a01",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
