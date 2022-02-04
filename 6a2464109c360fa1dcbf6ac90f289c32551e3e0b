@@ -69,6 +69,24 @@
       "parentUuid": "59ea0aa4_b57114b6",
       "revId": "6a2464109c360fa1dcbf6ac90f289c32551e3e0b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cfe3e5b_75a310b5",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 683,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-02-04T14:25:33Z",
+      "side": 1,
+      "message": "I find that extremely confusing. It makes it look like the code is already there, when in fact it isn\u0027t.\n\nSee your recent comments in another change request about the config_manager, which is \"hinted at\" in several places but is in fact completely unused.",
+      "parentUuid": "785bc57e_97a55ed4",
+      "revId": "6a2464109c360fa1dcbf6ac90f289c32551e3e0b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
