@@ -51,6 +51,24 @@
       "parentUuid": "d48b9d9f_c6768697",
       "revId": "6a2464109c360fa1dcbf6ac90f289c32551e3e0b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "785bc57e_97a55ed4",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 683,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-04T14:22:39Z",
+      "side": 1,
+      "message": "the thought when I wrote this was that the sdhci_pci code would actually want to MSI at some point. I\u0027m a big believer in having hint code in sources helps people get started implementing stuff.",
+      "parentUuid": "59ea0aa4_b57114b6",
+      "revId": "6a2464109c360fa1dcbf6ac90f289c32551e3e0b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
