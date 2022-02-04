@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18179e43_23a076f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2022-02-04T20:35:27Z",
+      "side": 1,
+      "message": "Very nice. It was a really trivial change after all... :)\nI think in my try I didn\u0027t SetExplicitMinSize() of the filetpyes scroll view. Or it didn\u0027t like me adding weight to the various boxes instead of only the typebox as you did (?).\n\nIf you want, your next patch could add the window size/position to the flattened BMessage \"/boot/home/config/settings/FileTypes settings\".",
+      "revId": "b5cba17582f4b65219bec0b14dfac19211600886",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
