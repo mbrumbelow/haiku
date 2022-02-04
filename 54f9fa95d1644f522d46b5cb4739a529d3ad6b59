@@ -16,6 +16,23 @@
       "message": "Realized I never added \"UnloadFont\" so if an app hit the max # of loaded fonts you\u0027d be out of luck! In the process refactored the _DeleteFont to look more like _DeleteBitmap and also added some comments to the ServerApp cases.",
       "revId": "54f9fa95d1644f522d46b5cb4739a529d3ad6b59",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4998bd5a_eab3944f",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 933,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2022-02-04T09:58:21Z",
+      "side": 1,
+      "message": "Shouldn\u0027t the locked path include the call to _FindFont above?",
+      "revId": "54f9fa95d1644f522d46b5cb4739a529d3ad6b59",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
