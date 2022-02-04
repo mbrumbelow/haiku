@@ -319,7 +319,11 @@ Painter::SetDrawState(const DrawState* state, int32 xOffset, int32 yOffset)
 
 	// adopt the color *after* the pattern is set
 	// to set the renderers to the correct color
-	SetHighColor(state->HighColor());
+	if (fPatternHandler.HighColor() == state->HighColor()
+		&& *(fPatternHandler.GetR5Pattern()) == B_SOLID_HIGH)
+		_SetRendererColor(state->HighColor());
+	else
+		SetHighColor(state->HighColor());
 	SetLowColor(state->LowColor());
 
 	if (updateDrawingMode)
