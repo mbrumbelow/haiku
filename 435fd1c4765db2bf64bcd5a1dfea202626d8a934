@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3121df78_8cef83b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-02-05T04:43:52Z",
+      "side": 1,
+      "message": "Thanks, I wrapped all the calls to _FindFont in locks (there were a bunch).  Sorry, I didn\u0027t realize the ASSERT() calls were Debug-only, which is why they never fired in my tests. ",
+      "revId": "435fd1c4765db2bf64bcd5a1dfea202626d8a934",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
