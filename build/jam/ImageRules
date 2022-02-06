@@ -1723,4 +1723,8 @@ actions BuildEfiSystemPartition1
 	echo "mkdir myfs/EFI/BOOT" | ${FATFS} $(<)
 	echo "cp :${LOADER} myfs/EFI/BOOT/$(EFINAME)" | ${FATFS} $(<)
 	echo "cp :${EFIICON} myfs/.VolumeIcon.icns" | ${FATFS} $(<)
+
+	if [[ -f ${LOADER}.pk7 ]]; then
+		echo cp :${LOADER}.pk7 myfs/EFI/BOOT/$(EFINAME).pk7" | ${FATFS} $(<)
+	fi
 }
