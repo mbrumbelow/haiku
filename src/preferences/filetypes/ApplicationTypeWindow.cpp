@@ -394,7 +394,6 @@ ApplicationTypeWindow::ApplicationTypeWindow(BPoint position,
 
 	BScrollView* scrollView = new BScrollView("type scrollview", fTypeListView,
 		B_FRAME_EVENTS | B_WILL_DRAW, false, true);
-	scrollView->SetExplicitMinSize(BSize(B_SIZE_UNSET, 75));
 
 	fAddTypeButton = new BButton("add type",
 		B_TRANSLATE("Add" B_UTF8_ELLIPSIS), new BMessage(kMsgAddType));
@@ -409,7 +408,7 @@ ApplicationTypeWindow::ApplicationTypeWindow(BPoint position,
 
 	BLayoutBuilder::Grid<>(typeBox, padding, padding)
 		.SetInsets(padding, padding * 2, padding, padding)
-		.Add(scrollView, 0, 0, 1, 5)
+		.Add(scrollView, 0, 0, 1, 4)
 		.Add(fAddTypeButton, 1, 0, 1, 2)
 		.Add(fRemoveTypeButton, 1, 2, 1, 2)
 		.Add(iconHolder, 2, 1, 1, 2)
@@ -516,7 +515,7 @@ ApplicationTypeWindow::ApplicationTypeWindow(BPoint position,
 				.Add(flagsBox, 3)
 				.Add(iconBox, 1)
 				.End()
-			.Add(typeBox, 2)
+			.Add(typeBox)
 			.Add(versionBox);
 
 	SetKeyMenuBar(menuBar);
