@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2b6ac74_ad56f295",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-06T22:27:26Z",
+      "side": 1,
+      "message": "This is *not* ready.\nI need to add the keys to EFI/BOOT/KEYS so users can trust our keys in their UEFI bios.  I need to refine passing an optional EFI private key as well.\n\nThe signing however tested successful on my XPS 13 laptop.",
+      "revId": "a21208007572cfe4d36cec31e756424f51f403b5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
