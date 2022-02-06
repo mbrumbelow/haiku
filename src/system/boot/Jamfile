@@ -141,6 +141,27 @@ actions BuildEFILoader
 	fi
 }
 
+#
+# Sign our EFI Bootloader if a key has been provided
+#
+rule SignEFILoader
+{
+	local signedEFILoader = $(1) ;
+	local unsignedEFILoader = $(2) ;
+
+	Depends $(signedEFILoader) : $(unsignedEFILoader) ;
+
+	DB_CERT_FILE on $(signedEFILoader) = [ FDirName $(HAIKU_TOP) data boot efi keys DB.crt ] ;
+}
+
+actions SignEFILoader
+{
+	$(RM) -f $(1)
+	if [[ -f efi-db.key ]]; then
+		sbsign --key efi-db.key --cert $(DB_CERT_FILE) --output $(1) $(2)
+	fi
+}
+
 
 #
 # U-boot image creation
@@ -353,6 +374,8 @@ for platform in [ MultiBootSubDirSetup ] {
 		switch $(TARGET_BOOT_PLATFORM) {
 			case efi :
 				BuildEFILoader haiku_loader.$(TARGET_BOOT_PLATFORM) : boot_loader_$(TARGET_BOOT_PLATFORM) ;
+				SignEFILoader haiku_loader.$(TARGET_BOOT_PLATFORM).pk7 : haiku_loader.$(TARGET_BOOT_PLATFORM) ;
+
 				if $(TARGET_ARCH) = arm || $(TARGET_ARCH) = riscv64 {
 					# These EFI platforms need u-boot to get them going
 					BuildUImageScript boot.scr
