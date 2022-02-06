@@ -489,10 +489,8 @@ AudioMixer::FormatChanged(const media_source &producer,
 	if (consumer.port != ControlPort() || consumer.id == 0)
 		return B_MEDIA_BAD_DESTINATION;
 
-	if (fCore->Settings()->RefuseInputFormatChange()) {
-		TRACE("AudioMixer::FormatChanged: input format change refused\n");
-		return B_NOT_ALLOWED;
-	}
+	TRACE("AudioMixer::FormatChanged: input format change refused\n");
+	return B_NOT_ALLOWED;
 
 	// TODO: We should not apply the format change at this point
 	// TODO: At the moment, this is not implemented at the moment and will just
@@ -571,11 +569,6 @@ AudioMixer::FormatChangeRequested(const media_source &source,
 	// remove any wildcards before returning OK.
 
 	TRACE("AudioMixer::FormatChangeRequested\n");
-
-	if (fCore->Settings()->RefuseOutputFormatChange()) {
-		TRACE("AudioMixer::FormatChangeRequested: output format change refused\n");
-		return B_ERROR;
-	}
 
 	fCore->Lock();
 
@@ -1278,14 +1271,6 @@ AudioMixer::GetParameterValue(int32 id, bigtime_t *last_change, void *value,
 				*ioSize = sizeof(int32);
 				static_cast<int32 *>(value)[0] = fCore->Settings()->ResamplingAlgorithm();
 				break;
-			case 80:	// Refuse output format changes
-				*ioSize = sizeof(int32);
-				static_cast<int32 *>(value)[0] = fCore->Settings()->RefuseOutputFormatChange();
-				break;
-			case 90:	// Refuse input format changes
-				*ioSize = sizeof(int32);
-				static_cast<int32 *>(value)[0] = fCore->Settings()->RefuseInputFormatChange();
-				break;
 			default:
 				ERROR("unhandled ETC 0x%08lx\n", id);
 				break;
@@ -1497,16 +1482,6 @@ AudioMixer::SetParameterValue(int32 id, bigtime_t when, const void *value,
 					goto err;
 				fCore->Settings()->SetResamplingAlgorithm(static_cast<const int32 *>(value)[0]);
 				fCore->UpdateResamplingAlgorithm();
-				break;
-			case 80:	// Refuse output format changes
-				if (size != sizeof(int32))
-					goto err;
-				fCore->Settings()->SetRefuseOutputFormatChange(static_cast<const int32 *>(value)[0]);
-				break;
-			case 90:	// Refuse input format changes
-				if (size != sizeof(int32))
-					goto err;
-				fCore->Settings()->SetRefuseInputFormatChange(static_cast<const int32 *>(value)[0]);
 				break;
 			default:
 				ERROR("unhandled ETC 0x%08lx\n", id);
@@ -1891,10 +1866,6 @@ AudioMixer::UpdateParameterWeb()
 	dp->AddItem(1, B_TRANSLATE("Drop/repeat samples (template based)"));
 	dp->AddItem(3, B_TRANSLATE("17th order filtering"));
 	*/
-	group->MakeDiscreteParameter(PARAM_ETC(80), B_MEDIA_RAW_AUDIO,
-		B_TRANSLATE("Refuse output format changes"), B_ENABLE);
-	group->MakeDiscreteParameter(PARAM_ETC(90), B_MEDIA_RAW_AUDIO,
-		B_TRANSLATE("Refuse input format changes"), B_ENABLE);
 
 	fCore->Unlock();
 	SetParameterWeb(web);
