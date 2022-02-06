@@ -190,48 +190,6 @@ MixerSettings::SetResamplingAlgorithm(int value)
 }
 
 
-bool
-MixerSettings::RefuseOutputFormatChange()
-{
-	bool temp;
-	fLocker->Lock();
-	temp = fSettings.RefuseOutputFormatChange;
-	fLocker->Unlock();
-	return temp;
-}
-
-
-void
-MixerSettings::SetRefuseOutputFormatChange(bool yesno)
-{
-	fLocker->Lock();
-	fSettings.RefuseOutputFormatChange = yesno;
-	fLocker->Unlock();
-	StartDeferredSave();
-}
-
-
-bool
-MixerSettings::RefuseInputFormatChange()
-{
-	bool temp;
-	fLocker->Lock();
-	temp = fSettings.RefuseInputFormatChange;
-	fLocker->Unlock();
-	return temp;
-}
-
-
-void
-MixerSettings::SetRefuseInputFormatChange(bool yesno)
-{
-	fLocker->Lock();
-	fSettings.RefuseInputFormatChange = yesno;
-	fLocker->Unlock();
-	StartDeferredSave();
-}
-
-
 void
 MixerSettings::SaveConnectionSettings(MixerInput *input)
 {
@@ -402,8 +360,6 @@ MixerSettings::Load()
 	fSettings.AllowInputChannelRemapping = false;
 	fSettings.InputGainControls = 0;
 	fSettings.ResamplingAlgorithm = 2;
-	fSettings.RefuseOutputFormatChange = true;
-	fSettings.RefuseInputFormatChange = true;
 
 	// if we don't have a settings file, don't continue
 	if (!fSettingsFile) {

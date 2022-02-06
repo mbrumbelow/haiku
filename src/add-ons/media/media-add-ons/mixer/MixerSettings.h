@@ -41,12 +41,6 @@ class MixerSettings {
 		int								ResamplingAlgorithm();
 		void							SetResamplingAlgorithm(int value);
 
-		bool							RefuseOutputFormatChange();
-		void							SetRefuseOutputFormatChange(bool yesno);
-
-		bool							RefuseInputFormatChange();
-		void							SetRefuseInputFormatChange(bool yesno);
-
 		void							SaveConnectionSettings(MixerInput *input);
 		void							LoadConnectionSettings(MixerInput *input);
 
@@ -78,8 +72,6 @@ class MixerSettings {
 			bool	AllowInputChannelRemapping;
 			int		InputGainControls;
 			int		ResamplingAlgorithm;
-			bool	RefuseOutputFormatChange;
-			bool	RefuseInputFormatChange;
 		};
 	
 		volatile settings				fSettings;
