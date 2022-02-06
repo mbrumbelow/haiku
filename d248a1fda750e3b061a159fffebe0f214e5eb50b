@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0af5ff9b_dff007a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2022-02-06T15:50:56Z",
+      "side": 1,
+      "message": "I\u0027m OK with removing the options, but maybe we should leave the nondefault path for output format change? That one is (mostly? I see some TODOs) implemented and while it\u0027s something most people wouldn\u0027t do often or at all, it\u0027s the difference between restarting media server and all running producers to have any sound (refuse) and just continue listening to whatever you had on, maybe with a small glitch (allow) when you change the output sample rate in the audio hardware settings.",
+      "revId": "d248a1fda750e3b061a159fffebe0f214e5eb50b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
