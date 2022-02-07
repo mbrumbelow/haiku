@@ -16,6 +16,23 @@
       "message": "I\u0027ve only noticed the problem after applying https://review.haiku-os.org/c/haiku/+/4931, with some text showing in the wrong color.\n\nRemoving the fast exit in SetHighColor also works and looks cleaner. That was introduced in hrev21646 in what looks like a performance improvement, so I\u0027m weary of touching that without numbers of its impact.",
       "revId": "13b41db093289936307a691c1ee65b7bf69fd3e3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3755f0c3_93b1f869",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-02-07T21:36:26Z",
+      "side": 1,
+      "message": "Why is this only needed for B_SOLID_HIGH? Can we add this check to the fast-exit of SetHighColor instead? I indeed don\u0027t like how \"messy\" this feels.",
+      "revId": "13b41db093289936307a691c1ee65b7bf69fd3e3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
