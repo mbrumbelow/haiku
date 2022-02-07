@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e66bc90_937a0d89",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-02-07T20:33:16Z",
+      "side": 1,
+      "message": "Hmm, I guess this does not handle the case where a reference is acquired during destruction. However, I\u0027m not sure the old code handles that either...?",
+      "revId": "66678f84bc97253ffe9daed3b0b2a22a54439885",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
