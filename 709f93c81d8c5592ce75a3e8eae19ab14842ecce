@@ -16,6 +16,23 @@
       "message": "Oops. Didn\u0027t mean to remove the +1. LGTM.\nAnyone wants to +2?",
       "revId": "709f93c81d8c5592ce75a3e8eae19ab14842ecce",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0005a330_af0a381b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-02-07T20:45:06Z",
+      "side": 1,
+      "message": "Is the SetExplicitMinSize really necessary? Different sizes may be needed under HiDPI...",
+      "revId": "709f93c81d8c5592ce75a3e8eae19ab14842ecce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
