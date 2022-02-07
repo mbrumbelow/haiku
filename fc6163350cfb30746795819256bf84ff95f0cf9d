@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f6eb6b0_656a730c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-07T13:51:42Z",
+      "side": 1,
+      "message": "still refining.  I hate the loose coupling of checking for files... but it seems like the simplest solution without passing a ton of arguments around.",
+      "revId": "fc6163350cfb30746795819256bf84ff95f0cf9d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
