@@ -50,6 +50,24 @@
       "message": "s/echp/echo/",
       "revId": "fc6163350cfb30746795819256bf84ff95f0cf9d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "087f7014_eb81e5cf",
+        "filename": "build/jam/ImageRules",
+        "patchSetId": 2
+      },
+      "lineNbr": 1730,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-07T14:25:32Z",
+      "side": 1,
+      "message": "good lord I am getting old lol.   This is all obviously still untested :-)\n\nFixed.  I\u0027ve tested the \"unsigned efi\" paths, haven\u0027t copied a key over yet to test the \"signed efi\" paths",
+      "parentUuid": "3c832af6_6933003f",
+      "revId": "fc6163350cfb30746795819256bf84ff95f0cf9d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
