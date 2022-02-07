@@ -6,6 +6,7 @@
 #define _WEAK_REFERENCEABLE_H
 
 
+#include <OS.h>
 #include <Referenceable.h>
 
 #include <new>
@@ -22,36 +23,28 @@ public:
 								WeakPointer(BWeakReferenceable* object);
 								~WeakPointer();
 
-			BWeakReferenceable*	Get();
-			bool				Put();
-
-			int32				UseCount() const;
-
-			void				GetUnchecked();
+			BReferenceable*		AcquireObject();
 
 private:
-			int32				fUseCount;
+			friend class BWeakReferenceable;
+
+			int32				fAcquiring;
 			BWeakReferenceable*	fObject;
 };
 
 
-class BWeakReferenceable {
+class BWeakReferenceable : public BReferenceable {
 public:
 								BWeakReferenceable();
 	virtual						~BWeakReferenceable();
 
 			status_t			InitCheck();
 
-			void				AcquireReference()
-									{ fPointer->GetUnchecked(); }
-
-			bool				ReleaseReference()
-									{ return fPointer->Put(); }
-
-			int32				CountReferences() const
-									{ return fPointer->UseCount(); }
+			int32				CountWeakReferences() const
+									{ return fPointer->CountReferences() - 1; }
 
 			WeakPointer*		GetWeakPointer();
+
 private:
 			WeakPointer*		fPointer;
 };
@@ -159,16 +152,16 @@ public:
 	{
 		if (fPointer == NULL)
 			return false;
-		Type* object = static_cast<Type*>(fPointer->Get());
+		Type* object = static_cast<Type*>(fPointer->AcquireObject());
 		if (object == NULL)
 			return false;
-		fPointer->Put();
+		object->ReleaseReference();
 		return true;
 	}
 
 	BReference<Type> GetReference()
 	{
-		Type* object = static_cast<Type*>(fPointer->Get());
+		Type* object = static_cast<Type*>(fPointer->AcquireObject());
 		return BReference<Type>(object, true);
 	}
 
@@ -236,7 +229,7 @@ private:
 inline
 WeakPointer::WeakPointer(BWeakReferenceable* object)
 	:
-	fUseCount(1),
+	fAcquiring(0),
 	fObject(object)
 {
 }
@@ -245,47 +238,24 @@ WeakPointer::WeakPointer(BWeakReferenceable* object)
 inline
 WeakPointer::~WeakPointer()
 {
+	if (fObject != NULL)
+		debugger("pointed object has not been released!");
 }
 
 
-inline BWeakReferenceable*
-WeakPointer::Get()
+inline BReferenceable*
+WeakPointer::AcquireObject()
 {
-	int32 count = -11;
-
-	do {
-		count = atomic_get(&fUseCount);
-		if (count == 0)
-			return NULL;
-	} while (atomic_test_and_set(&fUseCount, count + 1, count) != count);
-
-	return fObject;
-}
-
-
-inline bool
-WeakPointer::Put()
-{
-	if (atomic_add(&fUseCount, -1) == 1) {
-		delete fObject;
-		return true;
+	if (atomic_add(&fAcquiring, 1) < 0) {
+		atomic_add(&fAcquiring, -1);
+		return NULL;
 	}
 
-	return false;
-}
+	BWeakReferenceable* object = fObject;
+	object->AcquireReference();
 
-
-inline int32
-WeakPointer::UseCount() const
-{
-	return fUseCount;
-}
-
-
-inline void
-WeakPointer::GetUnchecked()
-{
-	atomic_add(&fUseCount, 1);
+	atomic_add(&fAcquiring, -1);
+	return fObject;
 }
 
 
@@ -303,6 +273,14 @@ BWeakReferenceable::BWeakReferenceable()
 inline
 BWeakReferenceable::~BWeakReferenceable()
 {
+	int32 tries = 0;
+	while (atomic_test_and_set(&fPointer->fAcquiring, -1000000, 0) != 0) {
+		tries++;
+		if (tries > 10000)
+			debugger("pointer remained acquiring for a long time");
+	}
+	fPointer->fObject = NULL;
+
 	fPointer->ReleaseReference();
 }
 
