@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c47e771b_e17bd256",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-07T19:21:15Z",
+      "side": 1,
+      "message": "moving to private key passed via a configure option.\n\nNot working, the if in src/system/boot/Jamefile doesn\u0027t seem to be picking up my:\n\nHAIKU_BOOT_efi_PRIV_KEYFILE\t?\u003d /home/kallisti5/keys/DB.key ;\n\nin build/BuildConfig",
+      "revId": "5bf2971dfbdd9fb183c0d8d422bdd41e194bd117",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
