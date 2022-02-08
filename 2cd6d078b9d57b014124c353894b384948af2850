@@ -50,6 +50,23 @@
       "message": "Does not compile.  But that\u0027s because Haiku OS does not compile in 32 bit mode any more.  Spent a whole day digging into it, seems to be a new objcopy target that doesn\u0027t exist, which blows up the EFI portion of the build, bug report filed.  Once I get that working, I\u0027ll be able to say more about your patch :-)",
       "revId": "2cd6d078b9d57b014124c353894b384948af2850",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bad31428_cace27f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000038
+      },
+      "writtenOn": "2022-02-08T20:14:12Z",
+      "side": 1,
+      "message": "Finally got Haiku compiling under a 32 bit Haiku nightly, and the audio mixer changes work!  No more format change checkboxes.\n\nWas pleasantly surprised that the system can change the HD audio sample rate on the fly.\n\nThough the output tab has an extra column on the right that says Line Out and has no volume controls or anything else.  The input tab is completely empty.  And I locked up the GUI for the preferences once while fiddling with the pop-up menus (not responsive to clicks any more).  But those probably are unrelated to this patch.",
+      "revId": "2cd6d078b9d57b014124c353894b384948af2850",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
