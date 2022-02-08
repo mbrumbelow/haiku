@@ -33,6 +33,24 @@
       "message": "Is the SetExplicitMinSize really necessary? Different sizes may be needed under HiDPI...",
       "revId": "709f93c81d8c5592ce75a3e8eae19ab14842ecce",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f960712_7abe4e38",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2022-02-08T17:58:02Z",
+      "side": 1,
+      "message": "With no SetExplicitMinSize, the supported types box gets squashed, see http://0x0.st/oX1e.png\n\nMaybe it shouldn\u0027t be hardcoded to 75. Would something like this be acceptable:\n\n\tfont_height fh;\n\tbe_plain_font-\u003eGetHeight(\u0026fh);\n\tfloat height \u003d (fh.leading + fh.ascent + fh.descent) * 5;\n\tscrollView-\u003eSetExplicitMinSize(BSize(B_SIZE_UNSET, height));",
+      "parentUuid": "0005a330_af0a381b",
+      "revId": "709f93c81d8c5592ce75a3e8eae19ab14842ecce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
