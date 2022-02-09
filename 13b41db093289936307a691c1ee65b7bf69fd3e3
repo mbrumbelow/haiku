@@ -33,6 +33,24 @@
       "message": "Why is this only needed for B_SOLID_HIGH? Can we add this check to the fast-exit of SetHighColor instead? I indeed don\u0027t like how \"messy\" this feels.",
       "revId": "13b41db093289936307a691c1ee65b7bf69fd3e3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f185488_5c8d0384",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2022-02-09T20:29:34Z",
+      "side": 1,
+      "message": "Because of the direct change of pattern and the fast-exit in SetHighColor. Say there\u0027s a call to SetDrawState that changes the pattern to B_SOLID_HIGH, does not change the current high color and the renderers are not currently using that color: the renderers are not updated and they would be using the wrong color. For example, notice the third line here is wrongly drawn with the low color:\n\n\tSetHighColor(255, 0, 0);\n\tSetLowColor(0, 0, 255);\n\tSetPenSize(3);\n\tStrokeLine(BPoint(25,25), BPoint(50,50), B_SOLID_HIGH);\n\tPushState();\n\tStrokeLine(BPoint(75,25), BPoint(100,50), B_SOLID_LOW);\n\tPopState();\n\tStrokeLine(BPoint(125,25), BPoint(150,50), B_SOLID_HIGH);\n\n\nThere are two non-messy ways out:\n* Remove the fast-exit in SetHighColor.\n* Call SetPattern from SetDrawState, instead of the direct change. This updates the renderers twice if both the pattern and the corresponding color change.\n\nI tried measuring the options (via system_time()), but most data points were 0 deltas, so I don\u0027t think the results are significant. The count maybe somewhat useful, even if it heavily depends on the kind of activity.\n\nThe number of calls to SetDrawState that may need the fix is between 0.2% and 1.5%\n\nThe number of calls to SetHighColor is an order of magnitude greater than the calls to SetDrawState, 40 to 70 times as many, and around 85% of them take the fast-exit. But then I had it counting while I was mostly writing text in StyledEdit and I only got 6x calls and only 10% of them with fast-exit.\n\nI guess for the \"clearer even if sometimes it might unnecessarily do stuff twice\" I prefer calling SetPattern to removing the fast-exit.",
+      "parentUuid": "3755f0c3_93b1f869",
+      "revId": "13b41db093289936307a691c1ee65b7bf69fd3e3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
