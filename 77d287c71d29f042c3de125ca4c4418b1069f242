@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d99fdf84_8f34d6f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-11T22:15:41Z",
+      "side": 1,
+      "message": "Updated the quick readme in the keys directory with steps for the Insyde bios on my Framework laptop.\n\nThis is ready",
+      "revId": "77d287c71d29f042c3de125ca4c4418b1069f242",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
