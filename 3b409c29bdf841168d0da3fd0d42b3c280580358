@@ -16,6 +16,23 @@
       "message": "seems working as expected minus some EFI format issues reported by sbsign / sbverify\n\n\n../configure --efi-signing-key /home/kallisti5/keys/DB.key --build-cross-tools x86_64 --cross-tools-source ../../buildtools\n\n\n[kallisti5@eris generated.x86_64]$ find . -name \"*.efi*\"\n./objects/haiku/x86_64/release/system/boot/efi/haiku_loader.efi.unsigned\n./objects/haiku/x86_64/packaging/packages_build/regular/hpkg_-haiku.hpkg/contents/data/platform_loaders/haiku_loader.efi\n./haiku_loader.efi\n\n[kallisti5@eris generated.x86_64]$ sbverify --cert ../data/boot/efi/keys/DB.crt ./objects/haiku/x86_64/release/system/boot/efi/haiku_loader.efi.unsigned\n.\n.\nwarning: data remaining[518144 vs 656176]: gaps between PE/COFF sections?\nNo signature table present\nSignature verification failed\n\n\n[kallisti5@eris generated.x86_64]$ sbverify --cert ../data/boot/efi/keys/DB.crt ./haiku_loader.efi \nwarning: gap in section table:\n    .rela   : 0x0005c800 - 0x00063c00,\n    /4      : 0x00063c90 - 0x00063e90,\nwarning: gap in section table:\n    /4      : 0x00063c90 - 0x00063e90,\n    .dynsym : 0x00064000 - 0x0006e600,\ngaps in the section table may result in different checksums\nwarning: data remaining[519696 vs 657728]: gaps between PE/COFF sections?\nSignature verification OK\n\n\n[kallisti5@eris generated.x86_64]$ sbverify --cert ../data/boot/efi/keys/DB.crt ./objects/haiku/x86_64/packaging/packages_build/regular/hpkg_-haiku.hpkg/contents/data/platform_loaders/haiku_loader.efi\nwarning: gap in section table:\n    .rela   : 0x0005c800 - 0x00063c00,\n    /4      : 0x00063c90 - 0x00063e90,\nwarning: gap in section table:\n    /4      : 0x00063c90 - 0x00063e90,\n    .dynsym : 0x00064000 - 0x0006e600,\ngaps in the section table may result in different checksums\nwarning: data remaining[519696 vs 657728]: gaps between PE/COFF sections?\nSignature verification OK\n\n\nsudo losetup -P /dev/loop0 haiku-nightly-anyboot.iso\nsudo mount /dev/loop0p2 /tmp/haiku\n\nsbverify --cert ../data/boot/efi/keys/DB.crt /tmp/haiku/EFI/BOOT/BOOTX64.EFI \nwarning: gap in section table:\n    .rela   : 0x0005c800 - 0x00063c00,\n    /4      : 0x00063c90 - 0x00063e90,\nwarning: gap in section table:\n    /4      : 0x00063c90 - 0x00063e90,\n    .dynsym : 0x00064000 - 0x0006e600,\ngaps in the section table may result in different checksums\nwarning: data remaining[519696 vs 657728]: gaps between PE/COFF sections?\nSignature verification OK\n\n\n[kallisti5@eris generated.x86_64]$ ls -la /tmp/haiku/KEYS/\ntotal 12\ndrwxr-xr-x 2 root root 1024 Feb 11 15:41 .\ndrwxr-xr-x 4 root root 4096 Dec 31  1969 ..\n-rwxr-xr-x 1 root root 2059 Feb 11 15:41 DB.auth\n-rwxr-xr-x 1 root root  791 Feb 11 15:41 DB.cer\n-rwxr-xr-x 1 root root 1127 Feb 11 15:41 DB.crt\n-rwxr-xr-x 1 root root  932 Feb 11 15:41 README.md",
       "revId": "3b409c29bdf841168d0da3fd0d42b3c280580358",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb0d320e_61a11763",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-11T22:01:17Z",
+      "side": 1,
+      "message": "Validated on Dell XPS 13:\n\n* Enable Secure boot in bios\n* Append db keys (DB.auth) from Haiku install media in bios\n* Boot (success)\n* Boot (success)\n* Remove keys from db in bios. Leave Secure Boot enabled\n* Unable to boot \"Operating System Loader signature not found in SecureBoot database (`db`)\n* Disable EFI secure boot\n* Haiku boots normally from USB",
+      "revId": "3b409c29bdf841168d0da3fd0d42b3c280580358",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
