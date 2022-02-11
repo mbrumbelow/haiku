@@ -33,6 +33,23 @@
       "message": "Validated on Dell XPS 13:\n\n* Enable Secure boot in bios\n* Append db keys (DB.auth) from Haiku install media in bios\n* Boot (success)\n* Boot (success)\n* Remove keys from db in bios. Leave Secure Boot enabled\n* Unable to boot \"Operating System Loader signature not found in SecureBoot database (`db`)\n* Disable EFI secure boot\n* Haiku boots normally from USB",
       "revId": "3b409c29bdf841168d0da3fd0d42b3c280580358",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b2d4cd9_a40c6d9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-11T22:07:50Z",
+      "side": 1,
+      "message": "Validated on Framework laptop (Intel 11th gen)\n* Boot normally with secure boot disabled\n* Enrolled Haiku\u0027s DB.crt from installation media\n  lol.. joy  https://pasteboard.co/9pWEYVtp1PsA.jpg\n* Booted Haiku with Secure Boot enabled successfully",
+      "revId": "3b409c29bdf841168d0da3fd0d42b3c280580358",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
