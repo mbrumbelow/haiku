@@ -50,6 +50,8 @@ class ExpressionParser {
 			int64				EvaluateToInt64(const char* expressionString);
 			double				EvaluateToDouble(const char* expressionString);
 
+			status_t			SetSeparators(char decimal='.', char group=',');
+
  private:
 			struct Token;
 			class Tokenizer;

@@ -15,6 +15,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <strings.h>
+#include <syslog.h>
 
 #include <m_apm.h>
 
@@ -97,7 +98,9 @@ class ExpressionParser::Tokenizer {
 		  fCurrentChar(NULL),
 		  fCurrentToken(),
 		  fReuseToken(false),
-		  fHexSupport(false)
+		  fHexSupport(false),
+		  fDecimalSeparator('.'),
+		  fGroupSeparator(',')
 	{
 	}
 
@@ -131,9 +134,7 @@ class ExpressionParser::Tokenizer {
 		if (*fCurrentChar == 0)
 			return fCurrentToken = Token("", 0, _CurrentPos(), TOKEN_END_OF_LINE);
 
-		bool decimal = *fCurrentChar == '.' || *fCurrentChar == ',';
-
-		if (decimal || isdigit(*fCurrentChar)) {
+		if (*fCurrentChar == fDecimalSeparator || isdigit(*fCurrentChar)) {
 			if (fHexSupport && *fCurrentChar == '0' && fCurrentChar[1] == 'x')
 				return _ParseHexNumber();
 
@@ -142,14 +143,15 @@ class ExpressionParser::Tokenizer {
 			const char* begin = fCurrentChar;
 
 			// optional digits before the comma
-			while (isdigit(*fCurrentChar)) {
-				temp << *fCurrentChar;
+			while (isdigit(*fCurrentChar) || *fCurrentChar == fGroupSeparator) {
+				if (*fCurrentChar != fGroupSeparator)
+					temp << *fCurrentChar;
 				fCurrentChar++;
 			}
 
 			// optional post comma part
 			// (required if there are no digits before the comma)
-			if (*fCurrentChar == '.' || *fCurrentChar == ',') {
+			if (*fCurrentChar == fDecimalSeparator) {
 				temp << '.';
 				fCurrentChar++;
 
@@ -258,6 +260,22 @@ class ExpressionParser::Tokenizer {
 		fReuseToken = true;
 	}
 
+	char DecimalSeparator()
+	{
+		return fDecimalSeparator;
+	}
+
+	char GroupSeparator()
+	{
+		return fGroupSeparator;
+	}
+
+	void SetSeparators(char decimal, char group)
+	{
+		fDecimalSeparator = decimal;
+		fGroupSeparator = group;
+	}
+
  private:
 	static bool _IsHexDigit(char c)
 	{
@@ -306,6 +324,8 @@ class ExpressionParser::Tokenizer {
 	Token		fCurrentToken;
 	bool		fReuseToken;
 	bool		fHexSupport;
+	char		fDecimalSeparator;
+	char		fGroupSeparator;
 };
 
 
@@ -356,16 +376,17 @@ ExpressionParser::Evaluate(const char* expressionString)
 	if (value == 0)
 		return BString("0");
 
-	char* buffer = value.toFixPtStringExp(kMaxDecimalPlaces, '.', 0, 0);
+	char* buffer = value.toFixPtStringExp(kMaxDecimalPlaces,
+						fTokenizer->DecimalSeparator(), 0, 0);
 	if (buffer == NULL)
 		throw ParseException("out of memory", 0);
 
 	// remove surplus zeros
 	int32 lastChar = strlen(buffer) - 1;
-	if (strchr(buffer, '.')) {
+	if (strchr(buffer, fTokenizer->DecimalSeparator())) {
 		while (buffer[lastChar] == '0')
 			lastChar--;
-		if (buffer[lastChar] == '.')
+		if (buffer[lastChar] == fTokenizer->DecimalSeparator())
 			lastChar--;
 	}
 
@@ -791,4 +812,16 @@ ExpressionParser::_EatToken(int32 type)
 		temp << "Expected " << expected.String() << " got '" << token.string << "'";
 		throw ParseException(temp.String(), token.position);
 	}
+}
+
+
+status_t
+ExpressionParser::SetSeparators(char decimal, char group)
+{
+	if (decimal == group)
+		return B_ERROR;
+
+	fTokenizer->SetSeparators(decimal, group);
+
+	return B_OK;
 }
