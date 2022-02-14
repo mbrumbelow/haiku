@@ -1,0 +1,9 @@
+service x-vnd.Haiku-netfs_server {
+	launch /system/servers/netfs_server
+	on network_available
+}
+
+service x-vnd.Haiku-netfs_auth {
+	launch /system/servers/authentication_server
+	on network_available
+}

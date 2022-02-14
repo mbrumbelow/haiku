@@ -19,6 +19,10 @@ AddFilesToPackage data userlandfs file_systems
 	: [ FDirName $(HAIKU_TOP) data userlandfs file_systems netfs ]
 	: netfs ;
 
+local launchScripts = <data!launch>netfs ;
+SEARCH on $(launchScripts) = [ FDirName $(HAIKU_TOP) data launch ] ;
+AddFilesToPackage data launch : $(launchScripts) ;
+
 # docs
 AddFilesToPackage documentation add-ons :
 	[ FDirName $(HAIKU_TOP) docs add-ons NetFS.html ] : NetFS.html ;
