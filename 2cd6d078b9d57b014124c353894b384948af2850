@@ -120,6 +120,24 @@
       "parentUuid": "9ce768da_8a1b599d",
       "revId": "2cd6d078b9d57b014124c353894b384948af2850",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4185fb45_bb9132c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-02-15T14:46:47Z",
+      "side": 1,
+      "message": "The game kit used to instanciate separate mixer nodes in each application using BGameSound (mixing all sounds from the app together, and then sending a single stream to the system mixer).\n\nThis was removed because it would not work correctly in hybrid builds (the wrong arch add-on would be used in some cases, and fail to load). But other than that it was working fine at the time.",
+      "parentUuid": "ddcb1942_af5dd11c",
+      "revId": "2cd6d078b9d57b014124c353894b384948af2850",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
