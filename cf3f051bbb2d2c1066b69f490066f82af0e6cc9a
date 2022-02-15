@@ -89,6 +89,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "0c194f5c_edc8f62f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2022-02-15T14:15:24Z",
+      "side": 1,
+      "message": "Yes, the weight are currently off.\nThere recently was a similar (I think) issue with the FileType add-on\u0027s \u0027supported types\u0027 scroll view, see https://review.haiku-os.org/c/haiku/+/4926",
+      "parentUuid": "c1233097_3a95465c",
+      "revId": "cf3f051bbb2d2c1066b69f490066f82af0e6cc9a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "34f5232e_0736f081",
         "filename": "src/preferences/network/NetworkWindow.cpp",
         "patchSetId": 1
