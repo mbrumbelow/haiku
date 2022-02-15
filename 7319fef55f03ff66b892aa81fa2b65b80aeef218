@@ -52,6 +52,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fbd6663_e502d6cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2022-02-15T15:43:16Z",
+      "side": 1,
+      "message": "I haven\u0027t checked how that text control comes into play, but that kind of thing could possibly be the case if the text control is being added to the layout without creating its individual layout items for label/input (c.f. https://git.haiku-os.org/haiku/tree/headers/os/interface/TextControl.h#n92).",
+      "parentUuid": "7525f2ef_4ea3c9ff",
+      "revId": "7319fef55f03ff66b892aa81fa2b65b80aeef218",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "be4d9fc0_42112008",
