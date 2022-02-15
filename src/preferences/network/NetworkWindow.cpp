@@ -35,6 +35,7 @@
 #include <PathMonitor.h>
 #include <Roster.h>
 #include <ScrollView.h>
+#include <SplitView.h>
 #include <StringItem.h>
 #include <SymLink.h>
 
@@ -91,7 +92,7 @@ public:
 
 NetworkWindow::NetworkWindow()
 	:
-	BWindow(BRect(100, 100, 400, 400), B_TRANSLATE_SYSTEM_NAME("Network"),
+	BWindow(BRect(100, 100, 750, 400), B_TRANSLATE_SYSTEM_NAME("Network"),
 		B_TITLED_WINDOW, B_ASYNCHRONOUS_CONTROLS | B_NOT_ZOOMABLE
 			| B_AUTO_UPDATE_SIZE_LIMITS),
 	fServicesItem(NULL),
@@ -134,8 +135,11 @@ NetworkWindow::NetworkWindow()
 	fAddOnShellView = new BView("add-on shell", 0,
 		new BGroupLayout(B_VERTICAL));
 	fAddOnShellView->SetViewUIColor(B_PANEL_BACKGROUND_COLOR);
+	fAddOnShellView->SetExplicitMaxSize(BSize(B_SIZE_UNLIMITED, B_SIZE_UNSET));
 
 	fInterfaceView = new InterfaceView();
+
+	BSplitView* splitView = new BSplitView(B_HORIZONTAL, 3.0f);
 
 	// Build the layout
 	BLayoutBuilder::Group<>(this, B_VERTICAL)
@@ -147,10 +151,11 @@ NetworkWindow::NetworkWindow()
 			.AddGlue()
 		.End()
 #endif
-		.AddGroup(B_HORIZONTAL, B_USE_DEFAULT_SPACING)
+		.AddSplit(splitView)
 			.Add(scrollView)
 			.Add(fAddOnShellView)
-			.End()
+		.End()
+
 		.Add(showReplicantCheckBox)
 		.AddGroup(B_HORIZONTAL, B_USE_DEFAULT_SPACING)
 			.Add(fRevertButton)
@@ -158,6 +163,9 @@ NetworkWindow::NetworkWindow()
 		.End();
 
 	gNetworkWindow = this;
+
+	splitView->SetCollapsible(0, 1, false);
+	splitView->SetItemWeight(0, 0, true);
 
 	_ScanInterfaces();
 	_ScanAddOns();

@@ -1,5 +1,5 @@
 /*
- * Copyright 2004-2015 Haiku, Inc. All rights reserved.
+ * Copyright 2004-2022 Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -45,6 +45,7 @@ InterfaceView::InterfaceView()
 	BGroupView(B_VERTICAL),
 	fPulseCount(0)
 {
+	SetLayout(new BGroupLayout(B_VERTICAL));
 	SetFlags(Flags() | B_PULSE_NEEDED);
 
 	// TODO: Small graph of throughput?
