@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "343d7e83_7820e9c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-15T15:32:03Z",
+      "side": 1,
+      "message": "I also adjusted the maximum height of each pane to unlimited which keeps the window adjustable vertically.  Scaling the listview works as expected as well.\n\nSome of the labels in the add-on views need to be \"bound\" to the top but still an improvement.",
+      "revId": "0a15337147516dac0545a235967e3c18398a9bc7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

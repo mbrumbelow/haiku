@@ -50,6 +50,24 @@
       "message": "this isn\u0027t needed, BGroupView already has a BGroupLayout by default",
       "revId": "7319fef55f03ff66b892aa81fa2b65b80aeef218",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "459ad496_5771fb85",
+        "filename": "src/preferences/network/InterfaceView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-15T15:32:03Z",
+      "side": 1,
+      "message": "done. tested same behaviour",
+      "parentUuid": "be4d9fc0_42112008",
+      "revId": "7319fef55f03ff66b892aa81fa2b65b80aeef218",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
