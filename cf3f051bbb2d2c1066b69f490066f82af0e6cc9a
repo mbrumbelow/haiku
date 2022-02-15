@@ -33,6 +33,23 @@
       "message": "In the future we might want to remove the interface status text (aka \"connected\") from the left list.  It consumes a lot of room and duplicates the status icon on the interface.\n\nIf we did that, the minimum initial window size could shrink a little too.",
       "revId": "cf3f051bbb2d2c1066b69f490066f82af0e6cc9a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab901795_11df1a82",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2022-02-15T13:15:03Z",
+      "side": 1,
+      "message": "Why is a split view needed?\nIMO, there\u0027s no need to change the width of the scroll view at the left. It\u0027s automatically sized to fit all of the fix contents. If the window is resized horizontally, only the things to the right of that scroll view should resize, while keep being left-aligned.",
+      "revId": "cf3f051bbb2d2c1066b69f490066f82af0e6cc9a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
