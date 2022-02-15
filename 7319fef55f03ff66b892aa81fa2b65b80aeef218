@@ -72,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "080a91c5_aeca2ed4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-15T15:53:26Z",
+      "side": 1,
+      "message": "There\u0027s no LayoutItem creation for BStringView\u0027s which i\u0027ve always thought is kinda odd. I think I originally used BStringView here because of the lack of a LayoutItem generator for pairs of BStringView\u0027s.\n\nhttps://www.haiku-os.org/docs/api/classBStringView.html\n\n\nAs for TextControl, I guess a non-editable, non-boxed, single-line TextControl with might be good for the Interface status page with CreateLabelLayoutItem.\n\nI\u0027d like to see that done in a follow up commit though since it\u0027s unrelated to this change :-)",
+      "parentUuid": "4fbd6663_e502d6cd",
+      "revId": "7319fef55f03ff66b892aa81fa2b65b80aeef218",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "be4d9fc0_42112008",
         "filename": "src/preferences/network/InterfaceView.cpp",
         "patchSetId": 2
