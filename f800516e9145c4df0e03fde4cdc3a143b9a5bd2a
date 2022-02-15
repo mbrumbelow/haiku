@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fc2fbf6_f66ab779",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-15T15:46:35Z",
+      "side": 1,
+      "message": "A small fix on top of the previous one. This makes ServiceView a little more consistent with the others being a GroupView over a standard BView",
+      "revId": "f800516e9145c4df0e03fde4cdc3a143b9a5bd2a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
