@@ -33,6 +33,23 @@
       "message": "Screenshots (default initial window size):\n\n  A: https://pasteboard.co/YsL5cEaMTTXB.png\n  B: https://pasteboard.co/4CcG9RhtwRRB.png\n  C: https://pasteboard.co/XBzjpgvHIr4u.png",
       "revId": "7319fef55f03ff66b892aa81fa2b65b80aeef218",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be4d9fc0_42112008",
+        "filename": "src/preferences/network/InterfaceView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-02-15T15:23:04Z",
+      "side": 1,
+      "message": "this isn\u0027t needed, BGroupView already has a BGroupLayout by default",
+      "revId": "7319fef55f03ff66b892aa81fa2b65b80aeef218",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
