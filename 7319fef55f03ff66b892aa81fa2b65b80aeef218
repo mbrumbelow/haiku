@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b1e8c140_f3f42c8e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2022-02-15T15:59:04Z",
+      "side": 1,
+      "message": "BStringViews don\u0027t need one since they\u0027re a single item. TextControls allow being split into two via those calls so that the label can be separately handled from the input for alignment purposes if necessary. If items aren\u0027t supplied explicitly, the layout implicitly generates one for the view/control as a whole. There\u0027s nothing odd about it per se, text controls are simply a special case due to encompassing two independent views.",
+      "parentUuid": "080a91c5_aeca2ed4",
+      "revId": "7319fef55f03ff66b892aa81fa2b65b80aeef218",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "be4d9fc0_42112008",
         "filename": "src/preferences/network/InterfaceView.cpp",
         "patchSetId": 2
