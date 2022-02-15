@@ -35,6 +35,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7525f2ef_4ea3c9ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2022-02-15T15:33:50Z",
+      "side": 1,
+      "message": "Better without the split 😊\n\nI notice that the details on the right are always left aligned with the exception of the network devices (wifi/lan). IMO those should stick to the left as well, so only the \"Network\" pop-up menu of the wifi adapter get\u0027s wider on resize.\nThere\u0027s also something weird going on with the \"Network:\" label. It currently doesn\u0027t move with its text control on resize and sometimes disappears etc.",
+      "revId": "7319fef55f03ff66b892aa81fa2b65b80aeef218",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "be4d9fc0_42112008",
