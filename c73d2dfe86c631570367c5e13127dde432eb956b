@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "9f946758_dc1a50b9",
         "filename": "src/servers/app/font/FontManager.cpp",
@@ -14,8 +15,25 @@
       "side": 1,
       "message": "IMO this shouldn\u0027t be needed.\nThe font should only be available for the application which requests it. See fBitmapMap or fPictureMap as examples.",
       "revId": "c73d2dfe86c631570367c5e13127dde432eb956b",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1da5cf68_6c3e283f",
+        "filename": "src/servers/app/font/FontManager.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1180,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-02-15T04:07:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f946758_dc1a50b9",
+      "revId": "c73d2dfe86c631570367c5e13127dde432eb956b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

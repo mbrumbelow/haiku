@@ -106,6 +106,42 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4c1b83e_4221379c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-02-15T04:07:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2cb966ae_80019aa6",
+      "revId": "d8e2977f21d324b1b13b11cd091be9444f394188",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cb6e0c0_39825866",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-02-15T04:07:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9faa39d9_d2f20c6a",
+      "revId": "d8e2977f21d324b1b13b11cd091be9444f394188",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ef75de8a_7bbbdb64",
@@ -123,6 +159,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "37828ea2_cdfcda0d",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 3604,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-02-15T04:07:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef75de8a_7bbbdb64",
+      "revId": "d8e2977f21d324b1b13b11cd091be9444f394188",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d3817410_2c86d3d1",
@@ -136,6 +190,24 @@
       "writtenOn": "2021-12-22T06:34:54Z",
       "side": 1,
       "message": "fOwner(NULL) is missing",
+      "revId": "d8e2977f21d324b1b13b11cd091be9444f394188",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7f501f5_7e6cdb51",
+        "filename": "src/servers/app/ServerFont.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-02-15T04:07:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3817410_2c86d3d1",
       "revId": "d8e2977f21d324b1b13b11cd091be9444f394188",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -207,6 +279,24 @@
       "side": 1,
       "message": "Fonts loaded this way should not be accessible in any other place than the BFont object that caused the loading, I think.\n\nAnd they should be deleted from app_server when the BFont object is destroyed.",
       "parentUuid": "f6c4734d_2f0ba43f",
+      "revId": "d8e2977f21d324b1b13b11cd091be9444f394188",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8038b07d_ec500e8c",
+        "filename": "src/servers/app/font/FontManager.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1188,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-02-15T04:07:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd9f291e_8d9b5109",
       "revId": "d8e2977f21d324b1b13b11cd091be9444f394188",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
