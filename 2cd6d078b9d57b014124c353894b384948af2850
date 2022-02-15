@@ -84,6 +84,24 @@
       "message": "I would prefer to remove or comment out only the two calls to MakeDiscreteParameter.",
       "revId": "2cd6d078b9d57b014124c353894b384948af2850",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ce768da_8a1b599d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2022-02-15T13:22:31Z",
+      "side": 1,
+      "message": "So just remove the options from the GUI but keep the rest?\nCan do. Before I do that and may have to revert again... what do the others think of it?",
+      "parentUuid": "9e5e5cfb_afd45495",
+      "revId": "2cd6d078b9d57b014124c353894b384948af2850",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
