@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a5d325a_9a708749",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-15T01:49:24Z",
+      "side": 1,
+      "message": "After left, before right:\nhttps://pasteboard.co/wQd6AIK4j2ho.png\n\n* Fixes the horizontal movement between the two BViews\n* Adds a split to make it adjustable\n* Weights the split to move as far left as possible\n* Expands the default window width to 700 to allow the split to be usable.\n\nThis increases room for configuration options.",
+      "revId": "cf3f051bbb2d2c1066b69f490066f82af0e6cc9a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
