@@ -50,6 +50,58 @@
       "message": "Why is a split view needed?\nIMO, there\u0027s no need to change the width of the scroll view at the left. It\u0027s automatically sized to fit all of the fix contents. If the window is resized horizontally, only the things to the right of that scroll view should resize, while keep being left-aligned.",
       "revId": "cf3f051bbb2d2c1066b69f490066f82af0e6cc9a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1233097_3a95465c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-15T14:01:29Z",
+      "side": 1,
+      "message": "That definitely isn\u0027t happening with the code as-is though.  The scrollview on the left scales to 50% / 50% of the current window. (or even even 70% / 30% if you\u0027re on the interface information.. see the other comment)\n\nThe usage of the Split allows us to weight the separation to the left.  In addition, the desired maximum width of the modules on the right are somewhat unknown as they\u0027re plugin / add-on based.  (adding a split here allows end users to adjust the window dimensions / configurations to their needs)\n\nI think if we can find another way to weight the split left without it being a full \"BSplitView\" that would also fix the issue... but lets use the tools presented.",
+      "parentUuid": "ab901795_11df1a82",
+      "revId": "cf3f051bbb2d2c1066b69f490066f82af0e6cc9a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55632f84_0cdf52dc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-15T14:01:29Z",
+      "side": 1,
+      "message": "Here\u0027s the existing code:\n\nEnlarged:\nhttps://pasteboard.co/dQUUopSZtBBp.png\n\nClicking any interface view:\nhttps://pasteboard.co/yZre5qO6fFQ1.png\n\n\nThese changes enable a dynamic view, and ensure the list stays weighted to the left consistently.",
+      "revId": "cf3f051bbb2d2c1066b69f490066f82af0e6cc9a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34f5232e_0736f081",
+        "filename": "src/preferences/network/NetworkWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-15T14:01:29Z",
+      "side": 1,
+      "message": "somewhat fixes the rigid interface view which \"pulls\" the left list beyond 50%.",
+      "revId": "cf3f051bbb2d2c1066b69f490066f82af0e6cc9a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
