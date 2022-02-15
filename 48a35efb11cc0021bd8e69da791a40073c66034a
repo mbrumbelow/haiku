@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd63626d_290bd6d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-02-15T17:22:48Z",
+      "side": 1,
+      "message": "The situation with timers on the ARM is not very straightforward so let\u0027s try to reuse what the bootloader platform gives us.\n\nChecked on TianoCore and u-boot.\n\nThis leaves the raw u-boot loader even more damaged.",
+      "revId": "48a35efb11cc0021bd8e69da791a40073c66034a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
