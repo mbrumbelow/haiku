@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "751751fc_c18ddc82",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2022-02-16T12:56:16Z",
+      "side": 1,
+      "message": "I hope I understood the requested changes correctly. Now we only remove the optiones from the GUI and keep the rest of the code. We also allow format changes for output by setting fSettings.RefuseOutputFormatChange to false, as that is supposed to work. ",
+      "revId": "8ccbe4acc5894f2996608cc1aef9e62cdb8112c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
