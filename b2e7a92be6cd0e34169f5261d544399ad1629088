@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79f6f984_8849fb08",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-02-16T22:07:32Z",
+      "side": 1,
+      "message": "I seem to recall we disabled usage of pthread condvars at least in MESA because they often deadlock; I think jessicah was having similar problems with GHC. Any chance you looked into that while implementing this?",
+      "revId": "b2e7a92be6cd0e34169f5261d544399ad1629088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
