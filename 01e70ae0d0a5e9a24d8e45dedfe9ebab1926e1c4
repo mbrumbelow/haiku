@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db066f43_d1b89e89",
+        "filename": "src/apps/deskcalc/CalcView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1110,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2022-02-16T16:19:46Z",
+      "side": 1,
+      "message": "At least some arabic locales may return non-ASCII separators, which would work here by what I think is chance: the first byte is the same for both and SetSeparators won\u0027t change anything. Maybe check separators\u0027 Lengths and, if they are not 1, just keep the defaults? Or work with the whole string, but I\u0027m not sure they use those separators with western representations of numbers.",
+      "revId": "01e70ae0d0a5e9a24d8e45dedfe9ebab1926e1c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b19241eb_4a438ac0",
+        "filename": "src/kits/shared/ExpressionParser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2022-02-16T16:19:46Z",
+      "side": 1,
+      "message": "Debugging leftover, I guess?",
+      "revId": "01e70ae0d0a5e9a24d8e45dedfe9ebab1926e1c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
