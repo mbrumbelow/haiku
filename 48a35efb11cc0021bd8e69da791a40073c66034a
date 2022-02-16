@@ -33,6 +33,24 @@
       "message": "If I remember correctly arm should be similar to arm64: https://github.com/haiku/haiku/blob/master/src/system/boot/arch/arm64/arch_cpu.cpp",
       "revId": "48a35efb11cc0021bd8e69da791a40073c66034a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d780431_53013b47",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-02-16T16:02:24Z",
+      "side": 1,
+      "message": "The arm64 code relies on ARM Generic Timer which is mandatory in ARMv8 but optional in ARMv7 if my understanding is correct. And still there\u0027s the question whether we want to support ARMv6 at all...",
+      "parentUuid": "5d95f342_0b4e0127",
+      "revId": "48a35efb11cc0021bd8e69da791a40073c66034a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
