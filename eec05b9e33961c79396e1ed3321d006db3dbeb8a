@@ -16,6 +16,40 @@
       "message": "Updated to support multi-byte (aka BString) separators. ",
       "revId": "eec05b9e33961c79396e1ed3321d006db3dbeb8a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84ead989_27cbd78e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-02-17T14:34:40Z",
+      "side": 1,
+      "message": "This code will fail with empty separator strings.",
+      "revId": "eec05b9e33961c79396e1ed3321d006db3dbeb8a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1d1889d_d7c8530b",
+        "filename": "headers/private/shared/ExpressionParser.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-02-17T14:34:40Z",
+      "side": 1,
+      "message": "Why giving default values here?",
+      "revId": "eec05b9e33961c79396e1ed3321d006db3dbeb8a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
