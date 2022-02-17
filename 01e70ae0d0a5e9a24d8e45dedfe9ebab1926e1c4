@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "25a3c725_afab8b26",
+        "filename": "src/apps/deskcalc/CalcView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1110,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-02-17T04:42:30Z",
+      "side": 1,
+      "message": "Changed to support BString separators instead of single chars",
+      "parentUuid": "db066f43_d1b89e89",
+      "revId": "01e70ae0d0a5e9a24d8e45dedfe9ebab1926e1c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b19241eb_4a438ac0",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-02-16T16:19:46Z",
       "side": 1,
       "message": "Debugging leftover, I guess?",
+      "revId": "01e70ae0d0a5e9a24d8e45dedfe9ebab1926e1c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d0c30ca_5c9ad340",
+        "filename": "src/kits/shared/ExpressionParser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-02-17T04:42:30Z",
+      "side": 1,
+      "message": "ugh, sorry! removed.",
+      "parentUuid": "b19241eb_4a438ac0",
       "revId": "01e70ae0d0a5e9a24d8e45dedfe9ebab1926e1c4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }

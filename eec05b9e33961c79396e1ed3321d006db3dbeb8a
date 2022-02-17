@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e2c0f16_507ae4a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-02-17T04:42:30Z",
+      "side": 1,
+      "message": "Updated to support multi-byte (aka BString) separators. ",
+      "revId": "eec05b9e33961c79396e1ed3321d006db3dbeb8a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
