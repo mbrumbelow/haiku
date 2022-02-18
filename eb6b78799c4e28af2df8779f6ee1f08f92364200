@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77c094a2_9f6d4851",
+        "filename": "src/system/kernel/arch/arm/arch_int.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-02-18T17:49:54Z",
+      "side": 1,
+      "message": "0x800 is called FSR_WNR on FreeBSD",
+      "revId": "eb6b78799c4e28af2df8779f6ee1f08f92364200",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
