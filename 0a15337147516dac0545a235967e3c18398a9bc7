@@ -51,6 +51,24 @@
       "parentUuid": "918229f9_b4b93526",
       "revId": "0a15337147516dac0545a235967e3c18398a9bc7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1abf2d47_395ea872",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-18T21:39:44Z",
+      "side": 1,
+      "message": "hm I haven\u0027t tested with a wireless network interface (only wired).\nThe network interface pane for wired ethernet is a bit \"ugly floaty\" but works.\n\nLet me try booting it on my laptop to see what\u0027s going on",
+      "parentUuid": "6caadf78_87a8b150",
+      "revId": "0a15337147516dac0545a235967e3c18398a9bc7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
