@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7e825a6_4916b269",
+        "filename": "src/system/runtime_loader/arch/arm/arch_relocate.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-02-18T17:40:26Z",
+      "side": 1,
+      "message": "the comments are superfluous",
+      "revId": "83ba0dce79c2a8452a7b51abfa82d48718f2d886",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73919c1f_97588763",
+        "filename": "src/system/runtime_loader/arch/arm/arch_relocate.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-02-18T17:40:26Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "83ba0dce79c2a8452a7b51abfa82d48718f2d886",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
