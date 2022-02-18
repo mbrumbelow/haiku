@@ -69,6 +69,24 @@
       "parentUuid": "2f960712_7abe4e38",
       "revId": "709f93c81d8c5592ce75a3e8eae19ab14842ecce",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9dbd835e_98ec6f69",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-02-18T21:34:02Z",
+      "side": 1,
+      "message": "There is clearly a cut-off control in that screenshot in the Supported Types box. That should not happen even without a SetExplicitMinSize. That should be fixed by itself, then this won\u0027t be needed.",
+      "parentUuid": "2f960712_7abe4e38",
+      "revId": "709f93c81d8c5592ce75a3e8eae19ab14842ecce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
