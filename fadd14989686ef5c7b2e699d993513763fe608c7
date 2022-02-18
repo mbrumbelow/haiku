@@ -16,6 +16,23 @@
       "message": "axeld: The \"boot hangs on rocket\" problems are especially frequent these days for me (for some users it appears they happen 100% of the time in QEMU) and it is kind of getting in the way of development on remaining Beta4 tickets. So, if you could review this sooner rather than later (or, deem it \"OK enough\" and I will fix whatever review comments you have after merging it), that would be much appreciated 😊",
       "revId": "fadd14989686ef5c7b2e699d993513763fe608c7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00ece0be_75cb457c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-18T17:18:28Z",
+      "side": 1,
+      "message": "Looks fine to me.  Understanding of this code outside of Axel is limited :-)\n\nI\u0027ve personally experienced the bug mentioned, so it\u0027ll be nice to try and fix\nit before R1/Beta4 comes out.\n\nStyle looks fine, looks like an overall simplification.",
+      "revId": "fadd14989686ef5c7b2e699d993513763fe608c7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
