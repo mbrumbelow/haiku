@@ -21,8 +21,10 @@
 
 .section .init
 FUNCTION(_init):
-	// crtbegin.o stuff comes here
+	sub		sp, sp, #8
+	str		lr, [sp]
 
 .section .fini
 FUNCTION(_fini):
-	// crtbegin.o stuff comes here
+	sub		sp, sp, #8
+	str		lr, [sp]

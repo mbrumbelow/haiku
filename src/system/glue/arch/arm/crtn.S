@@ -9,9 +9,12 @@
  */
 
 .section .init
-	// the image ID and program args are still on the stack
-
+	ldr		lr, [sp]
+	add		sp, sp, #8
+	bx		lr
 
 .section .fini
-	// the image ID and program args are still on the stack
+	ldr		lr, [sp]
+	add		sp, sp, #8
+	bx		lr
 
