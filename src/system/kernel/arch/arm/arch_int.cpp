@@ -245,13 +245,14 @@ arch_arm_data_abort(struct iframe *frame)
 {
 	Thread *thread = thread_get_current_thread();
 	bool isUser = (frame->spsr & 0x1f) == 0x10;
+	int32 fsr = arm_get_fsr();
 	addr_t far = arm_get_far();
-	bool isWrite = true;
+	bool isWrite = (fsr & 0x800) == 0x800;
 	addr_t newip = 0;
 
 #ifdef TRACE_ARCH_INT
 	print_iframe("Data Abort", frame);
-	dprintf("FAR: %08lx, thread: %s\n", far, thread->name);
+	dprintf("FAR: %08lx, isWrite: %d, thread: %s\n", far, isWrite, thread->name);
 #endif
 
 	IFrameScope scope(frame);
