@@ -16,6 +16,57 @@
       "message": "Updated the quick readme in the keys directory with steps for the Insyde bios on my Framework laptop.\n\nThis is ready",
       "revId": "77d287c71d29f042c3de125ca4c4418b1069f242",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4d9ff6d_2e31e79d",
+        "filename": "data/boot/efi/keys/README.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-02-18T17:15:38Z",
+      "side": 1,
+      "message": "probably should have a linebreak above",
+      "revId": "77d287c71d29f042c3de125ca4c4418b1069f242",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "563748a7_be8b5c7f",
+        "filename": "src/system/boot/Jamfile",
+        "patchSetId": 7
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-02-18T17:15:38Z",
+      "side": 1,
+      "message": "I don\u0027t think you need an empty rule; just \"actions\" should suffice?",
+      "revId": "77d287c71d29f042c3de125ca4c4418b1069f242",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "082fb8e1_349e77b3",
+        "filename": "src/system/boot/Jamfile",
+        "patchSetId": 7
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-02-18T17:15:38Z",
+      "side": 1,
+      "message": "can\u0027t we use PRIVATE not PRIV?",
+      "revId": "77d287c71d29f042c3de125ca4c4418b1069f242",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
