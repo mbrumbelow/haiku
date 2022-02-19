@@ -51,6 +51,24 @@
       "parentUuid": "5d95f342_0b4e0127",
       "revId": "48a35efb11cc0021bd8e69da791a40073c66034a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67d12f44_ee34dddc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-02-19T15:27:39Z",
+      "side": 1,
+      "message": "Ok sounds good. I think you know best about what ARM specs to support.",
+      "parentUuid": "5d780431_53013b47",
+      "revId": "48a35efb11cc0021bd8e69da791a40073c66034a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
