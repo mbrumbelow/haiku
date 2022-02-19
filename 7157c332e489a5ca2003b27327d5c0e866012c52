@@ -51,6 +51,24 @@
       "message": "Hmm, any chance that affects the \"no MSI interrupts\" with some PCI devices (nvme)?",
       "revId": "7157c332e489a5ca2003b27327d5c0e866012c52",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87be1aca_024f283f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-02-19T16:23:10Z",
+      "side": 1,
+      "message": "probably not, the config space is larger on PCIe, so anything accessing above 0xff would return 0xff. The difference is seen in the syslog, extended capabilities are shown when before the list was empty.",
+      "parentUuid": "536d8c48_aaac71d2",
+      "revId": "7157c332e489a5ca2003b27327d5c0e866012c52",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
