@@ -16,6 +16,24 @@
       "message": "I think this looks ok, but copyright headers seems wrong.\nAxel probably didin\u0027t do ARM in 2005 😊",
       "revId": "a83da657d3ddacc833f3b3debee810f5e4283386",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "edab983c_6fe37396",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-02-19T15:48:12Z",
+      "side": 1,
+      "message": "yep that\u0027s a valid comment. I\u0027ve updated the copyright headers.",
+      "parentUuid": "05a63669_2ad35d5a",
+      "revId": "a83da657d3ddacc833f3b3debee810f5e4283386",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
