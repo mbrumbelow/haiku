@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73e2ec80_eb1bbdcf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-02-19T09:41:01Z",
+      "side": 1,
+      "message": "Isn\u0027t intel_extreme driver depends on BIOS GPU initialization? If GPU is off, it is likely not initialized by BIOS and turning it on don\u0027t help.",
+      "revId": "6fb54b48ca21b879984457631bea21e9149a842b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
