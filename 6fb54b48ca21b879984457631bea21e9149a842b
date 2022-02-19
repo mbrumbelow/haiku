@@ -16,6 +16,23 @@
       "message": "Isn\u0027t intel_extreme driver depends on BIOS GPU initialization? If GPU is off, it is likely not initialized by BIOS and turning it on don\u0027t help.",
       "revId": "6fb54b48ca21b879984457631bea21e9149a842b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aacd7a2c_1069875c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000057
+      },
+      "writtenOn": "2022-02-19T10:33:33Z",
+      "side": 1,
+      "message": "Sounds like a good plan :-)\n@x512: in theory you\u0027re correct, but of course relying on the bios is something that the driver will do less and less (eDP on Sandy/Ivy for instance or already programmed more than stricktly needed.)\n\nHopefully turning on power like this will enable register access: that\u0027s missing on some laptops. (On the nVidia driver this is all done internally already btw, but ok, that\u0027s an older driver ;-)",
+      "revId": "6fb54b48ca21b879984457631bea21e9149a842b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
