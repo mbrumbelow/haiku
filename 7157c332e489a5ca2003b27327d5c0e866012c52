@@ -69,6 +69,23 @@
       "parentUuid": "536d8c48_aaac71d2",
       "revId": "7157c332e489a5ca2003b27327d5c0e866012c52",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01b47df2_85bbf6fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-02-19T16:26:44Z",
+      "side": 1,
+      "message": "Ah, and theorically we should reverse the dependencies/init so that the ACPI is at the top of the hierarchy, and the PCI busses under it. The ACPI bus manager should be able to switch its access of the PCI config space from the BIOS method to the PCI module, when it\u0027s loaded.",
+      "revId": "7157c332e489a5ca2003b27327d5c0e866012c52",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
