@@ -34,6 +34,23 @@
       "parentUuid": "0b82b77f_7d9b54a9",
       "revId": "51317ad468ccca8d4de2b4bd1a1b4929fb3d3777",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04cc6117_0032e53c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-02-19T15:55:38Z",
+      "side": 1,
+      "message": "Isn\u0027t a lot of this code in common with the BIOS loader?",
+      "revId": "51317ad468ccca8d4de2b4bd1a1b4929fb3d3777",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
