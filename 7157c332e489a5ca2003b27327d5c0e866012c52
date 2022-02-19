@@ -34,6 +34,23 @@
       "parentUuid": "9e1e60fd_c1971546",
       "revId": "7157c332e489a5ca2003b27327d5c0e866012c52",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "536d8c48_aaac71d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-02-19T15:53:48Z",
+      "side": 1,
+      "message": "Hmm, any chance that affects the \"no MSI interrupts\" with some PCI devices (nvme)?",
+      "revId": "7157c332e489a5ca2003b27327d5c0e866012c52",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
