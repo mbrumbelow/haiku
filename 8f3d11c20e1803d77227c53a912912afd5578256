@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3d841d8_cc6b7a75",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-02-19T09:27:48Z",
+      "side": 1,
+      "message": "I\u0027ve added FSR_WNR as a #define in arch_cpu_defs.h",
+      "revId": "8f3d11c20e1803d77227c53a912912afd5578256",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
