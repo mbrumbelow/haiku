@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b82b77f_7d9b54a9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-02-19T15:36:33Z",
+      "side": 1,
+      "message": "-1 as the refactor isn\u0027t yet done.",
+      "revId": "51317ad468ccca8d4de2b4bd1a1b4929fb3d3777",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
