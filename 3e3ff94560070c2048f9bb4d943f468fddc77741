@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "026c6d74_0f866ce4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-02-19T16:33:03Z",
+      "side": 1,
+      "message": "implement prefetch abort similarly to data abort (common parts might be factored out later)\n\nlr was fixed up in the wrong direction, this has to be fixed",
+      "revId": "3e3ff94560070c2048f9bb4d943f468fddc77741",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
