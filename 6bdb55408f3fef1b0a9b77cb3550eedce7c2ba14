@@ -69,6 +69,24 @@
       "parentUuid": "7e505f05_a6117564",
       "revId": "6bdb55408f3fef1b0a9b77cb3550eedce7c2ba14",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c33fd8ca_a8406670",
+        "filename": "src/system/kernel/arch/arm/arch_int.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-02-20T20:55:58Z",
+      "side": 1,
+      "message": "Maybe can be replaced with 4*sizeof(uint32) to be less confusing.",
+      "parentUuid": "8b0fa057_d5aeebe6",
+      "revId": "6bdb55408f3fef1b0a9b77cb3550eedce7c2ba14",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
