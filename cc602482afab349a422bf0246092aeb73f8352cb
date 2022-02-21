@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f153afc5_71ed25cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000321
+      },
+      "writtenOn": "2022-02-21T19:23:16Z",
+      "side": 1,
+      "message": "\u003e Can\u0027t teams also be \"one shot on startup\" vs \"daemon\" though?\n\n\nWhich of Haiku\u0027s services are a one-shot?\nIf a service is a one-shot then the button say \"Kill this team!\", correct?\n",
+      "revId": "cc602482afab349a422bf0246092aeb73f8352cb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
