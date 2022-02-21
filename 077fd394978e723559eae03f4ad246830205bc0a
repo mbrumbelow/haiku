@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f51bdb81_93694863",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-21T23:55:46Z",
+      "side": 1,
+      "message": "a little more info:\nhttps://discourse.llvm.org/t/llvm-linker-lld-unimplemented-linker-relaxation-error/4215/5\n\nOverall this moves clang compiling riscv64 forward a bit.",
+      "revId": "077fd394978e723559eae03f4ad246830205bc0a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
