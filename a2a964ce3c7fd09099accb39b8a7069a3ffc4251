@@ -16,6 +16,24 @@
       "message": "What about TLS relocations?",
       "revId": "a2a964ce3c7fd09099accb39b8a7069a3ffc4251",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a3aa753_c42e7040",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-02-21T09:21:43Z",
+      "side": 1,
+      "message": "Haven\u0027t came up yet. At least these relocations are enough now to load launcher_daemon and its dependencies (libroot, libstdc++, libbe etc).",
+      "parentUuid": "9f4ee965_24abcb8f",
+      "revId": "a2a964ce3c7fd09099accb39b8a7069a3ffc4251",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
