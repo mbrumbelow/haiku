@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5166536_55f2e716",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-21T23:59:30Z",
+      "side": 1,
+      "message": "lld: (clang)\n\nld.lld -z,notext\nld.lld: error: unknown -z value: ,notext\n\nld.lld -znotext\nld.lld: error: no input files\n\n\nld: (gcc)\n\nld -z,notext\nld: warning: -z ,notext ignored\nld: no input files\n\nld -znotext\nld: no input files\n\n\n",
+      "revId": "f7c347e7c856371eb97f356210162fea7f3e22df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
