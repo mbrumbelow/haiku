@@ -104,6 +104,24 @@
       "message": "Since it is just a magic value, can we have a code comment on why it got picked?\n",
       "revId": "2af5566d47ffc7c4e1eee2cd6823807fe8828a14",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24825579_db03a32e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-02-22T22:55:10Z",
+      "side": 1,
+      "message": "As noted, it\u0027s currently only used to do a sanity check before invoking malloc() [1], [2], [3]. So memory usage shouldn\u0027t change, hence my suggestion to match Linux here.\n\n[1]: https://github.com/haiku/haiku/blob/d03e5994ee9c1a80bb74ac34dba14f0b34c59106/src/system/libroot/os/image.cpp#L510\n\n[2]: https://github.com/haiku/haiku/blob/20b50a5cb429ea7cef2f80280a0e49a9003d039b/src/system/kernel/team.cpp#L1468\n\n[3] https://github.com/haiku/haiku/blob/20b50a5cb429ea7cef2f80280a0e49a9003d039b/src/system/kernel/team.cpp#L3764",
+      "parentUuid": "896b7292_ad3cffff",
+      "revId": "2af5566d47ffc7c4e1eee2cd6823807fe8828a14",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
