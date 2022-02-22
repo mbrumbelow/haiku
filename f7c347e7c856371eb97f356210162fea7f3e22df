@@ -50,6 +50,24 @@
       "message": "linux can be seen calling \"-z notext\" here: https://lkml.iu.edu/hypermail/linux/kernel/2108.1/05746.html",
       "revId": "f7c347e7c856371eb97f356210162fea7f3e22df",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc544ba2_965e5f36",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-02-22T07:47:36Z",
+      "side": 1,
+      "message": "\"-Wl,-z,-notext\" in gcc/g++ arguments is converted to \"-z notext\" in ld arguments. That\u0027s how the -Wl option works, each comma separates a new argument to pass to the linker.\n\nSince we call ld directly, the proper syntax would be \"-z notext\" and maybe \"-znotext\" is also accepted, but less correct (in standard getopt it would be an equivalent to \"-z -n -o -t -e -x -t\", but ld probalby doesn\u0027t use fully standard getopt parsing).",
+      "parentUuid": "8b7fd50e_4d539e7c",
+      "revId": "f7c347e7c856371eb97f356210162fea7f3e22df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
