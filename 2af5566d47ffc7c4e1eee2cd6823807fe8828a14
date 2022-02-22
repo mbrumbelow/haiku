@@ -33,6 +33,24 @@
       "message": "Just use Linux\u0027s value. From what I\u0027ve observed, this constant isn\u0027t used for sizing a fixed buffer, but rather just for sanity checking. Ergo, just match Linux. It won\u0027t use any more memory than currently, and will future proof us for more insane binaries that\u0027ll work on Linux but not Haiku.",
       "revId": "2af5566d47ffc7c4e1eee2cd6823807fe8828a14",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0142f89_b8aa4563",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-22T21:07:51Z",
+      "side": 1,
+      "message": "My only reservation to that was a comment made by a FreeBSD developer:\nhttps://bugs.freebsd.org/bugzilla/show_bug.cgi?id\u003d208154#c3\n\n\"Increasing ARG_MAX would consume (much) more KVA on KVA-starved architectures, basically all 32bits, esp. PAE-like configs.\"",
+      "parentUuid": "dce5ec85_b2aa54ce",
+      "revId": "2af5566d47ffc7c4e1eee2cd6823807fe8828a14",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
