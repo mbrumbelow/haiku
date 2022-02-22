@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7129e92b_676983e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-02-22T22:00:12Z",
+      "side": 1,
+      "message": "Axel if I remember correctly you asked to be removed from copyright in some other file that was duplicated, so do you want to be removed here?",
+      "revId": "cb0043cb556ad889a74374b8ba3191f836f0d7c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
