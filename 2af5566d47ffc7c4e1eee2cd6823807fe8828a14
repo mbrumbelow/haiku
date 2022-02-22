@@ -140,6 +140,24 @@
       "parentUuid": "24825579_db03a32e",
       "revId": "2af5566d47ffc7c4e1eee2cd6823807fe8828a14",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e5949d0_c5659b16",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-02-22T23:50:48Z",
+      "side": 1,
+      "message": "It\u0027s a maximum, not an actually allocated value, and futureproofs us by being the same as Linux. I don\u0027t see a reason to restrict to FreeBSD\u0027s limit because FreeBSD, and then either needing FreeBSD-specific patches in the future, or bumping it once again.\n\nFTFY: \"if nothing is going to use them _today_.\"",
+      "parentUuid": "8a566473_66a9ac21",
+      "revId": "2af5566d47ffc7c4e1eee2cd6823807fe8828a14",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
