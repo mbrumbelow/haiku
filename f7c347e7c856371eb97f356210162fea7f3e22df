@@ -33,6 +33,23 @@
       "message": "I think the -z,notext call is miswritten globally in our tree.\n\nI *think* calling it through (g)cc like this is valid:\n-Wl,-z,notext\n\nBut calling it like this directly is not:\n-z,notext",
       "revId": "f7c347e7c856371eb97f356210162fea7f3e22df",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16c7346f_20defe2a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-22T00:01:24Z",
+      "side": 1,
+      "message": "linux can be seen calling \"-z notext\" here: https://lkml.iu.edu/hypermail/linux/kernel/2108.1/05746.html",
+      "revId": "f7c347e7c856371eb97f356210162fea7f3e22df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
