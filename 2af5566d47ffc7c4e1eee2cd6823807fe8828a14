@@ -87,6 +87,23 @@
       "parentUuid": "6265d488_42aacb56",
       "revId": "2af5566d47ffc7c4e1eee2cd6823807fe8828a14",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5dce69f_6b7638df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-02-22T22:06:37Z",
+      "side": 1,
+      "message": "Since it is just a magic value, can we have a code comment on why it got picked?\n",
+      "revId": "2af5566d47ffc7c4e1eee2cd6823807fe8828a14",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
