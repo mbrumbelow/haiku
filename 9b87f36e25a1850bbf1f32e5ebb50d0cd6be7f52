@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2997cb2d_a5179fb0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2022-02-22T17:14:02Z",
+      "side": 1,
+      "message": "And if you are fixinf their names, you may also want to review their uses. I guess in TermWindow::_OpenSetWindowTitleDialog kToo[l]TipSetWindowTitlePlaceholders should be used instead of the tab one, and in both _OpenSetWindowTitleDialog and _OpenSetTabTitleDialog kToolTipCommonTitlePlaceholders should be joined afterwards, like in AppearancePrefView.",
+      "revId": "9b87f36e25a1850bbf1f32e5ebb50d0cd6be7f52",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "10f4ef72_106ea7cc",
         "filename": "src/apps/terminal/TermConst.cpp",
         "patchSetId": 1
