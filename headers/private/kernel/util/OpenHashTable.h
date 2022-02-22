@@ -271,20 +271,18 @@ public:
 		ValueType* result = NULL;
 
 		if (returnElements) {
-			ValueType** nextPointer = &result;
-
 			// iterate through all buckets
 			for (size_t i = 0; i < fTableSize; i++) {
 				ValueType* element = fTable[i];
 				if (element != NULL) {
 					// add the bucket to the list
-					*nextPointer = element;
+					result = element;
 
-					// update nextPointer to point to the fNext of the last
+					// update result to point to the fNext of the last
 					// element in the bucket
 					while (element != NULL) {
-						nextPointer = &_Link(element);
-						element = *nextPointer;
+						result = _Link(element);
+						element = result;
 					}
 				}
 			}
