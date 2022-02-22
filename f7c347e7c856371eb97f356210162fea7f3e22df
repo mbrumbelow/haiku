@@ -16,6 +16,23 @@
       "message": "lld: (clang)\n\nld.lld -z,notext\nld.lld: error: unknown -z value: ,notext\n\nld.lld -znotext\nld.lld: error: no input files\n\n\nld: (gcc)\n\nld -z,notext\nld: warning: -z ,notext ignored\nld: no input files\n\nld -znotext\nld: no input files\n\n\n",
       "revId": "f7c347e7c856371eb97f356210162fea7f3e22df",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b7fd50e_4d539e7c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-22T00:00:50Z",
+      "side": 1,
+      "message": "I think the -z,notext call is miswritten globally in our tree.\n\nI *think* calling it through (g)cc like this is valid:\n-Wl,-z,notext\n\nBut calling it like this directly is not:\n-z,notext",
+      "revId": "f7c347e7c856371eb97f356210162fea7f3e22df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
