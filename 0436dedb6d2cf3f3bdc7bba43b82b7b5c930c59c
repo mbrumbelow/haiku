@@ -34,6 +34,24 @@
       "parentUuid": "bdd3025f_3b34723e",
       "revId": "0436dedb6d2cf3f3bdc7bba43b82b7b5c930c59c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d597ac62_a9c7e2d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-02-23T07:03:27Z",
+      "side": 1,
+      "message": "Update time by network for example.",
+      "parentUuid": "7b0723d1_70ce9191",
+      "revId": "0436dedb6d2cf3f3bdc7bba43b82b7b5c930c59c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
