@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bce2efd_2fa09569",
+        "filename": "src/system/kernel/arch/arm/arch_int.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-02-23T01:42:25Z",
+      "side": 0,
+      "message": "Why remove?",
+      "revId": "4e151bc3093293a8ab47aeae854dc80d04e9b41f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
