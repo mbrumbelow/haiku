@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fcb7ccc_316ca2b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000321
+      },
+      "writtenOn": "2022-02-23T06:37:17Z",
+      "side": 1,
+      "message": "Thank you for pointing this out!",
+      "parentUuid": "2997cb2d_a5179fb0",
+      "revId": "9b87f36e25a1850bbf1f32e5ebb50d0cd6be7f52",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "10f4ef72_106ea7cc",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-02-22T07:37:11Z",
       "side": 1,
       "message": "while you\u0027re changing this, there is a typo in the name of these constants, kTooTip instead of kToolTip.",
+      "revId": "9b87f36e25a1850bbf1f32e5ebb50d0cd6be7f52",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fef0e9f_7b175be9",
+        "filename": "src/apps/terminal/TermConst.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000321
+      },
+      "writtenOn": "2022-02-23T06:37:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10f4ef72_106ea7cc",
       "revId": "9b87f36e25a1850bbf1f32e5ebb50d0cd6be7f52",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
