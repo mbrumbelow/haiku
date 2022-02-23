@@ -192,6 +192,23 @@
       "message": "In https://www.in-ulm.de/~mascheck/various/argmax/#results, linux is \"1/4 of stack size\".  I got the linux value from my desktop with a large amount of ram... so the exact Linux number should be ignored.\n\nSo:\n\n* Our current ARG_MAX matches the pre-Linux 2.6.22 size 131,072\n* Mac OS X 10.6 is 262,144\n* NetBSD / OpenBSD is 262,144\n* AIX 7.2 is 1,048,576\n* Linux ~2,097,152 with 64 GiB of ram.\n\nHaiku is not a server operating system however.\n\nI think my opinion still falls to matching the BSD\u0027s.   They likely have spent a lot more time analyzing this than we have.",
       "revId": "2af5566d47ffc7c4e1eee2cd6823807fe8828a14",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32de2a2f_58b270d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-02-23T17:36:23Z",
+      "side": 1,
+      "message": "Let\u0027s go for same as *BSD/MacOS, if this proves to be not enough, we can always increase it again.\n\n(256K of data in command line arguments, not enough, really? what the hell are you doing?)",
+      "revId": "2af5566d47ffc7c4e1eee2cd6823807fe8828a14",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
