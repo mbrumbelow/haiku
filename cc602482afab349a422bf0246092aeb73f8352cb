@@ -34,6 +34,23 @@
       "parentUuid": "f153afc5_71ed25cc",
       "revId": "cc602482afab349a422bf0246092aeb73f8352cb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19ce4b9a_76d42592",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-02-23T07:02:01Z",
+      "side": 1,
+      "message": "Still don\u0027t think that this is not ProcessController responsibility. Team is restarted by launch_daemon, not ProcessController. It can be also restarted by something else.",
+      "revId": "cc602482afab349a422bf0246092aeb73f8352cb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
