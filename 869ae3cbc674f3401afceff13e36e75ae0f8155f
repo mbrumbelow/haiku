@@ -16,6 +16,24 @@
       "message": "This is incorrect, the previous code modified other elements in the list here (as nextPointer would be pointing to the Link of such elements after the while loop below).\n\nNow this will not be the case anymore, only the local variable result is modified, leaving the hashmap pointing to things that have been removed from it.\n\nSince your commit message does not mention this and does not explain how it\u0027s ok to change it, I assume you missed that.",
       "revId": "869ae3cbc674f3401afceff13e36e75ae0f8155f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84b0b786_3e439d25",
+        "filename": "headers/private/kernel/util/OpenHashTable.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000321
+      },
+      "writtenOn": "2022-02-23T06:37:55Z",
+      "side": 1,
+      "message": "Thank you for the review and the explanation! Will abandon the change.",
+      "parentUuid": "520d62ea_29f71e49",
+      "revId": "869ae3cbc674f3401afceff13e36e75ae0f8155f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
