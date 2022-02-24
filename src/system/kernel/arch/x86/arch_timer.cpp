@@ -27,10 +27,11 @@
 
 //#define TRACE_TIMER
 #ifdef TRACE_TIMER
-#	define TRACE(x) dprintf x
+#	define TRACE(x...) dprintf("arch_timer: " x)
 #else
-#	define TRACE(x) ;
+#	define TRACE(x...) ;
 #endif
+
 
 extern timer_info gPITTimer;
 extern timer_info gAPICTimer;
@@ -48,7 +49,7 @@ static timer_info *sTimer = NULL;
 void
 arch_timer_set_hardware_timer(bigtime_t timeout)
 {
-	TRACE(("arch_timer_set_hardware_timer: timeout %lld\n", timeout));
+	TRACE("arch_timer_set_hardware_timer: timeout %" B_PRIdBIGTIME "\n", timeout);
 	sTimer->set_hardware_timer(timeout);
 }
 
@@ -56,7 +57,7 @@ arch_timer_set_hardware_timer(bigtime_t timeout)
 void
 arch_timer_clear_hardware_timer(void)
 {
-	TRACE(("arch_timer_clear_hardware_timer\n"));
+	TRACE("arch_timer_clear_hardware_timer\n");
 	sTimer->clear_hardware_timer();
 }
 
