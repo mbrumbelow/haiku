@@ -33,6 +33,24 @@
       "message": "Magic numbers?",
       "revId": "3e3ff94560070c2048f9bb4d943f468fddc77741",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe27a49e_1c913edf",
+        "filename": "src/system/kernel/arch/arm/arch_int.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-02-24T16:27:19Z",
+      "side": 1,
+      "message": "it\u0027s magic 😄 but really, i\u0027ll add a #define for this in arch_cpu_defs.h",
+      "parentUuid": "9ce8c8f8_2dd30eda",
+      "revId": "3e3ff94560070c2048f9bb4d943f468fddc77741",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
