@@ -15,6 +15,15 @@
 
 #include "pit.h"
 
+
+//#define TRACE_PIT
+#ifdef TRACE_PIT
+#	define TRACE(x...) dprintf("pit: " x)
+#else
+#	define TRACE(x...) ;
+#endif
+
+
 static bool sPITTimerInitialized = false;
 
 struct timer_info gPITTimer = {
@@ -73,6 +82,7 @@ static status_t
 pit_init(struct kernel_args *args)
 {
 	if (sPITTimerInitialized) {
+		TRACE("timer is already initialized");
 		return B_OK;
 	}
 	
@@ -80,6 +90,7 @@ pit_init(struct kernel_args *args)
 	pit_clear_hardware_timer();	
 
 	sPITTimerInitialized = true;
+	TRACE("timer initialized");
 
 	return B_OK;
 }
