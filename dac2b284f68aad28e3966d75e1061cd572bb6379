@@ -16,6 +16,40 @@
       "message": "just simple cleanup around timer code while troubleshooting the timer issues on 11th gen intel \n\nhttps://dev.haiku-os.org/ticket/17595",
       "revId": "dac2b284f68aad28e3966d75e1061cd572bb6379",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "928d5a93_7acc8ed3",
+        "filename": "src/system/kernel/arch/x86/arch_timer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-02-24T17:04:40Z",
+      "side": 1,
+      "message": "Should we do whitespace cleanup in this file while we are at it?",
+      "revId": "dac2b284f68aad28e3966d75e1061cd572bb6379",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "931c8ff0_8dd7eedc",
+        "filename": "src/system/kernel/arch/x86/timers/x86_pit.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-02-24T17:04:40Z",
+      "side": 1,
+      "message": "Perhaps this file as well..",
+      "revId": "dac2b284f68aad28e3966d75e1061cd572bb6379",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
