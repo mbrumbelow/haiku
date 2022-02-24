@@ -33,6 +33,23 @@
       "message": "I left the original copyright header there as I think it still applies to the comment blocks in lines 9-21 resp 9-22 but I can also remove it if you prefer that.",
       "revId": "cb0043cb556ad889a74374b8ba3191f836f0d7c1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1482684_0ad2f3bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-02-24T16:38:43Z",
+      "side": 1,
+      "message": "We gave Axel a chance to comment, it can always be removed later if needed.",
+      "revId": "cb0043cb556ad889a74374b8ba3191f836f0d7c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
