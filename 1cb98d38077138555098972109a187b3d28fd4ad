@@ -16,6 +16,24 @@
       "message": "1. Various parts of the kernel simply do not compile with GCC 2 anymore at all; the FreeBSD drivers have been upgraded and now make use of C99 features at the very least, and packagefs likely does not either following the Zstd changes (which were the initial motivation to stop compiling the kernel with GCC 2.) I don\u0027t know what the advantage of having this change in is, then.\n\n2. This removes one of the initializations.",
       "revId": "1cb98d38077138555098972109a187b3d28fd4ad",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c426ee4_12aa6ce6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000038
+      },
+      "writtenOn": "2022-02-25T23:28:19Z",
+      "side": 1,
+      "message": "That part does get compiled if you try building in vanilla Haiku 32 bit.  It breaks the build as is.\n\nThe initializer is implied, the constructor for that \"csi\" sub-struct will get called as part of the diri constructor since it is a full structure, not a pointer.  Not that it does anything, same as the {} field init.",
+      "parentUuid": "fe866bdf_53ea7cc7",
+      "revId": "1cb98d38077138555098972109a187b3d28fd4ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
