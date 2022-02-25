@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e3d61c7_d3dcd0ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-02-25T13:40:05Z",
+      "side": 1,
+      "message": "IFrame debug output can be fixed in next patches.",
+      "revId": "5b5818e0220c6ba98d9af26024916b11932cd17a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
