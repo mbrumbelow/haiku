@@ -33,6 +33,24 @@
       "message": "So... did I get it right? 😊",
       "revId": "8ccbe4acc5894f2996608cc1aef9e62cdb8112c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d5a5d88_7375f834",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000038
+      },
+      "writtenOn": "2022-02-25T22:21:08Z",
+      "side": 1,
+      "message": "Compiles under Haiku 32 bit and seems to work.",
+      "parentUuid": "877f58c8_47904674",
+      "revId": "8ccbe4acc5894f2996608cc1aef9e62cdb8112c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
