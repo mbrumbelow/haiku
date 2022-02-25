@@ -306,6 +306,12 @@ diri_init(nspace *vol, uint32 cluster, uint32 index, struct diri *diri)
 }
 
 
+diri::diri()
+{
+	current_block = NULL;
+}
+
+
 diri::~diri()
 {
 	if (current_block != NULL)
