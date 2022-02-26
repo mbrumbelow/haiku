@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21bb047c_d30d7188",
+        "filename": "src/apps/haikudepot/server/LocalPkgDataLoadProcess.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-02-26T16:49:46Z",
+      "side": 1,
+      "message": "else should come on the previous line",
+      "revId": "e09263ea26a2abb431cdd52ecd4440e304764221",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3452d1e_fb9a907c",
+        "filename": "src/apps/haikudepot/server/LocalPkgDataLoadProcess.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-02-26T16:49:46Z",
+      "side": 1,
+      "message": "isn\u0027t off_t the usual type for sizes?",
+      "revId": "e09263ea26a2abb431cdd52ecd4440e304764221",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
