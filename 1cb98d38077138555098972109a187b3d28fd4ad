@@ -34,6 +34,23 @@
       "parentUuid": "fe866bdf_53ea7cc7",
       "revId": "1cb98d38077138555098972109a187b3d28fd4ad",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81965911_ba5bd6ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000038
+      },
+      "writtenOn": "2022-02-26T23:46:12Z",
+      "side": 1,
+      "message": "Say, why does FAT get compiled using GCC2 in the default Haiku OS build?  Maybe a Jam rule needs to be changed, if FAT is not actually used.",
+      "revId": "1cb98d38077138555098972109a187b3d28fd4ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
