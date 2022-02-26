@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "531699fc_cdbe7b9e",
+        "filename": "src/apps/terminal/TermConst.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000321
+      },
+      "writtenOn": "2022-02-26T22:43:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7b03fc4_b0242921",
+      "revId": "5a4c0c15aa171efd23c0983c20e52ef1af6c1453",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6bdf4d7c_9dc958ae",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-02-24T16:07:15Z",
       "side": 1,
       "message": "There\u0027s no newline at the end of kToolTipSetWindowTitlePlaceholders or the beginning of kToolTipCommonTitlePlaceholders, so their last and first item end in the same line here.",
+      "revId": "5a4c0c15aa171efd23c0983c20e52ef1af6c1453",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7cdb9bf_d127fdf1",
+        "filename": "src/apps/terminal/TermWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1947,
+      "author": {
+        "id": 1000321
+      },
+      "writtenOn": "2022-02-26T22:43:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bdf4d7c_9dc958ae",
       "revId": "5a4c0c15aa171efd23c0983c20e52ef1af6c1453",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
