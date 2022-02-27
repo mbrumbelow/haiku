@@ -51,6 +51,23 @@
       "message": "Say, why does FAT get compiled using GCC2 in the default Haiku OS build?  Maybe a Jam rule needs to be changed, if FAT is not actually used.",
       "revId": "1cb98d38077138555098972109a187b3d28fd4ad",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b9a16f8_0f379a4e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000038
+      },
+      "writtenOn": "2022-02-27T17:38:35Z",
+      "side": 1,
+      "message": "Added a footnote about this patch to bug #17568 which is about getting 32 bit Haiku OS compiles working again.",
+      "revId": "1cb98d38077138555098972109a187b3d28fd4ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
