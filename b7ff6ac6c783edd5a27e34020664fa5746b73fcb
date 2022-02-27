@@ -16,6 +16,23 @@
       "message": "This one should be held until this change in master is better tested / validated.\n\nReason for fixing it in r1beta3 is so the haikuporter builders can take advantage of the fix building recipies like icu70",
       "revId": "b7ff6ac6c783edd5a27e34020664fa5746b73fcb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "669b9916_06518aa4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-27T21:08:45Z",
+      "side": 1,
+      "message": "Overall, no issues witnessed in master / nightly images.  This one is likely ready for r1beta3.",
+      "revId": "b7ff6ac6c783edd5a27e34020664fa5746b73fcb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
