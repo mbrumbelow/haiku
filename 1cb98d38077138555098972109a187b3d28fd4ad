@@ -86,6 +86,42 @@
       "parentUuid": "2c426ee4_12aa6ce6",
       "revId": "1cb98d38077138555098972109a187b3d28fd4ad",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e12b1ee_f484636a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-02-28T21:09:01Z",
+      "side": 1,
+      "message": "You can\u0027t build a full Haiku system with GCC2 anymore, we use the new GCC for parts of GCC2 libroot. So we may as well require a newer GCC for building the host tools...",
+      "parentUuid": "4bc96fb1_afd017be",
+      "revId": "1cb98d38077138555098972109a187b3d28fd4ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4589999d_9a152b87",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-02-28T21:09:01Z",
+      "side": 1,
+      "message": "\u003e The initializer is implied, the constructor for that \"csi\" sub-struct will get called \n\nThe \"csi\" structure does not have a constructor, but it does have pointers. \"\u003d {}\" will clear it to 0, whereas otherwise it will be left uninitialized. So that is actually important as far as I can tell.",
+      "parentUuid": "4bc96fb1_afd017be",
+      "revId": "1cb98d38077138555098972109a187b3d28fd4ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
