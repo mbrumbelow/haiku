@@ -68,6 +68,24 @@
       "message": "Added a footnote about this patch to bug #17568 which is about getting 32 bit Haiku OS compiles working again.",
       "revId": "1cb98d38077138555098972109a187b3d28fd4ad",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bc96fb1_afd017be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-02-28T21:05:08Z",
+      "side": 1,
+      "message": "The problem is not in building for the kernel, this file is also used when building the \"anyboot\" tool used to generate anyboot images. This tool is built with the host compiler, which is still gcc2 on 32bit Haiku. So we need to keep this gcc2-safe for now.\n\nIs it time to stop making gcc2 the default compiler on 32-bit Haiku? Or add a special case for this in our buildsystem? As a short term measure we should still merge this.",
+      "parentUuid": "2c426ee4_12aa6ce6",
+      "revId": "1cb98d38077138555098972109a187b3d28fd4ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
