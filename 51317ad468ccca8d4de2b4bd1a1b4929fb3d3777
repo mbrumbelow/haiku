@@ -86,6 +86,23 @@
       "message": "I don\u0027t think we should try to make common code between bios and efi, they are different boot platforms. It will just be hard to maintain as you can\u0027t fix one boot platform without breaking or needing to fix the other one. So please don\u0027t introduce more dependencies than necessary.",
       "revId": "51317ad468ccca8d4de2b4bd1a1b4929fb3d3777",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e849885_2995060a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-02-28T19:34:24Z",
+      "side": 1,
+      "message": "Can we merge this as is? It\u0027s a bit big to add more to it and it will just bitrot over time. It touches several platforms so want to get consensus.",
+      "revId": "51317ad468ccca8d4de2b4bd1a1b4929fb3d3777",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
