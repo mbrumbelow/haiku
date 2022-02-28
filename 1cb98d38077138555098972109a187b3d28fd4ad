@@ -122,6 +122,24 @@
       "parentUuid": "4bc96fb1_afd017be",
       "revId": "1cb98d38077138555098972109a187b3d28fd4ad",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "425ae7e5_0b606807",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000038
+      },
+      "writtenOn": "2022-02-28T21:23:24Z",
+      "side": 1,
+      "message": "\u003e \"\u003d {}\" will clear it to 0, whereas otherwise it will be left uninitialized. So that is actually important as far as I can tell.\n\nSomewhat obscure meaning, must be new semantics in a later compiler.  {0, 0, 0} would be more obvious.  I\u0027ll upload a patch to clear it in the diri constructor.",
+      "parentUuid": "4e12b1ee_f484636a",
+      "revId": "1cb98d38077138555098972109a187b3d28fd4ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
