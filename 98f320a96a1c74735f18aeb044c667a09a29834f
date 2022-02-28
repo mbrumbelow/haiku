@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07148937_ffbc79f0",
+        "filename": "src/system/kernel/arch/arm/arch_commpage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-02-28T18:56:41Z",
+      "side": 1,
+      "message": "Looks like a tab before !\u003d",
+      "revId": "98f320a96a1c74735f18aeb044c667a09a29834f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
