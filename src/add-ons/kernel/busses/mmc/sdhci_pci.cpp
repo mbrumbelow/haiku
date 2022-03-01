@@ -127,13 +127,13 @@ SdhciBus::SdhciBus(struct registers* registers, uint8_t irq)
 
 	// Finally, configure some useful interrupts
 	EnableInterrupts(SDHCI_INT_CMD_CMP | SDHCI_INT_CARD_REM
-		| SDHCI_INT_TRANS_CMP);
+		| SDHCI_INT_TRANS_CMP | SDHCI_INT_TIMEOUT);
 
 	// We want to see the error bits in the status register, but not have an
 	// interrupt trigger on them (we get a "command complete" interrupt on
 	// errors already)
 	fRegisters->interrupt_status_enable |= SDHCI_INT_ERROR
-		| SDHCI_INT_TIMEOUT | SDHCI_INT_CRC | SDHCI_INT_INDEX
+		| SDHCI_INT_CRC | SDHCI_INT_INDEX
 		| SDHCI_INT_BUS_POWER | SDHCI_INT_END_BIT;
 }
 
@@ -271,15 +271,6 @@ SdhciBus::ExecuteCommand(uint8_t command, uint32_t argument, uint32_t* response)
 
 	if (fCommandResult & SDHCI_INT_ERROR) {
 		fRegisters->interrupt_status |= fCommandResult;
-		if (fCommandResult & SDHCI_INT_TIMEOUT) {
-			ERROR("Command execution timed out\n");
-			if (fRegisters->present_state.CommandInhibit()) {
-				TRACE("Command line is still busy, clearing it\n");
-				// Clear the stall
-				fRegisters->software_reset.ResetCommandLine();
-			}
-			return B_TIMED_OUT;
-		}
 		if (fCommandResult & SDHCI_INT_CRC) {
 			ERROR("CRC error\n");
 			return B_BAD_VALUE;
@@ -288,6 +279,16 @@ SdhciBus::ExecuteCommand(uint8_t command, uint32_t argument, uint32_t* response)
 		// TODO look at errors in interrupt_status register for more details
 		// and return a more appropriate error code
 		return B_ERROR;
+	}
+
+	if (fCommandResult & SDHCI_INT_TIMEOUT) {
+		ERROR("Command execution timed out\n");
+		if (fRegisters->present_state.CommandInhibit()) {
+			TRACE("Command line is still busy, clearing it\n");
+			// Clear the stall
+			fRegisters->software_reset.ResetCommandLine();
+		}
+		return B_TIMED_OUT;
 	}
 
 	if (fRegisters->present_state.CommandInhibit()) {
