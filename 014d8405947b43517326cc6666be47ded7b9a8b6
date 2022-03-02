@@ -16,6 +16,24 @@
       "message": "question.. instead of falling back to 57, could we upgrade to 70 to solve the issue here?\nriscv64 is seeing crashing issues seemingly related to gcc11 and icu 67.  Is this a similar issue?",
       "revId": "014d8405947b43517326cc6666be47ded7b9a8b6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc4b43c3_babf3bd4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-02T18:25:01Z",
+      "side": 1,
+      "message": "I\u0027m not sure about the update to icu70. as both icu66 and icu67 are broken on the arm, it might be something that was introduced between icu57 and 66 and might be still there on icu70.\n\nThe issue I saw was that the default collator can\u0027t be retreived and instead we get a NULL pointer. Does this match the symptoms from the riscv64 port?\n\nIn any case I\u0027d be happier if icu70 was first adopted on x86/x86_64 via the regular haikuports before attempting an icu_bootstrap upgrade in haikuports.cross.",
+      "parentUuid": "c5587811_1095665b",
+      "revId": "014d8405947b43517326cc6666be47ded7b9a8b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
