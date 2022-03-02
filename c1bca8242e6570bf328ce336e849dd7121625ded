@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "41340203_b5e3940f",
+        "filename": "src/apps/deskcalc/CalcView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1106,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-03-02T05:00:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "547f05aa_401be60b",
+      "revId": "c1bca8242e6570bf328ce336e849dd7121625ded",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "21294344_0819c771",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-03-01T07:30:08Z",
       "side": 1,
       "message": "format is leaked",
+      "revId": "c1bca8242e6570bf328ce336e849dd7121625ded",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3c224e7_0d60af13",
+        "filename": "src/apps/deskcalc/CalcView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1314,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-03-02T05:00:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21294344_0819c771",
       "revId": "c1bca8242e6570bf328ce336e849dd7121625ded",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b966b514_687731d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-03-02T05:00:56Z",
+      "side": 1,
+      "message": "my bad - changed to alloc BNumberFormats on stack instead of heap",
+      "revId": "3f1922087036bf4e1bf00386e7a2900e5144626c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
