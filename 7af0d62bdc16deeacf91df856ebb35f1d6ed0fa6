@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ae1f3ef_b05fc746",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-03-05T15:22:58Z",
+      "side": 1,
+      "message": "added a set of (rough) unit tests for the basics of BCryptoHash.\nThey are untested.  I need to build a Haiku image with CryptoKit to test the unit tests.",
+      "revId": "7af0d62bdc16deeacf91df856ebb35f1d6ed0fa6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
