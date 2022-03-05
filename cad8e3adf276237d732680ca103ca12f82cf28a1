@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d4b71b0_0e60955a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-03-05T02:01:43Z",
+      "side": 1,
+      "message": "So.. i\u0027m not even sure what to call this thing at this point.\n\nHaving a built-in crypto kit feels like the right move since we have things like BKeyStore which could leverage it (and even move into it someday).   The mail kit is also losing support for gmail because we need to support OAuth2 which is going to need things like built-in base64 encoding.\n\nForm a naming standpoint:\n\n* libcrypto is taken\n* libCryptoKit was suggested matching \"R2 library names\", but needs more discussion\n* Open to other names?\n\nWhatever we call it... it should reflect anything \"cryptography related\" to keep our options open in what we can pack into it.",
+      "revId": "cad8e3adf276237d732680ca103ca12f82cf28a1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
