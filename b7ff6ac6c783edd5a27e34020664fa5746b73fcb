@@ -33,6 +33,23 @@
       "message": "Overall, no issues witnessed in master / nightly images.  This one is likely ready for r1beta3.",
       "revId": "b7ff6ac6c783edd5a27e34020664fa5746b73fcb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4204e4d4_f9b63d08",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-03-05T01:39:20Z",
+      "side": 1,
+      "message": "is anyone against merging this one into r1beta3?  Once done I can update the builders and we can build icu70",
+      "revId": "b7ff6ac6c783edd5a27e34020664fa5746b73fcb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
