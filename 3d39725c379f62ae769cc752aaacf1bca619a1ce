@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40eeb4a4_e8f25677",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-03-08T14:27:06Z",
+      "side": 1,
+      "message": "I updated the blake2 reference code to the latest copy circa 2019.  It seemed to solve the gcc2 build issues and greatly reduced the warnings.",
+      "revId": "3d39725c379f62ae769cc752aaacf1bca619a1ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
