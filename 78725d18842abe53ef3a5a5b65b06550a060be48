@@ -16,6 +16,24 @@
       "message": "Does this work as expected with our features.h implementation?",
       "revId": "78725d18842abe53ef3a5a5b65b06550a060be48",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a49d01be_7c6de241",
+        "filename": "src/system/libroot/posix/glibc/wcsmbs/wchar.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-03-08T20:32:03Z",
+      "side": 1,
+      "message": "This file is internal to glibc, and __USE_GNU was already used in the rest of the file.",
+      "parentUuid": "77ca978a_2a2b8840",
+      "revId": "78725d18842abe53ef3a5a5b65b06550a060be48",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
