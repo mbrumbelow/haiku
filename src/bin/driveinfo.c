@@ -88,19 +88,17 @@ static void dump_partition(int dev)
 
 static void dump_misc(int dev)
 {
-	char path[B_PATH_NAME_LENGTH];
-	if (ioctl(dev, B_GET_DRIVER_FOR_DEVICE, path, sizeof(path)) < 0) {
+	char driverPath[B_PATH_NAME_LENGTH + 1];
+	if (ioctl(dev, B_GET_DRIVER_FOR_DEVICE, driverPath, sizeof(driverPath)) < 0)
 		perror("ioctl(B_GET_DRIVER_FOR_DEVICE)");
-	} else {
-		printf("driver:\t%s\n", path);
-	}
-#ifdef __HAIKU__
-	if (ioctl(dev, B_GET_PATH_FOR_DEVICE, path, sizeof(path)) < 0) {
+	else
+		printf("driver:\t%s\n", driverPath);
+
+	char devicePath[B_PATH_NAME_LENGTH + 1];
+	if (ioctl(dev, B_GET_PATH_FOR_DEVICE, devicePath, sizeof(devicePath)) < 0)
 		perror("ioctl(B_GET_PATH_FOR_DEVICE)");
-	} else {
-		printf("device path:\t%s\n", path);
-	}
-#endif
+	else
+		printf("device path:\t%s\n", devicePath);
 }
 
 int main(int argc, char **argv)
