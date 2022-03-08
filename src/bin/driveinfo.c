@@ -88,7 +88,7 @@ static void dump_partition(int dev)
 
 static void dump_misc(int dev)
 {
-	char path[B_PATH_NAME_LENGTH];
+	driver_path path;
 	if (ioctl(dev, B_GET_DRIVER_FOR_DEVICE, path, sizeof(path)) < 0) {
 		perror("ioctl(B_GET_DRIVER_FOR_DEVICE)");
 	} else {
