@@ -1,6 +1,7 @@
 /*
- * Copyright 2002-2016, Axel Dörfler, axeld@pinc-software.de.
- * Distributed under the terms of the MIT License.
+ * Copyright 2002-2016, Axel Dörfler, axeld@pinc-software.de
+ * Copyright 2022, Jacob Secunda
+ * All rights reserved. Distributed under the terms of the MIT License.
  *
  * Copyright 2001-2002, Travis Geiselbrecht. All rights reserved.
  * Distributed under the terms of the NewOS License.
@@ -38,7 +39,9 @@
 #include <vm/vm.h>
 #include <wait_for_objects.h>
 
+#include "AbstractModuleDevice.h"
 #include "BaseDevice.h"
+#include "device_manager_private.h"
 #include "FileDevice.h"
 #include "IORequest.h"
 #include "legacy_drivers.h"
@@ -1536,17 +1539,31 @@ devfs_ioctl(fs_volume* _volume, fs_vnode* _vnode, void* _cookie, uint32 op,
 
 			case B_GET_DRIVER_FOR_DEVICE:
 			{
-#if 0
-				const char* path;
-				if (!vnode->stream.u.dev.driver)
-					return B_ENTRY_NOT_FOUND;
-				path = vnode->stream.u.dev.driver->path;
-				if (path == NULL)
-					return B_ENTRY_NOT_FOUND;
+				AbstractModuleDevice* moduleDevice = dynamic_cast<AbstractModuleDevice*>(
+					vnode->stream.u.dev.device);
 
-				return user_strlcpy((char*)buffer, path, B_FILE_NAME_LENGTH);
-#endif
-				return B_ERROR;
+				// This checks if moduleDevice is a FileDevice. In the case of a FileDevice, which
+				// is usually created by mounted disk image files, there is no driver to speak of!
+				if (moduleDevice == NULL)
+					return B_UNSUPPORTED;
+
+				// Is the device node and its corresponding driver initialized?
+				device_node* deviceNode = moduleDevice->Node();
+				if (deviceNode == NULL
+					|| deviceNode->InitCheck() != B_OK
+					|| !deviceNode->IsInitialized())
+					return B_DEV_NOT_READY;
+
+				KPath driverPath;
+				status_t status = deviceNode->GetDriverPath(&driverPath);
+				if (status != B_OK)
+					return status;
+
+				if (length != 0 && length <= driverPath.Length())
+					return B_RESULT_NOT_REPRESENTABLE;
+
+				return user_strlcpy(static_cast<char*>(buffer), driverPath.Path(),
+					length);
 			}
 
 			case B_GET_PARTITION_INFO:

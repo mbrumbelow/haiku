@@ -1,5 +1,5 @@
 /*
- * Copyright 2002-2008, Haiku Inc. All rights reserved.
+ * Copyright 2002-2022, Haiku Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  *
  * Copyright 2001, Thomas Kurschel. All rights reserved.
@@ -1739,6 +1739,28 @@ load_module(const char* path, module_info*** _modules)
 
 	*_modules = moduleImage->info;
 	return B_OK;
+}
+
+
+status_t
+get_filesystem_path_for_module(const char* name, KPath* filePath)
+{
+	if (name == NULL || filePath == NULL)
+		return B_BAD_VALUE;
+
+	RecursiveLocker locker(sModulesLock);
+
+	// Check if the module and its image are already cached in the module system.
+	module* foundModule = sModulesHash->Lookup(name);
+	if (foundModule != NULL) {
+		if (foundModule->module_image != NULL)
+			return filePath->SetTo(foundModule->module_image->path);
+		else
+			return ENOTSUP;
+				// The module is built-in and has no associated image.
+	}
+
+	return B_NAME_NOT_FOUND;
 }
 
 
