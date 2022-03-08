@@ -1,13 +1,16 @@
 /*
- * Copyright 2005-2008, Axel Dörfler, axeld@pinc-software.de.
- * Distributed under the terms of the MIT License.
+ * Copyright 2005-2008, Axel Dörfler, axeld@pinc-software.de
+ * Copyright 2022, Jacob Secunda
+ * All rights reserved. Distributed under the terms of the MIT License.
  */
 #ifndef _KERNEL_MODULE_H
 #define _KERNEL_MODULE_H
 
 
-#include <drivers/module.h>
 #include <kernel.h>
+#include <fs/KPath.h>
+#include <drivers/module.h>
+
 
 struct kernel_args;
 
@@ -15,6 +18,7 @@ struct kernel_args;
 #ifdef __cplusplus
 // C++ only part
 
+class KPath;
 class NotificationListener;
 
 extern status_t start_watching_modules(const char *prefix,
@@ -22,6 +26,7 @@ extern status_t start_watching_modules(const char *prefix,
 extern status_t stop_watching_modules(const char *prefix,
 	NotificationListener &listener);
 
+extern status_t get_filesystem_path_for_module(const char* name, KPath* path);
 
 extern "C" {
 #endif
