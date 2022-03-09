@@ -296,6 +296,24 @@
       "parentUuid": "3f425d38_aff55578",
       "revId": "3d39725c379f62ae769cc752aaacf1bca619a1ce",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d58ed8f0_6d87418f",
+        "filename": "src/kits/crypto/Jamfile",
+        "patchSetId": 12
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-03-09T14:48:02Z",
+      "side": 1,
+      "message": "+1 Base64 is a binary format.",
+      "parentUuid": "e2940fde_19d8079b",
+      "revId": "3d39725c379f62ae769cc752aaacf1bca619a1ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
