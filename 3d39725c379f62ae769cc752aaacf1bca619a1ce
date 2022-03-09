@@ -16,6 +16,142 @@
       "message": "I updated the blake2 reference code to the latest copy circa 2019.  It seemed to solve the gcc2 build issues and greatly reduced the warnings.",
       "revId": "3d39725c379f62ae769cc752aaacf1bca619a1ce",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74b48fc4_6e2f7223",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2022-03-09T06:59:44Z",
+      "side": 1,
+      "message": "I reviewed the public API mostly and made some remarks.\n\nI am also slightly skeptical whether this is ready to be public API. It does not have API documentation, and it feels slightly undercooked with the commented out methods in the public headers.\n\nAnyway, the latter point should not block the patch itself, just how we communicate about it.",
+      "revId": "3d39725c379f62ae769cc752aaacf1bca619a1ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0727fb5_3fe3d06d",
+        "filename": "headers/os/crypto/Crypto.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2022-03-09T06:59:44Z",
+      "side": 1,
+      "message": "Where is BCrypto::SetKey() implemented?\n\nCan the key be nullptr/NULL? If not, then would a reference be better?\n\nIs it an output parameter? If not, then could you make it const?",
+      "revId": "3d39725c379f62ae769cc752aaacf1bca619a1ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "414b69c9_b3823f6d",
+        "filename": "headers/os/crypto/CryptoHash.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2022-03-09T06:59:44Z",
+      "side": 1,
+      "message": "Could this method have a const specifier? I think this might also have some downstream effects, but it looks read-only to me.",
+      "revId": "3d39725c379f62ae769cc752aaacf1bca619a1ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5371ee3f_6388e539",
+        "filename": "headers/os/crypto/CryptoHash.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2022-03-09T06:59:44Z",
+      "side": 1,
+      "message": "Looking at the implementation, the string parameter seems to be an input parameter only, so it should be const. Also it cannot be NULL, so would a reference be better?",
+      "revId": "3d39725c379f62ae769cc752aaacf1bca619a1ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a670d709_8c56ed32",
+        "filename": "headers/os/crypto/CryptoHash.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2022-03-09T06:59:44Z",
+      "side": 1,
+      "message": "Since the file parameter cannot be null, should it be a reference?",
+      "revId": "3d39725c379f62ae769cc752aaacf1bca619a1ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3195ecb_1b8ee77e",
+        "filename": "headers/os/crypto/CryptoHash.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2022-03-09T06:59:44Z",
+      "side": 1,
+      "message": "Since hash cannot be NULL, should this input parameter be a reference instead? And also, could it be a const method?",
+      "revId": "3d39725c379f62ae769cc752aaacf1bca619a1ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6611175f_838a360c",
+        "filename": "headers/os/crypto/CryptoHash.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2022-03-09T06:59:44Z",
+      "side": 1,
+      "message": "Could this be a const method?",
+      "revId": "3d39725c379f62ae769cc752aaacf1bca619a1ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65ef1be6_98d17795",
+        "filename": "src/kits/crypto/Jamfile",
+        "patchSetId": 12
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2022-03-09T06:59:44Z",
+      "side": 1,
+      "message": "Is Crypto.cpp excluded for a reason?",
+      "revId": "3d39725c379f62ae769cc752aaacf1bca619a1ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
