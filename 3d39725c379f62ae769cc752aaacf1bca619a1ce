@@ -278,6 +278,24 @@
       "parentUuid": "65ef1be6_98d17795",
       "revId": "3d39725c379f62ae769cc752aaacf1bca619a1ce",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2940fde_19d8079b",
+        "filename": "src/kits/crypto/Jamfile",
+        "patchSetId": 12
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2022-03-09T14:43:28Z",
+      "side": 1,
+      "message": "Base64 is in no way whatsoever cryptographic, something like that belongs in support kit or possibly text encoding.",
+      "parentUuid": "3f425d38_aff55578",
+      "revId": "3d39725c379f62ae769cc752aaacf1bca619a1ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
