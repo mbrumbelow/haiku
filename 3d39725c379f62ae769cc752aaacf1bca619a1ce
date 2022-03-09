@@ -314,6 +314,24 @@
       "parentUuid": "e2940fde_19d8079b",
       "revId": "3d39725c379f62ae769cc752aaacf1bca619a1ce",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6dd563d_7be69ec1",
+        "filename": "src/kits/crypto/Jamfile",
+        "patchSetId": 12
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-03-09T14:51:47Z",
+      "side": 1,
+      "message": "I know :-)  The point of the crypto kit is honestly to offer various data translations (hashing, encryption, encoding) of our native types (BString, etc) within a single kit.\n\nIf y\u0027all can think of a better name, please let me know.  I\u0027ve been trialing \"Alchemy kit to transmute data via encryption, encoding, hashing\", but support is low 😄\n\n\nAlso.. the support kit provides base64 encoding functions today (which is why this kit doesn\u0027t even try do that yet)",
+      "parentUuid": "d58ed8f0_6d87418f",
+      "revId": "3d39725c379f62ae769cc752aaacf1bca619a1ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
