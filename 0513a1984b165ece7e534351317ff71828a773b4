@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "99b86565_00ca0240",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-03-09T14:45:05Z",
+      "side": 1,
+      "message": "Why is the filesystem path returned? the driver module name is enough.",
+      "revId": "0513a1984b165ece7e534351317ff71828a773b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67445b75_1fb235c0",
