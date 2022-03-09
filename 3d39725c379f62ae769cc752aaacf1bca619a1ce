@@ -107,6 +107,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c771ba15_3499ddf1",
+        "filename": "headers/os/crypto/CryptoHash.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2022-03-09T15:21:59Z",
+      "side": 1,
+      "message": "I think we have a slight misunderstanding, I was just wondering if the declaration could be \nBString Name() const;\n\nI have no opinion on a more complex API, I think the use case is simple (mostly debugging I would image).",
+      "parentUuid": "3a5b39f1_9689e2f0",
+      "revId": "3d39725c379f62ae769cc752aaacf1bca619a1ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5371ee3f_6388e539",
         "filename": "headers/os/crypto/CryptoHash.h",
         "patchSetId": 12

@@ -33,6 +33,40 @@
       "message": "also.. removing encoding from theoretical scope is fine (and leaving it in support kit).",
       "revId": "3f08eaf5c7820dfce9d4d352ff12454df432b9ad",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a12c2a0d_59fbeced",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2022-03-09T15:21:59Z",
+      "side": 1,
+      "message": "Some minor follow-ups",
+      "revId": "3f08eaf5c7820dfce9d4d352ff12454df432b9ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f77195d8_3e94be5d",
+        "filename": "headers/os/crypto/CryptoHash.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2022-03-09T15:21:59Z",
+      "side": 1,
+      "message": "I was actually suggesting that the function prototype should be\nsize_t Position() const; \n\nIt actually makes very little sense to return const values (with exceptions). Once a size_t is returned, the user can do what they want with it.",
+      "revId": "3f08eaf5c7820dfce9d4d352ff12454df432b9ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
