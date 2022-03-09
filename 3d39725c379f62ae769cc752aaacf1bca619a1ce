@@ -332,6 +332,24 @@
       "parentUuid": "d58ed8f0_6d87418f",
       "revId": "3d39725c379f62ae769cc752aaacf1bca619a1ce",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c52bd92_f14df6e2",
+        "filename": "src/kits/crypto/Jamfile",
+        "patchSetId": 12
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2022-03-09T14:55:49Z",
+      "side": 1,
+      "message": "I really don\u0027t think it makes sense to mix in things that aren\u0027t crypto-related, that\u0027d just lead to needless confusion. About the only {en,de}coders that\u0027d make sense to include in this context are ASN.1 and possibly PEM given their heavy use in the various PKCS standards. That said, the cases where you\u0027d be decoding them directly are relatively rare, rather than asking the kit to perform an op for you (e.g. generate certificate, keypair, p12, etc.) with an input or output format of one or the other.",
+      "parentUuid": "d6dd563d_7be69ec1",
+      "revId": "3d39725c379f62ae769cc752aaacf1bca619a1ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
