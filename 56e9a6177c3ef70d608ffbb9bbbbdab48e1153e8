@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33fc0f83_c3d33cc7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-03-09T08:14:41Z",
+      "side": 1,
+      "message": "This isn\u0027t correct, path isn\u0027t only used for B_GET_DRIVER_FOR_DEVICE.",
+      "revId": "56e9a6177c3ef70d608ffbb9bbbbdab48e1153e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
