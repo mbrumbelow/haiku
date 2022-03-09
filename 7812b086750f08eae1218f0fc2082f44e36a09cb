@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da248fb6_a8cae0c3",
+        "filename": "src/system/kernel/arch/x86/64/thread.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-03-09T09:51:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9538bd9_737a374c",
+      "revId": "7812b086750f08eae1218f0fc2082f44e36a09cb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "90db3f8d_4d41d043",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-12-30T23:06:16Z",
       "side": 1,
       "message": "Use constant name for \"thread\".",
+      "revId": "7812b086750f08eae1218f0fc2082f44e36a09cb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f085a613_65845aab",
+        "filename": "src/system/kernel/arch/x86/64/thread.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-03-09T09:51:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90db3f8d_4d41d043",
       "revId": "7812b086750f08eae1218f0fc2082f44e36a09cb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
