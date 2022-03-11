@@ -1134,6 +1134,7 @@ void __pthread_cleanup_push_handler() {}
 void __pthread_destroy_thread() {}
 void __pthread_getattr_np() {}
 void __pthread_init_creation_attributes() {}
+void __pthread_join() {}
 void __pthread_key_call_destructors() {}
 void __pthread_set_default_priority() {}
 void __pthread_sigmask() {}
@@ -2502,6 +2503,8 @@ void pthread_getconcurrency() {}
 void pthread_getschedparam() {}
 void pthread_getspecific() {}
 void pthread_join() {}
+void pthread_tryjoin_np {}
+void pthread_timedjoin_np {}
 void pthread_key_create() {}
 void pthread_key_delete() {}
 void pthread_kill() {}

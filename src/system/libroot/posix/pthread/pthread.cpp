@@ -140,6 +140,49 @@ __pthread_set_default_priority(int32 priority)
 }
 
 
+int
+__pthread_join(pthread_t thread, bool wait, const struct timespec *abstime, void** _value)
+{
+	status_t dummy;
+	status_t error;
+	int flags = 0;
+
+	// translate the timeout
+	bool invalidTime = false;
+	bigtime_t timeout = 0;
+	if (abstime != NULL && abstime->tv_nsec < 1000 * 1000 * 1000
+		&& abstime->tv_nsec >= 0) {
+		timeout = abstime->tv_sec * 1000000LL + abstime->tv_nsec / 1000LL;
+		flags = B_ABSOLUTE_REAL_TIME_TIMEOUT;
+	} else if (wait == false) {
+		timeout = -1;
+		flags = B_RELATIVE_TIMEOUT;
+	} else
+		invalidTime = true;
+
+	do {
+		error = wait_for_thread_etc(thread->id, flags, timeout, &dummy);
+	} while (error == B_INTERRUPTED);
+
+	if (error == B_BAD_THREAD_ID)
+		RETURN_AND_TEST_CANCEL(ESRCH);
+
+	if (wait == false && error == B_WOULD_BLOCK)
+		RETURN_AND_TEST_CANCEL(EBUSY);
+
+	if (!invalidTime && error == B_TIMED_OUT)
+		RETURN_AND_TEST_CANCEL(ETIMEDOUT);
+
+	if (_value != NULL)
+		*_value = thread->exit_value;
+
+	if ((atomic_or(&thread->flags, THREAD_DETACHED) & THREAD_DEAD) != 0)
+		free(thread);
+
+	RETURN_AND_TEST_CANCEL(error);
+}
+
+
 // #pragma mark - public API
 
 
@@ -198,22 +241,21 @@ pthread_equal(pthread_t t1, pthread_t t2)
 int
 pthread_join(pthread_t thread, void** _value)
 {
-	status_t dummy;
-	status_t error;
-	do {
-		error = wait_for_thread(thread->id, &dummy);
-	} while (error == B_INTERRUPTED);
+	return __pthread_join(thread, true, NULL, _value);
+}
 
-	if (error == B_BAD_THREAD_ID)
-		RETURN_AND_TEST_CANCEL(ESRCH);
 
-	if (_value != NULL)
-		*_value = thread->exit_value;
+int
+pthread_tryjoin_np(pthread_t thread, void** _value)
+{
+	return __pthread_join(thread, false, NULL, _value);
+}
 
-	if ((atomic_or(&thread->flags, THREAD_DETACHED) & THREAD_DEAD) != 0)
-		free(thread);
 
-	RETURN_AND_TEST_CANCEL(error);
+int
+pthread_timedjoin_np(pthread_t thread, void** _value, const struct timespec *abstime)
+{
+	return __pthread_join(thread, true, abstime, _value);
 }
 
 
