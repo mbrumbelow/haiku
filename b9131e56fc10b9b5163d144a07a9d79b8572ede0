@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c77b76e_5e63ebd5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-03-11T20:33:46Z",
+      "side": 1,
+      "message": "seems fine to me.  At minimum, intent is clearer.",
+      "revId": "b9131e56fc10b9b5163d144a07a9d79b8572ede0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
