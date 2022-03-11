@@ -242,6 +242,8 @@ extern int pthread_detach(pthread_t thread);
 extern int pthread_equal(pthread_t t1, pthread_t t2);
 extern void pthread_exit(void *value_ptr) __attribute__ ((noreturn));
 extern int pthread_join(pthread_t thread, void **_value);
+extern int pthread_tryjoin_np(pthread_t thread, void **_value);
+extern int pthread_timedjoin_np(pthread_t thread, void **_value, const struct timespec *abstime);
 extern pthread_t pthread_self(void);
 extern int pthread_getconcurrency(void);
 extern int pthread_setconcurrency(int newLevel);
