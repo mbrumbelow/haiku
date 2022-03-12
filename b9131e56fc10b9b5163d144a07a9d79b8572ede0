@@ -68,6 +68,24 @@
       "parentUuid": "66762725_5e6970b9",
       "revId": "b9131e56fc10b9b5163d144a07a9d79b8572ede0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aaa92f51_b5f0e237",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-03-12T16:52:00Z",
+      "side": 1,
+      "message": "At least vm_soft_fault() uses this function, and checks for B_KERNEL_EXECUTE_AREA. I don\u0027t know if per page protection actually happens on kernel areas.",
+      "parentUuid": "fa4fae58_20f87498",
+      "revId": "b9131e56fc10b9b5163d144a07a9d79b8572ede0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
