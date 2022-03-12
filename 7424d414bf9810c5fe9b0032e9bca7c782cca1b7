@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4a72329_189c9d44",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-03-12T07:44:58Z",
+      "side": 1,
+      "message": "Proxying sdome discussion since nephele can\u0027t comment here due to not having a github account.\n\nThe first usage for this is in WebKit. That is a special case, the idea there is that each website may declare itself to be in dark mode (forcefully) and in this case we should render dark colors instead of light one (or conversely, if the website forces light mode but the user has a dark scheme).\n\nThis is because websites can mix custom colors and system ones (for example enforce a specific, dark text color, and use the system default background color together with it). Without this code, we can easily end up rendering black text on black button or other unreadable combinations.",
+      "revId": "7424d414bf9810c5fe9b0032e9bca7c782cca1b7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
