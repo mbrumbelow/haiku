@@ -34,6 +34,24 @@
       "parentUuid": "a2de0b88_3e143407",
       "revId": "633c681d5678f002fa3f575fe274ad3cd694b96b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79d2a849_ce9f9362",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-03-12T16:57:22Z",
+      "side": 1,
+      "message": "Sure, it\u0027s more involved.",
+      "parentUuid": "c16ef478_d080ff55",
+      "revId": "633c681d5678f002fa3f575fe274ad3cd694b96b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
