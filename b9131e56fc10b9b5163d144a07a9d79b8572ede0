@@ -33,6 +33,41 @@
       "message": "what about B_KERNEL_EXECUTE_AREA and B_KERNEL_STACK_AREA?",
       "revId": "b9131e56fc10b9b5163d144a07a9d79b8572ede0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5aa43df0_6a8fe299",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-03-12T14:34:29Z",
+      "side": 1,
+      "message": "Comment removed by: waddlesplash; Reason: mistake",
+      "revId": "b9131e56fc10b9b5163d144a07a9d79b8572ede0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa4fae58_20f87498",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-03-12T14:34:29Z",
+      "side": 1,
+      "message": "This function never dealt with those before, so if it isn\u0027t necessary, I don\u0027t think we should add it?",
+      "parentUuid": "66762725_5e6970b9",
+      "revId": "b9131e56fc10b9b5163d144a07a9d79b8572ede0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
