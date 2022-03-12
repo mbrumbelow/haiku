@@ -16,6 +16,24 @@
       "message": "isn\u0027t it also to check when page_protections isn\u0027t NULL? freeing page_protections in this case.",
       "revId": "633c681d5678f002fa3f575fe274ad3cd694b96b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c16ef478_d080ff55",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-03-12T14:40:26Z",
+      "side": 1,
+      "message": "Looking at vm_set_area_protection, I don\u0027t think it can handle that case properly? (i.e. the becomesWritable logic and the cache management assumes only one protection for all pages.) So, maybe we should add a TODO about that, but I don\u0027t think it would be advisable without more work and/or testing.",
+      "parentUuid": "a2de0b88_3e143407",
+      "revId": "633c681d5678f002fa3f575fe274ad3cd694b96b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
