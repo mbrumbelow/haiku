@@ -27,6 +27,7 @@ const struct supported_interrupt_controllers {
 	{ "arm,cortex-a15-gic", INTC_KIND_GICV2 },
 	{ "ti,omap3-intc", INTC_KIND_OMAP3 },
 	{ "marvell,pxa-intc", INTC_KIND_PXA },
+	{ "allwinner,sun4i-a10-ic", INTC_KIND_SUN4I },
 };
 
 
