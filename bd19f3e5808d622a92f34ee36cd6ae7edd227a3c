@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5048c55_8a78e3fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-03-14T20:40:47Z",
+      "side": 1,
+      "message": "Confirmed that once you get your UART loaded from the device tree properly, this results in just printing everything twice (through EFI services using printf + directly to the UART using serial_puts).\n\nSince you can already get the debug messages from device tree parsing in the bootloader log, this is useless and annoying.\n\nI think we should abandon this change, and I will push my fixes to device tree loading.",
+      "revId": "bd19f3e5808d622a92f34ee36cd6ae7edd227a3c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
