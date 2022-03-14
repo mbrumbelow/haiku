@@ -51,6 +51,41 @@
       "parentUuid": "0e460fbd_3b9475c9",
       "revId": "f9412d9f8a927c7ed1a75bfb82260b1600747192",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b113c4bd_432cbbad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-03-14T19:48:27Z",
+      "side": 1,
+      "message": "This draft comment was not posted, it might have a bit of info to be worth sharing:\n\nQEMU under Linux can emulate ARMv8.2, I wrote how in the discussion forum. What might be an issue, if you are under Debian, is that they have a ancient version of QEMU, installing the one from backports works.\n\nIt is a bigger undertaking to move to an older arch and they are probably better served by 32-bit ARM port as zstd and perhaps other libs don\u0027t build easily for earlier aarch64. Most earlier arch\u0027s has \u003c\u003d4GB mem as well.",
+      "parentUuid": "c94fc7f4_5492762b",
+      "revId": "f9412d9f8a927c7ed1a75bfb82260b1600747192",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcddfe38_5d5c56c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-03-14T19:48:27Z",
+      "side": 1,
+      "message": "I missed to post this comment before, a bit of \u0027historic\u0027 reasons why the aim became ARMv8.2. (zstd targeted recent aarch64)",
+      "revId": "f9412d9f8a927c7ed1a75bfb82260b1600747192",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
