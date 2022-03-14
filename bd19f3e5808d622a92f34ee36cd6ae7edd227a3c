@@ -33,6 +33,23 @@
       "message": "Even worse: this calls efi printf function after exiting boot services, resulting in a crash. After removing this change, my boot went a little bit further.",
       "revId": "bd19f3e5808d622a92f34ee36cd6ae7edd227a3c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ca09a9b_49b7e58b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-03-14T21:22:20Z",
+      "side": 1,
+      "message": "a lot has changed in tree around efi over the last year.  It\u0027s possible the bug resulting in the need for this has been corrected.\n\nI haven\u0027t looked at arm for a while, and riscv64 is still suffering the crashing issues in early userspace.\n\ntldr; eh just abandon it if it is no longer relevant.",
+      "revId": "bd19f3e5808d622a92f34ee36cd6ae7edd227a3c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
