@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80b9665f_926f1973",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-03-14T19:26:07Z",
+      "side": 1,
+      "message": "I was going to ask to make the comment clearer, but it makes sense when reading the previous comments first so looks ok to me.",
+      "revId": "6dd6f56dfc2f019f8e7638abbf10761d654f8aeb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
