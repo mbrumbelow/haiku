@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7deb3427_e50c955d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-03-15T22:28:51Z",
+      "side": 1,
+      "message": "tested functional.\n\n[kallisti5@freeframe generated.x86_64]$ dd if\u003d/dev/zero of\u003dtest bs\u003d1M count\u003d32\n32+0 records in\n32+0 records out\n33554432 bytes (34 MB, 32 MiB) copied, 0.013501 s, 2.5 GB/s\n\n[kallisti5@freeframe generated.x86_64]$ ./objects/linux/x86_64/release/tools/fat_shell/fat_shell --initialize test test\ndos_std_ops()\ndosfs_initialize(3, , \u0027test\u0027, \u0027(null)\u0027, 0)\ndosfs: size \u003d 33554432 bytes (65536 sectors), 32768 KB, 32 MB, 0 GB\ndosfs: fatbits \u003d 16, clustersize \u003d 2048\ndosfs: FAT size is 64 sectors\ndosfs: disk label: test\ndosfs: Writing FAT\ndosfs: Writing boot block\ndosfs: Writing first FAT sector\ndosfs: Writing root directory\ndos_std_ops()\n\nBefore:\n[kallisti5@freeframe rune]$ fsck.fat  /dev/loop0p1 \nfsck.fat 4.2 (2021-01-31)\nThere is no label in boot sector, but there is volume label \u0027Haiku Boot\u0027 stored in root directory\n1) Copy volume label from root directory to boot sector\n2) Remove volume label from root directory\n[12?q]? 1\n\nAfter:\n[kallisti5@freeframe generated.x86_64]$ fsck.fat test \nfsck.fat 4.2 (2021-01-31)\ntest: 1 files, 0/16343 clusters\n",
+      "revId": "671fc3863a064f05487fd215e8558cf1b71f11ee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
