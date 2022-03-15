@@ -51,6 +51,24 @@
       "message": "Maybe modify _kern_wait_for_thread instead? Syscall compatibility is not maintained if I am correct.",
       "revId": "b3a624aaf9c303482220d15594768959af5554f5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ae227b8_8b531c4e",
+        "filename": "headers/private/system/syscalls.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-03-15T09:21:38Z",
+      "side": 1,
+      "message": "Syscal compatibility is not guaranteed, but when it\u0027s easy to do like this, there is no reason not to do it. We already have some _etc syscalls, so this seems fine.",
+      "parentUuid": "86a7cb95_6fac8c30",
+      "revId": "b3a624aaf9c303482220d15594768959af5554f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
