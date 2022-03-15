@@ -16,6 +16,23 @@
       "message": "Confirmed to work. Need cleanup. Should be not used for GCC 2.",
       "revId": "63220d04597f7bcbef9573ca57b2e75f276ce870",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99882621_295db931",
+        "filename": "src/system/libroot/unwind/libgcc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-03-15T22:11:57Z",
+      "side": 1,
+      "message": "Implement this.",
+      "revId": "63220d04597f7bcbef9573ca57b2e75f276ce870",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
