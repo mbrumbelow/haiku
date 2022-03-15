@@ -34,6 +34,41 @@
       "parentUuid": "538bc4a7_8f7dbfbc",
       "revId": "222dface2c6328fede444be67944ec174f4288e1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "883d45ef_470ff5cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-03-15T09:37:44Z",
+      "side": 1,
+      "message": "pthread_timedjoin_np is available on both Linux and FreeBSD.\n\nLinux has pthread_tryjoin_np and FreeBSD instead has pthread_peekjoin_np which does the same thing.",
+      "parentUuid": "cb77b2de_8a432f30",
+      "revId": "222dface2c6328fede444be67944ec174f4288e1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9367d5e4_0e68d86f",
+        "filename": "src/system/libroot/posix/pthread/pthread.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-03-15T09:37:44Z",
+      "side": 1,
+      "message": "Linux is confusing...\n\n\nhttps://man7.org/linux/man-pages/man3/pthread_tryjoin_np.3.html\n\nIn the description:\n\n       The pthread_timedjoin_np() function performs a join-with-timeout.\n       If thread has not yet terminated, then the call blocks until a\n       maximum time, specified in abstime, measured against the\n       CLOCK_REALTIME clock.\n\n(this is what we do here)\n\nbut then in the bugs section:\n\n       The pthread_timedjoin_np() function measures time by internally\n       calculating a relative sleep interval that is then measured\n       against the CLOCK_MONOTONIC clock instead of the CLOCK_REALTIME\n       clock.  Consequently, the timeout is unaffected by discontinuous\n       changes to the CLOCK_REALTIME clock.\n\nSo that would be B_ABSOLUTE_TIMEOUT.\n\nFreeBSD does not specify which clock it uses:\n\nhttps://www.freebsd.org/cgi/man.cgi?query\u003dpthread_timedjoin_np\u0026apropos\u003d0\u0026sektion\u003d0\u0026manpath\u003dFreeBSD+13.0-RELEASE+and+Ports\u0026arch\u003ddefault\u0026format\u003dhtml\n\nI think B_ABSOLUTE_REAL_TIME_TIMEOUT/CLOCK_REALTIME makes sense because this is what is used for example in pthread_mutex_timedlock: https://pubs.opengroup.org/onlinepubs/9699919799/functions/pthread_mutex_timedlock.html",
+      "revId": "222dface2c6328fede444be67944ec174f4288e1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
