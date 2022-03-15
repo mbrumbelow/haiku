@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee56da0b_27916fef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-03-15T22:10:10Z",
+      "side": 1,
+      "message": "Confirmed to work. Need cleanup. Should be not used for GCC 2.",
+      "revId": "63220d04597f7bcbef9573ca57b2e75f276ce870",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
