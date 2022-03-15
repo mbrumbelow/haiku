@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45f598d8_e7dbf9be",
+        "filename": "src/apps/haikudepot/server/LocalPkgDataLoadProcess.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-03-15T13:23:03Z",
+      "side": 1,
+      "message": "useless cast to int64",
+      "revId": "564e10602ae5c2c0f8885a4edb32f433c982fc98",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
