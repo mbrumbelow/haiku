@@ -36,6 +36,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bc1e99e_63f93d73",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-03-15T18:25:01Z",
+      "side": 1,
+      "message": "Syscall compatibility is not guaranteed but if your goal is to preserve it then this commit makes things worse as it will change all the syscall IDs after the one in question. Whereas, at least on x86_64 and other arches that pass arguments in registers, adding new parameters to an existing syscall doesn\u0027t necessarily break anything.",
+      "revId": "b3a624aaf9c303482220d15594768959af5554f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c48e4538_08bbd7d4",
