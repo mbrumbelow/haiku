@@ -16,6 +16,24 @@
       "message": "pthread_timedjoin_np looks at least supported on FreeBSD. pthread_tryjoin_np looks to only exist on Linux. Any usecases for this one?",
       "revId": "222dface2c6328fede444be67944ec174f4288e1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb77b2de_8a432f30",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-03-15T09:11:23Z",
+      "side": 1,
+      "message": "it was listed in the same man page, and it works, so I don\u0027t see why we can\u0027t do both at the same time",
+      "parentUuid": "538bc4a7_8f7dbfbc",
+      "revId": "222dface2c6328fede444be67944ec174f4288e1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
