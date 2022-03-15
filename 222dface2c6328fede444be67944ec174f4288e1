@@ -54,6 +54,40 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "35f5c976_153d94e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-03-15T16:17:32Z",
+      "side": 1,
+      "message": "invalidTime \u0026\u0026 error !\u003d B_OK should return EINVAL (following other timed* functions).",
+      "revId": "222dface2c6328fede444be67944ec174f4288e1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3be3b15a_318c1e23",
+        "filename": "src/system/libroot/posix/pthread/pthread.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-03-15T16:17:32Z",
+      "side": 1,
+      "message": "\" *abstime\" should be \"* abstime\"",
+      "revId": "222dface2c6328fede444be67944ec174f4288e1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9367d5e4_0e68d86f",
