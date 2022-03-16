@@ -411,10 +411,16 @@ arch_mmu_post_efi_setup(size_t memory_map_size,
 void
 arch_mmu_allocate_kernel_page_tables(void)
 {
-	uint64* page = CurrentRegime.AllocatePage();
+	uint64* page = reinterpret_cast<uint64*>(READ_SPECIALREG(TTBR1_EL1));
+
+	if (page == 0ul) {
+		page = CurrentRegime.AllocatePage();
+		WRITE_SPECIALREG(TTBR1_EL1, page);
+	} else {
+		TRACE(("TTBR1_EL1 present ..."));
+	}
 
 	if (page != NULL) {
-		WRITE_SPECIALREG(TTBR1_EL1, page);
 		sPageDirectory = page;
 	} else {
 		panic("Not enough memory for kernel initial page\n");
