@@ -16,6 +16,24 @@
       "message": "useless cast to int64",
       "revId": "564e10602ae5c2c0f8885a4edb32f433c982fc98",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83333c7b_fb4cd1a7",
+        "filename": "src/apps/haikudepot/server/LocalPkgDataLoadProcess.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2022-03-16T00:31:46Z",
+      "side": 1,
+      "message": "Thanks Adrien; that should be sorted out now - can you please re-approve?",
+      "parentUuid": "45f598d8_e7dbf9be",
+      "revId": "564e10602ae5c2c0f8885a4edb32f433c982fc98",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
