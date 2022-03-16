@@ -16,6 +16,23 @@
       "message": "Details commented in forum:\n\nhttps://discuss.haiku-os.org/t/arm64-port-status/11224/166?u\u003doruizdorantes\n\nHanldes topic (2)",
       "revId": "1e9d6d56aaebb9371204a4ae64f5515ba39a9167",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "223527cf_454817d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-03-16T17:11:33Z",
+      "side": 1,
+      "message": "ARM64 only so I think we can move things in tree quickly and improve in additional PR\u0027s. ",
+      "revId": "1e9d6d56aaebb9371204a4ae64f5515ba39a9167",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
