@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e03bd00_a94e202a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000057
+      },
+      "writtenOn": "2022-03-16T20:14:14Z",
+      "side": 1,
+      "message": "Looking good. If indeed both opregion and bios are tried in case opregion fails I\u0027d say apply it :-)",
+      "revId": "f7225fb74a78866b81cc24106c820fc2c1178739",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
