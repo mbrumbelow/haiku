@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d81538cd_6877f368",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000359
+      },
+      "writtenOn": "2022-03-16T15:50:07Z",
+      "side": 1,
+      "message": "Details commented in forum:\n\nhttps://discuss.haiku-os.org/t/arm64-port-status/11224/166?u\u003doruizdorantes\n\nHanldes topic (2)",
+      "revId": "1e9d6d56aaebb9371204a4ae64f5515ba39a9167",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
