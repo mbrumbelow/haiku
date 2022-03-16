@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9696435_ad05ab2e",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_mmu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-16T19:20:54Z",
+      "side": 1,
+      "message": "Is this a realistic scenario that TTBR1 is already populated by EFI firmware?\n\nI see the following statement in EFI specs: \"On devices supporting multiple translation base registers, TTBR0 must be used solely.\"\n\nAnyway I\u0027ll take a closer look tomorrow.",
+      "range": {
+        "startLine": 414,
+        "startChar": 1,
+        "endLine": 414,
+        "endChar": 70
+      },
+      "revId": "cdd9914d57f2bd80962eb1a90e25238229379329",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
