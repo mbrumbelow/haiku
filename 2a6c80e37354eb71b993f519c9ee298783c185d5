@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8446bdec_7ea636a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-03-18T11:56:44Z",
+      "side": 1,
+      "message": "wondering about ARM64 vs ARM32 actually",
+      "revId": "2a6c80e37354eb71b993f519c9ee298783c185d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55e07ce3_0683360b",
+        "filename": "src/tools/gensyscalls/gensyscalls.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-03-18T11:56:44Z",
+      "side": 1,
+      "message": "shouldn\u0027t it be sizeof(long)?",
+      "revId": "2a6c80e37354eb71b993f519c9ee298783c185d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
