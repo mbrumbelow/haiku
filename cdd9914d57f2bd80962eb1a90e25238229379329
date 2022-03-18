@@ -46,6 +46,47 @@
       },
       "revId": "cdd9914d57f2bd80962eb1a90e25238229379329",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4786ad45_ca3b1dfa",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_mmu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-03-18T11:52:41Z",
+      "side": 1,
+      "message": "Maybe make it panic directly? With the current code it will panic with \"Not enough memory for kernel initial page\\n\" which could be a bit confusing if this ever happens.",
+      "parentUuid": "c9b12f10_ddbb1a88",
+      "range": {
+        "startLine": 414,
+        "startChar": 1,
+        "endLine": 414,
+        "endChar": 70
+      },
+      "revId": "cdd9914d57f2bd80962eb1a90e25238229379329",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5324fff1_b140bde7",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_start.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-03-18T11:52:41Z",
+      "side": 1,
+      "message": "arch_cache_enable is done in both if() and else so it can be moved out of the condition block",
+      "revId": "cdd9914d57f2bd80962eb1a90e25238229379329",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
