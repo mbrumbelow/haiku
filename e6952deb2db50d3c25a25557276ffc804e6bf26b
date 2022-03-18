@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c80f5c66_0e6b6530",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2022-03-18T14:36:02Z",
+      "side": 1,
+      "message": "That\u0027s much easier to read, thanks for the rework!\n\nI\u0027m not a friend of using abbreviations such as \"idx\" for index, but that\u0027s just nitpicking which happens to be mentioned in our coding style guidelines (\"Use full names such as message over abbreviations such as msg\"). I might even have written that part of the guidelines, though ;-)",
+      "revId": "e6952deb2db50d3c25a25557276ffc804e6bf26b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
