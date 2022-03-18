@@ -72,6 +72,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0478035_abf8bceb",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_mmu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1000359
+      },
+      "writtenOn": "2022-03-18T13:44:15Z",
+      "side": 1,
+      "message": "Reordered a bit to make more clear the intetion: With the proposed code, if TTBR1 has a value, that would mean there are pages allocated, and the intention would be to place our MMU tables on top of them, to not discard/leak those previous tables. So it would execute the TRACE call and assign sPageDirectory. \n\nSo TTBR1 having a value might be unexpected but the situation can be managed.\n\nThe panic would only be reached if no TTBR1 \u0026\u0026 the allocation failed.",
+      "parentUuid": "4786ad45_ca3b1dfa",
+      "range": {
+        "startLine": 414,
+        "startChar": 1,
+        "endLine": 414,
+        "endChar": 70
+      },
+      "revId": "cdd9914d57f2bd80962eb1a90e25238229379329",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5324fff1_b140bde7",
@@ -85,6 +109,24 @@
       "writtenOn": "2022-03-18T11:52:41Z",
       "side": 1,
       "message": "arch_cache_enable is done in both if() and else so it can be moved out of the condition block",
+      "revId": "cdd9914d57f2bd80962eb1a90e25238229379329",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "879e150c_d53b19bd",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_start.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1000359
+      },
+      "writtenOn": "2022-03-18T13:44:15Z",
+      "side": 1,
+      "message": "Agree WIP. The main intention in this commit is to dump the key registers, and setup a structure for other people who might test this scenario. After gathering information, elaborate a final strategy. This part of the code will be revisited shortly.",
+      "parentUuid": "5324fff1_b140bde7",
       "revId": "cdd9914d57f2bd80962eb1a90e25238229379329",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
