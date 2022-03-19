@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f169fee2_180f0de6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-19T20:25:44Z",
+      "side": 1,
+      "message": "So far I\u0027ve looked only at 32-bit arm. Not sure about arm64. If it needs similar handling then it can be added in arch/arm64/arch_gensyscalls.h",
+      "parentUuid": "8446bdec_7ea636a0",
+      "revId": "2a6c80e37354eb71b993f519c9ee298783c185d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "55e07ce3_0683360b",
         "filename": "src/tools/gensyscalls/gensyscalls.cpp",
         "patchSetId": 1
@@ -31,6 +49,24 @@
       "writtenOn": "2022-03-18T11:56:44Z",
       "side": 1,
       "message": "shouldn\u0027t it be sizeof(long)?",
+      "revId": "2a6c80e37354eb71b993f519c9ee298783c185d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e466912b_11dbe5b5",
+        "filename": "src/tools/gensyscalls/gensyscalls.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-19T20:25:44Z",
+      "side": 1,
+      "message": "that can also work",
+      "parentUuid": "55e07ce3_0683360b",
       "revId": "2a6c80e37354eb71b993f519c9ee298783c185d5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
