@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c6f1085_d8e150ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-03-20T10:38:00Z",
+      "side": 1,
+      "message": "I\u0027ve decided to keep `pthread_join` implementation separate from `pthread_timedjoin_np`/`pthread_tryjoin_np`, as it avoids unnecessary work done in the wait_for_thread_etc syscall around timeouts.",
+      "revId": "e83ae7dc45df0509cec54f3d916dd5a35ea74d71",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
