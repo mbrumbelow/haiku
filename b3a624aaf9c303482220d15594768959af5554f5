@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b4ecb7c_7c9548cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-03-20T10:44:32Z",
+      "side": 1,
+      "message": "I didn\u0027t realise that mattered, as previous commits to syscalls.h have added functions in random places, rather than strictly at the end. I can move it, if that\u0027s desired.\n\nAlso, by maintaining wait_for_thread, that avoids extra work around checking and updating the timeout information (`syscall_restart_handle_timeout_pre`/`syscall_restart_handle_timeout_post`). So it\u0027s probably better to continue to have wait_for_thread avoid this extra maintenance.",
+      "parentUuid": "4bc1e99e_63f93d73",
+      "revId": "b3a624aaf9c303482220d15594768959af5554f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c48e4538_08bbd7d4",

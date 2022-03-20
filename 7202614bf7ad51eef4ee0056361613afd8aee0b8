@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7420351_2d1b3d74",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-03-20T10:44:32Z",
+      "side": 1,
+      "message": "I\u0027ve updated the pthreads implementation so that `pthread_join` doesn\u0027t use `wait_for_thread_etc`, avoiding unnecessary work updating thread timeout information in the syscall.",
+      "revId": "7202614bf7ad51eef4ee0056361613afd8aee0b8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
