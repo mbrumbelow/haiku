@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "819e5ff5_c4d42864",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-03-20T20:02:37Z",
+      "side": 1,
+      "message": "syscall_restart_handle_timeout_pre just checks flags, it should be barely any overhead at all, I\u0027m not sure that\u0027s a sufficient reason here to have separate functions.",
+      "revId": "55f6403ab9eb3523385123897193e3396412eebb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
