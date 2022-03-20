@@ -16,6 +16,23 @@
       "message": "I\u0027m not really sure about this one so please give me some suggestion.\n\nDo we need to handle PT_ARM_UNWIND in runtime_loader or will it be handled in some other place e.g. libunwind?\n",
       "revId": "b0d95feb5edc4fc03ff20fc9277c764e920a550e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "188795f1_6c7d9229",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-03-20T21:06:21Z",
+      "side": 1,
+      "message": "Unwind is currently implemented in libgcc_s.so.1 and unwind information is registered with `__register_frame_info` in init/initarray handler. When moving to libunwind, registration mechanism can be changed to program reader PT_GNU_EH_FRAME entry preserving compatibility with `__register_frame_info`.\n\nYou can disassemble some application and check if it use `__register_frame_info` call on init. It it does, no other actions are currently needed and PT_ARM_UNWIND can be ignored.\n\nRelated: https://review.haiku-os.org/c/haiku/+/5105\n",
+      "revId": "b0d95feb5edc4fc03ff20fc9277c764e920a550e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
