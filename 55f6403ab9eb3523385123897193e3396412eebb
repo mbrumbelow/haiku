@@ -16,6 +16,24 @@
       "message": "syscall_restart_handle_timeout_pre just checks flags, it should be barely any overhead at all, I\u0027m not sure that\u0027s a sufficient reason here to have separate functions.",
       "revId": "55f6403ab9eb3523385123897193e3396412eebb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71a5f139_85df6f2f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-03-21T22:39:19Z",
+      "side": 1,
+      "message": "I still disagree, and there is precedent in the existing syscalls, where _etc variants provide timeout options.",
+      "parentUuid": "819e5ff5_c4d42864",
+      "revId": "55f6403ab9eb3523385123897193e3396412eebb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
