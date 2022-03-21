@@ -50,6 +50,23 @@
       "message": "Please remove [wip] before submit",
       "revId": "b0d95feb5edc4fc03ff20fc9277c764e920a550e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "afe4efcb_cdfb021b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-03-21T08:05:26Z",
+      "side": 1,
+      "message": "At the very least the comments should be updated to say why these things are not needed here and where else they should be handled.\n\nIf they are not useful at all, linker scripts could be modified to drop them (making executables/libraries smaller).\n\nIf they are useful only for debugging, the defineDebugInfoPackage macro in haikuports should be updated to move them from the main executable to the debuginfo package (making executables/libraries smaller but keeping the info somewhere for use with Debugger).\n\nIf they are useful at runtime, but not handled by runtime_loader, the comments should say what is using them. This case would seem a bit strange to me, as it would mean whatever uses this needs to reopen the executable or library from disk and get the info from there, since runtime_loader won\u0027t keep it. This can be a bit unreliable, as between the time a program is launched, and the time the file is opened to get this info, it\u0027s not certain the file will still contain the same executable. There are ways to workaround that but I don\u0027t think we implement anything like that currently?",
+      "revId": "b0d95feb5edc4fc03ff20fc9277c764e920a550e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
