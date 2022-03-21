@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0c2820a_be2c36e8",
+        "filename": "src/system/libroot/posix/pthread/pthread.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-03-21T08:50:11Z",
+      "side": 1,
+      "message": "now invalidTime is always false.\nThe usual expectation in pthreads is, if the operation can succeed immediately, it shouldn\u0027t fail because of an invalid timeout.",
+      "revId": "dbbf795201e8df9d1f6a04552cd094b554f9ca44",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
