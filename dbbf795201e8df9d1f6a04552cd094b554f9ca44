@@ -88,6 +88,24 @@
       "parentUuid": "714d7c01_a8188496",
       "revId": "dbbf795201e8df9d1f6a04552cd094b554f9ca44",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "236c5287_51ef1e2b",
+        "filename": "src/system/libroot/posix/pthread/pthread.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-03-22T17:30:19Z",
+      "side": 1,
+      "message": "If the time is invalid, the join should be tried with a zero relative timeout: either it succeeds, or it should return EINVAL.",
+      "parentUuid": "d69de020_4406c03f",
+      "revId": "dbbf795201e8df9d1f6a04552cd094b554f9ca44",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
