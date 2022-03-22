@@ -16,6 +16,24 @@
       "message": "What is the rationale?",
       "revId": "dfb334d2396b03168e91fe05ae79c7d750917c07",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcc1c171_c9e5bd20",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2022-03-22T07:57:50Z",
+      "side": 1,
+      "message": "I have opened an HDS [issue](https://github.com/haiku/haikudepotserver/issues/234) to explain.",
+      "parentUuid": "f8717fe7_ca49ba89",
+      "revId": "dfb334d2396b03168e91fe05ae79c7d750917c07",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
