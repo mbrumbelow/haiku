@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96df8a52_ef5f22ba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-23T19:11:18Z",
+      "side": 1,
+      "message": "first vague implementation of /chosen handling, when stdout-path points to a device node without any extra info\n\nthe \"node:options\" syntax can be implemented later.\n\nso far this particular change was tested only on qemu as on the raspberry pi 4 i don\u0027t have any /chosen/stdout-path (this will need to be investigated)",
+      "revId": "e5fac15e4170baac503f78ea3bd47465ae080ff5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
