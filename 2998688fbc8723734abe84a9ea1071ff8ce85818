@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9ff4c05_b2877fff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-23T19:15:54Z",
+      "side": 1,
+      "message": "tested on qemu and rpi4\n\nthis change is needed because on the rpi4 the device tree has different address-cells/size-cells on the root node and on the /soc simple-bus node.\n\nplease take a close look at this change also to ensure that i haven\u0027t screwed up the riscv port.",
+      "revId": "2998688fbc8723734abe84a9ea1071ff8ce85818",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
