@@ -451,8 +451,6 @@ dtb_handle_fdt(const void* fdt, int node)
 	if (compatible == NULL)
 		return;
 
-	// TODO: We should check for the "chosen" uart and prioritize that one
-
 	// check for a uart if we don't have one
 	uart_info &uart = gKernelArgs.arch_args.uart;
 	if (uart.kind[0] == 0) {
@@ -475,6 +473,26 @@ dtb_handle_fdt(const void* fdt, int node)
 		if (gUART != NULL)
 			gUART->InitEarly();
 	}
+}
+
+
+static void
+dtb_handle_chosen_node(const void *fdt)
+{
+	int chosen = fdt_path_offset(fdt, "/chosen");
+	if (chosen < 0)
+		return;
+
+	int len;
+	const char *stdoutPath = (const char *)fdt_getprop(fdt, chosen, "stdout-path", &len);
+	if (stdoutPath == NULL)
+		return;
+
+	int stdoutNode = fdt_path_offset_namelen(fdt, stdoutPath, len-1);
+	if (stdoutNode < 0)
+		return;
+
+	dtb_handle_fdt(fdt, stdoutNode);
 }
 
 
@@ -509,6 +527,8 @@ dtb_init()
 
 		if (false)
 			DumpFdt(sDtbTable);
+
+		dtb_handle_chosen_node(sDtbTable);
 
 		int node = -1;
 		int depth = -1;
