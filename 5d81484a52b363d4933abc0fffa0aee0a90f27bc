@@ -16,6 +16,23 @@
       "message": "Raspberry Pi mini-UART should be compatible with 8250.\n\nAnd it is, as I was able to verify it on my Raspberry Pi 4 with a PL2303 USB - TTL Serial debug cable.\n\nThis is the easy part, some more patches for FDT parsing coming soon.",
       "revId": "5d81484a52b363d4933abc0fffa0aee0a90f27bc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdca2a33_9a41a320",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-03-24T13:17:07Z",
+      "side": 1,
+      "message": "8620 alternative uart. yup.",
+      "revId": "5d81484a52b363d4933abc0fffa0aee0a90f27bc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
