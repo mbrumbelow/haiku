@@ -33,6 +33,23 @@
       "message": "Should be fine if it compiles. All trap frame register layout is the same, including machine mode trap handler in haiku_loader.riscv. Trap frame push/pop assembly code is already shared.",
       "revId": "1cab8152420db0d8b12a45b06cc17db7db9ac9b9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "818ba89d_10404f18",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-03-24T13:23:39Z",
+      "side": 1,
+      "message": "Stop, not the same actually. It was changed from initial version.\n\narch_thread_types.h\nstruct iframe {\n\tuint64 status;\n\tuint64 cause;\n\tuint64 tval;\n\tuint64 align1; // structure need to be 16 byte aligned\n\n\tuint64 ra;\n",
+      "revId": "1cab8152420db0d8b12a45b06cc17db7db9ac9b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
