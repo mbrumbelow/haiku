@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d8822a1_bad241f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-03-24T13:16:40Z",
+      "side": 1,
+      "message": "looks good to me.  Definitely a much better design.  No style issues",
+      "revId": "7e924ac13a2045bae51ac85ec14bfb75ad915cd4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
