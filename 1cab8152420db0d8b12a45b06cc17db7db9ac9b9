@@ -16,6 +16,23 @@
       "message": "we define two iframe structs. (one kernel, one bootloader)  This unifies them to prevent conflicts",
       "revId": "1cab8152420db0d8b12a45b06cc17db7db9ac9b9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "275798a9_2aa3d803",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-03-24T13:21:12Z",
+      "side": 1,
+      "message": "Should be fine if it compiles. All trap frame register layout is the same, including machine mode trap handler in haiku_loader.riscv. Trap frame push/pop assembly code is already shared.",
+      "revId": "1cab8152420db0d8b12a45b06cc17db7db9ac9b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
