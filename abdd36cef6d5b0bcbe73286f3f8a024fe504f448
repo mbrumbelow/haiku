@@ -16,6 +16,23 @@
       "message": "axeld, korli, mmlr: Your thoughts (and anyone else\u0027s) would be very much appreciated on this commit, its approach, etc.",
       "revId": "abdd36cef6d5b0bcbe73286f3f8a024fe504f448",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "219bfd28_3c232e41",
+        "filename": "src/system/kernel/vm/VMAnonymousCache.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-03-25T01:43:00Z",
+      "side": 1,
+      "message": "I suspect a number of these casts and the like aren\u0027t needed in this function, but I don\u0027t know the ins and outs of the VMCache fields, so I went with the safest options.",
+      "revId": "abdd36cef6d5b0bcbe73286f3f8a024fe504f448",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
