@@ -1,54 +1,117 @@
 /*
- * Copyright 2013 Haiku, Inc. All rights reserved.
+ * Copyright 2013-2022, Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
  *		Paweł Dziepak, pdziepak@quarnos.org
  */
 
-
-#include <util/Bitmap.h>
-
-#include <new>
-
+#include <stdlib.h>
 #include <string.h>
 
+#include <util/Bitmap.h>
 #include <util/BitUtils.h>
 
 
-const int Bitmap::kBitsPerElement = sizeof(addr_t) * 8;
+namespace BKernel {
 
 
-Bitmap::Bitmap(int bitCount)
+Bitmap::Bitmap(size_t bitCount)
 	:
-	fInitStatus(B_OK),
 	fElementsCount(0),
-	fSize(bitCount)
+	fSize(0),
+	fBits(NULL)
 {
-	int count = fSize + kBitsPerElement - 1;
-	count /= kBitsPerElement;
-
-	fBits = new(std::nothrow) addr_t[count];
-	if (fBits == NULL) {
-		fSize = 0;
-		fInitStatus = B_NO_MEMORY;
-	} else {
-		fElementsCount = count;
-		memset(fBits, 0, sizeof(addr_t) * count);
-	}
+	Resize(bitCount);
 }
 
 
 Bitmap::~Bitmap()
 {
-	delete[] fBits;
+	free(fBits);
 }
 
 
-int
+status_t
+Bitmap::InitCheck()
+{
+	return (fBits != NULL) ? B_OK : B_NO_MEMORY;
+}
+
+
+status_t
+Bitmap::Resize(size_t bitCount)
+{
+	size_t count = bitCount + kBitsPerElement - 1;
+	count /= kBitsPerElement;
+	if (count == fElementsCount)
+		return B_OK;
+
+	void* bits = realloc(fBits, sizeof(addr_t) * count);
+	if (bits == NULL)
+		return B_NO_MEMORY;
+	fBits = (addr_t*)bits;
+
+	if (fElementsCount < count)
+		memset(fBits, fElementsCount, sizeof(addr_t) * (count - fElementsCount));
+
+	fSize = bitCount;
+	fElementsCount = count;
+	return B_OK;
+}
+
+
+void
+Bitmap::Shift(ssize_t bitCount)
+{
+	if (bitCount == 0)
+		return;
+
+	const size_t shift = (bitCount > 0) ? bitCount : -bitCount;
+	const size_t nElements = shift / kBitsPerElement, nBits = shift % kBitsPerElement;
+	if (nElements != 0) {
+		if (bitCount > 0) {
+			// "Left" shift.
+			memmove(&fBits[nElements], fBits, sizeof(addr_t) * (fElementsCount - nElements));
+			memset(fBits, 0, sizeof(addr_t) * nElements);
+		} else if (bitCount > 0) {
+			// "Right" shift.
+			memmove(fBits, &fBits[nElements], sizeof(addr_t) * (fElementsCount - nElements));
+			memset(&fBits[fElementsCount - nElements], 0, sizeof(addr_t) * nElements);
+		}
+	}
+
+	// If the shift was by a multiple of the element size, nothing more to do.
+	if (nBits == 0)
+		return;
+
+	// The low bits come from the "current" element and are shifted in the
+	// direction of the shift; the high bits come from the next-processed
+	// element and are shifted in the opposite direction.
+	if (bitCount > 0) {
+		// "Left" shift.
+		for (size_t i = fElementsCount - 1; i >= 0; i++) {
+			addr_t low = 0;
+			if (i != 0)
+				low = fBits[i - 1] >> (kBitsPerElement - nBits);
+			const addr_t high = fBits[i] << nBits;
+			fBits[i] = low | high;
+		}
+	} else if (bitCount > 0) {
+		// "Right" shift.
+		for (size_t i = 0; i < (fElementsCount - 1); i++) {
+			const addr_t low = fBits[i] >> nBits,
+				high = fBits[i + 1] << (kBitsPerElement - nBits);
+			fBits[i] = low | high;
+		}
+	}
+}
+
+
+ssize_t
 Bitmap::GetHighestSet() const
 {
-	int i = fElementsCount - 1;
+	size_t i = fElementsCount - 1;
 	while (i >= 0 && fBits[i] == 0)
 		i--;
 
@@ -65,4 +128,7 @@ Bitmap::GetHighestSet() const
 		return log2(v) + sizeof(uint32) * 8 + i * kBitsPerElement;
 	return log2(fBits[i]) + i * kBitsPerElement;
 }
+
+
+} // namespace BKernel
 
