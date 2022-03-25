@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06226ed2_80a10e9e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-25T14:47:23Z",
+      "side": 1,
+      "message": "2nd version: adding some logic to ignore everything after the first \u0027:\u0027 character.\nThis seems to be enough to detect the mini-UART on RPI3.\nNot sure about RPI4, for some reason I\u0027m not getting a /chosen/stdout-path there, probably its an unrelated issue.",
+      "revId": "eaf5dae37be83b1f161da98fb588284fb9a9a1e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
