@@ -50,6 +50,7 @@
 #include <util/DoublyLinkedList.h>
 #include <util/OpenHashTable.h>
 #include <util/RadixBitmap.h>
+#include <util/Bitmap.h>
 #include <vfs.h>
 #include <vm/vm.h>
 #include <vm/vm_page.h>
@@ -468,10 +469,46 @@ VMAnonymousCache::Init(bool canOvercommit, int32 numPrecommittedPages,
 	fCanOvercommit = canOvercommit;
 	fHasPrecommitted = false;
 	fPrecommittedPages = min_c(numPrecommittedPages, 255);
+	fNoSwapPages = NULL;
 	fGuardedSize = numGuardPages * B_PAGE_SIZE;
 	fCommittedSwapSize = 0;
 	fAllocatedSwapSize = 0;
 
+	return B_OK;
+}
+
+
+status_t
+VMAnonymousCache::SetCanSwapPages(off_t base, size_t size, bool canSwap)
+{
+	const page_num_t first = base >> PAGE_SHIFT;
+	const size_t count = (size - (first * B_PAGE_SIZE)) >> PAGE_SHIFT;
+
+	if (count == 0)
+		return B_OK;
+	if (canSwap && fNoSwapPages == NULL)
+		return B_OK;
+
+	if (fNoSwapPages == NULL)
+		fNoSwapPages = new(std::nothrow) Bitmap(0);
+	if (fNoSwapPages == NULL)
+		return B_NO_MEMORY;
+
+	const page_num_t pageCount = PAGE_ALIGN(virtual_end) >> PAGE_SHIFT;
+	if (fNoSwapPages->Resize(pageCount) != B_OK)
+		return B_NO_MEMORY;
+
+	for (size_t i = 0; i < count; i++) {
+		if (canSwap)
+			fNoSwapPages->Clear(first + i);
+		else
+			fNoSwapPages->Set(first + i);
+	}
+
+	if (fNoSwapPages->GetHighestSet() < 0) {
+		delete fNoSwapPages;
+		fNoSwapPages = NULL;
+	}
 	return B_OK;
 }
 
@@ -541,6 +578,11 @@ VMAnonymousCache::_FreeSwapPageRange(off_t fromOffset, off_t toOffset,
 status_t
 VMAnonymousCache::Resize(off_t newSize, int priority)
 {
+	if (fNoSwapPages != NULL) {
+		if (fNoSwapPages->Resize(PAGE_ALIGN(newSize) >> PAGE_SHIFT) != B_OK)
+			return B_NO_MEMORY;
+	}
+
 	_FreeSwapPageRange(newSize + B_PAGE_SIZE - 1,
 		virtual_end + B_PAGE_SIZE - 1);
 	return VMCache::Resize(newSize, priority);
@@ -550,6 +592,11 @@ VMAnonymousCache::Resize(off_t newSize, int priority)
 status_t
 VMAnonymousCache::Rebase(off_t newBase, int priority)
 {
+	if (fNoSwapPages != NULL) {
+		const ssize_t sizeDifference = (newBase >> PAGE_SHIFT) - (virtual_base >> PAGE_SHIFT);
+		fNoSwapPages->Shift(sizeDifference);
+	}
+
 	_FreeSwapPageRange(virtual_base, newBase);
 	return VMCache::Rebase(newBase, priority);
 }
@@ -891,10 +938,14 @@ VMAnonymousCache::WriteAsync(off_t offset, const generic_io_vec* vecs,
 bool
 VMAnonymousCache::CanWritePage(off_t offset)
 {
+	const off_t pageIndex = offset >> PAGE_SHIFT;
+	if (fNoSwapPages != NULL && fNoSwapPages->Get(pageIndex))
+		return false;
+
 	// We can write the page, if we have not used all of our committed swap
 	// space or the page already has a swap slot assigned.
 	return fAllocatedSwapSize < fCommittedSwapSize
-		|| _SwapBlockGetAddress(offset >> PAGE_SHIFT) != SWAP_SLOT_NONE;
+		|| _SwapBlockGetAddress(pageIndex) != SWAP_SLOT_NONE;
 }
 
 
