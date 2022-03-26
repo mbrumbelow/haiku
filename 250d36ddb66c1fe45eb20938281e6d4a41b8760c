@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "353b7c15_d08521d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000359
+      },
+      "writtenOn": "2022-03-26T12:23:39Z",
+      "side": 1,
+      "message": "Despite PL011 has not been tested by myself, looks by testers in the forum the given UART is functional. Therefore in this first approach to avoid duplicating files from the ARM port, PL011 files are being added in the ARM64 JAM files.\n\nAs commented in the forum, there will be options:\n    - Cross-referencing code between both ports(as done here)\n    - Make them generic(Pl011, LINFlex)\n    \nIn general I think is required a global refactor of both ports(ARM/ARM64) as long as they mature. This will as well address this point.\n\n\nNote the splitting of defined(__ARM__) || defined(__aarch64__) as convervative approach to not affect ARM build. Hence LINFLEx has only been introduced in ARM64.\n",
+      "revId": "250d36ddb66c1fe45eb20938281e6d4a41b8760c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
