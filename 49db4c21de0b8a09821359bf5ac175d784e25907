@@ -33,6 +33,23 @@
       "message": "Maybe I remember wrong, but I thought that there was an API within the runtime loader that is actually being used by the programs it loads.",
       "revId": "49db4c21de0b8a09821359bf5ac175d784e25907",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "174045aa_599ebeb5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-03-26T22:02:45Z",
+      "side": 1,
+      "message": "Yes, it works via a structure with function pointers in it: https://xref.landonf.org/source/xref/haiku/src/system/libroot/libroot_init.c#22",
+      "revId": "49db4c21de0b8a09821359bf5ac175d784e25907",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
