@@ -33,6 +33,24 @@
       "message": "Just use memalign_etc?",
       "revId": "e8c6a333da5d3263bb273914b3803c7d3eee1653",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3313aa6a_a3113f41",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-03-26T19:32:12Z",
+      "side": 1,
+      "message": "memalign_etc internally may call memalign with zero alignment.",
+      "parentUuid": "97f3c43a_28803bba",
+      "revId": "e8c6a333da5d3263bb273914b3803c7d3eee1653",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
