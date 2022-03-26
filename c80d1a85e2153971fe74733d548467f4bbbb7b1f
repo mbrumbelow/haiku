@@ -16,6 +16,24 @@
       "message": "We allow zero alignment because it means \"pick default alignment.\"\n\nI firmly am of the belief, though, that this is a problem in Clang and not in our code: because all of the kernel and drivers are compiled with -fno-builtin. Clang should thus assume absolutely nothing about these functions and leave them precisely as-is.",
       "revId": "c80d1a85e2153971fe74733d548467f4bbbb7b1f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e833c1c4_bbb71e96",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2022-03-26T20:49:22Z",
+      "side": 1,
+      "message": "\u003e We allow zero alignment because it means \"pick default alignment.\"\n\nI see no reason why \"1\" shouldn\u0027t mean the same.\n\n\u003e I firmly am of the belief, though, that this is a problem in Clang and not in our code: because all of the kernel and drivers are compiled with -fno-builtin. Clang should thus assume absolutely nothing about these functions and leave them precisely as-is.\n\nThat however, sounds convincing. Is -fno-builtin used for the Clang build, too?",
+      "parentUuid": "de98ac54_f02adc89",
+      "revId": "c80d1a85e2153971fe74733d548467f4bbbb7b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
