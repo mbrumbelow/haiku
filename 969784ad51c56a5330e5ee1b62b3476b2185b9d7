@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "859c16f8_6f847a86",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-26T12:46:22Z",
+      "side": 1,
+      "message": "This is a companion to change 5150 to help with debugging and early bringup.\nDebug prints can be enabled by uncommenting the define in arch_start.cpp\n\nthe intent is similar to review 5108 - Dump MMU \u0026 System Control Registers",
+      "revId": "969784ad51c56a5330e5ee1b62b3476b2185b9d7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
