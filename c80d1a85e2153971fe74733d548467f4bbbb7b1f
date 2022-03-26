@@ -34,6 +34,24 @@
       "parentUuid": "de98ac54_f02adc89",
       "revId": "c80d1a85e2153971fe74733d548467f4bbbb7b1f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18a4b848_a552c154",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-03-26T22:23:48Z",
+      "side": 1,
+      "message": "memalign is declared with compiler attribute that tells compiler about align argument. So align argument must be non zero or attribute should be removed (that can reduce optimization capabilities).",
+      "parentUuid": "e833c1c4_bbb71e96",
+      "revId": "c80d1a85e2153971fe74733d548467f4bbbb7b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
