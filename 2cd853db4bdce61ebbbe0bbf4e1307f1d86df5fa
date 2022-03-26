@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b85b28b9_97a31017",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-26T12:34:40Z",
+      "side": 1,
+      "message": "EFI loader starts in PL2 HYP mode (CPSR[4:0] \u003d 0x1a) if the CPU supports virtualization extensions - which seems to be the case on at least rpi 3\u00264\n\nTherefore we must perform a transition from PL2 HYP to PL1 SVC mode before jumping to the kernel.\n\nSo far it was tested only in qemu\n-M virt: no change in current behavior\n-M virt,virtualization\u003don: now we reach rocket icon also in this case. (used to stall after enter_kernel)\n\nnext: Testing on real hardware.",
+      "revId": "2cd853db4bdce61ebbbe0bbf4e1307f1d86df5fa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
