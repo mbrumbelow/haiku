@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a56c554_94e8c9b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-27T18:01:31Z",
+      "side": 1,
+      "message": "align the ARM implementation with other architectures (i.e. x86, x86_64, riscv64)\n\nthis change also enables us to start the kernel when TRACE_DEBUG is enabled",
+      "revId": "62fcc347a1c53bff5d595578a0dec5d4f4f43d83",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
