@@ -36,9 +36,26 @@ display_open(void *_cookie, const char* path, int flags, void** cookie)
 
 
 static status_t
-display_read(void *_cookie, off_t position, void *buf, size_t* num_bytes)
+display_read(void *cookie, off_t position, void *buf, size_t* num_bytes)
 {
-	return B_ERROR;
+	display_device_info *device = (display_device_info *)cookie;
+
+	acpi_data buffer;
+	buffer.pointer = NULL;
+	buffer.length = ACPI_ALLOCATE_BUFFER;
+
+	status_t status = gAcpi->evaluate_method(device->acpi_device, "_BQC", NULL, &buffer);
+	if (status == B_OK) {
+		acpi_object_type* backlightLevel = (acpi_object_type*)buffer.pointer;
+		dprintf("display: Current backlight level is %" B_PRIu64 "\n",
+			backlightLevel->integer.integer);
+	} else {
+		dprintf("display: Failed to get current backlight level: %" B_PRId32 "\n", status);
+	}
+
+	*num_bytes = 0;
+	free(buffer.pointer);
+	return status;
 }
 
 
@@ -46,8 +63,20 @@ static status_t
 display_write(void* cookie, off_t position, const void* buffer,
 	size_t* num_bytes)
 {
-	*num_bytes = 0;
-	return B_ERROR;
+	display_device_info *device = (display_device_info *)cookie;
+
+	acpi_objects parameters;
+	acpi_object_type level;
+	parameters.count = 1;
+	parameters.pointer = &level;
+
+	level.object_type = ACPI_TYPE_INTEGER;
+	level.integer.integer = *num_bytes;
+	status_t status = gAcpi->evaluate_method(device->acpi_device, "_BCM", &parameters, NULL);
+	dprintf("display: Call _BCM(%ld) on %p results in %" B_PRId32 "\n", *num_bytes,
+		device->acpi_device, status);
+
+	return status;
 }
 
 
@@ -68,7 +97,7 @@ display_close(void* cookie)
 static status_t
 display_free(void* cookie)
 {
-	display_device_info *device = (display_device_info *)cookie;
+	// display_device_info *device = (display_device_info *)cookie;
 	return B_OK;
 }
 
@@ -89,14 +118,15 @@ display_init(void *_cookie, void **cookie)
 
 	device->node = node;
 
-	const char *path;
+	const char *path = NULL;
 	if (gDeviceManager->get_attr_string(node, ACPI_DEVICE_PATH_ITEM, &path,
 			false) != B_OK
 		|| gAcpi->get_handle(NULL, path, &device->acpi_device) != B_OK) {
-		dprintf("%s: failed to get acpi node.\n", __func__);
+		dprintf("%s: failed to get acpi node %s.\n", __func__, path ? path : "(no path)");
 		free(device);
 		return B_ERROR;
 	}
+	dprintf("display_init end, acpi path = %s\n", path);
 
 	*cookie = device;
 	return B_OK;
