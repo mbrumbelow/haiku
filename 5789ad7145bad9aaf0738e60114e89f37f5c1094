@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e9d0671_f1c1301e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-03-27T15:05:18Z",
+      "side": 1,
+      "message": "Required for ICU 66+ operation.",
+      "revId": "5789ad7145bad9aaf0738e60114e89f37f5c1094",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
