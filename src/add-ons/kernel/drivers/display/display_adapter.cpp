@@ -37,9 +37,6 @@ displayadapter_init_device(void *_cookie, void **cookie)
 	displayadapter_device_info *device;
 //	device_node *parent;
 
-//	acpi_objects arguments;
-//	acpi_object_type argument;
-
 	const char *path;
 	dprintf("%s: start.\n", __func__);
 
@@ -56,7 +53,10 @@ displayadapter_init_device(void *_cookie, void **cookie)
 		free(device);
 		return B_ERROR;
 	}
-/*
+
+	acpi_objects arguments;
+	acpi_object_type argument;
+
 	argument.object_type = ACPI_TYPE_INTEGER;
 	argument.integer.integer = BIOS_DISPLAY_SWITCH | BIOS_BRIGHTNESS_CONTROL;
 	arguments.count = 1;
@@ -66,7 +66,7 @@ displayadapter_init_device(void *_cookie, void **cookie)
 		dprintf("%s: failed to set _DOS %s\n", __func__, path);
 
 	dprintf("%s: done.\n", __func__);
-*/
+
 	*cookie = device;
 	return B_OK;
 }
@@ -188,61 +188,87 @@ register_displays(const char *parentName, device_node *node)
 		return B_ERROR;
 	}
 
-	//get list of ids from _DOD
+	// get list of ids from _DOD
+#if 0
+	acpi_data buffer;
+	buffer.pointer = NULL;
+	buffer.length = ACPI_ALLOCATE_BUFFER;
+
+	status_t status = gAcpi->evaluate_method(acpiHandle, "_DOD", NULL, &buffer);
+	acpi_object_type* pkgData = (acpi_object_type*)buffer.pointer;
+#else
 	acpi_object_type *pkgData = (acpi_object_type *)malloc(128);
 	if (pkgData == NULL)
 		return B_ERROR;
 
-	status_t status = gAcpi->evaluate_object(acpiHandle, "_DOD", NULL, pkgData,
-		128);
+	status_t status = gAcpi->evaluate_object(acpiHandle, "_DOD", NULL, pkgData, 128);
+#endif
 	if (status != B_OK || pkgData->object_type != ACPI_TYPE_PACKAGE) {
-		dprintf("%s: fail. %ld %lu\n", __func__, status, pkgData->object_type);
+		dprintf("%s: fail. Status: %" B_PRId32 " Package type: %" B_PRIu32 "\n",
+			__func__, status, pkgData->object_type);
 		free(pkgData);
-		return status;	
+		return status;
 	}
 
 	acpi_object_type *displayIDs = pkgData->package.objects;
 	for (uint32 i = 0; i < pkgData->package.count; i++) {
-		dprintf("Display ID = %lld\n", displayIDs[i].integer.integer);
+		dprintf("Display ID = Type %" B_PRIu32 ", Value %" B_PRIu64 "\n",
+			displayIDs[i].object_type, displayIDs[i].integer.integer);
 	}
-    
+
 	acpi_object_type result;
 	acpi_handle child = NULL;
 	while (gAcpi->get_next_object(ACPI_TYPE_DEVICE, acpiHandle, &child)
 		== B_OK) {
 		char name[5] = {0};
-		//TODO: HARDCODED type.
-		if(gAcpi->get_name(child, 1, name, 5) == B_OK) 
+		if (gAcpi->get_name(child, ACPI_TYPE_INTEGER, name, 5) == B_OK)
 			dprintf("name: %s\n", name);
-		if (gAcpi->evaluate_object(child, "_ADR", NULL, &result, sizeof(result))
-			!= B_OK)
+		if (gAcpi->evaluate_object(child, "_ADR", NULL, &result, sizeof(result)) != B_OK)
 			continue;
-		
-		dprintf("Child _adr %llu\n", result.integer.integer);
+
+		dprintf("Child _adr %" B_PRIu64 "\n", result.integer.integer);
+#if 1
+		// TODO on my machine, the _ADR from the device doesn't match with the _DOD?
+		// We don't really use it anyway, so we may just use all the available devices?
 		uint32 i;
 		for (i = 0; i < pkgData->package.count; i++)
-			if (displayIDs[i].integer.integer == result.integer.integer) break;
+			if ((displayIDs[i].integer.integer & 0xFFFF) == result.integer.integer) break;
 		
-		if (i == pkgData->package.count) continue;
-		
+		if (i == pkgData->package.count) {
+			dprintf("display: child not found in displayIDs list.\n");
+			// continue;
+		} else {
+			dprintf("display: child found at index %" B_PRIu32 "\n", i);
+		}
+#endif
+
+		char path[128];
+		acpi_data buffer;
+		buffer.length = sizeof(path);
+		buffer.pointer = path;
+
+		if (gAcpi->ns_handle_to_pathname(child, &buffer) == B_OK)
+			dprintf("path: %s\n", path);
 		device_attr attrs[] = {
 			{ B_DEVICE_PRETTY_NAME, B_STRING_TYPE, { .string = name }},
 			{ B_DEVICE_FLAGS, B_UINT32_TYPE, { .ui32 = B_KEEP_DRIVER_LOADED }},
+			{ ACPI_DEVICE_PATH_ITEM, B_STRING_TYPE, { .string = path }},
 			{ NULL }
-		
 		};
-		
+
 		device_node* deviceNode;
-		gDeviceManager->register_node(node, DISPLAY_DEVICE_MODULE_NAME, attrs,
+		gDeviceManager->register_node(node, DISPLAYADAPTER_MODULE_NAME, attrs,
 				NULL, &deviceNode);
 
 		char deviceName[128];
 		snprintf(deviceName, sizeof(deviceName), "%s/%s", parentName, name);
-		gDeviceManager->publish_device(parent, deviceName,
+		dprintf("register_displays: created node %p for device %s\n", deviceNode, deviceName);
+		gDeviceManager->publish_device(deviceNode, deviceName,
 			DISPLAY_DEVICE_MODULE_NAME);
-		
 	}
+
 	gDeviceManager->put_node(parent);
+	// free(buffer.pointer);
 	free(pkgData);
 	return B_OK;
 }
@@ -282,6 +308,20 @@ displayadapter_register_child_devices(void *_cookie)
 {
 	device_node *node = (device_node*)_cookie;
 
+	uint32 flags;
+	if (gDeviceManager->get_attr_uint32(node, B_DEVICE_FLAGS, &flags, false) != B_OK) {
+		dprintf("%s: node has no flags\n", __func__);
+		return B_ERROR;
+	}
+
+	// This module is used for both the display adapter node and the display nodes published under
+	// it. We don't want the display nodes to each have a control device (which we publish here),
+	// so if this function is called for a display node, just do nothing.
+	// Since we don't really have a lot of attributes in the nodes yet (no device type or anything
+	// like that), the best way to identify which it is, is to check the flags.
+	if (!(flags & B_FIND_MULTIPLE_CHILDREN))
+		return B_OK;
+
 	int path_id = gDeviceManager->create_id(DISPLAYADAPTER_PATHID_GENERATOR);
 	if (path_id < 0) {
 		dprintf("displayadapter_register_child_devices: error creating path\n");
@@ -289,10 +329,19 @@ displayadapter_register_child_devices(void *_cookie)
 	}
 
 	char name[128];
+
+	// Publish the device for the display adapter itself (the graphics card)
+	// This device can be used to get the VESA BIOS ROM data, enumerate displays (if we want to
+	// expose that directly to userland), and configure which graphics card should be enabled
+	// at boot.
 	snprintf(name, sizeof(name), DISPLAYADAPTER_BASENAME, path_id);
+	// TODO what's a good naming convention for this? Should it be in a separate directory?
+	strcat(name, "_control");
 	status_t status = gDeviceManager->publish_device(node, name,
 		DISPLAYADAPTER_DEVICE_MODULE_NAME);
 
+	// Also create nodes and pubish devices for each display attached to the display adapter.
+	snprintf(name, sizeof(name), DISPLAYADAPTER_BASENAME, path_id);
 	if (status == B_OK)
 		register_displays(name, node);
 
