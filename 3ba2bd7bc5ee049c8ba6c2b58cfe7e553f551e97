@@ -16,6 +16,23 @@
       "message": "x86_gcc2 and riscv64 operation confirmed.",
       "revId": "3ba2bd7bc5ee049c8ba6c2b58cfe7e553f551e97",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ac39be5_0535a8b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-03-28T22:56:23Z",
+      "side": 1,
+      "message": "runtime_loader currently do not use init routines. All initialization is done in entry point.",
+      "revId": "3ba2bd7bc5ee049c8ba6c2b58cfe7e553f551e97",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
