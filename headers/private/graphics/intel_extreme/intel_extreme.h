@@ -1175,9 +1175,14 @@ struct intel_free_graphics_memory {
 #define PANEL_DIVISOR_POW_CYCLE_DLY_SHIFT 0x1f
 
 // Backlight control registers
+// These have moved around, initially they were per pipe, then they were moved in the "north" part
+// of the PCH with a single backlight control (independant of pipes), and then moved again to the
+// "south" part of the PCH, with a simplified register layout.
 #define PCH_BLC_PWM_CTL2                (0x8250 | REGS_NORTH_SHARED)
 #define PCH_BLC_PWM_CTL                 (0x8254 | REGS_NORTH_SHARED)
-#define PCH_SBLC_PWM_CTL2               (0x8254 | REGS_SOUTH_SHARED)
+
+#define PCH_SOUTH_BLC_PWM_PERIOD        (0x8254 | REGS_SOUTH_SHARED)
+#define PCH_SOUTH_BLC_PWM_DUTY_CYCLE    (0x8258 | REGS_SOUTH_SHARED)
 
 #define MCH_BLC_PWM_CTL                 (0x1254 | REGS_NORTH_PIPE_AND_PORT)
 
