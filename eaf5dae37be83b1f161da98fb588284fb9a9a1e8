@@ -16,6 +16,40 @@
       "message": "2nd version: adding some logic to ignore everything after the first \u0027:\u0027 character.\nThis seems to be enough to detect the mini-UART on RPI3.\nNot sure about RPI4, for some reason I\u0027m not getting a /chosen/stdout-path there, probably its an unrelated issue.",
       "revId": "eaf5dae37be83b1f161da98fb588284fb9a9a1e8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee4a0f62_964bd3e6",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-03-28T13:30:59Z",
+      "side": 1,
+      "message": "a comment to document the expected format of the stdout-path property and what we\u0027re doing with it would be nice",
+      "revId": "eaf5dae37be83b1f161da98fb588284fb9a9a1e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7edf6307_ec2052ea",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-03-28T13:30:59Z",
+      "side": 1,
+      "message": "unrelated: this should be a #if 0 or #ifdef TRACE_FDT",
+      "revId": "eaf5dae37be83b1f161da98fb588284fb9a9a1e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
