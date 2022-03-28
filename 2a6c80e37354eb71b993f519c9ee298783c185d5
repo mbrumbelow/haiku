@@ -69,6 +69,24 @@
       "parentUuid": "55e07ce3_0683360b",
       "revId": "2a6c80e37354eb71b993f519c9ee298783c185d5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50495a10_82dec007",
+        "filename": "src/tools/gensyscalls/gensyscalls.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-03-28T13:33:24Z",
+      "side": 1,
+      "message": "Could it be somehing like:\n\n    if (size \u003e\u003d SYSCALL_LONG_PARAMETER_ALIGNMENT_TYPE)\n\nThis seems to be the most generic and configurable way?",
+      "parentUuid": "e466912b_11dbe5b5",
+      "revId": "2a6c80e37354eb71b993f519c9ee298783c185d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
