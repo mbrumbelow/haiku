@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e305188d_951a0579",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-28T18:39:31Z",
+      "side": 1,
+      "message": "spsr_cxsf seems to work better than spsr at least on qemu\n\nunfortunately it\u0027s still not quite right on the rpi3, not sure what is missing.",
+      "revId": "c0550393389acd9bba852b0afa1cb41979b3727b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
