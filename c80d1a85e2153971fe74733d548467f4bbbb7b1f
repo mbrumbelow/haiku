@@ -52,6 +52,24 @@
       "parentUuid": "e833c1c4_bbb71e96",
       "revId": "c80d1a85e2153971fe74733d548467f4bbbb7b1f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "114d9c73_4c782e63",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-03-28T14:30:47Z",
+      "side": 1,
+      "message": "For those who may not have followed the discussion on this and the introduction of usage of __attribute__(aligned):\n\nWe have used attribute on several functions to tell the compiler \"this function is guaranteed to return a pointer that\u0027s aligned, the alignment is given by the parameter at position n\".\n\nThis allow the compiler to know that the pointer is aligned, and better optimize code that calls the function. Without this, the compiler seeing a call to, for example, memalign(), can\u0027t know that the result is aligned or not.\n\nIf we want to support an alignment of 0, we need to patch the compiler to handle that case with whatever semantics we want for the value 0. If we use 1, the compiler will assume the pointer is aligned to 1 bytes, and generate code to access it as such.\n\nSo, our options are:\n- Don\u0027t support and don\u0027t use an alignment of 0,\n- Patch compilers so they know what to do with __attribute__(aligned) when the alignment argument is 0,\n- Stop using __attribute__(aligned) for affected functions, and have the compiler assume the result is not aligned, reducing performance.\n\nI think the first option is the simplest, and the third is unreasonable.\n\nNote that this has nothing to do with builtins or freestanding mode. We have explicitly told the compiler how it can expect these functions to work.",
+      "parentUuid": "18a4b848_a552c154",
+      "revId": "c80d1a85e2153971fe74733d548467f4bbbb7b1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
