@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33097323_78af19ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-03-28T15:24:52Z",
+      "side": 1,
+      "message": "Can this PR also add it to the builds, as it is not enabled by default?",
+      "revId": "fbb96ad30050babf135e6e0a71d00cdd9c49b537",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
