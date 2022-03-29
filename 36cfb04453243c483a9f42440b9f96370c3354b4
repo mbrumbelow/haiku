@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "81f25e59_471c9e56",
+        "filename": "headers/private/graphics/intel_extreme/intel_extreme.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1185,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-03-29T13:40:58Z",
+      "side": 1,
+      "message": "The name of these registers in Linux (and in i915) are quite confusing:\n\n- \"BXT\" is for Broxton, an Intel chip that was never released. It is hard to know which devices it refers to.\n- The CTL1 and CTL2 registers have different meaning on different generations of cards (sometimes the frequency and duty cycle are in CTL1 and sometimes in CTL2)\n\nThis is why I went with different names, which I think makes the code easier to read and understand. I can add the Linux/i915 name as a comment next to the register definition, would that be ok?",
+      "parentUuid": "df7ab746_be5f66f9",
+      "revId": "36cfb04453243c483a9f42440b9f96370c3354b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "84df2b8c_78e2618b",
         "filename": "src/add-ons/accelerants/intel_extreme/mode.cpp",
         "patchSetId": 1
@@ -48,6 +66,24 @@
       "writtenOn": "2022-03-29T05:01:00Z",
       "side": 1,
       "message": "I see the minimum brightness is supposedly described in the VBT section 43",
+      "revId": "36cfb04453243c483a9f42440b9f96370c3354b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3cb88284_574495ca",
+        "filename": "src/add-ons/accelerants/intel_extreme/mode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-03-29T13:40:58Z",
+      "side": 1,
+      "message": "Do you have a link to documentation or sourcecode?",
+      "parentUuid": "a3ad395f_aebb8fe6",
       "revId": "36cfb04453243c483a9f42440b9f96370c3354b4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
