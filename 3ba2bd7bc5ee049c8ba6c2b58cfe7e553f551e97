@@ -67,6 +67,24 @@
       "message": "It appears to date all the way back to the very first commit. It looks like the runtime_loader init used to be more complicated, maybe that has something to do with it?\n\nhttps://git.haiku-os.org/haiku/tree/src/kernel/apps/rld/arch/x86/rld.ld?id\u003d52a380120846174213ccce9c4aab0dda17c72083",
       "revId": "3ba2bd7bc5ee049c8ba6c2b58cfe7e553f551e97",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "509422fa_b5c84f18",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-03-29T20:48:11Z",
+      "side": 1,
+      "message": "__ctor_list is never used in runtime_loader code. Initalizers are ignored.",
+      "parentUuid": "80df2171_4165c4b5",
+      "revId": "3ba2bd7bc5ee049c8ba6c2b58cfe7e553f551e97",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
