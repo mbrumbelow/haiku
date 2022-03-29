@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fefa9f12_ea78166c",
+        "filename": "headers/os/drivers/usb/USB_hid_page_digitizers.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-03-29T05:44:40Z",
+      "side": 1,
+      "message": "Missing \"Character Gesture Data Length\" and \"Character Gesture Data\"",
+      "revId": "3b9de7c5bc5d68e1ca74b773e0de1682befe7c05",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "826c20c7_13eb0215",
+        "filename": "headers/os/drivers/usb/USB_hid_page_digitizers.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-03-29T05:44:40Z",
+      "side": 1,
+      "message": "Missing \"Transducer Serial Number Part 2\" and \"No Preferred Color\"",
+      "revId": "3b9de7c5bc5d68e1ca74b773e0de1682befe7c05",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
