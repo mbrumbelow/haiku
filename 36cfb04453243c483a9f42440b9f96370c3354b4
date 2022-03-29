@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e9000159_cb028f5c",
+        "filename": "headers/private/graphics/intel_extreme/intel_extreme.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1185,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-03-29T14:03:47Z",
+      "side": 1,
+      "message": "IMO the current naming with PCH is also confusing. We shouldn\u0027t invent names, either they come from the documentation or from a reference source.\n\nYes comments for them would be OK.",
+      "parentUuid": "81f25e59_471c9e56",
+      "revId": "36cfb04453243c483a9f42440b9f96370c3354b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "84df2b8c_78e2618b",
         "filename": "src/add-ons/accelerants/intel_extreme/mode.cpp",
         "patchSetId": 1
@@ -84,6 +102,24 @@
       "side": 1,
       "message": "Do you have a link to documentation or sourcecode?",
       "parentUuid": "a3ad395f_aebb8fe6",
+      "revId": "36cfb04453243c483a9f42440b9f96370c3354b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67f33400_4be67f7c",
+        "filename": "src/add-ons/accelerants/intel_extreme/mode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-03-29T14:03:47Z",
+      "side": 1,
+      "message": "sure: https://github.com/torvalds/linux/blob/b14ffae378aa1db993e62b01392e70d1e585fb23/drivers/gpu/drm/i915/display/intel_bios.c#L496",
+      "parentUuid": "3cb88284_574495ca",
       "revId": "36cfb04453243c483a9f42440b9f96370c3354b4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
