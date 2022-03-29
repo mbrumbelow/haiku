@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89efbece_470be547",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2022-03-29T14:05:24Z",
+      "side": 1,
+      "message": "Thanks for reviewing such a boring patch :)",
+      "revId": "94123b52be5d0f210a47f22164435357d1d0fbd5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
