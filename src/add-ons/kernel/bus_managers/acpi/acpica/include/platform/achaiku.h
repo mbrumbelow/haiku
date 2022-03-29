@@ -156,6 +156,7 @@
 #define ACPI_USE_SYSTEM_CLIBRARY
 
 #include <KernelExport.h>
+#include "arch_config.h"
 
 struct mutex;
 
@@ -190,8 +191,6 @@ struct mutex;
 
 /* ACPICA cache implementation is adequate. */
 #define ACPI_USE_LOCAL_CACHE
-
-#define ACPI_FLUSH_CPU_CACHE() __asm __volatile("wbinvd");
 
 /* Based on FreeBSD's due to lack of documentation */
 extern int AcpiOsAcquireGlobalLock(uint32 *lock);
