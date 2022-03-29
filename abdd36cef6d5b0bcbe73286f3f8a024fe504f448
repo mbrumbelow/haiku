@@ -122,6 +122,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd64b197_07c2f4e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-03-29T23:31:34Z",
+      "side": 1,
+      "message": "Yes, it will make it easier, but there will still be some caveats. It was totally impossible before.",
+      "parentUuid": "58abebc8_607d3011",
+      "revId": "abdd36cef6d5b0bcbe73286f3f8a024fe504f448",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "219bfd28_3c232e41",
