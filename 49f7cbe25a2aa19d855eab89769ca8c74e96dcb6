@@ -16,6 +16,23 @@
       "message": "So.  We provide the kernel linker scripts on most if not all architectures.\nWhy do we want to depend on the built-in gcc spec linker script for riscv64?\n\nI\u0027m a bit concerned about changes to the built-in spec between gcc versions leading to breakages of our kernel booting.\n\n\nThen again, the counter to this is how our arm port broke due to the arm ini/fini_array change.  Our linker script was using the older standard, and gcc in 8 started doing ini/fini_array instead of ctors/dtors.",
       "revId": "49f7cbe25a2aa19d855eab89769ca8c74e96dcb6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c0d7f7a_730fba81",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-03-29T23:03:22Z",
+      "side": 1,
+      "message": "Linker script concept itself is a hack. It makes build process fragile. If it can be avoided it is the best to do so. It is also possible to drop linker script for x86[_64] but it need more work.",
+      "revId": "49f7cbe25a2aa19d855eab89769ca8c74e96dcb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
