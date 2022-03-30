@@ -50,6 +50,42 @@
       "message": "this makes future changes difficult for no obvious reason.",
       "revId": "49f7cbe25a2aa19d855eab89769ca8c74e96dcb6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "423cb60d_6a81c4df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-03-30T19:34:15Z",
+      "side": 1,
+      "message": "What future changes do you mean? I think that letting linker do its job without altering by linker script is better suited to future changes of compiler and linker. Linker script is not really needed for kernel on any architecture. Linker script may be needed only for boot loaders that use RAW format. Kernel is proper ELF executable. Haiku has an advantage of using own boot loader to load kernel so it allow complex kernel loading operations and preparations (relocations etc.). It is already work fine on riscv64.\n\nx86[_64] need nore work for support code patching. Code patching table section can be created with the same method as crti.o/crtn.o.",
+      "parentUuid": "71e20ac5_d165a5c4",
+      "revId": "49f7cbe25a2aa19d855eab89769ca8c74e96dcb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a4f5984_0ee1a204",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-03-30T19:34:15Z",
+      "side": 1,
+      "message": "ctors vs init_array is defined during compiling, not linking. Linker is following information provided by compiler in object files. If linker script is not used, linker gracefully handle all combinations and potential future changes.",
+      "parentUuid": "46099d3d_ff85ab9b",
+      "revId": "49f7cbe25a2aa19d855eab89769ca8c74e96dcb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
