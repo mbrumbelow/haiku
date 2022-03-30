@@ -452,9 +452,10 @@ rule KernelArchitectureSetup architecture
 			HAIKU_KERNEL_PIC_LINKFLAGS = -shared -fPIE ;
 
 		case x86 :
-			HAIKU_KERNEL_PIC_CCFLAGS = -fno-pic ;
+			HAIKU_KERNEL_PIC_CCFLAGS = -fpic ;
 			HAIKU_KERNEL_CCFLAGS += -march=pentium ;
 			HAIKU_KERNEL_C++FLAGS += -march=pentium ;
+			HAIKU_KERNEL_PIC_LINKFLAGS = -shared ;
 
 		case x86_64 :
 			# Kernel lives in the top 2GB of the address space, use kernel code

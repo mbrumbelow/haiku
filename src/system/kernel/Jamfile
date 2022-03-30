@@ -102,12 +102,17 @@ KernelLd linkhack.so :
 
 local kernelLinkerScript ;
 
-if $(HAIKU_ARCH) in riscv64 {
+if $(HAIKU_ARCH) in riscv64 x86 x86_gcc2 x86_64 {
 } else {
 	kernelLinkerScript = $(HAIKU_TOP)/src/system/ldscripts/$(TARGET_ARCH)/kernel.ld ;
 }
 
+Object altcodepatch_begin.o : altcodepatch_begin.S ;
+Object altcodepatch_end.o : altcodepatch_end.S ;
+
 KernelLd kernel_$(TARGET_ARCH) :
+	altcodepatch_begin.o
+
 	kernel_cache.o
 	kernel_core.o
 	kernel_debug.o
@@ -131,6 +136,8 @@ KernelLd kernel_$(TARGET_ARCH) :
 	kernel_lib_posix.o
 	kernel_lib_posix_arch_$(TARGET_ARCH).o
 	kernel_misc.o
+
+	altcodepatch_end.o
 
 	: $(kernelLinkerScript)
 	: -Bdynamic -export-dynamic -dynamic-linker /foo/bar
