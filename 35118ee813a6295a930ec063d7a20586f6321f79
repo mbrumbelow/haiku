@@ -16,6 +16,24 @@
       "message": "if doing a clean up, might as well drop the app, add-on and library linker scripts. Or are they in use?",
       "revId": "35118ee813a6295a930ec063d7a20586f6321f79",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cda2214_d0454962",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-03-30T19:26:40Z",
+      "side": 1,
+      "message": "Done. https://review.haiku-os.org/c/haiku/+/5167",
+      "parentUuid": "705d7229_a80ef98c",
+      "revId": "35118ee813a6295a930ec063d7a20586f6321f79",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
