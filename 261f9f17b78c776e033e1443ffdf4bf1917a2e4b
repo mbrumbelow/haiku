@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35396546_e91560f5",
+        "filename": "src/system/kernel/util/Bitmap.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-03-30T07:48:29Z",
+      "side": 1,
+      "message": "IMO the current class should come first.",
+      "revId": "261f9f17b78c776e033e1443ffdf4bf1917a2e4b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60b576f5_b2e9947a",
+        "filename": "src/system/kernel/util/Bitmap.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-03-30T07:48:29Z",
+      "side": 1,
+      "message": "Unrelated to your changes: I wonder why this doesn\u0027t use 8 * sizeof(addr_t) - __builtin_clz(fBits[i])",
+      "revId": "261f9f17b78c776e033e1443ffdf4bf1917a2e4b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
