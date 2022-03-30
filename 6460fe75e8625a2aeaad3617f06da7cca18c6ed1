@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32bfb510_c494e028",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-03-30T19:27:42Z",
+      "side": 1,
+      "message": "My git grep didn\u0027t find any references in haiku repo, so seems good to me.",
+      "revId": "6460fe75e8625a2aeaad3617f06da7cca18c6ed1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
