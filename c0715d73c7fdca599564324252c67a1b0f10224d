@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56384d20_e2d4c6fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-03-30T22:46:59Z",
+      "side": 1,
+      "message": "WIP. x86_gcc2 boot fine in QEMU.",
+      "revId": "c0715d73c7fdca599564324252c67a1b0f10224d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
