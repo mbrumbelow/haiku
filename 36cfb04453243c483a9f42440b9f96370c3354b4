@@ -54,6 +54,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "22c24342_de397692",
+        "filename": "headers/private/graphics/intel_extreme/intel_extreme.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1185,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-03-30T19:00:06Z",
+      "side": 1,
+      "message": "The name in the documentation does not include any version (it\u0027s just BLC_PWM_CTL for example). So we can\u0027t use that to differenciate generations of cards and we need to add a prefix.\n\nAlso our driver works differently from Linux, we use constants (REGS_SOUTH_SHARED, etc) to designate the different register blocks (northbrige, southbridge, etc) and subparts of it.\n\nWe fill the register_blocks lookup table in intel_extreme_init with the base address for each block depending on the hardware generation.\n\nAs a result, we often have a single register name for a given register, where Linux has 2, 3, or 4 for the same register. So reusing Linux names as a general rule would be misleading.\n\nSo that\u0027s the two changes I made from Linux:\n- Use \"PCH south\" to make it clear that this register is located in the \"southbridge\" register block of the PCH (instead of northbridge in previous generations, at the same offset)\n- Rename the \"FREQ\" register to \"PERIOD\" because it doesn\u0027t contain a frequency, but a period.\n\nI\u0027m adding the Linux names as a comment for reference.",
+      "parentUuid": "e9000159_cb028f5c",
+      "revId": "36cfb04453243c483a9f42440b9f96370c3354b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "84df2b8c_78e2618b",
@@ -67,6 +85,24 @@
       "writtenOn": "2022-03-29T05:01:00Z",
       "side": 1,
       "message": "Looks like after Cannonlake: if (gInfo-\u003eshared_info-\u003epch_info \u003e\u003d INTEL_PCH_CNP) {\n\nBroxton and Gemini have more than one controller, it should be different.",
+      "revId": "36cfb04453243c483a9f42440b9f96370c3354b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14d047b6_3d61c5ea",
+        "filename": "src/add-ons/accelerants/intel_extreme/mode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-03-30T19:00:06Z",
+      "side": 1,
+      "message": "There was already more than one controller in Haswell (HSW_BLC_PWM2_CTL), and in Valley View (_VLV_BLC_PWM_CTL_A/_VLV_BLC_PWM_CTL_B).\n\nI don\u0027t know what the second one could be used for? Are there laptops with more than one display needing backlight control?",
+      "parentUuid": "84df2b8c_78e2618b",
       "revId": "36cfb04453243c483a9f42440b9f96370c3354b4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -120,6 +156,24 @@
       "side": 1,
       "message": "sure: https://github.com/torvalds/linux/blob/b14ffae378aa1db993e62b01392e70d1e585fb23/drivers/gpu/drm/i915/display/intel_bios.c#L496",
       "parentUuid": "3cb88284_574495ca",
+      "revId": "36cfb04453243c483a9f42440b9f96370c3354b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77f326be_135da1ce",
+        "filename": "src/add-ons/accelerants/intel_extreme/mode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-03-30T19:00:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67f33400_4be67f7c",
       "revId": "36cfb04453243c483a9f42440b9f96370c3354b4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
