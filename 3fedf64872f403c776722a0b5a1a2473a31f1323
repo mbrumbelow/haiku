@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45bc1b35_159f942f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-03-30T20:53:01Z",
+      "side": 1,
+      "message": "Shouldn\u0027t ULT/ULX be \"mobile\", too?",
+      "revId": "3fedf64872f403c776722a0b5a1a2473a31f1323",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
