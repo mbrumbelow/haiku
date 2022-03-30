@@ -175,6 +175,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a34a389e_92f15590",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-03-30T07:55:43Z",
+      "side": 1,
+      "message": "The Linux man page says: \"Memory locks are not inherited by a child created via fork(2) and are automatically removed (unlocked) during an execve(2) or when the process terminates.\" \nThe POSIX spec in the text reference exec(), but also links to fork()...\nI take, a test with fork would also run on Linux to check this.",
+      "parentUuid": "85c2e52b_5beac6ad",
+      "revId": "abdd36cef6d5b0bcbe73286f3f8a024fe504f448",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "219bfd28_3c232e41",
