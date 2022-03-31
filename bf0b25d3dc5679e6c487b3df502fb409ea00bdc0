@@ -16,6 +16,24 @@
       "message": "Reason of -2? Using object files at begin and end of linker file list is a common practice used for example in crti.o/crtn.o to collect init/fini function calls.",
       "revId": "bf0b25d3dc5679e6c487b3df502fb409ea00bdc0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aaa1aa8b_ade6275e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-03-31T11:27:20Z",
+      "side": 1,
+      "message": "It\u0027s a assembly hack to avoid using a linker script.",
+      "parentUuid": "cf1a3c3a_f228c403",
+      "revId": "bf0b25d3dc5679e6c487b3df502fb409ea00bdc0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
