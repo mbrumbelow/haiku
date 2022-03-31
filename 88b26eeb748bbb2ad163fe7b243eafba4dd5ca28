@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfb22408_7d2246bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2022-03-31T07:28:17Z",
+      "side": 1,
+      "message": "Works as advertised.\n\nOne thing one might want to add, is checking if the window is still on-screen. It can happen with cascading new windows with an offset, that when opening many windows when already near the bottom of the screen, they open outside of the screen. Or if the user changed resolution etc.\n\nYou can have a look at how StyledEdit does it. Though normally, one might think, you won\u0027t open that many FileTypes windows...",
+      "revId": "88b26eeb748bbb2ad163fe7b243eafba4dd5ca28",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
