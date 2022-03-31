@@ -86,6 +86,24 @@
       "parentUuid": "46099d3d_ff85ab9b",
       "revId": "49f7cbe25a2aa19d855eab89769ca8c74e96dcb6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87ef2ba2_5d429449",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-03-31T05:59:46Z",
+      "side": 1,
+      "message": "I don\u0027t see any advantages. Yeah it\u0027s easier to drop anything that could be difficult to understand for lld. But I don\u0027t understand why we should care the burden now and in the future.",
+      "parentUuid": "423cb60d_6a81c4df",
+      "revId": "49f7cbe25a2aa19d855eab89769ca8c74e96dcb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
