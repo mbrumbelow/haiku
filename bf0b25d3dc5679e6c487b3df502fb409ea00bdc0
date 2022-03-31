@@ -34,6 +34,24 @@
       "parentUuid": "cf1a3c3a_f228c403",
       "revId": "bf0b25d3dc5679e6c487b3df502fb409ea00bdc0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c09d613c_3d6eba6c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-03-31T12:03:17Z",
+      "side": 1,
+      "message": "It is already used when linking all executables without init/finiarray. It is documented behavior and not a hack. Unlike linker script it only solve task it intended to solve without redeclaring all sections.",
+      "parentUuid": "aaa1aa8b_ade6275e",
+      "revId": "bf0b25d3dc5679e6c487b3df502fb409ea00bdc0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
