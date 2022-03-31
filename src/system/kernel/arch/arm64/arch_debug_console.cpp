@@ -116,7 +116,6 @@ arch_debug_console_init(kernel_args *args)
 			args->arch_args.uart.clock);
 	}
 
-	// Oh well.
 	if (sArchDebugUART == NULL)
 		return B_ERROR;
 
