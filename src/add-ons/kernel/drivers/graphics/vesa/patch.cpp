@@ -380,6 +380,7 @@ vesa_set_custom_display_mode(vesa_info& info, display_mode& mode)
 			// The patch replaces the 1024x768 modes with our custom resolution. We can then use
 			// mode 0x118 which is the standard VBE2 mode for 1024x768 at 32 bits per pixel, and
 			// know it will use our new timings.
+			modeIndex = 0x118;
 			break;
 		case kNVidiaBiosType:
 			status = vbe_patch_nvidia_bios(state, mode);

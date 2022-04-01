@@ -639,7 +639,7 @@ AccelerantHWInterface::SetMode(const display_mode& mode)
 				return B_BAD_DATA;
 
 			// TODO: if the mode switch before fails as well, we must forbid
-			//	any uses of this class!
+			// any uses of this class!
 			status = B_OK;
 		}
 	}

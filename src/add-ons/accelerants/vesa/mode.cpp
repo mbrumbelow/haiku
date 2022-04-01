@@ -16,7 +16,7 @@
 #include "vesa_info.h"
 
 
-//#define TRACE_MODE
+#define TRACE_MODE
 #ifdef TRACE_MODE
 extern "C" void _sPrintf(const char* format, ...);
 #	define TRACE(x) _sPrintf x
@@ -214,7 +214,7 @@ vesa_propose_display_mode(display_mode* target, const display_mode* low,
 status_t
 vesa_set_display_mode(display_mode* _mode)
 {
-	TRACE(("vesa_set_display_mode()\n"));
+	TRACE(("vesa_set_display_mode(%dx%d)\n", _mode->timing.h_display, _mode->timing.v_display));
 
 	display_mode mode = *_mode;
 	if (vesa_propose_display_mode(&mode, &mode, &mode) != B_OK)
