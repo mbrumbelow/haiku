@@ -58,6 +58,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "589819b2_177c49b0",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_dtb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000359
+      },
+      "writtenOn": "2022-04-01T20:59:38Z",
+      "side": 1,
+      "message": "Agree, I think none of them, the whole file can be considered a stub",
+      "parentUuid": "a9153fa8_d03b11df",
+      "range": {
+        "startLine": 32,
+        "startChar": 2,
+        "endLine": 33,
+        "endChar": 39
+      },
+      "revId": "250d36ddb66c1fe45eb20938281e6d4a41b8760c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b0dd0cf0_a76efff6",
@@ -71,6 +95,30 @@
       "writtenOn": "2022-03-27T17:28:56Z",
       "side": 1,
       "message": "this entry is the mini-UART on rpi3\u00264 so probably valid for arm64",
+      "range": {
+        "startLine": 75,
+        "startChar": 4,
+        "endLine": 75,
+        "endChar": 25
+      },
+      "revId": "250d36ddb66c1fe45eb20938281e6d4a41b8760c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eac73ec3_382d2b6b",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000359
+      },
+      "writtenOn": "2022-04-01T20:59:38Z",
+      "side": 1,
+      "message": "Added although only tested the build",
+      "parentUuid": "b0dd0cf0_a76efff6",
       "range": {
         "startLine": 75,
         "startChar": 4,
