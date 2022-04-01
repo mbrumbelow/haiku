@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84b5aebc_c9e3cf59",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-04-01T16:34:49Z",
+      "side": 1,
+      "message": "modesetting is something we should get right quickly!",
+      "revId": "42dcf999ad08cd6f2baed7f71e79cc2235a10adb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
