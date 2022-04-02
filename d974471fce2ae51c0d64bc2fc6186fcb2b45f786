@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64448fcb_400fb833",
+        "filename": "src/add-ons/kernel/drivers/graphics/intel_extreme/intel_extreme.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-02T19:25:45Z",
+      "side": 1,
+      "message": "this function changed semantics, before we read the register and then changed a single bit and wrote it back. Now we\u0027re clearing all bits except the one we want to enable. So this could disable other interrputs, unless the register is designed to work this way?",
+      "revId": "d974471fce2ae51c0d64bc2fc6186fcb2b45f786",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
