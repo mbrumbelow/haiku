@@ -16,6 +16,24 @@
       "message": "that\u0027s probably a bit too short, maybe we should rather increase the time",
       "revId": "c3563b46eff3fe3a05edf3d7fd604f999e380c6b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e561d786_5cf0758e",
+        "filename": "src/add-ons/accelerants/intel_extreme/Ports.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 777,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-03T07:54:24Z",
+      "side": 1,
+      "message": "Sure, i915 uses 5000ms, but then no spin should be used.",
+      "parentUuid": "2dce55d5_ed622790",
+      "revId": "c3563b46eff3fe3a05edf3d7fd604f999e380c6b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
