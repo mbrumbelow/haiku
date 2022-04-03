@@ -51,7 +51,9 @@ pci_root_supports_device(device_node* parent)
 		if (strcmp(compatible, "pci-host-ecam-generic") == 0)
 			return 1.0f;
 	}
+#endif
 
+#if defined(__arm__) || defined(__aarch64__) || defined(__x86_64__)
 	if (strcmp(bus, "acpi") == 0) {
 		const char* hid;
 		if (gDeviceManager->get_attr_string(parent, ACPI_DEVICE_HID_ITEM, &hid, false) < B_OK)
@@ -60,7 +62,13 @@ pci_root_supports_device(device_node* parent)
 		if (strcmp(hid, "PNP0A03") == 0 || strcmp(hid, "PNP0A08") == 0)
 			return 1.0f;
 	}
-#else
+#endif
+
+#if !defined(__riscv) && !defined(__aarch64__) && !defined(__x86_64__)
+	// TODO if ACPI is disabled on x86-64, or if for some reason the PCI bus is not found in ACPI
+	// tables, we should still do this as a fallback (we will then use the legacy methods to find
+	// the PCI bus address)
+	// Would it be ok to publish multiple "root" devices for each way to detect a PCI bus?
 	if (strcmp(bus, "root") == 0)
 		return 1.0f;
 #endif
