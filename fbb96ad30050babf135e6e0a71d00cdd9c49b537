@@ -34,6 +34,23 @@
       "parentUuid": "33097323_78af19ed",
       "revId": "fbb96ad30050babf135e6e0a71d00cdd9c49b537",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e49aedb0_d38fae9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2022-04-03T18:55:20Z",
+      "side": 1,
+      "message": "\u003e setting the backlight level and reading it back seems to work, no change is visible on the display\n\nSame for my laptop. Intel IronLake with (broken) radeon discrete graphics. I can write to 0/LCD_ or 1/DD02 and read the same value in both of them, but no brightness change.",
+      "revId": "fbb96ad30050babf135e6e0a71d00cdd9c49b537",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
