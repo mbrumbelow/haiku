@@ -52,6 +52,57 @@
       "parentUuid": "875c4172_ad5cc22f",
       "revId": "f9e868fc8fde318d34d00831429d727f20f03042",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96f2a5a0_12995207",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-04T12:16:55Z",
+      "side": 1,
+      "message": "Hello Korli,\n\nIndeed it seems this code is not perfect for devices with multiple slots or non-zero bar index. Mainly there is an insufficient bounds check, and also I\u0027m not sure how the bar index from SDHCI is supposed to work.\n\nSorry for the delay in reviewing this.",
+      "revId": "f9e868fc8fde318d34d00831429d727f20f03042",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20403a50_0b478863",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 682,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-04T12:16:55Z",
+      "side": 1,
+      "message": "the incorrect bound check below (see my other comment) results in possible out of bounds access here",
+      "revId": "f9e868fc8fde318d34d00831429d727f20f03042",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51f69c73_182d9411",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 794,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-04T12:16:55Z",
+      "side": 1,
+      "message": "This should be adjusted: 64bit bars are invalid if bar \u003e 4 (not 5) and with 64bit bars, the max number of slots is 3 (if bar \u003d\u003d 0).\n\nThe max number of slots is lower if bar is \u003e 0 and this check should be adjusted accordingly.\n\n\nWe should check the exact meaning of \"bar\" in 64bit BAR case. Will it be 0, 1, 2 to access the 3 possible BAR pairs, or will it be 0, 2, 4 (the index of the first register of the pair)?\n\nThe code in this change assumes the former, but the latter would be simpler.",
+      "revId": "f9e868fc8fde318d34d00831429d727f20f03042",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
