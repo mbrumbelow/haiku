@@ -88,6 +88,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd73270e_4749fa6c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-04T16:42:15Z",
+      "side": 1,
+      "message": "32-bit and 64-bit BARs can be mixed.",
+      "parentUuid": "057d709f_d84477e5",
+      "revId": "f9e868fc8fde318d34d00831429d727f20f03042",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "20403a50_0b478863",
@@ -107,6 +125,41 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "09d0d342_b7ebf533",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 682,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-04T16:42:15Z",
+      "side": 1,
+      "message": "bar can\u0027t get out of bounds here.",
+      "parentUuid": "20403a50_0b478863",
+      "revId": "f9e868fc8fde318d34d00831429d727f20f03042",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a71e987_d261c712",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 690,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-04T16:42:15Z",
+      "side": 1,
+      "message": "here should be checked that bar is lower than 5.",
+      "revId": "f9e868fc8fde318d34d00831429d727f20f03042",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "51f69c73_182d9411",
         "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
         "patchSetId": 2
@@ -118,6 +171,24 @@
       "writtenOn": "2022-04-04T12:16:55Z",
       "side": 1,
       "message": "This should be adjusted: 64bit bars are invalid if bar \u003e 4 (not 5) and with 64bit bars, the max number of slots is 3 (if bar \u003d\u003d 0).\n\nThe max number of slots is lower if bar is \u003e 0 and this check should be adjusted accordingly.\n\n\nWe should check the exact meaning of \"bar\" in 64bit BAR case. Will it be 0, 1, 2 to access the 3 possible BAR pairs, or will it be 0, 2, 4 (the index of the first register of the pair)?\n\nThe code in this change assumes the former, but the latter would be simpler.",
+      "revId": "f9e868fc8fde318d34d00831429d727f20f03042",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d38ea2c_69028c53",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 794,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-04T16:42:15Z",
+      "side": 1,
+      "message": "Each bar can be 32-bit or 64-bit. bar 5 can be valid even if bar 0 is 64-bit.",
+      "parentUuid": "51f69c73_182d9411",
       "revId": "f9e868fc8fde318d34d00831429d727f20f03042",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
