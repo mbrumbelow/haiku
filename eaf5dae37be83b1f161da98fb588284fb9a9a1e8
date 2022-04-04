@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f1f49ea_db3479d0",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-04-04T19:29:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee4a0f62_964bd3e6",
+      "revId": "eaf5dae37be83b1f161da98fb588284fb9a9a1e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7edf6307_ec2052ea",
@@ -48,6 +66,24 @@
       "writtenOn": "2022-03-28T13:30:59Z",
       "side": 1,
       "message": "unrelated: this should be a #if 0 or #ifdef TRACE_FDT",
+      "revId": "eaf5dae37be83b1f161da98fb588284fb9a9a1e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3c51486_c1730dfb",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-04-04T19:29:33Z",
+      "side": 1,
+      "message": "valid comment - I\u0027d prefer to address that separately",
+      "parentUuid": "7edf6307_ec2052ea",
       "revId": "eaf5dae37be83b1f161da98fb588284fb9a9a1e8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
