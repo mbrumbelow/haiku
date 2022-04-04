@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7393dd9f_b9ebc36d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-04-04T18:45:10Z",
+      "side": 1,
+      "message": "tested on qemu-system-aarch64 with -cpu max, it works quite well in both EL1 and EL2 (i.e. \"-M virt\" and \"-M virt,virtualization\u003don\"\n\nnext perhaps i\u0027ll try it on the rpi3/rpi4",
+      "revId": "9aaa6b5fc0e57b9a36ad139d197576977cdfbc19",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
