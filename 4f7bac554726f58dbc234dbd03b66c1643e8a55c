@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9794cb88_2277badc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-04-04T13:29:11Z",
+      "side": 1,
+      "message": "This aligns the behavior of the riscv64 efi bootloader to the arm efi bootloader.\n\nObviously this isn\u0027t 100% required since it worked prior to this change... however it if this one is -2\u0027ed, it raises questions if arm needs to follow this process :-)",
+      "revId": "4f7bac554726f58dbc234dbd03b66c1643e8a55c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
