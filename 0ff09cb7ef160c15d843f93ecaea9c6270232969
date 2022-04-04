@@ -34,6 +34,23 @@
       "parentUuid": "9a89cfb2_77d01c40",
       "revId": "0ff09cb7ef160c15d843f93ecaea9c6270232969",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a73505e9_b725e6dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-04-04T20:36:51Z",
+      "side": 1,
+      "message": "If this is accepted, x86_64 should be changed too to be consistent.",
+      "revId": "0ff09cb7ef160c15d843f93ecaea9c6270232969",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
