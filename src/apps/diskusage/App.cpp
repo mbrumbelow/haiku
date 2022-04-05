@@ -91,6 +91,7 @@ App::ReadyToRun()
 
 	fMainWindow = new MainWindow(frame);
 	fMainWindow->Show();
+	fMainWindow->MoveOnScreen();
 
 	if (fSavedRefsReceived) {
 		// RefsReceived() was called earlier than ReadyToRun()
