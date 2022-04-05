@@ -34,6 +34,24 @@
       "parentUuid": "64448fcb_400fb833",
       "revId": "d974471fce2ae51c0d64bc2fc6186fcb2b45f786",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab25dd14_751aa0d1",
+        "filename": "src/add-ons/kernel/drivers/graphics/intel_extreme/intel_extreme.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-05T11:24:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9b95c8f_4afcb8bd",
+      "revId": "d974471fce2ae51c0d64bc2fc6186fcb2b45f786",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
