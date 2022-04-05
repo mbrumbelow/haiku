@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d79fb306_cd8b38a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-05T14:45:09Z",
+      "side": 1,
+      "message": "As I think about it, the DisplayPort ports probably need the same code, this would need to be refactored a bit.",
+      "revId": "b25dbdf96e9c40685d041ad0df2f8c4dbdbc9ab2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
