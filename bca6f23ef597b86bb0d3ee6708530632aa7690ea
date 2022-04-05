@@ -16,6 +16,23 @@
       "message": "memalign() should always be implemented with memalign_etc(). So that should not be an issue.",
       "revId": "bca6f23ef597b86bb0d3ee6708530632aa7690ea",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e255280_cbadf5d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-04-05T14:04:16Z",
+      "side": 1,
+      "message": "Rather than adding yet another function (which BTW I think is only partially correct as this code is disabled by default, the real heap is in a different file?) we should just use memalign_etc.",
+      "revId": "bca6f23ef597b86bb0d3ee6708530632aa7690ea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
