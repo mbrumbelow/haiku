@@ -33,6 +33,24 @@
       "message": "The old function signature takes a reference and can modify the addr_range, so why introduce a new prototype?",
       "revId": "41cab302af18af385009d251b2ca18d39dfabb1c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b99a5258_6507f24f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-04-06T19:56:05Z",
+      "side": 1,
+      "message": "basically I\u0027d like to call map_range_to_new_area() for two types for things:\n1. addr_range, e.g. the uart. in this case the address should be updated in place.\n2. efi memory descriptor, this is for mapping the runtime services. in this case the input is the physical address and the output should go to an other field VirtualAddress\n\nthe rounding up/down to page boundaries is common to these two cases as well as the call to insert_virtual_range_to_keep\n\nI did not see any good way of reuse (1)-\u003e(2) or (2)-\u003e(1) so I factored out the common parts to a third function.\n\nWhat could be a better way of achieving this functionality?",
+      "parentUuid": "0704c08c_89d97c6b",
+      "revId": "41cab302af18af385009d251b2ca18d39dfabb1c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
