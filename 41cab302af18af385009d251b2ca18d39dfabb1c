@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d704fcce_7ef88613",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-04-06T17:08:17Z",
+      "side": 1,
+      "message": "this is needed e.g. on the rpi3 where the mini-UART registers start from 0x3f215040.\n\nsimilarly on rpi4 at 0xfe215040",
+      "revId": "41cab302af18af385009d251b2ca18d39dfabb1c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
