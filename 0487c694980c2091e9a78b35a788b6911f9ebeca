@@ -51,6 +51,24 @@
       "message": "Well, this would also break booting on x86_64 when \"Disable ACPI\" is chosen in the loader, no? So we need a solution for that anyway.",
       "revId": "0487c694980c2091e9a78b35a788b6911f9ebeca",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "149c7e27_008af707",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-06T21:22:08Z",
+      "side": 1,
+      "message": "Yes. I didn\u0027t consider this fully ready yet but someone working on the arm port hit the same problem I started to solve here.\nSo I pushed this change and they can use it as a base. But we need to find a way to handle the non-ACPI, non-FDT case.",
+      "parentUuid": "be75a2d1_c0204f6c",
+      "revId": "0487c694980c2091e9a78b35a788b6911f9ebeca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
