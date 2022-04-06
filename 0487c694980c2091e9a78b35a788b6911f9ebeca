@@ -34,6 +34,23 @@
       "parentUuid": "47ba6e01_e8dfbd80",
       "revId": "0487c694980c2091e9a78b35a788b6911f9ebeca",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be75a2d1_c0204f6c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-04-06T16:49:07Z",
+      "side": 1,
+      "message": "Well, this would also break booting on x86_64 when \"Disable ACPI\" is chosen in the loader, no? So we need a solution for that anyway.",
+      "revId": "0487c694980c2091e9a78b35a788b6911f9ebeca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
