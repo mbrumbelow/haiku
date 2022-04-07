@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad61cf03_7b15657d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-07T19:01:15Z",
+      "side": 1,
+      "message": "I tested, with or without this patch, no brightness change on Kabylake (Gen9). Still work on Jasperlake (Gen11).",
+      "revId": "7d851b6cebc9582005d15d4d46d83e7497408700",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
