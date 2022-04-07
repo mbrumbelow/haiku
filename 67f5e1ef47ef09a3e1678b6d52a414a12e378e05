@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0094a295_8213a1ba",
+        "filename": "src/add-ons/accelerants/intel_extreme/mode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-07T17:45:20Z",
+      "side": 1,
+      "message": "isn\u0027t this place the same?",
+      "revId": "67f5e1ef47ef09a3e1678b6d52a414a12e378e05",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
