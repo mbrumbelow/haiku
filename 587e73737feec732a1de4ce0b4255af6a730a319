@@ -33,6 +33,23 @@
       "message": "ACPI has still a dependency on B_PCI_MODULE_NAME. How does it work?\nMaybe provide a syslog so it\u0027s more easy to see.",
       "revId": "587e73737feec732a1de4ce0b4255af6a730a319",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee52bc7b_0c75e38a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-04-08T15:58:10Z",
+      "side": 1,
+      "message": "Why not doing a \"lazy init\" of the PCI module in ACPI; i.e., only request it when ACPICA does? Presumably it asks for it only once everything has been parsed and it is \"safe\" to load the PCI bus manager?",
+      "revId": "587e73737feec732a1de4ce0b4255af6a730a319",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
