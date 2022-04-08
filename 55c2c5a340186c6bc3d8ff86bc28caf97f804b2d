@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb7dd0ff_0e4e7d07",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-04-08T19:27:45Z",
+      "side": 1,
+      "message": "this seems to be needed on at least rpi3\u0026rpi4\ne.g. for the mini-UART on rpi3:\nthe node /soc/serial@7e215040 contains address 0x7e215040 which if i understand it correctly, is the address of the mini-UART as it\u0027s seen from the VideoCore\u0027s point of view\nthe parent node /soc contains the remapping in the ranges property:\nranges \u003d \u003c0x7e000000 0x3f000000 0x1000000 0x40000000 0x40000000 0x1000\u003e;\n\nso basically 0x7e000000 should be remapped to 0x3f000000, this gives the address 0x3f215040 which is actually the address where the ARM core finds the mini-UART.\n\ni\u0027m not entirely sure if we have to check for compatible\u003dsimple-bus though? or is it enough to activate this logic if the parent node contains a ranges property.\n",
+      "revId": "55c2c5a340186c6bc3d8ff86bc28caf97f804b2d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
