@@ -16,6 +16,23 @@
       "message": "It should work for non-ancient x86 too.",
       "revId": "587e73737feec732a1de4ce0b4255af6a730a319",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8576f4b2_3359fd18",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-08T15:27:48Z",
+      "side": 1,
+      "message": "ACPI has still a dependency on B_PCI_MODULE_NAME. How does it work?\nMaybe provide a syslog so it\u0027s more easy to see.",
+      "revId": "587e73737feec732a1de4ce0b4255af6a730a319",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
