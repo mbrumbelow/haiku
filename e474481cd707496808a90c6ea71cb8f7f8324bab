@@ -16,6 +16,24 @@
       "message": "It seems that arm64 handles UART registers similarly to arm32. At least on rpi3 mini-UART.",
       "revId": "e474481cd707496808a90c6ea71cb8f7f8324bab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "853e6411_01c950b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000359
+      },
+      "writtenOn": "2022-04-08T19:44:13Z",
+      "side": 1,
+      "message": "Did not use those methods in my implementation as used an alternative way to access the registers. It has sense, looks like the UART peripheral implementation for this platforms are 32bits based peripherals.",
+      "parentUuid": "9b91be79_a5a459ad",
+      "revId": "e474481cd707496808a90c6ea71cb8f7f8324bab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
