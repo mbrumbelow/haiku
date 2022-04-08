@@ -33,6 +33,24 @@
       "message": "I tested, with or without this patch, no brightness change on Kabylake (Gen9). Still work on Jasperlake (Gen11).",
       "revId": "7d851b6cebc9582005d15d4d46d83e7497408700",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27936703_e4a0e1b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-08T08:53:21Z",
+      "side": 1,
+      "message": "See the FIXME at line 594, the registers for gen9 are probably incorrect (mix of \"north\" and \"south\" registers).\n\nIf you know which registers should be used this should be easy to fix. You can test various registers if needed using the ie_reg command in KDL to read and write them.",
+      "parentUuid": "ad61cf03_7b15657d",
+      "revId": "7d851b6cebc9582005d15d4d46d83e7497408700",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
