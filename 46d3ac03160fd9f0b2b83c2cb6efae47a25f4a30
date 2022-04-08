@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ed643ce_9b12aa3f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000381
+      },
+      "writtenOn": "2022-04-08T15:05:01Z",
+      "side": 1,
+      "message": "Changing the brightness works!\nCPU: i7-9750H\nMachine: System76 Oryx Pro (oryp5)",
+      "revId": "46d3ac03160fd9f0b2b83c2cb6efae47a25f4a30",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
