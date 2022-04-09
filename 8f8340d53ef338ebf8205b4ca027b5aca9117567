@@ -16,6 +16,24 @@
       "message": "This changes the behavior from removing the low bit (values for duty range from 0000 to fffe, only even values allowed) to removing the high bit (values for duty range from 0000 to 7fff).\n\nIs this confirmed with the Linux driver and/or with real hardware? If that\u0027s the case, shouldn\u0027t the period be on 15 bits as well, and which ones are valid there?",
       "revId": "8f8340d53ef338ebf8205b4ca027b5aca9117567",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "628eccb4_61789345",
+        "filename": "src/add-ons/accelerants/intel_extreme/mode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-09T09:32:27Z",
+      "side": 1,
+      "message": "Indeed it changes the behavior.\nLooking at https://elixir.bootlin.com/linux/v5.17.2/source/drivers/gpu/drm/i915/display/intel_backlight.c#L1322  it seems it\u0027s possible the period is only the 15 top bits before Gen4\n\nI\u0027ll preserve the bits and adjust the period.",
+      "parentUuid": "6c90d809_529ad944",
+      "revId": "8f8340d53ef338ebf8205b4ca027b5aca9117567",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
