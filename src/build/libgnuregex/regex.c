@@ -68,6 +68,8 @@
 #else
 char *malloc ();
 char *realloc ();
+void free (void *);
+void abort ();
 #endif
 
 
