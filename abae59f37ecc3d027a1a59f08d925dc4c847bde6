@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98c91b94_7588d49b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-04-09T13:43:43Z",
+      "side": 1,
+      "message": "\u003e Patch Set 6:\n\u003e \n\u003e I thought we might want syscalls for haiku-32, possibly for linux too. Doing this in userland might not be the best idea.\n\nHandling translation is userland is more flexible and safe. It also allow to run programs on incompatible architecture using software CPU emulation. I am working on UserlandVM (https://github.com/X547/UserlandVM) project that is intended to run Haiku applications compiled for any CPU using virtual machine or CPU compatiblity modes if needed. Running riscv64 applications on x86_64 host already works.",
+      "revId": "abae59f37ecc3d027a1a59f08d925dc4c847bde6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
