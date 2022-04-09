@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "324a6ec5_1feb16e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-09T08:59:26Z",
+      "side": 1,
+      "message": "I understand, but this hits different registers.",
+      "revId": "d21369caa43ecfa935e179740b4e4f597a480783",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8670580f_903b8c72",
@@ -31,6 +48,24 @@
       "writtenOn": "2022-04-09T08:20:05Z",
       "side": 1,
       "message": "this function is getting very repetitive, maybe we should refactor this code to have:\n\n    uint32 intel_get_backlight_period();\n    status_t intel_set_backlight_duty_cycle(period, cycle); // Can return an error code if duty \u003e 0xFFFF on some hardware, or do the upper bound and set max brightness in that case\n\nThen this function can be written in its more obvious way:\n\n    status_t\n    intel_set_brightness(float brightness)\n    {\n        CALLED();\n\n        if (brightness \u003c 0 || brightness \u003e 1)\n            return B_BAD_VALUE;\n\n        uint32 period \u003d intel_get_backlight_period();\n        uint32_t duty \u003d (uint32_t)(period * brightness);\n        duty \u003d std::max(duty, (uint32_t)gInfo-\u003eshared_info-\u003emin_brightness);\n        return intel_set_backlight_duty_cycle(period, duty);\n    }",
+      "revId": "d21369caa43ecfa935e179740b4e4f597a480783",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bb0f9e3_4e8d5d8e",
+        "filename": "src/add-ons/accelerants/intel_extreme/mode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 619,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-09T08:59:26Z",
+      "side": 1,
+      "message": "I understand, but adding another layer makes things not obvious (as if the register names weren\u0027t already difficult to grasp).",
+      "parentUuid": "f0404c07_44b9745e",
       "revId": "d21369caa43ecfa935e179740b4e4f597a480783",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
