@@ -16,6 +16,23 @@
       "message": "I was having issues with the mouse acceleration slider not actually doing anything on both QEMU and bare metal. Not sure if this is system-specific, but it does fix the issue on my end. The lack of mouse_name in the BMessage before meant the proper code paths didn\u0027t trigger to actually apply the change.",
       "revId": "4c320959328533157d34331c8db91f059dd63b82",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92920cab_e0dc4152",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-04-09T13:17:40Z",
+      "side": 1,
+      "message": "I guess we should remove the non-name functions and only keep them around for BeOS ABI compatibility (and make them just return errors?)",
+      "revId": "4c320959328533157d34331c8db91f059dd63b82",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
