@@ -16,6 +16,24 @@
       "message": "this seems to be needed on at least rpi3\u0026rpi4\ne.g. for the mini-UART on rpi3:\nthe node /soc/serial@7e215040 contains address 0x7e215040 which if i understand it correctly, is the address of the mini-UART as it\u0027s seen from the VideoCore\u0027s point of view\nthe parent node /soc contains the remapping in the ranges property:\nranges \u003d \u003c0x7e000000 0x3f000000 0x1000000 0x40000000 0x40000000 0x1000\u003e;\n\nso basically 0x7e000000 should be remapped to 0x3f000000, this gives the address 0x3f215040 which is actually the address where the ARM core finds the mini-UART.\n\ni\u0027m not entirely sure if we have to check for compatible\u003dsimple-bus though? or is it enough to activate this logic if the parent node contains a ranges property.\n",
       "revId": "55c2c5a340186c6bc3d8ff86bc28caf97f804b2d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4264113e_b102380b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-09T09:04:49Z",
+      "side": 1,
+      "message": "This works for simple-bus because the address space is really the same and you can access the register by just applying an offset to the address.\n\nI think in some cases FDT could describe addressing schemes where there is an indirection (the register isn\u0027t directly memory mapped).\n\nIn kernel side, the proper way to handle this would be to publish simple-bus device nodes and use them to forward the info to the child device (the simple-bus node would have a do_io method which would know how to apply the offsets). But for boot code, this is probably good enough.",
+      "parentUuid": "fb7dd0ff_0e4e7d07",
+      "revId": "55c2c5a340186c6bc3d8ff86bc28caf97f804b2d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
