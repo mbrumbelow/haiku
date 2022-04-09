@@ -50,6 +50,24 @@
       "message": "Why not doing a \"lazy init\" of the PCI module in ACPI; i.e., only request it when ACPICA does? Presumably it asks for it only once everything has been parsed and it is \"safe\" to load the PCI bus manager?",
       "revId": "587e73737feec732a1de4ce0b4255af6a730a319",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dced8769_cf3e3eb5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-09T08:53:10Z",
+      "side": 1,
+      "message": "The PCI module can be loaded before the ACPI one (there is no added dependency for now). The supports_device and device node publishing only happens later, when both modules are already loaded and published.\n\nAs pointed out in the forum, this is probably not enough, as a lot of things are done in pci_init (directly when the module is loaded) and not when the node is actually published.\n\nMy plan (for now) is to leave things as they are, and wait until the node is published to get the data from ACPI (it should be safe to call get_module/put_module then instead of having a dependency), and do the resource assignment for child devices at that time. I don\u0027t know if this will work, yet. For my case where just a few devices need to be assigned, it could be fine, but for ARM and RISC-V, I understand that the firmware initializes nothing at all, so it would be a problem there.",
+      "parentUuid": "8576f4b2_3359fd18",
+      "revId": "587e73737feec732a1de4ce0b4255af6a730a319",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
