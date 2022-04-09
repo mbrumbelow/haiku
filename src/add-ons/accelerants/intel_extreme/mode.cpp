@@ -633,14 +633,19 @@ intel_set_brightness(float brightness)
 	} else {
 		// On older devices there is a single register with both period and duty cycle
 		uint32_t period = read32(intel_get_backlight_register(true)) >> 16;
-
-		// The low bit must be masked out because
-		// it is apparently used for something else on some Atom machines (no
-		// reference to that in the documentation that I know of).
-		uint32_t duty = (uint32_t)(period * brightness) & 0xfffe;
+		uint32_t duty = (uint32_t)(period * brightness);
 		duty = std::max(duty, (uint32_t)gInfo->shared_info->min_brightness);
 
-		write32(intel_get_backlight_register(false), duty | (period << 16));
+		uint32_t mask = 0xffff;
+		if (gInfo->shared_info->device_type.Generation() < 4) {
+			// The low bit must be masked out because
+			// it is apparently used for something else on some Atom machines (no
+			// reference to that in the documentation that I know of).
+			mask = 0xfffe;
+			duty <<= 1;
+		}
+
+		write32(intel_get_backlight_register(false), (duty & mask) | (period << 16));
 	}
 
 	return B_OK;
@@ -664,6 +669,9 @@ intel_get_brightness(float* brightness)
 	} else {
 		period = read32(intel_get_backlight_register(true)) >> 16;
 		duty = read32(intel_get_backlight_register(false)) & 0xffff;
+
+		if (gInfo->shared_info->device_type.Generation() < 4)
+			duty >>= 1;
 	}
 	*brightness = (float)duty / period;
 
