@@ -16,6 +16,24 @@
       "message": "this seems to work quite well on the rpi3 (and I\u0027d expect similar on rpi4) - at least if I compile for armv8\n\nwe get some valid output from the uart:\n\n \nCalling ExitBootServices. So long, EFI!\nSwitched to legacy serial output\nWelcome to kernel debugger output!\nHaiku revision: hrev56009+5, debug level: 2\nPANIC: error allocating early page!\n \nWelcome to Kernel Debugging Land...\nRunning on CPU 0\nCurrent thread pointer is 0xffffffff801f7500, which is an address we can\u0027t read from.\n\n",
       "revId": "e92d75e189925fc0e1cb998b9bff9bd4af2d4beb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5c954bd_60607515",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000359
+      },
+      "writtenOn": "2022-04-10T10:13:04Z",
+      "side": 1,
+      "message": "Yep, now  we have a test confirming the code can be enabled, thanks!",
+      "parentUuid": "797c8025_a4a8f48c",
+      "revId": "e92d75e189925fc0e1cb998b9bff9bd4af2d4beb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
