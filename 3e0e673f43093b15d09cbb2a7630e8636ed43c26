@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aaad3db8_e142b8da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-04-11T18:31:36Z",
+      "side": 1,
+      "message": "do you mean src/system/kernel/cpu.cpp?",
+      "parentUuid": "cd846d23_a7c282e3",
+      "revId": "3e0e673f43093b15d09cbb2a7630e8636ed43c26",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "59ac281b_be6c601c",
@@ -48,6 +66,24 @@
       "writtenOn": "2022-04-11T18:21:46Z",
       "side": 1,
       "message": "ARM twice?",
+      "revId": "3e0e673f43093b15d09cbb2a7630e8636ed43c26",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8b85120_3c1d14ba",
+        "filename": "src/system/boot/platform/efi/arch/arm/cache.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-04-11T18:31:36Z",
+      "side": 1,
+      "message": "ARM ARM \u003d ARM Architecture Reference Manual",
+      "parentUuid": "59ac281b_be6c601c",
       "revId": "3e0e673f43093b15d09cbb2a7630e8636ed43c26",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
