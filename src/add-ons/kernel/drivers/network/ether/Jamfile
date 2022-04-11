@@ -36,3 +36,4 @@ HaikuSubInclude broadcom570x ;
 HaikuSubInclude intel22x ;
 HaikuSubInclude ipro1000 ;
 HaikuSubInclude rtl81xx ;
+HaikuSubInclude usb_rndis ;
