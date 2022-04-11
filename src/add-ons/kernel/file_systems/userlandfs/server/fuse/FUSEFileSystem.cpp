@@ -357,8 +357,10 @@ fNodeCapabilities.Dump();
 	fConnectionInfo.capable = 0;
 	fConnectionInfo.max_write = 64 * 1024;
 	fConnectionInfo.max_readahead = 64 * 1024;
+	fConnectionInfo.capable = FUSE_CAP_HAIKU_FUSE_EXTENSIONS;
 
-	fuse_fs_init(fFS, &fConnectionInfo, NULL);
+	struct fuse_config cfg = { 0 };
+	fuse_fs_init(fFS, &fConnectionInfo, &cfg);
 
 	return B_OK;
 }
