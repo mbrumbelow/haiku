@@ -35,20 +35,18 @@ userData);
 
 	int result = 1;
 
-	// create the kernel channel
-	struct fuse_chan* channel = fuse_mount("/dummy", &args);
-	if (channel != NULL) {
-		// create the FUSE handle
-		struct fuse* fuseHandle = fuse_new(channel, &args, op, opSize,
-			userData);
-		if (fuseHandle != NULL) {
+	// create the FUSE handle
+	struct fuse* fuseHandle = fuse_new(&args, op, opSize, userData);
+	if (fuseHandle != NULL) {
+		// create the kernel channel
+		int channel = fuse_mount(fuseHandle, "/dummy");
+		if (channel >= 0) {
 			// run the main loop
-			result = fuse_loop_mt(fuseHandle);
+			result = fuse_loop_mt(fuseHandle, NULL);
 
-			fuse_destroy(fuseHandle);
+			fuse_unmount(fuseHandle);
 		}
-
-		fuse_unmount("/dummy", channel);
+		fuse_destroy(fuseHandle);
 	}
 
 	fuse_opt_free_args(&args);
@@ -74,8 +72,8 @@ fuse_get_context(void)
 }
 
 
-struct fuse_chan*
-fuse_mount(const char* mountpoint, struct fuse_args* args)
+int
+fuse_mount(fuse* handle, const char* mountpoint)
 {
 	// make sure the stdin/out/err descriptors are open
 	while (true) {
@@ -83,7 +81,7 @@ fuse_mount(const char* mountpoint, struct fuse_args* args)
 		if (fd < 0) {
 			ERROR(("fuse_mount(): Failed to open /dev/null: %s\n",
 				strerror(errno)));
-			return NULL;
+			return -1;
 		}
 
 		if (fd > 2) {
@@ -92,22 +90,19 @@ fuse_mount(const char* mountpoint, struct fuse_args* args)
 		}
 	}
 
-	if (!fuse_parse_mount_config_args(args))
-		return NULL;
-
-	return (fuse_chan*)FUSEFileSystem::GetInstance();
+	return 0;
 }
 
 
 void
-fuse_unmount(const char* mountpoint, struct fuse_chan* ch)
+fuse_unmount(struct fuse* ch)
 {
 	// nothing to do
 }
 
 
 struct fuse*
-fuse_new(struct fuse_chan* ch, struct fuse_args* args,
+fuse_new(struct fuse_args* args,
 	const struct fuse_operations *op, size_t opSize, void *userData)
 {
 	// parse args
@@ -149,7 +144,7 @@ fuse_loop(struct fuse* f)
 
 
 int
-fuse_loop_mt(struct fuse* f)
+fuse_loop_mt(struct fuse* f, struct fuse_loop_config*)
 {
 	status_t error = FUSEFileSystem::GetInstance()->MainLoop(true);
 	return error == B_OK ? 0 : -1;

@@ -13,30 +13,20 @@
 
 
 int
-fuse_fs_getattr(struct fuse_fs* fs, const char* path, struct stat* buf)
+fuse_fs_getattr(struct fuse_fs* fs, const char* path, struct stat* buf, struct fuse_file_info* fi)
 {
 	if (fs->ops.getattr == NULL)
 		return ENOSYS;
-	return fs->ops.getattr(path, buf);
+	return fs->ops.getattr(path, buf, fi);
 }
 
 
 int
-fuse_fs_fgetattr(struct fuse_fs* fs, const char* path, struct stat* buf,
-	struct fuse_file_info* fi)
-{
-	if (fs->ops.fgetattr == NULL)
-		return ENOSYS;
-	return fs->ops.fgetattr(path, buf, fi);
-}
-
-
-int
-fuse_fs_rename(struct fuse_fs* fs, const char* oldpath, const char* newpath)
+fuse_fs_rename(struct fuse_fs* fs, const char* oldpath, const char* newpath, unsigned int flags)
 {
 	if (fs->ops.rename == NULL)
 		return ENOSYS;
-	return fs->ops.rename(oldpath, newpath);
+	return fs->ops.rename(oldpath, newpath, flags);
 }
 
 
@@ -154,11 +144,11 @@ fuse_fs_opendir(struct fuse_fs* fs, const char* path, struct fuse_file_info* fi)
 
 int
 fuse_fs_readdir(struct fuse_fs* fs, const char* path, void* buf,
-	fuse_fill_dir_t filler, off_t off, struct fuse_file_info* fi)
+	fuse_fill_dir_t filler, off_t off, struct fuse_file_info* fi, enum fuse_readdir_flags flags)
 {
 	if (fs->ops.readdir == NULL)
 		return ENOSYS;
-	return fs->ops.readdir(path, buf, filler, off, fi);
+	return fs->ops.readdir(path, buf, filler, off, fi, flags);
 }
 
 
@@ -203,56 +193,38 @@ fuse_fs_lock(struct fuse_fs* fs, const char* path, struct fuse_file_info* fi,
 
 
 int
-fuse_fs_chmod(struct fuse_fs* fs, const char* path, mode_t mode)
+fuse_fs_chmod(struct fuse_fs* fs, const char* path, mode_t mode, struct fuse_file_info* fi)
 {
 	if (fs->ops.chmod == NULL)
 		return ENOSYS;
-	return fs->ops.chmod(path, mode);
+	return fs->ops.chmod(path, mode, fi);
 }
 
 
 int
-fuse_fs_chown(struct fuse_fs* fs, const char* path, uid_t uid, gid_t gid)
+fuse_fs_chown(struct fuse_fs* fs, const char* path, uid_t uid, gid_t gid, struct fuse_file_info* fi)
 {
 	if (fs->ops.chown == NULL)
 		return ENOSYS;
-	return fs->ops.chown(path, uid, gid);
+	return fs->ops.chown(path, uid, gid, fi);
 }
 
 
 int
-fuse_fs_truncate(struct fuse_fs* fs, const char* path, off_t size)
+fuse_fs_truncate(struct fuse_fs* fs, const char* path, off_t size, struct fuse_file_info* fi)
 {
 	if (fs->ops.truncate == NULL)
 		return ENOSYS;
-	return fs->ops.truncate(path, size);
-}
-
-
-int
-fuse_fs_ftruncate(struct fuse_fs* fs, const char* path, off_t size,
-	struct fuse_file_info* fi)
-{
-	if (fs->ops.ftruncate == NULL)
-		return ENOSYS;
-	return fs->ops.ftruncate(path, size, fi);
+	return fs->ops.truncate(path, size, fi);
 }
 
 
 int
 fuse_fs_utimens(struct fuse_fs* fs, const char* path,
-	const struct timespec tv[2])
+	const struct timespec tv[2], struct fuse_file_info* fi)
 {
 	if (fs->ops.utimens != NULL)
-		return fs->ops.utimens(path, tv);
-
-	if (fs->ops.utime != NULL) {
-		utimbuf timeBuffer = {
-			tv[0].tv_sec,	// access time
-			tv[1].tv_sec	// modification time
-		};
-		return fs->ops.utime(path, &timeBuffer);
-	}
+		return fs->ops.utimens(path, tv, fi);
 
 	return ENOSYS;
 }
@@ -343,11 +315,11 @@ fuse_fs_bmap(struct fuse_fs* fs, const char* path, size_t blocksize,
 
 
 void
-fuse_fs_init(struct fuse_fs* fs, struct fuse_conn_info* conn)
+fuse_fs_init(struct fuse_fs* fs, struct fuse_conn_info* conn, struct fuse_config* cfg)
 {
 	if (fs->ops.init == NULL)
 		return;
-	fs->ops.init(conn);
+	fs->ops.init(conn, cfg);
 }
 
 
@@ -382,6 +354,7 @@ fuse_fs_new(const struct fuse_operations* ops, size_t opSize, void* userData)
 }
 
 
+#if 0
 int
 fuse_fs_get_fs_info(struct fuse_fs* fs, struct fs_info* info)
 {
@@ -389,3 +362,4 @@ fuse_fs_get_fs_info(struct fuse_fs* fs, struct fs_info* info)
 		return ENOSYS;
 	return fs->ops.get_fs_info(info);
 }
+#endif

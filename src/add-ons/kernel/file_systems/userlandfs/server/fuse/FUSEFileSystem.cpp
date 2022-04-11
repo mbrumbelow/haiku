@@ -354,11 +354,11 @@ fNodeCapabilities.Dump();
 	// init connection info
 	fConnectionInfo.proto_major = 0;
 	fConnectionInfo.proto_minor = 0;
-	fConnectionInfo.async_read = false;
+	fConnectionInfo.capable = 0;
 	fConnectionInfo.max_write = 64 * 1024;
 	fConnectionInfo.max_readahead = 64 * 1024;
 
-	fuse_fs_init(fFS, &fConnectionInfo);
+	fuse_fs_init(fFS, &fConnectionInfo, NULL);
 
 	return B_OK;
 }
@@ -436,8 +436,7 @@ FUSEFileSystem::_InitCapabilities()
 	fNodeCapabilities.Set(FS_VNODE_CAPABILITY_READ_STAT, fFS->ops.getattr);
 	fNodeCapabilities.Set(FS_VNODE_CAPABILITY_WRITE_STAT,
 		fFS->ops.chmod != NULL || fFS->ops.chown != NULL
-		|| fFS->ops.truncate != NULL || fFS->ops.utimens != NULL
-		|| fFS->ops.utime != NULL);
+		|| fFS->ops.truncate != NULL || fFS->ops.utimens != NULL);
 
 	// file operations
  	fNodeCapabilities.Set(FS_VNODE_CAPABILITY_CREATE, fFS->ops.create);
@@ -450,8 +449,7 @@ FUSEFileSystem::_InitCapabilities()
 	// directory operations
 	fNodeCapabilities.Set(FS_VNODE_CAPABILITY_CREATE_DIR, fFS->ops.mkdir);
 	fNodeCapabilities.Set(FS_VNODE_CAPABILITY_REMOVE_DIR, fFS->ops.rmdir);
-	bool readDirSupport = fFS->ops.opendir != NULL || fFS->ops.readdir != NULL
-		|| fFS->ops.getdir;
+	bool readDirSupport = fFS->ops.opendir != NULL || fFS->ops.readdir != NULL;
 	fNodeCapabilities.Set(FS_VNODE_CAPABILITY_OPEN_DIR, readDirSupport);
 	// not needed: FS_VNODE_CAPABILITY_CLOSE_DIR
 	fNodeCapabilities.Set(FS_VNODE_CAPABILITY_FREE_DIR_COOKIE, readDirSupport);

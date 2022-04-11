@@ -155,7 +155,6 @@ struct FUSEVolume::DirCookie : fuse_file_info, RWLockable {
 		getdirInterface(false)
 	{
 		flags = 0;
-		fh_old = 0;
 		writepage = 0;
 		direct_io = 0;
 		keep_cache = 0;
@@ -175,7 +174,6 @@ struct FUSEVolume::FileCookie : fuse_file_info, RWLockable {
 	FileCookie(int openMode)
 	{
 		flags = openMode;
-		fh_old = 0;
 		writepage = 0;
 		direct_io = 0;
 		keep_cache = 0;
@@ -764,7 +762,7 @@ printf("FUSEVolume::Mount()\n");
 
 	// get the root node
 	struct stat st;
-	int fuseError = fuse_fs_getattr(fFS, "/", &st);
+	int fuseError = fuse_fs_getattr(fFS, "/", &st, NULL);
 	if (fuseError != 0)
 		RETURN_ERROR(fuseError);
 
@@ -866,12 +864,14 @@ FUSEVolume::Sync()
 status_t
 FUSEVolume::ReadFSInfo(fs_info* info)
 {
+#if 0
 	if (gHasHaikuFuseExtensions == 1 && fFS->ops.get_fs_info != NULL) {
 		int fuseError = fuse_fs_get_fs_info(fFS, info);
 		if (fuseError != 0)
 			return fuseError;
 		return B_OK;
 	}
+#endif
 
 	// No Haiku FUSE extensions, so our knowledge is limited: use some values
 	// from statfs and make reasonable guesses for the rest of them.
@@ -1267,7 +1267,7 @@ FUSEVolume::Rename(void* _oldDir, const char* oldName, void* _newDir,
 	locker.Unlock();
 
 	// rename
-	int fuseError = fuse_fs_rename(fFS, oldPath, newPath);
+	int fuseError = fuse_fs_rename(fFS, oldPath, newPath, 0);
 	if (fuseError != 0)
 		RETURN_ERROR(fuseError);
 
@@ -1349,7 +1349,7 @@ FUSEVolume::ReadStat(void* _node, struct stat* st)
 	st->st_type = 0;
 
 	// stat the path
-	int fuseError = fuse_fs_getattr(fFS, path, st);
+	int fuseError = fuse_fs_getattr(fFS, path, st, NULL);
 	if (fuseError != 0)
 		return fuseError;
 
@@ -1382,7 +1382,7 @@ FUSEVolume::WriteStat(void* _node, const struct stat* st, uint32 mask)
 
 	// permissions
 	if ((mask & B_STAT_MODE) != 0) {
-		int fuseError = fuse_fs_chmod(fFS, path, st->st_mode);
+		int fuseError = fuse_fs_chmod(fFS, path, st->st_mode, NULL);
 		if (fuseError != 0)
 			RETURN_ERROR(fuseError);
 	}
@@ -1391,7 +1391,7 @@ FUSEVolume::WriteStat(void* _node, const struct stat* st, uint32 mask)
 	if ((mask & (B_STAT_UID | B_STAT_GID)) != 0) {
 		uid_t uid = (mask & B_STAT_UID) != 0 ? st->st_uid : (uid_t)-1;
 		gid_t gid = (mask & B_STAT_GID) != 0 ? st->st_gid : (gid_t)-1;
-		int fuseError = fuse_fs_chown(fFS, path, uid, gid);
+		int fuseError = fuse_fs_chown(fFS, path, uid, gid, NULL);
 		if (fuseError != 0)
 			RETURN_ERROR(fuseError);
 	}
@@ -1399,7 +1399,7 @@ FUSEVolume::WriteStat(void* _node, const struct stat* st, uint32 mask)
 	// size
 	if ((mask & B_STAT_SIZE) != 0) {
 		// truncate
-		int fuseError = fuse_fs_truncate(fFS, path, st->st_size);
+		int fuseError = fuse_fs_truncate(fFS, path, st->st_size, NULL);
 		if (fuseError != 0)
 			RETURN_ERROR(fuseError);
 	}
@@ -1416,7 +1416,7 @@ FUSEVolume::WriteStat(void* _node, const struct stat* st, uint32 mask)
 		if ((mask & (B_STAT_ACCESS_TIME | B_STAT_MODIFICATION_TIME))
 				!= (B_STAT_ACCESS_TIME | B_STAT_MODIFICATION_TIME)) {
 			struct stat currentStat;
-			int fuseError = fuse_fs_getattr(fFS, path, &currentStat);
+			int fuseError = fuse_fs_getattr(fFS, path, &currentStat, NULL);
 			if (fuseError != 0)
 				RETURN_ERROR(fuseError);
 
@@ -1426,7 +1426,7 @@ FUSEVolume::WriteStat(void* _node, const struct stat* st, uint32 mask)
 				tv[1].tv_sec = currentStat.st_mtime;
 		}
 
-		int fuseError = fuse_fs_utimens(fFS, path, tv);
+		int fuseError = fuse_fs_utimens(fFS, path, tv, NULL);
 		if (fuseError != 0)
 			RETURN_ERROR(fuseError);
 	}
@@ -1556,11 +1556,7 @@ FUSEVolume::Open(void* _node, int openMode, void** _cookie)
 
 	// truncate the file, if requested
 	if (truncate) {
-		fuseError = fuse_fs_ftruncate(fFS, path, 0, cookie);
-		if (fuseError == ENOSYS) {
-			// Fallback to truncate if ftruncate is not implemented
-			fuseError = fuse_fs_truncate(fFS, path, 0);
-		}
+		fuseError = fuse_fs_truncate(fFS, path, 0, cookie);
 		if (fuseError != 0) {
 			fuse_fs_flush(fFS, path, cookie);
 			fuse_fs_release(fFS, path, cookie);
@@ -1864,16 +1860,10 @@ FUSEVolume::OpenDir(void* _node, void** _cookie)
 
 	locker.Unlock();
 
-	if (fFS->ops.readdir == NULL && fFS->ops.getdir != NULL) {
-		// no open call -- the FS only supports the deprecated getdir()
-		// interface
-		cookie->getdirInterface = true;
-	} else {
-		// open the dir
-		int fuseError = fuse_fs_opendir(fFS, path, cookie);
-		if (fuseError != 0)
-			return fuseError;
-	}
+	// open the dir
+	int fuseError = fuse_fs_opendir(fFS, path, cookie);
+	if (fuseError != 0)
+		return fuseError;
 
 	cookieDeleter.Detach();
 	*_cookie = cookie;
@@ -1971,16 +1961,8 @@ FUSEVolume::ReadDir(void* _node, void* _cookie, void* buffer, size_t bufferSize,
 		locker.Unlock();
 
 		// read the dir
-		int fuseError;
-		if (cookie->getdirInterface) {
-PRINT(("  using getdir() interface\n"));
-			fuseError = fFS->ops.getdir(path, (fuse_dirh_t)&readDirBuffer,
-				&_AddReadDirEntryGetDir);
-		} else {
-PRINT(("  using readdir() interface\n"));
-			fuseError = fuse_fs_readdir(fFS, path, &readDirBuffer,
-				&_AddReadDirEntry, offset, cookie);
-		}
+		int fuseError = fuse_fs_readdir(fFS, path, &readDirBuffer, &_AddReadDirEntry, offset,
+			cookie, FUSE_READDIR_PLUS);
 		if (fuseError != 0)
 			return fuseError;
 
@@ -2406,7 +2388,7 @@ FUSEVolume::_InternalGetNode(FUSENode* dir, const char* entryName,
 
 	// stat the path
 	struct stat st;
-	int fuseError = fuse_fs_getattr(fFS, path, &st);
+	int fuseError = fuse_fs_getattr(fFS, path, &st, NULL);
 	if (fuseError != 0)
 		return fuseError;
 
@@ -2955,23 +2937,13 @@ FUSEVolume::_BuildPath(FUSENode* node, char* path, size_t& pathLen)
 
 /*static*/ int
 FUSEVolume::_AddReadDirEntry(void* _buffer, const char* name,
-	const struct stat* st, off_t offset)
+	const struct stat* st, off_t offset, enum fuse_fill_dir_flags)
 {
 	ReadDirBuffer* buffer = (ReadDirBuffer*)_buffer;
 
 	ino_t nodeID = st != NULL ? st->st_ino : 0;
 	int type = st != NULL ? st->st_mode & S_IFMT : 0;
 	return buffer->volume->_AddReadDirEntry(buffer, name, type, nodeID, offset);
-}
-
-
-/*static*/ int
-FUSEVolume::_AddReadDirEntryGetDir(fuse_dirh_t handle, const char* name,
-	int type, ino_t nodeID)
-{
-	ReadDirBuffer* buffer = (ReadDirBuffer*)handle;
-	return buffer->volume->_AddReadDirEntry(buffer, name, type << 12, nodeID,
-		0);
 }
 
 
@@ -3039,7 +3011,7 @@ FUSEVolume::_AddReadDirEntry(ReadDirBuffer* buffer, const char* name, int type,
 
 				// stat the path
 				struct stat st;
-				int fuseError = fuse_fs_getattr(fFS, path, &st);
+				int fuseError = fuse_fs_getattr(fFS, path, &st, NULL);
 
 				locker.Lock();
 
