@@ -6,8 +6,8 @@
   See the file COPYING.LIB.
 */
 
-#ifndef _FUSE_OPT_H_
-#define _FUSE_OPT_H_
+#ifndef FUSE_OPT_H_
+#define FUSE_OPT_H_
 
 /** @file
  *
@@ -21,7 +21,7 @@ extern "C" {
 /**
  * Option description
  *
- * This structure describes a single option, and and action associated
+ * This structure describes a single option, and action associated
  * with it, in case it matches.
  *
  * More than one such match may occur, in which case the action for
@@ -70,8 +70,9 @@ extern "C" {
  *
  * 6) "-x %s", etc.  Combination of 4) and 5)
  *
- * If the format is "%s", memory is allocated for the string unlike
- * with scanf().
+ * If the format is "%s", memory is allocated for the string unlike with
+ * scanf().  The previous value (if non-NULL) stored at the this location is
+ * freed.
  */
 struct fuse_opt {
 	/** Matching template and optional parameter formatting */
@@ -100,7 +101,7 @@ struct fuse_opt {
  * Last option.	 An array of 'struct fuse_opt' must end with a NULL
  * template value
  */
-#define FUSE_OPT_END { .templ = NULL }
+#define FUSE_OPT_END { NULL, 0, 0 }
 
 /**
  * Argument list
@@ -130,7 +131,7 @@ struct fuse_args {
 /**
  * Key value passed to the processing function for all non-options
  *
- * Non-options are the arguments beginning with a charater other than
+ * Non-options are the arguments beginning with a character other than
  * '-' or all arguments after the special '--' option
  */
 #define FUSE_OPT_KEY_NONOPT  -2
@@ -161,7 +162,7 @@ struct fuse_args {
  *
  * The 'arg' parameter will always contain the whole argument or
  * option including the parameter if exists.  A two-argument option
- * ("-x foo") is always converted to single arguemnt option of the
+ * ("-x foo") is always converted to single argument option of the
  * form "-xfoo" before this function is called.
  *
  * Options of the form '-ofoo' are passed to this function without the
@@ -212,6 +213,15 @@ int fuse_opt_parse(struct fuse_args *args, void *data,
 int fuse_opt_add_opt(char **opts, const char *opt);
 
 /**
+ * Add an option, escaping commas, to a comma separated option list
+ *
+ * @param opts is a pointer to an option list, may point to a NULL value
+ * @param opt is the option to add
+ * @return -1 on allocation error, 0 on success
+ */
+int fuse_opt_add_opt_escaped(char **opts, const char *opt);
+
+/**
  * Add an argument to a NULL terminated argument vector
  *
  * @param args is the structure containing the current argument list
@@ -225,7 +235,7 @@ int fuse_opt_add_arg(struct fuse_args *args, const char *arg);
  * argument vector
  *
  * Adds the argument to the N-th position.  This is useful for adding
- * options at the beggining of the array which must not come after the
+ * options at the beginning of the array which must not come after the
  * special '--' option.
  *
  * @param args is the structure containing the current argument list
@@ -258,4 +268,4 @@ int fuse_opt_match(const struct fuse_opt opts[], const char *opt);
 }
 #endif
 
-#endif /* _FUSE_OPT_H_ */
+#endif /* FUSE_OPT_H_ */
