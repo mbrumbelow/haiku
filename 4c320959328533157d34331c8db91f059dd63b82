@@ -33,6 +33,24 @@
       "message": "I guess we should remove the non-name functions and only keep them around for BeOS ABI compatibility (and make them just return errors?)",
       "revId": "4c320959328533157d34331c8db91f059dd63b82",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0870b9ff_59ae06d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-11T17:15:43Z",
+      "side": 1,
+      "message": "We went through some effort with Preetpal during her GSoC work to keep them working. We could remove them from the public header, but I don\u0027t see why we should make them return errors.",
+      "parentUuid": "92920cab_e0dc4152",
+      "revId": "4c320959328533157d34331c8db91f059dd63b82",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
