@@ -195,9 +195,7 @@ private:
 									size_t& pathLen);
 
 	static	int					_AddReadDirEntry(void* buffer, const char* name,
-									const struct stat* st, off_t offset);
-	static	int					_AddReadDirEntryGetDir(fuse_dirh_t handle,
-									const char* name, int type, ino_t nodeID);
+									const struct stat* st, off_t offset, enum fuse_fill_dir_flags);
 			int					_AddReadDirEntry(ReadDirBuffer* buffer,
 									const char* name, int type, ino_t nodeID,
 									off_t offset);
