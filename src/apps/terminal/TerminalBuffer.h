@@ -75,7 +75,7 @@ private:
 			TerminalLine**		fAlternateScreen;
 			HistoryBuffer*		fAlternateHistory;
 			int32				fAlternateScreenOffset;
-			uint32				fAlternateAttributes;
+			Attribute			fAlternateAttributes;
 			rgb_color*			fColorsPalette;
 
 			// listener/dirty region management

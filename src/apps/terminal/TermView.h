@@ -23,6 +23,7 @@
 #include <String.h>
 #include <View.h>
 
+#include "TerminalLine.h"
 #include "TermPos.h"
 #include "TermViewHighlight.h"
 
@@ -202,7 +203,7 @@ private:
 			void				_Activate();
 			void				_Deactivate();
 
-			void				_DrawLinePart(float x1, float y1, uint32 attr,
+			void				_DrawLinePart(float x1, float y1, Attribute attr,
 									char* buffer, int32 width,
 									Highlight* highlight, bool cursor,
 									BView* inView);

@@ -781,12 +781,12 @@ TermParse::EscParse()
 				case CASE_SGR:
 				{
 					/* SGR */
-					uint32 attributes = fBuffer->GetAttributes();
+					Attribute attributes = fBuffer->GetAttributes();
 					for (row = 0; row < nparam; ++row) {
 						switch (param[row]) {
 							case DEFAULT:
 							case 0: /* Reset attribute */
-								attributes = 0;
+								attributes.Reset();
 								break;
 
 							case 1: /* Bold     */
@@ -834,6 +834,7 @@ TermParse::EscParse()
 								attributes &= ~FORECOLOR;
 								attributes |= FORECOLORED(param[row] - 30);
 								attributes |= FORESET;
+								attributes.foreground = 0;
 								break;
 
 							case 38:
@@ -841,14 +842,17 @@ TermParse::EscParse()
 								int color = -1;
 								if (nparam == 3 && param[1] == 5)
 									color = param[2];
-								else if (nparam == 5 && param[1] == 2)
+								else if (nparam == 5 && param[1] == 2) {
 									color = fBuffer->GuessPaletteColor(
 										param[2], param[3], param[4]);
+									attributes.SetForeground(param[2], param[3], param[4]);
+								}
 
-								if (color >= 0) {
+								if (color >= 0 || attributes.HasForeground()) {
 									attributes &= ~FORECOLOR;
-									attributes |= FORECOLORED(color);
 									attributes |= FORESET;
+									if (attributes.HasForeground() == false)
+										attributes |= FORECOLORED(color);
 								}
 
 								row = nparam; // force exit of the parsing
@@ -857,6 +861,7 @@ TermParse::EscParse()
 
 							case 39:
 								attributes &= ~FORESET;
+								attributes.foreground = 0;
 								break;
 
 							case 100:
@@ -879,6 +884,7 @@ TermParse::EscParse()
 								attributes &= ~BACKCOLOR;
 								attributes |= BACKCOLORED(param[row] - 40);
 								attributes |= BACKSET;
+								attributes.background = 0;
 								break;
 
 							case 48:
@@ -886,14 +892,17 @@ TermParse::EscParse()
 								int color = -1;
 								if (nparam == 3 && param[1] == 5)
 									color = param[2];
-								else if (nparam == 5 && param[1] == 2)
+								else if (nparam == 5 && param[1] == 2) {
 									color = fBuffer->GuessPaletteColor(
 										param[2], param[3], param[4]);
+									attributes.SetBackground(param[2], param[3], param[4]);
+								}
 
-								if (color >= 0) {
+								if (color >= 0 || attributes.HasBackground()) {
 									attributes &= ~BACKCOLOR;
-									attributes |= BACKCOLORED(color);
 									attributes |= BACKSET;
+									if (attributes.HasBackground() == false)
+										attributes |= BACKCOLORED(color);
 								}
 
 								row = nparam; // force exit of the parsing
@@ -902,6 +911,7 @@ TermParse::EscParse()
 
 							case 49:
 								attributes &= ~BACKSET;
+								attributes.background = 0;
 								break;
 						}
 					}
@@ -996,8 +1006,11 @@ TermParse::EscParse()
 
 				case CASE_DECALN:
 					/* DECALN */
-					fBuffer->FillScreen(UTF8Char('E'), 0);
-					parsestate = groundtable;
+					{
+						Attribute attr;
+						fBuffer->FillScreen(UTF8Char('E'), attr);
+						parsestate = groundtable;
+					}
 					break;
 
 					//	case CASE_GSETS:

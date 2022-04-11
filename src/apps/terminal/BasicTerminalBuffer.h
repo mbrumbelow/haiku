@@ -91,12 +91,12 @@ public:
 			bool				IsFullWidthChar(int32 row, int32 column) const;
 			int					GetChar(int32 row, int32 column,
 									UTF8Char& character,
-									uint32& attributes) const;
+									Attribute& attributes) const;
 			void				GetCellAttributes(int32 row, int32 column,
-									uint32& attributes, uint32& count) const;
+									Attribute& attributes, uint32& count) const;
 			int32				GetString(int32 row, int32 firstColumn,
 									int32 lastColumn, char* buffer,
-									uint32& attributes) const;
+									Attribute& attributes) const;
 			void				GetStringFromRegion(BString& string,
 									const TermPos& start,
 									const TermPos& end) const;
@@ -105,7 +105,7 @@ public:
 									bool findNonWords, TermPos& start,
 									TermPos& end) const;
 			int32				LineLength(int32 index) const;
-			int32				GetLineColor(int32 index) const;
+			void				GetLineColor(int32 index, Attribute& attr) const;
 
 			bool				PreviousLinePos(TermPos& pos) const;
 			bool				NextLinePos(TermPos& pos, bool normalize) const;
@@ -120,8 +120,8 @@ public:
 									bool matchWord, TermPos& matchStart,
 									TermPos& matchEnd) const;
 
-	inline	uint32				GetAttributes();
-	inline	void				SetAttributes(uint32 attributes);
+	inline	Attribute			GetAttributes();
+	inline	void				SetAttributes(const Attribute& attributes);
 
 			// snapshots and data capture for debugging
 			void				MakeLinesSnapshots(time_t timeStamp,
@@ -131,7 +131,7 @@ public:
 
 			// insert chars/lines
 			void				InsertChar(UTF8Char c);
-			void				FillScreen(UTF8Char c, uint32 attr);
+			void				FillScreen(UTF8Char c, Attribute &attr);
 
 			void				InsertCR();
 			void				InsertLF();
@@ -235,7 +235,7 @@ protected:
 			int32				fScreenOffset;	// index of screen line 0
 			HistoryBuffer*		fHistory;
 
-			uint32				fAttributes;
+			Attribute			fAttributes;
 
 			// cursor position (origin: (0, 0))
 			TermPos				fCursor;
@@ -272,7 +272,7 @@ BasicTerminalBuffer::HistoryCapacity() const
 }
 
 
-uint32
+Attribute
 BasicTerminalBuffer::GetAttributes()
 {
 	return fAttributes;
@@ -280,7 +280,7 @@ BasicTerminalBuffer::GetAttributes()
 
 
 void
-BasicTerminalBuffer::SetAttributes(uint32 attributes)
+BasicTerminalBuffer::SetAttributes(const Attribute& attributes)
 {
 	fAttributes = attributes;
 }

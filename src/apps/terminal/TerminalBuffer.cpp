@@ -30,7 +30,7 @@ TerminalBuffer::TerminalBuffer()
 	fAlternateScreen(NULL),
 	fAlternateHistory(NULL),
 	fAlternateScreenOffset(0),
-	fAlternateAttributes(0),
+	fAlternateAttributes(),
 	fColorsPalette(NULL),
 	fListenerValid(false)
 {
