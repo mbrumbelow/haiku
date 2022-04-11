@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f37f551_114f32e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-11T17:18:21Z",
+      "side": 1,
+      "message": "Does the coreutils implementation of dd also accept lowercase?\n\nI guess the easiest thing to do to ensure maximal portability is to use bs\u003d1024. Then it will work everywhere for sure.",
+      "revId": "297050bdd309a08e6504410bef15d673a7a63aeb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
