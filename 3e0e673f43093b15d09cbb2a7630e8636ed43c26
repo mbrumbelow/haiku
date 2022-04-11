@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfc036c3_c4682af9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-04-11T21:09:23Z",
+      "side": 1,
+      "message": "And src/system/libroot/os/image.cpp if it is possible to implement without syscall.",
+      "parentUuid": "aaad3db8_e142b8da",
+      "revId": "3e0e673f43093b15d09cbb2a7630e8636ed43c26",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "59ac281b_be6c601c",
