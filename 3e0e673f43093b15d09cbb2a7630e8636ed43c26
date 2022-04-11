@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bf0be5b_670bc009",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-04-11T17:03:07Z",
+      "side": 1,
+      "message": "this is needed to get a successful hyp\u003esvc transition on rpi3 with newer u-boot",
+      "revId": "3e0e673f43093b15d09cbb2a7630e8636ed43c26",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
