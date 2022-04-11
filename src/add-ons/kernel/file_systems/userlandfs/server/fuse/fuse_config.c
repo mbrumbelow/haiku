@@ -133,14 +133,6 @@ fuse_parse_lib_config_args(struct fuse_args* args, struct fuse_config* config)
 }
 
 
-int
-fuse_is_lib_option(const char* opt)
-{
-	return /*fuse_lowlevel_is_lib_option(opt) ||*/
-		fuse_opt_match(fuse_lib_opts, opt);
-}
-
-
 #if 0
 struct mount_flags {
 	const char *opt;

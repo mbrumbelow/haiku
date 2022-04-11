@@ -36,6 +36,7 @@ local fuseHeaders =
 	fuse_common.h
 	fuse_compat.h
 	fuse.h
+	fuse_log.h
 	fuse_lowlevel_compat.h
 	fuse_lowlevel.h
 	fuse_opt.h
