@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c1ac8a3_259770a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-11T10:59:56Z",
+      "side": 1,
+      "message": "Looks good. I wouldn\u0027t mind having getter/setter/resetters for back and foreground colors. it would make the flag management a bit more logical.",
+      "revId": "560f05ea450a479b2e5a285c6d5e35475108f6dc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ead1fba_a01e72e0",
+        "filename": "src/apps/terminal/TerminalLine.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-11T10:59:56Z",
+      "side": 1,
+      "message": "why not plural?",
+      "revId": "560f05ea450a479b2e5a285c6d5e35475108f6dc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
