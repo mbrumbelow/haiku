@@ -462,6 +462,10 @@ Desktop::Desktop(uid_t userID, const char* targetScreen)
 		= gDecorManager.GetDesktopListeners();
 	for (int i = 0; i < newListeners.CountItems(); i++)
  		RegisterListener(newListeners.ItemAt(i));
+
+	// TODO: put this somewhere better, just needs to
+	// run after desktop settings are loaded
+	GetCursorManager().InitVectorCursors();
 }
 
 

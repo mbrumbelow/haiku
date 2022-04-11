@@ -27,7 +27,9 @@
 #include "FontCacheEntry.h"
 #include "FontManager.h"
 #include "GlobalSubpixelSettings.h"
+#include "CursorData.h"
 #include "ServerConfig.h"
+#include "CursorManager.h"
 
 
 DesktopSettingsPrivate::DesktopSettingsPrivate(server_read_only_memory* shared)
@@ -81,6 +83,9 @@ DesktopSettingsPrivate::_SetDefaults()
 
 	memcpy((void*)fShared.colors, BPrivate::kDefaultColors,
 		sizeof(rgb_color) * kColorWhichCount);
+
+	gCursorSize = 32;
+	gCursorShadow = 3;
 
 	gSubpixelAntialiasing = true;
 	gDefaultHintingMode = HINTING_MODE_ON;
@@ -299,6 +304,16 @@ DesktopSettingsPrivate::_Load()
 				fControlLook = controlLook;
 			}
 
+			uint32 cursorSize;
+			if (settings.FindUInt32("cursor size", &cursorSize) == B_OK) {
+				gCursorSize = cursorSize;
+			}
+
+			uint32 cursorShadow;
+			if (settings.FindUInt32("cursor shadow", &cursorShadow) == B_OK) {
+				gCursorShadow = cursorShadow;
+			}
+
 			// colors
 			for (int32 i = 0; i < kColorWhichCount; i++) {
 				char colorName[12];
@@ -450,6 +465,9 @@ DesktopSettingsPrivate::Save(uint32 mask)
 
 			settings.AddString("control look", fControlLook);
 
+			settings.AddUInt32("cursor size", gCursorSize);
+			settings.AddUInt32("cursor shadow", gCursorShadow);
+
 			for (int32 i = 0; i < kColorWhichCount; i++) {
 				char colorName[12];
 				snprintf(colorName, sizeof(colorName), "color%" B_PRId32,
@@ -589,6 +607,36 @@ bool
 DesktopSettingsPrivate::AcceptFirstClick() const
 {
 	return fAcceptFirstClick;
+}
+
+
+uint32
+DesktopSettingsPrivate::GetCursorScale() const
+{
+	return gCursorSize;
+}
+
+
+void
+DesktopSettingsPrivate::SetCursorScale(uint32 size)
+{
+	gCursorSize = size;
+	Save(kAppearanceSettings);
+}
+
+
+uint32
+DesktopSettingsPrivate::GetCursorShadow() const
+{
+	return gCursorShadow;
+}
+
+
+void
+DesktopSettingsPrivate::SetCursorShadow(uint32 strength)
+{
+	gCursorShadow = strength;
+	Save(kAppearanceSettings);
 }
 
 
@@ -892,6 +940,20 @@ DesktopSettings::AcceptFirstClick() const
 }
 
 
+uint32
+DesktopSettings::GetCursorScale() const
+{
+	return fSettings->GetCursorScale();
+}
+
+
+uint32
+DesktopSettings::GetCursorShadow() const
+{
+	return fSettings->GetCursorShadow();
+}
+
+
 bool
 DesktopSettings::ShowAllDraggers() const
 {
@@ -1046,6 +1108,20 @@ void
 LockedDesktopSettings::SetAcceptFirstClick(const bool acceptFirstClick)
 {
 	fSettings->SetAcceptFirstClick(acceptFirstClick);
+}
+
+
+void // TODO: reorganize (not related to kMouseSettings)
+LockedDesktopSettings::SetCursorScale(uint32 size)
+{
+	fSettings->SetCursorScale(size);
+}
+
+
+void // TODO: reorganize (not related to kMouseSettings)
+LockedDesktopSettings::SetCursorShadow(uint32 strength)
+{
+	fSettings->SetCursorShadow(strength);
 }
 
 

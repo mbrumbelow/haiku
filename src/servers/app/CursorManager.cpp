@@ -20,77 +20,102 @@
 #include <Autolock.h>
 #include <Directory.h>
 #include <String.h>
+#include <IconUtils.h>
 
 #include <new>
 #include <stdio.h>
 
+#define IIR_GAUSS_BLUR_IMPLEMENTATION
+#include "iir_gauss_blur.h"
+
+// TODO: find a better way to handle this
+// this should actually never happen
+static
+BBitmap
+CreateFallbackCursor()
+{
+	BBitmap fallback(BRect(0, 0, 21, 21), B_BITMAP_NO_SERVER_LINK, B_RGBA32);
+	fallback.SetBits(kCursorSystemDefaultBits, 22 * 22 * 4, 0, B_RGBA32);
+	return fallback;
+}
+
+BBitmap
+CursorManager::CreateCursorBitmap(uint32 size, const uint8* vector,
+	uint32 vectorSize, float shadowStrength)
+{
+	const BRect rect(0, 0, size - 1, size - 1);
+	const uint32 flags = B_BITMAP_NO_SERVER_LINK;
+
+	BBitmap cursor(rect, flags, B_RGBA32);
+	status_t status = BIconUtils::GetVectorIcon(vector, vectorSize, &cursor);
+	if (status != B_OK)
+		return CreateFallbackCursor();
+
+	if (shadowStrength <= 0.0) {
+		for (int32 i = 0; i < cursor.BitsLength(); i += 4) {
+			uint8* bits = (uint8*)cursor.Bits() + i;
+			// this produces smoother results than normal
+			// premultiplication when there's no shadow
+			// (no artifacting on white edges)
+			if (bits[0] > bits[3])
+				bits[0] = bits[3];
+			if (bits[1] > bits[3])
+				bits[1] = bits[3];
+			if (bits[2] > bits[3])
+				bits[2] = bits[3];
+		}
+		return cursor;
+	}
+
+	BBitmap shadow(rect, flags, B_RGBA32);
+	memset(shadow.Bits(), 0, shadow.BitsLength());
+
+	int32 offset = size / 32;
+	if (offset == 0)
+		offset = 1; // <32px cursors
+	status = shadow.ImportBits(&cursor, BPoint(0, 0), BPoint(offset, offset),
+		BSize(size - offset - 1, size - offset - 1));
+	if (status != B_OK)
+		return CreateFallbackCursor();
+
+	iir_gauss_blur(size, size, 4, (uint8*)shadow.Bits(), 0.8);
+	for (int32 i = 0; i < shadow.BitsLength(); i += 4) {
+		uint8* bits = (uint8*)shadow.Bits() + i;
+		bits[0] = 0;
+		bits[1] = 0;
+		bits[2] = 0;
+		bits[3] *= shadowStrength;
+	}
+
+	BBitmap composite = BBitmap(rect, flags, B_RGBA32);
+
+	uint8* s = (uint8*)shadow.Bits();
+	uint8* c = (uint8*)cursor.Bits();
+	uint8* d = (uint8*)composite.Bits();
+	for (uint32 y = 0; y < size; y++) {
+		for (uint32 x = 0; x < size; x++) {
+			uint8 a = c[3] + (255 - c[3]) * (s[3] / 255.0);
+			d[3] = a;
+			for (int32 i = 0; i < 3; ++i) {
+				d[i] = ((s[i] * (255 - c[3]) + 255) >> 8) + c[i];
+
+				// premultiply
+				d[i] = d[i] * int32(a) / 255.0;
+			}
+			s += 4;
+			c += 4;
+			d += 4;
+		}
+	}
+
+	return composite;
+}
 
 CursorManager::CursorManager()
 	:
 	BLocker("CursorManager")
 {
-	// Init system cursors
-	const BPoint kHandHotspot(1, 1);
-	const BPoint kResizeHotspot(8, 8);
-	_InitCursor(fCursorSystemDefault, kCursorSystemDefaultBits,
-		B_CURSOR_ID_SYSTEM_DEFAULT, kHandHotspot);
-	_InitCursor(fCursorContextMenu, kCursorContextMenuBits,
-		B_CURSOR_ID_CONTEXT_MENU, kHandHotspot);
-	_InitCursor(fCursorCopy, kCursorCopyBits,
-		B_CURSOR_ID_COPY, kHandHotspot);
-	_InitCursor(fCursorCreateLink, kCursorCreateLinkBits,
-		B_CURSOR_ID_CREATE_LINK, kHandHotspot);
-	_InitCursor(fCursorCrossHair, kCursorCrossHairBits,
-		B_CURSOR_ID_CROSS_HAIR, BPoint(10, 10));
-	_InitCursor(fCursorFollowLink, kCursorFollowLinkBits,
-		B_CURSOR_ID_FOLLOW_LINK, BPoint(5, 0));
-	_InitCursor(fCursorGrab, kCursorGrabBits,
-		B_CURSOR_ID_GRAB, kHandHotspot);
-	_InitCursor(fCursorGrabbing, kCursorGrabbingBits,
-		B_CURSOR_ID_GRABBING, kHandHotspot);
-	_InitCursor(fCursorHelp, kCursorHelpBits,
-		B_CURSOR_ID_HELP, BPoint(0, 8));
-	_InitCursor(fCursorIBeam, kCursorIBeamBits,
-		B_CURSOR_ID_I_BEAM, BPoint(7, 9));
-	_InitCursor(fCursorIBeamHorizontal, kCursorIBeamHorizontalBits,
-		B_CURSOR_ID_I_BEAM_HORIZONTAL, BPoint(8, 8));
-	_InitCursor(fCursorMove, kCursorMoveBits,
-		B_CURSOR_ID_MOVE, kResizeHotspot);
-	_InitCursor(fCursorNoCursor, 0, B_CURSOR_ID_NO_CURSOR, BPoint(0, 0));
-	_InitCursor(fCursorNotAllowed, kCursorNotAllowedBits,
-		B_CURSOR_ID_NOT_ALLOWED, BPoint(8, 8));
-	_InitCursor(fCursorProgress, kCursorProgressBits,
-		B_CURSOR_ID_PROGRESS, BPoint(7, 10));
-	_InitCursor(fCursorResizeEast, kCursorResizeEastBits,
-		B_CURSOR_ID_RESIZE_EAST, kResizeHotspot);
-	_InitCursor(fCursorResizeEastWest, kCursorResizeEastWestBits,
-		B_CURSOR_ID_RESIZE_EAST_WEST, kResizeHotspot);
-	_InitCursor(fCursorResizeNorth, kCursorResizeNorthBits,
-		B_CURSOR_ID_RESIZE_NORTH, kResizeHotspot);
-	_InitCursor(fCursorResizeNorthEast, kCursorResizeNorthEastBits,
-		B_CURSOR_ID_RESIZE_NORTH_EAST, kResizeHotspot);
-	_InitCursor(fCursorResizeNorthEastSouthWest,
-		kCursorResizeNorthEastSouthWestBits,
-		B_CURSOR_ID_RESIZE_NORTH_EAST_SOUTH_WEST, kResizeHotspot);
-	_InitCursor(fCursorResizeNorthSouth, kCursorResizeNorthSouthBits,
-		B_CURSOR_ID_RESIZE_NORTH_SOUTH, kResizeHotspot);
-	_InitCursor(fCursorResizeNorthWest, kCursorResizeNorthWestBits,
-		B_CURSOR_ID_RESIZE_NORTH_WEST, kResizeHotspot);
-	_InitCursor(fCursorResizeNorthWestSouthEast,
-		kCursorResizeNorthWestSouthEastBits,
-		B_CURSOR_ID_RESIZE_NORTH_WEST_SOUTH_EAST, kResizeHotspot);
-	_InitCursor(fCursorResizeSouth, kCursorResizeSouthBits,
-		B_CURSOR_ID_RESIZE_SOUTH, kResizeHotspot);
-	_InitCursor(fCursorResizeSouthEast, kCursorResizeSouthEastBits,
-		B_CURSOR_ID_RESIZE_SOUTH_EAST, kResizeHotspot);
-	_InitCursor(fCursorResizeSouthWest, kCursorResizeSouthWestBits,
-		B_CURSOR_ID_RESIZE_SOUTH_WEST, kResizeHotspot);
-	_InitCursor(fCursorResizeWest, kCursorResizeWestBits,
-		B_CURSOR_ID_RESIZE_WEST, kResizeHotspot);
-	_InitCursor(fCursorZoomIn, kCursorZoomInBits,
-		B_CURSOR_ID_ZOOM_IN, BPoint(6, 6));
-	_InitCursor(fCursorZoomOut, kCursorZoomOutBits,
-		B_CURSOR_ID_ZOOM_OUT, BPoint(6, 6));
+	InitVectorCursors();
 }
 
 
@@ -102,6 +127,173 @@ CursorManager::~CursorManager()
 		cursor->fManager = NULL;
 		cursor->ReleaseReference();
 	}
+}
+
+static
+BPoint
+ScaleHotspot(BPoint hotspot)
+{
+	return BPoint(uint32((gCursorSize / 32.0) * hotspot.x),
+		uint32((gCursorSize / 32.0) * hotspot.y));
+}
+
+void
+CursorManager::InitVectorCursors()
+{
+	if (gCursorSize <= 0 || gCursorSize >= 256)
+		return;
+
+	// TODO: free old cursor memory
+
+	const BPoint kHandHotspot(uint32(gCursorSize / 20),
+		uint32(gCursorSize / 20));
+	const BPoint kResizeHotspot = ScaleHotspot(BPoint(8, 8));
+
+	// Init system cursors from vectors
+
+	BBitmap bitmap = CreateCursorBitmap(gCursorSize,
+		kCursorSystemDefaultBits, 3840, gCursorShadow / 10.0);
+	_InitCursor(fCursorSystemDefault, (uint8*)bitmap.Bits(),
+		B_CURSOR_ID_SYSTEM_DEFAULT, kHandHotspot);
+
+	bitmap = CreateCursorBitmap(gCursorSize,
+		kCursorContextMenuBits, 8815, gCursorShadow / 10.0);
+	_InitCursor(fCursorContextMenu, (uint8*)bitmap.Bits(),
+		B_CURSOR_ID_CONTEXT_MENU, kHandHotspot);
+
+	bitmap = CreateCursorBitmap(gCursorSize,
+		kCursorCopyBits, 7034, gCursorShadow / 10.0);
+	_InitCursor(fCursorCopy, (uint8*)bitmap.Bits(),
+		B_CURSOR_ID_COPY, kHandHotspot);
+
+	bitmap = CreateCursorBitmap(gCursorSize,
+		kCursorCreateLinkBits, 6909, gCursorShadow / 10.0);
+	_InitCursor(fCursorCreateLink, (uint8*)bitmap.Bits(),
+		B_CURSOR_ID_CREATE_LINK, kHandHotspot);
+
+	bitmap = CreateCursorBitmap(gCursorSize,
+		kCursorCrossHairBits, 4079, gCursorShadow / 10.0);
+	_InitCursor(fCursorCrossHair, (uint8*)bitmap.Bits(),
+		B_CURSOR_ID_CROSS_HAIR, ScaleHotspot(BPoint(10, 10)));
+
+	bitmap = CreateCursorBitmap(gCursorSize,
+		kCursorFollowLinkBits, 3974, gCursorShadow / 10.0);
+	_InitCursor(fCursorFollowLink, (uint8*)bitmap.Bits(),
+		B_CURSOR_ID_FOLLOW_LINK, ScaleHotspot(BPoint(5, 0)));
+
+	bitmap = CreateCursorBitmap(gCursorSize,
+		kCursorGrabBits, 3874, gCursorShadow / 10.0);
+	_InitCursor(fCursorGrab, (uint8*)bitmap.Bits(),
+		B_CURSOR_ID_GRAB, kHandHotspot);
+
+	bitmap = CreateCursorBitmap(gCursorSize,
+		kCursorGrabbingBits, 3732, gCursorShadow / 10.0);
+	_InitCursor(fCursorGrabbing, (uint8*)bitmap.Bits(),
+		B_CURSOR_ID_GRABBING, kHandHotspot);
+
+	bitmap = CreateCursorBitmap(gCursorSize,
+		kCursorHelpBits, 3725, gCursorShadow / 10.0);
+	_InitCursor(fCursorHelp, (uint8*)bitmap.Bits(),
+		B_CURSOR_ID_HELP, ScaleHotspot(BPoint(0, 8)));
+
+	bitmap = CreateCursorBitmap(gCursorSize,
+		kCursorIBeamBits, 3171, gCursorShadow / 10.0);
+	_InitCursor(fCursorIBeam, (uint8*)bitmap.Bits(),
+		B_CURSOR_ID_I_BEAM, ScaleHotspot(BPoint(7, 9)));
+
+	bitmap = CreateCursorBitmap(gCursorSize,
+		kCursorIBeamHorizontalBits, 3171, gCursorShadow / 10.0);
+	_InitCursor(fCursorIBeamHorizontal, (uint8*)bitmap.Bits(),
+		B_CURSOR_ID_I_BEAM_HORIZONTAL, ScaleHotspot(BPoint(8, 8)));
+
+	bitmap = CreateCursorBitmap(gCursorSize,
+		kCursorMoveBits, 3321, gCursorShadow / 10.0);
+	_InitCursor(fCursorMove, (uint8*)bitmap.Bits(),
+		B_CURSOR_ID_MOVE, kResizeHotspot);
+
+	_InitCursor(fCursorNoCursor, 0, B_CURSOR_ID_NO_CURSOR, BPoint(0, 0));
+
+	bitmap = CreateCursorBitmap(gCursorSize,
+		kCursorNotAllowedBits, 3549, gCursorShadow / 10.0);
+	_InitCursor(fCursorNotAllowed, (uint8*)bitmap.Bits(),
+		B_CURSOR_ID_NOT_ALLOWED, ScaleHotspot(BPoint(8, 8)));
+
+	bitmap = CreateCursorBitmap(gCursorSize,
+		kCursorProgressBits, 5363, gCursorShadow / 10.0);
+	_InitCursor(fCursorProgress, (uint8*)bitmap.Bits(),
+		B_CURSOR_ID_PROGRESS, ScaleHotspot(BPoint(7, 10)));
+
+	bitmap = CreateCursorBitmap(gCursorSize,
+		kCursorResizeEastBits, 2896, gCursorShadow / 10.0);
+	_InitCursor(fCursorResizeEast, (uint8*)bitmap.Bits(),
+		B_CURSOR_ID_RESIZE_EAST, kResizeHotspot);
+
+	bitmap = CreateCursorBitmap(gCursorSize,
+		kCursorResizeEastWestBits, 2971, gCursorShadow / 10.0);
+	_InitCursor(fCursorResizeEastWest, (uint8*)bitmap.Bits(),
+		B_CURSOR_ID_RESIZE_EAST_WEST, kResizeHotspot);
+
+	bitmap = CreateCursorBitmap(gCursorSize,
+		kCursorResizeNorthBits, 2896, gCursorShadow / 10.0);
+	_InitCursor(fCursorResizeNorth, (uint8*)bitmap.Bits(),
+		B_CURSOR_ID_RESIZE_NORTH, kResizeHotspot);
+
+	bitmap = CreateCursorBitmap(gCursorSize,
+		kCursorResizeNorthEastBits, 2896, gCursorShadow / 10.0);
+	_InitCursor(fCursorResizeNorthEast, (uint8*)bitmap.Bits(),
+		B_CURSOR_ID_RESIZE_NORTH_EAST, kResizeHotspot);
+
+	bitmap = CreateCursorBitmap(gCursorSize,
+		kCursorResizeNorthEastSouthWestBits, 2971, gCursorShadow / 10.0);
+	_InitCursor(fCursorResizeNorthEastSouthWest,
+		(uint8*)bitmap.Bits(),
+		B_CURSOR_ID_RESIZE_NORTH_EAST_SOUTH_WEST, kResizeHotspot);
+
+	bitmap = CreateCursorBitmap(gCursorSize,
+		kCursorResizeNorthSouthBits, 2971, gCursorShadow / 10.0);
+	_InitCursor(fCursorResizeNorthSouth, (uint8*)bitmap.Bits(),
+		B_CURSOR_ID_RESIZE_NORTH_SOUTH, kResizeHotspot);
+
+	bitmap = CreateCursorBitmap(gCursorSize,
+		kCursorResizeNorthWestBits, 2896, gCursorShadow / 10.0);
+	_InitCursor(fCursorResizeNorthWest, (uint8*)bitmap.Bits(),
+		B_CURSOR_ID_RESIZE_NORTH_WEST, kResizeHotspot);
+
+	bitmap = CreateCursorBitmap(gCursorSize,
+		kCursorResizeNorthWestSouthEastBits, 2971, gCursorShadow / 10.0);
+	_InitCursor(fCursorResizeNorthWestSouthEast,
+		(uint8*)bitmap.Bits(),
+		B_CURSOR_ID_RESIZE_NORTH_WEST_SOUTH_EAST, kResizeHotspot);
+
+	bitmap = CreateCursorBitmap(gCursorSize,
+		kCursorResizeSouthBits, 2896, gCursorShadow / 10.0);
+	_InitCursor(fCursorResizeSouth, (uint8*)bitmap.Bits(),
+		B_CURSOR_ID_RESIZE_SOUTH, kResizeHotspot);
+
+	bitmap = CreateCursorBitmap(gCursorSize,
+		kCursorResizeSouthEastBits, 2896, gCursorShadow / 10.0);
+	_InitCursor(fCursorResizeSouthEast, (uint8*)bitmap.Bits(),
+		B_CURSOR_ID_RESIZE_SOUTH_EAST, kResizeHotspot);
+
+	bitmap = CreateCursorBitmap(gCursorSize,
+		kCursorResizeSouthWestBits, 2896, gCursorShadow / 10.0);
+	_InitCursor(fCursorResizeSouthWest, (uint8*)bitmap.Bits(),
+		B_CURSOR_ID_RESIZE_SOUTH_WEST, kResizeHotspot);
+
+	bitmap = CreateCursorBitmap(gCursorSize,
+		kCursorResizeWestBits, 2896, gCursorShadow / 10.0);
+	_InitCursor(fCursorResizeWest, (uint8*)bitmap.Bits(),
+		B_CURSOR_ID_RESIZE_WEST, kResizeHotspot);
+
+	bitmap = CreateCursorBitmap(gCursorSize,
+		kCursorZoomInBits, 7384, gCursorShadow / 10.0);
+	_InitCursor(fCursorZoomIn, (uint8*)bitmap.Bits(),
+		B_CURSOR_ID_ZOOM_IN, ScaleHotspot(BPoint(6, 6)));
+
+	bitmap = CreateCursorBitmap(gCursorSize,
+		kCursorZoomOutBits, 7184, gCursorShadow / 10.0);
+	_InitCursor(fCursorZoomOut, (uint8*)bitmap.Bits(),
+		B_CURSOR_ID_ZOOM_OUT, ScaleHotspot(BPoint(6, 6)));
 }
 
 
@@ -390,8 +582,8 @@ CursorManager::_InitCursor(ServerCursor*& cursorMember,
 	const uint8* cursorBits, BCursorID id, const BPoint& hotSpot)
 {
 	if (cursorBits) {
-		cursorMember = new ServerCursor(cursorBits, kCursorWidth,
-			kCursorHeight, kCursorFormat);
+		cursorMember = new ServerCursor(cursorBits, gCursorSize,
+			gCursorSize, kCursorFormat);
 	} else
 		cursorMember = new ServerCursor(kCursorNoCursor, 1, 1, kCursorFormat);
 

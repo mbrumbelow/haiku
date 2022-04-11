@@ -33,6 +33,11 @@ public:
 								CursorManager();
 								~CursorManager();
 
+			void				InitVectorCursors();
+
+			BBitmap				CreateCursorBitmap(uint32 size, const uint8* vector,
+									uint32 vectorSize, float shadowStrength);
+
 			ServerCursor*		CreateCursor(team_id clientTeam,
 									 const uint8* cursorData);
 			ServerCursor*		CreateCursor(team_id clientTeam,

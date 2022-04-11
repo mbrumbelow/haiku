@@ -471,6 +471,11 @@ mode_focus_follows_mouse	focus_follows_mouse_mode();
 status_t		get_mouse(BPoint* screenWhere, uint32* buttons);
 status_t		get_mouse_bitmap(BBitmap** bitmap, BPoint* hotspot);
 
+uint32			get_cursor_scale();
+void			set_cursor_scale(uint32 size);
+uint32			get_cursor_shadow();
+void			set_cursor_shadow(uint32 strength);
+
 void			set_accept_first_click(bool acceptFirstClick);
 bool			accept_first_click();
 

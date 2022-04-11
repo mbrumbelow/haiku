@@ -9,10 +9,12 @@
 #include <GraphicsDefs.h>
 
 
-const uint32 kCursorWidth = 22;
-const uint32 kCursorHeight = 22;
+extern uint32 gCursorSize;
+extern uint32 gCursorShadow;
+
 const color_space kCursorFormat = B_RGBA32;
 
+extern const uint8 kCursorFallbackBits[];
 extern const uint8 kCursorContextMenuBits[];
 extern const uint8 kCursorCopyBits[];
 extern const uint8 kCursorCreateLinkBits[];

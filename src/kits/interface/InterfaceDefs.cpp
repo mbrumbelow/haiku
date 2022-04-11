@@ -1163,6 +1163,58 @@ get_mouse_bitmap(BBitmap** bitmap, BPoint* hotspot)
 }
 
 
+uint32
+get_cursor_scale()
+{
+	BPrivate::AppServerLink link;
+
+	link.StartMessage(AS_GET_CURSOR_SCALE);
+	int32 status = B_ERROR;
+	if (link.FlushWithReply(status) != B_OK || status < B_OK)
+		return 32;
+
+	uint32 size;
+	link.Read<uint32>(&size);
+	return size;
+}
+
+
+void
+set_cursor_scale(uint32 size)
+{
+	BPrivate::AppServerLink link;
+	link.StartMessage(AS_SET_CURSOR_SCALE);
+	link.Attach<uint32>(size);
+	link.Flush();
+}
+
+
+uint32
+get_cursor_shadow()
+{
+	BPrivate::AppServerLink link;
+
+	link.StartMessage(AS_GET_CURSOR_SHADOW);
+	int32 status = B_ERROR;
+	if (link.FlushWithReply(status) != B_OK || status < B_OK)
+		return 3;
+
+	uint32 strength;
+	link.Read<uint32>(&strength);
+	return strength;
+}
+
+
+void
+set_cursor_shadow(uint32 strength)
+{
+	BPrivate::AppServerLink link;
+	link.StartMessage(AS_SET_CURSOR_SHADOW);
+	link.Attach<uint32>(strength);
+	link.Flush();
+}
+
+
 void
 set_accept_first_click(bool acceptFirstClick)
 {

@@ -60,6 +60,11 @@ public:
 			void				SetAcceptFirstClick(bool acceptFirstClick);
 			bool				AcceptFirstClick() const;
 
+			uint32				GetCursorScale() const;
+			void				SetCursorScale(uint32 size);
+			uint32				GetCursorShadow() const;
+			void				SetCursorShadow(uint32 strength);
+
 			void				SetShowAllDraggers(bool show);
 			bool				ShowAllDraggers() const;
 

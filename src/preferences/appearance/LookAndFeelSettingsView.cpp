@@ -60,6 +60,9 @@ static const int32 kMsgDoubleScrollBarArrows = 'dsba';
 static const int32 kMsgArrowStyleSingle = 'mass';
 static const int32 kMsgArrowStyleDouble = 'masd';
 
+static const int32 kMsgSetCursorScale = 'crsc';
+static const int32 kMsgSetCursorShadow = 'crsh';
+
 static const bool kDefaultDoubleScrollBarArrowsSetting = false;
 
 
@@ -77,10 +80,14 @@ LookAndFeelSettingsView::LookAndFeelSettingsView(const char* name)
 	fControlLookMenu(NULL),
 	fArrowStyleSingle(NULL),
 	fArrowStyleDouble(NULL),
+	fCursorScaleControl(NULL),
+	fCursorShadowControl(NULL),
 	fSavedDecor(NULL),
 	fCurrentDecor(NULL),
 	fSavedControlLook(NULL),
 	fCurrentControlLook(NULL),
+	fSavedCursorScale(_CursorScale()),
+	fSavedCursorShadow(_CursorShadow()),
 	fSavedDoubleArrowsValue(_DoubleScrollBarArrows())
 {
 	fCurrentDecor = fDecorUtility.CurrentDecorator()->ShortcutName();
@@ -138,6 +145,22 @@ LookAndFeelSettingsView::LookAndFeelSettingsView(const char* name)
 	scrollBarLabel->SetExplicitAlignment(
 		BAlignment(B_ALIGN_LEFT, B_ALIGN_TOP));
 
+	fCursorScaleControl = new BSlider("cursorScaleControl",
+		B_TRANSLATE("Cursor size:"),
+		new BMessage(kMsgSetCursorScale), 24, 80, B_HORIZONTAL);
+	fCursorScaleControl->SetLimitLabels(B_TRANSLATE("Small"),
+		B_TRANSLATE("Large"));
+	fCursorScaleControl->SetHashMarks(B_HASH_MARKS_BOTTOM);
+	fCursorScaleControl->SetHashMarkCount(8);
+
+	fCursorShadowControl = new BSlider("cursorShadowControl",
+		B_TRANSLATE("Cursor shadow strength:"),
+		new BMessage(kMsgSetCursorShadow), 0, 9, B_HORIZONTAL);
+	fCursorShadowControl->SetLimitLabels(B_TRANSLATE("None"),
+		B_TRANSLATE("Strong"));
+	fCursorShadowControl->SetHashMarks(B_HASH_MARKS_BOTTOM);
+	fCursorShadowControl->SetHashMarkCount(10);
+
 	// control layout
 	BLayoutBuilder::Grid<>(this, B_USE_DEFAULT_SPACING, B_USE_DEFAULT_SPACING)
 		.Add(fDecorMenuField->CreateLabelLayoutItem(), 0, 0)
@@ -148,6 +171,8 @@ LookAndFeelSettingsView::LookAndFeelSettingsView(const char* name)
 		.Add(fControlLookInfoButton, 2, 1)
 		.Add(scrollBarLabel, 0, 2)
 		.Add(arrowStyleBox, 1, 2)
+		.Add(fCursorScaleControl, 0, 3, 3)
+		.Add(fCursorShadowControl, 0, 4, 3)
 		.AddGlue(0, 3)
 		.SetInsets(B_USE_WINDOW_SPACING);
 
@@ -174,6 +199,11 @@ LookAndFeelSettingsView::AttachedToWindow()
 	fControlLookInfoButton->SetTarget(this);
 	fArrowStyleSingle->SetTarget(this);
 	fArrowStyleDouble->SetTarget(this);
+	fCursorScaleControl->SetTarget(this);
+	fCursorShadowControl->SetTarget(this);
+
+	fCursorScaleControl->SetValue(fSavedCursorScale);
+	fCursorShadowControl->SetValue(fSavedCursorShadow);
 
 	if (fSavedDoubleArrowsValue)
 		fArrowStyleDouble->SetValue(B_CONTROL_ON);
@@ -269,6 +299,18 @@ LookAndFeelSettingsView::MessageReceived(BMessage* message)
 		case kMsgArrowStyleDouble:
 			_SetDoubleScrollBarArrows(true);
 			break;
+
+		case kMsgSetCursorScale: {
+			uint32 size = fCursorScaleControl->Value();
+			_SetCursorScale(size);
+			break;
+		}
+
+		case kMsgSetCursorShadow: {
+			uint32 strength = fCursorShadowControl->Value();
+			_SetCursorShadow(strength);
+			break;
+		}
 
 		default:
 			BView::MessageReceived(message);
@@ -429,12 +471,60 @@ LookAndFeelSettingsView::_SetDoubleScrollBarArrows(bool doubleArrows)
 }
 
 
+uint32
+LookAndFeelSettingsView::_CursorScale()
+{
+	return get_cursor_scale();
+}
+
+
+void
+LookAndFeelSettingsView::_SetCursorScale(uint32 size)
+{
+	uint32 oldSize = get_cursor_scale();
+
+	if (size == oldSize)
+		return;
+
+	set_cursor_scale(size);
+
+	fCursorScaleControl->SetValue(size);
+
+	Window()->PostMessage(kMsgUpdate);
+}
+
+
+uint32
+LookAndFeelSettingsView::_CursorShadow()
+{
+	return get_cursor_shadow();
+}
+
+
+void
+LookAndFeelSettingsView::_SetCursorShadow(uint32 strength)
+{
+	uint32 oldStrength = get_cursor_shadow();
+
+	if (strength == oldStrength)
+		return;
+
+	set_cursor_shadow(strength);
+
+	fCursorShadowControl->SetValue(strength);
+
+	Window()->PostMessage(kMsgUpdate);
+}
+
+
 bool
 LookAndFeelSettingsView::IsDefaultable()
 {
 	return fCurrentDecor != fDecorUtility.DefaultDecorator()->ShortcutName()
 		|| fCurrentControlLook.Length() != 0
-		|| _DoubleScrollBarArrows() != false;
+		|| _DoubleScrollBarArrows() != false
+		|| _CursorScale() != 32
+		|| _CursorShadow() != 3;
 }
 
 
@@ -444,6 +534,8 @@ LookAndFeelSettingsView::SetDefaults()
 	_SetDecor(fDecorUtility.DefaultDecorator());
 	_SetControlLook(BString(""));
 	_SetDoubleScrollBarArrows(false);
+	_SetCursorScale(32);
+	_SetCursorShadow(3);
 }
 
 
@@ -452,7 +544,9 @@ LookAndFeelSettingsView::IsRevertable()
 {
 	return fCurrentDecor != fSavedDecor
 		|| fCurrentControlLook != fSavedControlLook
-		|| _DoubleScrollBarArrows() != fSavedDoubleArrowsValue;
+		|| _DoubleScrollBarArrows() != fSavedDoubleArrowsValue
+		|| _CursorScale() != fSavedCursorScale
+		|| _CursorShadow() != fSavedCursorShadow;
 }
 
 
@@ -463,5 +557,7 @@ LookAndFeelSettingsView::Revert()
 		_SetDecor(fSavedDecor);
 		_SetControlLook(fSavedControlLook);
 		_SetDoubleScrollBarArrows(fSavedDoubleArrowsValue);
+		_SetCursorScale(fSavedCursorScale);
+		_SetCursorShadow(fSavedCursorShadow);
 	}
 }

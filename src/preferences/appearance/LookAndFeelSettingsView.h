@@ -21,6 +21,7 @@ class BButton;
 class BCheckBox;
 class BMenuField;
 class BPopUpMenu;
+class BSlider;
 class FakeScrollBar;
 
 class LookAndFeelSettingsView : public BView {
@@ -50,6 +51,11 @@ private:
 			bool				_DoubleScrollBarArrows();
 			void				_SetDoubleScrollBarArrows(bool doubleArrows);
 
+			uint32				_CursorScale();
+			void				_SetCursorScale(uint32 size);
+			uint32				_CursorShadow();
+			void				_SetCursorShadow(uint32 strength);
+
 private:
 			DecorInfoUtility	fDecorUtility;
 
@@ -64,12 +70,19 @@ private:
 			FakeScrollBar*		fArrowStyleSingle;
 			FakeScrollBar*		fArrowStyleDouble;
 
+			BSlider*			fCursorScaleControl;
+			BSlider*			fCursorShadowControl;
+
 			BString				fSavedDecor;
 			BString				fCurrentDecor;
 
 			BString				fSavedControlLook;
 			BString				fCurrentControlLook;
 
+			uint32				fSavedCursorScale;
+			uint32				fCurrentCursorScale;
+			uint32				fSavedCursorShadow;
+			uint32				fCurrentCursorShadow;
 			bool				fSavedDoubleArrowsValue : 1;
 };
 

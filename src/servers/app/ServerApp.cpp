@@ -1494,6 +1494,48 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 			break;
 		}
 
+		case AS_GET_CURSOR_SCALE:
+		{
+			DesktopSettings settings(fDesktop);
+			fLink.StartMessage(B_OK);
+			fLink.Attach<uint32>(settings.GetCursorScale());
+			fLink.Flush();
+			break;
+		}
+
+		case AS_SET_CURSOR_SCALE:
+		{
+			uint32 size;
+			if (link.Read<uint32>(&size) == B_OK) {
+				LockedDesktopSettings settings(fDesktop);
+				settings.SetCursorScale(size);
+			}
+			fDesktop->GetCursorManager().InitVectorCursors();
+			// TODO: refresh cursor
+			break;
+		}
+
+		case AS_GET_CURSOR_SHADOW:
+		{
+			DesktopSettings settings(fDesktop);
+			fLink.StartMessage(B_OK);
+			fLink.Attach<uint32>(settings.GetCursorShadow());
+			fLink.Flush();
+			break;
+		}
+
+		case AS_SET_CURSOR_SHADOW:
+		{
+			uint32 strength;
+			if (link.Read<uint32>(&strength) == B_OK) {
+				LockedDesktopSettings settings(fDesktop);
+				settings.SetCursorShadow(strength);
+			}
+			fDesktop->GetCursorManager().InitVectorCursors();
+			// TODO: refresh cursor
+			break;
+		}
+
 		case AS_GET_ACCEPT_FIRST_CLICK:
 		{
 			STRACE(("ServerApp %s: Get Accept First Click\n", Signature()));

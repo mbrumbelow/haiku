@@ -62,6 +62,9 @@ public:
 
 			bool				AcceptFirstClick() const;
 
+			uint32				GetCursorScale() const;
+			uint32				GetCursorShadow() const;
+
 			bool				ShowAllDraggers() const;
 
 			int32				WorkspacesCount() const;
@@ -99,6 +102,9 @@ public:
 			void				SetFocusFollowsMouseMode(
 									mode_focus_follows_mouse mode);
 			void				SetAcceptFirstClick(bool acceptFirstClick);
+
+			void				SetCursorScale(uint32 size);
+			void				SetCursorShadow(uint32 strength);
 
 			void				SetShowAllDraggers(bool show);
 
