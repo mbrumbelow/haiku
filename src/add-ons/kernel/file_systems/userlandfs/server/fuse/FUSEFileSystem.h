@@ -35,6 +35,9 @@ public:
 
 			const fuse_config&	GetFUSEConfig() const	{ return fFUSEConfig; }
 
+			bool				HasHaikuFuseExtensions() const
+						{ return (fConnectionInfo.want & FUSE_CAP_HAIKU_FUSE_EXTENSIONS) != 0; }
+
 	virtual	status_t			CreateVolume(Volume** _volume, dev_t id);
 	virtual	status_t			DeleteVolume(Volume* volume);
 

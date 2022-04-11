@@ -394,6 +394,13 @@ struct fuse_loop_config {
  */
 #define FUSE_CAP_EXPLICIT_INVAL_DATA    (1 << 25)
 
+/** Indicates support for the Haiku-specific functions in struct fuse_operations (those which are
+ * guarded by HAS_FUSE_HAIKU_EXTENSIONS).
+ *
+ * This feature is enabled by default on Haiku and does not exist on other systems.
+ */
+#define FUSE_CAP_HAIKU_FUSE_EXTENSIONS (1 << 31)
+
 /**
  * Ioctl flags
  *

@@ -864,14 +864,14 @@ FUSEVolume::Sync()
 status_t
 FUSEVolume::ReadFSInfo(fs_info* info)
 {
-#if 0
-	if (gHasHaikuFuseExtensions == 1 && fFS->ops.get_fs_info != NULL) {
+	// FIXME the FUSE 3 API supports ioctls, so instead of this, we could simply implement our
+	// usual Haiku ioctls in FUSE filesystems.
+	if (_FileSystem()->HasHaikuFuseExtensions() && fFS->ops.get_fs_info != NULL) {
 		int fuseError = fuse_fs_get_fs_info(fFS, info);
 		if (fuseError != 0)
 			return fuseError;
 		return B_OK;
 	}
-#endif
 
 	// No Haiku FUSE extensions, so our knowledge is limited: use some values
 	// from statfs and make reasonable guesses for the rest of them.

@@ -354,7 +354,6 @@ fuse_fs_new(const struct fuse_operations* ops, size_t opSize, void* userData)
 }
 
 
-#if 0
 int
 fuse_fs_get_fs_info(struct fuse_fs* fs, struct fs_info* info)
 {
@@ -362,4 +361,3 @@ fuse_fs_get_fs_info(struct fuse_fs* fs, struct fs_info* info)
 		return ENOSYS;
 	return fs->ops.get_fs_info(info);
 }
-#endif
