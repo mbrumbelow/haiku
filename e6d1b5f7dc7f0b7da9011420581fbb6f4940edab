@@ -16,6 +16,24 @@
       "message": "I couldn\u0027t test, but code wise is OK.",
       "revId": "e6d1b5f7dc7f0b7da9011420581fbb6f4940edab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "996b83e6_d6111b47",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-04-12T09:26:29Z",
+      "side": 1,
+      "message": "Some details are in https://github.com/termstandard/colors",
+      "parentUuid": "33d168b6_db29930e",
+      "revId": "e6d1b5f7dc7f0b7da9011420581fbb6f4940edab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
