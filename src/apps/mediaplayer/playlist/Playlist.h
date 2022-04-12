@@ -104,6 +104,8 @@ public:
 									Playlist* playlist);
 	static	void				AppendM3uToPlaylist(const entry_ref& ref,
 									Playlist* playlist);
+	static	void				AppendPlsToPlaylist(const entry_ref& ref,
+									Playlist* playlist);
 	static	void				AppendQueryToPlaylist(const entry_ref& ref,
 									Playlist* playlist);
 
@@ -127,6 +129,7 @@ private:
 	static	bool				_IsBinaryPlaylist(const BString& mimeString);
 	static	bool				_IsPlaylist(const BString& mimeString);
 	static	bool				_IsM3u(const entry_ref& ref);
+	static	bool				_IsPls(const entry_ref& ref);
 	static	bool				_IsQuery(const BString& mimeString);
 	static	BString				_MIMEString(const entry_ref* ref);
 	static	void				_BindExtraMedia(PlaylistItem* item);
@@ -142,6 +145,13 @@ private:
 			void				_NotifyCurrentItemChanged(int32 newIndex,
 									bool play) const;
 			void				_NotifyImportFailed() const;
+
+	static	int32				_ReadPlsFileLine(const BString& file, Playlist* playlist);
+			// Returns the track's playlist index if it was successfully added, else returns -1.
+	static	status_t			_ReadPlsTitleLine(const BString& title, Playlist* playlist,
+									const int32 lastAssignedIndex);
+	static	status_t			_ReadPlsLengthLine(const BString& length, Playlist* playlist,
+									const int32 lastAssignedIndex);
 
 private:
 			BList				fItems;
