@@ -16,6 +16,23 @@
       "message": "haikuports recipes depending on userlandfs to be investigated to see if they can be moved to FUSE3:\n- curlftpfs\n- fusesmb_haiku\n- gphotofs\n- ssh-fuse",
       "revId": "66dbfa8ba6720d57c9d66ca8f0964b5b4dc3d120",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bf12bdf_6b88e603",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-12T16:00:37Z",
+      "side": 1,
+      "message": "would it make sense to add a provides for fuse3 in the package info file?",
+      "revId": "66dbfa8ba6720d57c9d66ca8f0964b5b4dc3d120",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
