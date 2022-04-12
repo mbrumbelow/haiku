@@ -33,6 +33,24 @@
       "message": "would it make sense to add a provides for fuse3 in the package info file?",
       "revId": "66dbfa8ba6720d57c9d66ca8f0964b5b4dc3d120",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bb1e665_67a69d42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-12T17:38:25Z",
+      "side": 1,
+      "message": "Of these, only sshfs is already migrated to fuse3.\n\nThe 3 others look unmaintained. It seems Linux is using GVFS as a replacement for most of these things (which adds a layer of unneeded complexity and dbus stuff, but in the end still exposes the data as a normal filesystem through FUSE).",
+      "parentUuid": "f83fd29a_4d6cd736",
+      "revId": "66dbfa8ba6720d57c9d66ca8f0964b5b4dc3d120",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
