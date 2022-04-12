@@ -34,6 +34,23 @@
       "parentUuid": "33d168b6_db29930e",
       "revId": "e6d1b5f7dc7f0b7da9011420581fbb6f4940edab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "631bb082_c5f3d497",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-04-12T09:35:43Z",
+      "side": 1,
+      "message": "Actually, on the page I linked, it uses `xterm-truecolor` as a possibility for the `TERM` variable, so should we advertise as `xterm-truecolor` rather than `xterm` or `xterm-256color`?\n\nI also noted an extra variable, `COLORTERM` set to `truecolor` or `24bit`, which I could add to the other variables that are set in `Shell.cpp`.\n\nI suppose we should get our own entry added in the terminfo database at some stage though... ;-)",
+      "revId": "e6d1b5f7dc7f0b7da9011420581fbb6f4940edab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
