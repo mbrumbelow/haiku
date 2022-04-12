@@ -11,6 +11,7 @@
 
 #include "Playlist.h"
 
+#include <cctype>
 #include <debugger.h>
 #include <new>
 #include <stdio.h>
@@ -36,6 +37,7 @@
 #include "MainApp.h"
 
 using std::nothrow;
+using std::isdigit;
 
 // TODO: using BList for objects is bad, replace it with a template
 
@@ -463,6 +465,8 @@ Playlist::AppendItems(const BMessage* refsReceivedMessage, int32 appendIndex,
 				AppendQueryToPlaylist(ref, &subPlaylist);
 			else if (_IsM3u(ref))
 				AppendM3uToPlaylist(ref, &subPlaylist);
+			else if (_IsPls(ref))
+				AppendPlsToPlaylist(ref, &subPlaylist);
 			else {
 				if (!_ExtraMediaExists(this, ref)) {
 					AppendToPlaylistRecursive(ref, &subPlaylist);
@@ -609,6 +613,79 @@ Playlist::AppendM3uToPlaylist(const entry_ref& ref, Playlist* playlist)
 		}
 
 		line.Truncate(0);
+	}
+}
+
+
+/*static*/ void
+Playlist::AppendPlsToPlaylist(const entry_ref& ref, Playlist* playlist)
+{
+	BString plsEntries;
+		// The total number of tracks in the PLS file, taken from the NumberOfEntries line.
+		// This variable is not used for anything at this time.
+	BString plsVersion;
+		// The version of the PLS standard used in this playlist file, taken from the Version line.
+		// This variable is not used for anything at this time.
+	int32 lastAssignedIndex = -1;
+		// The index that MediaPlayer assigned to the most recently added PlaylistItem.
+		// If an attempted assignment fails, this will be set to -1 again.
+
+	BFile file(&ref, B_READ_ONLY);
+	FileReadWrite lineReader(&file);
+	BString line;
+	while (true) {
+		bool lineRead = lineReader.Next(line);
+		if (lineRead == false)
+			break;
+
+		// All valid PLS lines contain an equal sign, except for the header which does not need to
+		// be read.
+		int32 equalIndex;
+			// String index of the equal sign on a given line
+		equalIndex = line.FindFirst("=");
+		if (equalIndex == B_ERROR) {
+			line.Truncate(0);
+			continue;
+		}
+
+		BString lineType;
+			// Will be set for each line to one of: File, Title, Length, NumberOfEntries, Version
+		BString trackNumber;
+			// Number of the track being processed, using the (one-based) explicit numbering
+			// from the .pls file
+		if (isdigit(line[equalIndex - 1])) {
+			// Distinguish between lines that specify a track number, and those that don't
+			int32 trackIndex = equalIndex - 1;
+				// The string index where the track number begins
+			while (isdigit(line[trackIndex - 1]))
+				trackIndex--;
+			line.CopyInto(lineType, 0, trackIndex);
+			line.CopyInto(trackNumber, trackIndex, equalIndex - trackIndex);
+		} else {
+			line.CopyInto(lineType, 0, equalIndex);
+		}
+
+		BString lineContent;
+			// Everything after the equal sign
+		line.CopyInto(lineContent, equalIndex + 1, line.Length() - (equalIndex + 1));
+
+		if (lineType == BString("File")) {
+			lastAssignedIndex = _ReadPlsFileLine(lineContent, playlist);
+		// A File line may be followed by optional Title and/or Length lines.
+		} else if (lineType == BString("Title")) {
+			_ReadPlsTitleLine(lineContent, playlist, lastAssignedIndex);
+		} else if (lineType == BString("Length")) {
+			_ReadPlsLengthLine(lineContent, playlist, lastAssignedIndex);
+		// The file should include one NumberOfEntries line and one Version line.
+		} else if (lineType == BString("NumberOfEntries")) {
+			plsEntries = lineContent;
+		} else if (lineType == BString("Version")) {
+			plsVersion = lineContent;
+		} else {
+			// Ignore the line
+		}
+
+	line.Truncate(0);
 	}
 }
 
@@ -770,6 +847,23 @@ Playlist::_IsM3u(const entry_ref& ref)
 
 
 /*static*/ bool
+Playlist::_IsPls(const entry_ref& ref)
+{
+	BString path(BPath(&ref).Path());
+	if (path.FindLast(".pls") == path.CountChars() - 4) {
+		// Also check for the [playlist] header on the first line
+		BFile file(&ref, B_READ_ONLY);
+		FileReadWrite lineReader(&file);
+		BString line;
+		lineReader.Next(line);
+		if (line == "[playlist]")
+			return true;
+	}
+	return false;
+}
+
+
+/*static*/ bool
 Playlist::_IsQuery(const BString& mimeString)
 {
 	return mimeString.Compare(BQueryFile::MimeType()) == 0;
@@ -910,4 +1004,88 @@ Playlist::_NotifyImportFailed() const
 		Listener* listener = (Listener*)listeners.ItemAtFast(i);
 		listener->ImportFailed();
 	}
+}
+
+
+int32
+Playlist::_ReadPlsFileLine(const BString& file, Playlist* playlist)
+{
+	int32 assignedIndex = -1;
+	BPath path(file.String());
+	entry_ref refPath;
+	status_t err;
+	err = get_ref_for_path(path.Path(), &refPath);
+
+	if (err == B_OK) {
+		PlaylistItem* item = new (std::nothrow) FilePlaylistItem(refPath);
+		bool itemAdded = playlist->AddItem(item);
+		if (item == NULL || !itemAdded)
+			delete item;
+		else
+			assignedIndex = playlist->IndexOf(item);
+	} else {
+		BUrl url(file);
+		if (url.IsValid()) {
+			PlaylistItem* item = new (std::nothrow) UrlPlaylistItem(url);
+			bool itemAdded = playlist->AddItem(item);
+			if (item == NULL || !itemAdded)
+				delete item;
+			else
+				assignedIndex = playlist->IndexOf(item);
+		} else {
+			printf("Error - %s: [%" B_PRIx32 "]\n", strerror(err), err);
+		}
+	}
+	return assignedIndex;
+}
+
+
+status_t
+Playlist::_ReadPlsTitleLine(const BString& title, Playlist* playlist,
+	const int32 lastAssignedIndex)
+{
+	status_t err;
+	if (lastAssignedIndex != -1)
+		// Only use this Title if most recent File was successfully added to the playlist.
+		err = playlist->ItemAt(lastAssignedIndex)->SetAttribute(
+			PlaylistItem::ATTR_STRING_TITLE, title);
+	else
+		err = B_CANCELED;
+	if (err != B_OK)
+		printf("Error - %s: [%" B_PRIx32 "]\n", strerror(err), err);
+	return err;
+}
+
+
+status_t
+Playlist::_ReadPlsLengthLine(const BString& length, Playlist* playlist,
+	const int32 lastAssignedIndex)
+{
+	status_t err;
+	if (lastAssignedIndex != -1)
+	{
+		// Convert BString to int64
+		int64 lengthInt;
+			// Track length in seconds, or -1 for an infinite streaming track.
+		if (length == BString("-1"))
+			lengthInt = -1;
+		else {
+			const char* digitPointer = length.String();
+			int32 digitCount = length.Length();
+			for ( ; digitCount > 0; digitCount--) {
+				lengthInt = lengthInt * 10 + static_cast<int64>(*digitPointer - '0');
+				digitPointer++;
+			}
+		}
+
+		err = playlist->ItemAt(lastAssignedIndex)->SetAttribute(
+			PlaylistItem::ATTR_INT64_DURATION, lengthInt);
+			// This does nothing if the track in question is streaming, because
+			// UrlPlaylistItem::SetAttribute(const Attribute&, const int32&) is not implemented.
+	} else {
+		err = B_CANCELED;
+	}
+	if (err != B_OK)
+		printf("Error - %s: [%" B_PRIx32 "]\n", strerror(err), err);
+	return err;
 }
