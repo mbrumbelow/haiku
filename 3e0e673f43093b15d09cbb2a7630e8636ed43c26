@@ -71,6 +71,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0d006be_9551fb80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-04-12T16:16:26Z",
+      "side": 1,
+      "message": "I don\u0027t really see any easy way of reusing either one as we\u0027re still in the booloader here.\n\nclear_caches() in libroot/os/image.cpp simply makes a syscall, not sure how that could be adapted to run in the bootloader\n\nclear_caches() in kernel/cpu.cpp is empty, also cpu.cpp has a lot of kernel dependencies, again it does not seem to be reusable from the bootloader (calls to open_module_list, arch_cpu_* etc)",
+      "parentUuid": "cfc036c3_c4682af9",
+      "revId": "3e0e673f43093b15d09cbb2a7630e8636ed43c26",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "59ac281b_be6c601c",
