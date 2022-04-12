@@ -51,6 +51,42 @@
       "message": "It\u0027d be worth noting that a setting is present in a lot of other OSes for accessibility reasons, depending on eyesight issues and such, cursors can sometimes be difficult to see, and being able to tweak their size in such scenarios is helpful.",
       "revId": "c84948270ab92362cd48b22dc36ebce2322a02a3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97607847_298cec6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-04-12T19:49:28Z",
+      "side": 1,
+      "message": "How often are cursors scaled independent of the rest of the UI, though?\n\nPresumably, if we make it possible to \"theme\" cursors, then there could be differently-sized ones, anyway.",
+      "parentUuid": "8cb188f9_54fc3bcd",
+      "revId": "c84948270ab92362cd48b22dc36ebce2322a02a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15941177_97dace5b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-04-12T19:49:28Z",
+      "side": 1,
+      "message": "AGG seems to have a header for blurring routines: https://github.com/haiku/haiku/blob/8f16317a5b6db5c672f331814273e5857555020f/headers/libs/agg/agg_blur.h\n\nAssuming this documentation is correct, sounds like what we need: https://coconut2015.github.io/agg-tutorial/imageBlur.html\n\nRegarding data, I guess we need to pick a directory. Probably \"\u003csystem\u003e/data/icons/haiku\"? or \"stippi\" as that\u0027s the theme name? (What do other people think?)\n\nFiles need to be added to a package, the relevant code is in build/jam/packages/Haiku.",
+      "parentUuid": "69098175_60bfc30d",
+      "revId": "c84948270ab92362cd48b22dc36ebce2322a02a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
