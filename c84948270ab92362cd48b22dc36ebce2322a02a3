@@ -16,6 +16,24 @@
       "message": "Wow, welcome and thanks for working on this!\n\nA few initial thoughts:\n\n * I don\u0027t think we need a setting for this; at least I don\u0027t really see a purpose for it. The cursors should just scale right along with the rest of the UI (at present this is with the font size, but on the mailing list last year it was agreed we need a partially-separate option; for now you can just work out a scaling factor based on the font size like everything else does.)\n\n * Indeed it may make sense to put icons in a data directory; or at least in the RDEF for now, and we can worry about a data directory later.\n\n * I would not worry too much about fallbacks. A single fallback \"crosshair\" bitmap would suffice, I think.\n\n * Does AGG not have blur functions?",
       "revId": "c84948270ab92362cd48b22dc36ebce2322a02a3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69098175_60bfc30d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000383
+      },
+      "writtenOn": "2022-04-12T19:42:53Z",
+      "side": 1,
+      "message": "* I\u0027ll remove the settings sliders make it automatically scale with the font size instead.\n\n* For putting the icons in the data directory, that was my original plan but I couldn\u0027t figure out how to include files in the build to be put in the filesystem, so I hardcoded them into CursorData.cpp for testing. Any pointers?\n\n* I\u0027ve searched with grep and the entire codebase seems to contain no functions for blurring, including AGG.",
+      "parentUuid": "b391f444_e24e564f",
+      "revId": "c84948270ab92362cd48b22dc36ebce2322a02a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
