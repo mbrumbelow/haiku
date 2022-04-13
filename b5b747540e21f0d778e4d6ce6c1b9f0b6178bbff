@@ -16,6 +16,24 @@
       "message": "A bit unsure if we can use auto variables on x86_64?\n(I used them on ARM64 but it is a newer platform that is on gcc11 now)",
       "revId": "b5b747540e21f0d778e4d6ce6c1b9f0b6178bbff",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55699727_217780a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-04-13T22:31:16Z",
+      "side": 1,
+      "message": "Yes because x86_64 code is never compiled with gcc2.",
+      "parentUuid": "2c7ee897_56ad93a8",
+      "revId": "b5b747540e21f0d778e4d6ce6c1b9f0b6178bbff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
