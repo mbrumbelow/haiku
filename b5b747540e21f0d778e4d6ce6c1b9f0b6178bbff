@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c7ee897_56ad93a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-04-13T19:44:49Z",
+      "side": 1,
+      "message": "A bit unsure if we can use auto variables on x86_64?\n(I used them on ARM64 but it is a newer platform that is on gcc11 now)",
+      "revId": "b5b747540e21f0d778e4d6ce6c1b9f0b6178bbff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
