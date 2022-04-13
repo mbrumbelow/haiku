@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33926ca0_81d77c3d",
+        "filename": "src/servers/app/CursorData.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-04-13T14:18:10Z",
+      "side": 0,
+      "message": "It would be better to move cursor data to *.rdef resource file.",
+      "revId": "d45a65c88d5b5203cb909caaff8aca4e9b261f69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
