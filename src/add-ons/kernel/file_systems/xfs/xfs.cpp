@@ -24,6 +24,12 @@ XfsSuperBlock::IsValid() const
 		return false;
 	}
 
+	//We will remove this block after adding XFS version 5 support
+	if ((Version() & 0x000f) == 5) {
+		ERROR("XFS version 5 is not yet supported");
+		return false;
+	}
+
 	// Checking version 4 file system
 	ASSERT((Version() & 0x000f) == 4)
 
