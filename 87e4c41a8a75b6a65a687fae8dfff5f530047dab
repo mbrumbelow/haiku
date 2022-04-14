@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a35dc6db_9fb25adb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-04-14T12:34:01Z",
+      "side": 1,
+      "message": "adapted from arm32 / riscv64\n\nno need to worry about .ARM.exidx as that seems to be there only on the 32-bit ARM",
+      "revId": "87e4c41a8a75b6a65a687fae8dfff5f530047dab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
