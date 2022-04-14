@@ -34,6 +34,24 @@
       "parentUuid": "73dd51c4_b915ad3a",
       "revId": "032b53669e5f48e4afca2ebb49a0a5ab2d2bd32d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d9e73f6_43cb7297",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-14T20:24:09Z",
+      "side": 1,
+      "message": "in pc_serial, the scan_bus function (the only one that use bus_type) can be deleted, it is never called and it\u0027s dead code. That seems reasonably easy to add here.\n\nThis would allow to keep only a single copy of the define, in the media kit (where apparently AudioBufferSizeFor will pick a different size for ISA and PCI soundcards?). There we can\u0027t remove it just now, because the config_manager API was part of BeOS.",
+      "parentUuid": "bbc1b51e_40069e28",
+      "revId": "032b53669e5f48e4afca2ebb49a0a5ab2d2bd32d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
