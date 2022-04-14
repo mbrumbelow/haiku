@@ -16,6 +16,24 @@
       "message": "This assert should be removed. It would stop the whole machine if this code is used in the Haiku kernel and there is an XFS version 5 volume present (even if we don\u0027t try to mount it, just by scanning for all volumes on disk).\n\nWrite the code like this instead, to just have an error message and do not do anything more with the filesystem:\n\n\t// Checking version 4 file system\n\tif ((Version() \u0026 0x000f) \u003e 4) {\n\t\tERROR(\"XFS version 5 or later is not yet supported\");\n\t\treturn false;\n\t}\n\n\treturn true;",
       "revId": "286c3276cd65d04159d1fe54360be40657c0f503",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f59ee6b_8779c98b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-04-14T16:20:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5f2c4e6_14e778bb",
+      "revId": "286c3276cd65d04159d1fe54360be40657c0f503",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
