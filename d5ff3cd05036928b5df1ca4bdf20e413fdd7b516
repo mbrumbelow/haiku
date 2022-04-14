@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "942ef371_baa08139",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-14T13:16:37Z",
+      "side": 0,
+      "message": "instead of commenting this out, could you properly fix it?\n\nIt should be as simple as replacing the %d with a %u because NumRecords returns an unsigned value.",
+      "revId": "d5ff3cd05036928b5df1ca4bdf20e413fdd7b516",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
