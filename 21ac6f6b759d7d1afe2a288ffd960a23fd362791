@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a576ed4_5ec90603",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-14T06:36:12Z",
+      "side": 1,
+      "message": "Please can we just delete the entire config_manager directory? Why do the work on every arch insist on working around this piece of dead and useless code instead of killing it for good?",
+      "revId": "21ac6f6b759d7d1afe2a288ffd960a23fd362791",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
