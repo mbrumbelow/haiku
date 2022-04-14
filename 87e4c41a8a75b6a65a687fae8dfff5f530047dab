@@ -50,6 +50,23 @@
       "message": "yes, i tested it in qemu, rpi3, rpi4. (rpi3 with a few kludges, rpi4 with some more kludges)\n\nbefore: we end up in the boot menu as the bootloader is not able to load kernel_arm64\n\nafter: \n\n \nEfi loader symbols offset: 0x7dd5b000:\nCurrent Exception Level EL1\nTTBR0: 7fff0000 TTBRx: 0 SCTLR: c5183d TCR: ffffffff80803518\nMMU Enabled, Granularity 4KB, bits 40\nKernel entry accessibility W: 0 R: 0\nCalling ExitBootServices. So long, EFI!\nSwitched to legacy serial output\nWelcome to kernel debugger output!\nHaiku revision: hrev56016+1, debug level: 2\nPANIC: error allocating early page!\n \nWelcome to Kernel Debugging Land...\nRunning on CPU 0\nCurrent thread pointer is 0xffffffff801f5340, which is an address we can\u0027t read from.\n",
       "revId": "87e4c41a8a75b6a65a687fae8dfff5f530047dab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6c3cf7f_fa8be3ba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-04-14T13:10:20Z",
+      "side": 1,
+      "message": "OK then. I see no obvious problems in script. altcodepatch (mechanism of patching kernel code at runtime for example to efficiently support different CPU models and extensions) is removed, but it is currently used only on x86. It can be added later if needed.",
+      "revId": "87e4c41a8a75b6a65a687fae8dfff5f530047dab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
