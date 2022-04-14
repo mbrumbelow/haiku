@@ -67,6 +67,24 @@
       "message": "OK then. I see no obvious problems in script. altcodepatch (mechanism of patching kernel code at runtime for example to efficiently support different CPU models and extensions) is removed, but it is currently used only on x86. It can be added later if needed.",
       "revId": "87e4c41a8a75b6a65a687fae8dfff5f530047dab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "904f0734_5dc6b8d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000359
+      },
+      "writtenOn": "2022-04-14T15:31:58Z",
+      "side": 1,
+      "message": "The problem appeared with the GCC transition, all people testing arm64 have this change locally(me too, so NxP board also working). Thanks stepping in.\n\nThe only reason prevented me from submitting would be to overcheck if there was no previous work in the linkerfile which would need to be kept.",
+      "parentUuid": "1f965e73_b92e498b",
+      "revId": "87e4c41a8a75b6a65a687fae8dfff5f530047dab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
