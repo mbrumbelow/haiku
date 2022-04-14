@@ -16,6 +16,23 @@
       "message": "adapted from arm32 / riscv64\n\nno need to worry about .ARM.exidx as that seems to be there only on the 32-bit ARM",
       "revId": "87e4c41a8a75b6a65a687fae8dfff5f530047dab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea76ba7f_8a9f5cce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-04-14T12:41:26Z",
+      "side": 1,
+      "message": "Anybody tested it? Does kernel start correctly?",
+      "revId": "87e4c41a8a75b6a65a687fae8dfff5f530047dab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
