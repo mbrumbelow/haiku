@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79dd0a6b_d6c6344f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-04-15T16:45:11Z",
+      "side": 1,
+      "message": "This ibuild fail is expected as the second commit \u0027Remove use of config_manager\u0027 is needed.",
+      "revId": "9315930f3c9624f56420086d4361c712bb0385a1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
