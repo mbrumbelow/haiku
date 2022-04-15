@@ -784,7 +784,6 @@ TermParse::EscParse()
 					Attributes attributes = fBuffer->GetAttributes();
 					for (row = 0; row < nparam; ++row) {
 						switch (param[row]) {
-							case DEFAULT:
 							case 0: /* Reset attribute */
 								attributes.Reset();
 								break;
@@ -836,12 +835,16 @@ TermParse::EscParse()
 
 							case 38:
 							{
-								if (nparam == 3 && param[1] == 5)
-									attributes.SetIndexedForeground(param[2]);
-								else if (nparam == 5 && param[1] == 2)
-									attributes.SetDirectForeground(param[2], param[3], param[4]);
+								if (nparam >= 3 && param[row+1] == 5) {
+									attributes.SetIndexedForeground(param[row+2]);
+									row += 2;
+								} else if (nparam >= 5 && param[row+1] == 2) {
+									attributes.SetDirectForeground(param[row+2], param[row+3], param[row+4]);
+									row += 4;
+								} else {
+									row = nparam; // force exit of the parsing
+								}
 
-								row = nparam; // force exit of the parsing
 								break;
 							}
 
@@ -871,17 +874,23 @@ TermParse::EscParse()
 
 							case 48:
 							{
-								if (nparam == 3 && param[1] == 5)
-									attributes.SetIndexedBackground(param[2]);
-								else if (nparam == 5 && param[1] == 2)
-									attributes.SetDirectBackground(param[2], param[3], param[4]);
+								if (nparam >= 3 && param[row+1] == 5) {
+									attributes.SetIndexedBackground(param[row+2]);
+									row += 2;
+								} else if (nparam >= 5 && param[1] == 2) {
+									attributes.SetDirectBackground(param[row+2], param[row+3], param[row+4]);
+									row += 4;
+								} else {
+									row = nparam; // force exit of the parsing
+								}
 
-								row = nparam; // force exit of the parsing
 								break;
 							}
 
 							case 49:
 								attributes.UnsetBackground();
+								break;
+							case DEFAULT:
 								break;
 						}
 					}
