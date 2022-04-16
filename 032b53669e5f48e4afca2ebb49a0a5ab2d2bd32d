@@ -210,6 +210,24 @@
       "message": "Are you sure that config_manager is/was never filled including x86? If so, why pc_serial driver use it? Because it was used in BeOS?",
       "revId": "032b53669e5f48e4afca2ebb49a0a5ab2d2bd32d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b382a3f3_b205737b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-04-16T11:23:50Z",
+      "side": 1,
+      "message": "It\u0027s a git grep for config_manager so yes. No, config_manager was introduced in Haiku long time ago but never used or implemented. It no longer makes much sense.  The fact that it was never implemented or working and everyone keeps adding more and more files because of it is why we want to remove it. There has been several long threads about it already, last discussion was a PR to add even more files to it.\n\nWhen I approved ARM and ARM64 PR\u0027s to remove empty config_manager arch files, pulkomandy asked why we don\u0027t remove the whole thing. I am only doing this because everyone keeps talking instead of doing it. Yet we keep talking instead of doing. Therefore I am trying to push that we end this once and for all, all I need is approval.",
+      "parentUuid": "c4eb49fd_29f095ac",
+      "revId": "032b53669e5f48e4afca2ebb49a0a5ab2d2bd32d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
