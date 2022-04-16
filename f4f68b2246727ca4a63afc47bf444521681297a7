@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "765793f7_802e509d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-16T09:04:05Z",
+      "side": 1,
+      "message": "The Playlist class is getting long. Maybe a Reader class for pls and one for m3u would make sense. An abstract reader class could even be introduced with identify and read/append to playlist as entry points.",
+      "revId": "f4f68b2246727ca4a63afc47bf444521681297a7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "762aa74f_d43cfcdd",
