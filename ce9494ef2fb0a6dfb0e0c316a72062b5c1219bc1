@@ -16,6 +16,24 @@
       "message": "commenting isn\u0027t fixing. maybe using a B_PRI macro would fix it.",
       "revId": "ce9494ef2fb0a6dfb0e0c316a72062b5c1219bc1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be4de54e_1a4b8b79",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-04-16T02:49:59Z",
+      "side": 1,
+      "message": "Apologies for that, I will keep that in mind.\n\nNow regarding using B_PRI macro can you elaborate more on how to use that?\nFrom what I get till now is we are accessing fRoot before initialising it, so how does B_PRI fixes it?\nOnly other occurrences of it is in B_PRIdINO and B_PRIdOFF.",
+      "parentUuid": "af16f285_f974fab2",
+      "revId": "ce9494ef2fb0a6dfb0e0c316a72062b5c1219bc1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
