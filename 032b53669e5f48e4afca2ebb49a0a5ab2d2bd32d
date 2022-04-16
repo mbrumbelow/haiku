@@ -245,6 +245,23 @@
       "message": "There\u0027s still a reference in the floppy driver, included for x86.",
       "revId": "032b53669e5f48e4afca2ebb49a0a5ab2d2bd32d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "027577c5_2c54582e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-16T21:35:06Z",
+      "side": 1,
+      "message": "You obviously get my approval as I\u0027m the one asking over and over why this code isn\u0027t yet removed.\n\nIt was indeed used in BeOS for legacy non plug-and-play ISA devices, which Haiku does not support and it would be silly to start working on it now (but if you disagree, it\u0027s always possible to reintroduce the config manager later, or use a different design fitting the \"new\" haiku driver model)",
+      "revId": "032b53669e5f48e4afca2ebb49a0a5ab2d2bd32d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
