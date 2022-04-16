@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4de067ac_91dda6f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2022-04-16T07:22:59Z",
+      "side": 1,
+      "message": "I added some comments about the code. How are you testing this functionality? Do you use hand crafted playlists?",
+      "revId": "f4f68b2246727ca4a63afc47bf444521681297a7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "762aa74f_d43cfcdd",
+        "filename": "src/apps/mediaplayer/playlist/Playlist.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 672,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2022-04-16T07:22:59Z",
+      "side": 1,
+      "message": "You should be able to compare a BString to a const char* constant, so there is no reason to create a BString with contents \"File\" here, as well as below.",
+      "revId": "f4f68b2246727ca4a63afc47bf444521681297a7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06d9191e_b9203dbe",
+        "filename": "src/apps/mediaplayer/playlist/Playlist.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2022-04-16T07:22:59Z",
+      "side": 1,
+      "message": "I wonder if it makes sense to read the first line in this usage. On lines 468-469, it seems that as soon as the file is identified as a play list, it gets opened again. This introduces a bit of inefficiency as the file has to be opened twice, and the outcome would be the same. So you might as well do the header check in AppendPlsToPlaylist() I think.",
+      "revId": "f4f68b2246727ca4a63afc47bf444521681297a7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb0c6a13_e3e58f9d",
+        "filename": "src/apps/mediaplayer/playlist/Playlist.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1032,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2022-04-16T07:22:59Z",
+      "side": 1,
+      "message": "I am not sure whether this is bug free code. `item` will be NULL if memory allocation fails. playlist-\u003eAddItem() adds an item to the list, but does not do a NULL check themselves and therefore seems to assume it is non-null. Thus by the time you do the NULL-check, you already added an invalid item to the list.\n\nI would either remove the std::nothrow, which will make the application just crash when memory allocation fails, or move the check up higher if that\u0027s more in line with what the rest of the code is doing.",
+      "revId": "f4f68b2246727ca4a63afc47bf444521681297a7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98f45663_f509b5f8",
+        "filename": "src/apps/mediaplayer/playlist/Playlist.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1073,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2022-04-16T07:22:59Z",
+      "side": 1,
+      "message": "Why are you handcrafting this instead of using stroll? The latter would also be able to parse the -1 yu check for above.",
+      "revId": "f4f68b2246727ca4a63afc47bf444521681297a7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16fdf7ea_ae94addf",
+        "filename": "src/apps/mediaplayer/playlist/Playlist.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2022-04-16T07:22:59Z",
+      "side": 1,
+      "message": "Naming: wouldn\u0027t Parse be preferred over Read? To me, Read sounds like something that comes from an IO device. In this case it is already available in a string.",
+      "revId": "f4f68b2246727ca4a63afc47bf444521681297a7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
