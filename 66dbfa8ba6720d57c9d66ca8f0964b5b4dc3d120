@@ -51,6 +51,23 @@
       "parentUuid": "f83fd29a_4d6cd736",
       "revId": "66dbfa8ba6720d57c9d66ca8f0964b5b4dc3d120",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6b040bd_d3b060c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-17T07:32:53Z",
+      "side": 1,
+      "message": "The Android MTP client I\u0027m trying to port in fact does not need (or supports) FUSE3. It just needs a newer version of FUSE2.\n\nIt looks like not a lot of things have migrated to FUSE3 yet. So let\u0027s wait a few years before revisiting this...",
+      "revId": "66dbfa8ba6720d57c9d66ca8f0964b5b4dc3d120",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
