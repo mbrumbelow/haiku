@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb86f5ff_8913d579",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-04-17T11:54:51Z",
+      "side": 1,
+      "message": "Thanks!\nI will try to write better commit messages to give a short summary of why I did the changes and what I changed/added.",
+      "parentUuid": "b1609f38_93ad34b9",
+      "revId": "ce9494ef2fb0a6dfb0e0c316a72062b5c1219bc1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "af16f285_f974fab2",
