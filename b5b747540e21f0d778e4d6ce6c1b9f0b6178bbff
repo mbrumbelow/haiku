@@ -34,6 +34,23 @@
       "parentUuid": "2c7ee897_56ad93a8",
       "revId": "b5b747540e21f0d778e4d6ce6c1b9f0b6178bbff",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "038e14a2_ba4d9b16",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-04-18T14:53:36Z",
+      "side": 1,
+      "message": "There is now a merge conflict.\n\nkorli, can you take a look here? You know the most at present about this code I think.",
+      "revId": "b5b747540e21f0d778e4d6ce6c1b9f0b6178bbff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
