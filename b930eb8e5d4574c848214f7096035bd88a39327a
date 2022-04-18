@@ -16,6 +16,23 @@
       "message": "For license:\n- keep the FreeBSD header (as you did)\n- if you made changes, add your own copyright or assign it to haiku inc as you profer.\n\nDidn\u0027t we already have a change implementing this? I think I remember one but maybe it was another part of C11, maybe mutexes? Can\u0027t find it on Gerrit at the moment",
       "revId": "b930eb8e5d4574c848214f7096035bd88a39327a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffa8587c_2f86f457",
+        "filename": "headers/posix/threads.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-04-18T15:08:21Z",
+      "side": 1,
+      "message": "Is it used somewhere?",
+      "revId": "b930eb8e5d4574c848214f7096035bd88a39327a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
