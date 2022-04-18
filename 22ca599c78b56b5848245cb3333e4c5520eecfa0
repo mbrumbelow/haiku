@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "beb62024_b451b8e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000385
+      },
+      "writtenOn": "2022-04-18T17:01:26Z",
+      "side": 1,
+      "message": "Thank you very much for the quick feedback! I\u0027ve added the copyright and changed thrd_create to return thrd_busy when appropriate.",
+      "revId": "22ca599c78b56b5848245cb3333e4c5520eecfa0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

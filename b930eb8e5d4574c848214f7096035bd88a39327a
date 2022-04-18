@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "42fbcd65_0e440077",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000385
+      },
+      "writtenOn": "2022-04-18T17:01:26Z",
+      "side": 1,
+      "message": "Ok, I\u0027ve added my copyright.\n\nGrepping through the repo doesn\u0027t show any other definitions of these functions, so as far as I can tell this hasn\u0027t been implemented yet. This is intended to close https://dev.haiku-os.org/ticket/17521",
+      "parentUuid": "9a296166_67272e55",
+      "revId": "b930eb8e5d4574c848214f7096035bd88a39327a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ffa8587c_2f86f457",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-04-18T15:08:21Z",
       "side": 1,
       "message": "Is it used somewhere?",
+      "revId": "b930eb8e5d4574c848214f7096035bd88a39327a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6068a22b_972eec19",
+        "filename": "headers/posix/threads.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000385
+      },
+      "writtenOn": "2022-04-18T17:01:26Z",
+      "side": 1,
+      "message": "No, the FreeBSD code just unconditionally returns thrd_error if the thread creation fails. Perhaps it\u0027s a better idea to switch on the POSIX error returned by pthread_create.\n\nI changed thrd_create to return thrd_busy on EAGAIN and thrd_error on other error codes. Let me know if this seems reasonable.",
+      "parentUuid": "ffa8587c_2f86f457",
       "revId": "b930eb8e5d4574c848214f7096035bd88a39327a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
