@@ -36,6 +36,7 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 			spawn.cpp
 			syslog.cpp
 			termios.c
+			threads.c
 			utime.c
 			utmpx.cpp
 			;
