@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "909e811f_87bb1dba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-18T08:32:00Z",
+      "side": 1,
+      "message": "There are still some warnings with trace enabled in this file. Why not fix them?",
+      "revId": "8c76690ac381310892837f8a773e896a43f2be8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
