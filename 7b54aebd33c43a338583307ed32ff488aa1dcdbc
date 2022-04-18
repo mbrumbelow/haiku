@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b45471c0_2458fbe9",
+        "filename": "headers/posix/threads.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000385
+      },
+      "writtenOn": "2022-04-18T22:21:51Z",
+      "side": 1,
+      "message": "The _Noreturn function specifier is apparently unsupported in gcc2, so the x86_gcc2 build was failing. I didn\u0027t see _Noreturn used anywhere else in the codebase so I removed it, but since it\u0027s part of the spec it may be worth a preprocessing step.",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 20
+      },
+      "revId": "7b54aebd33c43a338583307ed32ff488aa1dcdbc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1bb41da0_f14f1e6a",
+        "filename": "src/system/libroot/posix/threads.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000385
+      },
+      "writtenOn": "2022-04-18T22:21:51Z",
+      "side": 1,
+      "message": "As far as I can tell, this is the most appropriate header to get status_t from. Other files tend to import it indirectly, so this should be corrected if there\u0027s a more standard header file for these definitions.",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 24
+      },
+      "revId": "7b54aebd33c43a338583307ed32ff488aa1dcdbc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
