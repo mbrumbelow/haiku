@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a296166_67272e55",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-18T15:00:03Z",
+      "side": 1,
+      "message": "For license:\n- keep the FreeBSD header (as you did)\n- if you made changes, add your own copyright or assign it to haiku inc as you profer.\n\nDidn\u0027t we already have a change implementing this? I think I remember one but maybe it was another part of C11, maybe mutexes? Can\u0027t find it on Gerrit at the moment",
+      "revId": "b930eb8e5d4574c848214f7096035bd88a39327a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
