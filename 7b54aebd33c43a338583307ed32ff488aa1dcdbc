@@ -96,6 +96,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "433f7f9d_a446adbe",
+        "filename": "headers/posix/threads.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000385
+      },
+      "writtenOn": "2022-04-19T20:01:46Z",
+      "side": 1,
+      "message": "Oh, I understand now. I actually did try do compile conditionally on _ISOC11_SOURCE (defined in headers/compatibility/bsd/features.h) and even on __STDC_VERSION__ directly, but for some reason that didn\u0027t work. However I saw that other places in the codebase compiled conditionally on __GNUC__ and that worked like a charm!",
+      "parentUuid": "e33989ef_b0c0110e",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 20
+      },
+      "revId": "7b54aebd33c43a338583307ed32ff488aa1dcdbc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1bb41da0_f14f1e6a",
