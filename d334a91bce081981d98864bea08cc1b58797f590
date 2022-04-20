@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b5f82d3_5eb87217",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-04-20T13:38:51Z",
+      "side": 1,
+      "message": "preparation for implementing memory types - as I understand it\u0027s enough to set memory type flags (i.e. TEX, B, C bits) in Map() and Protect() as arch_vm_set_memory_type() is x86-specific (cf. MTRR)\n\nthis one should also close defect #12667\n\nmemory type 0x10000000 is B_MTR_UC i.e. uncached which I\u0027d like to implement as either strongly-ordered (TEX\u003d0, B\u003d0, C\u003d0) or maybe shared device memory (TEX\u003d0, B\u003d1, B\u003d0)  - but B_MTR_WC might be a better mapping for the latter one.",
+      "revId": "d334a91bce081981d98864bea08cc1b58797f590",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
