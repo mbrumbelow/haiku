@@ -34,6 +34,41 @@
       "parentUuid": "819e5ff5_c4d42864",
       "revId": "55f6403ab9eb3523385123897193e3396412eebb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f80e3c21_35299eb0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-20T09:13:08Z",
+      "side": 1,
+      "message": "Indeed there is precedent for both (_user_acquire_sem_etc+_user_acquire_sem vs _user_port_buffer_size_etc).",
+      "parentUuid": "71a5f139_85df6f2f",
+      "revId": "55f6403ab9eb3523385123897193e3396412eebb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "610bed96_dbb9d152",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-20T09:13:08Z",
+      "side": 1,
+      "message": "The situation with having one or two syscalls is already inconsistent. I don\u0027t see a reason for blocking this change.",
+      "revId": "55f6403ab9eb3523385123897193e3396412eebb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
