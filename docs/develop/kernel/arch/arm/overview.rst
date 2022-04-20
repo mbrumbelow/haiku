@@ -36,6 +36,8 @@ We have accumulated some notes and documentation on some of them.
    /kernel/arch/arm/ipaq
    /kernel/arch/arm/rpi1
    /kernel/arch/arm/rpi2
+   /kernel/arch/arm/rpi3
+   /kernel/arch/arm/rpi4
 
 TODO list
 ---------
@@ -54,10 +56,6 @@ below. This should be done by setting the -mcpu,-march and -mfloat-abi
 switches at build time, however, they aren't passed on to haikuporter
 during the bootstrap build, leading to the ports failing to find the
 gcc atomic ops again.
-
-It seems this create other problems, mainly because the UEFI environment for ARM is not supposed to
-handle floating point registers. So, the softfloat ABI should be used there instead. To be able
-to build both "soft float" and "hard float" code, we need multilib support, see below.
 
 Determine how to handle atomic functions on ARM
 ***********************************************
@@ -115,15 +113,10 @@ Currently it is not possible to disassemble code in the kernel debugger.
 
 The `NetBSD disassembler <http://fxr.watson.org/fxr/source/arch/arm/arm/disassem.c?v=NETBSD>`_ could be ported and used for this.
 
-Add KDL hangman to the boot image
-*********************************
-
-for more enjoyment during porting....
-
 Userland
 ********
 
-Even if KDL hangman is fun, users will want to run real applications someday.
+Even if poking around in the kernel debugger is fun, users will want to run real applications someday.
 
 Other resources
 ---------------

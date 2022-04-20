@@ -60,6 +60,7 @@ virtual	status_t					Power(bool enabled);
 virtual	status_t					GetEDID(edid1_info* edid,
 										bool forceRead = false);
 virtual	status_t					SetupI2c(struct i2c_bus *bus);
+virtual status_t					SetupI2cFallback(struct i2c_bus *bus);
 
 virtual	status_t					GetPLLLimits(pll_limits& limits);
 
@@ -75,6 +76,23 @@ static	status_t					_GetI2CSignals(void* cookie, int* _clock,
 										int* _data);
 static	status_t					_SetI2CSignals(void* cookie, int clock,
 										int data);
+		bool						_IsPortInVBT(uint32* foundIndex = NULL);
+		bool						_IsDisplayPortInVBT();
+		bool						_IsHdmiInVBT();
+		bool						_IsEDPPort();
+		status_t					_SetupDpAuxI2c(struct i2c_bus *bus);
+
+		ssize_t						_DpAuxTransfer(dp_aux_msg* message);
+		ssize_t						_DpAuxTransfer(uint8* transmitBuffer, uint8 transmitSize,
+										uint8* receiveBuffer, uint8 receiveSize);
+		status_t					_DpAuxSendReceive(uint32 slave_address,
+										const uint8 *writeBuffer, size_t writeLength,
+										uint8 *readBuffer, size_t readLength);
+static 	status_t					_DpAuxSendReceiveHook(const struct i2c_bus *bus,
+										uint32 slave_address, const uint8 *writeBuffer,
+										size_t writeLength, uint8 *readBuffer,
+										size_t readLength);
+		aux_channel					_DpAuxChannel();
 
 		display_mode				fCurrentMode;
 		Pipe*						fPipe;
@@ -172,6 +190,7 @@ virtual	uint32						Type() const
 										{ return INTEL_PORT_TYPE_DP; }
 
 virtual	status_t					SetPipe(Pipe* pipe);
+virtual	status_t					SetupI2c(i2c_bus *bus);
 
 virtual	bool						IsConnected();
 
@@ -214,6 +233,7 @@ virtual	status_t					Power(bool enabled);
 
 virtual	status_t					SetPipe(Pipe* pipe);
 virtual	status_t					SetupI2c(i2c_bus *bus);
+virtual status_t					SetupI2cFallback(struct i2c_bus *bus);
 
 virtual	bool						IsConnected();
 
@@ -228,17 +248,6 @@ private:
 
 		status_t					_SetPortLinkGen8(const display_timing& timing,
 										uint32 pllSel);
-
-		ssize_t						_DpAuxTransfer(dp_aux_msg* message);
-		ssize_t						_DpAuxTransfer(uint8* transmitBuffer, uint8 transmitSize,
-										uint8* receiveBuffer, uint8 receiveSize);
-		status_t					_DpAuxSendReceive(uint32 slave_address,
-										const uint8 *writeBuffer, size_t writeLength,
-										uint8 *readBuffer, size_t readLength);
-static 	status_t					_DpAuxSendReceiveHook(const struct i2c_bus *bus,
-										uint32 slave_address, const uint8 *writeBuffer,
-										size_t writeLength, uint8 *readBuffer,
-										size_t readLength);
 };
 
 

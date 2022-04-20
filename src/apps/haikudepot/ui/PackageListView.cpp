@@ -1,5 +1,5 @@
 /*
- * Copyright 2018-2021, Andrew Lindesay, <apl@lindesay.co.nz>.
+ * Copyright 2018-2022, Andrew Lindesay, <apl@lindesay.co.nz>.
  * Copyright 2017, Julian Harnath, <julian.harnath@rwth-aachen.de>.
  * Copyright 2015, Axel Dörfler, <axeld@pinc-software.de>.
  * Copyright 2013-2014, Stephan Aßmus <superstippi@gmx.de>.
@@ -857,7 +857,8 @@ PackageListView::PackageListView(Model* model)
 	fModel(model),
 	fPackageListener(new(std::nothrow) PackageListener(this)),
 	fRowByNameTable(new RowByNameTable()),
-	fWorkStatusView(NULL)
+	fWorkStatusView(NULL),
+	fIgnoreSelectionChanged(false)
 {
 	float scale = be_plain_font->Size() / 12.f;
 	float spacing = be_control_look->DefaultItemSpacing() * 2;
@@ -965,6 +966,8 @@ PackageListView::MessageReceived(BMessage* message)
 					row->UpdateRepository();
 				if ((changes & PKG_CHANGED_VERSION) != 0)
 					row->UpdateVersion();
+				if ((changes & PKG_CHANGED_VERSION_CREATE_TIMESTAMP) != 0)
+					row->UpdateVersionCreateTimestamp();
 			}
 			break;
 		}
@@ -980,6 +983,9 @@ void
 PackageListView::SelectionChanged()
 {
 	BColumnListView::SelectionChanged();
+
+	if (fIgnoreSelectionChanged)
+		return;
 
 	BMessage message(MSG_PACKAGE_SELECTED);
 
@@ -1046,6 +1052,8 @@ PackageListView::RemovePackage(const PackageInfoRef& package)
 void
 PackageListView::SelectPackage(const PackageInfoRef& package)
 {
+	fIgnoreSelectionChanged = true;
+
 	PackageRow* row = _FindRow(package);
 	BRow* selected = CurrentSelection();
 	if (row != selected)
@@ -1055,6 +1063,8 @@ PackageListView::SelectPackage(const PackageInfoRef& package)
 		SetFocusRow(row, false);
 		ScrollTo(row);
 	}
+
+	fIgnoreSelectionChanged = false;
 }
 
 

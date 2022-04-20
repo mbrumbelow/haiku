@@ -158,13 +158,41 @@ gen8_handle_interrupts(intel_info& info, uint32 interrupt)
 		interrupt &= ~PCH_MASTER_INT_CTL_PIPE_PENDING_BDW(INTEL_PIPE_C);
 	}
 
-	uint32 iir = 0;
 	if ((interrupt & GEN8_DE_PORT_IRQ) != 0) {
-		iir = read32(info, GEN8_DE_PORT_IIR);
+		uint32 iir = read32(info, GEN8_DE_PORT_IIR);
 		if (iir != 0) {
 			write32(info, GEN8_DE_PORT_IIR, iir);
 		}
 		interrupt &= ~GEN8_DE_PORT_IRQ;
+	}
+
+	if (info.device_type.Generation() >= 11 && (interrupt & GEN11_DE_HPD_IRQ) != 0) {
+		dprintf("gen8_handle_interrupts HPD\n");
+		uint32 iir = read32(info, GEN11_DE_HPD_IIR);
+		if (iir != 0) {
+			dprintf("gen8_handle_interrupts HPD_IIR %" B_PRIx32 "\n", iir);
+			write32(info, GEN11_DE_HPD_IIR, iir);
+		}
+		interrupt &= ~GEN11_DE_HPD_IRQ;
+	}
+
+	if ((interrupt & GEN8_DE_PCH_IRQ) != 0) {
+		dprintf("gen8_handle_interrupts PCH\n");
+		uint32 iir = read32(info, SDEIIR);
+		if (iir != 0) {
+			dprintf("gen8_handle_interrupts PCH_IIR %" B_PRIx32 "\n", iir);
+			write32(info, SDEIIR, iir);
+			if (info.shared_info->pch_info >= INTEL_PCH_ICP) {
+				uint32 ddiHotplug = read32(info, SHOTPLUG_CTL_DDI);
+				write32(info, SHOTPLUG_CTL_DDI, ddiHotplug);
+				dprintf("gen8_handle_interrupts PCH_IIR ddiHotplug %" B_PRIx32 "\n", ddiHotplug);
+
+				uint32 tcHotplug = read32(info, SHOTPLUG_CTL_TC);
+				write32(info, SHOTPLUG_CTL_TC, tcHotplug);
+				dprintf("gen8_handle_interrupts PCH_IIR tcHotplug %" B_PRIx32 "\n", tcHotplug);
+			}
+		}
+		interrupt &= ~GEN8_DE_PCH_IRQ;
 	}
 
 	interrupt &= ~PCH_MASTER_INT_CTL_GLOBAL_BDW;
@@ -451,16 +479,23 @@ init_interrupt_handler(intel_info &info)
 				gen8_enable_global_interrupts(info, true);
 
 				if (info.device_type.Generation() >= 11) {
+					if (info.shared_info->pch_info >= INTEL_PCH_ICP) {
+						read32(info, SDEIIR);
+						write32(info, SDEIER, 0xffffffff);
+						write32(info, SDEIMR, ~SDE_GMBUS_ICP);
+						read32(info, SDEIMR);
+					}
+
 					uint32 mask = GEN8_AUX_CHANNEL_A;
 					mask |= GEN9_AUX_CHANNEL_B | GEN9_AUX_CHANNEL_C | GEN9_AUX_CHANNEL_D;
 					mask |= CNL_AUX_CHANNEL_F;
 					mask |= ICL_AUX_CHANNEL_E;
-					read32(info, GEN8_DE_PORT_ISR);
+					read32(info, GEN8_DE_PORT_IIR);
 					write32(info, GEN8_DE_PORT_IER, mask);
 					write32(info, GEN8_DE_PORT_IMR, ~mask);
 					read32(info, GEN8_DE_PORT_IMR);
 
-					read32(info, GEN8_DE_MISC_ISR);
+					read32(info, GEN8_DE_MISC_IIR);
 					write32(info, GEN8_DE_MISC_IER, GEN8_DE_EDP_PSR);
 					write32(info, GEN8_DE_MISC_IMR, ~GEN8_DE_EDP_PSR);
 					read32(info, GEN8_DE_MISC_IMR);
@@ -469,7 +504,41 @@ init_interrupt_handler(intel_info &info)
 					write32(info, GEN11_GU_MISC_IER, GEN11_GU_MISC_GSE);
 					write32(info, GEN11_GU_MISC_IMR, ~GEN11_GU_MISC_GSE);
 					read32(info, GEN11_GU_MISC_IMR);
-					// Missing: Hotplug
+
+					read32(info, GEN11_DE_HPD_IIR);
+					write32(info, GEN11_DE_HPD_IER,
+						GEN11_DE_TC_HOTPLUG_MASK | GEN11_DE_TBT_HOTPLUG_MASK);
+					write32(info, GEN11_DE_HPD_IMR, 0xffffffff);
+					read32(info, GEN11_DE_HPD_IMR);
+
+					write32(info, GEN11_TC_HOTPLUG_CTL, 0);
+					write32(info, GEN11_TBT_HOTPLUG_CTL, 0);
+
+					if (info.shared_info->pch_info >= INTEL_PCH_ICP) {
+						if (info.shared_info->pch_info <= INTEL_PCH_TGP)
+							write32(info, SHPD_FILTER_CNT, SHPD_FILTER_CNT_500_ADJ);
+						read32(info, SDEIMR);
+						write32(info, SDEIMR, 0x3f023f07);
+						read32(info, SDEIMR);
+
+						uint32 ctl = read32(info, SHOTPLUG_CTL_DDI);
+						// we enable everything, should come from the VBT
+						ctl |= SHOTPLUG_CTL_DDI_HPD_ENABLE(HPD_PORT_A)
+							| SHOTPLUG_CTL_DDI_HPD_ENABLE(HPD_PORT_B)
+							| SHOTPLUG_CTL_DDI_HPD_ENABLE(HPD_PORT_C)
+							| SHOTPLUG_CTL_DDI_HPD_ENABLE(HPD_PORT_D);
+						write32(info, SHOTPLUG_CTL_DDI, ctl);
+						ctl = read32(info, SHOTPLUG_CTL_TC);
+						// we enable everything, should come from the VBT
+						ctl |= SHOTPLUG_CTL_TC_HPD_ENABLE(HPD_PORT_TC1)
+							| SHOTPLUG_CTL_TC_HPD_ENABLE(HPD_PORT_TC2)
+							| SHOTPLUG_CTL_TC_HPD_ENABLE(HPD_PORT_TC3)
+							| SHOTPLUG_CTL_TC_HPD_ENABLE(HPD_PORT_TC4)
+							| SHOTPLUG_CTL_TC_HPD_ENABLE(HPD_PORT_TC5)
+							| SHOTPLUG_CTL_TC_HPD_ENABLE(HPD_PORT_TC6);
+						write32(info, SHOTPLUG_CTL_TC, ctl);
+					}
+
 					gen11_enable_global_interrupts(info, true);
 				}
 			}
@@ -678,10 +747,12 @@ intel_extreme_init(intel_info &info)
 	info.shared_info->frame_buffer = 0;
 	info.shared_info->dpms_mode = B_DPMS_ON;
 	info.shared_info->min_brightness = 2;
+	info.shared_info->internal_crt_support = true;
+	info.shared_info->pch_info = info.pch_info;
+	info.shared_info->device_type = info.device_type;
 
-	// Pull VBIOS panel mode for later use
-	info.shared_info->got_vbt = get_lvds_mode_from_bios(
-		&info.shared_info->panel_timing, &info.shared_info->min_brightness);
+	// Pull VBIOS info for later use
+	info.shared_info->got_vbt = parse_vbt_from_bios(info.shared_info);
 
 	/* at least 855gm can't drive more than one head at time */
 	if (info.device_type.InFamily(INTEL_FAMILY_8xx))
@@ -738,9 +809,6 @@ intel_extreme_init(intel_info &info)
 
 	info.shared_info->pll_info.divisor_register = INTEL_DISPLAY_A_PLL_DIVISOR_0;
 
-	info.shared_info->pch_info = info.pch_info;
-
-	info.shared_info->device_type = info.device_type;
 #ifdef __HAIKU__
 	strlcpy(info.shared_info->device_identifier, info.device_identifier,
 		sizeof(info.shared_info->device_identifier));
@@ -799,9 +867,49 @@ intel_extreme_init(intel_info &info)
 		} else {
 			info.shared_info->fdi_link_frequency = 2700;
 		}
+		if (info.shared_info->pch_info >= INTEL_PCH_CNP) {
+			// TODO read/write info.shared_info->hraw_clock
+		} else {
+			info.shared_info->hraw_clock = (read32(info, PCH_RAWCLK_FREQ)
+				& RAWCLK_FREQ_MASK) * 1000;
+			TRACE("%s: rawclk rate: %" B_PRIu32 " kHz\n", __func__, info.shared_info->hraw_clock);
+		}
 	} else {
+		// TODO read info.shared_info->hraw_clock
 		info.shared_info->fdi_link_frequency = 0;
 	}
+
+	if (info.device_type.InGroup(INTEL_GROUP_BDW)) {
+		uint32 lcpll = read32(info, LCPLL_CTL);
+		if ((lcpll & LCPLL_CD_SOURCE_FCLK) != 0)
+			info.shared_info->hw_cdclk = 800000;
+		else if ((lcpll & LCPLL_CLK_FREQ_MASK) == LCPLL_CLK_FREQ_450)
+			info.shared_info->hw_cdclk = 450000;
+		else if ((lcpll & LCPLL_CLK_FREQ_MASK) == LCPLL_CLK_FREQ_54O_BDW)
+			info.shared_info->hw_cdclk = 540000;
+		else if ((lcpll & LCPLL_CLK_FREQ_MASK) == LCPLL_CLK_FREQ_337_5_BDW)
+			info.shared_info->hw_cdclk = 337500;
+		else
+			info.shared_info->hw_cdclk = 675000;
+	} else if (info.device_type.InGroup(INTEL_GROUP_HAS)) {
+		uint32 lcpll = read32(info, LCPLL_CTL);
+		if ((lcpll & LCPLL_CD_SOURCE_FCLK) != 0)
+			info.shared_info->hw_cdclk = 800000;
+		else if ((lcpll & LCPLL_CLK_FREQ_MASK) == LCPLL_CLK_FREQ_450)
+			info.shared_info->hw_cdclk = 450000;
+		/* ULT type is missing
+		else if (IS_ULT)
+			info.shared_info->hw_cdclk = 337500;
+		*/
+		else
+			info.shared_info->hw_cdclk = 540000;
+	} else if (info.device_type.InGroup(INTEL_GROUP_SNB)
+		|| info.device_type.InGroup(INTEL_GROUP_IVB)) {
+		info.shared_info->hw_cdclk = 400000;
+	} else if (info.device_type.InGroup(INTEL_GROUP_ILK)) {
+		info.shared_info->hw_cdclk = 450000;
+	}
+	TRACE("%s: hw_cdclk: %" B_PRIu32 " kHz\n", __func__, info.shared_info->hw_cdclk);
 
 	TRACE("%s: completed successfully!\n", __func__);
 	return B_OK;

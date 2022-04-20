@@ -38,7 +38,8 @@ Table of contents
    :maxdepth: 2
    :caption: Contents:
 
-   /build/repositories/README
+   /build/index
+   /release/index
    /apps/haikudepot/server
    /midi/index
    /net/NetworkStackOverview

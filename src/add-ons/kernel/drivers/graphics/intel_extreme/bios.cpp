@@ -44,11 +44,70 @@ struct bdb_header {
 
 
 enum bdb_block_id {
+	BDB_GENERAL_FEATURES = 1,
+	BDB_GENERAL_DEFINITIONS,
 	BDB_LVDS_OPTIONS = 40,
 	BDB_LVDS_LFP_DATA_PTRS = 41,
 	BDB_LVDS_BACKLIGHT = 43,
 	BDB_GENERIC_DTD = 58
 };
+
+
+struct bdb_general_features {
+	uint8 id;
+	uint16 size;
+
+	uint8 panel_fitting: 2;
+	bool flexaim: 1;
+	bool msg_enable: 1;
+	uint8 clear_screen: 3;
+	bool color_flip: 1;
+
+	bool download_ext_vbt: 1;
+	bool enable_ssc: 1;
+	bool ssc_freq: 1;
+	bool enable_lfp_on_override: 1;
+	bool disable_ssc_ddt: 1;
+	bool underscan_vga_timings: 1;
+	bool display_clock_mode: 1;
+	bool vbios_hotplug_support: 1;
+
+	bool disable_smooth_vision: 1;
+	bool single_dvi: 1;
+	bool rotate_180: 1;
+	bool fdi_rx_polarity_inverted: 1;
+	bool vbios_extended_mode: 1;
+	bool copy_ilfp_dtd_to_svo_lvds_dtd: 1;
+	bool panel_best_fit_timing: 1;
+	bool ignore_strap_state: 1;
+
+	uint8 legacy_monitor_detect;
+
+	bool int_crt_support: 1;
+	bool int_tv_support: 1;
+	bool int_efp_support: 1;
+	bool dp_ssc_enable: 1;
+	bool dp_ssc_freq: 1;
+	bool dp_ssc_dongle_supported: 1;
+	uint8 rsvd11: 2;
+
+	uint8 tc_hpd_retry_timeout: 7;
+	bool rsvd12: 1;
+
+	uint8 afc_startup_config: 2;
+	uint8 rsvd13: 6;
+} __attribute__((packed));
+
+
+struct bdb_general_definitions {
+	uint8 id;
+	uint16 size;
+	uint8 crt_ddc_gmbus_pin;
+	uint8 dpms_bits;
+	uint8 boot_display[2];
+	uint8 child_device_size;
+	uint8 devices[];
+} __attribute__((packed));
 
 
 // FIXME the struct definition for the bdb_header is not complete, so we rely
@@ -422,8 +481,11 @@ sanitize_panel_timing(display_timing& timing)
 
 
 bool
-get_lvds_mode_from_bios(display_timing* panelTiming, uint16* minBrightness)
+parse_vbt_from_bios(struct intel_shared_info* info)
 {
+	display_timing* panelTiming = &info->panel_timing;
+	uint16* minBrightness = &info->min_brightness;
+
 	int vbtOffset = 0;
 	if (!get_bios(&vbtOffset))
 		return false;
@@ -450,6 +512,42 @@ get_lvds_mode_from_bios(display_timing* panelTiming, uint16* minBrightness)
 		int id = vbios.memory[start];
 		blockSize = vbios.ReadWord(start + 1) + 3;
 		switch (id) {
+			case BDB_GENERAL_FEATURES:
+			{
+				struct bdb_general_features* features;
+				features = (struct bdb_general_features*)(vbios.memory + start);
+				if (bdb->version >= 155
+					&& (info->device_type.HasDDI()
+						|| info->device_type.InGroup(INTEL_GROUP_VLV))) {
+					info->internal_crt_support = features->int_crt_support;
+					TRACE((DEVICE_NAME ": internal_crt_support: 0x%x\n",
+						info->internal_crt_support));
+				}
+				break;
+			}
+			case BDB_GENERAL_DEFINITIONS:
+			{
+				info->device_config_count = 0;
+				struct bdb_general_definitions* defs;
+				if (bdb->version < 111)
+					break;
+				defs = (struct bdb_general_definitions*)(vbios.memory + start);
+				uint8 childDeviceSize = defs->child_device_size;
+				uint32 device_config_count = (blockSize - sizeof(*defs)) / childDeviceSize;
+				for (uint32 i = 0; i < device_config_count; i++) {
+					child_device_config* config =
+						(child_device_config*)(&defs->devices[i * childDeviceSize]);
+					if (config->device_type == 0)
+						continue;
+					memcpy(&info->device_configs[info->device_config_count], config,
+						min_c(sizeof(child_device_config), childDeviceSize));
+					TRACE((DEVICE_NAME ": found child device type: 0x%x\n", config->device_type));
+					info->device_config_count++;
+					if (info->device_config_count > 10)
+						break;
+				}
+				break;
+			}
 			case BDB_LVDS_OPTIONS:
 			{
 				struct lvds_bdb1 *lvds1;

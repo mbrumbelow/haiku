@@ -110,8 +110,8 @@ SYSTEM_ADD_ONS_DRIVERS_BT_H2 +=
 ;
 
 SYSTEM_ADD_ONS_ACCELERANTS += [ FFilterByBuildFeatures
-	ati.accelerant
 	x86,x86_64 @{
+		ati.accelerant
 		intel_810.accelerant intel_extreme.accelerant
 		matrox.accelerant
 		nvidia.accelerant
@@ -206,8 +206,8 @@ SYSTEM_ADD_ONS_DRIVERS_AUDIO_OLD +=
 ;
 
 SYSTEM_ADD_ONS_DRIVERS_GRAPHICS += [ FFilterByBuildFeatures
-	ati
 	x86,x86_64 @{
+		ati
 		intel_810 intel_extreme
 		matrox
 		nvidia
@@ -232,8 +232,8 @@ SYSTEM_ADD_ONS_DRIVERS_NET += [ FFilterByBuildFeatures
 	x86,x86_64 @{
 		aironetwifi atheroswifi
 		broadcom43xx
+		iaxwifi200 idualwifi7260
 		iprowifi2100 iprowifi2200 iprowifi3945 iprowifi4965
-		idualwifi7260
 		marvell88w8363 marvell88w8335
 		ralinkwifi realtekwifi
 	}@ # x86,x86_64

@@ -55,10 +55,13 @@ dump_registers()
 
 	ERROR("%s: Taking register dump #%" B_PRId32 "\n", __func__, gDumpCount);
 
+	area_info areaInfo;
+	get_area_info(gInfo->shared_info->registers_area, &areaInfo);
+
 	int fd = open(filename, O_CREAT | O_WRONLY, 0644);
 	uint32 data = 0;
 	if (fd >= 0) {
-		for (int32 i = 0; i < 0x80000; i += sizeof(data)) {
+		for (uint32 i = 0; i < areaInfo.size; i += sizeof(data)) {
 			//char line[512];
 			//int length = sprintf(line, "%05" B_PRIx32 ": "
 			//	"%08" B_PRIx32 " %08" B_PRIx32 " %08" B_PRIx32 " %08" B_PRIx32 "\n",
@@ -144,8 +147,10 @@ init_common(int device, bool isClone)
 
 	// Allocate all of our pipes
 	int pipeCnt = 2;
-	if (gInfo->shared_info->device_type.Generation() >= 7)
-		pipeCnt = 3; // some newer gens have even more..
+	if (gInfo->shared_info->device_type.Generation() >= 12)
+		pipeCnt = 4;
+	else if (gInfo->shared_info->device_type.Generation() >= 7)
+		pipeCnt = 3;
 
 	for (int i = 0; i < pipeCnt; i++) {
 		switch (i) {
@@ -157,6 +162,9 @@ init_common(int device, bool isClone)
 				break;
 			case 2:
 				gInfo->pipes[i] = new(std::nothrow) Pipe(INTEL_PIPE_C);
+				break;
+			case 3:
+				gInfo->pipes[i] = new(std::nothrow) Pipe(INTEL_PIPE_D);
 				break;
 			default:
 				ERROR("%s: Unknown pipe %d\n", __func__, i);
@@ -296,7 +304,7 @@ probe_ports()
 
 	// Digital Display Interface (for DP, HDMI, DVI and eDP)
 	if (gInfo->shared_info->device_type.HasDDI()) {
-		for (int i = INTEL_PORT_B; i <= INTEL_PORT_F; i++) {
+		for (int i = INTEL_PORT_A; i <= INTEL_PORT_F; i++) {
 			TRACE("Probing DDI %d\n", i);
 
 			Port* ddiPort
@@ -386,7 +394,8 @@ probe_ports()
 	}
 
 	// then finally always try the analog port when chipsets supports it
-	if (gInfo->shared_info->device_type.Generation() <= 8) {
+	if (gInfo->shared_info->device_type.Generation() <= 8
+		&& gInfo->shared_info->internal_crt_support) {
 		TRACE("Probing Analog\n");
 		Port* analogPort = new(std::nothrow) AnalogPort();
 		if (analogPort == NULL)

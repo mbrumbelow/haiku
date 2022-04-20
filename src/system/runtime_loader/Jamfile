@@ -51,6 +51,7 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 			<src!system!libroot!posix!$(architecture)>fcntl.o
 
 			<src!system!libroot!posix!locale!$(architecture)>ctype.o
+			<src!system!libroot!posix!locale!$(architecture)>ctype_loc.o
 			<src!system!libroot!posix!locale!$(architecture)>LocaleData.o
 
 			<src!system!libroot!posix!string!$(architecture)>memchr.o
@@ -110,8 +111,8 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 			[ TargetKernelLibsupc++ ]
 			[ TargetKernelLibgcc ]
 			[ TargetKernelLibgcceh ]
-			: $(HAIKU_TOP)/src/system/ldscripts/$(TARGET_ARCH)/runtime_loader.ld
-			: --no-undefined -shared -Bsymbolic -soname=runtime_loader
+			:
+			: --no-undefined -shared -Bsymbolic -soname=runtime_loader -entry=runtime_loader
 		;
 	}
 }
