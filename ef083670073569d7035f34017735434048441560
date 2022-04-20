@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0a1053a_8b7e7638",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2022-04-20T17:47:33Z",
+      "side": 1,
+      "message": "Don\u0027t see a good reason to keep it at this point, if someone really wants to get it working for some reason, they can always pull it out of history.",
+      "revId": "ef083670073569d7035f34017735434048441560",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
