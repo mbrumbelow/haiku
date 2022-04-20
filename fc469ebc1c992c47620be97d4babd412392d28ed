@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c1abbf1_9e96fd35",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000385
+      },
+      "writtenOn": "2022-04-20T21:32:56Z",
+      "side": 1,
+      "message": "Hey all! I think this is the last issue before this patch is merge ready; any help with this would be appreciated since I can\u0027t find any examples of a single file being built on x86_gcc8, only whole packages. There\u0027s no reason this library can\u0027t be on x86 other than because of the features in gcc8, so I think it would be nice to keep it in somehow.",
+      "revId": "fc469ebc1c992c47620be97d4babd412392d28ed",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0781d6f_5da0cd54",
+        "filename": "src/system/libroot/posix/Jamfile",
+        "patchSetId": 13
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000385
+      },
+      "writtenOn": "2022-04-20T21:32:56Z",
+      "side": 1,
+      "message": "This excludes threads.c from the gcc2 build, but also removes it from the x86 target. Is there a way to compile threads.c on the secondary gcc8 architecture instead of removing it entirely?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 3
+      },
+      "revId": "fc469ebc1c992c47620be97d4babd412392d28ed",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

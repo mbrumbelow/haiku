@@ -16,6 +16,24 @@
       "message": "I would include threads.c in the build only for non-gcc2 builds.",
       "revId": "319383f8285446bc919b3122b8e8dad5c50cea5c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d0a4672_3821706f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000385
+      },
+      "writtenOn": "2022-04-20T21:32:56Z",
+      "side": 1,
+      "message": "I figured out how to exclude threads.c in the Jam file (included in the latest patch), but I\u0027m still not sure if this is the correct behavior. The threads library should still be in the x86 target, right? This just completely excludes it from the build, but really what we want is to still build it on x86 but with the gcc8 secondary architecture. Do you know if there\u0027s a mechanism for that?\n\nAlso, please let me know if I\u0027ve been thinking about this wrong and we actually don\u0027t want threads.c in the x86 target at all.",
+      "parentUuid": "16888499_cadd09c7",
+      "revId": "319383f8285446bc919b3122b8e8dad5c50cea5c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
