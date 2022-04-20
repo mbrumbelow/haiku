@@ -16,6 +16,24 @@
       "message": "This should fix build for x86 as config_manager got merged.\n\nThere was an open question if we should keep the floppy driver. IIRC it was never working?",
       "revId": "15a22294191d542ff04c6282e554dabcf9fc5225",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d5b9be3_1b79dec0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-20T16:20:36Z",
+      "side": 1,
+      "message": "Yes, it was never finished.",
+      "parentUuid": "3dc98cb3_10dc329f",
+      "revId": "15a22294191d542ff04c6282e554dabcf9fc5225",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
