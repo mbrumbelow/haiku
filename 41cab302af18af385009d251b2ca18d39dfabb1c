@@ -68,6 +68,23 @@
       "message": "Alright, rereading it, I guess it\u0027s OK as is.",
       "revId": "41cab302af18af385009d251b2ca18d39dfabb1c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e9a05d9_1b818d4b",
+        "filename": "src/system/boot/platform/efi/arch/arm/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-20T09:16:15Z",
+      "side": 1,
+      "message": "Curly braces unneeded.",
+      "revId": "41cab302af18af385009d251b2ca18d39dfabb1c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
