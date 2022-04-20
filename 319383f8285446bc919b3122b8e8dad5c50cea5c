@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16888499_cadd09c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-20T04:48:11Z",
+      "side": 1,
+      "message": "I would include threads.c in the build only for non-gcc2 builds.",
+      "revId": "319383f8285446bc919b3122b8e8dad5c50cea5c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
