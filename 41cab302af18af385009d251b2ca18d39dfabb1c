@@ -85,6 +85,24 @@
       "message": "Curly braces unneeded.",
       "revId": "41cab302af18af385009d251b2ca18d39dfabb1c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb6ea5e4_156b5bcb",
+        "filename": "src/system/boot/platform/efi/arch/arm/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-04-20T13:20:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e9a05d9_1b818d4b",
+      "revId": "41cab302af18af385009d251b2ca18d39dfabb1c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
