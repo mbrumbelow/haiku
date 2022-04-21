@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8011fab1_ef960c46",
+        "filename": "src/bin/listusb/listusb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-21T15:49:46Z",
+      "side": 1,
+      "message": "This is mentionned in CDC spec version 1.2 but there are no details on it.\nThe device I tested with doesn\u0027t include it. So I left this code disabled for now.",
+      "revId": "f12da6aad156f5aeb9214d788c32017be9bb76ab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
