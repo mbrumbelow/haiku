@@ -34,6 +34,24 @@
       "parentUuid": "99d6878b_4adb4c86",
       "revId": "5fb6fa0da7567d572dcbce59747d6b0be4b04aab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c92be7b6_d99dfe79",
+        "filename": "src/add-ons/accelerants/intel_extreme/Ports.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1390,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-21T16:08:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9f06210_d0bfb5a0",
+      "revId": "5fb6fa0da7567d572dcbce59747d6b0be4b04aab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
