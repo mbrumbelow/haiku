@@ -33,6 +33,24 @@
       "message": "We might as well keep the code around until we drop support for the old 32-bit x86 hardware that this hardware is found on.\n\nHow similar is PCI floppy hardware? That would be another reason to keep this.",
       "revId": "ef083670073569d7035f34017735434048441560",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a3e555c_44fa2046",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-04-21T17:15:06Z",
+      "side": 1,
+      "message": "What is a PCI floppy disk? Floppy drives died when the usb sticks arrived, there are some usb-based floppy drives though. Floppy drives had a whopping performance of 30KB/s and could store up to 1.4 MB. There is no reason to have it anymore, it is just outdated. The code isn\u0027t working either. Postponing cleanups is creating a bigger tech debt and bigger PR\u0027s for later, so why would we do that?",
+      "parentUuid": "af70acba_d4398d5e",
+      "revId": "ef083670073569d7035f34017735434048441560",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
