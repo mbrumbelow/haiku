@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e03ac5bc_e3bf3225",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-04-21T17:34:41Z",
+      "side": 1,
+      "message": "It will be nice to document toolchain settings and details:\n\n* Default linker objects: -lroot crti.o crtbeginS.o init_term_dyn.o start_dyn.o \u003cobjects\u003e crtendS.o crtn.o. If init-fini array is used, crti.o, crtendS.o, crtn.o can be omitted.\n\n* What init_term_dyn.o and start_dyn.o does (define API/ABI version symbols, _start entry point, set main thread ID global variable etc.). This information is needed for implementing non C/C++ that use its own object file formats and its own linker (Oberon for example).\n\n* Additional initalizers and finalizers symbols (init_before, init_after etc.).\n\n* Interpreter setting is not used and ignored. Interpreter is always `runtime_loader` and it do all work of loading target executable. Kernel do not load target executable, it only pass parameters to `runtime_loader`.\n\n* Executable TLS model is not supported because of incompatible TLS block layout and cause crashes.\n\n* Lazy symbol binding is not supported. Reserved first GOT entries are not used.\n\n* eh_frame_hdr is not supported yet. __register_frame/__unregister_frame are called at image load/unload to register stack unwind and exception handling information. Code is located in crtbeginS.o.\n\n* GNU hash is not supported.",
+      "revId": "643086533d9d62dde3a2f20e06df3480209141ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
