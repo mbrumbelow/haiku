@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99d6878b_4adb4c86",
+        "filename": "src/add-ons/accelerants/intel_extreme/Ports.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1390,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-21T12:23:49Z",
+      "side": 1,
+      "message": "there is already a check at line 1350, why didn\u0027t it work?",
+      "revId": "5fb6fa0da7567d572dcbce59747d6b0be4b04aab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
