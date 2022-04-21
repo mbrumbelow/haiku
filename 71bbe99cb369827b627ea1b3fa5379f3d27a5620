@@ -33,6 +33,24 @@
       "message": "Nit, spelling of developped -\u003e developed",
       "revId": "71bbe99cb369827b627ea1b3fa5379f3d27a5620",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f4f6dd9_b2a2d826",
+        "filename": "docs/develop/build/index.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-21T16:57:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43d4b00e_35d65017",
+      "revId": "71bbe99cb369827b627ea1b3fa5379f3d27a5620",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
