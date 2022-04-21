@@ -34,6 +34,24 @@
       "parentUuid": "c5f2c4e6_14e778bb",
       "revId": "286c3276cd65d04159d1fe54360be40657c0f503",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8ace750_232f2650",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-21T16:13:25Z",
+      "side": 1,
+      "message": "When you have addressed a comment you can click the \"Done\" button or check the \"Resolved\" checkbox, then the comment is removed from the list of things to consider (just did it for this one).",
+      "parentUuid": "4f59ee6b_8779c98b",
+      "revId": "286c3276cd65d04159d1fe54360be40657c0f503",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

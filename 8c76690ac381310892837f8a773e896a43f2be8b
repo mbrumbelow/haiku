@@ -16,6 +16,24 @@
       "message": "There are still some warnings with trace enabled in this file. Why not fix them?",
       "revId": "8c76690ac381310892837f8a773e896a43f2be8b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61fc65e7_15acda49",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-21T16:13:25Z",
+      "side": 1,
+      "message": "In fact it may be a good idea to enable -Werror for the xfs code. This way the compiler will not let any warnngs go through, and this should help catching problems during compile time instead of runtime.\n\nTo do this:\n- edit build/jam/ArchitectureRules\n- add an EnableWerror rule for xfs (you can look at how it is done for other filesystems)\n- Fix all build issues that result.\n\nHowever I think this can be done in a separate commit?",
+      "parentUuid": "909e811f_87bb1dba",
+      "revId": "8c76690ac381310892837f8a773e896a43f2be8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
