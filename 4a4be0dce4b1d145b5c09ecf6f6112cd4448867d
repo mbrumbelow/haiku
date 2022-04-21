@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "74361b9b_54af5c4d",
+        "filename": "src/bin/listusb/listusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-21T15:48:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d456ad8_b39dd351",
+      "revId": "4a4be0dce4b1d145b5c09ecf6f6112cd4448867d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a8002d2d_a00076fa",
@@ -48,6 +66,24 @@
       "writtenOn": "2022-04-21T15:45:55Z",
       "side": 1,
       "message": "multifunction",
+      "revId": "4a4be0dce4b1d145b5c09ecf6f6112cd4448867d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff565f9f_8f26f308",
+        "filename": "src/bin/listusb/listusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-21T15:48:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8002d2d_a00076fa",
       "revId": "4a4be0dce4b1d145b5c09ecf6f6112cd4448867d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
