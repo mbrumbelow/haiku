@@ -288,14 +288,14 @@ usbd_transfer_setup(struct freebsd_usb_device* udev,
 			}
 		}
 		usb_interface_info* iface = device_config->interface[iface_index].active;
-		for (int i = 0; i < iface->endpoint_count; i++) {
+		for (size_t i = 0; i < iface->endpoint_count; i++) {
 			if (iface->endpoint[i].descr->endpoint_address != endpoint)
 				continue;
 
 			xfer->pipe = iface->endpoint[i].handle;
 			break;
 		}
-		if (xfer->pipe == -1)
+		if (xfer->pipe == (unsigned)-1)
 			panic("failed to locate endpoint!");
 
 		xfer->nframes = setup->frames;

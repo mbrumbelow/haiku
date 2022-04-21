@@ -74,7 +74,7 @@ ColorSpace table[] =
 void
 print_supported_overlays()
 {
-	for (int32 i = 0; i < sizeof(table) / sizeof(table[0]); i++)
+	for (size_t i = 0; i < sizeof(table) / sizeof(table[0]); i++)
 	{
 		uint32 supportFlags = 0;
 
