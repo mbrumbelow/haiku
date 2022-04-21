@@ -35,6 +35,42 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6208938c_73a7fc62",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2022-04-21T15:43:30Z",
+      "side": 1,
+      "message": "Yes, I am just writing playlist files in Pe, imitating the examples at:\nhttps://en.wikipedia.org/wiki/PLS_(file_format)\nhttp://forums.winamp.com/showthread.php?threadid\u003d65772\n\nIf you are looking for an mp3 stream to test, here is one:  \nhttps://wpr-ice.streamguys1.com/wpr-hd2-mp3-96",
+      "parentUuid": "4de067ac_91dda6f8",
+      "revId": "f4f68b2246727ca4a63afc47bf444521681297a7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77a95403_6c7d734e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2022-04-21T15:43:30Z",
+      "side": 1,
+      "message": "I created an abstract class and a derived class for each format.  Please let me know if this is what you had in mind.  Right now the identify function is static but the read/append functions are not.  Maybe they should all be static because there is no point in initializing a reader object that has no data members?",
+      "parentUuid": "765793f7_802e509d",
+      "revId": "f4f68b2246727ca4a63afc47bf444521681297a7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "762aa74f_d43cfcdd",
@@ -48,6 +84,24 @@
       "writtenOn": "2022-04-16T07:22:59Z",
       "side": 1,
       "message": "You should be able to compare a BString to a const char* constant, so there is no reason to create a BString with contents \"File\" here, as well as below.",
+      "revId": "f4f68b2246727ca4a63afc47bf444521681297a7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56b729ee_4b81a03f",
+        "filename": "src/apps/mediaplayer/playlist/Playlist.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 672,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2022-04-21T15:43:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "762aa74f_d43cfcdd",
       "revId": "f4f68b2246727ca4a63afc47bf444521681297a7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -69,6 +123,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "76c3f38c_519e811a",
+        "filename": "src/apps/mediaplayer/playlist/Playlist.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2022-04-21T15:43:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "06d9191e_b9203dbe",
+      "revId": "f4f68b2246727ca4a63afc47bf444521681297a7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fb0c6a13_e3e58f9d",
@@ -82,6 +154,24 @@
       "writtenOn": "2022-04-16T07:22:59Z",
       "side": 1,
       "message": "I am not sure whether this is bug free code. `item` will be NULL if memory allocation fails. playlist-\u003eAddItem() adds an item to the list, but does not do a NULL check themselves and therefore seems to assume it is non-null. Thus by the time you do the NULL-check, you already added an invalid item to the list.\n\nI would either remove the std::nothrow, which will make the application just crash when memory allocation fails, or move the check up higher if that\u0027s more in line with what the rest of the code is doing.",
+      "revId": "f4f68b2246727ca4a63afc47bf444521681297a7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4384f45_e360b9f7",
+        "filename": "src/apps/mediaplayer/playlist/Playlist.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1032,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2022-04-21T15:43:30Z",
+      "side": 1,
+      "message": "Thank you.  I moved the check up, to match how the existing Playlist code was written.",
+      "parentUuid": "fb0c6a13_e3e58f9d",
       "revId": "f4f68b2246727ca4a63afc47bf444521681297a7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -103,6 +193,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c1f56dd_a3dbf484",
+        "filename": "src/apps/mediaplayer/playlist/Playlist.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1073,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2022-04-21T15:43:30Z",
+      "side": 1,
+      "message": "Thanks.  I did not think there was an easy way to do this for a null-terminated string or BString.",
+      "parentUuid": "98f45663_f509b5f8",
+      "revId": "f4f68b2246727ca4a63afc47bf444521681297a7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16fdf7ea_ae94addf",
@@ -116,6 +224,24 @@
       "writtenOn": "2022-04-16T07:22:59Z",
       "side": 1,
       "message": "Naming: wouldn\u0027t Parse be preferred over Read? To me, Read sounds like something that comes from an IO device. In this case it is already available in a string.",
+      "revId": "f4f68b2246727ca4a63afc47bf444521681297a7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de801fc0_86d0a256",
+        "filename": "src/apps/mediaplayer/playlist/Playlist.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2022-04-21T15:43:30Z",
+      "side": 1,
+      "message": "Yes, I changed Read to Parse (and removed Pls because that is specified in the class name now).",
+      "parentUuid": "16fdf7ea_ae94addf",
       "revId": "f4f68b2246727ca4a63afc47bf444521681297a7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
