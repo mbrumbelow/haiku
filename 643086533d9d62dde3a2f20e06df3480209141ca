@@ -34,6 +34,23 @@
       "parentUuid": "e03ac5bc_e3bf3225",
       "revId": "643086533d9d62dde3a2f20e06df3480209141ca",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd4c8a49_6b65bf5e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-04-21T17:39:41Z",
+      "side": 1,
+      "message": "* Complete static linking is not supported. At least libroot.so should be linked dynamically.",
+      "revId": "643086533d9d62dde3a2f20e06df3480209141ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
