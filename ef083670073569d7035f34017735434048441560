@@ -16,6 +16,23 @@
       "message": "Don\u0027t see a good reason to keep it at this point, if someone really wants to get it working for some reason, they can always pull it out of history.",
       "revId": "ef083670073569d7035f34017735434048441560",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af70acba_d4398d5e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-04-21T00:53:35Z",
+      "side": 1,
+      "message": "We might as well keep the code around until we drop support for the old 32-bit x86 hardware that this hardware is found on.\n\nHow similar is PCI floppy hardware? That would be another reason to keep this.",
+      "revId": "ef083670073569d7035f34017735434048441560",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
