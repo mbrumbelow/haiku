@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e16dd586_b59255c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000359
+      },
+      "writtenOn": "2022-04-22T15:08:44Z",
+      "side": 1,
+      "message": "This PR is meant to cover the case David has reported on the rPI3. Leveling the support on the S32G/RPI3/QEMU",
+      "revId": "565e3df044a63768c2324396fa967920b02477a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
