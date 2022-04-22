@@ -16,6 +16,74 @@
       "message": "Only tested with 64bit build, let\u0027s see what the buildbot says with gcc2 and 32bit.",
       "revId": "b7ceb7be709d674e7cbd3160f24ff890a5e4c2ad",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8b22e0b_3b962422",
+        "filename": "build/jam/ArchitectureRules",
+        "patchSetId": 1
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-22T08:44:46Z",
+      "side": 1,
+      "message": "mmc still failing it seems.",
+      "revId": "b7ceb7be709d674e7cbd3160f24ff890a5e4c2ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abedbc0f_ed4d3856",
+        "filename": "build/jam/ArchitectureRules",
+        "patchSetId": 1
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-22T08:44:46Z",
+      "side": 1,
+      "message": "bfs_tools, listimage, rmattr, rmindex, top, network tools",
+      "revId": "b7ceb7be709d674e7cbd3160f24ff890a5e4c2ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f8bc63c_b0520023",
+        "filename": "build/jam/ArchitectureRules",
+        "patchSetId": 1
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-22T08:44:46Z",
+      "side": 1,
+      "message": "gnu, libiconv, uuid, freebsd_network",
+      "revId": "b7ceb7be709d674e7cbd3160f24ff890a5e4c2ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "185c5ee0_510f9375",
+        "filename": "build/jam/ArchitectureRules",
+        "patchSetId": 1
+      },
+      "lineNbr": 753,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-22T08:44:46Z",
+      "side": 1,
+      "message": "libroot and libnetwork have still a lot of warnings IMO",
+      "revId": "b7ceb7be709d674e7cbd3160f24ff890a5e4c2ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
