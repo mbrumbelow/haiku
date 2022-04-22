@@ -638,6 +638,8 @@ intel_set_brightness(float brightness)
 			|| gInfo->shared_info->device_type.IsModel(INTEL_MODEL_915M)
 			|| gInfo->shared_info->device_type.IsModel(INTEL_MODEL_945M)) {
 			legacyMode = (tmp & BLM_LEGACY_MODE) != 0;
+		} else if (gInfo->shared_info->device_type.Generation() == 4) {
+			legacyMode = (read32(MCH_BLC_PWM_CTL2) & BLM_COMBINATION_MODE) != 0;
 		}
 
 		uint32_t period = tmp >> 16;
@@ -698,6 +700,8 @@ intel_get_brightness(float* brightness)
 			|| gInfo->shared_info->device_type.IsModel(INTEL_MODEL_915M)
 			|| gInfo->shared_info->device_type.IsModel(INTEL_MODEL_945M)) {
 			legacyMode = (tmp & BLM_LEGACY_MODE) != 0;
+		} else if (gInfo->shared_info->device_type.Generation() == 4) {
+			legacyMode = (read32(MCH_BLC_PWM_CTL2) & BLM_COMBINATION_MODE) != 0;
 		}
 		period = tmp >> 16;
 		duty = read32(intel_get_backlight_register(false)) & 0xffff;

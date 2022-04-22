@@ -1228,7 +1228,10 @@ struct intel_brightness_legacy {
 #define PCH_SOUTH_BLC_PWM_PERIOD		(0x8254 | REGS_SOUTH_SHARED) // Linux _BXT_BLC_PWM_FREQ1
 #define PCH_SOUTH_BLC_PWM_DUTY_CYCLE	(0x8258 | REGS_SOUTH_SHARED) // Linux _BXT_BLC_PWM_DUTY1
 
-#define MCH_BLC_PWM_CTL                 (0x1254 | REGS_NORTH_PIPE_AND_PORT)
+#define MCH_BLC_PWM_CTL2				(0x1250 | REGS_NORTH_PIPE_AND_PORT)
+#define BLM_COMBINATION_MODE			(1 << 30)
+
+#define MCH_BLC_PWM_CTL					(0x1254 | REGS_NORTH_PIPE_AND_PORT)
 	// Linux VLV_BLC_PWM_CTL (one register per pipe) or BLC_PWM_CTL (a single register that can be
 	// programmed for use on either pipe)
 #define BLM_LEGACY_MODE					(1 << 16)
