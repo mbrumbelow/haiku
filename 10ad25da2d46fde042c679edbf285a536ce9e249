@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9afd0ef7_2b2161fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-04-22T11:26:57Z",
+      "side": 1,
+      "message": "enable memory access permissions - even though the AP flags are hard coded to some default values now\n\nno regression on qemu, rpi3, rpi4\nqemu: rocket icon (with the patch from review 4717)\nrpi3: VM init successful, later in kernel initialization we get a panic as BCM2837 interrupt controller is not recognized\nrpi4: VM init fails, page structures seem to be inconsistent. perhaps a memory barrier issue?",
+      "revId": "10ad25da2d46fde042c679edbf285a536ce9e249",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
