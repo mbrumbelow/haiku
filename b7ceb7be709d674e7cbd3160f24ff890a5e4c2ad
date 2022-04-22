@@ -84,6 +84,24 @@
       "message": "libroot and libnetwork have still a lot of warnings IMO",
       "revId": "b7ceb7be709d674e7cbd3160f24ff890a5e4c2ad",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8df7daa6_e4d459bb",
+        "filename": "build/jam/ArchitectureRules",
+        "patchSetId": 1
+      },
+      "lineNbr": 753,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-22T09:42:09Z",
+      "side": 1,
+      "message": "it looks like I have to force a clean build after changing these compiler flags (another limitation of Jam). I will try again in smaller parts.",
+      "parentUuid": "185c5ee0_510f9375",
+      "revId": "b7ceb7be709d674e7cbd3160f24ff890a5e4c2ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
