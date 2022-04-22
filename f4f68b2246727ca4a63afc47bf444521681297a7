@@ -89,6 +89,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d01b6e09_c4bbacc9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-22T08:37:47Z",
+      "side": 1,
+      "message": "Yes. Best would be a single method which returns a Reader instance or NULL, so that Playlist.cpp wouldn\u0027t have to be aware of M3u or Pls, or any other playlist format to come.",
+      "parentUuid": "56a0f20f_1130629d",
+      "revId": "f4f68b2246727ca4a63afc47bf444521681297a7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "762aa74f_d43cfcdd",
