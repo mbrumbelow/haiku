@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0eaf46a7_2a2000f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-04-22T10:11:58Z",
+      "side": 1,
+      "message": "this is needed in preparation for introducing proper memory access permissions\n\ntext segment is read-only so putting the exception handler stacks there is not a good idea",
+      "revId": "ad510836149e0cd2afbda8e5b54e7b5eb2732deb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
