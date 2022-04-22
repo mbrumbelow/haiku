@@ -52,6 +52,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "65f9606e_d08a359a",
+        "filename": "build/jam/ArchitectureRules",
+        "patchSetId": 1
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-22T13:54:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abedbc0f_ed4d3856",
+      "revId": "b7ceb7be709d674e7cbd3160f24ff890a5e4c2ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3f8bc63c_b0520023",
@@ -65,6 +83,24 @@
       "writtenOn": "2022-04-22T08:44:46Z",
       "side": 1,
       "message": "gnu, libiconv, uuid, freebsd_network",
+      "revId": "b7ceb7be709d674e7cbd3160f24ff890a5e4c2ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27d291a5_e0437f39",
+        "filename": "build/jam/ArchitectureRules",
+        "patchSetId": 1
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-22T13:54:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f8bc63c_b0520023",
       "revId": "b7ceb7be709d674e7cbd3160f24ff890a5e4c2ad",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -100,6 +136,24 @@
       "side": 1,
       "message": "it looks like I have to force a clean build after changing these compiler flags (another limitation of Jam). I will try again in smaller parts.",
       "parentUuid": "185c5ee0_510f9375",
+      "revId": "b7ceb7be709d674e7cbd3160f24ff890a5e4c2ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30204f37_3445d53c",
+        "filename": "build/jam/ArchitectureRules",
+        "patchSetId": 1
+      },
+      "lineNbr": 753,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-22T13:54:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8df7daa6_e4d459bb",
       "revId": "b7ceb7be709d674e7cbd3160f24ff890a5e4c2ad",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
