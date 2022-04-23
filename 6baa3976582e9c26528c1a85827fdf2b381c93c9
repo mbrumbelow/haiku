@@ -34,6 +34,24 @@
       "parentUuid": "3317cef8_26cd7537",
       "revId": "6baa3976582e9c26528c1a85827fdf2b381c93c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "945dd65e_131a46a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-04-23T20:40:24Z",
+      "side": 1,
+      "message": "\u003e On the other hand, if we consider them keys we don\u0027t have to map them into the keymap and send key strokes as unmapped key events, as we already do with F1-F12.\n\nThis sentence is a bit confusing to me. Do you mean if we don\u0027t consider them keys?\n\nIt sounds to me like unmapped key events are better, but can we set these events to fixed values?\n\nI think this is something we should solve, thanks for the good explanation.",
+      "parentUuid": "85811533_34208aca",
+      "revId": "6baa3976582e9c26528c1a85827fdf2b381c93c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
