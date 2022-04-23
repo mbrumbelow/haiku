@@ -16,6 +16,24 @@
       "message": "Not sure this is the way to go? It looks like a lot of additional int32\u0027s. Can we not support old legacy keymap while also introducing a newer updated one?",
       "revId": "6baa3976582e9c26528c1a85827fdf2b381c93c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85811533_34208aca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2022-04-23T19:59:01Z",
+      "side": 1,
+      "message": "I\u0027ve been tempted of down vote myself, but we haven\u0027t an agreement yet. \n\nThe idea of this patch, was to make room for media keys, because 128 keys were on the limit. I added 128 more but yes, perhaps 32 were more than enough.\n\nThing is, media keys are not keys (from HID perspective), are consumer events. Many OS seem to fake them as key strokes but I don\u0027t agree with them :)\n\nOn the other hand, if we consider them keys we don\u0027t have to map them into the keymap and send key strokes as unmapped key events, as we already do with F1-F12.",
+      "parentUuid": "3317cef8_26cd7537",
+      "revId": "6baa3976582e9c26528c1a85827fdf2b381c93c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
