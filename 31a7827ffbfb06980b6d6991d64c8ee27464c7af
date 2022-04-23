@@ -33,6 +33,24 @@
       "message": "code style: check !\u003d NULL. Also don\u0027t assign in a if statement.",
       "revId": "31a7827ffbfb06980b6d6991d64c8ee27464c7af",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87d1aa62_c2949bf4",
+        "filename": "src/apps/mediaplayer/playlist/Playlist.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2022-04-23T17:26:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2cec991f_0383953e",
+      "revId": "31a7827ffbfb06980b6d6991d64c8ee27464c7af",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
