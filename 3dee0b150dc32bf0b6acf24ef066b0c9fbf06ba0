@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94f83184_00811877",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-04-23T08:33:27Z",
+      "side": 1,
+      "message": "verified on qemu, rpi3, rpi4 - no regression\n\nsome isb/dsb barriers needed on rpi4 to get a successful VM init (and then it lands us on the usual panic: no interrupt controllers)\n\nframe buffer also looks better once we set the correct memory type.",
+      "revId": "3dee0b150dc32bf0b6acf24ef066b0c9fbf06ba0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
