@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ccf1892_42e88e75",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-23T08:15:18Z",
+      "side": 1,
+      "message": "coding style remarks, otherwise looks good",
+      "revId": "31a7827ffbfb06980b6d6991d64c8ee27464c7af",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cec991f_0383953e",
+        "filename": "src/apps/mediaplayer/playlist/Playlist.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-23T08:15:18Z",
+      "side": 1,
+      "message": "code style: check !\u003d NULL. Also don\u0027t assign in a if statement.",
+      "revId": "31a7827ffbfb06980b6d6991d64c8ee27464c7af",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
