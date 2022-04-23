@@ -45,7 +45,7 @@ PXAInterruptController::HandleInterrupt()
 PXAInterruptController::PXAInterruptController(uint32_t reg_base)
 {
 	fRegArea = vm_map_physical_memory(B_SYSTEM_TEAM, "intc-pxa", (void**)&fRegBase,
-		B_ANY_KERNEL_ADDRESS, B_PAGE_SIZE, B_KERNEL_READ_AREA | B_KERNEL_WRITE_AREA,
+		B_ANY_KERNEL_ADDRESS, B_PAGE_SIZE, B_KERNEL_READ_AREA | B_KERNEL_WRITE_AREA | B_MTR_UC,
 		reg_base, false);
 	if (fRegArea < 0)
 		panic("PXAInterruptController: cannot map registers!");

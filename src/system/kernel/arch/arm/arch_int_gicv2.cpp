@@ -18,7 +18,7 @@ GICv2InterruptController::GICv2InterruptController(uint32_t gicd_addr, uint32_t 
 {
 	area_id gicd_area = vm_map_physical_memory(B_SYSTEM_TEAM, "intc-gicv2-gicd",
 		(void**)&fGicdRegs, B_ANY_KERNEL_ADDRESS, GICD_REG_SIZE,
-		B_KERNEL_READ_AREA | B_KERNEL_WRITE_AREA,
+		B_KERNEL_READ_AREA | B_KERNEL_WRITE_AREA | B_MTR_UC,
 		gicd_addr ? gicd_addr : GICD_REG_START, false);
 	if (gicd_area < 0) {
 		panic("not able to map the memory area for gicd\n");
@@ -26,7 +26,7 @@ GICv2InterruptController::GICv2InterruptController(uint32_t gicd_addr, uint32_t 
 
 	area_id gicc_area = vm_map_physical_memory(B_SYSTEM_TEAM, "intc-gicv2-gicc",
 		(void**)&fGiccRegs, B_ANY_KERNEL_ADDRESS, GICC_REG_SIZE,
-		B_KERNEL_READ_AREA | B_KERNEL_WRITE_AREA,
+		B_KERNEL_READ_AREA | B_KERNEL_WRITE_AREA | B_MTR_UC,
 		gicc_addr ? gicc_addr : GICC_REG_START, false);
 	if (gicc_area < 0) {
 		panic("not able to map the memory area for gicc\n");
