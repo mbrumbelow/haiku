@@ -16,6 +16,23 @@
       "message": "B_MTR_UC is supposed to be the default so this is not a significant change but I feel the code is more consistent this way, explicitly requesting the interrupt controller to be mapped as device memory.",
       "revId": "9b9d0ba5841eebe2394780fbd569b92b100230dc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7426a0f4_39300a1e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-04-24T07:14:23Z",
+      "side": 1,
+      "message": "vm_map_physical_memory is used in many generic drivers usable for many architectures including not supporting virtual memory caching flags (RISC-V for example, is use dedicated physical memory rsnges for cacheable memory). That drivers will be also used for ARM. So I think that virtual memory flags should be consistent for all drivers and be compatible with all supported architectures. So disable cache flag should be also added to all relevant drivers or cache should be disabled by default for vm_map_physical_memory.",
+      "revId": "9b9d0ba5841eebe2394780fbd569b92b100230dc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
