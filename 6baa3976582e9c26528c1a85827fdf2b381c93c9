@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "111ca28f_974e88ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2022-04-24T07:19:27Z",
+      "side": 1,
+      "message": "Ok then, I can add those extra keys to Keyboard HID handler, we \"map\" it as B_FUNCTION_KEY and this patch (and the problem it solves) are no longer needed.\n\nThen, we can work on parallel on a better input model.",
+      "parentUuid": "dbec15a4_2d28124f",
+      "revId": "6baa3976582e9c26528c1a85827fdf2b381c93c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "88a71767_b76e6ee2",
         "filename": "headers/os/interface/InterfaceDefs.h",
         "patchSetId": 1
@@ -85,6 +103,24 @@
       "writtenOn": "2022-04-23T22:09:56Z",
       "side": 1,
       "message": "It is 9 * 4 (bytes) * 128 \u003d 4608 additional bytes for the keymap alone? Perhaps there is a better representation?",
+      "revId": "6baa3976582e9c26528c1a85827fdf2b381c93c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f76527b4_5e4c4f5a",
+        "filename": "headers/os/interface/InterfaceDefs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2022-04-24T07:19:27Z",
+      "side": 1,
+      "message": "We wanted to keep software/binary compatibility. A keymap designed from scratch would be probably more efficient than this.",
+      "parentUuid": "88a71767_b76e6ee2",
       "revId": "6baa3976582e9c26528c1a85827fdf2b381c93c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
