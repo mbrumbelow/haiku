@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59616fff_744db0f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-24T18:57:51Z",
+      "side": 1,
+      "message": "nephele tested and wrote in the bug report that this patch doesn\u0027t help.",
+      "revId": "e37c43969ba4aeea82ddb46e69f971def2bb2495",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
