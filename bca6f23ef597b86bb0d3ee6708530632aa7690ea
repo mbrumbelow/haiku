@@ -51,6 +51,24 @@
       "parentUuid": "0e255280_cbadf5d5",
       "revId": "bca6f23ef597b86bb0d3ee6708530632aa7690ea",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e02e08b_79c0500c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-04-25T22:10:58Z",
+      "side": 1,
+      "message": "I don\u0027t think so, because we call memalign_etc in other places with 0 and that doesn\u0027t seem to cause problems for Clang. I think the semantics of alloc_align attribute are different than the presumed semantics of memalign(). Based on the documentation, an alignment of 0 for alloc_align seems perfectly legal.",
+      "parentUuid": "6795dbf9_182c43c1",
+      "revId": "bca6f23ef597b86bb0d3ee6708530632aa7690ea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
