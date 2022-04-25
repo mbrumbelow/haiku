@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b4370a8_162158ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-04-25T22:01:14Z",
+      "side": 1,
+      "message": "Most of these wound up not making sense (e.g. spinlock switching, code that only unlocks and doesn\u0027t re-lock after waiting) but I merged the few that did in hrev56069.",
+      "revId": "cf7bbb744dd7aa0f56c1eae016ac1308c582961e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f24480b9_0c4114e9",
