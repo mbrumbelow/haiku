@@ -16,6 +16,57 @@
       "message": "Resolved a bunch of old unresolved comments",
       "revId": "6513e276065df76dccc8dbddd027539fb60c6180",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2a05158_eeac0a56",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 2235,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-04-25T21:09:10Z",
+      "side": 1,
+      "message": "This probably deserves a separate change.",
+      "revId": "6513e276065df76dccc8dbddd027539fb60c6180",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c264b6ec_9ab3bc72",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 2476,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-04-25T21:09:10Z",
+      "side": 1,
+      "message": "This code seems to be duplicated a lot of places. May be worthwhile having _FindFont take an optional second parameter of a ServerFont* that it can use to do a lookup.",
+      "revId": "6513e276065df76dccc8dbddd027539fb60c6180",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1ef7b7a_23a6e5ba",
+        "filename": "src/servers/app/font/FontStyle.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-04-25T21:09:10Z",
+      "side": 1,
+      "message": "I think serious complications are created by having both Families and Styles have owners. I realize there may be a case where a Family is added without an \"owner\" while a Style is added with one, but this seems like it would just create too many problems.\n\nInstead, I think we should take one of two paths:\n\n1. Create a separate per-app FontManager object, to handle such loaded fonts, which is searched before the global FontManager.\n\n2. Only styles have owners, families do not.\n\nI like the first approach much more than the second (it also makes cleanup easier, and hash collisions are no longer a problem.) I realize that may be a serious rework of this patch, which has already undergone multiple revisions, so maybe I should do that myself...",
+      "revId": "6513e276065df76dccc8dbddd027539fb60c6180",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
