@@ -16,6 +16,24 @@
       "message": "Should we notify at all if available \u003c B_OK -- is that logic correct?",
       "revId": "ede0ba84c62446d8518966eedfff5e943bc026da",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98467435_ca07ccd5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-25T12:12:59Z",
+      "side": 1,
+      "message": "For select(), yes it\u0027s correct, \"when an error occurs on a socket, it is marked as both readable and writable by select\".",
+      "parentUuid": "f5a74c1e_3d30e5e0",
+      "revId": "ede0ba84c62446d8518966eedfff5e943bc026da",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
