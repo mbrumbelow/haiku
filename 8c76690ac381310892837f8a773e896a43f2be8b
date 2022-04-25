@@ -52,6 +52,23 @@
       "parentUuid": "61fc65e7_15acda49",
       "revId": "8c76690ac381310892837f8a773e896a43f2be8b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e35cf2e_13b926e8",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-04-25T20:55:32Z",
+      "side": 1,
+      "message": "Presumably we don\u0027t support versions 1-3 either. What\u0027s the reason for the \u0026 0xf anyway?",
+      "revId": "8c76690ac381310892837f8a773e896a43f2be8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
