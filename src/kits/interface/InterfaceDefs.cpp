@@ -505,12 +505,11 @@ set_mouse_type(int32 type)
 
 
 status_t
-get_mouse_type_by_name(BString mouse_name, int32 *type)
+get_mouse_type(BString mouse_name, int32 *type)
 {
 	BMessage command(IS_GET_MOUSE_TYPE);
 	BMessage reply;
 	command.AddString("mouse_name", mouse_name.String());
-
 
 	status_t err = _control_input_server_(&command, &reply);
 	if (err != B_OK)
@@ -521,7 +520,7 @@ get_mouse_type_by_name(BString mouse_name, int32 *type)
 
 
 status_t
-set_mouse_type_by_name(BString mouse_name, int32 type)
+set_mouse_type(BString mouse_name, int32 type)
 {
 	BMessage command(IS_SET_MOUSE_TYPE);
 	BMessage reply;
@@ -627,7 +626,7 @@ set_mouse_speed(int32 speed)
 
 
 status_t
-get_mouse_speed_by_name(BString mouse_name, int32 *speed)
+get_mouse_speed(BString mouse_name, int32 *speed)
 {
 	BMessage command(IS_GET_MOUSE_SPEED);
 	BMessage reply;
@@ -646,7 +645,7 @@ get_mouse_speed_by_name(BString mouse_name, int32 *speed)
 
 
 status_t
-set_mouse_speed_by_name(BString mouse_name, int32 speed)
+set_mouse_speed(BString mouse_name, int32 speed)
 {
 	BMessage command(IS_SET_MOUSE_SPEED);
 	BMessage reply;
@@ -684,7 +683,7 @@ set_mouse_acceleration(int32 speed)
 
 
 status_t
-get_mouse_acceleration_by_name(BString mouse_name, int32 *speed)
+get_mouse_acceleration(BString mouse_name, int32 *speed)
 {
 	BMessage command(IS_GET_MOUSE_ACCELERATION);
 	BMessage reply;
@@ -700,7 +699,7 @@ get_mouse_acceleration_by_name(BString mouse_name, int32 *speed)
 
 
 status_t
-set_mouse_acceleration_by_name(BString mouse_name, int32 speed)
+set_mouse_acceleration(BString mouse_name, int32 speed)
 {
 	BMessage command(IS_SET_MOUSE_ACCELERATION);
 	BMessage reply;
