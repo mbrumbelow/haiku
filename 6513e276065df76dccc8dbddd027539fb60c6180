@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a349a941_9c166d72",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-04-26T05:44:47Z",
+      "side": 1,
+      "message": "Hey, I understand that everyone here is doing this in their own limited free time, and this is quite a large review to look through. Also while this might be useful it\u0027s also not the most critical work that needs to be done for Haiku.\n\nIn the meantime I have been getting quite a lot of enjoyment out of fixing up ArtPaint!!",
+      "parentUuid": "759fde52_23c1890a",
+      "revId": "6513e276065df76dccc8dbddd027539fb60c6180",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d2a05158_eeac0a56",
@@ -48,6 +66,24 @@
       "writtenOn": "2022-04-25T21:09:10Z",
       "side": 1,
       "message": "This probably deserves a separate change.",
+      "revId": "6513e276065df76dccc8dbddd027539fb60c6180",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a5f57d2_a3452bcc",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 2235,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-04-26T05:44:47Z",
+      "side": 1,
+      "message": "Agreed; I considered pulling this out a few times!",
+      "parentUuid": "d2a05158_eeac0a56",
       "revId": "6513e276065df76dccc8dbddd027539fb60c6180",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -69,6 +105,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bdc6944_8c1d532c",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 2476,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-04-26T05:44:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c264b6ec_9ab3bc72",
+      "revId": "6513e276065df76dccc8dbddd027539fb60c6180",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e1ef7b7a_23a6e5ba",
@@ -82,6 +136,24 @@
       "writtenOn": "2022-04-25T21:09:10Z",
       "side": 1,
       "message": "I think serious complications are created by having both Families and Styles have owners. I realize there may be a case where a Family is added without an \"owner\" while a Style is added with one, but this seems like it would just create too many problems.\n\nInstead, I think we should take one of two paths:\n\n1. Create a separate per-app FontManager object, to handle such loaded fonts, which is searched before the global FontManager.\n\n2. Only styles have owners, families do not.\n\nI like the first approach much more than the second (it also makes cleanup easier, and hash collisions are no longer a problem.) I realize that may be a serious rework of this patch, which has already undergone multiple revisions, so maybe I should do that myself...",
+      "revId": "6513e276065df76dccc8dbddd027539fb60c6180",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32794a1d_99c9a86d",
+        "filename": "src/servers/app/font/FontStyle.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-04-26T05:44:47Z",
+      "side": 1,
+      "message": "Yes, it\u0027s not ideal. The use-case I envisioned is having a particular font that is a system font, but the user wants to add another style to it, as in your example. I did start out with trying the route of a separate app-level font manager and it seemed more complicated to implement. \n\nI don\u0027t think approach #2 is worth considering. You wouldn\u0027t be able to keep other apps or the system from seeing the families. In the instance of loading webfonts, if you visited a bunch of websites your system font list would be polluted with all of them.",
+      "parentUuid": "e1ef7b7a_23a6e5ba",
       "revId": "6513e276065df76dccc8dbddd027539fb60c6180",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
