@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0499bd71_b6222b0f",
+        "filename": "headers/os/interface/InterfaceDefs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2022-04-26T05:52:32Z",
+      "side": 0,
+      "message": "While you\u0027re at it: is there a good reason to pass in a BString like this? Wouldn\u0027t a \"const BString\u0026\" make more sense? I know we have a copy constructor, but passing it by reference is still cheaper. Does it have any disadvantages I forgot in the meantime? :-)",
+      "revId": "8af7b72d8d889875e2912fddd087a79a9dc3c67a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
