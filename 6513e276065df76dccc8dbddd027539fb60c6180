@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "df60d84c_2c215cc0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-04-26T12:42:35Z",
+      "side": 1,
+      "message": "Well, I\u0027m not doing this in my free time but are getting paid by Haiku, Inc. at least. 😊 But yes, I\u0027m the only one at present.",
+      "parentUuid": "a349a941_9c166d72",
+      "revId": "6513e276065df76dccc8dbddd027539fb60c6180",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d2a05158_eeac0a56",
@@ -154,6 +172,24 @@
       "side": 1,
       "message": "Yes, it\u0027s not ideal. The use-case I envisioned is having a particular font that is a system font, but the user wants to add another style to it, as in your example. I did start out with trying the route of a separate app-level font manager and it seemed more complicated to implement. \n\nI don\u0027t think approach #2 is worth considering. You wouldn\u0027t be able to keep other apps or the system from seeing the families. In the instance of loading webfonts, if you visited a bunch of websites your system font list would be polluted with all of them.",
       "parentUuid": "e1ef7b7a_23a6e5ba",
+      "revId": "6513e276065df76dccc8dbddd027539fb60c6180",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bab1b843_e33b964a",
+        "filename": "src/servers/app/font/FontStyle.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-04-26T12:42:35Z",
+      "side": 1,
+      "message": "It may be more difficult to implement but I think it will be worth it. I can take a crack at that, if you\u0027d like, or you can if you prefer.",
+      "parentUuid": "32794a1d_99c9a86d",
       "revId": "6513e276065df76dccc8dbddd027539fb60c6180",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
