@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc0ef71a_e03e79c0",
+        "filename": "headers/os/interface/InterfaceDefs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-04-26T16:40:54Z",
+      "side": 1,
+      "message": "Why use BString, not `const char *`? `const char *` is more universal.",
+      "revId": "f5a228914d02b1aa107db6d8643d0b764dde0428",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
