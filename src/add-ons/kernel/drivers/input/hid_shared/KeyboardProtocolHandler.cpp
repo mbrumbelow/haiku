@@ -734,10 +734,46 @@ KeyboardProtocolHandler::_ReadReport(bigtime_t timeout, uint32 *cookie)
 	static const size_t kKeyTableSize
 		= sizeof(kKeyTable) / sizeof(kKeyTable[0]);
 
+	struct consumerPair_t {
+		uint32 id;
+		uint32 key;
+	};
+
+	static const consumerPair_t kConsumerTable[] = {
+		{0xb1,0x80},	// media pause
+		{0xb0,0x81},	// media play
+		{0xcd,0x82},	// media play-pause
+		{0xb5,0x84},	// media next track
+		{0xb6,0x85},	// media previous track
+		{0xb7,0x86},	// media stop
+		{0x192,0x87},	// app calculator
+		{0x1b4,0x88},	// app tracker
+		{0x18a,0x89},	// app email
+		{0x223,0x8a},	// www home
+		{0x225,0x8b},	// www forward
+		{0x224,0x8c},	// www back
+		{0x221,0x8d},	// www search
+		{0x22a,0x8e},	// www bookmarks
+		{0x227,0x8f},	// www refresh
+		{0x226,0x90},	// www stop
+		{0xe9,0x91},	// volume up
+		{0xea,0x92},	// volume down
+		{0xe2,0x93},	// volume mute
+		{0x6f,0x97},	// backlight up
+		{0x70,0x98},	// backlight down
+		{0x72,0x99},	// backlight toggle
+		{0x1bc,0x9a},	// app messenger
+		{0x1a1,0x9e}	// app team monitor
+	};
+
+	static const size_t kConsumerTableSize
+		= sizeof(kConsumerTable) / sizeof(kConsumerTable[0]);
+
 	bool phantomState = true;
 	for (size_t i = 0; i < fKeyCount; i++) {
 		if (fCurrentKeys[i] != 1
-			|| fKeys[i]->UsagePage() != B_HID_USAGE_PAGE_KEYBOARD) {
+			|| (fKeys[i]->UsagePage() != B_HID_USAGE_PAGE_KEYBOARD ||
+				fKeys[i]->UsagePage() != B_HID_USAGE_PAGE_CONSUMER)) {
 			phantomState = false;
 			break;
 		}
@@ -809,8 +845,20 @@ KeyboardProtocolHandler::_ReadReport(bigtime_t timeout, uint32 *cookie)
 			}
 
 			if (key == 0) {
-				// unmapped normal key or consumer/button key
-				key = fInputReport.Usages()[0] + current[i];
+				if (fKeys[i]->UsagePage() == B_HID_USAGE_PAGE_CONSUMER) {
+
+					for (uint32 n = 0; n < kConsumerTableSize; n++) {
+						if (kConsumerTable[n].id == current[i]) {
+							key = kConsumerTable[n].key;
+							break;
+						}
+					}
+				}
+
+				if (key == 0) {
+					// unmapped normal key or consumer/button key
+					key = fInputReport.Usages()[0] + current[i];
+				}
 			}
 
 			_WriteKey(key, keyDown);
