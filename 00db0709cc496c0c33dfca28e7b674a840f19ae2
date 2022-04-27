@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a218254_42fce72f",
+        "filename": "src/system/glue/start_dyn.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-04-27T19:04:51Z",
+      "side": 1,
+      "message": "Maybe it is needed to add Haiku version check so previous variant will be used until next release. Change is not forward compatible: new executables will not properly run on old system.\n\nSetting __main_thread_id twice have no harm so start_dyn part can be left as is.",
+      "revId": "00db0709cc496c0c33dfca28e7b674a840f19ae2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
