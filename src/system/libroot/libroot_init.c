@@ -62,7 +62,9 @@ initialize_before(image_id imageID)
 	}
 
 	__libc_argc = __gRuntimeLoader->program_args->arg_count;
-	__libc_argv = __gRuntimeLoader->program_args->args;
+	__libc_argv = argv_save = __gRuntimeLoader->program_args->args;
+
+	__main_thread_id = find_thread(NULL);
 
 	__gRuntimeLoader->call_atexit_hooks_for_range
 		= _call_atexit_hooks_for_range;
