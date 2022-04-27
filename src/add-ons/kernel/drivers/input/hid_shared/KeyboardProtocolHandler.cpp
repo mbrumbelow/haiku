@@ -734,10 +734,46 @@ KeyboardProtocolHandler::_ReadReport(bigtime_t timeout, uint32 *cookie)
 	static const size_t kKeyTableSize
 		= sizeof(kKeyTable) / sizeof(kKeyTable[0]);
 
+	struct consumerPair_t {
+		uint32 id;
+		uint32 key;
+	};
+
+	static const consumerPair_t kConsumerTable[] = {
+		{B_HID_UID_CON_PAUSE,0x80},	// media pause
+		{B_HID_UID_CON_PLAY,0x81},	// media play
+		{B_HID_UID_CON_PLAY_PAUSE,0x82},	// media play-pause
+		{B_HID_UID_CON_SCAN_NEXT_TRACK,0x84},	// media next track
+		{B_HID_UID_CON_SCAN_PREVIOUS_TRACK,0x85},	// media previous track
+		{B_HID_UID_CON_STOP,0x86},	// media stop
+		{B_HID_UID_CON_AL_CALCULATOR,0x87},	// app calculator
+		{B_HID_UID_CON_AL_FILE_BROWSER,0x88},	// app tracker
+		{B_HID_UID_CON_AL_EMAIL_READER,0x89},	// app email
+		{B_HID_UID_CON_AC_HOME,0x8a},	// www home
+		{B_HID_UID_CON_AC_FORWARD,0x8b},	// www forward
+		{B_HID_UID_CON_AC_BACK,0x8c},	// www back
+		{B_HID_UID_CON_AC_SEARCH,0x8d},	// www search
+		{B_HID_UID_CON_AC_BOOKMARKS,0x8e},	// www bookmarks
+		{B_HID_UID_CON_AC_REFRESH,0x8f},	// www refresh
+		{B_HID_UID_CON_AC_STOP,0x90},	// www stop
+		{B_HID_UID_CON_VOLUME_INCREMENT,0x91},	// volume up
+		{B_HID_UID_CON_VOLUME_DECREMENT,0x92},	// volume down
+		{B_HID_UID_CON_MUTE,0x93},	// volume mute
+		{B_HID_UID_CON_DISPLAY_BRIGHTNESS_INCREMENT,0x97},	// backlight up
+		{B_HID_UID_CON_DISPLAY_BRIGHTNESS_DECREMENT,0x98},	// backlight down
+		{B_HID_UID_CON_DISPLAY_BACKLIGHT_TOGGLE,0x99},	// backlight toggle
+		{B_HID_UID_CON_AL_INSTANT_MESSAGING,0x9a},	// app messenger
+		{B_HID_UID_CON_AL_PROCESS_TASK_MANAGER,0x9e}	// app team monitor
+	};
+
+	static const size_t kConsumerTableSize
+		= sizeof(kConsumerTable) / sizeof(kConsumerTable[0]);
+
 	bool phantomState = true;
 	for (size_t i = 0; i < fKeyCount; i++) {
 		if (fCurrentKeys[i] != 1
-			|| fKeys[i]->UsagePage() != B_HID_USAGE_PAGE_KEYBOARD) {
+			|| (fKeys[i]->UsagePage() != B_HID_USAGE_PAGE_KEYBOARD ||
+				fKeys[i]->UsagePage() != B_HID_USAGE_PAGE_CONSUMER)) {
 			phantomState = false;
 			break;
 		}
@@ -809,8 +845,20 @@ KeyboardProtocolHandler::_ReadReport(bigtime_t timeout, uint32 *cookie)
 			}
 
 			if (key == 0) {
-				// unmapped normal key or consumer/button key
-				key = fInputReport.Usages()[0] + current[i];
+				if (fKeys[i]->UsagePage() == B_HID_USAGE_PAGE_CONSUMER) {
+
+					for (uint32 n = 0; n < kConsumerTableSize; n++) {
+						if (kConsumerTable[n].id == current[i]) {
+							key = kConsumerTable[n].key;
+							break;
+						}
+					}
+				}
+
+				if (key == 0) {
+					// unmapped normal key or consumer/button key
+					key = fInputReport.Usages()[0] + current[i];
+				}
 			}
 
 			_WriteKey(key, keyDown);
