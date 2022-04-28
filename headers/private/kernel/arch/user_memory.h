@@ -17,6 +17,8 @@
 #	include <arch/generic/user_memory.h>
 #elif defined(__riscv)
 #	include <arch/generic/user_memory.h>
+#elif defined(__aarch64__)
+#	include <arch/generic/user_memory.h>
 #else
 
 extern "C" {
