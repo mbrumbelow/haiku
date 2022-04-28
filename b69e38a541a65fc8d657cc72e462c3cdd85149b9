@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1d7690e_5ae9b3df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-04-28T02:22:13Z",
+      "side": 1,
+      "message": "BTRFS/EXFAT are currently read-only (or write support is experimental and disabled) so that\u0027s OK. However EXT2 has write support, and so in order to not cause problems, the write operations need to also update the entry cache (on moves, renames, etc.)",
+      "revId": "b69e38a541a65fc8d657cc72e462c3cdd85149b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
