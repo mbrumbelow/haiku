@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b86f8ff_f3a8030a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-04-28T21:23:06Z",
+      "side": 1,
+      "message": "How does this work on x86 et al.?",
+      "revId": "5929b43dfaae6f358c6d9cc2c440870d3d200b55",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a879a003_f336ebde",
+        "filename": "src/add-ons/kernel/bus_managers/pci/pci.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-04-28T21:23:06Z",
+      "side": 1,
+      "message": "Perhaps B_DEV_NOT_READY is a better error code?",
+      "revId": "5929b43dfaae6f358c6d9cc2c440870d3d200b55",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
