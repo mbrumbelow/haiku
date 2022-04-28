@@ -10,11 +10,11 @@
 LeafDirectory::LeafDirectory(Inode* inode)
 	:
 	fInode(inode),
+	fDataMap(NULL),
+	fLeafMap(NULL),
 	fOffset(0),
 	fDataBuffer(NULL),
 	fLeafBuffer(NULL),
-	fLeafMap(NULL),
-	fDataMap(NULL),
 	fCurBlockNumber(-1)
 {
 }
@@ -52,7 +52,7 @@ LeafDirectory::IsLeafType()
 	bool status = true;
 	if (fInode->BlockCount() == 1
 		|| fInode->DataExtentsCount() == 1
-		|| fInode->Size() !=
+		|| (uint64) fInode->Size() !=
 			(fInode->BlockCount() - 1) * fInode->DirBlockSize())
 		status = false;
 
@@ -180,7 +180,7 @@ LeafDirectory::EntrySize(int len) const
 
 
 void
-LeafDirectory::SearchAndFillDataMap(int blockNo)
+LeafDirectory::SearchAndFillDataMap(uint64 blockNo)
 {
 	int len = fInode->DataExtentsCount();
 
@@ -268,7 +268,7 @@ LeafDirectory::GetNext(char* name, size_t* length, xfs_ino_t* ino)
 			continue;
 		}
 
-		if (dataEntry->namelen + 1 > *length)
+		if ((size_t)(dataEntry->namelen + 1) > *length)
 			return B_BUFFER_OVERFLOW;
 
 		fOffset = fOffset + EntrySize(dataEntry->namelen);
@@ -292,9 +292,9 @@ LeafDirectory::Lookup(const char* name, size_t length, xfs_ino_t* ino)
 	TRACE("LeafDirectory: Lookup\n");
 	TRACE("Name: %s\n", name);
 	uint32 hashValueOfRequest = hashfunction(name, length);
-	TRACE("Hashval:(%ld)\n", hashValueOfRequest);
+	TRACE("Hashval:(%d)\n", hashValueOfRequest);
 
-	status_t status;
+	status_t status = B_OK;
 	if (fLeafBuffer == NULL)
 		status = FillBuffer(LEAF, fLeafBuffer, 0);
 	if (status != B_OK)
@@ -358,7 +358,7 @@ LeafDirectory::Lookup(const char* name, size_t length, xfs_ino_t* ino)
 		int retVal = strncmp(name, (char*)entry->name, entry->namelen);
 		if (retVal == 0) {
 			*ino = B_BENDIAN_TO_HOST_INT64(entry->inumber);
-			TRACE("ino:(%d)\n", *ino);
+			TRACE("ino:(%ld)\n", *ino);
 			return B_OK;
 		}
 		left++;

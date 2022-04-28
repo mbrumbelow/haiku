@@ -12,9 +12,9 @@ TreeDirectory::TreeDirectory(Inode* inode)
 	fInitStatus(B_OK),
 	fRoot(NULL),
 	fExtents(NULL),
-	fSingleDirBlock(NULL),
-	fOffsetOfSingleDirBlock(-1),
 	fCountOfFilledExtents(0),
+	fSingleDirBlock(NULL),     
+	fOffsetOfSingleDirBlock(-1),  
 	fCurMapIndex(0),
 	fOffset(0),
 	fCurBlockNumber(0)
@@ -80,7 +80,7 @@ TreeDirectory::PtrSize()
 size_t
 TreeDirectory::MaxRecordsPossibleRoot()
 {
-	size_t lengthOfDataFork;
+	size_t lengthOfDataFork = 0;
 	if (fInode->ForkOffset() != 0)
 		lengthOfDataFork = fInode->ForkOffset() << 3;
 	if (fInode->ForkOffset() == 0) {
@@ -212,7 +212,7 @@ TreeDirectory::SearchAndFillPath(uint32 offset, int type)
 	status_t status;
 	for (int i = 0; i < MAX_TREE_DEPTH && level >= 0; i++, level--) {
 		uint64 requiredBlock = B_BENDIAN_TO_HOST_INT64(*ptrToNode);
-		TRACE("requiredBlock:(%d)\n", requiredBlock);
+		TRACE("requiredBlock:(%ld)\n", requiredBlock);
 		if (path[i].blockNumber == requiredBlock) {
 			// This block already has what we need
 			if (path[i].type == 2)
@@ -223,7 +223,7 @@ TreeDirectory::SearchAndFillPath(uint32 offset, int type)
 			continue;
 		}
 		// We do not have the block we need
-		size_t len;
+		ssize_t len; // Werror - sign compare
 		if (level == 0) {
 			// The size of buffer should be the directory block size
 			len = fInode->DirBlockSize();
@@ -285,10 +285,10 @@ TreeDirectory::GetAllExtents()
 	ArrayDeleter<ExtentMapUnwrap> extentsWrappedDeleter(extentsWrapped);
 
 	size_t maxRecords = MaxRecordsPossibleRoot();
-	TRACE("Maxrecords: (%d)\n", maxRecords);
+	TRACE("Maxrecords: (%ld)\n", maxRecords);
 
 	Volume* volume = fInode->GetVolume();
-	size_t len = volume->BlockSize();
+	ssize_t len = volume->BlockSize();  
 
 	uint16 levelsInTree = fRoot->Levels();
 	status_t status = fInode->GetNodefromTree(levelsInTree, volume, len,
@@ -316,8 +316,8 @@ TreeDirectory::GetAllExtents()
 		}
 
 		fileSystemBlockNo = ((LongBlock*)leafBuffer)->Right();
-		TRACE("Next leaf is at: (%d)\n", fileSystemBlockNo);
-		if (fileSystemBlockNo == -1)
+		TRACE("Next leaf is at: (%ld)\n", fileSystemBlockNo);
+		if (fileSystemBlockNo == (uint64) -1)    
 			break;
 		uint64 readPos = fInode->FileSystemBlockToAddr(fileSystemBlockNo);
 		if (read_pos(volume->Device(), readPos, fSingleDirBlock, len)
@@ -348,7 +348,7 @@ TreeDirectory::FillBuffer(char* blockBuffer, int howManyBlocksFurther,
 	if (map.br_state != 0)
 		return B_BAD_VALUE;
 
-	size_t len = fInode->DirBlockSize();
+	ssize_t len = fInode->DirBlockSize();
 	if (blockBuffer == NULL) {
 		blockBuffer = new(std::nothrow) char[len];
 		if (blockBuffer == NULL)
@@ -407,7 +407,7 @@ TreeDirectory::EntrySize(int len) const
  * Throw in the desired block number and get the index of it
  */
 status_t
-TreeDirectory::SearchMapInAllExtent(int blockNo, uint32& mapIndex)
+TreeDirectory::SearchMapInAllExtent(size_t blockNo, uint32& mapIndex)
 {
 	ExtentMapEntry map;
 	for (uint32 i = 0; i < fCountOfFilledExtents; i++) {
@@ -454,7 +454,7 @@ TreeDirectory::GetNext(char* name, size_t* length, xfs_ino_t* ino)
 	while (fOffset != curDirectorySize) {
 		blockNoFromAddress = BLOCKNO_FROM_ADDRESS(fOffset, volume);
 
-		TRACE("fOffset:(%d), blockNoFromAddress:(%d)\n",
+		TRACE("fOffset:(%ld), blockNoFromAddress:(%d)\n",
 			fOffset, blockNoFromAddress);
 		if (fCurBlockNumber != blockNoFromAddress
 			&& blockNoFromAddress > map.br_startoff
@@ -498,7 +498,7 @@ TreeDirectory::GetNext(char* name, size_t* length, xfs_ino_t* ino)
 		ExtentDataEntry* dataEntry = (ExtentDataEntry*) entry;
 
 		uint16 currentOffset = (char*)dataEntry - fSingleDirBlock;
-		TRACE("GetNext: fOffset:(%d), currentOffset:(%d)\n",
+		TRACE("GetNext: fOffset:(%ld), currentOffset:(%d)\n",
 			BLOCKOFFSET_FROM_ADDRESS(fOffset, fInode), currentOffset);
 
 		if (BLOCKOFFSET_FROM_ADDRESS(fOffset, fInode) > currentOffset) {
@@ -506,7 +506,7 @@ TreeDirectory::GetNext(char* name, size_t* length, xfs_ino_t* ino)
 			continue;
 		}
 
-		if (dataEntry->namelen + 1 > *length)
+		if ((size_t)(dataEntry->namelen + 1) > *length)
 			return B_BUFFER_OVERFLOW;
 
 		fOffset = fOffset + EntrySize(dataEntry->namelen);
@@ -532,7 +532,7 @@ TreeDirectory::UnWrapExtents(ExtentMapUnwrap* extentsWrapped)
 		return B_NO_MEMORY;
 	uint64 first, second;
 
-	for (int i = 0; i < fCountOfFilledExtents; i++) {
+	for (uint32 i = 0; i < fCountOfFilledExtents; i++) {
 		first = B_BENDIAN_TO_HOST_INT64(extentsWrapped[i].first);
 		second = B_BENDIAN_TO_HOST_INT64(extentsWrapped[i].second);
 		fExtents[i].br_state = first >> 63;
@@ -576,10 +576,10 @@ TreeDirectory::FillMapEntry(int num, ExtentMapEntry** fMap,
 
 
 void
-TreeDirectory::SearchForMapInDirectoryBlock(int blockNo,
+TreeDirectory::SearchForMapInDirectoryBlock(size_t blockNo,
 	int entries, ExtentMapEntry** map, int type, int pathIndex)
 {
-	TRACE("SearchForMapInDirectoryBlock: blockNo:(%d)\n", blockNo);
+	TRACE("SearchForMapInDirectoryBlock: blockNo:(%ld)\n", blockNo);
 	for (int i = 0; i < entries; i++) {
 		FillMapEntry(i, map, type, pathIndex);
 		if ((*map)->br_startoff <= blockNo
@@ -614,7 +614,7 @@ TreeDirectory::Lookup(const char* name, size_t length, xfs_ino_t* ino)
 	TRACE("TreeDirectory: Lookup\n");
 	TRACE("Name: %s\n", name);
 	uint32 hashValueOfRequest = hashfunction(name, length);
-	TRACE("Hashval:(%ld)\n", hashValueOfRequest);
+	TRACE("Hashval:(%d)\n", hashValueOfRequest);
 
 	Volume* volume = fInode->GetVolume();
 	status_t status;
@@ -753,12 +753,12 @@ TreeDirectory::Lookup(const char* name, size_t length, xfs_ino_t* ino)
 			int retVal = strncmp(name, (char*)entry->name, entry->namelen);
 			if (retVal == 0) {
 				*ino = B_BENDIAN_TO_HOST_INT64(entry->inumber);
-				TRACE("ino:(%d)\n", *ino);
+				TRACE("ino:(%ld)\n", *ino);
 				return B_OK;
 			}
 			left++;
 		}
-		if (lastHashVal == hashValueOfRequest && nextLeaf != -1) {
+		if (lastHashVal == hashValueOfRequest && nextLeaf != (uint32) -1) {
 			// Go to forward neighbor. We might find an entry there.
 			status = SearchAndFillPath(nextLeaf, LEAF);
 			if (status != B_OK)

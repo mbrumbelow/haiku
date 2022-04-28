@@ -179,7 +179,7 @@ Extent::GetNext(char* name, size_t* length, xfs_ino_t* ino)
 			continue;
 		}
 
-		if (dataEntry->namelen + 1 > *length)
+		if ((size_t)(dataEntry->namelen + 1) > *length)
 				return B_BUFFER_OVERFLOW;
 
 		fOffset = currentOffset;
@@ -203,7 +203,7 @@ Extent::Lookup(const char* name, size_t length, xfs_ino_t* ino)
 	TRACE("Extent: Lookup\n");
 	TRACE("Name: %s\n", name);
 	uint32 hashValueOfRequest = hashfunction(name, length);
-	TRACE("Hashval:(%ld)\n", hashValueOfRequest);
+	TRACE("Hashval:(%d)\n", hashValueOfRequest);
 	ExtentBlockTail* blockTail = BlockTail();
 	ExtentLeafEntry* leafEntry = BlockFirstLeaf(blockTail);
 
@@ -246,7 +246,7 @@ Extent::Lookup(const char* name, size_t length, xfs_ino_t* ino)
 		int retVal = strncmp(name, (char*)entry->name, entry->namelen);
 		if (retVal == 0) {
 			*ino = B_BENDIAN_TO_HOST_INT64(entry->inumber);
-			TRACE("ino:(%d)\n", *ino);
+			TRACE("ino:(%ld)\n", *ino);
 			return B_OK;
 		}
 		left++;

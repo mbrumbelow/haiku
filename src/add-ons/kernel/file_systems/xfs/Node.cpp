@@ -10,11 +10,11 @@
 NodeDirectory::NodeDirectory(Inode* inode)
 	:
 	fInode(inode),
+	fDataMap(NULL),
+	fLeafMap(NULL),
 	fOffset(0),
 	fDataBuffer(NULL),
 	fLeafBuffer(NULL),
-	fLeafMap(NULL),
-	fDataMap(NULL),
 	fCurBlockNumber(-1)
 {
 }
@@ -95,7 +95,7 @@ NodeDirectory::FillBuffer(int type, char* blockBuffer, int howManyBlocksFurthur)
 	if (map->br_state != 0)
 		return B_BAD_VALUE;
 
-	size_t len = fInode->DirBlockSize();
+	ssize_t len = fInode->DirBlockSize();
 	if (blockBuffer == NULL) {
 		blockBuffer = new(std::nothrow) char[len];
 		if (blockBuffer == NULL)
@@ -122,7 +122,7 @@ NodeDirectory::FillBuffer(int type, char* blockBuffer, int howManyBlocksFurthur)
 		}
 	} else if (type == LEAF) {
 		fLeafBuffer = blockBuffer;
-		ExtentLeafHeader* header = (ExtentLeafHeader*) fLeafBuffer;
+		ExtentLeafHeader* header = (ExtentLeafHeader*) fLeafBuffer; // Unused variable header 
 	}
 
 	return B_OK;
@@ -172,7 +172,7 @@ NodeDirectory::EntrySize(int len) const
 
 
 void
-NodeDirectory::SearchAndFillDataMap(int blockNo)
+NodeDirectory::SearchAndFillDataMap(uint64 blockNo)
 {
 	int len = fInode->DataExtentsCount();
 
@@ -261,7 +261,7 @@ NodeDirectory::GetNext(char* name, size_t* length, xfs_ino_t* ino)
 			continue;
 		}
 
-		if (dataEntry->namelen + 1 > *length)
+		if ((size_t)(dataEntry->namelen + 1) > *length)
 			return B_BUFFER_OVERFLOW;
 
 		fOffset = fOffset + EntrySize(dataEntry->namelen);
@@ -285,7 +285,7 @@ NodeDirectory::Lookup(const char* name, size_t length, xfs_ino_t* ino)
 	TRACE("NodeDirectory: Lookup\n");
 	TRACE("Name: %s\n", name);
 	uint32 hashValueOfRequest = hashfunction(name, length);
-	TRACE("Hashval:(%ld)\n", hashValueOfRequest);
+	TRACE("Hashval:(%d)\n", hashValueOfRequest);
 
 	status_t status;
 	if (fCurLeafBufferNumber != 1) {
@@ -374,7 +374,7 @@ NodeDirectory::Lookup(const char* name, size_t length, xfs_ino_t* ino)
 		int retVal = strncmp(name, (char*)entry->name, entry->namelen);
 		if (retVal == 0) {
 			*ino = B_BENDIAN_TO_HOST_INT64(entry->inumber);
-			TRACE("ino:(%d)\n", *ino);
+			TRACE("ino:(%ld)\n", *ino);
 			return B_OK;
 		}
 		left++;

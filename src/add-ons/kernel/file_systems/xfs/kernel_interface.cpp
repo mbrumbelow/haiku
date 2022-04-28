@@ -26,7 +26,7 @@ struct identify_cookie
 //!	xfs_io() callback hook
 static status_t
 iterative_io_get_vecs_hook(void *cookie, io_request *request, off_t offset,
-	size_t size, struct file_io_vec *vecs, size_t *_count)
+	size_t size, struct file_io_vec *vecs, size_t *_count)  //Werror - unused function
 {
 	return B_NOT_SUPPORTED;
 }
@@ -35,7 +35,7 @@ iterative_io_get_vecs_hook(void *cookie, io_request *request, off_t offset,
 //!	xfs_io() callback hook
 static status_t
 iterative_io_finished_hook(void *cookie, io_request *request, status_t status,
-	bool partialTransfer, size_t bytesTransferred)
+	bool partialTransfer, size_t bytesTransferred) // Werror - unused function
 {
 	return B_NOT_SUPPORTED;
 }
