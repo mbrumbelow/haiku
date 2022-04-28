@@ -16,6 +16,24 @@
       "message": "BTRFS/EXFAT are currently read-only (or write support is experimental and disabled) so that\u0027s OK. However EXT2 has write support, and so in order to not cause problems, the write operations need to also update the entry cache (on moves, renames, etc.)",
       "revId": "b69e38a541a65fc8d657cc72e462c3cdd85149b9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8138d986_f991b75f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-28T07:11:05Z",
+      "side": 1,
+      "message": "Ext2 already does update the entry cache \nhttps://cgit.haiku-os.org/haiku/tree/src/add-ons/kernel/file_systems/ext2/kernel_interface.cpp#n830\nhttps://cgit.haiku-os.org/haiku/tree/src/add-ons/kernel/file_systems/ext2/kernel_interface.cpp#n902\nhttps://cgit.haiku-os.org/haiku/tree/src/add-ons/kernel/file_systems/ext2/kernel_interface.cpp#n1098\nalso for directories.",
+      "parentUuid": "d1d7690e_5ae9b3df",
+      "revId": "b69e38a541a65fc8d657cc72e462c3cdd85149b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
