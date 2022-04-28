@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c107ed49_a098a3b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-04-28T21:17:14Z",
+      "side": 1,
+      "message": "Needs copyright headers and does not conform to coding style guidelines.",
+      "revId": "5cbbc398d67497f167fbee0089987e31b8f0a00f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
