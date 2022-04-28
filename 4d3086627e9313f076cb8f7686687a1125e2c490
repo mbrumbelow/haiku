@@ -1,0 +1,208 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02b795dd_dd99a67d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-28T19:14:08Z",
+      "side": 1,
+      "message": "Hello,\nThanks for submitting this update!\n\nI have made comments inline. Since there is the same problem in several places, I have given only a few examples, you can see the pattern of what\u0027s needed and then apply it everywhere.\n\nFor filesystem code it is important to use the right types for everything. The rules are generally:\n- use off_t for things that refer to a position or size on disk (byte or sector/block number)\n- use size_t for the size of things in memory\n- use int32, uint32, int64, uint64, etc for things with a fixed size (for example defined by XFS specs)\n\nWhen using variables in TRACE statements, use the corresponding format macro for each type. For example B_PRIuSIZE to print a size_t, B_PRIdOFF to print an off_t, etc. This makes sure the correct format string is used in all cases (even when using different compilers and operating systems).",
+      "revId": "4d3086627e9313f076cb8f7686687a1125e2c490",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d348e2e9_dd716731",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-28T19:14:08Z",
+      "side": 1,
+      "message": "you have trailing spaces here, please remove them. If possible configure your text editor to highlight them or maybe to remove them automatically.",
+      "revId": "4d3086627e9313f076cb8f7686687a1125e2c490",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a19297e_137fe3e1",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-28T19:14:08Z",
+      "side": 1,
+      "message": "Use format macros instead of hardcoding the format strings:\n\n    TRACE(\"requiredBlock:(%\" B_PRIu64 \")\\n\", requiredBlock);\n\nThis makes sure the code works on all architectures.\n\nFor example here, on 32bit systems this would need to be %llu, while on 64bit systems this will be %lu. The B_PRIu64 macro takes care of this difference automatically.",
+      "revId": "4d3086627e9313f076cb8f7686687a1125e2c490",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bee649eb_10bc16a6",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-28T19:14:08Z",
+      "side": 1,
+      "message": "TRACE(\"Maxrecords: (%\" B_PRIuSIZE \")\\n\", maxRecords);",
+      "revId": "4d3086627e9313f076cb8f7686687a1125e2c490",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84b612c1_56298fba",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-28T19:14:08Z",
+      "side": 1,
+      "message": "you have trailing whitespace here",
+      "revId": "4d3086627e9313f076cb8f7686687a1125e2c490",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "480f0915_b17372cd",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-28T19:14:08Z",
+      "side": 1,
+      "message": "TRACE(\"Next leaf is at: (%\" B_PRIu64 \")\\n\", fileSystemBlockNo);",
+      "revId": "4d3086627e9313f076cb8f7686687a1125e2c490",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37f4c6fa_f7bcf6fd",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-28T19:14:08Z",
+      "side": 1,
+      "message": "Should the Right() function be fixed to return an off_t? That would make sense if the value can be negative, and it would remove the need for this cast (then of course you need to adjust the TRACE to use B_PRIdOFF instead of B_PRIu64)",
+      "revId": "4d3086627e9313f076cb8f7686687a1125e2c490",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72f0fa80_fdeaa6d1",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-28T19:14:08Z",
+      "side": 1,
+      "message": "shouldn\u0027t this be an off_t? If it represents some kind of disk offset, size_t may not be large enough on 32bit systems.\n\nNormally off_t is used for everything that refers to offsets or sector numbers on disk.",
+      "revId": "4d3086627e9313f076cb8f7686687a1125e2c490",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d8d887e_e918a568",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Debug.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-28T19:14:08Z",
+      "side": 1,
+      "message": "where is the previous definition? The compiler should point it out",
+      "revId": "4d3086627e9313f076cb8f7686687a1125e2c490",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba9f253c_43131b94",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-28T19:14:08Z",
+      "side": 1,
+      "message": "why not use \"\u003e\u003d\" instead of \"+ 1\" here?",
+      "revId": "4d3086627e9313f076cb8f7686687a1125e2c490",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3b9ca6f_0cf01516",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-28T19:14:08Z",
+      "side": 1,
+      "message": "For now you can comment out this line. Add a TODO comment to see later if we are supposed to do something more with the buffer here, or if setting fLeafBuffer is all we need.",
+      "revId": "4d3086627e9313f076cb8f7686687a1125e2c490",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6ce30c3_77b97fff",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-28T19:14:08Z",
+      "side": 1,
+      "message": "if these functions are unused you can simply delete them",
+      "revId": "4d3086627e9313f076cb8f7686687a1125e2c490",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
