@@ -87,6 +87,24 @@
       "parentUuid": "9e35cf2e_13b926e8",
       "revId": "8c76690ac381310892837f8a773e896a43f2be8b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfd88958_638bc621",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-04-28T19:16:10Z",
+      "side": 1,
+      "message": "XFS 1-3 should be fine. This works similar to EXT2/3/4, the new versions of the filesystem add more features but are compatible with the older ones. As long as we are read-only there is no problem with supporting older versions. When writing we will have to be more careful to not use new features on filesystems that are not set to use them.",
+      "parentUuid": "1cbe74a9_756e1697",
+      "revId": "8c76690ac381310892837f8a773e896a43f2be8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
