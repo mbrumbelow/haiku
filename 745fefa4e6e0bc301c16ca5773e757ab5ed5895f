@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd4ed7e4_3425489a",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_acpi.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-04-28T21:21:16Z",
+      "side": 1,
+      "message": "2 blank lines",
+      "revId": "745fefa4e6e0bc301c16ca5773e757ab5ed5895f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "168ed20e_3a1b278c",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_acpi.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-04-28T21:21:16Z",
+      "side": 1,
+      "message": "2 blank lines",
+      "revId": "745fefa4e6e0bc301c16ca5773e757ab5ed5895f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f64657d_f912101a",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_acpi.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-04-28T21:21:16Z",
+      "side": 1,
+      "message": "line too long",
+      "revId": "745fefa4e6e0bc301c16ca5773e757ab5ed5895f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
