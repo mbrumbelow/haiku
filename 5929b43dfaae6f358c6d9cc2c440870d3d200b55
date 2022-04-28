@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b0ef1af_d43edcb5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2022-04-28T22:15:22Z",
+      "side": 1,
+      "message": "x86 code parses static MCFG table directly (without using acpica), and that\u0027s enough information because PCI memory and IO is assumed to identity mapped to CPU memory and IO spaces respectively. That\u0027s not true for other platforms (memory might be, but IO is certainly not) thus we need to get information from _CRS method. Because ACPI module is normally initialized after PCI, this kludge is needed.\n\nAllocating bridge bus numbers and allocating BARs is another topic. This code assumes that they are already properly configured by platform firmware. (that\u0027s probably reasonable assumption for ACPI systems, on FDT it\u0027s probably more mixed bag). It seems code for allocating bridge numbers already exists in PCI::EnumerateBus (enabled for PowerPC and M68K) and independently in RISCV64 arch code. RISCV64 arch code also does BAR allocation but in simplified fashion (doesn\u0027t seem to properly handle bridges with potentially narrower address range).",
+      "parentUuid": "6b81f68d_447749b6",
+      "revId": "5929b43dfaae6f358c6d9cc2c440870d3d200b55",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a879a003_f336ebde",
