@@ -16,6 +16,24 @@
       "message": "Are the consumer keys already forwarded to the input_server?\nCan\u0027t the Shortcuts input filter already handle such keys?\nUse Case: Choose \"Record Key\", the user presses a consumer key, the addon detects the unmapped key, the user can select the relevant action for the pressed key.",
       "revId": "1d2cf139a89f4c93fdd28454c9098931c2846ec8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8af4c961_7f874c66",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/KeyboardProtocolHandler.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2022-04-28T14:29:07Z",
+      "side": 0,
+      "message": "Yes, they are, in the form of PageID:UsageID, so a volume up it is represented as 0x000C 00E9. \n\nSo, end user applications will receive it as unmapped keys using HID codes. This patch cherry-picks some consumer keys (as suggested on another patch) and assign them another code.\n\nI am not a fan of this patch, however, I find that sending every consumer event as a keystroke is not the proper way to go. \n\nSummarizing, yes, without this patch Shortcuts preferences may get consumer events using HID codes.",
+      "parentUuid": "fb47a454_1341566e",
+      "revId": "1d2cf139a89f4c93fdd28454c9098931c2846ec8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
