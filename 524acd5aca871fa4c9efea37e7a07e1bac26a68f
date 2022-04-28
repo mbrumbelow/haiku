@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93f52605_7ff54b16",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-28T13:02:23Z",
+      "side": 1,
+      "message": "I must say, I don\u0027t own a keyboard with consumer keys, difficult to test.",
+      "revId": "524acd5aca871fa4c9efea37e7a07e1bac26a68f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3eaf28e1_5bc28168",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/KeyboardProtocolHandler.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-28T13:02:23Z",
+      "side": 1,
+      "message": "B_HID_UID_CON_PAUSE",
+      "revId": "524acd5aca871fa4c9efea37e7a07e1bac26a68f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e9dd3b5_2286d168",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/KeyboardProtocolHandler.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 744,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-28T13:02:23Z",
+      "side": 1,
+      "message": "B_HID_UID_CON_PLAY",
+      "revId": "524acd5aca871fa4c9efea37e7a07e1bac26a68f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
