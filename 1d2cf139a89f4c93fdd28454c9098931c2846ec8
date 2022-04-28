@@ -34,6 +34,24 @@
       "parentUuid": "fb47a454_1341566e",
       "revId": "1d2cf139a89f4c93fdd28454c9098931c2846ec8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "027919d7_951a22dc",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/KeyboardProtocolHandler.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-28T20:48:36Z",
+      "side": 0,
+      "message": "Please have a look at how Qt5 maps each platform Media Play key to its own: https://github.com/qt/qtbase/search?q\u003dKey_MediaPlay\n\nso mapping a USB HID event to an OS event looks good.\n\nTheorically we could define B_MEDIA_PLAY_KEY \u003d 0x000c 00b0 and be done with it, avoiding this patch.",
+      "parentUuid": "8af4c961_7f874c66",
+      "revId": "1d2cf139a89f4c93fdd28454c9098931c2846ec8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
