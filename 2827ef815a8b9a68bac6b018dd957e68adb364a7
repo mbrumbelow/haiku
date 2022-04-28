@@ -16,6 +16,23 @@
       "message": "obviously I have no idea what I\u0027m doing so please review this with extra scrutiny 😊\n\nverified on qemu, rpi3, rpi4\n- qemu: no regression, we still reach rocket icon\n- rpi3: no regression, we still get a panic in kernel initialization (interrupt controller not recognized)\n- rpi4: this + the other patch for GIC-400 gets us to 4th icon where we get panic: no boot partitions.\n",
       "revId": "2827ef815a8b9a68bac6b018dd957e68adb364a7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db5e09aa_85596e34",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-04-28T19:48:13Z",
+      "side": 1,
+      "message": "There doesn\u0027t seem to be anyone that knows more. So I think we just have to iterate and improve over time.",
+      "revId": "2827ef815a8b9a68bac6b018dd957e68adb364a7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
