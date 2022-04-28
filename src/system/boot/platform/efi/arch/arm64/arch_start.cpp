@@ -206,7 +206,7 @@ arch_start_kernel(addr_t kernelEntry)
 	}
 
 	// Update EFI, generate final kernel physical memory map, etc.
-	// arch_mmu_post_efi_setup(memory_map_size, memory_map, descriptor_size, descriptor_version);
+	arch_mmu_post_efi_setup(memory_map_size, memory_map, descriptor_size, descriptor_version);
 
 	switch (el) {
 		case 1:
