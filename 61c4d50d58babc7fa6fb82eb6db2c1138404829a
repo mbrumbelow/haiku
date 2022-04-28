@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "538515ef_e4adc781",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/acpica/include/platform/achaiku.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-04-28T21:20:22Z",
+      "side": 1,
+      "message": "This looks important, no? Do we have a kernel arch definition for this?",
+      "revId": "61c4d50d58babc7fa6fb82eb6db2c1138404829a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
