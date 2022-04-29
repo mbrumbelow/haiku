@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e65dc515_a425a653",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-04-29T16:44:31Z",
+      "side": 1,
+      "message": "I think this is a good change, but we should do it without using pre-processor.\n\nI recommend to have \"\"arch-init()\"\" functions and have each arch implement them if needed.\nFinding and working with #if\u0027s gets really hard if you do it all over the OS code base. Arch specific sources and managing it in build-system seems to work better and something we already do in many places.\n\nI\u0027m okay with merging this, but I would prefer to have an additional PR submitted to go arch-dir approach. So setting -1 for us to discuss it a bit more. ",
+      "revId": "61c4d50d58babc7fa6fb82eb6db2c1138404829a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "538515ef_e4adc781",
