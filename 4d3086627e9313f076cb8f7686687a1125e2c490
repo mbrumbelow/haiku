@@ -191,6 +191,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c0dbf249_f236f5dd",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-04-29T09:17:20Z",
+      "side": 1,
+      "message": "Where does strncmp function defined?\n\nActually I tried to change the datatype of namelen as it was recurrent in many places\nbut while testing on xfs_shell it failed to read directories as strncmp returned a\ngarbage value.\nWe can pass namelen as uint8 data type only.\n\nIs this function common among all file systems?",
+      "revId": "4d3086627e9313f076cb8f7686687a1125e2c490",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f3b9ca6f_0cf01516",
         "filename": "src/add-ons/kernel/file_systems/xfs/Node.cpp",
         "patchSetId": 1
