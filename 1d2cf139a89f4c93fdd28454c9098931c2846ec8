@@ -70,6 +70,24 @@
       "parentUuid": "027919d7_951a22dc",
       "revId": "1d2cf139a89f4c93fdd28454c9098931c2846ec8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a78dfdee_834f2c84",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/KeyboardProtocolHandler.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2022-04-29T12:24:32Z",
+      "side": 0,
+      "message": "Also, there are some keys proposed that I couldn\u0027t find on HID Consumer tables: Shutdown,sleep, wake, airplane mode... Where do they come from? ACPI? And what scancode do we assign them? I know it is not fully related to this patch but I feel I had to add it here.",
+      "parentUuid": "aa6a3804_9672064a",
+      "revId": "1d2cf139a89f4c93fdd28454c9098931c2846ec8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
