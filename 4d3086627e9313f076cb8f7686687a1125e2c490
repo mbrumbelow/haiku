@@ -157,6 +157,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "061ef94c_d7838a60",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-04-29T12:43:58Z",
+      "side": 1,
+      "message": "On my local machine off_t is simply long int and we need to make comparisons with unsigned long int.\nIf I change it to off_t then we need to cast unsigned long int to off_t.\nShould I do this?",
+      "parentUuid": "72f0fa80_fdeaa6d1",
+      "revId": "4d3086627e9313f076cb8f7686687a1125e2c490",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5d8d887e_e918a568",
         "filename": "src/add-ons/kernel/file_systems/xfs/Debug.h",
         "patchSetId": 1
