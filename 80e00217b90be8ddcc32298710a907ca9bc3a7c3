@@ -33,6 +33,24 @@
       "message": "I\u0027d remove the ifdef from the cpp file and have a define for the 16 and the 0 in build config.",
       "revId": "80e00217b90be8ddcc32298710a907ca9bc3a7c3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7f9a06a_74a95654",
+        "filename": "src/system/kernel/arch/generic/irq_routing_table.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-04-29T19:10:16Z",
+      "side": 1,
+      "message": "Eh, personally I prefer the ifdef.",
+      "parentUuid": "5df9a935_7313ec04",
+      "revId": "80e00217b90be8ddcc32298710a907ca9bc3a7c3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
