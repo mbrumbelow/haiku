@@ -69,6 +69,40 @@
       "message": "Perhaps B_DEV_NOT_READY is a better error code?",
       "revId": "5929b43dfaae6f358c6d9cc2c440870d3d200b55",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8eb3a89_0dfc3989",
+        "filename": "src/add-ons/kernel/bus_managers/pci/pci.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-29T06:32:25Z",
+      "side": 1,
+      "message": "should be a tab",
+      "revId": "5929b43dfaae6f358c6d9cc2c440870d3d200b55",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebc5c493_9df8da72",
+        "filename": "src/add-ons/kernel/bus_managers/pci/pci_root.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-29T06:32:25Z",
+      "side": 1,
+      "message": "return pci_init_deferred();",
+      "revId": "5929b43dfaae6f358c6d9cc2c440870d3d200b55",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
