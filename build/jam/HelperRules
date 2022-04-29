@@ -21,8 +21,6 @@ if ! $(INVOCATION_SUBDIR_SET) {
 		}
 	}
 
-	rule LocalClean { Clean $(1) : $(2) ; }
-
 	rule LocalDepends { Depends $(1) : $(2) ; }
 
 } # vanilla Jam compatibility

@@ -66,7 +66,6 @@ rule MIIHeaderGen
 	Depends $(1) : $(2) $(3) ;
 	MakeLocateCommonPlatform $(<) ;
 	MIIHeaderGen1 $(1) : $(2) $(3) ;
-	LocalClean clean : $(<) ;
 }
 
 actions MIIHeaderGen1
@@ -84,7 +83,6 @@ rule USBDevsHeaderGen
 	Depends $(1) : $(2) $(3) ;
 	MakeLocateCommonPlatform $(<) ;
 	USBDevsHeaderGen1 $(1) : $(2) $(3) ;
-	LocalClean clean : $(<) ;
 }
 
 actions USBDevsHeaderGen1

@@ -106,8 +106,6 @@ rule Object
 
 	# locate object and search for source
 
-	LocalClean clean : $(<) ;
-
 	MakeLocateDebug $(<) ;
 	SEARCH on $(>) = $(SEARCH_SOURCE) ;
 
@@ -219,7 +217,6 @@ rule Lex
 {
 	Depends $(1) : $(2) [ on $(1) return $(PLATFORM) ] ;
 	MakeLocateArch $(1) ;
-	LocalClean clean : $(1) ;
 }
 
 actions Lex
@@ -238,7 +235,6 @@ rule Yacc
 	Depends $(source) $(header)
 		: $(yaccSource) [ on $(source) return $(PLATFORM) ] ;
 	Yacc1 $(source) $(header) : $(yaccSource) ;
-	LocalClean clean : $(source) $(header) ;
 
 	# make sure someone includes $(header) else it will be
 	# a deadly independent target
@@ -491,8 +487,6 @@ rule LibraryFromObjects
 			}
 		}
 
-		LocalClean clean : $(_l) ;
-
 		Archive $(_l) : $(_s) ;
 
 		if $(RANLIB) { Ranlib $(_l) ; }
@@ -539,8 +533,6 @@ rule MainFromObjects
 	LocalDepends exe : $(_t) ;
 	Depends $(_t) : $(_s) ;
 	MakeLocateDebug $(_t) ;
-
-	LocalClean clean : $(_t) ;
 
 	Link $(_t) : $(_s) ;
 }

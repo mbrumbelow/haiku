@@ -141,7 +141,6 @@ rule BootLd
 	SetupBoot $(2) ;
 
 	# Show that we depend on the libraries we need
-	LocalClean clean : $(1) ;
 	LocalDepends all : $(1) ;
 	Depends $(1) : $(2) ;
 
@@ -202,7 +201,6 @@ rule BootStaticLibraryObjects
 
 	# Show that we depend on the libraries we need
 	SetupBoot $(2) ;
-	LocalClean clean : $(1) ;
 	LocalDepends all : $(1) ;
 	Depends $(1) : $(2) ;
 

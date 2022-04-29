@@ -256,7 +256,6 @@ rule ResComp
 	SEARCH on $(2) += $(SEARCH_SOURCE) ;
 	MakeLocateArch $(1) ;
 	Depends $(1) : $(2) <build>rc ;
-	LocalClean clean : $(1) ;
 	ResComp1 $(1) : <build>rc $(2) ;
 }
 
@@ -299,7 +298,6 @@ rule ResAttr attributeFile : _resourceFiles : deleteAttributeFile
 
 	MakeLocateArch $(attributeFile) ;
 	Depends $(attributeFile) : $(resourceFiles) <build>resattr ;
-	LocalClean clean : $(attributeFile) ;
 	ResAttr1 $(attributeFile) : <build>resattr $(resourceFiles) ;
 }
 

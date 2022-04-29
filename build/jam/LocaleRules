@@ -89,7 +89,6 @@ rule LinkApplicationCatalog target : sources : signature : language
 	local subdir = [ on $(signature) return $(HAIKU_CATALOGS_SUBDIR) ] ;
 	MakeLocate $(target) : [ FDirName $(HAIKU_CATALOGS_OBJECT_DIR) $(subdir) ] ;
 	Depends $(target) : $(sources) <build>linkcatkeys ;
-	LocalClean clean : $(target) ;
 
 	HAIKU_CATALOG_SIGNATURE on $(target) = $(signature) ;
 	HAIKU_CATALOG_LANGUAGE on $(target) = $(language) ;

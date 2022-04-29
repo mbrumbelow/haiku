@@ -14,7 +14,6 @@ rule ISAPnPHeaderGen
 	Depends $(1) : $(2) $(3) ;
 	MakeLocateArch $(<) ;
 	ISAPnPHeaderGen1 $(1) : $(2) $(3) ;
-	LocalClean clean : $(<) ;
 }
 
 actions ISAPnPHeaderGen1
@@ -32,7 +31,6 @@ rule PCIHeaderGen
 	Depends $(1) : $(2) $(3) ;
 	MakeLocateArch $(<) ;
 	PCIHeaderGen1 $(1) : $(2) $(3) ;
-	LocalClean clean : $(<) ;
 }
 
 actions PCIHeaderGen1
@@ -52,7 +50,6 @@ rule USBHeaderGen
 	Depends $(1) : $(2) $(3) ;
 	MakeLocateArch $(<) ;
 	USBHeaderGen1 $(1) : $(2) $(3) ;
-	LocalClean clean : $(<) ;
 }
 
 actions USBHeaderGen1

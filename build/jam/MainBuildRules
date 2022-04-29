@@ -239,7 +239,6 @@ rule Ld
 		LINKLIBS on $(target) = $(LINKLIBS) ;
 	}
 
-	LocalClean clean : $(target) ;
 	LocalDepends all : $(target) ;
 	Depends $(target) : $(objects) ;
 
@@ -371,7 +370,6 @@ rule CreateAsmStructOffsetsHeader header : source : architecture
 	SEARCH on $(source) += $(SEARCH_SOURCE) ;
 	MakeLocate $(header) : [ FDirName $(TARGET_COMMON_DEBUG_OBJECT_DIR_$(architecture))
 		system kernel ] ;
-	LocalClean clean : $(header) ;
 
 	HDRRULE on $(source) = HdrRule ;
 	HDRSCAN on $(source) = $(HDRPATTERN) ;
