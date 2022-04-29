@@ -70,7 +70,6 @@ rule KernelLd
 	SetupKernel $(2) ;
 
 	# Show that we depend on the libraries we need
-	LocalClean clean : $(1) ;
 	LocalDepends all : $(1) ;
 	Depends $(1) : $(2) ;
 
@@ -197,7 +196,6 @@ rule KernelStaticLibraryObjects
 
 	# Show that we depend on the libraries we need
 	SetupKernel $(2) ;
-	LocalClean clean : $(1) ;
 	LocalDepends all : $(1) ;
 	Depends $(1) : $(2) ;
 

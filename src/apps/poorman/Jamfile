@@ -16,7 +16,6 @@ rule THTTPMakeHeader header : text
         MakeLocateArch $(header) ;
 
         Depends $(header) : $(text) ;
-        LocalClean clean : $(header) ;
 
         THTTPMakeHeader1 $(header) : $(text) ;
 }

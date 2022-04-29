@@ -181,7 +181,6 @@ actions VerifyEFILoader
 rule BuildUImage image : data : args
 {
     Depends $(image) : $(data) ;
-    LocalClean clean : $(image) ;
     MKIMAGE_ARGS on $(image) = $(args) ;
     colon on $(image) = ":" ;
     local files = $(data:G=) ;
@@ -199,7 +198,6 @@ actions BuildUImage1
 rule BuildUImageScript script : source
 {
 	Depends $(script) : $(source) ;
-	LocalClean clean : $(script) ;
 	SCRIPTNAME on $(script) = $(script) ;
 	FAKEOS on $(script) = "linux" ;
 	ARCH on $(script) = $(TARGET_ARCH) ;
@@ -270,7 +268,6 @@ rule AtariBootPrgLd
 	SetupKernel $(2) ;
 
 	# Show that we depend on the libraries we need
-	LocalClean clean : $(1) ;
 	LocalDepends all : $(1) ;
 	Depends $(1) : $(2) ;
 

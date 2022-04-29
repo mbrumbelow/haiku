@@ -34,7 +34,6 @@ rule SymLink
 	SymLink1 $(target) ;
 	if $(makeDefaultDependencies) = true {
 		LocalDepends files : $(target) ;
-		LocalClean clean : $(target) ;
 	}
 }
 
@@ -94,7 +93,6 @@ rule AbsSymLink
 	SEARCH on $(2) += $(SEARCH_SOURCE) ;
 	if $(makeDefaultDependencies) = true {
 		LocalDepends files : $(1) ;
-		LocalClean clean : $(1) ;
 	}
 }
 
@@ -377,7 +375,6 @@ rule DetermineHaikuRevision
 	if ! [ on $(gitIndex) return $(HAIKU_GIT_REVISION_DETERMINED) ] {
 		HAIKU_GIT_REVISION_DETERMINED on $(gitIndex) = 1 ;
 		MakeLocate $(revisionFile) : $(HAIKU_BUILD_OUTPUT_DIR) ;
-		LocalClean clean : $(revisionFile) ;
 		if $(HAIKU_REVISION) {
 			DetermineHaikuRevision2 $(revisionFile) ;
 		} else if [ Glob [ FDirName $(HAIKU_TOP) .git ] : index ] {
@@ -417,7 +414,6 @@ rule DataFileToSourceFile sourceFile : dataFile : dataVariable : sizeVariable
 
 	Depends $(sourceFile) : <build>data_to_source $(dataFile) ;
 	DataFileToSourceFile1 $(sourceFile) : <build>data_to_source $(dataFile) ;
-	LocalClean clean : $(sourceFile) ;
 }
 
 actions DataFileToSourceFile1
@@ -586,7 +582,6 @@ rule StripFile target : source
 
 	PropagateContainerUpdateTargetFlags $(target) : $(source) ;
 
-	LocalClean clean : $(target) ;
 	Depends $(target) : $(source) <build>xres <build>copyattr ;
 	StripFile1 $(target) : $(source) <build>xres <build>copyattr ;
 }

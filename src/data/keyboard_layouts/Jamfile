@@ -9,7 +9,6 @@ rule GenerateKeyboardLayoutLocalizationHeader
 	SEARCH on $(jamfile) = $(SUBDIR) ;
 	Depends $(header) : $(jamfile) ;
 	GenerateKeyboardLayoutLocalizationHeader1 $(header) ;
-	LocalClean clean : $(header) ;
 }
 
 actions GenerateKeyboardLayoutLocalizationHeader1

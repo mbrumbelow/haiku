@@ -58,7 +58,6 @@ rule USBWebcamHeaderGen header : macro : sources
 	MakeLocateArch $(header) ;
 	GREP_DEFINE on $(header) = $(macro) ;
 	USBWebcamHeaderGen1 $(header) : $(sources) ;
-	LocalClean clean : $(header) ;
 }
 
 

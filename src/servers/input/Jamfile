@@ -10,7 +10,6 @@ rule MkKeymapHeader
 
 	Depends $(binary) : $(source) <build>keymap ;
 	MkKeymapHeader1 $(binary) : <build>keymap $(source) ;
-	LocalClean clean : $(binary) ;
 }
 
 actions MkKeymapHeader1
