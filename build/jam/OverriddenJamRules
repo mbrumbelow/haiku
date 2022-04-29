@@ -726,3 +726,18 @@ rule SubInclude
 	# restore SUBDIR_TOKENS
 	SUBDIR_TOKENS = $(oldSubDirTokens) ;
 }
+
+# instead of removing files individually, have clean remove the entire build folder.
+RM_DIR = rm -rf ;
+actions piecemeal together existing CleanDir
+{
+	$(RM_DIR) "$(>)"
+}
+
+CleanDir clean : $(HAIKU_OBJECT_DIR) ;
+CleanDir clean : $(HAIKU_TMP_DIR) ;
+
+# remove attributes when using emulated attributes
+if $(HAIKU_HOST_USE_XATTR) = 0 {
+	CleanDir clean : $(HAIKU_BUILD_ATTRIBUTES_DIR) ;
+}
