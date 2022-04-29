@@ -52,6 +52,24 @@
       "parentUuid": "8af4c961_7f874c66",
       "revId": "1d2cf139a89f4c93fdd28454c9098931c2846ec8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa6a3804_9672064a",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/KeyboardProtocolHandler.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2022-04-29T12:20:03Z",
+      "side": 0,
+      "message": "We can use HID namespace for key constants yes, I find it more convenient. Then we can modify this patch https://review.haiku-os.org/c/haiku/+/1695 using HID convention.\n\nBut without any filter some usages working on -n/n ranges will have a weird behavior. They are rare, however.",
+      "parentUuid": "027919d7_951a22dc",
+      "revId": "1d2cf139a89f4c93fdd28454c9098931c2846ec8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
