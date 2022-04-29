@@ -42,6 +42,7 @@ HAIKU_DOWNLOAD_DIR					?= [ FDirName $(HAIKU_OUTPUT_DIR)
 											download ] ;
 HAIKU_OPTIONAL_BUILD_PACKAGES_DIR	?= [ FDirName $(HAIKU_OUTPUT_DIR)
 											build_packages ] ;
+HAIKU_TMP_DIR						?= [ FDirName $(HAIKU_OUTPUT_DIR) tmp ] ;
 
 # Absolutely rooted versions of some of the main directories
 HAIKU_ABSOLUTE_TOP					?= [ FDirName $(PWD) $(HAIKU_TOP) ] ;
